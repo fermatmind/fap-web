@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { CmsArticle, GetCmsArticlesResult } from "@/lib/cms/articles";
+import TraditionalHome from "@/app/(traditional)/zh-TW/page";
 import { BlogArchive } from "@/components/articles/BlogArchive";
 import { blogArchiveMetadata, blogArchiveQuery } from "@/lib/content/blogArchive";
 
@@ -10,6 +11,10 @@ const { get } = vi.hoisted(() => {
 });
 vi.mock("@/lib/cms/articles", async (importOriginal) => ({ ...await importOriginal<typeof import("@/lib/cms/articles")>(), getCmsArticlesWithLastKnownGood: get }));
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("not-found"); } }));
+vi.mock("@/components/marketing/HomePageExperience", () => ({ HomePageExperience: () => <div data-testid="traditional-home" /> }));
+vi.mock("@/lib/marketing/homepageContent", () => ({ getHomePageContent: async () => ({}) }));
+vi.mock("@/lib/marketing/homepageRecommendedArticles", () => ({ getHomepageRecommendedArticles: async () => [] }));
+vi.mock("@/lib/marketing/testsHubContent", () => ({ listVisibleTestsHubCards: async () => [] }));
 
 const article = (slug: string): CmsArticle => ({ id: 1, slug, locale: "en", title: slug, excerpt: "CMS summary", contentMd: "", contentHtml: "", authorName: null,
   publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null }, readingMinutes: null,
@@ -24,6 +29,38 @@ const data = (): GetCmsArticlesResult => ({ items: [article("newest")], paginati
 beforeEach(() => { process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com"; get.mockReset(); get.mockResolvedValue({ value: data(), source: "fresh", stale: false }); });
 
 describe("Blog CMS archive and SEO boundaries", () => {
+  it("links the Traditional homepage to the fresh published blog with its CMS title", async () => {
+    const fixture = data();
+    get.mockResolvedValueOnce({
+      value: { ...fixture, blog: { ...fixture.blog!, title: "費馬部落格", isIndexable: false } },
+      stale: false,
+    });
+    const html = renderToStaticMarkup(await TraditionalHome());
+    expect(html).toMatch(/<a[^>]+href="\/zh-TW\/articles"[^>]*>費馬部落格<\/a>/);
+    expect(get).toHaveBeenCalledWith(expect.objectContaining({ locale: "zh-TW", page: 1, includeBlog: true }));
+  });
+
+  it.each(["unconfigured", "invalid", "stale", "failed"] as const)(
+    "keeps the Traditional homepage available without a blog link when the archive is %s",
+    async (state) => {
+      const fixture = data();
+      if (state === "failed") {
+        get.mockRejectedValueOnce(new Error("temporarily unavailable"));
+      } else {
+        get.mockResolvedValueOnce({
+          value: {
+            ...fixture,
+            blog: { ...fixture.blog!, configurationState: state === "stale" ? "published" : state },
+          },
+          stale: state === "stale",
+        });
+      }
+      const html = renderToStaticMarkup(await TraditionalHome());
+      expect(html).toContain('data-testid="traditional-home"');
+      expect(html).not.toContain('href="/zh-TW/articles"');
+    },
+  );
+
   it.each(["en", "zh"] as const)("renders canonical-bound collection and breadcrumb JSON-LD through the public %s archive", async locale => {
     const html = renderToStaticMarkup(await BlogArchive({ locale, query: {} }));
     const schemas = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
