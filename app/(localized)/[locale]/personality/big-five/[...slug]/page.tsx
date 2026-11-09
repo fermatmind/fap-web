@@ -1,3 +1,4 @@
+import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -67,7 +68,7 @@ export async function generateMetadata({
 
   const pathname = buildBigFivePublicContentPath(locale, entry);
   const shouldIndex = robotsAllowsIndex(asset);
-  const metadata = buildPageMetadata({
+  const metadata = withTraditionalPersonalityLanguageAlternates(buildPageMetadata({
     locale,
     pathname,
     canonicalCandidate: asset.canonicalPath,
@@ -84,7 +85,7 @@ export async function generateMetadata({
       zh: alternatePath(asset.hreflang["zh-CN"], buildBigFivePublicContentPath("zh", entry)),
       xDefault: alternatePath(asset.hreflang.en, buildBigFivePublicContentPath("en", entry)),
     },
-  });
+  }), asset.traditionalLanguageAlternates);
   return { ...metadata, twitter: { ...metadata.twitter, card: "summary" } };
 }
 

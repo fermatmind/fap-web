@@ -213,6 +213,17 @@ describe("public sitemap route", () => {
     expect(familyEntries).toHaveLength(rootEntries.length);
   });
 
+  it("classifies Traditional Chinese personality URLs from backend authority", () => {
+    const loc = "https://fermatmind.com/zh-TW/personality/intj";
+    const baseline = backendSitemapPayload();
+    expect(buildPublicSitemapFamilyMap(buildPublicSitemapEntries(baseline)).personality.map((row) => row.loc))
+      .not.toContain(loc);
+    const entries = buildPublicSitemapEntries({ ...baseline, items: [...baseline.items, { loc }] });
+    const families = buildPublicSitemapFamilyMap(entries);
+    expect(families.personality.map((row) => row.loc)).toContain(loc);
+    expect(families.other.map((row) => row.loc)).not.toContain(loc);
+  });
+
   it.each(PUBLIC_SITEMAP_FAMILIES)("serves the %s child sitemap from the same backend payload", async (family) => {
     const fetchMock = vi.fn(
       async () =>

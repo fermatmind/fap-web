@@ -709,7 +709,7 @@ function renderPlainMarkdown(body: string, className: string, locale: Locale) {
   return <div className={className}>{renderLocalizedMarkdown(body, locale, 3)}</div>;
 }
 
-function renderRichTextBlock(bodyHtml: string, bodyMd: string, locale: Locale) {
+function renderRichTextBlock(bodyHtml: string, bodyMd: string, locale?: Locale) {
   if (bodyHtml.trim()) {
     return (
       <SanitizedCmsHtml
@@ -720,7 +720,10 @@ function renderRichTextBlock(bodyHtml: string, bodyMd: string, locale: Locale) {
     );
   }
 
-  return renderPlainMarkdown(bodyMd, "space-y-5 leading-8 text-[var(--fm-text)]", locale);
+  if (locale) return renderPlainMarkdown(bodyMd, "space-y-5 leading-8 text-[var(--fm-text)]", locale);
+  return bodyMd.trim()
+    ? <div className="space-y-5 leading-8 text-[var(--fm-text)]">{renderSimpleMarkdown(bodyMd, { minimumHeadingLevel: 3 })}</div>
+    : null;
 }
 
 function renderBulletItems(items: BulletItem[]) {
@@ -1631,8 +1634,12 @@ function normalizePreferredRolePayload(payload: Record<string, unknown> | null):
   };
 }
 
-function renderProjectionRichTextSection(section: RenderableProjectionSection, locale: Locale) {
-  return renderPlainMarkdown(section.bodyMd, "space-y-4 leading-7 text-[var(--fm-text-muted)]", locale);
+function renderProjectionRichTextSection(section: RenderableProjectionSection, locale?: Locale) {
+  const className = "space-y-4 leading-7 text-[var(--fm-text-muted)]";
+  if (locale) return renderPlainMarkdown(section.bodyMd, className, locale);
+  return section.bodyMd.trim()
+    ? <div className={className}>{renderSimpleMarkdown(section.bodyMd, { minimumHeadingLevel: 3 })}</div>
+    : null;
 }
 
 function renderProjectionBulletsSection(section: RenderableProjectionSection) {
@@ -1655,7 +1662,7 @@ function renderProjectionBulletsSection(section: RenderableProjectionSection) {
   return renderBulletItems(fallbackItems);
 }
 
-function renderProjectionFaqSection(section: RenderableProjectionSection, locale: Locale) {
+function renderProjectionFaqSection(section: RenderableProjectionSection, locale?: Locale) {
   const items = asObjectArray<FaqItem>(section.payload?.items)
     .map((item) => ({
       question: normalizeText(item.question),
@@ -2077,6 +2084,13 @@ export function getRenderablePersonalitySections(sections: CmsPersonalitySection
   return sections.filter((section) => isKnownSectionKey(section.sectionKey) || isMbti64V85FirstClassSectionKey(section.sectionKey));
 }
 
+export function renderTraditionalPersonalityRichSections(sections: CmsPersonalitySection[]): ReactNode[] {
+  return getRenderablePersonalitySections(sections).map((section) => {
+    const body = renderRichTextBlock(section.bodyHtml, section.bodyMd);
+    return body ? renderSectionCard(section.sectionKey, section.title, body) : null;
+  });
+}
+
 export function renderPersonalitySections(sections: CmsPersonalitySection[], locale: Locale, preserveBackendTitles = false): ReactNode[] {
   const currentReader = preserveBackendTitles || sections.some((section) => section.sectionKey === "sources_and_method");
   return getRenderablePersonalitySections(sections)
@@ -2152,6 +2166,15 @@ export function normalizeProjectionSections(
       } satisfies RenderableProjectionSection;
     })
     .filter((section): section is RenderableProjectionSection => section !== null);
+}
+
+export function renderTraditionalPersonalityProjectionSections(sections: PersonalityProjectionSection[]): ReactNode[] {
+  return normalizeProjectionSections(sections).map((section) => {
+    const content = section.render === "faq"
+      ? renderProjectionFaqSection(section)
+      : renderProjectionRichTextSection(section);
+    return content ? renderSectionCard(section.key, section.title, content) : null;
+  });
 }
 
 export function renderProjectionSections(

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cache } from "react";
+import { cache, Suspense } from "react";
+import { TraditionalPersonalityCategoryLinks } from "@/components/personality/TraditionalPersonalityCategoryLinks";
 import { TestCategoryExperience } from "@/components/marketing/tests/TestCategoryExperience";
 import { ApiError } from "@/lib/api-client";
 import { getTestsCategoryContent } from "@/lib/marketing/testsHubContent";
@@ -41,6 +42,9 @@ export default async function TraditionalTestsCategory({ params }: Props) {
       <Link href={`/zh${suffix}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
       <Link href={`/en${suffix}`} lang="en" className="min-h-11 py-2 underline">English</Link>
     </nav>
+    {content.slug === "personality" ? (
+      <Suspense fallback={null}><TraditionalPersonalityCategoryLinks /></Suspense>
+    ) : null}
     <TestCategoryExperience locale="zh-TW" content={content} />
   </>;
 }

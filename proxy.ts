@@ -1,4 +1,5 @@
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { getTraditionalPublicAssetRoute, isTraditionalMbtiDetailPath } from "@/lib/personality/traditionalPublicAssetRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { initialQuestionnaireScripts } from "@/lib/questionnaires/initialScripts";
 import type { NextRequest } from "next/server";
@@ -404,7 +405,10 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   // Account display uses the same private Google/CSP policy as the existing account pages.
   const strippedPath = pathname === "/zh-TW/account" ? "/account" : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
-    if (!traditionalPath(pathname)) return createPublicAbsenceResponse(404);
+    if (pathname !== "/zh-TW/personality" && !traditionalPath(pathname)
+      && !getTraditionalPublicAssetRoute(pathname) && !isTraditionalMbtiDetailPath(pathname)) {
+      return createPublicAbsenceResponse(404);
+    }
   }
   if (isPublicReadMethod(request.method) && isMissingFunRoute(pathname)) return createPublicAbsenceResponse(404);
   const isStagingHost = isStagingRequestHost(request.headers.get("host") ?? request.nextUrl.host);

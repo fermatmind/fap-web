@@ -1,3 +1,4 @@
+import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -85,7 +86,7 @@ export async function generateMetadata({
 
   const pathname = buildBigFivePublicContentPath(locale, entry);
   const shouldIndex = robotsAllowsIndex(asset);
-  return buildPageMetadata({
+  return withTraditionalPersonalityLanguageAlternates(buildPageMetadata({
     locale,
     pathname,
     canonicalCandidate: asset.canonicalPath,
@@ -102,7 +103,7 @@ export async function generateMetadata({
       zh: alternatePath(asset.hreflang["zh-CN"], buildBigFivePublicContentPath("zh", entry)),
       xDefault: alternatePath(asset.hreflang.en, buildBigFivePublicContentPath("en", entry)),
     },
-  });
+  }), asset.traditionalLanguageAlternates);
 }
 
 export default async function BigFiveHubPage({

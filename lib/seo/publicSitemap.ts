@@ -65,7 +65,7 @@ const FAMILY_PATH_PATTERNS: ReadonlyArray<{
   { family: "tests", pattern: /^\/(?:en|zh|zh-TW)\/tests(?:\/|$)/i },
   { family: "articles", pattern: /^\/(?:en|zh)\/articles(?:\/|$)/i },
   { family: "career", pattern: /^\/(?:en|zh)\/career(?:\/|$)/i },
-  { family: "personality", pattern: /^\/(?:en|zh)\/personality(?:\/|$)/i },
+  { family: "personality", pattern: /^\/(?:en|zh|zh-TW)\/personality(?:\/|$)/i },
 ];
 
 function normalizeSiteUrl(siteUrl: string): string {

@@ -1,7 +1,7 @@
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CmsPersonalityProfileSummary } from "@/lib/cms/personality";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { getMbtiAdsLaunchTier } from "@/lib/mbti/adsPolicy";
 import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildDefaultMbtiSceneBlocks } from "@/lib/mbti/sceneBlocks";
@@ -34,6 +34,7 @@ const MBTI_GROUP_META = {
       title: "分析家",
       summary: "更偏抽象、策略、系统化判断的类型组，适合从长期结构和模式中做决策。",
     },
+    "zh-TW": { title: "分析家", summary: "較常從抽象概念、策略和整體架構思考，並留意長期的規律。" },
   },
   NF: {
     en: {
@@ -45,6 +46,7 @@ const MBTI_GROUP_META = {
       title: "外交家",
       summary: "更关注意义、关系和未来可能性的类型组，适合从价值与人际动力里理解自己。",
     },
+    "zh-TW": { title: "外交家", summary: "較關注意義、人際關係與未來的可能性，也會從個人價值與互動中理解自己。" },
   },
   SJ: {
     en: {
@@ -56,6 +58,7 @@ const MBTI_GROUP_META = {
       title: "守护者",
       summary: "更偏稳定、秩序和责任落实的类型组，适合从执行、协作和长期承诺里理解自己。",
     },
+    "zh-TW": { title: "守護者", summary: "較重視穩定、秩序與責任，並從執行、合作和長期承諾中理解自己。" },
   },
   SP: {
     en: {
@@ -67,6 +70,7 @@ const MBTI_GROUP_META = {
       title: "探索者",
       summary: "更偏行动、当下反馈和灵活应变的类型组，适合从现场感与真实体验里理解自己。",
     },
+    "zh-TW": { title: "探索者", summary: "較重視實際行動與當下的回饋，也會從親身體驗中理解自己。" },
   },
 } as const;
 
@@ -79,7 +83,7 @@ interface BuildPersonalityHubPayloadInput {
 }
 
 function buildTypeDecisionCard(params: {
-  locale: Locale;
+  locale: DisplayLocale;
   personality: CmsPersonalityProfileSummary;
   groupKey: MbtiGroupKey;
 }): TypeDecisionCard {
@@ -96,7 +100,7 @@ function buildTypeDecisionCard(params: {
     title: personality.nickname || personality.title || typeCode,
     excerpt: personality.excerpt || personality.subtitle || groupMeta.summary,
     imageUrl: personality.heroImageUrl ?? null,
-    href: localizedPath(`/personality/${slug}`, locale),
+    href: locale === "zh-TW" ? `/zh-TW/personality/${slug}` : localizedPath(`/personality/${slug}`, locale),
     groupKey,
     groupTitle: groupMeta.title,
     launchTier: getMbtiAdsLaunchTier(personality.baseTypeCode),
@@ -132,7 +136,10 @@ function buildScenarioCards(input: BuildPersonalityHubPayloadInput): ScenarioCar
   }));
 }
 
-function buildFamilyGroups(input: BuildPersonalityHubPayloadInput): PersonalityHubFamilyGroup[] {
+export function buildPersonalityHubFamilyGroups(input: {
+  locale: DisplayLocale;
+  personalities: CmsPersonalityProfileSummary[];
+}): PersonalityHubFamilyGroup[] {
   const variantDirectory = input.personalities
     .filter((personality) => personality.publicRouteType === "32-type")
     .filter((personality) => personality.runtimeTypeCode && personality.variantCode && personality.slug)
@@ -345,7 +352,7 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
 }
 
 export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInput): PersonalityHubPayload {
-  const familyGroups = buildFamilyGroups(input);
+  const familyGroups = buildPersonalityHubFamilyGroups(input);
   const typeDecisionCards = familyGroups.flatMap((group) => group.cards);
   const typeWorkbenchSeed = buildTypeWorkbenchSeed(input, typeDecisionCards);
   const stableCount = typeDecisionCards.filter((card) => card.launchTier === "stable").length;

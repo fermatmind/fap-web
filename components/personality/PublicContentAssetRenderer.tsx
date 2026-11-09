@@ -8,47 +8,51 @@ import type { PersonalityPublicContentAsset, PersonalityPublicContentSection } f
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { isHumanReviewCompleted } from "@/lib/public-content/publicReview";
 
-function entityLabel(asset: PersonalityPublicContentAsset, locale: Locale): string {
+type AssetDisplayLocale = Locale | "zh-TW";
+
+function entityLabel(asset: PersonalityPublicContentAsset, locale: AssetDisplayLocale): string {
   if (asset.entityType === "hub") {
-    return asset.framework === "enneagram" ? (locale === "zh" ? "九型人格" : "Enneagram") : locale === "zh" ? "大五人格" : "Big Five";
+    return asset.framework === "enneagram" ? (locale !== "en" ? "九型人格" : "Enneagram") : locale !== "en" ? "大五人格" : "Big Five";
   }
 
-  const labels: Record<PersonalityPublicContentAsset["entityType"], Record<Locale, string>> = {
-    hub: { en: "Big Five", zh: "大五人格" },
-    domain: { en: "Domain", zh: "维度" },
-    polarity: { en: "Pole", zh: "高低极" },
-    facet_hub: { en: "Facets", zh: "细分面" },
-    facet_detail: { en: "Facet Detail", zh: "细分面向详情" },
-    center: { en: "Center", zh: "中心" },
-    core_type: { en: "Core type", zh: "核心型" },
-    wing: { en: "Wing", zh: "翼型" },
-    instinctual_subtype: { en: "Instinctual subtype", zh: "本能副型" },
+  const labels: Record<PersonalityPublicContentAsset["entityType"], Record<AssetDisplayLocale, string>> = {
+    hub: { en: "Big Five", zh: "大五人格", "zh-TW": "大五人格" },
+    domain: { en: "Domain", zh: "维度", "zh-TW": "維度" },
+    polarity: { en: "Pole", zh: "高低极", "zh-TW": "高低端" },
+    facet_hub: { en: "Facets", zh: "细分面", "zh-TW": "面向" },
+    facet_detail: { en: "Facet Detail", zh: "细分面向详情", "zh-TW": "面向詳情" },
+    center: { en: "Center", zh: "中心", "zh-TW": "中心" },
+    core_type: { en: "Core type", zh: "核心型", "zh-TW": "核心型" },
+    wing: { en: "Wing", zh: "翼型", "zh-TW": "翼型" },
+    instinctual_subtype: { en: "Instinctual subtype", zh: "本能副型", "zh-TW": "本能副型" },
   };
 
   return labels[asset.entityType][locale];
 }
 
-function frameworkCta(asset: PersonalityPublicContentAsset, locale: Locale): { href: string; label: string } {
+function frameworkCta(asset: PersonalityPublicContentAsset, locale: AssetDisplayLocale): { href: string; label: string } {
   if (asset.framework === "enneagram") {
     return {
-      href: localizedPath("/tests/enneagram-personality-test-nine-types", locale),
-      label: locale === "zh" ? "开始九型人格免费测试" : "Start the free Enneagram test",
+      href: localizedPath("/tests/enneagram-personality-test-nine-types", locale === "zh-TW" ? "zh" : locale),
+      label: locale === "zh-TW" ? "開始九型人格免費測驗（簡體中文）" : locale === "zh" ? "开始九型人格免费测试" : "Start the free Enneagram test",
     };
   }
 
   return {
-    href: localizedPath("/tests/big-five-personality-test-ocean-model", locale),
-    label: locale === "zh" ? "开始大五人格免费测试" : "Start the free Big Five test",
+    href: localizedPath("/tests/big-five-personality-test-ocean-model", locale === "zh-TW" ? "zh" : locale),
+    label: locale === "zh-TW" ? "開始大五人格免費測驗（簡體中文）" : locale === "zh" ? "开始大五人格免费测试" : "Start the free Big Five test",
   };
 }
 
-function SectionBody({ section, locale }: { section: PersonalityPublicContentSection; locale: Locale }) {
+function SectionBody({ section, locale }: { section: PersonalityPublicContentSection; locale: AssetDisplayLocale }) {
+  // Traditional links have already been projected by the content authority.
+  const renderLocale = locale === "zh-TW" ? undefined : locale;
   if (section.bodyHtml.trim()) {
-    return <SanitizedCmsHtml allowImages={false} className="fm-content-page-prose" html={section.bodyHtml} locale={locale} />;
+    return <SanitizedCmsHtml allowImages={false} className="fm-content-page-prose" html={section.bodyHtml} locale={renderLocale} />;
   }
 
   if (section.bodyMd.trim()) {
-    return <div className="fm-content-page-prose">{renderSimpleMarkdown(section.bodyMd, { allowImages: false, locale, minimumHeadingLevel: 3 })}</div>;
+    return <div className="fm-content-page-prose">{renderSimpleMarkdown(section.bodyMd, { allowImages: false, locale: renderLocale, minimumHeadingLevel: 3 })}</div>;
   }
 
   return null;
@@ -58,8 +62,8 @@ function hasRenderableSectionBody(section: PersonalityPublicContentSection): boo
   return Boolean(section.bodyMd.trim() || section.bodyHtml.trim());
 }
 
-function formatAuthorityDate(value: string, locale: Locale): string {
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en", {
+function formatAuthorityDate(value: string, locale: AssetDisplayLocale): string {
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : locale, {
     dateStyle: "medium",
     timeZone: "UTC",
   }).format(new Date(value));
@@ -74,8 +78,9 @@ export function PublicContentAssetRenderer({
   locale,
 }: {
   asset: PersonalityPublicContentAsset;
-  locale: Locale;
+  locale: AssetDisplayLocale;
 }) {
+  const Root = locale === "zh-TW" ? "div" : "main";
   const testCta = frameworkCta(asset, locale);
   const visibleSections = asset.sections.filter(hasRenderableSectionBody);
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
@@ -97,7 +102,7 @@ export function PublicContentAssetRenderer({
   );
 
   return (
-    <main className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid={`${asset.framework}-public-content-page`}>
+    <Root className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid={`${asset.framework}-public-content-page`}>
       <section className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)]">
         <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 lg:py-18">
           <div className="space-y-7">
@@ -122,7 +127,7 @@ export function PublicContentAssetRenderer({
               </Link>
               {visibleSections[0] ? (
                 <a href={`#${visibleSections[0].key}`} className={buttonVariants({ variant: "outline", size: "lg" })}>
-                  {locale === "zh" ? "阅读全文" : "Read the guide"}
+                  {locale === "zh-TW" ? "閱讀全文" : locale === "zh" ? "阅读全文" : "Read the guide"}
                 </a>
               ) : null}
             </div>
@@ -158,7 +163,7 @@ export function PublicContentAssetRenderer({
               data-testid="visible-authority-evidence"
             >
               <h2 className="m-0 text-2xl font-semibold tracking-normal text-[var(--fm-text)]">
-                {locale === "zh" ? "来源与引用" : "Sources and citations"}
+                {locale === "zh-TW" ? "來源與引用" : locale === "zh" ? "来源与引用" : "Sources and citations"}
               </h2>
               {visibleEvidence ? (
                 <div className="mt-6 grid gap-5">
@@ -186,7 +191,7 @@ export function PublicContentAssetRenderer({
                       ) : null}
                       {source.accessedAt ? (
                         <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
-                          {locale === "zh" ? "访问日期" : "Accessed"}: {formatAuthorityDate(source.accessedAt, locale)}
+                          {locale === "zh-TW" ? "查閱日期" : locale === "zh" ? "访问日期" : "Accessed"}: {formatAuthorityDate(source.accessedAt, locale)}
                         </p>
                       ) : null}
                       {source.limitation ? (
@@ -200,7 +205,7 @@ export function PublicContentAssetRenderer({
               {visibleEvidence && visibleEvidence.claimMapping.length > 0 ? (
                 <div className="mt-7">
                   <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
-                    {locale === "zh" ? "证据映射" : "Evidence mapping"}
+                    {locale === "zh-TW" ? "證據對照" : locale === "zh" ? "证据映射" : "Evidence mapping"}
                   </h3>
                   <ul className="mt-3 space-y-3 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
                     {visibleEvidence.claimMapping.map((mapping) => (
@@ -216,7 +221,7 @@ export function PublicContentAssetRenderer({
               {authorityLimitations.length > 0 ? (
                 <div className="mt-7 rounded-xl bg-[var(--fm-surface-muted)] p-5">
                   <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
-                    {locale === "zh" ? "证据边界" : "Evidence limitations"}
+                    {locale === "zh-TW" ? "證據界線" : locale === "zh" ? "证据边界" : "Evidence limitations"}
                   </h3>
                   <ul className="mt-3 space-y-2 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
                     {authorityLimitations.map((limitation) => (
@@ -231,7 +236,7 @@ export function PublicContentAssetRenderer({
           {visibleFaq.length > 0 ? (
             <section id="faq" className="scroll-mt-24 rounded-2xl border border-[var(--fm-border)] bg-white p-6 shadow-[var(--fm-shadow-sm)] md:p-8">
               <h2 className="m-0 text-2xl font-semibold tracking-normal text-[var(--fm-text)]">
-                {locale === "zh" ? "常见问题" : "FAQ"}
+                {locale === "zh-TW" ? "常見問題" : locale === "zh" ? "常见问题" : "FAQ"}
               </h2>
               <div className="mt-6 divide-y divide-[var(--fm-border)]">
                 {visibleFaq.map((item) => (
@@ -254,7 +259,7 @@ export function PublicContentAssetRenderer({
               data-testid="editorial-authority"
             >
               <h2 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
-                {locale === "zh" ? "编辑信息" : "Editorial authority"}
+                {locale === "zh-TW" ? "編輯資訊" : locale === "zh" ? "编辑信息" : "Editorial authority"}
               </h2>
               <dl className="m-0 mt-4 grid gap-4 text-sm leading-6">
                 {isHumanReviewCompleted(publicReview) ? (
@@ -264,7 +269,7 @@ export function PublicContentAssetRenderer({
                 ) : null}
                 {editorial?.author ? (
                   <div>
-                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "作者" : "Author"}</dt>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh-TW" ? "作者" : locale === "zh" ? "作者" : "Author"}</dt>
                     <dd className="m-0 text-[var(--fm-text-muted)]">
                       {editorial.author.name}
                       {editorial.author.organization ? ` · ${editorial.author.organization}` : null}
@@ -274,7 +279,7 @@ export function PublicContentAssetRenderer({
                 ) : null}
                 {editorial?.publishedAt ? (
                   <div>
-                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "发布于" : "Published"}</dt>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh-TW" ? "發布於" : locale === "zh" ? "发布于" : "Published"}</dt>
                     <dd className="m-0 text-[var(--fm-text-muted)]">
                       <time dateTime={editorial.publishedAt}>{formatAuthorityDate(editorial.publishedAt, locale)}</time>
                     </dd>
@@ -282,7 +287,7 @@ export function PublicContentAssetRenderer({
                 ) : null}
                 {editorial?.updatedAt ? (
                   <div>
-                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "更新于" : "Updated"}</dt>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh-TW" ? "更新於" : locale === "zh" ? "更新于" : "Updated"}</dt>
                     <dd className="m-0 text-[var(--fm-text-muted)]">
                       <time dateTime={editorial.updatedAt}>{formatAuthorityDate(editorial.updatedAt, locale)}</time>
                     </dd>
@@ -296,7 +301,7 @@ export function PublicContentAssetRenderer({
             <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]" data-testid="method-boundary">
               <div className="flex items-center gap-2 text-sm font-semibold text-[var(--fm-text)]">
                 <ShieldCheck className="h-4 w-4 text-[var(--fm-trust-blue)]" aria-hidden="true" />
-                {locale === "zh" ? "方法边界" : "Method boundary"}
+                {locale === "zh-TW" ? "方法界線" : locale === "zh" ? "方法边界" : "Method boundary"}
               </div>
               {boundary.summary ? <p className="m-0 mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{boundary.summary}</p> : null}
               {boundary.notFor.length > 0 ? (
@@ -312,7 +317,7 @@ export function PublicContentAssetRenderer({
           {visibleLinks.length > 0 ? (
             <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]" data-testid="internal-links">
               <h2 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
-                {locale === "zh" ? "继续浏览" : "Explore next"}
+                {locale === "zh-TW" ? "繼續瀏覽" : locale === "zh" ? "继续浏览" : "Explore next"}
               </h2>
               <div className="mt-4 grid gap-3">
                 {visibleLinks.map((item) => (
@@ -333,7 +338,7 @@ export function PublicContentAssetRenderer({
           {asset.evidenceNotes.length > 0 ? (
             <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]">
               <h2 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
-                {locale === "zh" ? "证据说明" : "Evidence notes"}
+                {locale === "zh-TW" ? "證據說明" : locale === "zh" ? "证据说明" : "Evidence notes"}
               </h2>
               <ul className="mt-4 space-y-3 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
                 {asset.evidenceNotes.map((item) => (
@@ -344,6 +349,6 @@ export function PublicContentAssetRenderer({
           ) : null}
         </aside>
       </div>
-    </main>
+    </Root>
   );
 }

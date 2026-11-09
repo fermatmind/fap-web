@@ -1,3 +1,4 @@
+import { normalizeTraditionalPersonalityLanguageAlternates, type TraditionalPersonalityLanguageAlternates } from "@/lib/personality/traditionalLanguageAlternates";
 import { ApiError, apiClient } from "@/lib/api-client";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
@@ -18,6 +19,7 @@ import {
 export type PersonalityPublicFramework = "big_five" | "enneagram";
 export type PersonalityPublicEntityType = BigFivePublicEntityType | EnneagramPublicEntityType;
 type PersonalityPublicRouteEntry = BigFivePublicRouteEntry | EnneagramPublicRouteEntry;
+type PersonalityPublicLocale = Locale | "zh-TW";
 
 export type PersonalityPublicContentSection = {
   key: string;
@@ -94,11 +96,12 @@ export type PersonalityPublicContentAuthorityV2 = {
 };
 
 export type PersonalityPublicContentAsset = {
+  traditionalLanguageAlternates?: TraditionalPersonalityLanguageAlternates;
   framework: PersonalityPublicFramework;
   entityType: PersonalityPublicEntityType;
   code: string;
   slug: string;
-  locale: "en" | "zh-CN";
+  locale: "en" | "zh-CN" | "zh-TW";
   title: string;
   summary: string;
   seo: {
@@ -131,6 +134,7 @@ export type PersonalityPublicContentAsset = {
 };
 
 type PersonalityPublicContentAssetResponse = {
+  traditional_language_alternates?: unknown;
   ok?: boolean;
   asset?: unknown;
   personality_public_content_asset_v1?: unknown;
@@ -586,22 +590,24 @@ function withVisibleAuthorityJsonLd(
   };
 }
 
-function buildExpectedPath(locale: Locale, framework: PersonalityPublicFramework, expected: PersonalityPublicRouteEntry): string {
-  return framework === "big_five"
-    ? buildBigFivePublicContentPath(locale, expected as BigFivePublicRouteEntry)
-    : buildEnneagramPublicContentPath(locale, expected as EnneagramPublicRouteEntry);
+function buildExpectedPath(locale: PersonalityPublicLocale, framework: PersonalityPublicFramework, expected: PersonalityPublicRouteEntry): string {
+  const baseLocale = locale === "zh-TW" ? "zh" : locale;
+  const path = framework === "big_five"
+    ? buildBigFivePublicContentPath(baseLocale, expected as BigFivePublicRouteEntry)
+    : buildEnneagramPublicContentPath(baseLocale, expected as EnneagramPublicRouteEntry);
+  return locale === "zh-TW" ? "/zh-TW" + path.slice(3) : path;
 }
 
 function normalizeAsset(
   raw: unknown,
   expected: PersonalityPublicRouteEntry,
-  locale: Locale,
+  locale: PersonalityPublicLocale,
   expectedFramework: PersonalityPublicFramework
 ): PersonalityPublicContentAsset | null {
   const record = asRecord(raw);
   const publicReview = normalizePublicReview(record);
   const entityType = normalizeEntityType(record.entity_type);
-  const apiLocale = toApiLocale(locale);
+  const apiLocale = locale === "zh-TW" ? locale : toApiLocale(locale);
   const seo = asRecord(record.seo);
   const canonical = asRecord(record.canonical);
   const hreflang = asRecord(record.hreflang);
@@ -617,6 +623,7 @@ function normalizeAsset(
     entityType !== expected.entityType ||
     code !== expected.code ||
     asString(record.locale) !== apiLocale ||
+    (locale === "zh-TW" && backendCanonicalPath !== buildExpectedPath(locale, expectedFramework, expected)) ||
     !isReadableLaunchState(launchState) ||
     !isPublic
   ) {
@@ -673,7 +680,7 @@ function publicContentContractError(cause?: unknown): PublicReadError {
 function normalizeSingleAsset(
   raw: unknown,
   expected: PersonalityPublicRouteEntry,
-  locale: Locale,
+  locale: PersonalityPublicLocale,
   expectedFramework: PersonalityPublicFramework
 ): PersonalityPublicContentAsset | null {
   const record = asRecord(raw);
@@ -734,6 +741,9 @@ export async function getBigFivePublicContentAsset(
     return {
       ...asset,
       authorityV2: normalizeAuthorityV2Sibling(response, asset),
+      ...(response.traditional_language_alternates ? {
+        traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(response.traditional_language_alternates, asset.canonicalPath),
+      } : {}),
     };
   } catch (error) {
     return handlePublicAssetReadError(error);
@@ -816,6 +826,9 @@ export async function getEnneagramPublicContentAsset(
         return {
           ...detailAsset,
           authorityV2: normalizeAuthorityV2Sibling(detailResponse, detailAsset),
+          ...(detailResponse.traditional_language_alternates ? {
+            traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(detailResponse.traditional_language_alternates, detailAsset.canonicalPath),
+          } : {}),
         };
       } catch (error) {
         const detailReadError = toPublicReadError(error);
@@ -859,8 +872,47 @@ export async function getEnneagramPublicContentAsset(
     return {
       ...asset,
       authorityV2: normalizeAuthorityV2Sibling(response, asset),
+      ...(response.traditional_language_alternates ? {
+        traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(response.traditional_language_alternates, asset.canonicalPath),
+      } : {}),
     };
   } catch (error) {
+    return handlePublicAssetReadError(error);
+  }
+}
+
+export async function getTraditionalPersonalityPublicContentAsset(
+  framework: PersonalityPublicFramework,
+  entry: PersonalityPublicRouteEntry
+): Promise<PersonalityPublicContentAsset | null> {
+  const query = "locale=zh-TW&org_id=0";
+  const root = "/v0.5/personality-content-assets";
+  const code = encodeURIComponent(entry.code);
+  const path = entry.entityType === "instinctual_subtype"
+    ? `${root}?${query}&framework=${framework}&entity_type=${entry.entityType}&code=${code}`
+    : `${root}/${framework}/${entry.entityType}/${code}?${query}`;
+
+  try {
+    const response = await apiClient.getPublic<PersonalityPublicContentAssetResponse>(
+      path,
+      { cache: "no-store", headers: { "X-FAP-Locale": "zh-TW" }, skipAuth: true }
+    );
+    if (response?.ok !== true) throw publicContentContractError();
+    const asset = normalizeSingleAsset(response.personality_public_content_asset_v1, entry, "zh-TW", framework);
+    if (!asset) return null;
+    return {
+      ...asset,
+      authorityV2: normalizeAuthorityV2Sibling(response, asset),
+      traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(response.traditional_language_alternates, asset.canonicalPath),
+    };
+  } catch (error) {
+    const cause = error instanceof PublicReadError ? error.cause : error;
+    if (cause instanceof ApiError && cause.status === 422 && cause.errorCode === "VALIDATION_FAILED") {
+      const errors = asRecord(asRecord(cause.details).errors);
+      const localeErrors = errors.locale;
+      if (Object.keys(errors).length === 1 && Array.isArray(localeErrors)
+        && localeErrors.length === 1 && localeErrors[0] === "validation.in") return null;
+    }
     return handlePublicAssetReadError(error);
   }
 }

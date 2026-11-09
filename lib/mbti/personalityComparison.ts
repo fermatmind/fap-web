@@ -65,7 +65,8 @@ export function buildPersonalityComparisonSlug(baseTypeCode: string): string | n
 
 export function buildPersonalityComparisonFrontendUrl(locale: Locale | string, slug: string): string {
   const normalizedSlug = normalizePersonalityComparisonSlug(slug) ?? String(slug ?? "").trim().toLowerCase();
-  return localizedPath(`/personality/${normalizedSlug}`, normalizeLocale(locale));
+  const path = `/personality/${normalizedSlug}`;
+  return locale === "zh-TW" ? "/zh-TW" + path : localizedPath(path, normalizeLocale(locale));
 }
 
 export function buildPersonalityComparisonSlugsFromProfiles(profiles: CmsPersonalityProfileSummary[]): string[] {

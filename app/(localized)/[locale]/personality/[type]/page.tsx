@@ -1,3 +1,4 @@
+import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { applyPersonalityMetadataTitleTemplateGuard } from "@/lib/personality/metadataTitleTemplateGuard";
 import Image from "next/image";
@@ -1504,7 +1505,7 @@ export async function generateMetadata({
       metadata.twitter?.images,
     );
 
-    return applyPersonalityMetadataTitleTemplateGuard({
+    return applyPersonalityMetadataTitleTemplateGuard(withTraditionalPersonalityLanguageAlternates({
       ...metadata,
       alternates: {
         ...metadata.alternates,
@@ -1525,7 +1526,7 @@ export async function generateMetadata({
         description: comparison.seoSurface?.twitter.description || comparison.seoMeta?.twitterDescription || description,
         images: twitterImages,
       },
-    }, effectiveMetadataTitle);
+    }, comparison.traditionalLanguageAlternates), effectiveMetadataTitle);
   }
 
   const { detail, seo } = await loadPersonalityPublicDetail(
@@ -1565,7 +1566,7 @@ export async function generateMetadata({
     metadata.twitter?.images,
   );
 
-  return applyPersonalityMetadataTitleTemplateGuard({
+  return applyPersonalityMetadataTitleTemplateGuard(withTraditionalPersonalityLanguageAlternates({
     ...metadata,
     alternates: {
       ...metadata.alternates,
@@ -1585,7 +1586,7 @@ export async function generateMetadata({
       description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
       images: twitterImages,
     },
-  }, effectiveMetadataTitle);
+  }, detail.traditionalLanguageAlternates), effectiveMetadataTitle);
 }
 
 export default async function PersonalityDetailPage({

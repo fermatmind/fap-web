@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
-import { useLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
+import { useLocaleSwitchHref, useTraditionalSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import {
@@ -64,6 +64,7 @@ export function SiteHeader({
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeHref = useLocaleSwitchHref(pathname, targetLocale);
+  const traditionalHref = useTraditionalSwitchHref(pathname);
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
   const disableLocaleSwitchLinks = shouldDisableLocaleSwitchLinks(pathname);
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
@@ -465,7 +466,7 @@ export function SiteHeader({
                     {localeLabel}
                   </PublicNavigationLink>
                 )}
-                {disableLocaleSwitchLinks ? null : <PublicNavigationLink href={traditionalPath(pathname) ?? "/zh-TW/tests"} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)"}{!traditionalPath(pathname) ? (locale === "zh" ? " · 可用測評" : " · available quizzes") : ""}</PublicNavigationLink>}
+                {disableLocaleSwitchLinks ? null : <PublicNavigationLink href={traditionalHref} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)"}{!traditionalPath(pathname) && traditionalHref === "/zh-TW/tests" ? (locale === "zh" ? " · 可用測評" : " · available quizzes") : ""}</PublicNavigationLink>}
               </nav>
             </div>
 

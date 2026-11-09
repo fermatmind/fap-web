@@ -1,3 +1,4 @@
+import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -69,7 +70,7 @@ export async function generateMetadata({
   }
 
   const pathname = buildEnneagramPublicContentPath(locale, entry);
-  return buildPageMetadata({
+  return withTraditionalPersonalityLanguageAlternates(buildPageMetadata({
     locale,
     pathname,
     canonicalCandidate: asset.canonicalPath,
@@ -86,7 +87,7 @@ export async function generateMetadata({
       zh: asset.hreflang["zh-CN"]!,
       xDefault: asset.hreflang.en!,
     },
-  });
+  }), asset.traditionalLanguageAlternates);
 }
 
 export default async function EnneagramSubPage({

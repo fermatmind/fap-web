@@ -1,7 +1,9 @@
+import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   ArrowRight,
   Atom,
@@ -28,6 +30,7 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
+import { TraditionalPersonalityCategoryBackLink } from "@/components/personality/TraditionalPersonalityCategoryLinks";
 import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -37,16 +40,17 @@ import {
   type PersonalityComparisonListGroupViewModel,
   type GetCmsPersonalityProfilesResult,
 } from "@/lib/cms/personality";
-import { renderPersonalitySections } from "@/lib/cms/personality-sections";
+import { renderPersonalitySections, renderTraditionalPersonalityRichSections } from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
-import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
+import { buildPersonalityHubFamilyGroups, buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 import type { PersonalityHubFamilyGroup } from "@/lib/mbti/personalityHub.types";
 import { applyPersonalityMetadataTitleTemplateGuard } from "@/lib/personality/metadataTitleTemplateGuard";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { isConfiguredStagingSiteUrl } from "@/lib/site";
 
 export const revalidate = 300;
 
@@ -57,13 +61,13 @@ const getHubContent = cache(async (locale: Locale): Promise<GetCmsPersonalityPro
   }))
 );
 
-function getPersonalityPageSeoCopy(locale: Locale, content: GetCmsPersonalityProfilesResult) {
+function getPersonalityPageSeoCopy(locale: DisplayLocale, content: GetCmsPersonalityProfilesResult) {
   const answer = content.sections?.find((section) => section.sectionKey === "quick_answer");
   const hero = content.landingSurface?.summaryBlocks.find((block) => block.key === "hero");
   return {
-    title: content.seoMeta?.seoTitle ?? (locale === "zh" ? "人格目录暂不可用" : "Personality directory unavailable"),
+    title: content.seoMeta?.seoTitle ?? (locale === "zh-TW" ? "人格目錄暫時無法使用" : locale === "zh" ? "人格目录暂不可用" : "Personality directory unavailable"),
     description: content.seoMeta?.seoDescription ?? "",
-    h1: hero?.title ?? (locale === "zh" ? "人格目录" : "Personality directory"),
+    h1: hero?.title ?? (locale === "zh-TW" ? "人格目錄" : locale === "zh" ? "人格目录" : "Personality directory"),
     summary: answer?.bodyMd ?? hero?.body ?? "",
   };
 }
@@ -74,11 +78,24 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
+  if (localeParam === "zh-TW") {
+    const { content } = await loadTraditionalDirectory();
+    const { title, description } = getPersonalityPageSeoCopy("zh-TW", content);
+    return withTraditionalPersonalityLanguageAlternates({
+      title,
+      description,
+      alternates: { canonical: "/zh-TW/personality" },
+      robots: {
+        index: !isConfiguredStagingSiteUrl() && content.seoMeta?.robots === "index,follow",
+        follow: !isConfiguredStagingSiteUrl() && content.seoMeta?.robots !== "noindex,nofollow",
+      },
+    }, content.traditionalLanguageAlternates);
+  }
   const locale = resolveLocale(localeParam);
   const content = await getHubContent(locale);
   const seoCopy = getPersonalityPageSeoCopy(locale, content);
 
-  return applyPersonalityMetadataTitleTemplateGuard(buildPageMetadata({
+  return applyPersonalityMetadataTitleTemplateGuard(withTraditionalPersonalityLanguageAlternates(buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/personality" : "/en/personality",
     noindex: !content.seoMeta || content.items.length === 0,
@@ -89,7 +106,7 @@ export async function generateMetadata({
       zh: "/zh/personality",
       xDefault: "/",
     },
-  }), seoCopy.title);
+  }), content.traditionalLanguageAlternates), seoCopy.title);
 }
 
 const GROUP_TONES: Record<
@@ -163,10 +180,11 @@ function TypeGroupBrowse({
 }: {
   groups: PersonalityHubFamilyGroup[];
   comparisonGroups: PersonalityComparisonListGroupViewModel[];
-  locale: Locale;
+  locale: DisplayLocale;
   mbtiTestHref: string;
   content: GetCmsPersonalityProfilesResult;
 }) {
+  const withLocale = (path: string) => locale === "zh-TW" ? "/zh-TW" + path : localizedPath(path, locale);
   const formatTypeLabel = (type: TypeVariantCard) => {
     return type.title.startsWith(type.typeCode) ? type.title : `${type.typeCode} - ${type.title}`;
   };
@@ -176,9 +194,9 @@ function TypeGroupBrowse({
       .replace(new RegExp(`^${type.baseTypeCode}\\s*[-—–]\\s*`, "i"), "")
       .trim();
   const formatDisplayNameText = (displayName: string) =>
-    locale === "zh" ? Array.from(displayName).join(" ") : displayName;
+    locale !== "en" ? Array.from(displayName).join(" ") : displayName;
   const displayNameClassName =
-    locale === "zh"
+    locale !== "en"
       ? "m-0 mt-2 w-full text-center font-sans text-base font-semibold tracking-[0.08em] text-[#17112f]"
       : "m-0 mt-2 w-full text-center font-sans text-[0.95rem] font-semibold tracking-[0.03em] text-[#17112f]";
   const clickablePillMotion =
@@ -250,23 +268,23 @@ function TypeGroupBrowse({
   const featureItems = [
     {
       icon: Sparkles,
-      title: locale === "zh" ? "人格描述" : "Model",
-      body: locale === "zh" ? "参考四组偏好" : "Four preference pairs",
+      title: locale !== "en" ? "人格描述" : "Model",
+      body: locale === "zh-TW" ? "參考四組偏好" : locale === "zh" ? "参考四组偏好" : "Four preference pairs",
     },
     {
       icon: Network,
-      title: locale === "zh" ? "32 个变体" : "32 variants",
-      body: locale === "zh" ? "A/T 阅读变体" : "A/T variant inventory",
+      title: locale === "zh-TW" ? "32 個變體" : locale === "zh" ? "32 个变体" : "32 variants",
+      body: locale === "zh-TW" ? "A/T 變體介紹" : locale === "zh" ? "A/T 阅读变体" : "A/T variant inventory",
     },
     {
       icon: Compass,
-      title: locale === "zh" ? "阅读提示" : "Deep reading",
-      body: locale === "zh" ? "结合经历与反例" : "Read the full profile",
+      title: locale === "zh-TW" ? "閱讀提示" : locale === "zh" ? "阅读提示" : "Deep reading",
+      body: locale === "zh-TW" ? "搭配實際經驗與反例" : locale === "zh" ? "结合经历与反例" : "Read the full profile",
     },
     {
       icon: Star,
-      title: locale === "zh" ? "实用指引" : "Practical guide",
-      body: locale === "zh" ? "提出探索问题" : "Questions for self-observation",
+      title: locale === "zh-TW" ? "實用指引" : locale === "zh" ? "实用指引" : "Practical guide",
+      body: locale === "zh-TW" ? "提出探索問題" : locale === "zh" ? "提出探索问题" : "Questions for self-observation",
     },
   ];
   const variantCount = groups.reduce((count, group) => count + group.cards.length, 0);
@@ -293,14 +311,14 @@ function TypeGroupBrowse({
                 href={mbtiTestHref}
                 className="inline-flex items-center gap-2 rounded-full bg-[#5f447e] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#4f376d]"
               >
-                {locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
+                {locale === "zh-TW" ? "開始免費 MBTI 測驗（簡體中文）" : locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
                 href="#type-directory"
                 className="inline-flex items-center gap-2 rounded-full border border-[#ded7e8] bg-white/80 px-6 py-3 text-sm font-semibold text-[#17112f] transition hover:-translate-y-0.5 hover:border-[#5f447e] hover:text-[#5f447e]"
               >
-                {locale === "zh" ? "选择基础人格" : "Choose a base type"}
+                {locale === "zh-TW" ? "選擇基礎類型" : locale === "zh" ? "选择基础人格" : "Choose a base type"}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
@@ -335,17 +353,17 @@ function TypeGroupBrowse({
       >
         <div className="space-y-4">
           <h2 className="m-0 text-2xl font-semibold tracking-normal text-[#17112f]">
-            {locale === "zh" ? "先看 16 型，再进入 32 个 A/T 人格" : "Start with 16 types, then open 32 A/T variants"}
+            {locale === "zh-TW" ? "先看 16 型，再探索 32 個 A/T 變體" : locale === "zh" ? "先看 16 型，再进入 32 个 A/T 人格" : "Start with 16 types, then open 32 A/T variants"}
           </h2>
           <div className="flex flex-wrap gap-2">
             <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-2 text-xs font-semibold text-[#5f447e]">
-              {locale === "zh" ? `${baseTypeCount} 个基础人格` : `${baseTypeCount} base types`}
+              {locale === "zh-TW" ? `${baseTypeCount} 個基礎類型` : locale === "zh" ? `${baseTypeCount} 个基础人格` : `${baseTypeCount} base types`}
             </span>
             <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-2 text-xs font-semibold text-[#5f447e]">
-              {locale === "zh" ? `${variantCount} 个 A/T 变体` : `${variantCount} A/T variants`}
+              {locale === "zh-TW" ? `${variantCount} 個 A/T 變體` : locale === "zh" ? `${variantCount} 个 A/T 变体` : `${variantCount} A/T variants`}
             </span>
             <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-2 text-xs font-semibold text-[#5f447e]">
-              {locale === "zh" ? "人格解释与对比入口" : "Profile and comparison paths"}
+              {locale === "zh-TW" ? "人格解說與比較" : locale === "zh" ? "人格解释与对比入口" : "Profile and comparison paths"}
             </span>
           </div>
         </div>
@@ -353,7 +371,7 @@ function TypeGroupBrowse({
         {popularComparisons.length > 0 ? (
           <div className="rounded-2xl border border-[#e7e3ec] bg-[#fbfafc] p-4" data-testid="personality-popular-comparisons">
             <h2 className="m-0 text-base font-semibold text-[#17112f]">
-              {locale === "zh" ? "人格对比入口" : "Featured personality comparisons"}
+              {locale === "zh-TW" ? "人格比較" : locale === "zh" ? "人格对比入口" : "Featured personality comparisons"}
             </h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {popularComparisons.map((item) => (
@@ -371,7 +389,9 @@ function TypeGroupBrowse({
         ) : null}
       </section>
 
-      {renderPersonalitySections(content.sections?.filter((section) => ["meaning", "growth_edges"].includes(section.sectionKey)) ?? [], locale, true)}
+      {locale === "zh-TW"
+        ? renderTraditionalPersonalityRichSections(content.sections?.filter((section) => ["meaning", "growth_edges"].includes(section.sectionKey)) ?? [])
+        : renderPersonalitySections(content.sections?.filter((section) => ["meaning", "growth_edges"].includes(section.sectionKey)) ?? [], locale, true)}
 
       <section
         id="type-directory"
@@ -397,11 +417,8 @@ function TypeGroupBrowse({
                     const isPriorityImage = groupIndex === 0 && typeIndex < 4;
                     const comparisonHref =
                       comparisonHrefByBaseType.get(typeGroup.baseTypeCode) ??
-                      (variantA && variantT
-                        ? localizedPath(
-                            `/personality/${variantA.typeCode.toLowerCase()}-vs-${variantT.typeCode.toLowerCase()}`,
-                            locale
-                          )
+                      (locale !== "zh-TW" && variantA && variantT
+                        ? withLocale(`/personality/${variantA.typeCode.toLowerCase()}-vs-${variantT.typeCode.toLowerCase()}`)
                         : null);
 
                     return (
@@ -459,10 +476,10 @@ function TypeGroupBrowse({
 
                         <div className="mt-auto flex flex-wrap gap-2 pt-5">
                           <Link
-                            href={localizedPath(`/personality/${typeGroup.baseTypeCode.toLowerCase()}`, locale)}
+                            href={withLocale(`/personality/${typeGroup.baseTypeCode.toLowerCase()}`)}
                             className={`inline-flex items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold ${clickablePillMotion} ${tone.chip}`}
                           >
-                            {typeGroup.baseTypeCode} {locale === "zh" ? "基础人格" : "base profile"}
+                            {typeGroup.baseTypeCode} {locale === "zh-TW" ? "基礎類型" : locale === "zh" ? "基础人格" : "base profile"}
                             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                           </Link>
                           {(crossComparisonsByBaseType.get(typeGroup.baseTypeCode) ?? []).slice(0, 2).map((item) => (
@@ -500,12 +517,48 @@ function TypeGroupBrowse({
   );
 }
 
+const loadTraditionalDirectory = cache(async () => {
+  const [content, comparisons] = await Promise.all([
+    listPersonalityProfiles({ locale: "zh-TW", includeVariants: true, perPage: 100 }),
+    listPersonalityComparisons("zh-TW"),
+  ]);
+  if (!content.seoMeta || !content.landingSurface || !content.items.length || !comparisons.groups.length) notFound();
+  return { content, comparisons };
+});
+
+async function TraditionalPersonalityDirectory() {
+  const { content, comparisons } = await loadTraditionalDirectory();
+  const groups = buildPersonalityHubFamilyGroups({ locale: "zh-TW", personalities: content.items });
+  const faq = content.sections?.find((section) => section.sectionKey === "faq");
+  const faqPayload = faq?.payloadJson as { items?: { question: string; answer: string }[] } | null;
+  return (
+    <Container as="div" className="max-w-7xl space-y-10 pb-16 [&_[id]]:scroll-mt-24">
+      <Breadcrumb items={[{ label: "首頁", href: "/zh-TW" }, { label: "人格" }]} />
+      <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
+        <Link href="/zh/personality" lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
+        <Link href="/en/personality" lang="en" className="min-h-11 py-2 underline">English</Link>
+      </nav>
+      <TraditionalPersonalityCategoryBackLink />
+      <TypeGroupBrowse
+        groups={groups}
+        comparisonGroups={comparisons.groups}
+        locale="zh-TW"
+        mbtiTestHref="/zh/tests/mbti-personality-test-16-personality-types"
+        content={content}
+      />
+      <PersonalityFaq locale="zh-TW" items={faqPayload?.items ?? []} />
+      {renderTraditionalPersonalityRichSections(content.sections?.filter((section) => section.sectionKey === "sources_and_method") ?? [])}
+    </Container>
+  );
+}
+
 export default async function PersonalityPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
+  if (localeParam === "zh-TW") return TraditionalPersonalityDirectory();
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
   const [content, comparisonList] = await Promise.all([

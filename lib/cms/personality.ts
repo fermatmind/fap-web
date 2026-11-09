@@ -1,3 +1,4 @@
+import { normalizeTraditionalPersonalityLanguageAlternates, type TraditionalPersonalityLanguageAlternates } from "@/lib/personality/traditionalLanguageAlternates";
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
@@ -14,6 +15,8 @@ import {
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
+import { PublicReadError } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_SCALE_CODE = "MBTI";
@@ -77,6 +80,7 @@ type CmsPersonalityApiSection = {
 };
 
 type CmsPersonalityListApiResponse = {
+  traditional_language_alternates?: unknown;
   sections?: CmsPersonalityApiSection[];
   seo_meta?: CmsPersonalityApiSeoMeta;
   ok?: boolean;
@@ -91,6 +95,7 @@ type CmsPersonalityListApiResponse = {
 };
 
 type CmsPersonalityDetailApiResponse = {
+  traditional_language_alternates?: unknown;
   ok?: boolean;
   profile?: CmsPersonalityApiProfile | null;
   sections?: CmsPersonalityApiSection[];
@@ -214,6 +219,7 @@ type CmsPersonalityComparisonProjectionApiRecord = {
 };
 
 type CmsPersonalityComparisonApiResponse = {
+  traditional_language_alternates?: unknown;
   ok?: boolean;
   comparison?: CmsPersonalityComparisonProjectionApiRecord | null;
   comparison_public_projection_v1?: CmsPersonalityComparisonProjectionApiRecord | null;
@@ -531,6 +537,7 @@ function isMbti64PromotedDetailSection(section: CmsPersonalitySection): boolean 
 }
 
 export type PersonalityProjectionViewModel = {
+  traditionalLanguageAlternates?: TraditionalPersonalityLanguageAlternates;
   id: number | null;
   slug: string;
   routeSlug: string;
@@ -611,6 +618,7 @@ export type PersonalityCrossTypeInternalLinkViewModel = {
 };
 
 export type PersonalityComparisonViewModel = {
+  traditionalLanguageAlternates?: TraditionalPersonalityLanguageAlternates;
   comparisonContractVersion: string;
   authorityContractVersion: string | null;
   readmodelContractVersion: string | null;
@@ -733,6 +741,7 @@ export type GetCmsPersonalityProfilesParams = {
 };
 
 export type GetCmsPersonalityProfilesResult = {
+  traditionalLanguageAlternates?: TraditionalPersonalityLanguageAlternates;
   sections?: CmsPersonalitySection[];
   seoMeta?: CmsPersonalitySeoMeta | null;
   items: CmsPersonalityProfileSummary[];
@@ -781,6 +790,7 @@ function emptyPagination(page = 1, perPage = 20): CmsPersonalityPagination {
 }
 
 function matchesRequestedLocale(profileLocale: string, locale: Locale | string): boolean {
+  if (locale === "zh-TW" || profileLocale === "zh-TW") return profileLocale === locale;
   return toApiLocale(profileLocale) === mapFrontendLocaleToPersonalityApiLocale(locale);
 }
 
@@ -1147,6 +1157,9 @@ function normalizePersonalityComparisonPayload(
     description,
     summary,
     canonicalUrl: canonical,
+    ...(response.traditional_language_alternates ? {
+      traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(response.traditional_language_alternates, canonical),
+    } : {}),
     alternates: normalizeComparisonAlternates(projection.alternates),
     variants: assertive && turbulent ? { a: assertive, t: turbulent } : null,
     comparisonBlocks: Array.isArray(projection.comparison_blocks)
@@ -1599,8 +1612,33 @@ export function normalizePersonalityJsonLd(
   };
 }
 
-export function mapFrontendLocaleToPersonalityApiLocale(locale: Locale | string): "en" | "zh-CN" {
-  return toApiLocale(locale);
+export function mapFrontendLocaleToPersonalityApiLocale(locale: Locale | string): "en" | "zh-CN" | "zh-TW" {
+  return locale === "zh-TW" ? locale : toApiLocale(locale);
+}
+
+function personalityReadOptions(locale: string) {
+  return {
+    locale,
+    skipAuth: true,
+    ...(locale === "zh-TW"
+      ? { cache: "no-store" as const, headers: { "X-FAP-Locale": locale } }
+      : PUBLIC_API_CACHE_OPTIONS),
+  };
+}
+
+function isMissingPersonalityRead(error: unknown, locale: string) {
+  if (!(error instanceof ApiError)) return false;
+  if (error.status === 404) return true;
+
+  // A rollback to a reader without zh-TW rejects this fixed request at locale validation.
+  return locale === "zh-TW" && error.status === 422
+    && error.errorCode === "INVALID_ARGUMENT" && error.message === "validation.in";
+}
+
+function assertTraditionalPersonalityCanonical(value: unknown, suffix = "") {
+  if (normalizeInternalHref(value) !== "/zh-TW/personality" + suffix) {
+    throw new PublicReadError({ kind: "contract" });
+  }
 }
 
 export function normalizePersonalitySlug(value: string): string {
@@ -1625,7 +1663,8 @@ export function buildDefaultPublicPersonalitySlug(value: string): string {
 }
 
 export function buildPersonalityFrontendUrl(locale: Locale | string, slug: string): string {
-  return localizedPath(`/personality/${normalizePersonalitySlug(slug)}`, normalizeLocale(locale));
+  const path = `/personality/${normalizePersonalitySlug(slug)}`;
+  return locale === "zh-TW" ? "/zh-TW" + path : localizedPath(path, normalizeLocale(locale));
 }
 
 export function normalizePersonalitySeoPayload(
@@ -2060,10 +2099,15 @@ export async function listPersonalityProfiles(
 
   try {
     const response = await apiClient.get<CmsPersonalityListApiResponse>(`/v0.5/personality${query}`, {
-      locale: params.locale,
-      skipAuth: true,
-      ...PUBLIC_API_CACHE_OPTIONS,
+      ...personalityReadOptions(params.locale),
     });
+
+    if (params.locale === "zh-TW") {
+      assertTraditionalPersonalityCanonical(response?.seo_meta?.canonical_url);
+      if (!Array.isArray(response.items) || response.items.some(item => item.locale !== "zh-TW")) {
+        throw new PublicReadError({ kind: "contract" });
+      }
+    }
 
     const items = Array.isArray(response.items)
       ? response.items
@@ -2075,6 +2119,9 @@ export async function listPersonalityProfiles(
     return {
       items,
       sections: (response.sections ?? []).map(normalizeSection).filter((section): section is CmsPersonalitySection => section !== null),
+      ...(response.traditional_language_alternates ? {
+        traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(response.traditional_language_alternates, response.seo_meta?.canonical_url),
+      } : {}),
       seoMeta: normalizeSeoMeta(response.seo_meta ?? null),
       landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
       pagination: {
@@ -2091,7 +2138,7 @@ export async function listPersonalityProfiles(
       },
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isMissingPersonalityRead(error, params.locale)) {
       return {
         items: [],
         landingSurface: null,
@@ -2119,17 +2166,20 @@ async function getPersonalityDetailResponseBySlugOrType(
   });
 
   try {
-    return await apiClient.get<CmsPersonalityDetailApiResponse>(
+    const response = await apiClient.get<CmsPersonalityDetailApiResponse>(
       `/v0.5/personality/${encodeURIComponent(normalizedSlug)}${query}`,
       {
-        locale,
-        skipAuth: true,
+        ...personalityReadOptions(locale),
         timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS,
-        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
+    if (locale === "zh-TW") {
+      assertTraditionalPersonalityCanonical(response?.seo_meta?.canonical_url, "/" + normalizedSlug);
+      if (response.profile?.locale !== locale) throw new PublicReadError({ kind: "contract" });
+    }
+    return response;
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isMissingPersonalityRead(error, locale)) {
       return null;
     }
 
@@ -2170,6 +2220,9 @@ export async function getPersonalityProjectionDetailBySlugOrType(
   }
 
   return {
+    ...(response.traditional_language_alternates ? {
+      traditionalLanguageAlternates: normalizeTraditionalPersonalityLanguageAlternates(response.traditional_language_alternates, response.seo_meta?.canonical_url),
+    } : {}),
     ...buildProjectionViewModel(detailProfile, projection),
     landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),
@@ -2196,12 +2249,12 @@ export async function getPersonalitySeoBySlugOrType(
     const response = await apiClient.get<CmsPersonalitySeoApiResponse>(
       `/v0.5/personality/${encodeURIComponent(normalizedSlug)}/seo${query}`,
       {
-        locale,
-        skipAuth: true,
+        ...personalityReadOptions(locale),
         timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS,
-        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
+
+    if (locale === "zh-TW") assertTraditionalPersonalityCanonical(response?.meta?.canonical, "/" + normalizedSlug);
 
     return {
       meta: {
@@ -2230,7 +2283,7 @@ export async function getPersonalitySeoBySlugOrType(
       surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isMissingPersonalityRead(error, locale)) {
       return null;
     }
 
@@ -2257,15 +2310,20 @@ export async function getPersonalityComparisonBySlug(
     const response = await apiClient.get<CmsPersonalityComparisonApiResponse>(
       `/v0.5/personality/comparisons/${encodeURIComponent(normalizedSlug)}${query}`,
       {
-        locale,
-        skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...personalityReadOptions(locale),
       }
     );
 
+    if (locale === "zh-TW") {
+      const projection = response?.comparison_public_projection_v1;
+      assertTraditionalPersonalityCanonical(projection?.canonical_url, "/" + normalizedSlug);
+      if (projection?.locale !== locale || projection.comparison_slug !== normalizedSlug) {
+        throw new PublicReadError({ kind: "contract" });
+      }
+    }
     return normalizePersonalityComparisonPayload(response, locale);
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isMissingPersonalityRead(error, locale)) {
       return null;
     }
 
@@ -2286,15 +2344,27 @@ export async function listPersonalityComparisons(
     const response = await apiClient.get<CmsPersonalityComparisonListApiResponse>(
       `/v0.5/personality/comparisons${query}`,
       {
-        locale,
-        skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...personalityReadOptions(locale),
       }
     );
 
+    if (locale === "zh-TW") {
+      const projection = response?.comparison_list_public_projection_v1;
+      if (projection?.locale !== locale || !Array.isArray(projection.groups)) {
+        throw new PublicReadError({ kind: "contract" });
+      }
+      for (const group of projection.groups) {
+        if (!Array.isArray(group.items)) throw new PublicReadError({ kind: "contract" });
+        for (const item of group.items) {
+          const slug = normalizePersonalityComparisonSlug(item.slug);
+          if (!slug || item.locale !== locale) throw new PublicReadError({ kind: "contract" });
+          assertTraditionalPersonalityCanonical(item.canonical_url, "/" + slug);
+        }
+      }
+    }
     return normalizePersonalityComparisonListPayload(response, locale);
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isMissingPersonalityRead(error, locale)) {
       return normalizePersonalityComparisonListPayload({}, locale);
     }
 

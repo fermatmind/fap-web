@@ -7,6 +7,8 @@ import {
   getPersonalityComparisonBySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalityProfileBySlugOrType,
+  getPersonalitySeoBySlugOrType,
+  listPersonalityComparisons,
   listPersonalityProfiles,
   mapFrontendLocaleToPersonalityApiLocale,
   normalizePersonalitySeoPayload,
@@ -85,6 +87,78 @@ describe("personality cms adapter contract", () => {
     expect(buildDefaultPublicPersonalitySlug(" INTJ ")).toBe("intj-a");
     expect(buildPersonalityFrontendUrl("en", "INTJ")).toBe("/en/personality/intj");
     expect(buildPersonalityFrontendUrl("zh", "INTJ")).toBe("/zh/personality/intj");
+  });
+
+  it("treats an older API's exact Taiwan locale rejection as absence", async () => {
+    const legacy = { ok: false, error_code: "INVALID_ARGUMENT", message: "validation.in" };
+    const fetch = vi.fn(async () => jsonResponse(legacy, 422));
+    vi.stubGlobal("fetch", fetch);
+
+    await expect(listPersonalityProfiles({ locale: "zh-TW" })).resolves.toMatchObject({ items: [] });
+    await expect(getPersonalityProfileBySlugOrType("intj", "zh-TW")).resolves.toBeNull();
+    await expect(getPersonalitySeoBySlugOrType("intj", "zh-TW")).resolves.toBeNull();
+    await expect(getPersonalityComparisonBySlug("intj-vs-intp", "zh-TW")).resolves.toBeNull();
+    await expect(listPersonalityComparisons("zh-TW")).resolves.toMatchObject({ crossTypeComparisons: [] });
+    await expect(getPersonalityProfileBySlugOrType("intj", "en")).rejects.toMatchObject({ status: 422 });
+
+    fetch.mockImplementation(async () => jsonResponse({ ...legacy, message: "validation.integer" }, 422));
+    await expect(getPersonalityProfileBySlugOrType("intj", "zh-TW")).rejects.toMatchObject({ status: 422 });
+  });
+
+  it("keeps Taiwan MBTI routes, locale headers and authoritative canonicals separate", async () => {
+    const profilePath = "/zh-TW/personality/intj";
+    const canonical = "https://fermatmind.com" + profilePath;
+    const comparisonSlug = "intj-vs-intp";
+    const comparisonCanonical = "https://fermatmind.com/zh-TW/personality/" + comparisonSlug;
+    const comparison = {
+      slug: comparisonSlug, comparison_type: "mbti_cross_type", public_route_type: "cross-type-comparison",
+      left_type: "INTJ", right_type: "INTP", locale: "zh-TW", is_public: true,
+      title: "INTJ 與 INTP", description: "比較兩種類型", canonical_url: comparisonCanonical,
+    };
+    const directory = {
+      items: [{ slug: "intj", type_code: "INTJ", locale: "zh-TW", title: "INTJ 建築師" }],
+      seo_meta: { canonical_url: "https://fermatmind.com/zh-TW/personality" },
+    };
+    const profile = {
+      profile: directory.items[0],
+      seo_meta: { canonical_url: canonical },
+    };
+    const fetch = vi.fn<typeof globalThis.fetch>()
+      .mockImplementationOnce(async () => jsonResponse(directory))
+      .mockImplementationOnce(async () => jsonResponse(profile))
+      .mockImplementationOnce(async () => jsonResponse({ meta: { canonical } }))
+      .mockImplementationOnce(async () => jsonResponse({
+        comparison_public_projection_v1: { ...comparison, comparison_slug: comparisonSlug },
+      }))
+      .mockImplementationOnce(async () => jsonResponse({
+        comparison_list_public_projection_v1: {
+          locale: "zh-TW",
+          groups: [{ key: "cross_type_comparisons", comparison_type: "mbti_cross_type", title: "類型比較", description: "比較兩種類型的偏好", items: [comparison] }],
+        },
+      }))
+      .mockImplementationOnce(async () => jsonResponse({ ...profile, profile: { ...profile.profile, locale: "zh-CN" } }))
+      .mockImplementationOnce(async () => jsonResponse({ meta: { canonical: canonical.replace("/zh-TW/", "/zh/") } }))
+      .mockImplementationOnce(async () => jsonResponse({ ok: false }, 404));
+    vi.stubGlobal("fetch", fetch);
+
+    await expect(listPersonalityProfiles({ locale: "zh-TW" })).resolves.toMatchObject({ items: [{ locale: "zh-TW" }] });
+    await expect(getPersonalityProfileBySlugOrType("intj", "zh-TW")).resolves.toMatchObject({ title: "INTJ 建築師" });
+    await expect(getPersonalitySeoBySlugOrType("intj", "zh-TW")).resolves.toMatchObject({ meta: { canonical } });
+    await expect(getPersonalityComparisonBySlug(comparisonSlug, "zh-TW")).resolves.toMatchObject({ canonicalUrl: comparisonCanonical });
+    await expect(listPersonalityComparisons("zh-TW")).resolves.toMatchObject({
+      crossTypeComparisons: [{ href: "/zh-TW/personality/" + comparisonSlug }],
+    });
+    await expect(getPersonalityProfileBySlugOrType("intj", "zh-TW")).rejects.toMatchObject({ kind: "contract" });
+    await expect(getPersonalitySeoBySlugOrType("intj", "zh-TW")).rejects.toMatchObject({ kind: "contract" });
+    await expect(getPersonalityComparisonBySlug(comparisonSlug, "zh-TW")).resolves.toBeNull();
+    expect(fetch).toHaveBeenCalledTimes(8);
+    for (const [input, options] of fetch.mock.calls) {
+      expect(new URL(String(input)).searchParams.get("locale")).toBe("zh-TW");
+      expect(new Headers(options?.headers).get("X-FAP-Locale")).toBe("zh-TW");
+      expect(options?.cache).toBe("no-store");
+      expect(options?.next).toBeUndefined();
+    }
+    expect(buildPersonalityFrontendUrl("zh-TW", "intj")).toBe(profilePath);
   });
 
   it("requests the list endpoint with the backend locale mapping", async () => {

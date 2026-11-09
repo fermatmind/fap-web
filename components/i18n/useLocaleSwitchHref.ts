@@ -3,6 +3,8 @@
 import { useSyncExternalStore } from "react";
 import { localizedPath, toggleLocalePath, type Locale } from "@/lib/i18n/locales";
 import { emailTokenSwitchHref } from "@/lib/i18n/emailDisplayRoutes";
+import { normalizeTraditionalPersonalityLanguageAlternates } from "@/lib/personality/traditionalLanguageAlternates";
+import { CANONICAL_SITE_URL } from "@/lib/site";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
 export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, head?: ParentNode, search = ""): string {
@@ -46,7 +48,25 @@ export function useLocaleSwitchHref(pathname: string, targetLocale: Locale): str
   );
 }
 
+export function resolveTraditionalSwitchHref(pathname: string, head?: ParentNode, search = ""): string {
+  const registered = traditionalPath(pathname);
+  if (registered) return emailTokenSwitchHref(pathname, registered, search);
+  if (!/^\/(?:en|zh)\/personality(?:\/|$)/u.test(pathname) ||
+    head?.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href !== CANONICAL_SITE_URL + pathname) {
+    return "/zh-TW/tests";
+  }
+
+  const paths = Object.fromEntries(["en", "zh-CN", "zh-TW"].map(locale => {
+    const href = head.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${locale}"]`)?.href;
+    return [locale, href?.startsWith(CANONICAL_SITE_URL + "/") ? href.slice(CANONICAL_SITE_URL.length) : null];
+  }));
+  return normalizeTraditionalPersonalityLanguageAlternates(paths, pathname)?.["zh-TW"] ?? "/zh-TW/tests";
+}
+
 export function useTraditionalSwitchHref(pathname: string): string {
-  const target = traditionalPath(pathname) ?? "/zh-TW/tests";
-  return useSyncExternalStore(subscribeMetadata, () => emailTokenSwitchHref(pathname, target, window.location.search), () => target);
+  return useSyncExternalStore(
+    subscribeMetadata,
+    () => resolveTraditionalSwitchHref(pathname, document, window.location.search),
+    () => resolveTraditionalSwitchHref(pathname),
+  );
 }

@@ -1,10 +1,11 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { FaqBlock } from "@/lib/mbti/personalityHub.types";
 
 export function PersonalityFaq({
   locale,
   items,
 }: {
-  locale: "en" | "zh";
+  locale: DisplayLocale;
   items: FaqBlock[];
 }) {
   if (items.length === 0) {
@@ -18,7 +19,7 @@ export function PersonalityFaq({
       data-testid="personality-faq"
     >
       <h2 className="m-0 font-serif text-[length:var(--fm-hub-heading-section)] text-[var(--fm-hub-navy-strong)]">
-        {locale === "zh" ? "常见问题" : "FAQ"}
+        {locale === "zh-TW" ? "常見問題" : locale === "zh" ? "常见问题" : "FAQ"}
       </h2>
 
       <div className="space-y-3 md:hidden" data-testid="personality-faq-mobile">
