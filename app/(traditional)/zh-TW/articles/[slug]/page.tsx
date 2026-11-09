@@ -82,6 +82,10 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   const category = publishedArchive ? blog.categories.find((item) => item.slug === article.category?.slug) : undefined;
   const headings = article.contentHtml.trim() ? [] : getSimpleMarkdownHeadings(article.contentMd, markdownOptions);
   const faq = excludeFaqCopiesInMarkdown(article.answerSurface?.faqBlocks ?? [], article.contentMd, { locale: "zh" });
+  // Reviewed article links retain the public assessment's source-language route.
+  const assessmentLinks = (article.landingSurface?.ctaBundle ?? []).filter(
+    (item) => item.kind === "start_test" && /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(item.href),
+  );
 
   return (
     <div className="min-w-0 space-y-8">
@@ -122,6 +126,13 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
             : renderSimpleMarkdown(article.contentMd, markdownOptions)}
         </article>
       </ArticleFragmentNavigation>
+      {assessmentLinks.length > 0 ? (
+        <nav aria-label="相關測驗" className="flex flex-wrap gap-4">
+          {assessmentLinks.map((item) => (
+            <Link key={item.key} href={item.href} className="min-h-11 py-2 font-medium underline">{item.label}</Link>
+          ))}
+        </nav>
+      ) : null}
       {faq.length > 0 ? (
         <section aria-labelledby="article-faq">
           <h2 id="article-faq" className="text-xl font-semibold">常見問題</h2>

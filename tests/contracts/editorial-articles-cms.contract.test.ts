@@ -120,6 +120,36 @@ describe("editorial article CMS contract", () => {
     expect(html).toContain('data-testid="article-detail-content"');
   });
 
+  it("renders reviewed assessment links and rejects private or unsupported destinations", async () => {
+    const slug = "traditional-assessment-links";
+    const canonical = `https://fermatmind.com/zh-TW/articles/${slug}`;
+    const publicHref = "/zh/tests/big-five-personality-test-ocean-model";
+    vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
+      if (new URL(String(input)).pathname.endsWith("/seo")) {
+        return jsonResponse({ meta: { canonical, robots: "noindex,follow" } });
+      }
+      return jsonResponse({
+        article: {
+          id: 1, org_id: 0, slug, locale: "zh-TW", title: "繁體文章", content_md: "繁體正文",
+          status: "published", is_public: true, is_indexable: false, published_revision_id: 27,
+        },
+        landing_surface_v1: { cta_bundle: [
+          { key: "reviewed", kind: "start_test", href: publicHref, label: "查看大五人格測驗" },
+          { key: "result", kind: "start_test", href: publicHref + "/result", label: "私人結果" },
+          { key: "query", kind: "start_test", href: publicHref + "?attempt=fixture", label: "私人作答" },
+          { key: "unavailable", kind: "start_test", href: "/zh-TW/tests/big-five-personality-test-ocean-model", label: "未開放版本" },
+          { key: "external", kind: "start_test", href: "https://outside.example/zh/tests/anything", label: "站外測驗" },
+        ] },
+      });
+    }));
+
+    const html = renderToStaticMarkup(await TraditionalArticlePage({ params: Promise.resolve({ slug }) }));
+    expect(html).toContain('aria-label="相關測驗"');
+    expect(html).toContain(`href="${publicHref}"`);
+    expect(html).toContain("查看大五人格測驗");
+    expect(html).not.toMatch(/私人結果|私人作答|未開放版本|站外測驗/);
+  });
+
   it("renders only the published same-origin Traditional article alternates from CMS", async () => {
     const slug = "traditional-article";
     const params = Promise.resolve({ slug });
