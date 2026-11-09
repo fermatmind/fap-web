@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
@@ -89,7 +90,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
 
   return (
     <div className="min-w-0 space-y-8">
-      {languages ? <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
+      {article.readerLanguageSlugs ? <ArticleLanguageNavigation article={article} /> : languages ? <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
         {languages["zh-CN"] ? <Link href={new URL(languages["zh-CN"]).pathname} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link> : null}
         {languages.en ? <Link href={new URL(languages.en).pathname} lang="en" className="min-h-11 py-2 underline">English</Link> : null}
       </nav> : null}

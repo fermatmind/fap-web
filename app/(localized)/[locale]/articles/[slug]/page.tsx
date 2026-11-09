@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { articleByline } from "@/lib/content/articleByline";
@@ -438,6 +439,8 @@ export default async function ArticleDetailPage({
           { label: article.title },
         ]}
       />
+
+      <ArticleLanguageNavigation article={article} />
 
       <header id="what-it-is" className="space-y-5 border-b border-[var(--fm-border)] pb-7">
         {introJumps.length > 0 ? (

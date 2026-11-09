@@ -117,6 +117,7 @@ type CmsArticlesApiResponse = {
 
 type CmsArticleApiResponse = {
   ok?: boolean;
+  reader_language_slugs?: unknown;
   article?: CmsArticleApiRecord | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
   answer_surface_v1?: AnswerSurfaceRaw | null;
@@ -211,6 +212,7 @@ export type CmsArticle = {
   relatedTestSlugs?: string[];
   testEdges?: CmsArticleTestEdge[];
   translationGroupId?: string | null;
+  readerLanguageSlugs?: Partial<Record<ArticleSeoLocale, string>>;
   voice: string | null;
   voiceOrder: number | null;
   status: string;
@@ -1553,6 +1555,21 @@ export async function getCmsArticle(slug: string, locale: Locale | string, usePu
       return null;
     }
 
+    const readerLanguages = response.reader_language_slugs;
+    if (response.ok === true && isPublicArticleRecord(response.article, apiLocale)
+      && response.article.slug === normalizedSlug
+      && readRecordValue(readerLanguages, apiLocale) === normalizedSlug) {
+      const destinations = (["zh-CN", "zh-TW", "en"] as const).flatMap((language) => {
+        const destination = readRecordValue(readerLanguages, language);
+        return typeof destination === "string" && normalizeArticleSlug(destination) === destination
+          && /^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(destination)
+          ? [[language, destination] as const]
+          : [];
+      });
+      if (destinations.some(([language]) => language === "zh-TW") && destinations.length > 1) {
+        article.readerLanguageSlugs = Object.fromEntries(destinations);
+      }
+    }
     article.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
     article.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
     return article.slug && article.title ? article : null;

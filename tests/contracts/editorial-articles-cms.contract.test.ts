@@ -1,4 +1,6 @@
+import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import TraditionalArticlePage, { generateMetadata as traditionalArticleMetadata } from "@/app/(traditional)/zh-TW/articles/[slug]/page";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
@@ -148,6 +150,72 @@ describe("editorial article CMS contract", () => {
     expect(html).toContain(`href="${publicHref}"`);
     expect(html).toContain("查看大五人格測驗");
     expect(html).not.toMatch(/私人結果|私人作答|未開放版本|站外測驗/);
+  });
+
+  it("renders published article language navigation independently of noindex metadata", async () => {
+    const slugs = { "zh-CN": "simplified-source", "zh-TW": "traditional-article", en: "english-peer" };
+    const slug = slugs["zh-TW"];
+    const params = Promise.resolve({ slug });
+    const canonical = "https://fermatmind.com/zh-TW/articles/" + slug;
+    vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
+      const request = new URL(String(input));
+      if (request.pathname.endsWith("/seo")) {
+        return jsonResponse({ meta: { canonical, robots: "noindex,follow" } });
+      }
+      const locale = request.searchParams.get("locale") as keyof typeof slugs;
+      return jsonResponse({
+        ok: true,
+        article: {
+          id: 1, org_id: 0, slug: slugs[locale], locale, title: "Article", content_md: "Published body",
+          status: "published", is_public: true, is_indexable: false, published_revision_id: 27,
+        },
+        reader_language_slugs: slugs,
+      });
+    }));
+    const html = renderToStaticMarkup(await TraditionalArticlePage({ params }));
+    expect(html).toContain('href="/zh/articles/simplified-source"');
+    expect(html).toContain('href="/en/articles/english-peer"');
+    const metadata = await traditionalArticleMetadata({ params });
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect(new URL(String(metadata.alternates?.canonical)).pathname).toBe(new URL(canonical).pathname);
+    expect(metadata.alternates?.languages).toBeUndefined();
+    const simplified = await getCmsArticle(slugs["zh-CN"], "zh");
+    expect(simplified?.readerLanguageSlugs).toEqual(slugs);
+    const simplifiedNav = renderToStaticMarkup(createElement(ArticleLanguageNavigation, { article: simplified! }));
+    expect(simplifiedNav).toContain('href="/zh-TW/articles/traditional-article"');
+    expect(simplifiedNav).toContain('href="/en/articles/english-peer"');
+  });
+
+  it("ignores foreign paths and reader relationships that omit the current published slug", async () => {
+    const slug = "traditional-article";
+    const request = vi.fn(async () => jsonResponse({
+      ok: true,
+      article: {
+        id: 1, org_id: 0, slug, locale: "zh-TW", title: "Article", content_md: "Published body",
+        status: "published", is_public: true, is_indexable: false, published_revision_id: 27,
+      },
+      reader_language_slugs: { "zh-CN": "/account", "zh-TW": slug, en: "//outside.example/en/articles/peer" },
+    }));
+    vi.stubGlobal("fetch", request);
+    expect((await getCmsArticle(slug, "zh-TW"))?.readerLanguageSlugs).toBeUndefined();
+    request.mockResolvedValueOnce(jsonResponse({
+      ok: true,
+      article: {
+        id: 1, org_id: 0, slug, locale: "zh-TW", title: "Article", content_md: "Published body",
+        status: "published", is_public: true, is_indexable: false, published_revision_id: 27,
+      },
+      reader_language_slugs: { "zh-CN": "source", "zh-TW": "some-other-article", en: "peer" },
+    }));
+    expect((await getCmsArticle(slug, "zh-TW"))?.readerLanguageSlugs).toBeUndefined();
+    request.mockResolvedValueOnce(jsonResponse({
+      ok: true,
+      article: {
+        id: 1, org_id: 0, slug, locale: "zh-TW", title: "Article", content_md: "Published body",
+        status: "published", is_public: true, is_indexable: false, published_revision_id: 27,
+      },
+      reader_language_slugs: { "zh-CN": "a".repeat(129), "zh-TW": slug, en: "english-peer\n" },
+    }));
+    expect((await getCmsArticle(slug, "zh-TW"))?.readerLanguageSlugs).toBeUndefined();
   });
 
   it("renders only the published same-origin Traditional article alternates from CMS", async () => {
