@@ -50,10 +50,6 @@ vi.mock("@/components/quiz/QuizShell", () => ({
   QuizShell: ({ children }: { children?: ReactNode }) => <div>{children}</div>,
 }));
 
-vi.mock("@/components/quiz/QuizTakeHeaderV2", () => ({
-  QuizTakeHeaderV2: () => <div data-testid="quiz-header">header</div>,
-}));
-
 vi.mock("@/components/quiz/immersive/AdaptiveOptionGroup", () => ({
   AdaptiveOptionGroup: () => null,
 }));
@@ -514,6 +510,7 @@ describe("IQ take lifecycle contract", () => {
     expect(await screen.findByText("Find the missing matrix tile.")).toBeInTheDocument();
     expect(screen.getByTestId("iq-stem-svg")).toBeInTheDocument();
     expect(screen.getByTestId("iq-option-board-desktop")).toBeInTheDocument();
+    expect(within(screen.getByRole("banner")).queryByText("Completed")).not.toBeInTheDocument();
     expect(screen.queryByText("IQ_RAVEN")).not.toBeInTheDocument();
     expect(screen.queryByText(/¥1\.99|¥5|unlock/i)).not.toBeInTheDocument();
   });
@@ -540,6 +537,8 @@ describe("IQ take lifecycle contract", () => {
         locale: "en",
       });
     });
+    await screen.findByText("Find the missing matrix tile.");
+    expect(within(screen.getByRole("banner")).queryByText("Completed")).not.toBeInTheDocument();
     expect(hoisted.getIqQuestions).not.toHaveBeenCalled();
 
     await act(async () => {
