@@ -94,11 +94,14 @@ describe('two-slot task flow', () => {
     respond(); render(<CareerCompare locale={locale} />);
     const selects = screen.getAllByRole('combobox');
     const transitionLinkName = locale === 'zh' ? '使用职业转行指南' : 'Use the career transition playbook';
+    const worksheetLinkName = locale === 'zh' ? '填写我的职业探索记录' : 'Fill in my career exploration record';
     expect(screen.queryByRole('link', { name: transitionLinkName })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: worksheetLinkName })).not.toBeInTheDocument();
     fireEvent.change(selects[0], { target: { value: 'industrial-designers' } });
     fireEvent.change(selects[1], { target: { value: 'graphic-designers' } });
     await screen.findByTestId('career-compare-table');
     expect(screen.getByRole('link', { name: transitionLinkName })).toHaveAttribute('href', `/${locale}/career/guides/career-transition-playbook`);
+    expect(screen.getByRole('link', { name: worksheetLinkName })).toHaveAttribute('href', `/${locale}/holland-test/pdf-download#my-worksheet`);
     expect(screen.getByText('Published task for industrial-designers')).toBeInTheDocument();
     expect(screen.getAllByText(locale === 'zh' ? /未知：/ : /Unknown:/).length).toBeGreaterThan(0);
     expect(trackCareerToolEvent).not.toHaveBeenCalled();
@@ -117,6 +120,7 @@ describe('two-slot task flow', () => {
     expect(selects[0]).toHaveFocus();
     expect(screen.queryByTestId('career-compare-table')).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: transitionLinkName })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: worksheetLinkName })).not.toBeInTheDocument();
   });
   it('supports keyboard selection and exposes an accessible comparison table', async () => {
     respond(); const user = userEvent.setup();

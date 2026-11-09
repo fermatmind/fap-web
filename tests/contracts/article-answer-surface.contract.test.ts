@@ -145,7 +145,7 @@ afterEach(() => {
   vi.resetModules();
 });
 
-async function renderArticleDetail(article: CmsArticle, seo: unknown = null) {
+async function renderArticleDetail(article: CmsArticle, seo: unknown = null, locale: "en" | "zh" = "en") {
   process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
   vi.doMock("next/link", () => ({
     default: ({ href, children, ...props }: { href: string; children: ReactNode }) =>
@@ -163,13 +163,21 @@ async function renderArticleDetail(article: CmsArticle, seo: unknown = null) {
 
   const { default: ArticleDetailPage } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
   const page = await ArticleDetailPage({
-    params: Promise.resolve({ locale: "en", slug: article.slug }),
+    params: Promise.resolve({ locale, slug: article.slug }),
   });
 
   return renderToStaticMarkup(page as ReactNode);
 }
 
 describe("article answer surface rendering", () => {
+  it.each([
+    ["en", "what-is-riasec-holland-code-career-interest-test"],
+    ["zh", "riasec-holland-career-interest-test-explained"],
+  ] as const)("links the %s RIASEC overview to the same-language comparison", async (locale, slug) => {
+    const html = await renderArticleDetail({ ...makeArticle(), slug }, null, locale);
+    expect(html).toContain(`href="/${locale}/career/compare"`);
+  });
+
   it("classifies article runtime completeness from backend/CMS surfaces only", () => {
     const article = {
       ...makeArticle(),

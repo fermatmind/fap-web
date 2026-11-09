@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { articleByline } from "@/lib/content/articleByline";
@@ -399,6 +400,9 @@ export default async function ArticleDetailPage({
   ].filter((label): label is string => Boolean(label)).slice(0, 5);
 
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
+  const isRiasecOverview = article.slug === (locale === "zh"
+    ? "riasec-holland-career-interest-test-explained"
+    : "what-is-riasec-holland-code-career-interest-test");
   const headings = !article.contentHtml.trim()
     ? getSimpleMarkdownHeadings(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body" })
     : [];
@@ -497,6 +501,14 @@ export default async function ArticleDetailPage({
           className="min-w-0 space-y-5 [overflow-wrap:anywhere] text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         >
           {renderArticleBody(article, locale, canonicalPath)}
+          {isRiasecOverview ? (
+            <aside className="rounded-lg border border-[var(--fm-border)] p-4">
+              <p className="m-0">{locale === "zh" ? "把兴趣线索带到真实工作中，核对设计职业的任务、技能和入行条件。" : "Use your interest profile to compare real tasks, skills and entry requirements in design careers."}</p>
+              <Link href={localizedPath("/career/compare", locale)} className="inline-flex min-h-11 items-center font-semibold underline">
+                {locale === "zh" ? "比较两个设计职业" : "Compare two design careers"}
+              </Link>
+            </aside>
+          ) : null}
           {article.bodyVisual?.imageUrl ? (
             <ArticleResponsiveImage
               src={article.bodyVisual.imageUrl}
