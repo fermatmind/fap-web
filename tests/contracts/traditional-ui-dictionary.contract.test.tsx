@@ -48,7 +48,7 @@ describe("Taiwan display dictionary", () => {
     expect(apiLocaleForDisplay("zh-TW")).toBeNull();
   });
 
-  it("uses the dictionary in the server-rendered Taiwan shell with the nine-page CMS navigation", () => {
+  it("uses the dictionary in the server-rendered Taiwan shell with the sixteen-page CMS navigation", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>測試內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.documentElement.lang).toBe("zh-TW");

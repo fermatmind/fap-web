@@ -78,15 +78,18 @@ describe("shared Traditional CMS page route", () => {
     }
     expect(read).toHaveBeenCalledWith("help-contact", "zh-TW");
   });
-  it("exposes all nine published CMS pages in the actual Traditional footer", () => {
+  it("exposes all sixteen published CMS pages in the actual Traditional footer", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"]) {
       expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
     expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
-    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(9);
-    for (const slug of ["foundation", "support", "pricing", "policies"]) {
+    for (const path of ["/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research"]) {
+      expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW${path}"]`)).not.toBeNull();
+    }
+    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(16);
+    for (const slug of ["support", "pricing", "help/payment-refund"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
     }
     expect(document.querySelectorAll("main")).toHaveLength(1);

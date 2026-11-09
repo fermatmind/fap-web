@@ -34,7 +34,7 @@ describe("Traditional CMS About complete rendering", () => {
     for (const slug of ["brand", "charter", "careers"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
-    expect(document.querySelector('a[href="/zh-TW/foundation"]')).toBeNull();
+    expect(document.querySelector('a[href="/zh-TW/foundation"]')).not.toBeNull();
     expect(document.querySelector('a[href="/zh-TW/privacy"]')).toBeNull();
     expect(document.querySelector("main")).toBeNull(); // The Traditional root layout owns the main landmark.
     expect(html).not.toContain("private-source-do-not-render");

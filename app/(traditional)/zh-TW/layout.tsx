@@ -19,7 +19,7 @@ export default function TraditionalLayout({ children }: { children: React.ReactN
     </nav></header>
     <main className="mx-auto min-h-[70vh] max-w-4xl px-5 py-8 sm:py-12">{children}</main>
     <footer className="mx-auto max-w-4xl space-y-3 border-t border-slate-200 px-5 py-6 text-sm leading-7">
-      <p>目前繁體中文提供關於費馬測試、品牌規範、憲章、工作機會、隱私政策、使用條款、方法邊界、測評科學、聯絡支援，以及吉伊卡哇、七宗罪與七美德測試的完整內容。其他內容請使用原語入口。</p>
+      <p>瀏覽費馬測試的繁體中文品牌資訊、政策、支援說明，以及吉伊卡哇、七宗罪與七美德測試。</p>
       <nav aria-label="費馬資訊" className="flex flex-wrap gap-x-5 gap-y-1">
         <Link href="/zh-TW/about" className="inline-flex min-h-11 items-center py-2 underline">關於費馬測試</Link>
         <Link href="/zh-TW/brand" className="inline-flex min-h-11 items-center py-2 underline">品牌規範</Link>
@@ -30,6 +30,13 @@ export default function TraditionalLayout({ children }: { children: React.ReactN
         <Link href="/zh-TW/method-boundaries" className="inline-flex min-h-11 items-center py-2 underline">方法邊界</Link>
         <Link href="/zh-TW/science" className="inline-flex min-h-11 items-center py-2 underline">測評科學</Link>
         <Link href="/zh-TW/help/contact" className="inline-flex min-h-11 items-center py-2 underline">聯絡支援</Link>
+        <Link href="/zh-TW/foundation" className="inline-flex min-h-11 items-center py-2 underline">公益捐贈計畫</Link>
+        <Link href="/zh-TW/policies" className="inline-flex min-h-11 items-center py-2 underline">政策總覽</Link>
+        <Link href="/zh-TW/help/faq" className="inline-flex min-h-11 items-center py-2 underline">常見問題</Link>
+        <Link href="/zh-TW/help/about" className="inline-flex min-h-11 items-center py-2 underline">關於 FermatMind</Link>
+        <Link href="/zh-TW/help/team" className="inline-flex min-h-11 items-center py-2 underline">團隊介紹</Link>
+        <Link href="/zh-TW/help/used-and-mentioned" className="inline-flex min-h-11 items-center py-2 underline">使用和提及</Link>
+        <Link href="/zh-TW/help/for-business-and-research" className="inline-flex min-h-11 items-center py-2 underline">企業與研究</Link>
       </nav>
       <nav aria-label="其他語言內容" className="flex flex-wrap gap-5"><Link href="/" lang="zh-CN" className="min-h-11 py-2 underline">简体中文全站</Link><Link href="/en" lang="en" className="min-h-11 py-2 underline">English website</Link></nav>
     </footer>
