@@ -14,6 +14,15 @@ test('localized assessment modules are product routes while named and nested tes
  assert.throws(()=>changedTestPlan([{status:'A',path:route+'reader.rs'}],{vitest:true}),/Unsupported/);
  assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
 });
+test('Taiwan assessment directory and category are product routes without skipping real tests',()=>{
+ const root='app/(traditional)/zh-TW/tests/';
+ const sources=[root+'page.tsx',root+'category/[slug]/page.tsx'];
+ const native=root+'category/reader.test.mjs';
+ const changes=[...sources,native].map(path=>({status:'A',path}));
+ assert.deepEqual(changedTestPlan(changes,{vitest:true}).node,[native]);
+ assert.throws(()=>changedTestPlan([{status:'A',path:root+'category/__tests__/reader.tsx'}],{vitest:true}),/Unsupported/);
+ assert.throws(()=>changedTestPlan([{status:'A',path:root+'category/reader.test.tsx'}],{vitest:true}),/Unsupported/);
+});
 test('assessment component and helper directories distinguish product sources from actual tests',()=>{
  const sources=['components/tests/AssessmentLandingIntro.tsx','components/tests/MbtiEditorialSections.tsx','components/marketing/tests/TestsHubExperience.tsx','lib/tests/assessmentLandingUi.ts'];
  assert.deepEqual(changedTestPlan(sources.map(path=>({status:'M',path})),{vitest:true}).unsupported,[]);
