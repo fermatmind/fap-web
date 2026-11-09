@@ -1,7 +1,33 @@
 import Link from "next/link";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 
-export function mbtiPricingCopy(locale: Locale) {
+export function mbtiPricingCopy(locale: DisplayLocale) {
+  if (locale === "zh-TW") {
+    return {
+      title: "MBTI 報告價格與內容",
+      description: "基礎結果免費；了解 MBTI 單次深度報告的規劃價格、包含的內容和退款政策。",
+      name: "MBTI 單次深度報告",
+      status: "規劃價格 · 尚未開賣",
+      price: "中國大陸 ¥9.99／次 · 海外 US$1.99／次",
+      billing: "單次購買，不會自動續訂。台灣同樣以 US$1.99 定價。",
+      notice: "目前尚未開始正式收費。基礎結果繼續免費，過往已購買的權益保留。",
+      link: "檢視價格、報告內容與退款說明",
+      freeTitle: "基礎結果繼續免費",
+      freeBody: "基礎結果和解釋繼續免費。深度報告是規劃開放的可選單次購買，正式開放前不要求付款。過往已購買的權益按原訂單範圍保留。",
+      includesTitle: "規劃提供哪些內容",
+      includes: ["對應本次測評的人格特質延伸解讀","職業探索、個人成長和人際關係情境的閱讀與應用建議","在網站中檢視該次測評的數位報告"],
+      scope: "單次購買適用於該次測評的深度報告，不是全部測評的會員或訂閱。歷史訂單的權益按原購買範圍保留；已有權益無需重複購買。測評和建議用於自我探索，不替代專業判斷。",
+      currencyTitle: "價格、付款與交付",
+      currency: "中國大陸保留本地支付寶付款管道；海外規劃透過 Waffo Pancake 收款。台灣以美元為定價基準，實際支援的付款幣種、換算金額及適用稅費會在確認付款前顯示。目前尚未開放購買或實際扣款。",
+      delivery: "正式開放後，伺服器確認付款後，會解鎖該次測評的線上報告。若已付款但未解鎖，請先查詢訂單並聯絡支援，不要重複付款。",
+      policyTitle: "購買前先閱讀",
+      refund: "退款與取消政策",
+      terms: "使用條款",
+      support: "訂單查詢與支援",
+      test: "免費開始 MBTI 測試",
+    };
+  }
   return locale === "zh" ? {
     title: "MBTI 报告价格与内容",
     description: "基础结果免费；了解 MBTI 单次深度报告的计划价格、包含内容和退款政策。",
@@ -61,8 +87,19 @@ export function MbtiPricingNotice({ locale }: { locale: Locale }) {
   );
 }
 
-export function MbtiPricingDetails({ locale }: { locale: Locale }) {
+export function MbtiPricingDetails({ locale }: { locale: DisplayLocale }) {
   const copy = mbtiPricingCopy(locale);
+  function destination(path: string, label: string) {
+    const href = localizedPath(path, locale === "zh-TW" ? "zh" : locale);
+    if (locale !== "zh-TW") return { href, label };
+    const traditional = traditionalPath(href);
+    return traditional ? { href: traditional, label } : { href, label: `${label}（簡體中文）` };
+  }
+  const testPath = "/tests/mbti-personality-test-16-personality-types";
+  const test = locale === "zh-TW"
+    ? { href: `/zh-TW${testPath}`, label: copy.test }
+    : destination(testPath, copy.test);
+  const policyLinks = [destination("/help/payment-refund", copy.refund), destination("/terms", copy.terms), destination("/support", copy.support)];
   return (
     <div className="space-y-8" data-testid="mbti-pricing-details">
       <header className="space-y-3">
@@ -73,7 +110,7 @@ export function MbtiPricingDetails({ locale }: { locale: Locale }) {
       <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-6">
         <h2 className="m-0 text-xl font-semibold">{copy.freeTitle}</h2>
         <p className="m-0 leading-7">{copy.freeBody}</p>
-        <Link href={localizedPath("/tests/mbti-personality-test-16-personality-types", locale)} className="inline-block font-semibold text-blue-800 underline underline-offset-4">{copy.test}</Link>
+        <Link href={test.href} className="inline-block font-semibold text-blue-800 underline underline-offset-4">{test.label}</Link>
       </section>
       <section className="space-y-4 rounded-2xl border border-blue-200 bg-blue-50/40 p-6">
         <h2 className="m-0 text-2xl font-semibold">{copy.name}</h2>
@@ -91,9 +128,7 @@ export function MbtiPricingDetails({ locale }: { locale: Locale }) {
       <nav aria-label={copy.policyTitle} className="space-y-3 border-t border-slate-200 pt-6">
         <h2 className="m-0 text-xl font-semibold">{copy.policyTitle}</h2>
         <ul className="flex flex-wrap gap-x-6 gap-y-3 font-semibold text-blue-800 underline underline-offset-4">
-          <li><Link href={localizedPath("/help/payment-refund", locale)}>{copy.refund}</Link></li>
-          <li><Link href={localizedPath("/terms", locale)}>{copy.terms}</Link></li>
-          <li><Link href={localizedPath("/support", locale)}>{copy.support}</Link></li>
+          {policyLinks.map(({ href, label }) => <li key={href}><Link href={href}>{label}</Link></li>)}
         </ul>
       </nav>
     </div>

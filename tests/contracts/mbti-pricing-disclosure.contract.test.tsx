@@ -1,3 +1,5 @@
+import TraditionalPricingPage, { metadata } from "@/app/(traditional)/zh-TW/pricing/page";
+import { traditionalEquivalent } from "@/lib/i18n/traditionalRoutes";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { MbtiPricingDetails, MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
@@ -28,4 +30,18 @@ describe("public planned MBTI pricing", () => {
       expect(document.querySelector("form, button")).toBeNull();
     });
   }
+});
+
+it("renders Taiwan pricing disclosures without changing prices or creating a purchase action", () => {
+  const html = renderToStaticMarkup(<TraditionalPricingPage />);
+  for (const copy of ["¥9.99", "US$1.99", "尚未開賣", "不會自動續訂", "Waffo Pancake", "支付寶付款管道", "過往已購買的權益", "目前尚未開放購買或實際扣款"]) {
+    expect(html).toContain(copy);
+  }
+  expect(html).toContain('href="/zh-TW/terms"');
+  expect(html).toContain('href="/zh-TW/tests/mbti-personality-test-16-personality-types"');
+  expect(html).toContain('href="/zh/help/payment-refund"');
+  expect(html).toContain("（簡體中文）");
+  expect(html).not.toMatch(/href="[^"]*(?:checkout|pay\/|purchase)/i);
+  expect(metadata).toMatchObject({ robots: { index: false }, alternates: { canonical: "/zh-TW/pricing" } });
+  expect(traditionalEquivalent("/zh-TW/pricing")).toBeNull();
 });
