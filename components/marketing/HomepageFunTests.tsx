@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 
 const selections = [
@@ -9,7 +9,7 @@ const selections = [
     slug: "friendship-quiz", path: PUBLIC_PATH,
     title: { zh: "朋友默契：你有多了解我？", en: "How Well Do You Know Me?" },
     description: { zh: "先选出关于你的答案，发给朋友来猜。逐题揭晓，最后看看谁最懂你。", en: "Make a quiz about yourself, send friends your link, and see who knows you best. Every guess gets a reveal." },
-    meta: { zh: "30–150题 · 双人及多人", en: "30–150 questions · Play with friends" },
+    meta: { zh: "30–150题 · 双人及多人", "zh-TW": "30–150 題 · 雙人及多人", en: "30–150 questions · Play with friends" },
     action: { zh: "创建我的挑战", en: "Make my friendship quiz" },
   },
   ...([
@@ -26,26 +26,34 @@ const selections = [
   ]).flatMap(selection => {
     const quiz = questionnaires.find(item => item.slug === selection.slug);
     return quiz ? [{ ...selection, path: `/tests/${quiz.collection}/${quiz.slug}`, title: quiz.title,
-      meta: { zh: `${quiz.questionCount}题 · 约${quiz.minutes}分钟`, en: `${quiz.questionCount} questions · About ${quiz.minutes} minutes` } }] : [];
+      meta: { zh: `${quiz.questionCount}题 · 约${quiz.minutes}分钟`, "zh-TW": `${quiz.questionCount} 題 · 約 ${quiz.minutes} 分鐘`, en: `${quiz.questionCount} questions · About ${quiz.minutes} minutes` } }] : [];
   }),
 ];
 
-export function HomepageFunTests({ locale }: { locale: Locale }) {
+const taiwanCards: Record<string, { title: string; description: string; action: string }> = {
+  "friendship-quiz": { title: "朋友默契：你有多了解我？", description: "先選出關於你的答案，再把連結傳給朋友猜。逐題揭曉，最後看看誰最懂你。", action: "建立我的挑戰" },
+  "what-dog-breed-am-i": { title: "你是哪一種狗狗？", description: "黃金獵犬、邊境牧羊犬還是哈士奇？從相處與活動偏好，找出你的犬系性格比喻。", action: "看看我的犬系人格" },
+  "mythical-creature": { title: "你是哪一種神話生物？", description: "龍、鳳凰還是獨角獸？從創作與交流中的選擇，探索你的神話生物形象。", action: "找出我的神話生物" },
+};
+
+export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
+  const taiwan = locale === "zh-TW";
+  const sourceLocale = taiwan ? "zh" : locale;
   const zh = locale === "zh";
   return <section className="fm-page-background pb-20 md:pb-24" aria-labelledby="homepage-fun-tests-title">
     <Container className="max-w-[82rem] px-6 md:px-8">
       <div className="border-t border-[var(--fm-border-soft)] pt-12 md:pt-16">
-        <h2 id="homepage-fun-tests-title" className="m-0 text-center text-3xl font-semibold text-slate-950 md:text-4xl">{zh ? "热门娱乐测试" : "Popular fun quizzes"}</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center leading-7 text-slate-600">{zh ? "和朋友玩一轮，或换个轻松的角度看看自己。完整结果免费，无需注册。" : "A friendship challenge to share, or a playful personality quiz just for you. Full results are free, with no signup."}</p>
+        <h2 id="homepage-fun-tests-title" className="m-0 text-center text-3xl font-semibold text-slate-950 md:text-4xl">{taiwan ? "熱門娛樂測驗" : zh ? "热门娱乐测试" : "Popular fun quizzes"}</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center leading-7 text-slate-600">{taiwan ? "和朋友玩一輪，或換個輕鬆的角度認識自己。完整結果免費，無須註冊。" : zh ? "和朋友玩一轮，或换个轻松的角度看看自己。完整结果免费，无需注册。" : "A friendship challenge to share, or a playful personality quiz just for you. Full results are free, with no signup."}</p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {selections.map(item => <Link key={item.slug} prefetch={false} href={`/${locale}${item.path}`} className="group flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 text-slate-950 transition-colors hover:border-[#007c9b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-reduce:transition-none">
+          {selections.map(item => <Link key={item.slug} prefetch={false} href={`/${sourceLocale}${item.path}`} hrefLang={taiwan ? "zh-CN" : undefined} className="group flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 text-slate-950 transition-colors hover:border-[#007c9b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-reduce:transition-none">
             <p className="m-0 text-sm font-medium text-slate-500">{item.meta[locale]}</p>
-            <h3 className="mt-4 text-xl font-semibold leading-snug [overflow-wrap:anywhere]">{item.title[locale]}</h3>
-            <p className="mt-4 flex-1 text-base leading-7 text-slate-600">{item.description[locale]}</p>
-            <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-[#007c9b]">{item.action[locale]}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none">→</span></span>
+            <h3 className="mt-4 text-xl font-semibold leading-snug [overflow-wrap:anywhere]">{taiwan ? taiwanCards[item.slug].title : item.title[sourceLocale]}</h3>
+            <p className="mt-4 flex-1 text-base leading-7 text-slate-600">{taiwan ? taiwanCards[item.slug].description : item.description[sourceLocale]}</p>
+            <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-[#007c9b]">{taiwan ? `${taiwanCards[item.slug].action}（簡體中文）` : item.action[sourceLocale]}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none">→</span></span>
           </Link>)}
         </div>
-        <p className="mt-6 text-center text-sm leading-6 text-slate-500">{zh ? "编辑精选的轻松玩法，供娱乐与聊天使用。" : "An editorial selection for fun and conversation."} <Link prefetch={false} className="inline-block min-h-11 py-2 text-[#007c9b] underline underline-offset-4" href={`/${locale}/tests#more-tests`}>{zh ? "浏览全部娱乐测试" : "Browse all fun quizzes"} →</Link></p>
+        <p className="mt-6 text-center text-sm leading-6 text-slate-500">{taiwan ? "編輯精選的輕鬆玩法，適合娛樂與聊天。" : zh ? "编辑精选的轻松玩法，供娱乐与聊天使用。" : "An editorial selection for fun and conversation."} <Link prefetch={false} className="inline-block min-h-11 py-2 text-[#007c9b] underline underline-offset-4" href={`/${locale}/tests#more-tests`}>{taiwan ? "瀏覽全部娛樂測驗" : zh ? "浏览全部娱乐测试" : "Browse all fun quizzes"} →</Link></p>
       </div>
     </Container>
   </section>;

@@ -1,6 +1,6 @@
 import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 const RIASEC_CANONICAL_TEST_PATH = "/tests/holland-career-interest-test-riasec";
@@ -165,7 +165,7 @@ function normalizeHomeContent(value: unknown): HomePageContent {
   };
 }
 
-export async function getHomePageContent(locale: Locale): Promise<HomePageContent> {
+export async function getHomePageContent(locale: DisplayLocale): Promise<HomePageContent> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood<HomePageContent>("home", locale);
   return normalizeHomeContent(surface.value.payloadJson);
 }

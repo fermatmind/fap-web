@@ -262,7 +262,7 @@ export function getFreeTestPrimaryLabel(
   return name === "MBTI" ? "开始 MBTI 免费测试" : `开始${name}免费测试`;
 }
 
-export async function getTestsHubContent(locale: Locale): Promise<TestsHubContent> {
+export async function getTestsHubContent(locale: DisplayLocale): Promise<TestsHubContent> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood<TestsHubContent>("tests", locale);
   const content = assertHubContent(surface.value.payloadJson);
 
@@ -290,7 +290,7 @@ export async function getTestsCategoryContent(locale: DisplayLocale, slug: Tests
   return assertCategoryContent(surface.value.payloadJson, slug);
 }
 
-export async function listVisibleTestsHubCards(locale: Locale): Promise<HubTestCardItem[]> {
+export async function listVisibleTestsHubCards(locale: DisplayLocale): Promise<HubTestCardItem[]> {
   const content = await getTestsHubContent(locale);
   return filterVisiblePublicTestEntries(uniqueCards(content.families.items.map((family) => family.tests)));
 }

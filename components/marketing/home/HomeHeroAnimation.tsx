@@ -1,10 +1,10 @@
 import Image from "next/image";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { HOME_HERO_CATEGORIES } from "./home-hero-categories";
 import { HomeHeroPanel } from "./HomeHeroPanel";
 import styles from "./home-hero-animation.module.css";
 
-export function HomeHeroAnimation({ locale }: { locale: Locale }) {
+export function HomeHeroAnimation({ locale }: { locale: DisplayLocale }) {
   return (
     <div aria-hidden="true" className={styles.scene} data-testid="home-hero-animation">
       <HomeHeroPanel locale={locale} />
@@ -24,7 +24,7 @@ export function HomeHeroAnimation({ locale }: { locale: Locale }) {
         <g className={styles.bookStack}>
           {HOME_HERO_CATEGORIES.map((category) => {
             const copy = category.copy[locale];
-            const verticalChinese = category.upright && locale === "zh";
+            const verticalChinese = category.upright && locale !== "en";
             const lines = copy.lines ?? [copy.label];
 
             return (

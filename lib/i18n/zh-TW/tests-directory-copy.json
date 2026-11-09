@@ -1,0 +1,3905 @@
+{
+  "recipe": "e3663655d6a27045d7c9f004b53c71502ce679c83dc2a7b3e040854f1c688345",
+  "bySlug": {
+    "disc": {
+      "title": {
+        "sourceHash": "162e1c0468cb2276a8a3df3d379d44ca51a0f07e834437f6cac845dac1df6e88",
+        "target": "DISC測驗"
+      },
+      "description": {
+        "sourceHash": "7e9f4008deb498a559e535d88f58613f260344869ef92f25986000c5b172a591",
+        "target": "在工作情境中比較推進任務、表達、支援和核對規範的選擇。結果保留最高並列。"
+      }
+    },
+    "response-color": {
+      "title": {
+        "sourceHash": "38357b349fca3e441bc4204ededa8df0fd332a110820b5973eb5c1268c811662",
+        "target": "色彩性格測驗"
+      },
+      "description": {
+        "sourceHash": "f5f6b94d7c75c377d2cdb9cfd6c5582b0248fd5316241e4893fd296f756c989d",
+        "target": "通過日常情境比較四種回應方式，用紅、黃、藍、綠四類計數呈現本次選擇。"
+      }
+    },
+    "social-battery-test": {
+      "title": {
+        "sourceHash": "13cb178ead7939907573473c65fcf4a175a928abc847b094cbd299ab7908f006",
+        "target": "社交電量測驗"
+      },
+      "description": {
+        "sourceHash": "79fdca39381fa28f15aa01c5eb67a7cb9081d46625a363ccbe85eaae2bc5caeb",
+        "target": "回顧過去兩週哪些交流耗費精力、哪些相處或獨處方式幫助你恢復。四項分別計分。"
+      }
+    },
+    "spirit-animal": {
+      "title": {
+        "sourceHash": "d0ba3c9c648edb5e0ec0dc6c2cbbb2c0aa0d19929fb98beb8f052ff656798be7",
+        "target": "精神動物測驗"
+      },
+      "description": {
+        "sourceHash": "60e4622d2ac169a27578fb8fb47040bbc2ef3f952227e600adb4a7d0f2f7c813",
+        "target": "精神動物／靈獸測驗：18題比較九種動物意象，保留最高並列和完整指南。"
+      }
+    },
+    "flower": {
+      "title": {
+        "sourceHash": "4c8dc8325eaee0842f3b8e05306712cad5ff23e59b73348d63eb85cb02b76c32",
+        "target": "花朵人格測驗"
+      },
+      "description": {
+        "sourceHash": "64bcaf9bfbf28a74541f9b55d57a65517fce5b1294add0c8ee434f70d5f614b0",
+        "target": "用玫瑰、向日葵等六種花比喻表達偏好。每份解讀都有例項，得分最高時可並列。"
+      }
+    },
+    "what-dog-breed-am-i": {
+      "title": {
+        "sourceHash": "c686e01e202ea419f0d10887a6a308498e47be57cdc9e0ccfae341b2277de7d1",
+        "target": "犬系人格測驗"
+      },
+      "description": {
+        "sourceHash": "e4aa0daa028ab4f88d602d384528d38e74f93b2b52feb7a8899235af9216202f",
+        "target": "看看你偏好的相處方式和活動節奏更接近哪種犬系比喻。結果保留最高並列。"
+      }
+    },
+    "mythical-creature": {
+      "title": {
+        "sourceHash": "6f33830a85a9baa9dd803f7bbc12f8e88790e5cd237b47aa148675ab7e06815c",
+        "target": "神話生物測驗"
+      },
+      "description": {
+        "sourceHash": "fc32a89432b8fc1130285d042a2bb727996f57dda20d3150da764266032f081a",
+        "target": "用龍、鳳凰等六種神話生物比喻創作與交流偏好。結果保留最高並列。"
+      }
+    },
+    "superpower-test": {
+      "title": {
+        "sourceHash": "d268f07f87e7e13b034612f86e310b445033bb94415fe0713701a7df3a037f48",
+        "target": "超能力測驗"
+      },
+      "description": {
+        "sourceHash": "e8ad202f24c6a8f3f75ad8bf186727af9810badc3afc2539fcbec615176c881b",
+        "target": "把詢問、換視角、調整節奏等偏好化作五種虛構超能力。結果保留最高並列。"
+      }
+    },
+    "moral-alignment": {
+      "title": {
+        "sourceHash": "ce0b647489fc54ac8a97a2274c7a1bc8532d0816672697ab8e58843d42da9885",
+        "target": "道德陣營測驗"
+      },
+      "description": {
+        "sourceHash": "354422a59b8b949ced6ea3ff807d55a6a941c52eb8a05bff80aeb3bbc0249b2b",
+        "target": "DND道德陣營測驗：24題、兩軸與陣營九宮格，全部界線匹配和完整解讀免費。"
+      }
+    },
+    "jungian-archetype": {
+      "title": {
+        "sourceHash": "ae1305ce556a8d63db166550023e178e26a468093614e4aabb3bff61608739ff",
+        "target": "榮格原型測驗"
+      },
+      "description": {
+        "sourceHash": "88d52a0f5e48873ec6af02e233bf4e675f89e0d4b3856e07b80cefb49e2913d0",
+        "target": "比較十二種原型動機，檢視各項選擇次數、最高並列和原型來源。"
+      }
+    },
+    "introvert-extrovert": {
+      "title": {
+        "sourceHash": "f9c9105eda417f46e0954efebb852b86dd6b0822b87f3a3bb83b0fb0616c6da2",
+        "target": "內向還是外向測驗"
+      },
+      "description": {
+        "sourceHash": "0c03d2418db9f7243af778ae866f85e45d03f4aa77a61a4ee474e87e901f4084",
+        "target": "用 IPIP 外向性條目回顧交談與群體參與。結果含 10–50 分總分、均分及反向計分說明。"
+      }
+    },
+    "temperament": {
+      "title": {
+        "sourceHash": "75b9ce0b5ad7b914ebc35413b7bab57fe1f8ce0188b31cfe01d095cf12859034",
+        "target": "氣質測驗"
+      },
+      "description": {
+        "sourceHash": "48aa2b9baba9ee739819979bf25f2456ebc51602557c7d720ce126464bdd01a1",
+        "target": "比較多血質、膽汁質、抑鬱質和黏液質四種傳統氣質對應的選擇。結果保留最高並列。"
+      }
+    },
+    "love-languages": {
+      "title": {
+        "sourceHash": "fe484fefd721421b68c298e6dfccb69459a4dd170f9defe5758f5c0660122622",
+        "target": "五種愛的語言測驗"
+      },
+      "description": {
+        "sourceHash": "aa9e4bba1221938b80cf34cf52e0387c8e127b65ebcfd7055dc8c1cc0a4ced42",
+        "target": "五種愛的語言測驗：50項分別觀察表達與接收，比較互動例子和五份完整指南。"
+      }
+    },
+    "attachment-styles": {
+      "title": {
+        "sourceHash": "69bcc728718fdb8802025a9cc812b872801f7f89434d6cc1bb6d200ff32b4c34",
+        "target": "依戀風格測驗"
+      },
+      "description": {
+        "sourceHash": "b373750bfbbeb28f25d3b573c1a4e8c4be92bf9a337a0cc03f14ffed075cb85d",
+        "target": "回顧近三個月同一段成年親密關係裡的擔心與退縮。檢視兩項均分和四種依戀風格解讀。"
+      }
+    },
+    "communication-style": {
+      "title": {
+        "sourceHash": "0441a3dd36ead2a004d1b46fcf94601f9c7f0ad4169cd629eea53514e2724ccf",
+        "target": "溝通風格測驗"
+      },
+      "description": {
+        "sourceHash": "67c6702e12aad1aea9d1bfbb221fdc79ec87050aa13f5ec5eec169fd4af833c2",
+        "target": "回顧近四周的表達方式，從堅定表達、被動回應到強硬或間接抵抗。四項分別計分。"
+      }
+    },
+    "leadership-style": {
+      "title": {
+        "sourceHash": "c306490f98d3ec13b190a37a37a0aeb8c7c54075f9a683565e480bce63661706",
+        "target": "領導風格測驗"
+      },
+      "description": {
+        "sourceHash": "2accf44255c99ed869c85fef7942e3aec06bf72fc04b3bec69982237a3f1b59b",
+        "target": "比較你在團隊中偏向集中決策、邀請參與、適度放手還是指明方向。四種做法按選擇次數比較。"
+      }
+    },
+    "humor-style-test": {
+      "title": {
+        "sourceHash": "17c981d0758dd3488bb88e0ac3672c6ac1de8adfc58fff678116051e2fb1387d",
+        "target": "幽默風格測驗"
+      },
+      "description": {
+        "sourceHash": "d49c65d1b98d8d0b02cf7ef2d34b538e590897e96e044d0b835b1a6016a35441",
+        "target": "回顧近四周怎樣使用冷麵幽默、文字巧思、自嘲等表達方式。六種幽默分別計分。"
+      }
+    },
+    "travel-personality-test": {
+      "title": {
+        "sourceHash": "aa9ccdbc4fec632a655d2b3effdfc7976de65e4bdaa0c8a243081b57fd880ac9",
+        "target": "旅行性格類型測驗"
+      },
+      "description": {
+        "sourceHash": "631ee3ab23fdf57bd9d7fd1ea320ac47fe9232437aec16a4db35401724980ab6",
+        "target": "在旅行選擇中比較計劃、隨興、文化、戶外、休息與美食。把結果用作討論行程的參考。"
+      }
+    },
+    "aesthetic-core-test": {
+      "title": {
+        "sourceHash": "d43d8a07cc79a8edb1dfec6e2707b459d4ef075eb04bbaf941ed1803782c57b8",
+        "target": "美學核心測驗"
+      },
+      "description": {
+        "sourceHash": "b103e62a6e83a0439d6e447916db73e9944f5080e520654a986c9bcc5ef11648",
+        "target": "用文字情境比較六種美學風格，檢視配色和材質建議。無需上傳照片。"
+      }
+    },
+    "music-taste-test": {
+      "title": {
+        "sourceHash": "0fe246d6a2b27f6dd2f96b313be6286906985d1d9622d2169f9b7cb82c66cb65",
+        "target": "音樂品味測驗"
+      },
+      "description": {
+        "sourceHash": "35b79c2a97ba88807631e74daf182a410c9d5db54b4812a82dce68275cf3b235",
+        "target": "按喜歡程度評價不同音樂描述。結果分別呈現八種音樂偏好的均分及有效作答數。"
+      }
+    },
+    "people-pleaser": {
+      "title": {
+        "sourceHash": "5a8205ff0328766388154bb0a141d48b863b2d62d72c00046e7f3b8ea09acf69",
+        "target": "討好型人格測驗"
+      },
+      "description": {
+        "sourceHash": "662b711da317dd6a42260944af1fa35aa968347c29a04ed2095e1f1038b24fd3",
+        "target": "用 PPS 自評回顧擱置自身需要、照顧他人的責任感與迎合期待。結果說明題源與中文改編。"
+      }
+    },
+    "difficult-person-test": {
+      "title": {
+        "sourceHash": "76b12228db1109b167b6a6a666cb7f24a069fb74565958ff916c7a698bffadd0",
+        "target": "難相處人格測驗"
+      },
+      "description": {
+        "sourceHash": "dbe25ceb319baac6fe9d0a28f4628d599feb5fd647486ad4e42f3660868af86d",
+        "target": "回顧近四周的七類互動行為。分項結果附反向計分示例、行為例項和溝通建議。"
+      }
+    },
+    "likable-person-test": {
+      "title": {
+        "sourceHash": "e849e9f20dcd51494530e0b2f291ddff16f4b1c593ede1571ea0fbc54f28fa44",
+        "target": "討人喜歡測驗：互動貢獻線索"
+      },
+      "description": {
+        "sourceHash": "ab70001444337c5938353bf09c2d25f23c7e7d55a1a514b9d110fba1acfeb59f",
+        "target": "比較溫暖、兌現承諾、輕鬆、好奇與界線在你選擇中的分量。結果保留所有最高並列。"
+      }
+    },
+    "procrastinator-type-test": {
+      "title": {
+        "sourceHash": "b31494fdfd278282efb5fd8d877a5197bb6b4e36d555d36a82fd1f730e0c9ade",
+        "target": "拖延者類型測驗"
+      },
+      "description": {
+        "sourceHash": "b6ca039a02b680845f1ea57dfd27462cc2d6e927e5a2b1d3ce6a467bdc556047",
+        "target": "回顧近四周的拖延習慣，區分擔憂、臨期啟動、承諾過多等六種模式。結果分別呈現。"
+      }
+    },
+    "learning-style": {
+      "title": {
+        "sourceHash": "ca94dab8ecbd4878def83dacd7d69dbc7e90a910b68c5f64bbd93b5d22ddf55e",
+        "target": "學習風格測驗"
+      },
+      "description": {
+        "sourceHash": "571019c9c03375ba42000371aa125c1d088a90e9af3a37269203d60cd0394cf0",
+        "target": "比較你目前願不願用圖示、口頭解釋、讀寫和例項來學習。四種方式分別計分。"
+      }
+    },
+    "character-strengths": {
+      "title": {
+        "sourceHash": "f1d2853afb7d8c9ea1e68b395ceb06044923c1b568a31f8a635920fc73498ac1",
+        "target": "性格優勢測驗"
+      },
+      "description": {
+        "sourceHash": "05c368a07546b0b40dda57ac82d783c1becd15e54b525bb1385a4f24700b2d39",
+        "target": "用公開的 IPIP-VIA-R 條目回顧好奇、誠實、關愛等 24 項優勢。中文為工作譯文。"
+      }
+    },
+    "tsundere-dere-type": {
+      "title": {
+        "sourceHash": "da138b402653f0d9f1382f51004336bf7976b7d17af33da854521460cdaf7735",
+        "target": "傲嬌類型測驗"
+      },
+      "description": {
+        "sourceHash": "c8bc5aab1bd074342063f8270cc092c251decc654aae3747ffb981e6dd055801",
+        "target": "用日常情境比較傲嬌、冷嬌、悶嬌和熱嬌四種虛構表達方式。結果保留最高並列。"
+      }
+    },
+    "hogwarts-house-quiz": {
+      "title": {
+        "sourceHash": "0b8f556a95384e6186bd8deceacc08023aaa052746076d1995dbe123ca36f9eb",
+        "target": "霍格沃茨分院測驗"
+      },
+      "description": {
+        "sourceHash": "635d7a7366a9c687a81730c0f82ebe7968824d2b2f9ca12f2ffddc7f45c3fbb8",
+        "target": "哈利波特分院測驗：24題比較四所霍格沃茨學院，保留最高並列，完整指南免費。"
+      }
+    },
+    "greek-god": {
+      "title": {
+        "sourceHash": "d839e01d4ec7025c0e48bee70f608ca99b51cdf8e693f11092da4ee5108d1ee9",
+        "target": "希臘神測驗"
+      },
+      "description": {
+        "sourceHash": "285c87394ff1edb4d6f69f5e902668ffcccc84abfdef641c4f5785f53542eeb6",
+        "target": "用六位希臘神祇的象徵主題回看情境選擇。結果保留最高並列。"
+      }
+    },
+    "which-tarot-card-are-you": {
+      "title": {
+        "sourceHash": "04dac25367174ebe1ec68fb45580cf0c005dfcf4525045e6723a029c157c4a65",
+        "target": "你是哪張塔羅牌測驗"
+      },
+      "description": {
+        "sourceHash": "f3f5643c9498c2b742781b974029aae965570a5543f6d7686d1d67a7b36ef5e6",
+        "target": "把日常偏好與 22 張大阿爾卡那的象徵主題對照。無需提供生日或了解塔羅。"
+      }
+    },
+    "what-element-am-i": {
+      "title": {
+        "sourceHash": "1cac313e457d74f5f644d31aafd7a47981b41470f5f6b78a87e64f6b820cbc93",
+        "target": "四元素測驗"
+      },
+      "description": {
+        "sourceHash": "a796ac548fe8a8c4e142713b816fd501f16ee6a07841343e3a11654cb200df97",
+        "target": "用火、水、土、風作比喻，比較日常偏好。無需提供生日。"
+      }
+    },
+    "aura-color": {
+      "title": {
+        "sourceHash": "70888f9911746828d79803446266686e15f59e3b5940b61ad17ba92535f3daf5",
+        "target": "光環顏色測驗"
+      },
+      "description": {
+        "sourceHash": "c6563bdb0fb2a53bc436cb1246217ec1f61b679e34e96c7268a0a86704c6eeb0",
+        "target": "你的光環是什麼顏色？用七色象徵比較日常表達偏好，不用照片或生日。"
+      }
+    },
+    "past-life": {
+      "title": {
+        "sourceHash": "c59ea9dc9b6afa104af0c3128352617852e4f853b1a95095f0a970bdbd9604e8",
+        "target": "前世測驗"
+      },
+      "description": {
+        "sourceHash": "b6caa405ce0fb6937605def677bd1a7b9671ef0cddb6164b9f68b14db070df26",
+        "target": "從寫作、器物設計、印刷、織造等歷史活動裡選出你感興趣的方向。結果是虛構意象。"
+      }
+    },
+    "moon-phase": {
+      "title": {
+        "sourceHash": "0f7604ff4aa80da607f409b229a4a0b335bcbd3f16641d28dfec959939517e72",
+        "target": "月相測驗"
+      },
+      "description": {
+        "sourceHash": "8a09e2f0d6ef5471efc221f7384edbade41237a8f9ab05e0fe35f426ebbd86dc",
+        "target": "24題看看你更常選擇哪種月相意象，免費檢視全部最高並列、選擇次數與八份指南。"
+      }
+    },
+    "bojack-horseman-character-quiz": {
+      "title": {
+        "sourceHash": "5f7bed2f615af992744785d4d74775d7d6513e0723cf93009d2adbb86e60b385",
+        "target": "馬男波傑克（BoJack Horseman）角色測驗"
+      },
+      "description": {
+        "sourceHash": "ef7ff74a82a214c0976cbdfaab1e037995d33d14ef94d43f2f888703e019bc90",
+        "target": "在日常情境中比較五位《馬男波傑克》角色對應的選擇方式。無需了解劇情。"
+      }
+    },
+    "chiikawa": {
+      "title": {
+        "sourceHash": "3ffb8069fb68dae26044c0956ed74ada44a8fb14360c5fc7e1f629ab6b80284f",
+        "target": "吉伊卡哇角色測驗"
+      },
+      "description": {
+        "sourceHash": "b1dddbb10e1b93b0aef343f7e3d15589f9d9e30a391e0c8d39a1e2aa723024d5",
+        "target": "吉伊卡哇（小可愛）、小八還是兔兔？從相聚、分享和表達願望的選擇中，比較六位角色。"
+      }
+    },
+    "disney-princess": {
+      "title": {
+        "sourceHash": "b7945e90d6f6b28bf29880cc0a6bee96753c1abaf7d6927c4502d3c77c98a7c1",
+        "target": "迪士尼公主測驗"
+      },
+      "description": {
+        "sourceHash": "0b59594a9f1e98ebad577a13f7a71704bf08b1a4b3570c34a5122394602c536f",
+        "target": "在表達意願、歡迎他人和合作的情境裡，比較十三種迪士尼公主角色視角。"
+      }
+    },
+    "naruto-character": {
+      "title": {
+        "sourceHash": "f8f8c93c77b66f4a6e21ee281c2ca2110d71be81f6792c607338aaaf9aeeb6e0",
+        "target": "《火影忍者》角色測驗"
+      },
+      "description": {
+        "sourceHash": "6039deb960eb69c205e0c64f21dff394fdaf64311dcc831854edbe565335b0a1",
+        "target": "從練習、分工和承擔責任的選擇中，對照七位《火影忍者》角色的做法。"
+      }
+    },
+    "death-note": {
+      "title": {
+        "sourceHash": "c8e8b2951373d089e9d86e80327d4d4fbfc1b17105c5382e0fb3897db5eb5231",
+        "target": "《死亡筆記》角色測驗"
+      },
+      "description": {
+        "sourceHash": "e6a8d70a03b88a9916f022ac592b02a00d58bf07850ae23c166f9a07cce3a14b",
+        "target": "從提問、觀察、整理資訊和替代方案的選擇中，對照八位《死亡筆記》角色的思路。"
+      }
+    },
+    "bleach": {
+      "title": {
+        "sourceHash": "e0c6fd85b5e4d8f579d53b3481780e9cb6cb344f5fa5f31e27d3e0692624abb7",
+        "target": "《死神》角色測驗"
+      },
+      "description": {
+        "sourceHash": "c98ca1687e2ebd7359b4f156c4539e1b2f1bbfffd2ac3de5aa327ebf78c9b530",
+        "target": "你更接近哪位《死神》角色？21道日常選擇，匹配一護、露琪亞等七位角色，保留全部並列。"
+      }
+    },
+    "star-wars-character": {
+      "title": {
+        "sourceHash": "fd9450afae1732f5cb2ea86dfeb09c0067d1d41f8c7c006440e0e2f1432c6b5d",
+        "target": "《星球大戰》角色測驗"
+      },
+      "description": {
+        "sourceHash": "46065d1ad2415f2bbbe26403e52de1326fd51f6e598a8a9e64edd7aa8c5daf93",
+        "target": "從學習、分享、安排和檢驗假設的選擇裡，對照七位《星球大戰》角色的做法。"
+      }
+    },
+    "hello-kitty": {
+      "title": {
+        "sourceHash": "97115ac7374903be0cd4bdf93e12e352ef160c28b05fb6f918d7821f046cb545",
+        "target": "Hello Kitty與三麗鷗角色測驗"
+      },
+      "description": {
+        "sourceHash": "98bb83dffbdb14a296746efc880e9939d4baf4e24310bbc612b55208c4e0911b",
+        "target": "三麗鷗角色測驗：21題比較Hello Kitty等七位朋友的相處方式，完整結果免費。"
+      }
+    },
+    "dungeons-dragons-class": {
+      "title": {
+        "sourceHash": "2b26c8269cd98f60114e9160959a50409234261c6e1086c850736056f915a5ea",
+        "target": "D&D 職業測驗"
+      },
+      "description": {
+        "sourceHash": "99ffbae70019965d25d9f7801f414fa2e76af6f31e4401293b8e6038b6775695",
+        "target": "從奇幻隊伍的合作選擇中，比較十二種 D&D 職業的玩法偏好。結果保留最高並列。"
+      }
+    },
+    "type-ab": {
+      "title": {
+        "sourceHash": "dba232ffbf67b1e7ef9d949c4b45c0828ede12f8f57478af2cc2be6f706b578e",
+        "target": "A型/B型人格測驗"
+      },
+      "description": {
+        "sourceHash": "3a0670b517ba00a2a8a9600caa692b45ddbd6294432c176d36dbe8d43b823991",
+        "target": "回顧近四周的時間壓力、競爭比較、等待煩躁和難以停下的體驗。四項分別計分。"
+      }
+    },
+    "sdt-motivation": {
+      "title": {
+        "sourceHash": "7d7e4ef475358ce733128ace680438ef26669c2ff4172e437e71e5d52d345fa5",
+        "target": "SDT動機檔案測驗"
+      },
+      "description": {
+        "sourceHash": "8b97c1a2469e904b41c99b879b0da5ed64a1fd3758a3459908d4a2fa204054f7",
+        "target": "在同一生活領域回顧近四周的自主、勝任和聯結體驗，分別檢視滿足與受阻的讀數。"
+      }
+    },
+    "socionics": {
+      "title": {
+        "sourceHash": "d977e6bb8108df36156fe1f5dafedd14f1993a37f45a0c6cb5a40d6f680341ac",
+        "target": "Socionics 測驗（社會人格學）：四象限偏好"
+      },
+      "description": {
+        "sourceHash": "f9849748c27d7f200432271399ec51f54cd4d0801c8cc0e0eb62c2eec041d317",
+        "target": "比較 Alpha、Beta、Gamma 和 Delta 四組資訊偏好的選擇次數，了解它們與十六型的區別。"
+      }
+    },
+    "optimism-pessimism": {
+      "title": {
+        "sourceHash": "6991fdd22286dfbc7703e654b7fa08651e050db7ded03ae1882840618e0fad0e",
+        "target": "樂觀與悲觀性測驗"
+      },
+      "description": {
+        "sourceHash": "c9f75baf660a6f93ebeb2f36d26424842d1954cde4b2002e6b2799c2ef70a122",
+        "target": "用 IPIP 條目回顧對未來的期待。結果附原始總分、均分和反向計分說明，中文為試譯。"
+      }
+    },
+    "values": {
+      "title": {
+        "sourceHash": "57b6bf0f601d97792e832344aff57659c46210869b2fb54217aa3c93152e0988",
+        "target": "價值觀測驗（Schwartz 十類）"
+      },
+      "description": {
+        "sourceHash": "42ad809e88f8247cb19a6d0b631e38af82ac5356bd451cc9920cc9a5bf793952",
+        "target": "比較施瓦茨框架中十類價值觀對你的重要程度。檢視各項均分與相對優先順序。"
+      }
+    },
+    "light-triad-test": {
+      "title": {
+        "sourceHash": "bafe45c94d85b93f1ca55394f026d8defd70215ea7eded7e124eeff58feb274f",
+        "target": "光明三元素測驗"
+      },
+      "description": {
+        "sourceHash": "77464244255ca9dd71e304ad674ec7211bbc9b4620ceaef6563620645e35697a",
+        "target": "用發表版 LTS 條目回顧人性信念、人文關懷與康德主義。檢視整體得分、分項讀數和計分例項。"
+      }
+    },
+    "inner-child-personality-test": {
+      "title": {
+        "sourceHash": "810f0ab7c982ba7d03d08e0045affb15f862e2e38619ca64308624aa56db223c",
+        "target": "內在童年性格測驗"
+      },
+      "description": {
+        "sourceHash": "65a15d9dacb9b2d40a6a14d2d54c67f9f1c21fc71e56b98ce16dd3d772dcac3c",
+        "target": "從好奇、想像、獨自嘗試或一起玩等六種方式中，回看你現在喜歡怎麼玩。無需回憶童年。"
+      }
+    },
+    "philosopher-personality-test": {
+      "title": {
+        "sourceHash": "305252ef352014e06e1cfd3b25310c840fe4cb6ad3f2a48562c2efc6aa5fd158",
+        "target": "哲學家性格測驗"
+      },
+      "description": {
+        "sourceHash": "094c880531a409fd9b8e742e32e795411bce1f08092870504542b593349851b7",
+        "target": "你會從哪位哲學家讀起？從日常選擇探索蘇格拉底、孔子、尼采等九個閱讀入口。"
+      }
+    },
+    "inkblot-personality-quiz": {
+      "title": {
+        "sourceHash": "c69a01c21e66c0ca187426f9a4ceffd5d9d1fd4c2dc4ed5b27dae5de05b37ebc",
+        "target": "墨跡人格測驗"
+      },
+      "description": {
+        "sourceHash": "423f85b7f76e4555e526789461eec4e86e9e23aefffc365bcb718c165cc27bfa",
+        "target": "看對稱墨跡圖，選擇你最先留意的輪廓、細節、動勢或其他特徵。這是趣味看圖。"
+      }
+    },
+    "arabic-personality-compass": {
+      "title": {
+        "sourceHash": "9a2a42312af1ae7268034369b86e32e8c838c3e7b6a886223cada11d14568ee9",
+        "target": "性格羅盤測驗"
+      },
+      "description": {
+        "sourceHash": "8323fcac1dfb738e654cd93479d54991da5e1efc3f2bc14cd006cfab173a1923",
+        "target": "以東南西北為比喻，比較推進、參與、講究順序和願意嘗試的選擇。非官方 PCTI。"
+      }
+    },
+    "maturity-test": {
+      "title": {
+        "sourceHash": "989e9c5da5c8dcb929ffeb028387f0d100034ebac6387041c2ef04173929eceb",
+        "target": "成熟度測驗"
+      },
+      "description": {
+        "sourceHash": "f72b38143206996b37f942ab7693f12aa7938f6b8e60b590602df72a479c9a6f",
+        "target": "回顧近四周的情緒回應、調整承諾、核對看法和自主選擇。四項分別計分，不估算心理年齡。"
+      }
+    },
+    "growth-mindset-fixed-mindset": {
+      "title": {
+        "sourceHash": "ae5ddd092ffd0b866c3101b97366d41c5284f2e6e29d0069f85245604adb6f03",
+        "target": "成長型與固定型思維測驗"
+      },
+      "description": {
+        "sourceHash": "0025852f19e6f048f486af4386c307072d691826e823b3e27b4d9a9fd0294962",
+        "target": "選一項正在學習的技能，回顧你現在怎樣看待能力變化。結果附均分及反向計分示例。"
+      }
+    },
+    "locus-of-control": {
+      "title": {
+        "sourceHash": "6899dbf01c28c8ef06c2c6e9113b8c53d489351b292ec4a23fd595896451ea3e",
+        "target": "控制點測驗"
+      },
+      "description": {
+        "sourceHash": "34319824327f996534cc567df2c6faf3868486cd865564317cbb75edd216fb3d",
+        "target": "用公開的 IPIP 條目回看你怎樣理解主動性、決定、運氣與困難。結果附反向計分和題源。"
+      }
+    },
+    "intelligence-type-test": {
+      "title": {
+        "sourceHash": "7fe063d327dee7faa97271ee29d1c7137726c1b42635a2d85fa70feb180f6218",
+        "target": "智慧類型測驗：六種思考入口"
+      },
+      "description": {
+        "sourceHash": "80d0d20cb7255041d62dcb7509430033ed8a4ad12a16f4f369fa2aa6b3965e46",
+        "target": "比較語言、規則、聲音、動手、對話和環境六種思考入口。結果保留最高並列。"
+      }
+    },
+    "toxic-trait": {
+      "title": {
+        "sourceHash": "c89b37500f829596b0fb1de5b8817c08e05371221764368ae0c71e1b17164904",
+        "target": "有毒特徵測驗"
+      },
+      "description": {
+        "sourceHash": "7c1312316c27344c8de1d90ae334d59006b21a5af9629f946cd7526397f0f169",
+        "target": "回看轉述、比較、暗示異議等五類日常互動做法。檢視分項均分和計分示例。"
+      }
+    },
+    "grit-test": {
+      "title": {
+        "sourceHash": "ef105adac22c3984ec50c8abb5e094aee70ce7ecb11b8713cb581310015eb6de",
+        "target": "毅力測驗"
+      },
+      "description": {
+        "sourceHash": "7b1bfc8d7b96f3777cd5d504d6d433edeb27c179cfb94f2a4e92a711fa8be9eb",
+        "target": "圍繞同一個長期目標，回顧你如何堅持方向、又怎樣在受阻後繼續努力。兩項分別計分。"
+      }
+    },
+    "ikigai": {
+      "title": {
+        "sourceHash": "c7fef0ca1fb2690f60a0aa05abe2b6b98f2467057c4d849c0cda3aa0605be6ab",
+        "target": "生之目的測驗"
+      },
+      "description": {
+        "sourceHash": "5fa256c0f9c9ad67b9a9efc210563e1477ef7a6f52ad1dcdd6eb9e669a9dc6d8",
+        "target": "用喜歡、練習、他人的需要與報酬四個角度，探索你怎麼看待值得投入的事。"
+      }
+    },
+    "male-archetype-test": {
+      "title": {
+        "sourceHash": "6657899d226475d1b6f919b896e383f93f21f5d55800a187589d0fe161d1bbfa",
+        "target": "男性原型測驗"
+      },
+      "description": {
+        "sourceHash": "83bca90fd262f75144857ddcd9375053252289ea4a432e12ec1d57e91ec338e9",
+        "target": "用國王、戰士、魔法師和情人四種角色隱喻看待情境選擇。結果保留最高並列。"
+      }
+    },
+    "social-intelligence-test": {
+      "title": {
+        "sourceHash": "1d02a4cbff8f01377947490e86faae8c249c8073bdab4fd479b75408d7a1538c",
+        "target": "社交智慧測驗"
+      },
+      "description": {
+        "sourceHash": "c1077c02e4cdcfa2d2db0779312693bd4f438ed03fa63b97f1051e4c32f0b778",
+        "target": "用公開的 IPIP-VIA-R 條目回顧理解他人和調整措辭的自我感受。結果含 4–20 分總分。"
+      }
+    },
+    "egogram": {
+      "title": {
+        "sourceHash": "0c4c9b46576105838406a0da5e1b4f413fbabf5deaa9c7f17c0d7eb85e6ce61e",
+        "target": "自我狀態圖測驗"
+      },
+      "description": {
+        "sourceHash": "2cabf93d0db5efcd85cafa264f4e13cb9455c11cb9de42b3b6af7d5caf6cc3e7",
+        "target": "回顧近四周的規範表達、支援、核對事實、玩興和配合。分別檢視 CP、NP、A、FC、AC 的讀數。"
+      }
+    },
+    "moral-dilemma-test": {
+      "title": {
+        "sourceHash": "948883ffc8cd935e981b3da3a0c9b77ab7ca4236554c0e5e34b8bdcf190732a5",
+        "target": "道德困境測驗"
+      },
+      "description": {
+        "sourceHash": "ab6968a1de1d58ac6de07c6a8ec428bdb572525304c99d906258cf997e121077",
+        "target": "從後果、原則、品格、關懷和公允五個角度看待日常兩難。結果記錄側重，不評道德高低。"
+      }
+    },
+    "dark-triad": {
+      "title": {
+        "sourceHash": "76f5098ea8f96202bd926c9562c8d6b8788471c314b67837ae3acc51d8ea0cf8",
+        "target": "黑暗三角測驗"
+      },
+      "description": {
+        "sourceHash": "26bd37ed45117a89599b48ba64722b1d8f89cf0e6330c80ce7552a9772085eca",
+        "target": "回顧近三個月處理形象、資訊影響和他人感受的做法。三項分別計分，這是一套原創題本。"
+      }
+    },
+    "next-life": {
+      "title": {
+        "sourceHash": "0c323ddd6b03f8fdb8c82d36693133b8bcefe27dbeaea3c6a11fa176c20ccab8",
+        "target": "來世之路測驗"
+      },
+      "description": {
+        "sourceHash": "bbc0bd1f0846945f872d3a6f1d08064ec92688e379921400ad3a1d2b8530396a",
+        "target": "想像重新開始，比較探索、照看、相聚、製作、表達和理解在你選擇裡的分量。"
+      }
+    },
+    "ginny-and-georgia-character-quiz": {
+      "title": {
+        "sourceHash": "78aa6b429fcdd955c2663afd5cef08dd3714856e2d35ba9fdca9abc8c1b846a8",
+        "target": "金妮與喬治婭（Ginny & Georgia）角色測驗"
+      },
+      "description": {
+        "sourceHash": "dc72c9a0a70c0dfd613776ea14dcd4ed79e9912a06b8111ba7364c4017c6b2d9",
+        "target": "用創作和共同活動情境，對照金妮、喬治婭等五位角色的做法。無需了解劇情。"
+      }
+    },
+    "hazbin-hotel-character-quiz": {
+      "title": {
+        "sourceHash": "51a8d6d220fe67c8398a14de62ec3331756ba60ccdc5dcbdefa450200369214d",
+        "target": "地獄客棧（Hazbin Hotel）角色測驗"
+      },
+      "description": {
+        "sourceHash": "7d8305478ae5914c4b906d9e9af73396e709cda0ac8457ce3f92bab83dc0f666",
+        "target": "你更接近哪位地獄客棧角色？18題比較六種參與角度，全部最高並列與指南免費。"
+      }
+    },
+    "chakra": {
+      "title": {
+        "sourceHash": "eab67e5faa4db1ea659e3b62398a521e6e8e1f9b6d58e3ffb1545ba1831b5607",
+        "target": "脈輪平衡測驗"
+      },
+      "description": {
+        "sourceHash": "04e6edcdc17aacc918be3e6e2fa98c5b8b784756c141ba97db4f8ed5c3f34d0b",
+        "target": "借七個脈輪意象回看興趣、行動、關心與表達等日常主題。結果是文化比喻，不判斷健康。"
+      }
+    },
+    "my-hero-academia-character-quiz": {
+      "title": {
+        "sourceHash": "b9c8f0195328f9b3680cdf53934554bbba1176931a544cc6b39ebd9093219685",
+        "target": "我的英雄學院（My Hero Academia）角色測驗"
+      },
+      "description": {
+        "sourceHash": "689309c8ec68d38ff838d3f732823b84028530c0c9c2d9a5c5364cd536c2e6a5",
+        "target": "在學習和共同活動中，對照《我的英雄學院》六位角色的選擇。無需了解劇情。"
+      }
+    },
+    "my-little-pony-character-quiz": {
+      "title": {
+        "sourceHash": "ca9615bf292319329219b4c28977d26f8e83fee31e1cf41d0044ad2b4950c2e5",
+        "target": "小馬寶莉（My Little Pony）角色測驗"
+      },
+      "description": {
+        "sourceHash": "1911e3662602b11dcbb30cef8f900d828ff7ecc5e9a2a4d856f964d64eaeb3dc",
+        "target": "通過共同活動比較《友誼就是魔法》六位角色的參與方式。非官方同人測驗。"
+      }
+    },
+    "attention-to-detail": {
+      "title": {
+        "sourceHash": "1f0d1e3ac607e6e703564f07d002f9b6836c34bfea56026a21dfae27861aca22",
+        "target": "細節注意力測驗"
+      },
+      "description": {
+        "sourceHash": "0d33ade11a4f25ed95ef314a1aa3f79a15d984577c7da769621607d6826d1842",
+        "target": "練習核對記錄、步驟、數量和格式。完成後可檢視逐題解析，練習不限時。"
+      }
+    },
+    "wojak": {
+      "title": {
+        "sourceHash": "e1d1481c9e18afb79b06e9af8cce6ad5d3a1764b433ace9f4f4ae1a7c73f7d00",
+        "target": "Wojak 角色測驗"
+      },
+      "description": {
+        "sourceHash": "56d9e68569c8727738fb9110d1dff53f1a7a92dc9e4e1422bf4d95a205718159",
+        "target": "用日常興趣選擇對照 Feels Guy、Bloomer 等六種網路迷因角色。結果保留最高並列。"
+      }
+    },
+    "cybersecurity-awareness": {
+      "title": {
+        "sourceHash": "35aa273d1730b203d6cf71301b7718e97394bcf5572c58517c8b9aba1f263eae",
+        "target": "網路安全意識測驗"
+      },
+      "description": {
+        "sourceHash": "3ed0a0d399e7cf911edce94f8bce6907bbd1539c6e5467349cbb7fc15bee8a4e",
+        "target": "練習識別釣魚、保護賬戶、維護裝置和應對事件。完成後可逐題核對答案。"
+      }
+    },
+    "delulu-test": {
+      "title": {
+        "sourceHash": "018a3e8967bde9efd6eb0b9022dd997e1bb0fe4e620ace94103f078005beceed",
+        "target": "Delulu測驗"
+      },
+      "description": {
+        "sourceHash": "4b1d5d3e32e0bad9280e18dc5ac1cb1ad6f1fba905e936faee90bd23374a53a6",
+        "target": "用日常想像題探索願望預演、日常片場等六種腦補方式。結果保留最高並列。"
+      }
+    },
+    "nana-character": {
+      "title": {
+        "sourceHash": "629a1ae377d20cb9064722b6fb280ff13d096bbe366ac6f194a1e0cf032fa69a",
+        "target": "《NANA》角色測驗"
+      },
+      "description": {
+        "sourceHash": "6abad388e0db67c1bb32c32a93b738704529a10d269566b199eff14e33368d8c",
+        "target": "在創作與協作情境中，比較《NANA》七位角色的參與方式。結果保留最高並列。"
+      }
+    },
+    "workplace-technology": {
+      "title": {
+        "sourceHash": "b32a78f5742e5e662cae0be14bb7b59d8f29bb15720d764884eab241b1861f59",
+        "target": "職場技術與協作測驗"
+      },
+      "description": {
+        "sourceHash": "2da32289f3b0e8769ad1075e56d897f4485f5c30f58420e7888ce801f5c720c0",
+        "target": "練習工作交接、共享許可權和技術變化判斷。按四項檢視正確數，並逐題復盤。"
+      }
+    },
+    "south-park": {
+      "title": {
+        "sourceHash": "b4ecf5026a7e8263991f6a876b25528d4b6bcb225acb0e74704941d702b54972",
+        "target": "《南方公園》角色測驗"
+      },
+      "description": {
+        "sourceHash": "4fbb467f17dd0d3a0c4e5bfc2128a6324fd0fa1617a08a232189205828190b05",
+        "target": "在小組情境中比較斯坦、凱爾、卡特曼等七位角色的做法。結果保留最高並列。"
+      }
+    },
+    "gilmore-girls": {
+      "title": {
+        "sourceHash": "0fcfb201d75e6541121b3243991d11242150b3e103763b8e06a8496f9f21a018",
+        "target": "《吉爾莫女孩》角色測驗"
+      },
+      "description": {
+        "sourceHash": "a6e1d1ea29392436aff29ea31c6dcdefa01203bacb419ad3f0eddcd550af3191",
+        "target": "在咖啡角、讀書會和相聚情境中，比較六位《吉爾莫女孩》角色的選擇。"
+      }
+    },
+    "aptitude-test": {
+      "title": {
+        "sourceHash": "039cacfad145dec93c56f38b707ac27237a9a13481f345d890d95c4e3b015ab2",
+        "target": "能力傾向與認知能力測驗"
+      },
+      "description": {
+        "sourceHash": "2ded2791ab3c83bbf849ed8ea537c674ccf48065c94d2f4bb9cd1d09f4a0c01a",
+        "target": "練習數值、閱讀、演繹、符號和查錯。不限時，可用紙筆和計算器，並逐題復盤。"
+      }
+    },
+    "jujutsu-kaisen-character": {
+      "title": {
+        "sourceHash": "c8045ac69d7bc3c289e3b0f213986060ef2bc136aec18f1ebd898528b2f3782b",
+        "target": "《咒術回戰》角色測驗"
+      },
+      "description": {
+        "sourceHash": "2659b48e05ac1a4f0003be867752b96c9b225a7de1ad966bd92dfd1abf316c73",
+        "target": "在學習與創作情境中，對照《咒術回戰》六位角色的選擇。結果保留最高並列。"
+      }
+    },
+    "egen-teto": {
+      "title": {
+        "sourceHash": "70aad7ab7ae509f598db3165f295fe16ecbb2909f08e1d12e13eff9e6661734a",
+        "target": "Egen-Teto測驗"
+      },
+      "description": {
+        "sourceHash": "775aa7de3ba35b22d74f8d0c957ac2a208ce381a33dcc72ef7ab913b88a429d8",
+        "target": "比較遇事時先回應感受還是先明確行動。結果保留 9 比 9 並列，不按性別歸類。"
+      }
+    },
+    "harry-potter-character": {
+      "title": {
+        "sourceHash": "d635cd119c53c7a36c9295eef00dc695ddadd4493170901721bf5c96582bf2b2",
+        "target": "《哈利·波特》角色測驗"
+      },
+      "description": {
+        "sourceHash": "3b212a07d81013432d349d863329dc56bfb57ea38675270d9e1c5fec07c336f2",
+        "target": "從閱讀、桌遊和社團情境中的選擇，對照七位《哈利·波特》角色的做法。"
+      }
+    },
+    "spelling-test": {
+      "title": {
+        "sourceHash": "a8b3aab109cdb90cf09c4fdf198672ec39070dc458e828d609a06f183dda421c",
+        "target": "英語拼寫測驗"
+      },
+      "description": {
+        "sourceHash": "34ef62368326fa2bc2c491690323386f343ea20cfcf60c32118758924e27b854",
+        "target": "在英文語境裡練習雙寫子音、母音、字母順序和詞尾。不限時，可逐題檢視答案。"
+      }
+    },
+    "dexter": {
+      "title": {
+        "sourceHash": "a0b1522234a681593ebc766459aafb491570a653fb8944655dc865fac2a512c9",
+        "target": "《嗜血法醫》角色測驗"
+      },
+      "description": {
+        "sourceHash": "b773a3c1fb434aeb6741515f9ebb56e796c88c755a81d338491ab464f2b5d3a3",
+        "target": "在虛構紙上謎題中，對照德克斯特、黛布拉等六位角色的參與方式。"
+      }
+    },
+    "avengers-character": {
+      "title": {
+        "sourceHash": "93cb93b5f99ee40addcbb55519487f7702b553404960fab157fb050662deed03",
+        "target": "《復仇者聯盟》角色測驗"
+      },
+      "description": {
+        "sourceHash": "01c0df1e14288947d6130d9ddff4de30264d93fde0374a9499d5ea0b21d34d68",
+        "target": "想像你要佈置一個愛好展臺，對照 2012 年電影中六位復仇者的參與方式。"
+      }
+    },
+    "stranger-things": {
+      "title": {
+        "sourceHash": "251da0ae67e4759e06277aee045acb995c24098c19df48defe3e74aaa0ce4933",
+        "target": "《怪奇物語》角色測驗"
+      },
+      "description": {
+        "sourceHash": "540d83398b02fcf1afaf01f3560ebb2c318e542987144d3034c206af559bf2e5",
+        "target": "從桌面故事的創作選擇裡，對照小十一、邁克等六位《怪奇物語》角色。"
+      }
+    },
+    "wednesday-addams-character": {
+      "title": {
+        "sourceHash": "2d747af9f27a06d4b2d7a4438adf25701f128ccb6fcabf1db44383985ee4d4cf",
+        "target": "《星期三》角色測驗"
+      },
+      "description": {
+        "sourceHash": "66833f8132065a202ca1de139ef20c6de5d69d412d691bd63bf097c0620ba070",
+        "target": "在手作與趣物展情境裡，對照星期三、伊妮德等六位角色的參與方式。"
+      }
+    },
+    "twilight-character": {
+      "title": {
+        "sourceHash": "979097c7180cad0a8c12d765483db7bae398ea0246af38350e32ddb549e296ae",
+        "target": "《暮光之城》角色測驗"
+      },
+      "description": {
+        "sourceHash": "a8a90d6bd31fba64a15ef3edd355e4dc9644961a226ddbff81426a4c0f3a9a61",
+        "target": "從雨天的愛好選擇裡，對照貝拉、愛德華等七位《暮光之城》角色。"
+      }
+    },
+    "decade-aesthetic-test": {
+      "title": {
+        "sourceHash": "bedcdfde9c76de896d59a3a85acf259246bbb0ec8ace96d6994481a9d2c0acfd",
+        "target": "十年美學測驗"
+      },
+      "description": {
+        "sourceHash": "3050aea132e79aed67e72c5b4df6448fdfa281875470cfe20c59798e9eed8eb5",
+        "target": "通過紙面設計任務比較六種年代風格，從幾何裝飾、舞池光影到 Y2K 數字感。"
+      }
+    },
+    "game-of-thrones": {
+      "title": {
+        "sourceHash": "f3b76c4716e38fd2165abf0df503010e710df61be3d03b0a59a6237270dd9fd9",
+        "target": "《權力的遊戲》角色測驗"
+      },
+      "description": {
+        "sourceHash": "e4db07e22ea334d7f93a3aafd73245284c9be1f6bb21c6f49998d3b85b28616c",
+        "target": "在設計紙上村落的情境中，對照六位《權力的遊戲》角色的創作選擇。"
+      }
+    },
+    "amazing-digital-circus": {
+      "title": {
+        "sourceHash": "f66def62f1a57e029267d9e9530bed18033cfa98203897c9cd17f4b2df2a5b37",
+        "target": "《神奇數字馬戲團》角色測驗"
+      },
+      "description": {
+        "sourceHash": "bc24b1ca166c7c0369634be20ee740333ea6da906b5bcd9ba3072412bfe7ceba",
+        "target": "想像在紙板舞臺上做創作，對照波姆尼、賈克斯等六位角色的參與方式。"
+      }
+    },
+    "gossip-girl": {
+      "title": {
+        "sourceHash": "6b3eb7e80fd5393b9869ecd7d45388ba54c653e48aa5a895027a23ecb0f7835f",
+        "target": "《緋聞女孩》角色測驗"
+      },
+      "description": {
+        "sourceHash": "0daeecfbfddb6e50d1db3e0327af52054aba2a6504e50998974525bc17fe358e",
+        "target": "在策劃創作刊的情境裡，對照原版《緋聞女孩》六位角色的回應方式。"
+      }
+    },
+    "english-proficiency": {
+      "title": {
+        "sourceHash": "65c4bfb6731da4c57a0643e417ef29a99eb10404f049cc9862bd10ee1698c92d",
+        "target": "英語水平測驗"
+      },
+      "description": {
+        "sourceHash": "33901a4e94f988ce73bbec65b387ab002ebbc57e672391f7e3be8ce8b234e481",
+        "target": "練習英語語法、語境詞義、閱讀和實際訊息。不限時，答完可逐題復盤。"
+      }
+    },
+    "villain-era-archetype-test": {
+      "title": {
+        "sourceHash": "862c1812f0141507a57eb4f1aca128dceb37a1ecea66084e3d8d551120fa2927",
+        "target": "反派時代原型測驗"
+      },
+      "description": {
+        "sourceHash": "e23c230ff0e9714ccb2c824924685578e77b6541ffecb73673950509c7e1c890",
+        "target": "用六種戲劇化開場回看你如何安排界線、適度坦白或溫和拒絕。結果保留最高並列。"
+      }
+    },
+    "blue-lock": {
+      "title": {
+        "sourceHash": "19b59cd19c7f60f02220b79ec25d44d3208a5673383c58a7452d7c5de71788d8",
+        "target": "《藍色監獄》角色測驗"
+      },
+      "description": {
+        "sourceHash": "eef0c3163fa8597311b0d3f21ec64d6112414558e73252f58807bcc41823d8a9",
+        "target": "在桌面足球情境中，對照潔、蜂樂、凪等七位《藍色監獄》角色的參與方式。"
+      }
+    },
+    "anime-character-archetype-test": {
+      "title": {
+        "sourceHash": "73d6bc9cbffdee5a6c99ecbd2eb60a83564c6cd17eed77e0309fe14ba48ba7b5",
+        "target": "你是哪個動漫角色測驗"
+      },
+      "description": {
+        "sourceHash": "8e5341b06fb4f8fe993047f25c204fe063e822957d666e131615c587cc4ba83e",
+        "target": "從動漫風格的故事選擇裡，探索主角、導師、即興巧匠等六種原創角色。無需劇情知識。"
+      }
+    },
+    "grammar-test": {
+      "title": {
+        "sourceHash": "015e82b2f70a3d32b1a9463e435cc34351672de43828f6c8bd8f61f58de67a3e",
+        "target": "英語語法測驗"
+      },
+      "description": {
+        "sourceHash": "aef646deb433c9c9cb564c24f39fed3a58df1c55d1dc38d31c2f30907b6586b8",
+        "target": "複習英語動詞形式、一致與指代、冠詞及標點。結果對照你的選擇和正確答案。"
+      }
+    },
+    "hundred-acre-wood-friend-quiz": {
+      "title": {
+        "sourceHash": "80b3661ff5ad53d07696933e82012f9b7d23a221f463a8d79aca361b11a8e564",
+        "target": "小熊維尼角色測驗"
+      },
+      "description": {
+        "sourceHash": "e790badc733e88d9f374d4e9232bd5caccc8f41d32989c8ad28395d514c29fc6",
+        "target": "在紙上野餐和做書籤的情境裡，對照維尼、小豬等六位故事夥伴。無需了解劇情。"
+      }
+    },
+    "space-marine-chapter": {
+      "title": {
+        "sourceHash": "23b8944eac6825a9c20363062ad50daa1520677c2dbdcc6e6e36eb19c510e4fb",
+        "target": "星際戰士戰團測驗"
+      },
+      "description": {
+        "sourceHash": "fc61a343df0d3363f3daaf4391da92c08aaa68cac87f0db585666906c1575251",
+        "target": "你更偏向哪個星際戰士戰團？在戰錘40K紙模型情境中比較六戰團主題，閱讀完整同人指南。"
+      }
+    },
+    "spanish-proficiency": {
+      "title": {
+        "sourceHash": "89844502b264d3aae372c4a3b2bb2f56d59d237eac01afadc9db9898a0693f3a",
+        "target": "西班牙語水平測驗"
+      },
+      "description": {
+        "sourceHash": "0e8b2f43e599ecf66a4360c7e1dac75150f8ba71fdf622cf11399152dd2c358f",
+        "target": "用西語題練習語法、語境詞義、閱讀和實際訊息。說明與解析提供中文和英文。"
+      }
+    },
+    "apocalypse-survival-type-test": {
+      "title": {
+        "sourceHash": "1b2abd12f309a1285f1d478a853037a117a394a09f73bd036512f9082c50b28d",
+        "target": "啟示錄生存類型測驗"
+      },
+      "description": {
+        "sourceHash": "1168a073a53d4107aa9da679cea7c2dcdb76b7ce7ff42d7fc575995d006d7c88",
+        "target": "想像在末日營地裡安排劇情、陪伴角色、追蹤地圖線索或記錄訊息。結果呈現六種故事偏好。"
+      }
+    },
+    "barbie-character": {
+      "title": {
+        "sourceHash": "965bfc14b3a065aa910e00609c7f825d5f3fdb7f483cf29c62e686f381cf839f",
+        "target": "芭比角色測驗"
+      },
+      "description": {
+        "sourceHash": "16d6dd18bb1e4343e5f8b7ad9e43bdc64dccfc2dcb67924ab757d508a60be589",
+        "target": "通過創作選擇對照芭比、肯、格洛麗亞等六位角色的參與方式。非官方同人測驗。"
+      }
+    },
+    "big-fish-energy-test": {
+      "title": {
+        "sourceHash": "c807dc1200c8d3e0eb4ac0975591b4be66f6e8c08d41d9f2fdfbbfdd2bc7eace",
+        "target": "大魚能量測驗"
+      },
+      "description": {
+        "sourceHash": "c6d13d3c518da4d2f01a636e77887202989981437f9b585e8daad994a338f049",
+        "target": "用六種海洋意象回看你偏好的互動、變化和留白方式。結果保留最高並列。"
+      }
+    },
+    "verbal-reasoning": {
+      "title": {
+        "sourceHash": "3bf6c963b2fd391e918ae84e45d8cd455eb760b839949f600b2e3133bfe94230",
+        "target": "言語推理測驗"
+      },
+      "description": {
+        "sourceHash": "6dd56e1f2ea3421639896d90c99a41b9be0e2aadecbfde63b3a8dcffb6b3ff5b",
+        "target": "練習語境詞義、詞語類比、閱讀依據和演繹推理。不限時，結果含逐題解析。"
+      }
+    },
+    "ten-key-test": {
+      "title": {
+        "sourceHash": "0b827ddc343456b39f582f9f80ae78569fb192ff87d00b41cb52348b086ef03f",
+        "target": "10-Key 測驗"
+      },
+      "description": {
+        "sourceHash": "111bdfe8b7f869231a77dd87b08dc5e7cd01db8d40162c8c26ae8686304c4e6f",
+        "target": "練習輸入整數、小數和帶前導零的編號。結果含每小時按鍵數、錯誤率和逐條核對。"
+      }
+    },
+    "computer-literacy": {
+      "title": {
+        "sourceHash": "b7ed13a1b4422a0d35ee3fe7d5ba91e0b1e602895e62fa20d43a739d612f537e",
+        "target": "計算機素養測驗"
+      },
+      "description": {
+        "sourceHash": "a3bbfe16c4e0941c026a6ac5b6c81a7b65305cfb7244cabb292c0b54615c4c6a",
+        "target": "練習檔案管理、瀏覽器、郵件和辦公軟體基礎。不限時，答完可逐題檢視解析。"
+      }
+    },
+    "feminine-energy": {
+      "title": {
+        "sourceHash": "4e693c09f9f44928b73bd3b6cfc854295bd0840c994bbf843b32662039b5b404",
+        "target": "女性氣質能量測驗"
+      },
+      "description": {
+        "sourceHash": "47cba4b815f8b90698e9eb15ae76ca8828de5f29788511db61cf421cd62e5788",
+        "target": "回顧近四周的親暱俏皮、鮮明表達、詩意細節和從容主張。四組分別計分，可選無法判斷。"
+      }
+    },
+    "excel-skills": {
+      "title": {
+        "sourceHash": "7b34eb435561aaac0fcacf6097f922aa088442a7d252bafa672b137b8a031156",
+        "target": "Excel技能測驗"
+      },
+      "description": {
+        "sourceHash": "e6e19c974171f7c2a5507f8121995c10c205d36183915b440b7cbc6627325a67",
+        "target": "練習 Excel 引用、條件查詢、資料處理和透視彙總。答完可核對每題答案。"
+      }
+    },
+    "found-family-role-test": {
+      "title": {
+        "sourceHash": "57c4ed778e363d24c52453caa5acdf6c5c67b2ad7f1d7ce0317f4a7757edceb6",
+        "target": "自選家人角色測驗"
+      },
+      "description": {
+        "sourceHash": "c79558d6507b7c39dcef4258a35250879b14e8b20b4cb738b9a204e56293fc78",
+        "target": "在朋友相聚的情境裡，探索歡迎、幫忙、傾聽、聯絡等六種自願貢獻方式。"
+      }
+    },
+    "java-test": {
+      "title": {
+        "sourceHash": "85db186c3883b005fae6f155e0602c00598a87539ffbf3675c17805e3372cfef",
+        "target": "Java測驗"
+      },
+      "description": {
+        "sourceHash": "e8ecbe6865aa09ba5d087e8033f4f966a618064de635ec43a6d469864c2f53fd",
+        "target": "讀 Java 25 程式碼，判斷表示式、控制流、物件方法和集合異常。結果附逐題答案。"
+      }
+    },
+    "financial-accounting": {
+      "title": {
+        "sourceHash": "bf364b1b7ad5c49399fb3db6270ed88bc828bcbb1b08837977edf9f7cc06824a",
+        "target": "財務會計測驗"
+      },
+      "description": {
+        "sourceHash": "43c1a836d44afe677e8af45bfd6ed055275ba20317816abf1f4348a41e4c13e0",
+        "target": "練習借貸分錄、報表、權責時間、折舊與營運資本。結果按主題呈現，附逐題解析。"
+      }
+    },
+    "eras-of-you-test": {
+      "title": {
+        "sourceHash": "2d0291f62542f2f81c0727bad2a09dfce81050924eb731f945bc69722c70ff04",
+        "target": "時代的你測驗"
+      },
+      "description": {
+        "sourceHash": "73399021e8509c7a5040399c58a81a46609ee24fcc8c84ca592521e0e88b8a91",
+        "target": "回看過去四周的嘗試、搭建、調整和整理等活動。檢視六組頻率均分，不劃分人生階段。"
+      }
+    },
+    "logical-reasoning": {
+      "title": {
+        "sourceHash": "62a175dd7757464190ce3bc9b64fc5e6aac3a9c2bcbd5f5f0b4396612cbb6562",
+        "target": "邏輯與演繹推理測驗"
+      },
+      "description": {
+        "sourceHash": "952fffaac45b19905f620f30cb78cd2b33cc2916b54c71e415b48d03aa2d43a0",
+        "target": "練習量詞、條件規則、多步演繹和排序約束。不限時，結果附逐題解析。"
+      }
+    },
+    "javascript-test": {
+      "title": {
+        "sourceHash": "c7d059060179e53c3b85b8f82f86e98f09649e6c6b0110cfbc54c7f79981f365",
+        "target": "JavaScript測驗"
+      },
+      "description": {
+        "sourceHash": "6e54a1905c57d170cbe6fbddca477ea79e8a474c6c7ea2fa71e955cea994c08e",
+        "target": "閱讀 JavaScript 程式碼，按 Node.js ES 模組規則預測輸出或語法錯誤。結果附逐題解析。"
+      }
+    },
+    "python-test": {
+      "title": {
+        "sourceHash": "8f7d92596e9a2cbfb9f63b71e44cf3836780ddb562d9748c5d308df2f8c0b396",
+        "target": "Python測驗"
+      },
+      "description": {
+        "sourceHash": "e77a6eca8750fc573dc0a5f013d03b503c63ea0d4e81c61ea14d8e83c34e773e",
+        "target": "按 CPython 3.14.5 的規則預測程式輸出或語法錯誤。不限時，答完可逐題復盤。"
+      }
+    },
+    "sales-aptitude": {
+      "title": {
+        "sourceHash": "ff7edd8d4d869279c753d9fd6b24d838f89b73e8705e2696762b6dec134411da",
+        "target": "銷售能力測驗"
+      },
+      "description": {
+        "sourceHash": "1685d3619d70ee4a40d63605f1f4d33ab4194637959f65adc2fec6166d6ce3a6",
+        "target": "練習澄清需求、匹配方案、記錄跟進和銷售計算。答完可逐題核對。"
+      }
+    },
+    "color-season": {
+      "title": {
+        "sourceHash": "a38b1a7fa20216cfd31bda872e02673f4fe334eec81343b35761a8abc6697792",
+        "target": "色彩季節測驗：配色偏好"
+      },
+      "description": {
+        "sourceHash": "6104d3529e54813d65dc799b6c3c2752b9367a82806ad3d32fe79a1a2307374e",
+        "target": "通過三色組合比較四季配色偏好，檢視選擇次數和示例色。無需照片。"
+      }
+    },
+    "sql-test": {
+      "title": {
+        "sourceHash": "10af0d5027c3faa96940a4788b961e912aca7591ec73a990536fefe129157cdb",
+        "target": "SQL測驗"
+      },
+      "description": {
+        "sourceHash": "f68e67c676d4d954701bdf439197a9fbb41e14a757bb1de080edde62ab1abe04",
+        "target": "根據給出的表結構和資料判斷 SQL 查詢結果。用 SQLite 3.53.4 核驗，附逐題解析。"
+      }
+    },
+    "problem-solving-critical-thinking": {
+      "title": {
+        "sourceHash": "ed6fb1a14c486b2d6f84fc9a0575442fc3aae608a0a2f0c02eba96fad8033ee9",
+        "target": "問題解決與批判性思維測驗"
+      },
+      "description": {
+        "sourceHash": "aabf974bd57afa691224548365ae88b8041171745cccac29c790ac47c74a2aa7",
+        "target": "練習界定問題、比較方案、核查證據和復盤。結果附分項得分及逐題解析。"
+      }
+    },
+    "word-skills": {
+      "title": {
+        "sourceHash": "84fbec6881ace068b13e4009386a0dde697da88fd6f3cc319009317aa75e298f",
+        "target": "Word技能測驗"
+      },
+      "description": {
+        "sourceHash": "eb77573d8b8919edf7d5538be96fccb747ec8ba79e80bee8f1d77d5c1fb0f91c",
+        "target": "在 Windows 桌面版 Microsoft 365 Word 的情境中練習樣式、分節、表格、郵件合併和審閱。"
+      }
+    },
+    "project-management": {
+      "title": {
+        "sourceHash": "076c0d6e74ccb3d7c3c65452c64bd3730293b25d5b150e3d21bf962990031fd7",
+        "target": "專案管理測驗"
+      },
+      "description": {
+        "sourceHash": "8fc216bf83094cd1ec39c914f954c3f82b6f8bde62599c25ecd31a3d486376dc",
+        "target": "練習處理專案範圍變化、排程、風險、溝通決策和預算。結果附逐題解析。"
+      }
+    },
+    "rizz-test": {
+      "title": {
+        "sourceHash": "dc6d3a1b29cf8d155957a081dd842283a83f579370b488ec65b0d7a7b2efca17",
+        "target": "Rizz 測驗"
+      },
+      "description": {
+        "sourceHash": "75d03dd94c207c4fc18398deefa57e3019bd313bf43422b0712ee8c6a619e92b",
+        "target": "回看表達興趣、接住話頭和發出邀約的頻率。結果附對話例項，可選不適用。"
+      }
+    },
+    "personal-finance-literacy": {
+      "title": {
+        "sourceHash": "f89220405b9e94b6c9ef6b1c3a98fe9ec6155a948859872f683de8a3f998bf51",
+        "target": "個人理財素養測驗"
+      },
+      "description": {
+        "sourceHash": "02ffc498a95644a20fc00cd58ab4a86d5ed2f4a79038907259e1e58f8796a6f8",
+        "target": "練習預算、單利與複利、風險及工資福利。按主題檢視正確數和解析。"
+      }
+    },
+    "ai-literacy": {
+      "title": {
+        "sourceHash": "3322630b4e1861d37c6ab1ef1e5d692299dc29a59ac0d06207a8b02ab7e980fe",
+        "target": "人工智慧素養測驗"
+      },
+      "description": {
+        "sourceHash": "a962a525fc5aa984dc855ba1591672ad86cdeb711f1e0fd3003736f859036dd0",
+        "target": "練習理解模型資料、使用提示、核查輸出和判斷隱私界線。答完可逐題復盤。"
+      }
+    },
+    "chinese-zodiac": {
+      "title": {
+        "sourceHash": "8829dd3aa329af6d799bba9461954c796ba07bc04811620fee322c64ab265a78",
+        "target": "中國十二生肖測驗"
+      },
+      "description": {
+        "sourceHash": "9545fc9f17beadad363c2042b79e62146f525857d6664634587ca6205ef4ab6b",
+        "target": "用故事選擇探索十二生肖意象，檢視各角色的計數和文化來源。無需生日。"
+      }
+    },
+    "customer-service-aptitude": {
+      "title": {
+        "sourceHash": "c0377bed7dca6b37ac544e295bf8294289569d51ac7ca222a510ba9d510acf2f",
+        "target": "客戶服務情景測驗"
+      },
+      "description": {
+        "sourceHash": "34793a5ca102421053a29a9904d79877b310fabd19b025963445eee9f3343d29",
+        "target": "練習澄清客戶訴求、判斷政策、表達處理辦法及記錄跟進。結果附逐題解析。"
+      }
+    },
+    "german-proficiency": {
+      "title": {
+        "sourceHash": "c064789accf3669c1006142871caa14bdeab1039a9d9a2afec33ad398ddaa6ef",
+        "target": "德語水平測驗"
+      },
+      "description": {
+        "sourceHash": "f43770e16e258eac358d99d7a0906dc8156aa74c597f89840f1492ecc9c43afc",
+        "target": "用德語短文和語法題練習冠詞格、動詞和句式。中英文提供說明與解析。"
+      }
+    },
+    "zodiac-sign-quiz": {
+      "title": {
+        "sourceHash": "b87d644f3b1668034e4b5ad46170a48e055d3fd964381ec28bf4043b2574bad0",
+        "target": "星座測驗"
+      },
+      "description": {
+        "sourceHash": "3ce12ff74fa021d4db7add2c7b8afb92df53f2b5e895493ebad49223d724b178",
+        "target": "用故事選擇探索十二種星座敘事意象。結果附文化來源和計分例項，無需生日。"
+      }
+    },
+    "love-personality": {
+      "title": {
+        "sourceHash": "29c0a936e7b209ee8794daa3074a0d754fc1bf78df06677be82105088d11eab7",
+        "target": "戀愛人格測驗"
+      },
+      "description": {
+        "sourceHash": "728522f2e125297856696b94836c7892341304225ce9aba720fbc36783b3b381",
+        "target": "比較表達、回應、個人空間與修復在關係選擇中的側重。結果保留最高並列。"
+      }
+    },
+    "situational-judgement": {
+      "title": {
+        "sourceHash": "cf7045218663c4ba22721dd111d0448646849b7bad8d7fbbc090a1b73e0a5cac",
+        "target": "情境判斷測驗"
+      },
+      "description": {
+        "sourceHash": "c83adbb5f495744771f699bcb562ab966682482e90cffebe862ae4529bccb375",
+        "target": "在職場情境中練習安排優先順序、交接、溝通事實、分清職責和協作。結果附逐題解析。"
+      }
+    },
+    "8-values-political": {
+      "title": {
+        "sourceHash": "f975f960e6c70d8b758a35fd7d99aa2340887dee1a308daf45dd1e108513a3f3",
+        "target": "8 Values 政治價值觀測驗"
+      },
+      "description": {
+        "sourceHash": "443f2acc427c3b8565ca8b5c9847f1b87d565806c36cf3c7d34fe9a9c4030a6a",
+        "target": "用 MIT 開源版題本回看經濟、外交、公民與社會觀點。每條軸的兩端各顯示一個互補百分數。"
+      }
+    },
+    "relationship-values": {
+      "title": {
+        "sourceHash": "d961fa13523eecb27fa5a03d0dd07a4111b0469316621a91bc8cea873917710e",
+        "target": "愛情陣營測驗"
+      },
+      "description": {
+        "sourceHash": "6257be062f211f9a86bebd03f9e202497b9224d71ec46e2d2486d58141507ae3",
+        "target": "比較儀式感、協作、陪伴和自主成長在親密關係裡的分量。結果保留所有最高並列。"
+      }
+    },
+    "typing-speed": {
+      "title": {
+        "sourceHash": "fef299244bb5fae47a51de0519de2feb9dd11132cfe08b04dc0f943f03674d6d",
+        "target": "打字速度測驗"
+      },
+      "description": {
+        "sourceHash": "4cc49cb6a6b6864c76be88753bd5cdfc97303135f10eca2dbd2111900a99e45a",
+        "target": "選中文或英文文本抄錄。結果顯示每分鐘字數或詞數和最終文本準確率，允許途中改錯。"
+      }
+    },
+    "hexaco": {
+      "title": {
+        "sourceHash": "4178d4cb280b65c81742c2181155c9a54e9df639f2558b86a6b9f562b779a872",
+        "target": "HEXACO人格測驗"
+      },
+      "description": {
+        "sourceHash": "48568a69715b6185502f9580fe4fc024efc2eb813af15e7a37a46ccb17f67520",
+        "target": "用早期 IPIP HEXACO 條目回顧六個人格領域。檢視原始總分、均分及反向計分示例。"
+      }
+    },
+    "relationship-preferences": {
+      "title": {
+        "sourceHash": "aeb71c8ff3e3f29a94f0d2cac0e5119312992ca62caf96e7fe984c497c47314f",
+        "target": "戀愛安排偏好測驗"
+      },
+      "description": {
+        "sourceHash": "615b1e2e5f10cca150b8180ccb268376061ab39636490c0ffba236c33231006a",
+        "target": "分別比較聯絡與個人空間、確定性與彈性兩組關係偏好。結果保留並列。"
+      }
+    },
+    "abstract-reasoning": {
+      "title": {
+        "sourceHash": "b904af0ecbadf1040242c96b2a1ec8a9c3a83da6c12a129e513eebf76c88ae54",
+        "target": "抽象推理測驗"
+      },
+      "description": {
+        "sourceHash": "1166c5dd05aa0a6ec879ffabcf16f2576ae7ff6595f94fb8c9e8062523328ce6",
+        "target": "練習符號序列、關係類比、示例分類和有序變換。不計時，可核對每題答案。"
+      }
+    },
+    "conservatism": {
+      "title": {
+        "sourceHash": "c0c4653c8da90a692ddf4a2ce03fcdb296cf800058dcc9e131378b8b3b802650",
+        "target": "保守主義測驗：SECS2013美國議題版"
+      },
+      "description": {
+        "sourceHash": "d31562ea89567468eca257f291dc137bb71c5c38a661256526ba1d531fba948d",
+        "target": "用 SECS 2013 的美國議題回顧社會和經濟態度。兩組分別計分，允許選不適用。"
+      }
+    },
+    "numerical-reasoning": {
+      "title": {
+        "sourceHash": "ce04d9d3c00211b56d791171b5441bbf05eb2875eeade4c8c3b1de8cb2d1b638",
+        "target": "數值推理測驗"
+      },
+      "description": {
+        "sourceHash": "1fcb587e758e890b0ced4032a89f1d1f7731975b9c9aa8fc2e88eaeeee491f9a",
+        "target": "練習運算、百分比、比例、資料判讀和速率。不計時，允許使用計算器。"
+      }
+    },
+    "digital-ethics-citizenship": {
+      "title": {
+        "sourceHash": "22b1dd73c5bbb42a7703245ab0873b1e75366895820f9f8d2118a35811f98f48",
+        "target": "數字倫理與公民意識測驗"
+      },
+      "description": {
+        "sourceHash": "7877c977280087eaf5be571e5c4ce833ba867dc4b23fd28eba22ce1d6fa0d4e3",
+        "target": "練習判斷隱私、賬戶安全、網路溝通、AI 資訊和可訪問性情境。結果附逐題解析。"
+      }
+    },
+    "number-series": {
+      "title": {
+        "sourceHash": "de8c3b01b520952a1c7d95208ad3c345aa27137d777bbcc09c5d74875cb37f19",
+        "target": "數列推理測驗"
+      },
+      "description": {
+        "sourceHash": "e169db1a4a813aec0468b5c44ef3c8a271485b609b69c218641cb60bc0b5f7e9",
+        "target": "根據五種規則推導數列。結果對照你的選擇、正確答案和推導過程。"
+      }
+    },
+    "adult-age-preferences": {
+      "title": {
+        "sourceHash": "68f257605ea21301654269f12d675df60cbeee06ede0d0c772598a448b4cd4b8",
+        "target": "年上年下戀愛傾向測驗"
+      },
+      "description": {
+        "sourceHash": "43868ce011887e97d11938a5ffdfd4bc385999a4ec0ac170b540e6362d5e50e0",
+        "target": "年上、同齡還是年下？比較成年伴侶情境中的選擇，保留全部並列；結果不規定擇偶年齡。"
+      }
+    },
+    "data-entry": {
+      "title": {
+        "sourceHash": "9cf142d054eb02f16bfa219d3d655f274f3fc7b784fcfb0f6e4a44b263c9f106",
+        "target": "資料錄入測驗"
+      },
+      "description": {
+        "sourceHash": "70190203a8f67239ba30eb63946777af2e2d78f2b941835bf964c4f05d68c9da",
+        "target": "選擇物品標籤或發運表單，抄錄四欄位的虛構記錄。結果展示欄位準確率、錄入速度和差異。"
+      }
+    },
+    "freudian-personality": {
+      "title": {
+        "sourceHash": "dc176141802fc6f71da83d5b1a0fb126d04f3b6af21d9ca2eb0681c4d9f70807",
+        "target": "弗洛伊德人格測驗：原創歷史詞彙反思版"
+      },
+      "description": {
+        "sourceHash": "2d3fbcb265ee9922ed31f97ec9294e6eecea5080f41fefc80e876b28dde0e232",
+        "target": "用原創題本回顧近四周的求助、自立、計劃和私人空間等八個主題。結果分別呈現，不劃分類型。"
+      }
+    },
+    "relationship-commitment": {
+      "title": {
+        "sourceHash": "a5900b3b9613f839e77a8717832471e7e33ff81468345bc152c9392c704d274a",
+        "target": "親密關係承諾度測驗"
+      },
+      "description": {
+        "sourceHash": "8feb27a19200f585858c9ef48dd2a285194db81a16697519554ef9ce587f1a9f",
+        "target": "分別回看繼續關係的意願、近期滿意度、其他選擇和已經投入的部分。結果解釋反向計分。"
+      }
+    },
+    "political-coordinates": {
+      "title": {
+        "sourceHash": "9a51f5de6f324c77badf991e9715e543a742e82ed7d46cdcc0cae1842222453e",
+        "target": "政治座標測驗：原創公共政策取捨版"
+      },
+      "description": {
+        "sourceHash": "e53cbf94aa64af73e678f28fadb3b273c2c65465064422ce0e676e472033e756",
+        "target": "比較公共政策取捨，檢視經濟左—右與共同體—個人自由兩條軸的原始計數和差值。"
+      }
+    },
+    "mechanical-reasoning": {
+      "title": {
+        "sourceHash": "84d603719b919b10311f9262f3870c93d3d49acfa002e09349ff52c484a14004",
+        "target": "機械推理測驗"
+      },
+      "description": {
+        "sourceHash": "64b2fb5686a34e8f96ffdd503ce481fc5732e9e632e81586ac69f52a79772dd4",
+        "target": "用文字數量題練習槓桿、齒輪、滑輪、彈簧和流體。不限時，附完整題解。"
+      }
+    },
+    "spatial-reasoning": {
+      "title": {
+        "sourceHash": "32d78f660a1695d943db1ae8accbedf5bb857f218c99ad7d884912157445ae4a",
+        "target": "空間推理測驗"
+      },
+      "description": {
+        "sourceHash": "92eb083c95481e537e39027dd890e2b5919907db617aed0be117ee9a73fca73e",
+        "target": "用文字座標題練習旋轉、映象、摺紙、立方體和檢視。不計時，可逐題復盤。"
+      }
+    },
+    "libertarian": {
+      "title": {
+        "sourceHash": "fd9270c9434eabb557a51b10ae7784cc336f75b36f2a16f6f48d5b9216d73881",
+        "target": "自由意志主義測驗：原創原則反思版"
+      },
+      "description": {
+        "sourceHash": "f17fe0d35ff7825ff104157d6ba41661c8bf0646ac09f04ef0ca59ffe78c0552",
+        "target": "分別思考自主與同意、自願合作、財產權和公共強制。結果按主題呈現，不劃分政治身份。"
+      }
+    },
+    "trust-issues-test": {
+      "title": {
+        "sourceHash": "c446985b1f3587c98d68dc2412926ccc55278eb316a9d912f5391a302773b068",
+        "target": "信任問題測驗：日常相處自我觀察"
+      },
+      "description": {
+        "sourceHash": "3b8fe8faea2ac0703215ad5a4703273dadf7902537e173e1a9b7292f73e7b709",
+        "target": "回顧你怎樣初次開放、逐步建立信任、核對約定或保持距離。四組分別計分。"
+      }
+    },
+    "morality-6": {
+      "title": {
+        "sourceHash": "010d5b8710350aca0769a6df01c52534331b227f45bf72b234285138996b3f83",
+        "target": "道德基礎測驗（MFQ-2工作中譯）"
+      },
+      "description": {
+        "sourceHash": "a6c23cb37fcacdd6a9ada995f96022fb040dff58c157c35227979c92cc0368e2",
+        "target": "用 MFQ-2 回看關懷、平等、比例公平、忠誠、權威和純潔。六項分別計分，中文為工作譯文。"
+      }
+    },
+    "self-esteem": {
+      "title": {
+        "sourceHash": "982acbf95a1eabef07927e4622425015321bed634b3a0f1becc1c3fe357ba165",
+        "target": "自尊測驗"
+      },
+      "description": {
+        "sourceHash": "e9cec1e13995407b69012e0c4225dae1d40cf04fabd1a6d3eed9daffa2d8e0ef",
+        "target": "用羅森伯格自尊量表回顧整體自我評價。檢視 0–30 分總分及反向計分說明，中文為工作譯文。"
+      }
+    },
+    "time-management": {
+      "title": {
+        "sourceHash": "b1d2d340f4294fffb168ced10a11408b70d68cb3468bb90191907aca7096077c",
+        "target": "時間管理測驗"
+      },
+      "description": {
+        "sourceHash": "9b56a0bb0fef83754b1b320926f6be480376aae02547e44fc81d5e1e6f85c7dc",
+        "target": "回顧過去兩週怎樣安排優先事項、估時、恢復專注和回看計劃。四項分別計分。"
+      }
+    },
+    "burnout-risk": {
+      "title": {
+        "sourceHash": "12c22ec80f55457878de9b29af7783aa75504a6293e3cb10278206bc81d46cd3",
+        "target": "倦怠測驗：CBI個人與工作模組"
+      },
+      "description": {
+        "sourceHash": "ef5c2cbea6778a15e306b7dae817c5c0608efdb7cc9eedfac07231085bf7f59d",
+        "target": "用 CBI 的個人與工作模組回看疲勞和耗竭感。檢視兩組均分及有效答題數，中文為工作譯本。"
+      }
+    },
+    "wholesome-partner": {
+      "title": {
+        "sourceHash": "0831d836138a1186bd000690e1999348ddecbb77434f14d09517e7b91cc977f3",
+        "target": "健康伴侶相處測驗"
+      },
+      "description": {
+        "sourceHash": "2769acab93c5f96740092c0d38858ecbf218d02182a82862bb18e0fec13f1b23",
+        "target": "回看過去四周守約、回應、求助與修復等相處做法。八組分別計分，並說明缺答處理。"
+      }
+    },
+    "self-compassion": {
+      "title": {
+        "sourceHash": "83de58386883299c83c160ed38b76f8ba2ce4de9bb586035565d17b598a2635c",
+        "target": "自我慈悲測驗"
+      },
+      "description": {
+        "sourceHash": "eade973fdf3f1777085216a4b9768facb948191f3e5f732a5bcd0aedf9b161d3",
+        "target": "用 SCS 檢視自我慈悲的整體均分和六個分項讀數。中文為未經驗證的工作譯文。"
+      }
+    },
+    "communication-adaptability": {
+      "title": {
+        "sourceHash": "fba83f8dd5783f54adc4d526312ffa9c4e6fa075439b9988af43d29caec0d585",
+        "target": "溝通適應性測驗"
+      },
+      "description": {
+        "sourceHash": "4268f4d17f055a0426e22b805eb4d45c4adfd49282606a6f0960aea68a1926be",
+        "target": "練習按受眾和情境選擇溝通渠道、補足背景並確認理解。結果附逐題解析。"
+      }
+    },
+    "conflict-styles": {
+      "title": {
+        "sourceHash": "8687795da2036149cde0c20f27666d1354e1cd27ad6a3ffb2cf1a33834ba952a",
+        "target": "衝突風格測驗"
+      },
+      "description": {
+        "sourceHash": "1e418a1c69dd054e21fb39fce9099e1ed7e082f34515c0c913b5279bca2840b2",
+        "target": "回顧日常分歧中常用的五種處理方式。檢視分項均分、計分例項和情境解讀。"
+      }
+    },
+    "toxic-positivity-test": {
+      "title": {
+        "sourceHash": "20ca089cec41e36146288b37a6e23b98bcd848cfa81f4e6f447379a5d7171f25",
+        "target": "有毒積極心態測驗"
+      },
+      "description": {
+        "sourceHash": "e2a294eaa4e66d649c5351dd2cb6e8076df511aca3b5a96d4efec3e2a4913c3d",
+        "target": "回顧你何時要求自己、他人或不確定的結果保持積極。檢視三組均分和反向計分例項。"
+      }
+    },
+    "friendship-compatibility": {
+      "title": {
+        "sourceHash": "08b3a24e82f9a8e0ec2ab370218731bfc593e1e040f6bedf2cb524cdc84178d0",
+        "target": "友誼契合度測驗"
+      },
+      "description": {
+        "sourceHash": "262cd8e61d4e1593a6fe894fa2744d47aa5c7cdf44b715844f51f214a899ee00",
+        "target": "選一段成年友誼，回看約定、交流、投入、隱私和不同興趣。五組分別計分。"
+      }
+    },
+    "perfectionism": {
+      "title": {
+        "sourceHash": "97cc1d9ec7f63eb6c702ef7ae2411298af10c24bb93b5f93240bc850956206b4",
+        "target": "完美主義測驗：標準與期待差距"
+      },
+      "description": {
+        "sourceHash": "d75f1b38eb6ce50c32dcb3e184fa73a229571ba07bf6ea94444393ec90629878",
+        "target": "用 SAPS 分別了解個人標準與感受到的表現差距。結果附兩項得分和計分示例。"
+      }
+    },
+    "apology-language": {
+      "title": {
+        "sourceHash": "9a44134fe060b0fa0f989017678ce50b4027594425719857d84331e027bba83b",
+        "target": "道歉語言測驗"
+      },
+      "description": {
+        "sourceHash": "d5d39d44344423806c47336eea764d16afd7889c0747669882201b707208a536",
+        "target": "想想接受道歉時你看重什麼。五類期待分別計分，解讀附日常情境。"
+      }
+    },
+    "multiple-intelligences": {
+      "title": {
+        "sourceHash": "4573e0a4cbb0a1393b470734e56ddfd951e4e61a28a80e238ee2eb58f64c1221",
+        "target": "多元智慧測驗：活動自我回看"
+      },
+      "description": {
+        "sourceHash": "e59ebc3520f584c3c4f8f0032c3596e25bfea3af0fbf5a8b2a5f3369fea51ca9",
+        "target": "按八個主題回顧你做日常活動時的把握程度。可跳過，結果不選最強智慧或推斷智商。"
+      }
+    },
+    "work-ethics": {
+      "title": {
+        "sourceHash": "ecb55f4e48944bd33401e2337a285c67adf61b02628cddac91854e938ad9b087",
+        "target": "工作倫理和可靠性測驗：日常任務習慣"
+      },
+      "description": {
+        "sourceHash": "82c8988edb81cae03db3e6bf820e4b9557fd3ee819554cb6c42ad32b0d0cd7a2",
+        "target": "回顧近四周的履約、交付核對、如實說明與修正習慣。四組分別呈現。"
+      }
+    },
+    "empathy": {
+      "title": {
+        "sourceHash": "9890f70620e2fc4cf770a2163d82757d86afc73cdf13c01c6139662eb19991b5",
+        "target": "同理心測驗：IPIP關懷傾向十題"
+      },
+      "description": {
+        "sourceHash": "a3a95a0f311f89c27c78e9cfe77a88b6a80c2afc4a097c2430b90f9ec98c671b",
+        "target": "用公有領域的 IPIP 條目回顧關懷傾向。結果附原始計分、溝通例項與可嘗試的行動。"
+      }
+    },
+    "culture-fit": {
+      "title": {
+        "sourceHash": "e59261491eaddafea2b0d671f20382d6102479dd7bcccc18c847fa3e3ed3a40e",
+        "target": "職場文化契合度測評：工作安排偏好"
+      },
+      "description": {
+        "sourceHash": "f85e0979746672a2781a12ccd58c5a40285dfd87a627663982e5bf3221b897fb",
+        "target": "比較你偏好的協調方式、方法選擇、計劃修訂和反饋時機。結果顯示四組位置均值。"
+      }
+    },
+    "mote-type": {
+      "title": {
+        "sourceHash": "7a78c1a334d36225df8a847b224aac79a320a83f0e83a62e6f8f9c7d5662bb20",
+        "target": "魅力類型測驗：互動呈現方式"
+      },
+      "description": {
+        "sourceHash": "6fe265d6f0ce9f46de5f00a74a4b8bd70e22faa952a9eab8c687005c8d698bf4",
+        "target": "分別比較互動中的表達、清晰度、回應時點和分享界線。結果含四組計數與並列。"
+      }
+    },
+    "skills-audit": {
+      "title": {
+        "sourceHash": "9b579887b719343846883a44725a17ca5b9442772f5c9ff32a65ee38ee2d8236",
+        "target": "技能審計測驗：任務例項盤點"
+      },
+      "description": {
+        "sourceHash": "42167cd921fab974c3da06aebedcc4c03f34755e79986a9d2e48f5e18afd845b",
+        "target": "盤點自己在方法、工具、溝通和任務知識上有哪些可舉出的例項。結果按所選狀態彙總。"
+      }
+    },
+    "jealousy-scale": {
+      "title": {
+        "sourceHash": "befe7447db894c1a5759bdb087d76f322adb097d72fcd486b62e5c31dd9d6b6f",
+        "target": "嫉妒量表：費馬原創三組反思"
+      },
+      "description": {
+        "sourceHash": "5faa4b5c9c98e3e64ab912beb7c0fb95c7754063aaf21e802da9039a08b14df2",
+        "target": "回顧近四周關係中的擔心、不適和行動。結果分別呈現，並區分頻率與強度。"
+      }
+    },
+    "sternberg-love": {
+      "title": {
+        "sourceHash": "dd29f54f098018b75ab7541e85e83027ba407cb017220ac50fa1e8692d5b83fb",
+        "target": "斯特恩伯格愛的三角測驗：費馬原創反思版"
+      },
+      "description": {
+        "sourceHash": "85f6deca13cb887d7c501641b020c7284e6c74a5a995aa5e2e3522b0aebd61b3",
+        "target": "分別回顧關係中的親密、激情與承諾意願。結果展示三組均分和計分方法。"
+      }
+    },
+    "overthinking-screener": {
+      "title": {
+        "sourceHash": "4e485fc294efbacc5194259bd615f76fc1decb8e6ed6795b4d978b38a61747ba",
+        "target": "過度思考檢查：15項PTQ"
+      },
+      "description": {
+        "sourceHash": "359d59673bcf06035e57c97ecfe063db67a70349319b68fef52d8d95f8f9f17f",
+        "target": "用 PTQ 回顧反覆的消極想法、難以轉移注意等體驗。結果顯示總分和三個分量表的原始和。"
+      }
+    },
+    "life-path-number": {
+      "title": {
+        "sourceHash": "6af765d4720d4427bfb8789084e5b9545f1c654a6bcfe9a665ab53ff394702e9",
+        "target": "生命靈數與生日靈數計算器"
+      },
+      "description": {
+        "sourceHash": "310d86f9364a9be0e09ba8cc41891e96000025ecab8417b42dbe20db0bc07597",
+        "target": "用生日比較兩種數字計算規則，檢視步驟與符號解讀。結果不用於測量人格或預測未來。"
+      }
+    },
+    "deep-desire": {
+      "title": {
+        "sourceHash": "6e9df9ab5e8be34e294f155eeef776d105d2d07d704ad9e640b41af6e217af6f",
+        "target": "深層慾望測驗：當下動機主題"
+      },
+      "description": {
+        "sourceHash": "6e21e20d1b0949bab8b1f2aed912b3970c571bc36e5319ba095a0ea9ffb12ecf",
+        "target": "用原創自評回顧當下的六類動機。分項得分附具體情境，不推斷潛意識。"
+      }
+    },
+    "annoying-person-test": {
+      "title": {
+        "sourceHash": "0d786297b1dec06c8fd2864170de65bedb657a2e5bff1ba99a5e4663879d260b",
+        "target": "煩人性格測驗：互動線索自評"
+      },
+      "description": {
+        "sourceHash": "2bfa269d664e2bd414836b0514a7df974fd04ef2b3297c67311a2adcdf34f53d",
+        "target": "回顧你如何表達、暫停、調整期待、更新計劃和處理界線。五組分別計分。"
+      }
+    },
+    "love-fight-style": {
+      "title": {
+        "sourceHash": "406360054f6b0e4102f2748e7c9dcb62c5381ff93372407c41234708e0e51ce7",
+        "target": "愛情吵架風格測驗：原創過程反思"
+      },
+      "description": {
+        "sourceHash": "4d82a919e52cc7a166b84d7cb9983c3dd6afd389cd671adfdbe2ff15b3f7674c",
+        "target": "分別回看爭執中言語升溫、表達暫停、回到議題和確認修復的頻率。"
+      }
+    },
+    "capacity-to-love-test": {
+      "title": {
+        "sourceHash": "fa832a959a7915962ac238af2c45e30cecf8390b4249ad953a65df7ea4103dd5",
+        "target": "愛的能力測驗：CTL-I 2018工作譯版"
+      },
+      "description": {
+        "sourceHash": "5e119f7b7d7031c7cb5f47da2875536e475341c4dee4d1faa4e5070aa9bb5639",
+        "target": "用已發表的 CTL-I 2018 條目回顧愛的六個領域。結果含原始和、均分與反向計分示例。"
+      }
+    },
+    "executive-function": {
+      "title": {
+        "sourceHash": "3235a14d37e0dbea825913297fea7504baa7f21b9d1c31bea409109c014fdb3d",
+        "target": "執行功能測驗"
+      },
+      "description": {
+        "sourceHash": "90cbf09515e3b4477c8d21f14e099d73b479b8596f835617518fa0690655d48b",
+        "target": "用成人 ADEXI 分別回看工作記憶與抑制控制。結果標明各項原始和與均分。"
+      }
+    },
+    "hsp-sensitivity-quiz": {
+      "title": {
+        "sourceHash": "9704af43d932132771521c5988e68e40c8b662f6557a6232d2cad5a5d670e6d5",
+        "target": "高敏感體驗反思：24項近期經歷"
+      },
+      "description": {
+        "sourceHash": "824a6f30298738f1b56f741f37e61739e9fe397ee52c59f3757950a13c38a0c3",
+        "target": "回顧近期對資訊密度、情緒、含義和細微變化的體驗。四組頻率分別呈現。"
+      }
+    },
+    "competency-test": {
+      "title": {
+        "sourceHash": "e9e60f44d301ef74fe6c85ad0b57ff7db70b1a6c70a51cf268a63eb87454895f",
+        "target": "職業勝任力反思：36項近期工作行為"
+      },
+      "description": {
+        "sourceHash": "60df2698bf6bf3b8bad5d85d71b4d41aff9e40cbf18c6edf050f6f2a7efaae02",
+        "target": "回顧近期工作中的溝通、責任、適應變化和協同等行為。結果按六類分別呈現。"
+      }
+    },
+    "sensory-processing-test": {
+      "title": {
+        "sourceHash": "a28e34204121ffd87ef4a956d7d40f7e72fb2c60130ead2580f267855c312077",
+        "target": "感覺加工問卷：完整92項SPQ"
+      },
+      "description": {
+        "sourceHash": "40ce7093ccb3add295ee01a0bb5a4c1520017168f26bd91fb4efa1a308465ddc",
+        "target": "用完整 SPQ 回看自報的感覺知覺。全部有效作答後可檢視 0–276 分原始總分及計分示例。"
+      }
+    },
+    "parenting-style": {
+      "title": {
+        "sourceHash": "6a3480dd4e9ed1f811b13bdbf59332286c51fe3f877de3e05da6188642cc021c",
+        "target": "育兒風格測驗：溫暖回應與日常界線"
+      },
+      "description": {
+        "sourceHash": "44e3ec197421cfa0c26c07e9ae5abeb50e577cc3425c6c5e35559823d859b8be",
+        "target": "回顧近期與同一位 3 至 12 歲孩子相處時的溫暖回應與日常界線。兩項分別計分。"
+      }
+    },
+    "inner-critic-voice-test": {
+      "title": {
+        "sourceHash": "a54531d87395b1ab9ad7326692850ed64c20ac4afdc358971306e0f3261fe22a",
+        "target": "內心批評家聲音測驗"
+      },
+      "description": {
+        "sourceHash": "bf2451b0e224292d61a9e76f1a4359ab0d24b195e04e7921d774ff242ae0290b",
+        "target": "用已發表的 FSCRS 回看挫折後的不足感、自我厭棄與自我安撫。三項分別呈現。"
+      }
+    },
+    "holding-yourself-back": {
+      "title": {
+        "sourceHash": "4b92e8a79b8dbe7818451fb55aab7c39ae391a6a8a1a76b683c2f293ca990dec",
+        "target": "自我設限測驗"
+      },
+      "description": {
+        "sourceHash": "3c47b0b1538045c88b27653229d94f8f703677a91c274837fc11489b7b85288a",
+        "target": "回顧近四周七類日常阻礙，從情緒、注意、標準、行動和興趣等方面理解具體經歷。"
+      }
+    },
+    "breakup-reflection-test": {
+      "title": {
+        "sourceHash": "6840070899ce5e0aa056851a8da883a297ff174833db05b7eb56d545358e8e04",
+        "target": "分手復盤測驗"
+      },
+      "description": {
+        "sourceHash": "945b92e3fa68dcd67e08d0c74aa658019a2e119e57e9e96f08a23568fe86b375",
+        "target": "選一段已經結束的關係，回顧溝通、期待、界線和現實壓力。四組分別呈現。"
+      }
+    },
+    "nine-star-ki": {
+      "title": {
+        "sourceHash": "59e6ac2fcb53ca31cdb35863bfe54aed2f75b7e3597cf921141b6758568937b5",
+        "target": "九星氣學節年參考"
+      },
+      "description": {
+        "sourceHash": "20b420b4d28f53552814eea2cf89398682a005b9666cafca27d8faa79d5adf1d",
+        "target": "按公曆年份與立春界點計算九星節年。若時間不清楚，顯示兩個可能結果。"
+      }
+    },
+    "natal-chart": {
+      "title": {
+        "sourceHash": "8239b3a3f0a39425a845e4b8dfe37d6e45931bc3cf56b8307fdf8c11f8a459ff",
+        "target": "出生星盤計算：太陽、月亮、上升與十天體落點"
+      },
+      "description": {
+        "sourceHash": "b27e39889c352798bb2b34d38a8ee0ea8074e3cdd604460beb84b8b806fdf238",
+        "target": "用出生時間、時區和座標檢視日月升、天體落點及整宮制宮位。附相關文化解讀。"
+      }
+    },
+    "intimacy-preference-test": {
+      "title": {
+        "sourceHash": "b6a68a366d5f4c9c8bb0389545ddccc156cc403913f00e4a7c6f7ee6bfa9dee1",
+        "target": "親密偏好測驗"
+      },
+      "description": {
+        "sourceHash": "b32398afe63c0d1cf10588efbd2c0f7dcbd6ac2329f66e0e588e520852b3b447",
+        "target": "分別回看情感分享、身體界線、相處時間與對外隱私的偏好。四組獨立計分。"
+      }
+    },
+    "habit-patterns-test": {
+      "title": {
+        "sourceHash": "dd346bddb6caefecdac07aba31f71d2bebb170ecfe8cfbcad26a2c28988f9339",
+        "target": "習慣模式測驗"
+      },
+      "description": {
+        "sourceHash": "78fb92c038520c031d27607e25ec8827d329fe983414565bffe2fe30c4c599e1",
+        "target": "選一個日常習慣，回看過去 30 天如何觸發、開始和變化。可跳過，也無需填寫習慣名稱。"
+      }
+    },
+    "coping-rhythm-test": {
+      "title": {
+        "sourceHash": "285037624b96c01d3b6072e04b043853648b58f46aba3917a469dc38280c21d0",
+        "target": "應對節奏測驗"
+      },
+      "description": {
+        "sourceHash": "306000a98f10f5cf7108a4be2b496f5fa35e8f49ff3922395f962d6788161bfc",
+        "target": "分別回看任務起步、整理感受、調整計劃和取捨當下與未來的方式。結果保留並列。"
+      }
+    },
+    "freelance-ready": {
+      "title": {
+        "sourceHash": "5c63728ef41f5f3c363ced9b91ee6aeb70245889fc7af20fa59be3e07e8e4ec4",
+        "target": "自由職業者準備程度測驗"
+      },
+      "description": {
+        "sourceHash": "5470f24389455f241c75bd85d7a431e54db4c0cc9155044ca2fccacf7c5a29ce",
+        "target": "選一個自由職業專案，盤點服務、約定、資源、交付和界線的準備進度。"
+      }
+    },
+    "remote-work": {
+      "title": {
+        "sourceHash": "bfcdcaa2ae77b289c689d43d150614b7ca4f6ec59d7bf541cadbd0ce8549b51f",
+        "target": "遠端工作準備程度測驗"
+      },
+      "description": {
+        "sourceHash": "b77cf334e6b674a785fbbd86be4571456a55b296233ebd528e3aff370089fb35",
+        "target": "圍繞一次遠端工作安排，盤點接入、計劃、交接、支援和工作界線是否準備妥當。"
+      }
+    },
+    "stress-response-patterns-test": {
+      "title": {
+        "sourceHash": "fdd300a3bcbb5c1777b0f73154135c9902e0558c1865156c0c805786363e81ff",
+        "target": "壓力反應觀察測驗"
+      },
+      "description": {
+        "sourceHash": "022d273f7fbcbf35809bc00082c28e28bc7e3512f617c333bb4746f1b4738abb",
+        "target": "回顧近三個月面對壓力時的延後、檢查、維持和氣、解釋與少說。五組分別計分。"
+      }
+    },
+    "euphoria-character-quiz": {
+      "title": {
+        "sourceHash": "69965ea426a5cbb4c71d06fb7878fa515f041ecbea180409d64865d66e6d9635",
+        "target": "《亢奮》角色測驗"
+      },
+      "description": {
+        "sourceHash": "6d79610dadf8ee8c382a67fa7402fcac56437199cbb2c4c24a5e2499a55bfa5a",
+        "target": "在日常情境中比較魯、朱爾斯等八位《亢奮》角色的做法。非官方同人測驗，涵蓋前兩季。"
+      }
+    },
+    "seven-sins-virtues-test": {
+      "title": {
+        "sourceHash": "0940dd995e5d5e6df270e0b004cf626b326bb299929dad61b29ba36015786550",
+        "target": "七宗罪與七美德測驗"
+      },
+      "description": {
+        "sourceHash": "2dfd0f34b9647c368d088b6d283e3e83907aad830a282616c74a52220079534b",
+        "target": "回顧近四周的日常反應，檢視十四項得分的雷達圖和七篇情境解讀。結果僅供自我探索。"
+      }
+    },
+    "four-axes-test": {
+      "title": {
+        "sourceHash": "d12d881f412e023a3d4f147eafbfcd4f309ce2436b3c8069f4abd75d3656e6e3",
+        "target": "四軸自我畫像測驗"
+      },
+      "description": {
+        "sourceHash": "f54d325109feac8921007bdb5a1563782bef4674076eec3ae5b40db070a3f8b4",
+        "target": "分別回看表達、思考、生活態度與公共政策偏好。結果顯示四軸位置，不合成人格類型。"
+      }
+    },
+    "conflict-boundary-behaviors-test": {
+      "title": {
+        "sourceHash": "4a641a2c2a4b451ce53d4f3b9bb7aeca47ffa7a37135f187db2c53f0c59be468",
+        "target": "衝突與界線行為觀察測驗"
+      },
+      "description": {
+        "sourceHash": "66e7906eea4ae5d0349df8a04f73d0d3291de79161b7a9d72ba94a76ee13f6bf",
+        "target": "回顧過去三個月怎樣處理分歧、界線、影響和修復。可逐題跳過，結果不判斷危險或安全。"
+      }
+    },
+    "stress-check-in-test": {
+      "title": {
+        "sourceHash": "bde3dd587db528e26f465c2525de83ecdcdf524830e333e835835a2406f44693",
+        "target": "近一個月壓力自評"
+      },
+      "description": {
+        "sourceHash": "6e7e6018d426726de40031ee4018528ecf687c60e80ec28ae607bbaf0627f59d",
+        "target": "回顧過去一個月的急迫感與回應空間。原創題本給出 0–16 分總分和逐題計分，不用於診斷。"
+      }
+    },
+    "sake-type": {
+      "title": {
+        "sourceHash": "ba34e65c1a275117075b86513068e53e6b013aa9e85d5d10c2add09bd818c6da",
+        "target": "酒水類型測驗：四種飲品比喻"
+      },
+      "description": {
+        "sourceHash": "f7093b3f1d37c3eec8852f9561105d7527978cf4fa2ef9a251611016468a050e",
+        "target": "用起泡酒、啤酒、威士忌和清酒比喻想像中的選擇。無需飲酒，結果保留最高並列。"
+      }
+    },
+    "orientation-exploration-test": {
+      "title": {
+        "sourceHash": "585cae3941f03ff8b53acc9d87bb89bddd89140725b51c56c0edecb076771133",
+        "target": "取向探索測驗"
+      },
+      "description": {
+        "sourceHash": "6ba36aa87d3206137b78a8647b5b7a7449150ace4e40ee507036eb295c3389d2",
+        "target": "私下回顧吸引、體驗、標籤與支援。可逐題跳過，結果保留所選記錄，不判斷取向或身份。"
+      }
+    },
+    "tech-savvy": {
+      "title": {
+        "sourceHash": "d273a6d13d4bd466b8fec692dceb40803c87a8e19f22f5742c7e4d65dbd5a64f",
+        "target": "技術素養自評測驗"
+      },
+      "description": {
+        "sourceHash": "d98e2b9a6e58f5e97eff9d69ef2ebe952f2164fe93ccd2b0e6c9e8a09e549a67",
+        "target": "自評學習六種日常工具任務時的信心。結果附有效項數、均分和計分例項。"
+      }
+    },
+    "stupidity-test": {
+      "title": {
+        "sourceHash": "fa26b1d7c2e4bc0d80a7821ca8d88b531315c572c898f2e2a6a58e8a8c9b06d1",
+        "target": "犯蠢測驗：日常烏龍方式"
+      },
+      "description": {
+        "sourceHash": "3bd8583afa538e2030d1f71d15729dfa8a3a8976f0161f7f734739297f24744a",
+        "target": "看看六種日常烏龍里哪些更像你的選擇。這是趣味測驗，不估算智商。"
+      }
+    },
+    "mental-age": {
+      "title": {
+        "sourceHash": "3dd41fcb84cef53e39d3d5129c796346f30a352233fe72ffe2066c3f2546e79e",
+        "target": "心理年齡測驗"
+      },
+      "description": {
+        "sourceHash": "91203fa6376b7d1b1db20ddeefaaec3e6368a502dd851d20aec3698182554de7",
+        "target": "30道偏好題揭曉娛樂年齡、七種風格和可選實際年齡對照；中文另有3個可跳過非計分屏，可免費預覽儲存卡片。"
+      }
+    },
+    "energy-flow": {
+      "title": {
+        "sourceHash": "ce18ba090fe384db2b8bc8396b4dccc43dd19b396bdcc7ea77d5a57e4022bd81",
+        "target": "精力與專注節奏自評"
+      },
+      "description": {
+        "sourceHash": "1428571dbde906a0a6f007c67eb109514c5415ed278a08b1e82d527dd5e2894c",
+        "target": "分別回顧偏好時段、分段投入、專注條件和暫停感受。結果顯示四組均分與有效作答數。"
+      }
+    },
+    "food-disgust": {
+      "title": {
+        "sourceHash": "2c27530183c34e9c4ae27bfa421e93281b7fcbe23b5bbea01cc4806e33895089",
+        "target": "食物厭惡測驗（FDS）"
+      },
+      "description": {
+        "sourceHash": "9d5bcb65d6ce9d351de4746ccb09d56ef2875c8b13d009cc8062f43374651056",
+        "target": "用發表版 FDS 回顧八類食物情境的感受。按組檢視均分，中文為工作譯文。"
+      }
+    },
+    "cognitive-functions-test": {
+      "title": {
+        "sourceHash": "effc743d56bd9f3763672d4e1535af8e390cbf881b109a4e6e02b0c2b93384e3",
+        "target": "認知功能測驗"
+      },
+      "description": {
+        "sourceHash": "0cfa1a4619e4035865b5157493b364fc93b50df1598cbecfafb0339bf34d336c",
+        "target": "選擇配對題或自評，分別檢視八種認知功能的次數或均分。結果不推斷功能堆疊或認知能力。"
+      }
+    },
+    "love-type-16": {
+      "title": {
+        "sourceHash": "0548847414afc66fd73db8e352d23d9c3f8d7120e29eb39272c82ee994460af0",
+        "target": "愛情類型測驗"
+      },
+      "description": {
+        "sourceHash": "f020dcad25ad5a3f9aa7a4451ba845463fd48386529e7fa4c8cd688b3248467b",
+        "target": "獨立32題愛情類型測驗：四軸、16種組合和全部精確並列，支援相鄰代碼比較。"
+      }
+    },
+    "cultural-dimensions": {
+      "title": {
+        "sourceHash": "c5098eb14e322e9fffe63feb487be38fd3bbdec8238bd0e517139e619059c09e",
+        "target": "文化維度測驗"
+      },
+      "description": {
+        "sourceHash": "66466deed2b92cbe18d73cdc508647b374b710da4cf9acc8d43916ef69502b30",
+        "target": "反思六組文化相關主題，檢視個人均分和反向計分說明。結果不匹配國家。"
+      }
+    },
+    "food-choice": {
+      "title": {
+        "sourceHash": "f0e0c57580ef7e34d391fe77c9c65040e123a4c839f780872e6912672ef3e513",
+        "target": "食物選擇測驗"
+      },
+      "description": {
+        "sourceHash": "fc915745ed5e2aae68446f4c6c98f20a56b727677bdcb80393f07ce6e9c86ce6",
+        "target": "比較選單的不同呈現方式，檢視選擇次數及全部並列。結果不推斷收入或階層。"
+      }
+    },
+    "values-assessment": {
+      "title": {
+        "sourceHash": "022ed18c492895aa0508812fd8954cf5ea462f8c00e5363fb93963fbdc17026f",
+        "target": "工作價值觀測驗"
+      },
+      "description": {
+        "sourceHash": "6ae85afb4f815950aa22a0a524b2aece996a76d8d0b8892e5770c62c30197fa2",
+        "target": "比較十項工作優先事項，檢視次數及並列名次。結果不用於判斷是否適合某個職位。"
+      }
+    },
+    "eq-dashboard": {
+      "title": {
+        "sourceHash": "8412289c11ba502319b7b04298d12521d59083bba08667665dfd6d4de6481eab",
+        "target": "情緒儀表盤：八種感受"
+      },
+      "description": {
+        "sourceHash": "b95b89495dfb3536423bd8e7874f024ffdbe21e895dc8e0becab9430a51873b0",
+        "target": "回顧八類近期情緒，分別檢視頻率均分或資料不足。結果不計算情商能力分。"
+      }
+    },
+    "career-match": {
+      "title": {
+        "sourceHash": "49702b8cd73c77f874aa7d23463d3370c4045a71bd0aa37770bda0bcffa7e847",
+        "target": "職業匹配測驗：比較興趣與真實職業"
+      },
+      "description": {
+        "sourceHash": "ab86808a25e537a1dc5beba565dfbe280a5edc6a12d6a7f26a4563401fcf2abd",
+        "target": "把選定的 RIASEC 興趣與兩個或三個職業對照，檢視共同主題、職業代碼和完整檔案。"
+      }
+    },
+    "cyberpunk-edgerunners": {
+      "title": {
+        "sourceHash": "da578eccc79e2e142ed71a77d2dffb409b89a77a59ce17b2be413a26b98610b7",
+        "target": "《賽博朋克：邊緣行者》角色測驗"
+      },
+      "description": {
+        "sourceHash": "e3b494c8137a11d9ac5067997206119f3d8f1f6ee2b00064585348902e14d118",
+        "target": "你更像大衛、露西還是麗貝卡？用日常選擇比較初代動畫七位角色，檢視全部最高並列。"
+      }
+    },
+    "caliper-style-assessment-test": {
+      "title": {
+        "sourceHash": "5db035c1d69512b6cc36e2b48e8177594bbab5bcadb49394b58f105faa8bd161",
+        "target": "Caliper風格評估：最符合／最不符合練習"
+      },
+      "description": {
+        "sourceHash": "80b7bb85c6dc61bef9526832eb6332e7e9213f7998f655ca3b76d4edb0ce5401",
+        "target": "在每組陳述裡選最符合和最不符合的一項。檢視八個主題的選擇次數與差值。"
+      }
+    },
+    "masking-test": {
+      "title": {
+        "sourceHash": "4a8b27494e5e2e5edd874dd5b4eca2c3a9fcdc047d69fb1ca73758efff7bc23a",
+        "target": "社交偽裝測驗（CAT-Q）"
+      },
+      "description": {
+        "sourceHash": "f30ebe6e6e60b6f8da81f0822110cb0fbc9952f9c9bd7d3f7a8065b4f717a05c",
+        "target": "用原版 CAT-Q 回顧成年人的社交偽裝體驗。檢視總分和三個分項，無診斷分界。"
+      }
+    },
+    "imposter-syndrome": {
+      "title": {
+        "sourceHash": "a418a54906626560e1cf9e6381e8abf372cada78920f3a5a09ecfaf794340018",
+        "target": "冒名頂替綜合徵測驗"
+      },
+      "description": {
+        "sourceHash": "7df520043ed49cb25e908914eabf5b26b15dc1ee035237af1398d78ebfd8c1d7",
+        "target": "回顧對貢獻、反饋、評價、比較和準備的自我懷疑。結果按五個主題顯示頻率。"
+      }
+    },
+    "aphantasia-test": {
+      "title": {
+        "sourceHash": "be5bb21afdf3f92bfc0b55357c353ea48bd082cb0d3622c62633d4a36d41210a",
+        "target": "心盲症測驗"
+      },
+      "description": {
+        "sourceHash": "f4083b13a91636806be722b634d941bbae2028784b04b0fea50f783130b186c5",
+        "target": "試著想像物體、虛構面孔、地點和運動畫面。四組自評讀數分別呈現。"
+      }
+    },
+    "synesthesia-test": {
+      "title": {
+        "sourceHash": "bfc78022b94826f2b193aaf2511198fedf3013b3e4b414dff82c8c8ac9544d13",
+        "target": "聯覺測驗"
+      },
+      "description": {
+        "sourceHash": "183490c22c848ee7c7b8496a33a739f6e85e1ac5ea912a12a7e96c1d81c53bb2",
+        "target": "回顧符號、色彩、聲音等引發的聯覺樣體驗。結果保留逐條選擇，並提供主題解讀。"
+      }
+    },
+    "misophonia-screener": {
+      "title": {
+        "sourceHash": "82192cd618a667a7bad07067402dd1dd0db10705089a403f0171fc679fd510e6",
+        "target": "聲音敏感自評"
+      },
+      "description": {
+        "sourceHash": "624c4276ec4e49891e1add50b646bc1156b7a36bc288fb52ab7cde96ee1e460b",
+        "target": "用 DVMSQ v1.5 回顧聲音引發的反應及日常影響。根據前置回答，顯示適用的後續題。"
+      }
+    },
+    "sensory-sensitivity": {
+      "title": {
+        "sourceHash": "0eb93cb45bea48a00d7520ba0e315a3e8b3d1c834ebbbd84bff68c03ba120e35",
+        "target": "感官敏感測驗"
+      },
+      "description": {
+        "sourceHash": "34518b429eda6ef3c002d1616c9db736fc4ac85486a3763f84c6033f3f2a33ec",
+        "target": "回顧你何時晚些察覺、主動增加輸入、被打斷或想減少感官輸入。四組分別呈現。"
+      }
+    },
+    "anger-issues-screener": {
+      "title": {
+        "sourceHash": "73dee14b2948a69a42aea9abcd90210745a4f5c4ade337612948eadcbb3e151f",
+        "target": "憤怒與挫敗自評"
+      },
+      "description": {
+        "sourceHash": "518afa22b053734f8adc5d0220421b3c7988ad62c8bc70129d5e19c2eab899ec",
+        "target": "回顧近四周什麼時候生氣、怎樣表達或保留感受、覺得自己有多少選擇。四組分別呈現。"
+      }
+    },
+    "asvab-practice-test": {
+      "title": {
+        "sourceHash": "2a7452b3164b1be9f5d1f2024aa54fc9469d4e108f9aa0a31b5db45359e5ff2e",
+        "target": "ASVAB四領域英文練習"
+      },
+      "description": {
+        "sourceHash": "3a3e3a962eb6622d0c5d5858c2d40ad2e235a93a2d25818655c7232fae1eb44b",
+        "target": "練習英文算術推理、詞彙、段落理解與數學知識。可選計時，結果附雙語解析。"
+      }
+    },
+    "everyday-control-style": {
+      "title": {
+        "sourceHash": "5e2f0943b020a6eec96c414033bc77fe3294ccf72be8309a31ac1906caf07b28",
+        "target": "日常掌控方式測驗"
+      },
+      "description": {
+        "sourceHash": "d7b1934d6e7504879b8e7713f239524da4fe74e2a53a530294d0d059df6d109e",
+        "target": "回顧共同規則、邀請參與、職責內決定和交接等做法。六組分別計分。"
+      }
+    },
+    "asvab-science-mechanical-practice-test": {
+      "title": {
+        "sourceHash": "f26f10df98b9009bdebf6b3693a460d81958b5754783e7054d0adb5241243e75",
+        "target": "ASVAB風格科學與技術練習"
+      },
+      "description": {
+        "sourceHash": "48b63ab5132453c5ca2b2263468f64e1764bfc91eef3103d9d52afdfb7c5b9ba",
+        "target": "練習英文普通科學、機械、電路、汽車車間和文字組裝題。可選計時，附雙語解析。"
+      }
+    },
+    "interpersonal-preferences": {
+      "title": {
+        "sourceHash": "dba5834b8647b16108b99cd6a6893219589ebb4dae8b7dcb1e91c0f99beb55ff",
+        "target": "人際偏好反思測驗"
+      },
+      "description": {
+        "sourceHash": "c869b46498c5ef40f3f3ec3c0c0ae06380942ab776d69e2c1e46e7114ba2328f",
+        "target": "分別比較在邀請參與、實際協調與個人關心上，你怎樣行動，又期待他人怎樣回應。"
+      }
+    },
+    "mattering": {
+      "title": {
+        "sourceHash": "afb65d3fe45b23977f36eed52b5e4e9c83cc18f76c32efc160d22a98caa2c210",
+        "target": "被重視感測驗（GMS/AMS）"
+      },
+      "description": {
+        "sourceHash": "f49cee68f430e9e7f8195d3ff7e8a7029861a8129d48438db6a1cd71747d9306",
+        "target": "用 GMS 與 AMS 分別回顧被重視和感到無足輕重的體驗。兩項各為 5–20 分。"
+      }
+    },
+    "employer-reasoning-practice-test": {
+      "title": {
+        "sourceHash": "92d6178688c0145bd4b373b08d8a71ce26d3f760e3d1bbc559a39e06765b66ae",
+        "target": "SHL／Korn Ferry風格推理練習"
+      },
+      "description": {
+        "sourceHash": "0361ee845f8d9fd0746da4ff02d3fd6e9181df7cad8486dd7eb7bd89a3918980",
+        "target": "練習英文閱讀、數量與邏輯推理。可分段計時，也可不限時學習，附逐題解析。"
+      }
+    },
+    "social-attitudes-reflection": {
+      "title": {
+        "sourceHash": "c3df11ff208dcb0bf8629882550383a3b9fc12d5fd9824e88dbd307d2d742828",
+        "target": "社會態度反思測驗"
+      },
+      "description": {
+        "sourceHash": "7362553eb9c571a52d18591099356967987a59eb386e3e233786407a835499f1",
+        "target": "分別回顧對四組社會議題的認同程度。檢視各組均分，結果不貼政治或身份標籤。"
+      }
+    },
+    "watson-glaser-practice-test": {
+      "title": {
+        "sourceHash": "b4c576634e2fd6ca0570f4fc6683f5f425c62fbb751e5a488c270d7cf716d2a8",
+        "target": "Watson–Glaser風格批判性思維練習"
+      },
+      "description": {
+        "sourceHash": "7d63dd8b0470a73d0150f2e1784798ccb01f64a38a7faf84f940505e5131b439",
+        "target": "練習五類英文批判性思維題。可選 30 分鐘整卷計時，答完可逐題檢視解析。"
+      }
+    },
+    "tipi-10": {
+      "title": {
+        "sourceHash": "358c5a80524307cea089fedeb21295d2eb05a68baf614c0a8c0447cca48aef70",
+        "target": "TIPI-10極短大五人格測驗"
+      },
+      "description": {
+        "sourceHash": "29b512829fdf30e1b680a64bf8837dabafc97a469f11a27e7a909689778af26e",
+        "target": "用 TIPI 的原始英文條目回顧大五特質。五項均分分別呈現，中文為工作譯文。"
+      }
+    },
+    "sbti-test": {
+      "title": {
+        "sourceHash": "b230cb89b1b2526a62f6211ae3c0fd533a1855c050b5a709615d475e24bea8e6",
+        "target": "SBTI 娛樂人格測驗：31題版"
+      },
+      "description": {
+        "sourceHash": "89e9dc7f4e0b1badcc47b2204b3051ad7098e9aa64ed13b9bf8ec5bfc59ce675",
+        "target": "SBTI娛樂人格測驗31題版：25幅畫像、15項模型讀數和完整免費解釋。"
+      }
+    },
+    "work-activity-interests": {
+      "title": {
+        "sourceHash": "c1275957ba948fa2a46024f717a77fda4f7c914b77ae39e3c6fb9ffd50ce2a35",
+        "target": "工作活動興趣盤點：60項原創任務"
+      },
+      "description": {
+        "sourceHash": "bf52b85816f9a40fbfd9aa495d673e9d49df606df56d54fe04ac92f1b289549a",
+        "target": "用具體工作任務回看動手、調查、創作、支援、推動與整理的興趣。結果附有效項數及均分。"
+      }
+    },
+    "intimacy-values": {
+      "title": {
+        "sourceHash": "3cedf486e3b37161282baa53366bfc879d44158fcd62be6c77e305bdb8c04d3d",
+        "target": "親密關係價值觀測驗"
+      },
+      "description": {
+        "sourceHash": "f0b64adfecad5f9effc972e6081ee11531e23292f4b1791caa73543060fafd90",
+        "target": "梳理隱私、輕鬆相處、穩定、信任與情感靠近的重要程度。五項分別呈現，可選不評分。"
+      }
+    },
+    "relationship-habits": {
+      "title": {
+        "sourceHash": "e483cc4f251030a66e29b39f235d33f17e92b0ce4f3acd5c24654f29fcf5d21d",
+        "target": "關係相處習慣測驗"
+      },
+      "description": {
+        "sourceHash": "36ea9032ec050e7c028dfe7d911d9592432f5961a52c8fcd20263bfa7ef9772a",
+        "target": "回顧近三個月你怎樣留出空間、記下不滿、推遲談話或付出超過餘力。四組分別呈現。"
+      }
+    },
+    "dating-outlook": {
+      "title": {
+        "sourceHash": "456f9d2fc72e35b6ad0167775a56177e7ac211d77d8327981a85a6b372785993",
+        "target": "戀愛心態測驗"
+      },
+      "description": {
+        "sourceHash": "4a5f6bda97536e2b81cb5509c52784e871502efc6fd085a9ebfe56002abf33fe",
+        "target": "回顧你對聯結機會、可學習的技巧、保留期待和固定條件的看法。四組分別計分。"
+      }
+    },
+    "work-role-reflection": {
+      "title": {
+        "sourceHash": "a6a3f995564d98f885948a318779023ff4b528754ac8704577edd3b8a834e00d",
+        "target": "工作角色與支援方式回顧"
+      },
+      "description": {
+        "sourceHash": "763f72646be1c9178f596c6971e770a25b5a76749848d644fb249755ac3923af",
+        "target": "選一個工作角色，回顧近十二週怎樣澄清問題、核對交付和共同貢獻。結果保留你選的狀態。"
+      }
+    },
+    "face-self-image": {
+      "title": {
+        "sourceHash": "70a99befb24c01e695477861f35db7ad0652cb32bb9992675b3de3cdecdbdb21",
+        "target": "面部自我形象觀察"
+      },
+      "description": {
+        "sourceHash": "ab64d50ff142dd536fbe4fe3ea6c9d16331d3efd2cbaadc6add1aed29d466e9a",
+        "target": "回顧過去一個月對面部、自主打理、拍照和被注意的感受。不需要照片或相機。"
+      }
+    },
+    "relationship-worry-habits": {
+      "title": {
+        "sourceHash": "8af35af868d45af298d3307aef403075e0e2fd10a32d30bda662a8d02932befc",
+        "target": "關係擔心反應觀察"
+      },
+      "description": {
+        "sourceHash": "dff8c8f446506dd6f0df3f8cb1d6b5e47b6482da73857b248d31fed61f774bda",
+        "target": "回顧近三個月自己怎樣求安心、比較關注、額外付出或間接試探。四組頻率分別呈現。"
+      }
+    },
+    "work-traits-reflection": {
+      "title": {
+        "sourceHash": "26b2e5efbf1225bfc5a2694b7fe5b6d9d544a25b49494f111ca9e9c9b03137dd",
+        "target": "七類工作主題回顧"
+      },
+      "description": {
+        "sourceHash": "a15395f2588c40d2b6ae34d05a86c1f3c7b46652b63b78fc172dec44ec581055",
+        "target": "回顧近四周的壓力回應、主動行動、任務接續與履行約定等行為。七組頻率分別呈現。"
+      }
+    },
+    "dark-tetrad-sd4": {
+      "title": {
+        "sourceHash": "cc482bd42440e840238141a0ec16212c34903e4d8d47615305d5d9a8e7264ca6",
+        "target": "黑暗四特質 SD4"
+      },
+      "description": {
+        "sourceHash": "0f7d6efb6183d3c89bb2fc774f74dc1ea50533f04a68f7b5848436dd95883736",
+        "target": "用發表版 SD4 回顧四類特質。檢視各自均分，中文為工作譯文。"
+      }
+    },
+    "attraction-experiences": {
+      "title": {
+        "sourceHash": "99d03fa9b769a8649a541768825f0b1e732b2ab45b70f2b00c0603b2f7eefe57",
+        "target": "吸引體驗觀察"
+      },
+      "description": {
+        "sourceHash": "8eaf88c2ad9e5836f1d0426cdd1c93113140d416ef5d591390450a75e0f713a5",
+        "target": "回顧過去十二個月的浪漫與性吸引體驗。結果按五項呈現，不指定取向或身份。"
+      }
+    },
+    "written-coordination-practice": {
+      "title": {
+        "sourceHash": "899249ccb8104a2e22dd0deace9ffa223e736d0eaa5f3b623694004219a94847",
+        "target": "書面協調技能練習"
+      },
+      "description": {
+        "sourceHash": "78529d1a802568963492dfc74bbba04d9f9dc53fc44536a989b5c74689ed7496",
+        "target": "用錄入卡和英文題練習六類書面協調任務。分別檢視作答計數、解析和雙語指南。"
+      }
+    },
+    "distributed-work-choices": {
+      "title": {
+        "sourceHash": "0c283275bff715f34dd9b1bdd043e1e5aaf33d610987ad091b0b9d4816d17564",
+        "target": "分散式協作選擇回顧"
+      },
+      "description": {
+        "sourceHash": "17d21e39626e7338bd169182cdd78704eb28bb0c06446d030c20b761bdfbc3d9",
+        "target": "比較怎樣交接背景、公開任務進度、提出可回答的問題並安排回覆時間。結果按主題統計選擇。"
+      }
+    },
+    "outfit-line-preferences": {
+      "title": {
+        "sourceHash": "05a8156d09fb0fa37237faa64ed6368afe004246ac180253c63eba5b1b33bcf4",
+        "target": "服裝線條偏好"
+      },
+      "description": {
+        "sourceHash": "2277556a3beedda4e5af544876bc36b7fd86b2ef4a00f2650a868ede5743b2e6",
+        "target": "比較你偏好的服裝線條，如連貫、寬鬆、緊湊或柔和垂落。無需上傳照片。"
+      }
+    },
+    "trauma-response-reflection": {
+      "title": {
+        "sourceHash": "19c62d4c0eb29cdfc1fbac701b50cccdd1cbc838b58f4c42218f8e926e1e28ad",
+        "target": "困難經歷後的反應回顧"
+      },
+      "description": {
+        "sourceHash": "f45c04837b803bf83a5f76524d908690046103178eeb7e39c058df7142c1d17b",
+        "target": "供成年人回顧過去四周的提醒、距離感、情緒聯絡和警覺。無需講述發生過的事。"
+      }
+    },
+    "style-impression-preferences": {
+      "title": {
+        "sourceHash": "de96a89f96285ec8970c1c0a18c933e15a717b718786a69fa6ae1057b7ff55fa",
+        "target": "整體造型氛圍偏好"
+      },
+      "description": {
+        "sourceHash": "8bdcea27a38f7f217b88a9152845a52ae4979fa3d054689ccc73a505b36b9729",
+        "target": "通過文字選擇比較配色、輪廓、質感與細節。檢視八種造型主題的計數和並列，無需照片。"
+      }
+    },
+    "activity-engagement-patterns": {
+      "title": {
+        "sourceHash": "91c1a6d4d833ef0eb965d51ac7676dcc43fa5dabb213c0d2be6a5dafe46c949c",
+        "target": "活動參與方式觀察"
+      },
+      "description": {
+        "sourceHash": "f22eeebc35edde0195392076dd9a4144cbcfdaf6db706a7985229afa3386d226",
+        "target": "回顧近四周怎樣發起活動、回應機會、切換興趣、應邀貢獻和觀察環境。五項分別呈現。"
+      }
+    },
+    "pressure-response-actions": {
+      "title": {
+        "sourceHash": "69bdc7e9abe9f3dfdc15d9a88d1e030cc6732c2bbe6158ce50b402615b51b5b4",
+        "target": "壓力下的行動觀察"
+      },
+      "description": {
+        "sourceHash": "3859ae070d1909c9847950ff0f77abdcde0bf0bb6bae3efc0746caa7f84db07b",
+        "target": "供成年人回顧近四周堅持立場、退開、卡住或先答應的經歷。結果按類別記錄，不指定反應類型。"
+      }
+    },
+    "connection-ideals": {
+      "title": {
+        "sourceHash": "9a3fd39c68e24b8fc7e4f8a637a6425fcb7d6ed149988a62699b4524b54e8b9e",
+        "target": "靈魂伴侶測驗：連線偏好"
+      },
+      "description": {
+        "sourceHash": "6f6a60158a08cc4c1ec9bdf4286ea2fc9c58527e30ba5d09cf2bbd109a3341e1",
+        "target": "用想像情境比較六種聯結偏好。保留最高並列，無需填寫伴侶資料。"
+      }
+    },
+    "connection-belonging-check-in": {
+      "title": {
+        "sourceHash": "5093ffff40edda7c10794ebf87a1806e6dbc6685ef7ea577a79d14888d1ad134",
+        "target": "聯絡與歸屬回顧"
+      },
+      "description": {
+        "sourceHash": "19b812bc8477092aec6a6e2d53148538d11db5914772888902875344d6459d9b",
+        "target": "私下回顧過去四周的疏遠感、被傾聽的需要與歸屬體驗。三類分別記錄。"
+      }
+    },
+    "body-frame-observations": {
+      "title": {
+        "sourceHash": "4969826ae6573c507791895ab773bddad0ab71df4d75fbf252f23fc267a168f1",
+        "target": "體表輪廓自我觀察"
+      },
+      "description": {
+        "sourceHash": "d896148694352ec86dfcb1215fecc892176f5be5d878632c878e25c7002b13c4",
+        "target": "回顧你已經熟悉的體表輪廓。檢視三項均分，無需上傳照片或測量身體。"
+      }
+    },
+    "considering-support-reflection": {
+      "title": {
+        "sourceHash": "99d5cc453a8db47b3a541607be75d7291c0e4f3c0cc3f353b3a3846f60e40386",
+        "target": "考慮支援：個人回顧"
+      },
+      "description": {
+        "sourceHash": "c5a30208b43f7f565829b120ab41a5ee0327ea722a9f818a1e4333d52bbae025",
+        "target": "整理近期困擾、日常影響、可獲得的支援和想問專業人士的問題。結果按主題記錄。"
+      }
+    },
+    "connection-meaning-reflection": {
+      "title": {
+        "sourceHash": "3ad36da1512e09d5943b9af557ea76527818171d7926ea41c25daf162a7cd62c",
+        "target": "雙生火焰話題反思"
+      },
+      "description": {
+        "sourceHash": "f1ca63925201339e2ea77ca7e6a012845eac825a796bdf708cf2f9d0b492d17c",
+        "target": "選一段成年關係，回顧熟悉感、相似處、放慢節奏、理解與意義。五組分別呈現。"
+      }
+    },
+    "after-bereavement-reflection": {
+      "title": {
+        "sourceHash": "b42b82932cc255905fde587024c21bdf694e6cb2d15c5a741d3346a4944977e5",
+        "target": "重要的人去世之後：個人回顧"
+      },
+      "description": {
+        "sourceHash": "223e26cfa5cbffd99fe4183d8f40f81161f4e0163b3017a1b05d0845f8dbfcd4",
+        "target": "回顧失去重要的人之後的想念、角色變化、提醒、計劃與支援。保留私人記錄，時間背景可不填。"
+      }
+    },
+    "prakriti-inventory21": {
+      "title": {
+        "sourceHash": "0e87557707e60bd8dd99efa37f18d5ee47f1616356085d75637432187d6aed20",
+        "target": "Dosha話題自評：BPI-21"
+      },
+      "description": {
+        "sourceHash": "29948e0033df25ee64a2974b0a9ffd9ce5f0c1f23186b5f75f6dd71e6cadba39",
+        "target": "用發表版 BPI 回看傳統體質概念。全部題目有效作答後，檢視三類選擇的計數和佔比。"
+      }
+    },
+    "sleep-experiences-reflection": {
+      "title": {
+        "sourceHash": "39e75325977e8a3afdfa0560c542b7ef9b8b8d367559b917eba0beb98a2c798b",
+        "target": "睡眠經歷：個人回顧"
+      },
+      "description": {
+        "sourceHash": "75931cc1b6e5641e6cdb5f5a63fa98f6a38800f575022d767dbe6d1ae24cbe06",
+        "target": "回顧過去兩週的入睡、夜間醒來、早醒、白天體驗與睡眠擔憂。五組分別整理。"
+      }
+    },
+    "health-worries-reflection": {
+      "title": {
+        "sourceHash": "d64313c36eecd4f0ce5a90aed5afb9b546b044932d7eb5c627cfc4f577dec099",
+        "target": "健康擔憂：個人回顧"
+      },
+      "description": {
+        "sourceHash": "9871c93ae052b23a299bfcc807b1a9730c4b8132e239f9d9c3722021fe283d4e",
+        "target": "回顧近四周對身體感覺的留意、想追問的問題和對嚴重情況的擔憂。結果按主題記錄。"
+      }
+    },
+    "weton-story-preferences": {
+      "title": {
+        "sourceHash": "ba2fa0170a317ce705a59a595eaa7802c99855df8c800725375ea4703b63f39c",
+        "target": "Weton故事偏好與曆法參考"
+      },
+      "description": {
+        "sourceHash": "912c85eecb8eeb408e8d0911ac46d8fa0ac21f0ebbdb301cafeb0226b206742a",
+        "target": "在虛構情境中探索七個故事角色與五個市日視角。保留最高並列，爪哇曆法參考可單獨使用。"
+      }
+    },
+    "sudden-fear-reflection": {
+      "title": {
+        "sourceHash": "97590f00623f94e03da11123b47796741f111f73925f364a55cc461209e81d54",
+        "target": "突然強烈恐懼：個人回顧"
+      },
+      "description": {
+        "sourceHash": "5048fca11fd9c466e11caa0833b750b8e5e444e33c3952c5eddbb43b1fb967eb",
+        "target": "回顧突然恐懼時的感受和想法、對再次發生的擔心，以及它是否改變了計劃。四組分別記錄。"
+      }
+    },
+    "unwanted-thoughts-actions-reflection": {
+      "title": {
+        "sourceHash": "b7173a18abcfc131aaefce64b9eb1c48fbaebfb2a460ae667e1a247cfc0fe791",
+        "target": "不想要的想法與重複動作：個人回顧"
+      },
+      "description": {
+        "sourceHash": "2efef802b3cc6c62ff8f6cd7d51de96bfbce7523d6ec5b4a2318e101f734e5b0",
+        "target": "回顧清潔擔憂、反覆檢查、重複動作、不想要的想法與財物決定。五組分別記錄。"
+      }
+    },
+    "focus-energy-context-reflection": {
+      "title": {
+        "sourceHash": "4f5b80fbaf6971d1d07fb9c01fd89387a9455b01dfe37ea2a62147a629f0d776",
+        "target": "注意力與能量：日常情境回顧"
+      },
+      "description": {
+        "sourceHash": "f2064475310af2397761686602a7677e5770789aaccb7cf38c7e42d30d102ecc",
+        "target": "回顧活動中的注意、坐立不安、感受和精力，以及交流後出現的不確定。按四組整理。"
+      }
+    },
+    "nakshatra-spica-reference": {
+      "title": {
+        "sourceHash": "48e355745cc6aa6b3d72469c4f016ea402d6163d464c670ce4b3a6bab9d72bc0",
+        "target": "Nakshatra出生宿計算器：Spica參考口徑"
+      },
+      "description": {
+        "sourceHash": "834d1d1260d5bf3ec0b3d9c3226b63cbc5df6edb4e74e6954400691aaad0e83e",
+        "target": "根據出生日期、時間和歷史時區計算角宿一參考出生宿與四分割槽。結果含月球黃經和界線對照。"
+      }
+    },
+    "written-language-context-reflection": {
+      "title": {
+        "sourceHash": "8e3addd24f4e82054a6834effc29a33a56bfa6b1cf4d823c28fd3e049e163f59",
+        "target": "閱讀與書寫：日常情境回顧"
+      },
+      "description": {
+        "sourceHash": "62722d86f332b5a1523fd00bd268b70408293f4d4f05a97eec30af3f632c0377",
+        "target": "回顧近四周閱讀、寫作、遇到陌生詞語和獲取資訊的經歷。四組分別記錄。"
+      }
+    },
+    "number-context-reflection": {
+      "title": {
+        "sourceHash": "d1b1a3039d33c2e3a12815d022a5e4b7fa2a0e3a0fe13a3936d12f0d4b5323c0",
+        "target": "日常數字：個人回顧"
+      },
+      "description": {
+        "sourceHash": "f4070fb7d14247fdf6af4fa77d0ec05c9f944672727af8c133f5fc25f585e324",
+        "target": "回顧近四周理解數量、計算、估計時間和讀價格的經歷。四類分別計數。"
+      }
+    },
+    "social-context-reflection": {
+      "title": {
+        "sourceHash": "ef0ff541207240d29757dc4c0ed3eeac6e5ae49359f3405cc49d6f0bb2ce1ed0",
+        "target": "社交情境：個人回顧"
+      },
+      "description": {
+        "sourceHash": "82d7fc73f106f3c88c5be38e91cc8c96123c622caec6b5ca54a9213b32c7d4a1",
+        "target": "回顧近四周被他人看到、與人交談、安排社交活動及身體感受的經歷。四類分別記錄。"
+      }
+    },
+    "care-feelings-reflection": {
+      "title": {
+        "sourceHash": "f8009b447a6f89d753c92b2127542c4a99c0459f5a046632caacdab469097c3a",
+        "target": "照護與感受：回憶與當下"
+      },
+      "description": {
+        "sourceHash": "3bbe7c3c377640011956bdff9c385468dd0cfddf99acb17f73a908e6b84416c2",
+        "target": "回顧記得的情緒關注、回應與安慰，再整理過去四周的感受與支援。結果保留私人記錄。"
+      }
+    },
+    "drinking-experiences-reflection": {
+      "title": {
+        "sourceHash": "7cedb6f870de43f3ac004a55b215442ed50dbe65613c8e14e799311ff56ada1b",
+        "target": "飲酒經歷回顧"
+      },
+      "description": {
+        "sourceHash": "eea4ea63d5447cce27173d246a9bf4b74844cfd5a3d54f8c1a695640ad5b62bf",
+        "target": "供成年人回顧近四周飲酒的計劃、場合、生活影響與身體感受。四組分別記錄。"
+      }
+    },
+    "everyday-worry-reflection": {
+      "title": {
+        "sourceHash": "88ecc8d2bbaf2944d9f378ad310dbda4c92c602031f0be73c12bc36d6380fa9b",
+        "target": "日常擔心：個人回顧"
+      },
+      "description": {
+        "sourceHash": "51d022a92a9def93ff113de8db498eb49345988258b7f06687fbd55e189a8828",
+        "target": "供成年人回顧近四周反覆擔心、緊繃和日常活動的經歷。三類分別記錄。"
+      }
+    },
+    "child-focus-activity-observations": {
+      "title": {
+        "sourceHash": "c1a193b667a01da73501a280565fd1902870549c8b5d9fe27447b09f81cd493e",
+        "target": "兒童專注與活動：照顧者觀察"
+      },
+      "description": {
+        "sourceHash": "c27da6120e4499c08736054f82d6985d2a06cbde48d0dfaf5e98d0b8ff3595fd",
+        "target": "整理近四周親眼觀察到的兒童行為，包括共同活動時的注意、移動、輪流及所獲協助。"
+      }
+    },
+    "recent-mood-reflection": {
+      "title": {
+        "sourceHash": "dd315a254df2498d8e5053031b34f15586503d1d57df96f57e7a7fca7c194f5a",
+        "target": "近期心情：個人回顧"
+      },
+      "description": {
+        "sourceHash": "530c7965bf51042fde1d39905f69ba28e33d77fc5df818a1e0b8a3e7e7b29623",
+        "target": "供成年人回顧近四周的心情、興趣、睡眠、食慾、精力和內心語言。結果按主題記錄。"
+      }
+    },
+    "eating-experiences-reflection": {
+      "title": {
+        "sourceHash": "3022866e1e41d7100354162954ddc700d0d0ddc24fb4bbf3ae3f26c932b5cd2d",
+        "target": "進食與身體經歷回顧"
+      },
+      "description": {
+        "sourceHash": "1ac928dc9fc062c57ccf970d1fec5d5e71ed287ddd3a714321d6777157432163",
+        "target": "回顧近四周進食與身體相關的經歷。結果按五組記錄，供個人回看。"
+      }
+    },
+    "communication-routines-context": {
+      "title": {
+        "sourceHash": "2f728f287ff1f7164042fd1679ef3dd7f04c9c4932d56dd05bf0baedf9578fcf",
+        "target": "溝通、日常安排與做事方式"
+      },
+      "description": {
+        "sourceHash": "c07286814a622d4b066e386fafb43d7f530e032a0cfcfc37accedd51442e29d1",
+        "target": "回顧日常溝通、熟悉的安排、感興趣的細節和視覺輔助。按五組保留所選記錄。"
+      }
+    },
+    "gender-experiences-reflection": {
+      "title": {
+        "sourceHash": "a6325c7fe903f8cb81776ca9c180967cf49367f5fd1612d21252789ff6204c4b",
+        "target": "性別經歷回顧"
+      },
+      "description": {
+        "sourceHash": "d014d88eec802ed9bae754955790bd5a13708f7db3769ee0cc5fd59d174438f7",
+        "target": "回顧描述性別的詞語、身體體驗、稱呼與日常背景。結果保留逐條選擇。"
+      }
+    },
+    "mood-activity-changes-reflection": {
+      "title": {
+        "sourceHash": "461986ecd9dd4fabae5df25753aab0d3f927ad4a19d8f92dbf1a87244fe6fc8f",
+        "target": "心情與活動變化：個人回顧"
+      },
+      "description": {
+        "sourceHash": "5e9bdb633a8570b334525a3d8938d4666a14967aabf38aaccb74ead845cd690b",
+        "target": "供成年人回顧同一段時間裡心情、睡眠、活動、想法與決定的變化。保留逐條選擇。"
+      }
+    },
+    "feelings-connection-reflection": {
+      "title": {
+        "sourceHash": "4dc7f4728effa98711c12e98fadbfc499f47f56fd5b7915398ad9074b414d941",
+        "target": "困難時期之後：感受與聯絡"
+      },
+      "description": {
+        "sourceHash": "7d2fea78f3694a8388045a1bed2711dd40f8b78530d3ac0b5f97d1533e38ed4b",
+        "target": "供成年人回顧近四周的感受、暫停、親近與界線。結果保留逐條所選類別。"
+      }
+    },
+    "emotions-connections-reflection": {
+      "title": {
+        "sourceHash": "1071918cc7987d29e348f9b44ffed8193f8a71e9b2a76099bb8319d748b6e7b3",
+        "target": "情緒、自我與聯結回顧"
+      },
+      "description": {
+        "sourceHash": "9bf26a9c2d4dea169a3ab0ae06fcf748629462b14d87d074a943f2645dda37bd",
+        "target": "回顧近四周的情緒、自我理解與聯結經歷。七個主題分別記錄。"
+      }
+    },
+    "spatial-thinking-reflection": {
+      "title": {
+        "sourceHash": "f5411c0574d400bf6f948b3ab26b176dd993814aecce8fe26a3086ba31e10251",
+        "target": "日常思考中的空間關係"
+      },
+      "description": {
+        "sourceHash": "2df5dff9fc6aa6c4b0e7b27488d479b7d667a7b9ac866eac62c252bf501e87e8",
+        "target": "回顧在日常中想像物體轉動和相對位置的經歷。結果保留私人類別記錄。"
+      }
+    },
+    "feedback-self-worth-reflection": {
+      "title": {
+        "sourceHash": "22488024705fbf3f3678590dcd9567c1b7b23dc68eb461f28a8516fa4baa3c3b",
+        "target": "反饋與自我價值感回顧"
+      },
+      "description": {
+        "sourceHash": "183108a743d3b258117f63bc62fd6225855c934a84c222123a38abab4094d3d9",
+        "target": "回顧近四周收到反饋後的感受、自我評價和反覆留意的經歷。三個主題分別記錄。"
+      }
+    },
+    "menstrual-cycle-context-reflection": {
+      "title": {
+        "sourceHash": "82d355b27f3d8065f437566456feb6d64b803c6db47951fd0e8689c8bba2d2ce",
+        "target": "月經週期與近期經歷：個人回顧"
+      },
+      "description": {
+        "sourceHash": "33a4ca88fa454e85f155d0895a4bfdf13c05028d862ad37c69cbb494b6d31053",
+        "target": "回顧同一次月經開始前後的情緒、煩躁、身體感受與日常變化。四組分別記錄。"
+      }
+    },
+    "disconnection-experiences-reflection": {
+      "title": {
+        "sourceHash": "703f6ea50c3af8b1d08490c4338deb99a57ea16d4cd1d80401c8482a3fe69911",
+        "target": "距離感、投入與日常回憶"
+      },
+      "description": {
+        "sourceHash": "52ed509235cc7154e5ee93d0917b7727fc67ebdc6dceef15dd6667f1639b46fc",
+        "target": "回顧近四周的自身體驗、環境感受、活動投入與日常回憶。四組分別記錄。"
+      }
+    },
+    "uncertainty-ease-reflection": {
+      "title": {
+        "sourceHash": "c0c9038867846b994bf6c438050df07d31d9d2b9bf76518c49cdfa6a27e3ff49",
+        "target": "面對未知的自在感回顧"
+      },
+      "description": {
+        "sourceHash": "84e2c6d897419894c9486c85a5492c3e316e5296da42f387875feab42e2d37ad",
+        "target": "回顧普通低後果情境裡怎樣感到自在、緊張或面對未知。結果保留逐條選擇。"
+      }
+    },
+    "after-childbirth-context-reflection": {
+      "title": {
+        "sourceHash": "150288465aa69361c1dd8a45ffef60e171a1e0d0e3e1d2191b3a2b60fc9d05e4",
+        "target": "分娩之後：個人回顧"
+      },
+      "description": {
+        "sourceHash": "a8eff2a3a4bd565bdd8d1d392f049ace3180c3f6ba9b44a30a105558d8f0e102",
+        "target": "回顧產後近四周的心情、擔心、休息與自我聯絡。結果保留逐條選擇。"
+      }
+    },
+    "unfamiliar-experiences-reflection": {
+      "title": {
+        "sourceHash": "c41e9ba6fbfcdf3e1ca8c814f3eae4a33025dd53bb71513d0fe035aeb873ea59",
+        "target": "陌生體驗與日常參與"
+      },
+      "description": {
+        "sourceHash": "e052f92e2df77c2dc539d690bc13bc3afa9a38109261670cfaa41968bdb58543",
+        "target": "回顧不熟悉的感官印象、思路、戒備、參與和日常事務。結果保留逐條選擇。"
+      }
+    },
+    "time-of-year-context-reflection": {
+      "title": {
+        "sourceHash": "482fcf3be6f1440b34650799f161b020175831dd461434476e853803ad560320",
+        "target": "一年中的時間與個人經歷：回顧"
+      },
+      "description": {
+        "sourceHash": "9bf2016a19fd2f7b56059777bab47f62dc114bc6dc2b2bcd090e652737b09160",
+        "target": "回顧過去兩年不同時段的心情、精力、睡眠和食慾。結果保留逐條選擇和時間背景。"
+      }
+    },
+    "perceived-stress-scale-4": {
+      "title": {
+        "sourceHash": "626b38e1e3190124f027c6145100445c288171865386470424619c504c8fbdd8",
+        "target": "四項感知壓力量表（PSS-4）"
+      },
+      "description": {
+        "sourceHash": "00975a03daedeecd55bb0a7dadf8930ea36aa1a44a5f6735a52f289d7629fcad",
+        "target": "用已發表的 PSS-4 回顧過去一個月的感知壓力。檢視 0–16 分總分及各題怎樣計分。"
+      }
+    },
+    "soldier-poet-king-quiz": {
+      "title": {
+        "sourceHash": "6d326d53cd762a8df2299d30710847aa9a25edc405947e23e6359319430c2b1c",
+        "target": "士兵、詩人、國王測驗"
+      },
+      "description": {
+        "sourceHash": "d72ae49a3d70d637c99bad4d7818dc91494ef91ff8404b1f56bbef6ae776e581",
+        "target": "完成24道原創情境和1道六項排序，比較士兵、詩人、國王與全部並列，免費儲存你的主題結果卡。"
+      }
+    },
+    "rice-purity-test": {
+      "title": {
+        "sourceHash": "6fb30d5d601e53c449f4ea8980807d9964a187b6eb26051351ec905a7ada5630",
+        "target": "純潔度測驗（Rice Purity）：100項經歷清單"
+      },
+      "description": {
+        "sourceHash": "dc28b913f4980b940539ab825f7d9b163b52b38d1166e51366f8fcfafa3df014",
+        "target": "獨立原創100項成人經歷清單，可跳過、修改與清空。透明計算0—100分，儲存不含逐題答案的結果圖。非經典原版，不評價道德或健康。"
+      }
+    },
+    "avatar-bender-quiz": {
+      "title": {
+        "sourceHash": "4cbe9ef68014c53503fcb273434f41b093d4bbdec2bc17138cd1e4a88bb62559",
+        "target": "降世神通御術類型測驗"
+      },
+      "description": {
+        "sourceHash": "2bbfa4a1000ba62d1af62135decc66e8b45171f6e3f12a9e07644b259f0d6cd5",
+        "target": "通過24道原創御術故事情境，探索御水御土御火御氣四種風格。保留全部最高並列，完整指南和原創主題結果卡免費。"
+      }
+    },
+    "patronus-quiz": {
+      "title": {
+        "sourceHash": "f97a23b104f91585bc5d54c7b139d4e110f5b2cbaf6e8acc068a6c65ca61b24f",
+        "target": "哈利波特守護神測驗"
+      },
+      "description": {
+        "sourceHash": "0298d451d67937e8c04f277ef70c1705b90b71f4baaa75de47b6c21aed20388a",
+        "target": "20屏混合選擇，探索40種原創守護神。完整解讀與可達示例公開，比較動物保留個人結果，免費儲存主題圖片。"
+      }
+    },
+    "beachcomber": {
+      "title": {
+        "sourceHash": "d12cc8b4c1beab9a8c958527816315ea559ef864f5ddb83c42cf70a96dbb9d1a",
+        "target": "海邊拾趣：什麼會吸引你停下？"
+      },
+      "description": {
+        "sourceHash": "a563c4da41cf29fa96dbaf3a1f0e3e09fe9cdefc982565c5e872b619802b85d1",
+        "target": "沿著插畫海岸拾趣。你會留意圖案、追問物件來歷，還是讓它留在原地？"
+      }
+    },
+    "birdwatching-companion": {
+      "title": {
+        "sourceHash": "acb0e49836dd3374410714e93ebf46a70794b89605eae2729cec9848346cc0d7",
+        "target": "觀鳥同行：你會怎樣分享一次發現？"
+      },
+      "description": {
+        "sourceHash": "1336c90568b075bd7d70e4358de67a35f4415f758c826c312a713498e5dbdc02",
+        "target": "和虛構的觀鳥小組出門，看看你怎樣等待、記錄發現和分享見聞。"
+      }
+    },
+    "board-game-table": {
+      "title": {
+        "sourceHash": "dc62688c9c61e28c7b86c9a084ee2ae80a3a547b070fbc82ec6c5707c893fd84",
+        "target": "桌遊一桌人：你會帶來哪種玩法？"
+      },
+      "description": {
+        "sourceHash": "5e6a8c29447adfcc4ff20ad38ecc41cd8a3d0355c705a74847c6d1cb340f68b6",
+        "target": "坐到桌遊桌旁，決定怎樣學規則、享受挑戰，也讓不同經驗的人一起玩。"
+      }
+    },
+    "borrowed-book": {
+      "title": {
+        "sourceHash": "5223258c35af2df6bdf67e518615fc2bdb0fcc8b9635a4793bc881c1ee556777",
+        "target": "借一本書：你會怎樣把約定說好？"
+      },
+      "description": {
+        "sourceHash": "6ab3cc60883327798672a6863a0a7390ff6ed3ca83ab3bdd6d08180e4d0b4a93",
+        "target": "借一本書，看看你會怎樣約好歸還、聊閱讀線索或照顧書本。"
+      }
+    },
+    "browser-tabs": {
+      "title": {
+        "sourceHash": "3616879b860c904ae33fd014db64911e4fbcd4518f6f56c2d12a7d5a51e0a3ba",
+        "target": "隨手開啟的標籤頁：你會怎麼留？"
+      },
+      "description": {
+        "sourceHash": "9bd327e39bd0b3575b4729aa9480126f61b1779eaeda7d0a2022d6ef53f99e1d",
+        "target": "暫時用不上的標籤頁，你會留作問題、接一個小行動，還是存起來以後再看？"
+      }
+    },
+    "camera-roll": {
+      "title": {
+        "sourceHash": "70652dbc4a30c58381d22c4a9f23971a00d3efd5a858a6e7266cda9d80727644",
+        "target": "相簿裡的這些照片：你會怎樣挑？"
+      },
+      "description": {
+        "sourceHash": "a9fd4c97953c31ed83058339dcf1a53ca9de218f687608104c803e0302513f2d",
+        "target": "整理一組虛構照片。你會方便日後查詢、精選幾張，還是排出一個小故事？"
+      }
+    },
+    "campfire-storyteller": {
+      "title": {
+        "sourceHash": "f07fce586485820e676b7a75a2d474f0f9c1b77dcda449d1f27fea48bd6524ca",
+        "target": "圍坐講故事：你會怎樣接住這一圈？"
+      },
+      "description": {
+        "sourceHash": "39291fc71fea930082401923772383cc7db701e58ff26363e2b47365cccd1dfc",
+        "target": "圍著篝火接故事。你會鋪懸念、找個好笑點，還是留一句給別人？"
+      }
+    },
+    "celebrating-a-friend": {
+      "title": {
+        "sourceHash": "4e81d589a54fded7989398b388d50470688e333541c0b9d78d54d215fecc79ae",
+        "target": "朋友分享好訊息：你會怎樣接住？"
+      },
+      "description": {
+        "sourceHash": "71c31cf4235fb25572fbaf1f0fb4ee78b253c8c84ed591f86d9b070a8f5c1e82",
+        "target": "朋友分享一件好事。你會聽他們說完、發一條專門的訊息，還是一起慶祝？"
+      }
+    },
+    "celebration-planner": {
+      "title": {
+        "sourceHash": "ad4ddd02130ce31a507b5bf98672fa3322b19f32aac5f1860e87f6b60169ae75",
+        "target": "小慶祝策劃：你會把重點放在哪？"
+      },
+      "description": {
+        "sourceHash": "15f45c671d4bee3be5e3204fadc5718d70142b354e3221321ec6aae92a9ff5fa",
+        "target": "給別人辦一場小慶祝。看看你怎樣照顧對方的意願、安排共同記憶與自願參與。"
+      }
+    },
+    "changan-history-quiz": {
+      "title": {
+        "sourceHash": "313ac0e9ccfec1c56aa2aef7912893c98572bd6919bd9853e917f662d4a89621",
+        "target": "你的性格最像哪位歷史人物？"
+      },
+      "description": {
+        "sourceHash": "6a3fda57257ae2aee8080268b95107340a66ba2b62d741b5e26721606c5cccd9",
+        "target": "走進唐代長安，看看會遇到李白、武則天還是另一位歷史人物。結果附原創人物卡。"
+      }
+    },
+    "choosing-together": {
+      "title": {
+        "sourceHash": "f7b99261be234021504b518bdeafe4c7bc7db5f4ccfc81f92cde4c39d6303586",
+        "target": "一起選件小事：你會用哪種辦法？"
+      },
+      "description": {
+        "sourceHash": "f5232c6afa94efa2177c866b7f5e346265c7b6f31e42a4e978110dddfc695dac",
+        "target": "一起做個小決定。你會先說清條件、輪流試，還是把決定分成幾部分？"
+      }
+    },
+    "city-wanderer": {
+      "title": {
+        "sourceHash": "6edcdb603bbb12bb5a4d9dc5d08d834efaeba1c5d9173083cb4f84e13e9b4aa1",
+        "target": "在城市裡閒逛，你會沿什麼線索走？"
+      },
+      "description": {
+        "sourceHash": "3b7c5745222c9dc31a2f55d8e516c521fbfd901cd77d68a5dfb69107c93acb7c",
+        "target": "在城裡隨意走走，看看你會跟著街道佈局、街區節奏，還是地方故事。"
+      }
+    },
+    "cloud-drift": {
+      "title": {
+        "sourceHash": "79ae4702643c5a72aa449154fe82d74a9346fa2c8716c2e517162025a7ea5143",
+        "target": "看雲小遊戲：你會看見什麼？"
+      },
+      "description": {
+        "sourceHash": "32e88c6f03d4c0e2ba03c21bf70b9858443260e395a4840385b788a5c036b58f",
+        "target": "把飄過的雲想成一幅畫、一段移動的情境，或留出一塊空白。"
+      }
+    },
+    "coffee-break": {
+      "title": {
+        "sourceHash": "28de806d8f813d9a6dc1589c2e8b5a87ca8bbc27bdbf7ecf22740d8937f1cb04",
+        "target": "你真正想要哪種小憩？"
+      },
+      "description": {
+        "sourceHash": "07543cae195957e9f0975e5bdaff21c3b04a7ba10e9c1fa73bab216d4eb76fa0",
+        "target": "安排一段小憩。你會換個情境、做件有儀式感的小事，還是找人聊兩句？"
+      }
+    },
+    "comfort-offer": {
+      "title": {
+        "sourceHash": "0751917c2e403d851b7a37c50aa2bd470894a7a17078d74794a5c3ed180a2d5d",
+        "target": "普通累了一天：你會怎樣提供陪伴？"
+      },
+      "description": {
+        "sourceHash": "6b9aaf9cef7bf6ed169830c727ab991f1879a72863f128700f59c9083bec4481",
+        "target": "朋友累了一天。你會做點實際的事、留出說話的空間，還是安靜陪一會兒？"
+      }
+    },
+    "community-fair": {
+      "title": {
+        "sourceHash": "ca076fb4169ddda7c9646d31e5eaf4cb1de7f374239e1d44b7a6375b9647de67",
+        "target": "社群小市集：你會怎樣搭把手？"
+      },
+      "description": {
+        "sourceHash": "585a8e1a359001edf70611fff3bf8eeada50b72cebc2607a3565f783a74d0c17",
+        "target": "在虛構市集裡接一項小任務，想想怎樣給下一位幫手留下有用資訊。"
+      }
+    },
+    "compliment-style": {
+      "title": {
+        "sourceHash": "eb57d0e60284c50549990bbbdc0d5b08c5e096e31f0ae5cde52260714e7ede32",
+        "target": "一句欣賞：你會先看見什麼？"
+      },
+      "description": {
+        "sourceHash": "fa334fefdba9b14e0fb9d9b982d19efe860869a314cc21a09e29e54afe4346f0",
+        "target": "想想一句欣賞從哪裡開始。你會說一個細節、對方的過程，還是貢獻帶來的變化？"
+      }
+    },
+    "cozy-object": {
+      "title": {
+        "sourceHash": "a7087f5baf0770adafbff1ce7a85f27cec98a505ad7abbea567e85c67d2a3917",
+        "target": "你的溫暖小情境，會由哪件普通物陪著？"
+      },
+      "description": {
+        "sourceHash": "468805e42d4612537161243f0be019eb396bff4af866feda063d5846a93e0dff",
+        "target": "用杯子、毯子和筆記本搭出一個溫暖小情境，看看每件東西會邀請你做什麼。"
+      }
+    },
+    "creative-spark": {
+      "title": {
+        "sourceHash": "67211058622ba1eb1576c1434e8828c972ab7833f59d5f2c881c726f425452fd",
+        "target": "一個小創意來了，你會先怎麼接？"
+      },
+      "description": {
+        "sourceHash": "ed8963b48db4f5b7619a1103dde99dbd90fc79be3a087e4e7c7f7e074949c4b0",
+        "target": "從意外提示、粗略試做或願意聽的人開始，看看小創意會怎樣出現。"
+      }
+    },
+    "date-plan-detour": {
+      "title": {
+        "sourceHash": "c5853eab182954d46740b599f85ba7af8ad68eab81f029be017dcbe5012ee60a",
+        "target": "約好的一程變了：你會怎樣一起轉彎？"
+      },
+      "description": {
+        "sourceHash": "6d879700f8058db0925d9c11d85b049908885b99b71202e6fc55ceae1d69463b",
+        "target": "共同外出計劃臨時變動。留下最想做的事，問問彼此現在的偏好，或另想個安排。"
+      }
+    },
+    "desert-oasis": {
+      "title": {
+        "sourceHash": "ccbb21249c37e49fbcd32efb44e40a2d64023e12cee1a3d7bd1f7b3865dcb796",
+        "target": "設計你的想像綠洲歇腳站"
+      },
+      "description": {
+        "sourceHash": "5dd9afa809942f28ed13350de19c58af5f104e432d353e02e1cf6646cc2828c0",
+        "target": "在想像的綠洲安排指路、歡迎和安靜歇腳的地方，設計一座休息站。"
+      }
+    },
+    "desk-reset": {
+      "title": {
+        "sourceHash": "1dcee7b6e05b96ff5fc4163892c55411ccafc8255b9b43f8fba3f76df3f74fa0",
+        "target": "你的桌面想怎樣重新開始？"
+      },
+      "description": {
+        "sourceHash": "420793e80b191f9f26c730cf462c9c7fc37b4b55e69240bf45ff6b1fd5fc7e54",
+        "target": "重新佈置創作桌。你更想要準備好的小站、可移動工具包，還是清爽的工作面？"
+      }
+    },
+    "dinner-host": {
+      "title": {
+        "sourceHash": "ad26ff6fcd90796b930947b13f0784f88d6aa1de79eb82d37d287b97943ecd10",
+        "target": "輕鬆請吃飯：你會怎樣安排這一桌？"
+      },
+      "description": {
+        "sourceHash": "f03c6474c2ccab3fb6bf1f8794a24de02ff5192e2b668ee827ddf449feac84ba",
+        "target": "想像你邀請人來吃飯。安排用餐節奏和菜式，給自己也留一點享受晚餐的餘地。"
+      }
+    },
+    "dragon-housemate": {
+      "title": {
+        "sourceHash": "40da0133c8b8e9228f66f7a9fd49c88595d9600fe359e21bd6157682e7b8722a",
+        "target": "和一條龍合住，你會怎麼相處？"
+      },
+      "description": {
+        "sourceHash": "bb0fd6a52579835cded0545819b861ea22eae6b2b9ceda3acd998046c992fd45",
+        "target": "和一條友好的龍合住。你會劃分空間、建立小儀式，還是一起做發明？"
+      }
+    },
+    "dream-train": {
+      "title": {
+        "sourceHash": "d6843479da5b2b20d4350a8587281f4161867b642fe7e9fc413c15b30e5279bd",
+        "target": "夢境列車：會改字的車票"
+      },
+      "description": {
+        "sourceHash": "7687f6ffcae34abda102d96d0e82541a939000d6cf9cda82ebc1fabd4e4d2882",
+        "target": "在一趟夢境列車上，一張車票會改掉一個字。你的選擇決定它最後成為什麼。"
+      }
+    },
+    "enchanted-library": {
+      "title": {
+        "sourceHash": "16cb78852722b7a1978e107f8e6349a42bc5b50f96c41b768dcba2b4b9d7e17d",
+        "target": "會改寫的圖書館：你會相信哪條線索？"
+      },
+      "description": {
+        "sourceHash": "ecd23c373e798fdd78e9b4f7d5ca3344e78374511ad396b137bd2cb375823455",
+        "target": "圖書館裡的目錄互相矛盾。你會核對證據、問保管者，還是暫時接受不確定？"
+      }
+    },
+    "escape-room-role": {
+      "title": {
+        "sourceHash": "1c38486ad5da773e6b75efa90edd19d8031448dfe8eab766202a8a80ed927f0d",
+        "target": "密室小隊：你會怎樣推進線索？"
+      },
+      "description": {
+        "sourceHash": "a097f6bf6aa6237fd7431cb23b0b15e1f77f68e5cfb86e5e1528f020911925d5",
+        "target": "在虛構密室裡連線線索、檢驗假設、留意剩餘時間，看看你怎樣參與解謎。"
+      }
+    },
+    "fantasy-party-role": {
+      "title": {
+        "sourceHash": "13dd9742ca8bc2e76b2646306ef5b800fe8b841f22618d8c8edd6b6fb8c47711",
+        "target": "奇幻冒險隊裡，你負責什麼？"
+      },
+      "description": {
+        "sourceHash": "d58dcf50e01f7d065fc7fe7758267d120a2463ae4d3b34bce8f25ac5e3a7f48f",
+        "target": "跟一支奇幻隊伍遠行。你的選擇會帶你成為探路斥候、結界守護者或咒語修補師。"
+      }
+    },
+    "festival-companion": {
+      "title": {
+        "sourceHash": "8af295760fc97544cb34d356507f48f0f4f66b9cc1ca4e4dca5b6564a910e5dd",
+        "target": "逛節慶同行：你會怎樣約好這一程？"
+      },
+      "description": {
+        "sourceHash": "d274f186c70fc1d3f692e0973cc865c68d6755ccf2a884a1a62235347260e30f",
+        "target": "一起逛節慶。你會先約一個共同重點、靈活分頭看，還是試試沒玩過的活動？"
+      }
+    },
+    "festival-mask": {
+      "title": {
+        "sourceHash": "29c66ea2c3da1739e61a3afd61aeace028b060eda10a19b18cdb060f18aadf49",
+        "target": "虛構節慶之夜：你會設計哪張面具？"
+      },
+      "description": {
+        "sourceHash": "c7d85ffe54c7d1c8a772e1d356ae868f91a886ad6819d5717eecc1defa0c7e28",
+        "target": "用鈴聲、窗形和可動紙帶設計一張節慶面具，給它安排一種獨特的亮相方式。"
+      }
+    },
+    "fictional-cafe": {
+      "title": {
+        "sourceHash": "38489baa0b506d8fb77ce5c3b540417899c3f69f1fcd723680034b67dd430694",
+        "target": "你會開一家怎樣的不可能咖啡館？"
+      },
+      "description": {
+        "sourceHash": "2bd8546902979b06df6938447fb8482e31041456870262853ff5f63bce7a000d",
+        "target": "設計一間虛構咖啡館，讓來客交換表演、借用詞語或創造新顏色。"
+      }
+    },
+    "firefly-evening": {
+      "title": {
+        "sourceHash": "57d758eb4a0322a63be0c18e7a230d8cbe63685e45bc1c7d005dbd92cc7c990c",
+        "target": "紙螢火的傍晚"
+      },
+      "description": {
+        "sourceHash": "fe9994812852c3da25faafd5d9ed66ce83262ecd50cfbce015f4417cbaa1333e",
+        "target": "一場紙燈展到了收尾時刻。你會留下最後的訊號、一起展示，還是安靜閉場？"
+      }
+    },
+    "floating-house": {
+      "title": {
+        "sourceHash": "713b3744ed9f5df7c8213f9d8925d654f49ef84f1937a65cd01a54912c3a90ce",
+        "target": "漂浮小屋：你會怎樣與地面相連？"
+      },
+      "description": {
+        "sourceHash": "c31aed5fa7c6633f1ba667ce3695933eb7c57b30042820d84cb5178f6c9e6154",
+        "target": "決定讓漂浮小屋漫遊、系在岸邊，還是短暫靠訪，看看它怎樣和一個地方保持聯絡。"
+      }
+    },
+    "forest-soundtrack": {
+      "title": {
+        "sourceHash": "51f1a817161b79916756a081f70b1a3769aca2f08668eb65d558dafeea2f4b25",
+        "target": "森林樂曲失去的最後一音"
+      },
+      "description": {
+        "sourceHash": "294bf2623751a9d92e8f36c8c8cdf6172801fea90b167ace2e04a34d4e523d76",
+        "target": "森林樂曲的節奏突然斷開。沿分支尋找回聲、合奏，或留下一段安靜。"
+      }
+    },
+    "friendship-invitation": {
+      "title": {
+        "sourceHash": "a34cc50f51a0501b5b44485f6236f18441d51d1f84fa52e670eba3252502adc0",
+        "target": "發個一起玩的邀請：你會怎樣開口？"
+      },
+      "description": {
+        "sourceHash": "40b5022d388b4348715b15f1f915484a31a3ea779a3ab15d9a4b16d5b502c777",
+        "target": "發出一份好回應的邀請，看看你會說清計劃、接住共同興趣，還是把決定留給對方。"
+      }
+    },
+    "game-night-reset": {
+      "title": {
+        "sourceHash": "052761eacfa64a5d965deb337009e30499fc397ab5118ccc4365598010c222c1",
+        "target": "遊戲沒那麼好玩了：你會怎樣重新安排？"
+      },
+      "description": {
+        "sourceHash": "9f4da3385a656ed3a19d1f47e41e34b2f87e3e44dcceda9185cad3dfb84ac521",
+        "target": "桌遊開始失去樂趣。問問大家的感受、只改一條規則，或體面地結束這一局。"
+      }
+    },
+    "garden-season": {
+      "title": {
+        "sourceHash": "22bf02c8091f6568ae261e905099d1d3a01c2751abe2685b5947799f94cb8a75",
+        "target": "你的想像花園正在哪個季節？"
+      },
+      "description": {
+        "sourceHash": "a7bf5fbbe7423be94c74c72275f4dbc3bc6f90655f41f596cf855957eea66c04",
+        "target": "在虛構花園裡決定何時開始、照料、收集和休整，看看你的選擇帶來哪個季節。"
+      }
+    },
+    "gift-note": {
+      "title": {
+        "sourceHash": "4f338a40449816592979b26145aa6eb86170808f0014543d4e3afc9c4db8c990",
+        "target": "禮物旁的小紙條：你會寫什麼？"
+      },
+      "description": {
+        "sourceHash": "8e0b5b428a1120fbd4ce3d0087fe41082d0a78ef917f381cf9a284c5100baa13",
+        "target": "給禮物配一張紙條，寫一段共同回憶、一句具體感謝或一個輕輕的祝願。"
+      }
+    },
+    "group-chat-role": {
+      "title": {
+        "sourceHash": "51150f26de4b97b5211605f965a601b373b781dc0fd306a40cae5995371b3e71",
+        "target": "你在群聊裡是什麼角色？"
+      },
+      "description": {
+        "sourceHash": "1e8512e5818b04c18d2d2ec42587371ef556d1a2951b61add41e4edafe34918f",
+        "target": "走進日常群聊，看看你更願整理資訊、點燃話題，還是安靜地把人聯絡起來。"
+      }
+    },
+    "group-project-finale": {
+      "title": {
+        "sourceHash": "814f5f577c4059802e1afd570eb8762b08ec7cdd984769a4f709f19e5b71294c",
+        "target": "共同小作品完成了：你會怎樣收尾？"
+      },
+      "description": {
+        "sourceHash": "25a7aab7cd9472d6f6b362cf7ed9c9c033343a5cc7ac69d3c871e480a091dd98",
+        "target": "共同專案就快結束了。決定怎樣讓貢獻被看見、交接有用，也給合作留個好收尾。"
+      }
+    },
+    "group-trip-seatmate": {
+      "title": {
+        "sourceHash": "ece95c51836ea0679eb0d3dcad6a0eab1ee94d4d3ad6e43d32de9d47f2f5237e",
+        "target": "同行一段路：你是哪種鄰座？"
+      },
+      "description": {
+        "sourceHash": "6ea465eca516f5db65a517bbaba52db0e2360f2c86faae21b9c0665afc908179",
+        "target": "想像和別人坐一段路。你會聊聊天、留些空間，還是先把座位佈置舒服？"
+      }
+    },
+    "harbor-light": {
+      "title": {
+        "sourceHash": "f02eda70575abb70d0c9959d52177fd751f5f476b655bb646dbf2fc75a69dd1f",
+        "target": "虛構港口裡，你會設計怎樣的燈語？"
+      },
+      "description": {
+        "sourceHash": "e37550bdcff8e847ebe50c901687db8288e49e8e84317616e3df9b4d1be4a976",
+        "target": "用閃燈節奏、圖形和本地傳說，為一個想像的港口設計燈語。"
+      }
+    },
+    "hosting-a-guest": {
+      "title": {
+        "sourceHash": "b97ced8022e1b9e5939ff412705aa02fdd4f9a7f73506947961aecfb6ee5ce24",
+        "target": "朋友住一晚：你會怎樣介紹這個家？"
+      },
+      "description": {
+        "sourceHash": "8f178eaa7564484fdcedd68765130e1c200c92f31013bd46cea369f1adaefe21",
+        "target": "有客人來短住。你會留一張便條、帶他們轉一圈，還是等他們需要時再問？"
+      }
+    },
+    "house-of-doors": {
+      "title": {
+        "sourceHash": "d5a7bfc94f647b55d14003c2f7ca4f10bf3588a7f8c5361f4466bb18a643c050",
+        "target": "門中小屋：這趟會發現哪一間？"
+      },
+      "description": {
+        "sourceHash": "12b28b5c22d49e92ccb718b402951a649e4444754fbe07de41a6d261ffffc233",
+        "target": "穿過一幢未完小屋的門。分支會帶你發現工作間、聆聽室或窗邊花園。"
+      }
+    },
+    "inside-joke": {
+      "title": {
+        "sourceHash": "2c71a9612bc57bc0f4b9caf583588fd99f41c49738b5928412ddd7f796541748",
+        "target": "共同笑點：你會怎樣讓它好接？"
+      },
+      "description": {
+        "sourceHash": "403857b09c7b3390c583aa0afd3110cec7404313bdf0c5107f3391ee0b626dc2",
+        "target": "當大家接一個笑點時，你會補上前情、順勢發揮，還是讓它輕輕過去？"
+      }
+    },
+    "island-day": {
+      "title": {
+        "sourceHash": "11ac9f7614e703a6eb87e8569d59bc1edb6318eca33a91c3d411ba8e37ed4edf",
+        "target": "明信片島的一天"
+      },
+      "description": {
+        "sourceHash": "737cd7bbf297d1ce4b5f6e73e5f54f5bb58210a82bcc386e28a360fc3794420a",
+        "target": "在一座虛構小島上，失聲的鐘、未完成的壁畫和渡船簿通向不同的紀念。"
+      }
+    },
+    "kitchen-improviser": {
+      "title": {
+        "sourceHash": "e4ad9bd8bd02d9644ef6fb4826a4e3c35fa4d965b119a17a8612db842b241e29",
+        "target": "廚房臨場發揮時，你是哪一派？"
+      },
+      "description": {
+        "sourceHash": "cd34e16f4ee7c742920cb281dd5c33389c8bd85c50cea3dd8c48549ac3c4a2fe",
+        "target": "一頓虛構晚餐的食材、時間和口味對不上，看看你會怎樣臨場調整。"
+      }
+    },
+    "long-distance-postcard": {
+      "title": {
+        "sourceHash": "0d9244a2e998e6f0598064f8d8be1a9d8d0e5e9e2f00be42f7c836f1c2acfa14",
+        "target": "隔著一段距離：你會寄來怎樣的明信片？"
+      },
+      "description": {
+        "sourceHash": "10df07513c247671bb0d9aab4caebe7afc2472af154d8ba0ef5d0aa373f3d3b0",
+        "target": "隔著距離聯絡時，你會寄一個生活片段、留一個問題，還是約個不必立刻回覆的共同記號？"
+      }
+    },
+    "lost-key-search": {
+      "title": {
+        "sourceHash": "0f4343c7056ea021f28a85b93c0a6790b4b449fcce7f8c81a758bfb420ca2534",
+        "target": "鑰匙一時找不到，你會怎麼找？"
+      },
+      "description": {
+        "sourceHash": "90937c8ecdb681f8acc98acca121a8de943e73e46026d0bcf1cdaea188a7c061",
+        "target": "有樣東西暫時找不到。你會回想經過、掃一遍空間，還是換個角度再看？"
+      }
+    },
+    "lost-letter-adventure": {
+      "title": {
+        "sourceHash": "9895cef106f8fbc32653ecadeba38fd88a49f777499bd3817ea492082e494b94",
+        "target": "失落的信：你會走向哪種故事結局？"
+      },
+      "description": {
+        "sourceHash": "0078ca54a1ddae35100ea203e2ed336304374ea1c701da021b48930010cf8890",
+        "target": "在漂浮郵局追一封失落的信，沿你選的故事分支走向不同結局。"
+      }
+    },
+    "magic-shopkeeper": {
+      "title": {
+        "sourceHash": "1bbaaabfe43394c152a93a95923aaf58bc356f509af2cd2e4968316562b46e3c",
+        "target": "如果開一家魔法小店，你是哪種店主？"
+      },
+      "description": {
+        "sourceHash": "f861c7f6eaa975f95d242b4318c3d30cbe662f4d1f74175b291470ba44d60435",
+        "target": "經營一間魔法小店。你會認真貼標籤、借出魔法，還是給客人演示一個小奇蹟？"
+      }
+    },
+    "message-tone": {
+      "title": {
+        "sourceHash": "fa0c14a7ed2416d74187ab7cfce8c6f3e2201170332f4e72d142a563a41d7e50",
+        "target": "一句話看不準語氣：你會先怎麼接？"
+      },
+      "description": {
+        "sourceHash": "12607db2342111dd7200be2b45f305283920f3b7619bfc2ccd1ce0a56bef983b",
+        "target": "一句訊息看不準語氣。直接問、找上下文，或先停一下，看看你會怎樣澄清。"
+      }
+    },
+    "moon-market": {
+      "title": {
+        "sourceHash": "3325b7aad61f33717858d3afa607cfbab2790abf09ae8d91c0664956068242c3",
+        "target": "月亮集市：你會帶什麼回家？"
+      },
+      "description": {
+        "sourceHash": "7e022d9148d20837f27de52ca0578a8298dd230deff47d971121a1865b94f2f8",
+        "target": "逛月光集市，沿你選的路線帶回星圖、一座可能性花園，或一張回到此刻的車票。"
+      }
+    },
+    "mountain-cabin": {
+      "title": {
+        "sourceHash": "8242a3e8e7c917e117bb32f45128e08a79fd64c35138b99981d726ea6184d1e7",
+        "target": "山間小屋：你會怎樣安頓這一晚？"
+      },
+      "description": {
+        "sourceHash": "ef44ffce67b21520a4ded905db3896ee2ede5e8165ffdc455c5f39b2cd45bc13",
+        "target": "在虛構山間小屋準備物品、佈置共用房間、約定私人空間，看看你會怎樣安頓一晚。"
+      }
+    },
+    "museum-of-tomorrow": {
+      "title": {
+        "sourceHash": "793f779afbf5f04940288373a2ee020209560fadc69ac135ed54eec417f17d5e",
+        "target": "明日博物館：你會怎樣寫展籤？"
+      },
+      "description": {
+        "sourceHash": "58590aa7fa01877378301cbe7c3d0822e6f419aae9c4f661f38e7625930a1044",
+        "target": "給一件虛構未來物品寫展籤，決定要講它的用途、使用者還是侷限。"
+      }
+    },
+    "museum-visitor": {
+      "title": {
+        "sourceHash": "77a65a9e10288ec4a8d2c1335ba2c96c09b8fd142759ea6506afa4800c30dcbf",
+        "target": "逛博物館時，你會怎樣看？"
+      },
+      "description": {
+        "sourceHash": "93810664f0df2045d90b920424fd84334570839c8fd73ab9efa3e08e9fa22a07",
+        "target": "逛一場虛構展覽。你會細看一件展品、尋找它們的關聯，還是邊看邊聊？"
+      }
+    },
+    "new-club-member": {
+      "title": {
+        "sourceHash": "462fca19ff8518591893a9333379398ac9090ec0987838051efe8e115abb83dc",
+        "target": "興趣小組第一次：你會帶哪套入門辦法？"
+      },
+      "description": {
+        "sourceHash": "d42064a61d4e16aded946b9c1c66ca24266a63997565dd51d17f8d2701f5e58d",
+        "target": "第一次走進興趣小組。你會弄懂術語、跟一段流程，還是邊學邊貢獻一點？"
+      }
+    },
+    "night-garden": {
+      "title": {
+        "sourceHash": "d97e993b804084b5ef124af36123ae36b6e94c94a7b42d9560ad2f638e8e689e",
+        "target": "夜色花園：你先留意什麼？"
+      },
+      "description": {
+        "sourceHash": "3de460527aba848202c2daf363dadc83bcb6c5e6a5059f33a034f021110f1040",
+        "target": "在夜色花園裡跟隨細小聲音、移動的影子或一閃而過的細節。"
+      }
+    },
+    "note-taking-doodles": {
+      "title": {
+        "sourceHash": "be9577b4c10efb5e519af82112d19648b438e5b84c4b41bf41ec99a5a1931560",
+        "target": "想法剛來時：你的筆記會怎麼接？"
+      },
+      "description": {
+        "sourceHash": "3f75a6581193b9a0bf00989c7a279ccf7bb21cf2c7870fc9ed3636a68f0ff7dc",
+        "target": "一個想法剛冒出來。你會寫一句話、畫個圖，還是把幾個碎片連起來？"
+      }
+    },
+    "paper-creature-language": {
+      "title": {
+        "sourceHash": "d8baa2f7f127cbbc5cc8b023644b284af5006c7a05bb1887027d5cf1b003f455",
+        "target": "紙小獸不會說話，你會怎樣交流？"
+      },
+      "description": {
+        "sourceHash": "11523ff086bde3e52f0f64ddee99eb6fff8a21a338d7a330379fb6cc1864eb3f",
+        "target": "遇見一隻不會說話的紙小獸，試著用手勢、模仿和輪流回應找到交流方式。"
+      }
+    },
+    "paper-world": {
+      "title": {
+        "sourceHash": "36cd47315104846955cb3e1d0b2061a5d7944bd47fbf789a7e1d7fa23d2c9f5b",
+        "target": "只用一張紙，你會怎樣造一個世界？"
+      },
+      "description": {
+        "sourceHash": "9f8494da7ab3a20646f05cfa3b5532af886634ee50ce28b830ff6655674d5072",
+        "target": "用一張紙折出路徑、剪出角色、疊出景物，看看訪客在你的紙世界裡能做什麼。"
+      }
+    },
+    "party-arrival": {
+      "title": {
+        "sourceHash": "b4ee0bf8f32057824181efc27d39d0f0316c483adf8cf1c0d0e831bf23f5c3a6",
+        "target": "聚會剛到場：你會怎樣找到位置？"
+      },
+      "description": {
+        "sourceHash": "ba26bf649b9333e1a5626889cf124809b408809784350e5219e719c96cf49cca",
+        "target": "剛到聚會時，你會先安頓自己、接進一段對話，還是從共同活動開始？"
+      }
+    },
+    "personal-museum": {
+      "title": {
+        "sourceHash": "8c0397ba25920ba34808decb1d04fae1795a754de6f276d3355b420eba0c33bf",
+        "target": "你的普通時刻博物館，會收藏什麼？"
+      },
+      "description": {
+        "sourceHash": "9057f540dd846c256c94772ed4add981244ba4153b9fad1d33ec7dec06d717bc",
+        "target": "從普通的一天選幾件值得入展的東西，可能是小事件、細節或願意分享的人際瞬間。"
+      }
+    },
+    "photo-group-role": {
+      "title": {
+        "sourceHash": "7031739f80611081b6af1aff30b1a6bb9201d5ec4bf7c8fae997c038210b32d0",
+        "target": "大家合影：你會怎樣湊好這一張？"
+      },
+      "description": {
+        "sourceHash": "8cfa1e9e783ece72f8f0b0d093d305d5f45f508618b8a08c3a99bf6ffa5e2ce8",
+        "target": "安排一張合影，考慮怎樣讓大家看清畫面、自願參加，並留住真正想記住的瞬間。"
+      }
+    },
+    "playlist-maker": {
+      "title": {
+        "sourceHash": "6447c382e04cbba0c4631ca86a1a15d8d74708689a8a4db4b440e202b3c9de71",
+        "target": "你的歌單會怎樣照顧一段時間？"
+      },
+      "description": {
+        "sourceHash": "4ad77db540c294dc0b9f8a70eca4965bcb798a8499eab2bc9aebd3228644c178",
+        "target": "策劃一張歌單。你會講出一段故事、照顧現場氣氛，還是留下幾處驚喜？"
+      }
+    },
+    "pocket-map": {
+      "title": {
+        "sourceHash": "feab3ece55e7375a6c89783d442b88860d25179c777ac8f9332132f485e963d5",
+        "target": "你的口袋小地圖，會記住什麼？"
+      },
+      "description": {
+        "sourceHash": "e0392ee909bfef72d4ae1e607c2558314884501d7ae136e77191e61cf08e1476",
+        "target": "用地標、個人停點和有意省略的細節，畫出一張虛構地點的小地圖。"
+      }
+    },
+    "portal-choice": {
+      "title": {
+        "sourceHash": "a34d096c448295e9a8e4f0689ad59358d8e51ca8c891accef92272a627b6fedf",
+        "target": "口袋傳送門：你的選擇會通往哪裡？"
+      },
+      "description": {
+        "sourceHash": "7423e62bc43db948aa327f7705d6fc4b37f47ee42e63b56083c3d9f72c2a7ab9",
+        "target": "穿過口袋傳送門，沿分支走向燈籠港、未完成的畫廊，或一張寄回家的明信片。"
+      }
+    },
+    "potluck-contribution": {
+      "title": {
+        "sourceHash": "45cb5e54a652eb226a1e7a4d3b6aa19a1fcd985085a1b1fbced30649202e5237",
+        "target": "聚餐帶一道菜：你會怎樣接上這一桌？"
+      },
+      "description": {
+        "sourceHash": "c1e75e68b9d2d234242eaedf7d55d073fbeea2c19b91309406e72507c8f5d806",
+        "target": "和別人聚餐，想想帶什麼菜既能配合選單，又方便大家交接和分享。"
+      }
+    },
+    "quest-reward": {
+      "title": {
+        "sourceHash": "1592251c2c00a14a1649860a8f3f44bc8a8ac466145ef9fa0762f05ba5bad1f2",
+        "target": "完成一場小冒險後，你最想帶走什麼獎勵？"
+      },
+      "description": {
+        "sourceHash": "cc1121da986196c1523c22ca7473c83005fd2eab38e08d5f06913b8317aaffe8",
+        "target": "一場小冒險結束了。你會帶走明日地圖、落日宴席，還是一個值得留著的信物？"
+      }
+    },
+    "quiet-company": {
+      "title": {
+        "sourceHash": "4d3b7f18edfd5a433e2edcd74de659565f953e0378b5ed718e053bcb521d4e54",
+        "target": "不用一直說話：你的安靜作伴畫面"
+      },
+      "description": {
+        "sourceHash": "79fffe197a31daa705493954c9314d90172ee564c69594fdaae8278a7a0d0acc",
+        "target": "安靜地和人待一會兒。你會各看各的書、一起留意景象，還是少說話做件小事？"
+      }
+    },
+    "rainy-window": {
+      "title": {
+        "sourceHash": "d38791459dbb885c2316a8e671111618bb94d257bce4b4b6befb9e01b0945151",
+        "target": "雨窗速寫本：你會畫下哪一層？"
+      },
+      "description": {
+        "sourceHash": "24546859177688149aa3ce818bbb2470d805cdbebfb32ad3a95fa2a9f39b2a66",
+        "target": "隔著雨窗畫速寫。你的畫會留下窗前物件、玻璃倒影，還是更遠的景象？"
+      }
+    },
+    "reading-ritual": {
+      "title": {
+        "sourceHash": "1a6dd4d543a9191f9bd693a6727610fbcc035d229309e37dfc40d72a3f36a842",
+        "target": "你會用什麼方式走進一本書？"
+      },
+      "description": {
+        "sourceHash": "178aa72fefaf83331c368cbb910815bdbfd3695f7a37191058a2b002352ec1d3",
+        "target": "看看你怎樣挑一本書、停下來，再回到閱讀裡。不同選擇會留下不同的小習慣。"
+      }
+    },
+    "reunion-style": {
+      "title": {
+        "sourceHash": "10aa74393c82a51286c33e0add88b4569ea8bde91d47e25be177a7f07675d5b1",
+        "target": "隔了一段時間再見：你會怎樣重新接上？"
+      },
+      "description": {
+        "sourceHash": "019bd14d17304908ffe1125f29ff159820c4f697208f6b674d7eddb8f6ab6daa",
+        "target": "和一位久未見面的朋友重逢。你會接上共同回憶、聊近況，還是輕輕地重新開始？"
+      }
+    },
+    "river-crossing": {
+      "title": {
+        "sourceHash": "36cc72c31cd98ee2a216ed59e6fbaa90e20d364803910cc64d54e6f22beead0c",
+        "target": "紙上河流：你會怎麼過河？"
+      },
+      "description": {
+        "sourceHash": "62019eebd0afb847eed7f41f8a003c8e578a2bde6ebfc7e2a80afa1f08a9dfd0",
+        "target": "在紙上的河流地圖試路線、協作過河並安排節奏。這是虛構小遊戲。"
+      }
+    },
+    "road-trip-dj": {
+      "title": {
+        "sourceHash": "59a132d8eeb18fc3e380194e224d25f5d12434874022ac016d274cfe7eb3701a",
+        "target": "同行點歌：你會怎樣照顧這一條佇列？"
+      },
+      "description": {
+        "sourceHash": "82d989b87d68bbe6325f015f4be7aa292e9adfb7dee15aed50f606d870713b00",
+        "target": "和同車的人輪流點歌，看看你怎樣連線不同口味，也給安靜留點空間。"
+      }
+    },
+    "room-atmosphere": {
+      "title": {
+        "sourceHash": "eb35767516bf993d5a46d4535d93e8c73992096ffff2856e669c1b2b93b22007",
+        "target": "想像一間房：你會留下什麼氛圍？"
+      },
+      "description": {
+        "sourceHash": "08a0befd948b7bfe07d0c517a38bab66ab500c6d4093a7e3fffb8d57cfb57322",
+        "target": "為想像的房間安排燈光、留白與物件層次，看看最後留下什麼氛圍。"
+      }
+    },
+    "saying-goodbye": {
+      "title": {
+        "sourceHash": "be1e079e8e3be7c711a425ecb3a21a5878476235d3f04b211b12f8f2ef8d8fc7",
+        "target": "愉快見面快結束：你會怎樣告別？"
+      },
+      "description": {
+        "sourceHash": "06e157fa5243729c6d83cd390dd526c993a77cc3db14f873afe6c85b22101fe3",
+        "target": "愉快的見面快結束了。你會好好道別、記住一個細節，還是給下次留個入口？"
+      }
+    },
+    "seasonal-table": {
+      "title": {
+        "sourceHash": "800151915568adcac2407bd4da10c4de726ee3ed9c76b9c1e78b16f12ba7014e",
+        "target": "換一個季節，想像桌面會添什麼？"
+      },
+      "description": {
+        "sourceHash": "564f7394ee708aa4cf03905a8deac49c2ac04896e0fa3c25af081e89736b10de",
+        "target": "用虛構的桌面情境留下一點季節變化，可以換個位置，也可以給人留一份。"
+      }
+    },
+    "secret-door": {
+      "title": {
+        "sourceHash": "70f2e7b142feb9b6438d005ac6771ec46e7c08ccd963f0b5823f0d3d564e048c",
+        "target": "秘密門：你會怎麼使用這把鑰匙？"
+      },
+      "description": {
+        "sourceHash": "c8101596e8979868704d4afb19a53007a7ff5e0b5fc9176724303b6ad5fe5ccc",
+        "target": "一把意外得到的鑰匙、一份邀請和別人的房間，把你帶向三個故事結局之一。"
+      }
+    },
+    "secret-garden-gate": {
+      "title": {
+        "sourceHash": "4e50a556fae68560f8a8a872e1e1d6539ee9e966dbec266d1b126fd7a5f92bb8",
+        "target": "小作品想分享：你的花園門會怎樣開啟？"
+      },
+      "description": {
+        "sourceHash": "bff22f8109cfc16e78fbbd74b6bb928e2ca3eff48b5797c0b7efa2969f1446d9",
+        "target": "讓想像中的花園門開啟一條縫。你會給人看成品、寫下過程，還是邀請一起做？"
+      }
+    },
+    "shared-hobby": {
+      "title": {
+        "sourceHash": "1a5f8f0e5fd6c515bfb4e5a4d20f2cc323f2d3790e29823e1fa6f2c9423b9577",
+        "target": "一起玩一小時：你會怎樣分享愛好？"
+      },
+      "description": {
+        "sourceHash": "f0bd0f0c05550b76483c766c0cbafd34820f31e00a0be1b88445a81c6ccd19bf",
+        "target": "和朋友分享愛好。你會去對方的愛好裡做客、各做各的，還是輪流短玩幾回？"
+      }
+    },
+    "shared-ritual": {
+      "title": {
+        "sourceHash": "ab94d085cb50abc8727a157db26506eb1017076090775491f9c3229810321143",
+        "target": "兩人的小儀式：你會怎樣約？"
+      },
+      "description": {
+        "sourceHash": "a89e377b2e0dbffb55ab0f4208b734885b5bda39ba5f4299e023edd7d9de211b",
+        "target": "為兩個人的小儀式商量一個提示、一段靈活時間和一件想保留的事。"
+      }
+    },
+    "shared-workspace": {
+      "title": {
+        "sourceHash": "601dc68b90f37cc730ebe7e69dc30005f38f0665c64f3046fc203d919c58a6f0",
+        "target": "共用創作桌：你會怎樣交接這一頁？"
+      },
+      "description": {
+        "sourceHash": "1da5040c7772e514b8562be73688126de0a042f53871a2ceff35b21094aa3750",
+        "target": "共用一張創作桌時，決定怎樣標清未完作品、分享工具，並問清彼此想要的反饋。"
+      }
+    },
+    "small-apology": {
+      "title": {
+        "sourceHash": "25533d76d022bc4a964e5a9a4c0c3d07883336b21a6314317c05664cfdbe1de6",
+        "target": "一件小誤會之後：你會先怎樣補上？"
+      },
+      "description": {
+        "sourceHash": "42b47d4ad87450856afe82d030d00f1cd49cd1ca326051b4a5eeb260c4fe19c4",
+        "target": "發生一個小誤會後，你會先說明自己的部分、給出補救，還是讓對方有時間回應？"
+      }
+    },
+    "snow-day": {
+      "title": {
+        "sourceHash": "15aa98d8e74034fbf26a3d9a1b559deb7c5f091d5bc3330ad0873f9d44e068a7",
+        "target": "雪日造型師：你會堆出什麼？"
+      },
+      "description": {
+        "sourceHash": "4680ae76297fffb655bb0c1879164d270a21d6708cdcb5a509a7e7b5676ba748",
+        "target": "用插畫裡的雪搭出穩固造型、想像角色，或讓情境繼續變化。無需等到下雪。"
+      }
+    },
+    "souvenir-story": {
+      "title": {
+        "sourceHash": "9f695d36c21bd50cf15ad6c7d9d078ed304a48f7b7ca6ca9ac404c2fb58a80cb",
+        "target": "你會留下怎樣的紀念？"
+      },
+      "description": {
+        "sourceHash": "95b1113c90c7baceac96041c9e7d8c2efae0e872fd51e47d6c8c28624de7b83e",
+        "target": "一件紀念物為什麼值得留？你會選仍然有用的物件、具體回憶，還是可分享的故事？"
+      }
+    },
+    "spell-school-elective": {
+      "title": {
+        "sourceHash": "90e903fad2824e71237fa08a78ec91e7a8b72a81b090c6336cbd1c17f421b2cd",
+        "target": "原創魔法學校裡，你會選哪門課？"
+      },
+      "description": {
+        "sourceHash": "d197cc02b9e2e4f24ffb253a7026015b4809b5c7423a412849cec615f5d19436",
+        "target": "在原創魔法學校選一門課，從杯中天氣、口袋建築、回聲書信或漂浮形狀裡挑選。"
+      }
+    },
+    "stargazing-role": {
+      "title": {
+        "sourceHash": "2baa4cd6d5ceb68c8769b6db64d12ce1a7c2799dfa885fcd287ad2987fbfcc8f",
+        "target": "想像觀星夜：你會帶來什麼？"
+      },
+      "description": {
+        "sourceHash": "6b31eb48ae8f3e72ab3d955c70ccaf999e9e745858ba02173bcc870f96d77448",
+        "target": "參加一場想像的觀星聚會，選擇找圖案、講故事或幫助大家參與。無需天文學知識。"
+      }
+    },
+    "story-ending": {
+      "title": {
+        "sourceHash": "3c66defa8a41c3d51d0df8c2c2b47737fd1f09f2d475723b52b2d7a3aec7d149",
+        "target": "紙遊行最後一頁，會怎樣寫完？"
+      },
+      "description": {
+        "sourceHash": "898b15665853fff348b37f7b809ef4d169c967bbce5b0d1ea2d62742249ddce4",
+        "target": "紙遊行到了未完工的廣場。沿你的選擇，為這場遊行寫下一個結尾。"
+      }
+    },
+    "storybook-narrator": {
+      "title": {
+        "sourceHash": "5b2f9c34bc02dd76d2bccf3555c7f4358d8ea7c39618413043a60912fe826a4d",
+        "target": "你的原創故事書，會由誰來講？"
+      },
+      "description": {
+        "sourceHash": "b847815058f0558250ee9f52e1433ad4939c4f711b417c231b1a239c98aed39c",
+        "target": "為原創故事書選一個敘述視角，從近景、村莊合唱到略帶俏皮的旁白。"
+      }
+    },
+    "team-name-maker": {
+      "title": {
+        "sourceHash": "7b972db4addb7f518d07894bd2acb4c1d32983c9bfee3ad9110a9c9e98d08c76",
+        "target": "小隊起名：你會怎麼湊出這個名字？"
+      },
+      "description": {
+        "sourceHash": "9dcb324af602ef60a198b40828e8af424bc11e83bf8e9844058f1d5512d1ccc3",
+        "target": "給一支想像的小隊起名。玩文字、回想共同經歷，或找個大家都自在的選法。"
+      }
+    },
+    "thrift-shop-find": {
+      "title": {
+        "sourceHash": "a52d094d984e67245c25aad913f4dec33771e2ac771b8a45c9120ecb2edd6df5",
+        "target": "想像二手架：你會為哪件小物停下？"
+      },
+      "description": {
+        "sourceHash": "e1732b4eff422cf8c100be45874d2fab044f40514fd1cfdc4374f972b238990c",
+        "target": "在想像的二手貨架上，找一件想再用、改作他用或保留原有故事的小物。"
+      }
+    },
+    "tide-pool-creature": {
+      "title": {
+        "sourceHash": "39aecf13fb9de16c694252c2c3e062b2db41625ea98b5a4cd4ab9540a0c5e9b8",
+        "target": "潮池鄰居：你會是哪種小生物？"
+      },
+      "description": {
+        "sourceHash": "d48f9506483ec3d3aef365ce42ff14ba9b67c93141a653b10f89581178d9a70b",
+        "target": "想像退潮後的潮池，決定怎樣共用遮蔽、讓出空間並和鄰居相處。"
+      }
+    },
+    "time-capsule": {
+      "title": {
+        "sourceHash": "435c55c05c1b243758d9019411a78d2b5b9d27f80b8dcfd102114342a1fa2a17",
+        "target": "普通一天時間膠囊，你會放進什麼？"
+      },
+      "description": {
+        "sourceHash": "ba55e088b302f9c7a0eed20585a6785363d414a64b7b79f82f6dd0c5905c627f",
+        "target": "為未來的讀者準備一個時間膠囊，放進當下的細節、開放問題和小指引。"
+      }
+    },
+    "tiny-kingdom": {
+      "title": {
+        "sourceHash": "93d60f261c0d343bc12d40480f9f374031f74010a5d9f4c8d719a2b056240d75",
+        "target": "如果王國只有一個鞋盒大，你會建成什麼樣？"
+      },
+      "description": {
+        "sourceHash": "e5606c37c5536ffbb707a3a2758ad8103cd7b5f3ce001c7b7f93b1443fc49616",
+        "target": "在鞋盒大小的王國裡，設計一個交換集市、一間試驗工坊或一座承諾檔案館。"
+      }
+    },
+    "tiny-superpower": {
+      "title": {
+        "sourceHash": "c7653fd2e705f1e9444d1864b991360e3de9276e7ef80f25ecec434c9245ac07",
+        "target": "只在小事裡有用：你會選哪種原創微能力？"
+      },
+      "description": {
+        "sourceHash": "462368ced1b4f4dbc64c856bffb602b23632c79f220fd5321cab0b06c0225dad",
+        "target": "給想像的小情境挑一種微能力：找到漏詞、暫停一瞬，或顯出有用的邊緣。"
+      }
+    },
+    "tiny-treat": {
+      "title": {
+        "sourceHash": "2bbdbe2df9d859a184390c04d45eec564d7acfb8c0a3e25eaef4831edf5c63e3",
+        "target": "小事告一段落：你想怎樣慶祝一下？"
+      },
+      "description": {
+        "sourceHash": "85f78126a7a722bce1038d51c5da6e6a1ccb34a9395883a80734e11a30970db1",
+        "target": "小事做完了，用一段感官體驗、一個趣味記號，或一會兒不安排的時間作紀念。"
+      }
+    },
+    "weather-in-a-bottle": {
+      "title": {
+        "sourceHash": "ce783b94fd14b7ed27a931d399726106a67403d3132d7599c563c18805b6af7f",
+        "target": "故事小瓶裡，你會裝哪種天氣？"
+      },
+      "description": {
+        "sourceHash": "a40b0834731aeb8b326d6fd0f3e5059a843c8158236599b9816d60156e9d792f",
+        "target": "做一隻虛構的天氣瓶，在薄霧、微風和短日光之間選出你想留住的氛圍。"
+      }
+    },
+    "weekend-pace": {
+      "title": {
+        "sourceHash": "5caf5013a64ed8162caa61afe37c29b81f17963578b7a29a1463e4ce97ebe5d4",
+        "target": "你的週末節奏是什麼？"
+      },
+      "description": {
+        "sourceHash": "a1ef8fb80b8f7d92cde4600871c9de079e4b7c6015f73b9a7aafe5649f1be9f5",
+        "target": "安排一個更像自己的週末。你會留幾個固定節點、給驚喜留位置，還是守住一段空白？"
+      }
+    },
+    "woodland-animal": {
+      "title": {
+        "sourceHash": "2bb6c11d84ac8e6f53adc435c4c0b8c894bf5fbc1ac9be99a6a76fa01d7b4373",
+        "target": "你的林間同行動物是什麼？"
+      },
+      "description": {
+        "sourceHash": "571c48d4d440f54894d7128c1f8d6a2b1293e4baf43756ff7c6af1e96556c77b",
+        "target": "走進林間情境，看看你更願開路、搭窩，還是留意同行者的節奏。"
+      }
+    },
+    "global-history-quiz": {
+      "title": {
+        "sourceHash": "dceb87a506808c27b77c7781883e47aa6156ec3bb5cdc39658ae824f0d77d0a0",
+        "target": "你的性格最像哪位歷史人物？全球卷"
+      },
+      "description": {
+        "sourceHash": "20c2b41be0f9318a9015d0f4ddb7c2f0675877a20cb373005b12e0cf9c076d93",
+        "target": "走進一座歷史展館，看看哪位歷史人物的做事方式最貼近你的選擇。結果附原創插畫人物卡。"
+      }
+    },
+    "friendship-quiz": {
+      "title": {
+        "sourceHash": "6540d8c6fbbd98548c76aa3a0a3560dfb957780c6752d3f9dfaffe06c9b9bbaa",
+        "target": "朋友默契：你有多了解我？"
+      },
+      "description": {
+        "sourceHash": "2828bef7d6154d96f34435467fd381e9b4dc327d947a9b499ec7a2f85efe6186",
+        "target": "建立朋友默契測驗，讓好友挑戰“你有多了解我”。猜中得分、同分並列，還能分享分數卡。"
+      }
+    }
+  }
+}

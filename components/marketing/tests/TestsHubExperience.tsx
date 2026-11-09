@@ -1,6 +1,6 @@
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
 import { MoreTests } from "@/components/entertainment/MoreTests";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type {
   HubTestCardItem,
   TestsHubContent,
@@ -63,7 +63,7 @@ export function TestsHubExperience({
   locale,
 }: {
   content: TestsHubContent;
-  locale: Locale;
+  locale: DisplayLocale;
 }) {
   const tests = listTests(
     (content.families.items ?? []).map((family) => family.tests),

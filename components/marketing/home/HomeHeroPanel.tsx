@@ -1,8 +1,8 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import styles from "./home-hero-animation.module.css";
 
 // All scene geometry uses the reference illustration's 600 × 434 coordinate system.
-export function HomeHeroPanel({ locale }: { locale: Locale }) {
+export function HomeHeroPanel({ locale }: { locale: DisplayLocale }) {
   return (
     <svg className={styles.panel} viewBox="0 0 600 434" focusable="false" data-testid="home-hero-panel">
       <g className={styles.panelWindow}>
@@ -10,7 +10,7 @@ export function HomeHeroPanel({ locale }: { locale: Locale }) {
         <path d="M184 14h400v22H184z" fill="#79c1d2" />
         {[195, 208, 221].map((x) => <circle key={x} cx={x} cy="25" r="3.1" fill="#f6fcfe" />)}
         <image href="/brand/mark-20261013.png" x="204" y="53" width="21" height="21" />
-        <text x="231" y="68" fontSize="13" fontWeight="600" fill="#4b93aa">{locale === "zh" ? "费马测试" : "fermatmind"}</text>
+        <text x="231" y="68" fontSize="13" fontWeight="600" fill="#4b93aa">{locale === "zh-TW" ? "費馬測試" : locale === "zh" ? "费马测试" : "fermatmind"}</text>
         <rect x="204" y="94" width="154" height="8" fill="#d1ebf2" />
         <rect x="204" y="109" width="94" height="7" fill="#d1ebf2" />
         {[86, 77, 69, 91].map((width, index) => (

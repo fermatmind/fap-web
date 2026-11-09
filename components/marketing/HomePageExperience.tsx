@@ -7,11 +7,12 @@ import { HomeHeroAnimation } from "@/components/marketing/home/HomeHeroAnimation
 import { HomepageFunTests } from "@/components/marketing/HomepageFunTests";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
-import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, stripLocalePrefix, type DisplayLocale } from "@/lib/i18n/locales";
 import type { HomePageContent } from "@/lib/marketing/homepageContent";
 import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
 import { extractTestSlugFromEntryHref, filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { cn } from "@/lib/utils";
 
 type HomeLink = HomePageContent["quickStart"]["items"][number];
@@ -53,6 +54,13 @@ const HOMEPAGE_HERO_COPY = {
     socialProofCount: "",
     socialProof: "",
   },
+  "zh-TW": {
+    title: "看清自己，走好每一步",
+    subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
+    primaryCta: "免费测试",
+    socialProofCount: "",
+    socialProof: "",
+  },
   en: {
     title: "Know yourself, move with clarity",
     subhead: "FermatMind turns self-understanding, career exploration, and ability growth into a measurable, trainable, reviewable system.",
@@ -62,8 +70,12 @@ const HOMEPAGE_HERO_COPY = {
   },
 } as const;
 
-function withLocale(locale: Locale, path: string): string {
-  return localizedPath(stripLocalePrefix(path), locale);
+function withLocale(locale: DisplayLocale, path: string): string {
+  if (locale !== "zh-TW") return localizedPath(stripLocalePrefix(path), locale);
+  const source = localizedPath(stripLocalePrefix(path), "zh");
+  const pathname = source.split(/[?#]/u, 1)[0];
+  const traditional = traditionalPath(pathname);
+  return traditional ? traditional + source.slice(pathname.length) : source;
 }
 
 function hasText(value: string | null | undefined): value is string {
@@ -201,10 +213,10 @@ function getCoreMetaItems(item: HomeCoreTestItem): string[] {
   return result;
 }
 
-function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+function HomepageHeroV1({ locale, copy }: { locale: DisplayLocale; copy: HomePageContent }) {
   const heroCopy = HOMEPAGE_HERO_COPY[locale];
   const titleSegments =
-    locale === "zh" && heroCopy.title.includes("，")
+    locale !== "en" && heroCopy.title.includes("，")
       ? heroCopy.title.split("，").map((segment, index, segments) => (index < segments.length - 1 ? `${segment}，` : segment))
       : null;
   const ctas = [
@@ -275,7 +287,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
                     item.variant === "secondary" && "bg-white text-[#333] shadow-[0_10px_22px_rgba(59,45,105,0.14)] hover:text-[#8c77e4]"
                   )}
                 >
-                  {item.label}
+                  {item.label}{locale === "zh-TW" && withLocale(locale, item.href).startsWith("/zh/") ? "（簡體中文）" : ""}
                   <span aria-hidden className="ml-4 text-[1.35rem] leading-none">→</span>
                 </Link>
               ))}
@@ -386,16 +398,22 @@ function isRemovedHomepageTrustItem(item: TrustItem) {
 
 const HOMEPAGE_FREE_TRUST_TITLE = {
   zh: "免费且值得信赖",
+  "zh-TW": "免費且值得信賴",
   en: "Free and trustworthy",
 } as const;
 
 const HOMEPAGE_FREE_TRUST_SUMMARY = {
   zh: "我们的测评结合科学理论与测评方法，注重科学完整、逻辑清晰和多维度分析。免费测试，获得免费的全面、易懂的结果解读。",
+  "zh-TW": "我們的測評結合科學理論與測評方法，注重科學完整、邏輯清晰和多維度分析。免費測驗，獲得免費的全面、易懂的結果解讀。",
   en: "Our assessments combine scientific theory and assessment methods, emphasizing scientific rigor and completeness, clear logic, and multidimensional analysis. Take tests for free and get free, comprehensive, easy-to-understand interpretations of your results.",
 } as const;
 
 const HOMEPAGE_PRIVACY_TRUST_COPY = {
   zh: {
+    title: "高度重视你的隐私",
+    summary: "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。",
+  },
+  "zh-TW": {
     title: "高度重视你的隐私",
     summary: "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。",
   },
@@ -405,18 +423,18 @@ const HOMEPAGE_PRIVACY_TRUST_COPY = {
   },
 } as const;
 
-function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
-  if (locale === "zh") {
+function getDefaultHomepageTrustItems(locale: DisplayLocale, copy: HomePageContent): TrustItem[] {
+  if (locale !== "en") {
     return [
       {
-        title: HOMEPAGE_FREE_TRUST_TITLE.zh,
-        summary: HOMEPAGE_FREE_TRUST_SUMMARY.zh,
+        title: HOMEPAGE_FREE_TRUST_TITLE[locale],
+        summary: HOMEPAGE_FREE_TRUST_SUMMARY[locale],
         paragraphs: [],
         href: copy.trust.methodHref,
         hrefLabel: copy.trust.methodLabel,
       },
       {
-        ...HOMEPAGE_PRIVACY_TRUST_COPY.zh,
+        ...HOMEPAGE_PRIVACY_TRUST_COPY[locale],
         paragraphs: [],
         href: copy.trust.methodHref,
         hrefLabel: copy.trust.methodLabel,
@@ -441,7 +459,7 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
   ];
 }
 
-function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+function HomepageTrustStripV1({ locale, copy }: { locale: DisplayLocale; copy: HomePageContent }) {
   const trustItems = (copy.trust.items ?? []).filter(
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
@@ -458,11 +476,11 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   const displayTrustItems: TrustItem[] = [
     ...baseTrustItems,
     {
-      title: locale === "zh" ? "百万人测试" : "Million-plus testers",
-      summary: locale === "zh"
+      title: locale === "zh-TW" ? "百萬人測驗" : locale === "zh" ? "百万人测试" : "Million-plus testers",
+      summary: locale === "zh-TW" ? "2026年4月真人測驗人數達 120 萬，累計測驗互動超過 5000 萬次。" : locale === "zh"
         ? "2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
         : "In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.",
-      sourceNote: locale === "zh" ? "（真实服务器数据统计）" : " (Actual server statistics)",
+      sourceNote: locale === "zh-TW" ? "（真實伺服器資料統計）" : locale === "zh" ? "（真实服务器数据统计）" : " (Actual server statistics)",
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
@@ -484,7 +502,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   );
 }
 
-function getCoreTestDisplayTitle(locale: Locale, item: HomeCoreTestItem): string {
+function getCoreTestDisplayTitle(locale: DisplayLocale, item: HomeCoreTestItem): string {
   if (locale !== "zh") return item.title;
 
   const key = getCoreTestKey(item);
@@ -495,14 +513,14 @@ function getCoreTestDisplayTitle(locale: Locale, item: HomeCoreTestItem): string
   return item.title;
 }
 
-function getCoreTestAccessibleTitle(locale: Locale, item: HomeCoreTestItem): string | undefined {
+function getCoreTestAccessibleTitle(locale: DisplayLocale, item: HomeCoreTestItem): string | undefined {
   if (locale !== "zh") return undefined;
   return getCoreTestKey(item) === IQ_PUBLIC_SLUG ? "IQ 智商测试" : undefined;
 }
 
-function RecommendationStars({ locale }: { locale: Locale }) {
+function RecommendationStars({ locale }: { locale: DisplayLocale }) {
   return (
-    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label={locale === "en" ? "Recommended: 5 out of 5 stars" : "推荐指数 5 星"}>
+    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label={locale === "zh-TW" ? "推薦指數 5 星" : locale === "en" ? "Recommended: 5 out of 5 stars" : "推荐指数 5 星"}>
       {Array.from({ length: 5 }).map((_, index) => (
         <span key={index} aria-hidden>
           ★
@@ -512,13 +530,68 @@ function RecommendationStars({ locale }: { locale: Locale }) {
   );
 }
 
-function getCoreTestsSectionTitle(locale: Locale): string {
-  return locale === "zh" ? "热门测评" : "Popular assessments";
+function getCoreTestsSectionTitle(locale: DisplayLocale): string {
+  return locale === "zh-TW" ? "熱門測評" : locale === "zh" ? "热门测评" : "Popular assessments";
 }
 
-function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: string): { card: string; detail: string; action: string } {
+function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, title: string): { card: string; detail: string; action: string } {
   const key = getCoreTestKey(item);
 
+  if (locale === "zh-TW") {
+    if (key.includes("mbti")) {
+      return {
+        card: "想了解自己的性格嗎？看看你的偏好、溝通方式和決策風格。",
+        detail: "MBTI 性格測驗協助你理解日常選擇、互動方式和團隊協作中的偏好，適合作為自我了解和溝通參考。",
+        action: "開始 MBTI 免費測驗。",
+      };
+    }
+
+    if (key.includes("big-five")) {
+      return {
+        card: "想知道你的穩定特質嗎？從五個維度了解你平時如何行動和反應。",
+        detail: "大五人格測驗圍繞開放性、盡責性、外向性、親和性和情緒穩定性，協助你獲得更連續的特質視角。",
+        action: "開始大五人格免費測驗。",
+      };
+    }
+
+    if (key.includes("holland") || key.includes("riasec")) {
+      return {
+        card: "想知道什麼工作更吸引你嗎？看看你的興趣類型和偏好的工作環境。",
+        detail: "霍蘭德職業興趣測驗用 RIASEC 類型協助你比較職業方向、學習選擇和工作環境偏好。",
+        action: "開始霍蘭德職業興趣免費測驗。",
+      };
+    }
+
+    if (key.includes("enneagram")) {
+      return {
+        card: "你的核心動機是什麼？看看壓力、關係和成長中的常見反應模式。",
+        detail: "九型人格測驗協助你從動機和行為模式理解自己，適合用於關係反思和個人成長參考。",
+        action: "開始九型人格免費測驗。",
+      };
+    }
+
+    if (key.includes("iq")) {
+      return {
+        card: "想體驗圖形推理嗎？完成30道原創視覺矩陣題，查看本次答對題數與正確率。",
+        detail: "當前IQ測驗是費馬原創30題視覺矩陣推理練習，協助你了解本次作答表現；不替代專業智力評估。",
+        action: "開始智商免費測驗。",
+      };
+    }
+
+    if (key.includes("eq")) {
+      return {
+        card: "想了解情緒和關係能力嗎？看看你在理解、表達和協作中的常見模式。",
+        detail: "情緒智力測驗關注情緒識別、溝通表達和關係協作，協助你獲得更清晰的互動參考。",
+        action: "開始情緒智力免費測驗。",
+      };
+    }
+
+    return {
+      card: item.description || `了解 ${title} 如何幫助你認識自己。`,
+      detail: item.description || `${title} 提供一個清晰的測評入口，幫助你繼續探索自己的偏好與下一步。`,
+      action: "開始測驗。",
+    };
+  }
   if (locale === "zh") {
     if (key.includes("mbti")) {
       return {
@@ -630,7 +703,7 @@ function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: str
   };
 }
 
-function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; item: HomeCoreTestItem; priority: boolean; index: number }) {
+function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLocale; item: HomeCoreTestItem; priority: boolean; index: number }) {
   const href = withLocale(locale, item.href);
   const metaItems = getCoreMetaItems(item);
   const title = getCoreTestDisplayTitle(locale, item);
@@ -650,7 +723,7 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; it
         </div>
         <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
           {intro.card}{" "}
-          <span className="text-[#007c9b] underline underline-offset-4">{intro.action}</span>
+          <span className="text-[#007c9b] underline underline-offset-4">{intro.action}{locale === "zh-TW" && href.startsWith("/zh/") ? "（簡體中文）" : ""}</span>
         </p>
         <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-slate-500">
           {metaItems.slice(0, 2).map((meta) => (
@@ -664,7 +737,7 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; it
       <div className="sr-only">
         <CmsMediaAuthorityShell
           media={item.media ?? null}
-          locale={locale}
+          locale={locale === "zh-TW" ? "zh" : locale}
           surface="home_quick_start"
           visible={item.href.includes(IQ_PUBLIC_SLUG) || item.key === IQ_PUBLIC_SLUG}
         />
@@ -678,7 +751,7 @@ function HomepageHighlightedTestsBanner({
   copy,
   supplementalTests,
 }: {
-  locale: Locale;
+  locale: DisplayLocale;
   copy: HomePageContent;
   supplementalTests: HubTestCardItem[];
 }) {
@@ -715,7 +788,7 @@ function HomepageHighlightedTestsBanner({
   );
 }
 
-function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+function HomepageFamilyMatrix({ locale, copy }: { locale: DisplayLocale; copy: HomePageContent }) {
   const families = (copy.families.items ?? [])
     .map((family) => ({
       ...family,
@@ -731,7 +804,7 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
         <div className="relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16 text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
-              {locale === "zh" ? "关于费马测试" : "About FermatMind"}
+              {locale === "zh-TW" ? "關於費馬測試" : locale === "zh" ? "关于费马测试" : "About FermatMind"}
             </h2>
           </div>
         </div>
@@ -740,29 +813,29 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
             const display =
               index === 0
                 ? {
-                    title: locale === "zh" ? "公益计划" : "Public benefit",
+                    title: locale === "zh-TW" ? "公益計畫" : locale === "zh" ? "公益计划" : "Public benefit",
                     description:
-                      locale === "zh"
+                      locale === "zh-TW" ? "了解費馬測試的公共利益頁面與公益記錄邊界。" : locale === "zh"
                         ? "了解费马测试的公共利益页面与公益记录边界。"
                         : "Learn about FermatMind's public-interest page and the boundaries for giving records.",
-                    links: [{ href: "/foundation", title: locale === "zh" ? "查看公共利益" : "View public benefit" }],
+                    links: [{ href: "/foundation", title: locale === "zh-TW" ? "查看公共利益" : locale === "zh" ? "查看公共利益" : "View public benefit" }],
                   }
                 : index === 2
                   ? {
-                      title: locale === "zh" ? "研究与方法" : "Research & Methods",
+                      title: locale === "zh-TW" ? "研究與方法" : locale === "zh" ? "研究与方法" : "Research & Methods",
                       description:
-                        locale === "zh"
+                        locale === "zh-TW" ? "查看測評方法、題目設計、資料說明與邊界。" : locale === "zh"
                           ? "查看测评方法、题目设计、数据说明与边界。"
                           : "Review assessment methods, item design, data notes, and boundaries.",
-                      links: [{ href: "/method-boundaries", title: locale === "zh" ? "查看方法边界" : "View method boundaries" }],
+                      links: [{ href: "/method-boundaries", title: locale === "zh-TW" ? "查看方法邊界" : locale === "zh" ? "查看方法边界" : "View method boundaries" }],
                     }
                   : {
-                      title: locale === "zh" ? "博士团队" : "Doctoral team",
+                      title: locale === "zh-TW" ? "博士團隊" : locale === "zh" ? "博士团队" : "Doctoral team",
                       description:
-                        locale === "zh"
+                        locale === "zh-TW" ? "專業團隊參與測評方法、題目設計與適用範圍審查。" : locale === "zh"
                           ? "专业团队参与测评方法、题目设计与边界复核。"
                           : "A specialist team takes part in assessment methods, item design, and boundary review.",
-                      links: [{ href: "/about", title: locale === "zh" ? "了解团队" : "Meet the team" }],
+                      links: [{ href: "/about", title: locale === "zh-TW" ? "了解團隊" : locale === "zh" ? "了解团队" : "Meet the team" }],
                     };
 
             return (
@@ -802,13 +875,16 @@ function ArticleCoverVisual({ article }: { article: HomeArticle }) {
   );
 }
 
-function getArticleDisplayDate(article: HomeArticle, locale: Locale): string {
+function getArticleDisplayDate(article: HomeArticle, locale: DisplayLocale): string {
   const value = article.publishedAt;
   if (!value) return "";
 
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
 
+  if (locale === "zh-TW") {
+    return `發布於 ${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  }
   if (locale === "zh") {
     return `发布于 ${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
   }
@@ -820,7 +896,7 @@ function getArticleDisplayDate(article: HomeArticle, locale: Locale): string {
   }).format(date);
 }
 
-function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles: HomeArticle[] }) {
+function HomepageArticlesBanner({ locale, articles }: { locale: DisplayLocale; articles: HomeArticle[] }) {
   const visibleArticles = articles.slice(0, 6);
 
   if (visibleArticles.length === 0) {
@@ -828,7 +904,8 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
   }
 
   const labels =
-    locale === "zh"
+    locale === "zh-TW" ? { title: "推薦閱讀（簡體中文）", all: "查看全部文章（簡體中文）", author: "作者：" }
+      : locale === "zh"
       ? { title: "推荐阅读", all: "查看全部文章", author: "作者：" }
       : { title: "Recommended reading", all: "View all articles", author: "By " };
 
@@ -846,7 +923,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
 
         <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {visibleArticles.map((article) => (
-            <article key={`${article.slug}-${article.locale}`} className="group">
+            <article key={`${article.slug}-${article.locale}`} className="group" lang={locale === "zh-TW" ? "zh-CN" : undefined}>
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
                 <ArticleCoverVisual article={article} />
                 <h3 className="m-0 mt-5 text-3xl font-normal leading-tight tracking-[-0.055em] text-slate-900 transition group-hover:text-teal-800">
@@ -855,7 +932,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
               </Link>
               <p className="m-0 mt-5 text-sm leading-6 text-slate-500">
                 {labels.author}
-                <span className="text-slate-700"><ArticleByline authorName={article.authorName} locale={locale} /></span>
+                <span className="text-slate-700"><ArticleByline authorName={article.authorName} locale={locale === "zh-TW" ? "zh" : locale} /></span>
               </p>
               <p className="m-0 mt-1 text-sm text-slate-400">{getArticleDisplayDate(article, locale)}</p>
             </article>
@@ -921,7 +998,7 @@ export function HomePageExperience({
   articles = [],
   supplementalTests = [],
 }: {
-  locale: Locale;
+  locale: DisplayLocale;
   copy: HomePageContent;
   articles?: HomeArticle[];
   supplementalTests?: HubTestCardItem[];

@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 /** Authored model diagrams, without individual scores or fabricated reports. */
 export function AssessmentStructureArt({
@@ -6,9 +6,13 @@ export function AssessmentStructureArt({
   locale,
 }: {
   kind: string;
-  locale: Locale;
+  locale: DisplayLocale;
 }) {
-  const zh = locale === "zh";
+  const zh = locale !== "en";
+  const taiwanLabels: Record<string, string> = {
+    开放性: "開放性", 尽责性: "盡責性", 外向性: "外向性", 宜人性: "親和性", 神经质: "神經質",
+    觉察: "覺察", 调节: "調節", 共情: "同理", 关系: "關係",
+  };
   return (
     <div className={`assessment-art assessment-art-${kind}`} aria-hidden="true">
       <svg viewBox="0 0 360 150" fill="none" focusable="false">
@@ -117,7 +121,7 @@ export function AssessmentStructureArt({
                     fill="currentColor"
                     fontSize={zh ? "11" : "7.5"}
                   >
-                    {zh ? name : english}
+                    {locale === "zh-TW" ? taiwanLabels[name] ?? name : zh ? name : english}
                   </text>
                 </g>
               );
@@ -353,7 +357,7 @@ export function AssessmentStructureArt({
                   fontSize={zh ? "12" : "10"}
                   fontWeight="500"
                 >
-                  {zh ? name : english}
+                  {locale === "zh-TW" ? taiwanLabels[name] ?? name : zh ? name : english}
                 </text>
               </g>
             ))}

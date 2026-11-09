@@ -48,7 +48,7 @@ describe("existing entertainment guide keyword intent", () => {
   });
 
   it("keeps Traditional Chiikawa guide titles aligned without renaming personal results", async () => {
-    const { default: Page, generateMetadata } = await import("@/app/(traditional)/zh-TW/[[...path]]/page");
+    const { default: Page, generateMetadata } = await import("@/app/(traditional)/zh-TW/[...path]/page");
     for (const id of ["chiikawa", "hachiware", "usagi", "momonga", "kurimanju", "rakko"]) {
       const args = { params: Promise.resolve({ path: ["tests", "explore", "chiikawa", "results", id] }) };
       const meta = await generateMetadata(args), dom = document.createElement("div");
