@@ -1572,7 +1572,10 @@ export default async function TestLandingPage({
             <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5" data-testid="riasec-result-example-entry">
               <h2 className="m-0 text-lg font-semibold">See how to read a result</h2>
               <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">Explore clearly labeled synthetic examples of six interest dimensions, Top 3, and close or tied scores, then connect your result with real work tasks.</p>
-              <Link className="mt-3 inline-block text-sm underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>View synthetic result examples and reading steps</Link>
+              <div className="mt-3 flex flex-col items-start gap-3 text-sm">
+                <Link className="underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>View synthetic result examples and reading steps</Link>
+                <Link className="underline underline-offset-4" href={localizedPath("/articles/what-is-riasec-holland-code-career-interest-test", locale)}>Read the RIASEC and Holland Code guide</Link>
+              </div>
             </section>
           ) : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
