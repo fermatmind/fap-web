@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import raw from "@/lib/questionnaires/data/communication-style.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import catalog from "@/lib/questionnaires/catalog.json";
-import { communicationLandingSummary } from "@/components/questionnaires/CommunicationLandingEditorial";
+import { communicationCurrentEntryCopy, communicationLandingSummary } from "@/components/questionnaires/CommunicationLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
 
@@ -22,7 +22,12 @@ describe("individual communication frequency landing editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(12);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
-      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      for (const section of quiz.guide) for (const paragraph of section.paragraphs) {
+        expect(body).toContain(normalize(communicationCurrentEntryCopy(paragraph[locale], locale)));
+      }
+      const faq = dom.querySelector('[aria-labelledby="questionnaire-faq"]')?.textContent ?? "";
+      expect(faq).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24-hour|24 hours/);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#communication-style-reference-4"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "18÷5＝3.6" : "18÷5 = 3.6");
