@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildContentPagePath, getContentPage, type ContentPage } from "@/lib/cms/content-pages";
+import { buildContentPagePath, getContentPage } from "@/lib/cms/content-pages";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -10,7 +10,7 @@ import {
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import type { FAQItem } from "@/lib/seo/generateSchema";
+import { buildCmsHelpFaqItems, buildVisibleHelpFaqJsonLd } from "@/lib/cms/visible-help-faq";
 
 const HELP_CENTER_SLUGS = [
   "faq",
@@ -23,48 +23,6 @@ const HELP_CENTER_SLUGS = [
 
 function contentSlug(slug: string): string {
   return `help-${slug}`;
-}
-
-function normalizeVisibleText(value: string): string {
-  return value.replace(/\s+/g, " ").trim();
-}
-
-function normalizeForFaqParity(value: string): string {
-  return normalizeVisibleText(
-    value
-      .replace(/<[^>]+>/g, " ")
-      .replace(/[#*_`>[\]()+.!?,:;'"-]+/g, " ")
-  ).toLowerCase();
-}
-
-function buildCmsHelpFaqItems(page: ContentPage): FAQItem[] {
-  if (page.kind !== "help" || !page.schemaEnabled || page.faqItems.length === 0) {
-    return [];
-  }
-
-  const visibleText = normalizeForFaqParity(`${page.contentMd}\n${page.contentHtml}`);
-
-  return page.faqItems.filter((item) => {
-    const question = normalizeForFaqParity(item.question);
-    const answer = normalizeForFaqParity(item.answer);
-
-    return Boolean(question && answer && visibleText.includes(question) && visibleText.includes(answer));
-  });
-}
-
-function buildVisibleHelpFaqJsonLd(faq: FAQItem[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
 }
 
 export function generateStaticParams() {

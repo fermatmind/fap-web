@@ -56,11 +56,13 @@ describe("HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01", () => {
   it("keeps Help FAQPage rendering gated on backend schemaEnabled and visible parity", () => {
     const source = read("app/(localized)/[locale]/help/[slug]/page.tsx");
 
+    const gate = read("lib/cms/visible-help-faq.ts");
     expect(source).toContain("getContentPage(contentSlug(slug), locale)");
-    expect(source).toContain("!page.schemaEnabled");
-    expect(source).toContain("page.faqItems.length === 0");
-    expect(source).toContain("visibleText.includes(question)");
-    expect(source).toContain("visibleText.includes(answer)");
+    expect(source).toContain("buildCmsHelpFaqItems(page)");
+    expect(gate).toContain("!page.schemaEnabled");
+    expect(gate).toContain("page.faqItems.length === 0");
+    expect(gate).toContain("visibleText.includes(question)");
+    expect(gate).toContain("visibleText.includes(answer)");
     expect(source).toContain("buildVisibleHelpFaqJsonLd");
     expect(source).not.toContain("getContentPageWithLastKnownGood");
   });

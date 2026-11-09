@@ -42,11 +42,11 @@ describe("Traditional CMS About complete rendering", () => {
 
   it("renders science links with Traditional labels while unshipped targets keep their source-language routes", () => {
     const html = renderToStaticMarkup(<ContentPageTemplate page={{ ...stripContentPageReaderMetadata(page), slug: "science",
-      contentMd: "# content_md\n\n## 說明\n\n相關頁面 /method-boundaries、/item-design-notes、/reliability-validity。測評 /tests/mbti-personality-test-16-personality-types、/tests/big-five-personality-test、/tests/holland-career-interest-test-riasec。\n\nvisible_faq_items:\n\n明確英文入口 /en/tests/iq-test-intelligence-quotient-assessment、/en/tests/explore/chiikawa。",
+      contentMd: "# content_md\n\n## 說明\n\n相關頁面 /science、/method-boundaries、/item-design-notes、/reliability-validity。測評 /tests/mbti-personality-test-16-personality-types、/tests/big-five-personality-test、/tests/holland-career-interest-test-riasec。\n\nvisible_faq_items:\n\n明確英文入口 /en/tests/iq-test-intelligence-quotient-assessment、/en/tests/explore/chiikawa。",
     }} locale="zh-TW" />);
     const document = new DOMParser().parseFromString(html, "text/html");
     for (const [href, text] of [
-      ["/zh-TW/method-boundaries", "方法邊界"], ["/zh/item-design-notes", "題目設計說明"], ["/zh/reliability-validity", "信度與效度"],
+      ["/zh-TW/science", "測評科學"], ["/zh-TW/method-boundaries", "方法邊界"], ["/zh/item-design-notes", "題目設計說明"], ["/zh/reliability-validity", "信度與效度"],
       ["/zh/tests/mbti-personality-test-16-personality-types", "MBTI免費測試"],
       ["/zh/tests/big-five-personality-test-ocean-model", "大五人格免費測試"], ["/zh/tests/holland-career-interest-test-riasec", "霍蘭德職業興趣免費測試"],
     ]) {

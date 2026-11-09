@@ -54,6 +54,16 @@ describe("CMS Traditional locale reader", () => {
     expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain(path);
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
   });
+  it.each(["/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"])("prepares %s for native FAQ publication while withholding discovery and language links", async path => {
+    const { traditionalPath, traditionalEquivalent, TRADITIONAL_CMS_PUBLISHED_PATHS, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
+    expect(traditionalPath(`/zh-TW${path}`)).toBe(`/zh-TW${path}`);
+    expect(traditionalPath(`/zh${path}`)).toBeNull();
+    expect(traditionalPath(`/en${path}`)).toBeNull();
+    expect(traditionalPath(`/zh-TW${path}/private`)).toBeNull();
+    expect(traditionalEquivalent(`/zh-TW${path}`)).toBeNull();
+    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).not.toContain(path);
+    expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
+  });
   it("requests the genuine variant with matching query and header", async () => {
     get.mockResolvedValue({ ok: true, page: record("zh-TW") });
     const cms = await import("@/lib/cms/content-pages");

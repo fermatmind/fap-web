@@ -234,6 +234,7 @@ function renderInline(text: string, keyPrefix: string, locale: DisplayLocale): R
       });
     }
     const linkLabels = {
+      "/science": label(locale, "测评科学", "Assessment science"),
       "/method-boundaries": label(locale, "方法边界", "Method boundaries"),
       "/item-design-notes": label(locale, "题目设计说明", "Item design notes"),
       "/reliability-validity": label(locale, "信度与效度", "Reliability and validity"),

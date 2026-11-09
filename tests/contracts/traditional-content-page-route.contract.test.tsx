@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ContentPage } from "@/lib/cms/content-pages";
 import { SITE_URL } from "@/lib/site";
 import TraditionalLayout from "@/app/(traditional)/zh-TW/layout";
+import RefundPage, { generateMetadata as refundMetadata } from "@/app/(traditional)/zh-TW/help/payment-refund/page";
 
 const read = vi.hoisted(() => vi.fn());
 vi.mock("@/lib/cms/content-pages", async () => ({
@@ -60,6 +61,39 @@ describe("shared Traditional CMS page route", () => {
     await expect(renderTraditionalContentPage(slug)).rejects.toThrow("NOT_FOUND");
     await expect(generateTraditionalContentPageMetadata(slug)).rejects.toThrow("NOT_FOUND");
   });
+  it("renders the refund route with a single visible FAQ and matching localized structured data", async () => {
+    const question = "哪些內容是免費的？";
+    const answer = "MBTI 基礎結果繼續免費。";
+    read.mockResolvedValue({ value: {
+      ...page("help-payment-refund"), kind: "help", schemaEnabled: true,
+      contentMd: "## 付款與退款說明\n\n<!-- help-service-visible-faq:start -->\n\n### " + question + "\n\n" + answer + "\n\n<!-- help-service-visible-faq:end -->",
+      faqItems: [{ question, answer }, { question, answer: "這段答案沒有出現在正文。" }],
+    } });
+    const metadata = await refundMetadata();
+    expect(metadata.alternates).toEqual({ canonical: SITE_URL + "/zh-TW/help/payment-refund" });
+    expect(metadata.robots).toEqual({ index: false, follow: true });
+    const html = renderToStaticMarkup(await RefundPage());
+    const document = new DOMParser().parseFromString(html, "text/html");
+    const schema = JSON.parse(document.querySelector("#help-faq-help-payment-refund")?.textContent ?? "null");
+    expect(schema).toMatchObject({ "@type": "FAQPage", mainEntity: [{ name: question, acceptedAnswer: { text: answer } }] });
+    expect([...document.querySelectorAll("h3")].filter(node => node.textContent === question)).toHaveLength(1);
+    expect(document.body.textContent).toContain(answer);
+    expect(document.querySelector('a[lang="en"]')?.getAttribute("href")).toBe("/en/help/payment-refund");
+    expect(document.querySelector('a[lang="zh-CN"]')?.getAttribute("href")).toBe("/zh/help/payment-refund");
+    expect(read).toHaveBeenCalledWith("help-payment-refund", "zh-TW");
+  });
+
+  it.each([["help", false], ["policy", true]] as const)("respects FAQ schema gating for %s with schemaEnabled=%s", async (kind, schemaEnabled) => {
+    read.mockResolvedValue({ value: {
+      ...page("help-payment-refund"), kind, schemaEnabled,
+      contentMd: "### 常見問題？\n\n可見答案。",
+      faqItems: [{ question: "常見問題？", answer: "可見答案。" }],
+    } });
+    const document = new DOMParser().parseFromString(renderToStaticMarkup(await RefundPage()), "text/html");
+    expect(document.querySelector("#help-faq-help-payment-refund")).toBeNull();
+    expect(document.body.textContent).toContain("可見答案。");
+  });
+
   it("renders the native contact, nested canonical and available recovery controls", async () => {
     const contact = { ...page("help-contact"), path: "/zh-TW/help/contact", kind: "help", template: "help", supportContact: "support@example.invalid" };
     read.mockResolvedValue({ value: contact });
