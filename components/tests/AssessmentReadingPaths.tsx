@@ -11,6 +11,7 @@ export function AssessmentReadingPaths({ slug, locale }: { slug: string; locale:
     body: "可以直接浏览16型人格解释，对照四组偏好与具体情境，再决定下一步探索。",
     links: [
       { href: "/zh/personality", label: "浏览16型人格解释" },
+      { href: "#result-examples", label: "看两个偏好结果示例" },
     ],
   } : slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM ? {
     title: "九型人格测试结果怎么看？",

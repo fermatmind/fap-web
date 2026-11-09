@@ -82,3 +82,18 @@ test("article CMS example link preserves attribution and reaches the examples on
   await expect.poll(top).toBeLessThan(120);
   await expect(examples.getByRole("article")).toHaveCount(2);
 });
+
+test("Chinese MBTI landing opens its localized preference examples on a narrow screen", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/zh/tests/mbti-personality-test-16-personality-types");
+  await page.getByRole("link", { name: "看两个偏好结果示例" }).click();
+  await expect(page).toHaveURL(/#result-examples$/);
+  const examples = page.getByRole("region", { name: "答题前，先看两个结果示例" });
+  await expect(examples.getByRole("article")).toHaveCount(2);
+  await expect(examples).toContainText("虚构教学示例");
+  await expect(examples).toContainText("I 51% / E 49%");
+  await expect(examples.getByRole("link", { name: "阅读结果解读指南" }))
+    .toHaveAttribute("href", "/zh/articles/mbti-full-report-career-relationship-communication");
+  await expect(examples.getByRole("link", { name: "选择 93 题或 144 题" })).toHaveAttribute("href", "#choose-version");
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
+});

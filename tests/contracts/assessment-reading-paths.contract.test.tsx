@@ -9,7 +9,7 @@ describe("Chinese assessment result-reading navigation", () => {
     const section = screen.getByRole("region", { name: "已经知道自己的四字母类型？" });
     expect(within(section).getByRole("link", { name: "浏览16型人格解释" }).getAttribute("href"))
       .toBe("/zh/personality");
-    expect(within(section).getAllByRole("link")).toHaveLength(1);
+    expect(within(section).getByRole("link", { name: "看两个偏好结果示例" })).toHaveAttribute("href", "#result-examples");
   });
 
   it("lets a nine-type visitor reach explanations and types without starting an attempt", () => {

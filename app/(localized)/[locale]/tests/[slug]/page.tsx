@@ -1541,7 +1541,7 @@ export default async function TestLandingPage({
 
           <AssessmentReadingPaths slug={test.slug} locale={locale} />
 
-          {showsMbtiActions && locale === "en" ? <MbtiResultExamples /> : null}
+          {showsMbtiActions && (locale === "zh" || locale === "en") ? <MbtiResultExamples locale={locale} /> : null}
 
           {showsIqActions ? <IqLandingPreview
             locale={locale}
