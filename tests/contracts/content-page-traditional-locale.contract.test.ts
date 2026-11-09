@@ -64,6 +64,24 @@ describe("CMS Traditional locale reader", () => {
     expect(TRADITIONAL_CMS_PUBLISHED_PATHS).not.toContain(path);
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
   });
+  it("switches the four entrance pages in place while keeping their noindex routes out of discovery", async () => {
+    const { traditionalPath, traditionalEquivalent, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
+    for (const source of ["/", "/zh", "/en", "/zh-TW"]) {
+      expect(traditionalPath(source)).toBe("/zh-TW");
+      expect(traditionalEquivalent(source)).toBeNull();
+    }
+    for (const path of ["/tests", "/tests/category/personality", "/tests/category/career"]) {
+      for (const locale of ["en", "zh", "zh-TW"]) {
+        const source = `/${locale}${path}`;
+        expect(traditionalPath(source)).toBe(`/zh-TW${path}`);
+        expect(traditionalEquivalent(source)).toBeNull();
+      }
+      if (path !== "/tests") expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
+    }
+    expect(traditionalPath("/en/tests/category/unpublished")).toBeNull();
+    expect(traditionalPath("/zh-TW/tests/category/personality/private")).toBeNull();
+  });
+
   it("requests the genuine variant with matching query and header", async () => {
     get.mockResolvedValue({ ok: true, page: record("zh-TW") });
     const cms = await import("@/lib/cms/content-pages");

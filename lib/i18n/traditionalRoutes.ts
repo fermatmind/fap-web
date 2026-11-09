@@ -15,7 +15,11 @@ export const TRADITIONAL_CMS_READER_PATHS = ["/about", "/brand", "/charter", "/c
 // Reader deployment and published navigation remain separate inventories.
 export const TRADITIONAL_CMS_PUBLISHED_PATHS = ["/about", "/brand", "/charter", "/careers", "/privacy", "/terms", "/method-boundaries", "/science", "/help/contact", "/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research"] as const;
 export const TRADITIONAL_PUBLIC_PATHS = ["", "/tests", TRADITIONAL_QUIZ_PATH, ...TRADITIONAL_PROFILE_IDS.map(id => `${TRADITIONAL_QUIZ_PATH}/results/${id}`), TRADITIONAL_SEVEN_SINS_PATH, ...TRADITIONAL_SEVEN_SINS_PROFILE_IDS.map(id => `${TRADITIONAL_SEVEN_SINS_PATH}/results/${id}`)];
+// Published assessment categories are available in the language menu only.
+const TRADITIONAL_CATEGORY_PATHS = ["/tests/category/personality", "/tests/category/career"] as const;
+
 export function traditionalPath(pathname: string): string | null {
+  if (pathname === "/") return "/zh-TW";
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
@@ -24,7 +28,7 @@ export function traditionalPath(pathname: string): string | null {
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
-  if (prefix === "zh-TW" && (path === "/tests/category/personality" || path === "/tests/category/career")) return `/zh-TW${path}`;
+  if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   return TRADITIONAL_PUBLIC_PATHS.includes(path) || path === `${TRADITIONAL_QUIZ_PATH}/take` || path === `${TRADITIONAL_SEVEN_SINS_PATH}/take` ? `/zh-TW${path}` : null;
 }
