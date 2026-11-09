@@ -102,3 +102,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function strengthsLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function strengthsCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("免费直接作答、公开指南与可选保存", "免费直接作答、公开指南与隐私")
+      .replace("默认不保存；主动保存的当前标签页草稿24小时内可恢复，完成、清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("默认不保存；主动保存的本标签页草稿24小时内恢复，完成、清除或重测即删。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Free direct start, public guides and optional saving", "Free direct start, public guides and privacy")
+      .replace("Saving is off by default; an explicitly saved tab draft is restorable within 24 hours and deleted on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Saving is off by default; an opted-in tab draft is restorable within 24 hours and clears on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import raw from "@/lib/questionnaires/data/music-taste-test.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import catalog from "@/lib/questionnaires/catalog.json";
-import { musicLandingSummary } from "@/components/questionnaires/MusicLandingEditorial";
+import { musicCurrentEntryCopy, musicLandingSummary } from "@/components/questionnaires/MusicLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
 
@@ -22,7 +22,9 @@ describe("individual music liking preference landing editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(12);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
-      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(musicCurrentEntryCopy(paragraph[locale], locale)));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|24-hour|可选草稿|草稿保存|同意保存草稿|optional drafts?|draft saving|agreement to save a draft/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#music-taste-test-reference-2"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "S=8、n=2" : "S=8 and n=2");

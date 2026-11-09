@@ -85,6 +85,13 @@ describe("T020 original humor expression frequency reflection", () => {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireHumorReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-humor-facet]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(72); expect(dom.querySelectorAll("[data-humor-profile]")).toHaveLength(6);
+      const guides = dom.querySelectorAll<HTMLAnchorElement>('[data-humor-profile] > a[href*="/results/"]');
+      expect(guides).toHaveLength(6);
+      for (const guide of guides) {
+        expect(guide.target).toBe("_blank");
+        expect(guide.rel).toContain("noopener");
+        expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+      }
       expect(dom.querySelectorAll("[data-humor-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复/i);

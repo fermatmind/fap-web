@@ -40,7 +40,7 @@ function verifyGuides(root: Element, locale: "en" | "zh", newTab: boolean, colle
 
 describe("public guide navigation from an in-memory result", () => {
   for (const locale of ["en", "zh"] as const) {
-    it.each(["hogwarts-house-quiz", "hazbin-hotel-character-quiz", "hello-kitty", "spirit-animal", "flower", "what-dog-breed-am-i", "mythical-creature", "superpower-test", "jungian-archetype", "temperament", "leadership-style", "aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"])(`${locale} opens every result guide for %s in an announced new tab`, slug => {
+    it.each(["hogwarts-house-quiz", "hazbin-hotel-character-quiz", "hello-kitty", "spirit-animal", "flower", "what-dog-breed-am-i", "mythical-creature", "superpower-test", "jungian-archetype", "temperament", "leadership-style", "travel-personality-test", "aesthetic-core-test", "aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"])(`${locale} opens every result guide for %s in an announced new tab`, slug => {
       const quiz = load(slug), result = scoreQuestionnaire(quiz, answersFor(quiz));
       if (result.status !== "complete" || !("profileIds" in result)) throw new Error("Expected a complete character result");
       verifyGuides(rootFor(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} />)), locale, true);
@@ -61,7 +61,7 @@ describe("public guide navigation from an in-memory result", () => {
       if (result.status !== "complete") throw new Error("Expected a complete age result");
       verifyGuides(rootFor(renderToStaticMarkup(<MentalAgeClassicResult quiz={quiz} result={result} answers={answers} locale={locale} />)), locale, true);
     });
-    it.each(["adult-age-preferences", "disc", "response-color"])(`${locale} opens the %s result guide after the real answering handler`, slug => {
+    it.each(["adult-age-preferences", "disc", "response-color", "likable-person-test"])(`${locale} opens the %s result guide after the real answering handler`, slug => {
       const quiz = load(slug);
       const { container } = render(<QuestionnaireRunner quiz={quiz} locale={locale} scoreQuestionnaire={scoreQuestionnaire} startOnEntry />);
       for (const question of quiz.questions) {

@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isLikertConfigurationValid, readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
+import { procrastinationCurrentEntryCopy } from "@/components/questionnaires/ProcrastinationLandingEditorial";
 import { QuestionnaireProcrastinationReport } from "@/components/questionnaires/QuestionnaireProcrastinationReport";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
@@ -88,6 +89,13 @@ describe("T027 original six-pattern procrastination reflection", () => {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireProcrastinationReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-procrastination-facet]")).toHaveLength(6); expect(dom.querySelectorAll("h4")).toHaveLength(72); expect(dom.querySelectorAll("[data-procrastination-profile]")).toHaveLength(6);
+      const guides = dom.querySelectorAll<HTMLAnchorElement>('[data-procrastination-profile] > a[href*="/results/"]');
+      expect(guides).toHaveLength(6);
+      for (const guide of guides) {
+        expect(guide.target).toBe("_blank");
+        expect(guide.rel).toContain("noopener");
+        expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+      }
       expect(dom.querySelectorAll("[data-procrastination-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|sound preferences|PPS item/i);
@@ -104,7 +112,7 @@ describe("T027 original six-pattern procrastination reflection", () => {
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
-        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
+        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(procrastinationCurrentEntryCopy(paragraph[locale], locale)));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

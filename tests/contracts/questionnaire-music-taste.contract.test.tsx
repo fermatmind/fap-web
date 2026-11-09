@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isLikertConfigurationValid, readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
+import { musicCurrentEntryCopy } from "@/components/questionnaires/MusicLandingEditorial";
 import { QuestionnaireMusicReport } from "@/components/questionnaires/QuestionnaireMusicReport";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
@@ -85,6 +86,13 @@ describe("T023 original music sound-liking reflection", () => {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireMusicReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-music-facet]")).toHaveLength(8); expect(dom.querySelectorAll("h4")).toHaveLength(96); expect(dom.querySelectorAll("[data-music-profile]")).toHaveLength(8);
+      const guides = dom.querySelectorAll<HTMLAnchorElement>('[data-music-profile] > a[href*="/results/"]');
+      expect(guides).toHaveLength(8);
+      for (const guide of guides) {
+        expect(guide.target).toBe("_blank");
+        expect(guide.rel).toContain("noopener");
+        expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+      }
       expect(dom.querySelectorAll("[data-music-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复|expression frequency|Almost always|几乎总是/i);
@@ -102,7 +110,7 @@ describe("T023 original music sound-liking reflection", () => {
         expect(quiz.guide.filter(s => s.id.startsWith("context-"))).toHaveLength(5);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
-        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
+        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(musicCurrentEntryCopy(paragraph[locale], locale)));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

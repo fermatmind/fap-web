@@ -9,6 +9,16 @@ import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/
 import { loveLanguagesCurrentEntryCopy } from "@/components/questionnaires/LoveLanguagesLandingEditorial";
 import { attachmentCurrentEntryCopy } from "@/components/questionnaires/AttachmentLandingEditorial";
 import { communicationCurrentEntryCopy } from "@/components/questionnaires/CommunicationLandingEditorial";
+import { humorCurrentEntryCopy } from "@/components/questionnaires/HumorLandingEditorial";
+import { aestheticCurrentEntryCopy } from "@/components/questionnaires/AestheticLandingEditorial";
+import { peoplePleaserCurrentEntryCopy } from "@/components/questionnaires/PeoplePleaserLandingEditorial";
+import { likableCurrentEntryCopy } from "@/components/questionnaires/LikableLandingEditorial";
+import { learningCurrentEntryCopy } from "@/components/questionnaires/LearningLandingEditorial";
+import { strengthsCurrentEntryCopy } from "@/components/questionnaires/StrengthsLandingEditorial";
+import { procrastinationCurrentEntryCopy } from "@/components/questionnaires/ProcrastinationLandingEditorial";
+import { frictionCurrentEntryCopy } from "@/components/questionnaires/FrictionLandingEditorial";
+import { musicCurrentEntryCopy } from "@/components/questionnaires/MusicLandingEditorial";
+import { travelCurrentEntryCopy } from "@/components/questionnaires/TravelLandingEditorial";
 import { leadershipCurrentEntryCopy } from "@/components/questionnaires/LeadershipLandingEditorial";
 import { temperamentCurrentEntryCopy } from "@/components/questionnaires/TemperamentLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
@@ -76,7 +86,17 @@ describe("entertainment preview entry", () => {
             : item.slug === "love-languages" ? loveLanguagesCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "attachment-styles" ? attachmentCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "communication-style" ? communicationCurrentEntryCopy(paragraph[locale], locale)
-            : item.slug === "leadership-style" ? leadershipCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+            : item.slug === "leadership-style" ? leadershipCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "humor-style-test" ? humorCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "travel-personality-test" ? travelCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "aesthetic-core-test" ? aestheticCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "music-taste-test" ? musicCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "people-pleaser" ? peoplePleaserCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "difficult-person-test" ? frictionCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "likable-person-test" ? likableCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "procrastinator-type-test" ? procrastinationCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "learning-style" ? learningCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "character-strengths" ? strengthsCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }
         if (item.slug === "moral-alignment" || item.slug === "jungian-archetype") {

@@ -8,13 +8,14 @@ async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" |
     const pattern = question.options[0].directionId;
     const value = mode === "na" || (mode === "missing-part" && pattern === "expectations") ? "na" : mode === "missing-part" ? "4" : scores[pattern];
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); } else await radio.check();
     if (index < 9) await expect(page.locator("[data-pps-facet]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 9 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await radio.press("Space");
+    const next = quiz.questions[index + 1];
+    if (next) await expect(page.locator('input[name="' + next.id + '"]').first()).toBeVisible();
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-pps-facet]")).toHaveCount(3); await expect(page.locator("[data-pps-profile]")).toHaveCount(3);
-  await expect(page.locator("#take-test h4")).toHaveCount(27);
+  await expect(page.locator("#take-test h4")).toHaveCount(36);
   for (const direction of quiz.directions) {
     const mean = page.locator(`[data-pps-facet="${direction.id}"] [data-pps-mean]`);
     const unscored = mode === "na" || (mode === "missing-part" && direction.id === "expectations");
@@ -26,10 +27,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" |
 }
 for (const locale of ["en", "zh"] as const) {
   const zh = locale === "zh", entry = `/${locale}/tests/explore/people-pleaser`;
-  test(`@release PPS people pleasing ${locale}: hub, keyboard,10PPSratings, three means,27fullsections and retake`, async ({ page }) => {
+  test(`@release PPS people pleasing ${locale}: hub, keyboard,10PPSratings, three means,36 full sections and retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaks: string[] = [];
     page.on("request", r => { if (r.method() === "POST" && /PPS/.test(r.postData() ?? "")) leaks.push(r.url()); });
-    await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.getByText(zh ? "PPS条目自评 · 完整结果免费" : "PPS item reflection · Full results free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
@@ -42,16 +43,23 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-pps-facet]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked(); expect(leaks).toEqual([]);
   });
-  test(`@release PPS people pleasing ${locale}: opted-in draft survives reload, language, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="2"]').check(); await page.getByRole("checkbox").check(); await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="2"]')).toBeChecked(); await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh"; await page.goto(`/${other}/tests/explore/people-pleaser`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+  test(`@release PPS people pleasing ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
+    await page.goto(entry);
+    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
+    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    const first = await page.locator("legend").first().textContent();
+    await page.locator('input[value="2"]').check();
+    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await expect(page.locator("legend").first()).not.toHaveText(first!);
+    await page.reload();
+    await expect(page.locator("legend").first()).toHaveText(first!);
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:people-pleaser"))).toBeNull();
+
+    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/people-pleaser`);
+    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
   test(`@release PPS people pleasing ${locale}: denied storage/clipboard, unscored and one missing pattern retain all full guides with safe share`, async ({ page }) => {
     await page.addInitScript(() => {
@@ -60,8 +68,8 @@ for (const locale of ["en", "zh"] as const) {
       Storage.prototype.setItem = function(k, v) { if (k.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, k, v); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save"); await finish(page, locale, "na");
+    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await expect(page.getByRole("checkbox")).toHaveCount(0); await finish(page, locale, "na");
     await expect(page.getByRole("heading", { level: 3, name: zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.", exact: true })).toBeVisible();
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click(); await finish(page, locale, "missing-part");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();

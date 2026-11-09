@@ -3,6 +3,16 @@ import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/
 import { loveLanguagesCurrentEntryCopy } from "@/components/questionnaires/LoveLanguagesLandingEditorial";
 import { attachmentCurrentEntryCopy } from "@/components/questionnaires/AttachmentLandingEditorial";
 import { communicationCurrentEntryCopy } from "@/components/questionnaires/CommunicationLandingEditorial";
+import { humorCurrentEntryCopy } from "@/components/questionnaires/HumorLandingEditorial";
+import { aestheticCurrentEntryCopy } from "@/components/questionnaires/AestheticLandingEditorial";
+import { peoplePleaserCurrentEntryCopy } from "@/components/questionnaires/PeoplePleaserLandingEditorial";
+import { likableCurrentEntryCopy } from "@/components/questionnaires/LikableLandingEditorial";
+import { learningCurrentEntryCopy } from "@/components/questionnaires/LearningLandingEditorial";
+import { strengthsCurrentEntryCopy } from "@/components/questionnaires/StrengthsLandingEditorial";
+import { procrastinationCurrentEntryCopy } from "@/components/questionnaires/ProcrastinationLandingEditorial";
+import { frictionCurrentEntryCopy } from "@/components/questionnaires/FrictionLandingEditorial";
+import { musicCurrentEntryCopy } from "@/components/questionnaires/MusicLandingEditorial";
+import { travelCurrentEntryCopy } from "@/components/questionnaires/TravelLandingEditorial";
 import { leadershipCurrentEntryCopy } from "@/components/questionnaires/LeadershipLandingEditorial";
 import { temperamentCurrentEntryCopy } from "@/components/questionnaires/TemperamentLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
@@ -38,7 +48,7 @@ describe("complete bilingual entertainment entry rendering", () => {
           expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
           expect(metadata.robots).toMatchObject({ index: true, follow: true });
           for (const faq of authored.faq) {
-            expect(dom.textContent).toContain(faq.question[locale]);
+            expect(dom.textContent).toContain(quiz.slug === "music-taste-test" ? musicCurrentEntryCopy(faq.question[locale], locale) : quiz.slug === "people-pleaser" ? peoplePleaserCurrentEntryCopy(faq.question[locale], locale) : quiz.slug === "difficult-person-test" ? frictionCurrentEntryCopy(faq.question[locale], locale) : faq.question[locale]);
             const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(faq.answer[locale], locale)
@@ -47,7 +57,17 @@ describe("complete bilingual entertainment entry rendering", () => {
               : quiz.slug === "love-languages" ? loveLanguagesCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "attachment-styles" ? attachmentCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "communication-style" ? communicationCurrentEntryCopy(faq.answer[locale], locale)
-              : quiz.slug === "leadership-style" ? leadershipCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
+              : quiz.slug === "leadership-style" ? leadershipCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "humor-style-test" ? humorCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "travel-personality-test" ? travelCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "aesthetic-core-test" ? aestheticCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "music-taste-test" ? musicCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "people-pleaser" ? peoplePleaserCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "difficult-person-test" ? frictionCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "likable-person-test" ? likableCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "procrastinator-type-test" ? procrastinationCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "learning-style" ? learningCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "character-strengths" ? strengthsCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
             expect(dom.textContent).toContain(answer);
           }
           for (const profile of authored.profiles) {

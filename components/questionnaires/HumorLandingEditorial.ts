@@ -30,3 +30,14 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function humorLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function humorCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("HSQ、漫画风格研究与本站题本：证据怎样区分？", "HSQ、幽默表达风格研究与本站题本：证据怎样区分？")
+      .replace("只有主动保存才在本标签页保留24小时草稿，完成、清除或重测即删除；", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("主动保存才有本标签页24小时草稿，完成、清除或重测即删；", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Only explicit saving creates a 24-hour draft in this tab, cleared on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Explicit saving creates a 24-hour tab draft, cleared on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

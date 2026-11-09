@@ -30,3 +30,13 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function travelLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function travelCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("只有主动选择保存才在本标签页临时保存进度，24小时失效，完成、清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("答案在浏览器内计算；进度仅在主动保存后于本标签页保留24小时，完成、清除或重测即删。", "答案在浏览器内计算。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Progress is saved in this tab only when you choose to save it, expires after 24 hours and is deleted on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Scoring happens in the browser; only an explicitly saved draft stays in this tab for up to 24 hours, deleted on completion, clearing or retake.", "Scoring happens in the browser. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

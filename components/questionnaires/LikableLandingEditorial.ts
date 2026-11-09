@@ -130,3 +130,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function likableLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function likableCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("直接开始、完整免费与可选草稿", "直接开始、完整免费与隐私")
+      .replace("默认不保存，只有主动保存才提供本标签页24小时内恢复；完成、清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("默认不保存，答案在浏览器内计分。只有主动保存的本标签页草稿才可在24小时内恢复，完成、清除或重测即删除。", "答案在浏览器内计分。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Direct start, full free access and optional drafts", "Direct start, full free access and privacy")
+      .replace("Saving is off by default; an explicitly saved tab draft can be restored within twenty-four hours and is deleted on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Saving is off by default and answers are scored in the browser. Only an explicitly saved tab draft is restorable within twenty-four hours and it is deleted on completion, clearing or retake.", "Answers are scored in the browser. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import raw from "@/lib/questionnaires/data/humor-style-test.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import catalog from "@/lib/questionnaires/catalog.json";
-import { humorLandingSummary } from "@/components/questionnaires/HumorLandingEditorial";
+import { humorCurrentEntryCopy, humorLandingSummary } from "@/components/questionnaires/HumorLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
 
@@ -22,12 +22,18 @@ describe("individual humor expression frequency landing editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(12);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
-      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(humorCurrentEntryCopy(paragraph[locale], locale)));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|24-hour/);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#humor-style-test-reference-7"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "11÷3＝3.7" : "11÷3 = 3.7");
 
       if (locale === "en") expect(body).not.toMatch(/\p{Script=Han}/u);
+      else {
+        expect(body).toContain("HSQ、幽默表达风格研究与本站题本：证据怎样区分？");
+        expect(body).not.toContain("漫画风格研究");
+      }
     }
   });
 });

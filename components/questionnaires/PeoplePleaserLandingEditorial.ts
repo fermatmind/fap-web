@@ -18,3 +18,21 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function peoplePleaserLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function peoplePleaserCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("免费完整结果与自愿保存", "免费完整结果与隐私")
+      .replace("点击开始直接进入题目，保存草稿不是条件。", "点击开始直接进入题目。")
+      .replace("点击开始直接进入题目，保存草稿另行自愿选择，不必先勾选同意保存。", "点击开始直接进入题目。")
+      .replace("主动保存才留本标签页24小时草稿，完成、重测或清除即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("主动保存的草稿在本标签页24小时内可恢复，完成、重测或清除即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("答案会上传吗？保存和分享包含什么？", "答案会上传或保存吗？分享包含什么？")
+    : text
+      .replace("Full free results and optional saving", "Full free results and privacy")
+      .replace("Start opens the questions directly; saving a draft is not a condition.", "Start opens the questions directly.")
+      .replace("Start opens questions directly; saving a draft is a separate optional choice, without an agreement-to-save prerequisite.", "Start opens the questions directly.")
+      .replace("Opting in keeps a 24-hour draft in this tab, deleted on completion, retake or clearing.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("An optional tab draft can be restored within 24 hours and is deleted on completion, retake or clearing.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Are answers uploaded, and what do saving and sharing contain?", "Are answers uploaded or saved, and what does sharing include?");
+}

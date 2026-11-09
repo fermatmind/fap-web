@@ -30,3 +30,13 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function aestheticLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function aestheticCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("仅在主动保存后保留本标签页24小时草稿，完成、清除或重测即删。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("答案在浏览器计算；只有主动保存才保留24小时标签页草稿，完成、清除或重测即删。", "答案在浏览器计算。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Only explicitly saved progress remains in this tab for up to 24 hours, deleted on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Answers are scored in the browser; only explicitly saved progress remains as a 24-hour tab draft, deleted on completion, clearing or retake.", "Answers are scored in the browser. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

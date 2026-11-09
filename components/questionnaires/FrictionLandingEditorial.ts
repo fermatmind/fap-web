@@ -34,3 +34,19 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function frictionLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function frictionCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("免费结果、直接作答与可选保存", "免费结果、直接开始与隐私")
+      .replace("默认不保存；只有主动保存才在本标签页提供24小时内恢复，完成、清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("答案在浏览器内计分，默认不保存、不随计分上传。主动保存的本标签页草稿24小时内可恢复，完成、清除或重测即删除。", "答案在浏览器内计分，不随计分上传。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("；已有保存草稿时可按页面选择恢复或重测。", "。")
+      .replace("答案保存在哪里，可以分享吗？", "答案会保存吗？分享包含什么？")
+    : text
+      .replace("Free results, direct start and optional saving", "Free results, direct start and privacy")
+      .replace("Saving is off by default. An explicitly saved tab draft can be restored within 24 hours and is deleted on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Answers are scored in the browser and are neither saved by default nor uploaded for scoring. An explicitly saved tab draft is restorable within 24 hours and deleted on completion, clearing or retake.", "Answers are scored in the browser without an upload for scoring. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace(" If a saved draft exists, the page offers restoration or a fresh attempt.", "")
+      .replace("Where are answers saved, and what can be shared?", "Are answers saved, and what can be shared?");
+}

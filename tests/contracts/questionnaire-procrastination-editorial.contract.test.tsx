@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import raw from "@/lib/questionnaires/data/procrastinator-type-test.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import catalog from "@/lib/questionnaires/catalog.json";
-import { procrastinationLandingSummary } from "@/components/questionnaires/ProcrastinationLandingEditorial";
+import { procrastinationCurrentEntryCopy, procrastinationLandingSummary } from "@/components/questionnaires/ProcrastinationLandingEditorial";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 const quiz = raw as Questionnaire;
 
@@ -22,7 +22,9 @@ describe("individual ordinary-task delay landing editorial", () => {
       expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(12);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
-      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(procrastinationCurrentEntryCopy(paragraph[locale], locale)));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|twenty-four hours|24 hours|24-hour|可选草稿|可选保存|optional drafts?|optional saving/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#procrastinator-type-test-reference-4"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "10÷3≈3.3" : "10/3≈3.3");

@@ -55,7 +55,7 @@ export function QuestionnaireCharacterStrengthsReport({ quiz, result, locale }: 
         </dl>
         {facet.mean === null && <p className="mb-4 text-sm leading-7">{zh ? "本项资料不足，不计算个人分数；下方为通用读法。" : "This part has insufficient information for a personal score. The reading below is general guidance."}</p>}
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" showHeadline={false} previewSectionIds={["reading", "worked-example", "observation"]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读这一项的完整指南" : "Read this part’s full guide separately"}</Link>
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "单独阅读这一项的完整指南（新标签页）" : "Read this part’s full guide separately (new tab)"}</Link>
       </section>;
     })}
     <details className="border-t border-slate-200 pt-4">

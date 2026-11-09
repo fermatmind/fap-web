@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isLikertConfigurationValid, readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
+import { strengthsCurrentEntryCopy } from "@/components/questionnaires/StrengthsLandingEditorial";
 import { QuestionnaireCharacterStrengthsReport } from "@/components/questionnaires/QuestionnaireCharacterStrengthsReport";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
@@ -96,6 +97,13 @@ describe("T029 public-domain IPIP-VIA-R96 reflection", () => {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCharacterStrengthsReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-character-facet]")).toHaveLength(24); expect(dom.querySelectorAll("h4")).toHaveLength(264); expect(dom.querySelectorAll("[data-character-profile]")).toHaveLength(24);
+      const guides = dom.querySelectorAll<HTMLAnchorElement>('[data-character-profile] > a[href*="/results/"]');
+      expect(guides).toHaveLength(24);
+      for (const guide of guides) {
+        expect(guide.target).toBe("_blank");
+        expect(guide.rel).toContain("noopener");
+        expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+      }
       expect(dom.querySelectorAll("[data-character-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       expect(dom.querySelectorAll("[data-character-sum]")).toHaveLength(value === "na" ? 0 : 24);
       expect(dom.querySelector("[data-character-source] a")?.getAttribute("href")).toBe("https://ipip.ori.org/IPIP-VIA-R_Key.html");
@@ -116,8 +124,10 @@ describe("T029 public-domain IPIP-VIA-R96 reflection", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+        expect(entryDom.textContent).not.toMatch(/24小时|24 hours|24-hour|可选保存|optional saving/i);
         const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
-        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
+        for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(strengthsCurrentEntryCopy(paragraph[locale], locale)));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
