@@ -2,6 +2,9 @@ import { expect, test } from "@playwright/test";
 import { createServer } from "node:http";
 import publicFixtures from "../fixtures/public-content/marketing-public.json";
 
+// The application server reads one fixture on a fixed port. Keep this file in one worker.
+test.describe.configure({ mode: "default" });
+
 let stopFixture: (() => Promise<void>) | undefined;
 test.beforeAll(async () => {
   const slug = "free-personality-tests-results-compared";
