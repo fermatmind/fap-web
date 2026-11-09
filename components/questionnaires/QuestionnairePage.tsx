@@ -218,10 +218,10 @@ import { musicLandingSummary } from "./MusicLandingEditorial";
 import { aestheticLandingSummary } from "./AestheticLandingEditorial";
 import { travelLandingSummary } from "./TravelLandingEditorial";
 import { humorLandingSummary } from "./HumorLandingEditorial";
-import { leadershipLandingSummary } from "./LeadershipLandingEditorial";
-import { communicationLandingSummary } from "./CommunicationLandingEditorial";
-import { attachmentLandingSummary } from "./AttachmentLandingEditorial";
-import { loveLanguagesLandingSummary } from "./LoveLanguagesLandingEditorial";
+import { leadershipCurrentEntryCopy, leadershipLandingSummary } from "./LeadershipLandingEditorial";
+import { communicationCurrentEntryCopy, communicationLandingSummary } from "./CommunicationLandingEditorial";
+import { attachmentCurrentEntryCopy, attachmentLandingSummary } from "./AttachmentLandingEditorial";
+import { loveLanguagesCurrentEntryCopy, loveLanguagesLandingSummary } from "./LoveLanguagesLandingEditorial";
 import { temperamentCurrentEntryCopy, temperamentLandingSummary } from "./TemperamentLandingEditorial";
 import { introvertExtrovertCurrentEntryCopy, introvertExtrovertLandingSummary } from "./IntrovertExtrovertLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy, jungianArchetypeLandingSummary } from "./JungianArchetypeLandingEditorial";
@@ -870,6 +870,10 @@ return null;
   const currentEntryCopy = (text: string) => {
     if (slug === "introvert-extrovert") return introvertExtrovertCurrentEntryCopy(text, locale);
     if (slug === "temperament") return temperamentCurrentEntryCopy(text, locale);
+    if (slug === "communication-style") return communicationCurrentEntryCopy(text, locale);
+    if (slug === "leadership-style") return leadershipCurrentEntryCopy(text, locale);
+    if (slug === "love-languages") return loveLanguagesCurrentEntryCopy(text, locale);
+    if (slug === "attachment-styles") return attachmentCurrentEntryCopy(text, locale);
     return text;
   };
   const renderCopy = (text: string) => {

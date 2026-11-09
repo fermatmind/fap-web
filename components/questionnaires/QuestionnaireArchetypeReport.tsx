@@ -55,7 +55,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
   const lead = portraitResultLeadKind(quiz.slug);
   const edgerunners = quiz.slug === "cyberpunk-edgerunners";
   const chiikawa = quiz.slug === "chiikawa";
-  const guideInNewTab = ["hogwarts-house-quiz", "hazbin-hotel-character-quiz", "hello-kitty", "spirit-animal", "flower", "what-dog-breed-am-i", "mythical-creature", "superpower-test", "jungian-archetype", "temperament", "aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"].includes(quiz.slug);
+  const guideInNewTab = ["hogwarts-house-quiz", "hazbin-hotel-character-quiz", "hello-kitty", "spirit-animal", "flower", "what-dog-breed-am-i", "mythical-creature", "superpower-test", "jungian-archetype", "temperament", "leadership-style", "aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"].includes(quiz.slug);
   const Portrait = chiikawa ? ChiikawaPortrait : EdgerunnersPortrait;
   const placement = (edgerunners || chiikawa) && result.profileIds.length === 1 ? "between" :
     comparisonFirst.has(quiz.slug) ? "before" : chartAfterLead.has(quiz.slug) ? "between" : chartAfterReading.has(quiz.slug) ? "after" : undefined;

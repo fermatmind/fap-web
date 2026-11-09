@@ -22,3 +22,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function communicationLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function communicationCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("主动保存的草稿仅在本标签页保留24小时，完成、清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("默认不保存答案；主动保存后仅保留本标签页24小时草稿，完成、重测或清除即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("分享只包含测试名称与公开入口，不附答案、均分或私人对话。", "分享链接打开公开测试，不附答案、均分或私人对话。")
+    : text
+      .replace("An explicitly saved draft lasts 24 hours in this tab and clears on completion, clearing or retake.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Answers are not saved by default. Explicit saving creates a 24-hour draft in this tab, cleared on completion, retake or clearing.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Sharing includes only the test name and public entry, not answers, means or private conversations.", "The share link opens the public test without answers, means or private conversations.");
+}

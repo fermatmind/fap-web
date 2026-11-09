@@ -129,6 +129,8 @@ describe("T019 original team-scenario leadership reflection", () => {
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        expect(entryDom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+        expect(entryDom.textContent).not.toMatch(/24小时|24 hours|24-hour/);
         for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/leadership-style");
         for (const profile of quiz.profiles) {

@@ -93,6 +93,13 @@ describe("T017 original adult relationship frequency reflection", () => {
       const result = scoreAttachmentQuestionnaire(quiz, all(value)); if (result.status !== "complete") throw new Error("Rejected input");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireAttachmentReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-attachment-axis]")).toHaveLength(2); expect(dom.querySelectorAll("h4")).toHaveLength(48); expect(dom.querySelectorAll("[data-attachment-profile]")).toHaveLength(4);
+      const guideLinks = dom.querySelectorAll<HTMLAnchorElement>('[data-attachment-profile] > a[href*="/results/"]');
+      expect(guideLinks).toHaveLength(4);
+      for (const guide of guideLinks) {
+        expect(guide.target).toBe("_blank");
+        expect(guide.rel).toContain("noopener");
+        expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+      }
       expect(dom.querySelectorAll("[data-attachment-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       expect(dom.querySelectorAll("[data-attachment-map]")).toHaveLength(value === "na" ? 0 : 1);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
@@ -113,6 +120,8 @@ describe("T017 original adult relationship frequency reflection", () => {
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        expect(entryDom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+        expect(entryDom.textContent).not.toContain(locale === "zh" ? "24小时" : "24 hours");
         for (const section of quiz.guide.slice(0, 3)) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(section.paragraphs[0][locale]));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {

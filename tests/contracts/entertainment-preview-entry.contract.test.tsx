@@ -6,6 +6,10 @@ import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
 import { bleachCurrentEntryCopy } from "@/components/questionnaires/BleachLandingEditorial";
 import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/IntrovertExtrovertLandingEditorial";
+import { loveLanguagesCurrentEntryCopy } from "@/components/questionnaires/LoveLanguagesLandingEditorial";
+import { attachmentCurrentEntryCopy } from "@/components/questionnaires/AttachmentLandingEditorial";
+import { communicationCurrentEntryCopy } from "@/components/questionnaires/CommunicationLandingEditorial";
+import { leadershipCurrentEntryCopy } from "@/components/questionnaires/LeadershipLandingEditorial";
 import { temperamentCurrentEntryCopy } from "@/components/questionnaires/TemperamentLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
 import { moralAlignmentCurrentEntryCopy } from "@/components/questionnaires/MoralAlignmentLandingEditorial";
@@ -68,7 +72,11 @@ describe("entertainment preview entry", () => {
             : item.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "introvert-extrovert" ? introvertExtrovertCurrentEntryCopy(paragraph[locale], locale)
-            : item.slug === "temperament" ? temperamentCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+            : item.slug === "temperament" ? temperamentCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "love-languages" ? loveLanguagesCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "attachment-styles" ? attachmentCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "communication-style" ? communicationCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "leadership-style" ? leadershipCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }
         if (item.slug === "moral-alignment" || item.slug === "jungian-archetype") {

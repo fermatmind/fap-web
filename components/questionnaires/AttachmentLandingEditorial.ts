@@ -10,3 +10,15 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function attachmentLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function attachmentCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("完整免费、临时保存与分享范围", "完整免费、答题进度与分享")
+      .replace("默认不保存；主动选择临时保存后，可在本标签页24小时内恢复，完成、重测或清除时删除草稿。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("默认不保存，只有主动临时保存才保留本标签页24小时草稿，完成、重测或清除即删除；分享不含答案或均分。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享不含答案或均分。")
+    : text
+      .replace("Full free access, temporary saving and sharing scope", "Free access, progress and sharing")
+      .replace("Saving is off by default. Optional temporary saving allows restoration in this tab for 24 hours; completion, retaking or clearing deletes the draft.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Saving is off by default; optional saving creates a 24-hour tab draft deleted on completion, retaking or clearing.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.");
+}

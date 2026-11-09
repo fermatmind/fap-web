@@ -1,5 +1,9 @@
 import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
 import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/IntrovertExtrovertLandingEditorial";
+import { loveLanguagesCurrentEntryCopy } from "@/components/questionnaires/LoveLanguagesLandingEditorial";
+import { attachmentCurrentEntryCopy } from "@/components/questionnaires/AttachmentLandingEditorial";
+import { communicationCurrentEntryCopy } from "@/components/questionnaires/CommunicationLandingEditorial";
+import { leadershipCurrentEntryCopy } from "@/components/questionnaires/LeadershipLandingEditorial";
 import { temperamentCurrentEntryCopy } from "@/components/questionnaires/TemperamentLandingEditorial";
 import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
 import { moralAlignmentCurrentEntryCopy } from "@/components/questionnaires/MoralAlignmentLandingEditorial";
@@ -39,7 +43,11 @@ describe("complete bilingual entertainment entry rendering", () => {
               : quiz.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "introvert-extrovert" ? introvertExtrovertCurrentEntryCopy(faq.answer[locale], locale)
-              : quiz.slug === "temperament" ? temperamentCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
+              : quiz.slug === "temperament" ? temperamentCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "love-languages" ? loveLanguagesCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "attachment-styles" ? attachmentCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "communication-style" ? communicationCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "leadership-style" ? leadershipCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
             expect(dom.textContent).toContain(answer);
           }
           for (const profile of authored.profiles) {

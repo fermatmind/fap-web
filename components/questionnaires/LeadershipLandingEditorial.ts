@@ -22,3 +22,13 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function leadershipLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function leadershipCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("答案在浏览器中计分；主动保存才保留本标签页24小时草稿，完成、清除或重测即删除。", "答案在浏览器中计分。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("可选保存仅保留本标签页24小时草稿，完成、清除或重测即删除；", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+    : text
+      .replace("Answers are scored in the browser; only explicit saving creates a 24-hour draft in this tab, cleared on completion, clearing or retake.", "Answers are scored in the browser. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Optional saving retains a 24-hour tab draft, cleared on completion, clearing or retake; sharing", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing");
+}

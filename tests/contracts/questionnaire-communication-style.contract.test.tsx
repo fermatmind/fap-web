@@ -79,6 +79,13 @@ describe("T018 original communication response frequency reflection", () => {
       const result = scoreQuestionnaire(quiz, all(value)); if (result.status !== "complete" || !("facets" in result)) throw new Error("Rejected input");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnaireCommunicationReport quiz={prepareQuestionnaireResultReadings(quiz)} result={result} locale={locale} />);
       expect(dom.querySelectorAll("[data-communication-facet]")).toHaveLength(4); expect(dom.querySelectorAll("h4")).toHaveLength(48); expect(dom.querySelectorAll("[data-communication-profile]")).toHaveLength(4);
+      const guides = dom.querySelectorAll<HTMLAnchorElement>('[data-communication-profile] > a[href*="/results/"]');
+      expect(guides).toHaveLength(4);
+      for (const guide of guides) {
+        expect(guide.target).toBe("_blank");
+        expect(guide.rel).toContain("noopener");
+        expect(guide.textContent).toContain(locale === "zh" ? "（新标签页）" : " (new tab)");
+      }
       expect(dom.querySelectorAll("[data-communication-insufficient]")).toHaveLength(value === "na" ? 1 : 0);
       const ids = Array.from(dom.querySelectorAll("[id]"), x => x.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.textContent).not.toMatch(/battery|quiet recovery|coordination load|社交电量|安静恢复/i);
@@ -95,6 +102,8 @@ describe("T018 original communication response frequency reflection", () => {
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
+        expect(entryDom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+        expect(entryDom.textContent).not.toMatch(/24小时|24 hours|24-hour/);
         for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) expect(normalize(entryDom.textContent ?? "")).toContain(normalize(paragraph[locale]));
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         for (const profile of quiz.profiles) {

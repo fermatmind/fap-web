@@ -11,3 +11,19 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function loveLanguagesLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function loveLanguagesCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("完整结果、临时保存与分享", "完整结果、答题进度与分享")
+      .replace("默认不保存；主动临时保存后可在本标签页24小时内恢复，完成、重测或清除会删除草稿。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("默认不保存答案，主动临时保存仅限本标签页24小时草稿，完成、重测或清除即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("分享仅包含测试名称和公开入口，不含答卷、均分或私人结果；想讨论分数时，由你自行选择说出哪些内容。", "复制分享只带测试名称与公开入口，不含答卷或均分。个人结果卡在浏览器内生成，包含汇总分数，由你选择保存或分享。")
+      .replace("分享只带公开测试入口，不含答案或均分。", "复制分享只带公开测试入口，不含答案或均分。个人结果卡包含汇总分数，由你选择保存或分享。")
+    : text
+      .replace("Full results, temporary saving and sharing", "Full results, progress and sharing")
+      .replace("Saving is off by default. Optional temporary saving allows restoration in this tab for 24 hours; completion, retaking or clearing deletes the draft.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Answers are not saved by default; optional saving creates a 24-hour tab draft, deleted on completion, retaking or clearing.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Sharing contains the test name and public entry only, not answers, means or private results. Choose for yourself which scores, if any, to discuss.", "Copied text includes only the test name and public entry, without answers or means. Your browser creates a personal card with aggregate scores. You choose whether to save or share it.")
+      .replace("Sharing includes only the public test entry, without answers or means.", "Copied text links to the public test without answers or means. The optional personal card contains aggregate scores and is yours to save or share.");
+}
