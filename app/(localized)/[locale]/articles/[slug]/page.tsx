@@ -502,12 +502,12 @@ export default async function ArticleDetailPage({
         >
           {renderArticleBody(article, locale, canonicalPath)}
           {isRiasecOverview ? (
-            <aside className="rounded-lg border border-[var(--fm-border)] p-4">
+            <section aria-label={locale === "zh" ? "职业探索下一步" : "Next step for career exploration"} className="rounded-lg border border-[var(--fm-border)] p-4">
               <p className="m-0">{locale === "zh" ? "把兴趣线索带到真实工作中，核对设计职业的任务、技能和入行条件。" : "Use your interest profile to compare real tasks, skills and entry requirements in design careers."}</p>
               <Link href={localizedPath("/career/compare", locale)} className="inline-flex min-h-11 items-center font-semibold underline">
                 {locale === "zh" ? "比较两个设计职业" : "Compare two design careers"}
               </Link>
-            </aside>
+            </section>
           ) : null}
           {article.bodyVisual?.imageUrl ? (
             <ArticleResponsiveImage
