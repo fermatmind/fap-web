@@ -142,9 +142,33 @@ describe('file-owned page contract', () => {
     const html = renderToStaticMarkup(<CareerPageTemplate page={page} ctaHref="/zh/tests/riasec" />);
     const root = document.createElement('div');
     root.innerHTML = html;
-    expect(root.textContent).not.toMatch(/\bpublished\b|\bqa1\b/);
+    const sourceRows = [...root.querySelectorAll('[data-source-name]')];
+    expect(sourceRows.length).toBeGreaterThan(0);
     expect(root.querySelector('[data-source-name] a')?.textContent).not.toMatch(/^[a-z]+_[a-z_]+/);
-    expect(root.querySelectorAll('[data-source-name]').length).toBeGreaterThan(0);
+    expect(root.textContent).not.toMatch(/\bqa1\b/);
+
+    // Verify and exclude only the authority's citation period from the state check.
+    const inlineCitations = [...root.querySelectorAll('[data-testid="career-near-source"] a')];
+    for (const source of page.content.sources) {
+      const period = source.period;
+      if (!period || period === 'published' || !/\bpublished\b/.test(period)) continue;
+      const periodNode = sourceRows
+        .filter(row => row.getAttribute('data-source-name') === source.name)
+        .flatMap(row => [...row.querySelectorAll(':scope > p')])
+        .find(node => node.textContent === period);
+      expect(periodNode, source.name).toBeDefined();
+      periodNode?.remove();
+
+      for (const citation of inlineCitations) {
+        if (citation.getAttribute('href') !== source.url) continue;
+        const parts = (citation.textContent ?? '').split('｜');
+        const index = parts.indexOf(period);
+        if (index === -1) continue;
+        parts.splice(index, 1);
+        citation.textContent = parts.join('｜');
+      }
+    }
+    expect(root.textContent).not.toMatch(/\bpublished\b/);
   });
   it('rejects identity, locale, broken available content and unknown fact references', () => {
     expect(normalizeCareerPage(actors,'en','actors')).toBeNull();
