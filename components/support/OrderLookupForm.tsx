@@ -38,7 +38,7 @@ import {
   normalizeCommerceReportPath,
 } from "@/lib/commerce/redirectUrls";
 import { writePendingOrder } from "@/lib/commerce/pendingOrder";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { buildPublicFormDisplayLabel, normalizePublicFormSummary } from "@/lib/mbti/formSummary";
@@ -80,7 +80,7 @@ function readNormalizedUtm(searchParams: URLSearchParams): AttributionUtm | unde
   };
 }
 
-function formatCapturedAt(locale: Locale, capturedAt: string | null, emptyLabel: string): string {
+function formatCapturedAt(locale: DisplayLocale, capturedAt: string | null, emptyLabel: string): string {
   if (!capturedAt) {
     return emptyLabel;
   }
@@ -90,7 +90,7 @@ function formatCapturedAt(locale: Locale, capturedAt: string | null, emptyLabel:
     return capturedAt;
   }
 
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.DateTimeFormat(locale === "zh-TW" ? locale : locale === "zh" ? "zh-CN" : "en-US", {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(date);
@@ -152,10 +152,14 @@ function resolveLookupWaitFlowHref(response: OrderLookupResponse, locale: Locale
 export function OrderLookupForm({
   locale,
   dict,
+  displayLocale = locale,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   dict: SiteDictionary;
 }) {
+  const taiwan = displayLocale === "zh-TW";
+  const copy = (zh: string, en: string, tw: string) => taiwan ? tw : locale === "zh" ? zh : en;
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -199,45 +203,35 @@ export function OrderLookupForm({
   }, [defaultAction]);
 
   const blindSuccessMessage =
-    locale === "zh"
-      ? "我们已接受请求。订单与邮箱匹配时，报告链接会发送到你的购买邮箱。"
-      : "We’ve received the request. When the order and email match, the report link will be sent to your purchase email.";
+    copy("我们已接受请求。订单与邮箱匹配时，报告链接会发送到你的购买邮箱。", "We’ve received the request. When the order and email match, the report link will be sent to your purchase email.", "我們已收到請求。如果訂單與電子郵件地址相符，報告連結會寄到你購買時使用的信箱。");
 
-  const waitMessage = locale === "zh" ? "请稍后再试。" : "Please wait a moment before trying again.";
+  const waitMessage = copy("请稍后再试。", "Please wait a moment before trying again.", "請稍後再試。");
   const lookupErrorMessage =
-    locale === "zh"
-      ? "无法完成订单校验，请检查信息或联系客服。"
-      : "We could not verify that request. Please check details or contact support.";
+    copy("无法完成订单校验，请检查信息或联系客服。", "We could not verify that request. Please check details or contact support.", "無法完成訂單驗證，請檢查資訊或聯絡客服。");
   const claimErrorMessage =
-    locale === "zh"
-      ? "暂时无法处理找回请求，请稍后再试或联系客服。"
-      : "We could not process that recovery request. Please try again later or contact support.";
+    copy("暂时无法处理找回请求，请稍后再试或联系客服。", "We could not process that recovery request. Please try again later or contact support.", "暫時無法處理找回請求，請稍後再試或聯絡客服。");
   const marketingConsentLabel =
-    locale === "zh" ? "接收产品与营销更新" : "Receive product and marketing updates";
+    copy("接收产品与营销更新", "Receive product and marketing updates", "接收產品與行銷更新");
   const marketingConsentHint =
-    locale === "zh"
-      ? "勾选后可接收产品与营销更新，不影响报告恢复与交付邮件。"
-      : "Opt in to product and marketing updates. This does not affect report recovery or delivery emails.";
+    copy("勾选后可接收产品与营销更新，不影响报告恢复与交付邮件。", "Opt in to product and marketing updates. This does not affect report recovery or delivery emails.", "勾選後可接收產品與行銷更新，不影響報告找回與交付郵件。");
   const captureFoundationTitle =
-    locale === "zh" ? "当前邮件订阅状态" : "Current email subscriber status";
+    copy("当前邮件订阅状态", "Current email subscriber status", "目前的電子郵件訂閱狀態");
   const captureFoundationDescription =
-    locale === "zh"
-      ? "仅对当前操作可见，用于说明本次邮箱捕获后的订阅与恢复状态。"
-      : "Visible only for this request to explain the subscriber and recovery state returned after capture.";
-  const subscriberStatusLabel = locale === "zh" ? "订阅状态" : "Subscriber status";
-  const capturedAtLabel = locale === "zh" ? "捕获时间" : "Captured at";
-  const marketingConsentStatusLabel = locale === "zh" ? "营销同意" : "Marketing consent";
-  const reportRecoveryStatusLabel = locale === "zh" ? "报告恢复邮件" : "Report recovery emails";
-  const statusEnabledLabel = locale === "zh" ? "已开启" : "Enabled";
-  const statusDisabledLabel = locale === "zh" ? "未开启" : "Disabled";
-  const capturedAtFallback = locale === "zh" ? "暂未返回" : "Not returned yet";
+    copy("仅对当前操作可见，用于说明本次邮箱捕获后的订阅与恢复状态。", "Visible only for this request to explain the subscriber and recovery state returned after capture.", "僅在本次操作中顯示，說明這個電子郵件地址的訂閱與報告找回設定。");
+  const subscriberStatusLabel = copy("订阅状态", "Subscriber status", "訂閱狀態");
+  const capturedAtLabel = copy("捕获时间", "Captured at", "登錄時間");
+  const marketingConsentStatusLabel = copy("营销同意", "Marketing consent", "行銷同意");
+  const reportRecoveryStatusLabel = copy("报告恢复邮件", "Report recovery emails", "報告找回郵件");
+  const statusEnabledLabel = copy("已开启", "Enabled", "已開啟");
+  const statusDisabledLabel = copy("未开启", "Disabled", "未開啟");
+  const capturedAtFallback = copy("暂未返回", "Not returned yet", "尚未提供");
   const subscriberStatusLabels: Record<EmailCaptureResponse["subscriber_status"], string> = {
-    active: locale === "zh" ? "已订阅" : "Active",
-    unsubscribed: locale === "zh" ? "已退订" : "Unsubscribed",
-    suppressed: locale === "zh" ? "已暂停" : "Suppressed",
+    active: copy("已订阅", "Active", "已訂閱"),
+    unsubscribed: copy("已退订", "Unsubscribed", "已取消訂閱"),
+    suppressed: copy("已暂停", "Suppressed", "已暫停"),
   };
   const formattedCapturedAt = captureState
-    ? formatCapturedAt(locale, captureState.captured_at, capturedAtFallback)
+    ? formatCapturedAt(displayLocale, captureState.captured_at, capturedAtFallback)
     : null;
   const lookupAccessHub = useMemo(
     () => normalizeMbtiAccessHub(lookupHit?.mbti_access_hub_v1 ?? null, locale),
@@ -482,7 +476,7 @@ export function OrderLookupForm({
         const resolvedOrderNo = response.order_no || trimmedOrderNo;
 
         if (!resolvedOrderNo) {
-          throw new Error(locale === "zh" ? "订单查询失败。" : "Order lookup failed.");
+          throw new Error(copy("订单查询失败。", "Order lookup failed.", "訂單查詢失敗。"));
         }
 
         setLookupHit(response);
@@ -493,6 +487,7 @@ export function OrderLookupForm({
         order_no: trimmedOrderNo,
         email: trimmedEmail,
         locale,
+        ...(taiwan ? { recovery_mail_locale: "zh-TW" } as const : {}),
         surface: "lookup",
         entrypoint: "order_lookup",
         referrer: pageReferrer,
@@ -554,7 +549,7 @@ export function OrderLookupForm({
           }}
         >
           <label className="block space-y-1 text-sm text-slate-700">
-            <span>{locale === "zh" ? "订单号" : "Order number"}</span>
+            <span>{copy("订单号", "Order number", "訂單編號")}</span>
             <input
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
               value={orderNo}
@@ -571,7 +566,7 @@ export function OrderLookupForm({
           </label>
 
           <label className="block space-y-1 text-sm text-slate-700">
-            <span>{locale === "zh" ? "购买邮箱" : "Purchase email"}</span>
+            <span>{copy("购买邮箱", "Purchase email", "購買時的電子郵件地址")}</span>
             <input
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
               value={email}
@@ -671,16 +666,12 @@ export function OrderLookupForm({
               <div className="space-y-1">
                 <p className="m-0 text-sm font-semibold text-slate-900">
                   {lookupStatus === "pending"
-                    ? locale === "zh"
-                      ? "已匹配到订单，可继续完成支付"
-                      : "Order matched. Continue the payment here."
-                    : locale === "zh"
-                      ? "已匹配到订单，可直接继续"
-                      : "Order matched. Continue from here."}
+                    ? copy("已匹配到订单，可继续完成支付", "Order matched. Continue the payment here.", "已找到相符的訂單，可繼續付款")
+                    : copy("已匹配到订单，可直接继续", "Order matched. Continue from here.", "已找到相符的訂單，可繼續操作")}
                 </p>
                 {lookupFormLabel ? (
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" data-testid="order-lookup-form-summary">
-                    {lookupFormLabel}
+                    {lookupFormLabel}{taiwan ? "（原語）" : ""}
                   </p>
                 ) : null}
                 {lookupInviteSummary && lookupInviteBadge && lookupInviteLabel ? (
@@ -688,18 +679,14 @@ export function OrderLookupForm({
                     className="rounded-lg border border-violet-200 bg-violet-50/70 px-3 py-2 text-sm text-violet-900"
                     data-testid="order-lookup-invite-unlock-summary"
                   >
-                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">{lookupInviteBadge}</p>
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">{lookupInviteBadge}{taiwan ? "（原語）" : ""}</p>
                     <p className="m-0 mt-1">{lookupInviteLabel}</p>
                   </div>
                 ) : null}
                 <p className="m-0 text-xs leading-6 text-slate-600">
                   {lookupStatus === "pending"
-                    ? locale === "zh"
-                      ? "订单号与购买邮箱已匹配。你可以在这里继续支付，无需再次跳回受保护的订单页。"
-                      : "The order number and purchase email matched. Continue the payment here without going back to the protected order page."
-                    : locale === "zh"
-                      ? "订单号与购买邮箱已匹配。你可以在这里继续恢复报告相关动作。"
-                      : "The order number and purchase email matched. Continue the recovery actions here."}
+                    ? copy("订单号与购买邮箱已匹配。你可以在这里继续支付，无需再次跳回受保护的订单页。", "The order number and purchase email matched. Continue the payment here without going back to the protected order page.", "訂單編號與購買時的電子郵件地址相符。你可以在這裡繼續付款，無須返回受保護的訂單頁。")
+                    : copy("订单号与购买邮箱已匹配。你可以在这里继续恢复报告相关动作。", "The order number and purchase email matched. Continue the recovery actions here.", "訂單編號與購買時的電子郵件地址相符。你可以繼續找回報告。")}
                 </p>
               </div>
               {lookupStatus === "pending" && (lookupEffectivePayType === "qr" || lookupEffectivePayType === "html" || lookupEffectivePayType === "redirect") ? (
@@ -747,7 +734,7 @@ export function OrderLookupForm({
                         onClick={handleOpenLookupPaymentPage}
                         data-testid="order-lookup-hit-open-payment"
                       >
-                        {dict.orders.openPaymentPage}
+                        {dict.orders.openPaymentPage}{taiwan ? "（原語）" : ""}
                       </Button>
                     </div>
                   ) : null}
@@ -757,14 +744,14 @@ export function OrderLookupForm({
                 {lookupOrderHref ? (
                   <Link href={lookupOrderHref} className="inline-flex w-full" data-testid="order-lookup-hit-order">
                     <Button className="w-full" type="button">
-                      {locale === "zh" ? "查看订单" : "View order"}
+                      {copy("查看订单", "View order", "查看訂單（簡體中文）")}
                     </Button>
                   </Link>
                 ) : null}
                 {lookupCanViewReport && lookupReportHref ? (
                   <a href={lookupReportHref} className="inline-flex w-full" data-testid="order-lookup-hit-report">
                     <Button className="w-full" type="button" variant="outline">
-                      {locale === "zh" ? "查看报告" : "View report"}
+                      {copy("查看报告", "View report", "查看報告（原語）")}
                     </Button>
                   </a>
                 ) : null}
@@ -772,9 +759,9 @@ export function OrderLookupForm({
                   <AttemptPdfDownloadButton
                     attemptId={lookupPdfAttemptId}
                     locale={locale}
-                    label={locale === "zh" ? "下载 PDF" : "Download PDF"}
-                    loadingLabel={locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
-                    errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
+                    label={copy("下载 PDF", "Download PDF", "下載 PDF（原語）")}
+                    loadingLabel={copy("正在下载 PDF...", "Downloading PDF...", "正在下載 PDF…")}
+                    errorMessage={copy("PDF 下载失败，请稍后重试。", "Failed to download the PDF. Please try again.", "PDF 下載失敗，請稍後重試。")}
                     filenamePrefix="mbti-report"
                     pdfVariant="order_lookup_recovery"
                     accessProjection={lookupAccessView}
@@ -797,22 +784,18 @@ export function OrderLookupForm({
                     disabled={submittingAction !== null}
                   >
                     {submittingAction === "claim"
-                      ? locale === "zh"
-                        ? "发送中..."
-                        : "Sending..."
-                      : locale === "zh"
-                        ? "发送找回邮件"
-                        : "Email me the report link"}
+                      ? copy("发送中...", "Sending...", "正在寄送…")
+                      : copy("发送找回邮件", "Email me the report link", "寄送找回郵件")}
                   </Button>
                 ) : null}
                 {lookupHistoryHref ? (
                   <Link href={lookupHistoryHref} className="inline-flex w-full" data-testid="order-lookup-hit-history">
                     <Button className="w-full" type="button" variant="outline">
-                      {locale === "zh" ? "我的 MBTI 报告" : "My MBTI reports"}
+                      {copy("我的 MBTI 报告", "My MBTI reports", "我的 MBTI 報告（原語）")}
                     </Button>
                   </Link>
                 ) : null}
-                <Link href={localizedPath("/support", locale)} className="inline-flex w-full" data-testid="order-lookup-hit-support">
+                <Link href={taiwan ? "/zh-TW/support" : localizedPath("/support", locale)} className="inline-flex w-full" data-testid="order-lookup-hit-support">
                   <Button className="w-full" type="button" variant="secondary">
                     {dict.orders.contactSupport}
                   </Button>
@@ -837,12 +820,8 @@ export function OrderLookupForm({
               }
             >
               {submittingAction === "lookup"
-                ? locale === "zh"
-                  ? "查询中..."
-                  : "Checking..."
-                : locale === "zh"
-                  ? "查询订单"
-                  : "Find order"}
+                ? copy("查询中...", "Checking...", "正在查詢…")
+                : copy("查询订单", "Find order", "查詢訂單")}
             </Button>
 
             <Button
@@ -861,12 +840,8 @@ export function OrderLookupForm({
               }
             >
               {submittingAction === "claim"
-                ? locale === "zh"
-                  ? "发送中..."
-                  : "Sending..."
-                : locale === "zh"
-                  ? "发送报告找回邮件"
-                  : "Email me the report link"}
+                ? copy("发送中...", "Sending...", "正在寄送…")
+                : copy("发送报告找回邮件", "Email me the report link", "寄送報告找回郵件")}
             </Button>
           </div>
         </form>

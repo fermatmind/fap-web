@@ -1,6 +1,10 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { OrderLookupForm } from "@/components/support/OrderLookupForm";
+import TraditionalOrderLookupPage, { metadata } from "@/app/(traditional)/zh-TW/orders/lookup/page";
+import { traditionalEquivalent } from "@/lib/i18n/traditionalRoutes";
+import { proxy } from "@/proxy";
+import { NextRequest } from "next/server";
 import type { OrderLookupResponse } from "@/lib/api/v0_3";
 import { readPendingOrder } from "@/lib/commerce/pendingOrder";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
@@ -676,6 +680,75 @@ describe("OrderLookupForm recovery contract", () => {
     expect(screen.queryByText(/order not found/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mismatch/i)).not.toBeInTheDocument();
   });
+
+  it("renders the private Taiwan entry without forwarding query data through language links", async () => {
+    hoisted.pathname = "/zh-TW/orders/lookup";
+    hoisted.search = "orderNo=synthetic&mode=claim";
+    render(<TraditionalOrderLookupPage />);
+    expect(screen.getByTestId("order-lookup-order-no")).toHaveValue("synthetic");
+    expect(screen.getByTestId("order-claim-submit")).toHaveFocus();
+    expect(screen.getByTestId("order-lookup-marketing-consent")).not.toBeChecked();
+    expect(screen.getByRole("link", { name: "简体中文" })).toHaveAttribute("href", "/zh/orders/lookup");
+    expect(metadata).toMatchObject({ robots: { index: false }, alternates: { canonical: hoisted.pathname } });
+    expect(traditionalEquivalent(hoisted.pathname)).toBeNull();
+    const response = await proxy(new NextRequest("https://fermatmind.com" + hoisted.pathname));
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toContain("no-store");
+    expect(response.headers.get("X-Robots-Tag")).toContain("noindex");
+    expect(response.headers.get("Referrer-Policy")).toBe("no-referrer");
+    expect(response.headers.get("set-cookie")).toMatch(/fap_anonymous_id_v1=/);
+    expect((await proxy(new NextRequest("https://fermatmind.com/zh-TW/orders/synthetic"))).status).toBe(404);
+  });
+
+  it("keeps the existing checkout handoff and checkout locale after a Taiwan lookup", async () => {
+    hoisted.pathname = "/zh-TW/orders/lookup";
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true, order_no: "ord_tw_1", status: "pending", provider: "alipay",
+      payment_recovery_token: "synthetic-recovery",
+      pay: { type: "html", value: "/api/v0.3/orders/ord_tw_1/pay/alipay?scene=desktop", provider: "alipay" },
+      delivery: { can_request_claim_email: false },
+    });
+    render(<TraditionalOrderLookupPage />);
+    await fillLookupForm({ orderNo: "ord_tw_1", email: "buyer@example.test" });
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+    const payment = await screen.findByTestId("order-lookup-hit-open-payment");
+    expect(payment).toHaveTextContent("原語");
+    expect(hoisted.lookupOrder).toHaveBeenCalledWith({ orderNo: "ord_tw_1", email: "buyer@example.test", locale: "zh" });
+    expect(hoisted.captureEmailContact).toHaveBeenCalledWith(expect.objectContaining({ locale: "zh", marketing_consent: false }));
+    fireEvent.click(payment);
+    const [href] = hoisted.routerPush.mock.calls.at(-1) ?? [];
+    const target = new URL(String(href), "https://example.test");
+    expect(target.pathname).toBe("/zh/pay/wait");
+    expect(target.searchParams.get("provider")).toBe("alipay");
+    expect(target.searchParams.get("order_no")).toBe("ord_tw_1");
+    expect(readPendingOrder()).toMatchObject({ orderNo: "ord_tw_1", paymentRecoveryToken: "synthetic-recovery" });
+  });
+
+  it("keeps report permissions and sends an existing-language recovery request", async () => {
+    hoisted.pathname = "/zh-TW/orders/lookup";
+    hoisted.lookupOrder.mockResolvedValueOnce({ ok: true, order_no: "ord_tw_paid", status: "paid", attempt_id: "attempt-lookup-hub-1" });
+    render(<TraditionalOrderLookupPage />);
+    await fillLookupForm({ orderNo: "ord_tw_paid", email: "buyer@example.test" });
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+    const report = await screen.findByTestId("order-lookup-hit-report");
+    expect(report).toHaveAttribute("href", "/zh/result/attempt-lookup-hub-1");
+    expect(report).toHaveTextContent("查看報告（原語）");
+    expect(screen.getByTestId("order-lookup-hit-pdf")).toHaveTextContent("下載 PDF（原語）");
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({ attemptId: "attempt-lookup-hub-1", locale: "zh" });
+    expect(screen.getByTestId("order-lookup-hit-support")).toHaveAttribute("href", "/zh-TW/support");
+  });
+
+  it("shows the non-identifying Taiwan recovery acknowledgement", async () => {
+    hoisted.pathname = "/zh-TW/orders/lookup";
+    hoisted.search = "mode=claim";
+    render(<TraditionalOrderLookupPage />);
+    await fillLookupForm({ orderNo: "ord_tw_claim", email: "buyer@example.test" });
+    fireEvent.click(screen.getByTestId("order-claim-submit"));
+    expect(await screen.findByTestId("order-lookup-feedback")).toHaveTextContent("如果訂單與電子郵件地址相符");
+    expect(hoisted.requestClaimReportEmail).toHaveBeenCalledWith(expect.objectContaining({ order_no: "ord_tw_claim", locale: "zh", recovery_mail_locale: "zh-TW" }));
+    expect(screen.queryByTestId("order-lookup-hit-actions")).toBeNull();
+  });
+
 });
 
 function createLookupHubRaw(

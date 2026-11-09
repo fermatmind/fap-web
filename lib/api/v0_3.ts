@@ -4376,6 +4376,7 @@ export async function requestClaimReportEmail({
   order_no,
   email,
   locale,
+  recovery_mail_locale,
   surface,
   entrypoint,
   referrer,
@@ -4387,6 +4388,7 @@ export async function requestClaimReportEmail({
   order_no: string;
   email: string;
   locale: string;
+  recovery_mail_locale?: "zh-TW";
   surface: string;
   entrypoint?: string;
   referrer?: string;
@@ -4407,6 +4409,7 @@ export async function requestClaimReportEmail({
       order_no,
       email,
       locale,
+      ...(recovery_mail_locale ? { recovery_mail_locale } : {}),
       surface,
       ...(normalizedEntrypoint ? { entrypoint: normalizedEntrypoint } : {}),
       ...(normalizedReferrer ? { referrer: normalizedReferrer } : {}),

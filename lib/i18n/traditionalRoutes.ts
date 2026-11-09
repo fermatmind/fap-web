@@ -27,6 +27,7 @@ export function traditionalPath(pathname: string): string | null {
   if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
+  if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (path === "/support") return "/zh-TW/support";
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.

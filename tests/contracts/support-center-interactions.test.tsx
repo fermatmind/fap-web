@@ -164,7 +164,7 @@ describe("Taiwan Traditional support", () => {
     expect(screen.getByRole("heading", { name: "支援與信任中心" })).toBeVisible();
     expect(screen.queryByRole("main")).toBeNull();
     expect(screen.getAllByRole("link", { name: /找回已儲存的結果/ })[0]).toHaveAttribute("href", "/zh-TW/results/lookup");
-    expect(screen.getAllByRole("link", { name: /訂單查詢（簡體中文）/ })[0]).toHaveAttribute("href", "/zh/orders/lookup");
+    expect(screen.getAllByRole("link", { name: /訂單查詢/ })[0]).toHaveAttribute("href", "/zh-TW/orders/lookup");
     expect(screen.getAllByRole("link", { name: /電子郵件偏好/ })[0]).toHaveAttribute("href", "/zh-TW/email/preferences");
     expect(screen.getByRole("link", { name: "support@example.test" })).toHaveAttribute("href", "mailto:support@example.test");
     expect(traditionalEquivalent("/zh-TW/support")).toBeNull();
