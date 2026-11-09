@@ -56,8 +56,8 @@ const HOMEPAGE_HERO_COPY = {
   },
   "zh-TW": {
     title: "看清自己，走好每一步",
-    subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
-    primaryCta: "免费测试",
+    subhead: "費馬測試把自我認知、職涯探索與能力成長，做成能測量、能練習、能回顧的成長系統。",
+    primaryCta: "免費測驗",
     socialProofCount: "",
     socialProof: "",
   },
@@ -414,8 +414,8 @@ const HOMEPAGE_PRIVACY_TRUST_COPY = {
     summary: "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。",
   },
   "zh-TW": {
-    title: "高度重视你的隐私",
-    summary: "费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。",
+    title: "重視你的隱私",
+    summary: "費馬測試重視你的隱私。無須註冊帳號，你可以匿名完成測驗，再自行決定是否儲存結果。",
   },
   en: {
     title: "Your privacy is our priority",
