@@ -5,11 +5,13 @@ import {
   ResourceCard,
   SectionHeading,
   TrustAccordion,
+  testsDisplayLink,
 } from "@/components/marketing/tests/TestsShared";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { CategoryContent } from "@/lib/marketing/testsHubContent";
 
-function getCategoryDisplayTitle(locale: Locale, content: CategoryContent): string {
+function getCategoryDisplayTitle(locale: DisplayLocale, content: CategoryContent): string {
+  if (locale === "zh-TW") return content.slug === "career" ? "免費職業測驗" : "免費人格測驗";
   return content.slug === "career"
     ? (locale === "zh" ? "免费职业测试" : "Free career tests")
     : (locale === "zh" ? "免费人格测试" : "Free personality tests");
@@ -19,7 +21,7 @@ export function TestCategoryExperience({
   locale,
   content,
 }: {
-  locale: Locale;
+  locale: DisplayLocale;
   content: CategoryContent;
 }) {
   const heroTitle = getCategoryDisplayTitle(locale, content);
@@ -30,20 +32,23 @@ export function TestCategoryExperience({
         <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_25%),linear-gradient(180deg,#0e151d_0%,#172230_100%)]" />
         <Container className="relative z-10 max-w-[104rem] px-5 pb-[4.5rem] pt-[calc(var(--fm-space-16)+var(--fm-space-8))] md:px-8 md:pb-[6rem] md:pt-[calc(var(--fm-space-18)+var(--fm-space-9))] xl:px-12">
           <div className="max-w-[52rem] space-y-5">
-            <nav aria-label="Breadcrumb" className="text-sm text-white/62">
+            <nav aria-label={locale === "zh-TW" ? "導覽路徑" : "Breadcrumb"} className="text-sm text-white/62">
               <ol className="m-0 flex flex-wrap items-center gap-2 p-0">
-                {content.breadcrumb.map((item, index) => (
-                  <li key={`${item.label}-${index}`} className="flex items-center gap-2">
-                    {index > 0 ? <span aria-hidden>/</span> : null}
-                    {item.href ? (
-                      <Link href={item.href} className="transition hover:text-white">
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <span className="font-medium text-white">{item.label}</span>
-                    )}
-                  </li>
-                ))}
+                {content.breadcrumb.map((item, index) => {
+                  const link = item.href ? testsDisplayLink(item.href, item.label, locale) : null;
+                  return (
+                    <li key={`${item.label}-${index}`} className="flex items-center gap-2">
+                      {index > 0 ? <span aria-hidden>/</span> : null}
+                      {link ? (
+                        <Link href={link.href} hrefLang={link.hrefLang} className="transition hover:text-white">
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <span className="font-medium text-white">{item.label}</span>
+                      )}
+                    </li>
+                  );
+                })}
               </ol>
             </nav>
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.24em] text-white/52">{content.hero.eyebrow}</p>

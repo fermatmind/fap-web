@@ -1,6 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
-import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { toApiLocale, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 const DEFAULT_ORG_ID = "0";
@@ -16,7 +16,7 @@ export type CmsPageBlock = {
 
 export type CmsLandingSurface<TPayload = unknown> = {
   surfaceKey: string;
-  locale: Locale;
+  locale: DisplayLocale;
   title: string | null;
   description: string | null;
   schemaVersion: string;
@@ -106,7 +106,7 @@ function normalizeLandingSurface<TPayload>(record: LandingSurfaceApiRecord): Cms
 
   return {
     surfaceKey,
-    locale: normalizeLocale(record.locale),
+    locale: record.locale === "zh-TW" ? "zh-TW" : normalizeLocale(record.locale),
     title: normalizeNullableText(record.title),
     description: normalizeNullableText(record.description),
     schemaVersion: normalizeText(record.schema_version) || "v1",
@@ -136,7 +136,7 @@ function isPermanentLandingSurfaceError(error: unknown): boolean {
 
 async function getPublishedPublicLandingSurface<TPayload>(
   surfaceKey: string,
-  locale: Locale
+  locale: DisplayLocale
 ): Promise<CmsLandingSurface<TPayload>> {
   const surface = await getCmsLandingSurface<TPayload>(surfaceKey, locale);
 
@@ -153,10 +153,10 @@ async function getPublishedPublicLandingSurface<TPayload>(
 
 export async function getCmsLandingSurface<TPayload>(
   surfaceKey: string,
-  locale: Locale,
+  locale: DisplayLocale,
 ): Promise<CmsLandingSurface<TPayload>> {
   const query = buildQuery({
-    locale: toApiLocale(locale),
+    locale: locale === "zh-TW" ? locale : toApiLocale(locale),
     org_id: DEFAULT_ORG_ID,
   });
 
@@ -165,7 +165,7 @@ export async function getCmsLandingSurface<TPayload>(
     {
       locale,
       skipAuth: true,
-      ...PUBLIC_API_CACHE_OPTIONS,
+      ...(locale === "zh-TW" ? { cache: "no-store" as const, headers: { "X-FAP-Locale": locale } } : PUBLIC_API_CACHE_OPTIONS),
     },
   );
 
@@ -174,6 +174,17 @@ export async function getCmsLandingSurface<TPayload>(
       status: 502,
       errorCode: "INVALID_LANDING_SURFACE_PAYLOAD",
       message: `Invalid landing surface payload for ${surfaceKey}.`,
+    });
+  }
+
+  if (locale === "zh-TW" && (
+    response.surface.locale !== locale || response.surface.surface_key !== surfaceKey
+    || response.surface.status !== "published" || response.surface.is_public !== true
+  )) {
+    throw new ApiError({
+      status: 404,
+      errorCode: "LANDING_SURFACE_NOT_PUBLIC",
+      message: `No published Taiwan variant for ${surfaceKey}.`,
     });
   }
 
@@ -191,12 +202,12 @@ export async function getCmsLandingSurface<TPayload>(
 
 export async function getCmsLandingSurfaceWithLastKnownGood<TPayload>(
   surfaceKey: string,
-  locale: Locale,
+  locale: DisplayLocale,
 ): Promise<LastKnownGoodResult<CmsLandingSurface<TPayload>>> {
   return withLastKnownGood({
     key: `landing-surface:${surfaceKey}:${locale}`,
     load: () => getPublishedPublicLandingSurface<TPayload>(surfaceKey, locale),
     isUsable: isPublishedPublicLandingSurface,
-    useStaleOnError: (error) => !isPermanentLandingSurfaceError(error),
+    useStaleOnError: locale === "zh-TW" ? false : (error) => !isPermanentLandingSurfaceError(error),
   });
 }

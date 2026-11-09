@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { buttonVariants } from "@/components/ui/button";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import { getFreeTestPrimaryLabel } from "@/lib/marketing/testsHubContent";
 import type {
@@ -144,6 +145,15 @@ export function SampleReportPreview({
   );
 }
 
+export function testsDisplayLink(href: string, label: string, locale: DisplayLocale) {
+  if (locale !== "zh-TW") return { href, label };
+  const pathname = href.split(/[?#]/u, 1)[0];
+  const traditional = traditionalPath(pathname);
+  if (traditional) return { href: traditional + href.slice(pathname.length), label, hrefLang: "zh-TW" };
+  if (pathname.startsWith("/zh/")) return { href, label: `${label}（簡體中文）`, hrefLang: "zh-CN" };
+  return { href, label };
+}
+
 export function HubTestCard({
   item,
   showPreview = false,
@@ -153,9 +163,12 @@ export function HubTestCard({
   item: HubTestCardItem;
   showPreview?: boolean;
   showSecondary?: boolean;
-  locale?: Locale;
+  locale?: DisplayLocale;
 }) {
-  const primaryLabel = getFreeTestPrimaryLabel(item, locale);
+  const primary = testsDisplayLink(item.href, getFreeTestPrimaryLabel(item, locale), locale);
+  const details = item.detailsHref && item.secondaryLabel
+    ? testsDisplayLink(item.detailsHref, item.secondaryLabel, locale)
+    : null;
 
   return (
     <article className="rounded-[1.8rem] border border-slate-200/80 bg-white/95 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.07)]">
@@ -179,29 +192,30 @@ export function HubTestCard({
 
           <CmsMediaAuthorityShell
             media={item.media ?? null}
-            locale={locale}
+            locale={locale === "zh-TW" ? "zh" : locale}
             surface="tests_family_card"
             visible={item.key === IQ_PUBLIC_SLUG}
           />
 
           <div className="flex flex-wrap gap-3">
             {item.primaryActions && item.primaryActions.length > 0 ? (
-              item.primaryActions.map((action) => (
-                <div key={`${item.key}-${action.href}`} className="min-w-[13rem] space-y-2">
-                  <Link href={action.href} prefetch={false} className={buttonVariants({ size: "sm", className: "w-full justify-start px-4" })}>
-                    {action.label}
+              item.primaryActions.map((action) => {
+                const link = testsDisplayLink(action.href, action.label, locale);
+                return <div key={`${item.key}-${action.href}`} className="min-w-[13rem] space-y-2">
+                  <Link href={link.href} hrefLang={link.hrefLang} prefetch={false} className={buttonVariants({ size: "sm", className: "w-full justify-start px-4" })}>
+                    {link.label}
                   </Link>
                   {action.meta ? <p className="m-0 text-xs leading-6 text-slate-500">{action.meta}</p> : null}
-                </div>
-              ))
+                </div>;
+              })
             ) : (
-              <Link href={item.href} prefetch={false} className={buttonVariants({ size: "sm" })}>
-                {primaryLabel}
+              <Link href={primary.href} hrefLang={primary.hrefLang} prefetch={false} className={buttonVariants({ size: "sm" })}>
+                {primary.label}
               </Link>
             )}
-            {showSecondary && item.detailsHref && item.secondaryLabel ? (
-              <Link href={item.detailsHref} prefetch={false} className={buttonVariants({ size: "sm", variant: "outline" })}>
-                {item.secondaryLabel}
+            {showSecondary && details ? (
+              <Link href={details.href} hrefLang={details.hrefLang} prefetch={false} className={buttonVariants({ size: "sm", variant: "outline" })}>
+                {details.label}
               </Link>
             ) : null}
           </div>
@@ -213,14 +227,15 @@ export function HubTestCard({
   );
 }
 
-export function ResourceCard({ item, locale }: { item: ResourceItem; locale: "zh" | "en" }) {
+export function ResourceCard({ item, locale }: { item: ResourceItem; locale: DisplayLocale }) {
+  const link = testsDisplayLink(item.href, locale === "zh-TW" ? "開啟資源" : locale === "zh" ? "打开资源" : "Open resource", locale);
   return (
     <article className="flex h-full flex-col rounded-[1.65rem] border border-slate-200/80 bg-white/88 p-5 shadow-[0_18px_60px_rgba(15,23,42,0.05)]">
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{item.typeLabel}</p>
       <h3 className="m-0 mt-4 text-[1.08rem] font-semibold tracking-[-0.028em] text-slate-950">{item.title}</h3>
       <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
-      <Link href={item.href} prefetch={false} className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
-        <span>{locale === "zh" ? "打开资源" : "Open resource"}</span>
+      <Link href={link.href} hrefLang={link.hrefLang} prefetch={false} className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
+        <span>{link.label}</span>
         <ChevronRight className="h-4 w-4" />
       </Link>
     </article>
@@ -234,7 +249,7 @@ export function TrustAccordion({
 }: {
   title: string;
   items: TrustItem[];
-  locale: "zh" | "en";
+  locale: DisplayLocale;
 }) {
   return (
     <section aria-labelledby="tests-trust-heading" className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 md:p-8">
@@ -250,7 +265,7 @@ export function TrustAccordion({
             <summary className="cursor-pointer list-none text-sm font-semibold tracking-[-0.01em] text-white [&::-webkit-details-marker]:hidden">
               <span className="flex items-center justify-between gap-4">
                 <span>{item.title}</span>
-                <span className="text-white/40">{locale === "zh" ? "展开" : "Open"}</span>
+                <span className="text-white/40">{locale === "zh-TW" ? "展開" : locale === "zh" ? "展开" : "Open"}</span>
               </span>
             </summary>
             <p className="m-0 pt-3 text-sm leading-7 text-slate-300">{item.body}</p>

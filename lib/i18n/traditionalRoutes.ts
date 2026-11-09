@@ -24,6 +24,7 @@ export function traditionalPath(pathname: string): string | null {
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
+  if (prefix === "zh-TW" && (path === "/tests/category/personality" || path === "/tests/category/career")) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   return TRADITIONAL_PUBLIC_PATHS.includes(path) || path === `${TRADITIONAL_QUIZ_PATH}/take` || path === `${TRADITIONAL_SEVEN_SINS_PATH}/take` ? `/zh-TW${path}` : null;
 }

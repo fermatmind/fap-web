@@ -1,6 +1,6 @@
 import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type TestsCategorySlug = "personality" | "career";
@@ -238,10 +238,18 @@ function getFreeTestName(item: Pick<HubTestCardItem, "key" | "title" | "href" | 
 
 export function getFreeTestPrimaryLabel(
   item: Pick<HubTestCardItem, "key" | "title" | "href" | "detailsHref" | "primaryLabel">,
-  locale: Locale,
+  locale: DisplayLocale,
 ): string {
   const name = getFreeTestName(item);
   if (!name) return item.primaryLabel;
+
+  if (locale === "zh-TW") {
+    const taiwanNames: Record<string, string> = {
+      MBTI: "MBTI", 大五人格: "大五人格", 霍兰德职业兴趣: "霍蘭德職業興趣",
+      九型人格: "九型人格", 智商: "智商", 情商: "情緒智力",
+    };
+    return `開始免費 ${taiwanNames[name]} 測驗`;
+  }
 
   if (locale === "en") {
     const englishNames: Record<string, string> = {
@@ -274,8 +282,11 @@ export async function getTestsHubContent(locale: Locale): Promise<TestsHubConten
   };
 }
 
-export async function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug): Promise<CategoryContent> {
+export async function getTestsCategoryContent(locale: DisplayLocale, slug: TestsCategorySlug): Promise<CategoryContent> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood<CategoryContent>(`tests_category_${slug}`, locale);
+  if (locale === "zh-TW" && (surface.value.schemaVersion !== "tests-category.v1" || surface.value.payloadJson?.slug !== slug)) {
+    throw new Error(`Invalid CMS Taiwan tests category identity: ${slug}.`);
+  }
   return assertCategoryContent(surface.value.payloadJson, slug);
 }
 

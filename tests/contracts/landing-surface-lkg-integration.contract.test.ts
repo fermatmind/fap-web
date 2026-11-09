@@ -185,6 +185,27 @@ describe("landing surface last-known-good integration", () => {
     } satisfies Partial<ApiError>);
   });
 
+  it("reads only an exact Taiwan variant and never falls back to another language or a prior snapshot", async () => {
+    vi.doUnmock("@/lib/cms/landing-surfaces");
+    vi.resetModules();
+    const taiwan = { ...apiSurface(payloads.categoryPayload), surface_key: "tests_category_personality",
+      locale: "zh-TW", schema_version: "tests-category.v1", is_indexable: false };
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(jsonResponse({ ok: true, surface: taiwan }))
+      .mockResolvedValueOnce(jsonResponse({ ok: true, surface: { ...taiwan, locale: "zh-CN" } }))
+      .mockResolvedValueOnce(jsonResponse({ message: "temporary failure" }, 503));
+    vi.stubGlobal("fetch", fetchMock);
+    const { getCmsLandingSurfaceWithLastKnownGood } = await import("@/lib/cms/landing-surfaces");
+    const load = () => getCmsLandingSurfaceWithLastKnownGood(taiwan.surface_key, "zh-TW");
+
+    await expect(load()).resolves.toMatchObject({ source: "fresh", value: { locale: "zh-TW" } });
+    expect(fetchMock.mock.calls[0][0]).toContain("locale=zh-TW");
+    expect(fetchMock.mock.calls[0][1].headers.get("X-FAP-Locale")).toBe("zh-TW");
+    expect(fetchMock.mock.calls[0][1].cache).toBe("no-store");
+    await expect(load()).rejects.toMatchObject({ status: 404 });
+    await expect(load()).rejects.toMatchObject({ status: 503 });
+  });
+
   it("keeps stale landing surfaces only for transient backend failures", async () => {
     vi.doUnmock("@/lib/cms/landing-surfaces");
     vi.resetModules();
