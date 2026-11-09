@@ -27,7 +27,6 @@ export async function generateMetadata(): Promise<Metadata> {
     title: copy?.seo.title ?? traditionalUi.hub["zh-TW"],
     description: copy?.seo.description ?? traditionalUi.available["zh-TW"],
     alternates: { canonical: `${SITE_URL}/zh-TW` },
-    robots: { index: false, follow: true },
   };
 }
 
