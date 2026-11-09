@@ -122,8 +122,9 @@ describe("shared Traditional CMS page route", () => {
     for (const path of ["/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research"]) {
       expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW${path}"]`)).not.toBeNull();
     }
-    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(16);
-    for (const slug of ["support", "pricing", "help/payment-refund"]) {
+    expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/support"]')?.textContent).toBe("支援中心");
+    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(17);
+    for (const slug of ["pricing", "help/payment-refund"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
     }
     expect(document.querySelectorAll("main")).toHaveLength(1);

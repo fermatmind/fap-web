@@ -1,7 +1,16 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { SupportCenter, type SupportCenterProps } from "@/components/support/SupportCenter";
 import { helpQuestionsFromCms, matchesHelpSearch } from "@/lib/support/helpCenter";
+import TraditionalSupportPage, { generateMetadata as generateSupportMetadata } from "@/app/(traditional)/zh-TW/support/page";
+import { apiClient } from "@/lib/api-client";
+import { traditionalEquivalent } from "@/lib/i18n/traditionalRoutes";
+
+vi.mock("@/lib/api-client", async original => ({
+  ...await original<typeof import("@/lib/api-client")>(), apiClient: { get: vi.fn() },
+}));
+vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("NOT_FOUND"); } }));
+
 
 function props(locale: "zh" | "en" = "en"): SupportCenterProps {
   return {
@@ -114,5 +123,67 @@ describe("support center local interactions", () => {
     fireEvent.keyDown(search, { key: "Escape" });
     expect(search).toHaveValue("");
     expect(screen.getByRole("link", { name: /找回已保存的结果/ })).toHaveAttribute("href", "/zh/results/lookup");
+  });
+});
+
+describe("Taiwan Traditional support", () => {
+  function gateway(locale = "zh-TW", orderHref = "/zh/orders/lookup") {
+    return {
+      ok: true, locale,
+      landing_surface_v1: {
+        entry_surface: "help_hub", primary_content_ref: "help_home", indexability_state: "noindex",
+        summary_blocks: [{ key: "help_home", title: "支援與信任中心", body: "找回報告與資料說明。" }],
+        discoverability_items: ["faq", "about", "team", "used-and-mentioned", "for-business-and-research", "contact"].map(slug => ({
+          key: slug, href: `/zh/help/${slug}`, title: slug === "contact" ? "聯絡支援" : "費馬測試說明", summary: "相關說明。",
+        })),
+        cta_bundle: [
+          { key: "order_lookup", label: "訂單查詢", href: orderHref },
+          { key: "email_preferences", label: "電子郵件偏好", href: "/zh/email/preferences" },
+          { key: "unsubscribe", label: "取消訂閱電子郵件", href: "/zh/email/unsubscribe" },
+          { key: "privacy_data", label: "隱私權與資料說明", href: "/zh/privacy" },
+        ],
+      },
+    };
+  }
+
+  it("renders exact gateway and CMS content with safe available destinations", async () => {
+    vi.mocked(apiClient.get).mockImplementation(async url => {
+      if (url.includes("public-gateways")) return gateway();
+      const slug = url.includes("help-faq") ? "help-faq" : "help-contact";
+      return { ok: true, page: {
+        slug, locale: "zh-TW", status: "published", is_public: true, title: "費馬測試支援",
+        content_md: "### 付款完成後如何取得報告？\n\n請進入訂單查詢。",
+        support_contact: "support@example.test",
+      } };
+    });
+    const metadata = await generateSupportMetadata();
+    expect(metadata).toMatchObject({ title: "支援與信任中心", robots: { index: false }, alternates: { canonical: "/zh-TW/support" } });
+    render(await TraditionalSupportPage());
+    expect(apiClient.get).toHaveBeenCalledWith("/v0.3/public-gateways/help?locale=zh-TW",
+      expect.objectContaining({ headers: { "X-FAP-Locale": "zh-TW" } }));
+    expect(screen.getByRole("heading", { name: "支援與信任中心" })).toBeVisible();
+    expect(screen.queryByRole("main")).toBeNull();
+    expect(screen.getAllByRole("link", { name: /找回已儲存的結果/ })[0]).toHaveAttribute("href", "/zh-TW/results/lookup");
+    expect(screen.getAllByRole("link", { name: /訂單查詢（簡體中文）/ })[0]).toHaveAttribute("href", "/zh/orders/lookup");
+    expect(screen.getAllByRole("link", { name: /電子郵件偏好/ })[0]).toHaveAttribute("href", "/zh-TW/email/preferences");
+    expect(screen.getByRole("link", { name: "support@example.test" })).toHaveAttribute("href", "mailto:support@example.test");
+    expect(traditionalEquivalent("/zh-TW/support")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "結果與報告" }));
+    const question = screen.getByRole("button", { name: "付款完成後如何取得報告？" });
+    fireEvent.click(question);
+    expect(screen.getByText("請進入訂單查詢。")).toBeVisible();
+    const search = screen.getByRole("searchbox", { name: "搜尋本頁說明" });
+    fireEvent.change(search, { target: { value: "沒有這個關鍵字" } });
+    expect(screen.getByTestId("support-search-empty")).toBeVisible();
+    fireEvent.keyDown(search, { key: "Escape" });
+    expect(search).toHaveValue("");
+  });
+
+  it("rejects wrong-locale or out-of-scope gateway responses and preserves outage errors", async () => {
+    vi.mocked(apiClient.get).mockResolvedValueOnce(gateway("zh-CN")).mockResolvedValueOnce(gateway("zh-TW", "/zh/account"))
+      .mockRejectedValueOnce(new Error("API_UNAVAILABLE"));
+    await expect(generateSupportMetadata()).rejects.toThrow("NOT_FOUND");
+    await expect(generateSupportMetadata()).rejects.toThrow("NOT_FOUND");
+    await expect(generateSupportMetadata()).rejects.toThrow("API_UNAVAILABLE");
   });
 });

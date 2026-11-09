@@ -21,12 +21,12 @@ export type HelpQuestion = {
 
 // Display grouping only: it never changes content, identifiers, links or permissions.
 export function helpTopicFor(value: string): HelpTopic {
-  if (/privacy|data|隐私|数据|个人信息/i.test(value)) return "privacy";
-  if (/email|unsubscribe|邮件|退订/i.test(value)) return "email";
-  if (/payment|refund|order|purchase|支付|退款|订单|购买/i.test(value)) return "orders";
-  if (/business|research|企业|研究|机构/i.test(value)) return "business";
-  if (/result|report|recover|结果|报告|找回/i.test(value)) return "results";
-  if (/assessment|interpret|science|method|测评|解读|方法/i.test(value)) return "assessments";
+  if (/privacy|data|隐私|隱私|数据|資料|个人信息|個人資料/i.test(value)) return "privacy";
+  if (/email|unsubscribe|邮件|郵件|退订|退訂|訂閱/i.test(value)) return "email";
+  if (/payment|refund|order|purchase|支付|付款|退款|订单|訂單|购买|購買/i.test(value)) return "orders";
+  if (/business|research|企业|企業|研究|机构|機構/i.test(value)) return "business";
+  if (/result|report|recover|结果|結果|报告|報告|找回/i.test(value)) return "results";
+  if (/assessment|interpret|science|method|测评|測評|測驗|解读|解讀|方法/i.test(value)) return "assessments";
   return "all";
 }
 
@@ -34,7 +34,7 @@ export function helpTopicFor(value: string): HelpTopic {
 // need to find it while browsing results. Keep both destinations discoverable.
 export function matchesHelpTopic(selected: HelpTopic, primary: HelpTopic, title: string, href = ""): boolean {
   if (selected === "all" || selected === primary) return true;
-  return selected === "results" && (/report|报告/i.test(title) || /\/orders\/lookup\/?$/.test(href));
+  return selected === "results" && (/report|报告|報告/i.test(title) || /\/orders\/lookup\/?$/.test(href));
 }
 
 export function normalizeHelpSearch(value: string): string {

@@ -7,6 +7,7 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 type PublicGatewaySurfaceResponse = {
   ok?: boolean;
+  locale?: string;
   landing_surface_v1?: LandingSurfaceRaw | null;
   answer_surface_v1?: AnswerSurfaceRaw | null;
 };
@@ -50,7 +51,21 @@ export async function getTestsGatewaySurface(locale: Locale | string): Promise<P
 }
 
 export async function getHelpGatewaySurface(locale: Locale | string): Promise<PublicGatewaySurfaceViewModel | null> {
-  return getGateway("/v0.3/public-gateways/help", locale);
+  if (locale !== "zh-TW") return getGateway("/v0.3/public-gateways/help", locale);
+
+  try {
+    const response = await apiClient.get<PublicGatewaySurfaceResponse>("/v0.3/public-gateways/help?locale=zh-TW", {
+      locale, headers: { "X-FAP-Locale": locale }, skipAuth: true, ...PUBLIC_API_CACHE_OPTIONS,
+    });
+    if (response.ok !== true || response.locale !== locale) return null;
+    const landing = normalizeLandingSurface(response.landing_surface_v1);
+    if (!landing || landing.entrySurface !== "help_hub" || landing.primaryContentRef !== "help_home"
+      || landing.indexabilityState !== "noindex") return null;
+    return { landingSurface: landing, answerSurface: null };
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) return null;
+    throw error;
+  }
 }
 
 export async function getHelpDetailGatewaySurface(

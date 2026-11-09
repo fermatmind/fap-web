@@ -29,6 +29,7 @@ export default function TraditionalLayout({ children }: { children: React.ReactN
         <Link href="/zh-TW/terms" className="inline-flex min-h-11 items-center py-2 underline">使用條款</Link>
         <Link href="/zh-TW/method-boundaries" className="inline-flex min-h-11 items-center py-2 underline">方法邊界</Link>
         <Link href="/zh-TW/science" className="inline-flex min-h-11 items-center py-2 underline">測評科學</Link>
+        <Link href="/zh-TW/support" className="inline-flex min-h-11 items-center py-2 underline">支援中心</Link>
         <Link href="/zh-TW/help/contact" className="inline-flex min-h-11 items-center py-2 underline">聯絡支援</Link>
         <Link href="/zh-TW/foundation" className="inline-flex min-h-11 items-center py-2 underline">公益捐贈計畫</Link>
         <Link href="/zh-TW/policies" className="inline-flex min-h-11 items-center py-2 underline">政策總覽</Link>

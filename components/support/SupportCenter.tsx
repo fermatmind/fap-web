@@ -4,7 +4,7 @@ import { useId, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronRight, CircleHelp, FileText, Fingerprint, Mail, Plus, ReceiptText, RotateCcw, Search, ShieldCheck, Users, X } from "lucide-react";
 import type { LandingCtaViewModel } from "@/lib/landing/landingSurface";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { renderCmsInlineMarkdown } from "@/lib/content/markdownInline";
 import { matchesHelpSearch, matchesHelpTopic, type HelpEntry, type HelpQuestion, type HelpTopic } from "@/lib/support/helpCenter";
@@ -13,7 +13,52 @@ import styles from "./SupportCenter.module.css";
 const topicIcons = { all: CircleHelp, results: FileText, orders: ReceiptText, email: Mail, assessments: BookOpen, privacy: Fingerprint, business: Users };
 const topicIds: HelpTopic[] = ["all", "results", "orders", "email", "assessments", "privacy", "business"];
 
-function getCopy(locale: Locale) {
+function getCopy(locale: DisplayLocale) {
+  if (locale === "zh-TW") {
+    return {
+      eyebrow: "FERMATMIND · 支援中心",
+      intro: "找回已儲存的結果、查詢訂單，或找到你需要的答案。",
+      search: "搜尋本頁說明",
+      placeholder: "試試「報告」、「付款」或「電子郵件」",
+      popular: "你可能在找",
+      clear: "清除搜尋",
+      jump: "瀏覽支援主題",
+      quickTitle: "常用操作",
+      results: "找回已儲存的結果",
+      resultsHint: "使用儲存結果時填寫的電子郵件地址。",
+      orderHint: "使用訂單編號與購買時的電子郵件地址查詢。",
+      emailHint: "了解郵件專屬連結的使用方式。",
+      emailNote: "如需變更偏好或取消訂閱，請使用郵件中的專屬連結。一般入口提供操作說明。",
+      contactHint: "告訴我們你遇到的問題。",
+      topicHeading: "依主題查詢",
+      faq: "常見問題",
+      faqIntro: "先看看這些問題，答案也許就在這裡。",
+      faqLink: "檢視完整常見問題",
+      readMore: "閱讀說明",
+      resources: "更多說明與指南",
+      tools: "自助服務與設定",
+      guide: "解讀指南",
+      article: "說明文章",
+      tool: "操作入口",
+      emptyTitle: "暫時沒有找到相關內容",
+      emptyBody: "請試試更簡短的關鍵字，或直接聯絡支援。",
+      reset: "檢視全部說明",
+      contactTitle: "還需要協助嗎？",
+      contactIntro: "請告訴我們遇到的問題、已嘗試的步驟，以及錯誤訊息。",
+      contactNote: "如有訂單問題，可附上訂單識別資訊。請在提供螢幕截圖前遮住私人結果連結與付款資訊。",
+      contactDetails: "查看聯絡說明",
+      trustEyebrow: "清楚了解，放心使用",
+      trustTitle: "你有權進一步了解測評與資料的使用方式。",
+      method: "測評方法與使用範圍",
+      privacy: "隱私權與資料說明",
+      terms: "服務條款",
+      about: "了解費馬測試",
+      suggestions: ["報告", "退款", "電子郵件"],
+      topics: { all: "全部說明", results: "結果與報告", orders: "訂單與付款", email: "郵件設定", assessments: "理解測評", privacy: "隱私與資料", business: "企業與研究" },
+      matches: (n: number) => `${n} 則相關說明`,
+      queryLabel: (q: string) => `「${q}」的搜尋結果`,
+    };
+  }
   return locale === "zh" ? {
     eyebrow: "FERMATMIND · 帮助中心",
     intro: "找回已保存的结果、查询订单，或找到你需要的答案。",
@@ -102,7 +147,7 @@ function getCopy(locale: Locale) {
 }
 
 export type SupportCenterProps = {
-  locale: Locale;
+  locale: DisplayLocale;
   title: string;
   entries: HelpEntry[];
   questions: HelpQuestion[];
@@ -114,6 +159,10 @@ export type SupportCenterProps = {
 
 export function SupportCenter({ locale, title, entries, questions, tools, contactHref, contactLabel, contactLink }: SupportCenterProps) {
   const copy = useMemo(() => getCopy(locale), [locale]);
+  const taiwan = locale === "zh-TW";
+  const sourceLocale = taiwan ? "zh" : locale;
+  const pagePath = (path: string) => taiwan ? `/zh-TW${path}` : localizedPath(path, sourceLocale);
+  const Root = taiwan ? "section" : "main";
   const searchId = useId();
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState<HelpTopic>("all");
@@ -141,7 +190,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
   }
 
   return (
-    <main className={styles.center} data-testid="support-hub">
+    <Root className={styles.center} data-testid="support-hub">
       <section className={styles.hero}>
         <div className={styles.container}>
           <div className={styles.heroInner}>
@@ -168,7 +217,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
 
       <section className={styles.quickSection} aria-label={copy.quickTitle}>
         <div className={`${styles.container} ${styles.quickGrid}`}>
-          <Link href={localizedPath("/results/lookup", locale)} className={styles.quickAction}>
+          <Link href={pagePath("/results/lookup")} className={styles.quickAction}>
             <span className={styles.actionIcon}><RotateCcw size={23} strokeWidth={1.5} aria-hidden /></span>
             <span><strong>{copy.results}</strong><small>{copy.resultsHint}</small></span><ArrowUpRight size={18} aria-hidden className={styles.actionArrow} />
           </Link>
@@ -200,12 +249,12 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
               })}
             </div>
           </nav>
-          <div className={styles.sideNote}><ShieldCheck size={19} strokeWidth={1.5} aria-hidden /><p>{locale === "zh" ? "先了解结果的含义，再决定下一步。" : "Understand your results before deciding what comes next."}</p><Link href={localizedPath("/method-boundaries", locale)}>{copy.method}<ArrowUpRight size={13} aria-hidden /></Link></div>
+          <div className={styles.sideNote}><ShieldCheck size={19} strokeWidth={1.5} aria-hidden /><p>{taiwan ? "先了解結果的意義，再決定下一步。" : locale === "zh" ? "先了解结果的含义，再决定下一步。" : "Understand your results before deciding what comes next."}</p><Link href={pagePath("/method-boundaries")}>{copy.method}<ArrowUpRight size={13} aria-hidden /></Link></div>
         </aside>
 
         <div className={styles.content} id="help-content" data-testid="support-topic-groups">
           <div className={styles.contentHeading}>
-            <div><p className={styles.sectionEyebrow}>{filtering ? copy.topicHeading : "HELP & ANSWERS"}</p><h2>{searching ? copy.queryLabel(query.trim()) : topic !== "all" ? copy.topics[topic] : copy.faq}</h2></div>
+            <div><p className={styles.sectionEyebrow}>{filtering ? copy.topicHeading : taiwan ? "支援與解答" : "HELP & ANSWERS"}</p><h2>{searching ? copy.queryLabel(query.trim()) : topic !== "all" ? copy.topics[topic] : copy.faq}</h2></div>
             <span className={styles.resultCount} role="status" aria-live="polite">{filtering ? copy.matches(total) : String(questions.length).padStart(2, "0")}</span>
           </div>
           {!filtering ? <p className={styles.sectionIntro}>{copy.faqIntro}</p> : null}
@@ -219,7 +268,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
               return <div className={`${styles.question} ${isOpen ? styles.openQuestion : ""}`} key={question.key}>
                 <h3><button type="button" aria-expanded={isOpen} aria-controls={answerId} onClick={() => setOpenQuestion(isOpen ? null : question.key)}><span className={styles.questionNumber} aria-hidden>{String(index + 1).padStart(2, "0")}</span><span>{question.question}</span><Plus size={20} aria-hidden /></button></h3>
                 <div id={answerId} hidden={!isOpen} className={styles.answer}>
-                  {question.answer.split(/\n\s*\n/).map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{renderCmsInlineMarkdown(paragraph, `${question.key}-${paragraphIndex}`, { locale })}</p>)}
+                  {question.answer.split(/\n\s*\n/).map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{renderCmsInlineMarkdown(paragraph, `${question.key}-${paragraphIndex}`, { locale: sourceLocale })}</p>)}
                   {question.topic === "email" ? <p className={styles.emailNote}>{copy.emailNote}</p> : null}
                 </div>
               </div>;
@@ -246,7 +295,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
 
       <section className={`${styles.container} ${styles.contactWrap}`} data-testid="support-contact-card">
         <div className={styles.contactBand}>
-          <div><span className={styles.contactEyebrow}><Mail size={15} aria-hidden />FERMATMIND SUPPORT</span><h2>{copy.contactTitle}</h2><p>{copy.contactIntro}</p><p className={styles.contactNote}>{copy.contactNote}</p></div>
+          <div><span className={styles.contactEyebrow}><Mail size={15} aria-hidden />{taiwan ? "費馬測試支援" : "FERMATMIND SUPPORT"}</span><h2>{copy.contactTitle}</h2><p>{copy.contactIntro}</p><p className={styles.contactNote}>{copy.contactNote}</p></div>
           <div className={styles.contactActions}>{contactLink}{contactHref ? <Link href={contactHref}>{copy.contactDetails}<ArrowUpRight size={15} aria-hidden /></Link> : null}</div>
         </div>
       </section>
@@ -254,11 +303,11 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
       <section className={`${styles.container} ${styles.trust}`}>
         <div><p className={styles.sectionEyebrow}><Check size={14} aria-hidden />{copy.trustEyebrow}</p><h2>{copy.trustTitle}</h2></div>
         <div className={styles.trustLinks}>
-          <Link href={localizedPath("/method-boundaries", locale)}><BookOpen size={18} aria-hidden />{copy.method}<ArrowUpRight size={15} aria-hidden /></Link>
-          <Link href={localizedPath("/privacy", locale)}><ShieldCheck size={18} aria-hidden />{copy.privacy}<ArrowUpRight size={15} aria-hidden /></Link>
-          <Link href={localizedPath("/terms", locale)}><FileText size={18} aria-hidden />{copy.terms}<ArrowUpRight size={15} aria-hidden /></Link>
+          <Link href={pagePath("/method-boundaries")}><BookOpen size={18} aria-hidden />{copy.method}<ArrowUpRight size={15} aria-hidden /></Link>
+          <Link href={pagePath("/privacy")}><ShieldCheck size={18} aria-hidden />{copy.privacy}<ArrowUpRight size={15} aria-hidden /></Link>
+          <Link href={pagePath("/terms")}><FileText size={18} aria-hidden />{copy.terms}<ArrowUpRight size={15} aria-hidden /></Link>
         </div>
       </section>
-    </main>
+    </Root>
   );
 }
