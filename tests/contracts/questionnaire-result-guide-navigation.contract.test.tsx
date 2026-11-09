@@ -40,13 +40,13 @@ function verifyGuides(root: Element, locale: "en" | "zh", newTab: boolean, colle
 
 describe("public guide navigation from an in-memory result", () => {
   for (const locale of ["en", "zh"] as const) {
-    it.each(["hogwarts-house-quiz", "hazbin-hotel-character-quiz", "hello-kitty", "spirit-animal", "aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"])(`${locale} opens every result guide for %s in an announced new tab`, slug => {
+    it.each(["hogwarts-house-quiz", "hazbin-hotel-character-quiz", "hello-kitty", "spirit-animal", "flower", "what-dog-breed-am-i", "aura-color", "philosopher-personality-test", "space-marine-chapter", "bleach", "moon-phase", "cyberpunk-edgerunners", "chiikawa"])(`${locale} opens every result guide for %s in an announced new tab`, slug => {
       const quiz = load(slug), result = scoreQuestionnaire(quiz, answersFor(quiz));
       if (result.status !== "complete" || !("profileIds" in result)) throw new Error("Expected a complete character result");
       verifyGuides(rootFor(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} />)), locale, true);
     });
     it(`${locale} keeps entry samples and other character tests in the same tab`, () => {
-      for (const slug of ["chiikawa", "what-dog-breed-am-i"]) {
+      for (const slug of ["chiikawa", "mythical-creature"]) {
         const quiz = load(slug), result = scoreQuestionnaire(quiz, answersFor(quiz));
         if (result.status !== "complete" || !("profileIds" in result)) throw new Error("Expected a complete result");
         verifyGuides(rootFor(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} sampleId={slug === "chiikawa" ? "entry-sample" : undefined} />)), locale, false);

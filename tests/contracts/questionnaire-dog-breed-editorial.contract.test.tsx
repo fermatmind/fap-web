@@ -12,7 +12,16 @@ describe("Dog breed original metaphors and public reading", () => {
     dom.innerHTML = renderToStaticMarkup(<DogBreedPage quiz={data as Questionnaire} locale={locale} />);
     const text = dom.textContent!;
     for (const s of [...data.guide, ...dogBreedSections]) for (const p of s.paragraphs) expect(text).toContain(p[locale]);
-    for (const f of [...data.faq, ...dogBreedFaq]) expect(text).toContain(f.answer[locale]);
+    const storageFaq = data.faq.find(f => f.question.en === "How do drafts, retaking and sharing work?")!;
+    for (const f of [...data.faq, ...dogBreedFaq]) {
+      expect(text).toContain(f.question[locale]);
+      if (f !== storageFaq) expect(text).toContain(f.answer[locale]);
+    }
+    expect(text).not.toContain(storageFaq.answer[locale]);
+    expect(text).not.toContain(locale === "zh" ? "24小时" : "24 hours");
+    const faq = dom.querySelector('[aria-labelledby="dog-breed-faq"]')!;
+    expect(faq.textContent).toContain(locale === "zh" ? "不保存答题进度或历史记录" : "does not save your progress or keep a history");
+    expect(faq.textContent).toContain(locale === "zh" ? "不含答案、计数或内部ID" : "without answers, counts or internal IDs");
     expect(dom.querySelectorAll("[data-explore-start]")).toHaveLength(1);
     expect(dom.querySelectorAll('input[type="checkbox"]')).toHaveLength(0);
     expect(dom.querySelectorAll('[aria-labelledby="dog-breed-library"] li')).toHaveLength(6);

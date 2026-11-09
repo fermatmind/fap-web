@@ -117,6 +117,8 @@ describe("T005 original Flower expression preference quiz", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
+        expect(html).toContain(locale === "en" ? "This question page does not save progress" : "当前答题页不提供进度保存");
+        expect(html).not.toContain(quiz.faq[5].answer[locale]);
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/flower");
         for (const profile of quiz.profiles) {
