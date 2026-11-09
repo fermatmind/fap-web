@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import type { Text, QuestionnaireSection } from "@/lib/questionnaires/types";
 export const mythicalCreatureSections: QuestionnaireSection[] = [
   {
@@ -139,8 +140,8 @@ export const mythicalCreatureSections: QuestionnaireSection[] = [
   {
     "id": "privacy",
     "title": {
-      "en": "Start directly; decide separately whether to save",
-      "zh": "直接进入题目，另行自愿选择保存"
+      "en": "Starting, retaking and sharing a public link",
+      "zh": "开始、重测与分享公开链接"
     },
     "paragraphs": [
       {
@@ -148,12 +149,21 @@ export const mythicalCreatureSections: QuestionnaireSection[] = [
         "zh": "点击“开始测试”直接进入第一题，无需勾选同意、填写邮箱或先做其他测评。答案在当前浏览器计数，不进入网址或使用事件载荷。全部18题、原始计数与完整匹配指南均免费。"
       },
       {
-        "en": "After starting, draft saving is optional for this tab and lasts up to 24 hours. It supports refresh and language change, and clears on completion, retake or exit-and-clear. Sharing copies creature names and a public link, not your responses or counts. A public guide describes the result generally and does not recreate a private attempt.",
-        "zh": "开始后可以主动保存本标签页草稿，最多保留24小时，支持刷新与换语言恢复，并在完成、重测或退出清除时删除。分享复制生物名称与公开链接，不包含回答或计数。公开指南介绍通用结果，不还原私人作答。"
+        "en": "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing copies creature names and a public link, not your responses or counts. A public guide describes the result generally and does not recreate a private attempt.",
+        "zh": "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享复制生物名称与公开链接，不包含回答或计数。公开指南介绍通用结果，不还原私人作答。"
       }
     ]
   }
 ];
+const mythicalCreaturePrivacyAnswer: Text = {
+  en: "Scoring runs in your browser. This quiz does not save your progress or keep a history of past attempts. Retaking starts a new attempt. The copied result includes creature names and a public link, without answers, counts or internal IDs.",
+  zh: "结果在浏览器内计算。这份测试不保存答题进度或历史记录，重测会开始一次新的作答。复制内容包含生物名称与公开链接，不含答案、计数或内部ID。",
+};
+
+export function mythicalCreatureVisibleFaqAnswer(faq: { question: Text; answer: Text }, locale: Locale) {
+  return (faq.question.en === "What do drafts, retaking and sharing contain?" ? mythicalCreaturePrivacyAnswer : faq.answer)[locale];
+}
+
 export const mythicalCreatureFaq: { question: Text; answer: Text }[] = [
   {
     "question": {
@@ -227,12 +237,12 @@ export const mythicalCreatureFaq: { question: Text; answer: Text }[] = [
   },
   {
     "question": {
-      "en": "Must I agree to save before answering?",
-      "zh": "答题前必须同意保存吗？"
+      "en": "Can I pause and finish later?",
+      "zh": "可以暂停，下次接着做吗？"
     },
     "answer": {
-      "en": "No. Start test opens question one directly. Saving is optional after starting, and blocked storage does not prevent completion or access to full results.",
-      "zh": "不需要。开始测试直接打开第一题，保存是开始后的自愿选项，存储被禁用也不妨碍完成与查看完整结果。"
+      "en": "You can pause while keeping the quiz open. If you refresh or leave, start again from question one.",
+      "zh": "保持测试页面打开时，可以先停一会儿。刷新或离开后，需要从第一题重做。"
     }
   }
 ];

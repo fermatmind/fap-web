@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import type { Text, QuestionnaireSection } from "@/lib/questionnaires/types";
 export const superpowerSections: QuestionnaireSection[] = [
   {
@@ -139,8 +140,8 @@ export const superpowerSections: QuestionnaireSection[] = [
   {
     "id": "privacy",
     "title": {
-      "en": "Direct start, optional drafts and public result links",
-      "zh": "直接开始、自愿草稿与公开结果链接"
+      "en": "Starting, retaking and sharing a public link",
+      "zh": "开始、重测与分享公开链接"
     },
     "paragraphs": [
       {
@@ -148,12 +149,21 @@ export const superpowerSections: QuestionnaireSection[] = [
         "zh": "点击开始测试直接打开第一题。回答在当前浏览器计数，不进入网址或使用事件载荷。全部20题、所有原始计数与最高匹配报告均免费，注册与其他测评均不是前置要求。"
       },
       {
-        "en": "After starting, you may choose to save a draft for this tab for up to 24 hours, including recovery after a refresh or language change. Completion, retake or exit-and-clear removes it. Copying a result shares power names and a public link, not responses or counts. The public guide does not reconstruct a private attempt.",
-        "zh": "开始后可主动保存本标签页草稿，最多24小时内在刷新或换语言后恢复，完成、重测或退出清除时删除。复制结果只分享能力名称与公开链接，不包含回答或计数，公开指南不会还原私人作答。"
+        "en": "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Copying a result shares power names and a public link, not responses or counts. The public guide does not reconstruct a private attempt.",
+        "zh": "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。复制结果只分享能力名称与公开链接，不包含回答或计数，公开指南不会还原私人作答。"
       }
     ]
   }
 ];
+const superpowerPrivacyAnswer: Text = {
+  en: "Scoring runs in your browser. This quiz does not save your progress or keep a history of past attempts. Retaking starts a new attempt. The copied result includes power names and a public link, without answers, counts or internal IDs.",
+  zh: "结果在浏览器内计算。这份测试不保存答题进度或历史记录，重测会开始一次新的作答。复制内容包含能力名称与公开链接，不含答案、计数或内部ID。",
+};
+
+export function superpowerVisibleFaqAnswer(faq: { question: Text; answer: Text }, locale: Locale) {
+  return (faq.question.en === "Do drafts, retaking or sharing include my answers?" ? superpowerPrivacyAnswer : faq.answer)[locale];
+}
+
 export const superpowerFaq: { question: Text; answer: Text }[] = [
   {
     "question": {
@@ -227,12 +237,12 @@ export const superpowerFaq: { question: Text; answer: Text }[] = [
   },
   {
     "question": {
-      "en": "Must I agree to save before answering?",
-      "zh": "回答前必须先同意保存吗？"
+      "en": "Can I pause and finish later?",
+      "zh": "可以暂停，下次接着做吗？"
     },
     "answer": {
-      "en": "No. Start test opens question one directly. Saving is optional after starting, and storage denial does not prevent completing the quiz or reading full results.",
-      "zh": "不需要。开始测试直接进入第一题，保存是开始后的自愿选项，存储被禁用也不妨碍完成与阅读完整结果。"
+      "en": "You can pause while keeping the quiz open. If you refresh or leave, start again from question one.",
+      "zh": "保持测试页面打开时，可以先停一会儿。刷新或离开后，需要从第一题重做。"
     }
   }
 ];
