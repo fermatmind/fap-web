@@ -125,6 +125,16 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           {article.contentHtml.trim()
             ? <div dangerouslySetInnerHTML={{ __html: sanitizeCmsHtml(article.contentHtml, { minimumHeadingLevel: 2 }) }} />
             : renderSimpleMarkdown(article.contentMd, markdownOptions)}
+          {article.bodyVisual?.imageUrl ? (
+            <ArticleResponsiveImage
+              src={article.bodyVisual.imageUrl}
+              alt={article.bodyVisual.imageUrl === article.coverImageUrl
+                ? (article.coverImageAlt ?? article.title)
+                : article.title}
+              mode="hero"
+              className="aspect-[16/9] rounded-lg"
+            />
+          ) : null}
         </article>
       </ArticleFragmentNavigation>
       {assessmentLinks.length > 0 ? (

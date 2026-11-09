@@ -10,9 +10,9 @@ afterEach(() => {
 });
 
 describe("article body image alternative text", () => {
-  it.each(["en", "zh"] as const)("keeps independent body images separate from the cover in %s", async (locale) => {
-    const title = locale === "zh" ? "九型职场观察练习" : "Enneagram workplace observation worksheet";
-    const coverAlt = locale === "zh" ? "五位同事围坐会议桌" : "Five colleagues at a meeting table";
+  it.each(["en", "zh", "zh-TW"] as const)("keeps independent body images separate from the cover in %s", async (locale) => {
+    const title = { en: "Enneagram workplace observation worksheet", zh: "九型职场观察练习", "zh-TW": "九型職場觀察練習" }[locale];
+    const coverAlt = { en: "Five colleagues at a meeting table", zh: "五位同事围坐会议桌", "zh-TW": "五位同事圍坐會議桌" }[locale];
     const coverUrl = "https://assets.fermatmind.com/articles/cover.jpg";
     const bodyUrl = "https://assets.fermatmind.com/articles/worksheet.jpg";
     const article: CmsArticle = {
@@ -28,11 +28,15 @@ describe("article body image alternative text", () => {
     };
     vi.doMock("@/lib/cms/articles", async (original) => ({
       ...await original<typeof import("@/lib/cms/articles")>(),
+      getCmsArticle: vi.fn(async () => article),
+      getCmsArticleSeo: vi.fn(async () => null),
       getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: article, source: "fresh" })),
       getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: null, source: "fresh" })),
       getCmsArticlesWithLastKnownGood: vi.fn(async () => ({ value: { items: [], blog: null }, source: "fresh", stale: false })),
     }));
-    const { default: Page } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
+    const { default: Page } = locale === "zh-TW"
+      ? await import("@/app/(traditional)/zh-TW/articles/[slug]/page")
+      : await import("@/app/(localized)/[locale]/articles/[slug]/page");
     async function images() {
       const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug: article.slug }) }));
       const document = new DOMParser().parseFromString(html, "text/html");
@@ -54,5 +58,8 @@ describe("article body image alternative text", () => {
     const fallback = await images();
     expect(fallback.cover?.getAttribute("alt")).toBe(title);
     expect(fallback.body?.getAttribute("alt")).toBe(title);
+
+    article.bodyVisual = null;
+    expect((await images()).body).toBeNull();
   });
 });
