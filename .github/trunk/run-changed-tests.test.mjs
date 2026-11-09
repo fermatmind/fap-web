@@ -5,6 +5,7 @@ test('localized assessment modules are product routes while named and nested tes
  const contract='tests/contracts/big5-take-attempt-priming.contract.test.tsx';
  const native=route+'reader.test.mjs';
  const plan=changedTestPlan([{status:'M',path:route+'Big5TakeClient.tsx'},
+  {status:'A',path:'app/(ad-pilot)/[locale]/tests/play/global-history-quiz/page.tsx'},
   {status:'M',path:contract},{status:'A',path:native}],{vitest:true});
  assert.deepEqual(plan.vitest,[contract]);assert.deepEqual(plan.node,[native]);
  assert.deepEqual(plan.unsupported,[]);
