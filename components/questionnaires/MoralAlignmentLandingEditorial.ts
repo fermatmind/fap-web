@@ -43,3 +43,13 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function moralAlignmentLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function moralAlignmentCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("默认不保存；只有主动开启才保存本标签页24小时草稿，完成、退出清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("重测会开始新的作答并清除当前草稿，不建立个人历史。", "重测会开始新的作答，不建立个人历史。")
+    : text
+      .replace("Saving is off by default. If enabled, a draft lasts 24 hours in this tab; completion, exit-and-clear or retaking deletes it.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Retaking starts a new attempt and clears the current draft, without building a personal history.", "Retaking starts a new attempt without keeping a personal history.");
+}

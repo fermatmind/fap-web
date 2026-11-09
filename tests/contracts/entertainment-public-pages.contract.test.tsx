@@ -1,4 +1,6 @@
 import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
+import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
+import { moralAlignmentCurrentEntryCopy } from "@/components/questionnaires/MoralAlignmentLandingEditorial";
 import { responseColorCurrentEntryCopy } from "@/components/questionnaires/ResponseColorLandingEditorial";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -31,7 +33,9 @@ describe("complete bilingual entertainment entry rendering", () => {
           expect(metadata.robots).toMatchObject({ index: true, follow: true });
           for (const faq of authored.faq) {
             expect(dom.textContent).toContain(faq.question[locale]);
-            const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
+            const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(faq.answer[locale], locale)
+              : quiz.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(faq.answer[locale], locale) : faq.answer[locale];
             expect(dom.textContent).toContain(answer);
           }
           for (const profile of authored.profiles) {

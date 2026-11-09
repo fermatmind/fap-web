@@ -18,3 +18,17 @@ const summaries: Record<string, { zh: string; en: string }> = {
 export function jungianArchetypeLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
   return summaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
+
+export function jungianArchetypeCurrentEntryCopy(text: string, locale: "zh" | "en") {
+  return locale === "zh"
+    ? text
+      .replace("默认不保存答案，仅主动开启时保留本标签页24小时草稿；完成、清除或重测删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("只有主动开启才保存本标签页24小时草稿，完成、退出清除或重测即删除。", "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。")
+      .replace("重测会开始新的作答并清除当前草稿，本站不建立个人历史；", "重测会开始新的作答，本站不建立个人历史；")
+      .replace("重测开始新作答并清除当前草稿，不建立个人历史。", "重测开始新的作答，不建立个人历史。")
+    : text
+      .replace("Saving is off by default; an optional draft lasts 24 hours in this tab and is removed on completion, clearing or retaking.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("An optional draft lasts 24 hours in this tab and is removed on completion, exit-and-clear or retaking.", "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over.")
+      .replace("Retaking starts a new attempt and clears the current draft; no personal history is built here.", "Retaking starts a new attempt without keeping a personal history.")
+      .replace("Retaking starts a new attempt and clears the current draft, without creating a personal history.", "Retaking starts a new attempt without keeping a personal history.");
+}

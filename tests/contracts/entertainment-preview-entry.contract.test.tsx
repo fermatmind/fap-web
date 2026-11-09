@@ -5,6 +5,8 @@ import { ExploreTestEntry } from "@/components/tests/ExploreTestEntry";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
 import { bleachCurrentEntryCopy } from "@/components/questionnaires/BleachLandingEditorial";
+import { jungianArchetypeCurrentEntryCopy } from "@/components/questionnaires/JungianArchetypeLandingEditorial";
+import { moralAlignmentCurrentEntryCopy } from "@/components/questionnaires/MoralAlignmentLandingEditorial";
 import { responseColorCurrentEntryCopy } from "@/components/questionnaires/ResponseColorLandingEditorial";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -60,8 +62,14 @@ describe("entertainment preview entry", () => {
         expect(dom.querySelector("h1")?.textContent, item.slug).toBe(quiz.title[locale]);
         for (const section of item.slug === "delulu-test" ? deluluResultSections(quiz.guide) : quiz.guide) for (const paragraph of section.paragraphs) {
           const normalize = (s: string) => s.replace(/\[[1-3]\]/g, "").replace(/\s+/g, " ").trim();
-          const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : item.slug === "response-color" ? responseColorCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+          const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : item.slug === "response-color" ? responseColorCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "jungian-archetype" ? jungianArchetypeCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
+        }
+        if (item.slug === "moral-alignment" || item.slug === "jungian-archetype") {
+          expect(dom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+          expect(dom.textContent).not.toContain(locale === "zh" ? "24小时草稿" : "draft lasts 24 hours");
         }
         if (item.slug === "bleach") {
           expect(dom.textContent).toContain(locale === "zh" ? "当前答题页不提供进度保存" : "This question page does not save progress");

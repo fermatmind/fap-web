@@ -224,8 +224,8 @@ import { attachmentLandingSummary } from "./AttachmentLandingEditorial";
 import { loveLanguagesLandingSummary } from "./LoveLanguagesLandingEditorial";
 import { temperamentLandingSummary } from "./TemperamentLandingEditorial";
 import { introvertExtrovertLandingSummary } from "./IntrovertExtrovertLandingEditorial";
-import { jungianArchetypeLandingSummary } from "./JungianArchetypeLandingEditorial";
-import { moralAlignmentLandingSummary } from "./MoralAlignmentLandingEditorial";
+import { jungianArchetypeCurrentEntryCopy, jungianArchetypeLandingSummary } from "./JungianArchetypeLandingEditorial";
+import { moralAlignmentCurrentEntryCopy, moralAlignmentLandingSummary } from "./MoralAlignmentLandingEditorial";
 import { responseColorLandingSummary, responseColorCurrentEntryCopy } from "./ResponseColorLandingEditorial";
 import { DiscCitations, discLandingSummary, discVisiblePrivacyAnswer } from "./DiscLandingEditorial";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -870,6 +870,8 @@ return null;
   const renderCopy = (text: string) => {
     if (slug === "bleach") text = bleachCurrentEntryCopy(text, locale);
     if (slug === "response-color") text = responseColorCurrentEntryCopy(text, locale);
+    if (slug === "moral-alignment") text = moralAlignmentCurrentEntryCopy(text, locale);
+    if (slug === "jungian-archetype") text = jungianArchetypeCurrentEntryCopy(text, locale);
     if (!hasInlineReferences) return text;
     // In code-reading prose, indexed expressions remain source text, not reference markers.
     if (["java-test", "python-test"].includes(slug)) return text.split(/((?<=[.!?。！？])\s*\[\d+\](?:\[\d+\])*)/g).map((part, index) =>
