@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { getPersonalityProfileBySlugOrType, getPersonalitySeoBySlugOrType } from "@/lib/cms/personality";
 import { getCareerGuideFromCmsBySlug, getCareerGuideSeoFromCmsBySlug } from "@/lib/cms/career-guides";
 
 function read(relPath: string): string {
@@ -22,7 +23,6 @@ describe("public api cache contract", () => {
       "lib/career/api/fetchCareerRecommendationIndex.ts",
       "lib/career/api/fetchCareerRecommendationBundle.ts",
       "lib/career/api/fetchCareerTransitionPreview.ts",
-      "lib/cms/personality.ts",
       "lib/cms/career-jobs.ts",
       "lib/cms/career-recommendations.ts",
     ];
@@ -31,6 +31,26 @@ describe("public api cache contract", () => {
       const source = read(file);
       expect(source).toContain("PUBLIC_API_CACHE_OPTIONS");
       expect(source).not.toContain('cache: "no-store"');
+    }
+  });
+
+  it.each(["en", "zh", "zh-TW"])("isolates live Taiwan MBTI reads from cached original locales (%s)", async (locale) => {
+    const fetcher = vi.fn<typeof globalThis.fetch>(async () => new Response(null, { status: 404 }));
+    vi.stubGlobal("fetch", fetcher);
+    await getPersonalityProfileBySlugOrType("intj", locale);
+    await getPersonalitySeoBySlugOrType("intj", locale);
+
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    const apiLocale = locale === "zh" ? "zh-CN" : locale;
+    for (const [input, options] of fetcher.mock.calls) {
+      expect(new URL(String(input)).searchParams.get("locale")).toBe(apiLocale);
+      if (locale === "zh-TW") {
+        expect(options?.cache).toBe("no-store");
+        expect(options?.next).toBeUndefined();
+      } else {
+        expect(options?.cache).toBeUndefined();
+        expect(options?.next?.revalidate).toBe(300);
+      }
     }
   });
 

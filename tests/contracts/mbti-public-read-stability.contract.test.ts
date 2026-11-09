@@ -1,9 +1,12 @@
 import { readFileSync } from "node:fs";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { getPersonalityProfileBySlugOrType, getPersonalitySeoBySlugOrType } from "@/lib/cms/personality";
 import { PERSONALITY_PUBLIC_READ_TIMEOUT_MS } from "@/lib/cms/personalityReadStability";
 
 const adapterSource = readFileSync("lib/cms/personality.ts", "utf8");
 const pageSource = readFileSync("app/(localized)/[locale]/personality/[type]/page.tsx", "utf8");
+
+afterEach(() => vi.unstubAllGlobals());
 
 describe("bounded MBTI public reads", () => {
   it("gives detail and SEO one shared-size frontend wait budget", () => {
@@ -20,8 +23,19 @@ describe("bounded MBTI public reads", () => {
     expect(adapterSource).not.toMatch(/lastKnownGood|localStorage|frontendPersonalityCache/i);
   });
 
-  it("keeps authoritative absence distinct from transient failures", () => {
-    expect(adapterSource).toContain("error instanceof ApiError && error.status === 404");
+  it.each(["en", "zh", "zh-TW"])("keeps authoritative absence distinct from transient failures (%s)", async (locale) => {
+    const fetcher = vi.fn(async () => new Response(null, { status: 404 }));
+    vi.stubGlobal("fetch", fetcher);
+
+    await expect(getPersonalityProfileBySlugOrType("intj", locale)).resolves.toBeNull();
+    await expect(getPersonalitySeoBySlugOrType("intj", locale)).resolves.toBeNull();
+
+    fetcher.mockImplementation(async () => new Response(null, { status: 503 }));
+    await expect(getPersonalityProfileBySlugOrType("intj", locale)).rejects.toMatchObject({ status: 503 });
+    await expect(getPersonalitySeoBySlugOrType("intj", locale)).rejects.toMatchObject({ status: 503 });
+  });
+
+  it("preserves absence and failure behavior in the existing detail route", () => {
     expect(pageSource).toContain("if (!detail)");
     expect(pageSource).toContain("return notFound()");
     expect(pageSource).toContain("throw detailResult.reason");
