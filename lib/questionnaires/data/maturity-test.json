@@ -2276,12 +2276,12 @@
       "id": "privacy",
       "title": {
         "zh": "完整免费、草稿与安全分享",
-        "en": "Full free access, drafts and safe sharing"
+        "en": "Free access, answer privacy and safe sharing"
       },
       "paragraphs": [
         {
-          "zh": "24题、四部分结果和四份九模块全文免费，不收邮箱，不要求注册或另一测评解锁。答案只在浏览器计算，不上传、不进入网址或分析；不收私人故事、年龄、家庭经历或临床资料。主动开启才保存本标签页24小时草稿，完成、重测或退出清除即删除。分享自选，只含测试名称与公开链接，不含答案、均分、条数或成熟标签。其他测评需另行完整作答，不把均分兑换类型；也可以直接阅读或在这里结束。",
-          "en": "All twenty-four items, four-part results and four full nine-section guides are free without email, signup or another assessment. Answers stay in browser calculations without uploading or entering URLs or analytics; private stories, ages, family histories and clinical information are not collected. Drafts require opt-in, last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Optional sharing includes the test name and public link without answers, means, counts or maturity labels. Other assessments require separate complete answers rather than a type converted from a mean. You can read directly or stop here."
+          "zh": "24题、四部分结果和四份九模块全文免费，不收邮箱，不要求注册或另一测评解锁。答案只在浏览器计算，不上传、不进入网址或分析；不收私人故事、年龄、家庭经历或临床资料。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享自选，只含测试名称与公开链接，不含答案、均分、条数或成熟标签。其他测评需另行完整作答，不把均分兑换类型；也可以直接阅读或在这里结束。",
+          "en": "All twenty-four items, four-part results and four full nine-section guides are free without email, signup or another assessment. Answers stay in browser calculations without uploading or entering URLs or analytics; private stories, ages, family histories and clinical information are not collected. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes the test name and public link without answers, means, counts or maturity labels. Other assessments require separate complete answers rather than a type converted from a mean. You can read directly or stop here."
         }
       ]
     }
@@ -2333,8 +2333,8 @@
         "en": "Are full results, retaking and sharing free?"
       },
       "answer": {
-        "zh": "24题、四部分结果和四份九模块全文免费，不收邮箱，不要求注册或另一测评解锁。答案只在浏览器计算，不上传、不进入网址或分析；不收私人故事、年龄、家庭经历或临床资料。主动开启才保存本标签页24小时草稿，完成、重测或退出清除即删除。分享自选，只含测试名称与公开链接，不含答案、均分、条数或成熟标签。其他测评需另行完整作答，不把均分兑换类型；也可以直接阅读或在这里结束。",
-        "en": "All twenty-four items, four-part results and four full nine-section guides are free without email, signup or another assessment. Answers stay in browser calculations without uploading or entering URLs or analytics; private stories, ages, family histories and clinical information are not collected. Drafts require opt-in, last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Optional sharing includes the test name and public link without answers, means, counts or maturity labels. Other assessments require separate complete answers rather than a type converted from a mean. You can read directly or stop here."
+        "zh": "24题、四部分结果和四份九模块全文免费，不收邮箱，不要求注册或另一测评解锁。答案只在浏览器计算，不上传、不进入网址或分析；不收私人故事、年龄、家庭经历或临床资料。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享自选，只含测试名称与公开链接，不含答案、均分、条数或成熟标签。其他测评需另行完整作答，不把均分兑换类型；也可以直接阅读或在这里结束。",
+        "en": "All twenty-four items, four-part results and four full nine-section guides are free without email, signup or another assessment. Answers stay in browser calculations without uploading or entering URLs or analytics; private stories, ages, family histories and clinical information are not collected. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes the test name and public link without answers, means, counts or maturity labels. Other assessments require separate complete answers rather than a type converted from a mean. You can read directly or stop here."
       }
     }
   ],

@@ -3740,8 +3740,8 @@
           "en": "The 30 items, explanations of raw and relative figures and all ten public and completed-attempt guides are free, without signup, email or a prerequisite test. Start opens the items directly without another agreement. Estimated duration is not a time limit; use an unscored response or exit whenever needed."
         },
         {
-          "zh": "默认不保存。主动保存后的草稿只在本标签页保留24小时，完成、重测或退出清除即删除。浏览器计分不上传答案，不把答案写入网址或分析事件；一般使用事件遵循隐私与Cookie设置。公开链接不包含私人均分、相对值或答卷，结果不用来筛选员工、判断健康或给关系判定相容性。",
-          "en": "Saving is off by default. Opted-in drafts remain in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. Browser scoring uploads no answers and puts none in URLs or analytics events; general usage events follow privacy and Cookie settings. Public links contain no personal means, relative values or answers. Results should not screen employees, judge health or establish relationship compatibility."
+          "zh": "这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。浏览器计分不上传答案，不把答案写入网址或分析事件；一般使用事件遵循隐私与Cookie设置。公开链接不包含私人均分、相对值或答卷，结果不用来筛选员工、判断健康或给关系判定相容性。",
+          "en": "This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Browser scoring uploads no answers and puts none in URLs or analytics events; general usage events follow privacy and Cookie settings. Public links contain no personal means, relative values or answers. Results should not screen employees, judge health or establish relationship compatibility."
         }
       ]
     }
@@ -3879,12 +3879,12 @@
     },
     {
       "question": {
-        "zh": "开始、完整报告与保存是否免费？",
-        "en": "Are direct start, complete guides and saving free?"
+        "zh": "开始测试和完整报告免费吗？",
+        "en": "Can I take the test and read the full guides for free?"
       },
       "answer": {
-        "zh": "免费，无需注册、邮箱、前置测试或额外同意。默认不保存；主动保存后草稿仅本标签页保留24小时，完成、重测或退出清除即删。答案仅浏览器计分，不上传计分或写入网址及分析事件。",
-        "en": "Yes, without signup, email, another test or an extra agreement. Saving is off by default; opted-in drafts remain in this tab for up to 24 hours and clear on completion, retake or exit-and-clear. Browser scoring sends no scoring upload or answer-bearing URLs or analytics events."
+        "zh": "免费，无需注册、邮箱、前置测试或额外同意。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。答案仅浏览器计分，不上传计分或写入网址及分析事件。",
+        "en": "Yes, without signup, email, another test or an extra agreement. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Browser scoring sends no scoring upload or answer-bearing URLs or analytics events."
       }
     }
   ],

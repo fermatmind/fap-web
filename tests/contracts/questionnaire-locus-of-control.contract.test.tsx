@@ -77,7 +77,11 @@ describe("T061 public-domain IPIP twenty-item total locus of control", () => {
       expect(dom.querySelector("[data-locus-total]")?.textContent).toBe(value === "na" ? missing : value === "exact41" ? "41" : String(Number(value) * 20));
       expect(dom.querySelector("[data-locus-mean]")?.textContent).toBe(value === "na" ? missing : value === "exact41" ? "2.05 / 5" : `${value}.00 / 5`);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length); expect(dom.querySelector("[data-growth-facet], [data-facet-score], [data-sdt-needs-facet]")).toBeNull();
-      for (const section of quiz.profiles[0].sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+      for (const section of quiz.profiles[0].sections) for (const paragraph of section.paragraphs) {
+        if (!/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/.test(paragraph[locale])) expect(dom.textContent).toContain(paragraph[locale]);
+      }
+      expect(dom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(dom.textContent).not.toMatch(/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/);
     }
   });
 
@@ -87,7 +91,11 @@ describe("T061 public-domain IPIP twenty-item total locus of control", () => {
       const path = `/${locale}/tests/explore/${slug}`, props = { params: Promise.resolve({ locale, slug }) }, html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props);
       expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(locale === "zh" ? "IPIP公有领域条目" : "Public-domain IPIP items"); expect(html).toContain(locale === "zh" ? "完整连续读法" : "Read the full continuum"); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
       const profile = quiz.profiles[0], publicPath = `${path}/results/${profile.id}`, guideProps = { params: Promise.resolve({ locale, slug, profile: profile.id }) }, dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await guide.default(guideProps)); const metadata = await guide.generateMetadata(guideProps);
-      expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+      expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); for (const section of profile.sections) for (const paragraph of section.paragraphs) {
+        if (!/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/.test(paragraph[locale])) expect(dom.textContent).toContain(paragraph[locale]);
+      }
+      expect(dom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(dom.textContent).not.toMatch(/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/);
       expect(metadata.title).toBe(profile.seo!.title[locale]); expect(metadata.description).toBe(profile.seo!.description[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`); expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${slug}/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${slug}/results/${profile.id}` }); expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(dom.querySelector("[data-locus-total]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
     } } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });

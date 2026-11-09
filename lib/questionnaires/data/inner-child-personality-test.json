@@ -1921,8 +1921,8 @@
           "en": "All eighteen items, raw counts, every highest tie and six full public guides are free, without signup, email or a prerequisite test. About six minutes estimates reading and reflection, not a time limit. Start opens the first question directly without another agreement or payment to unlock results."
         },
         {
-          "zh": "答案在浏览器内计分，不随计分请求上传，也不写入网址或分析事件。只有主动保存才会在本标签页保留最多24小时的草稿，完成、重测或退出清除即删除。可选分享包含公开标签与指南链接，不含私人答案、次数或故事；其他不含答案的使用事件依隐私与Cookie设置。",
-          "en": "Answers are scored in your browser, without a scoring upload or answer-bearing URLs or analytics events. Only opted-in drafts remain in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. Optional sharing includes public labels and guide links, not private answers, counts or stories; other usage events without answers follow privacy and cookie settings."
+          "zh": "答案在浏览器内计分，不随计分请求上传，也不写入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。可选分享包含公开标签与指南链接，不含私人答案、次数或故事；其他不含答案的使用事件依隐私与Cookie设置。",
+          "en": "Answers are scored in your browser, without a scoring upload or answer-bearing URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes public labels and guide links, not private answers, counts or stories; other usage events without answers follow privacy and cookie settings."
         }
       ]
     }
@@ -2064,8 +2064,8 @@
         "en": "Is it free, with an agreement or saved answers after Start?"
       },
       "answer": {
-        "zh": "题目、计数、并列与六份全文全部免费，开始直接进入题目。保存需主动选择，答案仅浏览器计分；可选分享不含私人答案或次数。",
-        "en": "All items, counts, ties and six full guides are free, and Start opens questions directly. Saving is opt-in and scoring stays in the browser; optional sharing contains no private answers or counts."
+        "zh": "题目、计数、并列与六份全文全部免费，开始直接进入题目。答题进度不会保存，答案仅在浏览器计分；可选分享不含私人答案或次数。",
+        "en": "All items, counts, ties and six full guides are free, and Start opens questions directly. Progress is not saved and scoring stays in the browser; optional sharing contains no private answers or counts."
       }
     }
   ],

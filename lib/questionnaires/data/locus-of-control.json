@@ -1542,13 +1542,13 @@
     {
       "id": "privacy",
       "title": {
-        "zh": "免费全文、草稿和分享",
-        "en": "Full free text, drafts and sharing"
+        "zh": "免费阅读、答题隐私与分享",
+        "en": "Free access, answer privacy and sharing"
       },
       "paragraphs": [
         {
-          "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。草稿需主动开启，仅本标签页24小时有效，完成、重测、退出清除即删。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
-          "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. Opted-in drafts last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
+          "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
+          "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
         }
       ]
     }
@@ -1610,8 +1610,8 @@
         "en": "Are the full guide, retakes and sharing free?"
       },
       "answer": {
-        "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。草稿需主动开启，仅本标签页24小时有效，完成、重测、退出清除即删。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
-        "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. Opted-in drafts last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
+        "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
+        "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
       }
     }
   ],

@@ -3418,12 +3418,12 @@
       "id": "privacy",
       "title": {
         "zh": "完整免费、草稿与安全分享",
-        "en": "Full free access, drafts and safe sharing"
+        "en": "Free access, answer privacy and safe sharing"
       },
       "paragraphs": [
         {
-          "zh": "36题、四向原始次数和12份九模块全文免费，无需注册、邮箱或另一测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不询问私人经历、族群或阿拉伯文化身份。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开读法名称与链接，不含答案、次数或个人排行。其他框架需要重新完整作答，不由方向换算；你可以直接阅读，也可以在此结束。",
-          "en": "All thirty-six questions, four raw tallies and twelve full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no private history, ethnicity or Arab cultural identity is requested. Opted-in drafts remain in this tab for twenty-four hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading names and links without answers, counts or personal ranks. Other frameworks require separate complete answers rather than direction conversion. You can read directly or stop here."
+          "zh": "36题、四向原始次数和12份九模块全文免费，无需注册、邮箱或另一测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不询问私人经历、族群或阿拉伯文化身份。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。可选分享只含公开读法名称与链接，不含答案、次数或个人排行。其他框架需要重新完整作答，不由方向换算；你可以直接阅读，也可以在此结束。",
+          "en": "All thirty-six questions, four raw tallies and twelve full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no private history, ethnicity or Arab cultural identity is requested. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes public reading names and links without answers, counts or personal ranks. Other frameworks require separate complete answers rather than direction conversion. You can read directly or stop here."
         }
       ]
     }
@@ -3475,8 +3475,8 @@
         "en": "Are full results, resuming, retaking and sharing free?"
       },
       "answer": {
-        "zh": "36题、四向原始次数和12份九模块全文免费，无需注册、邮箱或另一测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不询问私人经历、族群或阿拉伯文化身份。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开读法名称与链接，不含答案、次数或个人排行。其他框架需要重新完整作答，不由方向换算；你可以直接阅读，也可以在此结束。",
-        "en": "All thirty-six questions, four raw tallies and twelve full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no private history, ethnicity or Arab cultural identity is requested. Opted-in drafts remain in this tab for twenty-four hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading names and links without answers, counts or personal ranks. Other frameworks require separate complete answers rather than direction conversion. You can read directly or stop here."
+        "zh": "36题、四向原始次数和12份九模块全文免费，无需注册、邮箱或另一测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不询问私人经历、族群或阿拉伯文化身份。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。可选分享只含公开读法名称与链接，不含答案、次数或个人排行。其他框架需要重新完整作答，不由方向换算；你可以直接阅读，也可以在此结束。",
+        "en": "All thirty-six questions, four raw tallies and twelve full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no private history, ethnicity or Arab cultural identity is requested. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes public reading names and links without answers, counts or personal ranks. Other frameworks require separate complete answers rather than direction conversion. You can read directly or stop here."
       }
     }
   ],

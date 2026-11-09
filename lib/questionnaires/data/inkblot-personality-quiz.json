@@ -1308,12 +1308,12 @@
       "id": "privacy",
       "title": {
         "zh": "完整免费、草稿和安全分享",
-        "en": "Full free access, drafts and safe sharing"
+        "en": "Free access, answer privacy and safe sharing"
       },
       "paragraphs": [
         {
-          "zh": "十张原创图、十道题和五份九模块全文免费，不收邮箱，不要求注册或另一个测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不收集自由联想、私人故事、反应时间或眼动。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。分享自选，只含公开读法与链接，不含答案、次数或图像联想内容。其他测评需重新完整作答，不由墨迹选择补出任何类型、健康或职业结论。",
-          "en": "All ten original images, ten choices and five full nine-section guides are free without email, signup or another test. Answers are counted in the browser without uploading or entering URLs or analytics. Free associations, private accounts, reaction times and eye movements are not collected. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading labels and links without answers, counts or private associations. Other assessments require separate full answers rather than types, health or careers inferred from blot choices."
+          "zh": "十张原创图、十道题和五份九模块全文免费，不收邮箱，不要求注册或另一个测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不收集自由联想、私人故事、反应时间或眼动。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享自选，只含公开读法与链接，不含答案、次数或图像联想内容。其他测评需重新完整作答，不由墨迹选择补出任何类型、健康或职业结论。",
+          "en": "All ten original images, ten choices and five full nine-section guides are free without email, signup or another test. Answers are counted in the browser without uploading or entering URLs or analytics. Free associations, private accounts, reaction times and eye movements are not collected. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes public reading labels and links without answers, counts or private associations. Other assessments require separate full answers rather than types, health or careers inferred from blot choices."
         }
       ]
     }
@@ -1365,8 +1365,8 @@
         "en": "Are full results, retaking and sharing free?"
       },
       "answer": {
-        "zh": "十张原创图、十道题和五份九模块全文免费，不收邮箱，不要求注册或另一个测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不收集自由联想、私人故事、反应时间或眼动。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。分享自选，只含公开读法与链接，不含答案、次数或图像联想内容。其他测评需重新完整作答，不由墨迹选择补出任何类型、健康或职业结论。",
-        "en": "All ten original images, ten choices and five full nine-section guides are free without email, signup or another test. Answers are counted in the browser without uploading or entering URLs or analytics. Free associations, private accounts, reaction times and eye movements are not collected. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading labels and links without answers, counts or private associations. Other assessments require separate full answers rather than types, health or careers inferred from blot choices."
+        "zh": "十张原创图、十道题和五份九模块全文免费，不收邮箱，不要求注册或另一个测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不收集自由联想、私人故事、反应时间或眼动。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享自选，只含公开读法与链接，不含答案、次数或图像联想内容。其他测评需重新完整作答，不由墨迹选择补出任何类型、健康或职业结论。",
+        "en": "All ten original images, ten choices and five full nine-section guides are free without email, signup or another test. Answers are counted in the browser without uploading or entering URLs or analytics. Free associations, private accounts, reaction times and eye movements are not collected. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Optional sharing includes public reading labels and links without answers, counts or private associations. Other assessments require separate full answers rather than types, health or careers inferred from blot choices."
       }
     }
   ],

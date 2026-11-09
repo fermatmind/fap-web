@@ -7,10 +7,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "high" | "low" | "m
   for (const [index, question] of quiz.questions.entries()) {
     const value = mode === "na" ? "na" : mode === "middle" ? "1" : mode === "high" ? (question.reverse ? "1" : "5") : (question.reverse ? "5" : "1");
     const radio = page.locator(`input[name="${question.id}"][value="${value}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     if (index < 9) await expect(page.locator("[data-optimism-score]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 9 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await radio.press("Space");
+    const next = quiz.questions[index + 1];
+    if (next) await expect(page.locator('input[name="' + next.id + '"]').first()).toBeVisible();
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   const ids = await page.locator("#take-test [id]").evaluateAll(nodes => nodes.map(node => node.id));
@@ -23,7 +23,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "high" | "low" | "m
     await expect(page.locator("[data-optimism-total]")).toHaveText(mode === "high" ? "50" : mode === "low" ? "10" : "34");
     await expect(page.locator("[data-optimism-mean]")).toHaveText(mode === "high" ? "5.0" : mode === "low" ? "1.0" : "3.4");
     await expect(page.locator("[data-optimism-match]")).toHaveCount(mode === "middle" ? 2 : 1);
-    await expect(page.locator("#take-test h4")).toHaveCount(mode === "middle" ? 18 : 9);
+    await expect(page.locator("#take-test [data-reading-mode=result] > section h4")).toHaveCount(mode === "middle" ? 6 : 3);
   }
 }
 for (const locale of ["en", "zh"] as const) {
@@ -32,7 +32,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 });
     const posts: string[] = [];
     page.on("request", request => { if (request.method() === "POST" && /IPIP_OPT_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
-    await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
@@ -41,6 +41,12 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "high");
+    const guide = page.locator(`[data-optimism-match="higher"] a[href="${entry}/results/higher"]`);
+    await expect(guide).toHaveAttribute("target", "_blank");
+    const [tab] = await Promise.all([page.waitForEvent("popup"), guide.click()]);
+    await expect(tab).toHaveURL(new RegExp(`${entry}/results/higher$`));
+    await tab.close();
+    await expect(page.locator('[data-optimism-match="higher"]')).toBeVisible();
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
@@ -48,29 +54,32 @@ for (const locale of ["en", "zh"] as const) {
     await finish(page, locale, "low");
     expect(posts).toEqual([]);
   });
-  test(`@release IPIP Optimism ${locale}: opted-in tab draft survives reload, language change, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="2"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="2"]')).toBeChecked();
-    await page.locator('input[value="4"]').check();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/optimism-pessimism`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+  test(`@release IPIP Optimism ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
+    await page.goto(entry);
+    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
+    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    const first = await page.locator("legend").first().textContent();
+    await page.locator('input[value="2"]').check();
+    await expect(page.locator("legend").first()).not.toHaveText(first!);
+    await page.reload();
+    await expect(page.locator("legend").first()).toHaveText(first!);
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:optimism-pessimism"))).toBeNull();
+
+    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/optimism-pessimism`);
+    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
-  test(`@release IPIP Optimism ${locale}: denied storage, midpoint shows18sections and private-safe clipboard fallback`, async ({ page }) => {
+  test(`@release IPIP Optimism ${locale}: denied storage, midpoint keeps both previews and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "na");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     const missingText = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();

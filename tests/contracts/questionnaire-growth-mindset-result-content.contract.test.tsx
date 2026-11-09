@@ -17,7 +17,14 @@ describe("Selected-skill learning belief review and conversation", () => {
     expect(Object.keys(content).sort()).toEqual(quiz.profiles.map(p => p.id).sort());
     for (const p of quiz.profiles) {
       const reading = growthMindsetResultProfile(p);
-      expect(reading.sections.slice(0, 9)).toEqual(p.sections); expect(reading.sections).toHaveLength(11);
+      const displayed = reading.sections.slice(0, 9);
+      const edited = ["reference", "reflection-scope"];
+      expect(displayed.map(s => [s.id, s.title])).toEqual(p.sections.map(s => [s.id, s.title]));
+      expect(displayed.filter(s => !edited.includes(s.id))).toEqual(p.sections.filter(s => !edited.includes(s.id)));
+      const privacy = displayed.find(s => s.id === edited.at(-1))!.paragraphs[0];
+      expect(privacy.en).toContain("This quiz does not save your progress.");
+      expect(privacy.zh).toContain("这份测试不保存答题进度。");
+      expect(reading.sections).toHaveLength(11);
       expect(reading.directionIds).toEqual(p.directionIds); expect(new Set(reading.sections.map(s => s.id)).size).toBe(11);
     }
     for (const locale of ["en", "zh"] as const) for (const index of [0, 1])

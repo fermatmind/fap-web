@@ -39,6 +39,8 @@ describe("individual IPIP total locus editorial", () => {
       const body = normalize(dom.textContent ?? "");
       for (const faq of locusLandingFaq) expect(body).toContain(normalize(faq.answer[locale]));
       for (const section of [...quiz.guide, ...locusLandingSections]) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|twenty-four hours|resume a draft|恢复草稿/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#locus-of-control-reference-1"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "41÷20＝2.05" : "41÷20=2.05");

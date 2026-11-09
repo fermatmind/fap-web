@@ -39,6 +39,8 @@ describe("individual selected-skill growth belief editorial", () => {
       const body = normalize(dom.textContent ?? "");
       for (const faq of growthLandingFaq) expect(body).toContain(normalize(faq.answer[locale]));
       for (const section of [...quiz.guide, ...growthLandingSections]) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|twenty-four hours|resume a draft|恢复草稿/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#growth-mindset-fixed-mindset-reference-1"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "4、2、4、2、4、2、4、2、4" : "4, 2, 4, 2, 4, 2, 4, 2, 4");

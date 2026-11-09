@@ -48,6 +48,8 @@ describe("individual Schwartz ten-value editorial", () => {
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|opt-in tab progress|optional tab progress/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#values-reference-2"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "相对值为+2.70" : "relative value +2.70");

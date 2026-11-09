@@ -37,6 +37,8 @@ describe("individual five-focus visual reading editorial", () => {
       const body = normalize(dom.textContent ?? "");
       for (const faq of inkblotLandingFaq) expect(body).toContain(normalize(faq.answer[locale]));
       for (const section of [...quiz.guide, ...inkblotLandingSections]) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));
+      expect(body).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(body).not.toMatch(/24小时|24 hours|opt-in tab progress|optional tab progress/i);
       for (const citation of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       expect(dom.querySelector('a[href="#inkblot-personality-quiz-reference-3"]')).not.toBeNull();
       expect(body).toContain(locale === "zh" ? "3、3、2、1、1" : "3, 3, 2, 1, 1");

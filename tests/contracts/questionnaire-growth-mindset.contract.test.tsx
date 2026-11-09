@@ -98,7 +98,11 @@ describe("T060 original selected-skill growth and fixed belief reflection", () =
       expect(dom.querySelector("[data-growth-mean]")?.textContent).toBe(value === "na" ? (locale === "zh" ? "资料不足" : "Insufficient information") : `${value}.0 / 5`);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
       expect(dom.querySelector("[data-maturity-facet], [data-facet-score], [data-sdt-needs-facet]")).toBeNull();
-      for (const section of quiz.profiles[0].sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+      for (const section of quiz.profiles[0].sections) for (const paragraph of section.paragraphs) {
+        if (!/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/.test(paragraph[locale])) expect(dom.textContent).toContain(paragraph[locale]);
+      }
+      expect(dom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(dom.textContent).not.toMatch(/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/);
     }
   });
 
@@ -115,7 +119,11 @@ describe("T060 original selected-skill growth and fixed belief reflection", () =
         const profile = quiz.profiles[0], publicPath = `${path}/results/${profile.id}`, guideProps = { params: Promise.resolve({ locale, slug, profile: profile.id }) };
         const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await guide.default(guideProps)); const metadata = await guide.generateMetadata(guideProps);
         expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-        for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
+        for (const section of profile.sections) for (const paragraph of section.paragraphs) {
+        if (!/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/.test(paragraph[locale])) expect(dom.textContent).toContain(paragraph[locale]);
+      }
+      expect(dom.textContent).toContain(locale === "zh" ? "这份测试不保存答题进度" : "This quiz does not save your progress");
+      expect(dom.textContent).not.toMatch(/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/);
         expect(metadata.title).toBe(profile.seo!.title[locale]); expect(metadata.description).toBe(profile.seo!.description[locale]);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
         expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${slug}/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${slug}/results/${profile.id}` });

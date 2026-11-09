@@ -18,10 +18,10 @@ async function finish(page: Page, locale: "en" | "zh", mode: "whole-form" | "tie
     expect(imageUrl.pathname).toBe(`/images/questionnaires/inkblot-original/fm-inkblot-${String(index + 1).padStart(2, "0")}.svg`);
     await expect(page.locator(`[data-inkblot-stimulus="${question.id}"] figcaption p`)).not.toBeEmpty();
     const radio = page.locator(`input[name="${question.id}"][value="${option.id}"]`);
-    if (index === 0) { await radio.focus(); await page.keyboard.press("Space"); await expect(radio).toBeChecked(); }
-    else await radio.check();
     if (index < 9) await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
-    await page.getByRole("button", { name: index === 9 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
+    await radio.press("Space");
+    const next = quiz.questions[index + 1];
+    if (next) await expect(page.locator('input[name="' + next.id + '"]').first()).toBeVisible();
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
   await expect(page.locator("[data-archetype-count]")).toHaveCount(5);
@@ -30,14 +30,14 @@ async function finish(page: Page, locale: "en" | "zh", mode: "whole-form" | "tie
   if (mode === "whole-form") {
     await expect(page.locator('[data-archetype-count="whole-form"]')).toContainText("8 / 8");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(1);
-    await expect(page.locator('[data-archetype-match="whole-form"] h4')).toHaveCount(9);
+    await expect(page.locator('[data-archetype-match="whole-form"] h4:visible')).toHaveCount(3);
   } else {
     for (const theme of quiz.directions) {
       await expect(page.locator(`[data-archetype-count="${theme.id}"]`)).toContainText("2 / 8");
-      await expect(page.locator(`[data-archetype-match="${theme.id}"] h4`)).toHaveCount(9);
+      await expect(page.locator(`[data-archetype-match="${theme.id}"] h4:visible`)).toHaveCount(3);
     }
     await expect(page.locator("[data-archetype-match]")).toHaveCount(5);
-    await expect(page.locator("#take-test h4")).toHaveCount(45);
+    await expect(page.locator("#take-test h4:visible")).toHaveCount(15);
   }
 }
 for (const locale of ["en", "zh"] as const) {
@@ -46,7 +46,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.setViewportSize({ width: 390, height: 844 });
     const posts: string[] = [];
     page.on("request", request => { if (request.method() === "POST" && /INK_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
-    await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
+    await page.goto(`/${locale}/tests`); await page.getByTestId("cookie-banner-decline").click(); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page.getByText(zh ? "原创墨迹视觉趣味 · 完整结果免费" : "Original inkblot visual quiz · Full results free", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
@@ -57,36 +57,45 @@ for (const locale of ["en", "zh"] as const) {
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");
     await finish(page, locale, "whole-form");
+    const guide = page.locator(`[data-archetype-match="whole-form"] a[href="${entry}/results/whole-form"]`);
+    await expect(guide).toHaveAttribute("target", "_blank");
+    const [tab] = await Promise.all([page.waitForEvent("popup"), guide.click()]);
+    await expect(tab).toHaveURL(new RegExp(`${entry}/results/whole-form$`));
+    await tab.close();
+    await expect(page.locator('[data-archetype-match="whole-form"]')).toBeVisible();
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveAttribute("href", /target_action=questionnaire_result_mbti/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "重新测试" : "Retake test", exact: true }).click();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
-  test(`@release Original inkblot reading ${locale}: opted-in tab draft survives reload, language change, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="B"]').check(); await page.getByRole("checkbox").check();
-    await expect(page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true })).toBeEnabled();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
-    await page.locator('input[value="C"]').check();
-    const other = zh ? "en" : "zh";
-    await page.goto(`/${other}/tests/explore/inkblot-personality-quiz`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="C"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+  test(`@release Original inkblot reading ${locale}: refresh and language change start with blank answers`, async ({ page }) => {
+    await page.goto(entry);
+    await expect(page.getByText(zh ? "这份测试不保存答题进度" : "This quiz does not save your progress", { exact: false }).first()).toBeVisible();
+    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    const first = await page.locator("legend").first().textContent();
+    await page.locator('input[value="B"]').check();
+    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await expect(page.locator("legend").first()).not.toHaveText(first!);
+    await page.reload();
+    await expect(page.locator("legend").first()).toHaveText(first!);
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:inkblot-personality-quiz"))).toBeNull();
+
+    await page.goto(`/${zh ? "en" : "zh"}/tests/explore/inkblot-personality-quiz`);
+    await page.getByRole("button", { name: zh ? "Start test" : "开始测试", exact: true }).click();
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
   });
-  test(`@release Original inkblot reading ${locale}: denied storage, five-way tie shows45sections and private-safe clipboard fallback`, async ({ page }) => {
+  test(`@release Original inkblot reading ${locale}: denied storage, five-way tie keeps all five matched previews and private-safe clipboard fallback`, async ({ page }) => {
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
       Storage.prototype.getItem = function(key) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return get.call(this, key); };
       Storage.prototype.setItem = function(key, value) { if (key.startsWith("fm_questionnaire_draft:")) throw new Error("synthetic storage denial"); return set.call(this, key, value); };
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await page.goto(entry); await page.getByTestId("cookie-banner-decline").click(); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();
     const text = await page.getByRole("textbox", { name: zh ? "手动复制结果" : "Result text for manual copying" }).inputValue();
@@ -121,8 +130,8 @@ test("@release Original inkblot reading all10public full guides, bilingual image
     await expect(page.getByRole("button", { name: locale === "zh" ? "下一题" : "Next", exact: true })).toBeDisabled();
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0);
     await page.unroute(blocked);
-    await page.getByRole("button", { name: locale === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
-    await page.getByRole("button", { name: locale === "zh" ? "开始测试" : "Start test", exact: true }).click();
+    await page.reload();
+    await expect(page.getByRole("radio").first()).not.toBeChecked();
     await expect(page.getByRole("button", { name: locale === "zh" ? "下一题" : "Next", exact: true })).toBeEnabled();
     await expect.poll(() => page.locator("#take-test img").evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(720);
   }

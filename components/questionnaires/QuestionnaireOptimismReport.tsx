@@ -28,7 +28,7 @@ export function QuestionnaireOptimismReport({ quiz, result, locale }: { quiz: Qu
       return <section key={id} aria-labelledby={`optimism-title-${id}`} data-optimism-match={id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`optimism-title-${id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" previewSectionIds={["meaning", "ordinary-context", "observation"]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)}>{zh ? "阅读这项结果的公开说明" : "Read this result’s public guide"}</Link>
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)} target="_blank" rel="noopener">{zh ? "阅读这项结果的公开说明（新标签页）" : "Read this result’s public guide (new tab)"}</Link>
       </section>;
     })}
   </div>;

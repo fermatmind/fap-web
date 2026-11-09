@@ -1030,13 +1030,13 @@
     {
       "id": "privacy",
       "title": {
-        "zh": "完整免费、草稿与分享",
-        "en": "Full free access, drafts and sharing"
+        "zh": "免费阅读、答题隐私与分享",
+        "en": "Free access, answer privacy and sharing"
       },
       "paragraphs": [
         {
-          "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。草稿需主动开启，本标签页24小时后失效，完成、重测或退出清除即删。分享只测试名称和公开链接，没有答案、均分或类型标签。",
-          "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. Opted-in drafts expire after twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing includes the test name and public link without answers, means or a type label."
+          "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享只测试名称和公开链接，没有答案、均分或类型标签。",
+          "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing includes the test name and public link without answers, means or a type label."
         }
       ]
     }
@@ -1068,8 +1068,8 @@
         "en": "Why choose a skill first, and what matters when resuming?"
       },
       "answer": {
-        "zh": "本版请你用一项近期正在学或想学的普通技能贯穿十二条。比如整理电子表格或练习一种画法，结果只概括你对这个参照能否改变的看法，不把它扩展成在所有领域都成长或固定。你不需要在网站填写技能名称。若换了技能，回答可能改变；恢复草稿时请仍用原先参照，不记得可以清除后重测，而不是把两种情境当作同一结果。",
-        "en": "This edition asks you to keep one ordinary skill you are learning or considering in view across twelve statements. A spreadsheet task or drawing technique could supply the reference. The reading concerns beliefs about change for that skill, not a growth or fixed personality across every domain. No skill name is entered. Another reference may produce different answers. Resume a draft with the same skill, or clear and retake if you do not remember it, rather than treating two contexts as one result."
+        "zh": "本版请你用一项近期正在学或想学的普通技能贯穿十二条。比如整理电子表格或练习一种画法，结果只概括你对这个参照能否改变的看法，不把它扩展成在所有领域都成长或固定。你不需要在网站填写技能名称。若换了技能，回答可能改变。重测同一情境时，请继续用原先的技能作参照；若想换一项技能，就把它当成一次新的观察。",
+        "en": "This edition asks you to keep one ordinary skill you are learning or considering in view across twelve statements. A spreadsheet task or drawing technique could supply the reference. The reading concerns beliefs about change for that skill, not a growth or fixed personality across every domain. No skill name is entered. Another reference may produce different answers. Use the same skill if you retake to reflect on the same situation. If you choose another skill, treat it as a new observation."
       }
     },
     {
@@ -1088,8 +1088,8 @@
         "en": "Are full results, retaking and sharing free?"
       },
       "answer": {
-        "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。草稿需主动开启，本标签页24小时后失效，完成、重测或退出清除即删。分享只测试名称和公开链接，没有答案、均分或类型标签。",
-        "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. Opted-in drafts expire after twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing includes the test name and public link without answers, means or a type label."
+        "zh": "若愿意，只找一条符合你看法的表述，问问它针对什么技能、哪些条件重要，以及什么新信息可能让看法改变；也可以不作记录。无需承诺更加努力或回忆不想讨论的经历。十二题与本完整说明免费，不要求注册、邮箱或另一测试解锁。答案在浏览器计分，不上传、不进入网址或分析；技能名称未收集。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。分享只测试名称和公开链接，没有答案、均分或类型标签。",
+        "en": "If useful, choose one statement that fits your view and consider its skill reference, relevant conditions and what information could change it. You need not keep a record, promise more effort or revisit an unwanted experience. All twelve items and this full guide are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; the skill name is not collected. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Sharing includes the test name and public link without answers, means or a type label."
       }
     }
   ],

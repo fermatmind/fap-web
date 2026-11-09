@@ -1840,8 +1840,8 @@
     {
       "id": "free-and-private",
       "title": {
-        "zh": "免费阅读、草稿与直接开始",
-        "en": "Free guides, drafts and direct start"
+        "zh": "免费阅读、答题进度与直接开始",
+        "en": "Free guides, progress and direct start"
       },
       "paragraphs": [
         {
@@ -1849,8 +1849,8 @@
           "en": "Start test opens the questions directly, without another agreement, signup, email or prerequisite assessment. About six minutes is an estimate, not a time limit. Read all four public guides beforehand; completing 24 items gives all counts and every highest-count report free."
         },
         {
-          "zh": "答案在浏览器计算，不通过计分请求上传，不写入网址或分析事件。默认不保存；主动保存后仅在本标签页恢复，24小时失效，完成、重测或退出清除即删除。公开指南链接不包含私人答案或计数；一般使用事件仍以隐私与Cookie设置为准。",
-          "en": "Answers are scored in the browser without a scoring upload, answer-bearing URLs or answer-bearing analytics events. Saving is off by default. An opted-in draft restores in this tab for up to 24 hours and clears on completion, retake or exit-and-clear. Public guide links contain no private answers or counts; general usage events follow privacy and Cookie settings."
+          "zh": "答案在浏览器计算，不通过计分请求上传，不写入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。公开指南链接不包含私人答案或计数；一般使用事件仍以隐私与Cookie设置为准。",
+          "en": "Answers are scored in the browser without a scoring upload, answer-bearing URLs or answer-bearing analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. Public guide links contain no private answers or counts; general usage events follow privacy and Cookie settings."
         }
       ]
     }
@@ -1992,8 +1992,8 @@
         "en": "Are answers uploaded or saved automatically?"
       },
       "answer": {
-        "zh": "答案在浏览器计分，不上传计分、不写入网址或分析事件。仅主动保存后保留本标签页草稿，24小时失效，完成、重测或退出清除即删；一般使用事件遵循隐私与Cookie设置。",
-        "en": "Answers are scored in the browser without a scoring upload or answer-bearing URLs or analytics events. Only an opted-in draft persists in this tab for up to 24 hours, clearing on completion, retake or exit-and-clear. General usage events follow privacy and Cookie settings."
+        "zh": "答案在浏览器计分，不上传计分、不写入网址或分析事件。这份测试不保存答题进度。刷新、切换语言或离开测试后，需要重新开始。一般使用事件遵循隐私与Cookie设置。",
+        "en": "Answers are scored in the browser without a scoring upload or answer-bearing URLs or analytics events. This quiz does not save your progress. If you refresh, switch languages or leave the quiz, you will need to start over. General usage events follow privacy and Cookie settings."
       }
     }
   ],

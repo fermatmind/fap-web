@@ -22,7 +22,7 @@ export function QuestionnaireGrowthReport({ quiz, result, locale }: { quiz: Ques
     {quiz.profiles.map(profile => <section key={profile.id} data-growth-profile={profile.id} aria-labelledby={`growth-title-${profile.id}`} className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
       <h3 id={`growth-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
       <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["higher-reading", "lower-reading", "examples", "reflection-scope"]} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读完整连续读法的公开说明" : "Read the full public continuum guide"}</Link>
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "阅读完整连续读法的公开说明（新标签页）" : "Read the full public continuum guide (new tab)"}</Link>
     </section>)}
   </div>;
 }
