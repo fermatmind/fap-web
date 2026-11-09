@@ -1,6 +1,10 @@
 import { createEvent, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ResultEmailLookupForm } from "@/components/support/ResultEmailLookupForm";
+import { NextRequest } from "next/server";
+import TraditionalResultLookupPage, { metadata } from "@/app/(traditional)/zh-TW/results/lookup/page";
+import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { proxy } from "@/proxy";
 
 const hoisted = vi.hoisted(() => ({
   lookupResultsByEmail: vi.fn(),
@@ -162,5 +166,58 @@ describe("ResultEmailLookupForm contract", () => {
       expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("Result link unavailable");
     });
     expect(screen.queryByTestId("result-email-lookup-open")).not.toBeInTheDocument();
+  });
+});
+
+describe("Taiwan Traditional result lookup route", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    window.sessionStorage.clear();
+  });
+
+  it("uses the real private route and clean language links", async () => {
+    const path = "/zh-TW/results/lookup";
+    render(<TraditionalResultLookupPage />);
+    expect(screen.getByRole("heading", { name: "找回測驗結果" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en/results/lookup");
+    expect(screen.getByRole("link", { name: "简体中文" })).toHaveAttribute("href", "/zh/results/lookup");
+    expect(metadata.alternates).toEqual({ canonical: path });
+    expect(metadata.robots).toMatchObject({ index: false, follow: false });
+    expect(traditionalPath("/zh/results/lookup")).toBe(path);
+    expect(traditionalEquivalent(path)).toBeNull();
+    const response = await proxy(new NextRequest("https://fermatmind.com" + path));
+    expect(response.status).toBe(200);
+    expect(response.headers.get("X-Robots-Tag")).toContain("noindex");
+    expect(response.headers.get("Cache-Control")).toContain("no-store");
+    expect(response.headers.get("Referrer-Policy")).toBe("no-referrer");
+    const unavailable = await proxy(new NextRequest("https://fermatmind.com/zh-TW/results/lookup/private"));
+    expect(unavailable.status).toBe(404);
+  });
+
+  it("requests a Taiwan email and keeps the guest response non-identifying", async () => {
+    hoisted.lookupResultsByEmail.mockResolvedValueOnce({ ok: true, items: [], email_verification_required: true });
+    render(<TraditionalResultLookupPage />);
+    fireEvent.change(screen.getByRole("textbox", { name: "電子郵件地址" }), { target: { value: " Owner@Example.Test " } });
+    fireEvent.click(screen.getByRole("button", { name: "查詢結果" }));
+    expect(await screen.findByTestId("result-email-lookup-results")).toHaveTextContent("如果有符合的已儲存結果");
+    expect(hoisted.lookupResultsByEmail).toHaveBeenCalledWith({ email: "owner@example.test", locale: "zh-TW" });
+    expect(screen.queryByTestId("result-email-lookup-open")).toBeNull();
+  });
+
+  it("labels the original-language result handoff and keeps the token out of the href", async () => {
+    hoisted.lookupResultsByEmail.mockResolvedValueOnce({ ok: true, items: [{
+      attempt_id: "tw-lookup-attempt",
+      result_url: "/zh/result/tw-lookup-attempt?access_token=synthetic-tw-token",
+      result_access_token: "synthetic-tw-token",
+    }] });
+    render(<TraditionalResultLookupPage />);
+    fireEvent.change(screen.getByRole("textbox", { name: "電子郵件地址" }), { target: { value: "owner@example.test" } });
+    fireEvent.click(screen.getByRole("button", { name: "查詢結果" }));
+    const link = await screen.findByRole("link", { name: "開啟結果（簡體中文）" });
+    expect(link).toHaveAttribute("href", "/zh/result/tw-lookup-attempt");
+    const click = createEvent.click(link, { button: 0 });
+    click.preventDefault();
+    fireEvent(link, click);
+    expect(window.sessionStorage.getItem("fm.result_access_token.tw-lookup-attempt")).toBe("synthetic-tw-token");
   });
 });

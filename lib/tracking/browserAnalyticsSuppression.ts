@@ -85,6 +85,7 @@ export function firstContentRouteSegment(pathname?: string | null): string {
 }
 
 export function isPrivateAnalyticsSuppressedPath(pathname?: string | null): boolean {
+  if (/^\/zh-tw\/results\/lookup\/?$/.test(normalizeToken(pathname).split("?")[0])) return true;
   const segment = firstContentRouteSegment(pathname);
   return Boolean(segment && PRIVATE_ANALYTICS_ROUTE_SEGMENTS.has(segment));
 }

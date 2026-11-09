@@ -26,6 +26,7 @@ export function traditionalPath(pathname: string): string | null {
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
   if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
+  if (path === "/results/lookup") return "/zh-TW/results/lookup";
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;

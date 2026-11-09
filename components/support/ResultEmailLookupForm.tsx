@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 import { ApiError } from "@/lib/api-client";
 import { lookupResultsByEmail, type ResultEmailLookupItem } from "@/lib/api/v0_3";
 import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
 import { stashResultAccessTokenForAttempt } from "@/lib/result/resultAccessTokenHandoff";
 import { cn } from "@/lib/utils";
@@ -21,17 +21,17 @@ function normalizeLookupEmail(value: string): string {
   return value.trim().toLowerCase();
 }
 
-function resolveScaleLabel(item: ResultEmailLookupItem): string {
+function resolveScaleLabel(item: ResultEmailLookupItem, locale: DisplayLocale): string {
   return normalizeText(item.scale_code)
     || normalizeText(item.scale_code_legacy)
     || normalizeText(item.scale_code_v2)
-    || "Result";
+    || (locale === "zh-TW" ? "結果" : "Result");
 }
 
-function formatDate(locale: Locale, value: string | null | undefined): string {
+function formatDate(locale: DisplayLocale, value: string | null | undefined): string {
   const normalized = normalizeText(value);
   if (!normalized) {
-    return locale === "zh" ? "时间未返回" : "Time not returned";
+    return locale === "zh-TW" ? "未提供時間" : locale === "zh" ? "时间未返回" : "Time not returned";
   }
 
   const date = new Date(normalized);
@@ -39,7 +39,7 @@ function formatDate(locale: Locale, value: string | null | undefined): string {
     return normalized;
   }
 
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : locale === "en" ? "en-US" : locale, {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(date);
@@ -68,7 +68,7 @@ function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string 
   return null;
 }
 
-export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
+export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
   const [email, setEmail] = useState("");
   const [items, setItems] = useState<ResultEmailLookupItem[] | null>(null);
   const [searchedEmail, setSearchedEmail] = useState("");
@@ -76,6 +76,23 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
   const [error, setError] = useState<string | null>(null);
 
   const labels = useMemo(() => {
+    if (locale === "zh-TW") {
+      return {
+        cardDescription: "請輸入儲存結果時使用的電子郵件地址。若目前的工作階段無法直接顯示結果，我們會將安全存取連結寄到該信箱。",
+        email: "電子郵件地址",
+        submit: "查詢結果",
+        submitting: "正在查詢…",
+        noMatches: "如果有符合的已儲存結果，我們會將安全存取連結寄到該信箱。請查看收件匣與垃圾郵件。",
+        matchesPrefix: "找到以下已儲存的結果：",
+        openResult: "開啟結果",
+        unavailable: "結果連結暫時無法使用",
+        type: "類型",
+        submittedAt: "送出時間",
+        validation: "請輸入電子郵件地址。",
+        genericError: "目前無法查詢結果，請稍後再試。",
+        rateLimited: "查詢次數過多，請稍後再試。",
+      };
+    }
     const isZh = locale === "zh";
     return {
       cardDescription: isZh
@@ -175,8 +192,8 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
           {items.length > 0 ? (
             <div className="space-y-3">
               {items.map((item, index) => {
-                const href = resolveResultHref(item, locale);
-                const scaleLabel = resolveScaleLabel(item);
+                const href = resolveResultHref(item, locale === "zh-TW" ? "zh" : locale);
+                const scaleLabel = resolveScaleLabel(item, locale);
                 const typeCode = normalizeText(item.type_code);
                 const itemKey = normalizeText(item.attempt_id) || normalizeText(item.result_id) || `${searchedEmail}-${index}`;
 
@@ -212,7 +229,7 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
                             stashResultAccessTokenForAttempt(itemKey, item.result_access_token);
                           }}
                         >
-                          {labels.openResult}
+                          {labels.openResult}{locale === "zh-TW" ? (href.startsWith("/en/") ? "（英文）" : "（簡體中文）") : ""}
                         </Link>
                       ) : (
                         <span className="text-sm font-medium text-[var(--fm-text-muted)]">{labels.unavailable}</span>
