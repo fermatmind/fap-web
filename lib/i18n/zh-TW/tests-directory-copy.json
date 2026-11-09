@@ -1,5 +1,5 @@
 {
-  "recipe": "e3663655d6a27045d7c9f004b53c71502ce679c83dc2a7b3e040854f1c688345",
+  "recipe": "068acbeb7dcf254c1e2810b8f721b8c16324c25fd08c082927d04afef8f3ce56",
   "bySlug": {
     "disc": {
       "title": {
@@ -258,7 +258,7 @@
       },
       "description": {
         "sourceHash": "05c368a07546b0b40dda57ac82d783c1becd15e54b525bb1385a4f24700b2d39",
-        "target": "用公開的 IPIP-VIA-R 條目回顧好奇、誠實、關愛等 24 項優勢。中文為工作譯文。"
+        "target": "用公開的 IPIP-VIA-R 條目回顧好奇、誠實、關愛等 24 項優勢。中文為工作譯稿。"
       }
     },
     "tsundere-dere-type": {
@@ -1508,7 +1508,7 @@
       },
       "description": {
         "sourceHash": "a6c23cb37fcacdd6a9ada995f96022fb040dff58c157c35227979c92cc0368e2",
-        "target": "用 MFQ-2 回看關懷、平等、比例公平、忠誠、權威和純潔。六項分別計分，中文為工作譯文。"
+        "target": "用 MFQ-2 回看關懷、平等、比例公平、忠誠、權威和純潔。六項分別計分，中文為工作譯稿。"
       }
     },
     "self-esteem": {
@@ -1518,7 +1518,7 @@
       },
       "description": {
         "sourceHash": "e9cec1e13995407b69012e0c4225dae1d40cf04fabd1a6d3eed9daffa2d8e0ef",
-        "target": "用羅森伯格自尊量表回顧整體自我評價。檢視 0–30 分總分及反向計分說明，中文為工作譯文。"
+        "target": "用羅森伯格自尊量表回顧整體自我評價。檢視 0–30 分總分及反向計分說明，中文為工作譯稿。"
       }
     },
     "time-management": {
@@ -1558,7 +1558,7 @@
       },
       "description": {
         "sourceHash": "eade973fdf3f1777085216a4b9768facb948191f3e5f732a5bcd0aedf9b161d3",
-        "target": "用 SCS 檢視自我慈悲的整體均分和六個分項讀數。中文為未經驗證的工作譯文。"
+        "target": "用 SCS 檢視自我慈悲的整體均分和六個分項讀數。中文為未經驗證的工作譯稿。"
       }
     },
     "communication-adaptability": {
@@ -2008,7 +2008,7 @@
       },
       "description": {
         "sourceHash": "3bd8583afa538e2030d1f71d15729dfa8a3a8976f0161f7f734739297f24744a",
-        "target": "看看六種日常烏龍里哪些更像你的選擇。這是趣味測驗，不估算智商。"
+        "target": "看看六種日常烏龍中哪些更像你的選擇。這是趣味測驗，不估算智商。"
       }
     },
     "mental-age": {
@@ -2038,7 +2038,7 @@
       },
       "description": {
         "sourceHash": "9d5bcb65d6ce9d351de4746ccb09d56ef2875c8b13d009cc8062f43374651056",
-        "target": "用發表版 FDS 回顧八類食物情境的感受。按組檢視均分，中文為工作譯文。"
+        "target": "用發表版 FDS 回顧八類食物情境的感受。按組檢視均分，中文為工作譯稿。"
       }
     },
     "cognitive-functions-test": {
@@ -2288,7 +2288,7 @@
       },
       "description": {
         "sourceHash": "29b512829fdf30e1b680a64bf8837dabafc97a469f11a27e7a909689778af26e",
-        "target": "用 TIPI 的原始英文條目回顧大五特質。五項均分分別呈現，中文為工作譯文。"
+        "target": "用 TIPI 的原始英文條目回顧大五特質。五項均分分別呈現，中文為工作譯稿。"
       }
     },
     "sbti-test": {
@@ -2388,7 +2388,7 @@
       },
       "description": {
         "sourceHash": "0f7d6efb6183d3c89bb2fc774f74dc1ea50533f04a68f7b5848436dd95883736",
-        "target": "用發表版 SD4 回顧四類特質。檢視各自均分，中文為工作譯文。"
+        "target": "用發表版 SD4 回顧四類特質。檢視各自均分，中文為工作譯稿。"
       }
     },
     "attraction-experiences": {
