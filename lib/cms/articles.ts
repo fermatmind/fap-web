@@ -15,7 +15,7 @@ import {
   normalizeArticleJsonLdAuthorityPayload,
 } from "@/lib/seo/articleJsonLdAuthority";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
-import { canonicalUrl } from "@/lib/site";
+import { CANONICAL_SITE_URL, canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
 // These controlled articles must reflect publication and withdrawal on every
@@ -230,16 +230,19 @@ export type CmsArticle = {
   answerSurface: AnswerSurfaceViewModel | null;
 };
 
+type ArticleSeoLocale = "en" | "zh-CN" | "zh-TW";
+
 export type CmsArticleSeoAuthorityProjection = {
   contractVersion: "article.seo.authority.v1";
   publishedRevisionBacked: boolean;
   alternateEligibility: {
     basis: "published_indexable_locale_siblings";
-    currentLocale: "en" | "zh-CN" | null;
-    eligibleLocales: Array<"en" | "zh-CN">;
+    currentLocale: ArticleSeoLocale | null;
+    eligibleLocales: ArticleSeoLocale[];
     alternates: {
       en: string | null;
       "zh-CN": string | null;
+      "zh-TW"?: string;
     };
   };
   structuredDataEligibility: {
@@ -893,6 +896,23 @@ function normalizeBackendArticleAlternate(value: unknown): string | null {
   }
 }
 
+function normalizeTraditionalArticleAlternate(value: unknown, locale: ArticleSeoLocale): string | null {
+  const raw = normalizeIsoValue(value);
+  if (!raw) return null;
+
+  try {
+    const url = new URL(raw, CANONICAL_SITE_URL);
+    const segment = locale === "zh-CN" ? "zh" : locale;
+    if (url.origin !== CANONICAL_SITE_URL || url.username || url.password || url.search || url.hash
+      || !new RegExp(`^/${segment}/articles/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$`, "u").test(url.pathname)) {
+      return null;
+    }
+    return canonicalUrl(url.pathname);
+  } catch {
+    return null;
+  }
+}
+
 function normalizeArticleSeoAuthorityProjection(
   value: unknown,
   sourceCanonical: string | null | undefined,
@@ -912,29 +932,32 @@ function normalizeArticleSeoAuthorityProjection(
   const alternateEligibility = readRecordValue(projection, "alternate_eligibility");
   const alternateBasis = readRecordValue(alternateEligibility, "basis");
   const currentLocaleValue = normalizeIsoValue(readRecordValue(alternateEligibility, "current_locale"));
-  const currentLocale = currentLocaleValue === "en" || currentLocaleValue === "zh-CN"
+  const currentLocale = currentLocaleValue === "en" || currentLocaleValue === "zh-CN" || currentLocaleValue === "zh-TW"
     ? currentLocaleValue
     : null;
   const eligibleLocalesValue = readRecordValue(alternateEligibility, "eligible_locales");
   const eligibleLocaleSet = new Set(
     Array.isArray(eligibleLocalesValue)
-      ? eligibleLocalesValue.filter((locale): locale is "en" | "zh-CN" => locale === "en" || locale === "zh-CN")
+      ? eligibleLocalesValue.filter((locale): locale is ArticleSeoLocale => locale === "en" || locale === "zh-CN" || locale === "zh-TW")
       : [],
   );
   const projectedAlternates = readRecordValue(alternateEligibility, "alternates");
-  const alternates = {
-    en: publishedRevisionBacked
-      && alternateBasis === "published_indexable_locale_siblings"
-      && eligibleLocaleSet.has("en")
-      ? normalizeBackendArticleAlternate(readRecordValue(projectedAlternates, "en"))
-      : null,
-    "zh-CN": publishedRevisionBacked
-      && alternateBasis === "published_indexable_locale_siblings"
-      && eligibleLocaleSet.has("zh-CN")
-      ? normalizeBackendArticleAlternate(readRecordValue(projectedAlternates, "zh-CN"))
-      : null,
+  const readAlternate = (locale: ArticleSeoLocale): string | null => {
+    if (!publishedRevisionBacked || alternateBasis !== "published_indexable_locale_siblings" || !eligibleLocaleSet.has(locale)) {
+      return null;
+    }
+    const alternate = readRecordValue(projectedAlternates, locale);
+    return locale === "zh-TW" || currentLocale === "zh-TW"
+      ? normalizeTraditionalArticleAlternate(alternate, locale)
+      : normalizeBackendArticleAlternate(alternate);
   };
-  const eligibleLocales = (["en", "zh-CN"] as const).filter((locale) => Boolean(alternates[locale]));
+  const traditional = readAlternate("zh-TW");
+  const alternates = {
+    en: readAlternate("en"),
+    "zh-CN": readAlternate("zh-CN"),
+    ...(traditional ? { "zh-TW": traditional } : {}),
+  };
+  const eligibleLocales = (["en", "zh-CN", "zh-TW"] as const).filter((locale) => Boolean(alternates[locale]));
 
   const structuredDataEligibility = readRecordValue(projection, "structured_data_eligibility");
   const structuredDataBasis = readRecordValue(structuredDataEligibility, "basis");
@@ -1007,8 +1030,23 @@ export function normalizeArticleListPage(value: unknown): number {
   return Math.min(Math.floor(parsed), MAX_ARTICLE_LIST_PAGE);
 }
 
+function normalizeArticleLocale(locale: string): Locale | "zh-TW" {
+  return locale === "zh-TW" ? locale : normalizeLocale(locale);
+}
+
+function articleApiLocale(locale: string): "en" | "zh-CN" | "zh-TW" {
+  return locale === "zh-TW" ? locale : toApiLocale(locale);
+}
+
+function articleLocaleRequestOptions(locale: string) {
+  return locale === "zh-TW"
+    ? { locale, headers: { "X-FAP-Locale": locale } }
+    : { locale };
+}
+
 export function buildArticleFrontendUrl(locale: Locale | string, slug: string): string {
-  return localizedPath(`/articles/${normalizeArticleSlug(slug)}`, normalizeLocale(locale));
+  const path = `/articles/${normalizeArticleSlug(slug)}`;
+  return locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, normalizeLocale(locale));
 }
 
 export function normalizeArticleSeoPayload(
@@ -1022,6 +1060,14 @@ export function normalizeArticleSeoPayload(
 
   const normalizedSlug = normalizeArticleSlug(slug);
   const canonicalPath = buildArticleFrontendUrl(locale, normalizedSlug);
+  const canonical = canonicalUrl(canonicalPath);
+  const surface = normalizeSeoSurface(seo.seo_surface_v1 ?? null);
+  if (locale === "zh-TW" && (
+    normalizeBackendArticleAlternate(seo.meta?.canonical) !== canonical
+    || (surface?.canonicalUrl && normalizeBackendArticleAlternate(surface.canonicalUrl) !== canonical)
+  )) {
+    return null;
+  }
   const authority = normalizeArticleSeoAuthorityProjection(
     seo.meta?.article_authority_v1,
     seo.meta?.canonical,
@@ -1033,7 +1079,7 @@ export function normalizeArticleSeoPayload(
     meta: {
       title: fallbackText(seo.meta?.title),
       description: fallbackText(seo.meta?.description),
-      canonical: canonicalUrl(canonicalPath),
+      canonical,
       alternates: {
         en: normalizeBackendArticleAlternate(seo.meta?.alternates?.en),
         "zh-CN": normalizeBackendArticleAlternate(seo.meta?.alternates?.["zh-CN"]),
@@ -1050,12 +1096,12 @@ export function normalizeArticleSeoPayload(
         description: fallbackText(seo.meta?.twitter?.description, seo.meta?.description),
         image: cmsManagedMediaUrl(normalizeIsoValue(seo.meta?.twitter?.image ?? seo.meta?.og?.image)),
       },
-      robots: fallbackText(seo.meta?.robots, "index,follow"),
+      robots: fallbackText(seo.meta?.robots, locale === "zh-TW" ? "noindex,follow" : "index,follow"),
     },
     jsonld: authority
       ? authority.structuredDataFragments.article
       : normalizeArticleJsonLd(seo.jsonld ?? null, seo.meta?.canonical, canonicalPath, normalizedSlug),
-    surface: normalizeSeoSurface(seo.seo_surface_v1 ?? null),
+    surface,
     authority,
   };
 }
@@ -1164,7 +1210,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
 }
 
 function matchesRequestedLocale(articleLocale: string, locale: Locale | string): boolean {
-  return toApiLocale(articleLocale) === toApiLocale(locale);
+  return articleApiLocale(articleLocale) === articleApiLocale(locale);
 }
 
 function isPublishedRevisionBackedArticle(article: CmsArticle, locale: Locale | string): boolean {
@@ -1176,12 +1222,12 @@ function isPublishedRevisionBackedArticle(article: CmsArticle, locale: Locale | 
   );
 }
 
-// The opt-in Blog contract must prove identity before legacy normalization.
-function isPublicBlogArticleRecord(value: unknown, locale: Locale | string): value is CmsArticleApiRecord {
+// Exact article projections must prove identity before legacy normalization.
+function isPublicArticleRecord(value: unknown, locale: Locale | string): value is CmsArticleApiRecord {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const raw = value as Record<string, unknown>;
-  const requestedLocale = locale === "en" ? "en" : locale === "zh" || locale === "zh-CN" ? "zh-CN" : null;
-  return requestedLocale !== null
+  const requestedLocale = locale === "zh" ? "zh-CN" : locale;
+  return (requestedLocale === "en" || requestedLocale === "zh-CN" || requestedLocale === "zh-TW")
     && raw.locale === requestedLocale
     && typeof raw.id === "number" && Number.isSafeInteger(raw.id) && raw.id > 0
     && raw.org_id === Number(DEFAULT_ORG_ID)
@@ -1220,7 +1266,7 @@ export function normalizeBlog(value: unknown, locale: Locale | string): CmsBlog 
     categories.push({ slug: category.slug, lineKey: category.line_key, name: category.name,
       description: category.description, articleCount: category.article_count });
   }
-  const featuredItems = raw.featured_items.filter((item): item is CmsArticleApiRecord => isPublicBlogArticleRecord(item, locale))
+  const featuredItems = raw.featured_items.filter((item): item is CmsArticleApiRecord => isPublicArticleRecord(item, locale))
     .map(normalizeArticle).filter((article) => article.slug && article.title && isPublishedRevisionBackedArticle(article, locale))
     .filter((article) => [article.publishedAt, article.scheduledAt].every((date) => date === null || (Number.isFinite(Date.parse(date)) && Date.parse(date) <= Date.now())));
   return { configurationState: "published", isIndexable: raw.is_indexable === true, title: raw.title, description: raw.description, categories, featuredItems };
@@ -1234,7 +1280,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
       ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
       : DEFAULT_LIST_PER_PAGE;
   const query = buildQuery({
-    locale: toApiLocale(params.locale),
+    locale: articleApiLocale(params.locale),
     page: requestedPage,
     per_page: requestedPerPage,
     org_id: DEFAULT_ORG_ID,
@@ -1244,14 +1290,14 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     include_blog: params.includeBlog ? 1 : undefined,
   });
   const cacheOptions =
-    allowLocalFallback || params.usePublicCache
+    params.locale !== "zh-TW" && (allowLocalFallback || params.usePublicCache)
       ? PUBLIC_API_CACHE_OPTIONS
       : ({ cache: "no-store" } as const);
 
   try {
     const response = await apiClient
       .get<CmsArticlesApiResponse>(`/v0.5/articles${query}`, {
-        locale: params.locale,
+        ...articleLocaleRequestOptions(params.locale),
         skipAuth: true,
         ...cacheOptions,
       })
@@ -1259,6 +1305,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
 
     const rawItems = Array.isArray(response.items) ? response.items : [];
     const items = rawItems
+      .filter((article) => params.locale !== "zh-TW" || isPublicArticleRecord(article, params.locale))
       .map(normalizeArticle)
       .filter((article) => article.slug && article.title)
       .filter((article) => isPublishedRevisionBackedArticle(article, params.locale));
@@ -1302,7 +1349,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
 export async function getCmsArticlesWithLastKnownGood(
   params: GetCmsArticlesParams
 ): Promise<LastKnownGoodResult<GetCmsArticlesResult>> {
-  const locale = normalizeLocale(params.locale);
+  const locale = normalizeArticleLocale(params.locale);
   const page = normalizeArticleListPage(params.page);
   const perPage =
     typeof params.perPage === "number" && params.perPage > 0
@@ -1477,7 +1524,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string, usePu
     return null;
   }
 
-  const apiLocale = toApiLocale(locale);
+  const apiLocale = articleApiLocale(locale);
   const query = buildQuery({
     locale: apiLocale,
     org_id: DEFAULT_ORG_ID,
@@ -1486,16 +1533,18 @@ export async function getCmsArticle(slug: string, locale: Locale | string, usePu
   try {
     const response = await apiClient
       .getPublic<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
-        locale,
+        ...articleLocaleRequestOptions(locale),
         skipAuth: true,
-        ...(usePublicCache && !LIVE_AUTHORITATIVE_ARTICLE_SLUGS.has(normalizedSlug) ? { next: {
+        ...(locale !== "zh-TW" && usePublicCache && !LIVE_AUTHORITATIVE_ARTICLE_SLUGS.has(normalizedSlug) ? { next: {
           revalidate: PUBLIC_API_REVALIDATE_SECONDS,
           tags: [articleDetailCacheTag(apiLocale, normalizedSlug)],
         } } : { cache: "no-store" as const }),
       })
       .then(stripArticleDetailResponseInternalSlotMarkers);
 
-    if (!response.article) {
+    if (!response.article || (locale === "zh-TW" && (
+      !isPublicArticleRecord(response.article, locale) || response.article.slug !== normalizedSlug
+    ))) {
       return null;
     }
 
@@ -1521,7 +1570,7 @@ export async function getCmsArticleWithLastKnownGood(
   locale: Locale | string
 ): Promise<LastKnownGoodResult<CmsArticle | null>> {
   const normalizedSlug = normalizeArticleSlug(slug);
-  const normalizedLocale = normalizeLocale(locale);
+  const normalizedLocale = normalizeArticleLocale(locale);
 
   return withLastKnownGood({
     key: `articles:detail:${normalizedLocale}:${normalizedSlug}`,
@@ -1538,7 +1587,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
     return null;
   }
 
-  const apiLocale = toApiLocale(locale);
+  const apiLocale = articleApiLocale(locale);
   const query = buildQuery({
     locale: apiLocale,
     org_id: DEFAULT_ORG_ID,
@@ -1548,9 +1597,9 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
     const response = await apiClient.getPublic<CmsArticleSeoApiResponse>(
       `/v0.5/articles/${encodeURIComponent(normalizedSlug)}/seo${query}`,
       {
-        locale,
+        ...articleLocaleRequestOptions(locale),
         skipAuth: true,
-        ...(LIVE_AUTHORITATIVE_ARTICLE_SLUGS.has(normalizedSlug) ? { cache: "no-store" as const } : { next: {
+        ...(locale === "zh-TW" || LIVE_AUTHORITATIVE_ARTICLE_SLUGS.has(normalizedSlug) ? { cache: "no-store" as const } : { next: {
           revalidate: PUBLIC_API_REVALIDATE_SECONDS,
           tags: [articleSeoCacheTag(apiLocale, normalizedSlug)],
         } }),
@@ -1572,7 +1621,7 @@ export async function getCmsArticleSeoWithLastKnownGood(
   locale: Locale | string
 ): Promise<LastKnownGoodResult<CmsArticleSeoPayload | null>> {
   const normalizedSlug = normalizeArticleSlug(slug);
-  const normalizedLocale = normalizeLocale(locale);
+  const normalizedLocale = normalizeArticleLocale(locale);
 
   return withLastKnownGood({
     key: `articles:seo:${normalizedLocale}:${normalizedSlug}`,

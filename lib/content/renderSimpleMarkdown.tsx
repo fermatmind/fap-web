@@ -8,6 +8,7 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   allowImages?: boolean;
   scrollableTables?: boolean;
+  scrollableTableLabel?: string;
   wrapPlainTextFences?: boolean;
   compactMatrixHeaders?: readonly [string, string, string, string];
   minimumHeadingLevel?: HeadingLevel;
@@ -563,7 +564,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
         return (
           <div key={key} className="overflow-x-auto rounded-xl border border-[var(--fm-border)]"
             role={options.scrollableTables ? "region" : undefined}
-            aria-label={options.scrollableTables ? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table") : undefined}
+            aria-label={options.scrollableTables ? (options.scrollableTableLabel ?? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table")) : undefined}
             tabIndex={options.scrollableTables ? 0 : undefined}>
             <table className="w-full border-collapse text-left text-sm"
               style={compactMatrix ? { tableLayout: "fixed" } : options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>

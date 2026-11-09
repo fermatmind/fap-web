@@ -40,6 +40,49 @@ describe("Blog CMS archive and SEO boundaries", () => {
     ]);
   });
 
+  it("renders Traditional archive and category links from the exact published CMS locale", async () => {
+    const fixture = data();
+    const traditional = (item: CmsArticle): CmsArticle => ({
+      ...item, locale: "zh-TW", authorName: "費馬測試編輯部",
+      category: { id: 1, slug: "personality", name: "简中分类" },
+      tags: [{ id: 2, slug: "test", name: "简中标签" }],
+    });
+    get.mockResolvedValue({ value: {
+      ...fixture,
+      items: fixture.items.map(traditional),
+      pagination: { ...fixture.pagination, lastPage: 2 },
+      blog: {
+        ...fixture.blog!, isIndexable: false, title: "費馬部落格", description: "繁體目錄說明",
+        featuredItems: fixture.blog!.featuredItems.map(traditional),
+        categories: [{ ...fixture.blog!.categories[0], name: "人格與自我認識", description: "繁體分類說明" }],
+      },
+    }, source: "fresh", stale: false });
+    const archive = renderToStaticMarkup(await BlogArchive({ locale: "zh-TW", query: {} }));
+    expect(archive).toContain("費馬部落格");
+    expect(archive).toContain('href="/zh-TW/articles/editor-third"');
+    expect(archive).toContain('href="/zh-TW/articles/category/personality"');
+    expect(archive).toContain('href="/zh-TW/articles?page=2"');
+    expect(archive).toContain("費馬測試編輯部");
+    expect(archive).not.toContain("简中");
+    expect(archive).not.toContain("<main");
+    const category = renderToStaticMarkup(await BlogArchive({ locale: "zh-TW", query: { page: "2" }, category: "personality" }));
+    expect(category).toContain("人格與自我認識 · 第 2 頁");
+    expect(category).toContain("繁體分類說明");
+    expect(category).not.toContain('data-article-layout="featured"');
+    expect(get).toHaveBeenCalledWith(expect.objectContaining({ locale: "zh-TW", page: 2, categorySlug: "personality", includeBlog: true }));
+    const meta = await blogArchiveMetadata("zh-TW", { page: "2" }, "personality");
+    expect(meta.alternates).toEqual({ canonical: "https://fermatmind.com/zh-TW/articles/category/personality?page=2" });
+    expect(meta.robots).toEqual({ index: false, follow: true });
+  });
+
+  it("keeps an unconfigured Traditional archive unavailable and distinguishes transport failures", async () => {
+    const fixture = data();
+    get.mockResolvedValueOnce({ value: { ...fixture, blog: { ...fixture.blog!, configurationState: "unconfigured" } }, stale: false });
+    await expect(BlogArchive({ locale: "zh-TW", query: {} })).rejects.toThrow("not-found");
+    get.mockRejectedValueOnce(new Error("temporarily unavailable"));
+    expect(renderToStaticMarkup(await BlogArchive({ locale: "zh-TW", query: {} }))).toContain('data-testid="blog-error"');
+  });
+
   it("keeps editorial order separate from latest and does not invent authors or publication dates", async () => {
     const html = renderToStaticMarkup(await BlogArchive({ locale: "en", query: {} }));
     expect(html.indexOf("editor-third")).toBeLessThan(html.indexOf("editor-first"));

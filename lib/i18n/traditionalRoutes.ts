@@ -29,7 +29,11 @@ export function traditionalPath(pathname: string): string | null {
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
-  if (prefix === "zh-TW" && TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
+  if (prefix === "zh-TW" && (
+    TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)
+    || path === "/articles"
+    || /^\/articles\/(?:category\/[a-z0-9]+(?:-[a-z0-9]+)*|[A-Za-z0-9][A-Za-z0-9_-]{0,127})$/u.test(path)
+  )) return `/zh-TW${path}`;
   return TRADITIONAL_PUBLIC_PATHS.includes(path) || path === `${TRADITIONAL_QUIZ_PATH}/take` || path === `${TRADITIONAL_SEVEN_SINS_PATH}/take` ? `/zh-TW${path}` : null;
 }
 export function traditionalEquivalent(pathname: string): string | null {

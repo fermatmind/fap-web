@@ -2,7 +2,7 @@ import { act, cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import LocaleSwitcherMenu from "@/components/i18n/LocaleSwitcherMenu";
-import { resolveLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
+import { resolveLocaleSwitchHref, resolveTraditionalSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
 
 vi.mock("next/link", () => ({ default: ({ href, children, onClick, prefetch, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { prefetch?: boolean }) => {
   void prefetch;
@@ -21,6 +21,26 @@ afterEach(() => {
 });
 
 describe("Article language navigation authority", () => {
+  it("uses only a same-origin canonical Traditional article counterpart", () => {
+    const path = "/en/articles/current";
+    const head = metadata("https://fermatmind.com" + path);
+    const link = document.createElement("link");
+    link.rel = "alternate";
+    link.hreflang = "zh-TW";
+    head.append(link);
+    link.href = "https://fermatmind.com/zh-TW/articles/translated";
+    expect(resolveTraditionalSwitchHref(path, head)).toBe("/zh-TW/articles/translated");
+    expect(resolveTraditionalSwitchHref("/en/articles/previous", head)).toBe("/zh-TW/tests");
+    for (const url of [
+      "https://example.test/zh-TW/articles/translated",
+      "https://fermatmind.com/zh-TW/articles/translated?token=x",
+      "https://fermatmind.com/zh-TW/articles/category/translated",
+    ]) {
+      link.href = url;
+      expect(resolveTraditionalSwitchHref(path, head)).toBe("/zh-TW/tests");
+    }
+  });
+
   it("does not manufacture a category counterpart and accepts only verified bounded category pagination", () => {
     const current = "/en/articles/category/personality";
     expect(resolveLocaleSwitchHref(current, "zh")).toBe("/zh/articles");

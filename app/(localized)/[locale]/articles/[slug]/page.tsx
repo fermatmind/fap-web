@@ -41,6 +41,7 @@ import { resolveArticleHreflangGate, resolveArticleJsonLdAuthority, resolveArtic
 import { normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { isConfiguredStagingSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -272,6 +273,12 @@ export async function generateMetadata({
     buildArticleMetadataImage(seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage, article.coverImageAlt),
     metadata.twitter?.images,
   );
+  const localeAuthority = seo?.authority?.alternateEligibility;
+  const traditionalAlternate = seoResult.source === "fresh"
+    && !isConfiguredStagingSiteUrl()
+    && localeAuthority?.currentLocale === toApiLocale(locale)
+    ? localeAuthority.alternates["zh-TW"]
+    : undefined;
   const alternates = !articleHreflangGate.canRenderHreflang
     ? {
         canonical: passport.canonical,
@@ -279,7 +286,10 @@ export async function generateMetadata({
     : {
         ...metadata.alternates,
         canonical: passport.canonical,
-        languages: passport.languages,
+        languages: {
+          ...passport.languages,
+          ...(traditionalAlternate ? { "zh-TW": traditionalAlternate } : {}),
+        },
       };
 
   return {

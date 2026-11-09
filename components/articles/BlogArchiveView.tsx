@@ -6,28 +6,31 @@ import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveIm
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import type { CmsArticle, CmsBlog } from "@/lib/cms/articles";
+import { buildArticleFrontendUrl, type CmsArticle, type CmsBlog } from "@/lib/cms/articles";
 import { articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
-import { blogArchivePath } from "@/lib/content/blogArchive";
+import { blogArchivePath, blogArchiveTitle } from "@/lib/content/blogArchive";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from "@/lib/seo/generateSchema";
 
 import type { MouseEvent } from "react";
 import type { BlogArchiveState } from "@/lib/content/blogArchive";
 
-function localizedLabel(value: string | null | undefined, locale: Locale) {
+function localizedLabel(value: string | null | undefined, locale: DisplayLocale) {
   return locale === "en" && value && /[\u3400-\u9fff]/u.test(value) ? null : value;
 }
 
-function ArchiveCard({ article, blog, locale, featured, label }: { article: CmsArticle; blog?: CmsBlog; locale: Locale; featured: boolean; label: string }) {
+function ArchiveCard({ article, blog, locale, featured, label }: { article: CmsArticle; blog?: CmsBlog; locale: DisplayLocale; featured: boolean; label: string }) {
   const date = article.publishedAt ? new Date(article.publishedAt) : null;
   const published = date && Number.isFinite(date.getTime())
-    ? new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(date) : null;
-  const badges = [articleCategoryLabel(article.category, blog, locale), ...article.tags.map((tag) => tag.name)]
+    ? new Intl.DateTimeFormat(locale === "zh-TW" ? locale : locale === "zh" ? "zh-CN" : "en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(date) : null;
+  const taxonomyLabels = locale === "zh-TW"
+    ? [blog?.categories.find((category) => category.slug === article.category?.slug)?.name]
+    : [articleCategoryLabel(article.category, blog, locale), ...article.tags.map((tag) => tag.name)];
+  const badges = taxonomyLabels
     .map((value) => localizedLabel(value, locale)).filter((value): value is string => Boolean(value)).slice(0, 2);
   return <article data-testid={`articles-card-${article.slug}`} data-article-id={article.id ?? undefined} data-published-revision-id={article.publishedRevisionId ?? undefined} data-article-layout={featured ? "featured" : "archive"} className="group flex min-h-full flex-col">
-    <Link href={localizedPath(`/articles/${article.slug}`, locale)} className="flex h-full flex-col rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4">
+    <Link href={buildArticleFrontendUrl(locale, article.slug)} className="flex h-full flex-col rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4">
       <ArticleResponsiveImage src={article.coverImageUrl} alt={localizedLabel(article.coverImageAlt, locale) || article.title}
         width={article.coverImageWidth} height={article.coverImageHeight} variants={article.coverImageVariants}
         className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]" imageClassName="transition-transform motion-reduce:transition-none group-hover:scale-[1.025]" />
@@ -37,8 +40,8 @@ function ArchiveCard({ article, blog, locale, featured, label }: { article: CmsA
         {article.excerpt ? <p className="m-0 line-clamp-3 text-sm leading-6 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
         <div className="flex flex-wrap gap-2 text-xs text-[var(--fm-text-muted)]">
           {published ? <time dateTime={article.publishedAt!}>{published}</time> : null}
-          {article.readingMinutes ? <span>{locale === "zh" ? `${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}</span> : null}
-          <span>{articleByline(article.authorName, locale).name}</span>
+          {article.readingMinutes ? <span>{locale === "zh-TW" ? `${article.readingMinutes} 分鐘` : locale === "zh" ? `${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}</span> : null}
+          <span>{locale === "zh-TW" ? article.authorName || "費馬測試" : articleByline(article.authorName, locale).name}</span>
         </div>
         <span className="mt-auto pt-1 text-sm font-semibold text-[var(--fm-accent)]">{label}</span>
       </div>
@@ -47,7 +50,7 @@ function ArchiveCard({ article, blog, locale, featured, label }: { article: CmsA
 }
 
 export function BlogArchiveView({ locale, state, category = "", page = 1, preview = false, onNavigate }: {
-  locale: Locale; state: BlogArchiveState; category?: string; page?: number; preview?: boolean;
+  locale: DisplayLocale; state: BlogArchiveState; category?: string; page?: number; preview?: boolean;
   onNavigate?: (category: string, page: number) => void;
 }) {
   const dict = getDictSync(locale);
@@ -57,18 +60,18 @@ export function BlogArchiveView({ locale, state, category = "", page = 1, previe
   const blog = state.data?.blog;
   const configured = blog?.configurationState === "published";
   const activeCategory = configured ? blog.categories.find((item) => item.slug === category) : undefined;
-  const unavailable = state.failed || Boolean(category && !activeCategory);
+  const unavailable = state.failed || Boolean(category && !activeCategory) || (locale === "zh-TW" && !configured);
   const title = category ? activeCategory?.name || dict.articles.title : blog?.title || dict.articles.title;
-  const visibleTitle = page > 1 ? `${title} · ${locale === "zh" ? `第 ${page} 页` : `Page ${page}`}` : title;
+  const visibleTitle = blogArchiveTitle(title, locale, page);
   const description = category ? activeCategory?.description : blog?.description;
   const path = blogArchivePath(locale, category, page);
   const items = state.data?.items || [];
   const featured = configured && !category && page === 1 ? blog.featuredItems : [];
   const pagination = state.data?.pagination;
-  const breadcrumbs = [{ name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    ...(category ? [{ name: dict.articles.title, path: localizedPath("/articles", locale) }] : []), { name: visibleTitle, path }];
-  return <Container as="main" className="space-y-10 py-10 md:space-y-14 md:py-16">
-    {!unavailable && !preview ? <>
+  const breadcrumbs = [{ name: locale === "zh-TW" ? "首頁" : locale === "zh" ? "首页" : "Home", path: locale === "zh-TW" ? "/zh-TW" : localizedPath("/", locale) },
+    ...(category ? [{ name: dict.articles.title, path: blogArchivePath(locale) }] : []), { name: visibleTitle, path }];
+  return <Container as={locale === "zh-TW" ? "div" : "main"} className="space-y-10 py-10 md:space-y-14 md:py-16">
+    {!unavailable && !preview && locale !== "zh-TW" ? <>
       <JsonLd id={`articles-collection-${locale}`} data={buildCollectionPageJsonLd({ path, title: visibleTitle, description: description || "", locale })} />
       <JsonLd id={`articles-breadcrumb-${locale}`} data={buildBreadcrumbJsonLd(breadcrumbs)} />
     </> : null}
@@ -77,7 +80,7 @@ export function BlogArchiveView({ locale, state, category = "", page = 1, previe
       {category ? <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.articles.title}</p> : null}
       <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] md:text-5xl">{visibleTitle}</h1>
       {description ? <p className="m-0 text-lg leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
-      <BlogFeedLink locale={locale} />
+      {locale !== "zh-TW" ? <BlogFeedLink locale={locale} /> : null}
     </header>
     {state.stale ? <p role="status" data-testid="blog-stale" className="rounded-lg border border-[var(--fm-border)] p-4 text-sm">{dict.articles.stale}</p> : null}
     {unavailable ? <div role="alert" data-testid="blog-error" className="space-y-3 rounded-lg border border-[var(--fm-border)] p-6"><p>{dict.articles.unavailable}</p><Link href={path}>{dict.articles.retry}</Link></div> : <>
@@ -99,7 +102,7 @@ export function BlogArchiveView({ locale, state, category = "", page = 1, previe
         {/* Public pagination loads the matching server head with the document.
             The private preview retains its scoped onNavigate callback. */}
         {page > 1 ? <a onClick={navigate(category, page - 1)} rel="prev" href={blogArchivePath(locale, category, page - 1)}>{dict.articles.previousPage}</a> : <span />}
-        <span>{locale === "zh" ? `第 ${page} 页 / 共 ${pagination.lastPage} 页` : `Page ${page} of ${pagination.lastPage}`}</span>
+        <span>{locale === "zh-TW" ? `第 ${page} 頁 / 共 ${pagination.lastPage} 頁` : locale === "zh" ? `第 ${page} 页 / 共 ${pagination.lastPage} 页` : `Page ${page} of ${pagination.lastPage}`}</span>
         {page < Math.min(pagination.lastPage, 100) ? <a onClick={navigate(category, page + 1)} rel="next" href={blogArchivePath(locale, category, page + 1)}>{dict.articles.nextPage}</a> : <span />}
       </nav> : null}
     </>}

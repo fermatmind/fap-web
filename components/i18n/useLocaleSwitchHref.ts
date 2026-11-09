@@ -51,6 +51,12 @@ export function useLocaleSwitchHref(pathname: string, targetLocale: Locale): str
 export function resolveTraditionalSwitchHref(pathname: string, head?: ParentNode, search = ""): string {
   const registered = traditionalPath(pathname);
   if (registered) return emailTokenSwitchHref(pathname, registered, search);
+  if (/^\/(?:en|zh)\/articles\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/u.test(pathname)
+    && head?.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href === CANONICAL_SITE_URL + pathname) {
+    const alternate = head.querySelector<HTMLLinkElement>('link[rel="alternate"][hreflang="zh-TW"]')?.href;
+    const path = alternate?.startsWith(CANONICAL_SITE_URL + "/") ? alternate.slice(CANONICAL_SITE_URL.length) : "";
+    if (/^\/zh-TW\/articles\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/u.test(path)) return path;
+  }
   if (!/^\/(?:en|zh)\/personality(?:\/|$)/u.test(pathname) ||
     head?.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href !== CANONICAL_SITE_URL + pathname) {
     return "/zh-TW/tests";

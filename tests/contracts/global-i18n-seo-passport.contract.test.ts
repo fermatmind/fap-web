@@ -94,7 +94,7 @@ describe("Global i18n SEO Passport baseline", () => {
     expect(articlePage).toContain("buildI18nSeoPassport");
     expect(articlePage).toContain("authorityAlternates: articleAlternateLanguages(seo)");
     expect(articlePage).toContain("existingLanguages: metadata.alternates?.languages");
-    expect(articlePage).toContain("languages: passport.languages");
+    expect(articlePage).toContain("...passport.languages");
     expect(articlePage).not.toContain("languages: articleAlternateLanguages(seo)");
 
     expect(testPage).toContain('xDefault: alternates["x-default"]');
