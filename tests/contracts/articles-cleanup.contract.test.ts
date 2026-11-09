@@ -108,7 +108,11 @@ describe("articles cleanup contract", () => {
     expect(source).toContain("const articleHreflangGate = resolveArticleHreflangGate({");
     expect(source).toContain("const alternates = !articleHreflangGate.canRenderHreflang");
     expect(source).toContain("canonical: passport.canonical");
-    expect(source).toContain("languages: passport.languages");
+    expect(source).toContain("...passport.languages");
+    expect(source).toContain('seoResult.source === "fresh"');
+    expect(source).toContain("!isConfiguredStagingSiteUrl()");
+    expect(source).toContain("localeAuthority?.currentLocale === toApiLocale(locale)");
+    expect(source).toContain('...(traditionalAlternate ? { "zh-TW": traditionalAlternate } : {})');
     expect(source).toContain("resolveArticleSchemaGate");
     expect(source).toContain("const articleSchemaGate = resolveArticleSchemaGate({");
     expect(source).toContain("const articleJsonLd = articleSchemaGate.canRenderArticleJsonLd ?");
