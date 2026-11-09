@@ -2,6 +2,7 @@
 
 import { useState, useSyncExternalStore } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
 import styles from "./site-footer.module.css";
@@ -15,6 +16,10 @@ const platforms = [
   { name: "Zearches", href: "https://zearches.com/directory.php?slug=education-learning&q=FermatMind" },
   { name: "Outbring", href: "https://outbring.lol/zh/" },
 ] as const;
+const startupFame = {
+  name: "Startup Fame",
+  href: "https://startupfa.me/s/fermatmind?utm_source=fermatmind.com",
+};
 const subscribeReady = () => () => {};
 
 // Original assets: producthunt.com/branding (logo, unmodified) and the badge
@@ -26,10 +31,16 @@ function PlatformMark({ name }: { name: string }) {
   if (name === "SaaSHub") {
     return <Image src="/images/platforms/saashub-approved.png" alt={name} width={300} height={100} className={styles.saashubMark} unoptimized />;
   }
+  if (name === "Startup Fame") {
+    return <Image src="/images/platforms/startup-fame-featured.webp" alt="FermatMind on Startup Fame" width={224} height={36} unoptimized />;
+  }
   return <>{name}<ArrowUpRight size={14} aria-hidden="true" /></>;
 }
 
 export function SiteFooterPlatforms({ locale }: { locale: Locale }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/" || pathname === "/zh" || pathname === "/en";
+  const displayedPlatforms = isHome ? [startupFame, ...platforms] : platforms;
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [paused, setPaused] = useState(false);
   const zh = locale === "zh";
@@ -63,7 +74,7 @@ export function SiteFooterPlatforms({ locale }: { locale: Locale }) {
         <div className={styles.platformTrack}>
           {[false, true].map((duplicate) => (
             <ul key={String(duplicate)} className={styles.platformGroup} aria-hidden={duplicate || undefined}>
-              {platforms.map(({ name, href }) => (
+              {displayedPlatforms.map(({ name, href }) => (
                 <li key={name}>
                   <a
                     href={href}
