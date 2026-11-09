@@ -96,12 +96,12 @@ describe("Email preferences and unsubscribe contract", () => {
     expect(hoisted.getEmailPreferences).not.toHaveBeenCalled();
   });
 
-  it("saves the same three preference booleans in Taiwan without adding a language or market to the API", async () => {
+  it("saves the preference booleans and the Taiwan confirmation locale", async () => {
     render(await TraditionalPreferencesPage({searchParams:Promise.resolve({token:"private_token_123"})}));
     await screen.findByTestId("email-preferences-form");
     fireEvent.click(screen.getByTestId("email-preferences-marketing-updates"));
     fireEvent.click(screen.getByTestId("email-preferences-save"));
-    await waitFor(()=>expect(hoisted.updateEmailPreferences).toHaveBeenCalledWith({token:"private_token_123",marketing_updates:false,report_recovery:true,product_updates:false}));
+    await waitFor(()=>expect(hoisted.updateEmailPreferences).toHaveBeenCalledWith({token:"private_token_123",confirmation_locale:"zh-TW",marketing_updates:false,report_recovery:true,product_updates:false}));
     expect(await screen.findByTestId("email-preferences-feedback")).toHaveTextContent("訂閱偏好已儲存");
     expect(screen.getByRole("link",{name:"English"})).toHaveAttribute("href","/en/email/preferences?token=private_token_123");
     expect(screen.getByRole("link",{name:"繁體中文"})).toHaveAttribute("aria-current","page");
@@ -124,7 +124,7 @@ describe("Email preferences and unsubscribe contract", () => {
     expect(screen.getByTestId("email-unsubscribe-confirm")).toHaveTextContent("確認退訂");
     expect(hoisted.unsubscribeEmail).not.toHaveBeenCalled();
     fireEvent.click(screen.getByTestId("email-unsubscribe-confirm-button"));
-    await waitFor(()=>expect(hoisted.unsubscribeEmail).toHaveBeenCalledWith({token:"private_unsubscribe_token",reason:"user_request"}));
+    await waitFor(()=>expect(hoisted.unsubscribeEmail).toHaveBeenCalledWith({token:"private_unsubscribe_token",confirmation_locale:"zh-TW",reason:"user_request"}));
     expect(await screen.findByTestId("email-unsubscribe-success")).toHaveTextContent("已退訂");
   });
 

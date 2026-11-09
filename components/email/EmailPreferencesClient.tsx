@@ -120,6 +120,7 @@ export function EmailPreferencesClient({
     try {
       const response = await updateEmailPreferences({
         token: normalizedToken,
+        ...(locale === "zh-TW" ? { confirmation_locale: locale } : {}),
         marketing_updates: preferences.marketing_updates,
         report_recovery: preferences.report_recovery,
         product_updates: preferences.product_updates,

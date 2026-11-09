@@ -1302,6 +1302,7 @@ export type EmailPreferencesResponse = {
 
 export type EmailPreferencesUpdateRequest = {
   token: string;
+  confirmation_locale?: "zh-TW";
   marketing_updates: boolean;
   report_recovery: boolean;
   product_updates: boolean;
@@ -1314,6 +1315,7 @@ export type EmailPreferencesUpdateResponse = {
 
 export type EmailUnsubscribeRequest = {
   token: string;
+  confirmation_locale?: "zh-TW";
   reason?: string;
 };
 

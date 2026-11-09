@@ -5,7 +5,7 @@ test("Taiwan preferences keeps private headers, keyboard save and token-bearing 
   await page.route("**/api/v0.3/email/preferences*",async route=>{
     const request=route.request();
     if(request.method()==="POST") {
-      expect(request.postDataJSON()).toEqual({token:"tw_preferences_fixture",marketing_updates:false,report_recovery:true,product_updates:false});
+      expect(request.postDataJSON()).toEqual({token:"tw_preferences_fixture",confirmation_locale:"zh-TW",marketing_updates:false,report_recovery:true,product_updates:false});
       saved=true;
     }
     await route.fulfill({json:{ok:true,email_masked:"b***@example.test",preferences:{marketing_updates:!saved,report_recovery:true,product_updates:false}}});
@@ -38,7 +38,7 @@ test("Taiwan preferences keeps private headers, keyboard save and token-bearing 
 test("Taiwan unsubscribe posts only after confirmation and permits retry after a temporary failure",async({page})=>{
   let requests=0;
   await page.route("**/api/v0.3/email/unsubscribe",async route=>{
-    expect(route.request().postDataJSON()).toEqual({token:"tw_unsubscribe_fixture",reason:"user_request"});
+    expect(route.request().postDataJSON()).toEqual({token:"tw_unsubscribe_fixture",confirmation_locale:"zh-TW",reason:"user_request"});
     requests++;
     if(requests===1) await route.fulfill({status:503,json:{ok:false,error_code:"TEMPORARY_UNAVAILABLE"}});
     else await route.fulfill({json:{ok:true,status:"unsubscribed"}});

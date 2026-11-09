@@ -71,6 +71,7 @@ export function EmailUnsubscribeClient({
     try {
       const response = await unsubscribeEmail({
         token: normalizedToken,
+        ...(locale === "zh-TW" ? { confirmation_locale: locale } : {}),
         reason: "user_request",
       });
       setUnsubscribeStatus(response.status);
