@@ -8,7 +8,7 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
-import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
+import { isAuthoritativePublicAbsence, PublicReadError } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_PER_PAGE = 100;
@@ -86,6 +86,7 @@ type CmsTopicListApiResponse = {
 type CmsTopicDetailApiResponse = {
   ok?: boolean;
   profile?: CmsTopicApiProfile | null;
+  traditional_reader_available?: boolean;
   sections?: CmsTopicApiSection[];
   entry_groups?: Record<string, CmsTopicApiEntry[]>;
   seo_meta?: CmsTopicApiSeoMeta;
@@ -190,6 +191,7 @@ export type CmsTopicEntry = {
 export type CmsTopicEntryGroups = Partial<Record<CmsTopicEntryGroupKey, CmsTopicEntry[]>>;
 
 export type CmsTopicProfile = CmsTopicProfileSummary & {
+  traditionalReaderAvailable?: boolean;
   heroKicker: string;
   heroQuote: string;
   coverImageUrl: string | null;
@@ -569,6 +571,12 @@ export function normalizeTopicSeoPayload(
   };
 }
 
+function isLegacyTraditionalLocaleRejection(error: unknown, locale: string): boolean {
+  const cause = error instanceof PublicReadError ? error.cause : error;
+  return normalizeDisplayLocale(locale) === "zh-TW" && cause instanceof ApiError && cause.status === 422
+    && cause.errorCode === "INVALID_ARGUMENT" && cause.message === "validation.in";
+}
+
 export async function listTopics(params: ListTopicsParams): Promise<ListTopicsResult> {
   const requestedPage = typeof params.page === "number" && params.page > 0 ? params.page : 1;
   const requestedPerPage =
@@ -584,7 +592,7 @@ export async function listTopics(params: ListTopicsParams): Promise<ListTopicsRe
     const response = await apiClient.get<CmsTopicListApiResponse>(`/v0.5/topics${query}`, {
       locale: params.locale,
       skipAuth: true,
-      ...PUBLIC_API_CACHE_OPTIONS,
+      ...(normalizeDisplayLocale(params.locale) === "zh-TW" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
     });
 
     const items = Array.isArray(response.items)
@@ -607,7 +615,7 @@ export async function listTopics(params: ListTopicsParams): Promise<ListTopicsRe
       },
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if ((error instanceof ApiError && error.status === 404) || isLegacyTraditionalLocaleRejection(error, params.locale)) {
       return {
         items: [],
         landingSurface: null,
@@ -665,7 +673,7 @@ export async function getTopicBySlug(
       {
         locale,
         skipAuth: true,
-        ...(normalizedSlug === "iq-eq" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+        ...(normalizedSlug === "iq-eq" || normalizeDisplayLocale(locale) === "zh-TW" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
@@ -680,12 +688,13 @@ export async function getTopicBySlug(
       response.seo_meta ?? null
     );
 
+    topic.traditionalReaderAvailable = response.traditional_reader_available === true;
     topic.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
     topic.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
 
     return topic.slug && topic.title ? topic : null;
   } catch (error) {
-    if (isAuthoritativePublicAbsence(error)) {
+    if (isAuthoritativePublicAbsence(error) || isLegacyTraditionalLocaleRejection(error, locale)) {
       return null;
     }
 
@@ -713,7 +722,7 @@ export async function getTopicSeoBySlug(
       {
         locale,
         skipAuth: true,
-        ...(normalizedSlug === "iq-eq" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+        ...(normalizedSlug === "iq-eq" || normalizeDisplayLocale(locale) === "zh-TW" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
@@ -744,7 +753,7 @@ export async function getTopicSeoBySlug(
       surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
-    if (isAuthoritativePublicAbsence(error)) {
+    if (isAuthoritativePublicAbsence(error) || isLegacyTraditionalLocaleRejection(error, locale)) {
       return null;
     }
 

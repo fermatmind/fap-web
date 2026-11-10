@@ -40,7 +40,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === GLOBAL_HISTORY_PATH || path === `${GLOBAL_HISTORY_PATH}/take`) return `/zh-TW${path}`;
   const historyResultPrefix = `${GLOBAL_HISTORY_PATH}/results/`;
   if (path.startsWith(historyResultPrefix) && findHistoryPerson(path.slice(historyResultPrefix.length))) return `/zh-TW${path}`;
-  if (isTraditionalTopicPath(path)) return `/zh-TW${path}`;
+  if (prefix === "zh-TW" && isTraditionalTopicPath(path)) return `/zh-TW${path}`;
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;

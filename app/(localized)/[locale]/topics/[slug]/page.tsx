@@ -26,6 +26,7 @@ import { extractTopicFaqItems, renderTopicEntryGroups, renderTopicSections } fro
 import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { isTraditionalTopicSlug } from "@/lib/i18n/traditionalTopicPaths";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
@@ -271,6 +272,12 @@ export default async function TopicDetailPage({
           { label: topic.title },
         ]}
       />
+
+      {topic.traditionalReaderAvailable && isTraditionalTopicSlug(topic.slug) ? (
+        <Link href={buildTopicFrontendUrl("zh-TW", topic.slug)} lang="zh-TW" className="fm-help-chip-link">
+          繁體中文（台灣）
+        </Link>
+      ) : null}
 
       <section
         id="answer-first"
