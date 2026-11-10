@@ -44,7 +44,8 @@ import {
 import { normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import { assessmentChineseCopy, assessmentDisplayLocale, assessmentDisplayPath, projectTraditionalQuestionDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
@@ -87,7 +88,8 @@ export default function Big5TakeClient({
 }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
-  const dict = getDictSync(locale);
+  const displayLocale = assessmentDisplayLocale(pathname);
+  const dict = getDictSync(displayLocale);
   const router = useRouter();
   const searchParams = useSearchParams();
   const publicArticleStartMeta = useMemo(() => buildPublicArticleStartMeta(searchParams, locale), [searchParams, locale]);
@@ -174,7 +176,7 @@ export default function Big5TakeClient({
     () => questions.reduce((sum, item) => sum + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
-  const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const withLocale = useCallback((path: string) => assessmentDisplayPath(path, displayLocale, locale), [displayLocale, locale]);
   const big5RetakeCopy = dict.quiz.big5Retake;
   const retryCountdownText = useCallback((seconds: number): string => (
     formatBig5RetryCountdown(locale, seconds, big5RetakeCopy)
@@ -484,7 +486,7 @@ export default function Big5TakeClient({
       setQuestionError(null);
 
       try {
-        const response = await runWithAuthRetry("questions", () =>
+        const rawResponse = await runWithAuthRetry("questions", () =>
           fetchBig5Questions({
             locale: testKpiMetadata.apiLocale,
             anonId: anonId || undefined,
@@ -492,6 +494,7 @@ export default function Big5TakeClient({
           })
         );
 
+        const response = await projectTraditionalQuestionDisplay(rawResponse, displayLocale);
         const ordered = [...response.questions.items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
         const options = ordered.map((item, index) => {
           const questionText =
@@ -615,7 +618,7 @@ export default function Big5TakeClient({
     return () => {
       active = false;
     };
-  }, [anonId, applyUiError, authBlockError, authBootstrapping, big5RetakeCopy, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, testKpiMetadata, trackGuestTokenFailure]);
+  }, [anonId, applyUiError, authBlockError, authBootstrapping, big5RetakeCopy, displayLocale, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, testKpiMetadata, trackGuestTokenFailure]);
 
   const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
@@ -1090,11 +1093,11 @@ export default function Big5TakeClient({
         <p className="m-0 text-sm text-slate-700">
           {authBootstrapping
             ? locale === "zh"
-              ? "正在初始化安全会话..."
+              ? assessmentChineseCopy(displayLocale, "正在初始化安全会话...", "正在初始化安全會話...")
               : "Preparing secure session..."
             : rolloutChecking
             ? locale === "zh"
-              ? "正在检查可用性..."
+              ? assessmentChineseCopy(displayLocale, "正在检查可用性...", "正在檢查可用性...")
               : "Checking assessment availability..."
             : "Loading BIG5 questions..."}
         </p>
@@ -1156,7 +1159,7 @@ export default function Big5TakeClient({
           headerSlot={
             <QuizTakeHeaderV2
               appearance="focused"
-              brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "大五人格免费测试" : "Free Big Five Test")}
+              brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? assessmentChineseCopy(displayLocale, "大五人格免费测试", "大五人格免費測試") : "Free Big Five Test")}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -1247,7 +1250,7 @@ export default function Big5TakeClient({
   return (
     <QuizShell>
       <QuizTakeHeaderV2
-        brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "大五人格免费测试" : "Free Big Five Test")}
+        brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? assessmentChineseCopy(displayLocale, "大五人格免费测试", "大五人格免費測試") : "Free Big Five Test")}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -1317,7 +1320,7 @@ export default function Big5TakeClient({
 
           {submitErrorAction === "restart" ? (
             <Button type="button" variant="outline" onClick={handleRestartTest}>
-              {locale === "zh" ? "重新开始" : "Restart test"}
+              {locale === "zh" ? assessmentChineseCopy(displayLocale, "重新开始", "重新開始") : "Restart test"}
             </Button>
           ) : null}
 
@@ -1338,7 +1341,7 @@ export default function Big5TakeClient({
               ? submitting
                 ? locale === "zh" ? "提交中..." : "Submitting..."
                 : locale === "zh" ? "提交" : "Submit"
-              : locale === "zh" ? "下一题" : "Next"}
+              : locale === "zh" ? assessmentChineseCopy(displayLocale, "下一题", "下一題") : "Next"}
           </Button>
         </div>
       </div>

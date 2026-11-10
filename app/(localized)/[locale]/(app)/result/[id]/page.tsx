@@ -22,13 +22,14 @@ export default async function ResultPage({
   const { locale: localeParam, id } = await params;
   const query = (await searchParams) ?? {};
   const locale = resolveLocale(localeParam);
-  const dict = getDictSync(locale);
+  const traditional = localeParam === "zh-TW";
+  const dict = getDictSync(traditional ? "zh-TW" : locale);
   const rolloutEnv = createScaleRolloutEnvSnapshot();
   void query;
 
   return (
     <Container
-      as="main"
+      as={traditional ? "section" : "main"}
       className="w-full py-[var(--fm-space-10)] has-[[data-testid=mbti-result-shell]]:max-w-[1320px] has-[[data-testid=mbti-result-shell]]:px-6 md:has-[[data-testid=mbti-result-shell]]:px-10 xl:has-[[data-testid=mbti-result-shell]]:px-12 [&:has([data-testid=mbti-result-shell])>h1]:sr-only has-[[data-testid=riasec-reading-report]]:max-w-[1320px] has-[[data-testid=riasec-reading-report]]:px-6 md:has-[[data-testid=riasec-reading-report]]:px-10 xl:has-[[data-testid=riasec-reading-report]]:px-12 [&:has([data-testid=riasec-reading-report])>h1]:hidden [&:has([data-testid=enneagram-result-shell])>h1]:hidden"
     >
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>

@@ -33,7 +33,8 @@ import {
   resolveEnneagramFormMeta,
 } from "@/lib/enneagram/forms";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import { assessmentChineseCopy, assessmentDisplayLocale, assessmentDisplayPath, projectTraditionalQuestionDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import { isAmbiguousSubmissionError, recoverAcceptedSubmission, unconfirmedSubmissionMessage } from "@/lib/attempt/submissionRecovery";
@@ -223,7 +224,8 @@ function EnneagramTakeInner({
 }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
-  const dict = getDictSync(locale);
+  const displayLocale = assessmentDisplayLocale(pathname);
+  const dict = getDictSync(displayLocale);
   const router = useRouter();
   const searchParams = useSearchParams();
   useConstrainQuizUrlTokens({ pathname, router, searchParams });
@@ -239,7 +241,7 @@ function EnneagramTakeInner({
     }),
     [pathname, search, slug]
   );
-  const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const withLocale = useCallback((path: string) => assessmentDisplayPath(path, displayLocale, locale), [displayLocale, locale]);
   const resolvedFormCode = normalizeEnneagramFormCode(formCode);
   const formMeta = resolveEnneagramFormMeta(resolvedFormCode);
   const testKpiMetadata = useMemo(
@@ -367,11 +369,12 @@ function EnneagramTakeInner({
       setQuestionsError(null);
 
       try {
-        const response = await fetchEnneagramQuestions({
+        const rawResponse = await fetchEnneagramQuestions({
           locale: testKpiMetadata.apiLocale,
           anonId: anonId || undefined,
           formCode: testKpiMetadata.formCode,
         });
+        const response = await projectTraditionalQuestionDisplay(rawResponse, displayLocale);
         if (!active) return;
 
         const ordered = [...response.questions.items]
@@ -406,7 +409,7 @@ function EnneagramTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, locale, setQuestions, testKpiMetadata]);
+  }, [anonId, authBlockError, displayLocale, locale, setQuestions, testKpiMetadata]);
 
   useEffect(() => {
     if (questionsLoading) {
@@ -697,7 +700,7 @@ function EnneagramTakeInner({
     return (
       <QuizShell>
         <p className="m-0 text-slate-600">
-          {locale === "zh" ? "正在加载九型人格题目..." : "Loading Enneagram questions..."}
+          {locale === "zh" ? assessmentChineseCopy(displayLocale, "正在加载九型人格题目...", "正在載入九型人格題目...") : "Loading Enneagram questions..."}
         </p>
       </QuizShell>
     );
@@ -736,7 +739,7 @@ function EnneagramTakeInner({
     return (
       <QuizShell>
         <p className="m-0 text-slate-600">
-          {locale === "zh" ? "未找到可答题目。" : "No questions found for this form."}
+          {locale === "zh" ? assessmentChineseCopy(displayLocale, "未找到可答题目。", "未找到可答題目。") : "No questions found for this form."}
         </p>
       </QuizShell>
     );
@@ -825,7 +828,7 @@ function EnneagramTakeInner({
           headerSlot={
             <QuizTakeHeaderV2
               appearance="focused"
-              brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "九型人格免费测试" : "Free Enneagram Test")}
+              brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? assessmentChineseCopy(displayLocale, "九型人格免费测试", "九型人格免費測試") : "Free Enneagram Test")}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -846,7 +849,7 @@ function EnneagramTakeInner({
                   </Button>
                 ) : (
                   <Button type="button" onClick={goNext} disabled={!canContinue}>
-                    {locale === "zh" ? "下一题" : "Next"}
+                    {locale === "zh" ? assessmentChineseCopy(displayLocale, "下一题", "下一題") : "Next"}
                   </Button>
                 )}
               </div>
@@ -881,7 +884,7 @@ function EnneagramTakeInner({
   return (
     <QuizShell>
       <QuizTakeHeaderV2
-        brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "九型人格免费测试" : "Free Enneagram Test")}
+        brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? assessmentChineseCopy(displayLocale, "九型人格免费测试", "九型人格免費測試") : "Free Enneagram Test")}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -913,7 +916,7 @@ function EnneagramTakeInner({
             </Button>
           ) : (
             <Button type="button" onClick={goNext} disabled={!canContinue}>
-              {locale === "zh" ? "下一题" : "Next"}
+              {locale === "zh" ? assessmentChineseCopy(displayLocale, "下一题", "下一題") : "Next"}
             </Button>
           )
         ) : submitError ? (

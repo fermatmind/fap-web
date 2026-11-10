@@ -405,8 +405,11 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
   if (pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/)/, "").startsWith(AD_PLACEMENT_SEGMENT)) return createPublicAbsenceResponse(404);
-  // Account display uses the same private Google/CSP policy as the existing account pages.
-  const strippedPath = pathname === "/zh-TW/account" ? "/account" : stripLocalePrefix(pathname);
+  // Exact Traditional account and assessment readers share the original anonymous/private policy.
+  const isTraditionalCoreRoute = /^\/zh-TW\/(?:tests\/[^/]+(?:\/take)?|result\/[^/]+)\/?$/u.test(pathname) && traditionalPath(pathname);
+  const strippedPath = pathname === "/zh-TW/account" || isTraditionalCoreRoute
+    ? pathname.slice("/zh-TW".length)
+    : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
     if (pathname !== "/zh-TW/personality" && !traditionalPath(pathname)
       && !getTraditionalPublicAssetRoute(pathname) && !isTraditionalMbtiDetailPath(pathname)) {

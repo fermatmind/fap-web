@@ -9,7 +9,9 @@ import { isBig5ScaleCode, normalizeBig5FormCode, resolveProjectedBig5FormMeta } 
 import { isEnneagramScaleCode, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { normalizeDisplayLocale } from "@/lib/i18n/locales";
+import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
+import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 import { getIqBankDisplayModel, getIqDefaultBankDisplayModel } from "@/lib/iq/bankDisplay";
 import { isIqScaleCode } from "@/lib/iq/constants";
 import { isMbtiScaleCode, normalizeMbtiFormCode, resolveMbtiFormMeta } from "@/lib/mbti/forms";
@@ -103,7 +105,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug: requestedSlug } = await params;
   const locale = resolveLocale(localeParam);
+  const displayLocale = normalizeDisplayLocale(localeParam) ?? locale;
   const slug = resolveCanonicalSlug(requestedSlug);
+  if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return { robots: NOINDEX_ROBOTS };
   const test = await getTestBySlug(slug, locale);
   const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
   const startTitle = test
@@ -116,11 +120,12 @@ export async function generateMetadata({
       })
     : locale === "zh" ? "开始测试" : "Start test";
 
+  const title = test ? `${startTitle} - ${localizedTestTitle}` : `Start test - ${slug}`;
   return {
-    title: test ? `${startTitle} - ${localizedTestTitle}` : `Start test - ${slug}`,
+    title: displayLocale === "zh-TW" ? (await loadTraditionalAssessmentText())(title) : title,
     robots: NOINDEX_ROBOTS,
     alternates: {
-      canonical: localizedPath(`/tests/${slug}`, locale),
+      canonical: assessmentDisplayPath(`/tests/${slug}`, displayLocale, locale),
     },
   };
 }
@@ -135,16 +140,20 @@ export default async function TakePage({
   const { locale: localeParam, slug: requestedSlug } = await params;
   const query = await searchParams;
   const locale = resolveLocale(localeParam);
-  const dict = getDictSync(locale);
-  const withLocale = (path: string) => localizedPath(path, locale);
+  const displayLocale = normalizeDisplayLocale(localeParam) ?? locale;
+  const dict = getDictSync(displayLocale);
+  const withLocale = (path: string) => assessmentDisplayPath(path, displayLocale, locale);
   const slug = resolveCanonicalSlug(requestedSlug);
+  if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return notFound();
+  const Content = displayLocale === "zh-TW" ? "section" : "main";
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
   }
   const test = await getTestBySlug(slug, locale);
 
   if (!test) return notFound();
-  const localizedTestTitle = resolveTestTitleByLocale(test, locale);
+  const title = resolveTestTitleByLocale(test, locale);
+  const localizedTestTitle = displayLocale === "zh-TW" ? (await loadTraditionalAssessmentText())(title) : title;
   const mbtiFormCode = isMbtiScaleCode(test.scale_code)
     ? normalizeMbtiFormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
@@ -175,7 +184,7 @@ export default async function TakePage({
 
   if (!test.scale_code) {
     return (
-      <main className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-[var(--fm-space-8)]">
+      <Content className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-[var(--fm-space-8)]">
         <h1 className="text-2xl font-bold text-slate-900">{localizedTestTitle}</h1>
         <p className="mt-[var(--fm-space-3)] text-slate-600">
           {locale === "zh" ? "此测试当前暂不可用，请稍后再试或选择其他测评。" : "This assessment is temporarily unavailable. Please try again later or choose another test."}
@@ -186,7 +195,7 @@ export default async function TakePage({
         >
           {locale === "zh" ? "返回测试列表" : dict.header.tests}
         </Link>
-      </main>
+      </Content>
     );
   }
 
@@ -206,7 +215,7 @@ export default async function TakePage({
   }
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
+    <Content className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient
           slug={slug}
@@ -247,6 +256,6 @@ export default async function TakePage({
           questionCount={iqBankModel?.itemCount ?? mbtiFormMeta?.questionCount ?? test.questions_count}
         />
       )}
-    </main>
+    </Content>
   );
 }

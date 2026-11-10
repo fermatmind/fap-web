@@ -36,6 +36,8 @@ import {
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
+import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 import {
   buildBig5TakeHref,
   DEFAULT_BIG5_FORM_CODE,
@@ -834,8 +836,10 @@ export default async function TestLandingPage({
   const query = await searchParams;
 
   const locale = resolveLocale(localeParam);
+  const traditional = localeParam === "zh-TW";
   const slug = resolveCanonicalSlug(requestedSlug);
-  const withLocale = (path: string) => localizedPath(path, locale);
+  if (traditional && !isCoreAssessmentSlug(slug)) return notFound();
+  const withLocale = (path: string) => assessmentDisplayPath(path, traditional ? "zh-TW" : locale, locale);
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}`), query));
   }
@@ -1408,6 +1412,32 @@ export default async function TestLandingPage({
               </ul>
             ) : null}
           </CiteableSection>);
+
+  if (traditional) {
+    const translate = await loadTraditionalAssessmentText();
+    const choices = withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])
+      .map((choice) => ({
+        ...choice,
+        label: translate(choice.label),
+        summary: translate("summary" in choice ? choice.summary : choice.description),
+        href: choice.href?.replace(/^\/zh(?=\/tests\/)/u, "/zh-TW") ?? null,
+      }));
+    const description = assessmentLandingUi?.heroDescription ?? heroCopy;
+    return (
+      <section className="space-y-8" data-test-landing-read-source={landingData.source}>
+        <nav aria-label="導覽路徑" className="flex gap-2"><Link href="/zh-TW">首頁</Link><span>/</span><Link href="/zh-TW/tests">測評</Link></nav>
+        <AssessmentLandingIntro locale="zh-TW" title={translate(heroHeadingTitle)} heroArtwork={assessmentLandingUi?.heroArtwork}
+          description={description ? translate(description) : undefined} choices={choices}
+          disabled={testDisabled || !canRenderStartCta} showChoiceSummaries />
+        {disclaimer ? <p className="text-sm text-slate-600">{translate(disclaimer)}</p> : null}
+        {whenToUse ? <section className="space-y-2"><h2 className="text-xl font-semibold">何時使用這份測評</h2><p>{translate(whenToUse)}</p></section> : null}
+        {reportSummary ? <section className="space-y-2"><h2 className="text-xl font-semibold">結果與報告</h2><p>{translate(reportSummary)}</p></section> : null}
+        {mergedFaq.length ? <section className="space-y-3"><h2 className="text-xl font-semibold">常見問題</h2>
+          <FAQAccordion items={mergedFaq.map((item) => ({ q: translate(item.q), a: translate(item.a) }))} />
+        </section> : null}
+      </section>
+    );
+  }
 
   return (
     <main

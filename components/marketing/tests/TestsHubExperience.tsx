@@ -6,6 +6,7 @@ import type {
   TestsHubContent,
 } from "@/lib/marketing/testsHubContent";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
+import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 
 const CORE_TEST_SLUG_GROUPS = [
   ["mbti-personality-test-16-personality-types"],
@@ -69,11 +70,20 @@ export function TestsHubExperience({
     (content.families.items ?? []).map((family) => family.tests),
   );
   const coreTests = listCoreTests(tests);
+  const traditionalHref = (href: string) => {
+    const match = /^\/(?:en|zh|zh-TW)\/tests\/([a-z0-9_-]+)(?:\/take)?(?=[?#]|$)/u.exec(href);
+    return match && isCoreAssessmentSlug(match[1])
+      ? href.replace(/^\/(?:en|zh|zh-TW)(?=\/)/u, "/zh-TW")
+      : href;
+  };
+  const displayCoreTests = locale === "zh-TW"
+    ? coreTests.map((test) => ({ ...test, href: traditionalHref(test.href), detailsHref: test.detailsHref ? traditionalHref(test.detailsHref) : test.detailsHref }))
+    : coreTests;
   return (
     <>
     <MoreTests
       locale={locale}
-      coreTests={coreTests}
+      coreTests={displayCoreTests}
       heroTitle={content.hero.title}
     />
     <InteractiveStoryLibrary locale={locale} />

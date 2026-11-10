@@ -1,6 +1,7 @@
 import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
+import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 // Partial display-language support is deliberately separate from legacy API/form locales.
 // No CMS, report-language, region, price or entitlement mapping is inferred here.
 export const TRADITIONAL_LOCALE = "zh-TW" as const;
@@ -29,6 +30,9 @@ export function traditionalPath(pathname: string): string | null {
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
+  const coreAssessment = /^\/tests\/([a-z0-9_-]+)(?:\/take)?$/iu.exec(path);
+  if (prefix === "zh-TW" && coreAssessment && isCoreAssessmentSlug(coreAssessment[1])) return `/zh-TW${path}`;
+  if (prefix === "zh-TW" && /^\/result\/[A-Za-z0-9_-]{1,128}$/u.test(path)) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && (
     TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)
     || /^\/career\/guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?$/u.test(path)

@@ -59,6 +59,7 @@ import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry
 import { getFmToken, isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
+import { assessmentChineseCopy, assessmentDisplayLocale, projectTraditionalResultDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { isIqScaleCode } from "@/lib/iq/constants";
 import { isIqReportResponse } from "@/lib/iq/presentation";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
@@ -826,7 +827,8 @@ export default function ResultClient({
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
-  const dict = getDictSync(locale);
+  const displayLocale = assessmentDisplayLocale(pathname);
+  const dict = getDictSync(displayLocale);
   const initialAccessView = useMemo(
     () => (initialReportAccess ? normalizeAttemptReportAccess(initialReportAccess, locale) : null),
     [initialReportAccess, locale]
@@ -1106,25 +1108,25 @@ export default function ResultClient({
     };
 
     if (usePrintAccessTokenOnly) {
-      return fetchAttemptReport(request);
+      return projectTraditionalResultDisplay(await fetchAttemptReport(request), displayLocale);
     }
 
     try {
-      return await runWithAuthRetry(() => fetchAttemptReport(request));
+      return projectTraditionalResultDisplay(await runWithAuthRetry(() => fetchAttemptReport(request)), displayLocale);
     } catch (error) {
       if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
         throw error;
       }
 
-      return fetchAttemptReport({
+      return projectTraditionalResultDisplay(await fetchAttemptReport({
         attemptId,
         anonId,
         locale,
         skipAuth: true,
         ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
-      });
+      }), displayLocale);
     }
-  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry, usePrintAccessTokenOnly]);
+  }, [anonId, attemptId, displayLocale, locale, resultAccessToken, runWithAuthRetry, usePrintAccessTokenOnly]);
 
   const fetchInviteUnlockProgressWithAuthMismatchRetry = useCallback(async () => {
     try {
@@ -1417,9 +1419,10 @@ export default function ResultClient({
               ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
             }),
       };
-      return usePrintAccessTokenOnly
+      const response = usePrintAccessTokenOnly
         ? await fetchAttemptResult(request)
         : await runWithAuthRetry(() => fetchAttemptResult(request));
+      return projectTraditionalResultDisplay(response, displayLocale);
     };
 
     const loadFallbackResult = async () => {
@@ -1729,6 +1732,7 @@ export default function ResultClient({
   }, [
     anonId,
     attemptId,
+    displayLocale,
     canLoadRichReport,
     dict.result.reportUnavailable,
     fetchInviteUnlockProgressWithAuthMismatchRetry,
@@ -1978,14 +1982,14 @@ export default function ResultClient({
       >
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase text-[var(--fm-text-muted)]">
-            {locale === "zh" ? "结果访问" : "Result access"}
+            {locale === "zh" ? assessmentChineseCopy(displayLocale, "结果访问", "結果訪問") : "Result access"}
           </p>
           <h1 className="text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "先保存邮箱，再查看结果" : "Save an email to view this result"}
+            {locale === "zh" ? assessmentChineseCopy(displayLocale, "先保存邮箱，再查看结果", "先儲存電子信箱，再檢視結果") : "Save an email to view this result"}
           </h1>
           <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
             {locale === "zh"
-              ? "输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。"
+              ? assessmentChineseCopy(displayLocale, "输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。", "輸入電子信箱即可檢視並找回該電子信箱下儲存的結果，請使用你自己的電子信箱。")
               : "Enter your own email to view and recover results saved under that address."}
           </p>
         </div>
@@ -1993,7 +1997,7 @@ export default function ResultClient({
         <form className="space-y-4" onSubmit={handleEmailBindSubmit}>
           <label className="block space-y-2">
             <span className="text-sm font-medium text-[var(--fm-text)]">
-              {locale === "zh" ? "邮箱" : "Email"}
+              {locale === "zh" ? assessmentChineseCopy(displayLocale, "邮箱", "電子信箱") : "Email"}
             </span>
             <input
               data-testid="result-email-gate-input"
@@ -2025,10 +2029,10 @@ export default function ResultClient({
           >
             {emailSubmitting
               ? locale === "zh"
-                ? "保存中..."
+                ? assessmentChineseCopy(displayLocale, "保存中...", "儲存中...")
                 : "Saving..."
               : locale === "zh"
-                ? "查看结果"
+                ? assessmentChineseCopy(displayLocale, "查看结果", "檢視結果")
                 : "View result"}
           </Button>
         </form>
@@ -2040,15 +2044,15 @@ export default function ResultClient({
     return (
       <section className="mx-auto w-full max-w-xl rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]" data-testid="result-generation-timeout">
         <h1 className="text-xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "结果仍在生成" : "Your result is still being generated"}
+          {locale === "zh" ? assessmentChineseCopy(displayLocale, "结果仍在生成", "結果仍在生成") : "Your result is still being generated"}
         </h1>
         <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]" role="status">
-          {locale === "zh" ? "结果仍在生成，你的答案已经保存。" : "Your result is still being generated. Your answers have been saved."}
+          {locale === "zh" ? assessmentChineseCopy(displayLocale, "结果仍在生成，你的答案已经保存。", "結果仍在生成，你的答案已經儲存。") : "Your result is still being generated. Your answers have been saved."}
         </p>
         <Button className="mt-5" type="button" onClick={handleResultRecheck} disabled={manualRecheckPending} data-testid="result-generation-recheck">
           {manualRecheckPending
-            ? locale === "zh" ? "正在检查..." : "Checking..."
-            : locale === "zh" ? "重新检查结果" : "Check result again"}
+            ? locale === "zh" ? assessmentChineseCopy(displayLocale, "正在检查...", "正在檢查...") : "Checking..."
+            : locale === "zh" ? assessmentChineseCopy(displayLocale, "重新检查结果", "重新檢查結果") : "Check result again"}
         </Button>
       </section>
     );
@@ -2096,7 +2100,7 @@ export default function ResultClient({
       const isSubmissionConflict = isAttemptResubmitConflictMessage(error);
       const failureMessage = isSubmissionConflict
         ? (locale === "zh"
-          ? "检测到该答卷已提交过另一套答案，当前结果不可恢复。请重新开始测评，我们会强制创建新的作答会话。"
+          ? assessmentChineseCopy(displayLocale, "检测到该答卷已提交过另一套答案，当前结果不可恢复。请重新开始测评，我们会强制创建新的作答会话。", "檢測到該答卷已提交過另一套答案，當前結果不可恢復。請重新開始測評，我們會強制建立新的作答會話。")
           : "This attempt was already submitted with different answers and cannot be recovered. Please restart the assessment with a fresh attempt.")
         : (error ?? dict.result.reportUnavailable);
 
@@ -2109,7 +2113,7 @@ export default function ResultClient({
               href={buildForcedFreshAttemptHref(retakeHref)}
               className="inline-flex text-sm font-semibold text-slate-900 underline underline-offset-2"
             >
-              {locale === "zh" ? "重新开始测评" : "Restart assessment"}
+              {locale === "zh" ? assessmentChineseCopy(displayLocale, "重新开始测评", "重新開始測評") : "Restart assessment"}
             </a>
           ) : null}
         </div>
@@ -2126,8 +2130,8 @@ export default function ResultClient({
           <Alert>{safeResultFailureMessage(locale)}</Alert>
           <Button type="button" onClick={handleResultRecheck} disabled={manualRecheckPending} data-testid="result-generation-recheck">
             {manualRecheckPending
-              ? locale === "zh" ? "正在检查..." : "Checking..."
-              : locale === "zh" ? "重新检查结果" : "Check result again"}
+              ? locale === "zh" ? assessmentChineseCopy(displayLocale, "正在检查...", "正在檢查...") : "Checking..."
+              : locale === "zh" ? assessmentChineseCopy(displayLocale, "重新检查结果", "重新檢查結果") : "Check result again"}
           </Button>
         </div>
       );
@@ -2138,8 +2142,8 @@ export default function ResultClient({
         <Alert>{error ?? safeResultFailureMessage(locale)}</Alert>
         <Button type="button" onClick={handleResultRecheck} disabled={manualRecheckPending} data-testid="result-generation-recheck">
           {manualRecheckPending
-            ? locale === "zh" ? "正在检查..." : "Checking..."
-            : locale === "zh" ? "重新检查结果" : "Check result again"}
+            ? locale === "zh" ? assessmentChineseCopy(displayLocale, "正在检查...", "正在檢查...") : "Checking..."
+            : locale === "zh" ? assessmentChineseCopy(displayLocale, "重新检查结果", "重新檢查結果") : "Check result again"}
         </Button>
       </div>
     );
@@ -2254,7 +2258,7 @@ export default function ResultClient({
     return (
       <Alert>
         {locale === "zh"
-          ? "结果数据暂时无法安全展示，请稍后重试。"
+          ? assessmentChineseCopy(displayLocale, "结果数据暂时无法安全展示，请稍后重试。", "結果資料暫時無法安全展示，請稍後重試。")
           : "The result data cannot be displayed safely right now. Please try again later."}
       </Alert>
     );
@@ -2282,7 +2286,7 @@ export default function ResultClient({
         title={
           mbtiPersonalityHref
             ? locale === "zh"
-              ? "你的类型是"
+              ? assessmentChineseCopy(displayLocale, "你的类型是", "你的型別是")
               : "Your type is"
             : undefined
         }
@@ -2295,7 +2299,7 @@ export default function ResultClient({
           className="inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
           data-testid="mbti-result-personality-next-step"
         >
-          {locale === "zh" ? "查看人格类型内容" : "Open personality profile"}
+          {locale === "zh" ? assessmentChineseCopy(displayLocale, "查看人格类型内容", "檢視人格型別內容") : "Open personality profile"}
         </Link>
       ) : null}
       <DimensionBars dimensions={dimensions} />

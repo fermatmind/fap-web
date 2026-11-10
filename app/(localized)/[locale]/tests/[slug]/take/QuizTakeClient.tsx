@@ -36,6 +36,7 @@ import { ApiError } from "@/lib/api-client";
 import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { assessmentChineseCopy, assessmentDisplayLocale, assessmentDisplayPath, projectTraditionalQuestionDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { getAssessmentTakeUi } from "@/lib/quiz/assessmentTakeUi";
 import { isMbtiScaleCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -438,8 +439,9 @@ function QuizTakeInner({
   const pathname = usePathname() ?? "/";
   useConstrainQuizUrlTokens({ pathname, router, searchParams });
   const locale = getLocaleFromPathname(pathname);
-  const withLocale = (path: string) => localizedPath(path, locale);
-  const dict = getDictSync(locale);
+  const displayLocale = assessmentDisplayLocale(pathname);
+  const withLocale = (path: string) => assessmentDisplayPath(path, displayLocale, locale);
+  const dict = getDictSync(displayLocale);
   const { attribution, compareIntent, entryContext, trackingAttribution } = useMemo(
     () => readTakeFlowAttribution(searchParams, scaleCode),
     [scaleCode, searchParams]
@@ -657,13 +659,14 @@ function QuizTakeInner({
     const existing = ownerQuestionRequestsRef.current.get(key);
     if (existing) return existing;
     const request = getIqAttemptQuestion({ attemptId: activeAttemptId, index, anonId, locale })
+      .then((payload) => projectTraditionalQuestionDisplay(payload, displayLocale))
       .catch((error: unknown) => {
         ownerQuestionRequestsRef.current.delete(key);
         throw error;
       });
     ownerQuestionRequestsRef.current.set(key, request);
     return request;
-  }, [anonId, locale]);
+  }, [anonId, displayLocale, locale]);
 
   const prepareOwnerQuestion = useCallback(async (activeAttemptId: string, index: number) => {
     const response = await requestOwnerQuestion(activeAttemptId, index);
@@ -799,13 +802,14 @@ function QuizTakeInner({
             await prepareOwnerQuestion(activeAttemptId, currentIndex);
           }
         } else if (isIqScale) {
-          const response = await getIqQuestions({
+          const rawResponse = await getIqQuestions({
             locale,
             anonId,
             formCode: testKpiMetadata.formCode,
             bankId: testKpiMetadata.formCode,
           });
-          payloadBytes = estimatePayloadBytes(response);
+          const response = await projectTraditionalQuestionDisplay(rawResponse, displayLocale);
+          payloadBytes = estimatePayloadBytes(rawResponse);
 
           if (!active) return;
 
@@ -826,7 +830,7 @@ function QuizTakeInner({
 
           setQuestions(normalizedQuestions);
         } else {
-          const response = await runWithAuthRetry("questions", () =>
+          const rawResponse = await runWithAuthRetry("questions", () =>
             fetchScaleQuestions({
               scaleCode: testKpiMetadata.scaleCode,
               formCode: testKpiMetadata.formCode,
@@ -834,7 +838,8 @@ function QuizTakeInner({
               locale: testKpiMetadata.apiLocale,
             })
           );
-          payloadBytes = estimatePayloadBytes(response);
+          const response = await projectTraditionalQuestionDisplay(rawResponse, displayLocale);
+          payloadBytes = estimatePayloadBytes(rawResponse);
 
           if (!active) return;
 
@@ -894,6 +899,7 @@ function QuizTakeInner({
     authBlockError,
     clearAttemptMeta,
     currentIndex,
+    displayLocale,
     entryContext.entrySurface,
     entryContext.landingPath,
     entryContext.sourcePageType,
@@ -1492,7 +1498,7 @@ function QuizTakeInner({
     resetAttempt();
     router.push(
       compareRedirectInviteId
-        ? withLocale(`/compare/mbti/${compareRedirectInviteId}`)
+        ? localizedPath(`/compare/mbti/${compareRedirectInviteId}`, locale)
         : withLocale(`/result/${resultAttemptId}`)
     );
   };
@@ -1811,7 +1817,7 @@ function QuizTakeInner({
               <div className={takeStyles.feedback}>
                 {isTransitioning ? (
                   <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
-                    {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
+                    {locale === "zh" ? assessmentChineseCopy(displayLocale, "答案已记录，正在进入下一题…", "答案已記錄，正在進入下一題…") : "Answer recorded. Moving to the next question…"}
                   </p>
                 ) : (
                   <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
@@ -1820,7 +1826,7 @@ function QuizTakeInner({
             ) : null}
             {!focusedAssessment && ((isMbtiScaleCode(normalizedScaleCode) && isTransitioning) || (isIqScale && iqTransitioning)) ? (
               <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
-                {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
+                {locale === "zh" ? assessmentChineseCopy(displayLocale, "答案已记录，正在进入下一题…", "答案已記錄，正在進入下一題…") : "Answer recorded. Moving to the next question…"}
               </p>
             ) : null}
 
@@ -1940,7 +1946,7 @@ function QuizTakeInner({
 
         {((isMbtiScaleCode(normalizedScaleCode) && isTransitioning) || (isIqScale && iqTransitioning)) ? (
           <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
-            {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
+            {locale === "zh" ? assessmentChineseCopy(displayLocale, "答案已记录，正在进入下一题…", "答案已記錄，正在進入下一題…") : "Answer recorded. Moving to the next question…"}
           </p>
         ) : null}
 
