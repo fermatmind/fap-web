@@ -1,4 +1,9 @@
 const profiles = {
+  "egogram": ["critical-parent", "nurturing-parent", "adult", "free-child", "adapted-child"],
+  "type-ab": ["time-urgency", "competitive-comparison", "waiting-irritation", "difficulty-stopping"],
+  "learning-style": ["visual", "auditory", "reading-writing", "kinesthetic"],
+  "multiple-intelligences": ["linguistic-reading", "logical-reading", "spatial-reading", "bodily-reading", "musical-reading", "interpersonal-reading", "intrapersonal-reading", "naturalist-reading"],
+  "hsp-sensitivity-quiz": ["reflective-meaning-reading", "busy-input-reading", "emotional-response-reading", "small-changes-reading"],
   "people-pleaser": ["needs", "responsibility", "expectations"],
   "trust-issues-test": ["initial-opening", "gradual-building", "agreement-clarity", "protective-distance"],
   "toxic-positivity-test": ["self-pressure-reading", "conversations-reading", "uncertainty-reading"],

@@ -1,3 +1,6 @@
+import { egogramLandingSections, egogramLandingFaq } from "@/components/questionnaires/EgogramLandingEditorial";
+import { learningSummaries } from "@/components/questionnaires/LearningLandingEditorial";
+import { hspLandingSections, hspLandingFaq, hspLandingReferences } from "@/components/questionnaires/HspLandingEditorial";
 import { peoplePleaserSummaries } from "@/components/questionnaires/PeoplePleaserLandingEditorial";
 import { trustLandingSections, trustLandingFaq, trustLandingReferences } from "@/components/questionnaires/TrustLandingEditorial";
 import { positivePressureLandingSections, positivePressureLandingFaq, positivePressureLandingReferences } from "@/components/questionnaires/PositivePressureLandingEditorial";
@@ -42,6 +45,39 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "egogram": {
+    reading: "egogram",
+    attribute: "egogram",
+    load: () => import("@/lib/questionnaires/result-content/egogram.json"),
+    editorial: "Egogram",
+    prefix: "egogramLanding",
+    sections: egogramLandingSections,
+    faq: egogramLandingFaq,
+  },
+  "type-ab": {
+    reading: "type-ab",
+    attribute: "type-ab",
+    load: () => import("@/lib/questionnaires/result-content/type-ab.json"),
+  },
+  "learning-style": {
+    reading: "learning-preference",
+    attribute: "learning-preference",
+    load: () => import("@/lib/questionnaires/result-content/learning-preference.json"),
+  },
+  "multiple-intelligences": {
+    reading: "multiple-intelligences",
+    attribute: "multiple-intelligences",
+    load: () => import("@/lib/questionnaires/result-content/multiple-intelligences.json"),
+  },
+  "hsp-sensitivity-quiz": {
+    reading: "hsp-sensitivity-quiz",
+    attribute: "hsp-sensitivity",
+    load: () => import("@/lib/questionnaires/result-content/hsp-sensitivity-quiz.json"),
+    editorial: "Hsp",
+    prefix: "hspLanding",
+    sections: hspLandingSections,
+    faq: hspLandingFaq,
+  },
   "people-pleaser": {
     reading: "people-pleaser",
     attribute: "people-pleaser",
@@ -345,7 +381,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -357,7 +393,9 @@ export async function loadTraditionalLikert(slug: string) {
     : slug === "people-pleaser" ? projectStoryCopy(peoplePleaserSummaries,
       "components/questionnaires/PeoplePleaserLandingEditorial.ts/peoplePleaserSummaries", units)
     : slug === "difficult-person-test" ? projectStoryCopy(frictionSummaries,
-      "components/questionnaires/FrictionLandingEditorial.ts/frictionSummaries", units) : {};
+      "components/questionnaires/FrictionLandingEditorial.ts/frictionSummaries", units)
+    : slug === "learning-style" ? projectStoryCopy(learningSummaries,
+      "components/questionnaires/LearningLandingEditorial.ts/learningSummaries", units) : {};
   const extraReferences = (() => {
     switch (slug) {
       case "hexaco": return projectStoryCopy(hexacoLandingReferences, "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units);
@@ -377,6 +415,7 @@ export async function loadTraditionalLikert(slug: string) {
       case "cultural-dimensions": return projectStoryCopy(culturalExtraReferences, "components/questionnaires/CulturalDimensionsLandingEditorial.ts/culturalExtraReferences", units);
       case "trust-issues-test": return projectStoryCopy(trustLandingReferences, "components/questionnaires/TrustLandingEditorial.ts/trustLandingReferences", units);
       case "toxic-positivity-test": return projectStoryCopy(positivePressureLandingReferences, "components/questionnaires/PositivePressureLandingEditorial.ts/positivePressureLandingReferences", units);
+      case "hsp-sensitivity-quiz": return projectStoryCopy(hspLandingReferences, "components/questionnaires/HspLandingEditorial.ts/hspLandingReferences", units);
       default: return [];
     }
   })();

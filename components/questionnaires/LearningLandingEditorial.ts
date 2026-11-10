@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const learningSummaries: Record<string, { zh: string; en: string }> = {
   "visual": {
     "zh": "图示与空间关系：阅读箭头、位置和结构概览的使用意愿，结合流程图、文字对照与反例理解结果。它不评空间能力，也不规定所有材料都应改成图片。",
     "en": "Diagrams and spatial layout: explore willingness to use arrows, positions and structural overviews through flowcharts, text alternatives and counterexamples. This does not assess spatial ability or prescribe pictures for all material."
@@ -20,7 +20,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function learningLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return learningSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function learningCurrentEntryCopy(text: string, locale: "zh" | "en") {

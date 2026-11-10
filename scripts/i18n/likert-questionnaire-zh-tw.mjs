@@ -4,6 +4,19 @@ import { build } from './convert-zh-tw.mjs';
 const root = new URL('../../', import.meta.url);
 const output = new URL('lib/i18n/zh-TW/likert-questionnaires.generated.json', root);
 const sources = [
+    'lib/questionnaires/data/egogram.json',
+    'lib/questionnaires/result-content/egogram.json',
+    'components/questionnaires/EgogramLandingEditorial.ts',
+    'lib/questionnaires/data/type-ab.json',
+    'lib/questionnaires/result-content/type-ab.json',
+    'lib/questionnaires/data/learning-style.json',
+    'lib/questionnaires/result-content/learning-preference.json',
+    'components/questionnaires/LearningLandingEditorial.ts',
+    'lib/questionnaires/data/multiple-intelligences.json',
+    'lib/questionnaires/result-content/multiple-intelligences.json',
+    'lib/questionnaires/data/hsp-sensitivity-quiz.json',
+    'lib/questionnaires/result-content/hsp-sensitivity-quiz.json',
+    'components/questionnaires/HspLandingEditorial.ts',
     'lib/questionnaires/data/people-pleaser.json',
     'lib/questionnaires/result-content/people-pleaser.json',
     'components/questionnaires/PeoplePleaserLandingEditorial.ts',
@@ -171,6 +184,10 @@ function standaloneLikertSource(raw) {
     "默认不保存；只有主动保存才在本标签页提供24小时内恢复，完成、清除或重测即删除。",
     "主动保存的本标签页草稿24小时内可恢复，完成、清除或重测即删除。",
     "草稿需主动开启，仅本设备保存24小时，完成、退出或重测清除；不主动开启也可完成。",
+    "主动开启的本标签页草稿最多24小时，完成、重测、退出清除都会删除；不保存也能作答。",
+    "默认不保存；只有主动保存才提供当前标签页24小时内恢复，完成、清除或重测即删除。",
+    "可选草稿最多在本标签页保留24小时，完成或重置即清除。",
+    "现有可选24小时标签页草稿及完成、重测、退出清除不变；",
     "可选标签页草稿最多保留二十四小时，完成、清除或重测后删除。",
     "原有可选标签页草稿24小时期限与完成、重测清除保持原样，",
     "可选进度仅在当前浏览器标签页最多保留二十四小时，完成、清除或重测后删除。",
@@ -179,6 +196,10 @@ function standaloneLikertSource(raw) {
     if (key === 'zh' && typeof value === 'string') {
       return replacements.reduce((text, from) => text.replaceAll(from, restart), value)
         .replace("若换了技能，回答可能改变；恢复草稿时请仍用原先参照，不记得可以清除后重测，而不是把两种情境当作同一结果。", "若换了技能，回答可能改变。重测同一情境时，请继续用原先的技能作参照；若想换一项技能，就把它当成一次新的观察。")
+        .replace("浏览器内计分，默认不保存，主动保存的草稿仅供本标签页24小时内恢复，完成、清除或重测即删除。", "答案在瀏覽器內計分。" + restart)
+        .replace("直接开始、完整免费与可选保存", "直接開始、完整免費與隱私")
+        .replace("无需再次同意、注册或付款；保存进度自选。", "無須再次同意、註冊或付款。")
+        .replace("可以保存、重测或分享吗？", "答題進度會儲存嗎？可以重測或分享嗎？")
         .replace("最终答卷不作草稿保存，", "")
         .replace("普通路由分析关闭；可选匿名活动计数需要另行主动选择。", "網站可能依 Cookie 設定記錄不含答案的使用事件。")
         .replace("可选匿名活动计数未经选择保持关闭，且不包含答案；关闭它不影响题目或指南。", "網站可能依 Cookie 設定記錄不含答案的使用事件。")
@@ -195,10 +216,10 @@ const previous = existsSync(output) ? readFileSync(output, 'utf8') : '';
 const overrides = Object.fromEntries(await Promise.all(sources.map(async path => {
   if (path.endsWith('LandingEditorial.ts')) {
     const editorial = await import(new URL(path, root));
-    return [path, ['Hexaco', 'TechConfidence', 'EverydayControl', 'RelationshipWorry', 'RelationshipHabits', 'DatingOutlook', 'IntimacyValues', 'Commitment', 'WorkActivity', 'WorkEthics', 'CultureFit', 'Competency', 'Interpersonal', 'SocialAttitudes', 'CulturalDimensions', 'SocialBattery', 'PeoplePleaser', 'Trust', 'PositivePressure', 'Habits', 'Friction'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
+    return [path, ['Hexaco', 'TechConfidence', 'EverydayControl', 'RelationshipWorry', 'RelationshipHabits', 'DatingOutlook', 'IntimacyValues', 'Commitment', 'WorkActivity', 'WorkEthics', 'CultureFit', 'Competency', 'Interpersonal', 'SocialAttitudes', 'CulturalDimensions', 'SocialBattery', 'PeoplePleaser', 'Trust', 'PositivePressure', 'Habits', 'Friction', 'Egogram', 'Learning', 'Hsp'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
   }
   const raw = readFileSync(new URL(path, root), 'utf8');
-  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json') || path.endsWith('/relationship-worry-habits.json') || path.endsWith('/relationship-habits.json') || path.endsWith('/dating-outlook.json') || path.endsWith('/intimacy-values.json') || path.endsWith('/relationship-commitment.json') || path.endsWith('/work-activity-interests.json') || path.endsWith('/work-ethics.json') || path.endsWith('/culture-fit.json') || path.endsWith('/competency-test.json') || path.endsWith('/interpersonal-preferences.json') || path.endsWith('/social-attitudes-reflection.json') || path.endsWith('/cultural-dimensions.json') || path.endsWith('/social-battery.json') || path.endsWith('/humor-style.json') || path.endsWith('/people-pleaser.json') || path.endsWith('/trust-issues-test.json') || path.endsWith('/toxic-positivity-test.json') || path.endsWith('/interpersonal-habits.json') || path.endsWith('/difficult-person.json')
+  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json') || path.endsWith('/relationship-worry-habits.json') || path.endsWith('/relationship-habits.json') || path.endsWith('/dating-outlook.json') || path.endsWith('/intimacy-values.json') || path.endsWith('/relationship-commitment.json') || path.endsWith('/work-activity-interests.json') || path.endsWith('/work-ethics.json') || path.endsWith('/culture-fit.json') || path.endsWith('/competency-test.json') || path.endsWith('/interpersonal-preferences.json') || path.endsWith('/social-attitudes-reflection.json') || path.endsWith('/cultural-dimensions.json') || path.endsWith('/social-battery.json') || path.endsWith('/humor-style.json') || path.endsWith('/people-pleaser.json') || path.endsWith('/trust-issues-test.json') || path.endsWith('/toxic-positivity-test.json') || path.endsWith('/interpersonal-habits.json') || path.endsWith('/difficult-person.json') || path.endsWith('/egogram.json') || path.endsWith('/type-ab.json') || path.endsWith('/learning-preference.json') || path.endsWith('/multiple-intelligences.json') || path.endsWith('/hsp-sensitivity-quiz.json')
     ? standaloneLikertSource(raw) : JSON.parse(raw)];
 })));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sources, overrides);
