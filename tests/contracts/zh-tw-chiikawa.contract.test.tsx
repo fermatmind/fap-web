@@ -58,7 +58,7 @@ describe("Taiwan Chiikawa release", () => {
     expect(account.status).toBe(200);
     expect(account.headers.get("x-robots-tag")).toContain("noindex");
     expect(account.headers.get("cache-control")).toContain("no-store");
-    for (const path of ["/zh-TW/result/private", "/zh-TW/orders/private", "/zh-TW/account/private", "/zh-TW/tests/mbti", `${entry}/results/unknown`]) {
+    for (const path of ["/zh-TW/result/invalid!", "/zh-TW/orders/private", "/zh-TW/account/private", "/zh-TW/tests/unsupported", `${entry}/results/unknown`]) {
       const denied = await proxy(new NextRequest(`https://fermatmind.com${path}`));
       expect(denied.status).toBe(404);
       expect(denied.headers.get("x-robots-tag")).toContain("noindex");
@@ -73,11 +73,13 @@ describe("Taiwan Chiikawa release", () => {
   });
   it("exposes only real public equivalents and excludes all private paths from the inventory", () => {
     expect(traditionalPath("/zh/articles/test")).toBeNull();
-    expect(traditionalPath("/zh-TW/tests/mbti")).toBeNull();
+    expect(traditionalPath("/zh-TW/tests/mbti")).toBe("/zh-TW/tests/mbti");
+    expect(traditionalEquivalent("/zh-TW/tests/mbti")).toBeNull();
     expect(traditionalEquivalent(`${entry}/take`)).toBeNull();
     for (const suffix of ["result/private", "orders/private", "share/private", "account", "tests/explore/chiikawa/take"]) expect(shouldIncludeInSitemap(`/zh-TW/${suffix}`)).toBe(false);
     const paths = appendFunSitemapEntries([]).filter(entry => entry.loc.includes("/zh-TW")).map(entry => new URL(entry.loc).pathname).sort();
     expect(paths).toEqual(TRADITIONAL_PUBLIC_PATHS.map(path => `/zh-TW${path}`).sort());
+    expect(paths).not.toContain("/zh-TW/tests/mbti");
     expect(paths.some(path => path.includes("take"))).toBe(false);
     const metadata = buildPageMetadata({ locale: "zh", pathname: "/zh/tests/explore/chiikawa", title: "test", description: "test", alternatesByLocale: { en: "/en/tests/explore/chiikawa", zh: "/zh/tests/explore/chiikawa" } });
     expect(new URL(String(metadata.alternates?.languages?.["zh-TW"])).pathname).toBe(entry);
