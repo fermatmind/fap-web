@@ -1,3 +1,7 @@
+import { javaLandingFaq, javaLandingSections } from "@/components/questionnaires/JavaLandingEditorial";
+import { javaScriptLandingFaq, javaScriptLandingSections } from "@/components/questionnaires/JavaScriptLandingEditorial";
+import { pythonLandingFaq, pythonLandingSections } from "@/components/questionnaires/PythonLandingEditorial";
+import { sqlLandingFaq, sqlLandingSections } from "@/components/questionnaires/SqlLandingEditorial";
 import { englishProficiencyLandingFaq, englishProficiencyLandingSections } from "@/components/questionnaires/EnglishProficiencyLandingEditorial";
 import { englishProficiencyResultQuestions } from "@/lib/questionnaires/result-content/english-proficiency";
 import { germanLandingFaq, germanLandingSections, germanLandingReferences } from "@/components/questionnaires/GermanLandingEditorial";
@@ -198,6 +202,38 @@ const editions = {
     prefix: "spelling",
     sections: spellingLandingSections,
     faq: spellingLandingFaq,
+  },
+  "java-test": {
+    reading: "java-test",
+    load: () => import("@/lib/questionnaires/result-content/java-test.json"),
+    editorial: "JavaLandingEditorial",
+    prefix: "java",
+    sections: javaLandingSections,
+    faq: javaLandingFaq,
+  },
+  "javascript-test": {
+    reading: "javascript-test",
+    load: () => import("@/lib/questionnaires/result-content/javascript-test.json"),
+    editorial: "JavaScriptLandingEditorial",
+    prefix: "javaScript",
+    sections: javaScriptLandingSections,
+    faq: javaScriptLandingFaq,
+  },
+  "python-test": {
+    reading: "python-test",
+    load: () => import("@/lib/questionnaires/result-content/python-test.json"),
+    editorial: "PythonLandingEditorial",
+    prefix: "python",
+    sections: pythonLandingSections,
+    faq: pythonLandingFaq,
+  },
+  "sql-test": {
+    reading: "sql-test",
+    load: () => import("@/lib/questionnaires/result-content/sql-test.json"),
+    editorial: "SqlLandingEditorial",
+    prefix: "sql",
+    sections: sqlLandingSections,
+    faq: sqlLandingFaq,
   },
 };
 

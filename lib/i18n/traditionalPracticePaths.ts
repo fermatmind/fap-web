@@ -19,6 +19,10 @@ const practiceProfiles: Readonly<Record<string, readonly string[]>> = {
   "grammar-test": ["tense-forms", "agreement-reference", "function-words", "sentence-editing"],
   "spanish-proficiency": ["grammar", "vocabulary", "reading", "functional"],
   "spelling-test": ["double-consonants", "vowel-choices", "letter-order", "word-endings"],
+  "java-test": ["values-and-expressions", "branches-and-loops", "methods-and-objects", "collections-and-failures"],
+  "javascript-test": ["values-and-operators", "bindings-and-functions", "arrays-and-objects", "promises-and-errors"],
+  "python-test": ["values-and-text", "loops-and-functions", "collections-and-aliases", "errors-and-objects"],
+  "sql-test": ["filters-and-nulls", "joins-and-matches", "groups-and-aggregates", "windows-and-constraints"],
 };
 
 export const traditionalPracticeSlugs = Object.keys(practiceProfiles);

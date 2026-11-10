@@ -33,6 +33,10 @@ const editions = [
   ["grammar-test", 24, 4],
   ["spanish-proficiency", 24, 4],
   ["spelling-test", 24, 4],
+  ["java-test", 24, 4],
+  ["javascript-test", 24, 4],
+  ["python-test", 24, 4],
+  ["sql-test", 24, 4],
 ] as const;
 
 describe("Traditional practice editions", () => {
@@ -65,6 +69,27 @@ describe("Traditional practice editions", () => {
         expect(words(target.prompt.zh)).toEqual(words(source.prompt.zh));
         expect(target.options.map(item => item.label)).toEqual(source.options.map(item => item.label));
         expect(target.correctOptionId).toBe(source.correctOptionId);
+      }
+    },
+  );
+
+  it.each(["java-test", "javascript-test", "python-test", "sql-test"])(
+    "preserves executable %s examples byte for byte",
+    async slug => {
+      const original = await loadQuestionnaire(slug);
+      const entry = await loadTraditionalPractice(slug);
+      if (!original || !entry) throw new Error(`Missing edition: ${slug}`);
+      const code = (text: string) => text.split("\n\n").slice(1).join("\n\n");
+      for (const [index, source] of original.questions.entries()) {
+        const target = entry.quiz.questions[index];
+        expect(code(source.prompt.zh)).not.toBe("");
+        expect(code(target.prompt.zh)).toBe(code(source.prompt.zh));
+        expect(target.correctOptionId).toBe(source.correctOptionId);
+        for (const [optionIndex, option] of source.options.entries()) {
+          if (!/\p{Script=Han}/u.test(option.label.zh)) {
+            expect(target.options[optionIndex].label.zh).toBe(option.label.zh);
+          }
+        }
       }
     },
   );
