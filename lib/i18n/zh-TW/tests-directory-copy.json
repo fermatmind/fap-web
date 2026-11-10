@@ -674,11 +674,11 @@
     "hazbin-hotel-character-quiz": {
       "title": {
         "sourceHash": "51a8d6d220fe67c8398a14de62ec3331756ba60ccdc5dcbdefa450200369214d",
-        "target": "地獄客棧（Hazbin Hotel）角色測驗"
+        "target": "地獄旅館（Hazbin Hotel）角色測驗"
       },
       "description": {
         "sourceHash": "7d8305478ae5914c4b906d9e9af73396e709cda0ac8457ce3f92bab83dc0f666",
-        "target": "你更接近哪位地獄客棧角色？18題比較六種參與角度，全部最高並列與指南免費。"
+        "target": "你更接近哪位地獄旅館角色？18題比較六種參與角度，全部最高並列與指南免費。"
       }
     },
     "chakra": {
@@ -704,7 +704,7 @@
     "my-little-pony-character-quiz": {
       "title": {
         "sourceHash": "ca9615bf292319329219b4c28977d26f8e83fee31e1cf41d0044ad2b4950c2e5",
-        "target": "小馬寶莉（My Little Pony）角色測驗"
+        "target": "彩虹小馬（My Little Pony）角色測驗"
       },
       "description": {
         "sourceHash": "1911e3662602b11dcbb30cef8f900d828ff7ecc5e9a2a4d856f964d64eaeb3dc",
@@ -774,7 +774,7 @@
     "south-park": {
       "title": {
         "sourceHash": "b4ecf5026a7e8263991f6a876b25528d4b6bcb225acb0e74704941d702b54972",
-        "target": "《南方公園》角色測驗"
+        "target": "《南方四賤客》角色測驗"
       },
       "description": {
         "sourceHash": "4fbb467f17dd0d3a0c4e5bfc2128a6324fd0fa1617a08a232189205828190b05",
@@ -804,11 +804,11 @@
     "jujutsu-kaisen-character": {
       "title": {
         "sourceHash": "c8045ac69d7bc3c289e3b0f213986060ef2bc136aec18f1ebd898528b2f3782b",
-        "target": "《咒術回戰》角色測驗"
+        "target": "《咒術迴戰》角色測驗"
       },
       "description": {
         "sourceHash": "2659b48e05ac1a4f0003be867752b96c9b225a7de1ad966bd92dfd1abf316c73",
-        "target": "在學習與創作情境中，對照《咒術回戰》六位角色的選擇。結果保留最高並列。"
+        "target": "在學習與創作情境中，對照《咒術迴戰》六位角色的選擇。結果保留最高並列。"
       }
     },
     "egen-teto": {
@@ -914,7 +914,7 @@
     "amazing-digital-circus": {
       "title": {
         "sourceHash": "f66def62f1a57e029267d9e9530bed18033cfa98203897c9cd17f4b2df2a5b37",
-        "target": "《神奇數字馬戲團》角色測驗"
+        "target": "《神奇數位馬戲團》角色測驗"
       },
       "description": {
         "sourceHash": "bc24b1ca166c7c0369634be20ee740333ea6da906b5bcd9ba3072412bfe7ceba",

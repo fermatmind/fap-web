@@ -12,6 +12,15 @@ import { gossipGirlLandingFaq, gossipGirlLandingSections } from "@/components/qu
 import { gameOfThronesLandingFaq, gameOfThronesLandingSections } from "@/components/questionnaires/GameOfThronesLandingEditorial";
 import { harryPotterLandingFaq, harryPotterLandingSections } from "@/components/questionnaires/HarryPotterLandingEditorial";
 import { euphoriaLandingFaq, euphoriaLandingSections } from "@/components/questionnaires/EuphoriaLandingEditorial";
+import { hazbinHotelLandingFaq, hazbinHotelLandingSections } from "@/components/questionnaires/HazbinHotelLandingEditorial";
+import { myHeroAcademiaLandingFaq, myHeroAcademiaLandingSections } from "@/components/questionnaires/MyHeroAcademiaLandingEditorial";
+import { myLittlePonyLandingFaq, myLittlePonyLandingSections } from "@/components/questionnaires/MyLittlePonyLandingEditorial";
+import { nanaLandingFaq, nanaLandingSections } from "@/components/questionnaires/NanaLandingEditorial";
+import { southParkLandingFaq, southParkLandingSections } from "@/components/questionnaires/SouthParkLandingEditorial";
+import { jujutsuKaisenLandingFaq, jujutsuKaisenLandingSections } from "@/components/questionnaires/JujutsuKaisenLandingEditorial";
+import { digitalCircusLandingFaq, digitalCircusLandingSections } from "@/components/questionnaires/DigitalCircusLandingEditorial";
+import { blueLockLandingFaq, blueLockLandingSections } from "@/components/questionnaires/BlueLockLandingEditorial";
+import { animeStoryRolesLandingFaq, animeStoryRolesLandingSections } from "@/components/questionnaires/AnimeStoryRolesLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -31,6 +40,15 @@ const editorials = {
   "game-of-thrones": { sections: gameOfThronesLandingSections, faq: gameOfThronesLandingFaq },
   "harry-potter-character": { sections: harryPotterLandingSections, faq: harryPotterLandingFaq },
   "euphoria-character-quiz": { sections: euphoriaLandingSections, faq: euphoriaLandingFaq },
+  "hazbin-hotel-character-quiz": { sections: hazbinHotelLandingSections, faq: hazbinHotelLandingFaq },
+  "my-hero-academia-character-quiz": { sections: myHeroAcademiaLandingSections, faq: myHeroAcademiaLandingFaq },
+  "my-little-pony-character-quiz": { sections: myLittlePonyLandingSections, faq: myLittlePonyLandingFaq },
+  "nana-character": { sections: nanaLandingSections, faq: nanaLandingFaq },
+  "south-park": { sections: southParkLandingSections, faq: southParkLandingFaq },
+  "jujutsu-kaisen-character": { sections: jujutsuKaisenLandingSections, faq: jujutsuKaisenLandingFaq },
+  "amazing-digital-circus": { sections: digitalCircusLandingSections, faq: digitalCircusLandingFaq },
+  "blue-lock": { sections: blueLockLandingSections, faq: blueLockLandingFaq },
+  "anime-character-archetype-test": { sections: animeStoryRolesLandingSections, faq: animeStoryRolesLandingFaq },
 };
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {

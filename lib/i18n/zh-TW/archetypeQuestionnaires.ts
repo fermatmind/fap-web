@@ -6,9 +6,10 @@ import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
 import { isArchetypeConfigurationValid } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, QuestionnaireSection, Text } from "@/lib/questionnaires/types";
 import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
-import generated from "./archetype-questionnaires.generated.json";
 
-const units: TextUnits = generated.units;
+// The generator validates the dictionary before builds. Only the reader shape needs TypeScript checking.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { units } = require("./archetype-questionnaires.generated.json") as { units: TextUnits };
 const sources = {
   "mythical-creature": { name: "mythical-creature", type: "生物", en: "creature", load: () => import("@/lib/questionnaires/result-content/mythical-creature.json") },
   "what-dog-breed-am-i": { name: "dog-breed", type: "犬種", en: "breed", load: () => import("@/lib/questionnaires/result-content/dog-breed.json") },
@@ -25,6 +26,15 @@ const sources = {
   "game-of-thrones": { name: "game-of-thrones", load: () => import("@/lib/questionnaires/result-content/game-of-thrones.json") },
   "harry-potter-character": { name: "harry-potter-character", load: () => import("@/lib/questionnaires/result-content/harry-potter-character.json") },
   "euphoria-character-quiz": { name: "euphoria-character-quiz", attribute: "euphoria", load: () => import("@/lib/questionnaires/result-content/euphoria-character-quiz.json") },
+  "hazbin-hotel-character-quiz": { name: "hazbin-hotel", load: () => import("@/lib/questionnaires/result-content/hazbin-hotel.json") },
+  "my-hero-academia-character-quiz": { name: "my-hero-academia", load: () => import("@/lib/questionnaires/result-content/my-hero-academia.json") },
+  "my-little-pony-character-quiz": { name: "my-little-pony", load: () => import("@/lib/questionnaires/result-content/my-little-pony.json") },
+  "nana-character": { name: "nana-character", load: () => import("@/lib/questionnaires/result-content/nana-character.json") },
+  "south-park": { name: "south-park", load: () => import("@/lib/questionnaires/result-content/south-park.json") },
+  "jujutsu-kaisen-character": { name: "jujutsu-kaisen-character", load: () => import("@/lib/questionnaires/result-content/jujutsu-kaisen-character.json") },
+  "amazing-digital-circus": { name: "amazing-digital-circus", load: () => import("@/lib/questionnaires/result-content/amazing-digital-circus.json") },
+  "blue-lock": { name: "blue-lock", load: () => import("@/lib/questionnaires/result-content/blue-lock.json") },
+  "anime-character-archetype-test": { name: "anime-character-archetype-test", load: () => import("@/lib/questionnaires/result-content/anime-character-archetype-test.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

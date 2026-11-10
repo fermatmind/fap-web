@@ -20,6 +20,15 @@ const editions = {
   "game-of-thrones": ["game-of-thrones", "GameOfThrones", "gameOfThronesLanding", true],
   "harry-potter-character": ["harry-potter-character", "HarryPotter", "harryPotterLanding", true],
   "euphoria-character-quiz": ["euphoria-character-quiz", "Euphoria", "euphoriaLanding", true],
+  "hazbin-hotel-character-quiz": ["hazbin-hotel", "HazbinHotel", "hazbinHotelLanding", true],
+  "my-hero-academia-character-quiz": ["my-hero-academia", "MyHeroAcademia", "myHeroAcademiaLanding", true],
+  "my-little-pony-character-quiz": ["my-little-pony", "MyLittlePony", "myLittlePonyLanding", true],
+  "nana-character": ["nana-character", "Nana", "nanaLanding", true],
+  "south-park": ["south-park", "SouthPark", "southParkLanding", true],
+  "jujutsu-kaisen-character": ["jujutsu-kaisen-character", "JujutsuKaisen", "jujutsuKaisenLanding", true],
+  "amazing-digital-circus": ["amazing-digital-circus", "DigitalCircus", "digitalCircusLanding", true],
+  "blue-lock": ["blue-lock", "BlueLock", "blueLockLanding", true],
+  "anime-character-archetype-test": ["anime-character-archetype-test", "AnimeStoryRoles", "animeStoryRolesLanding", true],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);

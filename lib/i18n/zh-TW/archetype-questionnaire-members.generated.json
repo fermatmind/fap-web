@@ -131,5 +131,80 @@
     "fezco",
     "nate-jacobs",
     "kat-hernandez"
+  ],
+  "hazbin-hotel-character-quiz": [
+    "charlie",
+    "vaggie",
+    "alastor",
+    "angel-dust",
+    "husk",
+    "niffty"
+  ],
+  "my-hero-academia-character-quiz": [
+    "izuku-midoriya",
+    "katsuki-bakugo",
+    "shoto-todoroki",
+    "ochaco-uraraka",
+    "tenya-iida",
+    "eijiro-kirishima"
+  ],
+  "my-little-pony-character-quiz": [
+    "twilight-sparkle",
+    "rainbow-dash",
+    "applejack",
+    "rarity",
+    "pinkie-pie",
+    "fluttershy"
+  ],
+  "nana-character": [
+    "nana-osaki",
+    "nana-komatsu",
+    "ren-honjo",
+    "takumi-ichinose",
+    "nobuo-terashima",
+    "shinichi-okazaki",
+    "yasushi-takagi"
+  ],
+  "south-park": [
+    "stan-marsh",
+    "kyle-broflovski",
+    "eric-cartman",
+    "kenny-mccormick",
+    "butters-stotch",
+    "wendy-testaburger",
+    "randy-marsh"
+  ],
+  "jujutsu-kaisen-character": [
+    "yuji-itadori",
+    "megumi-fushiguro",
+    "nobara-kugisaki",
+    "satoru-gojo",
+    "maki-zenin",
+    "toge-inumaki"
+  ],
+  "amazing-digital-circus": [
+    "pomni",
+    "jax",
+    "ragatha",
+    "gangle",
+    "kinger",
+    "zooble"
+  ],
+  "blue-lock": [
+    "isagi",
+    "bachira",
+    "nagi",
+    "reo",
+    "rin",
+    "barou",
+    "chigiri"
+  ],
+  "anime-character-archetype-test": [
+    "lead",
+    "challenger",
+    "pathfinder",
+    "guide",
+    "improviser",
+    "keeper"
   ]
 }
