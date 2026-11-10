@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { FilmQuestionnaireLanding, hasFilmEditorial } from "./FilmQuestionnaireLanding";
+import { hasTraditionalEightQuizOverview } from "@/components/questionnaires/EightQuizOverview";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { FantasyQuestionnaireLanding } from "./FantasyQuestionnaireLanding";
 import { FantasyPortrait, hasFantasyArtwork } from "@/components/questionnaires/FantasyRoster";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
@@ -58,12 +60,15 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("zh")} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
-  if (!profile) return <>
-    {languages}
-    {Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
-      : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} />
-      : <FantasyQuestionnaireLanding quiz={quiz} />}
-  </>;
+  if (!profile) {
+    const overviewCopy = hasTraditionalEightQuizOverview(slug) ? await loadTraditionalAssessmentText() : undefined;
+    return <>
+      {languages}
+      {Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
+        : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} overviewCopy={overviewCopy} />
+        : <FantasyQuestionnaireLanding quiz={quiz} />}
+    </>;
+  }
 
   const result = quiz.profiles.find(item => item.id === profile);
   if (!result) notFound();

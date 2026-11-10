@@ -1,6 +1,8 @@
 "use client";
 
 import { EightQuizOverview } from "./EightQuizOverview";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
+import { questionnairePath } from "@/lib/questionnaires/paths";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -21,15 +23,18 @@ function wrap(ctx: CanvasRenderingContext2D, value: string, x: number, y: number
 /** A local personal image; the copied URL always opens a fresh public entry. */
 export function EightQuizPersonalCard({ quiz, result, locale }: { quiz: Questionnaire; result: EightQuizResult; locale: Locale }) {
   const rows = eightQuizCardRows(quiz, result, locale), zh = locale === "zh";
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
+  const displayLocale = traditional ? "zh-TW" : locale;
+  const copyText = (source: string) => traditional ? displayText(source).replaceAll("測試", "測驗") : source;
   const [preview, setPreview] = useState(""), [busy, setBusy] = useState(false), [message, setMessage] = useState(""), [manual, setManual] = useState("");
   const objectUrl = useRef(""), generation = useRef(0);
   useEffect(() => () => { generation.current++; if (objectUrl.current) URL.revokeObjectURL(objectUrl.current); }, []);
   if (!rows) return null;
-  const publicUrl = `https://fermatmind.com/${locale}/tests/explore/${quiz.slug}`;
-  const filename = `fermatmind-${quiz.slug}-${locale}-personal.png`;
+  const publicUrl = `https://fermatmind.com${questionnairePath(displayLocale, quiz.slug)}`;
+  const filename = `fermatmind-${quiz.slug}-${displayLocale}-personal.png`;
   async function copy() {
-    try { await navigator.clipboard.writeText(publicUrl); setManual(""); setMessage(zh ? "已复制公开入口；新会话不会带入本次结果。" : "Public entry copied. A new session will not inherit your result."); }
-    catch { setManual(publicUrl); setMessage(zh ? "请手动复制公开入口。" : "Copy the public entry manually below."); }
+    try { await navigator.clipboard.writeText(publicUrl); setManual(""); setMessage(zh ? copyText("已复制公开入口；新会话不会带入本次结果。") : "Public entry copied. A new session will not inherit your result."); }
+    catch { setManual(publicUrl); setMessage(zh ? copyText("请手动复制公开入口。") : "Copy the public entry manually below."); }
   }
   async function generate(share: boolean) {
     if (busy || !rows) return;
@@ -56,7 +61,7 @@ export function EightQuizPersonalCard({ quiz, result, locale }: { quiz: Question
       canvas.height = 370 + gridHeight + (picture ? pictureHeight + 40 : 0) + rowHeights.reduce((sum, h) => sum + h, 0);
       const h = canvas.height;
       ctx.fillStyle = "#f8f4ec"; ctx.fillRect(0, 0, w, h);
-      ctx.fillStyle = "#192a35"; ctx.font = "600 25px system-ui, sans-serif"; ctx.fillText("FERMATMIND · " + (zh ? "本次个人结果" : "MY RESULT"), pad, 62);
+      ctx.fillStyle = "#192a35"; ctx.font = "600 25px system-ui, sans-serif"; ctx.fillText("FERMATMIND · " + (zh ? copyText("本次个人结果") : "MY RESULT"), pad, 62);
       ctx.font = "700 43px system-ui, sans-serif"; wrap(ctx, quiz.title[locale], pad, 125, w - pad * 2, 54);
       let y = 220;
       if (picture) {
@@ -81,7 +86,7 @@ export function EightQuizPersonalCard({ quiz, result, locale }: { quiz: Question
         ctx.font = "500 27px system-ui, sans-serif"; wrap(ctx, row.detail, pad + 24, y + 45 + titleHeight, w - pad * 2 - 48, 37); y += rowHeights[i];
       });
       ctx.fillStyle = "#43545c"; ctx.font = "500 23px system-ui, sans-serif";
-      wrap(ctx, zh ? "仅供娱乐与自我观察 · 保留全部结果 · 无逐题答案" : "Entertainment and reflection · All matches kept · No item answers", pad, h - 82, w - pad * 2, 30);
+      wrap(ctx, zh ? copyText("仅供娱乐与自我观察 · 保留全部结果 · 无逐题答案") : "Entertainment and reflection · All matches kept · No item answers", pad, h - 82, w - pad * 2, 30);
       ctx.font = "500 22px system-ui, sans-serif"; ctx.fillText(publicUrl.replace("https://", ""), pad, h - 25);
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error("PNG unavailable")), "image/png"));
       if (current !== generation.current) return;
@@ -89,23 +94,23 @@ export function EightQuizPersonalCard({ quiz, result, locale }: { quiz: Question
       objectUrl.current = URL.createObjectURL(blob); setPreview(objectUrl.current);
       if (share) {
         const file = new File([blob], filename, { type: "image/png" });
-        if (!navigator.share || !navigator.canShare?.({ files: [file] })) { setMessage(zh ? "此浏览器不支持图片分享，可保存下方PNG。" : "Image sharing is unavailable. Save the PNG below."); return; }
-        try { await navigator.share({ files: [file], title: quiz.title[locale], url: publicUrl }); setMessage(zh ? "分享完成。" : "Shared."); }
-        catch (error) { setMessage(error instanceof Error && error.name === "AbortError" ? (zh ? "已取消分享。图片仍可手动保存。" : "Sharing canceled. You can still save the image.") : (zh ? "分享未完成，可手动保存图片。" : "Sharing did not complete. Save the image manually.")); }
+        if (!navigator.share || !navigator.canShare?.({ files: [file] })) { setMessage(zh ? copyText("此浏览器不支持图片分享，可保存下方PNG。") : "Image sharing is unavailable. Save the PNG below."); return; }
+        try { await navigator.share({ files: [file], title: quiz.title[locale], url: publicUrl }); setMessage(zh ? copyText("分享完成。") : "Shared."); }
+        catch (error) { setMessage(error instanceof Error && error.name === "AbortError" ? (zh ? copyText("已取消分享。图片仍可手动保存。") : "Sharing canceled. You can still save the image.") : (zh ? copyText("分享未完成，可手动保存图片。") : "Sharing did not complete. Save the image manually.")); }
         return;
       }
       const anchor = document.createElement("a"); anchor.href = objectUrl.current; anchor.download = filename; anchor.click();
-      setMessage(zh ? "个人PNG已生成，可下载或长按保存预览。" : "Personal PNG ready. Download or save the preview on mobile.");
-    } catch { setMessage(zh ? "暂时无法生成图片，可重试或复制公开入口；完整结果仍可阅读。" : "The image could not be created. Retry or copy the public entry; your full result remains readable."); }
+      setMessage(zh ? copyText("个人PNG已生成，可下载或长按保存预览。") : "Personal PNG ready. Download or save the preview on mobile.");
+    } catch { setMessage(zh ? copyText("暂时无法生成图片，可重试或复制公开入口；完整结果仍可阅读。") : "The image could not be created. Retry or copy the public entry; your full result remains readable."); }
     finally { setBusy(false); }
   }
   return <section data-eight-quiz-personal-card={quiz.slug} className="my-8 space-y-4 rounded-xl border border-slate-300 bg-white p-4 sm:p-6">
-    <h3 className="text-xl font-semibold">{zh ? "保存本次个人结果卡" : "Save your personal result card"}</h3>
-    <p className="text-sm leading-7">{zh ? "图片在本浏览器生成，包含本次结果和汇总读数，不含逐题回答。保存或分享由你主动选择；复制的公开入口不含本次结果。" : "Your browser creates an image of this result and its aggregate readouts, without item answers. You choose whether to save or share. The copied public entry contains no personal result."}</p>
-    <div className="flex flex-wrap gap-3"><button disabled={busy} onClick={() => void generate(false)} className="min-h-11 rounded-lg bg-slate-900 px-5 py-3 font-semibold text-white disabled:opacity-50">{zh ? "保存个人PNG" : "Save personal PNG"}</button><button disabled={busy} onClick={() => void generate(true)} className="min-h-11 rounded-lg border px-5 py-3 font-semibold">{zh ? "分享个人图片" : "Share personal image"}</button><button onClick={() => void copy()} className="min-h-11 px-3 underline">{zh ? "复制测试入口" : "Copy quiz entry"}</button></div>
+    <h3 className="text-xl font-semibold">{zh ? copyText("保存本次个人结果卡") : "Save your personal result card"}</h3>
+    <p className="text-sm leading-7">{zh ? copyText("图片在本浏览器生成，包含本次结果和汇总读数，不含逐题回答。保存或分享由你主动选择；复制的公开入口不含本次结果。") : "Your browser creates an image of this result and its aggregate readouts, without item answers. You choose whether to save or share. The copied public entry contains no personal result."}</p>
+    <div className="flex flex-wrap gap-3"><button disabled={busy} onClick={() => void generate(false)} className="min-h-11 rounded-lg bg-slate-900 px-5 py-3 font-semibold text-white disabled:opacity-50">{zh ? copyText("保存个人PNG") : "Save personal PNG"}</button><button disabled={busy} onClick={() => void generate(true)} className="min-h-11 rounded-lg border px-5 py-3 font-semibold">{zh ? copyText("分享个人图片") : "Share personal image"}</button><button onClick={() => void copy()} className="min-h-11 px-3 underline">{zh ? copyText("复制测试入口") : "Copy quiz entry"}</button></div>
     {message && <p role="status" className="text-sm leading-7">{message}</p>}
-    {manual && <textarea readOnly aria-label={zh ? "手动复制测试入口" : "Quiz entry for manual copying"} value={manual} className="min-h-24 w-full border p-3" onFocus={event => event.target.select()} />}
-    <details className="border-t pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "比较本版结果与完整指南" : "Compare this edition’s results and full guides"}</summary><EightQuizOverview quiz={quiz} locale={locale} compact /></details>
-    {preview && <a href={preview} download={filename} className="block underline"><span>{zh ? "下载个人PNG；手机可长按保存" : "Download personal PNG, or save the preview on mobile"}</span><Image unoptimized src={preview} width={1080} height={1600} alt={zh ? "本次个人结果卡预览" : "Your personal result card preview"} className="mt-3 h-auto max-h-[44rem] max-w-full rounded-lg" /></a>}
+    {manual && <textarea readOnly aria-label={zh ? copyText("手动复制测试入口") : "Quiz entry for manual copying"} value={manual} className="min-h-24 w-full border p-3" onFocus={event => event.target.select()} />}
+    <details className="border-t pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? copyText("比较本版结果与完整指南") : "Compare this edition’s results and full guides"}</summary><EightQuizOverview quiz={quiz} locale={locale} traditionalCopy={traditional ? copyText : undefined} compact /></details>
+    {preview && <a href={preview} download={filename} className="block underline"><span>{zh ? copyText("下载个人PNG；手机可长按保存") : "Download personal PNG, or save the preview on mobile"}</span><Image unoptimized src={preview} width={1080} height={1600} alt={zh ? copyText("本次个人结果卡预览") : "Your personal result card preview"} className="mt-3 h-auto max-h-[44rem] max-w-full rounded-lg" /></a>}
   </section>;
 }

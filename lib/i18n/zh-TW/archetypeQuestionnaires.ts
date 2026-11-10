@@ -59,6 +59,13 @@ const sources = {
   "zodiac-sign-quiz": { name: "zodiac-sign-quiz", load: () => import("@/lib/questionnaires/result-content/zodiac-sign-quiz.json") },
   "male-archetype-test": { name: "four-roles", load: () => import("@/lib/questionnaires/result-content/four-roles.json") },
   "wojak": { name: "wojak", load: () => import("@/lib/questionnaires/result-content/wojak.json") },
+  "greek-god": { name: "greek-god", load: () => import("@/lib/questionnaires/result-content/greek-god.json") },
+  "what-element-am-i": { name: "element", load: () => import("@/lib/questionnaires/result-content/element.json") },
+  "past-life": { name: "past-life", load: () => import("@/lib/questionnaires/result-content/past-life.json") },
+  "inner-child-personality-test": { name: "inner-child", load: () => import("@/lib/questionnaires/result-content/inner-child.json") },
+  "dungeons-dragons-class": { name: "dungeons-dragons-class", load: () => import("@/lib/questionnaires/result-content/dungeons-dragons-class.json") },
+  "socionics": { name: "socionics", load: () => import("@/lib/questionnaires/result-content/socionics.json") },
+  "which-tarot-card-are-you": { name: "tarot-card", load: () => import("@/lib/questionnaires/result-content/tarot-card.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

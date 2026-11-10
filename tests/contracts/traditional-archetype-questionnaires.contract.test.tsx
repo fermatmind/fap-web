@@ -91,3 +91,18 @@ it.each(["found-family-role-test", "chinese-zodiac", "zodiac-sign-quiz", "male-a
     expect(paragraphs.join("\n")).not.toMatch(staleDraft);
   },
 );
+
+it.each([
+  ["hogwarts-house-quiz", "/zh-TW/tests/explore/harry-potter-character"],
+  ["hello-kitty", "/zh-TW/tests/explore/chiikawa"],
+  ["hazbin-hotel-character-quiz", null],
+])("restores the Taiwan comparison links and illustrations for %s", async (slug, related) => {
+  const { container } = render(await ArchetypeQuestionnairePage({ slug }));
+  const overview = container.querySelector("[data-eight-quiz-overview]");
+  expect(overview).not.toBeNull();
+  expect(overview?.querySelector("img")).not.toBeNull();
+  const guides = [...overview!.querySelectorAll('a[href*="/results/"]')];
+  expect(guides.length).toBeGreaterThan(0);
+  expect(guides.every(link => link.getAttribute("href")?.startsWith(`/zh-TW/tests/explore/${slug}/results/`))).toBe(true);
+  if (related) expect(overview?.querySelector(`a[href="${related}"]`)).not.toBeNull();
+});

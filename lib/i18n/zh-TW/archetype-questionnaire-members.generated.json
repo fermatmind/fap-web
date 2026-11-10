@@ -425,5 +425,81 @@
     "boomer",
     "zoomer",
     "npc"
+  ],
+  "greek-god": [
+    "zeus",
+    "athena",
+    "apollo",
+    "aphrodite",
+    "ares",
+    "artemis"
+  ],
+  "what-element-am-i": [
+    "fire",
+    "water",
+    "earth",
+    "air"
+  ],
+  "past-life": [
+    "scribe",
+    "potter",
+    "printer",
+    "weaver",
+    "drafter",
+    "trader",
+    "chartmaker",
+    "naturalist"
+  ],
+  "inner-child-personality-test": [
+    "wonder-explorer",
+    "independent-maker",
+    "prepared-player",
+    "expressive-player",
+    "quiet-imaginer",
+    "welcoming-companion"
+  ],
+  "dungeons-dragons-class": [
+    "barbarian",
+    "bard",
+    "cleric",
+    "druid",
+    "fighter",
+    "monk",
+    "paladin",
+    "ranger",
+    "rogue",
+    "sorcerer",
+    "warlock",
+    "wizard"
+  ],
+  "socionics": [
+    "alpha",
+    "beta",
+    "gamma",
+    "delta"
+  ],
+  "which-tarot-card-are-you": [
+    "fool",
+    "magician",
+    "high-priestess",
+    "empress",
+    "emperor",
+    "hierophant",
+    "lovers",
+    "chariot",
+    "strength",
+    "hermit",
+    "wheel-of-fortune",
+    "justice",
+    "hanged-man",
+    "death",
+    "temperance",
+    "devil",
+    "tower",
+    "star",
+    "moon",
+    "sun",
+    "judgement",
+    "world"
   ]
 }

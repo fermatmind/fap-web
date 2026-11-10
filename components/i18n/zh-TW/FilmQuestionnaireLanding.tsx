@@ -33,6 +33,7 @@ import { chineseZodiacLandingFaq, chineseZodiacLandingSections } from "@/compone
 import { zodiacStoryLandingFaq, zodiacStoryLandingSections } from "@/components/questionnaires/ZodiacStoryLandingEditorial";
 import { maleRoleLandingFaq, maleRoleLandingSections } from "@/components/questionnaires/MaleRoleLandingEditorial";
 import { wojakLandingFaq, wojakLandingSections } from "@/components/questionnaires/WojakLandingEditorial";
+import { EightQuizOverview } from "@/components/questionnaires/EightQuizOverview";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial, archetypeLandingSummary } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -86,7 +87,14 @@ const editorials = {
   "zodiac-sign-quiz": { sections: zodiacStoryLandingSections, faq: zodiacStoryLandingFaq },
   "male-archetype-test": { sections: maleRoleLandingSections, faq: maleRoleLandingFaq },
   "wojak": { sections: wojakLandingSections, faq: wojakLandingFaq },
-};
+  "greek-god": null,
+  "what-element-am-i": false,
+  "past-life": false,
+  "inner-child-personality-test": false,
+  "dungeons-dragons-class": false,
+  "socionics": false,
+  "which-tarot-card-are-you": false,
+} as const;
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
   return Object.hasOwn(editorials, slug);
@@ -98,7 +106,7 @@ function FilmCopy({ text, slug }: { text: string; slug: string }) {
     : part);
 }
 
-export function FilmQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
+export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questionnaire; overviewCopy?: (text: string) => string }) {
   if (!hasFilmEditorial(quiz.slug)) notFound();
   const { slug } = quiz;
   const editorial = editorials[slug];
@@ -110,13 +118,14 @@ export function FilmQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
       <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
       <QuestionnaireTakeEntry quiz={quiz} locale="zh" displayLocale="zh-TW" />
     </ExploreTestIntro>
+    {overviewCopy && <EightQuizOverview quiz={quiz} locale="zh" traditionalCopy={overviewCopy} />}
     <p className="whitespace-pre-line leading-8"><FilmCopy text={quiz.introduction.zh} slug={slug} /></p>
     <section className="space-y-4">
       <h2 className="text-2xl font-semibold">完整結果指南</h2>
       <ul className="grid gap-4 sm:grid-cols-2">
         {quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border p-4">
           <Link href={questionnaireGuidePath("zh-TW", slug, profile.id)} className="inline-block min-h-11 py-2 font-semibold underline">{profile.title.zh}</Link>
-          <p className="leading-7">{editorial ? profile.summary.zh : archetypeLandingSummary(slug, profile.id)}</p>
+          <p className="leading-7">{editorial === null ? archetypeLandingSummary(slug, profile.id) : profile.summary.zh}</p>
         </li>)}
       </ul>
     </section>

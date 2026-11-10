@@ -54,6 +54,13 @@ const editions = {
   "zodiac-sign-quiz": ["zodiac-sign-quiz", "ZodiacStory", "zodiacStoryLanding", "standalone"],
   "male-archetype-test": ["four-roles", "MaleRole", "maleRoleLanding", "standalone"],
   "wojak": ["wojak", "Wojak", "wojakLanding", "standalone"],
+  "greek-god": ["greek-god", "Greek", "", "summaries"],
+  "what-element-am-i": ["element", "", "", "data"],
+  "past-life": ["past-life", "", "", "data"],
+  "inner-child-personality-test": ["inner-child", "", "", "data"],
+  "dungeons-dragons-class": ["dungeons-dragons-class", "", "", "data"],
+  "socionics": ["socionics", "", "", "data"],
+  "which-tarot-card-are-you": ["tarot-card", "", "", "data"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -133,6 +140,7 @@ function readLiteral(node) {
 for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
   const quiz = JSON.parse(snapshots[`lib/questionnaires/data/${slug}.json`]);
   members[slug] = quiz.profiles.map(profile => profile.id);
+  if (layout === "data") continue;
   const file = `components/questionnaires/${name}LandingEditorial.ts`;
   const raw = read(new URL(file, root));
   snapshots[file] = raw;

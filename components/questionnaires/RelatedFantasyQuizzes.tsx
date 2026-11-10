@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Text } from "@/lib/questionnaires/types";
 import { questionnairePath } from "@/lib/questionnaires/paths";
@@ -50,12 +51,22 @@ const links: Record<string, { slug: string; text: Text }[]> = {
 };
 
 /** Public entries only: these related themes have independent question sets. */
-export function RelatedFantasyQuizzes({ slug, locale, traditional = false }: { slug: string; locale: Locale; traditional?: boolean }) {
+export function RelatedFantasyQuizzes({ slug, locale, traditional = false, traditionalCopy }: {
+  slug: string; locale: Locale; traditional?: boolean; traditionalCopy?: (text: string) => string;
+}) {
   const entries = links[slug];
   if (!entries) return null;
   return <nav aria-label={traditional ? "相關主題測驗" : locale === "zh" ? "相关主题测试" : "Related themed quizzes"} className="my-6 space-y-3">
-    {entries.map(entry => <Link key={entry.slug} prefetch={false} target="_blank" rel="noopener" className="block min-h-11 py-2 leading-7 underline" href={questionnairePath(locale, entry.slug)} hrefLang={traditional ? "zh-CN" : undefined}>
-      {traditional && slug === "avatar-bender-quiz" ? "想比較日常元素比喻？另做四元素測驗，題目和御術故事風格不同。（簡體中文，新分頁）" : entry.text[locale]} {!traditional && (locale === "zh" ? "（新标签页）" : "(new tab)")}
-    </Link>)}
+    {entries.map(entry => {
+      const available = traditional && hasTraditionalArchetype(entry.slug);
+      const text = traditional && slug === "avatar-bender-quiz"
+        ? "想比較日常元素比喻？另做四元素測驗，題目和御術故事風格不同。"
+        : traditionalCopy?.(entry.text[locale]) ?? entry.text[locale];
+      const suffix = available ? "（新分頁）" : traditional ? "（簡體中文，新分頁）" : locale === "zh" ? "（新标签页）" : "(new tab)";
+      return <Link key={entry.slug} prefetch={false} target="_blank" rel="noopener" className="block min-h-11 py-2 leading-7 underline"
+        href={questionnairePath(available ? "zh-TW" : locale, entry.slug)} hrefLang={traditional && !available ? "zh-CN" : undefined}>
+        {text} {suffix}
+      </Link>;
+    })}
   </nav>;
 }
