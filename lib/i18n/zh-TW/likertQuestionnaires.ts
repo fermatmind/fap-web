@@ -1,3 +1,8 @@
+import { humorSummaries } from "@/components/questionnaires/HumorLandingEditorial";
+import { socialBatteryFaq, socialBatterySections, socialBatterySummaries } from "@/components/questionnaires/SocialBatteryLandingEditorial";
+import { culturalFaq, culturalSections, culturalExtraReferences, culturalSummaries } from "@/components/questionnaires/CulturalDimensionsLandingEditorial";
+import { socialAttitudesLandingFaq, socialAttitudesLandingSections, socialAttitudesLandingReferences } from "@/components/questionnaires/SocialAttitudesLandingEditorial";
+import { interpersonalLandingFaq, interpersonalLandingSections } from "@/components/questionnaires/InterpersonalLandingEditorial";
 import { competencyLandingFaq, competencyLandingSections, competencyLandingReferences } from "@/components/questionnaires/CompetencyLandingEditorial";
 import { cultureFitFaq, cultureFitSections, cultureFitSummaries } from "@/components/questionnaires/CultureFitLandingEditorial";
 import { workEthicsFaq, workEthicsSections, workEthicsSummaries } from "@/components/questionnaires/WorkEthicsLandingEditorial";
@@ -32,6 +37,49 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "humor-style-test": {
+    reading: "humor-style",
+    attribute: "humor-style",
+    load: () => import("@/lib/questionnaires/result-content/humor-style.json"),
+  },
+  "social-battery-test": {
+    reading: "social-battery",
+    attribute: "social-battery",
+    load: () => import("@/lib/questionnaires/result-content/social-battery.json"),
+    editorial: "SocialBattery",
+    prefix: "socialBattery",
+    sections: socialBatterySections,
+    faq: socialBatteryFaq,
+    summaries: socialBatterySummaries,
+  },
+  "cultural-dimensions": {
+    reading: "cultural-dimensions",
+    attribute: "cultural-dimensions",
+    load: () => import("@/lib/questionnaires/result-content/cultural-dimensions.json"),
+    editorial: "CulturalDimensions",
+    prefix: "cultural",
+    sections: culturalSections,
+    faq: culturalFaq,
+    summaries: culturalSummaries,
+  },
+  "social-attitudes-reflection": {
+    reading: "social-attitudes-reflection",
+    attribute: "social-attitudes",
+    load: () => import("@/lib/questionnaires/result-content/social-attitudes-reflection.json"),
+    editorial: "SocialAttitudes",
+    prefix: "socialAttitudesLanding",
+    sections: socialAttitudesLandingSections,
+    faq: socialAttitudesLandingFaq,
+  },
+  "interpersonal-preferences": {
+    reading: "interpersonal-preferences",
+    attribute: "interpersonal-preferences",
+    load: () => import("@/lib/questionnaires/result-content/interpersonal-preferences.json"),
+    editorial: "Interpersonal",
+    prefix: "interpersonalLanding",
+    sections: interpersonalLandingSections,
+    faq: interpersonalLandingFaq,
+  },
   "competency-test": {
     reading: "competency-test",
     attribute: "work-behavior",
@@ -255,14 +303,15 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
   const summaries: Record<string, { zh: string; en: string }> = slug === "character-strengths"
     ? projectStoryCopy(strengthsSummaries, "components/questionnaires/StrengthsLandingEditorial.ts/strengthsSummaries", units)
     : slug === "procrastinator-type-test" ? projectStoryCopy(procrastinationSummaries,
-      "components/questionnaires/ProcrastinationLandingEditorial.ts/procrastinationSummaries", units) : {};
+      "components/questionnaires/ProcrastinationLandingEditorial.ts/procrastinationSummaries", units) : slug === "humor-style-test" ? projectStoryCopy(humorSummaries,
+      "components/questionnaires/HumorLandingEditorial.ts/humorSummaries", units) : {};
   const extraReferences = (() => {
     switch (slug) {
       case "hexaco": return projectStoryCopy(hexacoLandingReferences, "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units);
@@ -278,6 +327,8 @@ export async function loadTraditionalLikert(slug: string) {
       case "relationship-commitment": return projectStoryCopy(commitmentLandingReferences, "components/questionnaires/CommitmentLandingEditorial.ts/commitmentLandingReferences", units);
       case "work-activity-interests": return projectStoryCopy(workActivityLandingReferences, "components/questionnaires/WorkActivityLandingEditorial.ts/workActivityLandingReferences", units);
       case "competency-test": return projectStoryCopy(competencyLandingReferences, "components/questionnaires/CompetencyLandingEditorial.ts/competencyLandingReferences", units);
+      case "social-attitudes-reflection": return projectStoryCopy(socialAttitudesLandingReferences, "components/questionnaires/SocialAttitudesLandingEditorial.ts/socialAttitudesLandingReferences", units);
+      case "cultural-dimensions": return projectStoryCopy(culturalExtraReferences, "components/questionnaires/CulturalDimensionsLandingEditorial.ts/culturalExtraReferences", units);
       default: return [];
     }
   })();

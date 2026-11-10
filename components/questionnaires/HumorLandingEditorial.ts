@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const humorSummaries: Record<string, { zh: string; en: string }> = {
   "deadpan": {
     "zh": "冷面表达以平静口吻制造反差。比较口吻、字面意思与语境怎样一起形成幽默，并观察文字消息缺少表情线索时的误读。",
     "en": "Deadpan uses a calm delivery to create contrast. Explore how tone, literal meaning and context work together, and how written messages can lose facial and vocal cues."
@@ -28,7 +28,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function humorLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return humorSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function humorCurrentEntryCopy(text: string, locale: "zh" | "en") {

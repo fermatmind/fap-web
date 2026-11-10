@@ -10,7 +10,7 @@ import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 
 afterEach(cleanup);
 
-it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection", "growth-mindset-fixed-mindset", "grit-test", "tech-savvy", "time-management", "procrastinator-type-test", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
+it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection", "growth-mindset-fixed-mindset", "grit-test", "tech-savvy", "time-management", "procrastinator-type-test", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "social-battery-test", "humor-style-test"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
   const original = (await loadQuestionnaire(slug))!;
   const { quiz, extraReferences } = (await loadTraditionalLikert(slug))!;
   const identity = (item: typeof original) => item.questions.map(question => [

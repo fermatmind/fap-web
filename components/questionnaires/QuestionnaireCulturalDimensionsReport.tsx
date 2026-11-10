@@ -1,22 +1,22 @@
 import Link from "next/link";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function QuestionnaireCulturalDimensionsReport({ quiz, result, answers, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; answers: QuestionnaireAnswers; locale: Locale }) {
+export function QuestionnaireCulturalDimensionsReport({ quiz, result, answers, locale, displayLocale = locale, copy = text => text }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; answers: QuestionnaireAnswers; locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-cultural-dimensions-report>
-    <p className="leading-8">{zh ? "以下仅汇总本原创题本的六组作答，不是个人文化、国家指数或群体调查。各组分别读，不合总分、不跨组排名，也不选主导类型；相同均值仍保留各自情境。每组至少四条数字回答才显示均值。" : "These are six summaries of responses to this original bank, not an individual culture, national index or group survey. Read them separately, without a total, cross-topic ranking or dominant type. Equal means retain their separate contexts. A mean is displayed only with at least four numeric responses in that group."}</p>
+    <p className="leading-8">{zh ? copy("以下仅汇总本原创题本的六组作答，不是个人文化、国家指数或群体调查。各组分别读，不合总分、不跨组排名，也不选主导类型；相同均值仍保留各自情境。每组至少四条数字回答才显示均值。") : "These are six summaries of responses to this original bank, not an individual culture, national index or group survey. Read them separately, without a total, cross-topic ranking or dominant type. Equal means retain their separate contexts. A mean is displayed only with at least four numeric responses in that group."}</p>
     <section className="rounded-xl border border-amber-200 bg-amber-50/65 p-4 sm:p-6" aria-labelledby="culture-contexts-start">
-      <h3 id="culture-contexts-start" className="text-xl font-semibold text-amber-950">{zh ? "从一道具体取舍看你的回答" : "Start with a trade-off from the questionnaire"}</h3>
-      <p className="mt-3 max-w-prose leading-7">{zh ? "六组都来自本次题本。选择一项，比较它在不同群体或具体环境中的例子。" : "The six readings come from this questionnaire. Open one to compare examples in different groups or settings."}</p>
+      <h3 id="culture-contexts-start" className="text-xl font-semibold text-amber-950">{zh ? copy("从一道具体取舍看你的回答") : "Start with a trade-off from the questionnaire"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? copy("六组都来自本次题本。选择一项，比较它在不同群体或具体环境中的例子。") : "The six readings come from this questionnaire. Open one to compare examples in different groups or settings."}</p>
       <ul className="mt-4 grid gap-x-5 md:grid-cols-2">{quiz.directions.map(direction => {
         const score = result.facets[direction.id];
         return <li key={direction.id} className="min-w-0 border-t border-amber-200 py-2">
           <a className="inline-flex min-h-11 items-center font-semibold text-amber-950 underline underline-offset-4" href={`#culture-context-${direction.id}`}>{direction.title[locale]}</a>
-          <p className="text-sm leading-6 tabular-nums">{score.mean === null ? (zh ? `${score.rated}/6 项有效，未算均值` : `${score.rated}/6 rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</p>
+          <p className="text-sm leading-6 tabular-nums">{score.mean === null ? (zh ? copy(`${score.rated}/6 项有效，未算均值`) : `${score.rated}/6 rated, no mean`) : `${score.mean.toFixed(1)} / 5`}</p>
         </li>;
       })}</ul>
     </section>
@@ -25,33 +25,33 @@ export function QuestionnaireCulturalDimensionsReport({ quiz, result, answers, l
       return <section key={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" data-cultural-full={direction.id}>
         <h3 id={`culture-context-${direction.id}`} className="mb-5 scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
         <dl className="mb-5 grid gap-5 rounded-lg bg-slate-50 p-4 sm:grid-cols-3">
-          <div><dt>{zh ? "数字贡献之和" : "Sum of numeric contributions"}</dt><dd className="mt-1 font-semibold" data-cultural-sum={direction.id}>{score.rated ? score.sum : "—"}</dd></div>
-          <div><dt>{zh ? "数字条数／全部条目" : "Numeric responses / all statements"}</dt><dd className="mt-1 font-semibold" data-cultural-coverage={direction.id}>{score.rated} / 6</dd></div>
-          <div><dt>{zh ? "本组描述性均值" : "Descriptive response-code mean"}</dt><dd className="mt-1 font-semibold" data-cultural-mean={direction.id}>{score.mean === null ? (zh ? "不计算" : "Not calculated") : `${score.mean.toFixed(1)} / 5`}</dd></div>
+          <div><dt>{zh ? copy("数字贡献之和") : "Sum of numeric contributions"}</dt><dd className="mt-1 font-semibold" data-cultural-sum={direction.id}>{score.rated ? score.sum : "—"}</dd></div>
+          <div><dt>{zh ? copy("数字条数／全部条目") : "Numeric responses / all statements"}</dt><dd className="mt-1 font-semibold" data-cultural-coverage={direction.id}>{score.rated} / 6</dd></div>
+          <div><dt>{zh ? copy("本组描述性均值") : "Descriptive response-code mean"}</dt><dd className="mt-1 font-semibold" data-cultural-mean={direction.id}>{score.mean === null ? (zh ? copy("不计算") : "Not calculated") : `${score.mean.toFixed(1)} / 5`}</dd></div>
         </dl>
-        {score.mean === null ? <p className="mb-5 leading-8">{zh ? `本组六条均已回应，其中${score.rated}条为数字；至少四条才显示均值。未评分不作零分，以下完整指南仍可阅读。` : `All six statements have responses, of which ${score.rated} are numeric; at least four are needed to show a mean. Unscored is not zero. The complete guide below remains available.`}</p> : null}
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`culture-${direction.id}`} mode="result" previewSectionIds={["examples", "reflection"]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本主题的公开完整指南" : "Read this topic’s complete public guide"}</Link>
+        {score.mean === null ? <p className="mb-5 leading-8">{zh ? copy(`本组六条均已回应，其中${score.rated}条为数字；至少四条才显示均值。未评分不作零分，以下完整指南仍可阅读。`) : `All six statements have responses, of which ${score.rated} are numeric; at least four are needed to show a mean. Unscored is not zero. The complete guide below remains available.`}</p> : null}
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={displayLocale === "zh-TW"} headingLevel={4} idPrefix={`culture-${direction.id}`} mode="result" previewSectionIds={["examples", "reflection"]} />
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, profile.id)}>{zh ? copy("阅读本主题的公开完整指南") : "Read this topic’s complete public guide"}</Link>
       </section>;
     })}
     <details className="rounded-lg border border-slate-200 p-4 sm:p-6">
-      <summary className="cursor-pointer font-semibold">{zh ? "回看36条回答与反向换算" : "Revisit all 36 responses and reverse keys"}</summary>
+      <summary className="cursor-pointer font-semibold">{zh ? copy("回看36条回答与反向换算") : "Revisit all 36 responses and reverse keys"}</summary>
       <ol className="mt-5 space-y-5">{quiz.questions.map((question, i) => {
         const option = question.options.find(o => o.id === answers[question.id])!, keyed = typeof option.score === "number" ? question.reverse ? 6 - option.score : option.score : null;
         return <li key={question.id} data-cultural-answer={question.id} className="leading-8">
           <p className="font-semibold">{i + 1}. {question.prompt[locale]}</p><p>{option.label[locale]}</p>
-          <p className="text-sm text-slate-600">{keyed === null ? (zh ? "本条不评分，不当作零分。" : "Unscored; not treated as zero.") : question.reverse ? (zh ? `反向贡献：6 − ${option.score} = ${keyed}` : `Reverse contribution: 6 − ${option.score} = ${keyed}`) : (zh ? `直接贡献：${keyed}` : `Direct contribution: ${keyed}`)}</p>
+          <p className="text-sm text-slate-600">{keyed === null ? (zh ? copy("本条不评分，不当作零分。") : "Unscored; not treated as zero.") : question.reverse ? (zh ? copy(`反向贡献：6 − ${option.score} = ${keyed}`) : `Reverse contribution: 6 − ${option.score} = ${keyed}`) : (zh ? copy(`直接贡献：${keyed}`) : `Direct contribution: ${keyed}`)}</p>
         </li>;
       })}</ol>
     </details>
   </div>;
 }
-export function QuestionnaireCulturalDimensionsNextSteps({ locale }: { locale: Locale }) {
+export function QuestionnaireCulturalDimensionsNextSteps({ locale, displayLocale = locale, copy = text => text }: { locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
   return <section className="mt-10 border-t pt-7">
-    <h3 className="text-xl font-semibold">{zh ? "选一条题文核对情境，或在这里结束" : "Check one statement against its context, or finish here"}</h3>
-    <p className="my-4 leading-8">{zh ? "可以私下记下这条题文涉及什么安排、自己更希望什么，以及仍不知道的条件。无需按均值改变行为、联系小组、披露答案或判断他人的文化；也可以直接结束。" : "You can privately note the arrangement in one statement, what you would prefer, and what remains unknown. No mean requires a behavior change, contact with a group, disclosure, or a judgment about another person’s culture. You can finish here."}</p>
-    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/cultural-dimensions#questionnaire-results`}>{zh ? "比较六份完整主题指南" : "Compare all six complete topic guides"}</Link><br />
-    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
+    <h3 className="text-xl font-semibold">{zh ? copy("选一条题文核对情境，或在这里结束") : "Check one statement against its context, or finish here"}</h3>
+    <p className="my-4 leading-8">{zh ? copy("可以私下记下这条题文涉及什么安排、自己更希望什么，以及仍不知道的条件。无需按均值改变行为、联系小组、披露答案或判断他人的文化；也可以直接结束。") : "You can privately note the arrangement in one statement, what you would prefer, and what remains unknown. No mean requires a behavior change, contact with a group, disclosure, or a judgment about another person’s culture. You can finish here."}</p>
+    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/cultural-dimensions#questionnaire-results`}>{zh ? copy("比较六份完整主题指南") : "Compare all six complete topic guides"}</Link><br />
+    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? copy("返回全部测试") : "Back to all tests"}</Link>
   </section>;
 }

@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
+import { QuestionnaireReport } from "@/components/questionnaires/QuestionnaireReport";
 import { QuestionnaireResultReading } from "@/components/questionnaires/QuestionnaireResultReading";
 import { QuestionnaireTakeDocument, questionnaireTakeMetadata } from "@/components/questionnaires/QuestionnaireTakeDocument";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
@@ -93,6 +94,11 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
         <p className="leading-7">{summaries[item.id]?.zh ?? item.summary.zh}</p>
       </div>)}
     </section>
+    {slug === "social-battery-test" && quiz.profiles.map(item => <section key={item.id}
+      data-social-battery-full-guide={item.id} className="my-10 border-t border-slate-200 pt-7">
+      <h2 className="mb-5 text-2xl font-semibold">{item.title.zh}</h2>
+      <QuestionnaireReport profile={item} locale="zh" traditional headingLevel={3} idPrefix={`social-battery-public-${item.id}`} />
+    </section>)}
     <section className="space-y-5 leading-8">
       <h2 className="text-2xl font-semibold">題目、計分與結果讀法</h2>
       {[...quiz.guide, ...sections].map((section, index) => <section key={`${section.id}-${index}`} className="space-y-2">

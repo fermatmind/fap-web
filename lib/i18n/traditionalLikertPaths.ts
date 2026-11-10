@@ -1,4 +1,9 @@
 const profiles = {
+  "interpersonal-preferences": ["invite", "be-included", "coordinate", "receive-coordination", "offer-warmth", "receive-warmth"],
+  "social-attitudes-reflection": ["reviewing-rules", "gender-roles", "gay-lesbian-inclusion", "racial-context"],
+  "cultural-dimensions": ["authority", "autonomy", "achievement", "certainty", "adaptation", "enjoyment"],
+  "social-battery-test": ["interaction-load", "coordination-load", "quiet-recovery", "easy-company"],
+  "humor-style-test": ["deadpan", "wordplay", "absurdist", "shared-humor", "self-deprecating", "banter"],
   "work-activity-interests": ["hands-on-tasks", "investigation-tasks", "creative-tasks", "support-tasks", "initiative-tasks", "organizing-tasks"],
   "work-ethics": ["commitments-reading", "quality-reading", "honesty-reading", "repair-reading"],
   "culture-fit": ["coordination-reading", "decision-room-reading", "change-rhythm-reading", "feedback-rhythm-reading"],
