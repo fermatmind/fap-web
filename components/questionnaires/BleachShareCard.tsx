@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
+import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import { bleachPresentations, type BleachId } from "@/lib/questionnaires/bleachPresentation";
@@ -23,17 +25,20 @@ function drawText(ctx: CanvasRenderingContext2D, text: string, x: number, y: num
 /** Only names and reading themes leave the browser; no answers or counts enter a URL or image request. */
 export function BleachShareCard({ ids, locale, publicGuide = false }: { ids: string[]; locale: Locale; publicGuide?: boolean }) {
   const zh = locale === "zh", selected = ids.filter((id): id is BleachId => Object.hasOwn(bleachPresentations, id));
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
+  const displayLocale = traditional ? "zh-TW" : locale;
+  const copy = traditionalPortraitCopy(traditional ? displayText : undefined);
   const [format, setFormat] = useState<Format>("landscape"), [preview, setPreview] = useState("");
   const [busy, setBusy] = useState(false), [message, setMessage] = useState(""), [manualLink, setManualLink] = useState("");
   const objectUrl = useRef("");
   useEffect(() => () => { if (objectUrl.current) URL.revokeObjectURL(objectUrl.current); }, []);
-  const path = `/${locale}/tests/explore/bleach${selected.length === 1 ? `/results/${selected[0]}` : ""}`;
+  const path = `/${displayLocale}/tests/explore/bleach${selected.length === 1 ? `/results/${selected[0]}` : ""}`;
   const publicUrl = `https://fermatmind.com${path}`;
-  const filename = `fermatmind-bleach-${locale}-${format}.png`;
+  const filename = `fermatmind-bleach-${displayLocale}-${format}.png`;
 
   async function copyLink() {
-    try { await navigator.clipboard.writeText(publicUrl); setManualLink(""); setMessage(zh ? "公开链接已复制。" : "Public link copied."); }
-    catch { setManualLink(publicUrl); setMessage(zh ? "请手动复制下方公开链接。" : "Copy the public link below manually."); }
+    try { await navigator.clipboard.writeText(publicUrl); setManualLink(""); setMessage(zh ? copy("公开链接已复制。") : "Public link copied."); }
+    catch { setManualLink(publicUrl); setMessage(zh ? copy("请手动复制下方公开链接。") : "Copy the public link below manually."); }
   }
   async function generate(share: boolean) {
     if (busy || !selected.length) return;
@@ -49,21 +54,21 @@ export function BleachShareCard({ ids, locale, publicGuide = false }: { ids: str
       const tall = format === "portrait", single = selected.length === 1, pad = 54;
       ctx.fillStyle = "#f4eee5"; ctx.fillRect(0, 0, w, h);
       ctx.fillStyle = "#356d70"; ctx.font = '600 26px system-ui, sans-serif';
-      ctx.fillText(publicGuide ? (zh ? "费马测试 · BLEACH公开角色指南" : "FERMATMIND · PUBLIC BLEACH GUIDE") : (zh ? "费马测试 · 我的BLEACH角色" : "FERMATMIND · MY BLEACH CHARACTER MATCHES"), pad, tall ? 120 : 66);
+      ctx.fillText(publicGuide ? (zh ? copy("费马测试 · BLEACH公开角色指南") : "FERMATMIND · PUBLIC BLEACH GUIDE") : (zh ? copy("费马测试 · 我的BLEACH角色") : "FERMATMIND · MY BLEACH CHARACTER MATCHES"), pad, tall ? 120 : 66);
       if (single) {
         const person = bleachPresentations[selected[0]];
         const px = tall ? 315 : 54, py = tall ? 220 : 132, pw = tall ? 450 : 280;
         ctx.drawImage(pictures[0], px, py, pw, pw * portraitRatio);
         const tx = tall ? pad : 390, ty = tall ? 900 : 205, tw = tall ? w - pad * 2 : 740;
         ctx.fillStyle = "#202d38"; ctx.font = `700 ${tall ? 66 : 58}px system-ui, sans-serif`;
-        drawText(ctx, person.name[locale], tx, ty, tw, 72, 2, zh);
+        drawText(ctx, copy(person.name[locale]), tx, ty, tw, 72, 2, zh);
         ctx.fillStyle = person.accent; ctx.font = `600 ${tall ? 45 : 34}px system-ui, sans-serif`;
-        drawText(ctx, person.conclusion[locale], tx, ty + (tall ? 180 : 135), tw, tall ? 64 : 48, 3, zh);
+        drawText(ctx, copy(person.conclusion[locale]), tx, ty + (tall ? 180 : 135), tw, tall ? 64 : 48, 3, zh);
         ctx.fillStyle = "#586055"; ctx.font = `400 ${tall ? 32 : 26}px system-ui, sans-serif`;
-        drawText(ctx, publicGuide ? (zh ? "公开人物指南 · 无需答题即可阅读" : "Public character guide · No answers required") : (zh ? "从本次日常选择出发，看看你匹配哪位角色。" : "An unofficial fan match based on everyday choices."), tx, tall ? 1360 : 445, tw, 42, 2, zh);
+        drawText(ctx, publicGuide ? (zh ? copy("公开人物指南 · 无需答题即可阅读") : "Public character guide · No answers required") : (zh ? copy("从本次日常选择出发，看看你匹配哪位角色。") : "An unofficial fan match based on everyday choices."), tx, tall ? 1360 : 445, tw, 42, 2, zh);
       } else {
         ctx.fillStyle = "#202d38"; ctx.font = `700 ${tall ? 50 : 40}px system-ui, sans-serif`;
-        ctx.fillText(zh ? `${selected.length}位并列角色` : `${selected.length} tied character matches`, pad, tall ? 238 : 130);
+        ctx.fillText(zh ? copy(`${selected.length}位并列角色`) : `${selected.length} tied character matches`, pad, tall ? 238 : 130);
         const columns = selected.length === 2 ? (tall ? 1 : 2) : 3;
         const gap = 18, cellW = (w - pad * 2 - gap * (columns - 1)) / columns;
         const cellH = tall ? (selected.length === 2 ? 620 : 440) : (selected.length === 2 ? 320 : 118);
@@ -74,15 +79,15 @@ export function BleachShareCard({ ids, locale, publicGuide = false }: { ids: str
           ctx.drawImage(pictures[i], px, y, side, side * portraitRatio);
           const tx = tall ? x : x + side + 14, ty = tall ? y + side * portraitRatio + 48 : y + 30, tw = tall ? cellW : cellW - side - 14;
           ctx.fillStyle = "#202d38"; ctx.font = `700 ${selected.length === 2 ? 36 : tall ? 30 : 24}px system-ui, sans-serif`;
-          drawText(ctx, person.name[locale], tx, ty, tw, selected.length === 2 ? 46 : 32, 2, zh);
+          drawText(ctx, copy(person.name[locale]), tx, ty, tw, selected.length === 2 ? 46 : 32, 2, zh);
           ctx.fillStyle = person.accent; ctx.font = `500 ${selected.length === 2 ? 28 : tall ? 26 : 20}px system-ui, sans-serif`;
-          drawText(ctx, person.conclusion[locale], tx, ty + (selected.length === 2 ? 110 : tall ? 70 : 44), tw, selected.length === 2 ? 38 : 29, tall ? 3 : 2, zh);
+          drawText(ctx, copy(person.conclusion[locale]), tx, ty + (selected.length === 2 ? 110 : tall ? 70 : 44), tw, selected.length === 2 ? 38 : 29, tall ? 3 : 2, zh);
         });
       }
       ctx.fillStyle = "#6d6658"; ctx.font = `500 ${tall ? 28 : 22}px system-ui, sans-serif`;
-      drawText(ctx, zh ? "非官方趣味联想 · 原创人物意象 · 不代表能力或人格鉴定" : "Unofficial fan reading · Original fan art · For fun", pad, h - (tall ? 180 : 64), w - pad * 2, 34, 2, zh);
+      drawText(ctx, zh ? copy("非官方趣味联想 · 原创人物意象 · 不代表能力或人格鉴定") : "Unofficial fan reading · Original fan art · For fun", pad, h - (tall ? 180 : 64), w - pad * 2, 34, 2, zh);
       ctx.font = `500 ${tall ? 25 : 20}px system-ui, sans-serif`;
-      drawText(ctx, `fermatmind.com/${locale}/tests/explore/bleach`, pad, h - (tall ? 82 : 24), w - pad * 2, 32, 1, false);
+      drawText(ctx, `fermatmind.com/${displayLocale}/tests/explore/bleach`, pad, h - (tall ? 82 : 24), w - pad * 2, 32, 1, false);
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error("PNG unavailable")), "image/png"));
       if (objectUrl.current) URL.revokeObjectURL(objectUrl.current);
       const url = URL.createObjectURL(blob); objectUrl.current = url; setPreview(url);
@@ -90,31 +95,31 @@ export function BleachShareCard({ ids, locale, publicGuide = false }: { ids: str
         try {
           const file = typeof File === "function" ? new File([blob], filename, { type: "image/png" }) : undefined;
           if (file && navigator.share && navigator.canShare?.({ files: [file] })) {
-            await navigator.share({ files: [file], title: publicGuide ? (zh ? "BLEACH公开角色指南" : "Public BLEACH character guide") : (zh ? "我的BLEACH角色" : "My BLEACH character matches"), url: publicUrl });
-            setMessage(zh ? "已完成分享。" : "Shared."); return;
+            await navigator.share({ files: [file], title: publicGuide ? (zh ? copy("BLEACH公开角色指南") : "Public BLEACH character guide") : (zh ? copy("我的BLEACH角色") : "My BLEACH character matches"), url: publicUrl });
+            setMessage(zh ? copy("已完成分享。") : "Shared."); return;
           }
         } catch (error) {
-          if (error instanceof Error && error.name === "AbortError") { setMessage(zh ? "已取消分享，仍可保存下方图片。" : "Sharing canceled. You can still save the image below."); return; }
-          setMessage(zh ? "未能打开系统分享，请保存下方图片。" : "Could not open system sharing. Save the image below."); return;
+          if (error instanceof Error && error.name === "AbortError") { setMessage(zh ? copy("已取消分享，仍可保存下方图片。") : "Sharing canceled. You can still save the image below."); return; }
+          setMessage(zh ? copy("未能打开系统分享，请保存下方图片。") : "Could not open system sharing. Save the image below."); return;
         }
-        setMessage(zh ? "此浏览器不支持直接分享图片，请保存下方PNG。" : "This browser cannot share images directly. Save the PNG below."); return;
+        setMessage(zh ? copy("此浏览器不支持直接分享图片，请保存下方PNG。") : "This browser cannot share images directly. Save the PNG below."); return;
       }
       const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; anchor.click();
-      setMessage(zh ? "PNG已生成；若未开始下载，请长按预览图或使用下方下载链接。" : "PNG ready. If the download did not start, save the preview or use the download link below.");
-    } catch { setMessage(zh ? "暂时无法生成图片，请重试；也可以截图或复制公开链接。" : "Could not create the image. Try again, take a screenshot, or copy the public link."); }
+      setMessage(zh ? copy("PNG已生成；若未开始下载，请长按预览图或使用下方下载链接。") : "PNG ready. If the download did not start, save the preview or use the download link below.");
+    } catch { setMessage(zh ? copy("暂时无法生成图片，请重试；也可以截图或复制公开链接。") : "Could not create the image. Try again, take a screenshot, or copy the public link."); }
     finally { setBusy(false); }
   }
-  return <section className="space-y-4 rounded-xl border border-amber-200 bg-white p-5 sm:p-6" aria-label={zh ? "保存与分享BLEACH角色卡片" : "Save and share your BLEACH card"} data-bleach-sharing>
-    <h3 className="text-xl font-semibold">{publicGuide ? (zh ? "保存这份公开阅读指南卡片" : "Save this public reading guide card") : (zh ? "把这次角色结果做成卡片" : "Make a card of your character matches")}</h3>
-    <p className="text-sm leading-7 text-slate-600">{publicGuide ? (zh ? "这张PNG介绍当前公开指南，不表示你已获得这一结果。图片在本浏览器生成，无需先答题。" : "This PNG introduces the public guide, without assigning it to you as a result. Your browser creates it; no prior answers are needed.") : zh ? "本浏览器生成PNG，包含本次全部最高人物的姓名与阅读主题，不含答案或次数。保存或主动分享图片才会带出这些人物；公开链接只打开指南或测试入口。" : "Your browser creates a PNG with every tied character’s name and choice theme, without answers or counts. Saving or sharing includes these names; the public link opens a guide or the quiz entry."}</p>
-    <label className="flex flex-wrap items-center gap-3 font-medium">{zh ? "图片尺寸" : "Image size"}<select className="min-h-11 rounded-lg border border-slate-300 bg-white px-3" value={format} disabled={busy} onChange={e => { setFormat(e.target.value as Format); setPreview(""); setMessage(""); if (objectUrl.current) { URL.revokeObjectURL(objectUrl.current); objectUrl.current = ""; } }}><option value="landscape">{zh ? "横版" : "Landscape"} · 1200 × 630</option><option value="portrait">{zh ? "竖版" : "Portrait"} · 1080 × 1920</option></select></label>
+  return <section className="space-y-4 rounded-xl border border-amber-200 bg-white p-5 sm:p-6" aria-label={zh ? copy("保存与分享BLEACH角色卡片") : "Save and share your BLEACH card"} data-bleach-sharing>
+    <h3 className="text-xl font-semibold">{publicGuide ? (zh ? copy("保存这份公开阅读指南卡片") : "Save this public reading guide card") : (zh ? copy("把这次角色结果做成卡片") : "Make a card of your character matches")}</h3>
+    <p className="text-sm leading-7 text-slate-600">{publicGuide ? (zh ? copy("这张PNG介绍当前公开指南，不表示你已获得这一结果。图片在本浏览器生成，无需先答题。") : "This PNG introduces the public guide, without assigning it to you as a result. Your browser creates it; no prior answers are needed.") : zh ? copy("本浏览器生成PNG，包含本次全部最高人物的姓名与阅读主题，不含答案或次数。保存或主动分享图片才会带出这些人物；公开链接只打开指南或测试入口。") : "Your browser creates a PNG with every tied character’s name and choice theme, without answers or counts. Saving or sharing includes these names; the public link opens a guide or the quiz entry."}</p>
+    <label className="flex flex-wrap items-center gap-3 font-medium">{zh ? copy("图片尺寸") : "Image size"}<select className="min-h-11 rounded-lg border border-slate-300 bg-white px-3" value={format} disabled={busy} onChange={e => { setFormat(e.target.value as Format); setPreview(""); setMessage(""); if (objectUrl.current) { URL.revokeObjectURL(objectUrl.current); objectUrl.current = ""; } }}><option value="landscape">{zh ? copy("横版") : "Landscape"} · 1200 × 630</option><option value="portrait">{zh ? copy("竖版") : "Portrait"} · 1080 × 1920</option></select></label>
     <div className="flex flex-wrap gap-3">
-      <button disabled={busy} className="min-h-11 rounded-lg bg-emerald-900 px-5 py-3 font-semibold text-white disabled:opacity-50" onClick={() => void generate(false)}>{busy ? (zh ? "正在生成…" : "Creating…") : (zh ? "保存BLEACH角色卡片" : "Save BLEACH card")}</button>
-      <button disabled={busy} className="min-h-11 rounded-lg border border-slate-300 px-5 py-3 font-semibold disabled:opacity-50" onClick={() => void generate(true)}>{zh ? "分享BLEACH角色图片" : "Share BLEACH image"}</button>
-      <button className="min-h-11 px-2 py-3 font-semibold underline" onClick={() => void copyLink()}>{zh ? "复制公开链接" : "Copy public link"}</button>
+      <button disabled={busy} className="min-h-11 rounded-lg bg-emerald-900 px-5 py-3 font-semibold text-white disabled:opacity-50" onClick={() => void generate(false)}>{busy ? (zh ? copy("正在生成…") : "Creating…") : (zh ? copy("保存BLEACH角色卡片") : "Save BLEACH card")}</button>
+      <button disabled={busy} className="min-h-11 rounded-lg border border-slate-300 px-5 py-3 font-semibold disabled:opacity-50" onClick={() => void generate(true)}>{zh ? copy("分享BLEACH角色图片") : "Share BLEACH image"}</button>
+      <button className="min-h-11 px-2 py-3 font-semibold underline" onClick={() => void copyLink()}>{zh ? copy("复制公开链接") : "Copy public link"}</button>
     </div>
     {message && <p role="status" className="text-sm leading-7">{message}</p>}
-    {manualLink && <textarea readOnly value={manualLink} onFocus={e => e.target.select()} aria-label={zh ? "公开链接手动复制" : "Public link for manual copying"} className="min-h-24 w-full rounded-lg border border-slate-300 p-3" />}
-    {preview && <a href={preview} download={filename} aria-label={zh ? "下载已生成的BLEACH角色PNG" : "Download the generated BLEACH PNG"} className="block space-y-2 font-semibold underline"><span>{zh ? "下载PNG；手机也可长按预览保存" : "Download PNG, or save the preview on mobile"}</span><Image unoptimized src={preview} width={sizes[format][0]} height={sizes[format][1]} alt={publicGuide ? (zh ? `公开阅读指南：${selected.map(id => bleachPresentations[id].name.zh).join("、")}` : `Public reading guide: ${selected.map(id => bleachPresentations[id].name.en).join(", ")}`) : zh ? `我的BLEACH角色：${selected.map(id => bleachPresentations[id].name.zh).join("、")}` : `My BLEACH character matches: ${selected.map(id => bleachPresentations[id].name.en).join(", ")}`} className="h-auto max-h-[42rem] max-w-full rounded-lg" /></a>}
+    {manualLink && <textarea readOnly value={manualLink} onFocus={e => e.target.select()} aria-label={zh ? copy("公开链接手动复制") : "Public link for manual copying"} className="min-h-24 w-full rounded-lg border border-slate-300 p-3" />}
+    {preview && <a href={preview} download={filename} aria-label={zh ? copy("下载已生成的BLEACH角色PNG") : "Download the generated BLEACH PNG"} className="block space-y-2 font-semibold underline"><span>{zh ? copy("下载PNG；手机也可长按预览保存") : "Download PNG, or save the preview on mobile"}</span><Image unoptimized src={preview} width={sizes[format][0]} height={sizes[format][1]} alt={publicGuide ? (zh ? copy(`公开阅读指南：${selected.map(id => bleachPresentations[id].name.zh).join("、")}`) : `Public reading guide: ${selected.map(id => bleachPresentations[id].name.en).join(", ")}`) : zh ? copy(`我的BLEACH角色：${selected.map(id => bleachPresentations[id].name.zh).join("、")}`) : `My BLEACH character matches: ${selected.map(id => bleachPresentations[id].name.en).join(", ")}`} className="h-auto max-h-[42rem] max-w-full rounded-lg" /></a>}
   </section>;
 }

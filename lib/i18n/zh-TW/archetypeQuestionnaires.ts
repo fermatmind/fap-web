@@ -85,6 +85,8 @@ const sources = {
   "values-assessment": { name: "values-assessment", attribute: "work-values", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/values-assessment.json") },
   "style-impression-preferences": { name: "style-impression-preferences", attribute: "style-impression", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/style-impression-preferences.json") },
   "connection-ideals": { name: "connection-ideals", attribute: "connection-ideals", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/connection-ideals.json") },
+  bleach: { name: "bleach", load: () => import("@/lib/questionnaires/result-content/bleach.json") },
+  "philosopher-personality-test": { name: "philosopher", load: () => import("@/lib/questionnaires/result-content/philosopher.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

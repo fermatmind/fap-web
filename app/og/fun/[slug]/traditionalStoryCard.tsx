@@ -1,3 +1,5 @@
+import { bleachOpenGraphCard } from "@/lib/entertainment/bleachCard";
+import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
@@ -38,6 +40,8 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     if (slug === "space-marine-chapter") return spaceMarineChapterCard(quiz.profiles, "zh", await archetypeFont, result?.id, true);
     if (slug === "avatar-bender-quiz" || slug === "soldier-poet-king-quiz") return fantasyOpenGraphCard(quiz, "zh", result?.id, await archetypeFont, true);
     if (slug === "cyberpunk-edgerunners" && result) return characterPortraitCard(slug, result.id, result.title.zh, quiz.title.zh, "zh-TW", await archetypeFont);
+    if (slug === "bleach") return bleachOpenGraphCard("zh", result?.id, await archetypeFont, await loadTraditionalAssessmentText());
+    if (slug === "philosopher-personality-test") return philosopherOpenGraphCard("zh", result?.id, await archetypeFont, await loadTraditionalAssessmentText());
     if (slug === "moon-phase") return moonPhaseOpenGraphCard("zh", result?.id, await archetypeFont, await loadTraditionalAssessmentText());
     const aura = slug === "aura-color" && result ? auraColors[result.id] : undefined;
     if (aura && result) return auraColorCard("zh-TW", result.title.zh, aura, await archetypeFont);

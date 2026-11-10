@@ -1,3 +1,4 @@
+import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
 import { QuestionnaireArchetypeChoiceChart } from "./QuestionnaireArchetypeChoiceChart";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
@@ -40,8 +41,9 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
   const localized = traditional && hasTraditionalArchetype(quiz.slug);
   const displayLocale = localized ? "zh-TW" : locale;
   const copy = localized ? displayText : (value: string) => value;
+  const portraitCopy = traditionalPortraitCopy(localized ? displayText : undefined);
   if (hasFantasyArtwork(quiz.slug)) return <FantasyArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} />;
-  if (quiz.slug === "philosopher-personality-test") return <PhilosopherReport quiz={quiz} result={result} locale={locale} />;
+  if (quiz.slug === "philosopher-personality-test") return <PhilosopherReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} />;
   const zh = locale === "zh";
   const lead = portraitResultLeadKind(quiz.slug);
   const edgerunners = quiz.slug === "cyberpunk-edgerunners";
@@ -68,7 +70,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
     {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} traditionalCopy={localized ? displayText : undefined} />}
-    {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
+    {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={portraitCopy} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? copy("下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。") : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
     {result.profileIds.length > 1 && <p className="leading-7">{zh ? copy(`本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。`) : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}

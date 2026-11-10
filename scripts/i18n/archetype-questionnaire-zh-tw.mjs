@@ -77,6 +77,8 @@ const editions = {
   "values-assessment": ["values-assessment", "WorkValues", "workValues", "editorial-summaries"],
   "style-impression-preferences": ["style-impression-preferences", "StyleImpression", "styleLanding", "standalone-references"],
   "connection-ideals": ["connection-ideals", "ConnectionIdeals", "connectionLanding", "standalone"],
+  bleach: ["bleach", "Bleach", "", "bleach"],
+  "philosopher-personality-test": ["philosopher", "Philosopher", "philosopherLanding", "standalone"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -94,6 +96,8 @@ const correctedSources = {};
 const correctionSnapshots = {};
 const noDraft = "这份测试不保存答题进度，重新整理、切换语言或离开后需要重新开始";
 const formerDraftCopy = [
+  ["默认不保存；主动保存后本标签页进度24小时失效，完成、重测或退出清除后删除。", "这份题本不保存答题进度；刷新或切换语言后需要重新开始。保存PNG只保存图片，不保存答卷。"],
+  ["可选本标签页进度24小时失效，完成、重测或退出清除删除。", "这份题本不保存答题进度；刷新或切换语言后需要重新开始。保存PNG只保存图片，不保存答卷。"],
   ["自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删", noDraft],
   ["可选标签页草稿24小时失效，完成、退出并清除或重测即删；未存草稿刷新会丢进度", noDraft],
   ["可选标签页草稿会失效，完成或清除后删除", noDraft],
@@ -124,7 +128,7 @@ const formerDraftCopy = [
   ["只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除", noDraft],
   ["自愿保存使用本标签页会话存储，最多24小时，完成、重测或退出清除即删除草稿", noDraft],
 ];
-const usesStandaloneCopy = layout => layout === "standalone" || layout === "standalone-references";
+const usesStandaloneCopy = layout => layout === "standalone" || layout === "standalone-references" || layout === "bleach";
 const correctStandaloneCopy = text => formerDraftCopy.reduce((value, [before, after]) => value.replaceAll(before, after), text);
 for (const [slug, [reading, component, correction, layout]] of Object.entries(editions)) {
   if (usesStandaloneCopy(layout)) {
@@ -179,7 +183,8 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
   artifact.sourceHashes[file] = digest(raw);
   const syntax = ts.createSourceFile(file, raw, ts.ScriptTarget.Latest, true);
   const declarations = syntax.statements.filter(ts.isVariableStatement).flatMap(statement => [...statement.declarationList.declarations]);
-  const fields = layout === "summaries"
+  const fields = layout === "bleach" ? [["summaries", "summaries"], ["faq", "bleachExperienceFaq"]]
+    : layout === "summaries"
     ? [["summaries", "summaries"]]
     : layout === "privacy" ? [["privacy", "PrivacyAnswer"]]
       : [["sections", "Sections"], ["faq", "Faq"]];
@@ -187,11 +192,11 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
   if (layout === "standalone-references") fields.push(["references", "References"]);
   if (!layout) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
   for (const [field, suffix] of fields) {
-    const name = layout === "summaries" ? suffix : prefix + suffix;
+    const name = layout === "summaries" || layout === "bleach" ? suffix : prefix + suffix;
     const declaration = declarations.find(candidate => candidate.name.getText(syntax) === name);
     if (!declaration?.initializer) throw new Error(`Missing editorial source: ${file}/${field}`);
     const strings = collect(readLiteral(declaration.initializer));
-    if (layout === "summaries" && (Object.keys(strings).length !== members[slug].length ||
+    if (field === "summaries" && (layout === "summaries" || layout === "bleach") && (Object.keys(strings).length !== members[slug].length ||
         members[slug].some(id => !Object.hasOwn(strings, `/${id}`)))) {
       throw new Error(`Missing landing profile summaries: ${slug}`);
     }

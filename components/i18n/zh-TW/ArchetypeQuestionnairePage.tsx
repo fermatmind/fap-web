@@ -12,6 +12,12 @@ import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireCl
 import { SpiritAnimalPage } from "@/components/questionnaires/SpiritAnimalPage";
 import { MoonPhaseShareCard } from "@/components/questionnaires/MoonPhaseShareCard";
 import { moonPhaseDiagramNote, moonPhaseDisplayCopy, moonPhaseImage, moonPhasePresentation } from "@/lib/questionnaires/moonPhasePresentation";
+import { BleachCharacterDirectory } from "@/components/questionnaires/BleachCharacterDirectory";
+import { BleachShareCard } from "@/components/questionnaires/BleachShareCard";
+import { PhilosopherPortrait } from "@/components/questionnaires/PhilosopherPortrait";
+import { PhilosopherShareCard } from "@/components/questionnaires/PhilosopherShareCard";
+import { bleachPresentation, bleachPortraitPath } from "@/lib/questionnaires/bleachPresentation";
+import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
 import { EdgerunnersPortrait } from "@/components/questionnaires/EdgerunnersPortrait";
 import { QuizResultArtwork } from "@/components/questionnaires/QuizResultArtwork";
 import { WorkValuesPage } from "@/components/questionnaires/WorkValuesPage";
@@ -78,13 +84,14 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
   </nav>;
   if (!profile) {
     const Preference = Object.hasOwn(preferencePages, slug) ? preferencePages[slug as keyof typeof preferencePages] : null;
-    const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" || slug === "cyberpunk-edgerunners" ? await loadTraditionalAssessmentText() : undefined;
+    const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" || slug === "cyberpunk-edgerunners" || slug === "bleach" || slug === "philosopher-personality-test" ? await loadTraditionalAssessmentText() : undefined;
+    const copy = slug === "bleach" || slug === "philosopher-personality-test" ? traditionalPortraitCopy(overviewCopy) : overviewCopy;
     return <>
       {languages}
       {slug === "spirit-animal" ? <SpiritAnimalPage quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
         : Preference ? <Preference quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
         : Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
-        : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} overviewCopy={overviewCopy} />
+        : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} overviewCopy={copy} />
         : <FantasyQuestionnaireLanding quiz={quiz} />}
     </>;
   }
@@ -93,6 +100,9 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
   if (!result) notFound();
   const phase = slug === "moon-phase" ? moonPhasePresentation(result.id) : undefined;
   const moonCopy = phase ? moonPhaseDisplayCopy(await loadTraditionalAssessmentText()) : undefined;
+  const bleach = slug === "bleach" ? bleachPresentation(result.id) : undefined;
+  const philosopher = slug === "philosopher-personality-test";
+  const portraitCopy = bleach || philosopher ? traditionalPortraitCopy(await loadTraditionalAssessmentText()) : undefined;
   return <article className="mx-auto max-w-3xl space-y-6">
     {languages}
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
@@ -108,6 +118,22 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
         <MoonPhaseShareCard ids={[result.id]} locale="zh" publicGuide />
       </TraditionalQuestionnaireCopy>
     </section>}
+    {bleach && portraitCopy && <section className="my-6 space-y-4" data-bleach-public-portrait>
+      <Image unoptimized src={bleachPortraitPath(result.id)} width={156} height={180} alt={portraitCopy(`${bleach.name.zh}的原创同人人物意象`)} className="rounded-xl" />
+      <p className="text-xl font-semibold">{portraitCopy(bleach.conclusion.zh)}</p>
+      <p className="text-sm leading-7">這是公開人物指南。完成 21 題後，才能看到自己的匹配結果。</p>
+      <a href="#bleach-character-directory" className="inline-flex min-h-11 items-center font-semibold underline">對照全部七位角色</a>
+      <TraditionalQuestionnaireCopy loadingText="正在準備角色分享卡…">
+        <BleachShareCard ids={[result.id]} locale="zh" publicGuide />
+      </TraditionalQuestionnaireCopy>
+    </section>}
+    {philosopher && portraitCopy && <div className="mb-5 space-y-3">
+      <div className="max-w-44"><PhilosopherPortrait id={result.id} locale="zh" copy={portraitCopy} eager /></div>
+      <p className="text-sm leading-7">這是公開原典閱讀指南。插圖為原創人物意象。</p>
+      <TraditionalQuestionnaireCopy loadingText="正在準備哲學家分享卡…">
+        <PhilosopherShareCard ids={[result.id]} locale="zh" publicGuide />
+      </TraditionalQuestionnaireCopy>
+    </div>}
     {slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={result.id} className="mb-5 size-32 rounded-xl sm:size-44" />}
     {slug === "aura-color" && <div className="grid w-full max-w-56"><QuizResultArtwork slug={slug} id={result.id} /></div>}
     {hasFantasyArtwork(slug) && <FantasyPortrait slug={slug} id={result.id} name={result.title.zh} large />}
@@ -119,14 +145,14 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">本指南的適用範圍與讀法</summary>
       <p className="leading-8">{quiz.description.zh}</p>
     </details>
-    <section className="space-y-4">
+    {bleach ? <BleachCharacterDirectory quiz={quiz} locale="zh" displayLocale="zh-TW" copy={portraitCopy} publicGuide /> : <section className="space-y-4">
       <h2 className="text-2xl font-semibold">其他公開結果指南</h2>
       <ul className="grid gap-3 sm:grid-cols-2">
         {quiz.profiles.filter(item => item.id !== profile).map(item => <li key={item.id}>
           <Link href={questionnaireGuidePath("zh-TW", slug, item.id)} className="inline-block min-h-11 py-2 underline">{item.title.zh}</Link>
         </li>)}
       </ul>
-    </section>
+    </section>}
     <section className="space-y-4">
       <h2 className="text-2xl font-semibold">計分方法與閱讀指引</h2>
       {quiz.guide.map(section => <section key={section.id} className="space-y-3">

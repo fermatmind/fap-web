@@ -634,5 +634,25 @@
     "shared-discovery",
     "gentle-support",
     "mutual-encouragement"
+  ],
+  "bleach": [
+    "ichigo-kurosaki",
+    "rukia-kuchiki",
+    "sosuke-aizen",
+    "byakuya-kuchiki",
+    "orihime-inoue",
+    "kisuke-urahara",
+    "kenpachi-zaraki"
+  ],
+  "philosopher-personality-test": [
+    "socrates",
+    "aristotle",
+    "confucius",
+    "laozi",
+    "epicurus",
+    "epictetus",
+    "nietzsche",
+    "simone-de-beauvoir",
+    "marcus-aurelius"
   ]
 }

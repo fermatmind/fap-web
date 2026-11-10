@@ -39,6 +39,13 @@ import { sakeTypeLandingFaq, sakeTypeLandingReferences, sakeTypeLandingSections 
 import { everydayMixupsLandingFaq, everydayMixupsLandingReferences, everydayMixupsLandingSections } from "@/components/questionnaires/EverydayMixupsLandingEditorial";
 import { MoonPhaseComparison } from "@/components/questionnaires/MoonPhaseComparison";
 import { MoonPhaseExamples } from "@/components/questionnaires/MoonPhaseExamples";
+import Image from "next/image";
+import { bleachPortraitPath } from "@/lib/questionnaires/bleachPresentation";
+import { BleachExamples } from "@/components/questionnaires/BleachExamples";
+import { bleachExperienceFaq } from "@/components/questionnaires/BleachLandingEditorial";
+import { PhilosopherRoster } from "@/components/questionnaires/PhilosopherRoster";
+import { PhilosopherResultExamples } from "@/components/questionnaires/PhilosopherResultExamples";
+import { philosopherLandingSections, philosopherLandingFaq } from "@/components/questionnaires/PhilosopherLandingEditorial";
 import { EdgerunnersResultExamples } from "@/components/questionnaires/EdgerunnersResultExamples";
 import { EdgerunnersPortrait } from "@/components/questionnaires/EdgerunnersPortrait";
 import { edgerunnersLandingSections, edgerunnersLandingFaq } from "@/components/questionnaires/EdgerunnersLandingEditorial";
@@ -121,6 +128,8 @@ const editorials = {
   "moral-dilemma-test": { sections: moralDilemmaLandingSections, faq: moralDilemmaLandingFaq },
   "delulu-test": { sections: deluluLandingSections, faq: deluluLandingFaq },
   "cyberpunk-edgerunners": { sections: edgerunnersLandingSections, faq: edgerunnersLandingFaq },
+  bleach: { sections: [], faq: bleachExperienceFaq },
+  "philosopher-personality-test": { sections: philosopherLandingSections, faq: philosopherLandingFaq },
 } as const;
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
@@ -154,11 +163,24 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
         <a href="#edgerunners-examples" className="inline-flex min-h-11 items-center underline">先看結果示例</a>
         <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">瀏覽七種角色結果</a>
       </nav>}
+      {slug === "bleach" && <nav aria-label="BLEACH 死神測驗內容" className="mt-2 flex flex-wrap gap-5 text-sm">
+        <a href="#bleach-examples" className="inline-flex min-h-11 items-center underline">先看單一與並列結果示例</a>
+        <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">瀏覽七位角色的公開指南</a>
+      </nav>}
+      {slug === "philosopher-personality-test" && <nav aria-label="哲學家測驗內容" className="mt-2 flex flex-wrap gap-5 text-sm">
+        <a href="#philosopher-examples" className="inline-flex min-h-11 items-center underline">先看閱讀結果示例</a>
+        <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">瀏覽九位哲學家的原典指南</a>
+      </nav>}
       {slug === "aura-color" && <nav aria-label="光環顏色測驗內容" className="mt-2 flex flex-wrap gap-5 text-sm">
         <a href="#aura-examples" className="inline-flex min-h-11 items-center underline">先看結果示例</a>
         <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">瀏覽七種光環顏色的含義</a>
       </nav>}
     </ExploreTestIntro>
+    {slug === "bleach" && overviewCopy && <BleachExamples quiz={quiz} locale="zh" copy={overviewCopy} />}
+    {slug === "philosopher-personality-test" && overviewCopy && <>
+      <PhilosopherRoster locale="zh" displayLocale="zh-TW" copy={overviewCopy} />
+      <PhilosopherResultExamples quiz={quiz} locale="zh" displayLocale="zh-TW" copy={overviewCopy} />
+    </>}
     {slug === "aura-color" && <AuraColorResultExamples quiz={quiz} locale="zh" displayLocale="zh-TW" />}
     {slug === "cyberpunk-edgerunners" && overviewCopy && <EdgerunnersResultExamples quiz={quiz} locale="zh" displayLocale="zh-TW" copy={overviewCopy} />}
     {overviewCopy && (slug === "moon-phase" ? <>
@@ -174,9 +196,10 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
           <Link href={questionnaireGuidePath("zh-TW", slug, profile.id)} className="inline-flex min-h-11 items-center gap-2 py-2 font-semibold underline">
             {slug === "aura-color" && <span aria-hidden="true" className="size-3 rounded-full ring-1 ring-slate-600" style={{ backgroundColor: auraColors[profile.id] }} />}
             {slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={profile.id} className="size-12 shrink-0 rounded-lg" />}
+            {slug === "bleach" && <Image unoptimized src={bleachPortraitPath(profile.id)} width={43} height={50} alt="" className="shrink-0 rounded-md" />}
             {profile.title.zh}
           </Link>
-          <p className="leading-7">{editorial === null ? archetypeLandingSummary(slug, profile.id) : profile.summary.zh}</p>
+          <p className="leading-7">{editorial === null || slug === "bleach" ? archetypeLandingSummary(slug, profile.id) : profile.summary.zh}</p>
         </li>)}
       </ul>
     </section>
