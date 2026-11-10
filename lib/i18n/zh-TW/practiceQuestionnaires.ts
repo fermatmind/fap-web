@@ -1,3 +1,6 @@
+import { wordSkillsLandingFaq, wordSkillsLandingSections } from "@/components/questionnaires/WordSkillsLandingEditorial";
+import { excelSkillsLandingFaq, excelSkillsLandingSections } from "@/components/questionnaires/ExcelSkillsLandingEditorial";
+import { financialAccountingLandingFaq, financialAccountingLandingSections } from "@/components/questionnaires/FinancialAccountingLandingEditorial";
 import { javaLandingFaq, javaLandingSections } from "@/components/questionnaires/JavaLandingEditorial";
 import { javaScriptLandingFaq, javaScriptLandingSections } from "@/components/questionnaires/JavaScriptLandingEditorial";
 import { pythonLandingFaq, pythonLandingSections } from "@/components/questionnaires/PythonLandingEditorial";
@@ -234,6 +237,30 @@ const editions = {
     prefix: "sql",
     sections: sqlLandingSections,
     faq: sqlLandingFaq,
+  },
+  "word-skills": {
+    reading: "word-skills",
+    load: () => import("@/lib/questionnaires/result-content/word-skills.json"),
+    editorial: "WordSkillsLandingEditorial",
+    prefix: "wordSkills",
+    sections: wordSkillsLandingSections,
+    faq: wordSkillsLandingFaq,
+  },
+  "excel-skills": {
+    reading: "excel-skills",
+    load: () => import("@/lib/questionnaires/result-content/excel-skills.json"),
+    editorial: "ExcelSkillsLandingEditorial",
+    prefix: "excelSkills",
+    sections: excelSkillsLandingSections,
+    faq: excelSkillsLandingFaq,
+  },
+  "financial-accounting": {
+    reading: "financial-accounting",
+    load: () => import("@/lib/questionnaires/result-content/financial-accounting.json"),
+    editorial: "FinancialAccountingLandingEditorial",
+    prefix: "financialAccounting",
+    sections: financialAccountingLandingSections,
+    faq: financialAccountingLandingFaq,
   },
 };
 

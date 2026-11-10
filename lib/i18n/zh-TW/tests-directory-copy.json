@@ -1084,7 +1084,7 @@
     "excel-skills": {
       "title": {
         "sourceHash": "7b34eb435561aaac0fcacf6097f922aa088442a7d252bafa672b137b8a031156",
-        "target": "Excel技能測驗"
+        "target": "Excel 技能測驗"
       },
       "description": {
         "sourceHash": "e6e19c974171f7c2a5507f8121995c10c205d36183915b440b7cbc6627325a67",
@@ -1204,11 +1204,11 @@
     "word-skills": {
       "title": {
         "sourceHash": "84fbec6881ace068b13e4009386a0dde697da88fd6f3cc319009317aa75e298f",
-        "target": "Word技能測驗"
+        "target": "Word 技能測驗"
       },
       "description": {
         "sourceHash": "eb77573d8b8919edf7d5538be96fccb747ec8ba79e80bee8f1d77d5c1fb0f91c",
-        "target": "在 Windows 桌面版 Microsoft 365 Word 的情境中練習樣式、分節、表格、郵件合併和審閱。"
+        "target": "在 Windows 桌面版 Microsoft 365 Word 的情境中練習樣式、分節、表格、合併列印和審閱。"
       }
     },
     "project-management": {

@@ -37,6 +37,9 @@ const editions = [
   ["javascript-test", 24, 4],
   ["python-test", 24, 4],
   ["sql-test", 24, 4],
+  ["word-skills", 25, 5],
+  ["excel-skills", 24, 4],
+  ["financial-accounting", 24, 6],
 ] as const;
 
 describe("Traditional practice editions", () => {
@@ -93,6 +96,19 @@ describe("Traditional practice editions", () => {
       }
     },
   );
+
+  it("preserves formulas, cell references and the original answer key in Excel practice", async () => {
+    const original = await loadQuestionnaire("excel-skills");
+    const entry = await loadTraditionalPractice("excel-skills");
+    if (!original || !entry) throw new Error("Missing Excel practice");
+    const tokens = (text: string) => text.match(/=(?=[A-Z$'0-9])[ -~]+|\$?[A-Z]{1,3}\$?\d+/g);
+    for (const [index, source] of original.questions.entries()) {
+      const target = entry.quiz.questions[index];
+      expect(tokens(target.prompt.zh)).toEqual(tokens(source.prompt.zh));
+      expect(target.options.map(item => tokens(item.label.zh))).toEqual(source.options.map(item => tokens(item.label.zh)));
+      expect(target.correctOptionId).toBe(source.correctOptionId);
+    }
+  });
 
   it("keeps the authoritative Spanish answer and corrects the distractor named in both explanations", async () => {
     const entry = await loadTraditionalPractice("spanish-proficiency");
