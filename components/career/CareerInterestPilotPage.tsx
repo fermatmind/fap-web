@@ -4,20 +4,20 @@ import { CareerExplorationPilot } from "@/components/career/CareerExplorationPil
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
-import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath, isCareerInterestPilot } from "@/lib/career/explorationPilot";
+import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath, type CareerInterestPilot } from "@/lib/career/explorationPilot";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-type Props = { params: Promise<{ locale: string; code: string }> };
+type Params = Promise<{ locale: string }>;
 
-async function readPilot(params: Props["params"]) {
-  const { locale, code } = await params;
-  if ((locale !== "zh" && locale !== "en") || !isCareerInterestPilot(code)) notFound();
-  return { locale, code, pilot: CAREER_EXPLORATION_PILOT[code] } as const;
+async function readPilot(params: Params, code: CareerInterestPilot) {
+  const { locale } = await params;
+  if (locale !== "zh" && locale !== "en") notFound();
+  return { locale, pilot: CAREER_EXPLORATION_PILOT[code] } as const;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, code, pilot } = await readPilot(params);
+export async function careerInterestPilotMetadata(params: Params, code: CareerInterestPilot): Promise<Metadata> {
+  const { locale, pilot } = await readPilot(params, code);
   return buildPageMetadata({
     locale,
     pathname: careerExplorationPilotPath(locale, code),
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function CareerInterestPilotPage({ params }: Props) {
-  const { locale, code, pilot } = await readPilot(params);
+export async function CareerInterestPilotPage({ params, code }: { params: Params; code: CareerInterestPilot }) {
+  const { locale, pilot } = await readPilot(params, code);
   const { title, summary } = pilot.copy[locale];
   const path = careerExplorationPilotPath(locale, code);
   const parents = [

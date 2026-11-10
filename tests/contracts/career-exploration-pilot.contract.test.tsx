@@ -1,6 +1,7 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
-import CareerInterestPilotPage, { generateMetadata } from "@/app/(localized)/[locale]/career/interests/[code]/page";
+import AriPage, { generateMetadata as ariMetadata } from "@/app/(localized)/[locale]/career/interests/ari/page";
+import AcPage, { generateMetadata as acMetadata } from "@/app/(localized)/[locale]/career/interests/ac/page";
 import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { appendCareerInterestPilotSitemapEntries, buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
@@ -15,8 +16,8 @@ describe("six-page career exploration pilot", () => {
     ["zh", "ac", false, ["27-1024.00", "27-4032.00"]],
     ["en", "ac", false, ["27-1024.00", "27-4032.00"]],
   ] as const)("%s/%s keeps official evidence, locale and indexing aligned", async (locale, code, index, socCodes) => {
-    const props = { params: Promise.resolve({ locale, code }) };
-    const metadata = await generateMetadata(props);
+    const props = { params: Promise.resolve({ locale }) };
+    const metadata = await (code === "ari" ? ariMetadata : acMetadata)(props);
     const origin = getSiteUrlOrThrow();
     const canonical = `${origin}${careerExplorationPilotPath(locale, code)}`;
     expect(metadata.robots).toMatchObject({ index, follow: true });
@@ -27,7 +28,7 @@ describe("six-page career exploration pilot", () => {
     });
     expect(metadata.alternates?.languages).not.toHaveProperty("zh-TW");
 
-    const { container } = render(await CareerInterestPilotPage(props));
+    const { container } = render(await (code === "ari" ? AriPage : AcPage)(props));
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(CAREER_EXPLORATION_PILOT[code].copy[locale].title);
     for (const soc of socCodes) {
       expect(screen.getByRole("link", { name: `O*NET ${soc}` })).toHaveAttribute("href", `https://www.onetonline.org/link/summary/${soc}`);
@@ -50,10 +51,10 @@ describe("six-page career exploration pilot", () => {
     expect(links.some((href) => href?.includes("/career/compare?"))).toBe(locale === "zh");
   });
 
-  it.each([["zh", "ric"], ["en", "RIA"], ["zh-TW", "ari"]])("rejects the unapproved route %s/%s", async (locale, code) => {
-    const props = { params: Promise.resolve({ locale, code }) };
-    await expect(generateMetadata(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
-    await expect(CareerInterestPilotPage(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+  it("does not render ARI or AC outside the two pilot languages", async () => {
+    const props = { params: Promise.resolve({ locale: "zh-TW" }) };
+    await expect(ariMetadata(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+    await expect(AcPage(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
   it("only appends the exact indexable ARI paths to the public sitemap", () => {

@@ -91,10 +91,6 @@ export type CareerInterestPilot = Exclude<CareerExplorationPilot, "intj">;
 
 export const CAREER_INTEREST_PILOTS = ["ari", "ac"] as const;
 
-export function isCareerInterestPilot(code: string): code is CareerInterestPilot {
-  return CAREER_INTEREST_PILOTS.some((pilot) => code === pilot);
-}
-
 export function careerExplorationPilotPath(locale: Locale, pilot: CareerExplorationPilot): string {
   return pilot === "intj"
     ? `/${locale}/career/recommendations/mbti/intj`
