@@ -32,11 +32,11 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   const { container } = render(await ArchetypeQuestionnairePage({ slug }));
   if (hasFilmEditorial(slug)) {
     const citations = [...container.querySelectorAll(`a[href^="#${slug}-reference-"]`)];
-    if (slug === "euphoria-character-quiz") expect(citations).toHaveLength(0);
+    if (slug === "euphoria-character-quiz" || !source.references?.length) expect(citations).toHaveLength(0);
     else expect(citations.length).toBeGreaterThan(0);
     for (const link of citations) expect(container.querySelector(link.getAttribute("href")!)).not.toBeNull();
     const destinations = [...container.querySelectorAll(`[id^="${slug}-reference-"] > a`)];
-    expect(destinations.map(link => link.getAttribute("href"))).toEqual(source.references?.map(item => item.url));
+    expect(destinations.map(link => link.getAttribute("href"))).toEqual((source.references ?? []).map(item => item.url));
   }
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   const start = screen.getByRole("button", { name: "開始測驗" }).closest("form");
@@ -76,5 +76,18 @@ it.each(["jungian-archetype", "temperament", "leadership-style", "travel-persona
     render(await ArchetypeQuestionnairePage({ slug }));
     expect(screen.getAllByText(/不儲存答題進度/)).toHaveLength(2);
     expect(screen.queryByText(/24小時.{0,15}草稿|24小時內恢復/)).not.toBeInTheDocument();
+  },
+);
+
+it.each(["found-family-role-test", "chinese-zodiac", "zodiac-sign-quiz", "male-archetype-test", "wojak"])(
+  "keeps stale draft promises out of the Taiwan %s landing and result guides", async slug => {
+    const staleDraft = /24小時.{0,22}(?:草稿|恢復)|草稿.{0,25}24小時/;
+    render(await ArchetypeQuestionnairePage({ slug }));
+    expect(screen.getAllByText(/不儲存答題進度/).length).toBeGreaterThan(0);
+    expect(screen.queryByText(staleDraft)).not.toBeInTheDocument();
+    const quiz = (await loadTraditionalArchetype(slug))!;
+    const paragraphs = quiz.profiles.flatMap(profile =>
+      profile.sections.flatMap(section => section.paragraphs.map(paragraph => paragraph.zh)));
+    expect(paragraphs.join("\n")).not.toMatch(staleDraft);
   },
 );

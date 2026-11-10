@@ -32,7 +32,8 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     if (slug === "space-marine-chapter") return spaceMarineChapterCard(quiz.profiles, "zh", await archetypeFont, result?.id, true);
     if (slug === "avatar-bender-quiz" || slug === "soldier-poet-king-quiz") return fantasyOpenGraphCard(quiz, "zh", result?.id, await archetypeFont, true);
-    return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh, Boolean(result), await archetypeFont, "原創趣味測驗");
+    const edition = slug === "male-archetype-test" ? "原創四角色隱喻版" : "原創趣味測驗";
+    return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh, Boolean(result), await archetypeFont, edition);
   }
   const quiz = hasTraditionalBespokeStory(slug) ? await loadTraditionalBespokeStory(slug) : (await loadTraditionalLegacyStory(slug))?.quiz;
   const result = quiz && portrait ? findPublicPortrait(quiz, portrait) : undefined;

@@ -54,6 +54,11 @@ const sources = {
   "aesthetic-core-test": { name: "aesthetic-core", load: () => import("@/lib/questionnaires/result-content/aesthetic-core.json") },
   "tsundere-dere-type": { name: "dere-type", load: () => import("@/lib/questionnaires/result-content/dere-type.json") },
   "hogwarts-house-quiz": { name: "hogwarts-house", load: () => import("@/lib/questionnaires/result-content/hogwarts-house.json") },
+  "found-family-role-test": { name: "found-family-role-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/found-family-role-test.json") },
+  "chinese-zodiac": { name: "chinese-zodiac", load: () => import("@/lib/questionnaires/result-content/chinese-zodiac.json") },
+  "zodiac-sign-quiz": { name: "zodiac-sign-quiz", load: () => import("@/lib/questionnaires/result-content/zodiac-sign-quiz.json") },
+  "male-archetype-test": { name: "four-roles", load: () => import("@/lib/questionnaires/result-content/four-roles.json") },
+  "wojak": { name: "wojak", load: () => import("@/lib/questionnaires/result-content/wojak.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

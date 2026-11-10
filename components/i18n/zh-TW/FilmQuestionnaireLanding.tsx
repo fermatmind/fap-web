@@ -28,6 +28,11 @@ import { nextLifeLandingFaq, nextLifeLandingSections } from "@/components/questi
 import { villainEraLandingFaq, villainEraLandingSections } from "@/components/questionnaires/VillainEraLandingEditorial";
 import { bigFishLandingFaq, bigFishLandingSections } from "@/components/questionnaires/BigFishLandingEditorial";
 import { decadeLandingFaq, decadeLandingSections } from "@/components/questionnaires/DecadeLandingEditorial";
+import { foundFamilyRoleLandingFaq, foundFamilyRoleLandingSections } from "@/components/questionnaires/FoundFamilyRoleLandingEditorial";
+import { chineseZodiacLandingFaq, chineseZodiacLandingSections } from "@/components/questionnaires/ChineseZodiacLandingEditorial";
+import { zodiacStoryLandingFaq, zodiacStoryLandingSections } from "@/components/questionnaires/ZodiacStoryLandingEditorial";
+import { maleRoleLandingFaq, maleRoleLandingSections } from "@/components/questionnaires/MaleRoleLandingEditorial";
+import { wojakLandingFaq, wojakLandingSections } from "@/components/questionnaires/WojakLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial, archetypeLandingSummary } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -76,6 +81,11 @@ const editorials = {
   "aesthetic-core-test": null,
   "tsundere-dere-type": null,
   "hogwarts-house-quiz": null,
+  "found-family-role-test": { sections: foundFamilyRoleLandingSections, faq: foundFamilyRoleLandingFaq },
+  "chinese-zodiac": { sections: chineseZodiacLandingSections, faq: chineseZodiacLandingFaq },
+  "zodiac-sign-quiz": { sections: zodiacStoryLandingSections, faq: zodiacStoryLandingFaq },
+  "male-archetype-test": { sections: maleRoleLandingSections, faq: maleRoleLandingFaq },
+  "wojak": { sections: wojakLandingSections, faq: wojakLandingFaq },
 };
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {

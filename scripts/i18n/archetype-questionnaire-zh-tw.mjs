@@ -49,6 +49,11 @@ const editions = {
   "aesthetic-core-test": ["aesthetic-core", "Aesthetic", "aesthetic", "summaries"],
   "tsundere-dere-type": ["dere-type", "Dere", "dere", "summaries"],
   "hogwarts-house-quiz": ["hogwarts-house", "Hogwarts", "hogwarts", "summaries"],
+  "found-family-role-test": ["found-family-role-test", "FoundFamilyRole", "foundFamilyRoleLanding", "standalone"],
+  "chinese-zodiac": ["chinese-zodiac", "ChineseZodiac", "chineseZodiacLanding", "standalone"],
+  "zodiac-sign-quiz": ["zodiac-sign-quiz", "ZodiacStory", "zodiacStoryLanding", "standalone"],
+  "male-archetype-test": ["four-roles", "MaleRole", "maleRoleLanding", "standalone"],
+  "wojak": ["wojak", "Wojak", "wojakLanding", "standalone"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -64,7 +69,35 @@ const sourcePaths = Object.entries(editions).flatMap(([slug, [reading]]) => [
 // corrections as the original reader, including the current no-draft policy.
 const correctedSources = {};
 const correctionSnapshots = {};
+const noDraft = "这份测试不保存答题进度，重新整理、切换语言或离开后需要重新开始";
+const formerDraftCopy = [
+  ["自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删", noDraft],
+  ["可选标签页草稿24小时失效，完成、退出并清除或重测即删；未存草稿刷新会丢进度", noDraft],
+  ["可选标签页草稿会失效，完成或清除后删除", noDraft],
+  ["可选标签页草稿24小时失效，完成、重测或退出并清除即删；未存草稿刷新丢进度", noDraft],
+  ["草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也能完成", noDraft],
+  ["可选标签页草稿24小时失效，完成、重测或退出清除即删除", noDraft],
+  ["草稿仅在主动开启后于本标签页保存最多24小时，完成、清除或重测即删除", noDraft],
+  ["仅主动保存时保留本标签页24小时内的进度，完成、清除或重测会删除", noDraft],
+  ["默认不保存，主动选择临时保存后，本标签页可在24小时内恢复。完成、清除退出或重测会清除临时进度", noDraft],
+  ["主动保存才建立本标签页24小时草稿，完成、清除或重测即删除", noDraft],
+  ["免费全文、草稿与相伴比喻的边界", "免费全文、答题进度与相伴比喻的边界"],
+  ["完整结果、草稿和分享需要付费吗", "完整结果和分享需要付费吗"],
+  ["草稿、重测和分享怎样处理", "答题进度、重测和分享怎样处理"],
+  ["草稿、重测和公开分享怎样运作", "答题进度、重测和公开分享怎样运作"],
+  ["私密选择、可选草稿与分享", "私密选择、答题进度与分享"],
+  ["作答、保存与重测", "作答进度与重测"],
+  ["或先同意保存", ""],
+];
+const correctStandaloneCopy = text => formerDraftCopy.reduce((value, [before, after]) => value.replaceAll(before, after), text);
 for (const [slug, [, component, correction, layout]] of Object.entries(editions)) {
+  if (layout === "standalone") {
+    // QuestionnaireTakeDocument opens a fresh in-memory session on every entry.
+    const data = `lib/questionnaires/data/${slug}.json`;
+    correctionSnapshots[data] = read(new URL(data, root));
+    correctedSources[data] = JSON.parse(correctionSnapshots[data], (key, value) =>
+      key === "zh" && typeof value === "string" ? correctStandaloneCopy(value) : value);
+  }
   if (layout !== "summaries" || !correction) continue;
   const editorial = `components/questionnaires/${component}LandingEditorial.ts`;
   const data = `lib/questionnaires/data/${slug}.json`;
@@ -119,7 +152,8 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
         members[slug].some(id => !Object.hasOwn(strings, `/${id}`)))) {
       throw new Error(`Missing landing profile summaries: ${slug}`);
     }
-    for (const [pointer, source] of Object.entries(strings)) {
+    for (const [pointer, original] of Object.entries(strings)) {
+      const source = layout === "standalone" ? correctStandaloneCopy(original) : original;
       const id = `${slug}/editorial/${field}${pointer}`;
       const sourceHash = digest(JSON.stringify([id, source, artifact.converter, terms]));
       artifact.units[id] = previousUnits[id]?.sourceHash === sourceHash ? previousUnits[id] : { sourceHash, text: convertText(source, terms) };

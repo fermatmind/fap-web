@@ -375,5 +375,55 @@
     "hufflepuff",
     "ravenclaw",
     "slytherin"
+  ],
+  "found-family-role-test": [
+    "welcome-keeper",
+    "practical-pal",
+    "story-keeper",
+    "spark-starter",
+    "listening-companion",
+    "thread-weaver"
+  ],
+  "chinese-zodiac": [
+    "rat",
+    "ox",
+    "tiger",
+    "rabbit",
+    "dragon",
+    "snake",
+    "horse",
+    "goat",
+    "monkey",
+    "rooster",
+    "dog",
+    "pig"
+  ],
+  "zodiac-sign-quiz": [
+    "aries",
+    "taurus",
+    "gemini",
+    "cancer",
+    "leo",
+    "virgo",
+    "libra",
+    "scorpio",
+    "sagittarius",
+    "capricorn",
+    "aquarius",
+    "pisces"
+  ],
+  "male-archetype-test": [
+    "king",
+    "warrior",
+    "magician",
+    "lover"
+  ],
+  "wojak": [
+    "feels-guy",
+    "bloomer",
+    "doomer",
+    "boomer",
+    "zoomer",
+    "npc"
   ]
 }
