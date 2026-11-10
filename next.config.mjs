@@ -462,6 +462,12 @@ const nextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        // Use a relative rewrite after proxy.ts assigns the trusted placement header.
+        ...["", "/take"].map(suffix => ({
+          source: `/:locale(en|zh|zh-TW)/tests/:collection(play|explore)/:slug${suffix}`,
+          destination: `/:locale/ad-placement/:collection/:slug${suffix}`,
+          has: [{ type: "header", key: "x-fermat-entertainment-ad", value: "enabled|preview" }],
+        })),
         ...(enableSameOriginV03ApiProxy
           ? [
               {

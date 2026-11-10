@@ -1,2 +1,2 @@
-// A separate root layout ends the advertising document on navigation to the quiz or account.
+// Leaving the eligible URL family ends the document that loaded AdSense.
 export { default, generateStaticParams, metadata } from "@/app/(localized)/[locale]/layout";

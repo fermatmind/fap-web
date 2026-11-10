@@ -1,3 +1,5 @@
+import { CANONICAL_SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
+import { AD_PLACEMENT_HEADER, AD_PLACEMENT_SEGMENT, entertainmentAdPlacement } from "@/lib/entertainment/adPlacement";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { getTraditionalPublicAssetRoute, isTraditionalMbtiDetailPath } from "@/lib/personality/traditionalPublicAssetRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
@@ -402,6 +404,7 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
+  if (pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/)/, "").startsWith(AD_PLACEMENT_SEGMENT)) return createPublicAbsenceResponse(404);
   // Account display uses the same private Google/CSP policy as the existing account pages.
   const strippedPath = pathname === "/zh-TW/account" ? "/account" : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
@@ -567,11 +570,14 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     requestHeaders.set("x-anon-id", resolvedAnonId);
   }
 
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  const pageQuery = new URLSearchParams(request.nextUrl.searchParams);
+  if (request.headers.get("rsc") === "1") pageQuery.delete("_rsc");
+  const placement = !isStagingHost && !isConfiguredStagingSiteUrl() && request.headers.get("host") === new URL(CANONICAL_SITE_URL).host
+    ? entertainmentAdPlacement(pathname, pageQuery)
+    : null;
+  requestHeaders.delete(AD_PLACEMENT_HEADER);
+  if (placement) requestHeaders.set(AD_PLACEMENT_HEADER, placement.consentPreview ? "preview" : "enabled");
+  const response = NextResponse.next({ request: { headers: requestHeaders } });
   applyNonceCspHeaders(response.headers, cspNonce, strippedPath === "/account");
 
   const focusedTool = pathname.match(/^\/(?:en|zh)\/tests\/explore\/(disc|cognitive-functions-test)\/?$/)?.[1];
@@ -598,7 +604,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   if (hardenPrivateResponse) {
     response.headers.set("X-Robots-Tag", PRIVATE_NOINDEX_VALUE);
     response.headers.set("Cache-Control", PRIVATE_CACHE_CONTROL_VALUE);
-    response.headers.set("Referrer-Policy", "no-referrer");
+    response.headers.set("Referrer-Policy", placement?.take ? "strict-origin" : "no-referrer");
     if (strippedPath === "/account") {
       const localPreview = ["localhost", "127.0.0.1"].includes(request.nextUrl.hostname);
       response.headers.set("Referrer-Policy", localPreview ? "no-referrer-when-downgrade" : "strict-origin-when-cross-origin");

@@ -21,8 +21,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           </h2>
           <p>
             {zh
-              ? "全球历史人物测试的介绍页使用 Google AdSense。Google 及其广告合作伙伴可能通过 Cookie、网页信标、IP 地址或其他标识符投放和衡量广告。根据你的隐私选择，他们可能利用你访问本站和其他网站的记录提供个性化广告。答题、个人结果和账户页面不使用此广告单元。"
-              : "The World History Quiz introduction uses Google AdSense. Google and its advertising partners may use cookies, web beacons, IP addresses, or other identifiers to serve and measure ads. Depending on your privacy choices, they may personalize ads based on visits to this site and other sites. This ad unit is limited to the introduction and is not used on quiz, personal result, or account pages."}
+              ? "部分公开娱乐测试的介绍页和答题过程中使用 Google AdSense。Google 及其广告合作伙伴可能通过 Cookie、网页信标、IP 地址或其他标识符投放和衡量广告。根据你的隐私选择，他们可能利用你访问本站和其他网站的记录提供个性化广告。个人结果和账户页面不展示此广告单元。"
+              : "Some public entertainment quiz introductions and question screens use Google AdSense. Google and its advertising partners may use cookies, web beacons, IP addresses, or other identifiers to serve and measure ads. Depending on your privacy choices, they may personalize ads based on visits to this site and other sites. Personal results and account pages do not display this ad unit."}
           </p>
           <p>
             {zh

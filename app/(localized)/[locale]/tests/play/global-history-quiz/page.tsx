@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { headers } from "next/headers";
 import { Container } from "@/components/layout/Container";
-import { GlobalHistoryDisplayAd } from "@/components/entertainment/GlobalHistoryDisplayAd";
 import { StartTestButton } from "@/components/tests/StartTestButton";
 import {
   GLOBAL_HISTORY_MINUTES, globalHistoryDescription, globalHistoryImagePath, globalHistoryMethod,
@@ -12,12 +10,10 @@ import { historyPeople } from "@/lib/entertainment/global-history/people";
 import { historyScenes } from "@/lib/entertainment/global-history/questions";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { CANONICAL_SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import styles from "@/components/entertainment/GlobalHistory.module.css";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 const coverId = "mansa-musa";
 
@@ -30,19 +26,9 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-export default async function Page({ params, searchParams }: Props) {
+export default async function Page({ params }: Props) {
   const locale = resolveLocale((await params).locale);
   const zh = locale === "zh";
-  const requestHeaders = await headers();
-  const nonce = requestHeaders.get("x-nonce");
-  const query = await searchParams;
-  const queryCount = Object.keys(query).length;
-  // Allow Google's consent preview without requesting a live ad impression.
-  const previewConsent = queryCount === 2 && query.fc === "alwaysshow"
-    && (query.fctype === "gdpr" || query.fctype === "ccpa");
-  const loadAdSense = !isConfiguredStagingSiteUrl()
-    && requestHeaders.get("host") === new URL(CANONICAL_SITE_URL).host
-    && (queryCount === 0 || previewConsent);
   return <main className={styles.page}>
     <Container className={`max-w-4xl ${styles.inner}`}>
       <Link prefetch={false} href={`/${locale}/tests#interactive-stories`} className={styles.back}>
@@ -70,9 +56,6 @@ export default async function Page({ params, searchParams }: Props) {
           {zh ? "也可以去玩长安卷" : "You can also play the Chang’an Edition"}
         </Link>
       </section>
-      {loadAdSense && nonce && (
-        <GlobalHistoryDisplayAd label={zh ? "广告" : "Advertisements"} nonce={nonce} showUnit={!previewConsent} />
-      )}
     </Container>
   </main>;
 }
