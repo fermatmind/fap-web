@@ -36,6 +36,9 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       "character-strengths": "IPIP-VIA-R 96 道自述題",
       hexaco: "IPIP HEXACO 240 道自述題",
       "work-traits-reflection": "費馬原創 42 道工作行為題",
+      "growth-mindset-fixed-mindset": "費馬原創 12 道學習信念題",
+      "grit-test": "費馬原創 16 道目標回顧題",
+      "tech-savvy": "費馬原創 6 道工具信心題",
     };
     const edition = editions[slug] ?? "IPIP 公有領域題目";
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, slug === "character-strengths" ? "公開性格優勢指南" : "公開連續分數指南");

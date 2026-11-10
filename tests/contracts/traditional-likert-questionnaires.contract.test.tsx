@@ -10,7 +10,7 @@ import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 
 afterEach(cleanup);
 
-it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
+it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection", "growth-mindset-fixed-mindset", "grit-test", "tech-savvy"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
   const original = (await loadQuestionnaire(slug))!;
   const { quiz, extraReferences } = (await loadTraditionalLikert(slug))!;
   const identity = (item: typeof original) => item.questions.map(question => [
@@ -42,7 +42,7 @@ it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-s
   expect(screen.getByRole("heading", { level: 1, name: quiz.title.zh })).toBeVisible();
   expect(screen.getByRole("link", { name: profile.title.zh })).toHaveAttribute("href", guide);
   const destinations = [...container.querySelectorAll(`[id^="${slug}-reference-"] > a`)];
-  expect(destinations.map(link => link.getAttribute("href"))).toEqual([...original.references!, ...extraReferences].map(reference => reference.url));
+  expect(destinations.map(link => link.getAttribute("href"))).toEqual([...(original.references ?? []), ...extraReferences].map(reference => reference.url));
   expect(container.textContent).not.toMatch(/24小時|二十四小時/);
   cleanup();
   render(await LikertQuestionnairePage({ slug, take: false, profile: profile.id }));

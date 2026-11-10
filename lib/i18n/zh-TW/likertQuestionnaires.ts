@@ -1,3 +1,6 @@
+import { techConfidenceLandingFaq, techConfidenceLandingSections, techConfidenceLandingReferences } from "@/components/questionnaires/TechConfidenceLandingEditorial";
+import { gritLandingFaq, gritLandingSections } from "@/components/questionnaires/GritLandingEditorial";
+import { growthLandingFaq, growthLandingSections } from "@/components/questionnaires/GrowthLandingEditorial";
 import { hexacoLandingFaq, hexacoLandingReferences, hexacoLandingSections } from "@/components/questionnaires/HexacoLandingEditorial";
 import { workTraitsLandingFaq, workTraitsLandingSections } from "@/components/questionnaires/WorkTraitsLandingEditorial";
 import { strengthsSummaries } from "@/components/questionnaires/StrengthsLandingEditorial";
@@ -14,6 +17,33 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "tech-savvy": {
+    reading: "tech-savvy",
+    attribute: "tech-confidence",
+    load: () => import("@/lib/questionnaires/result-content/tech-savvy.json"),
+    editorial: "TechConfidence",
+    prefix: "techConfidence",
+    sections: techConfidenceLandingSections,
+    faq: techConfidenceLandingFaq,
+  },
+  "grit-test": {
+    reading: "grit",
+    attribute: "grit",
+    load: () => import("@/lib/questionnaires/result-content/grit.json"),
+    editorial: "Grit",
+    prefix: "grit",
+    sections: gritLandingSections,
+    faq: gritLandingFaq,
+  },
+  "growth-mindset-fixed-mindset": {
+    reading: "growth-mindset",
+    attribute: "growth-mindset",
+    load: () => import("@/lib/questionnaires/result-content/growth-mindset.json"),
+    editorial: "Growth",
+    prefix: "growth",
+    sections: growthLandingSections,
+    faq: growthLandingFaq,
+  },
   hexaco: {
     reading: "hexaco",
     attribute: "hexaco",
@@ -72,7 +102,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -80,7 +110,9 @@ export async function loadTraditionalLikert(slug: string) {
     ? projectStoryCopy(strengthsSummaries, "components/questionnaires/StrengthsLandingEditorial.ts/strengthsSummaries", units)
     : {};
   const extraReferences = slug === "hexaco" ? projectStoryCopy(hexacoLandingReferences,
-    "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units) : [];
+    "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units)
+    : slug === "tech-savvy" ? projectStoryCopy(techConfidenceLandingReferences,
+      "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingReferences", units) : [];
   if ("editorial" in edition) {
     const editorial = `components/questionnaires/${edition.editorial}LandingEditorial.ts`;
     return { quiz: { ...quiz, profiles }, summaries, extraReferences,

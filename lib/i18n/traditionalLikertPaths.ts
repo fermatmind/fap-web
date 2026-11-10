@@ -1,4 +1,7 @@
 const profiles = {
+  "growth-mindset-fixed-mindset": ["belief-continuum"],
+  "grit-test": ["goal-continuity", "effort-return"],
+  "tech-savvy": ["reading-your-confidence"],
   "locus-of-control": ["control-continuum"],
   hexaco: ["honesty-humility", "emotionality", "extraversion", "agreeableness", "conscientiousness", "openness-to-experience"],
   "work-traits-reflection": ["composure-reading", "initiative-reading", "follow-through-reading", "social-contact-reading", "consideration-reading", "dependability-reading", "curiosity-reading"],

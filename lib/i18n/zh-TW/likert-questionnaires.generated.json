@@ -3,6 +3,15 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json": "72271279b07c9c8349c59f5097fd707a2d89b7fccf8d0bea3f5e360d943dd14b",
+    "lib/questionnaires/result-content/growth-mindset.json": "3d25b5ec72bf24ef6aaa14c8663ef2bb56299ec5fb4ba57417396792b3339458",
+    "components/questionnaires/GrowthLandingEditorial.ts": "98c8dd9b7bc8cca0d89d17cd7de181e74b2f06c622fd82914c5965f42b9e90a7",
+    "lib/questionnaires/data/grit-test.json": "a9e10c0f41228a24d6504ee83c0ff40a0ae50fc92ea5bbab3cf660fa403133a1",
+    "lib/questionnaires/result-content/grit.json": "c243c25262e9ddfe7b0d08d48b78706d98a0a5a0595837bdc5f0f0fbac002d97",
+    "components/questionnaires/GritLandingEditorial.ts": "f043ef3ae9438fd4c77564f9f8c3b0986b255ba263fef7eff6aaca4cc1dd63d9",
+    "lib/questionnaires/data/tech-savvy.json": "e530053671523ddd689f2e0b7e3cf8012f976cf39f751ee50c9f4030958edea8",
+    "lib/questionnaires/result-content/tech-savvy.json": "8840f0f7ee31c5a1b1127e77dc57ef5ee6f2ca83b6f0be11aa7a516fa6900b5d",
+    "components/questionnaires/TechConfidenceLandingEditorial.ts": "fd045468392302141705d4388592b99447d4b36ce3ed28ae59929c77c8ab9fb7",
     "lib/questionnaires/data/locus-of-control.json": "e48330b00a04851829ad4ecaf97242479386197e9410c59f265e9cc516f7f70b",
     "lib/questionnaires/result-content/locus-of-control.json": "baf52c116fb1375fda3931398135c6138186c6d8f2f757c63e932400d9b2f855",
     "components/questionnaires/LocusLandingEditorial.ts": "be81536cdb26f4d6e48f7847a81d6bfe2d04a9df51268f05d725451892e856ed",
@@ -22,6 +31,2254 @@
     "components/questionnaires/WorkTraitsLandingEditorial.ts": "a104ac93bd36d92fa18b5b6b3f7d12014ef8b9fb8d699c337aacd60e47b78a06"
   },
   "units": {
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/title": {
+      "sourceHash": "de4e654524805b43203960829964e40942b5b4f26effec95a5b5e1e25e8db819",
+      "text": "成長心態與固定心態測驗"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/resultHeading": {
+      "sourceHash": "0c0468f196f0fe4ef2953182eaa6bebb0414630024c9a42096a781b51c6bd284",
+      "text": "你怎麼看待能力的改變"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/description": {
+      "sourceHash": "4d090253b7b51bfc3a7c5f5495b488277bf66b66133603158a5ea116b2c49521",
+      "text": "選定同一項正在學習的技能，完成 12 道原創自評題，看看自己目前如何看待能力改變的可能性。免費查看有效作答題數、平均分數和完整解讀，包含反向計分範例、研究證據與學習回顧，免註冊。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/seoTitle": {
+      "sourceHash": "ae845ff250d627443aeded1c3a1268c2c63acb9f6e4f39caf9e967b445cbc77f",
+      "text": "成長心態與固定心態測驗：12題、反向計分與完整解讀"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/introduction": {
+      "sourceHash": "b5f518e069c401717b16ab3bee30fcdba385a91fb46924786540ee0cc75676e2",
+      "text": "面對一項正在學習的技能，你怎樣理解起點、困難、回饋與後續發展的關係？這份成長心態與固定心態測驗用12條原創陳述，整理你對同一項技能可改變性的當前看法。約4分鐘，免費檢視有效評分條數、連續均分與完整指南；結果圍繞這次選擇解釋，幫助你聯絡具體的學習條件與經歷。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/instructions": {
+      "sourceHash": "847b2658e961749856407c2f51a56d042a9169babaa94ff32670e39fb6dd0d3e",
+      "text": "先在心裡選定一項正在學習或考慮學習的普通技能，12題始終以它為參照，不用輸入技能名稱。逐條選擇此刻的同意程度，不按理想答案作答；缺乏適當參照、資料不足或不願回答可選單獨的非數值選項。每題均作出選擇後結束；至少9條有效數字評分才顯示均分，六條較固定表述會反向計分。開始直接進入題目，無需再次同意或註冊，約4分鐘但不限時。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/directions/0/title": {
+      "sourceHash": "ead8b2705cbc1d15bf69078fb6d10b918b9262f61198cfbe7ec0d4634b4c7900",
+      "text": "所選技能的可改變信念"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/prompt": {
+      "sourceHash": "b0aa75c0a84f78d5b53042883dde6c575a3948c83bad97f3587d3b691e8cc791",
+      "text": "對選定的技能，我認為合適的練習方式和協助，仍可能改變我能做到的程度。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/options/0/label": {
+      "sourceHash": "aae06ce516a5a15da694b8f5b6b98e6faae55aadc51f9ff7a3a9f217ed4f4242",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/options/1/label": {
+      "sourceHash": "dea6d834231f761a7670b0c8c5e45b49ea6da8202b7776a9dae12972094354c2",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/options/2/label": {
+      "sourceHash": "d69957a75571fcb6e113284fb093b5a7c23a7133ff3c153999098cf5aab27edd",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/options/3/label": {
+      "sourceHash": "c386cf5d3b056f1729299666d270a410d483448a73faf732390921822e7c885b",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/options/4/label": {
+      "sourceHash": "be721eaaef497ad42f0b2087f468c38d8f3611746b4ca601ac93b32ac0970f6a",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/0/options/5/label": {
+      "sourceHash": "7bd32ab9981d0a9b56dae982155f701d95efc3b22d818f14ba0c9cc080e3b528",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/prompt": {
+      "sourceHash": "58e27b8e9fbea62266c866e3ea46be9f73c0f1f2f87536a80e0f090cd9fba81c",
+      "text": "對選定的技能，我傾向認為目前的程度已大致決定日後能達到的範圍。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/options/0/label": {
+      "sourceHash": "601207390b5c7169a8aa0c5281f72d7c3e8ca44f244489f361e209c3ae3d29f1",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/options/1/label": {
+      "sourceHash": "b7619d7a8bc0b36a1dd77cff23c1e7ec14c6b811ee7d49579c45aae8de299d81",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/options/2/label": {
+      "sourceHash": "e96b8097dfed5f34a74f69eae01581f0780a6f302fc6874479bfddb3d9b2a6ea",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/options/3/label": {
+      "sourceHash": "593349bd3a65a2742d53a4b4746a94fdb39c5fdb65484bfdd4194caa975df464",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/options/4/label": {
+      "sourceHash": "124f23e99d0f024415cd930ef26fe29597d7454bb851994f1ca48c70aa01cdba",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/1/options/5/label": {
+      "sourceHash": "f68bb5b9c5cd6b0f420763ea0c0cf7309d02bd0b5bdb9445d588a37862c3eefb",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/prompt": {
+      "sourceHash": "0df2b184e364d97e338e0eb7e3e52b82ddfe7868e782a87713a9e6d9fdf07f38",
+      "text": "對選定的技能，我認為改用適合的練習方法，可能幫助我學會原本不懂的部分。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/options/0/label": {
+      "sourceHash": "cb23837d735583032278969e300dde27327dafe0ffc6e88504d703d021eca1ac",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/options/1/label": {
+      "sourceHash": "97ca58fd87ed6bdfaa22101ace64db577a363a9203b8442088854126007ebd16",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/options/2/label": {
+      "sourceHash": "2860302caa85048e6693acc0964f2104361a311a6cf65c5bebf61718e31fe140",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/options/3/label": {
+      "sourceHash": "451594dee87e4f06a3d9ee776438a01592035f92a334e973d6ab1d7ebeda8272",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/options/4/label": {
+      "sourceHash": "827da05ef798698dbd8838fd2c28a0430253f97998ad83a7c0296894b8ba2ab1",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/2/options/5/label": {
+      "sourceHash": "08f05d5562c67eecb6c889f8e6f936325d3b584e8ae85eedb84a2dea6287dc65",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/prompt": {
+      "sourceHash": "e4a6821d878b0e7d14028f298c5eb832789f3503bfdd5500509d0a1047db4a69",
+      "text": "對選定的技能，我傾向把反覆遇到的困難，看成較難改變的能力限制。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/options/0/label": {
+      "sourceHash": "51269e907755013c8043dd2a29dded5d46a2986c9110e5e4f2e0b1db98afb288",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/options/1/label": {
+      "sourceHash": "36fb1bbd1e320c09f6e3f81df3091f6cedd45a905f82dada4c472ae26631f2f7",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/options/2/label": {
+      "sourceHash": "7f5b29a34e795e9aad7b61f0a0b7a5c1ea344fa0b2d2516dbf918e8a517b36e5",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/options/3/label": {
+      "sourceHash": "91e879a014758b28b08dd38b70947169805646cbeb6e0d912b4eb428ef180efd",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/options/4/label": {
+      "sourceHash": "f4a9ee3170f67ca319edb86d7e1d5ce2c0bb6cf31c775c0efb21ff69216d0c79",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/3/options/5/label": {
+      "sourceHash": "468851a141d95b14d89ff92ee98a7e3dd5176a44c5a351121cff974f144697d4",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/prompt": {
+      "sourceHash": "0ccd28c29fa140d2d22ee868514f70e3acc5d24333400ea979338dfa3cd62e98",
+      "text": "對選定的技能，我認為具體回饋可能幫助我學會原先不會的步驟。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/options/0/label": {
+      "sourceHash": "ecf749e15f721f554ea8001e99353e3350919699bc66f5df74f314db1dfe6cd1",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/options/1/label": {
+      "sourceHash": "e98395c77bef183709b1ddc4f6373c384617c13ff75fb18680946c6f3247c846",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/options/2/label": {
+      "sourceHash": "71007b50ee3c3c065ac15c719032bb30f99910f22e40a06f1a620858660d17c0",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/options/3/label": {
+      "sourceHash": "a4d5eaddbd660a9499fd18b2cc3b0b7b6d460fda6303d106714249ad22a5f689",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/options/4/label": {
+      "sourceHash": "64daf2cb9a637e14f1d6f9497278f745b1e2194ab1e7b49641d3b1f319ee71de",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/4/options/5/label": {
+      "sourceHash": "e901d4ffe83f2f06e231bed802c9b6cb6a27f11f44130975f1e7d850fae2e7ab",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/prompt": {
+      "sourceHash": "e5fe66c65d3dc712fada1e31fa9115afe778d4d76273334e1eb6619b80ed7992",
+      "text": "對選定的技能，我傾向於認為別人的幫助只能幫我完成眼前任務，很難改變我能學會的範圍。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/options/0/label": {
+      "sourceHash": "851a771e11d9a832b4b87bc0dc6255ed2db65d7511e27b5c88bb3106850bad89",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/options/1/label": {
+      "sourceHash": "b63fa9dda09557c99e84fd5429595d8265be926e3ff4963011e43e9b3fb1c7db",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/options/2/label": {
+      "sourceHash": "3d2f5a71e2b166df4254d1cd561512af4f948239b167c2dd4ac925ac2218cf7d",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/options/3/label": {
+      "sourceHash": "3d699bf00a75d212c8ddea7d6a1d9bbbb57dc836699658c603c6f6e1723a59c0",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/options/4/label": {
+      "sourceHash": "37b129509b9b17ecf6986cabd05738c5d68112f149297bf7480af6833fbef2f7",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/5/options/5/label": {
+      "sourceHash": "f54318beef8261ebdf963a9c5923ccb2816f7bc1fcdbad95eed946cd5f841750",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/prompt": {
+      "sourceHash": "035cd6a7b434d475ceea1f105116736eaf78e1e57d4e35f1499b9b6f0e4b9bae",
+      "text": "對選定的技能，我認為現在不會的一步，在條件合適時以後仍可能學會。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/options/0/label": {
+      "sourceHash": "cfd41d4dbe57c503c84d4b4024b4eebacc863d2370d9021c23b556debcea32a7",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/options/1/label": {
+      "sourceHash": "0ba033d75064e7a4632b33d5ba33690c5e457dbf289163a019794e13e84094d0",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/options/2/label": {
+      "sourceHash": "b920fc54fb207b3cbddf629a1f8afde277d850724ecee4407742d4c7419819a8",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/options/3/label": {
+      "sourceHash": "9d5451623a11ac57c5c9947e9853c4047f7d075518d44b316eb457177aff7237",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/options/4/label": {
+      "sourceHash": "21c1bf5fb68e0eee6538fa8d1b82f59f4204f071e7873cbe154a99eee624412d",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/6/options/5/label": {
+      "sourceHash": "6815ae0b996e91725e27dfbe55abe42817d69667d44b1e4dd093a100f794329b",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/prompt": {
+      "sourceHash": "21574ba4587de12f1d2d408abc06b40030e401653e3fcc21c49b4d90c6eb97ce",
+      "text": "對選定的技能，我傾向認為一開始學得輕鬆或吃力，就大致反映長期能學到什麼程度。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/options/0/label": {
+      "sourceHash": "f9f7e430b7966860ace269982588b026b32fbad10d693ef20d391b904bf51d1d",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/options/1/label": {
+      "sourceHash": "53ecc72ab2f7660925c0a606801dadd46e90d61ea3e25d89349afa7708783165",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/options/2/label": {
+      "sourceHash": "6437fb6e5c1f3a12b022fa27558881ed3f7c3933f953e9ee41d0121c450d2f51",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/options/3/label": {
+      "sourceHash": "657bd41742480a364e44c72be2a23ca42cab64523ffe37e126f75f52554c3e0f",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/options/4/label": {
+      "sourceHash": "0a3caa7cae48940440615529281a22be44c90ecff6cb56bcd89e911f869bbc17",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/7/options/5/label": {
+      "sourceHash": "b8250e1252675b3ba5eb79ac90b2041fbfe299c44f066986873d491f5b422932",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/prompt": {
+      "sourceHash": "554ae14d9ebc1cbbbd02b3a3da338513052687d0d9a6087afd167bde6646add8",
+      "text": "對選定的技能，我認為練習機會和可用支援的改變，可能讓後來的學習有不同的發展。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/options/0/label": {
+      "sourceHash": "932d2950676d8f35006e1b57c01207bff00787cf5cc54a05109b370cfa00f85d",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/options/1/label": {
+      "sourceHash": "152aaa55b8dfefaa3e186a5ef89831855e04ffe272a4dcc7e64f4e960458eece",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/options/2/label": {
+      "sourceHash": "4d35b4b87a3f433a5b0d0030d51dd9ad96d39840329858f913da187a7b847ca0",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/options/3/label": {
+      "sourceHash": "33243be1f511cf143305946f1f2849724f1afd051c1758830ed38947a817c2d4",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/options/4/label": {
+      "sourceHash": "0314aca424cc764eca8e56c130fe59308fd5de8f5118cfb26984b4c51ddf8f43",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/8/options/5/label": {
+      "sourceHash": "dcfd4c16802c1b2cdad19b60a29de063f6474fe4e8260c0201164c5dd4c9261e",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/prompt": {
+      "sourceHash": "9f404a353ca8fb6e612d2d1f9d6cc9a471d97165232f77609a0c2178948fa53e",
+      "text": "對選定的技能，我傾向認為入門之後，新方法或支援已經不太會改變我能學到的範圍。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/options/0/label": {
+      "sourceHash": "3d24198dbc98a96f7a9bfd97b380b7ef25ae56733a80d2da506f74d88451791f",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/options/1/label": {
+      "sourceHash": "71f57a5fecb8b1d5435c9d430036cca46d63b855467c05b4f17319f36ff6fab0",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/options/2/label": {
+      "sourceHash": "0477d028961b3af80a20e1b7d7749d5959aa898da8572fdab3319225612e11cf",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/options/3/label": {
+      "sourceHash": "47bc6caf0d2b712c9f4c90d694f52087fed9e845243ff454e46253aba7e3b119",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/options/4/label": {
+      "sourceHash": "d7141c60e6bfd490036903c9b3fdf0d055ce3107cd084428f88f1dbb59dec54d",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/9/options/5/label": {
+      "sourceHash": "e74519cbec83b61613e64ae22f6d031a4ae33a4d1b46f610516d893b0a8fda96",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/prompt": {
+      "sourceHash": "ece8be0b6430522ed66f903241c622bb50f63cd195c792a5698de8213ab3953d",
+      "text": "對選定的技能，我認為起點不突出，並不排除在合適條件下學會更多。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/options/0/label": {
+      "sourceHash": "901c3320b8be0aad947ffd425996247e642f5591a86b5c1776a18da98f147541",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/options/1/label": {
+      "sourceHash": "4673e12eeefe983ed16b2bf098b0e94367e4df43c8870fc98a7b32548aa05c67",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/options/2/label": {
+      "sourceHash": "02805b74b0d13b38733391a6c66da8f524ad17cb9cf2f5a662dcafff40e4aabe",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/options/3/label": {
+      "sourceHash": "cded64c762dc2871bbf91e46afca4b3675410faa1954f0a73a0b0a4bb7f97092",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/options/4/label": {
+      "sourceHash": "328c4a537a987b49cca153e1d4c624b4154d2d5a9cadea64d4f520e9df9c227c",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/10/options/5/label": {
+      "sourceHash": "0e599ca132195b6795ef7440bc589c9831ee3edb9af2e7a081c7a2b7e8f8afea",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/prompt": {
+      "sourceHash": "f2158604bc50337049f4396369374ba286d47fea679ea3ac42f133e93e8f1552",
+      "text": "對選定的技能，我傾向認為起點的差異，大致決定哪些部分難以再進步。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/options/0/label": {
+      "sourceHash": "e920816f63d6b47c4cc9ba63967f4f8581df000004f2d8a73b55e03f12443b92",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/options/1/label": {
+      "sourceHash": "213fd5425b1cb205cd0f3aceda03da68af14992f7dc5636131b44f91f09d7e7b",
+      "text": "較不同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/options/2/label": {
+      "sourceHash": "a140f564f15fc90ba65380a064ae74925c276dbe8599df7288e6770ae427f4ce",
+      "text": "中立／不傾向任一邊"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/options/3/label": {
+      "sourceHash": "0b809decadb99650ce046c581b22e0eddde5f6c7e1b50e5100c045cc059ba7e3",
+      "text": "較同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/options/4/label": {
+      "sourceHash": "b8cb7754b6772add5beb958e47d0ec4b052af414da497fdea930af8f2aa96d01",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/questions/11/options/5/label": {
+      "sourceHash": "ee0f2b68f66cf0642a91534dc3139b64ca963789f02045a07294bf2b3fabefe4",
+      "text": "沒有合適參照／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/title": {
+      "sourceHash": "1649831d27d8c87a0188d6e198e7623f6345390ddfdea5e2509c3bdfdacdd2f9",
+      "text": "成長與固定看法：完整的連續讀法"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/headline": {
+      "sourceHash": "0db97e868c8a9df077f7b6d38de7b31c3ba1181431e906b2c836c3bd7d437dc4",
+      "text": "讀所選技能的可改變信念，不把均分當固定人格。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/summary": {
+      "sourceHash": "6e3abc296f5502e2f760e98dbfea9fe69d9ec782c48567900158b2472f414f34",
+      "text": "同一份全文解釋較高、較低、中間混合與資料不足，包含十二條計分、兩端例子、反例、研究邊界與可選回顧。不按閾值派成長或固定型別。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/scoreReading": {
+      "sourceHash": "9944057769d861d12913c0d330fe01a7505a1029565e8168d081a2b959056b81",
+      "text": "每條選擇1非常不同意至5非常同意，或沒有合適參照／資料不足／不願回答。六條可改變表述直接計分，六條較固定表述即GROWTH_02、04、06、08、10、12按6減有效回答翻轉；缺失排除，不翻成零。十二個選項都選完，且至少九條有效，才顯示有效計分和÷有效條數的一位小數均分及條數。9條是本站完整度約定，不是可靠性證明。更高只表示在本題表述上較偏可改變看法，未設型別閾值、百分位或能力分。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/seo/title": {
+      "sourceHash": "101e319bfc3f4866c1ee64521aa7c9b19b880656481d8ebcdee81c346e6a098f",
+      "text": "成長心態與固定心態測驗結果：連續均分與完整讀法"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/seo/description": {
+      "sourceHash": "f2220e66fe4c99c43528859f06daa210530d49535f07adda8625b51518da1782",
+      "text": "完整解釋所選學習技能的可改變信念均分：六條反向、有效條數、較高較低與混合不足，含例子和反例。不估智力、成績或固定人格。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/0/title": {
+      "sourceHash": "033c2f01be38d9dca32ccf067d31269e55620221d8bfff3787f8ccae16b1959e",
+      "text": "先記住這次想到的技能"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "39e89af0cb86e6ad822d6faced62d95cb9278ea48b9d2af90c6ac072d1d565d3",
+      "text": "本版請你用一項近期正在學或想學的普通技能貫穿十二條。比如整理電子表格或練習一種畫法，結果只概括你對這個參照能否改變的看法，不把它擴充套件成在所有領域都成長或固定。你不需要在網站填寫技能名稱。若換了技能，回答可能改變。重測同一情境時，請繼續用原先的技能作參照；若想換一項技能，就把它當成一次新的觀察。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/1/title": {
+      "sourceHash": "fcfb0a056862656c204acc70faf0fd4695eaf02345d63fba68ddfca72cedf67a",
+      "text": "十二條同意度怎樣變成一個均分"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "04471329bbf0424360a4bfe1fde583a297176a6e616823bff2270056c4828ba5",
+      "text": "每條選擇1非常不同意至5非常同意，或沒有合適參照／資料不足／不願回答。六條可改變表述直接計分，六條較固定表述即GROWTH_02、04、06、08、10、12按6減有效回答翻轉；缺失排除，不翻成零。十二個選項都選完，且至少九條有效，才顯示有效計分和÷有效條數的一位小數均分及條數。9條是本站完整度約定，不是可靠性證明。更高只表示在本題表述上較偏可改變看法，未設型別閾值、百分位或能力分。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/2/title": {
+      "sourceHash": "3bbcedf5a174cd15d680bd4937008f3e3505d2450d5e029ec9f1630030d2b9b9",
+      "text": "怎樣讀較偏可改變的看法"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "6d19c990cb8a693be388f374390135df7134c46b224d4d26180adb0019a4a502",
+      "text": "較多同意可改變表述、較少同意固定表述時，翻轉後的均分會更高。可以把它讀成：對這項技能，你較願意保留通過合適練習、方法或幫助學會更多的可能。它不是對未來成功的承諾，也不等於你已經找到有效方法、擁有時間和支援或正在努力。你可以認同技能能改變，同時決定暫不學、休息或換目標；這些決定不能由均分被叫作固定心態。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/3/title": {
+      "sourceHash": "e806f5d120e04eeb7b10da325623d2947d9f3e000bf03a29d55cad4b0400f414",
+      "text": "怎樣讀較偏固定的看法"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "64cecb92aa2ae814202be750ea6ddb71cd554241fe8bdc214a7566668c6f800c",
+      "text": "較多同意較固定表述、較少同意可改變表述時，均分會更低。這隻反映本組選項下你對所選技能改變空間的當前看法，不證明你缺乏天賦、懶惰、害怕挑戰或學不會。你也許想到的是一個資源很少、方法尚未適合或已有明確限制的場景；題目沒有分辨原因。可以先看哪條表述更符合你當時想到的條件，不必為了獲得更高結果而改成樂觀回答。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/4/title": {
+      "sourceHash": "84f1fb9e58bdeb84d9045f91a5a07642502b11afcb5ec0948d334b8c24bcef86",
+      "text": "中間值、混合與資料不足"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "6f5177a09926ff2e24a4f22cb15471538514caeb628bb105e7455b9fe554a382",
+      "text": "中間均分可能由全部中立形成，也可能由兩端回答相互平均；全選非常同意或全選非常不同意，因六條反向也都會得到3.0。它們不是同一種觀點，不能據3.0認證最平衡、半成長半固定或某個隱藏型別。本版不憑這些組合診斷矛盾。少於九條有效時明確顯示資料不足，不補中立或零分，但整份正文仍可讀。標籤是有序同意類別，簡單平均與一位小數為呈現約定，不證明等距測量或顯著變化。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/5/title": {
+      "sourceHash": "16fe213533a8693a59cf3b14fb2c4a377d2ef65ff2787d625911558bf08571d1",
+      "text": "把看法放回一個具體學習例子"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "c68f5128990e5e4197153332b2934b2b8d85c935d9dcf147a069fd5dde86d8c6",
+      "text": "你想學給電子表格分類。當前不會一種操作，可以與“在獲得合適說明、練習機會和幫助後仍可能學會”同時存在；是否真的學會，仍須看後來的過程。另一個人可能已有基礎，但覺得這次可用工具限制了改變，較固定的回答也不能被當作能力較低。反例是你相信能學會，卻因為目前不值得投入而選擇不學，這不反駁可改變看法；反過來，堅持很久也不自動證明你有成長信念。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/6/title": {
+      "sourceHash": "27eb96a4a6097417eb1a28b971bc6b8f6d5c27fd62ca2a56c40568ec713769f3",
+      "text": "與信心、努力和學習偏好分開"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "ab9c5065220156a1bdf1579480bab4d580673bb53fd2c34c02640bde7312afb3",
+      "text": "“這項技能可以改變”與“我下週一定做得好”不同，前者關心可改變看法，後者是對具體表現的信心。你偏好讀說明還是聽示範，也不是同一問題；實際投入多久、是否堅持和用了什麼方法，同樣不能從本均分補出。原有能力、機會和支援仍需另看。本結果不換算IQ、大五、MBTI、毅力、學習風格或成熟度，其他測評需獨立作答，也不必為了確認這份結果而繼續做。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/7/title": {
+      "sourceHash": "1eae3d343a60f75af8ae119c44d316f6da6b7fcee7f802d0ec1b3267c7e5a488",
+      "text": "研究背景不能替本題本驗證"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "546a3a10d69f796030899913b53956b476614401ff5454409ff4afc1eee1a83f",
+      "text": "Dweck在Stanford公開訪談裡，把成長看法解釋為能力可在努力、有效策略與他人幫助下發展，並未把人人起點或結果相同當定義。2019年Yeager等人的學校干預研究也強調具體教育情境，不能把其學生干預結果直接轉成本站個人分數的效度或學習承諾。本版十二條、六條反向、九條最低與均分展示都是原創約定，沒有采用DMI或IDR-MT題本，也沒有本站常模、干預效果或跨語言等價驗證；不是臨床或智力測量。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/8/title": {
+      "sourceHash": "4deeb449d66272e39b5f55cf70fda2927227b6b01e5903bfe3b1900651c8abdb",
+      "text": "可選回顧、隱私與結束的選擇"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "43e18b91fa2798fd8b6068fe07c9246d5e3153fe916cf9c8e45986aff5402914",
+      "text": "若願意，只找一條符合你看法的表述，問問它針對什麼技能、哪些條件重要，以及什麼新資訊可能讓看法改變；也可以不作記錄。無需承諾更加努力或回憶不想討論的經歷。十二題與本完整說明免費，不要求註冊、郵箱或另一測試解鎖。答案在瀏覽器計分，不上傳、不進入網址或分析；技能名稱未收集。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只測試名稱和公開連結，沒有答案、均分或型別標籤。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/0/title": {
+      "sourceHash": "021166371110db9a1d92694e60edcd3dee394b63f8196acfe94c7f557a6e3e00",
+      "text": "一份連續讀法、六條反向與資料不足"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/0/paragraphs/0": {
+      "sourceHash": "de1f936580b9089c5497bd4c65e420b2c459209c769446ec4fac6744791d477c",
+      "text": "每條選擇1非常不同意至5非常同意，或沒有合適參照／資料不足／不願回答。六條可改變表述直接計分，六條較固定表述即GROWTH_02、04、06、08、10、12按6減有效回答翻轉；缺失排除，不翻成零。十二個選項都選完，且至少九條有效，才顯示有效計分和÷有效條數的一位小數均分及條數。9條是本站完整度約定，不是可靠性證明。更高只表示在本題表述上較偏可改變看法，未設型別閾值、百分位或能力分。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/1/title": {
+      "sourceHash": "c8db3640c7c351fcf43249babd9788e8ec099e54103878f7fe8459b49a3d5a6a",
+      "text": "同一技能參照下讀較高、較低與混合"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/1/paragraphs/0": {
+      "sourceHash": "b85369c515b435359fea3cc1fff85632272c78ffbdda23eeb08ae161731f452b",
+      "text": "較高均分只表示在本組表述上較偏可改變信念，較低偏向較固定看法；不劃固定閾值，不評好壞或預測能否學會。中間可由中立或不同組合形成，不能叫最平衡或半成長人格。只有一個連續觀察部分，完整說明覆蓋所有均分和資料不足，不是從多個型別中選中一頁。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/2/title": {
+      "sourceHash": "4f8cd9b8f9d918e7dd01e576d5e996dbffb4acff1774fa98046c27868895701e",
+      "text": "信念不同於能力、努力或學習偏好"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/2/paragraphs/0": {
+      "sourceHash": "b627aed40587cceef87add6a08b87a1a6895d08b0413e8120dd8c16f795175d5",
+      "text": "“這項技能可以改變”與“我下週一定做得好”不同，前者關心可改變看法，後者是對具體表現的信心。你偏好讀說明還是聽示範，也不是同一問題；實際投入多久、是否堅持和用了什麼方法，同樣不能從本均分補出。原有能力、機會和支援仍需另看。本結果不換算IQ、大五、MBTI、毅力、學習風格或成熟度，其他測評需獨立作答，也不必為了確認這份結果而繼續做。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/3/title": {
+      "sourceHash": "accdf5f916bd043af6d231d6b64e8be8229d30e5ca331463560587d6693678b5",
+      "text": "原創題本與研究背景的界限"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/3/paragraphs/0": {
+      "sourceHash": "2b17e7434ab062055821bfa274a0b40b547aeade685351458135fb6559586cf7",
+      "text": "本版只觀察選定普通學習技能的可改變信念，不是Dweck Mindset Instrument或IDR-MT標準題本、智力或學習能力測試、學習風格派型、毅力或實際努力測量，也不預測成績、工作、健康或人格。12條和計分呈現均為原創，研究定義與特定學校干預結果不驗證本站題目、均分、個人效果或跨語言等價。信念高低不能說明資源、方法和支援實際充足，也不保證誰學得會；停止不適合的活動、選擇休息或尋求幫助不等於固定心態。整卷以一項技能為參照，不能推一個人在所有領域的固定人格。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/4/title": {
+      "sourceHash": "fa1b3900e4a115e94540f8d20a7381080528151378927ab471bc79e588678947",
+      "text": "免費閱讀、答題隱私與分享"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/guide/4/paragraphs/0": {
+      "sourceHash": "46edd4b9419c47f4d828b61d1b372b455fd75357e7049d85f48b4da1e8d7e0b8",
+      "text": "若願意，只找一條符合你看法的表述，問問它針對什麼技能、哪些條件重要，以及什麼新資訊可能讓看法改變；也可以不作記錄。無需承諾更加努力或回憶不想討論的經歷。十二題與本完整說明免費，不要求註冊、郵箱或另一測試解鎖。答案在瀏覽器計分，不上傳、不進入網址或分析；技能名稱未收集。這份測試不儲存答題進度。重新整理、切換語言或離開測試後，需要重新開始。分享只測試名稱和公開連結，沒有答案、均分或型別標籤。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/0/question": {
+      "sourceHash": "b2ffc4e47728faec4137e4b272a673f93adba8117ba4cceef2499f0d6e8ca0d8",
+      "text": "這會告訴我屬於成長型還是固定型嗎？"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/0/answer": {
+      "sourceHash": "05285e7e72e4bf1f7cccbb04f27a6c51db86e3cc59ae66ab0955f9e044e26407",
+      "text": "不會。本版顯示同一技能參照下、至少9條有效評分的一份連續均分與有效條數，不設型別閾值。完整說明覆蓋較高、較低、中間混合與資料不足；結果不擴成一個人在所有領域的固定人格，也不評誰更好。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/1/question": {
+      "sourceHash": "ec36b0c5f875f438b5b9e0ce04f14a4710da4b32edbcf395e8f19e82b920521c",
+      "text": "怎樣計分，哪些題反向？"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/1/answer": {
+      "sourceHash": "252d8ae59ba7fa25af9aa38dc626d965eed55209327d4635b69d5da62d2630c5",
+      "text": "每條選擇1非常不同意至5非常同意，或沒有合適參照／資料不足／不願回答。六條可改變表述直接計分，六條較固定表述即GROWTH_02、04、06、08、10、12按6減有效回答翻轉；缺失排除，不翻成零。十二個選項都選完，且至少九條有效，才顯示有效計分和÷有效條數的一位小數均分及條數。9條是本站完整度約定，不是可靠性證明。更高只表示在本題表述上較偏可改變看法，未設型別閾值、百分位或能力分。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/2/question": {
+      "sourceHash": "c00a9ee943c14bfdc44a1d71b1bdaaad1d18f1d7693e7e78ea6be5f9dd2e2b9d",
+      "text": "為什麼先選一項技能，恢復時要注意什麼？"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/2/answer": {
+      "sourceHash": "af5f5d6300cb76ccdba5e517ea9969d6c1ee377ec1a56cc5a1b989dd7df3c3e9",
+      "text": "本版請你用一項近期正在學或想學的普通技能貫穿十二條。比如整理電子表格或練習一種畫法，結果只概括你對這個參照能否改變的看法，不把它擴充套件成在所有領域都成長或固定。你不需要在網站填寫技能名稱。若換了技能，回答可能改變。重測同一情境時，請繼續用原先的技能作參照；若想換一項技能，就把它當成一次新的觀察。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/3/question": {
+      "sourceHash": "cd82de4df2555bd8230484bd9ce780d83a0194aaf81d3e6c75b80842de0b91f6",
+      "text": "高均分會提高成績、智力或工作表現嗎？"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/3/answer": {
+      "sourceHash": "8b541675aa1bf16fc72ebdebed88ae46cf4a84d966a1e1bec603fcfac86efc8c",
+      "text": "不能這樣推斷。題目只問當前看法，沒有觀察能力、方法、資源、練習或實際結果，也不是研究中的干預程式。學校樣本里的干預結果不驗證本站個人分數，更不保證人人達到相同結果。停止不適合的活動或求助也不能被叫作固定心態。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/4/question": {
+      "sourceHash": "60bc62909355845e3ecdd725fa7a821f9224284f67d677a3a5e6da6c8e03cd07",
+      "text": "完整結果、重測與分享免費嗎？"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/faq/4/answer": {
+      "sourceHash": "5fd950a470e2041c9332d00fa3263e413c92f3c065df456cda271ee8825abffa",
+      "text": "若願意，只找一條符合你看法的表述，問問它針對什麼技能、哪些條件重要，以及什麼新資訊可能讓看法改變；也可以不作記錄。無需承諾更加努力或回憶不想討論的經歷。十二題與本完整說明免費，不要求註冊、郵箱或另一測試解鎖。答案在瀏覽器計分，不上傳、不進入網址或分析；技能名稱未收集。這份測試不儲存答題進度。重新整理、切換語言或離開測試後，需要重新開始。分享只測試名稱和公開連結，沒有答案、均分或型別標籤。"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/references/0/title": {
+      "sourceHash": "190355d36d2cc555e9a2f75b861d290cc0459521f6ee205f6fbb1e31667c7a9e",
+      "text": "Stanford對Dweck的公開訪談：固定與成長看法的定義背景"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/references/1/title": {
+      "sourceHash": "f823e6261de5103a4f74c1ea7014da2caf27e92510609b03fb72522ad819e42b",
+      "text": "Yeager等（2019）：學校干預與教育情境研究，非本版效度"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/references/2/title": {
+      "sourceHash": "d30e37df9210bd71cb0605f171033652369f35833a1cde95bd6d2010c04fdccf",
+      "text": "Sisk等（2018）：思維信念與學業表現的兩項元分析"
+    },
+    "lib/questionnaires/data/growth-mindset-fixed-mindset.json/references/3/title": {
+      "sourceHash": "84394c4ff5d9dfaf1ba2894b00a78db0517dc86c6b3b359dc10423c1ca4f18d1",
+      "text": "Macnamara與Burgoyne（2023）：干預研究品質、偏差與學業效果"
+    },
+    "lib/questionnaires/result-content/growth-mindset.json/belief-continuum/0/title": {
+      "sourceHash": "0f3e979c26a7f411c049ee8e5ae8d5b55e2c2195bd3b58f5f38d0df96c91a162",
+      "text": "把“可能學會”與眼前條件分別列出"
+    },
+    "lib/questionnaires/result-content/growth-mindset.json/belief-continuum/0/paragraphs/0": {
+      "sourceHash": "12cd3a5da5acbf7ce9cfdafadac0a0e799113b75648a8ee34a0f5063a5c5b388",
+      "text": "沿用上面的電子表格分類，挑一個具體操作，分別考慮：現在會不會、相信以後能否學會、還缺什麼說明或支援。這三項可以有不同答案。若願意，可以看一段針對該操作的說明，再決定是否嘗試；沒有時間、工具或意願時也可以停下。回顧新資訊改變了哪一個判斷，而不是用一次成功證明整個人是成長型，或用一次失敗認定能力固定。均分相同也可能有不同答案組合，可以回想哪類表述更貼近當時條件，無需追求更高分。"
+    },
+    "lib/questionnaires/result-content/growth-mindset.json/belief-continuum/1/title": {
+      "sourceHash": "f59d2ffff7afe637e4859a9df21c388d84c28347c1023b8cfafed5e1dc704243",
+      "text": "交換一種學習條件，不給彼此貼心態標籤"
+    },
+    "lib/questionnaires/result-content/growth-mindset.json/belief-continuum/1/paragraphs/0": {
+      "sourceHash": "d84ca2604b9733fbaa88fe03b73abc1d132be448f13bfd9c38a02ac3669090b1",
+      "text": "可以問：“假設要學會一種表格分類操作，哪些說明、練習機會或幫助會讓你覺得還有改變空間？哪些現實條件會讓你暫時不投入？”分別談可能性與當前安排即可，不必要求對方堅持、變樂觀或證明自己有成長型思維。也可以比較換一項技能後，想到的條件為什麼不同。"
+    },
+    "lib/questionnaires/result-content/growth-mindset.json/belief-continuum/1/paragraphs/1": {
+      "sourceHash": "86916c43082d8ddc0f1b5ed862b03bd52ad17971124e4378998514aff755bed5",
+      "text": "可以只分享這份公開說明，連結不含所選技能、答案、均分或資料完整度。對方可以不回答，不需要提供學習記錄，也不用再做一項測試才能加入交流。分享的是討論入口，不是能力證明或成長型／固定型身份認證。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/0/question": {
+      "sourceHash": "9786667ab812efbe9eb770c420704ba5a6571fd47bb95d0576e8392aaf6299df",
+      "text": "成長型思維等於自信、樂觀或毅力嗎？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/0/answer": {
+      "sourceHash": "3c2b94958a914a18ac1ea1ffa7c674fbd8a184e426626673e84b06924518ee87",
+      "text": "不是。本頁詢問所選技能是否可發展；自信關注當前能否完成，樂觀涉及預期，毅力涉及長期投入。話題可能相關，但本結果不生成其他分數。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/1/question": {
+      "sourceHash": "0ad2050b70f06c140a2c7858d603f253675fe27d6e48a4c3923f211098dc13ba",
+      "text": "第2題選2，為什麼會記4？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/1/answer": {
+      "sourceHash": "2389c0d733a142e17d32641aac6b1cc1ff50fed65fa047103e9616ee3e018271",
+      "text": "第2題是較固定方向的表述，使用6−2＝4反向計分。偶數題2、4、6、8、10、12均如此，非數值回應不翻轉成分數。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/2/question": {
+      "sourceHash": "cd97a4638269f227f21a19b55bea853e8a32d0a6e8f03bbbeb491a92921d40f3",
+      "text": "9條定向評分都為4，均分是多少？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/2/answer": {
+      "sourceHash": "745db85dc02c2903503841ab0696f7bedbe2d062e453ffa31b3004fb49e7cf2d",
+      "text": "定向和36除以有效條數9，得到4.0，顯示9/12有效；其餘三條非數值選擇排除。只有8條有效時不顯示個人均分，仍可讀完整指南。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/3/question": {
+      "sourceHash": "c15ae0baf5512a37bf638a34a0a6d52131e2407b541e3c3a5e95f33a4f2b55bf",
+      "text": "全部選3和全部選5，為何同為3.0？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/3/answer": {
+      "sourceHash": "2ac76db03b055173d8c977b522e93126d42de1bab47c18c0d1a5042ac37c728b",
+      "text": "六道反向題讓全部選5變為六個5加六個1，合計36；全部選3也是36。均分相同不能證明逐條看法相同，亦不自動說明回答無效。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/4/question": {
+      "sourceHash": "7078fb9253a69e55df51300417e8cc0ab081b056bbc820d8d0b1dfb0dee577ef",
+      "text": "資料不足是不是中立？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/4/answer": {
+      "sourceHash": "ea44f1e9062a325b655f85673c864c9b936dc84f3ef3b5db8689775bc69f3fd3",
+      "text": "不是。中立記3；非數值回應不參與和或均分。12題都選非數值也能結束並讀完整指南，不補成0、3或某種型別。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/5/question": {
+      "sourceHash": "09031374d6713c8fbbe1fca173fe9f789948cd4147887fdd78a795d0843ae7d6",
+      "text": "研究證明每個人改心態都會提分嗎？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/5/answer": {
+      "sourceHash": "84a547a0fcada4798ff1f8e42b81c5e29d3ab1e72e8ec576ddf51ed80e22b64f",
+      "text": "沒有這種普遍結論。教育干預結果涉及樣本、實施與學校環境，綜述亦討論弱效果和偏差。一次自評不是干預，研究不能替本站題本建立效度。[2][3][4]"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/6/question": {
+      "sourceHash": "fc285418d5b06c1b55baa25c1cee825e0d837a08b1846826214bf07938812c07",
+      "text": "休息、求助或換目標算固定型嗎？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/6/answer": {
+      "sourceHash": "f20da6dc824b7e840f64b868030b04e7525e0340c9114ddc7c1173335c1818d7",
+      "text": "不能這樣貼標籤。應結合成本、回饋、方法與支援理解具體決定；本頁不以持續硬撐或服從來評心態，也不從停止一次推斷人格。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/7/question": {
+      "sourceHash": "d8fb0a50b0c91c8bbff72bb9535510b06da419499a07de690fe7f639bbe001d3",
+      "text": "換一個技能、或重測高了1分能直接比較嗎？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/7/answer": {
+      "sourceHash": "3091441e7fc8124d92d77900e43ae836f3e3ec0d25d644b9a9297d33e47da103",
+      "text": "先核對技能參照、版本、有效條目及具體回答。不同領域與缺答模式會影響讀法；本頁沒有可靠改變閾值，不據差值宣稱學習進步或能力提升。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/8/question": {
+      "sourceHash": "57573b095137ef31b165f09521e185855b3ff3b432fc1b2c8ece573b56617af8",
+      "text": "開始前要輸入技能或再次同意嗎？"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingFaq/8/answer": {
+      "sourceHash": "13a449bf7473ca93e049d488a61a6c972186896cfe807268a383edef618ea1d1",
+      "text": "不用。技能只在心裡選定，不收集名稱。開始直接進入12題，無需額外同意、賬號或郵箱；臨時儲存須主動選擇，恢復時繼續用原技能參照。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/0/title": {
+      "sourceHash": "a39b7950a896e461e8f5bd766233f6ba88948aa52d0a01643819136c931e6388",
+      "text": "成長型思維是什麼？能力可改變性的信念與本頁參照"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/0/paragraphs/0": {
+      "sourceHash": "c00d0c3f596d6ecad16b05a7ef8e44510d21cdc02c13f2baa86d85c59f0756d2",
+      "text": "成長型思維與固定型思維討論的是：人怎樣理解某種能力是否可以發展。研究中也稱增量觀與實體觀，屬於對屬性性質的信念。它與“我今天能不能完成任務”的信心、實際會多少技能、已經投入多少練習不同；這些變數可能有關聯，但不能從一種回答直接推算另一種。[1]"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/0/paragraphs/1": {
+      "sourceHash": "304defcf9cc4f2c1bdca9c5319d1184eaeacb45c462a52a74cd7fd1a7b86fdf3",
+      "text": "本站將參照收窄到你選定的一項普通學習技能，例如練一種繪畫技法或學習表格公式。12條圍繞起點、方法、具體回饋、反覆困難及支援條件提問；它們合成一個連續讀法，沒有五種學習者或兩個勝負陣營。另一項技能可能有不同經歷和看法，不能把本次均分推廣到所有學習領域。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/1/title": {
+      "sourceHash": "0266d0e351501762d4ea45bcf026ef7406f82187ba441ea236c26c83dee72b1f",
+      "text": "12題怎樣反向計分？從原回答到有效均分"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/1/paragraphs/0": {
+      "sourceHash": "6f49145d9dedf5143d3ebf437b481cf637bacce7c4adaf4a25ee7b030ee45850",
+      "text": "第1、3、5、7、9、11題直接使用1—5的有效評分；第2、4、6、8、10、12題按6減原回答翻轉。例如第1題選4，記4；第2題選2，記6−2＝4。兩題表達方向不同，反向處理使較高計分一致指向本題表述中的可改變看法，不代表你多選“同意”就得高分。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/1/paragraphs/1": {
+      "sourceHash": "baf72a0aba262e0c50421e33a56a7385627efcf39a617fbaf0e07631d8bfaf5a",
+      "text": "若前9題原選擇為4、2、4、2、4、2、4、2、4，後3題選非數值回應，定向後九條均為4，合計36，均分36÷9＝4.0，同時顯示9/12條有效。若僅前8題按同樣方式評分，其餘4題不評分，則有效8條、定向和32，但頁面顯示資料不足，不顯示個人均分。九條門檻是本站完整度規則，不是經驗證的信念分型線。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/2/title": {
+      "sourceHash": "47179a261a92b14c070193680050304b55cd34d12a2e1527d2d7e32ea180f287",
+      "text": "3.0、混合回答與資料不足，分別意味著什麼"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/2/paragraphs/0": {
+      "sourceHash": "08fa60eee875bbe8a6ae1069c19fc39b04f28369b82a535ab1cdef4e4768b296",
+      "text": "全部選中立（3），以及全部選非常同意（5），都會得到3.0：前者十二條各記3，後者六條記5、六條反向記1，合計同為36。這些回答的含義明顯不同。因此3.0不認證“最平衡”，也不表示50%成長、50%固定；平均值不能替代逐條理解，更不能據此診斷回答者矛盾或不誠實。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/2/paragraphs/1": {
+      "sourceHash": "f5130be088e11893ae52519d63ab6c29cf46e1d7b56fcab750d9a0d94694455a",
+      "text": "中立是有數值的同意度選擇，資料不足則不進入分子或分母，也不補成0或3。全部選非數值回應仍可以完成，完整指南照常可讀，只是沒有個人均分。均分保留一位小數是展示方式；有序類別相加取平均，並不能證明量表等距、個體差異顯著或分數變化可靠。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/3/title": {
+      "sourceHash": "b15aa5b552a08f31728a30bd9c1f61c5bd10df982e23837f22c65cde447ada97",
+      "text": "成長型思維研究發現了什麼？關聯、干預與測量分開看"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/3/paragraphs/0": {
+      "sourceHash": "99456b2de1ac71fd5ed829c0da70162a8228ab95c0f5e79e9ac11e2e359cfc85",
+      "text": "Yeager等（2019）在美國65所公立高中、12,490名九年級學生中開展隨機實驗，發現較低先前學業表現者的成績及整體高階數學選課出現一定收益，並考察了同伴規範等學校情境。研究檢驗的是特定教育干預及其環境，不是做一次網路問卷的效果，也沒有驗證本站12題。[2]"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/3/paragraphs/1": {
+      "sourceHash": "3bf6c137d22de9d2c0e5208f0b0d497c1451046ce071232e5cc9d5556be98c14",
+      "text": "Sisk等（2018）的兩項元分析發現，信念與學業表現的總體關聯、以及干預的總體效果均較弱；部分結果提示某些處境不利或學業風險群體可能受益。[3] Macnamara與Burgoyne（2023）進一步評估研究設計、報告與偏差，發現校正潛在發表偏差後、以及高質量子集中的學業效果不顯著。[4] 這些不同層面的證據要求謹慎解釋，不能宣傳“提高心態分就保證提分”。本站亦未建立本題本的信度、效度、常模或中英文測量等價性。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/4/title": {
+      "sourceHash": "34d1de02a2555b38ce96a4726939e7d6ef8b71866f0be7965ef9f30bcf691ba5",
+      "text": "相信可以發展，不等於無限堅持：方法與支援的反例"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/4/paragraphs/0": {
+      "sourceHash": "f64198d4756dfdf58cf97fb3eabd18c69615e20bdefae77b9f3dfb0569fecd59",
+      "text": "學習表格公式時，暫時不會寫巢狀公式，可以與相信在示例、練習和回饋下逐步學會同時存在。相反，眼下完成得很順利，也可能認為以後的範圍已經固定。前者區分“當前表現”與“以後可能改變”，後者說明熟練不直接等於成長看法；本問卷沒有用實際任務測能力。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/4/paragraphs/1": {
+      "sourceHash": "4e3c7f1738a4751db88f00233a32e5cfdab5b303d4ba69b99b8a35100aa07dd7",
+      "text": "連續嘗試卻缺少清楚回饋時，換一種解釋、請人示範、安排休息或暫時停止，都可能是合理選擇。不能把疲勞、資源不足、拒絕不合適的要求或調整目標叫作固定心態。回顧時應分別核對練習內容、方法是否適配、回饋是否具體、支援能否獲得及現實成本；一句“再努力”無法代替這些條件。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/5/title": {
+      "sourceHash": "44d0f080dce59799c465feedeaa2601b8c290b0f875154d793f2ea87d1f6d9a5",
+      "text": "怎樣使用結果？圍繞一項技能設計一次可觀察的回顧"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/5/paragraphs/0": {
+      "sourceHash": "68229eb8106a2c9b4e1e0663e56b89714e28451ec58a5804bca1e68164ae02e4",
+      "text": "任選一個低風險、願意繼續嘗試的小步驟，例如把一條錯誤公式改到能處理兩個示例。先記錄自己原先怎樣解釋困難，再選一項具體變化：看拆解示例、核對一個錯誤原因或請求一次針對性回饋。之後觀察是否能解釋步驟、處理一個新例子，以及哪些條件仍然欠缺。成功與未成功的例子都保留，不用均分替代實際作品。"
+    },
+    "components/questionnaires/GrowthLandingEditorial.ts/growthLandingSections/5/paragraphs/1": {
+      "sourceHash": "5f7937f69890e1324146065cab218ffe4e44318e82f6ee4a6265a1290589289f",
+      "text": "重測先確認相同技能、版本和有效評分條目。均分從3.0變4.0，可能涉及理解、參照、缺答或作答變化，不能單憑小數證明學習能力提升。它也不換算為毅力、自我效能、IQ、MBTI或學業預測。教師、主管與同伴可討論具體條件和行為，不據本結果排名、分組、錄用或限制機會。"
+    },
+    "lib/questionnaires/data/grit-test.json/title": {
+      "sourceHash": "0fdffbffa438a71beccb9ae592ad4329dfb11aa7d99e6e293db616dc90ab39e3",
+      "text": "毅力測驗"
+    },
+    "lib/questionnaires/data/grit-test.json/resultHeading": {
+      "sourceHash": "7fb75479bba0824b52e3912ca2340bc15231fe16b690f9ce5b2940e5bc605639",
+      "text": "長期目標的延續與受挫後的重新投入"
+    },
+    "lib/questionnaires/data/grit-test.json/description": {
+      "sourceHash": "9cbb4db781feae490e7c6c87cda854d30542eddec94b9bb3e32df4dd671a110c",
+      "text": "用 16 道原創頻率題回顧同一項長期目標，分別瞭解自己如何延續目標，以及遇到阻礙後如何繼續投入。免費查看兩項平均分數、反向計分範例和完整指南，免註冊。"
+    },
+    "lib/questionnaires/data/grit-test.json/seoTitle": {
+      "sourceHash": "0075548f4f0e75e3c666aa490970b46fecb5fd29e5bf3573f1a4ef831140ff04",
+      "text": "毅力測驗：16題長期目標回顧、獨立計分與完整解讀"
+    },
+    "lib/questionnaires/data/grit-test.json/introduction": {
+      "sourceHash": "75b5579392ffcbda6d66a53453d0af16cb2679813afa5fccc14b402268bd2dbb",
+      "text": "一個方向仍然重要，並不意味著每個方法都值得重複；一次暫停，也不必然代表放棄。這份毅力測驗以你私下選定的一項長期目標為參照，用16條原創題回顧過去六個月的具體做法，分別呈現“長期目標的延續”與“受阻之後的努力續接”。完成後可檢視兩項獨立均分及完整指南，把結果聯絡到實際安排、遇到的條件和下一步選擇。目標名稱不需要填寫。"
+    },
+    "lib/questionnaires/data/grit-test.json/instructions": {
+      "sourceHash": "46a9fd2bd8fa777caa60d72950c80f8448d2d47fdd31ed8128c00eddc4a24b42",
+      "text": "在心裡選一項由自己選擇、原計畫持續半年以上的目標，用同一項目標回顧過去六個月。在有相關機會和現實選擇空間時，按從不1至幾乎總是5評價題中做法的頻率。沒有這項目標、沒有相關機會、資料不足或不願回答，可選單獨的不適用項，不必猜測。16條都選完後，每部分八條至少六條數值有效才有該項均分；兩份指南始終免費可讀。第9—12條反向計分，系統自動處理。點選開始直接進入題目，無需再次同意、註冊或輸入目標名稱；可隨時停止。"
+    },
+    "lib/questionnaires/data/grit-test.json/directions/0/title": {
+      "sourceHash": "2e44d9a0e3413c000ec66bc7fa64952695cae6698d9b698df29846ce646d0aa9",
+      "text": "長期目標的延續"
+    },
+    "lib/questionnaires/data/grit-test.json/directions/1/title": {
+      "sourceHash": "c8b3a75c1196e31dae94a7ebe54a5ba6304907a76503f6b5a92a6dfd48aa6862",
+      "text": "受阻之後的努力續接"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/prompt": {
+      "sourceHash": "3d2d9b827c5fc6e9f590becb1b84e44e1914fc883135dccbd359cc8316b9e9b0",
+      "text": "安排接下來一段時間時，我會在計畫中為這項目標保留一個具體的位置。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/options/0/label": {
+      "sourceHash": "38d24dd68694e381cd17a21a97573184dca6a4eec9f814299831358c97acb314",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/options/1/label": {
+      "sourceHash": "573f235a8e8135ec954cac8118116f9b79d92762315572a436ddac2841f35d86",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/options/2/label": {
+      "sourceHash": "5c14d4a5e0f9fd7cf317d4594ff756694a1d432d628e3216a2af22ea79c1eed1",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/options/3/label": {
+      "sourceHash": "6471a94014463aebb037fe8383cfca3dc6d839206f177f67cc5a8eff7128ee75",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/options/4/label": {
+      "sourceHash": "81ba59b90d762ef5078f02a7f4d63d69613a63d5c6ff6c3f99222fdce5734ef0",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/0/options/5/label": {
+      "sourceHash": "8bbfc35c532500f8236ac1524842d5534541464d9b0d45f7c30473ff53290292",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/prompt": {
+      "sourceHash": "f845c14fd7b82d8ab7e38bfa3caace583ad68153736ab6a555b181c4949afcd0",
+      "text": "原定做法遇到小障礙後，在有條件繼續時，我會找一個仍能推進目標的小步驟。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/options/0/label": {
+      "sourceHash": "f6a32130ad96bbe50866f30eb01b3257b80648fe6ab0c0ba915212dd333b8dd3",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/options/1/label": {
+      "sourceHash": "c601add33e577d87e27e8507b5b561e4bcfc78f0635d42ea88a7a16053bc5466",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/options/2/label": {
+      "sourceHash": "1fe261f57e407d10312dd94e6f0f60778a22af74f42e822609f0496e745f3d95",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/options/3/label": {
+      "sourceHash": "8773ccb9ed7da85d0de6ea67b89d419e711abab3292b5c3fc2b4be7f4dae9511",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/options/4/label": {
+      "sourceHash": "b30cc320e2b782a70f7a4bbbcbe6d49ff58cd7e0cb601ba42cd93d4cff407654",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/1/options/5/label": {
+      "sourceHash": "e95597ca3f3bc4c27a519e48d6264c5836918dc0d699404f1021ad3bf26a4858",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/prompt": {
+      "sourceHash": "64c12631aa932f94cc9284238eedf82759f65e7bdb0c0a19b43bf186f11a4747",
+      "text": "遇到新的有趣機會時，我會先核對它與這項長期目標的關係，再決定是否改變方向。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/options/0/label": {
+      "sourceHash": "21cb44be6f070386c28e94b2901684a0d0bfee90e3c2a5f940b5ebbc5dfb56fd",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/options/1/label": {
+      "sourceHash": "a456d16ec8cd26030597e6a12f7186c384531994c7ddea90ea9df33e41080dcb",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/options/2/label": {
+      "sourceHash": "607c539a91af8c77003782f6da1d408e4898645c66b7451790236db7eb7374e9",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/options/3/label": {
+      "sourceHash": "3317443841c98e6aea02ae01221b233f12ee3b7fa8f2b9f07b19785633112212",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/options/4/label": {
+      "sourceHash": "e8dc4c2755ef670577776e3ec309bcd597387c4ef040e52d219dc5cc29a7c3e2",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/2/options/5/label": {
+      "sourceHash": "1f22aba5e6be30fb60e771c91f2f4a7f28d212e11615e23db6ea76cf4f8f8f46",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/prompt": {
+      "sourceHash": "7cadc9eae6aea4b55c0f2ae54ffcd101b6021e25d13158dc3ea39bc62a4ac7e9",
+      "text": "這項目標的某段工作進展很慢時，我會在可用時間內繼續做下一段具體工作。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/options/0/label": {
+      "sourceHash": "7593569abc359dadec948ac584de71309b2f641530072ddef98d438db0e18845",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/options/1/label": {
+      "sourceHash": "7af7067b4782359d44c8419771c666c0e3eb9445433bebdf8cb28261c9b1b85e",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/options/2/label": {
+      "sourceHash": "a052aae0013584c5016357d2b0cd439fabb13eabb647cfd7ec9ca4bc4ae7faa7",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/options/3/label": {
+      "sourceHash": "578fc9b98b457ad9d8c21e1030c8cb2b82214e816563ba758dc6b7e0bb75f44c",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/options/4/label": {
+      "sourceHash": "99a4795075fd9c4c4406b05a15f6fed20aef2bc63bf2f175ca58f016e4e3c4a8",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/3/options/5/label": {
+      "sourceHash": "a2dedeb852b8e5ead280ea89cfa7bf9bb0acab4fb09fc352a97850a1c5785061",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/prompt": {
+      "sourceHash": "d6195ad85f0500f20bde4b4167c72dfb77ef1ff71d21117db9aa3c38e38e3849",
+      "text": "完成一個階段的任務後，我會回到同一項長期目標，確認接下來要做什麼。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/options/0/label": {
+      "sourceHash": "02e4728ed75c3b6cabba0d960ccf226818f07589d21ca014abd5449d033dbe94",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/options/1/label": {
+      "sourceHash": "ee382aeb27e11d8c7be800a50afe3dafea2016224c89b947cfb889b80bff26be",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/options/2/label": {
+      "sourceHash": "309781ab66498afc0e7b1fc6bf979024ae9207719ff82932ff1390be3fea53e3",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/options/3/label": {
+      "sourceHash": "edb93850bca2a0c1638f5190cb939dd33ccfd084a261e1ee70524f5fd850e454",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/options/4/label": {
+      "sourceHash": "0f2f829794ad8b55d9604d070110e067dd8c5c1d52b39f74f1ccdfc56c575411",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/4/options/5/label": {
+      "sourceHash": "955fc8828b43a0afbb58a1dead167da9169517585f34ff79b64977f8d0adfc4c",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/prompt": {
+      "sourceHash": "880b7a70f34e596ccbf26056915e34f4491d306f59d448eaeffb0a205d3d958b",
+      "text": "一次嘗試沒有達到預期後，我會整理得到的資訊，再安排下一次可行嘗試。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/options/0/label": {
+      "sourceHash": "7d0d1e063e99fc4de495ac79682a5c8d451f2c3465e563691ba49e5a660b756b",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/options/1/label": {
+      "sourceHash": "e79737ed00edd257d1686afe0943b1ca6c0e6297b34a7e2e72473ac256e303b0",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/options/2/label": {
+      "sourceHash": "fcf94f956a0baefa7f0d8fc2cb2d7eefea4417209f5631e9a32ca3257d11930d",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/options/3/label": {
+      "sourceHash": "855ca6364c632a6252dfc0da8eb349334603c88940f58d21f8fff779e98bc97b",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/options/4/label": {
+      "sourceHash": "993a2121af6908762bce17efcf668fbef6de17fbdecf2f151c96d444cf307f4a",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/5/options/5/label": {
+      "sourceHash": "8277b0281c6549920ba539fb10fcc556e5ddb0578b1c839a49916b3a7f46416c",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/prompt": {
+      "sourceHash": "4e646af55830d679dd9431a220e2c273a71c0ec63aea1114f2f879ff749aac4a",
+      "text": "一開始的熱度退去後，我仍能說出這項目標有哪些具體部分想繼續探索。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/options/0/label": {
+      "sourceHash": "59515d74deba7638af323bbdd633316f8ee4051d246ac339703b3b58573cf637",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/options/1/label": {
+      "sourceHash": "89256a88861c985110a8d3b5dc8c0dc5a0dfc73a1d247bfbbe4b8ea29f320cd6",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/options/2/label": {
+      "sourceHash": "1745409788f09e80d7cc93d1c3b964faa770df9c97f517d048af2efc0d5b011c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/options/3/label": {
+      "sourceHash": "0456525e3d997f3050948fbd83bb6af82932d797a1b142d3d8743a5751519589",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/options/4/label": {
+      "sourceHash": "34e41c46a07a243483bbd01b896e70b5fb1b28e31595450fb16845b513c67e1d",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/6/options/5/label": {
+      "sourceHash": "07d341045314eac8afe4ad6c6ca0e812dfbf4f0e5300e1a6f3e2a88ef7ebf9b9",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/prompt": {
+      "sourceHash": "5dc9554d53cfabd60e7d06a978e54510023f9a234183a7e24809d5abae4d0421",
+      "text": "一段必要工作不太有趣時，我會按自己能承擔的節奏把它繼續做下去。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/options/0/label": {
+      "sourceHash": "89c8dc1ea505789799ded606d03e4892b7445af4e882ef8af66bbbfe01d8faba",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/options/1/label": {
+      "sourceHash": "32d5c10c2bd8001d8b7e537b9ad9f359f2a3853842bbb4e23d51f95c25f8b23d",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/options/2/label": {
+      "sourceHash": "fddb3a607b82aa1a8dde2d5bcc8ee659c1f4e7dc53f6b09e255280ed8278eb6c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/options/3/label": {
+      "sourceHash": "a8da2690f5bd7838fef5f34fd8134abba2ca242f5e7c625b35acffb46095352a",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/options/4/label": {
+      "sourceHash": "403c6fee8c714cdcd6d9954cc535f9c7a0f99131adce4785eb113464cbc0c055",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/7/options/5/label": {
+      "sourceHash": "b618005fe7d02fdada01756c2c32eab6b0882abefa81a195b62fb3244e1b9a96",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/prompt": {
+      "sourceHash": "c1b3f63741665171519fad1f00f7415bf23ed1ecb3e7cc60a700ea8f8a8dd195",
+      "text": "有人提出與這項目標無關的新計畫時，我會直接把原目標從安排中移除，不再考慮要不要保留。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/options/0/label": {
+      "sourceHash": "512aaff1e4302ab9f52182b845d9cf0d9393e1187d62e2427498373f9099022b",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/options/1/label": {
+      "sourceHash": "3b857565a8bfdbc1fb04daca216d48ea66a72a2cfc1fa89f7a2072a6b594073a",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/options/2/label": {
+      "sourceHash": "6299c7b249a1095f6b6f5ea2a29ce6aa0c417983961ec4bfcca997da4aaaf29c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/options/3/label": {
+      "sourceHash": "16eea12f016ca171f600b555b8edb246518bc0dcbf31780bdd7e2a48754f6247",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/options/4/label": {
+      "sourceHash": "a49fa070f8243b60b0f99fc83cea1da5a1a5736bec9554dfad27ceb10fd1046a",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/8/options/5/label": {
+      "sourceHash": "379f7775390bf5d63c7af011516e9c964577b60e8de589b37547715e177a2a63",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/prompt": {
+      "sourceHash": "ecbb179b01e8bb20fa92dbe89528da227574e8fd167bc4fb338178577a9e206b",
+      "text": "小失誤打斷進度後，即使還有可行條件，我也不再安排任何後續步驟。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/options/0/label": {
+      "sourceHash": "b6ce03fea8d4efa138277c748c46dabeb95033357dc0a9bdae600d34c08aec9a",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/options/1/label": {
+      "sourceHash": "04df74373cfd20b28b737779d8c002bd16d88340389539bfc9cf63ff008481e7",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/options/2/label": {
+      "sourceHash": "924558344ee4e7b296a7ee32f5e65adcc1d616855d1b02e623af6bf90aef69e0",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/options/3/label": {
+      "sourceHash": "d956805dd792ac385f809ecb91cc6fcc1745b6a8101c00df112baa730d19835a",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/options/4/label": {
+      "sourceHash": "6657a479a9565151d2b1749c3741d6d7957eae653d9966d153d41d54af399c8c",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/9/options/5/label": {
+      "sourceHash": "7284f9b7643ce3d7c276c736b096ffabd0d0c24b225cf0ceecd4a2fb5979580e",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/prompt": {
+      "sourceHash": "3767bb564b9a925d59c9546eec9a2a88aacd81f2f4c4bb55b57a12b2fd62c7dc",
+      "text": "這項目標暫時失去新鮮感時，我會把注意力完全轉到別處，不再確認它對我是否仍有意義。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/options/0/label": {
+      "sourceHash": "dc1808c2946ae1d4631659e74b6d2abfcac9217cfded854b45075e3d29d6c803",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/options/1/label": {
+      "sourceHash": "9e917de244f953bda91baf90a3c3f3021bd4f54f560a22f5f48463fc777c0546",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/options/2/label": {
+      "sourceHash": "3e3fe75be537bd4cab3fbb5b9209a8cf8061bfea619dd7e66b8d1ccd2fd40d7a",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/options/3/label": {
+      "sourceHash": "44fe19cd1cb12b8c47a71eb06c18eea8dab8d913dab0afb7493ade1a4d894d1c",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/options/4/label": {
+      "sourceHash": "52c7e9c36307a215d59bafeaa1f7d0e5d8bc757a1175ee7df5c597150043cb5b",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/10/options/5/label": {
+      "sourceHash": "c1ffb3c52406bb754b32b574429de3b8dbfb18c2bb25173c5438b3d4b7d505ad",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/prompt": {
+      "sourceHash": "4e5f9cc245ac2d3fbc5ca9515f1ecacc39d05a2ac2270386b1bd54be92352e29",
+      "text": "某個方法第一次沒奏效時，我會直接取消後續嘗試，而不考慮其他可行做法。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/options/0/label": {
+      "sourceHash": "74f28a872acf6261b3d4917950d1d6725cd6009941e9f22863a79d9b9858f303",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/options/1/label": {
+      "sourceHash": "a9a130405d656be153526f99f138171351a694f0111ad50d60a337884ec86dbc",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/options/2/label": {
+      "sourceHash": "5eaa4149fb8aee6d5be30c6a9ae8656512d54df9c8ad95548ae1c20f9f98f5e5",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/options/3/label": {
+      "sourceHash": "93147deef5589e36369130d8d58df75702210e995af2d2eecbdc12239dc3585e",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/options/4/label": {
+      "sourceHash": "9a7d25352fb2ac8fdf62ae97bbf0200b05ce63c0b00b721a7c6c9f56139ff758",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/11/options/5/label": {
+      "sourceHash": "d63ddf58935907142f2870615f7c7739027414d93591bbcbfbfc3b71ccd2a9e6",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/prompt": {
+      "sourceHash": "b515707ca10e3b5abb07f536f331bdb319699cfb225183d269797518071bbcdf",
+      "text": "選擇這項目標的下一步時，我會考慮它和自己長期想投入的方向有什麼關聯。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/options/0/label": {
+      "sourceHash": "ca56e1225080f9176d4c6e1b0b905630941b5b6c70fcd01adda46da4ad5a4925",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/options/1/label": {
+      "sourceHash": "6b2eb3c385c6d547bc0fbb151e7d5c385820ac7fd46afbc0364dacd380a38f21",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/options/2/label": {
+      "sourceHash": "68180ce34488d0b14adc96fd8c818a4d34a3c4508de4cc4f40bbbb5ccdaeba5e",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/options/3/label": {
+      "sourceHash": "526f077c7891d182eb823d927a2db2d537bfb45bc2f0e4f79b7b3eefce31fc9d",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/options/4/label": {
+      "sourceHash": "5da25f2a69898bf4d0894fb53c6f815b24071e074d2692b550b959a31b75b68a",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/12/options/5/label": {
+      "sourceHash": "32cfc1e549583e5ff4f13e45316d4af23f449f69e47025b6f1c24d58fd106877",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/prompt": {
+      "sourceHash": "5ab37138613a0d82d24b9ebb854b0d7578827bfe8edb485be97a84edc68237b9",
+      "text": "暫停這項目標一段時間後，如果條件允許，我會從一個明確的小步驟重新開始。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/options/0/label": {
+      "sourceHash": "0801dedbdc677a300ed391c48aab7fab6db8ae5d799560edc2abb7ede6e2d125",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/options/1/label": {
+      "sourceHash": "7850f6c92b9226356384da12a4ea95a05804dcff3159be393524b55215ce893e",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/options/2/label": {
+      "sourceHash": "435394a7baa86f96231232f04abf21f2d58671f315c67a857a4feb1ae5c8b0fa",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/options/3/label": {
+      "sourceHash": "98cdf75fd3c72ef2d8f6ba17f8701b5bc73e3adf075f46eadd43ebbb3c6e7888",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/options/4/label": {
+      "sourceHash": "d5a86832ea3409b8b07c09253eec4e2fc9609aa674613b845511e57d219d0248",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/13/options/5/label": {
+      "sourceHash": "a95918303720ab27b7208b28338c0b6931f03769cd106250cb49ba88845a9c72",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/prompt": {
+      "sourceHash": "8429d222be898d8135c3ca3c062defb5b3df60ff5ece3adfc2642ebee678f9cf",
+      "text": "回顧過去幾個月的安排時，我能找出幾段圍繞同一目標接續的選擇。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/options/0/label": {
+      "sourceHash": "c44bd6695e31781570f55e6079bf99626dc6ba831185209e4eaa837b72a87153",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/options/1/label": {
+      "sourceHash": "39d51de37224b32dd0ff55976ac85dfa41955fb4a1f0a63bea20552e1b202741",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/options/2/label": {
+      "sourceHash": "38ff81aeb622889110eec7dbb852b17c4d183d11e470f9fe1bcdf8d0e45ba88a",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/options/3/label": {
+      "sourceHash": "527359139716fc33ea29053b182bbae8b1a33280fbe6aa8daadba5489cf97e31",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/options/4/label": {
+      "sourceHash": "1dc9c68c19de9f213a13578fcd54e71a0b62a202214bc5199c744fdde4ef6367",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/14/options/5/label": {
+      "sourceHash": "92623eefc3b51a9db675ec643a8163d7d3f502df12f1122803bd833851697159",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/prompt": {
+      "sourceHash": "b9e206f6822d35a126877f0ab5c7bec56725b05324372f26ac33237db55f3f24",
+      "text": "發現目前的做法不合適時，我會在可負擔的範圍內試著調整做法，避免只重複原來的步驟。"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/options/0/label": {
+      "sourceHash": "434f9c9cc4ea78cf03b9bef646ddcbcfec66a8bb89cf160cb848aa848192ba7c",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/options/1/label": {
+      "sourceHash": "d245123cbf231c48571ea80ba82ffc5ff1591bb02c9d7718fe408f4e31ecccbc",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/options/2/label": {
+      "sourceHash": "de85b4ebc8e342fc8a2cc0c002855388305074fd179296569bccfa0683a2e617",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/options/3/label": {
+      "sourceHash": "76f2fd2e2508184009aa0f7c8943501d2b57fe6a50403e5ef5593a3e00042a92",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/options/4/label": {
+      "sourceHash": "0f1b6f046d9f85dcb4968aecd5f8ee6569f7af8263d9e3b423e8872f2b744564",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/grit-test.json/questions/15/options/5/label": {
+      "sourceHash": "a135b85eac8fd141f2ab71260e438351a2b139d24311bd63bc7d8d65c162b27e",
+      "text": "沒有這項目標或相關機會／資料不足／不願回答"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/title": {
+      "sourceHash": "9ea48f94db2ce282ccbb8458a988b1d1d2a3d3fc11d7cd1211c5563f4bee9202",
+      "text": "長期目標延續：連線不同階段"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/summary": {
+      "sourceHash": "50946f645bc354fb773cc5aaedabb3a92c8dce82ba660498c325d94a4e1d54fe",
+      "text": "回看同一長期目標怎樣進入不同階段的安排、選擇和興趣；區分目標延續、方法調整與合理停止，不給毅力分等級。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/0/title": {
+      "sourceHash": "286d1e3aa7115cca340b7c3550358b23776ac3632ee4759be95658b71358de14",
+      "text": "目標延續在這裡指什麼"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "6bc6d1cb9d78d23b664783eb284c88603476bf1b78f47821a8664d5e0869b3ca",
+      "text": "這部分觀察你在不同階段是否仍給同一目標留位置：計畫時怎樣安排，面對新機會怎樣決定，階段結束怎樣接下一步，以及短期熱鬧過去後是否仍有想探索的具體部分。它不是要求每天做同一件事，也不要求拒絕一切新興趣。為了讓回答有共同參照，請始終想著那一項自選、原本打算持續半年以上的目標。過去六個月的回顧不能代表多年的穩定傾向，更不能覆蓋你生活中所有目標。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/1/title": {
+      "sourceHash": "8232b7e0b06645a2905255d884c2ea0767aeedf6a5e57389f58d6609a2768603",
+      "text": "較高較低都要結合具體目標"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "0d58e2c34269c021a0c697053d68ba5072021b3d24a01ed121078e4e4f3f2097",
+      "text": "較高均分表示較常自報保留、連線和回到這項目標的做法，並在兩條反向表述上較少選擇相反做法。它不證明目標正確、興趣真誠或長期堅持一定值得。較低也不能叫作缺乏毅力：目標可能已經過時，現實條件可能改變，或者這六個月你正在有意識地探索其他方向。沒有相關目標或機會時可選NA；若不足六條，不生成個人均分。均分高低不是發展中、果斷或無情等四種身份，也不與人群比較。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/2/title": {
+      "sourceHash": "9497b820e75b46b0b9400262fc6411a79506bba5ad8e5e149333a784ce1629a7",
+      "text": "同一方向可以換做法"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "91fac55c41dbacf11d68424ab7656d917db9286d6f6edebe778b4d7ccdd0832c",
+      "text": "例如，你想長期記錄附近植物的季節變化。前一階段拍照，後一階段發現手繪更方便，兩種方法仍可能服務同一目標。如果一項新活動出現，你可以核對它是在幫助理解原目標，還是帶你轉向另一件想做的事；兩種選擇都可能合理。本題本不把換工具當作換目標，也不把保留最初安排當作唯一正確答案。這個例子只用來區分方向與方法，不需要你輸入真實地點、目標名稱或作品。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/3/title": {
+      "sourceHash": "b8ef6a0f5548a95308dda0d906a384edef5d79a663e5e6a707dfc5bba05a069a",
+      "text": "可選地畫出目標與步驟的區別"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "3b8bcf82cdc4323b2c98d2898aae2da775f8ce037ec73e1814f3b948100f162e",
+      "text": "如果願意，可以在心裡區分三件事：這項目標原先對你有什麼意義，目前採用什麼做法，下一段還想探索什麼。隨後再考慮一個新機會與哪一層相連。你不必寫成長篇計畫，更不需要向本站提交內容。若發現目標已不適合，也可以把停止或轉向列為真實選擇；本次分數沒有權力要求你繼續。這個小回顧旨在讓選擇更清楚，不承諾會讓毅力提高、興趣穩定或未來表現更好。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/4/title": {
+      "sourceHash": "370d2a6f3bea74cbe99ce6a6b879a365efb82c772a503fdfcbef9ab00903eb4a",
+      "text": "目標延續與努力續接並不互換"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "a737801beab67db22683d1b137fbc3257921e92728d11c2a0ba7c222b0e1b462",
+      "text": "目標延續問的是不同階段圍繞什麼展開，努力續接問的是遇到慢進展或挫折後怎樣重新安排具體行動。你可能方向一直沒變，卻暫時沒有可行條件繼續；也可能很願意努力，但不斷把努力投入不同方向。兩部分較高較低的四種組合都只是閱讀順序，不是新增四種人格；資料不足也不由另一部分補分。本站其他題本的一般堅持完成或學習信念涉及相關主題，但參照、題目和計分不同，不把結果換算成同一個數。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/5/title": {
+      "sourceHash": "170b5edc856cbbc946b2c832b2b4aebaaf1c755aa11b20389e9166e84777195f",
+      "text": "有些改變不應被當作失敗"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "7a6c374dc62d3e0b753fc5048bc00b982b2d127649142c341bd9e7c213617200",
+      "text": "停止一個已不安全、不值得或無法承擔的目標，可能是經過考慮的選擇，而不是題目能否定的失敗。工作、照護、資源變化或新的資訊都可能改變原先安排；本版沒有測量那些條件。較高均分也不能證明你會靈活止損，較低不能證明你沒有認真投入。它不預測你適合哪個職業，也不能替任何人決定是否錄用、錄取或值得支援。回顧只對你選擇的普通目標有有限意義，不要求把本該保留的邊界讓給“堅持”的口號。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/6/title": {
+      "sourceHash": "a5f919d3e781e9855d86e947d4e50569029b78dc8a67b8560609aaecbe742fbc",
+      "text": "怎樣回顧而不追逐更高分"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "1ee5fde0aae7dacd3b44da274788c433916d49444b23aaef78f0fa1a0ea58ebd",
+      "text": "想繼續回看時，可以選兩個不必記錄隱私的階段，找出其中仍相連的目標、已經變化的方法，以及現在不再適合的部分。你可能決定保留方向、換一種做法、縮小目標或停止；這都不是測驗提供的標準答案。之後重測請注意參照目標和回想時段是否改變。同一個均分可能由不同回答形成，不同小數也可能來自機會與記憶差異。本版沒有提供可靠變化閾值，不用重測分數證明自己更成功或更有價值。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/7/title": {
+      "sourceHash": "879125f0c82032c09dfb19a31fc82208f436a85c1429223386410ff948c7617e",
+      "text": "十六條、四條反向與兩項均分"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "61fd65d1526959402183df3cdcd7346abdad4c460e93145ec0b79a852110391b",
+      "text": "每題按從不1、很少2、有時3、經常4、幾乎總是5，或單獨NA作答。16條各選一次後呈現本次結果，兩部分各8條。第9、10、11、12條為反向表述，數值有效時按6減回答處理；其他12條直接計分。NA先排除，不翻成6或補零。每部分至少6條有效，才用該組未舍入計分和除有效條數，顯示兩位均分及條數，不從一位小數均分倒推。少於6條明確資料不足，不借另一組補分；兩份完整說明始終可讀。沒有兩項總和、總體均分、0—100、百分位、四個等級或最高型別。頻率類別是有序自報，均分為呈現約定，不證明等距精度、組間可比、顯著差異或可靠變化。同均分可以來自不同條目組合，不用一個小數推成就或價值。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/8/title": {
+      "sourceHash": "a7fab3293592b18fdc43c8afc4704804b16fed835281644fc938ab17c1cf2939",
+      "text": "原創版本、來源與隱私"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "633211eaf18e7998f367d12b26be380c304d3754c569dbdf2a3020b68a557859",
+      "text": "這是16條本站原創長期目標回顧，不採用Duckworth標準版權題庫、官方總分或競品12題。研究中的長期方向與努力討論提供背景，不驗證本版六個月頻率題、反向鍵、最低條數或中文英文等價，也不能預測成功、職業、健康或招聘錄取。全部結果免費，無另一測試解鎖。目標名稱不輸入或上傳；這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只含測試名和公開入口，不帶答案、均分、目標或缺失條數。你可以不儲存、不分享，也可直接讀完後結束。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/headline": {
+      "sourceHash": "dfba62269456b8cd1585c20041106180a5bb9b3067edf5394b94727f927e0e26",
+      "text": "回看同一長期目標怎樣進入不同階段的安排、選擇和興趣；區分目標延續、方法調整與合理停止，不給毅力分等級。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/scoreReading": {
+      "sourceHash": "a1590290bdde030a0b09135a62d383fa11850d445daf70d311e7b2856fb3dde0",
+      "text": "各八條至少六條有效才顯示各自頻率均分；兩份全文始終可讀，無總分、等級或成功預測。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/seo/title": {
+      "sourceHash": "9d2a54b062bc8b68d242982c2721a565ca1f1d3a1085f2de915680b833f422f0",
+      "text": "長期目標延續：毅力測驗免費完整結果"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/0/seo/description": {
+      "sourceHash": "990c916c628e038316aaf64d62a424a98500e0c9e9d66dc4dcbb43f9650c188f",
+      "text": "閱讀目標延續的完整說明：階段安排、新機會、方法與方向、反例和可選回顧。不分毅力等級，也不要求堅持已不適合的目標。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/title": {
+      "sourceHash": "2bf67772b23820d55cd0e4b80babf6785f173c9a6782f1f40b9966ace37659a5",
+      "text": "努力續接：找回可行的下一步"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/summary": {
+      "sourceHash": "d68812c92fe2219721d3e405150235cdc1a056fe24b4bcfb7fffcd9dbd60a82d",
+      "text": "回看慢進展、失誤、暫停或方法不合適之後，怎樣在條件允許時接續行動；不把休息、調整與合理停止判為失敗。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/0/title": {
+      "sourceHash": "d6861d75ce34f0632a5dda8d1a2ea09a9b1c63a6ff9d0e959eb0adc1649a6fe4",
+      "text": "努力續接具體觀察什麼"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "0a2bb39917ac1d2e9add17b759f1957ccdc12181f6970a5318ef5a1f73573417",
+      "text": "這部分圍繞同一目標的八種具體做法：小障礙後找更小的一步，進展慢時繼續一段工作，嘗試未達預期後整理資訊，面對不太有趣的必要環節保留可承受節奏，暫停後重新接上，以及發現方法不合適後調整。它不統計工作時長，也不測試你能忍受多少痛苦。題目裡的“有條件”“可行”和“可承受”很重要：沒有機會或條件不明時，應保留NA，不用想像自己理應怎樣做來填滿答案。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/1/title": {
+      "sourceHash": "a663b1942ef67815223ee2955e0f454eb266814f71d4a9761d06e0c499685e3f",
+      "text": "頻率不等於能力或未來表現"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "6bec75019630fdd2f6b19aa139f7e7413b4223f56ea30f12d50c21aeff6b26f7",
+      "text": "較高均分表示較常自報這些續接做法，加上兩條相反表述的反向處理，不證明你的學習或工作能力更強，也不保證最終完成目標。較低可能涉及可行步驟難找、資源不足、目標已不適合或回憶不同，問卷沒有確認具體原因。它不能從較低分推出懶惰，從較高分推出天賦不足靠努力彌補。每組八條至少六條有效才顯示均分；有效條數、相反題和資料不足都應一起看，不能只取一個小數給自己定性。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/2/title": {
+      "sourceHash": "c9ffe9aa5810583219fe2ef2402ecb9f85f9ad9b93919d1dcf483e62970405e3",
+      "text": "把卡住的一大步換成小範圍嘗試"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "d14407ff834aec2bc9a4793e34c07eb83b011362439af08c6c1adaeed1dc39be",
+      "text": "例如，你長期想整理一份家中物品的可查詢目錄，嘗試一種分類方法後發現不好用。續接可以是先拿幾件普通物品試另一種分類，而不是要求自己一次重做全部，也不是機械重複已不合適的方法。若這段時間沒有餘力，合理暫停與日後在條件允許時重接，也是需要按實際情況區分的事情。本題本沒有檢視你的目錄或結果，不會把一個小例子認證為毅力強、能力好或一定能完成長期目標。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/3/title": {
+      "sourceHash": "c5bd53cc429092fa781df1b51b9c0efb6a48a367b054890e29edc358f74340da",
+      "text": "可選地把下一步說得更小"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "26c556014aaeb1fffce1ff03318c9e543f675cb9f459c80bfabc2bb772fceca2",
+      "text": "如果願意，可以問自己：現在究竟卡在方法、時間、資料還是目標本身？在仍值得繼續且條件允許時，是否有一個能撤回的小嚐試？也許是隻整理一類物品、查一條缺失資訊，或者重新確定可承擔的節奏。沒有可行一步時，不必為了得高分製造行動；可以保留暫停、求助或停止的選擇。這個回顧沒有經過本版效果驗證，不保證提高毅力、消除困難或改善表現，也不是要求你犧牲休息來維持連續行動。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/4/title": {
+      "sourceHash": "01d0e2055faebdb1da95e85551ff7db85ed2668d2be4ee93919f084cf630c752",
+      "text": "把方向與行動分別理解"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "4b04387e93aacb954a1cc3318d8561e376421cb143790a6744ecfd5bf2f4c5d9",
+      "text": "如果兩組做法都較符合你的回想，可以分別找出目標的連線線與遇阻後的具體續接；若目標延續較符合而行動續接較少，需要另看機會條件，不能叫作空想；若行動續接較符合而目標經常換，可能是在不同方向認真投入，而非沒有價值。兩組都較少符合，也不等於最差一檔。這些是定性的閱讀路徑，不是計分分界或四類人格；本版沒有證明兩組均分具有可比較的等距單位，也不根據兩項小數差派一個“偏向型別”。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/5/title": {
+      "sourceHash": "325a60d0223fe01f7e123ac33dcea9276c542c2049573f0cf502151011e5ba93",
+      "text": "休息與停止不等於續接失敗"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "39b0ba08764863fbf61c085aaf03b31d804f9943e8d9e6da86b7cfdc8bb5a50d",
+      "text": "健康、照護責任、經濟條件或其他現實限制可能讓繼續不可行；題目沒有評估這些情況，不能把NA當作意志弱。完成目標也可能需要換方法、縮小範圍，或承認目標已不再值得繼續。較高均分不代表你不會過度投入，較低不代表你一定會放棄。它不篩查任何健康狀態，也不預測耗竭、成功率或職位表現。即使有人願意用“毅力”解釋一切，這份結果也沒有證據把個人處境簡化成夠不夠努力。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/6/title": {
+      "sourceHash": "6ab13f07e8477dd32adb9d7418db5e035b1b19e5e51529326722d2a61972f77c",
+      "text": "只回顧一次續接過程"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "83d2d49b285ab3cf04c3f437aa199adf81f8180b2cb0fce61bffb10fe0beecb1",
+      "text": "想更具體時，可以選一次不涉及私人細節的小挫折，回看當時有哪些條件、你怎樣處理已有資訊，以及後來有沒有一個可行步驟。不要把結果倒推成當時一定應該繼續；適當停止也可能是認真判斷後的決定。下次是否嘗試調整由你選擇，不是問卷給出的任務。重測若換了目標、時間範圍或近期事件，分數可能變化，而這並不證明穩定毅力改變。本版沒有可靠變化閾值，也不用短期分數認證長期成就或個人價值。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/7/title": {
+      "sourceHash": "9a8fce26c9269abd68790ec219e5feac41bc91a1087bd00c4aec3895db7b46d6",
+      "text": "十六條、四條反向與兩項均分"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "231138965846bf43bfa2275131f5c55d01bf42d262b0d9773f3be87689924443",
+      "text": "每題按從不1、很少2、有時3、經常4、幾乎總是5，或單獨NA作答。16條各選一次後呈現本次結果，兩部分各8條。第9、10、11、12條為反向表述，數值有效時按6減回答處理；其他12條直接計分。NA先排除，不翻成6或補零。每部分至少6條有效，才用該組未舍入計分和除有效條數，顯示兩位均分及條數，不從一位小數均分倒推。少於6條明確資料不足，不借另一組補分；兩份完整說明始終可讀。沒有兩項總和、總體均分、0—100、百分位、四個等級或最高型別。頻率類別是有序自報，均分為呈現約定，不證明等距精度、組間可比、顯著差異或可靠變化。同均分可以來自不同條目組合，不用一個小數推成就或價值。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/8/title": {
+      "sourceHash": "44c8e3bf179eee22d27c8697f44dd3dcf65e55b4ae50e002484c67433807ec19",
+      "text": "原創版本、來源與隱私"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "3a086d8e15b0e12b6daacd2a248e7fb3219c7f2241bcf0c20482b8057803da28",
+      "text": "這是16條本站原創長期目標回顧，不採用Duckworth標準版權題庫、官方總分或競品12題。研究中的長期方向與努力討論提供背景，不驗證本版六個月頻率題、反向鍵、最低條數或中文英文等價，也不能預測成功、職業、健康或招聘錄取。全部結果免費，無另一測試解鎖。目標名稱不輸入或上傳；這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只含測試名和公開入口，不帶答案、均分、目標或缺失條數。你可以不儲存、不分享，也可直接讀完後結束。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/headline": {
+      "sourceHash": "212135f11a63f3b4774d842ff7d873405ddc28d4f41deffd4e4ea975db0e5122",
+      "text": "回看慢進展、失誤、暫停或方法不合適之後，怎樣在條件允許時接續行動；不把休息、調整與合理停止判為失敗。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/scoreReading": {
+      "sourceHash": "07fa74d187e5072203aedc9c2db090d32f0483aaaa89d5544fb026bbb05b2315",
+      "text": "各八條至少六條有效才顯示各自頻率均分；兩份全文始終可讀，無總分、等級或成功預測。"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/seo/title": {
+      "sourceHash": "c16527dfab2001e70c0d6854e7ef4aafc9ba8352274abaf096dcd5f0afa09712",
+      "text": "受阻後的努力續接：毅力測驗免費完整結果"
+    },
+    "lib/questionnaires/data/grit-test.json/profiles/1/seo/description": {
+      "sourceHash": "d6334ddce04b6c62ca6923110e0275871aef0d38e91f2b169fe374cf84ab0c92",
+      "text": "閱讀遇阻後努力續接的完整說明：可行步驟、慢進展、調整、暫停、具體例子和反例。不預測成功，也不把休息當失敗。"
+    },
+    "lib/questionnaires/data/grit-test.json/guide/0/title": {
+      "sourceHash": "4f2f629ad0292d2047733810420d81c1427783b6079979c1c3ebf53f16ba2d40",
+      "text": "十六條、四條反向與兩項均分"
+    },
+    "lib/questionnaires/data/grit-test.json/guide/0/paragraphs/0": {
+      "sourceHash": "f18e4cda03d53cdb0283d3d1eaf75a1276ad485fea97ffdabd602686ce1f00f9",
+      "text": "每題按從不1、很少2、有時3、經常4、幾乎總是5，或單獨NA作答。16條各選一次後呈現本次結果，兩部分各8條。第9、10、11、12條為反向表述，數值有效時按6減回答處理；其他12條直接計分。NA先排除，不翻成6或補零。每部分至少6條有效，才用該組未舍入計分和除有效條數，顯示兩位均分及條數，不從一位小數均分倒推。少於6條明確資料不足，不借另一組補分；兩份完整說明始終可讀。沒有兩項總和、總體均分、0—100、百分位、四個等級或最高型別。頻率類別是有序自報，均分為呈現約定，不證明等距精度、組間可比、顯著差異或可靠變化。同均分可以來自不同條目組合，不用一個小數推成就或價值。"
+    },
+    "lib/questionnaires/data/grit-test.json/guide/1/title": {
+      "sourceHash": "4b043e912dd202c7e388c76ebd106916aacbd5f460fede49adff49ce7c409906",
+      "text": "同一目標、六個月與機會"
+    },
+    "lib/questionnaires/data/grit-test.json/guide/1/paragraphs/0": {
+      "sourceHash": "209dc7519bd8500fe7f92b51f4aa4384164a160cac469078cfbde8692de427fc",
+      "text": "兩組保持同一目標作為參照。頻率受到機會、時間、資源和回憶影響，NA不代表意志弱。過去六個月不能代表所有目標或多年穩定特質。"
+    },
+    "lib/questionnaires/data/grit-test.json/guide/2/title": {
+      "sourceHash": "a5c6965bb32134fcfd6a9d47e96046440ef7b5d4ed334c58b1d44e00d97790ef",
+      "text": "兩個完整主題，不派四個人設"
+    },
+    "lib/questionnaires/data/grit-test.json/guide/2/paragraphs/0": {
+      "sourceHash": "3687745df90f46aae00a3ca6800011f70ab0ab95634b8fa0c31df08b8c8fb058",
+      "text": "兩份各九模組說明分別覆蓋定義、頻率、例子、可選嘗試、相鄰主題、反例、回顧、完整計分與隱私。定性合讀不建立分數cutoff、四個人設或總體排名。"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/0/question": {
+      "sourceHash": "fc5e9b9e6a3a78a415b2c227aa54862afb4805491624b29f70f594af702f76a8",
+      "text": "這是Angela Duckworth的標準Grit Scale嗎？"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/0/answer": {
+      "sourceHash": "415a4ca58f86d8125f8cf78931cf0a52fb6c84207adb94cba1ee400cc2d70dfa",
+      "text": "不是。標準量表的版權和使用條件不授權本網站複製；本版另寫16條長期目標頻率題，沒有標準分數或效度轉移。"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/1/question": {
+      "sourceHash": "7147d7196744781aaf79cc575325d15eb041d16200310da530d0a980d6257284",
+      "text": "為什麼沒有總體毅力分或四個等級？"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/1/answer": {
+      "sourceHash": "f65388eceaef7f1e87a9fcab32c2514dd0e7d026ea9a753356e3ed33db86dc0c",
+      "text": "兩部分分別回看方向延續與行動續接，各有完整說明。本版沒有建立總體分數、等級或人群常模，不能借四個名稱假裝已驗證。"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/2/question": {
+      "sourceHash": "b47b736904b0ca0dabb9419679010ee571c1afb2bebadef099b4fe6e81d3aa3a",
+      "text": "沒有長期目標或相關機會怎麼辦？"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/2/answer": {
+      "sourceHash": "f89f1f2618a508e130cb595a5859927d6480701659c5d8ac417a824fdbf8d2c7",
+      "text": "選單獨NA，不猜測、不補零。每部分至少六條有效才顯示均分；資料不足也能讀到全部結果。目標名無需輸入。"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/3/question": {
+      "sourceHash": "c45000258f237d737c7ec18b5eefe317526bd367a2a9618cecd90fa65ecea0f9",
+      "text": "較高分意味著成功，較低分應該更堅持嗎？"
+    },
+    "lib/questionnaires/data/grit-test.json/faq/3/answer": {
+      "sourceHash": "0b751e1a7a7967ae6e0311ead00cce44b6421781797eaa4aeb1cf9d00665e068",
+      "text": "都不能推出。機會與現實條件沒有被測量，合理調整、暫停或停止不能被分數否定。本版不用於招聘、錄取、健康判斷或改變效果認證。"
+    },
+    "lib/questionnaires/data/grit-test.json/references/0/title": {
+      "sourceHash": "ed286c5df3f4b16dfb7a3fdfc0bef3ff8b11ffa921c99f214245e6c59765d895",
+      "text": "Angela Duckworth：長期目標討論與標準量表使用邊界（不採其題庫）"
+    },
+    "lib/questionnaires/data/grit-test.json/references/1/title": {
+      "sourceHash": "35fc038000c83e689025083d7a88ee0b1f41358b799bddc668cdbce3757e88ef",
+      "text": "官方測量頁面：版權、公開使用與前後變化的限制"
+    },
+    "lib/questionnaires/data/grit-test.json/references/2/title": {
+      "sourceHash": "5d224c61ffc6f0ca6ae6ad53ed711272b947a81a54547760c59aef6b31b76ba3",
+      "text": "Credé、Tynan與Harms（2017）：毅力研究的元分析"
+    },
+    "lib/questionnaires/data/grit-test.json/references/3/title": {
+      "sourceHash": "c8e62a0fdb9dcc04baf06480b5b51ce2084a2835d1e80fac8c49560edcfbd30b",
+      "text": "Wrosch等（2003）：不可達目標的脫離、重新投入與主觀幸福感"
+    },
+    "lib/questionnaires/result-content/grit.json/goal-continuity/0/title": {
+      "sourceHash": "a2e5939ecdc242a1c3c2b28856ef74ebc45de8eb29a05a8baaf92b82291d335d",
+      "text": "把目標、方法和下一階段分別說明"
+    },
+    "lib/questionnaires/result-content/grit.json/goal-continuity/0/paragraphs/0": {
+      "sourceHash": "e70ce136ea35baa964eac5cddebacbe5f307ad1500ce6e70c3f5d8d65b5a4741",
+      "text": "沿用上面的植物季節變化記錄，分別想想：你仍想了解什麼、照片或畫圖分別服務哪個問題、下一階段是否還有值得投入的部分。換工具不必等於換目標；發現目標不再合適，也可以縮小、改變或停止。復盤看兩個階段之間實際有什麼聯絡，不以連續多少天、拒絕多少新興趣或下次均分更高證明毅力。無需記錄地點、上傳作品或公開目標；沒有合適參照時，可以只閱讀說明。"
+    },
+    "lib/questionnaires/result-content/grit.json/goal-continuity/1/title": {
+      "sourceHash": "4f08befc670ef47b03b017dadc983a6a7c8381b909148bab7b9ca1dc78f3022d",
+      "text": "交換目標與條件，不比較誰更能堅持"
+    },
+    "lib/questionnaires/result-content/grit.json/goal-continuity/1/paragraphs/0": {
+      "sourceHash": "5194241de039cb1880b986ef0f8c5155a94764d413f0be8dddcb779b57ccc3c7",
+      "text": "可以問：“如果從拍照改成畫圖記錄季節變化，哪些目標仍延續，哪些部分已經值得重新考慮？”用假設的小事談選擇即可，不要求對方披露長期計畫、解釋暫停原因或承諾繼續。兩項均分沒有高低人格之分，也不需要比較差值來決定誰更有毅力。"
+    },
+    "lib/questionnaires/result-content/grit.json/goal-continuity/1/paragraphs/1": {
+      "sourceHash": "96d604f6bdc23636e9a7c768474970e9f07dffe49ffdd13925b8a97ea7437e99",
+      "text": "可以只分享這份公開說明，連結不含目標名稱、答案、均分或缺失條數。對方可以不回答、另選一份說明或結束，不需要展示成果或再做測試才能參與交流。"
+    },
+    "lib/questionnaires/result-content/grit.json/effort-return/0/title": {
+      "sourceHash": "ad058087077db71f3b3a429f6af2a72d9d0213d9a2cfde812c1da06534f89be1",
+      "text": "先核對條件，再決定是否有可續接的一步"
+    },
+    "lib/questionnaires/result-content/grit.json/effort-return/0/paragraphs/0": {
+      "sourceHash": "6011641fcf732ab2d4bfad0fbce2b43fff5d73ea1f4c46c413103a795226ffa8",
+      "text": "回到上面的物品歸類，先分開原方法哪裡不合適、現在可用的時間與資訊，以及是否仍願意繼續。可以用少量物品試另一種歸組，也可以先問一個問題、暫停或結束。若沒有可行條件，不必為了證明願意努力而製造任務。復盤只看阻礙與後續選擇怎樣銜接，不用工作時長、忍耐不適或一次成功來證明毅力，更不從較低均分反推當時本應堅持。"
+    },
+    "lib/questionnaires/result-content/grit.json/effort-return/1/title": {
+      "sourceHash": "d51e3c0cba8c0c1dbaf32bcdd91a3863eef0eaac320a4caf3e29e1faf7242731",
+      "text": "交換目標與條件，不比較誰更能堅持"
+    },
+    "lib/questionnaires/result-content/grit.json/effort-return/1/paragraphs/0": {
+      "sourceHash": "e04683423559e84148ca04fbb6c5d3cc59386bb0d0d9107c6f9856f605ee3858",
+      "text": "可以問：“如果原先的物品歸組方法不適合，哪些資訊或條件會影響你選擇小試一次、暫停或結束？”用假設的小事談選擇即可，不要求對方披露長期計畫、解釋暫停原因或承諾繼續。兩項均分沒有高低人格之分，也不需要比較差值來決定誰更有毅力。"
+    },
+    "lib/questionnaires/result-content/grit.json/effort-return/1/paragraphs/1": {
+      "sourceHash": "0a69c4a30f274c7a763608d954fe5af5fd938c8390a9a757e763878efc72904d",
+      "text": "可以只分享這份公開說明，連結不含目標名稱、答案、均分或缺失條數。對方可以不回答、另選一份說明或結束，不需要展示成果或再做測試才能參與交流。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/0/question": {
+      "sourceHash": "a5e670a45679d2c2205fac2ca9a60fee15679ee09356f8e9486475b7ade22d12",
+      "text": "長期目標的延續與努力續接，是同一個分數嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/0/answer": {
+      "sourceHash": "75485c89e43d6ea054badeb08d5d3e2d52625f1314809c43aebf931b68d2ae2a",
+      "text": "不是。前者回看幾個月內是否圍繞同一方向安排，後者回看有可行條件時如何繼續嘗試。每組八條獨立計算，不合成總體毅力分或四種人格。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/1/question": {
+      "sourceHash": "01bf1b3ce51f18d41b918cc01d594dbaa5e4392e1853b1eff66fe3f7ae3cc639",
+      "text": "還沒有堅持滿半年，可以參加嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/1/answer": {
+      "sourceHash": "ab06425bc3a386d7def31711bb32eba9290069aa6a9fbc89f169beeca8ee734a",
+      "text": "可以選擇原計畫持續半年以上的目標，不要求已經完成半年。只回顧過去六個月真實發生且有相關機會的情況，其餘可選不適用；也可先讀指南。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/2/question": {
+      "sourceHash": "e638576b04b545eb36c94ff1ffaaf5c553afcfcfe80139e7439f5fff0daaa404",
+      "text": "不適用與從不，有什麼不同？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/2/answer": {
+      "sourceHash": "c7c806405d528695604ee980fde15f779967536d37957c82de47ea254c303868",
+      "text": "從不是有相關機會時未出現該做法，記1並按題目方向計分；不適用是沒有目標、機會、資料或不願回答，不計數值，也不補成1或3。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/3/question": {
+      "sourceHash": "7b20489110d6541fa0850593063bb70017c851d638ce93d764b44095e67d5039",
+      "text": "六條有效和五條有效，為什麼顯示不同？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/3/answer": {
+      "sourceHash": "6170115fd5add07a2a3de2926ad24c6ad6fe4f846fb8eb51f24db6130e1214a0",
+      "text": "這是本版每組八條至少六條有效的顯示規則，不是經研究證明的臨床或能力界線。六條時以計分和除6；五條顯示資料不足，另一組不受牽連。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/4/question": {
+      "sourceHash": "49bd641d0020fd455aaef1bb6b96887c91a78957af81c5ee8e538779c989ec2b",
+      "text": "10÷6為什麼顯示1.67，而不是1.7？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/4/answer": {
+      "sourceHash": "7cbeab656687b01b7a0c358f0cff405818e6be3b404a42b8633dda9af722dbcd",
+      "text": "報告直接使用未舍入計分和除有效條數，並格式化兩位小數。不能從一位均值1.7倒推，也不能因顯示位數認定差0.01有意義。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/5/question": {
+      "sourceHash": "386badb9e0c0bd4e65a6802b30969e958ea91271dda87fa746c9efe9ecf50eed",
+      "text": "全選幾乎總是，會得到滿分嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/5/answer": {
+      "sourceHash": "f465d5a042cd2eaf0d4646dbe667891f98ebe66be5914d78844f594b07428d40",
+      "text": "不會。第9—12條反向，5會變1；全選5時兩組都為4.00/5。應按真實情境回答，不按看起來更理想的選項選。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/6/question": {
+      "sourceHash": "d7c204f666152f02be3d2fa09f48d466beeb6b88f238dafc321bb690619da823",
+      "text": "毅力能預測我會不會成功，或超過多少人嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/6/answer": {
+      "sourceHash": "f479c1bf467fe72bf267bdd9e5e31db2d51a3fcc60ad8abf192b78f1886baec0",
+      "text": "不能。本題本沒有相應預測效度或人群常模。研究中的群體關聯不等於個人機率，也不能把其他量表的資料套給本卷。[3]"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/7/question": {
+      "sourceHash": "0e72639e8e62bc9cb8760d6aa55f3e264ea825160579415aecec758a2539ee25",
+      "text": "換方法、休息或停止目標，是毅力不足嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/7/answer": {
+      "sourceHash": "eb59ee27ad5ef2d2af09fad13a0a8ecde0ccefb2f65342e97a812c4cbd5c134d",
+      "text": "不能這樣歸類。方向、方法與可承擔代價需要分開考慮；不可達目標的調整也有研究背景，但不能由本卷給出繼續或停止的個人命令。[4]"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/8/question": {
+      "sourceHash": "b4ca2f72a064499d85ff2cb52b94bdfa552afec242ae376c27aa577e581a334e",
+      "text": "能用重測分數證明訓練有效，或用於招聘錄取嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/8/answer": {
+      "sourceHash": "ee2f3b4fe8e320b8da0c21f58afdd74129023facf8f290da511fa40a2093862f",
+      "text": "不能。本版沒有可靠變化閾值或相應用途驗證，官方測量說明也提醒前後變化與高風險使用的限制。[2] 可對照具體條目與經歷，不把分差當干預結論。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/9/question": {
+      "sourceHash": "6ff41c46bb6d0be08647079526c7684643723d8a7e8f893dcc03ae91201dfc93",
+      "text": "開始後會要求同意、郵箱或付費解鎖嗎？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingFaq/9/answer": {
+      "sourceHash": "a2a293ca91c52dbfcaf47ca3b071ff475e37529b490b82136a76a570118bb5ad",
+      "text": "不會，開始直接進入16條題目。兩份完整指南免費，資料不足也可讀；不輸入目標名稱。臨時儲存需主動開啟，完成、退出清除或重測會刪除。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/0/title": {
+      "sourceHash": "f8d7df54aaf8f170c5da4560ee457387e68fb225df801fe9d9903e6002fe017e",
+      "text": "目標延續與努力續接：方向、方法與投入有什麼區別？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/0/paragraphs/0": {
+      "sourceHash": "485c8f8e6d4eae1e79046c984b9f48e8ad601323edfa5322a4466c0762974b64",
+      "text": "長期目標的延續關注幾個月裡的安排是否仍圍繞同一方向，包括為目標保留位置、核對新機會與原方向的關係，以及階段結束後怎樣接續。它不是每天使用相同方法。例如長期想掌握一門語言，可以調整教材、練習場景或每週節奏，目標仍可能相同；改了方法不能直接當作興趣不穩定。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/0/paragraphs/1": {
+      "sourceHash": "8d0660988a91dbbb4694d51f9c3bec3f1018e7d87456ff9b0d3e0e6193c93d01",
+      "text": "受阻之後的努力續接關注有可行條件時，怎樣從小障礙、慢進展、未奏效的方法或一段暫停中找到下一步。它與方向是否延續不是同一個問題：你可能方向清楚，卻暫時缺少時間；也可能在每次嘗試上認真投入，但正在重新考慮長期方向。兩份說明可以合讀，不把人分成“高高、低低”等四種類型。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/1/title": {
+      "sourceHash": "c6cfad24b6f547b026ec1bee142bac9fed646dc3674539110b17b0b97119df78",
+      "text": "為什麼先選同一目標？六個月、機會與不適用"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/1/paragraphs/0": {
+      "sourceHash": "5b040fbda8608ec4eba72ce1c7b21ffd47a02a9ea39bb3db67919854c5119103",
+      "text": "本卷要求回顧同一項目標，不在回答之間更換參照；不需要告訴網站目標是什麼。選擇的是原計畫持續半年以上的目標，不要求已經堅持滿半年。過去六個月中尚未開始、沒有相關機會或不願回顧的條目，可保留不適用；不要用另一個目標的經歷填空，也不把沒有機會寫成“從不”。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/1/paragraphs/1": {
+      "sourceHash": "1c9f6c334e368a247d9602ac4ca70eb970ccf64e15cb418ad3f7cbb2bb484fe7",
+      "text": "頻率同時受工作、照護、費用、健康、學習資源與他人安排等條件影響。一次投入較少，可能是機會受限，也可能是目標已不合適，不能僅憑選項分辨。先說明自己當時有哪些可行選擇，再讀均分；若沒有合適目標，可以不作答，或以不適用完成並先閱讀公開指南。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/2/title": {
+      "sourceHash": "00bd26921f06a7602b16773122dc94a31618078f1fb6f82f5f31b06b5921f701",
+      "text": "四條反向怎樣處理？六條有效與五條有效的計算範例"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/2/paragraphs/0": {
+      "sourceHash": "0c771f72b3f13da1a71c4fa169dce0402c689989050640d82f9da2b5bd7770c2",
+      "text": "第9、10、11、12條是反向表述，1變5、2變4、3仍為3、4變2、5變1；其餘12條直接計分。不適用先排除，不當0、不做6減不適用。每部分獨立計算，至少六條有效，才用該部分計分和除以有效條數；完整八條時分母為8，六條時分母為6。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/2/paragraphs/1": {
+      "sourceHash": "21c3fe0be9a9c9a00c25e1dfe0d14d98e8f7d29baf3b729e81368d4b5eec69c1",
+      "text": "例如目標延續組在反向處理後的八條值為1、1、2、2、2、2、不適用、不適用，計分和10、有效六條，顯示10÷6=1.67/5。另一組若只有五個有效4，計分和20仍顯示資料不足，不把20÷5顯示為個人均分。均分直接來自未舍入計分和，不從通用的一位小數1.7倒推；兩位小數也不證明測量精度。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/3/title": {
+      "sourceHash": "83e738ea3b62630130ebc802d549a8877eaa7f469d55b4cb4d9e30ce23883574",
+      "text": "與Grit-O、Grit-S有何區別？研究支援與本站證據"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/3/paragraphs/0": {
+      "sourceHash": "9e733cb2685963d14eb4a22e4879a8120f2c38c5d2241851495ff17bbad7b0f4",
+      "text": "Duckworth將grit討論為長期目標中的熱情與堅持，強調它不同於一時強烈的願望。[1] 本站以兩個具體觀察主題回顧六個月做法，並未使用她的標準量表題庫。相近的主題名稱不能讓16道原創頻率題自動成為Grit-O、Grit-S、它們的有效替代版，或多年穩定特質的測量。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/3/paragraphs/1": {
+      "sourceHash": "0048e765c7d3c87ab5b8fba78be6f44fd9e7e4946855080cc85dd22152900790",
+      "text": "Credé等（2017）的元分析綜合88個獨立樣本、66,807人，指出grit與盡責性高度相關，努力堅持與結果的關聯比興趣一致性更強，並質疑單一高階構念及廣泛成功敘事。[3] 這些是所納入量表與樣本的研究，不能把關聯當成個人成功機率，也不證明本站題本有效。本題本尚未建立自身信度、效度、常模和中英文測量等價性。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/4/title": {
+      "sourceHash": "ba1b97ae9fcb0fc1835f34b9013345ea91ca193da77daf036f95d1b7acf6fdb1",
+      "text": "堅持是否總是更好？調整、脫離與重新投入"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/4/paragraphs/0": {
+      "sourceHash": "21fe7a7bbd18979eb27ce0d4071a31d036c188b7425399b1ae5f1bc835f9e6d8",
+      "text": "Wrosch等（2003）在三項研究中考察不可達目標的脫離、替代目標的重新投入與主觀幸福感的關聯，提示目標調整同樣值得研究。[4] 這不是“放棄就會更幸福”的因果保證，也不是對你某專案標不可達的判斷。本頁不能僅憑均分決定應繼續還是停止。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/4/paragraphs/1": {
+      "sourceHash": "b21fc4f7fdb3bdc932f20b819aa995f420f0d76d5c88245be1ccf1d729c98ee4",
+      "text": "可以區分三個問題：方向是否仍值得投入，當前方法是否可行，繼續投入的代價是否可承受。換一個練習方法、延長時間、尋求資源、休息、暫停或重新選擇目標，都可能是需要考慮的方案。也不要把高均分解讀成必須堅持的命令，把低均分解讀成懶惰、失敗或缺乏品格。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/5/title": {
+      "sourceHash": "b1f737e649c50ef6638f71e4783b75eebf9522cbb929e9b03a70d873ced495cb",
+      "text": "一次具體回顧：明確下一步，也保留改變方向的條件"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/5/paragraphs/0": {
+      "sourceHash": "9c9e4be384d7cde4b35f8504ee14947411526cd31ce8126d32c8a48db5b2bcbf",
+      "text": "例如你原計畫長期學習一門語言，最近的教材難度過高。可先核對目標是否仍由自己選擇、近期有沒有可用時間，再考慮換更合適的材料或縮小練習。用“本週嘗試哪段內容、需要什麼條件、什麼現象說明方法仍不合適”記錄觀察，而不是隻要求自己更有毅力。這個例子是可選復盤，不是已經驗證的訓練方案。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/5/paragraphs/1": {
+      "sourceHash": "9b9011925b97541292c7995d0a634e0b505da02f702174a62ea60f30268270e3",
+      "text": "下一次回顧同時記錄支援和不支援原先判斷的經歷：一次重啟可能來自得到幫助，不必解釋為人格成長；停止不合適的方法也可能是對新資訊的回應。沒有必要反覆做題直到得分變高。需要判斷學習或工作成效時，還應看對應的實際任務表現與目標條件，本卷沒有測驗這些成效。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/6/title": {
+      "sourceHash": "18eb962881b19926a1b5fed9357a212eb53067574a4c6000dd98a1f6e0ac1197",
+      "text": "均分、重測與相鄰概念：能比較什麼？"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/6/paragraphs/0": {
+      "sourceHash": "614fc929511967729c9b12d660ded155962524136b3827933a3dacbc2e73cbd6",
+      "text": "兩部分各自保留，不相加、不排序，也沒有總體0—100、百分位或四個毅力等級。全選3與其他不同組合可能同為3.00，實際行為卻不同；全選5經四條反向處理後兩組都為4.00，並不是兩組滿分。低次數的投入、缺少機會與不適用也不能混為一談。"
+    },
+    "components/questionnaires/GritLandingEditorial.ts/gritLandingSections/6/paragraphs/1": {
+      "sourceHash": "09a0161614acfa231447233072c29481f212ca529920ea6a5849ff2275a522ca",
+      "text": "Duckworth官方測量說明提醒，相關量表原本用於個體間差異，對干預前後細小變化的解釋存在不確定性，也不鼓勵在招聘或錄取等高風險場景使用。[2] 本站另有原創題本，更不能借用外部重測或預測結論。目標、機會、回憶與回答方式變化都可能改變均分；本卷不能換算自控力、成長型思維、韌性、盡責性、IQ或職業勝任。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/title": {
+      "sourceHash": "333cf91dee44c2c0d4d2cda4208af6b28cc91f38f597207e0929b2d2e11a6c71",
+      "text": "數位工具信心自評"
+    },
+    "lib/questionnaires/data/tech-savvy.json/seoTitle": {
+      "sourceHash": "7b3bd87d57f308b8596b454bd6377b16d9e8b8f681d824c32e06666c11eda0de",
+      "text": "數位工具信心自評測試：6項工具信心與免費完整讀法"
+    },
+    "lib/questionnaires/data/tech-savvy.json/description": {
+      "sourceHash": "e81df52611536472f2de00c013fe30293a1f7b82617f6006214b38ad62225545",
+      "text": "自評在六種日常工具學習任務中的信心，查看原始總分、有效評分題數和平均分數。完整指南提供計分範例及可自行選擇的觀察練習，免費且免註冊。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/instructions": {
+      "sourceHash": "fb73f37b750ab28ccd2d9b30622c7a8104f888999ab57a54a3dc81c14416f9f0",
+      "text": "回想過去一個月，對六種小型數字工具任務的信心分別評價：1為完全沒把握，5為很有把握；適當時可選不計分的“近期沒有機會／不想評價”。六題都回應後才顯示結果，至少四項數字才計算均值。這是你的信心自評，不是技能演示；不要輸入密碼、檔案或真實賬戶資訊。可以停止，或不答題直接讀完整公開指南。三分鐘為編輯估計。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/introduction": {
+      "sourceHash": "b9cd907440e23742456e6b179d626d6d4879089fefcc38227106da3f65465fca",
+      "text": "數位工具信心自評測試是一份原創六題自報問卷，回顧過去一個月對小型數字工具任務的信心，涉及開始操作、核對步驟、選擇功能、重複演示、說明卡點和嘗試可撤銷示例。六題都需選擇數字或明確不計分回答；至少四項數字時顯示一位小數均值，並列出原始總分與數字項數。完整指南解釋任務區別、覆蓋範圍、計計算範例項和可自行選擇的觀察，描述主觀信心，不將其解釋為經過演示驗證的熟練程度。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/resultHeading": {
+      "sourceHash": "bf3b8bbe6c11251f99fc78659aeb62e984ae0c7a2a78ed28a08c59d086ee2232",
+      "text": "你對六種數字工具的信心"
+    },
+    "lib/questionnaires/data/tech-savvy.json/directions/0/title": {
+      "sourceHash": "6099c8934d8b254490459c4c9c6734dccbcf52d5ee4f041526e9fe23f45d7c35",
+      "text": "小型工具學習任務的信心"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/prompt": {
+      "sourceHash": "7c46f0d8d0c7caba8823d25dd50809adf5a98f2b0f84c57f823464432d3460a7",
+      "text": "使用不含敏感資訊的範例資料試用陌生應用程式時，我有把握找到完成小任務需要的基本操作元件。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/options/0/label": {
+      "sourceHash": "921df4c183004d9698639cfb8d2d922516eb8f3a3b11c3fc8a381dbf09ca730d",
+      "text": "完全沒把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/options/1/label": {
+      "sourceHash": "0616c00289c02dd5d4a8ed56857497a7e77bff4a98a533ad0406ce84e2e044aa",
+      "text": "有一點把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/options/2/label": {
+      "sourceHash": "04d5aee9fac4a5ae97531bd088bb4491b0e52c9a53762675ea85d0650f54a2b2",
+      "text": "有一定把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/options/3/label": {
+      "sourceHash": "696676f762f80436e7cd3c853bfb163fc15e329630c2bb5ff4e72ac44c7e869f",
+      "text": "比較有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/options/4/label": {
+      "sourceHash": "a99cdb77bd48c2091130a25afc5900cea67bfda0df010b2213499c87c56c85b9",
+      "text": "很有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/0/options/5/label": {
+      "sourceHash": "48b93339944758e5683e825308ce87c55a1a9f5a9475c8a26b63ff8542a045a6",
+      "text": "近期沒有機會／不想評價"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/prompt": {
+      "sourceHash": "d46d5ef934089a7e8acf08eb0a52bc874563c85baa6e76bbf4c0d872aff33350",
+      "text": "簡單工具的運作與說明不一致時，我有把握一次檢查一項設定或一個步驟。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/options/0/label": {
+      "sourceHash": "0bde773be5fcc8e29bd9f893064bea0f26d5bb62f6db086e69f424a721a99830",
+      "text": "完全沒把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/options/1/label": {
+      "sourceHash": "d73d0ae62ed46a58f9cf953aea13ff7efbbf91b9c955eb78058181c2b91498e2",
+      "text": "有一點把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/options/2/label": {
+      "sourceHash": "4e357df866f2bd8661153a57d2f520e69fb3f72572efca9273cf25b6b75227ca",
+      "text": "有一定把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/options/3/label": {
+      "sourceHash": "966cd7cd72b7ace91e9833d9d0ef810b70b39f2c7451842e9b501294b19eb803",
+      "text": "比較有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/options/4/label": {
+      "sourceHash": "03f204016183f5b9555d65db3180750b5b4112669e4cad6948e43519bfe4eda6",
+      "text": "很有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/1/options/5/label": {
+      "sourceHash": "20a752af795316a198089e7e6d2de0abb6bd7ff335b2e2fd655bcd021db5ef90",
+      "text": "近期沒有機會／不想評價"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/prompt": {
+      "sourceHash": "374d54299a4b680c192324e7057b433009ab91daa52d0e5ed7158b8cba6a08dd",
+      "text": "為一項小型個人任務比較兩款工具時，我有把握說清楚自己實際需要哪些功能。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/options/0/label": {
+      "sourceHash": "a7a91350aa11986740ae422249eabb25930dd017476bef33ed5bca2ec93cb7e7",
+      "text": "完全沒把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/options/1/label": {
+      "sourceHash": "174a39fea53071fbf7388ef43d5fc27282dbad1ac9e3ae15fd4afad36facd5b7",
+      "text": "有一點把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/options/2/label": {
+      "sourceHash": "8964f4dfcca962bc0fa33d1ead8dc7dba0dd9e812ebee5ae3c03ea9cb6fced71",
+      "text": "有一定把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/options/3/label": {
+      "sourceHash": "7a26eb040085bd30c52c4b5b9f5768de1a01287f08153b29867cfa78b75b6a9d",
+      "text": "比較有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/options/4/label": {
+      "sourceHash": "ea7028319d073de36242d3311debd4927edc02bf9236065d5adf6ea4011f94e7",
+      "text": "很有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/2/options/5/label": {
+      "sourceHash": "b1efd2d33fc91395ba3f855b8166469757af2bb77c4d04447f3b3e9d93c1163c",
+      "text": "近期沒有機會／不想評價"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/prompt": {
+      "sourceHash": "a58b91630dea1e562d32095901801d4e2b480c26638134f841a5c728af8714a0",
+      "text": "看過簡短示範後，我有把握參考自己的簡要筆記，再做一次新學的數位操作。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/options/0/label": {
+      "sourceHash": "8205f98fcb0e79e693fea6f543230bfc763929ed82c9238a1835db4aa1cfebda",
+      "text": "完全沒把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/options/1/label": {
+      "sourceHash": "223f75ff5d215bcd2389192ab15dc04df6ce53452858fce1f08f7d7aca3d3b2f",
+      "text": "有一點把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/options/2/label": {
+      "sourceHash": "3727376360a0ab2d64678b4514ca1d06dbf839133171bf2171afa7e7c7d4d603",
+      "text": "有一定把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/options/3/label": {
+      "sourceHash": "3ac594bec50b84becae7e3f8cf330fff1ccea94c5b5a04f177c84a7d2bb37a22",
+      "text": "比較有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/options/4/label": {
+      "sourceHash": "caa66445f04fcc6f1ad6e0aefbb82670054e732348d6176b44a085e153e9fe85",
+      "text": "很有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/3/options/5/label": {
+      "sourceHash": "15361b8f4196b32b233f74239be0f8ce5a0be8af89defe6b88f0214bd685783a",
+      "text": "近期沒有機會／不想評價"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/prompt": {
+      "sourceHash": "c21f45fc1d057c0db54a557a88939adb0e5e5b8cee7f957c4ce47ac5f653ce95",
+      "text": "工具操作卡住時，我有把握在不分享私人資料的情況下，說明目標、目前的步驟及需要的協助。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/options/0/label": {
+      "sourceHash": "3f64520dacbb0e757fe2799bd464c6a3e66dbd7baf2855d41cc450b14451907a",
+      "text": "完全沒把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/options/1/label": {
+      "sourceHash": "f10a893e5a9376d13b996363abeb2ca12f9a24239d299b0355acee1e4ad77018",
+      "text": "有一點把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/options/2/label": {
+      "sourceHash": "3e7c920004bc94b4481dbaf1e0558dd173de188911e6c8ed0d80bd96e03cc1b6",
+      "text": "有一定把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/options/3/label": {
+      "sourceHash": "2e722f77d8e44b234f9096c48d645c12c5c09e2cdb91b6584044aa647edd8467",
+      "text": "比較有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/options/4/label": {
+      "sourceHash": "b36617845f39e9798186347870b61ad06f55637ac957f3130db940b82b968fb2",
+      "text": "很有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/4/options/5/label": {
+      "sourceHash": "f489b06f1ca544a7ef9826d56b4f842125ed4304563640bcb75a55e4ae5a9021",
+      "text": "近期沒有機會／不想評價"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/prompt": {
+      "sourceHash": "d79145def0ad24f5df8e1eea9db55bbedcfe66f1730363655b6081d4eccbc1cf",
+      "text": "把陌生工具用在重要事情前，我有把握先做一個可撤回的小測試，再確認產出的結果。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/options/0/label": {
+      "sourceHash": "50ba505f5e4a4673c93f1a66295e0b23117d5938b1e69be65a32cee67618d17d",
+      "text": "完全沒把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/options/1/label": {
+      "sourceHash": "84aa926816ef91c40e262fdf7a6ebe65208404bb306a9417b7b93b791ad44645",
+      "text": "有一點把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/options/2/label": {
+      "sourceHash": "ba5039ac4fb4f4f35349cc38cbbb90aa33d77b700f429e8cd0a7d99e0f534424",
+      "text": "有一定把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/options/3/label": {
+      "sourceHash": "01147b4a9f27ed445257af61c0c3a040efd70fd58cbfe90e588ba0bb8c5de017",
+      "text": "比較有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/options/4/label": {
+      "sourceHash": "9915c0868970a95d9dd0f2e47febe48af668b23faed0a845e7ddfd3a3ed33be0",
+      "text": "很有把握"
+    },
+    "lib/questionnaires/data/tech-savvy.json/questions/5/options/5/label": {
+      "sourceHash": "673a6ee735b08ac128ce35bdd07472ba0e6e0667f265b755d62d5c3a3090c6fe",
+      "text": "近期沒有機會／不想評價"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/title": {
+      "sourceHash": "68d0f7d9cb7d194aebdc20aa1c89880d62e7e0c836c12c848776fe593766f13b",
+      "text": "數位工具信心：六項自評的完整讀法"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/headline": {
+      "sourceHash": "1a7d372318d0d3745753e446e98eddac7bc76e09bd5b141bd71db7549b48b796",
+      "text": "連續的信心自評，需要連同任務和支援條件一起理解"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/summary": {
+      "sourceHash": "d9233d993de7bf1e45844a7c2079c85bee0625799c6dcb0632b702a1d7fe97bf",
+      "text": "瞭解六種信心情境、算式、缺答政策、對照例子與可選小實驗；不派熟練度型別，不作職場比較。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/scoreReading": {
+      "sourceHash": "02bd42b0d4d1d9a22bbdb4f8f04b20a93511b23c99ca4e79db8460be8cd1645b",
+      "text": "均值只描述本次的數字回答。六題全部回應後仍需至少四項數字；資料不足不會變成零分或一種型別。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/seo/title": {
+      "sourceHash": "f7a28c27805605550c7e04b4040a0f1bd1e52c6ed29af648521bf25ee9fdbdad",
+      "text": "數位工具信心自評結果：六項工具信心的完整讀法"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/seo/description": {
+      "sourceHash": "0f59143b6249fc8880197787445b388beda9403875d832821b8ea65b88d1c4a4",
+      "text": "讀懂六項工具信心自評、原始算式和未評分回答，檢視具體計算範例與一個可選示例任務；不判技能等級，不推斷職業適合度。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/0/title": {
+      "sourceHash": "603cc82abbbd43056f6fe30be5971d073bac7c4c7dcdac2af9d889803393bdf5",
+      "text": "這是信心自評，不是技能演示"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "874c648998f7ddc3dba2500673a345d269fe18708a8ea4b740784b954527399e",
+      "text": "六句話詢問你對開始、核對、選擇、重複和討論小型數字任務有多大把握，並沒有觀察你實際完成任務。有把握可能來自熟悉、介面容易使用、演示清楚或有人支援；猶豫也可能只是情境陌生，不等於做不到。無論怎樣回答，都不能證明操作的準確度或速度。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/0/paragraphs/1": {
+      "sourceHash": "5aaac78fa5e524e49cc12c5ca2e3d95f4f039ec51ef8d1807ee5ed1eaf08d43f",
+      "text": "題目刻意不羅列流行應用。你不需要認得產品名、擁有某種裝置，也不需要喜歡新功能。數值只對應這些具體任務和你想到的近期情境，不賦予“新手”“專家”或“數字原住民”等普遍身份。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/1/title": {
+      "sourceHash": "ac1c40969908920702eab391ad809749ccd8b7f995c2e0114fcd535c291d9bde",
+      "text": "六項回答怎樣形成平均分數"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "a6f6fda69bb939fdeee165a7a85763a88a1f4b0f996367bc888e739b775b884d",
+      "text": "每個數字選項按顯示的1至5計入。六題都需要選擇數字或明確的“近期沒有機會／不想評價”，本次作答才結束。後一種選擇不進入和與分母，既不是零分，也不被假定為較低評價。本版沒有反向題或隱藏權重。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/1/paragraphs/1": {
+      "sourceHash": "a6b2fc563d545ce74b1464c3caad9125252077dcd367d27919b31f71bb0478e0",
+      "text": "至少四項有數字時，用原始總分除以數字項數，再四捨五入保留一位小數。例如2、3、4、4、5及一個不計分回答，原始總分為18，數字項數為5，均值為3.6。只有三項數字時，頁面顯示資料不足，並保留這份通用完整指南。“至少四項”是本版的編輯完整度政策，不是經過驗證的閾值。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/2/title": {
+      "sourceHash": "1bcc1085b6a829b5eec55795bbc50dbea1b5dd3b2c3f1d3a4a60e79fcebd6d81",
+      "text": "把六種任務情境留在視野內"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "005439e69bb089c2b27c7d478b11a7f8909ac062418c2468b0c0bc5a609d8d90",
+      "text": "找到第一個控制元件與重複演示任務，對應學習的不同階段。輸出出乎預期時一次核對一步，是有邊界的比較；說清必要功能，是描述眼前需要；解釋卡點，涉及怎樣提出有用的求助；先試可撤銷示例，則涉及依賴工具之前是否有把握進行核對。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/2/paragraphs/1": {
+      "sourceHash": "2a432ecaed1a72c0b0079770df651a2461359ca347d44c37978e55c184e8fa9f",
+      "text": "平均數不會說明哪種情境最容易想像。若這些區別與你有關，可以回看自己的具體選項；不要把一個均值讀成六種已經證實的長處，也不要把未評分任務當作弱點。接觸機會有限、演示不清、語言或可訪問性條件，都可能影響你有機會嘗試什麼。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/3/title": {
+      "sourceHash": "5561b82a2f9a278d571d89ab042b8cdeba2ff56fd68683bf98e64d584c63a891",
+      "text": "相同均值可以來自不同經歷"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "22055368bfce7198539244c829bedd77178e09f6ead247dd2d2f5e04545f90e4",
+      "text": "假設一人把四項熟悉任務都評為4，另外兩項因陌生而不評分；另一人六項都評為4。兩者均值都是4.0，覆蓋範圍卻不同。再比較1、2、3、4、4、4與六個3：兩組和均為18、均值均為3.0，逐項模式仍不同。因此頁面會同時保留數字項數。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/3/paragraphs/1": {
+      "sourceHash": "476a36ffb85e5b1dc1247d18dfa2fdfb067c1837c478a9dcd341fdda1b113dee",
+      "text": "這裡沒有職場基準、百分位或有意義變化的界線。以後數值不同，可能因為換了任務、支援條件變了，或對選項的理解不同。若有用，你可以私下記下情境；本測試無法區分這些原因，也不能只憑數值認證進步。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/4/title": {
+      "sourceHash": "59d7d5cf54d96137af386c807004f3492292f27f70deda71c748aee1bc824bd1",
+      "text": "可選：用無敏感資訊的小例子試一次"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "b177a761b7fdac33ae913a7e16cb036bfba46b37bc0eba74dbecc9352e6daf09",
+      "text": "選一項你確實想做的小任務，例如在示例日曆中排列三個虛構約會。先用一句話寫下預期結果，用虛構條目嘗試，再對照螢幕輸出與那句話。若卡住，記下具體步驟，不必據此認定自己“不擅長技術”。請人解釋一個控制元件，也是同樣有效的下一步。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/4/paragraphs/1": {
+      "sourceHash": "0b3d1295ad30e8a456b54bcecd3a4f640077fc2a09d3c8cbff425213c42be417",
+      "text": "這只是可選的比較辦法，不是作業、表現測試或購買軟體的理由。示例不應包含私密檔案、憑據或真實賬戶變更。較高自評不能證明陌生工具安全，較低自評也不要求你練習。只讀完這份說明就結束，也完全可以。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/5/title": {
+      "sourceHash": "eeb9e7ecd299a715e21b14f82a0fbc5d69ba415c3183d5b9903570eaadf5bb77",
+      "text": "隱私、選擇與本篇讀法的界限"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "45965e54aecef8fa2db376aacf9faa5b5f1e941f528d25b0927b99456eaf21c3",
+      "text": "網站在頁面中計算結果。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。複製內容只有測試標題、通用讀法名稱和公開連結，不含六項回答、原始總分或均值。無需答題，也能先讀這份完整公開指南。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/profiles/0/sections/5/paragraphs/1": {
+      "sourceHash": "43ab94fa87ee47a682e6b63f2e87b80dc9743fd4bb34d32cc7f9d0710e7680b0",
+      "text": "這份原創簡短自評尚未建立心理測量驗證、跨語言等值或人群常模。它不測量一般數字能力、焦慮、智力、工作就緒度、薪資潛力或招聘適合度。若你需要某項具體技能的證據，定義明確的任務及經核對的輸出回答的是另一個問題；本篇的信心均值不能替代這類證據。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/0/title": {
+      "sourceHash": "1a602b114a50f42e43005f2633449d4fe25e77b10a56b678e770a1cb0e7b0861",
+      "text": "一個平均分數"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/0/paragraphs/0": {
+      "sourceHash": "1f8ae024d840dc421e3f3b64e9276d58c3b2cb10115753fd89ea45e6522a05c1",
+      "text": "六道原創題都需選擇1至5或明確不計分回答。只把數字相加，除以數字項數；至少四項數字，均值四捨五入保留一位小數。沒有反向題、隱藏權重、百分比或低中高閾值。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/1/title": {
+      "sourceHash": "274df97b41ea831b20a0c400bf7d66ec692ce52f9142f7ac6886666155bb263c",
+      "text": "數值描述什麼"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/1/paragraphs/0": {
+      "sourceHash": "64d8249b43fd1aa0e8fbfa0b10f6ec747bcc9224f6a696680dcae7e8bb93bdee",
+      "text": "均值概括過去一個月對六種指定情境的自報信心，不證明實際成功、速度、正確知識、數字能力、安全習慣、職業適合度或收入潛力。不排名、不派型別；所有有效均值都使用同一份完整連續讀法。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/2/title": {
+      "sourceHash": "9798e2593b855e9fa933208d3e9ac83ff263bc8e6decc9552b4f7bdfd9d26a90",
+      "text": "覆蓋範圍與相同數值"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/2/paragraphs/0": {
+      "sourceHash": "10f71ed3b3afb3704189fabcc83e0fa65e5e66b686e565e46cbcb8cc77fcbc9d",
+      "text": "四項數字得出4.0與六項數字得出4.0，覆蓋範圍不同。沒有機會的回答被排除，不當作零分。請把原始總分、數字項數與均值一起看；完整指南提供不同逐項模式得到相同均值的計算範例。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/3/title": {
+      "sourceHash": "2f312c0203c0178f748c2c0eb9c303ad405fb148c45df4582a24ea54e19d1e8f",
+      "text": "未完成與資料不足"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/3/paragraphs/0": {
+      "sourceHash": "ff094c16d0b940b50b71c34983fe851a6c1fcd4220c2dffba2df83ec327ef8c8",
+      "text": "未完成作答不生成結果。六題全部回應後，若少於四項數字，明確顯示資料不足，不計算個人均值；完整通用指南仍開放，全部選不計分也是如此。未知選項或題號無效，不作推算補值。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/4/title": {
+      "sourceHash": "c38b2d4148d76d312eb840aa3cebc12d884623e709474d32c4bd2ca7653c357d",
+      "text": "原創與使用範圍"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/4/paragraphs/0": {
+      "sourceHash": "18b6811959c8daab9f37a8e114c06fd6f5f743da0f97dbaa85fb86429054d44d",
+      "text": "題目、等權算式、最低迴答規則及完整讀法均為本版原創編輯選擇。六種任務關注學習和核對工具時的信心；有參考答案的計算機題與任務證據盤點回答不同問題。不聲稱心理測量或跨語言驗證。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/5/title": {
+      "sourceHash": "924755658860ba02f2accc20fdc70265a903e768136df76bd99f747b95bd5471",
+      "text": "本地結果與可選進度"
+    },
+    "lib/questionnaires/data/tech-savvy.json/guide/5/paragraphs/0": {
+      "sourceHash": "9235ee122815473b5a3f6ff8ba45d1e1e61e6ca9bb6e6dde7b947d474f2fb119",
+      "text": "在頁面內計算。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。複製內容只有標題、通用讀法名稱和公開連結，不含回答、原始總分或均值。免註冊、付款、私密檔案或賬戶操作。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/0/question": {
+      "sourceHash": "c09e3d95cd154f0796eb53ecdffab1722471e0a3885443aefe56a85d39874a51",
+      "text": "這是數字技能考試嗎？"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/0/answer": {
+      "sourceHash": "85431489e2758bcf9821923b504ee6cbb994fe09249967bb701099419cb7c42c",
+      "text": "不是。它詢問你對六種指定任務情境的信心，沒有觀察實際表現，也不考查正確答案。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/1/question": {
+      "sourceHash": "3de54741500abf9ecfe7aab4eda94542e6ccbd11c52bffb4884b41c2f68363ea",
+      "text": "均值怎樣計算？"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/1/answer": {
+      "sourceHash": "520559b41542fc7781f00cbab61362e876933c8e86ab893983d4f54aaacc12a7",
+      "text": "六題都回應後，只將1至5數字相加併除以數字項數；至少四項數字，保留一位小數。不計分回答被排除。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/2/question": {
+      "sourceHash": "df4efc0c090be7b048654814798d0bee1412edec0df6b3e296e9a722929f9dda",
+      "text": "沒試過某種任務怎麼辦？"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/2/answer": {
+      "sourceHash": "fe71663ea6c6589b2a5b184a7b638a2415ed4c33d84a0e4b1a74e687551f0fa6",
+      "text": "可選不計分的“近期沒有機會／不想評價”，也可以停止；不會換成零分。少於四項數字時不生成個人均值。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/3/question": {
+      "sourceHash": "552e72fd6a68057bad7ff7aab7ab23da61595b396da3ce2cd8ad10d19218fa09",
+      "text": "有新手或專家型別嗎？"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/3/answer": {
+      "sourceHash": "fbca671735d666053ffa6950df6894cfa477a87b7ae1f4d54c64de529a19c950",
+      "text": "沒有。本原創版採用連續讀法，沒有熟練度閾值、常模或職業排名；均值不是技能證書。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/4/question": {
+      "sourceHash": "732786c59c15fb1f1f133fa5f049aff63fd302e277161899c84e34b3cfedc99c",
+      "text": "完整指南免費嗎？"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/4/answer": {
+      "sourceHash": "d335e592e96a9b6caea6d7808faedb62a99ac7d10da7312018099d73e602cf79",
+      "text": "免費。六節完整指南答題前即可讀，符合完整度條件的作答會顯示全部個人算式；無需升級或註冊。"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/5/question": {
+      "sourceHash": "ad9d6cbc28cefc36f2ee0907122ffcf81802f41e1698e4d402cd66b4ab666ac6",
+      "text": "分享會暴露回答嗎？"
+    },
+    "lib/questionnaires/data/tech-savvy.json/faq/5/answer": {
+      "sourceHash": "f6945bf3ecc391df4b87b45cf8a39bfda31e3a97b1811629c2f990764afdba92",
+      "text": "複製按鈕只使用標題、通用讀法名稱和公開連結，不含個人回答、原始總分或均值。可選進度只存於本標籤頁，能夠清除。"
+    },
+    "lib/questionnaires/result-content/tech-savvy.json/reading-your-confidence/0/title": {
+      "sourceHash": "3ebb2901f4b3a886cbbfd9450801748a6e56add902cff2bfa2560f00447b41f0",
+      "text": "補充原創情境"
+    },
+    "lib/questionnaires/result-content/tech-savvy.json/reading-your-confidence/0/paragraphs/0": {
+      "sourceHash": "965eedcf4b8eac55a916bee6ae84a1419023b8c5ded5f6e970f9f3e156afd440",
+      "text": "補充原創情境：虛構讀者對重複演示很有把握，卻對說明卡點較猶豫；另一位有同樣均值，卻剛好相反。兩人都未實際操作，不能據此選誰來處理重要賬戶。若一次示例成功，也只提供那項任務的輸出證據，不證明自評準確、一般能力提高或其他工具安全。"
+    },
+    "lib/questionnaires/result-content/tech-savvy.json/reading-your-confidence/1/title": {
+      "sourceHash": "f8013a8610351dc2d3bba6eded88bc76ceabeb858d67e3b1a92fa0d7f3e1625e",
+      "text": "可選討論卡"
+    },
+    "lib/questionnaires/result-content/tech-savvy.json/reading-your-confidence/1/paragraphs/0": {
+      "sourceHash": "f748d8e1a0e46ac5a297f02250bb0ae2e0bfe4ec4be5e53c80ee8c7f8b58857c",
+      "text": "可選討論卡：“只看示例日曆中的三個虛構事項，預期結果是什麼？若輸出不同，先核對哪一步，又怎樣用虛構材料說明卡點？”可只讀，不需安裝應用或執行操作。聽者不索要檔案、賬戶、密碼或答卷，也不按信心均值給出專家或新手標籤；不願練習時就結束。"
+    },
+    "lib/questionnaires/result-content/tech-savvy.json/reading-your-confidence/2/title": {
+      "sourceHash": "99406523e8e90f6dcd9443ce9ce95a4f09252ee9c96fdafc7b99735cefbb12ab",
+      "text": "補充使用邊界"
+    },
+    "lib/questionnaires/result-content/tech-savvy.json/reading-your-confidence/2/paragraphs/0": {
+      "sourceHash": "1621b77c665cace5185c3e23ae12dfc6d8ad477389e3d918486bb9a10330478b",
+      "text": "新增情境與討論卡為費馬編輯部原創；可只讀，原有觀察也可跳過。僅回想過去一個月六種小型工具任務的主觀信心，1至5，3為有一定把握，不是中立、頻率或正確答案。六題都需回應，無反向；近期沒有機會或不想評價不評分，不補零或中點。至少四項數字，用和除以數字項數並顯示一位小數：2、3、4、4、5與未評分為18÷5＝3.6；三項數字不給均值，完整通用讀法仍可讀。四項規則只是編輯完整度約定，小數不證明精度。相同均值可能有不同覆蓋和題目模式，較高不驗證技能，較低或缺少機會不證明無能，變化不認證進步。題本尚無已建立的信效度、常模或中英等值；不評數字能力、招聘、收入或工具安全。無需私人資料、消費或真實賬戶變更。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。複製只含標題、通用讀法名稱和公開連結，不含回答、和或均值。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/0/question": {
+      "sourceHash": "32f30ff213bb1cf6fa45f46285b56a83f54d629e46ed5c233f91637dc7dc2596",
+      "text": "本問卷的3是什麼意思？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/0/answer": {
+      "sourceHash": "520aae647109b9bfa935623f29d70b7b4e17b00164fd72e3045b117006ebda5d",
+      "text": "表示對指定任務“有一定把握”，屬於數字評價，不表示不確定、答錯或某個數字技能等級。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/1/question": {
+      "sourceHash": "9b32c13a02d37b0562880f666af96ded038b2eef9b90e9370211f25f323d64b3",
+      "text": "不評分是否表示我不會？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/1/answer": {
+      "sourceHash": "eaa39b580924393f95c1fbf21d8691ba4353d7de66721c2d4c7d12899c5c881b",
+      "text": "不表示。近期沒有機會或不想評價明確不計分，從原始總分與分母排除，不推斷原因。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/2/question": {
+      "sourceHash": "26c15f14039977894fad6ceb3d5aab0bddfcc90c59d940b7d2d9f23164d66f6d",
+      "text": "為什麼均值旁邊還顯示數字項數？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/2/answer": {
+      "sourceHash": "257c25f55840c45ddd5dea55bd0024badceb3b7b13f6d7a86646413abec28e57",
+      "text": "數字項數顯示覆蓋範圍。四項與六項可能得到相同均值，卻覆蓋不同任務，應連同具體選項閱讀。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/3/question": {
+      "sourceHash": "2b836d1ece8b356f17b5da40aa4db306d3057d6155c65457f30b478e71f6166f",
+      "text": "這是DigCompSat短版或認證考試嗎？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/3/answer": {
+      "sourceHash": "8c2ab85a4e0082995120e332eafc5416016aac62c0820e90440a4d6ff2eb8f39",
+      "text": "都不是。六條原創信心題未與DigComp等級標定，也不繼承其他工具的驗證結論，不頒發證書。[1]"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/4/question": {
+      "sourceHash": "f91415f8170ae62987fb565f2f565b5354062bf09a23354a950653cc43625626",
+      "text": "需要安裝應用或提交檔案嗎？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/4/answer": {
+      "sourceHash": "dcdef6baad55d78d4a18b781926b1d176d00452cb53db9a5d93e0b84cbb7683b",
+      "text": "不需要。根據任務描述評價即可，無需密碼、私密檔案、真實賬戶操作或購買軟體。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/5/question": {
+      "sourceHash": "449fa6c324064a480be6b69a710439fa0134a8c81fe7b6ad88f81a71644ffe88",
+      "text": "均值能證明我進步了嗎？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/5/answer": {
+      "sourceHash": "f9f53d681e25951be014a40aa30fe599b61144be7f44d42bac8064d0f6a403c0",
+      "text": "僅憑均值不能。任務熟悉度、可用幫助和選項理解可能變化，本版沒有經過驗證的變化閾值。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/6/question": {
+      "sourceHash": "ac93d2eab69e04da47cbcfcf0cd6f8fbd06c5c149c3306fe9422588e7430298b",
+      "text": "不完成問卷能否閱讀全部說明？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/6/answer": {
+      "sourceHash": "8778ebdc6efce846ecb8f8f7aeed4c08deacb2c474d842733a28b42d6231aca5",
+      "text": "可以。同一份完整連續讀法公開開放，包含計算範例和可自行選擇的觀察；完成後數字項數不足時也仍可閱讀。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/7/question": {
+      "sourceHash": "eef50dc061211241f4619af60b2bf60d07a4c201966f188e1bb97ef6213c7ea7",
+      "text": "信心較高是否能保證工具使用安全？"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingFaq/7/answer": {
+      "sourceHash": "f39e1178ec703d77c58cd2c16ee93a16abd0845d984b5a960322d56ec7047994",
+      "text": "不能。頁面不檢查工具、驗證輸出或評估安全操作，應將實際任務及其條件與主觀信心分別核對。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingReferences/0/title": {
+      "sourceHash": "cfcb5f2c73a426e58887848d13cbbb62557cad826f50750f53c79fa9cedc67d8",
+      "text": "歐盟委員會JRC：基於DigComp的測評工具（背景）"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingReferences/1/title": {
+      "sourceHash": "32be8c8279e0503311a7a4bbf48bfcc84c0a00b6594bbd99c2ef7c19ea778359",
+      "text": "英國開放大學：數字技能課程學習目標"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/0/title": {
+      "sourceHash": "e3532bfc328fc4de12fa49b796d544dcca9024d6d1fa8aa56acfb3fb8cc30105",
+      "text": "數位工具信心自評測什麼？六種小任務的信心"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/0/paragraphs/0": {
+      "sourceHash": "63714938941696baed018f53d95e44fae5a4a3b180e0dcda979936dc17157514",
+      "text": "這份原創六題問卷回顧過去一個月：找到基本控制元件、核對步驟、選擇必要功能、重複演示、說明卡點，以及嘗試可撤銷示例。分別評價對指定情境有多大把握；不要求演示操作、回答知識題或上傳檔案。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/0/paragraphs/1": {
+      "sourceHash": "45b38979214b33a3b41329fc66b16d87e88f18bb6acb8c8464cc537bd69e645e",
+      "text": "數字能力包含的內容比信心更多。歐盟委員會聯合研究中心介紹，DigCompSat涉及五個領域的知識、技能與態度。[1] 本六題問卷不是DigCompSat、DigComp等級測評或其等價短版；均值只概括你選擇的信心評價。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/1/title": {
+      "sourceHash": "228c81b3f8c6507ed8b57174b52c8c1ab23ae7cf838b4ebe4ed2c5da2e045f68",
+      "text": "找到控制元件與核對異常步驟"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/1/paragraphs/0": {
+      "sourceHash": "dfe7a8785aaa47334f0797e4329eb121b8df0c4a1f3b5a3fb15df0ef03933d3e",
+      "text": "第一條關注用無敏感資訊的示例資料，在陌生應用中開始一個小任務；第二條關注工具表現與說明不同時，一次比較一個設定或步驟。開始操作與排查問題屬於不同階段，有把握開始不代表能夠解決之後的所有問題。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/1/paragraphs/1": {
+      "sourceHash": "5533600ae322f0b5f786989220a5f2b33f5968d3a5628f0da1d53d42f74aa977",
+      "text": "例如，在示例日曆中找到新建事件控制元件，與核對虛構約會為何顯示在錯誤日期，是兩項不同觀察。回憶一次成功操作可以幫助評價，但頁面不會驗證輸出。裝置佈局、語言和控制元件可訪問性可能影響你有機會嘗試什麼。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/2/title": {
+      "sourceHash": "ecc13fd849c1ac3989e7a756adbecbdc63fe54a37b07ce76cc92e2a0a6fc15e1",
+      "text": "選擇功能與重複演示"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/2/paragraphs/0": {
+      "sourceHash": "49f1591bdc218a64b70345d2825af219a09c446dc32480cd760d9aebf048984b",
+      "text": "第三條詢問是否有把握說清小型個人任務所需的功能；第四條詢問看過簡短演示後，能否藉助自己的筆記重複新操作。兩條都不詢問認識多少應用、購買多少軟體，或能否完全不靠幫助工作。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/2/paragraphs/1": {
+      "sourceHash": "a62bb61ecafd06c7dd05d016e23c68985e403af5c257b1f5c03b318c2582c742",
+      "text": "例如要排列三個虛構條目，辨認“需要排序”與看演示後記住選單步驟是不同事情。評價時保留任務大小和筆記條件；六項自評不認證功能選擇的專業性，也不測量記憶能力。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/3/title": {
+      "sourceHash": "6c31a1762ee765ee38c64b2698d9545d5934fdde781fe2daed4aaefae5b612a5",
+      "text": "說明卡點與核對可撤銷示例"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/3/paragraphs/0": {
+      "sourceHash": "078cfe3cd52c7c5ea84a8cd82acf32342a72b85040949c340e944d91a7c8d751",
+      "text": "第五條關注在不暴露隱私資料的前提下說明目標、當前步驟和所需幫助；第六條關注把陌生工具用於重要事情之前，先做可撤銷的小示例。它們詢問對有限行動的主觀把握，不評判總體獨立程度，也不保證工具使用安全。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/3/paragraphs/1": {
+      "sourceHash": "0be6299c3d7145d33755b7577d274f44e87abc4c5ed27172f25808602bca146d",
+      "text": "虛構求助可以這樣描述：示例表格未按預期排序，說明已經試過哪個選單，再詢問應核對哪個控制元件。本頁不需要真實文件、賬戶名稱或截圖。求助可以是任務的一部分，不能據此認定能力不足。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/4/title": {
+      "sourceHash": "125037abdc7a79ef265e6c489128db23ef95be5d1f1d6593c344381d015f97ff",
+      "text": "把原始總分、數字項數與一位小數均值一起讀"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/4/paragraphs/0": {
+      "sourceHash": "ba4360778234c0b0729795b98469b23d5064e8fd1687fa5086c157cf48fb107f",
+      "text": "六題都需選擇數字或明確不計分回答。只把1至5相加；至少四項數字時，原始總分除以數字項數，四捨五入保留一位小數。沒有反向題、權重或熟練度檔位。例如2、3、4、4、5及一個不計分回答，原始總分18、數字項數5、均值3.6。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/4/paragraphs/1": {
+      "sourceHash": "96ca42e73d66ebbd86361d9c1e824966c9c25440075e4aa6d590697128d73f49",
+      "text": "本問卷的3表示“有一定把握”，與將中間選項定義為不確定的其他問卷不同。不計分回答既不補0，也不補3。少於四項數字時明確不計算均值，仍保留完整通用指南。四項是編輯覆蓋規則，不是經過實證驗證的通過線。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/5/title": {
+      "sourceHash": "16418b3d087c1fd96bbfdfaa242a849c938c612b37d4262ec664ec5c243eb68d",
+      "text": "相同均值可能覆蓋不同任務"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/5/paragraphs/0": {
+      "sourceHash": "d80dc1d0e1be7c6439d9f817810dfa080021ac587151e962e43cac2e25e1bde9",
+      "text": "四個4加兩項不計分，與六個4，均值都是4.0，但覆蓋範圍不同。六個3與1、2、3、4、4、4的均值都是3.0，逐項回答卻不同。應結合回答記錄閱讀，不把平均數當作六種已經證明的長處。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/5/paragraphs/1": {
+      "sourceHash": "bf1f3f146dcbb1ccee30458505ea08a2d40bf1c55b5a29ded435ca78f9fdbd06",
+      "text": "之後數值不同，無法區分練習、新應用、支援條件變化，或對選項理解不同等原因。本版尚未建立測量誤差、可靠變化閾值或人群常模；不能據此給使用者排名、預測收入或決定崗位適合度。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/6/title": {
+      "sourceHash": "3749097b4204b83d705954cdd9030e9dbf0bde738807ee27e2c2481263ade279",
+      "text": "一個可選的小比較，不是訓練處方"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/6/paragraphs/0": {
+      "sourceHash": "adc9c1ef4f7805c1fff52ee90507f68ab627b5afedf9a4062e599d9954928ae4",
+      "text": "若有用，可以選一項你確實想做、不會涉及敏感資訊的小任務：說明預期輸出，用虛構條目嘗試，再對照結果。例如排列三個示例日曆事件，或給三行虛構資料排序。示例保持可撤銷，與重要賬戶和私人檔案分開。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/6/paragraphs/1": {
+      "sourceHash": "f1072039467d78f23ae666712b1e3400e21e79deaab6fa6443a8c8dd319e2456",
+      "text": "可以只閱讀、請人演示，也可以不嘗試。這項建議不要求購買工具或證明進步。英國開放大學課程將回顧數字信心與為實際任務選擇、使用工具分別列為學習內容。[2] 完成本頁不會獲得該校徽章或任何證書。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/7/title": {
+      "sourceHash": "ff04320a3571149388b4e9f1c4dadf4e27abfb73fcefb691062f892704d189f6",
+      "text": "研究範圍、全文閱讀與自願儲存進度"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/7/paragraphs/0": {
+      "sourceHash": "ba7883f6848722e4b31785f5c42b01c9e5a1f005dff7de35c0a84ea16b79d96e",
+      "text": "六條題目和等權算式屬於原創編輯選擇。本版尚未建立信度、效度、跨語言等值，或與外部數字技能框架的標定。外部標準幫助說明更廣泛測評應覆蓋什麼，不會自動驗證這個具體分數。"
+    },
+    "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingSections/7/paragraphs/1": {
+      "sourceHash": "626ed1f93faba5f3f7f7f1632fdf32478295669299ff1d6538cdaacb61b41499",
+      "text": "答題前即可閱讀完整公開指南，在瀏覽器中計算。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。複製僅包含通用讀法名稱和公開連結，不含回答、原始總分或均值；公開指南不是私人分數報告。"
+    },
     "lib/questionnaires/data/locus-of-control.json/title": {
       "sourceHash": "228221c1ec464635e03ce5205686e172cab679e348152ba88427865ca71d035a",
       "text": "控制點測驗"
