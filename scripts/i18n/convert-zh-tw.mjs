@@ -72,23 +72,32 @@ export function build(previous = {}, selectedSources = sources, loadedEditorials
   }
   return { artifact: { targetLocale: 'zh-TW', converter, glossary, sourceHashes, units }, snapshots };
 }
-if (process.argv[1] === fileURLToPath(import.meta.url)) for (const pkg of packages) {
-  const output = new URL(pkg.output, root);
-  const previousRaw = existsSync(output) ? readFileSync(output, 'utf8') : '';
-  const editorials = Object.fromEntries(await Promise.all(pkg.sources
-    .filter(path => path.endsWith('LandingEditorial.ts'))
-    .map(async path => [path, await import(new URL(path, root))])));
-  const { artifact, snapshots } = build(previousRaw ? JSON.parse(previousRaw) : {}, pkg.sources, editorials);
-  const next = JSON.stringify(artifact, null, 2) + '\n';
-  if (process.argv.includes('--check')) {
-    if (previousRaw !== next) throw new Error('Traditional resources are missing or stale; run pnpm i18n:zh-TW');
-  } else if (previousRaw !== next) {
-    // Optimistic source and destination binding; replace the one code-owned package atomically.
-    for (const [path, raw] of Object.entries(snapshots)) if (readFileSync(new URL(path, root), 'utf8') !== raw) throw new Error(`Source changed: ${path}`);
-    if ((existsSync(output) ? readFileSync(output, 'utf8') : '') !== previousRaw) throw new Error('Target changed concurrently');
-    const temporary = new URL(`${output.href}.${process.pid}.tmp`);
-    writeFileSync(temporary, next, { flag: 'wx' });
-    renameSync(temporary, output);
+async function main() {
+  for (const pkg of packages) {
+    const output = new URL(pkg.output, root);
+    const previousRaw = existsSync(output) ? readFileSync(output, 'utf8') : '';
+    const editorials = Object.fromEntries(await Promise.all(pkg.sources
+      .filter(path => path.endsWith('LandingEditorial.ts'))
+      .map(async path => [path, await import(new URL(path, root))])));
+    const { artifact, snapshots } = build(previousRaw ? JSON.parse(previousRaw) : {}, pkg.sources, editorials);
+    const next = JSON.stringify(artifact, null, 2) + '\n';
+    if (process.argv.includes('--check')) {
+      if (previousRaw !== next) throw new Error('Traditional resources are missing or stale; run pnpm i18n:zh-TW');
+    } else if (previousRaw !== next) {
+      // Optimistic source and destination binding; replace the one code-owned package atomically.
+      for (const [path, raw] of Object.entries(snapshots)) if (readFileSync(new URL(path, root), 'utf8') !== raw) throw new Error(`Source changed: ${path}`);
+      if ((existsSync(output) ? readFileSync(output, 'utf8') : '') !== previousRaw) throw new Error('Target changed concurrently');
+      const temporary = new URL(`${output.href}.${process.pid}.tmp`);
+      writeFileSync(temporary, next, { flag: 'wx' });
+      renameSync(temporary, output);
+    }
+    console.log(`zh-TW: ${Object.keys(artifact.units).length} reader fields; sources=${pkg.sources.length}; ${process.argv.includes('--check') ? 'verified' : 'generated'}`);
   }
-  console.log(`zh-TW: ${Object.keys(artifact.units).length} reader fields; sources=${pkg.sources.length}; ${process.argv.includes('--check') ? 'verified' : 'generated'}`);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
 }
