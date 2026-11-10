@@ -8,6 +8,12 @@ const practiceProfiles: Readonly<Record<string, readonly string[]>> = {
   "sales-aptitude": ["discovery", "fit", "follow-up", "sales-maths"],
   "situational-judgement": ["priorities", "ownership", "updates", "permissions", "teamwork"],
   "aptitude-test": ["numerical", "verbal", "deductive", "patterns", "error-checking"],
+  "abstract-reasoning": ["series", "analogies", "classification", "transformations"],
+  "logical-reasoning": ["quantifiers", "conditions", "deduction", "constraints"],
+  "mechanical-reasoning": ["levers", "gears", "pulleys", "springs", "fluids"],
+  "verbal-reasoning": ["vocabulary", "analogies", "reading", "logic"],
+  "numerical-reasoning": ["arithmetic", "percentages", "ratios", "data", "rates"],
+  "spatial-reasoning": ["rotations", "reflections", "folds", "cube-turns", "layouts"],
 };
 
 export const traditionalPracticeSlugs = Object.keys(practiceProfiles);

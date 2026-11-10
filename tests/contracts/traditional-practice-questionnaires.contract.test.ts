@@ -1,3 +1,6 @@
+import { spatialReasoningLandingReferences } from "@/components/questionnaires/SpatialReasoningLandingEditorial";
+import { numericalReasoningLandingReferences } from "@/components/questionnaires/NumericalReasoningLandingEditorial";
+import { abstractReasoningLandingReferences } from "@/components/questionnaires/AbstractReasoningLandingEditorial";
 import { describe, expect, it } from "vitest";
 import { customerServiceLandingReferences } from "@/components/questionnaires/CustomerServiceLandingEditorial";
 import { digitalCitizenshipLandingReferences } from "@/components/questionnaires/DigitalCitizenshipLandingEditorial";
@@ -18,10 +21,19 @@ const editions = [
   ["sales-aptitude", 24, 4],
   ["situational-judgement", 25, 5],
   ["aptitude-test", 30, 5],
+  ["abstract-reasoning", 24, 4],
+  ["logical-reasoning", 24, 4],
+  ["mechanical-reasoning", 30, 5],
+  ["verbal-reasoning", 24, 4],
+  ["numerical-reasoning", 30, 5],
+  ["spatial-reasoning", 30, 5],
 ] as const;
 
 describe("Traditional practice editions", () => {
   it.each([
+    ["abstract-reasoning", abstractReasoningLandingReferences],
+    ["numerical-reasoning", numericalReasoningLandingReferences],
+    ["spatial-reasoning", spatialReasoningLandingReferences],
     ["customer-service-aptitude", customerServiceLandingReferences],
     ["digital-ethics-citizenship", digitalCitizenshipLandingReferences],
     ["situational-judgement", situationalJudgementLandingReferences],

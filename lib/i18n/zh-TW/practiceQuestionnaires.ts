@@ -1,3 +1,9 @@
+import { abstractReasoningLandingFaq, abstractReasoningLandingSections, abstractReasoningLandingReferences } from "@/components/questionnaires/AbstractReasoningLandingEditorial";
+import { logicalReasoningLandingFaq, logicalReasoningLandingSections } from "@/components/questionnaires/LogicalReasoningLandingEditorial";
+import { mechanicalReasoningLandingFaq, mechanicalReasoningLandingSections } from "@/components/questionnaires/MechanicalReasoningLandingEditorial";
+import { verbalReasoningLandingFaq, verbalReasoningLandingSections } from "@/components/questionnaires/VerbalReasoningLandingEditorial";
+import { numericalReasoningLandingFaq, numericalReasoningLandingSections, numericalReasoningLandingReferences } from "@/components/questionnaires/NumericalReasoningLandingEditorial";
+import { spatialReasoningLandingFaq, spatialReasoningLandingSections, spatialReasoningLandingReferences } from "@/components/questionnaires/SpatialReasoningLandingEditorial";
 import { computerLiteracyLandingFaq, computerLiteracyLandingSections } from "@/components/questionnaires/ComputerLiteracyLandingEditorial";
 import { digitalCitizenshipLandingFaq, digitalCitizenshipLandingSections, digitalCitizenshipLandingReferences } from "@/components/questionnaires/DigitalCitizenshipLandingEditorial";
 import { customerServiceLandingFaq, customerServiceLandingSections, customerServiceLandingReferences } from "@/components/questionnaires/CustomerServiceLandingEditorial";
@@ -91,6 +97,57 @@ const editions = {
     prefix: "aptitude",
     sections: aptitudeLandingSections,
     faq: aptitudeLandingFaq,
+  },
+  "abstract-reasoning": {
+    reading: "abstract-reasoning",
+    load: () => import("@/lib/questionnaires/result-content/abstract-reasoning.json"),
+    editorial: "AbstractReasoningLandingEditorial",
+    prefix: "abstractReasoning",
+    sections: abstractReasoningLandingSections,
+    faq: abstractReasoningLandingFaq,
+    references: abstractReasoningLandingReferences,
+  },
+  "logical-reasoning": {
+    reading: "logical-reasoning",
+    load: () => import("@/lib/questionnaires/result-content/logical-reasoning.json"),
+    editorial: "LogicalReasoningLandingEditorial",
+    prefix: "logicalReasoning",
+    sections: logicalReasoningLandingSections,
+    faq: logicalReasoningLandingFaq,
+  },
+  "mechanical-reasoning": {
+    reading: "mechanical-reasoning",
+    load: () => import("@/lib/questionnaires/result-content/mechanical-reasoning.json"),
+    editorial: "MechanicalReasoningLandingEditorial",
+    prefix: "mechanicalReasoning",
+    sections: mechanicalReasoningLandingSections,
+    faq: mechanicalReasoningLandingFaq,
+  },
+  "verbal-reasoning": {
+    reading: "verbal-reasoning",
+    load: () => import("@/lib/questionnaires/result-content/verbal-reasoning.json"),
+    editorial: "VerbalReasoningLandingEditorial",
+    prefix: "verbalReasoning",
+    sections: verbalReasoningLandingSections,
+    faq: verbalReasoningLandingFaq,
+  },
+  "numerical-reasoning": {
+    reading: "numerical-reasoning",
+    load: () => import("@/lib/questionnaires/result-content/numerical-reasoning.json"),
+    editorial: "NumericalReasoningLandingEditorial",
+    prefix: "numericalReasoning",
+    sections: numericalReasoningLandingSections,
+    faq: numericalReasoningLandingFaq,
+    references: numericalReasoningLandingReferences,
+  },
+  "spatial-reasoning": {
+    reading: "spatial-reasoning",
+    load: () => import("@/lib/questionnaires/result-content/spatial-reasoning.json"),
+    editorial: "SpatialReasoningLandingEditorial",
+    prefix: "spatialReasoning",
+    sections: spatialReasoningLandingSections,
+    faq: spatialReasoningLandingFaq,
+    references: spatialReasoningLandingReferences,
   },
 };
 
