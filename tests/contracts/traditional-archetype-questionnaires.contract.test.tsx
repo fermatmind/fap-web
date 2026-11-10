@@ -151,3 +151,18 @@ it("keeps both synthetic Taiwan aura results and their public comparison routes"
   expect(guide.querySelector('[data-quiz-artwork="blue"]')).not.toBeNull();
   expect(screen.getByRole("link", { name: "對照七種光環顏色" })).toHaveAttribute("href", "/zh-TW/tests/explore/aura-color#questionnaire-results");
 });
+
+it("keeps all eight Taiwan moon phase links, diagrams and three example outcomes", async () => {
+  const slug = "moon-phase";
+  const { container } = render(await ArchetypeQuestionnairePage({ slug }));
+  const comparison = container.querySelector("#moon-phase-comparison")!;
+  expect(comparison.querySelectorAll("img")).toHaveLength(8);
+  expect([...comparison.querySelectorAll("a")].every(link =>
+    link.getAttribute("href")?.startsWith("/zh-TW/tests/explore/moon-phase/results/"))).toBe(true);
+  expect(screen.getByRole("heading", { name: /^眉月$/ })).toBeVisible();
+  expect(screen.getByRole("heading", { name: /^殘月$/ })).toBeVisible();
+  expect(container.querySelectorAll("[data-moon-phase-example]")).toHaveLength(3);
+  cleanup();
+  const { container: guide } = render(await ArchetypeQuestionnairePage({ slug, profile: "waning-crescent" }));
+  expect(guide.querySelector("[data-moon-phase-public-diagram] img")).not.toBeNull();
+});

@@ -127,6 +127,8 @@
     "lib/questionnaires/result-content/stupidity-test.json": "a217290c577b4ee61700469bc46e09a0aa4303ea6838b2cca8cd3a911b380710",
     "lib/questionnaires/data/aura-color.json": "470ed6b5b15c3d97ebb46caa5f568519f25b6b606f82bdd5889dc937542119c3",
     "lib/questionnaires/result-content/aura-color.json": "1f62ab82b64514c4c5ee9176ddf4ba83c343e4af91331babd82c2f634ac512ab",
+    "lib/questionnaires/data/moon-phase.json": "a04d17d54660f7b09ad7bd6fb5a25f2547fb5a9f21ff6a17d02550d3bdf2fd06",
+    "lib/questionnaires/result-content/moon-phase.json": "bb648a4c39d1ee8a926c4ee4aa6904d34d9a2c699f0d43506583cc9f5e43d818",
     "lib/questionnaires/data/avatar-bender-quiz.json": "19c04bffd881ba87641c361e20e6eb89b8b2e5964e9b61be9bc5eb49392641e7",
     "lib/questionnaires/data/soldier-poet-king-quiz.json": "c4439225f375032ab1eef4ff2097e1ac790d4bf3a0107d791e338074261c4dd0",
     "components/questionnaires/MythicalCreatureLandingEditorial.ts": "59766ced578c069dbaa98779e96b39aa4cfd02f9e9194785a9bedbc0f948e664",
@@ -183,7 +185,8 @@
     "components/questionnaires/FlowerLandingEditorial.ts": "d895c7afee4f189a4e297e3c76dbaef2ea5a62d677c87cb783e16e2769d8bc18",
     "components/questionnaires/ColorSeasonLandingEditorial.ts": "eb10b1420acd39510e1ecff7cb6eac3c09c71e5829d32ddbdd486e0a4674b53d",
     "components/questionnaires/SakeTypeLandingEditorial.ts": "ca1cc2d67125b80c27e5dc21694537bf9d676aa5a44007f27caafcb732730b45",
-    "components/questionnaires/EverydayMixupsLandingEditorial.ts": "2e577525a19720745856faa039cb318f0e502ee5db8e542e70f69913b6d8cb62"
+    "components/questionnaires/EverydayMixupsLandingEditorial.ts": "2e577525a19720745856faa039cb318f0e502ee5db8e542e70f69913b6d8cb62",
+    "components/questionnaires/MoonPhaseLandingEditorial.ts": "985d8816780eedb3f4ee00a7e4ad51f94704821756c8d463cb686e807d7879df"
   },
   "units": {
     "lib/questionnaires/data/mythical-creature.json/title": {
@@ -83402,6 +83405,1726 @@
       "sourceHash": "6b1ad9f86099cfb99fd7dab08c76bfd0e22d04c38800c5de6751100c3bdc6d32",
       "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
     },
+    "lib/questionnaires/data/moon-phase.json/title": {
+      "sourceHash": "181105d57053b928ac310f9d3e330d2df47db1874c33adc20219b7e5ff17822c",
+      "text": "月相測驗"
+    },
+    "lib/questionnaires/data/moon-phase.json/resultHeading": {
+      "sourceHash": "3a3a12467464f2db1a8c312f9904e152dacdc3195ce442ba3f874fc366886901",
+      "text": "八種月相意象的本次選擇與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/description": {
+      "sourceHash": "1328916a1e0a10db2e7ef561731df455b60ce87516416136678b35f3cebda848",
+      "text": "你最近的活動節奏更像哪種月相？24道免費情境題，檢視八項選擇次數、所有最高並列與完整指南。無需生日或註冊，不計算出生月相。"
+    },
+    "lib/questionnaires/data/moon-phase.json/seoTitle": {
+      "sourceHash": "1a533f4d2eba5828d7b5d87f6081332813496ede571f203836170f0d0ff99bc0",
+      "text": "月相測驗：24題看看你是哪種月相意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/introduction": {
+      "sourceHash": "2c96fe0a23b3b8d386b33e0924af3dc90991da819e8a2bc9faa1821a07d9eaad",
+      "text": "你最近做一件小事的節奏，更像哪種月相？這份月相測驗把八個月相名稱用作普通活動的節奏意象：開始前留一點空間、嘗試一個小步驟、說明當前取捨、調整一個細節、收束可呈現的版本、分享一條經驗、減少可選負擔，或保留一個間隔。24道原創四選一比較你現在更願意採用哪種做法；完成後呈現八項原始次數與所有最高並列，八份完整指南也可以先讀。\n\n這些是本站設計的當代比喻，不是天文學中的人格分類。問卷不收生日，不查你出生時或此刻的月相，也不計算月亮星座。選擇一種做法，可以幫助你說清一項普通活動的安排；它不能說明你的身體與月球同步、你處於某個人生階段，或其他做法就不適合你。"
+    },
+    "lib/questionnaires/data/moon-phase.json/instructions": {
+      "sourceHash": "cc35302050d9d7809ddce34f89112308a7656804f750a134139fa0838b6de7a9",
+      "text": "請以近期一項普通、自選的小活動為參照，每題選更願意採用的一種做法。幾項都合適時選相對更想做的；沒有完全合適的選項時選較接近的。無需觀察天空或提供出生資料，也不用證明效率、毅力或完成能力。完成24題後生成計數與全部最高並列的完整解讀。"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/0/title": {
+      "sourceHash": "5449a7adb89a615c1f7d92f3917293d3a826ca91c019e25435a20cd508d4f6b1",
+      "text": "新月意象：留白與自選意圖"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/1/title": {
+      "sourceHash": "f3ff11f1620861c21ed17580641ae76aa98a6c9eb63d9a82303209b8e87855fe",
+      "text": "眉月意象：微小可改嘗試"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/2/title": {
+      "sourceHash": "77a42c9565e69a84320efcbe6c3eab953f0fe03c4e46b0414c7df63980acf9c4",
+      "text": "上弦月意象：明確當前取捨"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/3/title": {
+      "sourceHash": "c1fcdf78ea18e1ce09cdebae48e4931f744fc5c1482b321515ef0e94265122fd",
+      "text": "盈凸月意象：讓一處更合用"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/4/title": {
+      "sourceHash": "8a34809deeddea940bc6bf0144c9ce9b133fb025ce4f52426fe5d3033472007b",
+      "text": "滿月意象：自選呈現與收束"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/5/title": {
+      "sourceHash": "d5b9cb88a7ea196573ae8f5cf534fe2f9bd35330009690e8dd8c4d62de253fa2",
+      "text": "虧凸月意象：分享可用經驗"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/6/title": {
+      "sourceHash": "215d228e87a1c91cbc94a6e069c31d580425f9c9fe20a961250ab2a46493108c",
+      "text": "下弦月意象：減少可選負擔"
+    },
+    "lib/questionnaires/data/moon-phase.json/directions/7/title": {
+      "sourceHash": "5fda5fb2979b7845793212adbf460d1f1fe1264c4f6fe8d750fbdc3fd0f500df",
+      "text": "殘月意象：保留安靜間隔"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/0/prompt": {
+      "sourceHash": "f6ecfb3f2a6dbc324900f7357a6b7dd6eaf91ff6111593991de263dbe8f05ffd",
+      "text": "為自己選的一項普通小活動留時間，你更願意先做什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/0/options/0/label": {
+      "sourceHash": "dbb8f86afd3ee799127cf9a0574e41e4032ce1c6453bc2778e38cdad0b826250",
+      "text": "先留一點空白，寫清這次自己願意在意什麼。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/0/options/1/label": {
+      "sourceHash": "2e858a0e44db00481b2f0e3705ec1272a00f862b8f76d0edacc6f55bd2a7f1a1",
+      "text": "只試一個很小、隨時可改的步驟，看看是否還想繼續。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/0/options/2/label": {
+      "sourceHash": "1b81722e498a1f48a4e96e0fb839579ceb20cc352734ab2c9abacb313a00da8e",
+      "text": "找一處讓當前做法更合用的細節，只改這一處。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/0/options/3/label": {
+      "sourceHash": "71ade6a114a5e13b0d5f887212014960657ba98cf24c26e24f93e79ec44849b8",
+      "text": "留一條自己願意分享的經驗，先確認誰想聽。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/1/prompt": {
+      "sourceHash": "ff4d501df3bbac3a5d26447d59ab7200ce11bfe916e9c7733f27a6c30fb406da",
+      "text": "一個自選的小製作有幾種走法，你更想怎樣接近？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/1/options/0/label": {
+      "sourceHash": "8d98dd9d52a18a695353724aca2965b44abef8c8e26f2a932b2c8eb77359143c",
+      "text": "選一處低風險的小嚐試，不先承諾完成全部。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/1/options/1/label": {
+      "sourceHash": "f6d10d542603cdc8a89a82f759bc050e9accd6088cecfd95d32f01306206c8ef",
+      "text": "把眼前兩種可行做法放在一起，明確這次願意選哪一個。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/1/options/2/label": {
+      "sourceHash": "f7383de441f937c6371f3f105feffb5baccbe8e13f417aadd4ed93f500804ec7",
+      "text": "把已經願意呈現的一小部分收好，決定展示到哪裡。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/1/options/3/label": {
+      "sourceHash": "621e45e1043240f08845bc713ee5ef2a2cb31cf0e79369036480581f0609ee6f",
+      "text": "刪去一項並不想承擔的額外安排，讓範圍小一些。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/2/prompt": {
+      "sourceHash": "3df330325e3cfb718d526bfaee01cf05b61dc0d51ba7d4215710fcadd659bc3d",
+      "text": "自己的普通安排需要重新考慮，你更願意關注什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/2/options/0/label": {
+      "sourceHash": "ce864e839b023892480a49431fe230276153146d60c48856f6c9c504ea07c0fd",
+      "text": "現有條件下願意接受哪種取捨，不追求同時保留全部。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/2/options/1/label": {
+      "sourceHash": "98dbd3ecf77c63397fb39d928d4bbe40009a83034db15c6fdb4ae7ccd60d0664",
+      "text": "一處具體細節是否還合用，願意時做一個區域性調整。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/2/options/2/label": {
+      "sourceHash": "0374aecf63ad6a720cee4878fd9868ca3c4b6729051906e95ec9107e4087e968",
+      "text": "這次經歷中哪一點願意講給確實有興趣的人。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/2/options/3/label": {
+      "sourceHash": "30b01f695aa0a02010ee681c5e57fec6c76ca9080b735611d20c120b8f3b8ef8",
+      "text": "在決定下一步之前，保留一個不用安排新任務的間隔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/3/prompt": {
+      "sourceHash": "6cd0b353c1316e0b97a51ffd2834cc0c1b89ce9127bb99dbfabb7ce3b576828d",
+      "text": "看一份自己已經有的普通草稿，你更想怎樣使用？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/3/options/0/label": {
+      "sourceHash": "b50cd081bc27a55d70012163a6c8acdfe9db51282778865612998a19984883a6",
+      "text": "選一處想改的地方，讓它更符合這次需要，改完即可停。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/3/options/1/label": {
+      "sourceHash": "9884b98f9f2099a4415e985185bea406b568269ae6235dc98591848a31e8734e",
+      "text": "確認願意展示的範圍，把這一小版收束為可讀形式。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/3/options/2/label": {
+      "sourceHash": "23d584977a729184b2011f9ab51582bc29aa630f2d98abad49019107694f3e5e",
+      "text": "去掉一項不再願意承擔的附加要求，保留較小範圍。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/3/options/3/label": {
+      "sourceHash": "91e71810330fa604a7df730abb5de5401ba98174bd0730e201dc8c62d5716a57",
+      "text": "暫不急著推進，重新寫一句自己希望這份草稿服務什麼。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/4/prompt": {
+      "sourceHash": "7a0d7230a495564f84eedce2b89955beb7eb434180d727e608fbe71ef17b3ce7",
+      "text": "一項普通小活動到了可以暫告一段落的時候，你更想做什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/4/options/0/label": {
+      "sourceHash": "9de7b9ac398ffefda3468803d42a6500c5840b35260a46cb7043c75382d3eafd",
+      "text": "把願意讓人看見的部分收好，允許只呈現這一次的範圍。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/4/options/1/label": {
+      "sourceHash": "7de6956b07c1be37ee87f18a4c16d141875f00d2b3a55f4e81f40d0cf39ea66a",
+      "text": "記錄一條可以自願分享的經驗，不替別人規定做法。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/4/options/2/label": {
+      "sourceHash": "824ed83817bb4a2618a6a24d8a8f8b0435caf73948c1d976cfe6233f1aa1a8fd",
+      "text": "結束後留一點不需要立即開始別的事的安靜間隔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/4/options/3/label": {
+      "sourceHash": "a704af1b09a5f1e3a170be1b6b5600da5a8b8138db8d9d17ae4c8c2e50a09f84",
+      "text": "保留一個小而可改的後續試法，願意時再試。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/5/prompt": {
+      "sourceHash": "947637efaa3442a074a84db6152b933b1e2fab357ac896720f8485a56c9a2f2e",
+      "text": "回顧自己選的一次普通嘗試，你更願意留下什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/5/options/0/label": {
+      "sourceHash": "b7874a1360455e200c6d128c4842453a87f2271903cfefea4985f370cbf36e3b",
+      "text": "一條對自己合用的經驗，確認對方想聽時再講。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/5/options/1/label": {
+      "sourceHash": "6846421c34a85699a91f451556d0740dd6848134619de0e8b3ee729bb25b7ed5",
+      "text": "一個以後不再承擔這項可選負擔的決定，讓安排更輕一點。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/5/options/2/label": {
+      "sourceHash": "8ab7859c8b8d8b9082dee182e9d99a63fe1b938920ca4e9ffc1017e582abb14c",
+      "text": "一句這次真正願意在意的事，不急著寫下一步計畫。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/5/options/3/label": {
+      "sourceHash": "00e59f1693d2bb36419b23d7891e0bf6e77a5af7051c6e9e4ad4630bf87ef62c",
+      "text": "面對兩種後續可能時，自己當前願意接受的取捨。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/6/prompt": {
+      "sourceHash": "1caed32360efd5ca96bfc267e56135fcf4fb7445b8b960223f4cdbf65ccd2503",
+      "text": "自由時間裡的一項普通安排可以變小，你更想怎樣處理？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/6/options/0/label": {
+      "sourceHash": "771e467122c531fa0a70a014c629c05b3fc55d74a28d39f2476fad9b73068080",
+      "text": "先去掉一項非必需、也不願意繼續的承諾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/6/options/1/label": {
+      "sourceHash": "541e3b6627b1f5e25ce517505c342f94d2bbc2971da75d37256503fcbb0d7398",
+      "text": "給自己留一段沒有新目標的空檔，不要求產出。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/6/options/2/label": {
+      "sourceHash": "c906dfb74b659eb3c9644bd526f89b5ee29cd9857414e487bccc9e08e50f3bec",
+      "text": "把範圍縮成一個可隨時調整的小試法。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/6/options/3/label": {
+      "sourceHash": "34d1f5f002d184034327c6918f7dc32cd64a878c28daca3eba410d6e44b4c159",
+      "text": "只調整現有做法的一處細節，不重新擴張整個安排。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/7/prompt": {
+      "sourceHash": "7eb9af3e2821be4d12ecc4595701ea21c587dc600a5bb456bc647690767b5463",
+      "text": "一次自選活動結束之後，你更想給自己哪種餘地？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/7/options/0/label": {
+      "sourceHash": "97e0678d9af0909f53c85a40935c238feb06631ddb9eb1dcfac2bd42bdd13dee",
+      "text": "暫時不解釋、不評價，也不馬上安排下一項。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/7/options/1/label": {
+      "sourceHash": "1fe27e1f93f74a2b2d734e84ee4650513e80416a4eb27d2ecacb931a2f30620d",
+      "text": "留一點空白，重新想想現在願意關注什麼。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/7/options/2/label": {
+      "sourceHash": "224094226091a4555fdb81ab3370803d809175466401c553c5d8c744b2ab9ef5",
+      "text": "把新的兩個選項和當前條件放在一起，明確一次取捨。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/7/options/3/label": {
+      "sourceHash": "49e54aaf9b0287d8770096d9beadb794ef7957d08e24b805d7853054d9783267",
+      "text": "讓這次願意呈現的部分有個清楚結尾，不要求更多。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/8/prompt": {
+      "sourceHash": "e03342a26926f6fcb5f9d0545561ac0882f78b0e47d270aad51752dc470cc05b",
+      "text": "準備一段普通創作時間，你更願意用哪種開頭？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/8/options/0/label": {
+      "sourceHash": "78d6fc99f35ba59ec7e56102f76ab651d63bb939302e0f86cc834717c3bbdd20",
+      "text": "先寫想在意的一個方向，允許暫時沒有具體成果。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/8/options/1/label": {
+      "sourceHash": "bffb2398df5fba5b119880f710550f25fe7e7898d5550a1203929a73a26fddba",
+      "text": "只做一個可修改的小樣，之後再決定要不要繼續。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/8/options/2/label": {
+      "sourceHash": "ae4ca63d99a09fe25cb7f34c79aeff65589f845ccfc60a2858273773bb5f1855",
+      "text": "看已有材料的一處細節，調整到更適合這次使用。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/8/options/3/label": {
+      "sourceHash": "d93d3664e5fdb420ee561fb948db332da5cc1a7703784a644c7c2b947fc56558",
+      "text": "想一條願意分享的使用經驗，也允許別人不採納。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/9/prompt": {
+      "sourceHash": "05f6f38473fe93e8d520b8ec3a4fda55f47dc294549e4a49829647278ce63ed8",
+      "text": "自己的普通小計畫有一點變化，你更願意先選哪種回應？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/9/options/0/label": {
+      "sourceHash": "dcd3a873fd455d812e3f27bdbe55ca0670d8a1b06b06ba884703884633c1e22b",
+      "text": "把變化做成一處低風險的小嚐試，不承諾長期沿用。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/9/options/1/label": {
+      "sourceHash": "8d32c6a887929a31310def4be6cf600f06fb1d2e17c15343ca6f973ab02f7940",
+      "text": "明確現在願意保留和放棄的各一點，接受這個範圍。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/9/options/2/label": {
+      "sourceHash": "5fad328bd9d3b57185c0d22f67486d4dcad6197130403183cf7b04c1366c8fc2",
+      "text": "把已經夠用的一小部分整理好，作為這次願意呈現的版本。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/9/options/3/label": {
+      "sourceHash": "6f6223021c956b8901fd3b58b5725fd0a8d4a290e162137705abbcff202ed445",
+      "text": "放下一項額外任務，不因為計畫變化就不斷補充。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/10/prompt": {
+      "sourceHash": "66d54f9ea62c5f318b2bae78b9681cd401051ebaffdecce4d5a51d37ccc01be1",
+      "text": "在一個自己可決定的普通活動裡，你更想關注哪種問題？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/10/options/0/label": {
+      "sourceHash": "4a1d004dd473b2d94b773b04c9fed89a5034d374d98c670317cab17001984ac4",
+      "text": "當前兩種做法各要放下什麼，我這次願意怎樣取捨？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/10/options/1/label": {
+      "sourceHash": "ae37113f48aeaa5faa954690c5d54778c75ae92a232135301ceb9dcc13e5c8f4",
+      "text": "有沒有一處可改的小細節，讓現在的做法更合用？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/10/options/2/label": {
+      "sourceHash": "4cb6346ef58cef462df65af591502455b3461f6a10fdaf41cec19de33da227ee",
+      "text": "哪一條經驗願意分享，對方是否確實想聽？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/10/options/3/label": {
+      "sourceHash": "d839aeb77da531c0eeea1f4503021394e91a92abd1a08cb38b98a093aa6f8b05",
+      "text": "能否暫時留一個不用說明或產出的間隔？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/11/prompt": {
+      "sourceHash": "b8bd2083a6fa42412ac27eae8f35ba5e1bd619f2f4a877b1578000e4f9a2284d",
+      "text": "一份自己寫的普通說明快要夠用，你更願意怎樣收尾？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/11/options/0/label": {
+      "sourceHash": "52a6cc39495035840bd1983a24faadd15bdc68f0f292d411eeff8aa15a148feb",
+      "text": "改一處自己願意調整的細節，之後就允許結束。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/11/options/1/label": {
+      "sourceHash": "693df5a4b3d74df9d495baf7549cbb5458aae2b534272d7ddcb6a738fe37febd",
+      "text": "確認願意公開的範圍，把這一版呈現出來即可。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/11/options/2/label": {
+      "sourceHash": "1d1f3cb1ba0ed6004460b9bf152d093dd573d2ae7dde24548b5ac83b86f1c128",
+      "text": "去掉一個不必回應的附加要求，讓說明保留較小邊界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/11/options/3/label": {
+      "sourceHash": "d1e438410d89c93fc26724fae50b295da8dde8d0950f0a565e65ff3d58eec732",
+      "text": "回到自己想說明的一點，允許先留空白再決定。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/12/prompt": {
+      "sourceHash": "096b68ca6c6e2960f6a5ace15a824b2e98a5e47e05bb3ec5342f4645770b7748",
+      "text": "自己的普通小作品可以暫告一段落，你更想留下什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/12/options/0/label": {
+      "sourceHash": "28b1973359ac46363b13fae10b73725f9b49421abd785506f5f0dcb8b1b0a5eb",
+      "text": "一個願意呈現的清楚版本，不要求所有細節都展示。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/12/options/1/label": {
+      "sourceHash": "f426ee486b4da2d6ce60bc3e9bec6d6145d30975e2da546a5188fa53f6c85264",
+      "text": "一條可以自願分享的經驗，說明它只適合這次情況。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/12/options/2/label": {
+      "sourceHash": "2de80c401e74d49a501a31c8bfdc4999ad1aba845a5edac9eafe0fe383524702",
+      "text": "一段不用馬上總結或開啟下一項的安靜空檔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/12/options/3/label": {
+      "sourceHash": "70209a62bf7f865eaf86aaf0a4d58435efcbb4972824d9f8d72afac1cff7974f",
+      "text": "一個足夠小、可以隨時停下的後續嘗試。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/13/prompt": {
+      "sourceHash": "8b49a4df5468fc8c0d73a12d830d22a915913040c24bcd7be3c69cdfc50378ba",
+      "text": "想起一次自己選的普通活動，你更願意怎樣使用這段經歷？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/13/options/0/label": {
+      "sourceHash": "e8844756d9cd7e00341ce906718272c10d84869cc81e3d47fa82cd1dc8426136",
+      "text": "把對自己合用的一點寫清，想聽的人可以選擇是否採用。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/13/options/1/label": {
+      "sourceHash": "ca534412606a726247c9f90583a05dc4f63110e630df29b3f897c6dbde770e93",
+      "text": "看出一項以後不必再做的額外負擔，願意時放下。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/13/options/2/label": {
+      "sourceHash": "4f384f39768267dba35e3a7da800ce902b4950bd2e6ae3335894756d7cee07b0",
+      "text": "先想想這段經歷裡真正願意在意什麼，允許暫不行動。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/13/options/3/label": {
+      "sourceHash": "813e3c2b57dca486d034c41e1a04612403206c0c3e647a4f86cb8b524d3aecd1",
+      "text": "面對接下來的兩個可能，說明當前願意作出的取捨。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/14/prompt": {
+      "sourceHash": "6a64895a06c236fa9fb0d7ee3df018e7f75b02ff5e059352f47e14b33b1ede44",
+      "text": "可以重新安排一段普通自由時間，你更想優先保留什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/14/options/0/label": {
+      "sourceHash": "ab6994b60895b4006061c2f968e19b4da66c84797fb2f827bb1af5e68dc45259",
+      "text": "不繼續一項自己並不願意的可選承諾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/14/options/1/label": {
+      "sourceHash": "1f6f419cc7e07465c2cc673f3deb8aa0cd2165993e760779f6cb12b5b1ae1936",
+      "text": "一段沒有新目標、也不需要說明成果的空檔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/14/options/2/label": {
+      "sourceHash": "2184237be44b64fc4f10f646649a32ed329c7cc14c2713c0aba5f501fd0c5f56",
+      "text": "一處低風險、小而可改的嘗試，不把全天排滿。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/14/options/3/label": {
+      "sourceHash": "13dfe9844165441b018504c53e6b6f050f09c0413fbf8d4afc7ca4b8d1d060de",
+      "text": "一個讓已有安排更合用的區域性調整，不再添新專案。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/15/prompt": {
+      "sourceHash": "be1bb42034b24bb0ef286aff2147146d5282e682d48cd635717c5d192bb20d7a",
+      "text": "為一項已經結束的小活動畫個句號，你更願意怎樣做？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/15/options/0/label": {
+      "sourceHash": "fc0eceb698bfcf0983ed3bc19e3d907a46a49e0534ea3aea7f29687f860ed82b",
+      "text": "允許一段沒有評價和新安排的間隔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/15/options/1/label": {
+      "sourceHash": "3a6e77a8822049bee2191b9f45a2ac39a72b951d6d483d117d88e28fb4d9dade",
+      "text": "留一處空白，重新寫下現在願意關注的一點。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/15/options/2/label": {
+      "sourceHash": "1dc68a7a8a3229bedc64dacb4890f2dd86f523b7ca21c2e0a479faf1f754139a",
+      "text": "明確接下來兩種可能的取捨，不要求兩邊兼得。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/15/options/3/label": {
+      "sourceHash": "540bcabea9552a0aa2f9f4b03e5c46ebdeb94300aefa16b3eb6cc2be8d0cf390",
+      "text": "把這次願意展示的部分收束好，讓它可以到此結束。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/16/prompt": {
+      "sourceHash": "a075318c127f74f4486f393be8ddfc076fdcb5c6862366069088b115f270c037",
+      "text": "給自己選的一項普通嘗試留一個入口，你更想怎麼留？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/16/options/0/label": {
+      "sourceHash": "06afe6e9f0ec9902ee217a391aabba909882a86a4ba3f108d2958f02e66d8541",
+      "text": "一句尚可改變的意圖，先不用安排完整路徑。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/16/options/1/label": {
+      "sourceHash": "5de8844a01bedf8504b0f206550cc55dde9aa35a204e48504e3b029844b90421",
+      "text": "一個小而能停下的試法，讓下一步保持可改。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/16/options/2/label": {
+      "sourceHash": "20ef6c6e7543eb791ed7bcb0464f8cfbef90e261bb98982b6b985bf1e3382279",
+      "text": "一處自己願意調整的已有細節，讓使用更合這次需要。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/16/options/3/label": {
+      "sourceHash": "fbf5e4fc3e1ffaca01e87c9887cdd4627511d3da21a32b2b42919e51509b9cb5",
+      "text": "一條願意分享給感興趣者的經驗，不把它設成通用答案。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/17/prompt": {
+      "sourceHash": "ff29e5c7b7d2ee9104e5193ec62b8aaa38c5de9eb4ed61558d397b5f166612dd",
+      "text": "一項普通個人安排有幾種後續可能，你更想先做什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/17/options/0/label": {
+      "sourceHash": "0dd3680cb32908dc5fe98df8cc21fc698c1dddce698d084b3964243816f46a76",
+      "text": "先試一個低風險小段，不把嘗試當成長期承諾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/17/options/1/label": {
+      "sourceHash": "0299b3c2d35bb8491d909b80a80b4345e94fed1232c7cafa995cbc5cfda587b9",
+      "text": "把兩種當前可行做法的代價講清，選一個願意接受的範圍。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/17/options/2/label": {
+      "sourceHash": "73cd7454b229a6504bcee20a089076f30aa7cf62f8745883b07057b883ddaeef",
+      "text": "把已經願意呈現的一小版整理好，不等到一切都完成。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/17/options/3/label": {
+      "sourceHash": "c7d20d229310e1202d68ea1a597ab7d013063470b6f44f30f10b843a6571f18e",
+      "text": "減少一項不願繼續的附加任務，讓後續有更少負擔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/18/prompt": {
+      "sourceHash": "4af86dfcb6dcdb5276f8afc0be3f42af1c8088c5ee396e659dd1e0f7f9aa2a35",
+      "text": "看自己可決定的一段普通活動過程，你更想留意哪種部分？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/18/options/0/label": {
+      "sourceHash": "3d80f9f6462c268ded992081488f71895dbb0c2e1bb1f699b04ef8b05b9c5db0",
+      "text": "哪一次取捨更符合當前條件，不把選擇寫成永遠正確。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/18/options/1/label": {
+      "sourceHash": "e491e0f7119d1a08a4b25b2b3a6eb840506e2a76c7ae4a53eaf319c85ae7e792",
+      "text": "哪一處區域性改動讓用法更合適，不追求全部重做。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/18/options/2/label": {
+      "sourceHash": "1b29dd0382d165817108e055c546ea65ab841830158e6ee36f430729a089a235",
+      "text": "哪一條經驗願意分享，而且對方可以不聽或不採納。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/18/options/3/label": {
+      "sourceHash": "fe7b09edfa8733da47de3d62f74bdb3708c7a124d2ee99cafb2991fca9b023b9",
+      "text": "哪段時間可以沒有新產出，也不必馬上解釋。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/19/prompt": {
+      "sourceHash": "0a63b98e6e32205d2e07ee2ed15cbfa3cf8fb51634e64b609524e6e5f90b6465",
+      "text": "一份自選的小材料已經可用，你更願意怎樣接近結束？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/19/options/0/label": {
+      "sourceHash": "b694d57b044300f57f3da27e8956bd2087a5c6b0971aae64b4fa7608015bc1ab",
+      "text": "只改一處自己確實願意改的細節，然後允許收尾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/19/options/1/label": {
+      "sourceHash": "d61d6e4340eac76aeb31d229a1d532c74470659bf20f89340642b69c760ad372",
+      "text": "把願意展示的範圍說清，呈現這一版即可。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/19/options/2/label": {
+      "sourceHash": "1afe39f78921da8109e4f0046729e5e8072813d8598482fb364147d4e716f261",
+      "text": "刪掉一項非必需的額外要求，不再為它擴大材料。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/19/options/3/label": {
+      "sourceHash": "576882efa1a86836d8781f7cf02f9b56927c0a80fe04d03652adf55a6c0f36f0",
+      "text": "給自己一點空白，想清這份材料此刻想服務什麼。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/20/prompt": {
+      "sourceHash": "fbf229d05ed14f68b21e8fc1f4bd96e13ebe28a9d9dda507cceb0ff83c6551ca",
+      "text": "如果為一個普通小成果留一次自選動作，你更想做什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/20/options/0/label": {
+      "sourceHash": "90f9187babe49459b32c056e0a00f045718bed149c16db051cef295d44ef5217",
+      "text": "按自己願意的範圍呈現它，也允許這就是結尾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/20/options/1/label": {
+      "sourceHash": "16dd20a787eb9f48275129950481ae63f7f3171466c58ed8ab2d052d1bc4eec9",
+      "text": "留一條願意分享的經驗，不要求自己成為指導者。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/20/options/2/label": {
+      "sourceHash": "7002c78bb3d8a03ca44cb8e840894ac968d9a96a1b693c3b2bc92f6840f93473",
+      "text": "讓下一段時間不必立即接新任務，暫時留空。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/20/options/3/label": {
+      "sourceHash": "3aaf5477783ed121f088d0a3c209c4144c9bb53db58431d9de395192fcefb5c4",
+      "text": "只為自己願意的小後續試一次，仍可隨時改動。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/21/prompt": {
+      "sourceHash": "56b41807e74f1892c1f79e290bc436a8a5b2814b4c8480417db1f8f55c91b797",
+      "text": "給一次普通嘗試寫下“以後可以怎樣”，你更願意寫哪一項？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/21/options/0/label": {
+      "sourceHash": "8e7dce2e42ffdc5b04313801a38feba9009024a8efd36ea1d9ad922dd71fb764",
+      "text": "這裡有一條經驗，願意聽的人再決定是否合用。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/21/options/1/label": {
+      "sourceHash": "08179b9aca79587b4ed48992bacfda6dd76fb6a82d67da7aeeba1339181939ef",
+      "text": "這裡有一項可選負擔，以後不必繼續。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/21/options/2/label": {
+      "sourceHash": "52dd622c295a7031ddd91349794f82a8725ce58312077253c1080486eae0453d",
+      "text": "這裡有一處空白，可以重新想願意在意什麼。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/21/options/3/label": {
+      "sourceHash": "0bc75d308c6504c6545a2a347e19a5cd16e3ea6849082f268fe7da4a4e4362e9",
+      "text": "這裡有兩個可能，可以按當前條件明確取捨。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/22/prompt": {
+      "sourceHash": "fcbc3f31d229768c777a97b6394115efb4048460f668f3125d1e8d49f44c18ca",
+      "text": "一段自己可安排的普通時間接近結束，你更想怎樣保留邊界？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/22/options/0/label": {
+      "sourceHash": "6c02525abf36dc66685d603d2626b52dc2545d6bc663d8e53b4506cf3a52726e",
+      "text": "減少一項不必承擔的額外承諾，允許安排變小。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/22/options/1/label": {
+      "sourceHash": "2ce32731897535b283e4a60c8faf7793879ea8158b302523ef3b09b9b52ecadd",
+      "text": "保留一個沒有新目標或成果要求的安靜間隔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/22/options/2/label": {
+      "sourceHash": "3b38c1d7e13ee0d583f3da598da159a4a2a22fecd7d63b478e082dd4482daa45",
+      "text": "若還想繼續，只留一個小而可停止的嘗試。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/22/options/3/label": {
+      "sourceHash": "5f6195b7b6323fc4c82fe37a61bb59e00786eb183b4a41166eb1167c7e7cbd30",
+      "text": "只調整當前用法的一點，不重開一整套安排。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/23/prompt": {
+      "sourceHash": "0ed6c5930f13bd58d6d4203204ea24d9d5cb4431c4dfed402d0cf352ee92f7d5",
+      "text": "結束這組普通活動節奏選擇，你更想給自己哪種餘地？"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/23/options/0/label": {
+      "sourceHash": "08cdc7c604a8870630582d0603307f8798faa74dc23c22b0b17349f80e49f4e3",
+      "text": "不急著解釋自己或安排下一件事，保留一段間隔。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/23/options/1/label": {
+      "sourceHash": "90b6506afccf05a8fabe5af9d4f98ae1e8905c21de66c452dce53848eea9c962",
+      "text": "留空白重新考慮現在在意的一點，不要求立刻開始。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/23/options/2/label": {
+      "sourceHash": "3ed649981991a4b3f4f0f6fb7468d4805a2025f6ac933c7b92bd3800d74db152",
+      "text": "把兩種可能放在當前條件裡，作一次願意接受的取捨。"
+    },
+    "lib/questionnaires/data/moon-phase.json/questions/23/options/3/label": {
+      "sourceHash": "551c7fd6f3d430b4ce02c99cb8cd23e0963f44fc8f2dd0e644bf77d0ac30b77c",
+      "text": "把這次願意呈現的部分收束好，允許到此結束。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/title": {
+      "sourceHash": "2210a0a3208c141dbe8205239bafcdb813cf8c37d75af7a3135fef3176c5d908",
+      "text": "新月意象：留白與自選意圖"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/headline": {
+      "sourceHash": "1fac4feb0d7ba89bdfb62ea0a17cf8c77fa0d6f3f01b763911bda4ab6af9e2bf",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/summary": {
+      "sourceHash": "94477d3052c0c9f235863a6189b8315c11bf4714a0ad40835b7e552a34151758",
+      "text": "以一張普通創作便條看留白與意圖，含具體表達、相鄰比較和反例；新月計數不證明出生月相、潛力、直覺或創業能力。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/scoreReading": {
+      "sourceHash": "6ce273363f139571f0994eeb154e09ed44e473c6a0a949179e211ceaecc5bf34",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/seo/title": {
+      "sourceHash": "c8025ba71e03f494c1d070b0ed3792c0a15cc521dda25952f1259a86b22aecfa",
+      "text": "新月測驗結果：留白意圖、例子與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/seo/description": {
+      "sourceHash": "b1e8b321b9834e564a0a00d544f437f26529ddb90abfaedd2e97c6635f609865",
+      "text": "以一張普通創作便條看留白與意圖，含具體表達、相鄰比較和反例；新月計數不證明出生月相、潛力、直覺或創業能力。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/0/title": {
+      "sourceHash": "69ad2577ae1df9c1d6a67f081189c18d7630dede724dec7cc59a94020273eb2f",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "ccc43d870c4e397912cd66597384dafba4ea8a3c7085d8d37207f8600d74e912",
+      "text": "天文學中的新月，是從地球看月球受光面主要背向我們時的月相。本版用“留白與自選意圖”作新月的當代意象：先給自己一點空間，想想現在願意在意什麼。這個對映由本站選取，不是NASA人格分類，不證明月亮在影響你，也不測潛力、直覺或實際開始能力。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/1/title": {
+      "sourceHash": "8890ac9f817984e861bc49d7587e4ca567d3270e771a5b90f0db01be6b8eb2dd",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "548af7cca1970ccfe9578a68f9370998ba0dc89a6340fdd1d1284f276ecdb80c",
+      "text": "若次數最高，本次較常選擇先留空白、重新寫意圖，或暫時不把想法變成完整計畫。可以問：這件事確實是自己願意的嗎，現在想服務什麼，什麼暫不安排？較少選擇可能因為方向已經清楚，不說明沒想法、缺乏深度或不懂自己；題目沒有評估真實反思效果。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/2/title": {
+      "sourceHash": "bd21901ba93518d2c30e2d5ec8ba8f9ad4287ebdde3b013b0d00c3687fd07162",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "39d9c5a17282296005a15bee47eef13cfec082c3b369690d14cc67d8a815d811",
+      "text": "例如，你本來想給自己的閱讀筆記做一個小封面，可以先留一張空白紙，只寫“這次想方便以後找到喜歡的段落”。可以到此結束，也可以以後再選圖案。不需要定目標、購買材料或做出作品；例子只給一項普通自選活動說明意圖，不用來證明願景、天命或任何心理變化。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/3/title": {
+      "sourceHash": "760d723393ae846abcb45c8e073178510010cf3d07cb29319f7ef5f90fa7f0ce",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "4a0fa9bc1ece3610d787065de609c0c035bd27259878c3f0e2fbdec75799c1b4",
+      "text": "可以說：“我想先留一點空白，弄清這次願意在意什麼，現在還沒有下一步安排。”如果涉及別人，另行確認實際需要和時間，不把自己的留白當作對方必須等待。自己也可以決定直接開始或結束；新月意象不要求始終內省、重新開局，或把所有事情都當新篇章。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/4/title": {
+      "sourceHash": "22c1ff4e558244044f0e0ed231a44832316ad12e19d33f2921571d8c356c74db",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "243cd2df33a28ad28083f9dc0bc57b7047f0814f1cd3826b3f8d91722cb59dc7",
+      "text": "新月偏留白與意圖，眉月偏一個小嚐試，上弦偏當前取捨，盈凸偏區域性適配；這些做法可以同時出現。滿月偏自選呈現、虧凸偏分享經驗、下弦偏減少負擔、殘月偏安靜間隔。沒有階段高低或必須依次走完的路線，不把新月換成內向、榮格原型、MBTI或職業。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/5/title": {
+      "sourceHash": "44f81caa86137237c8be831f3731cad82b81c44ee987335fddee0834f0e34b30",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "bf9aae922086ca9ffd8855b950afdcbfe1f1854ec89b09940408d6b0e1a985c8",
+      "text": "反例是，尚未安排可能因為資訊、許可或資源不足，而不是願意留白；馬上行動也可以很有思考。問卷不測拖延、決斷、創造、能量、情緒或健康，不判斷現在應該停還是開始。真實活動需要結合條件與權利，不由月相名稱替代，更不能用計數解釋睡眠、困難或人際經歷。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/6/title": {
+      "sourceHash": "159b4c67a2d5fc27885c0b00dfe2afc9fd1ccb069d8a91218e036ed370a609a3",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "e006d55dff65e0fc5357d336abebe2d6f6ffbf7b9022b14408702b14e0481b32",
+      "text": "可選的小觀察：為一件本來想做的低風險小事，寫一句當前意圖，再留一處暫不安排的空白。可以不寫，也不必執行或分享。觀察是否喜歡這種開頭，不按是否完成給意志、潛力或光明程度打分，不等真實新月再做，也不把它變成人生改造任務。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/7/title": {
+      "sourceHash": "5ef3145892c0a75c48c2ead3008a9e1875106ce0d07e757915ab01b6240cc6b9",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "3c99c553d7e2f316377cba9b7952792a41826bf054e55073b45fd450131275d9",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/8/title": {
+      "sourceHash": "bb08e2b6c7e637ac499207b5f164389278df25e858379335730b0eda84217563",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "d6059ac7c6a2db7b8c65019148bc4d4f225843b3efa62b16b78f52fbe2195fd4",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/title": {
+      "sourceHash": "0360f31a48d3d3d5d353a6d7a2243e72f04f2181968797ed219a3ef9878bf1ba",
+      "text": "眉月意象：微小可改嘗試"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/headline": {
+      "sourceHash": "af1c5da274b0e8aff8e1c06e0dd7a5aa84c19e9f9ce57c76687a895666fe40aa",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/summary": {
+      "sourceHash": "18169eb3078aa6fd2421ec5f6d6660f43ebcd33bf0beaa10901c034ec5ee7763",
+      "text": "通過一張小卡的試做看可修改的嘗試，含表達、比較和停止空間；不認證成長心態、毅力、生產力或真實月相能量。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/scoreReading": {
+      "sourceHash": "eee8440e8b134c97965cd5c3fc086890f0317d2d7deb77196ead1784735fee15",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/seo/title": {
+      "sourceHash": "7bdb3b18a737768b2dea0e99dbf438498e0a84146ee652ec34571d3bf4f9b5f6",
+      "text": "眉月測驗結果：微小嚐試與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/seo/description": {
+      "sourceHash": "bf02b9615c30bbf1f7760680ced491dc8aba4cefa72c26dece62d977b9af6484",
+      "text": "通過一張小卡的試做看可修改的嘗試，含表達、比較和停止空間；不認證成長心態、毅力、生產力或真實月相能量。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/0/title": {
+      "sourceHash": "f08d3b82d81003fae6854d8c5c61620f510a6cd9b243c5c95046d2e06dd292ec",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "3e080d46bbda830ac33410282055fb855080977f186537cdd69e48e8125f7d4d",
+      "text": "眉月是新月後從地球能看到逐漸增多的一小部分受光面。本版借其作“微小可改嘗試”的當代意象：願意只試一小段，再決定是否繼續。它不測自然成長週期、毅力或成長心態，也不把天文背景當心理驗證；能試、不能試或不想試都需要放回具體條件。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/1/title": {
+      "sourceHash": "5f6ead7da594c9b1897cb1afb99e69c448cdf98a00ca74c32f1d176e0a5423ab",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "93c7e3475ff686f3be5a2a8ea8c9dd10156b5c4eb8c9b41b9e3151156dd2236f",
+      "text": "若次數最高，本次較常選擇一個低風險小樣、有限步驟或保留退出餘地的後續。可以問：多小才符合自己願意的範圍，哪些條件可改，怎樣知道可以停？較少選擇可能因為不需要試或不方便，不說明懶惰、缺少動力或不能成長；原始次數沒有觀察實際持續和完成。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/2/title": {
+      "sourceHash": "251710ff523d5a572052072b926187d284a0f4ba8d5bbb568b37ccb86172f6a5",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "c3bc509c4777ed6cd9ee50045863b2cb8d0f32554824b562d37b10daa9129f50",
+      "text": "例如，你已經想做一張普通小卡，可以先只在廢紙上放一句自編短話和一個方框，看是否願意繼續。可以改字、換圖或不再做，不需要把小樣變成一整套卡片。它是一次具體可調整的嘗試，不證明會堅持、產出更好，或與真實月球能量同步。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/3/title": {
+      "sourceHash": "d6175ece6be729ef1ebce9694dd328deafdeac8c3dbdc523a091a8ba1a70c419",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "99762bd2c662e64ed478be7cf9f67d31d37a068900af16932a69b2b363203ce3",
+      "text": "可以說：“我只想先試這一小處，之後還可以改，也可以到此結束。”若是共同活動，先談清試做不等於長期職責。別人不必按同樣節奏，自己也不需要因為選中眉月就不斷推進；嘗試可以服務興趣，不用成為保證成長、證明樂觀或提升生產力的任務。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/4/title": {
+      "sourceHash": "60f87cb1ed3e1b904a59cf479f7002b64049d5c3dfcb133cb8e24d550a57e2a4",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "abca1ca432cd9a8a79ea7949e125f987e442ebcb21056b2e88e276ef1608a4e0",
+      "text": "眉月偏小試法，新月偏留白，上弦偏取捨，盈凸偏已有做法的一處調整。滿月呈現、虧凸分享、下弦減負、漸虧留間隔，也都可以在同一次活動中出現。它們不是成長等級、能力鏈或必經階段，不把漸盈次數換成拖延頻率、氣質、DISC、MBTI或職業。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/5/title": {
+      "sourceHash": "20f6578ee554c5b78806ffaaad42497e7728ea9444ec9ff9074f2061fef73dbc",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "b31fcbd47410c0baf04f9e4b9280c28255f8307f1897063a3df3c82c3daefdd9",
+      "text": "反例是，小步嘗試可能由時間、材料或許可權限制，不一定是偏好；一次做完也可以保持靈活。問卷不測執行、學習速度、紀律、韌性或風險判斷，不保證嘗試有效。需要什麼做法仍看實際條件，不能因月相標籤催促自己或別人繼續，更不能把停下解釋成成長失敗。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/6/title": {
+      "sourceHash": "9d78bc34a6cbc86cc6fd524ebd5fdbbe0131c8ba6fdd20edf1ebfaf78370fdc7",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "3989efe61a70bf0f97c78e72361b4e492c42f05f7e071167d8c008ae69c775a2",
+      "text": "可選的小觀察：對一件自己原本願意試的低風險事，寫一處最小可試部分、一項可改條件和一個停止點。可以只寫不做，也可以跳過。觀察是否喜歡這種試法，不記錄成長分數、完成率或月亮影響；不需要等某個天象，也不把結果當作長期堅持的承諾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/7/title": {
+      "sourceHash": "aabb06717236fd046fd791cabb40c4e0e7e5d3ef6581f5c33b1f41edec6f3552",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "d338e3d7a8b1b40bdfef8b65e586af1eddb3499878ff4876bc7707f2a4216bf0",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/8/title": {
+      "sourceHash": "1d0d66edc8756dcb10f4de6cc1d1f13d5fdd9c71f626c790488fadd7c88fb8bf",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "846b6436d0c3dace3f9dae4b93b73fcd4f77c1754cb6a5dc586d78637166e37a",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/title": {
+      "sourceHash": "a4c3d0542c0d6811bc967cd9e813302f588a549f9fc823156b9965510360c758",
+      "text": "上弦月意象：明確當前取捨"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/headline": {
+      "sourceHash": "bcabca8208342e8b6cba0daad3a3a33375404bd44e8b05ea00ed83c4a82a4afe",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/summary": {
+      "sourceHash": "131c379c4d6be3111fc3e02cbfbfb03fc46cd61d708c0cf152e7dd0b14336698",
+      "text": "用普通小卡的兩種做法比較當前取捨，含表達、相鄰比較與反例；不認證勇氣、決斷、危機處理、人格或真實月相。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/scoreReading": {
+      "sourceHash": "f3ede155e8ac5d4509dade85b4af389d9cd7c56022b76fe5b23f64f48c9a2f51",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/seo/title": {
+      "sourceHash": "121109740c0625aa6e0d479892d1950aa4d8bea4d3a136a761cc11bbc5da2875",
+      "text": "上弦月測驗結果：當前取捨、例子與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/seo/description": {
+      "sourceHash": "3144b96d473ded03ff8c29a400ef9e3424af92cd8120f96a177ea6fad915e730",
+      "text": "用普通小卡的兩種做法比較當前取捨，含表達、相鄰比較與反例；不認證勇氣、決斷、危機處理、人格或真實月相。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/0/title": {
+      "sourceHash": "78803077810c5876f1bbe681a657a421519b8b1a692c2443a21449287586739a",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "4e53aa390272d968e446df59851f757313ecb2f2793133c5bce179c25eb34d3a",
+      "text": "上弦是月相週期約四分之一處，從地球看呈半圓受光形狀。本版選“明確當前取捨”作當代意象：把兩種普通可能放進現有條件，說明這次願意選什麼。它不測勇氣、領導或關鍵決策能力，也不是說你處於真實上弦或人生的某個位置；天文與本站對映分開。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/1/title": {
+      "sourceHash": "e23e6ce99c5fcf295953e676a2f05639e9b48210c6224596ddda37e9e2ecd30c",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "a88e94162bc75cd0f06a346ea7ade5feaacdd61291227d1a5a9f246a9fe7ddb9",
+      "text": "若次數最高，本次較常選把兩種做法的代價講清、接受有限範圍，或不要求同時兼得。可以問：現在有哪些可行條件，哪項是自己願意承擔的，哪些仍可改？較少選擇可能因為無需取捨或需要更多資訊，不說明軟弱、猶豫或不能判斷；次數沒有實際決策結果。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/2/title": {
+      "sourceHash": "56fbfb959d850de020d8cda20c10ae6ec1cbdc2b30fbf5d2a464cc21b5dda4b3",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "91b3d48b86b85ddf2f90c1f4a5ba616955c0d31387321c16b05ba65cffef5e95",
+      "text": "例如，你已經想給自用筆記做一張小卡，只有一小段自由時間，可以選只寫標題，或只畫一個簡單圖形。寫下這次願意保留哪一項、暫時不做哪一項即可，不必證明選擇最好。例子不涉及金錢、健康或重大生活決定，也不把取捨變成不可修改的承諾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/3/title": {
+      "sourceHash": "f3bd6d1462481d033bc26bf2e69588c484632bce0f837b648ef3ca8959d8475e",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "987c8262f349888a8ff3de4c4ddd1a5da67eb0b71ca03ff49df281408652bf8a",
+      "text": "可以說：“按現在這些條件，我這次願意先留這一項，另一項暫不做，之後還可以重談。”若涉及別人，對方有不同需要時另行確認；清楚選擇不等於有權替別人決定。自己也可以等資訊或退出，不必因為上弦意象去挑戰、爭論、承擔風險或成為領導者。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/4/title": {
+      "sourceHash": "43e67e205fea3ba30e7956f87d35ca4884e520d0baeb76480392646adb4c1ecf",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "a025ed67108e00ff5b25fb088938773e1f4a1b3d9bfcaf17b160ca694fe3c5db",
+      "text": "上弦偏明確取捨，眉月偏小試法，盈凸偏區域性適配，新月偏留白；可以先留白再取捨，也可以不試。滿月呈現、虧凸分享、下弦減負、漸虧留間隔都各有位置。它們不是果斷到猶豫的評分，不換算道德、氣質、DISC、MBTI或某個職業，也不要求按月相順序行動。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/5/title": {
+      "sourceHash": "aba19ff66d34784750690a4ca57e5d551d16b2a66dfa932f157c72bcc1fcc7ac",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "ccbca628aad3ae0f022d106e5f36bcd3a0e7f87ec73e198af8cd84e8be3cdb46",
+      "text": "反例是，快速作選擇可能因為只有一個可行選項，而不是偏好；遲些決定也可能符合實際需要。問卷不檢驗風險評估、衝突處理、誠實、韌性或解決問題，不認證危機管理。真實高風險事情仍需合適證據與條件，不由上弦標籤指導，也不把受到外部限制解釋成個人不夠果斷。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/6/title": {
+      "sourceHash": "9f539d0f014d098a1df74e6b46c8c08c2a4a59bae96b6454c1cb17226eeac5eb",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "8660b1252fda27cc4187a006ce7daa917cea33723edb08bff55a868074062089",
+      "text": "可選的小觀察：選一件原本願意決定的普通低風險小事，寫兩個可行做法、當前條件與願意暫時放下一項的理由。可以不作選擇，或等資訊再看。觀察是否喜歡這樣比較，不按速度和結果給判斷力打分，不等真實上弦，也不借標籤替他人作決定。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/7/title": {
+      "sourceHash": "182c6cf004ae8c9d1290bc8e4d6b2293c8bc133a9c3c07192d81b61305bf7c6f",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "d72ddb543750c0362570608cfd8dd44e47829311eec1aaa2482e10cafbe76cff",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/8/title": {
+      "sourceHash": "30135334bcc77ec8f1ee6903fadd65150c29c829f56abe5d1c145e098184896a",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "228773e3fe2fc0b15f5aec27a8e4df67ac85dd4c40642aed4fcb4288e5c527d9",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/title": {
+      "sourceHash": "11eac9251ebcbce3d54c53948b3d6835d42547e9be0dba9107cf2cf9268b301d",
+      "text": "盈凸月意象：讓一處更合用"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/headline": {
+      "sourceHash": "ae78afb16cab1a8ba1a7a0a109664d46b209daa9c272d407f9620d2006f54786",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/summary": {
+      "sourceHash": "31ce1e72d6c19894d92fad888ed094c94ae80358e9bf45cef18ecdb6650b6a73",
+      "text": "從一段普通說明的一處調整看當前適配，含表達、比較與停止點；不認證完美主義、精細能力、質量、準備程度或月亮影響。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/scoreReading": {
+      "sourceHash": "add89f29ac63ba215ff3d2011c9003c9a55fc03567c88e151e0e32eb4fa7a26b",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/seo/title": {
+      "sourceHash": "c960cf44180ce46765c6faa912729b8b087b89f6cb73bdd90b676d77b98028a9",
+      "text": "盈凸月測驗結果：區域性適配、例子與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/seo/description": {
+      "sourceHash": "8643d6bc09062d5a73e7515a60cc740df514f67c84a04551f77a0b608c07ea10",
+      "text": "從一段普通說明的一處調整看當前適配，含表達、比較與停止點；不認證完美主義、精細能力、質量、準備程度或月亮影響。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/0/title": {
+      "sourceHash": "c8bcc03f951a94ea993c2299acca5c29cc5b55d40d8d449dd55237a4789892c9",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "9e703b1f03051b47a2f2a2a4d7a4193d60cc9c03d4d5233de3a50485f38f6c61",
+      "text": "盈凸月階段，從地球能看到的月球受光部分多於半圓並繼續增加。本版用“讓一處更合用”作當代意象：對已有做法，願意改一個具體細節以回應這次需要。它不說你天然追求完美、擅長質量檢查或已經準備好，更不認證真實月相能量或心理階段。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/1/title": {
+      "sourceHash": "1109db1c4bfcaa0a116cef6573326e2c9985c103aa4fc9d024c0509907b05ea5",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "1bd4c9137ac505069f5c7883b75c0fe4cbfaa79e70d8e2e5014ba814660ea185",
+      "text": "若次數最高，本次較常選擇區域性改動、讓已有安排更合用，或改完這一處即可停下。可以問：實際想回應哪項需要，改多少合適，什麼已經夠用？較少選擇可能因為現狀就合適，不說明粗糙、不負責或看不見細節；問卷沒有觀察修改後的質量、效果和別人感受。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/2/title": {
+      "sourceHash": "2bee5b497d3bfed4683ad1c62e5b02323b9643c64d4597fafecc05ea6ce67793",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "5396df13571427dbad3c754cbbfdc80194f53ef8540c9f55f4effee1021a3228",
+      "text": "例如，你為一次自願小聚寫了幾句普通說明，想把時間和地點分成兩行，讓讀者更容易找到。可以只改這處，再確認是否清楚；也可以保留原樣。不必重新設計活動、讓所有人滿意或把文案磨到完美；例子關注一次具體適配，不證明編輯天賦和實際理解效果。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/3/title": {
+      "sourceHash": "53fd4a8b485f6ad210cdec5e0dae9355ef524c617ef46bb183337bdbac5b0905",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "fc18aa69cc61f146b06ed1acd058d09e318ebf9cb941683de25593d7a8684322",
+      "text": "可以說：“我只想把這一處改得更合這次需要，其他部分已經夠用，改完就停。”如果涉及共同材料，先確認誰願意改什麼，避免把自己的標準強加給別人。自己可以不繼續打磨，也不因盈凸意象成為無限校對者、準備者或負責保證全部質量的人。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/4/title": {
+      "sourceHash": "b0caedddb62fbfb89c62a4589130bdedaa196da4b3b08b486739cb56f0547309",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "d372609ae7fdc1d78e9d296b2186e3245c4a875894c2627bade076d0414306b4",
+      "text": "盈凸偏已有做法的一處適配，眉月偏小試法，上弦偏取捨，新月偏意圖；同一次修改也可能包含這幾種做法。滿月呈現、虧凸分享、下弦減負、漸虧留間隔都不比打磨低。八種不是能力分工或完美程度，不換算拖延完美型、MBTI、職業或真實月相週期。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/5/title": {
+      "sourceHash": "6562d428822991412dbeb9250c88cb32fecf644e4c59de04053a9094e9d62e68",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "43d808ed6425a1df3cd836d2652415f4031510c409221d7a041138d2e9a1305d",
+      "text": "反例是，反覆修改可能因為要求變化、資源不足或外界審查，而不是個人願意；不修改也可以是負責任選擇。問卷不測精細、審美、準備、指導別人或完成能力，不保證一處調整有效。是否繼續仍看具體條件，不能因盈凸標籤擴大工作、延遲結束，或讓他人承擔自己的標準。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/6/title": {
+      "sourceHash": "97d86c9cb9b316fc8a64ba856eba9bfe84d1a76a0dd941d8662c0699c834eb4f",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "50b95947978ef979472de3f62d76eb52615ce55a459da2cc5af47d8d7a0b57be",
+      "text": "可選的小觀察：對一份自己原本願意調整的普通材料，寫一項實際需要、一處區域性變化與一個停止點。可以只比較，不真正改動。觀察是否喜歡這次適配，不按改得多、評價高或反覆次數給質量能力打分，不等特定月相，也不把修改當改善人格的義務。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/7/title": {
+      "sourceHash": "b18019e764b90f8080e702e4706ad2546b8aeb8897b7602dce7ba5d133f551d3",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "e7292d31367e09a08a32bc7d9c8b49767d226db257f2d3d00b39fd9dc4922001",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/8/title": {
+      "sourceHash": "b9c912bdcea8771202317e4af6e652281a0afef5f7062deb3f66d585e9ce92e0",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "1f50225b0ca78082eef794905dc725e104725514e20cd79a7bfe6205983e8345",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/title": {
+      "sourceHash": "befaded4f1529afc8a45c80a5100ebb6685973a51dad2af79fbbeb697fcc4784",
+      "text": "滿月意象：自選呈現與收束"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/headline": {
+      "sourceHash": "424d9146c61928682213588c2e85d31d6bd0ed0954c05049f0e01b7926c9cb55",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/summary": {
+      "sourceHash": "89e2280b594c1870a4e305f80d4fb342407f3e7266e4301ad143f5acd190937e",
+      "text": "用一份自用筆記的小版本看呈現與收束，含表達、比較和反例；不認證能量峰值、影響力、完成能力、外向或真實滿月。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/scoreReading": {
+      "sourceHash": "6ce6066abf91d5caa1938a06e453e1cfaa8fa2201eb39425724f484ceb8af7c7",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/seo/title": {
+      "sourceHash": "59a5e8e70796548fd7be580df4a12e4f0bc225fb8fadb263afc0fb3ff35cb4b8",
+      "text": "滿月測驗結果：呈現收束、例子與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/seo/description": {
+      "sourceHash": "ff45dd42fafe43dde26f58db195f59014b00f7d242caf1f38a9a24e669470734",
+      "text": "用一份自用筆記的小版本看呈現與收束，含表達、比較和反例；不認證能量峰值、影響力、完成能力、外向或真實滿月。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/0/title": {
+      "sourceHash": "4a8e311888f079a6bc7648ee7611721be193462e11e068cfc92f82c7e3348aef",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "46d9dbd47f948c6b44c0651644d8b0a9474678214a5db3dff6c1d33da1f4d418",
+      "text": "滿月時，從地球看能見到月球面向我們的受光部分接近完整呈現。本版選“自選呈現與收束”作當代意象：把願意展示的一小部分整理好，允許這就是這次結尾。它不說你能量達到峰值、更有影響力或擅長完成，也不要求公開私人內容；名稱不確定真實滿月或心理狀態。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/1/title": {
+      "sourceHash": "6346b626d8cf979717d0725f0d89115a801a47d1ffdb1ee7e0ad5dc5cafebeeb",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "80a0b47fd28b3079fb3f0df1c4cdf5ecde3ad61361d52c010e443bdd352a30c3",
+      "text": "若次數最高，本次較常選擇清楚呈現一個足夠的小版本、說明範圍，或讓活動告一段落。可以問：願意讓誰看見哪一部分，什麼不展示，怎樣知道這次可以結束？較少選擇可能因為需要隱私或尚不合時，不說明沒能力完成、沒有價值或不自信；問卷沒有觀察真實成品。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/2/title": {
+      "sourceHash": "774c279147392de2519477e33c81219262c7231cf73ea56ef68abf28c27e3a0c",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "331b53914c3840cb64717f186dbcc8d33d56b8bae7bc79eb0c9bd0ba51b4d646",
+      "text": "例如，你給自己的閱讀筆記整理一張能看懂的目錄頁，決定這次只保留五個條目，願意時給朋友看。其他筆記不必一起公開，目錄也不必完善成系統。這個小版本可以到此結束；示例關注自選呈現的範圍，不證明別人會欣賞、理解，或你擅長收尾。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/3/title": {
+      "sourceHash": "e37e8acf8c43874cbf9a102b6228de3242cb03743bef3c679b6783ad86924efd",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "2ca3d22a29b0434bfebacd95ba208c1b0620daaf446e3963be400d0d0ca2229c",
+      "text": "可以說：“我這次願意呈現的就是這一小版，其餘不公開，也先不繼續擴充套件。”別人可以不感興趣，自己也可以撤回或改用私人留存。滿月意象不要求站上舞臺、獲得認可、替所有人講清事實，或為了維持光亮形象不斷展示和產出。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/4/title": {
+      "sourceHash": "5398cea356d61c1f593dbdb65f90ff90de2602dd973d2577412cc686a389f712",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "8acb948fb94088fb0b48004223f9fdbe200fc32dc795e0b1cc436a41fbca1502",
+      "text": "滿月偏呈現收束，盈凸偏區域性適配，虧凸偏自願分享經驗，三者可以相接但不必按順序。新月留白、漸盈小試、上弦取捨、下弦減負、漸虧留間隔也都可採用。沒有光亮或價值高低，不把呈現次數換成外向、領導、MBTI、職業或所謂最強階段。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/5/title": {
+      "sourceHash": "44354fe89d17da417a1a772d40c7898f29e64079407ab95379253717a18ff18a",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "13fbc5cdee038d30a3d8bc3b692418571b4f5def26db208a2d3690f08c1b9a5e",
+      "text": "反例是，公開版本可能來自課程或職責要求，而不是偏好；選擇隱藏也可能是合適邊界。問卷不測表現、溝通、洞察、情緒或完成質量，不保證展示帶來認可，也不解釋之後是否疲憊。真實需求與身體情況要另行考慮，不能用滿月標籤要求高峰表現，或把休息當作光亮下降。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/6/title": {
+      "sourceHash": "3868cf524ef0fc16a98dd71c1918077e78bfabcbb74979779ed62a7cd3b523fe",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "5d234649fe77bd9225c2315d4f3871f9223b053c63c0b41f0c837a1450dd0896",
+      "text": "可選的小觀察：為一份本來願意整理的普通材料，寫一個足夠的小版本、一項願意展示的範圍和一句結束語。可以不分享，也可以只寫想法。觀察是否喜歡這次收束，不按點贊、完成量或他人反應驗證能量、價值和能力，不等真實滿月再行動。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/7/title": {
+      "sourceHash": "f7506a614e55c627ece591dde757c080e7a951a5c1ea88b34a11ccda793dfeed",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/7/paragraphs/0": {
+      "sourceHash": "33351e404a22a536709ad49885ef8329e892c4f22e44d0e4589ae1293be2b334",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/8/title": {
+      "sourceHash": "a5cbad1aa175ace146e73341c88a8da2705f3f5ca1eff3c1046e48b62cec4c92",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/4/sections/8/paragraphs/0": {
+      "sourceHash": "73eb44f9f45a094b2042ee70aedf328114f1780d74f9d612c41d07bc6c542247",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/title": {
+      "sourceHash": "b480630c2858feb50cd8c3b5c8d4d63ab460550073a65d2492c7dca3f273a9ea",
+      "text": "虧凸月意象：分享可用經驗"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/headline": {
+      "sourceHash": "085ca6749391903424e92b9122a40ebf2da3dba11cd12ab4878ba1d4a33e0ed9",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/summary": {
+      "sourceHash": "57e596c0355539ab701e0e1283203f37d7c32c22845c847c9c5942eb3ffcfa0a",
+      "text": "從一條普通使用經驗看自願分享，保留對方不聽或不採用的空間；完整比較不認證智慧、感恩、指導能力或人生傳承。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/scoreReading": {
+      "sourceHash": "5ff548a201ac26817b489a2383043ee434289bd890a1dbaefc3d385463b78318",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/seo/title": {
+      "sourceHash": "72e806b7f909d52f5849c28edd681ba92f1de9b81bb216227abeea5fae508de9",
+      "text": "虧凸月測驗結果：分享經驗、例子與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/seo/description": {
+      "sourceHash": "05238eef1ff3a4de8b5e262e281701ec7e167d89a1714334b945e35259a8496a",
+      "text": "從一條普通使用經驗看自願分享，保留對方不聽或不採用的空間；完整比較不認證智慧、感恩、指導能力或人生傳承。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/0/title": {
+      "sourceHash": "ba52404150fbc02c1e1f2c9a77dc0446820fa04b8b08fa66fac753e8853d2a2a",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "84664eb07fe8e2a9dfb5a981f6e584f8fdbc8d5d6d15f3965cdbf132c2f1deb7",
+      "text": "虧凸月是滿月後，從地球看受光部分仍大於半圓而逐漸減少的月相。本版用“分享可用經驗”作當代意象：願意講一條自己的經歷，同時讓對方判斷是否合用。它不認證智慧、耐心、感恩或導師身份，也不要求分享、不停幫助或承擔傳承；天文背景不驗證這些心理解釋。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/1/title": {
+      "sourceHash": "c4dfcceb8abd887615cf93ce678205da1073a6764884cfe262a4c1ebce2199aa",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "d6cacc0ad7c30c5d2a09c8ebf2021bc52137ce531881d21226088e89cd1a48fb",
+      "text": "若次數最高，本次較常選擇寫下一條合用經驗、確認別人想聽，或說明它只適合這次條件。可以問：這是經驗還是通用事實，對方是否願意聽，哪些侷限要說清？較少選擇可能因為需要隱私或無人需要，不說明自私、沒有智慧或不關心別人；問卷沒有評估實際幫助效果。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/2/title": {
+      "sourceHash": "03b4eb3854bd47cf160152dc80d298b7e0cfb6c62e5b62f73868a9eba92f516f",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "af18d5a39adfec5b1f4824b5bf356da72d354fc7a572b7576a569369d203eceb",
+      "text": "例如，你已經找到一種方便自己尋找書籤的擺放方式，朋友明確表示想聽，可以說“我把書籤放在這個小盒裡，這次對我方便”。對方可以不採用，你也不用繼續指導。例子只是普通使用經驗，不推廣成適合所有人的方法，不認證教學能力、成就或比別人更懂。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/3/title": {
+      "sourceHash": "7aa569d450e6bbb551b6685c04469f16f93ae2a67cbfc94b8c6f47c30e63d6d7",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "e2402a9e365b3ecae565f5512ce346a28ab79f2e241c0fb2a8d7ac90eb3a7fd3",
+      "text": "可以說：“我願意分享這一次的經驗，你看是否合用，不採用也沒關係。”如果涉及共同經歷，先確認哪些內容可以講，不帶出別人隱私。也可以改變主意不分享；虧凸意象不要求自己做導師、持續輸出建議、承擔別人結果，或用過去經驗替代對方當下需要。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/4/title": {
+      "sourceHash": "a2f031389efd7ba097858d6df1c1510df604e1666ef09706a618db705d5abb01",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "b97981ec1d6308f70f397f32882f75c4574a5407ea552d77278a82762c431a3f",
+      "text": "虧凸偏自願分享經驗，滿月偏呈現一小版，殘月偏不用說明的間隔；分享、呈現和保留私密都可合適。新月留白、漸盈小試、上弦取捨、盈凸調整、下弦減負也可以並存。它們不排資歷、智慧或奉獻程度，不把虧凸換成依戀、榮格照顧者、MBTI或職業。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/5/title": {
+      "sourceHash": "a18534e8008d0691c1a7f685be034d8ffd9857b12728cb8ac9bc67a2c22a8dcd",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "5c7d4d84b22302391e3a7985041abce749ef684a725f21fd0945c563d228a1c5",
+      "text": "反例是，分享可能由工作職責或社交要求產生，不一定是偏好；沉默也可能是在尊重邊界。問卷不測經驗準確、指導、溝通、善良或關係質量，不授予建議權威。別人真正需要什麼仍要確認，重要事實仍要另核，不能因為虧凸次數高就讓對方聽從、把建議受拒當個人失敗。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/6/title": {
+      "sourceHash": "5c886fa38755153a4689bf3cb6d9dfcf576a9231e059332113aa5c9505fb6e98",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "bd2d2c6291cdeaf5586b72524770275cdc5971a96b9dd0391575311e3c0b0b73",
+      "text": "可選的小觀察：對一條自己原本願意分享的普通經驗，寫明發生條件、一項侷限和是否有人想聽。可以只留私人筆記，不真正分享。觀察是否喜歡這次表達，不以對方採納、感謝或受益證明智慧、能量和價值，不按月相時間安排幫助，也不把分享變成責任。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/7/title": {
+      "sourceHash": "662fdc47ef99bc44539da5b6575fe179714b6ce63787393bf1cacb6784b8a01c",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/7/paragraphs/0": {
+      "sourceHash": "f4e66161d980773eaf4cb76db53ac3c5159a43b1dd960a9bc7b4b5f5bd8ba06d",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/8/title": {
+      "sourceHash": "c52df81eb9497aa11cd1daa54afb623f7eb220c2fb6d5d49d570e34bd524c59f",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/5/sections/8/paragraphs/0": {
+      "sourceHash": "a6e58f276834659d60558202f7069259162a7fb76544d540fb92cb9201bf3b9a",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/title": {
+      "sourceHash": "972336aa7ed176c021964fe76c56656b2d862441d8c764b50805877002c0e8fd",
+      "text": "下弦月意象：減少可選負擔"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/headline": {
+      "sourceHash": "6ce2d38692e77394294540e558079ce71c4ae08ad71bde61ca4a39be7737d3b7",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/summary": {
+      "sourceHash": "74c973b3452b1208bdc4de3750e0f1b88c3772ab2812dcecfd156ac8ed6ab19c",
+      "text": "用一項自選附加要求說明如何縮小範圍，保留真實責任與權利；完整例子不認證放下能力、心理健康、道德或人生轉型。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/scoreReading": {
+      "sourceHash": "f3278a79dee0bc58b0ce8f2ec605954e7d9828d7694a602387549c47fe5a6c78",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/seo/title": {
+      "sourceHash": "1f33a5555ee2d692862ecf320965afd762d3b9b80c78be66cd865e4942d51194",
+      "text": "下弦月測驗結果：減少可選負擔與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/seo/description": {
+      "sourceHash": "7f53fd480b78a5a1a8e680a5730f829856b7b310e23c444dc2a53c2b75a7e81b",
+      "text": "用一項自選附加要求說明如何縮小範圍，保留真實責任與權利；完整例子不認證放下能力、心理健康、道德或人生轉型。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/0/title": {
+      "sourceHash": "0d4ff59e8e21ce0d3f22482fb1c785535bf3e706d126bed972a12c17f964d2ba",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/0/paragraphs/0": {
+      "sourceHash": "f7405c3bc96aed1e651237e45b535dcce9fbcefe14885f5558eb2a826d31de5e",
+      "text": "下弦位於月相週期約四分之三處，從地球看呈半圓受光形狀。本版選“減少可選負擔”作當代意象：辨認一項自己並不願繼續、而且確實可選的附加安排。它不要求結束關係、放棄職責或作重大改變，不測心理狀態，也不把月相當人生該結束什麼的訊號。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/1/title": {
+      "sourceHash": "42929dd88dcdb1ee4494484cf03cdad7818912d07bd44504ed3f41a9a8a67197",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/1/paragraphs/0": {
+      "sourceHash": "f27fcb91abc82f2622f25416d2144256776c8367c3390dfa5555f41d1fa4679c",
+      "text": "若次數最高，本次較常選擇讓範圍小一點、不繼續非必需任務，或為已有活動減去一項額外標準。可以問：這件事確實可選嗎，涉及誰的權利，怎樣說清新的範圍？較少選擇可能是安排本來合適，不說明不會放下、缺少智慧或註定負擔重；問卷沒有核查實際責任。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/2/title": {
+      "sourceHash": "2760802286107d7df76861229b60dab1efe7ba75c89ed2f05a3831997bfe4b9b",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/2/paragraphs/0": {
+      "sourceHash": "b76d0cd27b900384fe7bd605244f9c3305148942d4692753f201bcb8d4b8c13f",
+      "text": "例如，你原本自選整理一頁私人閱讀筆記，後來又給自己加上“每條都畫插圖”的非必需要求。若願意，可以只留下文字，說明這次不畫圖；不影響已經對別人作出的真實約定。例子只減一項普通可選工作，不推斷該離開誰、改變生活或放棄重要事情。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/3/title": {
+      "sourceHash": "d0d2a169ee458676a2e0c02f5c833027c1f9893bc2d7d1b470799da98deafa50",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/3/paragraphs/0": {
+      "sourceHash": "cb4542e26495610a8e278c75cde0d069fab7c0cb94acd3f05073ba9ec09e117f",
+      "text": "可以說：“這項是我後來加的可選內容，這次不繼續，保留原來較小的範圍。”若涉及別人，另行確認約定、權利與實際影響，不用標籤替代溝通。自己也可以決定保留；下弦意象不要求果斷切斷、犧牲、清空東西或證明自己擅長結束，更不授權替別人減少其需要。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/4/title": {
+      "sourceHash": "cd2a36efab914bdd777a9645ab9a985d369ff48088e74c1fab2e6da346d1fd19",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/4/paragraphs/0": {
+      "sourceHash": "b646dc777bec73d812ad3e18ba403778f66c34b582a99f9793160dd4312ba5d9",
+      "text": "下弦偏減少可選負擔，殘月偏安靜間隔，上弦偏當前取捨，滿月偏呈現收束；減少、暫停和完成不是同一件事。新月留白、漸盈小試、盈凸調整、虧凸分享也能並存。八種不分積極消極，不換算依戀、拖延、氣質、MBTI或職業，也不確定實際月亮或人生階段。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/5/title": {
+      "sourceHash": "3883fcbb6b5dfa37df8cfa2c429506a5a2e56b1aac68d172c24ebf233d81bcee",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/5/paragraphs/0": {
+      "sourceHash": "f8d2de22ad8d597535884d6287994fa1bdac5354319a6a9377ce4ee963faa60f",
+      "text": "反例是，減少任務可能由於資源、健康、許可權或外界變動，不一定是偏好；繼續原安排也可以有邊界。問卷不測抑鬱、冷漠、自私、韌性或處理失去的能力，不提供諮詢或治療。現實中什麼可改、什麼不可由自己決定，需要具體確認，不能因下弦次數高就把困難歸成需要放下。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/6/title": {
+      "sourceHash": "b33376b0424b20c9f49816a98cfa2fd8e4540cb27d6ecba8b40d4f037f901fe0",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/6/paragraphs/0": {
+      "sourceHash": "82c218dba69941b3808c35fb8a58442fcd0414b15ca7b9ff1692b8a1dea723d1",
+      "text": "可選的小觀察：對一件自己原本可決定的普通小事，區分必需約定與自加可選要求，標一項是否願意繼續。可以不改變任何安排，也不丟棄物品或影響別人。觀察當前對範圍的興趣，不把減少量當心理進步、道德或能量分數，不等下弦才處理現實事情。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/7/title": {
+      "sourceHash": "1b8a09a7fc80dd4598ee80ac4b209d47f602d28f676a634baf4a907a5ece8bab",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/7/paragraphs/0": {
+      "sourceHash": "f2f59dc7b360aa76e192aa27b9cf02142da08e87f06d931613af64de6dde5b56",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/8/title": {
+      "sourceHash": "1dd95268ae194257e05b87378dcec19fa5fe9340e1dc54c76248b9abac2b7894",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/6/sections/8/paragraphs/0": {
+      "sourceHash": "b4d8f7670a35cd553753b2c08da4a3f21f97faf9c4ba4e0a3438455853de7e37",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/title": {
+      "sourceHash": "2f0a98a7e28b50824ca0a1152a13d9a9bbc9a6e3a58a413c14e79ecc1bb73de1",
+      "text": "殘月意象：保留安靜間隔"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/headline": {
+      "sourceHash": "45f81c4e6bdaf6904cdbac5bb9f08b641b9684937f794c67fb45c374a58843ec",
+      "text": "一種當前活動節奏的編輯意象，不是真實月相、身體週期或能力結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/summary": {
+      "sourceHash": "0dc2b7789a6311bef8e8fa378aa6f3c4e50469404306274c6d4ff50eb5471cad",
+      "text": "通過一次普通活動後的空檔理解間隔，允許不評價、不解釋和不加新任務；不認證靈性、智慧、內向、恢復或健康狀況。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/scoreReading": {
+      "sourceHash": "2c821eb0286a2d7b429824ee0ef539568f7ce442d94bba18c15354784459dfd9",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/seo/title": {
+      "sourceHash": "0d19da55bc9364e05962c840ac1c5c70f5156b924a354f6dbbe74f6f227c5849",
+      "text": "殘月測驗結果：安靜間隔與完整說明"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/seo/description": {
+      "sourceHash": "045ba220fed474cfb74d83c4be837032037f4c8b953717c68e86643ea0894474",
+      "text": "通過一次普通活動後的空檔理解間隔，允許不評價、不解釋和不加新任務；不認證靈性、智慧、內向、恢復或健康狀況。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/0/title": {
+      "sourceHash": "f30ee3a5204d6ff9aca07390d8ee863b6cfce5bf16b0783c10815f14cfec9468",
+      "text": "天文背景與本版意象"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/0/paragraphs/0": {
+      "sourceHash": "2e295dfc35f076642c3c68619a27cdbef893acce4a566267cc5eec3b3dba2083",
+      "text": "殘月接近下一次新月，從地球看只見一彎逐漸減少的受光部分。本版用“保留安靜間隔”作當代意象：允許一小段時間不新增任務、評價或說明。它不測內向、靈性、智慧或身體恢復，也不要求獨處、冥想或按月亮休息；安靜由自己決定，不是能量診斷。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/1/title": {
+      "sourceHash": "940e20581aee36e0e084c5aedf931a9a886d3c9b0b13049a873aae0b5193d920",
+      "text": "把計數放回當前條件"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/1/paragraphs/0": {
+      "sourceHash": "cff34a5ba9d1cb8ab9c04229eb4aaee801c1cffd0cc71315768ad186d89f01a5",
+      "text": "若次數最高，本次較常選擇不馬上開始下一項、不急著總結，或留一段沒有產出要求的空檔。可以問：自己願意怎樣度過，是否真的可選，什麼不用解釋？較少選擇可能因為想繼續或條件不便，不說明浮躁、缺少深度或不懂休息；次數沒有記錄真實休息、壓力或健康。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/2/title": {
+      "sourceHash": "3ae0db6acb5365fd7dcb8cebe8707228bb8f748c3b038492d54151d61f2bb496",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/2/paragraphs/0": {
+      "sourceHash": "e6aef8e9fa885aad8be283995a538e9b947798af5e5ae20b2a3cd4d681b3ed9c",
+      "text": "例如，你結束一次自選的普通筆記整理，把紙合上後，願意先留一小段不繼續寫、不評價成果的時間。可以看看熟悉房間，也可以只不安排下一項；不必讓頭腦空白、獲得頓悟或確保放鬆。這個例子不是睡眠或治療練習，也不保證會恢復精力或改變感受。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/3/title": {
+      "sourceHash": "6ce7b039ad494abb8f8306b518e466bef17b7217e8d7d0d1d226ced0ba642e57",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/3/paragraphs/0": {
+      "sourceHash": "800565c5bc374fd52e04a12e31018d82f676ddc0965d02ef9e0dcbc2eed9def8",
+      "text": "可以說：“我現在想留一點沒有新安排的間隔，也先不解釋剛才做得怎樣。”如果有共同約定，另外說明實際範圍與時間；不把安靜要求成別人必須理解的義務。自己也可以繼續活動，或不獨處；漸虧意象不要求遠離他人、尋求內在答案、證明靈性或隱藏情緒。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/4/title": {
+      "sourceHash": "04382cb5da4d66ac9e315c7d200b02a757e173cd3f1a463f3b34e2d7ca762cfe",
+      "text": "與其他七種做法比較"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/4/paragraphs/0": {
+      "sourceHash": "206c18aedcc169e7a3742d085d630dda2eb46e47a051b32d3fdcd7e705811fa1",
+      "text": "殘月偏沒有新要求的間隔，新月偏留白與意圖，下弦偏減少可選負擔，虧凸偏自願分享；間隔不必服務下一次開始。漸盈小試、上弦取捨、盈凸調整、滿月呈現也可在別時採用。沒有深度或靈性等級，不轉換內向、依戀、MBTI、健康或職業，也不規定人生必須按八階段迴圈。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/5/title": {
+      "sourceHash": "8e03c7ea28a7f788ddd8e0543b9a57f965b41825c7b5ceb51486ae2a8b523a0c",
+      "text": "反例與真實表現、身體情況"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/5/paragraphs/0": {
+      "sourceHash": "4f3b0e23aef9f52da7edbc1f1e946253b7970fbd5144c7e7648c2a7a0a19e176",
+      "text": "反例是，沒有新任務可能來自時間限制、等待別人或實際需要，而不是偏好；想繼續做事也可以尊重邊界。問卷不判斷孤獨、迴避、抑鬱、疲勞或智慧，不解釋內在聲音、夢境或人際問題。現實中的休息和支援應看實際條件，不由月相標籤代替，也不因不能留間隔責怪自己。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/6/title": {
+      "sourceHash": "ddffd491e3f0a0e2c41a045289aa2670f7001567d14c0573b769c8474aa6bc11",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/6/paragraphs/0": {
+      "sourceHash": "71b55de5039223ef37ea7a91c4a0f5766bae8eb03dd1ffdc1c92f33c5173e5cf",
+      "text": "可選的小觀察：為一次原本可自選的普通活動結束，留一個可以不新增要求的出口，寫“到這裡也可以”。可以不記錄、不實行，或直接繼續。觀察是否喜歡這種間隔，不檢驗靈性、療愈或恢復效果，不按感受好壞評分，也不等真實殘月或把安靜當修復人格的任務。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/7/title": {
+      "sourceHash": "dff9d7a7dd6c4d8e4253a77a95cfb5f7f3209eee6b9da1e649b11b0eb597c76a",
+      "text": "24題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/7/paragraphs/0": {
+      "sourceHash": "a7235a37d0ea17854eaa436f5f2db95898dadc1a56b866cdd366fcf6b375a97b",
+      "text": "24題全部各選一項，對應節奏意象加1，總數固定24。每題提供八主題中的四個，全卷每主題12次、每位置3次；未提供的另外四種不記拒絕。原始次數是這些普通做法中的相對選擇，不是月球照明比例、能量、人格強弱、身體節律或人口排名。所有最高計數完整保留；全選第一項會八種各3次，八份完整顯示。名單順序不設主次，不自動指定第二月相或強造混合型。相差一次只是一項選擇，不證明顯著差異、某種品質消失或固定人生階段。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有型別或科學分界。"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/8/title": {
+      "sourceHash": "5660c79e510cb9c1d30cd07b8bbbe19ebfcbb4a2101e145ba54d04b2d71953a9",
+      "text": "原創版本、來源與適用邊界"
+    },
+    "lib/questionnaires/data/moon-phase.json/profiles/7/sections/8/paragraphs/0": {
+      "sourceHash": "12c5a6cbe677ad6960ebbcc1695dd90cdc2177587aaf8a884acaa98df68eb361",
+      "text": "這是費馬獨立創作的普通活動節奏偏好問卷，八個月相只作當代編輯意象，不是天文計算、真實出生或當前月相、月亮星座、配對、命運或統一人格分類。NASA資料只核對月相名稱和受光背景，不為本站對映、計數或心理解釋提供驗證，也不表示NASA認可本測驗。24題、選項、當代主題、解釋、例子與規則均為原創，沒有采用JobCannon8題、競品結果正文／程式碼／演算法、NASA圖片、受保護原文或名人生月相指派。本版不測情緒、睡眠、健康、激素、體力或自然能量週期，不認證智力、創造力、韌性、道德、關係或職業，也不規定人生必須經歷八階段；不轉換拖延頻率、氣質、DISC或MBTI，沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/0/title": {
+      "sourceHash": "04015cd249255b284d4a6ad1e4e264c48de8cffbbec3d8ef65a413f7c6b30d16",
+      "text": "24題怎樣計分：八項次數與固定總數"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/0/paragraphs/0": {
+      "sourceHash": "a139b693529023e0fe098bef1cccee7f2897e1404ddfa0af0458ad98a709be84",
+      "text": "每題四個選項，對應八個節奏主題中的四個；選中一項，那個方向加1次。完成24題後，八項合計固定為24。每個方向在題組出現12次，在四個選項位置各出現3次，所以單項範圍為0—12。單題未提供的其他四個主題不算被拒絕，次數也不轉換為受光比例或能量百分比。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/0/paragraphs/1": {
+      "sourceHash": "8de6bbe94300a163e2a03f8751e436dfacda1bf20085354f308fd291e51d3200",
+      "text": "例如，按新月、眉月、上弦月、盈凸月、滿月、虧凸月、下弦月、殘月的順序，一組實際可產生的次數是2、2、2、1、5、3、4、5，滿月與殘月並列最高。這表示“呈現收束”和“安靜間隔”在這組選擇中獲得相同最高次數，不能據此斷定你同時處於兩個真實月相。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/1/title": {
+      "sourceHash": "ca2462587a4949f2c40e1a9fcd5d8d9a7db25541ead7212e1a8e0b047f298a4c",
+      "text": "最高並列、近分與低次數怎樣解釋"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/1/paragraphs/0": {
+      "sourceHash": "b7a8c53861253e4aea70962405f0319afe235294834453cdef65b9cf6fcd4165",
+      "text": "相同最高次數的方向全部保留，不用字母、題號、位置或隨機方式打破並列，也不自動選一個“主月相”和一個“副月相”。全卷都選A、都選B、都選C或都選D，都會得到八項各3次，八份指南全部顯示。名單順序只是閱讀順序，不是強弱或先後的人生階段。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/1/paragraphs/1": {
+      "sourceHash": "7248b80ba8142e94099781bf626068e4cf4126f0d325ee86f35d658f61760c24",
+      "text": "相差1次只是淨計數差1，本版沒有顯著性檢驗或近分合並閾值。你可以比較相鄰方向的說明，但只有相同最高值列為並列。較低次數表示本次題組中相對少選，不能說明沒有相應品質、不會休息或不能完成任務；缺少的活動選項和當前條件也會影響選擇。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/2/title": {
+      "sourceHash": "e7ff3cb843f524327d6da63066af84586d8fc7f03e4d9c5a86cb896d401e851f",
+      "text": "本版結果是什麼：當代意象與當前選擇"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/2/paragraphs/0": {
+      "sourceHash": "22ee178e1a826263334a0d6d841f9a160b8573c9c53e3c8a568bfb42b4f7f899",
+      "text": "這是費馬的原創象徵測驗。八個名稱提供故事語言，24道題及其對應規則組織當前的相對選擇；尚未完成心理測量學驗證。可復算的演算法能說明結果如何產生，但不能單獨證明它測到了穩定人格、身體節律或真實月亮影響。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/2/paragraphs/1": {
+      "sourceHash": "86ff4aabc593b34f2b302dd6950fbaa269b9bb3b9ba4327348f51e67d2b2a7a7",
+      "text": "八份完整指南分別包含天文名稱背景、本站讀法、具體例子、可用表達、與其他主題的比較、反例、小觀察、計分和來源。它們不是八個必須依次完成的人生步驟。可以只使用其中一個適合當前活動的提問，也可以不同意描述，不必為了標籤改變生活安排。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/3/title": {
+      "sourceHash": "8a54a5aefd7598e0a6177376e3cde17c4ae7cb734ff5e8648ce78af462d0f143",
+      "text": "真實月相：受光形狀與週期，而非人格型別"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/3/paragraphs/0": {
+      "sourceHash": "662e7e0d8d40a84c6eb11c7ef34412bac5390f8849326584e10987de13045813",
+      "text": "月相是從地球看到的月球受光部分的變化，月光來自反射的太陽光。新月到下一次新月約29.5天。新月、上弦、滿月和下弦標記週期中的不同位置；上弦從地球看約半圓受光，但名稱指約走過四分之一個月相週期，不是“半個月相週期”。日常月相變化也不是地球影子逐漸擋住月球。[1]"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/3/paragraphs/1": {
+      "sourceHash": "ad8faf738f6d5c59fdd2dd1178eb05595f88aef703628433a20b5dbeb505744e",
+      "text": "天文上的新月、滿月可以指精確時刻，月牙和凸月則描述中間的形態。本站借用八個常見名稱，卻沒有以日期、時刻和歷算確定某個天文位置。這裡的“滿月5次”只是一類選項被選擇5次；無論今天月亮是什麼樣，這個問卷計數的意義都一樣。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/4/title": {
+      "sourceHash": "e5ee53ced329f881f39f3f2d0f96a2655112a0210439efb6e299a4c9fae5931c",
+      "text": "八種節奏意象分別關注什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/4/paragraphs/0": {
+      "sourceHash": "e0f5fd0e03a4203bcd2f82b63547591365f1f01e41ad9fab42d5044daf084a27",
+      "text": "新月意象關注先留空間、說清自己願意在意什麼；眉月關注小而可改的嘗試。上弦月關注在當前條件下明確取捨；盈凸月關注把已有做法的一處改得更合用。前兩者區別在於“先想清意圖”和“先試一小步”，後兩者區別在於“選哪一種”和“怎樣調一個細節”，都不是對速度或能力的評級。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/4/paragraphs/1": {
+      "sourceHash": "ea4f8d18f4e56fddd8ad5b121652c60976b42a6d0ea7ec416b60f16ceb239fa2",
+      "text": "滿月意象關注自己願意呈現的範圍與暫時收束；虧凸月關注自願分享一條可用經驗。下弦月關注減少一項可選附加要求；殘月關注保留不用馬上開始下一件事的間隔。呈現不必公開，分享可以被婉拒，減負不等於放棄真實責任，間隔也無需證明已經“恢復能量”。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/5/title": {
+      "sourceHash": "0f4427f0a2cb61a94c89c856d71569dc54c332f110bef85265c49053d16036a3",
+      "text": "月相問卷、出生月相和月亮星座有什麼不同？"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/5/paragraphs/0": {
+      "sourceHash": "6d4e8953dc8adab23f0a10cd4498d77af5eec8cfd0e6e10eb32473055e71c4a8",
+      "text": "本頁用活動選項加總，得到編輯意象；出生月相計算則需要確定一個出生日期或時刻，求當時的月相，兩者的輸入和答案不同。月亮星座是占星體系對月球位置的分類，又是另一件事。僅憑選擇題、喜歡的圖片或對某段文字的認同，不能計算出生月相或月亮星座。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/5/paragraphs/1": {
+      "sourceHash": "8856cdce9e62ae0543ff83f533571919c8aa30727148a969156b2bc871a00342",
+      "text": "問卷的高次數也不代表出生月相的“準確率”，沒有把兩個人的次數拼成滿月、推算靈魂伴侶或預測關係的規則。若只是想查某日月亮的實際樣子，應檢視相應天文歷算資料；若只是想描述今天更願意怎樣安排活動，可以保留本頁的活動語言。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/6/title": {
+      "sourceHash": "2c910ffaf50b677d5f48d256724d08b9327f506901bc93a62364d6a8a43d56e9",
+      "text": "月亮與睡眠研究，能否驗證這個問卷？"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/6/paragraphs/0": {
+      "sourceHash": "5c5af87e9f22268bb6ae9ca5ce60829f913644e75cb19f909ef31e8cb099c8db",
+      "text": "不能直接驗證。Cordi等人2014年對三組睡眠腦電資料的再分析，未復現其所檢驗的較早月相效應，並討論未發表陰性結果可能帶來的偏差。[2] Casiraghi等人2021年的實地研究則用腕部活動記錄，在所研究的不同照明環境中報告了睡眠時間與月相的關聯。[3] 兩者的資料、環境和分析設計不同，不能把它們壓縮成一句“月亮已被證明控制所有人的節奏”或“絕無任何相關性”。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/6/paragraphs/1": {
+      "sourceHash": "cc8e526a02cd5b7105bdb4e3b56db5cb1022e3abf61f8a21f3950506df79d611",
+      "text": "這些研究考察的是有時間記錄的實際睡眠與天文週期，不是八種活動意象，也沒有驗證本問卷。觀察到的群體關聯不等於能憑一個結果標籤預測個人今晚的睡眠、情緒或體力。本版不收集連續睡眠記錄，不估計生理週期，不據此安排治療或重大決定；引用研究是為了說明證據適用範圍。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/7/title": {
+      "sourceHash": "d55a80ce17360ff44f4b996874d6c26348f24e8a64799281361205e531066037",
+      "text": "怎樣比較相近結果，避免把節奏讀成標籤？"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/7/paragraphs/0": {
+      "sourceHash": "265d54ca4d981c30a7db98b03729d31df2caea4622caf5aa03516eaa9128f6a4",
+      "text": "先找一項具體活動，再讀兩個高次數主題。例如滿月與殘月並列，可以是“把這版筆記收好，再留一個空檔”；並不矛盾，也不等於你既外向又內向。新月的留白是考慮意圖，殘月的間隔是暫不追加安排，表面都安靜，關注點卻不同。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/7/paragraphs/1": {
+      "sourceHash": "5cf1d65c24cd4090617383330b102caa9df887b0b24ee720862d1ca871dd5d4a",
+      "text": "同樣，盈凸月的一處修改不等於完美主義，下弦月的縮小範圍不等於懶惰，眉月的小試也不等於毅力強。為最有共鳴的描述各找一個符合、一個不符合的近期例子。若例子不支援故事，就修改你的讀法；無需把日常行為都解釋成“天生月相性格”。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/8/title": {
+      "sourceHash": "10fb17c4a89ec5411beb31edc024d20624bdd18d7e4e5a4251eb000dd90f7821",
+      "text": "用一次小活動嘗試一種安排"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/8/paragraphs/0": {
+      "sourceHash": "ceb189a0d61ae8f0ef7450fef62acc41cc4a5df64c6ce93b00b1b8bdc191d365",
+      "text": "可以用一張自用便條作觀察：先寫一句它要服務什麼，或只試一個標題；再比較兩種排列，或僅改一處難懂的說明。這裡對應留白、小試、取捨和區域性適配，但你只需要選一個想試的步驟，不必按月相順序完成，也不用等某天月亮合適。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/8/paragraphs/1": {
+      "sourceHash": "1e27f19c758929e418aa75674c949bfc1fdf866061722145ee63dee13fd515e7",
+      "text": "另一種做法是確定這一小版的展示範圍，願意時分享一條經驗，刪去一個可選附加要求，或留一個不安排新任務的空檔。最後記錄“這一步是否適合這次條件”，而不是打效率分。分享前詢問對方是否想聽；減負時區分可選要求與真實約定；任何建議都可停止。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/9/title": {
+      "sourceHash": "20f77770b125a3c5febad9ccb78ae5a5cc56abe6a355436acee17b9d5ed4ff30",
+      "text": "重測變化與其他人格測驗怎樣區分？"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/9/paragraphs/0": {
+      "sourceHash": "c807420b59342c190f353d100aee9da1f99857f9a5e1ab7bd4c4d20a944475b8",
+      "text": "同一個人在不同活動、期限或資源條件下，可能更想選擇不同做法。重測時先看具體選項與八項次數，再看最高標籤；少數答案變化就可能改變並列。本版沒有用於量化個人變化的重測信度或誤差區間，因此不把一次標籤變化稱為人格轉變或月亮影響的證據。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/9/paragraphs/1": {
+      "sourceHash": "fb8dd2b37bbf2987b32da0b8ee043268516be5cdd0bdd3b723213cefe6dcc8b1",
+      "text": "MBTI、大五人格、職業興趣或拖延行為問卷討論的構念，與這裡的活動節奏意象不同。滿月次數不能換算外向性，虧凸月不能換算共情或指導能力，下弦月也不能換算心理健康。可以從結果提出一個具體問題，再通過實際活動和回饋了解自己，而不是跨測驗拼出未經驗證的結論。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/10/title": {
+      "sourceHash": "37978813a921e2e5a3e16e8fa33b2e4f8b828af3312e03d251098b44e5efde73",
+      "text": "免費範圍、直接作答與儲存方式"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/10/paragraphs/0": {
+      "sourceHash": "0b035029a65b59863e8dbd251a50618b95d36ac6c88b71ffac75f14bcf19c7d6",
+      "text": "全部24題、八項次數、所有最高並列與八份完整指南免費，不用註冊、郵箱、生日或先做其他測驗。點擊開始測驗直接進入題目，沒有額外同意步驟。約7分鐘只是閱讀與選擇的參考時間，不計速度分；固定公開指南不包含你的個人答案。"
+    },
+    "lib/questionnaires/data/moon-phase.json/guide/10/paragraphs/1": {
+      "sourceHash": "6aaae96ccd20bc69b11b2ae16f5100b7b27e02737289e27b93feadf6750e6260",
+      "text": "答案在當前瀏覽器計分，不通過計分請求上傳伺服器、不進入網址或分析事件。當前答題頁不儲存進度；重新整理或離開頁面後需要重新作答。網站可能另記錄不含答案的開始、完成等使用事件，以隱私與Cookie設定為準。分享公開指南時，無需解釋自己的私人經歷。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/0/question": {
+      "sourceHash": "273e2adfebe044fa51bb3d1246643807cb0f8ca186454dd73db76ca80488424b",
+      "text": "我是哪種月相？月相人格測驗測什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/0/answer": {
+      "sourceHash": "8517eb3b9849730cd4553976e86864d1e8a0c2a2aa8a8b5bf525b84ec684ac14",
+      "text": "本版用八個月相名稱組織普通活動的相對選擇，關注留白、小試、取捨、調整、呈現、分享、減負與間隔。它是一份原創象徵測驗，不把結果當作真實月相、固定人格或人生階段。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/1/question": {
+      "sourceHash": "2b8d8bd57bcb1efd969b146a58f9b0ee093c1f9640ddf5215ecf0e6bdeba27ed",
+      "text": "八個月相名稱分別是什麼？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/1/answer": {
+      "sourceHash": "7be9e8e8ae0f14263aa941724beb03ccf7ea7328eb994a102a626ac13fdff31d",
+      "text": "新月、眉月、上弦月、盈凸月、滿月、虧凸月、下弦月、殘月。本版借名稱作活動意象；NASA資料用於核對天文背景，沒有提供這些心理對映，也不表示其認可本測驗。[1]"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/2/question": {
+      "sourceHash": "9d746f18c0aa4f5cfc32f49b9fdca5bf55d98fcccf2c4e48f85282189c8749cd",
+      "text": "這是生日月相查詢或月相配對測驗嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/2/answer": {
+      "sourceHash": "7aee81718a57d3f3c1d9226cde41c24c6850b5bd70afafb4b4a5eaf6e3d4ad19",
+      "text": "不是。這是24題的活動節奏意象問卷，不需要生日、出生時間或地點，不查詢出生月相，也不計算兩人的月相契合度。想知道某天的實際月相，需要另用天文日期查詢工具；本頁的八相解讀是娛樂比喻。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/3/question": {
+      "sourceHash": "f8360d8be959cd4ea13c3fa008f374af7daf71f905b35fd3b32736314749bc65",
+      "text": "24題怎樣得到八項次數？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/3/answer": {
+      "sourceHash": "95508bdba0ba25f807ca9ac35f59de1976bceafe7dabaf49c77815f70e5e562b",
+      "text": "每題所選方向加1次，八項合計24。各方向在全卷出現12次，在四個選項位置各出現3次，因此單項為0—12。單題未出現的四個主題不記為拒絕；這些次數不是受光百分比或能量等級。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/4/question": {
+      "sourceHash": "8f6f56e49b69faff3aa4c0e314923b11a616f1e5fae2b7eb8d21d7adb62937fa",
+      "text": "兩個、多個或八個結果並列怎麼辦？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/4/answer": {
+      "sourceHash": "6014f3a0ff3071341b5bf14e506497f37f2ea14dda5f96ee9b72b3ad38796335",
+      "text": "所有相同最高次數都保留並顯示完整指南。例如2、2、2、1、5、3、4、5對應滿月與殘月並列。全選同一選項字母會得到八項各3次。沒有強行破同分或自動選第二月相的規則。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/5/question": {
+      "sourceHash": "a4227d006bc7f00e4ad22b74631119b43054409d544a49320b8c201db65c126c",
+      "text": "相差1次就代表明顯不同嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/5/answer": {
+      "sourceHash": "e9e51b06ec9a4bda240e8d7036e9489051f0be1b71522ed91b38ae91ebc06f89",
+      "text": "只表示淨計數差1。本版沒有統計顯著性檢驗、常模或近分合並閾值。可以一起比較高次數主題的活動含義，但不把近分直接判為並列或兩種不同人格；低次數也不是缺點。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/6/question": {
+      "sourceHash": "b88f03982b699ec069a8b52b0e6147b44c66a164dee55d582deedf3c9bb7e944",
+      "text": "為什麼上弦月看起來是半圓？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/6/answer": {
+      "sourceHash": "a567b8c0910c31cedaa866c0d52116d8548a0104e6ae40e7c78b5abc3c2cb51e",
+      "text": "“上弦”指月相週期約四分之一處，不是可見圓面只有四分之一受光，也不是週期的一半。問卷中它對應當前取捨的編輯意象；選中這個主題不會改變或查明天空中的月相。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/7/question": {
+      "sourceHash": "7b1a8e8a349cfb2e0059a91548fa437f3f1334eaa8b2587b9216baead039efc5",
+      "text": "月相會決定我的情緒、睡眠或體力嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/7/answer": {
+      "sourceHash": "a6a8ef3e2e1beee379825e57be75622d64a2e567ae8eb5bb16cf9980fcd9b680",
+      "text": "本版沒有測量這些指標。研究實際月相與睡眠的工作，需要時間記錄、合適樣本與分析設計，已有研究的結果和條件並不一致。[2][3] 無論如何，都不能把本問卷的一個意象標籤當成個人睡眠或身體預測。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/8/question": {
+      "sourceHash": "dc042fcce6a5884ee759f076ff537a10d9172a0d39feecf7e0f8028b022786c5",
+      "text": "這份月相人格測驗科學嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/8/answer": {
+      "sourceHash": "1e2eff3e21ad6a6af5e52d036d5675b0b7be2732852a4ed65c08b4fc301d0ca0",
+      "text": "它有明確題目、可復算計數與完整解釋，但尚未完成心理測量學驗證。“人格測驗”是常見檢索名稱，本版實際提供的是活動節奏意象比較。天文事實不能自動驗證編輯對映，也不賦予結果診斷或能力評估用途。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/9/question": {
+      "sourceHash": "4baa66993b54f7ed2c3bf36acdc2fbe9829c6faeb670857cd0d367c670d512c2",
+      "text": "我必須按八個月相依次安排生活嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/9/answer": {
+      "sourceHash": "c836ae91321c073e277b217e7582e82eb16b36811b39fcbaeaadcda610bcba96",
+      "text": "不必。一次活動可能既想收束一個版本，也想保留間隔；另一次可能只想試一步。名稱順序不是你的成長進度，也不要求等待新月開工、滿月完成。按實際時間、條件和約定作安排即可。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/10/question": {
+      "sourceHash": "e60bd5d716de0f744088d342bcfbd16757bf8100d6510104b73860ed797baac2",
+      "text": "能用結果配對，或換算MBTI、大五人格嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/10/answer": {
+      "sourceHash": "193d435123687c0ffe3461facd38b5d96eac661f923807ed7996dbc2c62155bc",
+      "text": "不能直接換算，也沒有靈魂伴侶或關係匹配規則。八個活動意象與人格偏好、連續特質、職業興趣是不同的解釋物件。結果可以提供討論安排的詞彙，不用來替他人判型或決定重大關係與職業選擇。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/11/question": {
+      "sourceHash": "10ce4b4f815e51af4d8af135d27e0af2da7b9b2261e5d3d60944d9fd89e57e60",
+      "text": "怎樣把結果用到普通活動中？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/11/answer": {
+      "sourceHash": "3fe5ae0bbbadc2bb228b6cd51602dc9cdeb8ddd6aa6ad75456d0e1dae6afcefe",
+      "text": "選一張便條或小草稿，只試一個適合的步驟：寫清意圖、試一個標題、比較兩種做法、改一處說明，或決定展示範圍、分享經驗、刪去可選要求、留一個空檔。觀察是否合用，不需要購買物品或證明效率。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/12/question": {
+      "sourceHash": "93fd230d7fe195d23b75f969aeabc70f66efe465f20ca21d289ceed0e756dac0",
+      "text": "免費嗎，開始測驗後還需同意一次嗎？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/12/answer": {
+      "sourceHash": "5971d2da3bb3ece498fdf67bdd799492cc15d76f9459bbd8319fabfe8080337f",
+      "text": "全部題目、次數、並列和八份完整指南免費，不用註冊或先做其他測評。點擊開始測驗直接進入題目，沒有額外同意步驟。約7分鐘是參考用時，不計速度分。"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/13/question": {
+      "sourceHash": "09b6d890cff139859ab5e2add17486abd06813ff0cda483b93eca7e068a488dc",
+      "text": "答案是否上傳或儲存，重測會怎樣？"
+    },
+    "lib/questionnaires/data/moon-phase.json/faq/13/answer": {
+      "sourceHash": "6697a919244e0162013123145e4f83b32ef03879a14763964b8cee9c80f0c1a0",
+      "text": "在瀏覽器計分，答案不通過計分請求上傳、不進入網址或分析事件。當前答題頁不儲存進度；重新整理、離開或切換答題語言後需要重新作答。重測反映新的選擇，不證明人格變化；其他使用事件以隱私與Cookie設定為準。"
+    },
+    "lib/questionnaires/data/moon-phase.json/references/0/title": {
+      "sourceHash": "360f72f8410dcacbe17cc373764439183ca51bb3e5c3f4b7c0271610ecd578ac",
+      "text": "NASA Science：月相名稱與天文背景（非人格驗證）"
+    },
+    "lib/questionnaires/data/moon-phase.json/references/1/title": {
+      "sourceHash": "c46a13ab372b9a420afed8b64cc5e40143c10e449c8a2359f22433cf254864da",
+      "text": "Cordi等（2014）：月相睡眠效應與未發表結果問題"
+    },
+    "lib/questionnaires/data/moon-phase.json/references/2/title": {
+      "sourceHash": "1d2a815852e1904ced013e58626432fe7da524f2098cffe700173afac25057d1",
+      "text": "Casiraghi等（2021）：實地月相與睡眠研究（摘要及圖說明）"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/new-moon/0/title": {
+      "sourceHash": "e3847f0dfad1b1628a5ef19ec42ebfd9766907b5f0fa8b59efdf17f85a5a2820",
+      "text": "復盤意圖與暫時留白"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/new-moon/0/paragraphs/0": {
+      "sourceHash": "00385b056f6cb7c0709ccf1b8ed02bafc7b9b1047b99fc8048250cc5a5fa513c",
+      "text": "接著上面的當前意圖，看看它是否仍是自己願意關注的事，再標出一個不必立即決定的部分。沒有行動計畫也可以保留這句話，或直接刪掉。若涉及共同安排，另行確認實際時間；留白不需要等待真正的新月，也不自動要求別人等待。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/new-moon/1/title": {
+      "sourceHash": "1096ecf81325ee52ceaae5365ee117c7c36f12ac7ad5fd2be5c1e6c7dfdd8e06",
+      "text": "分享一個可以暫不安排的問題"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/new-moon/1/paragraphs/0": {
+      "sourceHash": "304933189ccb52b66602115af9f806269bab5b1144c0d141abd07572670e8127",
+      "text": "可以問：“假設給一頁普通筆記留一個空白處，你想讓它服務什麼，哪些以後再說？”可以沒有答案，不把留白當潛力或深度的等級。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/new-moon/1/paragraphs/1": {
+      "sourceHash": "d7443ea533ddc6af88f618a1ab7a17b4a61bff5355233ce69c62944018b5526c",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-crescent/0/title": {
+      "sourceHash": "acfb770bb4cee5b0ba647bb4e53b95544f4ab8be0150bc337c5d406ca535c37d",
+      "text": "復盤試了什麼與是否還想繼續"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-crescent/0/paragraphs/0": {
+      "sourceHash": "77e873eef8da9e8de1ef748e2eb04f9c208d2152137a28ba40c83258b1482782",
+      "text": "接著上面的微小嚐試，分別記錄實際試過的部分、想改變的條件和現在是否願意繼續。試完就結束也是一個可用結尾，不需要把它擴大成長期承諾。沒做成時先看範圍和條件，不按月相主題評價成長速度或毅力。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-crescent/1/title": {
+      "sourceHash": "78c9167c223c4451f0ae1f1e5d4d1056e17bceacbe830e64eb9f155a9b1b493d",
+      "text": "分享一個小樣與停止點"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-crescent/1/paragraphs/0": {
+      "sourceHash": "d68ff64572a0ecbac05d9f9e5802ad8e8682b5fcd23f48b6252ffe372b132980",
+      "text": "可以問：“假設只給卡片寫一句話、畫一個方框，你想試哪部分，怎樣算到這裡就夠？”不用完成量或堅持天數證明結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-crescent/1/paragraphs/1": {
+      "sourceHash": "cafd01f554586a132a537940f79510e48661a4f46ce06e6fbbd5b254b3c2d1ff",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/first-quarter/0/title": {
+      "sourceHash": "4e154422bbe759634045d116875ee4ea3736901769627be6a361b0e4c5b2bb27",
+      "text": "復盤這次取捨依據"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/first-quarter/0/paragraphs/0": {
+      "sourceHash": "45f2c0cb74ea79726df4524d618331eda89dedec7ff0065f6e5bc1073804df8e",
+      "text": "接著上面的兩種普通做法，註明選了什麼、暫時放下什麼，以及改變哪個條件後可能重選。結果未如預期，可以修訂依據，不必把一次選擇解釋成決斷能力。若條件不足，也可以暫不選；這個主題不要求永遠立刻作決定。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/first-quarter/1/title": {
+      "sourceHash": "ab190f6f948dbfc90e0e6ccac064da705f50ace229c64bb30285ca5ebd7ea810",
+      "text": "分享一個普通取捨的問題"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/first-quarter/1/paragraphs/0": {
+      "sourceHash": "982aee78e1d2ab9cc29ba0f33e472911eaefec9c9afe03d68674aecba692d19d",
+      "text": "可以問：“假設一張小卡只能先放標題或圖形，你今天選哪項，依據是什麼？”允許不同條件帶來不同答案，不比較誰更果斷或更會判斷。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/first-quarter/1/paragraphs/1": {
+      "sourceHash": "00c9a236484d87988348c6137285a81eef9e10c247d636734dad51889fdafad7",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-gibbous/0/title": {
+      "sourceHash": "052d2bda1a4a2ce60d7a943089bd0e51d5adad7d776d186d83032bd004b6efd0",
+      "text": "復盤這一處是否已經夠用"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-gibbous/0/paragraphs/0": {
+      "sourceHash": "f6c2f976b523811a4f45de829c426f123def55fafb2a15ed42c4ecbb5684545d",
+      "text": "接著上面的區域性修改，核對原來要回應的需要、實際改動及還有沒有必要繼續。若已夠用，可以保留其他不完美之處並結束。對方是否看懂仍需實際回饋；修改次數不證明細緻程度，也不必借主題名承擔所有校對工作。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-gibbous/1/title": {
+      "sourceHash": "c4e62798834d07a58f6ebd8908fbafccca2f539792473581fa2e53bf315b0139",
+      "text": "分享一個只改一處的問題"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-gibbous/1/paragraphs/0": {
+      "sourceHash": "8986b7d397296b4c6f4ba51625012f19be18baa2ffc3e10c7ee70da23c9b80b7",
+      "text": "可以問：“假設通知裡的時間和地點擠在一行，你想改哪一處，又在哪裡停止？”可以認為原樣已合用，不要求不斷最佳化來配合結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waxing-gibbous/1/paragraphs/1": {
+      "sourceHash": "e54a6085fc3eb94cdabe48c876cc635c9f41ad6427e86dc2a1dabb0cab227c67",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/full-moon/0/title": {
+      "sourceHash": "bde71c65172cc2a8176ecd23f82d9324d8b9d2dc98d8be71f8366dd7de008e08",
+      "text": "復盤呈現範圍與結束方式"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/full-moon/0/paragraphs/0": {
+      "sourceHash": "f9028661dc8ef48163df7d165ec83e9ab6c126bb6d5b0a53ae35635534388622",
+      "text": "接著上面的足夠小版本，確認哪些內容願意給誰看、哪些留給自己，以及是否已經可以結束。公開和完成是兩件事，可以只在私人記錄裡收束。若別人不回應，先保留未知；不需要再加內容換取認可或證明自己處於高峰。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/full-moon/1/title": {
+      "sourceHash": "2c56f2737abe5792883df6643312817e2f5e5d3a61357182470b9dc098ec8433",
+      "text": "分享一個足夠小的結尾"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/full-moon/1/paragraphs/0": {
+      "sourceHash": "c28b476d6844ce77328044cba4fa1fe0e3fadd5abaf31ebc2357d52a390cb001",
+      "text": "可以問：“假設讀書筆記只展示一頁目錄，你想展示哪些條目，怎樣說這次到這裡？”不要求展示所有內容，也不比較誰更有影響力。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/full-moon/1/paragraphs/1": {
+      "sourceHash": "d4eb3b2d18b212c6e3644ff1f3cb3137de5eb7ab8272fd3c1141cfe85b1f30a2",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-gibbous/0/title": {
+      "sourceHash": "cdaad45c3a235d0829178024d060d5898af5279d24d9bbfea8a5c574f1b1bf19",
+      "text": "復盤經驗的條件與接收意願"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-gibbous/0/paragraphs/0": {
+      "sourceHash": "014cce0fc73dbadd535df041d108f5993bd682894996ea691dcfc6c8d3e60297",
+      "text": "接著上面的經驗記錄，標明它在哪次條件下合用、哪裡可能不適用，以及對方是否想聽。別人未採用，可以只是條件不同，不必繼續指導。若其中有事實主張，另行核查依據；一次個人經驗不自動變成通用方法或導師資格。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-gibbous/1/title": {
+      "sourceHash": "83d4dabefc88443c272a847e3e514aa1935a60aa8f9cfee62de1a7fb22fcf3b6",
+      "text": "分享一個可以不用的經驗"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-gibbous/1/paragraphs/0": {
+      "sourceHash": "a8a4dabec93101317b67863e36b2d63bf75e9b1d1a0b22eb0e89892c36308bbe",
+      "text": "可以問：“假設用一個小盒子放書籤對你方便，你想怎樣說明條件，讓別人自行決定？”可以只聽不同體驗，不要求感謝、採用或繼續求助。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-gibbous/1/paragraphs/1": {
+      "sourceHash": "b092d7ad8f9af20ec76b82c1620c709fa35c91587209f8322e9b3fa197d5b194",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/last-quarter/0/title": {
+      "sourceHash": "814e7a0ce6d097167118e7f58b8ac58b0bbc65f46913793bee6c7197badd9aa5",
+      "text": "復盤減少的是否確實可選"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/last-quarter/0/paragraphs/0": {
+      "sourceHash": "8495ea1863cc478856fa2ac2a2d8ea4046117ce967c70a2362331c2fee81ce31",
+      "text": "接著上面的附加要求，確認哪些是自己後來加的、哪些已有真實約定，以及是否需要溝通影響。可選部分可以減少，也可以保留；不靠減掉多少評價進步。若涉及他人的權益或不可隨意中止的責任，先處理實際約定，不由標籤代替判斷。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/last-quarter/1/title": {
+      "sourceHash": "0d62ed36b8c7c59fb62f3c1e249dcde81fda5dfe796c5ddac3911339caaedea4",
+      "text": "分享一個縮小範圍的問題"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/last-quarter/1/paragraphs/0": {
+      "sourceHash": "83b8c9af14a27b8b3020757a623843c15d02f4a2ef34113e1eb4f77797b182b7",
+      "text": "可以問：“假設私人筆記額外要求每條都配圖，你想保留這個要求、改小一點，還是隻寫文字？”只談可選小事，不建議結束關係或放棄重要職責。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/last-quarter/1/paragraphs/1": {
+      "sourceHash": "6f30aaff3ace6242cee9ebe295f70ab4b67a13d1915fdeb430355f6e6f56ea8e",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-crescent/0/title": {
+      "sourceHash": "345095a7e4b4d9439da709d1ea0b55aa98ab71af9771f103d6745ee4eaf86515",
+      "text": "復盤間隔也可以不作評價"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-crescent/0/paragraphs/0": {
+      "sourceHash": "4fbc3b128c56aca41a8090cfb30cb478a16b16ec79aefefb3adc8530bad0df93",
+      "text": "接著上面的結束出口，可以只確認這段時間沒有新增自己不想要的安排，不必再寫感受或證明休息有效。若實際條件不允許間隔，也不說明自己不會休息。下次是否繼續留空由具體需要決定，不要求安靜必須帶來靈感或下一個開始。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-crescent/1/title": {
+      "sourceHash": "23d88c88e0827ae8b9a8402e3fb136e4b0d0c5310e5fd8d69d2d4fb2a543c0c7",
+      "text": "分享一個不需要產出的間隔"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-crescent/1/paragraphs/0": {
+      "sourceHash": "f01d741a4765354dd1df548218e433b72cfdd6765dd28440ce26858b568090b3",
+      "text": "可以問：“假設整理完一頁紙，你想直接繼續、停一會兒，還是暫時不安排？”可以不解釋原因，也不把答案當內向、疲勞或身體恢復的判斷。"
+    },
+    "lib/questionnaires/result-content/moon-phase.json/waning-crescent/1/paragraphs/1": {
+      "sourceHash": "b9e3a65da727b72bc158e980d78bac987a5ee2a0fa50729f0314fb2cf3261e24",
+      "text": "可以只分享公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
     "lib/questionnaires/data/avatar-bender-quiz.json/title": {
       "sourceHash": "048437e20b09f68d3fa616c5b9e8199bdc06189716ca2aa79284f6dd407a83e5",
       "text": "降世神通御術型別測試"
@@ -92125,6 +93848,38 @@
     "stupidity-test/editorial/references/0/title": {
       "sourceHash": "696a52290c01cb9f2e730592a63c9a625492f315821f76e0e441d276d456c93b",
       "text": "英國HSE：人因失誤管理（背景，非本遊戲分類）"
+    },
+    "moon-phase/editorial/summaries/new-moon": {
+      "sourceHash": "5aa1304795c679176e969a58a9fd69e01d7342e9128175d2ffc4851b675128b3",
+      "text": "先為一項小活動留出空間，說明此刻想在意什麼。通過便條例子與反例，比較留白、嘗試和暫停的不同用途。"
+    },
+    "moon-phase/editorial/summaries/waxing-crescent": {
+      "sourceHash": "b1c1f8e1fda75431754b2987becc283658ae21f2fe9146eaf1f3fa0a94c5145b",
+      "text": "只試一小段，再決定是否繼續。以一張小卡說明怎樣讓嘗試可修改、可停止，並與明確取捨、區域性調整相比較。"
+    },
+    "moon-phase/editorial/summaries/first-quarter": {
+      "sourceHash": "e8f21d6fd7709d381be5e7244cfafbc6f7ba7fcf2cb7af1ea96e0953ad747625",
+      "text": "把兩種可行做法放進當前條件，說清這次願意接受的取捨。結合小卡場景，比較作出選擇與先試一步的區別。"
+    },
+    "moon-phase/editorial/summaries/waxing-gibbous": {
+      "sourceHash": "5742b93937278c30b45f2263fbb5a79e09206d656ffa657a1fbd9746b9a20765",
+      "text": "為現有草稿改一處具體細節，讓它更合用。完整指南提供停止點、相鄰主題比較和反例，不必把每處都改到完美。"
+    },
+    "moon-phase/editorial/summaries/full-moon": {
+      "sourceHash": "cbcb055df9402a07ed309f84534b15ec4fcb115a23e1c66a4bd9f46c4060299d",
+      "text": "收好自己願意呈現的一小版，決定給誰看、展示到哪裡。通過自用筆記的例子，比較呈現、分享經驗與保留間隔。"
+    },
+    "moon-phase/editorial/summaries/waning-gibbous": {
+      "sourceHash": "3fc11239f77a17547fbbb253d1c0be3e76fadf31e26b005fc9bc6bd18cf8534a",
+      "text": "把一條可用經驗講給確實想聽的人，保留對方不採用的空間。閱讀具體說法，區分自願分享與替別人規定做法。"
+    },
+    "moon-phase/editorial/summaries/last-quarter": {
+      "sourceHash": "eac5a6b5758645d3e6b1e024eeac7cc33a51d7a7e41cec65d66b90762de19a10",
+      "text": "刪去一項可選附加要求，保留更合適的範圍。用具體例子區分自選負擔與真實約定，再比較縮小範圍和暫留空檔。"
+    },
+    "moon-phase/editorial/summaries/waning-crescent": {
+      "sourceHash": "dec405dc362a1ad88be692ae1e96f780c9409cf1cf57877a030eb5e1e1a44fac",
+      "text": "為一次普通活動保留不必立即開始下一件事的空檔。指南提供可用表達與反例，區分安靜間隔、重新定意圖和減少要求。"
     }
   }
 }

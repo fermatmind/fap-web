@@ -73,6 +73,7 @@ const sources = {
   "sake-type": { name: "sake-type", attribute: "sake", load: () => import("@/lib/questionnaires/result-content/sake-type.json") },
   "stupidity-test": { name: "stupidity-test", attribute: "everyday-mixups", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/stupidity-test.json") },
   "aura-color": { name: "aura-color", load: () => import("@/lib/questionnaires/result-content/aura-color.json") },
+  "moon-phase": { name: "moon-phase", load: () => import("@/lib/questionnaires/result-content/moon-phase.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -9,6 +10,8 @@ import { FantasyQuestionnaireLanding } from "./FantasyQuestionnaireLanding";
 import { FantasyPortrait, hasFantasyArtwork } from "@/components/questionnaires/FantasyRoster";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import { SpiritAnimalPage } from "@/components/questionnaires/SpiritAnimalPage";
+import { MoonPhaseShareCard } from "@/components/questionnaires/MoonPhaseShareCard";
+import { moonPhaseDiagramNote, moonPhaseDisplayCopy, moonPhaseImage, moonPhasePresentation } from "@/lib/questionnaires/moonPhasePresentation";
 import { QuizResultArtwork } from "@/components/questionnaires/QuizResultArtwork";
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
@@ -64,7 +67,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
   if (!profile) {
-    const overviewCopy = hasTraditionalEightQuizOverview(slug) ? await loadTraditionalAssessmentText() : undefined;
+    const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" ? await loadTraditionalAssessmentText() : undefined;
     return <>
       {languages}
       {slug === "spirit-animal" ? <SpiritAnimalPage quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
@@ -76,6 +79,8 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
 
   const result = quiz.profiles.find(item => item.id === profile);
   if (!result) notFound();
+  const phase = slug === "moon-phase" ? moonPhasePresentation(result.id) : undefined;
+  const moonCopy = phase ? moonPhaseDisplayCopy(await loadTraditionalAssessmentText()) : undefined;
   return <article className="mx-auto max-w-3xl space-y-6">
     {languages}
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
@@ -83,6 +88,14 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <h1 className="text-3xl font-bold sm:text-4xl">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
     {slug === "space-marine-chapter" && <SpaceMarineChapterGuideIntro profile={result} locale="zh" displayLocale="zh-TW" />}
+    {phase && moonCopy && <section className="my-6 space-y-4" data-moon-phase-public-diagram>
+      <Image unoptimized src={moonPhaseImage(result.id)} width={156} height={156} alt="" className="rounded-xl" />
+      <p className="text-xl font-semibold">{moonCopy(phase.conclusion.zh)}</p>
+      <p className="text-sm leading-7">這是公開月相意象指南。{moonCopy(moonPhaseDiagramNote.zh)}</p>
+      <TraditionalQuestionnaireCopy loadingText="正在準備月相分享卡…">
+        <MoonPhaseShareCard ids={[result.id]} locale="zh" publicGuide />
+      </TraditionalQuestionnaireCopy>
+    </section>}
     {slug === "aura-color" && <div className="grid w-full max-w-56"><QuizResultArtwork slug={slug} id={result.id} /></div>}
     {hasFantasyArtwork(slug) && <FantasyPortrait slug={slug} id={result.id} name={result.title.zh} large />}
     <p className="text-sm leading-7">這份公開指南只提供閱讀參考，沒有任何人的作答紀錄。</p>

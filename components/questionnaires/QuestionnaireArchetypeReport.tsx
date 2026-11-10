@@ -111,7 +111,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
-    {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
+    {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} traditionalCopy={localized ? displayText : undefined} />}
     {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? copy("下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。") : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
@@ -122,7 +122,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
         {profile.title[locale]}
       </a>)}
     </nav>}
-    {quiz.slug === "moon-phase" && <MoonPhaseComparison locale={locale} selected={result.profileIds} result />}
+    {quiz.slug === "moon-phase" && <MoonPhaseComparison locale={locale} selected={result.profileIds} traditionalCopy={localized ? displayText : undefined} result />}
     {(placement === "before" || quiz.slug === "aura-color") && counts}
     {matched.map((profile, index) => {
       const id = profile.id;

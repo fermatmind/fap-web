@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 /** Editorial labels for the existing eight activity metaphors; never used for scoring. */
 export const moonPhasePresentations = {
@@ -18,4 +18,11 @@ export const moonPhaseDiagramNote = {
   zh: "月相图采用北半球常见示意方向：渐盈右侧亮、渐亏左侧亮；实际天空中的朝向会随观察位置和时间变化。这里只作趣味意象，不表示出生或当日月相。",
   en: "Diagrams use a common Northern Hemisphere orientation: waxing lit on the right, waning on the left. The sky’s actual orientation varies with place and time. These are playful metaphors, not your birth phase or today’s Moon.",
 };
-export function moonPhaseSharePath(locale: Locale, id?: string) { return `/og/fun/moon-phase?locale=${locale}${id ? `&portrait=${encodeURIComponent(id)}` : ""}&v=1.0.0-phases`; }
+export function moonPhaseDisplayCopy(translate?: (text: string) => string) {
+  return (text: string) => translate
+    ? translate(text).replaceAll("漸盈月牙", "眉月").replaceAll("漸虧月牙", "殘月")
+      .replaceAll("測試", "測驗").replaceAll("標籤頁", "分頁").replaceAll("橫版", "橫式").replaceAll("豎版", "直式")
+    : text;
+}
+
+export function moonPhaseSharePath(locale: DisplayLocale, id?: string) { return `/og/fun/moon-phase?locale=${locale}${id ? `&portrait=${encodeURIComponent(id)}` : ""}&v=1.0.0-phases`; }

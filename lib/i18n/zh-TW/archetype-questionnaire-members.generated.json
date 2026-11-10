@@ -549,5 +549,15 @@
     "blue",
     "indigo",
     "violet"
+  ],
+  "moon-phase": [
+    "new-moon",
+    "waxing-crescent",
+    "first-quarter",
+    "waxing-gibbous",
+    "full-moon",
+    "waning-gibbous",
+    "last-quarter",
+    "waning-crescent"
   ]
 }

@@ -37,6 +37,8 @@ import { EightQuizOverview } from "@/components/questionnaires/EightQuizOverview
 import { colorSeasonLandingFaq, colorSeasonLandingReferences, colorSeasonLandingSections } from "@/components/questionnaires/ColorSeasonLandingEditorial";
 import { sakeTypeLandingFaq, sakeTypeLandingReferences, sakeTypeLandingSections } from "@/components/questionnaires/SakeTypeLandingEditorial";
 import { everydayMixupsLandingFaq, everydayMixupsLandingReferences, everydayMixupsLandingSections } from "@/components/questionnaires/EverydayMixupsLandingEditorial";
+import { MoonPhaseComparison } from "@/components/questionnaires/MoonPhaseComparison";
+import { MoonPhaseExamples } from "@/components/questionnaires/MoonPhaseExamples";
 import { AuraColorResultExamples } from "@/components/questionnaires/AuraColorResultExamples";
 import { auraColors } from "@/lib/questionnaires/auraColors";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
@@ -104,6 +106,7 @@ const editorials = {
   "sake-type": { sections: sakeTypeLandingSections, faq: sakeTypeLandingFaq, references: sakeTypeLandingReferences },
   "stupidity-test": { sections: everydayMixupsLandingSections, faq: everydayMixupsLandingFaq, references: everydayMixupsLandingReferences },
   "aura-color": false,
+  "moon-phase": null,
 } as const;
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
@@ -129,13 +132,20 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
       <QuestionnaireTakeEntry quiz={quiz} locale="zh" displayLocale="zh-TW" />
+      {slug === "moon-phase" && <nav aria-label="月相測驗內容" className="mt-2 flex flex-wrap gap-5 text-sm">
+        <a href="#moon-phase-examples" className="inline-flex min-h-11 items-center underline">先看結果示例</a>
+        <a href="#moon-phase-comparison" className="inline-flex min-h-11 items-center underline">比較八種月相意象</a>
+      </nav>}
       {slug === "aura-color" && <nav aria-label="光環顏色測驗內容" className="mt-2 flex flex-wrap gap-5 text-sm">
         <a href="#aura-examples" className="inline-flex min-h-11 items-center underline">先看結果示例</a>
         <a href="#questionnaire-results" className="inline-flex min-h-11 items-center underline">瀏覽七種光環顏色的含義</a>
       </nav>}
     </ExploreTestIntro>
     {slug === "aura-color" && <AuraColorResultExamples quiz={quiz} locale="zh" displayLocale="zh-TW" />}
-    {overviewCopy && <EightQuizOverview quiz={quiz} locale="zh" traditionalCopy={overviewCopy} />}
+    {overviewCopy && (slug === "moon-phase" ? <>
+      <MoonPhaseComparison locale="zh" traditionalCopy={overviewCopy} />
+      <MoonPhaseExamples quiz={quiz} locale="zh" traditionalCopy={overviewCopy} />
+    </> : <EightQuizOverview quiz={quiz} locale="zh" traditionalCopy={overviewCopy} />)}
     <p className="whitespace-pre-line leading-8"><FilmCopy text={quiz.introduction.zh} slug={slug} /></p>
     <section id="questionnaire-results" className="space-y-4">
       <h2 className="text-2xl font-semibold">{slug === "aura-color" ? "七種光環顏色的含義" : "完整結果指南"}</h2>
