@@ -75,7 +75,7 @@ export default async function TraditionalCareerJobPage({ params, searchParams }:
         rendererRelease={CAREER_RENDERER_RELEASE}
         breadcrumbItems={[
           { label: "首頁", href: "/zh-TW" },
-          { label: "職涯探索", href: "/zh-TW/career/guides" },
+          { label: "職涯探索", href: "/zh-TW/career" },
           { label: page.content.subject.name },
         ]}
       />

@@ -38,6 +38,7 @@ const DEFAULT_ITEMS = [
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
   vi.restoreAllMocks();
   vi.resetModules();
 });
@@ -118,6 +119,24 @@ async function renderCareerJobsPage(locale: "en" | "zh", searchParams: Record<st
 }
 
 describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
+  it("uses the existing search authority and emits exact Traditional occupation links", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+    const fetchDirectory = installPageMocks({ page: 2 });
+    const { default: TraditionalDirectory, metadata } = await import("@/app/(traditional)/zh-TW/career/page");
+    const html = renderToStaticMarkup(await TraditionalDirectory({
+      searchParams: Promise.resolve({ q: "軟體", page: "2" }),
+    }));
+    expect(fetchDirectory).toHaveBeenCalledWith({
+      locale: "zh", page: 2, perPage: 50, family: null, query: "软件",
+    });
+    expect(html).toContain('action="/zh-TW/career"');
+    expect(html).toContain('value="軟體"');
+    expect(html).toContain('href="/zh-TW/career/jobs/accountants-and-auditors"');
+    expect(html).toContain("會計師");
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect(metadata.alternates).toEqual({ canonical: "/zh-TW/career" });
+  });
+
   it("renders EN and ZH directory facets, counts, rows, and pagination from the same backend authority shape", async () => {
     installPageMocks();
 

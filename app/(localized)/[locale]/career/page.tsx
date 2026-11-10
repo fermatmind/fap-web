@@ -18,6 +18,7 @@ import {
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
+import { loadTraditionalDirectoryLanguage } from "@/lib/career/traditionalDirectory";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
 import {
@@ -209,22 +210,30 @@ export default async function CareerPage({
   const { locale: localeParam } = await params;
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
+  const traditional = localeParam === "zh-TW";
+  const language = traditional ? await loadTraditionalDirectoryLanguage() : null;
+  const display = (value: string) => language?.display(value) ?? value;
+  const label = (zh: string, en: string) => locale === "zh" ? display(zh) : en;
   const submittedQuery = normalizeSearchParam(resolvedSearchParams.q);
   const selectedFamily = normalizeSearchParam(resolvedSearchParams.family);
   const page = normalizePageParam(resolvedSearchParams.page);
-  const jobsPath = localizedPath("/career", locale);
+  const jobsPath = traditional ? "/zh-TW/career" : localizedPath("/career", locale);
   const industriesPath = localizedPath("/career/industries", locale);
-  const directoryPayload = await loadDirectory(locale, page, selectedFamily, submittedQuery);
+  const directoryPayload = await loadDirectory(locale, page, selectedFamily, language?.search(submittedQuery) ?? submittedQuery);
   const directory = adaptCareerDirectory({
     locale,
     payload: directoryPayload,
   });
-  const visibleMembers = directory.members;
-  const families = directory.facets.families;
+  const visibleMembers = language
+    ? directory.members.map(member => ({ ...member, canonicalTitleZh: member.canonicalTitleZh ? display(member.canonicalTitleZh) : member.canonicalTitleZh }))
+    : directory.members;
+  const families = language
+    ? directory.facets.families.map(family => ({ ...family, title: display(family.title) }))
+    : directory.facets.families;
   const selectedFamilyTitle =
     selectedFamily
       ? families.find((family) => normalizeFamilySlug(family.slug) === normalizeFamilySlug(selectedFamily))?.title ??
-        formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale)
+        display(formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale))
       : null;
   const publicDetailCount = directory.publicTruth.publicDetailIndexableCount || directory.pagination.total || visibleMembers.length;
   const occupationCount = directory.publicTruth.directoryMemberCount || publicDetailCount;
@@ -239,33 +248,35 @@ export default async function CareerPage({
     page: directory.pagination.page + 1,
   });
   const hasActiveFilters = Boolean(submittedQuery || selectedFamily);
+  const Surface = traditional ? "section" : "main";
+  const familyFilterPath = `${buildJobsQueryPath(jobsPath, { query: submittedQuery })}${submittedQuery ? "&" : "?"}family=`;
 
   if (directory.state === "unavailable") {
     return (
-      <main className="min-h-screen bg-slate-50">
+      <Surface className="min-h-screen bg-slate-50">
         <Container as="div" className="py-16">
           <section className="mx-auto max-w-2xl rounded-3xl border border-amber-200 bg-white p-8 text-center shadow-sm" data-testid="career-directory-unavailable">
             <h1 className="m-0 text-2xl font-semibold text-slate-950">
-              {locale === "zh" ? "职业库暂时无法加载" : "The occupation library is temporarily unavailable"}
+              {label("职业库暂时无法加载", "The occupation library is temporarily unavailable")}
             </h1>
             <p className="mt-3 text-sm text-slate-600">
-              {locale === "zh" ? "这不是空职业库，请稍后重试。" : "This is not an empty directory. Please try again shortly."}
+              {label("这不是空职业库，请稍后重试。", "This is not an empty directory. Please try again shortly.")}
             </p>
             <Link
               href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: selectedFamily, page })}
               prefetch={false}
               className={buttonVariants({ className: "mt-6" })}
             >
-              {locale === "zh" ? "重试" : "Retry"}
+              {label("重试", "Retry")}
             </Link>
           </section>
         </Container>
-      </main>
+      </Surface>
     );
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <Surface className="min-h-screen bg-slate-50">
       <AnalyticsPageViewTracker
         eventName={CAREER_TRACKING_EVENTS.landingView}
         properties={buildCareerAttributionPayload({
@@ -280,35 +291,35 @@ export default async function CareerPage({
       <Container as="div" className="space-y-10 py-10 md:space-y-12 md:py-16">
         <Breadcrumb
           items={[
-            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-            { label: locale === "zh" ? "职业" : "Career" },
+            { label: label("首页", "Home"), href: traditional ? "/zh-TW" : localizedPath("/", locale) },
+            { label: label("职业", "Career") },
           ]}
         />
 
         <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
           <div className="mx-auto w-full space-y-4">
             <h1 className="m-0 mx-auto max-w-4xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
-              {locale === "zh" ? "测量自己，看见职业，训练未来" : `${occupationCount} occupations, organized by industry`}
+              {label("测量自己，看见职业，训练未来", `${occupationCount} occupations, organized by industry`)}
             </h1>
           </div>
 
           <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">
-            <Metric label={locale === "zh" ? "全部职业" : "All occupations"} value={String(occupationCount)} />
-            <Metric label={locale === "zh" ? "行业分类" : "Industries"} value={String(families.length)} />
-            <Metric label={locale === "zh" ? "公开条目" : "Public entries"} value={String(publicDetailCount)} />
-            <Metric label={locale === "zh" ? "每页显示" : "Page size"} value={String(directory.pagination.perPage)} />
+            <Metric label={label("全部职业", "All occupations")} value={String(occupationCount)} />
+            <Metric label={label("行业分类", "Industries")} value={String(families.length)} />
+            <Metric label={label("公开条目", "Public entries")} value={String(publicDetailCount)} />
+            <Metric label={label("每页显示", "Page size")} value={String(directory.pagination.perPage)} />
           </div>
         </section>
 
         <Link href={`/${locale}/career/compare`} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
-          <span>{locale === "zh" ? "比较两个职业：任务、环境与入行条件" : "Compare two careers: tasks, settings and entry conditions"}</span>
-          <span className="text-sm font-normal">{locale === "zh" ? "首批三个设计职业 →" : "Pilot: three design careers →"}</span>
+          <span>{label("比较两个职业：任务、环境与入行条件", "Compare two careers: tasks, settings and entry conditions")}</span>
+          <span className="text-sm font-normal">{traditional ? "首批三個設計職業（簡體中文）→" : label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
         </Link>
 
         <section className="space-y-5" data-testid="career-library-workspace">
           {directory.state === "stale" ? (
             <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900" data-testid="career-directory-stale">
-              {locale === "zh" ? "当前显示上一版可用职业数据。" : "Showing the last known good occupation data."}
+              {label("当前显示上一版可用职业数据。", "Showing the last known good occupation data.")}
             </div>
           ) : null}
           <div className="space-y-5">
@@ -317,17 +328,17 @@ export default async function CareerPage({
                 type="search"
                 name="q"
                 defaultValue={submittedQuery}
-                placeholder={locale === "zh" ? "搜索职业、英文名" : "Search occupation or title"}
+                placeholder={label("搜索职业、英文名", "Search occupation or title")}
                 className="h-12 w-full rounded-full border border-transparent bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
               />
               {selectedFamily ? <input type="hidden" name="family" value={selectedFamily} /> : null}
               <div className="mt-3 flex gap-3 md:mt-0 md:shrink-0">
                 <button type="submit" className={buttonVariants({})}>
-                  {locale === "zh" ? "搜索" : "Search"}
+                  {label("搜索", "Search")}
                 </button>
                 {submittedQuery || selectedFamily ? (
                   <Link href={jobsPath} prefetch={false} className={buttonVariants({ variant: "outline" })}>
-                    {locale === "zh" ? "清除" : "Clear"}
+                    {label("清除", "Clear")}
                   </Link>
                 ) : null}
               </div>
@@ -339,17 +350,17 @@ export default async function CareerPage({
                 data-testid="career-directory-active-filters"
               >
                 <p className="m-0">
-                  {locale === "zh" ? "当前筛选：" : "Active filters:"}{" "}
+                  {label("当前筛选：", "Active filters:")}{" "}
                   {submittedQuery ? (
                     <span className="font-semibold">
-                      {locale === "zh" ? "关键词" : "Search"} “{submittedQuery}”
+                      {label("关键词", "Search")} “{submittedQuery}”
                     </span>
                   ) : null}
                   {submittedQuery && selectedFamilyTitle ? <span> · </span> : null}
                   {selectedFamilyTitle ? <span className="font-semibold">{selectedFamilyTitle}</span> : null}
                 </p>
                 <Link href={jobsPath} prefetch={false} className="text-sm font-semibold underline-offset-4 hover:underline">
-                  {locale === "zh" ? "清除筛选" : "Clear filters"}
+                  {label("清除筛选", "Clear filters")}
                 </Link>
               </div>
             ) : null}
@@ -357,7 +368,7 @@ export default async function CareerPage({
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                  {selectedFamilyTitle ?? (locale === "zh" ? "全部职业" : "All occupations")}
+                  {selectedFamilyTitle ?? (label("全部职业", "All occupations"))}
                 </h2>
               </div>
               <Link
@@ -365,7 +376,7 @@ export default async function CareerPage({
                 prefetch={false}
                 className="text-sm font-semibold text-orange-600 underline-offset-4 hover:underline"
               >
-                {locale === "zh" ? "按行业浏览" : "Browse by industry"}
+                {traditional ? "按產業瀏覽（簡體中文）" : label("按行业浏览", "Browse by industry")}
               </Link>
             </div>
 
@@ -373,7 +384,7 @@ export default async function CareerPage({
               <div className="space-y-3">
                 <nav
                   className="flex flex-wrap gap-2"
-                  aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
+                  aria-label={label("职业行业筛选", "Occupation family filters")}
                   data-testid="career-directory-family-facets"
                 >
                   <Link
@@ -384,7 +395,7 @@ export default async function CareerPage({
                       selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
                     ].join(" ")}
                   >
-                    {locale === "zh" ? "全部" : "All"}
+                    {label("全部", "All")}
                   </Link>
                   {families.map((family) => (
                     <Link
@@ -403,24 +414,28 @@ export default async function CareerPage({
                   ))}
                 </nav>
 
-                <Suspense fallback={null}>
+                {!traditional ? <Suspense fallback={null}>
                   <CareerFamilyHubLinks locale={locale} families={families} />
-                </Suspense>
+                </Suspense> : null}
               </div>
             ) : null}
 
             <CareerOccupationDirectory
               locale={locale}
               members={visibleMembers}
-              emptyLabel={locale === "zh" ? "没有找到匹配的职业。" : "No matching occupations found."}
+              traditional={traditional ? {
+                familyTitles: Object.fromEntries(families.map(family => [family.slug, family.title])),
+                familyFilterPath,
+              } : undefined}
+              emptyLabel={label("没有找到匹配的职业。", "No matching occupations found.")}
               emptyActionHref={jobsPath}
-              emptyActionLabel={locale === "zh" ? "查看全部职业" : "View all occupations"}
+              emptyActionLabel={label("查看全部职业", "View all occupations")}
             />
 
             {directory.pagination.totalPages > 1 ? (
               <nav
                 className="grid grid-cols-[1fr_auto_1fr] items-center gap-3"
-                aria-label={locale === "zh" ? "职业分页" : "Occupation pagination"}
+                aria-label={label("职业分页", "Occupation pagination")}
                 data-testid="career-directory-pagination"
               >
                 {directory.pagination.hasPreviousPage ? (
@@ -430,19 +445,19 @@ export default async function CareerPage({
                     className={buttonVariants({ variant: "outline" })}
                     data-testid="career-directory-prev-page"
                   >
-                    {locale === "zh" ? "上一页" : "Previous"}
+                    {label("上一页", "Previous")}
                   </Link>
                 ) : (
                   <span
                     className="inline-flex h-10 items-center rounded-full border border-slate-100 px-4 text-sm font-semibold text-slate-300"
                     aria-disabled="true"
                   >
-                    {locale === "zh" ? "上一页" : "Previous"}
+                    {label("上一页", "Previous")}
                   </span>
                 )}
                 <span className="text-center text-sm font-medium text-slate-500" data-testid="career-directory-page-status">
                   {locale === "zh"
-                    ? `第 ${directory.pagination.page} / ${directory.pagination.totalPages} 页`
+                    ? display(`第 ${directory.pagination.page} / ${directory.pagination.totalPages} 页`)
                     : `Page ${directory.pagination.page} of ${directory.pagination.totalPages}`}
                 </span>
                 {directory.pagination.hasNextPage ? (
@@ -452,14 +467,14 @@ export default async function CareerPage({
                     className={`${buttonVariants({ variant: "outline" })} justify-self-end`}
                     data-testid="career-directory-next-page"
                   >
-                    {locale === "zh" ? "下一页" : "Next"}
+                    {label("下一页", "Next")}
                   </Link>
                 ) : (
                   <span
                     className="inline-flex h-10 items-center justify-self-end rounded-full border border-slate-100 px-4 text-sm font-semibold text-slate-300"
                     aria-disabled="true"
                   >
-                    {locale === "zh" ? "下一页" : "Next"}
+                    {label("下一页", "Next")}
                   </span>
                 )}
               </nav>
@@ -467,7 +482,7 @@ export default async function CareerPage({
           </div>
         </section>
       </Container>
-    </main>
+    </Surface>
   );
 }
 
