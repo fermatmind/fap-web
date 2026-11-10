@@ -8,6 +8,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { FantasyQuestionnaireLanding } from "./FantasyQuestionnaireLanding";
 import { FantasyPortrait, hasFantasyArtwork } from "@/components/questionnaires/FantasyRoster";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
+import { SpiritAnimalPage } from "@/components/questionnaires/SpiritAnimalPage";
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
 import { SuperpowerPage } from "@/components/questionnaires/SuperpowerPage";
@@ -21,6 +22,7 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 type Stage = { slug: string; profile?: string; take?: boolean };
 const pages = {
   "mythical-creature": MythicalCreaturePage,
+  "spirit-animal": SpiritAnimalPage,
   "what-dog-breed-am-i": DogBreedPage,
   "superpower-test": SuperpowerPage,
 };
@@ -64,7 +66,8 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     const overviewCopy = hasTraditionalEightQuizOverview(slug) ? await loadTraditionalAssessmentText() : undefined;
     return <>
       {languages}
-      {Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
+      {slug === "spirit-animal" ? <SpiritAnimalPage quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
+        : Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
         : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} overviewCopy={overviewCopy} />
         : <FantasyQuestionnaireLanding quiz={quiz} />}
     </>;

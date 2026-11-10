@@ -501,5 +501,24 @@
     "sun",
     "judgement",
     "world"
+  ],
+  "spirit-animal": [
+    "wolf",
+    "owl",
+    "fox",
+    "lion",
+    "dolphin",
+    "deer",
+    "bear",
+    "eagle",
+    "otter"
+  ],
+  "flower": [
+    "rose",
+    "sunflower",
+    "lavender",
+    "lotus",
+    "orchid",
+    "daisy"
   ]
 }

@@ -115,6 +115,10 @@
     "lib/questionnaires/result-content/socionics.json": "c8c57c3146b0c4148e3f1ba9dd13d4c9070a063a70039a842563bf3b0995e767",
     "lib/questionnaires/data/which-tarot-card-are-you.json": "1be99fdae9d4f2728f2ddf1f217143d56657c57f7ecffad4aeaa8189079e125f",
     "lib/questionnaires/result-content/tarot-card.json": "2b1726d475c80cf5013ea32dc200f1eccd4f8b971f381caeb34c0b642f9c1a01",
+    "lib/questionnaires/data/spirit-animal.json": "fa4fe09ccdd2520c8a814f4ba76a7d682868cea7b1ed213fee3facdec5ffd79c",
+    "lib/questionnaires/result-content/spirit-animal.json": "da7e7865bec084add5262fc501ed7e83b3c35363f0238717565f9411bd08f246",
+    "lib/questionnaires/data/flower.json": "73a96d464ad5fb14b0630f2800aade614d0ca72b57f1fd464b9ff5b1b8471462",
+    "lib/questionnaires/result-content/flower.json": "5547304b7a049725c04d5ca7b1b35cae29738131069f80f6383d5353d8457f68",
     "lib/questionnaires/data/avatar-bender-quiz.json": "19c04bffd881ba87641c361e20e6eb89b8b2e5964e9b61be9bc5eb49392641e7",
     "lib/questionnaires/data/soldier-poet-king-quiz.json": "c4439225f375032ab1eef4ff2097e1ac790d4bf3a0107d791e338074261c4dd0",
     "components/questionnaires/MythicalCreatureLandingEditorial.ts": "59766ced578c069dbaa98779e96b39aa4cfd02f9e9194785a9bedbc0f948e664",
@@ -166,7 +170,9 @@
     "components/questionnaires/ZodiacStoryLandingEditorial.ts": "010922b20ed3d50cb85919c433c0dd8693fcd72ebf8ec0b3bdba0fe74c4e74c7",
     "components/questionnaires/MaleRoleLandingEditorial.ts": "db025503c53b3fb0e26c2763999d1112d526cbe072c5383b609400fba6832395",
     "components/questionnaires/WojakLandingEditorial.ts": "ceb05d134e814bdadecdf943f46a83b4cc3eef82e58b5faba8ae18afccd590aa",
-    "components/questionnaires/GreekLandingEditorial.ts": "b6a0bb3218a19deb528902adb7f08a3e821b0937c0b0ff24284fb1fe4df9199e"
+    "components/questionnaires/GreekLandingEditorial.ts": "b6a0bb3218a19deb528902adb7f08a3e821b0937c0b0ff24284fb1fe4df9199e",
+    "components/questionnaires/SpiritAnimalLandingEditorial.ts": "c85e7254e39f5bae070adde30238c2d9af688c439635ee118ba661c97e525bdb",
+    "components/questionnaires/FlowerLandingEditorial.ts": "d895c7afee4f189a4e297e3c76dbaef2ea5a62d677c87cb783e16e2769d8bc18"
   },
   "units": {
     "lib/questionnaires/data/mythical-creature.json/title": {
@@ -75261,6 +75267,2822 @@
       "sourceHash": "1a8cfaa7a94e8a5043862b7254bd20af0316931a6b349529842aaa8168e7d6b7",
       "text": "可以只分享這份公開通用讀法，也可以不分享。連結不含本次答案或計數；對方可以不回答，不需要互評性格、披露私人經歷或用真實事件驗證牌名。"
     },
+    "lib/questionnaires/data/spirit-animal.json/title": {
+      "sourceHash": "6bb6c3f580ca46ee75bc993301521c2f61c7cd08b996d47f7087103f2dbcc04b",
+      "text": "精神動物測驗"
+    },
+    "lib/questionnaires/data/spirit-animal.json/seoTitle": {
+      "sourceHash": "77a3ed1d9ac2dd41267573617e310a1810770de501a50726cf514492cb11c3ef",
+      "text": "精神動物測驗：18題找到你的動物比喻"
+    },
+    "lib/questionnaires/data/spirit-animal.json/description": {
+      "sourceHash": "2cde6f48265db7e0123df4cf743bfd9ef07fe0058f21fc91c1b6affbce73ebb1",
+      "text": "通過18道日常情境四選一，探索九種動物比喻。免費檢視全部原始計數、所有最高並列，以及狼、貓頭鷹、狐狸、獅子、海豚、鹿、熊、鷹與水獺的完整指南，不用註冊。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/introduction": {
+      "sourceHash": "20308274eca638e1dfcb69a4e90e542ecb20b94ce80019c71c15cb23dcc2a016",
+      "text": "這份內在動物人格測驗依據實際選擇計數，不使用生日、MBTI程式碼或隨機抽籤。九種動物分別表達這些情境中的共同約定、資訊依據、替代路線、明確行動、對話連線、感受、安穩節奏、整體目的與自願共同玩樂。九篇指南提供具體例子和取捨，方便帶回自己的經歷核對。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/instructions": {
+      "sourceHash": "9a9a62be97285e1c6fe591f963d4fe3d31f075d0682fe9d0639c8d2df5235fad",
+      "text": "每題有四種都可能合理的做法，請選你在類似情境裡更自然的一項，而不是最理想的一項。想起最近的具體經歷再選；若幾項都貼合，選更常先出現的做法。完成18題後顯示全部計數和每個最高並列匹配的完整說明。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/0/title": {
+      "sourceHash": "32a08c76c531e78c71814996076213bd95e7448b1aaba2188744d4c8dc841189",
+      "text": "狼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/1/title": {
+      "sourceHash": "8e22669b9766d9f8cf560b99107831bb89950ceb37fd52a083f7b056170498a9",
+      "text": "貓頭鷹"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/2/title": {
+      "sourceHash": "3a59a598cc2bc1358b8cdbdf53ff86bd62212d91b0a4f83e9bb15babcba40f0b",
+      "text": "狐狸"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/3/title": {
+      "sourceHash": "131ce836ee711267c49ca8c69990fb8fffbbb201beb361924ff461f647984132",
+      "text": "獅子"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/4/title": {
+      "sourceHash": "2f6a42fc19fbaec707def3244eb97af54fa9ebf5563996f7e7fa21751c2187ed",
+      "text": "海豚"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/5/title": {
+      "sourceHash": "232222e6146be079e61377d6f10b895ca1f2c126f6ca0e0879b030b21dae033f",
+      "text": "鹿"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/6/title": {
+      "sourceHash": "8a811bbd0baa976bb0ad69e176fd0fdcc02d326e7d0143ba5d98201ccb996e3b",
+      "text": "熊"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/7/title": {
+      "sourceHash": "7d47a80b9e2a9204acc84dbfb542d3a342de7126c1988ef2c11e018094c20388",
+      "text": "鷹"
+    },
+    "lib/questionnaires/data/spirit-animal.json/directions/8/title": {
+      "sourceHash": "a25227dab64defb00740c51dd6d973423a0a3975925cdb062e1d1c33a18991c9",
+      "text": "水獺"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/0/prompt": {
+      "sourceHash": "823145d91401104b52ff0fbb9217a90f5dff95d3ed4aab7eec8e35b28ce28964",
+      "text": "剛加入一個臨時小組，大家還不熟悉。你通常先做什麼？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/0/options/0/label": {
+      "sourceHash": "17e443c607b10951a4d79bb2bc3f9c985f4c6f29efe661a184c9da3ba2396c9d",
+      "text": "問清每個人負責什麼，找到可以互相配合的位置。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/0/options/1/label": {
+      "sourceHash": "ca3ca5c37f88dabd180d94756e9d9fed2d8cb7be0133d127f1d56cdb73f58b4f",
+      "text": "提議一個可以不參加的簡短小遊戲，讓願意的人一起輕鬆玩一會兒。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/0/options/2/label": {
+      "sourceHash": "1e9b040ca01cb5d245c025432b0b5fa42d0d21b71d396cc6cc411f72e3412bc1",
+      "text": "提出一個明確的起點，讓大家先動起來。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/0/options/3/label": {
+      "sourceHash": "23e4e888213092c3be95fb33c4ad992015b00501ac8a20a5e7b2da1c652d9175",
+      "text": "先聽幾輪，弄清問題和已有的資訊。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/1/prompt": {
+      "sourceHash": "357228f3f634c4a8fd9935358a05bd34e829503c04d3d795a27a5ccbfa82aebc",
+      "text": "週末突然空出半天，你更想怎樣安排？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/1/options/0/label": {
+      "sourceHash": "c262604f1f0a3f23e23ba4283755538220af71402ccd88e8c7a5546b69de900a",
+      "text": "把這段時間留給一個一直想推進的方向。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/1/options/1/label": {
+      "sourceHash": "d362237f7280e32ebdd6a90736fea06cb7a9d7be97ffc3460b636c9c2535da32",
+      "text": "慢慢做完一件熟悉的事，留出不被催促的時間。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/1/options/2/label": {
+      "sourceHash": "4b298fb2e6651d735fa154d1a6e431a728ada441bfc83497c884df5a3b31545f",
+      "text": "找人聊聊近況，把各自想說的話接起來。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/1/options/3/label": {
+      "sourceHash": "b7e4761a55ab634314bbd41c3133f4cb1b1605d9ed49d87eacf883d221f3cb3f",
+      "text": "挑一件貼合自己和身邊人當下感受的事。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/2/prompt": {
+      "sourceHash": "c7629d687a8eeb769b6402dc534e69e826e9c4ade4c2822709c448eea9592127",
+      "text": "原定的共同計畫臨時行不通了，你更自然的反應是？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/2/options/0/label": {
+      "sourceHash": "b95c6dc4152616dd529339c788e6df44c6851de573c53698cb2930df4809361a",
+      "text": "利用現成條件換條路，先試試能不能走通。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/2/options/1/label": {
+      "sourceHash": "3f122084db8b14d61b10ae5ec470881bf14fac81927ac3f8328fa88495345761",
+      "text": "把大家的想法說清楚，確認彼此聽懂了可選的替代安排。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/2/options/2/label": {
+      "sourceHash": "f4eb24a5b393d059eb76e93cf0e6fdf43f0157a3e7f2ec5e3ee59801bee5678f",
+      "text": "先和原來的夥伴確認，儘量讓大家還能一起參與。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/2/options/3/label": {
+      "sourceHash": "bbe2222004751acc76088b62ee908cab82f83915c961e1f2ef10f3365b8e588a",
+      "text": "縮小安排，保留一件確定能完成的事。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/3/prompt": {
+      "sourceHash": "c82b586d1e2f1e44f55f6e1ea24d44fee5b48ad2b550ef7f29f4e5eaaa0e4c20",
+      "text": "你想開始一個新愛好，通常怎樣選第一步？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/3/options/0/label": {
+      "sourceHash": "82c529e76ef57819c79ec6aa1d08cdf1a28be0d28fb31506a2671a946fa5e070",
+      "text": "選一個能馬上完成的挑戰，動手再調整。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/3/options/1/label": {
+      "sourceHash": "39c7888894a18bfb88dd523dd581f6f486dfafac9eb8a622b9197c7767566e2f",
+      "text": "先了解基本原理和常見誤區，再決定怎麼練。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/3/options/2/label": {
+      "sourceHash": "26d0f0282477cbf4a2e53f1e3fc6271fc5d1a2d66bcfa0cc9b06a940e0e6d1d2",
+      "text": "看哪種練習環境讓我自在，也留意同伴是否舒服。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/3/options/3/label": {
+      "sourceHash": "c2055e8866be8ea59208036bef363597cfc5aa2ff6cde897ca36afbbbf2be78a",
+      "text": "先想它能給生活帶來什麼，再安排階段目標。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/4/prompt": {
+      "sourceHash": "0fc4e3c984c2f437ba65a7961a6f332e60f32f4bb20ece540b4b5f9ae2454fec",
+      "text": "朋友之間出現誤會，你通常更先關注哪件事？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/4/options/0/label": {
+      "sourceHash": "7b4fcf99a9b21b09046bda87db346982c77063ba3f9235a88341b888fc12eb70",
+      "text": "誰的感受沒有被聽見，談話能否更溫和。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/4/options/1/label": {
+      "sourceHash": "9999dbc4804be3315aa1b7da9664502fadb50d848e7ae58023cfc98af6c53b50",
+      "text": "哪些承諾和信任需要重新說清楚。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/4/options/2/label": {
+      "sourceHash": "88f74177252eaa1ccea93dc7ecdd67d5a07f2544c8367186c5fa959d510fee52",
+      "text": "大家真正希望保住的關係或共同目標是什麼。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/4/options/3/label": {
+      "sourceHash": "c36727931750bcffe39a165f39bc7138e4aef84ba779b153abfed3f990da47b8",
+      "text": "能不能換個溝通方式，打破現在的僵局。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/5/prompt": {
+      "sourceHash": "6b3f20b6e67961c0046b5a78affbbeeb0d2310cbf6d96ad80729dc51b6d3acc4",
+      "text": "小組完成了一件難事，慶祝時你更願意？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/5/options/0/label": {
+      "sourceHash": "a91ed5e130f21dcfa22e45a368e3ef2cce945cb83b0880e3a47f03ca8b929387",
+      "text": "找個空當聊聊這次到底是什麼起了作用。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/5/options/1/label": {
+      "sourceHash": "63798dd3ff9b0ec3b72f345f8ef97feb3cdd58077df52da8046cdbb3ae5c85ff",
+      "text": "清楚說出這次的成果，也大方接受肯定。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/5/options/2/label": {
+      "sourceHash": "38281c34543122a183428715960b5a11824f686612bdc243f38aecca68066c5f",
+      "text": "安靜享受收尾，照顧好那些還沒做完的小事。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/5/options/3/label": {
+      "sourceHash": "ebfa9cb0eb9f29016806d1f364a43d5e997347b87970cca57d076fa4d3cd745a",
+      "text": "讓想說話的人有機會分享這一刻，也接住彼此的回應。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/6/prompt": {
+      "sourceHash": "bca1bd24e4c664df030c27396be9b39653cbd8a2956df599ba09b8df2058e216",
+      "text": "和別人一起安排短途出行，你最常補上的一環是？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/6/options/0/label": {
+      "sourceHash": "7b59d89b8104e5e8c40fee438b1abacea8eb32763bb9c73c2a17333ec62111ae",
+      "text": "落即時間和基本準備，避免一路趕來趕去。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/6/options/1/label": {
+      "sourceHash": "3c01047d9b5cf401b522a49a5b0826e83710f3208097d315e3369e18c8577d3a",
+      "text": "決定這次最想體驗什麼，再讓路線圍繞它展開。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/6/options/2/label": {
+      "sourceHash": "e20da7478796495659fe0144cc0927ce6e1114d149db914ab79dbb4ba3c4b81f",
+      "text": "查清交通、費用或限制，免得重要資訊遺漏。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/6/options/3/label": {
+      "sourceHash": "d354ad7a3ff72d79f68585e1155ba48d5c994393e09ffa42f11ffb4b4c813ef7",
+      "text": "確認約定和分工，讓夥伴之間能互相照應。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/7/prompt": {
+      "sourceHash": "2c2e5ccc8a1364b0f03343b03860fb0b90f0d4e73ac0a5d38b3a36526a76f088",
+      "text": "熟人聚會裡來了一位新人，你更可能怎樣回應？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/7/options/0/label": {
+      "sourceHash": "6ec5540aec72d1375c8bccbd28a72f722b5145fb58a53c3b5c8d397ebdd5b0fe",
+      "text": "問對方願不願一起玩個沒有輸贏要求的小玩法，不想參加也沒關係。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/7/options/1/label": {
+      "sourceHash": "45e516acefdede6cf9df9e3d9f4ce04ba816fbc91421de509a23ea1a43b658ce",
+      "text": "先留意對方想熱鬧還是想慢慢適應，再靠近。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/7/options/2/label": {
+      "sourceHash": "e8d4e16a274c0481584f2818d43681ef40e9d739a55faacba55d7a9b90b076ba",
+      "text": "找一個新舊成員都能參與的小活動。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/7/options/3/label": {
+      "sourceHash": "f79cf5272b300c80fc2096b147fb6f6fe7f8ef78c7156d3feb22ab5bf2c5e05e",
+      "text": "主動介紹大家，直接給對方一個參與的位置。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/8/prompt": {
+      "sourceHash": "f15835a519372f8bcf02ee405b4ae9f686d93d94ac222ccddc5e443013755a42",
+      "text": "別人對你的決定提出異議，你更願意先問？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/8/options/0/label": {
+      "sourceHash": "b4b7c6227807a0bb27f0650c772eb5ccd43df8e17a0ac6c595845a74f50dd18a",
+      "text": "你希望我具體改哪一步？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/8/options/1/label": {
+      "sourceHash": "a5b5d8cae9b8b60180565e9e1e88ce73006d694275bfab5300aaef58b81faa7d",
+      "text": "這個決定有沒有違揹我們之前說好的事？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/8/options/2/label": {
+      "sourceHash": "c208aa896342be1eac4fb17d28d72b16ea4b375f74113c7af92d9f30b78d90e3",
+      "text": "這個決定給你帶來了什麼感受或負擔？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/8/options/3/label": {
+      "sourceHash": "ee7f605a041614790659b38680c3fc3263605960e6424dc09dfadbeba4c291cf",
+      "text": "有什麼證據是我還沒有考慮到的？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/9/prompt": {
+      "sourceHash": "2d0190cc0398fcd3bcf66bd56c5a48a09ee18f03b18bd8f8a87b21b07ec3e20a",
+      "text": "一項自己的事情拖了很久，重新啟動時你更傾向於？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/9/options/0/label": {
+      "sourceHash": "2f9b50355aadb8f8020e79042955ccb973df9b3f4bd1e6bab0749930b83f0dc7",
+      "text": "換工具或順序，試一個不一樣的小切口。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/9/options/1/label": {
+      "sourceHash": "251d6db352cc5a69fdaab60025dee9df9c627c8949ad7be7fef301b277475e43",
+      "text": "重新確認它為什麼重要，舍掉偏離目標的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/9/options/2/label": {
+      "sourceHash": "7fa86fa45d49e5c3c3778de84df697bce045d71a47906fa74957e62e2c541bd1",
+      "text": "問一個願意的人，要不要把其中一小步變成輕鬆的共同挑戰，不要求比輸贏。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/9/options/3/label": {
+      "sourceHash": "6e05cb7908beba19079e7de7613c70abe67e9dc2d975858e5f0b5657d8803c9c",
+      "text": "找願意聽的人把卡點說清楚，再一起確認我想採取的下一步。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/10/prompt": {
+      "sourceHash": "b421e5db10d24605f7681498e643d4f57197e3ba7726d8aff030f329d9b9da0d",
+      "text": "臨近截止時間，團隊還有幾件事沒完成。你更可能？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/10/options/0/label": {
+      "sourceHash": "9c067dab1392ce0cb42e5b6c5f0c37e2dacd175ca7a21757c418d50b93dca207",
+      "text": "守住最必要的步驟，一件件穩妥收尾。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/10/options/1/label": {
+      "sourceHash": "7920ad788c6a4ce90ea1783122eeb11c12349395bc10aab1858e051f9f441dbb",
+      "text": "保持溝通和士氣，讓大家敢及時說出卡點。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/10/options/2/label": {
+      "sourceHash": "9ac535dce92c75737050c96f4aec8c280ef5004a4cb7a22e401aee50e3f30616",
+      "text": "協調誰能接手哪一項，避免有人獨自扛著。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/10/options/3/label": {
+      "sourceHash": "2bda7a386aef4879b3b2c54d04b833754ec39d250e268eb13bd1f6e0bf7e4ccc",
+      "text": "明確取捨並推動執行，不再讓決定懸著。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/11/prompt": {
+      "sourceHash": "7c7e0def41c7f0c5a3e1878389d01a3b9ac7a10def9ecbdf7641ced122b2b9b9",
+      "text": "一個新點子讓你很感興趣，什麼最能說服你投入？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/11/options/0/label": {
+      "sourceHash": "e022645f150d7c35d0a74f442f4a63775de95ecf2d4c4827b623008485718c52",
+      "text": "它的依據和邏輯經得起追問。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/11/options/1/label": {
+      "sourceHash": "ed80d6669acad8fd46f0942c9b17e1bceec3abf7cb344b8913bbc32de4350816",
+      "text": "它能照顧到現實中容易被忽略的需要。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/11/options/2/label": {
+      "sourceHash": "3b90329c69f2b1b600f76ebf763a3d00d88a15ac2de2f2e9ef3b6746a66440bf",
+      "text": "它打開了一個值得長期追求的可能。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/11/options/3/label": {
+      "sourceHash": "d9421f1faf475ef4958349b7f371e9fd7040342a978fef6280b92e6877fe31d1",
+      "text": "有機會低成本試驗，並隨回饋改變做法。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/12/prompt": {
+      "sourceHash": "6b203c49d19b1fa0af21fe1b0b3d4a4ab4849bb4bb2e6995b3ebe7f3422b4f09",
+      "text": "一次意見不同的合作之後，你最希望留下什麼？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/12/options/0/label": {
+      "sourceHash": "449ba3506adaef807b986b6f72d419394986136d1db1ea454cab691fbf2b34cf",
+      "text": "仍然說到做到、可以互相依靠的關係。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/12/options/1/label": {
+      "sourceHash": "fefc71a14299b4200c7bdd79512d1e077eaf7a5a378f74240645addb3dc12167",
+      "text": "意見不同之後，大家仍有自願一起輕鬆玩樂的空間。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/12/options/2/label": {
+      "sourceHash": "8d2dc136abd04e25d864786e952dfcae6dd101c052faabd0734825fc7cc83193",
+      "text": "一個下次能靈活改進的方法，而不是死守流程。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/12/options/3/label": {
+      "sourceHash": "be4a657b70a14a3dab00d539b1b9a2381db9ebeaa6c72cb8f238477a0d30218c",
+      "text": "大家的感受被承認，沒有誰被隨手貼上標籤。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/13/prompt": {
+      "sourceHash": "04d36dce488f4e9405b25d01bbc326051b9399af215cda4fbbd741a26ce6f476",
+      "text": "討論變得很散，你更自然地怎樣把它拉回來？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/13/options/0/label": {
+      "sourceHash": "396fe130755f06de288bece94ec8aed8bc00b075391bbd63c4438038679e17e1",
+      "text": "讓每個人輪流說一句，重新接上彼此的話。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/13/options/1/label": {
+      "sourceHash": "8327876d8d2715bb35ef6736fdf3962d104565adde76172a2c297c67f410371e",
+      "text": "把眼前必須決定的問題直接擺出來。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/13/options/2/label": {
+      "sourceHash": "696691fc06e43198399aa26be05d4bcefa1480ebf4c0040481e6790c2cf9d6a0",
+      "text": "區分已經知道的事實和還沒證實的猜測。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/13/options/3/label": {
+      "sourceHash": "0f748e9a30446667a47d80a47b82aacbaa7a369c588a5528f58ba8c7fa05cf22",
+      "text": "提醒大家這次討論想達到的整體目的。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/14/prompt": {
+      "sourceHash": "4c45cc165805e236b1a75dd5cc4092d69bd01c5734b580e14b807423860efd34",
+      "text": "日常安排裡發現一個一直沒人處理的小問題，你傾向於？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/14/options/0/label": {
+      "sourceHash": "097767ff389d392169aee2376a0ef195fe05fdf9be5e06d2e580f0fa2de3f74a",
+      "text": "把它放進更大的安排裡，判斷是否該重排優先順序。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/14/options/1/label": {
+      "sourceHash": "17f2fe626d9764b9b058694cb158cc6c728d1e46e0ca4845ffc68e3888db47e6",
+      "text": "先觀察幾次，弄清它通常在什麼條件下出現。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/14/options/2/label": {
+      "sourceHash": "ed4559e2a382a945cf1f18984ce74862cd92f8eb7538cf7143421c1ced1a9636",
+      "text": "從輕鬆的提醒開始，讓人願意一起改善。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/14/options/3/label": {
+      "sourceHash": "48dd3922f87e6082bfdc3193e680bc0bc935f7cc23d69494b592b2016b4fd82b",
+      "text": "問相關的人願不願把這件小事變成一個輕鬆合作的小挑戰，沒人想玩時就照常處理。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/15/prompt": {
+      "sourceHash": "2be511a527eba96db219cacbcc5f6c9e2075cf72d80cd36515081e1cfb72997f",
+      "text": "忙碌告一段落，接下來的空閒你更想怎樣使用？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/15/options/0/label": {
+      "sourceHash": "3244735e911666aadf8e7ca6455f5162fc218da5fdfc01446d43b7d69c0e7a96",
+      "text": "找願意的人一起做點只為好玩的事，不再給這段空閒設成果。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/15/options/1/label": {
+      "sourceHash": "0da3c851758457ff593b0ab7c9ad4c044232105c3a87f300231f774dae820350",
+      "text": "做件和剛才不同的小事，讓思路換個方向。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/15/options/2/label": {
+      "sourceHash": "b1f60573961cb86531554676081d422c1a444635b1f4e4f0267f112abf829f0f",
+      "text": "完成一個短而明確的個人心願，享受主動掌控。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/15/options/3/label": {
+      "sourceHash": "3347a94b993a80cf5a839d6987a66eb9a9983fba0d2ae40b020768995154c283",
+      "text": "回到熟悉、安穩的節奏，不急著開啟下一件事。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/16/prompt": {
+      "sourceHash": "8e90e78db62458085b4dd25b11e54fd9b55f625ed9e08ce4da47dcfa270079d9",
+      "text": "幾個朋友都願意一起度過一段沒有固定安排的空閒，你更自然地做什麼？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/16/options/0/label": {
+      "sourceHash": "232b4340801ebd5a61f2509fc42b06092610b3eab7d5fe3435cbc79c503e0855",
+      "text": "聊聊大家各自想做什麼，把不同想法接成一個說得清的安排。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/16/options/1/label": {
+      "sourceHash": "2513753db29ad72c63939443477cb60aa700e44664933554cf3317d90f0516fd",
+      "text": "留出安穩的節奏，先做一件熟悉、容易收尾的事。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/16/options/2/label": {
+      "sourceHash": "1a0dc954d44dd2dcfa7773703bb45d226bdac3044e74a80de530228ecc31cf05",
+      "text": "邀請大家玩一個隨時可退出的小玩法，重點是一起樂一會兒。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/16/options/3/label": {
+      "sourceHash": "ba538478f017658a0ebe1e9f993950d1441175982868c8000853d19928f17cde",
+      "text": "先說清共同約定，看看大家願意各自照應哪一部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/17/prompt": {
+      "sourceHash": "4728e56e64bd950b3baadac0ea501805be680f752771e3e22a319dd2dba99eb1",
+      "text": "一項可選的共同活動已經完成，還剩一點空閒，你更願意怎樣繼續？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/17/options/0/label": {
+      "sourceHash": "71117c2d5cc7df7ebce6b640c88ee9ccba162199b7a6d03b8006e4972479d7cb",
+      "text": "留意大家此刻想熱鬧還是想安靜，不急著再加安排。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/17/options/1/label": {
+      "sourceHash": "b3bd151edb23f00ae4f34523ea98e36652c73a1a27453eab6629f47df0109218",
+      "text": "用手邊的條件試一個和平時不同的小做法，看看能否行得通。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/17/options/2/label": {
+      "sourceHash": "e3c948909fdb9cbcea58d50d1ee0176cda37f5259e153aefe68409685d4674e7",
+      "text": "按舒服而熟悉的節奏收尾，把接下來要用的東西安頓好。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/questions/17/options/3/label": {
+      "sourceHash": "bf99ca018385b07aeaa42c565050a1a9a7518909bc0e50f0f6390f7d5ead23a7",
+      "text": "問還有沒有人想一起玩個輕鬆的小把戲，玩到沒興致就停。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/title": {
+      "sourceHash": "6d2a781cf4721965b17bf5fbff01919e834376b288957955d4cc8e438b1a9f69",
+      "text": "狼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/headline": {
+      "sourceHash": "430118cb96a99701a9ba45a75baccd77b785def8880be00b5390188943091b1b",
+      "text": "把彼此的承諾連線起來"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/summary": {
+      "sourceHash": "5b2abe41ece4107bcd9342299f72a68d934203b00c8fead52710a7ff490c40c8",
+      "text": "你在本題組更常選擇確認約定、維持合作與共同承擔的做法。狼在這裡是相互依靠的比喻；這不是忠誠度鑑定，也不要求你永遠站在同一邊。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/scoreReading": {
+      "sourceHash": "767ddabb8445783a600ab0f47eac22ebea8a22b7fdcd2a9af245ae2f8ea90d61",
+      "text": "本題組中，狼選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/0/title": {
+      "sourceHash": "731564785c6135155ac90894b89e35d4407668e9d1ef3f1b357856810f44b0d5",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "ee01551db08cf995ecec21b841bfbf75203e62ad9aae8fc01470d968c16a556d",
+      "text": "比起獨自決定或隨時換方案，狼選項更重視“我們說好了什麼”和“還有誰需要一起參與”。請找兩道實際選過的題，檢查這是否真是你當時的理由；同一種行動也可能出於責任、習慣或現實限制。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/1/title": {
+      "sourceHash": "97a485ddb25e699f2317431a54becf59645cdfacb7be0a1d67c83a683e7c3338",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "98fbf315a24138b599c51bcdd3e5c8501eb1f3bba5caae1a7a030d190b5e1944",
+      "text": "當合作容易出現遺漏時，把承諾和分工說清楚，能讓交接更容易跟進。例如共同準備活動時，你可能會主動確認誰接送、誰帶物品、誰還沒收到通知。這是可觀察的做法，不是天生優於其他人的品質。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/2/title": {
+      "sourceHash": "e7d80e5ac305099c29ee792f9e23d1b90fd70afd75d34252c1ddb4f9c5e69d10",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "c038c1bf5749233491ca68c06a0e9d0fd357667f00468b681f3f64ed63a3ea21",
+      "text": "維護關係有時會變成替大家承擔、難以說不，或把改變主意理解成不夠重視你。先問約定是否仍然合理、對方是否主動同意，再決定繼續。互相依靠需要雙向回應，不等於你必須把每個人都照顧到底。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/3/title": {
+      "sourceHash": "e06cb6eab29c26f75e2494783f028017a4896b4e50657f4ba976ce938ecc3d39",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "ee5d9c6a742e966e7f58abb2ab1a149e3a85bc031c4f834978baca98504564ba",
+      "text": "朋友臨時取消約飯，你可以先說“我原本按這個時間安排了，能不能另約一個確定的時間？”如果對方沒有餘力，也允許這次不再繼續協調。把感受和實際安排分開，比用“你根本不在乎我們”更容易討論。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/4/title": {
+      "sourceHash": "746793040f33e00038c2bb268500044ee64b534b1a307f3ac479c2919ed10206",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "0d51d03a99a55a541e6d1eaa755bfa81d9cff1b28c5ba9e7a5ce8ce130111d91",
+      "text": "專案推進時，把“我可以幫忙”說成明確範圍，例如只檢查一輪資料，並約定交回時間。這樣既能支援同伴，也能看見原來不清楚的責任。動物結果不判斷你適合管理、照護或任何職業；任務表現仍需真實證據。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/5/title": {
+      "sourceHash": "486ffde8144908708867d2bc7f78c09d1b9ee666595d6ecfb78876d455fec5ff",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "43641bd76d8e98b7c1c9f6ff0f96c12d7e84cd889fa4eb4dfa232f01ed30de57",
+      "text": "狼和海豚都可能主動聯絡別人，但狼選項更強調共同約定，海豚更強調互動是否輕鬆。狼與熊都可能穩定投入，熊選項則更關注可持續的節奏。若計數接近，請比較具體選項，而不是尋找哪種動物更好。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/5/paragraphs/1": {
+      "sourceHash": "a66e52c8f40c1e01be58d6a87dcf7d49e5acbf6a27d97c8492fce022138fcfe9",
+      "text": "新增水獺側重自願一起玩樂；狼側重彼此願意承擔和維護的共同約定。一起玩不一定涉及長期承諾，履行約定也不要求把事情變成遊戲。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/6/title": {
+      "sourceHash": "b5e7e5d5d672736cd35b500166b485cab6b4ca992598fe5dd024738f5b3609d5",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "fe6a139825e11c32111698c1b5004bf72e8bd147ba234c38d0193d55b37510e3",
+      "text": "下次共同安排事情時，提出一項明確請求，同時說出自己能承擔的上限。結束後記下：誰主動回應了、還有哪一步需要重新約定。目標不是證明自己像狼，而是找到更公平、可持續的合作方式。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/7/title": {
+      "sourceHash": "1b34b91d19bd59cdef5c14cab85cca4ce88a9e8f4f1a84db2d7b4c761effc8cc",
+      "text": "狼計數不高意味著什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "be22d7374120dfd01ec0539ad56265dd0416d04e6854abe82802e48728344541",
+      "text": "這隻說明在這18道題的具體比較中，你更常選了別的做法，不代表冷漠、不可靠或不重視關係。你可能用更直接、細緻或安靜的方式支援別人。需要理解一次真實分歧時，請談當時的行為，不給自己或別人貼動物標籤。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/8/title": {
+      "sourceHash": "988347330d49d2799f59c9c8455078a4252a19ee9096aa6bdfc55ff5cf15bca9",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "8482c7f33cf83db3ec0dabbc1f8d7a6605be3269a6cc6fff967194111a9d1341",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/seo/title": {
+      "sourceHash": "5acb46cc83c3c2b935d97c39d8c5ed85e63be884c16e5cb8c33cc41bcce2f348",
+      "text": "狼精神動物結果：約定、合作與相互依靠"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/0/seo/description": {
+      "sourceHash": "faff400c18a2804adae1c881611a0e837cfcde1f884dfc8fc9e3856b49c0a59c",
+      "text": "狼在本測驗代表確認約定、共同承擔與持續合作。閱讀完整象徵解釋、日常例子、邊界和與其他動物的比較，不把結果當作忠誠度或狼的行為測量。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/title": {
+      "sourceHash": "6d79c94107bf8d0ff65c77a86bf8ffc98b856873d66a2bcd7081d889e46b67fa",
+      "text": "貓頭鷹"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/headline": {
+      "sourceHash": "2eef3c77971ab4753395b04e0243985ae88416d731a2b7d856db5a6ae9319d3b",
+      "text": "先看清楚，再決定怎樣行動"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/summary": {
+      "sourceHash": "9bb97680c48c7ad75e456f22c5160372aa393699501d933f07784b19b0d16dba",
+      "text": "貓頭鷹代表本題組裡先觀察、核對依據和區分已知未知的做法。匹配來自具體選擇，不是智商、洞察力或比別人更理性的證明。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/scoreReading": {
+      "sourceHash": "5e895484c9ef2f5d45e2c56cb8c8fae7cc188ac72283fc1ec3e3f7f7b589bc08",
+      "text": "本題組中，貓頭鷹選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/0/title": {
+      "sourceHash": "850baf477029aacd6df87df3b4b6dc73832e2a84758e21dfe0d39a0d98bdcc22",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "ce3c087763f200f46964790e8b1c735c0b1d3ff09fd982006c1d91fa96d33778",
+      "text": "你可能更常選擇先聽清問題、查明限制、追問依據，而不是馬上定方向。這種取向在資訊不足時值得留意，但題本無法知道你是否真的獲取了準確資料。請把想了解的事和已經核實的事分開。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/1/title": {
+      "sourceHash": "0aa128ddb010786984dad2dc6edad8103d91455d0add376b9a2f83f0b4c4cc3a",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "f66c4cffe81d792c4bb1e5d206c73b192f5e9a7b0d6f32fb23b5175dfa693606",
+      "text": "面對說法不一致的訊息，先確認來源和適用條件，可以讓討論更具體。例如選擇課程時，比較真實課時、費用與要求，而不是隻看宣傳詞。有效的觀察最後應能幫助一個決定，不必收集完所有資訊才有價值。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/2/title": {
+      "sourceHash": "f4f8a5b33107b491043e757317554f614feffd8c22a090bea97d4247b09cd51f",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "3a8859becd8f537056756e4e57494e498af53370fb830a7f4bdcde8f714e0e9a",
+      "text": "繼續研究有時會推遲本來可以低成本嘗試的事，也可能讓同伴覺得每個提議都在被審問。給核查設一個結束條件：哪兩條資訊足夠決定下一小步？無法確定的部分，可以明確標出來，而不是假裝必須先消除。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/3/title": {
+      "sourceHash": "410773ce9404bc99f602a4a7e3b4689b23ee6dd0297f82d72a2250b9f51cdf82",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "6bfb35102f7d3a9632b9d693e17d7938cf857bd96219a3226a24033dbc851b07",
+      "text": "朋友推薦一個新活動，你可以先問時長、費用和是否能中途離開，再決定參加。若這些條件已經清楚，就不必把興趣討論變成全面風險報告。讓對方知道你是在確認安排，而不是否定他們的體驗。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/4/title": {
+      "sourceHash": "96c1584e5a32e72ccff777c3f995efe162d732157621364a1d9337b6ded26df9",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "dcdfd824fcbc763a144bee3afd617f3d78bec3b0e08906b2bc60b78ee0767e62",
+      "text": "在會議裡可以用兩欄記錄“已證實”和“待核查”，然後為一個關鍵缺口約定負責人和截止時間。這比籠統說“資訊還不夠”更容易推進。結果不代表研究、技術或分析職業適配，也不代替具體能力練習。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/5/title": {
+      "sourceHash": "e75fe0bd8d21dd9e1d70aeb785cb0d2c5402f16fa96c805f2004d9560eafd5a1",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "77ab13ea4281c70ae8a153bbb2943cf43a14f2d1193502d8edd60c9587fea6c6",
+      "text": "貓頭鷹關注依據是否充分，鷹更關注事情指向什麼整體目標。貓頭鷹和熊都可能慢下來，但熊強調穩定節奏，貓頭鷹強調弄清情況。接近的計數只提示多種做法都有出現，不能證明你兼具幾個固定人格。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/5/paragraphs/1": {
+      "sourceHash": "ccf8aef4101f15e52d2219072dcea076d34e1d24b23c55f4e617f77d2f80a382",
+      "text": "水獺側重自願共同玩樂，貓頭鷹側重了解依據。你可以先弄清規則再玩，也可以只是為了趣味參與；題本只分別計數所選理由。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/6/title": {
+      "sourceHash": "864c00cbc6a7cd115e75f521a42209eca5575a2ba0da5783aca6c6bac4db50ac",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "2256668fe094e29e7030ad01e89e20100cf7c8e7d13a929185fba5cbdc8f502e",
+      "text": "挑一件可撤回的小決定，先寫下你真正需要知道的兩件事，限時查完，再做一次小範圍嘗試。之後補記什麼資訊真正改變了決定。這樣能看見觀察是否在幫你行動，而不只是延長準備。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/7/title": {
+      "sourceHash": "fbfe790bd134d6f7a2c3727e573554e0f740bd2cd926aceaf89f4958eab33eec",
+      "text": "貓頭鷹計數不高意味著什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "8b7fc028ab0806667102939979160a55519dc4f53482d8fd36cca7c19f264979",
+      "text": "不代表不聰明、粗心或缺少思考。你可能在題目給出的情況下更願意先行動、協調或照顧氣氛。若你想改進核查習慣，可以直接練習一個真實任務，不需要先得到貓頭鷹結果作為資格。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/8/title": {
+      "sourceHash": "403b59786c9aedc5d505d155a8edf16236e5d1cf8ab35bc04512a60402c760fa",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "9c28603f4136a2f0c3e9cfa0d7a666d7d835450419d8d62e62c727e4df4bcb0b",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/seo/title": {
+      "sourceHash": "fc10b931141eb771745a00780b03b3feef8cf4b970bf39c50f7be3c018123afb",
+      "text": "貓頭鷹精神動物結果：觀察與核對依據"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/1/seo/description": {
+      "sourceHash": "41b454f48b35d6099a35d1c6cf159fd3195b721e3ca951b0ad5addbf4fddff2f",
+      "text": "檢視貓頭鷹精神動物完整結果，了解先觀察、核對依據和區分已知未知的情境、取捨與下一步。貓頭鷹是本題組比喻，不是智商或洞察力證明。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/title": {
+      "sourceHash": "ac55abaf05ab8bfcc5c5930fc91acfd1bf4589a234cf87af308d01e6dd77edd2",
+      "text": "狐狸"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/headline": {
+      "sourceHash": "5cd4b4b4ab4378874eac91730fa586e882923ebc26b6929bbe2b26bd385a584b",
+      "text": "換個辦法，先試一小步"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/summary": {
+      "sourceHash": "ed9ecdb14b4d3fa1c7ec02159ae552b4d430a6545723a551d149737b3ba77a30",
+      "text": "狐狸在本題組代表利用現成條件、改變路徑並按回饋調整。它是應對方式的比喻，不把靈活等同於狡猾，也不判斷誠信或聰明程度。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/scoreReading": {
+      "sourceHash": "e3fff866da4d75408a9ffb192972b737bda4ee4cf0893c4b6c17ddc9184518e2",
+      "text": "本題組中，狐狸選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/0/title": {
+      "sourceHash": "9dd256da68e00da99a1b95975bc651a2948a96b2604b2efe2dba9f3fb5f889c3",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "1d1425fd6f6d62b622396407103cc386d27df71b28d0c8cf1317d5851c6b7590",
+      "text": "狐狸選項反覆提出一個問題：原來的路走不通時，是否還有可嘗試的小切口？這可能讓你更容易離開卡住的做法，但一次測驗無法判斷新辦法是否真的有效。請以嘗試後的結果，而不是新鮮感，來檢查它。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/1/title": {
+      "sourceHash": "c566d3c8a449a21c9d3b268daa738401c4b6a0b6128bee2cbe2a272914faa83f",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "0c1a396eec016cdd9ac5acfd1c147ebf7d1c76eec15b8b383ce4ff858ea154a4",
+      "text": "條件不完整時，先用現有材料做一個小樣，常比一直等待理想準備更容易獲得回饋。例如安排活動遇到場地限制，可以縮小人數或更換形式。關鍵是讓嘗試可撤回，並讓相關的人知道改變了什麼。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/2/title": {
+      "sourceHash": "0c2b08653d273bc4c25467cd1c3664d18337020ac834ddc635042e4171e55be7",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "dd8bbad9eb08fdfdbbd41c4943a08e2942ccb7681b383a2b944dfa530394d157",
+      "text": "換辦法也可能變成頻繁改計畫，留下別人難以跟進的半成品。開始新嘗試前先問：舊方法哪裡失敗、這次只改哪一點、什麼時候判斷是否繼續？如果只是覺得無聊，先完成一個收尾再決定換路。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/3/title": {
+      "sourceHash": "912d39ad2fb55e12998215f5ca8c9e67c2c4340b6db1d9c0bd508c9d45d4700b",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "0bf54cc55dd7880430f39b8b54143f1a138d305251c6be021ce7e2d472a01447",
+      "text": "原定聚會無法成行時，你可能很快提出散步、線上聊天或改時間。先確認大家最看重的是見面、聊天還是完成某件事，再給兩種選擇。這樣，靈活不是替別人決定，而是為共同目的提供不同入口。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/4/title": {
+      "sourceHash": "f96844308d1dd78067839da0ea78145d6b1e3fd6537e8581d9f8fdcc166ef1ef",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "2b2e042558cd59926ae3928c11d30a980ef97d5fc915e1ec793e1f57a7d02f85",
+      "text": "把一個新工具的試用限定在非關鍵的小任務上，保留原來的可用版本，並寫清如何退回。讓一次試驗回答一個具體問題，比同時更換工具、目標和分工更容易看清效果。結果不說明創業、創意或商業能力。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/5/title": {
+      "sourceHash": "5bbdcf52f780aa142bdaf28178d50277321a6fb2e0e012bf012784b62b9a4b95",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "ec37add8685be80df9657dce3277dbd65c6fb10bec06e8e4336dd064d52d120b",
+      "text": "狐狸和獅子都可能很快行動：狐狸選項強調換路試驗，獅子強調明確決定和推進。狐狸和鷹都可能提出新方向，但鷹更重視遠處的目的。請比較動作的理由，不把“有點子”直接等同於任意一種動物。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/5/paragraphs/1": {
+      "sourceHash": "7133f3ac6f51c39bdf20319c62339b24bceb891b66fdc1f862644cee777425ed",
+      "text": "狐狸與水獺都可能提出新玩法，但狐狸選項側重用另一種辦法試能否行得通，水獺側重願意的人一起享受玩樂。新穎和好玩不是同一理由。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/6/title": {
+      "sourceHash": "68c2ea8ec8dd7e5303df931ac5720ac763646835201886b5b953dc7c5d438966",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "4b171c145ed5900db72dc7b7671dbb3b3834d0110c03c3c70d2ec2a918c687a9",
+      "text": "找一個反覆卡住的小步驟，只改變一項條件，並保留原辦法作為退路。事先寫下你希望看到的可觀察變化，結束後按這個標準決定保留或放棄。一次沒有幫助的嘗試也是資訊，不必繼續證明自己靈活。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/7/title": {
+      "sourceHash": "9542d7ddd001c324108f61b7f62018ae28d376b03a81cb001368a6a69e77177d",
+      "text": "狐狸會暗示不可靠嗎"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "38aa92ea3b8309895dd245177aea97bafae94a9056163da9469c4eed5095ae49",
+      "text": "不會。這裡的動物不是道德判斷，也不推斷你會不會欺騙別人。靈活和守約可以同時存在，前提是把變化及時告知相關的人。若真實合作出現問題，請討論具體變更和影響，不把“狐狸”當解釋或藉口。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/8/title": {
+      "sourceHash": "89b7c50adb6bd146e3901a088878aaaf175e6f94edaa926fbdd80c4d98cfdceb",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "7c9e90b01801228f8c89e1e65074fbd5a976aee0ed99997607965cfe3ff8578b",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/seo/title": {
+      "sourceHash": "ee47e5d021021ed513100c95976c5a402dea5729d67f10de531a354c541385ac",
+      "text": "狐狸精神動物結果：調整路徑與利用條件"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/2/seo/description": {
+      "sourceHash": "fa9a50cc015c6015c62706600361bffbee7881b2168f38a7f429e78c209afa2d",
+      "text": "閱讀狐狸精神動物完整說明，比較利用現成條件、改變路線和按回饋調整的具體情境。不把靈活等同狡猾，也不用動物結果判斷誠信或聰明程度。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/title": {
+      "sourceHash": "4425f77b5ebdbe20c591b9ab8d69364247d8aa501d0def0bd5104a0aed009391",
+      "text": "獅子"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/headline": {
+      "sourceHash": "d1646dc0df904478c401768f052b885ea1751fcab07d95a2a99a5e08f02270c0",
+      "text": "把決定說清楚，讓行動有起點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/summary": {
+      "sourceHash": "170dc8551820d424b4b172bc4528af0edcf88ace66e06734c2c5f092d967c5e9",
+      "text": "獅子對應本題組裡主動表態、明確取捨和推進下一步的選擇。它不授予領導身份，不代表地位更高，也不說明你應當替別人做主。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/scoreReading": {
+      "sourceHash": "0522b5a68d95a5388e71b49191fd5bccb16b064c384fd521498e70443dd8f28c",
+      "text": "本題組中，獅子選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/0/title": {
+      "sourceHash": "8d0642c7fbc15fc5d8c55dd7d24d978d2bdfb9b59f32a47807bd8b2f62d444c1",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "ac64434a9e889657e2dcc8c26947e38cbccb7cca7a968464b79cd555c6307ae1",
+      "text": "在幾個需要開始、選擇或收尾的情境裡，你可能更常選了把問題直接擺出來。這個比喻關注的是行動的起點，不是音量、權威或控制別人。先核對自己的真實選擇，再決定這個名稱是否對你有幫助。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/1/title": {
+      "sourceHash": "df9e87625764840f1a74df3dbe1569224827e48312fbb71c79a6266499fe9abe",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "296b71716f57b1ae65f8bc3ca7d0470a926b9aa8e98429c3888e93167f047403",
+      "text": "當討論遲遲沒有決定時，明確“現在需要選什麼、誰來決定、下一步是什麼”可以減少懸而未決。比如臨時活動中提出先做哪一項，並邀請大家補充限制。主動推進的價值在於讓行動更清楚，而不是讓每個人接受你。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/2/title": {
+      "sourceHash": "1f857a0912d4d76865cd1b633307d2f9b65d7d79b598aac58508b86d7d7e1fce",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "f23b90678bf6108237856abf5c1edce21a4867c28ae00a9f3c0af8318a8b61ca",
+      "text": "迅速定下來有時會壓過不容易開口的意見，或在資訊還不足時過早收窄選擇。決定前留一次明確的提問機會：“有沒有誰會因此承擔額外成本？”必要時改變方案，不會使主動性失去價值。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/3/title": {
+      "sourceHash": "45c8b38c494db2d9324f4d33f1a08d921d0ac5bbe49fdb69e7de1ae3d2a4dd94",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "467005dd8584230dd1c1666557b1b6ff31a0042ccda7de8690516d2ab3ca994f",
+      "text": "朋友一直拿不定晚飯地點，你可以提出兩家實際可行的店，並先問預算和飲食限制。若別人不願意參加，也允許他們自己安排。直接表達是一種邀請協商的方式，不是為對方決定喜好。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/4/title": {
+      "sourceHash": "47d9aed8eaa06e7c653e3931aee66fc25a3bc9067fcf3ed02b9232e1daa84ee8",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "d96fad0eba585380da911693d5be6f3ee147f16b45d8c4308ef4f092a920bb7c",
+      "text": "在截止時間前說清哪些內容本次必須完成、哪些暫緩，再確認誰擁有最終決定權。不要因為自己先開口，就預設所有人都已經同意。獅子結果不測管理勝任力、招聘表現或競爭優勢，這些都需要單獨的實際材料。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/5/title": {
+      "sourceHash": "309e2f06aefe3654b8cc079d31ab7984126f3301b0bc169e163f2a35bdd9dc8d",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "258a773752d5d4eb3c55743b9483c474193917a9d07dc11568d1ae3864848120",
+      "text": "獅子和鷹都可能指向一個目標：獅子選項更強調此刻要決定和執行的事，鷹強調為什麼值得往那裡走。獅子和狼也都可能組織小組，狼更在意共同承諾。近分只說明這些選項在本次題組中被選得相近。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/5/paragraphs/1": {
+      "sourceHash": "aaeaaa08b22834e181839b168c9ca61c965271d4e0db9a289e02022de55b502d",
+      "text": "水獺關注自願共同玩樂，獅子關注明確決定並推進。一個活動可以同時有趣又有清楚起點，但玩樂不是必須達成的成績，推進也不要求別人配合熱鬧。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/6/title": {
+      "sourceHash": "5530dc2e13f1e5e418408ebccbc022ad1ecfee36560ad3593c330df9168a6ca4",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "436776d8e40a59bda99863e37f7c2f19d653d5d0afa56c32e66944f78d0ac63e",
+      "text": "下一次你提出行動前，先用一句話說清提議，再請一個不同意見的人補充限制。把最終決定與最初提議對照，看看有哪些調整。練習目標是兼顧清楚和參與，而不是一直搶先或證明自己能帶頭。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/7/title": {
+      "sourceHash": "348386a3f2e6f3be8ab13481bb345b8f29f93f94bd7f6273c82e4c189d8b4557",
+      "text": "獅子計數低就缺乏主見嗎"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "d9fd8986d013a0cc02c2a59a5af9e9aacf05c38e3db10b8fe8a145a314e63b8c",
+      "text": "不意味著。先觀察、支援他人、照顧關係或穩步完成都可能是主動選擇。題目只給出四種有限做法，沒法覆蓋你所有表達方式。若想更清楚地提出需求，可以從一個低風險的小請求練習，不需要改變動物結果。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/8/title": {
+      "sourceHash": "9c7151c0db982bff2178c7d5d47689c19499b1f267681c2ebc6ff26717f46873",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "7b641eb343ae1987597e9f62cab7dec5cb1f7104978b0375997db96c6a549d96",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/seo/title": {
+      "sourceHash": "d0bf5fbb3116d172b6eeea619efd75825afa9698fbf771b89e371fef861bd4ff",
+      "text": "獅子精神動物結果：主動表達與推進下一步"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/3/seo/description": {
+      "sourceHash": "e298e0f8e85f407325f8144946b1a6c99a665274d413f781e30822930709ade7",
+      "text": "獅子在本題組對應主動表態、明確取捨與推進下一步。檢視完整結果、日常情境和溝通邊界，不以獅子授予領導身份、地位或替別人做主的權利。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/title": {
+      "sourceHash": "f2e7973d7845d926d6dfb32a45dbf2b8fa5cbf61c9de47b3c9c37fa9fcc53955",
+      "text": "海豚"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/headline": {
+      "sourceHash": "8c448a9b7da25bce87c12a33277e76dbf8d32b6325eb53e9d85bd55edfd8300f",
+      "text": "讓互動有空間，也有一點輕鬆"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/summary": {
+      "sourceHash": "96fc58a7a0d90731f79ab1519c7e2f2cb5d0d03a33bb8fdb3c0a241dda89e287",
+      "text": "海豚代表本題組裡主動建立聯絡、改善互動氣氛與邀請參與的做法。它不等於外向類型，也不證明別人喜歡你或你總能讓人開心。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/scoreReading": {
+      "sourceHash": "216f1f62a917a3d01c6e9e731865f1e4aacbbf451e3d305f3ac3157d6eae06dd",
+      "text": "本題組中，海豚選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/0/title": {
+      "sourceHash": "12a3bda656adb34426b1c7284198f8f5b593a882986f6161bf0dde66dae2e687",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "9d835c502b2f1a34b5e0cbfdec64d6d2345bb8716309617d6c3e8caf1799ab1b",
+      "text": "你在幾種情境中可能更願意先接上彼此的對話，讓人覺得可以參與，再推進任務。這種做法既可能出現在熱鬧聚會，也可能出現在安靜的一對一交流。題本不根據音量、朋友數量或聚會時長給你分類。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/1/title": {
+      "sourceHash": "51669d0ca326a0a4b135e9de112b59ba68ff00e1077e1c82b4b8227eb70419cb",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "c973248d8f8bf4838693673a0135b762ebce5958baf2afefccd64a29126af6d6",
+      "text": "當新人不知怎樣加入，或團隊不太敢承認卡點時，一個低壓力的問題可能讓真實資訊更容易出現。例如問“哪一步最不好開始”，而不是要求大家立刻彙報成果。聯絡的價值在於對方有選擇，不是每個人必須開朗。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/2/title": {
+      "sourceHash": "f08b97d95ebffe7f03d9869df7f75bb99dddc9559efdfad779ae895f6b627363",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "fe0d5fe9dd40bb36c5f8ee5c74a2af9664f3d3732392710d1fce2d7f43ced103",
+      "text": "照顧氣氛可能變成替大家打圓場，繞過真正需要討論的不滿。笑一笑並不自動說明問題解決了。可以先承認緊張，再問願不願意繼續談；有人想暫停時，也不必馬上用活動或玩笑把沉默填滿。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/3/title": {
+      "sourceHash": "2ae52786731ca7a2b4d87fd644ba4ef16f0b0350818a2e98f3a7676017dbe635",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "9f7483e37e8dc302b3a253b8f6593f1f3f7a16ee90094599186b334fa3125711",
+      "text": "聚會裡有個人一直沒接話，你可以單獨問“想一起聊，還是先自己待一會兒？”而不是當眾要求對方說點什麼。邀請有退出空間，才更容易照顧不同參與方式。被拒絕也不表示你的好意沒有價值。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/4/title": {
+      "sourceHash": "39a535edea25bce25a55a1db8f698b4e3f9d2781cf4113a47d35e1f768e0ff85",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "0ecc0541278f94651d059c773274c2daa0992cd4d5490066babf0b623c29b234",
+      "text": "可以為討論安排簡短輪流發言，同時允許書面補充或不發言。氣氛輕鬆之後仍要把決定、負責人和時間寫清楚。海豚結果不說明銷售、服務或溝通能力，也不預測你與同事的關係質量；這些都需要具體表現。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/5/title": {
+      "sourceHash": "d68b6ca80f77674313e3f43db59119ebce2695edf074559c519d98692b64aa3b",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "731f774806d88dd793192f3a7c7755ca8bf62bd7218fbbf08e96449735d0de1b",
+      "text": "海豚與鹿都留意別人：海豚選項更強調接上互動，鹿更強調感受和參與是否舒服。海豚與狼都可能組局，但狼更看重共同約定。一次行動可以同時有多個理由，接近計數不需要硬分成一個固定主型。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/5/paragraphs/1": {
+      "sourceHash": "978ad16c36d45f6763b6add67324df50867490df5fd2f33bec83a5241df22584",
+      "text": "水獺側重自願一起玩樂，海豚側重接上對話、聽懂想法與協調溝通。玩遊戲可以很少說話，認真接話也可以完全不玩；兩項接近時回看你選擇的實際理由。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/6/title": {
+      "sourceHash": "f7756f6a3bdec66869a5714b2e48ded4149bde14fb9f5d366f483d13d3914ea2",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "ab3565c05b61be9e748aa05ba0feb4eb6b74b35bccd1eaffc12efd1446255a21",
+      "text": "下一次邀請別人參加時，給出兩種參與方式和一個輕鬆拒絕的選項。結束後問自己：對方是否真的有選擇，我有沒有因為沉默而著急？練習的是留出連線空間，而不是為氣氛承擔全部責任。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/7/title": {
+      "sourceHash": "e69fb513081286e7356fe91b28ceb81902166b4a2b791fe3d2f62d2c7945fe80",
+      "text": "海豚就應該一直喜歡社交嗎"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/7/paragraphs/0": {
+      "sourceHash": "910997696afe6be38bca0d60730d6e23f5dc2f4619012c2322568cdc6f1fed4d",
+      "text": "不用這樣理解。選擇改善互動，與需要休息、喜歡獨處可以同時存在。本測驗沒有測社交電量或內外向，也沒有要求你承擔逗大家開心的工作。請按當時的精力和意願決定參與，不用維護動物形象。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/8/title": {
+      "sourceHash": "398602831f5a1a50bfe7fceb5107b3b0eb17087990ed2a232df8cb496c5e0639",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/sections/8/paragraphs/0": {
+      "sourceHash": "340a3ecc71caa0fc1c07861d36788915a47733b5e61b132c0a9bf10aba8f0303",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/seo/title": {
+      "sourceHash": "949d3719234958aef9bb63581485f8d6005ef44c208a0268cae84ab287a33fba",
+      "text": "海豚精神動物結果：聯絡、互動與邀請參與"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/4/seo/description": {
+      "sourceHash": "c8f4716b2e1567eb52f6c5bc47e541c49d382fe6adacbcd2180b577686bc4df4",
+      "text": "檢視海豚精神動物完整解釋，了解建立聯絡、改善互動和邀請參與的具體做法及取捨。海豚不是外向類型，也不證明別人喜歡你或你總能讓人開心。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/title": {
+      "sourceHash": "055c4eeda0c07064a29bfc8fd937ece1f98702003f00461c46b3dc3619964a48",
+      "text": "鹿"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/headline": {
+      "sourceHash": "8ba663bec726f051c7e3dd9db98cff27914ccb877f62e9784afe115ae97ae13a",
+      "text": "讓感受被聽見，也讓邊界清楚"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/summary": {
+      "sourceHash": "a6c05f3d175dcfd96ef4665568793d6fdaef261e7ca6ed8875d469815cd5041e",
+      "text": "鹿對應本題組中留意細微需要、感受和相處舒適度的選擇。這個比喻不把溫和等同於脆弱，不測高敏感特質，也不要求你總遷就別人。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/scoreReading": {
+      "sourceHash": "91e909801a5e42e630b78c8e41dc3e6ec35db79ecc9036b1c61d038ba98d97ab",
+      "text": "本題組中，鹿選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/0/title": {
+      "sourceHash": "9abfb586881b3741fe057e80d3ecfc04223dfff21dab9a2cc0ceeb117a3c59b0",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "98fb67ac058e4d694925c0d91ddc980c3aebcb36ea05e8cc96c83a87876e8293",
+      "text": "鹿選項通常先問：誰的感受或需要還沒進入討論，眼前的參與方式是否合適？你可能在幾道題裡更常選這種入口。但一次自報選擇不說明你能準確讀心，也不能代替直接向當事人確認。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/1/title": {
+      "sourceHash": "a32db9895ce0a9b9edb95d57503268a4211de66937e5dba28ef2d90b3af7d287",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "b2160b28d83416495021e0b599c6b821b10f66ebc9e6da04f5bbf5c5f66ea692",
+      "text": "留意細節可以讓安排更貼合現實，例如注意到有人需要更安靜的位置，或一個討論節奏讓人來不及回應。把觀察說成可核對的問題，而不是替人下結論：“這樣坐會不會太吵？”比“你肯定受不了”更有空間。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/2/title": {
+      "sourceHash": "7595d0d1d0127d4ab27e2700ec49c675eb9b18580e090bc33b04d6afa7e34302",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "944a1e7413bba9e7bde7c64ec650ec1f471c59e08fdb0a1a4792b71921f19ba1",
+      "text": "你猜到的不適未必就是對方的真實感受，過度體諒也可能讓自己的需要消失。可以先問一次，接受對方的回答，再說明自己的限制。溫和不要求避免所有分歧，也不要求為別人的情緒負責到底。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/3/title": {
+      "sourceHash": "5741f3361f30a919ca981d88e1f862991c298467cea16cd3358f43e6d30326c5",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "523d14b576011174e97391a16b9ecc22e2c79d6da8eec247cea0ad195a95b931",
+      "text": "朋友聊天時顯得疲憊，你可以問“想繼續說，還是改天再聊？”如果你自己也累，可以直接說只能再聊十分鐘。把雙方的餘力都放進安排，比一邊勉強陪伴、一邊期待對方猜到你的疲憊更清楚。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/4/title": {
+      "sourceHash": "42290d62811db33dfc987fa12ad6b661468090028413f824f529c21a997d9d20",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "de5b4d7c3ee53ea7a1345d6656e5cedbb6c07da2bddb7793c2dc15d4f9fe4bb8",
+      "text": "指出一項安排可能給誰增加負擔，並邀請相關的人自己補充需求。把“我們照顧一下大家”轉成具體調整，例如提前發材料或允許非同步回應。這份動物結果不測共情能力、照護資格或心理狀況，也不用於評價同事。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/5/title": {
+      "sourceHash": "0cac8327d9cc87514732a19a0cc3bbb101afaa374117ee8d16797e616c46edcd",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "e957afc39aaea7e9cbda4e32b2647a63584c2de4b12a7e51be5ad140fc5a459d",
+      "text": "鹿與海豚都可能照顧他人，但鹿選項重視是否舒服，海豚更重視互動能否接起來。鹿與貓頭鷹都可能先觀察，貓頭鷹關注資訊依據，鹿關注體驗。別把安靜自動等同於這幾種動物，要回看所選做法的具體內容。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/5/paragraphs/1": {
+      "sourceHash": "cc351d36ac8aa0c5366372197116ac148d00018cb863f4b60df57679177a89c8",
+      "text": "鹿關注參與是否舒服及感受有沒有被留意，水獺關注願意的人一起玩。確認別人願意後可以玩，也可以發現對方更想安靜；兩項不是關心與不關心的對立。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/6/title": {
+      "sourceHash": "4e7f37f961db0dd91a6f0914f761a399afdac8fe5e36eb51cd6b648acda35a8d",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "5231f303caef7c171f9ac1a015745199cf3f2441aaa3a9baadd8162420f5c2d8",
+      "text": "在一次需要協調的小事上，分別寫下自己的需要、對方明確說過的需要，以及仍在猜的部分。只就一個未知點提問，再提出雙方都能調整的安排。這個練習用於減少猜測，不是證明自己比別人更細膩。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/7/title": {
+      "sourceHash": "72adf89aaa833869e40367d9113cd63060f90949edd49407bfc9063f5d898b45",
+      "text": "鹿結果能說明我太敏感嗎"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/7/paragraphs/0": {
+      "sourceHash": "0b0701c8e9d49c91dac2ddf8f9ccff13aa7ed493339ef0cb2f5083dbada8ef2f",
+      "text": "不能。題本不測感官敏感、疾病或承受能力。“太敏感”也不是本測驗可以給出的判斷。若一次互動讓你不舒服，可以說明具體行為、影響和希望改變的事；不必用動物標籤為自己的需要辯護。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/8/title": {
+      "sourceHash": "92043b5a8a1f1e48db348b27bf140dbfc613a66389ce440f7685a62f54bd1be5",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/sections/8/paragraphs/0": {
+      "sourceHash": "1f791a706a2b33a5314b5442a71b73de04b792a72598ca4df3ea6ca47b3efdab",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/seo/title": {
+      "sourceHash": "077bce8692a89a70195a9d59124794a69997c5b448c5d09fdf652435dace82de",
+      "text": "鹿精神動物結果：留意需要與相處舒適度"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/5/seo/description": {
+      "sourceHash": "7f87299f871704dc9d8c2572bff773d198fd2e17620076fd7824abee0ed72f88",
+      "text": "閱讀鹿精神動物完整結果，比較留意細微需要、感受與舒適度的情境及邊界。溫和不等於脆弱，本測驗不測高敏感，也不要求你總遷就別人。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/title": {
+      "sourceHash": "c6fbbd5893c422a032d8f279eb22f454fe349f457de3ccda2964f688889681ae",
+      "text": "熊"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/headline": {
+      "sourceHash": "20f33799527b17e2bfbe370bfcbfa8c44f06329337658640b0352a64c0ab44ab",
+      "text": "守住可持續的節奏，把事情穩穩做完"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/summary": {
+      "sourceHash": "0f1338bc3161d71d70d0a5fc36ce1dd39ab30c332acb579c9dd3d37234351e1c",
+      "text": "熊在本題組代表重視穩定、熟悉步驟和可承受節奏的選擇。它不表示懶惰、缺乏理想或情緒遲鈍，也不能判斷體力和韌性。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/scoreReading": {
+      "sourceHash": "520fa454510815a4a5e5af48a450a710fb9a006e2a2dc677adbd05e5a16b18bd",
+      "text": "本題組中，熊選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/0/title": {
+      "sourceHash": "ef2e3e647d4edd0d27129c2eecf7dfb4b04fb47351954d5fd67c1ebf2e7b586a",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/0/paragraphs/0": {
+      "sourceHash": "6667aa95dabdbaa5c673b76d34dab4de8cd49dcc07a2681143c706fb66ba302c",
+      "text": "面對變化和忙碌，熊選項更願意保留一個可靠步驟，減少反覆切換，把已經開始的事收好。請想一次最近的真實經歷：你當時是在保護節奏，還是因為資源不足只能這樣安排？同樣的選擇可能有不同原因。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/1/title": {
+      "sourceHash": "561ffbb096f7c83edad85915eb3e7b40cd92761fabb5d10959d5b46626af23be",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/1/paragraphs/0": {
+      "sourceHash": "c585e1b72fb51729b369d09675e9f5c6df4059f44bd5fc209b9d033dbe88e37a",
+      "text": "當任務容易越做越大時，明確基本範圍並反覆完成，有助於看見實際進展。例如把家務分成每天十分鐘，而不是每次都重排整套計畫。穩定是一種組織條件，不等於你必須接受所有現狀或拒絕新方法。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/2/title": {
+      "sourceHash": "1072ca9bf3ffb4d95bc6595a12a1a58587463fdf59af13f79ddf9279249f5fe9",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/2/paragraphs/0": {
+      "sourceHash": "e0987d253fe10769ccd87c996bab242f9cc4c85aba75bb5bbc7889132c6fb15d",
+      "text": "可靠的習慣也可能在條件改變後繼續被保留，甚至讓別人不敢提出調整。偶爾問：這個步驟仍在解決問題嗎，還是隻是因為熟悉？可以只試改一小部分，給自己退回原節奏的選擇，不用一次推翻全部。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/3/title": {
+      "sourceHash": "6e39b7ee5385cd51cd35e16feb4cd577a5b8c186e94abd56dd4b9f76850bfad6",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/3/paragraphs/0": {
+      "sourceHash": "f633453e2a5d78507f2de628f90681134d6538104c3035d36a94939a2405592f",
+      "text": "週末安排很多時，你可以先保留一件最重要的活動，給交通和休息留空隙，再決定是否加別的事。若朋友想更密集，可以分別參加部分行程。守住節奏不需要證明誰的生活方式更成熟或正確。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/4/title": {
+      "sourceHash": "41f8b0116d3777042c4f41d8dc3dfb33aacded3344c7dfec3585ccb68823c41c",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/4/paragraphs/0": {
+      "sourceHash": "7e3b07c18c9f99eb92d62ecfda0761a84dd801a606900a279bed635a59f23168",
+      "text": "把重複工作寫成簡短步驟，約定可完成的量，並留意什麼時候需要更新。交接時說明當前進度和剩餘內容，避免“我會慢慢做完”變成不可見的等待。熊結果不測可靠程度、抗壓水平，也不說明適合某類穩定職業。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/5/title": {
+      "sourceHash": "ea258910ec8ca28d32ef71642e9dd4bda6ac46d725b92b55a8b945e679c49058",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/5/paragraphs/0": {
+      "sourceHash": "74bb2995930aab2238d3573385c2964af3bd0a632720818dba7458f17ea638c0",
+      "text": "熊和狼都可能持續投入：熊選項優先保護可重複的節奏，狼優先維護共同約定。熊和貓頭鷹都可能不急著開始，貓頭鷹更在意資訊是否足夠。動物名稱只是幫助比較這些選擇，不能把慢或快當作固定人格。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/5/paragraphs/1": {
+      "sourceHash": "9d0cfedf118e2b98afd5b3d25c5e8398fb0a704530f57b29e0c156ad8bdff7d6",
+      "text": "熊關注熟悉而可持續的節奏，水獺關注自願共同玩樂。安靜的遊戲也可能節奏安穩，忙碌後想休息則不必加入遊戲；不能把兩項解釋成無趣與有趣。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/6/title": {
+      "sourceHash": "400931c92fb36e2fd018f97902d1f9764e8fd1eb8695c9b0fb7a2831d5766e84",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/6/paragraphs/0": {
+      "sourceHash": "00d85bd6eb59d7bcce3f5a39146d9cf8bf73f18f2ddb86705df245459719a3f1",
+      "text": "選一項總被打斷的小任務，為它保留一個短時段和清楚的結束點。試幾次後檢查：是否真的更容易完成，有沒有一個步驟該更新？同時觀察穩定安排的收益與成本，不把堅持本身當成唯一目標。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/7/title": {
+      "sourceHash": "f022ba6e92deedb1d063e705166cbfa2c8cc2ec9ee5040fc190eec5ce0ab46a6",
+      "text": "熊結果是不是缺少進取心"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/7/paragraphs/0": {
+      "sourceHash": "89ecb15182d46c8caa0b78a15bd3be9fe5ccd6a39ad3de1812642f113c73baf3",
+      "text": "不表示。一個人可以追求很大的目標，同時偏好穩定步驟和充分休息。題目沒有測你的理想、成就或價值。若想推進某件重要的事，可以談具體資源、時間和下一步，而不是要求自己表現得更像另一種動物。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/8/title": {
+      "sourceHash": "cb9ef04b7d546a02258eda54dd9ec63e7a3d18c9dacfc5092b5a7eb0aa6e0202",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/sections/8/paragraphs/0": {
+      "sourceHash": "8cb8a6425a8fa56b8201fa2c90e89968a1996944312d1ed468d88f9fb87061eb",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/seo/title": {
+      "sourceHash": "4c82937dd5f7ee15ce77a6bafd110aa3a1f4c6bd62c6c58349884863746cfa52",
+      "text": "熊精神動物結果：穩定步驟與可承受節奏"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/6/seo/description": {
+      "sourceHash": "459c4c77c99c57892e9bee26e4358d3b5ac06a66f33c4d9cf9d1fa63737ab8f6",
+      "text": "檢視熊精神動物的完整解釋，了解熟悉步驟、穩定條件與可承受節奏的取捨和小嚐試。不用熊判斷懶惰、理想、情緒遲鈍、體力或韌性。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/title": {
+      "sourceHash": "30c9cc41f883944c2009635588cfaac8f562b6be365b24af025351d08e292f22",
+      "text": "鷹"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/headline": {
+      "sourceHash": "3be4302f7ac1f164eb6bad36866c290ee9cce840f3d5254b4bed6c90f907be40",
+      "text": "看見整體方向，再決定怎樣取捨"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/summary": {
+      "sourceHash": "7a45064e8f1ef2c69be5bfc3393354d3c0611c305ca2d5bc68dfeac97b4c56bf",
+      "text": "鷹對應本題組裡從目的、關聯和長一些的時間尺度思考的選項。它不說明遠見更強、比別人有格局，也不預測成功或領導能力。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/scoreReading": {
+      "sourceHash": "bbaece3006c81fbc1aec9c1ac82f9355ce2e7d7a8c6e3618b61bfa8758437cd1",
+      "text": "本題組中，鷹選項出現8次。每選中一次記1次，18題全部回答後才顯示所有動物的計數。它與最高計數相同時，完整保留為本次匹配；並列不按名單順序強行挑選。計數接近不代表已經驗證的人格距離，分母8也不是相似度百分比。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/0/title": {
+      "sourceHash": "b15a9d46b28a8708bb0e5ecebb0a0d048042752aa26871c5b25392cc5a90aec1",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/0/paragraphs/0": {
+      "sourceHash": "458050c747b163d35f99f1e2b6299db7e5d3637ec6bf0a1766b030603d222bfe",
+      "text": "鷹選項常把眼前問題放回“我們想去哪裡”或“這件事為什麼值得做”。你可能比起馬上選擇步驟，更願意先確定方向。但題本無法判斷目標本身是否合適、現實或由你自主選擇；這些仍需要單獨檢查。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/1/title": {
+      "sourceHash": "6cfb9ffc9a30b677e767a303eed2b8a552a846e3f3c0ff7709a48a6f73f13162",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/1/paragraphs/0": {
+      "sourceHash": "1aa3ec6c88d99b5c4b69cb3bb099e1672410e19fb1dd115b967ec5900eb23d1e",
+      "text": "當活動很多卻不知道為什麼忙時，回看目的可以幫助取捨。例如選課程前先想希望解決什麼問題，再刪掉與它無關的承諾。整體視角有用的地方是減少無謂負擔，而不是給每件小事都安排宏大意義。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/2/title": {
+      "sourceHash": "d0144ca07090fb134574db38a348566d82d9b91d849cf9355c06153fbc3cab8a",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/2/paragraphs/0": {
+      "sourceHash": "0da936a3e300a4f6d210ecb98a7704cdd18c3d8434733dc830969172bf1c31f5",
+      "text": "一直談方向可能遺漏眼前的費用、時間和他人的實際處境，也可能讓目標永遠停留在口頭。請加問：下一步誰來做、需要什麼、什麼時候檢查？願意根據現實縮小目標，也是認真對待方向的一部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/3/title": {
+      "sourceHash": "7dcec4e28351ded29d2934c7f5a0bbaa4e21e462356f46c8d097ad2f811c3e08",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/3/paragraphs/0": {
+      "sourceHash": "d4f39091fd6c2e5a3a5967f606a88360a717cd5feeb9989472b17db934884ffb",
+      "text": "安排假期時，先說最想得到的是休息、相聚還是體驗新地方，再討論路線。也聽聽同行人的目的，可能需要不同安排。知道自己想要什麼，不等於所有人的行程都必須圍繞你的目標。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/4/title": {
+      "sourceHash": "de7c6e683b3a4331aab90b18eb77e8b9d63eb87d9aeb5fcecd536d133e8ce899",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/4/paragraphs/0": {
+      "sourceHash": "fe85deebdfb991279ebceea7713c859e57917e2077bc81fcdc6b80a9f727fd82",
+      "text": "把目標寫成一條能核對的結果，再把一個小里程碑交給實際執行的人討論。邀請他們指出限制，避免只從高處給方向。鷹結果不代表戰略、管理或職業潛力；真實能力需要看任務、回饋和實際成果。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/5/title": {
+      "sourceHash": "08cb13fc5a9f83102e690c5c21cfc350b40c99112ab6e5b1d9aad9f4741b252d",
+      "text": "與相近動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/5/paragraphs/0": {
+      "sourceHash": "236ff60f56f80323c6f89f11540a42f198148e8f3dfcfce2cde86dd78f04b8ed",
+      "text": "鷹與貓頭鷹都可能先想再做：鷹選項重視整體目的，貓頭鷹重視依據和已知條件。鷹與狐狸都可能改變路線，狐狸更強調小範圍試驗。若兩項並列，就完整閱讀兩份說明，不需要決定哪一種是“真正的你”。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/5/paragraphs/1": {
+      "sourceHash": "d0e74ca0229c061b991cfe344c0ba09779a19d4727bd424e35fc61a7e45bec9f",
+      "text": "鷹關注事情通向什麼整體目的，水獺允許一段共同玩樂不另設成果。兩者可以在不同時刻使用，不需要把有目標或沒有目標排成更有價值的選擇。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/6/title": {
+      "sourceHash": "90899d7edf56fb47d7d86fc5a18478fb270c586f08b1c753f5aa85b8de8274bb",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/6/paragraphs/0": {
+      "sourceHash": "a452717497879f64dc5da7c0a13d0405a42f3ab6ca6d64245f53f9d16e28d7f1",
+      "text": "挑一個近期目標，寫下它為什麼重要，再列出一項本週能完成、結束後可核對的動作。問一個相關的人它是否實際可行。之後檢查目標與動作是否仍一致，而不是隻評價自己想得夠不夠遠。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/7/title": {
+      "sourceHash": "f710301622f3cc19b2c96f1eb711e6d84f647b04956420c54390207cdcb7ab22",
+      "text": "鷹計數低就沒有方向嗎"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/7/paragraphs/0": {
+      "sourceHash": "e4650ee2d541eb9dfb0e41e21cd008815f9b6b0ae19d3431f010312ce56ccda3",
+      "text": "不能這樣判斷。你可能在這些情境裡更優先照顧承諾、事實或當前需要，但仍有清楚的目標。動物計數不測人生規劃水平。如果某個方向讓你困惑，具體列出選擇、限制和想保留的條件，比給自己貼標籤更有用。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/8/title": {
+      "sourceHash": "efd4df32572af2ee4c2f7d1b909f301dd3fc1cf50d30507e2be5eedd94a3cfcc",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/sections/8/paragraphs/0": {
+      "sourceHash": "efbefd26ef4aa02ceb3b7cb27722f709a2ae7b6b45902af2815b7f1aee76c31f",
+      "text": "題目、動物對應和解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。動物不是實際物種行為、精神嚮導或任何文化傳統的鑑定，也不測能力、心理健康或職業適配。請用具體經歷檢驗有用之處，忽略不貼合的部分。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/seo/title": {
+      "sourceHash": "ab87dbf977ecb3cf8e2987e648f8c20188b74918a3c4562fdd1510f1091c5968",
+      "text": "鷹精神動物結果：目的、關聯與長遠視角"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/7/seo/description": {
+      "sourceHash": "94b9fef21c9801a1e8660d2dad5181a61a9beda953b5ea9d6acdfbf002df1a1b",
+      "text": "閱讀鷹精神動物完整結果，比較從目的、關聯和更長時間尺度看問題的具體情境。鷹是本題組象徵，不證明遠見更強，也不預測成功或領導能力。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/title": {
+      "sourceHash": "9205efebab6561eeca59a96d47769c6dc92ce2a7c42724779085e30e1093b8a1",
+      "text": "水獺"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/headline": {
+      "sourceHash": "fc7a3b540dc611320807019c181ad98c5db855b83c25e995949bbe190b3efe03",
+      "text": "為自願一起玩樂留一點空間"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/summary": {
+      "sourceHash": "5c9dad991584b716ad34444efad83152308b72eeb0f8ba4117640cd80e8377bb",
+      "text": "本題組裡，你較常選擇和願意的人一起輕鬆玩樂，讓一段相處不必總有成果。水獺只是這種選擇的比喻，不代表外向、幽默能力、受歡迎程度或真實水獺的行為。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/scoreReading": {
+      "sourceHash": "e86b049bcd127fefd99903238eb54d6e3b9f7dc973cbd7a2c03ec1705c913106",
+      "text": "水獺選項在18題中出現8次，A、B、C、D各2次。每選中一次記1次，完整作答後顯示九種動物的原始計數。全部最高並列保留，不按名單順序挑選。8是曝光次數，不是相似度百分比；相差一次不證明固定人格差異。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/0/title": {
+      "sourceHash": "b135892d1581f1e12b29f4f2eea764ad454e2dbe8b929aec87cbbabd1060626e",
+      "text": "這項結果在說什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/0/paragraphs/0": {
+      "sourceHash": "396d80864dbb64de75be0b9209689c04c739ccf4e8af3e44c83bb04cdc9b1873",
+      "text": "水獺選項共同指向一種具體選擇：在條件允許、別人也願意時，讓相處帶一點遊戲和純粹的趣味。它可能是短暫的小挑戰，也可能是不計輸贏的玩樂。重點不是把自己變成氣氛擔當，而是參與的人都可以說不、改變玩法或結束。一次選擇只能說明那道題裡的偏好，不能說明你任何時候都想玩。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/1/title": {
+      "sourceHash": "bee15ecf99cfcf27f6988dc506b131028c0408930dca6a82a787f5d4a56f073b",
+      "text": "可能帶來的幫助"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/1/paragraphs/0": {
+      "sourceHash": "62f8462393f4419178557fbc73dc0e1e2525091b906073c48f4dc42efdcf7527",
+      "text": "在沒有緊迫任務的空閒裡，共同玩樂可以成為一種相處方式，而不必用成績或長篇交談證明這段時間有價值。例如兩個人都願意時，隨手編一小段接龍，覺得無趣便停。它的價值由參與者當下的體驗決定，測驗沒有證明這種做法一定改善關係、減輕壓力或讓別人開心。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/2/title": {
+      "sourceHash": "4ac12384c8ce3d3fc39812fe5d03f45f822a11350f60772f3f3cc5205ae263aa",
+      "text": "什麼時候需要收一點"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/2/paragraphs/0": {
+      "sourceHash": "3e324c6a7b584dd89f22965bbf2a372423b5c34199b5151678956d40df4de183",
+      "text": "不是每個停頓都需要小遊戲，完成必要事務也不能總變成玩樂。有人疲憊、難過或想安靜時，可以直接問對方需要什麼，而不是用“輕鬆一點”帶過。若共同的小事確實需要處理，先把必要部分說清，再決定是否加入趣味。被拒絕的邀請到此為止，不需要說服別人配合你的動物結果。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/3/title": {
+      "sourceHash": "32756a49194599d8559f9b13ad45ff4e0689df26caa4be2f03a2a3602d91fd68",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/3/paragraphs/0": {
+      "sourceHash": "9942065ff6c5aabf8b781ad5d289edfc5236b9cd438d350f97fe84191c1acf06",
+      "text": "朋友來家裡坐坐，聊天暫時停下來。你可以問：“要不要用桌上的幾樣東西編個小故事？不想玩就繼續坐著。”有人想參加，有人只想看，也有人想換話題，都可以。這裡的水獺線索是共同玩樂的選擇；若你主要想讓每個人的想法被聽懂，那更接近本題海豚的溝通線索。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/4/title": {
+      "sourceHash": "0129d9d9f38b76cad9cf0ad0d5b4fc7040013449f4519a48eb12f9d5ee1e5a2f",
+      "text": "放在共同任務裡"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/4/paragraphs/0": {
+      "sourceHash": "cdeb1f7205e6250be49971803c67b238c9ffd2e5e100b37a89f773abba90e025",
+      "text": "處理一件低風險的小事時，可以先問夥伴是否願意試一個輕鬆的小挑戰，並說明不採用也能照常完成。不要讓遊戲影響必要的準確性、時間或責任分工，也不把贏輸當能力判斷。有的人喜歡邊做邊玩，有的人希望先做完再休息；兩種方式都不需要由測驗分出高下。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/5/title": {
+      "sourceHash": "617e2a9339ae82b29c29c086f950815fd555807405366390542b45e5827b15eb",
+      "text": "與其餘八種動物怎樣區分"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/5/paragraphs/0": {
+      "sourceHash": "46e616627dbefc8338a6120963224e4c404e6b6732593252fe7f71f294526f30",
+      "text": "海豚側重把對話接起來，水獺側重自願共同玩樂；兩者可以同時出現。狐狸側重換路試驗，不一定為了好玩；獅子側重決定與推進。狼關注共同約定，鹿關注感受與舒服的參與，熊關注安穩節奏，貓頭鷹關注依據，鷹關注整體目的。同一個小遊戲也可能有這些理由，計數只比較本題選項，不證明九種互斥人格。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/6/title": {
+      "sourceHash": "1134febf9d3f08c8525a975fdd6ab9d155f9354ba28acb687244c932e72ead77",
+      "text": "一次小嚐試"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/6/paragraphs/0": {
+      "sourceHash": "01281cf76a1a3f8afa175cda0a60e359a830fd44de01d2fa9a4faa2a7b295065",
+      "text": "如果你願意，選一次真正有空、大家都可拒絕的相處，提出一個無需準備的短玩法。先說明可以只看，也可以隨時停。結束後只回顧兩個問題：參與的人是否真的有選擇，我自己是否享受這個過程？沒有興趣或沒有合適機會，就不必進行；這不是需要完成的社交訓練。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/7/title": {
+      "sourceHash": "c2c2587d6489327838084d722868584cf117601523ca05581e37b3370c63edcf",
+      "text": "水獺計數不高意味著什麼"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/7/paragraphs/0": {
+      "sourceHash": "d7172d91464a14ac3ff3e360b090e554b2a5cc410009b84538a368b2414accb6",
+      "text": "它只表示這18題裡，你較常選擇別的做法，不表示無趣、冷淡或不合群。你可能喜歡獨自玩、需要先熟悉環境，或這次參照的是忙碌情境。本題沒有測玩樂能力、幽默水平或別人是否喜歡與你相處。保留具體答案，比強迫自己符合一個輕鬆形象更有用。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/8/title": {
+      "sourceHash": "dbd6c3125b714605a2203bbb45093c2dd1d1bdfa2a6137d95974a61593c59437",
+      "text": "這個比喻的邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/sections/8/paragraphs/0": {
+      "sourceHash": "433dd2f898a00d02c2057c6b9d3e388dccb366e2ead50be374d3a67c9012219f",
+      "text": "題目、水獺對應與解釋均為費馬原創娛樂內容，沒有建立信度、效度或人群常模。這裡沒有用真實水獺的動物學行為證明人的人格，也不識別精神嚮導或文化傳承身份。結果不測能力、心理健康、成熟程度、關係質量或職業適配。可以只保留貼合的例子，不接受動物名稱。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/seo/title": {
+      "sourceHash": "a9ed208acc0dce9510b3c65aeef47e8effdedf9acf56fac3121e71fd9ba64366",
+      "text": "水獺精神動物結果：自願一起玩樂的比喻"
+    },
+    "lib/questionnaires/data/spirit-animal.json/profiles/8/seo/description": {
+      "sourceHash": "ac65b97ef58b0a0fc131d078f754da4d88253895cf3b9642849d6a0eec22d580",
+      "text": "閱讀水獺精神動物完整解釋：自願共同玩樂、具體例子、取捨與九種動物計數。區分水獺的玩樂和海豚的溝通，不作人格或動物學判斷。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/0/title": {
+      "sourceHash": "54a73e6409f74f1e35ed232b2a79e4054152c72dab764fb8f5acc4ae5086d8a5",
+      "text": "答案怎樣對應動物"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/0/paragraphs/0": {
+      "sourceHash": "711d9da3421fdbd27e3bcd9f42d9dc540ba66cdf7bb4153924789d489e90ff53",
+      "text": "18題各有4個選項，每個選項明確對應一隻動物，選中加1次。九種動物各出現8次，且在A、B、C、D位置各出現2次。作答完整後展示全部原始計數；最高計數的每隻動物都是本次匹配。固定選同一位置會九類各2次。計分不使用出生日期、隱藏抽籤或外部人格結果。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/1/title": {
+      "sourceHash": "b723edfe9b0934634932a823c6a5b3f76d6d25822d8df9f7006cbeea1f238431",
+      "text": "並列與接近計數"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/1/paragraphs/0": {
+      "sourceHash": "02464fb8b43bc658cccbd3a6554c3210e5020eec1116f5971c6dbe143b5c41a4",
+      "text": "同樣的最高計數會完整保留，不按動物名單先後挑一個。並列時逐份呈現完整報告，可自己比較情境。其他計數也同時顯示；差1次僅代表本題組多選了一次，不能當作顯著差異、穩定主次型或人群排名。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/2/title": {
+      "sourceHash": "3ac39dc1262b24c5b7dd8bf1b0ab5605c524e407f0ce5fce915a547a669f6c46",
+      "text": "內在動物人格怎樣理解"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/2/paragraphs/0": {
+      "sourceHash": "5bd59e1694b44d271fffb1225453830e87e67e127bb3fc4fa0457536a7716115",
+      "text": "動物是這份原創問卷的表達工具，不是固定人格、真正的物種行為或精神身份。你可以在不同場合採取不同做法，也可以不認同這個名稱。結果用於談具體例子與取捨，不用於給別人判型或決定誰更值得喜歡。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/3/title": {
+      "sourceHash": "f19ce1502f5c833e0f3f4c89dc80d54b8380e4fc00e8302854936ebf84fedd71",
+      "text": "題本、解釋與研究邊界"
+    },
+    "lib/questionnaires/data/spirit-animal.json/guide/3/paragraphs/0": {
+      "sourceHash": "149be92d4d9802825a3f162e5c40e0bb688c154d241c7d881a6d1afec8466c82",
+      "text": "題目和九份報告為費馬獨立創作，不復刻競品題庫或結果正文，也不聲稱官方心理量表、文化傳承或科學驗證。這裡不提供名人同型、招聘評價或職業適配分；想探索職業興趣時，應使用獨立的興趣方法和真實職業資訊。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/0/question": {
+      "sourceHash": "1864af9aa52fe73f0a8a22a1236baadfc9442be8adf73a4ec9dc605c6ad6e989",
+      "text": "我的精神動物是什麼？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/0/answer": {
+      "sourceHash": "89f84aad064e8995e378168e9583fdc64c6893a1b4e7f1d7cca032c1c979ef8e",
+      "text": "在這份娛樂問卷裡，是你選中次數最高的動物比喻；可能不止一隻。完成18道情境題後，會同時顯示九種計數和全部最高並列匹配的完整說明。它不聲稱識別真實精神嚮導或固定身份。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/1/question": {
+      "sourceHash": "47ad967e19aacac39a70ff37c662eb923651b44b7d2490d07915034e6f55d433",
+      "text": "可以得到哪些動物？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/1/answer": {
+      "sourceHash": "78bfd07efad71ca1b1eb46b16462e66831cb52e997cf120cfbb094123d3f6828",
+      "text": "狼、貓頭鷹、狐狸、獅子、海豚、鹿、熊、鷹和水獺。每份公開說明都有具體情境、可能的幫助、取捨、相近結果比較和一次小嚐試。水獺的共同玩樂與海豚的溝通有不同選項和解釋。你可以先閱讀所有說明，再決定是否開始。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/2/question": {
+      "sourceHash": "a8bfcdb7e5022f9c1c8fe76c45e70d5a0709f6163a72ce7f80918a08d65cecc0",
+      "text": "這和按生日查動物或MBTI動物表一樣嗎？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/2/answer": {
+      "sourceHash": "428020cac6ad1498e7c3bcd460c66283c8391c38f19f87b20d2485e22196ed35",
+      "text": "不是。本頁只按實際選擇累計動物選項次數，不需要生日，也不讀取或換算MBTI。象徵問卷、曆法計算和人格量表有不同輸入與用途，不因為用了動物名稱就能互相代替。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/3/question": {
+      "sourceHash": "ae971506edce251c60d792f979baa186a66e64a352ab59ae2029a0286da2f380",
+      "text": "內在動物人格測驗需要再做一份嗎？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/3/answer": {
+      "sourceHash": "0330e07301726f1f5cfe982dbfa870a8181bd9669909515d3f6e67d91b370d11",
+      "text": "如果你想找的是通過日常選擇比較動物比喻，本頁已經提供同一項任務，不需要重複作答一份換名版本。結果不是心理診斷，也不表示一種動物比另一種更成熟、聰明或有價值。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/4/question": {
+      "sourceHash": "84f798113288e3b983337b8ad9128baa8b1ac0f4a38d6be9cb1df9c0f179ceec",
+      "text": "為什麼重測後可能變成別的動物？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/4/answer": {
+      "sourceHash": "6a06977d441b1423ff3d9028aa14673aaa1a650d6d8e39328c83b541fc45c0a2",
+      "text": "相同答案會得到相同計數與並列結果。改變所參照的情境或選擇，計數就可能變化，尤其原本差距很小時。本題本沒有經過重測穩定性驗證，不用一次名稱定義自己。"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/5/question": {
+      "sourceHash": "10f993c3f12ece67da12c9b6d7484e543d3721f6bbdd30ae7c957aaddfb515e8",
+      "text": "結果免費嗎，分享會公開作答嗎？"
+    },
+    "lib/questionnaires/data/spirit-animal.json/faq/5/answer": {
+      "sourceHash": "8d8de65cefceb86eaf91fd421b3bb3e124e19237ddc2304f6eb9c6086c90ad7b",
+      "text": "18題、九份完整解釋、並列結果均免費，不用註冊或先做其他測評。僅主動選擇時在本分頁保留24小時草稿，完成或清除即刪除。複製分享只包含動物名稱與公開入口／說明連結，不含答卷、原始計數或個人均分。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/wolf/0/title": {
+      "sourceHash": "e43509cb41d2ca6f12c0aefb1c1e81cf5580473c555d949c4ebc08afd6eae05f",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/wolf/0/paragraphs/0": {
+      "sourceHash": "984922d7f45a7b7514e50940a8885e47ddd8696c06e81341d390b546da21b9a7",
+      "text": "“我願意繼續這個約定，也想確認我們各自能做哪一部分。如果原安排不適合了，可以一起改。”對方改變主意時，先談變化如何影響安排，不把一次拒絕解釋成關係不可靠。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/wolf/1/title": {
+      "sourceHash": "cd1111373401d2d59b435659a66370c94c81c34e113e1a29ae77b6ad683f2b30",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/wolf/1/paragraphs/0": {
+      "sourceHash": "f1cf1e96052ba25c86b0634f54e8bb2962209dcee161be8eff12ab7c0037f23c",
+      "text": "回看上面的明確請求嘗試：對方是否主動確認，分工是否比之前清楚，你有沒有在無人回應時又全部接下？若沒有減少負擔，可以縮小共同範圍，而不是用加倍承擔證明重視關係。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/wolf/2/title": {
+      "sourceHash": "13d671f68759d7c49d32c2ec3449fac9794086daf59716ef80f38904c0d94506",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/wolf/2/paragraphs/0": {
+      "sourceHash": "ddb7d5000d23e8ec7e12d07a7952523ac80fb7beb430673555c3a167c98934f0",
+      "text": "“這次我的最高匹配裡有狼。我想觀察的是怎樣把共同約定說清楚，也想知道你更需要明確分工還是保留彈性。”這只是本版比喻；不要把它改成“我比別人更忠誠”。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/owl/0/title": {
+      "sourceHash": "4a09b4e2922914eb6d7aa9f937db338e19aa4e78f1bed2e0e7d15c8be333f9e4",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/owl/0/paragraphs/0": {
+      "sourceHash": "9c6e7fbb501b5dd705f1519a286a1b963ae5708271645dbf047e58fe387c86eb",
+      "text": "“我想先弄清這兩條資訊，再決定要不要試。你已經確認過哪一條，哪一條還只是猜測？”讓對方知道核對的範圍，也說明資訊足夠時願意進入下一步。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/owl/1/title": {
+      "sourceHash": "8f7e5f197732edd3c3453dd4045c4831b6f338da04e8d7de38ecfa79fccedde8",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/owl/1/paragraphs/0": {
+      "sourceHash": "b03235bde16525f59c363878dd4e8f74cc378fbee80173ee650b43969d53d43a",
+      "text": "回看上面的限時核查：哪條資料真的改變了決定，哪條只是讓你感覺準備更多？若仍不能確定，把未知寫清並決定是否暫緩。不要把收集資料的數量當作觀察能力的成績。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/owl/2/title": {
+      "sourceHash": "d3c86a01e27a38713aa8ec7601640c4144b37a2e32e00dceda5bd61f80eec140",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/owl/2/paragraphs/0": {
+      "sourceHash": "44869c9614e01d61d70412e54cbeea7dc496a64929e8242a07cde10b0220fca4",
+      "text": "“這次我的最高匹配裡有貓頭鷹。我想聊的是決定之前需要弄清什麼，也歡迎你說哪些資訊已經夠了。”它不說明智商或誰更理性，朋友也不必先提供證據才有資格表達感受。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/fox/0/title": {
+      "sourceHash": "47719cc69254066188524a2200e480e5ce4cb6231e50a6b65b2ba3c5ed8a729b",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/fox/0/paragraphs/0": {
+      "sourceHash": "90f459d64205297cfa6ed77c8217593eca6593559c7f7e929ad47f88e0257d40",
+      "text": "“原辦法在這裡卡住了，我想只改這一小步，其他約定先保留。你需要知道哪些變化才方便跟上？”先讓受影響的人了解試驗，而不是把靈活當成可以隨意改約的理由。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/fox/1/title": {
+      "sourceHash": "ad46f3c60b5b28ab13e1ce2235234bfa92000c0bbaa1e2c75969e1224569ca2a",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/fox/1/paragraphs/0": {
+      "sourceHash": "3989a442dd0822069b065fdd302cd64af78e63843a3af13957482109079387a9",
+      "text": "回看上面的單一變更：卡點是否減少，誰增加了額外工作，原辦法是否仍能退回？若新做法沒有幫助，可以停止並收尾；試過但不保留，也比不斷換路更能說明你學到了什麼。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/fox/2/title": {
+      "sourceHash": "90db5b15d4a8505d0f0978f4dff32d5f02b5a56bd95f74ba89179382a0f89699",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/fox/2/paragraphs/0": {
+      "sourceHash": "f207150b613d551faa91c35766e90fd34278721eb38eba4db3ed140467a8f363",
+      "text": "“這次我的最高匹配裡有狐狸。我想觀察原路走不通時怎樣小範圍試另一種辦法。你希望哪些約定在嘗試中保持不變？”狐狸在本版不表示狡猾，也不能代替說明實際變更。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/lion/0/title": {
+      "sourceHash": "04d271ecbb1fb14ec6b80627c4d5329d45c1e67d75c2d875b9ce8f70a21f51cc",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/lion/0/paragraphs/0": {
+      "sourceHash": "b1aae65fee677512fd640fa9f54a4ac000b9352977a2a306325babbc309ddd2a",
+      "text": "“現在需要決定的是這一項。我可以先提一個方案，最終由誰確認？有沒有人會承擔我還沒考慮的成本？”把主動提議與擁有決定權分開，給不贊同的人真正補充條件的機會。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/lion/1/title": {
+      "sourceHash": "63391701de44e98ecb39800bc1c33a1ce4b0e1870efa6c1738cff64fc7f9815f",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/lion/1/paragraphs/0": {
+      "sourceHash": "a4bf22f40e8894557ce924f5654b0bd5b45b6331b292fd751f763c57e845e132",
+      "text": "回看上面的不同意見練習：最終方案改了什麼，哪些限制原來沒被看見，參與者是否知道下一步？不以有沒有讓大家接受原提議來判斷成功，也不因為有人不同意就認定自己缺少領導力。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/lion/2/title": {
+      "sourceHash": "d61e9e15ab9fb7dd25911f6a8e6d07bda8cacd318a73d1387bd7ae038daac4d3",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/lion/2/paragraphs/0": {
+      "sourceHash": "c0f8d9e8dcfda506a4a25a73e65b97d6f6e1ad71b113d0dcd9bdc2b975a0ecb2",
+      "text": "“這次我的最高匹配裡有獅子。我想練習把下一步說清，同時確認別人是否同意。你希望我什麼時候先提議，什麼時候先聽？”這不是領袖認證，也不為替別人作決定提供依據。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/dolphin/0/title": {
+      "sourceHash": "3af78ab9f2d95a3701c11357ad9ad97ffa4089cc48dcd4b5b73b197b4fa453b1",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/dolphin/0/paragraphs/0": {
+      "sourceHash": "07e3a94b1559d83e8ded8219c8a09a34abcabf5f578d33a1540027a1517c4294",
+      "text": "“你想一起聊、用文字補充，還是先旁聽？我想聽懂你的意思，不需要你表現得熱鬧。”給出不同回應方式後，也接受暫時沒有回應，不把沉默立即變成需要修好的氣氛。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/dolphin/1/title": {
+      "sourceHash": "7d66eeec9e77bb939883e8300a81815fc747b83b039ce4f84e44184cd0c5553e",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/dolphin/1/paragraphs/0": {
+      "sourceHash": "8871da2cbf898fc3079ef9e2c82f654b69755d38a12735a518d4c8f1bd5b6542",
+      "text": "回看上面的參與方式嘗試：對方是否知道可以拒絕，是否能用自己舒服的方式表達，你有沒有代替他把意思說完？輕鬆互動仍可能有分歧，別隻用笑聲或發言人數判斷彼此聽懂了。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/dolphin/2/title": {
+      "sourceHash": "903cba0d47c397c75eb49cd300919f26fa5f012974de8dbfc47f93d8b028ebad",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/dolphin/2/paragraphs/0": {
+      "sourceHash": "bad45b3737e8f99369a52db52a3c77865ce8be15e42e2956e80e7c77f32939bc",
+      "text": "“這次我的最高匹配裡有海豚。我想聊怎樣讓彼此更容易接上話，而不是讓每次見面都熱鬧。你更喜歡直接說、慢慢想還是先聽？”這個結果不規定外向性，也不讓你負責所有人的心情。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/deer/0/title": {
+      "sourceHash": "a3a6261c83d449cd6eb326adad60d67c80e3394eb18fe49efd476d12a3f32be9",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/deer/0/paragraphs/0": {
+      "sourceHash": "cefa21650d1751aaa5c5c7c4a648c4a3c7f2bc21cacdaef901839ea625400f0f",
+      "text": "“我注意到剛才的節奏變快了，但不確定你的感受。你想繼續、慢一點還是先停？我自己也想留一點思考時間。”先確認觀察，再把自己的需要放進同一場協商，不替對方下結論。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/deer/1/title": {
+      "sourceHash": "924e41b6fd85b5dbcef32674faf0dab237fb3ec5f3565524f975f859df4027ea",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/deer/1/paragraphs/0": {
+      "sourceHash": "f136148c55b873c78065c9395ddfd042202bf622c5cd9b4572e1e7979f0357f4",
+      "text": "回看上面的需要清單：對方明確說了什麼，你原先猜的哪一項需要改寫，自己的限制有沒有被說出來？目標是減少替人猜測，而不是準確讀懂每個人；對方不願解釋時也可以保留未知。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/deer/2/title": {
+      "sourceHash": "38468d1d48b530518f671e4f34375ac8b07b178bfaf0d067c50de5e3efc88b38",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/deer/2/paragraphs/0": {
+      "sourceHash": "98eb685215a3dbd0a2fe2c4de5747a480c340c17101a98ec5d89789e4c23a39a",
+      "text": "“這次我的最高匹配裡有鹿。我想觀察怎樣把參與感受問清楚，也記得說出自己的需要。你願意直接告訴我什麼安排更舒服嗎？”鹿不代表脆弱、敏感診斷或能讀心。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/bear/0/title": {
+      "sourceHash": "9bff1bfcfad1a08147e14e16b5727a9eae11e7a37f0fd6afb74808d9213187f4",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/bear/0/paragraphs/0": {
+      "sourceHash": "624c8251dae109bd3028fd4a11acd6b57c60f842cd029c5d611498769a7b9dbe",
+      "text": "“我想先把已經開始的這一項收好，新增的部分能否另約時間？如果原步驟不再合適，我們只改一個環節試試。”保護節奏可以與調整並存，不必把自己或別人說成抗拒變化的人。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/bear/1/title": {
+      "sourceHash": "564853d0d513fe9cf1ba781b271dc6459fe500828054b1f833765c5d288b6775",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/bear/1/paragraphs/0": {
+      "sourceHash": "9dd8f3e184bfd524491ac296ecef635d082c808a7e5ae8cd4a9ee650abcac912",
+      "text": "回看上面的固定短時段：任務是否更容易收尾，有沒有因守住舊步驟而增加重複勞動？若時段總被打斷，可以調整範圍或時間，而不是要求自己更能忍。繼續與更新都可以由實際效果決定。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/bear/2/title": {
+      "sourceHash": "23e6221121c2379a59790685d935af510f8ce4e73b6b0cebb7ada8dfeaa26650",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/bear/2/paragraphs/0": {
+      "sourceHash": "0608b82ec10cc4a6c33a000159e200f0036f342d017efecef1a8a2a8a32e71d0",
+      "text": "“這次我的最高匹配裡有熊。我想聊怎樣安排一個能夠持續的節奏，也想知道哪些步驟已經可以更新。”這不是對理想大小、體力或成熟程度的評價，朋友也不必與你使用同一種速度。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/eagle/0/title": {
+      "sourceHash": "1f22ce9d2a5e2019612a8efb94554ce615c56a2b45153eef64f2d8e39a6a107b",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/eagle/0/paragraphs/0": {
+      "sourceHash": "d1bd7cbffad3cde557cac954e823cbc966fca1ca6c90bd8fcdbe7530db5d8186",
+      "text": "“我希望這件事最終帶來這個結果，但還需要確認現實條件。你最想保留的目的是什麼，哪一步現在做得到？”共同方向要經過各方表達，不因自己先講出目標就預設大家想法相同。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/eagle/1/title": {
+      "sourceHash": "150effdfa1c58f4c6ea093b541153de0e9e45a32ea434656017ba501a67a14d8",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/eagle/1/paragraphs/0": {
+      "sourceHash": "f00a51ff29a9a68983abfb93c2e6db5a02f0af63ab0b53f7c5e854330da0d902",
+      "text": "回看上面的目標與動作嘗試：本週那一步有沒有完成，完成後是否更接近想要的結果，原目標是否還值得繼續？縮小或改變一個不合適的目標也是可用回饋，不用把堅持目標本身當作遠見。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/eagle/2/title": {
+      "sourceHash": "13c52df7e235f3b52a33a7482b4d2b82d528da64ed2cc03080b2380aa6e0fac3",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/eagle/2/paragraphs/0": {
+      "sourceHash": "52248aff232c83f1dd44d80659b6f4bae554282f632d74b56b06f8778c3fb4fe",
+      "text": "“這次我的最高匹配裡有鷹。我想聊眼前安排為什麼重要，以及怎樣落成一個實際小步驟。你看到哪些限制或不同目的？”它不說明比別人有格局，也不能讓遠處的目標蓋過眼前他人的需要。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/otter/0/title": {
+      "sourceHash": "edfbc33d5ff6489977ffa7885eea6f9e575efb71f5722ad5d3c263e39b9f69c2",
+      "text": "把這個角度說成一句協商"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/otter/0/paragraphs/0": {
+      "sourceHash": "6c56a7a04ba509a60b91d57e888dab42b544b65f5850ebcac5a904c545960318",
+      "text": "“要不要試個不用準備的小玩法？只看也行，沒興致就停；如果你想安靜，我們照原來的方式待著。”邀請中明確不參加的選擇，而不是先把遊戲安排好，再讓別人證明自己合群。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/otter/1/title": {
+      "sourceHash": "765c8b70b26563a2751d30bc934ba94cd8af08aa6ddacdb9ae56c6836bdd584d",
+      "text": "嘗試之後，怎樣回看實際效果"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/otter/1/paragraphs/0": {
+      "sourceHash": "b1780009676187728a2a4e3cf103759e68080ac5dfd84a731606b9b2f5b914cf",
+      "text": "回看上面的短玩法：每個人能否拒絕或離開，自己是否享受過程，有沒有人其實在勉強配合？不以玩了多久、誰最會逗笑或有沒有變親近評分；若沒有合適機會，不做也符合這份解讀。"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/otter/2/title": {
+      "sourceHash": "0af07fa7fd1e6196fb1d7ed4e410cee538c1d70afcba04832fc34776f138e0a5",
+      "text": "願意分享時，可以這樣說"
+    },
+    "lib/questionnaires/result-content/spirit-animal.json/otter/2/paragraphs/0": {
+      "sourceHash": "80b424309b18976468c8d1f0004b5c0d2f2eca36018702dbc441e479c783d7ee",
+      "text": "“這次我的最高匹配裡有水獺。我想保留一點自願一起玩的空間，但不要求每次相處都有節目。你喜歡什麼玩法，或者更想安靜待著？”它不認證幽默能力，也不讓別人承擔配合玩樂的義務。"
+    },
+    "lib/questionnaires/data/flower.json/title": {
+      "sourceHash": "35a2307b35a0d11369f016ad0f287c56674a024b2ff2d714926edd6041831920",
+      "text": "花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/resultHeading": {
+      "sourceHash": "ff292c09002443cf76e9731fc0e72f67efb1dca98e5be9218d50a853d038b8eb",
+      "text": "你的完整花朵結果"
+    },
+    "lib/questionnaires/data/flower.json/seoTitle": {
+      "sourceHash": "68399ed085d84f3c95029d41109a29c4d6de4e133e2c8f5caefe25407a43638f",
+      "text": "我是什麼花？18題花朵人格測驗與完整結果"
+    },
+    "lib/questionnaires/data/flower.json/description": {
+      "sourceHash": "331a582dbfa11db609ae0110a51bdf0376c321fea7c1f6acb0dd62915ff9870d",
+      "text": "免費完成18道原創偏好題，比較玫瑰、向日葵、薰衣草、蓮花、蘭花和雛菊的表達比喻。全部六份完整結果可直接閱讀，保留並列，附具體例子、計分和小嚐試；不用註冊。"
+    },
+    "lib/questionnaires/data/flower.json/introduction": {
+      "sourceHash": "099de975555f74f913a53720a5b5739512f44b270b3f8d539e229e38d8a2c270",
+      "text": "你更喜歡一句認真想過的話、一點共享的溫暖，還是一個不必填滿的角落？這份花朵人格測驗從具體表達與審美偏好出發，用六種花作比喻，看看本次選擇更接近哪些方式。它不是按生日分花，也不是把花名當作固定性格。你可以先比較所有公開解釋，再決定是否作答。"
+    },
+    "lib/questionnaires/data/flower.json/instructions": {
+      "sourceHash": "0908f697c0fa98471397bdc729d7ff1c3613c602820152cc03f6b8d43eeb39be",
+      "text": "每題有四種都可能合理的偏好，請想想近期真實的自己，更願意採用哪一種表達或安排。幾項都貼合時，選在類似情境中更自然的一項，沒有正確答案。完成18題後顯示全部計數，以及所有最高並列花朵的完整解釋。"
+    },
+    "lib/questionnaires/data/flower.json/directions/0/title": {
+      "sourceHash": "fa62761e09b1e37747b8efacccb42139ba229b1f9c1479968274b1c71858f8e1",
+      "text": "玫瑰"
+    },
+    "lib/questionnaires/data/flower.json/directions/1/title": {
+      "sourceHash": "1c23ddd191247b4aa4ee1074c661025da9a930c8803731a3b06fd1da1ae1d49f",
+      "text": "向日葵"
+    },
+    "lib/questionnaires/data/flower.json/directions/2/title": {
+      "sourceHash": "ad0dff884bff386f8c6064b3193b982964f0db2971cc6ce51552c7d193304c96",
+      "text": "薰衣草"
+    },
+    "lib/questionnaires/data/flower.json/directions/3/title": {
+      "sourceHash": "a12c501602f5c40594a8267ff8b87287993307e5c01865e65f316f7afc32044f",
+      "text": "蓮花"
+    },
+    "lib/questionnaires/data/flower.json/directions/4/title": {
+      "sourceHash": "00f291c5a94f88f6685e3bc4f3bee0c5d9d89b3f8433ec60f9c6ec6bb03ccee6",
+      "text": "蘭花"
+    },
+    "lib/questionnaires/data/flower.json/directions/5/title": {
+      "sourceHash": "8766a7df8dba9f8cdf8f057c4090052817a857aa1341daa9210ed00d0ae82575",
+      "text": "雛菊"
+    },
+    "lib/questionnaires/data/flower.json/questions/0/prompt": {
+      "sourceHash": "796b3195d90eaf3d220f3e38e3b1774194a95fee57ad0b5a7260385b1a699fd2",
+      "text": "給重要的人寫一張沒有固定格式的小卡片，你更想寫什麼？"
+    },
+    "lib/questionnaires/data/flower.json/questions/0/options/0/label": {
+      "sourceHash": "b7c6405919da969b8e1f5f263c6171ba70844ef460c95c9973bb957e3f2b4407",
+      "text": "只有我們懂的一段記憶，和一句認真想過的話。"
+    },
+    "lib/questionnaires/data/flower.json/questions/0/options/1/label": {
+      "sourceHash": "6e40eb15b94d583bcee585cc8554ef4d9f5780843107b74a95749da7df85e2ec",
+      "text": "熱情的問候，再約一件可以一起開心做的事。"
+    },
+    "lib/questionnaires/data/flower.json/questions/0/options/2/label": {
+      "sourceHash": "3debe583c5153061b4427006379b884fa39d7d962a155cc0417b8177b933f20b",
+      "text": "不需要馬上回復的問候，給對方一點輕鬆空間。"
+    },
+    "lib/questionnaires/data/flower.json/questions/0/options/3/label": {
+      "sourceHash": "0c5ad327802b602f751fa1403e44e8b35efaea75c63a9a02ffea2f6e1944f264",
+      "text": "回看這段時間有什麼變化，以及我想珍惜什麼。"
+    },
+    "lib/questionnaires/data/flower.json/questions/1/prompt": {
+      "sourceHash": "5649ec9e19600be502a9e9005cb60a8ddd067e36f159a363f66cb649efe4626d",
+      "text": "如果能按自己的喜好佈置一場小聚，你更想要哪種感覺？"
+    },
+    "lib/questionnaires/data/flower.json/questions/1/options/0/label": {
+      "sourceHash": "cf466f547126a962bdf8c5e45f3b41fd2819aa4ac221ca40a4e91f6334ce0730",
+      "text": "明亮、有人來就有位置，隨時可以加入聊天。"
+    },
+    "lib/questionnaires/data/flower.json/questions/1/options/1/label": {
+      "sourceHash": "6862ee35c50533ef708e2a8c7d4f57ebf812fda34dcf43be49d0e0d8b4a895ff",
+      "text": "聲音輕一點，不必持續說話，也能自在待著。"
+    },
+    "lib/questionnaires/data/flower.json/questions/1/options/2/label": {
+      "sourceHash": "069e359596b0268f925c6919a2ead5e3ea635ec64392549071fd6f60ed9abd23",
+      "text": "有一個能讓大家聊聊近期經歷或小變化的主題。"
+    },
+    "lib/questionnaires/data/flower.json/questions/1/options/3/label": {
+      "sourceHash": "9510e8e0875dce327d2f8f295f97b5a1ae6e824e96b3a038c1654f5bf423b02e",
+      "text": "不必很熱鬧，但有一兩個體現個人品味的細節。"
+    },
+    "lib/questionnaires/data/flower.json/questions/2/prompt": {
+      "sourceHash": "60206e9855476430613425fe8f4bbc3b7b21626eb51d38073ec6ddb7d473e59c",
+      "text": "整理一個只屬於自己的小角落，你最想先保留什麼？"
+    },
+    "lib/questionnaires/data/flower.json/questions/2/options/0/label": {
+      "sourceHash": "126efa1bd10d9c7ffbd4b4df4f37601d78731deb97a023ae3b2029a5959be4b5",
+      "text": "清爽的留白和讓眼睛休息的空間。"
+    },
+    "lib/questionnaires/data/flower.json/questions/2/options/1/label": {
+      "sourceHash": "ee68136db337021ffa0fe468a04fc8a8a926b25c6c0cc7381c703c0384cfbdf7",
+      "text": "一件提醒我走過某段變化的物品。"
+    },
+    "lib/questionnaires/data/flower.json/questions/2/options/2/label": {
+      "sourceHash": "0dcc094fbad0892b55d5f06a48923171a07ba3fd7d20482a1f62904338d5e0cb",
+      "text": "一件細節特別、我確實喜歡的作品或擺件。"
+    },
+    "lib/questionnaires/data/flower.json/questions/2/options/3/label": {
+      "sourceHash": "a93928dab88dbdcfef613323db12b8666f09325781ba37dded3652d4d27001a4",
+      "text": "幾樣隨手擺著、看到就覺得有趣的小東西。"
+    },
+    "lib/questionnaires/data/flower.json/questions/3/prompt": {
+      "sourceHash": "894c391eece412754091e1976f5ee24d04321481335954f610c240fc3ad7a181",
+      "text": "想向朋友分享一件好事，你更希望怎樣呈現？"
+    },
+    "lib/questionnaires/data/flower.json/questions/3/options/0/label": {
+      "sourceHash": "0f44a5c65158d5abecd685098a195a77e5b1d3e2ac39fd2fae957fc3f9824840",
+      "text": "說清這件事對我為什麼重要，以及前後有什麼變化。"
+    },
+    "lib/questionnaires/data/flower.json/questions/3/options/1/label": {
+      "sourceHash": "29c70444352215a8c0626cef6782f87b39d83b68c532df2ddc6a9307029d7c43",
+      "text": "用一種有個人風格的表達，讓它看起來很像我。"
+    },
+    "lib/questionnaires/data/flower.json/questions/3/options/2/label": {
+      "sourceHash": "453f4e6fa9647c0f418c02a3405d1f9d2451cc83bb89274170bc70fceb6da836",
+      "text": "先把當下的開心說出來，沒準備好也沒關係。"
+    },
+    "lib/questionnaires/data/flower.json/questions/3/options/3/label": {
+      "sourceHash": "5c977f07a11fa65dc38b2bada444195b0df5683cf64555f3e85bf3145f0fad77",
+      "text": "挑一個能認真交流的時刻，和對方慢慢分享。"
+    },
+    "lib/questionnaires/data/flower.json/questions/4/prompt": {
+      "sourceHash": "c7ca5bc96f34596fcb3e09e51ec66e205804c7da02b73d3bbfc9745200524fbe",
+      "text": "空出一小時做一件讓生活更有意思的小事，你更想選？"
+    },
+    "lib/questionnaires/data/flower.json/questions/4/options/0/label": {
+      "sourceHash": "a5fa2c974408756d65e6cc27673a14a29f668fbf8e3860dce558c28aa5edbae4",
+      "text": "嘗試一個自己喜歡的配色、搭配或手工細節。"
+    },
+    "lib/questionnaires/data/flower.json/questions/4/options/1/label": {
+      "sourceHash": "25f50ee974543c536cb23a386fa18e3465d3d392643183739597f0f2be9ee9b5",
+      "text": "跟著眼前的好奇心走，做點沒什麼大用途的事。"
+    },
+    "lib/questionnaires/data/flower.json/questions/4/options/2/label": {
+      "sourceHash": "b5b7302377bc50ca31b83a03834d337086b31f38b0537a490cee55795b3c011a",
+      "text": "為一個值得記住的時刻，準備一點有心意的表達。"
+    },
+    "lib/questionnaires/data/flower.json/questions/4/options/3/label": {
+      "sourceHash": "4a3952deec725af3bfda7c836731ceccbae7fee24717ba23ddd56dbda4a0db17",
+      "text": "找個願意的人一起曬太陽、聊天或吃點東西。"
+    },
+    "lib/questionnaires/data/flower.json/questions/5/prompt": {
+      "sourceHash": "0f34bb26f5bd1e1db14b024939538360985c7dd8661fac6796f11e8dc683053d",
+      "text": "朋友剛忙完一週，你更想用哪種小邀請表達關心？"
+    },
+    "lib/questionnaires/data/flower.json/questions/5/options/0/label": {
+      "sourceHash": "d8e804364fcad4457eaab23e28e9a5bb3afa6835df93a5e381ae5d1a5346623b",
+      "text": "“要不要隨便逛逛？不用安排什麼，開心就好。”"
+    },
+    "lib/questionnaires/data/flower.json/questions/5/options/1/label": {
+      "sourceHash": "64faaf37773033b3bbd3e53ff8b901ba7ef8851cdd512e0db72aed0c77f9ea9e",
+      "text": "“想不想去我們上次提過的地方，好好聊一會兒？”"
+    },
+    "lib/questionnaires/data/flower.json/questions/5/options/2/label": {
+      "sourceHash": "58f774c2152ab2e70f472df4960f9a43262b9c832dbd98ea1fd09128978a92d3",
+      "text": "“有人一起吃點東西，你有空就加入，沒空也沒關係。”"
+    },
+    "lib/questionnaires/data/flower.json/questions/5/options/3/label": {
+      "sourceHash": "75f6dcbf64e7b9ebc0ddb6032c9cc28189d064b795ee8dc286b3c78d1312f757",
+      "text": "“想安靜坐一會兒嗎？不聊天也可以，改天也行。”"
+    },
+    "lib/questionnaires/data/flower.json/questions/6/prompt": {
+      "sourceHash": "bf24c4b2f8576d9028a1ceaa09b78ee5b589e8ee855bea3c3c212a1c33ec656e",
+      "text": "做一張代表近期心情的簡單封面，你更想從哪裡開始？"
+    },
+    "lib/questionnaires/data/flower.json/questions/6/options/0/label": {
+      "sourceHash": "acf62ba60bc13f979ede186fc2bde3dc6fdf530a21a85b6969513886c871e0cd",
+      "text": "一個剋制但有分量的重點，讓人知道它對我很重要。"
+    },
+    "lib/questionnaires/data/flower.json/questions/6/options/1/label": {
+      "sourceHash": "bf6ecc3e0609f178a97744f977bcf70ffab6bc8793a2fbd1514126152649051f",
+      "text": "明亮、開闊的搭配，讓人一看就願意靠近。"
+    },
+    "lib/questionnaires/data/flower.json/questions/6/options/2/label": {
+      "sourceHash": "ec7f0264e97311410ca9e51d1d17d33c6f73fb6bdd8ce65c9eb30075636e20de",
+      "text": "柔和、留白多一些，不必把空間填滿。"
+    },
+    "lib/questionnaires/data/flower.json/questions/6/options/3/label": {
+      "sourceHash": "c72371d781b029519798ccaa292c1f1a13a2ddcbcf5266113832af1f818d9235",
+      "text": "有前後層次的畫面，留下一點正在變化的感覺。"
+    },
+    "lib/questionnaires/data/flower.json/questions/7/prompt": {
+      "sourceHash": "70bbe88ba56fef5bc38539b84bf0e169839d8b8fdeecc766abebdd203fd55312",
+      "text": "給一段休閒時間挑背景音樂，你更看重什麼？"
+    },
+    "lib/questionnaires/data/flower.json/questions/7/options/0/label": {
+      "sourceHash": "2e06599f556294ef9c5a9b783fdeb0a03d7e31c62d9216d3292b1f94125960c9",
+      "text": "大家都容易聽進去，能順勢一起聊或輕輕跟唱。"
+    },
+    "lib/questionnaires/data/flower.json/questions/7/options/1/label": {
+      "sourceHash": "a81a75c292edf46b2c7309f4360a45f5be8d0289576fbd812e0f1382bd3d65fd",
+      "text": "不會佔滿注意力，隨時停下來也很舒服。"
+    },
+    "lib/questionnaires/data/flower.json/questions/7/options/2/label": {
+      "sourceHash": "3d1766c0c08f261a2dd2bbc63b878f9e3d7c348303a888d09b45cd4c13805be9",
+      "text": "能連起某段經歷，聽完像把心事整理了一點。"
+    },
+    "lib/questionnaires/data/flower.json/questions/7/options/3/label": {
+      "sourceHash": "1970a5a8057862da44c9946cd9640e38033f73434e6216aacde9ec930c96ab21",
+      "text": "帶一點我自己的選擇，不必是最熱門的搭配。"
+    },
+    "lib/questionnaires/data/flower.json/questions/8/prompt": {
+      "sourceHash": "11e4b8cd0eddc043646674e3ae743c4acb01084de095449f567ca6ceb2dbcc7a",
+      "text": "只留一張今天隨手拍的照片，你更捨不得刪掉哪種？"
+    },
+    "lib/questionnaires/data/flower.json/questions/8/options/0/label": {
+      "sourceHash": "092b78422f1245dc1438c41b4daa8e5eb792212714e0dd77c70768c1e0c1eedd",
+      "text": "光線安靜、畫面很簡潔的一角。"
+    },
+    "lib/questionnaires/data/flower.json/questions/8/options/1/label": {
+      "sourceHash": "a792bed409387ef66471d501df208eaa3becead9e428eb9c939bc08be7d5e4e4",
+      "text": "一個前後不同的小瞬間，讓我想起今天發生的變化。"
+    },
+    "lib/questionnaires/data/flower.json/questions/8/options/2/label": {
+      "sourceHash": "b8e3ab8038c584b438bd85157b3e8bb8899c7cbaad16943fc0a04dc097a06bcd",
+      "text": "別人可能沒注意到，但細節很吸引我的圖案。"
+    },
+    "lib/questionnaires/data/flower.json/questions/8/options/3/label": {
+      "sourceHash": "ec4ac7fae098b5529fb90e8aca71396438c7d28b7668cbdac57a83d69b0cf4c1",
+      "text": "沒怎麼構圖，但看到就會笑的意外畫面。"
+    },
+    "lib/questionnaires/data/flower.json/questions/9/prompt": {
+      "sourceHash": "a1a8dc10c102ae5e34ae2b06296c1fd54d1ef793f79e57c7af389003d963be9b",
+      "text": "回看一段已經結束的小經歷，你更想怎樣儲存它？"
+    },
+    "lib/questionnaires/data/flower.json/questions/9/options/0/label": {
+      "sourceHash": "0eb838da3cddaffa2ad7a82ba1f0632943504f495e809f8c0902afe739bea98d",
+      "text": "記下開始和結束時有什麼不同。"
+    },
+    "lib/questionnaires/data/flower.json/questions/9/options/1/label": {
+      "sourceHash": "81d30c30f89eb92170dc61c575a5ba38c3c9b23bd55b936cbbfb9f1e211d76b1",
+      "text": "挑少量最有個人意味的細節，做成自己的小合集。"
+    },
+    "lib/questionnaires/data/flower.json/questions/9/options/2/label": {
+      "sourceHash": "e7fe7deef5d0447b2bd1d6f407f3431a67ad74ad869b4733a4578bf1a8d3de91",
+      "text": "留住幾張不完美但好玩的片段就夠了。"
+    },
+    "lib/questionnaires/data/flower.json/questions/9/options/3/label": {
+      "sourceHash": "f9580157e2a9b1fabd207dcdc7ae44b9585c8cf03c3040dea22bd9fd08ae0420",
+      "text": "保留一個能認真紀念某人或某個時刻的象徵。"
+    },
+    "lib/questionnaires/data/flower.json/questions/10/prompt": {
+      "sourceHash": "cd41c256ec5170a8f30bfb79c1485930d379044ee66fdc01bd72d8ca5f133578",
+      "text": "一頁空白筆記可以隨意使用，你更想在上面留下什麼？"
+    },
+    "lib/questionnaires/data/flower.json/questions/10/options/0/label": {
+      "sourceHash": "f5ad82ff9581d47f1a9d83c9897000d8526f8f7ce97d8e3ef19403dfca7b6a2b",
+      "text": "一個符合自己審美的小排版或組合。"
+    },
+    "lib/questionnaires/data/flower.json/questions/10/options/1/label": {
+      "sourceHash": "23ca53af89c4bd3f04c8d0b5774fa7895612febbd1e35a0c6ff269b3129cd97a",
+      "text": "隨手想到的塗畫、笑話或奇怪的小點子。"
+    },
+    "lib/questionnaires/data/flower.json/questions/10/options/2/label": {
+      "sourceHash": "9d8ebd69d4950fc442c330ab366f0ee4d23520da9e519f35e3da2409fc8dcf47",
+      "text": "一句想認真對某個人說、還沒找到時機的話。"
+    },
+    "lib/questionnaires/data/flower.json/questions/10/options/3/label": {
+      "sourceHash": "6bb2b4136e6451bdc510a8e8fe2d084fffa80ca24b899eabdf664c8256c2290a",
+      "text": "幾行可以邀請朋友補充的輕鬆話題。"
+    },
+    "lib/questionnaires/data/flower.json/questions/11/prompt": {
+      "sourceHash": "467c582f7aab81b6ccb1da1e09128f608dc0cbeec6819366e51f9df8596fdc5f",
+      "text": "如果給普通的一天加一個小儀式，你更願意？"
+    },
+    "lib/questionnaires/data/flower.json/questions/11/options/0/label": {
+      "sourceHash": "d21f04d2422b3510b64a208936806e4dfbbe924e25be976fda027c22d6a114ef",
+      "text": "給一件沒什麼用卻讓我開心的小事留五分鐘。"
+    },
+    "lib/questionnaires/data/flower.json/questions/11/options/1/label": {
+      "sourceHash": "d85da495ab8a1595b0800d7e4b46b195594e7c108b86c857b0d96affe1540138",
+      "text": "認真做一件能表達心意的事，不必讓很多人知道。"
+    },
+    "lib/questionnaires/data/flower.json/questions/11/options/2/label": {
+      "sourceHash": "fb5fa7cd83e3c1f2dfbed9ab8e701fbb12a052721bcc2a581f069a978513d96a",
+      "text": "和願意的人共享一次短休息，讓日子熱鬧一點。"
+    },
+    "lib/questionnaires/data/flower.json/questions/11/options/3/label": {
+      "sourceHash": "0efb8fddb1def12d7dfabb9d27993262d4cb4c3d8ed2b758b9ba4d9c0d8ccc22",
+      "text": "暫時降低聲音和資訊量，留一段不必回應的空白。"
+    },
+    "lib/questionnaires/data/flower.json/questions/12/prompt": {
+      "sourceHash": "ea50e95dcdce60daf733ab5be3ea9f6964b462d1e202c8f63089d6d01ae0e075",
+      "text": "為下個月設計一頁自己的日曆，你最想留出哪一部分？"
+    },
+    "lib/questionnaires/data/flower.json/questions/12/options/0/label": {
+      "sourceHash": "4588a4ef814984555df435afcfc93d11cd3d4454d9538aadc4a9da92e840f365",
+      "text": "值得認真記住的人和日子，少而明確。"
+    },
+    "lib/questionnaires/data/flower.json/questions/12/options/1/label": {
+      "sourceHash": "3340272baedd9fc27fe85bb4b3a75685cac00bd26f79577e6649070a0aa94cda",
+      "text": "可以與別人共享的活動或小期待。"
+    },
+    "lib/questionnaires/data/flower.json/questions/12/options/2/label": {
+      "sourceHash": "2ccfa1ba942ae6ec4341a80ee31e55c119e1f0b8a2a3261fe258e48c8b0c2aac",
+      "text": "沒有安排的空白，不必每一格都填上內容。"
+    },
+    "lib/questionnaires/data/flower.json/questions/12/options/3/label": {
+      "sourceHash": "f0cc7ec8282bd270a0fabbf46faf3a02eefecc90a4b32a5d5fd03723430b0e80",
+      "text": "一處能回看上個月、寫下新階段心意的位置。"
+    },
+    "lib/questionnaires/data/flower.json/questions/13/prompt": {
+      "sourceHash": "ea078df2e1a0c71ae1c9e55afebc682e2be0b89036a588dd203192f7c3a2f866",
+      "text": "完成一件小手作後，你更想把它放在哪裡或怎樣使用？"
+    },
+    "lib/questionnaires/data/flower.json/questions/13/options/0/label": {
+      "sourceHash": "449b7dcfdd30c063290deca74015649c28d5798b4898e91a7312245e149537c7",
+      "text": "放在大家都能看見或一起使用的地方。"
+    },
+    "lib/questionnaires/data/flower.json/questions/13/options/1/label": {
+      "sourceHash": "3708d6c0a0f30bcdb35c8a037de399d3f4590407e49df3ebcb71949c56859db8",
+      "text": "放在安靜的一角，和周圍保持舒服的空隙。"
+    },
+    "lib/questionnaires/data/flower.json/questions/13/options/2/label": {
+      "sourceHash": "ee5df72f5b44d19fa3b9d189caf87297e7e1dccfadcde11662253fa1c7b3675b",
+      "text": "和這段時間的一件紀念物放在一起，保留過程的意義。"
+    },
+    "lib/questionnaires/data/flower.json/questions/13/options/3/label": {
+      "sourceHash": "57cd3c36dff972f06828b8511a2056faf70b1244094166a2e87802e199b76c67",
+      "text": "按自己的構圖安排，哪怕只有我會注意到細節。"
+    },
+    "lib/questionnaires/data/flower.json/questions/14/prompt": {
+      "sourceHash": "c900dd86f6f195bd18a6e3d73b2ae9dba4b01f036a62c75cdff87941499096b3",
+      "text": "別人問你喜歡什麼樣的小禮物，你更願意怎樣描述？"
+    },
+    "lib/questionnaires/data/flower.json/questions/14/options/0/label": {
+      "sourceHash": "9d576e6a67ae2b9db9a3a6d9569a90aea07cdee560b46c3be8c850d121b70371",
+      "text": "簡單、不增加整理負擔，能自然放進日常就好。"
+    },
+    "lib/questionnaires/data/flower.json/questions/14/options/1/label": {
+      "sourceHash": "c580f89c2949ec3231de50effebb58dfc344d81376f296bee74f3effdb24600b",
+      "text": "能提醒我某個階段或一段經歷的東西。"
+    },
+    "lib/questionnaires/data/flower.json/questions/14/options/2/label": {
+      "sourceHash": "74181739f93eb21a7b032d5af0be515378642bb21046c0f681c29b3a3f3deab8",
+      "text": "一個特別貼合我審美的小細節，不必貴或稀有。"
+    },
+    "lib/questionnaires/data/flower.json/questions/14/options/3/label": {
+      "sourceHash": "7134f3505f356764bd1405d9f121c89ad9d6f5f8c985768366a8112b84ddbe44",
+      "text": "一點好玩或出乎意料的小東西，收到就能開心。"
+    },
+    "lib/questionnaires/data/flower.json/questions/15/prompt": {
+      "sourceHash": "2459febc34735c41aeb47b5c185070fd840d608fda62ae27365bd20e1026e4bd",
+      "text": "給一張自己的生活照片寫配文，你更自然地想寫？"
+    },
+    "lib/questionnaires/data/flower.json/questions/15/options/0/label": {
+      "sourceHash": "49e1dd1bc5626533a174688e579794e120021f3ccf7612e5f6a0e706039d67d4",
+      "text": "這段經歷讓我重新看見了什麼。"
+    },
+    "lib/questionnaires/data/flower.json/questions/15/options/1/label": {
+      "sourceHash": "afca9eb7dc2ae405992a7d28a865e222d549334ad0e801ba107884db4e66e904",
+      "text": "一種貼合畫面的個人表達，不必解釋給所有人聽。"
+    },
+    "lib/questionnaires/data/flower.json/questions/15/options/2/label": {
+      "sourceHash": "cc02c55f29f001495887208f6ca9fabdbd61caa650625773265ed52db3521bee",
+      "text": "一句當下想到、回看也會笑的話。"
+    },
+    "lib/questionnaires/data/flower.json/questions/15/options/3/label": {
+      "sourceHash": "d1bcc22a01a540b09661db3b42181cd112f6022d31c11d8c7b3259f74d949c65",
+      "text": "一句留給某個重要的人或時刻的話。"
+    },
+    "lib/questionnaires/data/flower.json/questions/16/prompt": {
+      "sourceHash": "d98f6d4d85378a18dc3f1148cb84815bac914a822f3e36628661fd66059abdb7",
+      "text": "經過一個小攤位，只選一件不昂貴的東西，你更容易被什麼吸引？"
+    },
+    "lib/questionnaires/data/flower.json/questions/16/options/0/label": {
+      "sourceHash": "a8f95349a5e3153ead9380b375599999aa608087b1c4190b2e969374be3a6fdf",
+      "text": "顏色、質感或做工裡一個很合自己喜好的細節。"
+    },
+    "lib/questionnaires/data/flower.json/questions/16/options/1/label": {
+      "sourceHash": "502120f3d544d8ed44b5614fb4606c58475f150d8a2cb282c4ae66c50ca7ec27",
+      "text": "一件意外好玩、沒必要解釋用途的小東西。"
+    },
+    "lib/questionnaires/data/flower.json/questions/16/options/2/label": {
+      "sourceHash": "12585aa1878b47a8526a977dbd8c1be75d6ec7d02f3a014b850792081c29d0b9",
+      "text": "一件讓我立刻想到某個人、可以認真送出的東西。"
+    },
+    "lib/questionnaires/data/flower.json/questions/16/options/3/label": {
+      "sourceHash": "af5a3cb9f646fec8efff718af268b1d3842128e3582c12092e9983f1d7f5bbc7",
+      "text": "一點方便和別人一起分享、一起享受的東西。"
+    },
+    "lib/questionnaires/data/flower.json/questions/17/prompt": {
+      "sourceHash": "5fcf51765c1ca074c8d84b5141749564e02d624f58514d28e7e585008fd6944b",
+      "text": "想給一天留下一個舒服的結尾，你更願意？"
+    },
+    "lib/questionnaires/data/flower.json/questions/17/options/0/label": {
+      "sourceHash": "939e25c4975b623e9567f684fd4776778fd45fa6da78b78bac96743ce2d8c41f",
+      "text": "留下一件小開心，不要求今天總結出什麼大收穫。"
+    },
+    "lib/questionnaires/data/flower.json/questions/17/options/1/label": {
+      "sourceHash": "b087b1837f70afa722d4fe24681c88a2b5e0dfc4d6c0ddd583f3b1484bbfcd8f",
+      "text": "認真表達一次感謝，或把重要的心意說出來。"
+    },
+    "lib/questionnaires/data/flower.json/questions/17/options/2/label": {
+      "sourceHash": "3cd5cdf58dc5a1310325fe9f6393352d4bb312a1209bb1655dcbf649ef0f7833",
+      "text": "和願意的人短短聊聊，分享今天的一件好事。"
+    },
+    "lib/questionnaires/data/flower.json/questions/17/options/3/label": {
+      "sourceHash": "774881bfb14cb6dd3fcd3b0e658e7ae8ee9ddc7e904522c6786b00893c0361b1",
+      "text": "把聲音和安排慢慢降下來，讓一天自然結束。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/title": {
+      "sourceHash": "11aec84bb90ef37e702705f85f364f130b124b72c1d8d44419674b32e9a8ce92",
+      "text": "玫瑰"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/headline": {
+      "sourceHash": "015721c9f34b948b4bb59ec5898b59303e213cdb23df5bd5578e6f54d52b28a5",
+      "text": "把心意放進一個認真選擇的細節"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/summary": {
+      "sourceHash": "74c1db613130e15f5499828d6f0e12ca697cacb9e2ea6ef8054dff6dba91ad97",
+      "text": "在這份問卷裡，玫瑰對應有物件、有記憶、有明確心意的表達。你可能更喜歡讓某個時刻被認真對待，而不是讓所有人都看見。結果來自本次選擇，不規定你的戀愛方式或審美等級。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/seo/title": {
+      "sourceHash": "d89e27c24961998acd51f5502a33d6aea2878e89f65d5b89a6874e8115b7e88b",
+      "text": "玫瑰結果解讀：花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/seo/description": {
+      "sourceHash": "1c2a595b5b82c70eaf65ec40b6afe223ba1b373d6454df76c7537b9f1c2773a8",
+      "text": "了解玫瑰在本版花朵人格測驗中怎樣表達具體心意。閱讀日常例子、可能的取捨、與蘭花及向日葵的比較，並嘗試一次小表達；完整說明免費，可在作答前閱讀。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/scoreReading": {
+      "sourceHash": "289d08018597e88c9ba5f059fc99e078b71ded6bc45be9b2b5d3966df613e5ec",
+      "text": "玫瑰選項在本題組出現12次，四個位置各3次。每選中一次計1次；18題全部回答後才顯示計數。所有同樣最高的花朵都會保留，並逐份呈現完整說明。分母12不是相似度百分比，近分也不是心理測量上的顯著差異。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/0/title": {
+      "sourceHash": "b94459e2396d6e929b1096a9d1ca514275886a54908ce745702a52e89056c87e",
+      "text": "玫瑰在本版代表什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "bcbff28c837f4551dc4f54fb58329d3b4038b955f380f036d0325cd9da105601",
+      "text": "玫瑰選項強調的是“為什麼要為這個人或時刻這樣表達”。同一張卡片、照片或小禮物，有時因為它承載了私人意義而值得保留。請回想你選中的具體情境，看看吸引你的究竟是心意、形式，還是當時的現實條件。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/1/title": {
+      "sourceHash": "832dae78a7eb03a1ad83f04d17689b11fb9c446531fce6f22206266d86c9ef39",
+      "text": "這種偏好能帶來什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "a618d77e06b3452b61f534e844bccf3ab96e3daae00a66c920d0b72be7d8db3a",
+      "text": "認真選一個細節，可能比堆很多裝飾更容易說明你記住了什麼。例如給朋友留一句你們共同經歷過的話，不需要公開展示或昂貴物品。它的價值在於表達得具體，也允許對方用自己的方式接收，不要求同等形式的回報。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/2/title": {
+      "sourceHash": "2ac75d08d4476a0a68664c5db124c2ddd7e42aea3e3ac25051661b31e9614ba0",
+      "text": "什麼時候會變得費力"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "7be6f63f5118c7d172dff9b14f0756c99c755776694fe0831b4dc526450ebde8",
+      "text": "如果每次表達都必須足夠完美、足夠有意義，普通問候也可能難以發出。可以把“我要認真”與“它必須被鄭重回應”分開。一次簡單的聯絡並不抹去心意，對方喜歡另一種表達方式也不表示不珍惜你。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/3/title": {
+      "sourceHash": "27a2cea40d39fca6ca6c006a49d4e2e01004cbcbc437e89f5890331380e58c2e",
+      "text": "放在一件小事裡"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "7189ec7ca4128b1caa8b53ad9b61c4282c1659b8677feda1bdb88de71c0e60f9",
+      "text": "朋友完成了一段忙碌工作，你可以具體說出自己看見的一次努力，再問對方想慶祝還是休息。不要只因為你準備了隆重的安排，就預設那也是對方此刻最想要的。心意與對方的選擇可以同時被保留。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/4/title": {
+      "sourceHash": "d2ace4c1688a4b766b21fcda6044af798d7523c62be1dee980b8c4235ceec83d",
+      "text": "適合怎樣安排個人表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "e6b74926c4eb6803b782950d0a714c2720a8fbfad023d5496280a837f2a61a98",
+      "text": "挑一個你確實重視的重點，讓顏色、文字或物品圍繞它展開，其他部分保持簡單。比如只保留一張合適的照片和一句說明，而不是為了“完整”加入大量內容。這是一個創作偏好練習，不說明你適合設計、策劃或任何職業。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/5/title": {
+      "sourceHash": "3f4fbc46a38ef7271c994db8b730092dc8c88ecfba3d63ddd27ac8cf0a87f2e4",
+      "text": "玫瑰與蘭花、向日葵"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "ef08fceb7b51c56db135ecb7d82d0a8a43839e2896f4e7943b6295907a0636e3",
+      "text": "玫瑰選項更看重表達指向誰、為什麼重要；蘭花選項更看重個人審美里的特定細節。向日葵則更常選擇容易共享的溫暖氣氛。三者可能同時出現，計數接近時可以逐個回看，不必為自己確定一個唯一的花朵身份。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/6/title": {
+      "sourceHash": "38ef7bd97cce2237859a2a597a3df262c11a2ae81449273338dc7298c9ade34e",
+      "text": "一次可嘗試的小表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "35373f59acefeef84e8164ed44ba1f403cbafde75feca32587bfc79191c30fa2",
+      "text": "選一個值得表達感謝的人，用一句具體的話說清你感謝的事，再給出對方可以不馬上回復的空間。不要求拍照、公開或做成儀式。之後觀察：你有沒有把真正想說的事說清楚，還是一直在打磨形式？"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/7/title": {
+      "sourceHash": "0602eac3e5005579db215b148f78c31e43620c2ed81a174c6d2f312416555270",
+      "text": "玫瑰是不是一定浪漫或熱烈"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "14006028a9b172cc4292edd59602eff70016d8ca436b6f65f5e0f8852ceef84b",
+      "text": "不是。本版玫瑰選項也包括對朋友、個人經歷和普通日子的認真表達。它不測愛的深淺、伴侶適配或外在吸引力。你可以偏愛樸素的形式，也可以保留界限；沒有哪一種花要求你扮演固定的相處角色。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/8/title": {
+      "sourceHash": "ca51bb06a0bd7ab98a205634db3307ed2c4f1bbef87963b5cbba87b78ab65bfb",
+      "text": "解釋範圍"
+    },
+    "lib/questionnaires/data/flower.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "6037afb3b0ef4c66f5929efd8b9d6ff6d20379ac5a5708988537c200c537a479",
+      "text": "題目、花朵對應和報告均為費馬原創象徵娛樂內容，沒有建立信度、效度或人群常模。這是本版的表達偏好比喻，不宣稱通用花語、植物特性、療愈效果或固定人格，也不評價能力、外貌、關係或職業適配。請保留貼合實際的部分，不必為了花名改變自己。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/title": {
+      "sourceHash": "7aa129e244819f11e8bc2331d68298afee107ce767a3574b3e033d849552e10f",
+      "text": "向日葵"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/headline": {
+      "sourceHash": "2824f1ae6fd2aeafad553ee714595d490312f924d2038333f4deae89149ae287",
+      "text": "讓溫暖有一個容易加入的位置"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/summary": {
+      "sourceHash": "2bd38dea15548c206af88ff0afbb30935fa788b3904924974709dc42ab5ed762",
+      "text": "向日葵在本題組代表明亮、開放、便於共享的表達偏好。它可能體現在一張邀請、一段共同休息或一個讓人願意加入的空間裡；不表示你總是積極、一定外向或負責讓所有人開心。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/seo/title": {
+      "sourceHash": "e5c8df1d3249f77b0657b8e07bc4792a84a582a8e23be3f49deaeb03dd66d74f",
+      "text": "向日葵結果解讀：花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/seo/description": {
+      "sourceHash": "c15b4d7fe817a6c7a27fc2a836f6e241df3e743dc2e9a7dea1bc7c743b79487a",
+      "text": "向日葵結果關注開放、容易共享的溫暖表達。檢視具體邀請例子、照顧氣氛的取捨，以及與雛菊和玫瑰的區別；完整花朵測驗說明免費，無需先作答。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/scoreReading": {
+      "sourceHash": "3c1ce7934c7e474030316dab389a949ea3ca1091cbc4a95dcaf34ae72eecf11a",
+      "text": "向日葵選項在本題組出現12次，四個位置各3次。每選中一次計1次；18題全部回答後才顯示計數。所有同樣最高的花朵都會保留，並逐份呈現完整說明。分母12不是相似度百分比，近分也不是心理測量上的顯著差異。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/0/title": {
+      "sourceHash": "bc71f855cc03f0be668e3d7b6c56d3da26a9efd933fc74787fcf81c51ea8a5cf",
+      "text": "向日葵在本版代表什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "a07eed4d2eb37a93b6bf94eb00d1001aee246460a5e508218a4bf8cca1e9acbe",
+      "text": "這些選項更常把注意力放在“能否讓願意的人一起享受”。它不是要求熱鬧，而是給參與提供一個清楚、輕鬆的入口。有人喜歡安靜加入，有人只停留片刻，這些都可以符合一個開放的安排。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/1/title": {
+      "sourceHash": "85220e75646538ec2464063c73da096b95b7864ee16c12f2acd259d5c8f77048",
+      "text": "這種偏好能帶來什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "7c9c8c446b4df8da16a268c850f928889b63af8403625c1892714d5ba4003974",
+      "text": "把共享的條件說明白，可能讓一個普通時刻更容易發生。例如告訴朋友大概什麼時候有空、可以做什麼、來不來也沒關係。比起期待別人猜到你的邀請，一點具體資訊能讓對方按自己的餘力決定。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/2/title": {
+      "sourceHash": "c10ec5131492ea987d98f4e5f96c17bfe0bf3e7109fd84b7cf503f4b4e43eaa7",
+      "text": "什麼時候會變得費力"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "d01a0e3e82eaedbf09f23d1f111ff42b3f9ef7cd01f34124a027addc4965a0c4",
+      "text": "如果一場活動必須讓每個人都開心，邀請也會變成負擔。你可以提供空間和表達善意，卻無法決定別人的心情。不要因為現場安靜就急著增加節目，也不必用“大家高興一點”蓋過真實的疲憊或分歧。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/3/title": {
+      "sourceHash": "4e34fb2a9d99c79df7e196ee7fbe8e3dd3a708557b53498a410597cbafb49ef1",
+      "text": "放在一件小事裡"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "dba13279dfaa7ac244c8403d1d18ae860dc94d9e0e7ab50a73b60f463c128661",
+      "text": "午休時想和同伴一起吃點東西，可以給出一個短時段和一個可選位置，也允許對方帶自己的安排來。有人只來聊兩句就離開，不必解釋成不合群。共享可以很短，也可以保留不同步的節奏。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/4/title": {
+      "sourceHash": "72db838ecce35ca2e645e7269de1a387ee62ce957c9b4e3356b22df4118e0b5f",
+      "text": "適合怎樣安排個人表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "8c5b8232335b2892e84ab9b99702ec9d856e57af358582d68b8283c0f35deafd",
+      "text": "佈置小空間或製作邀請時，先讓關鍵內容容易找到：何時、何地、怎樣參與。再加入你喜歡的顏色或小細節，讓它有溫度而不增加閱讀負擔。這是對錶達方式的試驗，不測組織、服務或社交能力。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/5/title": {
+      "sourceHash": "ab79056372b7a69ad05bc789a29b2dcf2b832bbbc9f679ffbad8deccd8842f4a",
+      "text": "向日葵與雛菊、玫瑰"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "0a60b3c39b68ce59ef6f011357582c2990d861015cd3964867cbaecf611e3722",
+      "text": "向日葵偏向容易共享的溫暖，雛菊偏向輕巧、即時的小開心；玫瑰則更在意某個人或時刻的特定意義。一次輕鬆聚會也可能包含這三種心意。請比較自己的選項，不從花名推斷朋友數量或關係質量。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/6/title": {
+      "sourceHash": "78e60a16313336fa183bf3894464be8964263465bfc5b94f3136e53821aeb6f9",
+      "text": "一次可嘗試的小表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "c7c63a100fcfd9f15b839073dcbd2ba68a43fce47938d19be7bb6ab5fe23bd7d",
+      "text": "發出一次很小的邀請，把時長、內容和拒絕空間都寫清楚。結束後問自己：這次安排是否也照顧到我的餘力？有沒有讓對方自由選擇？重點是讓共享更容易，而不是檢查自己有沒有足夠討人喜歡。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/7/title": {
+      "sourceHash": "f6a6c91913854cf4ab7738f2d9c5ff7e02e4636823a1c045d587085983d8fc99",
+      "text": "向日葵是否說明我必須外向"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "0e006ea19b57abeda5f2b840d01f2065183c1480fc577fe4f3a23946153e27e0",
+      "text": "不說明。一個人可以喜歡清楚、溫暖的邀請，同時需要獨處或不喜歡大型聚會。本題本沒有測內外向、社交電量或幸福水平。感到難過、安靜或暫時不想參與，都不會讓你“失去”這個花朵結果。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/8/title": {
+      "sourceHash": "95fd98e6c5a1b9db5f3ae0d67866039ebf102afff885dea4bdecf199a7ea20cb",
+      "text": "解釋範圍"
+    },
+    "lib/questionnaires/data/flower.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "002ad64c0001486c3077967e66960fc89f2476265aa6b924bbe69f53c8b2e567",
+      "text": "題目、花朵對應和報告均為費馬原創象徵娛樂內容，沒有建立信度、效度或人群常模。這是本版的表達偏好比喻，不宣稱通用花語、植物特性、療愈效果或固定人格，也不評價能力、外貌、關係或職業適配。請保留貼合實際的部分，不必為了花名改變自己。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/title": {
+      "sourceHash": "3aa221942dd95323055a1556c976ce6f9ad4b60e8433d2ca30dc1c09c408fc1d",
+      "text": "薰衣草"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/headline": {
+      "sourceHash": "39d4ff2a146ef8f2ab1de93306e6030c0144b5a46e9db4e8574e25e993b25082",
+      "text": "給表達留一點不必填滿的空間"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/summary": {
+      "sourceHash": "a9b0b86bab543196ad1d4425ad848bce0b4a6b39b70fd2befc6226796bd15336",
+      "text": "本版薰衣草指向留白、柔和、不急於回應的表達偏好。它可以是簡潔的一角、安靜的陪伴或不增加負擔的小禮物；不是對你有療愈作用、情緒穩定或能讓別人平靜的判斷。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/seo/title": {
+      "sourceHash": "d3598e950d6334207fcf8e8175bbc5115bc23ee5165b16a87a9c1c8924624951",
+      "text": "薰衣草結果解讀：花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/seo/description": {
+      "sourceHash": "82fd4f898415570475849f5a2bfe4c8ccca609b9efd552c7cc086ab8cefc1f33",
+      "text": "薰衣草在本版花朵人格測驗中代表留白、輕柔和不急於回應的表達。閱讀具體情境、取捨與蓮花及雛菊的比較，嘗試一個小空間調整；全部說明免費。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/scoreReading": {
+      "sourceHash": "e26c61328a759550fe53a8021db278bd884b9956abaebb78b01a68e8d088e53d",
+      "text": "薰衣草選項在本題組出現12次，四個位置各3次。每選中一次計1次；18題全部回答後才顯示計數。所有同樣最高的花朵都會保留，並逐份呈現完整說明。分母12不是相似度百分比，近分也不是心理測量上的顯著差異。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/0/title": {
+      "sourceHash": "baa186b2d2940cdc6f3a61c8836433e3f5ccd2f38e334879ba6a602aec23308f",
+      "text": "薰衣草在本版代表什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "3a339d3f93e916d6b5de3c68302d6576305724cc27ff52d3e351508309e01f28",
+      "text": "你可能更常選擇不把畫面、聲音或安排填滿的做法。這裡關注的是一種當下偏好，不是說安靜一定比熱鬧更好。請想想你選它的原因：喜歡形式本身，還是那幾天特別忙、只是想減少一點需要回應的事？"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/1/title": {
+      "sourceHash": "0b8d7c135b466ec0238146225138743009ea0856abdcfe75184af60c2411993d",
+      "text": "這種偏好能帶來什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "a6f73e00772edb655ea12f596f13f2425b0fcd9033edf1f9d6a571a2a0673e3d",
+      "text": "在內容很多的時候，減少一點不必要的資訊，可以讓你更清楚自己想保留什麼。例如一張卡片只寫一句真正在意的話，一次相聚允許不持續聊天。留下空間的價值在於提供選擇，不是要求別人和你一樣安靜。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/2/title": {
+      "sourceHash": "7a320d1e3f87b894f0344a0be05f7a000b6e5f8b1fc46a80ac0e12d456e3bb72",
+      "text": "什麼時候會變得費力"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "f29e83214fa19861a8baf0f97e2510f510e4248db5f64e2608d2c9df24d7785e",
+      "text": "留白有時也會讓需要說明的事一直沒說出來。表達界限或解釋改變安排的原因，可能比一味減少聯絡更清楚。你可以選擇溫和、簡短的方式，但不用把所有不舒服都藏進“沒事，隨便”裡。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/3/title": {
+      "sourceHash": "548b95c016ea92763abfd35292b2e9f70b9ec62687b2e8af8c8314d60b10b278",
+      "text": "放在一件小事裡"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "3c86968e837b86790f7ef93a0abb885f52620f649b62569ee3075c56b5843b68",
+      "text": "想安靜陪朋友坐一會兒時，可以先說“我今天話不多，但願意一起待一會兒”。這樣對方不必猜沉默的意思，也可以提出自己的需要。安靜是這次相處的一種安排，不是對關係遠近的測驗。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/4/title": {
+      "sourceHash": "774be67e59f59ff35c336c6265f807d6bcb0ecab7bc938416567a2afaea1da20",
+      "text": "適合怎樣安排個人表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "94826579292ab628cc139942be91ea94b0a187d477a6e11aa3c503a8f2abaf21",
+      "text": "試著為一張頁面或一個角落保留一個重點，再拿掉一項只是為了填滿空間的內容。之後看看它是否更貼合你的喜好，而不是要求它必須讓身心放鬆。本題本不提供芳香、睡眠、植物栽培或心理健康建議。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/5/title": {
+      "sourceHash": "888216841bd682c9aaa554c3ae57c80a1ed8031a33ad7c5f6e0b23d72d8f33b0",
+      "text": "薰衣草與蓮花、雛菊"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "d1521e9c81ad422aed100e717e3bc84c937f3c8d7032839308389f89711ae8f0",
+      "text": "薰衣草選項更多是在減去要求和刺激，蓮花更強調為經歷留下意義；雛菊也可以很輕鬆，但更偏向即時的小樂趣。你可以在同一天想要這些不同體驗，接近計數不需要被解釋成矛盾或人格不穩定。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/6/title": {
+      "sourceHash": "f0f9a7b9fe67a00ea8db13bafa9ccc05c3368cef08dd97eb557b6f4aedba9c73",
+      "text": "一次可嘗試的小表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "7698eb792c9b09f6ee498605991242189616005d1210c76289a8d646cb6bc18a",
+      "text": "選一處可以安全調整的小空間，保留你最喜歡的一樣東西，其餘先少放一件。過一會兒只問“我更喜歡這樣嗎”，而不是“我應該因此感覺更好嗎”。如果不喜歡就放回去，偏好不需要服從測驗結果。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/7/title": {
+      "sourceHash": "6f256a84ff3c15a369e03b8749e3baefc4a1cf266ff8342db0c335fd296dfe31",
+      "text": "薰衣草意味著我總能安撫別人嗎"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "c713081f5b05129777481425b526edd6ab68d6b8fbd746bd8ff0c151b203179c",
+      "text": "不能這樣推斷。喜歡柔和或安靜的表達，不等於你有義務照顧別人的情緒，也不說明對方一定喜歡同樣的安排。你可以先詢問需要、說清自己的餘力，再決定怎樣回應，不必維護“平靜的人”這個形象。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/8/title": {
+      "sourceHash": "6a3cb74ff558939e180935f1d1f2f5e8662f00f6add2c78856d1db3355200017",
+      "text": "解釋範圍"
+    },
+    "lib/questionnaires/data/flower.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "f4433823c8e082be09ed25ce70efa489c6758e22ffd45793153c85de331a549e",
+      "text": "題目、花朵對應和報告均為費馬原創象徵娛樂內容，沒有建立信度、效度或人群常模。這是本版的表達偏好比喻，不宣稱通用花語、植物特性、療愈效果或固定人格，也不評價能力、外貌、關係或職業適配。請保留貼合實際的部分，不必為了花名改變自己。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/title": {
+      "sourceHash": "86e345e0aff00e28db03ff8da8b15774940017ff164f86f4e3466dd5db69119e",
+      "text": "蓮花"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/headline": {
+      "sourceHash": "fe54efa04f849ce97068b60318cf932cca78e35a4e664ac091b0cb013511853e",
+      "text": "為經歷保留一點前後變化的意義"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/summary": {
+      "sourceHash": "725f866eea9a17e8663d2c21473b01229a868c0917a99c52a5fd1a167b448f0f",
+      "text": "本版蓮花對應回看階段、儲存變化線索和為經歷整理意義的選擇。它不證明你經歷過苦難、已經成長或比別人更有韌性，也不要求每件事都成為人生功課。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/seo/title": {
+      "sourceHash": "cad71d09969b83634e11840c73f2b5ff311775a1c46d8c611b524eeb94636f96",
+      "text": "蓮花結果解讀：花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/seo/description": {
+      "sourceHash": "ac341e5861f21179f8e7b3d7aa404993255d73e27e95bf9a02d4e03399e0c74f",
+      "text": "蓮花結果關注怎樣為經歷和階段變化保留意義。檢視普通生活例子、過度總結的取捨，以及與薰衣草和玫瑰的區別；本版完整花朵測驗說明免費可讀。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/scoreReading": {
+      "sourceHash": "0be569c48f65b6a0b490e5467470d732e78690d00b0389af78b6da4b5dc71133",
+      "text": "蓮花選項在本題組出現12次，四個位置各3次。每選中一次計1次；18題全部回答後才顯示計數。所有同樣最高的花朵都會保留，並逐份呈現完整說明。分母12不是相似度百分比，近分也不是心理測量上的顯著差異。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/0/title": {
+      "sourceHash": "bc134605062ab390b2c08a5994e50cb88faa26fa33ab79b481f510f758ec3746",
+      "text": "蓮花在本版代表什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "0cf3f6d2a8fa113d66cae3f03e03b6745be2f4a8c282e39c35e8bccd0f034cbc",
+      "text": "這些選項更常關注一件事開始和結束時有什麼不同，以及哪些東西值得帶到下一階段。你可能喜歡通過物品、文字或回看記錄這種變化。先檢查具體選項是否貼合，不用因為花名就為自己編出一個成長故事。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/1/title": {
+      "sourceHash": "b4148d432f0a877643d082766a9065b4a7263ab30a9eabacd3e217dfda79b165",
+      "text": "這種偏好能帶來什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "bf4d0cb9809d02da20f5002fa49381e7992509d05c0abfe511551d127073e4e3",
+      "text": "給一段普通經歷留下一點記錄，可以幫助你發現自己的選擇曾怎樣改變。例如完成一門課後，記住最想繼續練習的一件事，而不是隻儲存結業照片。意義也可以很小、很私人，不需要證明這段時間“值得”。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/2/title": {
+      "sourceHash": "76d44db65294da6073f5d4329fe33c1ab90c261f81fab261fde143c6572dc5e7",
+      "text": "什麼時候會變得費力"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "398a461f2e7e1d5283d3c572c598398e481e1b3587e2f2a470190ee7a2678ae2",
+      "text": "如果每次結束都要總結出成長，失望或沒有收穫的經歷可能更難被承認。可以允許一句“這次不合適，我還沒想明白”存在。暫時找不到意義不表示你做錯了，也不需要用漂亮的比喻蓋過不喜歡的部分。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/3/title": {
+      "sourceHash": "567d9e8bdb48e767d11997e2c56211439aeaee1a48350295e4ea833c2af8d7b2",
+      "text": "放在一件小事裡"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "c4b2979893275aab391be0f00bbe0ce686a17124517bd3f5b6613eea43e29560",
+      "text": "搬動書桌或結束一個月時，可以留一張前後對照，寫下現在更想保留的一個條件。比如發現自己更喜歡充足的空白，或需要把常用物品放近一點。這樣的具體變化，比籠統評價“我變好了多少”更容易核對。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/4/title": {
+      "sourceHash": "e42d6a8284efd3415b30c32ae77c255404ae91c20e590b6d08bbdeb49c0251dd",
+      "text": "適合怎樣安排個人表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "2a18c904641f22190dcba5daa523103f5ee53a7c8c6a526ab9e5d618b66fd8a5",
+      "text": "做一個小合集時，可以按“之前、變化、接下來”放三樣內容，也允許其中一格空著。選擇真正有意義的材料，不必為了完整拼出勵志結局。這是個人敘述的練習，不評估經歷深度、學習能力或面對困難的水平。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/5/title": {
+      "sourceHash": "b77a011ee37ed437d30ca613b131922d967af89c35ed72be1884ee52fb1c6131",
+      "text": "蓮花與薰衣草、玫瑰"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "be4ee40a8f192c27991756f2bf478d35acf5b151859df16b26cc5fc519d4a7f0",
+      "text": "蓮花選項傾向為前後變化留下意義，薰衣草更傾向給當下減少要求；玫瑰更在意某個人或時刻的明確心意。三種偏好都可以出現在同一份紀念冊裡。比較它們是為了看清表達方式，不是判斷誰經歷得更深。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/6/title": {
+      "sourceHash": "556e4b637475398ed773193427aae7be24e726abc8614a3159a21e0bb753a35d",
+      "text": "一次可嘗試的小表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "98972dcbebfc6309a66a2fff2d607082965204959bb15f068fd76833160395c7",
+      "text": "選一段已經結束的普通小經歷，只寫兩句：我注意到什麼變化；我想保留或放下什麼。不必分享，也不要求積極。如果寫不出來，暫時留白即可；這個練習不是對你是否會反思的檢驗。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/7/title": {
+      "sourceHash": "53a325983a159f69d4acfb3d14d4c593cdbe33003ae853a8bfb8003a0e29f6a2",
+      "text": "蓮花是否表示我很堅韌或有精神深度"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "eb766972564feb963a7c0c13d6aab442f9613f380e89959e84288baeed41361e",
+      "text": "不能。這個結果只來自本題組對錶達偏好的選擇，沒有測韌性、經歷、信仰或心理狀態。你也不用經歷某種困難才“配得上”蓮花。若名字不貼合，可以只借用其中一個有幫助的提問，忽略其餘解釋。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/8/title": {
+      "sourceHash": "770484b7dce1d9a51524f972b0debe0d4c3f09e5bb777a769121e67ae0d6193e",
+      "text": "解釋範圍"
+    },
+    "lib/questionnaires/data/flower.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "390deea544b112e39db8d7f4b4fa3a3158f517e1fbba96cb1648020a00d8fce0",
+      "text": "題目、花朵對應和報告均為費馬原創象徵娛樂內容，沒有建立信度、效度或人群常模。這是本版的表達偏好比喻，不宣稱通用花語、植物特性、療愈效果或固定人格，也不評價能力、外貌、關係或職業適配。請保留貼合實際的部分，不必為了花名改變自己。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/title": {
+      "sourceHash": "c6c38e2be3568fc3ef3ba03faf99bde6c90a6de2b2c9fbe8d63f66e8bb810472",
+      "text": "蘭花"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/headline": {
+      "sourceHash": "36f3b5c1b170dd4602540afc4f4b014582ae5db498f2f33e13dc6012a9a4b3d5",
+      "text": "讓一個細節準確表達自己的喜好"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/summary": {
+      "sourceHash": "d834f6f1cda7f369341360e4cf1e0d4ffb77632fe418322162d417787301cd60",
+      "text": "蘭花在本版代表個人審美、細節取捨和不必人人都懂的表達。它不說明你更稀有、更精緻或比別人有品味，也不把有選擇的喜好解釋成難相處。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/seo/title": {
+      "sourceHash": "3b8352b810f843f98f94f88a31579840c5b9181c98b3dea4491d7639f4109365",
+      "text": "蘭花結果解讀：花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/seo/description": {
+      "sourceHash": "10c3e8e40c87e2d59b5805590d7a8c4d5e473f6877bd5acf2506fbd406dd1ecb",
+      "text": "蘭花在本版花朵人格測驗中關注個人審美與具體細節，不給品味排等級。閱讀日常表達例子、取捨及與玫瑰和雛菊的比較；完整說明免費，不用註冊。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/scoreReading": {
+      "sourceHash": "88316659c1c31286073d1bd8e98b9947832b42debe18c1a6ec3bcc6b93470769",
+      "text": "蘭花選項在本題組出現12次，四個位置各3次。每選中一次計1次；18題全部回答後才顯示計數。所有同樣最高的花朵都會保留，並逐份呈現完整說明。分母12不是相似度百分比，近分也不是心理測量上的顯著差異。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/0/title": {
+      "sourceHash": "2e7d08e24fae8cf7a0bcd57ccfaa268f8919ee96f3c590ad23db1325cde13e18",
+      "text": "蘭花在本版代表什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "a054814577aaafcdb19f3908ce689b02f7164dedb2b8a8b676be59dc9a2ba907",
+      "text": "你可能更常選擇“這個細節很像我”，而不是“大家都容易喜歡”。它可以體現在配色、文字、擺放或保留哪張照片上。請先確認自己喜歡什麼，而不是因為一個選擇小眾，就認定它一定更符合蘭花或更有價值。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/1/title": {
+      "sourceHash": "c4a2aaf85e5008b1b801275c9c76c94bffaf4e43fad193a3fa83f404e0c813c4",
+      "text": "這種偏好能帶來什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "db94cfd9803e6bbff85f958507094a5c8c7bf277e3f95e3c3eb6f12d997205b5",
+      "text": "把注意力放在一個真實喜歡的細節上，可能讓個人表達更清楚。例如選擇一種自己願意長期看的版式，而不是不斷追趕不同風格。獨特感不必依靠昂貴材料或被很多人稱讚；你也可以喜歡非常常見的東西。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/2/title": {
+      "sourceHash": "48b9d2fda0e02221d2aeeaee264ddf3bc7d032f9bc6644027253f01fc2e1d459",
+      "text": "什麼時候會變得費力"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "282f7dd9fef040df4d54e4caee807edfd1aaa417d6155193333e2aa6a24811bd",
+      "text": "反覆追求“更像自己”，有時會把一個小選擇變成沒有結束點的打磨。也可能無意中讓同伴覺得自己的普通喜好被否定。可以說明“這是我喜歡的版本”，同時允許共享空間保留別人的選擇，不把差別變成等級。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/3/title": {
+      "sourceHash": "659b0dc28fe0e4a1544452b4220dd89bdcbf1eaa1642d9b6776321a590030278",
+      "text": "放在一件小事裡"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "3b069c313160c7c8cbc9037c9514599106d0689999754ab9d909b0d6f61fe0ad",
+      "text": "和朋友一起佈置桌面時，你可以保留一個自己選的重點，再問對方想加入什麼。若兩種風格不一致，也可以各留一小塊區域。表達個人喜好不等於要統一全部環境，更不需要說服對方這才是“正確審美”。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/4/title": {
+      "sourceHash": "3c4defda2a3ec53483ebbe510d0adcdd32d2aff2c382c429b00854e8953372ef",
+      "text": "適合怎樣安排個人表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "57210ff44afa08e1eb2d8af4c2e85ae5e32b94df63ef948f2e42e2003977e44c",
+      "text": "選一個小作品，只給自己最多三種可比較的方案，再按一個明確條件決定，例如“願意每天看見”。完成後先停止繼續搜尋。這樣的安排幫助你了解偏好，不測藝術天賦、創意能力、消費層次或職業潛力。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/5/title": {
+      "sourceHash": "390073e43247146fe73d8689793615f604187bcf5fe7c2ce7ccd617f7b094062",
+      "text": "蘭花與玫瑰、雛菊"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "7b61f859eeba303315d62440ecd154a246e6f894858220508c02556718804233",
+      "text": "蘭花選項更強調個人形式裡的特定細節，玫瑰更強調某個人或時刻的意義；雛菊則更容易保留當下的輕巧和不完美。一次手作可能同時包含這些心意。接近計數不是“品味混亂”，也不用因此強求風格統一。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/6/title": {
+      "sourceHash": "99ef06a4ebd9d897b7a2fdc62af2cc4ef9b680a4b2f007dd9521d453250aab0a",
+      "text": "一次可嘗試的小表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "1160c95f4378ae1f87ad44e5d2871e2772a3ce9f0571ed8d812b5df857137659",
+      "text": "從已有物品裡選三樣真正喜歡的東西，分別寫一句喜歡的具體原因。不要評價貴賤、流行或別人是否看得懂。你可能發現自己喜歡的是某個顏色、觸感或私人聯絡；這比為了結果去追求“稀有”更貼近實際。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/7/title": {
+      "sourceHash": "1b429737c89eead1ba15ea177c54f4da061453c32784915b8ecfd1bd1a1eb7b9",
+      "text": "蘭花是不是表示我難以接近"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/7/paragraphs/0": {
+      "sourceHash": "f790af01d664ca09f6be233a75d6e6166fb978aca4117b3971c20d6bfb80e645",
+      "text": "不表示。偏愛個人細節與願意交流、喜歡普通日常完全可以同時存在。本題本沒有測親密能力、社交距離或別人怎樣看你。如果想讓人了解一種喜好，可以用具體例子解釋，而不用把自己包裝成神秘或少見的人。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/8/title": {
+      "sourceHash": "2c073ec897e571da1e01e94b2b5e294192245d2b4de9f6234ea2c6cd55453b80",
+      "text": "解釋範圍"
+    },
+    "lib/questionnaires/data/flower.json/profiles/4/sections/8/paragraphs/0": {
+      "sourceHash": "064b8a1244be7ee9af4d1ad948d525e00a7dc0c9ee381b30b6bba737b1f0ac80",
+      "text": "題目、花朵對應和報告均為費馬原創象徵娛樂內容，沒有建立信度、效度或人群常模。這是本版的表達偏好比喻，不宣稱通用花語、植物特性、療愈效果或固定人格，也不評價能力、外貌、關係或職業適配。請保留貼合實際的部分，不必為了花名改變自己。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/title": {
+      "sourceHash": "33044335ffb8de4aacfb630a749978b9009a5c47b76bf564a5e8f198145a87cb",
+      "text": "雛菊"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/headline": {
+      "sourceHash": "42b80c5c8665504bc7414cb509468da7553f917e6df58aa8f3244852246eb7c9",
+      "text": "允許小開心保持輕巧和不完美"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/summary": {
+      "sourceHash": "6f24a664781fa45a5fb556c2cdfc8c2c703213e2ce93ebdea5931de1f328ef2d",
+      "text": "本版雛菊對應即興、輕巧、不必有大用途的愉快表達。它可能是一張隨手照片、一點塗畫或普通日子的小趣味；不表示幼稚、天真、不認真或沒有深度。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/seo/title": {
+      "sourceHash": "7fea44c21506c9b90b80dd719a897844f58ca36aa16c32411ad86ffa5ef7bd9e",
+      "text": "雛菊結果解讀：花朵人格測驗"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/seo/description": {
+      "sourceHash": "0fbd5073dabf2c7427c90c8287cfb7ddd292a53e9a9d72b751736f64f03cf8f1",
+      "text": "雛菊結果關注輕巧、即興和允許不完美的小開心。閱讀具體情境、可能的取捨、與向日葵及蘭花的比較，並嘗試兩分鐘表達；完整花朵測驗說明免費。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/scoreReading": {
+      "sourceHash": "424b4d9170e37bb546a914bb90a92ab3eb021225946437c60634685ce1f3d8cc",
+      "text": "雛菊選項在本題組出現12次，四個位置各3次。每選中一次計1次；18題全部回答後才顯示計數。所有同樣最高的花朵都會保留，並逐份呈現完整說明。分母12不是相似度百分比，近分也不是心理測量上的顯著差異。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/0/title": {
+      "sourceHash": "d1ffa1fdce1181fe925ef206a75ef5be50115ea14f9eb24214c9467a7242deaf",
+      "text": "雛菊在本版代表什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "172004f2c968efb4f25496496f33486f5863b2b5a6043941298903470c0267fd",
+      "text": "這些選項更願意讓當下有趣的東西先留下來，不等它變得足夠完整、漂亮或有意義。你可能喜歡不太正式的表達，也可能只在最近想少一點打磨。請把這個偏好放回具體場景，不用把所有事情都做得輕鬆。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/1/title": {
+      "sourceHash": "dc694b378e7c07a20f4f2fec5a7724a24c41ffa7720449c058ef416ebb487be9",
+      "text": "這種偏好能帶來什麼"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "24f8acb5668735cdd70f56ccc7438fa4d4eb71f92be76ad72de2fb06c865d787",
+      "text": "允許一點不完美，可以降低開始和分享的門檻。例如先畫一個只有自己懂的小圖，或者留下一張沒拍好的笑臉，不必立刻做成作品。輕巧的價值在於讓興趣有位置，不是要求每件事都搞笑或保持積極。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/2/title": {
+      "sourceHash": "8d31cdb567d033f4e93b26187fc3a080bbf1bb46ab3d434d07377b128264bc5a",
+      "text": "什麼時候會變得費力"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "02099e9070c6b936580594bbb3e4f9b07ee22f129b8d29f69adec6e63dc27c2c",
+      "text": "有些場合需要對方的認真訴求被看見，過早開玩笑可能讓人覺得話題被帶走。可以先確認“你想讓我認真聽，還是一起找點輕鬆的事？”保留愉快，不需要繞開不愉快，也不等於對方必須接住你的玩笑。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/3/title": {
+      "sourceHash": "7f93f95cac3ebb0d74f0b501eac9ca86dbd5e1d5c3ceb94918657ea2e72b89c4",
+      "text": "放在一件小事裡"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "0f56abfd35926f35646c039d4ea99b37d6c519244c5bddc76ae4a5cf2b67cc02",
+      "text": "和朋友散步時，你可能注意到一個好玩的招牌或隨手拍下一幕。如果對方也願意，可以分享；如果對方正有別的心事，就先聽一聽。即時的小樂趣與認真陪伴可以切換，不需要二選一成為固定角色。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/4/title": {
+      "sourceHash": "9cd1f704ac00e70d9dc30e32285ae3e36590905c0e6ea42da03b354130990beb",
+      "text": "適合怎樣安排個人表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "31feaf2bf07ccaaba449b0b39e33cf5d7e61a3bc4fda1e3921fbf10f251c9928",
+      "text": "給一張照片、一段文字或一頁塗畫設一個很小的完成條件，例如“兩分鐘後就停”。保留第一版，再決定是否值得繼續。這個練習不是要求草率，而是區分哪些場合需要精修、哪些只需要讓興趣發生。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/5/title": {
+      "sourceHash": "bba85bb76020c12b3cbc725d1675dadfcd5ea7ba86a17b1d8d0f2254593ab930",
+      "text": "雛菊與向日葵、蘭花"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "a25463f86206fa7db28e7fcbc6f13a5ba0c3073b73d8ccfc52c8ed4086609499",
+      "text": "雛菊選項更偏向即時、輕巧的小開心，向日葵更偏向容易共同參與的溫暖；蘭花更常選擇貼合個人喜好的特定細節。一個人可以既想隨手玩一會兒，也想認真挑選某個作品。計數只記錄本次題目的相對選擇。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/6/title": {
+      "sourceHash": "3a3278c53eb16a70fc67398b610bd4acccc8a8cc5d7b87b6ea364a45419798c9",
+      "text": "一次可嘗試的小表達"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "582c35aebbbb641b99c9f83bec97187d98cbd9ff87f66b79ebd0b32f4a6ca280",
+      "text": "用兩分鐘記錄今天一個不需要解釋用途的小發現，不一定分享，也不用把它寫成積極感悟。之後只看這件事是否有趣，是否想再做一次。若今天沒有這樣的發現，也沒有欠測驗一份開心作業。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/7/title": {
+      "sourceHash": "715c6f8901303864841ed408e60345676148df3b1bfce3a23285b2513d42f718",
+      "text": "雛菊結果會不會顯得不成熟"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/7/paragraphs/0": {
+      "sourceHash": "c080f2bb82e23e72e758c83bd45a585675225ed4db4611aff67c913bb0ef158f",
+      "text": "不會。本測驗沒有測成熟度、責任感、智力或成就。喜歡輕鬆表達與能夠認真處理重要事情並不衝突。如果一次真實任務需要更細緻的準備，直接按任務要求去做，比要求自己變成另一種花更有用。"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/8/title": {
+      "sourceHash": "62eb11449a1012365c8fe329dd40d81ddeccbe51cbcd3179e57976d9f7022fdd",
+      "text": "解釋範圍"
+    },
+    "lib/questionnaires/data/flower.json/profiles/5/sections/8/paragraphs/0": {
+      "sourceHash": "621fd63e222e1e0a10f73e11c536e36b08a427e08e73a66648121977cf1d99b1",
+      "text": "題目、花朵對應和報告均為費馬原創象徵娛樂內容，沒有建立信度、效度或人群常模。這是本版的表達偏好比喻，不宣稱通用花語、植物特性、療愈效果或固定人格，也不評價能力、外貌、關係或職業適配。請保留貼合實際的部分，不必為了花名改變自己。"
+    },
+    "lib/questionnaires/data/flower.json/guide/0/title": {
+      "sourceHash": "78a812cc070493077d48ad2ad0cea3ca17f6586c5fc4a126f3b086b07e79e8fe",
+      "text": "計數如何產生結果"
+    },
+    "lib/questionnaires/data/flower.json/guide/0/paragraphs/0": {
+      "sourceHash": "12d8f6d1777355b849096d168f02a3983d7edeeeb38eb061423b6fe7a6dd0838",
+      "text": "18題各有4個選項，每個選項對應一種花，選中加1次。六種花各出現12次，且在四個選項位置各出現3次。完整回答後展示所有原始計數，所有最高計數的花朵均為本次匹配；不使用生日、MBTI或隨機抽籤。"
+    },
+    "lib/questionnaires/data/flower.json/guide/1/title": {
+      "sourceHash": "a1ddc93fabf400d4be7f434e60e1ecebe9455e331860226b329a0f51e0baf93a",
+      "text": "並列與接近計數"
+    },
+    "lib/questionnaires/data/flower.json/guide/1/paragraphs/0": {
+      "sourceHash": "4d3878667eba12d22e519858623d2575887910de34344dee07c0595674c78323",
+      "text": "最高計數相同就完整保留，不按花朵名單順序挑一個。並列時逐份顯示完整解釋；其他計數也同時可見。差1次只是本題組多選了一次，不說明哪朵花更“真實”，也不是穩定主次型、顯著差異或人群排名。"
+    },
+    "lib/questionnaires/data/flower.json/guide/2/title": {
+      "sourceHash": "889a1c2c00cd1bb41cb887a5485693f07858f0402d972013dbf9799675405c4a",
+      "text": "花朵與表達偏好的關係"
+    },
+    "lib/questionnaires/data/flower.json/guide/2/paragraphs/0": {
+      "sourceHash": "444f5ba8e4e3ce33596921a5beb567fd030edc8a01a1afa79e7016dfc788c4bc",
+      "text": "本版把花朵用作表達方式的原創比喻：心意、共享溫暖、留白、階段意義、個人細節和輕巧樂趣。它不是通用花語對照表，不由喜歡的顏色推斷人格，也不要求你按照某種花生活。喜歡其他花、換一個階段得到不同結果，都可以。"
+    },
+    "lib/questionnaires/data/flower.json/guide/3/title": {
+      "sourceHash": "ad23188ebb96a36eddeb3985d0619817746cbf12abc217257ada742b52b958d7",
+      "text": "原創題本與使用範圍"
+    },
+    "lib/questionnaires/data/flower.json/guide/3/paragraphs/0": {
+      "sourceHash": "ec3412020631ca6b86ce79632dbfcdea0c7ffa98d028304a54edcee6d22a4933",
+      "text": "題目與六份報告為費馬獨立創作，尚未完成信度、效度和常模研究。沒有複製競品題庫、報告或插圖，也不提供職業匹配、名人同型、外貌等級或植物療愈建議。本頁的免費範圍是18題、全部計數、完整並列結果及公開說明。"
+    },
+    "lib/questionnaires/data/flower.json/faq/0/question": {
+      "sourceHash": "a85663a37668b6fd1844382b8b5a7c55904813a3543f8df846f2d4309c8ee7ff",
+      "text": "我是什麼花？這份測驗怎樣回答？"
+    },
+    "lib/questionnaires/data/flower.json/faq/0/answer": {
+      "sourceHash": "24ad7ba144dd8d99205060efffbd9a679d05c6b6e9c8858bbd9daab548605b26",
+      "text": "本頁根據18道具體表達與偏好題的選擇累計六種花的次數，保留所有最高計數。結果是本版原創比喻，不是出生花、花語通則或心理診斷。完整計分和所有解釋均可閱讀，不需要先註冊。"
+    },
+    "lib/questionnaires/data/flower.json/faq/1/question": {
+      "sourceHash": "22c416098f6a81b0a5489475792c697ac131808ff1d4ae6103a04c27533577a5",
+      "text": "會得到哪些花朵？"
+    },
+    "lib/questionnaires/data/flower.json/faq/1/answer": {
+      "sourceHash": "1e8d11e5395230edd1ec1a8f065e3f3872affd92e5273c5254b20cd03ed227a4",
+      "text": "玫瑰、向日葵、薰衣草、蓮花、蘭花、雛菊。每份報告都有具體情境、可能的幫助、取捨、相近花朵比較和一次小表達。可以先閱讀六份公開說明，再決定是否開始。"
+    },
+    "lib/questionnaires/data/flower.json/faq/2/question": {
+      "sourceHash": "9aa55b164d141b513240b48642fcf337283b8274b25db642f8e4f288e270ce67",
+      "text": "並列結果需要再選一次才能確定嗎？"
+    },
+    "lib/questionnaires/data/flower.json/faq/2/answer": {
+      "sourceHash": "55c1ddee0432f4c928781a323e99414eba332ba189e3e8bb33b4ee1f43737268",
+      "text": "不用。相同最高計數會完整保留並逐份呈現報告，不按先後、隨機數或隱藏加分挑一個。你也可以比較其他接近計數的說明，但不會把它們標成已經驗證的人格距離。"
+    },
+    "lib/questionnaires/data/flower.json/faq/3/question": {
+      "sourceHash": "4c282368348935018570d2ebf43f48960632ba51d9158a23f0ae2a7b4c25f153",
+      "text": "這和生日花、最喜歡的花是一樣的嗎？"
+    },
+    "lib/questionnaires/data/flower.json/faq/3/answer": {
+      "sourceHash": "18f3c14fcbe5a8d3b5c61eb3cef4bd0b70fbc28e70ef1a4e89ce81396dec36ad",
+      "text": "不是。本頁不需要生日，也不直接讓你選一種喜歡的花；計數來自18道情境偏好題。你可以喜歡與結果不同的花。若想了解植物栽培或某一文化中的具體花語，需要另查對應資料，不能由本結果代替。"
+    },
+    "lib/questionnaires/data/flower.json/faq/4/question": {
+      "sourceHash": "ff4011b463d00a12df3ac2dd449f86cbe202ae6cc11f2ba33919fd920f35fefa",
+      "text": "完整結果免費嗎，會要求再做MBTI嗎？"
+    },
+    "lib/questionnaires/data/flower.json/faq/4/answer": {
+      "sourceHash": "7ae0ad6b4e56fdbfa21041ebfce97fb5488c44a02daa19ea96cd315bba21a682",
+      "text": "18題、全部計數、六份完整報告和所有並列結果都免費，不用註冊，也沒有前置MBTI。完成後可以自選其他框架，或直接結束；花朵不會換算成MBTI類型、職業適配或關係成功機率。"
+    },
+    "lib/questionnaires/data/flower.json/faq/5/question": {
+      "sourceHash": "6a2fd55ac63933331ddab5d7a8204b72a583c62a16a3894be53469fcc3fb7305",
+      "text": "重新整理、儲存與分享會怎樣處理？"
+    },
+    "lib/questionnaires/data/flower.json/faq/5/answer": {
+      "sourceHash": "69f29b69a36b13c23d944a7a8bdd128b5479c1a53b284f29cd0d58356199493e",
+      "text": "答案在瀏覽器計算。僅主動選擇時儲存本分頁24小時草稿，可在重新整理或換語言後主動恢復；完成、退出清除或重測即刪除。分享只含花名與公開測驗／說明連結，不含答卷、計數或內部ID。儲存被禁止時仍可完成本次作答。"
+    },
+    "lib/questionnaires/result-content/flower.json/rose/0/title": {
+      "sourceHash": "2999728ccb252ba483001579b4fda33be366146e794f91b409e6d6ddf3de09a5",
+      "text": "同一種表達，可能有不同理由"
+    },
+    "lib/questionnaires/result-content/flower.json/rose/0/paragraphs/0": {
+      "sourceHash": "f3e222628fc2203cdc28c8ab315a37742073c6fc1d97bc9ca1c3e79437652e42",
+      "text": "同樣是一張手寫卡片：若重點是它指向某個人與共同記憶，更接近本版玫瑰；若重點是紙張、配色或字形很像自己的風格，更接近蘭花；若只是隨手記錄一件有趣小事，也可能更接近雛菊。物品本身沒有唯一歸屬，請看你真正想表達什麼。"
+    },
+    "lib/questionnaires/result-content/flower.json/rose/1/title": {
+      "sourceHash": "d3bdc7abf011e7a17b93f89b3405e49aaad9078ca138fd9a3ce5878f37a3e32e",
+      "text": "做完小嚐試後，怎樣判斷是否有用"
+    },
+    "lib/questionnaires/result-content/flower.json/rose/1/paragraphs/0": {
+      "sourceHash": "9624c806c3059add8584327d65c8a3a311d7c259674971c37f5da2945fd35e4c",
+      "text": "回看上面的感謝嘗試：對方是否能看懂你具體感謝了什麼，你是否給出了不立即回覆的空間？若回應不如期待，可以分開記錄“心意已經表達”與“我還期待什麼”，不把回覆快慢當作感謝是否有價值的評分。"
+    },
+    "lib/questionnaires/result-content/flower.json/rose/2/title": {
+      "sourceHash": "14aa164e1e6d4941420c3edea60590bb5cd48d62b69e225f9c845ffc7157a550",
+      "text": "與朋友分享時的一種說法"
+    },
+    "lib/questionnaires/result-content/flower.json/rose/2/paragraphs/0": {
+      "sourceHash": "45883d2618c430af005804a876fee399951750af4da9c304eec5c0412d642d0b",
+      "text": "“這次我的最高花朵匹配裡有玫瑰。我想保留的是具體表達心意，而不是把每次聯絡都做成儀式。你更喜歡直接說、留一句話還是一起做點小事？”這不預設戀愛風格，也不要求對方用同樣形式回應。"
+    },
+    "lib/questionnaires/result-content/flower.json/sunflower/0/title": {
+      "sourceHash": "5565206d2c6d23faedd3516fc33ea65953f94689596c025e7a54220baa77d977",
+      "text": "同一種表達，可能有不同理由"
+    },
+    "lib/questionnaires/result-content/flower.json/sunflower/0/paragraphs/0": {
+      "sourceHash": "52ecb325aa66dc5d296de391e29bdd7a7944100bb9e7c67f455b64e223b78059",
+      "text": "同樣是午休的小邀請：若重點是讓願意的人容易加入，更接近本版向日葵；若只是分享一個即時小發現，更接近雛菊；若想認真回應某位朋友的特殊時刻，更接近玫瑰。熱鬧程度不是分界，人數也不是溫暖程度的計量。"
+    },
+    "lib/questionnaires/result-content/flower.json/sunflower/1/title": {
+      "sourceHash": "6fd71963938204c1adf96b5582550b66218f876f6cfbc03458ad441e1783bab6",
+      "text": "做完小嚐試後，怎樣判斷是否有用"
+    },
+    "lib/questionnaires/result-content/flower.json/sunflower/1/paragraphs/0": {
+      "sourceHash": "f8f30941a7d2d361e874dfc23af15a7d50fe9ea7273dbc2427dfe3867f398287",
+      "text": "回看上面的小邀請：時間、內容與拒絕空間是否清楚，自己有沒有承擔超出餘力的準備？有人沒來或只停留片刻，都不能說明邀請失敗。若需要的是明確答覆，可以直接說明安排需要，而不要求對方表現得開心。"
+    },
+    "lib/questionnaires/result-content/flower.json/sunflower/2/title": {
+      "sourceHash": "db601a1bcbd3bab39be9e4cb67d223878afa413c4bd91d99a0e06eebb44131bf",
+      "text": "與朋友分享時的一種說法"
+    },
+    "lib/questionnaires/result-content/flower.json/sunflower/2/paragraphs/0": {
+      "sourceHash": "234888f9e93e3ac3279c659d5ad9ea93988f1208a3fac799b01a41c1c614bd9b",
+      "text": "“這次我的最高匹配裡有向日葵。我想讓願意的人容易加入，也想保留不參加的空間。下次見面，你希望安排清楚一點還是更隨意？”這只是表達偏好的話題，不等於我永遠積極或該負責氣氛。"
+    },
+    "lib/questionnaires/result-content/flower.json/lavender/0/title": {
+      "sourceHash": "fdd5f45ffc44962e2f2730fe080ea510e005954d3a042f757f9c79e10e208382",
+      "text": "同一種表達，可能有不同理由"
+    },
+    "lib/questionnaires/result-content/flower.json/lavender/0/paragraphs/0": {
+      "sourceHash": "ebbdc06ed65b7c71cddf5739a2e908a9efc6f3f4e4904e03d57e0a7a3c36bd30",
+      "text": "同樣是安靜坐一會兒：若重點是減少需要回應的要求，更接近本版薰衣草；若藉此回看一段變化，更接近蓮花；若只是享受一個輕巧的小發現，也可能帶有雛菊的角度。安靜不自動錶示內向或具有療愈作用。"
+    },
+    "lib/questionnaires/result-content/flower.json/lavender/1/title": {
+      "sourceHash": "e6269a0da07dd509f4fa636e5a8a7af58f383a391f519be3ccfd99ed93e30431",
+      "text": "做完小嚐試後，怎樣判斷是否有用"
+    },
+    "lib/questionnaires/result-content/flower.json/lavender/1/paragraphs/0": {
+      "sourceHash": "3691b99d8ec255b8b8894c48e966963783ec57f2ff1bb6f3d999f273a6c4b542",
+      "text": "回看上面的小空間嘗試：少放一件東西后，你是更喜歡、差不多還是更不喜歡？也記錄它是否影響實際使用。若不喜歡就放回；喜歡留白不意味著必須清理所有物品，更不要求這次調整讓情緒變好。"
+    },
+    "lib/questionnaires/result-content/flower.json/lavender/2/title": {
+      "sourceHash": "2749e61421d6a4d0bc7dde7c6bcf6db98db1bc275df30b14c20b81ef141bb9ee",
+      "text": "與朋友分享時的一種說法"
+    },
+    "lib/questionnaires/result-content/flower.json/lavender/2/paragraphs/0": {
+      "sourceHash": "5584f59270899525cc49f18b9c52ea8066ec8aeabb86ae793270f288ec85f075",
+      "text": "“這次我的最高花朵匹配裡有薰衣草。我想給表達留一點不急於回應的空間，但需要說清的事仍會說。你希望我們怎樣約定聯絡時間？”這個比喻不證明情緒穩定，也不要求別人與你一樣安靜。"
+    },
+    "lib/questionnaires/result-content/flower.json/lotus/0/title": {
+      "sourceHash": "a61554891169cbf1d07bc03dc46c810665445a2ae9edf0c0cb6e895d293d66a7",
+      "text": "同一種表達，可能有不同理由"
+    },
+    "lib/questionnaires/result-content/flower.json/lotus/0/paragraphs/0": {
+      "sourceHash": "b2f188ec605286fbf0e68c5b33ec9da45d36e2e1e67d607d3f4fd6247fc6e988",
+      "text": "同樣儲存一張舊照片：若重點是前後發生的變化，更接近本版蓮花；若重點是與某人的共同記憶，更接近玫瑰；若重點是自己喜歡的構圖與細節，更接近蘭花。它們可以並存，不必為照片選一個唯一意義。"
+    },
+    "lib/questionnaires/result-content/flower.json/lotus/1/title": {
+      "sourceHash": "66770cc238b4e2eb9eda7eba321306641710fd312163711b2531433b63e5c792",
+      "text": "做完小嚐試後，怎樣判斷是否有用"
+    },
+    "lib/questionnaires/result-content/flower.json/lotus/1/paragraphs/0": {
+      "sourceHash": "49d7aa6068413f80965f13606cccf3c4b3f207f94a5ca87160f0aff99fe0d911",
+      "text": "回看上面的兩句記錄：有沒有寫下真實注意到的變化，哪些部分仍不清楚？“沒有明顯變化”或“暫時不想保留”都可以成為記錄。無需把經歷重寫成積極結局，也不把願不願回顧當作成長程度。"
+    },
+    "lib/questionnaires/result-content/flower.json/lotus/2/title": {
+      "sourceHash": "f2a0b3fa55a62d2af2e5655c63f844634001995c22a994259505a70f5a25996a",
+      "text": "與朋友分享時的一種說法"
+    },
+    "lib/questionnaires/result-content/flower.json/lotus/2/paragraphs/0": {
+      "sourceHash": "b29abfb7f5c7f7855d5d9eeac5a2960758a3e13d9cf2a5037df59499cbaa81d8",
+      "text": "“這次我的最高花朵匹配裡有蓮花。我想聊一段經歷裡注意到的變化，也允許現在沒有答案。你願意分享一個想保留或放下的小細節嗎？”對方不想回顧也可以；這不代表誰經歷更多或更有韌性。"
+    },
+    "lib/questionnaires/result-content/flower.json/orchid/0/title": {
+      "sourceHash": "724771ecb5337e7659d600287c420215ba7649432ffe98dd19ad794572f56456",
+      "text": "同一種表達，可能有不同理由"
+    },
+    "lib/questionnaires/result-content/flower.json/orchid/0/paragraphs/0": {
+      "sourceHash": "79bbdde49cf454cbe718fdbbacbb02b4b65f131fed56425cc6cf70a70e9c9e0b",
+      "text": "同樣挑選一件常見小物：若重點是它某個細節很合自己的喜好，更接近本版蘭花；若因為它承載某次重要心意，更接近玫瑰；若只是看到就想隨手玩一會兒，更接近雛菊。常見或昂貴都不是分界，別人不喜歡也不讓你的喜好失效。"
+    },
+    "lib/questionnaires/result-content/flower.json/orchid/1/title": {
+      "sourceHash": "e6bdf64afcdefd59beaf6a58cdf3fccf0e8e921d2fb915950c26e4f52bb314fe",
+      "text": "做完小嚐試後，怎樣判斷是否有用"
+    },
+    "lib/questionnaires/result-content/flower.json/orchid/1/paragraphs/0": {
+      "sourceHash": "08aa1a9c2da77b152b0a9be1e9129d6cd22c76b42424f6f7566026b292af84e5",
+      "text": "回看上面的三樣已有物品：你寫下的是具體顏色、形狀、使用感或私人聯絡，還是“它應該很有品味”？若理由不清楚，可以暫時保留喜歡而不解釋。練習用於認識自己的取捨，不是向別人證明審美，也不要求為了風格添購物品。"
+    },
+    "lib/questionnaires/result-content/flower.json/orchid/2/title": {
+      "sourceHash": "22ac69834d44ac260971afbda7193d17a1d7b699cf6c51ca411540d3a7ad26f8",
+      "text": "與朋友分享時的一種說法"
+    },
+    "lib/questionnaires/result-content/flower.json/orchid/2/paragraphs/0": {
+      "sourceHash": "ee45596d1dafdc3c9b8c6772d524a47006061a629d5d9d9d2a16b4b215ce656d",
+      "text": "“這次我的最高花朵匹配裡有蘭花。我想解釋一個自己真喜歡的細節，也想聽你喜歡哪裡。共享的空間裡，我們可以各保留一點。”這不表示稀有、高階或難相處，更不需要給彼此喜好排序。"
+    },
+    "lib/questionnaires/result-content/flower.json/daisy/0/title": {
+      "sourceHash": "10e45f20fa5662b78f5a40047fb5d24eabf14334a424f405f0c702d38c187045",
+      "text": "同一種表達，可能有不同理由"
+    },
+    "lib/questionnaires/result-content/flower.json/daisy/0/paragraphs/0": {
+      "sourceHash": "07740930a1f74fcbf952940e3c708e2eaa61e39090cbd5d3daeaa6fb44eb07f5",
+      "text": "同樣拍下一張隨手照片：若重點是當下一個有趣發現，更接近本版雛菊；若想讓願意的人共同參與，更接近向日葵；若反覆選擇最像個人風格的細節，更接近蘭花。照片是否精修、好不好看，不決定這些表達角度。"
+    },
+    "lib/questionnaires/result-content/flower.json/daisy/1/title": {
+      "sourceHash": "f18a698da6cefaeba89b20b4c82459e911e15b3355ccfab21cd4f033cd471d27",
+      "text": "做完小嚐試後，怎樣判斷是否有用"
+    },
+    "lib/questionnaires/result-content/flower.json/daisy/1/paragraphs/0": {
+      "sourceHash": "fcc343f9ca138c70cb4f4df2e0a8f553d313613958625febe2d24ee80e9dd2cc",
+      "text": "回看上面的兩分鐘小記錄：自己是否覺得有趣，是否還想再做一次，還是這次沒有感覺？不分享、不重複或沒有新發現都可以。若別人正在認真說事，先回應實際需要，不用為了維持輕鬆形象把每個話題都變成玩笑。"
+    },
+    "lib/questionnaires/result-content/flower.json/daisy/2/title": {
+      "sourceHash": "f46cd9fd1b6e2df5eb3acabb057d90a91b2d27ce9d97013537d5d4318c97de9a",
+      "text": "與朋友分享時的一種說法"
+    },
+    "lib/questionnaires/result-content/flower.json/daisy/2/paragraphs/0": {
+      "sourceHash": "71c3ffaed9b905432a254c5002672a95e54699c3c9341e87734160b885577458",
+      "text": "“這次我的最高花朵匹配裡有雛菊。我想給小趣味留一點位置，也知道有些事需要認真聽。你現在更想聊正事，還是交換一個小發現？”這不是成熟度或深度的評價，對方也可以不想輕鬆一點。"
+    },
     "lib/questionnaires/data/avatar-bender-quiz.json/title": {
       "sourceHash": "048437e20b09f68d3fa616c5b9e8199bdc06189716ca2aa79284f6dd407a83e5",
       "text": "降世神通御術型別測試"
@@ -83268,6 +86090,222 @@
     "greek-god/editorial/summaries/artemis": {
       "sourceHash": "ba012b7c749663977eb009c2572c66b0dfd1173362bfc9a9ccf1002aee6b889d",
       "text": "自主與自然觀察：探索自選角度、節奏與日常細節，可以在室內並接受幫助；自主不等於必須獨處，計數也不規定信仰或關係身份。"
+    },
+    "spirit-animal/editorial/sections/0/title": {
+      "sourceHash": "e773770f6a6a213ad7380ccc941fa89abdbf0340f52cb2a4aee77c37728e7356",
+      "text": "精神動物測驗探索什麼？"
+    },
+    "spirit-animal/editorial/sections/0/paragraphs/0": {
+      "sourceHash": "3dfcf956d74f5b2c1a8f55523b63bacd40b7d81761cba30fec896bbcb11d2644",
+      "text": "精神動物測驗是一份原創動物比喻選擇問卷。18道日常情境比較共同約定、資訊依據、替代方法、行動決定、對話、感受、節奏、整體目的與共同玩樂九種切入點。結果表示你在這份題組中較常選擇哪些動物對應的做法，所有最高並列均完整保留。"
+    },
+    "spirit-animal/editorial/sections/0/paragraphs/1": {
+      "sourceHash": "1a7d68bfd5e624f40afb6e3a76362836c9f5c458dc46333d4b1b511a0ce65bf6",
+      "text": "內在動物人格測驗可以成為討論具體經歷的趣味入口。這裡的動物是所選做法的名稱，不是對隱藏動物身份的測量。閱讀時同時核對當時發生了什麼、你需要什麼，以及其他哪些做法也可能適用。"
+    },
+    "spirit-animal/editorial/sections/1/title": {
+      "sourceHash": "1c319969663408ff0be481f676b1f548f5820c9b3bf34d9d122484fe09b717e7",
+      "text": "18道四選一怎樣作答"
+    },
+    "spirit-animal/editorial/sections/1/paragraphs/0": {
+      "sourceHash": "8e2eea7762d5010b2fe239a74e9dd6e7495a2a31455b586ff7dfbeef55f742a7",
+      "text": "參照一段能回想起來的近期日常經歷，選擇更接近實際做法的一項，不必追求某種動物或看起來最值得讚賞的回答。幾項都符合時，選通常更先出現的做法；都不完全符合時，選擇現有選項中最接近的一項。"
+    },
+    "spirit-animal/editorial/sections/1/paragraphs/1": {
+      "sourceHash": "c6a1c87025adbde2752a63d92b6fdb0973545662804fdb82c8c8b541d2dc1cb7",
+      "text": "每個情境提供四種可能做法，不是把九個主題同時列出。完成全部18題後顯示計數與匹配結果全文。題目沒有正確答案、倒計時或通過線；約4分鐘是閱讀用時估計，可以按自己的速度比較選項。"
+    },
+    "spirit-animal/editorial/sections/2/title": {
+      "sourceHash": "61b5e8f68d31f14799d0543a21447a8f9bd535a64f917c216d1a42148c574ff6",
+      "text": "計分方法：選中一次，計數加一"
+    },
+    "spirit-animal/editorial/sections/2/paragraphs/0": {
+      "sourceHash": "57917b13c63eb5bf754a9da18b3627bedebf1d21acb553282753b2addbe259cf",
+      "text": "每個選項對應一種動物，選中後僅給該動物加1次。完成後九項計數總和為18。每種動物在整份題組中出現8次，在四個選項位置各出現2次，因此單項原始計數範圍為0—8。同一份完整答案始終得到相同計數與匹配動物。"
+    },
+    "spirit-animal/editorial/sections/2/paragraphs/1": {
+      "sourceHash": "41045454bd92c2b9574df12a13f5a827d0e4206ecf716ed174eb9e1c715a115d",
+      "text": "計數取決於這份題組所給的替代選項。選擇一個做法，同時意味著該題另外三項未被選中；低計數不表示某種品質缺失。顯示5 / 8表示八次出現機會中被選了五次，不是62.5%的性格相似度、人群百分位或準確率。"
+    },
+    "spirit-animal/editorial/sections/3/title": {
+      "sourceHash": "ce59ef58c3a6976c92c0c6822a95dea282b80a5de97624da3be48c1c30e10dd0",
+      "text": "最高並列、近分與九項並列示例"
+    },
+    "spirit-animal/editorial/sections/3/paragraphs/0": {
+      "sourceHash": "b4d8c2f23a2ef52b7a81864ffe16ee03b906a204ee6b01f1207898f9e3c5dc50",
+      "text": "計數同為最高的動物均獲得完整報告，不使用名單順序、選項字母或隨機抽籤挑一個贏家。一個可以復算的例子是：每題都選第一項，九種動物各得2次，9 × 2 = 18。它是按計數規則成立的九項並列，不是九種人格特質程度相等的證據。"
+    },
+    "spirit-animal/editorial/sections/3/paragraphs/1": {
+      "sourceHash": "340049c730f5673756bed2cfd76470cf6d8fcf1647a3dd8fe1ec7fb29b992f16",
+      "text": "多選一次就可能改變最高集合。本題本尚未建立測量誤差或有意義差異的閾值，也不會把近分自動合併為同分。可以參考計數接近的動物說明，但要分清實際計數、嚴格並列與自己對例子的理解。"
+    },
+    "spirit-animal/editorial/sections/4/title": {
+      "sourceHash": "da059805b7f7caf8c6bc06a76197a6b13c907888cc9bc682896786f9e39b7e98",
+      "text": "比較行動理由，而不只看動物印象"
+    },
+    "spirit-animal/editorial/sections/4/paragraphs/0": {
+      "sourceHash": "f7a18cad98a52040e1cb815494696f806b2722e1474fc0b3da7e994b81f7e799",
+      "text": "海豚關注接上對話、理解想法，水獺關注自願共同玩樂。安靜的遊戲也可能有水獺線索；認真討論也可以沒有任何遊戲。狐狸關注換一條路試驗是否可行，不能只憑好玩就認定是狐狸。"
+    },
+    "spirit-animal/editorial/sections/4/paragraphs/1": {
+      "sourceHash": "f6ebf4fe5c37f83afa89ac27d763c4ffa86e841c4af5df3311d1ca13ac91e0cc",
+      "text": "狼重視共同約定，熊重視可維持的節奏；貓頭鷹關注已知依據，鷹關注活動的整體目的；獅子明確下一步決定，鹿核對感受與參與是否舒服。現實中的同一個動作可以同時服務多個目的，儘管每個題目選項只對應一種計數。"
+    },
+    "spirit-animal/editorial/sections/5/title": {
+      "sourceHash": "a17731efb56e4b609564cb8a886147a3d05c6e03a6eb3405433fb6d13523597d",
+      "text": "科學性怎樣判斷：本頁已知與未知"
+    },
+    "spirit-animal/editorial/sections/5/paragraphs/0": {
+      "sourceHash": "ce406559f49146e0ffb4757c44d7a9828d89714ec2f2a5c5a6bb39ff677fb427",
+      "text": "明確規則讓結果可以復算、可以檢查，但不能據此建立信度、構念效度或人群常模。費馬尚未證明這些動物計數測量九種穩定心理特質、預測題目之外的行為，或識別最合適的職業與伴侶。"
+    },
+    "spirit-animal/editorial/sections/5/paragraphs/1": {
+      "sourceHash": "6fe50eddcab67776e4210532d1a64decb7bfade8e5d5c296bec10674588611ab",
+      "text": "若要主張心理測量效度，需要圍繞這份具體題本、語言和用途開展研究，包括作答與解釋的關係，以及結果在不同時間和人群中的表現。引用知名人格理論、增加動物數量，或覺得一段正面描述很像自己，都不能代替這些研究。"
+    },
+    "spirit-animal/editorial/sections/6/title": {
+      "sourceHash": "eedc9f632d50d7ccf35af2f7c62c51cc32ad85e640ba03ca663d56894434b8bc",
+      "text": "動物比喻與文化語境"
+    },
+    "spirit-animal/editorial/sections/6/paragraphs/0": {
+      "sourceHash": "3818d95e729aa73c936b96fdbcec780a0a466945aea3ed85181196187152cc96",
+      "text": "“精神動物”是常見搜尋用語，本頁以它指代原創娛樂比喻。史密森尼學會美國印第安人國家博物館指出，動物關係與氏族意義屬於具體社群，不能簡化為課堂中的精神動物配對活動。該資料幫助理解文化語境，不是對本題本的驗證。[1]"
+    },
+    "spirit-animal/editorial/sections/6/paragraphs/1": {
+      "sourceHash": "ffb4a17923b6c79e6dcfb57c666f0b8e79e36a1fe65f90b9c723f36289baad8f",
+      "text": "這裡的九種對應不識別氏族、神聖嚮導、文化傳承或一個人內部的生物物種，也不從人的回答推斷真實動物行為。可以保留有用的例子而不接受動物名稱；了解某個具體文化實踐時，應回到該社群的資料。"
+    },
+    "spirit-animal/editorial/sections/7/title": {
+      "sourceHash": "7e61c06ca1c266689b76dc57c16314ee8dfadb41fbaa468f528a43677db13733",
+      "text": "把結果用於核對一次真實經歷"
+    },
+    "spirit-animal/editorial/sections/7/paragraphs/0": {
+      "sourceHash": "c2feca34630e066d2dc862224127f553082ac20b666e4a70e53ee5126587ab0a",
+      "text": "選一隻匹配動物，回想一個符合描述的事件，寫下自己做了什麼、照顧了什麼需要、付出了什麼代價，再找一個不符合的反例。例如提議一起玩，可能為了享受過程、接上尷尬的對話，或履行先前約定；相似的外在動作未必出於相同理由。"
+    },
+    "spirit-animal/editorial/sections/7/paragraphs/1": {
+      "sourceHash": "852d6a16b1b92ddc1f8d2bd3e32b81678b522e71b539f7073790df41cfdcf621",
+      "text": "如果有幫助，可以在低風險情境裡嘗試一個小調整：邀請玩樂前先問意願、為提議補上明確下一步，或核對一個缺失事實。看實際發生了什麼，而不是看自己是否更像那隻動物。這些是自願觀察練習，不承諾改善健康、能力或關係。"
+    },
+    "spirit-animal/editorial/sections/8/title": {
+      "sourceHash": "10efc3da0d0a3a49cfbaed0c6a8dc303301505bea2778c345afa6a6e9797e825",
+      "text": "免費結果、重測與分享範圍"
+    },
+    "spirit-animal/editorial/sections/8/paragraphs/0": {
+      "sourceHash": "e0119e5be20f6f92e85592e2ecbcef70f5f5e3c4f807ad1f611b7672a14d67fd",
+      "text": "點擊“開始測驗”直接進入第一題，無需勾選同意、填寫電子郵件或生日，也無需先做其他測驗。答案在當前瀏覽器計數；網站可能記錄使用事件，但題目回答不進入這些事件或頁面網址。"
+    },
+    "spirit-animal/editorial/sections/8/paragraphs/1": {
+      "sourceHash": "e799a24f1aa0736ddb2659878e3266be7881d8e292de0265996624318ca0142c",
+      "text": "當前答題頁不提供進度儲存；重新整理、切換語言或離開後會從頭開始。重測開始新的作答，不保留歷史個人報告。複製結果包含動物名稱與公開連結，不含答卷或原始計數；開啟該連結不會還原私人作答。"
+    },
+    "spirit-animal/editorial/faq/0/question": {
+      "sourceHash": "cdaacf41fba47a925a881e6ae7ab85cf076058f03b5c46eae96e880df916c67c",
+      "text": "5 / 8是不是62.5%的動物相似度？"
+    },
+    "spirit-animal/editorial/faq/0/answer": {
+      "sourceHash": "49e543f983eed51964ab850a3fb4b43c9a72eb6de73705de17caa344809c6cec",
+      "text": "不是。它記錄該動物八次出現機會中有五次被選中。本頁沒有校準後的相似度量尺、人群參照或準確率百分比，九項計數合計為18。"
+    },
+    "spirit-animal/editorial/faq/1/question": {
+      "sourceHash": "f91ef7879519d900b717df9bec1d1640908f367a516c89365f06d164233d8340",
+      "text": "為什麼九種動物可以全部並列？"
+    },
+    "spirit-animal/editorial/faq/1/answer": {
+      "sourceHash": "70ab7ac035db9afa3df2ab7a11c23617fd77d9da04ea5380208c1e13ab8af440",
+      "text": "每種動物在每個選項位置都出現兩次，因此18題固定選擇同一位置，會讓每種動物各得2次。九項同為最高，就顯示九份完整報告。這項算術關係不能證明人的九種特質相等。"
+    },
+    "spirit-animal/editorial/faq/2/question": {
+      "sourceHash": "5a833dd4f2f767401a5f69281364e5714cd6d40b6d9635a2c7cb846956b19388",
+      "text": "海豚和水獺是不是同一種結果？"
+    },
+    "spirit-animal/editorial/faq/2/answer": {
+      "sourceHash": "50aeeef2495585728e80a527b8d1f4e9d4fa771d39b959a20302ecee891a99ba",
+      "text": "不是。本題海豚選項側重對話連線與理解，水獺選項側重自願共同玩樂。交談不一定好玩，遊戲也不一定需要很多交談；報告比較的是這些具體理由。"
+    },
+    "spirit-animal/editorial/faq/3/question": {
+      "sourceHash": "d3600aa629c0d029bc96eb26336aab07d6d101cd8524bfbd5ca8662ea07a3279",
+      "text": "貓頭鷹或獅子計數低，是否表示智力或領導能力低？"
+    },
+    "spirit-animal/editorial/faq/3/answer": {
+      "sourceHash": "790c70831283871085a1b6f12e118e08c9890f3e0006beaf94e49e3b9a06ae9e",
+      "text": "不能。相關選項分別關注核對資訊與明確下一步，計數不測智力、勝任力、自信或權威。同一情境下選擇別的做法也可能有用。"
+    },
+    "spirit-animal/editorial/faq/4/question": {
+      "sourceHash": "668f8e1b4d29ad9b4cfa3a0cb5fc076a7d40976540c12d735971ba4ccc8c0a75",
+      "text": "它能識別精神嚮導或文化身份嗎？"
+    },
+    "spirit-animal/editorial/faq/4/answer": {
+      "sourceHash": "e5f80f3aed1db2a056e3cea777135059e3385908a05cf67622568f0cfb1f06fe",
+      "text": "不能。動物對應是費馬原創的娛樂設定。文化中的動物關係與氏族意義屬於具體社群，網頁問卷不能分配這類身份；相關背景可閱讀下方史密森尼博物館資料。"
+    },
+    "spirit-animal/editorial/faq/5/question": {
+      "sourceHash": "ef633851b5e0bd8d552484cfdb3bcae279ea95578a73d6a05c77ba05d223bba3",
+      "text": "可以把動物換算成MBTI、大五人格或DISC嗎？"
+    },
+    "spirit-animal/editorial/faq/5/answer": {
+      "sourceHash": "f4191a011dd5b6b880dfa4dff2775b37826d6237dd0af802a6b321c83a60c202",
+      "text": "本頁沒有提供有依據的換算。這些框架的概念與計分不同，動物名稱、計數或一段貼合的描述不能還原另一項測評的分數或類型。"
+    },
+    "spirit-animal/editorial/faq/6/question": {
+      "sourceHash": "75824748b67b77d5916593356516fc0fb1bd1743f9dfd5ab8c0382b69d0d087f",
+      "text": "這是動物認同或心理健康測驗嗎？"
+    },
+    "spirit-animal/editorial/faq/6/answer": {
+      "sourceHash": "54e9e791b5ba4967bcaa44c262605ed0f0ab0fbd5c80d69053130c6df26f5934",
+      "text": "不是。它記錄日常情境中的選擇，返回象徵名稱，不能確定個人身份、評估心理健康或解釋痛苦經歷。使用指南中的一個例子，也不需要接受動物標籤。"
+    },
+    "spirit-animal/editorial/faq/7/question": {
+      "sourceHash": "9c66b73f347c86bfa3439630f355de6690df5f7907b1096aa10acd0950c641f7",
+      "text": "開始前必須再勾選同意嗎？"
+    },
+    "spirit-animal/editorial/faq/7/answer": {
+      "sourceHash": "c56c3cfc90a2edbea7ec9e73df7378d76c6e43060639d222932c2bc6283a9795",
+      "text": "不需要。點擊“開始測驗”直接開啟第一題。當前答題頁不提供進度儲存；重新整理、切換語言或離開後會從頭開始。"
+    },
+    "spirit-animal/editorial/summaries/wolf": {
+      "sourceHash": "a9c2f86727e861ecd9055055055323aa2ac1f48960951e5e7147da568cfd1baf",
+      "text": "共同約定：分清履行承諾與承擔超出約定的責任。"
+    },
+    "spirit-animal/editorial/summaries/owl": {
+      "sourceHash": "deb32f409575e4575c422e46179a4b544f9e5b22850fc05cde82ed5e040465e1",
+      "text": "先核對依據：分清補足關鍵資訊與等待完全確定。"
+    },
+    "spirit-animal/editorial/summaries/fox": {
+      "sourceHash": "05b64c58fb5e8ac9d52ed74b17d8d9c361c4a5b8186b964fc87a5c6545aac1c5",
+      "text": "替代路線：分清小範圍試驗新方法與為了變化而變化。"
+    },
+    "spirit-animal/editorial/summaries/lion": {
+      "sourceHash": "0d4c93f55fd2c802fbe03329294db95ecf85e55fe27c90fa3a1bfb5854c5177f",
+      "text": "明確下一步：分清提出清楚的行動建議與替別人做主。"
+    },
+    "spirit-animal/editorial/summaries/dolphin": {
+      "sourceHash": "690b14f32925b112f9e88ab920fb731875f74597436e3e7240d0d3112ff725d4",
+      "text": "連線對話：邀請表達，同時給沉默和不同意見留空間。"
+    },
+    "spirit-animal/editorial/summaries/deer": {
+      "sourceHash": "74eac15386037032113f7d596a4475564683300f6a8e00c206116be98a214286",
+      "text": "感受與舒服的參與：直接核對需要，而不是替人猜定。"
+    },
+    "spirit-animal/editorial/summaries/bear": {
+      "sourceHash": "17e3256c8bb5e2107c5f24562dfdd9a3bb38927e53f7b1fe1cb878322ea5ce8c",
+      "text": "可維持的節奏：分清可靠的重複步驟與需要更新的舊方法。"
+    },
+    "spirit-animal/editorial/summaries/eagle": {
+      "sourceHash": "6e25416ae7b9e19df2950fe26b86954cea9894a03de3ba0e78c718393f0bfc9b",
+      "text": "整體目的：把目標與可行步驟及相關人的處境連起來。"
+    },
+    "spirit-animal/editorial/summaries/otter": {
+      "sourceHash": "749d8835e1773a78d4a687a4c65e47d37ae907f2b60020883b41613d8580ecb2",
+      "text": "自願共同玩樂：享受過程，也允許拒絕、旁觀或隨時結束。"
+    },
+    "spirit-animal/editorial/privacy": {
+      "sourceHash": "237db93f2bb05625cc25a1b2c223762f8bd6f8f11805beb978bb6db556996585",
+      "text": "18題、九份完整解釋、並列結果均免費，不用註冊或先做其他測評。當前答題頁不提供進度儲存；重新整理、切換語言或離開後會從頭開始。重測開始新的作答，不保留歷史個人報告。複製分享只包含動物名稱與公開入口／說明連結，不含答卷、原始計數或個人均分。"
+    },
+    "flower/editorial/privacy": {
+      "sourceHash": "4a11fd1fcdbf150d3a0e3a2c49df73f533cb3200d469bfa7493be1f582462c81",
+      "text": "答案在瀏覽器計算。當前答題頁不提供進度儲存；重新整理、切換語言或離開後會從頭開始。重測開啟新的作答，不保留歷史個人報告。複製分享只含花名與公開測驗或說明連結，不包含答案或計數。"
     }
   }
 }

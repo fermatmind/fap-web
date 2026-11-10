@@ -280,8 +280,11 @@ export const spiritAnimalSummaries: Record<string, Text> = {
 };
 
 /** Current answering flow; the accepted source questionnaire remains unchanged. */
+export const spiritAnimalPrivacyAnswer = {
+  zh: "18题、九份完整解释、并列结果均免费，无需注册或先做其他测评。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告。复制分享只包含动物名称与公开入口／说明链接，不含答卷、原始计数或个人均分。",
+  en: "All 18 questions, nine complete explanations and tied results are free, with no signup or prerequisite test. This question page does not save progress; refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports. Copying shares only animal names and a public entry or guide link, never answers, raw counts or personal means.",
+};
+
 export function spiritAnimalVisiblePrivacyAnswer(locale: Locale): string {
-  return locale === "zh"
-    ? "18题、九份完整解释、并列结果均免费，无需注册或先做其他测评。当前答题页不提供进度保存；刷新、切换语言或离开后会从头开始。重测开始新的作答，不保留历史个人报告。复制分享只包含动物名称与公开入口／说明链接，不含答卷、原始计数或个人均分。"
-    : "All 18 questions, nine complete explanations and tied results are free, with no signup or prerequisite test. This question page does not save progress; refreshing, changing language or leaving it starts over. Retaking starts a new attempt without keeping a history of personal reports. Copying shares only animal names and a public entry or guide link, never answers, raw counts or personal means.";
+  return spiritAnimalPrivacyAnswer[locale];
 }

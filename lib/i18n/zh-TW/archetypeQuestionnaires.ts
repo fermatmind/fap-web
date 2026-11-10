@@ -66,6 +66,8 @@ const sources = {
   "dungeons-dragons-class": { name: "dungeons-dragons-class", load: () => import("@/lib/questionnaires/result-content/dungeons-dragons-class.json") },
   "socionics": { name: "socionics", load: () => import("@/lib/questionnaires/result-content/socionics.json") },
   "which-tarot-card-are-you": { name: "tarot-card", load: () => import("@/lib/questionnaires/result-content/tarot-card.json") },
+  "spirit-animal": { name: "spirit-animal", type: "動物", en: "animal", load: () => import("@/lib/questionnaires/result-content/spirit-animal.json") },
+  flower: { name: "flower", type: "花朵", en: "flower", load: () => import("@/lib/questionnaires/result-content/flower.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

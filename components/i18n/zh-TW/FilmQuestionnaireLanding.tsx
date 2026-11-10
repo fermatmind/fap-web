@@ -36,7 +36,7 @@ import { wojakLandingFaq, wojakLandingSections } from "@/components/questionnair
 import { EightQuizOverview } from "@/components/questionnaires/EightQuizOverview";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
-import { archetypeEditorial, archetypeLandingSummary } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
+import { archetypeEditorial, archetypeLandingSummary, archetypePrivacyAnswer } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 
@@ -94,6 +94,7 @@ const editorials = {
   "dungeons-dragons-class": false,
   "socionics": false,
   "which-tarot-card-are-you": false,
+  flower: false,
 } as const;
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
@@ -140,7 +141,8 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
       <h2 className="text-2xl font-semibold">常見問題</h2>
       {faq.map((item, index) => <div key={index}>
         <h3 className="text-xl font-semibold">{item.question.zh}</h3>
-        <p><FilmCopy text={item.answer.zh} slug={slug} /></p>
+        <p><FilmCopy text={slug === "flower" && item.question.en === "What happens with refreshing, saving and sharing?"
+          ? archetypePrivacyAnswer(slug) : item.answer.zh} slug={slug} /></p>
       </div>)}
     </section>
     {quiz.references?.length ? <section className="space-y-3 leading-8">

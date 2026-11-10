@@ -61,6 +61,8 @@ const editions = {
   "dungeons-dragons-class": ["dungeons-dragons-class", "", "", "data"],
   "socionics": ["socionics", "", "", "data"],
   "which-tarot-card-are-you": ["tarot-card", "", "", "data"],
+  "spirit-animal": ["spirit-animal", "SpiritAnimal", "spiritAnimal"],
+  flower: ["flower", "Flower", "flower", "privacy"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -149,7 +151,8 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
   const declarations = syntax.statements.filter(ts.isVariableStatement).flatMap(statement => [...statement.declarationList.declarations]);
   const fields = layout === "summaries"
     ? [["summaries", "summaries"]]
-    : [["sections", "Sections"], ["faq", "Faq"]];
+    : layout === "privacy" ? [["privacy", "PrivacyAnswer"]]
+      : [["sections", "Sections"], ["faq", "Faq"]];
   if (!layout) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
   for (const [field, suffix] of fields) {
     const name = layout === "summaries" ? suffix : prefix + suffix;

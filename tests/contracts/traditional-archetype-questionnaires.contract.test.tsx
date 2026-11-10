@@ -106,3 +106,14 @@ it.each([
   expect(guides.every(link => link.getAttribute("href")?.startsWith(`/zh-TW/tests/explore/${slug}/results/`))).toBe(true);
   if (related) expect(overview?.querySelector(`a[href="${related}"]`)).not.toBeNull();
 });
+
+it.each(["spirit-animal", "flower"])("uses the current Taiwan %s privacy copy", async slug => {
+  const { container } = render(await ArchetypeQuestionnairePage({ slug }));
+  expect(screen.getAllByText(/重新整理、切換語言或離開/).length).toBeGreaterThan(0);
+  expect(screen.queryByText(/24小時.{0,15}草稿|24小時內恢復/)).not.toBeInTheDocument();
+  if (slug === "spirit-animal") {
+    expect(container.querySelector('#spirit-animal-reference-1 a')?.getAttribute("href"))
+      .toBe("https://americanindian.si.edu/nk360/informational/native-american-spirit-animal");
+    expect(container.querySelectorAll("[data-eight-quiz-overview] [data-quiz-artwork]")).toHaveLength(9);
+  }
+});
