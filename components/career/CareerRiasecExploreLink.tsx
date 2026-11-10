@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_PILOT } from "@/lib/career/designComparePilot";
+import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_TASKS, DESIGN_MBTI_EXPLORATION_NOTE } from "@/lib/career/designComparePilot";
+import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
 import { buttonVariants } from "@/components/ui/button";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { CAREER_TRACKING_EVENTS, type CareerAttributionPayloadInput } from "@/lib/career/attribution";
@@ -12,7 +13,10 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
   subjectSlug: string;
 }) {
   const zh = locale === "zh";
-  const showDesignCompare = zh && DESIGN_COMPARE_PILOT.some(slug => slug === subjectSlug);
+  const design = zh ? DESIGN_COMPARE_TASKS.find(career => career.slug === subjectSlug) : undefined;
+  const comparisonCareer = design
+    ? DESIGN_COMPARE_TASKS.find(career => career.slug !== subjectSlug)
+    : undefined;
   const payload = (targetAction: string): CareerAttributionPayloadInput => ({
     locale,
     entrySurface: "career_job_detail",
@@ -59,6 +63,18 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
       <h2 id="career-next-steps-title" className="m-0 text-xl font-semibold text-slate-950">
         {zh ? `了解${careerName}之后，下一步做什么？` : `After exploring ${careerName}, what comes next?`}
       </h2>
+      {design ? (
+        <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
+          <h3 className="m-0 text-base font-semibold text-slate-950">MBTI 探索示例</h3>
+          <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{design.explorationQuestion}</p>
+          <div className="mt-1 flex flex-wrap gap-x-4">
+            {design.mbtiTypes.map(type => (
+              <Link key={type} className={linkClass} href={`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`}>{type}</Link>
+            ))}
+          </div>
+          <p className="m-0 text-sm leading-6 text-slate-600">{DESIGN_MBTI_EXPLORATION_NOTE}</p>
+        </div>
+      ) : null}
       <ul className="m-0 mt-4 list-none divide-y divide-slate-200 p-0">
         {steps.map((step, index) => (
           <li key={step.action} className="min-w-0 py-4">
@@ -68,7 +84,6 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
               <TrackedCareerLink href={step.path} className={linkClass} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick} eventPayload={payload(step.action)} data-target-action={step.action}>
                 {step.label}
               </TrackedCareerLink>
-              {index === 1 && showDesignCompare ? <Link className={buttonVariants({ variant: "outline", className: "mt-2 h-auto min-h-11 whitespace-normal text-center" })} href={DESIGN_COMPARE_HREF}>{DESIGN_COMPARE_LABEL}</Link> : null}
               {index === 0 ? (
                 <TrackedCareerLink href={href} className={linkClass} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick} eventPayload={payload("start_riasec_test")}
                   data-entry-surface="career_job_detail" data-source-page-type="career_job_detail" data-target-action="start_riasec_test" data-test-slug="holland-career-interest-test-riasec">
@@ -76,6 +91,16 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
                 </TrackedCareerLink>
               ) : null}
             </div>
+            {index === 1 && comparisonCareer ? (
+              <div className="mt-2 grid gap-3 rounded-xl border border-teal-200 bg-teal-50 p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+                <div>
+                  <p className="m-0 text-sm font-semibold text-teal-800">对照职业</p>
+                  <h4 className="m-0 mt-1 font-semibold text-slate-950">{comparisonCareer.name}</h4>
+                  <p className="m-0 mt-1 text-sm leading-6 text-slate-700">{comparisonCareer.task} 点开对比，核对产品原型和视觉版式的工作差异。</p>
+                </div>
+                <Link className={buttonVariants({ variant: "outline", className: "h-auto min-h-11 whitespace-normal text-center" })} href={DESIGN_COMPARE_HREF}>{DESIGN_COMPARE_LABEL}</Link>
+              </div>
+            ) : null}
           </li>
         ))}
       </ul>

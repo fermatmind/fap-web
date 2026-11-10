@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { Box, BriefcaseBusiness, Building2, FileText, PanelsTopLeft, Search, Sparkles } from 'lucide-react';
 import { CAREER_COMPARE_OPTIONS, CAREER_COMPARE_ROWS, careerCompareItems, readCareerComparePage, type CompareRead } from '@/lib/career/compare';
-import { isDesignComparePair } from '@/lib/career/designComparePilot';
+import { DESIGN_COMPARE_TASKS, DESIGN_MBTI_EXPLORATION_NOTE, isDesignComparePair } from '@/lib/career/designComparePilot';
+import { buildCareerRecommendationFrontendUrl } from '@/lib/career/urls';
 import { CareerCompareWorksheet } from './CareerCompareWorksheet';
 import { CareerPageItem } from '@/components/career/display/CareerPageItem';
 import { CareerEvidenceLine } from '@/components/career/display/CareerEvidenceLine';
@@ -15,27 +17,49 @@ import styles from './CareerCompare.module.css';
 
 type Slot = { slug: string; read: CompareRead | { state: 'loading' | 'idle' } };
 const emptySlot = (): Slot => ({ slug: '', read: { state: 'idle' } });
+const careerIcons = {
+  'industrial-designers': Box,
+  'graphic-designers': PanelsTopLeft,
+  'architects-except-landscape-and-naval': Building2,
+};
 
 function Items({ page, copyKeys }: { page: CareerPage; copyKeys: readonly string[] }) {
   const items = careerCompareItems(page, copyKeys);
   const zh = page.content.locale === 'zh';
-  if (!items.length) return <p>{zh ? '未知：当前已发布正文未提供此项，请核对当地岗位要求。' : 'Unknown: this field is not provided in the published profile. Check local role requirements.'}</p>;
-  const render = (index: number) => <div key={items[index].id} className="my-3 min-w-0">
-    {items[index].title ? <p className="font-semibold">{items[index].title}</p> : null}
-    <CareerPageItem item={items[index]} content={page.content} />
-    <CareerEvidenceLine content={page.content} factRefs={items[index].factRefs} sourceRefs={items[index].sourceRefs} />
+  if (!items.length) return <p className={styles.missing}>{zh ? '未知：当前已发布正文未提供此项，请核对当地岗位要求。' : 'Unknown: this field is not provided in the published profile. Check local role requirements.'}</p>;
+
+  return <div className={styles.items}>
+    {items.map(item => <div key={item.id} className={styles.item}>
+      {item.title ? <p className={styles.itemTitle}>{item.title}</p> : null}
+      <CareerPageItem item={item} content={page.content} showFaqAnswers />
+      <CareerEvidenceLine content={page.content} factRefs={item.factRefs} sourceRefs={item.sourceRefs} className={styles.evidence} />
+    </div>)}
   </div>;
-  return <>{render(0)}{items.length > 1 ? <details><summary>{zh ? `展开其余 ${items.length - 1} 项原文` : `Read ${items.length - 1} more published items`}</summary>{items.slice(1).map((_, i) => render(i + 1))}</details> : null}</>;
 }
 function Salary({ page, metricKey }: { page: CareerPage; metricKey: string }) {
   const fact = page.hero.metrics.find(metric => metric.key === metricKey)?.fact;
   const zh = page.content.locale === 'zh';
-  if (!fact || !fact.sourceRefs.some(ref => page.content.sources.some(source => source.id === ref))) return <p>{zh ? '未知：没有可追溯的同口径薪资数据。' : 'Unknown: no traceable salary evidence is available.'}</p>;
-  return <><p className="font-semibold">{fact.displayValue}</p><p className="text-sm">{[fact.market, fact.period, fact.measure, fact.occupationScope].join(' · ')}</p><CareerEvidenceLine content={page.content} factRefs={[fact.factId]} /></>;
+  if (!fact || !fact.sourceRefs.some(ref => page.content.sources.some(source => source.id === ref))) return <p className={styles.missing}>{zh ? '未知：没有可追溯的同口径薪资数据。' : 'Unknown: no traceable salary evidence is available.'}</p>;
+  const annualPay = zh && metricKey === 'us_pay' && fact.market === '美国'
+    ? fact.displayValue.match(/^中位年薪\s+([\d,]+)\s*美元\s*(?:\/\s*)?/u)
+    : null;
+  const incomplete = zh && fact.displayValue.startsWith('证据不足：');
+  const payNote = annualPay ? fact.displayValue.slice(annualPay[0].length) : fact.displayValue;
+  return <>
+    {annualPay ? <>
+      <span className={styles.payLabel}>中位年薪</span>
+      <p className={styles.payAmount}>{annualPay[1]} <span>美元</span></p>
+    </> : incomplete ? <p className={styles.excerpt}>暂无可核验的同口径薪资数据。</p> : null}
+    {incomplete ? null : <p className={styles.payLabel}>{[fact.market, fact.period].join(' · ')}</p>}
+    {payNote ? <p className={annualPay || incomplete ? styles.evidence : styles.excerpt}>{payNote}</p> : null}
+    <p className={styles.evidence}>{[fact.measure, fact.occupationScope].join(' · ')}</p>
+    <CareerEvidenceLine content={page.content} factRefs={[fact.factId]} className={styles.evidence} />
+  </>;
 }
 
 export function CareerCompare({ locale, initialSlots }: { locale: Locale; initialSlots?: [Slot, Slot] }) {
   const zh = locale === 'zh';
+  const preset = initialSlots !== undefined;
   const [slots, setSlots] = useState<[Slot, Slot]>(() => initialSlots ?? [emptySlot(), emptySlot()]);
   const requestIds = useRef([0, 0]);
   const selectors = useRef<Array<HTMLSelectElement | null>>([]);
@@ -43,8 +67,19 @@ export function CareerCompare({ locale, initialSlots }: { locale: Locale; initia
   const tracking = useRef<{ id: string; entered: boolean; succeeded: boolean } | null>(null);
   const pages = slots.map(slot => slot.read.state === 'ready' ? slot.read.page : null);
   const succeeded = pages.every(Boolean) && slots[0].slug !== slots[1].slug;
+  const [editing, setEditing] = useState(!succeeded);
 
   const showPilotWorksheet = zh && succeeded && isDesignComparePair(slots[0].slug, slots[1].slug);
+
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id !== 'career-compare-worksheet' && !id.startsWith('compare-row-')) return;
+    // The initial fragment can be resolved before the streamed comparison arrives.
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ block: 'start' });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   useEffect(() => {
     if (!tracking.current) tracking.current = { id: crypto.randomUUID(), entered: false, succeeded: false };
@@ -78,50 +113,149 @@ export function CareerCompare({ locale, initialSlots }: { locale: Locale; initia
     if (requestIds.current[index] !== requestId) return;
     setSlots(current => current.map((slot, i) => i === index ? { slug, read } : slot) as [Slot, Slot]);
   }
-  const cell = (page: CareerPage, body: ReactNode) => <><span className={styles.mobileName} aria-hidden="true">{page.content.subject.name}</span>{body}</>;
+  const cell = (page: CareerPage, body: ReactNode) => <><span className={styles.cellName} aria-hidden="true">{page.content.subject.name}</span>{body}</>;
+  function comparisonRow(key: string, label: string, render: (page: CareerPage) => ReactNode, compact = false) {
+    const heading = `compare-row-${key}`;
+    return <tr key={key} role="row" className={compact ? styles.compactRow : undefined}>
+      <th id={heading} scope="row" role="rowheader">{label}</th>
+      {pages.map(page => page ? <td role="cell" key={page.content.subject.canonicalSlug}
+        headers={`${heading} compare-${page.content.subject.canonicalSlug}`}>{cell(page, render(page))}</td> : null)}
+    </tr>;
+  }
+  const sections = [
+    { id: 'compare-row-overview', label: zh ? '工作内容' : 'Overview' },
+    { id: 'compare-row-tasks', label: zh ? '工作任务' : 'Tasks' },
+    { id: 'compare-row-us_pay', label: zh ? '薪资参考' : 'Salary references' },
+    ...(showPilotWorksheet ? [{ id: 'career-compare-worksheet', label: '15 分钟小试做' }] : []),
+    ...CAREER_COMPARE_ROWS.slice(1).map(row => ({ id: `compare-row-${row.key}`, label: row[locale] })),
+    { id: 'compare-row-sources', label: zh ? '来源与档案' : 'Sources and profiles' },
+  ];
+  const selectedNames = slots.map((slot, index) => pages[index]?.content.subject.name
+    ?? CAREER_COMPARE_OPTIONS.find(option => option.slug === slot.slug)?.[locale]);
 
   return <section className={styles.root} data-testid="career-compare">
-    <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-950">{zh ? '比较两个职业' : 'Compare two careers'}</h1>
-    <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700">{zh ? '在产品设计、视觉传播和建筑设计之间，哪种日常任务值得你进一步验证？把两个已发布档案放在一起，核对差异与尚待确认的条件。' : 'Product design, visual communication or building design: which daily work would you investigate next? Put two published profiles side by side to check differences and unresolved conditions.'}</p>
-    <p className="mt-3 text-sm leading-6 text-slate-600">{zh ? '首批仅支持下列三个设计职业，不代表全职业库均可比较。无需账户。手动更换职业只在当前页面生效。差异不代表优劣，也不生成适配排名。' : 'This pilot covers only the three design careers below, not the entire library. No account is needed. Selections stay on this page and clear on reload. Differences do not imply quality or a fit ranking.'}</p>
-    <div className={styles.controls}>
+    <header className={styles.intro}>
+      <div className={styles.heroArt} aria-hidden="true">
+        <div className={styles.artLeft}><FileText strokeWidth={1.25} /><Search strokeWidth={1.5} /></div>
+        <div className={styles.artRight}><PanelsTopLeft strokeWidth={1.25} /><Sparkles strokeWidth={1.5} /></div>
+      </div>
+      <div className={styles.heroContent}>
+        <h1>{zh ? '比较两个职业' : 'Compare two careers'}</h1>
+        <p>{preset || succeeded
+          ? (zh ? '并排了解工作任务、薪资和入行要求。' : 'See daily tasks, pay, and entry requirements side by side.')
+          : (zh ? '从三个设计职业中选两个，对照它们的日常任务与入行要求。' : 'Choose two of the three design careers to compare their daily work and entry requirements.')}</p>
+        {preset ? <div className={styles.heroPair}>
+          <span>{selectedNames[0]}</span>
+          <b aria-hidden="true">VS</b>
+          <span>{selectedNames[1]}</span>
+        </div> : null}
+        {!preset && succeeded ? <button className={styles.edit} type="button" aria-expanded={editing} aria-controls="career-compare-controls"
+          onClick={() => setEditing(value => !value)}>
+          {editing ? (zh ? '收起选择' : 'Hide selectors') : (zh ? '更换职业' : 'Change careers')}
+        </button> : null}
+      </div>
+    </header>
+    {!preset || !succeeded ? <div id="career-compare-controls" className={styles.controls} hidden={succeeded && !editing}>
       {slots.map((slot, index) => <div className={styles.slot} key={index}>
-        <label htmlFor={`career-slot-${index}`} className="font-semibold">{zh ? `职业 ${index + 1}` : `Career ${index + 1}`}</label>
-        <select id={`career-slot-${index}`} ref={element => { selectors.current[index] = element; }} className={styles.select} value={slot.slug} onChange={event => void choose(index, event.target.value)}>
-          <option value="">{zh ? '选择职业' : 'Select a career'}</option>
-          {CAREER_COMPARE_OPTIONS.map(option => <option key={option.slug} value={option.slug} disabled={slots[1 - index].slug === option.slug}>{option[locale]}</option>)}
-        </select>
-        <p className="text-sm text-slate-600">{zh ? '选择其他职业即可替换。' : 'Select another career to replace this one.'}</p>
-        {slot.slug ? <button className={styles.button} type="button" onClick={() => { void choose(index, ''); selectors.current[index]?.focus(); }}>{zh ? `移除职业 ${index + 1}` : `Remove career ${index + 1}`}</button> : null}
-        <div role="status" aria-live="polite" aria-atomic="true">
-          {slot.read.state === 'idle' ? <p className="mt-3">{zh ? '此槽位为空。' : 'This slot is empty.'}</p> : null}
+        {!preset ? <div className={styles.slotActions}>
+          <label htmlFor={`career-slot-${index}`} className={styles.selectLabel}>{zh ? `职业 ${index + 1}` : `Career ${index + 1}`}</label>
+          <select id={`career-slot-${index}`} ref={element => { selectors.current[index] = element; }} className={styles.select} value={slot.slug} onChange={event => void choose(index, event.target.value)}>
+            <option value="">{zh ? '选择职业' : 'Select a career'}</option>
+            {CAREER_COMPARE_OPTIONS.map(option => <option key={option.slug} value={option.slug} disabled={slots[1 - index].slug === option.slug}>{option[locale]}</option>)}
+          </select>
+          {slot.slug ? <button className={styles.button} type="button" onClick={() => { void choose(index, ''); selectors.current[index]?.focus(); }}>{zh ? `移除职业 ${index + 1}` : `Remove career ${index + 1}`}</button> : null}
+        </div> : <p className={styles.itemTitle}>{selectedNames[index]}</p>}
+        <div className={styles.slotStatus} role="status" aria-live="polite" aria-atomic="true">
           {slot.read.state === 'loading' ? <p className="mt-3">{zh ? '正在读取已发布职业档案…' : 'Loading the published career profile…'}</p> : null}
-          {slot.read.state === 'ready' ? <p className="mt-3">{slot.read.page.content.subject.name} · {zh ? '已加载' : 'Loaded'}</p> : null}
-          {['missing', 'empty', 'error'].includes(slot.read.state) ? <p className="mt-3">{slot.read.state === 'missing' ? (zh ? '职业已失效或不在本次可选范围。' : 'This career is unavailable or outside the pilot.') : slot.read.state === 'empty' ? (zh ? '职业正文尚未发布，暂不能比较。' : 'The career body is not published, so it cannot be compared.') : (zh ? '档案读取或版本校验失败，请重试或替换职业。' : 'The profile could not be loaded or validated. Retry or choose another career.')}</p> : null}
+          {slot.read.state === 'ready' ? <p className="sr-only">{slot.read.page.content.subject.name} · {zh ? '已加载' : 'Loaded'}</p> : null}
+          {['missing', 'empty', 'error'].includes(slot.read.state) ? <p className="mt-3">{slot.read.state === 'missing' ? (zh ? '职业已失效或不在本次可选范围。' : 'This career is unavailable or outside the pilot.') : slot.read.state === 'empty' ? (zh ? '职业正文尚未发布，暂不能比较。' : 'The career body is not published, so it cannot be compared.') : (zh ? '暂时无法读取职业档案，请重试。' : 'The profile could not be loaded. Please retry.')}</p> : null}
         </div>
         {['missing', 'empty', 'error'].includes(slot.read.state) ? <button type="button" className={styles.button} onClick={() => { void choose(index, slot.slug); selectors.current[index]?.focus(); }}>{zh ? '重试读取' : 'Retry loading'}</button> : null}
       </div>)}
-    </div>
-    <p role="status" aria-live="polite" className="my-4 font-medium">{notice || (succeeded ? (zh ? '两个职业已就绪。逐项核对下方差异和未知。' : 'Both careers are ready. Check the differences and unknowns below.') : (zh ? '请选择两个不同的职业以查看比较。' : 'Select two different careers to view the comparison.'))}</p>
-    {showPilotWorksheet ? <a href="#career-compare-worksheet" className="mb-2 inline-flex min-h-11 items-center font-semibold text-teal-800 underline">跳到小试做</a> : null}
-    {succeeded ? <>
-      <table className={styles.table} role="table" data-testid="career-compare-table">
-        <caption>{zh ? '已发布档案对照 · 保留各自口径' : 'Published profiles · each retains its own evidence scope'}</caption>
-        <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">{zh ? '核对项目' : 'Compare'}</th>{pages.map(page => <th key={page!.content.subject.canonicalSlug} id={`compare-${page!.content.subject.canonicalSlug}`} scope="col" role="columnheader">{page!.content.subject.name}</th>)}</tr></thead>
+    </div> : null}
+    <p role="status" aria-live="polite" className={notice ? styles.status : 'sr-only'}>{notice || (succeeded ? (zh ? '两个职业已就绪。' : 'Both careers are ready.') : '')}</p>
+    {succeeded ? <div className={styles.comparisonLayout}>
+      <h2 id="career-compare-table-title" className={styles.resultsTitle}>
+        {zh ? '比较结果' : 'Comparison results'}
+      </h2>
+      <nav className={styles.sectionNav} aria-label={zh ? '职业对比目录' : 'Comparison contents'}>
+        <ul className={styles.navLinks}>
+          {sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.label}</a></li>)}
+        </ul>
+      </nav>
+      {zh && pages.some(page => DESIGN_COMPARE_TASKS.some(career => career.slug === page?.content.subject.canonicalSlug)) ? (
+        <p className={styles.evidence}>{DESIGN_MBTI_EXPLORATION_NOTE}</p>
+      ) : null}
+      <div className={styles.result}>
+      <table className={styles.table} role="table" aria-labelledby="career-compare-table-title" data-testid="career-compare-table">
+        <colgroup><col className={styles.dimension} /><col /><col /></colgroup>
+        <thead role="rowgroup">
+          <tr role="row">
+            <th className={styles.dimensionTitle} scope="col" role="columnheader"><span className="sr-only">{zh ? '核对项目' : 'Compare'}</span></th>
+            {pages.map(page => {
+              if (!page) return null;
+              const { canonicalSlug, name } = page.content.subject;
+              const Icon = careerIcons[canonicalSlug as keyof typeof careerIcons] ?? BriefcaseBusiness;
+              const design = zh ? DESIGN_COMPARE_TASKS.find(career => career.slug === canonicalSlug) : null;
+              return <th key={canonicalSlug} id={`compare-${canonicalSlug}`} scope="col" role="columnheader">
+                <span className={styles.careerIcon}><Icon aria-hidden="true" strokeWidth={1.6} /></span>
+                <Link className={styles.careerName} href={`/${locale}/career/jobs/${canonicalSlug}`}>{name}</Link>
+                {design ? <>
+                  <span className={styles.roleOutput}>{design.output}</span>
+                  <div className={styles.careerBadges}>
+                    <a className={styles.interestBadge} href={design.interest.source} aria-label={`O*NET 霍兰德 ${design.interest.code}，${design.interest.dimensions}`}>
+                      <span>霍兰德 <strong>{design.interest.code}</strong></span>
+                      <span className={styles.interestDimensions}>{design.interest.dimensions}</span>
+                    </a>
+                  </div>
+                  <div className={styles.mbtiExploration}>
+                    <span>MBTI 探索示例</span>
+                    <ul aria-label={`${name}的 MBTI 探索示例`}>
+                      {design.mbtiTypes.map(type => (
+                        <li key={type}><Link href={`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`}>{type}</Link></li>
+                      ))}
+                    </ul>
+                  </div>
+                </> : null}
+              </th>;
+            })}
+          </tr>
+        </thead>
         <tbody role="rowgroup">
-          {CAREER_COMPARE_ROWS.map(row => <tr key={row.key} role="row"><th id={`compare-row-${row.key}`} scope="row" role="rowheader">{row[locale]}</th>{pages.map(page => <td role="cell" key={page!.content.subject.canonicalSlug} headers={`compare-row-${row.key} compare-${page!.content.subject.canonicalSlug}`}>{cell(page!, <Items page={page!} copyKeys={row.copyKeys} />)}</td>)}</tr>)}
-          {['us_pay', 'china_pay'].map(key => <tr key={key} role="row"><th id={`compare-row-${key}`} scope="row" role="rowheader">{key === 'us_pay' ? (zh ? '美国薪资参考' : 'U.S. salary reference') : (zh ? '中国大陆薪资参考' : 'Mainland China salary reference')}</th>{pages.map(page => <td role="cell" key={page!.content.subject.canonicalSlug} headers={`compare-row-${key} compare-${page!.content.subject.canonicalSlug}`}>{cell(page!, <Salary page={page!} metricKey={key} />)}</td>)}</tr>)}
-          <tr role="row"><th id="compare-row-sources" scope="row" role="rowheader">{zh ? '来源与完整档案' : 'Sources and full profile'}</th>{pages.map(page => <td role="cell" key={page!.content.subject.canonicalSlug} headers={`compare-row-sources compare-${page!.content.subject.canonicalSlug}`}>{cell(page!, <><Link className="inline-flex min-h-11 items-center font-semibold text-teal-800 underline" href={`/${locale}/career/jobs/${page!.content.subject.canonicalSlug}`}>{zh ? '核对完整职业档案' : 'Read the full career profile'}</Link><details><summary>{zh ? '原始来源、地区、年份与限制' : 'Original sources, regions, dates and limitations'}</summary><CareerEvidenceLine content={page!.content} sourceRefs={page!.content.sources.map(source => source.id)} />{page!.content.sources.map(source => <p key={source.id} className="my-3 text-sm">{[source.name, source.market, source.period, source.scope, source.limitation].filter(Boolean).join(' · ')}</p>)}</details></>)}</td>)}</tr>
+          {comparisonRow('overview', zh ? '工作内容' : 'What they do', page => {
+            const { canonicalSlug, summary } = page.content.subject;
+            const task = zh ? DESIGN_COMPARE_TASKS.find(career => career.slug === canonicalSlug)?.task : null;
+            return <p className={styles.excerpt}>{task ?? summary ?? (zh ? '暂无工作简介。' : 'No summary is available.')}</p>;
+          }, true)}
+          {comparisonRow('tasks', zh ? '工作任务' : 'Daily tasks', page => <Items page={page} copyKeys={CAREER_COMPARE_ROWS[0].copyKeys} />)}
+          {comparisonRow('us_pay', zh ? '美国薪资参考' : 'U.S. salary reference', page => <Salary page={page} metricKey="us_pay" />, true)}
+          {comparisonRow('china_pay', zh ? '中国大陆薪资参考' : 'Mainland China salary reference', page => <Salary page={page} metricKey="china_pay" />, true)}
+          {CAREER_COMPARE_ROWS.slice(1).map(row => comparisonRow(row.key, row[locale], page => <Items page={page} copyKeys={row.copyKeys} />))}
+          {comparisonRow('sources', zh ? '来源与完整档案' : 'Sources and full profile', page => <>
+            <Link className={styles.profileLink} href={`/${locale}/career/jobs/${page.content.subject.canonicalSlug}`}>{zh ? '核对完整职业档案' : 'Read the full career profile'}</Link>
+            <div className={styles.items}>{page.content.sources.map(source => <div key={source.id} className={styles.item}>
+              {source.publisher && source.name !== source.publisher ? <p className={styles.itemTitle}>{source.name}</p> : null}
+              <CareerEvidenceLine content={page.content} sourceRefs={[source.id]} className={styles.evidence} />
+              {source.evidenceType && source.scope ? <p className={styles.evidence}>{source.scope}</p> : null}
+              {source.limitation ? <p className={styles.evidence}>{source.limitation}</p> : null}
+            </div>)}</div>
+          </>)}
         </tbody>
       </table>
+      </div>
+      {showPilotWorksheet ? <div className={styles.trial}>
+        <p><strong>同一只水杯，两种设计任务</strong><span>画杯盖草图，或做一张清洗说明海报。</span></p>
+        <a href="#career-compare-worksheet">开始 15 分钟小试做 <span aria-hidden="true">↓</span></a>
+      </div> : null}
       {showPilotWorksheet ? <CareerCompareWorksheet /> : null}
-      <aside className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7">
-        <h2 className="text-lg font-semibold">{zh ? '下一步：找到一项差异，保留一个待核问题' : 'Next: identify one difference and one open question'}</h2>
-        <p>{zh ? '根据上表说清两种职业的一项任务差异，再选一个当地真实岗位核对工作环境、作品要求或执业资格。资格边界因地区与岗位而异；职业平均薪资不代表你的收入，跨地区、年份或统计口径不能直接排序。' : 'Use the table to explain one task difference, then check a real local vacancy for its work setting, portfolio requirements or practice credentials. Credential rules vary by place and role. Occupational pay is not your expected income; different regions, years or measures cannot be ranked directly.'}</p>
-        <p className="mt-3"><Link href={`/${locale}/holland-test/pdf-download#my-worksheet`} className="inline-flex min-h-11 items-center font-semibold text-teal-800 underline">{zh ? '填写我的职业探索记录' : 'Fill in my career exploration record'}</Link>{zh ? '，记下一项任务差异、一个待核条件和下一步试做。' : ' to record one task difference, one open question and one activity to try next.'}</p>
-        <p className="mt-3">{zh ? '考虑在这两个职业之间转行？' : 'Considering a move between these careers? '}<Link href={`/${locale}/career/guides/career-transition-playbook`} className="inline-flex min-h-11 items-center font-semibold text-teal-800 underline">{zh ? '使用职业转行指南' : 'Use the career transition playbook'}</Link>{zh ? '，先区分可迁移的工作证据、技术缺口和入行要求，再选择培训。' : ' to separate transferable work evidence, technical gaps and entry requirements before choosing training.'}</p>
-        <p>{zh ? '本工具不保存你的判断或私人文字。尚未提供的信息保持未知。' : 'This tool does not store your conclusions or private notes. Missing evidence remains unknown.'}</p>
+      <aside className="mt-8 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-700">
+        <h2 className="mb-2 text-lg font-bold text-slate-900">{zh ? '接下来，找一条真实招聘核对' : 'Next, check a real job posting'}</h2>
+        <p>{zh ? '选一个你在意的差异，用当地招聘信息核对任务、作品要求或资格。比较薪资时，请先核对地区、年份和统计口径。' : 'Pick a difference you care about and check local postings for tasks, portfolio requirements or credentials. Before comparing pay, check the region, year and measure.'}</p>
+        <div className="mt-2 flex flex-wrap gap-x-5">
+          <Link href={`/${locale}/holland-test/pdf-download#my-worksheet`} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{zh ? '填写我的职业探索记录' : 'Fill in my career exploration record'}</Link>
+          <Link href={`/${locale}/career/guides/career-transition-playbook`} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{zh ? '使用职业转行指南' : 'Use the career transition playbook'}</Link>
+        </div>
       </aside>
-    </> : null}
+    </div> : null}
   </section>;
 }

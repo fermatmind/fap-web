@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { CareerCompare } from '@/components/career/CareerCompare';
 import { readCareerComparePage } from '@/lib/career/compare';
@@ -30,12 +29,9 @@ export default async function CareerComparePage({ params, searchParams }: {
   const initialReads = pilot ? await Promise.all([
     readCareerComparePage(locale, c1), readCareerComparePage(locale, c2),
   ]) : undefined;
-  return <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 md:py-12 print:min-h-0">
-    <div className="mx-auto max-w-6xl">
-      <Link href={`/${locale}/career`} className="inline-flex min-h-11 items-center text-sm font-semibold text-teal-800 underline">{locale === 'zh' ? '返回职业库' : 'Back to career library'}</Link>
-      <CareerCompare key={pilot ? `${c1}:${c2}` : locale} locale={locale} initialSlots={pilot && initialReads ? [
-        { slug: c1, read: initialReads[0] }, { slug: c2, read: initialReads[1] },
-      ] : undefined} />
-    </div>
+  return <main className="min-h-screen bg-[var(--fm-bg-career-warm)] pb-10 print:min-h-0 print:bg-white">
+    <CareerCompare key={pilot ? `${c1}:${c2}` : locale} locale={locale} initialSlots={pilot && initialReads ? [
+      { slug: c1, read: initialReads[0] }, { slug: c2, read: initialReads[1] },
+    ] : undefined} />
   </main>;
 }

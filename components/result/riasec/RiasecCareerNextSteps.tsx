@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from "@/lib/career/designComparePilot";
+import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_TASKS } from "@/lib/career/designComparePilot";
 import { buttonVariants } from "@/components/ui/button";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
@@ -17,9 +17,20 @@ export function RiasecCareerNextSteps({ locale, activityKeys }: { locale: Locale
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/tests", locale)}>{zh ? "选型Hub：选择适合当前问题的探索工具" : "Assessment hub: choose a tool for your current question"}</Link></li>
     </ol>
     <p>{zh ? "阅读职业档案时，核对日常任务、工作环境、技能证据和资格要求，并查看来源的地区、年份与限制。以下三个职业用于示范如何阅读资料，由你判断是否值得探索；三字代码不能判定你是否胜任某个职业。" : "In a career profile, check daily tasks, work setting, skill evidence and qualifications, including each source’s region, year and limitations. These three roles illustrate how to read profiles. Decide which are worth exploring; a three-letter code cannot establish whether you can do a job."}</p>
+    {showDesignCompare ? <ul className="m-0 list-none divide-y divide-teal-100 rounded-xl border border-teal-200 bg-white px-4">
+      {DESIGN_COMPARE_TASKS.map(career => <li key={career.slug} className="grid gap-1 py-3 sm:grid-cols-[minmax(7rem,1fr)_2fr] sm:gap-4">
+        <p className="font-semibold text-slate-950">{career.name}</p>
+        <div className="min-w-0 text-sm leading-6 text-slate-700">
+          <p>{career.task}</p>
+          <Link className="inline-flex min-h-11 items-center font-semibold text-teal-800 underline underline-offset-4" href={localizedPath(`/career/jobs/${career.slug}`, locale)}>{career.name}职业档案</Link>
+        </div>
+      </li>)}
+    </ul> : null}
     <ul className="list-disc space-y-2 pl-5">
-      <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/industrial-designers", locale)}>{zh ? "工业设计师职业档案" : "Industrial designer profile"}</Link></li>
-      <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/graphic-designers", locale)}>{zh ? "平面设计师职业档案" : "Graphic designer profile"}</Link></li>
+      {showDesignCompare ? null : <>
+        <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/industrial-designers", locale)}>{zh ? "工业设计师职业档案" : "Industrial designer profile"}</Link></li>
+        <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/graphic-designers", locale)}>{zh ? "平面设计师职业档案" : "Graphic designer profile"}</Link></li>
+      </>}
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/architects-except-landscape-and-naval", locale)}>{zh ? "建筑师职业档案" : "Architect profile"}</Link></li>
     </ul>
     {showDesignCompare ? <div className="rounded-lg border border-teal-200 bg-teal-50 p-4 text-slate-950">

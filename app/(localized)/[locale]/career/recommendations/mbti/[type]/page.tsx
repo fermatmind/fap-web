@@ -45,6 +45,7 @@ import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRec
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
 import { isCareerTrustManifestReady } from "@/lib/career/contracts";
+import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_MBTI_EXPLORATION_NOTE, findDesignCareersByMbtiType } from "@/lib/career/designComparePilot";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
 import {
   buildCareerFamilyFrontendUrl,
@@ -323,6 +324,7 @@ export default async function CareerMbtiRecommendationPage({
   ]);
   const matchedJobs = renderState.canRenderMatchedJobs ? filterStableRecommendationMatchedJobs(detail.matchedJobs) : [];
   const displayedMatchedJobs = matchedJobs.slice(0, 5);
+  const designExamples = locale === "zh" ? findDesignCareersByMbtiType(detail.canonicalTypeCode) : [];
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -488,6 +490,20 @@ export default async function CareerMbtiRecommendationPage({
             </div>
           </div>
         </section>
+
+        {designExamples.length > 0 ? (
+          <section id="design-mbti-exploration" className="scroll-mt-24 space-y-4 rounded-3xl border border-slate-200 bg-white p-5 sm:p-6">
+            <h2 className="m-0 text-xl font-semibold text-slate-950">{detail.canonicalTypeCode} 的设计职业探索示例</h2>
+            <p className="m-0 text-sm leading-6 text-slate-600">{DESIGN_MBTI_EXPLORATION_NOTE}</p>
+            {designExamples.map(career => (
+              <div key={career.slug} className="rounded-xl bg-slate-50 p-4">
+                <Link href={buildCareerJobFrontendUrl(locale, career.slug)} className="font-semibold text-[var(--fm-accent)] underline underline-offset-4">{career.name}</Link>
+                <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{career.task} {career.explorationQuestion}</p>
+              </div>
+            ))}
+            <Link href={DESIGN_COMPARE_HREF} className={buttonVariants({ variant: "outline", className: "h-auto min-h-11 whitespace-normal text-center" })}>{DESIGN_COMPARE_LABEL}</Link>
+          </section>
+        ) : null}
 
         <section className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]" data-testid="career-recommendation-v1-top-path">
           <DecisionPathCard

@@ -107,7 +107,10 @@ describe('career comparison public reader', () => {
       searchParams: Promise.resolve({ c1: 'industrial-designers', c2: 'graphic-designers' }),
     }));
     expect(screen.getByTestId('career-compare-table')).toBeInTheDocument();
-    expect(screen.getAllByRole('combobox').map(select => (select as HTMLSelectElement).value)).toEqual(['industrial-designers', 'graphic-designers']);
+    expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: '更换职业' })).not.toBeInTheDocument();
+    expect(screen.getByText('Published task for industrial-designers')).toBeVisible();
+    expect(screen.getByText('Published task for graphic-designers')).toBeVisible();
     expect(screen.queryByText('此槽位为空。')).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '职业小试做' })).toBeInTheDocument();
   });

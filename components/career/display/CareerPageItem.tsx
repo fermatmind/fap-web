@@ -7,7 +7,7 @@ export function CareerPagePlaceholder({locale, data = false}: {locale: Locale; d
   return <p data-nosnippet="true" className="rounded-xl border border-dashed border-[#C7CFDF] bg-[#F7F9FC] px-5 py-4 text-sm text-[#5B6678]">{locale === 'zh' ? (data ? '数据待补充' : '内容待补充') : (data ? 'Data pending' : 'Content pending')}</p>;
 }
 
-export function CareerPageItem({ item, content }: { item: CareerContentV3Item; content: CareerContentV3 }) {
+export function CareerPageItem({ item, content, showFaqAnswers = false }: { item: CareerContentV3Item; content: CareerContentV3; showFaqAnswers?: boolean }) {
   const locale = content.locale;
   const copy = careerContentV3UiCopy(locale);
   const linkLabel = (entity: string) => /^[a-z][a-z0-9]*_[a-z0-9_]+$/.test(entity) || entity === 'path'
@@ -34,14 +34,19 @@ export function CareerPageItem({ item, content }: { item: CareerContentV3Item; c
     ))}</div>;
   }
   if (item.type === "faq") {
-    return <div className="space-y-3">{(item.data.entries as Array<{ id: string; question_key: string; question?: string | null; answer: string }>).map((entry) => (
-      <details key={entry.id} className="group rounded-xl border border-[#E5E9F2] bg-white px-4">
+    return <div className="space-y-3">{(item.data.entries as Array<{ id: string; question_key: string; question?: string | null; answer: string }>).map((entry) => {
+      const question = careerContentV3FaqQuestion(entry, content) ?? (locale === "zh" ? "问题待补充" : "Question pending");
+      if (showFaqAnswers) return <div key={entry.id}>
+        <p className="font-semibold text-[#1A2233]">{question}</p>
+        <p className="text-sm leading-7 text-[#2A3346]">{entry.answer}</p>
+      </div>;
+      return <details key={entry.id} className="group rounded-xl border border-[#E5E9F2] bg-white px-4">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
-          {careerContentV3FaqQuestion(entry, content) ?? (locale === "zh" ? "问题待补充" : "Question pending")}
+          {question}
         </summary>
         <p className="m-0 pb-4 text-sm leading-7 text-[#2A3346]">{entry.answer}</p>
-      </details>
-    ))}</div>;
+      </details>;
+    })}</div>;
   }
   if (item.type === "links") {
     return <ul className="m-0 grid gap-2 p-0 sm:grid-cols-2">{(item.data.entries as Array<{ id: string; entity: string; url: string }>).map((entry) => (
