@@ -1,4 +1,5 @@
 import { isFriendshipDisplayPath } from "@/lib/friendship/routes";
+import { CAREER_INTEREST_PILOTS } from "@/lib/career/explorationPilot";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
@@ -44,6 +45,7 @@ export function traditionalPath(pathname: string): string | null {
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path) || traditionalPracticeRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
+  if (CAREER_INTEREST_PILOTS.some(code => path === `/career/interests/${code}`)) return `/zh-TW${path}`;
   if (path === "/career/compare") return "/zh-TW/career/compare";
   if (path === "/career/industries" || (path.startsWith("/career/industries/")
     && CAREER_DATASET_FAMILY_SLUGS.includes(path.slice("/career/industries/".length)))) return `/zh-TW${path}`;

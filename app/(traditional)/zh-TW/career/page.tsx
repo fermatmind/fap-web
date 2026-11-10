@@ -17,6 +17,8 @@ export default async function TraditionalCareerDirectory({ searchParams }: Props
   return (
     <>
       <nav aria-label="職涯與頁面語言" className="flex flex-wrap gap-5 text-sm">
+        <Link href="/zh-TW/career/interests/ari" className="min-h-11 py-2 underline">ARI 興趣代碼</Link>
+        <Link href="/zh-TW/career/interests/ac" className="min-h-11 py-2 underline">AC 興趣代碼</Link>
         <Link href="/zh-TW/career/guides" className="min-h-11 py-2 underline">職涯指南</Link>
         <Link href="/zh/career" lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
         <Link href="/en/career" lang="en" className="min-h-11 py-2 underline">English</Link>

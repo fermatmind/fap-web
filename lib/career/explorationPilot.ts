@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 const OCCUPATIONS = {
   industrial: {
@@ -91,7 +91,7 @@ export type CareerInterestPilot = Exclude<CareerExplorationPilot, "intj">;
 
 export const CAREER_INTEREST_PILOTS = ["ari", "ac"] as const;
 
-export function careerExplorationPilotPath(locale: Locale, pilot: CareerExplorationPilot): string {
+export function careerExplorationPilotPath(locale: DisplayLocale, pilot: CareerExplorationPilot): string {
   return pilot === "intj"
     ? `/${locale}/career/recommendations/mbti/intj`
     : `/${locale}/career/interests/${pilot}`;

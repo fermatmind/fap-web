@@ -2,6 +2,8 @@ import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import AriPage, { generateMetadata as ariMetadata } from "@/app/(localized)/[locale]/career/interests/ari/page";
 import AcPage, { generateMetadata as acMetadata } from "@/app/(localized)/[locale]/career/interests/ac/page";
+import { TraditionalCareerInterestPage, taiwanCareerInterestMetadata } from "@/components/career/TraditionalCareerInterestPage";
+import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { appendCareerInterestPilotSitemapEntries, buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
@@ -55,6 +57,29 @@ describe("six-page career exploration pilot", () => {
     const props = { params: Promise.resolve({ locale: "zh-TW" }) };
     await expect(ariMetadata(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
     await expect(AcPage(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+  });
+
+  it.each(["ari", "ac"] as const)("serves the Taiwan %s guide without publishing search alternates", (code) => {
+    const entry = `/zh-TW/career/interests/${code}`;
+    expect(traditionalPath(`/en/career/interests/${code}`)).toBe(entry);
+    expect(traditionalEquivalent(entry)).toBeNull();
+    const metadata = taiwanCareerInterestMetadata(code);
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect(metadata.alternates).toEqual({ canonical: entry });
+
+    render(<TraditionalCareerInterestPage code={code} />);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(`霍蘭德 ${code.toUpperCase()} 代碼`);
+    expect(screen.getByRole("link", { name: "简体中文" })).toHaveAttribute("href", `/zh/career/interests/${code}`);
+    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", `/en/career/interests/${code}`);
+    expect(screen.getByRole("link", { name: "填寫免費職涯探索紀錄" })).toHaveAttribute("href", "/zh-TW/holland-test/pdf-download#my-worksheet");
+    for (const job of CAREER_EXPLORATION_PILOT[code].occupations) {
+      expect(screen.getByRole("link", { name: `O*NET ${job.soc}` })).toHaveAttribute("href", `https://www.onetonline.org/link/summary/${job.soc}`);
+      expect(document.querySelector(`a[href="/zh-TW/career/jobs/${job.slug}"]`)).toBeInTheDocument();
+    }
+  });
+
+  it("keeps a Taiwan interest code outside the published pilot unavailable", () => {
+    expect(traditionalPath("/zh-TW/career/interests/ric")).toBeNull();
   });
 
   it("only appends the exact indexable ARI paths to the public sitemap", () => {
