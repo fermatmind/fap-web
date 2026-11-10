@@ -28,7 +28,7 @@
 }
 
 .heroContent { position: relative; max-width: 42rem; margin-inline: auto; }
-.intro h1 {
+.introTitle {
   margin: 0;
   font-size: clamp(1.65rem, 3.7vw, 2.375rem);
   font-weight: 750;

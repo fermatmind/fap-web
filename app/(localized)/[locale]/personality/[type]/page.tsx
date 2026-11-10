@@ -54,7 +54,8 @@ import { resolvePersonalityFallbackProjectionGate } from "@/lib/seo/articlePerso
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
-import { careerExplorationPilotPath } from "@/lib/career/explorationPilot";
+import { PersonalityCareerExploration } from "@/components/career/PersonalityCareerExploration";
+import { personalityCareerItemList, readIntjCareerExamples } from "@/lib/career/personalityCareerExploration";
 
 export const revalidate = 300;
 
@@ -1692,8 +1693,19 @@ export default async function PersonalityDetailPage({
   const trailingProjectionSections = hasV85SectionAuthority
     ? filteredProjectionSections.filter((section) => !V85_LEADING_PROJECTION_SECTION_KEYS.has(section.key))
     : filteredProjectionSections;
-  const renderedLeadingProjectionSections = renderProjectionSections(leadingProjectionSections, locale);
-  const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale);
+  const showIntjCareerExploration = isBaseTypeProjection && detail.routeSlug === "intj" &&
+    fallbackProjectionGate.canRenderCareerOrRecommendationClaims &&
+    filteredProjectionSections.some(section => section.key === "work_style");
+  const careerTitle = locale === "zh" ? "从工作条件选职业方向" : "Compare career options by working conditions";
+  const careerIntro = locale === "zh"
+    ? "如果你喜欢先拆解复杂问题，再用明确的条件检验方案，可以比较三类工作产出：模型、实体原型、视觉说明。选工作时也要看谁定标准、你有多少独立分析的时间，以及反馈和返工有多频繁。"
+    : "If you like breaking down a complex problem and testing a solution against clear constraints, compare three kinds of work: models, physical prototypes, and visual instructions. Ask who sets the criteria, how much time you get to work independently, and how often feedback changes the plan.";
+  const careerCards = showIntjCareerExploration ? await readIntjCareerExamples(locale) : [];
+  const workStyleSupplement = showIntjCareerExploration
+    ? <PersonalityCareerExploration locale={locale} type="INTJ" title={careerTitle} intro={careerIntro} cards={careerCards} designComparison />
+    : undefined;
+  const renderedLeadingProjectionSections = renderProjectionSections(leadingProjectionSections, locale, workStyleSupplement);
+  const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale, workStyleSupplement);
   const renderedV85Sections = renderPersonalitySections(v85Sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
     [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...profileFaqSections],
@@ -1793,6 +1805,9 @@ export default async function PersonalityDetailPage({
       {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
       {fallbackProjectionGate.canRenderPublicSchema && !hasCurrentReaderSections && faqItems.length > 0 ? (
         <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} />
+      ) : null}
+      {careerCards.length > 0 && fallbackProjectionGate.canRenderPublicSchema ? (
+        <JsonLd id="intj-career-exploration-jsonld" data={personalityCareerItemList(careerCards, careerTitle)} />
       ) : null}
       <Breadcrumb
         items={[
@@ -2105,19 +2120,6 @@ export default async function PersonalityDetailPage({
           />
         ) : null}
       </div>
-      {isBaseTypeProjection && detail.routeSlug === "intj" && (
-        <section aria-labelledby="intj-career-exploration" className="space-y-3 rounded-2xl border border-slate-200 bg-white p-5">
-          <h2 id="intj-career-exploration" className="m-0 text-xl font-semibold">
-            {locale === "zh" ? "用真实任务探索 INTJ 工作偏好" : "Explore INTJ work preferences through real tasks"}
-          </h2>
-          <p className="m-0 leading-7 text-slate-700">
-            {locale === "zh" ? "比较产品原型与视觉版式，记录自己更愿意反复修改哪种产出。" : "Compare a product prototype with a visual layout and note which output you would rather revise."}
-          </p>
-          <Link href={`${careerExplorationPilotPath(locale, "intj")}#design-mbti-exploration`} className="font-medium text-[var(--fm-accent)] underline underline-offset-4">
-            {locale === "zh" ? "查看设计职业探索示例" : "Explore the design career examples"}
-          </Link>
-        </section>
-      )}
       <Suspense fallback={null}>
         <PublicTopicEdgeModule
           source={detail.id ? { type: "personality_profile", id: detail.id, locale: toApiLocale(locale) } : null}

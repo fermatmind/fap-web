@@ -11,6 +11,7 @@ import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from '@/lib/career/designCo
 import { CareerRiasecExploreLink } from '@/components/career/CareerRiasecExploreLink';
 import { RiasecCareerNextSteps } from '@/components/result/riasec/RiasecCareerNextSteps';
 import { CareerCompare } from '@/components/career/CareerCompare';
+import { EmbeddedDesignCareerCompare } from '@/components/career/EmbeddedDesignCareerCompare';
 import { CareerCompareWorksheet } from '@/components/career/CareerCompareWorksheet';
 import { hasAnalyticsConsent } from '@/lib/consent/store';
 import { trackCareerToolEvent } from '@/lib/career/toolTracking';
@@ -255,6 +256,26 @@ describe('design comparison pilot', () => {
       ]);
       fireEvent.change(choice, { target: { value: '画出两种杯盖并试握比较' } });
       expect(trackCareerToolEvent).toHaveBeenLastCalledWith('career_worksheet_started', expect.any(Object));
+    } finally { print.mockRestore(); }
+  });
+
+  it('loads the English preset on demand and counts the exercise only after input', async () => {
+    respond();
+    vi.mocked(hasAnalyticsConsent).mockReturnValue(true);
+    const print = vi.spyOn(window, 'print').mockImplementation(() => window.dispatchEvent(new Event('afterprint')));
+    try {
+      render(<EmbeddedDesignCareerCompare locale="en" />);
+      expect(apiClient.getPublic).not.toHaveBeenCalled();
+      fireEvent.click(screen.getByRole('button', { name: 'Open comparison and 15-minute exercise' }));
+      await screen.findByTestId('career-compare-table');
+      expect(apiClient.getPublic).toHaveBeenCalledTimes(2);
+      expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument();
+      fireEvent.click(screen.getByRole('button', { name: 'Print or save worksheet' }));
+      expect(trackCareerToolEvent).toHaveBeenCalledWith('career_worksheet_print_requested', expect.objectContaining({ locale: 'en' }));
+      expect(trackCareerToolEvent).not.toHaveBeenCalledWith('career_worksheet_started', expect.any(Object));
+      const notes = screen.getByLabelText('What did I learn? What do I still need to verify?');
+      fireEvent.change(notes, { target: { value: 'Compare the lid and the visual guide.' } });
+      expect(trackCareerToolEvent).toHaveBeenLastCalledWith('career_worksheet_started', expect.objectContaining({ locale: 'en' }));
     } finally { print.mockRestore(); }
   });
 

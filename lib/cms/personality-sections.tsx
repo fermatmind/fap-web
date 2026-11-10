@@ -2179,7 +2179,8 @@ export function renderTraditionalPersonalityProjectionSections(sections: Persona
 
 export function renderProjectionSections(
   sections: PersonalityProjectionSection[],
-  locale: Locale
+  locale: Locale,
+  workStyleSupplement?: ReactNode
 ): ReactNode[] {
   return normalizeProjectionSections(sections)
     .map((section) => {
@@ -2214,7 +2215,8 @@ export function renderProjectionSections(
         return null;
       }
 
-      return renderSectionCard(section.key, section.title, content, locale, {
+      return renderSectionCard(section.key, section.title, section.key === "work_style" && workStyleSupplement
+        ? <>{content}{workStyleSupplement}</> : content, locale, {
         preserveBackendTitle: sections.some((item) => item.key === "sources_and_method"),
       });
     })

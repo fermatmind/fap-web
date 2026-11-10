@@ -5,6 +5,9 @@
   :global(body:has([data-worksheet-print]) *:not(:has([data-worksheet-print])):not([data-worksheet-print]):not([data-worksheet-print] *)) { display: none !important; }
   :global(body:has([data-worksheet-print])) { background: white !important; color: black !important; }
   :global(body:has([data-worksheet-print]) main) { max-width: none !important; padding: 0 !important; }
+  :global([data-testid="personality-detail-v85-reading-layout"]:has(#intj-career-exploration [data-worksheet-print])) { display: block !important; }
+  :global(#intj-career-exploration:has([data-worksheet-print])),
+  :global(#intj-design-comparison:has([data-worksheet-print])) { margin: 0 !important; padding: 0 !important; border: 0 !important; }
   .shell { border: 0 !important; padding: 0 !important; margin: 0 !important; background: white !important; max-width: none !important; }
   .printRecord { display: block; color: black; page: worksheet-record; font-size: 11pt; line-height: 1.5; }
   .printRecord h2 { font-size: 18pt; font-weight: 700; margin: 0 0 12pt; }

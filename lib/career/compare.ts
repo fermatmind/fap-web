@@ -1,5 +1,5 @@
 import { apiClient } from '@/lib/api-client';
-import { CAREER_DETAIL_PROJECTION_CACHE_VERSION } from '@/lib/career/api/fetchCareerJobBundle';
+import { careerDetailCacheTag, CAREER_DETAIL_PROJECTION_CACHE_VERSION, CAREER_DETAIL_REVALIDATE_SECONDS } from '@/lib/career/api/fetchCareerJobBundle';
 import type { CareerJobBundleResponseRaw } from '@/lib/career/api/types';
 import { isAuthoritativePublicAbsence } from '@/lib/public-content/readError';
 import { CAREER_PAGE_CONTRACT, normalizeCareerPage, careerPageHasPublicBody, validateCareerPageAuthority, type CareerPage } from '@/lib/career/careerPage';
@@ -17,13 +17,26 @@ export function isCareerCompareSlug(slug: string): boolean {
 export type CompareRead = { state: 'ready'; page: CareerPage } | { state: 'missing' | 'empty' | 'error' };
 export async function readCareerComparePage(locale: DisplayLocale, slug: string): Promise<CompareRead> {
   if (!isCareerCompareSlug(slug)) return { state: 'missing' };
+  return readPublishedCareerTaskPage(locale, slug);
+}
+
+export async function readPublishedCareerTaskPage(
+  locale: DisplayLocale,
+  slug: string,
+  readMode: 'fresh' | 'server-cache' = 'fresh',
+): Promise<CompareRead> {
   try {
     const query = new URLSearchParams({ locale: locale === "zh-TW" ? locale : toApiLocale(locale), projection_contract: CAREER_DETAIL_PROJECTION_CACHE_VERSION });
     // Same published reader, with browser-safe no-store semantics. The detail
     // SSR helper's authored Cache-Control/Pragma headers fail CORS preflight.
     const envelope = await apiClient.getPublic<CareerJobBundleResponseRaw>(
       `/v0.5/career/jobs/${encodeURIComponent(slug)}?${query}`,
-      { locale, skipAuth: true, timeoutMs: 12_000, cache: 'no-store' },
+      {
+        locale, skipAuth: true, timeoutMs: 12_000,
+        ...(readMode === 'server-cache'
+          ? { next: { revalidate: CAREER_DETAIL_REVALIDATE_SECONDS, tags: [careerDetailCacheTag(locale, slug)] } }
+          : { cache: 'no-store' as const }),
+      },
     );
     if (!envelope) return { state: 'error' };
     const raw = (envelope.data && typeof envelope.data === 'object' ? envelope.data : envelope) as Record<string, unknown>;

@@ -62,7 +62,9 @@ function Salary({ page, metricKey, displayLocale }: { page: CareerPage; metricKe
   </>;
 }
 
-export function CareerCompare({ locale, displayLocale = locale, initialSlots }: { locale: Locale; displayLocale?: DisplayLocale; initialSlots?: [Slot, Slot] }) {
+export function CareerCompare({ locale, displayLocale = locale, initialSlots, embedded = false }: {
+  locale: Locale; displayLocale?: DisplayLocale; initialSlots?: [Slot, Slot]; embedded?: boolean;
+}) {
   const zh = locale === 'zh';
   const traditional = displayLocale === 'zh-TW';
   const copy = compareCopy(displayLocale);
@@ -76,7 +78,7 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
   const succeeded = pages.every(Boolean) && slots[0].slug !== slots[1].slug;
   const [editing, setEditing] = useState(!succeeded);
 
-  const showPilotWorksheet = zh && succeeded && isDesignComparePair(slots[0].slug, slots[1].slug);
+  const showPilotWorksheet = (zh || embedded) && succeeded && isDesignComparePair(slots[0].slug, slots[1].slug);
 
   useEffect(() => {
     const id = window.location.hash.slice(1);
@@ -133,12 +135,15 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
     { id: 'compare-row-overview', label: copy('工作内容', 'Overview', '工作內容') },
     { id: 'compare-row-tasks', label: copy('工作任务', 'Tasks', '工作任務') },
     { id: 'compare-row-us_pay', label: copy('薪资参考', 'Salary references', '薪資參考') },
-    ...(showPilotWorksheet ? [{ id: 'career-compare-worksheet', label: traditional ? '15 分鐘小試作' : '15 分钟小试做' }] : []),
+    ...(showPilotWorksheet ? [{ id: 'career-compare-worksheet', label: copy('15 分钟小试做', '15-minute exercise', '15 分鐘小試作') }] : []),
     ...CAREER_COMPARE_ROWS.slice(1).map(row => ({ id: `compare-row-${row.key}`, label: row[displayLocale] })),
     { id: 'compare-row-sources', label: copy('来源与档案', 'Sources and profiles', '來源與資料') },
   ];
   const selectedNames = slots.map((slot, index) => pages[index]?.content.subject.name
     ?? CAREER_COMPARE_OPTIONS.find(option => option.slug === slot.slug)?.[displayLocale]);
+
+  const IntroHeading = embedded ? 'h4' : 'h1';
+  const ResultsHeading = embedded ? 'h4' : 'h2';
 
   return <section className={styles.root} data-testid="career-compare">
     <header className={styles.intro}>
@@ -147,7 +152,7 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
         <div className={styles.artRight}><PanelsTopLeft strokeWidth={1.25} /><Sparkles strokeWidth={1.5} /></div>
       </div>
       <div className={styles.heroContent}>
-        <h1>{copy('比较两个职业', 'Compare two careers', '比較兩個職業')}</h1>
+        <IntroHeading className={styles.introTitle}>{copy('比较两个职业', 'Compare two careers', '比較兩個職業')}</IntroHeading>
         <p>{preset || succeeded
           ? (copy('并排了解工作任务、薪资和入行要求。', 'See daily tasks, pay, and entry requirements side by side.', '並排查看工作任務、薪資和入行要求。'))
           : (copy('从三个设计职业中选两个，对照它们的日常任务与入行要求。', 'Choose two of the three design careers to compare their daily work and entry requirements.', '從三個設計職業中選兩個，對照日常任務與入行要求。'))}</p>
@@ -182,15 +187,15 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
     </div> : null}
     <p role="status" aria-live="polite" className={notice ? styles.status : 'sr-only'}>{notice || (succeeded ? (copy('两个职业已就绪。', 'Both careers are ready.', '兩個職業的資料已就緒。')) : '')}</p>
     {succeeded ? <div className={styles.comparisonLayout}>
-      <h2 id="career-compare-table-title" className={styles.resultsTitle}>
+      <ResultsHeading id="career-compare-table-title" className={styles.resultsTitle}>
         {copy('比较结果', 'Comparison results', '比較結果')}
-      </h2>
+      </ResultsHeading>
       <nav className={styles.sectionNav} aria-label={copy('职业对比目录', 'Comparison contents', '職業比較目錄')}>
         <ul className={styles.navLinks}>
           {sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.label}</a></li>)}
         </ul>
       </nav>
-      {zh && pages.some(page => DESIGN_COMPARE_TASKS.some(career => career.slug === page?.content.subject.canonicalSlug)) ? (
+      {zh && !embedded && pages.some(page => DESIGN_COMPARE_TASKS.some(career => career.slug === page?.content.subject.canonicalSlug)) ? (
         <p className={styles.evidence}>{traditional ? '類型由編輯選作工作方式的探索示例。選擇職業時，請一併考量實際任務與入行條件。' : DESIGN_MBTI_EXPLORATION_NOTE}</p>
       ) : null}
       <div className={styles.result}>
@@ -215,14 +220,14 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
                       <span className={styles.interestDimensions}>{traditional ? design.traditional.dimensions : design.interest.dimensions}</span>
                     </a>
                   </div>
-                  <div className={styles.mbtiExploration}>
+                  {!embedded ? <div className={styles.mbtiExploration}>
                     <span>{traditional ? 'MBTI 探索示例（簡體中文）' : 'MBTI 探索示例'}</span>
                     <ul aria-label={`${name}的 MBTI 探索示例`}>
                       {design.mbtiTypes.map(type => (
                         <li key={type}><Link href={`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`} hrefLang={traditional ? 'zh-CN' : undefined}>{type}</Link></li>
                       ))}
                     </ul>
-                  </div>
+                  </div> : null}
                 </> : null}
               </th>;
             })}
@@ -252,18 +257,18 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
       </table>
       </div>
       {showPilotWorksheet ? <div className={styles.trial}>
-        <p><strong>{traditional ? '同一個水杯，兩種設計任務' : '同一只水杯，两种设计任务'}</strong><span>{traditional ? '畫杯蓋草圖，或做一張清洗說明海報。' : '画杯盖草图，或做一张清洗说明海报。'}</span></p>
-        <a href="#career-compare-worksheet">{traditional ? '開始 15 分鐘小試作' : '开始 15 分钟小试做'} <span aria-hidden="true">↓</span></a>
+        <p><strong>{copy('同一只水杯，两种设计任务', 'One cup, two design tasks', '同一個水杯，兩種設計任務')}</strong><span>{copy('画杯盖草图，或做一张清洗说明海报。', 'Sketch a lid or create a cleaning guide.', '畫杯蓋草圖，或做一張清洗說明海報。')}</span></p>
+        <a href="#career-compare-worksheet">{copy('开始 15 分钟小试做', 'Start the 15-minute exercise', '開始 15 分鐘小試作')} <span aria-hidden="true">↓</span></a>
       </div> : null}
-      {showPilotWorksheet ? <CareerCompareWorksheet traditional={traditional} /> : null}
-      <aside className="mt-8 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-700">
+      {showPilotWorksheet ? <CareerCompareWorksheet traditional={traditional} locale={locale} embedded={embedded} /> : null}
+      {!embedded ? <aside className="mt-8 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-700">
         <h2 className="mb-2 text-lg font-bold text-slate-900">{copy('接下来，找一条真实招聘核对', 'Next, check a real job posting', '接下來，找一則實際職缺來核對')}</h2>
         <p>{copy('选一个你在意的差异，用当地招聘信息核对任务、作品要求或资格。比较薪资时，请先核对地区、年份和统计口径。', 'Pick a difference you care about and check local postings for tasks, portfolio requirements or credentials. Before comparing pay, check the region, year and measure.', '選一項你在意的差異，用當地職缺資訊核對工作任務、作品要求或資格。比較薪資時，請先核對地區、年份與統計口徑。')}</p>
         <div className="mt-2 flex flex-wrap gap-x-5">
           <Link href={`/${displayLocale}/holland-test/pdf-download#my-worksheet`} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{copy('填写我的职业探索记录', 'Fill in my career exploration record', '填寫我的職涯探索記錄')}</Link>
           <Link href={`/${displayLocale}/career/guides/career-transition-playbook`} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{copy('使用职业转行指南', 'Use the career transition playbook', '使用職涯轉換指南')}</Link>
         </div>
-      </aside>
+      </aside> : null}
     </div> : null}
   </section>;
 }
