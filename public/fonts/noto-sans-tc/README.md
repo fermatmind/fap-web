@@ -10,4 +10,4 @@ The original variable font SHA-256 is `864727d210d54f2537bbe23b3a839436c3992af72
 
 `archetype-questionnaire-700.ttf` uses the same source and OFL license. Its saved cmap covers the 604 selected characters in the public Taiwan archetype cards, the two local fantasy card templates and printable ASCII.
 
-`practice-questionnaire-700.ttf` uses the same source and OFL license. Its saved cmap covers all 842 selected characters in the public Taiwan practice cards and printable ASCII.
+`practice-questionnaire-700.ttf` uses the same source and OFL license. Its saved cmap covers all 895 selected characters in the public Taiwan practice cards and printable ASCII.

@@ -26,6 +26,11 @@ const practiceProfiles: Readonly<Record<string, readonly string[]>> = {
   "word-skills": ["paragraphs-and-formatting", "styles-and-structure", "sections-and-tables", "fields-and-mail-merge", "review-and-templates"],
   "excel-skills": ["formulas-and-references", "conditions-and-lookup", "data-handling", "presentation-and-summaries"],
   "financial-accounting": ["entries", "income", "balance", "accrual", "depreciation", "working-capital"],
+  "ai-literacy": ["models-and-data", "prompts-and-tools", "checking-outputs", "privacy-and-judgement"],
+  "communication-adaptability": ["audience-purpose-review", "channel-record-review", "context-access-review", "understanding-review", "communication-modes-review"],
+  "personal-finance-literacy": ["budget-and-spending", "saving-and-risk", "pay-and-benefits"],
+  "problem-solving-critical-thinking": ["problem-steps", "decision-tools", "review-and-learning"],
+  "project-management": ["scope-and-change", "schedule-and-capacity", "risk-and-response", "communication-and-decisions", "budget-and-quantities"],
 };
 
 export const traditionalPracticeSlugs = Object.keys(practiceProfiles);

@@ -1,3 +1,7 @@
+import { aiLiteracyLandingReferences } from "@/components/questionnaires/AiLiteracyLandingEditorial";
+import { communicationAdaptabilityLandingReferences } from "@/components/questionnaires/CommunicationAdaptabilityLandingEditorial";
+import { personalFinanceLandingReferences } from "@/components/questionnaires/PersonalFinanceLandingEditorial";
+import { problemSolvingLandingReferences } from "@/components/questionnaires/ProblemSolvingLandingEditorial";
 import { germanLandingReferences } from "@/components/questionnaires/GermanLandingEditorial";
 import { spatialReasoningLandingReferences } from "@/components/questionnaires/SpatialReasoningLandingEditorial";
 import { numericalReasoningLandingReferences } from "@/components/questionnaires/NumericalReasoningLandingEditorial";
@@ -10,7 +14,7 @@ import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { scorePracticeQuestionnaire } from "@/lib/questionnaires/practice";
-import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
+import { prepareQuestionnaireResultReadings, prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
 
 const editions = [
   ["attention-to-detail", 24, 4],
@@ -40,10 +44,19 @@ const editions = [
   ["word-skills", 25, 5],
   ["excel-skills", 24, 4],
   ["financial-accounting", 24, 6],
+  ["ai-literacy", 20, 4],
+  ["communication-adaptability", 30, 5],
+  ["personal-finance-literacy", 23, 3],
+  ["problem-solving-critical-thinking", 30, 3],
+  ["project-management", 30, 5],
 ] as const;
 
 describe("Traditional practice editions", () => {
   it.each([
+    ["ai-literacy", aiLiteracyLandingReferences],
+    ["communication-adaptability", communicationAdaptabilityLandingReferences],
+    ["personal-finance-literacy", personalFinanceLandingReferences],
+    ["problem-solving-critical-thinking", problemSolvingLandingReferences],
     ["german-proficiency", germanLandingReferences],
     ["abstract-reasoning", abstractReasoningLandingReferences],
     ["numerical-reasoning", numericalReasoningLandingReferences],
@@ -108,6 +121,17 @@ describe("Traditional practice editions", () => {
       expect(target.options.map(item => tokens(item.label.zh))).toEqual(source.options.map(item => tokens(item.label.zh)));
       expect(target.correctOptionId).toBe(source.correctOptionId);
     }
+  });
+
+  it("keeps the reviewed A/B order and time limits in the problem-solving explanation", async () => {
+    const original = await loadQuestionnaire("problem-solving-critical-thinking");
+    const entry = await loadTraditionalPractice("problem-solving-critical-thinking");
+    if (!original || !entry) throw new Error("Missing problem-solving practice");
+    const reviewed = prepareQuestionnaireResultReadings(original).questions.find(item => item.id === "PROBLEM_15");
+    const question = entry.quiz.questions.find(item => item.id === "PROBLEM_15");
+    expect(question?.explanation?.en).toBe(reviewed?.explanation?.en);
+    expect(question?.explanation?.zh).toMatch(/B 方案.*55 分鐘.*10 分鐘.*A 方案.*65 分鐘/u);
+    expect(question?.correctOptionId).toBe(reviewed?.correctOptionId);
   });
 
   it("keeps the authoritative Spanish answer and corrects the distractor named in both explanations", async () => {

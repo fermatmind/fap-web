@@ -1194,11 +1194,11 @@
     "problem-solving-critical-thinking": {
       "title": {
         "sourceHash": "ed6fb1a14c486b2d6f84fc9a0575442fc3aae608a0a2f0c02eba96fad8033ee9",
-        "target": "問題解決與批判性思維測驗"
+        "target": "問題解決與批判思考測驗"
       },
       "description": {
         "sourceHash": "aabf974bd57afa691224548365ae88b8041171745cccac29c790ac47c74a2aa7",
-        "target": "練習界定問題、比較方案、核查證據和復盤。結果附分項得分及逐題解析。"
+        "target": "練習界定問題、比較方案、核查證據和回顧。結果附分項得分及逐題解析。"
       }
     },
     "word-skills": {
@@ -1248,7 +1248,7 @@
       },
       "description": {
         "sourceHash": "a962a525fc5aa984dc855ba1591672ad86cdeb711f1e0fd3003736f859036dd0",
-        "target": "練習理解模型資料、使用提示、核查輸出和判斷隱私界線。答完可逐題復盤。"
+        "target": "練習理解模型資料、使用提示、核查輸出和判斷隱私界線。答完可逐題回顧。"
       }
     },
     "chinese-zodiac": {
@@ -1564,7 +1564,7 @@
     "communication-adaptability": {
       "title": {
         "sourceHash": "fba83f8dd5783f54adc4d526312ffa9c4e6fa075439b9988af43d29caec0d585",
-        "target": "溝通適應性測驗"
+        "target": "溝通適應力測驗"
       },
       "description": {
         "sourceHash": "4268f4d17f055a0426e22b805eb4d45c4adfd49282606a6f0960aea68a1926be",

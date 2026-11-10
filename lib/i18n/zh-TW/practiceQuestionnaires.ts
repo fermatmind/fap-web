@@ -1,3 +1,11 @@
+import { aiLiteracyLandingFaq, aiLiteracyLandingSections, aiLiteracyLandingReferences } from "@/components/questionnaires/AiLiteracyLandingEditorial";
+import { aiLiteracyResultQuestions } from "@/lib/questionnaires/result-content/ai-literacy";
+import { communicationAdaptabilityLandingFaq, communicationAdaptabilityLandingSections, communicationAdaptabilityLandingReferences } from "@/components/questionnaires/CommunicationAdaptabilityLandingEditorial";
+import { personalFinanceLandingFaq, personalFinanceLandingSections, personalFinanceLandingReferences } from "@/components/questionnaires/PersonalFinanceLandingEditorial";
+import { problemSolvingLandingFaq, problemSolvingLandingSections, problemSolvingLandingReferences } from "@/components/questionnaires/ProblemSolvingLandingEditorial";
+import { problemSolvingResultQuestions } from "@/lib/questionnaires/result-content/problem-solving-critical-thinking";
+import { projectManagementLandingFaq, projectManagementLandingSections } from "@/components/questionnaires/ProjectManagementLandingEditorial";
+import { projectManagementResultQuestions } from "@/lib/questionnaires/result-content/project-management";
 import { wordSkillsLandingFaq, wordSkillsLandingSections } from "@/components/questionnaires/WordSkillsLandingEditorial";
 import { excelSkillsLandingFaq, excelSkillsLandingSections } from "@/components/questionnaires/ExcelSkillsLandingEditorial";
 import { financialAccountingLandingFaq, financialAccountingLandingSections } from "@/components/questionnaires/FinancialAccountingLandingEditorial";
@@ -262,6 +270,53 @@ const editions = {
     sections: financialAccountingLandingSections,
     faq: financialAccountingLandingFaq,
   },
+  "ai-literacy": {
+    reading: "ai-literacy",
+    load: () => import("@/lib/questionnaires/result-content/ai-literacy.json"),
+    editorial: "AiLiteracyLandingEditorial",
+    prefix: "aiLiteracy",
+    sections: aiLiteracyLandingSections,
+    faq: aiLiteracyLandingFaq,
+    references: aiLiteracyLandingReferences,
+    prepareQuestions: aiLiteracyResultQuestions,
+  },
+  "communication-adaptability": {
+    reading: "communication-adaptability",
+    load: () => import("@/lib/questionnaires/result-content/communication-adaptability.json"),
+    editorial: "CommunicationAdaptabilityLandingEditorial",
+    prefix: "communicationAdaptability",
+    sections: communicationAdaptabilityLandingSections,
+    faq: communicationAdaptabilityLandingFaq,
+    references: communicationAdaptabilityLandingReferences,
+  },
+  "personal-finance-literacy": {
+    reading: "personal-finance-literacy",
+    load: () => import("@/lib/questionnaires/result-content/personal-finance-literacy.json"),
+    editorial: "PersonalFinanceLandingEditorial",
+    prefix: "personalFinance",
+    sections: personalFinanceLandingSections,
+    faq: personalFinanceLandingFaq,
+    references: personalFinanceLandingReferences,
+  },
+  "problem-solving-critical-thinking": {
+    reading: "problem-solving-critical-thinking",
+    load: () => import("@/lib/questionnaires/result-content/problem-solving-critical-thinking.json"),
+    editorial: "ProblemSolvingLandingEditorial",
+    prefix: "problemSolving",
+    sections: problemSolvingLandingSections,
+    faq: problemSolvingLandingFaq,
+    references: problemSolvingLandingReferences,
+    prepareQuestions: problemSolvingResultQuestions,
+  },
+  "project-management": {
+    reading: "project-management",
+    load: () => import("@/lib/questionnaires/result-content/project-management.json"),
+    editorial: "ProjectManagementLandingEditorial",
+    prefix: "projectManagement",
+    sections: projectManagementLandingSections,
+    faq: projectManagementLandingFaq,
+    prepareQuestions: projectManagementResultQuestions,
+  },
 };
 
 export async function loadTraditionalPractice(slug: string) {
@@ -269,14 +324,14 @@ export async function loadTraditionalPractice(slug: string) {
   const edition = editions[slug as keyof typeof editions];
   const original = await loadQuestionnaire(slug);
   if (!original || !isPracticeConfigurationValid(original)) return null;
-  const quiz = projectStoryCopy(original, `lib/questionnaires/data/${slug}.json`, units);
+  const questions = "prepareQuestions" in edition ? edition.prepareQuestions(original.questions) : original.questions;
+  const quiz = projectStoryCopy({ ...original, questions }, `lib/questionnaires/data/${slug}.json`, units);
   const { default: source } = await edition.load();
   const readings: Record<string, QuestionnaireSection[]> = projectStoryCopy(source, `lib/questionnaires/result-content/${edition.reading}.json`, units);
   const root = `components/questionnaires/${edition.editorial}.ts/${edition.prefix}Landing`;
   return {
     quiz: {
       ...quiz,
-      questions: "prepareQuestions" in edition ? edition.prepareQuestions(quiz.questions) : quiz.questions,
       profiles: quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
         attribute: edition.reading,
         select: (item) => Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item,
