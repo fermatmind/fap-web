@@ -11,6 +11,7 @@ import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from '@/lib/career/designCo
 import { CareerRiasecExploreLink } from '@/components/career/CareerRiasecExploreLink';
 import { RiasecCareerNextSteps } from '@/components/result/riasec/RiasecCareerNextSteps';
 import { CareerCompare } from '@/components/career/CareerCompare';
+import { CareerCompareWorksheet } from '@/components/career/CareerCompareWorksheet';
 import { hasAnalyticsConsent } from '@/lib/consent/store';
 import { trackCareerToolEvent } from '@/lib/career/toolTracking';
 import CompareRoute, { generateMetadata } from '@/app/(localized)/[locale]/career/compare/page';
@@ -230,6 +231,31 @@ describe('design comparison pilot', () => {
     const link = screen.queryByRole('link', { name: DESIGN_COMPARE_LABEL });
     if (enabled) expect(link).toHaveAttribute('href', DESIGN_COMPARE_HREF);
     else expect(link).not.toBeInTheDocument();
+  });
+
+  it.each([
+    [false, '打印 / 保存试做表', '我准备试做什么？'],
+    [true, '列印 / 儲存試作表', '我準備試作什麼？'],
+  ] as const)('keeps closing the print dialog separate from starting the worksheet (traditional: %s)', (traditional, printLabel, choiceLabel) => {
+    vi.mocked(hasAnalyticsConsent).mockReturnValue(true);
+    const print = vi.spyOn(window, 'print').mockImplementation(() => window.dispatchEvent(new Event('afterprint')));
+    try {
+      render(<CareerCompareWorksheet traditional={traditional} />);
+      const button = screen.getByRole('button', { name: printLabel });
+      const choice = screen.getByLabelText(choiceLabel);
+      fireEvent.click(button);
+      fireEvent.change(choice, { target: { value: ' 水杯 ' } });
+      fireEvent.click(button);
+      expect(print).toHaveBeenCalledTimes(2);
+      expect(choice).toHaveValue(' 水杯 ');
+      expect(vi.mocked(trackCareerToolEvent).mock.calls.map(call => call[0])).toEqual([
+        'career_worksheet_entered',
+        'career_worksheet_output_requested', 'career_worksheet_print_requested',
+        'career_worksheet_output_requested', 'career_worksheet_print_requested',
+      ]);
+      fireEvent.change(choice, { target: { value: '画出两种杯盖并试握比较' } });
+      expect(trackCareerToolEvent).toHaveBeenLastCalledWith('career_worksheet_started', expect.any(Object));
+    } finally { print.mockRestore(); }
   });
 
   it('starts once after ten non-whitespace characters and records only print intent', async () => {

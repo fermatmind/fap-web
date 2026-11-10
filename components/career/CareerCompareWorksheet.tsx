@@ -48,7 +48,7 @@ export function CareerCompareWorksheet({ traditional = false }: { traditional?: 
   function print() {
     try {
       window.print();
-      start();
+      enter();
       track('career_worksheet_output_requested', 'print');
       track('career_worksheet_print_requested', 'print');
       setStatus(copy('请以浏览器打印或另存为 PDF 的结果为准。取消后可以继续编辑。', '請以瀏覽器列印或另存為 PDF 的結果為準。取消後可以繼續編輯。'));
