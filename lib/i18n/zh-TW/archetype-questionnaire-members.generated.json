@@ -1,0 +1,25 @@
+{
+  "mythical-creature": [
+    "dragon",
+    "phoenix",
+    "unicorn",
+    "griffin",
+    "mermaid",
+    "kraken"
+  ],
+  "what-dog-breed-am-i": [
+    "golden-retriever",
+    "border-collie",
+    "husky",
+    "german-shepherd",
+    "pug",
+    "chihuahua"
+  ],
+  "superpower-test": [
+    "telepathy",
+    "flight",
+    "time-control",
+    "invisibility",
+    "super-strength"
+  ]
+}

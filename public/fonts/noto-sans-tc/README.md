@@ -7,3 +7,5 @@ The original variable font SHA-256 is `864727d210d54f2537bbe23b3a839436c3992af72
 `legacy-story-700.ttf` uses the same original and license. Its saved cmap covers 1,324 characters from the 99 Taiwan story titles, descriptions and public portrait summaries, the card labels and printable ASCII. The public Taiwan story share card is its only consumer.
 
 `changan-history-quiz-700.ttf` uses the same original and license. Its saved cmap covers the 90 distinct characters used by the Taiwan Chang’an card labels, the six names and epithets, and the site address.
+
+`archetype-questionnaire-700.ttf` uses the same source and OFL license. Its saved cmap covers the 504 selected characters in the public Taiwan archetype cards and printable ASCII.

@@ -1,3 +1,5 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
+import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { MoonPhaseComparison } from "./MoonPhaseComparison";
 import { MoonPhaseReveal } from "./MoonPhaseReveal";
 import { BleachReveal } from "./BleachReveal";
@@ -49,6 +51,10 @@ function previewSections(profile: QuestionnaireProfile) {
 }
 
 export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, answers }: { quiz: Questionnaire; result: Extract<ArchetypeResult, { status: "complete" }>; locale: Locale; sampleId?: string; answers?: QuestionnaireAnswers }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
+  const localized = traditional && hasTraditionalArchetype(quiz.slug);
+  const displayLocale = localized ? "zh-TW" : locale;
+  const copy = localized ? displayText : (value: string) => value;
   if (hasFantasyArtwork(quiz.slug)) return <FantasyArchetypeReport quiz={quiz} result={result} locale={locale} answers={answers} />;
   if (quiz.slug === "philosopher-personality-test" && !sampleId) return <PhilosopherReport quiz={quiz} result={result} locale={locale} />;
   const zh = locale === "zh";
@@ -65,7 +71,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
   const countsId = sampleId ? `${sampleId}-counts` : "choice-counts";
   const CountHeading = sampleId ? "h4" : "h3";
   const chart = <section className={styles.choiceChart} id={countsId} aria-labelledby={`${countsId}-title`}>
-    <CountHeading id={`${countsId}-title`}>{sampleId ? (zh ? "示例选择次数" : "Sample choice counts") : (zh ? "本次选择次数" : "Choice counts for this attempt")}</CountHeading>
+    <CountHeading id={`${countsId}-title`}>{sampleId ? (zh ? copy("示例选择次数") : "Sample choice counts") : (zh ? copy("本次选择次数") : "Choice counts for this attempt")}</CountHeading>
     <div className={showRadar && !sampleId ? styles.choiceRadarLayout : undefined}>
       {showRadar && !sampleId && <ChoiceRadar quiz={quiz} result={result} />}
       <dl className={styles.choiceRows}>{quiz.directions.map((direction, index) => <div key={direction.id} className={styles.choiceRow} data-archetype-count={direction.id} data-matched={leadingDirections.has(direction.id) || undefined}>
@@ -75,42 +81,42 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
         </dd>}
       </div>)}</dl>
     </div>
-    <p className="text-sm leading-6">{zh ? "分母是这一类选项出现的次数。所有最高计数都保留。计数占比不是相似度，也不是人群排名。" : "The denominator is how often those options appeared. Every highest count is kept. The fraction chosen is neither a similarity score nor a population rank."}</p>
+    <p className="text-sm leading-6">{zh ? copy("分母是这一类选项出现的次数。所有最高计数都保留。计数占比不是相似度，也不是人群排名。") : "The denominator is how often those options appeared. Every highest count is kept. The fraction chosen is neither a similarity score nor a population rank."}</p>
   </section>;
   if (sampleId) return <div className="space-y-4">
     <ul className="space-y-2">
       {matched.map(profile => <li key={profile.id}>
-        <Link prefetch={false} href={questionnaireGuidePath(locale, quiz.slug, profile.id)} className="flex min-h-11 items-center gap-3 font-semibold underline underline-offset-4">
+        <Link prefetch={false} href={questionnaireGuidePath(displayLocale, quiz.slug, profile.id)} className="flex min-h-11 items-center gap-3 font-semibold underline underline-offset-4">
           <Portrait id={profile.id} className="size-12 shrink-0 rounded-lg" />
           {profile.title[locale]}
         </Link>
       </li>)}
     </ul>
     <details>
-      <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold">{chiikawa ? (zh ? "查看全部选择次数" : "See all choice counts") : (zh ? "查看七项选择次数" : "See all seven choice counts")}</summary>
+      <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold">{chiikawa ? (zh ? copy("查看全部选择次数") : "See all choice counts") : (zh ? copy("查看七项选择次数") : "See all seven choice counts")}</summary>
       {chart}
     </details>
   </div>;
   const counts = placement === "before" || placement === "between" ? chart :
     <details className="border-t border-slate-200 pt-4" data-archetype-counts-details>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{placement
-        ? (zh ? "查看全部选择次数" : "View all choice counts")
-        : (zh ? "为什么得到这些结果？查看全部选择次数" : "Why these results? View all choice counts")}</summary>
-      {placement ? chart : <section className="mt-4" aria-label={zh ? "本次选择次数" : "Choice counts for this attempt"}>
-        <h3 className="text-xl font-semibold">{zh ? "全部结果的本次计数" : "Your counts for every result"}</h3>
+        ? (zh ? copy("查看全部选择次数") : "View all choice counts")
+        : (zh ? copy("为什么得到这些结果？查看全部选择次数") : "Why these results? View all choice counts")}</summary>
+      {placement ? chart : <section className="mt-4" aria-label={zh ? copy("本次选择次数") : "Choice counts for this attempt"}>
+        <h3 className="text-xl font-semibold">{zh ? copy("全部结果的本次计数") : "Your counts for every result"}</h3>
         <dl className="mt-4 space-y-3">{quiz.directions.map(direction => <div key={direction.id} className="flex justify-between gap-4" data-archetype-count={direction.id}>
           <dt>{direction.title[locale]}</dt><dd>{result.counts[direction.id]} / {direction.comparisons}</dd>
         </div>)}</dl>
-        <p className="mt-4 text-sm leading-7">{zh ? "分母是这一类选项出现的次数，不是相似度百分比。所有最高计数都保留；差1次不代表已经验证的显著差异、固定主次型或人群排名。" : "The denominator is how often that result’s options appeared, not a match percentage. Every highest count is kept. One extra choice is not an established significant difference, a fixed primary or secondary type, or a population rank."}</p>
+        <p className="mt-4 text-sm leading-7">{zh ? copy("分母是这一类选项出现的次数，不是相似度百分比。所有最高计数都保留；差1次不代表已经验证的显著差异、固定主次型或人群排名。") : "The denominator is how often that result’s options appeared, not a match percentage. Every highest count is kept. One extra choice is not an established significant difference, a fixed primary or secondary type, or a population rank."}</p>
       </section>}
     </details>;
   return <div className={styles.profileReadings} data-profile-category={quiz.category} data-choice-chart-placement={placement}>
     {quiz.slug === "moon-phase" && <MoonPhaseReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "bleach" && <BleachReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
     {quiz.slug === "space-marine-chapter" && <SpaceMarineChapterReveal quiz={quiz} result={result} locale={locale} answers={answers} />}
-    {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? "下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。" : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
-    {result.profileIds.length > 1 && <p className="leading-7">{zh ? `本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。` : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
-    {placement && matched.length > 1 && <nav className={styles.matchNav} aria-label={zh ? "跳到匹配结果" : "Jump to a match"}>
+    {quiz.slug === "philosopher-personality-test" && <p className="leading-7">{zh ? copy("下面是本次选择对应的原典阅读入口。先读最高项，再比较其他指南；次数不表示你与历史人物有多像，也不代表赞同其全部学说。") : "These are primary-text reading paths associated with your choices. Start with the highest counts, then compare other guides; counts measure neither resemblance to a historical person nor agreement with an entire philosophy."}</p>}
+    {result.profileIds.length > 1 && <p className="leading-7">{zh ? copy(`本次保留${result.profileIds.length}项并列匹配，可以分别阅读；顺序不代表主次。`) : `All ${result.profileIds.length} tied matches are kept. Read each in turn; their order does not imply priority.`}</p>}
+    {placement && matched.length > 1 && <nav className={styles.matchNav} aria-label={zh ? copy("跳到匹配结果") : "Jump to a match"}>
       {matched.map(profile => <a key={profile.id} href={`#animal-title-${profile.id}`}>
         {(edgerunners || chiikawa) && <Portrait id={profile.id} className="mr-2 inline-block size-8 rounded-md align-middle" />}
         {profile.title[locale]}
@@ -123,24 +129,24 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
       const titleId = `animal-title-${id}`;
       const body = (
         <div className={styles.profileBody}>
-          <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
-          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, id)} target={guideInNewTab ? "_blank" : undefined} rel={guideInNewTab ? "noopener" : undefined}>{zh ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately"}{guideInNewTab && (zh ? "（新标签页）" : " (new tab)")}</Link>
+          <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={localized} headingLevel={4} idPrefix={`report-${id}`} mode="result" showHeadline={false} showSummary={false} previewSectionIds={previewSections(profile)} />
+          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, id)} target={guideInNewTab ? "_blank" : undefined} rel={guideInNewTab ? "noopener" : undefined}>{zh ? copy("单独阅读这项结果的完整指南") : "Read this result’s full guide separately"}{guideInNewTab && (zh ? copy("（新标签页）") : " (new tab)")}</Link>
           {quiz.slug === "philosopher-personality-test" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={`/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}-reading`} target="_blank" rel="noopener">
-            {zh ? "预览这份公开阅读指南的分享图（新标签页）" : "Preview this public reading guide’s share card (new tab)"}
+            {zh ? copy("预览这份公开阅读指南的分享图（新标签页）") : "Preview this public reading guide’s share card (new tab)"}
           </a>}
           {quiz.slug === "aura-color" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={auraShareCardPath(locale, id, quiz.version)} target="_blank" rel="noopener">
-            {zh ? "预览该颜色的公开分享图（新标签页）" : "Preview this color’s public share card (new tab)"}
+            {zh ? copy("预览该颜色的公开分享图（新标签页）") : "Preview this color’s public share card (new tab)"}
           </a>}
         </div>
       );
       return <section key={id} aria-labelledby={titleId} data-archetype-match={id} className={styles.profileChapter}>
-        {lead && quiz.slug !== "moon-phase" ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} /> : <header>
+        {lead && quiz.slug !== "moon-phase" ? <PortraitResultLead kind={lead} quiz={quiz} profile={profile} result={result} locale={locale} titleId={titleId} displayText={localized ? displayText : undefined} /> : <header>
           <h3 id={titleId} className="scroll-mt-24 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
           {quiz.slug !== "moon-phase" && <p className={styles.summary}>{profile.summary[locale]}</p>}
         </header>}
         {placement === "between" && index === 0 && counts}
         {quiz.slug === "moon-phase" ? <details data-moon-phase-full-reading open={matched.length === 1}>
-          <summary aria-label={`${profile.title[locale]} · ${zh ? "展开这项完整解读" : "Read this match in full"}`} className="min-h-11 cursor-pointer py-3 font-semibold">{zh ? "展开这项完整解读" : "Read this match in full"}</summary>
+          <summary aria-label={copy(`${profile.title[locale]} · ${zh ? "展开这项完整解读" : "Read this match in full"}`)} className="min-h-11 cursor-pointer py-3 font-semibold">{zh ? copy("展开这项完整解读") : "Read this match in full"}</summary>
           <p className={styles.summary}>{profile.summary[locale]}</p>
           <p className="text-sm leading-7">{profile.headline[locale]}</p>
           {body}

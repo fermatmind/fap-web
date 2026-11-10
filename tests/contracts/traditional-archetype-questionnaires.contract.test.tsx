@@ -1,0 +1,47 @@
+import { cleanup, render, screen } from "@testing-library/react";
+import { afterEach, expect, it } from "vitest";
+import { NextRequest } from "next/server";
+import { ArchetypeQuestionnairePage, traditionalArchetypeMetadata } from "@/components/i18n/zh-TW/ArchetypeQuestionnairePage";
+import { loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import members from "@/lib/i18n/zh-TW/archetype-questionnaire-members.generated.json";
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
+import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
+import { proxy } from "@/proxy";
+
+afterEach(cleanup);
+
+it.each(Object.entries(members))("preserves the true questions, scoring and full public guides for Taiwan %s", async (slug, profileIds) => {
+  const source = (await loadQuestionnaire(slug))!;
+  const quiz = (await loadTraditionalArchetype(slug))!;
+  expect(quiz.profiles.map(profile => profile.id)).toEqual(profileIds);
+  const selected = Object.fromEntries(source.questions.map(question => [question.id, question.options[0].id]));
+  expect(scoreQuestionnaire(quiz, selected)).toEqual(scoreQuestionnaire(source, selected));
+  expect(quiz.questions.map(question => [question.id, ...question.options.map(option => option.id)]))
+    .toEqual(source.questions.map(question => [question.id, ...question.options.map(option => option.id)]));
+  const route = questionnairePath("zh-TW", slug);
+  expect(traditionalPath(questionnairePath("zh", slug))).toBe(route);
+  expect((await proxy(new NextRequest("https://fermatmind.com" + route + "/take"))).status).toBe(200);
+  expect((await proxy(new NextRequest("https://fermatmind.com" + route + "/results/unknown"))).status).toBe(404);
+  expect(await traditionalArchetypeMetadata({ slug })).toMatchObject({ robots: { index: false }, alternates: { canonical: route } });
+
+  render(await ArchetypeQuestionnairePage({ slug }));
+  expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
+  const start = screen.getByRole("button", { name: "開始測驗" }).closest("form");
+  expect(start).toHaveAttribute("action", route + "/take");
+  expect(start?.querySelector('input[name="start"]')).toHaveValue("1");
+  for (const profile of quiz.profiles) {
+    expect(screen.getByRole("link", { name: profile.title.zh })).toHaveAttribute("href", questionnaireGuidePath("zh-TW", slug, profile.id));
+    const original = prepareResultProfile(slug, source.profiles.find(item => item.id === profile.id)!);
+    expect(profile.sections.map(section => [section.id, section.paragraphs.length])).toEqual(original.sections.map(section => [section.id, section.paragraphs.length]));
+    expect(profile.sections.flatMap(section => section.paragraphs.map(paragraph => paragraph.en)))
+      .toEqual(original.sections.flatMap(section => section.paragraphs.map(paragraph => paragraph.en)));
+  }
+  cleanup();
+  const profile = quiz.profiles[0];
+  render(await ArchetypeQuestionnairePage({ slug, profile: profile.id }));
+  expect(screen.getByRole("heading", { name: profile.title.zh })).toBeVisible();
+  expect(screen.getByText(profile.sections.at(-1)!.paragraphs[0].zh)).toBeInTheDocument();
+});

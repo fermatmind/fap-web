@@ -119,24 +119,26 @@ function SymbolMark({ emblem }: { emblem: Emblem }) {
   </svg>;
 }
 
-export function PortraitResultLead({ kind, quiz, profile, result, locale, titleId }: {
+export function PortraitResultLead({ kind, quiz, profile, result, locale, titleId, displayText }: {
   kind: Treatment;
   quiz: Questionnaire;
   profile: QuestionnaireProfile;
   result: Extract<ArchetypeResult, { status: "complete" }>;
   locale: Locale;
   titleId: string;
+  displayText?: (value: string) => string;
 }) {
   const direction = quiz.directions.find(item => profile.directionIds.includes(item.id));
   const count = direction ? result.counts[direction.id] : undefined;
   const zh = locale === "zh";
+  const copy = displayText ?? ((value: string) => value);
   const edition = editions[quiz.slug];
   const showsHeadline = kind !== "house" && profile.headline[locale] !== profile.title[locale] && profile.headline[locale] !== profile.summary[locale];
   const artwork = quiz.slug === "space-marine-chapter" ? chapterPortraitPath(profile.id) : illustratedTests.has(quiz.slug) ? `/images/quiz-portraits/${quiz.slug}/${profile.id}.webp` : undefined;
 
   return <header className={styles.lead} data-portrait-lead={kind} data-portrait-key={profile.id} data-portrait-tone={edition.tone} data-portrait-layout={edition.layout} data-portrait-emblem={edition.emblem} data-portrait-art={artwork ? profile.id : undefined}>
     <div className={styles.intro}>
-      <p className={styles.eyebrow}>{edition.label[locale]}</p>
+      <p className={styles.eyebrow}>{copy(edition.label[locale])}</p>
       <h3 id={titleId} className={styles.title}>{profile.title[locale]}</h3>
       {showsHeadline && <p className={styles.headline}>{profile.headline[locale]}</p>}
       <p className={styles.summary}>{profile.summary[locale]}</p>
@@ -144,8 +146,8 @@ export function PortraitResultLead({ kind, quiz, profile, result, locale, titleI
     {artwork && <Image className={styles.art} src={artwork} width={640} height={640} unoptimized alt="" />}
     {quiz.slug !== "space-marine-chapter" && <QuizResultArtwork slug={quiz.slug} id={profile.id} />}
     {kind === "botanical" ? <PetalMark /> : edition.emblem ? <SymbolMark emblem={edition.emblem} /> : kind !== "symbol" && typeof count === "number" && direction?.comparisons ? <dl className={styles.selection}>
-      <div><dt>{zh ? "本次选中" : "Chosen this time"}</dt><dd>{count}<span> / {direction.comparisons}</span></dd></div>
-      <div><dt>{zh ? "分母" : "Denominator"}</dt><dd>{zh ? "该选项出现次数" : "Times this option appeared"}</dd></div>
+      <div><dt>{zh ? copy("本次选中") : "Chosen this time"}</dt><dd>{count}<span> / {direction.comparisons}</span></dd></div>
+      <div><dt>{zh ? copy("分母") : "Denominator"}</dt><dd>{zh ? copy("该选项出现次数") : "Times this option appeared"}</dd></div>
     </dl> : null}
   </header>;
 }

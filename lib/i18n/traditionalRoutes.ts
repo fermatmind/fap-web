@@ -4,6 +4,7 @@ import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
 import { traditionalLegacyStoryPath } from "./traditionalLegacyStoryPaths";
+import { traditionalArchetypeRoute } from "./traditionalArchetypePaths";
 import { relationshipQuestionnaireRoute } from "./relationshipQuestionnairePaths";
 import { GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
 import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
@@ -40,7 +41,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/pricing") return "/zh-TW/pricing";
   if (isFriendshipDisplayPath(path)) return `/zh-TW${path}`;
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
-  if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
+  if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (path === "/career/compare") return "/zh-TW/career/compare";
   if (path === "/career/industries" || (path.startsWith("/career/industries/")

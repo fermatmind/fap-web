@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { traditionalPath, traditionalEquivalent, TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH } from "@/lib/i18n/traditionalRoutes";
+import { traditionalArchetypeRoute } from "@/lib/i18n/traditionalArchetypePaths";
 import { relationshipQuestionnaireRoute } from "@/lib/i18n/relationshipQuestionnairePaths";
 import { SITE_URL } from "@/lib/site";
 import { ChiikawaReading } from "@/components/i18n/zh-TW/ChiikawaReading";
@@ -19,6 +20,11 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  const archetype = traditionalArchetypeRoute(path.slice("/zh-TW".length));
+  if (archetype) {
+    const { traditionalArchetypeMetadata } = await import("@/components/i18n/zh-TW/ArchetypeQuestionnairePage");
+    return traditionalArchetypeMetadata(archetype);
+  }
   if (relationshipQuestionnaireRoute(path.slice("/zh-TW".length))) {
     const { relationshipQuestionnaireMetadata } = await import("@/components/i18n/zh-TW/RelationshipQuestionnairePage");
     return relationshipQuestionnaireMetadata(path);
@@ -43,6 +49,11 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  const archetype = traditionalArchetypeRoute(path.slice("/zh-TW".length));
+  if (archetype) {
+    const { ArchetypeQuestionnairePage } = await import("@/components/i18n/zh-TW/ArchetypeQuestionnairePage");
+    return <ArchetypeQuestionnairePage {...archetype} />;
+  }
   if (relationshipQuestionnaireRoute(path.slice("/zh-TW".length))) {
     const { RelationshipQuestionnairePage } = await import("@/components/i18n/zh-TW/RelationshipQuestionnairePage");
     return <RelationshipQuestionnairePage path={path} />;
