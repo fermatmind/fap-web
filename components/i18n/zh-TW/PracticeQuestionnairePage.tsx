@@ -43,7 +43,7 @@ function PracticeSections({ sections }: { sections: readonly QuestionnaireSectio
 }
 
 export async function PracticeQuestionnairePage({ slug, take, profile }: PracticeStage) {
-  const { quiz, sections, faq } = await requirePractice(slug);
+  const { quiz, sections, faq, references } = await requirePractice(slug);
   const entry = questionnairePath("zh-TW", slug);
   if (take) return <TraditionalQuestionnaireCopy>
     <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
@@ -103,9 +103,9 @@ export async function PracticeQuestionnairePage({ slug, take, profile }: Practic
         <p>{item.answer.zh}</p>
       </div>)}
     </section>
-    {quiz.references?.length ? <section className="space-y-3">
+    {references.length ? <section className="space-y-3">
       <h2 className="text-2xl font-semibold">參考資料</h2>
-      <ul>{quiz.references.map(item => <li key={item.url}>
+      <ul>{references.map(item => <li key={item.url}>
         <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-block min-h-11 py-2 underline">{item.title.zh}</a>
       </li>)}</ul>
     </section> : null}

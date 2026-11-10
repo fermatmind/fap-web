@@ -1064,7 +1064,7 @@
     "computer-literacy": {
       "title": {
         "sourceHash": "b7ed13a1b4422a0d35ee3fe7d5ba91e0b1e602895e62fa20d43a739d612f537e",
-        "target": "計算機素養測驗"
+        "target": "電腦素養測驗"
       },
       "description": {
         "sourceHash": "a3bbfe16c4e0941c026a6ac5b6c81a7b65305cfb7244cabb292c0b54615c4c6a",
@@ -1264,7 +1264,7 @@
     "customer-service-aptitude": {
       "title": {
         "sourceHash": "c0377bed7dca6b37ac544e295bf8294289569d51ac7ca222a510ba9d510acf2f",
-        "target": "客戶服務情景測驗"
+        "target": "客戶服務情境測驗"
       },
       "description": {
         "sourceHash": "34793a5ca102421053a29a9904d79877b310fabd19b025963445eee9f3343d29",
@@ -1394,11 +1394,11 @@
     "digital-ethics-citizenship": {
       "title": {
         "sourceHash": "22b1dd73c5bbb42a7703245ab0873b1e75366895820f9f8d2118a35811f98f48",
-        "target": "數字倫理與公民意識測驗"
+        "target": "數位倫理與公民意識測驗"
       },
       "description": {
         "sourceHash": "7877c977280087eaf5be571e5c4ce833ba867dc4b23fd28eba22ce1d6fa0d4e3",
-        "target": "練習判斷隱私、賬戶安全、網路溝通、AI 資訊和可訪問性情境。結果附逐題解析。"
+        "target": "練習判斷隱私、帳戶安全、網路溝通、AI 資訊和無障礙情境。結果附逐題解析。"
       }
     },
     "number-series": {

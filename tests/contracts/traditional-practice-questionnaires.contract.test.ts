@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import { customerServiceLandingReferences } from "@/components/questionnaires/CustomerServiceLandingEditorial";
+import { digitalCitizenshipLandingReferences } from "@/components/questionnaires/DigitalCitizenshipLandingEditorial";
+import { situationalJudgementLandingReferences } from "@/components/questionnaires/SituationalJudgementLandingEditorial";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
@@ -9,9 +12,28 @@ const editions = [
   ["attention-to-detail", 24, 4],
   ["cybersecurity-awareness", 20, 5],
   ["workplace-technology", 16, 4],
+  ["computer-literacy", 24, 4],
+  ["digital-ethics-citizenship", 30, 5],
+  ["customer-service-aptitude", 24, 4],
+  ["sales-aptitude", 24, 4],
+  ["situational-judgement", 25, 5],
+  ["aptitude-test", 30, 5],
 ] as const;
 
 describe("Traditional practice editions", () => {
+  it.each([
+    ["customer-service-aptitude", customerServiceLandingReferences],
+    ["digital-ethics-citizenship", digitalCitizenshipLandingReferences],
+    ["situational-judgement", situationalJudgementLandingReferences],
+  ] as const)("preserves supplementary source destinations for %s", async (slug, editorialReferences) => {
+    const original = await loadQuestionnaire(slug);
+    const localized = await loadTraditionalPractice(slug);
+    expect(localized?.references.map(item => item.url)).toEqual([
+      ...(original?.references ?? []).map(item => item.url),
+      ...editorialReferences.map(item => item.url),
+    ]);
+  });
+
   it.each(editions)("preserves the published %s bank, answer key and guides", async (slug, count, guideCount) => {
     const original = await loadQuestionnaire(slug);
     const entry = await loadTraditionalPractice(slug);

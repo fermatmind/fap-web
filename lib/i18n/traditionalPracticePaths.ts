@@ -2,6 +2,12 @@ const practiceProfiles: Readonly<Record<string, readonly string[]>> = {
   "attention-to-detail": ["records", "rules", "quantities", "formats"],
   "cybersecurity-awareness": ["phishing", "accounts", "devices", "sharing", "response"],
   "workplace-technology": ["handover", "settings", "shared-work", "work-change"],
+  "computer-literacy": ["files", "browser", "email", "office"],
+  "digital-ethics-citizenship": ["privacy", "security", "information", "communication", "access"],
+  "customer-service-aptitude": ["listening-and-clarifying", "rules-and-resolution", "clear-service-messages", "records-and-follow-through"],
+  "sales-aptitude": ["discovery", "fit", "follow-up", "sales-maths"],
+  "situational-judgement": ["priorities", "ownership", "updates", "permissions", "teamwork"],
+  "aptitude-test": ["numerical", "verbal", "deductive", "patterns", "error-checking"],
 };
 
 export const traditionalPracticeSlugs = Object.keys(practiceProfiles);
