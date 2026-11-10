@@ -1,5 +1,5 @@
 import worksheet from "./riasecWorksheet.json";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 export const WORKSHEET_VERSION = "riasec-exploration-v1";
 // These fields expand the compound prompts in the existing printable template.
@@ -36,18 +36,46 @@ export type WorksheetFormat = "text" | "markdown";
 export function emptyWorksheet(): WorksheetRecord {
   return Object.fromEntries(WORKSHEET_FIELDS.map(([id]) => [id, ""])) as WorksheetRecord;
 }
-export function exampleWorksheet(locale: Locale): WorksheetRecord {
+export function exampleWorksheet(locale: DisplayLocale): WorksheetRecord {
   const record = emptyWorksheet();
   return { ...record,
-    activity1: locale === "zh" ? "合成示例：整理一次小型访谈的笔记" : "Synthetic example: organize notes from a short interview",
-    check: locale === "zh" ? "是否愿意反复整理和分析资料？" : "Would I enjoy organizing and analyzing information repeatedly?",
-    experiment: locale === "zh" ? "用 30 分钟整理一页访谈摘要，再请同伴反馈。" : "Spend 30 minutes on a one-page interview summary and ask a peer for feedback.",
-    cost: locale === "zh" ? "30 分钟；使用现有工具，无新增预算。" : "30 minutes; existing tools, no additional budget.",
-    next: locale === "zh" ? "体验后记录投入感与困难，再决定是否继续。" : "Record engagement and difficulties after the trial, then decide whether to continue.",
+    activity1: locale === "zh-TW" ? "合成示例：整理一次小型訪談的筆記" : locale === "zh" ? "合成示例：整理一次小型访谈的笔记" : "Synthetic example: organize notes from a short interview",
+    check: locale === "zh-TW" ? "是否願意反覆整理和分析資料？" : locale === "zh" ? "是否愿意反复整理和分析资料？" : "Would I enjoy organizing and analyzing information repeatedly?",
+    experiment: locale === "zh-TW" ? "用 30 分鐘整理一頁訪談摘要，再請同伴回饋。" : locale === "zh" ? "用 30 分钟整理一页访谈摘要，再请同伴反馈。" : "Spend 30 minutes on a one-page interview summary and ask a peer for feedback.",
+    cost: locale === "zh-TW" ? "30 分鐘；使用現有工具，無新增預算。" : locale === "zh" ? "30 分钟；使用现有工具，无新增预算。" : "30 minutes; existing tools, no additional budget.",
+    next: locale === "zh-TW" ? "體驗後記錄投入感與困難，再決定是否繼續。" : locale === "zh" ? "体验后记录投入感与困难，再决定是否继续。" : "Record engagement and difficulties after the trial, then decide whether to continue.",
   };
 }
-export function worksheetLabel(field: typeof WORKSHEET_FIELDS[number], locale: Locale): string {
-  return field[locale === "zh" ? 1 : 2];
+const traditionalLabels: Record<WorksheetField, string> = {
+  date: "作答日期",
+  version: "測驗版本",
+  r: "R 實際型",
+  i: "I 研究型",
+  a: "A 藝術型",
+  s: "S 社會型",
+  e: "E 企業型",
+  c: "C 常規型",
+  code: "三字代碼",
+  close: "其他接近的興趣方向",
+  activity1: "喜歡並願意再做的活動 1",
+  activity2: "喜歡並願意再做的活動 2",
+  fits: "符合我經歷的結果",
+  check: "需要新體驗核實的線索",
+  careerA: "候選職業 A",
+  careerB: "候選職業 B",
+  tasks: "願意嘗試的日常任務",
+  skills: "已有技能或作品證據",
+  requirements: "需核對的資格、條件或機會",
+  experiment: "準備嘗試的任務",
+  cost: "時間與可承受成本",
+  evidence: "要留下的作品或回饋",
+  repeat: "願意繼續做什麼",
+  learn: "需要學習或改變的條件",
+  next: "下一步與回顧日期",
+};
+
+export function worksheetLabel(field: typeof WORKSHEET_FIELDS[number], locale: DisplayLocale): string {
+  return locale === "zh-TW" ? traditionalLabels[field[0]] : field[locale === "zh" ? 1 : 2];
 }
 // CommonMark fenced code blocks treat HTML, links, pipes and brackets literally.
 // A fence longer than every backtick run in a value cannot be closed by that value.
@@ -56,9 +84,9 @@ export function markdownLiteral(value: string): string {
   const fence = "`".repeat(Math.max(3, longest + 1));
   return `${fence}\n${value}\n${fence}`;
 }
-export function serializeWorksheet(record: WorksheetRecord, locale: Locale, format: WorksheetFormat, example = false): string {
+export function serializeWorksheet(record: WorksheetRecord, locale: DisplayLocale, format: WorksheetFormat, example = false): string {
   const copy = worksheet[locale];
-  const identity = example ? (locale === "zh" ? "合成填写示例（不是本人记录）" : "Synthetic example (not my record)") : (locale === "zh" ? "本人探索记录" : "My exploration record");
+  const identity = example ? (locale === "zh-TW" ? "合成填寫示例（不是本人記錄）" : locale === "zh" ? "合成填写示例（不是本人记录）" : "Synthetic example (not my record)") : (locale === "zh-TW" ? "本人探索記錄" : locale === "zh" ? "本人探索记录" : "My exploration record");
   const sections = copy.pages.flatMap(page => page.sections);
   const blocks = [copy.title, `${identity} · ${WORKSHEET_VERSION}`, copy.intro];
   sections.forEach((section, index) => {

@@ -15,6 +15,7 @@ from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, PageBreak
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--font", required=True, help="Path to a Unicode TTF with Chinese glyphs")
+    parser.add_argument("--locale", choices=("zh", "en", "zh-TW"), help="Generate only the selected language")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     source = json.loads((root / "lib/marketing/riasecWorksheet.json").read_text())
@@ -23,10 +24,11 @@ def main():
     pdfmetrics.registerFont(TTFont("WorksheetSans", args.font))
     ink = colors.HexColor("#17243A")
 
-    for locale, copy in source.items():
+    for locale in (args.locale,) if args.locale else ("zh", "en"):
+        copy = source[locale]
         target = output / f"fermatmind-career-exploration-{locale}.pdf"
         body = ParagraphStyle("body", fontName="WorksheetSans", fontSize=10, leading=16,
-                              textColor=ink, wordWrap="CJK" if locale == "zh" else None)
+                              textColor=ink, wordWrap="CJK" if locale != "en" else None)
         title = ParagraphStyle("title", parent=body, fontSize=18, leading=25, spaceAfter=12)
         section = ParagraphStyle("section", parent=body, fontSize=12, leading=18, spaceBefore=13, spaceAfter=6)
         small = ParagraphStyle("small", parent=body, fontSize=8, leading=12)

@@ -260,7 +260,7 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots }: 
         <h2 className="mb-2 text-lg font-bold text-slate-900">{copy('接下来，找一条真实招聘核对', 'Next, check a real job posting', '接下來，找一則實際職缺來核對')}</h2>
         <p>{copy('选一个你在意的差异，用当地招聘信息核对任务、作品要求或资格。比较薪资时，请先核对地区、年份和统计口径。', 'Pick a difference you care about and check local postings for tasks, portfolio requirements or credentials. Before comparing pay, check the region, year and measure.', '選一項你在意的差異，用當地職缺資訊核對工作任務、作品要求或資格。比較薪資時，請先核對地區、年份與統計口徑。')}</p>
         <div className="mt-2 flex flex-wrap gap-x-5">
-          <Link href={`/${locale}/holland-test/pdf-download#my-worksheet`} hrefLang={traditional ? "zh-CN" : undefined} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{copy('填写我的职业探索记录', 'Fill in my career exploration record', '填寫我的職涯探索記錄（簡體中文）')}</Link>
+          <Link href={`/${displayLocale}/holland-test/pdf-download#my-worksheet`} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{copy('填写我的职业探索记录', 'Fill in my career exploration record', '填寫我的職涯探索記錄')}</Link>
           <Link href={`/${displayLocale}/career/guides/career-transition-playbook`} className="inline-flex min-h-11 items-center font-semibold text-[var(--fm-accent)] underline underline-offset-4">{copy('使用职业转行指南', 'Use the career transition playbook', '使用職涯轉換指南')}</Link>
         </div>
       </aside>

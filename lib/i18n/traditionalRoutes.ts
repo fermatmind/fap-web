@@ -35,6 +35,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (path === "/support") return "/zh-TW/support";
+  if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;

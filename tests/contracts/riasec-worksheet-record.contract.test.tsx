@@ -1,14 +1,37 @@
+import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { trackCareerToolEvent } from "@/lib/career/toolTracking";
 import { RiasecWorksheet } from "@/components/marketing/RiasecWorksheet";
+import HollandPdfPage, { generateMetadata } from "@/app/(localized)/[locale]/holland-test/pdf-download/page";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { copyWorksheet, emptyWorksheet, markdownLiteral, serializeWorksheet, WORKSHEET_FIELDS } from "@/lib/marketing/riasecWorksheetRecord";
 
 vi.mock("@/lib/career/toolTracking", () => ({ trackCareerToolEvent: vi.fn() }));
 
 const original = '  C2-QA-本人 e\u0301 👩🏽‍🔬\n| [x](javascript:alert(1)) <img src=x onerror=alert(1)> & " \' \\ $\n```\n```````\n最后一行  \n';
 function field(id: string) { return document.querySelector<HTMLTextAreaElement>(`[data-worksheet-field="${id}"]`)!; }
+
+it("delivers the Taiwan worksheet and preserves local notes across display languages", async () => {
+  const pathname = "/zh-TW/holland-test/pdf-download";
+  const params = Promise.resolve({ locale: "zh-TW" });
+  expect(traditionalPath("/zh/holland-test/pdf-download")).toBe(pathname);
+  expect(await generateMetadata({ params })).toMatchObject({ alternates: { canonical: pathname }, robots: { index: false } });
+  render(await HollandPdfPage({ params }));
+  const pdfPath = "/resources/riasec/fermatmind-career-exploration-zh-TW.pdf";
+  expect(screen.getByTestId("riasec-pdf-download")).toHaveAttribute("href", pdfPath);
+  expect(readFileSync(`public${pdfPath}`).subarray(0, 5).toString()).toBe("%PDF-");
+  expect(screen.getByTestId("riasec-result-examples")).toHaveTextContent("分數並列");
+  fireEvent.change(field("experiment"), { target: { value: original } });
+  expect(document.querySelector('[data-print-field="experiment"]')?.textContent).toBe(original);
+  expect(screen.getByRole("textbox", { name: /可手動選取的完整輸出/ })).toHaveValue(serializeWorksheet({ ...emptyWorksheet(), experiment: original }, "zh-TW", "text"));
+  fireEvent.change(screen.getByRole("combobox", { name: "工作表語言" }), { target: { value: "en" } });
+  expect(field("experiment")).toHaveValue(original);
+  expect(localStorage.length).toBe(0);
+  expect(sessionStorage.length).toBe(0);
+  expect(JSON.stringify(vi.mocked(trackCareerToolEvent).mock.calls)).not.toContain("C2-QA");
+});
 
 describe("worksheet output fidelity", () => {
   it.each(["zh", "en"] as const)("retains every optional field including empty values and exact Unicode in %s text", locale => {
