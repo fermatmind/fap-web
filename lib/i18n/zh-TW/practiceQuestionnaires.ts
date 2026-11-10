@@ -1,3 +1,10 @@
+import { englishProficiencyLandingFaq, englishProficiencyLandingSections } from "@/components/questionnaires/EnglishProficiencyLandingEditorial";
+import { englishProficiencyResultQuestions } from "@/lib/questionnaires/result-content/english-proficiency";
+import { germanLandingFaq, germanLandingSections, germanLandingReferences } from "@/components/questionnaires/GermanLandingEditorial";
+import { grammarLandingFaq, grammarLandingSections } from "@/components/questionnaires/GrammarLandingEditorial";
+import { spanishProficiencyLandingFaq, spanishProficiencyLandingSections } from "@/components/questionnaires/SpanishProficiencyLandingEditorial";
+import { spanishProficiencyResultQuestions } from "@/lib/questionnaires/result-content/spanish-proficiency";
+import { spellingLandingFaq, spellingLandingSections } from "@/components/questionnaires/SpellingLandingEditorial";
 import { abstractReasoningLandingFaq, abstractReasoningLandingSections, abstractReasoningLandingReferences } from "@/components/questionnaires/AbstractReasoningLandingEditorial";
 import { logicalReasoningLandingFaq, logicalReasoningLandingSections } from "@/components/questionnaires/LogicalReasoningLandingEditorial";
 import { mechanicalReasoningLandingFaq, mechanicalReasoningLandingSections } from "@/components/questionnaires/MechanicalReasoningLandingEditorial";
@@ -149,6 +156,49 @@ const editions = {
     faq: spatialReasoningLandingFaq,
     references: spatialReasoningLandingReferences,
   },
+  "english-proficiency": {
+    reading: "english-proficiency",
+    load: () => import("@/lib/questionnaires/result-content/english-proficiency.json"),
+    editorial: "EnglishProficiencyLandingEditorial",
+    prefix: "englishProficiency",
+    sections: englishProficiencyLandingSections,
+    faq: englishProficiencyLandingFaq,
+    prepareQuestions: englishProficiencyResultQuestions,
+  },
+  "german-proficiency": {
+    reading: "german-proficiency",
+    load: () => import("@/lib/questionnaires/result-content/german-proficiency.json"),
+    editorial: "GermanLandingEditorial",
+    prefix: "german",
+    sections: germanLandingSections,
+    faq: germanLandingFaq,
+    references: germanLandingReferences,
+  },
+  "grammar-test": {
+    reading: "grammar-test",
+    load: () => import("@/lib/questionnaires/result-content/grammar-test.json"),
+    editorial: "GrammarLandingEditorial",
+    prefix: "grammar",
+    sections: grammarLandingSections,
+    faq: grammarLandingFaq,
+  },
+  "spanish-proficiency": {
+    reading: "spanish-proficiency",
+    load: () => import("@/lib/questionnaires/result-content/spanish-proficiency.json"),
+    editorial: "SpanishProficiencyLandingEditorial",
+    prefix: "spanishProficiency",
+    sections: spanishProficiencyLandingSections,
+    faq: spanishProficiencyLandingFaq,
+    prepareQuestions: spanishProficiencyResultQuestions,
+  },
+  "spelling-test": {
+    reading: "spelling-test",
+    load: () => import("@/lib/questionnaires/result-content/spelling-test.json"),
+    editorial: "SpellingLandingEditorial",
+    prefix: "spelling",
+    sections: spellingLandingSections,
+    faq: spellingLandingFaq,
+  },
 };
 
 export async function loadTraditionalPractice(slug: string) {
@@ -161,10 +211,14 @@ export async function loadTraditionalPractice(slug: string) {
   const readings: Record<string, QuestionnaireSection[]> = projectStoryCopy(source, `lib/questionnaires/result-content/${edition.reading}.json`, units);
   const root = `components/questionnaires/${edition.editorial}.ts/${edition.prefix}Landing`;
   return {
-    quiz: { ...quiz, profiles: quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
-      attribute: edition.reading,
-      select: (item) => Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item,
-    })) },
+    quiz: {
+      ...quiz,
+      questions: "prepareQuestions" in edition ? edition.prepareQuestions(quiz.questions) : quiz.questions,
+      profiles: quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
+        attribute: edition.reading,
+        select: (item) => Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item,
+      })),
+    },
     sections: projectStoryCopy(edition.sections, `${root}Sections`, units),
     faq: projectStoryCopy(edition.faq, `${root}Faq`, units),
     references: [

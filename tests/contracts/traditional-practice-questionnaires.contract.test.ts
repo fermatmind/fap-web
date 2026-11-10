@@ -1,3 +1,4 @@
+import { germanLandingReferences } from "@/components/questionnaires/GermanLandingEditorial";
 import { spatialReasoningLandingReferences } from "@/components/questionnaires/SpatialReasoningLandingEditorial";
 import { numericalReasoningLandingReferences } from "@/components/questionnaires/NumericalReasoningLandingEditorial";
 import { abstractReasoningLandingReferences } from "@/components/questionnaires/AbstractReasoningLandingEditorial";
@@ -27,10 +28,16 @@ const editions = [
   ["verbal-reasoning", 24, 4],
   ["numerical-reasoning", 30, 5],
   ["spatial-reasoning", 30, 5],
+  ["english-proficiency", 24, 4],
+  ["german-proficiency", 28, 4],
+  ["grammar-test", 24, 4],
+  ["spanish-proficiency", 24, 4],
+  ["spelling-test", 24, 4],
 ] as const;
 
 describe("Traditional practice editions", () => {
   it.each([
+    ["german-proficiency", germanLandingReferences],
     ["abstract-reasoning", abstractReasoningLandingReferences],
     ["numerical-reasoning", numericalReasoningLandingReferences],
     ["spatial-reasoning", spatialReasoningLandingReferences],
@@ -44,6 +51,31 @@ describe("Traditional practice editions", () => {
       ...(original?.references ?? []).map(item => item.url),
       ...editorialReferences.map(item => item.url),
     ]);
+  });
+
+  it.each(["english-proficiency", "german-proficiency", "grammar-test", "spanish-proficiency", "spelling-test"])(
+    "keeps the %s answer choices and example words in the language being practiced",
+    async slug => {
+      const original = await loadQuestionnaire(slug);
+      const entry = await loadTraditionalPractice(slug);
+      if (!original || !entry) throw new Error(`Missing edition: ${slug}`);
+      const words = (text: string) => text.match(/[\p{Script=Latin}]+(?:[’'-][\p{Script=Latin}]+)*/gu);
+      for (const [index, source] of original.questions.entries()) {
+        const target = entry.quiz.questions[index];
+        expect(words(target.prompt.zh)).toEqual(words(source.prompt.zh));
+        expect(target.options.map(item => item.label)).toEqual(source.options.map(item => item.label));
+        expect(target.correctOptionId).toBe(source.correctOptionId);
+      }
+    },
+  );
+
+  it("keeps the authoritative Spanish answer and corrects the distractor named in both explanations", async () => {
+    const entry = await loadTraditionalPractice("spanish-proficiency");
+    const original = await loadQuestionnaire("spanish-proficiency");
+    const question = entry?.quiz.questions.find(item => item.id === "SPANISH_08");
+    expect(question?.correctOptionId).toBe(original?.questions.find(item => item.id === "SPANISH_08")?.correctOptionId);
+    expect(question?.explanation?.zh).toContain("C 項");
+    expect(question?.explanation?.en).toContain("Option C");
   });
 
   it.each(editions)("preserves the published %s bank, answer key and guides", async (slug, count, guideCount) => {

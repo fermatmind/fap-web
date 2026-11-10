@@ -834,7 +834,7 @@
     "spelling-test": {
       "title": {
         "sourceHash": "a8b3aab109cdb90cf09c4fdf198672ec39070dc458e828d609a06f183dda421c",
-        "target": "英語拼寫測驗"
+        "target": "英語拼字測驗"
       },
       "description": {
         "sourceHash": "34ef62368326fa2bc2c491690323386f343ea20cfcf60c32118758924e27b854",
@@ -934,11 +934,11 @@
     "english-proficiency": {
       "title": {
         "sourceHash": "65c4bfb6731da4c57a0643e417ef29a99eb10404f049cc9862bd10ee1698c92d",
-        "target": "英語水平測驗"
+        "target": "英語程度測驗"
       },
       "description": {
         "sourceHash": "33901a4e94f988ce73bbec65b387ab002ebbc57e672391f7e3be8ce8b234e481",
-        "target": "練習英語語法、語境詞義、閱讀和實際訊息。不限時，答完可逐題復盤。"
+        "target": "練習英語文法、語境詞義、閱讀和實際訊息。不限時，答完可逐題回顧。"
       }
     },
     "villain-era-archetype-test": {
@@ -974,7 +974,7 @@
     "grammar-test": {
       "title": {
         "sourceHash": "015e82b2f70a3d32b1a9463e435cc34351672de43828f6c8bd8f61f58de67a3e",
-        "target": "英語語法測驗"
+        "target": "英語文法測驗"
       },
       "description": {
         "sourceHash": "aef646deb433c9c9cb564c24f39fed3a58df1c55d1dc38d31c2f30907b6586b8",
@@ -1004,11 +1004,11 @@
     "spanish-proficiency": {
       "title": {
         "sourceHash": "89844502b264d3aae372c4a3b2bb2f56d59d237eac01afadc9db9898a0693f3a",
-        "target": "西班牙語水平測驗"
+        "target": "西班牙語程度測驗"
       },
       "description": {
         "sourceHash": "0e8b2f43e599ecf66a4360c7e1dac75150f8ba71fdf622cf11399152dd2c358f",
-        "target": "用西語題練習語法、語境詞義、閱讀和實際訊息。說明與解析提供中文和英文。"
+        "target": "用西語題練習文法、語境詞義、閱讀和實際訊息。說明與解析提供中文和英文。"
       }
     },
     "apocalypse-survival-type-test": {
@@ -1274,11 +1274,11 @@
     "german-proficiency": {
       "title": {
         "sourceHash": "c064789accf3669c1006142871caa14bdeab1039a9d9a2afec33ad398ddaa6ef",
-        "target": "德語水平測驗"
+        "target": "德語程度測驗"
       },
       "description": {
         "sourceHash": "f43770e16e258eac358d99d7a0906dc8156aa74c597f89840f1492ecc9c43afc",
-        "target": "用德語短文和語法題練習冠詞格、動詞和句式。中英文提供說明與解析。"
+        "target": "用德語短文和文法題練習冠詞格、動詞和句式。中英文提供說明與解析。"
       }
     },
     "zodiac-sign-quiz": {
