@@ -41,7 +41,7 @@ export function QuestionnaireReport({ profile, locale, traditional = false, head
       {headlineVisible && <p className={styles.headline}>{headline}</p>}
       {summaryVisible && <p className={styles.summary}>{summary}</p>}
     </header>}
-    {profile.paletteSwatches && <div><p className="font-semibold">{locale === "zh" ? "本组原创示例色" : "Original colour examples in this palette"}</p><QuestionnairePaletteSwatches swatches={profile.paletteSwatches} locale={locale} /></div>}
+    {profile.paletteSwatches && <div><p className="font-semibold">{traditional ? "本組原創示例色" : locale === "zh" ? "本组原创示例色" : "Original colour examples in this palette"}</p><QuestionnairePaletteSwatches swatches={profile.paletteSwatches} locale={locale} /></div>}
     {mode === "result" ? <>
       {previews.map(section => renderSection(section, true))}
       {/* Unmapped editions retain expanded source until their caller supplies reviewed IDs. */}

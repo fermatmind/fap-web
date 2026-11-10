@@ -2,6 +2,9 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { ArchetypeQuestionnairePage, traditionalArchetypeMetadata } from "@/components/i18n/zh-TW/ArchetypeQuestionnairePage";
+import { colorSeasonLandingReferences } from "@/components/questionnaires/ColorSeasonLandingEditorial";
+import { sakeTypeLandingReferences } from "@/components/questionnaires/SakeTypeLandingEditorial";
+import { everydayMixupsLandingReferences } from "@/components/questionnaires/EverydayMixupsLandingEditorial";
 import { hasFilmEditorial } from "@/components/i18n/zh-TW/FilmQuestionnaireLanding";
 import { archetypeLandingSummary, loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
@@ -32,11 +35,14 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   const { container } = render(await ArchetypeQuestionnairePage({ slug }));
   if (hasFilmEditorial(slug)) {
     const citations = [...container.querySelectorAll(`a[href^="#${slug}-reference-"]`)];
-    if (slug === "euphoria-character-quiz" || !source.references?.length) expect(citations).toHaveLength(0);
+    const references = slug === "color-season" ? colorSeasonLandingReferences
+      : slug === "sake-type" ? sakeTypeLandingReferences
+        : slug === "stupidity-test" ? everydayMixupsLandingReferences : source.references ?? [];
+    if (slug === "euphoria-character-quiz" || !references.length) expect(citations).toHaveLength(0);
     else expect(citations.length).toBeGreaterThan(0);
     for (const link of citations) expect(container.querySelector(link.getAttribute("href")!)).not.toBeNull();
     const destinations = [...container.querySelectorAll(`[id^="${slug}-reference-"] > a`)];
-    expect(destinations.map(link => link.getAttribute("href"))).toEqual((source.references ?? []).map(item => item.url));
+    expect(destinations.map(link => link.getAttribute("href"))).toEqual(references.map(item => item.url));
   }
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   const start = screen.getByRole("button", { name: "開始測驗" }).closest("form");
@@ -116,4 +122,16 @@ it.each(["spirit-animal", "flower"])("uses the current Taiwan %s privacy copy", 
       .toBe("https://americanindian.si.edu/nk360/informational/native-american-spirit-animal");
     expect(container.querySelectorAll("[data-eight-quiz-overview] [data-quiz-artwork]")).toHaveLength(9);
   }
+});
+
+
+it("keeps the six source palette colors and the localized contrast source on Taiwan public guides", async () => {
+  const slug = "color-season";
+  const source = (await loadQuestionnaire(slug))!;
+  const profile = source.profiles[0];
+  const { container } = render(await ArchetypeQuestionnairePage({ slug, profile: profile.id }));
+  const colors = [...container.querySelectorAll("[data-palette-colour]")];
+  expect(colors.map(color => color.getAttribute("data-palette-colour"))).toEqual(profile.paletteSwatches?.map(color => color.hex));
+  expect(screen.getByText("本組原創示例色")).toBeVisible();
+  expect(screen.getByRole("link", { name: /W3C：文字對比說明/ })).toHaveAttribute("href", "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html");
 });

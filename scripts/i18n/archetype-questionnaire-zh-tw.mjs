@@ -63,6 +63,9 @@ const editions = {
   "which-tarot-card-are-you": ["tarot-card", "", "", "data"],
   "spirit-animal": ["spirit-animal", "SpiritAnimal", "spiritAnimal"],
   flower: ["flower", "Flower", "flower", "privacy"],
+  "color-season": ["color-season", "ColorSeason", "colorSeasonLanding", "standalone-references"],
+  "sake-type": ["sake-type", "SakeType", "sakeTypeLanding", "standalone-references"],
+  "stupidity-test": ["stupidity-test", "EverydayMixups", "everydayMixupsLanding", "standalone-references"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -97,15 +100,26 @@ const formerDraftCopy = [
   ["私密选择、可选草稿与分享", "私密选择、答题进度与分享"],
   ["作答、保存与重测", "作答进度与重测"],
   ["或先同意保存", ""],
+  ["页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变", noDraft],
+  ["自愿草稿仅本标签页最多24小时，完成、清除或重测即删", noDraft],
+  ["自愿保存的进度使用本标签页会话存储，24小时后失效，完成、重测或退出并清除时删除", noDraft],
+  ["仅在自愿开启时，本标签页临时保存最多24小时的草稿；完成、重测或退出并清除会删除", noDraft],
+  ["只有主动保存的标签页草稿可在最多24小时内恢复，完成、重测或退出并清除会删除", noDraft],
+  ["只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除", noDraft],
+  ["自愿保存使用本标签页会话存储，最多24小时，完成、重测或退出清除即删除草稿", noDraft],
 ];
+const usesStandaloneCopy = layout => layout === "standalone" || layout === "standalone-references";
 const correctStandaloneCopy = text => formerDraftCopy.reduce((value, [before, after]) => value.replaceAll(before, after), text);
-for (const [slug, [, component, correction, layout]] of Object.entries(editions)) {
-  if (layout === "standalone") {
+for (const [slug, [reading, component, correction, layout]] of Object.entries(editions)) {
+  if (usesStandaloneCopy(layout)) {
     // QuestionnaireTakeDocument opens a fresh in-memory session on every entry.
-    const data = `lib/questionnaires/data/${slug}.json`;
-    correctionSnapshots[data] = read(new URL(data, root));
-    correctedSources[data] = JSON.parse(correctionSnapshots[data], (key, value) =>
-      key === "zh" && typeof value === "string" ? correctStandaloneCopy(value) : value);
+    const files = [`lib/questionnaires/data/${slug}.json`];
+    if (layout === "standalone-references") files.push(`lib/questionnaires/result-content/${reading}.json`);
+    for (const file of files) {
+      correctionSnapshots[file] = read(new URL(file, root));
+      correctedSources[file] = JSON.parse(correctionSnapshots[file], (key, value) =>
+        key === "zh" && typeof value === "string" ? correctStandaloneCopy(value) : value);
+    }
   }
   if (layout !== "summaries" || !correction) continue;
   const editorial = `components/questionnaires/${component}LandingEditorial.ts`;
@@ -153,6 +167,7 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
     ? [["summaries", "summaries"]]
     : layout === "privacy" ? [["privacy", "PrivacyAnswer"]]
       : [["sections", "Sections"], ["faq", "Faq"]];
+  if (layout === "standalone-references") fields.push(["references", "References"]);
   if (!layout) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
   for (const [field, suffix] of fields) {
     const name = layout === "summaries" ? suffix : prefix + suffix;
@@ -164,7 +179,7 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
       throw new Error(`Missing landing profile summaries: ${slug}`);
     }
     for (const [pointer, original] of Object.entries(strings)) {
-      const source = layout === "standalone" ? correctStandaloneCopy(original) : original;
+      const source = usesStandaloneCopy(layout) ? correctStandaloneCopy(original) : original;
       const id = `${slug}/editorial/${field}${pointer}`;
       const sourceHash = digest(JSON.stringify([id, source, artifact.converter, terms]));
       artifact.units[id] = previousUnits[id]?.sourceHash === sourceHash ? previousUnits[id] : { sourceHash, text: convertText(source, terms) };

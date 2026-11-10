@@ -8,9 +8,9 @@ const scenes: Record<string, string> = {
   "sake": "Imagine arranging a fictional community message corner. One card, a short prompt and blank space around it might be enough for the idea. Check whether people can find the prompt, understand they need not write anything and use the space comfortably. Less content is not automatically considerate. A real space would require hearing from its users rather than assuming the quiz label proves their needs have been considered."
 };
 
-export function sakeResultProfile(profile: QuestionnaireProfile): QuestionnaireProfile {
-  if (!Object.hasOwn(content, profile.id)) return profile;
-  const additions = (content as Record<string, QuestionnaireSection[]>)[profile.id];
+export function sakeResultProfile(profile: QuestionnaireProfile, readings: Record<string, QuestionnaireSection[]> = content): QuestionnaireProfile {
+  if (!Object.hasOwn(readings, profile.id)) return profile;
+  const additions = readings[profile.id];
   return { ...profile, sections: profile.sections.map(section => {
     const paragraphs = section.id === "scene" ? section.paragraphs.map((text, index) => index === 0 ? { ...text, en: scenes[profile.id] } : text) : section.paragraphs;
     const addition = additions.find(item => item.id === section.id);

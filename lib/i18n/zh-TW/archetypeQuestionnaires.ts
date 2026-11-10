@@ -1,4 +1,5 @@
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
+import { sakeResultProfile } from "@/lib/questionnaires/result-content/sake-type";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { mergeResultReadingParagraphs, prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
 import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
@@ -68,6 +69,9 @@ const sources = {
   "which-tarot-card-are-you": { name: "tarot-card", load: () => import("@/lib/questionnaires/result-content/tarot-card.json") },
   "spirit-animal": { name: "spirit-animal", type: "動物", en: "animal", load: () => import("@/lib/questionnaires/result-content/spirit-animal.json") },
   flower: { name: "flower", type: "花朵", en: "flower", load: () => import("@/lib/questionnaires/result-content/flower.json") },
+  "color-season": { name: "color-season", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/color-season.json") },
+  "sake-type": { name: "sake-type", attribute: "sake", load: () => import("@/lib/questionnaires/result-content/sake-type.json") },
+  "stupidity-test": { name: "stupidity-test", attribute: "everyday-mixups", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/stupidity-test.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {
@@ -100,7 +104,9 @@ export async function loadTraditionalArchetype(slug: string) {
     zh: `若本次有多個最高匹配，請分別讀各份說明。並列不會合成新的${edition.type}，也不會指定主次。分享公開說明只會開啟通用讀法，且不附個人計數或答案。`,
     en: `If several matches share the highest count, read each separately. A tie creates neither a new ${edition.en} nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers.`,
   } : undefined;
-  const select = "mergeParagraphs" in edition
+  const select = slug === "sake-type"
+    ? (profile: Questionnaire["profiles"][number]) => sakeResultProfile(profile, readings)
+    : "mergeParagraphs" in edition
     ? (profile: Questionnaire["profiles"][number]) => mergeResultReadingParagraphs(profile, readings)
     : (profile: Questionnaire["profiles"][number]) => Object.hasOwn(readings, profile.id)
       ? { ...profile, sections: [...profile.sections, ...readings[profile.id]] }
@@ -109,5 +115,12 @@ export async function loadTraditionalArchetype(slug: string) {
     attribute: "attribute" in edition ? edition.attribute : edition.name,
     select,
     note,
+    references: slug === "color-season" ? [{
+      title: {
+        zh: "W3C：文字對比說明（不驗證配色題本或外觀分析）",
+        en: "W3C: text contrast guidance, not validation of this palette bank or appearance analysis",
+      },
+      url: "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    }] : undefined,
   })) };
 }

@@ -520,5 +520,25 @@
     "lotus",
     "orchid",
     "daisy"
+  ],
+  "color-season": [
+    "spring",
+    "summer",
+    "autumn",
+    "winter"
+  ],
+  "sake-type": [
+    "sparkling-wine",
+    "beer",
+    "whisky",
+    "sake"
+  ],
+  "stupidity-test": [
+    "wrong-target",
+    "wrong-version",
+    "missing-step",
+    "duplicate-step",
+    "mixed-amount",
+    "unspoken-handoff"
   ]
 }

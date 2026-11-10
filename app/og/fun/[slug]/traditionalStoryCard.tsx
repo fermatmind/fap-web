@@ -32,8 +32,11 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     if (slug === "space-marine-chapter") return spaceMarineChapterCard(quiz.profiles, "zh", await archetypeFont, result?.id, true);
     if (slug === "avatar-bender-quiz" || slug === "soldier-poet-king-quiz") return fantasyOpenGraphCard(quiz, "zh", result?.id, await archetypeFont, true);
-    const edition = slug === "male-archetype-test" ? "原創四角色隱喻版" : "原創趣味測驗";
-    return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh, Boolean(result), await archetypeFont, edition);
+    const palette = slug === "color-season";
+    const edition = palette ? "配色偏好測驗" : slug === "male-archetype-test" ? "原創四角色隱喻版" : "原創趣味測驗";
+    const swatches = palette ? result?.paletteSwatches ?? quiz.profiles.flatMap(profile => profile.paletteSwatches?.slice(0, 1) ?? []) : undefined;
+    return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh, Boolean(result), await archetypeFont, edition,
+      palette ? "公開配色指南" : undefined, swatches);
   }
   const quiz = hasTraditionalBespokeStory(slug) ? await loadTraditionalBespokeStory(slug) : (await loadTraditionalLegacyStory(slug))?.quiz;
   const result = quiz && portrait ? findPublicPortrait(quiz, portrait) : undefined;
@@ -47,7 +50,7 @@ function readFont(file: string) {
     .then(bytes => Uint8Array.from(bytes).buffer);
 }
 
-function publicCard(title: string, description: string, result: boolean, fontData: ArrayBuffer, label: string, guideLabel = "公開結果指南") {
+function publicCard(title: string, description: string, result: boolean, fontData: ArrayBuffer, label: string, guideLabel = "公開結果指南", swatches?: readonly { hex: string }[]) {
   return new ImageResponse(
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 64, background: "#f8fafc", color: "#0f172a", fontFamily: "StoryNoto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", color: "#0f766e", fontSize: 29 }}>
@@ -56,6 +59,9 @@ function publicCard(title: string, description: string, result: boolean, fontDat
       <div style={{ display: "flex", flexDirection: "column" }}>
         <span style={{ display: "flex", fontSize: title.length > 18 ? 54 : 66 }}>{title}</span>
         <span style={{ display: "flex", marginTop: 22, color: "#334155", fontSize: 30 }}>{description}</span>
+        {swatches?.length ? <div style={{ display: "flex", gap: 12, marginTop: 22 }}>
+          {swatches.map(swatch => <div key={swatch.hex} style={{ width: 110, height: 56, background: swatch.hex, border: "1px solid #cbd5e1", borderRadius: 4 }} />)}
+        </div> : null}
       </div>
       <div style={{ display: "flex", color: "#0f766e", fontSize: 25 }}>fermatmind.com</div>
     </div>,

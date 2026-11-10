@@ -34,6 +34,9 @@ import { zodiacStoryLandingFaq, zodiacStoryLandingSections } from "@/components/
 import { maleRoleLandingFaq, maleRoleLandingSections } from "@/components/questionnaires/MaleRoleLandingEditorial";
 import { wojakLandingFaq, wojakLandingSections } from "@/components/questionnaires/WojakLandingEditorial";
 import { EightQuizOverview } from "@/components/questionnaires/EightQuizOverview";
+import { colorSeasonLandingFaq, colorSeasonLandingReferences, colorSeasonLandingSections } from "@/components/questionnaires/ColorSeasonLandingEditorial";
+import { sakeTypeLandingFaq, sakeTypeLandingReferences, sakeTypeLandingSections } from "@/components/questionnaires/SakeTypeLandingEditorial";
+import { everydayMixupsLandingFaq, everydayMixupsLandingReferences, everydayMixupsLandingSections } from "@/components/questionnaires/EverydayMixupsLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial, archetypeLandingSummary, archetypePrivacyAnswer } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -95,6 +98,9 @@ const editorials = {
   "socionics": false,
   "which-tarot-card-are-you": false,
   flower: false,
+  "color-season": { sections: colorSeasonLandingSections, faq: colorSeasonLandingFaq, references: colorSeasonLandingReferences },
+  "sake-type": { sections: sakeTypeLandingSections, faq: sakeTypeLandingFaq, references: sakeTypeLandingReferences },
+  "stupidity-test": { sections: everydayMixupsLandingSections, faq: everydayMixupsLandingFaq, references: everydayMixupsLandingReferences },
 } as const;
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
@@ -112,6 +118,8 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
   const { slug } = quiz;
   const editorial = editorials[slug];
   const sections = editorial ? [...quiz.guide, ...archetypeEditorial(slug, "sections", editorial.sections)] : quiz.guide;
+  const references = editorial && "references" in editorial
+    ? archetypeEditorial(slug, "references", editorial.references) : quiz.references;
   const faq = editorial ? [...quiz.faq, ...archetypeEditorial(slug, "faq", editorial.faq)] : quiz.faq;
   return <div className="mx-auto max-w-3xl space-y-8">
     <ExploreTestIntro slug={slug} locale="zh">
@@ -145,9 +153,9 @@ export function FilmQuestionnaireLanding({ quiz, overviewCopy }: { quiz: Questio
           ? archetypePrivacyAnswer(slug) : item.answer.zh} slug={slug} /></p>
       </div>)}
     </section>
-    {quiz.references?.length ? <section className="space-y-3 leading-8">
+    {references?.length ? <section className="space-y-3 leading-8">
       <h2 className="text-2xl font-semibold">來源與補充說明</h2>
-      <ol>{quiz.references.map((item, index) => <li key={item.url} id={`${slug}-reference-${index + 1}`}>
+      <ol>{references.map((item, index) => <li key={item.url} id={`${slug}-reference-${index + 1}`}>
         <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-block min-h-11 py-2 underline">{index + 1}. {item.title.zh}</a>
       </li>)}</ol>
     </section> : null}
