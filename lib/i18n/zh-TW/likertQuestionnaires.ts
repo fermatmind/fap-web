@@ -1,3 +1,4 @@
+import { strengthsSummaries } from "@/components/questionnaires/StrengthsLandingEditorial";
 import { locusLandingFaq, locusLandingSections } from "@/components/questionnaires/LocusLandingEditorial";
 import { socialIntelligenceLandingFaq, socialIntelligenceLandingSections } from "@/components/questionnaires/SocialIntelligenceLandingEditorial";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
@@ -11,6 +12,11 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "character-strengths": {
+    reading: "character-strengths",
+    attribute: "character-strengths",
+    load: () => import("@/lib/questionnaires/result-content/character-strengths.json"),
+  },
   "locus-of-control": {
     reading: "locus-of-control",
     attribute: "locus",
@@ -50,11 +56,14 @@ export async function loadTraditionalLikert(slug: string) {
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
+  const summaries: Record<string, { zh: string; en: string }> = slug === "character-strengths"
+    ? projectStoryCopy(strengthsSummaries, "components/questionnaires/StrengthsLandingEditorial.ts/strengthsSummaries", units)
+    : {};
   if ("editorial" in edition) {
     const editorial = `components/questionnaires/${edition.editorial}LandingEditorial.ts`;
-    return { quiz: { ...quiz, profiles },
+    return { quiz: { ...quiz, profiles }, summaries,
       sections: projectStoryCopy(edition.sections, `${editorial}/${edition.prefix}LandingSections`, units),
       faq: projectStoryCopy(edition.faq, `${editorial}/${edition.prefix}LandingFaq`, units) };
   }
-  return { quiz: { ...quiz, profiles }, sections: [], faq: [] as Questionnaire["faq"] };
+  return { quiz: { ...quiz, profiles }, summaries, sections: [], faq: [] as Questionnaire["faq"] };
 }

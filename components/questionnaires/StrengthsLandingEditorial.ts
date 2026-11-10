@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const strengthsSummaries: Record<string, { zh: string; en: string }> = {
   "appreciation-of-beauty": {
     "zh": "美的欣赏：探索对自然与美的注意和情感反应。通过公共步道的例子，区分感受到美、鉴赏知识和创作技能，并保留没有停下来看的具体条件。",
     "en": "Appreciation of beauty: explore attention and emotional responses to beauty and nature. A public-path example distinguishes feeling moved, art knowledge and creative skill while considering circumstances that leave little time to notice."
@@ -100,7 +100,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function strengthsLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return strengthsSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function strengthsCurrentEntryCopy(text: string, locale: "zh" | "en") {

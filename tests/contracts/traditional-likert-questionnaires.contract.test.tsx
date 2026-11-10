@@ -10,7 +10,7 @@ import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 
 afterEach(cleanup);
 
-it.each(["locus-of-control", "empathy", "social-intelligence-test"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
+it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
   const original = (await loadQuestionnaire(slug))!;
   const { quiz } = (await loadTraditionalLikert(slug))!;
   const identity = (item: typeof original) => item.questions.map(question => [
@@ -46,4 +46,30 @@ it.each(["locus-of-control", "empathy", "social-intelligence-test"])("preserves 
   render(await LikertQuestionnairePage({ slug, take: false, profile: profile.id }));
   expect(screen.getByRole("heading", { level: 1, name: profile.title.zh })).toBeVisible();
   expect(screen.getByText(profile.sections.at(-1)!.paragraphs.at(-1)!.zh, { exact: false })).toBeVisible();
+});
+
+it("keeps all 24 Taiwan character strengths guides public and scores each part independently", async () => {
+  const { quiz, summaries } = (await loadTraditionalLikert("character-strengths"))!;
+  expect(quiz.questions).toHaveLength(96);
+  expect(quiz.profiles).toHaveLength(24);
+  expect(Object.keys(summaries).sort()).toEqual(quiz.profiles.map(profile => profile.id).sort());
+  const first = quiz.questions[0];
+  const answers = Object.fromEntries(quiz.questions.map(question => [question.id, question.id === first.id ? "na" : "3"]));
+  const result = scoreQuestionnaire(quiz, answers);
+  expect(result.status).toBe("complete");
+  if (result.status !== "complete" || !("facets" in result)) throw new Error("Expected individual strength readings");
+  for (const [id, facet] of Object.entries(result.facets)) {
+    if (id === first.options[0].directionId) expect(facet).toMatchObject({ rated: 3, mean: null });
+    else expect(facet).toMatchObject({ rated: 4, mean: 3, sum: 12 });
+  }
+  for (const profile of quiz.profiles) {
+    const guide = questionnaireGuidePath("zh-TW", quiz.slug, profile.id);
+    expect(traditionalPath(guide)).toBe(guide);
+    const { container } = render(await LikertQuestionnairePage({ slug: quiz.slug, take: false, profile: profile.id }));
+    expect(container.querySelector("[data-character-strengths-result-reading]")).toHaveAttribute("data-character-strengths-result-reading", profile.id);
+    expect(container.querySelector("[data-character-mean], [data-character-sum]")).toBeNull();
+    expect(container.querySelector("[data-character-source] a")).toHaveAttribute("href", quiz.references![0].url);
+    expect(container.textContent).toContain(profile.sections.at(-1)!.paragraphs.at(-1)!.zh);
+    cleanup();
+  }
 });

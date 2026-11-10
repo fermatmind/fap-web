@@ -1,3 +1,4 @@
+import { QuestionnaireCharacterSource } from "@/components/questionnaires/QuestionnaireCharacterSource";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -39,7 +40,7 @@ function CitedCopy({ text, slug }: { text: string; slug: string }) {
 }
 
 export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
-  const { quiz, sections, faq } = await requireLikert(slug);
+  const { quiz, sections, faq, summaries } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
   if (take) return <TraditionalQuestionnaireCopy>
     <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
@@ -67,6 +68,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     <h1 className="text-3xl font-bold">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
     <QuestionnaireResultReading quizSlug={slug} profile={result} locale="zh" traditional headingLevel={2} mode="guide" showSummary={false} />
+    {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -83,7 +85,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       <h2 className="text-2xl font-semibold">完整公開結果指南</h2>
       {quiz.profiles.map(item => <div key={item.id} className="rounded-lg border p-4">
         <Link className="inline-block min-h-11 py-2 font-semibold underline" href={questionnaireGuidePath("zh-TW", slug, item.id)}>{item.title.zh}</Link>
-        <p className="leading-7">{item.summary.zh}</p>
+        <p className="leading-7">{summaries[item.id]?.zh ?? item.summary.zh}</p>
       </div>)}
     </section>
     <section className="space-y-5 leading-8">
@@ -100,6 +102,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
         <p><CitedCopy text={item.answer.zh} slug={slug} /></p>
       </div>)}
     </section>
+    {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
     {references}
   </div>;
 }

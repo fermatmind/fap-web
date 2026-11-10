@@ -31,8 +31,12 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
-    const edition = slug === "social-intelligence-test" ? "IPIP-VIA-R 四道自述題" : "IPIP 公有領域題目";
-    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, "公開連續分數指南");
+    const editions: Record<string, string> = {
+      "social-intelligence-test": "IPIP-VIA-R 四道自述題",
+      "character-strengths": "IPIP-VIA-R 96 道自述題",
+    };
+    const edition = editions[slug] ?? "IPIP 公有領域題目";
+    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, slug === "character-strengths" ? "公開性格優勢指南" : "公開連續分數指南");
   }
   if (traditionalPracticeRoute(`/tests/explore/${slug}`)) {
     const item = await loadTraditionalPractice(slug);

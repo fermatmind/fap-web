@@ -13,7 +13,7 @@ export function QuestionnaireResultReading({ quizSlug, profile, locale, traditio
       {reading.references && <ul className={styles.references}>{reading.references.map(reference => <li key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></li>)}</ul>}
     </details> : <>
       {reading.note && <p className="mt-5 text-sm leading-7">{reading.note[locale]}</p>}
-      {reading.references && <aside className={styles.references} aria-label={locale === "zh" ? "参考资料" : "References"}><p className={styles.eyebrow}>{locale === "zh" ? "参考资料" : "References"}</p><ul>{reading.references.map(reference => <li key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></li>)}</ul></aside>}
+      {reading.references && <aside className={styles.references} aria-label={locale === "zh" ? (traditional ? "參考資料" : "参考资料") : "References"}><p className={styles.eyebrow}>{locale === "zh" ? (traditional ? "參考資料" : "参考资料") : "References"}</p><ul>{reading.references.map(reference => <li key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></li>)}</ul></aside>}
     </> : null}
   </div>;
 }
