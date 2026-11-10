@@ -24,7 +24,28 @@ describe("career planning hub", () => {
     expect(careerPlanningExample(example, "en")).toContain("### Review");
     expect(careerPlanningExample(example, "en")).not.toContain("Excluded section");
     expect(careerPlanningExample("## 5.2 完整填写示例：演员与电影视频编辑\n\n事实与未知。\n### 下一步\n继续。\n## 6. 自检清单\n结束", "zh")).toBe("事实与未知。\n### 下一步\n继续。");
+    expect(careerPlanningExample("## 5.2 完整填寫示例：演員與電影影片編輯\n\n已發布示例。\n## 6. 自檢清單\n結束", "zh-TW")).toBe("已發布示例。");
+    expect(careerPlanningExample("## 5.2 完整填写示例：演员\n\n简中正文。", "zh-TW")).toBeNull();
     expect(careerPlanningExample("# Generic old template", "en")).toBeNull();
+  });
+
+  it("renders the Traditional hub with published guides, its worked example and safe links", async () => {
+    const href = "/zh-TW/career/guides/how-to-find-right-career-direction";
+    cms.list.mockResolvedValue([{ slug: "how-to-find-right-career-direction", title: "找方向", summary: "指南摘要", href, category: "career-planning" }]);
+    cms.detail.mockResolvedValue({ bodyMd: "## 5.2 完整填寫示例：職涯比較\n\n繁體教學案例。\n## 6. 自檢清單\n範例外的內容。" });
+    const route = await import("@/app/(traditional)/zh-TW/career/guides/page");
+    const html = renderToStaticMarkup(await route.default());
+    expect(cms.list).toHaveBeenCalledWith("zh-TW", expect.objectContaining({ fresh: true }));
+    expect(cms.detail).toHaveBeenCalledWith("how-to-find-right-career-direction", "zh-TW");
+    expect(html).toContain("繁體教學案例。");
+    expect(html).not.toContain("範例外的內容。");
+    expect(html).toContain(`href="${href}"`);
+    expect(html).not.toContain('href="/zh-TW/career/guides/career-transition-playbook"');
+    expect(html).toContain('href="/zh/holland-test/pdf-download"');
+    expect(html).toContain('href="/en/career/guides"');
+    const metadata = await route.generateMetadata();
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect(metadata.alternates?.canonical).toMatch(/\/zh-TW\/career\/guides$/u);
   });
 
   it.each(["zh", "en"])("keeps three starts, same-language next steps and the CMS example in %s", async (locale) => {
@@ -50,11 +71,13 @@ describe("career planning hub", () => {
     const empty = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale: "en" }) }));
     expect(empty).toContain("No guides are currently published");
     expect(empty).toContain("No complete example is currently published");
+    expect(empty).not.toContain('href="/zh-TW/career/guides"');
     cms.list.mockRejectedValue(new Error("unavailable")); cms.detail.mockRejectedValue(new Error("unavailable"));
     const failed = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale: "en" }) }));
     expect(failed).toContain("The guide list is temporarily unavailable");
     expect(failed).toContain("The example is temporarily unavailable");
     expect(failed).not.toContain("Synthetic teaching case");
+    expect(failed).not.toContain('href="/zh-TW/career/guides"');
   });
 
   it.each(["zh", "en"] as const)("adds one career-test entry to the shared desktop/mobile registry in %s", (locale) => {

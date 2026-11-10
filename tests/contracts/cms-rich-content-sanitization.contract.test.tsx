@@ -197,7 +197,7 @@ describe("CMS rich content sanitization contract", () => {
   it("wires every current CMS HTML sink through the sanitized renderer", () => {
     const sinkFiles = [
       "app/(localized)/[locale]/articles/[slug]/page.tsx",
-      "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
+      "components/content/CareerGuideBody.tsx",
       "components/content-pages/ContentPageTemplate.tsx",
       "components/support/SupportTrustDetailTemplate.tsx",
       "lib/cms/topic-sections.tsx",

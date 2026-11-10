@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { renderToStaticMarkup } from "react-dom/server";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
@@ -82,6 +83,83 @@ describe("career guides cms adapter contract", () => {
     expect(items).toHaveLength(1);
     expect(items[0]?.href).toBe("/zh/career/guides/from-mbti-to-job-fit");
     expect(items[0]?.category).toBe("assessment-usage");
+  });
+
+  it("uses exact Traditional guide identity and related article locale", async () => {
+    const guide = {
+      id: 51, org_id: 0, locale: "zh-TW", is_public: true,
+      slug: "career-review", guide_code: "career-review", title: "職涯回顧", body_md: "繁體正文",
+    };
+    const fetcher = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = new URL(String(input));
+      expect(url.searchParams.get("locale")).toBe("zh-TW");
+      expect(init?.cache).toBe("no-store");
+      if (url.pathname.endsWith("/seo")) {
+        return jsonResponse({ meta: { title: "職涯回顧", robots: "noindex,follow" } });
+      }
+      if (url.pathname.endsWith("/career-review")) {
+        return jsonResponse({ ok: true, guide, related_articles: [
+          { slug: "published-article", locale: "zh-TW", title: "繁體文章" },
+          { slug: "original-article", locale: "zh-CN", title: "简体文章" },
+        ] });
+      }
+      return jsonResponse({ ok: true, items: [guide, { ...guide, id: 52, locale: "zh-CN" }],
+        pagination: { current_page: 1, total: 2, last_page: 1 } });
+    });
+    vi.stubGlobal("fetch", fetcher);
+
+    expect(await listCareerGuidesFromCms("zh-TW")).toMatchObject([
+      { locale: "zh-TW", href: "/zh-TW/career/guides/career-review" },
+    ]);
+    const detail = await getCareerGuideFromCmsBySlug("career-review", "zh-TW");
+    expect(detail).toMatchObject({ locale: "zh-TW", bodyMd: "繁體正文" });
+    expect(detail?.relatedArticles).toMatchObject([
+      { href: "/zh-TW/articles/published-article", title: "繁體文章" },
+    ]);
+    expect((await getCareerGuideSeoFromCmsBySlug("career-review", "zh-TW"))?.meta.title).toBe("職涯回顧");
+    if (!detail) throw new Error("Expected Traditional guide");
+    const normalized = normalizeCareerGuideSeoPayload(null, { ...detail, isIndexable: true }, "zh-TW");
+    expect(normalized.meta.canonical).toMatch(/\/zh-TW\/career\/guides\/career-review$/u);
+    expect(normalized.meta.robots).toBe("noindex,follow");
+    expect(normalized.jsonld).toMatchObject({ inLanguage: "zh-TW" });
+
+    for (const invalid of [{ ...guide, locale: "zh-CN" }, { ...guide, slug: "other-guide" }, { ...guide, is_public: false }]) {
+      fetcher.mockResolvedValueOnce(jsonResponse({ ok: true, guide: invalid }));
+      await expect(getCareerGuideFromCmsBySlug("career-review", "zh-TW")).resolves.toBeNull();
+    }
+  });
+
+  it("renders the Traditional detail from authoritative body and SEO and fails closed on absence", async () => {
+    const title = "職涯回顧";
+    const slug = "career-review";
+    const guide = { id: 2, org_id: 0, is_public: true, locale: "zh-TW", slug,
+      guide_code: slug, title, body_md: "# 職涯回顧\n\n## 實作步驟\n\n繁體正文。" };
+    const fetcher = vi.fn(async (input: RequestInfo | URL) => {
+      const url = new URL(String(input));
+      expect(url.searchParams.get("locale")).toBe("zh-TW");
+      return url.pathname.endsWith("/seo")
+        ? jsonResponse({ meta: { title, robots: "noindex,follow", alternates: {
+          "zh-CN": "https://fermatmind.com/zh/career/guides/career-review",
+          en: "https://fermatmind.com/en/career/guides/different-guide",
+        } } })
+        : jsonResponse({ ok: true, guide });
+    });
+    vi.stubGlobal("fetch", fetcher);
+    const route = await import("@/app/(traditional)/zh-TW/career/guides/[slug]/page");
+    const props = { params: Promise.resolve({ slug }) };
+    const html = renderToStaticMarkup(await route.default(props));
+    expect(html.match(/<h1(?:>| )/gu)).toHaveLength(1);
+    expect(html).toContain("實作步驟");
+    expect(html).toContain("繁體正文。");
+    expect(html).toContain('href="/zh/career/guides/career-review"');
+    expect(html).not.toContain("different-guide");
+    const metadata = await route.generateMetadata(props);
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect(metadata.alternates?.canonical).toMatch(/\/zh-TW\/career\/guides\/career-review$/u);
+    expect(metadata.alternates?.languages).toBeUndefined();
+
+    fetcher.mockResolvedValueOnce(jsonResponse({ ok: false }, 404));
+    await expect(route.default(props)).rejects.toMatchObject({ digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
   });
 
   it("keeps the career guides index buildable when the CMS list request times out", async () => {
@@ -230,6 +308,19 @@ describe("career guides cms adapter contract", () => {
     ]);
   });
 
+  it("treats the legacy guide API's exact Traditional locale rejection as unavailable content", async () => {
+    const fetcher = vi.fn(async () =>
+      jsonResponse({ ok: false, error_code: "INVALID_ARGUMENT", message: "validation.in" }, 422)
+    );
+    vi.stubGlobal("fetch", fetcher);
+    await expect(listCareerGuidesFromCms("zh-TW", { throwOnUnavailable: true })).resolves.toEqual([]);
+    await expect(getCareerGuideFromCmsBySlug("career-review", "zh-TW")).resolves.toBeNull();
+    await expect(getCareerGuideSeoFromCmsBySlug("career-review", "zh-TW")).resolves.toBeNull();
+    await expect(getCareerGuideFromCmsBySlug("career-review", "zh")).rejects.toMatchObject({ status: 422 });
+    fetcher.mockResolvedValueOnce(jsonResponse({ ok: false, error_code: "INVALID_ARGUMENT", message: "validation.required" }, 422));
+    await expect(getCareerGuideFromCmsBySlug("career-review", "zh-TW")).rejects.toMatchObject({ status: 422 });
+  });
+
   it("returns null for 404 detail and seo lookups", async () => {
     vi.stubGlobal(
       "fetch",
@@ -358,8 +449,10 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("guide.answerSurface");
     expect(detailSource).toContain("career-guide-answer-surface");
     expect(detailSource).not.toContain("career-guide-landing-cta");
-    expect(detailSource).toContain("renderSimpleMarkdown");
-    expect(detailSource).toContain("SanitizedCmsHtml");
+    expect(detailSource).toContain("CareerGuideBody");
+    const bodySource = read("components/content/CareerGuideBody.tsx");
+    expect(bodySource).toContain("renderSimpleMarkdown");
+    expect(bodySource).toContain("SanitizedCmsHtml");
     expect(detailSource).not.toContain("getCareerGuideBySlug");
     expect(detailSource).not.toContain("listCareerGuideSlugs");
     expect(detailSource).not.toContain("listRelatedArticlesForGuide");

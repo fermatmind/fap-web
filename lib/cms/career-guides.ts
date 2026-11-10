@@ -4,12 +4,12 @@ import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answe
 import { formatCareerFamilyTitle } from "@/lib/career/datasetDirectory";
 import { buildPersonalityFrontendUrl } from "@/lib/cms/personality";
 import type { RelatedContentItem } from "@/lib/content";
-import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, normalizeLocale, toApiLocale, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
-import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
+import { isAuthoritativePublicAbsence, PublicReadError } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_LIST_PER_PAGE = 20;
@@ -181,6 +181,7 @@ export type CareerGuideSeoViewModel = {
     alternates: {
       en: string | null;
       "zh-CN": string | null;
+      "zh-TW"?: string;
     };
     og: {
       title: string;
@@ -240,6 +241,12 @@ function isRecoverableCareerGuideListError(error: unknown): boolean {
   return error instanceof ApiError && (error.status === 404 || error.status === 408);
 }
 
+function isLegacyTraditionalLocaleRejection(error: unknown, locale: string): boolean {
+  const cause = error instanceof PublicReadError ? error.cause : error;
+  return locale === "zh-TW" && cause instanceof ApiError && cause.status === 422
+    && cause.errorCode === "INVALID_ARGUMENT" && cause.message === "validation.in";
+}
+
 function extractPlainText(markdown: string): string {
   const withoutCode = markdown.replace(/`{1,3}[^`]*`{1,3}/g, " ");
   const withoutLinks = withoutCode.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
@@ -293,8 +300,8 @@ function normalizeCareerGuideSeoMeta(
 
 export function mapFrontendLocaleToCareerGuideApiLocale(
   locale: Locale | string
-): "en" | "zh-CN" {
-  return toApiLocale(locale);
+): "en" | "zh-CN" | "zh-TW" {
+  return locale === "zh-TW" ? locale : toApiLocale(locale);
 }
 
 export function normalizeCareerGuideSlug(value: string): string {
@@ -305,13 +312,24 @@ export function buildCareerGuideFrontendUrl(
   locale: Locale | string,
   slug: string
 ): string {
-  return localizedPath(
-    `/career/guides/${normalizeCareerGuideSlug(slug)}`,
-    normalizeLocale(locale)
-  );
+  const path = `/career/guides/${normalizeCareerGuideSlug(slug)}`;
+  return locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, normalizeLocale(locale));
+}
+
+export function careerGuideAlternatePath(url: string | null | undefined, expectedPath: string): string | null {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" && parsed.pathname === expectedPath && !parsed.search && !parsed.hash
+      ? expectedPath
+      : null;
+  } catch {
+    return null;
+  }
 }
 
 function matchesRequestedLocale(value: string, locale: Locale | string): boolean {
+  if (locale === "zh-TW" || value === "zh-TW") return value === locale;
   return toApiLocale(value) === toApiLocale(locale);
 }
 
@@ -324,6 +342,13 @@ function adaptCareerGuideListItem(
   if (!slug || !title) {
     return null;
   }
+
+  if (locale === "zh-TW" && (
+    raw.locale !== locale || raw.org_id !== 0 || raw.is_public !== true
+    || typeof raw.id !== "number" || !Number.isSafeInteger(raw.id) || raw.id < 1
+    || raw.slug !== slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(slug)
+    || typeof raw.guide_code !== "string" || !raw.guide_code.trim()
+  )) return null;
 
   const categorySlug = fallbackText(raw.category_slug);
 
@@ -392,10 +417,14 @@ function adaptRelatedArticle(
     return null;
   }
 
+  if (locale === "zh-TW" && (raw.locale !== locale || raw.slug !== slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(slug))) {
+    return null;
+  }
+
   return {
     slug,
     title,
-    href: localizedPath(`/articles/${slug}`, normalizeLocale(locale)),
+    href: locale === "zh-TW" ? `/zh-TW/articles/${slug}` : localizedPath(`/articles/${slug}`, normalizeLocale(locale)),
     summary: fallbackText(raw.excerpt),
   };
 }
@@ -477,7 +506,7 @@ export function withoutUnreviewedCareerJobSteps(
   }
 
   const nextStepBlocks = surface.nextStepBlocks.filter(
-    (block) => !block.href?.match(/^\/(?:en|zh)\/career\/jobs\/[^/]+$/)
+    (block) => !block.href?.match(/^\/(?:en|zh|zh-TW)\/career\/jobs\/[^/]+$/)
   );
 
   return nextStepBlocks.length === surface.nextStepBlocks.length
@@ -487,7 +516,7 @@ export function withoutUnreviewedCareerJobSteps(
 
 function buildFallbackCareerGuideJsonLd(
   guide: CareerGuideDetailViewModel,
-  locale: Locale
+  locale: DisplayLocale
 ): Record<string, unknown> {
   const url = canonicalUrl(buildCareerGuideFrontendUrl(locale, guide.slug));
 
@@ -498,7 +527,7 @@ function buildFallbackCareerGuideJsonLd(
     url,
     name: guide.title,
     description: guide.summary,
-    inLanguage: locale === "zh" ? "zh-CN" : "en",
+    inLanguage: locale === "zh" ? "zh-CN" : locale,
     mainEntityOfPage: url,
   };
 }
@@ -529,7 +558,7 @@ function normalizeCareerGuideJsonLd(
   sourceCanonical: string | null | undefined,
   localizedCanonicalPath: string,
   guide: CareerGuideDetailViewModel,
-  locale: Locale
+  locale: DisplayLocale
 ): unknown {
   const walk = (value: unknown): unknown => {
     if (Array.isArray(value)) {
@@ -562,7 +591,7 @@ export function normalizeCareerGuideSeoPayload(
   locale: Locale | string,
   localeAvailability: Partial<CareerGuideLocaleAvailability> = {}
 ): CareerGuideSeoViewModel {
-  const normalizedLocale = normalizeLocale(locale);
+  const normalizedLocale = locale === "zh-TW" ? locale : normalizeLocale(locale);
   const canonicalPath = buildCareerGuideFrontendUrl(normalizedLocale, guide.slug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
   const hasEnglishProjection =
@@ -632,7 +661,7 @@ export function normalizeCareerGuideSeoPayload(
       robots: fallbackText(
         seo?.meta.robots,
         guide.seoMeta?.robots,
-        guide.isIndexable ? "index,follow" : "noindex,follow"
+        guide.isIndexable && normalizedLocale !== "zh-TW" ? "index,follow" : "noindex,follow"
       ),
     },
     jsonld: normalizeCareerGuideJsonLd(
@@ -679,7 +708,7 @@ export async function listCareerGuidesFromCms(
         {
           locale,
           skipAuth: true,
-          ...(options.fresh ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+          ...(options.fresh || locale === "zh-TW" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
         }
       );
 
@@ -713,7 +742,8 @@ export async function listCareerGuidesFromCms(
 
     return items;
   } catch (error) {
-    if (!options.throwOnUnavailable && isRecoverableCareerGuideListError(error)) {
+    if (isLegacyTraditionalLocaleRejection(error, locale)
+      || (!options.throwOnUnavailable && isRecoverableCareerGuideListError(error))) {
       return [];
     }
 
@@ -741,18 +771,18 @@ export async function getCareerGuideFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...(["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"].includes(normalizedSlug) ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+        ...(locale === "zh-TW" || ["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"].includes(normalizedSlug) ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
     const guide = adaptCareerGuideDetail(response, locale);
-    if (guide && matchesRequestedLocale(guide.locale, locale)) {
+    if (guide && matchesRequestedLocale(guide.locale, locale) && (locale !== "zh-TW" || guide.slug === normalizedSlug)) {
       return guide;
     }
 
     return null;
   } catch (error) {
-    if (isAuthoritativePublicAbsence(error)) {
+    if (isAuthoritativePublicAbsence(error) || isLegacyTraditionalLocaleRejection(error, locale)) {
       return null;
     }
 
@@ -780,10 +810,11 @@ export async function getCareerGuideSeoFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...(["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"].includes(normalizedSlug) ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
+        ...(locale === "zh-TW" || ["iq-eq-balance-at-work", "how-to-find-right-career-direction", "career-transition-playbook"].includes(normalizedSlug) ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
+    const traditionalAlternate = normalizeIsoValue(response.meta?.alternates?.["zh-TW"]);
     return {
       meta: {
         title: fallbackText(response.meta?.title),
@@ -792,6 +823,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
         alternates: {
           en: normalizeIsoValue(response.meta?.alternates?.en),
           "zh-CN": normalizeIsoValue(response.meta?.alternates?.["zh-CN"]),
+          ...(traditionalAlternate ? { "zh-TW": traditionalAlternate } : {}),
         },
         og: {
           title: fallbackText(response.meta?.og?.title, response.meta?.title),
@@ -810,13 +842,13 @@ export async function getCareerGuideSeoFromCmsBySlug(
             response.meta?.twitter?.image ?? response.meta?.og?.image
           ),
         },
-        robots: fallbackText(response.meta?.robots, "index,follow"),
+        robots: fallbackText(response.meta?.robots, locale === "zh-TW" ? "noindex,follow" : "index,follow"),
       },
       jsonld: response.jsonld ?? null,
       surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
-    if (isAuthoritativePublicAbsence(error)) {
+    if (isAuthoritativePublicAbsence(error) || isLegacyTraditionalLocaleRejection(error, locale)) {
       return null;
     }
 

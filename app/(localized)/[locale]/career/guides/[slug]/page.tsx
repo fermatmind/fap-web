@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { RelatedContent } from "@/components/content/RelatedContent";
-import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
+import { CareerGuideBody } from "@/components/content/CareerGuideBody";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   buildCareerGuideFrontendUrl,
+  careerGuideAlternatePath,
   getCareerGuideFromCmsBySlug,
   getCareerGuideSeoFromCmsBySlug,
   normalizeCareerGuideSeoPayload,
-  type CareerGuideDetailViewModel,
   withoutUnreviewedCareerJobSteps,
 } from "@/lib/cms/career-guides";
 import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
-import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { ARTICLE_AUTHOR_NAME } from "@/lib/seo/articleJsonLdAuthority";
@@ -57,45 +57,6 @@ const loadCareerGuidePublicDetailBundle = cache(
     });
   }
 );
-
-function renderGuideBody(guide: CareerGuideDetailViewModel, locale: Locale) {
-  const bodyMd = stripDuplicateFirstHeading(guide.bodyMd, guide.title);
-
-  if (guide.bodyHtml.trim()) {
-    return <SanitizedCmsHtml html={guide.bodyHtml} locale={locale} />;
-  }
-
-  if (bodyMd.trim()) {
-    return renderSimpleMarkdown(bodyMd, { locale, headingIdPrefix: "career-guide-body", scrollableTables: true });
-  }
-
-  return null;
-}
-
-function stripDuplicateFirstHeading(markdown: string, title: string): string {
-  const normalizedTitle = title.replace(/\s+/g, " ").trim();
-  const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
-  const firstContentIndex = lines.findIndex((line) => line.trim());
-
-  if (firstContentIndex === -1) {
-    return markdown;
-  }
-
-  const firstContentLine = lines[firstContentIndex] ?? "";
-  const headingMatch = firstContentLine.match(/^#\s+(.+)$/);
-
-  if (!headingMatch) {
-    return markdown;
-  }
-
-  const headingText = headingMatch[1]?.replace(/\s+/g, " ").trim();
-  if (headingText !== normalizedTitle) {
-    return markdown;
-  }
-
-  lines.splice(firstContentIndex, 1);
-  return lines.join("\n").trimStart();
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
@@ -202,6 +163,9 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
     updatedAt ? `${locale === "zh" ? "更新于" : "Updated"}: ${updatedAt}` : null,
   ].filter(Boolean);
   const answerSurface = withoutUnreviewedCareerJobSteps(guide.answerSurface);
+  const traditionalPath = careerGuideAlternatePath(
+    seo?.meta.alternates["zh-TW"], buildCareerGuideFrontendUrl("zh-TW", guide.slug)
+  );
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -217,6 +181,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
       />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 text-center shadow-[var(--fm-shadow-sm)]">
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{guide.title}</h1>
+        {traditionalPath ? <Link href={traditionalPath} lang="zh-TW" className="inline-flex min-h-11 items-center underline">繁體中文</Link> : null}
         {metadataParts.length > 0 ? (
           <p className="m-0 text-xs text-[var(--fm-text-muted)]">{metadataParts.join(" · ")}</p>
         ) : null}
@@ -224,7 +189,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
 
       {guide.bodyMd.trim() || guide.bodyHtml.trim() ? (
         <article className="space-y-4 text-[var(--fm-text)] [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline">
-            {renderGuideBody(guide, locale)}
+            <CareerGuideBody guide={guide} locale={locale} />
         </article>
       ) : null}
 

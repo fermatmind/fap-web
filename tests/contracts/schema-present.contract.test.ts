@@ -127,8 +127,10 @@ describe("schema injection contract", () => {
     expect(source).not.toContain("buildWebPageJsonLd");
     expect(source).not.toContain("getCareerGuideBySlug");
     expect(source).not.toContain("renderVeliteMdx");
-    expect(source).toContain("renderSimpleMarkdown");
-    expect(source).toContain("SanitizedCmsHtml");
+    expect(source).toContain("CareerGuideBody");
+    const body = read("components/content/CareerGuideBody.tsx");
+    expect(body).toContain("renderSimpleMarkdown");
+    expect(body).toContain("SanitizedCmsHtml");
   });
 
   it("career jobs list and alias pages no longer resolve jobs from local content", () => {
