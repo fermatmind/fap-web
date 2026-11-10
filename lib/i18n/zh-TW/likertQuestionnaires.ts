@@ -1,3 +1,7 @@
+import { competencyLandingFaq, competencyLandingSections, competencyLandingReferences } from "@/components/questionnaires/CompetencyLandingEditorial";
+import { cultureFitFaq, cultureFitSections, cultureFitSummaries } from "@/components/questionnaires/CultureFitLandingEditorial";
+import { workEthicsFaq, workEthicsSections, workEthicsSummaries } from "@/components/questionnaires/WorkEthicsLandingEditorial";
+import { workActivityLandingFaq, workActivityLandingSections, workActivityLandingReferences } from "@/components/questionnaires/WorkActivityLandingEditorial";
 import { commitmentLandingFaq, commitmentLandingSections, commitmentLandingReferences } from "@/components/questionnaires/CommitmentLandingEditorial";
 import { intimacyValuesLandingFaq, intimacyValuesLandingSections, intimacyValuesLandingReferences } from "@/components/questionnaires/IntimacyValuesLandingEditorial";
 import { datingOutlookLandingFaq, datingOutlookLandingSections, datingOutlookLandingReferences } from "@/components/questionnaires/DatingOutlookLandingEditorial";
@@ -28,12 +32,50 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "competency-test": {
+    reading: "competency-test",
+    attribute: "work-behavior",
+    load: () => import("@/lib/questionnaires/result-content/competency-test.json"),
+    editorial: "Competency",
+    prefix: "competencyLanding",
+    sections: competencyLandingSections,
+    faq: competencyLandingFaq,
+  },
+  "culture-fit": {
+    reading: "culture-fit",
+    attribute: "culture-fit",
+    load: () => import("@/lib/questionnaires/result-content/culture-fit.json"),
+    editorial: "CultureFit",
+    prefix: "cultureFit",
+    sections: cultureFitSections,
+    faq: cultureFitFaq,
+    summaries: cultureFitSummaries,
+  },
+  "work-ethics": {
+    reading: "work-ethics",
+    attribute: "work-ethics",
+    load: () => import("@/lib/questionnaires/result-content/work-ethics.json"),
+    editorial: "WorkEthics",
+    prefix: "workEthics",
+    sections: workEthicsSections,
+    faq: workEthicsFaq,
+    summaries: workEthicsSummaries,
+  },
+  "work-activity-interests": {
+    reading: "work-activity-interests",
+    attribute: "work-activity",
+    load: () => import("@/lib/questionnaires/result-content/work-activity-interests.json"),
+    editorial: "WorkActivity",
+    prefix: "workActivityLanding",
+    sections: workActivityLandingSections,
+    faq: workActivityLandingFaq,
+  },
   "relationship-commitment": {
     reading: "relationship-commitment",
     attribute: "relationship-commitment",
     load: () => import("@/lib/questionnaires/result-content/relationship-commitment.json"),
     editorial: "Commitment",
-    prefix: "commitment",
+    prefix: "commitmentLanding",
     sections: commitmentLandingSections,
     faq: commitmentLandingFaq,
   },
@@ -42,7 +84,7 @@ const sources = {
     attribute: "intimacy-values",
     load: () => import("@/lib/questionnaires/result-content/intimacy-values.json"),
     editorial: "IntimacyValues",
-    prefix: "intimacyValues",
+    prefix: "intimacyValuesLanding",
     sections: intimacyValuesLandingSections,
     faq: intimacyValuesLandingFaq,
   },
@@ -51,7 +93,7 @@ const sources = {
     attribute: "dating-outlook",
     load: () => import("@/lib/questionnaires/result-content/dating-outlook.json"),
     editorial: "DatingOutlook",
-    prefix: "datingOutlook",
+    prefix: "datingOutlookLanding",
     sections: datingOutlookLandingSections,
     faq: datingOutlookLandingFaq,
   },
@@ -60,7 +102,7 @@ const sources = {
     attribute: "relationship-habits",
     load: () => import("@/lib/questionnaires/result-content/relationship-habits.json"),
     editorial: "RelationshipHabits",
-    prefix: "relationshipHabits",
+    prefix: "relationshipHabitsLanding",
     sections: relationshipHabitsLandingSections,
     faq: relationshipHabitsLandingFaq,
   },
@@ -69,7 +111,7 @@ const sources = {
     attribute: "relationship-worry-habits",
     load: () => import("@/lib/questionnaires/result-content/relationship-worry-habits.json"),
     editorial: "RelationshipWorry",
-    prefix: "relationshipWorry",
+    prefix: "relationshipWorryLanding",
     sections: relationshipWorryLandingSections,
     faq: relationshipWorryLandingFaq,
   },
@@ -78,7 +120,7 @@ const sources = {
     attribute: "friendship-compatibility",
     load: () => import("@/lib/questionnaires/result-content/friendship-compatibility.json"),
     editorial: "FriendshipFit",
-    prefix: "friendshipFit",
+    prefix: "friendshipFitLanding",
     sections: friendshipFitLandingSections,
     faq: friendshipFitLandingFaq,
   },
@@ -92,7 +134,7 @@ const sources = {
     attribute: "conflict-styles",
     load: () => import("@/lib/questionnaires/result-content/conflict-styles.json"),
     editorial: "ConflictStyles",
-    prefix: "conflictStyles",
+    prefix: "conflictStylesLanding",
     sections: conflictStylesLandingSections,
     faq: conflictStylesLandingFaq,
   },
@@ -101,7 +143,7 @@ const sources = {
     attribute: "apology-language",
     load: () => import("@/lib/questionnaires/result-content/apology-language.json"),
     editorial: "Apology",
-    prefix: "apology",
+    prefix: "apologyLanding",
     sections: apologyLandingSections,
     faq: apologyLandingFaq,
   },
@@ -110,7 +152,7 @@ const sources = {
     attribute: "everyday-control",
     load: () => import("@/lib/questionnaires/result-content/everyday-control-style.json"),
     editorial: "EverydayControl",
-    prefix: "control",
+    prefix: "controlLanding",
     sections: controlLandingSections,
     faq: controlLandingFaq,
   },
@@ -124,7 +166,7 @@ const sources = {
     attribute: "time-management",
     load: () => import("@/lib/questionnaires/result-content/time-management.json"),
     editorial: "TimeManagement",
-    prefix: "timeManagement",
+    prefix: "timeManagementLanding",
     sections: timeManagementLandingSections,
     faq: timeManagementLandingFaq,
   },
@@ -133,7 +175,7 @@ const sources = {
     attribute: "tech-confidence",
     load: () => import("@/lib/questionnaires/result-content/tech-savvy.json"),
     editorial: "TechConfidence",
-    prefix: "techConfidence",
+    prefix: "techConfidenceLanding",
     sections: techConfidenceLandingSections,
     faq: techConfidenceLandingFaq,
   },
@@ -142,7 +184,7 @@ const sources = {
     attribute: "grit",
     load: () => import("@/lib/questionnaires/result-content/grit.json"),
     editorial: "Grit",
-    prefix: "grit",
+    prefix: "gritLanding",
     sections: gritLandingSections,
     faq: gritLandingFaq,
   },
@@ -151,7 +193,7 @@ const sources = {
     attribute: "growth-mindset",
     load: () => import("@/lib/questionnaires/result-content/growth-mindset.json"),
     editorial: "Growth",
-    prefix: "growth",
+    prefix: "growthLanding",
     sections: growthLandingSections,
     faq: growthLandingFaq,
   },
@@ -160,7 +202,7 @@ const sources = {
     attribute: "hexaco",
     load: () => import("@/lib/questionnaires/result-content/hexaco.json"),
     editorial: "Hexaco",
-    prefix: "hexaco",
+    prefix: "hexacoLanding",
     sections: hexacoLandingSections,
     faq: hexacoLandingFaq,
   },
@@ -169,7 +211,7 @@ const sources = {
     attribute: "work-traits",
     load: () => import("@/lib/questionnaires/result-content/work-traits-reflection.json"),
     editorial: "WorkTraits",
-    prefix: "workTraits",
+    prefix: "workTraitsLanding",
     sections: workTraitsLandingSections,
     faq: workTraitsLandingFaq,
   },
@@ -183,7 +225,7 @@ const sources = {
     attribute: "locus",
     load: () => import("@/lib/questionnaires/result-content/locus-of-control.json"),
     editorial: "Locus",
-    prefix: "locus",
+    prefix: "locusLanding",
     sections: locusLandingSections,
     faq: locusLandingFaq,
   },
@@ -197,7 +239,7 @@ const sources = {
     attribute: "social-understanding",
     load: () => import("@/lib/questionnaires/result-content/social-understanding.json"),
     editorial: "SocialIntelligence",
-    prefix: "socialIntelligence",
+    prefix: "socialIntelligenceLanding",
     sections: socialIntelligenceLandingSections,
     faq: socialIntelligenceLandingFaq,
   },
@@ -213,7 +255,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -234,14 +276,17 @@ export async function loadTraditionalLikert(slug: string) {
       case "dating-outlook": return projectStoryCopy(datingOutlookLandingReferences, "components/questionnaires/DatingOutlookLandingEditorial.ts/datingOutlookLandingReferences", units);
       case "intimacy-values": return projectStoryCopy(intimacyValuesLandingReferences, "components/questionnaires/IntimacyValuesLandingEditorial.ts/intimacyValuesLandingReferences", units);
       case "relationship-commitment": return projectStoryCopy(commitmentLandingReferences, "components/questionnaires/CommitmentLandingEditorial.ts/commitmentLandingReferences", units);
+      case "work-activity-interests": return projectStoryCopy(workActivityLandingReferences, "components/questionnaires/WorkActivityLandingEditorial.ts/workActivityLandingReferences", units);
+      case "competency-test": return projectStoryCopy(competencyLandingReferences, "components/questionnaires/CompetencyLandingEditorial.ts/competencyLandingReferences", units);
       default: return [];
     }
   })();
   if ("editorial" in edition) {
     const editorial = `components/questionnaires/${edition.editorial}LandingEditorial.ts`;
-    return { quiz: { ...quiz, profiles }, summaries, extraReferences,
-      sections: projectStoryCopy(edition.sections, `${editorial}/${edition.prefix}LandingSections`, units),
-      faq: projectStoryCopy(edition.faq, `${editorial}/${edition.prefix}LandingFaq`, units) };
+    return { quiz: { ...quiz, profiles }, summaries: "summaries" in edition
+        ? projectStoryCopy(edition.summaries, `${editorial}/${edition.prefix}Summaries`, units) : summaries, extraReferences,
+      sections: projectStoryCopy(edition.sections, `${editorial}/${edition.prefix}Sections`, units),
+      faq: projectStoryCopy(edition.faq, `${editorial}/${edition.prefix}Faq`, units) };
   }
   return { quiz: { ...quiz, profiles }, summaries, extraReferences, sections: [], faq: [] as Questionnaire["faq"] };
 }

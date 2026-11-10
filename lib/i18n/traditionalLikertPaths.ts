@@ -1,4 +1,8 @@
 const profiles = {
+  "work-activity-interests": ["hands-on-tasks", "investigation-tasks", "creative-tasks", "support-tasks", "initiative-tasks", "organizing-tasks"],
+  "work-ethics": ["commitments-reading", "quality-reading", "honesty-reading", "repair-reading"],
+  "culture-fit": ["coordination-reading", "decision-room-reading", "change-rhythm-reading", "feedback-rhythm-reading"],
+  "competency-test": ["message-checking-reading", "problem-framing-reading", "agreed-action-reading", "work-planning-reading", "response-to-change-reading", "shared-delivery-reading"],
   "relationship-worry-habits": ["direct-reassurance", "rival-attention", "giving-for-connection", "indirect-checks"],
   "relationship-habits": ["space-and-pauses", "fairness-tally", "talk-delay", "overextension"],
   "dating-outlook": ["possibility", "practice", "guarded-expectations", "fixed-conditions"],
