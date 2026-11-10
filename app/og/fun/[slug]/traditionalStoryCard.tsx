@@ -46,6 +46,11 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       "conflict-styles": "費馬原創 20 道分歧行動題",
       "love-fight-style": "費馬原創 20 道伴侶分歧題",
       "friendship-compatibility": "費馬原創 20 道友誼回顧題",
+      "relationship-worry-habits": "費馬原創 16 道關係擔心題",
+      "relationship-habits": "費馬原創 16 道相處習慣題",
+      "dating-outlook": "費馬原創 16 道戀愛信念題",
+      "intimacy-values": "費馬原創 25 道親密價值題",
+      "relationship-commitment": "費馬原創 24 道關係承諾題",
     };
     const edition = editions[slug] ?? "IPIP 公有領域題目";
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, slug === "character-strengths" ? "公開性格優勢指南" : "公開連續分數指南");

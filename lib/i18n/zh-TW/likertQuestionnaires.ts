@@ -1,3 +1,8 @@
+import { commitmentLandingFaq, commitmentLandingSections, commitmentLandingReferences } from "@/components/questionnaires/CommitmentLandingEditorial";
+import { intimacyValuesLandingFaq, intimacyValuesLandingSections, intimacyValuesLandingReferences } from "@/components/questionnaires/IntimacyValuesLandingEditorial";
+import { datingOutlookLandingFaq, datingOutlookLandingSections, datingOutlookLandingReferences } from "@/components/questionnaires/DatingOutlookLandingEditorial";
+import { relationshipHabitsLandingFaq, relationshipHabitsLandingSections, relationshipHabitsLandingReferences } from "@/components/questionnaires/RelationshipHabitsLandingEditorial";
+import { relationshipWorryLandingFaq, relationshipWorryLandingSections, relationshipWorryLandingReferences } from "@/components/questionnaires/RelationshipWorryLandingEditorial";
 import { friendshipFitLandingFaq, friendshipFitLandingSections, friendshipFitLandingReferences } from "@/components/questionnaires/FriendshipFitLandingEditorial";
 import { conflictStylesLandingFaq, conflictStylesLandingSections, conflictStylesLandingReferences } from "@/components/questionnaires/ConflictStylesLandingEditorial";
 import { apologyLandingFaq, apologyLandingSections } from "@/components/questionnaires/ApologyLandingEditorial";
@@ -23,6 +28,51 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "relationship-commitment": {
+    reading: "relationship-commitment",
+    attribute: "relationship-commitment",
+    load: () => import("@/lib/questionnaires/result-content/relationship-commitment.json"),
+    editorial: "Commitment",
+    prefix: "commitment",
+    sections: commitmentLandingSections,
+    faq: commitmentLandingFaq,
+  },
+  "intimacy-values": {
+    reading: "intimacy-values",
+    attribute: "intimacy-values",
+    load: () => import("@/lib/questionnaires/result-content/intimacy-values.json"),
+    editorial: "IntimacyValues",
+    prefix: "intimacyValues",
+    sections: intimacyValuesLandingSections,
+    faq: intimacyValuesLandingFaq,
+  },
+  "dating-outlook": {
+    reading: "dating-outlook",
+    attribute: "dating-outlook",
+    load: () => import("@/lib/questionnaires/result-content/dating-outlook.json"),
+    editorial: "DatingOutlook",
+    prefix: "datingOutlook",
+    sections: datingOutlookLandingSections,
+    faq: datingOutlookLandingFaq,
+  },
+  "relationship-habits": {
+    reading: "relationship-habits",
+    attribute: "relationship-habits",
+    load: () => import("@/lib/questionnaires/result-content/relationship-habits.json"),
+    editorial: "RelationshipHabits",
+    prefix: "relationshipHabits",
+    sections: relationshipHabitsLandingSections,
+    faq: relationshipHabitsLandingFaq,
+  },
+  "relationship-worry-habits": {
+    reading: "relationship-worry-habits",
+    attribute: "relationship-worry-habits",
+    load: () => import("@/lib/questionnaires/result-content/relationship-worry-habits.json"),
+    editorial: "RelationshipWorry",
+    prefix: "relationshipWorry",
+    sections: relationshipWorryLandingSections,
+    faq: relationshipWorryLandingFaq,
+  },
   "friendship-compatibility": {
     reading: "friendship-compatibility",
     attribute: "friendship-compatibility",
@@ -163,7 +213,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -179,6 +229,11 @@ export async function loadTraditionalLikert(slug: string) {
       case "everyday-control-style": return projectStoryCopy(controlLandingReferences, "components/questionnaires/EverydayControlLandingEditorial.ts/controlLandingReferences", units);
       case "conflict-styles": return projectStoryCopy(conflictStylesLandingReferences, "components/questionnaires/ConflictStylesLandingEditorial.ts/conflictStylesLandingReferences", units);
       case "friendship-compatibility": return projectStoryCopy(friendshipFitLandingReferences, "components/questionnaires/FriendshipFitLandingEditorial.ts/friendshipFitLandingReferences", units);
+      case "relationship-worry-habits": return projectStoryCopy(relationshipWorryLandingReferences, "components/questionnaires/RelationshipWorryLandingEditorial.ts/relationshipWorryLandingReferences", units);
+      case "relationship-habits": return projectStoryCopy(relationshipHabitsLandingReferences, "components/questionnaires/RelationshipHabitsLandingEditorial.ts/relationshipHabitsLandingReferences", units);
+      case "dating-outlook": return projectStoryCopy(datingOutlookLandingReferences, "components/questionnaires/DatingOutlookLandingEditorial.ts/datingOutlookLandingReferences", units);
+      case "intimacy-values": return projectStoryCopy(intimacyValuesLandingReferences, "components/questionnaires/IntimacyValuesLandingEditorial.ts/intimacyValuesLandingReferences", units);
+      case "relationship-commitment": return projectStoryCopy(commitmentLandingReferences, "components/questionnaires/CommitmentLandingEditorial.ts/commitmentLandingReferences", units);
       default: return [];
     }
   })();

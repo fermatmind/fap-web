@@ -1,21 +1,21 @@
 import { ResultOverview, ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function RelationshipHabitsReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
+export function RelationshipHabitsReport({ quiz, result, locale, displayLocale = locale, copy = text => text }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
   return <ResultPage variant="reflection" data-relationship-habits-report className="mt-6 space-y-8">
-    <ResultOverview className="rounded-xl border border-rose-200 bg-rose-50/65" locale={locale} title={zh ? "把关系习惯放回一次相处里看" : "Read relationship habits in an everyday interaction"}
-      description={zh ? "各组分别描述你报告的频率。选择一个习惯，看看它在不同情境下可能怎样发生。" : "Each group describes frequencies you reported. Choose a habit to see how it can show up in different situations."}
+    <ResultOverview className="rounded-xl border border-rose-200 bg-rose-50/65" locale={locale} title={zh ? copy("把关系习惯放回一次相处里看") : "Read relationship habits in an everyday interaction"}
+      description={zh ? copy("各组分别描述你报告的频率。选择一个习惯，看看它在不同情境下可能怎样发生。") : "Each group describes frequencies you reported. Choose a habit to see how it can show up in different situations."}
       items={quiz.directions.map(direction => {
         const score = result.facets[direction.id];
         return { id: direction.id, label: direction.title[locale], href: `#relationship-habit-${direction.id}`,
-          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? "资料不足" : "Insufficient information"),
-          note: zh ? `${score.rated} / ${score.total}条有效回答` : `${score.rated} / ${score.total} rated items` };
+          value: score.mean !== null ? `${score.mean.toFixed(1)} / 5` : (zh ? copy("资料不足") : "Insufficient information"),
+          note: zh ? copy(`${score.rated} / ${score.total}条有效回答`) : `${score.rated} / ${score.total} rated items` };
       })} />
 
 
@@ -24,29 +24,29 @@ export function RelationshipHabitsReport({ quiz, result, locale }: { quiz: Quest
       return <section key={direction.id} data-relationship-habits-part={direction.id} aria-labelledby={`relationship-habit-${direction.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`relationship-habit-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-relationship-habits-mean={direction.id} className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{part.mean === null
-          ? (zh ? `资料不足：${part.rated}/4条有效，至少需3条；不显示个人均值或条形。` : `Insufficient information: ${part.rated}/4 rated, at least 3 needed; no personal mean or bar.`)
-          : (zh ? `原始和 ${part.sum}，${part.rated}/4条有效，频率均值 ${part.mean.toFixed(1)} / 5` : `Raw sum ${part.sum}; ${part.rated}/4 rated; frequency mean ${part.mean.toFixed(1)} / 5`)}</p>
+          ? (zh ? copy(`资料不足：${part.rated}/4条有效，至少需3条；不显示个人均值或条形。`) : `Insufficient information: ${part.rated}/4 rated, at least 3 needed; no personal mean or bar.`)
+          : (zh ? copy(`原始和 ${part.sum}，${part.rated}/4条有效，频率均值 ${part.mean.toFixed(1)} / 5`) : `Raw sum ${part.sum}; ${part.rated}/4 rated; frequency mean ${part.mean.toFixed(1)} / 5`)}</p>
         {part.mean !== null && <div className="mb-5">
-          <div role="meter" data-relationship-habits-bar={direction.id} aria-labelledby={`relationship-habit-${direction.id}`} aria-valuemin={1} aria-valuemax={5} aria-valuenow={part.mean} aria-valuetext={zh ? `自报原始频率${part.mean.toFixed(1)}，范围1从不至5几乎每次` : `Raw self-reported frequency ${part.mean.toFixed(1)}, from 1 never to 5 almost always`} className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-violet-600" style={{ width: `${(part.mean - 1) / 4 * 100}%` }} /></div>
-          <p className="mt-2 flex justify-between gap-4 text-xs leading-6 text-slate-600"><span>{zh ? "1 从不" : "1 Never"}</span><span>{zh ? "5 几乎每次" : "5 Almost always"}</span></p>
+          <div role="meter" data-relationship-habits-bar={direction.id} aria-labelledby={`relationship-habit-${direction.id}`} aria-valuemin={1} aria-valuemax={5} aria-valuenow={part.mean} aria-valuetext={zh ? copy(`自报原始频率${part.mean.toFixed(1)}，范围1从不至5几乎每次`) : `Raw self-reported frequency ${part.mean.toFixed(1)}, from 1 never to 5 almost always`} className="h-3 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-violet-600" style={{ width: `${(part.mean - 1) / 4 * 100}%` }} /></div>
+          <p className="mt-2 flex justify-between gap-4 text-xs leading-6 text-slate-600"><span>{zh ? copy("1 从不") : "1 Never"}</span><span>{zh ? copy("5 几乎每次") : "5 Almost always"}</span></p>
         </div>}
         <p className="mb-4 leading-7">{part.mean === null
-          ? (zh ? "以下完整正文是通用读法，不是本次个人习惯的结论。" : "The complete text below is a general guide, not a conclusion about your habits in this attempt.")
-          : (zh ? "较高只表示本组时刻更常被你报告，不确定动机、客观公平、后果或别人的感受。请结合实际题目和场合阅读。" : "A higher mean records more frequent endorsement of these moments. It does not establish motives, objective fairness, outcomes or another person’s feelings. Read the actual prompts in context.")}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`relationship-habits-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这一习惯的完整公开指南" : "Read this habit’s full public guide"}</Link>
+          ? (zh ? copy("以下完整正文是通用读法，不是本次个人习惯的结论。") : "The complete text below is a general guide, not a conclusion about your habits in this attempt.")
+          : (zh ? copy("较高只表示本组时刻更常被你报告，不确定动机、客观公平、后果或别人的感受。请结合实际题目和场合阅读。") : "A higher mean records more frequent endorsement of these moments. It does not establish motives, objective fairness, outcomes or another person’s feelings. Read the actual prompts in context.")}</p>
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={displayLocale === "zh-TW"} headingLevel={4} idPrefix={`relationship-habits-reading-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-2`, `${profile.id}-6`]} />
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, profile.id)}>{zh ? copy("阅读这一习惯的完整公开指南") : "Read this habit’s full public guide"}</Link>
       </section>;
     })}
-    <p className="text-sm leading-7">{zh ? "题目与读法为费马原创，尚未建立信效度、常模或跨语言测量等价。只描述自己的选定近期场合，不作诊断、安全或虐待评估，也不决定一段关系是否应继续。" : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. They describe only your selected recent context, without a diagnosis, safety or abuse assessment, or a decision about continuing a relationship."}</p>
+    <p className="text-sm leading-7">{zh ? copy("题目与读法为费马原创，尚未建立信效度、常模或跨语言测量等价。只描述自己的选定近期场合，不作诊断、安全或虐待评估，也不决定一段关系是否应继续。") : "FermatMind authored these prompts and readings; reliability, validity, norms and language equivalence have not been established. They describe only your selected recent context, without a diagnosis, safety or abuse assessment, or a decision about continuing a relationship."}</p>
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、计分与使用说明" : "View all readings, scoring and use notes"}</summary>
-      <p className="leading-8">{zh ? "四项记录过去三个月自己一侧的原始频率。每项四条，至少三条数字才显示均值；3表示有时，未评分保持缺失。四项可同时高、低或相同，不合红旗总分、不排名或派型，也不评判另一人。条形只定位1至5，不是百分比或危险程度。" : "Four parts record raw self-reported frequency on your own side over the past three months. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored responses remain missing. Parts can all be high, low or equal, without a red-flag total, rank, assigned type or judgement of another person. Bars locate 1–5, not a percentage or danger level."}</p>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? copy("查看全部读数、计分与使用说明") : "View all readings, scoring and use notes"}</summary>
+      <p className="leading-8">{zh ? copy("四项记录过去三个月自己一侧的原始频率。每项四条，至少三条数字才显示均值；3表示有时，未评分保持缺失。四项可同时高、低或相同，不合红旗总分、不排名或派型，也不评判另一人。条形只定位1至5，不是百分比或危险程度。") : "Four parts record raw self-reported frequency on your own side over the past three months. Each has four prompts and needs three numeric ratings for a mean. Three means sometimes; unscored responses remain missing. Parts can all be high, low or equal, without a red-flag total, rank, assigned type or judgement of another person. Bars locate 1–5, not a percentage or danger level."}</p>
     </details>
   </ResultPage>;
 }
 
-export function RelationshipHabitsNextSteps({ locale }: { locale: Locale }) {
+export function RelationshipHabitsNextSteps({ locale, displayLocale = locale, copy = text => text }: { locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
-  return <section data-relationship-habits-next-steps className="my-8 space-y-4 leading-8"><h3 className="text-xl font-semibold">{zh ? "保留一个具体观察，或到这里结束" : "Keep one concrete observation, or stop here"}</h3><p>{zh ? "可以选一条题，想想当时的场合，不必分享答案、联系另一人或让别人也来作答。若另外想观察冲突中怎样表达暂停、回到具体问题和修复，可以独立阅读冲突过程测试；它是另一任务，不从本次四项频率推算。也可不再继续。" : "Choose one prompt and consider its setting, without sharing answers, contacting another person or asking them to take the test. To observe expressing a pause, returning to a specific issue and repair during conflict, you may separately explore the conflict-process test. That is a different task and is not inferred from these four frequencies. No further step is required."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnairePath(locale, "love-fight-style")}>{zh ? "可选：了解不同的冲突过程自我观察" : "Optional: explore the distinct conflict-process reflection"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Return to all tests"}</Link></section>;
+  return <section data-relationship-habits-next-steps className="my-8 space-y-4 leading-8"><h3 className="text-xl font-semibold">{zh ? copy("保留一个具体观察，或到这里结束") : "Keep one concrete observation, or stop here"}</h3><p>{zh ? copy("可以选一条题，想想当时的场合，不必分享答案、联系另一人或让别人也来作答。若另外想观察冲突中怎样表达暂停、回到具体问题和修复，可以独立阅读冲突过程测试；它是另一任务，不从本次四项频率推算。也可不再继续。") : "Choose one prompt and consider its setting, without sharing answers, contacting another person or asking them to take the test. To observe expressing a pause, returning to a specific issue and repair during conflict, you may separately explore the conflict-process test. That is a different task and is not inferred from these four frequencies. No further step is required."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnairePath(displayLocale, "love-fight-style")}>{zh ? copy("可选：了解不同的冲突过程自我观察") : "Optional: explore the distinct conflict-process reflection"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? copy("返回全部测试") : "Return to all tests"}</Link></section>;
 }

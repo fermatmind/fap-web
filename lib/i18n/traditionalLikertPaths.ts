@@ -1,4 +1,9 @@
 const profiles = {
+  "relationship-worry-habits": ["direct-reassurance", "rival-attention", "giving-for-connection", "indirect-checks"],
+  "relationship-habits": ["space-and-pauses", "fairness-tally", "talk-delay", "overextension"],
+  "dating-outlook": ["possibility", "practice", "guarded-expectations", "fixed-conditions"],
+  "intimacy-values": ["privacy", "play", "steadiness", "trust", "closeness"],
+  "relationship-commitment": ["continuing-intention", "current-satisfaction", "outside-options", "relationship-linked-investment"],
   "apology-language": ["regret-reading", "responsibility-reading", "repair-reading", "change-reading", "forgiveness-choice-reading"],
   "conflict-styles": ["pressing-own-plan", "joint-problem-solving", "trading-concessions", "stepping-back", "yielding-choice"],
   "love-fight-style": ["verbal-escalation-reading", "pause-reading", "return-reading", "repair-reading"],
