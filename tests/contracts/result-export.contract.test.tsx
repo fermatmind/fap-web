@@ -6,6 +6,7 @@ import { defaultResultExportDraft, serializeResultExport, type ResultExportProje
 import { downloadResultPdf } from "@/lib/result-export/download";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { RESULT_EXPORT_PROMPTS } from "@/lib/result-export/prompts";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
 function report(count = 93, locale = "en"): ReportResponse {
   return { report: { locale, versions: { engine: "engine-qa", account_id: "private-version-key" } }, mbti_form_v1: { form_code: `MBTI_${count}`, question_count: count },
@@ -66,6 +67,31 @@ describe("shared result export", () => {
       const p = { ...buildMbtiResultExport(report(), "en")!, product };
       for (const locale of ["en", "zh"] as const) expect(serializeResultExport(p, defaultResultExportDraft(p, locale), locale)).toContain(RESULT_EXPORT_PROMPTS[product][locale]);
     }
+  });
+  it("localizes Taiwan export controls and generated text while preserving edits and source facts", async () => {
+    const displayText = await loadTraditionalAssessmentText();
+    const projection = buildMbtiResultExport(report(93, "zh-CN"), "zh")!;
+    const draft = defaultResultExportDraft(projection, "zh-TW", displayText);
+    expect(draft.prompt).toBe(displayText(RESULT_EXPORT_PROMPTS.MBTI.zh));
+    expect(draft.prompt).not.toBe(RESULT_EXPORT_PROMPTS.MBTI.zh);
+    const goal = "我的目标是改善沟通 🧪";
+    const prompt = "请按原文读取";
+    for (const format of ["text", "markdown"] as const) {
+      const output = serializeResultExport(projection, { ...draft, goal, prompt }, "zh-TW", format, displayText);
+      expect(output).toContain("fermatmind.result_export.v1 · zh-TW");
+      expect(output).toContain("已預覽的報告事實");
+      expect(output).toContain("接近中點或平分");
+      for (const original of [goal, prompt, "MBTI_93", "zh-CN", "51", "engine-qa"]) {
+        expect(output).toContain(original);
+      }
+      expect(output).not.toMatch(/private-(token|id|answer|email|version-key)-qa/);
+    }
+    render(<ResultExportPanel projection={projection} locale="zh-TW" />);
+    fireEvent.click(await screen.findByText(displayText("选择、预览并带走结果")));
+    fireEvent.change(screen.getByLabelText(displayText("目标与经历（用户自述，可留空）")), { target: { value: goal } });
+    expect((screen.getByLabelText(displayText("完整导出预览")) as HTMLTextAreaElement).value).toContain(goal);
+    expect(screen.getByRole("button", { name: "TXT" })).toBeEnabled();
+    expect(screen.queryByRole("button", { name: /PDF/ })).toBeNull();
   });
   it("waits for clipboard success; rejected copies preserve data and focus the full fallback", async () => {
     let resolve!: () => void;

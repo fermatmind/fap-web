@@ -52,12 +52,12 @@ export function buildEnneagramResultExport(report: ReportResponse, locale: Local
     assessment: { formCode: facts.formCode, questionCount: facts.formCode === "enneagram_likert_105" ? 105 : 144, locale: view.authority?.locale || null },
     versions: Object.entries(facts.versions).map(([label, value]) => ({ label, value })),
     sections: [
-      { id: "candidates", title: zh ? "本次真实候选" : "Reported candidates", defaultSelected: true, fields: facts.candidates.flatMap((row) => [{ label: `#${row.rank} ${row.label}`, value: row.value as string | number | null, unit }, { label: zh ? "动机阅读线索" : "Motivation reading clue", value: row.motivation as string | number | null }]) },
+      { id: "candidates", title: zh ? "本次真实候选" : "Reported candidates", defaultSelected: true, fields: facts.candidates.flatMap((row) => [{ label: `#${row.rank} ${row.label}`, value: row.value as string | number | null, unit }, { label: zh ? "动机阅读线索" : "Motivation reading clue", localizeValue: true, value: row.motivation as string | number | null }]) },
       { id: "distribution", title: zh ? "九类分布" : "Nine-type distribution", defaultSelected: true, fields: facts.distribution.map((row) => ({ label: `${zh ? "类型" : "Type"} ${row.typeId}`, value: row.value, unit })) },
-      { id: "counterexamples", title: zh ? "候选反例问题" : "Candidate counterexample questions", defaultSelected: false, fields: facts.candidates.map((row) => ({ label: row.label, value: row.counterexampleQuestion })) },
+      { id: "counterexamples", title: zh ? "候选反例问题" : "Candidate counterexample questions", defaultSelected: false, fields: facts.candidates.map((row) => ({ label: row.label, localizeValue: true, value: row.counterexampleQuestion })) },
     ],
-    reference: [{ label: zh ? "量尺边界" : "Scale boundary", value: zh ? "仅同题本内相对比较；两题本不直接换算，不是人群百分位。" : "Relative comparison within this form only. The forms are not directly convertible; these are not population percentiles." }],
-    quality: [{ label: zh ? "解释状态" : "Interpretation status", value: facts.interpretationScope }, { label: zh ? "信心说明" : "Confidence note", value: facts.confidence }],
+    reference: [{ label: zh ? "量尺边界" : "Scale boundary", localizeValue: true, value: zh ? "仅同题本内相对比较；两题本不直接换算，不是人群百分位。" : "Relative comparison within this form only. The forms are not directly convertible; these are not population percentiles." }],
+    quality: [{ label: zh ? "解释状态" : "Interpretation status", value: facts.interpretationScope }, { label: zh ? "信心说明" : "Confidence note", localizeValue: true, value: facts.confidence }],
     limitations: [...facts.omissions, zh ? "候选和近分由本次报告提供；不新增阈值或固定唯一人格。相似行为可以有不同动机，用户经历须单列。" : "Candidates and close scores come from this report; no new thresholds or fixed identity are assigned. Similar behaviors can have different motivations; keep user experiences separate."],
   };
 }

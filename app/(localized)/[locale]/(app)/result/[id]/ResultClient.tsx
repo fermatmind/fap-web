@@ -2206,7 +2206,7 @@ export default function ResultClient({
         {resolvedScaleCode !== "MBTI" && (resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData)) ? renderOptionalEmailRecoveryCard() : null}
         {mbtiExport ? <>
           <MbtiResultReader projection={mbtiExport} locale={locale} />
-          <ResultExportPanel projection={mbtiExport} locale={locale}
+          <ResultExportPanel projection={mbtiExport} locale={displayLocale}
             pdfState={canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable"}
             onDownloadPdf={onDownloadMbtiPdf}
           />
@@ -2222,8 +2222,8 @@ export default function ResultClient({
           snapshotContentStatus={snapshotContentStatus}
           onDownloadMbtiPdf={onDownloadMbtiPdf}
         />
-        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={locale} /> : null}
-        {domainExport ? <ResultExportPanel projection={domainExport} locale={locale} /> : null}
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
+        {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}
         {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
         {renderPdfReadyMarker()}
       </div>
@@ -2246,7 +2246,7 @@ export default function ResultClient({
           emailRecovery={!printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           attemptId={attemptId}
         />
-        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={locale} /> : null}
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
       </div>
     );
   }

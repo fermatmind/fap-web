@@ -15,7 +15,7 @@ export function buildMbtiResultExport(report: ReportResponse, locale: Locale): R
   const zh = locale === "zh";
   const sections: ResultExportSection[] = [{ id: "summary", title: zh ? "核心结果" : "Core result", fields: [
     { label: zh ? "类型" : "Type", value: type },
-    { label: zh ? "摘要" : "Summary", value: text(projection.summary_card?.summary) },
+    { label: zh ? "摘要" : "Summary", value: text(projection.summary_card?.summary), localizeValue: true },
   ] }];
   for (const code of ["EI", "SN", "TF", "JP", "AT"]) {
     const axis = projection.dimensions?.find(item => String(item.axis_code ?? item.code ?? item.id).replace(/[^A-Z]/gi, "").toUpperCase() === code);
@@ -24,7 +24,7 @@ export function buildMbtiResultExport(report: ReportResponse, locale: Locale): R
       { label: zh ? "方向" : "Direction", value: text(axis?.dominant_pole) ?? text(axis?.side) },
       { label: zh ? "方向得分比例" : "Directional score proportion", value, unit: "%" },
       { label: zh ? `第一极 ${code[0]} 比例` : `First-pole ${code[0]} proportion`, value: percent(axis?.raw_first_pole_pct) ?? percent(axis?.score_pct), unit: "%" },
-      { label: zh ? "本次边界提示" : "Boundary note", value: value === null ? null : ["tie", "close_call"].includes(resolveMbtiClarityState(value)) || axis?.strength_band === "boundary" ? (zh ? "接近中点或平分；不固定归类，不是置信度。" : "Near the midpoint or tied; avoid fixed labels. This is not confidence.") : (zh ? "本次方向分数，不代表能力或固定人格强度。" : "This response direction is not ability or fixed personality strength.") },
+      { label: zh ? "本次边界提示" : "Boundary note", localizeValue: true, value: value === null ? null : ["tie", "close_call"].includes(resolveMbtiClarityState(value)) || axis?.strength_band === "boundary" ? (zh ? "接近中点或平分；不固定归类，不是置信度。" : "Near the midpoint or tied; avoid fixed labels. This is not confidence.") : (zh ? "本次方向分数，不代表能力或固定人格强度。" : "This response direction is not ability or fixed personality strength.") },
       { label: zh ? "相对方向比例" : "Opposite direction proportion", value: percent(axis?.opposite_pct), unit: "%" },
       { label: zh ? "报告边界标记" : "Reported boundary band", value: text(axis?.strength_band) ?? text(axis?.state) },
     ] });
@@ -32,7 +32,7 @@ export function buildMbtiResultExport(report: ReportResponse, locale: Locale): R
   const rawQuality = record(report.quality);
   const quality = Object.keys(rawQuality).length ? [
     { label: zh ? "报告质量等级" : "Reported quality level", value: text(rawQuality.level) ?? text(rawQuality.grade) },
-    { label: zh ? "报告质量标记" : "Reported quality flags", value: Array.isArray(rawQuality.flags) ? rawQuality.flags.filter((value): value is string => typeof value === "string").join(", ") || (zh ? "无标记（不等于质量已获证明）" : "No flags (not proof of quality)") : null },
+    { label: zh ? "报告质量标记" : "Reported quality flags", localizeValue: true, value: Array.isArray(rawQuality.flags) ? rawQuality.flags.filter((value): value is string => typeof value === "string").join(", ") || (zh ? "无标记（不等于质量已获证明）" : "No flags (not proof of quality)") : null },
   ] : [];
   const versions = report.report?.versions;
   const personalization = record(record(report.report?._meta).personalization);

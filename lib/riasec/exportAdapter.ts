@@ -73,10 +73,10 @@ export function buildRiasecResultExport(report: Parameters<typeof assembleRiasec
     sections: [
       { id: "summary", title: t("兴趣线索与近分", "Interest clues and close scores"), fields: [
         { label: "Top 3", value: facts.top3 },
-        { label: t("分布形状", "Profile shape"), value: formatRiasecExportProfileShape(facts.profileShape, locale) },
-        { label: t("接近／并列说明", "Close-score / tie guidance"), value: facts.closeScores?.note || null },
+        { label: t("分布形状", "Profile shape"), localizeValue: true, value: formatRiasecExportProfileShape(facts.profileShape, locale) },
+        { label: t("接近／并列说明", "Close-score / tie guidance"), localizeValue: true, value: facts.closeScores?.note || null },
         { label: t("可保留的其他阅读顺序", "Alternative reading orders"), value: facts.closeScores?.alternatives.join(" / ") || null },
-        { label: t("排序边界", "Ordering boundary"), value: facts.closeScores?.boundary || null },
+        { label: t("排序边界", "Ordering boundary"), localizeValue: true, value: facts.closeScores?.boundary || null },
       ] },
       { id: "dimensions", title: t("六维兴趣分", "Six interest dimensions"), fields: facts.dimensions.map(dimension => ({
         label: `${dimension.code} · ${dimension.label}`, value: dimension.score, unit: facts.units,
@@ -85,7 +85,7 @@ export function buildRiasecResultExport(report: Parameters<typeof assembleRiasec
     reference: [],
     quality: [
       { label: t("作答质量", "Response quality"), value: facts.quality },
-      { label: t("质量解释边界", "Quality reading boundary"), value: facts.qualityBoundary },
+      { label: t("质量解释边界", "Quality reading boundary"), localizeValue: true, value: facts.qualityBoundary },
     ],
     limitations: [facts.boundary, facts.resultBoundary],
   };

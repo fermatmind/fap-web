@@ -65,12 +65,12 @@ export function buildBig5ResultExport(report: ReportResponse, locale: Locale, ac
       ...BIG5_DOMAIN_ORDER.map((code) => ({ id: `facets-${code}`, title: `${BIG5_DOMAIN_LABELS[code][locale]} · facet`, defaultSelected: false, fields: fields(facts.facets.filter((row) => row.code.startsWith(code))) })).filter((section) => section.fields.length > 0),
     ],
     reference: [
-      { label: zh ? "状态" : "Status", value: norm.status || null }, { label: zh ? "群体" : "Sample", value: norm.sample || null },
-      { label: zh ? "样本量" : "Sample size", value: norm.sampleN }, { label: zh ? "地区" : "Region", value: norm.region || null },
+      { label: zh ? "状态" : "Status", value: norm.status || null }, { label: zh ? "群体" : "Sample", localizeValue: true, value: norm.sample || null },
+      { label: zh ? "样本量" : "Sample size", value: norm.sampleN }, { label: zh ? "地区" : "Region", localizeValue: true, value: norm.region || null },
       { label: zh ? "参照语言" : "Reference language", value: norm.locale || null }, { label: zh ? "年龄范围" : "Age range", value: norm.ageRange || null },
-      { label: zh ? "限制" : "Limit", value: norm.explanation || null },
+      { label: zh ? "限制" : "Limit", localizeValue: true, value: norm.explanation || null },
     ],
-    quality: [{ label: zh ? "作答质量" : "Response quality", value: facts.quality.level || null }, { label: zh ? "解释提示" : "Interpretation note", value: facts.quality.notice || null }],
+    quality: [{ label: zh ? "作答质量" : "Response quality", value: facts.quality.level || null }, { label: zh ? "解释提示" : "Interpretation note", localizeValue: true, value: facts.quality.notice || null }],
     limitations: [...facts.omissions, zh ? "五域是连续特质，不是能力、诊断或好坏标签。90和120题不可混用参照；POMP不是百分位；不由语言推测国家。用户经历单列，不写回测量。" : "Domains are continuous traits, not abilities, diagnoses or good/bad labels. Keep 90- and 120-item references separate. POMP is not percentile; language does not determine country. User experiences remain separate from measurements."],
   };
 }
