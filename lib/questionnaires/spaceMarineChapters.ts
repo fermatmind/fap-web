@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireAnswers } from "./types";
 
 /** Editorial craft motifs, not official Chapter insignia or additional results. */
@@ -15,7 +15,7 @@ export type ChapterId = keyof typeof chapterHobbyLenses;
 export function chapterHobbyLens(id: string) {
   return Object.hasOwn(chapterHobbyLenses, id) ? chapterHobbyLenses[id as ChapterId] : undefined;
 }
-export function chapterShareCardPath(locale: Locale, id: string, version: string) {
+export function chapterShareCardPath(locale: DisplayLocale, id: string, version: string) {
   return `/og/fun/space-marine-chapter?locale=${locale}&portrait=${encodeURIComponent(id)}&v=${encodeURIComponent(version)}-studio`;
 }
 
@@ -33,6 +33,7 @@ export function chapterChoiceReasons(quiz: Questionnaire, id: string, answers?: 
 }
 
 export const chapterScope = {
+  "zh-TW": "這 18 題比較紙模型展示中的參與偏好，包括規劃、支撐、接合、細作、觀察與路線。六個戰團名稱是原創同人情境的背景。結果不判斷你和戰團的人格相似度、官方歸屬或配軍選擇。插畫呈現原創情境，並非官方角色或徽章。",
   zh: "这18题比较纸模型展示中的参与偏好：计划、支撑、接合、细作、观察与路线。六个战团名称为这些原创爱好视角提供同人背景；结果不判断你最像哪支战团的人格、官方归属或配军选择。人物插画是原创创作情境，不是官方角色或徽章。",
   en: "These eighteen items compare preferences within a paper-model display: planning, support, connections, craft, observation and routes. Six Chapter names frame these original fan hobby lenses. The result does not determine your closest Chapter personality, official membership or army choice. The original illustrations depict imagined creative scenes, not official characters or insignia.",
 };

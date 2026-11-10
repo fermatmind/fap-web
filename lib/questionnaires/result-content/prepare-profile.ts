@@ -1,4 +1,4 @@
-import type { QuestionnaireProfile, Text } from "../types";
+import type { QuestionnaireProfile, QuestionnaireSection, Text } from "../types";
 
 export type ResultReadingDefinition = {
   attribute: string;
@@ -18,4 +18,18 @@ export function prepareSelectedResultProfile(quizSlug: string, profile: Question
     ...(definition.note ? { note: definition.note } : {}),
     ...(definition.references ? { references: definition.references } : {}),
   } };
+}
+
+
+export function mergeResultReadingParagraphs(
+  profile: QuestionnaireProfile,
+  source: Record<string, QuestionnaireSection[]>,
+): QuestionnaireProfile {
+  if (!Object.hasOwn(source, profile.id)) return profile;
+  const additions = source[profile.id];
+  const sections = profile.sections.map(section => {
+    const addition = additions.find(item => item.id === section.id);
+    return addition ? { ...section, paragraphs: [...section.paragraphs, ...addition.paragraphs] } : section;
+  });
+  return { ...profile, sections };
 }

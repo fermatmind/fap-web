@@ -1,7 +1,6 @@
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
-import { euphoriaResultProfile } from "@/lib/questionnaires/result-content/euphoria-character-quiz";
-import { prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
+import { mergeResultReadingParagraphs, prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
 import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
 import { isArchetypeConfigurationValid } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, QuestionnaireSection, Text } from "@/lib/questionnaires/types";
@@ -25,7 +24,7 @@ const sources = {
   "gossip-girl": { name: "gossip-girl", load: () => import("@/lib/questionnaires/result-content/gossip-girl.json") },
   "game-of-thrones": { name: "game-of-thrones", load: () => import("@/lib/questionnaires/result-content/game-of-thrones.json") },
   "harry-potter-character": { name: "harry-potter-character", load: () => import("@/lib/questionnaires/result-content/harry-potter-character.json") },
-  "euphoria-character-quiz": { name: "euphoria-character-quiz", attribute: "euphoria", load: () => import("@/lib/questionnaires/result-content/euphoria-character-quiz.json") },
+  "euphoria-character-quiz": { name: "euphoria-character-quiz", mergeParagraphs: true, attribute: "euphoria", load: () => import("@/lib/questionnaires/result-content/euphoria-character-quiz.json") },
   "hazbin-hotel-character-quiz": { name: "hazbin-hotel", load: () => import("@/lib/questionnaires/result-content/hazbin-hotel.json") },
   "my-hero-academia-character-quiz": { name: "my-hero-academia", load: () => import("@/lib/questionnaires/result-content/my-hero-academia.json") },
   "my-little-pony-character-quiz": { name: "my-little-pony", load: () => import("@/lib/questionnaires/result-content/my-little-pony.json") },
@@ -35,6 +34,13 @@ const sources = {
   "amazing-digital-circus": { name: "amazing-digital-circus", load: () => import("@/lib/questionnaires/result-content/amazing-digital-circus.json") },
   "blue-lock": { name: "blue-lock", load: () => import("@/lib/questionnaires/result-content/blue-lock.json") },
   "anime-character-archetype-test": { name: "anime-character-archetype-test", load: () => import("@/lib/questionnaires/result-content/anime-character-archetype-test.json") },
+  "space-marine-chapter": { name: "space-marine-chapter", load: () => import("@/lib/questionnaires/result-content/space-marine-chapter.json") },
+  "hundred-acre-wood-friend-quiz": { name: "hundred-acre-wood-friend-quiz", load: () => import("@/lib/questionnaires/result-content/hundred-acre-wood-friend-quiz.json") },
+  "apocalypse-survival-type-test": { name: "apocalypse-survival-type-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/apocalypse-survival-type-test.json") },
+  "next-life": { name: "next-life", load: () => import("@/lib/questionnaires/result-content/next-life.json") },
+  "villain-era-archetype-test": { name: "villain-era-archetype-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/villain-era-archetype-test.json") },
+  "big-fish-energy-test": { name: "big-fish-energy-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/big-fish-energy-test.json") },
+  "decade-aesthetic-test": { name: "decade-aesthetic-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/decade-aesthetic-test.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {
@@ -61,8 +67,8 @@ export async function loadTraditionalArchetype(slug: string) {
     zh: `若本次有多個最高匹配，請分別讀各份說明。並列不會合成新的${edition.type}，也不會指定主次。分享公開說明只會開啟通用讀法，且不附個人計數或答案。`,
     en: `If several matches share the highest count, read each separately. A tie creates neither a new ${edition.en} nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers.`,
   } : undefined;
-  const select = "attribute" in edition
-    ? (profile: Questionnaire["profiles"][number]) => euphoriaResultProfile(profile, readings)
+  const select = "mergeParagraphs" in edition
+    ? (profile: Questionnaire["profiles"][number]) => mergeResultReadingParagraphs(profile, readings)
     : (profile: Questionnaire["profiles"][number]) => Object.hasOwn(readings, profile.id)
       ? { ...profile, sections: [...profile.sections, ...readings[profile.id]] }
       : profile;

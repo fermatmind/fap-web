@@ -21,6 +21,13 @@ import { jujutsuKaisenLandingFaq, jujutsuKaisenLandingSections } from "@/compone
 import { digitalCircusLandingFaq, digitalCircusLandingSections } from "@/components/questionnaires/DigitalCircusLandingEditorial";
 import { blueLockLandingFaq, blueLockLandingSections } from "@/components/questionnaires/BlueLockLandingEditorial";
 import { animeStoryRolesLandingFaq, animeStoryRolesLandingSections } from "@/components/questionnaires/AnimeStoryRolesLandingEditorial";
+import { spaceMarineChaptersLandingFaq, spaceMarineChaptersLandingSections } from "@/components/questionnaires/SpaceMarineChaptersLandingEditorial";
+import { storybookFriendsLandingFaq, storybookFriendsLandingSections } from "@/components/questionnaires/StorybookFriendsLandingEditorial";
+import { apocalypseLandingFaq, apocalypseLandingSections } from "@/components/questionnaires/ApocalypseLandingEditorial";
+import { nextLifeLandingFaq, nextLifeLandingSections } from "@/components/questionnaires/NextLifeLandingEditorial";
+import { villainEraLandingFaq, villainEraLandingSections } from "@/components/questionnaires/VillainEraLandingEditorial";
+import { bigFishLandingFaq, bigFishLandingSections } from "@/components/questionnaires/BigFishLandingEditorial";
+import { decadeLandingFaq, decadeLandingSections } from "@/components/questionnaires/DecadeLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -49,6 +56,13 @@ const editorials = {
   "amazing-digital-circus": { sections: digitalCircusLandingSections, faq: digitalCircusLandingFaq },
   "blue-lock": { sections: blueLockLandingSections, faq: blueLockLandingFaq },
   "anime-character-archetype-test": { sections: animeStoryRolesLandingSections, faq: animeStoryRolesLandingFaq },
+  "space-marine-chapter": { sections: spaceMarineChaptersLandingSections, faq: spaceMarineChaptersLandingFaq },
+  "hundred-acre-wood-friend-quiz": { sections: storybookFriendsLandingSections, faq: storybookFriendsLandingFaq },
+  "apocalypse-survival-type-test": { sections: apocalypseLandingSections, faq: apocalypseLandingFaq },
+  "next-life": { sections: nextLifeLandingSections, faq: nextLifeLandingFaq },
+  "villain-era-archetype-test": { sections: villainEraLandingSections, faq: villainEraLandingFaq },
+  "big-fish-energy-test": { sections: bigFishLandingSections, faq: bigFishLandingFaq },
+  "decade-aesthetic-test": { sections: decadeLandingSections, faq: decadeLandingFaq },
 };
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {

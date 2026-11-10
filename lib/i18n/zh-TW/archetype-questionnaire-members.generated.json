@@ -206,5 +206,61 @@
     "guide",
     "improviser",
     "keeper"
+  ],
+  "space-marine-chapter": [
+    "ultramarines",
+    "imperial-fists",
+    "iron-hands",
+    "salamanders",
+    "raven-guard",
+    "white-scars"
+  ],
+  "hundred-acre-wood-friend-quiz": [
+    "pooh",
+    "piglet",
+    "owl",
+    "tigger",
+    "eeyore",
+    "kanga"
+  ],
+  "apocalypse-survival-type-test": [
+    "camp-planner",
+    "care-companion",
+    "map-scout",
+    "model-builder",
+    "message-diplomat",
+    "solo-chronicler"
+  ],
+  "next-life": [
+    "traveller",
+    "gardener",
+    "host",
+    "maker",
+    "chronicler",
+    "investigator"
+  ],
+  "villain-era-archetype-test": [
+    "scene-planner",
+    "honest-antihero",
+    "warm-decliner",
+    "rule-questioner",
+    "offstage-keeper",
+    "line-rewriter"
+  ],
+  "big-fish-energy-test": [
+    "shark",
+    "dolphin",
+    "whale",
+    "octopus",
+    "pufferfish",
+    "anglerfish"
+  ],
+  "decade-aesthetic-test": [
+    "deco-1920s",
+    "boho-1960s",
+    "disco-1970s",
+    "graphic-1980s",
+    "grunge-1990s",
+    "digital-2000s"
   ]
 }

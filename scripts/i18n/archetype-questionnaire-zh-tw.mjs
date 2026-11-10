@@ -29,6 +29,13 @@ const editions = {
   "amazing-digital-circus": ["amazing-digital-circus", "DigitalCircus", "digitalCircusLanding", true],
   "blue-lock": ["blue-lock", "BlueLock", "blueLockLanding", true],
   "anime-character-archetype-test": ["anime-character-archetype-test", "AnimeStoryRoles", "animeStoryRolesLanding", true],
+  "space-marine-chapter": ["space-marine-chapter", "SpaceMarineChapters", "spaceMarineChaptersLanding", true],
+  "hundred-acre-wood-friend-quiz": ["hundred-acre-wood-friend-quiz", "StorybookFriends", "storybookFriendsLanding", true],
+  "apocalypse-survival-type-test": ["apocalypse-survival-type-test", "Apocalypse", "apocalypseLanding", true],
+  "next-life": ["next-life", "NextLife", "nextLifeLanding", true],
+  "villain-era-archetype-test": ["villain-era-archetype-test", "VillainEra", "villainEraLanding", true],
+  "big-fish-energy-test": ["big-fish-energy-test", "BigFish", "bigFishLanding", true],
+  "decade-aesthetic-test": ["decade-aesthetic-test", "Decade", "decadeLanding", true],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);

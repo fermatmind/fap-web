@@ -9,6 +9,7 @@ import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireCl
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
 import { SuperpowerPage } from "@/components/questionnaires/SuperpowerPage";
+import { SpaceMarineChapterGuideIntro } from "@/components/questionnaires/SpaceMarineChapterGuideIntro";
 import { QuestionnaireResultReading } from "@/components/questionnaires/QuestionnaireResultReading";
 import { QuestionnaireTakeDocument, questionnaireTakeMetadata } from "@/components/questionnaires/QuestionnaireTakeDocument";
 import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
@@ -72,6 +73,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <p className="text-sm font-semibold">完整公開指南</p>
     <h1 className="text-3xl font-bold sm:text-4xl">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
+    {slug === "space-marine-chapter" && <SpaceMarineChapterGuideIntro profile={result} locale="zh" displayLocale="zh-TW" />}
     {hasFantasyArtwork(slug) && <FantasyPortrait slug={slug} id={result.id} name={result.title.zh} large />}
     <p className="text-sm leading-7">這份公開指南只提供閱讀參考，沒有任何人的作答紀錄。</p>
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
