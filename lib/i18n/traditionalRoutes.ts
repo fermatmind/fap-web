@@ -5,6 +5,7 @@ import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
 import { traditionalLegacyStoryPath } from "./traditionalLegacyStoryPaths";
+import { traditionalLikertRoute } from "./traditionalLikertPaths";
 import { traditionalPracticeRoute } from "./traditionalPracticePaths";
 import { traditionalArchetypeRoute } from "./traditionalArchetypePaths";
 import { relationshipQuestionnaireRoute } from "./relationshipQuestionnairePaths";
@@ -43,7 +44,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/pricing") return "/zh-TW/pricing";
   if (isFriendshipDisplayPath(path)) return `/zh-TW${path}`;
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
-  if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path) || traditionalPracticeRoute(path)) return `/zh-TW${path}`;
+  if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path) || traditionalPracticeRoute(path) || traditionalLikertRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (CAREER_INTEREST_PILOTS.some(code => path === `/career/interests/${code}`)) return `/zh-TW${path}`;
   if (path === "/career/compare") return "/zh-TW/career/compare";

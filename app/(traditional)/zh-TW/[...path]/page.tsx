@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { traditionalPath, traditionalEquivalent, TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH } from "@/lib/i18n/traditionalRoutes";
+import { traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { traditionalArchetypeRoute } from "@/lib/i18n/traditionalArchetypePaths";
 import { relationshipQuestionnaireRoute } from "@/lib/i18n/relationshipQuestionnairePaths";
@@ -21,6 +22,11 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  const likert = traditionalLikertRoute(path.slice("/zh-TW".length));
+  if (likert) {
+    const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return traditionalLikertMetadata(likert);
+  }
   const practice = traditionalPracticeRoute(path.slice("/zh-TW".length));
   if (practice) {
     const { traditionalPracticeMetadata } = await import("@/components/i18n/zh-TW/PracticeQuestionnairePage");
@@ -55,6 +61,11 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  const likert = traditionalLikertRoute(path.slice("/zh-TW".length));
+  if (likert) {
+    const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return <LikertQuestionnairePage {...likert} />;
+  }
   const practice = traditionalPracticeRoute(path.slice("/zh-TW".length));
   if (practice) {
     const { PracticeQuestionnairePage } = await import("@/components/i18n/zh-TW/PracticeQuestionnairePage");

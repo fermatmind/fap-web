@@ -1,0 +1,2089 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/questionnaires/data/locus-of-control.json": "e48330b00a04851829ad4ecaf97242479386197e9410c59f265e9cc516f7f70b",
+    "lib/questionnaires/result-content/locus-of-control.json": "baf52c116fb1375fda3931398135c6138186c6d8f2f757c63e932400d9b2f855",
+    "components/questionnaires/LocusLandingEditorial.ts": "be81536cdb26f4d6e48f7847a81d6bfe2d04a9df51268f05d725451892e856ed",
+    "lib/questionnaires/data/empathy.json": "166e7fde284100101878f754081af4e86ff8de529ca49550453a8029521e1e89",
+    "lib/questionnaires/result-content/empathy.json": "c8479a9a8d01bd8ffedc31ada4dde2042f7ebf7acb3268a4de00c887d069f92c",
+    "lib/questionnaires/data/social-intelligence-test.json": "1611fa89bee80a100a7b0b95b5914fb98245fe4794869624c4372506919b1152",
+    "lib/questionnaires/result-content/social-understanding.json": "7e644eab80a033bce04abfdc32e50baeee4258a03d0f8856fc4adbe6033d694d",
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts": "881f1b642851da07f7320f35c68c5ad5337646cedc994d3bec9fa36d9b263d41"
+  },
+  "units": {
+    "lib/questionnaires/data/locus-of-control.json/title": {
+      "sourceHash": "228221c1ec464635e03ce5205686e172cab679e348152ba88427865ca71d035a",
+      "text": "控制點測驗"
+    },
+    "lib/questionnaires/data/locus-of-control.json/resultHeading": {
+      "sourceHash": "c2d21306c0070e766175aed1e1b951984102e1730ca5d5dd7dcc44c59be0ca9a",
+      "text": "你怎樣理解結果由什麼影響"
+    },
+    "lib/questionnaires/data/locus-of-control.json/description": {
+      "sourceHash": "cb75ef8ae669f1bd6859f3f3c49c224e776c1c25589b5845b842c4515ca41a4a",
+      "text": "依 IPIP 公開的 20 題整體計分鍵，回顧自己對主動行動、做決定、運氣與應付困難的看法。可免費查看原始總分、反向計分方式和完整指南，免註冊。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/seoTitle": {
+      "sourceHash": "b252643e178fe3406342f34220964d3081cf388eaa249f3314dadeb85026f1c7",
+      "text": "控制點測驗：IPIP完整20題、原始總分與免費解讀"
+    },
+    "lib/questionnaires/data/locus-of-control.json/introduction": {
+      "sourceHash": "1563ffb3be5685d396162c031bfe5c421db19bfde6673e203343caed9ac7a7ef",
+      "text": "控制點（Locus of Control）關注人怎樣理解個人行動與外部因素對結果的影響。本頁採用IPIP公開的20題整體鍵，內容涉及主動、決策、成功、運氣和應付困難的自我描述，保留英文及本站中文試譯。完成後免費檢視原始總分、有效條數和完整連續解讀，結合情境理解自己的回答。它呈現這一題本中的控制相關看法，不據總分推斷你在現實中有多少權力、資源或責任。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/instructions": {
+      "sourceHash": "bad8e25a3cff19c61065102e918e752b21dabe9854b30172a948f0bfe59c742b",
+      "text": "按每句與你現在通常的自我描述有多符合，從非常不符合到非常符合選擇，不按理想形象作答。沒有適當參照、資料不足或不願回答，可選獨立的非數值回應。20題都作出選擇後呈現完整解讀；只有20條均為有效評分才顯示個人原始總分，十道反向題由系統處理。不必輸入私人經歷，約5分鐘但不限時；點擊開始直接進入題目，不必再次同意或註冊。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/directions/0/title": {
+      "sourceHash": "2183182f3ec6c899f4e6e2d54076b59cf1fe6695bc0ee58a80f4dd5dec31a1f2",
+      "text": "IPIP整體控制信念"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/prompt": {
+      "sourceHash": "afd8a2b524f43dae5faf9c2583c8072180015d838c56f07c9fedaf4266b71357",
+      "text": "對自己感到自在。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/options/0/label": {
+      "sourceHash": "aa8077c6c876941c98556b04dd4540ba655c06e47118debb60a0fb86793a024f",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/options/1/label": {
+      "sourceHash": "9a5f93562a7d26316df548bda27dbb7e27efcf9a29f09738ba8fec132c975033",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/options/2/label": {
+      "sourceHash": "452e11d4ffa338cab2d62329e15a3bd76f3998cfd9812848cc5ce3774e5d4cc9",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/options/3/label": {
+      "sourceHash": "ddbeb01ab7d7b3e7f788dc89ccdae0f32980d4b4ae492cd140034c201cc7bd62",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/options/4/label": {
+      "sourceHash": "d093d8c61cec20f8fbbfe47bf9457f150ca7542694c1c0965adbb35519e82a74",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/0/options/5/label": {
+      "sourceHash": "cd653897c0621f407763651e7e3c5d59e3855616aaab3e44ff4446713083a39c",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/prompt": {
+      "sourceHash": "89803f9292c3684ece4150cec8c803251caac3ccfe18f45a3556af5c8dca606b",
+      "text": "相信不幸的事情發生是因為運氣不好。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/options/0/label": {
+      "sourceHash": "65aae1d5f905b9b4df260ea85b0a1ff8a79d1b2f697212048755c80bd355d523",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/options/1/label": {
+      "sourceHash": "0ecbdb03a3c32a2c52cb45eeac51e2e57ebd73cbe85c6ff3dbd0a3635b5ae206",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/options/2/label": {
+      "sourceHash": "865caab1e92ab7fcb8cf773d6370ff7b95ca23ce6a4206be8eac950ef818eb72",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/options/3/label": {
+      "sourceHash": "f12334a0de7ad63a0cc34ed5a336aab09a21441f9f4390698c66eb016e344b30",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/options/4/label": {
+      "sourceHash": "758a296ade54e1afb01f372fb0bc7276e2dc9fb43ca4e708780780276341c11f",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/1/options/5/label": {
+      "sourceHash": "2746f3b6b6dc5a4f95bcf2a4eaba84e85f6031d9409b0c99fa7c7b9def2e0dbe",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/prompt": {
+      "sourceHash": "c17f06ef84c3a73979d996874b99d0b25b30a073238b5617959fd7425abe7eec",
+      "text": "相信我的成功取決於能力，而不是運氣。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/options/0/label": {
+      "sourceHash": "b9f7c4550fc88ec315c4d9469f641d7a40c6c82eb096b0b6fbce524c4941bf5f",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/options/1/label": {
+      "sourceHash": "60e98d64eccb6c85839d834d76c9c4e7dabd3929f6a0110d887696a23bf46aa0",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/options/2/label": {
+      "sourceHash": "ebeb7a334020873982f9c88479df4ad3d0614e782af5609cf68354ceea9df1ff",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/options/3/label": {
+      "sourceHash": "dc994379effdb2ab004741caa8e957af52830d862fd2488b4d327ac5ba4a197f",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/options/4/label": {
+      "sourceHash": "5bdcac8569ea68517daffc2f8bfd06623a5ff720838ed297aca7d6b8f51f4f75",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/2/options/5/label": {
+      "sourceHash": "8e336928f4d9230c1d58a6924b6ca2e11f98e9b898a62224ec31dcfcb4c89968",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/prompt": {
+      "sourceHash": "e489995e98b2d5a7cdf2f472ca47df47dd9b4f32a1be4eb2329b76569de30de0",
+      "text": "相信世界由少數有權勢的人控制。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/options/0/label": {
+      "sourceHash": "ceebe65f6d8342b6535c307669f1ad9f0ab399cbda567f4b35377c13a2a0c2da",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/options/1/label": {
+      "sourceHash": "29b7b80f142f1f91b3412cae624257b255f13b17dc4e4088bc0d06b7209ae308",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/options/2/label": {
+      "sourceHash": "5d94320afd1d92b090aceae7aedc6441750a1db86e11ae1be16e7f437c7f0e2b",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/options/3/label": {
+      "sourceHash": "3d918c4674791eb05de34181a3a006644bb36804c4296176cb6ec566bca3b950",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/options/4/label": {
+      "sourceHash": "93c92f7edc510b83c63e6b3cc04d07c13a9eabe6e96b4fe30afa5807037ab7b4",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/3/options/5/label": {
+      "sourceHash": "45207164a2565f256afd00d694bc62de2633c1b45e4861f865d3e3ae109ccffb",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/prompt": {
+      "sourceHash": "a8fc10e12bde8892016d6e9668a420dfd9646c334f4514b27b8b50f66c6828e6",
+      "text": "就是知道自己會成功。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/options/0/label": {
+      "sourceHash": "39c4a41ea1b9fed4d3b442776172fffb003b60da480b762122d4f754756abb2a",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/options/1/label": {
+      "sourceHash": "9ab04069ab521d97dba60965128ad15945ea16198eb5ef13fba6bfc3930b4f03",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/options/2/label": {
+      "sourceHash": "fcc42690c9a33f83830dab1681252b8ed0b3417c6892e4fa16b1d682ed190694",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/options/3/label": {
+      "sourceHash": "e2bceb4f8f68e8726ffab9860b78026930dd372aa42247a4eb41b61a36251777",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/options/4/label": {
+      "sourceHash": "d75450f95b94da0471941e1c9e2d4f34d3ac803c3e01de35782cf3bc464f9dbc",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/4/options/5/label": {
+      "sourceHash": "568d1b7ce426ac149678929953229b09fa414be54b2b731dedd000fbadf11336",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/prompt": {
+      "sourceHash": "1320079ac6cf71784e5ece4fbf5cf6dc05bc6d40e024b42e505c84d45490ac8a",
+      "text": "覺得自己的生活缺乏方向。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/options/0/label": {
+      "sourceHash": "ab1f95157d91c4b903f944bbc350b0958e3bd8c3e6eff753b894e9c94787a867",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/options/1/label": {
+      "sourceHash": "c95c31101e0d6b2abeb2cd89734c335d195c1c4df8b85e1470f860925132c03f",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/options/2/label": {
+      "sourceHash": "c55f8ce20c4db6c7c173a8402fa342b82ce3d6f78385fda111b31d1e21642a2e",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/options/3/label": {
+      "sourceHash": "d057ffac7ef280ec4be1d836550057f6763f7942f1214ec4b1e019a27192345d",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/options/4/label": {
+      "sourceHash": "89ada2910f310ea3d76f411be01059d1e11a08ed2c606c3de40f66609b78356f",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/5/options/5/label": {
+      "sourceHash": "eac3f870b2b1b4e00527783aebe111334d5f25a94e09f376a30a8bc3042355cb",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/prompt": {
+      "sourceHash": "79388b4e28a12860aa7abfa8ba2607b93b572d0b778c882874995b043726a7c5",
+      "text": "能想出好的解決辦法。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/options/0/label": {
+      "sourceHash": "e61372e751dbf2102b21d63d5c530315c10c056bcb2f6583c8c3f992e8e1bc82",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/options/1/label": {
+      "sourceHash": "cdf8b8bdceb367777193d882345cb715ab2462a448e609eeb2cc975ee0e7f7d6",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/options/2/label": {
+      "sourceHash": "3abc03e682fe029d7c2cf2d9924c35dae97bd24f49e1b5d7ab851f12f8d04733",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/options/3/label": {
+      "sourceHash": "21aeae7fd2f8a4f690b01ac85e27194695d1f69bd3ff29593a786fdfb06def44",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/options/4/label": {
+      "sourceHash": "1c867f9b647f9dff54b7d38bdf876d4c61998f045de1ed8341945853aeac39b1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/6/options/5/label": {
+      "sourceHash": "3cdef7c1da2e0e47aa96192e5f7e2f91fb9b845a5802a6c432f3b2c9ad0547df",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/prompt": {
+      "sourceHash": "2870a8b14f14c2732d1c0f04573b16484020cee26373626d410e2c8368494185",
+      "text": "覺得處處都有困難。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/options/0/label": {
+      "sourceHash": "1d4413701b17207dfdc1d993a903e575683250c3725eee59e10b90394d4660a9",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/options/1/label": {
+      "sourceHash": "74ebca4ded8af671fec9ad52edc69fb7ad7016676050337862b9b6d513f75a82",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/options/2/label": {
+      "sourceHash": "1dc3c0929902716490a26563188f0f33999ed4e33802835cc7f080371cecb2ef",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/options/3/label": {
+      "sourceHash": "f7a403c6b9556b2cf01e6e60a24ab17a33818afa11e687fbacc4086a65df3c34",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/options/4/label": {
+      "sourceHash": "3216a57defde5eb6a39377db1bcb63a91e84586dd9c2e7dffb961b38cd20058c",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/7/options/5/label": {
+      "sourceHash": "e768d3996a3ed0c4a7beb244523e31315c73c81f9e820183097a4d6d644b8e22",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/prompt": {
+      "sourceHash": "d520d9bfea764f587773dff0e1063374570be9aab52708179ffd41dfb3c7818e",
+      "text": "熱愛生活。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/options/0/label": {
+      "sourceHash": "6bb08117dd29baca366562edbbbfdf443af4bc01fb14d87a1ce5f7f6c8e4d2b3",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/options/1/label": {
+      "sourceHash": "ab6e8f6601c858b996cc2dcaed9e29cf9862be6fd5c656928d32c53a2c433500",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/options/2/label": {
+      "sourceHash": "2f26967cc03ff71aba88542575acdc761bd4d83f3ad04434d19352f0006ab82e",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/options/3/label": {
+      "sourceHash": "026fc407158621eca6900b9a33917cab200934837a69588d45013c1c0f6a49f3",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/options/4/label": {
+      "sourceHash": "b856cfee4728af47a8a156bff9db5de2fa4c4cf6d7ab7985c3eebd1b91a503b1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/8/options/5/label": {
+      "sourceHash": "2242c7e67c5b11397d32c99c59b1eae8447baff0146e13034d883eb6a8b373b6",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/prompt": {
+      "sourceHash": "592cb6cd3fa00b43b4323607472916d99c9c0bee3653a7a7ca37d5cbb76d9e35",
+      "text": "習慣性地錯失自己的機會。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/options/0/label": {
+      "sourceHash": "bad6ce0f30844970c614dda4a977a20da0a6741c345c1d871de2eb783a0f38e9",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/options/1/label": {
+      "sourceHash": "b2f77025e955156f78b68e53cc43984eb3ad252dfaea24564b5ad6d8c592185d",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/options/2/label": {
+      "sourceHash": "e857314ca1d5497165841cef46e923bd708876c3be13af088820855c93b8eba4",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/options/3/label": {
+      "sourceHash": "d157e59e6784aeb02356660ab562282a3bcb5d6c98d3ffd236014083282c73d1",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/options/4/label": {
+      "sourceHash": "56d278bf91581bf9cc47e5ff1cd7d224d51f8aa7675dc1ab868ae4050a7268c2",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/9/options/5/label": {
+      "sourceHash": "47d9bcbd93624e1875b0dbe0eb272d54857cc73b051e911a9fe7e7809c786c94",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/prompt": {
+      "sourceHash": "691cb044ea9938497bbdeabc0463b1551b6666df0133495b6c87f4378f155ef0",
+      "text": "與別人相處時表現自在。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/options/0/label": {
+      "sourceHash": "482f4bb17d364e131f8bb7ce0bee6907a580b367f6a0e94e533fdffe72f54233",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/options/1/label": {
+      "sourceHash": "26339825f598daebf78af7ff8ade71ea9a453d1953bc35734955e7fd4b4b9c51",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/options/2/label": {
+      "sourceHash": "3a02b5556e605d2c54185db4a4bff1c0783ae8fbb6ea616820721482cfeab478",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/options/3/label": {
+      "sourceHash": "369fc8adf2af6d52656920b30329efbdbed0c7100e4a014559216caed8f1f342",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/options/4/label": {
+      "sourceHash": "83d949fae69d52908c723efd0aec7d51d8de70057e92799a6792d52708c9fd00",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/10/options/5/label": {
+      "sourceHash": "15a84fbb3ccc2428d11ac126c1c721818cf02853986c4a2c6436a0400dc3cf23",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/prompt": {
+      "sourceHash": "67c335b6a1b6545883642fc5d7d812191697b75b91ee30d3ec3898ada9de9efb",
+      "text": "相信有些人生來就幸運。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/options/0/label": {
+      "sourceHash": "ce0f9ca9fea75f1321fa62be3f31a3f0e218ae48ea0644d8d2ad469bbd3e60f6",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/options/1/label": {
+      "sourceHash": "2e9dc19f75c9cee770fd03f5abf5cb5dd3eadb5b182ec7123d9e38218bfde0f9",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/options/2/label": {
+      "sourceHash": "ed37ff374c4c8d6462ace8aeeef35387fda49953ef278ab845465091a64eb1fd",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/options/3/label": {
+      "sourceHash": "c19f5a9c2d1122afad0a0eea2b97c3f169458285c2195cdb3dddeb312a823cd1",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/options/4/label": {
+      "sourceHash": "39f78b82526cde25dfa77adf9b965111005305fac00d5b52c447e27b8fde19ec",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/11/options/5/label": {
+      "sourceHash": "eaa72c250eadfa9339c25d428ff2a11976afcff790b7a3478bab6af82fb4b700",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/prompt": {
+      "sourceHash": "3d9a02f68ea1e1dcdea975974aa87c71445ef7617267ee016454e228e090b4b8",
+      "text": "覺得自己能勝任任何任務。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/options/0/label": {
+      "sourceHash": "2906232376733f6b43dca40bb930371ca232e659e2576613cf2386a8ded8f02b",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/options/1/label": {
+      "sourceHash": "01f53aaa4ffcbcb622ea37b04ab7704968a3bf9b2fa28142004a76d6f3c0c019",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/options/2/label": {
+      "sourceHash": "a3f72d65a4f0bf4b37cf7ac81ce6740b42fa84f69ab6864c24afb172a97c9e5f",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/options/3/label": {
+      "sourceHash": "f2cd1c9c87c9c7a171144c513e92fa29a1c3d49245bfff6435cbb5e7a078b94e",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/options/4/label": {
+      "sourceHash": "11f3449ff7593cf41116f2e8afc27401976849d1ba2fded4754cb14b70bbd067",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/12/options/5/label": {
+      "sourceHash": "feef8e257df9f28cd6a04630ec103fb476bc8f8211a5e7f140ec045f7fcb5373",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/prompt": {
+      "sourceHash": "849bd06756cf6696bca17a4581d812bc94b78b8fe45e29313228d8ad88534f6d",
+      "text": "不喜歡為做決定承擔責任。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/options/0/label": {
+      "sourceHash": "2a3895fb1de6ce9859c69dfda1c3762e8da28fadffd30a0225eff9af6d3c7d53",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/options/1/label": {
+      "sourceHash": "c0abd6b9e680e6f495ff1532ab252e537de7ca9ea37cb9e54c64667a51796fd6",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/options/2/label": {
+      "sourceHash": "cd307827e8c5684a5a7ebedcdc5fcce4bbb1021aaac640fa4376564daf37c4bf",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/options/3/label": {
+      "sourceHash": "482ee38faf57c0ffd1542a1ff0d6c354aedf68286ed7a8cf038eaa9f55e496f6",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/options/4/label": {
+      "sourceHash": "4da21d49a229cbcdd5afadbc1bc84af90b6506818b8efa370ba70f52655320db",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/13/options/5/label": {
+      "sourceHash": "ce62d6486126841d3fdaaff2c71730ac6e8ced2193057d9808c3b30116be631f",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/prompt": {
+      "sourceHash": "062bc10c6e504c566894eac890fe210773b1030074641034e196ea55befc3e30",
+      "text": "喜歡為做決定承擔責任。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/options/0/label": {
+      "sourceHash": "3958d401a0cc19f0a35e02ccd9741407a75808ce11f353d9509d623ee5365245",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/options/1/label": {
+      "sourceHash": "dc7f1556ace5d653f0c7aeea41ca3e6987cca9d980147ed25d1dc27b3682c4c0",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/options/2/label": {
+      "sourceHash": "dd548c506644e720b36ca7b958d57765ffcf4c0ab11b1406e15c84889e79021f",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/options/3/label": {
+      "sourceHash": "95f2b5817ee950574ee655d49544d7e7c09c89376c260d3aea9aa9b6fc78a3be",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/options/4/label": {
+      "sourceHash": "e38f489a1effbe7e8bb19acbb15db764d27ace1bb20b8c5201c6261f85939a0e",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/14/options/5/label": {
+      "sourceHash": "c7af5f13ef3419e1f1fd264ac5aee60b3f8a0c5ef6024900153570fe9af5ab27",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/prompt": {
+      "sourceHash": "237a875b8577f21c4ed78c93b029e898429a1db588b2c5d57ced0fc11d0e4999",
+      "text": "覺得自己的能力不如大多數人。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/options/0/label": {
+      "sourceHash": "e5558298e4c90f9ff9d1bd56157bbc4a65bc72714fe1940cd2f87e46f2c85c48",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/options/1/label": {
+      "sourceHash": "2b924b2f2048b607c97369cb5b63c3b46020bfb090f6c895d48c961a396e5e0d",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/options/2/label": {
+      "sourceHash": "aeaee396ab33e13fa0e3e8b1c09aed1b47814db29348f45ea6148acb3549e89b",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/options/3/label": {
+      "sourceHash": "3429ada0cdd7e908c7d1a6b203266985317798bc00925247c35af54a46536782",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/options/4/label": {
+      "sourceHash": "02dd7522213da64d77ddbd3aa1603cd3976a7d8a719ba3a02ad9a74fd82a88e8",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/15/options/5/label": {
+      "sourceHash": "2bc6cf57f84f8decd418e4adaeed9240faec3bad89f9420745833b910596fd21",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/prompt": {
+      "sourceHash": "e9ef10c4b82e784015e0ba6b7d09de99e7e558913ec9b96bc8bf41f7b5ba729c",
+      "text": "會主動採取行動。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/options/0/label": {
+      "sourceHash": "482742616fd3ebd153ac43abb19a339210b67824688fa41883653062e7098795",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/options/1/label": {
+      "sourceHash": "594821dcd6de53a22ab002928352550c789839d77fb8552e05147bad50d93917",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/options/2/label": {
+      "sourceHash": "d22064ad25dcf313face48857038947330a7ce10510c802c717491f9252c24ef",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/options/3/label": {
+      "sourceHash": "2210cd90db71513b09cdca498b41ac7645f8a49ebcf95dc0ba00b9b22238b4fa",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/options/4/label": {
+      "sourceHash": "defecd7d6191388eba9149490cc921e32f599ef9128fc12fc9d3a92a3fc86c81",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/16/options/5/label": {
+      "sourceHash": "dab3dba378ac60ff28f183ea85635841bde45431c8f625835be461861e68e3ea",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/prompt": {
+      "sourceHash": "03526881f88df55c9fed2502f0e715d2055cb6d79b286425a9252f07f7bb5ac8",
+      "text": "不喜歡自己。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/options/0/label": {
+      "sourceHash": "9b0aaa1a02ea9444fa511b1f1ea3857cad627c56aae597069ae5abdb0b612a00",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/options/1/label": {
+      "sourceHash": "bfe93f5751ed074096ddeb2ac6b4cbb370063ac988e9b7b260b5c84568e52a8d",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/options/2/label": {
+      "sourceHash": "f231a54fe671ee36d9e5fa0159a03c7d3762d460acc8c00d4c10aa49c92b8e58",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/options/3/label": {
+      "sourceHash": "daa7f440b65faa719cb2968c58867201481f1bb2dd239e8caf62d63c5ce04dcc",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/options/4/label": {
+      "sourceHash": "37c8f46112c9ded21b801724fbf931bc1034904ff36f2c840b0088cc6f9faf69",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/17/options/5/label": {
+      "sourceHash": "c4c8f72cc3025e983d945f659da7850afc7176475472ed86c39e24645ff6f244",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/prompt": {
+      "sourceHash": "2158bb2a713310d355d1bac0cb7f3822c499461ae053f233b15b4cf60086086e",
+      "text": "作出決定後便繼續向前。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/options/0/label": {
+      "sourceHash": "835857b89ee6b58e08764203e8cdaefb365f39d1ffd07dd3d74927698845655b",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/options/1/label": {
+      "sourceHash": "4d7456c0858887fa10e71ea4dd1128c764f8c3209ad6a84f87ffd47cc3aa9750",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/options/2/label": {
+      "sourceHash": "6d3bdf605106cd6274b3060552e4d2629a9f4919531caf0cd3279168fce050f4",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/options/3/label": {
+      "sourceHash": "7bcde98381d7d74a186dd6c06c692940a94104801bb560ecc45437ee1538d380",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/options/4/label": {
+      "sourceHash": "cbb1a0f32707de679838ac860c4216ef0b4fd9fc2161925ea792da2500066931",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/18/options/5/label": {
+      "sourceHash": "0871230e1d59e94ef8aa47868fb38c4995602c6d1a94985f510ca9f036257d34",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/prompt": {
+      "sourceHash": "1929f82c3ca946d96cbff4ca50e5dd297f74d8ab01e16fff9494b2d922be3367",
+      "text": "覺得自己無法應付各種事情。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/options/0/label": {
+      "sourceHash": "4df3bc2160376e898bfb0db172621810c00843a0c8245d59af5c03c352de3cec",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/options/1/label": {
+      "sourceHash": "466b55b64635d618e099be45d91397cc809979819ca7e6fb078e06863034e448",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/options/2/label": {
+      "sourceHash": "918ac9953344cc604afc2b728836c9d5cb8274d19bbdccc1a7f9bd37e71e46ef",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/options/3/label": {
+      "sourceHash": "ba4f3d63077e486138d0ce84163002fb286f6eceaeeb183934066256217b9bc8",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/options/4/label": {
+      "sourceHash": "92facadde3c9897b603a2ee817444b3ac685a20c2dd369cf830d2e354f2e0c81",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/locus-of-control.json/questions/19/options/5/label": {
+      "sourceHash": "93b3a20bed96b4663a5195e20e065f89ffc659a258373c5024318394cf3e2c1e",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/title": {
+      "sourceHash": "33c46c359e52495eb1f00528c48dfd2b7d3230e5d59c017f046d2ad591e335fc",
+      "text": "控制點結果：完整的連續讀法"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/headline": {
+      "sourceHash": "c43abc4dcba3e2e88fa930326fab8779f123454ab7a96a49940839c39f1ea0de",
+      "text": "讀二十條自報總分，也核對現實中的行動與限制。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/summary": {
+      "sourceHash": "144a36bdf23b478a41118ea8d510e16a3f951df9b511adb6cdfc3eea0727d3cb",
+      "text": "完整說明IPIP二十條整體鍵、原始總分、較高較低與混合缺失、情境例子和反例；不派四種類型，不把信念當現實掌控或責任。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/scoreReading": {
+      "sourceHash": "4f65cbd399ca48ec5697920602e57f9c63fb5068f1bd89019cdedd044d9041d1",
+      "text": "按1非常不符合至5非常符合評分，奇數十條直接，偶數LOC_02、04、06、08、10、12、14、16、18、20按6減有效回答反向。二十條全部有效時，直接把二十個計分值相加，原始總分20—100；可選的兩位小數均分是這個未舍入總和除20，不從已舍入的一位小數反推。分數較高表示本鍵方向較偏內部控制相關自述，較低偏外部控制相關自述。沒有百分位、通過線或四檔派型；一分差異不證明真實改變。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/seo/title": {
+      "sourceHash": "04859e7b5bede23853073282c21e423f7f50d0e05532314a1f8c555e79b3f6f0",
+      "text": "控制點測驗結果：原始總分、內外控與完整解釋"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/seo/description": {
+      "sourceHash": "312ca7977023a8cf247835e7139eca47aeabe16343dc7e1bd552370086f413b2",
+      "text": "讀懂IPIP控制點二十條整體結果：十條反向、20—100原始總分、中間混合與資料不足，含例子反例。不作常模分檔或現實責任判斷。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/0/title": {
+      "sourceHash": "b85592a32b93422d0608ff176008b34de78bb3c1f618d7b4dea81bc10bf06d64",
+      "text": "先認清本次採用的二十條版本"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "370a4876fa73b2af29fc93cc9ea3b43a17bf0f10d357e8c450bfedb9280f43fb",
+      "text": "這份結果來自IPIP公開的控制點整體二十條鍵，不是Rotter二十九題強迫選擇I-E、Levenson原IPC二十四題，也不是本站樂觀測驗的另一名字。英文保留公開條目，中文是本站試譯，正反條目交錯呈現。原鍵包括成功信念、做決定、自在和困難等自我描述，不能把每一句都當純粹的原因歸屬問題。這裡讀的是這一組選項形成的自報總分，不是你在現實中究竟掌握了多少權力、資源或選擇。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/1/title": {
+      "sourceHash": "0c32b78ee0b52f42eddc4805033b4b73b14c4e63419098bb90c2852662d7a65f",
+      "text": "十條正向、十條反向怎樣求和"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "c422888ab39c2bd0406cce1f5726d8d9550fb1275067f84a460d7a49ef7b1fa3",
+      "text": "按1非常不符合至5非常符合評分，奇數十條直接，偶數LOC_02、04、06、08、10、12、14、16、18、20按6減有效回答反向。二十條全部有效時，直接把二十個計分值相加，原始總分20—100；可選的兩位小數均分是這個未舍入總和除20，不從已舍入的一位小數反推。分數較高表示本鍵方向較偏內部控制相關自述，較低偏外部控制相關自述。沒有百分位、通過線或四檔派型；一分差異不證明真實改變。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/2/title": {
+      "sourceHash": "57f7d49f32f69c5ac616bb13decf1667d4d71920ddc62990de21c2cd11f21d01",
+      "text": "較高總分可以問什麼"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "48e800e2d31f6dadbd2e66911625205c8285622705aa45fed7a064ae7acabfc5",
+      "text": "較高總分可能對應你更認可主動、承擔決定和能找到辦法等表述，較少認可機會被運氣或無力感決定的句子。可以具體看看哪條與你現在的自述貼近，而不是把數字當作處處能掌控的證書。高分不證明你有較強技能、較高自尊、較好情緒或更可靠的人格；這些詞雖然與若干條目內容相鄰，也沒有在本卷被獨立驗證。若遇到規則變動、他人拒絕或資源限制，仍要按實際證據確認可做什麼，不用高分要求自己承擔全部結果。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/3/title": {
+      "sourceHash": "7184f6417b695c2316dae5176955ada085e8f9072880be2da0d82bdcf7a8b908",
+      "text": "較低總分不能替你定責"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "ecaf3fb8827d866055c1eba1ff028217e560839247e62499d831e6b72939e093",
+      "text": "較低總分可能來自對運氣、困難、方向或應付感受的不同回答。它不說明你懶惰、沒有動力、註定失敗或不值得信任，更不能說明不利經歷由你造成。有些條目含絕對語氣，例如任何任務或知道會成功；不認同這些句子，也可能只是避免過度肯定。題目沒有追問原因、處境或各條的重要性，所以不要用同一個總分替不同的人講同一個故事。你可以保留對現實限制的判斷，選擇不繼續作答，或只閱讀公開說明。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/4/title": {
+      "sourceHash": "231fb439e8b35ae931a6448ba86778fab9e74f9f562a9b23679a1211e992af08",
+      "text": "中間值、相同總分與未評分"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "72d21aa09ce755f3ec67b4d64d7f14b511413c2c41dde68d1c05458cbbaa93f8",
+      "text": "全部中立得到60分，全選非常符合或全選非常不符合，也因十正十反得到60分；這不表示三種回答的觀點相同，更不認證理想平衡、半內半外或回答矛盾。二十條中只要一條NA，就不顯示個人總分與均分，不補零、中立或按其餘十九條估算，全文仍可讀。評分是有序符合類別的求和約定，不證明類別間隔相等；兩位小數也不提供額外精度。沒拿到本站常模，就不能把60叫作人群平均。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/5/title": {
+      "sourceHash": "9302a62a5929c739656a8a22bc11c0085c65697d72dc895a3a606a13c2e1b336",
+      "text": "用具體情境檢查，保留反例"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "01196f6681c25491216c9b785d85bce818152d41449a03dcd3a22d6a005a0264",
+      "text": "設想你報名一個人數有限的活動：你能決定核對材料、是否提交、是否詢問規則，但名額、抽籤或組織方決定需要另看。這只是辨認行動與條件的練習，不是把報名成功歸給某個分數。反例是，一個人在自我描述上較主動，卻暫時沒有可用名額；另一個人不認同任何任務都能勝任，卻可能把這次材料準備得很充分。分數無法排出誰更該被錄取，也不能判斷失敗究竟來自準備、規則還是偶然，更不應被用來給他人定責。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/6/title": {
+      "sourceHash": "f27c73c6ca9e0e234b53e54ca867cd85b536255b86069354d4d479a5c8721e0a",
+      "text": "與樂觀、成長信念和三個子量表分開"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "f96916b3906fe85eb129417d05d829063684157443939b5a5827e65d1b457792",
+      "text": "樂觀關注對未來結果的期待，成長信念關注技能可否改變，控制信念則關心與個人行動及外部因素相關的看法；條目有交疊，也不等於同一產品或分數能互換。本版與本站樂觀題本共有五條公開IPIP英文，已保留其在各自鍵中的方向，不據此換算樂觀分。官網還另列內部、有權勢他人、機遇三個十條鍵，以及五條理性控制點鍵，本卷沒有獨立測這幾份，也不能從二十條總分推它們的側面或所謂勝出型別。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/7/title": {
+      "sourceHash": "78cded59889486109eaaa61e3ba7cfccaef9577e68df3ca44573f8f3991cb394",
+      "text": "公有領域許可不等於本站驗證"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "93d28ff5d9b479d166ae5991f551457e66615c476a30c0860e3c150de200c138",
+      "text": "IPIP官方許可明確允許商業與非商業使用、翻譯及編輯，英文二十條及正反鍵可公開核對。官網表中的信度與相關基於Eugene-Springfield Community Sample的原研究，不是本站中文譯文、網頁形式、NA選項或個人結果的保證。中文尚無本站跨語言等價驗證，也沒有本地常模。公開鍵裡的能力、自在和自我評價用語不應被刪改後仍冒稱相同研究版本，但閱讀時也不能把這些自述當客觀能力或臨床狀態。此處只有計分可復算，不提供診斷、招聘或健康判斷。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/8/title": {
+      "sourceHash": "1291f1af2073380ec1b90e7b0c100c2ef7547e9858e1bd2246e4d226f38fe956",
+      "text": "可選回顧與分享範圍"
+    },
+    "lib/questionnaires/data/locus-of-control.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "ac88b52a51def6347bb592158b62b944adb354d6c677ce46c545ca4f312ddc29",
+      "text": "若願意，選擇一個普通情境，分別記下自己能嘗試的動作、需要詢問的資訊和暫時不能決定的條件；不必記錄私密經歷，也不保證做完會提高分數或改變生活。二十題和全文免費，免註冊、郵箱或另一測評解鎖。答案在瀏覽器計分，不上傳或進入連結與分析。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只測驗名與公開入口，不帶答案、總分或內部外部標籤；你可以到此結束。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/0/title": {
+      "sourceHash": "27eefe7fd344ddf5345824c2b9e0d897bbd9fcf90d1b17f1d621a22bb194deb6",
+      "text": "完整二十條與原始總分"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/0/paragraphs/0": {
+      "sourceHash": "ab73d1b3f8664e60e6a59763645003339b945813489a9e3c1ce37131f3d1edae",
+      "text": "按1非常不符合至5非常符合評分，奇數十條直接，偶數LOC_02、04、06、08、10、12、14、16、18、20按6減有效回答反向。二十條全部有效時，直接把二十個計分值相加，原始總分20—100；可選的兩位小數均分是這個未舍入總和除20，不從已舍入的一位小數反推。分數較高表示本鍵方向較偏內部控制相關自述，較低偏外部控制相關自述。沒有百分位、通過線或四檔派型；一分差異不證明真實改變。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/1/title": {
+      "sourceHash": "7c5bc3a5aefed754d402807acb743239b550cc03ef207955487818f593b09830",
+      "text": "同一份全文覆蓋連續讀法"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/1/paragraphs/0": {
+      "sourceHash": "31ff5f599de335c6215f8fac784dc5b19eb58fcc45143f7ac880a3a9a04dd8d4",
+      "text": "不設最高派型、四檔切分、通過線或常模百分位。較高較低只描述本鍵方向，60可能來自中立、全同意或全不同意等不同組合，不代表最平衡或人口平均。任一NA不生成個人總分，完整說明與例子照常保留。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/2/title": {
+      "sourceHash": "3eabed64771c59ed0e92f906eb3071521ab4a72c4cbe702753bb013597b8c7f2",
+      "text": "版本、其他框架與交疊條目"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/2/paragraphs/0": {
+      "sourceHash": "49937740286c620cfa0d138d09a6aea7828e8839b9812966f46ee8855421a566",
+      "text": "樂觀關注對未來結果的期待，成長信念關注技能可否改變，控制信念則關心與個人行動及外部因素相關的看法；條目有交疊，也不等於同一產品或分數能互換。本版與本站樂觀題本共有五條公開IPIP英文，已保留其在各自鍵中的方向，不據此換算樂觀分。官網還另列內部、有權勢他人、機遇三個十條鍵，以及五條理性控制點鍵，本卷沒有獨立測這幾份，也不能從二十條總分推它們的側面或所謂勝出型別。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/3/title": {
+      "sourceHash": "9dd19c2b3ff9ec1c53d849782f70e6ce0333fd1cf3a1daa8e10df68301bcf9b3",
+      "text": "IPIP題本與個人推斷邊界"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/3/paragraphs/0": {
+      "sourceHash": "2a056882154fb199d5880ebc9119ed2b7790ced2f6185809343199073267bd4c",
+      "text": "本版採用IPIP控制點整體20條英文及正反鍵，是該公有領域表示版本，不是Rotter 29題強迫選擇I-E、原Levenson IPC 24題或JobCannon 12原創題。沒有另測內部、有權勢他人、機遇三個子量表，也不從其名稱推算本總分。計分不能證明實際掌控、責任歸屬、能力高低、自尊、樂觀、健康、動機或工作表現。官網ESCS信度與相關屬於原樣本和呈現，不是本站中文、NA規則或個人結果驗證；無本站常模、百分位、優劣及型別閾值。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/4/title": {
+      "sourceHash": "eab039b4e8e53ddfedf78b43665dcbdbf394010fd4307bba056ce11052934435",
+      "text": "免費閱讀、答題隱私與分享"
+    },
+    "lib/questionnaires/data/locus-of-control.json/guide/4/paragraphs/0": {
+      "sourceHash": "efbfb199fa8ea6ecdb4b73c59d004343dd7ca7c8a6f0df0a51c63486d472c578",
+      "text": "若願意，選擇一個普通情境，分別記下自己能嘗試的動作、需要詢問的資訊和暫時不能決定的條件；不必記錄私密經歷，也不保證做完會提高分數或改變生活。二十題和全文免費，免註冊、郵箱或另一測評解鎖。答案在瀏覽器計分，不上傳或進入連結與分析。這份測驗不儲存答題進度。重新整理、切換語言或離開測驗後，需要重新開始。分享只測驗名與公開入口，不帶答案、總分或內部外部標籤；你可以到此結束。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/0/question": {
+      "sourceHash": "c28bbe7fe4355bd0ef34c4c2fd9628c9d9a5a6b1c41b0e66b1ac6b10dffba0d0",
+      "text": "這是Rotter的正式I-E量表嗎？"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/0/answer": {
+      "sourceHash": "38874cc32297ff5155f86a3c7cbb7ee612d1f81717253a107f636823d5da4116",
+      "text": "這份結果來自IPIP公開的控制點整體二十條鍵，不是Rotter二十九題強迫選擇I-E、Levenson原IPC二十四題，也不是本站樂觀測驗的另一名字。英文保留公開條目，中文是本站試譯，正反條目交錯呈現。原鍵包括成功信念、做決定、自在和困難等自我描述，不能把每一句都當純粹的原因歸屬問題。這裡讀的是這一組選項形成的自報總分，不是你在現實中究竟掌握了多少權力、資源或選擇。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/1/question": {
+      "sourceHash": "c85d31e4f2e984890bb539ebcd0e2e35eed57affcc0eb1ad70476263be6dcab8",
+      "text": "如何反向計分，缺一條可以估算嗎？"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/1/answer": {
+      "sourceHash": "3fcfcd6a15fd74b1ff8520525682fb5b161248f3e0c0db273addb24ca8a5b57a",
+      "text": "十條偶數鍵按6減有效回答，十條奇數直接，二十條全部有效才相加為20—100原始總分。任一NA不補零或中立、不按十九條估算。均分只用未舍入總和除20；有序類別加總是約定，小數不提供精度。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/2/question": {
+      "sourceHash": "e393e5e92026027f9e0b550fb8a9e4144fb9082db934e62d1788313bc19638f1",
+      "text": "內部控制越高越好嗎？"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/2/answer": {
+      "sourceHash": "5fe38644a45226624d8f2821e9ebac0aeb4c547ebd845cd6fbaa81ab1f0064e8",
+      "text": "本版不評優劣，也沒驗證最健康或最理想區間。原始總分描述這組條目的自報，不能證明實際掌控、能力或責任歸屬；中間分也不認證平衡。可以按具體情況核對行動與限制，不以分數要求自己多承擔。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/3/question": {
+      "sourceHash": "18a401b06906860fe3435a5eccac87458e61cf494da3b24ae60971fb22f1ddd6",
+      "text": "和樂觀、成長信念及三個IPC側面有什麼區別？"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/3/answer": {
+      "sourceHash": "7ca2cf7ebd55fa25d9d9d87c0d3bdad6d8d6b38e4e97b84ce701aac2a99338a5",
+      "text": "樂觀關注對未來結果的期待，成長信念關注技能可否改變，控制信念則關心與個人行動及外部因素相關的看法；條目有交疊，也不等於同一產品或分數能互換。本版與本站樂觀題本共有五條公開IPIP英文，已保留其在各自鍵中的方向，不據此換算樂觀分。官網還另列內部、有權勢他人、機遇三個十條鍵，以及五條理性控制點鍵，本卷沒有獨立測這幾份，也不能從二十條總分推它們的側面或所謂勝出型別。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/4/question": {
+      "sourceHash": "232a38d239dee3abf26c598108d1b6cdaa8fe5c7c63d5aa0cc1164c3bd417749",
+      "text": "英文條目、中文翻譯和使用許可是什麼？"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/4/answer": {
+      "sourceHash": "ff421e094f3ca08559ee66511d58bbe52b20a41239fff51069abe34c58f7023d",
+      "text": "IPIP官方許可明確允許商業與非商業使用、翻譯及編輯，英文二十條及正反鍵可公開核對。官網表中的信度與相關基於Eugene-Springfield Community Sample的原研究，不是本站中文譯文、網頁形式、NA選項或個人結果的保證。中文尚無本站跨語言等價驗證，也沒有本地常模。公開鍵裡的能力、自在和自我評價用語不應被刪改後仍冒稱相同研究版本，但閱讀時也不能把這些自述當客觀能力或臨床狀態。此處只有計分可復算，不提供診斷、招聘或健康判斷。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/5/question": {
+      "sourceHash": "375a0675be96ff28e6cc534aa094d9edb3791e91ff5bbb4a39eb8922d355d14c",
+      "text": "全文、重測和分享免費嗎？"
+    },
+    "lib/questionnaires/data/locus-of-control.json/faq/5/answer": {
+      "sourceHash": "c1b7ff2334e55c099f5136d2eccbe0579e82692fcde7c92b81e76f0b0070d007",
+      "text": "若願意，選擇一個普通情境，分別記下自己能嘗試的動作、需要詢問的資訊和暫時不能決定的條件；不必記錄私密經歷，也不保證做完會提高分數或改變生活。二十題和全文免費，免註冊、郵箱或另一測評解鎖。答案在瀏覽器計分，不上傳或進入連結與分析。這份測驗不儲存答題進度。重新整理、切換語言或離開測驗後，需要重新開始。分享只測驗名與公開入口，不帶答案、總分或內部外部標籤；你可以到此結束。"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/0/title": {
+      "sourceHash": "09de2e2baf7c791a3270e17eb5431df37532ceb17be73d752dc3b6652dbd6145",
+      "text": "IPIP控制點計分鍵：整體二十條（不是三個子量表）"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/1/title": {
+      "sourceHash": "4c3e7d7247ac60947eba5b96fa77751b4f4cb050f7bbb2730f7e2f51b1a82adb",
+      "text": "IPIP單構念表：題數、原ESCS樣本及文獻"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/2/title": {
+      "sourceHash": "e1ff8aa0b4ad6a217d2137e9cc098c713641cd98d80070921e50b088fb28dea4",
+      "text": "IPIP官方公有領域許可：商業與非商業"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/3/title": {
+      "sourceHash": "900c612c1a3845b442bb7b22c862d55c5ed332bf906483dcf8754120e160580c",
+      "text": "IPIP官方1—5符合度與正反鍵求和"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/4/title": {
+      "sourceHash": "5dfe1687454a2d90cf1e4ee000911485032cbca5e262ad4c56efdb8f17c12661",
+      "text": "IPIP個人分數解釋：常模與連續讀法"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/5/title": {
+      "sourceHash": "1e4ea4cc351f9a6e47f525395ea3688e17b844b752c3a4ee5a9a04b509f64a61",
+      "text": "APA控制點定義：概念背景"
+    },
+    "lib/questionnaires/data/locus-of-control.json/references/6/title": {
+      "sourceHash": "e501c0d4da46f52a2e386a047c904300ad3cca6341a7cd51b9664daa293b86b6",
+      "text": "SJDM量表檔案：Rotter I-E的用途與29題強迫選擇格式"
+    },
+    "lib/questionnaires/result-content/locus-of-control.json/control-continuum/0/title": {
+      "sourceHash": "f8f6cbf3dbfb98bd990148bc351f956f2fbaf34c4d2c286ba96dfee6710e6820",
+      "text": "在報名這件小事裡區分行動、資訊與外部決定"
+    },
+    "lib/questionnaires/result-content/locus-of-control.json/control-continuum/0/paragraphs/0": {
+      "sourceHash": "c5acb313532e549bdc21672c71b749d49925be370d8efb889e78c439b7fb0364",
+      "text": "沿用上面限額活動報名的例子，先看自己是否願意參加，再區分可檢查的材料、需要詢問的規則，以及目前不能決定的名額或抽籤。可以選擇提交、補問一次或不參加；哪種合適要看實際條件。若未獲名額，先核對已知原因和仍未知的部分，不從總分補出準備不足、運氣不好或應該負責的結論。反過來，獲名額也不證明能夠處處掌控。復盤關注具體可行性，不把想辦法的數量或下次總分當成績。"
+    },
+    "lib/questionnaires/result-content/locus-of-control.json/control-continuum/1/title": {
+      "sourceHash": "afcc041024ede5d8ab9010f74ae5d804c38261a23fe0125333184544775cf929",
+      "text": "討論可做的一步，也允許保留未知"
+    },
+    "lib/questionnaires/result-content/locus-of-control.json/control-continuum/1/paragraphs/0": {
+      "sourceHash": "0c57d02972409a6227047f9c74147f144c1fc3b00bcbd9f3f869920198df9754",
+      "text": "可以問：“假設一個活動名額有限，你會先確認哪條規則，哪些安排需要等組織方回答，什麼情況下會選擇不報名？”交換各自看到的行動與條件，不用比較誰更內控、更積極或更值得成功。對方可以指出你沒看到的限制，也可以不解釋自己的現實處境。"
+    },
+    "lib/questionnaires/result-content/locus-of-control.json/control-continuum/1/paragraphs/1": {
+      "sourceHash": "e057695f532c9e910578686ae26a4cc517bfa44f1eab1112dc81ebbb1562a462",
+      "text": "可以只分享這份公開說明；連結不含答案、總分、均分或資料完整度。它提供同一版本的閱讀背景，不是內部／外部型別認證。對方不必測完、交出分數或講述挫折才能參與，也可以到此結束。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/0/question": {
+      "sourceHash": "7686d976d2a9222e84b45b01454e393b2b02bb987b5d0419cd2760c7cada44cd",
+      "text": "原始總分41為什麼顯示均分2.05？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/0/answer": {
+      "sourceHash": "966c1885d71d98b376977c3273a95ff5449b8e3d930e636755d2f947d2299ee1",
+      "text": "總分直接來自二十個定向計分值，均分用41÷20＝2.05。不能先舍入成2.1，再乘20倒推總分；小數位不是心理測量精度承諾。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/1/question": {
+      "sourceHash": "b3650593ae969b4ef040bb2d93dea563c7c9fa0104a4a9471ccf620f795d3835",
+      "text": "十九條有效均為4，另一條不適用，能顯示4.00嗎？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/1/answer": {
+      "sourceHash": "72e0e12e4fa55e06da93d1c983b639e346e2932dbba657da8dba7d89e0417846",
+      "text": "不能。本頁要求二十條全部有效才顯示個人總分與均分，不用部分和76除19估算完整結果。缺答保留資料不足，全文仍可讀。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/2/question": {
+      "sourceHash": "c88e09755ac184dbddc5072ff125be9695b153d6f5574d680dc1097f43ca1430",
+      "text": "全部選非常符合或非常不符合，為何都是60？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/2/answer": {
+      "sourceHash": "06be388c757fe83fe031ee6f56aef442f6a1d788c0f14f270c64b70529952c99",
+      "text": "各有十道反向題，都會變成十個5加十個1。它們與全部選3雖然同分，具體模式不同，60不認證理想平衡或人群平均。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/3/question": {
+      "sourceHash": "44b3dab1c96b3a0f2fb11d420d3daa7ea2aadab530fdab10d7eebcb9cac2015a",
+      "text": "是否能分出內部、有權勢他人和機遇三項？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/3/answer": {
+      "sourceHash": "78e8cb479e37aa4a046035db0612561852e608cfb0dfd0b4ac544392cb5843f2",
+      "text": "本次只有IPIP二十條整體鍵。官網另列三份十條鍵；本頁未獨立施測，不能從一個總分反推三項，也不借想像的分量表相減造出結果。[1][2]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/4/question": {
+      "sourceHash": "187b5d57dad5969941b87d0ade6fbbb5fbc4ab32cc12567ab13ec9ebbbd9efce",
+      "text": "把條件歸於外部因素，就一定不主動嗎？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/4/answer": {
+      "sourceHash": "2026de3493fec3cfc2a9a87045eebe5b14da8e78c385701a47bc25ff4c9658a0",
+      "text": "不能這樣推斷。可以一邊主動溝通，一邊承認天氣、規則或他人的決定。實際行動與影響條件應分別核對，總分不替個人判責任。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/5/question": {
+      "sourceHash": "f975c28123d1a05b1d5544e4e7b72e27910bada5eeacc39386ce9dc0ae02ebc4",
+      "text": "IPIP的研究信度是本站準確率嗎？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/5/answer": {
+      "sourceHash": "01bb2f7159d07ee868ca7bfc7b002eacaf20cd066372853713273d4ef99d7dba",
+      "text": "不是。原樣本統計不能自動驗證本頁中文、施測方式、NA規則或個人解釋。本地常模與跨語言等價尚未建立，許可也不等於驗證。[2][3][5]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/6/question": {
+      "sourceHash": "26aa3a322ccfeb1041d479223abb357a80f0f4e45eba2cd22b8b3a01606a5ac1",
+      "text": "能把總分換算為樂觀、自尊或成長型思維嗎？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/6/answer": {
+      "sourceHash": "b0cea5de73625f6e5da3c642e131af066fd1b1564e441e3e68f242d9db1f36a6",
+      "text": "不能。即使有公開條目交疊，各自題本和構念仍不同；本頁不獨立給出這些分數，也不由控制相關自述診斷心理狀態。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/7/question": {
+      "sourceHash": "d6aa363969e34a0f860bcf71dc9d9556136cd83abc7393248afc69356d2db2ed",
+      "text": "開始是否要再次同意，或提交私密經歷？"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingFaq/7/answer": {
+      "sourceHash": "97e396b659fc6aa36aaed85ecbd6bf28493d42f26ab5604345b97eec3b0a3aa7",
+      "text": "不用。點擊開始直接進入20題，不必額外同意、賬號或郵箱，也不填寫私密經歷。可逐題選非數值回應，全文仍免費；臨時儲存需主動選擇。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/0/title": {
+      "sourceHash": "083fc3517beaf2cff834227c8be5eccec9c100b40bc5480fe97529047c08b8b9",
+      "text": "控制點量表有哪些版本？先認清本頁的20題整體鍵"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/0/paragraphs/0": {
+      "sourceHash": "91a6a87dcab1e365f4743418553913e8e4e2d8bd47d665edc09b0b738eca5e69",
+      "text": "“控制點測驗”是構念名稱，並不代表所有網站都使用同一問卷。Rotter I-E採用29題強迫選擇格式；本頁則使用IPIP公開的Locus of Control: Total二十條、五點符合度回應。題目、回應格式及分數方向不同，不能按分數大小直接比較，也不能把本總分換算成Rotter原量表。[1][7]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/0/paragraphs/1": {
+      "sourceHash": "fb3ffffc62b36d567f2695c0be73ff1cf9cf6c94d67e2c07d797b832f5911a60",
+      "text": "IPIP另列內部控制、有權勢他人、機遇三個各十條的鍵，以及五條理性控制點鍵。二十條整體鍵是單獨列出的計分物件，不是本次分別施測三組後再相減。本頁只有一個整體結果與一份九節全文；沒有生成三個分量表，不能從一個總分反推出哪一側面“最高”。[1][2]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/1/title": {
+      "sourceHash": "d0ce18b5b62e365488c58bf842b451fb776babfd7636340859c68d7ec3105092",
+      "text": "怎樣算出20—100總分？反向計分與41分算例"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/1/paragraphs/0": {
+      "sourceHash": "cdedd6ff6e3a7f5a9a1d98cec99a23b81ede1b7822d51853399ca4837d5b3b51",
+      "text": "本站交錯呈現十道正向與十道反向題。奇數題保留1—5評分，偶數題2、4、6、8、10、12、14、16、18、20按6減原評分翻轉。例如第1題選2記2，第2題選4記6−4＝2。二十個計分值直接相加，範圍20—100，較高指向本鍵較內部控制相關的自述。[1][4]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/1/paragraphs/1": {
+      "sourceHash": "262922cad18f33fe2f9e2c5942c1134af4816fcabdafc86d4f4d45bdc48d5f1f",
+      "text": "把第1題選3，其餘奇數題選2、所有偶數題選4，計分後得到一個3和十九個2，總分3＋19×2＝41；描述性均分直接用41÷20＝2.05，不把一位小數2.1乘20倒推為42。兩位小數是展示方式，不意味著能精確區分兩個人，也不是41%掌控、能力或成功率。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/2/title": {
+      "sourceHash": "6ccfa44a7b0b5b07bb3571fe4944fd58940e60da6d8aeb75c70df97850f742df",
+      "text": "缺一條、全中立與60分：為什麼要看回答模式"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/2/paragraphs/0": {
+      "sourceHash": "6b26d13b63dd3b80c68452c70eed82a55a52e5291d2ac1e1df8eaecfd90083e1",
+      "text": "20題都需要選擇一種回應，但非數值回應並不進入個人分數。若十九條有效定向評分均為4，另有一條資料不足，雖有76的部分和，頁面仍不生成個人總分或均分，不按76÷19補出結果。這個完整度規則用於避免以不完整題組冒充完整總分，不是對缺答原因的判斷；全文仍可閱讀。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/2/paragraphs/1": {
+      "sourceHash": "3207fdcf207d07f523380a43a705310939afb1ca29285a0bae82d222438ab6ff",
+      "text": "全部選擇中立（3）、全部選擇非常符合（5）或全部選擇非常不符合（1），總分均為60。後兩者經十道反向題處理，分別成為十個5加十個1，順序不同但和相同。因此60不是人口平均、最佳平衡或50%內部型；同分不能替代逐條閱讀，也不能單憑這種模式認定作答不誠實。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/3/title": {
+      "sourceHash": "c306f5cbde8ba5bffe8da3870c5be6313f283512105ad1b6bf06422cbaae30c0",
+      "text": "原研究、中文試譯與常模：各自支援什麼結論"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/3/paragraphs/0": {
+      "sourceHash": "faf507d035fe580983b36660b4ebfd9aa0288f3c9df887a84e32319dcf877640",
+      "text": "IPIP單構念表將二十條整體鍵與原研究量表並列，列出原ESCS樣本中的一致性與相關證據。這些統計值的物件是特定樣本、題本與施測方式；它們不是“本站準確率”，不能自動驗證中文譯文、網頁呈現、資料不足選項或某位訪客的個人解釋。本頁保留這些差異，不借原量表名聲代替本版研究。[2]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/3/paragraphs/1": {
+      "sourceHash": "69b3177e13a17279d180c8f66507635f30ba0cb87f3a2bd1f0f0674dba7df060",
+      "text": "IPIP個人分數說明建議結合適當樣本的分佈解釋，並提醒不要把連續維度硬分成人格類別。本站未建立本地常模、百分位、理想範圍或中英文測量等價性，因此呈現原始總分與連續解釋。IPIP的公有領域許可允許材料使用；許可解決使用許可權，不能單獨證明測量質量。[3][5]"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/4/title": {
+      "sourceHash": "7e482cec9d20fd95c36f0558b9a063166762a37adf455f999c19a7cf1bc9b499",
+      "text": "控制信念、真實影響與責任：日常情境的區別"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/4/paragraphs/0": {
+      "sourceHash": "6b3ddf47466201bbe3ae3f5e44add20d9ef5c1c215b77c3d165dc0455cf50dae",
+      "text": "共同準備活動時，你可以核對清單、發出提醒或提出備用方案，但天氣、場地規則和其他人的決定仍需另行了解。認為這些因素重要，不等於你不會行動；相信自己能推動安排，也不證明每個結果都由自己造成。控制相關自述、實際可選動作和最終責任屬於不同問題，不能由一個總分合並回答。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/4/paragraphs/1": {
+      "sourceHash": "ccf495279cd50e46af074396430e66551c2ea89be20f6619c3bf550c4aa01f6c",
+      "text": "本題本也包含自在、成功預期、解決問題和自我評價方面的句子，並非每條都只問“原因在誰”。相關用語的評分方向依公開鍵保留，不能把“我做得到”的自述視為客觀能力測驗，也不能從低總分診斷無助、抑鬱或低自尊。某個回應可能反映特定處境，具體原因需要更多資訊。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/5/title": {
+      "sourceHash": "776f560ae08fb577da09c3a859546e97c7b3196f65dac688f919432d8cef494a",
+      "text": "怎樣使用結果？從一個普通場景回看行動與條件"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/5/paragraphs/0": {
+      "sourceHash": "aefdd89046a6d5a2173792709f87f3045e15f007e8a2cc901b28cf2e7dd40785",
+      "text": "如果願意，選一個低風險的近期安排，例如與同伴協商一次分工。分開列出：自己可以嘗試的動作、需要向他人核對的資訊，以及眼下無法決定的條件。對一項行動說明預期，再記錄實際發生什麼，也留下一次不符合預期的例子。這是可選回顧，不要求你改變總分、承擔更多工或把同伴歸入某種型別。"
+    },
+    "components/questionnaires/LocusLandingEditorial.ts/locusLandingSections/5/paragraphs/1": {
+      "sourceHash": "ee45620733f66a0b8e792b0d862a9bb93a11180bf585a0e0582adcad75be02da",
+      "text": "重測時先核對同一版本、語言、實際回答和參照情境。總分增加一分不等於獲得更多權力、變得更負責或改善健康；本頁沒有可靠改變閾值。與樂觀、成長信念或自我效能話題相鄰，也不能換算其他測評；工作、醫療、法律及關係決定需要對應資訊，而非依本總分決定。"
+    },
+    "lib/questionnaires/data/empathy.json/title": {
+      "sourceHash": "001cf8cde0b79ac112445c771ba0a5d781d84b362fcde66450f728b67698c7dc",
+      "text": "同理心測驗：IPIP關懷傾向十題"
+    },
+    "lib/questionnaires/data/empathy.json/resultHeading": {
+      "sourceHash": "c6247308b1b2c009a8855e58de9113b83805a3676b09a6ccb357df2edea291d0",
+      "text": "你的關懷傾向原始總分"
+    },
+    "lib/questionnaires/data/empathy.json/description": {
+      "sourceHash": "39b6804995b27535dc858cb32d5ec2fd8a27fb753a28496f60b58f347e015ae5",
+      "text": "透過十道 IPIP 公有領域題目，回顧自己的關懷傾向。完整指南提供原始計分、溝通情境和可自行嘗試的做法，免費且免註冊。"
+    },
+    "lib/questionnaires/data/empathy.json/seoTitle": {
+      "sourceHash": "32fbbaeda7b58a43c17323dce5d1f8e55b0b3495ad82ef58aadd0063718ea73f",
+      "text": "同理心測驗：IPIP關懷傾向十題與完整結果"
+    },
+    "lib/questionnaires/data/empathy.json/introduction": {
+      "sourceHash": "dbea163f01e9953f58b44bc7f306b7606a900e78834256b06fcd4edf3a1bfdfe",
+      "text": "你怎樣描述自己對他人的關注，以及對他人感受的回應？本測驗採用大五方面量表中的關懷傾向十題，提供一個透明的連續分數，以及含十二節內容的完整指南，不派分為四種同理心型別。十道英文原條目、中文工作譯文和完整讀法，作答前後均可免費檢視。"
+    },
+    "lib/questionnaires/data/empathy.json/instructions": {
+      "sourceHash": "61e78d779f5a732fa7753247dc7410c6a6b30d91268631dfe985e9e85208a135",
+      "text": "按題句與你現在通常的樣子是否符合來回答，不按理想中的自己選擇：1非常不符合、2較不符合、3介於符合與不符合之間、4較符合、5非常符合。英文來自IPIP，中文是新工作譯文。題意不清、不適用或不願回答時，可選獨立不計分項。十題都選擇後可結束；十題均為數字回答才顯示個人總分。不需要輸入私密經歷或他人身分。"
+    },
+    "lib/questionnaires/data/empathy.json/directions/0/title": {
+      "sourceHash": "bf8e4feff620dabef34a27a4a672266c0dc1b52d41ea4341cbade993417271f1",
+      "text": "IPIP關懷傾向自我描述"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/prompt": {
+      "sourceHash": "fdde2d9a89f2e9ed9e2e8ac770fc7be30d113d38b49877ecc6ce93c68acaa189",
+      "text": "能感受到他人的情緒。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/options/0/label": {
+      "sourceHash": "dfaebc6d6e0ee0afd383dd4abcf76cccaa842309121eeac5bd5e372346767f85",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/options/1/label": {
+      "sourceHash": "7b4f888d1afa3a75d9c4ac2dc5ebafdaeb479d19e47adbcd9ab616c7f2c3fb3b",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/options/2/label": {
+      "sourceHash": "9da1ee061a18eda46065ccdf4ee93ce07c9eb922937993fbc5b4ba55f7633bb4",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/options/3/label": {
+      "sourceHash": "5f891c98d3fdefd31a38056ea4cab6354c8114e026b07960aaa6bbb92e7c0d64",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/options/4/label": {
+      "sourceHash": "27a66fcf9547c496dd010a4a66a4cc169eece8808ad80a150e30ca15e8500975",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/0/options/5/label": {
+      "sourceHash": "f5d0dccf3c65624823eb61c5c299f45b8edb427a5f49730f5488cffa040d9cf3",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/prompt": {
+      "sourceHash": "139a878a5c319029f704e48a5b05978fc2348cdec5dd8c9df43f8ababfd9c125",
+      "text": "對他人的難題不感興趣。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/options/0/label": {
+      "sourceHash": "bef422c9233fa3239eada2f8e6cbe6dbf4bf2477c33025af335ba18a56342259",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/options/1/label": {
+      "sourceHash": "c04f8ff92454835852da71c953f0c2b1178cc93f6e18131504a6ff2f011f4383",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/options/2/label": {
+      "sourceHash": "c5b54202f714648b960030ba0e568227eed3b1f8fc14cb02930cddd9b13816f1",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/options/3/label": {
+      "sourceHash": "885bd341bd2a7881f1ef22497e826a938a3a6aaced71f32b5393967ea019aff4",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/options/4/label": {
+      "sourceHash": "7be297b40304b08cb6e4b46f5da52628ace734e71dbd8c8b83225ba944f9fcd8",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/1/options/5/label": {
+      "sourceHash": "449bb973d8a99428d53cbaf270481a94ef37caba441bc77c8e0491fd7cf174ca",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/prompt": {
+      "sourceHash": "c489ee245408ad57d22c227e4d29d48ce820d419ce8c58bb24309fcd5037712f",
+      "text": "會詢問他人過得怎麼樣。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/options/0/label": {
+      "sourceHash": "e9075df14832304ca3ea273da8a2fa32669046e638e613c7dbe1b59a949e7cc4",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/options/1/label": {
+      "sourceHash": "db64a742a7a6efe238d54b0d9ee617109c616bc754551edaf411660ca44f4728",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/options/2/label": {
+      "sourceHash": "4e651211a5a562a69d3436f880522e56e6d3cfae6dfd25cefc518caec6c45060",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/options/3/label": {
+      "sourceHash": "ab54a63f724e3185377b62b19d5ee1e04873efbd7556f190a1de07f4f7ae2d24",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/options/4/label": {
+      "sourceHash": "bf27c46c3117c67ee4ec174db104c4f4c5065451f136b89f946277d2f0b37523",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/2/options/5/label": {
+      "sourceHash": "82855e0d2e203c3d6c921c46f333d1ba13000f6abe21e97f1e08698ddbd23123",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/prompt": {
+      "sourceHash": "00174a5d3b7eef2075a020762d3f65b7e09feac9310e6dfcbef59a56c718d782",
+      "text": "懶得理會他人的需要。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/options/0/label": {
+      "sourceHash": "2eed666cc9101dbb74f6ff2cfb981deaa5a87a6c87d99c8109c43b3befe2886a",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/options/1/label": {
+      "sourceHash": "64560ae3e0b00a86017633ac91a87687988bf0d2683e3c8e28c6439d29bf899d",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/options/2/label": {
+      "sourceHash": "8078b5aa21776e272ddc0fbb23ec092dc97eec91c4d4439e65d3d182fc7263d4",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/options/3/label": {
+      "sourceHash": "09d516acb72ef4fb19bbd33e11eb825c5c5d0d96cd37a71d3046d3d094417c4e",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/options/4/label": {
+      "sourceHash": "48cf431f83f56d713eec127406fab240a645a25bf12f8f4c4e55673d5846ab57",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/3/options/5/label": {
+      "sourceHash": "32406aaf0e6d2901b811feceb1ce4bb4f2cce58e8ace4c6d63e4c3ce470076dd",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/prompt": {
+      "sourceHash": "4530461d40228e05022e798cabf87865b0fd163cb4aaf3e2bea2b70d86f2397d",
+      "text": "會體諒他人的感受。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/options/0/label": {
+      "sourceHash": "644d749d68fc0c43ee9a2a864e972d4c6e1a8432b53cdffdf7081a99afdccc7b",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/options/1/label": {
+      "sourceHash": "9da0da7aafc21ee176fa8128613859666313afb73a2babfbd3755b4a81546eee",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/options/2/label": {
+      "sourceHash": "6787b63773e6740af1524b240de37fb449da584be0abc954f915ae0d3e3ee9eb",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/options/3/label": {
+      "sourceHash": "3dc87a624f78f2d479e803be584ab25a86b7e51fabe041daa537e0ead2a0e044",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/options/4/label": {
+      "sourceHash": "4a1358b6c5947eed34fb700bc8d0b19ec24a388e9fbfa5f2e919ee25e6a596d1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/4/options/5/label": {
+      "sourceHash": "b28b8fea8419b4719fef43989f6875a00011cdabf14fc20ad54a88be28f08f01",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/prompt": {
+      "sourceHash": "899e0cd7edffdd432ce93c76c963f0c9850e42e3c2fe57a8ebb6424630f691df",
+      "text": "對他人的感受無動於衷。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/options/0/label": {
+      "sourceHash": "a1b1df91e1417bdc5b57a0849bef28f460aa302d8a8ed52cbfe9598a35252859",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/options/1/label": {
+      "sourceHash": "dccf8e9c0400ea11bea0ffd163c12f3a285fbd2898259421b473f1c2b542f3bd",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/options/2/label": {
+      "sourceHash": "cf3e5960e6a3d8a67f9151f8770418a0e61c85e19d07adf00922844c6e988e8f",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/options/3/label": {
+      "sourceHash": "970706f15398c4733d9eb1e8a2730372a4557f1c4b790b11aa499081500c78a5",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/options/4/label": {
+      "sourceHash": "6c2001d4f36ef32423c4a94e5035a42187205a82d2fcdde81e16055c59dde1cd",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/5/options/5/label": {
+      "sourceHash": "4e8c7750844d08beaf1e69059b0cf6c269717ff184c52ba4cc9bdaf68e6ba654",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/prompt": {
+      "sourceHash": "77abc131e4cb2b54ff31dde759a2bdfd0c4bfe945a80b20b675c283c46fb9baf",
+      "text": "會關心他人的生活。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/options/0/label": {
+      "sourceHash": "2f33004a0e20bbdf6e8b180b659bfd8f311911238874e3a393b10369ccd141ae",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/options/1/label": {
+      "sourceHash": "4d5f1834ccea767d37547cdb0abdc1caeb92c9e1895eeae3a1e3f470531563fb",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/options/2/label": {
+      "sourceHash": "f4d12ac1eecc4fd3458d367af56fa7028ec1ce2392ab0c5e458052f8d00c6e18",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/options/3/label": {
+      "sourceHash": "09bf1ceeeba5e26ae2a244976c54067736c64e7102705867f7c4966a4ad08af8",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/options/4/label": {
+      "sourceHash": "4ae2633194b30d74839933c078b0a585081a9ea9a23c4e2da385fba5a146d08e",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/6/options/5/label": {
+      "sourceHash": "8fa653338c01746f42d6c44158083967b248d2c385ba753a5f7e6abce3af489c",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/prompt": {
+      "sourceHash": "8727bf6421e49f0a9dff5509ae0484f72c32b0e2bf1194b215120e11e5cc989a",
+      "text": "不會為他人留出時間。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/options/0/label": {
+      "sourceHash": "6c19f5bb5876455660a84bb232e0543c1e3df51158a5ecd4c23072ead55d2160",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/options/1/label": {
+      "sourceHash": "e6dd3d106699b603cf0fbb8d514319bffb52323624aa3dd8a0da8c31ffc5ea1f",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/options/2/label": {
+      "sourceHash": "9c2425d6d473bc0f3ad5b5d290892c4d3ee1a3d2e109eea57e0645a8a15393a3",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/options/3/label": {
+      "sourceHash": "3f1739fd4c01797905a7e28c6ed40a022f3a0affbfa78be13df145890f18a04d",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/options/4/label": {
+      "sourceHash": "a66c97f8981d454f0a4b75c96a9afeba37f67bab05c4474a70f907504ab5692d",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/7/options/5/label": {
+      "sourceHash": "525788f463876f6ed10a59ebc994d675e70847001b2295983d3a15fa54c97ba0",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/prompt": {
+      "sourceHash": "734433d2c636712a9645426ab8aced1c7d04d10deee4f7dfc1cc88cb1ff5a85e",
+      "text": "喜歡為別人做些事情。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/options/0/label": {
+      "sourceHash": "862f21adb444bdb51ace5efdd0b860a86afe2f57fcb6036c1a8c56f85188aa31",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/options/1/label": {
+      "sourceHash": "b0fb1f0e1e7ab512f6634633ff674bb3dfcd4e4025920458b5367dbcd5ff471f",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/options/2/label": {
+      "sourceHash": "76f48f8c96930559e25223a3fef26e047be119c1495e500389edc0b96facb01f",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/options/3/label": {
+      "sourceHash": "d32a053ccc7177ca61f0768884a8cfe056673455f8e963797185e1465cfbae11",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/options/4/label": {
+      "sourceHash": "2c49fde09243744685d1baa63b020ae3cb8bc099cf2a3fb946a0fd5b80c2bf8d",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/8/options/5/label": {
+      "sourceHash": "d4c09519fdc249dce145501dcbe170ca4835187ac156ca95de96c82afad3270b",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/prompt": {
+      "sourceHash": "ff0ede9475dedc4faea3f2188eacd88ad1cbc2538388fca9870712c55f88f6e1",
+      "text": "沒有柔軟的一面。"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/options/0/label": {
+      "sourceHash": "5f7c178cba844b324f9b7e5f524f599685263d2bcbefe6691eb94ba82056c4f1",
+      "text": "非常不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/options/1/label": {
+      "sourceHash": "53070c3fe495be6973017060f3d709bb13547b1b8d8af8cade673c21bb25fea2",
+      "text": "較不符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/options/2/label": {
+      "sourceHash": "073f7e478c92b3fda57115f9206a5ea99b564a7ee618539c7c015acd7a82f5b5",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/options/3/label": {
+      "sourceHash": "cd69b2fb58a03b9e4046f03081796c188a5a6d758311cd55b7dbc5ddb77dd6c0",
+      "text": "較符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/options/4/label": {
+      "sourceHash": "13d57d97771631a0e9afd6a94bd32fc95e721239acd6da0f43ab60cd28eeba8c",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/empathy.json/questions/9/options/5/label": {
+      "sourceHash": "776762a6606df4aee338d9d553525bfde778b5a86be83f0a9a6694a5fb0652d3",
+      "text": "資料不足／不適用／不願回答"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/title": {
+      "sourceHash": "b644c517e08d730141bc33a0fa98a585748897f950f2a9fa46812c09f4f3bd32",
+      "text": "IPIP關懷傾向：完整分數讀法"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/headline": {
+      "sourceHash": "64ef1d7cb9b4608e6b255a10da8c2e5a345e6a91f671d82716af955dfc660e78",
+      "text": "理解十題讀數，核實具體例子，再選擇可行的下一步。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/summary": {
+      "sourceHash": "e031cafbde5f20bc8fae9a9d7b03cdceb71b66ea813a433ce287cacf25c3222c",
+      "text": "圍繞一個連續的關懷傾向自我描述，解釋反向計分，並提供傾聽、幫助和邊界的具體例子。沒有個人分數也可閱讀全部內容。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/scoreReading": {
+      "sourceHash": "e6aab9cfd605b3e621e0f17db0accad3d494936a578255f8eeb654a03709ab77",
+      "text": "十題數字回答產生10—50的原始總分和1—5的均分，不分派型別、百分位或兩個分量表。任一不計分回答會使個人總分預設，完整指南仍保留。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/seo/title": {
+      "sourceHash": "9daa1f9325e16140bd2ac13f8f4d4208d3be96228bef10e983e2a462e4da2bb2",
+      "text": "同理心測驗結果怎麼看：IPIP關懷傾向算例與行動"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/seo/description": {
+      "sourceHash": "a4ab336f4bcca018e5ac2758ad6c149534e3fab43077b30408d426e1fb442933",
+      "text": "完整理解IPIP關懷傾向十題：反向計分、10—50原始總分、不計分回答，以及傾聽、實際幫助和邊界的具體例子。中英文全文免費閱讀。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/0/title": {
+      "sourceHash": "49027f83eafbbaeaaa4336be64429273501265920d2c416e3a8d603db63d700b",
+      "text": "這十題描述什麼"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "2b1e1235219e2e633960153c4e330a5149ae684135459de095b502effda2c6ee",
+      "text": "這份讀法圍繞大五方面量表中的關懷傾向：你怎樣描述自己對他人生活的關注、對他人感受的回應，以及為別人做事的意願。十個短句把這些自我描述放在一起。結果呈現的是你的回答，並沒有通過實際任務證明你讀懂了誰，或提供了對方需要的幫助。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/0/paragraphs/1": {
+      "sourceHash": "9009c11e3a1a1c99fc7124c22e4456bfbfd87e20b8399d48afda2beec914d2dc",
+      "text": "例如，你可能覺得自己能感受到別人的情緒，卻不確定是否經常為別人留出時間。這種差別值得回看，但本問卷不會據此產生“情緒共鳴分”和“關懷行動分”。可以把具體題句與合併讀數一起理解，用日常含義選擇一件事來觀察，而不是把兩道題當成兩個已經驗證的分量表。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/1/title": {
+      "sourceHash": "6a8bc0b2f217e78047f1167a5cb9a5d01cd5dc14a8e96047df2e186ccb2db8c0",
+      "text": "親手復算原始總分"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "43e9b9e19b4f3a6fcdda9583a28ea9c4881b98524b53bcdd74e6f7dda576e092",
+      "text": "五個符合程度選項從1“非常不符合”到5“非常符合”。正向句保留原值；反向句用6減去原值：1變5、2變4、3不變、4變2、5變1。十個鍵向處理後的值相加，原始總分範圍是10—50；再除以10，得到原選項範圍1—5上的均分。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/1/paragraphs/1": {
+      "sourceHash": "8e368ab7b5dbdf1d5cd485180335e0e01b4cd07f417331a715a4c54db7a2413a",
+      "text": "網頁把正向句和反向句交替排列。若按顯示順序回答4、2、3、1、5、2、4、3、4、2，鍵向處理後為4、4、3、5、5、4、4、3、4、4，合計40，均分4.0。40不表示“80%的同理心”，也不是第80百分位；這樣的換算會加入上述算術本身沒有提供的解釋。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/2/title": {
+      "sourceHash": "97ac639449e921af1681ce776757aac00c5b0a9ad962e29ee33e9b2f19c27310",
+      "text": "沿連續分數理解，不分派人格型別"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "2ee62eef2477f399f2f263dc1eed13dc2967d5ee28d9d9639e976aeb367de78f",
+      "text": "較大的總分表示，處理反向題以後，你的回答更符合這十句所涵蓋的關懷內容；較小的總分表示符合程度較少。本版沒有提供人群參照樣本，也沒有用經過驗證的界值把人命名為疏離、體貼、溫暖或高度共情。總分相差一分，指的是題目計分和相差一分，並不是已經知道兩人的關係質量相差多少。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/2/paragraphs/1": {
+      "sourceHash": "22a9c2f041370901987f1d62ee800514e7ecf5e7caabfb538d04a1e8aaba3a91",
+      "text": "不同的回答組合可以得到相同總分。一個容易與他人產生情緒共鳴、卻很少留出時間的人，可能與另一個共鳴較少、實際可提供時間較多的人同分。單憑總分無法還原這些差別。若結果讓你意外，可以回看哪一句不貼切，以及生活中的具體例子；不必尋找計算器似乎藏起來、實際上並未設定的人格標籤。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/3/title": {
+      "sourceHash": "626a5087b66aba087cda1b28d644c5a7bb4272ed8dba408f9a5a7abe02058fef",
+      "text": "注意到可能的感受，再向對方核實"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "ef1d26281ddf0ed4b2b94e3ef443853a403ae43386a0ba7f770f8b1e140e6394",
+      "text": "設想同事開完會後變得沉默。你可能很在意，猜測對方感到失望；也可能只是專注、疲倦、有私事，或不想談這次會議。同意“能感受到他人的情緒”並不能告訴你哪種解釋才對。可以借結果練習區分三件事：你看見了什麼、你怎樣解釋，以及對方實際說了什麼。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/3/paragraphs/1": {
+      "sourceHash": "c4a0cb80ebd34bcb4685f48916164c08f80bfe60c11990cc93ed9a59ac1e2a91",
+      "text": "在場合合適時，可以輕聲詢問：“你想聊聊剛才的會，還是先放一放？”兩種回答都可以接受。這是一種可選的溝通嘗試，並不是承諾提分的訓練。它讓下一步建立在對方願意與否以及親口表達之上，而不是把自己的直覺當成讀取他人內心的通道。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/4/title": {
+      "sourceHash": "ecfd020317ed3bddeac26a7ae71196edb5b8225a43671a69fb9fefb89869fedb",
+      "text": "先問哪一種幫助合適"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "6f486fc0da2756ea1ee28b467f640bc0fc2c409f264c8e7b5405f7690d277bd8",
+      "text": "朋友講起難熬的一天，可能想要傾聽、具體協助、資訊、陪伴，也可能需要獨處。關心對方的生活，並不能直接確定哪一種回應合適。沒有核實就給出整套解決方案可能沒接住需要；對方已經提出一個小請求時，只顧傾聽也可能沒幫上忙。問卷中的一般意願，與某個行動是否合適，應分開理解。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/4/paragraphs/1": {
+      "sourceHash": "6e004223d488a889136a0c6261bd61a045a06f66b6349d7626f84e82e79d93fa",
+      "text": "可以問：“你希望我先聽你說，還是有一件具體的事需要搭把手？”如果對方提出任務，先問清範圍再答應。例如，幫忙看一段文字，與重寫整份申請，投入明顯不同。事後值得記錄的是對方提出了什麼、雙方怎樣約定、約定是否完成，而不只是對自己的好評。一場互動也不能證明一個穩定特質。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/5/title": {
+      "sourceHash": "8d388691299d6d98b759ee729cd4d6bca25898610263afb32d380ee97d1047aa",
+      "text": "把可提供的幫助和邊界說清楚"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "e7c83b33c99ce1d5cd71a84511d130df088fe964c61e87b5fe703109531470cf",
+      "text": "願意幫助別人，不等於擁有無限的時間、金錢、接觸許可權或責任範圍。你可以在意某個人，同時無法立刻回覆、借錢，或承擔超出職責的保密責任。“為他人留出時間”是在詢問一般自我描述，不要求你答應每一個請求。較高總分不應成為自己或別人要求你放棄邊界的理由。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/5/paragraphs/1": {
+      "sourceHash": "9c8966263d2d0ba987aed7521346cde6900736435aa13977ba3034c769670cef",
+      "text": "一種做法是給出具體限制和真實可行的提議：“週六我能看一頁，但沒法核完整份檔案。”如果確實沒有餘力，也可以如實說明，不必強行承諾替代安排。回看時關注表達是否清楚、承諾是否現實。本指南不會把邊界歸因於低分，也不會用高分預測疲憊或某種健康結局。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/6/title": {
+      "sourceHash": "c9ff22c2c0bfc3da1604a6e3ca2dabe372afdcdf3b11e6cb0ba5c0dcf4dba273",
+      "text": "結合處境和回應機會理解"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "98a2f2602c7108c4950cfa400c10316e67adb159141ed24a00748d575d3c6f37",
+      "text": "同一句話在不同關係和場景下可能得到不同回答。問候近況，在朋友之間可能受歡迎，在某些工作互動中卻可能冒昧。獨自工作的人，為他人做事的顯眼機會，也可能少於生活在繁忙家庭中的人。十題總分無法拆開機會、角色期待、隱私偏好與一般傾向；這些是理解時可考慮的問題，並沒有被系統暗中校正。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/6/paragraphs/1": {
+      "sourceHash": "52730e4bc0202dfd287995268691f4694a9e14a500c57a15f7979b8818d0c267",
+      "text": "可以選一個熟悉場合，再選一個不同場合，各回憶一次具體互動：發生了什麼、你注意到什麼、問了什麼、做了什麼。不需要把這些記錄輸入網站，也不必寫下任何人的身分。如果兩個例子差異很大，就同時保留。對實際決定而言，這種有差別的圖景，可能比勉強讓所有例子支援同一個標籤更有參考價值。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/7/title": {
+      "sourceHash": "5c86d55b40ed6e28ac205ce4917ff4628d05526a667c229fcd10e4f4c366f566",
+      "text": "題句不清楚或不適用時怎樣處理"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "a25fc700ad8aae90ddf306e394df45906f69231c770ddba88c9d17b55042a85f",
+      "text": "短人格題句不可避免地留有解釋空間。“沒有柔軟的一面”對應英文中缺少溫柔關懷一面的慣用表達，不是在問身體是否柔軟，也不要求容易被說服。中文是費馬測驗工作譯文。如果某種表達仍然不清楚，可以選擇不計分回答。猜一個看起來合適的選項，會產生數字，卻沒有解決你究竟如何理解題句的問題。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/7/paragraphs/1": {
+      "sourceHash": "aa9c4f7b9834870d63f0622af120dd28bdc45e83284e795e3e18dc169c95d6d8",
+      "text": "網站只有在十題都有數字回答時，才計算個人原始總分和均分。只要有一句選擇“資料不足／不適用／不願回答”，問卷可以結束，但不生成個人總分；系統不會用零分、中間值或別人的平均值填補。你仍然可以閱讀全文，再決定以後是否有必要為每一句作答。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/8/title": {
+      "sourceHash": "171dcd32fb844c95ebb66e94fa3f2490375ea7fc245209483ac53f306f1c1797",
+      "text": "比較回答含義，不給別人排座次"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "56befdfdd072f841e60bd3bbfc07f2e5cef5c33fff96d72d1655b245fd4bd56f",
+      "text": "前面的40分算例，可以由許多不同組合產生。另一組鍵向處理後的數值5、5、5、5、5、3、3、3、3、3，相加也是40；但它們並不是可以互換的日常行為故事。如果與別人一起反思，可以各自選擇願意分享的例子，而不是把同分當成感受和行為相同的證據，也不必要求對方參加測驗。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/8/paragraphs/1": {
+      "sourceHash": "4dcd26b65c7158bc952d853df9d104e5285640816f5fe170652663630a99bdbd",
+      "text": "同樣，伴侶或同事之間的分數差，不是判斷誰更善良、更成熟或更適合某份工作的裁決。一件困難的事，需要單獨瞭解行動、期待和影響。結果不能決定爭論中誰對誰錯、關係是否安全，或誰有意傷害別人。除非主動選擇討論，否則可以保留個人答案；分享這篇通用指南也不需要附上分數。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/9/title": {
+      "sourceHash": "431a1b24fdf585e9c7226d4e00258179fec231c9180d024dda0addb27ccd1b19",
+      "text": "選擇一個看得見的小嘗試"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/9/paragraphs/0": {
+      "sourceHash": "09a5993328dcb1e235b2bd9d6f7ada46f79862bfebdcccfe5325c5e3539c2d28",
+      "text": "選擇一個壓力不大的場景，嘗試讓自己的回應更清楚。先區分已經知道的事與猜測，問一個相關問題，再在對方願意且自己做得到時約定一項小行動。例如：“你剛才說交接有點亂，一起花十分鐘核一下任務清單，會有幫助嗎？”這句話指出了可觀察的問題，沒有先宣佈對方一定是什麼感受。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/9/paragraphs/1": {
+      "sourceHash": "e41ef6151b004510696dd718d9c5868ce48f10e8dc7d9fa1414dead5c60baa76",
+      "text": "事後可以回看：是否徵求了意見、是否聽懂請求、是否守住約定範圍、是否完成行動。如果沒有幫上忙，先問遺漏了什麼，不急著用人格解釋。這是為本指南編寫的實際反思提示，不是經過驗證的干預方案，也沒有規定每週練習次數或保證提分。不採用這個練習，並不會使你的測驗結果缺少什麼。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/10/title": {
+      "sourceHash": "49f419b3563346b4a02da30b5267751d92d62b30483ac565be3a858ba5208494",
+      "text": "重測反映另一次作答"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/10/paragraphs/0": {
+      "sourceHash": "1d88fa0435b97017715647623074f233eb1630d9e0e32b058b8d3837d6fd2a66",
+      "text": "當你想重新理解某句題意，或發現自己對一般描述的理解發生變化時，可以重測。如果想私下比較，可以記下日期以及當時怎樣理解題句。原始總分改變，本身不能證明人格已經可靠地改變。本版沒有建立最小有意義變化、重測界值或應該努力達到的常模目標。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/10/paragraphs/1": {
+      "sourceHash": "df7d32018b07a62f07570d514f7169e79cb81578625bbb1019c1c874a01775ba",
+      "text": "按理想中的自己作答，或記住哪些選項能產生高分，會改變回答所代表的含義。與其反覆做題直到數字上升，有時不如回看一場自己處理方式不同的具體互動。無論總分穩定還是變化，都不能告訴你別人經歷了什麼；對方自願提供的反饋、當時環境和實際行動，仍然是另外的資訊。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/11/title": {
+      "sourceHash": "0290a736aece558e60d00f7137c843e8ea5d4da4366f84f427d4e66c1a25d470",
+      "text": "來源、工作譯文與使用邊界"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/11/paragraphs/0": {
+      "sourceHash": "7fbf0ba7587e51d5014ce63134a02dd67f7f069477eb316d467969b745995f29",
+      "text": "英文條目與鍵向來自IPIP官方大五方面量表Compassion計分鍵，該頁引用DeYoung、Quilty與Peterson（2007）。IPIP官方計分說明提供五級符合程度選項、反向處理與求和方法；管理說明允許公有領域條目的重用、翻譯和排序調整。本站交替呈現原始正反向句，並增加明確不計分的回答，保留原五級數字鍵向。"
+    },
+    "lib/questionnaires/data/empathy.json/profiles/0/sections/11/paragraphs/1": {
+      "sourceHash": "627b429a66c32c79c4749925630df2c50c70ebc0a26c165b1aea3aae522a7b10",
+      "text": "中文措辭、獨立網頁呈現和解釋例子屬於費馬測驗編輯工作，尚無已建立的中文驗證、語言等值、原作者審閱或人口常模。本版不是Empathy Quotient，不是完整的同理心能力測評，也不篩查任何狀況；它不能確定情緒識別是否準確、是否在身體上吸收他人的狀態、工作表現或未來疲勞。可以把它用於透明的自我描述，以及具體溝通的起點。"
+    },
+    "lib/questionnaires/data/empathy.json/guide/0/title": {
+      "sourceHash": "b64579c1f7339c8eb9d0915b1439a9ac326b9943b1e7e6abc711011efbf75b27",
+      "text": "十個評分與五道反向題"
+    },
+    "lib/questionnaires/data/empathy.json/guide/0/paragraphs/0": {
+      "sourceHash": "5169d639f191d3c74d46b138af79bc9ab79687c94fd88e9cd41f973b84d85bf1",
+      "text": "按顯示順序，奇數題保留1—5原值；偶數COMP10_02、04、06、08、10以6減原值反向。十個處理後的值相加，原始總分10—50，均分為總分除以10，顯示一位小數。若依次回答4、2、3、1、5、2、4、3、4、2，處理後總分40、均分4.0；總分不是百分比或百分位。"
+    },
+    "lib/questionnaires/data/empathy.json/guide/1/title": {
+      "sourceHash": "d9864aed04dbcafe2c821f041a1ce67bf1cc38958f8789e1838a5f946ca07d5c",
+      "text": "一個連續分數，全文保持可讀"
+    },
+    "lib/questionnaires/data/empathy.json/guide/1/paragraphs/0": {
+      "sourceHash": "9af6d561cba8234a4728da6eaecfb2e0c8d1bd297382a22b8a0dccdf92c7f064",
+      "text": "本版只有一個關懷傾向讀數，不設定高／中／低界值、四種類型、情緒共鳴／關懷行動分量表、人群排名或通過線。任何有效總分都可閱讀同一份全文。任一不計分回答使個人總分與均分預設，不補零或中間值；十二節完整通用指南仍可閱讀。"
+    },
+    "lib/questionnaires/data/empathy.json/guide/2/title": {
+      "sourceHash": "ffb031a28c3ad087c4b125550f2bca30f45add221aea76dab7735f898482caa9",
+      "text": "關懷傾向不等於完整同理心能力"
+    },
+    "lib/questionnaires/data/empathy.json/guide/2/paragraphs/0": {
+      "sourceHash": "d2edb53ca4ee16b9b0e341fbbd2b097021a17b9fd9a96951c9d271ebfaa660bc",
+      "text": "關懷傾向是宜人性的一個方面，不是整個大五、Empathy Quotient或客觀情緒識別任務。本站preliminary IPIP HEXACO題本也採用其中一句公有領域條目；共享一句不代表總分可以互換。本十題總分不會換算為大五域分、HEXACO分數或其他測評結果。"
+    },
+    "lib/questionnaires/data/empathy.json/guide/3/title": {
+      "sourceHash": "b94f80da8d610a85fc277485877b4382ce8d9b669367e3ca800d07ff69f5e6e0",
+      "text": "來源與工作譯文"
+    },
+    "lib/questionnaires/data/empathy.json/guide/3/paragraphs/0": {
+      "sourceHash": "913c9e85f59f5d79113c54e87011d203b39876e9691d1b8a20622de12940b2eb",
+      "text": "IPIP官方頁面提供英文條目、鍵向、符合程度選項，以及商業或非商業重用與翻譯的公有領域許可。中文和獨立網頁呈現尚無已建立的驗證、語言等值、原作者審閱或本地常模。十二節解釋指南為費馬測驗編輯內容，不是IPIP官方個人解釋手冊。"
+    },
+    "lib/questionnaires/data/empathy.json/guide/4/title": {
+      "sourceHash": "d330b66acd8af8a1c240fc1582da58b7371a67b80055d7c7119d4ad96bdbd70a",
+      "text": "免費閱讀、答題進度與公開分享"
+    },
+    "lib/questionnaires/data/empathy.json/guide/4/paragraphs/0": {
+      "sourceHash": "323e898b4341ebc42d71e5ee667eec3fe8309764df1e6d2e43a540656d38c792",
+      "text": "十題和完整指南不要求郵箱、賬戶、另做一份測驗或填寫私密經歷。答案在瀏覽器計分。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。公開分享只包含測驗名和入口連結，不帶答案或分數。可選下一步不構成解鎖條件。"
+    },
+    "lib/questionnaires/data/empathy.json/references/0/title": {
+      "sourceHash": "f4c3fc2b178c15606e9b29a46787d7ef27635fd3ce7671436d056825dc9a9179",
+      "text": "IPIP BFAS關懷傾向：十條英文與計分鍵"
+    },
+    "lib/questionnaires/data/empathy.json/references/1/title": {
+      "sourceHash": "8740ef41919a91fe784159e4a445401e289bb30bc87376e3a47a4f03cab8dd73",
+      "text": "IPIP官方計分：五級符合程度、反向鍵與求和"
+    },
+    "lib/questionnaires/data/empathy.json/references/2/title": {
+      "sourceHash": "c8251fd36cfc230cde866ea6d26f5bae8e95389efb3aeb0803a807fd83ebbb04",
+      "text": "IPIP公有領域商業及非商業使用許可"
+    },
+    "lib/questionnaires/data/empathy.json/references/3/title": {
+      "sourceHash": "c426209b89e30706994d7d69dcd611b38e96375627aff9eb0293af4cee5a3389",
+      "text": "IPIP施測建議與允許的改編"
+    },
+    "lib/questionnaires/data/empathy.json/references/4/title": {
+      "sourceHash": "fd1f911cb05ceffafe791dc6ac40825f6e10248b52fd1804ca119e43552e8a73",
+      "text": "IPIP個人分數解釋與連續分數"
+    },
+    "lib/questionnaires/data/empathy.json/faq/0/question": {
+      "sourceHash": "29cfc7d7e76e8a9caee6f9a25712e5f1659ddf561670ec141dc3c7bb82cb71d7",
+      "text": "這份同理心測驗測什麼？"
+    },
+    "lib/questionnaires/data/empathy.json/faq/0/answer": {
+      "sourceHash": "f4d222752c409114f9b338868970d91a865eb62865c90984f5480a9cebc4aac8",
+      "text": "它採用大五方面量表宜人性中的關懷傾向十題，英文為IPIP官方公有領域條目。測的是自我描述，不是經過客觀任務檢驗的同理心技能、讀心是否準確或他人的實際體驗。"
+    },
+    "lib/questionnaires/data/empathy.json/faq/1/question": {
+      "sourceHash": "24a588e19641447a3edce4bef6e7d2ff387006bd8e6da92a1e4cef968e7609b2",
+      "text": "這是Empathy Quotient或兩個分量表嗎？"
+    },
+    "lib/questionnaires/data/empathy.json/faq/1/answer": {
+      "sourceHash": "d4661235a2cf4820fc1ac7abd6e391d4104ff1b35b0b37433687d4eb37bcb8ec",
+      "text": "不是。本十題關懷傾向鍵產生一個原始總分，不採用Empathy Quotient題本，也不把這些條目拆成“情緒共鳴”和“關懷行動”兩個分數。"
+    },
+    "lib/questionnaires/data/empathy.json/faq/2/question": {
+      "sourceHash": "bfb4248669f3117cb02084047f2df7cd63e3533c0e3ce66a1b0a251434f17fdb",
+      "text": "總分和不計分回答怎樣處理？"
+    },
+    "lib/questionnaires/data/empathy.json/faq/2/answer": {
+      "sourceHash": "f401a138a1c7022ce8d2e6b97b37e2cdbe2e1b398b518e72c1aa84e600d34856",
+      "text": "顯示順序中，奇數題保留1—5原值，偶數題用6減原值。十題數字回答產生10—50原始總分與1—5均分。任一不計分回答使個人數字預設，不填補；完整指南仍可讀，包括全部選擇不計分時。"
+    },
+    "lib/questionnaires/data/empathy.json/faq/3/question": {
+      "sourceHash": "899b7f8b557b227220cfb78b07dccd63f56e1b54f51918f7f995a5763fd26841",
+      "text": "高分能證明關係更好或工作表現更好嗎？"
+    },
+    "lib/questionnaires/data/empathy.json/faq/3/answer": {
+      "sourceHash": "58b3debfed11f7ec420af5adbdb34f51ba998c2ed29fd74110e663a3a28e5bd8",
+      "text": "不能。較高讀數表示你的回答更符合鍵向處理後的關懷內容，並不確定關係質量、工作表現、情緒識別準確性或未來疲勞。本版不提供臨床界值、診斷或人口百分位。"
+    },
+    "lib/questionnaires/data/empathy.json/faq/4/question": {
+      "sourceHash": "ba40cb21dec03be679e449cb02f320ff882edf62421b2cf67c9d58b121a045de",
+      "text": "中文版經過驗證或原作者審閱嗎？"
+    },
+    "lib/questionnaires/data/empathy.json/faq/4/answer": {
+      "sourceHash": "04a569fdf0c826af61fd7cb8cadcc856dbcd0a52d575dd1e46fe2cdc34653be4",
+      "text": "中文為費馬測驗編輯部新工作譯文，尚無已建立的獨立驗證、語言等值或原作者審閱。原句“soft side”指溫柔關懷的一面，不是身體柔軟，也不要求答應每一個請求。"
+    },
+    "lib/questionnaires/data/empathy.json/faq/5/question": {
+      "sourceHash": "154a5e2bfd8f246cbb0d1d8b12a4a2ebee58bfe514dc8101633f8577169aff54",
+      "text": "完整結果免費嗎？分享會帶上什麼？"
+    },
+    "lib/questionnaires/data/empathy.json/faq/5/answer": {
+      "sourceHash": "09a0514410ccb7a6880f408fda87e3a6b405081a83f3d8b42ccdc8faf66de37c",
+      "text": "十題與十二節雙語完整讀法均免費，免註冊或郵箱。任何分數以及資料不足結果，都可閱讀全文。公開分享只有測驗名和入口連結，不包含答案與個人分數。"
+    },
+    "lib/questionnaires/result-content/empathy.json/compassion-reading/0/title": {
+      "sourceHash": "1158ceb1a94d06e3178e4c60832e60d7c95389d9d7c68f31a1578cbd508de320",
+      "text": "先問哪一種幫助合適"
+    },
+    "lib/questionnaires/result-content/empathy.json/compassion-reading/0/paragraphs/0": {
+      "sourceHash": "7b42a485437cf57cf02e46e91b045658551a40880b6f3d79826197008eee5d7d",
+      "text": "補充原創情境：虛構的小組活動中，一位朋友因交通延誤晚到。你注意到對方少說話，可以先問是否需要了解剛才的安排，或想稍後再加入，而不是宣佈“我知道你很難過”。如果對方只需要一份活動說明，幫助可以限定在找到那份說明；不必把關心擴充套件成替對方處理整天的安排。關懷意願、推測的感受、被請求的行動和實際完成，是四條不同資訊，十題原始總分不會替你核實後三條。"
+    },
+    "lib/questionnaires/result-content/empathy.json/compassion-reading/1/title": {
+      "sourceHash": "1c73847953df96b2795a7ee98e03af686d335103ec72cbfa9cb541d0d77c7d5b",
+      "text": "比較回答含義，不給別人排座次"
+    },
+    "lib/questionnaires/result-content/empathy.json/compassion-reading/1/paragraphs/0": {
+      "sourceHash": "7e0f11a49b94840bf15e34f70642fe76d43a18dc8412cf4f7370f05d5ee0c599",
+      "text": "可單獨分享一張虛構討論卡，不附個人分數：“看見的是晚到與少說話；我猜測的是失落；對方明確請求的是活動說明；我實際提供的是……。”問“哪一欄仍需要確認？”比問“誰更有同理心”更能定位下一步。對方願意談的內容可以不同，也可以不談；同一份公開指南不要求雙方答題、交換答案或解釋私人原因。"
+    },
+    "lib/questionnaires/result-content/empathy.json/compassion-reading/2/title": {
+      "sourceHash": "3378eef427c6a0523066f0eaccbd14acb19c0e14b30f4d99bb4de5ca6e906ea6",
+      "text": "選擇一個看得見的小嘗試"
+    },
+    "lib/questionnaires/result-content/empathy.json/compassion-reading/2/paragraphs/0": {
+      "sourceHash": "c51f6ef73ebf2721abd18369567e83a29ec4b4ab1d1f9afd514fa7472383f9d8",
+      "text": "也可以只在私人草稿把上述卡片補完，標出一項可詢問的未知，以及自己真實可提供的範圍；若沒有合適的幫助，就保留空白，不編一個承諾。不必實際聯絡任何人，也不把觀察變成提分任務。原有十條IPIP英文與五道反向鍵保持不變，中文仍為工作譯文；十題數字完整才給一個總分，NA不補低分。新增案例是費馬編輯素材，不驗證中文、建立常模或增加任何同理心分量表。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/title": {
+      "sourceHash": "e031e19131e88a2beff55a9522db3ef95958b8a38c01ea661596460c1ce250d5",
+      "text": "社交智慧測驗"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/resultHeading": {
+      "sourceHash": "a086d96e46f56a9c0cc55e02f5a80177fa4881968263816da17cea7ed2e2cc39",
+      "text": "你的社交理解原始總分"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/description": {
+      "sourceHash": "b44fe575075909fcdc0000f79325f1db9a3d02ba8ad664902dd4fc5fbec00275",
+      "text": "透過四道 IPIP-VIA-R 自評題，回顧自己如何理解他人的感受、選擇措辭、應對新情境與預想反應。可查看 4—20 原始總分、描述性平均分數和完整指南，免註冊。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/seoTitle": {
+      "sourceHash": "94e648eea0825f29d7fbb688a4effc52ad7dc91f35785fb35adfc364253422e0",
+      "text": "社交智慧測驗：IPIP四題自評、計分方法與完整解讀"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/introduction": {
+      "sourceHash": "9e951734aed0884985b0f697c51faf4fe514b2c8416a18d5354f36b8cf56b150",
+      "text": "你怎樣評價自己理解他人感受、找到合適措辭、應對新社交情境與預想他人反應的表現？這份社交智慧測驗採用IPIP-VIA-R的四條自述，保留英文原文及中文試譯。完成後檢視4—20原始總分、兩位小數均分和完整指南；有無法判斷的題目時，保留資料不足並照常開放解讀。它整理你對自己的看法，適合帶回具體交往經歷核對。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/instructions": {
+      "sourceHash": "5b3c2297554eaabab8bc8acb5e0d5d4d2bf71a3e2e9f679e675fae816b90130e",
+      "text": "按你一般的實際情況，評價每條描述的符合程度，不按理想形象或某一次特別成功、尷尬的經歷回答。1—5是從很不符合到很符合；3是介於符合與不符合之間，無法判斷或不願回答請選獨立的NA選項。四條都作出選擇後可檢視結果；任何NA都會保留資料不足，不補分。點擊開始直接進入題目，不必再次同意、郵箱、註冊或先完成其他測驗。不必輸入對話、他人姓名或私人經歷。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/directions/0/title": {
+      "sourceHash": "af76721ea4c0e90288782cd91cab5aa0b0b6a41adf65ccb4fd9bed92081bfc83",
+      "text": "社交理解自述"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/prompt": {
+      "sourceHash": "163615d9ed6628ff32b0db949558eeb6b0ec59b596222733621661838ac4a214",
+      "text": "我擅長感知別人的感受。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/options/0/label": {
+      "sourceHash": "00ffc3c7944e3950004f58cfc0e1d1d104345d76c46d5404db3b8833619c3e85",
+      "text": "很不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/options/1/label": {
+      "sourceHash": "1013d1ba5b8bce9afc21a976ee963e083d64fb09c21217b51c426b855e71ab76",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/options/2/label": {
+      "sourceHash": "079ab91e7818c70305f3da4c6e116f06f3df01e8c1f019b94bf979b582b8b90a",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/options/3/label": {
+      "sourceHash": "7d1786455ef15ba2afe9d3b498d68c2b91b8c656ce14c429b48ee94919fd1351",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/options/4/label": {
+      "sourceHash": "f727ee6b74997e6acd0b1fa49dbcf52babf7228f17cbbde51b7f03a2ee8a3eaf",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/0/options/5/label": {
+      "sourceHash": "17b1f5a2545be625e0f0b9ae2f450dc7041fbaf12db8079717daa192ebd0b78c",
+      "text": "不願回答／無法判斷"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/prompt": {
+      "sourceHash": "0a88db3b74b13090b969c65e61809b1ee5a937038c44aceb2f58e4aced1a8458",
+      "text": "在新的社交場合，我不知道該如何表現。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/options/0/label": {
+      "sourceHash": "5219f746700997ecdcb31dd4b76888cca6fc7862b7b8c69aad8af4fb74c08d91",
+      "text": "很不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/options/1/label": {
+      "sourceHash": "4d7a6a1798175e3b52f7eab9e214abcab31e87e478ef8399d897d6cf69ea3f52",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/options/2/label": {
+      "sourceHash": "12b07a9ad9371eec6c3e6efef3cc2b3f958fbff3e9d7f1588369a3e7282813f0",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/options/3/label": {
+      "sourceHash": "7a0157bb01a4704382ed948287df19614f881815057a87cb2eb4fb471593abc9",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/options/4/label": {
+      "sourceHash": "2a7282ecde62856ffaee6debdc131457195f09e40aac175daa5b44e511b24f38",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/1/options/5/label": {
+      "sourceHash": "b4ec744cf7eced12c97a1e5efa4b85a6ba2c98708bb2fc6ae097b7179677d938",
+      "text": "不願回答／無法判斷"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/prompt": {
+      "sourceHash": "4fb392d76cca54b974a281984c279702121494a8529d3608ded851e12a53d09d",
+      "text": "我知道說什麼能讓別人感覺良好。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/options/0/label": {
+      "sourceHash": "413dd012d14d5ce3a059d792ddd10c07b154da2e1deee208bc35def0efe11f0c",
+      "text": "很不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/options/1/label": {
+      "sourceHash": "00d0d3b2830fe89d9a2c1c25c8c4161ad8e8e7740cb4258a57eea6ff6e67eed1",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/options/2/label": {
+      "sourceHash": "5edd18735483f669dc6d6247b038ab6c72e80ac5adb28bd27f4a69868d5ab2bc",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/options/3/label": {
+      "sourceHash": "e2af963138f1ac9e005c37e614d7935b56d47e62770a3f363eb9eab81fc38685",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/options/4/label": {
+      "sourceHash": "a690ed387435db83f6c9bd7c76e424d6badd5110d9961ebfa9fff18eec07c0f5",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/2/options/5/label": {
+      "sourceHash": "754321748ec83dd623238b4497ab4caec6a122a0a35b1d395b08611f1a513997",
+      "text": "不願回答／無法判斷"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/prompt": {
+      "sourceHash": "cccfcbc4984a20f195771d47c72fa4a8bd65dd2b72c34f987d2ca74b7f514e3d",
+      "text": "我難以猜到別人會怎樣反應。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/options/0/label": {
+      "sourceHash": "e7342912284ffced963a97ffecdd05e1bb6fadf4f2b2f35f9c891562bc980a6d",
+      "text": "很不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/options/1/label": {
+      "sourceHash": "fc569b64b550f4b76cec1f3f910b2045477afeed2f073ff9379e7b161974ed72",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/options/2/label": {
+      "sourceHash": "57d69168c56dcbb630b84ab811777c702c06e1eac10a375425322caad46fc9af",
+      "text": "介於符合與不符合之間"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/options/3/label": {
+      "sourceHash": "406ee6cc0b2ee3b9b2be1d48b23f17716401a8781fbda75e6a95cfe4c964043a",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/options/4/label": {
+      "sourceHash": "2a5dd2403e9620767e90e7958c50f083af477e2248b8ff9826cbd284eb9bbcad",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/questions/3/options/5/label": {
+      "sourceHash": "3749ef21c6bc9636c1c1dd2f5f9afd9d7eb2631324b6dacc6c85606f248cfb3e",
+      "text": "不願回答／無法判斷"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/title": {
+      "sourceHash": "c4f24a29663916e6e0698a886445483c3d1a6c5734a98b15a015da72ee98f95e",
+      "text": "社交理解自述：四條結果怎樣讀"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/summary": {
+      "sourceHash": "2ae5d77c9c6acb22f570871588667bd8619e26dc344b2a48815d08753fe22285",
+      "text": "閱讀IPIP-VIA-R四條自述的原始總分、正反計分、較高較低與資料不足，並區分感到知道和實際核對。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/seo/title": {
+      "sourceHash": "cbda038e4c003cf418c260fd57f9a448ffbcc98c35ebd030a23b79d740e4d6b2",
+      "text": "社交智慧測驗結果：四條自述的完整讀法"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/seo/description": {
+      "sourceHash": "33ed9933e0760faab78aafa64a8c98b8efb564bcbb8f522cedd41a859ef33eee",
+      "text": "社交智慧測驗完整結果：原始總分4—20、兩條反向計分、不同回答組合、資料不足和具體溝通例子，不以自述斷言真實能力。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/0/title": {
+      "sourceHash": "714324a1b2e0ea6480a4426b89a6d611a07a225c82b1d8eb87112c3e3ad6f3ed",
+      "text": "四條自述，回答了什麼"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "027dde7eb91281f8100e7b45cf5f4a83f54369b7475616b11a6a6ced305acb3b",
+      "text": "這份結果讀的是你對四句話的符合度自述：感知別人感受、在新場合知道怎樣表現、知道說什麼讓人感覺良好，以及猜測他人反應。英文保留IPIP-VIA-R的SOC／SIQ四條，中文沿用本站試譯，不把原句中的“擅長”“知道”變成網站對你能力的判定。四句共同組成一個連續分數，不各自派成四種人；本版也沒有JobCannon的五種社交角色。你可以先讀完整解釋再作答，或讀到這裡結束，不必提交一段真實對話來換取結論。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/1/title": {
+      "sourceHash": "59307e27e297c53a4ce416a858315417774c9e6594efc2f3c2857fd4fde49511",
+      "text": "原始總分怎樣復算"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "d45f8e82832a252dc90a97dabe38d62e8baf7010be6bd302d83de4b776e3c701",
+      "text": "每題1—5按符合度選擇。正向兩條直接用原數，反向兩條——新場合不知道如何表現、難以猜到他人反應——用6減回答。四條全部有效才相加，原始總分為4—20；描述性均分用未舍入總和除4，保留兩位小數，不能從引擎一位小數均分倒推總分。例如按呈現順序回答4、2、3、1，鍵後4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一條NA都不顯示個人總分。類別求和是計分約定，小數不表示心理測量精度。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/2/title": {
+      "sourceHash": "9d60f8882fb81b99345655c7ac362d4fb25d99fa15bf0a2c541b683ead0dd59e",
+      "text": "總分較高：核對自信的依據"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "9c5886a73435107d4d7a8ddca8d6b3a85ebee159ab2fb2b20f567bdcc2b9739e",
+      "text": "較高只表示你在本鍵方向上更認可這組社交理解自述，可能在熟悉場合感到知道如何回應，也可能較有把握解釋別人的反應。它不證明猜測正確、別人喜歡你、你真的讓人好受或具備高情商。一次自信的推斷仍可能錯過語言習慣、個人表達或當時安排。可以想起一件不敏感的小事，在心裡區分“我看到的”“我以為的”和“對方明確說過的”。若沒有後面的明確反饋，就把推斷留作可能性，而不是用分數補上證據；不需要向對方索要私人解釋。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/3/title": {
+      "sourceHash": "122f2968639915616440efa1a1c994989a7979b0b7799863bce01c87d5d0b383",
+      "text": "總分較低：把不確定留在情境裡"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "cc074081485372ef0bcecb5fa22b9e3b37f1ca7b10270d1a342ce846e98fb033",
+      "text": "較低意味著你較少認可這四條，或更認可兩條反向自述。可能是不熟悉新群體、跨語言表達費力、缺少反饋，也可能是你不願聲稱自己知道別人在想什麼；僅靠這四條不能區分原因。明確詢問、偏好文字溝通或先觀察，並不自動比即興回應差。不要據此給自己貼不聰明、不會共情、社交失敗或某種健康標籤。可選擇一個實際需要溝通的具體問題，問清時間、任務或偏好，收到清楚答覆就按答覆處理；不必先把自評分提高才允許自己參與，也不必強迫多交朋友。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/4/title": {
+      "sourceHash": "868e0abe89dfa81c63d0bd82eee7d2ce34c1158bbcd105b7ff889629f23c3731",
+      "text": "中間、混合與資料不足"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "40ea6c30f22a9e0f66412d3445bed5fd687e58d60bee1aebc01527dfa4db3503",
+      "text": "12分既可能來自四條都選3，也可能來自四條都選1或都選5，因為兩條要反向。這些組合含義不同，12不是人口平均、最佳平衡或“普通社交智慧”。同一總分還能由不同條目組合產生，不能從總分推斷你在哪一個場景遇到困難。若有一條不願回答、無法判斷或資料不足，本次作答仍可結束並閱讀全文，個人總分和均分保留不足，不按另外三條補算。若未選擇選項則尚未答完。你可以保持未評分、清除本次進度或重測，沒有為獲得結果而披露隱私的義務。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/5/title": {
+      "sourceHash": "7b41685cddb6c671195801232a5eb5d5495bbce5e010ef9b3d35de6366ca2244",
+      "text": "把猜測變成可核對的小問題"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "e69a99a13842f1603013a5dd49cf31d33af75a44d540ee580e198e8f550135fa",
+      "text": "例如你發出一項共同任務的說明，對方只回“收到”。能觀察到的是簡短回覆，不是冷淡、贊同或已經理解全部細節。若任務確實需要確認，可以問“截止時間這樣安排可以嗎？要不要我改成文字清單？”允許對方回答不方便或另提方案，不追問“你到底是不是對我有意見”。一個反例是：你用相同句式得到較長回覆，仍不能證明社交能力提高，可能只是這次對方有空。可選的小練習是下次把一個需要協作的問題問具體；不為練習製造對話，不記錄第三人的私人訊息，也不保證關係或表現會改善。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/6/title": {
+      "sourceHash": "d595af19f10098a75441364390e56341056cc2e6bb73033bcfebe6bb1d177972",
+      "text": "與品格優勢、EQ及其他版本怎樣比較"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "09f38a194261e4adea4ebbd7e6980a31330a4d45aadf2a171dc8a8a2defe4d99",
+      "text": "本站品格優勢96條中的社交理解側面就是這四條，沿用相同中英題目、正反鍵和原始求和；本入口方便單獨閱讀，並沒有增加一個不同心理構念。長卷中的作答語境、前後題目與獨立作答可能影響回答，因此相同算式不代表兩次施測等值；長卷顯示的一位小數也不能直接當本版原始分數。社交理解自述不等於外向、善良、親密關懷或情緒能力，不換算IQ／EQ。TSIS21條、VIA Institute正式問卷與JobCannon五型各有自己的內容和方法，本版不是這些版本。不能把不同量尺的數字放在一起排名或當招聘依據。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/7/title": {
+      "sourceHash": "2ab7221e866d82800373f3dd5da6bac557b4de573e63ba0456b9cc7e97bb24b1",
+      "text": "題本證據與解釋邊界"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "aea3ba77063994828c3424d5f85ae8171ca582c11043873f02b8862038726d48",
+      "text": "英文與正反方向來自IPIP官方IPIP-VIA-R鍵表SOC（新稱SIQ）四條，官方許可將IPIP條目、量表和題庫置於公有領域，可商業或非商業使用，不必聯絡作者。這裡採用的是IPIP材料，不因此獲得其他社交智慧問卷、品牌或競品內容的許可。該表的德國與英國樣本統計屬於原研究條件，不是本站中文試譯、獨立四條呈現、NA規則或你本人的驗證。本站沒有這份版本的代表性常模、個人準確性、最優區間或變化閾值。題文中的廣泛說法不解決社交智慧的定義爭議，也不能據此推斷健康、神經差異或實際能力。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/8/title": {
+      "sourceHash": "92cfb89205609f7f6470193ec4277a93a11b082e7c7ee3f3c8d4b66ae40681a9",
+      "text": "重看結果與分享邊界"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "1fa90cb5034b81f9a4ccb07712ee15b6e4a5da4b2ce9949941d6df8fe7b1a167",
+      "text": "完整指南、公開說明、重測和分享免費，不需要另一測評解鎖。復看時可以留意當時想到的是熟悉同伴、新群體還是跨語言場景；情境變化可能改變回答，單次變化不能說明能力進步或退步。網頁不收集對話內容或第三人資料，作答在本裝置處理。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只包含測驗名稱、公開讀法名稱和連結，不帶四個回答、總分、均分或有效條數。後續測評推薦只是另一個可選框架，不驗證或補齊本次分數。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/headline": {
+      "sourceHash": "435e2eeae087238aeb984606757c54b0a6b454bf898ba8c4b8f0f036700ec93e",
+      "text": "把社交理解自述與能夠核對的事分開。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/profiles/0/scoreReading": {
+      "sourceHash": "f35a22a94d9a3d97992cc9ddf0e2ba756f8e8497d135ab0f84d719e16a90bfd4",
+      "text": "每題1—5按符合度選擇。正向兩條直接用原數，反向兩條——新場合不知道如何表現、難以猜到他人反應——用6減回答。四條全部有效才相加，原始總分為4—20；描述性均分用未舍入總和除4，保留兩位小數，不能從引擎一位小數均分倒推總分。例如按呈現順序回答4、2、3、1，鍵後4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一條NA都不顯示個人總分。類別求和是計分約定，小數不表示心理測量精度。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/0/title": {
+      "sourceHash": "6a7ea9e5efa885d88b74587e068279a8804c096eee5419230eb97b9f4a87fb47",
+      "text": "原始總分怎樣復算"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/0/paragraphs/0": {
+      "sourceHash": "829d0af499a2e0031b033ddcfd44d4dfcb86b31e76f66f9a1532b8737316d181",
+      "text": "每題1—5按符合度選擇。正向兩條直接用原數，反向兩條——新場合不知道如何表現、難以猜到他人反應——用6減回答。四條全部有效才相加，原始總分為4—20；描述性均分用未舍入總和除4，保留兩位小數，不能從引擎一位小數均分倒推總分。例如按呈現順序回答4、2、3、1，鍵後4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一條NA都不顯示個人總分。類別求和是計分約定，小數不表示心理測量精度。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/1/title": {
+      "sourceHash": "cdc83fa5754f9a34146b6a347264a4816ea149bc77b704e51023f8b4211dcd49",
+      "text": "中間、混合與資料不足"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/1/paragraphs/0": {
+      "sourceHash": "c9f545596374e4e9c9e9d0820f903a6f618d1f19618fb601a396ee1f947a0ac0",
+      "text": "12分既可能來自四條都選3，也可能來自四條都選1或都選5，因為兩條要反向。這些組合含義不同，12不是人口平均、最佳平衡或“普通社交智慧”。同一總分還能由不同條目組合產生，不能從總分推斷你在哪一個場景遇到困難。若有一條不願回答、無法判斷或資料不足，本次作答仍可結束並閱讀全文，個人總分和均分保留不足，不按另外三條補算。若未選擇選項則尚未答完。你可以保持未評分、清除本次進度或重測，沒有為獲得結果而披露隱私的義務。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/2/title": {
+      "sourceHash": "5ca5d309314627a5459bf99d46c47bc0d5cc1ddc0c9930f89410a285ac786712",
+      "text": "與品格優勢、EQ及其他版本怎樣比較"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/2/paragraphs/0": {
+      "sourceHash": "7c17f46ce3a8dc60b34c67f9d9a256a7467efdff510f6d600e36f7ef2e4f0d71",
+      "text": "本站品格優勢96條中的社交理解側面就是這四條，沿用相同中英題目、正反鍵和原始求和；本入口方便單獨閱讀，並沒有增加一個不同心理構念。長卷中的作答語境、前後題目與獨立作答可能影響回答，因此相同算式不代表兩次施測等值；長卷顯示的一位小數也不能直接當本版原始分數。社交理解自述不等於外向、善良、親密關懷或情緒能力，不換算IQ／EQ。TSIS21條、VIA Institute正式問卷與JobCannon五型各有自己的內容和方法，本版不是這些版本。不能把不同量尺的數字放在一起排名或當招聘依據。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/3/title": {
+      "sourceHash": "6a1c8da9279841673c361ad09c5ca1976d01638c5cb0f01ff79945f501d5a948",
+      "text": "題本證據與解釋邊界"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/3/paragraphs/0": {
+      "sourceHash": "47f644188b8d73d48dcc149fae58491769b6b53890c71cd4f94422484777b594",
+      "text": "英文與正反方向來自IPIP官方IPIP-VIA-R鍵表SOC（新稱SIQ）四條，官方許可將IPIP條目、量表和題庫置於公有領域，可商業或非商業使用，不必聯絡作者。這裡採用的是IPIP材料，不因此獲得其他社交智慧問卷、品牌或競品內容的許可。該表的德國與英國樣本統計屬於原研究條件，不是本站中文試譯、獨立四條呈現、NA規則或你本人的驗證。本站沒有這份版本的代表性常模、個人準確性、最優區間或變化閾值。題文中的廣泛說法不解決社交智慧的定義爭議，也不能據此推斷健康、神經差異或實際能力。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/4/title": {
+      "sourceHash": "91adc6a06957b272d02032059cd84f2d7b724960a0439874ac233250329c509d",
+      "text": "重看結果與分享邊界"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/guide/4/paragraphs/0": {
+      "sourceHash": "643b959beb45866a7c2d02b88421f3f971bffca4bc1cd551229f2c950ac15124",
+      "text": "完整指南、公開說明、重測和分享免費，不需要另一測評解鎖。復看時可以留意當時想到的是熟悉同伴、新群體還是跨語言場景；情境變化可能改變回答，單次變化不能說明能力進步或退步。網頁不收集對話內容或第三人資料，作答在本裝置處理。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只包含測驗名稱、公開讀法名稱和連結，不帶四個回答、總分、均分或有效條數。後續測評推薦只是另一個可選框架，不驗證或補齊本次分數。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/0/question": {
+      "sourceHash": "95bf28a39ed5df58120fe4e4eb70e839e47136d12b7bccf73c3ebb214a9341e0",
+      "text": "這是測讀心、能力或社交IQ嗎？"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/0/answer": {
+      "sourceHash": "f5378f6308688ee42fdc5f91075ff4b0fc8b2227ccd1344b97646023f5e08c7e",
+      "text": "這份結果讀的是你對四句話的符合度自述：感知別人感受、在新場合知道怎樣表現、知道說什麼讓人感覺良好，以及猜測他人反應。英文保留IPIP-VIA-R的SOC／SIQ四條，中文沿用本站試譯，不把原句中的“擅長”“知道”變成網站對你能力的判定。四句共同組成一個連續分數，不各自派成四種人；本版也沒有JobCannon的五種社交角色。你可以先讀完整解釋再作答，或讀到這裡結束，不必提交一段真實對話來換取結論。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/1/question": {
+      "sourceHash": "654d89a44e92e86ea8055800366def05cd79c3a3c3f373f97d5baabe385c1793",
+      "text": "原始總分怎樣算，缺一條可以估算嗎？"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/1/answer": {
+      "sourceHash": "ccad92ff58c1ed65b9e4c616904b396ade6ada3c97a0dd8b3727adebe4ffda02",
+      "text": "每題1—5按符合度選擇。正向兩條直接用原數，反向兩條——新場合不知道如何表現、難以猜到他人反應——用6減回答。四條全部有效才相加，原始總分為4—20；描述性均分用未舍入總和除4，保留兩位小數，不能從引擎一位小數均分倒推總分。例如按呈現順序回答4、2、3、1，鍵後4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一條NA都不顯示個人總分。類別求和是計分約定，小數不表示心理測量精度。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/2/question": {
+      "sourceHash": "ceefaf8ff7273ee7252398c225298bce54e3ac4abdb180e1f5208de01c8ed16f",
+      "text": "中間分是人群平均或理想平衡嗎？"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/2/answer": {
+      "sourceHash": "bd1732f093ca7c3f91ef4c47289f1ace0bd3f2067af58b8107590076aeaec704",
+      "text": "12分既可能來自四條都選3，也可能來自四條都選1或都選5，因為兩條要反向。這些組合含義不同，12不是人口平均、最佳平衡或“普通社交智慧”。同一總分還能由不同條目組合產生，不能從總分推斷你在哪一個場景遇到困難。若有一條不願回答、無法判斷或資料不足，本次作答仍可結束並閱讀全文，個人總分和均分保留不足，不按另外三條補算。若未選擇選項則尚未答完。你可以保持未評分、清除本次進度或重測，沒有為獲得結果而披露隱私的義務。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/3/question": {
+      "sourceHash": "8b192da7ce94b10532a72565d752b196ec4493d47838285aadb8ff202292c39a",
+      "text": "與品格優勢96條、TSIS或五型有什麼關係？"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/3/answer": {
+      "sourceHash": "39db14913580013b64a7ccb9273c396670ee28a316aa15c7c5defd1cd26c98d7",
+      "text": "本站品格優勢96條中的社交理解側面就是這四條，沿用相同中英題目、正反鍵和原始求和；本入口方便單獨閱讀，並沒有增加一個不同心理構念。長卷中的作答語境、前後題目與獨立作答可能影響回答，因此相同算式不代表兩次施測等值；長卷顯示的一位小數也不能直接當本版原始分數。社交理解自述不等於外向、善良、親密關懷或情緒能力，不換算IQ／EQ。TSIS21條、VIA Institute正式問卷與JobCannon五型各有自己的內容和方法，本版不是這些版本。不能把不同量尺的數字放在一起排名或當招聘依據。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/4/question": {
+      "sourceHash": "d2969d38cdbee34dae4c1dad3efb9aa2cd2a529d74b4d10d4d14fb76026547ee",
+      "text": "條目許可及中文驗證情況是什麼？"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/4/answer": {
+      "sourceHash": "178be3baae4be53539b1041424d61acc049c5db4ba9ab908146548e38045783b",
+      "text": "英文與正反方向來自IPIP官方IPIP-VIA-R鍵表SOC（新稱SIQ）四條，官方許可將IPIP條目、量表和題庫置於公有領域，可商業或非商業使用，不必聯絡作者。這裡採用的是IPIP材料，不因此獲得其他社交智慧問卷、品牌或競品內容的許可。該表的德國與英國樣本統計屬於原研究條件，不是本站中文試譯、獨立四條呈現、NA規則或你本人的驗證。本站沒有這份版本的代表性常模、個人準確性、最優區間或變化閾值。題文中的廣泛說法不解決社交智慧的定義爭議，也不能據此推斷健康、神經差異或實際能力。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/5/question": {
+      "sourceHash": "c59752eca8b1afc255595bac16f11f84f12de0414b2978b9199a5b2c1fe3ccee",
+      "text": "結果、重測和分享都免費嗎？"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/faq/5/answer": {
+      "sourceHash": "53a7ad0a2c7159b55ae87e38e6bb8aa3f767891a2cc54dacdd75593a1c2eaf9a",
+      "text": "完整指南、公開說明、重測和分享免費，不需要另一測評解鎖。復看時可以留意當時想到的是熟悉同伴、新群體還是跨語言場景；情境變化可能改變回答，單次變化不能說明能力進步或退步。網頁不收集對話內容或第三人資料，作答在本裝置處理。這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。分享只包含測驗名稱、公開讀法名稱和連結，不帶四個回答、總分、均分或有效條數。後續測評推薦只是另一個可選框架，不驗證或補齊本次分數。"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/references/0/title": {
+      "sourceHash": "d03f3395c414e51d1551f8e1ae79b4c66724df7063f7324cc1d89e300ff047b0",
+      "text": "IPIP-VIA-R官方SOC／SIQ四條與正反鍵"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/references/1/title": {
+      "sourceHash": "6d3af2da552175306f8d07a84c2a266b99f206f6dac2403c545df1c27f473181",
+      "text": "IPIP官方公有領域許可：商業與非商業"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/references/2/title": {
+      "sourceHash": "b52f0eccc2b98aff8d3012f4f3058ae9ad2ce26beb5e0803cc828c151a3ec6c1",
+      "text": "IPIP官方符合度、反向計分與求和"
+    },
+    "lib/questionnaires/data/social-intelligence-test.json/references/3/title": {
+      "sourceHash": "888cfb2aef1a7f960287beb48ed11bb5296ee3620affae29d2406ec73f411dca",
+      "text": "IPIP個人分數解釋：常模和連續讀法"
+    },
+    "lib/questionnaires/result-content/social-understanding.json/social-understanding-guide/0/title": {
+      "sourceHash": "78c59ec973d4299a7f68b107bb55dc2272c534b7cc3529abd487381965ebed2b",
+      "text": "把“收到”保留為已知，把理解程度留待確認"
+    },
+    "lib/questionnaires/result-content/social-understanding.json/social-understanding-guide/0/paragraphs/0": {
+      "sourceHash": "d93b602c76eed5eab3eb8e5f8b8a16ab28e2be1b86e7922ab114a3dcc608effc",
+      "text": "沿用上面的共同任務說明，先區分實際看到的簡短回覆、自己補出的含義，以及安排中確實需要確認的一件事。可以只問截止時間或某個步驟是否合適；得到明確答案後按答案處理，不繼續追問私人感受。若沒有協調需要，未知也可以保留。復盤不以回覆長短、自己猜中多少或下次總分更高證明社交能力，也不用製造對話、儲存聊天記錄或要求對方驗證你的測驗結果。"
+    },
+    "lib/questionnaires/result-content/social-understanding.json/social-understanding-guide/1/title": {
+      "sourceHash": "c7ff049476f3f7151a202c23c1ffb19e25cd1c5bce07aa7ccb3dfb24ab186d94",
+      "text": "圍繞可核對的安排交換理解"
+    },
+    "lib/questionnaires/result-content/social-understanding.json/social-understanding-guide/1/paragraphs/0": {
+      "sourceHash": "1b9e0db803c1649f9367cca14910ba33f85b4396419f8794c5ab5c818b168a85",
+      "text": "可以問：“如果任務說明只收到一句‘收到’，什麼已經確定，哪些具體安排還需要確認，哪些感受不必猜？”交流問題與資訊即可，不比較誰更會讀心、更受歡迎或情商更高。對方可以說不知道、不同意或不想繼續。"
+    },
+    "lib/questionnaires/result-content/social-understanding.json/social-understanding-guide/1/paragraphs/1": {
+      "sourceHash": "9bc41f4d997f2e5fa7566bb595da3c33810b49faeb01c7a579e7d38ee101f9f9",
+      "text": "可以只分享這份公開說明，連結不含四個回答、總分、均分或有效條數。不需要展示私人對話、解釋社交困難或做完測驗才能參與，也可以另換話題或結束。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/0/question": {
+      "sourceHash": "ecdd8de8598607a8c98af5724b077694bdedcadc42029ac56239d6b80b7c2778",
+      "text": "四條是不是四種社交能力的分數？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/0/answer": {
+      "sourceHash": "0326b09c0003396df6ffc65de86e7610828c9f863977cdf3b3e2d73965382c2e",
+      "text": "不是。它們共同組成一項IPIP-VIA-R自述分數，題意涉及四個話題，但沒有分別測出四種能力。[1]"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/1/question": {
+      "sourceHash": "cd20b16e059a1bf3af32cf89e74210477ef6ed586c5c63b73405886b3d5bb94c",
+      "text": "覺得自己能讀懂別人，就證明猜得準嗎？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/1/answer": {
+      "sourceHash": "513fbd0c0eefd73fc8fe7d07654127c00838eff4455121699ed1e5fcbc928f4f",
+      "text": "不能。本卷記錄自評，沒有對方獨立回答或表現任務的正確答案。可在對方願意時核對一次具體推測，不能用分數代替詢問。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/2/question": {
+      "sourceHash": "c36ec21df1161c4fe08c6720d497237d1198ef11943b839e48f41c0ca930ea4e",
+      "text": "為什麼1、5、3、4得到7分和1.75？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/2/answer": {
+      "sourceHash": "8651092ce8b7fb808de0305a363387c894ad55a921993b94638376121710cb3b",
+      "text": "第2、4條反向後，定向值為1、1、3、2，合計7；7÷4＝1.75。均分從未舍入總和計算，不從一位小數倒推。[3]"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/3/question": {
+      "sourceHash": "1211708e7e86b491fb4ed3f73ef60f49e7199a7cb61fac565c53b5f228c28150",
+      "text": "12分代表平均或理想平衡嗎？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/3/answer": {
+      "sourceHash": "0b53e70561102d4e89881a2b5a68666ccf12a55cf0e899a50e9fb31ef1ce51ed",
+      "text": "不代表。全選1、3或5都可得到12，但回答不同。本版沒有相應人群常模，不能從數軸中點推出平均水平。[4]"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/4/question": {
+      "sourceHash": "8b69eb7f7fa5939583e46e95621378ae887bb4e9de8cf6dc246dc09846752be9",
+      "text": "不願回答時選3，還是選NA？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/4/answer": {
+      "sourceHash": "ecfd6efa464f0229daf18582e3ec02e0898d96adfbb91d71ecd7806259b8415e",
+      "text": "選NA。3是有效的中間符合度判斷，NA保留無法判斷或不願回答。任一NA不生成總分，完整指南指南仍開放。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/5/question": {
+      "sourceHash": "fa9f1c90195f955a01fc8cfa3143a6eac5308d96a1efa45a100bf9d98f923da6",
+      "text": "公有領域許可是否代表本版中英文都已驗證？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/5/answer": {
+      "sourceHash": "910082c559cac6deabdcc9c44018edeba69db20b79d19750c2b4b94823ed3e07",
+      "text": "不代表。許可允許使用材料；中文試譯、獨立四題呈現與中英文測量等價性仍需對應研究。[1][2]"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/6/question": {
+      "sourceHash": "be0604f7a65aad2aef8e333aef716e3ce071c83ffa1bedabeafac8941bb6b37b",
+      "text": "這能用來判斷我外向、討喜或適合某份工作嗎？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/6/answer": {
+      "sourceHash": "74cf48a7bb29624949b93974ed89cf6ddc5f2f6762d0e8900dcaeb0707794cb9",
+      "text": "不能。自評理解他人與外向、他人好感或工作表現不是同一個測量物件。本卷也不評定診斷、IQ、EQ或錄用條件。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/7/question": {
+      "sourceHash": "bbc7955999edb1d550e516772358f250cf7eb4f688e3545fcd4e125ad330c1ee",
+      "text": "需要再次同意或填寫私人對話才能開始嗎？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingFaq/7/answer": {
+      "sourceHash": "266fa0f047e6fa8b06a2d6d6ff67cd6ed56ad94d78467d22ff51b17edd5b9737",
+      "text": "不需要。開始直接進入四條題目，不收姓名或對話，也不要求郵箱、註冊、付費或其他測驗；完整指南可以先讀。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/0/title": {
+      "sourceHash": "c2375f2f09a5b6483978a96832a76cd84ff914854ec331ee2d0e57c0d3928183",
+      "text": "四條題目分別問什麼？共同構成一項自述"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/0/paragraphs/0": {
+      "sourceHash": "12258e27607cf1523d848d8efaa270cd3f69679964e742b9b0bdfc643353ebdc",
+      "text": "公開IPIP-VIA-R題目鍵把這四條列在Social/Personal/Emotional Intelligence（SOC，新標識SIQ）之下，兩條正向、兩條反向。[1] 本頁按感知感受、新情境、措辭、預測反應的順序呈現，四條合成一個分數。四個話題幫助理解題意，不是四個獨立分量表，也沒有分別給每種能力打分。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/0/paragraphs/1": {
+      "sourceHash": "8fc0b4eb4bbd59b35cfa24fcf6a6058b6549ff6e896edcf3ac0e22b89c217873",
+      "text": "例如覺得自己通常能察覺同伴情緒，卻在陌生小組中不知道如何加入，並不矛盾；熟悉的人、活動規則與可用資訊不同。也可能措辭讓人舒服，但沒有真正理解對方希望怎樣處理。四條評分應各自依據經歷，不必為了形成“擅長社交”的一致形象而選同一個方向。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/1/title": {
+      "sourceHash": "9e5fd46a2fc5d762a6aea92688f1b8ee66765b0a730043e6ba7907beb6b257ee",
+      "text": "感覺知道與核實知道：觀察、推測、詢問"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/1/paragraphs/0": {
+      "sourceHash": "e9df26f71cda18e79207ba50ba6dd1688548583cd45ad8ddd06b149cbac10a72",
+      "text": "朋友回覆很短，可以觀察到的是文字簡短；“他對我生氣了”是推測。還可能是忙、疲憊、輸入不方便或習慣簡潔。較有把握地給自評高分，不會自動排除這些解釋。本卷沒有對方的獨立回答、情緒識別任務或正確答案，無法核對你的猜測命中率。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/1/paragraphs/1": {
+      "sourceHash": "dc745a7feb8bc7ae6f8339a742830929cce7c978bc88e4d78d8cd09e0111338b",
+      "text": "在對方願意時，可以問“你現在方便聊嗎，還是稍後再說？”並接受暫時不解釋。把對方的實際回應與原先推測比較，比用一個總分斷言自己會讀心更具體。這樣的例子是可選的觀察方法，不是本卷驗證過的訓練方案，也不要求對方披露感受或充當你的評分員。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/2/title": {
+      "sourceHash": "1cf1d05ad7ed734050778609deaf92cc7634903f8ee719ee31d8ea39d518c796",
+      "text": "反向計分算例：7分與1.75怎樣得到？"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/2/paragraphs/0": {
+      "sourceHash": "bff7c2921f891f19e05536e02856c910578ff0a75654ed4db32659044cc6d760",
+      "text": "按本頁順序，設四條原始評分為1、5、3、4。第1、3條直接取1、3，第2、4條按6減原評分，分別得到1、2；定向後為1、1、3、2，總和7，7÷4＝1.75。IPIP通用計分說明也區分正向、反向後再求和。[3] 反向處理是統一題意方向，不是懲罰負面回答。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/2/paragraphs/1": {
+      "sourceHash": "7aeb08cff5ae1914b2098b62f65e7094f7ebe840e95caefd8f7cc0b84139ebe3",
+      "text": "結果先顯示4—20原始總分，描述性均分用未舍入總和除以4並保留兩位小數。1.75不能由其他頁面已四捨五入的一位小數反推。總分範圍只是四題計分的上下界；7分不是7%的社交能力，1.75也不對應人群排名、診斷機率或某個固定型別。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/3/title": {
+      "sourceHash": "e98e47d2973e7799ff0d73a678262837c5bd7b4f765baea1b96ca56028c2cc1c",
+      "text": "同為12分，回答可以不同；NA也不等於中間項"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/3/paragraphs/0": {
+      "sourceHash": "7abb7d6535c96d153512af809280896f87841a2e0c89ce49a55f97c86a97eb34",
+      "text": "四條全部選1、全部選3或全部選5，反向後都得到12分、3.00均分。它們分別涉及不同的自我描述，卻被同一個總和壓縮；12不是理想平衡，更不能僅憑數軸中點稱為“普通人的水平”。應同時回看具體條目和支援、反駁這些看法的經歷。[4]"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/3/paragraphs/1": {
+      "sourceHash": "59df5d248ffe1b4459cefa67ffef926888f1ae385c0095d06036fd2cef253c15",
+      "text": "3表示描述介於符合與不符合之間，仍是有效數字評分；NA表達無法判斷或不願回答，兩者意義不同。任一條選NA，本次可完成，但不生成個人總分或均分，也不按其餘三條估算。完整指南繼續可讀；選擇NA不是錯誤，也不代表理解他人的能力較低。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/4/title": {
+      "sourceHash": "86464e48c855df99e7a2469a86fd3be5897ff22489d7ceff49d5db67a052c872",
+      "text": "公有領域題目與測量證據：分別核對"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/4/paragraphs/0": {
+      "sourceHash": "5bf0ebeefb8733e95d97e7227565862d2a060610becc38edff70fa31d3c9abce",
+      "text": "IPIP允許其題目、量表與題庫用於商業及非商業用途。[2] 這說明使用許可，不證明本站中文試譯、網頁呈現、NA選項或四題獨立施測已經驗證。原鍵頁面報告德國和英國樣本中的重測與內部一致性指標；這些研究背景不能轉成本站使用者的準確率，或作為本版中文常模。[1]"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/4/paragraphs/1": {
+      "sourceHash": "2fdaa27d0d58975d05bc83236c7b46784bad70541b1d4a8fbbf06bcf1b4096e4",
+      "text": "本頁與本站96題品格優勢問卷中的社交智慧部分共用四條題目及鍵向，便於核對來源和運算。單獨作答與在24種品格主題中作答，前後語境不同；相同題目不保證兩次回答或解釋等價。比較時保留版本、語言、時間與具體回答，不把不同場合下的分數差直接稱為成長或退步。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/5/title": {
+      "sourceHash": "d2dd6c25ee1cf11dc59ef41f1bf3dfad71625938ffab4cf67f01ac61ce38cd4b",
+      "text": "陌生情境、外向與體貼：需要分開理解"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/5/paragraphs/0": {
+      "sourceHash": "6a53717cf0d2e19c83dc767701d5ee7d771dfdaed4331323f919d5ff9afa423c",
+      "text": "新活動沒有說明流程、使用不熟悉的語言、線上缺少語氣、角色權力不對等，都可能讓人難以判斷怎樣回應。這裡舉的是需要核查的情境，不是對某種文化、身分或神經型別的測量結論。四題不能診斷社交焦慮、自閉症或其他狀況，也不應作為招聘、晉升或關係裁決的依據。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/5/paragraphs/1": {
+      "sourceHash": "afdad110a498b0d2cbe8a87761594cb3f5f85f685d1dbe58ccfe942992a99d30",
+      "text": "主動說話多，不證明判斷更準確；安靜、等待或請別人說明，也不證明理解較差。“知道說什麼讓人感覺好”不要求討好、隱瞞分歧或負責他人的情緒。一次有幫助的溝通也可以是禮貌拒絕、清楚說明限制，或在得到允許後提出不同看法。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/6/title": {
+      "sourceHash": "2450b3c107526495ed133841f0bd4a9b17ce3f9ba14f20e73f0e68ae2cc903bd",
+      "text": "怎樣使用完整指南？從一項可核對的經歷開始"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/6/paragraphs/0": {
+      "sourceHash": "1c7983fe439da13a9f9c94a21f29a18e9cfa5ad22fa87d82674937b4fc93433e",
+      "text": "本頁僅有一份完整指南，分別說明版本、計分、較高較低、混合與缺答、例子、模型區別、證據及隱私。較高和較低是回答方向的說明，不是分檔；不會解鎖隱藏的社交型別或能力等級。可以先閱讀，不需要多答一輪或追求更高分才獲得全文。"
+    },
+    "components/questionnaires/SocialIntelligenceLandingEditorial.ts/socialIntelligenceLandingSections/6/paragraphs/1": {
+      "sourceHash": "0174d0228d693a35119321da6134ebde752abb3007841d4f4d368a832e8d627f",
+      "text": "選一次低風險、雙方願意回顧的交往，區分當時看到什麼、自己推測什麼、後來知道什麼；找一例符合自評，也找一例不符合。記錄可以留在自己的私人筆記中，不必提交網站。重測差異沒有本版可靠變化閾值；更具體的目標是澄清一次誤會或確認一個安排，而不是證明分數提高了。"
+    }
+  }
+}
