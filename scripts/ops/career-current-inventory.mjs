@@ -7,7 +7,8 @@ export function parseCareerCurrentInventory(payload) {
   if (payload?.ok !== true || payload.source !== 'backend_sitemap_generator'
     || !Array.isArray(payload.items) || payload.count !== payload.items.length
     || !identity || !/^[a-f0-9]{64}$/.test(identity.manifest_sha256 ?? '')
-    || identity.storage_count !== 1046 || identity.file_count !== 2092
+    || identity.storage_count !== 1046
+    || ![2 * identity.storage_count, 3 * identity.storage_count].includes(identity.file_count)
     || !Array.isArray(identity.slugs) || identity.slugs.length !== identity.storage_count
     || !identity.slugs.every(slug => typeof slug === 'string' && SLUG.test(slug))
     || !identity.aliases || typeof identity.aliases !== 'object' || Array.isArray(identity.aliases)) {

@@ -20,6 +20,15 @@ for (const aliases of [0, 2, 3]) {
     assert.equal(result.paths.length, 1046 * 2);
   });
 }
+test('accepts the exact three-locale package while validating the same public sitemap inventory', () => {
+  const payload = fixture(3);
+  const bilingualPaths = parseCareerCurrentInventory(payload).paths;
+  payload.career_current_identity.file_count = 3138;
+  assert.deepEqual(parseCareerCurrentInventory(payload).paths, bilingualPaths);
+
+  payload.career_current_identity.file_count = 3137;
+  assert.throws(() => parseCareerCurrentInventory(payload), /CAREER_CURRENT_INVENTORY_INVALID/);
+});
 test('the preschool identity migration retains both canonical URL pairs and rejects the old backend mapping', () => {
   const payload = fixture(0);
   const pair = ['preschool-teachers', 'preschool-teachers-except-special-education'];
