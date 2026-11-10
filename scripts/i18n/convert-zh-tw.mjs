@@ -12,6 +12,17 @@ export const packages = [
   { output: 'lib/i18n/zh-TW/chiikawa.generated.json', sources },
   { output: 'lib/i18n/zh-TW/seven-sins.generated.json', sources: ['lib/questionnaires/data/seven-sins-virtues-test.json', 'lib/questionnaires/result-content/seven-sins-virtues-test.json', 'lib/questionnaires/virtuesLandingEditorial.json'] },
   { output: 'lib/i18n/zh-TW/seven-sins-ui.generated.json', sources: ['lib/i18n/zh-TW/seven-sins-ui.source.json'] },
+  { output: 'lib/i18n/zh-TW/practice-questionnaires.generated.json', sources: [
+    'lib/questionnaires/data/attention-to-detail.json',
+    'lib/questionnaires/result-content/attention-to-detail.json',
+    'lib/questionnaires/data/cybersecurity-awareness.json',
+    'lib/questionnaires/result-content/cybersecurity.json',
+    'lib/questionnaires/data/workplace-technology.json',
+    'lib/questionnaires/result-content/workplace-technology.json',
+    'components/questionnaires/AttentionDetailLandingEditorial.ts',
+    'components/questionnaires/CybersecurityLandingEditorial.ts',
+    'components/questionnaires/WorkplaceTechnologyLandingEditorial.ts',
+  ] },
   { output: 'lib/i18n/zh-TW/relationship-questionnaires.generated.json', sources: [
     'lib/questionnaires/data/attachment-styles.json',
     'lib/questionnaires/result-content/attachment-styles.json',
@@ -43,13 +54,14 @@ export function collect(value, path = '', result = {}) {
   }
   return result;
 }
-export function build(previous = {}, selectedSources = sources) {
+export function build(previous = {}, selectedSources = sources, loadedEditorials = {}) {
   const units = {}, sourceHashes = {}, snapshots = {};
   for (const path of selectedSources) {
     const raw = readFileSync(new URL(path, root), 'utf8');
     snapshots[path] = raw;
     sourceHashes[path] = hash(raw);
-    for (const [context, source] of Object.entries(collect(JSON.parse(raw)))) {
+    const sourceValue = Object.hasOwn(loadedEditorials, path) ? loadedEditorials[path] : JSON.parse(raw);
+    for (const [context, source] of Object.entries(collect(sourceValue))) {
       const id = `${path}${context}`;
       const sourceHash = hash(JSON.stringify(['zh-TW', id, source, converter, glossary]));
       const prior = previous.units?.[id];
@@ -63,7 +75,10 @@ export function build(previous = {}, selectedSources = sources) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) for (const pkg of packages) {
   const output = new URL(pkg.output, root);
   const previousRaw = existsSync(output) ? readFileSync(output, 'utf8') : '';
-  const { artifact, snapshots } = build(previousRaw ? JSON.parse(previousRaw) : {}, pkg.sources);
+  const editorials = Object.fromEntries(await Promise.all(pkg.sources
+    .filter(path => path.endsWith('LandingEditorial.ts'))
+    .map(async path => [path, await import(new URL(path, root))])));
+  const { artifact, snapshots } = build(previousRaw ? JSON.parse(previousRaw) : {}, pkg.sources, editorials);
   const next = JSON.stringify(artifact, null, 2) + '\n';
   if (process.argv.includes('--check')) {
     if (previousRaw !== next) throw new Error('Traditional resources are missing or stale; run pnpm i18n:zh-TW');

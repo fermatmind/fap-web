@@ -5,6 +5,8 @@ import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotT
 import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience";
 import { ApiError } from "@/lib/api-client";
 import { globalHistoryPath } from "@/lib/entertainment/global-history/config";
+import { traditionalPracticeSlugs } from "@/lib/i18n/traditionalPracticePaths";
+import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
 import { traditionalUi } from "@/lib/i18n/zh-TW/chiikawa";
 import { relationshipQuestionnaireSlugs } from "@/lib/i18n/relationshipQuestionnairePaths";
 import { loadTraditionalRelationshipQuestionnaire } from "@/lib/i18n/zh-TW/relationshipQuestionnaire";
@@ -33,11 +35,21 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function TraditionalTestsDirectory() {
-  const [content, quizzes] = await Promise.all([
+  const [content, quizzes, practices] = await Promise.all([
     loadDirectory(),
     Promise.all(relationshipQuestionnaireSlugs.map(loadTraditionalRelationshipQuestionnaire)),
+    Promise.all(traditionalPracticeSlugs.map(loadTraditionalPractice)),
   ]);
-  if (!content) return <TraditionalPilotTests />;
+  const practiceSection = <section aria-labelledby="traditional-practice-quizzes" className="mt-8 space-y-4">
+    <h2 id="traditional-practice-quizzes" className="text-2xl font-bold">知識與技能練習</h2>
+    <div className="grid gap-4 sm:grid-cols-2">
+      {practices.filter(item => item !== null).map(({ quiz }) => <Link key={quiz.slug} href={questionnairePath("zh-TW", quiz.slug)} className="rounded-xl border border-slate-200 p-5">
+        <h3 className="text-xl font-semibold underline">{quiz.title.zh}</h3>
+        <p className="mt-3 leading-7">{quiz.description.zh}</p>
+      </Link>)}
+    </div>
+  </section>;
+  if (!content) return <><TraditionalPilotTests />{practiceSection}</>;
 
   return <>
     <nav aria-label="頁面語言" className="mb-5 flex flex-wrap gap-5 text-sm">
