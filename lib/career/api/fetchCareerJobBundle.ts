@@ -16,7 +16,11 @@ export const CAREER_DETAIL_REVALIDATE_SECONDS = 300;
 export const CAREER_DETAIL_PROJECTION_CACHE_VERSION = "career.detail.page.v1";
 
 export function careerDetailCacheTag(locale: Locale | string, slug: string): string {
-  return `career-detail:${toApiLocale(locale)}:${String(slug ?? "").trim().toLowerCase()}`;
+  return `career-detail:${careerDetailApiLocale(locale)}:${String(slug ?? "").trim().toLowerCase()}`;
+}
+
+function careerDetailApiLocale(locale: Locale | string): string {
+  return locale === "zh-TW" ? locale : toApiLocale(locale);
 }
 
 function detailCacheOptions(locale: Locale | string, slug: string): {
@@ -43,14 +47,14 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function buildQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
-  query.set("locale", toApiLocale(locale));
+  query.set("locale", careerDetailApiLocale(locale));
   query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION);
   return `?${query.toString()}`;
 }
 
 function buildSeoAuthorityQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
-  query.set("locale", toApiLocale(locale));
+  query.set("locale", careerDetailApiLocale(locale));
   query.set("org_id", DEFAULT_ORG_ID);
   return `?${query.toString()}`;
 }

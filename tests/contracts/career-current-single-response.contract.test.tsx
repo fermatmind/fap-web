@@ -96,3 +96,38 @@ describe('Current Chinese same-response publication authority', () => {
     await expect(fetchCareerJobBundle({locale: 'zh', slug: 'actors', includeSeoAuthority: true})).rejects.toMatchObject({kind: status === 503 ? 'transient' : 'timeout'});
   });
 });
+
+describe('Traditional Career detail reader', () => {
+  it('uses one exact locale request and holds indexing for the authoritative Traditional page', async () => {
+    vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://fermatmind.com');
+    const source = bundle(false);
+    const canonicalPath = '/zh-TW/career/jobs/actors';
+    const page = buildCareerPageFixture('actors', 'zh', '演員');
+    const payload = {
+      ...source,
+      locale_policy: {requested_locale: 'zh-TW'},
+      career_page: {...page, locale: 'zh-TW', content: {...page.content, locale: 'zh-TW'}, display: {path: canonicalPath}},
+      seo_contract: {...source.seo_contract, canonical_path: canonicalPath, canonical_target: canonicalPath},
+    };
+    const requests = vi.fn(async (input: RequestInfo | URL) => {
+      expect(new URL(String(input)).searchParams.get('locale')).toBe('zh-TW');
+      return new Response(JSON.stringify(payload), {headers: {'Content-Type': 'application/json'}});
+    });
+    vi.stubGlobal('fetch', requests);
+    const {generateMetadata} = await import('@/app/(traditional)/zh-TW/career/jobs/[slug]/page');
+    const metadata = await generateMetadata({params: Promise.resolve({slug: 'actors'})});
+    expect(requests).toHaveBeenCalledTimes(1);
+    expect(metadata.title).toBe('演員');
+    expect(metadata.robots).toEqual({index: false, follow: true});
+    expect(metadata.alternates).toEqual({canonical: `https://fermatmind.com${canonicalPath}`});
+  });
+
+  it('rejects a Simplified Chinese payload supplied to the Traditional route', async () => {
+    vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://fermatmind.com');
+    vi.stubGlobal('fetch', vi.fn(async () =>
+      new Response(JSON.stringify(bundle()), {headers: {'Content-Type': 'application/json'}})));
+    const {generateMetadata} = await import('@/app/(traditional)/zh-TW/career/jobs/[slug]/page');
+    await expect(generateMetadata({params: Promise.resolve({slug: 'actors'})}))
+      .rejects.toMatchObject({kind: 'contract', errorCode: 'CAREER_PAGE_TRADITIONAL_PROJECTION_INVALID'});
+  });
+});

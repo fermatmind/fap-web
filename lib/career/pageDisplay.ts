@@ -39,7 +39,7 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
   const componentOrder = display.component_order as CareerDisplayComponentId[];
   if (Object.keys(components).length !== componentOrder.length) fail('components');
   const primary = components.primary_cta;
-  const path = `/${locale}/career/jobs/${identity.slug}`;
+  const path = `/${page.displayLocale ?? locale}/career/jobs/${identity.slug}`;
   if (display.path !== path) fail('path');
   if (componentOrder.includes('primary_cta') && (!record(primary) || typeof primary.label !== 'string' || !primary.label.trim() || primary.href !== ctaHref.split('?')[0])) fail('cta');
   const label = record(primary) && typeof primary.label === 'string' ? primary.label : '';

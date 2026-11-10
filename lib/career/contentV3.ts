@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
 export const CAREER_CONTENT_V3_VERSION = "career.detail.content.v3" as const;
 
@@ -543,14 +543,19 @@ function normalizeBlock(value: unknown, index: number): CareerContentV3Block {
   };
 }
 
-export function normalizeCareerContentV3(value: unknown, locale: Locale, allowEmpty = false): CareerContentV3 | null {
+export function careerContentV3SourceLocale(locale: DisplayLocale): "en" | "zh-CN" | "zh-TW" {
+  return locale === "zh" ? "zh-CN" : locale;
+}
+
+export function normalizeCareerContentV3(value: unknown, displayLocale: DisplayLocale, allowEmpty = false): CareerContentV3 | null {
+  const locale = displayLocale === "zh-TW" ? "zh" : displayLocale;
   if (!isRecord(value) || !exactKeysWithOptional(
     value,
     ["contract_version", "locale", "subject", "content_state", "source_content_sha256", "blocks"],
     ["fact_register", "hero", "seo"],
   ) ||
       value.contract_version !== CAREER_CONTENT_V3_VERSION ||
-      value.locale !== (locale === "zh" ? "zh-CN" : "en") ||
+      value.locale !== careerContentV3SourceLocale(displayLocale) ||
       (value.content_state !== "enhanced" && value.content_state !== "legacy") ||
       typeof value.source_content_sha256 !== "string" || !/^[a-f0-9]{64}$/.test(value.source_content_sha256) ||
       !isRecord(value.subject) || !exactKeys(value.subject, ["canonical_slug", "name", "summary"]) ||

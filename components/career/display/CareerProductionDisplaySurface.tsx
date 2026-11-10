@@ -187,6 +187,10 @@ function publishedCtaHref(value: unknown, locale: CareerDisplaySurfaceViewModel[
   const published = new URL(source.replace(/^\/(?:en|zh)\//, `/${locale}/`), "https://fermatmind.com");
   const attributed = new URL(fallback, "https://fermatmind.com");
   attributed.searchParams.forEach((item, key) => published.searchParams.set(key, item));
+  if (attributed.pathname.startsWith("/zh-TW/tests/") &&
+      published.pathname === attributed.pathname.replace(/^\/zh-TW\//u, "/zh/")) {
+    return `${attributed.pathname}${published.search}`;
+  }
   return `${published.pathname}${published.search}`;
 }
 

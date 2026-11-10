@@ -42,6 +42,7 @@ export function traditionalPath(pathname: string): string | null {
   if (prefix === "zh-TW" && (
     TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)
     || /^\/career\/guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?$/u.test(path)
+    || /^\/career\/jobs\/[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(path)
     || path === "/articles"
     || /^\/articles\/(?:category\/[a-z0-9]+(?:-[a-z0-9]+)*|[A-Za-z0-9][A-Za-z0-9_-]{0,127})$/u.test(path)
   )) return `/zh-TW${path}`;

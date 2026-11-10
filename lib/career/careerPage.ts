@@ -1,12 +1,13 @@
-import { careerContentV3FaqItems, normalizeCareerContentV3, type CareerContentV3, type CareerContentV3Fact } from './contentV3';
+import { careerContentV3FaqItems, careerContentV3SourceLocale, normalizeCareerContentV3, type CareerContentV3, type CareerContentV3Fact } from './contentV3';
 import { PublicReadError } from '@/lib/public-content/readError';
-import type { Locale } from '@/lib/i18n/locales';
+import type { DisplayLocale } from '@/lib/i18n/locales';
 
 export const CAREER_PAGE_CONTRACT = 'career.detail.page.v1';
 export const CAREER_PAGE_SECTIONS = ['quick-decision', 'profile', 'direction-comparison', 'ai-impact', 'china-salary', 'us-salary', 'fit', 'risk', 'path', 'market-signals', 'sources'] as const;
 export type CareerPageMetric = { key: string; label: string; availability: 'available' | 'missing'; fact: CareerContentV3Fact | null };
 export type CareerPage = {
   content: CareerContentV3;
+  displayLocale?: 'zh-TW';
   display?: unknown;
   hero: { badges: string[]; metrics: CareerPageMetric[]; ai: CareerPageMetric };
   seo: { title: string | null; description: string | null };
@@ -14,10 +15,10 @@ export type CareerPage = {
 const record = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 const text = (v: unknown): v is string => typeof v === 'string' && v.trim().length > 0;
 
-export function normalizeCareerPage(value: unknown, locale: Locale, slug: string): CareerPage | null {
+export function normalizeCareerPage(value: unknown, locale: DisplayLocale, slug: string): CareerPage | null {
   if (!record(value) || value.contract_version !== CAREER_PAGE_CONTRACT || !record(value.content) || !record(value.hero) || !record(value.seo)) return null;
   const content = normalizeCareerContentV3(value.content, locale, true);
-  if (!content || content.subject.canonicalSlug !== slug || value.locale !== (locale === 'zh' ? 'zh-CN' : 'en') ||
+  if (!content || content.subject.canonicalSlug !== slug || value.locale !== careerContentV3SourceLocale(locale) ||
       value.source_content_sha256 !== content.sourceContentSha256 || !record(value.subject) ||
       value.subject.canonical_slug !== slug || value.subject.name !== content.subject.name) return null;
   // Reject malformed available blocks instead of silently dropping reader content.
@@ -42,7 +43,7 @@ export function normalizeCareerPage(value: unknown, locale: Locale, slug: string
     if (field.availability === 'available' && text(field.text)) seo[key] = field.text;
     else if (field.availability !== 'missing' || field.text !== null) return null;
   }
-  return {content, ...(value.display === undefined ? {} : {display:value.display}), hero: {badges: value.hero.badges as string[], metrics: metrics as CareerPageMetric[], ai}, seo};
+  return {content, ...(locale === 'zh-TW' ? {displayLocale: locale} : {}), ...(value.display === undefined ? {} : {display:value.display}), hero: {badges: value.hero.badges as string[], metrics: metrics as CareerPageMetric[], ai}, seo};
 }
 
 export function careerPageFaq(page: CareerPage): Array<{question: string; answer: string}> {
@@ -59,11 +60,11 @@ export function careerPageHasPublicBody(page: CareerPage): boolean {
 }
 
 /** Current file body and publication metadata must identify one page version. */
-export function validateCareerPageAuthority(raw: Record<string, unknown>, page: CareerPage, locale: Locale, slug: string): void {
+export function validateCareerPageAuthority(raw: Record<string, unknown>, page: CareerPage, locale: DisplayLocale, slug: string): void {
   const seo = raw.seo_contract;
   const canonical = `/${locale}/career/jobs/${slug}`;
   if (!record(raw.identity) || raw.identity.canonical_slug !== slug ||
-      !record(raw.locale_policy) || raw.locale_policy.requested_locale !== (locale === 'zh' ? 'zh-CN' : 'en') ||
+      !record(raw.locale_policy) || raw.locale_policy.requested_locale !== careerContentV3SourceLocale(locale) ||
       !record(seo) || seo.metadata_fingerprint !== page.content.sourceContentSha256 ||
       seo.canonical_path !== canonical || seo.canonical_target !== canonical ||
       typeof seo.index_eligible !== 'boolean' || !text(seo.index_state) || !Array.isArray(seo.reason_codes) ||
