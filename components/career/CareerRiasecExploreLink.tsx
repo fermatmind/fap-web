@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_PILOT } from "@/lib/career/designComparePilot";
+import { buttonVariants } from "@/components/ui/button";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { CAREER_TRACKING_EVENTS, type CareerAttributionPayloadInput } from "@/lib/career/attribution";
 import type { Locale } from "@/lib/i18n/locales";
@@ -9,6 +12,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
   subjectSlug: string;
 }) {
   const zh = locale === "zh";
+  const showDesignCompare = zh && DESIGN_COMPARE_PILOT.some(slug => slug === subjectSlug);
   const payload = (targetAction: string): CareerAttributionPayloadInput => ({
     locale,
     entrySurface: "career_job_detail",
@@ -64,6 +68,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
               <TrackedCareerLink href={step.path} className={linkClass} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick} eventPayload={payload(step.action)} data-target-action={step.action}>
                 {step.label}
               </TrackedCareerLink>
+              {index === 1 && showDesignCompare ? <Link className={buttonVariants({ variant: "outline", className: "mt-2 h-auto min-h-11 whitespace-normal text-center" })} href={DESIGN_COMPARE_HREF}>{DESIGN_COMPARE_LABEL}</Link> : null}
               {index === 0 ? (
                 <TrackedCareerLink href={href} className={linkClass} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick} eventPayload={payload("start_riasec_test")}
                   data-entry-surface="career_job_detail" data-source-page-type="career_job_detail" data-target-action="start_riasec_test" data-test-slug="holland-career-interest-test-riasec">

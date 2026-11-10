@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from "@/lib/career/designComparePilot";
+import { buttonVariants } from "@/components/ui/button";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
-export function RiasecCareerNextSteps({ locale }: { locale: Locale }) {
+export function RiasecCareerNextSteps({ locale, activityKeys }: { locale: Locale; activityKeys?: readonly string[] }) {
   const zh = locale === "zh";
+  const showDesignCompare = zh && activityKeys?.some(key => key === "r_proto_1" || key === "a_visual_1");
   return <div className="space-y-3" data-testid="riasec-career-next-steps">
     <p>{zh
       ? "先读本次报告的作答质量、六维分数与接近/并列提示，再把兴趣线索带到真实工作任务中核对。兴趣不等于能力、资格或录用条件。"
@@ -19,6 +22,10 @@ export function RiasecCareerNextSteps({ locale }: { locale: Locale }) {
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/graphic-designers", locale)}>{zh ? "平面设计师职业档案" : "Graphic designer profile"}</Link></li>
       <li><Link className="underline underline-offset-4" href={localizedPath("/career/jobs/architects-except-landscape-and-naval", locale)}>{zh ? "建筑师职业档案" : "Architect profile"}</Link></li>
     </ul>
+    {showDesignCompare ? <div className="rounded-lg border border-teal-200 bg-teal-50 p-4 text-slate-950">
+      <p className="mb-3 text-sm leading-6">如果你想试做原型或设计说明图，可以先比较这两个职业的日常任务，再选一个小练习。</p>
+      <Link className={buttonVariants({ className: "h-auto min-h-11 whitespace-normal text-center" })} href={DESIGN_COMPARE_HREF}>{DESIGN_COMPARE_LABEL}</Link>
+    </div> : null}
     <p><Link className="underline underline-offset-4" href={localizedPath("/career/compare", locale)}>{zh ? "使用现有两职业比较" : "Use the existing two-career comparison"}</Link>{zh ? "：仅支持工业设计师、平面设计师和建筑师中的两个；其他职业请阅读档案与指南。" : ": choose two from industrial designers, graphic designers and architects only. For other roles, use their profiles and the guides."}</p>
     <p><Link className="underline underline-offset-4" href={localizedPath("/holland-test/pdf-download", locale)}>{zh ? "打开本人探索工作表" : "Open my exploration worksheet"}</Link>{zh ? "：自行填写或粘贴记录，结果和笔记不会自动填入；当前工作表刷新可能丢失，请按需复制或下载。" : ": enter or paste your own notes; results and notes are not filled in automatically. Refreshing the worksheet may lose your work; copy or download it as needed."}</p>
     <p className="text-sm">{zh

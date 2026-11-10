@@ -2,10 +2,17 @@ import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { trackCareerToolEvent } from "@/lib/career/toolTracking";
 import { filterTrackingPayload, isCareerAttributionEvent } from "@/lib/tracking/events";
+import { getOrCreateAnonId } from "@/lib/anon";
+import { getAnalyticsDeploymentEnvironment } from "@/lib/tracking/internalTraffic";
 import { POST } from "@/app/api/track/route";
 
 const { trackEvent } = vi.hoisted(() => ({ trackEvent: vi.fn() }));
 vi.mock("@/lib/analytics", () => ({ trackEvent }));
+vi.mock("@/lib/anon", () => ({ getOrCreateAnonId: vi.fn(() => "ordinary-visitor") }));
+vi.mock("@/lib/tracking/internalTraffic", async importOriginal => ({
+  ...await importOriginal<typeof import("@/lib/tracking/internalTraffic")>(),
+  getAnalyticsDeploymentEnvironment: vi.fn(() => "production"),
+}));
 afterEach(() => { window.localStorage.clear(); vi.unstubAllEnvs(); vi.unstubAllGlobals(); vi.clearAllMocks(); });
 
 const run = "a608db30-e4e1-4ec0-90bc-40539f7c9e50";
@@ -13,6 +20,14 @@ describe("Career tools use consent and independent task units", () => {
   it.each(["unknown", "denied"])("does not send with %s consent", analytics => {
     window.localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics }));
     trackCareerToolEvent("career_compare_entered", { locale: "en", toolRunId: run });
+    expect(trackEvent).not.toHaveBeenCalled();
+  });
+  it("drops probe identities and internal deployments before sending tool events", () => {
+    window.localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "granted" }));
+    vi.mocked(getOrCreateAnonId).mockReturnValueOnce("codex_probe_career_compare");
+    trackCareerToolEvent("career_compare_succeeded", { locale: "zh", toolRunId: run });
+    vi.mocked(getAnalyticsDeploymentEnvironment).mockReturnValueOnce("staging");
+    trackCareerToolEvent("career_worksheet_started", { locale: "zh", toolRunId: run });
     expect(trackEvent).not.toHaveBeenCalled();
   });
   it("emits only task metadata, and keeps requests distinct from confirmed copy", () => {

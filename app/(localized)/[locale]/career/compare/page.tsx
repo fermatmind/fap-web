@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { CareerCompare } from '@/components/career/CareerCompare';
+import { readCareerComparePage } from '@/lib/career/compare';
+import { isDesignComparePair } from '@/lib/career/designComparePilot';
 import { resolveLocale } from '@/lib/i18n/getDict';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
@@ -20,12 +22,20 @@ export default async function CareerComparePage({ params, searchParams }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const locale = resolveLocale((await params).locale);
-  // This tool has no URL state. Discard query input before rendering or analytics.
-  if (Object.keys(await searchParams).length) redirect(`/${locale}/career/compare`);
-  return <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 md:py-12">
+  const query = await searchParams;
+  const { c1, c2 } = query;
+  const pilot = locale === 'zh' && Object.keys(query).length === 2 &&
+    typeof c1 === 'string' && typeof c2 === 'string' && isDesignComparePair(c1, c2);
+  if (!pilot && Object.keys(query).length) redirect(`/${locale}/career/compare`);
+  const initialReads = pilot ? await Promise.all([
+    readCareerComparePage(locale, c1), readCareerComparePage(locale, c2),
+  ]) : undefined;
+  return <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 md:py-12 print:min-h-0">
     <div className="mx-auto max-w-6xl">
       <Link href={`/${locale}/career`} className="inline-flex min-h-11 items-center text-sm font-semibold text-teal-800 underline">{locale === 'zh' ? '返回职业库' : 'Back to career library'}</Link>
-      <CareerCompare key={locale} locale={locale} />
+      <CareerCompare key={pilot ? `${c1}:${c2}` : locale} locale={locale} initialSlots={pilot && initialReads ? [
+        { slug: c1, read: initialReads[0] }, { slug: c2, read: initialReads[1] },
+      ] : undefined} />
     </div>
   </main>;
 }

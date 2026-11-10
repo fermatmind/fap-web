@@ -7,6 +7,9 @@ import { normalizeCareerPage } from '@/lib/career/careerPage';
 import { CAREER_COMPARE_OPTIONS, readCareerComparePage } from '@/lib/career/compare';
 import { apiClient } from '@/lib/api-client';
 import { PublicReadError } from '@/lib/public-content/readError';
+import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from '@/lib/career/designComparePilot';
+import { CareerRiasecExploreLink } from '@/components/career/CareerRiasecExploreLink';
+import { RiasecCareerNextSteps } from '@/components/result/riasec/RiasecCareerNextSteps';
 import { CareerCompare } from '@/components/career/CareerCompare';
 import { hasAnalyticsConsent } from '@/lib/consent/store';
 import { trackCareerToolEvent } from '@/lib/career/toolTracking';
@@ -80,13 +83,35 @@ describe('career comparison public reader', () => {
     vi.mocked(apiClient.getPublic).mockRejectedValueOnce(new Error('timeout'));
     expect((await readCareerComparePage('en', 'industrial-designers')).state).toBe('error');
   });
-  it('keeps all query input out of tool state and declares a noindex canonical', async () => {
+  it('discards unsupported input and declares a noindex canonical', async () => {
     const params = Promise.resolve({ locale: 'en' });
     await expect(CompareRoute({ params, searchParams: Promise.resolve({ a: 'private text', b: ['bad', 'duplicate'] }) })).rejects.toThrow('redirect:/en/career/compare');
     const metadata = await generateMetadata({ params });
     expect(metadata.robots).toMatchObject({ index: false, follow: true });
     expect(metadata.alternates?.canonical).toContain('/en/career/compare');
   });
+  it.each([
+    { c1: 'industrial-designers', c2: 'industrial-designers' },
+    { c1: 'industrial-designers', c2: 'architects-except-landscape-and-naval' },
+    { c1: ['industrial-designers', 'industrial-designers'], c2: 'graphic-designers' },
+    { c1: 'industrial-designers', c2: 'graphic-designers', note: 'private text' },
+  ])('discards a malformed zh preset %# without reading career data', async searchParams => {
+    const params = Promise.resolve({ locale: 'zh' });
+    await expect(CompareRoute({ params, searchParams: Promise.resolve(searchParams) })).rejects.toThrow('redirect:/zh/career/compare');
+    expect(apiClient.getPublic).not.toHaveBeenCalled();
+  });
+  it('renders the allowlisted pair from published pages on first render', async () => {
+    respond();
+    render(await CompareRoute({
+      params: Promise.resolve({ locale: 'zh' }),
+      searchParams: Promise.resolve({ c1: 'industrial-designers', c2: 'graphic-designers' }),
+    }));
+    expect(screen.getByTestId('career-compare-table')).toBeInTheDocument();
+    expect(screen.getAllByRole('combobox').map(select => (select as HTMLSelectElement).value)).toEqual(['industrial-designers', 'graphic-designers']);
+    expect(screen.queryByText('此槽位为空。')).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '职业小试做' })).toBeInTheDocument();
+  });
+
 });
 
 describe('two-slot task flow', () => {
@@ -155,5 +180,53 @@ describe('two-slot task flow', () => {
     await screen.findByTestId('career-compare-table');
     expect(screen.getByRole('link', { name: 'Use the career transition playbook' })).toHaveAttribute('href', '/en/career/guides/career-transition-playbook');
     expect(normalizeCareerPage(bundle('industrial-designers').career_page, 'en', 'industrial-designers')).not.toBeNull();
+  });
+});
+
+describe('design comparison pilot', () => {
+  it.each([
+    ['zh', ['r_proto_1'], true], ['zh', ['a_visual_1'], true],
+    ['zh', ['c_process_1'], false], ['zh', [], false], ['en', ['a_visual_1'], false],
+  ] as const)('gates the %s result CTA on shown design activities %j', (locale, activityKeys, enabled) => {
+    render(<RiasecCareerNextSteps locale={locale} activityKeys={activityKeys} />);
+    const link = screen.queryByRole('link', { name: DESIGN_COMPARE_LABEL });
+    if (enabled) expect(link).toHaveAttribute('href', DESIGN_COMPARE_HREF);
+    else expect(link).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ['zh', 'industrial-designers', true], ['zh', 'graphic-designers', true],
+    ['zh', 'architects-except-landscape-and-naval', false], ['en', 'graphic-designers', false],
+  ] as const)('gates the career CTA for %s/%s', (locale, slug, enabled) => {
+    render(<CareerRiasecExploreLink locale={locale} subjectSlug={slug} careerName={slug} href="/tests" />);
+    const link = screen.queryByRole('link', { name: DESIGN_COMPARE_LABEL });
+    if (enabled) expect(link).toHaveAttribute('href', DESIGN_COMPARE_HREF);
+    else expect(link).not.toBeInTheDocument();
+  });
+
+  it('starts once after ten non-whitespace characters and records only print intent', async () => {
+    respond();
+    render(await CompareRoute({
+      params: Promise.resolve({ locale: 'zh' }),
+      searchParams: Promise.resolve({ c1: 'graphic-designers', c2: 'industrial-designers' }),
+    }));
+    vi.mocked(hasAnalyticsConsent).mockReturnValue(true);
+    const print = vi.spyOn(window, 'print').mockImplementation(() => window.dispatchEvent(new Event('afterprint')));
+    try {
+      const choice = screen.getByLabelText('我准备试做什么？');
+      const notes = screen.getByLabelText('我发现了什么？还要验证什么？');
+      fireEvent.focus(choice);
+      fireEvent.change(choice, { target: { value: '   水杯  ' } });
+      expect(trackCareerToolEvent).toHaveBeenCalledTimes(1);
+      const privateText = '试做内容只留在这个页面';
+      fireEvent.change(notes, { target: { value: privateText } });
+      fireEvent.click(screen.getByRole('button', { name: '打印 / 保存试做表' }));
+      expect(print).toHaveBeenCalledOnce();
+      expect(notes).toHaveValue(privateText);
+      expect(vi.mocked(trackCareerToolEvent).mock.calls.map(call => call[0])).toEqual([
+        'career_worksheet_entered', 'career_worksheet_started', 'career_worksheet_output_requested', 'career_worksheet_print_requested',
+      ]);
+      expect(JSON.stringify(vi.mocked(trackCareerToolEvent).mock.calls)).not.toContain(privateText);
+    } finally { print.mockRestore(); }
   });
 });

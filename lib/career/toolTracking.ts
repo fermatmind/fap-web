@@ -1,5 +1,8 @@
 "use client";
 
+import { getOrCreateAnonId } from "@/lib/anon";
+import { deriveSearchIntelligenceTrafficLabels, readStoredTrackingAttributionPayload } from "@/lib/tracking/attribution";
+import { getAnalyticsDeploymentEnvironment } from "@/lib/tracking/internalTraffic";
 import { trackEvent } from "@/lib/analytics";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
 import type { Locale } from "@/lib/i18n/locales";
@@ -27,6 +30,15 @@ export function trackCareerToolEvent(eventName: CareerToolEvent, {
   locale, toolRunId, outputFormat,
 }: { locale: Locale; toolRunId: string; outputFormat?: "text" | "markdown" | "print" }): void {
   if (!hasAnalyticsConsent()) return;
+  const attribution = readStoredTrackingAttributionPayload();
+  const traffic = deriveSearchIntelligenceTrafficLabels({
+    payload: attribution,
+    environment: getAnalyticsDeploymentEnvironment(),
+    userAgent: navigator.userAgent,
+  });
+  if (traffic.is_qa || traffic.is_bot || traffic.is_internal ||
+    attribution.utm_source?.toLowerCase() === "fermatmind_qa" ||
+    getOrCreateAnonId().toLowerCase().startsWith("codex_probe_")) return;
   const compare = eventName.startsWith("career_compare_");
   const surface = compare ? "career_compare" : "career_worksheet";
   trackEvent(eventName, {

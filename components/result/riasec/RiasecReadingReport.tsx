@@ -508,7 +508,9 @@ export function RiasecReadingReport({
             />
             <section id={ANCHORS.career} className={styles.chapter}>
               <h2>{t("从兴趣结果到职业探索", "From your interests to career exploration")}</h2>
-              <RiasecCareerNextSteps locale={locale} />
+              <RiasecCareerNextSteps locale={locale} activityKeys={hasActivities
+                ? vm.activityExplorer?.codeActivityPack.activities.map(activity => activity.activityKey)
+                : undefined} />
               <RiasecTrialRecord locale={locale} activities={hasActivities ? (vm.activityExplorer?.codeActivityPack.activities ?? []).filter(activity => selectedActivities.includes(activity.activityKey)).map(activity => clean(activity.activityLabel)) : []} />
             </section>
             {emailRecovery ? (

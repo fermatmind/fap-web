@@ -13,6 +13,7 @@ import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples"
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import { DESIGN_COMPARE_HREF } from "@/lib/career/designComparePilot";
 import backendSamples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
 import { metadata as resultMetadata } from "@/app/(localized)/[locale]/(app)/result/[id]/page";
 
@@ -125,7 +126,7 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     expect(document.querySelector('[data-testid="riasec-result-summary"]')?.textContent).toContain(vm.resultSummary!.rankingDisplay);
     const steps = document.querySelector('[data-testid="riasec-career-next-steps"]')!;
     const hrefs = [...steps.querySelectorAll("a")].map(a => a.getAttribute("href"));
-    expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, `/${locale}/career/compare`, `/${locale}/holland-test/pdf-download`]);
+    expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/holland-test/pdf-download`]);
     expect(document.querySelector('a[href="#riasec-career-next"]')).not.toBeNull();
     const guide = documentFrom(renderToStaticMarkup(await HollandPdfPage({ params: params() })));
     const reading = guide.getElementById("interpret-results")!;
