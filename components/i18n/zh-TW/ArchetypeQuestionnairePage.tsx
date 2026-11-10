@@ -9,6 +9,7 @@ import { FantasyQuestionnaireLanding } from "./FantasyQuestionnaireLanding";
 import { FantasyPortrait, hasFantasyArtwork } from "@/components/questionnaires/FantasyRoster";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import { SpiritAnimalPage } from "@/components/questionnaires/SpiritAnimalPage";
+import { QuizResultArtwork } from "@/components/questionnaires/QuizResultArtwork";
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
 import { SuperpowerPage } from "@/components/questionnaires/SuperpowerPage";
@@ -82,9 +83,11 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <h1 className="text-3xl font-bold sm:text-4xl">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
     {slug === "space-marine-chapter" && <SpaceMarineChapterGuideIntro profile={result} locale="zh" displayLocale="zh-TW" />}
+    {slug === "aura-color" && <div className="grid w-full max-w-56"><QuizResultArtwork slug={slug} id={result.id} /></div>}
     {hasFantasyArtwork(slug) && <FantasyPortrait slug={slug} id={result.id} name={result.title.zh} large />}
     <p className="text-sm leading-7">這份公開指南只提供閱讀參考，沒有任何人的作答紀錄。</p>
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
+    {slug === "aura-color" && <Link href={`${entry}#questionnaire-results`} className="inline-block min-h-11 py-2 underline">對照七種光環顏色</Link>}
     <QuestionnaireResultReading quizSlug={slug} profile={result} locale="zh" traditional headingLevel={2} mode="guide" showSummary={false} />
     <details>
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">本指南的適用範圍與讀法</summary>

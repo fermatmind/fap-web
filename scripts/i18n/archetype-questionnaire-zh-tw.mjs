@@ -66,6 +66,7 @@ const editions = {
   "color-season": ["color-season", "ColorSeason", "colorSeasonLanding", "standalone-references"],
   "sake-type": ["sake-type", "SakeType", "sakeTypeLanding", "standalone-references"],
   "stupidity-test": ["stupidity-test", "EverydayMixups", "everydayMixupsLanding", "standalone-references"],
+  "aura-color": ["aura-color", "", "", "data"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);

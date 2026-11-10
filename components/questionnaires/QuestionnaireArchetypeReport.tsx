@@ -134,7 +134,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, sampleId, a
           {quiz.slug === "philosopher-personality-test" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={`/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}-reading`} target="_blank" rel="noopener">
             {zh ? copy("预览这份公开阅读指南的分享图（新标签页）") : "Preview this public reading guide’s share card (new tab)"}
           </a>}
-          {quiz.slug === "aura-color" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={auraShareCardPath(locale, id, quiz.version)} target="_blank" rel="noopener">
+          {quiz.slug === "aura-color" && <a className="ml-5 inline-block min-h-11 py-2 underline" href={auraShareCardPath(displayLocale, id, quiz.version)} target="_blank" rel="noopener">
             {zh ? copy("预览该颜色的公开分享图（新标签页）") : "Preview this color’s public share card (new tab)"}
           </a>}
         </div>

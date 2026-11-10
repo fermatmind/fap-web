@@ -135,3 +135,19 @@ it("keeps the six source palette colors and the localized contrast source on Tai
   expect(screen.getByText("本組原創示例色")).toBeVisible();
   expect(screen.getByRole("link", { name: /W3C：文字對比說明/ })).toHaveAttribute("href", "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html");
 });
+
+it("keeps both synthetic Taiwan aura results and their public comparison routes", async () => {
+  const slug = "aura-color";
+  const { container } = render(await ArchetypeQuestionnairePage({ slug }));
+  const examples = container.querySelector("#aura-examples")!;
+  expect(examples.querySelectorAll("article")).toHaveLength(2);
+  expect([...examples.querySelectorAll('a[href*="/results/"]')].map(link => link.getAttribute("href"))).toEqual([
+    "/zh-TW/tests/explore/aura-color/results/blue",
+    "/zh-TW/tests/explore/aura-color/results/yellow",
+    "/zh-TW/tests/explore/aura-color/results/green",
+  ]);
+  cleanup();
+  const { container: guide } = render(await ArchetypeQuestionnairePage({ slug, profile: "blue" }));
+  expect(guide.querySelector('[data-quiz-artwork="blue"]')).not.toBeNull();
+  expect(screen.getByRole("link", { name: "對照七種光環顏色" })).toHaveAttribute("href", "/zh-TW/tests/explore/aura-color#questionnaire-results");
+});

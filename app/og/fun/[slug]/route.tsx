@@ -1,3 +1,4 @@
+import { auraColorCard } from "./auraColorCard";
 import { moonPhaseOpenGraphCard } from "@/lib/entertainment/moonPhaseCard";
 import { bleachOpenGraphCard } from "@/lib/entertainment/bleachCard";
 import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
@@ -274,19 +275,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     return fantasyOpenGraphCard(questionnaire, locale, result?.id, await quizFont(slug));
   }
   const auraColor = slug === "aura-color" && result ? auraColors[result.id] : undefined;
-  if (auraColor) {
-    return new ImageResponse(
-      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", padding: 60, gap: 44, background: "#161126", color: "#faf5ff", fontFamily: "FunNoto" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 26, flex: 1 }}>
-          <div style={{ display: "flex", color: "#ddd6fe", fontSize: 27 }}>FermatMind · {zh ? "光环颜色测试" : "Aura Color Test"}</div>
-          <div style={{ display: "flex", fontSize: 51, lineHeight: 1.25 }}>{title}</div>
-          <div style={{ display: "flex", color: "#ddd6fe", fontSize: 25 }}>{zh ? "公开颜色指南" : "Public color guide"}</div>
-        </div>
-        <div style={{ display: "flex", width: 430, height: 430, borderRadius: 215, backgroundImage: `radial-gradient(circle, #fff 0%, ${auraColor} 28%, #2b1b48 60%, #161126 72%)` }} />
-      </div>,
-      { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await quizFont(slug), weight: 700, style: "normal" }], headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" } },
-    );
-  }
+  if (auraColor) return auraColorCard(locale, title, auraColor, await quizFont(slug));
   if ((slug === "cyberpunk-edgerunners" || slug === "chiikawa") && result) {
     const chiikawa = slug === "chiikawa";
     // result.id was resolved against the published roster above, never from a free-form path.

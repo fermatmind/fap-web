@@ -125,6 +125,8 @@
     "lib/questionnaires/result-content/sake-type.json": "3de6f343fc5a79149c0a71f8ee5f6eed17b5a1ac159f390ae3b03f088b84eeb3",
     "lib/questionnaires/data/stupidity-test.json": "01547692a6bf1352636b0e0bf4c652f89c76054cce2a3dcc2e14c4d5fdf87c7f",
     "lib/questionnaires/result-content/stupidity-test.json": "a217290c577b4ee61700469bc46e09a0aa4303ea6838b2cca8cd3a911b380710",
+    "lib/questionnaires/data/aura-color.json": "470ed6b5b15c3d97ebb46caa5f568519f25b6b606f82bdd5889dc937542119c3",
+    "lib/questionnaires/result-content/aura-color.json": "1f62ab82b64514c4c5ee9176ddf4ba83c343e4af91331babd82c2f634ac512ab",
     "lib/questionnaires/data/avatar-bender-quiz.json": "19c04bffd881ba87641c361e20e6eb89b8b2e5964e9b61be9bc5eb49392641e7",
     "lib/questionnaires/data/soldier-poet-king-quiz.json": "c4439225f375032ab1eef4ff2097e1ac790d4bf3a0107d791e338074261c4dd0",
     "components/questionnaires/MythicalCreatureLandingEditorial.ts": "59766ced578c069dbaa98779e96b39aa4cfd02f9e9194785a9bedbc0f948e664",
@@ -81863,6 +81865,1542 @@
     "lib/questionnaires/result-content/stupidity-test.json/unspoken-handoff/2/paragraphs/0": {
       "sourceHash": "bde0794378f4ebfdd590bfe8c08e552f435478bba1d7b1eafec5ca6badf4bcdf",
       "text": "新增情境與討論卡為費馬編輯部原創，可只讀，原練習可跳過。按當前能認出的無害例子選擇，不增加回憶期限；熟悉感可以來自故事、觀察或想像，不認證事件曾發生在自己身上。十二題各提供四個例子，共六個編輯主題；每主題僅出現八次、各答位兩次，沒出現在某題不算被拒絕。按明確對映為所選主題記一次，不按固定答位推斷主題，不加權或反向。全部十二項有效才顯示任何個人計數，無計分NA，缺答不補零、另一主題或提前派結果；都不合適可停止直接讀六份全文。六項次數合十二，每項分母八為選項曝光，不是失誤機會、發生率或嚴重度。最高值全部保留，例如全選第一項六類各二次，六份均展示；顯示順序不選贏家、不排主副型。受本題本選項限制，並非所有想像計數組合或並列集合都可達，不勉強生成缺少的結果。相差一次沒有已驗證的人群意義，同數不證明同樣經歷、原因或品質，較低值也不認證無失誤。六主題描述選中例子的可見結果，現實可以重疊，不是通用科學分類；框架無已建立信效度、常模、預測或中英等值，不評智商、記憶、教育、注意、臨床狀況、道德和人的價值。虛構討論無需真實檔案、訊息、地址、個人經歷、聯絡或實際糾錯；無人需要披露、受評或承擔額外檢查。這份測驗不儲存答題進度，重新整理、切換語言或離開後需要重新開始，複製只有公開匹配名稱和連結，不含答案或次數，公開頁不恢復私人答卷。"
+    },
+    "lib/questionnaires/data/aura-color.json/title": {
+      "sourceHash": "c20de5e55d30def74861705219905d21644f5fa142ba142fd3b13285c4db7501",
+      "text": "光環顏色測驗"
+    },
+    "lib/questionnaires/data/aura-color.json/resultHeading": {
+      "sourceHash": "092450c6aaab6037a7d4ade0c929f6fc775c959ad1b81e982083865e1b18b537",
+      "text": "七種顏色意象的本次選擇與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/description": {
+      "sourceHash": "bdc36e17d575ef51c5db5b34a6c82cf162d308f8b3775c670066880cb5dcabf1",
+      "text": "你的光環是什麼顏色？用 21 道日常選擇，看看哪些顏色貼近你這次的表達偏好。免費檢視最高結果與七色含義，不用註冊或照片。"
+    },
+    "lib/questionnaires/data/aura-color.json/seoTitle": {
+      "sourceHash": "cccb19aaa8f89d917800b219211de73536080fbcf973be0354cb45847cf1aa70",
+      "text": "光環顏色測驗：你的光環是什麼顏色？（免費 21 題）"
+    },
+    "lib/questionnaires/data/aura-color.json/introduction": {
+      "sourceHash": "397b7337750d3ea5c29a93a3eacafd3cdf9634f5f269ea85866e8a6984180614",
+      "text": "這份光環顏色測驗把七種顏色用作表達方式的象徵：呈現鮮明重點、共同玩心、提問解釋、關注生活條件、平實溝通、私下細看，以及賦予個人符號意義。21道原創題目圍繞筆記、小作品、普通興趣與自願交流展開；結果根據你的實際選項產生七項計數，保留全部最高並列，並提供具體例子、對話和相鄰主題比較。"
+    },
+    "lib/questionnaires/data/aura-color.json/instructions": {
+      "sourceHash": "365d9a1ea16022287e05c94d76ceb42c79049b8fc285e3e22852d66f1b9b68dd",
+      "text": "以近期熟悉的日常活動為參照，每題從四項中選出當前更願意採用的做法。沒有正確答案，不必先想自己屬於哪種顏色，也不用選最聰明、最善良或最有靈性的說法。多項都合適時，選這次更想先做的一項；全部21題答完後生成七項原始次數、所有最高並列與完整結果。"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/0/title": {
+      "sourceHash": "6612dc0bf4e133299fc1b7175f1b8df92a84cc18df944534ccaef9c1ce095f50",
+      "text": "紅：鮮明的自選表達"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/1/title": {
+      "sourceHash": "9001e8fb2daaf477647c3a9b9cbc241c8d6240fd675040b70cdbac9dae82fb61",
+      "text": "橙：共同創作的玩心"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/2/title": {
+      "sourceHash": "05f7af776b8760aefac7bd37756e532fac7b8704edb4fa7a71d4a84523c538c7",
+      "text": "黃：提問與解釋的興趣"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/3/title": {
+      "sourceHash": "368a62eb9ac1d350917e6d157667019674d0b589b086d774fcac0a2c3d1d894e",
+      "text": "綠：留意身邊的生活條件"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/4/title": {
+      "sourceHash": "3dec32755441171c055feb12cac83aec948f783f20d65c5f5045f54a4a0e3bf8",
+      "text": "藍：把想說的話講清"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/5/title": {
+      "sourceHash": "0ab8d0f59d72315464fc3e7216a740d18356bd4ff6f1b6d4c38a01fd7135d11c",
+      "text": "靛：留給自己的細看"
+    },
+    "lib/questionnaires/data/aura-color.json/directions/6/title": {
+      "sourceHash": "d42ee9e5fbe4aec9fb08e54ca5f0d24bfdb3a456c9406b037dbbe3e53a53815e",
+      "text": "紫：賦予個人符號意義"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/0/prompt": {
+      "sourceHash": "65887b3a392aa2a2eaf5fc8e325e0161a50f9c9c62a2f2364d9bd6a8f1d7b472",
+      "text": "給自己做一張象徵當前狀態的小卡，你更想從哪裡開始？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/0/options/0/label": {
+      "sourceHash": "9cb2d3a2e061d9206b859f9765bf4de27f780827b3bd4b1a18476e7fe2a6f0fc",
+      "text": "選一句自己願意顯眼寫下的話，讓這張卡有明確重點。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/0/options/1/label": {
+      "sourceHash": "f3ef29facb8687f7dab38f12f798253c8f35e2a6ca4228a06ede096fa9c574b1",
+      "text": "邀請願意參加的朋友各添一個小圖，看看共同作品的趣味。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/0/options/2/label": {
+      "sourceHash": "fd66740cd56d2de00391da18b20a7fff77a90797894ce314d474a67e8852c3cb",
+      "text": "留一處身邊物件的記錄，記下它怎樣影響日常使用。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/0/options/3/label": {
+      "sourceHash": "cb0c6898d3a9054aed62d4886d3bd7c15e27ae3a7f27521fd7cc9bac9831ae5b",
+      "text": "先獨自細看一個小細節，不急著解釋給別人。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/1/prompt": {
+      "sourceHash": "456dc478709cde18bd1a2bfd1cac88b790b7c44bd99c65cae0bba7b34d29e1a9",
+      "text": "可以用少量空閒做一件自選小事，你更想怎樣表達自己？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/1/options/0/label": {
+      "sourceHash": "5ecacb2f7c505e7c7dcf8cad1fb34cf418249e39209679cb2d5ebf70ba009bf8",
+      "text": "和有興趣的人共同拼一張輕鬆的圖，不要求成品好看。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/1/options/1/label": {
+      "sourceHash": "8fdcd5d29e040ba57f04b83de98e9530852e8f05bad1f53a041292b04e643912",
+      "text": "寫下一個好奇的問題，找一份可公開查閱的說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/1/options/2/label": {
+      "sourceHash": "2080d2d873cadbfde21cf57c8bb9bb399c43b47eea324cc5a8f43d6f511f2602",
+      "text": "把想讓別人知道的一點用簡單句子寫清。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/1/options/3/label": {
+      "sourceHash": "05e95e2a047f2a968d7dd6d3ecb0fa43de367eb4d00827034ec7a8781021f386",
+      "text": "選一個只對自己有特別意義的符號，暫時留在便條裡。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/2/prompt": {
+      "sourceHash": "44a7187be3182efbbbb9564309880c3dd3953045b07e5a7fae74c6c762e3abd9",
+      "text": "整理一頁個人記錄時，你更想留下哪一類內容？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/2/options/0/label": {
+      "sourceHash": "5d09ebd18a10be2169f8a0e318582d759405488e5aab51c705d73326bcc92ba1",
+      "text": "一個尚未弄清的問題，以及自己現在知道的部分。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/2/options/1/label": {
+      "sourceHash": "78d5666a215e4c5125dcba633cbd6239e7aa5f4098de425b5f43c4fc73462880",
+      "text": "一個普通環境細節，例如桌邊光線或物件是否易取。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/2/options/2/label": {
+      "sourceHash": "d603e26eadef1dde03ae8d8baf4cebe47cefc36af8ee5850f74baeb8301e0b17",
+      "text": "一次獨自觀察中注意到、還不想歸類的細節。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/2/options/3/label": {
+      "sourceHash": "9d3b7bb3cabcd031d84b1629111767ffd1a88d415e87336968fc4f405f240974",
+      "text": "一句願意由自己署名、清楚呈現立場的話。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/3/prompt": {
+      "sourceHash": "2c744e9436720c23a67717708f646f7e5f57a659dd2dab827b39b0e79cdb70d7",
+      "text": "為自己的普通角落添一張便條，你更想寫什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/3/options/0/label": {
+      "sourceHash": "eee19a79e96ee33a55aa7dd844f1af0e6dab879e2865e5dab5b19db9f77a2ab6",
+      "text": "提醒自己留意這個地方怎樣使用，哪些條件值得保留。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/3/options/1/label": {
+      "sourceHash": "cd0759c254c205a4e0bebf8ea1f47d3cdfc75f2a33e6835ea581b4594001ff67",
+      "text": "一句確實想對來訪者說明、沒有暗示的話。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/3/options/2/label": {
+      "sourceHash": "329b3df54a45bf6c3080304cafe09b5cec1d28922cefa5df9c90f4ec16f9272d",
+      "text": "一個屬於自己的圖形，讓它承載一段個人回憶。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/3/options/3/label": {
+      "sourceHash": "2db1ff154de43c088532e194fe499ba0d2fa7f2364bed001a30d294a60edea2d",
+      "text": "邀請自願參加的人輪流添畫，讓這裡留一點玩心。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/4/prompt": {
+      "sourceHash": "b0fa6e5f456f47e9870613ab6e8f1c26a6251eafd90364e4c76eb9dc2094814e",
+      "text": "朋友願意聽你介紹一項普通興趣，你更想怎樣開頭？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/4/options/0/label": {
+      "sourceHash": "03b376f421347545d5258cbac2de72f7ec2b9f9723f835d67473f3a33a923beb",
+      "text": "先說清自己想介紹什麼、這次只聊到哪裡。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/4/options/1/label": {
+      "sourceHash": "c336982b8f16da35f041d7a04ca1c8fe8beeeaf03b77aa09e4e25fb19b619078",
+      "text": "帶來一處自己細看過的細節，也允許先不作解釋。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/4/options/2/label": {
+      "sourceHash": "c463db13ff63752e6680e9d3177c14a37b805eb29420496630353ccaab25eed3",
+      "text": "用一句自己願意明確說出的話表明最在意的一點。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/4/options/3/label": {
+      "sourceHash": "e92c257fdafe2d6d9b7b86c5e93cdefe16d4fdbdc8bfeaecac74a70416219f02",
+      "text": "丟擲一個自己也在好奇的問題，比較已有解釋。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/5/prompt": {
+      "sourceHash": "cef1548b5f90b5623e37fa7667f7e5af023d76173535286e4b19996f987fc8ea",
+      "text": "為一個自選小專案收尾，你更想保留哪種記錄？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/5/options/0/label": {
+      "sourceHash": "6cc3bc4bbc5907776590dfc38bfb2af80cf1d3e286999e3033b416a9ba0fe6c0",
+      "text": "一段只供自己再看的細節記錄，不要求別人評價。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/5/options/1/label": {
+      "sourceHash": "3cc02aefa98aa7ece7ebeb2abdd679ee2ae617cb7a74094dfc0393c7e2bef743",
+      "text": "一個與這次經歷相連的個人符號，含義由自己決定。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/5/options/2/label": {
+      "sourceHash": "2dda58ef9bae32c6bf42828de6dc7d5644cb3de9cabbdf811340a3390aff5043",
+      "text": "一處共同創作留下的有趣變化，經參與者同意再留存。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/5/options/3/label": {
+      "sourceHash": "b764e486522a280a68344a29cb54a5837f6713cdace193fa3852ac8b65bb0230",
+      "text": "哪些普通條件幫助了使用，哪些以後願意調整。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/6/prompt": {
+      "sourceHash": "32850d236760493f505c7ca344b70ce74cdfa9566f7b448fd85fcaa12e945e18",
+      "text": "如果給近期經歷配一個原創小標記，你更想怎麼選？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/6/options/0/label": {
+      "sourceHash": "cf2e76f49f2c10a19f86f5ca6c0b719f84ad1ec7605d29e4fee16311057f43ac",
+      "text": "賦予圖形一個個人含義，不要求別人作同樣理解。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/6/options/1/label": {
+      "sourceHash": "2dccfca6f2f311d7589a4c980e8bc14103b941590a1173b6a577b1e259d951ad",
+      "text": "選一個自己願意清楚展示的重點，讓標記容易認出。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/6/options/2/label": {
+      "sourceHash": "3d54d842c5037691efa0b017a3b15cfca8deaaa85c9849a6c1040fbc60f54fea",
+      "text": "用一個問號或解釋片段，提醒自己還有什麼想知道。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/6/options/3/label": {
+      "sourceHash": "ea8cc924f50c69540ab5444a940d7e1c78b550b1aeb42a525862d3b35c246f3d",
+      "text": "用一句直接的話說明標記想表達什麼，減少猜測。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/7/prompt": {
+      "sourceHash": "af060a031fdf4c0aa75970012909bb2a6007c27be0cf5ab8e3b8c735468f28fb",
+      "text": "一次自願的小型交流要準備桌面材料，你更想貢獻什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/7/options/0/label": {
+      "sourceHash": "2068d9789a754bfe6815785b244f589973cb4060438b3537198ba32ab61dd3af",
+      "text": "一張重點清楚的開場卡，由自己決定願意展示的範圍。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/7/options/1/label": {
+      "sourceHash": "c907c52e4513d5134dc96539d728822df362d01d8917d76b90eef2ba91071288",
+      "text": "幾張讓參與者自由接畫的小紙，不要求每人都參與。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/7/options/2/label": {
+      "sourceHash": "57c548e3b72e9e21901b77c09961a9f459dee25650463b12a2cdd5e96198287d",
+      "text": "容易取用的普通材料，並問問擺放是否合用。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/7/options/3/label": {
+      "sourceHash": "6e7e6c6ffb9bd44e26d9091702697d207d67ab7a68db95fcb782728617ac1506",
+      "text": "一頁自己細看後留下的觀察，不急著合成結論。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/8/prompt": {
+      "sourceHash": "e0ec8d86351e775d717c5ada4e83145d8c4500deb421bbc9c883b7c638a165ac",
+      "text": "為自己喜歡的普通物品做一段說明，你更想怎樣組織？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/8/options/0/label": {
+      "sourceHash": "6e46befb6cfefc49a0ab2f80cc0584bc96497ac183bd68ae76cbcf79f5530674",
+      "text": "和願意合作的人各添一個趣味用法，保留共同玩出的變化。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/8/options/1/label": {
+      "sourceHash": "dbf1b0b66000b299ecd380f1d0e6a317ca5914e097e6c9345c4eb61ee77b81b5",
+      "text": "從一個實際問題開始，說明自己查到和未查到的部分。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/8/options/2/label": {
+      "sourceHash": "809b375deeb0c67f4409e7e9f431f66599df352bd0a53bee710bbb155f4d4332",
+      "text": "寫清它對自己的用途，讓讀者不用猜想我的意思。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/8/options/3/label": {
+      "sourceHash": "cb23e856c41570e731a27ac4358fad7d41c0efa187b9dc815905a16174e9658a",
+      "text": "畫一個只代表個人經歷的記號，說明不必人人認同。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/9/prompt": {
+      "sourceHash": "05ae365e8394d50ef3579755672db5ec69552a1929c24dac99b2f50a865e969f",
+      "text": "一段普通閱讀結束後，你更想留下哪種回應？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/9/options/0/label": {
+      "sourceHash": "e46776c595f8d007bd07ea7fb5c2ceade70e5f9bf2e1bdf4b55ad2ae189458b8",
+      "text": "一個具體追問和一處需要再核對的解釋。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/9/options/1/label": {
+      "sourceHash": "68d4ec1f1d03ce53c46eb2b98bac5649dcfee213cc4b87e88f91cec83a6360f3",
+      "text": "閱讀地點怎樣影響這次使用，例如書本是否容易放穩。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/9/options/2/label": {
+      "sourceHash": "8b5933e005255a6d923785ccfd46ce6eaa9bf52aa1e8e9c20064ef0ee0166c47",
+      "text": "自己注意到的一小處措辭，留待獨自慢慢再看。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/9/options/3/label": {
+      "sourceHash": "f33e3d37bc08b94770e962d6af53c216ce27f5ad9cb340d07ab99090abeceff1",
+      "text": "一句願意明確標成“這是我現在看法”的話。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/10/prompt": {
+      "sourceHash": "2c263112726e58920d1eb5e81468bed9aca89f9b78f576d5d55c4509d7ebaef8",
+      "text": "自選活動中可以調整一個小地方，你更想先看什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/10/options/0/label": {
+      "sourceHash": "c0294ba71763147e31c814fe0dc45d1bd6adb9babd343179b9506d0d665f9183",
+      "text": "材料、位置或時間中，哪項普通條件影響大家實際使用。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/10/options/1/label": {
+      "sourceHash": "9b8ed1a55836c596eb5dce224813bf21f7a1295f078fd4a77091063a5508f8ae",
+      "text": "自己需要說清哪一點，怎樣表達才不用別人推測。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/10/options/2/label": {
+      "sourceHash": "d5af83863a379452366ba023a12ce5dc756f0efd65c87bfaa9a6fc009c4f6c8d",
+      "text": "能否加入一個屬於自己的象徵，讓活動與個人經歷相連。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/10/options/3/label": {
+      "sourceHash": "df5e72fdc369b3eab8bc7db2c87b46a7de4054b24244f0de9c0e325fda6fdd4f",
+      "text": "有沒有自願一起添一個有趣變化的空間，也允許別人不參加。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/11/prompt": {
+      "sourceHash": "b1083c1d024556df21dce244e0cbcf7c394bac7c1e3a8c12e83acbd2a645fc87",
+      "text": "記錄一個自己選的小目標，你更願意採用哪種形式？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/11/options/0/label": {
+      "sourceHash": "211537bcaef16c449ad814da979a87388ea1c840ff2ed60a02f1095cedb93b60",
+      "text": "用平實句子寫清希望嘗試什麼，不留給暗示。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/11/options/1/label": {
+      "sourceHash": "371a0c94ad55a0d05d1768f543eafb684f5904207ad3b2e2b97bbb8d456997a4",
+      "text": "獨自留意它涉及的一處細節，暫不向外發表結論。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/11/options/2/label": {
+      "sourceHash": "b221c531c0d95a7f3eb4cca593c52672c61188d8ca3ed2be0de5daa0b504a96b",
+      "text": "以自己願意突出的一句話作標題，範圍清楚即可。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/11/options/3/label": {
+      "sourceHash": "5e1d924e6ebce838a1727874387f5198f548f0a111a9cd5fcf95be8bfe4832d2",
+      "text": "寫一個待回答的問題，區分現有依據與想像。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/12/prompt": {
+      "sourceHash": "fe36f25658de87ccdbc5cfd63a4812f177a7a97c8c627b1e0e4af964ef1e9c0c",
+      "text": "有機會重新看一件熟悉的小作品，你更想做什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/12/options/0/label": {
+      "sourceHash": "c1f28dd8794ecaa02682172fe27962f3b96df13bad0fdcdb6305623a37decd29",
+      "text": "先安靜細看一個以前略過的地方，不要求發現大意義。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/12/options/1/label": {
+      "sourceHash": "ccf4c7adad8fd9793d684bc3895d684b817dd09eb49d0c392dc4da924b6025b9",
+      "text": "選擇一個與個人記憶相連的符號，允許含義與過去不同。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/12/options/2/label": {
+      "sourceHash": "bc8f6cb68c5f4023361a05c342bd2f5f616cbc93e3760d5e56c37484fc86b650",
+      "text": "邀請有興趣的人一起做一個輕鬆改版，保留不同畫法。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/12/options/3/label": {
+      "sourceHash": "c5b08a1d86d077c1a4693668a376562d34f2f10561ec4f900142599c3aca821d",
+      "text": "看看存放和使用條件是否仍合用，願意時做一處小調整。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/13/prompt": {
+      "sourceHash": "e80dbae1d11bf8a593cadfbb4face1db2a64123cab2f78109f66fa0f04ae48af",
+      "text": "把一段普通經歷放進私人手賬，你更想強調什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/13/options/0/label": {
+      "sourceHash": "b2d5d7fb5d6d5965602727ccacfa7ba49811c318b831c55346ef7e026d3a1322",
+      "text": "一個由自己解釋的記號，含義只需對這次經歷有用。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/13/options/1/label": {
+      "sourceHash": "1274711a063cff9ff13be25694f9c96d91596b4f2740d99ad32fb896b4380719",
+      "text": "一句願意清楚呈現的個人主張，不需要別人贊同。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/13/options/2/label": {
+      "sourceHash": "af947157b7221d630960272e363a5d90e5fefa20e6c4b7e9eec68ece48197d07",
+      "text": "當時出現的一個問題和可供以後查閱的說明線索。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/13/options/3/label": {
+      "sourceHash": "baac22470d525a6e9d64ec3d3b9f04fe978a1e7544452394506f061906a342f2",
+      "text": "一句把當時想說的事直接講明的話。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/14/prompt": {
+      "sourceHash": "3eb951a2fb95f7fbb8df04a34950388ad6ad2eb3f2d6ec0f2d9119d8f6625506",
+      "text": "朋友自願互換原創小卡，你更想在自己的卡上放什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/14/options/0/label": {
+      "sourceHash": "8c7b79bec509a4a5815140e9286f741adbd62085132933da236062723e9117c1",
+      "text": "一個自己願意展示的清楚焦點，不追求讓所有人注意。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/14/options/1/label": {
+      "sourceHash": "964369f56e2ca5e7904e6f304cbfa2b2d91f3ea1cd49af9b373d8fbb947a9712",
+      "text": "一處讓願意回應的人接著添畫的空白。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/14/options/2/label": {
+      "sourceHash": "8584fa81ee469ad40a207c2d380ae9ae96e26a580379b37d8af34a0729970503",
+      "text": "一項實際可用的小提示，例如如何方便地收存這張卡。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/14/options/3/label": {
+      "sourceHash": "22297f593e01629f2b7ce4d9afc69dfd0726418f9de540a0dab15438c52094eb",
+      "text": "一個自己細看過的小細節，只分享這次願意分享的部分。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/15/prompt": {
+      "sourceHash": "b859aac7ffd55db463077149f2ccbcc12cfad62c83a88774283cb788c5cde41c",
+      "text": "做一頁屬於自己的興趣記錄，你更想選擇哪種過程？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/15/options/0/label": {
+      "sourceHash": "82c7a9d37a4480b4207513511453bfd24cc9c4ca7109a7a1efdc057aad04dd92",
+      "text": "和自願參與的人交替添一點，讓作品保留共同遊戲感。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/15/options/1/label": {
+      "sourceHash": "ba6462f840db50d13180bf2dec9d5bc0ee741dce3c444ada0434395c85b9cdb7",
+      "text": "從一個好奇點查起，把能解釋和不能解釋的分開。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/15/options/2/label": {
+      "sourceHash": "b8959cbe21890847164a6ea0d11eaf14c8b91eb8eee27b4a9020a6881a76cd22",
+      "text": "用不繞彎的句子說明喜歡哪裡，也允許只寫很少。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/15/options/3/label": {
+      "sourceHash": "eaf6adfe8008ec3b37e051457d58926af4aed0e19fb0a61891fceb7475a13836",
+      "text": "用一個個人圖案連起經歷，不把圖案解釋成預兆。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/16/prompt": {
+      "sourceHash": "4e1f04ebb9cf56daeaf46e8d6bd764fa3ac540f33488e3bb617cab9b807cf5bd",
+      "text": "給普通活動留一條“下次再看”的筆記，你更想記什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/16/options/0/label": {
+      "sourceHash": "23c73006a683aeae2bccd9371815216dff88b64a9f3a0d8c7d184b7e93b06369",
+      "text": "一個尚未有答案的問題，和下一份想讀的說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/16/options/1/label": {
+      "sourceHash": "63a4b99c0aab26ab89c0bbb465dcb0bc7595b34485599d50f66918cb7e63f3af",
+      "text": "一項實際環境條件，例如下次怎樣讓材料更易取。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/16/options/2/label": {
+      "sourceHash": "2d9a239db1652f06aad1dcef48d4647f84f9be8ed86004612ca2623301786055",
+      "text": "一處想獨自再看的具體細節，先不判斷好壞。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/16/options/3/label": {
+      "sourceHash": "a67ec5df06d07c92c57da35940d73ca353196ff81d7e94e8e9a8595d17eadec4",
+      "text": "一句明確想表達的重點，提醒自己願意展示什麼。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/17/prompt": {
+      "sourceHash": "466d65463a87c0a2062c15e98ce7b462efd7bd0361632c5f7173f37ec3efb03c",
+      "text": "整理一小批自己可使用的材料時，你更想怎樣留下個人痕跡？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/17/options/0/label": {
+      "sourceHash": "93cb5ac565016a07e13e5e1f2d7f8018666d3b88d07ba20ecfa1bc6107eecac2",
+      "text": "按普通實際使用條件做一處安排，讓以後容易取用。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/17/options/1/label": {
+      "sourceHash": "07b73cf77993e4d9b12a421fe623c135678f8fd02e3a7d186304b5d2ee2a0c0e",
+      "text": "附一句直白說明，讓使用者知道自己想表達的意思。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/17/options/2/label": {
+      "sourceHash": "c7d425970c6004f51a4b9ff1d376de5f06c30f28c82a05cfb9bd38afb01e253c",
+      "text": "加一個與個人經歷有關的符號，只把它當自己的解釋。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/17/options/3/label": {
+      "sourceHash": "8cb8bb605c18dc646b2754b3e2b700aa03b1090382f17ca770c3c84bad53129f",
+      "text": "留一處共同塗畫的位置，讓自願參與的人自由新增。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/18/prompt": {
+      "sourceHash": "7825d49e9a24968d0bd6e3b371baab5b1a16d8e540a22ece83da49bee510fa52",
+      "text": "如果只留下一句話介紹這次自選嘗試，你更想怎樣寫？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/18/options/0/label": {
+      "sourceHash": "43ed7fefb40759f6d5043400fa7168af08cff8b37c68ef8e83332d66398347d4",
+      "text": "直接說清做了什麼、願意說到哪裡，不讓別人猜。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/18/options/1/label": {
+      "sourceHash": "9512b77c27fc3864dce2a76c8ed4e6c52d7f5f73728ff205bdd5efb92a2eff66",
+      "text": "記錄一處自己細看後才注意到的普通細節。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/18/options/2/label": {
+      "sourceHash": "3a7d867e232f8be474f53a11c26913069ef986793260963f907fc23b6a024592",
+      "text": "突出一項自己願意明確呈現的選擇，不宣稱別人也該如此。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/18/options/3/label": {
+      "sourceHash": "49595b704922cc1dc3c30d9911e5b764a07980b9f5d7589d0b83f5182c081f59",
+      "text": "留一個可以繼續追問的問題，並標明暫時不知道的部分。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/19/prompt": {
+      "sourceHash": "0e725884404e4743476cb79fb1bc376781c07a2d32da1e61ddb259ef3f2a1792",
+      "text": "一段自由記錄時間快結束，你更想把哪件事留下來？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/19/options/0/label": {
+      "sourceHash": "5dea7aaf6954d9bc23f71740996e022d67608ff59f8940237c32fa9266628cec",
+      "text": "一處只供自己再看的觀察，允許暫時沒有解釋。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/19/options/1/label": {
+      "sourceHash": "2a40eec1ca35a1d8ebfb4d6634a966d1a9fcd409368faf6865972e9f4fc7e8dd",
+      "text": "一個個人符號和這一次願意賦予它的含義。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/19/options/2/label": {
+      "sourceHash": "0c4c17fb81aa78f0c8c97a9f55c69e6ee7c59edc365a089a7028ac8c269c20da",
+      "text": "一次共同添畫中出現的輕鬆變化，徵得參與者同意再保留。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/19/options/3/label": {
+      "sourceHash": "974ac2577550fa2eeb88843df9db9374d126cedeb67385a48471a6d9491e4e77",
+      "text": "一個使實際使用更方便的普通條件，下次再決定要不要沿用。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/20/prompt": {
+      "sourceHash": "495a6d88c0bf9b820482c9ce27f8b72ec2e0e9410ed7b7da1ff372231de05161",
+      "text": "看完自己這段時間的普通記錄，你更想怎樣為它寫個結尾？"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/20/options/0/label": {
+      "sourceHash": "fdc2dae33744ed6c6bae252bc7dd64f8cbe302a925c46a196d65811b641ee7b4",
+      "text": "選一個個人符號概括此刻含義，允許以後改寫。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/20/options/1/label": {
+      "sourceHash": "9ad44fd525b2e862448cb29a64f599748c1048f9d23a9c00ed477555bf7d05cb",
+      "text": "明確寫下一處自己願意呈現的重點，不要求成為長期形象。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/20/options/2/label": {
+      "sourceHash": "32c462b01fc58e4e37dac08427ba36fc1cd32379375038f11991b8fd72eb0582",
+      "text": "列一個仍想弄清的問題和已經有的解釋。"
+    },
+    "lib/questionnaires/data/aura-color.json/questions/20/options/3/label": {
+      "sourceHash": "a2294db0dbe1fc458d80894d44f4be1dc58b04d1962007a9899aabab36995c1a",
+      "text": "用一句平實的話講明自己想說的事，到這裡結束也可以。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/title": {
+      "sourceHash": "41b37976b84dc065a89e7d3212052fccb843071968184f884c4c2602e048ab8e",
+      "text": "紅：鮮明的自選表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/headline": {
+      "sourceHash": "935e461b062d7eb562bf2536d4a026926d099041738c2e824e6cf44180caf568",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/summary": {
+      "sourceHash": "b23bede1333ceb7e5c8b23d65688a41181e966fae719e1b25d8e275d80714254",
+      "text": "紅色代表主動讓一個重點被看見，比如把最想表達的想法寫在讀書卡的第一行。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/scoreReading": {
+      "sourceHash": "93b5c54510d262b34d9e87f58a85d621e73a4f8b577373a8b996f33ad37bc757",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/seo/title": {
+      "sourceHash": "cd7706ea1f6121e13f62e408e2ca74a200c216e85d7984bdafe37f5cbf53bb5d",
+      "text": "紅色光環的含義：讓重點看得見"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/seo/description": {
+      "sourceHash": "71f1ee9b08716b6d40e3ddb9abffb43d2fadbf9f121d04f06dad6fb1ba2d42a3",
+      "text": "在這份測驗裡，紅色代表主動讓一個重點被看見，比如把最想表達的想法寫在讀書卡的第一行。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/0/title": {
+      "sourceHash": "fe50a165565f4a9dc01302e084ef26911025020e8eb20de956caca52384b25b7",
+      "text": "紅色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "87686ef3a2cf1fc42d10645451121e2ee41e57b2dc1a0e5dbcb19e896bcd7ae0",
+      "text": "本版給紅色的主題是“鮮明的自選表達”：挑一個願意呈現的點，讓它在自己的作品或說明中看得清楚。鮮明由本人決定，不是讓所有人關注，也不意味著聲音更大、更外向或更有力量。顏色是本版的編輯符號，不證明周圍有紅色光，也不代表真實精神或身體狀態。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/1/title": {
+      "sourceHash": "cf5d5a57355a2352af4f7472dfdf40eef75a4e70b1378a7e48c630c7a524e56a",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "1afa1163e8e3c7da87ab03ac8b657925f0fba7c51052c71ba41792dff9e6bc6b",
+      "text": "若次數最高，本次較常選擇明確寫出願意展示的重點，或者讓個人主張有一個易識別的位置。可以問：這句話確實是我想說的嗎，願意向誰展示，範圍到哪裡？較少選擇可能是在保護隱私或給自己時間，不說明膽小、沒主見或沒有存在感；題目沒有觀察真實表現。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/2/title": {
+      "sourceHash": "8f291ee27b58eecec8ad02f3c8df04633bee4e5150584d611a4e61817e2e47c0",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "7096a311846928a98903414b7b55fd45a01249c5312030cd7b194c8111f61e10",
+      "text": "例如，你給自己做一張普通閱讀卡，願意把“這次我想慢慢讀”寫成標題。可以只把卡放在私人筆記裡，也可以自願給朋友看。不需要標語有感染力、別人贊同，或後來始終按這個節奏閱讀；它表達這一次的選擇，不承諾一種永久形象。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/3/title": {
+      "sourceHash": "ddb2e0d9f78dc2fd22ada09bbc59c137b896598eebcc48880a8a419bc3f70598",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "07c049d4e5520b2b0fd28592d7b498ddf23f5abd954ed5c24b88e099fff809e4",
+      "text": "可以說：“我願意把這一點寫清楚，這次只代表我的選擇，不要求你也一樣。”這樣把表達與要求別人跟隨分開。暫時不展示、修改標題或收回分享都可以；紅色次數不授予別人追問隱私的權利，也不要求你通過冒險、爭強或領導別人來證明標籤。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/4/title": {
+      "sourceHash": "fff56b9f695695e1d6829a24728c9e6687a99e981a96d221f309da2bcfe83db4",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "2a5eb2eb37082a4e87fc07bfbbe59de28c64b9ed63a848e429da3355df2a95b1",
+      "text": "紅色偏讓一點清楚顯現，橙色偏共同玩出變化，藍色偏把意思講明；鮮明與平實可以同時存在。黃偏提問，綠偏生活條件，靛偏私下細看，紫偏個人符號。這七個編輯主題沒有上下關係，不是身體能量或統一靈性傳統，更不能把紅色換算成本站色彩性格紅方向、氣質或MBTI。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/5/title": {
+      "sourceHash": "370ebc9870bb7beca9c246273078ffc49bcf95b88c4666ad46eb2334468f5a7f",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "ef76b1c45627b4e8d5738b203ad8ef66b57c379e5f39c545065693ddee8d746e",
+      "text": "反例是，文字顯眼可能來自模板要求或活動安排，而不是本人偏好；不突出自己也可能是在明確做選擇。問卷沒有測量領導、吸引力、勇氣、體力、侵略性或抗壓，不因顏色判斷別人怎樣看你。實際影響需看具體處境和回饋，不能拿一個象徵詞替代觀察。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/6/title": {
+      "sourceHash": "16d95497194124890cd392596fe57463cc16f0de089c39e5e8f0c21414473115",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "7c9440b2c155e4162f38fea064b18d289e0ee5adf9a2a88edbfe5264ff6e0842",
+      "text": "可選的小觀察：為一張本來想做的私人便條，寫一個願意突出的重點和願意保留的範圍。可以只寫不展示，或隨後改掉。觀察它是否表達了這次想說的事，不給勇氣或魅力打分，不以別人的反應驗證光環，也不要求為標籤保持鮮明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/7/title": {
+      "sourceHash": "f2fcb5b930a5c5f194cab07f069450e656ab4a035a88ea14a45b99a3b7ee31b2",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "79bd388f6affeec2463eb21ace0a9ecd4a462d4870a8c10643f86a34934f8cd8",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/8/title": {
+      "sourceHash": "7d4deb42fbd646d5e0147b21411ad6e79abe8fba97eba93c7c6c4fdbb4a68918",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "b2db026c20328ea17e78c2a9bc4a456d60dee457b659c7e00743742a628222cf",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/title": {
+      "sourceHash": "f3100063015bc1df2f77a5e4fe8921c9059068d8df37b9e9f7f0d8e1a500dda3",
+      "text": "橙：共同創作的玩心"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/headline": {
+      "sourceHash": "2331314f006c38bcedfe65f8565bdcf80fc3cc096c959a1ca54d9bd734135f98",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/summary": {
+      "sourceHash": "be101eecc70a47fe921649841580f63a67155c9cd16b9f7c2ad1173a66633384",
+      "text": "橙色代表自願一起創作的玩心，比如邀請別人給一張畫添一筆。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/scoreReading": {
+      "sourceHash": "6805321042f6cada6592bc06b9a4d76355f0d9ce63d7787cde42ad7e63651202",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/seo/title": {
+      "sourceHash": "1cfa437264552baca1d280953fd2de1dfd60600122cc84636dd9fe4e119f5ad0",
+      "text": "橙色光環的含義：一起創作的玩心"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/seo/description": {
+      "sourceHash": "b1978f14f4ddd7436e0b8f7ce6c8b5a894c7a8074048c3c87c85a7cd41d37075",
+      "text": "在這份測驗裡，橙色代表自願一起創作的玩心，比如邀請別人給一張畫添一筆。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/0/title": {
+      "sourceHash": "c771bc6fda8bf28ce42041ed2f30d0c1b0c3143b6b51eb676d70dd0a59019b5d",
+      "text": "橙色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "fb66efffcdd0a1e898d1292f14533f5c580ba14e83f5961dc6898711b3105e0a",
+      "text": "橙色在本版表示“共同創作的玩心”：對一個普通小材料，願意和有興趣的人各添一點，看看會怎樣變化。共同不等於人人參加，玩心不要求愉快、熱鬧、搞笑或產出好作品。它只是本次偏好的象徵表達，不代表創作能力、情緒感染力或別人實際喜歡與你相處。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/1/title": {
+      "sourceHash": "7caee26c5a2598c53226fb1fe81e04347e32ba60422be00ddc9b95ba4c9a81da",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "2c6996dd3d7e015b8593f40c8e73117f54cb7d7e55ca5ae8dcb35897513f900c",
+      "text": "若次數最高，本次較常選擇輪流添畫、自由改版或為願意加入的人留下可玩空間。可以問：誰確實願意，材料是否可使用，什麼時候可以不繼續？較少選擇可能因為更想獨自表達或不方便合作，不說明無趣、缺乏溫暖或不合群；計數沒有評價社交表現。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/2/title": {
+      "sourceHash": "a3eb7bcee7199064a04bd85d85bbebfdd9074a469c06528eafe1146d4eedcaa2",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "221e7db3c30c3e9a42a05114554f68c978720da73400aaf421d1defc4bacc73d",
+      "text": "例如，兩位朋友都願意在一張廢紙上接著畫普通幾何圖形，每人加一處就可以停。你們可以保留不同畫法，不設誰畫得更好；若要拍照或分享，先確認雙方願意。例子關注共同做一點的興趣，不要求帶動氣氛、修復關係或讓疲憊的人開心。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/3/title": {
+      "sourceHash": "b187701ecdc529ac9568c9408e7ba3e255eb2ddc1c01416049e310a583766d11",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "e00c5ff5f1e8dba17120e1478312f9ac2518ba7b5927b23df5113317ebad2080",
+      "text": "可以說：“你願意一起添一筆嗎？不參加也沒關係，我們隨時可以停。”允許對方保留原作，也允許自己退出。邀請是可拒絕的建議，不以共同創作證明親近；如果有人只想旁觀或不想保留作品，另作安排即可，不給對方貼缺乏玩心的標籤。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/4/title": {
+      "sourceHash": "e63f634be5ec4cd16a3300f744e1321c162f4f45d1d5eec27e3a7599a43a8f71",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "ddcd43c27a2a77f987174c1106f7f855cccd1228a05b5ffece3dd761e4350e01",
+      "text": "橙偏共同玩出變化，紅偏自選重點，黃偏追問解釋；一張共同作品也可以有清楚重點或問題。綠留意實際條件，藍說明意思，靛留私人細看，紫賦個人意義。獨自與共同不是高低，也不據此判斷外向或依戀；七種顏色與本站四方向色彩性格採用不同題本和規則。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/5/title": {
+      "sourceHash": "38b0edebd80592699f3f056c7e9bbdcd894ae7138070f1bc47725fbc352b94c1",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "63d68ebb63b66101825e9a4f05918545c43a3050c215e5b228deb83f0a65421f",
+      "text": "反例是，參與共同製作可能因為課程要求或配合他人，而不是本人願意；一個人創作也可能很有玩心。問卷不測藝術天賦、朋友數量、受歡迎程度或情緒狀態，不保證別人會被感染。實際同意與體驗需要當事人表達，不能因橙色較高就推定一群人都會享受活動。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/6/title": {
+      "sourceHash": "03f50e0b3373ce26878edef0b7f3f03827ba3e1d541d3253ffb6efd3e1ff0552",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "515d610b3ae30dbb31f4ba5fcec8988b31e1f1387839afc127f57357438e6965",
+      "text": "可選的小觀察：為一個原本就想做、材料許可清楚的小製作，先確認是否有人也願意參加，再給出可停止的一小步。沒人加入時可獨自做或不做。記下自己是否喜歡這次共同變化，不把作品質量、人數或笑聲當作光環強弱、社交能力或快樂的分數。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/7/title": {
+      "sourceHash": "b25ce61c848a5e378da9a985445073f9fcee3f7b7f9af15c24275d9fb641ee78",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "8c06c5e196e0673110ef6125fe5b659f9e41957cfd590d032158ef601d169b84",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/8/title": {
+      "sourceHash": "d47e8779785afc2c9482a67c19ccd6b10d35fafc99813588f4883ee9a9115721",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "ab6d667c333e0a479021240cc2520a84bcd9ede1053117e29e1e26fc6810eb21",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/title": {
+      "sourceHash": "47635de6c1860ace462519b42dcbd9054815aa9670ff07d96cd78f7bfbbf60f5",
+      "text": "黃：提問與解釋的興趣"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/headline": {
+      "sourceHash": "b866b5d4e754c9e314ca2b088220e7cdc74af791af8f4fc72f9a6afdc52f2040",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/summary": {
+      "sourceHash": "0df29743d44b9269fd6c194cee88ebb05041c15f076e98ded5cc10600eb9468b",
+      "text": "黃色代表提問和尋找解釋，比如想弄清一個日常物件是怎樣運作的。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/scoreReading": {
+      "sourceHash": "6fc9cee653c783e66094026dfa14544dcd25ba98b6174ed58b0428bbaecb868a",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/seo/title": {
+      "sourceHash": "4fbc636df57c4a028feabae68f1d974f5a6e03e2b68af89f17b5ca24b402f26d",
+      "text": "黃色光環的含義：提問與解釋"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/seo/description": {
+      "sourceHash": "33628e9bda829d98771631e3591e354e5b1eb94cb6c2ee96233a1639898a39a8",
+      "text": "在這份測驗裡，黃色代表提問和尋找解釋，比如想弄清一個日常物件是怎樣運作的。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/0/title": {
+      "sourceHash": "3d763f8ade5d3cf76922fe31dbe714d5df4375edb27ea1c8b849b778c3c9c3da",
+      "text": "黃色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "d57b8697104a989b292ef5cef4db463a051c5ae633238bc5b80d0777d9d7175d",
+      "text": "本版的黃色主題是“提問與解釋的興趣”：對一件普通小事，願意寫一個問題、看看現有說明，並容許仍然不知道。它不要求問題聰明、答案正確、反應快或始終樂觀。顏色作為編輯符號，只標記一種當前選擇，不把讀過多少、理解速度或智力納入結論。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/1/title": {
+      "sourceHash": "3c4e60d0e3a5c98a2c9d784a5dfaa6fdaf6e12381ee50682378e6ca4e8551f62",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "b31028d57f53064307484b5dfcb173e6c47f03f6b519bfcc08fbf2006b7acbc4",
+      "text": "若次數最高，本次較常選擇把疑問寫清、尋找說明或區分已知和未核實。可以問：我具體想知道什麼，這份解釋能回答到哪裡，有什麼還沒證據？較少選擇可能是本次更想體驗或表達，不說明不愛學習、頭腦不清或缺乏邏輯；沒有認知測驗支援這些推斷。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/2/title": {
+      "sourceHash": "0dfb467e3539113c19e6c6591423243833b5d1c0c0a44aad2e3f88de45fbe8bc",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "28a33de47bced710026dd573ec9eca5c53b5ecd3bfd31f032e61aa17ccc3bf23",
+      "text": "例如，你看到自己常用的紙盒上有一處摺痕，好奇它為什麼放在那裡。可以檢視可公開閱讀的包裝說明，記下一個已有答案和一個還沒弄清的地方。也可以到此結束，不必拆開或嘗試危險操作。例子是一個可停止的問題，不要求發現新知識、糾正別人或證明自己懂得更多。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/3/title": {
+      "sourceHash": "68d8ff823d690ffb3b28a7df8921c1c0d8a0506d5a4d6fd937a1f728da32082a",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "f2e0affb166689a11f6219269367fd35ee8e2759452e3a74f27407d8f94b8518",
+      "text": "可以說：“我對這處設計有個問題，目前找到的說明只解釋這一部分，其餘還不知道。”不用把不確定包裝成結論，也不要求別人一起研究。若對方只是想分享感受，可以先聽其表達，再決定是否另找時間追問；黃色次數不授予糾錯或教學職責。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/4/title": {
+      "sourceHash": "3fcdb5fc17f016739d11af6186acc6942083163f911d8bb489141c92145b380f",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "e22619a4206b00a3c92ff76877b21aa21aec78cb461ace8a490d39122b3e441c",
+      "text": "黃偏問題與解釋，靛偏私下細看而可暫不解釋，藍偏把意思講清。觀察、提問和表達可以同時用，但不自動相等。紅關注自選重點、橙共同玩心、綠生活條件、紫個人符號；不把七色排成聰明或靈性等級，也不把黃色換算成色彩性格黃方向、MBTI思考或某種職業。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/5/title": {
+      "sourceHash": "345bcfad693573f6cf93a4e74623c7fc1076aee453da5ac4fc27126bd879253b",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "183f256c1dda3d465bc260fa59735415126b5096a67c05f4e8864ca76562fc41",
+      "text": "反例是，頻繁提問可能來自資訊缺失、要求不清或需要重複確認，而不是樂於探索；暫不追問也可以是合適決定。問卷不測理解、記憶、注意、樂觀或教學效果，不保證解釋正確。實際知識仍需可核對的材料與任務，不由顏色替代，也不因為一次沒理解就否定自己的價值。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/6/title": {
+      "sourceHash": "a4439aae55af3ac20d9dfab3e01e54db2d07ac8df59bd17c6ad0080b9fab049a",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "bfb5303d6cc513f287543af9a95c742285055d432ef6ee6a459dfdb583a4e1a3",
+      "text": "可選的小觀察：對一個本來就好奇、可安全了解的普通物件，寫一個問題、一條現有說明和一處未知。可以不繼續查。觀察的是自己是否喜歡這次追問，不按查到多少、速度或對錯給智力和光環打分；需要準確判斷時仍另行核實原始資料。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/7/title": {
+      "sourceHash": "d4ec3594f8f3e547a0aa0d9ab778b595bcd201a3fd442fe56d0da46a18d16542",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "a306b80c19fb33e0e16a25dac3a7d0b2866a3095352680739cdba2422d5a9969",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/8/title": {
+      "sourceHash": "4e4682e4548d6f53c146f24fe1387b7fbb2ad8f1056887913dd6e175dc663fe4",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "84561ac5352de958102c1076ca1f16fb0cfa26559ec79d4633d986d3e342e614",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/title": {
+      "sourceHash": "b16402b8e045146bcd9b40d31e240913407efd14ae8521b5efa3343fc342109f",
+      "text": "綠：留意身邊的生活條件"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/headline": {
+      "sourceHash": "ee6edaf770448eae897d717786b59fa3b47a33aeab29d58532100debcc45f8d4",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/summary": {
+      "sourceHash": "7c5d224e2492214b3bf5bbf4ae9d287fd6f3865e400cf0b88ddb6b055758a2d4",
+      "text": "綠色代表留意日常環境裡什麼更合用，比如調整材料的位置，讓大家更方便取用。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/scoreReading": {
+      "sourceHash": "711e993986c471de6b6b7887b14ee54b7f8c36fd61119d0a39afc41a18d64dc3",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/seo/title": {
+      "sourceHash": "5dcd2f23aa89811682c80402a4142f5fd5ca5d32b3505063c4d021443ddfb704",
+      "text": "綠色光環的含義：留意生活條件"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/seo/description": {
+      "sourceHash": "8d73bfe5fa5a4d05013295a9af56512a60724dd6f0f0ff6d1336d1c636feb91f",
+      "text": "在這份測驗裡，綠色代表留意日常環境裡什麼更合用，比如調整材料的位置，讓大家更方便取用。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/0/title": {
+      "sourceHash": "390dd0e3472bfafb8e432e49267f904852b9e3859b2d1b2be8be94a3d0228f11",
+      "text": "綠色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "591b51a38b9c0f5e9792abde7eef37f0ea835c6ca1d431a0b6442b92cacd8bbb",
+      "text": "綠色在本版表示“留意身邊的生活條件”：願意看看一個普通地方怎樣使用，哪些小條件方便自己或自願參與的人。它不要求親近自然、無條件照顧別人、承擔環境中的所有問題或讓人得到療愈。編輯顏色標記一種當前偏好，不認證同理心、健康、耐心或實際照顧效果。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/1/title": {
+      "sourceHash": "256927a906c0004d64fda86b8ed03373ecb050b1e9bad53890dd6627b4008753",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "f591acaaab06b8ebba9b5d00049a92b503a3617583d3ad738668d2917dc713e2",
+      "text": "若次數最高，本次較常選擇留意物件位置、材料是否易取，或其他明確的實際條件。可以問：誰說這項安排合用，自己的需要是否也包括在內，什麼不必由自己承擔？較少選擇可能是條件已經合適，不說明冷漠、不關心或不負責任；問卷沒有觀察真實支援。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/2/title": {
+      "sourceHash": "804ac84febef9fba664d147f0784ebca70ec20b4c101a9d282caeaaa7bb0a65e",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "0abd5900459aa55c16ab15b30433433bd1ce787f8cc0f479fed953dea9bcb62a",
+      "text": "例如，你準備和願意參加的朋友一起看幾張普通明信片，可以先問把它們平放桌上是否方便閱讀，再按雙方需要移動。也可以決定這次不一起看。不需要猜誰需要安撫、為別人製造安全感或負責所有體驗；例子只涉及一處經確認、可調整的小安排。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/3/title": {
+      "sourceHash": "64227f32e507458acbb4389939aa63f90b94526bd008061a055716445473e36c",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "248fc8399f8c76b87246f23761263273213f9724da6c58ff5df06e459a5fbd3c",
+      "text": "可以說：“這樣擺你方便看嗎？我也想留出自己的位置，我們可以再調。”對方可以提出不同需要，你也可以說明範圍。詢問不保證安排適合所有人，實際回饋仍要聽；若不能提供某種條件，可以明確說，不需要為了符合綠色形象而承諾持續照顧或吸收情緒。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/4/title": {
+      "sourceHash": "7254b262de08388a5f3e952f3aa9f8a70807271fbfead497f599d8a3758d7a19",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "8aac54c454fb95e8d3d070d7bcf54708419af6876ede7b5e0fc8d6a200d3038a",
+      "text": "綠偏普通使用條件，藍偏講明意思，橙偏共同玩心；一次小活動可能同時涉及三者。紅關注自選重點、黃提問解釋、靛私下細看、紫個人符號。它們不代表照顧者和被照顧者，也不構成好人等級。綠不轉換成色彩性格綠方向、依戀、DISC、MBTI或某種助人職業。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/5/title": {
+      "sourceHash": "5cc4082b4379e5fbfaf560a3032ca68c9a2bfcf9128d5b19469bc67dd341a506",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "d1038c5838f0bb6af4ff123cb2ea9a1de45a7b956e74f69e8fdbd139df579517",
+      "text": "反例是，安排材料可能來自場地要求或臨時職責，不一定是偏好；拒絕照顧別人也可能尊重實際邊界。問卷不判斷健康、依賴、善良或照顧能力，不把顏色當治療或安撫證明。別人是否覺得方便、被理解或受支援，需要另行確認，也不由綠色較高推定你的所有關係都和諧。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/6/title": {
+      "sourceHash": "8f656738373bdb84f3fd56381c3a791ad8187afccdcff9bdbf1c6952ddc0b3b4",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "bb31c27e4a1b86d98b147aba75d9678913951b18657b599fbd9469d670b3e1b7",
+      "text": "可選的小觀察：挑一個自己原本想調整的普通使用條件，寫明具體變化、自己的範圍，以及若涉及別人需要怎樣確認。可以保留原樣，不用多做一項照顧。觀察是否方便這一次使用，不驗證療愈能量，不給同理心、道德或關係質量打分。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/7/title": {
+      "sourceHash": "d9650de86994c79c7ca99185e557fe0553b4a47b6fa670cc46fb55504ca0cb20",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "f10b85428fffff67e9e9cb01f4489ef980acdedaf3c1e087720afc3492bef1fc",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/8/title": {
+      "sourceHash": "b016e3fe726fd77ab70137681883cd042c9764b54d187ef532c477a5984eab41",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "c6235bc9322378cc362823d0ece4b9661a602c27d2e89c1ee3606f961d210e03",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/title": {
+      "sourceHash": "c52fdc1a909b49266f2c2d5b66210400c2a859e847d3191f72376ee45a76f71a",
+      "text": "藍：把想說的話講清"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/headline": {
+      "sourceHash": "de2e34bd6724da1658d250122f71ad933612bedfe5707a5474411f13dd6fad27",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/summary": {
+      "sourceHash": "f4e65eee6519a0959adfb9b796899a2fff0c6d46f6d40333f915cdace5da1428",
+      "text": "藍色代表用平實的話講清自己的意思，比如借書時直接和朋友說明約定。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/scoreReading": {
+      "sourceHash": "cd054787cb389479cff52bd7b1ee5185ed3da1d636467c065b8aec6a40e48abc",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/seo/title": {
+      "sourceHash": "652d14a78227a84f8ccd5f0b2be4bb2ec158e328f381bf4b83920ea9d0aae5ce",
+      "text": "藍色光環的含義：把想說的話講清"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/seo/description": {
+      "sourceHash": "899215fe4aadf7f1d8d881900f88b1efcfa775f3d4d72e8020a9f96791b3d142",
+      "text": "在這份測驗裡，藍色代表用平實的話講清自己的意思，比如借書時直接和朋友說明約定。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/0/title": {
+      "sourceHash": "b9c648c85d52cf71dc89546e90e0f7bbf9671041a8ee9aaf3e9da3eb04f8d269",
+      "text": "藍色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "bc410da132d2c28dea5890630bc67a0d19259e7a5ba56bd6ffcf0d3f7b6197e8",
+      "text": "藍色在本版表示“把想說的話講清”：願意用平實句子說出自己的意思，不依賴對方猜測。它不要求分享所有想法、始終冷靜、誠實無誤或擅長溝通；保留隱私也可以說得清楚。顏色只是本站編輯主題，不說明喉輪、聲音、身體或精神狀態，也不讀取別人真正想法。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/1/title": {
+      "sourceHash": "20a42fb7e909107b67a8fb9511538670deac16fb2163339ff6c56f654fb9ed3d",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "c23f842086c0dbbe9c227f32802477e8e41e783a46c3c2b596bfae33641a3bc6",
+      "text": "若次數最高，本次較常選擇直接說明用途、意思或願意說到哪裡。可以問：這句話表達的是自己還是猜測別人，是否說清了範圍，有什麼仍不想分享？較少選擇可能因為適合用圖形或需要時間，不說明虛假、難相處或表達差；次數沒有檢驗對方是否真正理解。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/2/title": {
+      "sourceHash": "05a1fa713b2c68b77d3ef9edde692361fe5237a16064eca6d396859115dcc86e",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "5f2b1f8c56a9965dfecda1a2dfdc3cbff429d30484a97e21d6c0aa29484b5cb1",
+      "text": "例如，你借給朋友一本自己可借出的普通書，只希望下週再確認歸還時間。可以直接寫：“我願意借這本，下週我們再約歸還時間。”若有其他限制，也另外說清。例子不要求話術有說服力、借書順利或關係更親近；清楚表達與實際達成安排仍是兩件事。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/3/title": {
+      "sourceHash": "0087eea5a6682d6b86fb4e3e191afec1163fd8d9ef3bc4029332d71556d24ae8",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "c8edc677a83a87f1e1eb21a2d9fd46b50bdcf613f56c6d06e7b49552e76cb3aa",
+      "text": "可以說：“我這句話想表達的是這一點，其餘我現在還不想談。”也可以承認剛才說得不清再重說。平實表達不賦予追問或逼別人坦白的權利，也不要求自己成為調解者、老師或情緒支持者；別人可以有不同理解，仍需具體確認。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/4/title": {
+      "sourceHash": "d4432fa311e241636a27e4ffdc1873ee7a13c03c055bc1de9d0c05dfb5d08d8b",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "e0809f1fa0ecccfb8d449c75d5a1ef368b567842c564ba2105f8739be81a1731",
+      "text": "藍偏把意思說清，紅偏讓一個重點顯現，靛偏私下細看而不急著說明；它們可以交替，不是坦率和隱藏的好壞兩端。黃關注問題、橙共同玩心、綠生活條件、紫個人符號。相同藍字不等於本站色彩性格中的審慎整理，不推斷MBTI、依戀、情商或職業溝通能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/5/title": {
+      "sourceHash": "c2a6977454271e86af1f5056ec54b43688b38ed5d713977fdd1ebb42e54199ca",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "863714d587bd81a4b286714c9b0f19c63af648ce0119effeafaff34c27425c03",
+      "text": "反例是，直白說明可能因為表格或工作要求，含蓄表達也可能在某個語境更清楚。問卷沒有檢驗誠實、傾聽、共情、衝突處理或說服效果，不認證天然溝通者。真實交流還涉及語言、條件、權利與對方回應，不能用藍色替代回饋或把誤會都歸於個人性格。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/6/title": {
+      "sourceHash": "09ebac130ce2f8b3ecd162b735454d28bcfaf00456c8aacf01b8788c938b489d",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "7675a7d83543b77a881815e1d360f71cb45c6ed440c2e43992c92989935ba762",
+      "text": "可選的小觀察：為一件本來就願意說明的普通事，寫一句意思、一句範圍；不涉及別人時無需分享。若願意發出，可再確認對方理解到哪裡，也可以不繼續談。記錄這次措辭是否合用，不按反應給溝通能力或光環打分，更不要求總是平靜或公開私人內容。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/7/title": {
+      "sourceHash": "4ff518fe1fddc86be4ab97d2090a4f6232b105b19ba788686b3dd4999c93b88a",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/7/paragraphs/0": {
+      "sourceHash": "0539bf7fcb5a5ab0386fa2da55e8daaab61666bd3592e6bdee11f3e797e51c42",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/8/title": {
+      "sourceHash": "14e703d6165e2b00f118ac594204eebbfcfc5ce0e48107b0f9a4d88308681ca8",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/4/sections/8/paragraphs/0": {
+      "sourceHash": "ed7e35130e1ff67695634bebcb8f4b20ddf8b8066f5f5db8059975ad932f4a95",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/title": {
+      "sourceHash": "6fa9fd1e5707d64f9ce244bd603faed6a59d2a66d46e785b773e54e37651d010",
+      "text": "靛：留給自己的細看"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/headline": {
+      "sourceHash": "acc609b11ee68494d7191c25ed2426b65804f94311c84270b431c705c3ac4911",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/summary": {
+      "sourceHash": "6eec7673f98b8d195318d0b82d91eaef338a7cd0535e4f9280777e73566daf13",
+      "text": "靛色代表先留給自己慢慢細看，比如把照片中的一處小細節記在私人筆記裡。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/scoreReading": {
+      "sourceHash": "795e3120b0401e7495d71f8c87d543bf3c9d5c5408e54c090ac7e58607609597",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/seo/title": {
+      "sourceHash": "97b548c3625f45ee3e18a428d7fd822a1ac46d0451d813680efd51e7ef0e1f6b",
+      "text": "靛色光環的含義：留給自己的細看"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/seo/description": {
+      "sourceHash": "639c5c198194083e9236ac3d5411a1839579a151dd34c02587e0fee32276c240",
+      "text": "在這份測驗裡，靛色代表先留給自己慢慢細看，比如把照片中的一處小細節記在私人筆記裡。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/0/title": {
+      "sourceHash": "8a9827ed68162f63970d60eecb780e35461cf6d287f22c14bd88c953fdf93370",
+      "text": "靛色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "17e222d5474a83011ac5e931a118fc49d78d94d4ac8bc1eaf9b9a5b0e85c18ed",
+      "text": "靛色在本版表示“留給自己的細看”：願意把一處普通細節放在私人注意中，不急著歸類、發表或解釋。它不要求獨處、沉默、神秘或敏感，也不意味著看見別人沒看見的真相。本站編輯顏色只標記一種自選做法，不把內在觀察認證成讀心、洞見或特殊能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/1/title": {
+      "sourceHash": "97a2386f78637ddf8a917f77a4e1ab37f079ff5146831ed0bde22e50bc38a8d6",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "90f70d0033a43422ef0acc9c61b9712a12467a29d8837214e6d4a65569d9f2ba",
+      "text": "若次數最高，本次較常選擇暫時保留自己的觀察、細看一處措辭或允許還沒有解釋。可以問：我實際注意到了什麼，哪些只是猜測，是否願意繼續看或分享？較少選擇可能是本次更想共同交流，不說明膚淺、觀察差或缺少內在生活；次數沒有實際知覺任務作依據。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/2/title": {
+      "sourceHash": "6fa6a30ca89c6860cefbb347fcb6b76b0a4cd2d22a6ec583315fb9229e5f9d05",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "7af7c039844692d5fb070ae3c6f29c769b091a65d05c41d5a9033e1ecef6bb6f",
+      "text": "例如，你重看自己可使用的一張普通照片，留意到邊角有一處被光線照亮的物件，可以在私人筆記裡寫“我這次注意到這裡”。不需要推斷拍攝者心理、他人情緒或未來事情，也不要求從細節發現深刻意義；沒有更多想法時，停在觀察本身也足夠。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/3/title": {
+      "sourceHash": "66714fdecc9105076886fc58e9e28ff5479882aa9fa8bf809ae63de830d4b3de",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "87e1759c04d21069a0f519da2fa1b571d02bbe334ceae9290a39276b823f6177",
+      "text": "可以說：“我想先自己看一會兒，現在還沒有要分享的結論。”若後來願意，可以只說確實觀察到的部分，並把推測另列。別人不必認可一種隱藏能力，也不能要求你為靛色提供預知或讀人證明；私人注意是可選擇範圍，不是必須維持的神秘身份。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/4/title": {
+      "sourceHash": "81c38493f32d6bfde6368a39d32ac76f04c02f52981cabcd11756391e9e023d0",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "7882f7ce583206f736f273dac8a0ef3f494de072154ad835acde82a2fb5341dd",
+      "text": "靛偏細看而允許不解釋，黃偏提出問題與尋找說明，紫偏賦予個人符號意義；觀察、解釋和意義是不同動作。藍講明意思、紅突出重點、橙共同玩心、綠生活條件，均可在另一時刻採用。靛不等於內向、MBTI直覺、高敏感、注意診斷或職業洞察力，也不是比其他顏色更高的等級。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/5/title": {
+      "sourceHash": "fd6ed1b6280403fc645203d8f37e03392cd334be6b03fa30f12cd7e8cc827b27",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "e921daebeaad9d2e3096f99e2effd396fc63e2ccf666e1ecde28bf38227fcf05",
+      "text": "反例是，暫不解釋可能來自資訊不足、語言條件或需要隱私，而不是喜歡細看；公開交流也可以有深入觀察。問卷不測知覺準確性、記憶、直覺或神經特徵，不保證猜測會被驗證。關於別人、健康或重要事情的判斷仍需實際證據與合適渠道，不能以靛色替代核實。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/6/title": {
+      "sourceHash": "2bff5917a2ef930b38cb7c87acd3bfbc9f07accd0f88de63fc0dc0179b10027f",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "a4589b722160ed9f7af1c205a18f9c2c7ec57b60108c0c4933531cdbdf2a65ac",
+      "text": "可選的小觀察：選一份本來願意再看、許可清楚的普通材料，記一處直接看到的細節、一處尚未解釋的地方。可以保持私密，也可以不再繼續。記錄不用於測驗預感、給敏感度打分或證明別人不懂你；若要形成事實結論，另找可核實依據。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/7/title": {
+      "sourceHash": "9620d8ca471060daad948d6660d5c39aae817a6eb530d3eb93eaf2cad8d64823",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/7/paragraphs/0": {
+      "sourceHash": "0d7f395b54bea5e87b7faf65e3dcc770ee31ed3d3d51402a3178330140bad07f",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/8/title": {
+      "sourceHash": "006ee5edf53ab099ad9aad7f47b7fc60e9379d7fafc0ab1b8b35f20428c0fded",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/5/sections/8/paragraphs/0": {
+      "sourceHash": "fcce8b6dfef357e2a9df309724bb4da75f7291517cceec24748daa3e38b9fc40",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/title": {
+      "sourceHash": "9d2782ebc64f630e13059eb696a7cbfe8a347c87c6d06147bf7a82a50f431386",
+      "text": "紫：賦予個人符號意義"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/headline": {
+      "sourceHash": "982491d9ccaa90948ef36239ac0037a6668c3c4662e5b50d9f468753708a89e3",
+      "text": "七種自選表達的編輯象徵之一，不是可探測能量或真實能力。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/summary": {
+      "sourceHash": "914d08e8dbd16cb06544958acd8b8b08904b30be24244455a9a9fa145878b9ab",
+      "text": "紫色代表給符號賦予自己的意義，比如選一個能讓自己想起某段經歷的記號。免費閱讀費馬測驗的象徵解讀、日常例子和計分說明。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/scoreReading": {
+      "sourceHash": "6fe07f37276a622171d12e328e3332464c6e85fb188b669acb5ab2e423051427",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/seo/title": {
+      "sourceHash": "2615701264a9e82dbb3fccb6721134530b72afcf01c9e15199de6cf4ca3b56f5",
+      "text": "紫色光環的含義：個人符號的意義"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/seo/description": {
+      "sourceHash": "2f995d7e15129e56c8debfd3b05b5094837d8496bad58991b2bb9ca20ce0f0f2",
+      "text": "在這份測驗裡，紫色代表給符號賦予自己的意義，比如選一個能讓自己想起某段經歷的記號。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/0/title": {
+      "sourceHash": "8ec698a32be4a5e55f8f1de07d5be3f3716d6696345e77e78744016546e36450",
+      "text": "紫色光環在這份測驗裡代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/0/paragraphs/0": {
+      "sourceHash": "87861d8b3ff84212b20555dd0a0626d168eaee6dc440905c29051ab6eb583213",
+      "text": "紫色在本版表示“賦予個人符號意義”：願意用一個自選記號承載自己的經歷，並允許解釋隨時間變化。意義由本人賦予，不自動對別人有效，也不是宇宙、神靈或未來發來的資訊。編輯顏色不認證靈性、智慧、使命或獨特天賦，更不把某類人放在他人之上。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/1/title": {
+      "sourceHash": "c2c0dbf9a13f8f8e445ba652155febe516cac13d4966cfb050e0161b97a7879c",
+      "text": "把計數放回當前處境"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/1/paragraphs/0": {
+      "sourceHash": "21a7a519076fdaa01e61dd1e0f339e07f8e941b1cff7518940c0c92d001c467a",
+      "text": "若次數最高，本次較常選擇個人圖形、回憶記號或一段由自己解釋的象徵。可以問：這個含義對我現在有什麼用，哪些屬於想像，什麼時候願意改寫？較少選擇可能更喜歡直接記錄，不說明缺乏深度、信仰或意義感。問卷不判斷個人信仰，也不要求接受任何靈性體系。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/2/title": {
+      "sourceHash": "4bb980290c5fe1fca6a1213a2d9d33b3af45c10b54cc07ab72de42836f7d34f7",
+      "text": "一個具體普通例子"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/2/paragraphs/0": {
+      "sourceHash": "8cd4e4abf408b96130031630b0ba6d717b5f05b1ba9df394e25b5ca491ff5cc5",
+      "text": "例如，一次普通搬動書架結束後，你想在私人手賬裡畫一個開口方框，代表“暫時為新安排留位置”。含義只對這次記錄有用，不預測新生活，也不代表書架、家人或未來給出指示。可以換圖形、改解釋，或者不再使用，不需守住一種永久象徵。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/3/title": {
+      "sourceHash": "3e24b928006e7183cd78eeefdc5b7a0f42e3223524654c878bf5865307cd86e4",
+      "text": "一句可用的表達"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/3/paragraphs/0": {
+      "sourceHash": "35023e820e097277dad4974eb95aaa6f941bbcab04c7f2d543c9a5ff386b465e",
+      "text": "可以說：“我這次把這個圖形當作一個私人記號，它不說明別人也該這樣理解。”若願意分享，可以同時說明實際經歷與自己新增的含義，避免把比喻說成事實。別人可以有不同解釋，也可以沒有興趣；紫色次數不給自己或別人設定尋求指引、轉化或靈性成長的任務。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/4/title": {
+      "sourceHash": "f213150e99ea485981a0063a3eecde58904189f04ca8b334458fd5cf0ff69ea4",
+      "text": "與其他六個主題比較"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/4/paragraphs/0": {
+      "sourceHash": "54808f300d19c41fad02a7d5bd656b22051d180eb3c2077e87a1a39353b37e92",
+      "text": "紫偏個人象徵意義，靛偏實際細看而可暫不解釋，黃偏提問並尋找可核對說明；不能把賦義當作觀察或證據。紅突出選擇、橙共同玩心、綠生活條件、藍平實表達，都可相容。七色沒有稀有或高低等級，紫不換算人格、宗教身份、創造力、命運、健康或職業。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/5/title": {
+      "sourceHash": "1988842f1277e10ad81d0468d751e40c18f550e0dc631bddf63832db9d1dbcda",
+      "text": "反例和實際表現的區別"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/5/paragraphs/0": {
+      "sourceHash": "f53bb3cd025d4581fe87ae6eb0d02b6a390b0d02bf38470f85885339201758bb",
+      "text": "反例是，使用符號可能只是排版習慣、文化場合或別人要求，不是個人偏好；不用符號也可以有豐富經歷。問卷不驗證預感、超常感知、精神境界或人生使命，不把困難解釋為缺少靈性。如果一件現實事情需要決定，仍看具體事實與條件，不用顏色或符號代替判斷。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/6/title": {
+      "sourceHash": "a2a868ff61ac332f973cac9e480730640b6d34ca90624c06718a70f7d79408fd",
+      "text": "可選的小觀察"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/6/paragraphs/0": {
+      "sourceHash": "7f4e789bb6ea0d607fdd35a0a67a490651c2782d1e632c6897fd96dcdbcc5760",
+      "text": "可選的小觀察：為一段本來想記錄的普通經歷畫一個記號，分別寫“實際發生了什麼”和“我暫時賦予什麼含義”。可以只記錄事實或完全不畫。觀察幫助區分經驗與解釋，不檢驗命運、吸引力法則或智慧等級；未來改寫也不代表背離真實自我。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/7/title": {
+      "sourceHash": "1567bb9eea43342876dfe12e61746376c10c71d170044a72238e7befafb2c093",
+      "text": "21題相對計數與全部最高並列"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/7/paragraphs/0": {
+      "sourceHash": "069fdcfe39278409810e8b5c6b6417f54a4d1736758ac6c5fe5ab09ac9985db9",
+      "text": "21題全部各選一項，對應主題加1，總數固定21。每題提供七主題中的四個，全卷每主題12次、每位置3次；未提供的另外三種不記為拒絕。原始次數是這些可選做法中的相對分佈，不是實際光環比例、能量強弱、匹配百分比或人口排名。所有最高計數完整保留；全選第一項會七種各3次、七份完整顯示。名單順序不設主次，不自動指定第二顏色或強造混色；相差一次不證明顯著差異、品質消失或固定人格。近分可比較，但不補造未並列結論。情境和時間可能改變選擇，沒有常模、稀有顏色或科學分界。"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/8/title": {
+      "sourceHash": "82a96219495fd8719d4a6fe9bd43ea928399fb3bfa27ac9b93b6a43059f91add",
+      "text": "原創版本、術語背景與來源"
+    },
+    "lib/questionnaires/data/aura-color.json/profiles/6/sections/8/paragraphs/0": {
+      "sourceHash": "cdace578687d427328b30f3d1e1e3104f66efc3d8ec526a7332e445a5fc8640b",
+      "text": "這是費馬獨立創作的七色自選表達象徵問卷。Merriam-Webster詞典僅用於核對aura一詞有氛圍、被認為存在的能量場等不同用法，不為七色主題、對映、計分或解釋提供驗證；本站不採用其醫學含義來評估症狀。七種顏色與含義為本版編輯選取，不聲稱統一傳統、脈輪體系或科學分類。21題、選項、報告、例子與計數規則均為原創，沒有采用JobCannon10題、競品正文／程式碼／演算法、受保護圖片或詞典例句。本版不觀察能量場，不拍照、掃碼或使用生日星座，不認證健康、療愈、同理心、直覺、智力、創造力、吸引力、靈性等級、天賦或職業；不預測命運，不從光環顏色換算色彩性格、氣質、DISC或MBTI。沒有本站心理測量驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/0/title": {
+      "sourceHash": "ae8428b8b982dd8b873a38040a9bd588a7b651d67861d4eb13724d55ab5ae42d",
+      "text": "21題怎樣計分：七項次數與固定總和"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/0/paragraphs/0": {
+      "sourceHash": "8a93da0649b72c1cde74b32af0a18e9261d6ab4434e20c937e7ee3d566622a48",
+      "text": "每題提供七種主題中的四種做法，選中一項就給對應顏色加1次，其他不加分。全卷每種主題出現12次，在四個選項位置各出現3次；因此每項範圍為0—12次，完成後的七項總和固定為21。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/0/paragraphs/1": {
+      "sourceHash": "d7e313074f8cfd13518580f4c17b41a6ee0e95bdc603e94a48b38519324d5393",
+      "text": "題目未提供的另外三種主題並沒有被你拒絕。原始次數描述這組可選做法中的相對選擇，不是光環面積、能量濃度、人群排名或準確率。由於總次數固定，多選一個主題就減少了分配給其他主題的次數；低計數不代表缺失某種品質。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/1/title": {
+      "sourceHash": "3c10d5d72b5bcc189d4cdb1eac1bf5a31dbb6a1b739866a44d205590397fdd69",
+      "text": "最高並列怎樣保留：可復算的例子"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/1/paragraphs/0": {
+      "sourceHash": "724bbb8a2af1be6f0798b87b4021c6daac73252c0eb2842bdcd50dbf058763ca",
+      "text": "按紅、橙、黃、綠、藍、靛、紫順序，4、2、5、5、1、2、2是一組能由實際選項產生的計數，總和21，黃色和綠色以5次並列最高。系統會同時顯示兩份完整結果，不按顏色順序、題號或選項位置挑一份，也不隨機抽出“真正的主色”。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/1/paragraphs/1": {
+      "sourceHash": "3d39337815db94ef39a1437e8dc244c10e331befd335b6cb49b31ac4f799c8e4",
+      "text": "全選第一項時，七種各3次，七份結果全部保留。當前規則不額外生成白色、彩虹色或混合型別，也不把第二名自動設成輔助色。相差1次可以對照閱讀，但沒有近分合並閾值、誤差區間或統計顯著性結論；名單順序不表示高低。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/2/title": {
+      "sourceHash": "b7d7ab55420d25938627ee8fbff8ca4aec3d1a950c6039d0ebff507797b599b9",
+      "text": "七色主題如何理解：表達選擇與反例"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/2/paragraphs/0": {
+      "sourceHash": "f73a067e251f0392960b4f80bc13e614079facbc96bf3d2a3540cbc57d8befff",
+      "text": "紅色關注一個想明確呈現的重點；橙色是自願參與的共同玩心；黃色是問題與可查的解釋；綠色是日常使用的環境條件；藍色是平實說明想表達什麼；靛色是留給自己的細看；紫色是個人賦予符號的意義。這些定義由本版獨立選定，不聲稱是各傳統統一使用的七色標準。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/2/paragraphs/1": {
+      "sourceHash": "edc12ac91912016b0bf1639e597ae69b3e12460a354f3172df961424dfbda75e",
+      "text": "突出重點可以不吸引全場，共同玩可以只邀請願意參與的人，提問也可以暫時沒有答案。私下細看不表示讀心，個人符號不表示預言，綠色環境安排也不證明能療愈別人。七種主題可以出現在同一次活動中，不是聰明、善良或靈性程度的等級表。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/3/title": {
+      "sourceHash": "16f6e3c5537df688d9bf6de02a801354b3b1ad9b984776dea760fabb7bb0e3ba",
+      "text": "Aura是什麼意思？詞語用法與本站選擇"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/3/paragraphs/0": {
+      "sourceHash": "72b70717609c10475691cff355d7cd34b69e2191dbe78afab86836f960ea5113",
+      "text": "英文aura可以指一個人或事物給人的氛圍，也用於被認為存在的能量場等含義；Merriam-Webster分別記錄這些用法。詞典記錄一種說法，不等於證實它所指的能量場。本頁採用文化表達意象來組織問卷，沒有把詞典定義變成身體檢測依據。[1]"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/3/paragraphs/1": {
+      "sourceHash": "f582d961778261f6e5ea4b0a7732431a821055cce1a5e1160e0156de7db7d344",
+      "text": "“光環顏色測驗”在本頁明確指21題選擇問卷。它不拍攝、掃描或計算真實發光，不使用皮膚、呼吸、手掌、生日或星座資訊；也不採用aura的醫學含義來識別症狀。結果中的紅或藍是可讀標籤，不能拿來判斷身體狀況。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/4/title": {
+      "sourceHash": "88f9884c15c2234bf5c2a3151c3b9d25e0d1973b242d242b1a2894726ea032dc",
+      "text": "顏色與情緒研究，能支援什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/4/paragraphs/0": {
+      "sourceHash": "2d703a865510626bc7c062bc50277ef38010e7f03187d7093052ac615a5bc7da",
+      "text": "一項2024年跨國資料分析讓參與者把顏色詞與情緒聯絡，再比較群體之間的聯想模式。其討論指出，顏色與情緒的聯絡可以是多對多，而非每種顏色只對應一種情緒。這項工作研究顏色詞的聯想，沒有測量人體光環，也沒有驗證本站七種表達主題。[2]"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/4/paragraphs/1": {
+      "sourceHash": "c9bfbf956a6251a0aa073251ce7cc0adfa3d5d8ba4e3f5be83c2d753eb1aa84b",
+      "text": "因此，本頁不從喜歡藍色推斷你必然平靜，也不從選到黃色斷言智力或樂觀程度。自我報告、顏色聯想、他人對你的印象以及實際行為表現是不同證據；本版實際記錄的是情境中的選項，不能用外部顏色研究補出沒有測量的個人結論。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/5/title": {
+      "sourceHash": "c0d972bbacf3e271e3807131b468fbb04c63bd4d78cfe5c5492af9aa986fa778",
+      "text": "容易混淆的主題：觀察、解釋與符號意義"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/5/paragraphs/0": {
+      "sourceHash": "14dbc4c4bb4a5ed4737ca2d7e6ecadee197191ac47b8f1906f150ca097d17887",
+      "text": "黃色、靛色與紫色都可能與一本私人筆記有關，區別在於正在做什麼：黃色保留一個問題並尋找解釋；靛色先記下留意到的細節，不急著說明；紫色給一段經歷安排個人符號。看到細節不等於已經解釋原因，賦予意義也不等於發現事實。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/5/paragraphs/1": {
+      "sourceHash": "0f030cfb00b330573348c395cfc051f0c93a056149207657818740b83be19591",
+      "text": "紅色與藍色也可以同時出現：紅色側重把哪個點放到前面，藍色側重把想說的話講明白。一句短話既可有鮮明重點，也可保留隱私與討論範圍。結果不據此判斷你是否外向、是否誠實或說服力有多強；效果仍要結合實際交流核對。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/6/title": {
+      "sourceHash": "1b63c70299ffe12e2f2f9f8c0d99cb3ec14081b848c36faf418e2e54c807cd20",
+      "text": "怎樣閱讀完整結果：選擇、例項與不符合的地方"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/6/paragraphs/0": {
+      "sourceHash": "519febcdbb96b7925a687b945fd5a1471a2f52e7f8b36df7a6d6fc71e45ca9d3",
+      "text": "先檢視七項原始次數，再閱讀所有最高項的完整指南。每份指南包含本站主題、計數讀法、普通例子、可用表達、與其他六色的比較、反例和可選觀察。選一段有具體經歷支援的解釋，也找一件不符合的事；不用為了維持顏色身份忽略反例。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/6/paragraphs/1": {
+      "sourceHash": "8628bf2b04ac1759c95cc9599e0e3e4e306b353b32e7608f2673f4b87dc7f0b7",
+      "text": "如果黃色與綠色並列，可以問“這次我更常想查明問題，還是先調整資料和環境條件，哪些活動兩種都需要？”這比把自己概括成“聰明又有療愈力”更接近題目真正記錄的選擇。其他顏色的指南同樣公開，可以先讀再決定是否作答。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/7/title": {
+      "sourceHash": "fda26ba129b92ae6732b354198cbc421686586d41a343815a6ba35957e585cbf",
+      "text": "把顏色主題用在一次小作品裡"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/7/paragraphs/0": {
+      "sourceHash": "7a05a9f08acad0e07a5a09550b7d096a9c5927c1f93124b8cbc624b1bae0f471",
+      "text": "例如，你想為最近一次閱讀做一張私人小卡片。可以先用靛色入口記下一個真實看到的細節，用黃色入口寫一個還想查明的問題，用紫色入口給這次經歷畫一個自選記號。如果願意分享，再用藍色入口說明“這個符號只代表我這次的理解”。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/7/paragraphs/1": {
+      "sourceHash": "f0183fe80c00e615f3289eac19f0e0c6640114af3ad028f99c7440f3c075fd82",
+      "text": "你也可以突出一個重點、邀請自願的朋友共同畫一點，或調整材料擺放，讓卡片容易使用。只選一個小步驟即可，不需要湊齊七色。之後看做法是否方便、是否仍想繼續；不要求作品漂亮、別人認同或得到更高的光環分數。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/8/title": {
+      "sourceHash": "21956dcacf25517671b47b48d5b3f83c534c6f9276712ec628aabf575924e919",
+      "text": "怎樣判斷科學性：程式、解釋與測量研究"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/8/paragraphs/0": {
+      "sourceHash": "39cc4c7bd2408d5800b8000f9f1971092ed67bed27caeed2c0c920d0ded2bddf",
+      "text": "相同答案能復算相同計數，說明程式遵循明確規則；報告有具體例子，幫助讀者核對解釋。這些都不能證明題本能測量穩定人格。若要作心理測量解釋，需要本版本在目標語言與人群中的信度、效度、重測與其他相關證據；當前本版尚未完成這些驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/8/paragraphs/1": {
+      "sourceHash": "095754f4288d44a3a651901afa5ff8abe0d0887820096d7fc1fbcd70270950ca",
+      "text": "因此，喜歡某段描述可以成為繼續觀察的起點，不能單獨當作準確率證明。這個測驗用於娛樂性表達探索，不給診斷、能量狀態、靈性等級、天賦認證或職業適配結果。你可以只保留對理解具體經歷有用的提問。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/9/title": {
+      "sourceHash": "a880a5136eacffa2d25bdb38a0e3a7d27073085f22ae0f49478018a37de34d4f",
+      "text": "重測、語言與其他顏色體系"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/9/paragraphs/0": {
+      "sourceHash": "0856fb82ab27666be8fec05ed9db6cc792c218a7042b4349eb75becd8d7ecb1a",
+      "text": "近期活動、可用時間、隱私需要和對題目的理解，都可能影響當前選擇。比較兩次結果時，先看具體選項與最高次數，再看顏色名字；少數回答變化便可能影響並列。沒有本題本的重測誤差資料，不能量化人格或光環“改變了多少”。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/9/paragraphs/1": {
+      "sourceHash": "99293b7124178b7440d3466549d5c6e1d44af15b141b2a8afe59cebc4be33253",
+      "text": "本頁與四方向色彩性格、脈輪、氣質、DISC或MBTI使用不同題目與解釋結構，不能憑同一個顏色換算。中英文保留相同題目身份與計分規則，方便對照；這也不等於已經證明跨語言測量等值。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/10/title": {
+      "sourceHash": "1ab7bc9ded62d4bf9db2486d21183efbc8b2aaf8e4ceb0c4503aa7e8a01b2dd5",
+      "text": "完整免費、瀏覽器計分與分享"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/10/paragraphs/0": {
+      "sourceHash": "941e0b253074b7d9fafcbb6a102ced58ba9775d4560de6714d4730f499a423b0",
+      "text": "21道題、七項計數和七篇完整指南全部免費，無需郵箱、賬戶、照片、生日或先完成其他測驗。點擊開始測驗即可作答。答案在瀏覽器內計分，不通過計分請求上傳，也不寫入網址或分析事件；不含答案的使用事件仍以隱私與Cookie設定為準。"
+    },
+    "lib/questionnaires/data/aura-color.json/guide/10/paragraphs/1": {
+      "sourceHash": "35218ddfd47c1eb8e6f50e12324a6427cb82ef1b3bb74c649338ef2d14e137da",
+      "text": "當前作答頁不會儲存進度；重新整理或重新開測會從第一題開始。公開分享連結指向通用顏色指南或測驗入口，不包含個人答案或次數。可以讀完就結束，不需要額外同意、購買或分享才能檢視完整內容。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/0/question": {
+      "sourceHash": "5c221f8dd1bb2e9a60f73d29322476637d51dff7d7bb2e33879a370c57cae00d",
+      "text": "光環顏色測驗測的是什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/0/answer": {
+      "sourceHash": "3a1e170a43b73164d51f94eee9c0b1e3ea95f0f707994039b5307f14daecebf6",
+      "text": "它用21道原創日常選擇，記錄你更願意採用哪些表達做法，再用七種顏色命名相應主題。結果是原始次數和最高並列，不是觀察到的身體光環、他人評價或穩定人格結論。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/1/question": {
+      "sourceHash": "0c7a68b741c6e8f0fa3a23006cb4c92b931cea6dd88f2b0916da68619b4a6b57",
+      "text": "七種顏色分別代表什麼？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/1/answer": {
+      "sourceHash": "308205692f73e1aaec9a75be16dab5c99d02a988403ab674ed4b542240ce8d6a",
+      "text": "本版紅色是鮮明重點，橙色是共同玩心，黃色是提問解釋，綠色是日常環境條件，藍色是平實表達，靛色是私下細看，紫色是個人符號意義。它們是本站選定的表達意象，不是統一傳統或高低等級。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/2/question": {
+      "sourceHash": "200c3369a31af2f890a812a69ea9446574a6dbd257c8e295ff558480e5cf691c",
+      "text": "多少題、多久、結果是否全部免費？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/2/answer": {
+      "sourceHash": "f8c06530e23acd3a6dd4f105bad9f93aeeca4bbdc006d55fef6d796a0ae32d08",
+      "text": "21題，每題四選一，預計約7分鐘，不限時。全部題目、七項計數和七篇完整指南免費，不用註冊、郵箱或先做MBTI。點擊開始測驗後直接進入題目。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/3/question": {
+      "sourceHash": "7cd58dfe7a269290d30bd1bb731ff72a33e11d6d57415db06f82a158e3a14f0a",
+      "text": "需要照片、生日或星座嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/3/answer": {
+      "sourceHash": "74d7ffa048328d6bea843ca86937d7da25b506e0d78fe287d13fc5c04a5717dc",
+      "text": "不需要，也不使用這些資訊計算。頁面不拍照、不掃描能量場，只根據本次選擇加分。照片濾鏡、生日計算與這種情境問卷是不同方法，不能把同名顏色當作互相驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/4/question": {
+      "sourceHash": "ba825077a113a2d2088c3206eb21a7def5335fe2818215960d5d273a5eab18c1",
+      "text": "每種顏色的次數怎樣產生？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/4/answer": {
+      "sourceHash": "0520409532f21c8f7b64d42b0ccd84d81b48108f33e9df4bdb3fecc74c8ff293",
+      "text": "每次選中給對應主題加1次。七主題各出現12次，四個選項位置各3次，所以每項0—12次，完成後合計21。每題沒提供的三種主題沒有被拒絕；計數不是能量百分比或人群排名。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/5/question": {
+      "sourceHash": "d7b419d84f548d0ce54efd5f403ea8dc552220ec579f0b5dc9cbf6d9f5a2935a",
+      "text": "為什麼有多個顏色並列？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/5/answer": {
+      "sourceHash": "e0f350c27e22d61676338f0b255825cc164c567ce900426e7dd65dd21f0c8578",
+      "text": "達到相同最高次數就全部保留。比如按七色順序4、2、5、5、1、2、2，黃色與綠色並列最高；全選第一項會七種各3次。系統不隨機選擇一個，也不以頁面順序破同分。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/6/question": {
+      "sourceHash": "c5a7a5f30ac73c8856b4ce23c2b497a59cd89c4f256c650961ab59acd03119e5",
+      "text": "會生成白色、彩虹色、主色和輔助色嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/6/answer": {
+      "sourceHash": "1b42595ac7d910735fa21a5d8df2f5b0d68f22500a0c55c1a09a3510308e6e47",
+      "text": "本版只提供紅橙黃綠藍靛紫七個主題。全部並列也保留七項，不額外改成白色或彩虹色，不把第二名自動叫作輔助色。其他網站可能使用不同規則，結果不能只按名字對齊。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/7/question": {
+      "sourceHash": "a6ee6665fe408e4b8139504a312770f9d71dfbe048b60a23d8dbb1a10629a6b2",
+      "text": "12次是100%符合，0次是缺少一種品質嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/7/answer": {
+      "sourceHash": "123c5baf8e63b2a4d09c5be709b774b61ab4c4087e76094e906ee6f881b95bb7",
+      "text": "都不是。12次表示該主題出現的12次都被選中，0次表示這些比較都選了別項。問卷不觀察全部生活，也不判斷你缺少好奇、善意或溝通能力；低次數無需補足。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/8/question": {
+      "sourceHash": "9426dbcded282731813ee53eaf3730eb22424f041c24e156930b5be2822d866e",
+      "text": "這個測驗有心理測量驗證嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/8/answer": {
+      "sourceHash": "7dde5538b99a96645a54af411e67678176c1e93f723dd50806efcc5523aa636d",
+      "text": "本版尚未完成信度、效度與常模驗證。計數可復算說明規則透明，解釋有例項便於核對，但兩者不能證明能測量穩定人格。請結合具體經歷理解結果，不把共鳴當準確率。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/9/question": {
+      "sourceHash": "0f06b2e7802318e851475d30c003e478f5455e4c296ff72b1f15e85d9f46a0cf",
+      "text": "顏色與情緒有關，就能判斷我的光環或性格嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/9/answer": {
+      "sourceHash": "40b93dc70cbbeae848fe88fe1034c9d4e13453ce8eb82ac1369e16c8096bdc0d",
+      "text": "不能據此推斷。本頁記錄的是情境選擇，不測顏色知覺或發光，也不從個人喜歡某顏色直接推定情緒、能力和人格。外部顏色聯想研究不能替代本題本自己的驗證。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/10/question": {
+      "sourceHash": "1327ac5e87062869b1499fe2a79868a5dd366478b18ec994df1b0092b6ecadbc",
+      "text": "靛色或紫色更稀有、更有靈性嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/10/answer": {
+      "sourceHash": "6f3ff6d53cf4b62527f5713c8959068c843c46cbd8a29a7ed716c4f66d9c3467",
+      "text": "本版沒有人群常模或稀有度統計，也不設靈性等級。靛色是私下留意細節，紫色是賦予符號個人意義，均不認證讀心、預知、智慧或優越身份。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/11/question": {
+      "sourceHash": "7b6e0a0be60931522adb09ed1f8f5db2ccf0b35c613a1405d6aa36c3b1218577",
+      "text": "能用於健康、療愈、關係配對或職業判斷嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/11/answer": {
+      "sourceHash": "ac890ebba9d5d59d93f29bf3df33956e9144cf1afbec1a8c3ca70b63b114f465",
+      "text": "不能從這些計數得出相應結論。本頁不檢測身體、療愈能力、伴侶契合或崗位勝任。若用於交流，可以討論某次活動裡更想怎樣表達，仍要直接核對實際需要、意願和回饋。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/12/question": {
+      "sourceHash": "3d0c25c09960cd193c5032b0fa987aea1885eaf57330c161d51bf9fc5fc074a8",
+      "text": "和色彩性格、脈輪或MBTI能換算嗎？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/12/answer": {
+      "sourceHash": "12273520ac84e3e770b3186553419e6746f0e5b69058e8992ded87f6ca8fdc6f",
+      "text": "不能。本站七色表達問卷與四方向色彩性格是不同題本；顏色同名不表示構念相同。脈輪與MBTI也各有自己的解釋體系，需另行閱讀或作答，不能用七色次數推算。"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/13/question": {
+      "sourceHash": "42e0fea81c6c186953ef1786e3099d4e15105d0c28b19536a5f0ed9a613fedfa",
+      "text": "答案會儲存或隨分享連結公開嗎？重測會怎樣？"
+    },
+    "lib/questionnaires/data/aura-color.json/faq/13/answer": {
+      "sourceHash": "2cc44734cb59e0b4faa347362531451522137e81d9de019bf25df580d392f947",
+      "text": "答案在瀏覽器計分，不通過計分請求上傳，也不進網址或分析事件。作答頁不儲存進度；重新整理後需要重新開始。單一最高時可複製顏色名稱和公開指南連結；最高並列時可複製所有並列色名稱和測驗入口連結。分享不含作答或次數。重測顏色變化反映選擇變化，不證明光環改變；不含答案的事件以隱私與Cookie設定為準。"
+    },
+    "lib/questionnaires/data/aura-color.json/references/0/title": {
+      "sourceHash": "3868797b0ff308237730416588fdd9dc951731b881a333cb2ba5801f85070a7f",
+      "text": "Merriam-Webster：aura詞義（術語背景，非七色題本驗證）"
+    },
+    "lib/questionnaires/data/aura-color.json/references/1/title": {
+      "sourceHash": "90155a64f033fca3a79729e489f870c90cf5d7814ae65e7aaa12023d4a63658d",
+      "text": "Jonauskaitė（2024）：37國背景中的顏色詞—情緒聯想（研究物件與方法）"
+    },
+    "lib/questionnaires/result-content/aura-color.json/red/0/title": {
+      "sourceHash": "07d781cbe27b5fbb7c8252d9fa6e530fd0a0a5bb3dc210750f3b677d1a254531",
+      "text": "復盤表達的重點與受眾"
+    },
+    "lib/questionnaires/result-content/aura-color.json/red/0/paragraphs/0": {
+      "sourceHash": "6e87d4a5dd3e138c2ed5a8d99d8bde04cca8cca08283e2df881122d9655bccbd",
+      "text": "接著上面的重點句，檢查它說的是自己的選擇，還是無意中替別人下了結論。再決定這句話留給自己、給誰看、是否需要修改。別人不贊同不等於表達失敗；改變主意也不必維護原來的紅色形象。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/red/1/title": {
+      "sourceHash": "30248ec0f3cc5cdee2cd2f1b697c6b60d6fa9dc5a21919ec26741793a66c33c1",
+      "text": "分享一個自選標題"
+    },
+    "lib/questionnaires/result-content/aura-color.json/red/1/paragraphs/0": {
+      "sourceHash": "364da9a4685816c46601264d17c157adcee5c770b5e2e8c78a213ef610c66a16",
+      "text": "可以問：“假設給今天的一頁普通筆記取標題，你會把哪句話放大，哪些只留給自己？”只分享願意說的部分，不要求標題足夠自信或讓別人認同。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/red/1/paragraphs/1": {
+      "sourceHash": "47ec07f3635d194f30bfc2d3efc82c1505c0546482767bf2edfe712f1c789c1d",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/orange/0/title": {
+      "sourceHash": "cd32359a7ee8e4614143d572dc0572306b5d2b2c0940d8956f295ca03277c59c",
+      "text": "復盤共同創作的參與方式"
+    },
+    "lib/questionnaires/result-content/aura-color.json/orange/0/paragraphs/0": {
+      "sourceHash": "8b43059914419d17c246dcb87803b4dc1615b110daafe1ea142918cedd6e10ee",
+      "text": "接著上面的共同小創作，記下自己喜歡的是輪流新增、看見變化，還是與人一起的過程。也核對每個人是否願意繼續、保留或分享作品。參與人數和笑聲不是效果分數；下一次改為獨自做或只旁觀也可以。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/orange/1/title": {
+      "sourceHash": "5c237452aad3ef635b4fe5c5a0f21b5eec9673f1460e72cccf1b78a01abebcf8",
+      "text": "分享一個可以拒絕的續畫邀請"
+    },
+    "lib/questionnaires/result-content/aura-color.json/orange/1/paragraphs/0": {
+      "sourceHash": "2cf87990731215c7a973dd4fb8d9729afde2d17bcc1e5dc278a7504dc5c416d5",
+      "text": "可以問：“假設一張紙上有個圓，你想添一筆、看看別人怎麼畫，還是跳過？”先同意再續畫，不把不參與解讀為無趣或關係疏遠。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/orange/1/paragraphs/1": {
+      "sourceHash": "04375fa760c2e8bf8e6547afa14e38011dae22d97259b545f165cee36788b6c9",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/yellow/0/title": {
+      "sourceHash": "ddd5a368df03359435734bc9fba7c56a81bd0b9cc3a6aca0bfce0e448a699a63",
+      "text": "復盤問題是否得到回答"
+    },
+    "lib/questionnaires/result-content/aura-color.json/yellow/0/paragraphs/0": {
+      "sourceHash": "2b14f7f15c4b8436e5a2bfecef19f7f0d5daa3d74da83d85f88ca1241964e124",
+      "text": "接著上面的提問記錄，區分找到的解釋、它支援的具體說法，以及仍沒回答的部分。資料多不等於證據強；若沒有可靠說明，可以保留“不知道”。這次復盤關注一個問題，不按搜尋速度、知識量或正確次數評價自己。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/yellow/1/title": {
+      "sourceHash": "8b3cab581acb7ababa8aa5f0c2cd94b443005f6d24f08fa5edf4ad832403210e",
+      "text": "分享一個普通的好奇點"
+    },
+    "lib/questionnaires/result-content/aura-color.json/yellow/1/paragraphs/0": {
+      "sourceHash": "4bac0180a083057f4f842973dcab7dafea40e96bcc93b15e06b4a9f0d490a848",
+      "text": "可以問：“假設看見一個有摺痕的紙盒，你想問哪一點，又需要什麼資料才願意下結論？”可以只提問；不把聊天變成知識搶答或要求對方接受你的解釋。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/yellow/1/paragraphs/1": {
+      "sourceHash": "3f36c522be97d4e5f0545cb46b14bdd2869df40eec4b6e070ab92a42404eeed9",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/green/0/title": {
+      "sourceHash": "97c7c21c4dcc4a6cbed58d464543c21935da5a68db596694dd2e40b318390d77",
+      "text": "復盤改動與實際使用"
+    },
+    "lib/questionnaires/result-content/aura-color.json/green/0/paragraphs/0": {
+      "sourceHash": "ba34f89cc43414ffeff66508da4fbd6b05666cc0f9f78c8a979eaa3f61478a75",
+      "text": "接著上面的生活條件記錄，分別寫下改了什麼、自己是否方便，以及共用者實際回饋了什麼。沒有回饋時保留未知；也可以恢復原樣或說明無法滿足的需要。一次小安排只需處理這件事，不自動變成長期照顧職責。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/green/1/title": {
+      "sourceHash": "b2998a30c11927cfc5009421f813f4a8cc7ecca8668479f2dd1b46878f7a3645",
+      "text": "分享一個使用條件的問題"
+    },
+    "lib/questionnaires/result-content/aura-color.json/green/1/paragraphs/0": {
+      "sourceHash": "62f2c3d2e74f9ad20e01f8c066f5e7a3110f1b689851f8cbde4fec30f7318025",
+      "text": "可以問：“假設一起看幾張明信片，你更方便平放、豎放，還是換種方式？”說明自己的需要，再共同選擇，不靠顏色猜測誰需要被照顧。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/green/1/paragraphs/1": {
+      "sourceHash": "f4a2f7d1e41c2b344b50113614440bca816b603107911b4225828cc6fece7b9c",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/blue/0/title": {
+      "sourceHash": "63560f3e5e5d33fcefb29362e68fdd275c046eaec03a5152580d1a8b5bfa413c",
+      "text": "復盤意思與收到的回應"
+    },
+    "lib/questionnaires/result-content/aura-color.json/blue/0/paragraphs/0": {
+      "sourceHash": "32a13a819bc7520ab4cb14ebb3a5e0c7cccfc1a31b8d1fef61431752a1e0ba48",
+      "text": "接著上面的兩句話，檢查第一句是否表達了自己想說的事，第二句是否把範圍說清。若已自願發出，可以記錄對方實際回應；沒回應不等於默認同意。需要時換一種說法或結束交流，不用靠反覆解釋證明自己擅長溝通。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/blue/1/title": {
+      "sourceHash": "726145b93fbd2e1cf7dc24649bab2c17ce98a1b3c0416a4d159240eb95cc48b1",
+      "text": "分享一句有範圍的說明"
+    },
+    "lib/questionnaires/result-content/aura-color.json/blue/1/paragraphs/0": {
+      "sourceHash": "8bae5df42316d155d7eddb925b7298f6d3a9d302cc6f4c6822a14d1e451ed803",
+      "text": "可以問：“假設借出一本普通書，你想怎樣說明願意借什麼、何時再確認歸還？”討論措辭是否合用，不評分誰更誠實、冷靜或會處理關係。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/blue/1/paragraphs/1": {
+      "sourceHash": "10f47fda72b0d80be173cad71bd0ca858c3facdff05510c611636c6f1a65b0f5",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/indigo/0/title": {
+      "sourceHash": "1a09017a2aa704a97950dd3e7b330b640ed3f8ac7192415af8e96fc72341004c",
+      "text": "復盤看見的細節與自己的猜測"
+    },
+    "lib/questionnaires/result-content/aura-color.json/indigo/0/paragraphs/0": {
+      "sourceHash": "f3402012469965674e1296d20479d7a8187b986a9e56351141100a82a79e047d",
+      "text": "接著上面的私人觀察，把直接看見的一處細節與自己加上的解釋分開。沒有解釋也可以結束；若後來有新資訊，可以修改記錄。是否分享由自己決定，不需要把安靜觀察包裝成看透他人的能力。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/indigo/1/title": {
+      "sourceHash": "956a5ef84c8d4ee8966a155a54f1cd43dc2e5247def6bfbdcbd9c626ea5c672a",
+      "text": "分享一個不急著解釋的細節"
+    },
+    "lib/questionnaires/result-content/aura-color.json/indigo/1/paragraphs/0": {
+      "sourceHash": "b3d40389e93b36cef839da88116d9751a0fa41022706620dae425b60bd41f756",
+      "text": "可以問：“假設看一張普通物件照片，你注意到哪一處，又有哪些還不知道？”只談畫面，不猜真實人物的心事，也不用證明誰看得更深。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/indigo/1/paragraphs/1": {
+      "sourceHash": "ef32c435457a52a96f199d648b8d4a1d0b17dff817879109f227874abe6383eb",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/violet/0/title": {
+      "sourceHash": "a911683448eacaaad4f42526eca3a1e87e4e790ceabf768e651b0cdaf18203b3",
+      "text": "復盤符號的事實與賦義"
+    },
+    "lib/questionnaires/result-content/aura-color.json/violet/0/paragraphs/0": {
+      "sourceHash": "9f925ed12d5658ea6e8a83237afc779b527929fb6d03f6e31a50959c0ec11cbc",
+      "text": "接著上面的私人記號，寫清實際發生的一件事，以及自己臨時賦予它的含義。含義可以有用，卻不能代替事實證據。以後更換記號、保留普通文字或不再使用都可以，不需要等待現實兌現它。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/violet/1/title": {
+      "sourceHash": "9c989b0298ad03bc1df7bb8d18fec555500d9cd06b5c50fbdf256129ad27c4f5",
+      "text": "分享一個由本人解釋的記號"
+    },
+    "lib/questionnaires/result-content/aura-color.json/violet/1/paragraphs/0": {
+      "sourceHash": "4fc27ae1c6322cccc6dd8c47220573ce67c168f3aaf4dce8b7e11203bd11dea9",
+      "text": "可以問：“假設為整理完的一頁筆記畫個記號，你會選什麼，它對這次經歷表示什麼？”允許別人有不同解釋；不預測未來，也不要求共同相信某種靈性體系。"
+    },
+    "lib/questionnaires/result-content/aura-color.json/violet/1/paragraphs/1": {
+      "sourceHash": "6b1ad9f86099cfb99fd7dab08c76bfd0e22d04c38800c5de6751100c3bdc6d32",
+      "text": "可以只分享這份公開通用說明，也可以不分享。連結不帶本次答案或計數，對方可以不回答；不需要讓朋友認證你的結果。"
     },
     "lib/questionnaires/data/avatar-bender-quiz.json/title": {
       "sourceHash": "048437e20b09f68d3fa616c5b9e8199bdc06189716ca2aa79284f6dd407a83e5",

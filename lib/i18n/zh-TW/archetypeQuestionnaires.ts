@@ -72,6 +72,7 @@ const sources = {
   "color-season": { name: "color-season", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/color-season.json") },
   "sake-type": { name: "sake-type", attribute: "sake", load: () => import("@/lib/questionnaires/result-content/sake-type.json") },
   "stupidity-test": { name: "stupidity-test", attribute: "everyday-mixups", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/stupidity-test.json") },
+  "aura-color": { name: "aura-color", load: () => import("@/lib/questionnaires/result-content/aura-color.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {
