@@ -33,6 +33,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/pricing") return "/zh-TW/pricing";
   if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
+  if (/^\/career\/(?:guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?|jobs\/[a-z0-9]+(?:-[a-z0-9]+)*)$/u.test(path)) return `/zh-TW${path}`;
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
@@ -42,8 +43,6 @@ export function traditionalPath(pathname: string): string | null {
   if (prefix === "zh-TW" && /^\/result\/[A-Za-z0-9_-]{1,128}$/u.test(path)) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && (
     TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)
-    || /^\/career\/guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?$/u.test(path)
-    || /^\/career\/jobs\/[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(path)
     || path === "/articles"
     || /^\/articles\/(?:category\/[a-z0-9]+(?:-[a-z0-9]+)*|[A-Za-z0-9][A-Za-z0-9_-]{0,127})$/u.test(path)
   )) return `/zh-TW${path}`;
