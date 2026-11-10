@@ -133,6 +133,8 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(html).toContain('value="軟體"');
     expect(html).toContain('href="/zh-TW/career/jobs/accountants-and-auditors"');
     expect(html).toContain("會計師");
+    expect(html).toContain('href="/zh-TW/career/guides"');
+    expect(html).toMatch(/href="\/zh\/career\/industries"[^>]*hreflang="zh-CN"/i);
     expect(metadata.robots).toMatchObject({ index: false });
     expect(metadata.alternates).toEqual({ canonical: "/zh-TW/career" });
     const { traditionalPath } = await import("@/lib/i18n/traditionalRoutes");
@@ -163,6 +165,8 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
       expect(html).not.toContain("computer-occupations-all-other");
     }
 
+    expect(enHtml).toContain('action="/en/career"');
+    expect(zhHtml).toContain('action="/zh/career"');
     expect(enHtml).toContain("1046 occupations, organized by industry");
     expect(enHtml).toContain("Business and financial (312)");
     expect(enHtml).toContain("Healthcare (184)");

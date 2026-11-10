@@ -311,7 +311,7 @@ export default async function CareerPage({
           </div>
         </section>
 
-        <Link href={`/${locale}/career/compare`} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
+        <Link href={`/${locale}/career/compare`} hrefLang={traditional ? "zh-CN" : undefined} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
           <span>{label("比较两个职业：任务、环境与入行条件", "Compare two careers: tasks, settings and entry conditions")}</span>
           <span className="text-sm font-normal">{traditional ? "首批三個設計職業（簡體中文）→" : label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
         </Link>
@@ -371,13 +371,14 @@ export default async function CareerPage({
                   {selectedFamilyTitle ?? (label("全部职业", "All occupations"))}
                 </h2>
               </div>
-              <Link
-                href={industriesPath}
-                prefetch={false}
-                className="text-sm font-semibold text-orange-600 underline-offset-4 hover:underline"
-              >
-                {traditional ? "按產業瀏覽（簡體中文）" : label("按行业浏览", "Browse by industry")}
-              </Link>
+              <div className="flex flex-wrap gap-4 text-sm font-semibold text-orange-600">
+                {traditional ? <Link href="/zh-TW/career/guides" prefetch={false} className="underline-offset-4 hover:underline">
+                  職涯指南
+                </Link> : null}
+                <Link href={industriesPath} hrefLang={traditional ? "zh-CN" : undefined} prefetch={false} className="underline-offset-4 hover:underline">
+                  {traditional ? "按產業瀏覽（簡體中文）" : label("按行业浏览", "Browse by industry")}
+                </Link>
+              </div>
             </div>
 
             {families.length > 0 ? (

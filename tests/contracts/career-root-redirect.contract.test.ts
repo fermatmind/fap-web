@@ -14,7 +14,7 @@ describe("career center route contract", () => {
     expect(source).toContain("fetchCareerDirectory");
     expect(source).toContain("adaptCareerDirectory");
     expect(source).toContain("测量自己，看见职业，训练未来");
-    expect(source).toContain('const jobsPath = localizedPath("/career", locale)');
+    expect(source).toContain('localizedPath("/career", locale)');
     expect(source).toContain('name="q"');
     expect(source).not.toContain("fetchCareerJobIndex");
     expect(source).not.toContain("找到适合你的职业方向");

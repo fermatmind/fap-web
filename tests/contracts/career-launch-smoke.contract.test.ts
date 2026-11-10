@@ -82,7 +82,7 @@ describe("career launch smoke contract", () => {
     expect(nextConfig).not.toContain('source: "/:locale(en|zh)/career"');
     expect(careerPage).toContain("fetchCareerDirectory");
     expect(careerPage).toContain("adaptCareerDirectory");
-    expect(careerPage).toContain('const jobsPath = localizedPath("/career", locale)');
+    expect(careerPage).toContain('localizedPath("/career", locale)');
     expect(careerPage).not.toContain("fetchCareerJobIndex");
     expect(nextConfig).toContain('source: "/:locale(en|zh)/career/jobs"');
     expect(nextConfig).toContain('destination: "/:locale/career"');

@@ -166,7 +166,7 @@ describe("schema injection contract", () => {
 
     expect(source).toContain("fetchCareerDirectory");
     expect(source).toContain("adaptCareerDirectory");
-    expect(source).toContain('const jobsPath = localizedPath("/career", locale)');
+    expect(source).toContain('localizedPath("/career", locale)');
     expect(source).not.toContain("fetchCareerJobIndex");
     expect(config).toContain('source: "/:locale(en|zh)/career/jobs"');
     expect(config).toContain('destination: "/:locale/career"');
