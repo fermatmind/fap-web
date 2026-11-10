@@ -30,7 +30,7 @@ import { bigFishLandingFaq, bigFishLandingSections } from "@/components/question
 import { decadeLandingFaq, decadeLandingSections } from "@/components/questionnaires/DecadeLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
-import { archetypeEditorial } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
+import { archetypeEditorial, archetypeLandingSummary } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 
@@ -63,6 +63,12 @@ const editorials = {
   "villain-era-archetype-test": { sections: villainEraLandingSections, faq: villainEraLandingFaq },
   "big-fish-energy-test": { sections: bigFishLandingSections, faq: bigFishLandingFaq },
   "decade-aesthetic-test": { sections: decadeLandingSections, faq: decadeLandingFaq },
+  "bojack-horseman-character-quiz": null,
+  "naruto-character": null,
+  "death-note": null,
+  "star-wars-character": null,
+  "hello-kitty": null,
+  "disney-princess": null,
 };
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
@@ -79,8 +85,8 @@ export function FilmQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
   if (!hasFilmEditorial(quiz.slug)) notFound();
   const { slug } = quiz;
   const editorial = editorials[slug];
-  const sections = [...quiz.guide, ...archetypeEditorial(slug, "sections", editorial.sections)];
-  const faq = [...quiz.faq, ...archetypeEditorial(slug, "faq", editorial.faq)];
+  const sections = editorial ? [...quiz.guide, ...archetypeEditorial(slug, "sections", editorial.sections)] : quiz.guide;
+  const faq = editorial ? [...quiz.faq, ...archetypeEditorial(slug, "faq", editorial.faq)] : quiz.faq;
   return <div className="mx-auto max-w-3xl space-y-8">
     <ExploreTestIntro slug={slug} locale="zh">
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
@@ -93,7 +99,7 @@ export function FilmQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
       <ul className="grid gap-4 sm:grid-cols-2">
         {quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border p-4">
           <Link href={questionnaireGuidePath("zh-TW", slug, profile.id)} className="inline-block min-h-11 py-2 font-semibold underline">{profile.title.zh}</Link>
-          <p className="leading-7">{profile.summary.zh}</p>
+          <p className="leading-7">{editorial ? profile.summary.zh : archetypeLandingSummary(slug, profile.id)}</p>
         </li>)}
       </ul>
     </section>

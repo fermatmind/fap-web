@@ -262,5 +262,64 @@
     "graphic-1980s",
     "grunge-1990s",
     "digital-2000s"
+  ],
+  "bojack-horseman-character-quiz": [
+    "bojack-horseman",
+    "diane-nguyen",
+    "princess-carolyn",
+    "todd-chavez",
+    "mr-peanutbutter"
+  ],
+  "naruto-character": [
+    "naruto",
+    "sasuke",
+    "sakura",
+    "kakashi",
+    "shikamaru",
+    "hinata",
+    "gaara"
+  ],
+  "death-note": [
+    "light-yagami",
+    "l",
+    "ryuk",
+    "misa-amane",
+    "near",
+    "mello",
+    "teru-mikami",
+    "minoru-tanaka"
+  ],
+  "star-wars-character": [
+    "han-solo",
+    "palpatine",
+    "darth-vader",
+    "leia-organa",
+    "obi-wan-kenobi",
+    "luke-skywalker",
+    "yoda"
+  ],
+  "hello-kitty": [
+    "hello-kitty",
+    "my-melody",
+    "keroppi",
+    "chococat",
+    "badtz-maru",
+    "cinnamoroll",
+    "pompompurin"
+  ],
+  "disney-princess": [
+    "snow-white",
+    "cinderella",
+    "aurora",
+    "ariel",
+    "belle",
+    "jasmine",
+    "pocahontas",
+    "mulan",
+    "tiana",
+    "rapunzel",
+    "merida",
+    "moana",
+    "raya"
   ]
 }

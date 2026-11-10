@@ -8,7 +8,7 @@ The original variable font SHA-256 is `864727d210d54f2537bbe23b3a839436c3992af72
 
 `changan-history-quiz-700.ttf` uses the same original and license. Its saved cmap covers the 90 distinct characters used by the Taiwan Chang’an card labels, the six names and epithets, and the site address.
 
-`archetype-questionnaire-700.ttf` uses the same source and OFL license. Its saved cmap covers the 1212 selected characters in the public Taiwan archetype cards, the two local fantasy card templates and printable ASCII.
+`archetype-questionnaire-700.ttf` uses the same source and OFL license. Its saved cmap covers the 1326 selected characters in the public Taiwan archetype cards, the two local fantasy card templates and printable ASCII.
 
 The archetype subset also includes U+51EA from Noto Sans JP at weight 700 under the same OFL. The Japanese outline preserves the published name 凪. The upstream Google Fonts revision is 66a36c8c94b1a5d992ee4e7f392fccfe4945767c.
 

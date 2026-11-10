@@ -3,7 +3,7 @@ import { afterEach, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { ArchetypeQuestionnairePage, traditionalArchetypeMetadata } from "@/components/i18n/zh-TW/ArchetypeQuestionnairePage";
 import { hasFilmEditorial } from "@/components/i18n/zh-TW/FilmQuestionnaireLanding";
-import { loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
+import { archetypeLandingSummary, loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import members from "@/lib/i18n/zh-TW/archetype-questionnaire-members.generated.json";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
@@ -54,4 +54,18 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   render(await ArchetypeQuestionnairePage({ slug, profile: profile.id }));
   expect(screen.getByRole("heading", { name: profile.title.zh })).toBeVisible();
   expect(screen.getAllByText(profile.sections.at(-1)!.paragraphs[0].zh).length).toBeGreaterThan(0);
+});
+
+
+it("renders the Taiwan Disney roster with all 13 dedicated editorial summaries", async () => {
+  const slug = "disney-princess";
+  const quiz = (await loadTraditionalArchetype(slug))!;
+  render(await ArchetypeQuestionnairePage({ slug }));
+  expect(quiz.profiles).toHaveLength(13);
+  for (const profile of quiz.profiles) {
+    const summary = archetypeLandingSummary(slug, profile.id);
+    expect(summary).not.toEqual(profile.summary.zh);
+    expect(screen.getByText(summary)).toBeVisible();
+  }
+  expect(screen.getByRole("link", { name: /^莫娜：/ })).toBeVisible();
 });

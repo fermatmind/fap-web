@@ -384,11 +384,11 @@
     "death-note": {
       "title": {
         "sourceHash": "c8e8b2951373d089e9d86e80327d4d4fbfc1b17105c5382e0fb3897db5eb5231",
-        "target": "《死亡筆記》角色測驗"
+        "target": "《死亡筆記本》角色測驗"
       },
       "description": {
         "sourceHash": "e6a8d70a03b88a9916f022ac592b02a00d58bf07850ae23c166f9a07cce3a14b",
-        "target": "從提問、觀察、整理資訊和替代方案的選擇中，對照八位《死亡筆記》角色的思路。"
+        "target": "從提問、觀察、整理資訊和替代方案的選擇中，對照八位《死亡筆記本》角色的思路。"
       }
     },
     "bleach": {
@@ -404,17 +404,17 @@
     "star-wars-character": {
       "title": {
         "sourceHash": "fd9450afae1732f5cb2ea86dfeb09c0067d1d41f8c7c006440e0e2f1432c6b5d",
-        "target": "《星球大戰》角色測驗"
+        "target": "《星際大戰》角色測驗"
       },
       "description": {
         "sourceHash": "46065d1ad2415f2bbbe26403e52de1326fd51f6e598a8a9e64edd7aa8c5daf93",
-        "target": "從學習、分享、安排和檢驗假設的選擇裡，對照七位《星球大戰》角色的做法。"
+        "target": "從學習、分享、安排和檢驗假設的選擇裡，對照七位《星際大戰》角色的做法。"
       }
     },
     "hello-kitty": {
       "title": {
         "sourceHash": "97115ac7374903be0cd4bdf93e12e352ef160c28b05fb6f918d7821f046cb545",
-        "target": "Hello Kitty與三麗鷗角色測驗"
+        "target": "Hello Kitty 與三麗鷗角色測驗"
       },
       "description": {
         "sourceHash": "98bb83dffbdb14a296746efc880e9939d4baf4e24310bbc612b55208c4e0911b",

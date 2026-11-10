@@ -36,6 +36,12 @@ const editions = {
   "villain-era-archetype-test": ["villain-era-archetype-test", "VillainEra", "villainEraLanding", true],
   "big-fish-energy-test": ["big-fish-energy-test", "BigFish", "bigFishLanding", true],
   "decade-aesthetic-test": ["decade-aesthetic-test", "Decade", "decadeLanding", true],
+  "bojack-horseman-character-quiz": ["bojack-horseman", "BoJack", "", "summaries"],
+  "naruto-character": ["naruto-character", "Naruto", "", "summaries"],
+  "death-note": ["death-note", "DeathNote", "", "summaries"],
+  "star-wars-character": ["star-wars-character", "StarWars", "", "summaries"],
+  "hello-kitty": ["hello-kitty", "HelloKitty", "", "summaries"],
+  "disney-princess": ["disney-princess", "DisneyPrincess", "", "summaries"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -62,7 +68,7 @@ function readLiteral(node) {
   throw new Error("Unexpected editorial expression");
 }
 
-for (const [slug, [, name, prefix, film]] of Object.entries(editions)) {
+for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
   const quiz = JSON.parse(snapshots[`lib/questionnaires/data/${slug}.json`]);
   members[slug] = quiz.profiles.map(profile => profile.id);
   const file = `components/questionnaires/${name}LandingEditorial.ts`;
@@ -71,12 +77,19 @@ for (const [slug, [, name, prefix, film]] of Object.entries(editions)) {
   artifact.sourceHashes[file] = digest(raw);
   const syntax = ts.createSourceFile(file, raw, ts.ScriptTarget.Latest, true);
   const declarations = syntax.statements.filter(ts.isVariableStatement).flatMap(statement => [...statement.declarationList.declarations]);
-  const fields = [["sections", "Sections"], ["faq", "Faq"]];
-  if (!film) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
+  const fields = layout === "summaries"
+    ? [["summaries", "summaries"]]
+    : [["sections", "Sections"], ["faq", "Faq"]];
+  if (!layout) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
   for (const [field, suffix] of fields) {
     const declaration = declarations.find(candidate => candidate.name.getText(syntax) === prefix + suffix);
     if (!declaration?.initializer) throw new Error(`Missing editorial source: ${file}/${field}`);
-    for (const [pointer, source] of Object.entries(collect(readLiteral(declaration.initializer)))) {
+    const strings = collect(readLiteral(declaration.initializer));
+    if (layout === "summaries" && (Object.keys(strings).length !== members[slug].length ||
+        members[slug].some(id => !Object.hasOwn(strings, `/${id}`)))) {
+      throw new Error(`Missing landing profile summaries: ${slug}`);
+    }
+    for (const [pointer, source] of Object.entries(strings)) {
       const id = `${slug}/editorial/${field}${pointer}`;
       const sourceHash = digest(JSON.stringify([id, source, artifact.converter, terms]));
       artifact.units[id] = previousUnits[id]?.sourceHash === sourceHash ? previousUnits[id] : { sourceHash, text: convertText(source, terms) };

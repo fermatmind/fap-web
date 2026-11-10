@@ -41,10 +41,22 @@ const sources = {
   "villain-era-archetype-test": { name: "villain-era-archetype-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/villain-era-archetype-test.json") },
   "big-fish-energy-test": { name: "big-fish-energy-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/big-fish-energy-test.json") },
   "decade-aesthetic-test": { name: "decade-aesthetic-test", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/decade-aesthetic-test.json") },
+  "bojack-horseman-character-quiz": { name: "bojack-horseman", load: () => import("@/lib/questionnaires/result-content/bojack-horseman.json") },
+  "naruto-character": { name: "naruto-character", load: () => import("@/lib/questionnaires/result-content/naruto-character.json") },
+  "death-note": { name: "death-note", load: () => import("@/lib/questionnaires/result-content/death-note.json") },
+  "star-wars-character": { name: "star-wars-character", load: () => import("@/lib/questionnaires/result-content/star-wars-character.json") },
+  "hello-kitty": { name: "hello-kitty", load: () => import("@/lib/questionnaires/result-content/hello-kitty.json") },
+  "disney-princess": { name: "disney-princess", load: () => import("@/lib/questionnaires/result-content/disney-princess.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {
   return projectStoryCopy(original, `${slug}/editorial/${field}`, units);
+}
+
+export function archetypeLandingSummary(slug: string, profileId: string): string {
+  const unit = units[`${slug}/editorial/summaries/${profileId}`];
+  if (!unit) throw new Error(`Missing Taiwan landing summary: ${slug}/${profileId}`);
+  return unit.text;
 }
 
 export function archetypePrivacyAnswer(slug: string): string {
