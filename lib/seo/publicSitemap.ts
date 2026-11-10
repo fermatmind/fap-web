@@ -4,6 +4,7 @@ import { gzip } from "node:zlib";
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildApiUrl } from "@/lib/api-base";
+import { indexableCareerInterestPilots, isCareerPilotOnIndexHold } from "@/lib/career/explorationPilot";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 
@@ -137,6 +138,7 @@ export function buildPublicSitemapEntries(
     const path = toOwnedPublicPath(item?.loc);
     if (
       !path ||
+      isCareerPilotOnIndexHold(path) ||
       !shouldIncludeInSitemap(path, { indexEligible: true, indexState: "indexed" })
     ) {
       continue;
@@ -151,6 +153,15 @@ export function buildPublicSitemapEntries(
   }
 
   return [...entriesByLoc.values()].sort((left, right) => left.loc.localeCompare(right.loc));
+}
+
+export function appendCareerInterestPilotSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
+  const byLoc = new Map(entries.map((entry) => [entry.loc, entry]));
+  for (const { path } of indexableCareerInterestPilots()) {
+    const loc = buildCanonicalLoc(path, CANONICAL_SITE_URL);
+    if (!byLoc.has(loc)) byLoc.set(loc, { loc });
+  }
+  return [...byLoc.values()].sort((left, right) => left.loc.localeCompare(right.loc));
 }
 
 export function buildPublicSitemapXml(entries: PublicSitemapEntry[]): string {
@@ -271,7 +282,7 @@ export async function buildPublicSitemapResponse(family?: PublicSitemapFamily, r
       throw new Error("empty_backend_sitemap_source");
     }
 
-    const allEntries = appendFriendshipSitemapEntries(appendFunSitemapEntries(rootEntries));
+    const allEntries = appendCareerInterestPilotSitemapEntries(appendFriendshipSitemapEntries(appendFunSitemapEntries(rootEntries)));
     const entries = family ? buildPublicSitemapFamilyMap(allEntries)[family] : allEntries;
 
     return await buildPublicSitemapXmlResponse(buildPublicSitemapXml(entries), {

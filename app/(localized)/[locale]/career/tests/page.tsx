@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { CAREER_EXPLORATION_PILOT, CAREER_INTEREST_PILOTS, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -248,6 +249,15 @@ export default async function CareerTestsPage({ params }: PageProps) {
               {sample[locale]}
             </Link>
           </li>)}
+        </ul>
+        <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
+          {CAREER_INTEREST_PILOTS.map((code) => (
+            <li key={code}>
+              <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={careerExplorationPilotPath(locale, code)}>
+                {CAREER_EXPLORATION_PILOT[code].copy[locale].title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </section>
 

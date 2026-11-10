@@ -1,3 +1,4 @@
+import { indexableCareerInterestPilots, isCareerPilotOnIndexHold } from "@/lib/career/explorationPilot";
 import { hasExactCareerPaths } from "../../scripts/ops/career-current-inventory.mjs";
 import { after, NextResponse } from "next/server";
 import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
@@ -1550,6 +1551,7 @@ async function buildLlmsFullTextInternal(
     { locale: "en" as const, path: "/en/career/recommendations", title: "Career fit", type: "career_recommendations_index", updatedAt: "" },
     { locale: "zh" as const, path: "/zh/career/recommendations", title: "职业匹配", type: "career_recommendations_index", updatedAt: "" },
     ...guideEntries,
+    ...indexableCareerInterestPilots().map((entry) => ({ ...entry, type: "career_interest_exploration", updatedAt: "" })),
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "en" as const,
       path: item.href,
@@ -1567,7 +1569,7 @@ async function buildLlmsFullTextInternal(
     ...careerJobPaths
       .map((path) => buildCareerJobEntry(path))
       .filter((entry): entry is LlmsFullEntry => Boolean(entry)),
-  ].filter((entry) => shouldKeep(entry.path));
+  ].filter((entry) => shouldKeep(entry.path) && !isCareerPilotOnIndexHold(entry.path));
   const dailyGivingEntries = [...enDailyGivingEntries, ...zhDailyGivingEntries]
     .map((entry) => ({
       locale: entry.locale,

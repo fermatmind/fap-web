@@ -249,7 +249,14 @@ describe("public sitemap route", () => {
       params: Promise.resolve({ family: `${family}.xml` }),
     });
     const xml = await response.text();
-    const expectedEntries = buildPublicSitemapFamilyMap(appendFriendshipSitemapEntries(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload()))))[family];
+    const nativeCareerEntries = [
+      { loc: "https://fermatmind.com/en/career/interests/ari" },
+      { loc: "https://fermatmind.com/zh/career/interests/ari" },
+    ];
+    const expectedEntries = buildPublicSitemapFamilyMap([
+      ...appendFriendshipSitemapEntries(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload()))),
+      ...nativeCareerEntries,
+    ])[family];
 
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toContain("application/xml");

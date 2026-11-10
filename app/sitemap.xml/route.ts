@@ -1,6 +1,7 @@
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import {
+  appendCareerInterestPilotSitemapEntries,
   buildPublicSitemapEntries,
   buildPublicSitemapXml,
   buildPublicSitemapXmlResponse,
@@ -21,7 +22,7 @@ export async function GET(request?: Request): Promise<Response> {
     }
 
     return await buildPublicSitemapXmlResponse(
-      buildPublicSitemapXml(appendFriendshipSitemapEntries(appendFunSitemapEntries(entries))),
+      buildPublicSitemapXml(appendCareerInterestPilotSitemapEntries(appendFriendshipSitemapEntries(appendFunSitemapEntries(entries)))),
       { "Cache-Control": CACHE_CONTROL, "CDN-Cache-Control": "no-store" },
       request,
     );

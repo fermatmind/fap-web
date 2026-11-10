@@ -54,6 +54,7 @@ import { resolvePersonalityFallbackProjectionGate } from "@/lib/seo/articlePerso
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
+import { careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 
 export const revalidate = 300;
 
@@ -2104,6 +2105,19 @@ export default async function PersonalityDetailPage({
           />
         ) : null}
       </div>
+      {isBaseTypeProjection && detail.routeSlug === "intj" && (
+        <section aria-labelledby="intj-career-exploration" className="space-y-3 rounded-2xl border border-slate-200 bg-white p-5">
+          <h2 id="intj-career-exploration" className="m-0 text-xl font-semibold">
+            {locale === "zh" ? "用真实任务探索 INTJ 工作偏好" : "Explore INTJ work preferences through real tasks"}
+          </h2>
+          <p className="m-0 leading-7 text-slate-700">
+            {locale === "zh" ? "比较产品原型与视觉版式，记录自己更愿意反复修改哪种产出。" : "Compare a product prototype with a visual layout and note which output you would rather revise."}
+          </p>
+          <Link href={`${careerExplorationPilotPath(locale, "intj")}#design-mbti-exploration`} className="font-medium text-[var(--fm-accent)] underline underline-offset-4">
+            {locale === "zh" ? "查看设计职业探索示例" : "Explore the design career examples"}
+          </Link>
+        </section>
+      )}
       <Suspense fallback={null}>
         <PublicTopicEdgeModule
           source={detail.id ? { type: "personality_profile", id: detail.id, locale: toApiLocale(locale) } : null}

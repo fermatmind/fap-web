@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
+import { CAREER_EXPLORATION_PILOT } from "@/lib/career/explorationPilot";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
@@ -254,7 +256,8 @@ export async function generateMetadata({
   }
 
   const canonicalPath = normalizeCareerBundleCanonicalPath(locale, detail.seoContract.canonicalPath, buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
-  const title = `${detail.displayType} Career Recommendations | FermatMind`;
+  const intjCopy = detail.publicRouteSlug === "intj" ? CAREER_EXPLORATION_PILOT.intj.copy[locale] : undefined;
+  const title = intjCopy?.title ?? `${detail.displayType} Career Recommendations | FermatMind`;
   const description =
     detail.renderState.canRenderSummarySurface && detail.supportingTruthSummary.summary
       ? detail.supportingTruthSummary.summary
@@ -266,12 +269,14 @@ export async function generateMetadata({
     locale,
     pathname: canonicalPath,
     title,
-    description,
+    description: intjCopy?.summary ?? description,
     explicitIndexGate: {
       indexEligible: detail.seoContract.indexEligible,
       indexState: detail.seoContract.indexState,
     },
-    noindex: !detail.renderState.canIndexPage || shouldNoindex(detail.seoContract.indexState),
+    // The pilot's editorial examples do not qualify the shared recommendation data for indexing.
+    noindex: Boolean(intjCopy) || !detail.renderState.canIndexPage || shouldNoindex(detail.seoContract.indexState),
+    noindexFollow: Boolean(intjCopy),
     alternatesByLocale: {
       en: buildCareerRecommendationFrontendUrl("en", detail.publicRouteSlug),
       zh: buildCareerRecommendationFrontendUrl("zh", detail.publicRouteSlug),
@@ -324,7 +329,9 @@ export default async function CareerMbtiRecommendationPage({
   ]);
   const matchedJobs = renderState.canRenderMatchedJobs ? filterStableRecommendationMatchedJobs(detail.matchedJobs) : [];
   const displayedMatchedJobs = matchedJobs.slice(0, 5);
-  const designExamples = locale === "zh" ? findDesignCareersByMbtiType(detail.canonicalTypeCode) : [];
+  const isIntjPilot = detail.publicRouteSlug === "intj";
+  const intjCopy = isIntjPilot ? CAREER_EXPLORATION_PILOT.intj.copy[locale] : undefined;
+  const designExamples = locale === "zh" && !isIntjPilot ? findDesignCareersByMbtiType(detail.canonicalTypeCode) : [];
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -352,8 +359,8 @@ export default async function CareerMbtiRecommendationPage({
   const mbtiLandingHref = withLocale("/tests/mbti-personality-test-16-personality-types");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
-    title: `${detail.displayType} Career Recommendations | FermatMind`,
-    description: safeRecommendationSummary || (locale === "zh" ? `${detail.displayType} 职业推荐` : `${detail.displayType} career recommendations`),
+    title: intjCopy?.title ?? `${detail.displayType} Career Recommendations | FermatMind`,
+    description: intjCopy?.summary ?? (safeRecommendationSummary || (locale === "zh" ? `${detail.displayType} 职业推荐` : `${detail.displayType} career recommendations`)),
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -367,7 +374,7 @@ export default async function CareerMbtiRecommendationPage({
     title: locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`,
     description: safeRecommendationSummary || (locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`),
     locale,
-    items: matchedJobs.map((job) => ({
+    items: (isIntjPilot ? displayedMatchedJobs : matchedJobs).map((job) => ({
       name: job.title,
       path: localizedPath(`/career/jobs/${job.canonicalSlug}`, locale),
       description: job.summary,
@@ -447,17 +454,17 @@ export default async function CareerMbtiRecommendationPage({
             <div className="space-y-5">
               <ConfidenceBadge tone={stateCopy.tone}>{confidenceLabel}</ConfidenceBadge>
               <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
-                {locale === "zh" ? "你的职业方向建议" : "Your career direction recommendation"}
+                {intjCopy?.title ?? (locale === "zh" ? "你的职业方向建议" : "Your career direction recommendation")}
               </h1>
               <p
                 className="m-0 max-w-3xl text-base leading-8 text-slate-600"
                 data-testid={canRenderSummarySurface ? "career-recommendation-hero-summary" : undefined}
               >
-                {safeRecommendationSummary
+                {intjCopy?.summary ?? (safeRecommendationSummary
                   ? safeRecommendationSummary
                   : locale === "zh"
                     ? `基于 ${detail.displayType} 的测评结果，先从结构清晰、边界明确的职业路径开始探索。`
-                    : `Based on ${detail.displayType}, start with structured paths where tradeoffs and next steps are clearer.`}
+                    : `Based on ${detail.displayType}, start with structured paths where tradeoffs and next steps are clearer.`)}
               </p>
               {renderCareerDataStatus(detail, locale)}
               <div className="flex flex-wrap gap-3" data-testid="mbti-career-entry-cta-group" data-ads-surface="secondary">
@@ -491,6 +498,7 @@ export default async function CareerMbtiRecommendationPage({
           </div>
         </section>
 
+        {isIntjPilot && <CareerExplorationPilot pilot="intj" locale={locale} />}
         {designExamples.length > 0 ? (
           <section id="design-mbti-exploration" className="scroll-mt-24 space-y-4 rounded-3xl border border-slate-200 bg-white p-5 sm:p-6">
             <h2 className="m-0 text-xl font-semibold text-slate-950">{detail.canonicalTypeCode} 的设计职业探索示例</h2>
