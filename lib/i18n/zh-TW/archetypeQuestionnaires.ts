@@ -1,3 +1,4 @@
+import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
 import { isArchetypeConfigurationValid } from "@/lib/questionnaires/scoring";
@@ -23,11 +24,13 @@ export function archetypePrivacyAnswer(slug: string): string {
 }
 
 export async function loadTraditionalArchetype(slug: string) {
-  if (!Object.hasOwn(sources, slug)) return null;
-  const edition = sources[slug as keyof typeof sources];
-  const [source, { default: additional }] = await Promise.all([loadQuestionnaire(slug), edition.load()]);
+  if (!hasTraditionalArchetype(slug)) return null;
+  const source = await loadQuestionnaire(slug);
   if (!source || !isArchetypeConfigurationValid(source)) return null;
   const quiz = projectStoryCopy(source, `lib/questionnaires/data/${slug}.json`, units);
+  if (!Object.hasOwn(sources, slug)) return quiz;
+  const edition = sources[slug as keyof typeof sources];
+  const { default: additional } = await edition.load();
   const readings: Record<string, QuestionnaireSection[]> = projectStoryCopy(additional, `lib/questionnaires/result-content/${edition.name}.json`, units);
   const note: Text = {
     zh: `若本次有多個最高匹配，請分別讀各份說明。並列不會合成新的${edition.type}，也不會指定主次。分享公開說明只會開啟通用讀法，且不附個人計數或答案。`,

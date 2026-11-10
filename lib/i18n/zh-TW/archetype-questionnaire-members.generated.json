@@ -1,4 +1,15 @@
 {
+  "avatar-bender-quiz": [
+    "water",
+    "earth",
+    "fire",
+    "air"
+  ],
+  "soldier-poet-king-quiz": [
+    "soldier",
+    "poet",
+    "king"
+  ],
   "mythical-creature": [
     "dragon",
     "phoenix",

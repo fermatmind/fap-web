@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { FantasyQuestionnaireLanding } from "./FantasyQuestionnaireLanding";
+import { FantasyPortrait, hasFantasyArtwork } from "@/components/questionnaires/FantasyRoster";
+import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
 import { SuperpowerPage } from "@/components/questionnaires/SuperpowerPage";
@@ -19,8 +22,10 @@ const pages = {
 };
 const requireQuiz = cache(async (slug: string) => {
   const quiz = await loadTraditionalArchetype(slug);
-  if (!quiz || !Object.hasOwn(pages, slug)) notFound();
-  return { quiz, Landing: pages[slug as keyof typeof pages] };
+  if (!quiz) notFound();
+  const Landing = Object.hasOwn(pages, slug) ? pages[slug as keyof typeof pages] : null;
+  if (!Landing && !hasFantasyArtwork(slug)) notFound();
+  return { quiz, Landing };
 });
 
 export async function traditionalArchetypeMetadata({ slug, profile, take }: Stage): Promise<Metadata> {
@@ -42,7 +47,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
   const entry = questionnairePath("zh-TW", slug);
   if (take) return <TraditionalQuestionnaireCopy>
     <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
-      <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" take />
+      {Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" take /> : <QuestionnaireClient quiz={quiz} locale="zh" />}
     </QuestionnaireTakeDocument>
   </TraditionalQuestionnaireCopy>;
 
@@ -51,7 +56,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("zh")} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
-  if (!profile) return <>{languages}<Landing quiz={quiz} locale="zh" displayLocale="zh-TW" /></>;
+  if (!profile) return <>{languages}{Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" /> : <FantasyQuestionnaireLanding quiz={quiz} />}</>;
 
   const result = quiz.profiles.find(item => item.id === profile);
   if (!result) notFound();
@@ -61,6 +66,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <p className="text-sm font-semibold">完整公開指南</p>
     <h1 className="text-3xl font-bold sm:text-4xl">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
+    {hasFantasyArtwork(slug) && <FantasyPortrait slug={slug} id={result.id} name={result.title.zh} large />}
     <p className="text-sm leading-7">這份公開指南只提供閱讀參考，沒有任何人的作答紀錄。</p>
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
     <QuestionnaireResultReading quizSlug={slug} profile={result} locale="zh" traditional headingLevel={2} mode="guide" showSummary={false} />

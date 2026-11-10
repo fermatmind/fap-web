@@ -9,6 +9,7 @@ const editions = {
   "what-dog-breed-am-i": ["dog-breed", "DogBreed", "dogBreed"],
   "superpower-test": ["superpower", "Superpower", "superpower"],
 };
+const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
 const membersOutput = new URL("lib/i18n/zh-TW/archetype-questionnaire-members.generated.json", root);
 const read = (file) => existsSync(file) ? readFileSync(file, "utf8") : "";
@@ -17,10 +18,10 @@ const previous = read(output);
 const sourcePaths = Object.entries(editions).flatMap(([slug, [reading]]) => [
   `lib/questionnaires/data/${slug}.json`,
   `lib/questionnaires/result-content/${reading}.json`,
-]);
+]).concat(sourceOnly.map(slug => `lib/questionnaires/data/${slug}.json`));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sourcePaths);
 const previousUnits = previous ? JSON.parse(previous).units : {};
-const members = {};
+const members = Object.fromEntries(sourceOnly.map(slug => [slug, JSON.parse(snapshots[`lib/questionnaires/data/${slug}.json`]).profiles.map(profile => profile.id)]));
 const terms = [["测试", "測驗"], ["测验", "測驗"], ["链接", "連結"], ["画像", "人物側寫"]];
 
 function readLiteral(node) {

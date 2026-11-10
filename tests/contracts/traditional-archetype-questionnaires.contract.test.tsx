@@ -17,7 +17,8 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   const source = (await loadQuestionnaire(slug))!;
   const quiz = (await loadTraditionalArchetype(slug))!;
   expect(quiz.profiles.map(profile => profile.id)).toEqual(profileIds);
-  const selected = Object.fromEntries(source.questions.map(question => [question.id, question.options[0].id]));
+  const selected = Object.fromEntries(source.questions.map(question => [question.id, question.interaction === "rank" ? JSON.stringify(question.options.map(option => option.id)) : question.options[0].id]));
+  expect(scoreQuestionnaire(quiz, selected)).toMatchObject({ status: "complete" });
   expect(scoreQuestionnaire(quiz, selected)).toEqual(scoreQuestionnaire(source, selected));
   expect(quiz.questions.map(question => [question.id, ...question.options.map(option => option.id)]))
     .toEqual(source.questions.map(question => [question.id, ...question.options.map(option => option.id)]));
@@ -33,7 +34,7 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   expect(start).toHaveAttribute("action", route + "/take");
   expect(start?.querySelector('input[name="start"]')).toHaveValue("1");
   for (const profile of quiz.profiles) {
-    expect(screen.getByRole("link", { name: profile.title.zh })).toHaveAttribute("href", questionnaireGuidePath("zh-TW", slug, profile.id));
+    expect(screen.getAllByRole("link", { name: profile.title.zh }).every(link => link.getAttribute("href") === questionnaireGuidePath("zh-TW", slug, profile.id))).toBe(true);
     const original = prepareResultProfile(slug, source.profiles.find(item => item.id === profile.id)!);
     expect(profile.sections.map(section => [section.id, section.paragraphs.length])).toEqual(original.sections.map(section => [section.id, section.paragraphs.length]));
     expect(profile.sections.flatMap(section => section.paragraphs.map(paragraph => paragraph.en)))
@@ -43,5 +44,5 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   const profile = quiz.profiles[0];
   render(await ArchetypeQuestionnairePage({ slug, profile: profile.id }));
   expect(screen.getByRole("heading", { name: profile.title.zh })).toBeVisible();
-  expect(screen.getByText(profile.sections.at(-1)!.paragraphs[0].zh)).toBeInTheDocument();
+  expect(screen.getAllByText(profile.sections.at(-1)!.paragraphs[0].zh).length).toBeGreaterThan(0);
 });

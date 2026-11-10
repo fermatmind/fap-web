@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
+import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
 import { loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
@@ -18,6 +19,7 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     const result = quiz && portrait ? quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!quiz || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    if (slug === "avatar-bender-quiz" || slug === "soldier-poet-king-quiz") return fantasyOpenGraphCard(quiz, "zh", result?.id, await archetypeFont, true);
     return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh, Boolean(result), await archetypeFont, "原創趣味測驗");
   }
   const quiz = hasTraditionalBespokeStory(slug) ? await loadTraditionalBespokeStory(slug) : (await loadTraditionalLegacyStory(slug))?.quiz;

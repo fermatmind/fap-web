@@ -9,6 +9,8 @@
     "lib/questionnaires/result-content/dog-breed.json": "3b426c2b5ea9d28927efca2e54c2c9dfefe9e704bfa84393c521b83ea54f1561",
     "lib/questionnaires/data/superpower-test.json": "22607c3b5cab663d1366459703d9d4c3ab43b2202d0c10162b5cb33fe7c0b6a8",
     "lib/questionnaires/result-content/superpower.json": "eed31dea4db0d5278bffc0e01af29678433f3ba05cc45777b3cc7d1970a876b9",
+    "lib/questionnaires/data/avatar-bender-quiz.json": "19c04bffd881ba87641c361e20e6eb89b8b2e5964e9b61be9bc5eb49392641e7",
+    "lib/questionnaires/data/soldier-poet-king-quiz.json": "c4439225f375032ab1eef4ff2097e1ac790d4bf3a0107d791e338074261c4dd0",
     "components/questionnaires/MythicalCreatureLandingEditorial.ts": "59766ced578c069dbaa98779e96b39aa4cfd02f9e9194785a9bedbc0f948e664",
     "components/questionnaires/DogBreedLandingEditorial.ts": "7f836fd0700f5ff15e798e1950f40b92a94a0994c5c726249c0f0c7c8ad8cc91",
     "components/questionnaires/SuperpowerLandingEditorial.ts": "2bb64af9e3d72a40298d8f06e33ff0f7d31254a1b7cc66842d609aaf5a009d1d"
@@ -3433,6 +3435,1622 @@
     "lib/questionnaires/result-content/superpower.json/super-strength/2/paragraphs/0": {
       "sourceHash": "a147107fd2a92bb0bd8f8c4a25cae46c4d8be9b83ab5e921361eea67fb0221d7",
       "text": "“這次我的最高超能力比喻裡有超強力量：把善意縮成一項做得到的小幫助。你更希望別人先問需要什麼，還是提出一個具體選項？”它不表示體力或技能更強，也不把一次幫忙變成持續義務或需要回報的人情。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/title": {
+      "sourceHash": "048437e20b09f68d3fa616c5b9e8199bdc06189716ca2aa79284f6dd407a83e5",
+      "text": "降世神通御術型別測試"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/seoTitle": {
+      "sourceHash": "5a7f3421d60c39f558ab1bf449e381e1465c70e4f74ba2bc47e8a297fe23a205",
+      "text": "降世神通御術型別測試：你是哪種御術師？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/description": {
+      "sourceHash": "c143637a4fec1572785309709abd24682d3540c7ae2f58d3c314a8e2bdecc693",
+      "text": "通過24道原創御術情境，探索御水、御土、御火與御氣四種故事風格。檢視佔比、並列解釋和四類比較，免費儲存個人結果卡。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/introduction": {
+      "sourceHash": "fbfe72ac46d6d911bad47f1ccb9d2093bd3c4c07861cbcead060d7253b98cc35",
+      "text": "練習被打斷、路線被封住、同伴需要支援時，你會怎樣調動故事中的力量？通過24道原創四選一情境，探索御水、御土、御火、御氣，檢視真實計數、全部並列與完整解讀，儲存你的原創御術主題結果卡。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/instructions": {
+      "sourceHash": "441caed9792580c1d3f7dd3cc519f99efc4de5b6bc4f30f1bf14c61ccbb31f50",
+      "text": "這是以《降世神通》御術意象創作的獨立粉絲娛樂測試，結果是本輪情境選擇對應的敘事風格。它不測真實能力，不是人物匹配或知識考試，也不意味著你能在故事設定中同時掌握多種御術。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/directions/0/title": {
+      "sourceHash": "53c0539941fe872493d6154f24d47abab8d6fbb97d9c79a394596acbff4200f5",
+      "text": "御水師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/directions/1/title": {
+      "sourceHash": "1d97bc21106eaf09c08d32427f3cf740150fbcc0da2304c9ce91b7282271383f",
+      "text": "御土師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/directions/2/title": {
+      "sourceHash": "e68950c924cc395c30e62304665fbe04dfe750df064e79a54fc9630ffbe22796",
+      "text": "御火師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/directions/3/title": {
+      "sourceHash": "0c3c572c1e2830c5218177e5edc60cab0d2e2b96cc23851b7e009150c62ad44d",
+      "text": "御氣師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/0/prompt": {
+      "sourceHash": "27729311c6a9363408dbda4cb010150331bf410fbe4e4fb0929f13d34d35a8ee",
+      "text": "練習場突然下雨，你怎麼調整？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/0/options/0/label": {
+      "sourceHash": "084a6a8bbb0139619d03ec6ee5240ae700ef042b4d4f5940671897e21a749402",
+      "text": "順著新條件改變動作。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/0/options/1/label": {
+      "sourceHash": "3bcc79249a15f4b18ab9bb8abc8e7bbdc0ff64d25a762cc29943c75aec747fda",
+      "text": "找穩立足點再繼續。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/0/options/2/label": {
+      "sourceHash": "48f8a6c46f63ba02c274b9be966e6cc7c5ce18448dbdaeb951b051f35af8919b",
+      "text": "縮短練習，集中突破一個目標。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/0/options/3/label": {
+      "sourceHash": "6d31dc71377a536bf1e20ea0b50bb8b49a869e7f5259fb2a6beb12dce6ee3d12",
+      "text": "換一個路線或練習方式。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/1/prompt": {
+      "sourceHash": "4cca2ad3dceb35501ed25d9a521253ac18c27b06ad8479a9639de9be26abfb46",
+      "text": "夥伴被困在河對岸，你先考慮什麼？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/1/options/0/label": {
+      "sourceHash": "4cc2d4d9005de86f0b6daa52493735f9df882a7ca8921e0a3457ec667af4c3a7",
+      "text": "尋找穩固支點與可靠通道。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/1/options/1/label": {
+      "sourceHash": "d51b45f8edc4287b905e0f7fe87a1b2fd0dcef3986e0749304c29a42b2bbe048",
+      "text": "確定最緊迫的一步並立即行動。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/1/options/2/label": {
+      "sourceHash": "81dddfc3de6633394718cb80bc75a2c1a4569555043b6ccbd775c80c57be76e7",
+      "text": "尋找繞行、借力或輕巧通過的可能。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/1/options/3/label": {
+      "sourceHash": "8c4ef199362a5b9de8727f6295243069497406820bb44f2183aa0c78d60d59d3",
+      "text": "觀察水流與能互相接應的位置。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/2/prompt": {
+      "sourceHash": "4de44ada51154a65556f62074fda6cb98fea91e5a8f87ad791eec2f8ab0deb01",
+      "text": "導師讓你改掉熟悉招式，你傾向怎麼學？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/2/options/0/label": {
+      "sourceHash": "eb351031293220d69627ed3f5c95d4e7ba4615182603fda4482de8885bb2a2c2",
+      "text": "設一個明確挑戰，全力練習。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/2/options/1/label": {
+      "sourceHash": "f6e3dcaa9f226f48bc19d992629f5a3bdadbf710971779d03ffb6f010c51a49b",
+      "text": "用幾種不同方式探索原理。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/2/options/2/label": {
+      "sourceHash": "2bb534efe17d7ce1752a3d207640820972482f01f44b6c3122fdd82c9d73b453",
+      "text": "跟隨反饋，一點點改變節奏。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/2/options/3/label": {
+      "sourceHash": "45907e86d1971eee198605c0ccc178ea954da94d31354e0b4749b3eaa65d54e6",
+      "text": "重複基礎直到動作穩定。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/3/prompt": {
+      "sourceHash": "1d25defeb538f881a60bfab0d00b987b14d3691a1df9a93c56189682d4757596",
+      "text": "村莊面臨威脅，你願意負責什麼？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/3/options/0/label": {
+      "sourceHash": "18b8e21d3cede36f2e93aa59e5eeab4f32868817eeb3841ee2c32c786042ba9e",
+      "text": "找出撤離路線並減少正面衝突。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/3/options/1/label": {
+      "sourceHash": "840f656f4de0c4c0b37ab71569f1bcdb55331c17bb7bc223b61c8effb03308c5",
+      "text": "照顧受影響的人並協調互助。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/3/options/2/label": {
+      "sourceHash": "2f55b505826eed355a4aa8b9b62d6e9137a51dc78301cab77d101a30a63ad74b",
+      "text": "加固能保護大家的設施。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/3/options/3/label": {
+      "sourceHash": "03c8901fe9a48bfaf76d0d702c1575f28974a02e760085645c1257664fe1e752",
+      "text": "組織快速且集中的應對。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/4/prompt": {
+      "sourceHash": "40748804118a4af4617443342e9205e78fc0521c08aea5371ec533a05705d301",
+      "text": "對練中對手力量更大，你會怎樣？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/4/options/0/label": {
+      "sourceHash": "9a8ac8c7e00d37f03e01b85d1abfc818e9f2d0071af03b54c9ea0fd90106da37",
+      "text": "改變方向，讓來勢成為轉機。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/4/options/1/label": {
+      "sourceHash": "ecdd69484cf0f486058ff7bca606bd166c1b8afe88b03511b6224d53f33ba5bc",
+      "text": "穩住重心，等待確實的機會。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/4/options/2/label": {
+      "sourceHash": "33bdb4988ae9e4e108a08455ebfe48ac183fe92a011fd32d13e5dbffdbb3244c",
+      "text": "集中力量把握短暫突破點。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/4/options/3/label": {
+      "sourceHash": "efee138b1aa43417f75277eff03750ef7aabf92c0832e709fa710071c278f59b",
+      "text": "保持移動，讓對方難以鎖定。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/5/prompt": {
+      "sourceHash": "17005f647d489256011571cf9cd569c391b4bc0815eb503558e0998aefe23deb",
+      "text": "一次失敗後，你想怎樣恢復訓練？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/5/options/0/label": {
+      "sourceHash": "6c952fc6e7e8b99b86b9b95eda4c3778165c1009f7253bc3191546aa74d75462",
+      "text": "回到一個能穩定完成的基礎。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/5/options/1/label": {
+      "sourceHash": "697ba8b9529e6565334c268a49b49f82d9076b8388b1adb3e791a6df450f0aa9",
+      "text": "給下一次嘗試一個清楚目標。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/5/options/2/label": {
+      "sourceHash": "88ea0c0da41d3b484ff7226060eb04b6ebd383c7fd29dc800c81a5c1bb928507",
+      "text": "暫時換個角度，讓身體鬆下來。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/5/options/3/label": {
+      "sourceHash": "e53eb55b3d0a0a3c6a9dc16d3d7238c03a38ef1efac5f77b78de0660d389e8a6",
+      "text": "和夥伴交流，調整方法。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/6/prompt": {
+      "sourceHash": "28e2cc4a3d332e589accd96872b65df5f7974091bffabb29a314c6821fe4e744",
+      "text": "你更喜歡哪種練習環境？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/6/options/0/label": {
+      "sourceHash": "e4e6a29a90db0c4b23b7dda35035e4177b5398af2cb67295cf1695751ee72a83",
+      "text": "能投入精力、看見進展的場地。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/6/options/1/label": {
+      "sourceHash": "4291116c878c09aa158d1660576554238ae2473c6fc95e95ba5d3ddac618d8d2",
+      "text": "能自由移動、嘗試新路徑的場地。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/6/options/2/label": {
+      "sourceHash": "72e37a95012bcaba6adc6c09f827ce17170d67d85636b77d527102f69c5205b4",
+      "text": "能跟隨變化、彼此配合的場地。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/6/options/3/label": {
+      "sourceHash": "72687b51cd8c22d6d8e6125e0b57f9e53532e982fbc852024fc3980d37c648f0",
+      "text": "能感受重量、支點和節奏的場地。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/7/prompt": {
+      "sourceHash": "73c5e34fc62dfbde467dd7f1190cd29cae38b4b600ec3ab7e9ead118c8afb1a8",
+      "text": "夥伴們對路線意見不一，你會怎樣？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/7/options/0/label": {
+      "sourceHash": "d0d97fd82f432cd408177e66919f765e51aa7894a1ce4badb643805254ffddd7",
+      "text": "提出大家沒考慮過的第三條路。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/7/options/1/label": {
+      "sourceHash": "95fd557c1836044a5b241f216e948b9a51352b8448049af468f9db0f310f6a3c",
+      "text": "聽清各自擔憂，調整大家能接受的路線。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/7/options/2/label": {
+      "sourceHash": "e5f184b188c8fc1f04ff5cc22658f51e6ca0d2614f2489ec49cb8339efac7f43",
+      "text": "核對地形事實，找最可靠的依據。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/7/options/3/label": {
+      "sourceHash": "fcd85c6ec7d2ffee85372ea4b733ec609a9ce5227a054e17cc166b699f42db1b",
+      "text": "明確此行目標，推動及時作決定。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/8/prompt": {
+      "sourceHash": "978f0dcb64120efd820c6c0038c248dc0886f424c5cef0b390f9c2c259819a24",
+      "text": "長途旅行中，你自然關注什麼？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/8/options/0/label": {
+      "sourceHash": "f619a95228eb2ba3aa1a47acfdb3643f4f2debaefd598854600c101176f8a964",
+      "text": "同伴的狀態和資源是否可共享。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/8/options/1/label": {
+      "sourceHash": "76ae241cdce92882c45b23a9734a25802367a7f67bab5dc8426421bc5b7d1abc",
+      "text": "補給、休息點和可依靠的安排。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/8/options/2/label": {
+      "sourceHash": "256aa8d2425bebb27d23f920771dce4de92a835f5d1502f8325f3f29115870cc",
+      "text": "目的地、時限與持續前進的動力。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/8/options/3/label": {
+      "sourceHash": "d7c0ef1e4dee4e363d2359594999cdaaa90722f6b5e6ffd520b032811abbcc08",
+      "text": "沿途可能發現的新路與新體驗。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/9/prompt": {
+      "sourceHash": "06f3fc234c40ab08382ddb9bd8369d9ce07370ab36bad6962ba6f8da1392b292",
+      "text": "一項御術練習要求耐心，你靠什麼堅持？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/9/options/0/label": {
+      "sourceHash": "eb9142d82592828c7c9ccf9b99d87bda2073349851fc6cead6b4e275b7b6cb4b",
+      "text": "信任重複基本功的積累。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/9/options/1/label": {
+      "sourceHash": "6d72ce2b624d1be52ff533e34911e1c0231f405a7e1dc7fced79c37df5498776",
+      "text": "把難點變成值得突破的挑戰。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/9/options/2/label": {
+      "sourceHash": "e2b29e7104000718e16752e3a6e834b30782b095128d7b16487ccad60e944837",
+      "text": "不斷找到有趣的小變化。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/9/options/3/label": {
+      "sourceHash": "af9abceee68fa2bbf28d4da2d247d434ebc069f53f126bfea26dacfd05c70db5",
+      "text": "感受細微變化，讓動作逐漸順暢。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/10/prompt": {
+      "sourceHash": "1471073dfe81269e6d98ece1bf6061388b59134685c0775bae2a40fcd7cb1f4e",
+      "text": "朋友情緒激動時，你會如何回應？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/10/options/0/label": {
+      "sourceHash": "30db3538ffc236d3d2e969418c24df7aec8b88e03ff93ceb15f4f3d0316d8a4b",
+      "text": "幫他找回能行動的力量。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/10/options/1/label": {
+      "sourceHash": "aa5d3c40c7e3e45eb22e5bef32a6d28f4115737c0ded3e890ecd2e05384834eb",
+      "text": "留出呼吸空間，不急著困住答案。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/10/options/2/label": {
+      "sourceHash": "b3891fc16d2581171263faaff306cb5600a0a26e3686c3994bb2d25751c7b358",
+      "text": "陪他梳理感受，隨需要調整回應。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/10/options/3/label": {
+      "sourceHash": "bbda17f81c45cb68e64846d01300e50c44a7834d43a33cbb346c78bd7c5fe8d3",
+      "text": "安穩地陪著，提供實際支撐。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/11/prompt": {
+      "sourceHash": "0e71854ff8b56c1268cdd8211284193c41e105c11bcdcb854fbb548fda140d11",
+      "text": "在虛構世界學御術，你最想練哪項原則？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/11/options/0/label": {
+      "sourceHash": "df6bc2031d5baf843b1dc0799d370ce05d3be4055aa108b0f8189053b1d6ec7a",
+      "text": "保持輕盈與選擇。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/11/options/1/label": {
+      "sourceHash": "47fcf69495bbe92cb324fcd5224af2750981fcd6d8cee6635d9b71bb4dcb6e6d",
+      "text": "借勢而變。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/11/options/2/label": {
+      "sourceHash": "221e1bcbbffc2a2bdd98184b956f636bba8dc8b243b20f347ff31d594b7d35f5",
+      "text": "站穩再動。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/11/options/3/label": {
+      "sourceHash": "dfae03baa19c08f7e6236a2cd07050cbe5c2ce533ac92c46b99f90df1af017c8",
+      "text": "讓意志與行動一致。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/12/prompt": {
+      "sourceHash": "c9087fe96097945e345b1028dfc473e1329d3cbbc1f992056c44a5f69a3da336",
+      "text": "一條熟悉的路被堵住，你首先會怎樣？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/12/options/0/label": {
+      "sourceHash": "9ace1e48fad2dd73705452abf6596b42440b3d753be2b3a8089bfe6d84524848",
+      "text": "隨現場條件改變計劃。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/12/options/1/label": {
+      "sourceHash": "23cc20ff45803786c7fc7709dfa7db4c56f21135e7087bed519971b42981f124",
+      "text": "確認障礙與可用支點。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/12/options/2/label": {
+      "sourceHash": "27242ca918a247d5a4d28d91ec7b0dcfe420d8fa618567e9dac7d0e665c3c3b6",
+      "text": "決定要解決的關鍵阻礙。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/12/options/3/label": {
+      "sourceHash": "521e506cb8e4d4fac0867afa58c61f9852e684231af217b56a51e5cd40a39bce",
+      "text": "尋找不必硬闖的替代路徑。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/13/prompt": {
+      "sourceHash": "b5e323cbfe20418ca0be38a84c832b35c236601697d5d904fe40016f78c8677c",
+      "text": "一次共同訓練最好的部分是什麼？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/13/options/0/label": {
+      "sourceHash": "e9323e4b523c5b3016675b8f5f8c9c01dd788a9c8f27c7f6b2834664fab9e77f",
+      "text": "建立可以互相信任的基礎。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/13/options/1/label": {
+      "sourceHash": "0e2c84e4b76b822414403f74644599b84d7fd80622aedae8bcb0cb9fc011cd66",
+      "text": "讓大家被同一個目標點燃。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/13/options/2/label": {
+      "sourceHash": "2b06f9e81b8e17e1a26a3edd8d8b08e2dab37614d2de51c14f68365ed244ab81",
+      "text": "每個人都能發現自己的新可能。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/13/options/3/label": {
+      "sourceHash": "b7b2db19a8741efd274f3eb913af5d173cbd675ab9f3e2b8e0bf0b783e551678",
+      "text": "感受到彼此回應與配合。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/14/prompt": {
+      "sourceHash": "446aa47a749171da46daadbbcf7064a297aaac6af70694ca23c627ba5390b48d",
+      "text": "你發現自己的長處也成了阻力，會怎樣修正？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/14/options/0/label": {
+      "sourceHash": "7feb23b924509c1ab6d745f8b4e8d1e2ee02b71ab0f39f93646b8f2885dc160e",
+      "text": "不把熱情變成催促別人。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/14/options/1/label": {
+      "sourceHash": "d346f81e52ebd9905a857c31647ce80a41e8f6b1cff82a20015aa029586b7703",
+      "text": "不把自由變成一再回避承諾。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/14/options/2/label": {
+      "sourceHash": "516f09eac740846806fe559a8c6a443a15f6794f03deffc8600c62ed9c7dc341",
+      "text": "不再為了配合而忽略自己的邊界。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/14/options/3/label": {
+      "sourceHash": "1e2c82c0f5644e8e8e237c56f3c4e55bb1b8ce9c2a6a8ae151e4d7bd3b8ad26c",
+      "text": "不把堅持變成拒絕新資訊。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/15/prompt": {
+      "sourceHash": "792a0e16f03581af4dfd70b369e3882a4d53fcd367d557934438af8d0bb3ec2e",
+      "text": "導師給你一句提醒，哪句最有用？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/15/options/0/label": {
+      "sourceHash": "4df68ffb4bed5b6bf6122708addeb4847bd0e41cd9431418b34b6db9306bac86",
+      "text": "輕盈也可以帶著責任。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/15/options/1/label": {
+      "sourceHash": "bd9951f5937be6ab6a5e2e20826bb96eef2d57325711b1d5e5abec1274e6c675",
+      "text": "變化也需要清楚的邊界。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/15/options/2/label": {
+      "sourceHash": "5782c899de24e886da20739d15de5c12f347a7fd9f3892b8c8cf7fdeec345df7",
+      "text": "穩固不等於永遠不變。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/15/options/3/label": {
+      "sourceHash": "04f0d10d9fd7273eb18ebb34412bb18cc2734e5c9fe85a945678ebfb4263d11e",
+      "text": "力量需要節制才更持久。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/16/prompt": {
+      "sourceHash": "41eaf908e6dcb2adb7296dc5f9c0633f7312d29e45a8066739f3248f593b9a4e",
+      "text": "你願意怎樣保護一份重要約定？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/16/options/0/label": {
+      "sourceHash": "37fb15d9e82e972a21cdfbdb50ed52654d1dcd111f1653c4bacac9abbe8c5298",
+      "text": "保持溝通，讓約定適應真實需要。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/16/options/1/label": {
+      "sourceHash": "c34b6b486efb4ef713d88f6a38006ad7f7cac7f3e8fa340fa1d6fd7a47489305",
+      "text": "把該做的事持續做到。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/16/options/2/label": {
+      "sourceHash": "770098cf7252533836d55c55ae793be27c6e01a5b3d43aaddbde73fd7de4d555",
+      "text": "需要時清楚表態並採取行動。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/16/options/3/label": {
+      "sourceHash": "6a858a0f41a88919d6d3555e4558fd0a86879d22af0bd66d44db7f5150e34c45",
+      "text": "保留選擇，確保每個人是自願參與。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/17/prompt": {
+      "sourceHash": "5c25d45415669b687acc41d1ce6242c4251cf3c9140a1cfdd1313be40097e02c",
+      "text": "一場比試臨近，你會怎樣準備？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/17/options/0/label": {
+      "sourceHash": "753a5eb996d285f38e670207086899606279eef54b77d4d633eb223eccef00e8",
+      "text": "鞏固基本動作和身體穩定。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/17/options/1/label": {
+      "sourceHash": "29b4b1a96ea53d99db92a7582740cda6c3c82c84966ac300f6bd0f5c8ef248cf",
+      "text": "鎖定目標，讓精力更集中。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/17/options/2/label": {
+      "sourceHash": "bbc42c619b95a70d892257e7f0c759e9a2cb331cbb59a98e22573b0258a3f2ec",
+      "text": "練習移動與意外局面的處理。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/17/options/3/label": {
+      "sourceHash": "d342110c7e8dece3c2e0132ebbad9c7ecf4813447e9abd47226cd762ff4103ef",
+      "text": "研究對手變化，練習回應。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/18/prompt": {
+      "sourceHash": "1759c6e867e0dba1db54ebd056aa61972603b8e5fdf952975e7a0cf6fb4858ea",
+      "text": "面對陌生文化的夥伴，你會先做什麼？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/18/options/0/label": {
+      "sourceHash": "82c2b3793e4e39d44ec775ef34656a1daed60a29ec57ee8d22a9f3f8cc0ca15e",
+      "text": "尋找雙方可以共同投入的目標。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/18/options/1/label": {
+      "sourceHash": "682d78b8bdbba6cc0fecc554488a2c39c995acec3170d2d142be3381d4443072",
+      "text": "帶著好奇體驗不同的生活方式。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/18/options/2/label": {
+      "sourceHash": "0edcf194ce427c1b406bfd7675730f8c1d1aa9cd504cbabc9237630f83ac77ee",
+      "text": "聽他們怎樣理解彼此的需要。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/18/options/3/label": {
+      "sourceHash": "73a5818ce8755cd0a8c6431dece8c5b53a90e91f50817823f26eda66961a91cf",
+      "text": "尊重可靠的約定和生活基礎。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/19/prompt": {
+      "sourceHash": "d3b5c455a6a428635140693f34880ed205265a2bdb26824ec2a84a9342bdcb66",
+      "text": "環境突然變得混亂，你怎麼找到方向？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/19/options/0/label": {
+      "sourceHash": "62b24f136224de895b1892ae540954448221c93b8b2200b6b1c0edaff47520b5",
+      "text": "退開一點，從更寬的視角看局面。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/19/options/1/label": {
+      "sourceHash": "fa651fc912ac2b72627446d234678a3f9cd8d69b50c452fabe193c9ca38915ed",
+      "text": "從關係和變化中尋找可回應的線索。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/19/options/2/label": {
+      "sourceHash": "5f923bceb7fa531c0c375d244e1ba7fd175a0865ff7d21507634e65b5053d2a5",
+      "text": "先辨明不會輕易改變的事實。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/19/options/3/label": {
+      "sourceHash": "2a689c58a757c7dd6df4bce8f671026bed105c95b40c35274f59fd5988c3a6f4",
+      "text": "抓住最需要立即處理的目標。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/20/prompt": {
+      "sourceHash": "cc401b560f43fcb5be91a018bf288a736046aa85e9a4132c1fdd33cc5b7e31e9",
+      "text": "你希望自己的御術在故事裡帶來什麼？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/20/options/0/label": {
+      "sourceHash": "bfca5e71345d5ce2ce58bc8c36d31affaba49dbae520582d5f3f7299225ca386",
+      "text": "連線、修復與新的轉機。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/20/options/1/label": {
+      "sourceHash": "fcfe11578dfde89af916d6677c581bd8cb7b1af98b1bcb9ced7670748d3320cb",
+      "text": "保護、耐力與可以依靠的基礎。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/20/options/2/label": {
+      "sourceHash": "29a4d1b37097cbf455a5179db6b00836304ef988377e27337b582dedfcd27e99",
+      "text": "勇氣、改變與向前的力量。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/20/options/3/label": {
+      "sourceHash": "9e8ec222ed9fd08c83527216f57553e87163a0442a2c414b255baac28292b4ad",
+      "text": "自由、餘地與不必對抗的出路。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/21/prompt": {
+      "sourceHash": "5f8b222b63ef59630b08012f230bd89b6495f0159884beb8f2f4707f3ec6c6f6",
+      "text": "練習終於成功，你想先怎樣慶祝？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/21/options/0/label": {
+      "sourceHash": "e42d794fd71d57bfa269b27a8d0d7464e04cb7f295d4670f6147f9d400015f6a",
+      "text": "記下過程，讓成果可以再次做到。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/21/options/1/label": {
+      "sourceHash": "4e61bf5cc45619d828ab26496edf9b5a713c48ba6427e93eb5e90e87929e1540",
+      "text": "享受突破，並開始期待下個挑戰。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/21/options/2/label": {
+      "sourceHash": "893ef968f9874b860ef4db682fef77d2ac65be523d1d7bfeeeaa0fa9949638d5",
+      "text": "帶著新本領去探索不同玩法。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/21/options/3/label": {
+      "sourceHash": "d3f6e0ad9c86d04b92b497787fe2bd08cba1ae8c2c7009e6f45e44c56364418e",
+      "text": "和一路相助的人分享這份感受。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/22/prompt": {
+      "sourceHash": "658fa47344c7acd2e56ec90ac97087e09bad8ac43d259a58a88065b1e6a0ad04",
+      "text": "遇到比試規則的灰色地帶，你傾向怎麼做？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/22/options/0/label": {
+      "sourceHash": "5103d9afcd7eafb489e0410ec19ad3fa31c597d3650be30becc0a0e49f3ab5bf",
+      "text": "明確界限後主動推進比賽。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/22/options/1/label": {
+      "sourceHash": "ac8382994fd1618457a0c5215e8e8d967223e561a2c9ed78ae99eafda5e178dd",
+      "text": "提出能避免爭執的另一種玩法。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/22/options/2/label": {
+      "sourceHash": "a962090e28677e93abe52e51d86225e3d3378b173cdbeec9e9fb15ad6deea849",
+      "text": "聽取彼此理解，協商合適的做法。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/22/options/3/label": {
+      "sourceHash": "a67040457c81356f9ffd493d1e93ae4312501c5951923ed66d71ed311c3b056f",
+      "text": "確認規則依據並保持一致。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/23/prompt": {
+      "sourceHash": "6720f8792b8b05d3d2fb73427ae19956bc5aa942e8a86943c5eb51b8488bc10b",
+      "text": "故事尾聲，你最想繼續哪段練習？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/23/options/0/label": {
+      "sourceHash": "5a49d9f4e6cd4b10fe797b911cddeacdbdaf5fdb7db8111cc90e4e542aafd34b",
+      "text": "在承擔責任時仍保有自由。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/23/options/1/label": {
+      "sourceHash": "b66982b6d35a36c08dee0cf2496539ab62cb177eef3ecaa0a8f32bbf6c181dc7",
+      "text": "在變化中與別人保持連線。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/23/options/2/label": {
+      "sourceHash": "bfd468c231f61798e1f4218e69d9a1eb7ad3328ce13e7fff4c560bde1d94d88c",
+      "text": "讓值得守住的事有穩固根基。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/questions/23/options/3/label": {
+      "sourceHash": "745b224e775c5c3a0522f072e6335fad5e48baa04a03bd56c2185b5a2cdfdd71",
+      "text": "讓熱情成為有方向的行動。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/title": {
+      "sourceHash": "2bafeeccdcb9d5695eb5277608d223aeb363b288ee992a00dddf4da1a219bdee",
+      "text": "御水師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/headline": {
+      "sourceHash": "27a8f7412e681fa5d0204251bc47bf14737ce3340fdd4aaea45edd22450cdff6",
+      "text": "以回應牽引變化"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/summary": {
+      "sourceHash": "1a3d03b1cc1da0046f7a0eb20cea602502264d9d2aa83122febd048dd34bf662",
+      "text": "這一輪，你更多選擇順勢調整、保持連線，讓回應成為力量。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/scoreReading": {
+      "sourceHash": "439841ab3fee7b757eb9760d7603caa7c863e0c1158e69ab9fe58d6a1a96642f",
+      "text": "24道四選一情境題，每題給所選御術風格加1點；每種風格在每道題都可選，各在A、B、C、D位置出現6次。本輪佔比為次數除以24。最高次數相同就保留全部，不按順序或最後一題決勝。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/seo/title": {
+      "sourceHash": "7c04a281fa8d3e1d890f51f99da7cdca77953b2417e2a377a75c982d5cbcb216",
+      "text": "御水師的含義、故事風格與御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/seo/description": {
+      "sourceHash": "f9054e94264be2cb25e15e384c9eda2c327e4f7dedf418ea5f8c453bd7ca4ea4",
+      "text": "你的故事御術圍繞回應展開：觀察變化、保持聯絡，在來勢中找到轉機。水流可以柔和，也能很有力量；御水師形象不等於被動或情緒化。你選擇的是讓方法跟著真實需要改變。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/0/title": {
+      "sourceHash": "c6005bde640d59220b757f0aa1e0ab6e983b15ec929cc0a65ebb68a6a49fb462",
+      "text": "這種御術在本版中的含義"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "2003b28989f883f97167cd3928e5e0b6dccc85c95913da5d983bc19029eea213",
+      "text": "你的故事御術圍繞回應展開：觀察變化、保持聯絡，在來勢中找到轉機。水流可以柔和，也能很有力量；御水師形象不等於被動或情緒化。你選擇的是讓方法跟著真實需要改變。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/1/title": {
+      "sourceHash": "3132048ac7e669a6492b9e288bdeaa8f74bf44efd8cd11e5b88fce6af6ccd28f",
+      "text": "一個原創故事場景"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "91385b747623b7aa2163ca5e9c592676316cab363ef576b227419b36573b1156",
+      "text": "練習夥伴臨時受傷，你把原本的雙人訓練改成對方可以參與的節奏，再確認哪些動作需要暫停。你沒有放棄目標，而是讓方法回應眼前的人與條件。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/2/title": {
+      "sourceHash": "e0eefcb580202b33ba6d5d0a89859521025cf2f829d84a14dcc3c8964b6c3707",
+      "text": "長處與需要留意的張力"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "f6fd3e783b8e5b7b47ac99c2b9e71921ed04256a586aafa55aea2c87599937f7",
+      "text": "不斷配合也可能模糊自己的界限。故事裡的水需要容器，你的調整同樣可以有明確底線。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/3/title": {
+      "sourceHash": "10cdd1554f54aaf776e7bfb249c96dd9d9e330ab2f8428e7ad5ba4adc32a5072",
+      "text": "與其他三種御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "a5b6acc4dee18daf50a234cd2b6809cc3349b175739f413c0dbd26f17d969ee0",
+      "text": "御水與御氣都可能改變路線：本版御水更側重回應關係與變化，御氣更側重轉換視角。御土先找支點，御火先聚焦推進。它們是四種敘事選擇，沒有更高等級。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/4/title": {
+      "sourceHash": "21937cc1c49bccb772ed0be470ad1260835bfeae7bad8c480c5f4f0a76e37c26",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "37aa2b240925344cabe599495c7fb0a2f3946a12fa99e4bb8a1bb85c63253708",
+      "text": "下一次調整計劃時，先說清一件你希望保留的事。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/5/title": {
+      "sourceHash": "02e970ff073188fb01139d7202922a1099f5da93769c9f451d86530689c26934",
+      "text": "這份畫像的邊界"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "5cdb8a5b0facce225abad1b1d6069f739a50f69405a764e0acb0e56e35bdd1e0",
+      "text": "這是以《降世神通》御術意象創作的獨立粉絲娛樂測試，結果是本輪情境選擇對應的敘事風格。它不測真實能力，不是人物匹配或知識考試，也不意味著你能在故事設定中同時掌握多種御術。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/title": {
+      "sourceHash": "b2a1ae0b0d8526f2c23168c5921d7f6fa9e0e7516b1f9f170b471aaadf6e594e",
+      "text": "御土師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/headline": {
+      "sourceHash": "36c4cd40a290a055279f4b1cade401679e336c901137aa7376b685c07e1a12e1",
+      "text": "先站穩，再選擇前進"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/summary": {
+      "sourceHash": "c34b757eeaf2cc0978bfebf0efc31c2684db55bf5f9bfb10493e33f97e351ad3",
+      "text": "這一輪，你更多選擇站穩基礎、持續承擔，讓可靠成為力量。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/scoreReading": {
+      "sourceHash": "ab9cc153102a7c0238f6ce6fe19eea48b39b3562769096c27ae54eb0d700091c",
+      "text": "24道四選一情境題，每題給所選御術風格加1點；每種風格在每道題都可選，各在A、B、C、D位置出現6次。本輪佔比為次數除以24。最高次數相同就保留全部，不按順序或最後一題決勝。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/seo/title": {
+      "sourceHash": "bc3080dfc6315f27fe83459546638f8b1c49a2cef0319ad19e47da7d6a4bf2a6",
+      "text": "御土師的含義、故事風格與御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/seo/description": {
+      "sourceHash": "9a7e3deb23f32ee3c3e8105eb9eb3cd223b701d6f4ce073fab75c15f7fb6794c",
+      "text": "你的故事御術先找到立足點，再決定何時行動。你關注現實條件、基本功和可依靠的承諾。御土師形象可以堅定而有彈性，不等於固執或拒絕想像。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/0/title": {
+      "sourceHash": "a225c511fb649cf2bf0870288b63a604eb897a71caef5f95af536b5cb2ff1201",
+      "text": "這種御術在本版中的含義"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "40bc416d64ab600f2898498d06c321fe826394ab25fe556888a733fdcb59587d",
+      "text": "你的故事御術先找到立足點，再決定何時行動。你關注現實條件、基本功和可依靠的承諾。御土師形象可以堅定而有彈性，不等於固執或拒絕想像。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/1/title": {
+      "sourceHash": "adbc4d54dbfabda4ee64786ab7ba81fd8a284525c6961f6e077713f20dca13b9",
+      "text": "一個原創故事場景"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "61bfbde500c54f89a6a6eeb849586ee5fd6148c1fd19e10ed7433939f1ae6e20",
+      "text": "小隊要穿過鬆動的石坡，你先試探能站穩的位置，再和大家商量每一步的間距。你不必永遠走最慢，而是在需要承擔重量時，讓每個人知道哪裡可以依靠。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/2/title": {
+      "sourceHash": "cfbd0726ea86bbc04b914406c64ad3ab9e588e90ccd0a84ea11d004fb40b15b5",
+      "text": "長處與需要留意的張力"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "e58f6d16e657048db1b83272edf627f1072dab292077cdf402d1ada8c2976971",
+      "text": "原本可靠的方法也會遇到新環境。允許一次小調整，不會讓已經建立的根基消失。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/3/title": {
+      "sourceHash": "e23b8bd3527e15d097480cf0e4f39b35d0e39ca65dd6551864e552e2546fd9bf",
+      "text": "與其他三種御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "3d583c7644b5bd2c09d8415d0a8d2fa9e0cd877b3d72c7d497268a548e1c483e",
+      "text": "御土與御火都可能承擔行動：本版御土先確認基礎與承重，御火先集中意志啟動。御水回應變化，御氣尋找另一條路。穩定不必排除嘗試，也不比靈活更成熟。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/4/title": {
+      "sourceHash": "642a94d41482a94f38bc2b8aa67b35dcfc9778b67ab4fc93379a2da9a49d8392",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "222f53c2faa56c53afd65c7f4d225ff3d082cdda24139712929d52168a305994",
+      "text": "在熟悉的方法裡留一個可以嘗試變化的小步驟。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/5/title": {
+      "sourceHash": "efd712df0314db1081d02aecd309aa0e458ba3ea81c33b7c4f0efa4fb22af2f7",
+      "text": "這份畫像的邊界"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "d4d2ccea6df401672168b9be12d817d2f62df24793ccb8f066e9a5df6e41b5e5",
+      "text": "這是以《降世神通》御術意象創作的獨立粉絲娛樂測試，結果是本輪情境選擇對應的敘事風格。它不測真實能力，不是人物匹配或知識考試，也不意味著你能在故事設定中同時掌握多種御術。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/title": {
+      "sourceHash": "bf54bcbadd5899ad428c638faf25c09c8eac1f4f9e904518651e16fd883f3ed4",
+      "text": "御火師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/headline": {
+      "sourceHash": "31ea8518acc8a4bbda1eac50674f6b8ec85ccbf81b2e38d72dccdf5703b6e80b",
+      "text": "讓熱情擁有方向"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/summary": {
+      "sourceHash": "2d418fb6a2f3edcdc8b857d2d2bb79fae756230f36d58518fc204eef96226ba4",
+      "text": "這一輪，你更多選擇集中意志、主動突破，讓熱情成為有方向的行動。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/scoreReading": {
+      "sourceHash": "7ff93a70b37505381ea7c3780bc7e7be43a0a30ec3d4b5645c36539d028a3148",
+      "text": "24道四選一情境題，每題給所選御術風格加1點；每種風格在每道題都可選，各在A、B、C、D位置出現6次。本輪佔比為次數除以24。最高次數相同就保留全部，不按順序或最後一題決勝。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/seo/title": {
+      "sourceHash": "abfaaea859b18454813fc3a86abaeba3fef825467280b8fa0ad54b976b286a78",
+      "text": "御火師的含義、故事風格與御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/seo/description": {
+      "sourceHash": "0f5f359d9424cd0d126ee94dfd85de8ff01d1df15a7854486c153f90f46ad864",
+      "text": "你的故事御術把內在動力化為可見行動。你願意鎖定目標，在需要決定時站出來。火焰也能提供溫暖和光明；御火師不等於憤怒、侵略或反派身份。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/0/title": {
+      "sourceHash": "c9d1c02c64e969056a5b3894e40b6ad3dd2ee828300879a56413b0e309a59799",
+      "text": "這種御術在本版中的含義"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "85bb1d25316f50e991566a81a97a7dae5e9771c54a5d5c6a591da6f49b9fa311",
+      "text": "你的故事御術把內在動力化為可見行動。你願意鎖定目標，在需要決定時站出來。火焰也能提供溫暖和光明；御火師不等於憤怒、侵略或反派身份。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/1/title": {
+      "sourceHash": "d668f2059c91d0f2e61ed8435b4e5b1c491276cf85b1eb060f770d583b8f3e3b",
+      "text": "一個原創故事場景"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "1d91db2ebf0bc9a54566b16105b14e55f907ac71f9a617a6186e0893379d091f",
+      "text": "訓練總在同一個動作上停住，你選定一次短練習，只集中處理那個轉折。你也約定結束時間與補給，讓推進不必變成長時間透支。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/2/title": {
+      "sourceHash": "2dbe7af6554be0bb2555f990ea8b0239787fa17fc174915e7bdb2b83958c3976",
+      "text": "長處與需要留意的張力"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "ffe7d31f5aeecde4e8e1a94fd0e55804701e7b60eef253c375361e581794ede1",
+      "text": "持續燃燒需要節制和補給。你看見突破口時，也可以確認同行者是否準備好一起行動。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/3/title": {
+      "sourceHash": "ec2a805c46a540e6a08622076b8c56f8ac7baf70329064aef85bf8aa5686d63b",
+      "text": "與其他三種御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "d0e6a60a1a594181ce11a1db19307c0c23d702ace04ceaeb21531817f839757f",
+      "text": "御火與御土都可能堅持目標：本版御火強調有方向的啟動，御土強調可承受的基礎。御水讓回應跟隨條件，御氣用變化找開口。熱情不代表更有能力，也不要求永遠領先。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/4/title": {
+      "sourceHash": "96ac0e41c6ea78acbd965e6edf9441493c9aff4f6ac51cc10eca18f8f1e64042",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "f410eb15fcaec777ffe8fd5436942d44b7d78d8a51da46719eec1bf64a63c7d0",
+      "text": "為一個想推進的目標設定行動時間，也設定休息時間。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/5/title": {
+      "sourceHash": "47a89d02aafd3f981e486bf1f0068c7c22e2723f15054f9fc0ee37b30fe9e054",
+      "text": "這份畫像的邊界"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "ec98d56694ea90037338e086e67baf30b0dc214ef705fd022a11e23595cd2c1b",
+      "text": "這是以《降世神通》御術意象創作的獨立粉絲娛樂測試，結果是本輪情境選擇對應的敘事風格。它不測真實能力，不是人物匹配或知識考試，也不意味著你能在故事設定中同時掌握多種御術。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/title": {
+      "sourceHash": "e191139612a785c05647bd15120aa9e7e0b98b155845400505ffc835cab3c03f",
+      "text": "御氣師"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/headline": {
+      "sourceHash": "eaf7addcaf4e8e8d3d7d16ebb64a77f233ecc700b833965b2d58bfeb73378aab",
+      "text": "轉換視角，讓出路出現"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/summary": {
+      "sourceHash": "0750e44c840919e50b24fc24c37928af893afe69cf742e5072b43e8466d05b9e",
+      "text": "這一輪，你更多選擇靈活移動、轉換視角，為自由和新的出路留出空間。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/scoreReading": {
+      "sourceHash": "84bd7b328d68872850514d62a971c71156b4f64211c45cae5ff8e9c1d6ca76d2",
+      "text": "24道四選一情境題，每題給所選御術風格加1點；每種風格在每道題都可選，各在A、B、C、D位置出現6次。本輪佔比為次數除以24。最高次數相同就保留全部，不按順序或最後一題決勝。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/seo/title": {
+      "sourceHash": "0692ff0078938dcc3eb9e474d1632c7c6c2ca8664f4735d24aa93465a59bca9f",
+      "text": "御氣師的含義、故事風格與御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/seo/description": {
+      "sourceHash": "afdc2282b1bb40239c69a77a872930f74d931878f8c70173e549d527fddb5b07",
+      "text": "你的故事御術不急著與阻力正面相撞。你願意換條路、保持好奇，尋找不必硬碰硬的可能。御氣師形象可以輕盈而負責，不等於逃避所有困難或永不承諾。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/0/title": {
+      "sourceHash": "a75346b5ffd3cdec1b69e06a08175722719497b6cacea00b5b794c286d73655d",
+      "text": "這種御術在本版中的含義"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "b8d4f34ec5ec9e2cec976be8b2210487f717dd622a7ee34df6c17951fffb7be1",
+      "text": "你的故事御術不急著與阻力正面相撞。你願意換條路、保持好奇，尋找不必硬碰硬的可能。御氣師形象可以輕盈而負責，不等於逃避所有困難或永不承諾。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/1/title": {
+      "sourceHash": "5d4a3e18e80471b43b2c7efdab6b2bcff0ba21612d9f9bd039426a8f56b41e1c",
+      "text": "一個原創故事場景"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "f19a774246ba58e4e02b38cf1f79755da53106ecb433edd76f0543b2b71b852e",
+      "text": "通道被臨時封住，你先觀察屋頂的迴廊和另一扇出口，邀請同伴比較新的路線。找到另一種走法之後，你也確認大家仍會到同一個集合點。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/2/title": {
+      "sourceHash": "13833c50394fd2cb1a6580e6a7afb3c754e1398b987d3f506c58c036b9f26808",
+      "text": "長處與需要留意的張力"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "1621c7c6a9da0caaafe93bfe7e3319d5f3b9edf2add1c4d42467689495bd78da",
+      "text": "選擇很多時，也可能遲遲不落地。自由有時來自主動選擇一件願意承擔的事。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/3/title": {
+      "sourceHash": "c3462f5e5c4406f00a8df70ed7863f0311016902ee12e7460e84dc934d6701da",
+      "text": "與其他三種御術比較"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "8544b21857454ac4535bf3c46c5b11416c3e65840a1fc1b8f87638732bcd314e",
+      "text": "御氣與御水都可能保持彈性：本版御氣從另一種視角找到路線，御水回應眼前的關係與條件。御土找支點，御火聚焦推進。輕盈不等於沒有責任，也不必否認自己的界限。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/4/title": {
+      "sourceHash": "b7fa3601981f19d59454ed96e90cfcec998c9d2c814775475aa2c8c02907ac68",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "8edd0ec24ecb364927d20682a13b7a7b46e2844c9b58693953c89d4be07b3691",
+      "text": "保留探索空間，同時選一個小承諾在今天完成。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/5/title": {
+      "sourceHash": "8919a83afe6005b4e4f675e4a581ac56425600f4ca10aad7bb05355dc606b9f9",
+      "text": "這份畫像的邊界"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "33a2b4a63cb2fc1af3643458411e7e17c66bd70079e3fc1856a049f3cb48453c",
+      "text": "這是以《降世神通》御術意象創作的獨立粉絲娛樂測試，結果是本輪情境選擇對應的敘事風格。它不測真實能力，不是人物匹配或知識考試，也不意味著你能在故事設定中同時掌握多種御術。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/0/title": {
+      "sourceHash": "81a7821f44e436459daa3ba55c16ffce627143669bdb628731542f3c59f36282",
+      "text": "這是御術風格，不是人物或知識測試"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/0/paragraphs/0": {
+      "sourceHash": "65617cd7fb2c7b82a4681b76a7bcd7e150e365bc6a4da03350e50452aa17f8cf",
+      "text": "這是以《降世神通》御術意象創作的獨立粉絲娛樂測試，結果是本輪情境選擇對應的敘事風格。它不測真實能力，不是人物匹配或知識考試，也不意味著你能在故事設定中同時掌握多種御術。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/1/title": {
+      "sourceHash": "75f108f41cdb0cddb65bd6c8ae9fc471e976effacea243c60ccb5fadb9570d45",
+      "text": "次數、佔比與並列怎麼計算"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/1/paragraphs/0": {
+      "sourceHash": "ddfd3dde648281ec8d30e439de26987106aa990a24c61c5242057c0b8dc8f0f6",
+      "text": "24道四選一情境題，每題給所選御術風格加1點；每種風格在每道題都可選，各在A、B、C、D位置出現6次。本輪佔比為次數除以24。最高次數相同就保留全部，不按順序或最後一題決勝。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/2/title": {
+      "sourceHash": "4ff7aecc511f96417549bd0efe8e11fb6abfa53b6fc06dde3f866ffa41e7328a",
+      "text": "四方並列仍是一份完整結果"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/2/paragraphs/0": {
+      "sourceHash": "2d12310701af2be8a6e2f8d73ecd40c5d5e3f7b9e1c5b6f159182bebdd9e59ca",
+      "text": "例如御水、御土、御火、御氣各選6次，結果保留四種風格。它表示本輪計數相同，不是“神通”身份，也不能證明你在故事裡掌握多種御術。佔比是本輪計分份額，不是相似度或人群百分位。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/3/title": {
+      "sourceHash": "54db450ff23e8a7b601cc04607cd9974162a5a392508fd5db03bf55cda1bdad0",
+      "text": "獨立原創版本與邊界"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/3/paragraphs/0": {
+      "sourceHash": "36be108d0dc3453978ddadb80a293f3b21547599b6a4d4a33cb51979de828828",
+      "text": "本版24道情境、四份解讀與影像為費馬原創粉絲創作，不是官方分配、原版uQuiz或ARealMe題本，也不與它們的分數直接比較。圖中的人物為原創示意角色，沒有使用影視截圖或官方角色肖像。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/4/title": {
+      "sourceHash": "e859169f6a7eeddd0331f1ba015c9453da01d99650ddc2611267ff412305edba",
+      "text": "與四元素測試有什麼區別？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/4/paragraphs/0": {
+      "sourceHash": "e9072d7cfbb41ab880c8689c0938e6a74f7995fd3626989775bcb930b7257a84",
+      "text": "這裡圍繞訓練、同行和應變等御術故事情境作答；站內另一份四元素測試探索日常元素隱喻。兩者題本、結果身份和入口各自獨立，不互相換算或重定向。無需出生資訊，也不測試真實能力。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/5/title": {
+      "sourceHash": "3ef26418c6c4438d70d00aad5ec88e7606d303c1385d4f184cad17b6cf2d6f9d",
+      "text": "結果、完整指南與分享"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/guide/5/paragraphs/0": {
+      "sourceHash": "31ac1f95626775786edb79ae0e1d8135621568ca8f574f456763d95ce6530b1d",
+      "text": "完整結果、全部四份指南和PNG均免費。最高並列全部顯示，公開指南在新標籤頁開啟以保留本輪結果。圖片在瀏覽器生成，不含逐題答案或分數；是否分享由你決定，重測會清空本輪選擇。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/0/question": {
+      "sourceHash": "6713673c530fde13d2b2ea69f0aeb4a26ff126390a06ddee6aa115ec32ec489f",
+      "text": "並列會得到“神通”結果嗎？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/0/answer": {
+      "sourceHash": "7b900f460a73c017d808d4b112631c4ac1034b696bff1102dd898a3a22eb3d0a",
+      "text": "例如御水、御土、御火、御氣各選6次，結果保留四種風格。它表示本輪計數相同，不是“神通”身份，也不能證明你在故事裡掌握多種御術。佔比是本輪計分份額，不是相似度或人群百分位。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/1/question": {
+      "sourceHash": "a0b8a0d0cd10a5996bfaa8b08917e301f4d8a76e9d963f1e52868a5070c7571c",
+      "text": "這和四元素測試是同一個遊戲嗎？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/1/answer": {
+      "sourceHash": "4f740025671e0db8c4b0a284ce8a4a437d59e0647e7c749777c67a52ee3eee19",
+      "text": "這裡圍繞訓練、同行和應變等御術故事情境作答；站內另一份四元素測試探索日常元素隱喻。兩者題本、結果身份和入口各自獨立，不互相換算或重定向。無需出生資訊，也不測試真實能力。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/2/question": {
+      "sourceHash": "63996a0468c4b228c6198403bf15d2b9ecf3f1e1cdc79d8d2a3b9f8424482d2c",
+      "text": "這是官方測試或原版uQuiz嗎？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/2/answer": {
+      "sourceHash": "e61ca5616d9b7ea0c980a1931f67ea630cd773e66f6bf44343c751a33185ea4a",
+      "text": "本版24道情境、四份解讀與影像為費馬原創粉絲創作，不是官方分配、原版uQuiz或ARealMe題本，也不與它們的分數直接比較。圖中的人物為原創示意角色，沒有使用影視截圖或官方角色肖像。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/3/question": {
+      "sourceHash": "3911c1e31c30c245d698fd908a17f6ace9f0e8b3e7eb11416e6d61fc5476843c",
+      "text": "結果圖片或全部指南需要付費嗎？"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/faq/3/answer": {
+      "sourceHash": "53c5f6e58f2336f78ded1b199176dffece392f74f579a0f1b261a235a8479f6a",
+      "text": "完整結果、全部四份指南和PNG均免費。最高並列全部顯示，公開指南在新標籤頁開啟以保留本輪結果。圖片在瀏覽器生成，不含逐題答案或分數；是否分享由你決定，重測會清空本輪選擇。"
+    },
+    "lib/questionnaires/data/avatar-bender-quiz.json/resultHeading": {
+      "sourceHash": "ddba3212f85bf01c75d4c61b6dfee46a53719b5d9fdabcefb3c603e74d00ac94",
+      "text": "你的本輪御術風格"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/title": {
+      "sourceHash": "c2e80f75f7255ef4b200db87fccdb7862153aee5047d5820a97f22c332ef34e6",
+      "text": "士兵、詩人、國王測試"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/seoTitle": {
+      "sourceHash": "852caa32f39f555b05afec63f914aef189616a6098dfe5fd0ba4ac6d6760cc04",
+      "text": "士兵詩人國王測試：24道情境題、排序與三原型"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/description": {
+      "sourceHash": "755c3fe8987368ecfa42082bcde5316ed94d2655c089c1e62f9955482e297a19",
+      "text": "完成24道原創情境題和1道點選排序，探索士兵、詩人、國王三原型。檢視全部計分、並列解釋與完整指南，免費儲存結果圖片。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/introduction": {
+      "sourceHash": "ae763fc3dd6a505901921c54024a19051c34959dd5700fbf224e93f2d5835da0",
+      "text": "當故事需要有人行動、表達或組織共同決定時，你會站在哪裡？完成24道原創三選一情境與1道六項排序，比較三原型在本輪39點中的份額，閱讀全部解釋並儲存結果卡。獨立娛樂創作，不是原版uQuiz，也不作心理診斷。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/instructions": {
+      "sourceHash": "dc9d1d8e687cea486e69e2cf9b3fc1c5267dc2a26487fe7a2da89565e0f1d1ee",
+      "text": "先完成24道三選一，再按最貼近到最不貼近的順序點選全部6條提醒。可返回修改或清空排序。情境題每次加1點；排序從第一至第六分別加5、4、3、2、1、0點。全卷39點，最高並列全部保留。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/resultHeading": {
+      "sourceHash": "2eaaa3c577989c5938bbdad778ccd26d1f9156d24f0973cb185f419f8dc84df7",
+      "text": "士兵、詩人、國王：你的本輪結果"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/directions/0/title": {
+      "sourceHash": "ed58db3924431ddb04e3ee98c8d76dd8ae4d397e5e059ed192fd13249f85a874",
+      "text": "士兵"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/directions/1/title": {
+      "sourceHash": "498cb2d40914a0cf151e5d87db8784090d64f4c683389d998b465b6c0347898f",
+      "text": "詩人"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/directions/2/title": {
+      "sourceHash": "0e53859d7657479047482832b111bb3d4ce63b762f0727e09fabbd63b7540e7d",
+      "text": "國王"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/0/prompt": {
+      "sourceHash": "7e9b48a766caf8bf962970f28f547051dd47f5cc4260bed339a989d5edb8d312",
+      "text": "遠行前，夥伴們最需要你做什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/0/options/0/label": {
+      "sourceHash": "6a4dcd0ef728b146c9863b8b566cd20aa52ff38ba261397882c09c7ae2328e91",
+      "text": "檢查裝備與安全路線。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/0/options/1/label": {
+      "sourceHash": "79a9004ff4f460bd132a06b31a732c8bcf1679f9c102b8515adaae16c39041fc",
+      "text": "說清這趟旅程對大家的意義。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/0/options/2/label": {
+      "sourceHash": "6fee544268565b0f7f94487bd8c680ad981239c65a7f3049c934f41e08470203",
+      "text": "讓每個人知道職責和集合時間。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/1/prompt": {
+      "sourceHash": "cf65315f4c3b48a071cbf9aa8352c9a2564f6e2e613c5243f8486a6c646b0d27",
+      "text": "團隊的計劃突然失效，你先做什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/1/options/0/label": {
+      "sourceHash": "64600589622282eacd3a599de25147e6e2bed2b8923fbe77ddc64fbe4928e5e6",
+      "text": "問大家是否還想去同一個方向。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/1/options/1/label": {
+      "sourceHash": "120dd2d36d4f386011ac74b05f0e42fe5d60dc28c22a625cf6c507bacbc2d078",
+      "text": "重新分配資源並作出決定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/1/options/2/label": {
+      "sourceHash": "9a0ef45ca84cbdc9613197fb74ff1d187abf5d77277e98996aaab6265a71a8fe",
+      "text": "穩住眼前能完成的一步。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/2/prompt": {
+      "sourceHash": "d79853512d555b98a05f621f53d9ca6462eb05e25a8cb109756061d73a8b661e",
+      "text": "朋友被誤解，你怎樣幫忙？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/2/options/0/label": {
+      "sourceHash": "7b4d8b062a75c36029d20644254c660b320e5596acc2c39c30dcd969778c1575",
+      "text": "約齊相關的人，促成公平的澄清。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/2/options/1/label": {
+      "sourceHash": "b153c19cd78d498886b6d358fe6764c0503a2ab5b0d612722eaa4df6e72e50f5",
+      "text": "陪在身邊，處理現實的麻煩。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/2/options/2/label": {
+      "sourceHash": "cec15f0d2f19a6aeea00119d421ccae4dd5b330e9b0207dd0451cb82788d133c",
+      "text": "找到能準確表達他們感受的話。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/3/prompt": {
+      "sourceHash": "32a6efc7af22d45570dd9df2d0b750c2287b92155da4bda2b1ee54b0d45402cb",
+      "text": "你最願意守住哪一種承諾？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/3/options/0/label": {
+      "sourceHash": "2c46aa7ecd12b01a00bb2cecad854828742c83d39d16a075fb42b009e0c3c8c0",
+      "text": "需要我時，我會出現。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/3/options/1/label": {
+      "sourceHash": "f55a87cd06cd2166e12740b311b274fd76c37c0820dea804e4ac6ceb86ce507c",
+      "text": "我會誠實表達重要的事。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/3/options/2/label": {
+      "sourceHash": "15a224f45dd75942926635322a33c9ed99465a10cca27e3dfba2e189f1ddeba4",
+      "text": "我會對共同的決定負責。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/4/prompt": {
+      "sourceHash": "4538dbdffb61ef717bf4df5ae3e044d507a10d9f736f8c50709c4a0291a8f85a",
+      "text": "一個社群空間需要重建，你願意承擔哪部分？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/4/options/0/label": {
+      "sourceHash": "53a97c087b59cdc70286f0ab19acbd6857b760596162afe95bb824272bd8d6ca",
+      "text": "收集居民的故事與想像。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/4/options/1/label": {
+      "sourceHash": "e72545ffe3bf296bf15668ccc26a1a14ec27c4cd8e2afc962bad71d1bb784dfa",
+      "text": "協調預算、分工與公共約定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/4/options/2/label": {
+      "sourceHash": "02827ff9501953a4c22520e606ee1161dfc9d315b2566927ad2cfb92a133304a",
+      "text": "動手修復和每天的維護。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/5/prompt": {
+      "sourceHash": "bc6fbd92e98e5213a8efd141b406bf815ac1a5fac6eb337a69ae019df203c036",
+      "text": "衝突中，你最擔心失去什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/5/options/0/label": {
+      "sourceHash": "cb16bf590d812652a66551782ac7dbde9778e3f427dfe31fb77385ba3b153bfa",
+      "text": "無人承擔後果，局面不斷失控。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/5/options/1/label": {
+      "sourceHash": "5ca0a57d84fccaa97fc789f61dbdd10cda899513957d3875ea16e7423d423ded",
+      "text": "有人得不到必要的保護。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/5/options/2/label": {
+      "sourceHash": "9241978ddc4970bb88ea37cd71007aebfdcd6e82166fbf451c19c49ba855b2ee",
+      "text": "真正重要的話始終說不出口。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/6/prompt": {
+      "sourceHash": "d3a572445cfba2fdb2bde8f53702f72b90fbfb352c051fcd7d9a57a789cdeb6e",
+      "text": "一項長期努力沒有掌聲，你靠什麼繼續？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/6/options/0/label": {
+      "sourceHash": "8d57e0c2b290273106e21ba313c725646a551e200ecdf9374b83bcd477fdf5de",
+      "text": "我答應完成的事仍然需要完成。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/6/options/1/label": {
+      "sourceHash": "277dfdff1a0482d4f529d24f55ffdd2ff6b62f4f557dce5893a2a029c1161730",
+      "text": "我還相信其中值得表達的東西。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/6/options/2/label": {
+      "sourceHash": "6ce95fca852e105a89995d34126e2bccb467a89ae1e342e4fccaf25671a66af2",
+      "text": "大家還需要一個可以共同前進的方向。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/7/prompt": {
+      "sourceHash": "40f61bc92bf7abd1a7ec847dfbdd8e7b3d51f620ae3b12082c9cf4c8987006d7",
+      "text": "你希望給後來者留下什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/7/options/0/label": {
+      "sourceHash": "75cddb8dd10d73a6cb2d255dfa75ff2dbd70685a386bf35356f97993f60e6d9b",
+      "text": "一句讓人重新理解自己的話。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/7/options/1/label": {
+      "sourceHash": "e543d329a370eaa0f7225d8248726c14fd620a2cec356f07ebe5d1312bee64ca",
+      "text": "一套能讓人繼續合作的安排。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/7/options/2/label": {
+      "sourceHash": "dcb418910e568295c332f411a8684671c45b2d25aa27e464bb49b4ab93a63ae2",
+      "text": "一條更安全、走得通的路。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/8/prompt": {
+      "sourceHash": "a4c3c9fe5fbe04296112223fe4298129dc805e93dd75cc546c09ee513f7cebc9",
+      "text": "陌生人加入團隊，你自然會做什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/8/options/0/label": {
+      "sourceHash": "9c4a1169967373fd7e35f0b0d6e45e437fcfaa15b5b272a68f010d6cbc41ca93",
+      "text": "讓他知道可以參與哪些決定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/8/options/1/label": {
+      "sourceHash": "964527ad0671092cae8c10446f79c70dd4317830f43db1fe10e0d2359d4d3538",
+      "text": "陪他完成第一次具體任務。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/8/options/2/label": {
+      "sourceHash": "3725479bdf5fab742fc76486e2f602c082a8416a747f9b79284d3eed47663fcb",
+      "text": "聽他講自己的經歷和期待。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/9/prompt": {
+      "sourceHash": "79ddf3c9305006c0540f845e3c8be4a3c1856cd71abb9aee71f2094704bfb007",
+      "text": "一箇舊規則開始傷害大家，你會怎樣？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/9/options/0/label": {
+      "sourceHash": "3dbe57ebe927084b4f4d16d3f053f73f65209a4d941fbf6ce840f964dde0d447",
+      "text": "先阻止眼前的傷害。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/9/options/1/label": {
+      "sourceHash": "73ee9e0503914acf8f4dfe900ef780e88b126fc8c9be46477983b062ca36952f",
+      "text": "把規則遮住的真實經歷說出來。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/9/options/2/label": {
+      "sourceHash": "f89e82fe03124124b6d26a1cedaf5545739a86e02754cedcefe485253bdf848d",
+      "text": "推動一個更公平且可執行的新約定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/10/prompt": {
+      "sourceHash": "92e881db704ee16b1dfa8f00408c6976ff6aca68d823400cb0dc683e3e84bd3a",
+      "text": "你最欣賞哪一種勇氣？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/10/options/0/label": {
+      "sourceHash": "822f4732fa1edeb5e4aa3882624d9eca0f454cff16b087f1d8e5f98096ec420a",
+      "text": "冒著不被理解的風險說出真心。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/10/options/1/label": {
+      "sourceHash": "22a7e6b9d87d66be548ba053406f2484e2233b39eb111506ca71c020ef869072",
+      "text": "承認決定錯了並承擔修正責任。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/10/options/2/label": {
+      "sourceHash": "d4192a47a47bad24296aba62c8ec11b8f2ce152d1cf4970ec60636c18c1349ce",
+      "text": "害怕時仍保護需要保護的人。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/11/prompt": {
+      "sourceHash": "bdbbc1b09219b04f88aa5699afb6b990ab64fb851e197879057149c13021cea6",
+      "text": "艱難的一天結束後，什麼讓你覺得值得？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/11/options/0/label": {
+      "sourceHash": "eff4ab59a9f97b06a18de35c33f958d33a7f922b3d420694c60d62e38d45d967",
+      "text": "大家終於知道下一步如何一起走。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/11/options/1/label": {
+      "sourceHash": "ff0815ad95fb533030340303cec6ea9c1df2e7f5dbdda1725f4c9f4ef8bd26fd",
+      "text": "一個具體的問題被我解決了。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/11/options/2/label": {
+      "sourceHash": "cb402de13ebf3823e8de61180e6f2a953bafd79c442f7dfee24d5f209f2941b0",
+      "text": "一段原本說不清的體驗終於被理解。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/12/prompt": {
+      "sourceHash": "ae2eaffb541cfee73df67e26de7ee6fa2ec979ba0f4a1595256ea9e6df527d20",
+      "text": "面對模糊的求助，你先問什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/12/options/0/label": {
+      "sourceHash": "f5dac0b58a5b48bb8662cf620772f0724a0f90bdc968ec86258097adb101aaf2",
+      "text": "現在最急需解決的事是什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/12/options/1/label": {
+      "sourceHash": "dda2fa6d0c57c742e8dfa0777b583798e9eecf5385d28f59931c99659f6b35de",
+      "text": "你希望我真正理解哪一部分？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/12/options/2/label": {
+      "sourceHash": "08d1583747e24403cd9b61f760b9331675a0031f03be20f400988265ef2705ce",
+      "text": "誰需要參與，我們能調動什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/13/prompt": {
+      "sourceHash": "0b9d2edb0b32ea1306538a0535ab22217514926c7859b6f00f32e022aedcaf28",
+      "text": "你會怎樣紀念一次重要的共同經歷？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/13/options/0/label": {
+      "sourceHash": "d941b970a8ed48425683c0959c7246fc8baacaf51b43731fed0502bf791b0e31",
+      "text": "寫下或創作出它獨有的感受。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/13/options/1/label": {
+      "sourceHash": "96570f20837197509cf1a37663d699b9b1606b91e9045b29962c8ed0e71a32e9",
+      "text": "邀請大家決定下一章如何開始。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/13/options/2/label": {
+      "sourceHash": "3845f849138fd729c4c8aff6a70fa0218f5a373b8311dd1dbfeab209c0831eb0",
+      "text": "做一件實際的事，讓成果延續。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/14/prompt": {
+      "sourceHash": "928f936b6ed3b5aba3ecd784f063c084b3d1e43f3e9f779e0d6cc18aedcf1a70",
+      "text": "別人依賴你時，你最容易承擔哪種過量？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/14/options/0/label": {
+      "sourceHash": "42d7a0dfc8f2fecbbac2eb446d4c2f0a0d0e5ff3cde531881404384db675361e",
+      "text": "把所有決定都抓在自己手裡。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/14/options/1/label": {
+      "sourceHash": "231d456e16c4676fb85bb9e2ec5a3ea6255da1e95a8e6c13208107a5350c6157",
+      "text": "把所有困難都當成自己該扛的事。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/14/options/2/label": {
+      "sourceHash": "360efe1b268829ae3947035780170614c9cf41352987274d37ce7005d447bd4a",
+      "text": "反覆尋找最準確的話，遲遲不行動。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/15/prompt": {
+      "sourceHash": "07b3437b6d0a18abe8a799d0a10d2630025c09efca853707c9fe9ca3fa70819c",
+      "text": "哪一種提醒對你最有幫助？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/15/options/0/label": {
+      "sourceHash": "21f83d4ae6e8582ccd943a059bad817eda26ec577fad25dbfcd16685a4fba859",
+      "text": "你也可以請求支援。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/15/options/1/label": {
+      "sourceHash": "c2458face050762ad28e478951cf953e80749c7410e9797d74a2f2930a531a17",
+      "text": "不完美的表達也可以開始。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/15/options/2/label": {
+      "sourceHash": "39c68a837abbc21d2c4ca5f7435b041b6233fa54ef2eab76a09934a1cd573089",
+      "text": "承擔責任不等於替別人決定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/16/prompt": {
+      "sourceHash": "a7eb5e7494cb7a2db0e08b6259653421eaaa898351f56bc07ffa832b36a911ae",
+      "text": "你想改善一個不公平的處境，首先投入哪裡？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/16/options/0/label": {
+      "sourceHash": "bbd82e1fd059de9c2bbfc995ded0f3d400b3d3049ab5af38c82415351cf38e1b",
+      "text": "讓被忽略的經歷得到聽見。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/16/options/1/label": {
+      "sourceHash": "3f95130ed42debd352285413bf0b922338a00782bf1bb943cfef930fb8589a72",
+      "text": "找到能改變分配和規則的決定點。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/16/options/2/label": {
+      "sourceHash": "0a44b8773cec817cd6caede1d85e03fed5e3d0e40a9247ab401ba71a4bf7b907",
+      "text": "給正在受影響的人具體援助。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/17/prompt": {
+      "sourceHash": "0e594a3ac54789f1b49c0bc1a41af2a9833484d7651c6592f08857b7746434ac",
+      "text": "一場共同創作卡住了，你傾向怎樣推動？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/17/options/0/label": {
+      "sourceHash": "ca27628d930d23e96d166f52584dc8ecc28c6eaacfa92defa8bd25d68976b589",
+      "text": "把分歧整理成可討論的選擇。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/17/options/1/label": {
+      "sourceHash": "d22618ea4846ef83fd452eb236358342f22440e4f5536095606ab12c166e68cd",
+      "text": "做出一個可以試用的小版本。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/17/options/2/label": {
+      "sourceHash": "cba8eab4df528cdacb27121f6acaabbec9e3fe43bff04f8928d3837ac44b8899",
+      "text": "找到大家尚未表達出的核心意象。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/18/prompt": {
+      "sourceHash": "74599c4a95abee4ac2f52dfbead7f313b2ca66047804fd4118ca42a221783da2",
+      "text": "如果必須暫時退出，你會先留下什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/18/options/0/label": {
+      "sourceHash": "e1f5fae48a47bb4cff482994a6a9a48544db45f68c770b2e097155ecd4e16bd9",
+      "text": "可用工具與清晰的操作交接。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/18/options/1/label": {
+      "sourceHash": "7250afacb2d077e38b023750c05b72db158aa68813852e1b379f1ff05a5502e4",
+      "text": "一段解釋我們為何開始的記錄。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/18/options/2/label": {
+      "sourceHash": "7a4f9ac6a5f190007c9c8508dc4f08ee5ed13137021d932d348581ac76eef05a",
+      "text": "誰能決定什麼的明確約定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/19/prompt": {
+      "sourceHash": "9d25d2765217c39761b6523483a943828f029c5da4cbaaa8046f0f58f45ea5d1",
+      "text": "在一個全新的地方，你會注意什麼？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/19/options/0/label": {
+      "sourceHash": "f41ddb606ffa2ecc7718bbffddf92d7beaa9feb4fb138fe8542438a41eb25641",
+      "text": "這裡的聲音、故事和獨特氛圍。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/19/options/1/label": {
+      "sourceHash": "de2bb530a8848f07e28bf155ff1f076377d8e97d23199efa77e65a80df1feeb5",
+      "text": "人們如何協商公共事務。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/19/options/2/label": {
+      "sourceHash": "a5609aed842e7d0ef772b44f379071a85863729fb70985603d29169ca0e738b3",
+      "text": "人們怎樣維持日常生活。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/20/prompt": {
+      "sourceHash": "e9e75a0f567805b849c3229fd7beedacd5a65c68f783debc963114239e3dcbbe",
+      "text": "你最想在團隊裡被怎樣記住？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/20/options/0/label": {
+      "sourceHash": "be3a00197737968489f8d96b909ebe45a3e8fb2c269ed6ffef745d25d019d5e3",
+      "text": "讓分散的人能一起行動的人。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/20/options/1/label": {
+      "sourceHash": "1b0514f58d498a1f8f5f8d5d7006b0e002bf6453d5e1e26f32de6be5ac8c129c",
+      "text": "困難來臨時可靠的人。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/20/options/2/label": {
+      "sourceHash": "4b73651f2a6086ea7941b47789a078077ece7b43e9400179f45dd55a4b98fb46",
+      "text": "讓大家看見不同可能的人。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/21/prompt": {
+      "sourceHash": "2117f574c37f7ff5f21838da407dac14b670db67c7944bcade0aff59e297119e",
+      "text": "你會怎樣面對自己造成的失誤？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/21/options/0/label": {
+      "sourceHash": "9db06aa56332a2f211f8db7c72bdcd3cdbec54ee13f2f0ea5b2b2e3c9d64f53d",
+      "text": "先補救實際造成的損失。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/21/options/1/label": {
+      "sourceHash": "e04d8c6f7b019870d781faa06f22741a441e2dce2756f90a3ef19b6f700d761b",
+      "text": "坦誠說清影響和自己的想法。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/21/options/2/label": {
+      "sourceHash": "298a3925c791519eb93030925625ac960ebb769856f80392c471d1a666a050bd",
+      "text": "承擔責任並調整後續安排。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/22/prompt": {
+      "sourceHash": "1bd9b812fe2e0efd53dc74e5fc44b85a59ea0a81691f0d771db19e55aefa3633",
+      "text": "一段故事裡，哪種時刻最打動你？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/22/options/0/label": {
+      "sourceHash": "fc9fe25e6e42202825f923bb83efcdf65f6c79a9596ba68f0cc598974c543e46",
+      "text": "一句話讓沉默的人終於開口。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/22/options/1/label": {
+      "sourceHash": "0a3aeb581ea68d9b6c55ef63f2072302397ee7cca712ddb606baceb9187e7e5b",
+      "text": "有人放下自己的利益作出共同決定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/22/options/2/label": {
+      "sourceHash": "80a22fe34e117d5ea1cd9fa437932b2d2b8017d421cc6244eb16886c90c98f20",
+      "text": "有人留下來守住撤退的路。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/23/prompt": {
+      "sourceHash": "b47c3a1cc932ca64c42d50553268f9448d640e21c8711d0bbee0834a9b6cce2c",
+      "text": "路口沒有明顯正確答案，你用什麼作最後參考？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/23/options/0/label": {
+      "sourceHash": "64f4592918cbbcc30245244311de093a623141e2c5ec856ca8233a48ec83ca71",
+      "text": "我能否為這個決定和共同後果負責。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/23/options/1/label": {
+      "sourceHash": "7154438da3c30166618d18f7ce450ed48588a533a6dad4a7757a7539a8eea6d5",
+      "text": "我能否實際守住所珍惜的人與事。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/23/options/2/label": {
+      "sourceHash": "7cf3468cd597b6bac3365b821484ceefb331970fd006e8f61f77345461b6fa89",
+      "text": "這個選擇是否忠於我想表達的真實。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/prompt": {
+      "sourceHash": "a36fd0965f2839e2caa74cc4aa39a6d065449814bdd848a937c9b9d57c711fd9",
+      "text": "如果給故事中的自己寫六條提醒，你會怎樣排序？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/options/0/label": {
+      "sourceHash": "2b3295da3a7071b476344c27a9b99a49ac61e051b581d698437e966a8779e539",
+      "text": "先確保需要幫助的人有可用的支援。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/options/1/label": {
+      "sourceHash": "6cf189821252d85625490d55baae3399588ec7f8ea6313225f2e5d00cafcf358",
+      "text": "給尚未被說出的體驗留一點空間。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/options/2/label": {
+      "sourceHash": "863b290dab32f3e71e2c3f769bbb9023cb6a6feabeb8712f0d42c3e6c4fd9bba",
+      "text": "讓受到影響的人參與共同決定。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/options/3/label": {
+      "sourceHash": "afb2ee2d282bda239e31edca2996b7d54275eea628b746c32978090ae0abd4bf",
+      "text": "對安排的後果負責，也接受修正。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/options/4/label": {
+      "sourceHash": "fda9d7a895bcbdb18200b70714a5fa28656b58d7e360f6f2bccef80faee2fac5",
+      "text": "找到值得繼續表達的新可能。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/questions/24/options/5/label": {
+      "sourceHash": "701ddeabb84347a28e53fc40fa748a63f2197f0f324ff2b0fcaf0291c77b8e29",
+      "text": "把答應的具體一步做完，再請求支援。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/title": {
+      "sourceHash": "31f2c7e5cd8c0c62b5d0639bdff55d9b5bdb42a2d8bf566172c23be87b6ac4bf",
+      "text": "士兵"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/headline": {
+      "sourceHash": "12af209eeb883c104701a93b7cdb09336199392b0cc5b4e7434a3172ffe769d3",
+      "text": "士兵 · 把關心化為行動"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/summary": {
+      "sourceHash": "d3295ee41e1e7fc3e7ef3df0306be615cbbdf86ab75f632ab6eb84316c56d67b",
+      "text": "這一輪，你更常用具體行動回應困難：守住承諾、提供保護、把下一步走穩。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/scoreReading": {
+      "sourceHash": "572c375f1ad81b83b822cc5022af5d11adfa15e06e3a0f48d59be6a895cbd6f6",
+      "text": "情境每題加1點，末屏排序按5至0點計入；全卷39點，最高並列全部保留。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/seo/title": {
+      "sourceHash": "518858639ba510bbce6a4d989e4cd5b8bdba8ff0655ab06216827906c7e600f0",
+      "text": "士兵原型的含義、例子與比較"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/seo/description": {
+      "sourceHash": "8dfc8e244d4049e3c90c078cb1aea2dc5bb5412573d18b6a5b5141912d771a57",
+      "text": "這一輪，你更常用具體行動回應困難：守住承諾、提供保護、把下一步走穩。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/0/title": {
+      "sourceHash": "9b9950c7457348817d7d76308db0a12f63f070b72eb2d47d5a68234799a2f481",
+      "text": "這個原型怎樣出現"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "e5dccbdae3178a45180c2c3529b5a3dd75d677364e95748d22c601a480249748",
+      "text": "你的故事角色擅長把抽象的關心變成可依賴的幫助。別人還在討論時，你會注意物資是否夠用、誰需要陪伴、哪一步可以先完成。這不是服從或好戰的標籤；它描繪的是願意站到現實問題前面的選擇。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/1/title": {
+      "sourceHash": "a94ce16b31a6b98736487e7a34443a1aa0d4f5c07754a8886163928688e4af21",
+      "text": "一個具體場景"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "55ee26eaf725201386f52e1d2593e12524b24012628a0ee9548493aabdcbe3c6",
+      "text": "同伴要在雨天搬家，你先確認搬運路線、準備防水袋，再和對方商量你能負責哪一段。實際幫助因此有了邊界，也更容易被接住。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/2/title": {
+      "sourceHash": "a37ba826e2fbdb43eefda98215eb0ecaa4ff2e6503da4e10742ce20c6ecfb61f",
+      "text": "值得留意的取捨"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "3ec5770057c8a479b4f225ef9fd89c82bfa249da66de7fc01d7ed8cfa18d12b2",
+      "text": "當可靠變成必須獨自扛住一切，你也會耗盡。保護他人之前，可以問他們需要什麼；履行承諾時，也要保留重新協商的空間。有人願意分擔，並不會讓你的付出失去意義。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/3/title": {
+      "sourceHash": "f71f64b64cc6347b9fbaab68f812c94564c77be9445ee62676b4768e0bfd0201",
+      "text": "與另外兩種原型比較"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "b3f2a71ce9333032347afea48bafff2ece861d8eeafff44dbb30ca4925b6a99d",
+      "text": "士兵先問“眼前怎樣幫上忙”；詩人先問“什麼還沒被表達”；國王先問“怎樣共同作出決定”。三種都可以出現在同一個人身上，也都能在另一種情境裡有用。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/4/title": {
+      "sourceHash": "7dba74c46a50b1968a9525bf7a6c4476f278c20d473ddef2b76e8d18e7dfbb9d",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "cd41d8070ceae3b41401c7f6a8278672b614337dd48652cf24c6e99b4fbfadc1",
+      "text": "選一件你正在承擔的小事，把其中一個具體步驟交給願意幫忙的人。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/5/title": {
+      "sourceHash": "2e607befb867253f799d16ae9fa9e39e0fe22bbb8e81118584fffdde05224e22",
+      "text": "如果你同時得到其他原型"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "cb03015cdda80ef85250e4ef73ca99a3a5b1dc53ba8aa032ed747b2084d9eeb8",
+      "text": "最高項相同時，全部保留為本輪並列結果。它說明你的選項在這些敘事方式之間分佈接近，不是第四種人格，也不意味著優劣。你可以比較所有原型，或返回修改選擇；重測不會被暗中強行分出唯一型別。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/title": {
+      "sourceHash": "7d445b304cf0a0b95fab365b3ea061d3796b45f1f1969d79629446616f24289f",
+      "text": "詩人"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/headline": {
+      "sourceHash": "b384fa7e9242b46e9a596b0514de730ed2a39225a743766c6c2dfe15f9ae45ae",
+      "text": "詩人 · 為體驗找到語言"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/summary": {
+      "sourceHash": "a7e4986cbb9610eacf83b766e4228f372c6c1289db35baa008250a2f0d4a6208",
+      "text": "這一輪，你更常尋找意義、傾聽感受，讓原本模糊的東西得到表達。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/scoreReading": {
+      "sourceHash": "083e20bec4dc3c41987afa48d514c1b79e75cb6660b4d287a55fe983dea70295",
+      "text": "情境每題加1點，末屏排序按5至0點計入；全卷39點，最高並列全部保留。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/seo/title": {
+      "sourceHash": "0b60a521c5f8a368dd186cc1c4240dd258d7dbe86f0f56067eab82e3e193894c",
+      "text": "詩人原型的含義、例子與比較"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/seo/description": {
+      "sourceHash": "49b70df78d791ab89b63e7c4682a361cb04d71654208e7041e13d25d59c18425",
+      "text": "這一輪，你更常尋找意義、傾聽感受，讓原本模糊的東西得到表達。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/0/title": {
+      "sourceHash": "3d91e0739cd81fc018c0f03e19dee95113ce7f7e8aafca909149535a73b8ad10",
+      "text": "這個原型怎樣出現"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "1706901cc277cf9478331af8dc3e94f865ff04fd1f18026ac3930437bd33cfef",
+      "text": "你的故事角色關注事情怎樣被理解。你可能從一段對話、一幅畫面或一個問題中看見別人錯過的聯絡，再用自己的方式讓它變得可見。詩人不要求會寫詩；這裡指的是願意為真實感受與新的可能留出位置。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/1/title": {
+      "sourceHash": "8ef8032cddcd87d827f4b103013d38704537dcb3ceb387dbf1595569758b2668",
+      "text": "一個具體場景"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "61135fa344a25bca3ce70f8c35ba12f2e9aec8911fbce9ed8b71b0e8204a5fb6",
+      "text": "團隊為一次失敗爭論時，你聽見有人失望、有人擔心不被信任。你試著把這些差異說清，再問大家是否理解準確，而不是替所有人定義感受。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/2/title": {
+      "sourceHash": "a0931f1f2b1c4b0b179acdf8f017f794b3d7f30430b9bddc93b7712a24bfb93a",
+      "text": "值得留意的取捨"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "4868767f18d2b1b0c57521c6b0e6fbd5c6ac26a7e9670b70bd14f1332407e9c5",
+      "text": "準確表達需要時間，但等待最完美的表達也可能讓行動停住。你不必替每個人解釋全部感受，也可以先說一小部分，再讓現實中的回應幫助你修正。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/3/title": {
+      "sourceHash": "dcd34060821bf446d87f100cde501941dca281602d69538769f19afaa0cb4530",
+      "text": "與另外兩種原型比較"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "b8cd09a248c0ea1be5de01f96199571c2ed990d3b03679a2ce12dc42cd2e6c25",
+      "text": "詩人與士兵的區別不是想與做的高下，而是這一刻更先照顧意義還是現實需要；與國王的區別在於先聽見與表達，還是先形成共同安排。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/4/title": {
+      "sourceHash": "5c311d5df370b28b8555cce32b13183cb7df634559486cbf45c54b08a6056925",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "bd4a3114d962081699331b978c7bcb034bd65bd4cd42dacd2c42090735090f8b",
+      "text": "把一個反覆思考的想法寫成三句話，再做一個能檢驗它的小行動。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/5/title": {
+      "sourceHash": "7d77f41e9607e81f0a5e6907860af1ad2c0687fe4eac8f39d838fce9a6747ebc",
+      "text": "如果你同時得到其他原型"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "b9873fcefd5f866c2e00cf180949a17c26bec25cd59939dc0a5cb09527dde34e",
+      "text": "最高項相同時，全部保留為本輪並列結果。它說明你的選項在這些敘事方式之間分佈接近，不是第四種人格，也不意味著優劣。你可以比較所有原型，或返回修改選擇；重測不會被暗中強行分出唯一型別。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/title": {
+      "sourceHash": "8f763fc7cdc4a5fa2bbaa3c6de7cbc6d6ea5bfcd163e1b2988ffa8bf59049082",
+      "text": "國王"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/headline": {
+      "sourceHash": "66ffb3913dd24a178b0b53d99559eee390ff8134740f28f1bf7e96aa61c3a05b",
+      "text": "國王 · 為共同方向負責"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/summary": {
+      "sourceHash": "d4d6532a70beb82c1db3b6b24e53a7ba95f5c317bb2beda814046bfcf1612bec",
+      "text": "這一輪，你更常整理分歧、協調資源，並願意為共同決定承擔後果。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/scoreReading": {
+      "sourceHash": "10a05ee52cd3517070276bb91918ff042fc03102edd4e56cf0e9b579b23be879",
+      "text": "情境每題加1點，末屏排序按5至0點計入；全卷39點，最高並列全部保留。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/seo/title": {
+      "sourceHash": "7e05dc7182b656e6ec80f32f446c1e6ae2f5cf4b7ba61350acf2d572430b3856",
+      "text": "國王原型的含義、例子與比較"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/seo/description": {
+      "sourceHash": "e1a86f53a5bab4c85408212cd6417a90240b389a7a828dbffe87ee0bca64e00b",
+      "text": "這一輪，你更常整理分歧、協調資源，並願意為共同決定承擔後果。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/0/title": {
+      "sourceHash": "d74165e49e6f7f3d3e702605fcae5f4e9a274ee220fc5df0255802f0c43bbe5a",
+      "text": "這個原型怎樣出現"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "18c02e364c15b07f3cd5ac75c2b42545a15d36e927bce51769275214412cf621",
+      "text": "你的故事角色會問：哪些人需要參與，什麼安排能讓大家繼續走下去？你關注方向、分工和決定的後果。這裡的國王是一種承擔公共責任的敘事原型，不取決於性別、身份、職位或支配他人的能力。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/1/title": {
+      "sourceHash": "37f22fac8df376bcf34f60d6c22d6ea7ebe515046c99109d19114787764cddc1",
+      "text": "一個具體場景"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "3cfeab3380b30a0ca2fc064cd2874f589e2d6441a49cdc5f1fb937331c100f1e",
+      "text": "一次公共活動的時間衝突，你先收集每個人不能讓步的條件，再說明預算、期限與可選方案。你邀請大家參與取捨，也承認任何安排都有代價。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/2/title": {
+      "sourceHash": "f108c2ab53619396343c6023ac06759788e9388f914172b3841e5ee0101fa54a",
+      "text": "值得留意的取捨"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "7f5dd69663351dc8b7099e7de6690125f3d3dc0df0978aeb69ac9a9c549429a2",
+      "text": "承擔責任並不意味著你必須擁有最後一句話。如果協調變成控制，別人參與的空間就會縮小。把可共同決定的部分交還給大家，也允許方向隨著新資訊改變。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/3/title": {
+      "sourceHash": "670c7ad1680ae11fef575de796cfb35e7e90803dcee6119132182552a0d2622a",
+      "text": "與另外兩種原型比較"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "57553bac4ce7f10368dbc6f5299a80731298c55b7631e7f8fbe8daafb305c1be",
+      "text": "國王與士兵都可能採取行動，但這裡前者優先協調共同決定，後者優先回應具體需要；詩人則更多把體驗與意義帶進討論。沒有一種原型天然更適合帶領別人。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/4/title": {
+      "sourceHash": "edfdb7bfa832d97ee21d87994ffce2634300e328d61767444822e23e67857250",
+      "text": "可試的一小步"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "3c67a05bdad051263bb75fd03d50c341b950dbf646128bea79b6a807b1444c3a",
+      "text": "在下一次共同決定前，明確問每個人最想保留什麼，再公開說明取捨。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/5/title": {
+      "sourceHash": "57f96724b8868f3f802052323dd3340a2a5e1e39f521f78c6fb05b6e241fb753",
+      "text": "如果你同時得到其他原型"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "4bb1d7fc32c0138e3563a463a26242c1eac7b7a76587d457096abc2c75c9ef5b",
+      "text": "最高項相同時，全部保留為本輪並列結果。它說明你的選項在這些敘事方式之間分佈接近，不是第四種人格，也不意味著優劣。你可以比較所有原型，或返回修改選擇；重測不會被暗中強行分出唯一型別。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/guide/0/title": {
+      "sourceHash": "4ae0c39965b48889ef281cfc7556e9be7fcf52ff18e1e84c5ac987c456ef4b85",
+      "text": "24道情境加1道排序怎樣計分"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/guide/0/paragraphs/0": {
+      "sourceHash": "8035691f3ca43e9178a860b1ea4b97d1953baacbc3047f28e9bdd862c3d73b86",
+      "text": "24道情境題每題給一個原型加1點；每原型各在A、B、C位置出現8次。最後6項排序每原型有兩項，按從最貼近到最不貼近分配5至0點，合計15點。全卷25屏、39點；每原型理論最高33點，排序會影響結果，任何原型都有同等計分機會。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/guide/1/title": {
+      "sourceHash": "649ee058845446474f4d067f6ec8cfb30e37dd4bfb863f99a8fa8d72d3a6417e",
+      "text": "沒有隱藏決勝的並列規則"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/guide/1/paragraphs/0": {
+      "sourceHash": "69b0e9d9aee3e48a65abd4e2731589f362c145f01b3b162d280f382e387e9773",
+      "text": "情境部分12、12、0，排序為每項原型各加5點時，得到17、17、5的雙並列；情境8、8、8加同樣排序得到13、13、13的三並列。10、8、6加各5點得到15、13、11，只保留最高項。所有最高分保留，沒有隨機決勝。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/guide/2/title": {
+      "sourceHash": "1274a003a218a664afa982b8e56040995ec0f8fd80519e33abe4053b0b33b178",
+      "text": "三個原型是一種故事讀法"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/guide/2/paragraphs/0": {
+      "sourceHash": "c1b1f5779fbefc2380213c34cb9a22600c91065b50541d3042837447e24f9d1c",
+      "text": "24道原創情境覆蓋幫助、衝突、共同創作、邊界、責任與回顧；末屏加入完整排序，讓你比較六種提醒的先後。題量來自情境覆蓋與可達並列設計，不聲稱與別站題本相同。結果不是經過驗證的心理型別或職業建議。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/0/question": {
+      "sourceHash": "7f6bdec4ec40ee1cae3710ab2c6617b1a94c01a9e720c13a08148b363ed2482c",
+      "text": "這是原版uQuiz嗎？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/0/answer": {
+      "sourceHash": "dcfc17e763d604fd254a7e77d4ac7147dc4294d18b8e3f1cdb26ab66eb8e3948",
+      "text": "不是。本頁有24道原創三選一與1道原創六項排序，使用公開權重規則及獨立解讀。不同作者版本的題文與演算法不同，本頁不冒稱原版或官方。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/1/question": {
+      "sourceHash": "f0b717fb5af5b0c1d18b91450d86450764ee433e952df15ae505a15870f162e6",
+      "text": "士兵、詩人、國王分別是什麼意思？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/1/answer": {
+      "sourceHash": "32c7fc30537806ad7f8002c7e0273ce37ae2895b63594abbcc49864bdc9f4a02",
+      "text": "本版本分別用它們描繪實際守護、表達意義與協調責任。它們是敘事原型，不取決於性別、職業或社會身份，也不評定能力。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/2/question": {
+      "sourceHash": "9636b028af140fd4449ef145348cd6f354b0bab980d03dcc3ea14e88a86f7b1a",
+      "text": "並列結果怎麼算？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/2/answer": {
+      "sourceHash": "9e8641ff4ffee726849386a33866ec405de83cccda902411dbc41c369ec49fd0",
+      "text": "情境部分12、12、0，排序為每項原型各加5點時，得到17、17、5的雙並列；情境8、8、8加同樣排序得到13、13、13的三並列。10、8、6加各5點得到15、13、11，只保留最高項。所有最高分保留，沒有隨機決勝。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/3/question": {
+      "sourceHash": "a043c4376a488775dbe31edd349472c94352fcad284afa5e8add056bf5bc0abc",
+      "text": "百分比是性格準確率嗎？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/3/answer": {
+      "sourceHash": "a8cb20e958f9874299b8bb36ad24630ef3d59a550e277ebc6f6e5853a10ddaf8",
+      "text": "不是。這裡是本輪39個計分點的分配份額，包含情境單選和排序。例如13點佔三分之一，不表示33.3%像該原型，也不表示人群百分位。"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/4/question": {
+      "sourceHash": "18d6bbbab36f68c2099d10b61ea6cb112ec60d8d5762485184a1a3b59ffd363d",
+      "text": "答案和分享圖片會上傳嗎？"
+    },
+    "lib/questionnaires/data/soldier-poet-king-quiz.json/faq/4/answer": {
+      "sourceHash": "23776c3385f33b81d68990fd4a0ca567aa17d4a1f139936f0b8709c16454a415",
+      "text": "逐題答案只在瀏覽器計分；不放進分享連結。預設不存進度，主動選擇的標籤頁草稿沿頁面說明清除。PNG在本瀏覽器生成，只有你主動儲存或分享才帶出結果名稱。"
     },
     "mythical-creature/editorial/sections/0/title": {
       "sourceHash": "fc2f69caf079e15a8bd42889cda06a4ade7c5d7f0bb273a120115dd406576bac",
