@@ -65,5 +65,71 @@
     "rosalie-cullen",
     "emmett-cullen",
     "carlisle-cullen"
+  ],
+  "stranger-things": [
+    "eleven",
+    "mike-wheeler",
+    "dustin-henderson",
+    "lucas-sinclair",
+    "will-byers",
+    "max-mayfield"
+  ],
+  "ginny-and-georgia-character-quiz": [
+    "ginny",
+    "georgia",
+    "austin",
+    "marcus",
+    "max"
+  ],
+  "gilmore-girls": [
+    "lorelai-gilmore",
+    "rory-gilmore",
+    "emily-gilmore",
+    "lane-kim",
+    "paris-geller",
+    "sookie-st-james"
+  ],
+  "dexter": [
+    "dexter-morgan",
+    "debra-morgan",
+    "angel-batista",
+    "vince-masuka",
+    "james-doakes",
+    "maria-laguerta"
+  ],
+  "gossip-girl": [
+    "serena",
+    "blair",
+    "dan",
+    "nate",
+    "chuck",
+    "jenny"
+  ],
+  "game-of-thrones": [
+    "jon-snow",
+    "tyrion-lannister",
+    "arya-stark",
+    "sansa-stark",
+    "daenerys-targaryen",
+    "jaime-lannister"
+  ],
+  "harry-potter-character": [
+    "harry-potter",
+    "hermione-granger",
+    "ron-weasley",
+    "ginny-weasley",
+    "neville-longbottom",
+    "luna-lovegood",
+    "rubeus-hagrid"
+  ],
+  "euphoria-character-quiz": [
+    "rue-bennett",
+    "jules-vaughn",
+    "cassie-howard",
+    "maddy-perez",
+    "lexi-howard",
+    "fezco",
+    "nate-jacobs",
+    "kat-hernandez"
   ]
 }

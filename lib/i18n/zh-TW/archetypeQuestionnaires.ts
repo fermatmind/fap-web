@@ -1,8 +1,10 @@
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { euphoriaResultProfile } from "@/lib/questionnaires/result-content/euphoria-character-quiz";
 import { prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
+import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
 import { isArchetypeConfigurationValid } from "@/lib/questionnaires/scoring";
-import type { QuestionnaireSection, Text } from "@/lib/questionnaires/types";
+import type { Questionnaire, QuestionnaireSection, Text } from "@/lib/questionnaires/types";
 import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 import generated from "./archetype-questionnaires.generated.json";
 
@@ -15,6 +17,14 @@ const sources = {
   "avengers-character": { name: "avengers-character", load: () => import("@/lib/questionnaires/result-content/avengers-character.json") },
   "wednesday-addams-character": { name: "wednesday-addams-character", load: () => import("@/lib/questionnaires/result-content/wednesday-addams-character.json") },
   "twilight-character": { name: "twilight-character", load: () => import("@/lib/questionnaires/result-content/twilight-character.json") },
+  "stranger-things": { name: "stranger-things", load: () => import("@/lib/questionnaires/result-content/stranger-things.json") },
+  "ginny-and-georgia-character-quiz": { name: "ginny-georgia", load: () => import("@/lib/questionnaires/result-content/ginny-georgia.json") },
+  "gilmore-girls": { name: "gilmore-girls", load: () => import("@/lib/questionnaires/result-content/gilmore-girls.json") },
+  "dexter": { name: "dexter", load: () => import("@/lib/questionnaires/result-content/dexter.json") },
+  "gossip-girl": { name: "gossip-girl", load: () => import("@/lib/questionnaires/result-content/gossip-girl.json") },
+  "game-of-thrones": { name: "game-of-thrones", load: () => import("@/lib/questionnaires/result-content/game-of-thrones.json") },
+  "harry-potter-character": { name: "harry-potter-character", load: () => import("@/lib/questionnaires/result-content/harry-potter-character.json") },
+  "euphoria-character-quiz": { name: "euphoria-character-quiz", attribute: "euphoria", load: () => import("@/lib/questionnaires/result-content/euphoria-character-quiz.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {
@@ -31,6 +41,7 @@ export async function loadTraditionalArchetype(slug: string) {
   if (!hasTraditionalArchetype(slug)) return null;
   const source = await loadQuestionnaire(slug);
   if (!source || !isArchetypeConfigurationValid(source)) return null;
+  if (slug === "euphoria-character-quiz" && !isEuphoriaConfigurationValid(source)) return null;
   const quiz = projectStoryCopy(source, `lib/questionnaires/data/${slug}.json`, units);
   if (!Object.hasOwn(sources, slug)) return quiz;
   const edition = sources[slug as keyof typeof sources];
@@ -40,9 +51,14 @@ export async function loadTraditionalArchetype(slug: string) {
     zh: `若本次有多個最高匹配，請分別讀各份說明。並列不會合成新的${edition.type}，也不會指定主次。分享公開說明只會開啟通用讀法，且不附個人計數或答案。`,
     en: `If several matches share the highest count, read each separately. A tie creates neither a new ${edition.en} nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers.`,
   } : undefined;
+  const select = "attribute" in edition
+    ? (profile: Questionnaire["profiles"][number]) => euphoriaResultProfile(profile, readings)
+    : (profile: Questionnaire["profiles"][number]) => Object.hasOwn(readings, profile.id)
+      ? { ...profile, sections: [...profile.sections, ...readings[profile.id]] }
+      : profile;
   return { ...quiz, profiles: quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
-    attribute: edition.name,
-    select: (item) => Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item,
+    attribute: "attribute" in edition ? edition.attribute : edition.name,
+    select,
     note,
   })) };
 }

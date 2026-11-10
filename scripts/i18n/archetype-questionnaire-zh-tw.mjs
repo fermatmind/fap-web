@@ -12,6 +12,14 @@ const editions = {
   "avengers-character": ["avengers-character", "Avengers", "avengersLanding", true],
   "wednesday-addams-character": ["wednesday-addams-character", "Wednesday", "wednesdayLanding", true],
   "twilight-character": ["twilight-character", "Twilight", "twilightLanding", true],
+  "stranger-things": ["stranger-things", "StrangerThings", "strangerThingsLanding", true],
+  "ginny-and-georgia-character-quiz": ["ginny-georgia", "GinnyGeorgia", "ginnyGeorgiaLanding", true],
+  "gilmore-girls": ["gilmore-girls", "GilmoreGirls", "gilmoreGirlsLanding", true],
+  "dexter": ["dexter", "Dexter", "dexterLanding", true],
+  "gossip-girl": ["gossip-girl", "GossipGirl", "gossipGirlLanding", true],
+  "game-of-thrones": ["game-of-thrones", "GameOfThrones", "gameOfThronesLanding", true],
+  "harry-potter-character": ["harry-potter-character", "HarryPotter", "harryPotterLanding", true],
+  "euphoria-character-quiz": ["euphoria-character-quiz", "Euphoria", "euphoriaLanding", true],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);

@@ -4,6 +4,14 @@ import { barbieLandingFaq, barbieLandingSections } from "@/components/questionna
 import { avengersLandingFaq, avengersLandingSections } from "@/components/questionnaires/AvengersLandingEditorial";
 import { wednesdayLandingFaq, wednesdayLandingSections } from "@/components/questionnaires/WednesdayLandingEditorial";
 import { twilightLandingFaq, twilightLandingSections } from "@/components/questionnaires/TwilightLandingEditorial";
+import { strangerThingsLandingFaq, strangerThingsLandingSections } from "@/components/questionnaires/StrangerThingsLandingEditorial";
+import { ginnyGeorgiaLandingFaq, ginnyGeorgiaLandingSections } from "@/components/questionnaires/GinnyGeorgiaLandingEditorial";
+import { gilmoreGirlsLandingFaq, gilmoreGirlsLandingSections } from "@/components/questionnaires/GilmoreGirlsLandingEditorial";
+import { dexterLandingFaq, dexterLandingSections } from "@/components/questionnaires/DexterLandingEditorial";
+import { gossipGirlLandingFaq, gossipGirlLandingSections } from "@/components/questionnaires/GossipGirlLandingEditorial";
+import { gameOfThronesLandingFaq, gameOfThronesLandingSections } from "@/components/questionnaires/GameOfThronesLandingEditorial";
+import { harryPotterLandingFaq, harryPotterLandingSections } from "@/components/questionnaires/HarryPotterLandingEditorial";
+import { euphoriaLandingFaq, euphoriaLandingSections } from "@/components/questionnaires/EuphoriaLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -15,6 +23,14 @@ const editorials = {
   "avengers-character": { sections: avengersLandingSections, faq: avengersLandingFaq },
   "wednesday-addams-character": { sections: wednesdayLandingSections, faq: wednesdayLandingFaq },
   "twilight-character": { sections: twilightLandingSections, faq: twilightLandingFaq },
+  "stranger-things": { sections: strangerThingsLandingSections, faq: strangerThingsLandingFaq },
+  "ginny-and-georgia-character-quiz": { sections: ginnyGeorgiaLandingSections, faq: ginnyGeorgiaLandingFaq },
+  "gilmore-girls": { sections: gilmoreGirlsLandingSections, faq: gilmoreGirlsLandingFaq },
+  "dexter": { sections: dexterLandingSections, faq: dexterLandingFaq },
+  "gossip-girl": { sections: gossipGirlLandingSections, faq: gossipGirlLandingFaq },
+  "game-of-thrones": { sections: gameOfThronesLandingSections, faq: gameOfThronesLandingFaq },
+  "harry-potter-character": { sections: harryPotterLandingSections, faq: harryPotterLandingFaq },
+  "euphoria-character-quiz": { sections: euphoriaLandingSections, faq: euphoriaLandingFaq },
 };
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
