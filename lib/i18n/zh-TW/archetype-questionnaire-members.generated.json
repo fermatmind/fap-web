@@ -32,5 +32,38 @@
     "time-control",
     "invisibility",
     "super-strength"
+  ],
+  "barbie-character": [
+    "barbie",
+    "ken",
+    "gloria",
+    "president-barbie",
+    "weird-barbie",
+    "allan"
+  ],
+  "avengers-character": [
+    "iron-man",
+    "captain-america",
+    "thor",
+    "hulk",
+    "black-widow",
+    "hawkeye"
+  ],
+  "wednesday-addams-character": [
+    "wednesday-addams",
+    "enid-sinclair",
+    "bianca-barclay",
+    "eugene-ottinger",
+    "morticia-addams",
+    "thing"
+  ],
+  "twilight-character": [
+    "bella-swan",
+    "edward-cullen",
+    "jacob-black",
+    "alice-cullen",
+    "rosalie-cullen",
+    "emmett-cullen",
+    "carlisle-cullen"
   ]
 }

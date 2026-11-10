@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { FilmQuestionnaireLanding, hasFilmEditorial } from "./FilmQuestionnaireLanding";
 import { FantasyQuestionnaireLanding } from "./FantasyQuestionnaireLanding";
 import { FantasyPortrait, hasFantasyArtwork } from "@/components/questionnaires/FantasyRoster";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
@@ -24,7 +25,7 @@ const requireQuiz = cache(async (slug: string) => {
   const quiz = await loadTraditionalArchetype(slug);
   if (!quiz) notFound();
   const Landing = Object.hasOwn(pages, slug) ? pages[slug as keyof typeof pages] : null;
-  if (!Landing && !hasFantasyArtwork(slug)) notFound();
+  if (!Landing && !hasFantasyArtwork(slug) && !hasFilmEditorial(slug)) notFound();
   return { quiz, Landing };
 });
 
@@ -56,7 +57,12 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("zh")} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
-  if (!profile) return <>{languages}{Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" /> : <FantasyQuestionnaireLanding quiz={quiz} />}</>;
+  if (!profile) return <>
+    {languages}
+    {Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
+      : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} />
+      : <FantasyQuestionnaireLanding quiz={quiz} />}
+  </>;
 
   const result = quiz.profiles.find(item => item.id === profile);
   if (!result) notFound();

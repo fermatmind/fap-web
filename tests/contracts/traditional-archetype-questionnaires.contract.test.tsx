@@ -2,6 +2,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { ArchetypeQuestionnairePage, traditionalArchetypeMetadata } from "@/components/i18n/zh-TW/ArchetypeQuestionnairePage";
+import { hasFilmEditorial } from "@/components/i18n/zh-TW/FilmQuestionnaireLanding";
 import { loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import members from "@/lib/i18n/zh-TW/archetype-questionnaire-members.generated.json";
@@ -28,7 +29,14 @@ it.each(Object.entries(members))("preserves the true questions, scoring and full
   expect((await proxy(new NextRequest("https://fermatmind.com" + route + "/results/unknown"))).status).toBe(404);
   expect(await traditionalArchetypeMetadata({ slug })).toMatchObject({ robots: { index: false }, alternates: { canonical: route } });
 
-  render(await ArchetypeQuestionnairePage({ slug }));
+  const { container } = render(await ArchetypeQuestionnairePage({ slug }));
+  if (hasFilmEditorial(slug)) {
+    const citations = [...container.querySelectorAll(`a[href^="#${slug}-reference-"]`)];
+    expect(citations.length).toBeGreaterThan(0);
+    for (const link of citations) expect(container.querySelector(link.getAttribute("href")!)).not.toBeNull();
+    const destinations = [...container.querySelectorAll(`[id^="${slug}-reference-"] > a`)];
+    expect(destinations.map(link => link.getAttribute("href"))).toEqual(source.references?.map(item => item.url));
+  }
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   const start = screen.getByRole("button", { name: "開始測驗" }).closest("form");
   expect(start).toHaveAttribute("action", route + "/take");

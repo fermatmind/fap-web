@@ -8,6 +8,10 @@ const editions = {
   "mythical-creature": ["mythical-creature", "MythicalCreature", "mythicalCreature"],
   "what-dog-breed-am-i": ["dog-breed", "DogBreed", "dogBreed"],
   "superpower-test": ["superpower", "Superpower", "superpower"],
+  "barbie-character": ["barbie-character", "Barbie", "barbieLanding", true],
+  "avengers-character": ["avengers-character", "Avengers", "avengersLanding", true],
+  "wednesday-addams-character": ["wednesday-addams-character", "Wednesday", "wednesdayLanding", true],
+  "twilight-character": ["twilight-character", "Twilight", "twilightLanding", true],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -34,7 +38,7 @@ function readLiteral(node) {
   throw new Error("Unexpected editorial expression");
 }
 
-for (const [slug, [, name, prefix]] of Object.entries(editions)) {
+for (const [slug, [, name, prefix, film]] of Object.entries(editions)) {
   const quiz = JSON.parse(snapshots[`lib/questionnaires/data/${slug}.json`]);
   members[slug] = quiz.profiles.map(profile => profile.id);
   const file = `components/questionnaires/${name}LandingEditorial.ts`;
@@ -43,7 +47,9 @@ for (const [slug, [, name, prefix]] of Object.entries(editions)) {
   artifact.sourceHashes[file] = digest(raw);
   const syntax = ts.createSourceFile(file, raw, ts.ScriptTarget.Latest, true);
   const declarations = syntax.statements.filter(ts.isVariableStatement).flatMap(statement => [...statement.declarationList.declarations]);
-  for (const [field, suffix] of [["sections", "Sections"], ["faq", "Faq"], ["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]]) {
+  const fields = [["sections", "Sections"], ["faq", "Faq"]];
+  if (!film) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
+  for (const [field, suffix] of fields) {
     const declaration = declarations.find(candidate => candidate.name.getText(syntax) === prefix + suffix);
     if (!declaration?.initializer) throw new Error(`Missing editorial source: ${file}/${field}`);
     for (const [pointer, source] of Object.entries(collect(readLiteral(declaration.initializer)))) {
