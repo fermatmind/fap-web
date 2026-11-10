@@ -4,6 +4,11 @@ import { generateMetadata as guideMetadata } from "@/app/(localized)/[locale]/te
 import { generateMetadata as scoresMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/scores/page";
 import { generateMetadata as inviteMetadata } from "@/app/(localized)/[locale]/share/friendship/[id]/page";
 import { generateMetadata as manageMetadata } from "@/app/(localized)/[locale]/share/friendship/[id]/manage/page";
+import { metadata as traditionalInviteMetadata } from "@/app/(traditional)/zh-TW/share/friendship/[id]/page";
+import { metadata as traditionalManageMetadata } from "@/app/(traditional)/zh-TW/share/friendship/[id]/manage/page";
+import { friendshipCopy, friendshipQuestionText, friendshipSourceLocale } from "@/lib/friendship/traditional";
+import { publicInvitation } from "@/lib/friendship/sharing";
+import traditionalQuestions from "@/lib/friendship/traditional-questions.json";
 import { friendshipApi } from "@/lib/friendship/api";
 import { createElement } from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
@@ -38,6 +43,42 @@ describe("friendship quiz public and private contract", () => {
     }
     } finally { vi.unstubAllEnvs(); }
   });
+
+  it("reads Traditional Chinese through the same public and private route boundaries", async () => {
+    const id = "19321012-afb1-43b9-8ccd-22139abc5ca1";
+    const root = "https://fermatmind.com/zh-TW";
+    const invitation = `${root}/share/friendship/${id}`;
+    for (const path of ["/tests/play/friendship-quiz", "/tests/play/friendship-quiz/take", "/tests/play/friendship-quiz/questions", "/tests/play/friendship-quiz/how-to-play", "/tests/play/friendship-quiz/scores", `/share/friendship/${id}`, `/share/friendship/${id}/manage`]) {
+      const response = await proxy(new NextRequest(root + path));
+      expect(response.status, path).toBe(200);
+      if (path.startsWith("/share/")) expect(response.headers.get("x-robots-tag")).toContain("noindex");
+    }
+    for (const metadata of [traditionalInviteMetadata, traditionalManageMetadata]) {
+      expect(metadata.referrer).toBe("no-referrer");
+      expect(metadata.robots).toMatchObject({ index: false, follow: false });
+      expect(metadata.alternates?.canonical).toBeNull();
+    }
+    expect(resourceMetadata("zh-TW", "questions").alternates?.languages).toBeUndefined();
+    expect(publicInvitation(invitation)).toBe(invitation);
+    expect(publicInvitation(invitation + "/manage")).toBeNull();
+    expect(publicInvitation(invitation + "#key=synthetic")).toBeNull();
+    expect((await proxy(new NextRequest(root + "/share/friendship/invalid"))).status).toBe(404);
+  });
+  it("binds all 240 display candidates to the frozen Chinese text and preserves nickname interpolation", () => {
+    const candidate = traditionalQuestions["food-01"];
+    const q = { id: "food-01", category: "food", en: { prompt: "Choose", options: ["A", "B"] }, zh: candidate.source } as Pack["questions"][number];
+    expect(Object.keys(traditionalQuestions)).toHaveLength(240);
+    expect(friendshipQuestionText(q, "zh-TW").options).toEqual(["固定的早餐", "每天換個花樣"]);
+    expect(friendshipQuestionText(q, "en")).toBe(q.en);
+    expect(friendshipQuestionText(q, "zh")).toBe(q.zh);
+    const frozen = { ...q, zh: { ...q.zh, options: [q.zh.options[1], q.zh.options[0]] as [string, string] } };
+    expect(friendshipQuestionText(frozen, "zh-TW")).toBe(frozen.zh);
+    expect(friendshipSourceLocale("zh-TW")).toBe("zh");
+    const copy = friendshipCopy("zh-TW");
+    const nickname = "开心的测试";
+    expect(copy`你有多了解 ${nickname}？`).toContain(nickname);
+    expect(copy("显示昵称")).toBe("顯示暱稱");
+  });
   it("distinguishes missing capabilities from transient transport failures", async () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("{}", { status: 401 }));
     try { await expect(friendshipApi("/challenges/synthetic/manage")).rejects.toThrow("key_required"); }
@@ -49,7 +90,7 @@ describe("friendship quiz public and private contract", () => {
     fireEvent.click(screen.getByRole("button", { name: "Copy invite link" }));
     await waitFor(() => expect(tracking.send.mock.calls.at(-1)![0].payload.form_code).toBe("friendship_v1_creator"));
     const client = readFileSync("components/friendship/FriendshipClient.tsx", "utf8");
-    expect(client).toMatch(/if \(!r\.preview\) \{ friendshipEvent\("complete_test", locale, "friend"\)/);
+    expect(client).toMatch(/if \(!r\.preview\) \{ friendshipEvent\("complete_test", friendshipSourceLocale\(locale\), "friend"\)/);
   });
   it("preserves product, role and share-sheet semantics through existing event filtering", () => {
     friendshipEvent("share_result", "en", "friend", "share_sheet_completed");

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FRIENDSHIP_PATH } from "@/lib/friendship/routes";
 import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
 import { quizPath } from "@/lib/entertainment/guides";
 import { hasTraditionalBespokeStory, traditionalLegacyStorySlugs, traditionalBespokeStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
@@ -20,6 +21,7 @@ export default function TraditionalLegacyStoriesPage() {
     <h1 className="text-3xl font-bold sm:text-4xl">互動故事測驗</h1>
     <p className="leading-7">選擇想玩的故事，完成後可閱讀所有公開結果指南。</p>
     <ul className="grid gap-3 sm:grid-cols-2">
+      <li><Link href={`/zh-TW${FRIENDSHIP_PATH}`} className="block min-h-11 rounded-xl border border-slate-200 p-4 underline">朋友默契測驗</Link></li>
       {[CHANGAN_SLUG, ...traditionalBespokeStorySlugs, ...traditionalLegacyStorySlugs].map((slug) => <li key={slug}>
         <Link href={quizPath("zh-TW", slug)} prefetch={false} className="block min-h-11 rounded-xl border border-slate-200 p-4 underline">
           {slug === CHANGAN_SLUG ? traditionalChanganTitle : hasTraditionalBespokeStory(slug) ? traditionalBespokeStoryTitle(slug) : traditionalLegacyStoryTitle(slug)}

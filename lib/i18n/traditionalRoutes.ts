@@ -1,3 +1,4 @@
+import { isFriendshipDisplayPath } from "@/lib/friendship/routes";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
@@ -37,6 +38,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/support") return "/zh-TW/support";
   if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";
+  if (isFriendshipDisplayPath(path)) return `/zh-TW${path}`;
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
