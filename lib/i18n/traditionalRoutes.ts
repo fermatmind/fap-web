@@ -1,3 +1,4 @@
+import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
@@ -38,6 +39,8 @@ export function traditionalPath(pathname: string): string | null {
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
+  if (path === "/career/industries" || (path.startsWith("/career/industries/")
+    && CAREER_DATASET_FAMILY_SLUGS.includes(path.slice("/career/industries/".length)))) return `/zh-TW${path}`;
   if (/^\/career\/(?:guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?|jobs\/[a-z0-9]+(?:-[a-z0-9]+)*)$/u.test(path)) return `/zh-TW${path}`;
   if (path === GLOBAL_HISTORY_PATH || path === `${GLOBAL_HISTORY_PATH}/take`) return `/zh-TW${path}`;
   const historyResultPrefix = `${GLOBAL_HISTORY_PATH}/results/`;

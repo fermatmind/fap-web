@@ -134,7 +134,7 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(html).toContain('href="/zh-TW/career/jobs/accountants-and-auditors"');
     expect(html).toContain("會計師");
     expect(html).toContain('href="/zh-TW/career/guides"');
-    expect(html).toMatch(/href="\/zh\/career\/industries"[^>]*hreflang="zh-CN"/i);
+    expect(html).toContain('href="/zh-TW/career/industries"');
     expect(metadata.robots).toMatchObject({ index: false });
     expect(metadata.alternates).toEqual({ canonical: "/zh-TW/career" });
     const { traditionalPath } = await import("@/lib/i18n/traditionalRoutes");

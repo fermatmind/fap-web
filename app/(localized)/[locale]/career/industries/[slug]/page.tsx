@@ -13,10 +13,12 @@ import {
   formatCareerFamilyTitle,
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
+import { loadTraditionalDirectoryLanguage } from "@/lib/career/traditionalDirectory";
 import { fetchCareerDatasetHub } from "@/lib/career/api/fetchCareerDatasetHub";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { PublicReadError } from "@/lib/public-content/readError";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -74,6 +76,11 @@ export default async function CareerIndustryDetailPage({
   const { locale: localeParam, slug } = await params;
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
+  const traditional = localeParam === "zh-TW";
+  const language = traditional ? await loadTraditionalDirectoryLanguage() : null;
+  const display = (text: string) => language?.display(text) ?? text;
+  const path = (href: string) => traditional ? href.replace(/^\/zh(?=\/)/u, "/zh-TW") : href;
+  const Surface = traditional ? "div" : "main";
   const familySlug = normalizeFamilySlug(slug);
   const submittedQuery = String(Array.isArray(resolvedSearchParams.q) ? resolvedSearchParams.q[0] : resolvedSearchParams.q ?? "").trim();
   const [datasetPayload, jobIndexPayload] = await Promise.all([
@@ -81,6 +88,9 @@ export default async function CareerIndustryDetailPage({
     fetchCareerJobIndex({ locale }),
   ]);
   const dataset = adaptCareerDatasetHub({ payload: datasetPayload });
+  if (traditional && (!dataset || !jobIndexPayload)) {
+    throw new PublicReadError({ kind: "transient", errorCode: "CAREER_INDUSTRY_AUTHORITY_UNAVAILABLE" });
+  }
   const detailReadyJobs = new Map(
     adaptCareerJobIndex({ locale, payload: jobIndexPayload })
       .filter((job) => job.seoContract.indexState === "indexable" && job.seoContract.indexEligible !== false)
@@ -98,44 +108,45 @@ export default async function CareerIndustryDetailPage({
   }
 
   const showDirectoryIntro = slug === familySlug && DIRECTORY_INTRO_FAMILIES.has(familySlug);
-  const industryPath = localizedPath(`/career/industries/${familySlug}`, locale);
-  const jobsPath = localizedPath("/career", locale);
+  const industryPath = path(localizedPath(`/career/industries/${familySlug}`, locale));
+  const jobsPath = path(localizedPath("/career", locale));
   const visibleMembers = filterCareerDatasetMembers({
     members,
     familySlug,
-    query: submittedQuery,
-  });
+    query: language?.search(submittedQuery) ?? submittedQuery,
+  }).map((member) => traditional && member.canonicalTitleZh
+    ? { ...member, canonicalTitleZh: display(member.canonicalTitleZh) } : member);
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <Surface className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-10 py-10 md:py-16">
         <nav className="flex flex-wrap gap-2 text-sm text-slate-500">
-          <Link href={localizedPath("/career", locale)} className="hover:text-slate-950">
-            {locale === "zh" ? "职业" : "Career"}
+          <Link href={jobsPath} className="hover:text-slate-950">
+            {locale === "zh" ? display("职业") : "Career"}
           </Link>
           <span>/</span>
-          <Link href={localizedPath("/career/industries", locale)} className="hover:text-slate-950">
-            {locale === "zh" ? "行业" : "Industries"}
+          <Link href={path(localizedPath("/career/industries", locale))} className="hover:text-slate-950">
+            {locale === "zh" ? display("行业") : "Industries"}
           </Link>
           <span>/</span>
-          <span className="text-slate-950">{family.title}</span>
+          <span className="text-slate-950">{display(family.title)}</span>
         </nav>
 
         <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-end">
-          {showDirectoryIntro ? (
+          {showDirectoryIntro || traditional ? (
             <div className="max-w-3xl space-y-4">
               <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
-                {locale === "zh" ? `${family.title}职业目录` : `${family.title} career directory`}
+                {locale === "zh" ? display(`${family.title}职业目录`) : `${family.title} career directory`}
               </h1>
               <p className="m-0 text-base leading-7 text-slate-600">
-                {locale === "zh" ? `按站内职业分类浏览${family.title}岗位，使用搜索筛选职业，并进入已开放的详情页比较工作任务。本目录不代表实时招聘，也不是完整的本地职业分类；具体岗位信息与适用范围请查看详情页注明的来源。` : `Browse ${family.title} roles by the site’s occupational categories, filter them with search, and compare tasks on available detail pages. This directory is not a live job board or a complete local classification; see each detail page for its sources and scope.`}
+                {locale === "zh" ? display(`按站内职业分类浏览${family.title}岗位，使用搜索筛选职业，并进入已开放的详情页比较工作任务。本目录不代表实时招聘，也不是完整的本地职业分类；具体岗位信息与适用范围请查看详情页注明的来源。`) : `Browse ${family.title} roles by the site’s occupational categories, filter them with search, and compare tasks on available detail pages. This directory is not a live job board or a complete local classification; see each detail page for its sources and scope.`}
               </p>
             </div>
           ) : <div aria-hidden="true" />}
           <div className="grid grid-cols-3 gap-3 text-center">
-            <Metric label={locale === "zh" ? "职业" : "Roles"} value={String(family.count)} />
-            <Metric label={locale === "zh" ? "公开" : "Public"} value={String(family.publicDetailCount)} />
-            <Metric label={locale === "zh" ? "详情" : "Details"} value={String(family.indexableCount)} />
+            <Metric label={locale === "zh" ? display("职业") : "Roles"} value={String(family.count)} />
+            <Metric label={locale === "zh" ? display("公开") : "Public"} value={String(family.publicDetailCount)} />
+            <Metric label={locale === "zh" ? display("详情") : "Details"} value={String(family.indexableCount)} />
           </div>
         </section>
 
@@ -146,16 +157,16 @@ export default async function CareerIndustryDetailPage({
                 type="search"
                 name="q"
                 defaultValue={submittedQuery}
-                placeholder={locale === "zh" ? "在本行业内搜索职业" : "Search within this industry"}
+                placeholder={locale === "zh" ? display("在本行业内搜索职业") : "Search within this industry"}
                 className="h-12 w-full rounded-full border border-transparent bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
               />
               <div className="mt-3 flex gap-3 md:mt-0 md:shrink-0">
                 <button className="h-12 rounded-full bg-orange-600 px-5 text-sm font-semibold text-white hover:bg-orange-700" type="submit">
-                  {locale === "zh" ? "搜索" : "Search"}
+                  {locale === "zh" ? display("搜索") : "Search"}
                 </button>
                 {submittedQuery ? (
                   <Link href={industryPath} className="inline-flex h-12 items-center rounded-full border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-600 hover:border-slate-300">
-                    {locale === "zh" ? "清除" : "Clear"}
+                    {locale === "zh" ? display("清除") : "Clear"}
                   </Link>
                 ) : null}
               </div>
@@ -164,26 +175,30 @@ export default async function CareerIndustryDetailPage({
             <CareerOccupationDirectory
               locale={locale}
               members={visibleMembers}
-              emptyLabel={locale === "zh" ? "本行业下没有找到匹配职业。" : "No matching roles in this industry."}
+              traditional={traditional ? {
+                familyTitles: { [familySlug]: display(family.title) },
+                familyFilterPath: `${jobsPath}?family=`,
+              } : undefined}
+              emptyLabel={locale === "zh" ? display("本行业下没有找到匹配职业。") : "No matching roles in this industry."}
             />
           </div>
 
           <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h2 className="m-0 text-base font-semibold text-slate-950">{locale === "zh" ? "继续浏览" : "Continue"}</h2>
+              <h2 className="m-0 text-base font-semibold text-slate-950">{locale === "zh" ? display("继续浏览") : "Continue"}</h2>
               <div className="mt-4 space-y-3 text-sm">
                 <Link href={jobsPath} className="block font-semibold text-orange-600 underline-offset-4 hover:underline">
-                  {locale === "zh" ? "返回全部职业库" : "Back to all occupations"}
+                  {locale === "zh" ? display("返回全部职业库") : "Back to all occupations"}
                 </Link>
                 <Link href={`${jobsPath}?family=${encodeURIComponent(familySlug)}`} className="block font-semibold text-slate-600 underline-offset-4 hover:text-slate-950 hover:underline">
-                  {locale === "zh" ? "在全部职业库中查看本行业" : "Open this industry in the library"}
+                  {locale === "zh" ? display("在全部职业库中查看本行业") : "Open this industry in the library"}
                 </Link>
               </div>
             </div>
           </aside>
         </section>
       </Container>
-    </main>
+    </Surface>
   );
 }
 

@@ -218,7 +218,7 @@ export default async function CareerPage({
   const selectedFamily = normalizeSearchParam(resolvedSearchParams.family);
   const page = normalizePageParam(resolvedSearchParams.page);
   const jobsPath = traditional ? "/zh-TW/career" : localizedPath("/career", locale);
-  const industriesPath = localizedPath("/career/industries", locale);
+  const industriesPath = traditional ? "/zh-TW/career/industries" : localizedPath("/career/industries", locale);
   const directoryPayload = await loadDirectory(locale, page, selectedFamily, language?.search(submittedQuery) ?? submittedQuery);
   const directory = adaptCareerDirectory({
     locale,
@@ -375,8 +375,8 @@ export default async function CareerPage({
                 {traditional ? <Link href="/zh-TW/career/guides" prefetch={false} className="underline-offset-4 hover:underline">
                   職涯指南
                 </Link> : null}
-                <Link href={industriesPath} hrefLang={traditional ? "zh-CN" : undefined} prefetch={false} className="underline-offset-4 hover:underline">
-                  {traditional ? "按產業瀏覽（簡體中文）" : label("按行业浏览", "Browse by industry")}
+                <Link href={industriesPath} prefetch={false} className="underline-offset-4 hover:underline">
+                  {traditional ? "按產業瀏覽" : label("按行业浏览", "Browse by industry")}
                 </Link>
               </div>
             </div>

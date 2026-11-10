@@ -8,7 +8,7 @@ afterEach(() => {
   vi.resetModules();
 });
 
-function installCareerIndustryMocks() {
+function installCareerIndustryMocks(locale: "en" | "zh" = "en") {
   vi.doMock("next/link", () => ({
     default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
       void _prefetch;
@@ -22,7 +22,7 @@ function installCareerIndustryMocks() {
   }));
 
   vi.doMock("@/lib/i18n/getDict", () => ({
-    resolveLocale: vi.fn(() => "en"),
+    resolveLocale: vi.fn(() => locale),
   }));
 
   vi.doMock("@/lib/i18n/locales", async () => {
@@ -38,31 +38,31 @@ function installCareerIndustryMocks() {
       authority_version: "career.industry_directory.v1",
       bundle_kind: "career_industry_directory",
       bundle_version: "career.industry_directory.v1",
-      locale: "en",
+      locale: locale === "zh" ? "zh-CN" : "en",
       public_detail_indexable_count: 2,
       industry_count: 1,
       industries: [
         {
           slug: "computer-and-information-technology",
-          title: "Computer and Information Technology",
+          title: locale === "zh" ? "计算机与信息技术" : "Computer and Information Technology",
           title_en: "Computer and Information Technology",
           title_zh: "计算机与信息技术",
           count: 2,
           public_detail_count: 2,
           indexable_count: 2,
-          canonical_path: "/en/career/industries/computer-and-information-technology",
+          canonical_path: `/${locale}/career/industries/computer-and-information-technology`,
           discovery_jobs: [
             {
               slug: "data-engineers",
-              title: "Data Engineers",
+              title: locale === "zh" ? "数据工程师" : "Data Engineers",
               title_en: "Data Engineers",
-              canonical_path: "/en/career/jobs/data-engineers",
+              canonical_path: `/${locale}/career/jobs/data-engineers`,
             },
             {
               slug: "data-scientists",
-              title: "Data Scientists",
+              title: locale === "zh" ? "数据科学家" : "Data Scientists",
               title_en: "Data Scientists",
-              canonical_path: "/en/career/jobs/data-scientists",
+              canonical_path: `/${locale}/career/jobs/data-scientists`,
             },
           ],
         },
@@ -88,6 +88,7 @@ function installCareerIndustryMocks() {
           member_kind: "career_tracked_occupation",
           canonical_slug: "data-scientists",
           canonical_title_en: "Data Scientists",
+          canonical_title_zh: "数据科学家",
           family_slug: "computer-and-information-technology",
           release_cohort: "public_detail_indexable",
           public_index_state: "indexable",
@@ -97,6 +98,7 @@ function installCareerIndustryMocks() {
           member_kind: "career_tracked_occupation",
           canonical_slug: "data-engineers",
           canonical_title_en: "Data Engineers",
+          canonical_title_zh: "数据工程师",
           family_slug: "computer-and-information-technology",
           release_cohort: "public_detail_indexable",
           public_index_state: "indexable",
@@ -210,5 +212,31 @@ describe("Career-owned discovery links", () => {
     expect(html).not.toContain("/tests/");
     expect(html).not.toContain("big-five");
     expect(html).not.toContain("riasec");
+  });
+
+  it("reads the real locale authority shape for the Traditional industry index and filtered details", async () => {
+    installCareerIndustryMocks("zh");
+    const { default: Index, metadata } = await import("@/app/(traditional)/zh-TW/career/industries/page");
+    const { default: Details, generateMetadata } = await import("@/app/(traditional)/zh-TW/career/industries/[slug]/page");
+    const { default: IndustryIndex } = await import("@/app/(localized)/[locale]/career/industries/page");
+    const { default: IndustryDetail } = await import("@/app/(localized)/[locale]/career/industries/[slug]/page");
+    const { fetchCareerIndustryDirectory } = await import("@/lib/career/api/fetchCareerIndustryDirectory");
+    const slug = "computer-and-information-technology";
+    const path = `/zh-TW/career/industries/${slug}`;
+    const params = Promise.resolve({ slug });
+    const searchParams = Promise.resolve({ q: "資料工程師" });
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect((await generateMetadata({ params, searchParams })).alternates).toEqual({ canonical: path });
+    expect(Index()).toBeDefined();
+    expect(await Details({ params, searchParams })).toBeDefined();
+    const index = renderToStaticMarkup(await IndustryIndex({ params: Promise.resolve({ locale: "zh-TW" }) }));
+    expect(fetchCareerIndustryDirectory).toHaveBeenCalledWith({ locale: "zh" });
+    expect(index).toContain(`href="${path}"`);
+    expect(index).toContain('href="/zh-TW/career/jobs/data-engineers"');
+    const details = renderToStaticMarkup(await IndustryDetail({ params: Promise.resolve({ slug, locale: "zh-TW" }), searchParams }));
+    expect(details).toContain(`action="${path}"`);
+    expect(details).toContain('value="資料工程師"');
+    expect(details).toContain('href="/zh-TW/career/jobs/data-engineers"');
+    expect(details).not.toContain('href="/zh-TW/career/jobs/data-scientists"');
   });
 });
