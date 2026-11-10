@@ -39,13 +39,25 @@ import { workplaceTechnologyLandingFaq, workplaceTechnologyLandingSections } fro
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { isPracticeConfigurationValid } from "@/lib/questionnaires/practice";
 import { prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
-import type { QuestionnaireSection } from "@/lib/questionnaires/types";
-import generated from "./practice-questionnaires.generated.json";
+import type { Questionnaire, QuestionnaireSection } from "@/lib/questionnaires/types";
 import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 
-const units: TextUnits = generated.units;
+// The generator validates this dictionary before builds. Avoid inferring its thousands of literal keys.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { units } = require("./practice-questionnaires.generated.json") as { units: TextUnits };
 
-const editions = {
+type PracticeEdition = {
+  reading: string;
+  load: () => Promise<{ default: Record<string, QuestionnaireSection[]> }>;
+  editorial: string;
+  prefix: string;
+  sections: Questionnaire["guide"];
+  faq: Questionnaire["faq"];
+  references?: NonNullable<Questionnaire["references"]>;
+  prepareQuestions?: (questions: Questionnaire["questions"]) => Questionnaire["questions"];
+};
+
+const editions: Readonly<Record<string, PracticeEdition>> = {
   "attention-to-detail": {
     reading: "attention-to-detail",
     load: () => import("@/lib/questionnaires/result-content/attention-to-detail.json"),
@@ -334,13 +346,13 @@ export function traditionalNumberSeriesSummaries() {
 
 export async function loadTraditionalPractice(slug: string) {
   if (!Object.hasOwn(editions, slug)) return null;
-  const edition = editions[slug as keyof typeof editions];
+  const edition = editions[slug];
   const original = await loadQuestionnaire(slug);
   if (!original || !isPracticeConfigurationValid(original)) return null;
-  const questions = "prepareQuestions" in edition ? edition.prepareQuestions(original.questions) : original.questions;
+  const questions = edition.prepareQuestions?.(original.questions) ?? original.questions;
   const quiz = projectStoryCopy({ ...original, questions }, `lib/questionnaires/data/${slug}.json`, units);
   const { default: source } = await edition.load();
-  const readings: Record<string, QuestionnaireSection[]> = projectStoryCopy(source, `lib/questionnaires/result-content/${edition.reading}.json`, units);
+  const readings = projectStoryCopy(source, `lib/questionnaires/result-content/${edition.reading}.json`, units);
   const root = `components/questionnaires/${edition.editorial}.ts/${edition.prefix}${slug === "number-series" ? "" : "Landing"}`;
   return {
     quiz: {
@@ -354,7 +366,7 @@ export async function loadTraditionalPractice(slug: string) {
     faq: projectStoryCopy(edition.faq, `${root}Faq`, units),
     references: [
       ...(quiz.references ?? []),
-      ...("references" in edition ? projectStoryCopy(edition.references, `${root}References`, units) : []),
+      ...projectStoryCopy(edition.references ?? [], `${root}References`, units),
     ],
   };
 }
