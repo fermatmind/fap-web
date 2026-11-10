@@ -41,6 +41,11 @@ import { MoonPhaseComparison } from "@/components/questionnaires/MoonPhaseCompar
 import { MoonPhaseExamples } from "@/components/questionnaires/MoonPhaseExamples";
 import { AuraColorResultExamples } from "@/components/questionnaires/AuraColorResultExamples";
 import { auraColors } from "@/lib/questionnaires/auraColors";
+import { inkblotLandingFaq, inkblotLandingSections } from "@/components/questionnaires/InkblotLandingEditorial";
+import { thinkingApproachLandingFaq, thinkingApproachLandingSections } from "@/components/questionnaires/ThinkingApproachLandingEditorial";
+import { ikigaiLandingFaq, ikigaiLandingSections } from "@/components/questionnaires/IkigaiLandingEditorial";
+import { moralDilemmaLandingFaq, moralDilemmaLandingSections } from "@/components/questionnaires/MoralDilemmaLandingEditorial";
+import { deluluLandingFaq, deluluLandingSections } from "@/components/questionnaires/DeluluLandingEditorial";
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import { archetypeEditorial, archetypeLandingSummary, archetypePrivacyAnswer } from "@/lib/i18n/zh-TW/archetypeQuestionnaires";
@@ -107,6 +112,11 @@ const editorials = {
   "stupidity-test": { sections: everydayMixupsLandingSections, faq: everydayMixupsLandingFaq, references: everydayMixupsLandingReferences },
   "aura-color": false,
   "moon-phase": null,
+  "inkblot-personality-quiz": { sections: inkblotLandingSections, faq: inkblotLandingFaq },
+  "intelligence-type-test": { sections: thinkingApproachLandingSections, faq: thinkingApproachLandingFaq },
+  "ikigai": { sections: ikigaiLandingSections, faq: ikigaiLandingFaq },
+  "moral-dilemma-test": { sections: moralDilemmaLandingSections, faq: moralDilemmaLandingFaq },
+  "delulu-test": { sections: deluluLandingSections, faq: deluluLandingFaq },
 } as const;
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {

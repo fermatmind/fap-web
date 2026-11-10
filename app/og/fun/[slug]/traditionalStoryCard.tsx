@@ -40,7 +40,14 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     const aura = slug === "aura-color" && result ? auraColors[result.id] : undefined;
     if (aura && result) return auraColorCard("zh-TW", result.title.zh, aura, await archetypeFont);
     const palette = slug === "color-season";
-    const edition = palette ? "配色偏好測驗" : slug === "male-archetype-test" ? "原創四角色隱喻版" : "原創趣味測驗";
+    const editions: Record<string, string> = {
+      "color-season": "配色偏好測驗",
+      "male-archetype-test": "原創四角色隱喻版",
+      "moral-dilemma-test": "原創五組倫理提問",
+      "intelligence-type-test": "原創思考入口趣味版",
+      ikigai: "原創四組交疊探索",
+    };
+    const edition = editions[slug] ?? "原創趣味測驗";
     const swatches = palette ? result?.paletteSwatches ?? quiz.profiles.flatMap(profile => profile.paletteSwatches?.slice(0, 1) ?? []) : undefined;
     return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh, Boolean(result), await archetypeFont, edition,
       palette ? "公開配色指南" : undefined, swatches);

@@ -68,6 +68,11 @@ const editions = {
   "stupidity-test": ["stupidity-test", "EverydayMixups", "everydayMixupsLanding", "standalone-references"],
   "aura-color": ["aura-color", "", "", "data"],
   "moon-phase": ["moon-phase", "MoonPhase", "", "summaries"],
+  "inkblot-personality-quiz": ["inkblot", "Inkblot", "inkblotLanding", "standalone"],
+  "intelligence-type-test": ["thinking-approach", "ThinkingApproach", "thinkingApproachLanding", "standalone"],
+  "ikigai": ["ikigai", "Ikigai", "ikigaiLanding", "standalone"],
+  "moral-dilemma-test": ["ethical-questions", "MoralDilemma", "moralDilemmaLanding", "standalone"],
+  "delulu-test": ["delulu", "Delulu", "deluluLanding", "standalone"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -102,6 +107,11 @@ const formerDraftCopy = [
   ["私密选择、可选草稿与分享", "私密选择、答题进度与分享"],
   ["作答、保存与重测", "作答进度与重测"],
   ["或先同意保存", ""],
+  ["主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删", noDraft],
+  ["草稿主动开启，仅本设备24小时，完成、退出或重测清除", noDraft],
+  ["草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删", noDraft],
+  ["草稿主动开启，仅本标签页最多24小时，完成、退出清除或重测删除", noDraft],
+  ["主动保存才建立本标签页最多24小时的临时草稿", noDraft],
   ["页面内存、自选24小时标签页草稿及完成、退出、重测清除保持不变", noDraft],
   ["自愿草稿仅本标签页最多24小时，完成、清除或重测即删", noDraft],
   ["自愿保存的进度使用本标签页会话存储，24小时后失效，完成、重测或退出并清除时删除", noDraft],

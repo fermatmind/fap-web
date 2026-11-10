@@ -559,5 +559,41 @@
     "waning-gibbous",
     "last-quarter",
     "waning-crescent"
+  ],
+  "inkblot-personality-quiz": [
+    "whole-form",
+    "edge-detail",
+    "motion-association",
+    "contrast-noticing",
+    "scene-imagining"
+  ],
+  "intelligence-type-test": [
+    "verbal-framing",
+    "rule-mapping",
+    "sound-sequencing",
+    "hands-on-trial",
+    "dialogue-testing",
+    "environmental-noticing"
+  ],
+  "ikigai": [
+    "passion",
+    "mission",
+    "profession",
+    "vocation"
+  ],
+  "moral-dilemma-test": [
+    "consequences",
+    "principles",
+    "character",
+    "care",
+    "fairness"
+  ],
+  "delulu-test": [
+    "wish-rehearsal",
+    "cinematic-moment",
+    "signal-spark",
+    "future-postcard",
+    "second-chapter",
+    "lucky-detour"
   ]
 }

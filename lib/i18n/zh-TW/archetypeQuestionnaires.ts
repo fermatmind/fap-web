@@ -1,5 +1,7 @@
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { sakeResultProfile } from "@/lib/questionnaires/result-content/sake-type";
+import { deluluResultProfile, deluluResultSections } from "@/lib/questionnaires/result-content/delulu";
+import { ethicalQuestionsResultProfile } from "@/lib/questionnaires/result-content/ethical-questions";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { mergeResultReadingParagraphs, prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
 import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
@@ -74,6 +76,11 @@ const sources = {
   "stupidity-test": { name: "stupidity-test", attribute: "everyday-mixups", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/stupidity-test.json") },
   "aura-color": { name: "aura-color", load: () => import("@/lib/questionnaires/result-content/aura-color.json") },
   "moon-phase": { name: "moon-phase", load: () => import("@/lib/questionnaires/result-content/moon-phase.json") },
+  "inkblot-personality-quiz": { name: "inkblot", load: () => import("@/lib/questionnaires/result-content/inkblot.json") },
+  "intelligence-type-test": { name: "thinking-approach", load: () => import("@/lib/questionnaires/result-content/thinking-approach.json") },
+  "ikigai": { name: "ikigai", load: () => import("@/lib/questionnaires/result-content/ikigai.json") },
+  "moral-dilemma-test": { name: "ethical-questions", load: () => import("@/lib/questionnaires/result-content/ethical-questions.json") },
+  "delulu-test": { name: "delulu", load: () => import("@/lib/questionnaires/result-content/delulu.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {
@@ -106,14 +113,19 @@ export async function loadTraditionalArchetype(slug: string) {
     zh: `若本次有多個最高匹配，請分別讀各份說明。並列不會合成新的${edition.type}，也不會指定主次。分享公開說明只會開啟通用讀法，且不附個人計數或答案。`,
     en: `If several matches share the highest count, read each separately. A tie creates neither a new ${edition.en} nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers.`,
   } : undefined;
-  const select = slug === "sake-type"
+  const select = slug === "delulu-test"
+    ? (profile: Questionnaire["profiles"][number]) => deluluResultProfile(profile, readings)
+    : slug === "moral-dilemma-test"
+    ? (profile: Questionnaire["profiles"][number]) => ethicalQuestionsResultProfile(profile, readings)
+    : slug === "sake-type"
     ? (profile: Questionnaire["profiles"][number]) => sakeResultProfile(profile, readings)
     : "mergeParagraphs" in edition
     ? (profile: Questionnaire["profiles"][number]) => mergeResultReadingParagraphs(profile, readings)
     : (profile: Questionnaire["profiles"][number]) => Object.hasOwn(readings, profile.id)
       ? { ...profile, sections: [...profile.sections, ...readings[profile.id]] }
       : profile;
-  return { ...quiz, profiles: quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
+  const guide = slug === "delulu-test" ? deluluResultSections(quiz.guide) : quiz.guide;
+  return { ...quiz, guide, profiles: quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: "attribute" in edition ? edition.attribute : edition.name,
     select,
     note,
