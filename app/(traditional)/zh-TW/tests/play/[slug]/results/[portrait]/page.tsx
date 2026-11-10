@@ -4,8 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CHANGAN_SLUG, changanPortraitPath, traditionalFirstChoiceRule } from "@/lib/entertainment/changan";
 import { contentImagePath, findPublicPortrait, portraitDescription, portraitRuleExample, quizPath, resultPath } from "@/lib/entertainment/guides";
-import { loadTraditionalChangan } from "@/lib/i18n/zh-TW/changan";
-import { requireTraditionalLegacyStory } from "@/lib/i18n/zh-TW/legacyStoryReader";
+import { requireTraditionalStoryQuiz } from "@/lib/i18n/zh-TW/legacyStoryReader";
 
 type Props = { params: Promise<{ slug: string; portrait: string }> };
 const sections = [
@@ -17,8 +16,7 @@ const sections = [
 
 async function loadPortrait(params: Props["params"]) {
   const { slug, portrait } = await params;
-  const quiz = slug === CHANGAN_SLUG ? await loadTraditionalChangan() : (await requireTraditionalLegacyStory(slug)).quiz;
-  if (!quiz) notFound();
+  const quiz = await requireTraditionalStoryQuiz(slug);
   const result = findPublicPortrait(quiz, portrait);
   if (!result) notFound();
   return { quiz, result };

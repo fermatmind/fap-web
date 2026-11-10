@@ -10,10 +10,11 @@ import { resultPath, resultSlug } from "@/lib/entertainment/guides";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { resolveFunQuiz } from "@/lib/entertainment/scoring";
 import type { Answers } from "@/lib/entertainment/types";
-import { traditionalLegacyStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
+import { traditionalLegacyStorySlugs, traditionalNatureStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
 import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import generated from "@/lib/i18n/zh-TW/legacy-stories.generated.json";
 import { loadTraditionalLegacyStory } from "@/lib/i18n/zh-TW/legacyStories";
+import { loadTraditionalNatureStory } from "@/lib/i18n/zh-TW/natureStories";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -88,4 +89,27 @@ it.each(["woodland-animal", "house-of-doors"])("renders and completes the Taiwan
     fireEvent.click(screen.getByRole("button", { name: copy(index === state.path.length - 1 ? "查看完整结果" : "下一题") }));
   }
   expect(screen.getAllByRole("link").some((link) => link.getAttribute("href") === resultPath("zh-TW", slug, result.id))).toBe(true);
+});
+
+it.each(traditionalNatureStorySlugs)("keeps the original editorial, scoring and references for Taiwan %s", async (slug) => {
+  const original = (await loadFunQuiz(slug))!;
+  const quiz = (await loadTraditionalNatureStory(slug))!;
+  const { answers, state } = scoreExample(original);
+  expect(quiz.questions.map(question => question.id)).toEqual(original.questions.map(question => question.id));
+  expect(resolveFunQuiz(quiz, answers)).toEqual(state);
+  expect(quiz.results.map(result => result.id)).toEqual(original.results.map(result => result.id));
+  const params = Promise.resolve({ slug });
+  expect(await landingMetadata({ params })).toMatchObject({ robots: { index: false } });
+  render(await Landing({ params }));
+  expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
+  const form = screen.getByRole("button", { name: "開始測驗" }).closest("form");
+  expect(form).toHaveAttribute("action", `/zh-TW/tests/play/${slug}/take`);
+  const links = screen.getAllByRole("link").map(link => link.getAttribute("href"));
+  expect(links.filter(href => href?.startsWith("https://")).length).toBeGreaterThanOrEqual(2);
+  for (const result of quiz.results) {
+    const path = resultPath("zh-TW", slug, result.id);
+    expect(links).toContain(path);
+    expect(traditionalPath(path)).toBe(path);
+  }
+  expect(traditionalPath(`/zh-TW/tests/play/${slug}/results/not-real`)).toBeNull();
 });

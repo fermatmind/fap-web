@@ -2,19 +2,21 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
+import { hasTraditionalNatureStory } from "@/lib/i18n/traditionalLegacyStoryPaths";
 import { loadTraditionalLegacyStory } from "@/lib/i18n/zh-TW/legacyStories";
+import { loadTraditionalNatureStory } from "@/lib/i18n/zh-TW/natureStories";
 
 let font: Promise<ArrayBuffer> | undefined;
 
 export async function traditionalStoryCard(slug: string, portrait: string | null) {
-  const story = await loadTraditionalLegacyStory(slug);
-  const result = story && portrait ? findPublicPortrait(story.quiz, portrait) : undefined;
-  if (!story || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
+  const quiz = hasTraditionalNatureStory(slug) ? await loadTraditionalNatureStory(slug) : (await loadTraditionalLegacyStory(slug))?.quiz;
+  const result = quiz && portrait ? findPublicPortrait(quiz, portrait) : undefined;
+  if (!quiz || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
   font ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/legacy-story-700.ttf"))
     .then((bytes) => Uint8Array.from(bytes).buffer);
 
-  const title = result?.title.zh ?? story.quiz.title.zh;
-  const description = result ? portraitDescription(result, "zh") : story.quiz.seo.description.zh;
+  const title = result?.title.zh ?? quiz.title.zh;
+  const description = result ? portraitDescription(result, "zh") : quiz.seo.description.zh;
   return new ImageResponse(
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 64, background: "#f8fafc", color: "#0f172a", fontFamily: "StoryNoto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", color: "#0f766e", fontSize: 29 }}>

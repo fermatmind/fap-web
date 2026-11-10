@@ -1,0 +1,1252 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "sourceHashes": {
+    "lib/entertainment/data/beachcomber.json": "6795ea3e335e2f254edb60276d0ab9313c0a59a922fe1f15307b89246378f574",
+    "lib/entertainment/data/birdwatching-companion.json": "ccd7ce5443f7840359bc634ec3e9ddac67689c66ef26fdae58305f8b91862b17",
+    "lib/entertainment/data/cloud-drift.json": "7569b4c3f51c6f9cfaad7448eb3fea5b15c8b3a98fcd2b8c95d5b0053e8ca027",
+    "components/entertainment/BeachcomberEditorial.ts": "eb87c3060fe72068c61bc9c99fd61b217c6be8f41c86604e9e649039159da199",
+    "components/entertainment/BirdwatchingEditorial.ts": "0a594f3ed3947831e273e4d1b7a92ffa5109f0bbb2893a61d040d1618271ee2a",
+    "components/entertainment/CloudDriftEditorial.ts": "4a441b3e34d3f5d6f40ee895a2ba572b65dc06f57592895792b84fb9036d41a9"
+  },
+  "quizUnits": {
+    "lib/entertainment/data/beachcomber.json/title": {
+      "sourceHash": "d8df36564e6db4c3e4b92c50f06004c5a7eee2f943611416c8e1ad0537d077d4",
+      "text": "海邊拾趣：什麼會吸引你停下？"
+    },
+    "lib/entertainment/data/beachcomber.json/description": {
+      "sourceHash": "553898d461aea1e6ae556b5d1fb3f76cbe31a43ae87b7903e8ec1ffab83b68f7",
+      "text": "在六個海岸插畫場景裡，留意圖案、追想物件故事、決定把什麼留在原處，發現你的海邊拾趣畫像。"
+    },
+    "lib/entertainment/data/beachcomber.json/introduction": {
+      "sourceHash": "3de7e8095f136a18227c4a55024ffa7188a4f042291cf017a3a945e35f01ed42",
+      "text": "插畫海灘上的東西都可以留在原處。選你會留意、速寫或好奇的部分，不必採集真實貝殼或接觸野生動物。結果是原創故事畫像，不認證環境專業知識。"
+    },
+    "lib/entertainment/data/beachcomber.json/focus": {
+      "sourceHash": "bdf29998518aa4b4d53b308c849cbb4cca8e83d6fe6b37390c145669e81ed958",
+      "text": "從重複形狀、想像來歷或與周圍場景的關係，看一件普通海岸物件。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/0/prompt": {
+      "sourceHash": "010a09f63bfe62131b71f13f09b3005b7b8faa349cd1ecc1d95b554c19721566",
+      "text": "一排畫出的貝殼沿潮線排開，你會……"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/0/options/0/label": {
+      "sourceHash": "ddae679fc8cd6eedb36c4c770836e4ae5500da29c2af2cceb7f812590925b9c9",
+      "text": "比較反覆出現的曲線與間距。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/0/options/1/label": {
+      "sourceHash": "790135cf122b62ee660d8aa497a125b14014ccdde8737da827f9e00731a983db",
+      "text": "好奇這一排具體怎樣聚到一起。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/0/options/2/label": {
+      "sourceHash": "e3a6f72ce956ce82ca5234b8867e2ba7fae6e7bf73beea8ba34bc086284796c5",
+      "text": "看看這排貝殼在整片海灘的位置。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/1/prompt": {
+      "sourceHash": "fc579f1272f50c65c17f75c4b1b74f31c326fecbf18c7f2523c9537eac078841",
+      "text": "一塊光滑插畫石子有一條淺紋，你會……"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/1/options/0/label": {
+      "sourceHash": "b95d31ca4faba1205faa1bc2d07948a6af1763694691f55a6540f25dca6eb282",
+      "text": "想像一段終於來到此處的小旅程。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/1/options/1/label": {
+      "sourceHash": "4dfdf38d2921c2d83efb22b17348717e6bad64b29a0d10b12de2c8272f27fa6a",
+      "text": "把淺紋與附近沙線畫在一起。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/1/options/2/label": {
+      "sourceHash": "6823530d3f57327bba81ea7f9b0e6e1de28ac10a320f5680b9d3779983aa427a",
+      "text": "把它連同周圍石頭一起留在畫裡。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/2/prompt": {
+      "sourceHash": "988c7e9b2b26e430be9c5a0a990d21432745471c546498039e16c66e6b1e0c8f",
+      "text": "可以從場景做一頁作品，你選……"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/2/options/0/label": {
+      "sourceHash": "a587607fa1672d9370a10945215d452d990b9a45fa450832db23be55533c2675",
+      "text": "一幅全景，標出物件原來的位置。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/2/options/1/label": {
+      "sourceHash": "58406617d7351dd07f565b3f7f825e2d46e674bd5f3fedc7845300a112a43255",
+      "text": "幾組紋理和形狀的小比較。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/2/options/2/label": {
+      "sourceHash": "8f5eeed3f2e64ba5122df6d033fdcb649e71ff90f0742482f947cff5cad01731",
+      "text": "一張旅行石子寫的虛構明信片。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/3/prompt": {
+      "sourceHash": "b844ea5c28fd3b843406a43f9fbcb17bc8a12ed0a6100637b8658d3dce0843b2",
+      "text": "朋友問為什麼為這個普通細節停下，你會說……"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/3/options/0/label": {
+      "sourceHash": "9619ec422ba858a9ce86166148b5643b507b5c470e31dda26c98bfb4b8d5f8cc",
+      "text": "它在場景裡重複了我先前沒留意的形狀。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/3/options/1/label": {
+      "sourceHash": "6cd47d320e5f4ce4eda250161f5d18f0bbefb0a65cf24ce5c0f3b177aaac9f7e",
+      "text": "它讓我好奇畫面出現之前發生過什麼。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/3/options/2/label": {
+      "sourceHash": "c13f814d80f3429c0a04892d3c8673d22304453bc8f4b8c6fd083e29606b7f3a",
+      "text": "它改變了我看周圍排列關係的方式。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/4/prompt": {
+      "sourceHash": "b435b54cb2a045c407f63993df988da65e3aa6c0172bfc691458e50871cdd457",
+      "text": "下一幅插畫裡的浪重新排了那一列，你會……"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/4/options/0/label": {
+      "sourceHash": "f2e07d10c98cc135dd62f78767027e568944cb391739ce38e04e44a5245e483f",
+      "text": "把變化接成想像旅程的下一段。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/4/options/1/label": {
+      "sourceHash": "b3265e644edc1eb8a0f91e87b970ae704e8854711e4ab7477223fd6bbfa14128",
+      "text": "把新圖案與先前速寫比較。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/4/options/2/label": {
+      "sourceHash": "ec15b2a1b6bfd000f961779ab873fc5e8f73c3b51b38bbed8bf6eea94eb588e1",
+      "text": "欣賞新排列，不急著復原舊樣。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/5/prompt": {
+      "sourceHash": "93929c92625686c7fd742bf2f649ef824aaea6654fd7d7076d6bd03a2671be1f",
+      "text": "結束時，你最喜歡的紀念是……"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/5/options/0/label": {
+      "sourceHash": "f104dd91d86a4ecbee66b52425f9695a1301660a8aa78dc7dee6d3164f15a7e4",
+      "text": "讓物件仍處在原場景的速寫。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/5/options/1/label": {
+      "sourceHash": "18559375215a693e5b0c14be3bfa103cf26fdfbe1824344f7f7691a60d0b8453",
+      "text": "一小頁以後可做設計的形狀。"
+    },
+    "lib/entertainment/data/beachcomber.json/questions/5/options/2/label": {
+      "sourceHash": "226a6785215a76da5a3abd96e9eaffaedb345ef0171466dc2bc274176463bb9b",
+      "text": "從一個所見細節長出的微型虛構故事。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/0/title": {
+      "sourceHash": "2d803e29301d05816cd143437c021d6d80ac598f9a43900584db19ec1053f757",
+      "text": "潮線圖案發現者"
+    },
+    "lib/entertainment/data/beachcomber.json/results/0/summary": {
+      "sourceHash": "90ba675747431df571b25d604550a6362a3ffbfbb0ee09c164742bad77620c63",
+      "text": "你的海灘畫面把曲線、紋路與間隔收成一小份視覺收藏。帶走想法，不必帶走物件。畫像跟隨遊戲裡所選圖案，不評定設計天賦。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/0/example": {
+      "sourceHash": "3ff0d5ba472096376ce79c2dd640f4b9d9805110fc6a065733d20b3c0b7ccd20",
+      "text": "普通散步時，你可能畫下重複的窗形，之後把那種節奏用在手工卡片邊框。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/0/strength": {
+      "sourceHash": "0d18b4c2a0b9a4720df2858d54f68a3e8f11d8d4a26c990eb0bfc07c09914a7e",
+      "text": "圖案讓小觀察變成可回看、可改編的東西，也把原場景留給其他人。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/0/tradeoff": {
+      "sourceHash": "d0780f97b0c3eb70ab1ea6bd7a81d214078aa45e3df5a0d95cf3665443af17e0",
+      "text": "只找重複，也可能抹平這處地方獨有的細節；偶爾一個例外也值得收入。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/0/experiment": {
+      "sourceHash": "e6e8efefc539779edc4a91e30f6a146e3e0ffd3310685addbdaad8814111c583",
+      "text": "從身邊已有事物畫一個重複形狀，再添一個主動變化，讓紙面保留一點驚喜。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/1/title": {
+      "sourceHash": "641008354a014974d2726db16ccbe4059c0b12a73981c299f2ebc576377aa76f",
+      "text": "石子明信片作者"
+    },
+    "lib/entertainment/data/beachcomber.json/results/1/summary": {
+      "sourceHash": "9e3b90cba7dc093c35201a1ccee48f849b516443647f0fdc4d898d79b31dd80a",
+      "text": "你的海岸細節變成虛構旅程的開頭。你好奇之前與之後，也把想像和已知歷史分開。結局邀請創作故事，不證明你能讀出物件過去。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/1/example": {
+      "sourceHash": "722bdf736b3632a5df4d9463e5820c0b642f0d02dcf33fa3012f1c5f8823da83",
+      "text": "手工盒裡一顆缺口紐扣，也許能啟發虛構旅人的便條，即使你並不知道原先誰用過它。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/1/strength": {
+      "sourceHash": "111968bb821a9507d5473c2ede6b0bcf54e18a77d0388a3b31a67fcd813b19ae",
+      "text": "虛構旅程能讓普通細節難忘，也給短創作具體起點，不必先準備大情節。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/1/tradeoff": {
+      "sourceHash": "ce29be8c9b9ecb5b61a6c44a71764503efe57b108ab5ddc0fbac299d7c7a78ea",
+      "text": "好聽故事若沒標清想像部分，也可能被當事實；一個趣味標籤能幫助他人按恰當方式欣賞。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/1/experiment": {
+      "sourceHash": "3577acb52b7ff0d845b8d4226d37628168194b024fbb4bb4f99f04ce5917d1b8",
+      "text": "從普通物體視角寫三句虛構短文，再取一個明確表明這是創作、不是歷史復原的標題。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/2/title": {
+      "sourceHash": "768389c54d940e76963257db73497e51dca4c194188ea7eba44fa6a4bef9a6a4",
+      "text": "原處觀景者"
+    },
+    "lib/entertainment/data/beachcomber.json/results/2/summary": {
+      "sourceHash": "e7ab2ac0e5603757835844ac7890dda8f2c7a91792d1e7cfa07d9ad93bc0c38b",
+      "text": "你的拾趣畫像把小物件留在大景裡。位置、鄰近之物與變化排列，都是吸引你的部分。結局珍惜情境，不把遊戲選擇變成環保品德證明。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/2/example": {
+      "sourceHash": "002660e89fc6ff7ea4e693a6075a5a595335df58ac1da7da17213b2ac8a55e31",
+      "text": "看公共展陳時，你可能把一個物件連同旁邊標籤和周圍空隙一起畫下，不在每格都單獨截出它。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/2/strength": {
+      "sourceHash": "cebcca5e7d092c07bf9a7d336d7e470a70bdbcd777fbc01589ed5d690396b6fd",
+      "text": "把情境留在視野裡，能保留細節被單獨摘出時容易消失的聯絡。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/2/tradeoff": {
+      "sourceHash": "4a3b81ea1da36b96219c82e3db5641e9943eaa60be8ae153782acd87ae23d18b",
+      "text": "全景也可能讓喜歡的小特徵難看清；情境速寫與特寫可以同時保留，不必二選一。"
+    },
+    "lib/entertainment/data/beachcomber.json/results/2/experiment": {
+      "sourceHash": "ca3dfa5ef038f3f104747b9a84ca448e785a6e84627215067d9d08da9a2c860c",
+      "text": "給一個熟悉排列畫全景速寫，再加一幅特寫。看看各自包含了什麼，又把什麼留在畫框外。"
+    },
+    "lib/entertainment/data/beachcomber.json/seo/topic": {
+      "sourceHash": "b04a53c1a790d31222c7a58400edb69227a87bfcc623747dbc986e0c152fc502",
+      "text": "海邊拾趣測試"
+    },
+    "lib/entertainment/data/beachcomber.json/seo/title": {
+      "sourceHash": "1fce5fb95751e1beb8b0b3a5c89ebb6e160e5177a6a2eaa6a6f1ae6969bd63c5",
+      "text": "海邊拾趣測試"
+    },
+    "lib/entertainment/data/beachcomber.json/seo/description": {
+      "sourceHash": "fdc6fce5b7efcbb6e95a2e48b359a89821b136bc295eb9f79eec90ead6ebef00",
+      "text": "用六個虛構海岸選擇，探索紋樣、想像故事與整體風景。閱讀三種海邊拾趣畫像的例子與小創作提示。"
+    },
+    "lib/entertainment/data/beachcomber.json/seo/faq/question": {
+      "sourceHash": "6960b2d722fd522b579e78c74145738ecb853ae76252f6ec726cc84df1eaf750",
+      "text": "普通海邊小物，在本測試裡能說明什麼？"
+    },
+    "lib/entertainment/data/beachcomber.json/seo/faq/answer": {
+      "sourceHash": "db8ba9c09ec309f0775d5f0e8bbdbbb4afc12d44bbf6c7df0582e5923c405c80",
+      "text": "它提供三種觀看方式：留意重複形狀、編明確虛構的故事，或把它放回周圍風景。都不能鑑定真實來歷或原主人性格。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/title": {
+      "sourceHash": "b29c39713bb75f0c0530c2ac3bc27bf730976ffaa7fd7029205450d1600bb0d0",
+      "text": "觀鳥同行：你會怎樣分享一次發現？"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/description": {
+      "sourceHash": "842688ad5534df458588bd6a0f719086f80d3a0192f468b46174eeafedd220db",
+      "text": "在虛構觀鳥小組裡做六次選擇：等待、記錄發現、分享見聞，讓一次外出不必變成比賽。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/introduction": {
+      "sourceHash": "91421abbdf78ef6acc4a159a1702e178e17332c8d37d3a0d5133f65441844709",
+      "text": "想像小組透過觀察窗看插畫裡的鳥。一次短暫現身很容易錯過，你會怎樣參與？不需要鳥種知識，結果也不給觀察能力排名。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/focus": {
+      "sourceHash": "7a18383ff77b4f802310b0b9a4b9b5795d125118b8642fd34a853d9f7a8e017b",
+      "text": "在觀鳥時，你更想耐心等待、記錄發現，還是幫助同行者看見？"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/0/prompt": {
+      "sourceHash": "39ab925132a3049a797373887c9fcedd4b02261e35e31b6a1f585fa1746d9f5f",
+      "text": "第一幅觀察場景裡暫時沒有鳥，你會……"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/0/options/0/label": {
+      "sourceHash": "e3328b3791d0d9915774642337f3106676ea586a64003272055e9081b0e6fd79",
+      "text": "選一個舒服觀察點，稍等一會兒。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/0/options/1/label": {
+      "sourceHash": "954eba4a88ba63cc0fa23e56b4a96bd478573884a5dbe2b23d06b42be61ba167",
+      "text": "記下時間與小組看過的位置。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/0/options/2/label": {
+      "sourceHash": "a2daf4e6f57f8980eb971dc54c2f3ff6b390e2800c20d3813e92fe821d57d4e3",
+      "text": "看看每個人能否透過窗看到。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/1/prompt": {
+      "sourceHash": "397580ef23ed726f1e65712d3669ad533b277d8a60c212086571d55a77d89b46",
+      "text": "遠處樹枝出現一隻小鳥，你先……"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/1/options/0/label": {
+      "sourceHash": "5518e8da303013deca7e666199f7aa72da22cbb054f1e38c9f52c26cad10ad4a",
+      "text": "用旁邊地標指給其他人看。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/1/options/1/label": {
+      "sourceHash": "9656ca5e44c51ae8e6ae17fe6c644117e19d14090aba7d991d715947e14344a2",
+      "text": "不急著移開，再看幾刻。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/1/options/2/label": {
+      "sourceHash": "7459d5e20b91920f3275940ebc12b2cec7779afdf77bf88d660d8e001e063796",
+      "text": "先畫下樹枝位置，以免它移開。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/2/prompt": {
+      "sourceHash": "7b3ce83c0585866d10bc6295c5e4b42e448a109374380d8d6d42307c5a08f319",
+      "text": "有人錯過了現身，覺得沒跟上，你會……"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/2/options/0/label": {
+      "sourceHash": "c26be0581778e78f56b5a2b2799f4d8a19b704e6f4cd158cde33d01e7ed540b2",
+      "text": "分享簡單記錄，不把它當成績單。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/2/options/1/label": {
+      "sourceHash": "21a5266d57325cf77e3b8e4cc9c6ed7630d2fb9a35db677ea65ade54b0d14e80",
+      "text": "把更清楚的觀察點留給下一幅畫。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/2/options/2/label": {
+      "sourceHash": "7a6388d10c198609f468cf9f5b423ac0c78dbe77ba56ca36f9ca7c05bd41b2e6",
+      "text": "陪對方再安靜看一小會兒。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/3/prompt": {
+      "sourceHash": "962c4aff5005f54173cbd0d4af6b9ab88b0087ef4c69d64781b19aacd3f80fe1",
+      "text": "小組有一頁今日發現記錄，你會加……"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/3/options/0/label": {
+      "sourceHash": "825321b929c61c966d3ab5320cc6801edc32bafcfc02bbe7bc17007b1f613691",
+      "text": "幾處確實看清的細節。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/3/options/1/label": {
+      "sourceHash": "122f9b1781ef81642b24374979e562da9e4f2d35fb6016a5d68907913a92eb84",
+      "text": "一筆說明：這次值得慢下來。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/3/options/2/label": {
+      "sourceHash": "722f5e1b96526f0c94682ea25f86585fec527e87d151b066b3051025f298364a",
+      "text": "能幫下一人找到樹枝的指引。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/4/prompt": {
+      "sourceHash": "96ce5af2ccaf9e4a7ed5967b5d996b0b59d211e347bf0b0f498acd063c55af08",
+      "text": "另一位觀察者想換視窗，你會……"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/4/options/0/label": {
+      "sourceHash": "0cbec0662fcd482c836f44c0c5a77d24f76269d8a7ef690068357fdf35910c90",
+      "text": "幫忙換位置，不擋住其他人的視野。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/4/options/1/label": {
+      "sourceHash": "2c7fdc6ea89bd3a4671140410f8e0d4e861cf84321e09bf0703c59ba14c6349c",
+      "text": "自己若仍喜歡，就繼續在原處看。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/4/options/2/label": {
+      "sourceHash": "dc9005cb25609ce88c528f704b74c7278835951c42c6f72a61b77b3624df9ad7",
+      "text": "註明不同視窗分別看見了什麼。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/5/prompt": {
+      "sourceHash": "0eea0fc807363c28060b5047e44dc6b8559379789b3cbafdfb2d5c3871b68abb",
+      "text": "結束時，你最希望小組保留什麼？"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/5/options/0/label": {
+      "sourceHash": "77ac80643faf851fbe9abacacad5891803c1c747f76d7420b86cef6bc294874e",
+      "text": "一份不必爭搶才配擁有的共同記憶。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/5/options/1/label": {
+      "sourceHash": "d70b166312861ba0259fdabf5bc10247f51adae642966d4eb8c4ca3b47c9236f",
+      "text": "一份清楚適度的實際見聞記錄。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/questions/5/options/2/label": {
+      "sourceHash": "f22c2b0fce9e651b7d78e9fc3ab45d58545ace98e0eed1e6bb33913b844f4095",
+      "text": "讓新來者下次更容易加入的辦法。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/0/title": {
+      "sourceHash": "f866e9066ca39a675bbb2a277d92debab603a8193882ebb2f5464e964b90b0d4",
+      "text": "慢看窗邊同行者"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/0/summary": {
+      "sourceHash": "c36a6fd5c5fb50b410f7dc169e313a80f22b38a22c16940d2e9b330f47d66c9c",
+      "text": "在這次想像中的小組觀鳥活動裡，你願意留在一個位置，給鳥兒出現的機會。等待也可以是活動的一部分，不一定是在浪費時間。這描述的是你這次選擇的遊覽方式，不代表你任何時候都很有耐心。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/0/example": {
+      "sourceHash": "cc4ad231879289ef3579cdc95e3a3b45e089af58c3b53afa865416de94caa077",
+      "text": "看一場小型公開演示時，你可能願意看一段過程展開，不在事情剛開始就趕到下一站。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/0/strength": {
+      "sourceHash": "d9e7c92215814199791d6edb7868055f1f40bf5d2b352e867f4f0b19e56c8085",
+      "text": "不催促的在場，讓共同活動少一點收整合就，多一點與眼前之物共處。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/0/tradeoff": {
+      "sourceHash": "3bd00773a939c2546ea16ae39e462f68fb8241d3c7a1f150572fc25edd6ad56a",
+      "text": "不同人對等待感受不同；你舒服的停留，也應讓想繼續走的人方便離開。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/0/experiment": {
+      "sourceHash": "53aec6784e349f40ac6a78a24d54cff980c5b4168d3de6022e38e7f954490bed",
+      "text": "選一項可選活動，不趕時間地待幾分鐘。自己決定停止點，不把更久自動視為更好。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/1/title": {
+      "sourceHash": "05c14299f5ed496171f6e168079ec4470b9ed94a2a399d7536cde74bd50daf8f",
+      "text": "隨手記錄同行者"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/1/summary": {
+      "sourceHash": "ba07520c44be240b78c156ffc130bd966dd8c187b4754bc001d577fcfada5a93",
+      "text": "你的發現變成可回看的小記錄。你保留位置與實際注意到的細節，讓其餘部分保持未定。結局珍惜有用痕跡，不追求完整或令人印象深刻的收藏。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/1/example": {
+      "sourceHash": "d124cca3fe46adb51e3ee053c22ea222fbc055dffc8626ef814dc09d85555dae",
+      "text": "看完臨時展陳，你可能畫下佈局與一個難忘細節，讓朋友明白什麼吸引了你。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/1/strength": {
+      "sourceHash": "045e7bf9f2a7d029ed99e928b69eea4867a7daac43959ea83bed5d17ea4b682b",
+      "text": "適度記錄讓記憶可檢視、可分享，不要求對方當時必須站在同一處。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/1/tradeoff": {
+      "sourceHash": "39905294a6c79d3da8b87520c843e45cde774b9573800786d1a77e29af4df67f",
+      "text": "記錄也會把注意從當下移開。短短一筆可能已夠，有些愉快畫面也可以不留檔。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/1/experiment": {
+      "sourceHash": "2354d50c87217d58185ec86858101986aac7956df38bb1d1a291226e95313f91",
+      "text": "把一次觀察記成三個樸素細節，然後停下記錄、回到活動。讓筆記服務體驗，不代替體驗。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/2/title": {
+      "sourceHash": "f448b7513a734f34eb19faecebb3661097258c4d4308ab93522ef6543455f8ef",
+      "text": "共享視野同行者"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/2/summary": {
+      "sourceHash": "352a8546ebf2efe9f0c7dcacddd2e6a68d4bf6568862ef30c1e0b77ef8d1c483",
+      "text": "在這次想像中的外出裡，你也會照顧到還沒找到鳥兒停在哪根樹枝上的人。你願意指一指位置，讓對方更容易加入觀察。不過，你不必一直做嚮導，也不用為所有人的遊玩感受負責。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/2/example": {
+      "sourceHash": "a54a7396ecc58f9792515335e12c522d4999140113fb0e70eafb2ec66514d6f9",
+      "text": "在共用美術桌，你可能把演示稍轉向桌尾的人，讓對方看見後，再繼續自己的創作。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/2/strength": {
+      "sourceHash": "95dc2a8a926ff914e24b6fc4364fed599cbb2efbd3b83eea0f711c6fcb7c0cc0",
+      "text": "一個簡單的位置提示，就能讓別人更容易加入觀察，不必因為不知道往哪裡看而難以開口。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/2/tradeoff": {
+      "sourceHash": "e8f01262b83265679c775dfc062e310a225a59dfd55602fb463b9d832c117400",
+      "text": "沒問就幫忙，也可能打斷正享受另一種視野的人。允許輕鬆拒絕，幫助才更合適。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/results/2/experiment": {
+      "sourceHash": "8d3fab2ffa45184a000ea9bb70c2bcfc3b4364c4456752cb9788805c52c2bfc5",
+      "text": "在共同活動裡提供一個具體定位提示，再問對方想繼續獲得幫助，還是更願意自己探索。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/seo/topic": {
+      "sourceHash": "41b5ec11ba31e87e516802539b8eabd1accda0694ac44f01e8898bf07b9bf047",
+      "text": "觀鳥同行方式測試"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/seo/title": {
+      "sourceHash": "767095952b9aca1d408e84c73bfad1a4e9ad391314268c496b9d2523113d56ef",
+      "text": "觀鳥同行方式測試"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/seo/description": {
+      "sourceHash": "afbc9ec2c534e69063a3bd7401f62b057cd47583eea1f7bd910e538b7fa877d9",
+      "text": "選擇怎樣分享想像中的觀鳥一刻：等待、留下可用記錄，或幫助同伴看見。三種同行畫像均有完整指南。"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/seo/faq/question": {
+      "sourceHash": "6415d0f365422b10d2699850a2ca245dd69c068f98d895c195192807929b1957",
+      "text": "耐心等待者，會比記錄者或引導者更會觀鳥嗎？"
+    },
+    "lib/entertainment/data/birdwatching-companion.json/seo/faq/answer": {
+      "sourceHash": "005fa1e4bc0895657635537594c90e7e07ab860d49b9f78db7c6b00abfa6596c",
+      "text": "三種畫像談同一次觀賞中的不同貢獻：等待創造觀察機會，記錄保留細節，引導幫助別人看見。本測試不考物種辨識知識或野外技能。"
+    },
+    "lib/entertainment/data/cloud-drift.json/title": {
+      "sourceHash": "ac47958fdff56bc61ae0b539d5a30986ea7c691c75e41822b8d38e4eb292804d",
+      "text": "看雲小遊戲：你會看見什麼？"
+    },
+    "lib/entertainment/data/cloud-drift.json/description": {
+      "sourceHash": "b1e099ee9ca9a39f2e9f4587bec425d87bc250e724c860bbe1a08a678a67b427",
+      "text": "六次視覺想像，把浮雲變成一張畫面、一段移動場景，或一片留白。不預報天氣，也不解讀隱藏特質。"
+    },
+    "lib/entertainment/data/cloud-drift.json/introduction": {
+      "sourceHash": "b415d49df6b5fda85782cefa523f0fdd69f21101fa3f00732b77a89674331068",
+      "text": "想像從舒適窗邊看幾朵無害的插畫雲。沒有必須找出的正確形狀。測試跟隨你怎樣玩一張模糊圖片，結果是原創創意比喻。"
+    },
+    "lib/entertainment/data/cloud-drift.json/focus": {
+      "sourceHash": "7d7471677b418a59a1c28930e63ef663577220794f04c11843e3d09e47589077",
+      "text": "面對模糊圖形時，為它勾輪廓、接續情節，或允許它暫不命名。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/0/prompt": {
+      "sourceHash": "fe15466d5728c4e6e02dbed2b2bbdd44fa2cb8288af8eada9bb3b467057ac589",
+      "text": "雲有一條長弧和一個小凸起，你先……"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/0/options/0/label": {
+      "sourceHash": "d722ee5e4c856ab2d651b932e98547126e6800c956a0224060e7e6ee8dc73f2f",
+      "text": "沿它們描出一隻小生物。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/0/options/1/label": {
+      "sourceHash": "7d7e30f610577acd2bff6fc88aa835db96fd452105e607a114f7280cc85e7c2d",
+      "text": "想像凸起剛到、長弧正離開。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/0/options/2/label": {
+      "sourceHash": "a8a9ab28c87f263f1b6c4edaf966c11f91be6c26d846f01dfc11295da160b9d1",
+      "text": "欣賞形狀，先不決定像什麼。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/1/prompt": {
+      "sourceHash": "bc68e3780cc431b259bed8562e7215bd98564d3f3ba4462142eaf5713ec0b2fa",
+      "text": "雲分成兩塊，你會……"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/1/options/0/label": {
+      "sourceHash": "fffed8065bc6ccc52b6d0939c2d19edcc75eed34b2295619284f604673fcc23c",
+      "text": "讓畫面變成兩個互不相關的形狀。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/1/options/1/label": {
+      "sourceHash": "3c0bc23e011381990d33bbcc527ca4972743df98c12e85ad110c44ccb382d5f0",
+      "text": "想像兩塊之間的一小段追逐。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/1/options/2/label": {
+      "sourceHash": "a293ba4e562b39b08f2ed6862fd66a5a15f3875b6ca8d5117ad863aa744bb189",
+      "text": "在每一塊裡找新剪影。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/2/prompt": {
+      "sourceHash": "11f3c41d324eb4b66d17ef948784b6229e4455e44d2fe20403b9d694f5c5e60c",
+      "text": "朋友看見船，你原先看見魚，你更願意……"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/2/options/0/label": {
+      "sourceHash": "dbfa489881b94db454772e4afb41ec4bdb9dbc475420887750b0b7c84b5e81c8",
+      "text": "比較哪些邊緣分別像船和魚。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/2/options/1/label": {
+      "sourceHash": "0673e9d3458742178560c672946d9aa976df5e763d25e6f35542c826d5d3f7ed",
+      "text": "把船和魚接進一個小故事。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/2/options/2/label": {
+      "sourceHash": "c5414dfdb96ca09189882f28c703cf1511b28391ab9a658f207a2c3ac3ffb03d",
+      "text": "留著兩種看法，不必定論。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/3/prompt": {
+      "sourceHash": "2a830d8940a90429f841346ebdf397b0d40b4facb2de2aab1302a79e4d620401",
+      "text": "在廢紙上速寫這朵雲，你會加……"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/3/options/0/label": {
+      "sourceHash": "34325424bae5ca2e49038a0adc92727cd3be90feb09c5faeb5f403a4978f5cba",
+      "text": "一支指向下一格畫面的箭頭。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/3/options/1/label": {
+      "sourceHash": "dd7571cc98edb3617106fd78e9ee77ab4af3b892980da95b04ec2ce052dd53e7",
+      "text": "只畫曲線，留大片空紙。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/3/options/2/label": {
+      "sourceHash": "9dc9ae1a6787cc66f997df04f3ad0d09074455cf6e870cdd157b6ddc635aa2b1",
+      "text": "幾條讓形象可辨認的線。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/4/prompt": {
+      "sourceHash": "408f402b8ccf53449a287dc69abac9e8a769df738fafe61881ff6b43a79e788a",
+      "text": "畫面還沒想完，雲已散開，你會……"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/4/options/0/label": {
+      "sourceHash": "fa7e671783aef85c55fd4b507bd8c2831e44494a575e6a33dcb813b83a8d7e44",
+      "text": "按原樣留下未完成草圖。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/4/options/1/label": {
+      "sourceHash": "8a8399d3ff9fa982d61aa64aff35b2935663abc3813c3764b869b3b9fa514aad",
+      "text": "記下先前已看見的輪廓。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/4/options/2/label": {
+      "sourceHash": "42939d98c64b20db911b53161d9e72617c9ed79e5007fae47e6b239f6f4ab238",
+      "text": "把消失寫成故事最後一拍。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/5/prompt": {
+      "sourceHash": "0652d3d4368159e37a9eaf58cd9be70562f2ab88956ba93490084bee9ec4db2e",
+      "text": "給一個迷你雲畫廊選展品，你選……"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/5/options/0/label": {
+      "sourceHash": "24c1cd05e005d057d917dac12959277e0c06f7daf72585d851fce529b4ea8bee",
+      "text": "三個有趣名字的清楚剪影。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/5/options/1/label": {
+      "sourceHash": "4a84ab2474e3f007b3654445584b27b93a0780bced76ee62fa7751f8db583a97",
+      "text": "一個形狀變成另一個的連續畫面。"
+    },
+    "lib/entertainment/data/cloud-drift.json/questions/5/options/2/label": {
+      "sourceHash": "803e9177303a01bb6440cf8697c552416004a9bf4dacf0367d368124e582f6b9",
+      "text": "一幅未命名形狀，留給觀眾各自理解。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/0/title": {
+      "sourceHash": "dadf6f0678d153ab05a02b5445cd5a81e0dc35c65fbfdc89d72f9c690582b83e",
+      "text": "輪廓發現者"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/0/summary": {
+      "sourceHash": "da160acde20938b31997aec5a068c193f140c902a79b7affac34720228ebd5c1",
+      "text": "看雲時，你會在鬆散的形狀裡找到一個可辨認的輪廓。幾條線，就能把原本模糊的畫面變成可以指給別人看的東西。這只是在描述遊戲中的影像選擇，不是在測量隱藏的知覺能力。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/0/example": {
+      "sourceHash": "cab791095252e81218badcba74685e112ecad863c8690745d4a2b2ff2684f8e0",
+      "text": "看一塊無害墨跡時，你可能圈出像熟睡貓的弧線，給朋友指出具體是哪一段吸引你。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/0/strength": {
+      "sourceHash": "e66fe34a305f194b5b85861085ce3c36c4529d93ed3d7a9c5d9dc39148522b5d",
+      "text": "清楚輪廓讓想像容易傳達，也給他人的新畫面一個簡單起點。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/0/tradeoff": {
+      "sourceHash": "17fc29c57f6dbc942d7b38b9a1fcb1d89e51c5aab1ff41f20ac1100be72e84f8",
+      "text": "形狀一旦有名，其他讀法可能不容易再看見；第一條輪廓不必是最終答案。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/0/experiment": {
+      "sourceHash": "71514f27e4f50c3dcb58079f943ddf3900f74da132ed2d0f3be91feb90a698d9",
+      "text": "從同一條簡單曲線畫出兩種塗鴉。讓第二幅改變第一幅，不必證明哪種才對。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/1/title": {
+      "sourceHash": "8a97a16b6ac6cd7e8aa6e97050b229dfcc6bbae22162f0d61ecdb7763c8b8271",
+      "text": "浮雲敘事者"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/1/summary": {
+      "sourceHash": "560f8adb528969b64cbb7afce59b16e5de33c2b420f2b4587f0adca7303a6ca5",
+      "text": "你喜歡接著想：這片雲接下來會怎樣？一處分開、一次飄動或漸漸消失，都可以成為短故事中的一步。這反映的是本輪遊戲的想像方式，不會給創造力排等級。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/1/example": {
+      "sourceHash": "a01befa67b82c40ad667989b2c124096e519a488d601ce6aaebed3708d3cae87",
+      "text": "你可能把三片不規則紙屑接成一段短場景：小船離開、遇浪，再到達最後一片暗示的地方。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/1/strength": {
+      "sourceHash": "50672fe7b5556c8c8a02ac76054182d4adb8c12a09dd4095baacf26efda3fc57",
+      "text": "連續場景能連線零散視覺細節，讓共同小遊戲有推進感，不必先畫得精緻。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/1/tradeoff": {
+      "sourceHash": "2b2ae71525c5738df5ebd9234fa7083055367df19b14790e17592338a9183667",
+      "text": "故事若太快填滿每個空隙，原圖可能消失；停在某一格，或許能保留一個好細節。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/1/experiment": {
+      "sourceHash": "0b8362e1e285e3fbd8bd24c31121ab47376fc51ef8fc38e8d2545f69fe049395",
+      "text": "從一個普通形狀畫三格短篇。讓其中一格安靜一點，給別人提出不同下一步的空間。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/2/title": {
+      "sourceHash": "d03dee8dcb60e310c3e89086e27658d70c643ce3c433ec575606ad0eb85060c9",
+      "text": "留白天空觀察者"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/2/summary": {
+      "sourceHash": "48b6cd6428e4bf159c0a68a3b6a110cc00fd628b8003352c6651caf1c50f9cbb",
+      "text": "你的看雲遊戲會留下一些未命名形狀。尚未決定代表什麼，也可以欣賞畫面，不同讀法還可並列。這是所選遊戲方式，不證明某種人格更開放。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/2/example": {
+      "sourceHash": "7af3ed0ca263f4bdf2b5347744bbfcebd2db77eeb3c87ffb66192670dd067f41",
+      "text": "在隨手交換塗鴉時，你可能傳下一條未完曲線，讓下一人決定它是否需要成為物體。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/2/strength": {
+      "sourceHash": "277a8b630a17023af5c5c77d40f4eebe4df447eebda1be474c510bb311f447b0",
+      "text": "一點視覺留白能邀請多種理解，讓小遊戲少一點爭找正確答案的味道。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/2/tradeoff": {
+      "sourceHash": "5b894d2b55ca9ee5b2efa89ac01b1c1d69622f4614034fd7ddb26d134807bf44",
+      "text": "若無人知道從哪開始，未命名畫面可能難分享；一個小提示就能幫忙，不必封住全部可能。"
+    },
+    "lib/entertainment/data/cloud-drift.json/results/2/experiment": {
+      "sourceHash": "4beddc89a54c66b64a256acc7187b3d54f61a1bb8135e011fc0799420ffc55fe",
+      "text": "用一分鐘看一個簡單圖案，先不命名。之後寫一個可選標題，也允許以後再改。"
+    },
+    "lib/entertainment/data/cloud-drift.json/seo/topic": {
+      "sourceHash": "83b1fc1ba180734cb3f9e9fa085f9ca4e5170ef56a463ae1845b7cb693b47266",
+      "text": "漂雲想像測試"
+    },
+    "lib/entertainment/data/cloud-drift.json/seo/title": {
+      "sourceHash": "f4cfeddc5973d8e2d72be68abc25998d1b1e4540ebeb73de419b38d61c6f45ee",
+      "text": "漂雲想像測試"
+    },
+    "lib/entertainment/data/cloud-drift.json/seo/description": {
+      "sourceHash": "035b1c5f8f49b898ab26a742849162d46ae00a1ddd5627df9186570635cb4c41",
+      "text": "給漂浮雲形一個輪廓、一段情節，或允許暫不起名。六次插畫選擇，閱讀三種觀看與想像的原創畫像。"
+    },
+    "lib/entertainment/data/cloud-drift.json/seo/faq/question": {
+      "sourceHash": "60718acf09cdd537f6e32f68aa7ec9a71b8c20fcdd3224be2f4928c4a28ef59c",
+      "text": "雲裡看見的形狀，會透露隱藏人格嗎？"
+    },
+    "lib/entertainment/data/cloud-drift.json/seo/faq/answer": {
+      "sourceHash": "fcc3fbc972a5e1811c3e501ec261c515ae67fae4f7e6ff0bfb6ac41d369bf9e5",
+      "text": "雲形是創作提示，不是投射證據。選擇區分命名形狀、構建場景與保留含糊，不解碼隱藏動機，也不衡量想像力。"
+    }
+  },
+  "editorialUnits": {
+    "beachcomber/sections/0/title": {
+      "sourceHash": "374df9bd9236ad9ccab8d38f490cfd7099e75cd81fcbe367a904402da73f3986",
+      "text": "海邊拾趣測驗：從三種角度看同一片海岸"
+    },
+    "beachcomber/sections/0/paragraphs/0": {
+      "sourceHash": "c1c3c8f7fa6d66e045da99b94509a161a07aef0756dd753fc457db2ea1767ec9",
+      "text": "六個想像海岸場景，詢問你會留意、速寫或好奇什麼。每題都有圖案、故事與場景關係三類選擇。結果來自實際選擇，不隨機抽取人物側寫。"
+    },
+    "beachcomber/sections/0/paragraphs/1": {
+      "sourceHash": "fffd368e657d47be3cb6bfd1af831bc62e193493f8cda3b560def944b1a2c202",
+      "text": "無需到海邊、上傳照片、採集物件或提交繪畫。題目描述插畫情境；這是文字選擇遊戲，不是視覺辨別測驗。選更有吸引力的下一步即可，不必證明知識或爭取更好的類別。"
+    },
+    "beachcomber/sections/1/title": {
+      "sourceHash": "1a99ede7c88010253cf3ef044eb704d4ec33df9e16f2262b3ba7b9e49d65c7d2",
+      "text": "圖案發現者：重複、比較與變化"
+    },
+    "beachcomber/sections/1/paragraphs/0": {
+      "sourceHash": "4f59c35dff4829b6e7d07e0ca9a245faf9d415561479938173a07c8d053f4575",
+      "text": "這個方向關注曲線、條紋、間距、紋理，以及重複形狀與例外的關係。可區分“描述看得見的重複”和“解釋重複為什麼出現”。遊戲詢問先被什麼吸引，不評解釋是否科學正確。"
+    },
+    "beachcomber/sections/1/paragraphs/1": {
+      "sourceHash": "65213f6eae97660526a22a6aa7c928e6c1c4fbd29066f895e92413c1386daafa",
+      "text": "例如，畫中石子的淺紋可以變成紙上邊框圖案，也可以同時引起對旅程或位置的興趣。圖案選擇較多，不證明注意力、數學推理、視覺記憶或設計技能更強；這裡沒有測驗這些表現。"
+    },
+    "beachcomber/sections/2/title": {
+      "sourceHash": "98e3cece8b66250f6e3083700c0ea176056383708df5a6175b0f0060d024848e",
+      "text": "明信片作者：想像過去，同時標清虛構"
+    },
+    "beachcomber/sections/2/paragraphs/0": {
+      "sourceHash": "8508f893bdcc2844bd64fdccdf776b06eb7eea4906fe462c3a6c121b257a1369",
+      "text": "故事方向把小細節接成“之前”、旅程或“之後”，石子明信片明確屬於虛構。聽起來合理的故事，不能確定真實物件的年代、來源、製作者或原主人。"
+    },
+    "beachcomber/sections/2/paragraphs/1": {
+      "sourceHash": "9b6174773d117ae0f7963e49a0862f24fc5153a32f09d0733187f4a10c8fb7f6",
+      "text": "可以從家中已有普通紐扣的視角寫三句話，再標為虛構。選擇這個方向是在回應敘事邀請，不證明共情、歷史專業知識、人格型別或創作成就。"
+    },
+    "beachcomber/sections/3/title": {
+      "sourceHash": "4cb10d62e23fc2bf32bf163efe1d86df8c7902f9c22f51f6c56fe420e2f547ef",
+      "text": "觀景者：細節與周圍關係一起保留"
+    },
+    "beachcomber/sections/3/paragraphs/0": {
+      "sourceHash": "30cee3398fdd249f80e4609df72bc3a31f3037d454c104fd20be2df46821d9fc",
+      "text": "場景方向把物件留在較大排列中：附近石頭、潮線、全景與兩幅場景間的變化。重點在於裁切遺漏了什麼。特寫與情境速寫可以互補，沒有哪一種才是正確觀看方式。"
+    },
+    "beachcomber/sections/3/paragraphs/1": {
+      "sourceHash": "1838dfab2bc33076d84374dafb13062d8e357dbd07dc8cc9526328c18bdfcc13",
+      "text": "例如，先畫整體排列，再用小特寫補充一條紋路。人物側寫不認證環保品德、耐心、生態知識或戶外行為更好。本遊戲的三個方向都可以不擾動真實物件。"
+    },
+    "beachcomber/sections/4/title": {
+      "sourceHash": "4c31cfe5266c51f44cae360f47c60212ef2480695c66277f7e31d26702bc969b",
+      "text": "六次選擇、六個計數與所有最高並列"
+    },
+    "beachcomber/sections/4/paragraphs/0": {
+      "sourceHash": "3f9177a01dea69d803a6e85bae159fc267cb12c56b9fedc3ac4ab99cad9cd26f",
+      "text": "每個所選選項只給一種人物側寫加1次。三種人物側寫每題各出現一次，因此每項0至6次，三項合計6次。六題全部完成後才顯示個人結果。次數是遊戲內部選擇，不是百分比或人群分數。"
+    },
+    "beachcomber/sections/4/paragraphs/1": {
+      "sourceHash": "293c0320fb648942df85e9d44ed2f706070fa37664555eed000b20f3158aeef0",
+      "text": "次數最高者顯示為結果；最高次數相同則全部呈現。例如3—3—0顯示兩項並列，2—2—2顯示三項。預設的圖案、故事、場景順序只安排文字展示，不破同分，也不使第一張更重要。"
+    },
+    "beachcomber/sections/5/title": {
+      "sourceHash": "517f7445a6d9907a33c962bd53f93a31d3013fbcb8574853254fc17cfd25d8bc",
+      "text": "並列用於比較，不是混合型診斷"
+    },
+    "beachcomber/sections/5/paragraphs/0": {
+      "sourceHash": "f45a49e140b8c0031db6190531193cccb1d6aacf25e1f3fa28d5d0a7a8ee4c16",
+      "text": "比較幾種人物側寫邀請你如何處理同一個細節。圖案與故事並列時，可以畫紋路並加明確虛構的說明；故事與場景並列時，可以保留全景，同時想像小旅程。這些是可選組合，不新增計分型別。"
+    },
+    "beachcomber/sections/5/paragraphs/1": {
+      "sourceHash": "dab6a9414de3ebeb28ea2d2124f4561c6241633efc563623f290a741a533392a",
+      "text": "次數較低不表示不能使用那個角度。六次選擇不能代表全部興趣，也不能建立穩定特質。即使某次只有一項最高，也可以閱讀全部三篇公開指南。"
+    },
+    "beachcomber/sections/6/title": {
+      "sourceHash": "fb0113ab1392216d8f8d854d2044b83ced73a77b4592d9694c16847401b3eba3",
+      "text": "哪些是原創設計，哪些沒有被測量"
+    },
+    "beachcomber/sections/6/paragraphs/0": {
+      "sourceHash": "c4af5711407a09b5c9fb44c2df4037d993e7e93b9e61c0f40401ba800c9ace25",
+      "text": "題目、三種人物側寫名稱與計數規則屬於原創娛樂設計。同樣答案得到同樣結果，說明計數可以復現，不等於建立信度、效度、常模或預測價值。本遊戲沒有提供這些心理測量證據。"
+    },
+    "beachcomber/sections/6/paragraphs/1": {
+      "sourceHash": "155b7252ebbc1b8a7ab6a8ef9c56b8688fcf2032d481a1daa07ef68760fa7a81",
+      "text": "自然教育資料可以解釋海岸，藝術活動可以提供練習提示，但都不驗證這些人物側寫是心理類別。因此頁面區分觀察、創作與測量主張，不把結果換算為MBTI、EQ、職業適配或臨床結論。"
+    },
+    "beachcomber/sections/7/title": {
+      "sourceHash": "9b0232227284d82e8d5b8c390f635031fb33390057e858dc005955acd03ee9d9",
+      "text": "真實海岸觀察與虛構場景各有任務"
+    },
+    "beachcomber/sections/7/paragraphs/0": {
+      "sourceHash": "6a86b5ed6c3430345fbaa49bfafb89227d4df6448958082be8b8ffb1885b2b93",
+      "text": "虛構場景無需觸碰或移走貝殼、石頭或野生動物。之後若去真實海岸，應查當地現行通行與採集說明，不根據遊戲選擇行動。不同保護地的規則可能不同。[1]"
+    },
+    "beachcomber/sections/7/paragraphs/1": {
+      "sourceHash": "85f35936f85e2133e4298eaec0aee8c83f51119d2166e187fac62091412bffb0",
+      "text": "照片、速寫或文字可以保留觀察，不必把物件變成帶走的紀念。愛爾蘭無痕戶外的海岸資料討論把自然物留在原處，以照片、繪畫與記憶紀念。這是戶外背景，不是訪客人格證據。[2]"
+    },
+    "beachcomber/sections/8/title": {
+      "sourceHash": "ffb456e50c2a0ed7729ac47e826d5a42fd56cc69796fed793d39891a012f5c28",
+      "text": "用身邊已有物件嘗試三個角度"
+    },
+    "beachcomber/sections/8/paragraphs/0": {
+      "sourceHash": "4b381db828d74468cf9bfc51ec3809a7a9fd6586978e487d47e8d170a2edffec",
+      "text": "選擇身邊已有且獲准使用的普通物件。記下一個重複特徵，寫一句虛構短文，再描述它與周圍的關係。無需技能評分、限時目標或購買物品。"
+    },
+    "beachcomber/sections/8/paragraphs/1": {
+      "sourceHash": "799b60f9ad45ec4dde7ee3bd977ee7602fdfd01ef8e87bcf5d13768d769a26ec",
+      "text": "某個角度沒興趣時可以放下。小提示用於說明人物側寫，不是承諾提升注意力、創造力或身心狀態的干預。閱讀後也可以結束，無需完成另一測驗。"
+    },
+    "beachcomber/sections/9/title": {
+      "sourceHash": "e512cf82508fcc087daf199db944fd9d32bf3c3312ae245645b51fd6d82b7652",
+      "text": "作答、儲存與分享各自有範圍"
+    },
+    "beachcomber/sections/9/paragraphs/0": {
+      "sourceHash": "a9101ebd759b751af2c7372148840d16e857bbbf2dcd571306d8cdbdfd64d117",
+      "text": "點選開始直接進入第一題，答案在瀏覽器計算。可自願在本標籤頁儲存，二十四小時後失效，完成、重測或退出清除會刪除。題目版本變化使舊草稿失效；瀏覽器無法儲存時仍可作答。"
+    },
+    "beachcomber/sections/9/paragraphs/1": {
+      "sourceHash": "79c4bcc54ddf920580eadc279856abeb89bb774dc112353dfa6b7b56838c6635",
+      "text": "複製功能包含測驗標題、最高人物側寫名稱及其公開指南連結，不包含六條答案或次數。公開指南說明原創人物側寫，開啟它不會顯示其他訪客的私人作答。啟用時的一般使用記錄與儲存答案是不同事項。"
+    },
+    "beachcomber/faq/0/question": {
+      "sourceHash": "cec8747c39c7c1833a2b9e88fa473432ddc3a4d6b66b5c9696bb9d2a25658841",
+      "text": "需要認識貝殼或去過海邊嗎？"
+    },
+    "beachcomber/faq/0/answer": {
+      "sourceHash": "6bfb88d7180b912c9c3ada86eb284030c082a965510ebd033c25c5089c6b3867",
+      "text": "不需要。六題都是想像海岸場景，選擇想怎樣觀看或創作即可。無需物種鑑定知識、真實到訪、上傳圖片或野外觀察。"
+    },
+    "beachcomber/faq/1/question": {
+      "sourceHash": "b597b2ca8b594dee677d32583b449eb8bdd4539062fa011b2cd223453ee4d78c",
+      "text": "這是人格或注意力測驗嗎？"
+    },
+    "beachcomber/faq/1/answer": {
+      "sourceHash": "a464ba35d048c188c33b209ce7211fe2bfffc19e9b06b5eb8ac1368c0f8ba923",
+      "text": "這是圍繞三種原創觀看角度的娛樂測驗，沒有采用經驗證的人格量表，也不測發現視覺特徵的準確率或速度。"
+    },
+    "beachcomber/faq/2/question": {
+      "sourceHash": "340dd36a683918a95bc828aef8406f562243d81fbb4f847714062e7a06adc059",
+      "text": "海邊拾趣測驗多久，是否免費？"
+    },
+    "beachcomber/faq/2/answer": {
+      "sourceHash": "a197db68316a592c90b18917eb048edaa0a1890613573849a9b9f694529e38b8",
+      "text": "共六道三選一，約兩分鐘，不限時。全部題目、結果段落與三篇完整公開指南免費，無需註冊或先做其他測驗。"
+    },
+    "beachcomber/faq/3/question": {
+      "sourceHash": "d2fd66d3e63128f2065d753ba1a865f66269b7327f517264664d9f700f0261a2",
+      "text": "兩種或三種人物側寫同分怎麼辦？"
+    },
+    "beachcomber/faq/3/answer": {
+      "sourceHash": "0083b7c2b9799d681ef8bcbc9ae24a26c511f6b32387d42506ac82a80fae7436",
+      "text": "最高同分全部呈現，按圖案、故事、場景的預設順序展示，不按字母、題目位置或隨機方式淘汰並列。2—2—2保留三種人物側寫。"
+    },
+    "beachcomber/faq/4/question": {
+      "sourceHash": "c733a720ac60351645a2db7afa74cbb19513dd674aefeb4b56ebf9125ccb923c",
+      "text": "次數低是否表示缺乏創意或觀察意識？"
+    },
+    "beachcomber/faq/4/answer": {
+      "sourceHash": "12b2e506ea387953b7ec2a369b476b944452dc4fd5777d2cd6d9c5ed75c72fd3",
+      "text": "不是。六次相對選擇只說明更常選哪個給定角度，不評能力、價值或場景以外的興趣。次數低的指南也可能有趣。"
+    },
+    "beachcomber/faq/5/question": {
+      "sourceHash": "b26d2c1a54da0606aa6d2dc626a01c427e2c4f23bc128052dc5e165f941645ea",
+      "text": "故事人物側寫能鑑定物件的真實過去嗎？"
+    },
+    "beachcomber/faq/5/answer": {
+      "sourceHash": "e97bd9e887e20a9046d278c857bd771c5368b997a97910656d962d73dd2b5e12",
+      "text": "不能。明信片與旅程明確屬於虛構提示。聽起來可信的敘述，不是來源、年代、所有權或歷史事件的證據。"
+    },
+    "beachcomber/faq/6/question": {
+      "sourceHash": "98a740962f5bd558b5259d93c1c0c691233fac0236996ae28bce574181183ea4",
+      "text": "把東西留在原處是不是正確答案？"
+    },
+    "beachcomber/faq/6/answer": {
+      "sourceHash": "d9c1a981ef7c0f2d2a01779acd17f095cc8de3595ab5516f49fbeb3827b3d908",
+      "text": "遊戲沒有標準答案。圖案速寫與虛構故事也可以不觸碰物件。次數不比較生態品德，當地戶外指引另行適用。"
+    },
+    "beachcomber/faq/7/question": {
+      "sourceHash": "0e62ef158552fbd3e5867e11276650055942c923aa29b2e06f57d0e7c32ebd9d",
+      "text": "相同回答會得到相同人物側寫嗎？"
+    },
+    "beachcomber/faq/7/answer": {
+      "sourceHash": "88015087184568c7de303de00aebaaf36606c087efa75852c110a2a6ed11ea16",
+      "text": "會。每條回答按明確規則加分，完整答案相同，次數與最高並列就相同。確定性規則不證明跨情境人格穩定。"
+    },
+    "beachcomber/faq/8/question": {
+      "sourceHash": "8af688ed031fdf7f7c0aad4203e039767e1e4a93453cd7ee9a8906ef47d78625",
+      "text": "能修改前面的選擇或重測嗎？"
+    },
+    "beachcomber/faq/8/answer": {
+      "sourceHash": "b571ec653b259d86445994fafb332945d0c7a3f31bbd8524bd1e39c166503bbd",
+      "text": "作答中可用上一題修改；這份六題問卷採用累計計數。重新測驗會新開一次作答並清除上次完成的答案。不同結果可能只是這幾次選擇的偏好不同。"
+    },
+    "beachcomber/faq/9/question": {
+      "sourceHash": "ab155bf81a973c8eb497257adf00f7218320d6059f090df39bc597e92d71a5d5",
+      "text": "複製結果會分享什麼？"
+    },
+    "beachcomber/faq/9/answer": {
+      "sourceHash": "ea4d35487838b74d8a6fa57c74ca01a8718c95e6916acd94a8de0886df144e29",
+      "text": "複製文字包含最高人物側寫或並列人物側寫名稱，以及公開指南和測驗連結，不包含六條具體回答與次數。連結目標是公開編輯正文，不是私人成績頁。"
+    },
+    "beachcomber/faq/10/question": {
+      "sourceHash": "ce8d2e88af64808ec8c66d22ddcad9310afe3bb78342182f0feeef6f0050344c",
+      "text": "開始前必須儲存進度或勾選同意嗎？"
+    },
+    "beachcomber/faq/10/answer": {
+      "sourceHash": "79e1588d3f106ae3e9ccef0bff974f7c5fe6b0379349bfc48942ff262f4c9bc3",
+      "text": "不用。開始按鈕直接進入第一題。作答中可自願選擇標籤頁儲存；不勾選不會阻止題目或完整結果。"
+    },
+    "birdwatching-companion/sections/0/title": {
+      "sourceHash": "c1d1ae015a7d76859c5b20b304910a800808388e8f52cea1870d0a020c6a2804",
+      "text": "賞鳥同行方式測驗：怎樣分享一次發現？"
+    },
+    "birdwatching-companion/sections/0/paragraphs/0": {
+      "sourceHash": "54898813d73688bc1fd33114a9dfbdebac534f3cc2c6bac6f2d2f09283f85a71",
+      "text": "虛構小組透過觀察窗看插畫裡的鳥。六次選擇探索三種參與方式：給現身留時間、保留有用記錄，以及幫另一位觀察者找到視野。同一次短暫發現，可以包含三種貢獻。"
+    },
+    "birdwatching-companion/sections/0/paragraphs/1": {
+      "sourceHash": "f134805ca6caa4b744b8b84dfe34415002bd29512dc4425999bd022b686411d2",
+      "text": "這是文字選擇故事，不考發現速度、鳥鳴辨認或物種鑑定。無需賞鳥經歷、望遠鏡、位置許可權或上傳照片。每個場景選自己更想做的一項，沒有標準答案。"
+    },
+    "birdwatching-companion/sections/1/title": {
+      "sourceHash": "8e5baf8516e2c8c86442bf8acac01ff7898b4e02b8764181789e06699b3d133d",
+      "text": "慢看窗邊同行者：給觀看留時間，也保留停止點"
+    },
+    "birdwatching-companion/sections/1/paragraphs/0": {
+      "sourceHash": "c7efd9e256940efd06d98fdedc640945d8e227d4dd5f907190d5a53704672489",
+      "text": "等待選項涉及在舒適視野停留、不急著移開，以及陪伴再安靜看一會兒，不要求無限等待或讓所有人留在同一視窗。這裡關注想像外出中選擇的節奏。"
+    },
+    "birdwatching-companion/sections/1/paragraphs/1": {
+      "sourceHash": "56e027b62fbf87378fc916291dfc76270c07dfea1caea46782125d2144093265",
+      "text": "例如，可以約定再看一幅插畫，然後問大家是否想繼續走。次數較高，不證明任何場景都耐心、專注更好或更能忍受不適。喜歡停留，也可以需要休息。"
+    },
+    "birdwatching-companion/sections/2/title": {
+      "sourceHash": "76bd5f69c3096e00df37f089782c9ec91c2ca7cf2b5bd29b4f8c71c1b081a93f",
+      "text": "隨手記錄同行者：保留確實注意到的內容"
+    },
+    "birdwatching-companion/sections/2/paragraphs/0": {
+      "sourceHash": "2aceeb25c55ea43148f1658c70c6b674006dd29e0dae2c8e23da1bc09b782ba8",
+      "text": "記錄選項涉及時間、觀察位置、樹枝速寫與確實看清的細節。適度筆記可區分“看清了”“未確定”與“沒觀察到”。不能因為記錄整齊，就把想像中鳥的身份寫成確定事實。"
+    },
+    "birdwatching-companion/sections/2/paragraphs/1": {
+      "sourceHash": "bcd7099237a2aa72fdd0880dd1f5461fea7f2f710f7b8de620cad96dac5617ba",
+      "text": "例如，記下窗旁樹枝與一次短暫移動，同時保留物種未確定。記錄會中斷觀看，短短一筆可能已夠。次數不驗證記憶準確率、資料質量、科學訓練或野外清單完整性。"
+    },
+    "birdwatching-companion/sections/3/title": {
+      "sourceHash": "601d4af7c3ee787c25c1a4678165b3b73d80803228aa4c7c491b3018b4a3c36f",
+      "text": "共享視野同行者：提供邀請，而非永久負責"
+    },
+    "birdwatching-companion/sections/3/paragraphs/0": {
+      "sourceHash": "b5082b60b285dcf8dabdf7ab2bf3524743f80792451ef9425bed4a8739e2eeda",
+      "text": "共享視野選項涉及確認能否看見視窗、用附近地標定位，以及換位時不擋住其他人，詢問怎樣讓別人更容易加入，不要求替所有人認出鳥種。"
+    },
+    "birdwatching-companion/sections/3/paragraphs/1": {
+      "sourceHash": "a208bc674fb213a4d87e34db0ab6b3f784e27f0657c5f57a0a5116dedf5881d2",
+      "text": "具體提示可以是“淺色樹幹旁分叉的那根枝”。再問是否需要更多幫助，也允許對方獨立探索。次數較高，既不任命組長，也不讓你負責每位參與者是否愉快。"
+    },
+    "birdwatching-companion/sections/4/title": {
+      "sourceHash": "5ac7d55391527135e4607814006b584b0d406bdf01353889332d86e7728d1aef",
+      "text": "六次單點計數與全部最高人物側寫"
+    },
+    "birdwatching-companion/sections/4/paragraphs/0": {
+      "sourceHash": "b424c5beb12eac21d9be3b5d994efe23a30e40e7239ed0fd5cd608264c8e3873",
+      "text": "每題為三種人物側寫各提供一個選項。選中某項，給對應人物側寫加1次；三項合計6次，每項0至6次。六題全部作答後才生成個人結果。"
+    },
+    "birdwatching-companion/sections/4/paragraphs/1": {
+      "sourceHash": "1ba5f9ab9fe8ecab68b88ef0e7589dcd9f70eadf5ff6f8b6ee2f0d38708e103c",
+      "text": "次數最高者顯示為結果，同為最高則全部保留。等待3、記錄3、共享0顯示前兩種；2—2—2顯示三種。等待、記錄、共享順序只安排並列說明，不淘汰同分，也不讓先顯示的人物側寫高一等。"
+    },
+    "birdwatching-companion/sections/5/title": {
+      "sourceHash": "fdc1ff3c3ab2c25eb1f1ba46e78943fcd41819d47c8cb106b732fd0138a31bf5",
+      "text": "在同一個短暫事件裡比較貢獻"
+    },
+    "birdwatching-companion/sections/5/paragraphs/0": {
+      "sourceHash": "42c26abbf7adb711a6d4c4189c20e27e889bcec9297a39f0de72fddaee51f96d",
+      "text": "等待與記錄並列時，可以先看一會兒，再記一條短筆記；記錄與共享並列時，可以用簡單樹枝速寫幫助定位。這些是兩個視角的可選用法，不另計算亞型。"
+    },
+    "birdwatching-companion/sections/5/paragraphs/1": {
+      "sourceHash": "5e69f0d809e89a740c0f23fb744e9d968a1d9cba182acf758b8b80c130268efa",
+      "text": "次數較低，不表示生活中缺少這類貢獻。每個場景只選一項，選了一個有用選項，另兩個自然沒有被選。全部三篇公開指南都可閱讀，不以本次是否最高為條件。"
+    },
+    "birdwatching-companion/sections/6/title": {
+      "sourceHash": "98cda2460f7b8863e7511b710b640d39ea77bb077b7587e004655d3a25ff7df0",
+      "text": "趣味記錄不等於公民科學報送"
+    },
+    "birdwatching-companion/sections/6/paragraphs/0": {
+      "sourceHash": "6b9d15b700dc9ba7f03bfd471f06cb94868fd4ee0eeae90c84960ad62dcdc19d",
+      "text": "真實觀察平臺會說明什麼可以作為記錄。eBird的指引針對現場觀察到的活體野生鳥類，並區分圈養、死亡或遠端觀看的鳥。本遊戲插畫小組不提供合格的真實野外目擊。[1]"
+    },
+    "birdwatching-companion/sections/6/paragraphs/1": {
+      "sourceHash": "7c188eccbee8f247c417afc2a62b60fb536671752cff14ca79323a6e4114d434",
+      "text": "真實外出時，應區分觀察內容與鑑定把握，並按接收專案的現行說明記錄。本測驗不上傳清單，不核查位置、鳥種或數量。記錄次數高不是資料質量憑證。"
+    },
+    "birdwatching-companion/sections/7/title": {
+      "sourceHash": "92d1e63d09d3d2a4237d84e3655425051ffac829bfed22ddb889255bdb7d4efd",
+      "text": "尊重鳥類、同行者及不同參與方式"
+    },
+    "birdwatching-companion/sections/7/paragraphs/0": {
+      "sourceHash": "3c80b27f24951712d1bab1346eac8c84cb7283be3824101c790057938e7c4342",
+      "text": "美國賞鳥協會的準則要求儘量減少擾動，尊重他人的興趣、權利與技能水平，包括幫助新手。這是共同外出的相關背景，不驗證遊戲中的三種人物側寫。[2]"
+    },
+    "birdwatching-companion/sections/7/paragraphs/1": {
+      "sourceHash": "2345d66aaaaaf376be9dd8d930d77803ebdd1023f40927946a3b56cc1a17bb5d",
+      "text": "虛構觀察窗不要求靠近、觸碰、餵食或播放聲音。同行者可能想換位置、縮短停留或不需要幫助，應直接詢問，不憑結果標籤推斷。"
+    },
+    "birdwatching-companion/sections/8/title": {
+      "sourceHash": "7ac534af4fd2f2d8339a5a53086a566124ec1f29b6ff59bf8ac5cfb05c70c42b",
+      "text": "原創故事框架，不是測得的賞鳥技能"
+    },
+    "birdwatching-companion/sections/8/paragraphs/0": {
+      "sourceHash": "15dfde5cabcc110c124e223e2ac04300a69dc9fde5b8a97173515d2f107b381b",
+      "text": "六道提示與三種人物側寫是原創娛樂內容。計數可復現，表示完整答案相同就得到相同結果，不等於建立穩定人格維度、信度、效度、常模或技能預測。本遊戲不提供這些心理測量證據。"
+    },
+    "birdwatching-companion/sections/8/paragraphs/1": {
+      "sourceHash": "14dbb75daf2b5954ee328eb5ae5df86b12e34ad65cdb12a704d2f067d832333d",
+      "text": "鳥類鑑定問答可對照照片、聲音或物種資料核對答案。本頁詢問更想選擇哪種共同參與方式，沒有測驗那些表現。因此次數不能換算識鳥準確率、MBTI、EQ、職業適配或診斷。"
+    },
+    "birdwatching-companion/sections/9/title": {
+      "sourceHash": "7c892237f760e8bfed69dc07d2ea5c09b86b9739c04ec475c2be8bb8da4f9dbd",
+      "text": "自選一個小貢獻，自主決定怎樣分享"
+    },
+    "birdwatching-companion/sections/9/paragraphs/0": {
+      "sourceHash": "6102fb1267457717f08a7e6ba8033eed53e17ac7fa5f084b9580dcd76fe4cb87",
+      "text": "在普通共同活動中，可以自選一個小行動：留短暫停頓、記三個樸素細節，或給一個定位提示。問是否有幫助，並在合適時停止。例子用於說明人物側寫，不承諾提升專注、共情或身心狀態。"
+    },
+    "birdwatching-companion/sections/9/paragraphs/1": {
+      "sourceHash": "8a44bda6e183dc575ee9b80cdea37dec51e63dcc603dff211feebb5364fcdefe",
+      "text": "點選開始直接進入第一題。可自願在本標籤頁儲存進度，最多二十四小時，完成、重測或退出清除即刪除。複製分享最高人物側寫名稱與公開連結，不含六條回答與次數。無需再做另一測驗，可以在此結束。"
+    },
+    "birdwatching-companion/faq/0/question": {
+      "sourceHash": "748571321fe8cb204c359df9dba0965604058db51d0984863eb3471d32e4f720",
+      "text": "需要賞鳥經驗或認出鳥種嗎？"
+    },
+    "birdwatching-companion/faq/0/answer": {
+      "sourceHash": "ac28b7c48c93ce9c1132b9e679e3a4bae8aaf5d60dba410f7691505858003db7",
+      "text": "不需要。題目描述虛構小組與插畫鳥類，你選擇怎樣參與，不對照片、鳥鳴、物種名稱或野外報告評分。"
+    },
+    "birdwatching-companion/faq/1/question": {
+      "sourceHash": "8e8f86258280e459739cec545967fe2563d4a52aca2d9dd10646eef646e744d0",
+      "text": "需要多久，哪些內容免費？"
+    },
+    "birdwatching-companion/faq/1/answer": {
+      "sourceHash": "0acd077bf060a2a0220b289532b940ac807c42b30924a232ed7ca26a7d81c9cc",
+      "text": "六道三選一約兩分鐘，不限時。全部題目、次數、最高並列及三篇公開全文免費，無需註冊或前置測驗。"
+    },
+    "birdwatching-companion/faq/2/question": {
+      "sourceHash": "2ad7194f90e08b325fb4b3106fb1e74b783e25da122c4f52b0e07822270d1750",
+      "text": "為什麼會出現多種同行人物側寫？"
+    },
+    "birdwatching-companion/faq/2/answer": {
+      "sourceHash": "8e85d402ac9a3f3bae31bce5f6e762905e85bed0b377f00a5a737b321d64753e",
+      "text": "每次選擇給一種人物側寫加1次，所有最高同分均顯示。3—3—0保留兩種，2—2—2保留三種。顯示順序不破同分。"
+    },
+    "birdwatching-companion/faq/3/question": {
+      "sourceHash": "51862305f6f747945e34887e3420ccfd9243f430b4253cebb62de48c7c91c050",
+      "text": "記錄次數低表示記憶不好嗎？"
+    },
+    "birdwatching-companion/faq/3/answer": {
+      "sourceHash": "e5a2119386f3ff14f2dffcb5451685b03da7dd946c3dd35466d87794d0d960e1",
+      "text": "不是。遊戲詢問六個場景裡更想選哪個給定行動，沒有測驗回憶，也不核實真實記錄的準確性和完整性。"
+    },
+    "birdwatching-companion/faq/4/question": {
+      "sourceHash": "7119a1a6bbc2b6bbfb34c7d5aa9c529e7c36ec44ec015fbf5c44acf67e541000",
+      "text": "慢看人物側寫是否意味著等得越久越好？"
+    },
+    "birdwatching-companion/faq/4/answer": {
+      "sourceHash": "76999f4da01a2d706ae20400bf6812d20d50a91ebc1fba8a1115a3fde519fbeb",
+      "text": "不是。人物側寫包含舒適停留與停止點。你的節奏未必適合他人，任何人都不必為了證明結果而留在活動裡。"
+    },
+    "birdwatching-companion/faq/5/question": {
+      "sourceHash": "d1054990e106b49719b63c920c87a15890e169a5e6e6ef6b4962d442cc491b86",
+      "text": "共享視野人物側寫是在任命我當組長嗎？"
+    },
+    "birdwatching-companion/faq/5/answer": {
+      "sourceHash": "48331142e4d8d4356882668bc267046035551f5a5f4149a536723433f3e7b224",
+      "text": "不是。它描述可自選的定位與參與提示。先問是否需要幫助，也可以回到自己的觀看，不必負責每個人的體驗。"
+    },
+    "birdwatching-companion/faq/6/question": {
+      "sourceHash": "0344d95a8fdd9a526fc95864dfb2f692177ed6d773264814b960930f5d0b5ada",
+      "text": "可以把這些插畫場景報送到eBird嗎？"
+    },
+    "birdwatching-companion/faq/6/answer": {
+      "sourceHash": "3a5d8bf83e6eee6bcf51cae0c191f51eab148fce76e4e2c225f4c2fd3dff77a4",
+      "text": "不能。這些是虛構場景，不是現場觀察活體野生鳥類。本頁不向eBird或其他科學專案報送資料。真實觀察應遵循對應專案說明。"
+    },
+    "birdwatching-companion/faq/7/question": {
+      "sourceHash": "8390d5a0253f98c895391eb1da486230e555fb2716629dc1f0dc2e9ffe7b86c0",
+      "text": "這是鴿子、貓頭鷹、孔雀、老鷹四鳥人格測驗嗎？"
+    },
+    "birdwatching-companion/faq/7/answer": {
+      "sourceHash": "18deb25f9e0b388d4ec71440600b5a55912a03a56349fd6711ad16c5dee66d4b",
+      "text": "不是。三種結果描述虛構賞鳥外出中的參與方式，不把人分配為鳥種，也不是DISC或DOPE量表，次數不能換算那些結果。"
+    },
+    "birdwatching-companion/faq/8/question": {
+      "sourceHash": "68576361ce97c65fe318410b26a152ed2dcf9fe449bc10ac5349d116f106b40b",
+      "text": "可以改答並得到不同結果嗎？"
+    },
+    "birdwatching-companion/faq/8/answer": {
+      "sourceHash": "8111fa5845f289a68860350e814bd3fe69acfc87c482c1068bc6b40fdf5b93b5",
+      "text": "可以。作答中用上一題，完成後用重新測驗。次數跟隨所選選項，選擇變化可能改變最高人物側寫，單憑這些不能說明人格長期改變。"
+    },
+    "birdwatching-companion/faq/9/question": {
+      "sourceHash": "d8a9155ac99fb6af3c0f1f8c5fb6748c986fe186ef3d36930405c92b1a847957",
+      "text": "儲存或複製結果會包含什麼？"
+    },
+    "birdwatching-companion/faq/9/answer": {
+      "sourceHash": "130749b6f9aed98d3e5c753fcd1a88995174f654c818eb585702a3a2bf0d7fc8",
+      "text": "儲存是本標籤頁的自願選擇，二十四小時後失效，完成、重測或退出清除即刪除。複製結果含最高人物側寫名稱與公開連結，不含各題答案或次數。"
+    },
+    "birdwatching-companion/faq/10/question": {
+      "sourceHash": "71e6e733000e7f0822c2cf7dfd048412af7b95a4b1c7e0e765f7ea6dd558caa6",
+      "text": "開始前必須同意、儲存或先做MBTI嗎？"
+    },
+    "birdwatching-companion/faq/10/answer": {
+      "sourceHash": "064fcb804f73fc99c8100aa4066d1a7885cd38812606fe676ef444bfc827a1e5",
+      "text": "不用。點選開始直接進入第一題，自願儲存不是門檻。六次選擇後顯示完整結果，是否繼續其他測驗由你決定。"
+    },
+    "cloud-drift/sections/0/title": {
+      "sourceHash": "336b531f94dc334f79b21940cbc35638c235b08b8f1099403670b15cbab67bc4",
+      "text": "看雲小遊戲：一幅輪廓、一段情節，或一片留白"
+    },
+    "cloud-drift/sections/0/paragraphs/0": {
+      "sourceHash": "ad08fe4dc39bdf024d7c18d740f0d5adae3e0b284fe95dbe7fdcddedc0fc1f9b",
+      "text": "一條長弧，可以變成熟睡的小生物、移向下一格的形狀，也可以只是一條曲線。六段簡短文字場景邀請你想像插畫雲，選擇更想怎樣玩：雲分開了、朋友看見別的東西，或草圖尚未完成。"
+    },
+    "cloud-drift/sections/0/paragraphs/1": {
+      "sourceHash": "f4fb839decc546707443d52b66087dfbd9186d219775e545e5608db6cd7222e5",
+      "text": "輪廓發現者、浮雲敘事者與留白天空觀察者，是三種原創創意比喻。它們描述本遊戲內選中的回應，不解釋真實雲朵的隱藏資訊，也不分析潛意識。無需拍照、上傳畫作或即時觀察天空。"
+    },
+    "cloud-drift/sections/1/title": {
+      "sourceHash": "f83b337795130527212b38d0bff638fc21309e0e2bd34f1d014e1c796e590e6b",
+      "text": "輪廓發現者：指出畫面從哪條邊緣開始"
+    },
+    "cloud-drift/sections/1/paragraphs/0": {
+      "sourceHash": "34f2f67716064f4aab5a356245d80a17f7946d765d9235f64cc2a5f3800f169d",
+      "text": "這一玩法會為模糊形狀找出可辨認的邊界。你可能沿弧線想出一隻貓，再指出像耳朵的小凸起。分享具體線條，能給同伴一個起點；為畫面命名，不意味著所有人必須看見同一種動物。"
+    },
+    "cloud-drift/sections/1/paragraphs/1": {
+      "sourceHash": "e5990f9f59bd4cada4473571db9c1b62da227d30db6e8915775abe513de35566",
+      "text": "也可在定下第一種讀法前，再試一種：像貓背的弧線，也許能成為山坡或船身。這是可選的塗鴉提示，不考是否找出隱藏正確物體、準確臨摹，或比他人更快辨認形狀。"
+    },
+    "cloud-drift/sections/2/title": {
+      "sourceHash": "4ec1a838b60201753d4bfde702c0eed00606406b6eea6dec8c978bad416bae96",
+      "text": "浮雲敘事者：給變化接上下一刻"
+    },
+    "cloud-drift/sections/2/paragraphs/0": {
+      "sourceHash": "4976d7a4a4b7dfe0926381e71656a113d300f1e39cdea178e479a0571cae1301",
+      "text": "這條線索會問接下來發生什麼。兩塊雲可以接成一小段追逐，漸散的形狀也可以成為故事最後一格。連續場景可以很簡單：一個形狀靠近，另一個挪開，然後安靜下來。不必先畫得精緻或編出複雜情節。"
+    },
+    "cloud-drift/sections/2/paragraphs/1": {
+      "sourceHash": "5e818bbfb7653448dbb009bc2d7e98cfb5aaab54d301aefde7368dca37642ddf",
+      "text": "可以區分看見的變化與自己新增的意義。“兩塊分開了”描述場景，“一個逃離另一個”則加上敘事。創意遊戲容得下兩者，只需記得新增的故事不是動機、人格或真實事件的證據。"
+    },
+    "cloud-drift/sections/3/title": {
+      "sourceHash": "bb065292d42ec6ef557fbe06da47d4fa12caf4099c55e7676c150a1b5646faca",
+      "text": "留白天空觀察者：讀法可以暫不定下來"
+    },
+    "cloud-drift/sections/3/paragraphs/0": {
+      "sourceHash": "2874c54e5f1ec7fe32b3fdcbc9a15d19066e9cad6930469a93b89824918f7594",
+      "text": "在這裡，可以欣賞曲線而不立即決定它代表什麼。朋友看見船，你看見魚，兩種讀法都能暫時留著。未命名可以是繼續觀看的主動選擇，不表示想不出任何東西。"
+    },
+    "cloud-drift/sections/3/paragraphs/1": {
+      "sourceHash": "d917ef47519cd9ba6c1cb9b4ae2b50b65190715fcd2ddda29347b5eda5861751",
+      "text": "留白也可以配一個小邀請：“哪一部分吸引了你？”給他人一個入口，而不預設答案。選這種回應，不代表經驗開放性、模糊容忍度、正念或情緒調節更高；本頁沒有測量這些構念。"
+    },
+    "cloud-drift/sections/4/title": {
+      "sourceHash": "8a441a7c336a7d7717f99e317171955d9e7c0f5b3a9891bf3d98dc1b9bcf991f",
+      "text": "為什麼鬆散形狀也能讓人想到熟悉事物"
+    },
+    "cloud-drift/sections/4/paragraphs/0": {
+      "sourceHash": "e3e4501d486331ff73f43cdeb50a1bf4b5522e4f4272f66ada06e1b83534d237",
+      "text": "面孔空想性錯視，是在非面孔物體中感到面孔。Wardle等以似面孔物體、匹配物體與真人面孔照片，結合功能磁共振和腦磁圖研究其快速變化的神經表徵。[1]"
+    },
+    "cloud-drift/sections/4/paragraphs/1": {
+      "sourceHash": "e622abbec08654268f1761189566b1cc5477e3242700a458c28fd86575d9376a",
+      "text": "該研究沒有測驗這裡的雲形場景或三種人物側寫。依據文字提示想到船、動物或故事，也不自動等於面孔空想性錯視。不能據偏愛的遊戲選項，進一步推斷腦特徵、心理健康狀況或創造力等級。"
+    },
+    "cloud-drift/sections/5/title": {
+      "sourceHash": "17ac94d1d6a4fd2b77b8492b97f563071cad112c46fdc467b9aeb23072b8fb82",
+      "text": "六次選擇、三項計數：結果怎樣計算"
+    },
+    "cloud-drift/sections/5/paragraphs/0": {
+      "sourceHash": "5e06ad4d0f0bd875d6cac29b1b6c881cbb8b265bcd680da381828412013958be",
+      "text": "每題各有一個輪廓、情節與留白選項，位置會變化。選中後只給對應計數加一次。六題全部作答後，每項為零至六次、三項合計恆為六。不評雲圖，也不因速度、畫得好或聯想罕見而加分。"
+    },
+    "cloud-drift/sections/5/paragraphs/1": {
+      "sourceHash": "98b9b7f4fe96a7a14ff346792bb1e97e7960b0ab2b8e1eee1281a99670351817",
+      "text": "例如輪廓三次、情節兩次、留白一次，表示本題組有三次選中輪廓回應。這是原始選擇次數，不是心智比例、人群排名或準確率。零次只表示這裡未選該類選項，不代表你無法採用這種玩法。"
+    },
+    "cloud-drift/sections/6/title": {
+      "sourceHash": "ec1cdd9f2321006074d17ac16e9fd22018863755d45d97381b44a70c130bafc3",
+      "text": "最高並列全部保留：把人物側寫結合閱讀"
+    },
+    "cloud-drift/sections/6/paragraphs/0": {
+      "sourceHash": "d372b88573833f9a8ca98ac10d74f0cc1fa1e7b002b0a432c77e8f2ebaa314fd",
+      "text": "三、三、零保留前兩項同為最高的人物側寫；二、二、二保留全部三項。不按選項位置、字母或隨機選擇破同分。接近但不相等的次數也不合並：三、二、一以三次人物側寫為最高，同時顯示另外兩項。"
+    },
+    "cloud-drift/sections/6/paragraphs/1": {
+      "sourceHash": "f210bf98386f9983ae0530fad01054e96544435caaed81f480a54c86cdc0cff8",
+      "text": "六題每題三個選項，共有729種完整回答，七種非空最高集合都可能出現：三個單項、三個兩項並列和一個三項並列。它們是計數規則允許的輸出，不是七類經科學確立的想像型別，也不是實測人群比例。"
+    },
+    "cloud-drift/sections/7/title": {
+      "sourceHash": "ef3b167688997e8d965b4f6f9a06f88228d38a0ca6f12b6dc60b04bd0212982b",
+      "text": "一個輕量創作提示，不做表現測驗"
+    },
+    "cloud-drift/sections/7/paragraphs/0": {
+      "sourceHash": "cdd01f11631613881a51b805db892536ed4ae6c39f631ec9449b500d97d3b62e",
+      "text": "願意繼續時，可以在紙上取一條簡單曲線：為它畫兩種輪廓、想一格後續，或保留無題，只描述可見細節。任選感興趣的一種即可。史密森尼的早期學習活動冊，也會邀請讀者描述散落紙片與塗鴉，並提出不同讀法。[2]"
+    },
+    "cloud-drift/sections/7/paragraphs/1": {
+      "sourceHash": "3eb78f5411680fcbb8c55df3aa1992e56976180b6e29cdc60dd8f426976d49ed",
+      "text": "那是一種具體教育活動，不證明本遊戲能提升成人創造力或測量兒童發展。可以用文字替代畫圖，也可只留給自己。完成遊戲不要求交畫作、請同伴回應，或成功想出第二種解釋。"
+    },
+    "cloud-drift/sections/8/title": {
+      "sourceHash": "b370abb633c509f9e5d12749f82b2f07c0f172ec5b9b8ffe570fa117ba3721b0",
+      "text": "想像雲形與辨認雲種，回答不同問題"
+    },
+    "cloud-drift/sections/8/paragraphs/0": {
+      "sourceHash": "09c863b677d65801cfbf7d27713496910ea1398e11e41ebaed47d6222a3667c2",
+      "text": "科學辨雲關注雲的可觀察特徵。UCAR科學教育資料依形態、高度等介紹雲種，並另設活動與模擬資源。看見像動物的剪影，是趣味相似聯想，不是氣象分類。[3]"
+    },
+    "cloud-drift/sections/8/paragraphs/1": {
+      "sourceHash": "e3f70aa4c2a3a981a8d025f93a4bc48fdbbdd282a7f632f4eef5c6ee4e127125",
+      "text": "本頁不使用即時天空圖、氣象測量或天氣模型，結果不能預報降雨、評估戶外條件或認證雲種。任何時候都可在室內想像這些場景；真實看雲與氣象學習是另外的自選活動。"
+    },
+    "cloud-drift/sections/9/title": {
+      "sourceHash": "da41b62116d65873c58458d9d924dcbe86f63e56555a95fdbe16bce5828c8eb1",
+      "text": "把結果讀作有限創意記錄，保留作答選擇權"
+    },
+    "cloud-drift/sections/9/paragraphs/0": {
+      "sourceHash": "0b78165c2e5df6dd2bda849ec208bcb9c5e9203f021b8ae135eec356def02924",
+      "text": "這份原創六場景小遊戲尚未建立信度、效度或人群常模，不含標準化影像識別任務，也不評分原創性、流暢性或靈活性。重測變化可能來自文字理解不同，或當天覺得更有趣的選項變化；僅憑次數不能判定人格改變。"
+    },
+    "cloud-drift/sections/9/paragraphs/1": {
+      "sourceHash": "95ef0d01de5d8d31167af08dbd68d38eee1aea0b62e85cd1520addafbf5128b0",
+      "text": "頁面就緒後，開始測驗直接開啟第一題。答案在瀏覽器計算，主動選擇後才在本標籤頁儲存二十四小時；完成、重測或退出並清除會刪除草稿。答案不寫入頁面網址或攜帶答案的分析事件，一般站點事件依Cookie設定處理。全部人物側寫免費，後續MBTI連結自願使用，不用於解鎖或換算本結果。"
+    },
+    "cloud-drift/faq/0/question": {
+      "sourceHash": "b5c449cad07a13f4dcbcaaa8b82b2445bdd9461bd175dbc85d6d02f75da9a811",
+      "text": "看雲小遊戲比較什麼？"
+    },
+    "cloud-drift/faq/0/answer": {
+      "sourceHash": "324fd58ab088deea377ec3081a07b0174827aa00d269a9ec4453e0276f247106",
+      "text": "它在六個想像場景裡比較勾出輪廓、接續故事與保留未命名畫面，描述所選玩法，不尋找隱藏物體。"
+    },
+    "cloud-drift/faq/1/question": {
+      "sourceHash": "62d0340fd780ff00683ec7e93e07a12934a4723e863e8569a42aa895e48e7c71",
+      "text": "這是羅夏或臨床投射測驗嗎？"
+    },
+    "cloud-drift/faq/1/answer": {
+      "sourceHash": "a734a847ddd5694648ba877d928b41130eeeb498da5d199f1d5d95b446c6f949",
+      "text": "不是。本頁採用文字創意場景與三項簡單計數，不是臨床施測、標準化圖版或診斷解釋，不評症狀及潛意識動機。"
+    },
+    "cloud-drift/faq/2/question": {
+      "sourceHash": "b0c29166dc37ea471e81a84fba79c369bf3d4dbb8c556794f0e43c4868777e68",
+      "text": "能測想像力或創造力嗎？"
+    },
+    "cloud-drift/faq/2/answer": {
+      "sourceHash": "51ec0223e421d70dd806ae46adc82f745beb551f7656e9650b89d488c4f17238",
+      "text": "不能。你是在原創選項中選擇，並非提交創作後接受評估。次數更高，不表示原創性、繪畫、敘事或智力更高。"
+    },
+    "cloud-drift/faq/3/question": {
+      "sourceHash": "05e21d9b9b69a4358689bbb1bb0a496f367fa7dc2f8e88eab3592c096c1e46cd",
+      "text": "輪廓、情節與留白怎樣計數？"
+    },
+    "cloud-drift/faq/3/answer": {
+      "sourceHash": "3b030b992fc74f66b13ead9b28b0eee4b412b046ac971fb818bf4324191b1253",
+      "text": "每個回答為其對應線索加一次，不由選項位置決定。六題完成後得到三項零至六次的計數，合計六次。"
+    },
+    "cloud-drift/faq/4/question": {
+      "sourceHash": "9cd220aa218b64f5d0f9e329a54f2f68f4ae75f8a62f0ee252a4ba53028ff29e",
+      "text": "兩個或三個結果並列怎麼辦？"
+    },
+    "cloud-drift/faq/4/answer": {
+      "sourceHash": "f79b1d15a8a23bc9e03966f74cb48728e197c664aa906a098a27b5f6cff46f34",
+      "text": "同為最高的人物側寫全部保留。三、三、零保留兩個，二、二、二保留三個；不隨機抽取，也不合並不相等的次數。"
+    },
+    "cloud-drift/faq/5/question": {
+      "sourceHash": "c5c118db55682d6a2ad2ac6d7c4001c0922b0062b1243727b37a59262984b104",
+      "text": "留白天空觀察者代表大五開放性高嗎？"
+    },
+    "cloud-drift/faq/5/answer": {
+      "sourceHash": "d4750ba007513e3b4f0e70e14f422a8948d136ee1e48157dd01c0528d0ec7276",
+      "text": "不代表。open只標識本遊戲的一類回應，不是大五人格分數。它和其他次數均不能換算人格量表或MBTI程式碼。"
+    },
+    "cloud-drift/faq/6/question": {
+      "sourceHash": "e0188c355dced55550791f944dde943647829dfabcb2b172aec9562842e43df9",
+      "text": "雲形聯想都屬於面孔空想性錯視嗎？"
+    },
+    "cloud-drift/faq/6/answer": {
+      "sourceHash": "6fbe1d8e5e697c8a82ad3b858a66d210bbf1ad6248a492704fc246ffcf862be6",
+      "text": "不是。面孔空想性錯視具體指在非面孔物體中感到面孔。本頁文字場景還涉及物體、連續情節與未命名形狀，所引面孔研究沒有驗證這些遊戲人物側寫。"
+    },
+    "cloud-drift/faq/7/question": {
+      "sourceHash": "becf9d1809185195b401195ba038f88034c4e5355d4345ea2b73cf65a7a57900",
+      "text": "需要照片或繪畫技能嗎？"
+    },
+    "cloud-drift/faq/7/answer": {
+      "sourceHash": "5dff8f68af4b03f8ff23e9a9de0ff0b3530f0bd93629293564e62532ce09e5a6",
+      "text": "不需要。按六段文字場景選擇即可。首屏插圖用於裝飾，不是計分圖版。無需相機、上傳圖片、現場觀察或完成畫作。"
+    },
+    "cloud-drift/faq/8/question": {
+      "sourceHash": "05abe879833c3c1aaf8b66f6dac67ad69ec86e128bd5379534ea5df99bc32b49",
+      "text": "需要多久，是否免費？"
+    },
+    "cloud-drift/faq/8/answer": {
+      "sourceHash": "7418dabf7353a575048e154322550df11fd9a1d7c38130adb39375a2061eda80",
+      "text": "六次選擇約兩分鐘，沒有計時限制。全部完整人物側寫與最高並列免費，無需註冊、入口同意勾選或前置測驗。"
+    },
+    "cloud-drift/faq/9/question": {
+      "sourceHash": "54d27274d965ca4143128f5082f5fa37b57bbd8ad32c243463f7645b8f6c1ace",
+      "text": "結果能預測天氣或未來嗎？"
+    },
+    "cloud-drift/faq/9/answer": {
+      "sourceHash": "043ff51f0b9e290f6bf9974f4e9f724f25d48dba9f2ae23f9b9e3a6a0ef92d9c",
+      "text": "不能。它不含即時天氣觀測或預報模型，人物側寫是原創創意比喻，不是預測或徵兆。"
+    },
+    "cloud-drift/faq/10/question": {
+      "sourceHash": "41720cc26199cae0bb11b42c8ff7ea34a5e13de5ce59c9e315221a9db868e757",
+      "text": "可以儲存、重測或分享嗎？"
+    },
+    "cloud-drift/faq/10/answer": {
+      "sourceHash": "f2cc2f3fab75acb47d85ac7d2a636e60afefb71dc95cdc3b35db3e4d1fc63bf9",
+      "text": "自選進度僅儲存在本標籤頁二十四小時，完成、重測或退出並清除時刪除。公開人物側寫連結展示原創指南，不含個人答案。重測開始新一輪選擇，變化不證明人格改變。"
+    }
+  }
+}

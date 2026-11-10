@@ -60,3 +60,5 @@ for (const [file, before, value] of [[output, previousText, next], [membersOutpu
   renameSync(temporary, file);
 }
 console.log(`zh-TW stories: ${slugs.length} readers, ${Object.keys(artifact.units).length + Object.keys(editorialUnits).length} source-bound strings`);
+
+await import("./nature-story-zh-tw.mjs");
