@@ -224,6 +224,17 @@ describe("public sitemap route", () => {
     expect(families.other.map((row) => row.loc)).not.toContain(loc);
   });
 
+  it("classifies Traditional Chinese article URLs supplied by the backend without generating them locally", () => {
+    const loc = "https://fermatmind.com/zh-TW/articles/reviewed-article";
+    const baseline = backendSitemapPayload();
+    expect(buildPublicSitemapFamilyMap(buildPublicSitemapEntries(baseline)).articles.map((row) => row.loc))
+      .not.toContain(loc);
+    const entries = buildPublicSitemapEntries({ ...baseline, items: [...baseline.items, { loc }] });
+    const families = buildPublicSitemapFamilyMap(entries);
+    expect(families.articles.map((row) => row.loc)).toContain(loc);
+    expect(families.other.map((row) => row.loc)).not.toContain(loc);
+  });
+
   it.each(PUBLIC_SITEMAP_FAMILIES)("serves the %s child sitemap from the same backend payload", async (family) => {
     const fetchMock = vi.fn(
       async () =>

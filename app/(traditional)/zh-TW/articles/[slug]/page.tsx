@@ -5,12 +5,13 @@ import { cache } from "react";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { buildArticleFrontendUrl, getCmsArticle, getCmsArticleSeo, normalizeArticleSlug } from "@/lib/cms/articles";
 import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { blogArchivePath, loadBlogArchive } from "@/lib/content/blogArchive";
 import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
-import { resolveArticleHreflangGate } from "@/lib/seo/articlePersonalityAuthority";
+import { resolveArticleHreflangGate, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
 
 export const dynamic = "force-dynamic";
 
@@ -77,7 +78,15 @@ const markdownOptions = {
 
 export default async function TraditionalArticlePage({ params }: RouteProps) {
   const { slug } = await params;
-  const [{ article, languages }, archive] = await Promise.all([loadSeo(slug), loadBlogArchive(locale, 1)]);
+  const [{ article, seo, index, languages }, archive] = await Promise.all([loadSeo(slug), loadBlogArchive(locale, 1)]);
+  const authority = seo?.authority ?? null;
+  const schemaGate = resolveArticleSchemaGate({
+    noindex: !index,
+    cmsArticleSeoJsonLd: seo?.jsonld ?? null,
+    article,
+    projectedAuthority: authority,
+  });
+  const fragments = authority?.structuredDataFragments;
   const blog = archive.data?.blog;
   const publishedArchive = !archive.failed && !archive.stale && blog?.configurationState === "published";
   const category = publishedArchive ? blog.categories.find((item) => item.slug === article.category?.slug) : undefined;
@@ -90,6 +99,10 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
 
   return (
     <div className="min-w-0 space-y-8">
+      {schemaGate.canRenderArticleJsonLd && fragments?.article
+        ? <JsonLd id={`article-jsonld-${slug}`} data={fragments.article} /> : null}
+      {schemaGate.canRenderBreadcrumbJsonLd && fragments?.breadcrumbList
+        ? <JsonLd id={`article-breadcrumb-${slug}`} data={fragments.breadcrumbList} /> : null}
       {article.readerLanguageSlugs ? <ArticleLanguageNavigation article={article} /> : languages ? <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
         {languages["zh-CN"] ? <Link href={new URL(languages["zh-CN"]).pathname} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link> : null}
         {languages.en ? <Link href={new URL(languages.en).pathname} lang="en" className="min-h-11 py-2 underline">English</Link> : null}

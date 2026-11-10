@@ -251,6 +251,42 @@ describe("editorial article CMS contract", () => {
     expect(html).not.toContain("wrong-origin");
   });
 
+  it.each([
+    { robots: "index,follow", enabled: true, expected: true },
+    { robots: "noindex,follow", enabled: true, expected: false },
+    { robots: "index,follow", enabled: false, expected: false },
+  ])("renders only eligible Traditional structured data ($robots, approved $enabled)", async ({ robots, enabled, expected }) => {
+    const slug = "traditional-structured-data";
+    const canonical = `https://fermatmind.com/zh-TW/articles/${slug}`;
+    vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
+      if (new URL(String(input)).pathname.endsWith("/seo")) {
+        return jsonResponse({ meta: { canonical, robots, article_authority_v1: {
+          contract_version: "article.seo.authority.v1",
+          published_revision_backed: true,
+          alternate_eligibility: {
+            basis: "published_indexable_locale_siblings", current_locale: "zh-TW",
+            eligible_locales: [], alternates: {},
+          },
+          structured_data_eligibility: {
+            basis: "cms_explicit_schema_gates", article: { enabled }, breadcrumb_list: { enabled },
+          },
+          structured_data_fragments: {
+            article: { "@context": "https://schema.org", "@type": "Article", headline: "繁體文章" },
+            breadcrumb_list: { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [] },
+          },
+        } }, jsonld: { "@type": "Article", headline: "Unapproved top-level schema" } });
+      }
+      return jsonResponse({ article: {
+        id: 1, org_id: 0, slug, locale: "zh-TW", title: "繁體文章", content_md: "繁體正文",
+        status: "published", is_public: true, is_indexable: true, published_revision_id: 27,
+      } });
+    }));
+    const html = renderToStaticMarkup(await TraditionalArticlePage({ params: Promise.resolve({ slug }) }));
+    expect(html.includes(`id="article-jsonld-${slug}"`)).toBe(expected);
+    expect(html.includes(`id="article-breadcrumb-${slug}"`)).toBe(expected);
+    expect(html).not.toContain("Unapproved top-level schema");
+  });
+
   it("rejects a sibling response, a different slug, or a canonical in another language", async () => {
     const slug = "seven-deadly-sins-and-seven-virtues";
     const article = {

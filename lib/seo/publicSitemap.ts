@@ -63,7 +63,7 @@ const FAMILY_PATH_PATTERNS: ReadonlyArray<{
   pattern: RegExp;
 }> = [
   { family: "tests", pattern: /^\/(?:en|zh|zh-TW)\/tests(?:\/|$)/i },
-  { family: "articles", pattern: /^\/(?:en|zh)\/articles(?:\/|$)/i },
+  { family: "articles", pattern: /^\/(?:en|zh|zh-TW)\/articles(?:\/|$)/i },
   { family: "career", pattern: /^\/(?:en|zh)\/career(?:\/|$)/i },
   { family: "personality", pattern: /^\/(?:en|zh|zh-TW)\/personality(?:\/|$)/i },
 ];
