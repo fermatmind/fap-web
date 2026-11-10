@@ -321,5 +321,59 @@
     "merida",
     "moana",
     "raya"
+  ],
+  "jungian-archetype": [
+    "innocent",
+    "sage",
+    "explorer",
+    "rebel",
+    "magician",
+    "hero",
+    "lover",
+    "jester",
+    "everyperson",
+    "caregiver",
+    "ruler",
+    "creator"
+  ],
+  "temperament": [
+    "sanguine",
+    "choleric",
+    "melancholic",
+    "phlegmatic"
+  ],
+  "leadership-style": [
+    "autocratic",
+    "democratic",
+    "laissez-faire",
+    "transformational"
+  ],
+  "travel-personality-test": [
+    "wanderer",
+    "planner",
+    "culture",
+    "outdoors",
+    "rest",
+    "food"
+  ],
+  "aesthetic-core-test": [
+    "cottagecore",
+    "dark-academia",
+    "clean-girl",
+    "coastal-grandmother",
+    "goblincore",
+    "cyberpunk"
+  ],
+  "tsundere-dere-type": [
+    "tsundere",
+    "kuudere",
+    "dandere",
+    "deredere"
+  ],
+  "hogwarts-house-quiz": [
+    "gryffindor",
+    "hufflepuff",
+    "ravenclaw",
+    "slytherin"
   ]
 }

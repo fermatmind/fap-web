@@ -47,6 +47,13 @@ const sources = {
   "star-wars-character": { name: "star-wars-character", load: () => import("@/lib/questionnaires/result-content/star-wars-character.json") },
   "hello-kitty": { name: "hello-kitty", load: () => import("@/lib/questionnaires/result-content/hello-kitty.json") },
   "disney-princess": { name: "disney-princess", load: () => import("@/lib/questionnaires/result-content/disney-princess.json") },
+  "jungian-archetype": { name: "jungian-archetype", load: () => import("@/lib/questionnaires/result-content/jungian-archetype.json") },
+  "temperament": { name: "temperament", load: () => import("@/lib/questionnaires/result-content/temperament.json") },
+  "leadership-style": { name: "leadership-style", load: () => import("@/lib/questionnaires/result-content/leadership-style.json") },
+  "travel-personality-test": { name: "travel-personality", load: () => import("@/lib/questionnaires/result-content/travel-personality.json") },
+  "aesthetic-core-test": { name: "aesthetic-core", load: () => import("@/lib/questionnaires/result-content/aesthetic-core.json") },
+  "tsundere-dere-type": { name: "dere-type", load: () => import("@/lib/questionnaires/result-content/dere-type.json") },
+  "hogwarts-house-quiz": { name: "hogwarts-house", load: () => import("@/lib/questionnaires/result-content/hogwarts-house.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

@@ -178,7 +178,7 @@
       },
       "description": {
         "sourceHash": "631ee3ab23fdf57bd9d7fd1ea320ac47fe9232437aec16a4db35401724980ab6",
-        "target": "在旅行選擇中比較計劃、隨興、文化、戶外、休息與美食。把結果用作討論行程的參考。"
+        "target": "在旅行選擇中比較計畫、隨興、文化、戶外、休息與美食。把結果用作討論行程的參考。"
       }
     },
     "aesthetic-core-test": {
@@ -274,11 +274,11 @@
     "hogwarts-house-quiz": {
       "title": {
         "sourceHash": "0b8f556a95384e6186bd8deceacc08023aaa052746076d1995dbe123ca36f9eb",
-        "target": "霍格沃茨分院測驗"
+        "target": "霍格華茲分院測驗"
       },
       "description": {
         "sourceHash": "635d7a7366a9c687a81730c0f82ebe7968824d2b2f9ca12f2ffddc7f45c3fbb8",
-        "target": "哈利波特分院測驗：24題比較四所霍格沃茨學院，保留最高並列，完整指南免費。"
+        "target": "哈利波特分院測驗：24題比較四所霍格華茲學院，保留最高並列，完整指南免費。"
       }
     },
     "greek-god": {

@@ -69,6 +69,13 @@ const editorials = {
   "star-wars-character": null,
   "hello-kitty": null,
   "disney-princess": null,
+  "jungian-archetype": null,
+  "temperament": null,
+  "leadership-style": null,
+  "travel-personality-test": null,
+  "aesthetic-core-test": null,
+  "tsundere-dere-type": null,
+  "hogwarts-house-quiz": null,
 };
 
 export function hasFilmEditorial(slug: string): slug is keyof typeof editorials {
@@ -95,7 +102,7 @@ export function FilmQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
     </ExploreTestIntro>
     <p className="whitespace-pre-line leading-8"><FilmCopy text={quiz.introduction.zh} slug={slug} /></p>
     <section className="space-y-4">
-      <h2 className="text-2xl font-semibold">全部角色指南</h2>
+      <h2 className="text-2xl font-semibold">完整結果指南</h2>
       <ul className="grid gap-4 sm:grid-cols-2">
         {quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border p-4">
           <Link href={questionnaireGuidePath("zh-TW", slug, profile.id)} className="inline-block min-h-11 py-2 font-semibold underline">{profile.title.zh}</Link>
@@ -104,7 +111,7 @@ export function FilmQuestionnaireLanding({ quiz }: { quiz: Questionnaire }) {
       </ul>
     </section>
     <section className="space-y-5 leading-8">
-      <h2 className="text-2xl font-semibold">選角、計分與結果讀法</h2>
+      <h2 className="text-2xl font-semibold">測驗方法與結果讀法</h2>
       {sections.map(section => <section key={section.id} className="space-y-2">
         <h3 className="text-xl font-semibold">{section.title.zh}</h3>
         {section.paragraphs.map((paragraph, index) => <p key={index}><FilmCopy text={paragraph.zh} slug={slug} /></p>)}

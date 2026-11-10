@@ -69,3 +69,12 @@ it("renders the Taiwan Disney roster with all 13 dedicated editorial summaries",
   }
   expect(screen.getByRole("link", { name: /^莫娜：/ })).toBeVisible();
 });
+
+it.each(["jungian-archetype", "temperament", "leadership-style", "travel-personality-test",
+  "aesthetic-core-test", "tsundere-dere-type", "hogwarts-house-quiz"])(
+  "projects the current no-draft landing copy for Taiwan %s", async slug => {
+    render(await ArchetypeQuestionnairePage({ slug }));
+    expect(screen.getAllByText(/不儲存答題進度/)).toHaveLength(2);
+    expect(screen.queryByText(/24小時.{0,15}草稿|24小時內恢復/)).not.toBeInTheDocument();
+  },
+);

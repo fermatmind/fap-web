@@ -42,6 +42,13 @@ const editions = {
   "star-wars-character": ["star-wars-character", "StarWars", "", "summaries"],
   "hello-kitty": ["hello-kitty", "HelloKitty", "", "summaries"],
   "disney-princess": ["disney-princess", "DisneyPrincess", "", "summaries"],
+  "jungian-archetype": ["jungian-archetype", "JungianArchetype", "jungianArchetype", "summaries"],
+  "temperament": ["temperament", "Temperament", "temperament", "summaries"],
+  "leadership-style": ["leadership-style", "Leadership", "leadership", "summaries"],
+  "travel-personality-test": ["travel-personality", "Travel", "travel", "summaries"],
+  "aesthetic-core-test": ["aesthetic-core", "Aesthetic", "aesthetic", "summaries"],
+  "tsundere-dere-type": ["dere-type", "Dere", "dere", "summaries"],
+  "hogwarts-house-quiz": ["hogwarts-house", "Hogwarts", "hogwarts", "summaries"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -53,7 +60,29 @@ const sourcePaths = Object.entries(editions).flatMap(([slug, [reading]]) => [
   `lib/questionnaires/data/${slug}.json`,
   `lib/questionnaires/result-content/${reading}.json`,
 ]).concat(sourceOnly.map(slug => `lib/questionnaires/data/${slug}.json`));
-const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sourcePaths);
+// These seven live introductions, methods and FAQ use the same entry-copy
+// corrections as the original reader, including the current no-draft policy.
+const correctedSources = {};
+const correctionSnapshots = {};
+for (const [slug, [, component, correction, layout]] of Object.entries(editions)) {
+  if (layout !== "summaries" || !correction) continue;
+  const editorial = `components/questionnaires/${component}LandingEditorial.ts`;
+  const data = `lib/questionnaires/data/${slug}.json`;
+  correctionSnapshots[editorial] = read(new URL(editorial, root));
+  correctionSnapshots[data] = read(new URL(data, root));
+  const { [`${correction}CurrentEntryCopy`]: currentCopy } = await import(new URL(editorial, root));
+  const quiz = JSON.parse(correctionSnapshots[data]);
+  const apply = text => ({ ...text, zh: currentCopy(text.zh, "zh") });
+  quiz.introduction = apply(quiz.introduction);
+  quiz.guide = quiz.guide.map(section => ({
+    ...section,
+    title: apply(section.title),
+    paragraphs: section.paragraphs.map(apply),
+  }));
+  quiz.faq = quiz.faq.map(item => ({ question: apply(item.question), answer: apply(item.answer) }));
+  correctedSources[data] = quiz;
+}
+const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sourcePaths, correctedSources);
 const previousUnits = previous ? JSON.parse(previous).units : {};
 const members = Object.fromEntries(sourceOnly.map(slug => [slug, JSON.parse(snapshots[`lib/questionnaires/data/${slug}.json`]).profiles.map(profile => profile.id)]));
 const terms = [["测试", "測驗"], ["测验", "測驗"], ["链接", "連結"], ["画像", "人物側寫"]];
@@ -82,7 +111,8 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
     : [["sections", "Sections"], ["faq", "Faq"]];
   if (!layout) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
   for (const [field, suffix] of fields) {
-    const declaration = declarations.find(candidate => candidate.name.getText(syntax) === prefix + suffix);
+    const name = layout === "summaries" ? suffix : prefix + suffix;
+    const declaration = declarations.find(candidate => candidate.name.getText(syntax) === name);
     if (!declaration?.initializer) throw new Error(`Missing editorial source: ${file}/${field}`);
     const strings = collect(readLiteral(declaration.initializer));
     if (layout === "summaries" && (Object.keys(strings).length !== members[slug].length ||
@@ -101,7 +131,8 @@ for (const [file, old, value] of [[output, previous, artifact], [membersOutput, 
   const next = JSON.stringify(value, null, 2) + "\n";
   if (next === old) continue;
   if (process.argv.includes("--check")) throw new Error("Taiwan archetype questionnaire source changed. Run pnpm i18n:zh-TW");
-  if (Object.entries(snapshots).some(([name, bytes]) => read(new URL(name, root)) !== bytes) || read(file) !== old) {
+  const allSnapshots = [...Object.entries(snapshots), ...Object.entries(correctionSnapshots)];
+  if (allSnapshots.some(([name, bytes]) => read(new URL(name, root)) !== bytes) || read(file) !== old) {
     throw new Error("Taiwan archetype questionnaire source or target changed concurrently");
   }
   const temporary = new URL(`${file.href}.${process.pid}.tmp`);
