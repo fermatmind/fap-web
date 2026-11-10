@@ -3,6 +3,7 @@ import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { indexableCareerInterestPilots } from "@/lib/career/explorationPilot";
 import {
   listDiscoverableContentPagesWithLastKnownGood,
   type ContentPage,
@@ -366,6 +367,7 @@ export async function GET() {
     "/en/career/tests",
     "/zh/career/tests",
     ...guideEntries,
+    ...indexableCareerInterestPilots().map((entry) => entry.path),
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
     ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
   ]);

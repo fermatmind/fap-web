@@ -4,6 +4,7 @@ import CareerInterestPilotPage, { generateMetadata } from "@/app/(localized)/[lo
 import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { appendCareerInterestPilotSitemapEntries, buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
+import { getSiteUrlOrThrow } from "@/lib/site";
 
 afterEach(cleanup);
 
@@ -16,12 +17,13 @@ describe("six-page career exploration pilot", () => {
   ] as const)("%s/%s keeps official evidence, locale and indexing aligned", async (locale, code, index, socCodes) => {
     const props = { params: Promise.resolve({ locale, code }) };
     const metadata = await generateMetadata(props);
-    const canonical = `https://fermatmind.com${careerExplorationPilotPath(locale, code)}`;
+    const origin = getSiteUrlOrThrow();
+    const canonical = `${origin}${careerExplorationPilotPath(locale, code)}`;
     expect(metadata.robots).toMatchObject({ index, follow: true });
     expect(metadata.alternates?.canonical).toBe(canonical);
     expect(metadata.alternates?.languages).toMatchObject({
-      en: `https://fermatmind.com/en/career/interests/${code}`,
-      "zh-CN": `https://fermatmind.com/zh/career/interests/${code}`,
+      en: `${origin}/en/career/interests/${code}`,
+      "zh-CN": `${origin}/zh/career/interests/${code}`,
     });
     expect(metadata.alternates?.languages).not.toHaveProperty("zh-TW");
 

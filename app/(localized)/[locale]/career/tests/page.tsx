@@ -250,6 +250,12 @@ export default async function CareerTestsPage({ params }: PageProps) {
             </Link>
           </li>)}
         </ul>
+      </section>
+
+      <section aria-labelledby="career-interest-pilot-links" className="mx-auto max-w-4xl space-y-3">
+        <h2 id="career-interest-pilot-links" className="m-0 text-2xl font-semibold">
+          {locale === "zh" ? "比较同码与相近兴趣的工作任务" : "Compare work tasks across related interest codes"}
+        </h2>
         <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
           {CAREER_INTEREST_PILOTS.map((code) => (
             <li key={code}>
