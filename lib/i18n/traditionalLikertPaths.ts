@@ -1,4 +1,9 @@
 const profiles = {
+  "people-pleaser": ["needs", "responsibility", "expectations"],
+  "trust-issues-test": ["initial-opening", "gradual-building", "agreement-clarity", "protective-distance"],
+  "toxic-positivity-test": ["self-pressure-reading", "conversations-reading", "uncertainty-reading"],
+  "toxic-trait": ["unchecked-retelling", "comparison-turns", "indirect-objections", "explanation-first", "past-dispute-carryover"],
+  "difficult-person-test": ["callousness", "grandiosity", "domineering", "manipulation", "suspiciousness", "aggression", "risk-taking"],
   "interpersonal-preferences": ["invite", "be-included", "coordinate", "receive-coordination", "offer-warmth", "receive-warmth"],
   "social-attitudes-reflection": ["reviewing-rules", "gender-roles", "gay-lesbian-inclusion", "racial-context"],
   "cultural-dimensions": ["authority", "autonomy", "achievement", "certainty", "adaptation", "enjoyment"],

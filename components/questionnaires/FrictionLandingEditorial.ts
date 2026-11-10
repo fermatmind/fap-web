@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const frictionSummaries: Record<string, { zh: string; en: string }> = {
   "callousness": {
     "zh": "忽略他人感受：核对已经表达的不适、困难和实际需要怎样进入你的行动。区分合理拒绝与未予考虑，阅读具体对话、反例和小尝试；不把均分解释为共情能力。",
     "en": "Disregarding feelings: check how expressed discomfort, difficulty and needs entered your actions. Distinguish a reasonable refusal from a failure to consider others, with dialogue, counterexamples and small experiments, without interpreting the mean as empathy ability."
@@ -32,7 +32,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function frictionLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return frictionSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function frictionCurrentEntryCopy(text: string, locale: "zh" | "en") {

@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const peoplePleaserSummaries: Record<string, { zh: string; en: string }> = {
   "needs": {
     "zh": "搁置自身需要：阅读四条关于忘记、难以表达或帮助别人时忽视需要的回答。结合具体经历区分一次有意让步与长期没有表达空间；附对话、反例和可选观察，不由均分判断善良或自私。",
     "en": "Setting aside own needs: read four items about forgetting, struggling to voice or neglecting needs while helping. Distinguish an intentional compromise from limited room for expression through actual examples, dialogue and optional observations, without judging kindness or selfishness."
@@ -16,7 +16,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function peoplePleaserLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return peoplePleaserSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function peoplePleaserCurrentEntryCopy(text: string, locale: "zh" | "en") {

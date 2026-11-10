@@ -1,3 +1,8 @@
+import { peoplePleaserSummaries } from "@/components/questionnaires/PeoplePleaserLandingEditorial";
+import { trustLandingSections, trustLandingFaq, trustLandingReferences } from "@/components/questionnaires/TrustLandingEditorial";
+import { positivePressureLandingSections, positivePressureLandingFaq, positivePressureLandingReferences } from "@/components/questionnaires/PositivePressureLandingEditorial";
+import { habitsLandingSections, habitsLandingFaq } from "@/components/questionnaires/HabitsLandingEditorial";
+import { frictionSummaries } from "@/components/questionnaires/FrictionLandingEditorial";
 import { humorSummaries } from "@/components/questionnaires/HumorLandingEditorial";
 import { socialBatteryFaq, socialBatterySections, socialBatterySummaries } from "@/components/questionnaires/SocialBatteryLandingEditorial";
 import { culturalFaq, culturalSections, culturalExtraReferences, culturalSummaries } from "@/components/questionnaires/CulturalDimensionsLandingEditorial";
@@ -37,6 +42,43 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "people-pleaser": {
+    reading: "people-pleaser",
+    attribute: "people-pleaser",
+    load: () => import("@/lib/questionnaires/result-content/people-pleaser.json"),
+  },
+  "trust-issues-test": {
+    reading: "trust-issues-test",
+    attribute: "trust",
+    load: () => import("@/lib/questionnaires/result-content/trust-issues-test.json"),
+    editorial: "Trust",
+    prefix: "trustLanding",
+    sections: trustLandingSections,
+    faq: trustLandingFaq,
+  },
+  "toxic-positivity-test": {
+    reading: "toxic-positivity-test",
+    attribute: "positive-pressure",
+    load: () => import("@/lib/questionnaires/result-content/toxic-positivity-test.json"),
+    editorial: "PositivePressure",
+    prefix: "positivePressureLanding",
+    sections: positivePressureLandingSections,
+    faq: positivePressureLandingFaq,
+  },
+  "toxic-trait": {
+    reading: "interpersonal-habits",
+    attribute: "interpersonal-habits",
+    load: () => import("@/lib/questionnaires/result-content/interpersonal-habits.json"),
+    editorial: "Habits",
+    prefix: "habitsLanding",
+    sections: habitsLandingSections,
+    faq: habitsLandingFaq,
+  },
+  "difficult-person-test": {
+    reading: "difficult-person",
+    attribute: "difficult-person",
+    load: () => import("@/lib/questionnaires/result-content/difficult-person.json"),
+  },
   "humor-style-test": {
     reading: "humor-style",
     attribute: "humor-style",
@@ -303,7 +345,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -311,7 +353,11 @@ export async function loadTraditionalLikert(slug: string) {
     ? projectStoryCopy(strengthsSummaries, "components/questionnaires/StrengthsLandingEditorial.ts/strengthsSummaries", units)
     : slug === "procrastinator-type-test" ? projectStoryCopy(procrastinationSummaries,
       "components/questionnaires/ProcrastinationLandingEditorial.ts/procrastinationSummaries", units) : slug === "humor-style-test" ? projectStoryCopy(humorSummaries,
-      "components/questionnaires/HumorLandingEditorial.ts/humorSummaries", units) : {};
+      "components/questionnaires/HumorLandingEditorial.ts/humorSummaries", units)
+    : slug === "people-pleaser" ? projectStoryCopy(peoplePleaserSummaries,
+      "components/questionnaires/PeoplePleaserLandingEditorial.ts/peoplePleaserSummaries", units)
+    : slug === "difficult-person-test" ? projectStoryCopy(frictionSummaries,
+      "components/questionnaires/FrictionLandingEditorial.ts/frictionSummaries", units) : {};
   const extraReferences = (() => {
     switch (slug) {
       case "hexaco": return projectStoryCopy(hexacoLandingReferences, "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units);
@@ -329,6 +375,8 @@ export async function loadTraditionalLikert(slug: string) {
       case "competency-test": return projectStoryCopy(competencyLandingReferences, "components/questionnaires/CompetencyLandingEditorial.ts/competencyLandingReferences", units);
       case "social-attitudes-reflection": return projectStoryCopy(socialAttitudesLandingReferences, "components/questionnaires/SocialAttitudesLandingEditorial.ts/socialAttitudesLandingReferences", units);
       case "cultural-dimensions": return projectStoryCopy(culturalExtraReferences, "components/questionnaires/CulturalDimensionsLandingEditorial.ts/culturalExtraReferences", units);
+      case "trust-issues-test": return projectStoryCopy(trustLandingReferences, "components/questionnaires/TrustLandingEditorial.ts/trustLandingReferences", units);
+      case "toxic-positivity-test": return projectStoryCopy(positivePressureLandingReferences, "components/questionnaires/PositivePressureLandingEditorial.ts/positivePressureLandingReferences", units);
       default: return [];
     }
   })();

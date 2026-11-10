@@ -1,3 +1,4 @@
+import { QuestionnairePpsAttribution } from "@/components/questionnaires/QuestionnairePpsAttribution";
 import { WorkActivityContext } from "@/components/questionnaires/WorkActivityInterestsReport";
 import { WorkTraitsContext } from "@/components/questionnaires/WorkTraitsReport";
 import { QuestionnaireCharacterSource } from "@/components/questionnaires/QuestionnaireCharacterSource";
@@ -75,6 +76,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
     {slug === "work-traits-reflection" && <WorkTraitsContext locale="zh" traditional />}
     {slug === "work-activity-interests" && <WorkActivityContext locale="zh" displayLocale="zh-TW" />}
+    {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -116,6 +118,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
     {slug === "work-traits-reflection" && <WorkTraitsContext locale="zh" traditional />}
     {slug === "work-activity-interests" && <WorkActivityContext locale="zh" displayLocale="zh-TW" />}
+    {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
     {references}
   </div>;
 }
