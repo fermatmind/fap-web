@@ -2,14 +2,14 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalNatureStory } from "@/lib/i18n/traditionalLegacyStoryPaths";
+import { hasTraditionalBespokeStory } from "@/lib/i18n/traditionalLegacyStoryPaths";
 import { loadTraditionalLegacyStory } from "@/lib/i18n/zh-TW/legacyStories";
-import { loadTraditionalNatureStory } from "@/lib/i18n/zh-TW/natureStories";
+import { loadTraditionalBespokeStory } from "@/lib/i18n/zh-TW/bespokeStories";
 
 let font: Promise<ArrayBuffer> | undefined;
 
 export async function traditionalStoryCard(slug: string, portrait: string | null) {
-  const quiz = hasTraditionalNatureStory(slug) ? await loadTraditionalNatureStory(slug) : (await loadTraditionalLegacyStory(slug))?.quiz;
+  const quiz = hasTraditionalBespokeStory(slug) ? await loadTraditionalBespokeStory(slug) : (await loadTraditionalLegacyStory(slug))?.quiz;
   const result = quiz && portrait ? findPublicPortrait(quiz, portrait) : undefined;
   if (!quiz || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
   font ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/legacy-story-700.ttf"))

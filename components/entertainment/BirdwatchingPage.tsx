@@ -8,7 +8,7 @@ import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { FunQuiz } from "@/lib/entertainment/types";
 import { resultPath } from "@/lib/entertainment/guides";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { traditionalNatureEditorial } from "@/lib/i18n/zh-TW/natureStories";
+import { traditionalBespokeEditorial } from "@/lib/i18n/zh-TW/bespokeStories";
 import { StoryTakeEntry } from "./StoryTakeEntry";
 import { birdwatchingSections, birdwatchingFaq } from "./BirdwatchingEditorial";
 
@@ -22,7 +22,7 @@ export function BirdwatchingPage({ quiz, locale, displayLocale = locale }: { qui
   const path = `/${displayLocale}/tests/play/birdwatching-companion`;
   const Surface = traditional ? "div" : "main";
   const original = { sections: birdwatchingSections, faq: birdwatchingFaq };
-  const { sections, faq } = traditional ? traditionalNatureEditorial(quiz.slug, original) : original;
+  const { sections, faq } = traditional ? traditionalBespokeEditorial(quiz.slug, original) : original;
   return <Surface className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     {traditional ? null : <>
     <JsonLd id="fun-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: text("全部测试", "All tests", "全部測驗"), path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />

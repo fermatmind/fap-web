@@ -1,0 +1,198 @@
+{
+  "beachcomber": [
+    "pattern",
+    "story",
+    "place"
+  ],
+  "birdwatching-companion": [
+    "waiter",
+    "recorder",
+    "guide"
+  ],
+  "cloud-drift": [
+    "outline",
+    "scene",
+    "open"
+  ],
+  "harbor-light": [
+    "pulse",
+    "key",
+    "legend"
+  ],
+  "group-chat-role": [
+    "signal",
+    "spark",
+    "connector"
+  ],
+  "gift-note": [
+    "memory",
+    "thanks",
+    "wish"
+  ],
+  "garden-season": [
+    "spring",
+    "summer",
+    "winter"
+  ],
+  "game-night-reset": [
+    "check",
+    "change",
+    "finish"
+  ],
+  "friendship-invitation": [
+    "plan",
+    "interest",
+    "choice"
+  ],
+  "forest-soundtrack": [
+    "echo",
+    "chorus",
+    "pause"
+  ],
+  "festival-mask": [
+    "bells",
+    "window",
+    "ribbons"
+  ],
+  "floating-house": [
+    "anchor",
+    "roam",
+    "visit"
+  ],
+  "firefly-evening": [
+    "shared",
+    "signal",
+    "quiet"
+  ],
+  "fictional-cafe": [
+    "stage",
+    "words",
+    "colors"
+  ],
+  "festival-companion": [
+    "anchor",
+    "free",
+    "try"
+  ],
+  "fantasy-party-role": [
+    "scout",
+    "keeper",
+    "tinkerer"
+  ],
+  "escape-room-role": [
+    "connector",
+    "tester",
+    "keeper"
+  ],
+  "enchanted-library": [
+    "record",
+    "witness",
+    "open"
+  ],
+  "dream-train": [
+    "keepsake",
+    "envelope",
+    "station"
+  ],
+  "dragon-housemate": [
+    "zones",
+    "ritual",
+    "make"
+  ],
+  "dinner-host": [
+    "flow",
+    "choice",
+    "simple"
+  ],
+  "desk-reset": [
+    "stations",
+    "kit",
+    "stage"
+  ],
+  "desert-oasis": [
+    "sign",
+    "mosaic",
+    "shade"
+  ],
+  "date-plan-detour": [
+    "core",
+    "check",
+    "try"
+  ],
+  "creative-spark": [
+    "prompt",
+    "prototype",
+    "listener"
+  ],
+  "cozy-object": [
+    "cup",
+    "blanket",
+    "notebook"
+  ],
+  "compliment-style": [
+    "detail",
+    "process",
+    "effect"
+  ],
+  "community-fair": [
+    "shift",
+    "task",
+    "handover"
+  ],
+  "comfort-offer": [
+    "practical",
+    "listen",
+    "quiet"
+  ],
+  "coffee-break": [
+    "scene",
+    "ritual",
+    "company"
+  ],
+  "city-wanderer": [
+    "map",
+    "rhythm",
+    "layers"
+  ],
+  "choosing-together": [
+    "criteria",
+    "turns",
+    "trial",
+    "parts"
+  ],
+  "celebration-planner": [
+    "asker",
+    "moment",
+    "contribution"
+  ],
+  "celebrating-a-friend": [
+    "listen",
+    "note",
+    "join"
+  ],
+  "campfire-storyteller": [
+    "suspense",
+    "humor",
+    "circle"
+  ],
+  "camera-roll": [
+    "find",
+    "favorites",
+    "sequence"
+  ],
+  "browser-tabs": [
+    "question",
+    "action",
+    "shelf"
+  ],
+  "borrowed-book": [
+    "return",
+    "thread",
+    "care"
+  ],
+  "board-game-table": [
+    "explainer",
+    "challenger",
+    "welcomer"
+  ]
+}

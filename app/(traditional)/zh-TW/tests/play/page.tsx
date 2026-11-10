@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
 import { quizPath } from "@/lib/entertainment/guides";
-import { hasTraditionalNatureStory, traditionalLegacyStorySlugs, traditionalNatureStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
+import { hasTraditionalBespokeStory, traditionalLegacyStorySlugs, traditionalBespokeStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
 import { traditionalLegacyStoryTitle } from "@/lib/i18n/zh-TW/legacyStories";
 import { traditionalChanganTitle } from "@/lib/i18n/zh-TW/changan";
-import { traditionalNatureStoryTitle } from "@/lib/i18n/zh-TW/natureStories";
+import { traditionalBespokeStoryTitle } from "@/lib/i18n/zh-TW/bespokeStories";
 
 export const metadata: Metadata = {
   title: "互動故事測驗",
@@ -20,9 +20,9 @@ export default function TraditionalLegacyStoriesPage() {
     <h1 className="text-3xl font-bold sm:text-4xl">互動故事測驗</h1>
     <p className="leading-7">選擇想玩的故事，完成後可閱讀所有公開結果指南。</p>
     <ul className="grid gap-3 sm:grid-cols-2">
-      {[CHANGAN_SLUG, ...traditionalNatureStorySlugs, ...traditionalLegacyStorySlugs].map((slug) => <li key={slug}>
+      {[CHANGAN_SLUG, ...traditionalBespokeStorySlugs, ...traditionalLegacyStorySlugs].map((slug) => <li key={slug}>
         <Link href={quizPath("zh-TW", slug)} prefetch={false} className="block min-h-11 rounded-xl border border-slate-200 p-4 underline">
-          {slug === CHANGAN_SLUG ? traditionalChanganTitle : hasTraditionalNatureStory(slug) ? traditionalNatureStoryTitle(slug) : traditionalLegacyStoryTitle(slug)}
+          {slug === CHANGAN_SLUG ? traditionalChanganTitle : hasTraditionalBespokeStory(slug) ? traditionalBespokeStoryTitle(slug) : traditionalLegacyStoryTitle(slug)}
         </Link>
       </li>)}
     </ul>

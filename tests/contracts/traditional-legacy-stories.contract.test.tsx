@@ -10,11 +10,11 @@ import { resultPath, resultSlug } from "@/lib/entertainment/guides";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { resolveFunQuiz } from "@/lib/entertainment/scoring";
 import type { Answers } from "@/lib/entertainment/types";
-import { traditionalLegacyStorySlugs, traditionalNatureStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
+import { traditionalLegacyStorySlugs, traditionalBespokeStorySlugs } from "@/lib/i18n/traditionalLegacyStoryPaths";
 import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import generated from "@/lib/i18n/zh-TW/legacy-stories.generated.json";
 import { loadTraditionalLegacyStory } from "@/lib/i18n/zh-TW/legacyStories";
-import { loadTraditionalNatureStory } from "@/lib/i18n/zh-TW/natureStories";
+import { loadTraditionalBespokeStory } from "@/lib/i18n/zh-TW/bespokeStories";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -91,9 +91,9 @@ it.each(["woodland-animal", "house-of-doors"])("renders and completes the Taiwan
   expect(screen.getAllByRole("link").some((link) => link.getAttribute("href") === resultPath("zh-TW", slug, result.id))).toBe(true);
 });
 
-it.each(traditionalNatureStorySlugs)("keeps the original editorial, scoring and references for Taiwan %s", async (slug) => {
+it.each(traditionalBespokeStorySlugs)("keeps the original editorial, scoring and references for Taiwan %s", async (slug) => {
   const original = (await loadFunQuiz(slug))!;
-  const quiz = (await loadTraditionalNatureStory(slug))!;
+  const quiz = (await loadTraditionalBespokeStory(slug))!;
   const { answers, state } = scoreExample(original);
   expect(quiz.questions.map(question => question.id)).toEqual(original.questions.map(question => question.id));
   expect(resolveFunQuiz(quiz, answers)).toEqual(state);

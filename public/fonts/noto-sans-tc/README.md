@@ -4,6 +4,6 @@
 
 The original variable font SHA-256 is `864727d210d54f2537bbe23b3a839436c3992af72de9322af5270897246bd44f`. FontTools 4.68.0 instantiated weight 700 and kept the Taiwan roster name, region and field characters, both `zh-TW` card labels and printable ASCII. All 451 selected characters were checked in the saved cmap. Only the Taiwan PNG portrait renderer uses this file.
 
-`legacy-story-700.ttf` uses the same original and license. Its saved cmap covers 1,196 characters from the 63 Taiwan story titles, descriptions and public portrait summaries, the card labels and printable ASCII. The public Taiwan story share card is its only consumer.
+`legacy-story-700.ttf` uses the same original and license. Its saved cmap covers 1,324 characters from the 99 Taiwan story titles, descriptions and public portrait summaries, the card labels and printable ASCII. The public Taiwan story share card is its only consumer.
 
 `changan-history-quiz-700.ttf` uses the same original and license. Its saved cmap covers the 90 distinct characters used by the Taiwan Chang’an card labels, the six names and epithets, and the site address.
