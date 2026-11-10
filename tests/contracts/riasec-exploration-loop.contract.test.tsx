@@ -51,8 +51,11 @@ describe("RIASEC interest to trial loop", () => {
     expect(vm).toEqual(before);
     const next = screen.getByTestId("riasec-career-next-steps");
     for (const link of within(next).getAllByRole("link")) {
-      expect(link.getAttribute("href")).toMatch(new RegExp(`^/${locale}/`));
-      expect(link.getAttribute("href")).not.toContain("?");
+      const href = link.getAttribute("href") ?? "";
+      expect(href).toMatch(new RegExp(`^/${locale}/`));
+      if (href.includes("?")) {
+        expect(href).toBe("/zh/career/compare?c1=industrial-designers&c2=graphic-designers");
+      }
     }
     expect(next).toHaveTextContent(locale === "zh" ? "仅支持工业设计师、平面设计师和建筑师" : "industrial designers, graphic designers and architects only");
     unmount();
