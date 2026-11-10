@@ -111,6 +111,30 @@ describe("topics cms helpers", () => {
     }
   });
 
+  it("renders the existing MBTI topic scenes with Taiwan copy and test links", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({
+      ok: true,
+      profile: { id: 18, org_id: 0, topic_code: "mbti", slug: "mbti", title: "MBTI 人格主題", locale: "zh-TW", status: "published", is_public: true },
+      sections: [],
+      entry_groups: {},
+    })));
+    try {
+      const { default: Page } = await import("@/app/(traditional)/zh-TW/topics/[slug]/page");
+      render(await Page({ params: Promise.resolve({ slug: "mbti" }) }));
+      expect(screen.getByRole("heading", { name: "MBTI 的日常應用情境" })).toBeVisible();
+      const startLinks = screen.getAllByRole("link", { name: "免費 MBTI 測驗" });
+      expect(startLinks.length).toBeGreaterThan(0);
+      for (const link of startLinks) {
+        const target = new URL(link.getAttribute("href") ?? "", "https://example.test");
+        expect(target.pathname).toBe("/zh-TW/tests/mbti-personality-test-16-personality-types/take");
+        expect(target.searchParams.get("source_page_type")).toBe("topic_detail");
+      }
+      expect(screen.getByRole("link", { name: /職業推薦入口|職涯推薦入口/ })).toHaveAttribute("href", "/zh/career/recommendations");
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it("normalizes detail payloads from the backend contract", () => {
     const topic = normalizeTopicProfileDetail(
       {

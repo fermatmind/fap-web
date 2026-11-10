@@ -3,9 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { buildTopicFrontendUrl, getTopicBySlug } from "@/lib/cms/topics";
 import { isTraditionalTopicSlug } from "@/lib/i18n/traditionalTopicPaths";
+import { buildMbtiTopicScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +41,7 @@ export default async function TraditionalTopicPage({ params }: Props) {
     : topic.answerSurface;
   const visibleSummary = iqEq ? [] : (topic.landingSurface?.summaryBlocks ?? []).slice(0, 2);
   const ctas = topic.landingSurface?.ctaBundle ?? [];
+  const mbtiScenes = topic.slug === "mbti" ? await loadMbtiScenes() : [];
   return <div className="space-y-6">
     <nav aria-label="頁面導覽" className="flex flex-wrap gap-4 text-sm">
       <Link href="/zh-TW/topics" className="min-h-11 py-2 underline">主題總覽</Link>
@@ -58,6 +62,15 @@ export default async function TraditionalTopicPage({ params }: Props) {
     </section>
     {renderTopicSections(topic.sections, "zh", { scrollableTables: iqEq })}
     <AnswerSurfaceSection surface={answer} locale="zh" displayLocale="zh-TW" pageFamily="topic_detail" />
+    <MbtiScenarioDeepDiveSection
+      locale="zh"
+      displayLocale="zh-TW"
+      modules={mbtiScenes}
+      sourcePageType="topic_detail"
+      sourcePath={buildTopicFrontendUrl("zh-TW", topic.slug)}
+      heading="MBTI 的日常應用情境"
+      subtitle="先釐清職涯、協作、科系與成長問題，再用具體任務、興趣、能力證據和實際經驗檢驗線索。"
+    />
     {renderTopicEntryGroups(topic.entryGroups, "zh-TW")}
     {ctas.length > 0 ? <section className="space-y-3 rounded-xl border border-slate-200 p-5">
       <h2 className="text-xl font-semibold">延伸閱讀</h2>
@@ -66,4 +79,19 @@ export default async function TraditionalTopicPage({ params }: Props) {
       </Link>)}</div>
     </section> : null}
   </div>;
+}
+
+async function loadMbtiScenes() {
+  const copy = await loadTraditionalAssessmentText();
+  return buildMbtiTopicScenarioDeepModules("zh").map((scene) => ({
+    ...scene,
+    title: copy(scene.title),
+    summary: copy(scene.summary),
+    whyTypeRelevant: copy(scene.whyTypeRelevant),
+    links: scene.links.map((link) => ({
+      ...link,
+      label: copy(link.label),
+      href: link.href === "/zh/topics/mbti" ? "/zh-TW/topics/mbti" : link.href,
+    })),
+  }));
 }

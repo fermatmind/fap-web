@@ -6,11 +6,12 @@ import {
   type MbtiEntrySourcePageType,
 } from "@/lib/mbti/entryTracking";
 import type { MbtiSceneDeepModule } from "@/lib/mbti/sceneDeepContent";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 type MbtiScenarioDeepDiveSectionProps = {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   modules: MbtiSceneDeepModule[];
   sourcePageType: MbtiEntrySourcePageType;
   sourcePath: string;
@@ -19,12 +20,14 @@ type MbtiScenarioDeepDiveSectionProps = {
   subtitle?: string;
 };
 
-function formatMbtiTestLinkLabel(href: string, label: string, locale: Locale): string {
-  return href.includes("/tests/mbti-personality-test-16-personality-types") ? (locale === "zh" ? "MBTI免费测试" : "Free MBTI test") : label;
+function formatMbtiTestLinkLabel(href: string, label: string, locale: DisplayLocale): string {
+  if (!href.includes("/tests/mbti-personality-test-16-personality-types")) return label;
+  return locale === "zh-TW" ? "免費 MBTI 測驗" : locale === "zh" ? "MBTI免费测试" : "Free MBTI test";
 }
 
 export function MbtiScenarioDeepDiveSection({
   locale,
+  displayLocale = locale,
   modules,
   sourcePageType,
   sourcePath,
@@ -64,7 +67,7 @@ export function MbtiScenarioDeepDiveSection({
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{module.summary}</p>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
               <span className="font-medium text-[var(--fm-text)]">
-                {locale === "zh" ? "为什么这和该类型有关：" : "Why this is type-relevant:"}
+                {displayLocale === "zh-TW" ? "與這個類型的關聯" : locale === "zh" ? "为什么这和该类型有关：" : "Why this is type-relevant:"}
               </span>{" "}
               {module.whyTypeRelevant}
             </p>
@@ -86,6 +89,7 @@ export function MbtiScenarioDeepDiveSection({
                     targetAction,
                     sourcePath,
                   });
+                  if (displayLocale === "zh-TW") trackedHref = trackedHref.replace(/^\/zh(?=\/)/, "/zh-TW");
                 } else {
                   const safeLinkHref = normalizeInternalHref(link.href);
                   if (!safeLinkHref) {
@@ -110,7 +114,8 @@ export function MbtiScenarioDeepDiveSection({
                       sourcePath,
                     })}
                   >
-                    {formatMbtiTestLinkLabel(trackedHref, link.label, locale)}
+                    {formatMbtiTestLinkLabel(trackedHref, link.label, displayLocale)}
+                    {displayLocale === "zh-TW" && trackedHref.startsWith("/zh/") ? "（簡體中文）" : null}
                   </TrackedEntryCtaLink>
                 );
               })}
