@@ -7,6 +7,7 @@ import { Converter } from 'opencc-js';
 export const sources = ['lib/questionnaires/data/chiikawa.json', 'lib/questionnaires/result-content/chiikawa.json', 'lib/i18n/zh-TW/ui.source.json', 'lib/i18n/zh-TW/about-team.source.json', 'lib/i18n/zh-TW/content-page-labels.source.json'];
 const root = new URL('../../', import.meta.url);
 export const packages = [
+  { output: 'lib/i18n/zh-TW/global-history-roster.generated.json', sources: ['lib/entertainment/global-history/people.json'] },
   { output: 'lib/i18n/zh-TW/chiikawa.generated.json', sources },
   { output: 'lib/i18n/zh-TW/seven-sins.generated.json', sources: ['lib/questionnaires/data/seven-sins-virtues-test.json', 'lib/questionnaires/result-content/seven-sins-virtues-test.json', 'lib/questionnaires/virtuesLandingEditorial.json'] },
   { output: 'lib/i18n/zh-TW/seven-sins-ui.generated.json', sources: ['lib/i18n/zh-TW/seven-sins-ui.source.json'] },

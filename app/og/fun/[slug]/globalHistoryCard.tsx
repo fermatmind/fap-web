@@ -4,21 +4,25 @@ import path from "node:path";
 import QRCode from "qrcode";
 import { globalHistoryFilename, globalHistoryPath, globalHistoryPortraitPath } from "@/lib/entertainment/global-history/config";
 import type { HistoryPerson } from "@/lib/entertainment/global-history/people";
-import type { Locale } from "@/lib/i18n/locales";
+import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 
 export const globalHistoryCardCopy = {
   zh: { label: "费马测试 · 全球历史人物", footer: "扫码来玩 · 仅供娱乐" },
+  "zh-TW": { label: "費馬測試 · 全球歷史人物", footer: "掃碼來玩 · 僅供娛樂" },
   en: { label: "FERMATMIND · HISTORICAL FIGURES", footer: "Scan to play · Just for fun" },
 };
 
-export async function globalHistoryCard(person: HistoryPerson, locale: Locale, font: ArrayBuffer, download: boolean) {
+export async function globalHistoryCard(source: HistoryPerson, locale: DisplayLocale, font: ArrayBuffer, download: boolean) {
+  const person = displayHistoryPerson(source, locale);
+  const contentLocale = locale === "zh-TW" ? "zh" : locale;
   const [image, qr] = await Promise.all([
     readFile(path.join(process.cwd(), "public", globalHistoryPortraitPath(person.id))),
     QRCode.toDataURL(`${CANONICAL_SITE_URL}${globalHistoryPath(locale)}`, { width: 136, margin: 2, color: { dark: "#30251f", light: "#f8efdf" } }),
   ]);
-  const name = person.name[locale];
-  const size = locale === "zh" ? Math.min(64, Math.floor(700 / name.length)) : Math.min(57, Math.floor(1280 / name.length));
+  const name = person.name[contentLocale];
+  const size = contentLocale === "zh" ? Math.min(64, Math.floor(700 / name.length)) : Math.min(57, Math.floor(1280 / name.length));
   const headers = new Headers({ "Cache-Control": "public, max-age=3600, s-maxage=86400", "X-Robots-Tag": "noindex" });
   if (download) headers.set("Content-Disposition", `attachment; filename="${globalHistoryFilename(locale, person.id)}"`);
 
@@ -29,7 +33,7 @@ export async function globalHistoryCard(person: HistoryPerson, locale: Locale, f
       <img src={`data:image/jpeg;base64,${image.toString("base64")}`} alt="" width={720} height={720} style={{ borderRadius: 10 }} />
       <div style={{ display: "flex", marginTop: 12, fontSize: size, textAlign: "center" }}>{name}</div>
       <div style={{ display: "flex", fontSize: 24, textAlign: "center", color: "#8a3828", marginBottom: 14 }}>
-        {`${person.region[locale]} · ${person.field[locale]}`}
+        {`${person.region[contentLocale]} · ${person.field[contentLocale]}`}
       </div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: 720, borderTop: "1px solid #c7ae8b", paddingTop: 13 }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>

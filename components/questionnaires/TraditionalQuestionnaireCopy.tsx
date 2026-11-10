@@ -6,7 +6,11 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 type Copy = (text: string) => string;
 const CopyContext = createContext<Copy | null>(null);
 
-export function TraditionalQuestionnaireCopy({ children }: { children: ReactNode }) {
+export function TraditionalQuestionnaireCopy({
+  children,
+  loadingText = "正在準備題目…",
+  failureText = "題目暫時無法載入，請重新整理後再試。",
+}: { children: ReactNode; loadingText?: string; failureText?: string }) {
   const [copy, setCopy] = useState<Copy | null>(null);
   const [unavailable, setUnavailable] = useState(false);
   useEffect(() => {
@@ -17,7 +21,7 @@ export function TraditionalQuestionnaireCopy({ children }: { children: ReactNode
     );
     return () => { current = false; };
   }, []);
-  if (!copy) return <p role="status">{unavailable ? "題目暫時無法載入，請重新整理後再試。" : "正在準備題目…"}</p>;
+  if (!copy) return <p role="status">{unavailable ? failureText : loadingText}</p>;
   return <CopyContext.Provider value={copy}>{children}</CopyContext.Provider>;
 }
 

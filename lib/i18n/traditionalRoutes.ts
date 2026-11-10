@@ -2,6 +2,8 @@ import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
 import { relationshipQuestionnaireRoute } from "./relationshipQuestionnairePaths";
+import { GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
+import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
 import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 // Partial display-language support is deliberately separate from legacy API/form locales.
 // No CMS, report-language, region, price or entitlement mapping is inferred here.
@@ -34,6 +36,9 @@ export function traditionalPath(pathname: string): string | null {
   if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (/^\/career\/(?:guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?|jobs\/[a-z0-9]+(?:-[a-z0-9]+)*)$/u.test(path)) return `/zh-TW${path}`;
+  if (path === GLOBAL_HISTORY_PATH || path === `${GLOBAL_HISTORY_PATH}/take`) return `/zh-TW${path}`;
+  const historyResultPrefix = `${GLOBAL_HISTORY_PATH}/results/`;
+  if (path.startsWith(historyResultPrefix) && findHistoryPerson(path.slice(historyResultPrefix.length))) return `/zh-TW${path}`;
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;

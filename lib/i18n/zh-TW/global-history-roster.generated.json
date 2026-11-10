@@ -1,0 +1,3194 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/entertainment/global-history/people.json": "6653989fff9059c811a7273dccaa89e1a12d0a51b3fbf0db85a6044d67c65d15"
+  },
+  "units": {
+    "lib/entertainment/global-history/people.json/0/name": {
+      "sourceHash": "c01771545b70fb1654b0f4ef6c742c3cfbda97a484f7d111e0c25dead56e73f8",
+      "text": "武則天"
+    },
+    "lib/entertainment/global-history/people.json/0/region": {
+      "sourceHash": "eb9ea1f0f04db7ff241f3f2fec0a36396f2be636382265f683667582f562371e",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/0/field": {
+      "sourceHash": "bce4d3fa6a436843eb055680fd515c49ce2d37183b80006c514f3420d8460619",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/0/bio": {
+      "sourceHash": "8a7030d592013b1b0fc0255b6a49a75ea9816cfe8c6e8c35c84dee94d76a4d1b",
+      "text": "武周皇帝，中國史上唯一的女皇。"
+    },
+    "lib/entertainment/global-history/people.json/1/name": {
+      "sourceHash": "4e905a60786aca5b800e403d4095076b3dfd6ccedc70522fc3a4d224b69df8da",
+      "text": "拉克希米·巴伊"
+    },
+    "lib/entertainment/global-history/people.json/1/region": {
+      "sourceHash": "f298480b7912dde84ff260679e44c5bbb4408e3a8b5c313b5ae49049cbc184c7",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/1/field": {
+      "sourceHash": "d22dc198428f4c92914d5eb698f57c81753103faef12d71e4a89f04bc8393346",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/1/bio": {
+      "sourceHash": "acf81fcd7c186f4601d22d2eeeff13fe99164432ff0fd3e83f0424df57670368",
+      "text": "印度佔西土邦王后。"
+    },
+    "lib/entertainment/global-history/people.json/2/name": {
+      "sourceHash": "d567ddbd8097eecde9d051ef148712921c78f35266457f21ac59f19f04786259",
+      "text": "哈特謝普蘇特"
+    },
+    "lib/entertainment/global-history/people.json/2/region": {
+      "sourceHash": "06509df62e54f5d071c7d0962bc9c2a96e8edc6c762d88f661870b343e2a1483",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/2/field": {
+      "sourceHash": "538f23c20d708714cea89d0830fffe5870460d859b7e629c7c1201ad625d78df",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/2/bio": {
+      "sourceHash": "af71c3d98e342111cce412a31afdb070df785eb0500956748085b080bfe84943",
+      "text": "古埃及第十八王朝法老。"
+    },
+    "lib/entertainment/global-history/people.json/3/name": {
+      "sourceHash": "921e5f1cc2f26abbacd0506f861f620d0096e2066dee8d246d86956595fcaa84",
+      "text": "曼薩·穆薩"
+    },
+    "lib/entertainment/global-history/people.json/3/region": {
+      "sourceHash": "9d117de81bf66ff7a56579f40cadf68b49064adef50f9ee32b38718d1974d45f",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/3/field": {
+      "sourceHash": "360aa0e130414dd262847e5b139a6fabe83636b4a3bb047d561d5772d379d2ab",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/3/bio": {
+      "sourceHash": "0cbac1834b366d31eec0b42b8b3479321fab42eefc9a129a9ef403f54db337ef",
+      "text": "十四世紀馬裡帝國君主。"
+    },
+    "lib/entertainment/global-history/people.json/4/name": {
+      "sourceHash": "f4bd26b74493d11ab6d018b3149afa5cef72428759d4c37bddf25559ab05de61",
+      "text": "瑪麗·居里"
+    },
+    "lib/entertainment/global-history/people.json/4/region": {
+      "sourceHash": "1c7c8658f96bc17c8724bd0bf442127b70f4b352c9f83d09c9c01e227636ac25",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/4/field": {
+      "sourceHash": "5c84a2e8cf8a3a7761374326a75093e084791b25ec6abdb0b0be3b2159aba392",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/4/bio": {
+      "sourceHash": "74431784c82bf1f4b2c8e624972918aabd6ca1d6dd418cfe887fbc23cb7ab937",
+      "text": "波蘭裔法國籍物理學家、化學家。"
+    },
+    "lib/entertainment/global-history/people.json/5/name": {
+      "sourceHash": "ca5a94bc05c6e7630d7e9a712508966047b8d6a4b8f9ad89b49b15e4a4f1587e",
+      "text": "塔西拉·多·阿馬拉爾"
+    },
+    "lib/entertainment/global-history/people.json/5/region": {
+      "sourceHash": "a1f63b116bfb611975ff70b88fc94ad1c97280875efae7c1b44f51afcf3e14c8",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/5/field": {
+      "sourceHash": "a089de2c095ffd35ecbc8af6bdafd835126ceff5ef27d45fc73c6861b6d60250",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/5/bio": {
+      "sourceHash": "e09f42a7df70325f9b4435be2b19bfce58f9dd9284e8cda5d7fcf2200a01738f",
+      "text": "巴西的畫家。"
+    },
+    "lib/entertainment/global-history/people.json/6/name": {
+      "sourceHash": "0c3ff8af01ef2f609a79dfc88da263bc9c83d6cfd56008a7c4b1ba841633e4ce",
+      "text": "哈麗雅特·塔布曼"
+    },
+    "lib/entertainment/global-history/people.json/6/region": {
+      "sourceHash": "3675d7bf87968b587fbf3cea3ee8096400b5fcb1fb74c7e6ba0a3baab0e08bad",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/6/field": {
+      "sourceHash": "ba8b57c81b78d5231b3ca5aaab228cf2a84ce4abe232446adf8298c84246fe20",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/6/bio": {
+      "sourceHash": "d18e25f0c34d386280e148d3784878117543151d544228daa87dfe8800d11d71",
+      "text": "美國的一位廢奴主義者和政治活動家。"
+    },
+    "lib/entertainment/global-history/people.json/7/name": {
+      "sourceHash": "ef2f6c7205d4d6af8d41f419df5726bc89ecd3bd2439470edcff50fa4dde974f",
+      "text": "伊迪絲·科萬"
+    },
+    "lib/entertainment/global-history/people.json/7/region": {
+      "sourceHash": "8f5fff79740cef4acbcebb5ac0015e6aa77f7371a98205d77e2255b10ff1556d",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/7/field": {
+      "sourceHash": "8de1b4d0aaa8675bf865ac7715fc94088a9c243ea21127fc12f503ccfb22671f",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/7/bio": {
+      "sourceHash": "e42944bd6793ba746d27a2a08ef57beb08ddb510ffb3d904ef800f975018f3c9",
+      "text": "澳大利亞第一位擔任議會議員的女性。"
+    },
+    "lib/entertainment/global-history/people.json/8/name": {
+      "sourceHash": "8ded61059c55e42c600a207c6b4b7f60c33964c14c06eba1a7edb5d34b957522",
+      "text": "狄仁傑"
+    },
+    "lib/entertainment/global-history/people.json/8/region": {
+      "sourceHash": "521f42bb9c584fdd063074c115a46c351ed040c777d1c8856be73bf1883ab4c9",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/8/field": {
+      "sourceHash": "0492b6914044113fb93725f733e3d312f25085f806858d7f16bea8dff389747b",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/8/bio": {
+      "sourceHash": "163188b65dff48b528bd6a8d858376b6e8862f0dbc49e0475b8c5735b53a10de",
+      "text": "唐朝官員。"
+    },
+    "lib/entertainment/global-history/people.json/9/name": {
+      "sourceHash": "de9c5230c51017da3186bc2845bd06b8c88e230286927a4e613a46db926cfe2b",
+      "text": "泰戈爾"
+    },
+    "lib/entertainment/global-history/people.json/9/region": {
+      "sourceHash": "a7095bf8d4f24b337e2756cf7bd1f56f54948663e39baa43d18fdb46fede6d6f",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/9/field": {
+      "sourceHash": "6e8d5a352d9fe85a90ea994798fa6158c7f2ef798573c8c03ccb46e401368d12",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/9/bio": {
+      "sourceHash": "400eece8bca672f6c92307efe9660389b94ddc23cc2558f0d6228d031bde7e4e",
+      "text": "印度詩人。"
+    },
+    "lib/entertainment/global-history/people.json/10/name": {
+      "sourceHash": "c512d71aee9e45009653ac4ee666736f6c5609ea7d54605c171e8fcd9ed0a65e",
+      "text": "伊本·海賽姆"
+    },
+    "lib/entertainment/global-history/people.json/10/region": {
+      "sourceHash": "dc4efaab3e18b477d84d0b0abf7904dcfe6912bb17dad1ac559fec620bed98dd",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/10/field": {
+      "sourceHash": "802e9880b8db12340a86be2699b2e123f8123831c6096b7e784f6867d44a315b",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/10/bio": {
+      "sourceHash": "f202e3d10a72567188970df33547fc21ed3d72aa2d514584fc8d46f5511e200a",
+      "text": "阿拉伯物理學家、數學家與天文學家。"
+    },
+    "lib/entertainment/global-history/people.json/11/name": {
+      "sourceHash": "df69f923cda7dd72ecf5cc418d6dbb4ac33d0cb48ce18de4f3de486d5fd43cbe",
+      "text": "恩津加女王"
+    },
+    "lib/entertainment/global-history/people.json/11/region": {
+      "sourceHash": "7a0b990f0b12de67b4269576a0b30c03ec613ce148fca01501c258833143aeb6",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/11/field": {
+      "sourceHash": "c55af42f044f307945d47c36ace5cba01a8d3b4e3044cc30033658be0643347c",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/11/bio": {
+      "sourceHash": "378b4b32cdb9312755b714703350893e9c87eaf1e2cacb16d3efcda072d4f242",
+      "text": "恩東戈與馬坦巴女王。"
+    },
+    "lib/entertainment/global-history/people.json/12/name": {
+      "sourceHash": "855cea4227dca931443d3577ff35aa255c4f16d03b76d3ec17c675b02f5679f5",
+      "text": "艾達·洛夫萊斯"
+    },
+    "lib/entertainment/global-history/people.json/12/region": {
+      "sourceHash": "1bcd70a87c00ef5f808184c358fae33b0e341463f7546749806b24ab09fa01f7",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/12/field": {
+      "sourceHash": "6ef209658a497ee9dec5a111d85069ec3301a3c7a6ae33d84a5e91e9b02bcaf4",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/12/bio": {
+      "sourceHash": "b3702642a3b22d74d6371743260bacbd5470541da7dfa5726b2e605e7bf5b490",
+      "text": "英國數學家。"
+    },
+    "lib/entertainment/global-history/people.json/13/name": {
+      "sourceHash": "ed022df86a11ff6f12d482cdd9fd6d53374c60b334b291c19a942f38d5fe0d95",
+      "text": "索爾·胡安娜·伊內斯·德拉克魯斯"
+    },
+    "lib/entertainment/global-history/people.json/13/region": {
+      "sourceHash": "db0cb1abe85100a4121c0906894ab43fa68dd68adb61a87a45851f20620ae70d",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/13/field": {
+      "sourceHash": "c5a80ce42534de73578d3c8fae59a6bf540855bcf3c42153d3bfa3134670e264",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/13/bio": {
+      "sourceHash": "2cbfbb7ddb76a685c957903b13513b9fd6ac13c25d99c0db7940e84bb4921ebb",
+      "text": "墨西哥作家、哲學家、詩人。"
+    },
+    "lib/entertainment/global-history/people.json/14/name": {
+      "sourceHash": "9394f996869fc044b330a92d3106e28269f1873c757980e11404bff2dad0290a",
+      "text": "凱瑟琳·約翰遜"
+    },
+    "lib/entertainment/global-history/people.json/14/region": {
+      "sourceHash": "ec567cf85315b2e4882c99250afaf2800c4e3fd1ef423e4e22322d949a75929f",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/14/field": {
+      "sourceHash": "f9a227451bddd7bea4117bf82d42bb61502476d847234c0e80e4de3c8bfdca30",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/14/bio": {
+      "sourceHash": "c27a63da29271b4e5cf152dff2e0c0547d208a5a116513bbe601927d0c9ed887",
+      "text": "美國數學家和物理學家。"
+    },
+    "lib/entertainment/global-history/people.json/15/name": {
+      "sourceHash": "9c778a89cddc4958c84938c0616f43b61e8c2f95a6204f8289f9814cb4f574e9",
+      "text": "維娜·庫珀"
+    },
+    "lib/entertainment/global-history/people.json/15/region": {
+      "sourceHash": "d8bbf9d174c73746f9f098b7c2b904678386d12c45297c7325826433bbe47dd9",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/15/field": {
+      "sourceHash": "241b8c88ea1f1593fc48bd096c4530aa914fa8037c948ff59044706e02f5a8cd",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/15/bio": {
+      "sourceHash": "809b1d5b9576698a21d9c0cbdd971e1bf46b0be9926fc5afdfee8557c179b157",
+      "text": "紐西蘭毛利族領袖。"
+    },
+    "lib/entertainment/global-history/people.json/16/name": {
+      "sourceHash": "3fbfeff9e2b26bbe25a61b7d6c3934035670f0753e67977fb34f83f0f4f6fd15",
+      "text": "李白"
+    },
+    "lib/entertainment/global-history/people.json/16/region": {
+      "sourceHash": "1ac150b8e9ca08a8deec3000331a903c04816cb22df0191460faf9f4f1502c97",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/16/field": {
+      "sourceHash": "8432caa004f1da1cc6fc5714fb420852745e1fd149af69a2a105c621f8035409",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/16/bio": {
+      "sourceHash": "c23640a3466a4736dc2d95af8bd41a2547ee59a538380f46ba9d7db11f611f49",
+      "text": "唐代詩人。"
+    },
+    "lib/entertainment/global-history/people.json/17/name": {
+      "sourceHash": "37faee353f98c09251bf078cbc22207f0edb74cf2487faa56e191e46f2c3fdc1",
+      "text": "卡蒂妮"
+    },
+    "lib/entertainment/global-history/people.json/17/region": {
+      "sourceHash": "cc03815a2be8f0891751a4ceb3d66e5f53936f0aa406a090586ff55967f8a889",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/17/field": {
+      "sourceHash": "8546b3d84b3d92287e1318f289d03bb0f5a2939eb4c157e072d6effee405f9a7",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/17/bio": {
+      "sourceHash": "b102e7c9217a2a10afe95e5e47fb197dd995c054b529154d94a48cea7e0dae89",
+      "text": "印度尼西亞女權先驅。"
+    },
+    "lib/entertainment/global-history/people.json/18/name": {
+      "sourceHash": "47c5392eec2e3b71733010a99a4b97fd2ec96094f62c4fefda2f8ed0937dbbd5",
+      "text": "克婁巴特拉七世"
+    },
+    "lib/entertainment/global-history/people.json/18/region": {
+      "sourceHash": "3a8ff5f53d7940a7d8293798434496ba42b0c7da35d21372cf321fb1dbd385ee",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/18/field": {
+      "sourceHash": "57635d738cc196339be0e9060368d60890eaef1bb2a60cf5fa1e32484b65b37c",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/18/bio": {
+      "sourceHash": "cd19f12ada85237a7d517e934b0c14e0d14887c68a818b2a2a0617eea0acd4be",
+      "text": "古埃及托勒密王朝末代女王。"
+    },
+    "lib/entertainment/global-history/people.json/19/name": {
+      "sourceHash": "dc3acc842165db7cdf97329a070acf2cb01f9f77f3f6e59b925907d0ae89ec27",
+      "text": "萬加里·馬塔伊"
+    },
+    "lib/entertainment/global-history/people.json/19/region": {
+      "sourceHash": "572c0e901b21e7f86dca68b93f29d9b9768b963de1c3d91ce1de0fbe72d1a48d",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/19/field": {
+      "sourceHash": "b139505623fced30d7f1dc8f8fd7a4d839125e23f61b98ebf79ec9359e914c64",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/19/bio": {
+      "sourceHash": "5e345d2141c62c58682771e5ca3daad2868a51a49ec0eb292fd16280298f2977",
+      "text": "肯亞環保活動家，曾獲諾貝爾和平獎。"
+    },
+    "lib/entertainment/global-history/people.json/20/name": {
+      "sourceHash": "aaa3e31d5993b02e62fac28cf3e06423159b5b0e73d7ffc0c724cb577483ad35",
+      "text": "列奧納多·達·芬奇"
+    },
+    "lib/entertainment/global-history/people.json/20/region": {
+      "sourceHash": "927f4bf19e04b236e72206b23d3af9fe8fc792a4f285efb2421436146446fbdd",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/20/field": {
+      "sourceHash": "b1caf7b04ceab6eec68c0439cb7270dc208f96d3b4d9ad99d285f164b0cef93f",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/20/bio": {
+      "sourceHash": "ca20252a302d39a09810b595c9d6d5363723ece766e7878a9f6789ba9de9eefa",
+      "text": "義大利文藝復興時期的畫家、雕刻家、建築師、音樂家等。"
+    },
+    "lib/entertainment/global-history/people.json/21/name": {
+      "sourceHash": "85f95e667608cde0db5e56f91debd2a84ad07e920680ba1d7fade41a11fc7a58",
+      "text": "加夫列拉·米斯特拉爾"
+    },
+    "lib/entertainment/global-history/people.json/21/region": {
+      "sourceHash": "c959b4b3fdb0a583ae8fa20d0e533bb24e9cd07e7f55fde55569682bff2d09e4",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/21/field": {
+      "sourceHash": "08de59759f57ffb4ab2837f4157df54b81bdb987ce3b71000e0af20f26bbf989",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/21/bio": {
+      "sourceHash": "b9b681052962b4c1ea9c095a5028dc044d6d1d6a6ecb04428acb8036be92a669",
+      "text": "智利作家、詩人。"
+    },
+    "lib/entertainment/global-history/people.json/22/name": {
+      "sourceHash": "c057cf8e504c235c2591f0b0dfc3ddbb681ad5ff8a5c4395c388387009d77bd6",
+      "text": "格蕾絲·霍珀"
+    },
+    "lib/entertainment/global-history/people.json/22/region": {
+      "sourceHash": "36b4e593df7e8944519c73cdba7fee43bf61a2d791464a6f5ebf3e49ad1c5239",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/22/field": {
+      "sourceHash": "27213cf2cb240f06532c41c2ddf36e5c219d923ca6237d72f46a25a27aa172d8",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/22/bio": {
+      "sourceHash": "b2947cbff204f822eed29e74447d16caf3d82f57969ff64f566736325388d184",
+      "text": "美國的電腦科學家和美國海軍軍官。"
+    },
+    "lib/entertainment/global-history/people.json/23/name": {
+      "sourceHash": "d5e87301d7cdc6e76485c87710e8e352135fa0286a2f5416aa2913db276bed66",
+      "text": "阿爾伯特·納馬吉拉"
+    },
+    "lib/entertainment/global-history/people.json/23/region": {
+      "sourceHash": "70191182c9100c2d3177a3b8569043663f51947ba6525eaa406f57d1f9ffaac2",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/23/field": {
+      "sourceHash": "51cb57246b744c295f45e47ec86dc9db62bfed9348a3b165c36171b5c215d228",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/23/bio": {
+      "sourceHash": "1f2f58892c14c9e22b768d53d6598d21725e0a319a279043489668a6666d18d1",
+      "text": "澳大利亞原住民畫家。"
+    },
+    "lib/entertainment/global-history/people.json/24/name": {
+      "sourceHash": "fd57a718a3d849c0698a892b89805f454cf06dc868dc27c7d32c64e7e034f7c0",
+      "text": "杜甫"
+    },
+    "lib/entertainment/global-history/people.json/24/region": {
+      "sourceHash": "1c560f9e37455b6e8b0bdaf3b4375bd1a64e9bb18f2a74195508297db52400f8",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/24/field": {
+      "sourceHash": "54b0d592a15f1a34536e2d56492e3983bab71a18bc082849c92343a5e2ca4c18",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/24/bio": {
+      "sourceHash": "f8ae13cfc091ea583660feb318bb577e599e6d9e577c0ba163fdabe6b614c98d",
+      "text": "唐代詩人。"
+    },
+    "lib/entertainment/global-history/people.json/25/name": {
+      "sourceHash": "477852c120b5c4ca606904c03edf0a6aa1bf65a920541f3d1931b4b53fb91d60",
+      "text": "阿育王"
+    },
+    "lib/entertainment/global-history/people.json/25/region": {
+      "sourceHash": "a55d7f1d50729af8074e7c62e97ac147d2488f58e7ba18ab18878acb30249a96",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/25/field": {
+      "sourceHash": "82a02206f87baefc9bcca7fa3e70be850721b9a9163c9f632472e4fbe533277e",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/25/bio": {
+      "sourceHash": "bab606560e13009622ce99780970b4bb16a6ae979b2ee2a8b073fc4073cdbc44",
+      "text": "印度孔雀王朝君主。"
+    },
+    "lib/entertainment/global-history/people.json/26/name": {
+      "sourceHash": "0d306d8a29dad396aad5ad1f68cce540659741937f4167ddc60cb77de8cd908c",
+      "text": "伊本·白圖泰"
+    },
+    "lib/entertainment/global-history/people.json/26/region": {
+      "sourceHash": "e7792ef3d540d3273f1203d10a884c7f0c1d9c7512390b14a962dd9f71c0d8f8",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/26/field": {
+      "sourceHash": "74b36d1395b1a5a7fccddbb9974327c5a884f5146c2ac2cff7f1fb07ab4e4b3f",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/26/bio": {
+      "sourceHash": "65ba1655a662b105d1651dce9110daa188719a5c5879df11458ad2f861b8e2a6",
+      "text": "穆斯林摩洛哥學者和探險家，曾廣泛遊歷中世紀世界。"
+    },
+    "lib/entertainment/global-history/people.json/27/name": {
+      "sourceHash": "c7a5591d2a80ae6cdc4828d735c0093e8f2fa91df1109696125922e6a8bad073",
+      "text": "納爾遜·曼德拉"
+    },
+    "lib/entertainment/global-history/people.json/27/region": {
+      "sourceHash": "b47d27345db6dd8e091d24f76b3219e8c74486e03e26abcd670ea12b6901da5a",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/27/field": {
+      "sourceHash": "4d35d50ee9366e509507a4cad7360b2a5ea6e4e560601cf39f64695ea6efd61a",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/27/bio": {
+      "sourceHash": "5907078c388ab2e879935cd29e1c49581431083cc89c5448f55dfc2f058dcf15",
+      "text": "第1任南非總統、反種族隔離革命家。"
+    },
+    "lib/entertainment/global-history/people.json/28/name": {
+      "sourceHash": "513dbef98711367a4d1eeb83c4155ed9ed9c5e388331990886d5d60f6f8dd6a4",
+      "text": "珍妮·奧斯汀"
+    },
+    "lib/entertainment/global-history/people.json/28/region": {
+      "sourceHash": "48002fc9b4f3299dd231e4a3dbe39cc024059f41db6c3e5a77d3dfa330015abf",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/28/field": {
+      "sourceHash": "22ddcc6015374ab7e319181c195f35d7f0f5d1635310ff4e67c20691b4b1c429",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/28/bio": {
+      "sourceHash": "19ad93fcc83732133fe4c48031c3658e9f8aad005504b83a85692fdaf5080f9f",
+      "text": "英國女作家。"
+    },
+    "lib/entertainment/global-history/people.json/29/name": {
+      "sourceHash": "036339ad72d8f25995851dee9e597592855b2373b1a305c3fb3aabc326e75f06",
+      "text": "圖森·盧維杜爾"
+    },
+    "lib/entertainment/global-history/people.json/29/region": {
+      "sourceHash": "6ec18bf5c3d80d63a7af3f7c31e4ed01ab88bb69a2df634a3a3691c81f6f91b3",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/29/field": {
+      "sourceHash": "2d32ba73e3d7bd75d0f38f93334292a2ac7eeba47b10b251f840b6c96172eb73",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/29/bio": {
+      "sourceHash": "f1eb95d5a040d2a3c43cc44fae0c7ab7776bbf52914d6590b40463c24d959348",
+      "text": "海地革命領袖。"
+    },
+    "lib/entertainment/global-history/people.json/30/name": {
+      "sourceHash": "f016294cbed0a5145084a85d8ad661be8cd15a8e2fc09c828bff44f800e1b15c",
+      "text": "傑基·羅賓遜"
+    },
+    "lib/entertainment/global-history/people.json/30/region": {
+      "sourceHash": "ce61b18c6fd0ce304f3b3eeeb21b9f064bdfaf38f87071f1f8520cfaa59ce338",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/30/field": {
+      "sourceHash": "4559e7141c4f7b37588994f42e16fc9852177f23fa876e890a8fd77abc61f7f1",
+      "text": "體育"
+    },
+    "lib/entertainment/global-history/people.json/30/bio": {
+      "sourceHash": "0f4bff4efad89291b5f8d8fb23bbe6dc76a8172d113330591539e803fb622f53",
+      "text": "美國棒球運動員。"
+    },
+    "lib/entertainment/global-history/people.json/31/name": {
+      "sourceHash": "32ca83cf2fed6ce68e3862727854b2b515fe00435a30fd8087141262dff59fe3",
+      "text": "莉莉烏奧卡拉尼"
+    },
+    "lib/entertainment/global-history/people.json/31/region": {
+      "sourceHash": "09483fb1469cf3286a126d8038c604a000845c55f724ddd6bcb476592398296d",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/31/field": {
+      "sourceHash": "b01f359d93a46c3bafe7d8d05820e670e11b1527c0d001da21e5966fca60504d",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/31/bio": {
+      "sourceHash": "7abba77b014032b88abee5c1acee29a8ba6bf250da517336030107b1ce6003c0",
+      "text": "原夏威夷王國君主。"
+    },
+    "lib/entertainment/global-history/people.json/32/name": {
+      "sourceHash": "f993826e68164a8ea8ad557ba5f3b3d74e94c0193e71d7c305b947e8b5850314",
+      "text": "上官婉兒"
+    },
+    "lib/entertainment/global-history/people.json/32/region": {
+      "sourceHash": "e0743b9f91271a86e5a9837d8b2de12712cf561b1011b3ddeb7a700522863ccd",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/32/field": {
+      "sourceHash": "7e2fac2f2993e3fa1a5aa6aff29cb8c4ce80f7b63a3f567c98f06d67e86209fc",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/32/bio": {
+      "sourceHash": "7d57158bcde7e83c4fbf766227c8cd080db9a0a5bc1c20254dab4be1f86c2b08",
+      "text": "唐朝女性詩人、政治家。"
+    },
+    "lib/entertainment/global-history/people.json/33/name": {
+      "sourceHash": "b8da67b68c5f04f84ec2d6d6825307c13e7febe111bc354321f02d40362fdf78",
+      "text": "阿耶波多"
+    },
+    "lib/entertainment/global-history/people.json/33/region": {
+      "sourceHash": "dc71193da3b2285a947838ea9bb2a6edd3cea9fd9bc74bc44aadb7f91c0740d4",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/33/field": {
+      "sourceHash": "cd280f103bc8105b9540951dffc8c3c62a91e14469e66267f5e19a07bb821d35",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/33/bio": {
+      "sourceHash": "b0783f532b1ba664a4dfc0c8d26972d49b406519df5576e9320b999ce883f409",
+      "text": "印度數學家。"
+    },
+    "lib/entertainment/global-history/people.json/34/name": {
+      "sourceHash": "1bdb54e7fcd220f27eda4a1512a087254413123628a50eeea9faf63ee14c9252",
+      "text": "伊本·赫勒敦"
+    },
+    "lib/entertainment/global-history/people.json/34/region": {
+      "sourceHash": "71212dea0e4421a760660b13c3863816be6f5f0279af058ef06bef5c19636cd3",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/34/field": {
+      "sourceHash": "97a5b5aba6bd90b269862a939ed2a9958f64f4f6c51693b838227388f48a846f",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/34/bio": {
+      "sourceHash": "f71872cb6d4d6633768482e63f2e48f2690f4a121f2e14026078a743ffded741",
+      "text": "阿拉伯史學家、社會學家。"
+    },
+    "lib/entertainment/global-history/people.json/35/name": {
+      "sourceHash": "261c659699fb0f35a0ae82b3e6ea92cd32d671d2ecfd8e31784a588ffc45dd1f",
+      "text": "金帕·維塔"
+    },
+    "lib/entertainment/global-history/people.json/35/region": {
+      "sourceHash": "9b35a4e4c7337291b6b1e35593151075250eb3db0aee3370a0b31dc5f9a68e5a",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/35/field": {
+      "sourceHash": "faa270eafe1265f55c0c62bc1071911e2722dbf847c887e7c9123a271ee0f1fe",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/35/bio": {
+      "sourceHash": "724638cdb20a18bd0c08fbdfd3f3257b938894ef89323cc49b1665b2db16c09c",
+      "text": "剛果王國宗教運動領袖。"
+    },
+    "lib/entertainment/global-history/people.json/36/name": {
+      "sourceHash": "e46faed09fba78f27f4f4724f3528df57d926a121e33e09ab94a45c46fba92d9",
+      "text": "希爾德加德·馮·賓根"
+    },
+    "lib/entertainment/global-history/people.json/36/region": {
+      "sourceHash": "ff7b3885db568658d2e9afd0bfdbf6f28f6d77042623196dc04e7c4c1dc4e650",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/36/field": {
+      "sourceHash": "ea204f5f807cd6af8057b314a74820960d30a22b12c5b4c7d056eb11468ed5a2",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/36/bio": {
+      "sourceHash": "1f9e10cb0295508de571a92f5d0f35bc58fd4b386f17a1584782183ca21b358d",
+      "text": "中世紀德國神學家、作曲家及作家。"
+    },
+    "lib/entertainment/global-history/people.json/37/name": {
+      "sourceHash": "c1f0082420be32ffb92a93b8a3b88002dbb91133b476a9b3994bfe52a3a62942",
+      "text": "西蒙·玻利瓦爾"
+    },
+    "lib/entertainment/global-history/people.json/37/region": {
+      "sourceHash": "61b120c052cb1570e17d35c95d1e93fcec02735c0f857ef50ae22dd165c1d732",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/37/field": {
+      "sourceHash": "868e85540376831cfa1e54e1bd2ff1e5ac8ca2dca8e5c0e342bbd6ef7c05143a",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/37/bio": {
+      "sourceHash": "96ec40e82840a3ba7f1599f34c47bd8fc2ff28b6714c3bfbbc2f1c1f9ff2a496",
+      "text": "委內瑞拉軍事和政治領導人，南美解放者。"
+    },
+    "lib/entertainment/global-history/people.json/38/name": {
+      "sourceHash": "e1e73b7d564569e583d10bc33fe13945663e0be14ed032abe08d1540b0dfe221",
+      "text": "雷切爾·卡森"
+    },
+    "lib/entertainment/global-history/people.json/38/region": {
+      "sourceHash": "1a46d353217b38bbbc29420ffe7ba6b84d22cd60869d588610d4f7224d5b9006",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/38/field": {
+      "sourceHash": "33d97e8e8897f389251482079b0e8d993f466306a16ed0528e2407244b4bfdee",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/38/bio": {
+      "sourceHash": "13965e66c1badd81ee87270ad73fe300f78b14114831f6c97c1a72b97454c3f7",
+      "text": "美國海洋生物學家。"
+    },
+    "lib/entertainment/global-history/people.json/39/name": {
+      "sourceHash": "d2ad6b089977cc6c20242a4f57779871ac3a7a5b41f4adce1a9e3ee54bdf807b",
+      "text": "杜克·卡哈納莫庫"
+    },
+    "lib/entertainment/global-history/people.json/39/region": {
+      "sourceHash": "211768a5081a377de669be14c9a7a7dac38c7f8b6a326a83c5a28b729f085463",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/39/field": {
+      "sourceHash": "08462f829fd5de4e29a4f5f8b0ab500a8654b1428187105077afb5ee9b8ab956",
+      "text": "體育"
+    },
+    "lib/entertainment/global-history/people.json/39/bio": {
+      "sourceHash": "4c3f9d1540a9d58e695750c6a8b91f92347e0c43c7fa38ff1521d6469ca8e5b0",
+      "text": "夏威夷游泳運動員、衝浪先驅。"
+    },
+    "lib/entertainment/global-history/people.json/40/name": {
+      "sourceHash": "1ce1bddcde442024fc24a2ee58ce1b2718f163faf6f8373a651aa45d17d84b0f",
+      "text": "玄奘"
+    },
+    "lib/entertainment/global-history/people.json/40/region": {
+      "sourceHash": "bec29b09ed3918c1a51cecff48acdcb1567b88146797d726c0da8b459dd47ad5",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/40/field": {
+      "sourceHash": "4c4f1476952e5ebf0c1e92f96bf6741afbb9d3d69efff3386c6e73c9cb7ee3c2",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/40/bio": {
+      "sourceHash": "da5c2f2cf1893f697b8d828a793e4fe5102c876512a915017ed0bb1b2dd75c65",
+      "text": "唐朝高僧、旅行家、翻譯家。"
+    },
+    "lib/entertainment/global-history/people.json/41/name": {
+      "sourceHash": "1d28b8122a5329ad26daa1d684c4276a061eb5ee78ca21b6b603413a03706122",
+      "text": "阿克巴"
+    },
+    "lib/entertainment/global-history/people.json/41/region": {
+      "sourceHash": "c1dc9e06aa9eac5b4abae8e8b3330148ecaefc5fd00eb229e8edbdcc6f07dc01",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/41/field": {
+      "sourceHash": "ec732b7d9626ac3331a0c00e20948cd9e430a7a33af4d52bdd0866ab74f67c9b",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/41/bio": {
+      "sourceHash": "6d0287a3a6c0f1b4b14d7082923d9dd121a4e5aeb305391b56f74e4be3468dd2",
+      "text": "莫臥兒帝國第三位皇帝。"
+    },
+    "lib/entertainment/global-history/people.json/42/name": {
+      "sourceHash": "9cbfda6a3691050022af1dd677f84e2e0624f3584c7b8b782a47bcde6c7ac8a5",
+      "text": "赫帕蒂婭"
+    },
+    "lib/entertainment/global-history/people.json/42/region": {
+      "sourceHash": "7ca624c858de355c1c4383b03cd2d8c27205fcc6dd549b99a4b6b3c8c7f64ee2",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/42/field": {
+      "sourceHash": "69c8ca118bd07300cad4ca07b0a8abea87db3e498789e39094904d4d71b0db06",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/42/bio": {
+      "sourceHash": "f0abe0d87c98085246f49e0362531661312f2b669d3916d91885130a21178e07",
+      "text": "希臘新柏拉圖主義哲學家。"
+    },
+    "lib/entertainment/global-history/people.json/43/name": {
+      "sourceHash": "c0b84b8b83b1e4f562ede46c0728fbd089952a3423bd9eba7d64760664bc8128",
+      "text": "亞阿·阿散蒂娃"
+    },
+    "lib/entertainment/global-history/people.json/43/region": {
+      "sourceHash": "e6a124fa67213a2cf07983fda402b6842b3083f596a3b137df2bfc59daaffb05",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/43/field": {
+      "sourceHash": "5ef1fa94badec5bfdbb94080fc9eb35e0387bc4f1872f86d9d5d364e568e6563",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/43/bio": {
+      "sourceHash": "72c056c735bd57b4a2657471612809c91d9362c9036c671069eabf216cd99e33",
+      "text": "阿散蒂王太后與軍事領袖。"
+    },
+    "lib/entertainment/global-history/people.json/44/name": {
+      "sourceHash": "602edecd344ed6f597d5e4ffffb8cfbb657616593325eb823105e01b8697b383",
+      "text": "聖女貞德"
+    },
+    "lib/entertainment/global-history/people.json/44/region": {
+      "sourceHash": "c0ceca9e9f3ac8ee4301de21e6029fd079d18646615569d96125b3555ac08869",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/44/field": {
+      "sourceHash": "88f3abf3c8ae748175ab67a05d8e0a84b10688be6e32600b747304116eaf3a02",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/44/bio": {
+      "sourceHash": "9152f1aa071233497bc127bd443a0ac2f378e23fcd21a90650d2487f864bb8a9",
+      "text": "法國戰爭英雄。"
+    },
+    "lib/entertainment/global-history/people.json/45/name": {
+      "sourceHash": "d1cc9664ab5612c46634f988c1ff37c7e1549255956b2aa86202cbafc6eed3bf",
+      "text": "何塞·德·聖馬丁"
+    },
+    "lib/entertainment/global-history/people.json/45/region": {
+      "sourceHash": "cb750ea519a974bed503c0ddc62270c067230c5b09fcf67d2a628e552bf8a8cd",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/45/field": {
+      "sourceHash": "651c0b4d5691f8e54b80f2ac0184c78e635eddd9d47654e459dd78a6dc8ad4de",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/45/bio": {
+      "sourceHash": "3245cc699f00c00e7d516d494942abb20cf44534a19e03ed297d5bf7add2d53d",
+      "text": "阿根廷將軍。"
+    },
+    "lib/entertainment/global-history/people.json/46/name": {
+      "sourceHash": "0f5ffc7f2c8cffc29620914224da7f00ae133aa28c341d700d80583321a61fe7",
+      "text": "海倫·凱勒"
+    },
+    "lib/entertainment/global-history/people.json/46/region": {
+      "sourceHash": "92d520d01d08e099472230006bdf8e5bebc1966a0e9f929457e5e3399c848210",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/46/field": {
+      "sourceHash": "c6fcdbfd7738b65e4c243276a381c252cefcfed1b07b2b86740e50eb0e2307f1",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/46/bio": {
+      "sourceHash": "cb9527ceb82197f59d5460c7e6e2608cea90ea5f4fd258a6b07f4f2d4cd7903c",
+      "text": "美國作家、社會運動家及講師。"
+    },
+    "lib/entertainment/global-history/people.json/47/name": {
+      "sourceHash": "358b2b446b643d1e937456b43b193a82b25d1c772a92ceb13e7ac193b7e84d76",
+      "text": "塔法烏法烏·圖普阿·塔馬塞塞·萊阿洛菲三世"
+    },
+    "lib/entertainment/global-history/people.json/47/region": {
+      "sourceHash": "91ca1d2f907d4c0852da941c5e33ffb66a2463925866ecfd24e3192f50b6f552",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/47/field": {
+      "sourceHash": "88b8b823c08453884e995915402675b552bbfaeb45a4570fac30f314fd1d5fc8",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/47/bio": {
+      "sourceHash": "4f5499a2c9d0c635d0b79db716f2b68682de717b11aa627f66ce0e3189e4479a",
+      "text": "薩摩亞獨立運動領袖。"
+    },
+    "lib/entertainment/global-history/people.json/48/name": {
+      "sourceHash": "2d1c9cd226794ae4870586ae8bd347d7b315f85fa8d6f5d01f251292442ea75a",
+      "text": "孔子"
+    },
+    "lib/entertainment/global-history/people.json/48/region": {
+      "sourceHash": "d1060382c52cb191250f5aeff8963d238a58ae80b5564af8ca9d71286a96715c",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/48/field": {
+      "sourceHash": "5128f146fed3c2aa284366ee07e5010fef87e19be081f66bfdf0f02d898df83b",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/48/bio": {
+      "sourceHash": "bf0d0610a723ef303130eeb73881f100107c76e15c65e26f8a1cf55aa622275c",
+      "text": "中國古代思想家，儒家學說的代表人物。"
+    },
+    "lib/entertainment/global-history/people.json/49/name": {
+      "sourceHash": "b0e5789f5864bd91beb06d1241bac822233016c6efd3bb861cc0db1af15a6fa6",
+      "text": "拉齊婭蘇丹"
+    },
+    "lib/entertainment/global-history/people.json/49/region": {
+      "sourceHash": "7736c6c4ad2a306bac951e9aac719f92d8b8fd07dc53d56fb353db3fc083320c",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/49/field": {
+      "sourceHash": "68ceba608c03e7f3cc8423b172024c139e2206ae5a82586ca36c313feee42470",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/49/bio": {
+      "sourceHash": "a624f5f837a7234b444a2364897755a8a6cf1e6203c65ec83d87794a781b09c5",
+      "text": "德里蘇丹國統治者。"
+    },
+    "lib/entertainment/global-history/people.json/50/name": {
+      "sourceHash": "cb86d80a543d2c35ebd06fead6566586b7dbb5c5c85441218279add8da10c835",
+      "text": "扎哈·哈迪德"
+    },
+    "lib/entertainment/global-history/people.json/50/region": {
+      "sourceHash": "84864fe8132a1c695f5d8a889dbe7cb98b6a70653c56d0c2b3d9dc60dff9912f",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/50/field": {
+      "sourceHash": "8f294ad947b2f211ecf61f2650040b073df34f3cf94c03a7a9fabc199e4139d2",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/50/bio": {
+      "sourceHash": "60c78f1e2b81467f5533cd08464dcf7778242a60a93d66dacc2432b77f64f597",
+      "text": "伊拉克裔英國建築師。"
+    },
+    "lib/entertainment/global-history/people.json/51/name": {
+      "sourceHash": "15cadc50dc3577cbba41ef13221f8501239d62e80ee371304c420366cc0b6446",
+      "text": "泰圖·貝圖爾"
+    },
+    "lib/entertainment/global-history/people.json/51/region": {
+      "sourceHash": "27c5cd268589b298eef3a27538c22ccb7af8d91c480024f6b30fc04883b64a7e",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/51/field": {
+      "sourceHash": "8d5d8339c4288d813ed9d4f8754f1097bb99302afc68f1770d8fc499072d50aa",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/51/bio": {
+      "sourceHash": "6a32a78a2edfa30b2e02bf6ea627f892d329629d59c7818ffed35e1bfda89cee",
+      "text": "衣索比亞皇后。"
+    },
+    "lib/entertainment/global-history/people.json/52/name": {
+      "sourceHash": "14a1f9fc05fc5f4eaf75b1d45312e9afce936354d52d06bf2d72beb85c29759b",
+      "text": "佛羅倫斯·南丁格爾"
+    },
+    "lib/entertainment/global-history/people.json/52/region": {
+      "sourceHash": "54cc7dab58f780ad6160b4ac6f45dde689c7a855d965c523ca85924d53d02230",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/52/field": {
+      "sourceHash": "d04d5e7b9486d7bdd9f8bec666bb2d8f68bdab70420cfaf410d5e82b977aff6e",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/52/bio": {
+      "sourceHash": "96de717cf30459089ceaab11995180dbf9c68f24fdebb34c4eee414201cea6dc",
+      "text": "英國護士，現代護理學先驅。"
+    },
+    "lib/entertainment/global-history/people.json/53/name": {
+      "sourceHash": "6bd2cce25ac65c51a586ea40ecb61a4cb14f9550b20f9fce83e24f385466fc27",
+      "text": "曼努埃拉·薩恩斯"
+    },
+    "lib/entertainment/global-history/people.json/53/region": {
+      "sourceHash": "39cc1081bef8b4fbe31d066f8333e65051ed4175cb3c24d38aa2bd33ae021d42",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/53/field": {
+      "sourceHash": "35dce02db736642d9413b631892f6805a7eb2f6eb2e8b5a68ff2d04ab99647b3",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/53/bio": {
+      "sourceHash": "3a0ea603208a4aac070267c117528a4687c001638ada4a7cadbad80a2af907f0",
+      "text": "拉美獨立戰爭時期厄瓜多革命家。"
+    },
+    "lib/entertainment/global-history/people.json/54/name": {
+      "sourceHash": "cfa0a0f60111062e27b0447b3cf9203a701dd59eeec7dc0ef1ab06681bec4d6e",
+      "text": "弗雷德里克·道葛拉斯"
+    },
+    "lib/entertainment/global-history/people.json/54/region": {
+      "sourceHash": "96dfe364230a1c4bc5453b46fba479e21668cee0a2da438c8438bbf3542ebf67",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/54/field": {
+      "sourceHash": "de15c52efc426f0e569ae822b55239ca64bb9a583f61b48bc25bbe3ce80e2cb1",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/54/bio": {
+      "sourceHash": "344a172dae80ea55bbc919df8d03dadbd8af6772bc0ab8a3464208ec986be7df",
+      "text": "美國社會改革家，演說家，作家和政治家。"
+    },
+    "lib/entertainment/global-history/people.json/55/name": {
+      "sourceHash": "4a3f62651a97b145eeb69125cb4fec5c61e32fa0eae6dacb6f13ea397f3564f5",
+      "text": "埃佩利·豪奧法"
+    },
+    "lib/entertainment/global-history/people.json/55/region": {
+      "sourceHash": "70582ad019ef60b3fa1c03783bc370d74da2eafbb154ae880a62661d33aebc4f",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/55/field": {
+      "sourceHash": "2b3a0492c8975d5f9920ba57ae7ee05130a4b438a720c437755c27ce7afff35c",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/55/bio": {
+      "sourceHash": "f0ef5969285c1c0ecb2a087d20a9ad5e8b0203f06fd81d334bce5a1a672130e5",
+      "text": "湯加作家與人類學家。"
+    },
+    "lib/entertainment/global-history/people.json/56/name": {
+      "sourceHash": "f6fc929335d240ae8c1260c8b89c1e23ad504ae2299269d4ec6c420d4da12eda",
+      "text": "司馬遷"
+    },
+    "lib/entertainment/global-history/people.json/56/region": {
+      "sourceHash": "dc82b215dd43d1c2c2b47a44b351a9d2315663fd3c4d9cf0167a61106aa89359",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/56/field": {
+      "sourceHash": "84a45cc6afb355e7eba3d169311c868db1154df8b846f214bc3bd7c0c7d71126",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/56/bio": {
+      "sourceHash": "3c695396519c00261699e6d165b81b73d67ecef5b3df52a357fc0f437565de02",
+      "text": "西漢史學家、文學家。"
+    },
+    "lib/entertainment/global-history/people.json/57/name": {
+      "sourceHash": "ecd2b2a8adebcbd8a7482ab06243a5dfd3424d1626c69cd4ac085072de6c0f6c",
+      "text": "卡比爾"
+    },
+    "lib/entertainment/global-history/people.json/57/region": {
+      "sourceHash": "4a1cefad68add8ad7a0133d013e9f235dae4efa824f3393e241dc079289d362d",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/57/field": {
+      "sourceHash": "eccebaaea8c9193392f96ebffd56167707ce8b8d3737a5d8a02fbdf203e1f33a",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/57/bio": {
+      "sourceHash": "4584b571d0bf15ecd530e2dc18981a5e817d088c57062be2d439777cfb8a8032",
+      "text": "十五世紀印度詩人。"
+    },
+    "lib/entertainment/global-history/people.json/58/name": {
+      "sourceHash": "5f6fda8b3ab5506217a65e6116f66a0c61698875fe9e7c1b100bb843414fb5f2",
+      "text": "薩拉丁"
+    },
+    "lib/entertainment/global-history/people.json/58/region": {
+      "sourceHash": "d900039f13e71db798752561a466cf996d00f2e73b9a9e1849166ee437ca1069",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/58/field": {
+      "sourceHash": "22191a3c4070d7db93e3a9c330a8903131db9669b68e1aa91c421f3f42df2303",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/58/bio": {
+      "sourceHash": "0dd46b9cc657984bf16b053421275f072215e8bfdcc94fdb323cc25ac3dd73e9",
+      "text": "阿尤布王朝第一位蘇丹。"
+    },
+    "lib/entertainment/global-history/people.json/59/name": {
+      "sourceHash": "e8a2d0c3d6a854656bd1574fc473d42156a5f8e6909f2593524a1f4414511a8d",
+      "text": "謝赫·安塔·迪奧普"
+    },
+    "lib/entertainment/global-history/people.json/59/region": {
+      "sourceHash": "e049b96b25df5eadfb9cb6536f3d6076374b6128a27fc51fdda46c54216e75da",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/59/field": {
+      "sourceHash": "115181fd4afb398ed6eb28897274edf9a5590150b8913ef8a84ef23d3dcca35f",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/59/bio": {
+      "sourceHash": "69dba19d831fdf593ddd27688e1b0b807cf0c086a4be2734d23045929bbffe2c",
+      "text": "塞內加爾歷史學者與作家。"
+    },
+    "lib/entertainment/global-history/people.json/60/name": {
+      "sourceHash": "72b173f3d296abb7e88501bb55af3edca92d883ab67184ee7d73ca83b9a44477",
+      "text": "梅里安"
+    },
+    "lib/entertainment/global-history/people.json/60/region": {
+      "sourceHash": "96b3a8b3afbcacc5c53c4e4696d38db5699d2ea83a0d03adbd821904f063d373",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/60/field": {
+      "sourceHash": "52b59fdf6007abeb64366170da5bfeaf4a1df2c2930f4394d81c4768bd478286",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/60/bio": {
+      "sourceHash": "c40a442fa9658976240dbfbb3452e2131683aef8f83f128e6278f7c44c25f4bf",
+      "text": "德裔博物學家與科學插畫家。"
+    },
+    "lib/entertainment/global-history/people.json/61/name": {
+      "sourceHash": "ec86205129d4c9c86e01a9389e1f532cd472f1f32812fe2dff7813ade12ccf1c",
+      "text": "巴托利娜·西薩"
+    },
+    "lib/entertainment/global-history/people.json/61/region": {
+      "sourceHash": "1a20528975b2888cdf08f4e1422713714953375402bdf88114afefd857ab1322",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/61/field": {
+      "sourceHash": "61fac25907141dc5a2484ed6c445a66c087cd1e355f8b44e398a1a81299a1ae7",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/61/bio": {
+      "sourceHash": "1db192782875393ebf5ff343f3300dc174562cc4595efffc01c0a797a743760f",
+      "text": "玻利維亞艾馬拉族起義領袖。"
+    },
+    "lib/entertainment/global-history/people.json/62/name": {
+      "sourceHash": "c7133d2a5bcff10db7b3e167e1fdc6e5876ba829289046990111d495f5604673",
+      "text": "索傑納·特魯斯"
+    },
+    "lib/entertainment/global-history/people.json/62/region": {
+      "sourceHash": "270b0d447d8b2dea40c9ac382e1a6a14f089e3da80c5dd2ece2b83a22907a3a5",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/62/field": {
+      "sourceHash": "4ea49464fb738b95faddb517f86cf73e9556dfbc442a5add86e73958ca191f78",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/62/bio": {
+      "sourceHash": "810e5779b993121c0e69ce5d026097e97507df2076c41a1aecf3e4a12baed2a3",
+      "text": "美國非裔廢奴主義者和婦女權利活動家（Sojourner Truth）。"
+    },
+    "lib/entertainment/global-history/people.json/63/name": {
+      "sourceHash": "1f82a6a5479e8c254ae8ddbc5d4287eda95c4edab2be38876d959aff45208672",
+      "text": "戴維·古皮利爾"
+    },
+    "lib/entertainment/global-history/people.json/63/region": {
+      "sourceHash": "095bb1c443a8512444a3497af279df39abea50473599ac783b999a8b29891bb0",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/63/field": {
+      "sourceHash": "103e077ab4434e7533913ab89935d538d35b2d4ae472b6407d2fd3a99101fd62",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/63/bio": {
+      "sourceHash": "ef99a8f2218ba187898b6046eabe5e41b7402a9d3e39e209fc86d2b646a96752",
+      "text": "澳大利亞原住民演員。"
+    },
+    "lib/entertainment/global-history/people.json/64/name": {
+      "sourceHash": "85d6ce96adf70bac8bee882e4ee2a72d9a729c5066076ea242143b4454fcf832",
+      "text": "班昭"
+    },
+    "lib/entertainment/global-history/people.json/64/region": {
+      "sourceHash": "e6da4c669a790e477f7832cf827e91f105e93572a36570a46cffede79ad6c7d5",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/64/field": {
+      "sourceHash": "1bb4e180a2d96f83d68fe330c2535f49f5130b4f60b2ae519b601221fde5db84",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/64/bio": {
+      "sourceHash": "eb3f481a5956fa9b1052826ab9577a4f79549f5d8fb80726d93ca1b23d52a578",
+      "text": "東漢女性歷史學家。"
+    },
+    "lib/entertainment/global-history/people.json/65/name": {
+      "sourceHash": "e0dca9dbc429dc032ef2252c34e429c715f6011a164f923d2ead0108e52408c4",
+      "text": "阿希利婭·巴伊·霍爾卡爾"
+    },
+    "lib/entertainment/global-history/people.json/65/region": {
+      "sourceHash": "c8b1400205941e0f0d49798a30c8eff56b8b6235e5d15912e643f3de1f6c69d3",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/65/field": {
+      "sourceHash": "52bb12747438094797e0813fa46c5ce60adcf7ad5c5e1c7cab129aee527b6746",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/65/bio": {
+      "sourceHash": "fa9bcfe845e6e26f300fdaddc424e287b3a50f745988c4ec43c134cf30de5c77",
+      "text": "印度印多爾霍爾卡爾王朝統治者。"
+    },
+    "lib/entertainment/global-history/people.json/66/name": {
+      "sourceHash": "41c20208ac1387aa477a1cfb0d81d0988ebf83ec4a52cfa25a7e1ab558378fa8",
+      "text": "居魯士大帝"
+    },
+    "lib/entertainment/global-history/people.json/66/region": {
+      "sourceHash": "83c7311e22c843890b17390e6d00aa34541cf31888975b54bc4ad78e29fbc102",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/66/field": {
+      "sourceHash": "f13d684f9481f7bec118494c07f9645dc6e0d1012ad8ce0deb2fb375da273326",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/66/bio": {
+      "sourceHash": "ac4cf0f217d4eaac11599e7739b644a7f881dc793a2a3df9bd167f74bbed2d71",
+      "text": "波斯阿契美尼德帝國建立者。"
+    },
+    "lib/entertainment/global-history/people.json/67/name": {
+      "sourceHash": "616c2d84147fe74a4862f8bbb9d7ace573bd0e34e79c241cd94701fd82048d05",
+      "text": "艾哈邁德·巴巴"
+    },
+    "lib/entertainment/global-history/people.json/67/region": {
+      "sourceHash": "f0e088dbba0d2614f68f78e352bcaf592cba258cf78d2070ab752e2d16631951",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/67/field": {
+      "sourceHash": "bffd46b1a7496fe80b26cdadb627fcec174666765533aca963c748912a001c16",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/67/bio": {
+      "sourceHash": "504703835f97575bb2fb6753e1ea68b899c2981faa656c0e04b79a12b53cbe3f",
+      "text": "廷巴克圖的伊斯蘭學者。"
+    },
+    "lib/entertainment/global-history/people.json/68/name": {
+      "sourceHash": "af22e818600e42698ff6d59d5f4b8019079d3458ba4d035027c42b0eef9de928",
+      "text": "蘇格拉底"
+    },
+    "lib/entertainment/global-history/people.json/68/region": {
+      "sourceHash": "170178925b7811e56dc0828437227298b8ea59c9abcac6e9fa77bdb161681497",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/68/field": {
+      "sourceHash": "7d5544b0599682a03132efe55322189f6ed4099bc5a1c999000f2bde6f33a630",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/68/bio": {
+      "sourceHash": "172307f6bedcfa2e722644ab31609df29eb4d4d489bcb28b20cd8d3765d7bd0a",
+      "text": "古希臘哲學家。"
+    },
+    "lib/entertainment/global-history/people.json/69/name": {
+      "sourceHash": "9c7121277b3aa84d5d7b42efdae15bdd7d93b3347fe60a5570171fbf15e24955",
+      "text": "米卡埃拉·巴斯蒂達斯"
+    },
+    "lib/entertainment/global-history/people.json/69/region": {
+      "sourceHash": "6300551b36a444d1f7563c136427610eb9fc56e9d7497d48888deb76f8f9c91f",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/69/field": {
+      "sourceHash": "b0f0036e46fa26e730e8ee8b0872ae08b23c3e24dc67c5af2cb8dfbaaf4d5bd7",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/69/bio": {
+      "sourceHash": "bdec748554bba417d9da9c14bb65da83a8df7c566cbd1df87a341c8689810e2f",
+      "text": "秘魯反殖民起義領袖。"
+    },
+    "lib/entertainment/global-history/people.json/70/name": {
+      "sourceHash": "303f37d57ce0df82b4ae66ba541cc046d357b13d6c81e535b18e3657062d5632",
+      "text": "蘇珊·B·安東尼"
+    },
+    "lib/entertainment/global-history/people.json/70/region": {
+      "sourceHash": "143ca7190591f82bc8696d040126aa9872dbc1a5e369fb1830a307616a0221a4",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/70/field": {
+      "sourceHash": "ac1efa4605a05f861562ea85231a1ede18b002761e394c20f798bc0ff2e6d1e7",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/70/bio": {
+      "sourceHash": "8ee1be4d38313b1a4166c98be27455781cec86addf40943e25d69f3f1aabc5ed",
+      "text": "美國女權主義者，社會活動家。"
+    },
+    "lib/entertainment/global-history/people.json/71/name": {
+      "sourceHash": "899aea28a84b84033320a6223fa88e0fda98a9db205967a9c8c1e71619c6e3a1",
+      "text": "唐納德·布拉德曼"
+    },
+    "lib/entertainment/global-history/people.json/71/region": {
+      "sourceHash": "431f99f0da626c986ca74d30fd90900e95e5b66d5bdf611f1dbe37a7712cfa76",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/71/field": {
+      "sourceHash": "ddbde57a1a687e08eabf2ae416fed2ce01c9ad4c9150fc882b48ac88a8f2fe04",
+      "text": "體育"
+    },
+    "lib/entertainment/global-history/people.json/71/bio": {
+      "sourceHash": "ef75bfe7a71142529f39d4f2c036f420494c6741e2ada4d5296f052c5ffa10d4",
+      "text": "澳大利亞板球運動員。"
+    },
+    "lib/entertainment/global-history/people.json/72/name": {
+      "sourceHash": "d4286d6fdccdb5fcbf29b7025aba7eae44bdfe796edeeb5fcfadac59847572e8",
+      "text": "蔡倫"
+    },
+    "lib/entertainment/global-history/people.json/72/region": {
+      "sourceHash": "05cdc8ec732b6d612455f88e76a7631af257e77c6f954be18888a265a6ed4311",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/72/field": {
+      "sourceHash": "fdc999cf3ee48aba35bfc9014cb5268d50af47c02b2aab8df4d46f5c288e49c1",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/72/bio": {
+      "sourceHash": "d56bc2a501962fec405b2d97c535f3da3fa61a1263dc6885664e0be49702bb45",
+      "text": "東漢宦官，傳統上與造紙工藝的改進有關。"
+    },
+    "lib/entertainment/global-history/people.json/73/name": {
+      "sourceHash": "9f57877b0a7b00baaf59dc7bfaf5edb4ca13480d22aae09f5b2e594495baf354",
+      "text": "薩維特里拜·普萊"
+    },
+    "lib/entertainment/global-history/people.json/73/region": {
+      "sourceHash": "1a5d44b769be264db660154baab109f93743a14d68ec69775654ace931e52498",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/73/field": {
+      "sourceHash": "ad11c765b5b3b2e2ec81858ee57e3ad5dfc0176800e8cc485914fdf45ed7b11b",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/73/bio": {
+      "sourceHash": "300d006ac066d88d62ab4f6e472ef408d8422f9822908bd3302937b929f8a572",
+      "text": "印度教育家與社會改革者。"
+    },
+    "lib/entertainment/global-history/people.json/74/name": {
+      "sourceHash": "8a98d30e08a5fb448eda14a0c1d2df31983fa53d5bfd6ca7051c11b0b50c4005",
+      "text": "伊本·西那"
+    },
+    "lib/entertainment/global-history/people.json/74/region": {
+      "sourceHash": "154c5e435f24d991bc86f41f610273a518dfe3f217f2c3d49a2b9d53f671748a",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/74/field": {
+      "sourceHash": "5e8e2a20e8f2f035e5df7af47bc2bcad3a200109b61bc0f8f5f019fb715a4e00",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/74/bio": {
+      "sourceHash": "8a2167cbe9c783cfcb205e5bcee85b4857f832db04a27f60fa0a7d2cd28f49a3",
+      "text": "波斯哲學家、醫學家、科學家。"
+    },
+    "lib/entertainment/global-history/people.json/75/name": {
+      "sourceHash": "d735ee683844927c6f7c1185938ce1e49931ed51f05066698601ddbfe7b8d41c",
+      "text": "納娜·阿斯瑪烏"
+    },
+    "lib/entertainment/global-history/people.json/75/region": {
+      "sourceHash": "7ba8fe0806afd14676fce94083a9d47afc63b6a74a26ae9dfe2c8f2243cf2ae0",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/75/field": {
+      "sourceHash": "810a9629d6e49b35387f2dfc22df8f87a75f294e20e1ada95c56100ab80b2fc5",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/75/bio": {
+      "sourceHash": "d629f39cb1fdb4b1f91eb9ff39fcc42ead9e4c46245710771badebf175323005",
+      "text": "索科托哈里發國的詩人和教育者。"
+    },
+    "lib/entertainment/global-history/people.json/76/name": {
+      "sourceHash": "d9d2d8f35aeb2c8745d579937368fce9116cefbb8429814224930b5aac4b2e6f",
+      "text": "亞里士多德"
+    },
+    "lib/entertainment/global-history/people.json/76/region": {
+      "sourceHash": "8a0f09f82945bc4a48c6443b700b4012b3ba4863d3a5012a71007374111b3e6c",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/76/field": {
+      "sourceHash": "64063bbfc30bcc2412f02fd278e00475cb6a75759dc09ddfc30ee7c552cadcf5",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/76/bio": {
+      "sourceHash": "c808e3d397931905bb708ef24946640eb73a8fc87a6b264749ecf8ca7eeea8b1",
+      "text": "古希臘哲學家。"
+    },
+    "lib/entertainment/global-history/people.json/77/name": {
+      "sourceHash": "93d7194637765ce701dfba6662d89246f4b68f54fab372246c18a35c53a822a6",
+      "text": "帕查庫特克"
+    },
+    "lib/entertainment/global-history/people.json/77/region": {
+      "sourceHash": "71211a4b82a985799a1ebb4db87991cdfc542a3e4be47587ad66983f742319f8",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/77/field": {
+      "sourceHash": "f62c7e0ef7b89b7dfec0163063830805e3c262bcd1c457052b3a4f0a98b4b4f5",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/77/bio": {
+      "sourceHash": "33f7392527909b149053d86d21ac7c46cfe5906f50858b66429c3feeb84a36cd",
+      "text": "印加帝國統治者。"
+    },
+    "lib/entertainment/global-history/people.json/78/name": {
+      "sourceHash": "fc76c81ab74f157998869cdc42d8dbd9a403bec8fb62396026995a7f236750ad",
+      "text": "艾達·B·韋爾斯"
+    },
+    "lib/entertainment/global-history/people.json/78/region": {
+      "sourceHash": "ba78738e5845361c8b0f8e5469a2a10a176b680cfde865c8d832ee89d49f2d8f",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/78/field": {
+      "sourceHash": "ace4820180e72477d7b05d6c4ee9cc9583d17496d1bb61e44e56853e8d0a9051",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/78/bio": {
+      "sourceHash": "4b59cb723146e055d0719b4e07c4c528b713572a470006698d29c76b9fd3c90b",
+      "text": "美國記者與民權活動家。"
+    },
+    "lib/entertainment/global-history/people.json/79/name": {
+      "sourceHash": "988fc4bbc8b241fe3ff2e8c02498b05ca5831f30765ef76c30706026af987498",
+      "text": "凱特·謝潑德"
+    },
+    "lib/entertainment/global-history/people.json/79/region": {
+      "sourceHash": "7fc89039ce1cfea41769f9c11dc4d040d9752f5ee12a6ecbe3005b2db082a88b",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/79/field": {
+      "sourceHash": "afb37c4672188bf12af0a69def5342482189bbb31dea7f639acaa8487be1d5e0",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/79/bio": {
+      "sourceHash": "2a04d0e8a92e8feaa4864b378040a47a0ad5b2c0617fb88fa0d7bbcfad221628",
+      "text": "紐西蘭婦女選舉權運動領袖。"
+    },
+    "lib/entertainment/global-history/people.json/80/name": {
+      "sourceHash": "ea3d89bcf9cb4bfaca974f7df880182a972839d232b3225ba5c0ba27313f915d",
+      "text": "諸葛亮"
+    },
+    "lib/entertainment/global-history/people.json/80/region": {
+      "sourceHash": "435b40ce7ec24899081a7f323462727004c224ce96ec96bfa5e2cf369c338e77",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/80/field": {
+      "sourceHash": "c2694451560744a442567213132d893ba93cc6f759fcf52628c2ced9419681ae",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/80/bio": {
+      "sourceHash": "f8f772eeaff36e8e0e49f5c8ce748a179c62253c898334cd7f4c3583739649c4",
+      "text": "三國時期蜀漢丞相。"
+    },
+    "lib/entertainment/global-history/people.json/81/name": {
+      "sourceHash": "3beca5f393101e3aadca9449414b10b9f64ff2f674f74c118d32e750bdfbe68c",
+      "text": "薩羅吉妮·奈都"
+    },
+    "lib/entertainment/global-history/people.json/81/region": {
+      "sourceHash": "c376bb7e1b54961ee7ef625d883064db8a64eff978fda6fcb19debbe1a01c058",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/81/field": {
+      "sourceHash": "308f578597160288f5b0762155fe562d19f869b4fa1b4e6a9c6bb92ab415782d",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/81/bio": {
+      "sourceHash": "67c30b63712b96e9ac3267d0862f06ce5c2071304541ec3c485480358ae6446c",
+      "text": "印度詩人和政治活動家。"
+    },
+    "lib/entertainment/global-history/people.json/82/name": {
+      "sourceHash": "fd2ce54c1c1af4707ea0384bc53bcbc3ffa7fdecd06025cfac51d0f4807e7437",
+      "text": "花拉子米"
+    },
+    "lib/entertainment/global-history/people.json/82/region": {
+      "sourceHash": "9078eb0b1a933cdb2eb72790a84c9f8be81672def9758b2be65c371937bff0fc",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/82/field": {
+      "sourceHash": "feb053b316f647f57bfe182902cc5034145b0af6a41fd44e91c9f3830cc4e971",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/82/bio": {
+      "sourceHash": "8c549d0b16fa3f249568745e9e2ead3fa5d3324cddf68dc954ecf6b49541ea7c",
+      "text": "波斯數學家、天文學家及地理學家。"
+    },
+    "lib/entertainment/global-history/people.json/83/name": {
+      "sourceHash": "1e02af1eba63566f75861b2dfcd1a0ed6c0b743a8802d427d96834e9b91f7e0d",
+      "text": "奧勞達·埃奎亞諾"
+    },
+    "lib/entertainment/global-history/people.json/83/region": {
+      "sourceHash": "b2c7fc0de1f8d6540c02ecb0b962414cba160401a2687cd89108be6ea10a71c4",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/83/field": {
+      "sourceHash": "23b593a4935f4641fe34acb4ee62c6ebfabe07cbf866540ddee8d1ed53c2e280",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/83/bio": {
+      "sourceHash": "9aa85454ce8c9ad28308fbd74c90f9c3b1ad126adf548c0da8d33fa87c6c823d",
+      "text": "英國廢奴運動中的黑人作家。"
+    },
+    "lib/entertainment/global-history/people.json/84/name": {
+      "sourceHash": "2c2337eec09fde9ccf501ac2aa1614127865363634d53f935371cf679369a852",
+      "text": "阿基米德"
+    },
+    "lib/entertainment/global-history/people.json/84/region": {
+      "sourceHash": "9716c7c480b10384d1a91e1b0a614da0a461a05355128c3da01a9342578b09bd",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/84/field": {
+      "sourceHash": "78f3e7a73ba7e83a3243251be9820cc385f5ad4b8a9237bc0f1be8da4cdb0ea2",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/84/bio": {
+      "sourceHash": "2f07966802faa19ff6b39e6d61d71aefc29cf728555e0c5adb7082a013558457",
+      "text": "古希臘數學家、物理學家、工程師、發明家、天文學家。"
+    },
+    "lib/entertainment/global-history/people.json/85/name": {
+      "sourceHash": "cdc9cffb888cec717961ed927ae8d54c75c42030161f07b248f341b7d8727869",
+      "text": "內薩瓦爾科約特爾"
+    },
+    "lib/entertainment/global-history/people.json/85/region": {
+      "sourceHash": "55d0c8d17daa32ab25d0323fa7c7bd6b103db5bdf38585b97405dd1ce8779231",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/85/field": {
+      "sourceHash": "190a11c0fb68c172db413e40eff936cb1f26f47cd431fb6259d6f6e705457d19",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/85/bio": {
+      "sourceHash": "0903b65c3dba3232bb3a3c78d390b98d14fb5b3db9998feba257885e19c4bf92",
+      "text": "特斯科科的統治者。"
+    },
+    "lib/entertainment/global-history/people.json/86/name": {
+      "sourceHash": "f50de5fd34b8a9c43641dcb327ea584f783f8e943f8e59e5d207e5c1101710b4",
+      "text": "羅莎·帕克斯"
+    },
+    "lib/entertainment/global-history/people.json/86/region": {
+      "sourceHash": "aec8c5280ba0cc38b647d30df140ed0278f3d1a6f0d76cff886afcd38f1624e4",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/86/field": {
+      "sourceHash": "de34ad4e96a3d49c8b0ff105b55f1da59dd4131289abb58b0c6a533958268a81",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/86/bio": {
+      "sourceHash": "43a579cff1b6740d76bd6c259f6817e15a4a11e31c33163de71333656bd45d30",
+      "text": "美國民權活動家。"
+    },
+    "lib/entertainment/global-history/people.json/87/name": {
+      "sourceHash": "bee4c87ab1bb59949fecfdd1dfdf4216a2ed04032824e48ed4afdb56d144eae0",
+      "text": "歐內斯特·盧瑟福"
+    },
+    "lib/entertainment/global-history/people.json/87/region": {
+      "sourceHash": "5ad932f07250d847599a09983d0d18fbbc4f473e87728bea8ab7e0fc3de8e0b1",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/87/field": {
+      "sourceHash": "e495cae3c98ca9f5d076b05fd672ec737117be53eb29bcfbe539a092f06d03b5",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/87/bio": {
+      "sourceHash": "59ecb3193fe1df95c3b55ecf82f2ac7123beeb618aafe48d335d400baeff9949",
+      "text": "紐西蘭原子物理學家。"
+    },
+    "lib/entertainment/global-history/people.json/88/name": {
+      "sourceHash": "04762ac64faa1e3686717b36a061e42d1fe596c8af77d9f06e1751e2f98109f3",
+      "text": "李清照"
+    },
+    "lib/entertainment/global-history/people.json/88/region": {
+      "sourceHash": "c22adc8492051115f5b0dfb74fc78ba9011dac130d79d708cd6cfc36579652f5",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/88/field": {
+      "sourceHash": "e05b6de2f809123584f8fd4d9c29ceda74b473b5475b2f00e6b31a67edf14e38",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/88/bio": {
+      "sourceHash": "d76b9031741edac7cb64e89f5c2e5be45814e11c1c2907518de8b5a02ae042da",
+      "text": "北宋末年至南宋初年女詞人。"
+    },
+    "lib/entertainment/global-history/people.json/89/name": {
+      "sourceHash": "8bffbea6af631a4e6b68c51d82b79ea14a114ac60a99da3ab9fbe3a700653a9f",
+      "text": "拉馬努金"
+    },
+    "lib/entertainment/global-history/people.json/89/region": {
+      "sourceHash": "a834a6c95686ffd1134efa0c905803a1e7847d3360909e74c86735f41d5815be",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/89/field": {
+      "sourceHash": "f80c931f241b4349d338b6d3724f29844c0797da69fae4c420a16c33f8d6c2db",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/89/bio": {
+      "sourceHash": "660e04eec627e0964f54cdbf591234d1cda474800085ac37638d712bb1790d5c",
+      "text": "印度數學家。"
+    },
+    "lib/entertainment/global-history/people.json/90/name": {
+      "sourceHash": "45b70c8bcbd341eabe1b2afe29f8fb763ebfed0873108119fee886fb9431bd16",
+      "text": "比魯尼"
+    },
+    "lib/entertainment/global-history/people.json/90/region": {
+      "sourceHash": "7f68ee22ad5e5c20508803c53d6ab8f234170c47e6295601a6dcc4aa0239a6bc",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/90/field": {
+      "sourceHash": "b8664fdcd3b42b77881949ff676d79d8fb5f11816e5d5922aec34423a268301d",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/90/bio": {
+      "sourceHash": "35399d53662bde84889cfa1c91edd00fc01ba34d91274aaa47b0d66761592eb5",
+      "text": "波斯學者。"
+    },
+    "lib/entertainment/global-history/people.json/91/name": {
+      "sourceHash": "605d1187bf123174e539c9d37daee7ddc93c9800520f76f7968173fcee585956",
+      "text": "薩繆爾·阿賈伊·克勞瑟"
+    },
+    "lib/entertainment/global-history/people.json/91/region": {
+      "sourceHash": "1248c15627d519570c476cc0bd1ef423701b3b7b82282ef86fb776c1a71cb32f",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/91/field": {
+      "sourceHash": "de3cb2410f888e2dbeda46d076c339e40724bd4df7a90361c6637eac6e0a02dd",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/91/bio": {
+      "sourceHash": "8669acb71a7a3ded5f69208c0c1f051c455c349deec271468a43e1937787f4b3",
+      "text": "約魯巴語言學家與聖公會主教。"
+    },
+    "lib/entertainment/global-history/people.json/92/name": {
+      "sourceHash": "b12ba96821bd365978ce9ae85b75af6e6d800f71799f65166d5fad5d49e5d7f6",
+      "text": "薩福"
+    },
+    "lib/entertainment/global-history/people.json/92/region": {
+      "sourceHash": "2e8f452d70164476b4fbc637a970f5af82db9bd20d6d23a4815c90042766f671",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/92/field": {
+      "sourceHash": "a394430631417e0afd07ed938432b1690d24478b20356683d61e1e00f904fe7f",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/92/bio": {
+      "sourceHash": "bac4281b510dfc30e93a9d256740074e999a684be7bd8a72d606f4e4b0b377c6",
+      "text": "來自萊斯博斯島的古希臘詩人。"
+    },
+    "lib/entertainment/global-history/people.json/93/name": {
+      "sourceHash": "8d836c9050e3defd125d6d43437d47e254228c8ad2189ea4a592c4428758fb06",
+      "text": "帕卡爾大帝"
+    },
+    "lib/entertainment/global-history/people.json/93/region": {
+      "sourceHash": "d92e60fcf498e6a2c53b44bf4847bc00e7e333bf26b330c5d5edaa329943317c",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/93/field": {
+      "sourceHash": "526f72594a5979e7d56593da1b6dbb976a6b4d140407d08b6c599ef1feb3b97f",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/93/bio": {
+      "sourceHash": "c224a61a6f8e9e2c405c09371838b11b5b3ab574e687b8f8d722245665563144",
+      "text": "瑪雅城邦帕倫克的統治者。"
+    },
+    "lib/entertainment/global-history/people.json/94/name": {
+      "sourceHash": "ca41f8599536d759b34e43c36d4fc2c0cee2f398984be3fe21abd60deb95d58c",
+      "text": "馬丁·路德·金"
+    },
+    "lib/entertainment/global-history/people.json/94/region": {
+      "sourceHash": "00fc8581f4ceabd044294be18c5b4ee6a1832eeb78ee8b225faf7de24705df18",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/94/field": {
+      "sourceHash": "690adb8ad71eb3555fd5a2a19ef08cc6d52b1754ca17a812db099b6b790dc89e",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/94/bio": {
+      "sourceHash": "639c8859987fb54e42e5a3a0956e024c2da0bfc36860706adba148fe5cf4c04d",
+      "text": "美國牧師和社會運動者。"
+    },
+    "lib/entertainment/global-history/people.json/95/name": {
+      "sourceHash": "174d742f048b6651b90df84871a986c77256cf88eed9a2d1e2f691cb84229eda",
+      "text": "特·蘭吉·希羅阿"
+    },
+    "lib/entertainment/global-history/people.json/95/region": {
+      "sourceHash": "2a1d63e66995eb90ca31db28aec46ba9c98704b6df1a0f4c9caf3d014c296ad6",
+      "text": "大洋洲"
+    },
+    "lib/entertainment/global-history/people.json/95/field": {
+      "sourceHash": "5663a14540c9b09a080029419e055184bd8c3bed00b141dd22728840618138e1",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/95/bio": {
+      "sourceHash": "2c94dcbb1b36c5b664fcb44818e4e2fbaff35f9d6093c99ec6b9e59c92889139",
+      "text": "毛利族醫生與人類學家。"
+    },
+    "lib/entertainment/global-history/people.json/96/name": {
+      "sourceHash": "52589d190e71a22d7bea0e51009405365312fc56d7ea5e6eb0729df88cd35c30",
+      "text": "蘇軾"
+    },
+    "lib/entertainment/global-history/people.json/96/region": {
+      "sourceHash": "b824447ef0c19ffab153161af4aec0e15b94b564b37300e9d8229ea8f84160ac",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/96/field": {
+      "sourceHash": "e02eb42ec5a89608128b39f1c4266cb8f7d91b770bfc454415c48b07708ddcb1",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/96/bio": {
+      "sourceHash": "56230ba173e983d6b8724315625fcbab0208469b770f18aad38578b7b6072d38",
+      "text": "北宋文學家、政治家、藝術家。"
+    },
+    "lib/entertainment/global-history/people.json/97/name": {
+      "sourceHash": "69686284931fa4c03a1ae282a088a44d7c9d790e5e635801ad4a9cb62138d297",
+      "text": "錢德拉塞卡拉·文卡塔·拉曼"
+    },
+    "lib/entertainment/global-history/people.json/97/region": {
+      "sourceHash": "4672e677dc7e014ae32a0c2fdeb8c834b01f2d44f71a640ba1e4761e0495321b",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/97/field": {
+      "sourceHash": "a68b697d57015324add157abc7185dd4e52f0951acbccaf1dfe5dbb723f56fb3",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/97/bio": {
+      "sourceHash": "94533e31e3f525369b1149cb37f6ba0f780cf07f0a74c533cccda7bb1cc102f4",
+      "text": "印度物理學家。"
+    },
+    "lib/entertainment/global-history/people.json/98/name": {
+      "sourceHash": "26e68c203805402a037be988e201a8363a098ae30829d8a5da0eb9c64f9548f6",
+      "text": "歐瑪爾·海亞姆"
+    },
+    "lib/entertainment/global-history/people.json/98/region": {
+      "sourceHash": "dcbffa82a81b7759ac454d43c4d8e04a0da47fa1cbfd01ac046ecea5cc6dbeeb",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/98/field": {
+      "sourceHash": "847217751d4afa4fd251b8826a26c0248435f5e3823a64c99290cb40f6946197",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/98/bio": {
+      "sourceHash": "82a2ef412cee281fba3168c93ef2a37040a36e18e7ae77c01305861172593d9f",
+      "text": "波斯詩人。"
+    },
+    "lib/entertainment/global-history/people.json/99/name": {
+      "sourceHash": "b3924eb821b23534c841788b34585d21bcb1b52f0ec0508b9d59777adfa52a5e",
+      "text": "約翰內斯四世"
+    },
+    "lib/entertainment/global-history/people.json/99/region": {
+      "sourceHash": "1905256ab6f0b8556c265f483d87268cb639fcb08a70e045bd8fbf660783bf4f",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/99/field": {
+      "sourceHash": "c770939d0a213286a1b81f1be53ebf89c1bbaea3c07023d6d07042adbde7fdf5",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/99/bio": {
+      "sourceHash": "2edaa72d369b8d6bfb09c5f7e23b0ff5fa1a9bfad06eefd28ec701a04e5c8d7f",
+      "text": "衣索比亞帝國皇帝。"
+    },
+    "lib/entertainment/global-history/people.json/100/name": {
+      "sourceHash": "6c02feaf7f17b213ef286823ef33e4e781b69226ffc54c473d73a9005388c987",
+      "text": "尤利烏斯·凱撒"
+    },
+    "lib/entertainment/global-history/people.json/100/region": {
+      "sourceHash": "faad14904a25a90b8e999984a1f0ab99e965e5be17a6d2a410440c00e28dc62d",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/100/field": {
+      "sourceHash": "ec3f976bf5e22ed78637d96a6a8487cc43cb60c6b2bcd8ba996f10fe125bf409",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/100/bio": {
+      "sourceHash": "e1893852ea4b1df67cf2509af67cd062bec8d88371772835c6cddcdb73ab9944",
+      "text": "古羅馬將領與獨裁官。"
+    },
+    "lib/entertainment/global-history/people.json/101/name": {
+      "sourceHash": "bbc18a0c7c9048a4df43358721a40f3335bc29a0551190516852d1bdde53c612",
+      "text": "安娜卡奧娜"
+    },
+    "lib/entertainment/global-history/people.json/101/region": {
+      "sourceHash": "15555ff73f85cb987b9204c0d32ac264889d3aff7c9eed6aa2a7c41803f69631",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/101/field": {
+      "sourceHash": "dccbe09da17b22f66636c83fb0b48d8f4b04dac6932e31ee6ae284b4aca0bf79",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/101/bio": {
+      "sourceHash": "6c47b18d880018f5de483a8d50384e1d649391d97317ca59b4bc8b113c36772b",
+      "text": "伊斯帕尼奧拉島的泰諾族女性首領。"
+    },
+    "lib/entertainment/global-history/people.json/102/name": {
+      "sourceHash": "bb94fa16bdaa6199635774a522f0ce80e30c0ece137b934eaf56af11b35364fb",
+      "text": "喬治·華盛頓·卡弗"
+    },
+    "lib/entertainment/global-history/people.json/102/region": {
+      "sourceHash": "87818bcd7412f7c7c4c2c6d23cbefecc63b01d8c574051f1083fa91c2c575865",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/102/field": {
+      "sourceHash": "30a0d8100162b9cdb8c2293642d994861c25712458be480f7b779aa69b205ef2",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/102/bio": {
+      "sourceHash": "901052b99532ec7b9f527a6ddc2aedd0ea3635c672271f2bb5030f9f5da090ab",
+      "text": "美國植物學家和發明家。"
+    },
+    "lib/entertainment/global-history/people.json/103/name": {
+      "sourceHash": "8d6eae8b540e909e35e9d3c0f3becbd6f9d7048bcc9d9b3e84d02aa00610bcaf",
+      "text": "沈括"
+    },
+    "lib/entertainment/global-history/people.json/103/region": {
+      "sourceHash": "562c884d799451ef9837a5002b0e9f26b0746f3924ab293196cd09f48a6499cb",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/103/field": {
+      "sourceHash": "a360e34adaadf9e8563c84e98627a6fb346079d0b19ede31285250e416170f18",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/103/bio": {
+      "sourceHash": "e791d4f9722a15022370a3d89e784f2fa7d20564b2238e4b7a9b7de172193daa",
+      "text": "北宋學者、政治家，《夢溪筆談》作者。"
+    },
+    "lib/entertainment/global-history/people.json/104/name": {
+      "sourceHash": "44f5888325283bf44176aaeebeb01e897a6e575da7eccbac9afae4e5e10cdd48",
+      "text": "阿姆麗塔·謝爾-吉爾"
+    },
+    "lib/entertainment/global-history/people.json/104/region": {
+      "sourceHash": "c89b849c29a4dbc0d2946158c9971d00aa0644ad41e8f3c3083ab97f35ce8950",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/104/field": {
+      "sourceHash": "7ab6b287e1f385834900a67c15d017ec2d8c2068d1a3684917db4e4089f57833",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/104/bio": {
+      "sourceHash": "5ca6863e936f44a82fe3037d7c62c5bb34203f43307221bb40e6ebc970f3fc07",
+      "text": "匈牙利-印度藝術家。"
+    },
+    "lib/entertainment/global-history/people.json/105/name": {
+      "sourceHash": "38cdd544943cb7623ade07f891fe6875fe9cab561af3e30d8e768b208f8da603",
+      "text": "魯米"
+    },
+    "lib/entertainment/global-history/people.json/105/region": {
+      "sourceHash": "7a51aafcae6da0bc59ecd0cc3574de7d8a5b67445e380ea6bd0cf17c5ef8de00",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/105/field": {
+      "sourceHash": "cccbac355a9abdd85a10cda6a581c4b68f02503441fece02e08ea75294efd1bb",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/105/bio": {
+      "sourceHash": "41888e3c1b5db467efd45a474529b8f5e8e2f2519157397d54316fde6411a3b0",
+      "text": "波斯詩人。"
+    },
+    "lib/entertainment/global-history/people.json/106/name": {
+      "sourceHash": "12af5974a9eede1aa5cc9be94dfe1b636a08d8f7f1469c47e9e6f8f5f2bb482d",
+      "text": "沙卡"
+    },
+    "lib/entertainment/global-history/people.json/106/region": {
+      "sourceHash": "71ce1d294adf5a633ef5f8322a6dc2bc3500854cb580356f8fa7e871c22f7813",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/106/field": {
+      "sourceHash": "6bb5bbe72c3aac6ed2967beb26ec5346c03b15d9348d70f85a47e5f5b9c54edc",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/106/bio": {
+      "sourceHash": "11e1fedf05b8dbdd5867dcf0d8b6dcc2d5dde9bef2d04557727aee31caf02e12",
+      "text": "祖魯王國的統治者。"
+    },
+    "lib/entertainment/global-history/people.json/107/name": {
+      "sourceHash": "01cf7601d3b8070eff6f87b9299b71037635eb8909370c303f0b0fd1716f7cd7",
+      "text": "塞涅卡"
+    },
+    "lib/entertainment/global-history/people.json/107/region": {
+      "sourceHash": "667e3343b7e56a4be5e83e48f961ce99e3d55b941430123beb59e49ada1af139",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/107/field": {
+      "sourceHash": "6173f0fc7d85a40b6e6c48f53a2ade2221b6eef3587ae58e961d145cd33e7388",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/107/bio": {
+      "sourceHash": "0f818acce2dcf287213c90b40ddc454a8f2871638a1b7c94ac6d8891808bbf39",
+      "text": "古羅馬哲學家、政治家、劇作家。"
+    },
+    "lib/entertainment/global-history/people.json/108/name": {
+      "sourceHash": "5a77308252809537173a0295006f94ead82b99cfdb807209816e17529447a10b",
+      "text": "克洛麗達·馬托·德·圖爾內爾"
+    },
+    "lib/entertainment/global-history/people.json/108/region": {
+      "sourceHash": "58fb7ec72906f33efc2addbc3a601b09515c1172859fb4dd0e6de395eca9fabd",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/108/field": {
+      "sourceHash": "083e07b18008a1f80084fc150c9a090df126b08c6ff1044b4ade7cc440680dfb",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/108/bio": {
+      "sourceHash": "8704e4a1c18f597bc9b248d34a2da56b6d51d897e1419c4f308fae82baa615d6",
+      "text": "秘魯女作家。"
+    },
+    "lib/entertainment/global-history/people.json/109/name": {
+      "sourceHash": "19c51a19b2cc7b7a3f6d699c0b864bb6426d19bfe39390a75267e27e8abcc889",
+      "text": "本傑明·富蘭克林"
+    },
+    "lib/entertainment/global-history/people.json/109/region": {
+      "sourceHash": "93133e8e44dc2edf5e3d7b69b152a59fe30e4e35f32c4c9bc25ccde052991375",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/109/field": {
+      "sourceHash": "06718467d093357d56c63200365dcb2208af2667495d1701bc42f6ba7fb8896e",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/109/bio": {
+      "sourceHash": "3033fd499c74f5ad018b32adb374dd279cff25a45af68a73b89749b260c0d740",
+      "text": "政治家、思想家、科學家。"
+    },
+    "lib/entertainment/global-history/people.json/110/name": {
+      "sourceHash": "049e9b804b3b019bd4bff3161154854f4008f0467ae8653189fa6fde70c07475",
+      "text": "李時珍"
+    },
+    "lib/entertainment/global-history/people.json/110/region": {
+      "sourceHash": "a04856868c5effb7fb11a5a27e0978222edc8f043f4c7e4502bd4b5dc1609eda",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/110/field": {
+      "sourceHash": "4373aabf9536d6f2b91447d92b262ac621305c3f118e2b5524e1a9c0b35594db",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/110/bio": {
+      "sourceHash": "10674536f409db06b9f6bdc285a536002ebdca2bf9795209feb9e4857158a143",
+      "text": "中國明代醫學家。"
+    },
+    "lib/entertainment/global-history/people.json/111/name": {
+      "sourceHash": "19d70bb53e2990e3beb1be8ef07ecd9f7b6fabc4d34ed4f7e524aec15cad5a90",
+      "text": "賈加迪什·錢德拉·玻色"
+    },
+    "lib/entertainment/global-history/people.json/111/region": {
+      "sourceHash": "d912ce81ef1a5f7644a703c096a642ea3e6b4b17113725aef9ee7c8db1ae0401",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/111/field": {
+      "sourceHash": "4f3dd980f53d8127b42d66ed65788437ad1e0b6ee03c7395d6aa4d0f139faa7c",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/111/bio": {
+      "sourceHash": "ecd88e518c59fc87aaee548e857544ab2f97b32001d93afd23c343f6e5323a2f",
+      "text": "孟加拉物理學家與生物學家。"
+    },
+    "lib/entertainment/global-history/people.json/112/name": {
+      "sourceHash": "cdeee478903ef69aad0b7ce8c69a19d6928cf83f040dfa5c8a825c1528ae1e0d",
+      "text": "菲爾多西"
+    },
+    "lib/entertainment/global-history/people.json/112/region": {
+      "sourceHash": "89c026147a8aff64fba037282391f20e98e0051d78424eae497e3b3e5cd76c7d",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/112/field": {
+      "sourceHash": "f17db50d6bfd0b65e1c0de8106db96e0af57fae2fd1109658d06d0a24284d9a8",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/112/bio": {
+      "sourceHash": "208fe11d9cf05334caede89877b69254b258c4df2fd1cd399bdb344d6c13f962",
+      "text": "波斯詩人。"
+    },
+    "lib/entertainment/global-history/people.json/113/name": {
+      "sourceHash": "344acb7a4851378ba5e078b095c3352b2a1c8da391c0b4ff73df3a8d11141abd",
+      "text": "克加馬三世"
+    },
+    "lib/entertainment/global-history/people.json/113/region": {
+      "sourceHash": "5f70704e36f2687113424f34197722ccc28f30d402cb096fa4a51d09b63ef073",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/113/field": {
+      "sourceHash": "464e803417e5bf126a8d68db0b683412d10d9ea3b118ba7a4dc2c6bdeaba4b8b",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/113/bio": {
+      "sourceHash": "c14525a595c0ef125ebf1ec983b69156823d3cb8e1a27a64601e9bd9d1377252",
+      "text": "波札那地區班瓦託人的首領。"
+    },
+    "lib/entertainment/global-history/people.json/114/name": {
+      "sourceHash": "073b7ef81929808e6c455d638fe19161617b437f74bb55243917e7727ffe2a1b",
+      "text": "查理曼"
+    },
+    "lib/entertainment/global-history/people.json/114/region": {
+      "sourceHash": "cce278f0d05e3e08d30effb83cea9e614945b2b11f89a9777242b7039c3f4d53",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/114/field": {
+      "sourceHash": "c0bd7344a385d6306b63e80ab775964d6f31ab1a243bfaeeff45ad7c1b91f25c",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/114/bio": {
+      "sourceHash": "7942bb68d08bd6414a373f93108061ae7eefea46e339529bb66c9b61874c545e",
+      "text": "法蘭克國王，神聖羅馬帝國皇帝。"
+    },
+    "lib/entertainment/global-history/people.json/115/name": {
+      "sourceHash": "257ce3fd44fc67d0ef5d95f77bb09ca4266a037b3ff4579f5ff9b3a3484f6837",
+      "text": "胡安·魯爾福"
+    },
+    "lib/entertainment/global-history/people.json/115/region": {
+      "sourceHash": "c8f2ef476e4392548974d253c5d11681a7fde93a7e9389b2007e85eb9c613366",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/115/field": {
+      "sourceHash": "cbde6b6da68915ad3a8a4585064919832a7cd94b1c9f77eeb89fb475a9d87623",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/115/bio": {
+      "sourceHash": "6df48d921477b53cd97f335b5220e78ab90d7923dda409c5f489f0035a74878d",
+      "text": "墨西哥作家。"
+    },
+    "lib/entertainment/global-history/people.json/116/name": {
+      "sourceHash": "6ebd0eae9488d2244127eb5d0a760d7f4471500fd6127adf00d3e530eb9bd416",
+      "text": "亞歷山大·格雷厄姆·貝爾"
+    },
+    "lib/entertainment/global-history/people.json/116/region": {
+      "sourceHash": "fcd83ab269dbf6770a315c4ff0aa799b6e3fa4fb52b0a25aad14f53fa985f1d2",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/116/field": {
+      "sourceHash": "725f4870af34a2ae72b0bbdfe0a1c2ed7ef8bc1abc2ace8baee387b8453e3c52",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/116/bio": {
+      "sourceHash": "f5c14566199b35dda968e9ef5d3bffca7388ee150a2d5ad6f173ced1573ce073",
+      "text": "以關於電話的工作而聞名的科學家和發明家。"
+    },
+    "lib/entertainment/global-history/people.json/117/name": {
+      "sourceHash": "00026a01f2a72acf8452928372f98fb07762210764a2ce65545a7158ae8c4774",
+      "text": "徐霞客"
+    },
+    "lib/entertainment/global-history/people.json/117/region": {
+      "sourceHash": "33b80d6396ad431fbf1b8fc954d35bbd4efbed786f1d4185bb3d2fd4408c0215",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/117/field": {
+      "sourceHash": "c609a7e5777fd5a7a30a09b023e7b68f6e6231f216362694e28cbe7343ded434",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/117/bio": {
+      "sourceHash": "41fc6de662e8f6268e9cb5834becbc8dcb1c71b5c62d845f388ecaeee6a8dd35",
+      "text": "明代著名的地理學家、旅行家和文學家。"
+    },
+    "lib/entertainment/global-history/people.json/118/name": {
+      "sourceHash": "84c4ef45e1f75ff61b8949b3a89906cbc8a584b60d267aaed9b1b22f2e0e7fdb",
+      "text": "魯凱婭·薩卡瓦特·侯賽因"
+    },
+    "lib/entertainment/global-history/people.json/118/region": {
+      "sourceHash": "094d06575a1a965928eb7f6979d326fc06ff9fd01e3cafab6dc73edfce8004a6",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/118/field": {
+      "sourceHash": "b7f0104fb34dd4cfa0c1b138b5c0dc33184bbe5a23c6a6183940096a7baf24cc",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/118/bio": {
+      "sourceHash": "6333e6371c93c84a8ef27db22daa1d8b4fba4381d25ef9d2913facad17c2097e",
+      "text": "孟加拉女權作家與社會改革者。"
+    },
+    "lib/entertainment/global-history/people.json/119/name": {
+      "sourceHash": "b6d9da4dcf6370a1c89acabfb366c413e76f6a5a341564706f6f1245c0d1e525",
+      "text": "烏魯伯格"
+    },
+    "lib/entertainment/global-history/people.json/119/region": {
+      "sourceHash": "fd0cc9d62eadd00051f6ec6daa005b4b10c8966e7019fb78f0448d259cc7be0c",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/119/field": {
+      "sourceHash": "648bb8e68b52f2824d153e172fbfa09338d761f491b4988f0e056e0c9efd0a1f",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/119/bio": {
+      "sourceHash": "638f63f0a7eb2fb88f678263bcbd34878f2b377c82aaf84344cfafd7f50b9493",
+      "text": "帖木兒王朝統治者、天文學家與數學家。"
+    },
+    "lib/entertainment/global-history/people.json/120/name": {
+      "sourceHash": "f758e22e7c6fe5d7241663af8fd4bfad2f37033ff0e9ba2a63be89d79ea33bb2",
+      "text": "卡爾洛塔·馬克塞克"
+    },
+    "lib/entertainment/global-history/people.json/120/region": {
+      "sourceHash": "16cb9192e14ec0264d0a92ea1d3e02cfea5db509c81314029ed14fcaf7791c50",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/120/field": {
+      "sourceHash": "ca9eb48ae6deca0b755dc2835d7bf6e9f257298cf57505056bfbb5f6f9710d0d",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/120/bio": {
+      "sourceHash": "2a1497d818a35be5d7004c94a503e21f6c4edc2d027251916b35dded712fd466",
+      "text": "南非社會活動家。"
+    },
+    "lib/entertainment/global-history/people.json/121/name": {
+      "sourceHash": "b5fd43c8da17519b42e88b0dd2bc80640d9037b395ce0795f13ee10c1707d404",
+      "text": "阿基坦的埃莉諾"
+    },
+    "lib/entertainment/global-history/people.json/121/region": {
+      "sourceHash": "a75251f63c7e1340a5d48efb00715e1efa1fdc6e15d682a0fc79bc7b4d1177e3",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/121/field": {
+      "sourceHash": "492e386b5510bc0eb4c83ec3731a95b6368d15afbb3f4ebb4c6101d23a9c336f",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/121/bio": {
+      "sourceHash": "fc77455dce05c244273bed76e9378b9fc0de907dea61b3d8ae642c6b21eca48e",
+      "text": "阿基坦女公爵，曾任法國和英格蘭王后。"
+    },
+    "lib/entertainment/global-history/people.json/122/name": {
+      "sourceHash": "f51dadf4768236c35dae6f0f447aadb94eaaca4dc0b1f7cecc0df6df02700b6c",
+      "text": "加夫列爾·加西亞·馬爾克斯"
+    },
+    "lib/entertainment/global-history/people.json/122/region": {
+      "sourceHash": "c16528a8ee6b3d78be742d78c6622283b4378605a2b9edba8d1ae7dd9e515d36",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/122/field": {
+      "sourceHash": "e8c8878d768b6f995f869e5a3f0f3e3e265f5acc8e0d08401ce4337705dea0f1",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/122/bio": {
+      "sourceHash": "f7e5867ead7ea986d41995ecbdd0cee5209874cdc1fd7e1c5093155edfe71eb3",
+      "text": "哥倫比亞作家、諾貝爾文學獎得主。"
+    },
+    "lib/entertainment/global-history/people.json/123/name": {
+      "sourceHash": "e0b4677e8e6af6632cd032ae323012effb8157c6a7ffde226c8c4c41ef711a1e",
+      "text": "貝茜·科爾曼"
+    },
+    "lib/entertainment/global-history/people.json/123/region": {
+      "sourceHash": "17fa8d2b5cce27007a33ede31ca8897f5bc58558c84a9b3cb60502bb9b32e3f6",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/123/field": {
+      "sourceHash": "18ba77f5d81164c8e7ad906887433738ecf5cb6ecf853f8cd66048c7cb304b24",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/123/bio": {
+      "sourceHash": "13ec646e57b792b3be5b252ba4fca615facd09e47ef6453d6f92923cb841ce0e",
+      "text": "美國飛行員。"
+    },
+    "lib/entertainment/global-history/people.json/124/name": {
+      "sourceHash": "385db906d8a194b2dcf168e12f8a590a4ededb80283e40431fbcf33d893f7ccb",
+      "text": "鄭和"
+    },
+    "lib/entertainment/global-history/people.json/124/region": {
+      "sourceHash": "c7a2e53bfa27bf09c0dab97b5a9c4420e3c6026c3d3084692bf64eab0ca87fc9",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/124/field": {
+      "sourceHash": "5c79af627c61796ca4a387079417b2a5612fd41d3701544ee831c001feae5f9d",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/124/bio": {
+      "sourceHash": "afdd82b5e96ec9282b8d497853bd50bd8bf0df1e1dbf890e3c0e279ca59bc482",
+      "text": "明朝航海家、外交家。"
+    },
+    "lib/entertainment/global-history/people.json/125/name": {
+      "sourceHash": "b4676442d8e3f77b3df9134b8530c885e0440f56faf7df0833ad4d2d8606716d",
+      "text": "阿卜杜勒·薩塔爾·埃迪"
+    },
+    "lib/entertainment/global-history/people.json/125/region": {
+      "sourceHash": "c1ad98ab7bbc5129986884c8e2dee33c0a96ea3b3b7e66ddd27de2544ea62da7",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/125/field": {
+      "sourceHash": "aef4a984ae1a2f28cea8660ad366ad29867c261b3f08b61a8c2c954a2abe3192",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/125/bio": {
+      "sourceHash": "51d61861f3b7ecfccf9be18a4c22fe7d0cb52d5f3a249a6e9e3fd1fe46a909af",
+      "text": "巴基斯坦慈善家與人道救援工作者。"
+    },
+    "lib/entertainment/global-history/people.json/126/name": {
+      "sourceHash": "bd55906e5682d10238aa96f76b3c3d4faa823663b2e8ff3f874602eba04e0e86",
+      "text": "錫南"
+    },
+    "lib/entertainment/global-history/people.json/126/region": {
+      "sourceHash": "ef148296a0c1331eaa2145aa18f61b06800b3e0558af732e3394978b76e8aaff",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/126/field": {
+      "sourceHash": "69f9e38a6a44517731e951314499fe6002673daa26c9d827b8953a2af2ab9d1f",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/126/bio": {
+      "sourceHash": "f0d5090401d1d88024ee437af5b50b0c6426f7621f0172cbfb38681133d877be",
+      "text": "奧斯曼帝國建築師。"
+    },
+    "lib/entertainment/global-history/people.json/127/name": {
+      "sourceHash": "51ab126dcb6146ab21b491fffcd0e3a76ee289c89194c25b9693c88142326d4c",
+      "text": "莫迪凱·普萊耶"
+    },
+    "lib/entertainment/global-history/people.json/127/region": {
+      "sourceHash": "a7caebaa446f2d6c9c9fdd31d0d68a30cff77087f78f4faec5c5c1b04310488c",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/127/field": {
+      "sourceHash": "68fb3d8759ded72af0b268b31331a06d834d659f9c5bcfbeaa67fa75569c5d14",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/127/bio": {
+      "sourceHash": "dffcc0e7e4bcba793aa04e80e4fc2cf77b0b688b7344804fb1135454b8b3ee6f",
+      "text": "南非作家、記者與政治活動家。"
+    },
+    "lib/entertainment/global-history/people.json/128/name": {
+      "sourceHash": "45e29cf07a3688121e6dc9f326b97786c76a36965a3dfeac91d0dcfcd11904a8",
+      "text": "但丁"
+    },
+    "lib/entertainment/global-history/people.json/128/region": {
+      "sourceHash": "c097f823b2bb7adfed1462f11675a55b43e902469066adf54e1363c3acd80f95",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/128/field": {
+      "sourceHash": "0e70dfc025caf5fdd58879af89bae3833b49af29eb4927c05664a00744e9c0eb",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/128/bio": {
+      "sourceHash": "a144d75d4912da49c7be0a1528fd8b683cfcff2e1fc528bf0a116451889de82d",
+      "text": "義大利中世紀詩人。"
+    },
+    "lib/entertainment/global-history/people.json/129/name": {
+      "sourceHash": "985e7c0186d9f6ed5a217ae78de23e9ffb6a864d9ff48eecbaeb89c2947bad1b",
+      "text": "阿梅莉亞·埃爾哈特"
+    },
+    "lib/entertainment/global-history/people.json/129/region": {
+      "sourceHash": "dc1c1bb2097e3324a6d4ec406500fee1825a9debd41bdd3834ce46e3dd4722e7",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/129/field": {
+      "sourceHash": "ac0f6f1720a0b05eeb7eed20ce24534727e64de0816e63522020185e5a2b7017",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/129/bio": {
+      "sourceHash": "3a902cde879ceef780ff8f47afb334b2517e4ec601e6edd9b58d127c6eaeee4e",
+      "text": "美國飛行先驅和作家。"
+    },
+    "lib/entertainment/global-history/people.json/130/name": {
+      "sourceHash": "50a1832908ad5a601e7628e1e8f902df4596cf32f015b9e318bc87d2a45e4f55",
+      "text": "王陽明"
+    },
+    "lib/entertainment/global-history/people.json/130/region": {
+      "sourceHash": "5ef3a0501421c8c60a0b44f00cc4024a20c8a637038c4519730a08f07f4f6fb3",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/130/field": {
+      "sourceHash": "cada8946f099d677eca9f7be42e1181156fa6c0f9c169af1e913a95f1631e93a",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/130/bio": {
+      "sourceHash": "e69cd225fe6288dffa072800787941b206dafcc983697d70ddc5d08804691e75",
+      "text": "中國明代哲學家、軍事家。"
+    },
+    "lib/entertainment/global-history/people.json/131/name": {
+      "sourceHash": "c280270e804fb801fbe91a69fd6cda4b2868b0ad70aed415fea57532e9b5cf84",
+      "text": "阿努律陀"
+    },
+    "lib/entertainment/global-history/people.json/131/region": {
+      "sourceHash": "da1e1ef4303ab3c8d1f587d1962cede865c5b961cdf58fd159378dad8faf44c1",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/131/field": {
+      "sourceHash": "b851cd78b2b02f4843a9d05a3b9b760fee7c2f9f6aac239381e175c49848bd73",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/131/bio": {
+      "sourceHash": "858a29a8d05718af40cc8052528c97bf1b31832da8cff0f8192f93f738e32fc9",
+      "text": "緬甸蒲甘王朝君主。"
+    },
+    "lib/entertainment/global-history/people.json/132/name": {
+      "sourceHash": "ec49226f00aa371afccb0a1816b543038562dea58c35d377ac0587583184baf0",
+      "text": "埃夫利亞·切萊比"
+    },
+    "lib/entertainment/global-history/people.json/132/region": {
+      "sourceHash": "b70dd47b74cffdf3d213d1ee166cabaa9e045436b3fd97584792784292cabc6b",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/132/field": {
+      "sourceHash": "20d14f1051d50405bd8542d47260c5e5b75171f4195422f939004b01fbfe266d",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/132/bio": {
+      "sourceHash": "c1528cfa5ac62042c03242355a4485c950e8c58e9aea45b0e290594091045b44",
+      "text": "十七世紀奧斯曼旅行家與作家。"
+    },
+    "lib/entertainment/global-history/people.json/133/name": {
+      "sourceHash": "111faf4236c737b07f000ac2f5fdb588eefc23491ec25a49ec39f2d4c0cd71d5",
+      "text": "欽努阿·阿契貝"
+    },
+    "lib/entertainment/global-history/people.json/133/region": {
+      "sourceHash": "81b419df2fc4c1b79188c880b16d316cdf8b4448d7a2f92b6aab1106167269eb",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/133/field": {
+      "sourceHash": "a164696e41a62c1e454f4bffdc3cb5afc78d619682e4be88a7f0ebd51e1ef781",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/133/bio": {
+      "sourceHash": "29fa4b65f6502d3b616fac98524ff8b71d716919789f105f6e6948f0c38b89b5",
+      "text": "奈及利亞作家。"
+    },
+    "lib/entertainment/global-history/people.json/134/name": {
+      "sourceHash": "852d1cff215774a379de5619b2bc2db9e87249c7de6cf71d0ee5e7d91d8ba92d",
+      "text": "米開朗琪羅"
+    },
+    "lib/entertainment/global-history/people.json/134/region": {
+      "sourceHash": "1059dad1b187d55c0f4875c7f69706fbff2d8b484470654b94dfa0e13c671531",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/134/field": {
+      "sourceHash": "bd41f8d14565fd142351faae96d4cd750da5684f5ebf33a257a6dbd8ea88df47",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/134/bio": {
+      "sourceHash": "8b9fcf89d88a64f7e63ff758d6b031dca305fadf2067356996468289b5b1e0c5",
+      "text": "義大利藝術家、雕刻家、畫家和建築師。"
+    },
+    "lib/entertainment/global-history/people.json/135/name": {
+      "sourceHash": "dffd5c7620f0d3ba9ee84913cf5d96fb0f47c2c7d67297bc32ab5f1408c03d08",
+      "text": "馬查多·德·阿西斯"
+    },
+    "lib/entertainment/global-history/people.json/135/region": {
+      "sourceHash": "89753ca37f27f019f29e72f5ee3960c637e9e03beb579767821d37fe08878082",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/135/field": {
+      "sourceHash": "32ec4949067c3fb2fff2e30a2087351a4cfba990cc982e959433d6bfb224aeab",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/135/bio": {
+      "sourceHash": "62cbc8fc2afec01a95b544d7d6dc5873d3e90d62cf9eb3bd9739ee4e4592c04d",
+      "text": "巴西作家。"
+    },
+    "lib/entertainment/global-history/people.json/136/name": {
+      "sourceHash": "27731b7553f50c6a0ef5e1a1627c6aae70194e819ed7a7d73c4254d180f34a21",
+      "text": "薩卡加維亞"
+    },
+    "lib/entertainment/global-history/people.json/136/region": {
+      "sourceHash": "07b96bc6d19681f1834161db13beee6bdb0fc3065bb9fe8ec6ec3bca6a5ea692",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/136/field": {
+      "sourceHash": "1f693c52f33268c59905e434f7303e9625fb211b513295b9bcedada42b15d53b",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/136/bio": {
+      "sourceHash": "8a83ea2eca82ebb8358927ece2881a21b069910621f4bc85cb6223021d69a4e9",
+      "text": "肖肖尼族女性，曾隨劉易斯與克拉克遠征隊同行。"
+    },
+    "lib/entertainment/global-history/people.json/137/name": {
+      "sourceHash": "e63ab959f2e811c1a17dd86df1e342a755dd70e80c5235188dc05c3a433b3b0d",
+      "text": "秦良玉"
+    },
+    "lib/entertainment/global-history/people.json/137/region": {
+      "sourceHash": "5bf593e55f14275ed14895cf1730b593cb00f8c54b854dde176ca2c0fd2da58c",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/137/field": {
+      "sourceHash": "eb8ae797b28ca86875d35f13aee4b7abd2b37fcdec4dbc875a8d68ec8685ca94",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/137/bio": {
+      "sourceHash": "e48f655eb47480d542b61b853f1339c1da981e09e41e2b7c8cefc77e71ed6459",
+      "text": "明末將領。"
+    },
+    "lib/entertainment/global-history/people.json/138/name": {
+      "sourceHash": "995db9c92ad619d59a4b572cd2550d1912b98b7db6bcb4927e471b5f65076f0d",
+      "text": "素裡育泰"
+    },
+    "lib/entertainment/global-history/people.json/138/region": {
+      "sourceHash": "21e14db8e4c05bffabbe218872b1f81884850fcf9f29840f9608bbd4387a7a0e",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/138/field": {
+      "sourceHash": "e5a2ede1bf0dd4e9ef895fffd4ee8c0a1f710617a967d56211342966b5819d1b",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/138/bio": {
+      "sourceHash": "44bb45b8739f5d1ec4ddc2877531caf727c1bf2ebce5cff4f712dd2a7c8861da",
+      "text": "暹羅（現泰國）王后。"
+    },
+    "lib/entertainment/global-history/people.json/139/name": {
+      "sourceHash": "656cc49976e6d29385e07310c1880dfa3be97f1edfc7a50d155288b41a811cff",
+      "text": "胡達·沙拉維"
+    },
+    "lib/entertainment/global-history/people.json/139/region": {
+      "sourceHash": "e287e0a83a49260c5cee1a34aad5f3296d5b739aeea6f82578973c950d5fd6a8",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/139/field": {
+      "sourceHash": "6cb191e0978a0f18b88e50b525f9c8853ea740ac8d182177532407e3020f6cc7",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/139/bio": {
+      "sourceHash": "c82266c84067b4ee76e31883e30b244947986654024bf10c1c3dcc2387db6bbd",
+      "text": "埃及女權活動家。"
+    },
+    "lib/entertainment/global-history/people.json/140/name": {
+      "sourceHash": "bde81f2464cbe9b34e598fddcfb4af98752c657b3d15411cd400136b6f5771a8",
+      "text": "馬里亞馬·巴"
+    },
+    "lib/entertainment/global-history/people.json/140/region": {
+      "sourceHash": "147bba9ad1c8da15999866e5baa7c3ee0f3fc0195cbf292727e6db4e3bc61513",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/140/field": {
+      "sourceHash": "5f4b6ad0d2b4f27a4f7b4a554bf3b93f6928bc471265fec0b84d8b8fe782bd9c",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/140/bio": {
+      "sourceHash": "624bcab06d4963d490bfc05976f50601e322fce2723fc2d4b69871f8d6a6e6d2",
+      "text": "塞內加爾作家。"
+    },
+    "lib/entertainment/global-history/people.json/141/name": {
+      "sourceHash": "665c59f9337da20f4f906af9aa42ea81830752657d8d5a4da4dc9387ea594304",
+      "text": "阿爾特米西婭·真蒂萊斯基"
+    },
+    "lib/entertainment/global-history/people.json/141/region": {
+      "sourceHash": "e3b06e307f01e33c12c9cab0df47fd4cf2b967ec79a4f584660d725006aea2c2",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/141/field": {
+      "sourceHash": "995e56e082d350ef1645d30949069195969b793f3c62e8b84d89b5c407196cec",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/141/bio": {
+      "sourceHash": "0fcbf4681bb939c7a35d3067c8e11608d9439d8baa780bebf9f32e5cb94fc708",
+      "text": "義大利巴洛克畫家。"
+    },
+    "lib/entertainment/global-history/people.json/142/name": {
+      "sourceHash": "7b375930ea4d4802a7afc1130df4a8af4c4915d57bc86266471e35c8654268c6",
+      "text": "卡羅利娜·瑪麗亞·德·熱蘇斯"
+    },
+    "lib/entertainment/global-history/people.json/142/region": {
+      "sourceHash": "7ef4ea030a00a18a7ae1d1bef4a930888ca216071ce64b59b51d0c44491241be",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/142/field": {
+      "sourceHash": "56057a2819aa48f45b8b83e677592c9312dde3ad2fd5f014e27b9a00183ebc7a",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/142/bio": {
+      "sourceHash": "6aee203cb8b0d31124019f1d27f58e0f9247ce8a6a0e2a046d755a8b15a4dfca",
+      "text": "巴西作家。"
+    },
+    "lib/entertainment/global-history/people.json/143/name": {
+      "sourceHash": "642575ccc5ddc1594f24c3423310a6417a84fc8449bf7742e5d0ac95cbda5879",
+      "text": "莎拉·溫尼馬卡"
+    },
+    "lib/entertainment/global-history/people.json/143/region": {
+      "sourceHash": "d74314a0d865c34b9539de93398b4e7aa0ca22b569e6817b43b4c5a3cd3d3a92",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/143/field": {
+      "sourceHash": "fa6655907d352cf861fc391c73bdd4c413a30794b3ab7b7ac89796b05cc217f3",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/143/bio": {
+      "sourceHash": "92bddb5afd296b5ed57239d97e31e2ac360795288412bf27841dc7b1fbbbba50",
+      "text": "北派尤特族作家、教師與活動家。"
+    },
+    "lib/entertainment/global-history/people.json/144/name": {
+      "sourceHash": "a765b13646652c9a667eae6b01dbe7831f504a10b1ff086481ab1929b74d9f9b",
+      "text": "宋應星"
+    },
+    "lib/entertainment/global-history/people.json/144/region": {
+      "sourceHash": "6c88f150b4de4c8c9ee40e802d5318ce8f9c2119cb7192661e78801b9e345da3",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/144/field": {
+      "sourceHash": "053c9a3b54e15ac828b3df38192b9abcdeb70640979b55cb0267c8564575193f",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/144/bio": {
+      "sourceHash": "c8760627162a1a77a5411b0dd0792073219dbc2c582111208b13a7137a5b42c2",
+      "text": "明代學者，《天工開物》作者。"
+    },
+    "lib/entertainment/global-history/people.json/145/name": {
+      "sourceHash": "7974a18e513ec8bc2c653f7fea0d478c11c3292fef2daf2227d542a93a02df59",
+      "text": "順吞蒲"
+    },
+    "lib/entertainment/global-history/people.json/145/region": {
+      "sourceHash": "cb8371e91c6e66810bf1e613b5d0549368e3a7ecca420f11715bd63ef53ab472",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/145/field": {
+      "sourceHash": "7dc39e296a89b882e42058466877e68ede3cbefa60f437c62f051485926f5134",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/145/bio": {
+      "sourceHash": "ec0ad78593d3e11a7a5134eaa81e220cc2d5727b3135ed871373d26fdfdb5ca3",
+      "text": "泰國宮廷詩人。"
+    },
+    "lib/entertainment/global-history/people.json/146/name": {
+      "sourceHash": "a5070436a056ec6d174858500db9cdd28c72a6b4dc6407c5aaa20fa7594ad927",
+      "text": "烏姆·庫勒蘇姆"
+    },
+    "lib/entertainment/global-history/people.json/146/region": {
+      "sourceHash": "4a2bd9538823ebed37ce82c859064839c8fec278a130a2edbc8d47eee6de28c5",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/146/field": {
+      "sourceHash": "131ec3da101683284b29a4edcd598c251ab587646ae62c8684ed0a29e6ff8f5f",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/146/bio": {
+      "sourceHash": "71c566762f125548bdf9bd27739fb421abddf413e5e8d45b4f486f73a2a8a90d",
+      "text": "埃及女歌手。"
+    },
+    "lib/entertainment/global-history/people.json/147/name": {
+      "sourceHash": "e5779a1c377de2e8acf60fb514d7509cd6118656c691974f5bfbf38575cf1faf",
+      "text": "米麗婭姆·馬凱巴"
+    },
+    "lib/entertainment/global-history/people.json/147/region": {
+      "sourceHash": "fa22d4658f00dc18b38a1c0b628efbceeb09ca30b4be36a40c312a4ce24d9270",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/147/field": {
+      "sourceHash": "53a40ab06e1a7c1efcde1a351db71f63b5e37572153f2471c57a1ec7d79ae13b",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/147/bio": {
+      "sourceHash": "88b14e8428dc825a0e2a4a05490a591098040db3f659e8f0f3c0103a76210f21",
+      "text": "南非歌手與民權活動家。"
+    },
+    "lib/entertainment/global-history/people.json/148/name": {
+      "sourceHash": "bd47649a1d8c9431f24efb6167f50f178e99d8802a476b67e60ebf9b3d32a0a6",
+      "text": "哥白尼"
+    },
+    "lib/entertainment/global-history/people.json/148/region": {
+      "sourceHash": "36266394cf4b4ab10d9c74c18acaf7080c8d3aafd38509cc82acf0328e538709",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/148/field": {
+      "sourceHash": "1a4340d63b9dfc56edff992b47e4196e57659aefae672a2cb26cb75ff2789544",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/148/bio": {
+      "sourceHash": "a71606ba9cd47febd67a8c9ac2fd112cf25d02735d1d655d9477f98d93b2000d",
+      "text": "文藝復興時期波蘭數學家、天文學家。"
+    },
+    "lib/entertainment/global-history/people.json/149/name": {
+      "sourceHash": "dae140f0c5ef485424152e773d5d1ca10aeedad43af71a8e395f47cfb76bc2b7",
+      "text": "薇奧萊塔·帕拉"
+    },
+    "lib/entertainment/global-history/people.json/149/region": {
+      "sourceHash": "cdf009d0a483d8268a36c92ce4e2df019e938960be79e224fd64d7a4c18ce15a",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/149/field": {
+      "sourceHash": "786fbc68068755743800e1ec0bffe44c9e897a8a65b50ced9ea324766c6a22ea",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/149/bio": {
+      "sourceHash": "4bf584740510fb44a5c3ac3a9320376005bcbec2ef1bffd1f231fb18f51b3833",
+      "text": "智利音樂家與民俗研究者。"
+    },
+    "lib/entertainment/global-history/people.json/150/name": {
+      "sourceHash": "4744ec2a4f44bfb5db499b7fa5820be0eb4977aca747431850392b7a0be1a317",
+      "text": "洛岑"
+    },
+    "lib/entertainment/global-history/people.json/150/region": {
+      "sourceHash": "d9d0161660b9f432c44d98f542b745198f9a61bb1d1fb80de2571df992fb9b02",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/150/field": {
+      "sourceHash": "b701fa170eb18fe40a94d99b485b1b3be2abe1d3b3e74a9900de7fe849b7465f",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/150/bio": {
+      "sourceHash": "b8322ec2a799d0a29a100682921d03cc0bc6202e9d59978baaca0c9a21e7a66d",
+      "text": "阿帕奇族戰士。"
+    },
+    "lib/entertainment/global-history/people.json/151/name": {
+      "sourceHash": "4825ebb1683734719e5b11505b821522a8971d2b0e26620fb29b56ba0b839068",
+      "text": "秋瑾"
+    },
+    "lib/entertainment/global-history/people.json/151/region": {
+      "sourceHash": "797a073120547f243d3eb9d5c38095c2dfc5e6f99bd631df8a83d916a0d8a07f",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/151/field": {
+      "sourceHash": "bc9b9d751ecad33f7974a4d7fa5746b1199eaf406dd9a3340c2ed01005f13a55",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/151/bio": {
+      "sourceHash": "0592fa45386beb987a0341715b1591d5b38c1c85dba887d5c57e9df2e8fbc799",
+      "text": "清末革命家。"
+    },
+    "lib/entertainment/global-history/people.json/152/name": {
+      "sourceHash": "346f3d44f0f4f7f82c58c798f946b96acf31e917fb4e5c3366fe1be6de60c7fd",
+      "text": "阮廌"
+    },
+    "lib/entertainment/global-history/people.json/152/region": {
+      "sourceHash": "6db146059c91fc1ef818de974916fe2079f459c4474e2f3a0c2eb5ed94c4b6dc",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/152/field": {
+      "sourceHash": "c6e1bda89e2876d1bfbea2b657762cba26a34c0a8bfb4909b2a7c0b1ae00206a",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/152/bio": {
+      "sourceHash": "60eb5ce38823fdf61b62cbe5920cc3b4202d5a7dd8c30e9416665755accd9db0",
+      "text": "越南學者與詩人。"
+    },
+    "lib/entertainment/global-history/people.json/153/name": {
+      "sourceHash": "c0e2881eeeb3fbc09cc45126019d4f139639dd1b7398646bece8cfa904f00d5d",
+      "text": "沙賈爾·杜爾"
+    },
+    "lib/entertainment/global-history/people.json/153/region": {
+      "sourceHash": "6b373bca5f21ff98344a8696d1d07a616a20e45591e49d6353db92f9c68daeaa",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/153/field": {
+      "sourceHash": "c3bb17468d8750952194ec4ebbcbb7a4c82afacf504eb87c28da1d5a14feb91a",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/153/bio": {
+      "sourceHash": "b24037f1b03d7ca17529112814daa8a7fb02fb96b3d25231c994c39c1c579d10",
+      "text": "十三世紀埃及統治者。"
+    },
+    "lib/entertainment/global-history/people.json/154/name": {
+      "sourceHash": "6faef7ba20d6da4ee54024f8cfe7755d7dec9eac3bcf2bd886f584235ad6974a",
+      "text": "克里斯·賽杜"
+    },
+    "lib/entertainment/global-history/people.json/154/region": {
+      "sourceHash": "3dcb7e747a9c16a9b6ca3e0d9f2ddbb4717e13cc09f91c11a38625616e98e6d0",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/154/field": {
+      "sourceHash": "ac934be62101c3821610f102cfe932fe69cd8314a81527005ae2ef8a47c316f1",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/154/bio": {
+      "sourceHash": "788854be2942f3ea035ec45d7a613f6e797160fe82ba0c77d34b15216e4e5b43",
+      "text": "馬裡時裝設計師。"
+    },
+    "lib/entertainment/global-history/people.json/155/name": {
+      "sourceHash": "490c1bdf1e74b1d4ad590b4adbe9e9063722f02ebd6a92548b79b1b27fb868e0",
+      "text": "伽利略"
+    },
+    "lib/entertainment/global-history/people.json/155/region": {
+      "sourceHash": "371e4ef1bdfd0e0fed5a2382b82dff25d3308723eb4d184cd23b21dca16f9ebf",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/155/field": {
+      "sourceHash": "c56720b23b58560275f0753c588aa1dd366c956070855d7c1be2a605ee80264b",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/155/bio": {
+      "sourceHash": "f80da67ec23a3bb9293079830e2755461a774937aa5893529465537b4b5e6550",
+      "text": "義大利物理學家、數學家、天文學家及哲學家。"
+    },
+    "lib/entertainment/global-history/people.json/156/name": {
+      "sourceHash": "c7ff0f3139694026f5d0c2d859c7d6918b2d818a40e6b03aa6ad30fb9b2f51c5",
+      "text": "西莉亞·克魯茲"
+    },
+    "lib/entertainment/global-history/people.json/156/region": {
+      "sourceHash": "cc2be8a780984d0c10ed8e9412263712b0a6172fbb330be8d8933f4b80c9a04b",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/156/field": {
+      "sourceHash": "f0c141016c021f0a6a0040cb3e4e28d6f921cd892d9e1e343d0548693ef2b93c",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/156/bio": {
+      "sourceHash": "1decabdcf64889040c3d943e3c38a143cc7315e03590bf54374914f831c6417a",
+      "text": "古巴歌手。"
+    },
+    "lib/entertainment/global-history/people.json/157/name": {
+      "sourceHash": "0c32c9d880cf82c72fcd14b2bdf5f83c82cfc1f4ea990a99a6a0d44e5726cf2a",
+      "text": "基努尤瓦克·阿希瓦克"
+    },
+    "lib/entertainment/global-history/people.json/157/region": {
+      "sourceHash": "69f5f9d1c238eaece41b00f27bce0b51aa387f5eaeba3501a1d51752076585a6",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/157/field": {
+      "sourceHash": "4c5fe047d67dd8270914d9e1724c811662d737cb86c60abae17947abb8cf67ea",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/157/bio": {
+      "sourceHash": "b95f19e7c55d6244c55b58c5c97b4375f0824467859d898bcb83530c37ccf9ee",
+      "text": "加拿大因紐特藝術家。"
+    },
+    "lib/entertainment/global-history/people.json/158/name": {
+      "sourceHash": "b9f8c2f3fa376352690d2b9cd62bd7a860c63cc50a217bb5840c3e478b7b5774",
+      "text": "林徽因"
+    },
+    "lib/entertainment/global-history/people.json/158/region": {
+      "sourceHash": "71a81414b6aaa78d3d25fab2bb59382d7c0c33221fd2fd8a5ab6d38f3e56dc95",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/158/field": {
+      "sourceHash": "21b4790bc35609a53aa1f87ca7284111622ef29372cd3c40929638a27b22d1e1",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/158/bio": {
+      "sourceHash": "0033fa634ba2f347aace845e291f98f1f2acb56f87575c95e336b5a07bcbbac2",
+      "text": "中國建築學家、女作家。"
+    },
+    "lib/entertainment/global-history/people.json/159/name": {
+      "sourceHash": "ab73f07e643441e9bfbdb26a1465f0640e192d5c7a46de7131c275391a3dff75",
+      "text": "胡春香"
+    },
+    "lib/entertainment/global-history/people.json/159/region": {
+      "sourceHash": "d7dedab83dbf3579912b4731cdc1fc32010877e1276786d61732ee0c412431d8",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/159/field": {
+      "sourceHash": "c013bcce288aa95f9db81699554572f5e373e57a491b76072cc40f4a2daf723c",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/159/bio": {
+      "sourceHash": "b67ee8c040404d2cb62d19ba38ad89cb05eed73e7c06b37bb490a5bc31cf7500",
+      "text": "越南詩人。"
+    },
+    "lib/entertainment/global-history/people.json/160/name": {
+      "sourceHash": "d8a3ddbb5f30b2ce03a2a566902636ba8ddabb59731cb4c9306951b6a1eecea4",
+      "text": "馬哈茂德·卡什噶裡"
+    },
+    "lib/entertainment/global-history/people.json/160/region": {
+      "sourceHash": "6fb92efbd960a5b57a11e72bb313b176309b7c35f7cbfae9224849bd77e5df4d",
+      "text": "西亞、中亞與北非"
+    },
+    "lib/entertainment/global-history/people.json/160/field": {
+      "sourceHash": "1132fa1677a4770a5a649b96f986080dec93f3691deb0796a0057ab9a3cf66d0",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/160/bio": {
+      "sourceHash": "cfbd8b22568811d2f8ed519b5953f7c6922f6092bad81f0ee61d061fc71f3cc4",
+      "text": "十一世紀突厥語學者與詞典編纂者。"
+    },
+    "lib/entertainment/global-history/people.json/161/name": {
+      "sourceHash": "04c205fa3e60cb80904ac49d88fd82091e9b788abb95d66ac872ac8dfbcbfa50",
+      "text": "塞切萊一世"
+    },
+    "lib/entertainment/global-history/people.json/161/region": {
+      "sourceHash": "b8beeca62dfc29b7251b21d17cc8fcbccd48a5c61d0a310aed8b435b4a21d6ed",
+      "text": "撒哈拉以南非洲"
+    },
+    "lib/entertainment/global-history/people.json/161/field": {
+      "sourceHash": "802b2055e794fa71d25a2578042647d0190ca369073b0ad4bef35c516ef3d827",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/161/bio": {
+      "sourceHash": "7a26038f2c89fb739acdccf938636b63df21efd4db661a1a1d728868d1cb3dfe",
+      "text": "波札那地區巴奎納人的首領。"
+    },
+    "lib/entertainment/global-history/people.json/162/name": {
+      "sourceHash": "dae31080b4c8f7e1cfffe7301f29c08502f214daeb86f823e9d132ac9202a74c",
+      "text": "約翰內斯·開普勒"
+    },
+    "lib/entertainment/global-history/people.json/162/region": {
+      "sourceHash": "ab9600d0611d5ad0b6cb122e1d827c7f689ab0b6eb236ccbf613bbb761220b7a",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/162/field": {
+      "sourceHash": "bf27f0fdd09e7ca847e9053e4b7f7bc3b7cfd94b46c1d2f2aaddc580b3f498a3",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/162/bio": {
+      "sourceHash": "d16ee06f18ada2e6bfebaa9d99249cdd8060891a7c0c42d45cf9221052765075",
+      "text": "德國數學家，天文學家和占星家。"
+    },
+    "lib/entertainment/global-history/people.json/163/name": {
+      "sourceHash": "0d72095c67b3d56025941c3f022e0916db3de2e8c7d44d27232cd1e92e02087b",
+      "text": "伊內斯·墨西亞"
+    },
+    "lib/entertainment/global-history/people.json/163/region": {
+      "sourceHash": "d3b1732bc311f9be3f57469344d4bab7391019699ef2f2bf716724168aec33e3",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/163/field": {
+      "sourceHash": "15e635f4e15ecdac84df96ff607d2c8bea1874c9d293877620e1d5f9d17660e2",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/163/bio": {
+      "sourceHash": "6461f0c5efc233f49c4ed7cb6cad78fae2cb038f8910c9be88a3a3ecfabb53f9",
+      "text": "墨西哥裔美籍植物學家。"
+    },
+    "lib/entertainment/global-history/people.json/164/name": {
+      "sourceHash": "ee098ea6bf74b59deebd28aa7fce07606e018f87d50d17e3f2b48580ba27f3d2",
+      "text": "艾米莉·卡爾"
+    },
+    "lib/entertainment/global-history/people.json/164/region": {
+      "sourceHash": "76cfdf648d13a198a5a8ed60ea3690841adda716d6665be09f2badccd2acb332",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/164/field": {
+      "sourceHash": "fb871cf837db5563ca9b7c33287a8ff218bb0ebdb16dccb4911437537522637d",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/164/bio": {
+      "sourceHash": "4c200248b7280f8aed8306c171d0c918c27e90ac4ee1067b743031529ea1eaee",
+      "text": "加拿大畫家與作家。"
+    },
+    "lib/entertainment/global-history/people.json/165/name": {
+      "sourceHash": "d3a3561176ed5df2874fae66ca8f537bbc5543822639dc3ac2ed01335ea2c1a7",
+      "text": "成吉思汗"
+    },
+    "lib/entertainment/global-history/people.json/165/region": {
+      "sourceHash": "3abc79ebab787e00b572c548ec1f889393861c159e0c1cdf644283cc0c0de435",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/165/field": {
+      "sourceHash": "4eedc6bcd4b41d61d1a3cc3928708385a0371d968908722e55eaba6eb60f7690",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/165/bio": {
+      "sourceHash": "0f736a7ad501b12f67658578599a3eb90a102de42f0eff1e2c6904b744ce8a0f",
+      "text": "蒙古帝國開創者。"
+    },
+    "lib/entertainment/global-history/people.json/166/name": {
+      "sourceHash": "ecc07861319d7f34d5677b3f44746c83bdfcd659ea3db85ec8be2c70c7a109a8",
+      "text": "何塞·黎剎"
+    },
+    "lib/entertainment/global-history/people.json/166/region": {
+      "sourceHash": "9fc76b41ccbf197ffd968ebfc13244921a93e8d623b09081768bb6d35a662e27",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/166/field": {
+      "sourceHash": "3b5cfb689c23b436a578763701b4e3fdf083c97b8963b45304ffbf1f585da5c3",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/166/bio": {
+      "sourceHash": "6ed61b7ba26bbd5106bc5e54dacdd5dc94a203b0320777cf25681f0a3aac1ccf",
+      "text": "醫師、菲律賓國父。"
+    },
+    "lib/entertainment/global-history/people.json/167/name": {
+      "sourceHash": "d897b4e29b0dbb2b93b08abcb079c165a9db37bd9c8aad662a193b5d49147db5",
+      "text": "艾薩克·牛頓"
+    },
+    "lib/entertainment/global-history/people.json/167/region": {
+      "sourceHash": "9057bddf5ba61a0341ae2ea027fe3f2c6fc9970c34c08f7a6e19cdf09e0226b4",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/167/field": {
+      "sourceHash": "1c42ede20f7759384cd1f6e110dcc5c76029517f5f5bf7363968e9f699042851",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/167/bio": {
+      "sourceHash": "923e2ed8a0abd534ddb429493ee33738bd4daf647258dfd573d4b62439c97c0c",
+      "text": "英格蘭物理學家、數學家、天文學家和自然哲學家。"
+    },
+    "lib/entertainment/global-history/people.json/168/name": {
+      "sourceHash": "4c958d54a2c172c95a408360238e7b2a7263920c6101bc114d051759824a34f3",
+      "text": "貝爾塔·盧茨"
+    },
+    "lib/entertainment/global-history/people.json/168/region": {
+      "sourceHash": "4fad9123e8ede7d4d1056af2974c5828c3eaf7d0f7083ec34bbc45c192c116c8",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/168/field": {
+      "sourceHash": "78fb080faea7bd71037b1f1087d058f76ce2c8057d81a80e5fe933c15817cae6",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/168/bio": {
+      "sourceHash": "f2234341b370c723a4c6aeeea7eb29209204818324458702f3c8c5f8379e6c76",
+      "text": "巴西科學家與婦女權利活動家。"
+    },
+    "lib/entertainment/global-history/people.json/169/name": {
+      "sourceHash": "56a9fef55a8bf2b480f06cd9242a5fc1eb673c1afa1d118f4b03482da5758bb7",
+      "text": "露西·莫德·蒙哥馬利"
+    },
+    "lib/entertainment/global-history/people.json/169/region": {
+      "sourceHash": "ea109ce4a35dca8b89366de1300f7a846011242bb534f6bad1a1999bc0cbb8c7",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/169/field": {
+      "sourceHash": "b225879abc408ea80b128839fbeff960132d6db3dbae58a577eef97c7c4a9938",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/169/bio": {
+      "sourceHash": "5a8c71d178fd07081dcd2879d990d6628a296a00c67b20b52f894c09669765c4",
+      "text": "加拿大作家。"
+    },
+    "lib/entertainment/global-history/people.json/170/name": {
+      "sourceHash": "1ae4665b8da536d191a010c947b4c31cfd0ea8d925bc96d50f1258b2fa2826de",
+      "text": "紫式部"
+    },
+    "lib/entertainment/global-history/people.json/170/region": {
+      "sourceHash": "df52a96ee018f9227c3946c2feff04cdc36bbf73072a91572d1b5817df80e847",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/170/field": {
+      "sourceHash": "be425961e3eb410e4621e030a60295844f273c45d763ad9c6b77c167ab320ac1",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/170/bio": {
+      "sourceHash": "3a12b2bd3e533978e275de6172e5361640f1a42d48ae0e44e8e7929c5078783b",
+      "text": "日本平安時代小說家、歌人、宮廷女房。"
+    },
+    "lib/entertainment/global-history/people.json/171/name": {
+      "sourceHash": "40b0b3418bea78435901c1c35d6329494d6d03e266654615066fe2d756d9bda2",
+      "text": "阿波利納里奧·馬比尼"
+    },
+    "lib/entertainment/global-history/people.json/171/region": {
+      "sourceHash": "e2fb4275bf06376934e0a6273cd97b67186be4f52dabd7d6591718694e8f5739",
+      "text": "南亞與東南亞"
+    },
+    "lib/entertainment/global-history/people.json/171/field": {
+      "sourceHash": "f2b97088ed462f5159b176de565c39d10a5289af53fcc245baf31571793b320a",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/171/bio": {
+      "sourceHash": "d56488c6960bf3954adb0752c601a62ce6a4457c4a4d93c6fb813ab8fb9483df",
+      "text": "菲律賓革命時期的政治家。"
+    },
+    "lib/entertainment/global-history/people.json/172/name": {
+      "sourceHash": "02ebeb3dbdfe89065d6a9dae2629727f0caa304a3ef1a5be0f30f11def279ec6",
+      "text": "戈特弗裡德·威廉·萊布尼茨"
+    },
+    "lib/entertainment/global-history/people.json/172/region": {
+      "sourceHash": "dc3ba98bcbd9392b751d983a0e10ec8aada925196e3d91319ef501336b098cf8",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/172/field": {
+      "sourceHash": "7b1b43d641bebb2bf391d80c5f56bd2800cfbc6587e8be1c70182dbaa8675a26",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/172/bio": {
+      "sourceHash": "c58c7f53bec91ad7ae73407d712dd0c4f2e22500b74422ab41e6760906b342e6",
+      "text": "德國哲學家、數學家。"
+    },
+    "lib/entertainment/global-history/people.json/173/name": {
+      "sourceHash": "62a26c46100658b5c54493e8e91375eee417f8a8e5c5f79711d50a183de245b7",
+      "text": "阿爾貝托·桑托斯·杜蒙特"
+    },
+    "lib/entertainment/global-history/people.json/173/region": {
+      "sourceHash": "17008e428d4da290d7c37e603b6f254ff7117c3c368f2646b134f682092841e9",
+      "text": "拉丁美洲與加勒比"
+    },
+    "lib/entertainment/global-history/people.json/173/field": {
+      "sourceHash": "5e197c1406a2c1ebfc6cd8a6f5462d56dd0c4e73bf4d7a91bbcf0f5120f8bd68",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/173/bio": {
+      "sourceHash": "a7f0c29a5c727708cf2d51870183cbf98b2c4b06ada1effcf2dd5fc40be6e277",
+      "text": "巴西航空先驅。"
+    },
+    "lib/entertainment/global-history/people.json/174/name": {
+      "sourceHash": "0f5e50e5c5d0b01144f966d35c3148a5dea7266acdd5c20f0ee1946dbc9d3fe2",
+      "text": "維奧拉·戴斯蒙德"
+    },
+    "lib/entertainment/global-history/people.json/174/region": {
+      "sourceHash": "71edeb8a944a25f4df0aa96ddbe78aef102955fb563fc9f64d15ec385f6731ba",
+      "text": "北美"
+    },
+    "lib/entertainment/global-history/people.json/174/field": {
+      "sourceHash": "9e1d0500cedce6b4167dbf4ad2880bbe1377180a916427c312b1872d58b2dd9d",
+      "text": "社會改革"
+    },
+    "lib/entertainment/global-history/people.json/174/bio": {
+      "sourceHash": "c6c3b9419c139a3381436742b44e2d992943f7e984d551777d62ceaf37824c00",
+      "text": "加拿大種族平權主義者。"
+    },
+    "lib/entertainment/global-history/people.json/175/name": {
+      "sourceHash": "9e4318635c8a73ecf855836f0098fe366329f21013c26151e8c30e5154fd1f3e",
+      "text": "清少納言"
+    },
+    "lib/entertainment/global-history/people.json/175/region": {
+      "sourceHash": "e4b7cfef9efc12eaa3039646cc115e7e3c40c764c267e96601bee60561eee79f",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/175/field": {
+      "sourceHash": "550fd55b449db08d767e454383aa99878d7b182fcd0e2c9aa7fb7b00c516733d",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/175/bio": {
+      "sourceHash": "e1e0814b658e598520902adfa03b807f44350df12da216c8913e041f2e68d4e4",
+      "text": "日本平安時代女作家。"
+    },
+    "lib/entertainment/global-history/people.json/176/name": {
+      "sourceHash": "3bd4035ebf1a26c010217d080993dfa19879fbe01579b3d1df5e20d5fbdef177",
+      "text": "伊麗莎白一世"
+    },
+    "lib/entertainment/global-history/people.json/176/region": {
+      "sourceHash": "76124c7b8900259b359fec8ea41b4092e4c4b8858fb1830cf02504aae1dc81c7",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/176/field": {
+      "sourceHash": "820b1f7591f4de12e9ed6a2d8f43b186507245795e1a5b839088029b90b400ef",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/176/bio": {
+      "sourceHash": "fd560c6207d750f34a6d2928342657d0ece152daaf869624056bbaf2a755f7ee",
+      "text": "1558年至1603年英格蘭女王。"
+    },
+    "lib/entertainment/global-history/people.json/177/name": {
+      "sourceHash": "e3553a325a1d6055776ea619fa4813f70f08cdb8b65fea20ec8d839fa27b362b",
+      "text": "葛飾北齋"
+    },
+    "lib/entertainment/global-history/people.json/177/region": {
+      "sourceHash": "8aa62a9b8a35a8d1400bdc00ca0244c608298984705827221bb5792218c1236f",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/177/field": {
+      "sourceHash": "908e602706a25169e557defc9f6d5f28910fb70b151071e3e22c5178b043b847",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/177/bio": {
+      "sourceHash": "7e8d3643c2f20df02f9e0063bb42651239a743eaf14cb8b34f2e509ca464074f",
+      "text": "日本浮世繪師。"
+    },
+    "lib/entertainment/global-history/people.json/178/name": {
+      "sourceHash": "d86aab6817423008de2a40d584df5b0a6fea73a88e236253ae7ea2bb14f15726",
+      "text": "威廉·莎士比亞"
+    },
+    "lib/entertainment/global-history/people.json/178/region": {
+      "sourceHash": "0751b234c9f221de575fd00b5c8dda70e3ae27a317ea4da1649e161a4afe6ffd",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/178/field": {
+      "sourceHash": "cddd4dfaf6ce6125225c1966c0e52ef4c991612e28e2337e956de17a5c187936",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/178/bio": {
+      "sourceHash": "b40653c123eac3990b6da6e1fa083468d23b1310412fdad828fc315d309834ad",
+      "text": "英國戲劇家、作家、文學家。"
+    },
+    "lib/entertainment/global-history/people.json/179/name": {
+      "sourceHash": "4e774d8d7059d7540a6ff7633ee2134a44a667572cc8d4868586fe8e670766c2",
+      "text": "宮本武藏"
+    },
+    "lib/entertainment/global-history/people.json/179/region": {
+      "sourceHash": "2416ccc29547e9fcb86ad77055cdf6126532cfb986f8bcbdf6c1955e8ef48872",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/179/field": {
+      "sourceHash": "9b423c7e7103c7bfaa319234a5b96812df54ee5eeb29baa6f01c629623108e09",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/179/bio": {
+      "sourceHash": "7f3bc53bf0a52e34f683ba58108cfd95b16ab7eafedee33c70b0c204dfcd37eb",
+      "text": "日本江戶時代初期的劍術家、兵法家、藝術家。"
+    },
+    "lib/entertainment/global-history/people.json/180/name": {
+      "sourceHash": "38e65916374c5b596c4c547b07b3ed6c2032c7ae918471d5209fede7063b023d",
+      "text": "米格爾·德·塞萬提斯"
+    },
+    "lib/entertainment/global-history/people.json/180/region": {
+      "sourceHash": "5a90e8d7c505771ffd298e03b66dc31cddc83a196f86731f62e29e29d5a8e98e",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/180/field": {
+      "sourceHash": "116c2a565447a3fedbcd8c3dd3529959d138adc084fe84d164fd9bb5dc9426cc",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/180/bio": {
+      "sourceHash": "f1817c80ce60d41ec87673634ba077177d838a11da7e2629010dcdccf3dad52a",
+      "text": "西班牙小說家、劇作家、詩人。"
+    },
+    "lib/entertainment/global-history/people.json/181/name": {
+      "sourceHash": "b6791674a1ad96fff9e56a63d46f4f82f8c2d9bb7cbbfec35ea780becfacd657",
+      "text": "與謝野晶子"
+    },
+    "lib/entertainment/global-history/people.json/181/region": {
+      "sourceHash": "aeb0eed7f0c472fd3607ff7dbcee30e3e4ea536e862b7e5f4b789d1ef4a44f3f",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/181/field": {
+      "sourceHash": "27c225709d58977efba120e5963027753f6a7c4cadc70c062d3af4af06fe92ca",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/181/bio": {
+      "sourceHash": "6f8119b42f7b03c0582bf57278ffbde2923ae1d8b01b7f78ba3cc25bb9b5794c",
+      "text": "日本女性詩人、作家。"
+    },
+    "lib/entertainment/global-history/people.json/182/name": {
+      "sourceHash": "4275cced949987f23d7dbb2f038c130ec4d6fd8b6c74dabf317c605b0bc2ab94",
+      "text": "路德維希·範·貝多芬"
+    },
+    "lib/entertainment/global-history/people.json/182/region": {
+      "sourceHash": "db381fccf6ee084baeed2bb68c128c68fc820d72d1bc15c2a5d493b186202440",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/182/field": {
+      "sourceHash": "2d726bb1cb8f9af708ffe78c2b8d378dc5c8bfb90097a9ceeb46f4178f013404",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/182/bio": {
+      "sourceHash": "8bcffc30cbfdc1712aed9e42ec7896f5d9b53a380b314357960d8d7b37585ead",
+      "text": "德意志作曲家、鋼琴演奏家。"
+    },
+    "lib/entertainment/global-history/people.json/183/name": {
+      "sourceHash": "736bcc443bd3bef7ed94aa9444112f58b1d64a60c4130cb342b0cc6907fcb88d",
+      "text": "世宗大王"
+    },
+    "lib/entertainment/global-history/people.json/183/region": {
+      "sourceHash": "c317c2a957a8328e5193b24b248e29a1fda76d55989e92e5e17505ec52efb383",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/183/field": {
+      "sourceHash": "64f39290ce85c7a5f0703cc61fe7f9c9ba1ff9be78e842aef3f114b4b2ecbdcc",
+      "text": "政治治理"
+    },
+    "lib/entertainment/global-history/people.json/183/bio": {
+      "sourceHash": "02defce03a62ec418bd40b3561d2657ea030776fba3c389503aaf8004d7428f0",
+      "text": "朝鮮王朝第4代國王。"
+    },
+    "lib/entertainment/global-history/people.json/184/name": {
+      "sourceHash": "c7760a3462ddfc0aacb2eac2d278c8bcede87e253ced61dacde75edd49d10d21",
+      "text": "莫札特"
+    },
+    "lib/entertainment/global-history/people.json/184/region": {
+      "sourceHash": "85a265a99bc8925722c69c8aecc8271cecf3405416c8538ca86a9da05ff6c532",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/184/field": {
+      "sourceHash": "49027be8facee5d062bb8afc46c684365589146b5bb592250d04de6e86bb891f",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/184/bio": {
+      "sourceHash": "655e4f2ad1519d8601f94184ce25d5dbf3473a8562d8c1de47cd95ad88308bbb",
+      "text": "歐洲古典主義音樂作曲家。"
+    },
+    "lib/entertainment/global-history/people.json/185/name": {
+      "sourceHash": "6dfadb64f28c69d6f043634f86011cded3fef691e494bb59a17f0b5b6f05adb9",
+      "text": "李舜臣"
+    },
+    "lib/entertainment/global-history/people.json/185/region": {
+      "sourceHash": "06cca9527c5b4c2eecf155b1c0915c9253fea92c561b8b10549244786c47aefa",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/185/field": {
+      "sourceHash": "36b3dff7f7f468a8e9d71ba5cc582eebaf2ffb4119f7f131313407a67edf522c",
+      "text": "軍事外交"
+    },
+    "lib/entertainment/global-history/people.json/185/bio": {
+      "sourceHash": "d702f6518f134d4a7ba0fa910715377b32275e9e49e6101388f132eb4c854764",
+      "text": "李氏朝鮮時將領。"
+    },
+    "lib/entertainment/global-history/people.json/186/name": {
+      "sourceHash": "7cd0a12d8f1c186385c4bc405a8072075927b58e6525349cd1860296feebef91",
+      "text": "瑪麗·沃斯通克拉夫特"
+    },
+    "lib/entertainment/global-history/people.json/186/region": {
+      "sourceHash": "3a486934c9747c274a9ea4f56675ccc65a716b746a9eb4c6a76ce25b1fc3b7fa",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/186/field": {
+      "sourceHash": "abde7ec86bab4d126b68b7e451b2b4efce8b508b65ae2a62c80eb151ac5574b8",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/186/bio": {
+      "sourceHash": "04e25b6e81c2b4f2bae8216a86811a2212efe9addeee85257c92d1c281f21e79",
+      "text": "18世紀英國女作家。"
+    },
+    "lib/entertainment/global-history/people.json/187/name": {
+      "sourceHash": "c571ec96f038eb71066f21e6cd5d4fe5f62ca55bbdc8a853431bd9ceaac07f72",
+      "text": "申師任堂"
+    },
+    "lib/entertainment/global-history/people.json/187/region": {
+      "sourceHash": "db9fb4a510b678db8384ec288c795aa150b7f29ff2df9e7ba12354c7389d6980",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/187/field": {
+      "sourceHash": "5199a813673e57fbe063b5fd568b2656457691852222368f05ad7b6fd6e1b9e5",
+      "text": "藝術設計"
+    },
+    "lib/entertainment/global-history/people.json/187/bio": {
+      "sourceHash": "244636f00128b4df1074819c7c801baa2a8c33279015adbb4847b40547bfb738",
+      "text": "朝鮮王朝女畫家。"
+    },
+    "lib/entertainment/global-history/people.json/188/name": {
+      "sourceHash": "76fdd838433bb88101f931eca52dd2b52c9fa61ba51c86b86a49b6327d284441",
+      "text": "瑪麗·雪萊"
+    },
+    "lib/entertainment/global-history/people.json/188/region": {
+      "sourceHash": "0d6189aec23b8453c9ca31d96e18ad417f752a9aac3e13f61f7299f1e337ad03",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/188/field": {
+      "sourceHash": "35ab3eac3fd0b399eb1b1f4c112dbfa60e4fbcfa7457057c71b490fb4f22866a",
+      "text": "文學"
+    },
+    "lib/entertainment/global-history/people.json/188/bio": {
+      "sourceHash": "15a2d868da06fbc636f775f86e1c09b73a77f4ba9d08a186abdfc9e8934c171a",
+      "text": "英國小說家，短篇小說作家，劇作家，散文家，傳記作家和旅行作家。"
+    },
+    "lib/entertainment/global-history/people.json/189/name": {
+      "sourceHash": "b50221a4042574e896275664ade9c2f3a20b70e99424458e4d5166ad66ebdaeb",
+      "text": "許浚"
+    },
+    "lib/entertainment/global-history/people.json/189/region": {
+      "sourceHash": "dee8d08fe738972f6f88de89a666838c03e86b648dca43e6965f7476e5a5a1b2",
+      "text": "東亞"
+    },
+    "lib/entertainment/global-history/people.json/189/field": {
+      "sourceHash": "94f6262593a37bdb221a51d60e2eb3efd4484349e94c7e5c3a51a5e64650ab84",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/189/bio": {
+      "sourceHash": "d350c812bf9299c0d0c4eacc443190c1b093f0d479cdfbc7066824b90abafea8",
+      "text": "朝鮮醫師。"
+    },
+    "lib/entertainment/global-history/people.json/190/name": {
+      "sourceHash": "b345ce9baced652bcee9011468f775300d099d52457a77914abfa1038fac72d8",
+      "text": "瑪麗·安寧"
+    },
+    "lib/entertainment/global-history/people.json/190/region": {
+      "sourceHash": "60e1df386003f3aded352e342b5180fe16f12dfc0b61b7f52cfce441c44bb508",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/190/field": {
+      "sourceHash": "f4e9fb11754cd91782ea9c86c4a138d1d0208a88e14e124f3b9f20faade85673",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/190/bio": {
+      "sourceHash": "d297106cb25ff44f5773d93a438d0bb82499daaebf4cf7a2ec9344d6d276b7e7",
+      "text": "英國古生物學家。"
+    },
+    "lib/entertainment/global-history/people.json/191/name": {
+      "sourceHash": "453f8ec4a6a2246a74ea9bd0d642ee593dc0b02aef10d31dc737d3928f245b2d",
+      "text": "索菲婭·科瓦列夫斯卡婭"
+    },
+    "lib/entertainment/global-history/people.json/191/region": {
+      "sourceHash": "7af0f7f727f47c982f9a791a24a44c8bf455f9ee0fd6651e3e5cd7b4c49effa8",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/191/field": {
+      "sourceHash": "3c9019b0ce09a573d7cd59b6b040198fcc1d2b03cc9cc630e935148edd549951",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/191/bio": {
+      "sourceHash": "6a0f217b765c76b67cc6717183490039c16a360aa943ae15cbbb14d9ca7d41d5",
+      "text": "俄羅斯數學家。"
+    },
+    "lib/entertainment/global-history/people.json/192/name": {
+      "sourceHash": "394b117597346c24a85bee911b285a3d24de998a921dd2ef3d07a4de6a223cce",
+      "text": "艾米·諾特"
+    },
+    "lib/entertainment/global-history/people.json/192/region": {
+      "sourceHash": "94a3f65bc6b88e603126e8cbaa6e4af341ef4b4a4a00f424da84da74825c4462",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/192/field": {
+      "sourceHash": "17a78bfdf2111ee5ab7ed7a3024d1e63db2d324efcaf95022bcaa633bb2e204d",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/192/bio": {
+      "sourceHash": "75a3396e6b18c74c1af6dc81d67ef9b232f8c4caab6a32da13bc04d875478f91",
+      "text": "德國數學家。"
+    },
+    "lib/entertainment/global-history/people.json/193/name": {
+      "sourceHash": "3d9fac5d0da191ab0c4b465159ce7f41af6fce23a5d4ef494c7d3f7fe4aed26e",
+      "text": "羅莎琳德·富蘭克林"
+    },
+    "lib/entertainment/global-history/people.json/193/region": {
+      "sourceHash": "14a1cd56093aec1aa85eac706cb0bcb5f7714f451630ada13864540bae6523de",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/193/field": {
+      "sourceHash": "4bf8ea157ac5c8f641bc54d9cc50b23e6faa2362bb0d5df7e4d07806402c2b60",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/193/bio": {
+      "sourceHash": "d3937f67487cdbc0d69aebc829322e0a13999fc0d3ddd936c105b0579479e51b",
+      "text": "英國物理化學、X射線晶體學家。"
+    },
+    "lib/entertainment/global-history/people.json/194/name": {
+      "sourceHash": "5152af407c900f85084b4681cb0b084bee9bf2c714bdbc4aaa300588d1a69760",
+      "text": "艾倫·圖靈"
+    },
+    "lib/entertainment/global-history/people.json/194/region": {
+      "sourceHash": "a6cef3423c73e88338a6bb13f08d51a39d695fd2fbf6af51b22365906142e5c7",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/194/field": {
+      "sourceHash": "0c7782b896982b829bf8adb39b6a6f9366f85fd115f07a4f82bad29efe6fe624",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/194/bio": {
+      "sourceHash": "d26e6062354df131187996c51ba53e92da1a04aa580a4ca02ee9df6453604e8f",
+      "text": "英國數學家、邏輯學家、密碼學家和電腦科學家。"
+    },
+    "lib/entertainment/global-history/people.json/195/name": {
+      "sourceHash": "ae498823bd5dce56017018aae26d0621e88809483b6b78da3c6035f5b99b8d1d",
+      "text": "莉澤·邁特納"
+    },
+    "lib/entertainment/global-history/people.json/195/region": {
+      "sourceHash": "bb67d9c4f81a9d0ba6637b4bee427760d1b4bfd8fc945073b9bb93b1c784dc0e",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/195/field": {
+      "sourceHash": "eadca2dc19ed808a7c82d11a5e9d6848a7df2f913fc86c1802f7b65d29c2939a",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/195/bio": {
+      "sourceHash": "b94f7ae9a070899b0e7bd51b1693589adcc19559d6c7e6745e6862a1837ed7ee",
+      "text": "奧地利裔瑞典物理學家。"
+    },
+    "lib/entertainment/global-history/people.json/196/name": {
+      "sourceHash": "654f2ee3da894bfa1585d0aabbb4e0e34d36de7f00d0ffc322b8cc0f2402ad1d",
+      "text": "弗裡喬夫·南森"
+    },
+    "lib/entertainment/global-history/people.json/196/region": {
+      "sourceHash": "eb1f928a833d8c1d76e95f5caee7b47d1cf65ac02b9c60eae069e80529e3a581",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/196/field": {
+      "sourceHash": "6777ba5ec207018738c2f810265fa78f32683a7bb9df61378df2481683b1afc8",
+      "text": "探索"
+    },
+    "lib/entertainment/global-history/people.json/196/bio": {
+      "sourceHash": "fcd6f6aa13744952246d5fa3d1262b1a77600c2eaebc167bfbb2db38a623fde0",
+      "text": "挪威極地探險家與諾貝爾和平獎獲得者。"
+    },
+    "lib/entertainment/global-history/people.json/197/name": {
+      "sourceHash": "a519e93948a6642fb7a21c865fbf8dc6c141f6e563acbd583585bf9b7a44c66c",
+      "text": "索菲婭·布拉赫"
+    },
+    "lib/entertainment/global-history/people.json/197/region": {
+      "sourceHash": "1342b26e206da4555cab2c09da6ed79cdc375c68ed69ee7399a41fda8eeb6c67",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/197/field": {
+      "sourceHash": "3775a996908d6e1c91b8d3b36fed7046129949568060777d7a3729c61101ae43",
+      "text": "科學技術"
+    },
+    "lib/entertainment/global-history/people.json/197/bio": {
+      "sourceHash": "e7d2b3bdc80ebb0b0c48242563938169ab7b25cf62b04c0f6e1a7e4e7d2d08f1",
+      "text": "丹麥園藝家與天文觀測者。"
+    },
+    "lib/entertainment/global-history/people.json/198/name": {
+      "sourceHash": "dea2d56af78679d7272169f674a55bd35419e9554055e9a2460ffab095088a8a",
+      "text": "瑪麗亞·蒙臺梭利"
+    },
+    "lib/entertainment/global-history/people.json/198/region": {
+      "sourceHash": "10cf49ce7147f635476434bad07933566f85a117cf062e3134f384e5475f99e3",
+      "text": "歐洲"
+    },
+    "lib/entertainment/global-history/people.json/198/field": {
+      "sourceHash": "4f6ed6ab4acdcb46a350db7703e99b0e7a0d7097fddc8f41f4f59fa3270782a3",
+      "text": "思想教育"
+    },
+    "lib/entertainment/global-history/people.json/198/bio": {
+      "sourceHash": "743dcaeccd7dbe00488e8f42e9e4628ce847e11cf4aa0dd42ca2770aad5ce4b9",
+      "text": "義大利教育家。"
+    }
+  }
+}

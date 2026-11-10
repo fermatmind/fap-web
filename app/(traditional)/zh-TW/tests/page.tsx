@@ -4,6 +4,7 @@ import { cache } from "react";
 import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotTests";
 import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience";
 import { ApiError } from "@/lib/api-client";
+import { globalHistoryPath } from "@/lib/entertainment/global-history/config";
 import { traditionalUi } from "@/lib/i18n/zh-TW/chiikawa";
 import { relationshipQuestionnaireSlugs } from "@/lib/i18n/relationshipQuestionnairePaths";
 import { loadTraditionalRelationshipQuestionnaire } from "@/lib/i18n/zh-TW/relationshipQuestionnaire";
@@ -49,6 +50,12 @@ export default async function TraditionalTestsDirectory() {
       <Link href="/zh-TW/tests/category/career" className="inline-flex min-h-11 items-center underline">職業與方向</Link>
     </nav>
     <TestsHubExperience content={content} locale="zh-TW" />
+    <section id="interactive-stories" aria-labelledby="traditional-interactive-stories" className="mt-8 space-y-4">
+      <h2 id="traditional-interactive-stories" className="text-2xl font-bold">互動故事</h2>
+      <Link prefetch={false} href={globalHistoryPath("zh-TW")} className="block rounded-xl border border-slate-200 p-5 underline">
+        你的性格最像哪位歷史人物？全球卷
+      </Link>
+    </section>
     <section aria-labelledby="relationship-quizzes" className="mt-8 space-y-4">
       <h2 id="relationship-quizzes" className="text-2xl font-bold">關係與溝通</h2>
       <div className="grid gap-4 sm:grid-cols-2">

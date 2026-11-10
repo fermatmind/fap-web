@@ -111,6 +111,8 @@ import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 
 let font: Promise<ArrayBuffer> | undefined;
 const localFont = () => font ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-sc/fun-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
+let historyTaiwanFont: Promise<ArrayBuffer> | undefined;
+const globalHistoryTaiwanFont = () => historyTaiwanFont ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/global-history-quiz-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
 const quizFonts = new Map<string, Promise<ArrayBuffer>>();
 const quizFont = (trustedSlug: string) => {
   let selected = quizFonts.get(trustedSlug);
@@ -130,14 +132,14 @@ const colors: Record<string, string> = { nature: "#166534", fantasy: "#6d28d9", 
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
-  if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const portrait = query.get("portrait");
   const download = query.get("download") === "1";
-  if (slug === GLOBAL_HISTORY_SLUG) {
+  if (slug === GLOBAL_HISTORY_SLUG && (locale === "en" || locale === "zh" || locale === "zh-TW")) {
     const person = portrait && findHistoryPerson(portrait);
     if (!person) return new Response("Image unavailable", { status: 404 });
-    return globalHistoryCard(person, locale, await quizFont(slug), download);
+    return globalHistoryCard(person, locale, await (locale === "zh-TW" ? globalHistoryTaiwanFont() : quizFont(slug)), download);
   }
+  if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   if (slug === CHANGAN_SLUG && portrait) {
     const quiz = await loadFunQuiz(slug);
     const result = quiz && findPublicPortrait(quiz, portrait);

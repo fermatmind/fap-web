@@ -6,6 +6,8 @@ import { getHistoryGalleryPage, historyPeople } from "@/lib/entertainment/global
 import { historyScenes } from "@/lib/entertainment/global-history/questions";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
 describe("World Edition history quiz", () => {
   it("can match every released figure through real options and provides a portrait for each", () => {
@@ -62,5 +64,22 @@ describe("World Edition history quiz", () => {
       expect(isMissingFunRoute(globalHistoryResultPath(locale, "jorge-luis-borges"))).toBe(true);
     }
     expect(paths).toEqual([globalHistoryPath("en"), globalHistoryPath("zh")]);
+  });
+
+  it("projects the complete Taiwan roster without altering IDs, matching or original languages", () => {
+    let translated = 0;
+    for (const source of historyPeople) {
+      const display = displayHistoryPerson(source, "zh-TW");
+      expect([display.id, display.qid, display.vector]).toEqual([source.id, source.qid, source.vector]);
+      expect([display.name.en, display.region.en, display.field.en, display.bio.en])
+        .toEqual([source.name.en, source.region.en, source.field.en, source.bio.en]);
+      expect(displayHistoryPerson(source, "zh")).toBe(source);
+      expect(traditionalPath(globalHistoryResultPath("en", source.id))).toBe(globalHistoryResultPath("zh-TW", source.id));
+      if (display.bio.zh !== source.bio.zh) translated++;
+    }
+    expect(translated).toBeGreaterThan(180);
+    expect(traditionalPath(globalHistoryPath("en"))).toBe(globalHistoryPath("zh-TW"));
+    expect(traditionalPath(`${globalHistoryPath("zh-TW")}/take`)).toBe(`${globalHistoryPath("zh-TW")}/take`);
+    expect(traditionalPath(globalHistoryResultPath("zh-TW", "unknown"))).toBeNull();
   });
 });
