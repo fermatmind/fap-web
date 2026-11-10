@@ -1,4 +1,8 @@
 const profiles = {
+  "apology-language": ["regret-reading", "responsibility-reading", "repair-reading", "change-reading", "forgiveness-choice-reading"],
+  "conflict-styles": ["pressing-own-plan", "joint-problem-solving", "trading-concessions", "stepping-back", "yielding-choice"],
+  "love-fight-style": ["verbal-escalation-reading", "pause-reading", "return-reading", "repair-reading"],
+  "friendship-compatibility": ["agreements-and-priorities", "room-to-speak", "shared-effort", "space-and-privacy", "different-strengths"],
   "time-management": ["priorities-and-capacity", "steps-and-estimates", "attention-and-return", "review-and-renegotiation"],
   "procrastinator-type-test": ["perfectionist", "dreamer", "worrier", "defier", "crisis-maker", "over-doer"],
   "everyday-control-style": ["reasons", "consultation", "decisions", "agreements", "support", "handoffs"],

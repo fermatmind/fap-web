@@ -22,6 +22,17 @@ const sources = [
     'lib/questionnaires/data/everyday-control-style.json',
     'lib/questionnaires/result-content/everyday-control-style.json',
     'components/questionnaires/EverydayControlLandingEditorial.ts',
+    'lib/questionnaires/data/apology-language.json',
+    'lib/questionnaires/result-content/apology-language.json',
+    'components/questionnaires/ApologyLandingEditorial.ts',
+    'lib/questionnaires/data/conflict-styles.json',
+    'lib/questionnaires/result-content/conflict-styles.json',
+    'components/questionnaires/ConflictStylesLandingEditorial.ts',
+    'lib/questionnaires/data/love-fight-style.json',
+    'lib/questionnaires/result-content/love-fight-style.json',
+    'lib/questionnaires/data/friendship-compatibility.json',
+    'lib/questionnaires/result-content/friendship-compatibility.json',
+    'components/questionnaires/FriendshipFitLandingEditorial.ts',
     'lib/questionnaires/data/locus-of-control.json',
     'lib/questionnaires/result-content/locus-of-control.json',
     'components/questionnaires/LocusLandingEditorial.ts',
@@ -66,6 +77,11 @@ function standaloneLikertSource(raw) {
     "原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，",
     "可选标签页草稿沿用明确主动选择，24小时失效，完成、退出清除或重测时删除。",
     "可选标签页草稿需要主动保存，二十四小时失效，完成或重测清除。",
+    "主动选择的标签页草稿最多二十四小时，完成、重测或退出清除即删。",
+    "主动选择后才在本标签页保存最多24小时进度，完成、重置或退出并清除会删除；",
+    "页面内存、自选24小时标签页草稿及完成、重测、退出清除保持不变，",
+    "主动选择后才在本标签页保存最多24小时进度；完成、重置或退出并清除会移除。",
+    "主动勾选才在标签页保存最多24小时草稿，完成或重置即清除。",
   ];
   return JSON.parse(raw, (key, value) => {
     if (key === 'zh' && typeof value === 'string') {
@@ -87,7 +103,7 @@ const overrides = Object.fromEntries(await Promise.all(sources.map(async path =>
     return [path, ['Hexaco', 'TechConfidence', 'EverydayControl'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
   }
   const raw = readFileSync(new URL(path, root), 'utf8');
-  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json')
+  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json')
     ? standaloneLikertSource(raw) : JSON.parse(raw)];
 })));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sources, overrides);

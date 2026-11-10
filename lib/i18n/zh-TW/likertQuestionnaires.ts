@@ -1,3 +1,6 @@
+import { friendshipFitLandingFaq, friendshipFitLandingSections, friendshipFitLandingReferences } from "@/components/questionnaires/FriendshipFitLandingEditorial";
+import { conflictStylesLandingFaq, conflictStylesLandingSections, conflictStylesLandingReferences } from "@/components/questionnaires/ConflictStylesLandingEditorial";
+import { apologyLandingFaq, apologyLandingSections } from "@/components/questionnaires/ApologyLandingEditorial";
 import { controlLandingFaq, controlLandingSections, controlLandingReferences } from "@/components/questionnaires/EverydayControlLandingEditorial";
 import { procrastinationSummaries } from "@/components/questionnaires/ProcrastinationLandingEditorial";
 import { timeManagementLandingFaq, timeManagementLandingSections, timeManagementLandingReferences } from "@/components/questionnaires/TimeManagementLandingEditorial";
@@ -20,6 +23,38 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "friendship-compatibility": {
+    reading: "friendship-compatibility",
+    attribute: "friendship-compatibility",
+    load: () => import("@/lib/questionnaires/result-content/friendship-compatibility.json"),
+    editorial: "FriendshipFit",
+    prefix: "friendshipFit",
+    sections: friendshipFitLandingSections,
+    faq: friendshipFitLandingFaq,
+  },
+  "love-fight-style": {
+    reading: "love-fight-style",
+    attribute: "love-conflict",
+    load: () => import("@/lib/questionnaires/result-content/love-fight-style.json"),
+  },
+  "conflict-styles": {
+    reading: "conflict-styles",
+    attribute: "conflict-styles",
+    load: () => import("@/lib/questionnaires/result-content/conflict-styles.json"),
+    editorial: "ConflictStyles",
+    prefix: "conflictStyles",
+    sections: conflictStylesLandingSections,
+    faq: conflictStylesLandingFaq,
+  },
+  "apology-language": {
+    reading: "apology-language",
+    attribute: "apology-language",
+    load: () => import("@/lib/questionnaires/result-content/apology-language.json"),
+    editorial: "Apology",
+    prefix: "apology",
+    sections: apologyLandingSections,
+    faq: apologyLandingFaq,
+  },
   "everyday-control-style": {
     reading: "everyday-control-style",
     attribute: "everyday-control",
@@ -128,7 +163,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -142,6 +177,8 @@ export async function loadTraditionalLikert(slug: string) {
       case "tech-savvy": return projectStoryCopy(techConfidenceLandingReferences, "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingReferences", units);
       case "time-management": return projectStoryCopy(timeManagementLandingReferences, "components/questionnaires/TimeManagementLandingEditorial.ts/timeManagementLandingReferences", units);
       case "everyday-control-style": return projectStoryCopy(controlLandingReferences, "components/questionnaires/EverydayControlLandingEditorial.ts/controlLandingReferences", units);
+      case "conflict-styles": return projectStoryCopy(conflictStylesLandingReferences, "components/questionnaires/ConflictStylesLandingEditorial.ts/conflictStylesLandingReferences", units);
+      case "friendship-compatibility": return projectStoryCopy(friendshipFitLandingReferences, "components/questionnaires/FriendshipFitLandingEditorial.ts/friendshipFitLandingReferences", units);
       default: return [];
     }
   })();
