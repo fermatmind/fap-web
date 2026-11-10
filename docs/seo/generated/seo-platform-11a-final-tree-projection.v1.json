@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "fd400c0ca31b63275e4a3013cda8616d6ca7b5fb",
+    "sha": "40373d5cfab9a39534358178a9abf3c83bf083af",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -1844,8 +1844,8 @@
     },
     {
       "path": "package.json",
-      "sha256": "ff497e924804e2f1fa291f58d241302ec25f461d1d81004b1b9af99a52932813",
-      "byte_size": 6904,
+      "sha256": "acd96572048a49a9938f82d9db5c2cae6070c2246d9330d1090ee5916d64b3cb",
+      "byte_size": 7000,
       "classification": "deterministic_tool"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "0847ddac275dd88976c9446032c01532f0773098158915c736fc212be061673b"
+  "projection_self_hash": "00d84fd89e0768ba59f658e9f25a0719337da620f4b2e118b1f3e3ba399c35a1"
 }
