@@ -34,6 +34,8 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     const editions: Record<string, string> = {
       "social-intelligence-test": "IPIP-VIA-R 四道自述題",
       "character-strengths": "IPIP-VIA-R 96 道自述題",
+      hexaco: "IPIP HEXACO 240 道自述題",
+      "work-traits-reflection": "費馬原創 42 道工作行為題",
     };
     const edition = editions[slug] ?? "IPIP 公有領域題目";
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, slug === "character-strengths" ? "公開性格優勢指南" : "公開連續分數指南");

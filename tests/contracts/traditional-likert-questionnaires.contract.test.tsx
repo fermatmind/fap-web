@@ -10,9 +10,9 @@ import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 
 afterEach(cleanup);
 
-it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
+it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
   const original = (await loadQuestionnaire(slug))!;
-  const { quiz } = (await loadTraditionalLikert(slug))!;
+  const { quiz, extraReferences } = (await loadTraditionalLikert(slug))!;
   const identity = (item: typeof original) => item.questions.map(question => [
     question.id, question.reverse, question.options.map(option => [option.id, option.score]),
   ]);
@@ -24,11 +24,13 @@ it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-s
   for (const sample of [full, missing, { ...full, [first]: "na" }, { ...full, [first]: "unknown" }]) {
     expect(scoreQuestionnaire(quiz, sample)).toEqual(scoreQuestionnaire(original, sample));
   }
-  const sourceProfile = prepareResultProfile(slug, original.profiles[0]);
+  expect(quiz.profiles.map(profile => profile.id)).toEqual(original.profiles.map(profile => profile.id));
+  for (const [index, profile] of quiz.profiles.entries()) {
+    const sourceProfile = prepareResultProfile(slug, original.profiles[index]);
+    expect(profile.sections.map(section => [section.id, section.paragraphs.length]))
+      .toEqual(sourceProfile.sections.map(section => [section.id, section.paragraphs.length]));
+  }
   const profile = quiz.profiles[0];
-  expect(profile.id).toBe(sourceProfile.id);
-  expect(profile.sections.map(section => [section.id, section.paragraphs.length]))
-    .toEqual(sourceProfile.sections.map(section => [section.id, section.paragraphs.length]));
   const entry = questionnairePath("zh-TW", slug);
   const guide = questionnaireGuidePath("zh-TW", slug, profile.id);
   expect(traditionalPath(questionnairePath("zh", slug))).toBe(entry);
@@ -40,8 +42,8 @@ it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-s
   expect(screen.getByRole("heading", { level: 1, name: quiz.title.zh })).toBeVisible();
   expect(screen.getByRole("link", { name: profile.title.zh })).toHaveAttribute("href", guide);
   const destinations = [...container.querySelectorAll(`[id^="${slug}-reference-"] > a`)];
-  expect(destinations.map(link => link.getAttribute("href"))).toEqual(original.references!.map(reference => reference.url));
-  expect(container.textContent).not.toContain("24小時");
+  expect(destinations.map(link => link.getAttribute("href"))).toEqual([...original.references!, ...extraReferences].map(reference => reference.url));
+  expect(container.textContent).not.toMatch(/24小時|二十四小時/);
   cleanup();
   render(await LikertQuestionnairePage({ slug, take: false, profile: profile.id }));
   expect(screen.getByRole("heading", { level: 1, name: profile.title.zh })).toBeVisible();

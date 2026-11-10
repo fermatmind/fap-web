@@ -1,3 +1,4 @@
+import { WorkTraitsContext } from "@/components/questionnaires/WorkTraitsReport";
 import { QuestionnaireCharacterSource } from "@/components/questionnaires/QuestionnaireCharacterSource";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -40,7 +41,7 @@ function CitedCopy({ text, slug }: { text: string; slug: string }) {
 }
 
 export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
-  const { quiz, sections, faq, summaries } = await requireLikert(slug);
+  const { quiz, sections, faq, summaries, extraReferences } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
   if (take) return <TraditionalQuestionnaireCopy>
     <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
@@ -56,9 +57,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       {locale === "zh" ? "简体中文" : "English"}
     </Link>)}
   </nav>;
-  const references = quiz.references?.length ? <section className="space-y-4 leading-8">
+  const availableReferences = [...(quiz.references ?? []), ...(result ? [] : extraReferences)];
+  const references = availableReferences.length ? <section className="space-y-4 leading-8">
     <h2 className="text-2xl font-semibold">題本與計分來源</h2>
-    <ol>{quiz.references.map((reference, index) => <li key={reference.url} id={`${slug}-reference-${index + 1}`}>
+    <ol>{availableReferences.map((reference, index) => <li key={reference.url} id={`${slug}-reference-${index + 1}`}>
       <a href={reference.url} target="_blank" rel="noopener noreferrer" className="inline-block min-h-11 py-2 underline">{index + 1}. {reference.title.zh}</a>
     </li>)}</ol>
   </section> : null;
@@ -69,6 +71,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     <p className="leading-8">{result.summary.zh}</p>
     <QuestionnaireResultReading quizSlug={slug} profile={result} locale="zh" traditional headingLevel={2} mode="guide" showSummary={false} />
     {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
+    {slug === "work-traits-reflection" && <WorkTraitsContext locale="zh" traditional />}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -103,6 +106,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       </div>)}
     </section>
     {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
+    {slug === "work-traits-reflection" && <WorkTraitsContext locale="zh" traditional />}
     {references}
   </div>;
 }

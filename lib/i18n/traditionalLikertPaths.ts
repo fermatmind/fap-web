@@ -1,5 +1,7 @@
 const profiles = {
   "locus-of-control": ["control-continuum"],
+  hexaco: ["honesty-humility", "emotionality", "extraversion", "agreeableness", "conscientiousness", "openness-to-experience"],
+  "work-traits-reflection": ["composure-reading", "initiative-reading", "follow-through-reading", "social-contact-reading", "consideration-reading", "dependability-reading", "curiosity-reading"],
   "character-strengths": ["appreciation-of-beauty", "love", "teamwork", "curiosity", "fairness", "forgiveness", "gratitude", "hope", "humor", "perseverance", "honesty", "judgment", "kindness", "leadership", "love-of-learning", "humility", "creativity", "perspective", "prudence", "self-regulation", "social-intelligence", "spirituality", "bravery", "zest"],
   empathy: ["compassion-reading"],
   "social-intelligence-test": ["social-understanding-guide"],

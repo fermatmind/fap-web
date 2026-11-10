@@ -15,31 +15,47 @@ const sources = [
     'lib/questionnaires/data/character-strengths.json',
     'lib/questionnaires/result-content/character-strengths.json',
     'components/questionnaires/StrengthsLandingEditorial.ts',
+    'lib/questionnaires/data/hexaco.json',
+    'lib/questionnaires/result-content/hexaco.json',
+    'components/questionnaires/HexacoLandingEditorial.ts',
+    'lib/questionnaires/data/work-traits-reflection.json',
+    'lib/questionnaires/result-content/work-traits-reflection.json',
+    'components/questionnaires/WorkTraitsLandingEditorial.ts',
 ];
 
-function standaloneLikertSource(path) {
+function standaloneLikertSource(raw) {
+  const restart = "這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。";
   const replacements = [
     "默认不保存；主动保存的当前标签页草稿24小时内可恢复，完成、清除或重测即删除。",
     "默认不保存；主动保存的本标签页草稿24小时内恢复，完成、清除或重测即删。",
     "草稿需主动开启，仅本标签页24小时有效，完成、重测、退出清除即删。",
     "草稿需主动开启，仅本标签页保留24小时，完成、重测或退出并清除时删除。",
     "主动开启的本标签页草稿限24小时，完成、退出清除或重测会清除；不愿保存可直接作答。",
+    "主动保存的草稿在本标签页最多24小时，完成或重测即清除，",
+    "默认不保存，主动保存的本标签页草稿24小时后过期，完成、重测或退出清除时删除。",
+    "默认仅留在内存，主动选择后才保存标签页草稿。草稿24小时失效，完成、重测或退出并清除时删除。",
+    "原有默认页面内存、主动选择的24小时标签页草稿及完成退出重测清除保持不变；",
   ];
-  return JSON.parse(readFileSync(new URL(path, root), 'utf8'), (key, value) => {
+  return JSON.parse(raw, (key, value) => {
     if (key === 'zh' && typeof value === 'string') {
-      return replacements.reduce((text, from) => text.replaceAll(from, "這份測驗不儲存答題進度。重新整理、切換語言或離開後，需要重新開始。"), value)
+      return replacements.reduce((text, from) => text.replaceAll(from, restart), value)
         .replace("免费阅读、可选草稿与公开分享", "免费阅读、答题进度与公开分享")
-        .replace("免费直接作答、公开指南与可选保存", "免费直接作答、公开指南与隐私");
+        .replace("免费直接作答、公开指南与可选保存", "免费直接作答、公开指南与隐私")
+        .replace("普通页面分析关闭，可选匿名活动计数需要另行主动开启。", "網站可能依 Cookie 設定記錄不含答案的使用事件。");
     }
     return value;
   });
 }
 const previous = existsSync(output) ? readFileSync(output, 'utf8') : '';
-const overrides = Object.fromEntries(await Promise.all(sources.map(async path => [
-  path,
-  path.endsWith('LandingEditorial.ts') ? await import(new URL(path, root)) :
-    path.startsWith('lib/questionnaires/data/') ? standaloneLikertSource(path) : JSON.parse(readFileSync(new URL(path, root), 'utf8')),
-])));
+const overrides = Object.fromEntries(await Promise.all(sources.map(async path => {
+  if (path.endsWith('LandingEditorial.ts')) {
+    const editorial = await import(new URL(path, root));
+    return [path, path.endsWith('/HexacoLandingEditorial.ts') ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
+  }
+  const raw = readFileSync(new URL(path, root), 'utf8');
+  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json')
+    ? standaloneLikertSource(raw) : JSON.parse(raw)];
+})));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sources, overrides);
 const next = JSON.stringify(artifact, null, 2) + '\n';
 if (next !== previous) {

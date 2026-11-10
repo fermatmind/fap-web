@@ -1,3 +1,5 @@
+import { hexacoLandingFaq, hexacoLandingReferences, hexacoLandingSections } from "@/components/questionnaires/HexacoLandingEditorial";
+import { workTraitsLandingFaq, workTraitsLandingSections } from "@/components/questionnaires/WorkTraitsLandingEditorial";
 import { strengthsSummaries } from "@/components/questionnaires/StrengthsLandingEditorial";
 import { locusLandingFaq, locusLandingSections } from "@/components/questionnaires/LocusLandingEditorial";
 import { socialIntelligenceLandingFaq, socialIntelligenceLandingSections } from "@/components/questionnaires/SocialIntelligenceLandingEditorial";
@@ -12,6 +14,24 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  hexaco: {
+    reading: "hexaco",
+    attribute: "hexaco",
+    load: () => import("@/lib/questionnaires/result-content/hexaco.json"),
+    editorial: "Hexaco",
+    prefix: "hexaco",
+    sections: hexacoLandingSections,
+    faq: hexacoLandingFaq,
+  },
+  "work-traits-reflection": {
+    reading: "work-traits-reflection",
+    attribute: "work-traits",
+    load: () => import("@/lib/questionnaires/result-content/work-traits-reflection.json"),
+    editorial: "WorkTraits",
+    prefix: "workTraits",
+    sections: workTraitsLandingSections,
+    faq: workTraitsLandingFaq,
+  },
   "character-strengths": {
     reading: "character-strengths",
     attribute: "character-strengths",
@@ -52,18 +72,20 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (slug === "empathy") return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
   const summaries: Record<string, { zh: string; en: string }> = slug === "character-strengths"
     ? projectStoryCopy(strengthsSummaries, "components/questionnaires/StrengthsLandingEditorial.ts/strengthsSummaries", units)
     : {};
+  const extraReferences = slug === "hexaco" ? projectStoryCopy(hexacoLandingReferences,
+    "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units) : [];
   if ("editorial" in edition) {
     const editorial = `components/questionnaires/${edition.editorial}LandingEditorial.ts`;
-    return { quiz: { ...quiz, profiles }, summaries,
+    return { quiz: { ...quiz, profiles }, summaries, extraReferences,
       sections: projectStoryCopy(edition.sections, `${editorial}/${edition.prefix}LandingSections`, units),
       faq: projectStoryCopy(edition.faq, `${editorial}/${edition.prefix}LandingFaq`, units) };
   }
-  return { quiz: { ...quiz, profiles }, summaries, sections: [], faq: [] as Questionnaire["faq"] };
+  return { quiz: { ...quiz, profiles }, summaries, extraReferences, sections: [], faq: [] as Questionnaire["faq"] };
 }
