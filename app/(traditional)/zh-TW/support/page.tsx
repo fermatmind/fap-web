@@ -81,7 +81,7 @@ export default async function TraditionalSupportPage() {
       contactHref={contact ? displayLink(contact.href, contact.title).href : null}
       contactLabel={contact?.title ?? null}
       contactLink={supportEmail && /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(supportEmail)
-        ? <a href={`mailto:${supportEmail}`} className="inline-flex items-center gap-4 rounded-md bg-white px-5 py-3.5 text-sm font-semibold text-[#203c66]">{supportEmail}<ArrowUpRight size={17} aria-hidden /></a>
+        ? <a href={`mailto:${supportEmail}`} className="inline-flex min-h-11 items-center gap-4 rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#203c66]">{supportEmail}<ArrowUpRight size={17} aria-hidden /></a>
         : null}
     />
     <nav aria-label="頁面語言" className="mt-5 flex flex-wrap gap-5 text-sm">
