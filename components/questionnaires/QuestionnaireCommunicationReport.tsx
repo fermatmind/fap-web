@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { PortraitFacetLead } from "./PortraitFacetLead";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
@@ -7,31 +8,32 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 
 export function QuestionnaireCommunicationReport({ quiz, result, locale }: { quiz: Questionnaire; result: Extract<FacetResult, { status: "complete" }>; locale: Locale }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh", valid = Object.values(result.facets).filter(f => f.mean !== null).length;
   return <div className="my-6 space-y-8">
     <PortraitFacetLead quiz={quiz} result={result} locale={locale} anchorPrefix="communication-title-" />
 
     {quiz.profiles.map(profile => <section key={profile.id} data-communication-profile={profile.id} aria-labelledby={`communication-title-${profile.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
       <h3 id={`communication-title-${profile.id}`} className="scroll-mt-24 mb-5 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      {(() => { const facet = result.facets[profile.directionIds[0]], mean = facet.mean; return <p className="mb-5 text-lg font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{mean === null ? (zh ? "资料不足" : "Insufficient information") : `${mean.toFixed(1)} / 5`}</p>; })()}
+      {(() => { const facet = result.facets[profile.directionIds[0]], mean = facet.mean; return <p className="mb-5 text-lg font-semibold tabular-nums">{zh ? displayText("本次均分：") : "Your mean: "}{mean === null ? (zh ? displayText("资料不足") : "Insufficient information") : `${mean.toFixed(1)} / 5`}</p>; })()}
 
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["meaning", "everyday", "experiment"]} />
-      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? "阅读这种方式的公开说明（新标签页）" : "Read this response pattern’s public guide (new tab)"}</Link>
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} traditional={traditional} idPrefix={`report-${profile.id}`} mode="result" previewSectionIds={["meaning", "everyday", "experiment"]} />
+      <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)} target="_blank" rel="noopener">{zh ? displayText("阅读这种方式的公开说明（新标签页）") : "Read this response pattern’s public guide (new tab)"}</Link>
     </section>)}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "全部读数、计分与使用说明" : "All readings, scoring and use notes"}</summary>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? displayText("全部读数、计分与使用说明") : "All readings, scoring and use notes"}</summary>
       <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="communication-ratings-title">
-      <h3 id="communication-ratings-title" className="text-xl font-semibold">{zh ? "四种回应的自报频率，分别阅读" : "Read four reported response patterns separately"}</h3>
-      <p className="leading-8">{zh ? `四部分中，${valid}个有足够资料显示均分。每项6题至少4条有效评分，按1—5回答取一位小数均分；NA不补零。` : `${valid} of four parts have enough information for a mean. Each six-item part needs at least four ratings; its 1–5 mean uses one decimal. Unscored responses are never zero.`}</p>
+      <h3 id="communication-ratings-title" className="text-xl font-semibold">{zh ? displayText("四种回应的自报频率，分别阅读") : "Read four reported response patterns separately"}</h3>
+      <p className="leading-8">{zh ? displayText(`四部分中，${valid}个有足够资料显示均分。每项6题至少4条有效评分，按1—5回答取一位小数均分；NA不补零。`) : `${valid} of four parts have enough information for a mean. Each six-item part needs at least four ratings; its 1–5 mean uses one decimal. Unscored responses are never zero.`}</p>
       <dl className="space-y-5">{quiz.directions.map(direction => {
         const facet = result.facets[direction.id];
-        return <div key={direction.id} data-communication-facet={direction.id} className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt className="font-medium">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#communication-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd><span data-communication-mean>{facet.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${facet.mean.toFixed(1)} / 5`}</span><span className="block text-sm text-slate-600">{zh ? `${facet.rated} / 6条有效评分` : `${facet.rated} / 6 rated items`}</span></dd></div>;
+        return <div key={direction.id} data-communication-facet={direction.id} className="grid grid-cols-1 gap-2 border-b border-slate-200 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(7rem,auto)] sm:gap-4 [&>dd]:font-semibold [&>dd]:tabular-nums"><dt className="font-medium">{quiz.profiles.some(profile => profile.directionIds.includes(direction.id)) ? <a className="inline-flex min-h-11 items-center py-2 underline decoration-slate-300 underline-offset-4" href={`#communication-title-${quiz.profiles.find(profile => profile.directionIds.includes(direction.id))!.id}`}>{direction.title[locale]}</a> : direction.title[locale]}</dt><dd><span data-communication-mean>{facet.mean === null ? (zh ? displayText("资料不足") : "Insufficient information") : `${facet.mean.toFixed(1)} / 5`}</span><span className="block text-sm text-slate-600">{zh ? displayText(`${facet.rated} / 6条有效评分`) : `${facet.rated} / 6 rated items`}</span></dd></div>;
       })}</dl>
-      {valid === 0 && <p className="leading-8" data-communication-insufficient>{zh ? "本次作答已结束，四部分均未生成个人均分。可以重新测试，下面四份完整公开说明仍可阅读。" : "This attempt is finished without personal means for any part. You can retake it; all four full public guides remain available below."}</p>}
-      <p className="text-sm leading-7">{zh ? "均分只概括本组情境中的自报频率，不是能力、情商或工作表现。四种方式可以相近、并列或同时出现，不按最高值派主型，不合成总分、百分比或常模；小数差异不等于统计上明确的区别。" : "Means summarise reported frequencies in these situations, not ability, emotional intelligence or work performance. Patterns can be similar, tied or coexist. No highest-score primary type, total, percentage or norm is assigned. Decimal differences do not establish statistically meaningful distinctions."}</p>
+      {valid === 0 && <p className="leading-8" data-communication-insufficient>{zh ? displayText("本次作答已结束，四部分均未生成个人均分。可以重新测试，下面四份完整公开说明仍可阅读。") : "This attempt is finished without personal means for any part. You can retake it; all four full public guides remain available below."}</p>}
+      <p className="text-sm leading-7">{zh ? displayText("均分只概括本组情境中的自报频率，不是能力、情商或工作表现。四种方式可以相近、并列或同时出现，不按最高值派主型，不合成总分、百分比或常模；小数差异不等于统计上明确的区别。") : "Means summarise reported frequencies in these situations, not ability, emotional intelligence or work performance. Patterns can be similar, tied or coexist. No highest-score primary type, total, percentage or norm is assigned. Decimal differences do not establish statistically meaningful distinctions."}</p>
     </section>
-      <p className="leading-8">{zh ? "以下四份完整说明都呈现具体回应、工作与日常例子、边界、取舍、相近比较、反例和小尝试。它们不因均分高低而隐藏，也不用于替别人判断动机。" : "All four full guides follow, with concrete responses, work and everyday examples, boundaries, tradeoffs, comparisons, counterexamples and small experiments. None is hidden by its mean or used to infer someone else’s motives."}</p>
+      <p className="leading-8">{zh ? displayText("以下四份完整说明都呈现具体回应、工作与日常例子、边界、取舍、相近比较、反例和小尝试。它们不因均分高低而隐藏，也不用于替别人判断动机。") : "All four full guides follow, with concrete responses, work and everyday examples, boundaries, tradeoffs, comparisons, counterexamples and small experiments. None is hidden by its mean or used to infer someone else’s motives."}</p>
     </details>
   </div>;
 }

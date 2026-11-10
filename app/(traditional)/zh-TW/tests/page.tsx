@@ -5,7 +5,10 @@ import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotT
 import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience";
 import { ApiError } from "@/lib/api-client";
 import { traditionalUi } from "@/lib/i18n/zh-TW/chiikawa";
+import { relationshipQuestionnaireSlugs } from "@/lib/i18n/relationshipQuestionnairePaths";
+import { loadTraditionalRelationshipQuestionnaire } from "@/lib/i18n/zh-TW/relationshipQuestionnaire";
 import { getTestsHubContent } from "@/lib/marketing/testsHubContent";
+import { questionnairePath } from "@/lib/questionnaires/paths";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -29,7 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function TraditionalTestsDirectory() {
-  const content = await loadDirectory();
+  const [content, quizzes] = await Promise.all([
+    loadDirectory(),
+    Promise.all(relationshipQuestionnaireSlugs.map(loadTraditionalRelationshipQuestionnaire)),
+  ]);
   if (!content) return <TraditionalPilotTests />;
 
   return <>
@@ -43,5 +49,14 @@ export default async function TraditionalTestsDirectory() {
       <Link href="/zh-TW/tests/category/career" className="inline-flex min-h-11 items-center underline">職業與方向</Link>
     </nav>
     <TestsHubExperience content={content} locale="zh-TW" />
+    <section aria-labelledby="relationship-quizzes" className="mt-8 space-y-4">
+      <h2 id="relationship-quizzes" className="text-2xl font-bold">關係與溝通</h2>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {quizzes.filter((quiz) => quiz !== null).map((quiz) => <Link key={quiz.slug} href={questionnairePath("zh-TW", quiz.slug)} className="rounded-xl border border-slate-200 p-5">
+          <h3 className="text-xl font-semibold underline">{quiz.title.zh}</h3>
+          <p className="mt-3 leading-7">{quiz.description.zh}</p>
+        </Link>)}
+      </div>
+    </section>
   </>;
 }

@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FacetResult } from "@/lib/questionnaires/scoring";
 import type { Questionnaire, Text } from "@/lib/questionnaires/types";
@@ -33,6 +34,7 @@ export function PortraitFacetLead({ quiz, result, locale, anchorPrefix }: {
   locale: Locale;
   anchorPrefix: string;
 }) {
+  const { displayText } = useQuestionnaireDisplayCopy();
   const lead = Object.hasOwn(leads, quiz.slug) ? leads[quiz.slug] : undefined;
   if (!lead) return null;
   const zh = locale === "zh";
@@ -46,13 +48,13 @@ export function PortraitFacetLead({ quiz, result, locale, anchorPrefix }: {
     ? needs.map(need => ({ id: need.id, title: need.title[locale], entries: entries.filter(item => item.id.startsWith(`${need.id}-`)) }))
     : [{ id: "all", title: null, entries }];
   return <section className={styles.lead} data-portrait-facet-lead={lead.style} aria-labelledby={`${quiz.slug}-quick-reading`}>
-    <h3 id={`${quiz.slug}-quick-reading`}>{lead.title[locale]}</h3>
-    <p>{lead.lede[locale]}</p>
+    <h3 id={`${quiz.slug}-quick-reading`}>{displayText(lead.title[locale])}</h3>
+    <p>{displayText(lead.lede[locale])}</p>
     <div className={styles.groups}>{groups.map(group => <div className={styles.group} key={group.id}>
       {group.title && <h4>{group.title}</h4>}
       <dl>{group.entries.map(item => <div key={item.id}>
         <dt><a href={item.anchor}>{item.name}</a></dt>
-        <dd>{item.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${item.mean.toFixed(1)} / 5`}</dd>
+        <dd>{item.mean === null ? (zh ? displayText("资料不足") : "Insufficient information") : `${item.mean.toFixed(1)} / 5`}</dd>
       </div>)}</dl>
     </div>)}</div>
   </section>;

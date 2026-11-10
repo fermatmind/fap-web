@@ -1,6 +1,7 @@
 import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
+import { relationshipQuestionnaireRoute } from "./relationshipQuestionnairePaths";
 import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 // Partial display-language support is deliberately separate from legacy API/form locales.
 // No CMS, report-language, region, price or entitlement mapping is inferred here.
@@ -30,6 +31,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (path === "/support") return "/zh-TW/support";
   if (path === "/pricing") return "/zh-TW/pricing";
+  if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
   // Published CMS pilot: available for language navigation, but not indexable.
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;

@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
 import { useQuestionnaireAutoAdvance } from "./useQuestionnaireAutoAdvance";
 import { useEffect, useRef, useState, type ReactNode } from "react";
@@ -12,6 +13,7 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
   const region = useRef<HTMLDivElement>(null), entered = useRef(false);
   useQuestionnaireAutoAdvance(region);
   const [preparing, setPreparing] = useState(autoStart), [slow, setSlow] = useState(false);
+  const { displayText } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   useEffect(() => {
     const root = region.current;
@@ -47,13 +49,13 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
       <div className={`${takeStyles.layout} ${styles.surface}`} data-questionnaire-take>
         <header className={takeStyles.headerRow}>
           <h1 className={takeStyles.testName}>{title}</h1>
-          {minutes > 0 && <p className={takeStyles.time}>{zh ? `预计用时 ${minutes} 分钟` : `About ${minutes} minutes`}</p>}
+          {minutes > 0 && <p className={takeStyles.time}>{zh ? displayText(`预计用时 ${minutes} 分钟`) : `About ${minutes} minutes`}</p>}
         </header>
-        {preparing && <div role="status" className={styles.preparing}>{slow ? (zh ? "准备时间较长，可以刷新重试或返回介绍页。" : "Preparation is taking longer. Reload to retry or return to the introduction.") : (zh ? "正在准备题目…" : "Preparing your questions…")}
-          {slow && <div className="mt-4 flex flex-wrap gap-4"><button type="button" onClick={() => window.location.reload()}>{zh ? "刷新重试" : "Reload and retry"}</button><Link prefetch={false} href={landing}>{zh ? "返回测评介绍" : "Back to introduction"}</Link></div>}
+        {preparing && <div role="status" className={styles.preparing}>{slow ? (zh ? displayText("准备时间较长，可以刷新重试或返回介绍页。") : "Preparation is taking longer. Reload to retry or return to the introduction.") : (zh ? displayText("正在准备题目…") : "Preparing your questions…")}
+          {slow && <div className="mt-4 flex flex-wrap gap-4"><button type="button" onClick={() => window.location.reload()}>{zh ? displayText("刷新重试") : "Reload and retry"}</button><Link prefetch={false} href={landing}>{zh ? displayText("返回测评介绍") : "Back to introduction"}</Link></div>}
         </div>}
         <div ref={region} className={styles.engine} data-preparing={preparing ? "true" : undefined}>{children}</div>
-        <noscript><p>{zh ? "答题需要JavaScript，请启用后刷新。" : "Enable JavaScript and reload to answer."} <Link href={landing}>{zh ? "返回测评介绍" : "Back to introduction"}</Link></p></noscript>
+        <noscript><p>{zh ? displayText("答题需要JavaScript，请启用后刷新。") : "Enable JavaScript and reload to answer."} <Link href={landing}>{zh ? displayText("返回测评介绍") : "Back to introduction"}</Link></p></noscript>
       </div>
     </main>
   </QuestionnaireTakeContext.Provider>;

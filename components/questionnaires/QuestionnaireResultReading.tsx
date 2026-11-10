@@ -1,10 +1,10 @@
 import { QuestionnaireReport, type QuestionnaireReportPresentationProps } from "./QuestionnaireReport";
 import styles from "./QuestionnaireResultPresentation.module.css";
 
-export function QuestionnaireResultReading({ quizSlug, profile, locale, headingLevel = 3, idPrefix = "report", showHeadline, showSummary, navigation, mode = "guide", previewSectionIds }: QuestionnaireReportPresentationProps & { quizSlug: string }) {
+export function QuestionnaireResultReading({ quizSlug, profile, locale, traditional, headingLevel = 3, idPrefix = "report", showHeadline, showSummary, navigation, mode = "guide", previewSectionIds }: QuestionnaireReportPresentationProps & { quizSlug: string }) {
   const candidate = profile.resultReading;
   const reading = candidate?.quizSlug === quizSlug && candidate.profileId === profile.id ? candidate : null;
-  const report = <QuestionnaireReport profile={profile} locale={locale} headingLevel={headingLevel} idPrefix={idPrefix} showHeadline={showHeadline} showSummary={showSummary} navigation={navigation ?? Boolean(reading)} mode={mode} previewSectionIds={previewSectionIds} />;
+  const report = <QuestionnaireReport profile={profile} locale={locale} traditional={traditional} headingLevel={headingLevel} idPrefix={idPrefix} showHeadline={showHeadline} showSummary={showSummary} navigation={navigation ?? Boolean(reading)} mode={mode} previewSectionIds={previewSectionIds} />;
   if (!reading) return report;
   return <div {...{ [`data-${reading.attribute}-result-reading`]: profile.id }}>
     {report}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { traditionalPath, traditionalEquivalent, TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH } from "@/lib/i18n/traditionalRoutes";
+import { relationshipQuestionnaireRoute } from "@/lib/i18n/relationshipQuestionnairePaths";
 import { SITE_URL } from "@/lib/site";
 import { ChiikawaReading } from "@/components/i18n/zh-TW/ChiikawaReading";
 import { ChiikawaTake } from "@/components/i18n/zh-TW/ChiikawaTake";
@@ -18,6 +19,10 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  if (relationshipQuestionnaireRoute(path.slice("/zh-TW".length))) {
+    const { relationshipQuestionnaireMetadata } = await import("@/components/i18n/zh-TW/RelationshipQuestionnairePage");
+    return relationshipQuestionnaireMetadata(path);
+  }
   if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
     const { sevenSinsTraditionalMetadata } = await import("@/components/i18n/zh-TW/SevenSinsPage");
     return sevenSinsTraditionalMetadata(path);
@@ -38,6 +43,10 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  if (relationshipQuestionnaireRoute(path.slice("/zh-TW".length))) {
+    const { RelationshipQuestionnairePage } = await import("@/components/i18n/zh-TW/RelationshipQuestionnairePage");
+    return <RelationshipQuestionnairePage path={path} />;
+  }
   if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
     const { SevenSinsTraditionalPage } = await import("@/components/i18n/zh-TW/SevenSinsPage");
     return <SevenSinsTraditionalPage path={path} />;

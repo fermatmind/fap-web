@@ -10,6 +10,12 @@ export const packages = [
   { output: 'lib/i18n/zh-TW/chiikawa.generated.json', sources },
   { output: 'lib/i18n/zh-TW/seven-sins.generated.json', sources: ['lib/questionnaires/data/seven-sins-virtues-test.json', 'lib/questionnaires/result-content/seven-sins-virtues-test.json', 'lib/questionnaires/virtuesLandingEditorial.json'] },
   { output: 'lib/i18n/zh-TW/seven-sins-ui.generated.json', sources: ['lib/i18n/zh-TW/seven-sins-ui.source.json'] },
+  { output: 'lib/i18n/zh-TW/relationship-questionnaires.generated.json', sources: [
+    'lib/questionnaires/data/attachment-styles.json',
+    'lib/questionnaires/result-content/attachment-styles.json',
+    'lib/questionnaires/data/communication-style.json',
+    'lib/questionnaires/result-content/communication-style.json',
+  ] },
 ];
 const converter = 'opencc-js@1.4.2:cn:twp';
 const glossary = 'fermatmind-tw-1';

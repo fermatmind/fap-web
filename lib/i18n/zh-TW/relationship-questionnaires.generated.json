@@ -1,0 +1,2869 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/questionnaires/data/attachment-styles.json": "8579f519764100ba192cfe2b4bfb300fad36a50821f31ed72f056c1343385efe",
+    "lib/questionnaires/result-content/attachment-styles.json": "f8b9abdbfae2c4f6eba7ee99d09dc25b551507209bb5e9118be6f6a89a097f92",
+    "lib/questionnaires/data/communication-style.json": "85acf9cd80a24cbe4cb468fb14c8733b0e27ae859d48dd68a3f485eeb7bd36b0",
+    "lib/questionnaires/result-content/communication-style.json": "d329fdced3f4b5a3721048e52ba67b868370cbfe95d739e3d6fdff6ffdc82618"
+  },
+  "units": {
+    "lib/questionnaires/data/attachment-styles.json/title": {
+      "sourceHash": "e12dc5686dea1fd98e028b9a6bb679fe8997b5e588316fd5183fa51b5e6877d6",
+      "text": "依戀風格測試"
+    },
+    "lib/questionnaires/data/attachment-styles.json/description": {
+      "sourceHash": "9402282bad9b41897516812bbb3bd4432af5d833431fdc8c68f2362959ee1dab",
+      "text": "用24道原創情境頻率題，回看近三個月同一段成年親密關係中的反覆擔心與親近退縮。約6分鐘，免費檢視兩維均分及四種依戀風格完整指南，無需註冊。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/seoTitle": {
+      "sourceHash": "96a7c3741df6168165fb769512bb18d08fec4808ac1159a2088336801c623161",
+      "text": "依戀風格測試：24題、焦慮迴避兩維與完整解讀"
+    },
+    "lib/questionnaires/data/attachment-styles.json/resultHeading": {
+      "sourceHash": "3e6f8e41a32a9294d6c4e1403baac84e7d960b3bdcef4e81044ace447a9fc764",
+      "text": "關係中的擔憂與距離感"
+    },
+    "lib/questionnaires/data/attachment-styles.json/instructions": {
+      "sourceHash": "b55988fe62faaf0bc1f09097f71b01a3166faec30148965a37a6f5ff71813e58",
+      "text": "選擇一段你願意回顧的成年親密關係，始終以同一個人為參照，考慮近三個月通常出現的情境。按頻率從1“從不”到5“幾乎總是”選擇，不按理想狀態或替對方作答。沒有適用經歷、無法判斷或不願回答時，選不計分項，無需編造經歷。全部24題作出選擇後顯示彙總；每軸12題中至少8條有效評分才顯示均分。不需要填寫姓名、對方資訊或私人文字。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/introduction": {
+      "sourceHash": "6c268c63a7217721318d9678a8f2ff4af173dcb8da2922d6ba2b4f50c400709a",
+      "text": "成人依戀研究常用依戀相關焦慮與迴避兩個維度，討論對關係回應的擔心，以及對親近和依靠他人的不適。[1] 本站原創24題圍繞近期具體情境，分別整理“關係中的反覆擔心”和“親近時的退縮與距離”，先顯示兩項連續均分與有效題數，再提供安全、焦慮、迴避、恐懼迴避四種概念原型的完整指南。四份指南全部可讀，不是系統替你選出的四項人格成分。本版不施測ECR系列量表，沒有驗證過的型別分界，不根據一次自評給你或伴侶確定身份。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/directions/0/title": {
+      "sourceHash": "5dc78a7b952e06cebf154b1aa3d2ced20fb59067232761b0c9cfd208bd898186",
+      "text": "關係中的反覆擔心"
+    },
+    "lib/questionnaires/data/attachment-styles.json/directions/1/title": {
+      "sourceHash": "1ddd26209d1cb9eac9d3cffce7d13b4db6adfe3a54f5178ffc4bf489f82ce09a",
+      "text": "親近時的退縮與距離"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/prompt": {
+      "sourceHash": "dfacd0ed0d29ce77db90c56af0df88e4d706a10c9b61cb0e3b78e37c7cbcac2b",
+      "text": "一條訊息暫時沒有回覆時，我會反覆猜測我們之間是否出了問題。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/options/0/label": {
+      "sourceHash": "c4bc35810f854e9ca6ef3556e758bc9763608f800d28e2afd60888eab83756a8",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/options/1/label": {
+      "sourceHash": "c5af2ef4e84d62b3042a889944690e75f5c972c4776f6ebb7dc9a23311501886",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/options/2/label": {
+      "sourceHash": "311a0aadc7983958d25a8c0626851f080757abb55139e9b94a01ddcb5e997c44",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/options/3/label": {
+      "sourceHash": "0f3a977cc6c52317522ad5a591aac4f7b600495834c3bad76264e047f3c1ba8a",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/options/4/label": {
+      "sourceHash": "53ca9e35febb7e0a7a1138544a988cc0acc8812fab79f5bf5a15a48592197a56",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/0/options/5/label": {
+      "sourceHash": "0bd4b6466f65eb4a72c75e386895e32ef0969a7045f17dd341af93cd958ea8bf",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/prompt": {
+      "sourceHash": "4803a0165e8d3e4c42585c67f831eceec179bbf1eb0d5bee002503b3e461450e",
+      "text": "一次約定因為明確的日程原因推遲後，我仍會擔心這意味著對方想疏遠我。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/options/0/label": {
+      "sourceHash": "1751735cfb741a45dc7f2214a8c89e9cab8894c7800cc6da7c3a7a55035ead8c",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/options/1/label": {
+      "sourceHash": "9f58144656227755f3f15f1694326c506131747c8050db368c1e80419fed3fce",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/options/2/label": {
+      "sourceHash": "a934ce2100924156f1204a8c4dbde1497143b8a5c31e8481d26caf2d9e1c9749",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/options/3/label": {
+      "sourceHash": "3d910d7853eb6f7582c22f41b820585a43ea281a78dd565353d007aa7e4c0648",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/options/4/label": {
+      "sourceHash": "4307244cbf145736590c5f3825b5b953e580da0852f3fa14acf18fe5cf4b757f",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/1/options/5/label": {
+      "sourceHash": "76485c6c1746ac6d192fa72cee015bb31cee4daff7d0788647176667866229b0",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/prompt": {
+      "sourceHash": "18af7288b57ad6bb155f38d0410b966ab34e12babed6a8bd1215858605046550",
+      "text": "對方一次說話比平常簡短時，我會持續留意他們是不是不再在意這段關係。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/options/0/label": {
+      "sourceHash": "fcb441f30b1af3394ce3e0842f509bce4939223ec4c017cb49a862d26ee25a55",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/options/1/label": {
+      "sourceHash": "500ddbd0d5282e186851187667a35b14563b7dda1de2af47a3134ff874c129f7",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/options/2/label": {
+      "sourceHash": "d1349cfc5c364f6d7320bafb7bbabc02be5cff8c92ab656ade392f28a6e94c9f",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/options/3/label": {
+      "sourceHash": "14693e640c74eaa476a5f961a39c046db4381c76640de261548715e1b7a7f93b",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/options/4/label": {
+      "sourceHash": "a3051d385c6cbd924aa16b643f7bb077e823136add211b6609966b3aa0fd40ab",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/2/options/5/label": {
+      "sourceHash": "46844aaa019fed5deb72847e26080430d4d1a6b86de5b9c8ee36887961e358db",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/prompt": {
+      "sourceHash": "518a1ace04003e9337eda2f95dd2c4ca8ee50ada899eb71be10b459a4f44387a",
+      "text": "一次愉快的相處結束後，我仍很快想再次確認我們之間一切如常。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/options/0/label": {
+      "sourceHash": "9059382bcf4e0a9b6fb0f074bbe1bc695154460ba02cd35d675778ec49e04062",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/options/1/label": {
+      "sourceHash": "b7b599e90644c8b91087ff5dbd7dfd7aafb69c5ce2e113af0dee5c2c706a9999",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/options/2/label": {
+      "sourceHash": "7b1c860f4b3017804b75da3994e7cd46de5b5132197bf3e172f6ef4b285236c1",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/options/3/label": {
+      "sourceHash": "2eed743aeb92150378dafaba1d9c66d5c7366730957a6840fa789e0d1c486906",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/options/4/label": {
+      "sourceHash": "b38e271f001f548ea875066f5cd18323b0a5c3743fb6d3e4ea7d266a91e293ef",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/3/options/5/label": {
+      "sourceHash": "e9b37335780820027211dfe1ab24d7745985d9786a6af10710ef9ca7caf7aa01",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/prompt": {
+      "sourceHash": "a2e260d169a727579d7f48a49ca8c22ec1cea7b838e008167337b71f7b4a6775",
+      "text": "出現一個小分歧時，我會把注意力轉到這段關係能否繼續，而不只是那件事本身。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/options/0/label": {
+      "sourceHash": "b6a91aeeaac2014175125833b10e27e9588e6d61b9bf02a071f83943415c17ea",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/options/1/label": {
+      "sourceHash": "14a2d5ded7fdcbfcab44d38ba93e7f734e5f1bb83e4ef511255d158b01bb7e0a",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/options/2/label": {
+      "sourceHash": "d933a608dcde8f45609acf57869198249c9907fd2669f6353da5552ef0cff2ab",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/options/3/label": {
+      "sourceHash": "c4b899fc20d52df69064bf938cf8b596a2a20ea554f912127c58a097cceb9c51",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/options/4/label": {
+      "sourceHash": "181a3857e50adff45e07d265270713fb41bc3adb97a23836fa1f2466b55d8074",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/4/options/5/label": {
+      "sourceHash": "e3db47768690a22113a1d5401bd4483efd1b97102c7e6624a2f0b36e2b30dc48",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/prompt": {
+      "sourceHash": "7f32f025282f5135525a86c0c6f5bfa119ca8a9388ab69ff0605bbaa421538bc",
+      "text": "對方已清楚解釋一次短暫失聯的原因後，我仍想多次確認他們對我的態度。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/options/0/label": {
+      "sourceHash": "8305bd61ceb983fbd6e0bd68beff1f21dc0a3c1ef84881a8bdc4b734993d65bf",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/options/1/label": {
+      "sourceHash": "f1773dc0ca0f7db6cda80ba705c68998d88f7e059ae6370aacfdb2cf69335216",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/options/2/label": {
+      "sourceHash": "d6f008ef0fe19f153b3c14e00036e8935c68f90601a43e8abb13790cc2e6f8ef",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/options/3/label": {
+      "sourceHash": "39064703626cf2149833e44ba1c94aa7e0d8c75493b0af9160edd4070673d27e",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/options/4/label": {
+      "sourceHash": "4e6cc7bdec090c89e8c5d14a60fcd0c249e321251d2c23ae4d15a45c826bad5e",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/5/options/5/label": {
+      "sourceHash": "844c931e3918d474f0b4586c005c4240d226ebddffb904563428a3a80558e325",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/prompt": {
+      "sourceHash": "33e27a0b9b88bbc8cfbf3abf45757e22ac746d96df36167ef48ad081fa9dc0e7",
+      "text": "對方投入自己的活動時，我會難以放下“我是不是已經不重要”的念頭。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/options/0/label": {
+      "sourceHash": "7988a46301d5e9720b45fdb9e32b812f46f1e816708231aec76afa9bede80530",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/options/1/label": {
+      "sourceHash": "ac1f16d047027cfc914a93ffb6b8e75d96229c280019a10d5207da242dfaf3dc",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/options/2/label": {
+      "sourceHash": "a64267fffe42e6f0389183c56183e2ff29efd7e2c5dbec385bf68b97fca64c7d",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/options/3/label": {
+      "sourceHash": "801d1f04e66937d4a77c1c16f66a6f66671d7d5ac19db21aeb91be38a120ce26",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/options/4/label": {
+      "sourceHash": "25ab6d8da8f1e76ad8adc6eab8f34402e1e04d35f9f3897e51deab61945d5351",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/6/options/5/label": {
+      "sourceHash": "b8626365c7ddfa2a6607c32df252520451926587d3986a542eaaa369b17036bc",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/prompt": {
+      "sourceHash": "828291566375a5fbd59a3f0b3331a727b726ab85791a0a10f14da21bc6890e27",
+      "text": "一次明確的關心讓我放心的時間很短，隨後我又開始找關係可能變淡的線索。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/options/0/label": {
+      "sourceHash": "e4a0160f0ce27f358f0142082d2c37084dad2db6e0c359a37b66e940791434c0",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/options/1/label": {
+      "sourceHash": "bbad50d695c44ea6741ef82e56bb0cc092db77289358bd02f05d32de724deed5",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/options/2/label": {
+      "sourceHash": "301a404aea1cc8630686422b900de1546837359d6b72953e91086cefbe0abe41",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/options/3/label": {
+      "sourceHash": "dca5e3c769412ee5d1e440ef0eaa6b9b4dfb4871fd26b3b1d9b43330206c6b1d",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/options/4/label": {
+      "sourceHash": "a887daa4fff0143940acc9af3bd106a25e37bf8950516bf2a6373b2abc5a47c4",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/7/options/5/label": {
+      "sourceHash": "3e349bf6973da18b8da13c832a184fad6755938957424e617eae5d2e58646492",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/prompt": {
+      "sourceHash": "c03d9841cb907dbaa9286eba75b6996679cc3eb2f071d2f36c86169f2aa77672",
+      "text": "對方提前說好會忙一陣時，我能暫時把注意力放回自己的安排。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/options/0/label": {
+      "sourceHash": "0f0b51003e4ff4ae0afc53133bc6b964e0844f7130f0cf13fed90eb56f57c7e9",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/options/1/label": {
+      "sourceHash": "0163c43f83fe6e2d5c86e2985cf387f08f8ece0cb8cdb04c6e26c598ebc69599",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/options/2/label": {
+      "sourceHash": "756d7f7ce8a6414cc77b0bc6e25db8ccfb8493a89bf606c734ff18f9fe748277",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/options/3/label": {
+      "sourceHash": "f11b7002f785d69cabfbac0b8e10d4b3044dc1a00cf34b8e749c74e844e99a36",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/options/4/label": {
+      "sourceHash": "fcd3a5bb3b9080ab2a2d54fb0d2d2de4c0756a97be459bd5bfb65200ee30644e",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/8/options/5/label": {
+      "sourceHash": "344d0681f6b9e41093b9465ea4f355f6005653d73c3625d665f7c9eb80972930",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/prompt": {
+      "sourceHash": "e52f1a356b211d19b999cca167d09e00b12a72acb1ede4fe5810af8dd629b0e1",
+      "text": "下一次聯絡時間已經商量好後，我能讓中間的空檔自然過去，不反覆求證關係。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/options/0/label": {
+      "sourceHash": "b00cf21562b428e17fa889982274077f3ebb0543c4b76630b4662e6092abe34c",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/options/1/label": {
+      "sourceHash": "fe43914b99278f8ebd3aecf0a6f4d637eaa6309734036336a4c00aecc77d715f",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/options/2/label": {
+      "sourceHash": "b78dbea763e46c3828b2fdb63a11410442a2d182fc216aa606f5736440b523e7",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/options/3/label": {
+      "sourceHash": "2086d4c8cc18548484e389c6b0083bf8b0fa52d9daa7bbdef0fbe9695ec52474",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/options/4/label": {
+      "sourceHash": "ca04817238230708d3c4fe4182895b0e1cdf341ccda373523e0bf2e90c84c8d0",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/9/options/5/label": {
+      "sourceHash": "589d6b848c636afc35c3efc99072f92fdb778c9069574af58cb5dfee477f8c81",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/prompt": {
+      "sourceHash": "30196966e3a3dd03ff7531f56ef621d49b53aedf3da59729d95cfca2716d7ec5",
+      "text": "我們對一件小事看法不同時，我能保留“這段關係未必因此改變”的想法。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/options/0/label": {
+      "sourceHash": "5003e19983242462bb7208bc3077ce6f23a87afc8da0be6e0e6a978047693f40",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/options/1/label": {
+      "sourceHash": "33d5d637feca634e3436d2d16f7ee6d640fbd0373c0f8e310e45392eb9847101",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/options/2/label": {
+      "sourceHash": "5fc7868ef538075fda8c283b6fa03e0cd5b2dbdf1b173599d06932e8da0786c8",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/options/3/label": {
+      "sourceHash": "db5681623a0e08d43c6eb838f958bd9c9170d5e234dba7278d1fca7bc41ce59d",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/options/4/label": {
+      "sourceHash": "e33a1da9f46d9b37528588bfc44e797d2d5d5e967914cb43db160c942639429a",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/10/options/5/label": {
+      "sourceHash": "b74fae33467618e943f67be8a8ca1f21b3ebbc947d27acc495cf56df7d4f55f7",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/prompt": {
+      "sourceHash": "0661d47d09415c1b7f4d6b4eb7bc393fbc38423af625ff33a5ba96b6bc7d430e",
+      "text": "對方某次沒有及時表達關心時，我能先留下疑問，而不立刻認定自己被放棄。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/options/0/label": {
+      "sourceHash": "f1e6114bc64352f4fc443502970886c8410506f9c753911144b9ca03baead541",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/options/1/label": {
+      "sourceHash": "5aada890bc907e791fd27a008c845e73a590f82b7c8c28c96333350376bd4d34",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/options/2/label": {
+      "sourceHash": "5ddb127edc0a94ddccf488d8cf82714d1bdfce4bc5f0cf39736c3a402760592c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/options/3/label": {
+      "sourceHash": "cc9e633fdc0e1ab8e5bf4395321e0539f534c5a5364eeecfc853a4531285eeca",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/options/4/label": {
+      "sourceHash": "bbe386c8f6b8cb016db5959dbc29d846a8bb285f7fbb3044ca8207d9d51014ee",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/11/options/5/label": {
+      "sourceHash": "4d926a2a088a8356490030aecdd7fc2e04141a09acd5148aff9ff29211c25849",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/prompt": {
+      "sourceHash": "1c855247ff0fb5ce4f868b4d9c3f75525995e056a512da409c9547246d344f7f",
+      "text": "即使一項協助是我願意得到的，讓這位親近的人參與進來仍讓我想退回獨自處理。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/options/0/label": {
+      "sourceHash": "88b9e530bb649b5cb6c43277304ec712ad3bc987577e01be479ee2eee95dd954",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/options/1/label": {
+      "sourceHash": "9b75b2dacfcd0cb51f3c223ca120eeb09da5c154a5ad8681661749cfb7e550cd",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/options/2/label": {
+      "sourceHash": "2619b9c11560ea11509e2382399a0e1f9e06df19ccd8b0fef527f64fde4ceead",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/options/3/label": {
+      "sourceHash": "e103bbff2237194baa358997dabf704583d91efb7450526f0d7dae6f6669d42b",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/options/4/label": {
+      "sourceHash": "43670c319b7c860d7095579fe4b1d50c37820df3d70aa57057ea00c9f1aa1925",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/12/options/5/label": {
+      "sourceHash": "e634f4e1a21a311d111fdf7e464a08c92b0cf9c517dbecf34b88862fa8d0316c",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/prompt": {
+      "sourceHash": "8beb51ed44238d0fa4a8c0e49e870905a3d1a841edcf041ceab7450ac0f263db",
+      "text": "對話接近我在意的感受時，我會把話題轉回事務，以拉開一點距離。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/options/0/label": {
+      "sourceHash": "78003d88306420de1aac2aaa39b5c433b516f9e193061d9f1074fd9fc3ace37b",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/options/1/label": {
+      "sourceHash": "bdabd394e4fed02bfd540f6fd1a0f7efa1c9d0c40c94913c5477d142db801c3d",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/options/2/label": {
+      "sourceHash": "772a2e9919242acca12c780d7e33c7243f11e9bb230ecb1f3c7d6bbe2efdee94",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/options/3/label": {
+      "sourceHash": "5d3a719b00a2d426571aed76ffda3f7781877eb992649de24008af5cb73eb119",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/options/4/label": {
+      "sourceHash": "d800b89d71befd9cad40e16ee68ccf325678f5ef7f2b1f6fccce0953aac28efc",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/13/options/5/label": {
+      "sourceHash": "18bf68e4a777ed6ad1eb7bca28cf37999a785ca30394c932ece5e3e65ca7e5f4",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/prompt": {
+      "sourceHash": "fc255fef831af8e6b0eae30538688fc0c2ab5515d1699f6c284c187931dccd24",
+      "text": "對方提出一種我可以自由拒絕的支援時，接受它仍讓我覺得需要馬上減少依靠。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/options/0/label": {
+      "sourceHash": "f3351c690bc247e7200682ef663c474fcc14e1d6aa4f8417a49503841a125dae",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/options/1/label": {
+      "sourceHash": "19cf7c26a51e52ba8857b50a8b1f2e129aa1775f8c82aad422efb8fd2e75d588",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/options/2/label": {
+      "sourceHash": "96c3d8c6d7ab055bce837adab8c7c6bad849fcd30e7a491114a58bdcbd419f68",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/options/3/label": {
+      "sourceHash": "ac36df00dc2024cfb0e7a05eb6fb1c38cdc41ee63d59bccfe44428f1b54bca55",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/options/4/label": {
+      "sourceHash": "adaaabc157cf0bc007ad67454220efceab6f06403ae8300579373fad0dc9097f",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/14/options/5/label": {
+      "sourceHash": "010329dda3e26103e127ee0a708cfeb475a24c13b0a0b448687e6c84fbe1c4ae",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/prompt": {
+      "sourceHash": "b0dbce6fc29b967668573ad982a427c59b212f1f3f37d5bf7387095894976af6",
+      "text": "即使一項共同安排給我保留了選擇，我也會因彼此要更多協調而想退出。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/options/0/label": {
+      "sourceHash": "49840c8dd6ae37f7a49f95d3077b340dbe2d670cb19fa89ff2aa6e930a28f39e",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/options/1/label": {
+      "sourceHash": "5b071624ce8dc8b3123cf49cbd90456cd712273d7d9860b0a5f40a14c5d92688",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/options/2/label": {
+      "sourceHash": "2604fcc781c09462673cae9b29004a56434332050794c3b929fdf282ba9befa0",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/options/3/label": {
+      "sourceHash": "504f3612ac6e5d821b8faf127d53a0cbc4588f3c0e8d7649011b5ba56bee8c70",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/options/4/label": {
+      "sourceHash": "e1811c8f7633e6b812673e18af37a667840d73355f8f04305bf7098255a657b2",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/15/options/5/label": {
+      "sourceHash": "c87ac6669b04e34c711aa986fc82eaaddfc99a032dcaf576cd1b6353448c8695",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/prompt": {
+      "sourceHash": "ecced44d8853f77f19de87862436d458a4df5ffbe0d8122cbc08a60fa9e2e417",
+      "text": "有一件我本來想分享的小煩惱時，我會先把它說得不重要，以減少暴露自己的感覺。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/options/0/label": {
+      "sourceHash": "118fe7c36e512b50d9fe44251f92fe0bbd8da9f305830b185ce40b8655420e0a",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/options/1/label": {
+      "sourceHash": "d94983767db1b0c5dad21003e81ebb6cdb3423ece02b8abdf23d75183a38d3b6",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/options/2/label": {
+      "sourceHash": "c90a1244af3a39eca57407fc2301b3e96f4d70b62202cece8267c3f18bb1ce7e",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/options/3/label": {
+      "sourceHash": "7b7cfd1099ff9186f2b15641140c7a9936f8d05098212bfb5bb8a7795c6bed6e",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/options/4/label": {
+      "sourceHash": "6a592b1622644b0ce1d07a8b2c7903109a8ea4659d14073ef7a7cea5045920f2",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/16/options/5/label": {
+      "sourceHash": "0ae5ddc6072c75a71dac3bb027bdc70bb1fb0944ed44cd926fdaf142bf12b7f6",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/prompt": {
+      "sourceHash": "fdd5c29181046521ce8949a66ccf827fbd79abce87ec3bd9226a7ebe639bc825",
+      "text": "對方溫和地想了解我時，即使當下沒有不舒服的要求，我也會想縮短交流。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/options/0/label": {
+      "sourceHash": "d191bd154bd6604ed5a815c5f2e4ec0ce8fdc3ac7716a9242907321981e1e4d8",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/options/1/label": {
+      "sourceHash": "fd56f0327ef8813a4ee29c34a7960c783522d3a62d72f93b26fb322625b08d6d",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/options/2/label": {
+      "sourceHash": "983bf47297963dd0f64242eb222c6e5bb9a2cbab4b80a04a562136f291ceb056",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/options/3/label": {
+      "sourceHash": "ccddf8b8eb3f99a4f76c6252ba0226780c1838b051e92c784a7885a45f967f87",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/options/4/label": {
+      "sourceHash": "840aa3bf297fb960e051807ed064934dc0d80317ebdca421c46486cdaaaa59ff",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/17/options/5/label": {
+      "sourceHash": "afc6a80e2a76f2372939cd708a683fa4321ee7ee5c1f25d6002ba9245e1f5a36",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/prompt": {
+      "sourceHash": "450df3fca8f6d0edc24772ab56b19dd74d52fc8f723c4ef97c655cf6c80a3a96",
+      "text": "一段相處讓彼此更熟悉後，我會想減少下一次聯絡，恢復不必被瞭解的距離。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/options/0/label": {
+      "sourceHash": "84a44e7421dbb6c1406a40c977a707f7d627421042c16e8d8ef40315621f01e9",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/options/1/label": {
+      "sourceHash": "ef59fffa3a5041052fd2a5ee81f92ee8adeb9bc03a83ca3436a3a5aca3df44fa",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/options/2/label": {
+      "sourceHash": "143f4f83da4053619756953a1feb2942d89c5febe672dee23c070db39f1ebca6",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/options/3/label": {
+      "sourceHash": "0aa39f4bddf6c109b0a4f6dd109373f8d54c57796bdfbbd5cc6bd27e1d8b23fe",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/options/4/label": {
+      "sourceHash": "182e1bd7ce0827015496775c832df4c4311a6c6f5c5b6fee5ee25ae39fd7bf71",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/18/options/5/label": {
+      "sourceHash": "b4deebd172212c2290575d150289e150d109b6552f3dfeb0f4813de72b5759d5",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/prompt": {
+      "sourceHash": "36531b04c27a09f2130a2ab0fecc58aa2451526812d26fa3917e1939ece6cd05",
+      "text": "在我原本信任這位親近的人、也願意被傾聽的事情上，我仍會把困擾完全留給自己。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/options/0/label": {
+      "sourceHash": "d7698f674cb90146353252b41518931987dbe350762034cdd4e36bb07dbb3655",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/options/1/label": {
+      "sourceHash": "f07d16cdb46590ffdda2af38344d4eaacf3a4f35844be66f792bc4fbf5ae6922",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/options/2/label": {
+      "sourceHash": "fc855f70f3a59732d3a2641585271c2bf80867e2c41891e4538cff81cd593c05",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/options/3/label": {
+      "sourceHash": "3677834aa4bf41c15ff879144250a80fbd311d50bff4e6a165d00fb55aef8033",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/options/4/label": {
+      "sourceHash": "40fbea7c6cb05e940638e79930b86d1727d562ff7f03a5853b5c2ca93d5e0bcb",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/19/options/5/label": {
+      "sourceHash": "264835737448476b0b0818b29afb660a1b7d586b640a25af1ca46600adcec1ce",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/prompt": {
+      "sourceHash": "fca43647bee05020fb1a01a8275eed049f6c07dac267395712a60560391e6c7c",
+      "text": "一項幫助的範圍已講清楚時，我能接受協助，同時保留自己的決定權。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/options/0/label": {
+      "sourceHash": "c59f0f106cbdb516ec795e8d9b019bf9a950e835c012930cae700058a1843051",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/options/1/label": {
+      "sourceHash": "bcccef9492c11f12c5db7ff9353ec675a052be82f7193a7e7303cbaf6ead9a5c",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/options/2/label": {
+      "sourceHash": "8a0cceee6dc03238bac473aa021a7a48f57f82b415d95b3447ea226d3f8d3536",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/options/3/label": {
+      "sourceHash": "492f85085b6f39b6ca438856cf1eeb4bf8efd88794a0e0b00dac3eea77e4e956",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/options/4/label": {
+      "sourceHash": "94bc507fb748a027819767ac02823551722ef3117a0caf0c3ce2c51e3cce5471",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/20/options/5/label": {
+      "sourceHash": "1b51f3aa5a373b6e333b84a0dfbbb4f5676f88c1045ef396ad65ed48b0bcea05",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/prompt": {
+      "sourceHash": "65db9b484a5b45a5459e46b7c5feda8e9b6244ae68d29357282eb670b8581a6d",
+      "text": "我能按自己舒服的節奏，向這位親近的人談一點尚未想清楚的感受。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/options/0/label": {
+      "sourceHash": "c3ca7e47258ed5aa8f99310f410071694454ce18c986097647a2a706b9677895",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/options/1/label": {
+      "sourceHash": "6190c14e13674a773a45390ac02fc1b640987a9be7e46b1e90a8d1ff2f32c185",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/options/2/label": {
+      "sourceHash": "8fa1d7865ecc5412a22c17ef56e3412e47a85f1209c77a203e9f9f94964ba464",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/options/3/label": {
+      "sourceHash": "6d180f6b4ecc9f5fbbd35faaecf6960000cbd05fcc02d5343aa171b9d281cf7e",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/options/4/label": {
+      "sourceHash": "79a36663acc6abbd9589bc558af622ffb2f714bf745d48a08f126d653fe15d97",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/21/options/5/label": {
+      "sourceHash": "42a639236c9fc536d9eeaf13f580c9f858ada4684c7c97ef2bb7e28405005c92",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/prompt": {
+      "sourceHash": "0abd02962cba21dc662b1198554fdc520110f1ae1394171546f2c7e6811e8fe2",
+      "text": "需要有限的一點支援時，我能提出具體請求，而不覺得必須立刻重新獨自承擔。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/options/0/label": {
+      "sourceHash": "48c96d6417db67a07aef1a85c7417efe3579fdd05195f0ace6a7d8aa89f628b1",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/options/1/label": {
+      "sourceHash": "a3c50b2ba0b14873737380074d9c4e090edea3c1fb9464028caf561cd3ce631e",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/options/2/label": {
+      "sourceHash": "92da2d66ef8b8dae1a5e3c29a5a0fdf3b04aaa5f029c14e2832577b6fc546273",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/options/3/label": {
+      "sourceHash": "d51f0d09d6642b03cc5e29e0fb08f474e548991a9e7cca61e59938ffc7aeac27",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/options/4/label": {
+      "sourceHash": "94c03e2e801ffe6347dd2a4e7f1b484aa0cb4ca2673171c7715df050f176fcbd",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/22/options/5/label": {
+      "sourceHash": "c35a0b6d4fc6a96d56d4d1857adb524528e6f994f93de4d2c326d3106b210c60",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/prompt": {
+      "sourceHash": "f099f0cd45b4978a9dc61069a16918aa48a27bcd27b2ef11546ee28bf599dcc9",
+      "text": "彼此談清邊界的一次靠近，讓我可以保留自主，也繼續留在交流裡。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/options/0/label": {
+      "sourceHash": "4aa0ee372b3bb9fcfa7c18493ca84399332cc872886709d9774b2dcba52181e7",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/options/1/label": {
+      "sourceHash": "58487e12e3a17ae2c111137ae13371bac30403883ad4cbee4e539ee53938f0b5",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/options/2/label": {
+      "sourceHash": "e6fdd40a5140819f0c1206f1c7707235a6ed9f0fae4f98cc15f40a69ded31f4d",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/options/3/label": {
+      "sourceHash": "b2cc6772844e9c0df14fb7da09d6d78c072d7f20ac06743306430719a32c161a",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/options/4/label": {
+      "sourceHash": "e4f0ffa9b6204fc5e0fa304a1ce0b8235b3e4bb44e6487dff65235e32ad58f95",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/attachment-styles.json/questions/23/options/5/label": {
+      "sourceHash": "e46b25faf2b303bca99a21ff99f3f9388072de16945624c6a3f31cbf4a0060a0",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/title": {
+      "sourceHash": "dca46093e1a65486ba23936b59f553edcfe9ad8507c8f0a62dd8c7d48d0b3a7a",
+      "text": "安全型依戀：兩維讀法與情境"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/headline": {
+      "sourceHash": "a917cb3c1b9ecea9ddfb0c02f3776eb74085143e6c97a9d6239042605d9b8a9e",
+      "text": "在靠近與自主之間保留選擇"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/summary": {
+      "sourceHash": "5a57c7126cb7c5b7da38be0ca648ccdbb3e9ee5308f9b00c8ae4feba3dc2715b",
+      "text": "瞭解安全型在成人兩維框架中的含義；它不是由本問卷認證的身份，也不證明關係沒有問題。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/seo/title": {
+      "sourceHash": "0f40a6531f57ba2ae925607a3d0ad1d20720d76b02db4a5b3bf3bbf7e9a9ca78",
+      "text": "安全型依戀：兩維含義、相處例子與結果讀法"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/seo/description": {
+      "sourceHash": "fe4cef3d17dfeced3f6916656ee2681140f1e43e182becd0072721da55ab212d",
+      "text": "安全型依戀在成人兩維框架中怎樣理解？閱讀關係擔心與親近退縮的比較、具體相處例子、邊界和小嚐試；不把均分當固定型別或關係健康證明。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/scoreReading": {
+      "sourceHash": "7f3f269f46621a48ede20707771d21269a95f6064031289d1f76acf0680deb0d",
+      "text": "先分別讀兩項1—5均分和有效題數，不合成總分或用固定閾值派型別。每軸12題，4條反向題按6減回答；至少8條有效評分才顯示均分，全部24題選擇後才呈現個人彙總。四種原型是比較兩維的公開說明，不是你通過某條分數線得到的身份。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/0/title": {
+      "sourceHash": "a1395781cce455a1e81e68553ab33b9e75ce4ad1f8f6ad023e3f77016a99ec0b",
+      "text": "這個概念怎樣理解"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "1f922c6f4440befd0ab987a07a804e02bb9e3a6927c4e965958e6a7b4e3a97e9",
+      "text": "成人依戀兩維框架中的安全原型，通常指關係相關擔心與對親近的迴避都較低的組合。這裡的原型幫助理解兩種體驗如何同時出現，不是一個天然分界明確的人群類別。本版只呈現原創題組的兩項均分，不通過某條分數線宣佈“你就是安全型”，也不評定誰更值得被愛。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/1/title": {
+      "sourceHash": "dee056eee433cbbccfd34ea7260baf4f376ce80fd6fcc99d25c2be77290037ce",
+      "text": "先看兩個方向"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "445fa676bffff69603622874244b3aed985821c6328e3633a7e6a1a4f1a00a63",
+      "text": "關係相關擔心側觀察一組情境中反覆懷疑關係、尋求確認的出現頻率；親近退縮側觀察對依靠、被瞭解與交流靠近的退縮。低均分只能說本組對應說法較少出現，不說明從來不擔心、總能溝通或對所有人都放心。反向題先按6減回答，兩個均分分別讀，不相加成安全程度。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/2/title": {
+      "sourceHash": "c1703aded69e0ad2c2f336b2c7038e14403ac31e3d811d5d773a282f98a74a5d",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "65cdb770b030fa8b69debdd0cf77ef0bbd3e309f34bd3b7a277e61cabf198756",
+      "text": "雙方說好晚上再聯絡，白天暫時沒有訊息。一個與安全原型相近的例子，是可以繼續自己的事情，也保留晚上詢問或調整安排的權利。若之後有不一致的情況，可以針對具體約定討論，而不必立即把一次空檔解釋為拋棄，也不必為了顯得獨立而拒絕一切支援。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/3/title": {
+      "sourceHash": "561fe43ed3d7602883f2cbf012f57d25e8253a1a9512cce30a02688176a3bcd9",
+      "text": "可討論的相處條件"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "b08c5b5ddf711e63f61b8d840a5eb894921e1bcca72de960fa82031571b481f4",
+      "text": "清楚的約定、可以拒絕的幫助和允許改變主意的邊界，可以成為一次具體對話的內容。例如說明“今天比較忙，明天什麼時候方便聊？”再聽取對方是否合適。這些是可協商的安排，不是本測試驗證過的干預，也不能保證對方回應、關係改善或某種依戀模式改變。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/4/title": {
+      "sourceHash": "817e78b9c755b2f231fb69190f95127d5653b134563ef117e5476fd6aab87df2",
+      "text": "取捨與盲點"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "72680a3920330d5a2785b29c1988b89aecc2ceb5a18d4ad0c0b00129b7e70980",
+      "text": "較少擔心不自動等於察覺所有問題，願意靠近也不等於該接受所有要求。若對方確實反覆失約，或者某次交流讓你不舒服，仍然可以指出事實、拒絕或離開。把“安全”當作必須永遠平靜、必須隨時給支援的標準，反而可能遮住需要認真討論的邊界。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/5/title": {
+      "sourceHash": "d7c1c2ade3ad56782001850b3c6a98f286fd3070229d8fe34e26eaae16b48c8f",
+      "text": "和相近原型比較"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "82da121ca9aa7b40bbc7cb504d2c08ed9a1a4de01d9ed454ecfe9637e0c2b180",
+      "text": "焦慮原型更強調反覆擔心而較少退縮；迴避原型更強調親近退縮而較少擔心；恐懼迴避原型用來討論兩種體驗都較強時的組合。它們是概念上的方向組合，不是四項獨立能力、四個固定盒子或必須總和為100%的成分。接近中間的回答不需要硬選一個名稱。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/6/title": {
+      "sourceHash": "d0d980064c2014abcff3e530a03ac917234b772034f9e15c4271a99978d02640",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "b8817172d66748e681c02de1311d75845218cb6a716ead5e110f6848909f6b31",
+      "text": "一個人在這段關係的題目中較少擔心，也可能在另一段關係中有不同體驗；一次低均分不能確認童年經歷、原生家庭、伴侶是否可靠或長期關係是否會持續。看起來平靜也可能有許多原因，本問卷沒有觀察互動、判斷安全環境或測量心理健康，不能替這些問題作答。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/7/title": {
+      "sourceHash": "bfeb202fff24bd28e877d952b384e94d9924bb2d770c18225965d9fc994d53ce",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "9053f63ecef8152abd98e5468aa709bb9d68e5bb69e114b48b783d58460a205b",
+      "text": "選擇一件雙方願意討論的小安排，把自己的需要和可以接受的範圍說清楚，再詢問對方的範圍。例如商量一次聯絡時間，並保留之後調整的可能。也可以記下一個符合本頁描述和一個不符合的例子。目標是更具體地理解當下，而不是證明自己屬於好型別或讓均分下降。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/8/title": {
+      "sourceHash": "6ffc2ffc95b10a94d193bc5ed0ae2e218a131420c5e895d57e0cc78b99b16f93",
+      "text": "原創題本與成人概念的範圍"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "4ca7c1314e2a638c9f15ebfcc3922cd77b3dd9f4c662edaf0e737be198cde934",
+      "text": "本版24道中英文情境頻率題、鍵向與解釋由費馬獨立編寫，不是ECR、ECR-R、ECR-S、ECR-RS或其授權譯本，沒有本站信效度、常模或分類驗證。研究來源用於介紹成人依戀兩維與分類侷限，不驗證本站題目。四種原型不認證個人型別，不評估兒童依戀、心理障礙、創傷、家庭歷史、伴侶意願、關係安全或未來結局。資料不足如實顯示；不把需要空間、保留隱私或拒絕接觸當作缺陷。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/title": {
+      "sourceHash": "9a6044b6517c0a2d9427483aa2d1e115e250cb640410e55836b56cf4ac80b148",
+      "text": "焦慮型依戀：擔心、確認與兩維讀法"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/headline": {
+      "sourceHash": "443e2fe3ecfe2d06b1f4fee4c1c6d4227268b2fd01d38e9ccfd4837e38fb436c",
+      "text": "把反覆擔心放回具體情境"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/summary": {
+      "sourceHash": "149c98d93f2d925ba296113dd2cf2352c8a73d7143eedd17249580d8fd832f46",
+      "text": "理解焦慮原型怎樣對應較多關係擔心和較少親近退縮，不把問卷均分當焦慮症、童年經歷或伴侶態度的證據。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/seo/title": {
+      "sourceHash": "394d55cb67d3ddde6f8b77fe147af9b040c85d597b777be008fc802ff5cd31f5",
+      "text": "焦慮型依戀：擔心、確認需求與兩維結果解讀"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/seo/description": {
+      "sourceHash": "ea1acdd620f4c496a17b049b3f2051ca562480f8c932b7759c7ed490e526256b",
+      "text": "閱讀焦慮型依戀的完整說明，區分關係擔心、親近退縮與焦慮症，比較相近原型和具體聯絡請求。不由問卷推斷童年、對方態度或配對命運。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/scoreReading": {
+      "sourceHash": "b4fe371758529107231098cbad2b226e474ca052f3594cd823c7f84053e8db39",
+      "text": "先分別讀兩項1—5均分和有效題數，不合成總分或用固定閾值派型別。每軸12題，4條反向題按6減回答；至少8條有效評分才顯示均分，全部24題選擇後才呈現個人彙總。四種原型是比較兩維的公開說明，不是你通過某條分數線得到的身份。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/0/title": {
+      "sourceHash": "b741405ba76dc226b1138b06fb05953771f558566b7ed66e6ef293d87812bc9b",
+      "text": "這個概念怎樣理解"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "b4a760fea77c848afdc7253b729e36d23a6514aa6dfdada2d0d8cee9f37f5033",
+      "text": "成人兩維框架中的焦慮原型，也常稱專注型，側重對關係回應與持續性的擔心，同時並不特別迴避親近。這裡的“焦慮”是依戀研究中的概念用語，不等同焦慮症、缺陷或對人的診斷。本版兩項均分描述原創情境題的回答，沒有一條經過驗證的分界線把你劃成這種人。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/1/title": {
+      "sourceHash": "3d046d2b5d52e5935bf99c68bad009348dc4591b8016e05ea350cc9688a958e6",
+      "text": "先看兩個方向"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "d7c55ce99b0046023f130615714198a1026000b66590ff16e1b3cd0362b1d662",
+      "text": "先分別看反覆擔心和親近退縮，不只找一個最高分。較多擔心可能與想確認關係有關，但均分沒有觀察你做了什麼，也不能判斷擔心是否有現實理由。若兩個方向的相關情境都較常出現，可以比較恐懼迴避原型；若回答接近中間或資料不足，就保留這種不確定，不硬選型別。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/2/title": {
+      "sourceHash": "c2ab64395c26dcc246fdebc92ee5e214baf35599b2aebc2c169cd2b7ee1a93ab",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "37d5719ea992213e0e5511e04d2a325b68e607f33bbc751c127432398fdbda13",
+      "text": "一條訊息暫時沒有回覆，腦中不斷出現“是不是不在意我了”，即使已經有一個普通的日程解釋，也很難把注意力移開。這是本組題目會涉及的一類情境。若對方確實多次失約，情況又可能不同；問卷不知道真實經過，不能直接把你的擔心判成想太多或合理結論。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/3/title": {
+      "sourceHash": "ba7e5d70e39014b68753a476b056cdaa0de9385a4761ea06cfa772f4fc36fab6",
+      "text": "把請求說得具體"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "65a794b70f21009a39aad66ab3121ef94f8b341225286be7dc664bafe91fff41",
+      "text": "如果雙方願意，可以把“你總是不在乎”改成一次具體請求，例如“計劃變了能不能告訴我？你覺得怎樣的聯絡安排可行？”對方可以提出不同範圍，你也可以決定是否接受。清楚請求不等於要求對方隨時回應，更不是本題驗證過的治療、關係改善方法或改變依戀的保證。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/4/title": {
+      "sourceHash": "d72769b6174a97205695ad03624b55236af429f9a15d3928a336edf047afcbb3",
+      "text": "取捨與邊界"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "82f22302a28d797315771321429c12746e2aad1f614fed6ada7c485a0570f998",
+      "text": "重視聯絡可以讓需要更容易被提出，但反覆確認也可能佔用雙方的注意。與其把次數當愛得深，不如討論哪次確認有幫助、哪種安排令人疲憊。同時，減少擔心不是必須容忍失約、控制或不舒服的接觸；任何均分都不能要求你忽略自己的判斷，或要求另一方放棄邊界。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/5/title": {
+      "sourceHash": "ccd7fc65b290cb11a8bdf0f39c823cd44463d4895ec645610a9d2b81b5253c06",
+      "text": "和相近原型比較"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "09b66c842e4c084ee4df327eb92d999042f094da02be4a29dad2e1f9419a91f6",
+      "text": "焦慮原型與恐懼迴避原型都涉及較多擔心；後者還把較多親近退縮放進討論。安全原型討論擔心與迴避都較少，迴避原型更突出距離。這些對照用於理解情境，不用於推斷誰是更好的伴侶、誰能治癒誰，或焦慮與迴避的人一定互相吸引。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/6/title": {
+      "sourceHash": "012698fc082809c0f715e606b61f704e38fa1916da17bf9c4da2ef0da9aea4a4",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "4770d8698c9b4592d27cb6c8976d682fdb1f469384b21e8bc64056aa59fb13a1",
+      "text": "較高的關係擔心均分不能確認曾被拋棄、童年照顧不一致、某種創傷或焦慮症，也不能證明對方不愛你。它只來自你對這段關係、這段時間和本組題目的自評。生活變化、約定、文化表達和當前環境都可能影響回答；本測試沒有把這些原因逐一測量或排除。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/7/title": {
+      "sourceHash": "6686dc7cb31804e3f222e2f926aa0cbca4e97c8a58f242e17f0bc1288463875a",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "ca67aca6992ba49937a50ff9d11d5be98f54ab3f3c0d2aba9ef5ab24f3e7a7cf",
+      "text": "選一次負擔較小、雙方都願意回顧的情境，分別說清發生了什麼、自己怎樣理解、現在想提出什麼請求。允許保留不知道對方當時在想什麼，也允許對方不同意。無需用標籤說服對方、反覆證明愛或把得分變低；若不想討論，也可以只為自己寫下一個符合和一個不符合的例子。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/8/title": {
+      "sourceHash": "2edb95658a81a66d5326b871fe31812ef5eefa861497c96b3cabfea8905ba34e",
+      "text": "原創題本與成人概念的範圍"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "b6348b998e74222eac973f0f5ba24e49f219e1f0d769f6a23be47b39ecdf52de",
+      "text": "本版24道中英文情境頻率題、鍵向與解釋由費馬獨立編寫，不是ECR、ECR-R、ECR-S、ECR-RS或其授權譯本，沒有本站信效度、常模或分類驗證。研究來源用於介紹成人依戀兩維與分類侷限，不驗證本站題目。四種原型不認證個人型別，不評估兒童依戀、心理障礙、創傷、家庭歷史、伴侶意願、關係安全或未來結局。資料不足如實顯示；不把需要空間、保留隱私或拒絕接觸當作缺陷。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/title": {
+      "sourceHash": "e62bc15c46495ffe9a2de76ae32a4ef86b2a2dd7dc6ccf79c1d572dd88ebf251",
+      "text": "迴避型依戀：親近、距離與兩維讀法"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/headline": {
+      "sourceHash": "694fe0082b51b1bad8aeacb09517552dfe7c84d4a5b993acea4b85162c33c947",
+      "text": "把需要空間和對親近的退縮分開看"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/summary": {
+      "sourceHash": "6838b3f6009d0d49c05ed8f349abdaf3f506b0e6729f62e316568be7ed22c130",
+      "text": "理解迴避原型怎樣對應較多親近退縮與較少關係擔心，不把獨處、明確邊界或本次均分直接當作迴避型身份。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/seo/title": {
+      "sourceHash": "25dcd8d20141f3638fb3bdbfe6bc04b88fc10d16ba4afcfd2289daad2d54235b",
+      "text": "迴避型依戀：親近退縮、獨處與邊界怎麼區分"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/seo/description": {
+      "sourceHash": "37d6a886360cd5bb29df5549697f2b3645716c54ba730919a9797ac44b4faa49",
+      "text": "迴避型依戀不等於喜歡獨處。閱讀親近退縮與關係擔心的兩維讀法、具體例子、邊界和相近原型比較；不以自評判斷冷漠、共情或職業適配。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/scoreReading": {
+      "sourceHash": "81572f6c4f9ca9f800417289e31ec8dde1bd4699e5226b141d3ad860927b2382",
+      "text": "先分別讀兩項1—5均分和有效題數，不合成總分或用固定閾值派型別。每軸12題，4條反向題按6減回答；至少8條有效評分才顯示均分，全部24題選擇後才呈現個人彙總。四種原型是比較兩維的公開說明，不是你通過某條分數線得到的身份。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/0/title": {
+      "sourceHash": "3379e8576720b77b3d00e370a8f5574ade2efb135da6d6d89abc6751dcf7b8a2",
+      "text": "這個概念怎樣理解"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "a588f1513c81380316c03d67590c2d6381e3ae24a5e443de1a11398289eb4421",
+      "text": "成人兩維框架中的迴避原型，也常稱疏離型，著重討論對依靠、被瞭解和情感靠近的退縮，同時關係相關擔心相對較少。它不是“喜歡一個人待著”的同義詞，也不說明冷漠、自私或不需要關係。本版沒有用一條均分線認證這種身份；四份說明是用於比較的概念原型。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/1/title": {
+      "sourceHash": "ebaebe4a87827dc2bf95394e566ded94644ed0c51c042505a74594941475f1b3",
+      "text": "先看兩個方向"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "fc8abb5c8a42cad31b6458258c14fd940b31db9b81e9e81c7a99cbc8e9ea5476",
+      "text": "親近退縮側的題目儘量區分邊界已經清楚、協助可自由選擇時的退縮，與單純需要空間。關係擔心側則是另一組情境，不能由前者補出。兩側都需要足夠有效回答才有均分；反向題先按6減原回答。均分只概括這些題目，不觀察真實行為，也不證明你對所有關係都如此。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/2/title": {
+      "sourceHash": "6566ed6e64703b411ea51d9384edda9d0e76539c175b08dcde3ab14b118392ff",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "01981835e2ffb1d50c9730c105e1426fd34def0fdcb7cd816429dda6c5c64cdf",
+      "text": "你想讓一位信任的人聽聽小煩惱，對方也願意聽，但話題剛靠近真實感受，就不自覺把事情說成“沒什麼”，再轉回事務。這是一種可以拿來回顧的退縮情境。相反，如果你只是不想在工作中或不合適的場合談私事，這本身是邊界選擇，不應被問卷標籤化。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/3/title": {
+      "sourceHash": "5ad4a0e580169a690a19bd087464c3090e094efa67f081948c8ca7ca22818fb7",
+      "text": "為靠近保留選擇"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "a812038b7aaf4425ea1a5e7188124394f5149ac648f551350808327be912f395",
+      "text": "如果你願意分享，可以先說清一個很小的範圍：“我想講五分鐘，只希望你先聽，暫時不要替我決定。”對方也可以說明是否方便。這樣的安排保留了自主和拒絕權。它只是可討論的說法，不是必須暴露隱私的要求，不是經過本題驗證的干預，更不承諾改變依戀模式。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/4/title": {
+      "sourceHash": "b3cd1ad48583be2ccd4c56960a358c3c0736ce1cfa48a9ff1f22e6f4ee76bcf0",
+      "text": "取捨與邊界"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "b52c2df589fbe477d0366a6e99b1b1acefffcff30347688f23641db5bdcd4b27",
+      "text": "獨立處理和保留隱私有時非常合適；如果本來想得到支援卻總在最後退出，也可能值得看看具體卡在哪裡。無需把獨立當作必須堅持的表現，也不用為了降低均分接受不想要的靠近。一個有效的邊界可以既明確又可溝通，但是否願意繼續聯絡始終由當事人決定。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/5/title": {
+      "sourceHash": "efc2523db3e388fa314048d70f676c354a631a3736be7ee3e9b0092d32ff60b3",
+      "text": "和相近原型比較"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "72127737e80c7ddd3bfd0b67b76bc8dfc0b122c4b9030ff1e9cdf1d376174294",
+      "text": "迴避與恐懼迴避原型都討論較多親近退縮；後者還包括較多關係相關擔心。安全原型討論兩者較少，焦慮原型更突出擔心。這種兩維對照不把內向、社交電量、愛情語言或溝通能力換算成依戀，也不說明某種職業、伴侶或生活方式更適合你。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/6/title": {
+      "sourceHash": "6af047763bfc56f4e4cb6dcb2e89fa36602e3da1be64d38eccc07944359b3d95",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "7839a151350fa42c0ca0a08597a5b8955ad960f85c18e6f41b9d128f18cca5a0",
+      "text": "親近退縮均分較高，不能確認你曾被忽視、害怕承諾、沒有共情或不愛某個人，也不能推斷性取向、創傷或心理障礙。某些距離可能與真實的不舒服、關係安排或當前處境有關，本問卷沒有調查這些原因。伴侶也不能拿你的結果要求你證明愛或交出私人空間。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/7/title": {
+      "sourceHash": "d1ec94239ba02ebd559b51cbe56dad5a93fa5ae751dcc6c671f12bd4458be590",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "30692a8e2e030e35931f9c75acd7adc42e13f1a69a7295b522f7133d5ceeaf86",
+      "text": "回顧一次自己本來想得到支援卻縮回去的情境，寫下當時願意分享什麼、希望保留什麼、對方是否真的提出了要求。若願意，可以提出一次小範圍、可停止的交流；若不願意，也可以到此為止。目標是把選擇說得更清楚，而不是變得外向、增加披露量或證明自己不迴避。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/8/title": {
+      "sourceHash": "b4544ebf25415575917b7cf379daf69cd4ccc5e2b17a8633e6f17d84c600d165",
+      "text": "原創題本與成人概念的範圍"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "69acea7b34087512d67d25b2e018627120e88c310c0233f6c6e584d871ec44cf",
+      "text": "本版24道中英文情境頻率題、鍵向與解釋由費馬獨立編寫，不是ECR、ECR-R、ECR-S、ECR-RS或其授權譯本，沒有本站信效度、常模或分類驗證。研究來源用於介紹成人依戀兩維與分類侷限，不驗證本站題目。四種原型不認證個人型別，不評估兒童依戀、心理障礙、創傷、家庭歷史、伴侶意願、關係安全或未來結局。資料不足如實顯示；不把需要空間、保留隱私或拒絕接觸當作缺陷。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/title": {
+      "sourceHash": "ef133834a72e445e9a55d615efb3952611ccb6a0fb794a5c61f1c7253aedd737",
+      "text": "恐懼迴避型依戀：擔心與退縮的兩維讀法"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/headline": {
+      "sourceHash": "96c88ea504da24a7dbfdefa1c93e9c9d92e85b9a8fe32c367eedcff883faf9c2",
+      "text": "兩種體驗可以同時出現，不必急著定型"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/summary": {
+      "sourceHash": "34c891cf62998e5f63c908be7829517b6f5684828a66c8d441011b80a70d4b39",
+      "text": "比較較多關係擔心與較多親近退縮同時出現的概念組合，不由本次自評推斷創傷、混亂型診斷、伴侶命運或關係質量。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/seo/title": {
+      "sourceHash": "990aadb7722cc5e37c64f1cc75ffd322302039e045406fa5c223ef30297f5333",
+      "text": "恐懼迴避型依戀：擔心與退縮的完整兩維解讀"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/seo/description": {
+      "sourceHash": "20346702a26622b7870a692d774bfd3769e81db400eb9ffcce104e55c93dbc17",
+      "text": "瞭解恐懼迴避型依戀的兩維概念，比較擔心與退縮、具體情境和可選擇的小嚐試。不把成人自評等同嬰幼兒混亂型評估，不推斷創傷、診斷或關係結局。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/scoreReading": {
+      "sourceHash": "1e7242d03eddd96b76dd5e576ac1b44b5dad2ad514da23342f4fb27d74aa6f32",
+      "text": "先分別讀兩項1—5均分和有效題數，不合成總分或用固定閾值派型別。每軸12題，4條反向題按6減回答；至少8條有效評分才顯示均分，全部24題選擇後才呈現個人彙總。四種原型是比較兩維的公開說明，不是你通過某條分數線得到的身份。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/0/title": {
+      "sourceHash": "3fa1a7e95b7205c112ca8de2d21b712a1c048f78686a1cd02406cbfa055475a6",
+      "text": "這個概念怎樣理解"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "43d698f9414e717cb80de1a2366369d5e44d4e98c9f452bd1e50eff6a15bc305",
+      "text": "成人兩維框架中的恐懼迴避原型，用於討論較多關係相關擔心與較多親近退縮同時出現的組合。一個人可能在意聯絡，又對被瞭解或依靠別人感到退縮。這種概念組合不等於“人格矛盾”，也不是由本版均分確認的固定型別；它不直接等同嬰幼兒的混亂型分類或臨床評估。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/1/title": {
+      "sourceHash": "c36954f3052efa78b7fc76b38c8c5fa93ccc1ecaeca158a0ee3548088d515c33",
+      "text": "先看兩個方向"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "4a2d40be2043bd6fccfb90a83793bba69b3d5a62818170e344be521fd44f8fd4",
+      "text": "兩個方向分別計算，不能只看一個高值就補出另一個。均分也不知道擔心和退縮是否在同一時刻發生：某些題可能讓你想到不同場景。請圍繞同一段成年關係、同一段近三個月經歷作答；若仍無法概括，選擇不計分項是允許的，資料不足會明確保留。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/2/title": {
+      "sourceHash": "4f8713d767ccf41d48aa6d765761534affa17bb5526468120c24a9c69f80160e",
+      "text": "一個日常情境"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "4e7da0b937fa2671bd0c8a77e8f3d4983233a87664a3ef4afeb4b7484790570e",
+      "text": "你很想確認一次聯絡仍然重要，卻在對方願意認真聽時，又把自己想說的事收回去。這個例子可以幫助區分“想得到回應”和“對靠近退縮”兩個部分。它不是對所有人的概括，也不說明為什麼會這樣；現實中一次交流是否合適，需要看雙方意願、具體經過和當下邊界。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/3/title": {
+      "sourceHash": "cfd5587186262149e6d90bc2f04c86576ab8da2ed300500b3bf18abfcba9c053",
+      "text": "讓表達可以分步"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "3744c19a11705786334bb9cf5b64def96c36cbbbd63bce3129fc944011c02d17",
+      "text": "在雙方願意且適合交流時，可以把需要說得很小：“我想確認一下安排，但現在還不想解釋全部感受。”也可以先約一個暫停和重新討論的方式。這樣的說法讓靠近與保留都能被討論，不要求任何人證明信任。它不是本測試驗證的治療技術，也不承諾讓關係變好。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/4/title": {
+      "sourceHash": "74e40c5b51c756aac6699d4daf69cb058d99d67c27cc7da07974f2156c4e8a82",
+      "text": "取捨與邊界"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "c9cfe7bbb83c347689445ddf8677e9a61ce5ede39410796ed80ac9af8333a6d7",
+      "text": "如果一方面想聯絡，一方面又想退後，倉促逼自己選定“靠近還是離開”可能遺漏當時的具體需要。可以先弄清楚哪一部分願意談、哪一部分不願意。但任何均分都不能要求你繼續不想要或不舒服的聯絡，也不能讓對方承擔隨時安撫、預測你想法或替你解決所有感受的義務。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/5/title": {
+      "sourceHash": "bab5f2a20c47c6e64b54aaaef3df55f148973111dbfd28a015551ab685c8f5f5",
+      "text": "和相近原型比較"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "566290e12221b21e3ee197ee43a5a820edb6988c25b1a3ab1feb65e35c1e4b3a",
+      "text": "焦慮原型突出較多擔心、較少退縮；迴避原型突出較多退縮、較少擔心；安全原型討論兩者較少。恐懼迴避是在同一兩維框架裡理解兩者較多，不是比其他人更復雜、更受傷、更有共情或更難相處。四份說明都可以讀，答案接近中間時無需硬塞進其中一類。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/6/title": {
+      "sourceHash": "80288213c476469c7a3a1d1725b4decd5a473e5dc170b55201cadc80d606db3b",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "45129e76f150f9d9a017140747cb99a6eb64be7974016ee87a839daafcb90b47",
+      "text": "本版不能從兩個均分確認虐待、忽視、PTSD、人格障礙、記憶或某段童年經歷，也不能認定你會破壞關係、某位伴侶能治癒你，或關係註定失敗。問卷只收集本組選擇，沒有核實過去、觀察雙方互動或進行臨床訪談。不要用一個概念名稱解釋尚未核實的個人歷史。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/7/title": {
+      "sourceHash": "0cdeca4e8addfd285eceae41cfe16faac490749b5d904f0fdc7d38f07fb852f8",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "535646113b15bd6eb343a840e968965b103a7324e40b9bf3130d1f109009e961",
+      "text": "選一次自己願意回顧的小事，把“我想獲得什麼回應”和“我希望保留哪些距離”分別寫成具體句子。它們可以同時存在，不必先給自己貼標籤。如果雙方願意，再只討論其中一件可安排的小事，並允許暫停。目標是弄清當下的選擇，而不是通過問卷自我診斷、挖出原因或追求某個分割槽。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/8/title": {
+      "sourceHash": "d2f329ae2e8543c200a879536080e5e3bd11cb7c748a6a37393c02b6b8623db5",
+      "text": "原創題本與成人概念的範圍"
+    },
+    "lib/questionnaires/data/attachment-styles.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "3ef7d05886e41425858c737c7a880fd982220aaa12c78d245bef3317f36b197e",
+      "text": "本版24道中英文情境頻率題、鍵向與解釋由費馬獨立編寫，不是ECR、ECR-R、ECR-S、ECR-RS或其授權譯本，沒有本站信效度、常模或分類驗證。研究來源用於介紹成人依戀兩維與分類侷限，不驗證本站題目。四種原型不認證個人型別，不評估兒童依戀、心理障礙、創傷、家庭歷史、伴侶意願、關係安全或未來結局。資料不足如實顯示；不把需要空間、保留隱私或拒絕接觸當作缺陷。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/references/0/title": {
+      "sourceHash": "f6f5637f033e4fce9ae3bf81ec73e9bec4a2ecf5ff00c7b06b57cfae4449040f",
+      "text": "Fraley：成人依戀理論與兩維研究概覽"
+    },
+    "lib/questionnaires/data/attachment-styles.json/references/1/title": {
+      "sourceHash": "4a1f16558766a73a5456d6010f9273afe8090f23fdeafa200b40ff02be2a98f3",
+      "text": "Fraley方法問答：連續維度、分類侷限與量表使用條件"
+    },
+    "lib/questionnaires/data/attachment-styles.json/references/2/title": {
+      "sourceHash": "f3dcefda998e0e3595897a048c253d80e9c941498a9ef951b3d8a7f095cdcae4",
+      "text": "Fraley等（2015）：一般與具體關係中的類別和維度模型"
+    },
+    "lib/questionnaires/data/attachment-styles.json/references/3/title": {
+      "sourceHash": "f11a20603154f8a0cec6e812226dbcdd2542e4a3b03ea14091699fc6ce1fa058",
+      "text": "Fraley與Shaver（2000）：成人浪漫依戀的理論發展與爭議"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/0/title": {
+      "sourceHash": "571409a0bc47756f796e9e4ac7cf15b2923f71703bed7e1332020cdf97b1be7e",
+      "text": "同一段關係、近三個月：讓回答有一致參照"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/0/paragraphs/0": {
+      "sourceHash": "de67903480f7eba4b3d34eb4693c66b70f0d48e983f6ef6606e452b1a25a41f7",
+      "text": "先在心裡確定一段成年親密關係，再圍繞近三個月作答。這個參照幫助你區分反覆出現的體驗與偶發的一次事件；它是本版的作答範圍，不是回憶越久越準確或三個月能代表一生。不要在題目之間交替想不同的人，否則同一均分可能混入不同關係的情境。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/0/paragraphs/1": {
+      "sourceHash": "fdc72a7ec39dcb8d0e71b1be756f85e7c53fa2a09cc8451d3660f3c05ac00e90",
+      "text": "單身並不自動意味著無法作答，但需要有符合題目時間與關係範圍的實際經歷。沒有這樣的經歷時可選不計分項，也可以直接閱讀公開指南。不把想像中的伴侶反應當作事實，不為了得到一個型別而補寫過去。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/1/title": {
+      "sourceHash": "6f53c8c6f07777b05b8acd8d6bc258e47e2ff24a9d9a4eabdba39587163582f2",
+      "text": "兩項均分怎樣算：正向、反向與資料不足"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/1/paragraphs/0": {
+      "sourceHash": "ea0f60026fd228f13e8a47ca2473f08835d81935765b5e2f7dbc6703d3f2a435",
+      "text": "每軸12題：前8條按1—5所選值計分，後4條反向計分為6減原回答，例如原回答4轉為2、原回答1轉為5。反向題只是讓不同措辭朝同一方向累計，不是測謊或檢驗你是否真誠。兩軸分別計算，不相減、不合成為“安全總分”。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/1/paragraphs/1": {
+      "sourceHash": "6715aa0fec84eb03cb13a23cf4aae2b2a9728c6d8dd95207e2f0ad0e11d5ffef",
+      "text": "全部24題作出選擇後，每軸至少8條有效評分，均分＝定向計分總和÷有效題數，四捨五入到一位小數。例如一軸8條正向題都選3、4條反向題都選4，得到24＋8＝32，32÷12後顯示2.7。不計分項不進分子或分母；不足8條時顯示資料不足。最低8條是資訊完整度規則，不是研究或臨床閾值。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/2/title": {
+      "sourceHash": "f478bc7b4783a77c3c86f64b95f0597f53f24562c6920a31b47ac82fccb3bc87",
+      "text": "怎樣讀座標和均分：程度、題數與情境一起看"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/2/paragraphs/0": {
+      "sourceHash": "e4125caef4af23db1342ad5a79a3ae7ea0b282414281937d057411b4118392a7",
+      "text": "結果中的1.0—5.0是本題組定向後的回答範圍。相對較高表示在本軸題目上報告了較多擔心或退縮相關體驗，不是超過多少人，也不說明擔心一定沒有現實理由。中點3不是人群平均、健康線或安全與不安全的界線。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/2/paragraphs/1": {
+      "sourceHash": "1351936666dff2f95678d34964509e0e757bba400dfb7bce2ec00d69deb728f4",
+      "text": "兩維均有資料時，座標點同時顯示本次均分，不畫四象限分類線。僅一維資料足夠時，保留該維均分並明確另一維資料不足；不要把缺答理解成0或平靜。均分接近或相同，不需要硬選型別；本版沒有最小重要差異或測量誤差資料，不能把0.1差距解釋成穩定的人格區別。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/3/title": {
+      "sourceHash": "a4fde3712906e84089b587a33803f0cc8386d2b6351508fb5682638e0546810b",
+      "text": "四種依戀風格怎樣比較：兩維組合的概念原型"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/3/paragraphs/0": {
+      "sourceHash": "07f9a1509e7ae87d9b33c9fcd6e518f3f5857211c197c5b747a86af39d57da27",
+      "text": "安全型（Secure）：用來理解關係擔心與親近退縮都較少時，親近、求助與自主可以怎樣並存。它不表示從無爭執、永遠安心，或一個較低均分已經證明關係健康。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/3/paragraphs/1": {
+      "sourceHash": "7d0722929986912daafdc0b7744e5341ed77ea133ea586082484b203c8724947",
+      "text": "焦慮型（Anxious／Preoccupied）：幫助理解擔心失去回應、反覆確認關係等體驗較突出、而退縮未必同樣突出時的情境。它不是焦慮症診斷，也不能據此判斷對方確實會離開。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/3/paragraphs/2": {
+      "sourceHash": "6eb285a652e683d3e1700c7ac110ab6643918f301bf039b77a5d0ca8cdfcf55f",
+      "text": "迴避型（Avoidant／Dismissing）：幫助理解對親近、依靠或情感表達保留距離，而關係擔心未必同樣突出時的情境。需要獨處、拒絕不舒服的接觸或設定邊界，本身不能據此判為迴避型。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/3/paragraphs/3": {
+      "sourceHash": "cad7f3558878a5207d5e269471f279c5b06b92e767dd8f3c469d61b994ccdbbd",
+      "text": "恐懼迴避型（Fearful-Avoidant）：幫助比較關係擔心與親近退縮同時較多的體驗。兩維較高並不表示在兩個人格之間切換，也不能由此追溯創傷或套用嬰幼兒的混亂型分類。四個名稱作為成人原型有各自理論背景；這裡的說明用於概念比較，不是本次型別判定。[4]"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/4/title": {
+      "sourceHash": "391782b8a042842e15fc1a445ec4313c230348b0bce04704d2bff20197d4a528",
+      "text": "同一次互動：先區分事實、解釋與行動"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/4/paragraphs/0": {
+      "sourceHash": "35b03189a6e46ecdf7f9b74cc986b72a82d4e869f5c1c0a05a09b8e22a86ce40",
+      "text": "例如對方臨時改變了見面時間。可以分別記錄：事實是改期以及給出的理由；解釋可能是“我對這段關係不重要”；行動可能是反覆詢問，也可能是減少表達和聯絡。相似的行為可能有不同背景，先核對實際約定與近期互動，不僅憑一個名稱解釋整件事。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/4/paragraphs/1": {
+      "sourceHash": "c7160ec581fd9881d37ce224d846892e6c1838f6465f3542baba0d3e7a6ed7cd",
+      "text": "本站記錄你報告這些情境出現的頻率，沒有觀察對方行為或核實事實。擔心較多不自動說明想多了；距離較多也不自動說明無愛或故意傷害。一次回答不能決定誰對誰錯，應把具體行為、個人感受和可確認的資訊繼續分開。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/5/title": {
+      "sourceHash": "3dd0b049ecc9861953519b36ad4555e95c1ca59f933ae2f0ff82f528bdab7d5d",
+      "text": "研究與題本的關係：兩維理論不等於本站已驗證"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/5/paragraphs/0": {
+      "sourceHash": "06b5468748dad0dd0152b6ee5acbc0ac53bfdecee8ece843429854faed296664",
+      "text": "Fraley等人2015年的研究用兩組樣本比較成人依戀的類別與維度模型，結果更符合連續維度的解釋，涵蓋一般與具體關係的依戀取向。[3] 這為謹慎使用型別標籤提供研究背景，不是給本站均分設分界線，也不意味著所有依戀研究都使用同一種工具。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/5/paragraphs/1": {
+      "sourceHash": "9a3fa0ed0dbbf20ffb5e86af0814398faea95e642c910d53314c991aac9255cc",
+      "text": "本版24題、題目方向與解釋為費馬原創，不是ECR、ECR-R、ECR-S、ECR-RS或其授權譯本。ECR-R有自己的題本、作答尺度和計分說明；不能因本站也使用均分或反向題，就借用它的信度、常模或分數含義。[2]"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/6/title": {
+      "sourceHash": "053e35d72e95c7ee1097f5e6eae7adbc4a87db8902a46f331f1dea58bc7508c2",
+      "text": "本版證據與用途：自評摘要、原型說明和臨床評估分開"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/6/paragraphs/0": {
+      "sourceHash": "822b06e56942dc11b958e40fb04044b8a0d54c821cc3fab8e7266af394307f2e",
+      "text": "本站尚未建立本題本的信度、效度、重測誤差、常模或中英文測量等值。相同計分公式與雙語內容對應，說明演算法透明和內容覆蓋，不能證明測量質量。每軸有效題數同時顯示，供你判斷本次用了多少資料，而不是統計置信度。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/6/paragraphs/1": {
+      "sourceHash": "7b6548d045f5ed7ec517d1235ab3dd8724393fefbd066729cbfead0434d517a9",
+      "text": "本頁適合低風險的自我回顧與自願溝通，不調查童年經歷、做臨床訪談或評估關係安全。不能憑結果診斷焦慮障礙、人格障礙，判斷經歷了創傷，或證明伴侶不可信。若你需要解決的是具體傷害或持續困擾，應圍繞現實情況尋找合適支援，不用測驗標籤代替對實際問題的判斷。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/7/title": {
+      "sourceHash": "e6f040c919ce8ff439fa8247f283e42152a0908402f15a4790563256776fea30",
+      "text": "從結果到溝通：提出一個可核對的安排"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/7/paragraphs/0": {
+      "sourceHash": "b7465c65ab28b91971c597e35583e380aff6622f496cefeb2c7301cc3ed5970c",
+      "text": "選擇近期一件雙方願意討論的小事。例如：“臨時沒有訊息時，我會擔心。忙的時候，能否告訴我大概什麼時候方便再聯絡？”或“談到這裡我想暫停一下，今晚八點再繼續，可以嗎？”把具體情境、自己的體驗和可調整的請求說清楚，不先斷言對方是什麼型別。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/7/paragraphs/1": {
+      "sourceHash": "82dab225d4056bee1ac5c7149516a0b138d548d53aed7beb4a8a0b906f9c63d7",
+      "text": "接著確認對方是否願意、安排是否可行，之後回看是否兌現及需要怎樣調整。任何人都可以拒絕接觸、保留獨處或改變主意；這不是“修復迴避”時可以繞過的障礙。這個小嚐試幫助觀察溝通過程，不承諾把一種依戀型別治成另一種。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/8/title": {
+      "sourceHash": "bc5781c84936f32470801d1f75404ad8e02b7dd370f9d49428593485d54cb29e",
+      "text": "不同關係與重測：先核對參照，不急於解釋改變"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/8/paragraphs/0": {
+      "sourceHash": "aa59767927095c4875b9d983d2c48939767e3f80e209a3f33d75cd6d95442292",
+      "text": "換了關係、處於不同階段或對題目的理解改變，都可能讓回答所指的情境不同。若想比較兩次結果，先記下參照關係、時間段、哪些題目有評分，再看兩維均分與具體回答；不要只比較原型名稱。本站不建立跨關係或跨時間的私人記錄。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/8/paragraphs/1": {
+      "sourceHash": "680e5ee5cfcc742dac47f138cde361829ff424e53b93afe8f232a6ef9f58c942",
+      "text": "均分變了不自動證明依戀已經改變或某種訓練起效，本站也沒有判斷變化是否超過測量誤差的標準。相反，名稱沒變也不能否認實際溝通已有改善；應看現實中的約定、回應與相處體驗，不用一次圖上的位置替代這些證據。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/9/title": {
+      "sourceHash": "a3848add22465802dfd64b6e5c435e901f8d42d2e29b3125a8a053b3fd94c256",
+      "text": "完整免費、臨時儲存與分享範圍"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/9/paragraphs/0": {
+      "sourceHash": "7e1560e4bf45918cb79c67b2841e835f3ddc4ef08eb45014ff63fede516bd5ea",
+      "text": "24題預計約6分鐘，不限時。點選開始直接進入題目，不增加同意、註冊或其他測試步驟。全部兩維彙總及四份完整原型指南免費，資料不足也能閱讀全部公開說明。每題可選不計分項；所有題目作出選擇後，才顯示個人彙總。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/guide/9/paragraphs/1": {
+      "sourceHash": "78fa5ffb3117f417d9cdaf0ffdb6e96355aae2e09190ba0d741f83503f7f31c1",
+      "text": "答案在瀏覽器內計分，不通過計分請求上傳，不寫入網址或分析事件。預設不儲存；主動選擇臨時儲存後，可在本標籤頁24小時內恢復，完成、重測或清除時刪除草稿。分享只帶測試名稱與公開入口，不包含答卷、均分、對方姓名或私人結果。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/0/question": {
+      "sourceHash": "62d93b7b4a10cd630a65b614869a674d8303c9643be94e458fdabe7faf4a60e4",
+      "text": "怎樣瞭解自己的依戀風格？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/0/answer": {
+      "sourceHash": "f554650c3d3987167654dca47d8878417661cf09bd2df67ce5ff08c8d3ab90f4",
+      "text": "先圍繞近三個月同一段成年親密關係，分別回看反覆擔心與親近退縮的出現頻率。本版24題完成後顯示兩維均分或資料不足，並提供四種完整概念指南，不給一個固定個人型別。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/1/question": {
+      "sourceHash": "39b9fd948144722fc3c0d46bebc8c67e4215813d781a4aa33a74e20390f4efc5",
+      "text": "單身、沒有適用關係或經歷不足，可以做嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/1/answer": {
+      "sourceHash": "e1e19088e57449c10a3790cdf021a018c33cee86e1151333fc5a736d82297f08",
+      "text": "單身者若有符合本頁範圍的實際成年親密關係經歷，可以圍繞同一段關係作答。沒有適用經歷、無法判斷或不願回答時選不計分項，不編造或混合多個人的經歷；四份公開指南無需作答也可閱讀。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/2/question": {
+      "sourceHash": "40033ce9073969db8c6f74c9ad4a12c818e3e5919dbb8e707acf65a63dfea49a",
+      "text": "安全、焦慮、迴避和恐懼迴避有什麼區別？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/2/answer": {
+      "sourceHash": "943f574d64ce19448dcdbe9521a8b738b0c5cd92d92dd610c93dc97d1c367999",
+      "text": "本頁把它們作為兩維組合的閱讀原型：安全討論擔心與退縮都較少；焦慮突出擔心；迴避突出退縮；恐懼迴避討論兩者同時較多。它們不是四項能力或加起來100%的成分，也不是本次自動判定的型別。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/3/question": {
+      "sourceHash": "75ff193d09df3401c23588a5671e38abd43ee1169162b9a426aa4f1f80164562",
+      "text": "每軸12題怎樣計分，反向題是什麼？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/3/answer": {
+      "sourceHash": "d985e5fcfb0355fe3b1489b7f2b1d07948548568f4ff1f05b7b2cef990a91db7",
+      "text": "每軸8條直接按所選1—5計分，4條反向題按6減回答。全部24題選擇後，一軸至少8條有效評分才用定向總和除以有效題數，保留一位小數。反向題對齊措辭方向，不是測謊題。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/4/question": {
+      "sourceHash": "202521e604fe727ee800c0bc3d5b9375aef708476b4498febaa6c782411b6915",
+      "text": "低分、中點3和資料不足分別說明什麼？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/4/answer": {
+      "sourceHash": "7bcdbbe397c5b4f0ded13da9611eea7cb255f7950213bb75c5597ca0541eb62a",
+      "text": "較低均分概括本軸題目中較少擔心或退縮的自報體驗；3僅是回答範圍中點；資料不足表示有效評分少於8條。三者不能互換，缺答不補成0或3，也不把3當人群平均或健康線。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/5/question": {
+      "sourceHash": "f010679587872a3a404d449d24c2bed36001a89d1aff4bd9734c1ad904b3afc2",
+      "text": "為什麼不直接告訴我是哪個型別？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/5/answer": {
+      "sourceHash": "0314ef3e7055d3f43059ffaf28def95617aa89f7b857502a825568c8448683dc",
+      "text": "本版沒有驗證過的分類閾值。保留兩項連續均分和有效題數，能避免憑某個中點強行劃分；四份原型指南用於比較概念，不證明本次找到了天然的人格分界。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/6/question": {
+      "sourceHash": "d7002bf2be9538633eea3a3411da5efee5030ffd6100be10e79caa02587a2617",
+      "text": "這是ECR-R、ECR-S或經過驗證的依戀量表嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/6/answer": {
+      "sourceHash": "a9f26e9f065c7433d9429c56392088534e9a6d40e1bf0a1e68f7ebe0578811cc",
+      "text": "不是。本版24題、鍵向與解釋由費馬獨立編寫，不施測ECR系列題本，也不是其授權翻譯。尚未建立本站信度、效度、常模或跨語言測量等值，外部研究不能直接套用到本題。[2]"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/7/question": {
+      "sourceHash": "cd36645d6d9c89e6073c80891198d51e911b42022cb73360bb2ea228d6a098e4",
+      "text": "恐懼迴避就是混亂型，能說明童年創傷嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/7/answer": {
+      "sourceHash": "f3a9878493275ffd8d53a422c3585dfde773bf23e0a7043cc8aab17c464b2686",
+      "text": "本版討論成人自評中的擔心與退縮組合，沒有做嬰幼兒觀察、成人依戀訪談或童年調查。不能直接替換不同方法的分類，更不能憑當前兩維均分斷定創傷、診斷或成因。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/8/question": {
+      "sourceHash": "745f301bafc4666d57b0158f30a70afe40e7fe70de2e350a3e73fe039e8fc270",
+      "text": "可以替伴侶測試，或者判斷誰更適合我嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/8/answer": {
+      "sourceHash": "6b5b6196f96ef280c08acdd6842676904519bf44b46d3c4b0a0141506c016c86",
+      "text": "請只回答自己的體驗，不代替別人判型。本頁沒有伴侶觀察、雙人評估或匹配分，不能從均分判斷對方意願、是否愛你、是否可信或關係會不會持續。可以圍繞一個具體安排溝通，再看實際反饋。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/9/question": {
+      "sourceHash": "1e8882a90835c5c447d13c951db033a4dd73bd18a71b219a21e3bece951e0937",
+      "text": "想獨處或拒絕親近，就一定是迴避型嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/9/answer": {
+      "sourceHash": "f67a4ace15a19d79c9ee2281f7dbd81c512af6cc9807d0f78ae88aac73e87848",
+      "text": "不能憑一個行為判型。先看情境、個人邊界和實際需要，所有人都可以拒絕不舒服的接觸或保留獨處。結果不能用來要求別人持續回應、放棄空間，或把合理拒絕說成需要修復的缺陷。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/10/question": {
+      "sourceHash": "d9583c18c113f8567d7857493552751aa8f8333c2d2fac0be8781ddc0ff865db",
+      "text": "重測分數不同，是依戀改變了嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/10/answer": {
+      "sourceHash": "9e8b16111c83293e9518f042bdc39adac29b10783bdfab41959ccc4e20bc4cde",
+      "text": "先核對參照關係、近三個月的情境、有效題數和具體選項。本站沒有重測誤差與變化閾值，不能僅憑均分或圖點移動判斷穩定改變，也不能據此證明某項練習有效。"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/11/question": {
+      "sourceHash": "25cdde1270e49d9b6d7166d499b8596d9073ba76ed62342f19272e884ae3cc8f",
+      "text": "免費嗎？開始前需要同意、註冊或儲存資料嗎？"
+    },
+    "lib/questionnaires/data/attachment-styles.json/faq/11/answer": {
+      "sourceHash": "12ba42ebb3210bb2943dd32cca0c3518f38d81cbfa9ccbdf0588b10aee08b384",
+      "text": "全部24題、兩維彙總與四份完整指南免費，無需註冊，約6分鐘。點選開始直接進入題目。預設不儲存，只有主動臨時儲存才保留本標籤頁24小時草稿，完成、重測或清除即刪除；分享不含答案或均分。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/secure/0/title": {
+      "sourceHash": "383ccd3c83f0db3bc9d7bfe173aaf430b9825eed23fa9346e43ff06018358abe",
+      "text": "同樣是暫時沒有聯絡"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/secure/0/paragraphs/0": {
+      "sourceHash": "97b748680c95f596dd40c5c27867772738a793348dccbcb0d29cae1a88acf403",
+      "text": "虛構例子：兩人約好晚上聯絡。白天各做各的事，晚上仍可以詢問安排，適合用安全原型的角度討論；一直想確認是否仍被重視，突出擔心；本來想交流卻轉開話題，突出退縮。這裡只比較情境裡的兩個方向，不把一次等待變成人的固定類別。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/secure/1/title": {
+      "sourceHash": "cec7717eb633e16280bca776514426cea74e815c7e90462f253ff06164d8b72f",
+      "text": "安排之後，保留哪些調整"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/secure/1/paragraphs/0": {
+      "sourceHash": "d68e814f146bb5f33faafc8e8dff55f3045f98f26ef09250183fe1386b302dcf",
+      "text": "接著上面的小安排嘗試，回看你是否真的說出了需要，對方是否也有提出不同方案的空間。一次順利的交流不認證安全型；如果後來失約，仍應討論那件事。可以同時保留自我安排與支援請求，不必為了符合“安全”而永遠不擔心或獨自處理。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/secure/2/title": {
+      "sourceHash": "624ebbaa5f224b41b833f5ccdf9247d16ed5493e0c5f3503775d0ecb3a8e779e",
+      "text": "分享一個安排問題"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/secure/2/paragraphs/0": {
+      "sourceHash": "7637cd0bc5a9e6a201d2d6d5fbb94ba61ea2baf7f53c4e23f71386f9659acd40",
+      "text": "可以問：“各忙各的時，怎樣約下一次聯絡會讓雙方都方便？計劃變了，希望怎樣告知？”這是關於具體安排的話題，不需要說“我是安全型”，也不要求對方公佈分數。轉發通用讀法後，允許對方有不同體驗，而不是用標籤評判誰更成熟。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/anxious/0/title": {
+      "sourceHash": "b4fe6e0309b74bf73c9a3459ddbe9e6aedee39c1c9e1f72bde10c65f76870625",
+      "text": "把發生、猜測與請求分開"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/anxious/0/paragraphs/0": {
+      "sourceHash": "00143c8a1cee67c7d63ab9e2b2c8aee088312c89bcf6de66044a39d46a039fb3",
+      "text": "虛構例子：約好的通話推遲。事實是時間變了；“是不是不在意我”是一個尚待核實的解釋；希望確定新時間是可討論的請求。焦慮原型突出反覆擔心這部分，恐懼迴避還討論想靠近又退後的體驗。兩者都不告訴你對方真正怎麼想，也不能把真實失約解釋掉。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/anxious/1/title": {
+      "sourceHash": "d2aa6b7b245a6b02c67bfab57936dd57fea2da83ff96a12e857903455c6a8b88",
+      "text": "一次請求之後，怎樣回看"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/anxious/1/paragraphs/0": {
+      "sourceHash": "da0fc28ace41f28ded1972c8f1c47554501b2dc45ef1051bfd373a91dfd11f31",
+      "text": "回看上面的具體請求嘗試：你問的是可商量的安排，還是希望對方給出無法保證的永久承諾？對方的回覆解決了哪一件事，還有哪些不知道？可以保留未知，也可以發現這次安排不合適。目標是把資訊和選擇說清，不是保證擔心立刻消失。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/anxious/2/title": {
+      "sourceHash": "0cbb9c5fd171b6b400d82d9d240c12297a8f7c2526f043645fc98c0e012934bf",
+      "text": "用需要開啟話題，不用標籤要求回應"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/anxious/2/paragraphs/0": {
+      "sourceHash": "a531a705f72d6c5a12726a9cb81c9c8d5d2299efab47e9dd8913ece27c0c4157",
+      "text": "可以說：“計劃臨時變動時，我有時會反覆猜。我想問清下一步，也想知道你能提供怎樣的聯絡安排。”可以只談這句話，不分享均分或私人訊息。對方可以提出自己的範圍；這份說明不是要求隨時回覆的依據，也不替任何人判成焦慮型。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/avoidant/0/title": {
+      "sourceHash": "b68e9c6c08bfff1094b6d02f33f2b59d121a0bb44acf303a5b6b0b0c319ccb96",
+      "text": "同樣不分享，可能是不同選擇"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/avoidant/0/paragraphs/0": {
+      "sourceHash": "05e3a95a3bfcf302f19d2f8367fce21330208bb2d69e133ebbb534e5f622c876",
+      "text": "虛構例子：朋友問起一件煩惱。場合不合適所以不談，可以是邊界；本來想得到傾聽，在雙方願意、範圍也明確時仍退回“沒什麼”，才更貼近本頁討論的體驗。問卷不能只憑沉默分清原因，也不能從退縮推斷不在乎或不愛。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/avoidant/1/title": {
+      "sourceHash": "25185d45b91e6842336b38d203710c93eee655b388ef3bc67c7a75ece29931a9",
+      "text": "小範圍交流之後，檢查自己的選擇"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/avoidant/1/paragraphs/0": {
+      "sourceHash": "5248c2eda45de72a3f8feaad56bedc14d153eb6fd87190f59777c2f3c904bcd9",
+      "text": "回看上面的可停止交流嘗試：你有保留不想說的部分嗎？對方是在傾聽，還是替你做決定？如果仍想退出，可以結束，並記錄哪種範圍不適合。沒有更多披露也可以獲得有用資訊；不把說得多當作進步，更不以降低退縮均分為目標。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/avoidant/2/title": {
+      "sourceHash": "70aceb4eb567a11b65245d08b6f6d625b2c27a9941127425311e6fb2a5c2f272",
+      "text": "只分享希望怎樣被聽見"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/avoidant/2/paragraphs/0": {
+      "sourceHash": "438e25482b854fd106e836a6420ab3b71f752ff527ea2ac89951fc3657f7f23b",
+      "text": "可以說：“我想講其中一小段，希望你先聽，不急著建議。其他部分我暫時想保留。”也可以直接說這次不想談。轉發這份公開說明不代表邀請別人追問隱私，更不需要朋友證明“你其實是迴避型”。談具體方式，比給彼此解釋動機更容易核實。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/fearful/0/title": {
+      "sourceHash": "13c9ef0d19f74a7dcf401c51ec51e26a3ea4791221b6e26d1c2a6a80d0b5ceb3",
+      "text": "想聯絡與想退後，可以分別描述"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/fearful/0/paragraphs/0": {
+      "sourceHash": "2387d94730459992f7cb1a640b4c0af7ee00503afc0d2540105274c2d4daa5d9",
+      "text": "虛構例子：想知道下一次什麼時候見面，卻不願現在解釋全部感受。前一個需要涉及回應，後一個涉及分享範圍，不必先宣佈“我很矛盾”。如果兩組題均分都較高，也只說明各自鍵向說法較常被選，不證明兩種體驗同時發生，更不確定原因。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/fearful/1/title": {
+      "sourceHash": "df9b73cb855489785ba2ac29cec7e4f4fc657852ff7d8b9d7baecf96e1b31860",
+      "text": "分別回看靠近與保留的部分"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/fearful/1/paragraphs/0": {
+      "sourceHash": "6bbd0f410a7b72b81a7dd7c98f690a758ac635f508775f3c0e790c7b4ca827b3",
+      "text": "接著上面寫兩句話的嘗試，回看“想確認安排”和“暫時保留感受”是否被分別表達。哪一件小事能討論，哪一部分現在不談？可以不採取後續行動。問卷沒有檢查交流環境是否安全，不要因為讀到這份原型，就逼自己聯絡不想聯絡的人或挖掘過去。"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/fearful/2/title": {
+      "sourceHash": "1cf521141961157f37c79a979e5ad87c1ccce40acb653db94362b57275ae7a2c",
+      "text": "分享通用問題，也能保留個人經歷"
+    },
+    "lib/questionnaires/result-content/attachment-styles.json/fearful/2/paragraphs/0": {
+      "sourceHash": "1bfc7885ed568f344474a58c90c0976a5b249ac0685b3cce8a712568448461ce",
+      "text": "可以問：“一邊想確認一件安排，一邊還沒準備好解釋全部感受時，怎樣說會比較清楚？”無需說自己屬於恐懼迴避，也不必公開均分或經歷。別人可以只討論問法，不對你追溯童年、創傷或關係結局；分享內容由你選擇。"
+    },
+    "lib/questionnaires/data/communication-style.json/title": {
+      "sourceHash": "8b3119c4c15792b0d702ac036501ef94a3988dcbd740b015aafc7b93c89ad4e5",
+      "text": "溝通風格測試"
+    },
+    "lib/questionnaires/data/communication-style.json/description": {
+      "sourceHash": "59530987a065f05a488ee15ce113e56a224e6d44ea08bec539e3bdf4e4d82231",
+      "text": "用24條原創頻率自評，回看近四周的堅定表達、被動表達、強硬壓過他人與間接抗拒。約6分鐘，免費檢視四項獨立均分、計分示例與完整溝通指南，無需註冊。"
+    },
+    "lib/questionnaires/data/communication-style.json/seoTitle": {
+      "sourceHash": "e608e02668a4dab88ba49b0838cd90c62c9a6cbfe2cf3d0d97c98f21fa494a9e",
+      "text": "溝通風格測試：24題、四項獨立評分與完整解讀"
+    },
+    "lib/questionnaires/data/communication-style.json/resultHeading": {
+      "sourceHash": "c22209069e950a412465debe5e11f2973d41f4e77e2aaf8dd3894c53cca454f2",
+      "text": "本次四項自評與全部完整說明"
+    },
+    "lib/questionnaires/data/communication-style.json/instructions": {
+      "sourceHash": "936a52f82da3fe12bfc3ed861cf6b0856513b7204b330fb6fdffddf16c28f367",
+      "text": "以近四周自己實際經歷的日常協作、學習、工作或相處為參照，按每條具體說法與回應出現的頻率選擇1“從不”至5“幾乎總是”。不要只憑一次最激烈的爭執，也不要選擇理想答案或代替別人作答。沒有適用經歷、無法判斷或不願回答，可選不計分項；全部24條作出選擇後顯示結果，每組6題至少4條有效評分才顯示均分。無需輸入私人對話、姓名或對方資料。"
+    },
+    "lib/questionnaires/data/communication-style.json/introduction": {
+      "sourceHash": "081245cf60389e01321de425097dfb519344705c99d918990f46417717c3caa5",
+      "text": "溝通風格測試幫助整理自己怎樣表達需要、回應分歧和提出調整。本版採用堅定表達、被動表達、強硬壓過他人與間接抗拒四種行為名稱，參考堅定表達教育資料中的概念區分。[1][2] 24條原創題圍繞調整安排、澄清資訊、共同選擇、接收反饋、拒絕請求和處理未兌現約定六類情境，每類各有四種回應。結果分別顯示四項自報頻率均分與有效題數，並提供全部四份完整指南，不按最高分確定唯一人格或主型。"
+    },
+    "lib/questionnaires/data/communication-style.json/directions/0/title": {
+      "sourceHash": "43f602dcbf303be20f73c03be76c2c326c96095e77f85e9f93fa0f20529ce74a",
+      "text": "堅定表達（Assertive）"
+    },
+    "lib/questionnaires/data/communication-style.json/directions/1/title": {
+      "sourceHash": "8db29fae8be38ab20863ed840f79ff7f9115f74db381be95a8a1dff056419866",
+      "text": "被動表達（Passive）"
+    },
+    "lib/questionnaires/data/communication-style.json/directions/2/title": {
+      "sourceHash": "0d9f8338e625fe1332ad5530a617c600576d0879ff5a954d0d0ced6e20e43568",
+      "text": "強硬壓過他人（Aggressive）"
+    },
+    "lib/questionnaires/data/communication-style.json/directions/3/title": {
+      "sourceHash": "4da73fd7515055f33d0e9bac7a05f02a1216e5aef15a9b9fbccdc4bc03d841a4",
+      "text": "間接抗拒（Passive-Aggressive）"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/prompt": {
+      "sourceHash": "c2c7fcbbe849efececab835416c92160b24d9e53da66283018ef2d3c04b25c04",
+      "text": "一項約定需要調整時，我會說明自己能做到的範圍，再詢問對方是否有其他可行安排。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/options/0/label": {
+      "sourceHash": "aeed107c73716dfb89a27e5e55619d385d99043043f242adb006ed3fe69dda3f",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/options/1/label": {
+      "sourceHash": "a3c81ebbe546ffad74b639ddcc9916d49b2bb9a95a3f96678ccbfb036a2656c8",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/options/2/label": {
+      "sourceHash": "84a5e74086f3901650f95534239e4075c3fea5234f7c0f7ff3682b406eafb9f3",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/options/3/label": {
+      "sourceHash": "31916b04f7bcabcb289bf08df11884fa569fc1e3c2d43ca43e7a5ce24fb79d83",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/options/4/label": {
+      "sourceHash": "944c7d17f958dff99f5c8309433a8e8b7c3bee53c1ef77039498eed73fbe3fd3",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/0/options/5/label": {
+      "sourceHash": "31ef7e6d8838d88389c1e673f604e21570f72e597787be07c0ee62b200546b01",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/prompt": {
+      "sourceHash": "bc4258abde91834ff293f6074c7a33a516cc70ca23b39bf543df23e42eeca5c5",
+      "text": "一項安排並不適合我、我也想調整時，我仍會先答應，把自己的需要留在心裡。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/options/0/label": {
+      "sourceHash": "1b477e2c667a3cca6921ed6839c8f35e0890fd666aa161461803568f963f0c83",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/options/1/label": {
+      "sourceHash": "7cf0161102e5526fc3ad99853b99ea0f5aba4f530774977643f8a02fb753d689",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/options/2/label": {
+      "sourceHash": "0d50e9109b100ce1612ab92d9d062a7c8c72865c69a37b9707fe87ca21828fc1",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/options/3/label": {
+      "sourceHash": "6f00e95f8e7c1d5af43c4ab2aa888467d298d20665d72eefe4a5076c14e5b6a7",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/options/4/label": {
+      "sourceHash": "2cbd36ef452df46df9da5d91dcfe21e359beb9c547ba0ad8953963e5ff22fae7",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/1/options/5/label": {
+      "sourceHash": "47b5c45d5bcf2ba4c5ab64eccb90f89d799c9b71d80e61966b3b6db4faba1d00",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/prompt": {
+      "sourceHash": "cc789b0ae6654756a252a1c96adf014c5d758f861151e2312aa9c3fb254c0a11",
+      "text": "調整安排時，我會要求按自己的時間辦，而不讓對方說明他們的限制。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/options/0/label": {
+      "sourceHash": "8109b9e86675a3742fb413c10a314ea3fd2223d543a809d8534ad57e596eec8f",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/options/1/label": {
+      "sourceHash": "ff9b452e0d1191b717d052d7f690fd94d78348f7e73166d9fbc76a752e2ae271",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/options/2/label": {
+      "sourceHash": "18764a8076ec4bfadc033746c831d07581c1dd5c0bd07a54bf4886f27f8ab75f",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/options/3/label": {
+      "sourceHash": "de94b537d2c8d3f9a5ef355f51dfa5a90b6a0396c1ec80479fc751a443b925fd",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/options/4/label": {
+      "sourceHash": "01c8c1727f686eeef3d350156a619011ae8b3293495c40e776b5c38055d78d9e",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/2/options/5/label": {
+      "sourceHash": "c4b6983e49a1d3e743dcd35541090f232eae6b2704d7196ec70c3420d0ad5fc5",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/prompt": {
+      "sourceHash": "81b7773711476af7d6614bbd8683777ef82d7fb68656ba98518fba78749df776",
+      "text": "對一項安排不滿意時，我會嘴上答應，再故意拖延，讓對方從進展中感到我的抗拒。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/options/0/label": {
+      "sourceHash": "a0d3f88eb1c6bef5dcd369c031304dcf0b11ac82adec3fec99f54ef5becf31b5",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/options/1/label": {
+      "sourceHash": "692b323e471841741a152642b635dea9e43bf0e2544573b3b3dabcf3d2ed74ac",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/options/2/label": {
+      "sourceHash": "a0db1832c937849fa3e928e703e90ecbd4f7a2b397cf376e67e5fb789e03ab0e",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/options/3/label": {
+      "sourceHash": "8b56fd1ead30e1599f7baf192d1300da1f0529abb70eea4fca576fcd305422b7",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/options/4/label": {
+      "sourceHash": "d5d2642aa88feef8e5f73965aed7c1d0329cd56677217689228b4220f576ba3e",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/3/options/5/label": {
+      "sourceHash": "8e1b867bd1f364cb3477ae9e09fb955926e067114864d16b9de9e2a182e36913",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/prompt": {
+      "sourceHash": "cef9dc45aa5530af33c29e9a22efe2917462487c0b519909747af4e2dff1832c",
+      "text": "一段說明有我沒聽懂的地方時，我會指出具體疑問，請對方再解釋那一部分。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/options/0/label": {
+      "sourceHash": "00d5deb9a6c899ecb77bf6e63528501380c5879c73e1fd83687c2e05dc1cb90b",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/options/1/label": {
+      "sourceHash": "ddc1a7bd201cd43ffda8263d00a7db87cd3af9e5b3574ad8156360df953190db",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/options/2/label": {
+      "sourceHash": "bf55e5282cf850b62cd14b940a8cb456d895f1edd62d040ece0433946b5411ff",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/options/3/label": {
+      "sourceHash": "0d5fbbf14ccbd569fd69d125514b9d841bf801b839c2eb4a089c57b2c2f3759d",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/options/4/label": {
+      "sourceHash": "c2952cc5b33452a1bbcca2bbd6816135959c82828e7fd5b03966e18a726c9733",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/4/options/5/label": {
+      "sourceHash": "a6b90eb9bd8968c1b784654708202ddaf56c86b7fba67e58677a1165b7971f8a",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/prompt": {
+      "sourceHash": "68fa82d890f16b3a2ae66d72b6c59f60b0a70dce9094fcbee3a7647919b93523",
+      "text": "沒聽懂一段說明、也需要弄明白時，我會假裝已經清楚，而不提出疑問。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/options/0/label": {
+      "sourceHash": "3c6acc2891e4d5c493c475454b575857773df2096e9766746762d205048a044c",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/options/1/label": {
+      "sourceHash": "7a9f6d885e743b8ffe89600ca399c6b451ccbcc8db57177877531d337579dc57",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/options/2/label": {
+      "sourceHash": "d20cff81410dde462ebcf3484112f2aa9a2fc38c9fff5551e617d9acfab0110c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/options/3/label": {
+      "sourceHash": "869bf6644655d7ec58a4b88216ab72f3f34e7c891c2a5aa347f0db193e835170",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/options/4/label": {
+      "sourceHash": "03f5609e7f7efcaa80f5af9e5462b2bd92b45e8d2914d9abc3fcca325f9b6e7f",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/5/options/5/label": {
+      "sourceHash": "2fa900f0863b69970d8c279219923406fa7955b9d3248e5f45e8c196db5f4b39",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/prompt": {
+      "sourceHash": "d6ea55b90891dadd193cc01079c229f4e7ac0fac2e0bd0558994f0d623f664a8",
+      "text": "一段說明不夠清楚時，我會用貶低對方的說法表達不滿，而不只指出內容的問題。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/options/0/label": {
+      "sourceHash": "8bfe20b999efb55796407cc512e6a55f6416c344fe2896dcc19733b44d40b6f7",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/options/1/label": {
+      "sourceHash": "2ee5635467ba14bf1d02d1b3b00b4894791b6ba7827c501743984fda58ff7688",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/options/2/label": {
+      "sourceHash": "4f8e9ed487d2c8254b8d613cf32f37c4357cc23675e79db2cce856397e2ac5d8",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/options/3/label": {
+      "sourceHash": "b34e94d56487c4894bb48074e206bbcef382088b22f996118f48a3ab1ab3b764",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/options/4/label": {
+      "sourceHash": "8fcda6d19f68189356e0a0cb4b4209d4bd43f477d1dd1334a83a4873135d6dff",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/6/options/5/label": {
+      "sourceHash": "b6593d76cbf46ca308e353a0d95db05f012d684a98474a54a75e86f1733016e8",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/prompt": {
+      "sourceHash": "f985677c558e040e7a39ba76f198dc0cae866f26accf9a24a6f4412530109d5e",
+      "text": "對一段說明有意見時，我會用挖苦或反話表達不滿，而不講清自己反對哪一部分。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/options/0/label": {
+      "sourceHash": "252113ce51c3797c2e08c72cba528e60c8ae2b360a188e157dcb89658eecb317",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/options/1/label": {
+      "sourceHash": "5885bd257c289199a87d5eb88d03847d27e9f5611c38718abcb7e93afe6c6a07",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/options/2/label": {
+      "sourceHash": "f3f9077543cf263e133ba3b8490cc6e29db0fa396e71df5f46b74be26cc23caf",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/options/3/label": {
+      "sourceHash": "ba597d5dafe8ef1b3828428302284f35bae4ad39a0bb28ee5c98d7e170220231",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/options/4/label": {
+      "sourceHash": "d036286df94c2ca54d222572541237cd74babfd185426020fc2b152b0044fd38",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/7/options/5/label": {
+      "sourceHash": "3ac900fc0e8390cf806b2782d6e413fc724b47b9b4bff7b62dfbbd98e8d72345",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/prompt": {
+      "sourceHash": "7f96e095f611090d3ac9555026d574d5fa4b6e240fdf1d8139b446fb9f135105",
+      "text": "共同選擇不合我意時，我會說出自己的考慮，也給對方講清理由的機會。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/options/0/label": {
+      "sourceHash": "dba510d1ecfb4a5fac11c6a6a44f4672b2abac89cc3549d6d4a63cacd950fde4",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/options/1/label": {
+      "sourceHash": "91f0dc2aa2e1c8171e2ffe2cf16eaf2f436fa78bd7079deec72316998a3f9559",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/options/2/label": {
+      "sourceHash": "623d2bbe2ab56a05fd3e476101a05aae5a96dac944306e69469b71038c5f9491",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/options/3/label": {
+      "sourceHash": "59420094da7a065b9e87679bfcc87325e91a22e023a91b8bbc9ff44240a794b5",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/options/4/label": {
+      "sourceHash": "8692e43074ccc07f8111d5158461047c4e17693e886cba7263ba6f5220e1c07c",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/8/options/5/label": {
+      "sourceHash": "7679a9d4278ba3c0e213c27c75bac6857be45492cb38e8538e06e0323917a5e8",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/prompt": {
+      "sourceHash": "d3756f04cbe4a92cc2fba2e1679437cb1e9d1b00bc52f6451c6dc630a2315db1",
+      "text": "共同選擇有我在意的另一種可能時，我會隱藏自己的偏好，附和已經提出的選項。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/options/0/label": {
+      "sourceHash": "a588622c196ec4991bdeced4d37170f05e231ab8ce5260df71453c47761c6fb7",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/options/1/label": {
+      "sourceHash": "d7528a266489b832883f319abce2648b48fea5c73552f00b80d25303d26dd5f5",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/options/2/label": {
+      "sourceHash": "6cd6fe07111db7f9a56d1f06e7f5e4cda6654c4de02ac0434a430c8f3516f150",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/options/3/label": {
+      "sourceHash": "7a019bc6227108ef4a2a064e91e5672f75a978cc8e9168e2a2553295eb3fdd05",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/options/4/label": {
+      "sourceHash": "b884d9adf69162edc3af11fbef8c1cf0f5c2007147c86877ee764eca13180580",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/9/options/5/label": {
+      "sourceHash": "e9d2916eb573f120027f3c5db6d7342aa5389c141712ba618b0f25052b093049",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/prompt": {
+      "sourceHash": "66f0c7580195576e64105dbfc4fc06ecfbed8ad1d4eebf9b9a36adae4426c8f0",
+      "text": "共同選擇出現分歧時，我會壓住其他意見，讓自己的方案成為唯一可討論的方案。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/options/0/label": {
+      "sourceHash": "cf595c83b3910277181e862010e20f4ea3f8cc3e14e637a8b28cf1ab7d82cbb7",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/options/1/label": {
+      "sourceHash": "b4da05d56382c4987061795e3d1ed813572dfc718b4a3002c603392f76083a1d",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/options/2/label": {
+      "sourceHash": "b17784338d7614dc370b6426140aee49e7d7f39bc098b07b94917dfcf929f4c7",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/options/3/label": {
+      "sourceHash": "fe04540e6d4ded32a314957aebd829f4c9c91d477d3056f9d0a30386dd70f481",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/options/4/label": {
+      "sourceHash": "44080005320e58e74fd1197e79cafe1c2f6face20fed7de3b5873eba97b4e990",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/10/options/5/label": {
+      "sourceHash": "bf3252f7531784a9199009d11a6671dd2cd2c19d0f7510665fc69098947d91c8",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/prompt": {
+      "sourceHash": "2904f1c64c86ca7ab4c25f4eeaa90b3ee1a89e6c32a96e466b05738878f804e9",
+      "text": "共同選擇不是我想要的時，我會表面配合、之後用消極回應暗示不滿，而不直接提出不同意見。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/options/0/label": {
+      "sourceHash": "79ab80a53afde389124ee94d7f68db426201b4183a1329cb3b7feb6667cd5b6a",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/options/1/label": {
+      "sourceHash": "b02dea195582d6b4a6d00b31564561e9cc4173d34c82ce00a6bc46bffbfa1921",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/options/2/label": {
+      "sourceHash": "94b02a0854ec5e57b6400217897e440f9bc45847be1984c0468bc6915c0c2f22",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/options/3/label": {
+      "sourceHash": "26245f634382082a947a56e43a9a8d93b7ac0bb0859dc5f61a32dc802ecdd748",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/options/4/label": {
+      "sourceHash": "2b2571a3089e59641382866eaa51b58ec3a7913aa3ab697a06f91afbc902624d",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/11/options/5/label": {
+      "sourceHash": "a91da8505d42c1154f04504fced4ea884e4711e823c7804c522b33bd31a7e094",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/prompt": {
+      "sourceHash": "308e552fdd46339701d8d8a5d88bc337c3a07b2eafd9aea08231ab5e59efb0d9",
+      "text": "收到不容易接受的反饋時，我會先確認對方指的是哪件事，再說明自己的看法。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/options/0/label": {
+      "sourceHash": "1bf967ab80ed53505fb38669c99cc30318abb19a6244e81ce7be8c4558f85819",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/options/1/label": {
+      "sourceHash": "411dafc43e04b7975aa7f6ffbfa6ec0c537a45ce5da9bee8fe106655c53eb864",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/options/2/label": {
+      "sourceHash": "39630304b3e726d6a5875e29e355f316c0affa5205796f18f77b620139d61539",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/options/3/label": {
+      "sourceHash": "65139cd80f14daac5a63909531473e5b3ebe4c68e36eee7ad1fcd0116ca90229",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/options/4/label": {
+      "sourceHash": "b816d5c2823bf49fb8742f99a30195bbd543a5425be531ce6a1f6f81d27e0663",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/12/options/5/label": {
+      "sourceHash": "fe13e2cc0d09851c3ef3cc4243fd32608833c6a753300518a198caab413459aa",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/prompt": {
+      "sourceHash": "b957d73e3627d82bc8bf375de93501a8c5eb1dfc6c5aeb1cfa0c479f0a285e05",
+      "text": "對反饋中的某一點有不同看法時，我會把自己的解釋咽回去，即使本來想澄清。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/options/0/label": {
+      "sourceHash": "cfd9689136441e68c6599aa3e1862d53e98f1afbeb4b5a992d6fe6b49a149c2e",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/options/1/label": {
+      "sourceHash": "a0bf6de21e743b8e1cd982f75b19b326ac49ea3cf590da4af36421e6d1645555",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/options/2/label": {
+      "sourceHash": "da7ba36cca3b4ba7232e3b6027af796dfb3849a4f0ca5235764974bee5f1490f",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/options/3/label": {
+      "sourceHash": "5b9e88a730515b6205399bbc13fe406f3355133c4d1b5b5a35cdd83f64dddcb8",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/options/4/label": {
+      "sourceHash": "175a830c77b8b2505ec123e4379e92ad37c3c60a4457290aa979a09d3c25cd54",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/13/options/5/label": {
+      "sourceHash": "36e9ad5cf36af78f56ad2e91e4d25a0262133d941d52844c3c0291783aea28c9",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/prompt": {
+      "sourceHash": "7ef1e1ed4f897be67518d9af0a6255f34528b05d9f16528b3769d8b98298654a",
+      "text": "收到不喜歡的反饋時，我會打斷或貶低反饋者，讓對方難以繼續說明。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/options/0/label": {
+      "sourceHash": "6470d703cbe4b4ea155a20da55e8a9f0d771ac5709619a1e3ace040708576df4",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/options/1/label": {
+      "sourceHash": "2f6b0da64396c35920f4c99d2795d083159c1ebe87b9c2291107a3fd71234ace",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/options/2/label": {
+      "sourceHash": "aecabdb38dad11f3f53afbac81e44058f3952685a0d1bf8082c73d34559bc7ae",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/options/3/label": {
+      "sourceHash": "4dabbf0f91d5e795f8f88fc3b9ef53b40c7be7aae441f5de9b0587099a4977b1",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/options/4/label": {
+      "sourceHash": "7d6b131342228643900e5e0c7b21aebd21b81a3309730e83ee8d7fddba39821e",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/14/options/5/label": {
+      "sourceHash": "41f689701f2b5a3fcb6066e7f79481462810134a58f327195a50d1447715cda8",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/prompt": {
+      "sourceHash": "4910fda829015d5b20f89a0e9fe7f3cbd232045fbb6420f2ba8901cfe573fbc9",
+      "text": "收到讓我不滿的反饋後，我會用冷淡或刻意不配合表達抗議，而不說明自己在意的點。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/options/0/label": {
+      "sourceHash": "2471dfd53b2a640023ca32fc059bfcbf3e7f4f7776acb77ccc220f3b56434d20",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/options/1/label": {
+      "sourceHash": "e94e7bb827d44e3190cf92ff99245813c77dbf7cec484f1d354156c5e3b55c96",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/options/2/label": {
+      "sourceHash": "24d48f6813ce1bbb432a12480d3232d9f2365d121eddf6b0210e325dd7502165",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/options/3/label": {
+      "sourceHash": "f52f8f1f268a7bcab84758ef54da70f3729944ac5dc1c5ab3fc5703533f40d78",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/options/4/label": {
+      "sourceHash": "183a426cc6d7b3f493e7494b0d2b2da93e95a04a77977c5f6b07059deb1bf242",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/15/options/5/label": {
+      "sourceHash": "8b2669661a50ce47a5d9627ff54580d9d8a87794676da0b0dff2d18bcc984309",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/prompt": {
+      "sourceHash": "e6b75bc00fc01681ffb917d4cd1f61dfaecd8299f08dec26005b071254402d63",
+      "text": "不願接受一項額外請求時，我會把拒絕和可以提供的範圍說清楚，而不貶低提出請求的人。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/options/0/label": {
+      "sourceHash": "7614b69aa2310eee87ffd83927090a159b76f893fb4d93d20786f3b99c1f6afd",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/options/1/label": {
+      "sourceHash": "6309fc53ce2321e134140d5f00e8bb3955924ee7620d6a94d6f96a6fc9697a4a",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/options/2/label": {
+      "sourceHash": "231d71a0be18b4c1388fc3f60e7030134c9337bf3f455715db47b4688491cfa7",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/options/3/label": {
+      "sourceHash": "701ed324cdece1d676ee2f34a2007af817f59e58f43f92c0d2730cd1f39e7bb9",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/options/4/label": {
+      "sourceHash": "66374567e24d315f9fd32ee18303e3e31bc7b83589ac294b66a967be3f657823",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/16/options/5/label": {
+      "sourceHash": "e746fbfaf2e5d357d06e4ce3f4bb9d3cd0c21bd8e90ecfb182443e659251202e",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/prompt": {
+      "sourceHash": "dda8c8b4689cfa291a49c8306bc319f8b2c44999ba8515cc952bb550c77f9711",
+      "text": "不想接受一項額外請求時，我會說可以，之後再獨自處理它給我的負擔。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/options/0/label": {
+      "sourceHash": "1fd7532848e0b0c7a0e1468fd21761605cd519f1b3b9358f6b79a288cafdba48",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/options/1/label": {
+      "sourceHash": "95ef1730f6abd27f9e30161d219b403a05d8e9056067781163a1a19d95d774a4",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/options/2/label": {
+      "sourceHash": "17bde2df7fe20d85d2e135e9549a26a519210be123e9bf1627429f4c5ecac13c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/options/3/label": {
+      "sourceHash": "4d9c6968f5f4a65ff6066184f5a365e09cb10e9ffd43724d8b3457d1bdd977df",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/options/4/label": {
+      "sourceHash": "f4f183c2d9575832fd36602b215a78b710257ef6f59191c3d2519447f2de4fbd",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/17/options/5/label": {
+      "sourceHash": "ae9978bfa2ca60df0ca7cd7375e4813b5579a6be5c29586f66fef8f09a34e9c5",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/prompt": {
+      "sourceHash": "89039b98073ea4ecdd558b51a415f8e95a9fad95c04f92f0db036f5802e402eb",
+      "text": "拒絕一項請求時，我會把提出請求的人說得很不應該，而不只是說明我不接受。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/options/0/label": {
+      "sourceHash": "58b6db4d80f7a7c724b5e2ccde0c109e69cb3507cc34a0165d4540f57cd2fc65",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/options/1/label": {
+      "sourceHash": "25e9edb137572c75504b99808dcf74fd7b3c395e2f0a9e5fc5744760c30ba4d6",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/options/2/label": {
+      "sourceHash": "f7ac09f84c46a5dac8f367cc22d1b3313f6de34fb0e59b27893661917c5831c8",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/options/3/label": {
+      "sourceHash": "c5658db488102c59e99983194a9b4ca98cef4340db568f43138cde6092f94661",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/options/4/label": {
+      "sourceHash": "728bd4ff85be46474f65447c9d5fb0b82f0d253eb63a9a6a7e7d0edf69d693de",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/18/options/5/label": {
+      "sourceHash": "ab393811c28a5922709760f52e3583d2c37fc27cd7bc5838d0421052e03b35dc",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/prompt": {
+      "sourceHash": "58ac961fc9b77e7426a4a7b669839ab58c791d0fa988eea29dc9cce9aa6e432d",
+      "text": "不願接受一項請求時，我會先說沒問題，再故意敷衍，讓對方發現我其實不願意。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/options/0/label": {
+      "sourceHash": "998e61baa4cde9bdaec13bb9bcfb43990998afa0f014aa33862b9f81d8b818ff",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/options/1/label": {
+      "sourceHash": "c6564defa5c435d67add9455d0cab7789baa9ef574a88e217b30613ef7c899df",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/options/2/label": {
+      "sourceHash": "1da08b43123224de08dd1c2de6fd36fa58d49cc347ed9653cf12e5d3d5faf730",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/options/3/label": {
+      "sourceHash": "7a41c2b307625ef9eaef058610ad81eee445106aac414fd7fa095dff5e871a98",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/options/4/label": {
+      "sourceHash": "057778cf3bd9f97e1e4e0ef48823bd4330ad7839d56644903a14c238e0cf3d79",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/19/options/5/label": {
+      "sourceHash": "930e4a80455b8c8774a25426b7e2e157cedf00943bd9509d32d5cef78b33829d",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/prompt": {
+      "sourceHash": "751db3415d5411b8290074d21220fcc17c5c5081fb5bbc5df9073d0e673b3a6d",
+      "text": "一件事沒有按我們商量的方式完成時，我會指出具體差異，並提出接下來可以討論什麼。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/options/0/label": {
+      "sourceHash": "8b8812c9ff78a6eae5812a4b6492a6c51b8505aed9ab8fe30b48ccff3afc539d",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/options/1/label": {
+      "sourceHash": "2237a3ae993127937a5785f887045ef7270e1278c1fbd4a4a5e37d9339b13034",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/options/2/label": {
+      "sourceHash": "5b71226b2f83e6128681c726b528793b539d82a8076e475edec2335ec91cc9ee",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/options/3/label": {
+      "sourceHash": "b1417d21f979f89cda5bd35de320879e608eb509512acbe5b428b03ef08d0643",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/options/4/label": {
+      "sourceHash": "681cafeda9366de5732f15bf20df82be96f6f73b2d44d2a06963a62aa7038250",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/20/options/5/label": {
+      "sourceHash": "d5dc03ac05bc2268fe01538ca25e563882844e32a7196f60250972e1373e7a0b",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/prompt": {
+      "sourceHash": "419d3ecfc875a6414777ab56dd971c7ee4c245f5bf9590178eb2a0d0f79436d9",
+      "text": "一件事偏離約定、確實影響到我時，我會不提這件事，儘管自己希望作出調整。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/options/0/label": {
+      "sourceHash": "dc424022cdb6d4c1045bfc3b1ed3e5ee95f948862a7f56d57a7b10f10e4e6ad0",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/options/1/label": {
+      "sourceHash": "1f68f7b0709540ef178c0418c83c714f5af5fd748bbe59a29ec5a2ae5ec97274",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/options/2/label": {
+      "sourceHash": "55d5adb2c869d9f18a30f6accb15a6ca42f45d44987257ab21e783dd4c999d61",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/options/3/label": {
+      "sourceHash": "e0d214f33cee48cc24b580d775d8acf5d4cb1deb5333a97784c95a0e790c2e65",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/options/4/label": {
+      "sourceHash": "5ad65e8f55f75fc46b580106322895c52ffcfd933968c6d1d598e749f90e7622",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/21/options/5/label": {
+      "sourceHash": "d42ddc87bf7987d32348f0e00df7401102071eb14f84819f1a681956e77efae9",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/prompt": {
+      "sourceHash": "a4e63b784598bcb218833c1f76760f91b3184c3962836e6a88aa51a30731f252",
+      "text": "一件事沒有按約定完成時，我會責備對方整個人，而不只討論那次事情的差異。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/options/0/label": {
+      "sourceHash": "cc4248c9a5020a710af8d4e03ef3f6cf507ea5d112473ebc39eb059f26ecdccf",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/options/1/label": {
+      "sourceHash": "dc143f22c7ac638c3f76cd61d73a8e414c66c50811fe36b1eff291b003054d57",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/options/2/label": {
+      "sourceHash": "201b7f45f66022f97784bb992b62d3b796ad4911d0a6327c6c304becc7adbfe0",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/options/3/label": {
+      "sourceHash": "800d758b59bcb4613820ceb6be1426524e77c351a40d71f108789951ac9bd32b",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/options/4/label": {
+      "sourceHash": "3f704016a887f18a222cc29a64d210e1343db35d138a385dbb76569737290619",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/22/options/5/label": {
+      "sourceHash": "ad4d864d9aebbd25b5bcb2eaa4c509c2c11f85de8bbd0d006f7c9dcf5bff9658",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/prompt": {
+      "sourceHash": "20225c25faf4e3c9ff881d7f11217e580bf1fc069d5a04a1bdef97904a62f4b8",
+      "text": "對一次失約有不滿時，我會讓話裡帶刺或借其他小事表達抗拒，而不討論那次具體約定。"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/options/0/label": {
+      "sourceHash": "62e205071305a4f2c2d8aa25960333615f3261e52127ce49f12c19bbd8d8e8c3",
+      "text": "從不"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/options/1/label": {
+      "sourceHash": "6406d38af6a4e0a2bc75ad7fb827e1e83e223eabc265509b5e0c50712f396626",
+      "text": "很少"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/options/2/label": {
+      "sourceHash": "bfa95d34b5865d8d61e34de076f527ed98825573244dc7851d05802b6bda163c",
+      "text": "有時"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/options/3/label": {
+      "sourceHash": "1bd242f65b4bf6b6296d27ad5f6b95790fb0208b7410b2ac48a539e80631303a",
+      "text": "經常"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/options/4/label": {
+      "sourceHash": "83fd9df67ca5f710c52c650043f41197a26a023fd1a9e667f09e73c10d61b0cc",
+      "text": "幾乎總是"
+    },
+    "lib/questionnaires/data/communication-style.json/questions/23/options/5/label": {
+      "sourceHash": "9320c97308fce4fabf1375aedb35a51bf4763bd82fefca7c87c4fe165a0e5351",
+      "text": "沒有適用經歷、無法判斷或不願回答"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/title": {
+      "sourceHash": "ea4a8fc4f9b30249af06e0e49521b8997a1b275afa9a046b0ece7a736af8f006",
+      "text": "堅定表達（Assertive）：清楚而尊重"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/headline": {
+      "sourceHash": "6739fa1acd80bcb3fe70b91cde6dafb41c4390beb91de0737924dfc7058a393a",
+      "text": "把自己的範圍說出來，也給對方選擇"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/summary": {
+      "sourceHash": "2e66b08cd72151484dab8e7e5bcb794f0430bd7c205045528ed22f6ee9b9e7eb",
+      "text": "堅定表達關注怎樣把需要、疑問和不同意見說清楚，同時尊重對方；均分不認證溝通能力、勇氣或人際成功。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/seo/title": {
+      "sourceHash": "33a73020a78612f6da0db44f4f5b000fa20a2a4537120e7ad86f0bfe7becc5c3",
+      "text": "堅定表達型溝通：含義、邊界與具體說法"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/seo/description": {
+      "sourceHash": "2c7511fad534bfae2e959862f6f43066da343441291922f34888913da98f8dc5",
+      "text": "堅定表達不等於強勢或必須說服對方。閱讀溝通風格完整說明、工作與日常例子、清楚拒絕和相近方式比較；自報均分不證明能力、領導力或職業適配。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/scoreReading": {
+      "sourceHash": "8bf404167000168fa22fc4fa477f872ca010c654c0b62a5432ffe80799024da6",
+      "text": "這一方式有6條頻率題，按1—5原值計分，沒有反向題。全部24題選擇後，至少4條有效評分才顯示一位小數均分；NA不作零分或補值，資料不足明確顯示。四項分別讀，不合成能力總分、不按最高值派主型，也不把小差異當統計上明確的不同。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/0/title": {
+      "sourceHash": "97ded12542b5577475856b3adfb94ec7f0d2d267744b3cea9dbbbf1498a018a2",
+      "text": "這個方式指什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "a3074adecda7958ef5ea8608d8cc3440c035b8f74b8420451867585072a43c2e",
+      "text": "堅定表達指清楚說明自己的需要、看法和範圍，同時不把對方貶低、逼迫或排除在討論之外。它不是聲音越大越好，也不是必須說服別人同意。本版觀察六種具體情境裡相關說法的自報頻率，不把“Assertive”當固定人格、外向程度或誰更值得被聽見的證書。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/1/title": {
+      "sourceHash": "7cac83cdff8ba4293016ab98432d8cf759b5d322534fdd11016ccf5f8a344bad",
+      "text": "題目在觀察什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "62cd6438fee92a24871678e4b7c8bbb4726c52cbc3083043f0aba155ef3bfa60",
+      "text": "本組包括調整安排、澄清說明、共同選擇、接收反饋、拒絕請求和討論失約。較高均分只表示這些題目中的清楚、尊重式回應較常被你報告；較低均分不說明你沒有能力或從不表達。不同情境的機會可能不同，沒有適用經歷可以不計分，不需要為了顯得更好而補一個高值。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/2/title": {
+      "sourceHash": "1888f17b880b092af4b70d6419d76a7348d0b3e001c2701f08ee873f5e21bab8",
+      "text": "一個工作與日常例子"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "f10c188f3c166e74ee0df870e2b2adeee0759687af4ffe0de8dbed1ddf53ca52",
+      "text": "一個共同任務臨時增加了內容，可以說清“我今天能完成這兩部分，新增部分需要另約時間”，再詢問對方最在意哪項。日常約會時間需要調整時，也可以說明自己能到的時間，並聽聽對方是否合適。這兩個例子都允許對方不同意；說清楚不保證獲得想要的安排。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/3/title": {
+      "sourceHash": "afde00ac1c224f86f41ce5a6ec95d5b0e6a8efed39ca3265a68bb854f5524cc3",
+      "text": "讓邊界可以被理解"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "c45eb4439851faa64510db017442aa5601e2e48b28be4922d0e9d6d0e23f98be",
+      "text": "一項拒絕可以只涉及這次請求，不評價提出請求的人。若願意提供別的範圍，就說明範圍；若沒有，也不必編一個替代承諾。尊重對方不等於必須長篇解釋、隨時方便或交出私人原因。形式可以隨語言和文化習慣變化，關鍵是表達是否清楚、是否保留雙方的選擇。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/4/title": {
+      "sourceHash": "58c58107f6b0547f81cdaca67f4dab66dd965650b60bccd86399feef534f3280",
+      "text": "取捨與實際限制"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "6db1a0632a98a2bf4dc01d0e36208988aa104cb559bc5af463bb27f8b49dd02e",
+      "text": "有時說得清楚需要先整理事實，也可能被聽成不合期待。你可以調整時機和方式，但不必把對方每次不高興都歸為自己溝通失敗。權力差異、場合限制和安全顧慮也會影響選擇；本問卷沒有調查這些條件，不要求在每個環境都堅持當面表達，更不保證對方尊重邊界。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/5/title": {
+      "sourceHash": "0f866f65bb76b5d8d54d97263a7eb78011d668d2b8616e8c9f1417ee3339805d",
+      "text": "和其他方式比較"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "b1eabb01efcc612df69abc108ad525d828c3751a9f343d7d6b9bd249fa20196b",
+      "text": "堅定表達與強硬壓過他人都可能直接，但前者保留對方表達和拒絕的空間；與被動表達相比，它把自己在意的需要放進了對話；與間接抗拒相比，它不靠對方猜出反對。四項均分不是同一條優劣尺，也不要求互相抵消；不同情境可以出現不同方式，不能只看最高值決定人格。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/6/title": {
+      "sourceHash": "57c1903f01d779df87d889a449fc5b0603ffc41d3f956a595f9e8300659dc069",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "4b82fe4c8efa58aa531a72c0181c06449f9a22b8798b26b80c7973dc557bbcf3",
+      "text": "較高自報頻率不證明你實際說服力強、領導力好、不會傷人或一定適合某種工作。問卷沒有聽到你的語氣，也沒有觀察對方是否能自由表達。較低評分同樣不能說明膽小、情商低或有心理問題。理論和教育資料介紹方式，不驗證這套原創題目，也不使分數成為能力常模。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/7/title": {
+      "sourceHash": "d639eee82790737ba689f2b0bbbf4b02383bd88d23780aac3aca6c8050040cd8",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "4d0a92c3bc8ab707220b15e1eda54ed1b40cf49757d8bf2c2e639eab31f83ee9",
+      "text": "選擇一件負擔較小、適合討論的小事，先寫清自己的事實、需要和願意接受的範圍，再想想對方可以怎樣回應。嘗試把請求說成一個能被回答的問題，而不是必須獲得同意的要求。之後只回顧是否表達清楚、是否聽到了對方的範圍，不用成敗、得分或他人的情緒給自己定型。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/8/title": {
+      "sourceHash": "4fbf003b6165e7bca91c8be486fceb571b09debf7cfc0b0a753299ae50b23bb5",
+      "text": "原創題本與行為方式的範圍"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "dcdd0cdc504146dd045a480d54cc9050c6b56da99b2543955334cef7a62c16ac",
+      "text": "本版24條中英文情境頻率題、四項均分規則與解釋由費馬獨立編寫，借用教育資料中的四種常見溝通行為名稱，不是標準溝通能力測驗、Rathus或SIS量表，也不是DISC或其他同名四分類。沒有本站信效度、常模、診斷或工作表現預測驗證。來源提供概念背景，不驗證這些題目或建議；本題沒有觀察實際對話、雙方意願或關係安全，不推斷動機、童年、臨床狀況、能力、善惡或錄用結論。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/title": {
+      "sourceHash": "8e964bd58853c99e0d931652add8df7c84bf6002eb32257127c10b036ad67145",
+      "text": "被動表達（Passive）：留住自己的需要"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/headline": {
+      "sourceHash": "cdb8fdc6535b54db4952c5f25f3363ef36ae763e911d390c95873c52de7143cd",
+      "text": "沒有說出口的部分，也值得具體看待"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/summary": {
+      "sourceHash": "818335560f5fbe3e8f5a7b2735d347c55878d887416e118f86ce3c0e81813233",
+      "text": "本頁討論本來想表達需要、疑問或不同看法，卻把它留在心裡的情境；不把安靜、傾聽或有意暫停自動當被動。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/seo/title": {
+      "sourceHash": "0f8f40c7ef2034dcac5fae3df7ed62297c81033b5867490bbeaf21daa3490e7b",
+      "text": "被動表達型溝通：未說出的需要與具體例子"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/seo/description": {
+      "sourceHash": "529fde1c3d96262ce205bab578b5ab3fc440416664f4dd69a024b614b4a7eada",
+      "text": "閱讀被動表達的完整解讀，區分未說出的需要、願意讓步、傾聽和有意暫停。包含具體例子、表達小入口與相近方式比較，不把安靜當人格缺陷。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/scoreReading": {
+      "sourceHash": "a8496735b1e01336de9c77ace9d8d84dff6c489057925d3fb920b8686f20c672",
+      "text": "這一方式有6條頻率題，按1—5原值計分，沒有反向題。全部24題選擇後，至少4條有效評分才顯示一位小數均分；NA不作零分或補值，資料不足明確顯示。四項分別讀，不合成能力總分、不按最高值派主型，也不把小差異當統計上明確的不同。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/0/title": {
+      "sourceHash": "98c04c9b2024e8b3c94a77f1eb9e8b3bd9687b834d026e7e936aca7b1783faba",
+      "text": "這個方式指什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "2309491b49ba9bba35dc6642d04f5d57f94b407ba9ecfc84854f5804b5cd28a2",
+      "text": "被動表達在這裡指本來有想說的需要、疑問或不同意見，卻沒有把它放進交流。它不等於溫柔、善良、內向或聽得認真，也不意味著你應該總是爭取說話。本組題目儘量明確“原本想調整或澄清”的情境，避免把沒有意見、願意讓步或選擇沉默都算成問題。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/1/title": {
+      "sourceHash": "92b958cfe622c51e5bd21a7bd5d39e4484a6e0645e63880873fd2e1c307aca11",
+      "text": "題目在觀察什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "3f0752486dd07fbda9ef02dd503e73041f324a818f604e973cedb236ad03cf5b",
+      "text": "六種情境都圍繞未說出的部分：不合適的安排、沒聽懂的說明、不同偏好、想澄清的反饋、不願承擔的請求和希望調整的失約。較高均分表示這些題目較常符合自報經歷，不證明你害怕衝突或把別人永遠放第一。較低均分也不認證表達技巧，實際做法仍要看具體例子。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/2/title": {
+      "sourceHash": "1dd16d62d20e39fa8ac0bd8cbdd0e1fb5338d9cc45ac77536cae0de4b286b20d",
+      "text": "一個工作與日常例子"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "c38022da73dd89857313ae3fe0d8aaa4003fc3974d725dc290bd76c76263ca4c",
+      "text": "一起籌備活動時，你其實無法承擔新增事項，卻先說可以，後來再獨自擠時間。這是題目涉及的一種情境。若你評估後真心願意幫忙，則不是同一個意思。日常一起選時間時，也可以區分“我沒有特別偏好”和“我有需要但沒有說”；只有回到當時的意願，例子才有用。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/3/title": {
+      "sourceHash": "f98e94b41a3fc0aaa1fb3a1284c853abc5b5eb11ec583712ba69c683a3beaa28",
+      "text": "給需要一個小入口"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "13f8b25bdf29a1107dcffa05656084202969d4e0ef0685af7adf39b0b53355ce",
+      "text": "如果你願意，可以先說一小部分，例如“我需要確認這件事要花多少時間，再決定能不能承擔。”這不要求立即說出完整反對意見，也不需要解釋全部私人安排。對方仍可能不同意；你可以繼續選擇是否協商、稍後回應或拒絕。這樣的說法是可選例子，不是本測試驗證過的干預。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/4/title": {
+      "sourceHash": "74209ed7fc6fbdc1512dd97008b19fea5f162e07d66767d8632d9b708a631a55",
+      "text": "取捨與實際限制"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "2ec6711ed14968acf464355120e9a414040f58793575e4f62d9a0f286c1219a3",
+      "text": "沉默有時是有意保留、先聽完或等待合適時機；在某些處境裡也可能是保護自己的選擇。本問卷不知道當時有哪些權力差異、語言負擔或現實限制，不應要求你為了更高的堅定表達分數而冒險。若只是一個沒有說清的小需要，可以討論它，但不必把每次沉默都追溯為個人缺陷。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/5/title": {
+      "sourceHash": "32016fff2050605bc815f0ca3bca2df3792f15a616003783f7c82831503f92aa",
+      "text": "和其他方式比較"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "0b568c12104a085dec7374e4d0364a17afe519c8259b8780e3d64dee7dc1bb6e",
+      "text": "被動表達和間接抗拒都可能沒有直接說出立場，但後者題目明確包含用反話、故意拖延或不配合表達不滿。沒有回覆、忘記或需要時間，本身不能推出間接抗拒。堅定表達把需要說清並尊重對方；強硬壓過他人則排擠對方的立場。比較的是具體行為，不是給安靜的人貼標籤。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/6/title": {
+      "sourceHash": "61ea5c5fc42290885ee58ae5c4d0906d560b8c76dce0ddc14f4d372d8a30f92a",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "342b372a78e6de74178f810170dfe81c22ae0b8e0ad16be88c67ace20450e3c9",
+      "text": "較高均分不能確認童年經歷、人格障礙、依戀型別、抑鬱或未來一定會爆發，也不能說明你比其他人更有耐心、共情或適合服務類工作。題目只問本組自報頻率，沒有觀察溝通成效或調查動機。分數不能被他人拿來要求你交出隱私、無條件說話或接受他們的安排。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/7/title": {
+      "sourceHash": "9de6dd6ac6fd7605318756dba1389ce6f462b75033e907ed822d48ee5b085acc",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "00d4367e99a38d2230304c0900fab8da2af3a0a0471f2f77163be61733518e97",
+      "text": "找一件你願意說、風險較小的小偏好，先寫出一個簡短句子，例如想調整哪一小段安排或需要澄清哪一點。選擇適合自己的方式和時機提出，也允許自己決定暫時不說。之後回顧是否更清楚地知道自己的範圍，不用對方是否馬上同意、說了多少話或均分高低判斷這次是否值得。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/8/title": {
+      "sourceHash": "ab012849f050d1eaef8d2b1b725a05b6354db055c5156b6f704034504b9a3857",
+      "text": "原創題本與行為方式的範圍"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "e18ad96e2cec611c8b6ca0c85b77298aaac31dcf58316f4b4b55e63b102579dd",
+      "text": "本版24條中英文情境頻率題、四項均分規則與解釋由費馬獨立編寫，借用教育資料中的四種常見溝通行為名稱，不是標準溝通能力測驗、Rathus或SIS量表，也不是DISC或其他同名四分類。沒有本站信效度、常模、診斷或工作表現預測驗證。來源提供概念背景，不驗證這些題目或建議；本題沒有觀察實際對話、雙方意願或關係安全，不推斷動機、童年、臨床狀況、能力、善惡或錄用結論。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/title": {
+      "sourceHash": "bb850680074b0c135e5ed256737257e70fe9f204a40a06613a53b5f04314fb70",
+      "text": "強硬壓過他人（Aggressive）：立場與尊重"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/headline": {
+      "sourceHash": "d98529422d1020bcf55383771b19fee26cab1e104a581ca79137eec808a5cb60",
+      "text": "把反對說清楚，不把人壓下去"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/summary": {
+      "sourceHash": "d2eff7a995cf03ed2c73640a5c1d07b1f49630a31eec92a2cc80a474cb2c16b4",
+      "text": "本頁討論用貶低、打斷或排擠對方立場表達需要的具體回應，不把堅定拒絕、緊急簡短指令或本次均分等同危險人格。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/seo/title": {
+      "sourceHash": "9a63bf7fbb0114789bc241b59c7c39ff66c212e1785b1af7bf37151dafbd62b4",
+      "text": "強硬攻擊式溝通：立場、尊重與相近方式比較"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/seo/description": {
+      "sourceHash": "1981945335568288734e61fa17e69d338640b1d31f5b575c39fb5d50bafcfedc",
+      "text": "強硬壓過他人與堅定表達怎樣區分？閱讀具體溝通情境、對事與對人的差別、邊界和小嚐試。均分不診斷危險人格、暴力風險或招聘適配。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/scoreReading": {
+      "sourceHash": "cf3ee08d3b0b23774ae67fcbd13c98a4c54f2efa47a0251d356b97938f0ed02e",
+      "text": "這一方式有6條頻率題，按1—5原值計分，沒有反向題。全部24題選擇後，至少4條有效評分才顯示一位小數均分；NA不作零分或補值，資料不足明確顯示。四項分別讀，不合成能力總分、不按最高值派主型，也不把小差異當統計上明確的不同。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/0/title": {
+      "sourceHash": "ce2943a771f4efe552b8032419b8f4ccfe0bdfa984ca78bf058674ac1594c7eb",
+      "text": "這個方式指什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "e381774776136d0bd71604b8f8874f6568a95d575b51b428f2a91f5ca00fe86c",
+      "text": "本版的Aggressive指表達自己的需要或反對時，以貶低、打斷或排擠他人立場的方式壓過去。區別不只是音量或是否直接，而是對方有沒有機會表達、拒絕和被當作討論中的一方。它描述題目裡的回應，不是對暴力、犯罪、人格障礙或一個人整體道德價值的測量。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/1/title": {
+      "sourceHash": "f4eb3d50e3f302b641dc891a7cb1015effba637450a25d7e62d974f83633ce0b",
+      "text": "題目在觀察什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "8d6486186d7e000b829a80e8a558580e49c881bdb7c269ea41cf18d3a60e6d72",
+      "text": "六道題分別問調整安排、沒聽懂說明、共同選擇、接收反饋、拒絕請求和討論失約時，是否報告過壓住對方或責備整個人的回應。較高均分只說明本組說法較常被報告，不證明你總是如此或知道所有後果。較低評分也不保證對方感到被尊重，實際互動沒有被本題觀察。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/2/title": {
+      "sourceHash": "6247b8bb806834a32672669d0808c1d8c8bae5ca2e1b10f09bdf1c9b2cd0d4f4",
+      "text": "一個工作與日常例子"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "2daf4789f556b63edd6a1d3b1ec5d2d6c1c42e849c2ece5c6f0abea9c41755bd",
+      "text": "一次交接少了資訊，可以討論缺了哪些內容、何時補充；如果轉成評價“你做事就是不行”，焦點就從具體缺口移到了對人的貶低。日常需要改時間時，也可以區分說明自己的限制，與不允許對方講他們的限制。例子關注表達過程，不要求為了尊重而放棄自己的實際需要。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/3/title": {
+      "sourceHash": "bdb457124e1193ad9a0e6002c9daf3d9392234bfb861ffdf2ea1bd41b018332c",
+      "text": "把立場與攻擊分開"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "d112eccf0fc30d2b26d3d3392ece8456e549a8ee45837d6654441ed742f67cbb",
+      "text": "如果想調整說法，可以保留原本要表達的分歧，只把對整個人的評價換成這次可核對的差異。例如先說明需要補哪段資訊，再詢問什麼時候可行，而不是讓對方證明自己不是壞員工。對方可能不同意，也可能需要時間；具體說法不保證獲得合作或修復關係。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/4/title": {
+      "sourceHash": "39ecadfb976a41374bced0ac41096684613368a6f0eba4fb292e3567d876e9b9",
+      "text": "取捨與實際限制"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "073dd1925c05e297f00fb0161188b9e5ee8cbb9421f2aac64f52370805ff157c",
+      "text": "把不滿說出來，並不需要以壓倒對方為代價。緊急情況可能需要簡短直接的指令，但簡短和直接本身不等於貶低或排擠。本版不把強硬方式包裝成領導力、效率或“真正關心”的證明，也不根據一次緊張情境判斷動機。是否繼續交流，仍要考慮雙方意願與現實處境。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/5/title": {
+      "sourceHash": "d09844cf856d10aad3b1dff23a00e0a37fd9fe7c90d01e04ec2c86848446f335",
+      "text": "和其他方式比較"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "50762e84cc0bb03614e63324e80f7e395a0cb1c16a145cf89ef9ffc5f09e754d",
+      "text": "堅定表達同樣可以說不和提出反對，但保留對方的立場；被動表達沒有說出原本想說的需要；間接抗拒則通過反話或有意不配合表達異議。它們不是一條由弱到強的等級，也不是互斥人格。四種頻率都可以回到各自情境看，不由一個最高均分決定整個人。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/6/title": {
+      "sourceHash": "b5fc4773a09e4af4fc3b14223fcffb91a6e700f14be3f7428ded729c29958f73",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "c9b24013151eea614dcf59d25668ff177965fba2970503dc7f02efe39100291d",
+      "text": "清楚拒絕不想要的接觸、維護邊界或說話比較短，不足以判斷攻擊性。口音、音量習慣、眼神和表達差異也不在本題的推斷範圍。較高均分不能說明暴力風險、心理疾病、是否適合錄用或別人一定害怕你；較低均分也不能認證關係安全。本版沒有這些觀察、常模或預測驗證。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/7/title": {
+      "sourceHash": "b16449bdadc8c0b34d30fec670fbfd33894cee445fdf7985894e30396cbe2d18",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "18ee1b7034e38aa05d99f2377b1b462964aab543f1006f63c691a0c6e245593b",
+      "text": "選一句自己願意回顧、沒有私人內容需要公開的表達，分別寫出“我真正反對的具體事情”和“我對對方整個人加上的評價”。如果合適，試著只保留前者，再補一個允許回答的請求。無需立刻進行對話，也不要把對方是否配合當成訓練效果或均分應當下降的證據。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/8/title": {
+      "sourceHash": "5efc5795962e9491cc09a9b8b689e2993dcb7d4c39d5b72bc9188c1bcd9204cc",
+      "text": "原創題本與行為方式的範圍"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "aa69b9fddba9f937b18fab398851dd78d01571627b70123693f938eaf7052103",
+      "text": "本版24條中英文情境頻率題、四項均分規則與解釋由費馬獨立編寫，借用教育資料中的四種常見溝通行為名稱，不是標準溝通能力測驗、Rathus或SIS量表，也不是DISC或其他同名四分類。沒有本站信效度、常模、診斷或工作表現預測驗證。來源提供概念背景，不驗證這些題目或建議；本題沒有觀察實際對話、雙方意願或關係安全，不推斷動機、童年、臨床狀況、能力、善惡或錄用結論。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/title": {
+      "sourceHash": "df9414e363eee352ffc4cdb1be2ba38b7e8101a63cfe54e49edadaec961f7a36",
+      "text": "間接抗拒（Passive-Aggressive）：把異議說具體"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/headline": {
+      "sourceHash": "e2eb34f30adc1232e061733edbf00dc82aa40a00008cec283704bd09fa3bd543",
+      "text": "看清異議怎樣表達，不替別人讀心"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/summary": {
+      "sourceHash": "439cb6583effbd0f23cae42dfc246cf678896e2797cb5a94988e514382793506",
+      "text": "本頁討論自報用反話、故意拖延或不配合傳遞不滿的情境；不把沉默、忘記、延遲迴復或不願披露自動當作間接抗拒。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/seo/title": {
+      "sourceHash": "c07b909833e675bf62abb3fe2847f08a973a2a46a8ba0f5f678b88f2293fe80f",
+      "text": "被動攻擊式溝通：間接抗拒、異議與完整解讀"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/seo/description": {
+      "sourceHash": "f8a74a882c5fbf61d4dd715dc26dc2a766dc0e4e1be1e7dc840c48148212158d",
+      "text": "理解被動攻擊式溝通與間接抗拒，區分有意用反話傳遞不滿、沉默和延遲迴復。完整說明含具體例子與小嚐試，不讀心、不診斷，也不追溯未經核實的童年。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/scoreReading": {
+      "sourceHash": "06ebf2007f95fc993e3ab50f2d65b55e95d36970c65100765c612626cab01a3e",
+      "text": "這一方式有6條頻率題，按1—5原值計分，沒有反向題。全部24題選擇後，至少4條有效評分才顯示一位小數均分；NA不作零分或補值，資料不足明確顯示。四項分別讀，不合成能力總分、不按最高值派主型，也不把小差異當統計上明確的不同。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/0/title": {
+      "sourceHash": "bf2e1b871d7147272a0e88ff6d17cd81257f356e8e9f224a380ebf7f71519750",
+      "text": "這個方式指什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "56af6608cec0746d9e8ee5f49a8f1d673e55d8e6b1cc93937f990c64b3bcc6ad",
+      "text": "間接抗拒在這裡指有不滿或反對，卻通過反話、故意拖延或有意不配合傳遞，而沒有清楚說明具體異議。題目明確問的是自己的這類回應，不讓你替同事、朋友或伴侶猜動機。“Passive-Aggressive”在本頁是行為方式名稱，不是人格障礙、隱蔽惡意或一個人本質的診斷。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/1/title": {
+      "sourceHash": "70b0d9490d50c595b73d504e384360ee3004b20e788d0778e53186e68b37c913",
+      "text": "題目在觀察什麼"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "4654bfd859b82387c9aab798e225ba23d0935705bad3df39cf690fb70460f0f9",
+      "text": "六道題在不同情境中加入了“用來表達不滿”或“故意”的條件，包括安排、說明、共同選擇、反饋、請求和失約。較高均分只表示這些自報條件較常符合經歷；無法判斷時可以不計分。它沒有觀察每一次拖延或冷淡，更不能從別人一次沒有回覆，反推他們在反抗、報復或不在意。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/2/title": {
+      "sourceHash": "279a4ebf35c940820d5ac1b6a73ddde2f1288d5deb09ac093375709ec6b25537",
+      "text": "一個工作與日常例子"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "ec495a5cc31152a31f2993f765f722cf6c9df0128359856ed69b50b872d599b0",
+      "text": "一項共同任務其實有你反對的部分。你說可以，隨後有意敷衍，希望對方由進展猜出你的不滿，這才接近題目描述。若是沒有資源、沒弄懂要求、忘記或後來改變想法，則需要各自說明情況，不能自動算成同一種方式。日常改計劃後的遲迴訊息，也不能單憑外觀判斷動機。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/3/title": {
+      "sourceHash": "d123b6ca693c079a6a97b874a55840b543af26e4aed99b1a323ea93b6819ab16",
+      "text": "讓異議成為可回答的內容"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "a14c52d4fdedb27f07f35b0d7eb2f9b3e5380cdd334915529cbcd193f647619e",
+      "text": "若願意調整，可以先找出真正不同意的是時間、內容、分工還是決定方式，再挑一項說清楚。例如明確自己還沒有答應哪部分，以及願意討論什麼範圍。這樣給了對方回應具體內容的機會，但不保證達成一致。也不要求你在不合適或不安全的場合立即攤開全部想法。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/4/title": {
+      "sourceHash": "aad67e268d51edf9636499648f16861ac76eca9230900bc97c855cb078278e6c",
+      "text": "取捨與實際限制"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "b0d6ddc73350d5394a0165d242f781a36efe940abf90abd058eda0f1be50d096",
+      "text": "不直接表達可能有許多不同原因，本題不能確認它一定來自某種童年或不安全環境。與此同時，故意讓對方猜異議，也不等於已經讓自己的需要被準確知道。可以保留隱私、暫停或拒絕，但若希望討論，就儘量區分暫時不說與讓對方從反話中猜。均分不是要求你必須公開爭論的命令。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/5/title": {
+      "sourceHash": "fa303bb474990a42cfd244af42ff2f84e420816ef1fdf5c77c7f372cd6645666",
+      "text": "和其他方式比較"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "06f31aa933f0e6eeee99bff4b150541b750a3fa372d8364cba5f6edb4a91357a",
+      "text": "被動表達更關注想說卻沒有說出的需要，題目不要求存在有意傳遞抗議；強硬壓過他人更直接地排擠對方立場；堅定表達則把異議講清、保留雙方選擇。不要用這些名稱給信任受損程度排固定順序，或把間接抗拒當比其他人更壞。比較的是具體回應，不是人的價值。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/6/title": {
+      "sourceHash": "da730e00a2a568467f27335fcf982bc88d1ba15a92b449bb218d32045778c3a6",
+      "text": "一個不能推出的結論"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "ad9e8f0c3284905a720de91f2a6f8ea82594d70f9bb9ddef61cea7964ed0870c",
+      "text": "較高均分不能說明你總是故意、擅長操縱、曾經遭遇創傷、情商低或屬於某種人格障礙。較低均分也不證明表達沒有傷人。問卷沒有調查動機、私人歷史或對方感受，不用於招聘、親密關係判決或判斷別人說的解釋是否可信。一次測試結果不應成為要求他人自證清白的標籤。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/7/title": {
+      "sourceHash": "ede0748645211352837be51922c636aee34d2c7d8cdd7cd311b97bea62817c81",
+      "text": "一個小嚐試"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "602dbb8ccde6db76e70f2317b0bb6d73438c93ffe38593ccec6c48cd0cb9efd2",
+      "text": "選一件負擔較小、你願意回顧的異議，寫清自己不同意哪一部分，以及當前願意承擔什麼、不願承擔什麼。如果適合溝通，試著用一句具體說明代替一次反話；如果暫時不適合，就先保留這份澄清。目標是讓自己更清楚選擇，不是追查他人動機、給關係判輸贏或保證下一次順利。"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/8/title": {
+      "sourceHash": "91e794eae75d26da4c76c789a5b556018852fb15994bac6e3fe91c5dba1a8c22",
+      "text": "原創題本與行為方式的範圍"
+    },
+    "lib/questionnaires/data/communication-style.json/profiles/3/sections/8/paragraphs/0": {
+      "sourceHash": "ca19832a1133ff726411f7fef4c584847e1da1893bf1c6b00f34ba75ba008fbd",
+      "text": "本版24條中英文情境頻率題、四項均分規則與解釋由費馬獨立編寫，借用教育資料中的四種常見溝通行為名稱，不是標準溝通能力測驗、Rathus或SIS量表，也不是DISC或其他同名四分類。沒有本站信效度、常模、診斷或工作表現預測驗證。來源提供概念背景，不驗證這些題目或建議；本題沒有觀察實際對話、雙方意願或關係安全，不推斷動機、童年、臨床狀況、能力、善惡或錄用結論。"
+    },
+    "lib/questionnaires/data/communication-style.json/references/0/title": {
+      "sourceHash": "51c2827974924895e0f4c7ceffb42261349eb93bdf1396faee50ff83a6ceacfd",
+      "text": "HealthyWA：堅定表達、被動與攻擊式溝通的概念"
+    },
+    "lib/questionnaires/data/communication-style.json/references/1/title": {
+      "sourceHash": "d95629d20f6455888110ec18c449e0aa8689df68e42698f9d99c4c4d20524877",
+      "text": "UCSF：四種溝通行為的教育例子"
+    },
+    "lib/questionnaires/data/communication-style.json/references/2/title": {
+      "sourceHash": "c7aae8f268d3c141234d163f04c8950a059ed45615436982bb269a52a13da44f",
+      "text": "Speed、Goldstein與Goldfried（2018）：堅定表達訓練研究綜述"
+    },
+    "lib/questionnaires/data/communication-style.json/references/3/title": {
+      "sourceHash": "b1ae67bd740e46dbd2e850627becfa54aad55078cdc6f18bdc5e7816758fdeee",
+      "text": "Omura等（2017）：醫護人員與學生堅定表達訓練系統綜述"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/0/title": {
+      "sourceHash": "190af6bb228867bd9d65fc9b4376f88d8b1d3f220a4da7887ba8c3c69bb110de",
+      "text": "四項均分怎樣計算？完整算例與缺答規則"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/0/paragraphs/0": {
+      "sourceHash": "c007b8f0705a0c111d0779d60c5cc8ccd124438c72e2cbc80f9c899dd3ab51d8",
+      "text": "四種方式各6題，數字選項按1—5原值計分，24題均無反向計分。每組至少4條有效評分時，均分＝該組有效評分總和÷有效題數，四捨五入到一位小數。例：某組選擇4、3、5、2、4和不計分，總和18、有效數5，顯示18÷5＝3.6；第六題不補0，也不補3。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/0/paragraphs/1": {
+      "sourceHash": "7f8ec0544843246246683d9ed7acd1b45eb8ef70671fd1d6308e01b28ee03e17",
+      "text": "“從不”是有效評分1；沒有適用經歷、無法判斷或不願回答則不進入分子和分母。每組只有0—3條有效評分時顯示資料不足，其他資料足夠的組照常呈現。全部24條都需作出選擇，不計分也是一種選擇；4條最低數只是本站資訊完整度規則，不是研究證明的診斷或能力閾值。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/1/title": {
+      "sourceHash": "ccce496a555813d050e66ab5e01722a226db927b8355ee0a5a1dd277d7d997a3",
+      "text": "怎樣理解1—5均分？先看回應頻率，再核對情境"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/1/paragraphs/0": {
+      "sourceHash": "2854fd45a7aeeb66a64a56d8d366059341cc263d1c47ad5f8be12bae08a47b92",
+      "text": "均分概括本組陳述在本次回顧中的自報頻率。3對應選項“有時”的數值位置，不是人群平均；4也不是80%的溝通能力、成功率或真實事件比例。把等級選項作等權算術平均是一項呈現約定，不能據此假定每個相鄰選項之間具有經過驗證的相等心理距離。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/1/paragraphs/1": {
+      "sourceHash": "12fb1833cac909424dd6c9c863e792020afb98d2fedcbdda70f535919f70d7d0",
+      "text": "回到條目與具體經歷判斷：這句話在什麼人、什麼事情和什麼限制下出現？題目沒有記錄實際發生次數或機會總數，也沒有讓旁觀者評價，因此結果反映你對自己行為的回憶，不是對所有溝通場景的客觀觀察。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/2/title": {
+      "sourceHash": "034c778a725a75f02fa5f5916305d3e4c8da967990f461df0792fdfd0198d2e6",
+      "text": "四項相近或並列怎麼辦？保留混合回應"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/2/paragraphs/0": {
+      "sourceHash": "80f6f773ec53cda780ca5b03a5f1e0e63c4dfa7ef855bf1e6471b361e1ffc3e0",
+      "text": "四項分別計算，不要求合計為固定總分，可以相近、並列、都較常報告或都較少報告。頁面不選“獲勝者”，不隨機破同分，不生成主型、副型或總體溝通等級。3.6與3.7的差值不表示統計顯著或訓練效果，本題尚無對應的測量誤差與重測證據。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/2/paragraphs/1": {
+      "sourceHash": "5004364de0a9d5f2692e8a24088bde57ad6982706af099a159d93e3793ea4f0e",
+      "text": "較高的堅定表達均分也不能單獨證明溝通有效；其他方式較低不等於從未出現。在同一周，你可能向熟悉同事清楚表達，卻在另一次不願接受的請求中先答應。分別為每組找一個符合和一個不符合的例子，比把四項硬排成性格名次更有解釋價值。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/3/title": {
+      "sourceHash": "d37e2409f459c45b3dca481178a02f5c762b1fd226e6de845eee921c3dc06dd0",
+      "text": "四種溝通行為分別指什麼？"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/3/paragraphs/0": {
+      "sourceHash": "2fc3c56fae95efecdee5b324c1f2c9914c3ad8d35a3cac4da17d819c50ce728f",
+      "text": "堅定表達（Assertive）：把需要、拒絕或分歧說清楚，同時允許對方說明立場與限制。它可以包含明確的“不”，不要求凡事折中，也不以讓對方滿意作為成立條件。清楚與尊重是行為特徵，不等於溫柔語氣或從不生氣。[1]"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/3/paragraphs/1": {
+      "sourceHash": "d35b22a0f64696de6715a0dc6913a3d02ded174e3606fc5a31505dcf1c76851c",
+      "text": "被動表達（Passive）：自己想提出需要或調整，卻沒有說出，或在不願意時先附和。本題所問的是這種意願與表達之間的落差。自願讓步、專心傾聽、保護隱私或暫時不談，並不能僅憑表面安靜歸入這一方式。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/3/paragraphs/2": {
+      "sourceHash": "c06b00a51c0c1e45f4a542ef7a0f91e0e8d3456d153005d14409fe51675dc2df",
+      "text": "強硬壓過他人（Aggressive）：通過貶低、打斷、整體責怪或不給解釋空間，推動自己的要求。關鍵在於具體對待他人的方式，而不只是音量、直接程度或是否堅持立場。它與堅定拒絕需要區別，也不能由本次分數推出暴力傾向或人格障礙。[1]"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/3/paragraphs/3": {
+      "sourceHash": "d4cc30eb1482f525b044696aecf702592171b87027edf3b5960b2a0ded0ca01e",
+      "text": "間接抗拒（Passive-Aggressive）：沒有直接說明反對，而用自己知道的故意拖延、敷衍配合或帶刺回應表達不滿。題目包含本人對意願與行動的報告；僅看到他人遲迴、忘記、沉默或完成較慢，不能判定他們有相同意圖。[2]"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/4/title": {
+      "sourceHash": "7051d36fd24d7467b8419fc9830227b86b95ae61c7503b6215057b4925d66522",
+      "text": "同一件事，四種回應：臨時增加任務"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/4/paragraphs/0": {
+      "sourceHash": "b8b8d102c805fb1fa4d5d6f19184f909f963d7e244850689de171ac6a37cbada",
+      "text": "以下是原創比較例，不是對訪客的個人判斷。假設有人請你今晚再做一份材料，而你已經沒有餘量。堅定表達可以是“今晚我不能接這份；明天下午可以先核對一頁，是否有幫助？”；被動回應可能是心裡想拒絕，卻說“可以”，然後獨自承擔額外負擔。兩種回應的區別在於是否表達了實際限制，不是願不願意幫助他人。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/4/paragraphs/1": {
+      "sourceHash": "e02e25255e32aa13e368f1a7e681fd339ca9e310ccc11a895f229054c3463c1e",
+      "text": "強硬回應可能轉向“你怎麼連這點事都做不了”，把問題變成對人的貶低；間接抗拒則可能口頭答應，再有意不推進，讓對方從拖延中猜到不滿。重新表達時可以保留同一個拒絕，刪除人身評價，並說明是否、何時願意再談。對方仍可能不同意；清楚表達並不保證請求被接受。[1]"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/5/title": {
+      "sourceHash": "87d316d1b44d92345679ffb36641a582976da8032894346b3a9935ba4e4fe8dc",
+      "text": "情境、文化與權力差異怎樣影響讀法？"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/5/paragraphs/0": {
+      "sourceHash": "c9395f3396a457ac9dbb7bacb7aa657d2a0bdb54b13f8bf3402713ac360e7b07",
+      "text": "面對不同關係、組織規則、語言熟悉度或權力差異，同一句話可能有不同的現實代價。解釋時應區分“我沒有表達”“我選擇暫緩”和“我判斷此時表達並不安全”。本題並未評估這些原因，也沒有針對不同文化或語言建立等值常模，不能把某種口音、眼神或社交禮節當成能力標準。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/5/paragraphs/1": {
+      "sourceHash": "9a2e37b837e11806a64a9e60ba9401bad1dcdb4023523c341be352b8ff1967ac",
+      "text": "如果擔心具體威脅或報復，不必為了符合“堅定表達”而當場對質。可以根據現實條件考慮書面澄清、改約談話、尋找可信支援或結束交流。評分不能決定環境是否安全，也不能要求你放棄隱私或邊界；這些選擇需以實際情況為依據。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/6/title": {
+      "sourceHash": "d66d94313d21e0774074fab4622a6a69c04d31bed00e7a44892a689736a4684b",
+      "text": "研究支援什麼？概念、訓練與題本驗證要分開"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/6/paragraphs/0": {
+      "sourceHash": "a6b6b646cacda931c44e313541fd4a9c753c3500c3351cbeeb8314280c9820c9",
+      "text": "堅定表達有行為訓練與臨床研究背景，不能因此推定每一個同名線上測試都是標準量表。Speed、Goldstein與Goldfried的綜述討論了堅定表達訓練的歷史、臨床研究與實施問題。[3] 本站24題、四項頻率均分和解釋為原創自我回顧，不施測Rathus等已發表量表，也不借用其他工具的常模、信度或效度。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/6/paragraphs/1": {
+      "sourceHash": "50177f901cdf93ed71ca377ffef5ff672a97d958c89e46b6e72f2c5661695d45",
+      "text": "Omura等針對醫護人員與學生的系統綜述納入8篇研究，指出訓練效果、情境與評價方式需要分別理解，並提出持續行為變化與患者安全仍需進一步研究。[4] 這些結果涉及特定培訓與人群，不證明完成本網頁、得到較高自評分或閱讀一句話建議，就能改善工作表現、治療症狀或取得同等效果。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/7/title": {
+      "sourceHash": "9186095055c9de9c3b81dabfcbeb7b59fd17589dbe57aa7c467e3fca2ac38904",
+      "text": "把結果轉成一次可觀察的溝通嘗試"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/7/paragraphs/0": {
+      "sourceHash": "b9fd710ec660ce5000d18af1413f7643c58feb4a2393748dd304fbc42f768519",
+      "text": "先選一件風險較低、你願意討論的事，分開寫下可觀察事實、自己的限制或感受、具體請求，以及願意聽取的問題。例如“原定週三收到的草稿尚未到，我週五前需要完成核對；你預計何時能提供？如果趕不上，我們要先調整哪一項？”這是依照清楚表達與核對資訊原則編寫的練習例，不是通用治療處方。[2]"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/7/paragraphs/1": {
+      "sourceHash": "2bd046b2d484e25f2062852ab8d07acf7bc7fc3d4c20d1515aa37ee4823465b9",
+      "text": "復盤時看實際行為：是否把需要說清楚，是否留出解釋空間，是否形成雙方理解一致的下一步？也記錄對方的真實反饋和沒有解決的限制，不只追求下次分數更漂亮。一次談話是否順利同時受多方因素影響；可以修改說法，不必否定自己或給對方貼型別標籤。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/8/title": {
+      "sourceHash": "789fd2d182cc0ab5287afa0a89d9ee4a203b5236c933aaea89e5eeb527cadda7",
+      "text": "與DISC、MBTI和溝通能力測驗有什麼區別？"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/8/paragraphs/0": {
+      "sourceHash": "563fa2dcd970fdc87ccababdc9ee51386cd32d7d52490f06d45d740dc39a05bb",
+      "text": "“溝通風格”沒有一個適用於所有產品的統一四分類。有的工具討論分析、直覺、流程與人際偏好，有的使用DISC或社交風格軸；本版聚焦有需要、分歧與不滿時的四種具體回應。名稱相近不意味著題目、構念和結果可互換，不能把本次堅定表達均分換成DISC的D或MBTI字母。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/8/paragraphs/1": {
+      "sourceHash": "e5cb58cd569e339b3b7a957c82bb5e3674e2c4652320ab48e4ee1cf99b6c03aa",
+      "text": "能力評估還需明確任務、觀察標準、評價者和相關證據。本題沒有錄音、角色扮演、客觀對錯或他人評分，因此不能由頻率直接判斷傾聽準確性、談判水平、領導力、情商或崗位勝任。若用於個人學習，可把具體例子與自願反饋結合，不用作員工排名或錄用篩選。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/9/title": {
+      "sourceHash": "284903134b45be53716d05c84f73512f010a8933a8b96a98992070e1498953b3",
+      "text": "重測、完整結果與隱私怎樣處理？"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/9/paragraphs/0": {
+      "sourceHash": "4707fd55ebd214e7e4bcd7f31d7b1e6c652002052059bf9f5ddd3fdb57287912",
+      "text": "比較兩次結果時，先核對時間範圍、涉及的關係、實際經歷和有效題數。近期多了拒絕請求的機會、記憶變化或選擇了不同的不計分項，都可能改變均分。本版沒有建立變化量閾值或長期追蹤模型，不能僅憑均分上升認定技能提高，也不承諾訓練療效。"
+    },
+    "lib/questionnaires/data/communication-style.json/guide/9/paragraphs/1": {
+      "sourceHash": "5d5aa8da9f1384434afe98d574557af1a3bf1853e1383fbc06b9bbd9ee895f79",
+      "text": "全部24題、四項評分情況和四份完整說明免費，無需註冊。點選開始即可作答，不需要額外勾選同意。答案在瀏覽器計分，不隨計分請求上傳；主動儲存的草稿僅在本標籤頁保留24小時，完成、清除或重測即刪除。分享只包含測試名稱與公開入口，不附答案、均分或私人對話。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/0/question": {
+      "sourceHash": "91e02865b85aa3ba56bb44da7aac2622143d6cbe49ba6f553e94abc04f59616e",
+      "text": "溝通風格測試測什麼？四種方式分別是什麼？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/0/answer": {
+      "sourceHash": "6162aee6bf02dd72de2303b372ff79da27b41c91d977ab354b42c1e6273f4146",
+      "text": "本版回看近四周自己在需要、分歧與不滿中的回應：堅定表達清楚說明需要並留出對話空間；被動表達指想說卻壓下需要；強硬壓過他人涉及貶低或阻斷表達；間接抗拒涉及以本人知道的故意拖延等方式表達未說出的反對。它們是行為名稱，不是四種固定人格。[1][2]"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/1/question": {
+      "sourceHash": "84afde5f3a469d48d95fc0e5bdecdf2a80381a8dbef9a012fb71e55d31fa6cc5",
+      "text": "24題覆蓋哪些情境，應該怎樣作答？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/1/answer": {
+      "sourceHash": "89fb6746cdcf9449d6c559ed9198810e4cc981a3ffe1ecd596add0e8a6167289",
+      "text": "覆蓋調整安排、澄清資訊、共同選擇、接收反饋、拒絕請求和處理未兌現約定，每類四種回應。依據近四周自己的實際行為，從1“從不”到5“幾乎總是”選擇；沒有經歷或不願回答可不計分，不必設想衝突或填寫私人對話。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/2/question": {
+      "sourceHash": "d925364bf97afeac69d69d83681c96a2baf9cc7fb05a66d64d667fccdec4b44a",
+      "text": "四項均分如何計算，有反向題嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/2/answer": {
+      "sourceHash": "a763e546bdc2022e49a3e63aee83d6d242a020da8a96b18d4d343c6e8872135d",
+      "text": "每組6題，全部按1—5原值計分，無反向題。至少4條有效評分時，求和除以有效題數並保留一位小數。4、3、5、2、4加一條不計分，顯示18÷5＝3.6。四項不合並總分，也不換算能力百分位。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/3/question": {
+      "sourceHash": "71a4eeb1dc8cf5952ed8d7926d4c419e905cab0f5617d58a84b8cf36f847a964",
+      "text": "“從不”和不適用有什麼不同？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/3/answer": {
+      "sourceHash": "8bb6770ac94ce5a065e73d09a0289ede8d201946021dd43cfdb69b3d0b4aa1df",
+      "text": "“從不”計為1，進入總和與有效題數；不適用、無法判斷或不願回答完全排除，不補0或中間值。每組僅0—3條有效評分時明確顯示資料不足，其他組照常呈現，完整指南均可閱讀。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/4/question": {
+      "sourceHash": "5527a4ac44ce6b7ac5cf86fec6dda6f04cd666dacd394a2478e2efb30bc359b9",
+      "text": "最高分就是我的主導溝通風格嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/4/answer": {
+      "sourceHash": "fc4e10cc8a6a6ec1349cd32026470a0de9d1ea42508acaf5a932d61da79b9926",
+      "text": "本站不按最高分派主型或副型。四項獨立呈現，相近或相同均分完整保留，小數差異沒有顯著性依據。同一個人可在不同物件和事件中使用不同回應，需結合條目與例項理解。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/5/question": {
+      "sourceHash": "30a30dea713ec8a6394e298ef713ce048f2a95263501c267eb1247eb5daa04ee",
+      "text": "這是科學量表、溝通能力認證或招聘測驗嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/5/answer": {
+      "sourceHash": "2c8a20eee25025f4ef59e9dd91694e7b930835d5ca642042c830a8103e04c57e",
+      "text": "這是費馬原創頻率自評，尚未建立本題本的信度、效度、常模或跨語言等值證據。堅定表達訓練的研究不自動驗證本站題本。結果不用於診斷、能力認證、招聘或績效等級。[3][4]"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/6/question": {
+      "sourceHash": "47ca69cbf36731b7e04cd9063904dd1ad287452c3c2bd5955aa9c4aee2fe963f",
+      "text": "堅定拒絕、沉默和遲迴訊息能直接判型嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/6/answer": {
+      "sourceHash": "071905c1670ba69ffa505fb6cd1b3129d559bade8a73dc703ee7a567b7006532",
+      "text": "不能只看外觀。明確說“不”不等於攻擊，沉默可能是傾聽、隱私或暫緩，遲迴可能有實際限制。尤其間接抗拒條目詢問本人有意用行動表達反對，不能替他人推斷意圖或把邊界解釋為敵意。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/7/question": {
+      "sourceHash": "ffa6a363a2700654012518ab8c90cfc5ed99747c20507792cd72eff28aa18cb9",
+      "text": "溝通風格和DISC、MBTI有什麼區別？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/7/answer": {
+      "sourceHash": "ce80589230e0adb699ef95527d5e51bedc60a48a41056efc584beed7d18accde",
+      "text": "本版描述需要與分歧中的四種回應；DISC討論另一組行為框架，MBTI使用四組偏好構成型別。不同題目和構念不能一一換算，本次分數不能反推出DISC字母、MBTI型別或情商。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/8/question": {
+      "sourceHash": "4a3cf7f1d88c5c707d6efdaae8c4657855efb29a123f14652406939b1e86576a",
+      "text": "可以給伴侶或同事作答，判斷誰溝通有問題嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/8/answer": {
+      "sourceHash": "62cd6469a9a7d3d6536a2eac0ddf5c5e6ddd35c5a3db69bd6f3600cc8f3629a8",
+      "text": "題目為本人自評設計，不是對他人的觀察量表。結果不能判斷另一人的動機、關係責任或誰對誰錯。若雙方自願交流，可以各選一件具體事，討論需要、限制與下一步，不比較型別高低。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/9/question": {
+      "sourceHash": "4f15d7630ba15a5d382c194a3f369ef201a09b59a049e5469f76c95fe3e8ffba",
+      "text": "怎樣根據結果練習更清楚的表達？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/9/answer": {
+      "sourceHash": "47d94798cb216c89a69c3389136d244a807f8b6b0ef54dab516c3b3aa5acab12",
+      "text": "從一件風險較低的事開始，分開說事實、自己的限制或感受、具體請求，再核對對方理解。保留明確拒絕和個人邊界，不以說服成功為唯一目標；如果當場表達可能不安全，可選擇暫緩或其他支援。正文提供原創情境例。[1][2]"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/10/question": {
+      "sourceHash": "e3aaa7717612af8521f0bebe295401a1dce539c9cb4c0af57ca0e59296141b03",
+      "text": "重測分數變化能說明溝通能力提高了嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/10/answer": {
+      "sourceHash": "8e04198de5575998601c19a0da227696cf16c1aad325343db6273f03c658fa32",
+      "text": "不能僅憑分數判斷。先核對回顧時期、經歷、有效題數和具體行動；自評變化也可能來自記憶或理解變化。本版沒有經過驗證的變化閾值，觀察真實談話和自願反饋更能幫助理解一次嘗試。"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/11/question": {
+      "sourceHash": "3d642708acd2580b8175e0db1d666f2235a6f32439f3ed41c7b4198994b10871",
+      "text": "測試與完整結果免費嗎，需要註冊或額外勾選嗎？"
+    },
+    "lib/questionnaires/data/communication-style.json/faq/11/answer": {
+      "sourceHash": "81122c1fdf5ff4b3e87d07caefafe3f6fa425d8869bc7d2f771bb57f53b07280",
+      "text": "全部24題、四項評分情況和四份完整說明免費免註冊，點選開始直接進入題目。預設不儲存答案；主動儲存後僅保留本標籤頁24小時草稿，完成、重測或清除即刪除。分享不附答案、均分或私人對話。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/assertive/0/title": {
+      "sourceHash": "d543afdf5a2a3d937726a2c6672329c519e2d05146584903ab2acd2efcc8ac22",
+      "text": "同一個改期請求，怎樣保留雙方選擇"
+    },
+    "lib/questionnaires/result-content/communication-style.json/assertive/0/paragraphs/0": {
+      "sourceHash": "9a6e5817611dbfdb8afaaea08646de759abaaeaaab4681d928b608cd91b34173",
+      "text": "虛構例子：原定週六的聚會改到週日，你週日有安排。說清“我週日不能到，週六或下週是否合適”，並聽對方的限制，貼近本頁堅定表達；直接答應卻把自己的需要藏起來，更貼近被動表達；不許別人提出其他時間，更貼近強硬壓過他人。比較的是這次回應，不是把人分成四種。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/assertive/1/title": {
+      "sourceHash": "533401b6a3b132358150514a0d9524e82755345c35b6d9d2df89a8182fb7e2b9",
+      "text": "說清之後，分別看錶達與結果"
+    },
+    "lib/questionnaires/result-content/communication-style.json/assertive/1/paragraphs/0": {
+      "sourceHash": "fad67a6d589f019b7caf3a82046f9a322fa99df3cf39e81853e96f43eda979cf",
+      "text": "接著上面的簡短請求嘗試，回看對方是否知道你在問哪件事、能提供什麼、希望怎樣回覆。沒有達成一致時，可以繼續澄清，也可以結束這次協商；對方不同意並不自動說明你表達失敗。若你願意，還可記下一處聽到對方範圍後調整了的部分，而不以說服成功率給自己打分。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/assertive/2/title": {
+      "sourceHash": "523191bafe5fef985a2884abdedf3c3a2ebbdaf76b374d6cb49fdd28d96c6f63",
+      "text": "邀請別人討論說法，不評價人格"
+    },
+    "lib/questionnaires/result-content/communication-style.json/assertive/2/paragraphs/0": {
+      "sourceHash": "f40a4bfa0256d907039683565c80934aef70725915224f559d90af3480d8a3fb",
+      "text": "可以分享這個問題：“同一件改期的小事，怎樣既說清自己不能做到的部分，也讓對方有空間回應？”也可以給出自己願意採用的一句話。無需公佈均分、稱自己溝通能力高，或讓朋友接受“堅定型”標籤；一次好用的說法也可以因關係與場合而改變。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive/0/title": {
+      "sourceHash": "8037c86ea6f8cbcaa8eecf2a957838d634413ba2d8a12295a84cbca1ab58e454",
+      "text": "同樣說“都可以”，意思未必相同"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive/0/paragraphs/0": {
+      "sourceHash": "fe1af91e504180136f9761a1294af83b1006d54b19950e174b47a93c97118efe",
+      "text": "虛構例子：朋友商量週末時間。你確實沒有偏好而說“都可以”，與有一個無法到場的時間卻仍答應，是不同情況。本頁只討論後者這類想表達而未表達的需要；如果暫時不說是為了保留隱私或等待合適時機，也要單獨瞭解，不能僅憑沉默判斷。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive/1/title": {
+      "sourceHash": "9b20b43aa5922cfd47a01efd5b99d3138690db76825f5c07f95edcc400fbed9b",
+      "text": "先確認自己的需要是否更清楚"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive/1/paragraphs/0": {
+      "sourceHash": "b132004417a61cd5790dfb940d7d8f2498934b8702de8abf00642d0e6d44cdf8",
+      "text": "接著上面寫小偏好的嘗試，回看你是否分清“我願意讓步”“我還沒決定”與“我不想答應”。可以把不確定說出來，也可以暫時只為自己保留這句話。若對方催促，不必為了完成練習立即答應或披露原因；這次觀察不以說了多少、獲得多少讓步衡量。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive/2/title": {
+      "sourceHash": "157a8602aea19f6ecf10c2e78233fb86c241708a50b28be17d5a8dc2d0b43fc2",
+      "text": "分享一個小偏好就夠了"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive/2/paragraphs/0": {
+      "sourceHash": "252713bc1ff3d5a22a4e185411668eb38b46f76701c7bb324a965a542dbf3c66",
+      "text": "可以說：“這次我想先確認時間再答應。你通常希望別人怎樣告訴你暫時不能決定？”這不需要解釋自己為什麼沒有早說，也不用公開均分或私人經歷。別人可以討論回應方式，不能用本頁標籤要求你以後必須開口、必須爭取或接受某種安排。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/aggressive/0/title": {
+      "sourceHash": "c42aa50dd41d596b13c2a8c636a32185cc6ebe3680c8a92286d1931bdde8b409",
+      "text": "直接拒絕與壓住別人，差在哪裡"
+    },
+    "lib/questionnaires/result-content/communication-style.json/aggressive/0/paragraphs/0": {
+      "sourceHash": "cec55062777c9219e64cb8f4e7557f67bd26c37bbdc0a79e538ae5fe9b012da1",
+      "text": "虛構例子：聚會改期，你不能參加。“我週日不能到”只是在說範圍；“就按我說的，別再提別的時間”則排擠他人的意見。兩句都可能很簡短，區別不由字數、音量或是否微笑決定。本頁比較的是是否讓對方仍能表達，不把維護自身邊界等同強硬壓過他人。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/aggressive/1/title": {
+      "sourceHash": "75aabf7b7da47d37e5513db66d739fc1464d75d412b3568f76598e878dd0fbe7",
+      "text": "保留異議，去掉對整個人的評價"
+    },
+    "lib/questionnaires/result-content/communication-style.json/aggressive/1/paragraphs/0": {
+      "sourceHash": "eaa472a8a85a1a630f74f8a391c877fbbf897c9b7d2552b60d076ff1f67c4a86",
+      "text": "接著上面的兩欄改寫嘗試，檢查新句子是否仍說清你實際不同意的事情，以及希望下一步討論什麼。若只刪掉責備，卻把自己的需要也藏起來，可以再補清楚需要。對方是否接受仍未知；也不要要求對方當場表揚你的改寫或證明沒有受到影響。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/aggressive/2/title": {
+      "sourceHash": "176a0e7eb18d9c2c1f91dc3ad61d6defb95c4a0077db2c8f051af22e39108cac",
+      "text": "把一條虛構說法當討論材料"
+    },
+    "lib/questionnaires/result-content/communication-style.json/aggressive/2/paragraphs/0": {
+      "sourceHash": "6fd0458700f5da31f7c3d942bd8d1c251f5a18c290f7225da1736c447f7301cf",
+      "text": "可以分享一個無關真實當事人的問題：“怎樣把對整個人的責備，改成對這次具體缺口的說明，同時保留拒絕權？”不需要展示聊天截圖、公佈均分或承認某種“攻擊型人格”。討論一次表達，不把某人的不同意、簡短回應或口音當作標籤證據。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive-aggressive/0/title": {
+      "sourceHash": "449b68cdec89f86a792db9eb2d4083ebc85bb19b48a9763abcee3e321318cc67",
+      "text": "沒有回覆，不足以說明有意抗拒"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive-aggressive/0/paragraphs/0": {
+      "sourceHash": "8560f01dc61eaa9f8cc07c2bcd6d3a3422fa37d735e7f6f7408fd43030a1e627",
+      "text": "虛構例子：改期後沒有及時確認，可能是還沒看見、需要查日程或忘記。只有當事人自報“我故意拖著，讓對方猜出不滿”時，才貼近本組題目的條件。被動表達更關注有需要卻沒說，不要求存在這種有意暗示；本頁不能替你從外觀斷定他人的動機。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive-aggressive/1/title": {
+      "sourceHash": "68a3e63739e44d356b9f387baeb30329271d44b80bc37fb18498f0f57149507a",
+      "text": "把反話背後的異議寫成可回答的問題"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive-aggressive/1/paragraphs/0": {
+      "sourceHash": "d9b0c9189725f9d9f80beafff92d5acf089f2703b866e781c2c68284ae8733dc",
+      "text": "接著上面的異議澄清嘗試，檢查你真正反對的是哪一部分，而不是替對方寫出他們應該懂的意思。如果適合，可以說“我還沒有答應新增部分，能否先談範圍？”若不適合交流，保留這份澄清也可以。觀察的是異議是否更明確，不是對方是否被你說服或立即道歉。"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive-aggressive/2/title": {
+      "sourceHash": "7bded60ef917efaaa0d37233681e6395641b684c079092cafa60b41228067c2b",
+      "text": "分享一種更清楚的問法"
+    },
+    "lib/questionnaires/result-content/communication-style.json/passive-aggressive/2/paragraphs/0": {
+      "sourceHash": "b3fc81cec5dfb3d582626f6dfa611219c3508523b61bf115688576ea6311e2a2",
+      "text": "可以問：“不同意某個安排又暫時不想爭論時，怎樣先說清還沒有答應哪一部分？”不必指認誰在冷暴力、誰故意拖延，也不需要公佈真實聊天或均分。分享通用讀法可以討論措辭，但不授權別人審問你、讓你自證清白或給某段關係判輸贏。"
+    }
+  }
+}

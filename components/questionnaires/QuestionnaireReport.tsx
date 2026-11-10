@@ -6,6 +6,7 @@ import styles from "./QuestionnaireResultPresentation.module.css";
 
 export type QuestionnaireReportPresentationProps = {
   profile: QuestionnaireProfile; locale: Locale; headingLevel?: 2 | 3 | 4; idPrefix?: string;
+  traditional?: boolean;
   /** Hide only introductory copy already rendered by the caller. Full sections remain intact. */
   showHeadline?: boolean; showSummary?: boolean; navigation?: boolean;
   mode?: "guide" | "result";
@@ -16,7 +17,7 @@ export type QuestionnaireReportPresentationProps = {
 const contextIds = ["editorial-scene", "context", "example", "examples", "concrete-example", "fictional-example", "scene", "everyday", "ordinary-context", "real-world-scenes", "editorial-character-scene", "dialogue", "editorial-comparison-scene", "editorial-comparison-example", "original-portrait", "meaning"];
 const actionIds = ["choice", "editorial-experiment", "experiment", "optional-experiment", "action", "next-step", "private-exercise", "try", "counterbalance-prompts", "observation", "optional-observation", "reflection", "balancing-actions", "next", "practice-review", "editorial-conversation", "share-conversation", "editorial-follow-up"];
 
-export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefix = "report", showHeadline = true, showSummary = true, navigation = false, mode = "guide", previewSectionIds }: QuestionnaireReportPresentationProps) {
+export function QuestionnaireReport({ profile, locale, traditional = false, headingLevel = 3, idPrefix = "report", showHeadline = true, showSummary = true, navigation = false, mode = "guide", previewSectionIds }: QuestionnaireReportPresentationProps) {
   const headline = profile.headline[locale], summary = profile.summary[locale], scoreReading = profile.scoreReading[locale];
   // Some source editions deliberately include the summary in a named reading section.
   // Keep those section bytes and anchors intact, and avoid repeating it in the introduction.
@@ -34,7 +35,7 @@ export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefi
     {section.paragraphs.map((line, index) => <p key={index}>{line[locale]}</p>)}
   </ResultSection>;
   const score = scoreReadingVisible ? <p className={styles.scoreReading}>{scoreReading}</p> : null;
-  const contents = navigation && profile.sections.length > 2 ? <ResultReadingNav label={locale === "zh" ? "结果解读目录" : "Result reading contents"} sections={(mode === "result" ? remaining : profile.sections).map(section => ({ id: `${idPrefix}-${section.id}`, title: section.title[locale] }))} /> : null;
+  const contents = navigation && profile.sections.length > 2 ? <ResultReadingNav label={traditional ? "結果解讀目錄" : locale === "zh" ? "结果解读目录" : "Result reading contents"} sections={(mode === "result" ? remaining : profile.sections).map(section => ({ id: `${idPrefix}-${section.id}`, title: section.title[locale] }))} /> : null;
   return <article className={styles.reading} data-reading-mode={mode} data-preview-count={previews.length > 1 ? previews.length : undefined}>
     {(headlineVisible || summaryVisible) && <header className={styles.intro}>
       {headlineVisible && <p className={styles.headline}>{headline}</p>}
@@ -45,7 +46,7 @@ export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefi
       {previews.map(section => renderSection(section, true))}
       {/* Unmapped editions retain expanded source until their caller supplies reviewed IDs. */}
       <details className={styles.fullReading} open={previews.length === 0}>
-        <summary>{locale === "zh" ? "查看完整解释、计分与依据" : "Read the full explanation, scoring and background"}</summary>
+        <summary>{traditional ? "查看完整解釋、計分與依據" : locale === "zh" ? "查看完整解释、计分与依据" : "Read the full explanation, scoring and background"}</summary>
         {!showHeadline && <p className={styles.summary}>{headline}</p>}
         {score}{contents}{remaining.map(section => renderSection(section))}
       </details>
