@@ -1,3 +1,5 @@
+import { energyRhythmLandingSections, energyRhythmLandingFaq, energyRhythmLandingReferences } from "@/components/questionnaires/EnergyRhythmLandingEditorial";
+import { maturityLandingSections, maturityLandingFaq } from "@/components/questionnaires/MaturityLandingEditorial";
 import { egogramLandingSections, egogramLandingFaq } from "@/components/questionnaires/EgogramLandingEditorial";
 import { learningSummaries } from "@/components/questionnaires/LearningLandingEditorial";
 import { hspLandingSections, hspLandingFaq, hspLandingReferences } from "@/components/questionnaires/HspLandingEditorial";
@@ -45,6 +47,39 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "energy-flow": {
+    reading: "energy-flow",
+    attribute: "energy-flow",
+    load: () => import("@/lib/questionnaires/result-content/energy-flow.json"),
+    editorial: "EnergyRhythm",
+    prefix: "energyRhythmLanding",
+    sections: energyRhythmLandingSections,
+    faq: energyRhythmLandingFaq,
+  },
+  "deep-desire": {
+    reading: "deep-desire",
+    attribute: "deep-desire",
+    load: () => import("@/lib/questionnaires/result-content/deep-desire.json"),
+  },
+  "light-triad-test": {
+    reading: "light-triad-test",
+    attribute: "light-triad",
+    load: () => import("@/lib/questionnaires/result-content/light-triad-test.json"),
+  },
+  "maturity-test": {
+    reading: "maturity",
+    attribute: "maturity",
+    load: () => import("@/lib/questionnaires/result-content/maturity.json"),
+    editorial: "Maturity",
+    prefix: "maturityLanding",
+    sections: maturityLandingSections,
+    faq: maturityLandingFaq,
+  },
+  "sdt-motivation": {
+    reading: "sdt-motivation",
+    attribute: "sdt-motivation",
+    load: () => import("@/lib/questionnaires/result-content/sdt-motivation.json"),
+  },
   "egogram": {
     reading: "egogram",
     attribute: "egogram",
@@ -381,7 +416,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -416,6 +451,7 @@ export async function loadTraditionalLikert(slug: string) {
       case "trust-issues-test": return projectStoryCopy(trustLandingReferences, "components/questionnaires/TrustLandingEditorial.ts/trustLandingReferences", units);
       case "toxic-positivity-test": return projectStoryCopy(positivePressureLandingReferences, "components/questionnaires/PositivePressureLandingEditorial.ts/positivePressureLandingReferences", units);
       case "hsp-sensitivity-quiz": return projectStoryCopy(hspLandingReferences, "components/questionnaires/HspLandingEditorial.ts/hspLandingReferences", units);
+      case "energy-flow": return projectStoryCopy(energyRhythmLandingReferences, "components/questionnaires/EnergyRhythmLandingEditorial.ts/energyRhythmLandingReferences", units);
       default: return [];
     }
   })();

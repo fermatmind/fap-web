@@ -1,4 +1,9 @@
 const profiles = {
+  "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
+  "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],
+  "light-triad-test": ["faith-in-humanity", "humanism", "kantianism"],
+  "maturity-test": ["emotion-pause", "commitment-repair", "perspective-checking", "self-directed-choice"],
+  "sdt-motivation": ["autonomy-satisfaction", "autonomy-frustration", "competence-satisfaction", "competence-frustration", "relatedness-satisfaction", "relatedness-frustration"],
   "egogram": ["critical-parent", "nurturing-parent", "adult", "free-child", "adapted-child"],
   "type-ab": ["time-urgency", "competitive-comparison", "waiting-irritation", "difficulty-stopping"],
   "learning-style": ["visual", "auditory", "reading-writing", "kinesthetic"],
