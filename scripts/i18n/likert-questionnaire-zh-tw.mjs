@@ -13,6 +13,15 @@ const sources = [
     'lib/questionnaires/data/tech-savvy.json',
     'lib/questionnaires/result-content/tech-savvy.json',
     'components/questionnaires/TechConfidenceLandingEditorial.ts',
+    'lib/questionnaires/data/time-management.json',
+    'lib/questionnaires/result-content/time-management.json',
+    'components/questionnaires/TimeManagementLandingEditorial.ts',
+    'lib/questionnaires/data/procrastinator-type-test.json',
+    'lib/questionnaires/result-content/procrastination.json',
+    'components/questionnaires/ProcrastinationLandingEditorial.ts',
+    'lib/questionnaires/data/everyday-control-style.json',
+    'lib/questionnaires/result-content/everyday-control-style.json',
+    'components/questionnaires/EverydayControlLandingEditorial.ts',
     'lib/questionnaires/data/locus-of-control.json',
     'lib/questionnaires/result-content/locus-of-control.json',
     'components/questionnaires/LocusLandingEditorial.ts',
@@ -50,11 +59,20 @@ function standaloneLikertSource(raw) {
     "原有页面内存、自选24小时标签页草稿及完成退出重测清除不变；",
     "可选进度保存使用本标签页的会话存储，24小时后失效，完成、重测或退出清除后删除。",
     "可选标签页会话草稿24小时后失效，完成、重测或退出清除后删除。",
+    "可选标签页草稿最多保留24小时，",
+    "主动勾选才保存最长24小时标签页草稿，完成或清空会删除。",
+    "默认不保存，只有主动保存才提供本标签页24小时内恢复；完成、清除或重测即删除。",
+    "浏览器内计分，默认不保存；主动保存的本标签页草稿24小时内可恢复，完成、清除或重测即删除。",
+    "原有页面内存、主动选择的24小时标签页草稿及完成退出重测清除不变，",
+    "可选标签页草稿沿用明确主动选择，24小时失效，完成、退出清除或重测时删除。",
+    "可选标签页草稿需要主动保存，二十四小时失效，完成或重测清除。",
   ];
   return JSON.parse(raw, (key, value) => {
     if (key === 'zh' && typeof value === 'string') {
       return replacements.reduce((text, from) => text.replaceAll(from, restart), value)
         .replace("若换了技能，回答可能改变；恢复草稿时请仍用原先参照，不记得可以清除后重测，而不是把两种情境当作同一结果。", "若换了技能，回答可能改变。重测同一情境时，请继续用原先的技能作参照；若想换一项技能，就把它当成一次新的观察。")
+        .replace("直接作答、免费指南与可选保存", "直接作答、免费指南与隐私")
+        .replace("临时标签页草稿为独立可选功能，不是作答条件。", "作答進度不會儲存。重新整理或離開後，需要重新開始。")
         .replace("免费阅读、可选草稿与公开分享", "免费阅读、答题进度与公开分享")
         .replace("免费直接作答、公开指南与可选保存", "免费直接作答、公开指南与隐私")
         .replace("普通页面分析关闭，可选匿名活动计数需要另行主动开启。", "網站可能依 Cookie 設定記錄不含答案的使用事件。");
@@ -66,10 +84,10 @@ const previous = existsSync(output) ? readFileSync(output, 'utf8') : '';
 const overrides = Object.fromEntries(await Promise.all(sources.map(async path => {
   if (path.endsWith('LandingEditorial.ts')) {
     const editorial = await import(new URL(path, root));
-    return [path, ['Hexaco', 'TechConfidence'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
+    return [path, ['Hexaco', 'TechConfidence', 'EverydayControl'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
   }
   const raw = readFileSync(new URL(path, root), 'utf8');
-  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json')
+  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json')
     ? standaloneLikertSource(raw) : JSON.parse(raw)];
 })));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sources, overrides);

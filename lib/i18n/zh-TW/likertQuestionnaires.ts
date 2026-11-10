@@ -1,3 +1,6 @@
+import { controlLandingFaq, controlLandingSections, controlLandingReferences } from "@/components/questionnaires/EverydayControlLandingEditorial";
+import { procrastinationSummaries } from "@/components/questionnaires/ProcrastinationLandingEditorial";
+import { timeManagementLandingFaq, timeManagementLandingSections, timeManagementLandingReferences } from "@/components/questionnaires/TimeManagementLandingEditorial";
 import { techConfidenceLandingFaq, techConfidenceLandingSections, techConfidenceLandingReferences } from "@/components/questionnaires/TechConfidenceLandingEditorial";
 import { gritLandingFaq, gritLandingSections } from "@/components/questionnaires/GritLandingEditorial";
 import { growthLandingFaq, growthLandingSections } from "@/components/questionnaires/GrowthLandingEditorial";
@@ -17,6 +20,29 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "everyday-control-style": {
+    reading: "everyday-control-style",
+    attribute: "everyday-control",
+    load: () => import("@/lib/questionnaires/result-content/everyday-control-style.json"),
+    editorial: "EverydayControl",
+    prefix: "control",
+    sections: controlLandingSections,
+    faq: controlLandingFaq,
+  },
+  "procrastinator-type-test": {
+    reading: "procrastination",
+    attribute: "procrastination",
+    load: () => import("@/lib/questionnaires/result-content/procrastination.json"),
+  },
+  "time-management": {
+    reading: "time-management",
+    attribute: "time-management",
+    load: () => import("@/lib/questionnaires/result-content/time-management.json"),
+    editorial: "TimeManagement",
+    prefix: "timeManagement",
+    sections: timeManagementLandingSections,
+    faq: timeManagementLandingFaq,
+  },
   "tech-savvy": {
     reading: "tech-savvy",
     attribute: "tech-confidence",
@@ -102,17 +128,23 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
   const summaries: Record<string, { zh: string; en: string }> = slug === "character-strengths"
     ? projectStoryCopy(strengthsSummaries, "components/questionnaires/StrengthsLandingEditorial.ts/strengthsSummaries", units)
-    : {};
-  const extraReferences = slug === "hexaco" ? projectStoryCopy(hexacoLandingReferences,
-    "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units)
-    : slug === "tech-savvy" ? projectStoryCopy(techConfidenceLandingReferences,
-      "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingReferences", units) : [];
+    : slug === "procrastinator-type-test" ? projectStoryCopy(procrastinationSummaries,
+      "components/questionnaires/ProcrastinationLandingEditorial.ts/procrastinationSummaries", units) : {};
+  const extraReferences = (() => {
+    switch (slug) {
+      case "hexaco": return projectStoryCopy(hexacoLandingReferences, "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units);
+      case "tech-savvy": return projectStoryCopy(techConfidenceLandingReferences, "components/questionnaires/TechConfidenceLandingEditorial.ts/techConfidenceLandingReferences", units);
+      case "time-management": return projectStoryCopy(timeManagementLandingReferences, "components/questionnaires/TimeManagementLandingEditorial.ts/timeManagementLandingReferences", units);
+      case "everyday-control-style": return projectStoryCopy(controlLandingReferences, "components/questionnaires/EverydayControlLandingEditorial.ts/controlLandingReferences", units);
+      default: return [];
+    }
+  })();
   if ("editorial" in edition) {
     const editorial = `components/questionnaires/${edition.editorial}LandingEditorial.ts`;
     return { quiz: { ...quiz, profiles }, summaries, extraReferences,

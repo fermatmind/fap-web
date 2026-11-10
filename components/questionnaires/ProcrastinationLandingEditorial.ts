@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const procrastinationSummaries: Record<string, { zh: string; en: string }> = {
   "perfectionist": {
     "zh": "额外标准：核对必要要求已经满足后，新增标准、细节润色与等待理想准备是否伴随推迟。区分必要检查和可以稍后修改的内容，用初版、反例与小步骤阅读结果；不要求降低安全或合规标准。",
     "en": "Extra standards: check delays alongside added requirements, polishing or ideal preparation after essential requirements are met. Distinguish necessary checks from later revisions through first drafts, counterexamples and small steps, without reducing safety or compliance standards."
@@ -28,7 +28,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function procrastinationLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return procrastinationSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function procrastinationCurrentEntryCopy(text: string, locale: "zh" | "en") {

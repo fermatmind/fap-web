@@ -39,6 +39,9 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       "growth-mindset-fixed-mindset": "費馬原創 12 道學習信念題",
       "grit-test": "費馬原創 16 道目標回顧題",
       "tech-savvy": "費馬原創 6 道工具信心題",
+      "time-management": "費馬原創 24 道時間管理題",
+      "procrastinator-type-test": "費馬原創 24 道拖延行為題",
+      "everyday-control-style": "費馬原創 24 道共同安排題",
     };
     const edition = editions[slug] ?? "IPIP 公有領域題目";
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, slug === "character-strengths" ? "公開性格優勢指南" : "公開連續分數指南");

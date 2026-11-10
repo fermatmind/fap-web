@@ -1,4 +1,7 @@
 const profiles = {
+  "time-management": ["priorities-and-capacity", "steps-and-estimates", "attention-and-return", "review-and-renegotiation"],
+  "procrastinator-type-test": ["perfectionist", "dreamer", "worrier", "defier", "crisis-maker", "over-doer"],
+  "everyday-control-style": ["reasons", "consultation", "decisions", "agreements", "support", "handoffs"],
   "growth-mindset-fixed-mindset": ["belief-continuum"],
   "grit-test": ["goal-continuity", "effort-return"],
   "tech-savvy": ["reading-your-confidence"],
