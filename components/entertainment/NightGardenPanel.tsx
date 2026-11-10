@@ -10,9 +10,9 @@ const descriptions = {
 } as const;
 
 /** Original static scenes. Equivalent descriptions preserve access without visual or audio identification tasks. */
-export function NightGardenPanel({ questionId, locale }: { questionId: string; locale: Locale }) {
+export function NightGardenPanel({ questionId, locale, displayText = (text) => text }: { questionId: string; locale: Locale; displayText?: (text: string) => string }) {
   if (!(questionId in descriptions)) return null;
-  const description = descriptions[questionId as keyof typeof descriptions][locale];
+  const description = displayText(descriptions[questionId as keyof typeof descriptions][locale]);
   return <figure data-night-garden-panel={questionId} className="my-5 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
     <svg viewBox="0 0 600 220" role="img" aria-label={description} className="w-full" focusable="false">
       <rect width="600" height="220" fill="#163b46" /><circle cx="547" cy="35" r="16" fill="#f4e7c9" />
@@ -54,6 +54,6 @@ export function NightGardenPanel({ questionId, locale }: { questionId: string; l
         </>}
       </g>
     </svg>
-    <figcaption className="px-4 py-3 text-sm leading-6 text-slate-600">{description} {locale === "zh" ? "静态原创插画；声音仅以符号暗示，没有音频。" : "Original static illustration; sounds are suggested by marks, with no audio."}</figcaption>
+    <figcaption className="px-4 py-3 text-sm leading-6 text-slate-600">{description} {locale === "zh" ? displayText("静态原创插画；声音仅以符号暗示，没有音频。") : "Original static illustration; sounds are suggested by marks, with no audio."}</figcaption>
   </figure>;
 }

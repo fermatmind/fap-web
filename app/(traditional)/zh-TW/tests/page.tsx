@@ -52,6 +52,9 @@ export default async function TraditionalTestsDirectory() {
     <TestsHubExperience content={content} locale="zh-TW" />
     <section id="interactive-stories" aria-labelledby="traditional-interactive-stories" className="mt-8 space-y-4">
       <h2 id="traditional-interactive-stories" className="text-2xl font-bold">互動故事</h2>
+      <Link prefetch={false} href="/zh-TW/tests/play" className="block rounded-xl border border-slate-200 p-5 underline">
+        瀏覽繁體故事測驗
+      </Link>
       <Link prefetch={false} href={globalHistoryPath("zh-TW")} className="block rounded-xl border border-slate-200 p-5 underline">
         你的性格最像哪位歷史人物？全球卷
       </Link>

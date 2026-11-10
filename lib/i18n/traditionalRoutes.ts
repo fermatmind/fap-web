@@ -1,6 +1,7 @@
 import { normalizeDisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
+import { traditionalLegacyStoryPath } from "./traditionalLegacyStoryPaths";
 import { relationshipQuestionnaireRoute } from "./relationshipQuestionnairePaths";
 import { GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
 import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
@@ -34,6 +35,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (path === "/support") return "/zh-TW/support";
   if (path === "/pricing") return "/zh-TW/pricing";
+  if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path)) return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (/^\/career\/(?:guides(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)?|jobs\/[a-z0-9]+(?:-[a-z0-9]+)*)$/u.test(path)) return `/zh-TW${path}`;

@@ -10,9 +10,9 @@ const descriptions = {
 } as const;
 
 /** Original static scenes fulfill the illustrated-choice premise without a visual-identification task. */
-export function SnowDayPanel({ questionId, locale }: { questionId: string; locale: Locale }) {
+export function SnowDayPanel({ questionId, locale, displayText = (text) => text }: { questionId: string; locale: Locale; displayText?: (text: string) => string }) {
   if (!(questionId in descriptions)) return null;
-  const description = descriptions[questionId as keyof typeof descriptions][locale];
+  const description = displayText(descriptions[questionId as keyof typeof descriptions][locale]);
   return <figure data-snow-day-panel={questionId} className="my-5 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
     <svg viewBox="0 0 600 220" role="img" aria-label={description} className="w-full" focusable="false">
       <rect width="600" height="220" fill="#eef5f5" /><path d="M0 182q150-20 300 0t300 0v38H0Z" fill="#fffdf8" />
@@ -53,6 +53,6 @@ export function SnowDayPanel({ questionId, locale }: { questionId: string; local
         </>}
       </g>
     </svg>
-    <figcaption className="px-4 py-3 text-sm leading-6 text-slate-600">{description} {locale === "zh" ? "原创静态插画；雪都在纸上，文字说明同样可用于选择。" : "Original static illustration; all snow is on paper, and the written description also supports your choice."}</figcaption>
+    <figcaption className="px-4 py-3 text-sm leading-6 text-slate-600">{description} {locale === "zh" ? displayText("原创静态插画；雪都在纸上，文字说明同样可用于选择。") : "Original static illustration; all snow is on paper, and the written description also supports your choice."}</figcaption>
   </figure>;
 }

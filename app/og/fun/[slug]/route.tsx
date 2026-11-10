@@ -139,6 +139,10 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     if (!person) return new Response("Image unavailable", { status: 404 });
     return globalHistoryCard(person, locale, await (locale === "zh-TW" ? globalHistoryTaiwanFont() : quizFont(slug)), download);
   }
+  if (locale === "zh-TW") {
+    const { traditionalStoryCard } = await import("./traditionalStoryCard");
+    return traditionalStoryCard(slug, portrait);
+  }
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   if (slug === CHANGAN_SLUG && portrait) {
     const quiz = await loadFunQuiz(slug);
