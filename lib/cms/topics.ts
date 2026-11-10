@@ -2,7 +2,7 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { canonicalUrl } from "@/lib/site";
-import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, normalizeDisplayLocale, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
@@ -286,7 +286,7 @@ function emptyPagination(page = 1, perPage = DEFAULT_PER_PAGE): CmsTopicPaginati
 }
 
 function matchesRequestedLocale(profileLocale: string, locale: Locale | string): boolean {
-  return toApiLocale(profileLocale) === mapFrontendLocaleToTopicsApiLocale(locale);
+  return mapFrontendLocaleToTopicsApiLocale(profileLocale) === mapFrontendLocaleToTopicsApiLocale(locale);
 }
 
 function normalizeTopicSeoMeta(seoMeta: CmsTopicApiSeoMeta): CmsTopicSeoMeta | null {
@@ -503,12 +503,13 @@ export function normalizeTopicJsonLd(
   return walk(jsonld);
 }
 
-export function mapFrontendLocaleToTopicsApiLocale(locale: Locale | string): "en" | "zh-CN" {
-  return toApiLocale(locale);
+export function mapFrontendLocaleToTopicsApiLocale(locale: Locale | string): "en" | "zh-CN" | "zh-TW" {
+  return normalizeDisplayLocale(locale) === "zh-TW" ? "zh-TW" : toApiLocale(locale);
 }
 
 export function buildTopicFrontendUrl(locale: Locale | string, slug: string): string {
-  return localizedPath(`/topics/${normalizeTopicSlug(slug)}`, normalizeLocale(locale));
+  const path = `/topics/${normalizeTopicSlug(slug)}`;
+  return normalizeDisplayLocale(locale) === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, normalizeLocale(locale));
 }
 
 export function normalizeTopicSeoPayload(
@@ -668,7 +669,7 @@ export async function getTopicBySlug(
       }
     );
 
-    if (!response.profile) {
+    if (!response.profile || (normalizeDisplayLocale(locale) === "zh-TW" && response.profile.locale !== "zh-TW")) {
       return null;
     }
 

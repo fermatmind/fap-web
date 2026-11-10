@@ -10,7 +10,7 @@ import type {
   CmsTopicEntryGroups,
   CmsTopicSection,
 } from "@/lib/cms/topics";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { FAQItem } from "@/lib/seo/generateSchema";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
@@ -279,7 +279,17 @@ export function renderTopicSections(
     });
 }
 
-function groupTitle(locale: Locale, groupKey: KnownGroupKey): string {
+function groupTitle(locale: DisplayLocale, groupKey: KnownGroupKey): string {
+  if (locale === "zh-TW") {
+    return {
+      featured: "精選內容",
+      articles: "相關文章",
+      personalities: "相關人格剖析",
+      tests: "相關測驗",
+      related: "延伸閱讀",
+    }[groupKey];
+  }
+
   if (locale === "zh") {
     return {
       featured: "精选内容",
@@ -329,7 +339,7 @@ export function getRenderableTopicEntryGroups(entryGroups: CmsTopicEntryGroups):
 
 export function renderTopicEntryGroups(
   entryGroups: CmsTopicEntryGroups,
-  locale: Locale
+  locale: DisplayLocale
 ): ReactNode[] {
   return getRenderableTopicEntryGroups(entryGroups).map(({ groupKey, items }) => (
     <section key={groupKey} className="space-y-3">
@@ -349,7 +359,7 @@ export function renderTopicEntryGroups(
                 ) : null}
                 {item.isFeatured ? (
                   <Badge className="border-[var(--fm-accent)] text-[var(--fm-accent)]">
-                    {locale === "zh" ? "精选" : "Featured"}
+                    {locale === "zh-TW" ? "精選" : locale === "zh" ? "精选" : "Featured"}
                   </Badge>
                 ) : null}
               </div>
@@ -365,7 +375,7 @@ export function renderTopicEntryGroups(
                 href={item.url}
                 className="inline-flex text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               >
-                {item.ctaLabel || (locale === "zh" ? "查看详情" : "View details")}
+                {item.ctaLabel || (locale === "zh-TW" ? "查看詳情" : locale === "zh" ? "查看详情" : "View details")}
               </Link>
             </CardContent>
           </Card>

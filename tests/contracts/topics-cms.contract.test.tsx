@@ -62,9 +62,53 @@ describe("topics cms helpers", () => {
   it("maps frontend locale and topic links correctly", () => {
     expect(mapFrontendLocaleToTopicsApiLocale("en")).toBe("en");
     expect(mapFrontendLocaleToTopicsApiLocale("zh")).toBe("zh-CN");
+    expect(mapFrontendLocaleToTopicsApiLocale("zh-TW")).toBe("zh-TW");
     expect(normalizeTopicSlug(" MBTI ")).toBe("mbti");
     expect(buildTopicFrontendUrl("en", " MBTI ")).toBe("/en/topics/mbti");
     expect(buildTopicFrontendUrl("zh", "MBTI")).toBe("/zh/topics/mbti");
+    expect(buildTopicFrontendUrl("zh-TW", "MBTI")).toBe("/zh-TW/topics/mbti");
+  });
+
+  it("rejects a simplified projection when the native Taiwan topic was requested", async () => {
+    let locale = "zh-CN";
+    const request = vi.fn<(input: RequestInfo | URL) => Promise<Response>>(async () => Response.json({
+      ok: true,
+      profile: { topic_code: "mbti", slug: "mbti", title: "人格主題", locale, status: "published", is_public: true },
+      sections: [],
+      entry_groups: {},
+    }));
+    vi.stubGlobal("fetch", request);
+    try {
+      expect(await getTopicBySlug("mbti", "zh-TW")).toBeNull();
+      expect(String(request.mock.calls[0]?.[0])).toContain("/v0.5/topics/mbti?locale=zh-TW");
+      locale = "zh-TW";
+      expect(await getTopicBySlug("mbti", "zh-TW")).toMatchObject({ slug: "mbti", locale: "zh-TW" });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it("renders the published native Taiwan body with original link targets and noindex", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({
+      ok: true,
+      profile: { id: 17, org_id: 0, topic_code: "education", slug: "england-post16-options", title: "英格蘭升學選項", locale: "zh-TW", status: "published", is_public: true },
+      sections: [{ section_key: "overview", title: "課程選項", render_variant: "rich_text", body_md: "核對[課程資訊](https://example.test/official)。", is_enabled: true }],
+      entry_groups: {},
+      seo_meta: { seo_title: "英格蘭升學主題" },
+    })));
+    try {
+      const { default: Page, generateMetadata } = await import("@/app/(traditional)/zh-TW/topics/[slug]/page");
+      const props = { params: Promise.resolve({ slug: "england-post16-options" }) };
+      expect(await generateMetadata(props)).toMatchObject({
+        title: "英格蘭升學主題", robots: { index: false }, alternates: { canonical: "/zh-TW/topics/england-post16-options" },
+      });
+      render(await Page(props));
+      expect(screen.getByRole("heading", { name: "英格蘭升學選項" })).toBeVisible();
+      expect(screen.getByRole("link", { name: "課程資訊" })).toHaveAttribute("href", "https://example.test/official");
+      expect(screen.getByRole("link", { name: "主題總覽" })).toHaveAttribute("href", "/zh-TW/topics");
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it("normalizes detail payloads from the backend contract", () => {

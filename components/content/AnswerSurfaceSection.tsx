@@ -4,7 +4,7 @@ import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { EvidencePageFamily } from "@/lib/geo/evidenceContainer";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import {
   deriveSeoCtaPriorityFromKey,
   extractTargetTestSlugFromHref,
@@ -22,8 +22,9 @@ type AnswerSurfaceSeoCtaAttribution = {
   translationGroupId?: string | number | null;
 };
 
-function sectionTitle(key: string, locale: Locale): string {
-  const isZh = locale === "zh";
+function sectionTitle(key: string, locale: DisplayLocale): string {
+  const isZh = locale !== "en";
+  const traditional = locale === "zh-TW";
 
   switch (key) {
     case "summary":
@@ -31,9 +32,9 @@ function sectionTitle(key: string, locale: Locale): string {
     case "faq":
       return "FAQ";
     case "compare":
-      return isZh ? "对比线索" : "Comparison cues";
+      return traditional ? "比較線索" : isZh ? "对比线索" : "Comparison cues";
     case "scene":
-      return isZh ? "场景摘要" : "Scene summary";
+      return traditional ? "情境摘要" : isZh ? "场景摘要" : "Scene summary";
     case "next":
       return isZh ? "下一步" : "Next steps";
     default:
@@ -118,6 +119,7 @@ function renderAnswerSurfaceLink({
 export function AnswerSurfaceSection({
   surface,
   locale,
+  displayLocale = locale,
   testId,
   hideHeading = false,
   hideSummaryBlocks = false,
@@ -131,6 +133,7 @@ export function AnswerSurfaceSection({
 }: {
   surface: AnswerSurfaceViewModel | null | undefined;
   locale: Locale;
+  displayLocale?: DisplayLocale;
   testId?: string;
   hideHeading?: boolean;
   hideSummaryBlocks?: boolean;
@@ -227,7 +230,7 @@ export function AnswerSurfaceSection({
     >
       {!hideHeading ? (
         <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "快速答案" : "Quick answers"}
+          {sectionTitle("answers", displayLocale)}
         </h2>
       ) : null}
 
@@ -247,7 +250,7 @@ export function AnswerSurfaceSection({
       {surface.faqBlocks.length ? (
         <Card data-evidence-block={pageFamily ? "faq" : undefined}>
           <CardHeader>
-            <CardTitle>{sectionTitle("faq", locale)}</CardTitle>
+            <CardTitle>{sectionTitle("faq", displayLocale)}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {surface.faqBlocks.map((item) => (
@@ -264,7 +267,7 @@ export function AnswerSurfaceSection({
         <div className="space-y-3" data-evidence-block={pageFamily ? "comparison" : undefined}>
           {!hideCompareLabel ? (
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {sectionTitle("compare", locale)}
+              {sectionTitle("compare", displayLocale)}
             </p>
           ) : null}
           <div className="grid gap-3 md:grid-cols-2">
@@ -282,7 +285,7 @@ export function AnswerSurfaceSection({
         <div className="space-y-3" data-evidence-block={pageFamily ? "definition" : undefined}>
           {!hideSceneLabel ? (
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {sectionTitle("scene", locale)}
+              {sectionTitle("scene", displayLocale)}
             </p>
           ) : null}
           <div className="grid gap-3 md:grid-cols-2">
