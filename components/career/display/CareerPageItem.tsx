@@ -1,19 +1,20 @@
 import {careerEvidenceLabel} from "@/lib/career/evidenceLabels";
 import Link from 'next/link';
 import { careerContentV3FaqQuestion, careerContentV3UiCopy, type CareerContentV3Item, type CareerContentV3 } from '@/lib/career/contentV3';
-import type { Locale } from '@/lib/i18n/locales';
+import type { DisplayLocale } from '@/lib/i18n/locales';
 
-export function CareerPagePlaceholder({locale, data = false}: {locale: Locale; data?: boolean}) {
-  return <p data-nosnippet="true" className="rounded-xl border border-dashed border-[#C7CFDF] bg-[#F7F9FC] px-5 py-4 text-sm text-[#5B6678]">{locale === 'zh' ? (data ? '数据待补充' : '内容待补充') : (data ? 'Data pending' : 'Content pending')}</p>;
+export function CareerPagePlaceholder({locale, data = false}: {locale: DisplayLocale; data?: boolean}) {
+  return <p data-nosnippet="true" className="rounded-xl border border-dashed border-[#C7CFDF] bg-[#F7F9FC] px-5 py-4 text-sm text-[#5B6678]">{locale === 'zh-TW' ? (data ? '資料待補充' : '內容待補充') : locale === 'zh' ? (data ? '数据待补充' : '内容待补充') : (data ? 'Data pending' : 'Content pending')}</p>;
 }
 
-export function CareerPageItem({ item, content, showFaqAnswers = false }: { item: CareerContentV3Item; content: CareerContentV3; showFaqAnswers?: boolean }) {
+export function CareerPageItem({ item, content, showFaqAnswers = false, displayLocale = content.locale }: { item: CareerContentV3Item; content: CareerContentV3; showFaqAnswers?: boolean; displayLocale?: DisplayLocale }) {
   const locale = content.locale;
   const copy = careerContentV3UiCopy(locale);
+  const traditional = displayLocale === 'zh-TW';
   const linkLabel = (entity: string) => /^[a-z][a-z0-9]*_[a-z0-9_]+$/.test(entity) || entity === 'path'
-    ? (locale === 'zh' ? '相关资料' : 'Related resource') : entity;
+    ? (traditional ? '相關資料' : locale === 'zh' ? '相关资料' : 'Related resource') : entity;
   const sourceLabel = (entry: {name: string; publisher?: string}) => /^[a-z][a-z0-9_]+$/.test(entry.name) ? (entry.publisher ?? entry.name) : entry.name;
-  if (item.availability === "missing") return <CareerPagePlaceholder locale={locale} />;
+  if (item.availability === "missing") return <CareerPagePlaceholder locale={displayLocale} />;
 
   if (item.type === "prose" || item.type === "notice") {
     return (
@@ -28,14 +29,14 @@ export function CareerPageItem({ item, content, showFaqAnswers = false }: { item
   if (item.type === "cards" || item.type === "timeline") {
     return <div className="grid gap-3 md:grid-cols-2">{(item.data.entries as Array<{ id: string; values: string[]; title?: string | null }>).map((entry) => (
       <article className="rounded-xl border border-[#E5E9F2] bg-[#F7F9FC] p-4" key={entry.id}>
-        <h4 className="m-0 text-base font-bold text-[#1A2233]">{entry.title ?? (locale === "zh" ? "内容待补充" : "Content pending")}</h4>
+        <h4 className="m-0 text-base font-bold text-[#1A2233]">{entry.title ?? (traditional ? "內容待補充" : locale === "zh" ? "内容待补充" : "Content pending")}</h4>
         {entry.values.map((value, index) => <p className="m-0 mt-2 text-sm leading-6 text-[#3A4255]" key={`${entry.id}-${index}`}>{value}</p>)}
       </article>
     ))}</div>;
   }
   if (item.type === "faq") {
     return <div className="space-y-3">{(item.data.entries as Array<{ id: string; question_key: string; question?: string | null; answer: string }>).map((entry) => {
-      const question = careerContentV3FaqQuestion(entry, content) ?? (locale === "zh" ? "问题待补充" : "Question pending");
+      const question = careerContentV3FaqQuestion(entry, content) ?? (traditional ? "問題待補充" : locale === "zh" ? "问题待补充" : "Question pending");
       if (showFaqAnswers) return <div key={entry.id}>
         <p className="font-semibold text-[#1A2233]">{question}</p>
         <p className="text-sm leading-7 text-[#2A3346]">{entry.answer}</p>
@@ -69,7 +70,7 @@ export function CareerPageItem({ item, content, showFaqAnswers = false }: { item
   if (item.type === "metrics") {
     return <dl className="grid gap-3 sm:grid-cols-2">{(item.data.entries as Array<{ key: string; value: string; label?: string | null }>).map((entry, index) => (
       <div className="rounded-xl border border-[#E5E9F2] bg-[#F7F9FC] p-4" key={`${entry.key}-${index}`}>
-        <dt className="font-bold text-[#1A2233]">{entry.label ?? (locale === "zh" ? "数据待补充" : "Data pending")}</dt>
+        <dt className="font-bold text-[#1A2233]">{entry.label ?? (traditional ? "資料待補充" : locale === "zh" ? "数据待补充" : "Data pending")}</dt>
         <dd className="m-0 mt-1 text-sm leading-6 text-[#3A4255]">{entry.value}</dd>
       </div>
     ))}</dl>;
@@ -78,7 +79,7 @@ export function CareerPageItem({ item, content, showFaqAnswers = false }: { item
   const columns = item.data.column_keys as string[];
   const rows = item.data.rows as string[][];
   return (
-    <div className="max-w-full overflow-x-auto rounded-xl border border-[#E5E9F2]" tabIndex={0} role="region" aria-label={item.title ?? (locale === "zh" ? "数据表格" : "Data table")}>
+    <div className="max-w-full overflow-x-auto rounded-xl border border-[#E5E9F2]" tabIndex={0} role="region" aria-label={item.title ?? (traditional ? "資料表格" : locale === "zh" ? "数据表格" : "Data table")}>
       <table className="w-full min-w-[560px] border-collapse text-left text-sm">
         <thead className="bg-[#F0F3FA]"><tr>{columns.map((column, index) => <th className="px-4 py-3 font-bold text-[#1A2233]" key={column} scope="col">{(item.data.column_labels as string[] | undefined)?.[index] ?? copy.fieldLabel(index)}</th>)}</tr></thead>
         <tbody>{rows.map((row, rowIndex) => <tr className="border-t border-[#E5E9F2]" key={rowIndex}>{row.map((cell, cellIndex) => <td className="px-4 py-3 align-top leading-6 text-[#2A3346]" key={cellIndex}>{cell}</td>)}</tr>)}</tbody>

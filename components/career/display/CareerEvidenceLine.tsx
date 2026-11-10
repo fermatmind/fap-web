@@ -1,9 +1,11 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { CareerContentV3 } from "@/lib/career/contentV3";
 
 import { careerEvidenceLabel } from "@/lib/career/evidenceLabels";
 
 type EvidenceLineProps = {
   content: CareerContentV3 | null;
+  displayLocale?: DisplayLocale;
   factRefs?: readonly string[];
   sourceRefs?: readonly string[];
   className?: string;
@@ -14,8 +16,9 @@ function compact(parts: Array<string | null | undefined>): string {
   return parts.filter((part): part is string => Boolean(part)).join("｜");
 }
 
-export function CareerEvidenceLine({ content, factRefs = [], sourceRefs = [], className, inverse = false }: EvidenceLineProps) {
+export function CareerEvidenceLine({ content, factRefs = [], sourceRefs = [], className, inverse = false, displayLocale }: EvidenceLineProps) {
   if (!content) return null;
+  const traditional = displayLocale === "zh-TW";
 
   const facts = new Map(content.facts.map((fact) => [fact.factId, fact]));
   const sources = new Map(content.sources.map((source) => [source.id, source]));
@@ -30,7 +33,7 @@ export function CareerEvidenceLine({ content, factRefs = [], sourceRefs = [], cl
     entries.push({
       key: `fact:${fact.factId}`,
       label: compact([
-        source?.publisher ?? source?.name ?? (content.locale === "zh" ? "来源" : "Source"),
+        source?.publisher ?? source?.name ?? (traditional ? "來源" : content.locale === "zh" ? "来源" : "Source"),
         fact.market,
         fact.period,
         fact.measure,
@@ -65,13 +68,13 @@ export function CareerEvidenceLine({ content, factRefs = [], sourceRefs = [], cl
       {entries.map((entry, index) => (
         <span key={entry.key}>
           {index > 0 ? " · " : null}
-          <span>{content.locale === "zh" ? "来源：" : "Source: "}</span>
+          <span>{traditional ? "來源：" : content.locale === "zh" ? "来源：" : "Source: "}</span>
           {entry.href ? (
             <a className={`font-semibold underline underline-offset-2 ${inverse ? "text-white/80" : "text-[#2C3E8C]"}`} href={entry.href} target="_blank" rel="noopener noreferrer">
               {entry.label}
             </a>
           ) : entry.label}
-          {entry.derivation ? <span>{content.locale === "zh" ? "；编辑换算：" : "; Editorial conversion: "}{entry.derivation}</span> : null}
+          {entry.derivation ? <span>{traditional ? "（編輯換算）" : content.locale === "zh" ? "；编辑换算：" : "; Editorial conversion: "}{entry.derivation}</span> : null}
         </span>
       ))}
     </div>

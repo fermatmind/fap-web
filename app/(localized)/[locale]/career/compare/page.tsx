@@ -20,18 +20,21 @@ export default async function CareerComparePage({ params, searchParams }: {
   params: Promise<{ locale: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const locale = resolveLocale((await params).locale);
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const displayLocale = localeParam === 'zh-TW' ? 'zh-TW' : locale;
+  const Surface = displayLocale === 'zh-TW' ? 'div' : 'main';
   const query = await searchParams;
   const { c1, c2 } = query;
   const pilot = locale === 'zh' && Object.keys(query).length === 2 &&
     typeof c1 === 'string' && typeof c2 === 'string' && isDesignComparePair(c1, c2);
-  if (!pilot && Object.keys(query).length) redirect(`/${locale}/career/compare`);
+  if (!pilot && Object.keys(query).length) redirect(`/${displayLocale}/career/compare`);
   const initialReads = pilot ? await Promise.all([
-    readCareerComparePage(locale, c1), readCareerComparePage(locale, c2),
+    readCareerComparePage(displayLocale, c1), readCareerComparePage(displayLocale, c2),
   ]) : undefined;
-  return <main className="min-h-screen bg-[var(--fm-bg-career-warm)] pb-10 print:min-h-0 print:bg-white">
-    <CareerCompare key={pilot ? `${c1}:${c2}` : locale} locale={locale} initialSlots={pilot && initialReads ? [
+  return <Surface className="min-h-screen bg-[var(--fm-bg-career-warm)] pb-10 print:min-h-0 print:bg-white">
+    <CareerCompare key={pilot ? `${c1}:${c2}` : locale} locale={locale} displayLocale={displayLocale} initialSlots={pilot && initialReads ? [
       { slug: c1, read: initialReads[0] }, { slug: c2, read: initialReads[1] },
     ] : undefined} />
-  </main>;
+  </Surface>;
 }

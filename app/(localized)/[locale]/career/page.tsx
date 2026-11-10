@@ -311,9 +311,9 @@ export default async function CareerPage({
           </div>
         </section>
 
-        <Link href={`/${locale}/career/compare`} hrefLang={traditional ? "zh-CN" : undefined} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
+        <Link href={`${jobsPath}/compare`} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
           <span>{label("比较两个职业：任务、环境与入行条件", "Compare two careers: tasks, settings and entry conditions")}</span>
-          <span className="text-sm font-normal">{traditional ? "首批三個設計職業（簡體中文）→" : label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
+          <span className="text-sm font-normal">{label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
         </Link>
 
         <section className="space-y-5" data-testid="career-library-workspace">

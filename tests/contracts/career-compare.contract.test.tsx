@@ -14,16 +14,18 @@ import { CareerCompare } from '@/components/career/CareerCompare';
 import { hasAnalyticsConsent } from '@/lib/consent/store';
 import { trackCareerToolEvent } from '@/lib/career/toolTracking';
 import CompareRoute, { generateMetadata } from '@/app/(localized)/[locale]/career/compare/page';
+import { metadata as traditionalMetadata } from '@/app/(traditional)/zh-TW/career/compare/page';
 
 vi.mock('@/lib/api-client', () => ({ apiClient: { getPublic: vi.fn() } }));
 vi.mock('@/lib/career/toolTracking', () => ({ trackCareerToolEvent: vi.fn() }));
 vi.mock('@/lib/consent/store', () => ({ hasAnalyticsConsent: vi.fn(() => false) }));
 vi.mock('next/navigation', () => ({ redirect: vi.fn((path: string) => { throw new Error(`redirect:${path}`); }) }));
 
-function bundle(slug: string, locale: 'en' | 'zh' = 'en') {
+function bundle(slug: string, locale: 'en' | 'zh' | 'zh-TW' = 'en') {
   const page = structuredClone(basePage);
-  const subject = { canonical_slug: slug, name: slug, summary: null };
-  page.locale = locale === 'zh' ? 'zh-CN' : 'en';
+  const name = locale === 'zh-TW' ? CAREER_COMPARE_OPTIONS.find(option => option.slug === slug)?.[locale] ?? slug : slug;
+  const subject = { canonical_slug: slug, name, summary: null };
+  page.locale = locale === 'zh' ? 'zh-CN' : locale;
   page.subject = subject;
   page.content.subject = subject;
   page.content.locale = page.locale;
@@ -42,7 +44,8 @@ function bundle(slug: string, locale: 'en' | 'zh' = 'en') {
 function respond() {
   vi.mocked(apiClient.getPublic).mockImplementation(async path => {
     const url = new URL(path, 'https://api.fermatmind.com');
-    return bundle(url.pathname.split('/').at(-1)!, url.searchParams.get('locale') === 'zh-CN' ? 'zh' : 'en') as never;
+    const locale = url.searchParams.get('locale');
+    return bundle(url.pathname.split('/').at(-1)!, locale === 'zh-CN' ? 'zh' : locale === 'zh-TW' ? locale : 'en') as never;
   });
 }
 afterEach(() => { cleanup(); vi.clearAllMocks(); vi.mocked(hasAnalyticsConsent).mockReturnValue(false); });
@@ -113,6 +116,28 @@ describe('career comparison public reader', () => {
     expect(screen.getByText('Published task for graphic-designers')).toBeVisible();
     expect(screen.queryByText('此槽位为空。')).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '职业小试做' })).toBeInTheDocument();
+  });
+
+  it('reads the published Taiwan pair and keeps worksheet input private', async () => {
+    respond();
+    render(await CompareRoute({
+      params: Promise.resolve({ locale: 'zh-TW' }),
+      searchParams: Promise.resolve({ c1: 'industrial-designers', c2: 'graphic-designers' }),
+    }));
+    expect(screen.getByRole('link', { name: '工業設計師' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '職涯小試作' })).toBeInTheDocument();
+    expect(screen.getByText('產品草圖與原型')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '開始霍蘭德職涯興趣測評' })).toHaveAttribute('href', '/zh-TW/tests/holland-career-interest-test-riasec');
+    expect(screen.getByRole('link', { name: '使用職涯轉換指南' })).toHaveAttribute('href', '/zh-TW/career/guides/career-transition-playbook');
+    expect(apiClient.getPublic).toHaveBeenCalledTimes(2);
+    expect(apiClient.getPublic).toHaveBeenCalledWith(expect.stringContaining('locale=zh-TW'), expect.objectContaining({ locale: 'zh-TW' }));
+    expect(traditionalMetadata.robots).toMatchObject({ index: false, follow: true });
+    expect(traditionalMetadata.alternates).toEqual({ canonical: '/zh-TW/career/compare' });
+    const note = '我準備保留原樣的文字';
+    fireEvent.change(screen.getAllByRole('textbox')[0], { target: { value: note } });
+    expect(screen.getByText(note, { selector: 'dd' })).toBeInTheDocument();
+    expect(trackCareerToolEvent).not.toHaveBeenCalled();
+    expect(apiClient.getPublic).toHaveBeenCalledTimes(2);
   });
 
 });
