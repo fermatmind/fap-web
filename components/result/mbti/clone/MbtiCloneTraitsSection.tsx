@@ -1,5 +1,7 @@
 "use client";
 
+import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
+
 import { type ReactNode, useState } from "react";
 import Link from "next/link";
 import { DimensionBars } from "@/components/result/DimensionBars";
@@ -132,6 +134,7 @@ export function MbtiCloneTraitsSection({
   bodyUnavailable = false,
   children,
 }: MbtiCloneTraitsSectionProps) {
+  const { displayText: copy } = useQuestionnaireDisplayCopy();
   const [selectedAxisCode, setSelectedAxisCode] = useState<string | null>(null);
   const normalizedDimensions = dimensions
     .map((dimension, index) => {
@@ -185,7 +188,7 @@ export function MbtiCloneTraitsSection({
     : null;
   const hasCriticalClarity = locale === "zh" && Boolean(activeClarity && activeClarity.percent <= 55);
   const summaryLabel = locale === "zh" && Math.round(activeAxis?.dominantPct ?? -1) === 50
-    ? "两侧持平"
+    ? copy("两侧持平")
     : hasCriticalClarity
     ? activeClarity?.label ?? summaryLabelFallback
     : activeAxis?.dominantLabel || summaryLabelFallback;
@@ -200,8 +203,8 @@ export function MbtiCloneTraitsSection({
       : "",
     hasCriticalClarity
       ? activeClarity?.state === "tie"
-        ? "未形成清晰偏好"
-        : "当前仅有轻微偏向"
+        ? copy("未形成清晰偏好")
+        : copy("当前仅有轻微偏向")
       : activeAxis?.strengthBand
         ? resolveStrengthBandLabel(locale, activeAxis.strengthBand)
         : "",
@@ -262,7 +265,7 @@ export function MbtiCloneTraitsSection({
                   : "";
                 return (
                   <section key={axis.axisCode} data-pdf-axis-reading={axis.axisCode}>
-                    <h3>{axis.axisTitle} · {typeof axis.dominantPct === "number" ? `${Math.round(axis.dominantPct)}%` : "—"} {axis.dominantLabel}</h3>
+                    <h3>{copy(axis.axisTitle)} · {typeof axis.dominantPct === "number" ? `${Math.round(axis.dominantPct)}%` : "—"} {copy(axis.dominantLabel)}</h3>
                     {entry ? <><p>{entry.a}</p><p>{entry.b}</p></> : englishExplanation ? <p>{englishExplanation}</p> : null}
                   </section>
                 );
@@ -271,15 +274,15 @@ export function MbtiCloneTraitsSection({
           ) : <aside className={styles.summaryPane} data-testid="mbti-traits-summary-pane">
             <div key={activeAxis?.axisCode} className={styles.summaryContent}>
               {locale === "zh" ? <header className={styles.traitSummaryHeader}>
-                <p className={styles.microLabel}>{summaryTitle}</p>
+                <p className={styles.microLabel}>{copy(summaryTitle)}</p>
                 <p className={styles.traitSummaryResult}>
                   <span style={{ color: ({ EI: "#4D9FC1", SN: "#D6A43A", TF: "#3CAA8C", JP: "#8E63B1", AT: "#E56B73" } as Record<string, string>)[activeAxis?.axisCode ?? ""] }}>{summaryValue}</span>
-                  <span>{summaryLabel}</span>
+                  <span>{copy(summaryLabel)}</span>
                 </p>
               </header> : <div>
-                <p className={styles.microLabel}>{summaryTitle}</p>
+                <p className={styles.microLabel}>{copy(summaryTitle)}</p>
                 <p className={styles.summaryValue}>{summaryValue}</p>
-                <p className={styles.summaryLead}>{summaryLabel}</p>
+                <p className={styles.summaryLead}>{copy(summaryLabel)}</p>
               </div>}
               <MbtiCloneAssetSlot
                 slotId={summarySlotId}
@@ -296,9 +299,9 @@ export function MbtiCloneTraitsSection({
                   {traitEntry ? <>
                     <p className={styles.summaryText} data-testid="mbti-trait-a">{traitEntry.a}</p>
                     <p className={styles.summarySupplement} data-testid="mbti-trait-b">{traitEntry.b}</p>
-                  </> : <p className={styles.summaryText} role="status">{traitCatalogPending ? "正在加载维度解读…" : "维度解读暂时不可用，请稍后重试。"}</p>}
+                  </> : <p className={styles.summaryText} role="status">{traitCatalogPending ? copy("正在加载维度解读…") : copy("维度解读暂时不可用，请稍后重试。")}</p>}
                 </div>
-              ) : summaryDescription ? <p className={styles.summaryText}>{summaryDescription}</p> : null}
+              ) : summaryDescription ? <p className={styles.summaryText}>{copy(summaryDescription)}</p> : null}
               {locale !== "zh" && bandNuance ? (
                 <p className={styles.summarySupplement} data-testid="mbti-traits-band-nuance">
                   {bandNuance}
@@ -361,7 +364,7 @@ export function MbtiCloneTraitsSection({
         data-testid="mbti-traits-body"
         data-body-source={bodySource}
       >
-        {bodyPending || bodyUnavailable ? <p role="status">{bodyPending ? "正在加载人格解读…" : "人格解读暂时不可用，请稍后重试。"}</p> : null}
+        {bodyPending || bodyUnavailable ? <p role="status">{bodyPending ? copy("正在加载人格解读…") : copy("人格解读暂时不可用，请稍后重试。")}</p> : null}
         {paragraphs.filter((paragraph) => paragraph.trim()).map((paragraph, index) => (
           <p key={`${index}-${paragraph.slice(0, 24)}`}>{paragraph}</p>
         ))}

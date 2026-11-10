@@ -1270,6 +1270,7 @@ export type AttemptReportAccessResponse = {
     [key: string]: unknown;
   } | null;
   [key: string]: unknown;
+  pdf_display_locales?: string[];
 };
 
 export type AttemptInviteUnlockProgressResponse = {
@@ -3685,11 +3686,16 @@ export function getAttemptReportPdfUrl({
 export function getAttemptResultPagePdfUrl({
   attemptId,
   inline,
+  displayLocale,
 }: {
   attemptId: string;
   inline?: boolean;
+  displayLocale?: "zh-TW";
 }): string {
-  return buildApiUrl(`/v0.3/attempts/${attemptId}/result-page.pdf${inline ? "?inline=1" : ""}`);
+  const query = new URLSearchParams();
+  if (inline) query.set("inline", "1");
+  if (displayLocale) query.set("display_locale", displayLocale);
+  return buildApiUrl(`/v0.3/attempts/${attemptId}/result-page.pdf${query.size ? `?${query}` : ""}`);
 }
 
 export async function fetchAttemptReportPdf({
@@ -3776,11 +3782,13 @@ export async function fetchAttemptResultPagePdfWithMeta({
   attemptId,
   anonId,
   inline,
+  displayLocale,
   accessToken,
 }: {
   attemptId: string;
   anonId?: string;
   inline?: boolean;
+  displayLocale?: "zh-TW";
   accessToken?: string | null;
 }): Promise<AttemptReportPdfResponse> {
   const resolvedAnonId = accessToken ? undefined : resolveAnonId(anonId);
@@ -3799,7 +3807,7 @@ export async function fetchAttemptResultPagePdfWithMeta({
 
   if (accessToken) headers.set("X-Result-Access-Token", accessToken);
 
-  const response = await fetch(getAttemptResultPagePdfUrl({ attemptId, inline }), {
+  const response = await fetch(getAttemptResultPagePdfUrl({ attemptId, inline, displayLocale }), {
     method: "GET",
     headers,
     cache: "no-store",
@@ -3808,6 +3816,10 @@ export async function fetchAttemptResultPagePdfWithMeta({
 
   if (!response.ok || response.headers.get("content-type")?.toLowerCase().split(";")[0].trim() !== "application/pdf") {
     throw new Error(`Failed to fetch result-page pdf: ${response.status}`);
+  }
+
+  if (displayLocale && response.headers.get("Content-Language") !== displayLocale) {
+    throw new Error("Result PDF display locale did not match.");
   }
 
   return {

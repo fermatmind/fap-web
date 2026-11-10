@@ -114,6 +114,12 @@ const reportProtectedBranches = new Set([
   "identity", "view_policy", "access", "entitlements", "offer", "offers", "price",
   "scores", "scores_0_100", "scores_pct", "scoresPct", "axis_states",
 ]);
+const mbtiSnapshotTextFields = new Set([
+  "nickname", "bandNuance", "fitReason", "expression", "advantage", "whyItMatters",
+  "overuseRisk", "realWorldSignal", "upgradeHint",
+]);
+const mbtiSnapshotTextLists = new Set(["intro", "keywords", "signals", "jobExamples"]);
+
 const coreReportDisplayRoots = [
   "result", "report", "dimensions", "summary", "mbti_public_projection_v1",
   "big5_public_projection_v1", "big5_report_engine_v2",
@@ -123,19 +129,19 @@ const coreReportDisplayRoots = [
   "controlled_narrative_v1", "comparative_v1", "cultural_calibration_v1",
 ] as const;
 
-function reportDisplayValue(value: unknown, key: string, translate: Translate, textContainer = false): unknown {
+function reportDisplayValue(value: unknown, key: string, translate: Translate, textContainer = false, mbtiSnapshot = false): unknown {
   if (reportProtectedBranches.has(key)) return value;
-  const visibleContainer = textContainer || reportTextLists.has(key);
+  const visibleContainer = textContainer || reportTextLists.has(key) || (mbtiSnapshot && mbtiSnapshotTextLists.has(key));
   if (typeof value === "string") {
-    return visibleContainer || reportTextFields.has(key) ? translate(value) : value;
+    return visibleContainer || reportTextFields.has(key) || (mbtiSnapshot && mbtiSnapshotTextFields.has(key)) ? translate(value) : value;
   }
   if (Array.isArray(value)) {
-    return value.map((item) => reportDisplayValue(item, key, translate, typeof item === "string" && visibleContainer));
+    return value.map((item) => reportDisplayValue(item, key, translate, typeof item === "string" && visibleContainer, mbtiSnapshot));
   }
   if (!record(value)) return value;
   return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [
     childKey,
-    reportDisplayValue(child, childKey, translate, key === "dimension_labels"),
+    reportDisplayValue(child, childKey, translate, key === "dimension_labels" || (mbtiSnapshot && key === "actions" && (childKey === "do" || childKey === "avoid")), mbtiSnapshot),
   ]));
 }
 
@@ -150,7 +156,7 @@ export async function projectTraditionalResultDisplay<T>(payload: T, displayLoca
     ? [...coreReportDisplayRoots, "assets", "dimension_summary", "quality", "report_tags"]
     : coreReportDisplayRoots;
   for (const key of roots) {
-    if (Object.hasOwn(payload, key)) result[key] = reportDisplayValue(payload[key], key, translate);
+    if (Object.hasOwn(payload, key)) result[key] = reportDisplayValue(payload[key], key, translate, false, key === "mbti_pdf_content");
   }
   return result as T;
 }

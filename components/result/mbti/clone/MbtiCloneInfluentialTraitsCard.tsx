@@ -1,5 +1,7 @@
 "use client";
 
+import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
+
 import { type MouseEvent as ReactMouseEvent } from "react";
 import type { TraitSlot, TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
@@ -28,16 +30,17 @@ export function MbtiCloneInfluentialTraitsCard({
   unlockInviteHref,
   onInviteCtaClick,
 }: MbtiCloneInfluentialTraitsCardProps) {
+  const { displayText: copy } = useQuestionnaireDisplayCopy();
   const canShowDetails = isUnlocked && traitsUnlock?.items.length === 4;
   const fieldLabels =
     locale === "zh"
       ? {
-          why: "为什么重要",
-          expression: "在这一章里的表现",
-          advantage: "它带来的优势",
-          overuse: "过度使用的风险",
-          signal: "现实中的信号",
-          hint: "升级建议",
+          why: copy("为什么重要"),
+          expression: copy("在这一章里的表现"),
+          advantage: copy("它带来的优势"),
+          overuse: copy("过度使用的风险"),
+          signal: copy("现实中的信号"),
+          hint: copy("升级建议"),
         }
       : {
           why: "Why it matters",
@@ -50,8 +53,8 @@ export function MbtiCloneInfluentialTraitsCard({
   const lockedCopy =
     locale === "zh"
       ? {
-          title: "解锁完整报告",
-          body: "解锁完整报告后即可查看这些结果，并纳入你的人格分析。",
+          title: copy("解锁完整报告"),
+          body: copy("解锁完整报告后即可查看这些结果，并纳入你的人格分析。"),
         }
       : {
           title: "Unlock full report",
@@ -62,8 +65,8 @@ export function MbtiCloneInfluentialTraitsCard({
     <section className={styles.influentialCard}>
       <div className={styles.factorNavigation}>
       <div className={styles.influentialHeading}>
-        <h3>{locale === "zh" ? "影响因素" : "Influential Traits"}</h3>
-        <span>{locale === "zh" ? "从四个角度，理解自己的表现" : "Four perspectives on your patterns"}</span>
+        <h3>{locale === "zh" ? copy("影响因素") : "Influential Traits"}</h3>
+        <span>{locale === "zh" ? copy("从四个角度，理解自己的表现") : "Four perspectives on your patterns"}</span>
       </div>
       </div>
       {!isUnlocked ? (
@@ -111,7 +114,7 @@ export function MbtiCloneInfluentialTraitsCard({
               <div className={styles.factorBody}>
                 <div className={styles.factorMainText}>
                   <section>
-                  <h5>{locale === "zh" ? "日常中的表现" : "In everyday life"}</h5>
+                  <h5>{locale === "zh" ? copy("日常中的表现") : "In everyday life"}</h5>
                   <p>{detailItem.expression}</p>
                   </section>
                   <section>
@@ -134,7 +137,7 @@ export function MbtiCloneInfluentialTraitsCard({
                   <p>{detailItem.realWorldSignal}</p>
                 </section>
                 <section className={styles.factorPractice}>
-                  <h5>{locale === "zh" ? "可以试试" : "Something to try"}</h5>
+                  <h5>{locale === "zh" ? copy("可以试试") : "Something to try"}</h5>
                   <p>{detailItem.upgradeHint}</p>
                 </section>
               </div>

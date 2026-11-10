@@ -5,6 +5,7 @@ type PdfTokenPayload = {
   typ?: string;
   attempt_id?: string;
   locale?: string;
+  display_locale?: unknown;
   surface?: string;
   exp?: number;
 };
@@ -44,11 +45,13 @@ export async function verifyResultPagePdfToken({
   token,
   attemptId,
   locale,
+  displayLocale,
   expectedSurface = RESULT_PAGE_SNAPSHOT_SURFACE,
 }: {
   token: string | string[] | null | undefined;
   attemptId: string;
   locale: string;
+  displayLocale?: "zh-TW";
   expectedSurface?: string;
 }): Promise<boolean> {
   const rawToken = Array.isArray(token) ? token[0] : token;
@@ -90,6 +93,8 @@ export async function verifyResultPagePdfToken({
     && payload.typ === "mbti_result_page_pdf"
     && payload.attempt_id === attemptId
     && payload.locale === locale
+    && (displayLocale === undefined || locale === "zh")
+    && payload.display_locale === displayLocale
     && payload.surface === expectedSurface
     && expiresAt > Math.floor(Date.now() / 1000)
   );

@@ -1,6 +1,10 @@
+import { createHmac } from "node:crypto";
+import { verifyResultPagePdfToken } from "@/lib/result/pdfExportToken";
+import { fetchAttemptResultPagePdfWithMeta, getAttemptResultPagePdfUrl } from "@/lib/api/v0_3";
+import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
 
@@ -9,6 +13,54 @@ function read(relativePath: string): string {
 }
 
 describe("Gotenberg result print route contract", () => {
+  it("requires the signed display edition, source locale and private attempt to match", async () => {
+    const secret = "local-pdf-display-locale-test";
+    vi.stubEnv("GOTENBERG_RESULT_PRINT_TOKEN_SECRET", secret);
+    try {
+      const attemptId = "synthetic-private-result";
+      const sign = (changes: Record<string, unknown> = {}) => {
+        const payload = Buffer.from(JSON.stringify({
+          v: 1, typ: "mbti_result_page_pdf", attempt_id: attemptId, locale: "zh",
+          surface: RESULT_PAGE_SNAPSHOT_SURFACE, exp: Math.floor(Date.now() / 1000) + 60, ...changes,
+        })).toString("base64url");
+        return `${payload}.${createHmac("sha256", secret).update(payload).digest("hex")}`;
+      };
+      const legacy = sign();
+      const traditional = sign({ display_locale: "zh-TW" });
+      const zh = { attemptId, locale: "zh" };
+      const tw = { ...zh, displayLocale: "zh-TW" as const };
+      expect(await verifyResultPagePdfToken({ ...zh, token: legacy })).toBe(true);
+      expect(await verifyResultPagePdfToken({ ...tw, token: legacy })).toBe(false);
+      expect(await verifyResultPagePdfToken({ ...tw, token: traditional })).toBe(true);
+      expect(await verifyResultPagePdfToken({ ...zh, token: traditional })).toBe(false);
+      expect(await verifyResultPagePdfToken({ ...tw, token: traditional, attemptId: "another-attempt" })).toBe(false);
+      expect(await verifyResultPagePdfToken({ ...tw, token: sign({ locale: "en", display_locale: "zh-TW" }), locale: "en" })).toBe(false);
+      expect(await verifyResultPagePdfToken({ ...tw, token: sign({ display_locale: "zh-TW", exp: 1 }) })).toBe(false);
+    } finally { vi.unstubAllEnvs(); }
+  });
+
+  it("requests the advertised edition and rejects a Simplified PDF from an older server", async () => {
+    const attemptId = "synthetic-pdf";
+    const response = (locale?: string) => new Response("%PDF-1.4 synthetic", { headers: {
+      "Content-Type": "application/pdf",
+      ...(locale ? { "Content-Language": locale } : {}),
+    } });
+    const fetch = vi.fn().mockResolvedValueOnce(response()).mockResolvedValueOnce(response("zh-TW")).mockResolvedValueOnce(response());
+    vi.stubGlobal("fetch", fetch);
+    try {
+      const request = { attemptId, accessToken: "synthetic-authorization" };
+      expect(getAttemptResultPagePdfUrl({ attemptId, inline: true, displayLocale: "zh-TW" })).toContain("?inline=1&display_locale=zh-TW");
+      await expect(fetchAttemptResultPagePdfWithMeta(request)).resolves.toHaveProperty("blob");
+      await expect(fetchAttemptResultPagePdfWithMeta({ ...request, displayLocale: "zh-TW" })).resolves.toHaveProperty("blob");
+      await expect(fetchAttemptResultPagePdfWithMeta({ ...request, displayLocale: "zh-TW" })).rejects.toThrow("display locale did not match");
+      for (const [, init] of fetch.mock.calls) {
+        expect(init.cache).toBe("no-store");
+        expect(init.headers.get("X-Result-Access-Token")).toBe(request.accessToken);
+        expect(init.headers.get("Authorization")).toBeNull();
+      }
+    } finally { vi.unstubAllGlobals(); }
+  });
+
   it("adds a private noindex result print route without changing the report PDF API route", () => {
     const printRoutePath = "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx";
     const printRoute = read(printRoutePath);
@@ -37,8 +89,9 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain("printSnapshotRoute");
     expect(printRoute).toContain("printSnapshotSurface={RESULT_PAGE_SNAPSHOT_SURFACE}");
     expect(printRoute).toContain("initialReportAccess={printBootstrap.reportAccess}");
-    expect(printRoute).toContain("initialReportData={printBootstrap.report}");
-    expect(printRoute).toContain("snapshotDesktopCloneContent={printBootstrap.desktopCloneContent}");
+    expect(printRoute).toContain("initialReportData={report}");
+    expect(printRoute).toContain("projectTraditionalResultDisplay(printBootstrap.report, printDisplayLocale ?? locale)");
+    expect(printRoute).toContain("snapshotDesktopCloneContent={desktopCloneContent}");
     expect(printRoute).toContain("snapshotContentStatus={printBootstrap.snapshotContentStatus}");
     expect(printRoute).toContain("printBootstrapError={printBootstrap.error}");
     expect(printRoute).toContain("pdf-mode");

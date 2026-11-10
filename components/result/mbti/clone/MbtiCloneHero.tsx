@@ -1,5 +1,7 @@
 "use client";
 
+import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
+
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { MbtiDesktopCloneAssetSlotId, ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
@@ -25,6 +27,7 @@ export function MbtiCloneHero({
   illustrationLabel,
   assetSlots,
 }: MbtiCloneHeroProps) {
+  const { displayText: copy } = useQuestionnaireDisplayCopy();
   const nameLine = formatNameLine(profileIdentity);
 
   return (
@@ -38,7 +41,7 @@ export function MbtiCloneHero({
         ) : null}
         {profileIdentity.rarity ? (
           <p data-testid="mbti-hero-rarity" className={styles.heroRarityPill}>
-            {locale === "zh" ? `稀有度：${profileIdentity.rarity}` : `Rarity: ${profileIdentity.rarity}`}
+            {locale === "zh" ? copy(`稀有度：${profileIdentity.rarity}`) : `Rarity: ${profileIdentity.rarity}`}
           </p>
         ) : null}
         {profileIdentity.keywords.length > 0 ? (

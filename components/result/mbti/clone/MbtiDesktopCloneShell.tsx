@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 
@@ -455,6 +456,17 @@ export function MbtiDesktopCloneShell({
 
   const introduction = useMbtiResultIntroduction(fullCodeForStorage, locale);
   const traitCatalog = useMbtiTraitCatalog(locale);
+  const display = useQuestionnaireDisplayCopy();
+  const localize = snapshotMode && display.traditional;
+  const copy = localize ? display.displayText : (value: string) => value;
+  const traitContent = localize && traitCatalog.content ? {
+    ...traitCatalog.content,
+    entries: traitCatalog.content.entries.map(entry => ({ ...entry, a: copy(entry.a), b: copy(entry.b) })),
+    overviews: traitCatalog.content.overviews.map(entry => ({
+      ...entry, paragraphs: [copy(entry.paragraphs[0]), copy(entry.paragraphs[1])] as [string, string],
+    })),
+  } : traitCatalog.content;
+
 
   useEffect(() => {
     if (
@@ -621,13 +633,13 @@ export function MbtiDesktopCloneShell({
   const unlockedCareerIdeaBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.career.careerIdeas,
-        cloneLocale === "zh" ? "你可能会喜欢的职业选择" : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
+        cloneLocale === "zh" ? copy("你可能会喜欢的职业选择") : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
       )
     : null;
   const unlockedWorkStylesBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.career.workStyles,
-        cloneLocale === "zh" ? "适合你的工作方式" : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
+        cloneLocale === "zh" ? copy("适合你的工作方式") : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
       )
     : null;
   const careerPostCoreBlocks: ReactNode[] = [];
@@ -652,13 +664,13 @@ export function MbtiDesktopCloneShell({
   const unlockedWhatEnergizesBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.growth.whatEnergizes,
-        cloneLocale === "zh" ? "什么能让你充满活力？" : (slots.chapters.growth.whatEnergizes?.title ?? "What Energizes You"),
+        cloneLocale === "zh" ? copy("什么能让你充满活力？") : (slots.chapters.growth.whatEnergizes?.title ?? "What Energizes You"),
       )
     : null;
   const unlockedWhatDrainsBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.growth.whatDrains,
-        cloneLocale === "zh" ? ZH_GROWTH_DRAINER_TITLE : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
+        cloneLocale === "zh" ? copy(ZH_GROWTH_DRAINER_TITLE) : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
       )
     : null;
   const growthPostCoreBlocks: ReactNode[] = [];
@@ -685,13 +697,13 @@ export function MbtiDesktopCloneShell({
   const unlockedSuperpowersBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.relationships.superpowers,
-        cloneLocale === "zh" ? "你的人际关系优势" : (slots.chapters.relationships.superpowers?.title ?? "Your Relationship Superpowers"),
+        cloneLocale === "zh" ? copy("你的人际关系优势") : (slots.chapters.relationships.superpowers?.title ?? "Your Relationship Superpowers"),
       )
     : null;
   const unlockedPitfallsBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.relationships.pitfalls,
-        cloneLocale === "zh" ? "人际关系陷阱" : (slots.chapters.relationships.pitfalls?.title ?? "Relationship Pitfalls"),
+        cloneLocale === "zh" ? copy("人际关系陷阱") : (slots.chapters.relationships.pitfalls?.title ?? "Relationship Pitfalls"),
       )
     : null;
   const relationshipsPostCoreBlocks: ReactNode[] = [];
@@ -983,7 +995,7 @@ export function MbtiDesktopCloneShell({
     ? "你可以继续保存、导出或查看历史结果。"
     : "You can save, export, or revisit this result.";
   const traitBodyParagraphs = locale === "zh"
-    ? traitCatalog.content?.overviews.find((row) => row.full_code === fullCodeForStorage)?.paragraphs ?? []
+    ? traitContent?.overviews.find((row) => row.full_code === fullCodeForStorage)?.paragraphs ?? []
     : slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = locale === "zh" ? "overview" : slots.overview ? "overview" : "traits";
   const showTopInviteProgress = !snapshotMode && !suppressUnlockSurfaces && isMobileViewport && inviteProgressDisplay.showProgressCard;
@@ -1036,7 +1048,7 @@ export function MbtiDesktopCloneShell({
         id="career"
         anchorId={getMbtiDesktopAnchorId("career")}
         number={Number(slots.chapters.career.step)}
-        title={narrativeTitle(slots.chapters.career.title)}
+        title={copy(narrativeTitle(slots.chapters.career.title))}
         illustrationSlotId={slots.chapters.career.asset.slotId}
         illustrationLabel={slots.chapters.career.asset.label}
         assetSlots={storageAssetSlots}
@@ -1079,7 +1091,7 @@ export function MbtiDesktopCloneShell({
         id="growth"
         anchorId={getMbtiDesktopAnchorId("growth")}
         number={Number(slots.chapters.growth.step)}
-        title={narrativeTitle(slots.chapters.growth.title)}
+        title={copy(narrativeTitle(slots.chapters.growth.title))}
         illustrationSlotId={slots.chapters.growth.asset.slotId}
         illustrationLabel={slots.chapters.growth.asset.label}
         assetSlots={storageAssetSlots}
@@ -1120,7 +1132,7 @@ export function MbtiDesktopCloneShell({
         id="relationships"
         anchorId={getMbtiDesktopAnchorId("relationships")}
         number={Number(slots.chapters.relationships.step)}
-        title={narrativeTitle(slots.chapters.relationships.title)}
+        title={copy(narrativeTitle(slots.chapters.relationships.title))}
         illustrationSlotId={slots.chapters.relationships.asset.slotId}
         illustrationLabel={slots.chapters.relationships.asset.label}
         assetSlots={storageAssetSlots}
@@ -1229,8 +1241,8 @@ export function MbtiDesktopCloneShell({
             >
               {introduction.content ? (
                 <>
-                  <p>{introduction.content.paragraphs[0]}</p>
-                  <p>{introduction.content.paragraphs[1]}</p>
+                  <p>{copy(introduction.content.paragraphs[0])}</p>
+                  <p>{copy(introduction.content.paragraphs[1])}</p>
                 </>
               ) : (
                 <p role="status">{introduction.pending
@@ -1255,7 +1267,7 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneTraitsSection
               locale={locale}
               snapshotMode={snapshotMode}
-              title={slots.traits.title}
+              title={copy(slots.traits.title)}
               illustrationSlotId={slots.traits.asset.slotId}
               illustrationLabel={slots.traits.asset.label}
               assetSlots={storageAssetSlots}
@@ -1267,7 +1279,7 @@ export function MbtiDesktopCloneShell({
               summarySlotId={slots.traits.summaryPane.asset.slotId}
               summarySlotLabel={slots.traits.summaryPane.asset.label}
               axisExplainers={storageContent?.traits.axisExplainers ?? null}
-              traitCatalog={traitCatalog.content}
+              traitCatalog={traitContent}
               traitCatalogPending={traitCatalog.pending}
               paragraphs={traitBodyParagraphs}
               bodySource={traitBodySource}

@@ -89,6 +89,29 @@ describe("Traditional assessment display", () => {
     expect(await projectTraditionalResultDisplay(input, "zh")).toBe(input);
   });
 
+  it("projects only visible MBTI snapshot copy and preserves report identity", async () => {
+    const snapshot = {
+      hero: { profileIdentity: { code: "ENFP-T", nickname: "灵感发电机", keywords: ["创意"] } },
+      chapters: { career: {
+        intro: ["讨论新项目时先观察。"],
+        traitsUnlock: { items: [{ id: "原标识", expression: "讨论新项目。", realWorldSignal: "选择下一步。" }] },
+      } },
+      _meta: { package_hash: "原始证据" },
+    };
+    const input = { mbti_pdf_content: snapshot, report: { nickname: "原昵称" } };
+    const output = await projectTraditionalResultDisplay(input, "zh-TW");
+    expect(output.mbti_pdf_content).toMatchObject({
+      hero: { profileIdentity: { code: "ENFP-T", nickname: "靈感發電機", keywords: ["創意"] } },
+      chapters: { career: {
+        intro: ["討論新專案時先觀察。"],
+        traitsUnlock: { items: [{ id: "原标识", expression: "討論新專案。", realWorldSignal: "選擇下一步。" }] },
+      } },
+      _meta: snapshot._meta,
+    });
+    expect(output.report).toEqual(input.report);
+    expect(await projectTraditionalResultDisplay(input, "zh")).toBe(input);
+  });
+
   it("keeps Traditional result routes private and limits take routes to the core cohort", async () => {
     const path = "/zh-TW/result/00000000-0000-4000-8000-000000000001";
     const response = await proxy(new NextRequest(`https://example.com${path}`));

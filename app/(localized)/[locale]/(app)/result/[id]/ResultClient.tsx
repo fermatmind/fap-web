@@ -801,6 +801,7 @@ export default function ResultClient({
   attemptId,
   rolloutEnv,
   printMode = false,
+  printDisplayLocale,
   printSnapshotRoute = false,
   printSnapshotSurface = null,
   printAccessToken,
@@ -813,6 +814,7 @@ export default function ResultClient({
   attemptId: string;
   rolloutEnv: ScaleRolloutEnvSnapshot;
   printMode?: boolean;
+  printDisplayLocale?: "zh-TW";
   printSnapshotRoute?: boolean;
   printSnapshotSurface?: string | null;
   printAccessToken?: string | null;
@@ -827,7 +829,7 @@ export default function ResultClient({
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
-  const displayLocale = assessmentDisplayLocale(pathname);
+  const displayLocale = printMode && printDisplayLocale ? printDisplayLocale : assessmentDisplayLocale(pathname);
   const dict = getDictSync(displayLocale);
   const initialAccessView = useMemo(
     () => (initialReportAccess ? normalizeAttemptReportAccess(initialReportAccess, locale) : null),
@@ -2191,8 +2193,11 @@ export default function ResultClient({
     // The export consumes only the projection already authorized and rendered here.
     // It never reads a public share, raw answers, hidden sections or another endpoint.
     const onDownloadMbtiPdf = !printMode && canDownloadReportPdf(accessView) ? async () => {
-      const response = await fetchAttemptResultPagePdfWithMeta({ attemptId, anonId, accessToken: resultAccessToken });
-      await downloadResultPdf(response.blob);
+      const pdfDisplay = displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable ? displayLocale : undefined;
+      const response = await fetchAttemptResultPagePdfWithMeta({
+        attemptId, anonId, accessToken: resultAccessToken, displayLocale: pdfDisplay,
+      });
+      await downloadResultPdf(response.blob, pdfDisplay ? "FermatMind-MBTI-zh-TW.pdf" : undefined);
     } : undefined;
     const exportAllowed = !printMode && (!accessView || (accessView.reportState === "ready" && ["ready", "locked"].includes(accessView.accessState)));
     const mbtiExport = exportAllowed && resolvedScaleCode === "MBTI" ? buildMbtiResultExport(reportData, locale) : null;

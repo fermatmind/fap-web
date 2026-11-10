@@ -21,6 +21,7 @@ export type AttemptReportAccessView = {
   accessState: UnifiedAccessState;
   reportState: UnifiedAccessState;
   pdfState: UnifiedAccessState;
+  traditionalPdfAvailable?: boolean;
   unlockStage: UnifiedUnlockStage | null;
   unlockSource: UnifiedUnlockSource | null;
   reasonCode: string | null;
@@ -155,6 +156,7 @@ export function normalizeAttemptReportAccess(
     accessState: normalizeState(raw.access_state, "locked"),
     reportState: normalizeState(raw.report_state, "unavailable"),
     pdfState: normalizeState(raw.pdf_state, "unavailable"),
+    ...(Array.isArray(raw.pdf_display_locales) && raw.pdf_display_locales.includes("zh-TW") ? { traditionalPdfAvailable: true } : {}),
     unlockStage: normalizeUnlockStageField(raw),
     unlockSource: normalizeUnlockSourceField(raw),
     reasonCode: normalizeText(raw.reason_code),

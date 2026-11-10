@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { Container } from "@/components/layout/Container";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { createScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
+import { loadTraditionalAssessmentText, projectTraditionalResultDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
 import { verifyResultPagePdfToken } from "@/lib/result/pdfExportToken";
 import ResultClient from "../ResultClient";
@@ -27,16 +29,19 @@ export default async function ResultPrintPage({
   const { locale: localeParam, id } = await params;
   const query = (await searchParams) ?? {};
   const locale = resolveLocale(localeParam);
+  const printDisplayLocale = query.display_locale === "zh-TW" ? query.display_locale : undefined;
+  const displayLocaleValid = query.display_locale === undefined || (locale === "zh" && printDisplayLocale !== undefined);
   const dict = getDictSync(locale);
   const rolloutEnv = createScaleRolloutEnvSnapshot();
   const printAccessToken = firstQueryValue(query.access_token) ?? firstQueryValue(query.result_access_token);
   const requestedSurface = firstQueryValue(query.surface);
   const surfaceIsValid = requestedSurface === RESULT_PAGE_SNAPSHOT_SURFACE;
-  const tokenIsValid = surfaceIsValid
+  const tokenIsValid = surfaceIsValid && displayLocaleValid
     ? await verifyResultPagePdfToken({
         token: printAccessToken,
         attemptId: id,
         locale,
+        displayLocale: printDisplayLocale,
         expectedSurface: RESULT_PAGE_SNAPSHOT_SURFACE,
       })
     : false;
@@ -56,10 +61,36 @@ export default async function ResultPrintPage({
     accessToken: printAccessToken,
   });
   const nonce = (await headers()).get("x-nonce") ?? undefined;
+  const [report, copy] = await Promise.all([
+    projectTraditionalResultDisplay(printBootstrap.report, printDisplayLocale ?? locale),
+    printDisplayLocale ? loadTraditionalAssessmentText() : undefined,
+  ]);
+  const { mbti_pdf_content: desktopCloneContent } = await projectTraditionalResultDisplay(
+    { mbti_pdf_content: printBootstrap.desktopCloneContent }, printDisplayLocale ?? locale,
+  );
+
+  const client = (
+    <ResultClient
+      key={id}
+      attemptId={id}
+      rolloutEnv={rolloutEnv}
+      printMode
+      printDisplayLocale={printDisplayLocale}
+      printSnapshotRoute
+      printSnapshotSurface={RESULT_PAGE_SNAPSHOT_SURFACE}
+      printAccessToken={printAccessToken}
+      initialReportAccess={printBootstrap.reportAccess}
+      initialReportData={report}
+      snapshotDesktopCloneContent={desktopCloneContent}
+      snapshotContentStatus={printBootstrap.snapshotContentStatus}
+      printBootstrapError={printBootstrap.error}
+    />
+  );
 
   return (
     <Container
       as="main"
+      lang={printDisplayLocale}
       data-private-result-print-root="true"
       data-gotenberg-result-print-root="true"
       data-pdf-mode="true"
@@ -71,22 +102,9 @@ export default async function ResultPrintPage({
     >
       {/* Keep margin boxes outside the CSS optimizer, which drops these at-rules. */}
       <style nonce={nonce}>{'@page fermat-result-snapshot { @bottom-center { content: counter(page) " / " counter(pages); font-family: Arial, sans-serif; font-size: 8pt; color: #64748b; } }'}</style>
-      <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
-      {printBootstrap.report && <MbtiPrintReportContext report={printBootstrap.report} locale={locale} />}
-      <ResultClient
-        key={id}
-        attemptId={id}
-        rolloutEnv={rolloutEnv}
-        printMode
-        printSnapshotRoute
-        printSnapshotSurface={RESULT_PAGE_SNAPSHOT_SURFACE}
-        printAccessToken={printAccessToken}
-        initialReportAccess={printBootstrap.reportAccess}
-        initialReportData={printBootstrap.report}
-        snapshotDesktopCloneContent={printBootstrap.desktopCloneContent}
-        snapshotContentStatus={printBootstrap.snapshotContentStatus}
-        printBootstrapError={printBootstrap.error}
-      />
+      <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{copy ? copy(dict.result.title) : dict.result.title}</h1>
+      {report && <MbtiPrintReportContext report={report} locale={locale} displayText={copy} />}
+      {printDisplayLocale ? <TraditionalQuestionnaireCopy loadingText="正在準備報告…" failureText="報告暫時無法載入，請重新整理後再試。">{client}</TraditionalQuestionnaireCopy> : client}
     </Container>
   );
 }
