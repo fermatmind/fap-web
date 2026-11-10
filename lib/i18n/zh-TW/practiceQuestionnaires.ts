@@ -1,3 +1,4 @@
+import { numberSeriesFaq, numberSeriesSections, numberSeriesSummaries } from "@/components/questionnaires/NumberSeriesLandingEditorial";
 import { aiLiteracyLandingFaq, aiLiteracyLandingSections, aiLiteracyLandingReferences } from "@/components/questionnaires/AiLiteracyLandingEditorial";
 import { aiLiteracyResultQuestions } from "@/lib/questionnaires/result-content/ai-literacy";
 import { communicationAdaptabilityLandingFaq, communicationAdaptabilityLandingSections, communicationAdaptabilityLandingReferences } from "@/components/questionnaires/CommunicationAdaptabilityLandingEditorial";
@@ -317,7 +318,19 @@ const editions = {
     faq: projectManagementLandingFaq,
     prepareQuestions: projectManagementResultQuestions,
   },
+  "number-series": {
+    reading: "number-series",
+    load: () => import("@/lib/questionnaires/result-content/number-series.json"),
+    editorial: "NumberSeriesLandingEditorial",
+    prefix: "numberSeries",
+    sections: numberSeriesSections,
+    faq: numberSeriesFaq,
+  },
 };
+
+export function traditionalNumberSeriesSummaries() {
+  return projectStoryCopy(numberSeriesSummaries, "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSummaries", units);
+}
 
 export async function loadTraditionalPractice(slug: string) {
   if (!Object.hasOwn(editions, slug)) return null;
@@ -328,7 +341,7 @@ export async function loadTraditionalPractice(slug: string) {
   const quiz = projectStoryCopy({ ...original, questions }, `lib/questionnaires/data/${slug}.json`, units);
   const { default: source } = await edition.load();
   const readings: Record<string, QuestionnaireSection[]> = projectStoryCopy(source, `lib/questionnaires/result-content/${edition.reading}.json`, units);
-  const root = `components/questionnaires/${edition.editorial}.ts/${edition.prefix}Landing`;
+  const root = `components/questionnaires/${edition.editorial}.ts/${edition.prefix}${slug === "number-series" ? "" : "Landing"}`;
   return {
     quiz: {
       ...quiz,

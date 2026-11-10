@@ -109,6 +109,9 @@ export const packages = [
     'lib/questionnaires/data/project-management.json',
     'lib/questionnaires/result-content/project-management.json',
     'components/questionnaires/ProjectManagementLandingEditorial.ts',
+    'lib/questionnaires/data/number-series.json',
+    'lib/questionnaires/result-content/number-series.json',
+    'components/questionnaires/NumberSeriesLandingEditorial.ts',
   ] },
   { output: 'lib/i18n/zh-TW/relationship-questionnaires.generated.json', sources: [
     'lib/questionnaires/data/attachment-styles.json',

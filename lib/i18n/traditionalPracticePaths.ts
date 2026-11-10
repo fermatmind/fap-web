@@ -31,6 +31,7 @@ const practiceProfiles: Readonly<Record<string, readonly string[]>> = {
   "personal-finance-literacy": ["budget-and-spending", "saving-and-risk", "pay-and-benefits"],
   "problem-solving-critical-thinking": ["problem-steps", "decision-tools", "review-and-learning"],
   "project-management": ["scope-and-change", "schedule-and-capacity", "risk-and-response", "communication-and-decisions", "budget-and-quantities"],
+  "number-series": ["difference", "ratio", "gaps", "interleave", "recurrence"],
 };
 
 export const traditionalPracticeSlugs = Object.keys(practiceProfiles);

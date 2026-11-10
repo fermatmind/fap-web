@@ -8,7 +8,8 @@ import { QuestionnaireTakeDocument, questionnaireTakeMetadata } from "@/componen
 import { QuestionnaireTakeEntry } from "@/components/questionnaires/QuestionnaireTakeEntry";
 import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
-import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
+import { NumberSeriesPage } from "@/components/questionnaires/NumberSeriesPage";
+import { loadTraditionalPractice, traditionalNumberSeriesSummaries } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import type { QuestionnaireSection } from "@/lib/questionnaires/types";
 
@@ -60,6 +61,10 @@ export async function PracticeQuestionnairePage({ slug, take, profile }: Practic
       {locale === "zh" ? "简体中文" : "English"}
     </Link>)}
   </nav>;
+  if (slug === "number-series" && !profile) return <>
+    {languages}
+    <NumberSeriesPage quiz={quiz} locale="zh" traditional={{ sections, faq, summaries: traditionalNumberSeriesSummaries() }} />
+  </>;
   const guides = <section className="space-y-4">
     <h2 className="text-2xl font-semibold">分項複習指南</h2>
     <ul className="grid gap-4 sm:grid-cols-2">

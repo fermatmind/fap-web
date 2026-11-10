@@ -98,7 +98,10 @@
     "components/questionnaires/ProblemSolvingLandingEditorial.ts": "78b5d69d2deea1b9667407d27efb0a057515a79356ac3cab4a6e001f87d76014",
     "lib/questionnaires/data/project-management.json": "bdfb9f2018b256ed5c856bcc0967f1314613a564446c105b358ada0e0455eb88",
     "lib/questionnaires/result-content/project-management.json": "3455d20d075ac23f1e5a357ec9000518199022dca4cc6e231edb377fe8555c86",
-    "components/questionnaires/ProjectManagementLandingEditorial.ts": "60eab419f2cd7029ca0e367b4cc90446e7ef1e0e32bc4d1dcbe9d865d6f700b2"
+    "components/questionnaires/ProjectManagementLandingEditorial.ts": "60eab419f2cd7029ca0e367b4cc90446e7ef1e0e32bc4d1dcbe9d865d6f700b2",
+    "lib/questionnaires/data/number-series.json": "065bd0b99909f97b04a16f57a4137111bf3f97eae3c95e29110de805d612f7f9",
+    "lib/questionnaires/result-content/number-series.json": "5f9e09647d71b97d38963ac1f6faa89af3aadb7c37016e2bb99b74ec36c0bac9",
+    "components/questionnaires/NumberSeriesLandingEditorial.ts": "733a84acb3c8bcb9a942ae7ca8fcb922ffa95fb87cf2682726247b6b4dcdd88b"
   },
   "units": {
     "lib/questionnaires/data/attention-to-detail.json/title": {
@@ -42856,6 +42859,1554 @@
     "components/questionnaires/ProjectManagementLandingEditorial.ts/projectManagementLandingSections/8/paragraphs/1": {
       "sourceHash": "26d46ece81bf430316a19be4d5475f713b297de5b798df73391ce90a5d50e4de",
       "text": "PMI區分預測、適應與混合等方式，並強調按專案情境選擇。[1] 本頁使用具體區域性規則，不宣稱覆蓋某套完整方法、官方考試大綱或所有行業。看過答案後重測可用於複習，卻含記憶影響；也沒有中英文分數等值、工作績效預測或PMP、CAPM、PRINCE2成績換算研究。官方背景來源支援概念，不為本題組提供認證。"
+    },
+    "lib/questionnaires/data/number-series.json/title": {
+      "sourceHash": "a64312d6289d51f89b7dbd518d8a8ca4a2b5e61b8d99054d40b6eb8789d2ce10",
+      "text": "數列推理測驗"
+    },
+    "lib/questionnaires/data/number-series.json/seoTitle": {
+      "sourceHash": "2c34bd5c602d223bf230fe8b7bff4ff4c187d56907870783a13bc3983ce8ceed",
+      "text": "數列推理測驗：30道免費找規律練習與完整題解"
+    },
+    "lib/questionnaires/data/number-series.json/description": {
+      "sourceHash": "7c701cd31f512738fc7599725a447772f4050a6282d4fdf00d335b5b15743903",
+      "text": "免費練習30道原創數列題，覆蓋五類明示規則。完成後檢視逐題所選、正確答案、完整推導與五份專題指南。不計時，可用計算器，不用註冊。"
+    },
+    "lib/questionnaires/data/number-series.json/instructions": {
+      "sourceHash": "a098d4a568a3d33d930b1c6a4e474888c0940af161371ed20e898e40867d14f2",
+      "text": "完成30道四選一題，每組六題，按每題明示規則族補末項或中間項；遞推題遵守給定整數係數範圍。只有一個提供值滿足條件，但可能有等價規則表達。選對記一道，其餘有效選擇記零，不倒扣、不計部分分、不按速度調整。可用紙筆和計算器，保留正負與精確小數，不要求舍入。全部有效作答後顯示完整報告。十八分鐘為編輯估計，不是實測完成時間。"
+    },
+    "lib/questionnaires/data/number-series.json/introduction": {
+      "sourceHash": "220738aa0be16ffe77ff47c3296c4f634565f30e15c5cf8c36e2152c2f3e728b",
+      "text": "依次練習固定差值、固定比值、變化差值、交錯等差支與有界遞推，每類六題，在明示條件下只有一個提供值成立。完整解析用於核查模型、位置、符號和運算；這些是構造的練習數列，不是常模化智力或招聘測評。"
+    },
+    "lib/questionnaires/data/number-series.json/resultHeading": {
+      "sourceHash": "088301984caf88c00debaf24ab041cedbbde4e952a098e4da332c29a2372579d",
+      "text": "五組練習正確數與全部推導"
+    },
+    "lib/questionnaires/data/number-series.json/directions/0/title": {
+      "sourceHash": "b2dcdb0ea46128ab275281ab77ee2fc2ef8fd095382fdcad22c2d89ae629d5a5",
+      "text": "固定差值"
+    },
+    "lib/questionnaires/data/number-series.json/directions/1/title": {
+      "sourceHash": "d11e101a3a8112ff09b87f673ea7a9c9ae469865b06a2a67a2863211806db39b",
+      "text": "固定比值"
+    },
+    "lib/questionnaires/data/number-series.json/directions/2/title": {
+      "sourceHash": "a898a423a18e0a2a996c49e17e03371fe3eb3f4fc16256ef3a520f9d0131c6fc",
+      "text": "變化差值"
+    },
+    "lib/questionnaires/data/number-series.json/directions/3/title": {
+      "sourceHash": "b1cab2765fe3687111128c960d1a46b1dc3b7c556ead4236e54ed2095c860cb5",
+      "text": "交錯數列"
+    },
+    "lib/questionnaires/data/number-series.json/directions/4/title": {
+      "sourceHash": "08c4aff015edec93abde2d67a2228c43d60ab07097641f472665e593dd165610",
+      "text": "遞推規則"
+    },
+    "lib/questionnaires/data/number-series.json/questions/0/prompt": {
+      "sourceHash": "5eb20a11d98e9d569690bb758f84255e2546bcf4df606fac8af8408a66423b35",
+      "text": "各相鄰項使用同一個固定加數。求第6項問號處的數：11, 18, 25, 32, 39, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/0/options/0/label": {
+      "sourceHash": "7b21c9cc7a49f4ebff836f423a68fa58c5044b5a33b6a35d99b22b3065c51481",
+      "text": "39"
+    },
+    "lib/questionnaires/data/number-series.json/questions/0/options/1/label": {
+      "sourceHash": "136d3af2183394bf923b558643747d8d8e2dbf222e56f15f717877b8f0da96e6",
+      "text": "42"
+    },
+    "lib/questionnaires/data/number-series.json/questions/0/options/2/label": {
+      "sourceHash": "c4db486bb1a3f19e6f397018a76e9f9f4474b5fe61a962fa2315e93221742fdd",
+      "text": "46"
+    },
+    "lib/questionnaires/data/number-series.json/questions/0/options/3/label": {
+      "sourceHash": "4d49b1b24c0fefc3b6713a968964561a6f566398229e35cc38a4d1e9814d8cf5",
+      "text": "53"
+    },
+    "lib/questionnaires/data/number-series.json/questions/0/explanation": {
+      "sourceHash": "ebeb1f6c13a0346f636f8713b988530d2c96662ae9ca0d9c36ddc97d3813dadf",
+      "text": "每步加7，18−11與25−18均為7，延續至39，下一項39+7=46。把首項11當公差不能重現中間各項。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/1/prompt": {
+      "sourceHash": "db282e26404844b3406b9f344b7693d7d666bcf29e823c3d523cc1fa676294ae",
+      "text": "各相鄰項使用同一個固定加數。求第6項問號處的數：37, 29, 21, 13, 5, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/1/options/0/label": {
+      "sourceHash": "6cce8214f41773b4a9c6f7c54abe0d7ed9a9dc9c1c5ec10c4bfea526e9c0bb37",
+      "text": "-5"
+    },
+    "lib/questionnaires/data/number-series.json/questions/1/options/1/label": {
+      "sourceHash": "2ce7933d6e682b8016a660b34cce0aa2f131d55ae4ca6c4c21ad18c402cfba18",
+      "text": "-3"
+    },
+    "lib/questionnaires/data/number-series.json/questions/1/options/2/label": {
+      "sourceHash": "2bf6e457de326e89d6ee7a9b69f9731ea461c95234a6a0d78beb3c9e47473731",
+      "text": "3"
+    },
+    "lib/questionnaires/data/number-series.json/questions/1/options/3/label": {
+      "sourceHash": "647e2154b73761a55165cf40e6ac6eb04b8a74b2aa4df73c6cabb47f11fe6a5b",
+      "text": "13"
+    },
+    "lib/questionnaires/data/number-series.json/questions/1/explanation": {
+      "sourceHash": "9c90493b7e1dca56d8edea16489693c04b926e3ba3419acf9687aae1098efed9",
+      "text": "公差為−8，從5再減8跨零到−3。若只記距離8而寫成正3，會丟失變化方向。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/2/prompt": {
+      "sourceHash": "165d8d5f77b2cf983ebf5161e1d159ee6259e8b342452fa88742ee8329f55e16",
+      "text": "各相鄰項使用同一個固定加數。求第4項問號處的數：-19, -13, -7, ?, 5, 11。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/2/options/0/label": {
+      "sourceHash": "27fe4a4183f51119b360c85344cba56a8afcebc07a075cccfb4aaba1eef5dfcd",
+      "text": "-7"
+    },
+    "lib/questionnaires/data/number-series.json/questions/2/options/1/label": {
+      "sourceHash": "e85d669c7d657977bbf0edb089f720b3cd638a62a1391f96da171c6a08c140b2",
+      "text": "-3"
+    },
+    "lib/questionnaires/data/number-series.json/questions/2/options/2/label": {
+      "sourceHash": "438c3b2dd2da0c673ab1f25bf8c9c74eae9d805e1d5706613174a4ec796a62f1",
+      "text": "-1"
+    },
+    "lib/questionnaires/data/number-series.json/questions/2/options/3/label": {
+      "sourceHash": "97d73f62cbca9bdf90a9af09834f6b1a9974a26ecca0ce37acb995e1ee004a22",
+      "text": "1"
+    },
+    "lib/questionnaires/data/number-series.json/questions/2/explanation": {
+      "sourceHash": "04ca452356484d0ae58bb067388e430e2612dcbba5d1eadb1ba0a4e9a9e799e8",
+      "text": "公差+6，−7後是−1；再核右側−1+6=5。中間缺項須同時滿足左右兩次轉移。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/3/prompt": {
+      "sourceHash": "7ad8400a484fa58be7ac06460397aa16b1e9360553b1a6ab79259c9e2c0b41f7",
+      "text": "各相鄰項使用同一個固定加數。求第7項問號處的數：8, 17, 26, 35, 44, 53, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/3/options/0/label": {
+      "sourceHash": "3e8442cac82e0da6283916401dd66512ffa306e2f30ef915c7c7b058f3047aff",
+      "text": "53"
+    },
+    "lib/questionnaires/data/number-series.json/questions/3/options/1/label": {
+      "sourceHash": "89c5d62dd8fb05312819b0236ff7301adc87dfbe57925750209dbf21baeefce6",
+      "text": "60"
+    },
+    "lib/questionnaires/data/number-series.json/questions/3/options/2/label": {
+      "sourceHash": "17758bb7afec39aaf5a34574705094b0e85cc19306da08eabaa209b2a0505d77",
+      "text": "62"
+    },
+    "lib/questionnaires/data/number-series.json/questions/3/options/3/label": {
+      "sourceHash": "4320560e8f90736f7f743b5838589dad0c484da16090e3b5ac7824d168fa8083",
+      "text": "71"
+    },
+    "lib/questionnaires/data/number-series.json/questions/3/explanation": {
+      "sourceHash": "313e2d22dd1ff69ac5b866925f98fdac23e61111ff5e54fb0e3069a36b785281",
+      "text": "七項包含六次加9，故a7=8+6×9=62。加七次得到的是第八項71，不是所求第七項。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/4/prompt": {
+      "sourceHash": "a07692bf28b38dca6d490f2aa9001c29734272ca76e44c7d44584ceed5013256",
+      "text": "各相鄰項使用同一個固定加數。求第3項問號處的數：52, 41, ?, 19, 8, -3。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/4/options/0/label": {
+      "sourceHash": "2187f2f50f117eda5a2ec45ce58c1a94a9958c84546dd1e8ca0e9c6acda1d23b",
+      "text": "19"
+    },
+    "lib/questionnaires/data/number-series.json/questions/4/options/1/label": {
+      "sourceHash": "ff1b9ebeab71c22c613eba3387194b6fc03755213e5652ccb3ddd59948de9fb5",
+      "text": "22"
+    },
+    "lib/questionnaires/data/number-series.json/questions/4/options/2/label": {
+      "sourceHash": "4ff7038e8f7bc707740dbb829a7b94ea400b25eeaacbe9662f62bdbc855d2a77",
+      "text": "30"
+    },
+    "lib/questionnaires/data/number-series.json/questions/4/options/3/label": {
+      "sourceHash": "80103b6a502de0612437540981715a0838c2bcde174d4b3b664cc4e3a1ce310d",
+      "text": "33"
+    },
+    "lib/questionnaires/data/number-series.json/questions/4/explanation": {
+      "sourceHash": "a34ea8580036bd52873bccfca6996a72e19b7530070289688b8fa02170a05c67",
+      "text": "末段可見每次−11，缺項41−11=30，且30−11=19，兩側吻合。對全部可見數求平均與固定步長條件無關。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/5/prompt": {
+      "sourceHash": "57eec316c97a6a3660feeb93b41d3c1cfc4a5757f85974b9f58e26984a5de5e6",
+      "text": "各相鄰項使用同一個固定加數。求第6項問號處的數：-28, -17, -6, 5, 16, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/5/options/0/label": {
+      "sourceHash": "9a4643942c5ea3a4783fd0cfb358419effa4d876005d65fd1dc32a0f3445c649",
+      "text": "16"
+    },
+    "lib/questionnaires/data/number-series.json/questions/5/options/1/label": {
+      "sourceHash": "c8b2f8b63eaf43d13ddbaf08de7b2f6e769203f74085be00a08ab1745a9755f6",
+      "text": "22"
+    },
+    "lib/questionnaires/data/number-series.json/questions/5/options/2/label": {
+      "sourceHash": "4024df87496b06c203bc8c23157dacf84d28c188fd2a4425840712efed3f8d44",
+      "text": "27"
+    },
+    "lib/questionnaires/data/number-series.json/questions/5/options/3/label": {
+      "sourceHash": "8e86903931e279796eeb28d91d8cffcd66a5453af680655d792b8bd986cb7365",
+      "text": "38"
+    },
+    "lib/questionnaires/data/number-series.json/questions/5/explanation": {
+      "sourceHash": "26c5f21a9b16b263a38713c2cba48f19106290ac3e634c8068fa1ce0d31d4ae4",
+      "text": "每次加11，依次−28、−17、−6、5、16、27。跨零前後公差相同，正負號改變不代表規律改變。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/6/prompt": {
+      "sourceHash": "5346f32f0da73f317c7e3ffbfa3a2bd4e4188fcae2dae24db3909cd2f6687953",
+      "text": "各相鄰項使用同一個固定乘數。求第6項問號處的數：7, 21, 63, 189, 567, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/6/options/0/label": {
+      "sourceHash": "9d63a116232b5b6ecc640a106f81dde879eb15951ec57f335efb2c3c941a2b47",
+      "text": "1134"
+    },
+    "lib/questionnaires/data/number-series.json/questions/6/options/1/label": {
+      "sourceHash": "4999318b6e08826f5b54e1070aa41d1f1d0eb0e9a3f90d10372e1c6b860a474d",
+      "text": "1701"
+    },
+    "lib/questionnaires/data/number-series.json/questions/6/options/2/label": {
+      "sourceHash": "452215f89d8c53bfe525131a10831307c707ffd417c36aea3aa33e2a373d3643",
+      "text": "1710"
+    },
+    "lib/questionnaires/data/number-series.json/questions/6/options/3/label": {
+      "sourceHash": "100649e4a603ec4135dba65e9fcdadb754ff6259f5cfac77b8f821ab389a8606",
+      "text": "2268"
+    },
+    "lib/questionnaires/data/number-series.json/questions/6/explanation": {
+      "sourceHash": "ed47f3264390d951c59eb6160c737af0e7f4b7d575c1df42e859e8d1591dff72",
+      "text": "每項為前項三倍，567×3=1701。差值會變大，固定相加不能重現7到21到63。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/7/prompt": {
+      "sourceHash": "1b53c6c8c5bd83e4547338c93072cc04a298112724d28f09c3470ea04ad6008f",
+      "text": "各相鄰項使用同一個固定乘數。求第6項問號處的數：768, 384, 192, 96, 48, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/7/options/0/label": {
+      "sourceHash": "3e079fd0da9b00432b800db33d5974a01ca2465f3239e09ae10d6e9dcda755b6",
+      "text": "12"
+    },
+    "lib/questionnaires/data/number-series.json/questions/7/options/1/label": {
+      "sourceHash": "ebb078a3cf34667652849703b335a651dc2c4d26cb34564135444839d5a9a1ce",
+      "text": "24"
+    },
+    "lib/questionnaires/data/number-series.json/questions/7/options/2/label": {
+      "sourceHash": "08b685f1056d59d964b7adf20a498d0d74209ef728a59cca42a7058e66d77079",
+      "text": "36"
+    },
+    "lib/questionnaires/data/number-series.json/questions/7/options/3/label": {
+      "sourceHash": "ed07259b8db0addb0a6444ea845ceb8fad6577f0db4efb5161fb9b45ab7c79fc",
+      "text": "48"
+    },
+    "lib/questionnaires/data/number-series.json/questions/7/explanation": {
+      "sourceHash": "aaeafa44858f43eca6b715edf0e5ec38994cee943495145a5779c28b638ccdb5",
+      "text": "公比1/2，48再乘1/2為24。除2就是乘二分之一；重複末次差值−48會得0，但不符合之前比值。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/8/prompt": {
+      "sourceHash": "bad94672df21d5c80dedb1c7eec2cb5749656d80392cdb797e0415f7e73c56bb",
+      "text": "各相鄰項使用同一個固定乘數。求第6項問號處的數：6, -12, 24, -48, 96, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/8/options/0/label": {
+      "sourceHash": "226fd5aab6929e2afd13afb365a70256cb63d90271d7032da574643b114d2fc3",
+      "text": "-192"
+    },
+    "lib/questionnaires/data/number-series.json/questions/8/options/1/label": {
+      "sourceHash": "1a816fd3c85602fbd84009b25d26a617b42258188210bf922678518a225b4c04",
+      "text": "-96"
+    },
+    "lib/questionnaires/data/number-series.json/questions/8/options/2/label": {
+      "sourceHash": "2bbacc7d806c371837aca2d3b50ecc95b2da92af729349e5877d062e55fde28b",
+      "text": "144"
+    },
+    "lib/questionnaires/data/number-series.json/questions/8/options/3/label": {
+      "sourceHash": "f919d00487f8615ca6c427bf8e813b608d574e6a7bf6ca2c0bdb19f4c56cad4c",
+      "text": "192"
+    },
+    "lib/questionnaires/data/number-series.json/questions/8/explanation": {
+      "sourceHash": "ddddd71462406f9751f3a4db8e13e44e08b08f44badc3741a31fb59f3c3b1d18",
+      "text": "公比−2，符號交替、絕對值翻倍，96之後為−192。乘正2雖讓絕對值增長，卻不滿足符號。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/9/prompt": {
+      "sourceHash": "2c4d423f3fde881507f91241d941f6c0405ccccb102b1cef91371c547a66dc43",
+      "text": "各相鄰項使用同一個固定乘數。求第4項問號處的數：16, 24, 36, ?, 81, 121.5。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/9/options/0/label": {
+      "sourceHash": "6507c493645605b893c138a479b3220497ccbc7164f7f11978ec128e19b89ad8",
+      "text": "48"
+    },
+    "lib/questionnaires/data/number-series.json/questions/9/options/1/label": {
+      "sourceHash": "b448ded056a801f3d793bfcda1c7f90393d19d1c1608684fb1cbb24331337dd5",
+      "text": "50"
+    },
+    "lib/questionnaires/data/number-series.json/questions/9/options/2/label": {
+      "sourceHash": "8e60af709c774bc68a466d8a99c338562a27847400a73004487ae810aa1ccf45",
+      "text": "54"
+    },
+    "lib/questionnaires/data/number-series.json/questions/9/options/3/label": {
+      "sourceHash": "a040522e3ff0ff664abff22bf18d90229f23cbec88b66b54f7d63ff85c970a00",
+      "text": "60"
+    },
+    "lib/questionnaires/data/number-series.json/questions/9/explanation": {
+      "sourceHash": "6339e709daa4244c6c19fa9e65fac24b33803bcc693252fe6ba06478d920e0bf",
+      "text": "24/16與36/24均為1.5，缺項36×1.5=54，且54×1.5=81。本版允許小數，不需舍入。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/10/prompt": {
+      "sourceHash": "0f94f580557197850c2cfca84cb2e5d1086c1a4e117a3c1fef6c4879ea47c989",
+      "text": "各相鄰項使用同一個固定乘數。求第6項問號處的數：5, -15, 45, -135, 405, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/10/options/0/label": {
+      "sourceHash": "3aed91f3bf459dc2401d74176c19b940577cdd8f316706a233b3d2dcfa1a6961",
+      "text": "-1215"
+    },
+    "lib/questionnaires/data/number-series.json/questions/10/options/1/label": {
+      "sourceHash": "a2b986334fe51633cc92f6d15a624803a45c856bef0b1667cf128c84113dd154",
+      "text": "-810"
+    },
+    "lib/questionnaires/data/number-series.json/questions/10/options/2/label": {
+      "sourceHash": "b7c3acba3698dd0cbdb88be1ebe5d4fbb164d7e8bf8d59eb1ffa57e4158d8f82",
+      "text": "810"
+    },
+    "lib/questionnaires/data/number-series.json/questions/10/options/3/label": {
+      "sourceHash": "62120bb2a9ec3abb7af7fdcba1284591e72f42be26ad48caa7beea6f06bd133e",
+      "text": "1215"
+    },
+    "lib/questionnaires/data/number-series.json/questions/10/explanation": {
+      "sourceHash": "9c47b4a47e8994a22fca3a6fa43895134afccfdb8e5f1a418d1c4ce03db88fd8",
+      "text": "每次乘−3，405×(−3)=−1215。必須同時保留負號和倍數，末項為正不意味著下一項仍正。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/11/prompt": {
+      "sourceHash": "eeb92f5d6477569821a1d6d60c8e142c18f579d16eea5fc955487781c4956586",
+      "text": "各相鄰項使用同一個固定乘數。求第5項問號處的數：640, 160, 40, 10, ?, 0.625。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/11/options/0/label": {
+      "sourceHash": "6a25fa5900da7f8b8b290515f6473d4086e94c5acd4991f96e2550bde500657b",
+      "text": "0.25"
+    },
+    "lib/questionnaires/data/number-series.json/questions/11/options/1/label": {
+      "sourceHash": "8006b48576a214b67e6e8a992e1938a11025a71fd770ae63e95e70c7a73d2e32",
+      "text": "2.5"
+    },
+    "lib/questionnaires/data/number-series.json/questions/11/options/2/label": {
+      "sourceHash": "ace8082f33845dd2101ebecf4c4438e0a1090d2bfd550bc5755c6c2e5e70afb7",
+      "text": "4"
+    },
+    "lib/questionnaires/data/number-series.json/questions/11/options/3/label": {
+      "sourceHash": "718ae4f28b62d876689651d5af3e25d2d10046b67e292c57016e707becba8af7",
+      "text": "5"
+    },
+    "lib/questionnaires/data/number-series.json/questions/11/explanation": {
+      "sourceHash": "ac2f391844cee303f0c19afe668592c0edb90dd1d61be4958bf622bb7032a0c8",
+      "text": "公比1/4，10之後為2.5，再除4為0.625，吻合右側。不能把中間2.5擅自舍成整數。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/12/prompt": {
+      "sourceHash": "5d4c4c2f2d10a1bf16e2cb343a4bd0a92517697d7d4740d70c63db0535ae5ebe",
+      "text": "各次差值按固定非零加數遞增，或按固定倍數變化；整列使用同一差值規則。求第6項問號處的數：4, 9, 17, 28, 42, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/12/options/0/label": {
+      "sourceHash": "3d061bd0f22cb2cfbfca32ac17963b577db413c6581878d9ccc6e74596edb3a7",
+      "text": "56"
+    },
+    "lib/questionnaires/data/number-series.json/questions/12/options/1/label": {
+      "sourceHash": "bcd7f07913d414fb305dbe5a035fe956986a13395ce543547719b5948d3b5877",
+      "text": "58"
+    },
+    "lib/questionnaires/data/number-series.json/questions/12/options/2/label": {
+      "sourceHash": "a68618f2258b4f5423c73b728318f664f4a0dfb1e5c21f22a1259a46ac5efeab",
+      "text": "59"
+    },
+    "lib/questionnaires/data/number-series.json/questions/12/options/3/label": {
+      "sourceHash": "7097a797b1396ef1d22a3fcebd849d30ba83abd7f1388a7da4b86cdd4c6355e5",
+      "text": "60"
+    },
+    "lib/questionnaires/data/number-series.json/questions/12/explanation": {
+      "sourceHash": "25932bdd72b189758e9e66193f318dc5664c7d701abe123fa3334b5016c5b29b",
+      "text": "差值5、8、11、14，每次加3，下一差17，故42+17=59。重複加14會提前停止差值變化。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/13/prompt": {
+      "sourceHash": "d3fc5a5446c375317f186e725dedc12a67cafba61bd33dfd94a494aaeabef409",
+      "text": "各次差值按固定非零加數遞增，或按固定倍數變化；整列使用同一差值規則。求第6項問號處的數：63, 54, 47, 42, 39, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/13/options/0/label": {
+      "sourceHash": "dccb0d5e26b990babf367b5890fb5aec0503263ffd548941ce02f2bf1f74858e",
+      "text": "36"
+    },
+    "lib/questionnaires/data/number-series.json/questions/13/options/1/label": {
+      "sourceHash": "200f054ea219b7b74ac60fbd54c1715721332001bb7eefcdaa42ca6abcb9e5db",
+      "text": "37"
+    },
+    "lib/questionnaires/data/number-series.json/questions/13/options/2/label": {
+      "sourceHash": "a385cdff45599648c2df7e23356abe507e8c6421471795f7e2e6cc9b284f6dda",
+      "text": "38"
+    },
+    "lib/questionnaires/data/number-series.json/questions/13/options/3/label": {
+      "sourceHash": "324e3279e84362003e2748cba9e48522447820b678e23d7beac5fb5d55c2a7fc",
+      "text": "40"
+    },
+    "lib/questionnaires/data/number-series.json/questions/13/explanation": {
+      "sourceHash": "b9e265aafb5a66618c0b2197ba5c2e1b5c4f474acc4487a36790b311261aba5b",
+      "text": "帶符號差值−9、−7、−5、−3，每次加2，下一差−1，39−1=38。原數在降、差值在增，兩者不矛盾。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/14/prompt": {
+      "sourceHash": "20599bda249f06d976a336c1e7d6f4ca675ac83f3a4c3c9f8730761f65879e3a",
+      "text": "各次差值按固定非零加數遞增，或按固定倍數變化；整列使用同一差值規則。求第4項問號處的數：2, 8, 18, ?, 50, 72。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/14/options/0/label": {
+      "sourceHash": "0a77164ba45ec5600ecfc45d7fc4ae2ae281d43781ffeb0dd3bbf6499bee1690",
+      "text": "28"
+    },
+    "lib/questionnaires/data/number-series.json/questions/14/options/1/label": {
+      "sourceHash": "5ebdb21f51284647e5e8a4330b56b570b0ff4b5dede8e97da3ef1abc03903004",
+      "text": "30"
+    },
+    "lib/questionnaires/data/number-series.json/questions/14/options/2/label": {
+      "sourceHash": "d1edb76395d6576fda9245e169f0a4a62ec97a90e02ee7d3783ab951c6f1ed10",
+      "text": "32"
+    },
+    "lib/questionnaires/data/number-series.json/questions/14/options/3/label": {
+      "sourceHash": "1fc027f3e25e12524a1c9e2d24eb9cdcf620cc4981e7d45c380bdd1137ffee15",
+      "text": "36"
+    },
+    "lib/questionnaires/data/number-series.json/questions/14/explanation": {
+      "sourceHash": "590d90dba6cf709b4bda1b948308ef5f5a5adf9effd2bce667a890df443d404e",
+      "text": "完整差值6、10、14、18、22，每次加4，故18+14=32、32+18=50。缺項兩側都須維持同一差值規律。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/15/prompt": {
+      "sourceHash": "55484685f43b627ba6d40d418b2a915e4764d6909391c1a85151b6d4c2b07f22",
+      "text": "各次差值按固定非零加數遞增，或按固定倍數變化；整列使用同一差值規則。求第6項問號處的數：3, 5, 11, 29, 83, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/15/options/0/label": {
+      "sourceHash": "e53ce82efb7e1b798560b0b73e94511ddae2d22e022fa64ab5abb31721c0b46c",
+      "text": "137"
+    },
+    "lib/questionnaires/data/number-series.json/questions/15/options/1/label": {
+      "sourceHash": "e543fd2cb8a18de84a47e7e43b44def1a28c686687940cd62eb45e4f173b319a",
+      "text": "191"
+    },
+    "lib/questionnaires/data/number-series.json/questions/15/options/2/label": {
+      "sourceHash": "0f350e957dc848e4c73b04eae58f79e86fe5fd32496f7cc048db2e92d8bb0012",
+      "text": "245"
+    },
+    "lib/questionnaires/data/number-series.json/questions/15/options/3/label": {
+      "sourceHash": "86277cec3ec5bef8a6fe1dfbcaa33befdd191824706d758ee8c00335e6005c7e",
+      "text": "249"
+    },
+    "lib/questionnaires/data/number-series.json/questions/15/explanation": {
+      "sourceHash": "990503163acfc61c0f1e87c0d49bce922e61ba4e01588a2fc5b0185ec01fba32",
+      "text": "差值2、6、18、54，每次三倍，下一差162，83+162=245。直接把原項乘3在3到5就不成立。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/16/prompt": {
+      "sourceHash": "c5dc2d261d420cc5e515f301d5af89e6d77db56d43913fdf6c737263a5ad2ed9",
+      "text": "各次差值按固定非零加數遞增，或按固定倍數變化；整列使用同一差值規則。求第6項問號處的數：140, 136, 128, 112, 80, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/16/options/0/label": {
+      "sourceHash": "26558ec80b54fc421b6bcbdcdf57ad19e4b11008f5099a6486f33a632f40fe33",
+      "text": "16"
+    },
+    "lib/questionnaires/data/number-series.json/questions/16/options/1/label": {
+      "sourceHash": "eaeb7bb079255a966f6de54ef678d3ea390132d6bd6a0a54946408b3b0be86b9",
+      "text": "32"
+    },
+    "lib/questionnaires/data/number-series.json/questions/16/options/2/label": {
+      "sourceHash": "cd453b3d66cdb8202f7f62a6da3898349d3cd5bb85dc5b0bd5ee81c7526ecbc1",
+      "text": "48"
+    },
+    "lib/questionnaires/data/number-series.json/questions/16/options/3/label": {
+      "sourceHash": "8dcfddbe24169ef60353365d5d716a910162001e37268cd2b7013eb1e6ca5245",
+      "text": "64"
+    },
+    "lib/questionnaires/data/number-series.json/questions/16/explanation": {
+      "sourceHash": "e0572998d978798944ff307cef089acf3a35803c2283861daf7b61cc0a9af985",
+      "text": "差值−4、−8、−16、−32，帶符號翻倍，下一差−64，80−64=16。負差值翻倍增大絕對值，不會變成正差值。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/17/prompt": {
+      "sourceHash": "50790c218f53f9422e5561b1ca1bc378ad143a756f95886b2e6e205f57b4133f",
+      "text": "各次差值按固定非零加數遞增，或按固定倍數變化；整列使用同一差值規則。求第6項問號處的數：9, 15, 3, 27, -21, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/17/options/0/label": {
+      "sourceHash": "6698a7365890242ad7cb9857c567ecc3a52199d524bb58339f3f015412638d10",
+      "text": "-117"
+    },
+    "lib/questionnaires/data/number-series.json/questions/17/options/1/label": {
+      "sourceHash": "51217bbd8d4bef6c91c30979c260cc4d078eeead049c3095a1ad71759c21ba02",
+      "text": "27"
+    },
+    "lib/questionnaires/data/number-series.json/questions/17/options/2/label": {
+      "sourceHash": "bf07cce3ead33689bbfaf899fa49b382d478a15a5ef0994cda8943e5bd786cc9",
+      "text": "75"
+    },
+    "lib/questionnaires/data/number-series.json/questions/17/options/3/label": {
+      "sourceHash": "82b7bf1486d9a30832867600974820bfd6e89b90512b490ec3cf256a70c02f96",
+      "text": "123"
+    },
+    "lib/questionnaires/data/number-series.json/questions/17/explanation": {
+      "sourceHash": "f90496302dbcd5c81fd2647cb9cece9b0c1c37af36f8497d524724cc1ccb15fe",
+      "text": "差值+6、−12、+24、−48，每次乘−2，下一差+96，−21+96=75。交替符號發生在差值行，不是每個原項。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/18/prompt": {
+      "sourceHash": "89876475497d453f8a6efeb76655f1073ddb95d5877fe8b9df41a1c0c3ec6106",
+      "text": "奇數位和偶數位各成等差數列，兩支可有不同公差。求第7項問號處的數：4, 31, 10, 27, 16, 23, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/18/options/0/label": {
+      "sourceHash": "bfbb0f08ab353e01cecd32f74b5e1d6fead90bdf8b7a7ee95060f946ca7d90b2",
+      "text": "19"
+    },
+    "lib/questionnaires/data/number-series.json/questions/18/options/1/label": {
+      "sourceHash": "6d1283953438ad7accf2799fbeb44cf80ae308f45091f85c10690779e02d2f58",
+      "text": "22"
+    },
+    "lib/questionnaires/data/number-series.json/questions/18/options/2/label": {
+      "sourceHash": "09af8a6a58ae8abf4715296f116061d2c853c16985c99e0753bc25d3c4f34b7d",
+      "text": "23"
+    },
+    "lib/questionnaires/data/number-series.json/questions/18/options/3/label": {
+      "sourceHash": "431328a8dd7ef2f5cfd30e9a0d79527aaad329299664c01fb58c7f7442462564",
+      "text": "28"
+    },
+    "lib/questionnaires/data/number-series.json/questions/18/explanation": {
+      "sourceHash": "3937262908671b1363d76d92a04f9aca3db9eb527332afbf80991cd120dc33dc",
+      "text": "奇數位4、10、16、22，公差+6；偶數位31、27、23，公差−4。第七項屬奇數支，故22。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/19/prompt": {
+      "sourceHash": "33e40b3b3cef1b87d796e9b299dff76a6ebaeac635b8dfaaaccbe27f1c086544",
+      "text": "奇數位和偶數位各成等差數列，兩支可有不同公差。求第8項問號處的數：42, -8, 35, -3, 28, 2, 21, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/19/options/0/label": {
+      "sourceHash": "b39a73731323eca11493a2576db2be6a5201ddeaec11cfb704127a0d5a94ebb9",
+      "text": "0"
+    },
+    "lib/questionnaires/data/number-series.json/questions/19/options/1/label": {
+      "sourceHash": "0433ea3b75c5d2d279e124159c92ae4f84f5794794e4e6b3abd7fd244b816b93",
+      "text": "7"
+    },
+    "lib/questionnaires/data/number-series.json/questions/19/options/2/label": {
+      "sourceHash": "64b884a72f15347777e936974c717cbf12400d73e56cbb7db6b737b5221b3c01",
+      "text": "14"
+    },
+    "lib/questionnaires/data/number-series.json/questions/19/options/3/label": {
+      "sourceHash": "cd36977fad54aac631415d6e68cfa988db4f8b15bcc715edb2d19c1c37ed069b",
+      "text": "21"
+    },
+    "lib/questionnaires/data/number-series.json/questions/19/explanation": {
+      "sourceHash": "3381ac4202489eea85cfad1d0850c5b0cd28eaec82ee9cac33118d3dea094b75",
+      "text": "奇數支42、35、28、21每次減7，偶數支−8、−3、2、7每次加5。第八項取偶數支7，不能接奇數支。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/20/prompt": {
+      "sourceHash": "0fcb19345bbce8da574b0f8a90c4db3861580ff8601cef4427f6dd71a224ed0f",
+      "text": "奇數位和偶數位各成等差數列，兩支可有不同公差。求第5項問號處的數：-12, 7, -5, 10, ?, 13, 9, 16。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/20/options/0/label": {
+      "sourceHash": "0e6dd0195645cc65473e6765e26d88d4271be1f2ab8ddaa86bee3637647ee15c",
+      "text": "-2"
+    },
+    "lib/questionnaires/data/number-series.json/questions/20/options/1/label": {
+      "sourceHash": "873b655c4f6b0e6a20c7e09d95a500d05929a618111302646a08d9198cb0eb27",
+      "text": "0"
+    },
+    "lib/questionnaires/data/number-series.json/questions/20/options/2/label": {
+      "sourceHash": "2a36bcbf58a55cb2d56634e71cf162a194279512afbe45da6b56aea5b3c598c3",
+      "text": "2"
+    },
+    "lib/questionnaires/data/number-series.json/questions/20/options/3/label": {
+      "sourceHash": "1b509729a173d5ea78caa641afddbac46e2b8202c07497789f69d791e562cc03",
+      "text": "5"
+    },
+    "lib/questionnaires/data/number-series.json/questions/20/explanation": {
+      "sourceHash": "9549398b78277726cddfffee724f92c33d819521c79e120ecfbbae1ddd9c98f5",
+      "text": "奇數位−12、−5、2、9每次加7，缺的第五項為2。偶數支7、10、13、16每次加3，不用來直接補奇數項。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/21/prompt": {
+      "sourceHash": "3ab50dcbe953d3f835c90813c308c4ace8ea03f463667fd9b929ebc364131639",
+      "text": "奇數位和偶數位各成等差數列，兩支可有不同公差。求第6項問號處的數：3, 50, 8, 41, 13, ?, 18, 23。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/21/options/0/label": {
+      "sourceHash": "7bc56721d3ce50a87f060b5a7ed1a8be247a25011a7b82ae9f88b95948a50aa3",
+      "text": "23"
+    },
+    "lib/questionnaires/data/number-series.json/questions/21/options/1/label": {
+      "sourceHash": "f8e8dc570233623c88d7aa53955082c1ca72e277927ae6bf6b8a3c146b7d455d",
+      "text": "27"
+    },
+    "lib/questionnaires/data/number-series.json/questions/21/options/2/label": {
+      "sourceHash": "b7e42728350b03411caa1328d68afcd1e5110c5a6c0edfe4917565d3341903c2",
+      "text": "32"
+    },
+    "lib/questionnaires/data/number-series.json/questions/21/options/3/label": {
+      "sourceHash": "482dfef1204d14b1ee9850b5dc300a6a94d26a7ff84718590e08c0b970dfda8e",
+      "text": "36"
+    },
+    "lib/questionnaires/data/number-series.json/questions/21/explanation": {
+      "sourceHash": "c2d168bf782f17ba7b20303738d2876f70d71b5a0fc017655a30043422f2fffb",
+      "text": "偶數支50、41、32、23每次−9，第六項為該支第三項32，左右41−9與32−9均吻合；奇數支獨立每次+5。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/22/prompt": {
+      "sourceHash": "377c347ba05541d5003756f898f860dcee74182d8717869129d5ea5fcf37ac3b",
+      "text": "奇數位和偶數位各成等差數列，兩支可有不同公差，允許公差為零。求第7項問號處的數：0, 19, 8, 19, 16, 19, ?, 19。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/22/options/0/label": {
+      "sourceHash": "bc455f1c7194492582bc53561b19bcb1441691a5208b1fae95ddf4096276851c",
+      "text": "19"
+    },
+    "lib/questionnaires/data/number-series.json/questions/22/options/1/label": {
+      "sourceHash": "68bf43481ce95aab4e23aca37417aed566a09f39c63e3eb909668c597013aaf5",
+      "text": "24"
+    },
+    "lib/questionnaires/data/number-series.json/questions/22/options/2/label": {
+      "sourceHash": "69f2a04f5b203dc01c730dc8b263557378367c7ecb6bc5241d6970222c97ae3a",
+      "text": "27"
+    },
+    "lib/questionnaires/data/number-series.json/questions/22/options/3/label": {
+      "sourceHash": "889c222875c58a92ce55340fc48b104fd30c52bb901102df49a1e366fa6967ab",
+      "text": "32"
+    },
+    "lib/questionnaires/data/number-series.json/questions/22/explanation": {
+      "sourceHash": "ae9257b75c94e6004c4c12e2cc66cdee5ed8eb63ec49533414d2ff7f3986b17d",
+      "text": "奇數支0、8、16、24每次加8；偶數支全為19，公差零。第七項為24，偶數位重複不代表整列恆定。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/23/prompt": {
+      "sourceHash": "0099c8840e9cc25236be2951c54f0738de0643e2b6123271baac804c634c2efb",
+      "text": "奇數位和偶數位各成等差數列，兩支可有不同公差。求第8項問號處的數：26, -20, 22, -9, 18, 2, 14, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/23/options/0/label": {
+      "sourceHash": "968b935b3f775c72d0b26c2506d60841891750eaec1a518615ab109c3fcada57",
+      "text": "6"
+    },
+    "lib/questionnaires/data/number-series.json/questions/23/options/1/label": {
+      "sourceHash": "4e4cb224c539ded8ede94da1268f44e7b7947a8efeff20aa8a1e0042f774437a",
+      "text": "10"
+    },
+    "lib/questionnaires/data/number-series.json/questions/23/options/2/label": {
+      "sourceHash": "2aaa5b2933857a95ce6b285471ebb7ba7c19abe112fb04d15147f4aa55e920ed",
+      "text": "13"
+    },
+    "lib/questionnaires/data/number-series.json/questions/23/options/3/label": {
+      "sourceHash": "d3f221e74c31069e606d3be883a48bb62b9bd6d6db5c230d812fef2f15f55064",
+      "text": "25"
+    },
+    "lib/questionnaires/data/number-series.json/questions/23/explanation": {
+      "sourceHash": "7cf264106e8baff65904ac11de9b91548fa0bd96c1405d3c60860159ac6ea8a5",
+      "text": "奇數支每次減4，偶數支−20、−9、2、13每次加11。第八項是第四個偶數項13。先標位置，不能靠數值正負分支。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/24/prompt": {
+      "sourceHash": "9e727a0e326c7f31ee4cef12f696320469395d4b31949cd7dffc5bfde721bb21",
+      "text": "從第三項起，用固定規則p×前一項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數。求第6項問號處的數：2, 7, 9, 16, 25, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/24/options/0/label": {
+      "sourceHash": "057e3bdd59a85d521e9296fbd73d12adc09eca9ec74aa2a7b0fd1f4a4213b7c1",
+      "text": "32"
+    },
+    "lib/questionnaires/data/number-series.json/questions/24/options/1/label": {
+      "sourceHash": "a3f28f6420909c7ae9e66434346cf832188f9b7d89aca6d109bbcb44d23c5eb1",
+      "text": "34"
+    },
+    "lib/questionnaires/data/number-series.json/questions/24/options/2/label": {
+      "sourceHash": "b7858dcb3d0c488d509e80de274f8ecc54e3673486f3ce9eb7b6f242fc2321ee",
+      "text": "41"
+    },
+    "lib/questionnaires/data/number-series.json/questions/24/options/3/label": {
+      "sourceHash": "2f773e8e6e921e01fcdfa5c908089f79631921632d362e3356efa15f184ca5fb",
+      "text": "50"
+    },
+    "lib/questionnaires/data/number-series.json/questions/24/explanation": {
+      "sourceHash": "50bb0c24844c37ee8b2798a8b2aaf3e8f27bb250a469be6e30087bb3f2f35876",
+      "text": "匹配規則p=1、q=1、c=0，即前兩項相加。2+7=9、7+9=16、9+16=25，故下一項16+25=41。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/25/prompt": {
+      "sourceHash": "bd03e11d9aacef114ea138213c77572bb6373201a14e4b4897602b6d4fb572b1",
+      "text": "從第三項起，用固定規則p×前一項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數。求第6項問號處的數：1, 4, 9, 22, 53, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/25/options/0/label": {
+      "sourceHash": "9a7f23f0b256e6e5de1b3ab800116fedd95d34f657748f141acd2cbfb62b7f19",
+      "text": "106"
+    },
+    "lib/questionnaires/data/number-series.json/questions/25/options/1/label": {
+      "sourceHash": "8095f77a25145b6b1a5bbcf56574a394e11055774f532669affc184353da7af9",
+      "text": "119"
+    },
+    "lib/questionnaires/data/number-series.json/questions/25/options/2/label": {
+      "sourceHash": "47fb2abe8e1425bd2957bad411c722e73e72e567151f63db72aadac2562ce430",
+      "text": "128"
+    },
+    "lib/questionnaires/data/number-series.json/questions/25/options/3/label": {
+      "sourceHash": "efaec97fd211a4583f35fae5e3bc5d75aefe8bb1e17588ed62817675b2c1e961",
+      "text": "150"
+    },
+    "lib/questionnaires/data/number-series.json/questions/25/explanation": {
+      "sourceHash": "e8f7f6498d1295e461400022cbe114f2d82622c9cf0355cfa1a3979448212dfc",
+      "text": "規則為前項乘2再加前兩項：2×4+1=9、2×9+4=22、2×22+9=53，故2×53+22=128。兩個位置係數不同。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/26/prompt": {
+      "sourceHash": "ea6c6b70ab9a88eb8c51b2e10c592d9ba39ed89ea8acd45e6ecd14e7d6073607",
+      "text": "從第三項起，用固定規則p×前一項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數。求第6項問號處的數：3, 5, 9, 15, 25, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/26/options/0/label": {
+      "sourceHash": "42e8c0e4ab29d925e3c79ec38aa9e78388edd95c44ba14fb7d9f18feccd2f9df",
+      "text": "39"
+    },
+    "lib/questionnaires/data/number-series.json/questions/26/options/1/label": {
+      "sourceHash": "2328c4035235929412417ed680fc4ca42d08f2aa356a7838200da1594f50fe74",
+      "text": "40"
+    },
+    "lib/questionnaires/data/number-series.json/questions/26/options/2/label": {
+      "sourceHash": "aa464b7f30ca35162012ad0e67ed08faecf32752464eb3ec21b28ccbf6aee9fd",
+      "text": "41"
+    },
+    "lib/questionnaires/data/number-series.json/questions/26/options/3/label": {
+      "sourceHash": "bc6f1de5a58b07f239845c248e85ddc55b2521b5fa6d6cf1e103d22c5355ad44",
+      "text": "50"
+    },
+    "lib/questionnaires/data/number-series.json/questions/26/explanation": {
+      "sourceHash": "47a95b8544a6b814bfb20d406c9add98b37f41e48c1a525df07dd04426caa439",
+      "text": "每次前兩項和加1：3+5+1=9、5+9+1=15、9+15+1=25，所求15+25+1=41；漏常數會得40。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/27/prompt": {
+      "sourceHash": "a93dfa5568309ff4a9d8204a37ccee24520f7ac9bd8d9e3d19315c2dcd7b9234",
+      "text": "從第三項起，用固定規則p×前一項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數。求第6項問號處的數：2, 5, 11, 23, 47, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/27/options/0/label": {
+      "sourceHash": "8fefe88910afb804061ddfa793e72adcdc367c5a31b25276d211143566625279",
+      "text": "94"
+    },
+    "lib/questionnaires/data/number-series.json/questions/27/options/1/label": {
+      "sourceHash": "8935a007afbe194f6f1b1697c0a13021ce4192ce3bbca4e85340e10f0fa07d4e",
+      "text": "95"
+    },
+    "lib/questionnaires/data/number-series.json/questions/27/options/2/label": {
+      "sourceHash": "cfb9bcf1f6e362d33759a53398e1de0e2bf0f2a249644001038867e4bb7ffd88",
+      "text": "96"
+    },
+    "lib/questionnaires/data/number-series.json/questions/27/options/3/label": {
+      "sourceHash": "ecb3cdf511396574017bbd484c483e2aa81081c044158740f3030e47a46218f4",
+      "text": "141"
+    },
+    "lib/questionnaires/data/number-series.json/questions/27/explanation": {
+      "sourceHash": "bed49349f60e97cb5328d9d79155908e9a3c15202e395d0cbec22c5be946726b",
+      "text": "可按前項乘2加1，2×11+1=23、2×23+1=47，再得95。題定候選內可能有在本列等價的參數列達，但所有匹配規則給同一缺項。核查的是答案唯一，不是規則寫法唯一。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/28/prompt": {
+      "sourceHash": "2911fc17b35a40ebd955cd0861a556c705f91a4514d3cbfd5b372671e14c545c",
+      "text": "從第三項起，用固定規則p×前一項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數。求第6項問號處的數：2, 7, 17, 42, 102, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/28/options/0/label": {
+      "sourceHash": "5e7c9af7706bd00c813d1056bdd31278226281515805b4c916a5b4946284e02a",
+      "text": "204"
+    },
+    "lib/questionnaires/data/number-series.json/questions/28/options/1/label": {
+      "sourceHash": "30b7668bfb4ec17e7b93fb7a4703c81d318fe092a7611dd17a33cf1a66d6af89",
+      "text": "239"
+    },
+    "lib/questionnaires/data/number-series.json/questions/28/options/2/label": {
+      "sourceHash": "7df11d92b8719c8786791f4308cff7b5171165ae962751d46489ef66e027e271",
+      "text": "247"
+    },
+    "lib/questionnaires/data/number-series.json/questions/28/options/3/label": {
+      "sourceHash": "6fe75f880cdae3486144e5070e686e154878ea5dc7839cf65b638591d2f9116f",
+      "text": "264"
+    },
+    "lib/questionnaires/data/number-series.json/questions/28/explanation": {
+      "sourceHash": "9266f82f92028a98d70ad048488f0b98be31c345bd0b1f606aee60293ba22f7e",
+      "text": "規則為前項乘2、加前兩項、再加1：2×7+2+1=17、2×17+7+1=42、2×42+17+1=102，故下一項2×102+42+1=247。所有轉移都需用同一組係數核對。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/29/prompt": {
+      "sourceHash": "9120a4e3996d6517fd043f3ac56c1c46cd4372117f7476df8251f5a2264a7c47",
+      "text": "從第三項起，用固定規則p×前一項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數。求第6項問號處的數：4, 9, 14, 24, 39, ?。"
+    },
+    "lib/questionnaires/data/number-series.json/questions/29/options/0/label": {
+      "sourceHash": "c3501476a8815b5623403870ad1de9c49aeca927454c26bb785467b8724387e9",
+      "text": "59"
+    },
+    "lib/questionnaires/data/number-series.json/questions/29/options/1/label": {
+      "sourceHash": "0b35e6dd4c73f500d295c3c225b06bd1fba382777630ee8e2ae6dff616bdb4c5",
+      "text": "63"
+    },
+    "lib/questionnaires/data/number-series.json/questions/29/options/2/label": {
+      "sourceHash": "ee79b99ce8cc662d6d1d7f6e5278e55784068f7f1754b22a03cdc4e412efd982",
+      "text": "64"
+    },
+    "lib/questionnaires/data/number-series.json/questions/29/options/3/label": {
+      "sourceHash": "cc92f2249f9d7f294bfff34a224c2ccce4fc32b194616b361f726524c3a562a1",
+      "text": "78"
+    },
+    "lib/questionnaires/data/number-series.json/questions/29/explanation": {
+      "sourceHash": "96afc749b84aa22197250303e8672c9f8252ce4de6bbb86f0ed97b4d5ec9d2a5",
+      "text": "規則為前兩項和加1，4與9之後得14、24、39，再得24+39+1=64。常數每生成一項只加一次，不分別加到兩前項。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/title": {
+      "sourceHash": "4cf2836bd949d3f78e29d7d81cfb1cb32dfed26579d3090ca71d2051b9d05e63",
+      "text": "固定差值"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/headline": {
+      "sourceHash": "e1116f57635e4203f553728f6e23e99b14056962c04e31379a8a987e7a6f449c",
+      "text": "把公差與位置分開核對。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/summary": {
+      "sourceHash": "cbc53a14e543057c146721c25af2ac78b5d11b269c4c30eba8f737cdfbd9b56a",
+      "text": "複習帶符號公差、中間缺項和項數定位；六道原創題正確數是區域性複習記錄，不分速度或能力等級。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/scoreReading": {
+      "sourceHash": "7728093e86685fa918bc0ca87a259d9efae765630f55593b7dbf40b9ef69969c",
+      "text": "六題各計一個正確答案，正確數只描述本版這一規則族，不校正速度、不換算IQ、不與他人比較。任何正確數都可讀全部題解與完整指南。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/seo/title": {
+      "sourceHash": "0eb2e66024dd23434a287120a2c4daab883cd56e65169b0f85c6b51e17226130",
+      "text": "固定差值｜數列推理練習"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/seo/description": {
+      "sourceHash": "4569f9f4ff30280d0b800827498fc05d0f26041ed157b8c43815e812e472fb6e",
+      "text": "複習帶符號公差、中間缺項和項數定位；六道原創題正確數是區域性複習記錄，不分速度或能力等級。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/0/title": {
+      "sourceHash": "f77b34856926919759826d6abfd2287649d5603a447a64dadc06a0cb1118b049",
+      "text": "先讀題目限定哪種規則"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "59f5c49c4d7771dbe73d01ce9bff7e444c4941f1e95c92624e602d8a94c8becc",
+      "text": "六題明確限定相鄰項加同一固定數，先從可見項求公差，再補指定位置。這個條件很關鍵：不限定規則時，有限數字可用很多公式延續。本題族使任務可核查；選對只說明選項滿足條件和全部可見項，不代表找到數學上唯一可想像的續法。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/1/title": {
+      "sourceHash": "1c50dafd0f02a0b92e5ab15a8f1731dcd4666e7886a426c222bdf53ee8769003",
+      "text": "用新例子保留公差正負號"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "b42643817ae4e3afa1f1cf6a90f3d76c3b4b26100041d44c38f27613e4813c76",
+      "text": "另看23、14、5、−4、問號，相鄰差均為−9，下一項−13。每次都用後一項減前一項，顛倒會把下降看成上升。跨零不需要換規律；若選到正數，檢查是否只取絕對距離而漏方向。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/2/title": {
+      "sourceHash": "d05f835c79a1fdc6d41305d7199a8fd22c4ccf0f25173d1ad2ac1bc9cc150598",
+      "text": "中間缺項要兩側都成立"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "090864f15bf0824aac9474bd30328b85e4aead55984544f981fe61cd35e73cb6",
+      "text": "−15、−7、問號、9、17中，公差+8，缺項1，左右−7+8=1、1+8=9都成立。問號兩側可見項間隔兩步，9−(−7)=16須除2，不能把16當一步公差。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/3/title": {
+      "sourceHash": "97be041683f697a027d9e17d1464673af31066b063a74cc9d422d2bda9fac9ba",
+      "text": "數清項數和轉移次數"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "4a16dc2e6315a66971e3c6ce286ad4e9a022f716142bf0dac74366f71ffeeaf7",
+      "text": "首項6、公差4，第八項為6+7×4=34，一到八共七次轉移，加八次會到第九項。可在數列下標位置，尤其題目顯示項數較多或缺項在中間。下降數列同理，負公差改變數值，不改變轉移次數。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/4/title": {
+      "sourceHash": "561425aa9abcb911b5c572818edbc586d153af1aa7cba6ebff7eabc203ce209c",
+      "text": "逐個核對可見轉移"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "50f85105e46e78a83dbef0ad31fa8a0ef1c9be28cda9b35186a50852eb291442",
+      "text": "一對相鄰項只能提出候選公差，其餘也要同意。10、16、22、29的差為6、6、7，並非等差，不能暗改29來保住猜測。本題核對答案精確符合顯示值，固定差值題不靠容差或舍入。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/5/title": {
+      "sourceHash": "d57c8bebb2dc7bb1d3209c8adb0b52b7744216d92c03f984951451cdb24571a6",
+      "text": "分清符號、定位和計算失誤"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "056125687e9fd7dc90d4915dc33fde431042d0929ec656775fd7bc16f76b60fe",
+      "text": "錯題回顧寫下公差、目標位置，能核兩側時各列一次計算，分清符號錯、項數偏一還是算錯。另換首項保留同一公差，說明方法為何仍成立；重做記住字母不證明能獨立重建關係。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/6/title": {
+      "sourceHash": "0a87fcf519f5ee797630f127a0412a1d256c3fa4915cb504b6d39bfd49589f8b",
+      "text": "正確數只作有限解釋"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "21bf664a59f0b34069e816bf8195964c5c1e393193390e2974e800ff7a2fb954",
+      "text": "正確數/6只記錄這組固定步長題，沒有百分位、招聘線、速度或智力解釋。可用紙筆計算器，無倒數計時。看漏一個負號會失一道分，並不直接說明不懂概念。用題解定位錯因，需要另一種規則時再看比值或變化差值，不把換題族當能力升級。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/title": {
+      "sourceHash": "6d9c32536eb0c7b03255df6fbf1630dd83abdd9d01bb4937aeab3ea38d048fd5",
+      "text": "固定比值"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/headline": {
+      "sourceHash": "d037aab485b3a910f9c22874c5bb85ec185ba0462e3fa89353da4d1c45ef9e5e",
+      "text": "同時保留倍數、符號與精確值。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/summary": {
+      "sourceHash": "0b4922b7ff13f72426b789af0e3a2b962111f381a4a2a7165924fb499dfd9d20",
+      "text": "複習乘數、負公比和精確小數項；六題答案只針對題定規則族，不對應常模或認證。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/scoreReading": {
+      "sourceHash": "b1bb5a514f6bdb0b752191d4af54fcc4a51801572382d4d6414ee3d7808827a6",
+      "text": "六題各計一個正確答案，正確數只描述本版這一規則族，不校正速度、不換算IQ、不與他人比較。任何正確數都可讀全部題解與完整指南。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/seo/title": {
+      "sourceHash": "033ebb5b9fa28d8b5ccfa6383cd49aea667671ea3e5c4906b30a00bbe334eaec",
+      "text": "固定比值｜數列推理練習"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/seo/description": {
+      "sourceHash": "0cd1ce0a657f94f7a488796aad155f2a4dea4620f8dfa72bf688d28c9bfcafa6",
+      "text": "複習乘數、負公比和精確小數項；六題答案只針對題定規則族，不對應常模或認證。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/0/title": {
+      "sourceHash": "c71e105b7c5b66a78feaaaf22ac42e9e616cf5094510dc9e9fb00297be01667e",
+      "text": "先區分乘法關係與加法關係"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "05262e8016295d4aa5549bc5e0307002aa5939fa9ece8973b352521e34c4591b",
+      "text": "本組限定相鄰項乘同一個固定數，找的是比值，不是固定差。差值看起來大不等於知道倍數，應後一項除以前一項，再遍核。本組避免以前項零作分母。它不測投資預測或一般能力，只核給定數學條件下六個精確關係。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/1/title": {
+      "sourceHash": "275a4f1ca303203d2ccad326e5e4868ee2f4b958a1abec9dcdd7d8391eac9bb0",
+      "text": "核對一個新增長例子"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "71414c787f4b1ab942f0c01822635e7bab3c07b05a6f9d5459994e0a420ca824",
+      "text": "9、36、144、576、問號的比值均為4，下一項576×4=2304。差值27、108、432不斷變，複製末次差值不保持原關係。先核前面各次乘數，再算下一項，不能因為某選項熟悉或也是倍數就選它。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/2/title": {
+      "sourceHash": "895816492a5edfe6790d70bc778c6ae5446c88c9a65888f9a9d6a38451bbcd35",
+      "text": "負公比同時規定符號"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "f6c220ffa2b06dab57aafed8b32456330ad139a3c0c37f2f78bf6bd5ff1baa10",
+      "text": "8、−24、72、−216、問號每次乘−3，符號翻轉且絕對值三倍，下一項648。正3只對絕對值；單看交替符號也不夠，8、−16、48的比值並不相同。負號要隨倍數一起驗。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/3/title": {
+      "sourceHash": "7d2700c01cde0807df9b457fdb78e15590fac1b081650de32bbb8dd83f533334",
+      "text": "變小也能是乘法規律"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "e8ed46af6f54d9eda6044a3ec7fcae7de05d55f700f8edd763a157dc010eb4e5",
+      "text": "486、162、54、18、問號每次乘1/3，缺項6，除3是同一操作。變小不一定是減法。另例20、15、11.25、8.4375每次乘3/4；本版求精確值，不要求時不能中途舍入。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/4/title": {
+      "sourceHash": "776cce804e7b8dd0c58dfb54f07d5bbcf1c6c49c9dec950b6531946a88ccc1b1",
+      "text": "中間缺項要接上左右兩段"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "3c6e47fd783ba27fee994f5bbf759e587376e920d5d71fd28bb16bbaa7da3a34",
+      "text": "12、18、問號、40.5、60.75的公比1.5，缺項27；18×1.5=27且27×1.5=40.5。把18和40.5取算術平均用錯加法模型。直接乘法更易核清題定倍數及符號。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/5/title": {
+      "sourceHash": "bbb8bdd1bca45afdb2e96dca33d2877cc7eeffed5d8aacf92904cd10ef2ae0cc",
+      "text": "回顧具體哪步運算不合"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "7a47eab61e55eca1113f27d96d5218a8632ced27ee08312bf3b60274cc2e15a6",
+      "text": "答錯先逐對相除並保留負號，比較比值。公比對了再查乘法或定位。計算器能核算，不能替你決定模型。另換首項造短列，向前乘、向後除互驗，比反覆點熟悉選項更有資訊。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/6/title": {
+      "sourceHash": "8b5ec8fb2d2e6e819abdf4331e051ee5158cd9794b82344d558b291dd10c44d1",
+      "text": "限定題族不等於排除所有可想像公式"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "3ec2cec9bc1e7989dab02df0ce77d2c0095118545ba6a7e70083cf1e8ca871d7",
+      "text": "答案按固定乘數條件與四個顯示選項核查；撤去條件，有限數列仍可有其他延續公式。所以正確性依賴題定模型，不證明現實下一步必然如此。六題數不換算能力等級、百分位或認證，任何正確數均給題解；看後重做可能靠記憶。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/title": {
+      "sourceHash": "d80b517c84188a15b6218afd67bb08370e9c00899b5669ccf388821260c876c1",
+      "text": "變化差值"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/headline": {
+      "sourceHash": "002a83c383230e89493c3225ae832e2105510ad9b201c7e2614219419a7824ae",
+      "text": "先寫差值行，再補原數列。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/summary": {
+      "sourceHash": "eb9c71d3f35b46694fea86ce8833ba2dd641c220123cdf12e3dc6c50b11fa00e",
+      "text": "複習差值相加、差值倍增、帶符號變化與中間缺項；六題區域性正確數不代表IQ、排名或考試準備等級。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/scoreReading": {
+      "sourceHash": "cf005843051261f1075df7368cbc2d12b6e4c069ad1ca8f503cb8e74e5a24dd8",
+      "text": "六題各計一個正確答案，正確數只描述本版這一規則族，不校正速度、不換算IQ、不與他人比較。任何正確數都可讀全部題解與完整指南。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/seo/title": {
+      "sourceHash": "0fdbed20f7982efe81d529253509414c08f8bf155a9921c8a616dcad48d22ab3",
+      "text": "變化差值｜數列推理練習"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/seo/description": {
+      "sourceHash": "a789031f11b98518da1d21d54de983f0a1128c2b97efc90cf27bedf5e78cfa4b",
+      "text": "複習差值相加、差值倍增、帶符號變化與中間缺項；六題區域性正確數不代表IQ、排名或考試準備等級。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/0/title": {
+      "sourceHash": "967ae1921e222779293b03945741bb88b46023dc10cc67eb161c37cd366d8cb1",
+      "text": "規律可能在差值而非原項裡"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "4e24094f93b1bfac0642640e93daf35134e98279b9ec1f083b150676ec234069",
+      "text": "本組六題限定相鄰差值使用兩類之一：每次加固定非零數，或每次乘固定數。先寫差值行，再辨認。差值上的規則不能直接套到原項。本組練的是多一層關係，仍是限定模型，不聲稱任意有限數列只有一種數學續法。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/1/title": {
+      "sourceHash": "7bf745bf04b34af6217b402f4ccebae823bdf39dd53144b3c64e020434bd8202",
+      "text": "另算一次固定二階差"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "00277961c51c20c51132c892d13f0fe73332eb635a24344d2e021ca94c229673",
+      "text": "5、12、23、38、問號，差值7、11、15每次加4，下一差19，原項38+19=57。若答19，回答的是下一差而不是下一項。兩行分別標“原項”和“差值”，最後必須加回原列。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/2/title": {
+      "sourceHash": "a54b6c3555071fcaf6272907bc7b1d66a93f4ec0e6535f7f597cc1b1fe2069ab",
+      "text": "原項下降，差值也可能上升"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "7b5098881186b33bc7063f344b3acc716f3a114f8e01d38e0b219a0e8150a00f",
+      "text": "70、58、48、40、34、問號，帶符號差為−12、−10、−8、−6，每次加2，下一差−4，缺項30。差值上升說的是帶符號值，絕對值反而縮小。若用距離12、10、8、6，回原項時必須恢復減號，不能中途混用。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/3/title": {
+      "sourceHash": "3412b92996afa057da27d1ee30538f3e13c28bd5242d96d60032ce5d52adf67d",
+      "text": "倍數也可以作用在差值行"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "6c5c90bbfba69350b83d72f13e4f08a9fe463e3b062f9bf6bec90061a36a588d",
+      "text": "10、13、19、31、55、問號的差為3、6、12、24，下一差48，原項55+48=103。直接55翻倍得110，把規則放錯了行，且早先原項就不滿足。差值符號交替時可能是負倍數，但每個差都須核。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/4/title": {
+      "sourceHash": "6fae27e7981db3510c6086c04607e7015d53f21a7c4c3dc5a0f8059a4cdfe1b5",
+      "text": "中間缺項兩側差值一起重建"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "149b94907bd531e5a51912180bd0b2cd3fc0726cb7c73dbc8567ceb549c24263",
+      "text": "中間問號同時遮住左右兩個差。1、6、問號、28、45對應差5、9、13、17，缺項15，左右6+9=15、15+13=28。只看6到28的總跳躍會丟失兩個不同差；也可逐項代入四個選項，核完整差值行。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/5/title": {
+      "sourceHash": "e9bcc1cc9d8d78c4495adfdaaa569af545fa71c60a0a8d5daa72ca80c2b55870",
+      "text": "候選差值規律須多次成立"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "7b76ca16e34f394600717b2586bbf53bcdacdac76736f801af131dd02b399de4",
+      "text": "兩個差之間一次關係只能提出猜測，必須核全行。若增量不恆定、比值也不恆定，就不符合本題兩類規則。不能在問號附近臨時加例外來救答案。回顧後可換首項、保持差值重算，區分結構理解和記原數。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/6/title": {
+      "sourceHash": "9e0e53a84300aa6f944a8ec73cb5399870cdc7084992b092cda1bcb1c96a7d15",
+      "text": "變化差值不是現實預測工具"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "d067197fbfa3379ad56ff83a2a7b6bd691ad8b746e4605f738a8e2f1b76e6372",
+      "text": "這些是構造數列，不是實測時間序列，不能拿來預測價格、需求、健康或他人表現。正確數只核六個題定模型下選擇，沒有時間懲罰或常模，全部解析免費。算術影響觀察時可用紙筆計算器，比較自身練習可記錄輔助情況；後來答對更多也可能包含記住固定答案。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/title": {
+      "sourceHash": "9346369a882bae4ff9446b1b91c6c2bbe5f6d2681d3f3914d81aca3601d4a2b3",
+      "text": "交錯數列"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/headline": {
+      "sourceHash": "7c4ade581516f7a7fdc26ac2f8b93972b1675c9a41ce4db5fcc2e0acbbd8294e",
+      "text": "按位置拆支，再比較數值。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/summary": {
+      "sourceHash": "c12eaa3908d54041426b8e0aa748ce18bf2f776327e15fa3279b8db832e54f5d",
+      "text": "拆分奇偶等差支、定位缺項並核零公差；六道原創題給完整推導，不貼能力標籤。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/scoreReading": {
+      "sourceHash": "d1dd321b01931f61576f8ff397b4feb2acfc4f511b3fbc687b23162d165aaf12",
+      "text": "六題各計一個正確答案，正確數只描述本版這一規則族，不校正速度、不換算IQ、不與他人比較。任何正確數都可讀全部題解與完整指南。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/seo/title": {
+      "sourceHash": "99e1ac94f2d117adf501dc3fccdc663a6507ed476fdf1b97dd505675b4fea46a",
+      "text": "交錯數列｜數列推理練習"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/seo/description": {
+      "sourceHash": "27d58c01a000e46c288c823e107cc938ef4d4a1c1f6eecb5d0222a16bdf81969",
+      "text": "拆分奇偶等差支、定位缺項並核零公差；六道原創題給完整推導，不貼能力標籤。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/0/title": {
+      "sourceHash": "1bd93c9579cdb502d308e9132ec8b579f152315a08e46ac5d4641cf5e1b341e1",
+      "text": "一行數字可以交織兩支"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "83e204eb8209540c7f93f395542dd6fee03666ddbee9948330850ebbffdb83c5",
+      "text": "本組明示奇數位和偶數位各成等差數列，兩支起點、公差可不同，也允許零公差。先標一、二、三等位置，再把一三五七和二四六八各取出。所屬支看位置，不看數值本身奇偶、正負。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/1/title": {
+      "sourceHash": "48b587955b9fcea8edf28d60f6b1444d1bead4cb168442dd3eb821805803ea49",
+      "text": "另做一個雙支例子"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "f831b3180e2cf9fcf5c6638f8d69254a3e46d1dbecd944032a1ed295ff9a69e5",
+      "text": "5、44、12、38、19、32、問號、26中，奇數支5、12、19、問號每次加7，偶數支44、38、32、26每次減6，第七項26。此處與第八項相同，但來源不同；相鄰數值偶然相同不意味著兩支合併或整列恆定。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/2/title": {
+      "sourceHash": "f12dc6e27f87b295f41e71dff24bfa5f02bdb977f92d75e8daaebded69052b3d",
+      "text": "先確定問號歸哪支"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "7325cf5cf334db7175c2d66de2163c1b0b40b452b553a97ae9928cc72889868f",
+      "text": "一列已到第七項、要第八項，應續偶數支，而不是剛顯示的奇數項。2、60、7、52、12、44、17、問號，偶數支60、52、44、36，答案36。末個可見17屬另一支，可分兩行並保留原位置標籤，避免最後串支。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/3/title": {
+      "sourceHash": "aa8eb6cb8b747340c0dc4531884bb2ad598affba33e13b30777fc0e1cd8455e4",
+      "text": "支內缺項也要核兩側"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "56cd8ee2fcbae7f0faa756629406ec55d52e2387599e94c052517acf33ce8098",
+      "text": "11、−10、問號、−3、23、4、29、11中，偶數支每次加7；奇數支11、問號、23、29公差6，第三項17，11+6與17+6均成立。原列相鄰的−10和問號跨支，其差不用於本題公差。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/4/title": {
+      "sourceHash": "3a0cc864f80d751bba221d14f37371ac62f5f471f757ce04c3d927cc56cae8a9",
+      "text": "恆定一支允許零公差"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "cfed60206ee8fe6f8c0a1f3b86f9577d01862bd07c315dfe593489eadcaae2d7",
+      "text": "7、7、7的公差為零，仍是等差。7、−6、7、3、7、12、7、問號中，奇數支恆7，偶數支每次加9，缺項21。不能強迫兩支都增減；負起點也不要求負公差，須從該支自己的連續項求。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/5/title": {
+      "sourceHash": "4fcd2b41455fda945b427dcb795daabd2384cbcb4b706c95e14ca4f0c31d54d5",
+      "text": "核完兩支再交回原位置"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "ecfc0b64cd636ccbb90411867609688e912c47c86656e0994d826c85be415754",
+      "text": "兩支算完後按原位置交回整列，再讀一次，能發現支內算對卻填錯位置。錯因可分歸支、公差、符號或最終合併；另換兩個初值、保留兩公差，數值奇偶正負變化後仍應按位置拆解。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/6/title": {
+      "sourceHash": "fc03e726915e89729c4305132e1165d18eb1614a6de0575e0a784053df088828",
+      "text": "兩支結構是題定條件"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "0fe43dccd185f8d4a02575981e00c185c6e8e60e8742cc82a1ed330b0b4cedad",
+      "text": "交錯模型由題目給定，正確數不證明能在現實未知過程自行識別它。撤去條件，有限列可有其他公式。六題數不是百分位、臨床解釋、招聘判斷或校準後的空間、數值能力分；任何結果可讀全部題解，固定題庫看後重做也可能靠位置記憶。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/title": {
+      "sourceHash": "a06d1cc96bd2a30a996feca6fe780b7b63d464ac4eaf4beb5be39cc1184ce954",
+      "text": "遞推規則"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/headline": {
+      "sourceHash": "a6643cae5120630eb6abca7a73a7c9930795f09d457eef041901e6d27c0579f1",
+      "text": "分清前一項、前兩項與常數。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/summary": {
+      "sourceHash": "98a2242dadf290984346955cc3a18648605f086e2f8ccf04ca420f05441e64f4",
+      "text": "逐次核對有界二項遞推，辨認等價規則表達；六題練習答案不提供常模、IQ或招聘預測。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/scoreReading": {
+      "sourceHash": "59be8379ecdaf20c2dd301c450ab1363b94801eca95d6006e0ead9ea2fd59eff",
+      "text": "六題各計一個正確答案，正確數只描述本版這一規則族，不校正速度、不換算IQ、不與他人比較。任何正確數都可讀全部題解與完整指南。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/seo/title": {
+      "sourceHash": "c835339b5f9ad9fb211441e77a5483bc30c977e8c3af07ef9cbbe2d002caacaf",
+      "text": "遞推規則｜數列推理練習"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/seo/description": {
+      "sourceHash": "cc1b3052dfea60eeae1d395117c6813379afb0b7ab8da1336ab125865edd5794",
+      "text": "逐次核對有界二項遞推，辨認等價規則表達；六題練習答案不提供常模、IQ或招聘預測。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/0/title": {
+      "sourceHash": "cd51b29cc352da7082c5dcb6617799c5d19234f7f43c804b98ba6638b38b5255",
+      "text": "固定遞推式也需要起始值"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "418f5a80d95c0a54cb4645a0a8ed9b2da0463ecba65589ac3df1e005f357f5e5",
+      "text": "每題給前兩項，從第三項起限定為p×前項+q×前兩項+c；p、q為−2至3整數，c為−3至3整數。須整列使用同一係數，不能每次換。這些限制使候選族明確，而非無限尋找能套短字首的任意公式。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/1/title": {
+      "sourceHash": "42295a453762a80b70a126220f26cc960d598a33668289480c05e00663fa94f5",
+      "text": "按順序生成一個新例子"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "02520a26e9dd82648e7a95f7e2601574b363edff53b3e7993f23628314c42220",
+      "text": "從2和5開始，按前兩項和加2，第三項5+2+2=9，第四9+5+2=16，第五16+9+2=27，下一27+16+2=45。每次計算後要前移視窗，不能一直使用最初2與5。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/2/title": {
+      "sourceHash": "ba12e90a34bdeec61880510ed68a9275a11372790163e93311adca683094c435",
+      "text": "係數對應位置不能交換"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "5f3a16ed499e5fd1eb45107c2594800fbecee106926ee0a1cd952ec94d1ac250",
+      "text": "另從3、8起，按前項乘2減前兩項再加1，後續14、21、29、38。首步2×8−3+1=14；把位置交換會算2×3−8+1=−1。運算前把最近項放p旁、更早項放q旁。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/3/title": {
+      "sourceHash": "deea2b59aadcba461d477a5c53cf5459d687f22ffe3e4980d9eadbb073bdd9fd",
+      "text": "一次吻合不足以確認規則"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "3598c7b2538bbd6007029d9de5cb6c01689b6fcb7de56a9b1f4e0f86598593d7",
+      "text": "僅從前兩項到第三項的一次轉移，可能很多係數組合都吻合。必須核所有可見轉移，第三項對、第四項錯的規則要排除，即使它預測的數也在選項裡。答案核查列舉題定範圍全部係數，對每個補全列驗證；這核的是有限模型下選項，不是心理測量質量。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/4/title": {
+      "sourceHash": "d208f44f759e90a8331b538ac9e60cc19f6c329e986f14fa2c36dc413598da9a",
+      "text": "答案唯一不要求規則寫法唯一"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "b25ef89546b7afbeeb2ccf5e51afeee748426c3944169f5249c6859bccccd881",
+      "text": "有些列的不同係數表達在整列上等價。1、3、7、15、31、問號可按前項乘2加1得63，也可按前項乘3減前兩項乘2，仍得7、15、31、63，兩式均在範圍內。核查要求只有一個選項值成立，允許等價表達，不聲稱每列唯一確定係數三元組。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/5/title": {
+      "sourceHash": "e9123ea86e4e6a6564757b69f709c01efda830438f4cd0e9f6d70359fe0325a3",
+      "text": "先查運算再擴大猜測範圍"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "ff21392164b4e583bd432b9c140454ed262a53d5e6926e650bce005ccfc88809",
+      "text": "遞推不吻合，先查係數位置、正負、常數和視窗是否前移。常數每個新項只加一次，不是兩前項各加一次；再回查較早轉移，仍不合就排除，不造一次性例外。練習可換兩個初值、保留合法公式造新列，逐步解釋而非記字母。"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/6/title": {
+      "sourceHash": "2b0970bffae44fe67d99c5f34bd4208ab5df9ac56ed76aa5be99ef3f0c41b952",
+      "text": "有限規則練習不診斷一般推理能力"
+    },
+    "lib/questionnaires/data/number-series.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "88798ccd32fc57a5aa76c56e435a8acd815ffef50b4ef025b8dab1f601977e3c",
+      "text": "六題結果只記這些公開係數限制下選對多少，不估速度、不換算智力、百分位、招聘線或數學認證，也不證明現實過程遵循同一遞推。任何正確數均免費給答案、理由和指南，可用紙筆計算器。錯題用於核模型和運算，不固定判斷學習潛力。"
+    },
+    "lib/questionnaires/data/number-series.json/references/0/title": {
+      "sourceHash": "497b2189a89af2e5fb6dbd3d8459684ef9235c04c543fe1fe13e45e26b201cd3",
+      "text": "OpenStax：等差數列與固定差值"
+    },
+    "lib/questionnaires/data/number-series.json/references/1/title": {
+      "sourceHash": "8d1e8a20d8872ee178e9abe122a5a839620407deeaa4acefd5d873758ba6d88f",
+      "text": "OpenStax：等比數列與固定比值"
+    },
+    "lib/questionnaires/data/number-series.json/references/2/title": {
+      "sourceHash": "d790efb905c257e3f49283f2cfd3eb5e0863b7876df930cd237bb0982ab3a153",
+      "text": "OpenStax：數列通項與遞推表示"
+    },
+    "lib/questionnaires/data/number-series.json/guide/0/title": {
+      "sourceHash": "3469a5ae9741a8fcaebc1192902d56fd1c3cd4362207a6f1ee9163476946418b",
+      "text": "五組專題正確數，不分能力等級"
+    },
+    "lib/questionnaires/data/number-series.json/guide/0/paragraphs/0": {
+      "sourceHash": "a135fc74f52d2da487368b8efd520b5922365ce5f446e6ba07ede39160b6ca42",
+      "text": "每組六題，合計正確數/30，各題等權，不計時、不反向。缺失或無效選擇須先處理，不暗當錯題；零、部分、全部正確均給同一套完整題解與指南。五個公開專題是穩定複習頁，不是分數等級或診斷。"
+    },
+    "lib/questionnaires/data/number-series.json/guide/1/title": {
+      "sourceHash": "e733358f5fdd44f6808879ea10eafc14acf1e09571ff3bfd6759f00823be9cf5",
+      "text": "規則族是明示條件"
+    },
+    "lib/questionnaires/data/number-series.json/guide/1/paragraphs/0": {
+      "sourceHash": "e6148887546a9a22919e56ae329953fa568963d83676a4b155045faa7ff02cd3",
+      "text": "另例13、18、23、問號、33，在固定加數條件下缺項28；若撤去條件，可有其他公式擬合可見項而給不同缺項。每題明示題族以便檢驗四個選項。遞推題只用公開係數範圍，不在問號附近暗設例外。"
+    },
+    "lib/questionnaires/data/number-series.json/guide/2/title": {
+      "sourceHash": "7c0dd2379649597b559fd056955c7223b40a7375a6af166887240ac310af4044",
+      "text": "標清位置與中間行"
+    },
+    "lib/questionnaires/data/number-series.json/guide/2/paragraphs/0": {
+      "sourceHash": "6e38b3ada8a3322a7245ad958b7cea712e8bf10a27f55310ee454168b2da8c79",
+      "text": "數字上方標位置，需要時另寫差值行。交錯數列按奇偶位置拆支，遞推用最近一項或兩項。下一差不等於下一原項；另例6、10、18、34，差4、8、16翻倍，下一原項34+32=66，不是32。"
+    },
+    "lib/questionnaires/data/number-series.json/guide/3/title": {
+      "sourceHash": "5f3759cab4f938d6f49072eec8fb6e028fa4741d950a301786dad3d7937449ea",
+      "text": "答案核查建立什麼"
+    },
+    "lib/questionnaires/data/number-series.json/guide/3/paragraphs/0": {
+      "sourceHash": "82f01a04785a7871e08c823e4756070d000f91a669a3f9e4dc4ac985f1666193",
+      "text": "將120個選項逐個填回完整列，以精確運算核題定族；遞推允許多個匹配係數表達，只要都支援唯一提供值。核查不證明一般能力、公平性、信度或效度。參考頁解釋數學，不為本題測量質量背書，也未複製課本例題或第三方題庫。"
+    },
+    "lib/questionnaires/data/number-series.json/faq/0/question": {
+      "sourceHash": "3128b3fe2e5b2055ed331b178acc45e921e849d1a8c30bb99c61f00b24cea83d",
+      "text": "題目和題解全部免費嗎？"
+    },
+    "lib/questionnaires/data/number-series.json/faq/0/answer": {
+      "sourceHash": "2e952fad2ae82a2f2d576f7e14e7dac3a871519f7d315969f19ae56dee025b1b",
+      "text": "是。30題、選項、正確答案、理由和五份完整指南免費，無需賬戶、郵箱、付款或購買證書；開始前可讀公開指南。"
+    },
+    "lib/questionnaires/data/number-series.json/faq/1/question": {
+      "sourceHash": "dfbec95580a46e52d2f01f6aa6dd8997dcc29b4ed6fbbcc46eb663f9cbb6bed4",
+      "text": "有限數列可能有多種續法嗎？"
+    },
+    "lib/questionnaires/data/number-series.json/faq/1/answer": {
+      "sourceHash": "8087b40f12158a8ea696247ca077462e4aaa5d4e79a3fddba01b141c89b4e436",
+      "text": "可以，若不限定規則族就可能有多種。每題明示條件，只有一個提供值滿足；尤其遞推可能有等價表達，不聲稱全數學範圍唯一公式。"
+    },
+    "lib/questionnaires/data/number-series.json/faq/2/question": {
+      "sourceHash": "a6ff0bc0ec443c752b5443d0fc30c6fa19fd96cc1907559d412c2b5d122d7cca",
+      "text": "這是IQ或授權僱主測試嗎？"
+    },
+    "lib/questionnaires/data/number-series.json/faq/2/answer": {
+      "sourceHash": "529e59d8fb203b9da0413a3d1207b9a5adb661b24e6b11027984e454ac8f53f6",
+      "text": "不是。本版為獨立練習，不含授權供應商題目、常模、百分位、招聘線或認證；正確數不預測其他考試或診斷智力。"
+    },
+    "lib/questionnaires/data/number-series.json/faq/3/question": {
+      "sourceHash": "f077777e7ed7fb3032f62d5279ed35df2bc1492ec5db2359780e9bcea3142bfb",
+      "text": "計時嗎，可以用計算器嗎？"
+    },
+    "lib/questionnaires/data/number-series.json/faq/3/answer": {
+      "sourceHash": "0b205ece721e01fc43fc9af40c057aa795eebea15ddd78e1b428f6f52f82dad9",
+      "text": "不計時、不給速度分，可用紙筆計算器。十八分鐘是編輯估計，不是實測完成資料；小數按精確值，沒有要求舍入的題。"
+    },
+    "lib/questionnaires/data/number-series.json/faq/4/question": {
+      "sourceHash": "bd7ff03c0bd9769c5e3796cad1600d4e61139a5ec1952a217f2c9afc6bb4b424",
+      "text": "可以改答、儲存和重做嗎？"
+    },
+    "lib/questionnaires/data/number-series.json/faq/4/answer": {
+      "sourceHash": "457d7c6b29e9dea45b32d60706ddfd8a0a61f4bcbe65f8592e3411084f7f81f4",
+      "text": "可以返回前題，自願儲存最長24小時標籤頁草稿，或退出並清除；完成、重做會清草稿。未儲存時重新整理丟進度。看過答案後重做可能反映記憶。"
+    },
+    "lib/questionnaires/data/number-series.json/faq/5/question": {
+      "sourceHash": "40a017a02befb533c86d28968ee3ebf97247a5dbea4c3766522745eabfc563a9",
+      "text": "分享包含什麼？"
+    },
+    "lib/questionnaires/data/number-series.json/faq/5/answer": {
+      "sourceHash": "28f230eb081c893c9c0168e9691a6193ce8809c657ea6b9df1397e45e4e215f1",
+      "text": "只有公開測試標題和連結，共享URL不放選擇、正確數、答案鍵、草稿或私有標識，也不給用於分享的能力標籤。"
+    },
+    "lib/questionnaires/result-content/number-series.json/difference/0/title": {
+      "sourceHash": "6d3b50ff0a0343b83945713aaec13f735025c96c9b19d994646337cb65915604",
+      "text": "回顧：中間缺項要從兩側驗算"
+    },
+    "lib/questionnaires/result-content/number-series.json/difference/0/paragraphs/0": {
+      "sourceHash": "8be7071db9c1c9da16a95bef7673261433beb22f1c09105f658c8f8011fd1298",
+      "text": "新例限定為等差數列：−17，−10，□，4，11。已知相鄰差為7，缺項是−3；從左算−10+7，從右算4−7，得到同一數。若誤填3，左右差變成13和1，不能滿足原規則。把項的位置編號，列每一對相鄰差，不把項值的正負當作變化方向。若僅末項不同，先定位那一步，而不是因前兩步吻合就接受整條數列。這裡的結論依賴題目明示等差；少量數字本身不能證明任何未來過程必定繼續加7。"
+    },
+    "lib/questionnaires/result-content/number-series.json/difference/1/title": {
+      "sourceHash": "55bb0f5c5972a5a2c9b75992c3e9e42162a8beb383a713a91c5bb2132bba7a06",
+      "text": "一起找規則，也一起檢驗反例"
+    },
+    "lib/questionnaires/result-content/number-series.json/difference/1/paragraphs/0": {
+      "sourceHash": "5a549bf2945905a68b2f86035a451db08bdd00286dafc27794c3cfed3ab2c541",
+      "text": "可以問：“為什麼負數也能逐步增大？你從缺項左邊和右邊算出的值是否一致？”先各自寫規則與驗算，再交換過程並找第一處差異。可只讀、用計算器、查筆記或換一組數，不比賽速度。先確認使用同一條題設和規則範圍，再討論差異；不按正確數給朋友貼聰明、遲鈍或職業適合度標籤。"
+    },
+    "lib/questionnaires/result-content/number-series.json/difference/1/paragraphs/1": {
+      "sourceHash": "c1f2338d4c2d442cddf2606901711e1b0af7b93d9f4370811e30902b2b26813d",
+      "text": "分享按鈕複製不含答案及正確數的公開練習入口，也可自行分享本公開指南。五組是複習分類，不是智商、人格或常模排名；本題庫未完成心理測量驗證。30題固定，重做的提高可能來自記憶。要檢查理解，可換數後重新驗算全部已知項，並說清你的結論依賴哪個規則族。"
+    },
+    "lib/questionnaires/result-content/number-series.json/ratio/0/title": {
+      "sourceHash": "d4f77cb316baec268f7b6bbadaa900147a235f7910be794a1cc61c4c36b287e8",
+      "text": "回顧：負倍率要同時核符號和大小"
+    },
+    "lib/questionnaires/result-content/number-series.json/ratio/0/paragraphs/0": {
+      "sourceHash": "a230744d54f93a1b1ae1a5d9fa6e111f706c6dbe54f012ea69ba619236a06ccc",
+      "text": "新例限定為固定倍率：32，−16，8，−4，□。每一步乘−1/2，所以下項為2；相鄰商均為−0.5。填−2只保留大小減半，丟掉了符號翻轉。另列倍率+1/2的對照行32，16，8，4，2：末項同為2，卻不是同一條中間路徑。不要只用答案相同判斷推理相同；將候選倍率逐步代回所有已知項。若要用相鄰項作分母，先核它不為零，不能把零除零當作倍率證據。這個限定練習不推斷投資、人口或其他現實增長。"
+    },
+    "lib/questionnaires/result-content/number-series.json/ratio/1/title": {
+      "sourceHash": "ec5ca15b33d1b947c8350f7a96428ae7c746ee2e770375a605af9c5a286de8fd",
+      "text": "一起找規則，也一起檢驗反例"
+    },
+    "lib/questionnaires/result-content/number-series.json/ratio/1/paragraphs/0": {
+      "sourceHash": "7ac9a9a23f632bc6e4395d8b58835b0c315577abfa5ede1f353150369656c266",
+      "text": "可以問：“兩種倍率為何可能得到同一個末項？哪一個中間步驟最先區分它們？”先各自寫規則與驗算，再交換過程並找第一處差異。可只讀、用計算器、查筆記或換一組數，不比賽速度。先確認使用同一條題設和規則範圍，再討論差異；不按正確數給朋友貼聰明、遲鈍或職業適合度標籤。"
+    },
+    "lib/questionnaires/result-content/number-series.json/ratio/1/paragraphs/1": {
+      "sourceHash": "c245ffef0fd66fc41834e4c74e9b2d9c216f3fcec81bf76302762fcce11b4fa5",
+      "text": "分享按鈕複製不含答案及正確數的公開練習入口，也可自行分享本公開指南。五組是複習分類，不是智商、人格或常模排名；本題庫未完成心理測量驗證。30題固定，重做的提高可能來自記憶。要檢查理解，可換數後重新驗算全部已知項，並說清你的結論依賴哪個規則族。"
+    },
+    "lib/questionnaires/result-content/number-series.json/gaps/0/title": {
+      "sourceHash": "0bda52a3b3b09b228720e36eb839cdf340d90b8a53dc28be06685f19b116e2ef",
+      "text": "回顧：差值行和原數列不要混用"
+    },
+    "lib/questionnaires/result-content/number-series.json/gaps/0/paragraphs/0": {
+      "sourceHash": "ae319cfa692947b5ec9e456967d3f47d80aad036b182b37e02c45dcc1cd06847",
+      "text": "新例限定相鄰差值按非零固定增量變化：6，10，17，27，40，□。差值行是4，7，10，13，下一差為16；把16加回原末項40，得56。16是下一差，不是下一項；直接寫53則誤把上一差13再次使用。列兩行並對齊：每個差值放在它連線的兩項之間，再檢查差值行每次加3。對照差值按固定倍數變化的情況，要逐步驗算而非見到差值增大就認定加法。判斷始終受題目給定的差值規則族約束。"
+    },
+    "lib/questionnaires/result-content/number-series.json/gaps/1/title": {
+      "sourceHash": "8d3a979adbb6c6db379b1e47ed929c587ce339abe8ecceae813164717b5ac251",
+      "text": "一起找規則，也一起檢驗反例"
+    },
+    "lib/questionnaires/result-content/number-series.json/gaps/1/paragraphs/0": {
+      "sourceHash": "75cf04c1e42d85f414f9002c1615537692157dc98892f718c27689802ec55ce5",
+      "text": "可以問：“你算出的是下一差還是下一項？把候選項填回後，最後兩個差還滿足同一條規則嗎？”先各自寫規則與驗算，再交換過程並找第一處差異。可只讀、用計算器、查筆記或換一組數，不比賽速度。先確認使用同一條題設和規則範圍，再討論差異；不按正確數給朋友貼聰明、遲鈍或職業適合度標籤。"
+    },
+    "lib/questionnaires/result-content/number-series.json/gaps/1/paragraphs/1": {
+      "sourceHash": "35c1a68525919aa357385a3c98fe2cc759d1a8ddddb499fb20e7272bd2c4f343",
+      "text": "分享按鈕複製不含答案及正確數的公開練習入口，也可自行分享本公開指南。五組是複習分類，不是智商、人格或常模排名；本題庫未完成心理測量驗證。30題固定，重做的提高可能來自記憶。要檢查理解，可換數後重新驗算全部已知項，並說清你的結論依賴哪個規則族。"
+    },
+    "lib/questionnaires/result-content/number-series.json/interleave/0/title": {
+      "sourceHash": "95776e9dc2b772d4e70a210a8343189e4cc5a925292f01e37bb09d31606b27bb",
+      "text": "回顧：按位置拆分，不按數值奇偶拆分"
+    },
+    "lib/questionnaires/result-content/number-series.json/interleave/0/paragraphs/0": {
+      "sourceHash": "0067eb5a4d2b71f0416cbc2021036823504d5bf2ffe5ad8ba235cce7de92da41",
+      "text": "新例限定奇數位置、偶數位置各自等差：5，40，9，35，13，30，□，□。第1、3、5、7位組成5、9、13、17，每次加4；第2、4、6、8位組成40、35、30、25，每次減5，所以兩空依次為17、25。這裡“奇偶”修飾位置，第一支的數值恰好全是奇數並不是拆支理由。先寫位置1至8，再分支求解，最後按原位置交錯放回。只檢查一支不能證明整行滿足題設，分支中公差為零也應按常數支處理。"
+    },
+    "lib/questionnaires/result-content/number-series.json/interleave/1/title": {
+      "sourceHash": "a5767677cf747baf4417c269bdd57ab365759b2038a03c1de7fb94db29b10c9f",
+      "text": "一起找規則，也一起檢驗反例"
+    },
+    "lib/questionnaires/result-content/number-series.json/interleave/1/paragraphs/0": {
+      "sourceHash": "56c9dec94c7dc5ac8d0e94dadd903e42b7013fd5304b7aa97178b2522065de08",
+      "text": "可以問：“如果把第一項的數值換成偶數，分支位置會改變嗎？你是否核完了兩支再放回原位？”先各自寫規則與驗算，再交換過程並找第一處差異。可只讀、用計算器、查筆記或換一組數，不比賽速度。先確認使用同一條題設和規則範圍，再討論差異；不按正確數給朋友貼聰明、遲鈍或職業適合度標籤。"
+    },
+    "lib/questionnaires/result-content/number-series.json/interleave/1/paragraphs/1": {
+      "sourceHash": "7612ef46718d88dcd75f40fe8090b3c010dffb1c950a678ac6a0f5dcccbf7791",
+      "text": "分享按鈕複製不含答案及正確數的公開練習入口，也可自行分享本公開指南。五組是複習分類，不是智商、人格或常模排名；本題庫未完成心理測量驗證。30題固定，重做的提高可能來自記憶。要檢查理解，可換數後重新驗算全部已知項，並說清你的結論依賴哪個規則族。"
+    },
+    "lib/questionnaires/result-content/number-series.json/recurrence/0/title": {
+      "sourceHash": "981988efaec48f8b192a240b1dfe543e0e4653cb699ca10a3d517ee5f8052d89",
+      "text": "回顧：可相容的公式可以不止一條"
+    },
+    "lib/questionnaires/result-content/number-series.json/recurrence/0/paragraphs/0": {
+      "sourceHash": "3f14fef93faf3fe54355a319c848b9887e992c31f7c26879b181485172af3db0",
+      "text": "新例沿用本題組的範圍：從第三項起，新項=p×前一項+q×前兩項+c，p、q是−2至3的整數，c是−3至3的整數。對1，3，7，15，31，□，(p,q,c)=(1,2,2)、(2,0,1)及(3,−2,0)都符合已知步驟，且都給63。把每組係數從第三項一路代入，不能因為一組有效就說公式唯一；也不能因為公式不同就說下一值必不同。本例在所述範圍內只有這三組相容係數，它們給相同下項。範圍以外的公式不在本練習承諾之內，更不能據此聲稱有限資料在數學上只有一種延續。"
+    },
+    "lib/questionnaires/result-content/number-series.json/recurrence/1/title": {
+      "sourceHash": "1b4fda1aa3dcf1d92f3c01be1bb2beb837daea4b58f7faeffae1ee022999f346",
+      "text": "一起找規則，也一起檢驗反例"
+    },
+    "lib/questionnaires/result-content/number-series.json/recurrence/1/paragraphs/0": {
+      "sourceHash": "57c65f1c9021c8cd17ffb44b17f13bf4935072db8720f8d2cd1119b259607fbd",
+      "text": "可以問：“這些公式在哪裡不同，又為什麼在這行給出相同下一項？你比較的是公式數量還是候選數值數量？”先各自寫規則與驗算，再交換過程並找第一處差異。可只讀、用計算器、查筆記或換一組數，不比賽速度。先確認使用同一條題設和規則範圍，再討論差異；不按正確數給朋友貼聰明、遲鈍或職業適合度標籤。"
+    },
+    "lib/questionnaires/result-content/number-series.json/recurrence/1/paragraphs/1": {
+      "sourceHash": "8ab99da172cd0c010524419e7b40292768fa95aa3040f399bbade8855e64a19b",
+      "text": "分享按鈕複製不含答案及正確數的公開練習入口，也可自行分享本公開指南。五組是複習分類，不是智商、人格或常模排名；本題庫未完成心理測量驗證。30題固定，重做的提高可能來自記憶。要檢查理解，可換數後重新驗算全部已知項，並說清你的結論依賴哪個規則族。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/0/question": {
+      "sourceHash": "7c1ed74dca561ee968002c07317b0a3a46fa711d7cf092dd98f8062f4695d10b",
+      "text": "這與數值推理測試是同一範圍嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/0/answer": {
+      "sourceHash": "e16626747bdde05aad5e175ee883957f4f445ebdb4ddc6505ec5c66320df6c03",
+      "text": "本版專注給定規則族下的數列缺項，範圍更廣的數值推理還可包含算術、百分比、比例、表格與速率。名稱相近不代表題目、計分或常模等價。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/1/question": {
+      "sourceHash": "214ce96219a31f556912a34fe5e625787ff3e4e0d6f65a68a86c5bbd7d729391",
+      "text": "為什麼明示規則族，而不完全隱藏規律？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/1/answer": {
+      "sourceHash": "08e553e19a1080531624b4e79db2768ca027ad68d37d547fd699a0a0a9262f21",
+      "text": "這是為了讓正確性建立在明示數學模型上。短字首可以符合多種公式併產生不同續項，本題任務是按給定規則族檢驗選項。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/2/question": {
+      "sourceHash": "07a2618de64dc179b0de5ffdc56d48c5654bcd70a113c1bd7b12e1312d816940",
+      "text": "下一差值就是下一原項嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/2/answer": {
+      "sourceHash": "a40428042fd34cfe47382f08bff48f739409d98211de3960210b8498fe06dd08",
+      "text": "不是。得到下一差後，還要加回最後一個原項。原項與差值分行記錄，並確認題目要求哪一個量。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/3/question": {
+      "sourceHash": "4ab7a8238e5b4d039c395ab0d26ba8f07d18be8bdc8d4765f6a38b670e42b7e2",
+      "text": "交錯數列按數值奇偶分支嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/3/answer": {
+      "sourceHash": "257e53382a34d381157fdb84b526ec399724dc095fa76a12deecf4ad8ffb149f",
+      "text": "不是。按奇數位和偶數位拆分，不看數值奇偶；一支裡可以有正數、負數、奇數、偶數或重複值。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/4/question": {
+      "sourceHash": "0c0efef0fa1c55aca7628b7275c3b1368af744ff87f25b88a3479f04967b4828",
+      "text": "遞推必然只對應一組係數嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/4/answer": {
+      "sourceHash": "d75cdcacca0210e1a8e82b8abf3b9df2564723390385b9f70b1e64d887ef8cf3",
+      "text": "不一定。等價係數可能在顯示數列上全部吻合，本題核對的是隻有一個提供值符合給定範圍內至少一組合法係數。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/5/question": {
+      "sourceHash": "057efcf21f9081d32ce2eadb98c8f706f07fa2ea87c2aeda63511aa28612c524",
+      "text": "18 / 30是百分位或招聘分數嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/5/answer": {
+      "sourceHash": "5abbd29ab5b9aa02c2902f85951bc752ca22d2b6f126d529f053b875a89d3d3f",
+      "text": "它表示本題本選對18題，沒有參照人群常模、招聘閾值或標準分換算，也不預測另一項考試。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/6/question": {
+      "sourceHash": "8a1f713f939d6901d22fdf5cb249168d4b39646c6a55cb05d84aadd40b1af827",
+      "text": "重做會生成新題嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/6/answer": {
+      "sourceHash": "8456fe3535455f3b80ff00ac4df14b3b6cad9022e7d137327fefcd493c756881",
+      "text": "不會。本版固定30題，後來正確數提高可能包含記住答案。複習時應獨立解釋規則，並嘗試自行構造的新例。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/7/question": {
+      "sourceHash": "c348209f1054a450477964998e866b60a26f2a646a441bdf7694a206b4a2b3e6",
+      "text": "開始前必須先同意儲存嗎？"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesFaq/7/answer": {
+      "sourceHash": "0f087223f5d0d0aff7cf06ec8c3e3e901a3a65432e61dc7a03a489efb6a9ef39",
+      "text": "不需要。開始測試直接開啟第一題，之後可自願儲存；儲存被停用也不妨礙完成或閱讀全部解析。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/0/title": {
+      "sourceHash": "a7a3b04c20a9f45f87d9341a64492b926418c9e062d3d824620a298401727f9f",
+      "text": "數列推理練習：五類規則與完整推導"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/0/paragraphs/0": {
+      "sourceHash": "a562bc0dcfbf0084ab0efc978f87a6547528cd26097f722af66d98879bbe61bc",
+      "text": "數列推理測驗包含30道原創四選一題。固定差值、固定比值、變化差值、交錯等差支與有界二項遞推各六題。每題明示允許的規則族，要求補末項或中間項，任務是找出滿足這些條件的選項值。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/0/paragraphs/1": {
+      "sourceHash": "047efba2940666afb78dd75c936446f2f85138d9f160a03d889cfdeb7b7479b5",
+      "text": "完成後，每題均顯示所選、正確答案與完整解析，同時提供五組專題正確數和五份完整複習指南；答對多少都能免費閱讀。公開指南在開始前也可檢視，它們是數學專題，不是高低結果型別。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/1/title": {
+      "sourceHash": "9347d5277cd75649bbd7650c54f46eab5b88ba08b74e2e218ec6114999d7af2d",
+      "text": "不計時練習，可用紙筆或計算器"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/1/paragraphs/0": {
+      "sourceHash": "c379bde5ef1ce0ddafe15710f2d4fef9b815afd781d6b576bba2571d72eec094",
+      "text": "先讀規則條件，再計算。確認缺項位置，需要時標上項數，從四個答案中選擇一項。頁面沒有倒數計時，也不按速度調整；約18分鐘是編輯估計的閱讀與解題用時，不是實測資料。可用紙筆和計算器，沒有題目要求中途舍入。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/1/paragraphs/1": {
+      "sourceHash": "fa49cb8a42083397de62242e6bd049d5e81826583cb259d1f46237a8f08a30fd",
+      "text": "可以返回前題改答。全部30題有效作答後才顯示報告，未回答不會暗算成錯誤。重做使用固定題本，不生成另一套新題；看過答案後，後來正確數可能同時包含記憶與理解。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/2/title": {
+      "sourceHash": "8fdc2a45caabc46a3f36ff1be90a82b3208a831878440fe2d79d315c079a2bd5",
+      "text": "固定差值與比值：先分清運算"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/2/paragraphs/0": {
+      "sourceHash": "093778337a43f30bd99fdb25953e14fd85e70096c8ddd84825101d0b65ec75e0",
+      "text": "等差數列的相鄰項差值恆定。另例17、23、29、問號、41，固定差值為+6，缺項35；左右29+6=35、35+6=41都應成立。中間缺項遮住兩次轉移，跨過它的總變化不能直接當成一步。[1]"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/2/paragraphs/1": {
+      "sourceHash": "21acb17a183d0a37385a1eab4ad1e34e0d2a6934865cf765d71071c13eef8c7f",
+      "text": "等比數列使用固定乘數。另例5、−10、20、−40、問號，按乘−2得到下一項80。負號隨乘法一起變化，只看絕對值會漏掉規則的一部分。OpenStax區分固定差值與固定比值，並介紹通項和遞推形式；這些數學內容解釋模型，不為本題本的測量質量背書。[2]"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/3/title": {
+      "sourceHash": "ae6dcae4d467ca2ed0699586a617b8e082dadbbfc42672c1f446b213d718f31d",
+      "text": "變化差值：從差值行回到原項"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/3/paragraphs/0": {
+      "sourceHash": "8819ff019ceb6d406c88306863a53be2acf1e5b7ce4e218bcd3c93e46fb0921a",
+      "text": "另例2、6、13、23、問號，若差值每次增加同一個數，則差值行為4、7、10，下一差為13，下一原項為23+13=36。回答13是在答另一個問題，應將原項和差值分別標清。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/3/paragraphs/1": {
+      "sourceHash": "cd4ccf2005b64681319a8c2c086b66a2badeb05252d02ce78607fe158cb3ac6c",
+      "text": "本題本允許差值加固定非零數或乘固定數，候選規則必須適用於整條差值行。中間缺項會遮住兩個相鄰差，可將各選項逐一填回再核完整列。不能在問號附近加臨時例外，挽救前面已經不成立的規則。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/4/title": {
+      "sourceHash": "830bec25a2cb1f27ee15c1e06c73f83d4a356d4188a717be3c80f113cd71343c",
+      "text": "交錯數列：按位置拆分，不看數值奇偶"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/4/paragraphs/0": {
+      "sourceHash": "8df7ad7f6f9658a7e81a9388c8eb322cdfbb143e5429b3d1ac42cd1b43cf81b0",
+      "text": "另例3、40、8、37、13、34、問號，若奇偶位各成等差支，奇數位為3、8、13、問號，每次加5；偶數位為40、37、34，每次減3。問號是第七項，屬於第一支，等於18；數值本身奇偶與歸支無關。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/4/paragraphs/1": {
+      "sourceHash": "c430e0df9b458a76214b42082a7784588dff17bee05100dac33787aeaa251004",
+      "text": "兩支可以有不同首項和公差，包括零公差。計算後應按原位置放回並核對兩支，避免支內算對卻填錯位置，尤其要留意最後一個可見項是否屬於另一支。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/5/title": {
+      "sourceHash": "0a88813b9cc192925dbaafef520f9ec9316c20f66eebfcbae7ebb6465352e097",
+      "text": "有界遞推：所有轉移使用同一公式"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/5/paragraphs/0": {
+      "sourceHash": "5b32cd26e4c49d110efedd92d4df5b4363ddee3fd083d40564a91d71228d0c3a",
+      "text": "從第三項起，本題允許p×前項+q×前兩項+c，其中p、q為−2至3整數，c為−3至3整數，共6×6×7=252組係數三元組。一組係數須滿足所有相關轉移，每次計算後都要前移兩項視窗。遞推表示法說明項與前項之間的依賴關係。[3]"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/5/paragraphs/1": {
+      "sourceHash": "c0f2598d3dcecc91b196cbf3fb3c6004c12efcadae65a5bd826eedb3d6774ac9",
+      "text": "另例以前兩項和加2為規則，從4、7開始，後續為13、22、37，再到61；常數是每生成一項加一次。有時不同係數三元組會在整列上給出相同結果，本題要求只有一個提供的缺項值成立，不要求必然唯一確定係數組合。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/6/title": {
+      "sourceHash": "972bbd9f9912f89808bcd0f2428c5d6ff3bec34cd364aedae61519bb7fc358ab",
+      "text": "有限數列為什麼需要規則條件"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/6/paragraphs/0": {
+      "sourceHash": "c80fb8ec2f5daa70f1b9138a338bb48fcc141ea8d09fe776a5c9b7c20f2e1ccb",
+      "text": "有限字首2、5、8在a(n)=3n−1下接11；另一個公式a(n)=3n−1+(n−1)(n−2)(n−3)的前三項完全相同，但n=4時為17。兩者均符合字首。這一另構反例說明，短數字列表本身不能確定不受限制的唯一續法。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/6/paragraphs/1": {
+      "sourceHash": "8d9b2776e93e8369551c7c64479d78c300546fb0278cc84fb3e7c447cb1611e6",
+      "text": "本頁每題都先限定規則族。答案核查將四個選項分別代入完整列，以精確運算檢驗明示條件，核對的是有條件的答案。它不證明現實價格、需求或其他實測過程遵循同一公式，也不證明識別公式就是測得一般智力。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/7/title": {
+      "sourceHash": "79bd8924d4d29939540702a8a6e108063dedbe7195f17fd4920a9ed63f7129c7",
+      "text": "將正確數讀作固定題本的反饋"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/7/paragraphs/0": {
+      "sourceHash": "0e01ae2ddfabaf984a0ae9f77e15435ff0b0b048e36e4d3085c02e86cd240b8c",
+      "text": "每題選對記1，其餘有效選擇記0，不倒扣、不計部分分、不加權、不按速度調整。五組各0—6，合計為30題中的正確數。例如4、3、5、2、4合計18 / 30，不是百分位或常模化推理分數。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/7/paragraphs/1": {
+      "sourceHash": "af1719e0636a9efb3a503fcf417f2d2e2a0d6f0c1497dddd444fd676c321a415",
+      "text": "本版尚未建立信度、效度、代表性常模或跨語言校準。六題專題正確數不能認證強項或弱項，相同正確數也不證明潛在能力相同。應核對具體題目、解析和使用的輔助方式，不據此指定等級、招聘結論或學習潛力。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/8/title": {
+      "sourceHash": "67d16bca7bbac7c962fec4f029c473869d1c5bc18500fa41fbed22d8da81578d",
+      "text": "回顧具體錯因，再嘗試自行構造數列"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/8/paragraphs/0": {
+      "sourceHash": "eec79753596adffba11dbcd5b2999136e4ce2732f69419713ef52d0c9180ca53",
+      "text": "選一道錯題，分清是規則族、正負號、目標位置、差值與原項、歸支、遞推視窗還是算術出了問題。寫出候選操作並核所有相關轉移。換初值構造新例可以幫助檢查方法，避免只記答案字母，但不承諾提高另一項測評成績。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSections/8/paragraphs/1": {
+      "sourceHash": "df4b113278217ecf9a53607262c56ace9bcde18546ab8db32524055c8eee38dc",
+      "text": "點選開始直接進入第一題。答案和正確數在瀏覽器計算，不進入網址或使用事件載荷。開始後可自願儲存本標籤頁最長24小時草稿，完成、重做或退出清除時刪除；分享只複製公開標題與連結，不包含答案、正確數、答案鍵或草稿。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSummaries/difference": {
+      "sourceHash": "e4a1a2a495f7e3e81209eef94a55af5bb5134c45b4b92d5528cd9e37849af97b",
+      "text": "固定差值：核對符號、中間缺項兩側與轉移次數。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSummaries/ratio": {
+      "sourceHash": "d3b2f90b282d8150d948c31fea846596ae8fae7006bcbd636f7a4706337de8ee",
+      "text": "固定比值：保留符號與精確分數，逐次核同一乘數。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSummaries/gaps": {
+      "sourceHash": "7ca84c80d35c5745c2be930b4298c5f497e64cd27f91300751e5b264df74da11",
+      "text": "變化差值：先辨認差值行規則，再回到原項。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSummaries/interleave": {
+      "sourceHash": "e74878923185e77aa1c1fd76581c207b950ed078092a1cfafea3bf20b08a0f4b",
+      "text": "交錯數列：按位置拆支，並按原位置合併。"
+    },
+    "components/questionnaires/NumberSeriesLandingEditorial.ts/numberSeriesSummaries/recurrence": {
+      "sourceHash": "2f27d23b25cb4196783572f6f26d9f20f7b9ae796b68b1c022817eeffdade548",
+      "text": "有界遞推：前移兩項視窗，核對每次合法轉移。"
     }
   }
 }

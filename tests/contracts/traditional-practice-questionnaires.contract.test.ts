@@ -49,6 +49,7 @@ const editions = [
   ["personal-finance-literacy", 23, 3],
   ["problem-solving-critical-thinking", 30, 3],
   ["project-management", 30, 5],
+  ["number-series", 30, 5],
 ] as const;
 
 describe("Traditional practice editions", () => {

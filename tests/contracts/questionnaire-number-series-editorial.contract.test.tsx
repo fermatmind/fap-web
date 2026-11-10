@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import type { Questionnaire } from "@/lib/questionnaires/types";
+import { loadTraditionalPractice, traditionalNumberSeriesSummaries } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
 import data from "@/lib/questionnaires/data/number-series.json";
 import { NumberSeriesPage } from "@/components/questionnaires/NumberSeriesPage";
 import { numberSeriesSections, numberSeriesFaq, numberSeriesSummaries } from "@/components/questionnaires/NumberSeriesLandingEditorial";
@@ -24,6 +25,33 @@ describe("NumberSeries bounded practice methods and public reading", () => {
     expect(dom.querySelectorAll("[id^=number-series-reference-] a")).toHaveLength(3);
     expect(text).not.toContain(locale === "zh" ? "网站内容版本" : "Website content version");
   });
+  it("renders all Taiwan guides and resolves every citation on the number-series page", async () => {
+    const entry = await loadTraditionalPractice("number-series");
+    if (!entry) throw new Error("Missing Taiwan number-series practice");
+    const { quiz, sections, faq } = entry;
+    const dom = document.createElement("div");
+    dom.innerHTML = renderToStaticMarkup(<NumberSeriesPage quiz={quiz} locale="zh" traditional={{
+      sections, faq, summaries: traditionalNumberSeriesSummaries(),
+    }} />);
+    expect(dom.querySelector("h1")?.textContent).toBe("數列推理測驗");
+    expect(dom.querySelectorAll('[aria-labelledby="number-series-faq"] h3')).toHaveLength(14);
+    const startForm = dom.querySelector('form[action="/zh-TW/tests/explore/number-series/take"]');
+    expect(startForm?.querySelector('input[name="start"][value="1"]')).toBeTruthy();
+    for (const profile of data.profiles) {
+      expect(dom.querySelector(`a[href="/zh-TW/tests/explore/number-series/results/${profile.id}"]`)).not.toBeNull();
+    }
+    const citations = dom.querySelectorAll('a[href^="#number-series-reference-"]');
+    expect(citations.length).toBeGreaterThan(0);
+    for (const link of citations) expect(dom.querySelector(link.getAttribute("href")!)).not.toBeNull();
+    const sourceLinks = [...dom.querySelectorAll("[id^=number-series-reference-] a")].map(link => link.getAttribute("href"));
+    expect(sourceLinks).toEqual(data.references.map(item => item.url));
+    const tokens = (text: string) => text.match(/[0-9?+−×÷=]+/gu);
+    expect(quiz.questions.map(item => tokens(item.prompt.zh))).toEqual(data.questions.map(item => tokens(item.prompt.zh)));
+    expect(quiz.questions.map(item => item.options.map(option => tokens(option.label.zh)))).toEqual(
+      data.questions.map(item => item.options.map(option => tokens(option.label.zh))),
+    );
+  });
+
   it("binds explanations to five fixed practice topics without ability or norm claims", () => {
     expect(numberSeriesSections).toHaveLength(9); expect(numberSeriesFaq).toHaveLength(8);
     expect(Object.keys(numberSeriesSummaries)).toEqual(data.profiles.map(p => p.id));

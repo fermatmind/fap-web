@@ -1,7 +1,7 @@
 {
   "targetLocale": "zh-TW",
   "converter": "opencc-js@1.4.2:cn:twp",
-  "converterSourceHash": "a7f25b5d7fb2a41d6c2a44def3796868fd402d236c686b3b5fe7b0515962b91d",
+  "converterSourceHash": "55133647e2aa4a249bb67c9b1a4eeb648b54cd8bfda8627d8565f3115498f74b",
   "glossary": "fermatmind-tw-account-1",
   "sourceHashes": {
     "components/account/AccountCenter.tsx": "fe7b50295ca5da27f0d6b3be0b47e38aac70fe6efae07174e8eff63e571bad11",
@@ -9,743 +9,743 @@
   },
   "units": {
     " 项测评": {
-      "sourceHash": "93c83236d86db46ca1367d21e20d2fa76650483ddd2712c5a13bfb80012b0dcc",
+      "sourceHash": "74b9f893919e0676d44d2b2bf5732f4d565d68b4ea593b677f7dd7657a55ce42",
       "text": " 項測評"
     },
     "Google 尚未连接": {
-      "sourceHash": "e8e72930eaba7b262b856366bbe04a7bfd49117d1c7e7710adb2e7bbf176fe6d",
+      "sourceHash": "e12ac225a3cd700ee7af5f19408d49324d20efe12857579d85200513dee1d01e",
       "text": "Google 尚未連結"
     },
     "Google 已连接": {
-      "sourceHash": "d43cdaf09bc1626e7924b7411520b3a7fe70ede5063bc592fee8e9a38df6b590",
+      "sourceHash": "78357d9e79d27bbc2689666c056f554522bc13c3c43839bbaf627c5d543382e2",
       "text": "Google 已連結"
     },
     "Google 暂时无法加载。你可以使用邮箱登录。": {
-      "sourceHash": "3c07290724369c2c786f9d6f62525a0a6cffd585f14a88ca80e28f704eaa2cc9",
+      "sourceHash": "b8792df3706b27bfa08a518ccd3d4430ba0b9c2efb9293b11ebd6db85a3f2452",
       "text": "Google 暫時無法載入。你可以使用電子郵件地址登入。"
     },
     "MBTI 人格": {
-      "sourceHash": "c13688bc6ee635fd84742bf6130bc28c276841115db235c89546d4e214459f5a",
+      "sourceHash": "fd742e3c2c34ec292caaceab216709e09a29accb0897059e2189cf947d9b2f19",
       "text": "MBTI 人格"
     },
     "上一页": {
-      "sourceHash": "84263f76882b34530574514a6aca4bf99ab86739641a720587840965126689ae",
+      "sourceHash": "46c9565b616dab02f286dbd496736cf6d96ca68fbff3d79a42aa8b01a47aa902",
       "text": "上一頁"
     },
     "下一步": {
-      "sourceHash": "4f9843e9e8d2a556fcfa1f934903369715e47ce5eb9c6c31552319f53a371291",
+      "sourceHash": "c1351eb03665ff80d4c4c99dab3ceae8dad299ed21c82285d0f4f6641ab82175",
       "text": "下一步"
     },
     "下一页": {
-      "sourceHash": "16b1b4f4f385cf425e18874ab5ade6a66f870fb554c61f5e401b0ff50dd2548a",
+      "sourceHash": "6c761f1ae959f4951cdfba5985d7b7c99d2635934b4f1b1423249e2fe9d04729",
       "text": "下一頁"
     },
     "下一项：": {
-      "sourceHash": "35dd471662a82deae0de1b129f84bb43163ba0b081577a2f81611b4360248b16",
+      "sourceHash": "52c36b4660cd7fa83f5cd7315f2537450a41249863de33cf148d89eba6b6fb3a",
       "text": "下一項："
     },
     "下载 PDF": {
-      "sourceHash": "664bd8a3dc49b96a582c782f79eb7482755c5672f19f2381379cd563abe311ec",
+      "sourceHash": "2fd7c8dc83e08c5a42c4c06f6032ed9c12dafbb9cd907467355cd3f056273552",
       "text": "下載 PDF"
     },
     "个人空间": {
-      "sourceHash": "3c866853e5abaebdca328db428e7a0f227a39853f30757ba41e7361e7300f219",
+      "sourceHash": "b22aa79b699c8a4d2f851f4759bf418c7ca05a8187dc3b4e729d2b68e5b5e645",
       "text": "個人空間"
     },
     "个人资料": {
-      "sourceHash": "c4e907dea5ed8c37893fafb5cc7f2fa2f30e9bc8985e05fe1575a7eb572625aa",
+      "sourceHash": "89101bfe83fd7109f1ab744a9973798d74104e3651db542f06419d09fbf2ca2b",
       "text": "個人資料"
     },
     "九型": {
-      "sourceHash": "b5b0c6f46191b236a3b7e22cb8aadf80fe310873f18751529e4b7b7bacb3ef47",
+      "sourceHash": "9b11a978b64829ce50cd8cf061b71d81f499e2c6324777627db48db46489196f",
       "text": "九型"
     },
     "九型人格": {
-      "sourceHash": "e5778802eef7a4cd7e8c6f8bc9a1b5d0d75c22f348e660490751d985b6343ad1",
+      "sourceHash": "5cb6f650cb8269cd4dc2b8d0751c35146f612c9b1c6ac6c4cabdef5d18139a5d",
       "text": "九型人格"
     },
     "了解兴趣、人格与职业线索如何结合": {
-      "sourceHash": "e532ba3618ce9d5b598d5bce06230b2906e8d67dad4cb98e64f474afa788fec9",
+      "sourceHash": "ee64ba8acc93ee8dda760d6c650d72d8c06329ee49312724f23b442995de18d9",
       "text": "瞭解興趣、人格與職業線索如何結合"
     },
     "五个连续人格维度": {
-      "sourceHash": "4094123537edb8ab7184b48f1f3c43f17be4d1027b5c8e7c83421fabefd9c704",
+      "sourceHash": "1f0b4dd32f917d1bf5d0071e47d5833c65805ddf6bd0abc4dbe9ccbd05eed540",
       "text": "五個連續人格維度"
     },
     "人格 · 兴趣 · 能力": {
-      "sourceHash": "82a5a1c887fed1e5338d4768586a0686794cbbfc8a79b542c2f791497c5fcc89",
+      "sourceHash": "2b838efe6440647982e271597c8cdb183b0a145b2870ea10bd49fc5dcaebd5fd",
       "text": "人格 · 興趣 · 能力"
     },
     "仅在你本人请求此邮件时继续。验证后可登录账号，或完成你请求的结果与权益关联。": {
-      "sourceHash": "2ee556dc9cc4d5511525b7787c14cfff10fb6dee8623600fe7a16b8d6bd1aabb",
+      "sourceHash": "9744ade2cac66960237b517b565fb5f541ab5d0fab65ec48e8142cee114dc05f",
       "text": "僅在你本人請求此郵件時繼續。驗證後可登入帳號，或完成你請求的結果與權益連結。"
     },
     "从已保存的职业兴趣结果中，找出愿意尝试的任务与环境。": {
-      "sourceHash": "2e0b3ca258e13b776a82d664a227f663c73f58d8ea40b19c1591f10d8f05127a",
+      "sourceHash": "3644a99dde46a1695666ee3e7efcecb9639682d60a5274f667e7d4ec7d0cf014",
       "text": "從已儲存的職業興趣結果中，找出願意嘗試的任務與環境。"
     },
     "从结果出发，选择下一步": {
-      "sourceHash": "b5d985aa5113d72484b78fed959d6c878af7d40e6fa2ad2de2ade8bc63fd2254",
+      "sourceHash": "6c56d141be753236f159dd21637e2db4afd1a3aa04d769852516d4781239fb49",
       "text": "從結果出發，選擇下一步"
     },
     "从结果到行动": {
-      "sourceHash": "ccbba50f6e02e3c203aa536bd1423db2a1003f2843c9041cc340d64289d543c2",
+      "sourceHash": "2236195b8eaff144dcfc29000a85e575ffa052559b25ce674e0e80e4d13dca5d",
       "text": "從結果到行動"
     },
     "仪表板": {
-      "sourceHash": "b1ceaa92af936f415e47241abc51e0130e0c9d33805f8e97e3dc0abed3f58e65",
+      "sourceHash": "3f2655a67f4af14ea0c86acf1d583327dbe5e197ffa9c7afcf4d6555026a683f",
       "text": "儀表板"
     },
     "仪表板视图": {
-      "sourceHash": "b8a7a751ae1a32a08295efb0be4edc76e2c444600050042bb67e6b5902574e49",
+      "sourceHash": "ea0d6a0ff2ce1eff248aef2bed47dd8b1b239a2ddd9295f53cd6acce2186f463",
       "text": "儀表板檢視"
     },
     "会员状态：": {
-      "sourceHash": "25dcf983f54572d774ebf92b9fd38112e7623020f61cf47a47b3a2a69930f217",
+      "sourceHash": "1964d1976d22fa4b8e402ed4ba230761bf4bb0ddcf3e89d0aabccac746caa7c0",
       "text": "會員狀態："
     },
     "你好，": {
-      "sourceHash": "e1467807cdbbd32c926d95b41b622a98473322820fc4c8b7527dbc337dddd48f",
+      "sourceHash": "8f0893049fd27cf7949a76222cc36c7df4cb91ed349191a3e8856ce4d06a79b0",
       "text": "你好，"
     },
     "你的探索起点": {
-      "sourceHash": "a6411c57699d291709452fa6da17a61a3eceb75f2e6f528c298447d3edf78be8",
+      "sourceHash": "8140ae908cc6d8b671d0757899c007bf9fe715fdb55c8a0ac25b8397099923ca",
       "text": "你的探索起點"
     },
     "你的测评进度": {
-      "sourceHash": "6021e7c8fbc0182dfdbccf32cbfbce3d305153b05cef0f3167c7b06a23b721b1",
+      "sourceHash": "152fb5fc50e7f3161b0a1439f4df5f47e9a5108482e9f213edc128dcd96663a2",
       "text": "你的測評進度"
     },
     "你的结果，私密保存": {
-      "sourceHash": "56fa94a1cf86fd28b50c89ae8ac2a2dd944448f01ac975242490dc5e1207d6b0",
+      "sourceHash": "b95e4d09c54ca192a39055c8d19c9732da235a50f136b282101d51afa18364da",
       "text": "你的結果，私密儲存"
     },
     "使用原邮箱找回旧结果，或开始一项新的测评。": {
-      "sourceHash": "a681e4cddd93a4a18abcd9f35bad74b3e5ab1ebabc8ff00db15aa27418553571",
+      "sourceHash": "99792082b3fd2816cee0f89e0095a72cbeca1f04bff24b50ea3d1e7d387e8d19",
       "text": "使用原電子郵件地址找回舊結果，或開始一項新的測評。"
     },
     "保存资料": {
-      "sourceHash": "470ccb45eb1f935a6d3a2fc402335a93eff5a18c49389e2cad49b0728a216928",
+      "sourceHash": "caeeb10e6c740afd0144dd9e6d95b5e9fb4d0e146134e90fd3f2c3aa1989eeba",
       "text": "儲存資料"
     },
     "偏好与日常选择": {
-      "sourceHash": "6a5615351c994ddf450913b9b71b410f292b16096dd9d8dcc8f9cec524ba0498",
+      "sourceHash": "bb6811aa8089a0a2f822a52a9da5ba0c3ec2cd2f2cc9b3433bb8df47b6bff76c",
       "text": "偏好與日常選擇"
     },
     "做测评": {
-      "sourceHash": "2e27828551ccdb3b77dd940101c047e6abf99226c707c03fb063f6f7c20cbf81",
+      "sourceHash": "336d516d6819af9f6f445aa08ef2773312637f77f0dc0616366ce0c2adda7f2f",
       "text": "做測評"
     },
     "先了解兴趣，再探索真实工作": {
-      "sourceHash": "83407e49964e9ed7dedfc2b2a3133e4887cbb3322c053e6cf3ecbbd4a21d8441",
+      "sourceHash": "b51bf51abebca6bd930e956af853a6c82f636d2b1227fbe0e6f2ae49ad36f384",
       "text": "先了解興趣，再探索真實工作"
     },
     "先完成职业兴趣测评，获得六类工作兴趣的线索。": {
-      "sourceHash": "30a7055a7ca6916de7164781a27d5b12e8eb95f64ddcde906442067a9ea3b452",
+      "sourceHash": "b01469d8e007f4769c360aeb069efea7a9f2695dfc10d3a51904c7bd14be7fb1",
       "text": "先完成職業興趣測評，獲得六類工作興趣的線索。"
     },
     "全部报告": {
-      "sourceHash": "a0ce026bd0aeb3986955f2924bd206ee7a410a9a19b3f1cc0e6c05be50ccfa56",
+      "sourceHash": "386ac099dd9ee47a1510345a853f3724240c27430aa7e3eae9547e3ae9294b18",
       "text": "全部報告"
     },
     "全部测评": {
-      "sourceHash": "2c6058b425c099c3efc9c98d621bab741723285247a63be421625966ee47b11c",
+      "sourceHash": "451a7faaec3909509e5e7aaa3d7a4e6abea09aecf212cdf2931a3a97c635273e",
       "text": "全部測評"
     },
     "六项测评中已完成": {
-      "sourceHash": "89d905df4447e0cc749b656289667ba84bf0f8361baea544a3de33369b161b9a",
+      "sourceHash": "bddb563952db0821804e01fd84e4c2a52cf0f1bb725c7bf591029b1fec168aed",
       "text": "六項測評中已完成"
     },
     "关联已完成。": {
-      "sourceHash": "b9703323400e16c904f8dc793c219ac2138ee26b1614b063bf4b7fa0a5b74ff4",
+      "sourceHash": "af7a7346077582b11ba17a8696f5fa4c2b36da3792d7ad8f908b913591789621",
       "text": "連結已完成。"
     },
     "关联旧结果与已购权益": {
-      "sourceHash": "133246f9e1c1ba0e8f5a09d3cbcb8d87a2f0dae720ef4a7fde4d6c7147f61a65",
+      "sourceHash": "7e9a3c16bef73343dfdd40df77672bb2ae9d133c51d233eae4419939c8b1948d",
       "text": "連結舊結果與已購權益"
     },
     "兴趣与真实工作任务": {
-      "sourceHash": "c0e6efd6924e6a815d43024f75629166ea8b3f724e660c143179232e4d6d3e26",
+      "sourceHash": "1afacc6596a861f2c2ecbf04344396af0989463043be3f7a4aca1dcae04b8c3d",
       "text": "興趣與真實工作任務"
     },
     "动机与行为模式": {
-      "sourceHash": "ed6351f9890f49747383952b3b1b3dde98a0c20c25410acfcbf86a11f964c579",
+      "sourceHash": "0fc0a1a57024953baa4b188c81a6771f97770a33abd039c98b1b3fcb687ca148",
       "text": "動機與行為模式"
     },
     "原邮箱": {
-      "sourceHash": "ae574e1752d5984ef5464b9d1f9f49b9e83ae4bf076964dbc0560023c2d5c4ec",
+      "sourceHash": "1df3b02c6a51fbf4ec3e70b2e80231e2a91f609f8318c8985fa9146a139603fd",
       "text": "原電子郵件地址"
     },
     "发送关联验证邮件": {
-      "sourceHash": "e658081e44fc845405bc13a8e08acb5e0540ccfb16ba51a3ef96953e5289ff4a",
+      "sourceHash": "f0e283b84e46c1f1ae9da1eeafac0906177e6488bd000dab0f18d8444d934fce",
       "text": "傳送連結驗證郵件"
     },
     "发送验证邮件": {
-      "sourceHash": "6f010096955fa6edb55321fc5d2eb247be1d9926e9c9e3f5693159bce1ac27ed",
+      "sourceHash": "9a8af618d5717e1344d99db0e66b4d646bdda8da8b530b459e436b37d820bbf5",
       "text": "傳送驗證郵件"
     },
     "可阅读": {
-      "sourceHash": "db75437bfc40f8730a76cff5083bc0cc2657fb7480821dae8d1fa53d07eb12cd",
+      "sourceHash": "4de18e04d669aab02e5975578e52802f7ccf2b11ce5b6e074b1565b6ea134c1a",
       "text": "可閱讀"
     },
     "大五人格": {
-      "sourceHash": "55aaa512cb2798719c3393e46c0650fa8d9323140cad51eab4e61a88af7ed770",
+      "sourceHash": "0c822f9f937274ee0e0dad169159ca1a13a5fa0629d6f0a56be28b11f27a4dd3",
       "text": "大五人格"
     },
     "如需数据副本或删除账号，请通过现有帮助渠道提交请求。": {
-      "sourceHash": "87116af2189f4cfba4f818472f79cc41a6279f845003ef6d000f7d9d4ab9f3c1",
+      "sourceHash": "7eee40f30d262dc5d3de70b5258e18f82d265b1b8b9f7fe6c5b713da14e149ce",
       "text": "如需資料副本或刪除帳號，請透過現有幫助渠道提交請求。"
     },
     "姓名": {
-      "sourceHash": "43b13fc269f2c39c5b8e0078775e9755b0269822f7cb2e2d35d80f076cc01af6",
+      "sourceHash": "0b05c53d470d83f956364f2c5aaba60d45634ff67b6ee868c52a8f1e830d33b2",
       "text": "姓名"
     },
     "尚无结果": {
-      "sourceHash": "0f1393710de6498b7f42e3cf60a37ec00db34a2d1e6ba90a86407a837f3b9fd6",
+      "sourceHash": "5db7df1ba2b4fdd281ef63ac3700008088415b820583e4eab21c7f866ec8a62e",
       "text": "尚無結果"
     },
     "已保存结果": {
-      "sourceHash": "cdb2c396326bdb296ca5b94fb6b633a9b1d1668350b5c53dc29a84cdbe9e4161",
+      "sourceHash": "971cd739f7460d42b635a21f9e02c42302804041694bf08d185de191c7517102",
       "text": "已儲存結果"
     },
     "已取消": {
-      "sourceHash": "0abd96fe42cc159113fba2ab034ba8d3788eb6bf504d84842101ef0feafd431d",
+      "sourceHash": "25c2ae613756cdaadbe4eb7381545f66e0eb63b2e43a92c42e3946718148b683",
       "text": "已取消"
     },
     "已失效": {
-      "sourceHash": "82c44fb6e333c50ebca7aa263c0851aa23397b5fe98a4f64be7ff558e906a095",
+      "sourceHash": "5117de23aca539adf2973c310a407cee8d169931d1b832d681b127514df9d6ff",
       "text": "已失效"
     },
     "已完成": {
-      "sourceHash": "a7d2017d468e185707ab262a617aee5d638ae4240f236f12315426eb60c7f574",
+      "sourceHash": "f4983d5e96984b06d73a111e3dc2717a6c83feaeec236d8a9c32a7be11b57354",
       "text": "已完成"
     },
     "已完成 ": {
-      "sourceHash": "47457bb47b81e78deb8cbb2e956acf4cb0b9fd59b2bea5c31a8a314b16a88f6e",
+      "sourceHash": "7c068fce8094fce07dfc9e87f9e8bcf6354ad8c104f8472212276b004615177c",
       "text": "已完成 "
     },
     "已完成测评": {
-      "sourceHash": "5151ca0310e7568eaad77fc7d1dfe5dc66670da781be4be3d0db22ad44e9ff53",
+      "sourceHash": "d0b018377fb718706a2533a8250999b908494f41db95a7a9c4dbd27ea570cb22",
       "text": "已完成測評"
     },
     "已授权": {
-      "sourceHash": "4d4f1096a3667222a2e927ef4453e73fdd32b80223a14c716dbe73ee3be5cb12",
+      "sourceHash": "f7ec31d554203dd14ce63b13329a009e72f3449121db2c02500fc66d4a069532",
       "text": "已授權"
     },
     "已撤销授权": {
-      "sourceHash": "d54148c9fb5f79dd5a8483d75adfa9edc13ba8a62693540f8e5ee7cf9b599bd2",
+      "sourceHash": "0e324c7c5bd1ef606f5f6e4dcc5fe664a7fb933f6c477bad1686d112e774f52e",
       "text": "已撤銷授權"
     },
     "已支付": {
-      "sourceHash": "7af0ddc0700ec4c8acaf71e438bd6961fa425c1c70e50b15a2a98b2e63ba298d",
+      "sourceHash": "cefa57a5f7e686d1d1d7a802be11cd6e29a152dfed43e922bcdc0bb86080dd4c",
       "text": "已支付"
     },
     "已有结果": {
-      "sourceHash": "820bbdad2696897ec12516f28ee5acb1fa09534be68e8a37434ceec4a7c2dd78",
+      "sourceHash": "02971446d94ee5fc1ae0fda2f532968a504287d6b7141918db047947e4294389",
       "text": "已有結果"
     },
     "已有账号使用此邮箱，请先验证邮箱再关联 Google。": {
-      "sourceHash": "97365fed357247a6b99f19d5598b958cd8b5b9da86f3ce399f0eea708f43f1c6",
+      "sourceHash": "d95e923e53964ee18519830267d103de8d8ae49281f03f2c909ee65cb7ab786b",
       "text": "已有帳號使用此電子郵件地址，請先驗證電子郵件地址再連結 Google。"
     },
     "已退款": {
-      "sourceHash": "027447e66207169eb9e8347fba7f9900674183fc9f04e52cc72de1ddffb31e39",
+      "sourceHash": "4cfc3a15b7eadd9cdcd27fbb4ac314214ee8657a3aa0d3ea5cb80bed4ea3edad",
       "text": "已退款"
     },
     "带着结果里的线索，比较工作任务、环境和入门要求。": {
-      "sourceHash": "30b242beb7402eb3472d89375a80281de4c5561d00a17fa5ebde892ee1d1ec97",
+      "sourceHash": "19de00ed8cc098bd4479164f773ff2a86265dbd6bc76036376bccb4a3bf689d0",
       "text": "帶著結果裡的線索，比較工作任務、環境和入門要求。"
     },
     "帮助": {
-      "sourceHash": "ec5a3db4fddfeecf0d9d92ca5e4884edf34d26f5b67aa9bab050ccc2f23c963e",
+      "sourceHash": "e5d5c5966c8e23e6ed9c68090f6a56bc43134d08bcb09e035c7bfb1cc663c330",
       "text": "幫助"
     },
     "年卡": {
-      "sourceHash": "c473fab02cc6655890dd31361dd6c5df0d0a63d90357e71f85c9326331f43c46",
+      "sourceHash": "36a1fe36d80ad7e9f322581002eeae438fae90f436d66e344c3f6dbaa8fdb2c9",
       "text": "年卡"
     },
     "开始测评": {
-      "sourceHash": "69c3ed22479e00d965312c82eee0a3d42d697e906be5b410e90ed9b9dbd7c2d7",
+      "sourceHash": "9797300c1fb52db6c7735747670633e209fb9c449cba30efa52b499002a956cd",
       "text": "開始測評"
     },
     "开始职业兴趣测评": {
-      "sourceHash": "efb73728ff8fa5330a91722db6ac1594872e781a22606bffe092711ee2ed07bb",
+      "sourceHash": "86109fe43b7630cfd4ebcd02e2a850b7baade26eac7ef09a6d83e4ef818229db",
       "text": "開始職業興趣測評"
     },
     "当前账号暂无已关联订单。可验证购买邮箱恢复原订单与权益。": {
-      "sourceHash": "70f3c43db83884fff29bf78297baa9c986831049a17220586b1277cc23d01eaa",
+      "sourceHash": "b11a940d0d63df47f0229deb9a7cbeae0485e10560e9bf53ec7130d93779bac7",
       "text": "當前帳號暫無已連結訂單。可驗證購買電子郵件地址恢復原訂單與權益。"
     },
     "当前身份下还没有已保存的结果。完成一项测评，或通过原邮箱找回。": {
-      "sourceHash": "19b4dce8aeecfe8d336bd5e23d0bf5ba87b259637ad38c218014a7ec9bda8ed4",
+      "sourceHash": "c5d412682bee63600b9d0dc827084395ccf35707c9bac50066ed0722ce5a4c70",
       "text": "當前身分下還沒有已儲存的結果。完成一項測評，或透過原電子郵件地址找回。"
     },
     "待完成": {
-      "sourceHash": "b95cf9fd8d8b4d3f310133399af7dc165e737a7fd3e0efed3fe9941289d071bc",
+      "sourceHash": "f4778be5a0c3a58e065efce6571f546a7aad51f8b5c0843f131da3048d786025",
       "text": "待完成"
     },
     "待探索": {
-      "sourceHash": "3ae0589eceb46d9bec0559b8113dc7b9776f7a32c39319ae190f0d0fb437c95f",
+      "sourceHash": "bc89d008ddf8a13505404ef060cec92e0a1137cf621cbdf259ea414d33ba8bcb",
       "text": "待探索"
     },
     "总览": {
-      "sourceHash": "9e6322e2be133edc4f0bae724e2406a68847c5661ad2dcea7671f0e15279061b",
+      "sourceHash": "a92566fa9bb034ae69c05c664845163830fa7dc0727e1cf20f662a9c8942a2c2",
       "text": "總覽"
     },
     "情商测试": {
-      "sourceHash": "895b526cf2022f44f45041dba59db66572c6e7265b5b4d0a5b3cf63dfbe66cca",
+      "sourceHash": "884e531f7664abf605748168af86234c95116ec5b227fc25990bc3a3daec79ae",
       "text": "情緒智力測試"
     },
     "情绪能力自评": {
-      "sourceHash": "662157a7e927235f7440b928dcce8fbbde196334e93ad44afe39095a1509dc97",
+      "sourceHash": "bb9342d55757c6af586c628ac6de07dae8e765135516ce429cc71a7ca6db642b",
       "text": "情緒能力自評"
     },
     "我的": {
-      "sourceHash": "001e3618bbc04a091ab77229f1c3f99020bc3f2b1cef399de567df836a865dcc",
+      "sourceHash": "773b0b6916fcb3adeaa48aaa1425b06d7011524f6b5bcc7b16d15dce6a08aa17",
       "text": "我的"
     },
     "我的账户": {
-      "sourceHash": "9f2011796c1be5edb542e8e42606e553dcccf85365a34295d46850d24b6a0a76",
+      "sourceHash": "e328abceadd64ccfc78652314187dcef98aaef0932e919ce04b5dfe205b48d04",
       "text": "我的帳戶"
     },
     "或使用 Google 继续": {
-      "sourceHash": "9d83178cf6faa27518550de46c9c148095f38ac80765afdeaff31be0df3171b3",
+      "sourceHash": "49006f1af0f6a1252e6402c413e9832535193948fbbf3ee3790fd6fd6c48e448",
       "text": "或使用 Google 繼續"
     },
     "找回旧结果": {
-      "sourceHash": "25e84d1ce3e811cef2a109597830c6ca509284f9190f5fcc0fdd3b535130c245",
+      "sourceHash": "df7db394cbd53f5a52c5c965c87182ce903ed377a76155777c7720a5c8ac720e",
       "text": "找回舊結果"
     },
     "找回订单": {
-      "sourceHash": "2a55714311affa97d807c9798dcaff805abde6ba281147b1b8ba56bb73c506dd",
+      "sourceHash": "d5ab394b1943d76740bae2346882a5ec342a3332652609c9fadbbdf2ea7e540c",
       "text": "找回訂單"
     },
     "报告生成中": {
-      "sourceHash": "f16463b21d6ec686c5253e537628a3d9676ebfbf9cfa7583032bb2f2f28b5fdd",
+      "sourceHash": "91a0a0c78cf17867df0c1559795e0c932933d27e3282f82044310e39869b518b",
       "text": "報告生成中"
     },
     "授权失败": {
-      "sourceHash": "aca19d9faf0d8ed976867d27d604b17c44138a334e10621ce5a6497e9d84951b",
+      "sourceHash": "037881ec8c5938ab12737401fe4304b0051e0b900684a5f4b2617a74f4fcc646",
       "text": "授權失敗"
     },
     "支付失败": {
-      "sourceHash": "9a83cf0d6189783b20282a31d4335843c4c655b7a1b2de305e7b2cbcfb56e09e",
+      "sourceHash": "7b9741b12f6c5ff7bff93d28500b109a927e33773c1e6c86def6d1c0a789641e",
       "text": "支付失敗"
     },
     "数据与隐私": {
-      "sourceHash": "46e5a88d3c28ca3a153f03026d5030dd620d86af29ee62aba63ae76f4b61887f",
+      "sourceHash": "29e958667a7acbd54bce238105ef41fea6ce0d29285ce780e2b973a6a11076ba",
       "text": "資料與隱私"
     },
     "数据请求与帮助": {
-      "sourceHash": "d07809f428649552191bd848207f1bf239cbe44bba2a3cae9f740c510ad9d6c9",
+      "sourceHash": "969c2977fd355e2dba312120f831e5a9b953149cd90d032c536ff3e4416a1747",
       "text": "資料請求與幫助"
     },
     "方向 · 任务 · 路径": {
-      "sourceHash": "2441da7b344dc896f63260d0e410286a077c449fe9b45263295ce3e3eb20bce6",
+      "sourceHash": "8554c9ad88c3d55233409c01a4aa67aaae5f0ffbfd6c291421f97917f92ed04d",
       "text": "方向 · 任務 · 路徑"
     },
     "无需密码。首次验证邮箱后创建账号，登录链接15分钟内有效。": {
-      "sourceHash": "7c5b3a1fe1d4fc7843d8c6c6c6c28899886c956d266120b3a9457787f84dddc3",
+      "sourceHash": "61647daa74b927a8dc6b56bc51bc0929b634ba57e25ba533352eb52b922c4f08",
       "text": "無需密碼。首次驗證電子郵件地址後建立帳號，登入連結15分鐘內有效。"
     },
     "日期未返回": {
-      "sourceHash": "bc594d6aea16feefcf1a66468f7b47c715f16c1c61a4d99342affd276ef927a5",
+      "sourceHash": "847ee54a63082399327e832c4a4ed9692e5220ce1a9941da1bf120368fbe85f1",
       "text": "日期未返回"
     },
     "智商测试": {
-      "sourceHash": "90125c35811337acf5c919773eb64cda9c3374023942fadb944a3357a75699ba",
+      "sourceHash": "d1c77fd518520fe89d2e48157178eef37a786720f52be4d170bf42203f43228b",
       "text": "智商測試"
     },
     "暂不可用": {
-      "sourceHash": "2e3ab9ef6473e1585793114c9570c3e9b6bbafcba7f5a8fa2a8f349c241e5ed9",
+      "sourceHash": "f5fdf556dc34162c541c30432672122ee7d687a5ab3f0f15dcc35681e75f470e",
       "text": "暫不可用"
     },
     "暂时无法完成操作，请重试；也可以通过邮箱找回结果。": {
-      "sourceHash": "bf5c3cf6e3df2b40063e33e2d55e5723f24bd3c4d18ea4b44605d5960bf156c9",
+      "sourceHash": "88c8be7bc1d34ef3472d5d456dbf5b4d2e72dcb7c972073737b25c03186f3254",
       "text": "暫時無法完成操作，請重試；也可以透過電子郵件地址找回結果。"
     },
     "最近的结果": {
-      "sourceHash": "2f2ad77449b62d3c9a18a4ec002b58d33d8f9097f2d14d7ecdef3e1932ae3481",
+      "sourceHash": "ddd4b5bbfde85119e4a00aeab38ee6e7190b36c6cd6982606a546de88b86d129",
       "text": "最近的結果"
     },
     "有效期至": {
-      "sourceHash": "dbc6c665f8cb81c216971669535649abaf0e4c2086e9a306d091147dd4e08345",
+      "sourceHash": "19369a57c25596d101ebb8e265cdd73d43335669740277f78970541f8d78f047",
       "text": "有效期至"
     },
     "未开通": {
-      "sourceHash": "86b75b9608f07821ce9510b553d001b6d556eefcb3e858f85d34ee37e4850d4f",
+      "sourceHash": "49900b78a6828a8d75fd8f68cbda0053983e0679bde28bfd74241a66d8c4e667",
       "text": "未開通"
     },
     "未解锁 · 可预览": {
-      "sourceHash": "35b037c0021fa3ce187b1d3b8dab45d8934045f3d52d84308b948c7ffb39c300",
+      "sourceHash": "b729b46941db76ef1f515530aa22a20f7730c6ae940b16caeeb06cf7b2d28b80",
       "text": "未解鎖 · 可預覽"
     },
     "本地验收环境 · DEMO 演示资产 · 与生产数据隔离": {
-      "sourceHash": "c4874ae5f36e5111c76e59b0c38527501cc0f60a577732bd0dc7fff2eff9a341",
+      "sourceHash": "62a4c75e94fefd22fe5766d0e3e7156d3bd793ddf7af296967c74de567c4ebaf",
       "text": "本地驗收環境 · DEMO 演示資產 · 與生產資料隔離"
     },
     "查看全部结果": {
-      "sourceHash": "7e955c26bdb7d99ce1f4f55536bf7fb77efb849b3f8ec1dc41c4105fafbc559d",
+      "sourceHash": "878d96cc0bea9dfda9abaeac926befafd8ed2d4d6b885611701f490efcd5fc27",
       "text": "檢視全部結果"
     },
     "查看兴趣报告状态": {
-      "sourceHash": "ac7381169706762715c11c648dcc55bed7083de4833682a2135ee052558a6b1a",
+      "sourceHash": "77beb185612e9d104220d09ecd7baacc84eaf6308102179f436cb0c99f5550ac",
       "text": "檢視興趣報告狀態"
     },
     "查看已保存的结果，或继续一项新的测评。": {
-      "sourceHash": "fac7983589bacc80ee90091f41bc0e28f69d51404dfa11d321a9a18bf099baf4",
+      "sourceHash": "b0ffa2ba34da6441928c457938d9f9af2b6a1ec322603afe4d8a069ac7e3d627",
       "text": "檢視已儲存的結果，或繼續一項新的測評。"
     },
     "查看已提交测评的结果、报告和可用 PDF；每次记录分别保存。": {
-      "sourceHash": "bffa2573f448bdf273e7c3e07066d9855760594f4d01492e74ba06c842b76c4a",
+      "sourceHash": "c46ed0a6cb247784d952158e4f5acfc6dc6e2973ff0582939801e65a0e89fa81",
       "text": "檢視已提交測評的結果、報告和可用 PDF；每次記錄分別儲存。"
     },
     "查看已有结果": {
-      "sourceHash": "bfeb745630d0fc7caf8bb6a0e302b59ef09b51e89a3f62f3ee6fd89332bce351",
+      "sourceHash": "2ce5400e88678b6f2c82beb927a4a89e3367de3e7b510f4fcfbe46179353efb3",
       "text": "檢視已有結果"
     },
     "查看最近保存的结果": {
-      "sourceHash": "1bd2f172373818184dd56bd55d899365ba0ecb1f49d6a3770cbd159d5ad64cf8",
+      "sourceHash": "67dd6fe5dc8f8ec523dbdbe9f0c0b6b3a88088f9bfd20ee250ee3c763f165c1e",
       "text": "檢視最近儲存的結果"
     },
     "查看结果": {
-      "sourceHash": "d595cacfb634b0a6cef719bea41a5376fe4b056aff69b563e1ee3fec806bb5f7",
+      "sourceHash": "29ed788117b1ebd5fa543fa7939efbbe99b5fbc2f912adeb14cd1d6134522515",
       "text": "檢視結果"
     },
     "查看结果状态": {
-      "sourceHash": "58ade43cb2f0a64d787163be9baa98ef71f3cb7f232179a1d378b1f5fb1b0cbc",
+      "sourceHash": "2e6ab38b08b8ae85424aa468ce270eec77a1c28c150b48078963914b8b30b109",
       "text": "檢視結果狀態"
     },
     "查看职业指南": {
-      "sourceHash": "aa25b29f4cb38af64a30c7796ae933e109d11f9a36c58a6dde656775403b9cf5",
+      "sourceHash": "d42b294911ffe3b4e7ffbb4d8dad0fe723f65204726b9bf248e95beb184f713e",
       "text": "檢視職業指南"
     },
     "查看订单": {
-      "sourceHash": "9c1d991d602d78f0b375068328b5d78543f17eb374d99d0f82d828db5c2bc6f8",
+      "sourceHash": "78c94fce44320b2c474bdb7c899555c481b34838b656521fe2eb09f3a6f3f23c",
       "text": "檢視訂單"
     },
     "正在加载 Google 登录…": {
-      "sourceHash": "a40d2503dc281b4a8081cd35a370f8552a34604ba285c584ee3aa0f657b8639a",
+      "sourceHash": "6ffbd7bac00847c2f966cfe91237887caec607702380c6986f71b5f0904fd66d",
       "text": "正在載入 Google 登入…"
     },
     "正在加载账户…": {
-      "sourceHash": "8d4ee9bdcbbfdfb6e6d5c4b0734c7ddac639f5eeac38305337180e0ddbc06935",
+      "sourceHash": "330685dee96045cd75fd7a189dd9a6d32cca375407f4a3f8393c6e1ad2d1e9a4",
       "text": "正在載入帳戶…"
     },
     "正在读取已保存的结果…": {
-      "sourceHash": "c566e6a26dc2de1477b38cdf065ef1f66600741871c96f2357248c8801ffbbc8",
+      "sourceHash": "76f8ce42ebb94f464cea4b9ef48bda049e78ece0fb9d963225e17971caa57f51",
       "text": "正在讀取已儲存的結果…"
     },
     "正在读取报告…": {
-      "sourceHash": "358cede35e98cc7dd82e0ef16807d23481f1b7ba20118325f0fbfc2fdb7e60ee",
+      "sourceHash": "316d0880c207360e8b84bb17a598cc4dd07fc306e210a77846edd7810b27e1a7",
       "text": "正在讀取報告…"
     },
     "正在读取结果…": {
-      "sourceHash": "2d2a40d031e0dce89f54a4f08e6fd85cdbca8c8332394cb367680795ffedea95",
+      "sourceHash": "d250d5c3dd6c00d630e10fa50e942e0c07b0890aed2165a857017bc737066311",
       "text": "正在讀取結果…"
     },
     "正在读取订单…": {
-      "sourceHash": "264217f257af21be9285f18db7cdabb18f2dc0128b97f04b7901a9813d367609",
+      "sourceHash": "9040a80112f8b161b3a0b15a06f0375f19f1cad15be3a03ae3d166146f98556b",
       "text": "正在讀取訂單…"
     },
     "正在读取记录…": {
-      "sourceHash": "2603f2f038be82c779450d3c1386a10407b76d35d620263ec97d0ace4fbddb75",
+      "sourceHash": "e0daad32afb0c7825f764c3d9af3c36c4f1c5dbea19fe9b58cbaf0a0225238ac",
       "text": "正在讀取記錄…"
     },
     "此邮件链接已过期或已使用。请在账号设置中重新申请邮件，并打开最新邮件中的链接。": {
-      "sourceHash": "5c961c5e1f466ad1544b13dc8c9581904a5fc3794a22eacaad6acb2e3c377baa",
+      "sourceHash": "058707f6bd9958f92e8adc457a24bd7b0f9478ac0079a8fa15ae14244483a860",
       "text": "此郵件連結已過期或已使用。請在帳號設定中重新申請郵件，並開啟最新郵件中的連結。"
     },
     "比较真实工作": {
-      "sourceHash": "6962d2cdc800afff87867e99fd30dbe60373788da681c7b5c32dd64bd1d4ac34",
+      "sourceHash": "3b7c915a08bf2824af46db6ce35081b61c5d33e3d0f966ef61670dbf6f35b9be",
       "text": "比較真實工作"
     },
     "永久卡": {
-      "sourceHash": "b84b3a5eeabed450f6823553c23730aaabc21769f775f236b79adf7d0e8d600e",
+      "sourceHash": "38f1a4f43193f06bf9defc77559df4c4e954b6460c5ce4a6a1b79ca1f33b5610",
       "text": "永久卡"
     },
     "测评中心": {
-      "sourceHash": "792c90598e02d0d446eee4250220fa72750d30c62b024937c3c75f6b749e71dc",
+      "sourceHash": "f853c319b921f02e75c6fdd7a43fd277a15198b6c20f9237a10ce2010f2910c7",
       "text": "測評中心"
     },
     "测评提供探索线索。用工作任务与现实条件，判断一个方向是否值得继续。": {
-      "sourceHash": "0e3f91c25d5f6f28e45ef5739473b767cf7158d6e919aff4152d95578d68bcfe",
+      "sourceHash": "a71d672a7e7665dbad747f8fdd8c76e75b14c0f1223a1d21a4e3fbff42fac18f",
       "text": "測評提供探索線索。用工作任務與現實條件，判斷一個方向是否值得繼續。"
     },
     "测试环境：验证邮件已记录，未实际投递。请使用测试邮件中的链接验收。": {
-      "sourceHash": "2c4786bf3cb4e1a2034e8a8dad78106af0572d0de207109bd194a399fadcf92c",
+      "sourceHash": "d521e7dd5d408274ca1340d747122d86bf0fecfa863fc5ba91dfd789f6bd7275",
       "text": "測試環境：驗證郵件已記錄，未實際投遞。請使用測試郵件中的連結驗收。"
     },
     "浏览职业库": {
-      "sourceHash": "1a9e3c36150741e0732847eccea5e66451f224a4ec314a694098698360c7fa6c",
+      "sourceHash": "9854039fd9b6789184fa79b4aa12723abb091d9b3cea8f010021b08833c261d0",
       "text": "瀏覽職業庫"
     },
     "用实践验证方向": {
-      "sourceHash": "1b053e77a81fc6670c10d416a58eed6e865f66fb5cce48e87b9e38f1729474f9",
+      "sourceHash": "ea40533a60ab61cec3d2290ad4b4ccad7aa38c0ebce56d64d5400963148ae9c5",
       "text": "用實踐驗證方向"
     },
     "用测评结果探索职业": {
-      "sourceHash": "48374774a5f13d8b1f722460759fddb92387f54a6f52ddd68cb33dbb26a69bef",
+      "sourceHash": "777a1983fae94cad6d3a3849fde112b74f2b2e1bf181224e6b975f67478ecb61",
       "text": "用測評結果探索職業"
     },
     "用邮箱找回结果": {
-      "sourceHash": "7e6be0658935e70a6e8b574b034082d720db8957765ed34313bab050ceda9597",
+      "sourceHash": "adcb06bf38c8fe5e3fce755e65f7001c4b0e847a494b299dd10e4b1ee4873cdd",
       "text": "用電子郵件地址找回結果"
     },
     "用邮箱登录 / 注册": {
-      "sourceHash": "4b3c06e3d3985ccba3321161be9cedd84bb5a2bb5e7cd7ecd16cb52974d861ae",
+      "sourceHash": "3e796d03beec2886c43724fde5df32760784f3c005166e67aec50e37ff69fe7a",
       "text": "用電子郵件地址登入 / 註冊"
     },
     "登录后，在不同设备继续查看结果与已购报告。": {
-      "sourceHash": "95908d03ea2edf8a288a6d565063c8fd8d17b400b09ee288eba75346e370b18c",
+      "sourceHash": "257731cad260c3b3a29d8d44a062e158861856cd0ba3502fef89b4269400576b",
       "text": "登入後，在不同裝置繼續檢視結果與已購報告。"
     },
     "登录已过期，请重新登录。": {
-      "sourceHash": "bc952e4e5f3b44fcf017a80ae1b69fef04f42bd50bb9150ee04e2ad15db47b15",
+      "sourceHash": "7c9421d7425c67772ba7461314cac64b421009c0febb5ac0251fe163f27f16ca",
       "text": "登入已過期，請重新登入。"
     },
     "登录成功。": {
-      "sourceHash": "ac4b8a705731539f1aa401a8ee7e9f5f3c91b2aad1a5e74334c69636b7a63c42",
+      "sourceHash": "a99ebb347bc36314ed3f3f68a76625c75f03c0c02751dd4e2f64ac0c2ec267bd",
       "text": "登入成功。"
     },
     "登录成功，部分旧结果尚未关联。请在账号设置中验证原邮箱恢复。": {
-      "sourceHash": "9f7f54f69f44ec2d668d286d53f62e3398202c53bede53afdf35f393df0fc6fd",
+      "sourceHash": "bb6031d2fe8672e7c75e5b82b0f081f765c4ed828af427804a6de6f4519df728",
       "text": "登入成功，部分舊結果尚未連結。請在帳號設定中驗證原電子郵件地址恢復。"
     },
     "登录邮件已发送。请在收件箱或垃圾邮件中查收，打开链接后确认登录。": {
-      "sourceHash": "69c3910e585173d4abab9678be2b227c33032d1547d681aa62a69139c4ce9596",
+      "sourceHash": "fe344c831b021791d0be81c710af9512e2ce200e965c47e777490af79f3d1a12",
       "text": "登入郵件已傳送。請在收件匣或垃圾郵件中查收，開啟連結後確認登入。"
     },
     "登录邮件暂时无法发送，请稍后重试。": {
-      "sourceHash": "403cc3a88b09b567ba5008427abbc01e96168b36cc83d43ab6e42c3697c6c2bb",
+      "sourceHash": "480af4df05b21d64e773e71d0da86c8eb24529b0f585b2c28dfb441185f0cc28",
       "text": "登入郵件暫時無法傳送，請稍後重試。"
     },
     "登录，保存你的探索": {
-      "sourceHash": "29a3c48f7c167af8b48f831a5fcaed3a26213ad6d147eadfc8e75866a188940a",
+      "sourceHash": "14a25b6ae902647f0c951a33decfc1e156ccd598968ee7cd3a6e60babd998347",
       "text": "登入，儲存你的探索"
     },
     "看结果": {
-      "sourceHash": "ab2e8423282c8bf38f798e6620c9b8ef71fed2d823953f2aaeca0230a9b0c548",
+      "sourceHash": "945f1d891ef294b8ff01b4fba39aa3a97f9a9985ba9cfc3b71ff19622c8f7912",
       "text": "看結果"
     },
     "矩阵推理表现": {
-      "sourceHash": "552b6a65431f03349752cc29672fc57f4b26742a54d90dc746f97ad437d3afa4",
+      "sourceHash": "00b4901e6511ef9ee1f5ecf5b91f87be92c28ab149cfdc30cd8f64f9a2d6642e",
       "text": "矩陣推理表現"
     },
     "确认并继续": {
-      "sourceHash": "58b75e39ce12dcb4ed9725c8a6e2e258f04b5eb7b0367fb0addd56759a587f27",
+      "sourceHash": "8596a9be8c4d4a9ecd8365d1439b96ba1000e15124512b3622adf022c92c415e",
       "text": "確認並繼續"
     },
     "确认登录或关联账号": {
-      "sourceHash": "2e67f0d397adbbae929eaa4fab82697d0c5699a8c30118a3876659bed47f5206",
+      "sourceHash": "6e5bc8603899daa2b317e3c283e8af3a5c1a68b00c3706e9dbf396c1762c316d",
       "text": "確認登入或連結帳號"
     },
     "等待授权": {
-      "sourceHash": "cba91b8ea61e2dc46b9cfc7de87e50b8a42632ab4f848170ac47fb3c068d441e",
+      "sourceHash": "431f1b785938f816c0c38422a44d64cc0bcfceaf9dd2916f26803a848b3d5ea7",
       "text": "等待授權"
     },
     "筛选测评": {
-      "sourceHash": "33ac455a240c79dd811adfb4afa74d97ea473984122691548b80bba15e930a4d",
+      "sourceHash": "89d00a7fbed8deaa70b25029bb066885e71d6ee7d413f9947c2aed542c781bc7",
       "text": "篩選測評"
     },
     "简体中文": {
-      "sourceHash": "4eaeebd3d7db6abc4e813b26d7596eee433ef437db993e3eb005b4cdc5780740",
+      "sourceHash": "6c1d6bf30f7a27fef042020f4e7206fb0662ce944a345e7bb9dc84e799c55df5",
       "text": "簡體中文"
     },
     "繁體中文": {
-      "sourceHash": "329a25bf7032f13dce912dbe33f75396269bef79d2c62633d0620c0a05865a54",
+      "sourceHash": "4d1a2d483352ef99a44dcc748d13af95ce42d07eccac9beb784b0532228348d5",
       "text": "繁體中文"
     },
     "结果与报告": {
-      "sourceHash": "e775cf8ee6db4659f4194a03a80082efa6c1569397f42d260def2b4f9fc36abe",
+      "sourceHash": "cac83fd26d04d4177b6f35c90e03509d7843ba3bf2695c3102d4f73959ad8a0a",
       "text": "結果與報告"
     },
     "结果暂未读取成功，请先使用上方重试。": {
-      "sourceHash": "d650b9d8f50eb2835c5bf5fdb2e5a9061d4134fd599f5d27eb51e7a4fd3417c7",
+      "sourceHash": "90142539b0b847924f1baa0e4964c5b4757334899337c54d0ba510273e0ad637",
       "text": "結果暫未讀取成功，請先使用上方重試。"
     },
     "职业": {
-      "sourceHash": "0de0b806144b7cf8ae09c028f155174210d62eb46d2a359f361ce94f622d421a",
+      "sourceHash": "c566937a8ca4355c59406152bc0c0f62b17a3e57f55ec77b956c40bcb0d55fc8",
       "text": "職業"
     },
     "职业兴趣": {
-      "sourceHash": "0ef0a1b42c412368f7cfeeb69efa3be938af4ce87ce3ee6b1c0a643b3e853810",
+      "sourceHash": "e5c3bbc4faaa022eecf1da62519bc1a3f98ba81e758501ef14fb513bdefd07ae",
       "text": "職業興趣"
     },
     "职业探索": {
-      "sourceHash": "59d374da49a92d72921bef91e2e1be8f96e1a4f1de53b7c1d870c8a387c9c3e8",
+      "sourceHash": "99de6d7931b9cb67578a9c3695b57c32624f799dde17277315fd2d09d2989ade",
       "text": "職涯探索"
     },
     "订单与权益": {
-      "sourceHash": "aba5da7bda9f7948b745d63aecb04dacd1e57dc64897b7c65d23ed21b3101f9e",
+      "sourceHash": "afc293a32c6044d93b22bef76cec932f4f03e49b91d0f7b869b639055880fd9d",
       "text": "訂單與權益"
     },
     "认识自己": {
-      "sourceHash": "d559694afb4d38cc37dc3f9cd2aaf1aa36cbff17ece039f11482a352f80475cf",
+      "sourceHash": "7c2e4a7e91cfd81b5e6faf6bb51697e97328d323b596f231bf48cfed051309f1",
       "text": "認識自己"
     },
     "记录完成进度，各项测评独立解读。": {
-      "sourceHash": "9286b36532a9e0742b4cddf337a0c71a3ece2a5f24a5c17f7c36616f08350ec7",
+      "sourceHash": "bb991e6b92065d47230d8873b8a1f193bacdd8eadc63e495d09fc4958ef01073",
       "text": "記錄完成進度，各項測評獨立解讀。"
     },
     "记录暂不可用": {
-      "sourceHash": "6e3075f5668ca608b08ea89464ba50dd68576025662105b0db4f19f98ac9cbd9",
+      "sourceHash": "698fe768dc9322079647da66582541e45dec7ce28caaabe6bbbe8faf8da0b745",
       "text": "記錄暫不可用"
     },
     "访客": {
-      "sourceHash": "2549280d686615fb6523eaaefd3e8506d7d955301363f990c8f354b31bad76f3",
+      "sourceHash": "725042f34b1630308658a42873a58a49bf1178cf7bc43c42348e3dc6df54755f",
       "text": "訪客"
     },
     "该身份或结果已属于其他账号，未进行关联。": {
-      "sourceHash": "c5153c1508a2d78257a94e2537b88471d935ef42bb787fb56200963f21b802c5",
+      "sourceHash": "62406109b7388a9e4c26146111fc83d53df53bad95805e5b88b01219bf5c284a",
       "text": "該身分或結果已屬於其他帳號，未進行連結。"
     },
     "语言": {
-      "sourceHash": "b0ed2aa0a7bd3cd6029aba61e9cd2570433b8246b9d94ee1fcc585f6653e3aed",
+      "sourceHash": "3c0213bfd751b471a9b6cacc0761c7b55a248cfb729cde0c0083919d946e524b",
       "text": "語言"
     },
     "请求过于频繁，请稍后再试。": {
-      "sourceHash": "1776c2ab07d571a025ea01971631f3caf7a92ecb2bfb4444c9c8be6afb5691fc",
+      "sourceHash": "99743266b87fa37c2257cf0e67f5fd83bb3a5cd1a74478b3200044985ffc479d",
       "text": "請求過於頻繁，請稍後再試。"
     },
     "请稍候…": {
-      "sourceHash": "ae2f54e28d56fcf4b9dc44e7d92f68ed6fa158896ea5155f6283a07bab11a9f2",
+      "sourceHash": "702c909ac19f12b83aa3f29e41a3ddbdc6b62c302b94c3c1d6ab1828eeb46bd5",
       "text": "請稍候…"
     },
     "读懂职业兴趣": {
-      "sourceHash": "790d05ab83274feae1deb4ba49ced1af82e69feb4f15eb7258132b29d4bd87be",
+      "sourceHash": "3d5d9777811e5c2ef345687b0dcbbff742593e1d6c070f47639b00b8d4b6165d",
       "text": "讀懂職業興趣"
     },
     "账号导航": {
-      "sourceHash": "1acdcbcc2e327f120b094367b4d1eb72e96ab89cbd6a8a3fa277f3d91fbe7668",
+      "sourceHash": "75c798b39e93863109558aa45a71ddb0e6472307ad3997fb71cf43c14e3c22e0",
       "text": "帳號導航"
     },
     "账号底部导航": {
-      "sourceHash": "79ec4b5b51045263cf77602729d9d63c9c28a2926dc6c43ff90bf3fc1cb8d1a3",
+      "sourceHash": "d81c322810de89835fb1fa96896cae5e8c21cde0ded426fd084786020bc9150a",
       "text": "帳號底部導航"
     },
     "账号设置": {
-      "sourceHash": "24b504e2ae650987cbae88c8f92e0af351c3ab3d81e353daca23c60d394e726a",
+      "sourceHash": "f855e11e17cc221bcf7fdd31ceb95239ac68a5c8cce84f10a4017226321e98c6",
       "text": "帳號設定"
     },
     "费马测试": {
-      "sourceHash": "aafdc4f883fc0f885a71eb92d6dd22578f9426998f9210d04652adbe6ff0f5f8",
+      "sourceHash": "68c9aa14e816311a1e74e2831f57b2cf67d45f3bda27fd5fcfc6678e4e1c0fa2",
       "text": "費馬測試"
     },
     "资料已保存。": {
-      "sourceHash": "403bb947af4c6fa7b9a9adaff43933f4f1672b06b9ab310fcfb94a9bf4a18781",
+      "sourceHash": "62ac1fcabeacad2db313d8c7c22736a47a75e5d7d98537397aeb749dd381f940",
       "text": "資料已儲存。"
     },
     "输入保存结果或购买报告时使用的邮箱，验证后关联到当前账号。": {
-      "sourceHash": "f125f6a05fab95b18745521a70df919c17dd8cebcc91ed9c21b71e7a97da17e7",
+      "sourceHash": "7a2ba61844ad5578455990f4c0cc2ee438c4fdb6495bf17ab989bef836d9f30d",
       "text": "輸入儲存結果或購買報告時使用的電子郵件地址，驗證後連結到當前帳號。"
     },
     "还没有职业兴趣或 MBTI 结果。可以先做测评，也可以直接浏览职业库。": {
-      "sourceHash": "d5e89039b90c569bf4d7d7e05320387274fdc96fd8e76f9466ab9e356a1d094a",
+      "sourceHash": "bd55a242326896782bec6dfaf884791c81e753a2d04ea2b0433cbcf4621c9c06",
       "text": "還沒有職業興趣或 MBTI 結果。可以先做測評，也可以直接瀏覽職業庫。"
     },
     "这些是已保存的独立测评结果；职业方向还需要结合能力、经历和现实条件。": {
-      "sourceHash": "c123d363549949e1643157e2d94b736a348fef3ec710d3c147efc3c77606afe0",
+      "sourceHash": "fb73dafba256c2af40d993e201143de8ab87e2f90065703070a57ce33b216c4b",
       "text": "這些是已儲存的獨立測評結果；職業方向還需要結合能力、經歷和現實條件。"
     },
     "这里还没有报告": {
-      "sourceHash": "4eb0fdbbb56a1276cc5c2ed1b675b6b220c9f2017ea3816d9b8c02fe0d173176",
+      "sourceHash": "a8d6839849ead8936dc74be05480b58d32c0bc96d0f9e2bc5a4e0ad7dca60d1b",
       "text": "這裡還沒有報告"
     },
     "连接 Google 账号": {
-      "sourceHash": "889f63a222d81217d67bbc96d1c223a1f883218c2df871fe92ade3d823529891",
+      "sourceHash": "31f29e92f57b3ac381eff35fa1538e28a564aff0645a92e8d2fb19e81b26643c",
       "text": "連結 Google 帳號"
     },
     "退出登录": {
-      "sourceHash": "be79f7d17a8c29abd3ca02bde04106012802de48b158f1ae0b01bb1049344bf0",
+      "sourceHash": "c777a83a77ca9c95de5d3e27c2b7c3eac82b921bf35503bc3b2be8d7ad3a526d",
       "text": "登出"
     },
     "选择一个候选方向，通过小任务、访谈或项目检验想法。": {
-      "sourceHash": "4cb42279a3dd4786d07e41e9149e429e9ae9ce923f63fbbcb45882d578d871cd",
+      "sourceHash": "18203cae4663d873568c9db2b0163369c54149e6c0ecbe535b803b9bf05f4f09",
       "text": "選擇一個候選方向，透過小任務、訪談或專案檢驗想法。"
     },
     "选择一项测评": {
-      "sourceHash": "88bd3dae18127dc8acf00b1d82bf3f91e988f097de2f6a5c86888c4fee087463",
+      "sourceHash": "761fd20c95000bfdad70c20694b727ae025a21bf09d465930932c4af186bb771",
       "text": "選擇一項測評"
     },
     "选择想了解的方面。已有结果可以直接阅读，重测会保留原记录。": {
-      "sourceHash": "542d1d93567e403b5436b164f75912b1cc7564d45d68b24468ee49aa5b442216",
+      "sourceHash": "316a8d947c98f153e1518e513d4e777e1cd8776ef6f455d2062f8f6557fe2cfb",
       "text": "選擇想了解的方面。已有結果可以直接閱讀，重測會保留原記錄。"
     },
     "选择测评": {
-      "sourceHash": "f1921464b632be5d48ac318a49e3c56878383303219cd4527f53b871a84a9ee5",
+      "sourceHash": "055abab6e5cc394a0bd4be5ebd3787dd79584fea3777c404373fbcd2ff10f4dd",
       "text": "選擇測評"
     },
     "邮件链接不可用": {
-      "sourceHash": "422b205263d7ceae7303fab687cef9b1171e9a2417262f850dc2594944d2f78b",
+      "sourceHash": "dc213b2b6b6202a6896f07cb7a28d7f3a8f68cd02729c587a4e494e5f9f3a160",
       "text": "郵件連結不可用"
     },
     "邮箱": {
-      "sourceHash": "9b7d21d92c53a5bc8434cb58ac279089e5b5b2f32c9ae932a76728d27fa567f5",
+      "sourceHash": "1bb91f94972c1aeb38e213996ae5763703c222cf8bf0ec9555d2500facbda6ac",
       "text": "電子郵件地址"
     },
     "重新加载登录": {
-      "sourceHash": "37767236af11347c5f92fac847e46119a37f4bc134f31dacf9167c8d338ea9ca",
+      "sourceHash": "a55bebdd423452f99212fe29c08384acd16f1fe80a35728ff0db75d218b20294",
       "text": "重新載入登入"
     },
     "重新发送登录邮件": {
-      "sourceHash": "a6061ab874e82c8d009b978e31d8fe04e7264c4e55a9cf69c4dcd164fce408fa",
+      "sourceHash": "0ac19a230ffdf9b72f2f950e9d9b2f16f5d6f42299ecea5d60d460e3b32520d9",
       "text": "重新發送登入郵件"
     },
     "重新测评": {
-      "sourceHash": "932d22dd48ff74e57a4b925aca53d96a04b8bc394ec185fccc7b3f980dda721c",
+      "sourceHash": "600404e14af4f839a59f51e6dbdefbc1fb21bbaa88bb244272bed571a9b1f06b",
       "text": "重新測評"
     },
     "重新生成测试邮件": {
-      "sourceHash": "098ef93cb62d746f40d67d421348261b1e9cfa4bfd4ff44d1ea0356771a2e60b",
+      "sourceHash": "fae05d758cf841ca8dec5a052ad415c583b91315671e3d5f0d26b2add261bdbb",
       "text": "重新生成測試郵件"
     },
     "重新申请邮件链接": {
-      "sourceHash": "7c37c0fc9fb23e3ca37c05ea809d49af7bf02455aed809245124205fd7be70ee",
+      "sourceHash": "91baabe139939504d1888ab88094b2356eaf529b364d142f1c31dea204c13501",
       "text": "重新申請郵件連結"
     },
     "重试": {
-      "sourceHash": "c8e11a2acd215063b3b9b68dec4302cd582043d8118a0630faef13220d33e6e4",
+      "sourceHash": "da1677c684dd13e5982b34581a2566a3b93e20d455dc82f0f8e270566244d0e0",
       "text": "重試"
     },
     "阅读兴趣结果": {
-      "sourceHash": "6ed32fd5d686dd41af70b5d262a32c3d684f55ddafc484f0ff98cc2d561a413a",
+      "sourceHash": "879049cd839c6bad014c55e6f5175488623acc81960101778499d5ae4391b5b2",
       "text": "閱讀興趣結果"
     },
     "阅读结果": {
-      "sourceHash": "7f4b4442140ced1aadd1a24e940f3d7790ee2cf9fd7ecfd62fbb66b897dd05a2",
+      "sourceHash": "33bf371cd1fad46970bbb77ffc053cfd42e7f4d7030ffecc11641436ccf7bd26",
       "text": "閱讀結果"
     },
     "隐私": {
-      "sourceHash": "4d43b867b1bb290609760a3951f6ccea6f77c6fbb5b9115ce0da6dfa4b76b444",
+      "sourceHash": "c0f56ab865eb52994808cad276a178b48bc175d217371aaec8031dc1f789c797",
       "text": "隱私"
     },
     "隐私政策": {
-      "sourceHash": "2709749dbed554182b95ed8650d258ac75a91346e335d0e433893294facd61a0",
+      "sourceHash": "cfdb28d37a67e3ec671ac5b93c7e136a6c3e392162a478ace960812c4c505299",
       "text": "隱私政策"
     },
     "项；颜色只表示完成状态": {
-      "sourceHash": "5e48487457678d32f2b047d3c23d7cfaa93014c6271b1b2d775745cbe2d6da05",
+      "sourceHash": "eddfea135af430255849be754926e7ac56d10bb0d04d2aa7eb02e885e8836248",
       "text": "項；顏色只表示完成狀態"
     },
     "预览可用": {
-      "sourceHash": "a0870ec4a84e5f3ebfe98adefe023fd22c47347198bbf69a773d35ead2332344",
+      "sourceHash": "e8b150a18630640fc5a9252af2ad23ec2ab9ef56002f5feb10670d90bcd6a8e0",
       "text": "預覽可用"
     },
     "题": {
-      "sourceHash": "83842e1b7dd18ca0ef6fa93f93006fb6f986bbf7d07f8f80a192f71aaa300404",
+      "sourceHash": "72b2e144bbc5acd2a94807c9b4c0fcb4e4bb51ddf7a2db5f53e997dc8fb8b90c",
       "text": "題"
     },
     "验证邮件已发送": {
-      "sourceHash": "caee49a22b8e59306afe929650d706d13cf77776ec72dbf5366d65b006c3888a",
+      "sourceHash": "d019d5fa835edaf98cdd0c2279422eb32282ea6b03c16492c34ea5346c0d638c",
       "text": "驗證郵件已傳送"
     },
     "验证邮件已发送，请在15分钟内打开并确认关联。": {
-      "sourceHash": "eab4d54672267c808190cb1f812e0e0d97d8946a2a219f3ff9cdb2deb944a064",
+      "sourceHash": "8bf4e17c8bc4cbb8d977f33a4fed623ab78e02361a98fa98c916fa09250c9594",
       "text": "驗證郵件已傳送，請在15分鐘內開啟並確認連結。"
     },
     "（原報告語言）": {
-      "sourceHash": "82528db930eb1a9a1f28bd1e75b9fa7baf3e7d3f92e39249a1c12ea542dc7c08",
+      "sourceHash": "a4fa294f28e5a7cfef2c8a5f9d1210a60fe382b3ca14b61e9a9d304f32dbd577",
       "text": "（原報告語言）"
     }
   }
