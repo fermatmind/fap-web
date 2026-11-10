@@ -73,6 +73,7 @@ const editions = {
   "ikigai": ["ikigai", "Ikigai", "ikigaiLanding", "standalone"],
   "moral-dilemma-test": ["ethical-questions", "MoralDilemma", "moralDilemmaLanding", "standalone"],
   "delulu-test": ["delulu", "Delulu", "deluluLanding", "standalone"],
+  "cyberpunk-edgerunners": ["cyberpunk-edgerunners", "Edgerunners", "edgerunnersLanding", "standalone"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);

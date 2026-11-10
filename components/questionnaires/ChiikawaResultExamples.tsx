@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n/locales";
 import { scoreArchetypeQuestionnaire } from "@/lib/questionnaires/basicScoring";
 import type { Questionnaire } from "@/lib/questionnaires/types";
-import { QuestionnaireArchetypeReport } from "./QuestionnaireArchetypeReport";
+import { QuestionnaireArchetypeSample } from "./QuestionnaireArchetypeSample";
 
 // One option ID per published question, in order. Neither sheet is a real attempt.
 const answerSheets = ["AAADCBAAADCBAAADCB", "BCADDBAAADCABCCBAC"] as const;
@@ -22,12 +22,12 @@ export function ChiikawaResultExamples({ quiz, locale }: { quiz: Questionnaire; 
       <article className="space-y-3 rounded-xl border border-slate-200 bg-white p-4">
         <h3 className="text-lg font-semibold">{zh ? "单一匹配" : "One match"}</h3>
         <p>{zh ? `这位角色被选中 ${highest(single)} 次，次数最高，因此只显示一个匹配。` : `One character leads with ${highest(single)} selections, so the quiz shows a single match.`}</p>
-        <QuestionnaireArchetypeReport quiz={quiz} locale={locale} result={single} sampleId="chiikawa-sample-single" />
+        <QuestionnaireArchetypeSample quiz={quiz} locale={locale} result={single} sampleId="chiikawa-sample-single" />
       </article>
       <article className="space-y-3 rounded-xl border border-slate-200 bg-white p-4">
         <h3 className="text-lg font-semibold">{zh ? "最高并列" : "Tie for first"}</h3>
         <p>{zh ? `两位角色各被选中 ${highest(tie)} 次，同为最高。两项都保留，显示顺序不分主次。` : `Both characters tie for first with ${highest(tie)} selections each. Both matches are kept, and the order does not break the tie.`}</p>
-        <QuestionnaireArchetypeReport quiz={quiz} locale={locale} result={tie} sampleId="chiikawa-sample-tie" />
+        <QuestionnaireArchetypeSample quiz={quiz} locale={locale} result={tie} sampleId="chiikawa-sample-tie" />
       </article>
     </div>
   </section>;

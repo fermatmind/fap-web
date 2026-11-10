@@ -6,6 +6,8 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 import { scoreMentalAgeQuestionnaire } from "@/lib/questionnaires/mentalAge";
 import { QuestionnaireArchetypeReport } from "@/components/questionnaires/QuestionnaireArchetypeReport";
+import { ChiikawaResultExamples } from "@/components/questionnaires/ChiikawaResultExamples";
+import { EdgerunnersResultExamples } from "@/components/questionnaires/EdgerunnersResultExamples";
 import { QuestionnaireRunner } from "@/components/questionnaires/QuestionnaireRunner";
 import { MentalAgeClassicResult } from "@/components/questionnaires/MentalAgeClassicClient";
 import { MoonPhaseComparison } from "@/components/questionnaires/MoonPhaseComparison";
@@ -46,11 +48,11 @@ describe("public guide navigation from an in-memory result", () => {
       verifyGuides(rootFor(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} />)), locale, true);
     });
     it(`${locale} keeps entry samples and other character tests in the same tab`, () => {
-      for (const slug of ["chiikawa", "anime-character-archetype-test"]) {
-        const quiz = load(slug), result = scoreQuestionnaire(quiz, answersFor(quiz));
-        if (result.status !== "complete" || !("profileIds" in result)) throw new Error("Expected a complete result");
-        verifyGuides(rootFor(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} sampleId={slug === "chiikawa" ? "entry-sample" : undefined} />)), locale, false);
-      }
+      verifyGuides(rootFor(renderToStaticMarkup(<ChiikawaResultExamples quiz={load("chiikawa")} locale={locale} />)), locale, false);
+      verifyGuides(rootFor(renderToStaticMarkup(<EdgerunnersResultExamples quiz={load("cyberpunk-edgerunners")} locale={locale} />)), locale, false);
+      const quiz = load("anime-character-archetype-test"), result = scoreQuestionnaire(quiz, answersFor(quiz));
+      if (result.status !== "complete" || !("profileIds" in result)) throw new Error("Expected a complete result");
+      verifyGuides(rootFor(renderToStaticMarkup(<QuestionnaireArchetypeReport quiz={quiz} result={result} locale={locale} />)), locale, false);
     });
     it(`${locale} keeps public comparison pages in the same tab`, () => {
       verifyGuides(rootFor(renderToStaticMarkup(<MoonPhaseComparison locale={locale} />)), locale, false);

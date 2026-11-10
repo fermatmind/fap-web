@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
 import { auraColors } from "@/lib/questionnaires/auraColors";
+import { characterPortraitCard } from "./characterPortraitCard";
 import { auraColorCard } from "./auraColorCard";
 import { moonPhaseOpenGraphCard } from "@/lib/entertainment/moonPhaseCard";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -36,6 +37,7 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     if (slug === "space-marine-chapter") return spaceMarineChapterCard(quiz.profiles, "zh", await archetypeFont, result?.id, true);
     if (slug === "avatar-bender-quiz" || slug === "soldier-poet-king-quiz") return fantasyOpenGraphCard(quiz, "zh", result?.id, await archetypeFont, true);
+    if (slug === "cyberpunk-edgerunners" && result) return characterPortraitCard(slug, result.id, result.title.zh, quiz.title.zh, "zh-TW", await archetypeFont);
     if (slug === "moon-phase") return moonPhaseOpenGraphCard("zh", result?.id, await archetypeFont, await loadTraditionalAssessmentText());
     const aura = slug === "aura-color" && result ? auraColors[result.id] : undefined;
     if (aura && result) return auraColorCard("zh-TW", result.title.zh, aura, await archetypeFont);

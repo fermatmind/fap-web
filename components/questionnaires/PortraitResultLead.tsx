@@ -138,7 +138,7 @@ export function PortraitResultLead({ kind, quiz, profile, result, locale, titleI
 
   return <header className={styles.lead} data-portrait-lead={kind} data-portrait-key={profile.id} data-portrait-tone={edition.tone} data-portrait-layout={edition.layout} data-portrait-emblem={edition.emblem} data-portrait-art={artwork ? profile.id : undefined}>
     <div className={styles.intro}>
-      <p className={styles.eyebrow}>{copy(edition.label[locale])}</p>
+      <p className={styles.eyebrow}>{displayText && quiz.slug === "cyberpunk-edgerunners" ? "夜城人物檔案 · 日常取捨" : copy(edition.label[locale])}</p>
       <h3 id={titleId} className={styles.title}>{profile.title[locale]}</h3>
       {showsHeadline && <p className={styles.headline}>{profile.headline[locale]}</p>}
       <p className={styles.summary}>{profile.summary[locale]}</p>

@@ -81,6 +81,7 @@ const sources = {
   "ikigai": { name: "ikigai", load: () => import("@/lib/questionnaires/result-content/ikigai.json") },
   "moral-dilemma-test": { name: "ethical-questions", load: () => import("@/lib/questionnaires/result-content/ethical-questions.json") },
   "delulu-test": { name: "delulu", load: () => import("@/lib/questionnaires/result-content/delulu.json") },
+  "cyberpunk-edgerunners": { name: "cyberpunk-edgerunners", load: () => import("@/lib/questionnaires/result-content/cyberpunk-edgerunners.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

@@ -12,6 +12,7 @@ import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireCl
 import { SpiritAnimalPage } from "@/components/questionnaires/SpiritAnimalPage";
 import { MoonPhaseShareCard } from "@/components/questionnaires/MoonPhaseShareCard";
 import { moonPhaseDiagramNote, moonPhaseDisplayCopy, moonPhaseImage, moonPhasePresentation } from "@/lib/questionnaires/moonPhasePresentation";
+import { EdgerunnersPortrait } from "@/components/questionnaires/EdgerunnersPortrait";
 import { QuizResultArtwork } from "@/components/questionnaires/QuizResultArtwork";
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
@@ -67,7 +68,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
   if (!profile) {
-    const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" ? await loadTraditionalAssessmentText() : undefined;
+    const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" || slug === "cyberpunk-edgerunners" ? await loadTraditionalAssessmentText() : undefined;
     return <>
       {languages}
       {slug === "spirit-animal" ? <SpiritAnimalPage quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
@@ -96,6 +97,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
         <MoonPhaseShareCard ids={[result.id]} locale="zh" publicGuide />
       </TraditionalQuestionnaireCopy>
     </section>}
+    {slug === "cyberpunk-edgerunners" && <EdgerunnersPortrait id={result.id} className="mb-5 size-32 rounded-xl sm:size-44" />}
     {slug === "aura-color" && <div className="grid w-full max-w-56"><QuizResultArtwork slug={slug} id={result.id} /></div>}
     {hasFantasyArtwork(slug) && <FantasyPortrait slug={slug} id={result.id} name={result.title.zh} large />}
     <p className="text-sm leading-7">這份公開指南只提供閱讀參考，沒有任何人的作答紀錄。</p>

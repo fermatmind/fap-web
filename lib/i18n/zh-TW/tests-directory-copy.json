@@ -2114,11 +2114,11 @@
     "cyberpunk-edgerunners": {
       "title": {
         "sourceHash": "da578eccc79e2e142ed71a77d2dffb409b89a77a59ce17b2be413a26b98610b7",
-        "target": "《賽博朋克：邊緣行者》角色測驗"
+        "target": "《電馭叛客：邊緣行者》角色測驗"
       },
       "description": {
         "sourceHash": "e3b494c8137a11d9ac5067997206119f3d8f1f6ee2b00064585348902e14d118",
-        "target": "你更像大衛、露西還是麗貝卡？用日常選擇比較初代動畫七位角色，檢視全部最高並列。"
+        "target": "你更像大衛、露西還是蕾貝卡？用日常選擇比較初代動畫七位角色，保留所有並列最高的角色。"
       }
     },
     "caliper-style-assessment-test": {

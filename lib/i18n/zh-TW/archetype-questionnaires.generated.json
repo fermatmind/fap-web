@@ -139,6 +139,8 @@
     "lib/questionnaires/result-content/ethical-questions.json": "862d9dfc1b7892fdeee79aa1d8d443d61c4e86fd3d3041a169053737b3bb8bd9",
     "lib/questionnaires/data/delulu-test.json": "9940ad5f99ee9234d67c2699033d837eb9673114aa418a765e71b717d5d21530",
     "lib/questionnaires/result-content/delulu.json": "8658055031e809bb6fe0ddb8d4c98c41c6379dd6bfc5d0de778058b7049f8661",
+    "lib/questionnaires/data/cyberpunk-edgerunners.json": "03da2bf8a2c7045c4611dd333f09b5a85e8c2ad241d3fa537abba2c2cc0d19ea",
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json": "bbdd2a7afa50ee7964504a364853cb9c891a270656df16b71406815cc276a05c",
     "lib/questionnaires/data/avatar-bender-quiz.json": "19c04bffd881ba87641c361e20e6eb89b8b2e5964e9b61be9bc5eb49392641e7",
     "lib/questionnaires/data/soldier-poet-king-quiz.json": "c4439225f375032ab1eef4ff2097e1ac790d4bf3a0107d791e338074261c4dd0",
     "components/questionnaires/MythicalCreatureLandingEditorial.ts": "59766ced578c069dbaa98779e96b39aa4cfd02f9e9194785a9bedbc0f948e664",
@@ -201,7 +203,8 @@
     "components/questionnaires/ThinkingApproachLandingEditorial.ts": "62ca7fc6b2677b9034d426457f8557b7826bb704068180c7636643901369b08e",
     "components/questionnaires/IkigaiLandingEditorial.ts": "8d48c89ddd62e912c52b89ae1db8ac94c809d79956c7d274c2ff8753179a7fd4",
     "components/questionnaires/MoralDilemmaLandingEditorial.ts": "e7d38ab6e0c7c1e1aac68175b0c951a9fe19c9f877c2b3fe3c03b62d6578fb0c",
-    "components/questionnaires/DeluluLandingEditorial.ts": "046fc67c097171aa47e3d855c6c3307ab249abe59b704eed72556e9d7af22406"
+    "components/questionnaires/DeluluLandingEditorial.ts": "046fc67c097171aa47e3d855c6c3307ab249abe59b704eed72556e9d7af22406",
+    "components/questionnaires/EdgerunnersLandingEditorial.ts": "44c69c9e76fc0a9da27195108838da5224119601793bc24de6aaf20edd51cd98"
   },
   "units": {
     "lib/questionnaires/data/mythical-creature.json/title": {
@@ -90488,6 +90491,1482 @@
       "sourceHash": "bdd0fbdde1119abc7dd7d333c2ae3a9da7118a56c959d65ddad7960857ffc880",
       "text": "可分享這份公開說明，連結不含答案或計數。六個名字只對應本版趣味句子，不評現實判斷、信念、健康或未來；不拿delulu評價真人，也不據此解釋他人意圖、關係或同意。對方可以不接受名稱、不回答或結束。"
     },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/title": {
+      "sourceHash": "38bd5a03991bc23f04ca875618a3dc89d1cf556e18a8cadfd4063344247f26b0",
+      "text": "《電馭叛客：邊緣行者》角色測驗"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/description": {
+      "sourceHash": "d1b48f365116438b4d2114660f7e1563cb2722c384bd53ca9d17b7336a68a7fc",
+      "text": "測你更像哪位《電馭叛客：邊緣行者》角色。完成21道情境選擇，在大衛、露西、蕾貝卡等七位初代動畫角色中找出匹配結果。免費，免註冊。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/seoTitle": {
+      "sourceHash": "b9df77e3a9c7af87bc09e6b18e7070e5a8ab5e4426ecb802878e03405bc5964a",
+      "text": "《電馭叛客：邊緣行者》角色測驗｜你更像誰？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/resultHeading": {
+      "sourceHash": "37df3ce597dc85ea810880914d3dfaeb5865413f539d2944db5452f957257a95",
+      "text": "與你本次選擇相呼應的角色"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/introduction": {
+      "sourceHash": "ca135e3b3695cb3715367dbfc344b753c06d34f13362d0990b67accebd1888fb",
+      "text": "想知道你是《電馭叛客：邊緣行者》裡的哪個角色？這份角色性格測驗比較日常選擇，不考劇情知識。\n\n從普通選擇對照大衛、露西、蕾貝卡、魅音、琦薇、法爾科和法拉第的七個有限同人角度：首次嘗試、自主目標、直接支援、小組協調、資訊核對、可用交接與明確條件。本頁是原創非官方問卷，不是劇情知識問答或心理評估；開測前即可閱讀每篇人物指南。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/instructions": {
+      "sourceHash": "714bf480071efed6d04ac88a0d933b6597b45210c39e971ff739909f3d210a92",
+      "text": "按目前更想採用的回應，完成21道普通設想情境。無需實際做任何行動，沒有對錯，也不用找最漂亮的選項。每次為一位角色記1次，無反向、無加權；每位出現12次，四位置各3次，每對角色共同出現6次。全卷完成後顯示七項次數，所有最高匹配逐份顯示全文。次數不是相似度百分比、能力、道德價值或臨床分。重新整理答題頁或切換語言後需重新作答；分享可選，只含名字與公開連結，不含答卷或次數。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/references/0/title": {
+      "sourceHash": "7e6658be881004d3b66eb4a825cac63fa82ee0218b197e0bd78cafe3cdf634f4",
+      "text": "《電馭叛客：邊緣行者》官方角色與作品介紹"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/references/1/title": {
+      "sourceHash": "1617adef80e6f06668a7cea886b5435bda62ad47ad7123b3e49cacc58dcce50f",
+      "text": "官方簡體中文角色譯名與初代作品介紹"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/references/2/title": {
+      "sourceHash": "ee92633deccf7061e0ea5c2f0e44e0529c0d27a2660265cb3deada66bd391b1c",
+      "text": "《電馭叛客：邊緣行者》臺灣官方作品介紹"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/references/3/title": {
+      "sourceHash": "ac09b73bef69276a38a46869fce27833c9c818efe01db231e5039d4ac04796fe",
+      "text": "TRIGGER：初代作品製作與角色表"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/references/4/title": {
+      "sourceHash": "c45252e6b02335d796096dc3664b11eb9a1842688191ac908777a5a18ea10317",
+      "text": "維基百科角色表：琦薇與法爾科身份的輔助參考"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/0/title": {
+      "sourceHash": "618902230173234b86ba587e6f4a22c8d091598eb4ec8253ef87bc1b6d5fced1",
+      "text": "大衛（David）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/1/title": {
+      "sourceHash": "401585fda73e81f07e4dc0aa8cd881e2871092f4d0d3d87737e4f4e321a24a49",
+      "text": "露西（Lucy）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/2/title": {
+      "sourceHash": "c30cf530d64b849502dc4e6b192540d849d8f1b2b9a87d391052ad5acde3f60a",
+      "text": "蕾貝卡（Rebecca）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/3/title": {
+      "sourceHash": "bfafc03c059e85446f7de2f9d16fefe2a278efd151a686ae999f1ede6a28f82c",
+      "text": "魅音（Maine）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/4/title": {
+      "sourceHash": "43d5d014ae26f38c2035670141f7c7a9577d0566748c5b6e82c4099b5042212f",
+      "text": "琦薇（Kiwi）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/5/title": {
+      "sourceHash": "f736812aad53eae80c16c36d6f7cea43b3a0f3674552fb962de2808e737c8ddb",
+      "text": "法爾科（Falco）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/directions/6/title": {
+      "sourceHash": "bf030eb419c462889a6d8da1aaf786e157734f10d6e8b5f49983bab6127af305",
+      "text": "法拉第（Faraday）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/0/prompt": {
+      "sourceHash": "70a43416a6be44e9516429f92fa917b463f2ac65554379dc5ceb6c1ed10e8b34",
+      "text": "幾個人有一下午空閒，想試一件沒做過的小事。你願意怎樣開場？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/0/options/0/label": {
+      "sourceHash": "e7ec238dcda650e4437d77f19c86168786d10f23f5d29d6450de1a9c8ac09115",
+      "text": "先試一個能掌握的小部分，看看嘗試帶來什麼變化。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/0/options/1/label": {
+      "sourceHash": "a678e4b4028d91c0fc72e9494cb64e220c62d15e52e07b16161a88b069ade610",
+      "text": "給自己參加的理由留點空間，不必一開始全盤說明。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/0/options/2/label": {
+      "sourceHash": "0acffaefcdbbbd6436e39a3f495e782d2904c997b88591522097bd1d456875a8",
+      "text": "直接告訴一個人：很高興這次能和你一起做。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/0/options/3/label": {
+      "sourceHash": "084d24222ef6a497d17701a481e84c2a0341dfa0f58ba8205f5b6a745478fffa",
+      "text": "先核對大家確實知道什麼，不把猜測當作共同事實。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/1/prompt": {
+      "sourceHash": "e4dfdee86703a422baa1deeba6117381926e35ae46e01f2d9f59aff889bbf856",
+      "text": "朋友正在挑一個公共見面地點，你想先補充什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/1/options/0/label": {
+      "sourceHash": "63e9badf38f31d426ccd3f201ab2eac200fa5a207a309f7a7c23ecc8b9be1298",
+      "text": "說清讓自己能安心參加的地點或時間邊界。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/1/options/1/label": {
+      "sourceHash": "25a77bbdeaaf71f6d3f542d6cea7e7abbc4d54d9f56d137e72144cf01a6ed4c7",
+      "text": "清楚說出喜歡哪個提議，也說出想邀請誰。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/1/options/2/label": {
+      "sourceHash": "6a3746553ac8d53e9c483c0e6791e3dba2e3ef9e67223074b500431d975896c0",
+      "text": "讓參加的人知道這次安排由誰怎樣協調。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/1/options/3/label": {
+      "sourceHash": "175d9181c975d98a47888b19c32b24dec510e136100d313c036ea127f673879f",
+      "text": "檢視正常回程路線，約好聚會何時結束。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/2/prompt": {
+      "sourceHash": "9598eddd2d8e3c411d5927b3841604579801d52ace533801b59fe07c45218aed",
+      "text": "兩份共同文件寫了不同的截止時間，你會先做什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/2/options/0/label": {
+      "sourceHash": "32a6f18e6bb6e1493fb808cfd7d87752d3742e40b6052a7d52108b8cd10f31c0",
+      "text": "用一條簡明訊息把差異直接告訴相關的人。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/2/options/1/label": {
+      "sourceHash": "fd6b9bf746e57cf56519dd040208b5ca19b203bb42d219d2a770df38f5f3560a",
+      "text": "把受影響的夥伴召集起來，約定這次怎樣修正。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/2/options/2/label": {
+      "sourceHash": "95e963d55539a46efd06df289f819677601b08796776800da912a884a25f8bc9",
+      "text": "先追溯兩個日期各出自哪一版，再決定傳哪條。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/2/options/3/label": {
+      "sourceHash": "07ab750ada7a724ae859f6f08188b86e74b6fb867ecdf6f81fa1b9d18ca66b4c",
+      "text": "說清每個日期分別意味著要交付或交換什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/3/prompt": {
+      "sourceHash": "943333b45faf1bc9e60d8ac4a9dc7f61d60f5ef45ea45a6080313be60545fea6",
+      "text": "一個小專案的協調人今天不在，你更願意先接哪一部分？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/3/options/0/label": {
+      "sourceHash": "1fd2f9e5c2f5a9117884ee79a27cee3ff59c11acbe15a515230b897a5c1b8b0f",
+      "text": "給小組一個共同聯絡點，幫大家分配眼前的工作。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/3/options/1/label": {
+      "sourceHash": "ac531b1da846e67446661d9571b9f2d78755e6b20fa56899ba5e3367db714058",
+      "text": "把已經確認的指示和仍要等回覆的細節分開。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/3/options/2/label": {
+      "sourceHash": "b15247a334fcfa6b21e12da35625ced0a59a3ab18df23c3cb6ae48dfb3617978",
+      "text": "把當前交接說清楚，讓下一位不用猜也能繼續。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/3/options/3/label": {
+      "sourceHash": "bf5cfdd866c2f1a4e1b6d16b2964e931595f57cff6bdcf4ccfc3fe956b76da28",
+      "text": "挑一件不用等對方拍板、可以先邁一步的小事。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/4/prompt": {
+      "sourceHash": "345d289520d3345e22bf7708b754ad9c6c54c36497dacf1cf01a56696cc18f9b",
+      "text": "一位熟人想要一份含有他人聯絡方式的名單，你會先考慮哪一步？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/4/options/0/label": {
+      "sourceHash": "67b27cfa346dbb0b0894ab763e275f34e7d11c76c5c2f50cd8011e125a6501ea",
+      "text": "核對哪些能分享、需要誰同意，以及明確用途是什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/4/options/1/label": {
+      "sourceHash": "682adac9563b14f5b6ad191101fadbd50da1127596b3be6f1b888cd0834ff9c6",
+      "text": "提供一個約定好的轉達辦法，不把整份名單搬過去。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/4/options/2/label": {
+      "sourceHash": "3e83226b7ecb1a1dfec2c1bd2d9db9746f4e19def778b17aebade3c8bc5a2576",
+      "text": "把請求的條件以及雙方要承擔的約定說清楚。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/4/options/3/label": {
+      "sourceHash": "9d7489c6ec65755586812dc91c6db5fbc25fde593bac8341c0760af97b5aa0ec",
+      "text": "說清自己願意提供什麼，讓其他部分繼續保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/5/prompt": {
+      "sourceHash": "f258b00434a814c30e79633888c80e13899765228107668aa9aa80a18658d001",
+      "text": "一項自願參與的小組任務只剩半小時，你想把注意力放在哪裡？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/5/options/0/label": {
+      "sourceHash": "03129c15bf262bae4547480bb59789b02173bcd074f38f3c6574eca5f92121b4",
+      "text": "留一個別人接得住的結尾，說明還有什麼沒完成。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/5/options/1/label": {
+      "sourceHash": "09528c8e05bf9f9da18e4272f4bcdd3e4e996a9172a3ed23b02f47f23d00b6f7",
+      "text": "約定剩餘時間和幫助實際能兌現哪項成果。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/5/options/2/label": {
+      "sourceHash": "5cd87b78cdf74c069ec84942c0a0149854db67ff5b8371e8a65e728083712c71",
+      "text": "把還沒人試過的一小部分實際試一次。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/5/options/3/label": {
+      "sourceHash": "adda45424ef2f158b2dfc0a4e2a56748f15f297d3f596c221ca7c9c0dd44cc80",
+      "text": "替眼前需要幫助卻沒被注意到的夥伴說句話。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/6/prompt": {
+      "sourceHash": "03fd6cb61d0e0fbb46637781f9d7ed91867507f1e47bf2386e958f22ee23ea97",
+      "text": "愛好小組邀請你擔任一個新角色，你更想先問清什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/6/options/0/label": {
+      "sourceHash": "bf41da93038b6542bf3925695a98405f3c7322fd93b0cee46cded2bbcc6b5a8f",
+      "text": "如果投入這些時間或資源，雙方分別期待什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/6/options/1/label": {
+      "sourceHash": "e7a2fa9b6475503e97185490e1e9d010fe28603c209c6c7328e0f6fe5c661fb5",
+      "text": "哪一部分可以從做一件具體小事開始學習？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/6/options/2/label": {
+      "sourceHash": "f62dd990703b0261b3cbe5d6ebe928ca57dd4db0e67123577b49028b3244aa0f",
+      "text": "還能否保留當初讓自己願意參加的那個目標？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/6/options/3/label": {
+      "sourceHash": "8d7f5ab7d0a9a17b0802d2a1cbb6fe1646877aa1ae3c9f9082c8886c3d5f72d9",
+      "text": "除了做自己的部分，還能怎樣幫大家一起推進？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/7/prompt": {
+      "sourceHash": "7e64c28fffdcd27be4147115b8c39df1d4b129902ffdb5f62b243b311b64ba85",
+      "text": "你留了幾小時給個人計畫，這時又來一個邀請。你更想怎樣回應？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/7/options/0/label": {
+      "sourceHash": "cc774b82ff4cc39ceed5d40baf019de41d7a17872053a97253ec7958fd10b2aa",
+      "text": "先留一小段時間試自己的計畫，再決定是否赴約。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/7/options/1/label": {
+      "sourceHash": "358519dbf67f05c2883574cfaa8b3928ccd52ce16cdbb23d01fc04527021e569",
+      "text": "保留自己選定的時間，只解釋這次必要的邊界。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/7/options/2/label": {
+      "sourceHash": "95c662930730c3412c6b2b4e68edb77f15c655bb0d32c3e8c5e7b2c835f164de",
+      "text": "明確而熱情地回覆朋友，今天自己能參與到什麼程度。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/7/options/3/label": {
+      "sourceHash": "3520f80cb88aa77b965daf509dd47521ba79bdfa8239289fddf534c5cb979e3d",
+      "text": "先問清缺少的實際安排，不急著答應模糊計畫。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/8/prompt": {
+      "sourceHash": "622fb700cbfeaa27a64cd052c29d44688fabe480832945a4b48d1392233ef207",
+      "text": "活動場地突然無法使用，你想先和大家確定哪件事？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/8/options/0/label": {
+      "sourceHash": "3c819ebe83c7ffab9a96f645ffaa61fbea8b86cdd8835e4520faabcb37cc44d6",
+      "text": "原本體驗中，哪些部分對參加的人仍然重要？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/8/options/1/label": {
+      "sourceHash": "dbc6ce37d5e9a43864e63d0e89a80a7048bb31fd276894f37c68d844793970e6",
+      "text": "誰需要馬上收到一條清楚訊息，以免白等？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/8/options/2/label": {
+      "sourceHash": "e47ee339cce58502a610a627c9f3b0ab6e1bbb8da1f87aa5e5f4080998b64cea",
+      "text": "誰來協調變動，讓每個人仍有可參與的位置？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/8/options/3/label": {
+      "sourceHash": "f69033968601a0ba793bdaae392865cdf2f050894471e6275979c581e11bb937",
+      "text": "若換地方，大家怎樣可靠地到達和離開？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/9/prompt": {
+      "sourceHash": "bfcf30bd364c29b1ad0b543cf1436e35d6baffb398271f0b2279f6d39c84fdbd",
+      "text": "一些人離開討論後，共同計畫悄悄變了。你會先做什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/9/options/0/label": {
+      "sourceHash": "9693e6a8ad79e4f9afedf53a3d46b4d8cfc20bdaf2af2c2adc23e66af5d6a9b9",
+      "text": "在小組平常使用的溝通處直接說出這次變化。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/9/options/1/label": {
+      "sourceHash": "3df0be5f567d60dfe675840b5e40e4bd1d0a8f254850d98ef4857b4d625ec411",
+      "text": "安排一次簡短核對，讓受影響的人同意新做法。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/9/options/2/label": {
+      "sourceHash": "80aff13b3a4c758f7312c248a4eae3181550155aba49c996cb41837a3fd112c2",
+      "text": "核對誰已知新訊息，誰還在依據舊版行動。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/9/options/3/label": {
+      "sourceHash": "9572cb11663e143669d4d53d5d14aa2ae4c15916215f9c9bec17bd9c03930df0",
+      "text": "重新說明變化後，每個人原先答應的貢獻怎樣算。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/10/prompt": {
+      "sourceHash": "2755356d415dbf205c472a791141f55bcb107d5591412d5e861876083aa501a1",
+      "text": "新夥伴想幫忙，卻還不熟悉小組習慣，你更願意提供哪種幫助？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/10/options/0/label": {
+      "sourceHash": "68e853d4cee686dc23cac35241a3cddd2e4a1a83663098df0512dbda0e9751fe",
+      "text": "幫對方找到相關的人和支援，接下一個清楚的部分。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/10/options/1/label": {
+      "sourceHash": "aaee838f2bb57cab43272eaf1eda46a05adad27241ab3d49c49b990fa8a69690",
+      "text": "說明哪些指示是當前版本，不確定時去哪裡核對。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/10/options/2/label": {
+      "sourceHash": "05a59eeab22e9edeaeaeec8f76ef957b0f4ca1e559a26639e04440fd66d4f232",
+      "text": "說明一次完整交接長什麼樣，以及接下來交給誰。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/10/options/3/label": {
+      "sourceHash": "88024afc95ddb6a1f9824b5e1d3ac199ecb1584006681c54167a5b9c0230c906",
+      "text": "邀請對方先試一小件事，不必先精通全部流程。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/11/prompt": {
+      "sourceHash": "4472ea29e475e047271ed8ebc533d73cbf846d5af23c5e91a4dbb253ba8f3bd6",
+      "text": "友好的群聊裡有人問你為什麼不參加安排，你更願意怎樣回應？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/11/options/0/label": {
+      "sourceHash": "7cbaee77180ff8c910c6cf5bfdfb2917eba3cea5c21c6a245a132a1addcbfc1d",
+      "text": "區分哪些說明有助於協調，哪些仍屬私人部分。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/11/options/1/label": {
+      "sourceHash": "511bacf432171ca80bce32438093a36f35ea549d376e3920dcd695285cf5d327",
+      "text": "給一個實際的下一步，不讓別人一直等自己決定。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/11/options/2/label": {
+      "sourceHash": "2996ef81ee77719398c15a457b2c44d40e9b315002a0860f82c0ea3c868a57cc",
+      "text": "說明在一個更小、更明確的約定裡，自己還能貢獻什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/11/options/3/label": {
+      "sourceHash": "dceb26ae066bcc7b330547739656baa2071986f91dc18aeeb1505fc7ce612156",
+      "text": "保留自己的理由，不覺得必須為所有細節作辯護。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/12/prompt": {
+      "sourceHash": "c1a15b30d708d25cda73e0029f5312f4f21ce1a4a95787b3eead971e705ecf5a",
+      "text": "活動結束後，有件借來的工具需要歸還，你想先照看什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/12/options/0/label": {
+      "sourceHash": "c8c310ed996551ed73d3c2a411744e68319f9a9287c7d96f0d3016eaafaf70b0",
+      "text": "確認什麼時候、在哪裡、交給誰。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/12/options/1/label": {
+      "sourceHash": "3943149212061dcd5bba3e72c587a730eec669f87f236c91c5baa22012f1714e",
+      "text": "核對歸還約定，以及還有哪些責任需要結清。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/12/options/2/label": {
+      "sourceHash": "073c91e4621a351b39835fcebee635e0af16d86fb238a83cb57f382b97eed278",
+      "text": "親手完成已經約好的收尾步驟，不只停在打算上。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/12/options/3/label": {
+      "sourceHash": "387b3307d3406c66e923d348c25c2663c98ec039973e4ff65dd97c37ff02e878",
+      "text": "直接告訴幫忙的人：這次貢獻大家看到了。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/13/prompt": {
+      "sourceHash": "44b8fb3c25d9267dc78b56e5de8f51fb675481fa7df752a2bed1671e824276ef",
+      "text": "社團準備分配一小筆物料預算，你更想提出哪個問題？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/13/options/0/label": {
+      "sourceHash": "b6403ffbba286b70433cc329d7b0f0a02230945708ff6d0f261dd366cd0938be",
+      "text": "幾種分法分別能換來什麼，又要承擔什麼約定？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/13/options/1/label": {
+      "sourceHash": "4da9f5983fb2e860db87fd253312dd73a9202446744f495fec7e11a18cc283f6",
+      "text": "哪一項小投入能先讓想法試起來，再決定要不要擴大？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/13/options/2/label": {
+      "sourceHash": "975c95256f2de8da3a7e3de83c27a887ea7b839315eaac6f1f0e5098f7aaebae",
+      "text": "安排有沒有給每個人最初想參加的理由留位置？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/13/options/3/label": {
+      "sourceHash": "dfa1f1d6136a9fb3b4ad0ef00f3410d1634d6a2f5edd8556864e167c935035c8",
+      "text": "共同使用怎樣協調，需要幫助的成員由誰支援？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/14/prompt": {
+      "sourceHash": "a4c60be28fcd837deff8a38612629507d2feb518e3f8237b02928101171dbe98",
+      "text": "你在修改一段介紹小組原創作品的文字，會先留意哪一點？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/14/options/0/label": {
+      "sourceHash": "4b522636a39d791f4c6b9294d971953b2cfdb702f8d2822575d25352596726ad",
+      "text": "先寫一個小版本，讓想法有個具體起點。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/14/options/1/label": {
+      "sourceHash": "07b2c062c3dd3969f851ad53faf428892bb30aa30c4630c1073bc8453324894d",
+      "text": "讓寫出的目的接近參與者真正想表達的東西。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/14/options/2/label": {
+      "sourceHash": "1099e41d81fad35c57b70fadaacbd4cdaf2012927d97c36f70e91b56b1593940",
+      "text": "清楚說出欣賞誰的付出，不只寫疏遠的套話。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/14/options/3/label": {
+      "sourceHash": "39f75e6f7fa383c753717bc5249cc906013a65eb04452630c5d98346e52dd140",
+      "text": "核對每條事實是否已確認，以及是否適合公開。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/15/prompt": {
+      "sourceHash": "f030457d74e71d0c761a41c8002fa55689a0666a242afe26a9cfe6983093f33e",
+      "text": "朋友拿不準要不要參加一場人數較多的聚會，你更願意怎樣回應？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/15/options/0/label": {
+      "sourceHash": "a573016e31532d0ee7d15c612e575aa8a284dca3c42dd648fb6463e5bf6d82ee",
+      "text": "先問對方想從這晚獲得什麼，尊重其選擇的限度。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/15/options/1/label": {
+      "sourceHash": "22af98e5a3cd977a9480b2915e62f4eaad8390b2ba781d327eeccf44d0f23ada",
+      "text": "直接表達希望一起參加，但不把心意變成要求。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/15/options/2/label": {
+      "sourceHash": "7ce14814984cf997d66cc762e52e6c05cf399a8a84928cc10879160d0b9ab17e",
+      "text": "提出和已認識的人約個簡單聯絡方式，幫忙協調。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/15/options/3/label": {
+      "sourceHash": "f88e90e89890ad33684c1dd7f80ee3383cf656c859d614e2766488621f266831",
+      "text": "把正常到場和離開的安排說清，讓對方容易決定。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/16/prompt": {
+      "sourceHash": "7023012a1784f2df850cee6b18615e5ac5e4b7b31ff88e1615fa758dd9649643",
+      "text": "小組有兩種同樣吸引人的週末安排，什麼最能幫你作決定？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/16/options/0/label": {
+      "sourceHash": "dcb1150fa840ed2fd28bea9c58f9402c04c4056139e811c5c47076e79c777658",
+      "text": "聽見有人坦率而直接地說出這次最想做什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/16/options/1/label": {
+      "sourceHash": "12b353c5f57523542554cfd605975e65ce5b099835b483ebffd5acbe18ad74ec",
+      "text": "看哪種選擇能把大家帶到一起，以及誰需要幫助。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/16/options/2/label": {
+      "sourceHash": "ab31017547664d736542e27fc6f5da75f9046fd46944d1dc219ed2937343728d",
+      "text": "知道兩個選項裡的哪些假設已經核實。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/16/options/3/label": {
+      "sourceHash": "81d6d5ee8c97fdc5080ed0380b2fe6f08c2b04f4fe25b2929347a6b52edb08a3",
+      "text": "弄清各自要投入的時間、資源和承諾如何取捨。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/17/prompt": {
+      "sourceHash": "e06000f9f2d5f5d627732291de72fe7fc4137ce0e509f0f8373f74181669712c",
+      "text": "共同任務走到一半，大家有些摸不清下一步，你更想作哪種貢獻？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/17/options/0/label": {
+      "sourceHash": "ecc73a70b5111dbbe74d1f679034146f0f85ff185cf680341fe26919426dec6c",
+      "text": "幫大家看清共同方向，為下一小段提供支援。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/17/options/1/label": {
+      "sourceHash": "3cf994dc79830cfd3eff0157563fc2e28cf05b272caa73c73b64195a77474d04",
+      "text": "先找出尚未回答的問題，再給確定的指示。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/17/options/2/label": {
+      "sourceHash": "b7bd7bdefe2b3e3298def90b55800fec7350819d97968be0e138db262bea4d27",
+      "text": "把下一次交接和停下來的位置說得足夠具體。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/17/options/3/label": {
+      "sourceHash": "27823537b6a60c6bf57048615e0ffe50d91c88c5a6f8cb50169004c4d1da8363",
+      "text": "試一個有限的小動作，看還需要學會或弄清什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/18/prompt": {
+      "sourceHash": "cd370455c28753abae53d4dea3e8bfa7614e3787a4c0263a1c654b56c8d21668",
+      "text": "有人提出一個捷徑，但暫時說不全條件，你會先做什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/18/options/0/label": {
+      "sourceHash": "223598f4e996e7c7f6498a7697931e028d0eba52e73ce626182fab9005e83095",
+      "text": "讓未知條件繼續保持未知，不用樂觀猜測填上。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/18/options/1/label": {
+      "sourceHash": "21d281f2204002711b7a080064efcb32a0a859ab62bbba559e40cd0c3cb070b3",
+      "text": "先保留現有可用路徑，等能清楚交接後再切換。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/18/options/2/label": {
+      "sourceHash": "ac830af9a1fb36202c7588b96f4ec9c874841e63bba78bbded697f2cac43ee09",
+      "text": "問清接受捷徑後，原有約定具體會怎樣改變。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/18/options/3/label": {
+      "sourceHash": "a00aa3bf5d400aba8742b299d329c796375e4028470755759cfb2ae71b54e1ea",
+      "text": "核對它是否仍尊重自己選定的目標和限度。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/19/prompt": {
+      "sourceHash": "fac86efa61e098eb353432dc75f6ac8b0104977c1d923737a6e6b94c3509ef56",
+      "text": "小組活動順利結束，大家準備離開，你還想做哪件事？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/19/options/0/label": {
+      "sourceHash": "d525faeb59e7f1d391b7ac49e356dc0552f2bbd00496ed4cc1d101b297458fd0",
+      "text": "確認最後的材料和實際責任都有清楚的去向。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/19/options/1/label": {
+      "sourceHash": "2cc2b375e6b045207e584472c4e31803fc74af05abf1e338f59f5f03578dd1a4",
+      "text": "核對哪些承諾已兌現，哪些後續需要另作約定。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/19/options/2/label": {
+      "sourceHash": "8e599b16fd4e0c5be1ad213e3250e5becd3d618dfc4d5eece6395601f9025846",
+      "text": "記下一件下次參加時想換個辦法試的小事。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/19/options/3/label": {
+      "sourceHash": "e502274ed4dacb56abe7bffb8f586bc261daba8151df920cca97b53f7472191f",
+      "text": "趁還在一起，具體而有溫度地向一個人道謝。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/20/prompt": {
+      "sourceHash": "cd2426d16e3e69cd76b9a8386567f90483211aa1b754db706872e82cf326db30",
+      "text": "夥伴提議比原計畫多做很多，你更想先澄清什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/20/options/0/label": {
+      "sourceHash": "83d1064487ace24f2811097cf56a62985a6db53364f760a013ce66043f21a083",
+      "text": "這會增加哪些時間或交換條件，大家能否同意？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/20/options/1/label": {
+      "sourceHash": "35863cc30efba55d0f570c42291951788dd326aabc8816d69b188711578eb75c",
+      "text": "能否先試其中一小部分，再決定是否全部擴大？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/20/options/2/label": {
+      "sourceHash": "ad3efe7c42f4fb0e88e3c1aa0db1cd783c57200a34e3ef44591e9fe915049883",
+      "text": "擴大後，自己選定的目的是否仍有位置？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/questions/20/options/3/label": {
+      "sourceHash": "65f2f1be2d27bdee948629416eede0d572670a5b5159c2404fdf90b27202d407",
+      "text": "誰來協調增加的工作，並確保需要時有人支援？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/title": {
+      "sourceHash": "da61c9847bcef8bf2619d7963d551b76d312e68eacdcbfd602c2842f144f5a83",
+      "text": "大衛・馬丁尼茲（David Martinez）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/headline": {
+      "sourceHash": "fd2a568b3849ae1351472b3b8e0076b5b7822028f56477715d7e038357893560",
+      "text": "讓選定的方向有一個實際起點"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/summary": {
+      "sourceHash": "839fcd5793fbf1364c06d6071d56fbdf8e760708d2519dd5d076df1fd67eb92e",
+      "text": "從一次小嘗試讀大衛的角色聯想：區分向前一步與接下過多，比較另外六種角度，保留計數邊界。全文不把角色命運或冒險行為賦給你。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/seo/title": {
+      "sourceHash": "a9d2396978277c807197b3908168d0121907a77b00264e1cab60ecea17a2f71a",
+      "text": "大衛測驗結果：向前一步，也看清自己能承擔什麼"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/seo/description": {
+      "sourceHash": "e67d7a344f8e2a42eb30fbc88230f1ecf1c46e23c5de04c152462a785865e69d",
+      "text": "一個想法遲遲沒開始，先試哪一小步？大衛的非官方角色說明討論小範圍嘗試、求助與接下過多的區別，也解釋相近計數。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/scoreReading": {
+      "sourceHash": "10acf221f9cdd2e0173126eadb2ccbf202d24e9f7493f6669df1c5a2a526100a",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/0/title": {
+      "sourceHash": "3cace4e0945991c9a4cca3269253573dc222ac9c9b4c943eeb092228b5de9ddd",
+      "text": "本版從大衛取的一個角度"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "96dc3db6ea0c8142aaa9b5d5195045922f85547f58775965a4181f69cf52c091",
+      "text": "大衛是進入夜城邊緣行者世界的年輕主角。本同人版只取一個有限聯想：希望心裡的方向能變成可以實際嘗試的事。這是虛構人物與本題選項之間的編輯性連線，不評你的志向、勇氣、出身，也不判斷人生是否像他。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/0/paragraphs/1": {
+      "sourceHash": "f9a8af7a3f67f7da9cad8cc3508c2ae03cd95f63765ddebf854947f4e0aa57fa",
+      "text": "選擇先寫小稿、做一次嘗試，或推進不必等全盤成熟的一部分，都可能記到大衛。它也可能反映眼前條件，而不只是偏好。一個人可以在愛好裡願意先試，同時在不熟悉的責任上更想準備充分。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/1/title": {
+      "sourceHash": "3889bcaa1c849e161c5d148a9a31551f341bd84e7004912834e9565558a390cc",
+      "text": "停在筆記裡的小計畫"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "d62ad5e6b96f07c2e220b58eda4ecb887101cd6d4f89775e33b5f018c0b2e9f8",
+      "text": "比如幾位朋友想做一份原創興趣展示，寫了許多設想，卻還不知道別人能否看懂核心意思。可以先做一張一分鐘能讀完的紙樣，讓大家有具體東西可討論，而不是因此承諾辦完一整場活動。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/1/paragraphs/1": {
+      "sourceHash": "93e3932490162b6fd15956d5a6d07a8b0995e4de11e5a6ea50d8185630b827d5",
+      "text": "這張紙樣要幫忙弄清什麼，才是關鍵：措辭、資訊順序，還是大家是否願意繼續做？開始前可先想想，出現什麼情況會暫停或調整。小嘗試發現“大計畫需要改”也有用，不必把堅持原樣做完當作唯一收穫。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/2/title": {
+      "sourceHash": "bce74bc55efdeff5fa56a090a0585ef54172d6fb99c4393269d4d99dc0b37858",
+      "text": "行動也需要大小與停點"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "4f44ec261a494d5794a0c536535fdfcf3f0d57ca7e2214a02612af2ff45ba374",
+      "text": "開始做，會讓模糊任務變得具體一些；但忙起來並不證明方向正確。給第一步約定大小、必要資訊和停下來的辦法，這個“大衛式”角度才更具體。接更多事，不自動等於學得更多。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/2/paragraphs/1": {
+      "sourceHash": "6a2282078e652ab6d2e55c7cd9509bfa1aeac9535940cd742cd1eaa12d7eb3ac",
+      "text": "人物聯想不建議模仿危險行為、無視日常限制，或證明自己什麼都能扛。反例是：請求需要你沒有的許可權或知識。詢問合適的人、縮小範圍或拒絕，反而可能更符合自己原本想去的方向。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/3/title": {
+      "sourceHash": "06f7cb61fb3f4173cd00b558cdf7c7603d40852983999dc1a36faa3bba8896b6",
+      "text": "和露西、蕾貝卡、魅音放在一起看"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "e02498bc03f9299614f58f2500bc4e430540d7bcc7a750c2a31c6b35e97d0f7a",
+      "text": "露西的角度先問：想保留什麼目標和邊界？大衛的角度則問：哪一個小動作能讓方向實際發生？兩者能互相支援。蕾貝卡強調眼前直接表達的回應，魅音則把團隊協同和可用支援放到前面。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/3/paragraphs/1": {
+      "sourceHash": "36c23e2925867cecdd13bf2cdc4e6d639657df74f4da2af255984ffa8755c2f6",
+      "text": "琦薇核對知道什麼、資訊應交給誰；法爾科讓交接和結尾可靠；法拉第把交換條件擺到明面。這些都不比“先行動”低一等。另一份說明的問題有用就可以讀，不必把它變成自己內部隱藏的高低排名。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/4/title": {
+      "sourceHash": "c755e4c629782aada52e169428dd77c0531fc34e773bedaa76fe64c767580d04",
+      "text": "五次就是本題裡的五次"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "18aa688fb2441c74543ff0f5d830017928e5d179be3f42a68424679429d7ff08",
+      "text": "如果大衛出現的12次裡選中了5次，報告記錄的就是本題本里這5次選擇。它不說明你有十二分之五像大衛，不測普遍的堅定程度，也不確定你在人群中的位置。另一題沒出現大衛，不算你拒絕他。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/4/paragraphs/1": {
+      "sourceHash": "f718b18df8d058177bd2985dcd84132b960f9605b3b8ad9d26222419217a4972",
+      "text": "比露西或其他角色多一次，沒有驗證過的心理顯著意義。最高值並列時，全文全部保留，也包括七人同分。你當時為什麼選那一項，可能比名字更有意思；知道對映後重做，也可能是在按不同目的選擇。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/5/title": {
+      "sourceHash": "149f879a2f64a05b2def993c6a96c520c2171b106640b1047b756ccca013e912",
+      "text": "讓小版本真的可以保持小"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "d331525b772a830b4bf03aac56dfa62f77dfbb41dc5e20d941e637ccda7211eb",
+      "text": "如果想接著做點什麼，可選一項自己本來就能決定的普通活動，寫下第一版包含什麼、暫不包含什麼。例子需要資料時用虛構資訊，不必公開挑戰，也不需要向測驗提交證明。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/5/paragraphs/1": {
+      "sourceHash": "97e21e0ec8e8f5eca9af11bb21d5436d05d5a20aea911718c6151b6cee8717ca",
+      "text": "之後可以問：有沒有學到會改變下一步決定的東西？答案可以是繼續、求助，也可以是結束。這只是檢視任務的一種自選辦法，不是把自己訓練得更像某位角色。讀完說明，就到這裡，也完全可以。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/6/title": {
+      "sourceHash": "c9f2b413116f53adcb7830ae92da069b70a6f201f9760fa9974d3d89a7ef8dac",
+      "text": "人物結果仍然不能替你回答的事"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "8219bd84f8a8bfbb4b74802371395d35e93c64ad1b33e1384fc78affd21864dc",
+      "text": "題目、選項對映與本說明由費馬獨立編寫。角色名和有限的身份事實用於識別初代動畫人物，計數角度由本版自行設定。這是非官方同人比較，沒有主創合作或背書，不使用官方圖畫、臺詞或競品結果正文。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/0/sections/6/paragraphs/1": {
+      "sourceHash": "ab7e6d36c68ce60ee0d674d931b6fc5b11599942ae59cede7e5379b15e97daee",
+      "text": "結果不確定人格診斷、能力、關係角色或人生走向，也不能換算MBTI等測評。可以比較七份公開角色說明，也可為了另一個問題自選其他測驗；這份全文不需要靠後續測評來解鎖。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/title": {
+      "sourceHash": "9f77fcc716b364050df777c7a4f8f5b83303d907eebe63f7185255df3bdd0373",
+      "text": "露西（Lucy）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/headline": {
+      "sourceHash": "c5e66d8fedca8f31e9b675223cb1ba71b8430371f364127e2ad156ed4cd28c7f",
+      "text": "保留自己的目的，也把必要邊界說得清楚"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/summary": {
+      "sourceHash": "42ed67426148b078ccef3c9fe0bc2d064145d2785fc779903905d027ebe8747b",
+      "text": "露西的有限同人讀法把自主目標與不告而別分開：用一次變動的小組安排作例子，比較其他六位角色，也說明相近計數的邊界。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/seo/title": {
+      "sourceHash": "c44aefd7034c26dd7cd057844ec92d4e61f98fb89a6642c5f9008943c7aa7c08",
+      "text": "露西測驗結果：自己的目標與說得清的邊界"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/seo/description": {
+      "sourceHash": "35b696a97726e261b8e95465f1385100526a825c665e33508b67beb225de4b91",
+      "text": "原本期待的邀請越變越大，怎樣保留自己參加的理由？露西的非官方說明談自主目標、說明範圍、小約定與其他六角色的區別。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/scoreReading": {
+      "sourceHash": "faace49407364b69dbbacb0d55576da96163cdea436e6c5f1f68b6003e48c69a",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/0/title": {
+      "sourceHash": "f35e603a9d692b38e26a1d7a7e7d7435749d10680475df79d3b635468a37d3f4",
+      "text": "安靜回答背後的自主目的"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "061a6b65bc0f9beef6c9225c73a4a9685009be4d16fe45f1b6655adbe8aaec74",
+      "text": "初代動畫中的露西是一位有私人過往的竄網使。本版從這個角色取一個很窄的編輯角度：保留自己選定的目的，並決定願意解釋到哪裡。它不測秘密、依戀、技術能力，也不判斷你的經歷是否像她。人物聯想用來比較，不是解釋你的內心人生。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/0/paragraphs/1": {
+      "sourceHash": "cd3fadececa7031282c27d183fc1add22fe2584b24a57ad0c410c85c58e026b2",
+      "text": "本次記到露西的選擇，可能是在保留參加理由、說明普通限度，或讓部分細節繼續屬於私人範圍。它不等於喜歡獨處。一個人很重視共同活動，也可以希望節奏、規模或目的仍是自己真正同意的。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/1/title": {
+      "sourceHash": "a523230238bf3a6c50b7f6321edca529695bca8d7e36711d6c41ee0300a833b5",
+      "text": "邀請怎樣悄悄變成了承諾"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "65c7aacf23116693f92243ea4de45c504c946807b272e40400827d62b6e6af8f",
+      "text": "比如原本參加輕鬆的讀書小組，後來大家提議公開活動、固定組織職責和共同運營賬號。新安排也許不錯，但它已經是另一份邀請。你仍然可以喜歡這些夥伴，同時問問擴大後的角色是否符合最初參加的理由。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/1/paragraphs/1": {
+      "sourceHash": "e72bdf2bb54dc4272b50c338a54b2e62b2bf96e059d3679100024ef13cebfb35",
+      "text": "一種回應是繼續參加討論，但不接賬號工作；也可以先參加一次活動，再考慮長期角色。關鍵是讓邊界能夠被理解。你不必交代完整私人經歷，但一個實際回答，能讓別人知道接下來可以怎樣安排。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/2/title": {
+      "sourceHash": "ae3bb7f9e530fb925b4566ef07cd687df0485de574c8b2f7624ed47d01258db4",
+      "text": "邊界裡也可以有一個回答"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "3b0d2017784e8a729336845317154c627d42ea832c23b778141e3ade5feb6dbb",
+      "text": "如果別人只看見沉默，保留目標也可能變得困難：對方不知道你要時間、已經拒絕，還是沒收到請求。一句關於“能答應什麼、不能答應什麼”的說明，可以保留隱私，也減少這種不確定，不必把私人理由一併展開。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/2/paragraphs/1": {
+      "sourceHash": "49e7a3015bad38ef823c267a37bbc7a2f0628c73930e2b1b0d524e8d342c147d",
+      "text": "反例是：某個安排本來就把限度說得清楚，也受到尊重，那就未必需要再爭取或防守。次數較高不說明特別防備，較低也不說明沒有邊界。題目只提供了若干情境和有限的回應選單。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/3/title": {
+      "sourceHash": "1ef3c1b2c602ec11913d6a732799d0d5e8ef9aa8bc541e794b3aac3370072a0c",
+      "text": "露西不是團隊協作的反面"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "e934162e8385f3ab112fa9b75becc60c971e32f9907e4eed62e553cbd003510e",
+      "text": "大衛的角度讓方向變成一個小嘗試，露西的角度讓那個方向仍然屬於自己；魅音關心團隊怎樣協同、怎樣提供支援。幾種問題可以同時成立：約好一個有限角色，既服務自己的目的，也幫助集體推進。自主與參與不必自動對立。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/3/paragraphs/1": {
+      "sourceHash": "926d1dbc803d92b3bf4bddc5040881b2c6ede399645dd92de5d597d609891cc3",
+      "text": "琦薇的資訊角度問“知道什麼、該傳給誰”，與“自己想保留什麼目標”並不是同一問題。蕾貝卡把支援表達出來，法爾科說清可靠的結尾，法拉第讓條件可見。它們是可比較的貢獻，不是七種註定無法合作的人。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/4/title": {
+      "sourceHash": "c286913d9780531a3a82ef9d73dec36475f6263eb81fa054eaf4c932948b6d50",
+      "text": "一次實際限制也會影響相近計數"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "15e170a6149d57bb35abec3b12f22a10b0a3fe4081a28506aa70af322a116d6d",
+      "text": "露西若比琦薇多一次，測驗無法判斷差別來自長期偏好，還是眼前實際限制。也許某題讓你想起最近的邀請，也許那項恰好最可行。一次的差距沒有已建立的心理顯著意義，也不是關係或信任分數。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/4/paragraphs/1": {
+      "sourceHash": "33dbb12adee960b891b99454a8d6dc7b89b8bd4966bc9cf3d102c498dc6c1ad2",
+      "text": "最高次數相同時，報告會保留每一個並給出全文。七人同分也是有效結果，不是需要修復的問題。另一角色說明中的問題有用，就可以直接閱讀，不必重做到拿到那個名字；讀過說明，也不會新增第二型別。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/5/title": {
+      "sourceHash": "127d1dbaaa911863d287c9b67ba460113f4af2bcb380a0a0060defd2d04be4a1",
+      "text": "試著約一個更小也更好懂的安排"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "429aff6b990de4e91bb55e43d95d21de546d9e1c6b887420114ff4dd6188b932",
+      "text": "對一項自己本來就能決定的普通選擇，可以私下寫下想保留什麼、願意提供什麼、還有什麼沒決定，再挑一句只傳達實際邊界的話。比如興趣小組的時間，或共同任務的大小；不必披露敏感經歷。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/5/paragraphs/1": {
+      "sourceHash": "c07e3b2cf209b31d81150090821c1cc5675df52aedc94863c8174544fec06147",
+      "text": "這句話不一定要發出去，也不需要對質或檢驗別人是否接受。發現自己還需要資訊，就可以結束這次自選觀察。它只是讓約定更清楚，不是訓練自己變成露西，也不證明某條邊界客觀正確。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/6/title": {
+      "sourceHash": "e9457a459435b1268c442d244736ca4cb3a8a192278746f11f6b0ae159042bc3",
+      "text": "非官方比較，讓經歷繼續屬於自己"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "5b27d6e2ecb44699799aa4b138f9991ed258a76131b27a6b2ce9c3d46adf03c7",
+      "text": "題本和結果文字由費馬獨立創作。名字用於識別初代動畫人物，選定的匹配角度是編輯性隱喻。不復現官方臺詞、角色畫面或競品結果，也不暗示與CD PROJEKT RED、TRIGGER或Netflix有合作或背書。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/1/sections/6/paragraphs/1": {
+      "sourceHash": "9844b9ccf6e22706f366496837999bf2f396550311a80489bc8b564839a2dc71",
+      "text": "計數不確定人格、心理健康、關係相容，或與劇情相似的未來。答卷和次數不進入公開連結；自選複製分享的是角色名與公開說明，不是答卷。七份全文都可免費閱讀，不必再做其他測評才能結束。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/title": {
+      "sourceHash": "fcfe9472711e1c45aa196f52a01250a8984ff9139221da38c7a0b40382cfcca0",
+      "text": "蕾貝卡（Rebecca）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/headline": {
+      "sourceHash": "f7f4533a97cde016ca98daa0b92b7318a3f5fad102fb130f8b74d060cedf0def",
+      "text": "讓支援清楚到別人接得住"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/summary": {
+      "sourceHash": "7e102fc0391eed5a6bbb4973835f7b44933b389cd9e316ab4f64ae7752e38a06",
+      "text": "蕾貝卡的同人讀法看支援怎樣被說出來：有具體的小組例子、替人發言的邊界、六角色對照與並列計數說明，不把熱烈回應等同衝動或善惡。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/seo/title": {
+      "sourceHash": "6d10c2e014f4212094016d803284342d815878b279b986fdf226ac3f18b4da7e",
+      "text": "蕾貝卡測驗結果：直接表達支援，也給對方留位置"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/seo/description": {
+      "sourceHash": "976079b22e0bfbcf05cf45646f27e242743e8d6811518c277820949439fe1de0",
+      "text": "一句籠統的“謝謝大家”漏掉了具體付出，怎樣表達看見？蕾貝卡的非官方說明談清楚的欣賞、先問需要什麼幫助，以及相近角色計數。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/scoreReading": {
+      "sourceHash": "97587c86ae7a6862d9a2d73432b9d8d9fef9b6bd6fdf82b90d0796726ef3df87",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/0/title": {
+      "sourceHash": "0cb66db2f1af8d91a76ea97a364b5807ab0178ab52e2a1f5456210002f06f441",
+      "text": "回應就在眼前"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "b830f8154ae13a1effce0f8914e722c0cb6fe58c155e788e1f168b9e7ee2becd",
+      "text": "蕾貝卡是初代動畫邊緣行者團隊中的人物。本版取一個有限聯想：把對眼前夥伴的回應直接表達出來。它不測活潑、衝動、忠誠或慷慨的程度，也不說你的人生像她。這個連線來自本版對選項的同人解釋。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/0/paragraphs/1": {
+      "sourceHash": "f45f62a9073e00b7e56bed264698f52efeee73d02fc9cd282f29f3bd67174e8f",
+      "text": "本次可能選中了直接的訊息、具體的感謝，或讓另一個人知道自己被包括在內的提議。這些回應可以熱烈，也可以安靜。一條簡短文字同樣能夠清楚表達心意，測驗不會因此把人歸為外向。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/1/title": {
+      "sourceHash": "82a1c927475012e4bf3b41e1d287a5f74bae4013cc6a396b9ad86774a6ccce47",
+      "text": "籠統感謝漏掉的那份貢獻"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "4f4857636cd645308d3371be8ab4dafb6bf79a3847555efae6f8282861c0bae3",
+      "text": "比如朋友一起完成一項社群小活動，大家說了“謝謝所有人”，但其中一位默默處理了一個棘手細節，下午才得以順利進行。蕾貝卡式的角度，可以是清楚指出那份付出：你看見做了什麼，也知道它幫到哪裡。不必演說或公開私人細節。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/1/paragraphs/1": {
+      "sourceHash": "950f421b7fa00298abd5b8a03bb1977a8a4756a93a4909b55f82fdd5253463d5",
+      "text": "想進一步幫忙時，可以讓提議具體到對方聽得懂，也能拒絕。“我可以把這箱東西搬到約好的地方”，和接管對方全部責任並不是一回事。具體支援給的是可用的選擇，不是讓別人反過來安慰你的新義務。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/2/title": {
+      "sourceHash": "3f75afec7b48edac3fb6ad3b8d8613232ac13eb9345551866ebc562dd7c3cea5",
+      "text": "有心意，仍然需要詢問"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "310c2e1603a36b8b0f4ed33f219c1f5ad246ad9f578e01e95eaa8d95de2a7f99",
+      "text": "當別人已經不想再猜“有沒有人注意到”時，直接回應能讓關心可見。但若快過了對實際需要的瞭解，就會出現限度。沒有詢問就公開替人辯護、開玩笑或宣佈訊息，即便出於支援，也可能讓人難堪。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/2/paragraphs/1": {
+      "sourceHash": "f261ac11b03fba33a1f10c95e0146897cb8a6f00b07acd0980661aa9e05628e2",
+      "text": "反例是：對方明確想要安靜、時間或隱私。尊重這樣的請求，並不比熱烈回應少一份關心。蕾貝卡計數高或低都不能確定人際能力或善意；那需要了解實際發生什麼，以及相關的人怎樣理解，而本測驗沒有觀察這些。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/3/title": {
+      "sourceHash": "58c114b98fe74beaa6141d6fe26a34f6ee57aa2318423a4bee034c09f43e75c6",
+      "text": "同一時刻，六種別的問題"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "8c3464155007e02ed05e9778e8894e822f7478e3cd60d93a7a3cdd5c4cfa9e2e",
+      "text": "大衛問有什麼可以開始，蕾貝卡問眼前需要怎樣回應；魅音考慮團隊怎樣一起做，蕾貝卡角度則可能是其中一次具體支援。露西讓自主目的與限度保持可見。這些角度沒有誰自動更會表達，或更關心別人。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/3/paragraphs/1": {
+      "sourceHash": "c4f03aac88040509d6d8c6d46e956efb651e4518d0b847944820f692c82b04d1",
+      "text": "琦薇先核對要傳遞的資訊，法爾科說清實際交接，法拉第把交換說到明面。一句清楚的感謝可以與它們並存。對照只幫助看出某個選項強調了什麼，不會把較少選擇的角色所對應貢獻判成你的缺點。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/4/title": {
+      "sourceHash": "5d69b1f8d1cc411141786aae6e20d0145cbf6362b619a9dec975ecb5b9bf85ba",
+      "text": "名字排在最高處，仍然只是次數"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "3db5565e9e3ac9336d45be7fc0ca6886ea9250698e8776d63052e43874bd4f6b",
+      "text": "若報告是蕾貝卡出現的12次裡選了6次，指的就是6個被選選項，不是情緒強度，也不是角色相似度百分比。她沒有出現的題目不能算作被拒絕。每題為一位角色加1次，全卷一共21次。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/4/paragraphs/1": {
+      "sourceHash": "0f396006035778ff19c6dccf836b48eec51c06629e4d2c944c7a2211ccf03120",
+      "text": "最高次數並列，全文全部保留。蕾貝卡與魅音接近，可能只是幾道題裡的直接支援和協同安排都吸引了你。這裡沒有已建立的顯著差異閾值，可以比較說明，不必發明主副人格，也不必把次數拉開。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/5/title": {
+      "sourceHash": "64615e2f1f71002cd89dd5d4e4096f97aadaffbba0609d274f31b4158e9778eb",
+      "text": "說清一件自己確實看見的事"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "f351ece3941313b4b4210f5c45724d22e3928fd4fd7085204d899b7e46a571d4",
+      "text": "如果想做一點自選觀察，可以私下寫一句話，具體說出欣賞的一次普通貢獻：做了什麼，有什麼實際作用，不猜對方動機。文字可以只留在筆記裡，不必聯絡任何人、披露其處境或復現劇情。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/5/paragraphs/1": {
+      "sourceHash": "6d99d88a6415cee86bec34a8523aaa21f302983f29c8f4cfc05f76f038787642",
+      "text": "現實中如果確實要提供幫助，可以問對方是否需要，並讓回答影響自己的安排。這是在瞭解情境，不是在檢驗自己多有同情心。讀完這篇、看看另一個角色，或者離開測驗，都可以作為完整的下一步。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/6/title": {
+      "sourceHash": "33cf0fe732274efc8584131f623b5b0eb2eb8bf0499acefc319e1cc35e956006",
+      "text": "人物聯想與真人身份分開"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "e4a25be1d111f44692adff019972d01ab67717d9054e1ee7543646c803f3fa6f",
+      "text": "題目與解釋由費馬獨立編寫。Rebecca在官方中文網站也寫作“瑞貝卡”，英文名用於讓不同寫法指向同一人物。匹配角度由本版編輯設定，屬於非官方同人，沒有主創合作或背書，不復現官方畫面、臺詞或競品結果。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/2/sections/6/paragraphs/1": {
+      "sourceHash": "c7692ba0a498c08171275be2b1843cc9064f1ea613cd8772dd1276f09d2107e4",
+      "text": "結果不給診斷、個人價值等級、關係預測，也不要求模仿角色的傷害行為。自選複製只含結果名稱與公開說明連結，沒有答卷和次數。答題前後都能免費讀每位角色的全文，不需另做測評解鎖。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/title": {
+      "sourceHash": "de784e6ad4e379f301bbf26b514905664ce3c7ca4d57b736002c7c350710cc5f",
+      "text": "魅音（Maine）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/headline": {
+      "sourceHash": "2071b72403d90031d5455ba8401c71a098c4e7ddcfd00aa4b04c64f160e29b75",
+      "text": "讓團隊有方向，也有接得住的支援"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/summary": {
+      "sourceHash": "30f9462daf172fe93479241ddf385061b373054f7b1bdb3c97515af29f212b68",
+      "text": "魅音的同人說明看協同具體帶來了什麼：通過共同任務區分支援與接管，比較其他六角色，並把計數當作本次選擇記錄。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/seo/title": {
+      "sourceHash": "a93228a1e09f6db7db9a7d769fae082d496c10a009a6d1b61f7c1e4e31e11b2e",
+      "text": "魅音測驗結果：一起推進，也給支援一個具體位置"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/seo/description": {
+      "sourceHash": "1885b6f0aef24f37f6a750689bdd52e80621be2ac1e38e671f7df43dda17f8bb",
+      "text": "大家都願意做，卻沒有共同下一步，怎樣讓支援真正可用？魅音的非官方角色說明討論協調、角色約定與不同意見。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/scoreReading": {
+      "sourceHash": "52c469ab2bc06c62d4a747ac3d8f0cf9b9df0d244ad7ef2b2283ea1971b84afe",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/0/title": {
+      "sourceHash": "9574cf413be69ed79feacab034bac7b01c10d61f3b82ebb0652aab39800479d9",
+      "text": "團隊角色，不是領導力等級"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "3fad754ed4765972ced81ae15e66f080fd75c1043bdfe0c41fc2661d1a959974",
+      "text": "初代動畫裡的魅音帶領邊緣行者團隊，也是大衛的導師。本版只取一個角度：讓共同方向與支援變得可見。不評領導能力、權威、力量，也不決定別人應怎樣跟隨你；人物聯想只用於本組選項中的比較。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/0/paragraphs/1": {
+      "sourceHash": "f5b4da270d2eff6262db8b7ad9a3cdcdab24a1eb2bb9854b1dfe4814852d7d71",
+      "text": "本次可能傾向於設共同聯絡點、召集參與者，或留意誰需要幫助。這些貢獻不屬於某個固定頭銜。一個人可以協調一次小活動，卻不想長期組織；有經驗的組織者也可能在別的場合換種方式參與。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/1/title": {
+      "sourceHash": "053066d224b38a8bc9f4adee38a28cb1ec6959dfdcfd3b2de739fb50106fee80",
+      "text": "大家願意做，也要知道下一步"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "9fc488e0cca38a1266b8b90ebe473cf8ccdd96071fe37a5249cdbecc3011aa1d",
+      "text": "比如幾個人準備展示自己的原創作品，大家都答應幫忙，但計畫上只有幾個大標題。有人以為自己負責海報，另一個人卻等著他安排場地。“願意一起做”還沒有變成能實際照著走的約定。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/1/paragraphs/1": {
+      "sourceHash": "5c3929e7a40df6f613a79c13dec28a4af2c29a05bec65c819dfa64a3e14a954c",
+      "text": "魅音式角度可以是問清每個人怎樣理解，找出下一項共同決定，再把幫助放到確實需要的地方。不必因此釋出命令；也可能發現，合適的計畫應更小，或某一部分需要等到時間、資料具備再做。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/2/title": {
+      "sourceHash": "9ca51f258d9b596aaea23820c74699cbf360f0e9a825552f32557a93c67babdf",
+      "text": "支援也應可以接受或拒絕"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "5b0382343f94e0cf483bf9336ca5668b746b86175fa74fe3a05d2b0d242c5576",
+      "text": "協調能夠減少混亂，接管卻也可能拿走別人的選擇空間。分派角色或糾正做法前，可以先核對實際約定。把幫助的大小和物件說清，通常比一句“以後都靠我”更容易被理解。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/2/paragraphs/1": {
+      "sourceHash": "981f2d45d576f018cb9ae805a7263ec81c910e9d482f087673241cefae94d2a8",
+      "text": "反例是：小組已有清楚角色，也不需要更多協調者，這時做好約定的那一部分反而可能更有用。魅音次數高，不證明團隊需要你指揮，也不證明幫助必然有效；測驗只看到所選答案，沒有觀察共同成果。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/3/title": {
+      "sourceHash": "c3b78507f471baf7631ee89d7c760b92faf55641b6279329cca89309a635bc46",
+      "text": "六種不必互相排斥的貢獻"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "0955e82c70a00303d87db270ec5cafff2a5bf1f5303ba64304ade6d4734c8cc9",
+      "text": "大衛讓方向變成初次嘗試，魅音關心大家怎樣圍繞它共同推進；蕾貝卡把眼前的支援或欣賞說出來，露西保留自主目的與實際限度。同一次活動裡可以兼有這些貢獻，所以角色名無法概括完整的參與方式。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/3/paragraphs/1": {
+      "sourceHash": "46efb6707a87ec5d1c5ef869dc7e1fbdeea4f0d68bddffa1f5ca4d22bc7ae441",
+      "text": "琦薇核對不確定的資訊，法爾科說清交接和結束，法拉第讓條件與交換可見。它們可能指出共同計畫困難的不同原因。對照是比較問題，不是把組織者排在資訊核對、細節收尾或約定小承諾的人之上。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/4/title": {
+      "sourceHash": "e4bf91ae0de264a3d1ab2593dcb62ce02ac638f23aabdaad53f236a4a39e7d96",
+      "text": "並列最高時，說明也一起保留"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "7fab81eab874b26280be36d78c7892279e5811a8badbfa00f5b045b98715225a",
+      "text": "每次選中魅音加1次，21題中共出現12次。顯示的分母不是支援程度百分比，也不是領導表現分數。沒有出現的選項不算被拒絕，而選項選單本身，也限制了能夠被記錄的協同方式。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/4/paragraphs/1": {
+      "sourceHash": "800ed43d76e3b04f0eff2cbf403f355dc0d1a368df7841232631026ca10fe474",
+      "text": "魅音與法爾科若並列最高，兩份全文都會顯示；相差一次沒有驗證過的顯著意義，七人並列也保留。可以私下回看哪些情境讓協同有吸引力，不必尋找隱藏主導身份，也不把第二高角色當作內部較次的人。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/5/title": {
+      "sourceHash": "fc705bf03e7216bda74462840cf60823777eb820551c8e0b7ea678f0b3ecdf7a",
+      "text": "問問下一位怎樣理解"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "00405ebeab1e66ad7f509ab20dc3dc04c0144279057e12e117aad62e3e3d357c",
+      "text": "想接著觀察時，可以選一件普通共同任務，私下記下下一項決定、涉及誰、還有什麼沒約定。現實中確實適合溝通時，再詢問對方怎樣理解；筆記可以只留給自己，測驗不需要姓名、檔案或參與證明。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/5/paragraphs/1": {
+      "sourceHash": "be5b2fa773aed111f6ecb8cd11fc742ec9d02760052b0a353f61b5f75bc1529f",
+      "text": "可留意：約定更清楚後，需要的幫助有沒有變化？答案可能是協調、只做更小一部分，或由別人來帶頭。這種自選觀察不承諾改善領導力或關係；讀別的說明或就到這裡，同樣完整，不負有組織活動的義務。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/6/title": {
+      "sourceHash": "90bc51221c5073eae799688a718ff7454ccb3d1d1a09dde389711e22d2c90788",
+      "text": "同一角色與不同中文寫法"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "aeb21ca17a4ae3b76300d6e984f9cd5cbf854e9508b9a4c480d46bf7e5cda033",
+      "text": "Maine在官方中文網站寫作“曼因”，讀者也常稱“魅音”。這裡以英文名識別同一位初代角色。題目與非官方說明由費馬獨立編寫，不暗示主創合作或背書，也不復現官方圖畫、臺詞和競品結果。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/3/sections/6/paragraphs/1": {
+      "sourceHash": "9870f9b41578491d66e8a92136d28305bac46c9c9688fb5ce2dc44f9f321136c",
+      "text": "結果不派臨床標籤，不評道德價值、管理資格，也不預測類似劇情的未來。分享可選，只含角色名與公開說明連結，沒有答卷和次數。七份完整指南免費，並列最高涉及多位角色時也一樣。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/title": {
+      "sourceHash": "7bd693362bc3d9453c162048c4530ba8e306088e2599da06da2b72ecb7247e62",
+      "text": "琦薇（Kiwi）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/headline": {
+      "sourceHash": "904cbf22e0503f6017eadb9aa1293cecb37f8f9782bb57ceba8af96bebeb55a7",
+      "text": "把已知與猜測分開，再決定怎樣傳遞"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/summary": {
+      "sourceHash": "48d0bf8478f4c4e00e255fd34f82f73b4e6889dd27492e74819f0148905fb1af",
+      "text": "琦薇的有限同人讀法沿一條不確定訊息展開：核對版本、決定傳遞範圍、比較其他六位角色，並說明相近或並列計數。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/seo/title": {
+      "sourceHash": "389ec7407a07ab228cd678aa5549ff7772d7759c244601de8633805117071b64",
+      "text": "琦薇測驗結果：資訊、未知與清楚的傳遞範圍"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/seo/description": {
+      "sourceHash": "21b1997be4c26687ed173cedbf2a646f52e0e5105c83c36d38b2b81126895bd2",
+      "text": "共同計畫裡出現兩個日期，先核對什麼再傳給誰？琦薇的非官方說明討論當前資訊、仍然未知的部分，以及清楚的下一條訊息。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/scoreReading": {
+      "sourceHash": "07f604d11058c90d674d629f97f61f73d08d9f9e71c9eccd2368334d57698c8d",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/0/title": {
+      "sourceHash": "098e8da916e879bcd26b2d2ead9a083a60e93c77e0caf797692557bac1c5ff38",
+      "text": "本版給琦薇的資訊角度"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/0/paragraphs/0": {
+      "sourceHash": "67f492bffe1895930f1b4a77ceee5b88198691620ce64c1eef7c39604ac7d266",
+      "text": "琦薇是初代動畫團隊中的竄網使。本版只選一個編輯性聯想：核對現有資訊，並決定哪些內容應繼續傳遞。次數反映的是對映到這一角度的選擇，不測聰明、猜疑、可信程度，也不判斷你像不像角色在劇情裡的行為。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/0/paragraphs/1": {
+      "sourceHash": "a48e6aad2bb536cee84f69511fb1394c61144cfeaeda00f7dee7f6e0c92775f9",
+      "text": "本次可能選擇了核對版本、追問缺少的條件，或把協調所需細節與私人材料分開。這些選擇可以是為了清楚，而非為了疏遠。實際含義還要看情境：先前約好了什麼，誰又有合適理由接收資訊。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/1/title": {
+      "sourceHash": "03444a9bd99de32604ac2579bc219b5015d6438b77bf19f11390a83c377811ff",
+      "text": "一個截止日期，兩個版本"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/1/paragraphs/0": {
+      "sourceHash": "6de835a7a25b08ff66115e4e141c593bebf17c01530c49ce4fd0ecfbfc080eba",
+      "text": "比如協助一個自願專案，訊息裡寫週五截止，轉存文件裡卻寫週一。如果只挑方便的日期轉發，可能讓兩個人各自準備不同承諾。可以先找出兩個日期的來源，以及是否真的有某次決定更改了安排。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/1/paragraphs/1": {
+      "sourceHash": "666c053e373b49badcb1f55d698c0a5a39853f6cfb7d770b22843b1d7c406c4e",
+      "text": "下一條訊息也可以把未知留著：“兩個版本不一致，已經在確認哪一個有效。”這與悄悄選一個日期，或把猜測說成確認答案，並不一樣。溝通不必等到資訊完美，只要不確定在哪裡、會影響什麼，能夠被理解。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/2/title": {
+      "sourceHash": "23e2702a566e7c6c92efa350457e77bc60d45fa1fd8aa0271d617e0d25ffaf28",
+      "text": "謹慎核對，也可以有一個結束"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/2/paragraphs/0": {
+      "sourceHash": "5e371c603a0d562da8e260fe141464b8edb0bada6014e63e00d80a8232e62b77",
+      "text": "某個未知會改變行動時，核對資訊就很有用。如果剩下的答案已經不會影響決定，或者核對變成無理由蒐集他人私人細節，作用就可能不同。一個具體問題，比“什麼都要知道”更容易處理。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/2/paragraphs/1": {
+      "sourceHash": "05e3a2890dd58ff10ec56b1e0a4bcea575880ea579355b8ff7751b244e4bfa2a",
+      "text": "有人要聯絡名單時，可以問用途、同意情況和最小必要範圍；普通日程則可能只要向負責當前版本的人確認。它們都是具體情境中的決定，不說明琦薇次數高，就應不信任別人或持續檢查他人。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/3/title": {
+      "sourceHash": "585ab2660f6a76b85b86f25e18be54262f5475fac9ff6968fe0f02ccea7f116c",
+      "text": "琦薇、露西與法拉第問的是不同問題"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/3/paragraphs/0": {
+      "sourceHash": "f5f60cfde58de7d44bc2daaf81b4d271414611fe9f3c2d4dd2484a011294a38d",
+      "text": "琦薇角度問知道什麼、怎樣分享；露西問想保留什麼自主目的與邊界；法拉第讓交換及其承諾明確。同一情境可能都需要它們。保留私人細節，不自動等於控制資訊，也不一定是在談一場交易。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/3/paragraphs/1": {
+      "sourceHash": "332dfc88097921bfa69f540729c46034025432ef45a79285773ad5c0cd03d59f",
+      "text": "大衛可以先試一個小版本，蕾貝卡說清眼前回應，魅音協調團隊，法爾科安排可靠交接。核對資訊只是這些行動中的一種貢獻。其他說明可以作為並排有用的問題來讀，不必給角色排能力高低。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/4/title": {
+      "sourceHash": "2253e4af4cf3cabbc1d8ef4398f9b86e3dcde8071d3ad984039126f91cc1111a",
+      "text": "報告數選項，不猜秘密動機"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/4/paragraphs/0": {
+      "sourceHash": "ef2ea9352489c62e89be93a1ac3d2509bb03fb9df0cc3a9b16f7a3408c936989",
+      "text": "琦薇出現12次，四位置各3次。選中其中4次，就記錄4個選擇，不確定謹慎等級，也不給識人能力分。某題沒有出現的選項不算被拒絕，每題只有四項也限制了當時能表達什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/4/paragraphs/1": {
+      "sourceHash": "3757b40ab733728aa54b90ad181477b9af3ba7bbe1b5c9752436294ec76834ee",
+      "text": "最高計數相同，完整解釋都會保留。琦薇與露西差一點，可能來自某個選項的表達，也可能來自你設想的情境；沒有經過驗證的閾值證明這個差別有意義。可直接比較全文，無需重測，七人同分也有效。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/5/title": {
+      "sourceHash": "d29c9ccbdf02ba09fc59caeb02cb40104fc20e22b55888be16c61722a8532da8",
+      "text": "給一個未回答的問題安放位置"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/5/paragraphs/0": {
+      "sourceHash": "44ee450109e147192fa0e3fa1177a65a1609bb0a837e2817cae93ea315745677",
+      "text": "對一項自己已經瞭解的普通計畫，可以私下分三欄：已確認、仍是猜測、下一項關鍵問題可能由誰回答。需要細節時用虛構資料。紙上整理就能結束，不必聯絡誰、搜私人賬號或檢驗他人誠實。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/5/paragraphs/1": {
+      "sourceHash": "ccc29cfed222cff027020f8a0fe63494573981adf960c301bbf6e851701dca57",
+      "text": "問題若已經不影響下一步，可以讓它繼續開放，不必製造確定答案；若仍有影響，再想什麼小澄清合適。這是對資訊使用的自選觀察，不是成為竄網使、證明人格型別或處理心理狀況的方法。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/6/title": {
+      "sourceHash": "d6b78ba413955113163d0bb35963a9b7775ad972f4b28d00af9f65e003331292",
+      "text": "有限的角色事實與獨立同人規則"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/6/paragraphs/0": {
+      "sourceHash": "f707754c3e4931780634c7b1a38c4fbba2995b6e604ba01c5df1256b807d64f5",
+      "text": "初代角色表確認琦薇的角色身份；簡短身份資料與本版自行設定的匹配角度分開。題目、例子和全文由費馬獨立撰寫，不復現官方心理角色模型、畫面、臺詞或競品結果，也不暗示主創合作和背書。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/4/sections/6/paragraphs/1": {
+      "sourceHash": "8a2e6e1b1eccc4c685468e8db4f297ff10e8066b48f687952b4a7378f6990aa5",
+      "text": "次數不確定臨床標籤、道德品格、關係相容或未來行為。分享可選，只複製角色名與公開說明連結，沒有答卷和次數。七份指南都免費開放，包括本次沒有最高計數的角色。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/title": {
+      "sourceHash": "5041ac03172eea20cb2208876bd4ef25fc04013c3e79b04e4c1846cb208b93e1",
+      "text": "法爾科（Falco）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/headline": {
+      "sourceHash": "8c34536d49ee2b28ddab4560e793e1fbed01e26f719ba9b661a20297901f6440",
+      "text": "把下一次交接與回程安排妥當"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/summary": {
+      "sourceHash": "9801975cd6f5f616d862b4207bd396da80c48ebefbca1e724af9e4020416826e",
+      "text": "法爾科的同人比較沿計畫走到收尾：有交接例項、持續照看與包辦的區別、六角色對照，以及相近計數的讀法。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/seo/title": {
+      "sourceHash": "6a47d196d30da20a1256145ceb872c03f7170258f9ea96dcca11e2fe6c296c1b",
+      "text": "法爾科測驗結果：可靠交接與清楚的結尾"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/seo/description": {
+      "sourceHash": "4ff3fb708db6ae5d142332218cee101848e2e9b3c3ef985b915f4290a8975e43",
+      "text": "活動結束，材料與責任還沒找到去向。法爾科的非官方說明討論交接目的地、做得到的跟進，以及拒絕接手的空間。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/scoreReading": {
+      "sourceHash": "cc3ff7d710bbc4612cd3a988bc580d06c3d808e6da7b3b79fc350ce7b2e591cb",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/0/title": {
+      "sourceHash": "58cc827f4e9e110b22442b9045d356be383a29e6bfc56ccdb463bb5b351f5056",
+      "text": "路徑與交接的角度"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/0/paragraphs/0": {
+      "sourceHash": "36036b9da740dd27fbe19e263563f280cc0d2fb9311aed812fe042f4163a2006",
+      "text": "法爾科是與初代動畫團隊相關的司機。本同人版從這個有限身份取一個編輯角度：讓普通路徑、交接或結束真正可用。計數不測駕駛、鎮定、忠誠或責任心，也不說你與整個角色相像；它記錄本題本里的選擇。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/0/paragraphs/1": {
+      "sourceHash": "d8b94de57d1dc43a960a72fb489440912ca90794df474a0d8d3fdb070dfdae95",
+      "text": "本次可能更想確認東西交給誰、留下清楚下一步，或在能完成交接前保留現有可用路徑。這些行動可以安靜，也可以被看見。它們是否有用取決於實際約定，不取決於某個人是否總主動留下來兜底。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/1/title": {
+      "sourceHash": "5b9063fc850f834d46e4edce35dabfec953db013aaf1e667ae9f71d4da9fa9e8",
+      "text": "活動結束了，東西還沒有去向"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/1/paragraphs/0": {
+      "sourceHash": "9e0ecfdb486b3b506e16383951b716e0eb5974b9f96f5f91ca94e9c0a162a56e",
+      "text": "比如小組結束一下午的活動，場地已經收好，但借來的工具還在袋子裡，共同記錄沒說交給誰，有人以為別人會處理這兩件事。大家到了一個愉快的結尾，卻還沒形成好理解的交接。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/1/paragraphs/1": {
+      "sourceHash": "74721363a8ca944b4177e0285f0493648869a75200abff1bbc81950b41c0704d",
+      "text": "法爾科式角度可以是問清工具約好歸還到哪裡、記錄應放在哪裡。不必因此親自搬所有東西，或長期保管材料。有用的變化是：相關的人能說清接下來會發生什麼，也能說清什麼暫時仍未完成。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/2/title": {
+      "sourceHash": "6c1e469df8a2c7afa7a2f935a4c0475927b464f24d408ef432a73965013956b8",
+      "text": "接得住，不等於無限在場"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/2/paragraphs/0": {
+      "sourceHash": "cf6c0833a6a993165433b26ad6afe1d6d6e136f179863db198b036293929d162",
+      "text": "清楚路徑或交接能讓別人容易繼續。但如果一個人默默接下所有尾巴，也可能成為新的不清楚之處。可說明自己接什麼、不接什麼，以及在什麼條件下，下一位可以合理地依靠這項安排。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/2/paragraphs/1": {
+      "sourceHash": "3081fd0dbaa7a0195bee08c8d2913c13fcaae06d6096d54514339d6c3708e554",
+      "text": "反例是：現有資訊和資源不足，無法把某件事變得可靠。這時指出不確定、提出暫停，可能比承諾順利做完更合適。次數高不證明處處可靠，次數低也不說明你總把別人丟在身後。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/3/title": {
+      "sourceHash": "bf67a4b0bb855a27f8a80645fde3628355d1d5f7e43a6ec49a01e939df6a1be8",
+      "text": "把法爾科與魅音、大衛、琦薇並排看"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/3/paragraphs/0": {
+      "sourceHash": "01eba674c0618533632aba0cf293e01c7519796d6d488169a01dd0826b16347b",
+      "text": "魅音的角度圍繞共同方向協調人，法爾科把實際轉接和結束說清，大衛讓方向有一次初試。同一活動的不同時刻都可能出現這些貢獻，不必由此決定誰一輩子負責帶頭、開場或收尾。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/3/paragraphs/1": {
+      "sourceHash": "ff52b14694c9e321d33adbaed53d1a3fe42be803e1decbb71fe8d3a2122fffb0",
+      "text": "琦薇核對已知，露西保留自主目標與邊界，蕾貝卡直接回應，法拉第說明交換條件。一次可靠交接也可能需要這四種問題。可用它們解釋選擇中的實際差別，不必給人物排“有用”和“沒用”。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/4/title": {
+      "sourceHash": "73584728223d10307601643fbb99845118d2eb0048e06f9ba067c62c12600a5f",
+      "text": "十二次機會，不是可靠程度量尺"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/4/paragraphs/0": {
+      "sourceHash": "7f947dd90024088213e75004a8b0013b1df2d00ff7516749befe2daaacb0286b",
+      "text": "法爾科出現12次，四個選項位置各3次。若選中7次，指的是這些情境裡的7個選擇，不是可靠程度百分比，也不確定是否適合支援角色。每題加1次，21道回答合計21次。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/4/paragraphs/1": {
+      "sourceHash": "bcfb1d30a482c6b6488b10bf158d82ec69449e38b118fe662f89c6e7da3bd109",
+      "text": "並列最高時，全文全部保留。法爾科和魅音接近，可能與題目把組織人員和澄清轉接分開有關，但計數本身無法解釋原因。相差一次沒有驗證過的心理意義，也不必唯一匹配某人才能讀其說明。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/5/title": {
+      "sourceHash": "387abfbb85677ab03fb415c219bdc37a729581296bba375af56585e7d64bd465",
+      "text": "看一次普通的轉接"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/5/paragraphs/0": {
+      "sourceHash": "ece24020f351931ecfeba2554ceb03af4117de02e53c97b52cfc562ba171d03f",
+      "text": "想做一點自選觀察時，可選一項本來就在參與的小活動，私下記下下一件東西去哪裡、誰已同意接收、還有什麼未定。用虛構例子也夠了，不必實際安排出行、駕駛，或為了反思而承擔他人安全責任。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/5/paragraphs/1": {
+      "sourceHash": "cb640932d4e7d1ff8ce10dde41475305a998c5dcdfac91bc23d7d9daa0464e65",
+      "text": "可以看看交接變清楚後，猜測有沒有減少，還是計畫仍在要求超出約定的付出。觀察到這裡就能停下；某種組織習慣並非對所有情境都有效，也不需要完成後續任務，測驗結果才算完整。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/6/title": {
+      "sourceHash": "9de8f3c64558dd663ae9778965dfad0581a79602ac209abe3b7f948169911b85",
+      "text": "原創同人說明，不給真人分派職責"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/6/paragraphs/0": {
+      "sourceHash": "fa520c60b3e27faa504c70bbd83e6bae7f4967614e69a6eb9a725137c0030436",
+      "text": "題目、例子和匹配模型由費馬獨立編寫。角色名與簡短身份說明用來識別初代人物法爾科，不使本頁成為官方角色測評。不宣稱主創合作、背書或官方畫面臺詞授權，也不復現競品結果正文。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/5/sections/6/paragraphs/1": {
+      "sourceHash": "f9e517e03b02207822842cf6c19443093359cfee73c1650f3502afbc5586c894",
+      "text": "結果不確定勝任力、個人價值、臨床狀況或應對別人負擔的責任。自選複製分享名字與公開說明，沒有答卷和次數。七份全文都可讀，也可去了解另一個問題，或就此結束，不需註冊或另做測驗。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/title": {
+      "sourceHash": "5c5bb65aab897aa0fa60270bdd34035bd7c48ec534985fa0e84a2f08505b5981",
+      "text": "法拉第（Faraday）"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/headline": {
+      "sourceHash": "932ea66f3833587318d87f44d5d632f183d02b87e1bc56f9f0eae6ea72aa678b",
+      "text": "把條件與彼此的承諾擺到明面"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/summary": {
+      "sourceHash": "890603e54e8e5e5b4443d1c81c43ea02e6f46ecfcd94ba863674380b8d2e6225",
+      "text": "法拉第的有限同人說明看一次交換究竟讓人答應了什麼：有變動計畫、清楚與施壓的區別、六角色對照，以及計數邊界。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/seo/title": {
+      "sourceHash": "13a5421a70efbcd6fdfad929deacb872a74a91d144ee1458e70c4e6adcda32e1",
+      "text": "法拉第測驗結果：說清條件，也看清實際取捨"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/seo/description": {
+      "sourceHash": "a1cfb80d62bed48f1ebd845f75fac8675918eab234b8cc76a1c6da06018ad827",
+      "text": "一次小幫忙逐漸變成固定承諾，條件該怎樣說清？法拉第的非官方說明談明確約定、拒絕空間，以及人物計數為何不是道德判詞。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/scoreReading": {
+      "sourceHash": "d2c0022a7f9fd95feb917b1146ea4899bb18abcf4aef36f8ae53919340c18741",
+      "text": "每次選擇為對應角色記1次，全卷合計21。每位角色有12次出現機會，四個位置各3次；分母說明曝光，不是相似度。最高計數全部獲得全文，相近次數沒有驗證過的顯著意義，也不派第二人格。全選A時各3次，七份全文都會保留。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/0/title": {
+      "sourceHash": "2dd1c83e1c81f272e6db2843ed152ba27047e705db0e2f1c78cb7a87d8fae0de",
+      "text": "本版從法拉第取的條件角度"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/0/paragraphs/0": {
+      "sourceHash": "df8f9e7ed24786586e7b28ac35ed2683d702ef0960dba1fb7df4647845a5bbdc",
+      "text": "法拉第在初代動畫中擔任中間人。本版只取一個很窄的編輯聯想：讓條件、交換及相互競爭的承諾變得明確。不借此認可他的劇情行為，也不測你的動機、道德、野心或談判能力，只描述某些選項關注了什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/0/paragraphs/1": {
+      "sourceHash": "718b5df3aaaeaefb85b4661851e97ff7e07ee5d0388d2e3486b9441834f48eaa",
+      "text": "本次可能更想問擴大計畫需要什麼、貢獻對應怎樣的約定，或捷徑會改變哪項承諾。這些問題在互相幫忙時也可能有用，不只適用於交易。把約定說清，並不要求給每段關係討價還價，或給每份付出標價。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/1/title": {
+      "sourceHash": "496f11e78a5e07388fdbc665cf3947a2c3db3cfb0dcda23e9f962a49b2e9ca2a",
+      "text": "小幫忙怎樣變成長期角色"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/1/paragraphs/0": {
+      "sourceHash": "1669e025835b76e9075585bbcbb0888ea5454adbd4825d82f9b4438b41ffbd42",
+      "text": "比如答應幫社團做一則短通知，後來逐漸變成每週更新、回覆每條訊息，並負責整個賬號。大家也許都出於好意，但後一個安排已經大了許多。可以問：現在新增了什麼工作，相關的人能否同意？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/1/paragraphs/1": {
+      "sourceHash": "f0ae7f46225c1e24ca10755f40cfe9eb11f29bd623479db6c4acb258bf596823",
+      "text": "可以保留原來的通知、只試一小段更新，也可以不接長期角色。不必先把別人說成不講理，才能作選擇。說明時間、範圍和雙方期待，可能發現原來有兩份不同約定，卻一直被當作同一件事。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/2/title": {
+      "sourceHash": "bfaaca7dc86a9c2091b8fe1cbced6e9a3f2a593d87b765cb46867af9e76d5c62",
+      "text": "條件說清，也給回答留空間"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/2/paragraphs/0": {
+      "sourceHash": "f2002174cca9c283e4d8af87c20598dcdb40e9a282ca676365dbd530dda8ab97",
+      "text": "條件如果幫助人理解選擇，就很有用；若說明裡藏了新要求，讓人實際上難以拒絕，或把沉默當同意，就可能成了壓力。交換寫得明白，不會自動使它公平；受影響的人仍需理解，並選擇接受到哪裡。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/2/paragraphs/1": {
+      "sourceHash": "afa79230c619d0eb1d83d60a1fca5c0d6ab803d38b29385ee38ab56da18e9f82",
+      "text": "反例是：一份普通心意或貢獻，本來就被大家理解為自願提供。此時強求回報，反而可能新增沒人想要的交易。因此次數高既不證明謀略，也不說明自私；次數低也不說明不懂現實條件。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/3/title": {
+      "sourceHash": "4193d67e85fe389363157e1bf426fa767c6a4c44017d4e32b54ef57e731481c3",
+      "text": "和露西、魅音、法爾科並排看"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/3/paragraphs/0": {
+      "sourceHash": "13fca3d962ccddeb9f58fa51d45a483e9713b66cfbc2d0ae881b1098ed5c86ac",
+      "text": "露西讓自主目的和邊界保持可見，法拉第角度問一個提議帶來了哪些共同條件；魅音協調人員與支援，法爾科說清交接和結尾。它們是計畫中的不同問題，沒有一種能直接告訴你別人是否可信，或其私人意圖是什麼。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/3/paragraphs/1": {
+      "sourceHash": "28a57d54a573842576f20158ca49fa52e311fce41db8cc8dfa2727b6a45bfeef",
+      "text": "大衛先試有限的一步，蕾貝卡直接表達眼前回應，琦薇在資訊流動前核對已知。它們能幫助交換更清楚，不必變成爭控制權的競賽。比較其他說明時，可找具體差別，不必把它們排成社會權力榜。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/4/title": {
+      "sourceHash": "f7de491e201d70e1ca3ed9e0f06164d4fcbeff4085e0088d7c670fe9ef4333bc",
+      "text": "次數解釋不了約定背後的動機"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/4/paragraphs/0": {
+      "sourceHash": "9a1dabee22a1c462177fa7c109359107cfa0d126f67ef8914849ea96fabbcd86",
+      "text": "每次選中法拉第選項加1次。21題中出現12次，四位置各3次，這就是分母。12次中選擇4次，指4個被選選項，不是精於計算的百分比，也不是像反派的程度；提供的情境只是本版有限樣本。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/4/paragraphs/1": {
+      "sourceHash": "d4de63731704ceb0d3c11890aa7152957e6eaec237f537b9474586571ca4d1cf",
+      "text": "最高計數相同，全文全部保留，也包括七人同分。法拉第和琦薇相差一次，不能確定動機不同，或固定主副型。無需改答案就能閱讀兩篇，第二高也不會提供隱藏診斷或道德標籤。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/5/title": {
+      "sourceHash": "e937700c33c1e68d43c5d3bb8fb9804340d4e0944edb4f1e66dd716ebb451aa8",
+      "text": "用通俗的話重述一個提議"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/5/paragraphs/0": {
+      "sourceHash": "09511cb829805cce58c84d5210b72492804c29987aa1e6cd43187dfdad6a11c3",
+      "text": "如果想接著觀察，可私下選一個無害的設想提議，寫下提供什麼、請求什麼、還有什麼沒定，再列出需要誰同意。不必實際談交易、披露財務資料或檢驗誰忠誠，才能使用這篇說明。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/5/paragraphs/1": {
+      "sourceHash": "c71c394dfaa04e384a2b9a88e090dc97113f1fdaa1a948a5c59cc77e5dd4c8d0",
+      "text": "可以問，更小的版本是否更容易理解，也更容易拒絕。也許根本不需要交換，也許答案適合暫時留白。這只是在讓選擇可理解，不承諾談判優勢、職業結果或關係改善；到這裡結束也完整。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/6/title": {
+      "sourceHash": "5f2eec2fbe22bcbda9f6c2c02015cf5d470bc51a0278daf3fe47fb9ad7a170c3",
+      "text": "編輯性的角色匹配，不替你評判價值"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/6/paragraphs/0": {
+      "sourceHash": "b23529b6b96212bd5fb0f843baa61e4c2c0080084fc125f99571044461bebe4c",
+      "text": "題本、選項對映與例子由費馬獨立編寫。名字和有限的身份事實用來識別初代人物法拉第，計數角度是本版非官方同人解釋。不復現官方畫面、臺詞、授權心理角色模型或競品結果，也不暗示主創合作和背書。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/profiles/6/sections/6/paragraphs/1": {
+      "sourceHash": "94d833c9cba734b84ec210cfbf2fe838147e404e4feb26179a7e6c5baf15575d",
+      "text": "結果不確定道德價值、臨床狀況、相容或類似劇情的未來。分享可選，只含結果名與公開說明連結，沒有答卷和次數。每位角色的全文都能讀，也可以為另一個問題另選測評，或不註冊就離開。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/0/title": {
+      "sourceHash": "b8d7dba96e731eb5ed7d751260816292df67756d5c309222cbffaee093f2bd50",
+      "text": "二十一次選擇，七項原始次數"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/0/paragraphs/0": {
+      "sourceHash": "668798fe7d68156f0ecc77cbdb658f8bf4c1f8d44df92c6b4b80bc540ab8e016",
+      "text": "21個所選選項各為明確對映的角色加1次，七項計數合計21。每位出現12次，四位置各3次；每對角色同題出現6次。這平衡的是曝光，不確立心理測量。沒有反向鍵、分數權重、正常區間或隱藏裁定。 21項均為有效選擇才給匹配；缺答或無效輸入不產生結果。某題沒有出現的選項不算被拒絕。12是可選擇該角色的機會數，不是相似度分母；次數不確定能力、可信程度、臨床狀況或類似劇情的未來。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/1/title": {
+      "sourceHash": "0dd8fc47a512d47ef68382f5845207af0f02a7a8b064b03cc4554215c31f788a",
+      "text": "所有最高匹配都獲得全文"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/1/paragraphs/0": {
+      "sourceHash": "14a7131017fd9b43f526af38b4de244bc2efe411e64b1ff33f8af85cab427845",
+      "text": "最高次數相同的角色全部保留，逐份顯示完整解釋。全選A時七位各3次，因此七份全文一起出現。相差一次沒有驗證過的心理顯著意義；第二高不被派為隱藏人格。 答題前後都能讀任何公開角色說明。比較另一篇不會改變本次計數，也不需重測來解鎖。設想情境與有限選項選單都會影響選擇，重測結果不是個人成長量尺。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/2/title": {
+      "sourceHash": "d02ddb024055a1985036fcc7a680022b832e6cf3b3da7eb8a3c2deb9c31f5c8f",
+      "text": "初代人物的同人比較"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/2/paragraphs/0": {
+      "sourceHash": "39f7a0d5b56ac7754c0dad628c8aa0cbf512afb7b60e14fc98af1dc6e3d1b39d",
+      "text": "本版角色為大衛、露西、蕾貝卡、魅音、琦薇、法爾科和法拉第，選取初代動畫人物，不是劇情知識考試。七個編輯角度只是有限的角色聯想，不聲稱概括完整正史人格或構成驗證過的角色量表。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/2/paragraphs/1": {
+      "sourceHash": "072060a5797797089c860b03f289cc90fce1e8c191d2cc2eff33d1a72884f841",
+      "text": "題目、選項、例子與結果全文由費馬獨立編寫。官方角色表和簡短身份資料用於識別人物，不驗證選項對映。本頁為非官方同人，與CD PROJEKT RED、TRIGGER或Netflix沒有合作或背書，不用官方立繪、臺詞或競品題庫。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/3/title": {
+      "sourceHash": "d36c629bfdcd21195c4c9bb8d5038d31eda4da491e96725d6b15465e4181bfe1",
+      "text": "私人答卷與自選分享"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/3/paragraphs/0": {
+      "sourceHash": "ef931165d35bf1b7063004d34f864ea5e0d538c64fd98c12d385e10bb38b6cfa",
+      "text": "答案在瀏覽器內計數，不進入公開結果網址或活動統計載荷。重新整理答題頁或切換語言後需重新作答。自選複製只含角色名與公開說明連結；並列時含角色名和入口，不帶答卷或次數。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/guide/3/paragraphs/1": {
+      "sourceHash": "8c80480a9bb5ecb40a758e04f29fcd3a60dfe0b1fcab7e2a897f50c5207fcaaa",
+      "text": "可讀完整對照、在指南里挑一項無害的私下觀察，或就到這裡。自選下一步不要求真實檔案、聯絡方式、公開挑戰或他人私人經歷。其他測評回答的是另一問題，不能把這七項計數換算成MBTI、能力或相容性。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/0/question": {
+      "sourceHash": "10917316127b3f3154f903f23a3f8f31ed94ce0d36660785ee6229d1e0a4fc97",
+      "text": "本版用哪部作品、哪些人物？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/0/answer": {
+      "sourceHash": "86e018254ce4f2f385c63585bf62a0ce28761f8361669270b999383921ff291c",
+      "text": "採用初代《電馭叛客：邊緣行者》的大衛、露西、蕾貝卡、魅音、琦薇、法爾科和法拉第七位人物。有限的編輯匹配角度不概括完整正史人格，作答不需劇情知識。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/1/question": {
+      "sourceHash": "3a154e3160a3413c893f9c22cb89cfb014c4220f10b1e380f1120c88909f915f",
+      "text": "這是官方或經過驗證的人格測驗嗎？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/1/answer": {
+      "sourceHash": "9730685f22bdebdb2da59fe14d9315ea6905b673e23dd20a8bcbb84b6f23316c",
+      "text": "這是獨立創作的非官方同人比較，沒有主創背書、心理測量驗證、人群常模、能力分或臨床解釋。角色名與有限身份事實用於識別人物；題目與匹配選項由費馬自行編寫。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/2/question": {
+      "sourceHash": "dc774b9c951d3b2bdbed5634776d8deb8cb535b55da5336ce7c1da571d387ba0",
+      "text": "21題怎樣產生結果？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/2/answer": {
+      "sourceHash": "3dfd7d86fcef46d1b4014c0c67be15185122ec850416c8e7879745352fc34c9d",
+      "text": "每個所選選項為一位角色加1次。每位出現12次，四位置各3次，無反向或加權。21項完整後給七項原始次數，最高計數全部保留並顯示全文，不隨機抽籤，也不按名單順序裁掉並列。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/3/question": {
+      "sourceHash": "1cefdfdf4ce4bda8ff09ff954469bafb6adbcc14454d09f0e4cc40fd8723b2c0",
+      "text": "次數接近或七人同分怎麼辦？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/3/answer": {
+      "sourceHash": "a09be0400fa72e87e2ef093f877f6eb12c2c956463f927051456f878ce993747",
+      "text": "最高次數相同，完整說明全部顯示。全選A時各3次，七份解釋一起保留。小差別沒有經過驗證的顯著意義，不派隱藏第二型；無需重測就能讀任何公開說明。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/4/question": {
+      "sourceHash": "b73fd5984704d7bb30267a8195f98843e3e54056dac274a09135fd5c7cd9c82c",
+      "text": "有些角色的中文寫法為什麼不同？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/4/answer": {
+      "sourceHash": "4dea3033c1c1deffde7298840db41cfd8b1026843c65f94fe624711f59ccba0c",
+      "text": "不同中文版本與讀者習慣會使用不同譯名，例如Rebecca有瑞貝卡／蕾貝卡，Maine有曼因／魅音。這裡附上英文名，確保琦薇（Kiwi）等人物身份清楚；不同寫法不是不同結果。"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/5/question": {
+      "sourceHash": "4abd069de630b8d4fa8afe1a0f9d48b07de1de691218233a2121962b01f1c436",
+      "text": "全文免費嗎？複製會分享什麼？"
+    },
+    "lib/questionnaires/data/cyberpunk-edgerunners.json/faq/5/answer": {
+      "sourceHash": "13954c6e1285a133a6169ef09370cc5e1576b8527fad0f414bb781e982468e30",
+      "text": "問卷和七份全文免費，不需註冊或郵箱。自選複製分享角色名與公開說明或入口連結，沒有答卷和次數。可以直接結束，無需另做測驗。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/david/0/title": {
+      "sourceHash": "f7fa7e938197eeac73d74ef9962a0c7ddfe57869aeb61f2a2c0564fdd40964f3",
+      "text": "先試一局的開場，不承諾整晚都負責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/david/0/paragraphs/0": {
+      "sourceHash": "cf52b817cc839db43576f9e84814997787f481754289dc9eb2ca2b102da95ace",
+      "text": "新設一個原創桌遊場景：朋友看不懂自編遊戲的說明，你先畫一張回合示例，只試能否解釋第一步，不因此答應重寫全部規則。開始前說好用十分鐘，之後可以繼續、換講法或停下。若發現規則本身不清楚，記錄問題也算得到資訊。與魅音相比，這裡先產生一個可看的小版本；與琦薇相比，仍須承認哪些規則沒有確認，不能用開始行動替代必要核對。反例是需要組織者許可的改動，此時先問比自行推進更合適。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/david/1/title": {
+      "sourceHash": "fd8078d04018614a7c018419cb039f96ae6c415aff4f71860b57b7437f3146dd",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/david/1/paragraphs/0": {
+      "sourceHash": "4a07cb1c05567fdbc512cdd233b199f8a5e5685692670634c5c823ffbc86c6ae",
+      "text": "可以問：“這個第一版具體想弄清什麼，哪些還沒答應？”各自為同一個虛構愛好寫一個十分鐘版本，比較目的和停點，不比誰更敢衝。可以只讀或畫草稿，不做公開挑戰、不花錢，也不把重做次數變成堅持力或勇氣評分。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/david/1/paragraphs/1": {
+      "sourceHash": "182b4696ddb774ddcba9c6563f8e06495b3e6a41a9099c79eb46ed3b5fe35479",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/lucy/0/title": {
+      "sourceHash": "39941b0b1177f5064248a819517f47824c7503cb1e48fa8e65dd055624ecc102",
+      "text": "參加一個謎題，不等於同意所有新增安排"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/lucy/0/paragraphs/0": {
+      "sourceHash": "a890c0d0193ee80af99f3fa2c9d7726a6ec59b60e001214efb3d4b4f2678f6a8",
+      "text": "新設原創場景：你答應參加二十分鐘的猜謎活動，後來有人提議每週直播。可以說明願意繼續猜這一輪，但還沒同意出鏡或長期參與；不用交代不願公開的私人原因。與法拉第相比，這裡先保留自己想獲得的體驗，再談新增條件；與魅音相比，清楚的個人限度也能幫助集體安排。若原來就只約了二十分鐘且得到尊重，沒有必要為角色結果額外找一次拒絕來證明邊界。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/lucy/1/title": {
+      "sourceHash": "df85ea57a1404a8285a09570d57b9c54025f518a6e6cce6db3f64fc15904a166",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/lucy/1/paragraphs/0": {
+      "sourceHash": "8c02359de2b107abc8e385fbb8f52e1e3d4db9334f0ba193d98f80018a2adffc",
+      "text": "可以問：“這句話說清了參加哪一部分，哪些仍待決定？”用編造邀請練一條實際回應，不解釋個人過往、不要求朋友交代秘密，也不把安靜或拒絕直播推成孤僻、信任差或某種依戀。願意時把文字留給自己即可。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/lucy/1/paragraphs/1": {
+      "sourceHash": "6a9b5a318d38e89e30e24d14db07c4c44bf2623e932d20c2d5bc706baacfb79a",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/rebecca/0/title": {
+      "sourceHash": "eac88648bbb347d77ee5e5a7ad822d50c231b322b79a97bf0ec377840a6a6cb9",
+      "text": "具體感謝可以安靜，也要允許不被公開點名"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/rebecca/0/paragraphs/0": {
+      "sourceHash": "5d7b0221c663f257583c48ada4bc4fbf7595d6a681eac937b1ed73aae1ac190b",
+      "text": "新設原創場景：一位朋友為桌遊夜帶來缺少的計分紙，你想感謝，可以說“你帶的紙讓這一輪能繼續，謝謝”。若準備發合照並點名，另問是否願意公開，不把熱情當成許可。與魅音相比，先讓當下的貢獻被聽見；與法爾科相比，感謝不能代替確認物品怎樣歸還。對方若只想安靜參與，尊重這個請求也可以是回應，不證明關心更少。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/rebecca/1/title": {
+      "sourceHash": "e1b87380487f2f6f86e790fe4f5ef4936059e1ea9aa6cc5680e5c665b0a5ba37",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/rebecca/1/paragraphs/0": {
+      "sourceHash": "50d0ad3e8b6e66210dc98608d45241d4484b89d70b1b46b67ca43c7c6c72c149",
+      "text": "可以問：“我們感謝的是哪件看見的事，有沒有猜動機或替人宣佈？”各寫一句基於虛構貢獻的感謝，允許不用熱烈語氣，也不用真的傳送。不把角色結果當忠誠度、外向程度或善良證明，更不要求用冒險幫忙來符合人物。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/rebecca/1/paragraphs/1": {
+      "sourceHash": "6cc629efb9b6d34621a6b71ef7ad6aa36f4ec64360cee31f1ed418b5d6d1915c",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/maine/0/title": {
+      "sourceHash": "6feb5b3028a3b559b21379d93d5b0cc710ea8f5056fad15eeea80db082f7ac2f",
+      "text": "把願意參加和願意承擔的部分分開確認"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/maine/0/paragraphs/0": {
+      "sourceHash": "a78e53157f4161c9109e682b4f273b5960840cdf82d2f4c0a7f9abd6076feedc",
+      "text": "新設原創場景：四人答應參加自編故事之夜，卻沒人明確答應主持。你列出講規則、計時和收材料三件事，再問誰願意接哪項，允許先改成更簡單的一輪。參加不自動等於同意承擔任一工作；無人接的部分仍未約定。與大衛相比，這裡先核人與安排怎樣銜接；與法拉第相比，新增工作也需要被看見。若已有主持且分工清楚，做好自己原來的一項就足夠，不必再接管。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/maine/1/title": {
+      "sourceHash": "b20745cf26e8f3d2afc853034d38952695f0de644ad900b1525562e9da69adff",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/maine/1/paragraphs/0": {
+      "sourceHash": "9ef15d889584e2cf4b2408395d505f66c370b6ed6d9c7f9918e6b9e00996eaad",
+      "text": "可以問：“誰已經答應了什麼，誰只是被寫進計畫？”一起核一個虛構名單，分別標同意、待確認和不參加，不替真實朋友派任務。不用結果證明自己應領導，也不把更少的協調選擇解釋成不合群或缺少責任。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/maine/1/paragraphs/1": {
+      "sourceHash": "e6d52c2a0ae1876cf944c3aa69373157f1f6d633dfb8b6324ca8e9ab4bdbae01",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/kiwi/0/title": {
+      "sourceHash": "0759256261bd59d399d7e872226eaaa131c0bb967304ee76ebd9976eaa7ceb04",
+      "text": "版本號、來源與未知狀態要一起留下"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/kiwi/0/paragraphs/0": {
+      "sourceHash": "741fd754d15bf84fb66879e8dc895a9e1185f5557b0d1ae5975af0068bcd9699",
+      "text": "新設原創場景：興趣展的圖片說明有舊稿寫週六、新稿寫週日，但新稿沒有確認記錄。你可以列出各自來源與更新時間，向負責日程的人詢問；“較新”本身不自動等於獲確認。確認前可告訴相關的人日期仍有衝突，不假裝已經解決。與法拉第相比，先核事實與傳遞範圍，不先替大家談新增約定；與露西相比，不要求私人理由才能澄清日程。普通日期核對也無需搜他人賬號或收集整段聊天。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/kiwi/1/title": {
+      "sourceHash": "5cfc3627beefb8d57233b6aa481b9e0b41b903f2c9554211bbbab2bdb3c0a1ca",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/kiwi/1/paragraphs/0": {
+      "sourceHash": "dd1c54200f661e9eec7301e5eb820221b401e0b9ac09bf4bf188e15b2bb21369",
+      "text": "可以問：“現在能確認哪一句，哪一句仍只是草稿？”用兩條編造訊息核對事實、推斷和可詢問的對象，不測驗朋友誠實、不把計數當識人能力。若未知已不影響下一步，也可保留未知；不必為角色結果不斷多查。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/kiwi/1/paragraphs/1": {
+      "sourceHash": "f6aa3fe1e633dfc14d96e00e58794d1364fb9e713ee5a77f0ccc494014bc3256",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/falco/0/title": {
+      "sourceHash": "7120866c990cfc58fa9ddd4b6eb258c9ebdc8658f025bac97b84a145cf8e0147",
+      "text": "放到約定位置和已被接收不是同一狀態"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/falco/0/paragraphs/0": {
+      "sourceHash": "2e69484f5a81ce3bf0487503b5aeb8fc418b68ce629301fb23360bac764c964e",
+      "text": "新設原創場景：桌遊夜後，你答應把借來的計分板放到社團櫃中。可以記錄“已放入指定櫃，接收人尚未確認”，而不是寫“對方已收妥”。若需要對方確認，應在約定範圍內說明下一步；不因此長期替所有人保管材料。與琦薇相比，保留已知與未知；與魅音相比，重點在這個具體交接，不重新組織全部人。沒有明確接收地點時，可以先暫停並詢問，不能靠多承擔責任來消除資訊缺口。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/falco/1/title": {
+      "sourceHash": "071c873053534fe2dc0019d57aeebe22541d7acff0f9d4cea4b645f88637e903",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/falco/1/paragraphs/0": {
+      "sourceHash": "9a7761195d15549731e87806d6d5c4a8e5e7867af6e305265cc389cc812227b3",
+      "text": "可以問：“東西在哪裡、誰同意接、哪個狀態還沒確認？”各自寫一條虛構交接備註，再讓另一人只憑備註指出下一步。不實際運送物品，不承擔他人安全，也不把更高次數當可靠性證書；備註可以在紙上結束。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/falco/1/paragraphs/1": {
+      "sourceHash": "ecd9fa618626621bf84a0f6086432b1b0dcdb0d282039ea9a54cfcdfe45cdf3d",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/faraday/0/title": {
+      "sourceHash": "697a0448f3857e9ce91fdaec63ad5d757c8f42d23af75e3585ece5d9e0ea9403",
+      "text": "一次小稿與持續供稿需要分別同意"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/faraday/0/paragraphs/0": {
+      "sourceHash": "712790bf03ebd17345e2e2a1ebdf5e33d09f6ac99f72502492e956f40f5788b1",
+      "text": "新設原創場景：你答應為社團畫六個虛構圖示草稿，後來提議變成每月持續畫稿並回覆修改。先列出新增頻率、修改範圍與可用時間，允許保留一次草稿、縮小嘗試或拒絕後續，不把最初答應當成長期預設。與露西相比，先把雙方約定具體化；與法爾科相比，結束一次任務不自動開始下一次。寫清條件也不自動使安排公平，更不需要給普通友誼的一切都標價。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/faraday/1/title": {
+      "sourceHash": "31dd33610b10aa429f6ab0c540ca3743ac47af0326490c18bf1df17a0a0c216a",
+      "text": "比較一次具體選擇，不把角色變成真人職責"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/faraday/1/paragraphs/0": {
+      "sourceHash": "cf3ac22d69f5dc6394b7a99171de0d24cdfa61fd0f7cfe91b5dfa3ce04a08544",
+      "text": "可以問：“這次新增的是時間、次數還是責任，誰還沒同意？”用編造請求寫舊範圍與新範圍，不談真實交易、不披露財務，也不試探朋友忠誠。可以發現無需交換就結束，不用角色結果解釋誰自私、精明或適合談判。"
+    },
+    "lib/questionnaires/result-content/cyberpunk-edgerunners.json/faraday/1/paragraphs/1": {
+      "sourceHash": "c327296a92f2c590436419287c9884a3df6b80f8a8502bc0e97688d07711a6df",
+      "text": "網站複製只含結果名與公開說明連結，不含答案或次數；也可自行分享本指南。21題中的七條路線各出現12次，原始次數不表示相似度、能力或人群位置，所有最高並列都保留全文。可以喜歡角色卻不選這條路線，也可不認同名字但讀到一個有用問題。情境均為原創日常例子，不是劇集臺詞、心理測量驗證或模仿劇情的要求；只讀、保密或停止都可以。"
+    },
     "lib/questionnaires/data/avatar-bender-quiz.json/title": {
       "sourceHash": "048437e20b09f68d3fa616c5b9e8199bdc06189716ca2aa79284f6dd407a83e5",
       "text": "降世神通御術型別測試"
@@ -100007,6 +101486,166 @@
     "delulu-test/editorial/faq/7/answer": {
       "sourceHash": "a9de9bb5fbacf83d8ebf4b2f1c248210a0e488d03100cd422252958f41aff7a7",
       "text": "不需要。開始直接進入題目，無需額外同意、電子郵件、註冊或前置測評；18題及全部完整指南免費。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/0/title": {
+      "sourceHash": "9d239efe7a52b36afaa6fb852190f26bd555c72b4ebd22e428f5c06f76a7c937",
+      "text": "你的選擇讓人想到哪位《邊緣行者》角色？"
+    },
+    "cyberpunk-edgerunners/editorial/sections/0/paragraphs/0": {
+      "sourceHash": "b147e2219aac68f5efd60c086aafd3fedef7285c0b0c9cb66269fa580349729d",
+      "text": "這份角色測驗取材於初代動畫《電馭叛客：邊緣行者》。[3] 你可以把平常會做的選擇和大衛、露西、蕾貝卡、魅音、琦薇、法爾科、法拉第這七位人物對照。題目圍繞小組活動、個人計畫、資訊與交接，無須熟悉劇情或玩過遊戲。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/0/paragraphs/1": {
+      "sourceHash": "514d525beb2377fb224f586788dc05441d52a9466fd6022b49e0680e801462c9",
+      "text": "每個人物提供的是有限的編輯性聯想，不是完整人格模型。結果解釋你選過的回應，並提供可以結合閱讀的例項與對照；它不把虛構人物的背景、暴力行為、關係或結局移植到你的人生，也不評價你是否是忠實粉絲。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/1/title": {
+      "sourceHash": "17e6d4721db7f998cb0687baf3c12f7b86b2758e71fa2027c010c830f43eddb0",
+      "text": "七個角色角度，而不是七種固定身份"
+    },
+    "cyberpunk-edgerunners/editorial/sections/1/paragraphs/0": {
+      "sourceHash": "4c558582d68b3a3d6e8a66d351e9c1d88df75872057c76da9a2261be4567f08e",
+      "text": "大衛的角度是可以掌握的一次嘗試；露西關注自主目標與願意解釋到哪裡；蕾貝卡關注直接表達支援。魅音關注人員與餘量的協調，琦薇關注傳遞訊息前的核對。這些聯想用於組織本題選項，不概括人物在動畫中的所有場景。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/1/paragraphs/1": {
+      "sourceHash": "8af0745e4a407a90dac96e99fca9c5ad49c5b1239b310968ff1dce3e936ea8bf",
+      "text": "法爾科關注讓路徑、交接或結束真正可用；法拉第關注說清條件與承諾。兩者都不評忠誠或道德。需要時可以閱讀全部七篇；本次未選的回應，也可能符合你在其他場景中的做法，或條件變化後願意採用的選擇。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/2/title": {
+      "sourceHash": "b9679413160c9475bb17183eb8ad6c32e9cc6d546ae11dd157f4ac6bf60be741",
+      "text": "二十一次選擇：七項次數怎樣產生"
+    },
+    "cyberpunk-edgerunners/editorial/sections/2/paragraphs/0": {
+      "sourceHash": "be7864fd75ca5517b0f0762b9bdd47b18375d45eb04f0a6685c7b4c5ebcaa91a",
+      "text": "每題給出四種回應，你選其中一種，為對應角色增加一次。二十一題中每位角色出現十二次，在四個選項位置各出現三次；每對角色共同出現六次。沒有反向計分、權重或隨機抽取角色。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/2/paragraphs/1": {
+      "sourceHash": "987e8b1e5f41c435b8b7fb24c97264addd4b4efb25b3f64a87a89bb0a7faa17a",
+      "text": "全卷答完後，七項次數合計二十一，每位角色的次數範圍為零至十二。這些數字記錄的是這份特定題本中的選擇。相等的出現機會讓設計可以核對，但本身不證明信度、效度或與虛構人物的精確相似程度。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/3/title": {
+      "sourceHash": "9c6eefcd1ee0dbb367e2d6c33bedab3f15a713ea4a99402978a24c6467cfde80",
+      "text": "精確並列與相近次數分別怎樣讀"
+    },
+    "cyberpunk-edgerunners/editorial/sections/3/paragraphs/0": {
+      "sourceHash": "22ec89a49c8251c375f6035b6cae247647e70fc24bec1e32be51b520bdaa138c",
+      "text": "結果保留所有達到相同最高次數的人物。例如五、五、四、三、二、一、一合計二十一，會保留兩個五次角色；七位各三次也合計二十一，會保留全部七篇說明。這是運算示例，不估計任一結果在人群中有多常見。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/3/paragraphs/1": {
+      "sourceHash": "9ad9976ec516e3d8659fd1e419adffcea3a3fb4db3fbc61721d094ecd021f09a",
+      "text": "最高五次、其次四次是一次數差，不是並列。頁面不會自動合併相近次數，也不把差距解釋為有意義的心理距離。可以閱讀相鄰人物，幫助理解具體選擇，無需反覆作答直到喜歡的角色勝出。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/4/title": {
+      "sourceHash": "3e1a397fd71cc0b0f6783796501c7f4971d435cf10743065c2042aac9d963ea3",
+      "text": "比較選項背後的理由，而不只比較角色名"
+    },
+    "cyberpunk-edgerunners/editorial/sections/4/paragraphs/0": {
+      "sourceHash": "823d8a50e3f90585a26fe2b6b3616df8d42886e730ff09c4787e9bc56cbc0961",
+      "text": "在小組計畫變化時，大衛聯想的回應可能先試一個可行部分，露西聯想的回應可能先保留參與的個人理由。兩者不表示誰更勇敢或更不合群；更有用的問題是該回應在此情境保護了什麼，以及換種條件是否會改變回答。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/4/paragraphs/1": {
+      "sourceHash": "4453765bccc5b7fd1d812f46f2b5668d82bfbf9927b4ffee3d579d9e0a9586c7",
+      "text": "魅音與法爾科都可能讓人想到協調，但一個側重人員與餘量，另一個沿路徑關注交接。琦薇與法拉第都可能涉及澄清，但已有資訊與雙方答應的條件是不同問題。這些是費馬編輯設計內部的對照，不是官方角色分類。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/5/title": {
+      "sourceHash": "61612bcb5a5cdd497a46853b59f38b8e74d2fbe442cb36c2654041a6d7f6a29a",
+      "text": "官方作品資訊與測量證據各自說明什麼"
+    },
+    "cyberpunk-edgerunners/editorial/sections/5/paragraphs/0": {
+      "sourceHash": "109f73b0c7ca2715fc224f1b449e752961e618021187e12a32974611dad9c673",
+      "text": "官方作品介紹與 TRIGGER 的製作、配音資料用來核對作品及角色，[1][2][3][4] 琦薇與法爾科的角色身分另有輔助來源。[5] 七種角色聯想與日常情境由費馬為這份同人測驗編寫，所有完整指南在作答前都可閱讀。這些資料並未驗證題目與角色的對應方式或結果解讀。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/5/paragraphs/1": {
+      "sourceHash": "e3e8032c984397edc5d64a303c149218f61bd3d0b2aa0021b427088b5e5f4c58",
+      "text": "透明計數公式說明輸出如何生成。若要對測得的特質提出科學主張，還需要明確構念、合適樣本，以及針對具體工具和用途的研究。本娛樂版尚未完成這類驗證，因此角色次數不轉換為MBTI型別、大五人格分數或臨床指標。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/6/title": {
+      "sourceHash": "cd9f749e73f515db0aee074174440992494dde925af8f58eb058b6a8dc8fb0b0",
+      "text": "初代動畫範圍、譯名與劇透預期"
+    },
+    "cyberpunk-edgerunners/editorial/sections/6/paragraphs/0": {
+      "sourceHash": "3a510ae4cbd3d3f882109dfb8f90d51e8669d0f65d89c5cb70823e4b11a7f886",
+      "text": "本版明確選擇七位人物，不聲稱覆蓋全部角色或每部賽博朋克作品，也不混入遊戲主角或其他作品篇章的人物。未列出的人物沒有隱藏結果；熟悉另一測驗的角色集合，也不能據此推斷本題本能夠產生哪些結果。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/6/paragraphs/1": {
+      "sourceHash": "578bfe5a871849c74dea555813e7d820c1c6c20c84b3775e2890fefe048c405f",
+      "text": "中文名旁保留英文名，便於對照不同譯名。指南側重有限角色聯想與普通例項，不復述劇情，但仍會提到基本角色身份；希望完全不接觸人物資訊的讀者可以稍後再來。作答本身始終不要求劇情知識。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/7/title": {
+      "sourceHash": "1ca2d2347b5303b0456e5ca4c30f39bd46da1b57041c5d9b985ab8393b1b9e68",
+      "text": "閱讀完整指南，自主決定是否分享"
+    },
+    "cyberpunk-edgerunners/editorial/sections/7/paragraphs/0": {
+      "sourceHash": "0a5daf8f4baecf8f4ceb82d282ec3883395eb9aa076840a09f7708359ac0e492",
+      "text": "完整指南包含所選人物角度、日常情境、與另外六位的對照及計數讀法。可以先看符合實際選擇的例項，也留意不符合的例項；把結果作為討論入口即可，無需把它當成對動機、技能或價值的判斷。"
+    },
+    "cyberpunk-edgerunners/editorial/sections/7/paragraphs/1": {
+      "sourceHash": "1ef98eebee1574beaf98f1fe423ca886e9703e701dd037dcdae3c45b2ddf077e",
+      "text": "答案在瀏覽器計算。重新整理答題頁或切換語言後需重新作答。自選複製只分享人物名字與公開指南連結，不含答卷或次數。是否閱讀其他指南由你決定，不改變計分。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/0/question": {
+      "sourceHash": "4b7dbef7862a959473d055d016bd364fe332f01e16c1e9cfc9bed6916bd99b51",
+      "text": "這是測我像哪位角色，還是考動畫劇情？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/0/answer": {
+      "sourceHash": "05e325f9a8aba38744b76d211177a52e695c096ca106ee6a3acca8180cec7a39",
+      "text": "這是初代動畫的角色匹配測驗。完成 21 道日常情境選擇後，可以檢視七位角色裡誰與你的選擇最接近。每個結果都可開啟對應的公開角色指南。沒看過動畫、沒玩過《賽博朋克2077》也能做。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/1/question": {
+      "sourceHash": "88303c7182444381eaacdb513b9642d985bd7efd12d1c9e0a9d442723f3a7378",
+      "text": "這是官方夜城角色測驗嗎？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/1/answer": {
+      "sourceHash": "04cbb9dddc2de6e1c51e8e8f021dee5771812f8910107833e0ed0f342db1b096",
+      "text": "不是。這是費馬獨立寫作的同人問卷。官方資料用於核對作品與角色，不代表對本版的認可或驗證。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/2/question": {
+      "sourceHash": "a11d49685472e5a9a713cbeba60b4bdbae69c5f1dcf20fcae403c06e420afdf0",
+      "text": "十二次全選就意味著與角色完全相同嗎？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/2/answer": {
+      "sourceHash": "185fdf1092d49019046b7d26992156d84c25d307c731b13c2bce69e19889f8f4",
+      "text": "它表示在該人物出現的每道題中都選了對映給他的回應，不是相似度百分比，也不證明人生和人格與人物一致。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/3/question": {
+      "sourceHash": "1d364a1b015e3f993918d178f3b0ed02c073cf03e6ce42d892a25a347facbeb3",
+      "text": "為什麼七位角色可能全部並列最高？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/3/answer": {
+      "sourceHash": "3795732fd554744d2f6fc9e84c19fbda75498fc8c95baf0e4a37ed6c07c2dcd3",
+      "text": "二十一次選擇可以分為每位三次；七位因此達到相同最高次數，全部完整指南都會保留，不隨機或按字母挑選一位。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/4/question": {
+      "sourceHash": "169c2e564d9c370b0c8476447c90d9df30dfc27e9e01e9bf3ef35161b0890323",
+      "text": "法拉第結果是在判斷我的道德嗎？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/4/answer": {
+      "sourceHash": "493f7a4cdbc2e5e6c7a05672b1d4da0b4a9fb4e369fa2466cd81fb1ef0d42833",
+      "text": "不是。本版給他的角度是明確條件與承諾，結果不把他的劇情行為賦給你，也不推斷你的動機或道德品質。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/5/question": {
+      "sourceHash": "ddf5f93ac88f4d024783aa8a417d7cc87a0ea2172f30658734c6c27354bfef2e",
+      "text": "角色結果能揭示MBTI或依戀風格嗎？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/5/answer": {
+      "sourceHash": "ac38bd38fc1ebcf728d1960f81867a07ec6743621962c3c4d8274aec448c3409",
+      "text": "本頁不提供換算。同人人物聯想與心理構念是不同物件，本問卷未建立這種測量關係。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/6/question": {
+      "sourceHash": "efdc16dad9c5dbe6a7d4b4ee59f410a4d9553d21016d868170240087fc535c24",
+      "text": "重測結果不同就說明我變了嗎？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/6/answer": {
+      "sourceHash": "d2b82c80e41096a078178355a18db79b0c8d5a56bfc468be9443c08a877ce276",
+      "text": "單憑結果不能這樣判斷。當時情境、對題意的理解和幾次不同選擇都可能改變最高次數，應先比較具體回答與計數。"
+    },
+    "cyberpunk-edgerunners/editorial/faq/7/question": {
+      "sourceHash": "4575153060cc54f12d2998513d1474333ec888733b2a6aaa7fa1d7b3de2d740e",
+      "text": "不答題也能看全部人物結果嗎？"
+    },
+    "cyberpunk-edgerunners/editorial/faq/7/answer": {
+      "sourceHash": "42dbd75012d394d89ae5b13df343f89c625141bb4f630f233c6e40672873733b",
+      "text": "可以。七篇公開指南開測前即可閱讀，屬於一般說明，不是別人的私人答卷；閱讀不改變計數規則。"
     }
   }
 }
