@@ -8,6 +8,7 @@ export const sources = ['lib/questionnaires/data/chiikawa.json', 'lib/questionna
 const root = new URL('../../', import.meta.url);
 export const packages = [
   { output: 'lib/i18n/zh-TW/global-history-roster.generated.json', sources: ['lib/entertainment/global-history/people.json'] },
+  { output: 'lib/i18n/zh-TW/changan.generated.json', sources: ['lib/entertainment/data/changan-history-quiz.json'] },
   { output: 'lib/i18n/zh-TW/chiikawa.generated.json', sources },
   { output: 'lib/i18n/zh-TW/seven-sins.generated.json', sources: ['lib/questionnaires/data/seven-sins-virtues-test.json', 'lib/questionnaires/result-content/seven-sins-virtues-test.json', 'lib/questionnaires/virtuesLandingEditorial.json'] },
   { output: 'lib/i18n/zh-TW/seven-sins-ui.generated.json', sources: ['lib/i18n/zh-TW/seven-sins-ui.source.json'] },

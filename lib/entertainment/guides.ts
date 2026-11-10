@@ -5,7 +5,7 @@ import { isDirectoryQuiz } from "./directory";
 export const resultSlug = (id: string) => id.replaceAll("_", "-");
 export const quizPath = (locale: DisplayLocale, slug: string) => `/${locale}/tests/play/${slug}`;
 export const resultPath = (locale: DisplayLocale, slug: string, id: string) => `${quizPath(locale, slug)}/results/${resultSlug(id)}`;
-export const contentImagePath = (quiz: Pick<FunQuiz, "slug" | "version">, locale: "en" | "zh", id?: string) => `/og/fun/${quiz.slug}?locale=${locale}${id ? `&portrait=${resultSlug(id)}` : ""}&v=${quiz.version}`;
+export const contentImagePath = (quiz: Pick<FunQuiz, "slug" | "version">, locale: DisplayLocale, id?: string) => `/og/fun/${quiz.slug}?locale=${locale}${id ? `&portrait=${resultSlug(id)}` : ""}&v=${quiz.version}`;
 
 export function findPublicPortrait(quiz: FunQuiz, slug: string): FunResult | undefined {
   return quiz.results.find(result => resultSlug(result.id) === slug);

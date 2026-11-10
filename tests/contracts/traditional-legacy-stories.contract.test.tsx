@@ -52,7 +52,8 @@ it("binds all 60 readers to current source and keeps all 181 result identities a
     }
   }
   expect(portraits).toBe(181);
-  expect(traditionalPath("/zh/tests/play/changan-history-quiz")).toBeNull();
+  expect(traditionalPath("/zh/tests/play/changan-history-quiz")).toBe("/zh-TW/tests/play/changan-history-quiz");
+  expect(traditionalPath("/zh/tests/play/changan-history-quiz/results/not-real")).toBeNull();
   expect(traditionalPath("/zh/tests/play/woodland-animal/results/not-real")).toBeNull();
 });
 

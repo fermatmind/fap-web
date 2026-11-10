@@ -1,0 +1,406 @@
+{
+  "targetLocale": "zh-TW",
+  "converter": "opencc-js@1.4.2:cn:twp",
+  "glossary": "fermatmind-tw-1",
+  "sourceHashes": {
+    "lib/entertainment/data/changan-history-quiz.json": "f0beb6cc451108ebc68639b9afd3f46cd92bcf1af5a05da4ea163dad993ffd8c"
+  },
+  "units": {
+    "lib/entertainment/data/changan-history-quiz.json/title": {
+      "sourceHash": "16c8af6d2a2c5b92c5beadeabfd33aef5c55a210da170c048e71c6b83fb8e8d4",
+      "text": "你的性格最像哪位歷史人物？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/description": {
+      "sourceHash": "e1f0dafee722f1f4a42ec76b8b323d57410489cb2a99aef60553fda5b0ca00b8",
+      "text": "穿越唐代長安，做六次情境選擇，看看你會遇到李白、武則天還是另一位歷史人物。結果附原創動漫人物卡。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/introduction": {
+      "sourceHash": "db23db92b6af05fb419c81f23bce3246a03cb08b4d36cb93b5646a9c423a54ec",
+      "text": "城門將閉，一封急信送到你手上。你會處理城裡的難題，也會去西市逛一逛，最後帶走一張屬於你的長安人物卡。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/focus": {
+      "sourceHash": "07d48feccec6cc586af17f7a93a6c251d6e310eb0dc298b495a7bcbd97f6f82c",
+      "text": "六位人物來自唐及武周的不同時期。遊戲借他們的經歷或作品寫了六種選擇風格。情境是虛構的，結果僅供娛樂。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/seo/topic": {
+      "sourceHash": "d9ce9e6fa611bd12d2af4c1775f9f221d3b5dccd115ccefa189ed40f4322fa2c",
+      "text": "歷史人物性格測試 · 長安卷"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/seo/title": {
+      "sourceHash": "92f92d43e7938bbdbb52d6070e68cc5a465211cc5adac98cf72851f8f1dd051f",
+      "text": "你最像哪位歷史人物？長安卷 · 6題免費測試"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/seo/description": {
+      "sourceHash": "17648e80fc5ef0e46dd4727fa7b5db2aac9daf09c32e693685ee6ab9930e14a6",
+      "text": "六道唐代長安情境題，匹配武則天、狄仁傑、杜甫、上官婉兒、玄奘或李白。免費作答，下載原創動漫人物卡。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/seo/faq/question": {
+      "sourceHash": "6d79cb853ce9b6eca583876f05074781a22eb12d50eba57e9191a687a906f1e2",
+      "text": "要懂唐代歷史才能作答嗎？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/seo/faq/answer": {
+      "sourceHash": "abafd4ff1c37b4d7f2e3b456fdbe982abee725d03eb04f130801578a60d544b5",
+      "text": "不用。每題都給出足夠的情境，你只需選自己更想做的事。結果頁會附一條史料或作品入口。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/0/scene": {
+      "sourceHash": "2b8d033afe6144145238a82702751bccb57fbd50eb24ecc6bd983153c131677e",
+      "text": "城門 · 一封急信"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/0/prompt": {
+      "sourceHash": "4408c068fc726510cd634e3b29ffdeda07630fd7894182efb6503d2480a4e394",
+      "text": "秋雨沖壞糧道，城裡的米價一夜漲了。急信問你，眼下最該先做哪件事？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/0/options/0/label": {
+      "sourceHash": "920859c1c565496b284bff6c5315823e3079c2243a25bef1dfff93aa8e898e2d",
+      "text": "先撥一批公糧平價出售，三天後再看米價。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/0/options/1/label": {
+      "sourceHash": "3229debfa5aa18c33c58b1ec81306f77183ba168fcc908f3784a53b1890bba64",
+      "text": "核對倉裡的餘糧和各店的賬目，弄清缺口有多大。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/0/options/2/label": {
+      "sourceHash": "0aeefefc2ba14d2fcd7c4566a64d54de1b38f5313c834221ef851c8137d8c858",
+      "text": "去米鋪門口看看，先找出哪些人已經買不起糧。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/0/options/3/label": {
+      "sourceHash": "1102546d38fe24dab5a463be51a60e2fb7bcca1b2f3361acfb182b68dcdf14e1",
+      "text": "把運糧人、店家和官倉叫到一起，商量各自能出多少力。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/1/scene": {
+      "sourceHash": "0a264cb564065455d64acab67c7faa546588b323c0754cf1c3ded103b4ea886a",
+      "text": "坊門 · 兩種說法"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/1/prompt": {
+      "sourceHash": "8a1eabd55b7c2daf0b4c161d444fd99d80511812237d06eb408e517e4f86fa6b",
+      "text": "有人說一處水井被私佔，另一邊說井正在修。兩封求助信都寫得很急，你先做什麼？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/1/options/0/label": {
+      "sourceHash": "26e8c4cd9ae89ffafff05278e29b1ba1c0213d7b25ac852a8d370404cb26c812",
+      "text": "找出修井的記錄，核對報修日期和封井的人。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/1/options/1/label": {
+      "sourceHash": "2d1100f250749e939f61dec2dd8a5cacf76e35c288baa91d68588011d38a7097",
+      "text": "先去問每天來打水的人，看看誰眼下最難取水。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/1/options/2/label": {
+      "sourceHash": "d8429e366cefbd0eb67a1f2ec1f72926c4f014ac304542c4089e997087bc4b37",
+      "text": "約兩邊當面說清楚各自知道什麼，再定臨時安排。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/1/options/3/label": {
+      "sourceHash": "856716d5a4ce80b9e28c723356089f5e65662401e86252f73413b3f8ad6900fa",
+      "text": "沿著水渠和鄰坊走一趟，找找兩邊沒看到的情況。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/2/scene": {
+      "sourceHash": "f62bd598407dbbd297bd8e49efbca88aa1a6d4b025ed493f8e406d73082556fd",
+      "text": "驛館 · 臨時閉門"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/2/prompt": {
+      "sourceHash": "b6c34257ed9df039fb8f63267b24d8d5733d5922fd692b268b64ac60489a4f80",
+      "text": "傍晚，驛館屋頂漏雨，原定的住處用不了。還有一隊旅人快到了，你先想到什麼？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/2/options/0/label": {
+      "sourceHash": "37d68c8f479151e783ab47ba909465a524524e75f952d4d4e14781fc64d2d4a2",
+      "text": "先清出一間幹屋，留給帶孩子和行動不便的旅人。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/2/options/1/label": {
+      "sourceHash": "a6c5b07ab04e9b1cbf9e3deb2c232d2ad890071d6d9461f5c5f29812861f5624",
+      "text": "問相鄰客舍各能騰幾間，再讓驛卒統一登記和分派。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/2/options/2/label": {
+      "sourceHash": "86296b81f7a9ca4ef3edfb1c019094ffd27cd61f26db3eb87dcdcfe6f6681a93",
+      "text": "沿來路去接人，看看途中還有哪處能臨時避雨。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/2/options/3/label": {
+      "sourceHash": "6fe0198d51fbfc363fd5b07270d06d41a15014b175373a0f54c619f41036613b",
+      "text": "找來乾布和木板，把有簷的走廊改成臨時住處。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/3/scene": {
+      "sourceHash": "828f142f015850f16cf27f196668eaa8c809225522bb75d6601258477508ebdd",
+      "text": "書案 · 兩張地圖"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/3/prompt": {
+      "sourceHash": "8bfaec3d48da912ec54acd0b961d8d25b99fd192572fe0b18d8700cfee724f61",
+      "text": "天亮後要送一封信出城，兩張舊地圖對岔路的畫法不一樣。你準備怎樣定路線？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/3/options/0/label": {
+      "sourceHash": "b73911649d3d1228448be797025ad173eaefaa1ddf7a988968cafe7f217273f3",
+      "text": "把兩位領路人找來，把他們確認的地標標在同一張圖上。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/3/options/1/label": {
+      "sourceHash": "6106193d951260a91867f824740392e004274b15f753425c85ff547d26733837",
+      "text": "趁城門還沒關先走到岔口，看看兩張圖各是從哪裡畫起的。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/3/options/2/label": {
+      "sourceHash": "bb1a899a6a52bc1d585f0bf4626fb1cfcdc0287ca82789c05d659dc93c589874",
+      "text": "用遠處塔樓和沿途店招重畫一張，避開難認的岔路。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/3/options/3/label": {
+      "sourceHash": "3dd234f2f797da151a3499edf0eeba79cb55649ef912962ab1ca46ccab91461c",
+      "text": "先派一人試走較穩妥的路線，定好回報時刻和備用走法。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/4/scene": {
+      "sourceHash": "d057c209d5eedc085207978dd69609718547c1a6c307777d53f087b25bad1bb4",
+      "text": "西市 · 半日閒"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/4/prompt": {
+      "sourceHash": "99d17c11e0d34a21255eca61d6e76f8b50003512ec271364f16e6e239c74ad3e",
+      "text": "難得在西市空出一會兒。幾件事恰好都能趕上，你最想去做哪件？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/4/options/0/label": {
+      "sourceHash": "b0169d8bd22fe09ff65e284d57b1b659f9a50cc3dac539a83cfc76dfe2040480",
+      "text": "請遠來的商隊畫畫他們經過的地方。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/4/options/1/label": {
+      "sourceHash": "7375c056123d0b56210f99ab64623baf44a0c57b9f04f49606d5238805da247f",
+      "text": "聽完街角的曲子，試著給它填一段新詞。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/4/options/2/label": {
+      "sourceHash": "251a21361a61dfb1356030f03cb9995402415ad4d05f1fd2198f0025e094bf61",
+      "text": "帶幾個同行分頭找各自想看的攤位，約好在茶肆會合。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/4/options/3/label": {
+      "sourceHash": "0feabb3278bae8f721bf76bb4e8062bee1d549451048967fcd130aa609ce47c6",
+      "text": "去看一場燈謎，挑那個攤主說很少有人猜中的題。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/5/scene": {
+      "sourceHash": "a902183e724066aa80e5734381c368c7e3a830fd805bf18ce50dc42b02792257",
+      "text": "歸途 · 一件紀念"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/5/prompt": {
+      "sourceHash": "91668547a9009a7ff103df2414a7d8dbb3a81fc0792f03e453b9ca5a89ba56a0",
+      "text": "離開長安前，你只能往行囊裡再放一張紙。你想在上面留下什麼？"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/5/options/0/label": {
+      "sourceHash": "7a237d985fcd4f71af4501d12d3e5c9848f2185382dddc7bb3447fac7a6f4542",
+      "text": "把今日最忘不了的畫面寫成幾句詩。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/5/options/1/label": {
+      "sourceHash": "ba075ff13f6954a417adc715555f74e060fba2db36139d97e9de22a2017af031",
+      "text": "記下試過的一條好辦法，下次遇到同樣的事能直接用。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/5/options/2/label": {
+      "sourceHash": "a6c7f768e7e74de4ca461b22937c0ad39708ff19278949521477c4fa617431a7",
+      "text": "留一張我親手核過的簡圖，標出哪些路眼下能走。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/questions/5/options/3/label": {
+      "sourceHash": "a7ae9084d16d99685c40216e4625d576e162749c72bc1749950edab200758836",
+      "text": "記下一個平常少有人問起的街坊講給我的故事。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/title": {
+      "sourceHash": "cd2fa957f90cd0b3e46ac0a715890cd023e43a702720ad0c47a42b668a3e26ff",
+      "text": "武則天"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/epithet": {
+      "sourceHash": "80aa4b7f87b3f93dfd1718986198c06e403a6aab179040d019c9c8961f8ac919",
+      "text": "拿主意的人"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/summary": {
+      "sourceHash": "d32e62de028d27df2b72f919983da83f54ce0e1526c0f852bc44a1224dd98114",
+      "text": "事情僵住時，你往往先給出一個可執行的決定，約好什麼時候再看效果。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/example": {
+      "sourceHash": "01fa67076e63b2d0d3c39abac2a72037216963d2d5d0b7b1e7a8c3afac94f6bd",
+      "text": "米價上漲時，你先讓一批糧上櫃，同時給這項安排定了三天複查期。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/strength": {
+      "sourceHash": "a2e4aceeb1795f4388cc6e80babc4b7f9607b42239382f1b58155771d3320b66",
+      "text": "一項小而可調整的決定，能讓大家先邁出一步。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/tradeoff": {
+      "sourceHash": "ed6cbf165c2112728bdd838eaf93dd564019e3cea9321039a5179116a2949729",
+      "text": "行動很快時，容易遺漏沒有出聲的人。決定前留一點時間聽取反對意見。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/experiment": {
+      "sourceHash": "ed587031a2ef9b3105919991c6d24f5999457468196f50cd6f1bb9c9671c5747",
+      "text": "下次大家遲遲定不了，試著提出一個能撤回的方案，再約一個複查時間。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/history/note": {
+      "sourceHash": "75a406891884fead38911b174247b1210823c5615fc96a82976a3234df6ef2f8",
+      "text": "武則天在位期間改國號為周。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/0/history/label": {
+      "sourceHash": "0fa4d91d6922167091af29a94690f706599cafb86a6c0ba64e12a92385a205c9",
+      "text": "《舊唐書·則天皇后本紀》"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/title": {
+      "sourceHash": "7c89f0eefd7bf29e2c9e4553a63730524514dfeae3c223778a00884f75765cd7",
+      "text": "狄仁傑"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/epithet": {
+      "sourceHash": "e2ca4fe7cc2160dfcfd541c346e8327d7ddc57f36dab2f07525d332142458f18",
+      "text": "追問證據的人"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/summary": {
+      "sourceHash": "7dd965a0ea61bcd29b9cc9d8583342b08d89bf76c3eb0296e7bd1529444619fc",
+      "text": "面對一個聽起來很順的說法，你還是想看看證據，分清哪些已經確認。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/example": {
+      "sourceHash": "bf63320eb58f63a2344a66e21640ff06d5ccd03299d9982852594efc0cb8e09e",
+      "text": "井口關上後，你先對照報修時間和封井記錄，再判斷兩封信各說對了什麼。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/strength": {
+      "sourceHash": "5a529a852083536c3e0e9c332c0679e7cf3097a1c1659b22c7ec047454b87737",
+      "text": "你能幫大家把聽來的訊息與親手確認的事實分開。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/tradeoff": {
+      "sourceHash": "70f4a110e87d3be371a789a2ae50be02d15e2d8a4c1bbad6f5fac46f1e2d7156",
+      "text": "如果暫時查不到完整證據，眼下的麻煩仍需要一個可調整的處理辦法。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/experiment": {
+      "sourceHash": "61d79c6b81d6b4103db4792724026a9ea6dcbc93eb6ffc18562b027f0a12586e",
+      "text": "把一件還說不清的事寫成兩列，一列是已知事實，一列是最值得先核對的問題。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/history/note": {
+      "sourceHash": "7d9dacfa3f9929e57864273564ef8c492b20ae54e7366c36682618591dfdc91b",
+      "text": "《舊唐書》記載狄仁傑曾任大理丞，並曾就量刑進諫。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/1/history/label": {
+      "sourceHash": "861039b22613931a6f3ee85e6516ec76ffab1a1666d2733d91a4004a96e02fff",
+      "text": "《舊唐書·狄仁傑傳》"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/title": {
+      "sourceHash": "2c003482f35ab99744a223798b01c2fb22f8e97bcada44ae12046191aaf5c8f7",
+      "text": "杜甫"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/epithet": {
+      "sourceHash": "320dac4b920b369696bd36ae2d3b67a54cbb604de43deb6d5692e25462e8dce8",
+      "text": "看見被遺漏的人"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/summary": {
+      "sourceHash": "9592d1a991b8def2cab0da1f030e4565d4ed287785903c8602b536f9a8fe482e",
+      "text": "聽見大家談大局時，你也會問誰在為這件事付代價，誰還沒被問過。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/example": {
+      "sourceHash": "84a4736324a05a2048a1d5a81ec237ccc7ea875b49028baa6dad7f430afe520a",
+      "text": "驛館漏雨時，你先找出誰最難在外頭等，再決定空房留給誰。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/strength": {
+      "sourceHash": "31eebf719740d05ab47ce8c8f482a820931dd09832ec52f0d6f819185c484fba",
+      "text": "具體的生活細節能讓大家看見原先忽略的需要。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/tradeoff": {
+      "sourceHash": "794d76f119a6c2b9bd0ab1ad8225eb817ea4d480fd826c53f78e5feacbe3b304",
+      "text": "一個人的遭遇值得聽。要做影響更多人的決定，也要看看其他人的處境。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/experiment": {
+      "sourceHash": "0a250e3fea5de9710d98119007ae81f7b861df5f5b4701235c66e665aa23c987",
+      "text": "下次做集體安排前，問一句「誰可能最難用這個方案？」然後找對方核對。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/history/note": {
+      "sourceHash": "bb0c7de42815904aa769ccdb3bffb022900b69d07ddf11786aa7bfc51ef26c64",
+      "text": "杜甫在《石壕吏》中寫下一戶人家遭遇徵役的經過。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/2/history/label": {
+      "sourceHash": "f0cf4df18a7bf0cae002bd79c7371914ce5e1067c9167cc651c4031daafce87d",
+      "text": "杜甫《石壕吏》"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/title": {
+      "sourceHash": "661c37396faba4f29a8e7e4c8a62c916a0441dffdbe9b2b17c0b6e37e4896136",
+      "text": "上官婉兒"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/epithet": {
+      "sourceHash": "45aab74792bdb502fcff9b0335e60aea2cee4fc6355960cf7f715c4dea9d2813",
+      "text": "讓各方說得上話的人"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/summary": {
+      "sourceHash": "22b3b0dadd99da64967070332b3129e4ddabe30aacbf088a3275858969be2f1d",
+      "text": "意見撞在一起時，你會先聽清各方在意什麼，再把分歧寫成可以商量的幾件事。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/example": {
+      "sourceHash": "c9ff28afc8656e7324f8da9d4b9320fd43a25a560a6e922b81d09716123f7c8a",
+      "text": "兩張地圖畫得不一樣，你先請兩位領路人說出各自認得的地標，再合在一張圖上。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/strength": {
+      "sourceHash": "eae262652caee3017cfc9d98039f7f07a990aa18d561b5834a3e4d8ad7eeb3df",
+      "text": "把各方說得最清楚的一點放在一起，能幫助大家找到下一步。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/tradeoff": {
+      "sourceHash": "523c0ee4c6f9e4926b493e0b156ce9a0af068738a9a8d7bc3bc66c2a37814df5",
+      "text": "有些分歧一時談不攏。先標清未定的地方，也能讓已經達成的共識派上用場。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/experiment": {
+      "sourceHash": "c59598b85dab71538446275dc504811c76336e8e3c8f3d13e54c507e9f95b331",
+      "text": "討論卡住時，寫下各方都能接受的一句話，再請大家一起確認它。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/history/note": {
+      "sourceHash": "31f90a30c09293829e86a564f4354de4dbfbf467947a5d400063eb430074aded",
+      "text": "《舊唐書》記載上官婉兒參與起草詔令，也曾為帝后代作詩篇。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/3/history/label": {
+      "sourceHash": "f25cf18241b8b4e434ae57f8d1ac81d62600f2c3b96db107b36a844b6937b9d9",
+      "text": "《舊唐書·上官昭容傳》"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/title": {
+      "sourceHash": "62b23f18bbb7f6393a2bfb61412effa18dcccd1c681171d4eefdd1e31716e989",
+      "text": "玄奘"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/epithet": {
+      "sourceHash": "1bf3b233251143467d36f8e19faea92d67511297c29690aab94d8bdb19f25b3a",
+      "text": "願意走遠一點的人"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/summary": {
+      "sourceHash": "72fb0a79e51f10b235f137e8d0fccd16faf411133e89be685f5c5b8f7ad273f4",
+      "text": "遇到沒見過的東西，你願意繞點路，親自看看，再把學到的帶回來。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/example": {
+      "sourceHash": "54a66433bf022f7a8e2b4f5f3f26c5d60d74a395a5328df81dce7466e410d426",
+      "text": "地圖互相打架時，你走到岔口看看兩張圖各自從哪一側開始。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/strength": {
+      "sourceHash": "b88a5b9efb67a7d996ce1d2e0d2a8dd5f0a55718a870a6a60485fe543a27c12a",
+      "text": "親自觀察有時能帶回報告和傳聞裡都缺的一塊資訊。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/tradeoff": {
+      "sourceHash": "f82413b39dfd4afcf282b72ddf6a71f29497c3dc9a5bdde96d319c09950833cd",
+      "text": "多走一趟要花時間。先弄清最關鍵的問題，能讓這段路走得更值。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/experiment": {
+      "sourceHash": "062c7b632f59289cf54cce0753e9e3405fbf219dc8ac18705e8660bed04ad257",
+      "text": "選一個你只有印象的地方或做法，花十分鐘問一位實際經歷過的人。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/history/note": {
+      "sourceHash": "d45f0d8ed26d532ee8b8275dca7ec5defd561e8c1d85864b08bd989d2e7e4400",
+      "text": "玄奘從印度返回後在長安參與佛經翻譯。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/4/history/label": {
+      "sourceHash": "76a24ebca683eee2508b7a58c43a4adeb42d04aeef4fad1c2bb42865681a5cdc",
+      "text": "香港教育局《玄奘》資料"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/title": {
+      "sourceHash": "7aeb49d9b8e285b6fe33e1ce453b13eb3c6023c0da8df77db0f0285ba7b0ca31",
+      "text": "李白"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/epithet": {
+      "sourceHash": "af8448a8b05720326604f21ae5845e0d189cb7e018b600853a5c5bbcddee1f79",
+      "text": "看見另一種可能的人"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/summary": {
+      "sourceHash": "471a4dd9999aa3718019980bb1b113a95ef9cfd54cef9358099aee1c81a81ab9",
+      "text": "當大家沿著原來的路走，你很容易想到第三個辦法，也願意動手試試。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/example": {
+      "sourceHash": "117412845b7ec2c9563b8a6a4be1cbbdffc6457f9f9ec64e0eb2f9feb0b250ea",
+      "text": "原來的客房進了雨，你想到用乾布和木板把有簷的走廊臨時改作住處。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/strength": {
+      "sourceHash": "9975b8b904f6b148ae7de10463e50a2e59f97b59db6a53fb78a6e5be0825ff93",
+      "text": "把手邊的東西換一種用法，有時能在計劃失靈時開啟局面。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/tradeoff": {
+      "sourceHash": "27f749574074b3f95d743abb92ba0575a407f34fb73dc72483f66a0ad145f889",
+      "text": "新點子很容易讓人興奮。動手前看一眼最基本的限制，比如材料是否夠用。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/experiment": {
+      "sourceHash": "7b0e471fa7382a05246d6b64f3bc38513fda983fd92ca337203c2b28c390577a",
+      "text": "下次碰到兩難題，寫出一個可在十分鐘內小試的第三種方案。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/history/note": {
+      "sourceHash": "4de2c9c113af6994548759a62df944bfbced1ad2ecbb3ad659e4b6b1405a887a",
+      "text": "李白在《夢遊天姥吟留別》中用夢境展開山水遊歷。"
+    },
+    "lib/entertainment/data/changan-history-quiz.json/results/5/history/label": {
+      "sourceHash": "f03ba7b637fa4a5647113a18823dc588895c4cccccf58487e9a1e87cbf4ff1e0",
+      "text": "李白《夢遊天姥吟留別》"
+    }
+  }
+}

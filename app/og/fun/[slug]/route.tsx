@@ -113,6 +113,8 @@ let font: Promise<ArrayBuffer> | undefined;
 const localFont = () => font ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-sc/fun-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
 let historyTaiwanFont: Promise<ArrayBuffer> | undefined;
 const globalHistoryTaiwanFont = () => historyTaiwanFont ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/global-history-quiz-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
+let changanTaiwanFont: Promise<ArrayBuffer> | undefined;
+const readChanganTaiwanFont = () => changanTaiwanFont ??= readFile(path.join(process.cwd(), "public/fonts/noto-sans-tc/changan-history-quiz-700.ttf")).then(bytes => Uint8Array.from(bytes).buffer);
 const quizFonts = new Map<string, Promise<ArrayBuffer>>();
 const quizFont = (trustedSlug: string) => {
   let selected = quizFonts.get(trustedSlug);
@@ -140,6 +142,13 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     return globalHistoryCard(person, locale, await (locale === "zh-TW" ? globalHistoryTaiwanFont() : quizFont(slug)), download);
   }
   if (locale === "zh-TW") {
+    if (slug === CHANGAN_SLUG) {
+      const { loadTraditionalChangan } = await import("@/lib/i18n/zh-TW/changan");
+      const quiz = await loadTraditionalChangan();
+      const result = quiz && portrait && findPublicPortrait(quiz, portrait);
+      if (!result) return new Response("Image unavailable", { status: 404 });
+      return changanCardResponse(result, locale, await readChanganTaiwanFont(), download);
+    }
     const { traditionalStoryCard } = await import("./traditionalStoryCard");
     return traditionalStoryCard(slug, portrait);
   }
