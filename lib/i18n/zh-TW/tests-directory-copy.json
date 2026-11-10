@@ -2448,7 +2448,7 @@
       },
       "description": {
         "sourceHash": "8bdcea27a38f7f217b88a9152845a52ae4979fa3d054689ccc73a505b36b9729",
-        "target": "通過文字選擇比較配色、輪廓、質感與細節。檢視八種造型主題的計數和並列，無需照片。"
+        "target": "通過文字選擇比較配色、輪廓、質感與細節。檢視八種造型主題的計數和並列，不必照片。"
       }
     },
     "activity-engagement-patterns": {
@@ -2474,11 +2474,11 @@
     "connection-ideals": {
       "title": {
         "sourceHash": "9a3fd39c68e24b8fc7e4f8a637a6425fcb7d6ed149988a62699b4524b54e8b9e",
-        "target": "靈魂伴侶測驗：連線偏好"
+        "target": "靈魂伴侶測驗：連結偏好"
       },
       "description": {
         "sourceHash": "6f6a60158a08cc4c1ec9bdf4286ea2fc9c58527e30ba5d09cf2bbd109a3341e1",
-        "target": "用想像情境比較六種聯結偏好。保留最高並列，無需填寫伴侶資料。"
+        "target": "用想像情境比較六種聯結偏好。保留並列最高，不必填寫伴侶資料。"
       }
     },
     "connection-belonging-check-in": {

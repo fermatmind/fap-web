@@ -74,6 +74,9 @@ const editions = {
   "moral-dilemma-test": ["ethical-questions", "MoralDilemma", "moralDilemmaLanding", "standalone"],
   "delulu-test": ["delulu", "Delulu", "deluluLanding", "standalone"],
   "cyberpunk-edgerunners": ["cyberpunk-edgerunners", "Edgerunners", "edgerunnersLanding", "standalone"],
+  "values-assessment": ["values-assessment", "WorkValues", "workValues", "editorial-summaries"],
+  "style-impression-preferences": ["style-impression-preferences", "StyleImpression", "styleLanding", "standalone-references"],
+  "connection-ideals": ["connection-ideals", "ConnectionIdeals", "connectionLanding", "standalone"],
 };
 const sourceOnly = ["avatar-bender-quiz", "soldier-poet-king-quiz"];
 const output = new URL("lib/i18n/zh-TW/archetype-questionnaires.generated.json", root);
@@ -180,6 +183,7 @@ for (const [slug, [, name, prefix, layout]] of Object.entries(editions)) {
     ? [["summaries", "summaries"]]
     : layout === "privacy" ? [["privacy", "PrivacyAnswer"]]
       : [["sections", "Sections"], ["faq", "Faq"]];
+  if (layout === "editorial-summaries") fields.push(["summaries", "Summaries"]);
   if (layout === "standalone-references") fields.push(["references", "References"]);
   if (!layout) fields.push(["summaries", "Summaries"], ["privacy", "PrivacyAnswer"]);
   for (const [field, suffix] of fields) {

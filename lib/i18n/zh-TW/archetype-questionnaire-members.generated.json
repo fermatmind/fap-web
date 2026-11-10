@@ -604,5 +604,35 @@
     "kiwi",
     "falco",
     "faraday"
+  ],
+  "values-assessment": [
+    "achievement",
+    "autonomy",
+    "creativity",
+    "security",
+    "altruism",
+    "recognition",
+    "relationships",
+    "learning",
+    "balance",
+    "impact"
+  ],
+  "style-impression-preferences": [
+    "soft-play",
+    "light-ease",
+    "clean-edge",
+    "flowing-detail",
+    "quiet-polish",
+    "formal-poise",
+    "colour-play",
+    "relaxed-edge"
+  ],
+  "connection-ideals": [
+    "shared-spark",
+    "steady-presence",
+    "easy-companionship",
+    "shared-discovery",
+    "gentle-support",
+    "mutual-encouragement"
   ]
 }

@@ -43,6 +43,9 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     if (aura && result) return auraColorCard("zh-TW", result.title.zh, aura, await archetypeFont);
     const palette = slug === "color-season";
     const editions: Record<string, string> = {
+      "values-assessment": "原創工作取捨",
+      "style-impression-preferences": "原創造型偏好",
+      "connection-ideals": "原創連結偏好",
       "color-season": "配色偏好測驗",
       "male-archetype-test": "原創四角色隱喻版",
       "moral-dilemma-test": "原創五組倫理提問",

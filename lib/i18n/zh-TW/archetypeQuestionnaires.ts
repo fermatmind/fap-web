@@ -82,6 +82,9 @@ const sources = {
   "moral-dilemma-test": { name: "ethical-questions", load: () => import("@/lib/questionnaires/result-content/ethical-questions.json") },
   "delulu-test": { name: "delulu", load: () => import("@/lib/questionnaires/result-content/delulu.json") },
   "cyberpunk-edgerunners": { name: "cyberpunk-edgerunners", load: () => import("@/lib/questionnaires/result-content/cyberpunk-edgerunners.json") },
+  "values-assessment": { name: "values-assessment", attribute: "work-values", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/values-assessment.json") },
+  "style-impression-preferences": { name: "style-impression-preferences", attribute: "style-impression", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/style-impression-preferences.json") },
+  "connection-ideals": { name: "connection-ideals", attribute: "connection-ideals", mergeParagraphs: true, load: () => import("@/lib/questionnaires/result-content/connection-ideals.json") },
 };
 
 export function archetypeEditorial<T>(slug: string, field: string, original: T): T {

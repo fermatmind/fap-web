@@ -64,7 +64,7 @@ function subscribe(listener: () => void) {
 export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnEntry = false, resumeOnEntry = false, emitStartOnEntry = true, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: { scoreQuestionnaire: typeof GeneralScorer; quiz: Questionnaire; locale: Locale; startOnEntry?: boolean; resumeOnEntry?: boolean; emitStartOnEntry?: boolean; workRoleReadingProfiles?: Questionnaire["profiles"]; loveTypeReadingProfiles?: Questionnaire["profiles"]; mentalAgeReadingProfile?: Questionnaire["profiles"][number]; fds32ReadingProfiles?: Questionnaire["profiles"]; breakupReadingProfiles?: Questionnaire["profiles"]; parentingReadingProfiles?: Questionnaire["profiles"] }) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const traditionalArchetype = traditional && hasTraditionalArchetype(quiz.slug);
-  const traditionalEntryShare = traditional && (!traditionalArchetype || quiz.slug === "euphoria-character-quiz");
+  const traditionalEntryShare = traditional && (!traditionalArchetype || quiz.slug === "euphoria-character-quiz" || quiz.slug === "values-assessment");
   const standalone = useQuestionnaireTake();
   const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);

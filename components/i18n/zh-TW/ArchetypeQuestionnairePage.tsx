@@ -14,6 +14,9 @@ import { MoonPhaseShareCard } from "@/components/questionnaires/MoonPhaseShareCa
 import { moonPhaseDiagramNote, moonPhaseDisplayCopy, moonPhaseImage, moonPhasePresentation } from "@/lib/questionnaires/moonPhasePresentation";
 import { EdgerunnersPortrait } from "@/components/questionnaires/EdgerunnersPortrait";
 import { QuizResultArtwork } from "@/components/questionnaires/QuizResultArtwork";
+import { WorkValuesPage } from "@/components/questionnaires/WorkValuesPage";
+import { StyleImpressionPage } from "@/components/questionnaires/StyleImpressionPage";
+import { ConnectionIdealsPage } from "@/components/questionnaires/ConnectionIdealsPage";
 import { DogBreedPage } from "@/components/questionnaires/DogBreedPage";
 import { MythicalCreaturePage } from "@/components/questionnaires/MythicalCreaturePage";
 import { SuperpowerPage } from "@/components/questionnaires/SuperpowerPage";
@@ -25,7 +28,13 @@ import { loadTraditionalArchetype } from "@/lib/i18n/zh-TW/archetypeQuestionnair
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 
 type Stage = { slug: string; profile?: string; take?: boolean };
+const preferencePages = {
+  "values-assessment": WorkValuesPage,
+  "style-impression-preferences": StyleImpressionPage,
+  "connection-ideals": ConnectionIdealsPage,
+};
 const pages = {
+  ...preferencePages,
   "mythical-creature": MythicalCreaturePage,
   "spirit-animal": SpiritAnimalPage,
   "what-dog-breed-am-i": DogBreedPage,
@@ -68,10 +77,12 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
   if (!profile) {
+    const Preference = Object.hasOwn(preferencePages, slug) ? preferencePages[slug as keyof typeof preferencePages] : null;
     const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" || slug === "cyberpunk-edgerunners" ? await loadTraditionalAssessmentText() : undefined;
     return <>
       {languages}
       {slug === "spirit-animal" ? <SpiritAnimalPage quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
+        : Preference ? <Preference quiz={quiz} locale="zh" displayLocale="zh-TW" overviewCopy={await loadTraditionalAssessmentText()} />
         : Landing ? <Landing quiz={quiz} locale="zh" displayLocale="zh-TW" />
         : hasFilmEditorial(slug) ? <FilmQuestionnaireLanding quiz={quiz} overviewCopy={overviewCopy} />
         : <FantasyQuestionnaireLanding quiz={quiz} />}
