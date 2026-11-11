@@ -1,8 +1,10 @@
+import { useEqDisplay } from "./display";
 import type { EqV5ViewModel } from "./types";
 import { SectionHeading } from "./EQEvidenceSnapshot";
 import { localizeEqTechnicalValue } from "./localization";
 
 export function EQResultDepthModules({ viewModel }: { viewModel: EqV5ViewModel }) {
+  const { copy, text: displayText } = useEqDisplay();
   const modules = viewModel.assets.result_page_depth_modules;
 
   if (modules.length === 0) {
@@ -11,13 +13,13 @@ export function EQResultDepthModules({ viewModel }: { viewModel: EqV5ViewModel }
 
   return (
     <section data-testid="eq-result-depth-modules" className="space-y-4">
-      <SectionHeading title={viewModel.locale === "zh" ? "深读路径" : "Result Depth"} />
+      <SectionHeading title={viewModel.locale === "zh" ? copy("深读路径", "深讀路徑") : "Result Depth"} />
       <div className="grid gap-3 md:grid-cols-3">
         {modules.map((module) => (
           <article key={module.id ?? module.title} className="rounded-[8px] border border-slate-200 bg-white p-4">
             <p className="text-xs font-medium uppercase tracking-[0.08em] text-slate-500">
-              {localizeEqTechnicalValue(module.placement || module.claim_risk, viewModel.locale) ||
-                (viewModel.locale === "zh" ? "报告层" : "Report layer")}
+              {displayText(localizeEqTechnicalValue(module.placement || module.claim_risk, viewModel.locale)) ||
+                (viewModel.locale === "zh" ? copy("报告层", "報告層") : "Report layer")}
             </p>
             <h3 className="mt-2 text-base font-semibold text-slate-950">{module.title || module.id}</h3>
             {module.body ? <p className="mt-2 text-sm leading-6 text-slate-700">{module.body}</p> : null}

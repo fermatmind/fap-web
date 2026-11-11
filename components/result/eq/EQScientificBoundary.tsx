@@ -1,8 +1,10 @@
+import { useEqDisplay } from "./display";
 import type { EqV5ViewModel } from "./types";
 import { SectionHeading } from "./EQEvidenceSnapshot";
 import { localizeEqTechnicalValue } from "./localization";
 
 export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }) {
+  const { copy, text: displayText } = useEqDisplay();
   const contract = viewModel.assets.scientific_contract;
   const evidence = viewModel.assets.psychometric_evidence_status;
   const rows = [
@@ -18,7 +20,7 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
 
   return (
     <section data-testid="eq-scientific-boundary" className="space-y-4">
-      <SectionHeading title={viewModel.locale === "zh" ? "科学边界" : "Scientific Boundary"} />
+      <SectionHeading title={viewModel.locale === "zh" ? copy("科学边界", "科學邊界") : "Scientific Boundary"} />
       <div className="rounded-[8px] border border-slate-200 bg-white p-4">
         <ul className="space-y-2 text-sm leading-6 text-slate-700">
           {rows.map((row, index) => (
@@ -29,19 +31,19 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
         </ul>
         <dl className="mt-4 grid gap-3 text-sm md:grid-cols-3">
           <BoundaryMeta
-            label={viewModel.locale === "zh" ? "参照状态" : "Reference status"}
-            value={localizeEqTechnicalValue(viewModel.methodology.norm_status, viewModel.locale)}
+            label={viewModel.locale === "zh" ? copy("参照状态", "參照狀態") : "Reference status"}
+            value={displayText(localizeEqTechnicalValue(viewModel.methodology.norm_status, viewModel.locale))}
           />
           <BoundaryMeta
-            label={viewModel.locale === "zh" ? "参照版本" : "Reference version"}
+            label={viewModel.locale === "zh" ? copy("参照版本", "參照版本") : "Reference version"}
             value={viewModel.methodology.norm_provenance?.norm_version}
           />
           <BoundaryMeta
-            label={viewModel.locale === "zh" ? "计分版本" : "Scoring version"}
+            label={viewModel.locale === "zh" ? copy("计分版本", "計分版本") : "Scoring version"}
             value={viewModel.methodology.scoring_version}
           />
           <BoundaryMeta
-            label={viewModel.locale === "zh" ? "内容版本" : "Content version"}
+            label={viewModel.locale === "zh" ? copy("内容版本", "內容版本") : "Content version"}
             value={viewModel.methodology.content_version}
           />
         </dl>
@@ -54,7 +56,7 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
                 </h3>
                 {item.status && item.id !== "eq.evidence.norm_status" ? (
                   <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">
-                    {localizeEqTechnicalValue(item.status, viewModel.locale)}
+                    {displayText(localizeEqTechnicalValue(item.status, viewModel.locale))}
                   </p>
                 ) : null}
                 {item.what_this_means_for_user || item.user_meaning ? (

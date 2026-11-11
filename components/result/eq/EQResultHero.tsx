@@ -1,9 +1,11 @@
+import { useEqDisplay } from "./display";
 import { AlertTriangle } from "lucide-react";
 import type { EqV5ViewModel } from "./types";
 import { localizeEqTechnicalValue } from "./localization";
 import { formatEqScore, isLowConfidenceEqResult } from "./utils";
 
 export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
+  const { copy, text: displayText } = useEqDisplay();
   const { assets, globalScore, quality, interpretation, locale, lockedAnomaly } = viewModel;
   const formulation = assets.core_formulation;
   const snapshot = assets.result_snapshot;
@@ -18,7 +20,7 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-3xl space-y-3">
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-            {locale === "zh" ? "情绪与关系模式报告" : "Emotional & Relational Pattern Report"}
+            {locale === "zh" ? copy("情绪与关系模式报告", "情緒與關係模式報告") : "Emotional & Relational Pattern Report"}
           </p>
           <h1 className="text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
             {route.route_headline ||
@@ -45,9 +47,9 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
             </p>
           </div>
           <div>
-            <p className="text-xs text-slate-500">{locale === "zh" ? "解释置信度" : "Confidence"}</p>
+            <p className="text-xs text-slate-500">{locale === "zh" ? copy("解释置信度", "解釋置信度") : "Confidence"}</p>
             <p className="mt-1 text-2xl font-semibold uppercase text-slate-950">
-              {localizeEqTechnicalValue(quality.confidence_label || quality.level, locale) || "—"}
+              {displayText(localizeEqTechnicalValue(quality.confidence_label || quality.level, locale)) || "—"}
             </p>
           </div>
         </div>
@@ -61,7 +63,7 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <span>
             {locale === "zh"
-              ? "当前 EQ 报告按免费结果处理。若访问状态异常，请稍后刷新。"
+              ? copy("当前 EQ 报告按免费结果处理。若访问状态异常，请稍后刷新。", "目前可免費查看 EQ 報告。若無法開啟，請稍後重新整理。")
               : "This EQ report is handled as a free result. Refresh later if access state looks inconsistent."}
           </span>
         </div>
@@ -72,10 +74,10 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
           label={
             lowConfidence
               ? locale === "zh"
-                ? "本次质量结论"
+                ? copy("本次质量结论", "本次質量結論")
                 : "Response quality conclusion"
               : locale === "zh"
-                ? "主要优势"
+                ? copy("主要优势", "主要優勢")
                 : "Primary strength"
           }
           value={lowConfidence ? snapshot.core_judgment || formulation.one_liner : snapshot.top_strength || formulation.primary_strength}
@@ -84,10 +86,10 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
           label={
             lowConfidence
               ? locale === "zh"
-                ? "复测建议"
+                ? copy("复测建议", "複測建議")
                 : "Retest guidance"
               : locale === "zh"
-                ? "最小行动"
+                ? copy("最小行动", "最小行動")
                 : "Smallest next action"
           }
           value={route.next_best_action || snapshot.minimal_action || formulation.development_lever || interpretation.development_lever}
@@ -96,7 +98,7 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
           label={
             lowConfidence
               ? locale === "zh"
-                ? "使用边界"
+                ? copy("使用边界", "使用邊界")
                 : "Use boundary"
               : locale === "zh"
                 ? "分享句"

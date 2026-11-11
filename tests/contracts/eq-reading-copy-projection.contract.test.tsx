@@ -7,6 +7,7 @@ import { EQResultV5 } from "@/components/result/eq/EQResultV5";
 import { normalizeEqV5Report } from "@/components/result/eq/utils";
 import { buildEqResultExport } from "@/lib/eq/export";
 import { defaultResultExportDraft, serializeResultExport } from "@/lib/result-export/contract";
+import { loadTraditionalAssessmentText, projectTraditionalResultDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { EQ_READING_COPY_REVISION } from "@/lib/eq/readingCopyProjection";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
@@ -40,6 +41,30 @@ describe("source-bound EQ reading copy from real local historical composer outpu
       expect(output).not.toMatch(/snapshot_binding|source_hash|compiled_hash|agent_context/);
     }
     expect(raw).toEqual(before);
+  });
+
+  it("preserves the authoritative EQ pair before applying Taiwan presentation copy", async () => {
+    const source = structuredClone(fixtures["zh-CN"]) as unknown as ReportResponse;
+    const routed = await projectTraditionalResultDisplay(source, "zh-TW");
+    expect(normalizeEqV5Report(routed, "zh")).not.toBeNull();
+    expect(routed).toBe(source);
+    const original = normalizeEqV5Report(source, "zh")!;
+    const converter = await loadTraditionalAssessmentText();
+    const taiwan = normalizeEqV5Report(routed, "zh", converter)!;
+    expect(taiwan.payload.scores).toEqual(original.payload.scores);
+    expect(taiwan.snapshotBinding).toEqual(original.snapshotBinding);
+    expect(taiwan.assets.personalization_route.route_headline).toBe(converter(original.assets.personalization_route.route_headline!));
+    expect(normalizeEqV5Report(source, "zh")).toEqual(original);
+    render(<EQResultV5 locale="zh" displayLocale="zh-TW" reportData={routed} />);
+    expect(await screen.findByTestId("eq-result-v5")).toBeInTheDocument();
+    expect(screen.getByText("情緒與關係模式報告")).toBeInTheDocument();
+    expect(screen.getAllByText(taiwan.assets.personalization_route.route_headline!).length).toBeGreaterThan(0);
+    expect(screen.getByRole("link", { name: "重新測試" })).toHaveAttribute(
+      "href", "/zh-TW/tests/eq-test-emotional-intelligence-assessment/take",
+    );
+    const preview = await screen.findByLabelText<HTMLTextAreaElement>("完整匯出預覽");
+    expect(preview.value).toContain("參照狀態");
+    expect(preview.value).toContain("bootstrap_v1");
   });
 
   it("keeps old-client compatibility when there is no reading view", () => {

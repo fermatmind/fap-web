@@ -1,5 +1,6 @@
 "use client";
 
+import { useEqDisplay } from "./display";
 import { useState, type FormEvent } from "react";
 import { MessageCircle, Send, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,7 @@ export function EQAgentEntryGuard({
   loadAgentContext?: EqAgentContextLoader;
   sendAgentRuntimeMessage?: EqAgentRuntimeMessageLoader;
 }) {
+  const { copy } = useEqDisplay();
   const entry = findAgentEntry(viewModel.assets.commercial_conversion_actions);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [state, setState] = useState<GuardState>({ status: "idle" });
@@ -60,7 +62,7 @@ export function EQAgentEntryGuard({
   async function handleOpen() {
     setDrawerOpen(true);
     if (!attemptId) {
-      setState({ status: "unavailable", reason: locale === "zh" ? "当前结果缺少可读取的报告 ID。" : "This result is missing a readable report ID." });
+      setState({ status: "unavailable", reason: locale === "zh" ? copy("当前结果缺少可读取的报告 ID。", "目前結果缺少可讀取的報告 ID。") : "This result is missing a readable report ID." });
       return;
     }
 
@@ -76,7 +78,7 @@ export function EQAgentEntryGuard({
           status: "unavailable",
           reason:
             locale === "zh"
-              ? "Agent 上下文暂不可用；报告权威仍以当前页面为准。"
+              ? copy("Agent 上下文暂不可用；报告权威仍以当前页面为准。", "Agent 上下文暫不可用；報告權威仍以目前頁面為準。")
               : "Agent context is unavailable. This report remains the authority.",
         });
         return;
@@ -87,7 +89,7 @@ export function EQAgentEntryGuard({
         status: "unavailable",
         reason:
           locale === "zh"
-            ? "暂时无法读取 Agent 上下文；请稍后再试。"
+            ? copy("暂时无法读取 Agent 上下文；请稍后再试。", "暫時無法讀取 Agent 上下文；請稍後再試。")
             : "Agent context could not be loaded. Try again later.",
       });
     }
@@ -100,7 +102,7 @@ export function EQAgentEntryGuard({
         status: "unavailable",
         reason:
           locale === "zh"
-            ? "只读上下文尚未就绪，不能发送消息。"
+            ? copy("只读上下文尚未就绪，不能发送消息。", "只讀上下文尚未就緒，不能傳送訊息。")
             : "Read-only context is not ready, so the message was not sent.",
       });
       return;
@@ -110,7 +112,7 @@ export function EQAgentEntryGuard({
     if (!trimmed) {
       setRuntimeState({
         status: "unavailable",
-        reason: locale === "zh" ? "请输入一个问题。" : "Enter a question first.",
+        reason: locale === "zh" ? copy("请输入一个问题。", "請輸入一個問題。") : "Enter a question first.",
       });
       return;
     }
@@ -129,7 +131,7 @@ export function EQAgentEntryGuard({
           status: "unavailable",
           reason:
             locale === "zh"
-              ? "Agent 回复未通过安全边界检查；当前报告仍是唯一权威。"
+              ? copy("Agent 回复未通过安全边界检查；当前报告仍是唯一权威。", "Agent 回覆未通過安全邊界檢查；目前報告仍是唯一權威。")
               : "The Agent response did not pass safety checks. This report remains the authority.",
         });
         return;
@@ -138,7 +140,7 @@ export function EQAgentEntryGuard({
     } catch {
       setRuntimeState({
         status: "unavailable",
-        reason: locale === "zh" ? "暂时无法获取 Agent 回复；请稍后再试。" : "The Agent response is unavailable. Try again later.",
+        reason: locale === "zh" ? copy("暂时无法获取 Agent 回复；请稍后再试。", "暫時無法獲取 Agent 回覆；請稍後再試。") : "The Agent response is unavailable. Try again later.",
       });
     }
   }
@@ -152,16 +154,16 @@ export function EQAgentEntryGuard({
         </div>
         <Button type="button" variant="outline" disabled={disabled} onClick={handleOpen}>
           <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
-          {entry.cta_label || (locale === "zh" ? "问 Agent" : "Ask the Agent")}
+          {entry.cta_label || (locale === "zh" ? copy("问 Agent", "問 Agent") : "Ask the Agent")}
         </Button>
       </div>
       {!attemptId ? (
         <p className="mt-3 text-xs leading-5 text-slate-500">
-          {locale === "zh" ? "保存后的报告可继续读取 Agent 上下文。" : "Saved reports can continue into Agent context."}
+          {locale === "zh" ? copy("保存后的报告可继续读取 Agent 上下文。", "儲存後的報告可繼續讀取 Agent 上下文。") : "Saved reports can continue into Agent context."}
         </p>
       ) : null}
       {state.status === "loading" ? (
-        <p className="mt-3 text-xs leading-5 text-slate-500">{locale === "zh" ? "正在读取只读上下文..." : "Loading read-only context..."}</p>
+        <p className="mt-3 text-xs leading-5 text-slate-500">{locale === "zh" ? copy("正在读取只读上下文...", "正在讀取只讀上下文...") : "Loading read-only context..."}</p>
       ) : null}
       {state.status === "unavailable" ? (
         <p data-testid="eq-agent-entry-unavailable" className="mt-3 text-xs leading-5 text-slate-500">
@@ -173,13 +175,13 @@ export function EQAgentEntryGuard({
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-                {locale === "zh" ? "只读 Agent" : "Read-only Agent"}
+                {locale === "zh" ? copy("只读 Agent", "只讀 Agent") : "Read-only Agent"}
               </p>
               <h4 className="mt-1 text-sm font-semibold text-slate-950">
-                {locale === "zh" ? "基于当前报告回答" : "Answer from this report"}
+                {locale === "zh" ? copy("基于当前报告回答", "依這份報告回答") : "Answer from this report"}
               </h4>
             </div>
-            <Button type="button" variant="ghost" size="icon" onClick={() => setDrawerOpen(false)} aria-label={locale === "zh" ? "关闭" : "Close"}>
+            <Button type="button" variant="ghost" size="icon" onClick={() => setDrawerOpen(false)} aria-label={locale === "zh" ? copy("关闭", "關閉") : "Close"}>
               <X className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
@@ -187,7 +189,7 @@ export function EQAgentEntryGuard({
           {state.status === "ready" ? (
             <form className="mt-3 space-y-3" onSubmit={handleSend}>
               <label className="block text-xs font-semibold uppercase tracking-[0.08em] text-slate-500" htmlFor="eq-agent-message">
-                {locale === "zh" ? "问题" : "Question"}
+                {locale === "zh" ? copy("问题", "問題") : "Question"}
               </label>
               <textarea
                 id="eq-agent-message"
@@ -195,15 +197,15 @@ export function EQAgentEntryGuard({
                 className="min-h-[88px] w-full resize-y rounded-[8px] border border-slate-200 bg-white px-3 py-2 text-sm leading-6 text-slate-800 outline-none focus:border-slate-400"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
-                placeholder={locale === "zh" ? "问一个关于当前报告的问题" : "Ask a question about this report"}
+                placeholder={locale === "zh" ? copy("问一个关于当前报告的问题", "問一個關於目前報告的問題") : "Ask a question about this report"}
               />
               <div className="flex items-center justify-between gap-3">
                 <p className="text-xs leading-5 text-slate-500">
-                  {locale === "zh" ? "回复只能读取报告上下文。" : "Responses can only read report context."}
+                  {locale === "zh" ? copy("回复只能读取报告上下文。", "回覆只能讀取報告上下文。") : "Responses can only read report context."}
                 </p>
                 <Button type="submit" disabled={runtimeState.status === "sending" || !message.trim()}>
                   <Send className="mr-2 h-4 w-4" aria-hidden="true" />
-                  {runtimeState.status === "sending" ? (locale === "zh" ? "发送中" : "Sending") : locale === "zh" ? "发送" : "Send"}
+                  {runtimeState.status === "sending" ? (locale === "zh" ? copy("发送中", "傳送中") : "Sending") : locale === "zh" ? copy("发送", "傳送") : "Send"}
                 </Button>
               </div>
             </form>
@@ -221,18 +223,19 @@ export function EQAgentEntryGuard({
 }
 
 function ReadyPanel({ context, locale }: { context: EqAgentContextPayload; locale: EqV5ViewModel["locale"] }) {
+  const { copy, text: displayText } = useEqDisplay();
   const safeOpening = text(context.intent_context?.safe_opening);
 
   return (
     <div data-testid="eq-agent-entry-ready" className="mt-3 rounded-[8px] border border-emerald-200 bg-white p-3">
       <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-emerald-700">
         <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-        {locale === "zh" ? "只读上下文已就绪" : "Read-only context ready"}
+        {locale === "zh" ? copy("只读上下文已就绪", "只讀上下文已就緒") : "Read-only context ready"}
       </div>
-      {safeOpening ? <p className="mt-2 text-sm leading-6 text-slate-700">{safeOpening}</p> : null}
+      {safeOpening ? <p className="mt-2 text-sm leading-6 text-slate-700">{displayText(safeOpening)}</p> : null}
       <p className="mt-2 text-xs leading-5 text-slate-500">
         {locale === "zh"
-          ? "Agent 只能解释当前报告资产，不能修改分数、报告或模块状态。"
+          ? copy("Agent 只能解释当前报告资产，不能修改分数、报告或模块状态。", "Agent 只能解釋目前報告資產，不能修改分數、報告或模組狀態。")
           : "The Agent can explain this report context only; it cannot change scores, sections, or module status."}
       </p>
     </div>
@@ -246,6 +249,7 @@ function RuntimeResponsePanel({
   response: EqAgentRuntimeResponsePayload;
   locale: EqV5ViewModel["locale"];
 }) {
+  const { copy, text: displayText } = useEqDisplay();
   const textValue = text(response.assistant_response?.text);
   const points = Array.isArray(response.assistant_response?.summary_points)
     ? response.assistant_response.summary_points.map(text).filter(Boolean).slice(0, 4)
@@ -255,17 +259,17 @@ function RuntimeResponsePanel({
   return (
     <div data-testid="eq-agent-runtime-response" className="mt-3 rounded-[8px] border border-slate-200 bg-slate-50 p-3">
       <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-        {locale === "zh" ? "Agent 回复" : "Agent response"}
+        {locale === "zh" ? copy("Agent 回复", "Agent 回覆") : "Agent response"}
       </p>
-      {textValue ? <p className="mt-2 text-sm leading-6 text-slate-800">{textValue}</p> : null}
+      {textValue ? <p className="mt-2 text-sm leading-6 text-slate-800">{displayText(textValue)}</p> : null}
       {points.length > 0 ? (
         <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-slate-700">
           {points.map((point) => (
-            <li key={point}>{point}</li>
+            <li key={point}>{displayText(point)}</li>
           ))}
         </ul>
       ) : null}
-      {followUp ? <p className="mt-2 text-xs leading-5 text-slate-500">{followUp}</p> : null}
+      {followUp ? <p className="mt-2 text-xs leading-5 text-slate-500">{displayText(followUp)}</p> : null}
     </div>
   );
 }

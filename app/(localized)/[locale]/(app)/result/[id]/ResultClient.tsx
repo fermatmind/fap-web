@@ -2190,6 +2190,7 @@ export default function ResultClient({
         <EQResultV5
           {...exportPdfProps}
           locale={locale}
+          displayLocale={displayLocale}
           reportData={reportData}
           attemptId={attemptId}
           agentContextAccess={{ anonId, accessToken: resultAccessToken }}

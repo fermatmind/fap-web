@@ -1,8 +1,10 @@
+import { useEqDisplay } from "./display";
 import { Info } from "lucide-react";
 import type { EqV5ViewModel } from "./types";
 import { localizeEqTechnicalValue } from "./localization";
 
 export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
+  const { copy, text: displayText } = useEqDisplay();
   const { quality, assets, locale } = viewModel;
   const flags = quality.flags ?? [];
   const confidence = assets.quality_confidence;
@@ -14,24 +16,24 @@ export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
     >
       <Info className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
       <div className="space-y-2">
-        <h2 className="font-semibold">{locale === "zh" ? "结果解释置信度" : "Interpretation Confidence"}</h2>
+        <h2 className="font-semibold">{locale === "zh" ? copy("结果解释置信度", "結果解釋置信度") : "Interpretation Confidence"}</h2>
         <p>
-          {locale === "zh" ? "等级" : "Level"} {quality.level || "—"} ·{" "}
-          {localizeEqTechnicalValue(
+          {locale === "zh" ? copy("等级", "等級") : "Level"} {quality.level || "—"} ·{" "}
+          {displayText(localizeEqTechnicalValue(
             confidence.label || quality.confidence_label || assets.quality.confidence_label,
             locale
-          ) || "—"}
+          )) || "—"}
         </p>
         {confidence.body ? <p className="leading-6">{confidence.body}</p> : null}
         {confidence.why_this_level ? (
           <p className="leading-6">
-            <span className="font-medium">{locale === "zh" ? "为什么：" : "Why: "}</span>
+            <span className="font-medium">{locale === "zh" ? copy("为什么：", "為什麼：") : "Why: "}</span>
             {confidence.why_this_level}
           </p>
         ) : null}
         {confidence.how_to_read ? (
           <p className="leading-6">
-            <span className="font-medium">{locale === "zh" ? "怎么读：" : "How to read: "}</span>
+            <span className="font-medium">{locale === "zh" ? copy("怎么读：", "怎麼讀：") : "How to read: "}</span>
             {confidence.how_to_read}
           </p>
         ) : null}

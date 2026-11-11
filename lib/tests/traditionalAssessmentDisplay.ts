@@ -129,19 +129,33 @@ const coreReportDisplayRoots = [
   "controlled_narrative_v1", "comparative_v1", "cultural_calibration_v1",
 ] as const;
 
-function reportDisplayValue(value: unknown, key: string, translate: Translate, textContainer = false, mbtiSnapshot = false): unknown {
+const eqTextFields = new Set([
+  "short_label", "cta_label", "how_to_use", "claim_boundary", "top_strength", "next_read",
+  "what_this_does_not_mean", "user_facing_status_label", "user_meaning", "validation_step",
+  "next_validation_step", "what_this_means_for_user", "practice", "observe", "review",
+]);
+const eqTextMaps = new Set(["band_explanations", "score_notes"]);
+
+function reportDisplayValue(
+  value: unknown,
+  key: string,
+  translate: Translate,
+  textContainer = false,
+  mbtiSnapshot = false,
+  eqDisplay = false,
+): unknown {
   if (reportProtectedBranches.has(key)) return value;
   const visibleContainer = textContainer || reportTextLists.has(key) || (mbtiSnapshot && mbtiSnapshotTextLists.has(key));
   if (typeof value === "string") {
-    return visibleContainer || reportTextFields.has(key) || (mbtiSnapshot && mbtiSnapshotTextFields.has(key)) ? translate(value) : value;
+    return visibleContainer || reportTextFields.has(key) || (eqDisplay && eqTextFields.has(key)) || (mbtiSnapshot && mbtiSnapshotTextFields.has(key)) ? translate(value) : value;
   }
   if (Array.isArray(value)) {
-    return value.map((item) => reportDisplayValue(item, key, translate, typeof item === "string" && visibleContainer, mbtiSnapshot));
+    return value.map((item) => reportDisplayValue(item, key, translate, typeof item === "string" && visibleContainer, mbtiSnapshot, eqDisplay));
   }
   if (!record(value)) return value;
   return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [
     childKey,
-    reportDisplayValue(child, childKey, translate, key === "dimension_labels" || (mbtiSnapshot && key === "actions" && (childKey === "do" || childKey === "avoid")), mbtiSnapshot),
+    reportDisplayValue(child, childKey, translate, key === "dimension_labels" || (eqDisplay && eqTextMaps.has(key)) || (mbtiSnapshot && key === "actions" && (childKey === "do" || childKey === "avoid")), mbtiSnapshot, eqDisplay),
   ]));
 }
 
@@ -184,16 +198,26 @@ export async function projectTraditionalShareDisplay<T>(payload: T, displayLocal
 }
 
 /** Localize visible copy on an already-authorized report without altering its authority or commerce metadata. */
+export function projectValidatedEqDisplay<T>(payload: T, translate: Translate): T {
+  if (!record(payload)) return payload;
+  const result: TextRecord = { ...payload };
+  for (const key of ["assets", "dimension_summary", "interpretation", "quality", "report_tags"] as const) {
+    if (Object.hasOwn(payload, key)) result[key] = reportDisplayValue(payload[key], key, translate, false, false, true);
+  }
+  return result as T;
+}
+
 export async function projectTraditionalResultDisplay<T>(payload: T, displayLocale: DisplayLocale): Promise<T> {
   if (displayLocale !== "zh-TW" || !record(payload)) return payload;
+  // EQ validates the canonical report and the source-bound reading copy together.
+  // Translate selected display fields only after the pair has been validated.
+  if (Object.hasOwn(payload, "eq60_reading_copy_v1")
+    || [payload, payload.report].some(candidate => record(candidate)
+      && candidate.eq_report_mode === "self_report"
+      && candidate.measurement_type === "self_report_trait_mixed_ei")) return payload;
   const translate = await loadTraditionalAssessmentText();
   const result: TextRecord = { ...payload };
-  const flatEqReport = payload.eq_report_mode === "self_report"
-    && payload.measurement_type === "self_report_trait_mixed_ei";
-  const roots = flatEqReport
-    ? [...coreReportDisplayRoots, "assets", "dimension_summary", "quality", "report_tags"]
-    : coreReportDisplayRoots;
-  for (const key of roots) {
+  for (const key of coreReportDisplayRoots) {
     if (Object.hasOwn(payload, key)) result[key] = reportDisplayValue(payload[key], key, translate, false, key === "mbti_pdf_content");
   }
   return result as T;

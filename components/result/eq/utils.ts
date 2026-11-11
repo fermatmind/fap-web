@@ -1,3 +1,4 @@
+import { projectValidatedEqDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { toScaleCodeV1 } from "@/lib/scaleCodeMode";
 import type {
@@ -343,12 +344,17 @@ export function isEqV5AccessRestricted(reportData: ReportResponse | null | undef
   );
 }
 
-export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale): EqV5ViewModel | null {
+export function normalizeEqV5Report(
+  reportData: ReportResponse,
+  locale: Locale,
+  translate?: (source: string) => string,
+): EqV5ViewModel | null {
   const original = resolveEqV5Payload(reportData);
   const canonical = resolveEqV5Authority(reportData, locale);
   if (!original || !canonical) return null;
-  const payload = resolveEqReadingCopy(reportData, original, locale);
-  if (!payload || !hasRequiredEditorialAssets(payload)) return null;
+  const readingCopy = resolveEqReadingCopy(reportData, original, locale);
+  if (!readingCopy || !hasRequiredEditorialAssets(readingCopy)) return null;
+  const payload = translate ? projectValidatedEqDisplay(readingCopy, translate) : readingCopy;
   const copy = asRecord(asRecord(reportData)?.eq60_reading_copy_v1);
   const readingAuthority = asRecord(copy?.reading_authority);
   const provenance = asRecord(payload.methodology?.norm_provenance);
