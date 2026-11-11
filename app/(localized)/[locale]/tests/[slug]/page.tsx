@@ -1418,7 +1418,7 @@ export default async function TestLandingPage({
     const choices = withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])
       .map((choice) => ({
         ...choice,
-        label: translate(choice.label),
+        label: assessmentLandingUi?.traditionalEntryLabels[choice.key] ?? translate(choice.label),
         summary: translate("summary" in choice ? choice.summary : choice.description),
         href: choice.href?.replace(/^\/zh(?=\/tests\/)/u, "/zh-TW") ?? null,
       }));

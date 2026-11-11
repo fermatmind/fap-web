@@ -112,6 +112,10 @@ const EN_ENTRY_LABELS: Record<string, string> = {
   eq_60: "Start 60-item self-report · About 10 minutes · Free",
 };
 
+const TRADITIONAL_ENTRY_LABELS: Partial<Record<string, string>> = {
+  riasec_140: "開始 140 題延伸版 · 免費測試",
+};
+
 export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";
 
 export function resolveAssessmentLandingSocialImage(slug: string, locale: "zh" | "en", selectedImage: string) {
@@ -141,6 +145,7 @@ export function getAssessmentLandingUi(slug: string, locale: "zh" | "en") {
     seoDescription: locale === "en" ? EN_SEARCH_COPY[slug]?.description : ZH_SEARCH_COPY[slug]?.description,
     heroDescription: HERO_DESCRIPTIONS[slug]?.[locale],
     entryLabels: locale === "zh" ? ZH_ENTRY_LABELS : EN_ENTRY_LABELS,
+    traditionalEntryLabels: TRADITIONAL_ENTRY_LABELS,
     heroArtwork: HERO_ARTWORK[slug],
   } : null;
 }
