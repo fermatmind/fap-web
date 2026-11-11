@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
@@ -14,11 +15,13 @@ const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-mediu
 const subscribeReady = () => () => {};
 
 export function QuestionnaireCopingClient({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
-  if (!isMiniCopingConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "问卷内容暂不可用。" : "The questionnaire content is unavailable."}</p>;
+  const { traditional } = useQuestionnaireDisplayCopy();
+  if (!isMiniCopingConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? (traditional ? "問卷內容暫不可用。" : "问卷内容暂不可用。") : "The questionnaire content is unavailable."}</p>;
   return <ValidCopingClient key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
 function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCopingQuestionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { traditional } = useQuestionnaireDisplayCopy();
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -36,18 +39,18 @@ function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCoping
   useEffect(() => { if (stage !== "welcome") { heading.current?.focus({ preventScroll: true }); (stage === "answer" ? progress.current : heading.current)?.scrollIntoView({ block: "start" }); } }, [stage, position]);
   function next() {
     const checked = scoreMiniCopingQuestionnaire(quiz, answers);
-    if (checked.status === "invalid" || checked.status === "unavailable") { setMessage(zh ? "当前回答无法读取，请清除后重新开始。" : "These responses cannot be read. Clear and start again."); return; }
-    if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择更接近当前的一项；也可以退出，直接读指南。" : "Choose the closer approach, or exit and read the guides."); return; }
+    if (checked.status === "invalid" || checked.status === "unavailable") { setMessage(zh ? (traditional ? "當前回答無法讀取，請清除後重新開始。" : "当前回答无法读取，请清除后重新开始。") : "These responses cannot be read. Clear and start again."); return; }
+    if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? (traditional ? "請選擇更接近當前的一項；也可以退出，直接讀指南。" : "请选择更接近当前的一项；也可以退出，直接读指南。") : "Choose the closer approach, or exit and read the guides."); return; }
     setMessage("");
     if (position < 23) setPosition(position + 1);
     else if (checked.status === "complete") { revision.current += 1; setResult(checked); setStage("result"); recordComplete(); }
-    else setMessage(zh ? "还有题目未选择，可以返回检查，也可以退出无分阅读。" : "Some choices are missing. Go back to check, or leave without a result.");
+    else setMessage(zh ? (traditional ? "還有題目未選擇，可以返回檢查，也可以退出無分閱讀。" : "还有题目未选择，可以返回检查，也可以退出无分阅读。") : "Some choices are missing. Go back to check, or leave without a result.");
   }
   async function copyPublicLinks() {
-    const text = quiz.profiles.map(profile => `${profile.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, profile.id)}`).join("\n\n");
+    const text = quiz.profiles.map(profile => `${profile.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)}`).join("\n\n");
     const copiedRevision = revision.current;
-    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
-    catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
+    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? (traditional ? "已複製公開解釋連結，不含答案或個人數值。" : "已复制公开解释链接，不含答案或个人数值。") : "Copied public explanation links, without answers or personal values."); }
+    catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? (traditional ? "無法自動複製，可從下方手動複製公開連結。" : "无法自动复制，可从下方手动复制公开链接。") : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   useEntertainmentResultView(recordView, stage === "result");
   return <section id="take-test" data-stage={stage} data-coping-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
@@ -55,34 +58,34 @@ function ValidCopingClient({ quiz, locale, readingProfiles }: { quiz: MiniCoping
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
-        <button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
-        <h2 className="text-2xl font-semibold">{zh ? "一次具体情境，一次相对选择" : "One scene, one relative choice"}</h2>
+        <button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? (traditional ? "開始測試" : "开始测试") : "Start test"}</button>
+        <h2 className="text-2xl font-semibold">{zh ? (traditional ? "一次具體情境，一次相對選擇" : "一次具体情境，一次相对选择") : "One scene, one relative choice"}</h2>
         <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
-        <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? "不同情境可以同时使用两种方式。完整作答后只显示四组原始次数，不评价年龄、成熟度、能力或心理健康；所有全文均可先读。" : "Both approaches can be used in different situations. A complete form shows four separate raw-count records, without assessing age, maturity, ability or mental health. All full guides can be read first."}</p>
+        <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? (traditional ? "不同情境可以同時使用兩種方式。完整作答後只顯示四組原始次數，不評價年齡、成熟度、能力或心理健康；所有全文均可先讀。" : "不同情境可以同时使用两种方式。完整作答后只显示四组原始次数，不评价年龄、成熟度、能力或心理健康；所有全文均可先读。") : "Both approaches can be used in different situations. A complete form shows four separate raw-count records, without assessing age, maturity, ability or mental health. All full guides can be read first."}</p>
 
       </>}
       {stage === "answer" && <>
-        <p ref={progress} data-coping-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 题` : `Choice ${position + 1} of 24`}</p>
+        <p ref={progress} data-coping-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? (traditional ? `第 ${position + 1} / 24 題` : `第 ${position + 1} / 24 题`) : `Choice ${position + 1} of 24`}</p>
         <h2 ref={heading} tabIndex={-1} id="coping-question" className="scroll-mt-24 text-2xl font-semibold leading-relaxed">{quiz.questions[position].prompt[locale]}</h2>
         <div role="radiogroup" aria-labelledby="coping-question" className="space-y-3">{quiz.questions[position].options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3">
           <input type="radio" name={quiz.questions[position].id} value={option.id} checked={answers[quiz.questions[position].id] === option.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => { revision.current += 1; setAnswers({ ...answers, [quiz.questions[position].id]: option.id }); setMessage(""); setManual(""); setResult(null); }} />
           <span className="leading-7">{`${option.id} — `}{option.label[locale]}</span>
         </label>)}</div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 23 ? (zh ? "查看四组记录" : "See four records") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? (traditional ? "上一題" : "上一题") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 23 ? (zh ? (traditional ? "檢視四組記錄" : "查看四组记录") : "See four records") : (zh ? (traditional ? "下一題" : "下一题") : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
         <QuestionnaireCopingReport quiz={quiz} result={result} locale={locale} readingProfiles={readingProfiles} />
-        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
-        {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
-        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>
+        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? (traditional ? "複製公開解釋連結" : "复制公开解释链接") : "Copy public explanation links"}</button>
+        {manual && <label className="block leading-7">{zh ? (traditional ? "手動複製公開連結" : "手动复制公开链接") : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
+        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? (traditional ? "重新測試（清除本次回答）" : "重新测试（清除本次回答）") : "Retake with empty answers"}</button>
       </>}
-      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? (traditional ? "退出並清除本次回答" : "退出并清除本次回答") : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
-    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备问卷，请稍候。" : "Preparing the questionnaire. Please wait.")}</p>
-    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
+    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? (traditional ? "正在準備問卷，請稍候。" : "正在准备问卷，请稍候。") : "Preparing the questionnaire. Please wait.")}</p>
+    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? (traditional ? "只使用當前頁面記憶體；不儲存草稿或結果，不上傳逐題選擇。重新整理、換語或離開會清除。" : "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。") : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
     {activityConsent}
-    <noscript><p>{zh ? "互动答题需要JavaScript；禁用时本网站部分页面可能停在加载画面。" : "Interactive answering requires JavaScript. Some pages on this website may remain at a loading screen when it is disabled."}</p></noscript>
+    <noscript><p>{zh ? (traditional ? "互動答題需要JavaScript；停用時本網站部分頁面可能停在載入畫面。" : "互动答题需要JavaScript；禁用时本网站部分页面可能停在加载画面。") : "Interactive answering requires JavaScript. Some pages on this website may remain at a loading screen when it is disabled."}</p></noscript>
   </section>;
 }

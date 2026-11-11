@@ -1,3 +1,4 @@
+import { hasTraditionalPrivateReflection } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -24,13 +25,19 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 
 type Stage = { slug: string; take: boolean; profile?: string };
 const requireLikert = cache(async (slug: string) => {
+  if (hasTraditionalPrivateReflection(slug)) {
+    const { loadTraditionalPrivateReflection } = await import("@/lib/i18n/zh-TW/privateReflectionQuestionnaires");
+    const item = await loadTraditionalPrivateReflection(slug);
+    if (!item) notFound();
+    return item;
+  }
   const item = hasTraditionalDirectional(slug)
     ? await (await import("@/lib/i18n/zh-TW/directionalQuestionnaires")).loadTraditionalDirectional(slug)
     : hasTraditionalObservation(slug)
       ? await (await import("@/lib/i18n/zh-TW/observationQuestionnaires")).loadTraditionalObservation(slug)
       : await loadTraditionalLikert(slug);
   if (!item) notFound();
-  return item;
+  return { ...item, takeQuiz: undefined };
 });
 
 export async function traditionalLikertMetadata({ slug, take, profile }: Stage): Promise<Metadata> {
@@ -58,7 +65,8 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     const { TraditionalObservationPage } = await import("./TraditionalObservationPage");
     return <TraditionalObservationPage slug={slug} take={take} profile={profile} />;
   }
-  const { quiz, sections, faq, summaries, extraReferences } = await requireLikert(slug);
+  const item = await requireLikert(slug);
+  const { quiz, sections, faq, summaries, extraReferences } = item;
   const entry = questionnairePath("zh-TW", slug);
   const Disc = slug === "disc"
     ? (await import("@/components/questionnaires/DiscPage")).DiscPage
@@ -79,6 +87,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz) {
+      const { TraditionalPrivateReflectionTake } = await import("./TraditionalPrivateReflectionTake");
+      return <TraditionalPrivateReflectionTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     const Client = slug === "dark-tetrad-sd4"
       ? (await import("@/components/questionnaires/QuestionnaireSd4Client")).QuestionnaireSd4Client
       : slug === "dark-triad"

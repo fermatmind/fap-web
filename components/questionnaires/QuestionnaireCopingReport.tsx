@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MiniCopingQuestionnaire, MiniCopingResult } from "@/lib/questionnaires/miniCoping";
@@ -7,28 +8,29 @@ import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
 type Complete = Extract<MiniCopingResult, { status: "complete" }>;
 export function QuestionnaireCopingReport({ quiz, result, locale, readingProfiles }: { quiz: MiniCopingQuestionnaire; result: Complete; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <div data-coping-result className="my-6 space-y-8">
-    <p className="leading-8">{zh ? "四组分别读，两侧各记录本组六次比较中的选择次数，合计六次。不合总分、跨组排名、综合类型、年龄或成熟等级。下方全文是每组的一般性读法，不从次数补出能力或健康结论。" : "Read the four groups separately. The two sides record choices within six comparisons and sum to six. There is no overall score, cross-group ranking, combined type, age or maturity grade. The complete texts below are general readings, without inferring ability or health from a count."}</p>
+    <p className="leading-8">{zh ? (traditional ? "四組分別讀，兩側各記錄本組六次比較中的選擇次數，合計六次。不合總分、跨組排名、綜合類型、年齡或成熟等級。下方全文是每組的一般性讀法，不從次數補出能力或健康結論。" : "四组分别读，两侧各记录本组六次比较中的选择次数，合计六次。不合总分、跨组排名、综合类型、年龄或成熟等级。下方全文是每组的一般性读法，不从次数补出能力或健康结论。") : "Read the four groups separately. The two sides record choices within six comparisons and sum to six. There is no overall score, cross-group ranking, combined type, age or maturity grade. The complete texts below are general readings, without inferring ability or health from a count."}</p>
     {result.interactionPairs.map(pair => {
       const profile = quiz.profiles.find(p => p.id === pair.profileId)!;
       const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 2 && item.directionIds.every((id, index) => id === profile.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
       return <section key={pair.id} data-coping-pair={pair.id} aria-labelledby={`coping-${pair.id}`} className="rounded-lg border border-slate-200 p-4 sm:p-6">
         <h3 id={`coping-${pair.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-        <dl className="my-4 space-y-3" aria-label={zh ? "本组原始选择次数" : "Raw choices within this group"}>
+        <dl className="my-4 space-y-3" aria-label={zh ? (traditional ? "本組原始選擇次數" : "本组原始选择次数") : "Raw choices within this group"}>
           {profile.directionIds.map(id => <div key={id} data-coping-pole={id}>
             <dt>{quiz.directions.find(d => d.id === id)!.title[locale]}</dt>
             <dd data-coping-count className="font-semibold">{pair.counts[id]} / 6</dd>
           </div>)}
         </dl>
         <p data-coping-tie={pair.leaders.length === 2 ? "true" : "false"} className="mb-5 leading-8">{pair.leaders.length === 2
-          ? (zh ? "两侧各三次，保留并列；不表示完美平衡或心理年龄居中，无需改答选赢家。" : "Three choices each: both sides remain tied. This is neither perfect balance nor an intermediate psychological age, and no answer needs changing to choose a winner.")
-          : (zh ? "本组六次相对选择中一侧次数较多。较少的一侧仍有完整解释，不表示缺失或缺点，也不证明年龄、成熟度或能力。" : "One side has more selections within these six relative choices. The other side still has a full explanation and is not missing or a deficit; no count establishes age, maturity or ability.")}</p>
+          ? (zh ? (traditional ? "兩側各三次，保留並列；不表示完美平衡或心理年齡居中，無需改答選贏家。" : "两侧各三次，保留并列；不表示完美平衡或心理年龄居中，无需改答选赢家。") : "Three choices each: both sides remain tied. This is neither perfect balance nor an intermediate psychological age, and no answer needs changing to choose a winner.")
+          : (zh ? (traditional ? "本組六次相對選擇中一側次數較多。較少的一側仍有完整解釋，不表示缺失或缺點，也不證明年齡、成熟度或能力。" : "本组六次相对选择中一侧次数较多。较少的一侧仍有完整解释，不表示缺失或缺点，也不证明年龄、成熟度或能力。") : "One side has more selections within these six relative choices. The other side still has a full explanation and is not missing or a deficit; no count establishes age, maturity or ability.")}</p>
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`coping-report-${profile.id}`} mode="result" previewSectionIds={[`${readingProfile.id}-trying`, `${readingProfile.id}-evaluating`, `${readingProfile.id}-expressing`, `${readingProfile.id}-private`, `${readingProfile.id}-adjusting`, `${readingProfile.id}-structure`, `${readingProfile.id}-present`, `${readingProfile.id}-future`, `${readingProfile.id}-observation`]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本组完整公开指南" : "Read this group’s complete public guide separately"}</Link>
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)}>{zh ? (traditional ? "單獨閱讀本組完整公開指南" : "单独阅读本组完整公开指南") : "Read this group’s complete public guide separately"}</Link>
       </section>;
     })}
-    <aside role="note" className="rounded-lg border border-slate-200 p-4 leading-8"><p>{zh ? "原创题本与英文工作译文尚未完成心理测量学验证。选择可能随任务、资源、关系、隐私、健康与可支配时间变化；不同记录本身不证明改善、退步或年龄变化。" : "The original form and working English translation have not completed psychometric validation. Choices can change with tasks, resources, relationships, privacy, health and available time; different records do not by themselves establish improvement, deterioration or an age change."}</p><p className="mt-3">{zh ? "回答与本次记录只在当前页面内存中，刷新、换语或离开会清除。复制的公开指南链接不含次数或选项，不要求公开个人记录。" : "Responses and this record stay in current-page memory and clear on reload, language change or leaving. Copied public guide links contain no counts or options, and no personal record needs to be disclosed."}</p></aside>
-    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
+    <aside role="note" className="rounded-lg border border-slate-200 p-4 leading-8"><p>{zh ? (traditional ? "原創題本與英文工作譯文尚未完成心理測量學驗證。選擇可能隨任務、資源、關係、隱私、健康與可支配時間變化；不同記錄本身不證明改善、退步或年齡變化。" : "原创题本与英文工作译文尚未完成心理测量学验证。选择可能随任务、资源、关系、隐私、健康与可支配时间变化；不同记录本身不证明改善、退步或年龄变化。") : "The original form and working English translation have not completed psychometric validation. Choices can change with tasks, resources, relationships, privacy, health and available time; different records do not by themselves establish improvement, deterioration or an age change."}</p><p className="mt-3">{zh ? (traditional ? "回答與本次記錄只在當前頁面記憶體中，重新整理、換語或離開會清除。複製的公開指南連結不含次數或選項，不要求公開個人記錄。" : "回答与本次记录只在当前页面内存中，刷新、换语或离开会清除。复制的公开指南链接不含次数或选项，不要求公开个人记录。") : "Responses and this record stay in current-page memory and clear on reload, language change or leaving. Copied public guide links contain no counts or options, and no personal record needs to be disclosed."}</p></aside>
+    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${traditional ? "zh-TW" : locale}/tests#more-tests`}>{zh ? (traditional ? "返回全部測試" : "返回全部测试") : "Back to all tests"}</Link>
   </div>;
 }

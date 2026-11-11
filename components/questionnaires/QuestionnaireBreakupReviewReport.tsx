@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { ResultPage } from "./QuestionnaireResultPresentation";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
@@ -11,23 +12,24 @@ type Complete = Extract<FacetResult, { status: "complete" }>;
 export function QuestionnaireBreakupReviewReport({ quiz, result, locale, readingProfiles }: {
   quiz: Questionnaire; result: Complete; locale: Locale; readingProfiles?: Questionnaire["profiles"];
 }) {
+  const { traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <ResultPage variant="reflection" data-breakup-review-result className="my-6 space-y-8">
 
 
     <aside role="note" className="rounded-lg border border-slate-200 p-4 leading-8">{zh
-      ? "安全边界与任何分数无关：暴力、胁迫、跟踪、威胁、强迫和控制不属于普通沟通不良或双方不合。无需联系、对质、解释或复合；若有现实安全威胁，可暂停作答或联系，向可信的人、当地紧急服务或合适的专业支持求助。"
+      ? (traditional ? "安全邊界與任何分數無關：暴力、脅迫、跟蹤、威脅、強迫和控制不屬於普通溝通不良或雙方不合。無需聯絡、對質、解釋或複合；若有現實安全威脅，可暫停作答或聯絡，向可信的人、當地緊急服務或合適的專業支援求助。" : "安全边界与任何分数无关：暴力、胁迫、跟踪、威胁、强迫和控制不属于普通沟通不良或双方不合。无需联系、对质、解释或复合；若有现实安全威胁，可暂停作答或联系，向可信的人、当地紧急服务或合适的专业支持求助。")
       : "The safety boundary applies at every score: violence, coercion, stalking, threats, force and control are not ordinary poor communication or mutual incompatibility. Contact, confrontation, explanation and reconciliation are not required. If there is a practical safety threat, you can pause the test or contact with the former partner, and seek help from a trusted person, local emergency services or appropriate professional support."}</aside>
     <section className="rounded-xl bg-stone-100/75 p-4 sm:p-6" aria-labelledby="breakup-review-start">
-      <h3 id="breakup-review-start" className="text-xl font-semibold text-stone-950">{zh ? "给这段回顾选一个起点" : "Choose where to start looking back"}</h3>
-      <p className="mt-3 max-w-prose leading-7">{zh ? "选择此刻想回看的主题。可先读情境和边界，即使本组没算出均分，指南仍然可读。" : "Choose what you want to revisit now. You can start with an example or a boundary. A guide stays available when its mean cannot be calculated."}</p>
+      <h3 id="breakup-review-start" className="text-xl font-semibold text-stone-950">{zh ? (traditional ? "給這段回顧選一個起點" : "给这段回顾选一个起点") : "Choose where to start looking back"}</h3>
+      <p className="mt-3 max-w-prose leading-7">{zh ? (traditional ? "選擇此刻想回看的主題。可先讀情境和邊界，即使本組沒算出均分，指南仍然可讀。" : "选择此刻想回看的主题。可先读情境和边界，即使本组没算出均分，指南仍然可读。") : "Choose what you want to revisit now. You can start with an example or a boundary. A guide stays available when its mean cannot be calculated."}</p>
       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
         {quiz.directions.map(direction => {
           const score = result.facets[direction.id];
           return <li key={direction.id} className="min-w-0">
             <a href={`#breakup-review-${direction.id}`} className="flex min-h-12 flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-lg border border-stone-300 bg-white px-3 py-2 text-stone-950">
               <span className="font-semibold underline decoration-stone-400 underline-offset-4">{direction.title[locale]}</span>
-              <span className="text-sm tabular-nums">{score.mean === null ? (zh ? `${score.rated}/6 项有效` : `${score.rated}/6 rated`) : `${score.mean.toFixed(4)} / 5`}</span>
+              <span className="text-sm tabular-nums">{score.mean === null ? (zh ? (traditional ? `${score.rated}/6 項有效` : `${score.rated}/6 项有效`) : `${score.rated}/6 rated`) : `${score.mean.toFixed(4)} / 5`}</span>
             </a>
           </li>;
         })}
@@ -44,39 +46,40 @@ export function QuestionnaireBreakupReviewReport({ quiz, result, locale, reading
         className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`breakup-review-${direction.id}`}>
         <h3 id={`breakup-review-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
         <p data-breakup-review-mean className="my-4 rounded-lg bg-slate-50 p-4 font-semibold">{mean === null
-          ? (zh ? `资料不足：${score.rated} / 6项有数值回答，需要完整六项。` : `Insufficient information: ${score.rated} / 6 items rated; all six are required.`)
-          : (zh ? `均分：${mean.toFixed(4)} / 5（${score.sum} ÷ 6，显示至四位小数）` : `Mean: ${mean.toFixed(4)} / 5 (${score.sum} ÷ 6, rounded to four decimals)`)}</p>
+          ? (zh ? (traditional ? `資料不足：${score.rated} / 6項有數值回答，需要完整六項。` : `资料不足：${score.rated} / 6项有数值回答，需要完整六项。`) : `Insufficient information: ${score.rated} / 6 items rated; all six are required.`)
+          : (zh ? (traditional ? `均分：${mean.toFixed(4)} / 5（${score.sum} ÷ 6，顯示至四位小數）` : `均分：${mean.toFixed(4)} / 5（${score.sum} ÷ 6，显示至四位小数）`) : `Mean: ${mean.toFixed(4)} / 5 (${score.sum} ÷ 6, rounded to four decimals)`)}</p>
         {available && <p data-breakup-review-sum className="mb-4 leading-8">{zh
-          ? `原始和：${score.sum}（范围6—30）。这是六次数值选择的摘要，不是频率、概率、严重等级或导致分手的份额。`
+          ? (traditional ? `原始和：${score.sum}（範圍6—30）。這是六次數值選擇的摘要，不是頻率、機率、嚴重等級或導致分手的份額。` : `原始和：${score.sum}（范围6—30）。这是六次数值选择的摘要，不是频率、概率、严重等级或导致分手的份额。`)
           : `Raw sum: ${score.sum} (range 6–30). This summarises six numeric choices, not frequency, probability, severity or a share of what caused the breakup.`}</p>}
         {!available && <p className="mb-4 leading-8 text-slate-600">{zh
-          ? "本组保留暂缺，不以零或中点代答；其他完整组仍分别保留。以下通用指南可读，但不是本次个人因素解释。全部不计分也可以完成并阅读四份全文。"
+          ? (traditional ? "本組保留暫缺，不以零或中點代答；其他完整組仍分別保留。以下通用指南可讀，但不是本次個人因素解釋。全部不計分也可以完成並閱讀四份全文。" : "本组保留暂缺，不以零或中点代答；其他完整组仍分别保留。以下通用指南可读，但不是本次个人因素解释。全部不计分也可以完成并阅读四份全文。")
           : "This group remains unavailable without zero or midpoint imputation. Other complete groups remain separate. The general guide below is readable without assigning a personal interpretation. An entirely unscored attempt can finish and read all four full guides."}</p>}
         <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`breakup-review-report-${profile.id}`} mode="result" previewSectionIds={[`${profile.id}-example`, `${profile.id}-action`]} />
         <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
-          href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读本组完整公开指南" : "Read this group’s complete public guide"}</Link>
+          href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)}>{zh ? (traditional ? "閱讀本組完整公開指南" : "阅读本组完整公开指南") : "Read this group’s complete public guide"}</Link>
       </section>;
     })}
 
     <details className="border-t border-slate-200 pt-4" data-result-reading-method>
-      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看计分与使用说明" : "View scoring and use notes"}</summary>
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? (traditional ? "檢視計分與使用說明" : "查看计分与使用说明") : "View scoring and use notes"}</summary>
       <p className="leading-8">{zh
-      ? "四组记录分别阅读，不合总分、不排名、不指定主要分手原因。它们只摘要你对一段已结束关系的回顾，不分配责任，不决定复合、伴侣适配或下一段关系。原数值中点3表示不确定或视情况，不是中等严重程度；网页新增不计分选项不补零。"
+      ? (traditional ? "四組記錄分別閱讀，不合總分、不排名、不指定主要分手原因。它們只摘要你對一段已結束關係的回顧，不分配責任，不決定複合、伴侶適配或下一段關係。原數值中點3表示不確定或視情況，不是中等嚴重程度；網頁新增不計分選項不補零。" : "四组记录分别阅读，不合总分、不排名、不指定主要分手原因。它们只摘要你对一段已结束关系的回顾，不分配责任，不决定复合、伴侣适配或下一段关系。原数值中点3表示不确定或视情况，不是中等严重程度；网页新增不计分选项不补零。")
       : "Read four separate records without an overall total, ranking or main-cause verdict. They summarise your recollection of one relationship that ended, without assigning responsibility, deciding reconciliation or predicting compatibility or another relationship. The original numeric midpoint 3 means uncertain or depends on the situation, not moderate severity. The website’s added unscored choice is not filled with zero."}</p>
     </details>
   </ResultPage>;
 }
 
 export function QuestionnaireBreakupReviewNextSteps({ result, locale }: { result: Complete; locale: Locale }) {
+  const { traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   const allUnavailable = Object.values(result.facets).every(part => part.rated < 6);
   return <section data-breakup-review-next-steps className="rounded-lg border border-slate-200 p-4 sm:p-6">
     <h2 className="text-xl font-semibold">{allUnavailable
-      ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.")
-      : (zh ? "留下一个你愿意核对的事实，也可以在这里结束" : "Keep one fact you would like to check, or finish here")}</h2>
+      ? (zh ? (traditional ? "本次作答已結束，下一步由你選擇" : "本次作答已结束，下一步由你选择") : "This attempt is finished. Choose what comes next.")
+      : (zh ? (traditional ? "留下一個你願意核對的事實，也可以在這裡結束" : "留下一个你愿意核对的事实，也可以在这里结束") : "Keep one fact you would like to check, or finish here")}</h2>
     <p className="mt-3 leading-8">{zh
-      ? "可以只在私人笔记里记一件可确认的事、一个仍不确定的地方和以后想更早说明的需要。无需向前伴侣交答卷、证明责任或尝试复合。你也可以不做练习，选择读其他指南、重做或退出；现实安全始终优先。"
+      ? (traditional ? "可以只在私人筆記裡記一件可確認的事、一個仍不確定的地方和以後想更早說明的需要。無需向前伴侶交答卷、證明責任或嘗試複合。你也可以不做練習，選擇讀其他指南、重做或退出；現實安全始終優先。" : "可以只在私人笔记里记一件可确认的事、一个仍不确定的地方和以后想更早说明的需要。无需向前伴侣交答卷、证明责任或尝试复合。你也可以不做练习，选择读其他指南、重做或退出；现实安全始终优先。")
       : "You may privately note one fact you can confirm, one uncertainty and a need you would want to express earlier in the future. There is no requirement to send answers to a former partner, prove responsibility or try to reconcile. You can skip the exercise, read another guide, retake or leave. Practical safety comes first."}</p>
-    <Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
+    <Link prefetch={false} className="mt-4 inline-block min-h-11 py-2 underline" href={`/${traditional ? "zh-TW" : locale}/tests#more-tests`}>{zh ? (traditional ? "返回全部測試" : "返回全部测试") : "Back to all tests"}</Link>
   </section>;
 }

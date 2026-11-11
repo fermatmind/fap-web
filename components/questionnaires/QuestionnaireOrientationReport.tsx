@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
@@ -6,22 +7,23 @@ import type { MiniOrientationQuestionnaire, OrientationRecord } from "@/lib/ques
 import type { Locale } from "@/lib/i18n/locales";
 
 export function QuestionnaireOrientationReport({ quiz, result, locale, readingProfiles }: { quiz: MiniOrientationQuestionnaire; result: OrientationRecord; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <div data-orientation-result className="my-6 space-y-8">
-    <p className="leading-8">{zh ? "这里只整理自我观察回答，不判定取向、身份或概率，不能确定、证明或改变取向，也不推断吸引对象。无须公开、解释或证明自己。" : "This records self-observation responses, not orientation, identity or probability. It cannot determine, prove or change orientation, or infer whom you are attracted to. No disclosure, explanation or proof is required."}</p>
+    <p className="leading-8">{zh ? (traditional ? "這裡只整理自我觀察回答，不判定取向、身份或機率，不能確定、證明或改變取向，也不推斷受到誰吸引。無須公開、解釋或證明自己。" : "这里只整理自我观察回答，不判定取向、身份或概率，不能确定、证明或改变取向，也不推断吸引对象。无须公开、解释或证明自己。") : "This records self-observation responses, not orientation, identity or probability. It cannot determine, prove or change orientation, or infer whom you are attracted to. No disclosure, explanation or proof is required."}</p>
     {result.state === "ALL_SKIPPED" ? <section data-orientation-all-skipped role="status" className="rounded-lg border border-slate-200 p-4 leading-8">
-      <h3 className="text-xl font-semibold">{zh ? "本次全部选择不回答" : "Every statement was explicitly skipped"}</h3>
-      <p className="mt-3">{zh ? "这是合法选择，无须理由。不生成个人领域卡或解释，不推断回避、压抑、准备程度、取向或身份；可以直接退出。" : "This is a valid choice without any explanation required. No personal domain cards or interpretations are generated, and no avoidance, suppression, readiness, orientation or identity is inferred. You may exit directly."}</p>
+      <h3 className="text-xl font-semibold">{zh ? (traditional ? "本次全部選擇不回答" : "本次全部选择不回答") : "Every statement was explicitly skipped"}</h3>
+      <p className="mt-3">{zh ? (traditional ? "你可以選擇不回答，無須說明理由。不生成個人領域卡或解釋，不推斷迴避、壓抑、準備程度、取向或身份；可以直接退出。" : "这是合法选择，无须理由。不生成个人领域卡或解释，不推断回避、压抑、准备程度、取向或身份；可以直接退出。") : "This is a valid choice without any explanation required. No personal domain cards or interpretations are generated, and no avoidance, suppression, readiness, orientation or identity is inferred. You may exit directly."}</p>
     </section> : <>
       <section className="rounded-xl border border-cyan-200 bg-cyan-50/60 p-4 sm:p-6" aria-labelledby="orientation-notebook">
-        <h3 id="orientation-notebook" className="text-xl font-semibold text-cyan-950">{zh ? "选择你想翻看的一页" : "Open a page of your reflection"}</h3>
-        <p className="mt-3 max-w-prose leading-7">{zh ? "五主题分开看。数字回答含1—5，暂不确定是其中选3的子集，跳过单列。不相加、不求均值、不排名或评能力。以下通用指南人人相同，不是根据次数生成的个人解释。" : "Read five topics separately. Numeric responses include 1–5; uncertain choices are the subset at 3, with skips separate. There is no score, mean, ranking or ability grade. The guides below are general, identical for everyone, and not personal interpretations of these counts."}</p>
-        <nav aria-label={zh ? "按探索主题打开记录" : "Open your notes by topic"} className="mt-4 border-t border-cyan-200">
+        <h3 id="orientation-notebook" className="text-xl font-semibold text-cyan-950">{zh ? (traditional ? "選擇你想翻看的一頁" : "选择你想翻看的一页") : "Open a page of your reflection"}</h3>
+        <p className="mt-3 max-w-prose leading-7">{zh ? (traditional ? "五主題分開看。數字回答含1—5，暫不確定是其中選3的子集，跳過單列。不相加、不求均值、不排名或評能力。以下通用指南人人相同，不是根據次數生成的個人解釋。" : "五主题分开看。数字回答含1—5，暂不确定是其中选3的子集，跳过单列。不相加、不求均值、不排名或评能力。以下通用指南人人相同，不是根据次数生成的个人解释。") : "Read five topics separately. Numeric responses include 1–5; uncertain choices are the subset at 3, with skips separate. There is no score, mean, ranking or ability grade. The guides below are general, identical for everyone, and not personal interpretations of these counts."}</p>
+        <nav aria-label={zh ? (traditional ? "按探索主題開啟記錄" : "按探索主题打开记录") : "Open your notes by topic"} className="mt-4 border-t border-cyan-200">
           {quiz.directions.map(direction => {
             const record = result.domains[direction.id];
             return <a key={direction.id} href={`#orientation-${direction.id}`} className="block min-h-12 border-b border-cyan-200 py-2 text-cyan-950 last:border-b-0 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-4">
               <span className="font-semibold underline decoration-cyan-400 underline-offset-4">{direction.title[locale]}</span>
-              <span className="block text-sm leading-6">{zh ? `${record.numeric} 项数字回答，其中 ${record.uncertain} 项暂不确定 · ${record.skipped} 项跳过` : `${record.numeric} numeric, including ${record.uncertain} uncertain · ${record.skipped} skipped`}</span>
+              <span className="block text-sm leading-6">{zh ? (traditional ? `${record.numeric} 項數字回答，其中 ${record.uncertain} 項暫不確定 · ${record.skipped} 項跳過` : `${record.numeric} 项数字回答，其中 ${record.uncertain} 项暂不确定 · ${record.skipped} 项跳过`) : `${record.numeric} numeric, including ${record.uncertain} uncertain · ${record.skipped} skipped`}</span>
             </a>;
           })}
         </nav>
@@ -32,18 +34,18 @@ export function QuestionnaireOrientationReport({ quiz, result, locale, readingPr
         const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === direction.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
         return <section key={direction.id} data-orientation-domain={direction.id} className="rounded-lg border border-slate-200 p-4 sm:p-6" aria-labelledby={`orientation-${direction.id}`}>
           <h3 id={`orientation-${direction.id}`} className="scroll-mt-24 text-xl font-semibold leading-snug sm:text-2xl">{direction.title[locale]}</h3>
-          <p data-orientation-counts className="my-4 leading-8">{zh ? `4条陈述：${record.numeric}个数字回答（其中${record.uncertain}个暂不确定），${record.skipped}个明确跳过。` : `4 statements: ${record.numeric} numeric responses (including ${record.uncertain} uncertain); ${record.skipped} explicitly skipped.`}</p>
+          <p data-orientation-counts className="my-4 leading-8">{zh ? (traditional ? `4條陳述：${record.numeric}個數字回答（其中${record.uncertain}個暫不確定），${record.skipped}個明確跳過。` : `4条陈述：${record.numeric}个数字回答（其中${record.uncertain}个暂不确定），${record.skipped}个明确跳过。`) : `4 statements: ${record.numeric} numeric responses (including ${record.uncertain} uncertain); ${record.skipped} explicitly skipped.`}</p>
           <dl data-orientation-distribution className="space-y-3 rounded-lg bg-slate-50 p-4">{options.map(option => <div key={option.id} className="flex items-start justify-between gap-4"><dt className="leading-7">{option.id === "na" ? "" : `${option.id} — `}{option.label[locale]}</dt><dd className="shrink-0 leading-7">{zh ? `${record.choices[option.id]}次` : `${record.choices[option.id]}`}</dd></div>)}</dl>
-          {record.skipped === 4 && <p data-orientation-domain-skipped className="mt-4 leading-8">{zh ? "本主题四题均跳过，保留此选择，不推断原因；下方只是通用指南，不是对你的解释。" : "All four statements in this topic were skipped. The choices remain without inferred reasons; the text below is general guidance, not an interpretation of you."}</p>}
+          {record.skipped === 4 && <p data-orientation-domain-skipped className="mt-4 leading-8">{zh ? (traditional ? "本主題四題均跳過，保留此選擇，不推斷原因；下方只是通用指南，不是對你的解釋。" : "本主题四题均跳过，保留此选择，不推断原因；下方只是通用指南，不是对你的解释。") : "All four statements in this topic were skipped. The choices remain without inferred reasons; the text below is general guidance, not an interpretation of you."}</p>}
           <div className="mt-6"><QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`orientation-report-${profile.id}`} mode="result" previewSectionIds={[`${readingProfile.id}-context`, `${readingProfile.id}-observation`]} /></div>
-          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本主题通用全文（不含个人记录）" : "Read this topic’s general full guide separately (no personal record)"}</Link>
+          <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)}>{zh ? (traditional ? "單獨閱讀本主題通用全文（不含個人記錄）" : "单独阅读本主题通用全文（不含个人记录）") : "Read this topic’s general full guide separately (no personal record)"}</Link>
         </section>;
       })}
     </>}
     <aside role="note" className="rounded-lg border border-slate-200 p-4 leading-8">
-      <p>{zh ? "回答和记录只在当前页面内存，不存草稿或结果、不上传逐题选择、不接分析、不分享个人结果。刷新、换语、离开、浏览器返回恢复或重测即清除；不承诺清除浏览历史、系统截屏或截图。" : "Responses and records stay in current-page memory: no saved draft or result, choice uploads, analytics or personal-result sharing. Reloading, changing language, leaving, browser back restoration or retaking clears them; this does not erase browser history, operating-system captures or screenshots."}</p>
-      <p className="mt-3">{zh ? "观察均可不做，无须关系经历、接触、公开或证明。现实有暴力、威胁、胁迫、被迫公开或紧迫安全问题时，优先保护自己并寻求适当支持，无须等待记录；本页面不能认证现实环境安全。" : "Every observation is optional: no relationship experience, contact, disclosure or proof is required. For actual violence, threats, coercion, forced disclosure or urgent safety concerns, prioritize protection and suitable support without waiting for a record. This page cannot certify a real-world setting as safe."}</p>
+      <p>{zh ? (traditional ? "回答和記錄只在當前頁面記憶體，不存草稿或結果、不上傳逐題選擇、不使用分析追蹤、不分享個人結果。重新整理、換語、離開、瀏覽器返回恢復或重測即清除；不承諾清除瀏覽歷史、系統截圖或截圖。" : "回答和记录只在当前页面内存，不存草稿或结果、不上传逐题选择、不接分析、不分享个人结果。刷新、换语、离开、浏览器返回恢复或重测即清除；不承诺清除浏览历史、系统截屏或截图。") : "Responses and records stay in current-page memory: no saved draft or result, choice uploads, analytics or personal-result sharing. Reloading, changing language, leaving, browser back restoration or retaking clears them; this does not erase browser history, operating-system captures or screenshots."}</p>
+      <p className="mt-3">{zh ? (traditional ? "觀察均可不做，無須關係經歷、接觸、公開或證明。現實有暴力、威脅、脅迫、被迫公開或緊迫安全問題時，優先保護自己並尋求適當支援，無須等待記錄；本頁面不能認證現實環境安全。" : "观察均可不做，无须关系经历、接触、公开或证明。现实有暴力、威胁、胁迫、被迫公开或紧迫安全问题时，优先保护自己并寻求适当支持，无须等待记录；本页面不能认证现实环境安全。") : "Every observation is optional: no relationship experience, contact, disclosure or proof is required. For actual violence, threats, coercion, forced disclosure or urgent safety concerns, prioritize protection and suitable support without waiting for a record. This page cannot certify a real-world setting as safe."}</p>
     </aside>
-    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
+    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${traditional ? "zh-TW" : locale}/tests#more-tests`}>{zh ? (traditional ? "返回全部測試" : "返回全部测试") : "Back to all tests"}</Link>
   </div>;
 }

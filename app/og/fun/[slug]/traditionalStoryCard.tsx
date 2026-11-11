@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalPrivateReflection, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -49,7 +49,9 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       `${item.quiz.questions.length} 道二選一題目`, "公開結果指南");
   }
   if (traditionalLikertRoute(`/tests/explore/${slug}`)) {
-    const item = await loadTraditionalLikert(slug);
+    const item = hasTraditionalPrivateReflection(slug)
+      ? await (await import("@/lib/i18n/zh-TW/privateReflectionQuestionnaires")).loadTraditionalPrivateReflection(slug)
+      : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");

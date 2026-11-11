@@ -1,4 +1,20 @@
+const privateReflectionProfiles = {
+  "annoying-person-test": ["directness-reading", "pause-reading", "expectations-reading", "updates-reading", "boundaries-reading"],
+  "breakup-reflection-test": ["communication-review", "expectations-review", "boundaries-review", "external-pressure-review"],
+  "conflict-boundary-behaviors-test": ["pressure-during-disagreements", "responding-to-no-and-pauses", "responding-to-behavioral-impact", "following-through-after-repair"],
+  "coping-rhythm-test": ["trying-and-assessing", "expressing-and-processing-privately", "adapting-and-keeping-structure", "present-needs-and-future-plans"],
+  "habit-patterns-test": ["cues-and-urges", "automatic-starts", "displaced-plans", "continuing-after-inconvenience", "everyday-effects"],
+  "intimacy-preference-test": ["emotional-sharing", "physical-closeness-boundaries", "time-together-personal-space", "relationship-visibility-privacy"],
+  "orientation-exploration-test": ["noticing-attraction", "different-forms-of-attraction", "current-patterns-and-uncertainty", "choosing-or-not-using-labels", "privacy-and-support"],
+  "stress-response-patterns-test": ["stepping-back-and-delaying", "tightening-plans-and-checks", "agreeing-first-and-maintaining-harmony", "explaining-and-protecting-a-position", "speaking-less-and-holding-back"],
+} as const;
+
+export function hasTraditionalPrivateReflection(slug: string): boolean {
+  return Object.hasOwn(privateReflectionProfiles, slug);
+}
+
 const profiles = {
+  ...privateReflectionProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],
