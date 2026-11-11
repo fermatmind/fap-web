@@ -6,10 +6,12 @@ import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { ApiError } from "@/lib/api-client";
+import { normalizeSupportedScaleCode, SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { lookupResultsByEmail, type ResultEmailLookupItem } from "@/lib/api/v0_3";
 import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
 import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
+import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 import { stashResultAccessTokenForAttempt } from "@/lib/result/resultAccessTokenHandoff";
 import { cn } from "@/lib/utils";
 
@@ -53,19 +55,20 @@ function withLocaleIfNeeded(path: string, locale: Locale): string {
   return localizedPath(path, locale);
 }
 
-function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string | null {
+function resolveResultHref(item: ResultEmailLookupItem, locale: DisplayLocale): string | null {
+  const sourceLocale = locale === "zh-TW" ? "zh" : locale;
   const resultAccessToken = normalizeText(item.result_access_token);
   const directHref = normalizeCommerceReportPath(item.result_url);
-  if (directHref) {
-    return withLocaleIfNeeded(directHref, locale);
-  }
-
   const attemptId = normalizeText(item.attempt_id);
-  if (resultAccessToken && attemptId) {
-    return localizedPath(`/result/${encodeURIComponent(attemptId)}`, locale);
-  }
+  const href = directHref ? withLocaleIfNeeded(directHref, sourceLocale)
+    : resultAccessToken && attemptId ? localizedPath(`/result/${encodeURIComponent(attemptId)}`, sourceLocale) : null;
+  if (!href || locale !== "zh-TW") return href;
 
-  return null;
+  const scale = normalizeSupportedScaleCode(item.scale_code)
+    ?? normalizeSupportedScaleCode(item.scale_code_legacy)
+    ?? normalizeSupportedScaleCode(item.scale_code_v2);
+  if (!scale || !isCoreAssessmentSlug(SCALE_CANONICAL_SLUG_MAP[scale])) return href;
+  return href.replace(/^\/zh\/result\/([A-Za-z0-9_-]{1,128})(?=[?#]|$)/u, "/zh-TW/result/$1");
 }
 
 export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
@@ -192,7 +195,7 @@ export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
           {items.length > 0 ? (
             <div className="space-y-3">
               {items.map((item, index) => {
-                const href = resolveResultHref(item, locale === "zh-TW" ? "zh" : locale);
+                const href = resolveResultHref(item, locale);
                 const scaleLabel = resolveScaleLabel(item, locale);
                 const typeCode = normalizeText(item.type_code);
                 const itemKey = normalizeText(item.attempt_id) || normalizeText(item.result_id) || `${searchedEmail}-${index}`;
@@ -229,7 +232,7 @@ export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
                             stashResultAccessTokenForAttempt(itemKey, item.result_access_token);
                           }}
                         >
-                          {labels.openResult}{locale === "zh-TW" ? (href.startsWith("/en/") ? "（英文）" : "（簡體中文）") : ""}
+                          {labels.openResult}{locale === "zh-TW" && !href.startsWith("/zh-TW/") ? (href.startsWith("/en/") ? "（英文）" : "（簡體中文）") : ""}
                         </Link>
                       ) : (
                         <span className="text-sm font-medium text-[var(--fm-text-muted)]">{labels.unavailable}</span>

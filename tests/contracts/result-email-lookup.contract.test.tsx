@@ -204,6 +204,29 @@ describe("Taiwan Traditional result lookup route", () => {
     expect(screen.queryByTestId("result-email-lookup-open")).toBeNull();
   });
 
+  it.each([
+    ["MBTI", "/zh/result/tw-lookup-attempt?access_token=synthetic-tw-token", "/zh-TW/result/tw-lookup-attempt", "開啟結果"],
+    ["RIASEC", null, "/zh-TW/result/tw-lookup-attempt", "開啟結果"],
+    ["BIG5_OCEAN", "/en/result/tw-lookup-attempt", "/en/result/tw-lookup-attempt", "開啟結果（英文）"],
+    ["EQ_SJT_16", "/zh/result/tw-lookup-attempt", "/zh/result/tw-lookup-attempt", "開啟結果（簡體中文）"],
+  ])("uses the available result display for %s without changing token handoff", async (scale, source, expected, label) => {
+    hoisted.lookupResultsByEmail.mockResolvedValueOnce({ ok: true, items: [{
+      attempt_id: "tw-lookup-attempt",
+      scale_code: scale,
+      result_url: source,
+      result_access_token: "synthetic-tw-token",
+    }] });
+    render(<TraditionalResultLookupPage />);
+    fireEvent.change(screen.getByRole("textbox", { name: "電子郵件地址" }), { target: { value: "owner@example.test" } });
+    fireEvent.click(screen.getByRole("button", { name: "查詢結果" }));
+    const link = await screen.findByRole("link", { name: label, exact: true });
+    expect(link).toHaveAttribute("href", expected);
+    const click = createEvent.click(link, { button: 0 });
+    click.preventDefault();
+    fireEvent(link, click);
+    expect(window.sessionStorage.getItem("fm.result_access_token.tw-lookup-attempt")).toBe("synthetic-tw-token");
+  });
+
   it("labels the original-language result handoff and keeps the token out of the href", async () => {
     hoisted.lookupResultsByEmail.mockResolvedValueOnce({ ok: true, items: [{
       attempt_id: "tw-lookup-attempt",
