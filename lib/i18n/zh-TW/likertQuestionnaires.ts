@@ -1,3 +1,6 @@
+import { outfitLandingSections, outfitLandingFaq, outfitLandingReferences } from "@/components/questionnaires/OutfitLineLandingEditorial";
+import { faceSelfImageLandingSections, faceSelfImageLandingFaq, faceSelfImageLandingReferences } from "@/components/questionnaires/FaceSelfImageLandingEditorial";
+import { bodyFrameSections, bodyFrameFaq } from "@/components/questionnaires/BodyFrameLandingEditorial";
 import { libertyLandingSections, libertyLandingFaq, libertyLandingReferences } from "@/components/questionnaires/LibertyLandingEditorial";
 import { mfq2LandingSections, mfq2LandingFaq, mfq2LandingReferences } from "@/components/questionnaires/Mfq2LandingEditorial";
 import { cognitiveSections, cognitiveFaq, cognitiveSummaries, cognitiveExtraReferences } from "@/components/questionnaires/CognitiveFunctionsLandingEditorial";
@@ -85,6 +88,33 @@ const sources = {
     prefix: "libertyLanding",
     sections: libertyLandingSections,
     faq: libertyLandingFaq,
+  },
+  "body-frame-observations": {
+    reading: "body-frame-observations",
+    attribute: "body-frame",
+    load: () => import("@/lib/questionnaires/result-content/body-frame-observations.json"),
+    editorial: "BodyFrame",
+    prefix: "bodyFrame",
+    sections: bodyFrameSections,
+    faq: bodyFrameFaq,
+  },
+  "face-self-image": {
+    reading: "face-self-image",
+    attribute: "face-self-image",
+    load: () => import("@/lib/questionnaires/result-content/face-self-image.json"),
+    editorial: "FaceSelfImage",
+    prefix: "faceSelfImageLanding",
+    sections: faceSelfImageLandingSections,
+    faq: faceSelfImageLandingFaq,
+  },
+  "outfit-line-preferences": {
+    reading: "outfit-line-preferences",
+    attribute: "outfit-line",
+    load: () => import("@/lib/questionnaires/result-content/outfit-line-preferences.json"),
+    editorial: "OutfitLine",
+    prefix: "outfitLanding",
+    sections: outfitLandingSections,
+    faq: outfitLandingFaq,
   },
   "cognitive-functions-test": {
     reading: "cognitive-functions-test",
@@ -552,7 +582,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test", "morality-6", "libertarian"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test", "morality-6", "libertarian", "body-frame-observations", "face-self-image", "outfit-line-preferences"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -599,6 +629,8 @@ export async function loadTraditionalLikert(slug: string) {
       case "cognitive-functions-test": return projectStoryCopy(cognitiveExtraReferences, "components/questionnaires/CognitiveFunctionsLandingEditorial.ts/cognitiveExtraReferences", units);
       case "morality-6": return projectStoryCopy(mfq2LandingReferences, "components/questionnaires/Mfq2LandingEditorial.ts/mfq2LandingReferences", units);
       case "libertarian": return projectStoryCopy(libertyLandingReferences, "components/questionnaires/LibertyLandingEditorial.ts/libertyLandingReferences", units);
+      case "face-self-image": return projectStoryCopy(faceSelfImageLandingReferences, "components/questionnaires/FaceSelfImageLandingEditorial.ts/faceSelfImageLandingReferences", units);
+      case "outfit-line-preferences": return projectStoryCopy(outfitLandingReferences, "components/questionnaires/OutfitLineLandingEditorial.ts/outfitLandingReferences", units);
       default: return [];
     }
   })();

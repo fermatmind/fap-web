@@ -49,6 +49,11 @@ function CitedCopy({ text, slug }: { text: string; slug: string }) {
 export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
   const { quiz, sections, faq, summaries, extraReferences } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
+  const Specialist = slug === "body-frame-observations"
+    ? (await import("@/components/questionnaires/BodyFrameObservationsPage")).BodyFrameObservationsPage
+    : slug === "outfit-line-preferences"
+      ? (await import("@/components/questionnaires/OutfitLinePreferencesPage")).OutfitLinePreferencesPage
+      : null;
   if (take) {
     const Client = slug === "dark-tetrad-sd4"
       ? (await import("@/components/questionnaires/QuestionnaireSd4Client")).QuestionnaireSd4Client
@@ -57,7 +62,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
         : QuestionnaireClient;
     return <TraditionalQuestionnaireCopy>
       <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
-        <Client quiz={quiz} locale="zh" />
+        {Specialist ? <Specialist quiz={quiz} locale="zh" take /> : <Client quiz={quiz} locale="zh" />}
       </QuestionnaireTakeDocument>
     </TraditionalQuestionnaireCopy>;
   }
@@ -93,6 +98,14 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
+
+  if (Specialist) {
+    const copy = await loadTraditionalAssessmentText();
+    return <>
+      {languages}
+      <Specialist quiz={quiz} locale="zh" displayLocale="zh-TW" copy={copy} sections={sections} faq={faq} extraReferences={extraReferences} />
+    </>;
+  }
 
   return <div className="mx-auto max-w-3xl space-y-8">
     {languages}
