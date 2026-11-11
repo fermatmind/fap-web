@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { sourceHashes } from "@/lib/i18n/zh-TW/work-reasoning-questionnaires.generated.json";
+import { sourceHashes } from "@/lib/i18n/zh-TW/work-reasoning-copy.mjs";
 import { traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalWorkReasoning } from "@/lib/i18n/zh-TW/workReasoningQuestionnaires";
 import { isAfqt32ConfigurationValid } from "@/lib/questionnaires/afqt32";

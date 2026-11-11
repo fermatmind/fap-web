@@ -2,7 +2,7 @@ import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { mergeResultReadingParagraphs, prepareSelectedResultProfile } from "@/lib/questionnaires/result-content/prepare-profile";
 import type { Questionnaire, QuestionnaireSection, Text } from "@/lib/questionnaires/types";
 import { projectStoryCopy } from "./storyReaderCopy";
-import { units } from "./work-reasoning-questionnaires.generated.json";
+import { units } from "./work-reasoning-copy.mjs";
 
 const readers = {
   "asvab-practice-test": {

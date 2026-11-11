@@ -153,6 +153,8 @@ const nextConfig = {
   htmlLimitedBots: new RegExp(`${HTML_LIMITED_BOT_UA_RE.source}|Googlebot`, HTML_LIMITED_BOT_UA_RE.flags),
   agentRules: false,
   output: "standalone",
+  // CI typechecks test sources separately; standalone builds check the application.
+  typescript: { tsconfigPath: "tsconfig.build.json" },
   outputFileTracingIncludes: {
     "/*": ["./node_modules/.pnpm/@swc+helpers@*/node_modules/@swc/helpers/**/*"],
   },
