@@ -1,15 +1,40 @@
 import Link from "next/link";
 import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_TASKS } from "@/lib/career/designComparePilot";
+import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
+import type { RiasecDimension } from "@/lib/riasec/resultAssembler";
 import { buttonVariants } from "@/components/ui/button";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
-export function RiasecCareerNextSteps({ locale, activityKeys }: { locale: Locale; activityKeys?: readonly string[] }) {
+export function RiasecCareerNextSteps({ locale, activityKeys, scores }: {
+  locale: Locale;
+  activityKeys?: readonly string[];
+  scores?: RiasecDimension[];
+}) {
   const zh = locale === "zh";
   const showDesignCompare = zh && activityKeys?.some(key => key === "r_proto_1" || key === "a_visual_1");
+  const matches = scores ? rankRiasecCareers(scores, locale) : null;
   return <div className="space-y-3" data-testid="riasec-career-next-steps">
     <p>{zh
       ? "先读本次报告的作答质量、六维分数与接近/并列提示，再把兴趣线索带到真实工作任务中核对。兴趣不等于能力、资格或录用条件。"
       : "Read this report’s response quality, six dimension scores, and close-score or tie guidance, then check those interests against real work tasks. Interests do not establish ability, qualifications, or hiring eligibility."}</p>
+    {matches?.jobs.length ? (
+      <details className="space-y-2 print:hidden" data-testid="riasec-profile-careers">
+        <summary className="cursor-pointer font-semibold">{zh ? "探索兴趣轮廓相近的职业" : "Explore careers with similar interest profiles"}</summary>
+        <p>{zh
+          ? "这些美国职业的 O*NET 兴趣轮廓与你的六维分数相近。选一个档案核对实际任务、工作环境和入行条件。"
+          : "These U.S. occupations have O*NET interest profiles that resemble your six scores. Open a profile to check tasks, work settings, and entry requirements."}</p>
+        <ul className="list-disc space-y-2 pl-5">
+          {matches.jobs.map(job => <li key={job.slug}>
+            <Link className="underline underline-offset-4" href={localizedPath(`/career/jobs/${job.slug}`, locale)}>{job.name}</Link>
+            <p>{job.summary}</p>
+          </li>)}
+        </ul>
+      </details>
+    ) : matches?.state === "flat" ? (
+      <p>{zh
+        ? "你的六维分数比较接近。可以先从感兴趣的具体任务出发，在职业中心比较几个方向。"
+        : "Your six scores are close together. Start with a task that interests you and compare a few directions in the career center."}</p>
+    ) : null}
     <ol className="list-decimal space-y-3 pl-5">
       <li><Link className="underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#interpret-results`}>{zh ? "读懂结果：六维、Top 3 与接近/并列" : "Understand your result: six dimensions, Top 3, and ties"}</Link></li>
       <li><Link className="underline underline-offset-4" href={localizedPath("/career", locale)}>{zh ? "进入职业中心，选 2–3 个职业核对日常任务" : "Open the career center and compare daily tasks in 2–3 roles"}</Link></li>

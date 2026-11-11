@@ -262,7 +262,7 @@ def audit(manifest, entries, interests, snapshot, manifest_dir):
     }
 
 
-def interest_release(report, entries, manifest_dir):
+def interest_release(report, entries, manifest_dir, interests):
     """Project the validated data into the bilingual public interest reader."""
     topics = {
         code.lower(): {group: result[group] for group in ('exact', 'related')}
@@ -287,6 +287,7 @@ def interest_release(report, entries, manifest_dir):
             copy[key] = {field: subject[field] for field in ('name', 'summary')}
         careers[slug] = {
             'onet': candidate['onet_code'], 'interest': candidate['interest_code'], 'copy': copy,
+            'interestVector': interests[candidate['onet_code']][0],
         }
     return {'sourceManifestSha256': report['manifest_sha256'], 'careers': careers, 'topics': topics}
 
@@ -312,7 +313,7 @@ def main():
     report['onet_csv_sha256'] = onet_digest
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     if args.interest_release:
-        release = interest_release(report, entries, args.manifest.parent)
+        release = interest_release(report, entries, args.manifest.parent, interests)
         args.interest_release.write_text(json.dumps(release, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({
         'occupations': report['occupations'], 'status_counts': report['status_counts'],
