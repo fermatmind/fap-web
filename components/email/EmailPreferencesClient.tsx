@@ -12,7 +12,7 @@ import {
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import type { DisplayLocale } from "@/lib/i18n/locales";
-import { emailDisplayPath, emailRecoveryPath, emailRecoveryLabel } from "@/lib/i18n/emailDisplayRoutes";
+import { emailDisplayPath, emailRecoveryPath } from "@/lib/i18n/emailDisplayRoutes";
 import type { SiteDictionary } from "@/lib/i18n/types";
 import { captureError } from "@/lib/observability/sentry";
 
@@ -161,10 +161,10 @@ export function EmailPreferencesClient({
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.missingRecoveryHint}</p>
           <div className="flex flex-col gap-2 sm:flex-row">
             <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
-              {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
+              {copy.ctas.orderLookup}
             </Link>
             <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
-              {emailRecoveryLabel(copy.ctas.help, locale)}
+              {copy.ctas.help}
             </Link>
           </div>
         </CardContent>
@@ -198,10 +198,10 @@ export function EmailPreferencesClient({
         </CardHeader>
         <CardContent className="flex flex-col gap-2 sm:flex-row">
           <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
-            {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
+            {copy.ctas.orderLookup}
           </Link>
           <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
-            {emailRecoveryLabel(copy.ctas.help, locale)}
+            {copy.ctas.help}
           </Link>
         </CardContent>
       </Card>

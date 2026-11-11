@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { unsubscribeEmail } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import type { DisplayLocale } from "@/lib/i18n/locales";
-import { emailDisplayPath, emailRecoveryPath, emailRecoveryLabel } from "@/lib/i18n/emailDisplayRoutes";
+import { emailDisplayPath, emailRecoveryPath } from "@/lib/i18n/emailDisplayRoutes";
 import type { SiteDictionary } from "@/lib/i18n/types";
 import { captureError } from "@/lib/observability/sentry";
 
@@ -104,10 +104,10 @@ export function EmailUnsubscribeClient({
             {copy.ctas.preferences}
           </Link>
           <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
-            {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
+            {copy.ctas.orderLookup}
           </Link>
           <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
-            {emailRecoveryLabel(copy.ctas.help, locale)}
+            {copy.ctas.help}
           </Link>
         </CardContent>
       </Card>
@@ -126,10 +126,10 @@ export function EmailUnsubscribeClient({
             {copy.ctas.preferences}
           </Link>
           <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
-            {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
+            {copy.ctas.orderLookup}
           </Link>
           <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
-            {emailRecoveryLabel(copy.ctas.help, locale)}
+            {copy.ctas.help}
           </Link>
         </CardContent>
       </Card>
@@ -167,7 +167,7 @@ export function EmailUnsubscribeClient({
               {copy.backToPreferences}
             </Link>
             <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
-              {emailRecoveryLabel(copy.ctas.orderLookup, locale)}
+              {copy.ctas.orderLookup}
             </Link>
           </div>
         </CardContent>

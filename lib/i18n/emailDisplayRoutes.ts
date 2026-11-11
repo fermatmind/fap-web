@@ -6,10 +6,8 @@ export function emailDisplayPath(path: EmailDisplayPath, locale: DisplayLocale):
   return locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, locale);
 }
 export function emailRecoveryPath(path: "/help" | "/orders/lookup", locale: DisplayLocale): string {
-  return localizedPath(path, locale === "zh-TW" ? "zh" : locale);
-}
-export function emailRecoveryLabel(label: string, locale: DisplayLocale): string {
-  return locale === "zh-TW" ? `${label}（簡體中文）` : label;
+  if (locale === "zh-TW") return path === "/help" ? "/zh-TW/support" : "/zh-TW/orders/lookup";
+  return localizedPath(path, locale);
 }
 function isEmailFlow(pathname: string): boolean {
   return /^\/(?:en|zh|zh-TW)\/email\/(?:preferences|unsubscribe)\/?$/.test(pathname);

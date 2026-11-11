@@ -1,5 +1,5 @@
 import {describe,expect,it} from "vitest";
-import {emailTokenSwitchHref,emailDisplayPath} from "@/lib/i18n/emailDisplayRoutes";
+import {emailTokenSwitchHref,emailDisplayPath,emailRecoveryPath} from "@/lib/i18n/emailDisplayRoutes";
 import {traditionalPath,TRADITIONAL_PUBLIC_PATHS,traditionalEquivalent} from "@/lib/i18n/traditionalRoutes";
 import {getBrowserAnalyticsSuppressionDecision} from "@/lib/tracking/browserAnalyticsSuppression";
 import {shouldNoindex,shouldIncludeInSitemap} from "@/lib/seo/indexingPolicy";
@@ -25,6 +25,14 @@ describe("Taiwan private email boundary",()=>{
       expect(traditionalPath(path)).toBe(`/zh-TW/email/${page}`);
       expect(traditionalEquivalent(path)).toBeNull();
       expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(`/email/${page}`);
+    }
+  });
+  it("routes Taiwan recovery links to their available Taiwan destinations", () => {
+    expect(emailRecoveryPath("/help", "zh-TW")).toBe("/zh-TW/support");
+    expect(emailRecoveryPath("/orders/lookup", "zh-TW")).toBe("/zh-TW/orders/lookup");
+    for (const locale of ["zh", "en"] as const) {
+      expect(emailRecoveryPath("/help", locale)).toBe(`/${locale}/help`);
+      expect(emailRecoveryPath("/orders/lookup", locale)).toBe(`/${locale}/orders/lookup`);
     }
   });
   it("carries only the opaque token between private email routes, never into public fallbacks",()=>{
