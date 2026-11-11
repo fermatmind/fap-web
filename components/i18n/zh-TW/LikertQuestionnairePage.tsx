@@ -1,4 +1,4 @@
-import { hasTraditionalPrivateReflection } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalPrivateReflection, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -25,6 +25,12 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 
 type Stage = { slug: string; take: boolean; profile?: string };
 const requireLikert = cache(async (slug: string) => {
+  if (hasTraditionalWorkReasoning(slug)) {
+    const { loadTraditionalWorkReasoning } = await import("@/lib/i18n/zh-TW/workReasoningQuestionnaires");
+    const item = await loadTraditionalWorkReasoning(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalPrivateReflection(slug)) {
     const { loadTraditionalPrivateReflection } = await import("@/lib/i18n/zh-TW/privateReflectionQuestionnaires");
     const item = await loadTraditionalPrivateReflection(slug);
@@ -87,6 +93,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz && hasTraditionalWorkReasoning(slug)) {
+      const { TraditionalWorkReasoningTake } = await import("./TraditionalWorkReasoningTake");
+      return <TraditionalWorkReasoningTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     if (item.takeQuiz) {
       const { TraditionalPrivateReflectionTake } = await import("./TraditionalPrivateReflectionTake");
       return <TraditionalPrivateReflectionTake quiz={quiz} takeQuiz={item.takeQuiz} />;
@@ -114,6 +124,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     </Link>)}
   </nav>;
   const mfq2Copy = slug === "morality-6" ? await loadTraditionalAssessmentText() : undefined;
+  const WorkReasoningContext = item.takeQuiz && hasTraditionalWorkReasoning(slug)
+    ? (await import("./TraditionalWorkReasoningContext")).TraditionalWorkReasoningContext : undefined;
+  const workReasoningContext = WorkReasoningContext && item.takeQuiz
+    ? <WorkReasoningContext quiz={item.takeQuiz} profile={profile} /> : null;
   const availableReferences = [...(quiz.references ?? []), ...(result ? [] : extraReferences)];
   const references = availableReferences.length ? <section className="space-y-4 leading-8">
     <h2 className="text-2xl font-semibold">題本與計分來源</h2>
@@ -133,6 +147,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
     {slug === "dark-tetrad-sd4" && <QuestionnaireSd4Attribution locale="zh" traditional />}
     {mfq2Copy && <QuestionnaireMfq2Attribution locale="zh" traditional copy={mfq2Copy} />}
+    {workReasoningContext}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -177,6 +192,11 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
         <p className="leading-7">{summaries[item.id]?.zh ?? item.summary.zh}</p>
       </div>)}
     </section>
+    {(quiz.kind === "written-coordination" || quiz.kind === "distributed-work24") && quiz.profiles.map(item => <section
+      key={item.id} className="space-y-4 border-t pt-6">
+      <h2 className="text-2xl font-semibold">{item.title.zh}</h2>
+      <QuestionnaireResultReading quizSlug={slug} profile={item} locale="zh" traditional headingLevel={3} idPrefix={`public-${item.id}`} />
+    </section>)}
     {slug === "social-battery-test" && quiz.profiles.map(item => <section key={item.id}
       data-social-battery-full-guide={item.id} className="my-10 border-t border-slate-200 pt-7">
       <h2 className="mb-5 text-2xl font-semibold">{item.title.zh}</h2>
@@ -202,6 +222,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
     {slug === "dark-tetrad-sd4" && <QuestionnaireSd4Attribution locale="zh" traditional />}
     {mfq2Copy && <QuestionnaireMfq2Attribution locale="zh" traditional copy={mfq2Copy} />}
+    {workReasoningContext}
     {references}
   </div>;
 }

@@ -24,6 +24,7 @@ export type QuestionnaireReportProps = {
   fds32ReadingProfiles?: Questionnaire["profiles"];
   breakupReadingProfiles?: Questionnaire["profiles"];
   parentingReadingProfiles?: Questionnaire["profiles"];
+  workReasoningReadingProfiles?: Questionnaire["profiles"];
 };
 
 const DistributedWorkReport = questionnaireModule<Parameters<typeof import("./DistributedWorkReport").DistributedWorkReport>[0]>(() => import("./DistributedWorkReport").then(module => ({ default: module.DistributedWorkReport })));
@@ -155,7 +156,7 @@ const QuestionnaireMusicReport = questionnaireModule<Parameters<typeof import(".
 const QuestionnaireHumorReport = questionnaireModule<Parameters<typeof import("./QuestionnaireHumorReport").QuestionnaireHumorReport>[0]>(() => import("./QuestionnaireHumorReport").then(module => ({ default: module.QuestionnaireHumorReport })));
 const QuestionnaireCommunicationReport = questionnaireModule<Parameters<typeof import("./QuestionnaireCommunicationReport").QuestionnaireCommunicationReport>[0]>(() => import("./QuestionnaireCommunicationReport").then(module => ({ default: module.QuestionnaireCommunicationReport })));
 
-export function QuestionnaireReports({ quiz, result, answers, locale, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles }: QuestionnaireReportProps) {
+export function QuestionnaireReports({ quiz, result, answers, locale, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles, workReasoningReadingProfiles }: QuestionnaireReportProps) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const tipi10 = result.status === "complete" && "tipi10" in result ? result : undefined;
   const facets = result.status === "complete" && "facets" in result ? result : undefined;
@@ -205,10 +206,10 @@ export function QuestionnaireReports({ quiz, result, answers, locale, workRoleRe
       {miniFriction && <QuestionnaireMiniFrictionReport quiz={quiz} result={miniFriction} locale={locale} />}
       {ctl41 && <QuestionnaireCtl41Report quiz={quiz} result={ctl41} locale={locale} />}
       {interactionPairs && <QuestionnaireInteractionPairsReport quiz={quiz} result={interactionPairs} locale={locale} />}
-      {distributedWork && <DistributedWorkReport quiz={quiz} result={distributedWork} locale={locale} />}
+      {distributedWork && <DistributedWorkReport quiz={quiz} result={distributedWork} locale={locale} readingProfiles={workReasoningReadingProfiles} />}
       {workRole && <QuestionnaireWorkRoleReport quiz={quiz} result={workRole} locale={locale} readingProfiles={workRoleReadingProfiles} />}
       {skillsEvidence && <QuestionnaireSkillsEvidenceReport quiz={quiz} result={skillsEvidence} locale={locale} />}
-      {preparationActions20 && <QuestionnairePreparationActions20Report quiz={quiz} result={preparationActions20} locale={locale} />}
+      {preparationActions20 && <QuestionnairePreparationActions20Report quiz={quiz} result={preparationActions20} locale={locale} readingProfiles={workReasoningReadingProfiles} />}
       {holdingBack35 && <QuestionnaireHoldingBack35Report quiz={quiz} result={holdingBack35} locale={locale} />}
       {spq92 && <QuestionnaireSpq92Report quiz={quiz} result={spq92} locale={locale} />}
       {adexi14 && <QuestionnaireAdexi14Report quiz={quiz} result={adexi14} locale={locale} />}

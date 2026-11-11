@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalPrivateReflection, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalPrivateReflection, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -51,11 +51,21 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
   if (traditionalLikertRoute(`/tests/explore/${slug}`)) {
     const item = hasTraditionalPrivateReflection(slug)
       ? await (await import("@/lib/i18n/zh-TW/privateReflectionQuestionnaires")).loadTraditionalPrivateReflection(slug)
-      : await loadTraditionalLikert(slug);
+      : hasTraditionalWorkReasoning(slug)
+        ? await (await import("@/lib/i18n/zh-TW/workReasoningQuestionnaires")).loadTraditionalWorkReasoning(slug)
+        : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "asvab-practice-test": "費馬原創 32 道英文練習題",
+      "asvab-science-mechanical-practice-test": "費馬原創 30 道英文練習題",
+      "employer-reasoning-practice-test": "費馬原創 18 道英文練習題",
+      "watson-glaser-practice-test": "費馬原創 30 道英文練習題",
+      "written-coordination-practice": "費馬原創書面協調練習",
+      "distributed-work-choices": "費馬原創 24 組協作選擇",
+      "freelance-ready": "費馬原創 20 項接案準備回顧",
+      "remote-work": "費馬原創 20 項遠距工作準備回顧",
       "social-intelligence-test": "IPIP-VIA-R 四道自述題",
       "character-strengths": "IPIP-VIA-R 96 道自述題",
       hexaco: "IPIP HEXACO 240 道自述題",

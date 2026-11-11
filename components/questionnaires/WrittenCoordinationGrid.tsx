@@ -2,7 +2,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { WrittenCoordinationGrid as Grid } from "@/lib/questionnaires/writtenCoordination";
 
 const position = (id: string) => ({ x: 40 + (id.charCodeAt(0) - 65) * 75, y: 40 + (Number(id[1]) - 1) * 75 });
-export function WrittenCoordinationGrid({ grid, locale, idPrefix }: { grid: Grid; locale: Locale; idPrefix: string }) {
+export function WrittenCoordinationGrid({ grid, locale, idPrefix, traditional = false }: { grid: Grid; locale: Locale; idPrefix: string; traditional?: boolean }) {
   const zh = locale === "zh", caption = `${idPrefix}-caption`;
   return <figure data-written-grid className="my-5 rounded-lg border border-slate-300 bg-white p-3">
     <svg viewBox="0 0 380 380" className="mx-auto h-auto w-full max-w-sm" aria-hidden="true" focusable="false">
@@ -23,8 +23,8 @@ export function WrittenCoordinationGrid({ grid, locale, idPrefix }: { grid: Grid
       })}
     </svg>
     <figcaption id={caption} className="space-y-2 text-sm leading-7 text-slate-700">
-      <p className="font-semibold">{zh ? "原创虚构网格：文字与图示使用同一规则" : "Original fictional grid: text and diagram use the same rules"}</p>
-      <p>{zh ? "五列A至E自西向东，五行1至5自北向南；节点由列字母加行数字命名。实线允许通行，红色虚线与叉号表示关闭，不能通行。" : "Five columns A–E run west to east; five rows 1–5 run north to south. Node names combine column and row. Solid lines are permitted; red dashed lines with crosses are closed and cannot be used."}</p>
+      <p className="font-semibold">{traditional ? "原創虛構網格：文字與圖示採用相同規則" : zh ? "原创虚构网格：文字与图示使用同一规则" : "Original fictional grid: text and diagram use the same rules"}</p>
+      <p>{traditional ? "五欄 A 至 E 由西向東，五列 1 至 5 由北向南。節點以欄的字母和列的數字命名。實線可以通行，紅色虛線及叉號表示路段封閉。" : zh ? "五列A至E自西向东，五行1至5自北向南；节点由列字母加行数字命名。实线允许通行，红色虚线与叉号表示关闭，不能通行。" : "Five columns A–E run west to east; five rows 1–5 run north to south. Node names combine column and row. Solid lines are permitted; red dashed lines with crosses are closed and cannot be used."}</p>
       <p>{grid.instructions[locale]}</p>
     </figcaption>
   </figure>;

@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
@@ -16,11 +17,13 @@ import resultStyles from "./QuestionnaireResultPresentation.module.css";
 const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 const time = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
-export function Critical30Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
-  if (!isCritical30ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "练习内容暂不可用。" : "Practice content is unavailable."}</p>;
-  return <ValidCritical30Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
+export function Critical30Client({ quiz, locale, readingProfiles, explanationCopy }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[]; explanationCopy?: Readonly<Record<string, string>> }) {
+  const { displayText } = useQuestionnaireDisplayCopy();
+  if (!isCritical30ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? displayText("练习内容暂不可用。") : "Practice content is unavailable."}</p>;
+  return <ValidCritical30Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} explanationCopy={explanationCopy} />;
 }
-function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critical30Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+function ValidCritical30Client({ quiz, locale, readingProfiles, explanationCopy }: { quiz: Critical30Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[]; explanationCopy?: Readonly<Record<string, string>> }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
@@ -85,16 +88,16 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
     setMessage(""); if (index < 29) setIndex(index + 1); else finish("finished", elapsed);
   }
   async function copyPublicLinks() {
-    const text = quiz.profiles.map(p => `${p.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, p.id)}`).join("\n\n"), copiedRevision = revision.current;
+    const text = quiz.profiles.map(p => `${p.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, p.id)}`).join("\n\n"), copiedRevision = revision.current;
     try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制五篇公开指南，不含本次答卷或数量。" : "Copied five public guides, without your responses or counts."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   const partIndex = Math.floor(index / 6), current = quiz.critical30.sections[partIndex], question = quiz.questions[index];
-  const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? `正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。` : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
+  const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? displayText(`正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。`) : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
   return <section id="take-test" data-stage={stage} data-critical30-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
     {stage === "welcome" && <div className="critical30-entry-controls"><h2 className="text-2xl font-semibold">{quiz.critical30.subtitle[locale]}</h2>
-        <div role="radiogroup" aria-label={zh ? "练习模式" : "Practice mode"} className="space-y-3" aria-disabled={!ready}>{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" disabled={!ready} name="critical30-mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? "整卷连续计时：30:00，本站选定上限，换段不暂停" : "One continuous 30:00 clock: site-selected cap, no pause between parts") : (zh ? "不计时学习：同一题本，无截止时间" : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
-        <button data-explore-start type="button" disabled={!ready} className={`${button} critical30-primary`} onClick={begin}>{zh ? "开始测试" : "Start test"}</button></div>}
+        <div role="radiogroup" aria-label={zh ? displayText("练习模式") : "Practice mode"} className="space-y-3" aria-disabled={!ready}>{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" disabled={!ready} name="critical30-mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? displayText("整卷连续计时：30:00，本站选定上限，换段不暂停") : "One continuous 30:00 clock: site-selected cap, no pause between parts") : (zh ? displayText("不计时学习：同一题本，无截止时间") : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
+        <button data-explore-start type="button" disabled={!ready} className={`${button} critical30-primary`} onClick={begin}>{zh ? displayText("开始测试") : "Start test"}</button></div>}
     <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.critical30.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
@@ -102,32 +105,32 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
 
       </>}
       {stage === "answer" && <>
-        <p data-critical30-progress className="text-sm text-slate-600">{zh ? `第 ${partIndex + 1}/5 部分 · 全卷第 ${index + 1}/30 题` : `Part ${partIndex + 1}/5 · Question ${index + 1}/30 overall`}</p>
+        <p data-critical30-progress className="text-sm text-slate-600">{zh ? displayText(`第 ${partIndex + 1}/5 部分 · 全卷第 ${index + 1}/30 题`) : `Part ${partIndex + 1}/5 · Question ${index + 1}/30 overall`}</p>
         <h2 id="critical30-question" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{current.title[locale]} · {index % 6 + 1}/6</h2>
-        <p data-critical30-clock role="timer" aria-live="off" className="font-semibold tabular-nums">{mode === "timed" ? (zh ? `整卷剩余 ${time(remaining)} · 本站连续练习上限` : `Whole attempt remaining ${time(remaining)} · Site continuous practice cap`) : (zh ? "不计时学习" : "Untimed study")}</p>
-        <p className="text-sm leading-7">{zh ? "可用下方按钮转到任一部分首题；整卷计时不会暂停或重置。结束前可返回任题修改。" : "Jump to the first question of any part below. The whole clock does not pause or reset. Any response can be revised before finishing."}</p>
-        <nav aria-label={zh ? "练习部分导航" : "Practice part navigation"} className="flex flex-wrap gap-2">{quiz.critical30.sections.map((s, i) => <button type="button" key={s.id} data-critical30-jump={s.id} aria-current={partIndex === i ? "step" : undefined} className={button} onClick={() => move(i * 6)}>{i + 1}. {s.title[locale]}</button>)}</nav>
+        <p data-critical30-clock role="timer" aria-live="off" className="font-semibold tabular-nums">{mode === "timed" ? (zh ? displayText(`整卷剩余 ${time(remaining)} · 本站连续练习上限`) : `Whole attempt remaining ${time(remaining)} · Site continuous practice cap`) : (zh ? displayText("不计时学习") : "Untimed study")}</p>
+        <p className="text-sm leading-7">{zh ? displayText("可用下方按钮转到任一部分首题；整卷计时不会暂停或重置。结束前可返回任题修改。") : "Jump to the first question of any part below. The whole clock does not pause or reset. Any response can be revised before finishing."}</p>
+        <nav aria-label={zh ? displayText("练习部分导航") : "Practice part navigation"} className="flex flex-wrap gap-2">{quiz.critical30.sections.map((s, i) => <button type="button" key={s.id} data-critical30-jump={s.id} aria-current={partIndex === i ? "step" : undefined} className={button} onClick={() => move(i * 6)}>{i + 1}. {s.title[locale]}</button>)}</nav>
         <p id="critical30-stem" data-critical30-stem lang="en" className="whitespace-pre-line leading-8">{question.prompt.en}</p>
         <div role="radiogroup" aria-labelledby="critical30-question critical30-stem" className="space-y-3">{question.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value={o.id} checked={answers[question.id] === o.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => choose(o.id)} /><span lang="en" className="leading-7">{o.id} — {o.label.en}</span></label>)}
-          <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value="skip" checked={answers[question.id] === "skip"} onChange={() => choose("skip")} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{zh ? "留空（记为未答）" : "Leave unanswered"}</span></label>
+          <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value="skip" checked={answers[question.id] === "skip"} onChange={() => choose("skip")} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{zh ? displayText("留空（记为未答）") : "Leave unanswered"}</span></label>
         </div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={index === 0} onClick={() => move(index - 1)}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{index === 29 ? (zh ? "结束并看解析" : "Finish and review") : (zh ? "下一题" : "Next")}</button></div>
-        <button type="button" data-critical30-finish className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) finish("finished", elapsed); }}>{zh ? "现在结束整卷，保留未答" : "Finish now; keep blanks unanswered"}</button>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={index === 0} onClick={() => move(index - 1)}>{zh ? displayText("上一题") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{index === 29 ? (zh ? displayText("结束并看解析") : "Finish and review") : (zh ? displayText("下一题") : "Next")}</button></div>
+        <button type="button" data-critical30-finish className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) finish("finished", elapsed); }}>{zh ? displayText("现在结束整卷，保留未答") : "Finish now; keep blanks unanswered"}</button>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <div className={resultStyles.sectionPracticeLead} data-section-practice="critical30">
           <div className={resultStyles.sectionPracticeScore}>
-            <p data-critical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "整卷连续计时练习 · 本站选定上限" : "Continuous whole-attempt practice · Site-selected cap") : (zh ? "不计时学习" : "Untimed study")}</p>
-            <p data-critical30-closure className="leading-8">{result.closure.reason === "expired" ? (zh ? "整卷到时结束，空白仍为未答。" : "The whole attempt closed at its deadline; blanks remain unanswered.") : (zh ? "你主动结束了整份练习。" : "You finished the whole practice.")}</p>
-            <dl data-critical30-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
-              {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
+            <p data-critical30-result-mode className="leading-8">{result.mode === "timed" ? (zh ? displayText("整卷连续计时练习 · 本站选定上限") : "Continuous whole-attempt practice · Site-selected cap") : (zh ? displayText("不计时学习") : "Untimed study")}</p>
+            <p data-critical30-closure className="leading-8">{result.closure.reason === "expired" ? (zh ? displayText("整卷到时结束，空白仍为未答。") : "The whole attempt closed at its deadline; blanks remain unanswered.") : (zh ? displayText("你主动结束了整份练习。") : "You finished the whole practice.")}</p>
+            <dl data-critical30-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? displayText("本次题本表现") : "This practice bank’s outcomes"}>
+              {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? displayText("正确") : "Correct") : key === "wrong" ? (zh ? displayText("错误") : "Incorrect") : (zh ? displayText("未答") : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
             </dl>
-            <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这30题的表现，不是正式考试成绩。先核对题目允许作出的结论，再看自己选择的理由。" : "This records performance on these 30 questions, not an official test score. Start with what each question permits you to conclude, then examine your reason for choosing."}</p>
+            <p className="text-sm leading-7 text-slate-600">{zh ? displayText("这里只记录这30题的表现，不是正式考试成绩。先核对题目允许作出的结论，再看自己选择的理由。") : "This records performance on these 30 questions, not an official test score. Start with what each question permits you to conclude, then examine your reason for choosing."}</p>
           </div>
           <div className={resultStyles.sectionPracticeContext}>
-            <h3 className="text-xl font-semibold">{zh ? "从证据到结论，选择要核对的一部分" : "Choose a reasoning step to review"}</h3>
-            <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `critical30-reading-${part.id}`, title: `${quiz.critical30.sections[index].title[locale]} · ${part.correct}/${part.total}` }))} />
+            <h3 className="text-xl font-semibold">{zh ? displayText("从证据到结论，选择要核对的一部分") : "Choose a reasoning step to review"}</h3>
+            <ResultReadingNav label={zh ? displayText("分段表现与答案解析") : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `critical30-reading-${part.id}`, title: `${quiz.critical30.sections[index].title[locale]} · ${part.correct}/${part.total}` }))} />
           </div>
         </div>
         <div data-critical30-result className="space-y-6">{result.parts.map((part, i) => {
@@ -143,28 +146,28 @@ function ValidCritical30Client({ quiz, locale, readingProfiles }: { quiz: Critic
             <h3 id={`critical30-reading-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.critical30.sections[i].title[locale]}</h3><p data-critical30-count className="my-3 leading-8">{counts(part)}</p>
             <div className="my-4 flex h-2 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><span className="bg-teal-600" style={{ width: `${part.correct / part.total * 100}%` }} /><span className="bg-rose-300" style={{ width: `${part.wrong / part.total * 100}%` }} /><span className="bg-slate-300" style={{ width: `${part.unanswered / part.total * 100}%` }} /></div>
             <section data-critical30-first-review className="my-5 space-y-3 border-l-2 border-teal-300 pl-4 leading-8">
-              <h4 className="font-semibold">{zh ? "从这一题开始复盘" : "Start your review with this question"}</h4>
+              <h4 className="font-semibold">{zh ? displayText("从这一题开始复盘") : "Start your review with this question"}</h4>
               <p lang="en" className="whitespace-pre-line">{reviewQuestion.prompt.en}</p>
-              <p>{zh ? "你的选择：" : "Your choice: "}{selectedReviewOption ? <span lang="en">{selectedReviewOption.id} — {selectedReviewOption.label.en}</span> : (zh ? "未答" : "Unanswered")}</p>
-              <p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{correctReviewOption.id} — {correctReviewOption.label.en}</span></p>
-              <p>{reviewQuestion.explanation![locale]}</p>
+              <p>{zh ? displayText("你的选择：") : "Your choice: "}{selectedReviewOption ? <span lang="en">{selectedReviewOption.id} — {selectedReviewOption.label.en}</span> : (zh ? displayText("未答") : "Unanswered")}</p>
+              <p>{zh ? displayText("正确答案：") : "Correct answer: "}<span lang="en">{correctReviewOption.id} — {correctReviewOption.label.en}</span></p>
+              <p>{(zh ? explanationCopy?.[reviewQuestion.id] : undefined) ?? reviewQuestion.explanation![locale]}</p>
             </section>
-            <details data-critical30-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看六题答案与双语解析" : "Review all six answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 6, i * 6 + 6).map(q => {
+            <details data-critical30-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? displayText("查看六题答案与双语解析") : "Review all six answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 6, i * 6 + 6).map(q => {
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
-              return <li key={q.id} data-critical30-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? "你的选择：" : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? "未答" : "Unanswered")}</p><p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;
+              return <li key={q.id} data-critical30-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? displayText("你的选择：") : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? displayText("未答") : "Unanswered")}</p><p>{zh ? displayText("正确答案：") : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{(zh ? explanationCopy?.[q.id] : undefined) ?? q.explanation![locale]}</p></li>;
             })}</ol></details>
             <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`critical30-${part.id}`} mode="result" previewSectionIds={[`${part.id}-7`]} />
-            <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, part.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
+            <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, part.id)}>{zh ? displayText("阅读完整公开指南") : "Read the complete public guide"}</Link>
           </section>;
         })}</div>
-        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开指南链接" : "Copy public guide links"}</button>
-        {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
-        <button type="button" className={button} onClick={() => clear()}>{zh ? "清空并重新练习" : "Clear and practise again"}</button>
+        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? displayText("复制公开指南链接") : "Copy public guide links"}</button>
+        {manual && <label className="block leading-7">{zh ? displayText("手动复制公开链接") : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
+        <button type="button" className={button} onClick={() => clear()}>{zh ? displayText("清空并重新练习") : "Clear and practise again"}</button>
       </>}
-      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear()}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear()}>{zh ? displayText("退出并清除本次回答") : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     {activityConsent}
-    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备练习，请稍候。" : "Preparing practice. Please wait.")}</p>
-    <noscript><p>{zh ? "作答需要JavaScript；全部公开指南仍可阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
+    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? displayText("正在准备练习，请稍候。") : "Preparing practice. Please wait.")}</p>
+    <noscript><p>{zh ? displayText("作答需要JavaScript；全部公开指南仍可阅读。") : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;
 }

@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
@@ -17,10 +18,12 @@ const subscribeReady = () => () => {};
 const now = () => ({ wall: Date.now(), monotonic: performance.now() });
 const time = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 export function Afqt32Client({ quiz, locale, readingProfiles }: { quiz: unknown; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
-  if (!isAfqt32ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "练习内容暂不可用。" : "Practice content is unavailable."}</p>;
+  const { displayText } = useQuestionnaireDisplayCopy();
+  if (!isAfqt32ConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? displayText("练习内容暂不可用。") : "Practice content is unavailable."}</p>;
   return <ValidAfqt32Client key={`${locale}:${quiz.version}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 function ValidAfqt32Client({ quiz, locale, readingProfiles }: { quiz: Afqt32Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const { start: recordStart, complete: recordComplete, view: recordView, share: recordShare, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const [stage, setStage] = useState<"welcome" | "ready" | "answer" | "result">("welcome");
@@ -89,15 +92,15 @@ function ValidAfqt32Client({ quiz, locale, readingProfiles }: { quiz: Afqt32Ques
     setMessage(""); if (position < 7) setPosition(position + 1); else closeSection("finished", elapsed);
   }
   async function copyPublicLinks() {
-    const text = quiz.profiles.map(p => `${p.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, p.id)}`).join("\n\n"), copiedRevision = revision.current;
+    const text = quiz.profiles.map(p => `${p.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, p.id)}`).join("\n\n"), copiedRevision = revision.current;
     try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制四篇公开指南，不含本次答卷或数量。" : "Copied four public guides, without your responses or counts."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   const current = quiz.afqt32.sections[section], question = quiz.questions[section * 8 + position];
-  const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? `正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。` : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
+  const counts = (x: { correct: number; wrong: number; unanswered: number; total: number }) => zh ? displayText(`正确 ${x.correct}；错误 ${x.wrong}；未答 ${x.unanswered}；共 ${x.total} 题。`) : `Correct ${x.correct}; wrong ${x.wrong}; unanswered ${x.unanswered}; total ${x.total}.`;
   return <section id="take-test" data-stage={stage === "ready" ? "welcome" : stage} data-afqt32-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    {stage === "welcome" && <div className="afqt32-entry-controls"><h2 className="text-2xl font-semibold">{quiz.afqt32.subtitle[locale]}</h2><div role="radiogroup" aria-label={zh ? "练习模式" : "Practice mode"} className="space-y-3">{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" name="afqt32-mode" value={m} checked={mode === m} disabled={!ready} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? "分段计时：4:00／2:40／4:00／4:00，本站选定上限" : "Section timers: 4:00 / 2:40 / 4:00 / 4:00, site-selected caps") : (zh ? "不计时学习：同一题本，无截止时间" : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
-        <button data-explore-start type="button" disabled={!ready} className={`${button} afqt32-primary`} onClick={beginSection}>{zh ? "开始测试" : "Start test"}</button></div>}
+    {stage === "welcome" && <div className="afqt32-entry-controls"><h2 className="text-2xl font-semibold">{quiz.afqt32.subtitle[locale]}</h2><div role="radiogroup" aria-label={zh ? displayText("练习模式") : "Practice mode"} className="space-y-3">{(["timed", "study"] as const).map(m => <label key={m} className="flex min-h-12 items-start gap-3 rounded-lg border p-3"><input type="radio" name="afqt32-mode" value={m} checked={mode === m} disabled={!ready} onChange={() => setMode(m)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{m === "timed" ? (zh ? displayText("分段计时：4:00／2:40／4:00／4:00，本站选定上限") : "Section timers: 4:00 / 2:40 / 4:00 / 4:00, site-selected caps") : (zh ? displayText("不计时学习：同一题本，无截止时间") : "Untimed study: the same bank without deadlines")}</span></label>)}</div>
+        <button data-explore-start type="button" disabled={!ready} className={`${button} afqt32-primary`} onClick={beginSection}>{zh ? displayText("开始测试") : "Start test"}</button></div>}
     <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.afqt32.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
@@ -105,34 +108,34 @@ function ValidAfqt32Client({ quiz, locale, readingProfiles }: { quiz: Afqt32Ques
 
       </>}
       {stage === "ready" && <>
-        <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? `第 ${section + 1} / 4 部分：${current.title.zh}` : `Part ${section + 1} of 4: ${current.title.en}`}</h2>
-        <p className="leading-8">{zh ? `8道英文题。${mode === "timed" ? `本段上限 ${time(current.limitSeconds)}，点击开始才计时；切后台不会暂停。` : "不计时学习，无截止时间。"}已结束部分不能返回；本段内可返回修改，也可提前结束并保留未答。` : `8 English questions. ${mode === "timed" ? `This part has a ${time(current.limitSeconds)} cap. The start button begins the clock; background tabs do not pause it.` : "Untimed study has no deadline."} Closed parts cannot be reopened. Within this part you can go back, edit, or finish early with blanks.`}</p>
-        <button type="button" className={button} onClick={beginSection}>{zh ? "开始本部分" : "Start this part"}</button>
+        <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? displayText(`第 ${section + 1} / 4 部分：${current.title.zh}`) : `Part ${section + 1} of 4: ${current.title.en}`}</h2>
+        <p className="leading-8">{zh ? displayText(`8道英文题。${mode === "timed" ? `本段上限 ${time(current.limitSeconds)}，点击开始才计时；切后台不会暂停。` : "不计时学习，无截止时间。"}已结束部分不能返回；本段内可返回修改，也可提前结束并保留未答。`) : `8 English questions. ${mode === "timed" ? `This part has a ${time(current.limitSeconds)} cap. The start button begins the clock; background tabs do not pause it.` : "Untimed study has no deadline."} Closed parts cannot be reopened. Within this part you can go back, edit, or finish early with blanks.`}</p>
+        <button type="button" className={button} onClick={beginSection}>{zh ? displayText("开始本部分") : "Start this part"}</button>
       </>}
       {stage === "answer" && <>
-        <p data-afqt32-progress className="text-sm text-slate-600">{zh ? `第 ${section + 1}/4 部分 · 第 ${position + 1}/8 题` : `Part ${section + 1}/4 · Question ${position + 1}/8`}</p>
+        <p data-afqt32-progress className="text-sm text-slate-600">{zh ? displayText(`第 ${section + 1}/4 部分 · 第 ${position + 1}/8 题`) : `Part ${section + 1}/4 · Question ${position + 1}/8`}</p>
         <h2 id="afqt32-question" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{current.title[locale]} · {position + 1}/8</h2>
-        <p data-afqt32-clock role="timer" aria-live="off" className="font-semibold tabular-nums">{mode === "timed" ? (zh ? `剩余 ${time(remaining)} · 本站练习上限` : `Remaining ${time(remaining)} · Site practice cap`) : (zh ? "不计时学习" : "Untimed study")}</p>
+        <p data-afqt32-clock role="timer" aria-live="off" className="font-semibold tabular-nums">{mode === "timed" ? (zh ? displayText(`剩余 ${time(remaining)} · 本站练习上限`) : `Remaining ${time(remaining)} · Site practice cap`) : (zh ? displayText("不计时学习") : "Untimed study")}</p>
         <p id="afqt32-stem" data-afqt32-stem lang="en" className="whitespace-pre-line leading-8">{question.prompt.en}</p>
         <div role="radiogroup" aria-labelledby="afqt32-question afqt32-stem" className="space-y-3">{question.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value={o.id} checked={answers[question.id] === o.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => choose(o.id)} /><span lang="en" className="leading-7">{o.id} — {o.label.en}</span></label>)}
-          <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value="skip" checked={answers[question.id] === "skip"} onChange={() => choose("skip")} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{zh ? "留空（记为未答）" : "Leave unanswered"}</span></label>
+          <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3"><input type="radio" name={question.id} value="skip" checked={answers[question.id] === "skip"} onChange={() => choose("skip")} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-7">{zh ? displayText("留空（记为未答）") : "Leave unanswered"}</span></label>
         </div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { if (checkClock() !== null) { setPosition(position - 1); setMessage(""); } }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 7 ? (zh ? "结束本部分" : "Finish this part") : (zh ? "下一题" : "Next")}</button></div>
-        <button type="button" className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) closeSection("finished", elapsed); }}>{zh ? "提前结束本部分，保留未答" : "Finish part early; keep blanks unanswered"}</button>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { if (checkClock() !== null) { setPosition(position - 1); setMessage(""); } }}>{zh ? displayText("上一题") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 7 ? (zh ? displayText("结束本部分") : "Finish this part") : (zh ? displayText("下一题") : "Next")}</button></div>
+        <button type="button" className={button} onClick={() => { const elapsed = checkClock(); if (elapsed !== null) closeSection("finished", elapsed); }}>{zh ? displayText("提前结束本部分，保留未答") : "Finish part early; keep blanks unanswered"}</button>
       </>}
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading?.[locale]}</h2>
         <div className={resultStyles.sectionPracticeLead} data-section-practice="afqt32">
           <div className={resultStyles.sectionPracticeScore}>
-            <p data-afqt32-result-mode className="leading-8">{result.mode === "timed" ? (zh ? "分段计时练习 · 本站选定上限" : "Timed section practice · Site-selected caps") : (zh ? "不计时学习" : "Untimed study")}</p>
-            <dl data-afqt32-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? "本次题本表现" : "This practice bank’s outcomes"}>
-              {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? "正确" : "Correct") : key === "wrong" ? (zh ? "错误" : "Incorrect") : (zh ? "未答" : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
+            <p data-afqt32-result-mode className="leading-8">{result.mode === "timed" ? (zh ? displayText("分段计时练习 · 本站选定上限") : "Timed section practice · Site-selected caps") : (zh ? displayText("不计时学习") : "Untimed study")}</p>
+            <dl data-afqt32-overall className="grid grid-cols-3 gap-3 border-y border-teal-200 py-5" aria-label={zh ? displayText("本次题本表现") : "This practice bank’s outcomes"}>
+              {(["correct", "wrong", "unanswered"] as const).map(key => <div key={key} className="min-w-0"><dt className="text-sm leading-6 text-slate-600">{key === "correct" ? (zh ? displayText("正确") : "Correct") : key === "wrong" ? (zh ? displayText("错误") : "Incorrect") : (zh ? displayText("未答") : "Unanswered")}</dt><dd className={`mt-2 text-3xl font-semibold tabular-nums ${key === "correct" ? "text-teal-800" : "text-slate-800"}`}>{result.overall[key]}<span className="ml-1 text-sm font-normal text-slate-500">/ {result.overall.total}</span></dd></div>)}
             </dl>
-            <p className="text-sm leading-7 text-slate-600">{zh ? "这里只记录这32题的表现，不是正式AFQT成绩。先逐题看解题依据，再选择要复习的内容。" : "This records performance on these 32 questions, not an official AFQT score. Review the reasoning for individual answers before choosing what to revisit."}</p>
+            <p className="text-sm leading-7 text-slate-600">{zh ? displayText("这里只记录这32题的表现，不是正式AFQT成绩。先逐题看解题依据，再选择要复习的内容。") : "This records performance on these 32 questions, not an official AFQT score. Review the reasoning for individual answers before choosing what to revisit."}</p>
           </div>
           <div className={resultStyles.sectionPracticeContext}>
-            <h3 className="text-xl font-semibold">{zh ? "四个题型，选一项回看" : "Review one of the four subject areas"}</h3>
-            <ResultReadingNav label={zh ? "分段表现与答案解析" : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `afqt32-reading-${part.id}`, title: `${quiz.afqt32.sections[index].title[locale]} · ${part.correct}/${part.total}` }))} />
+            <h3 className="text-xl font-semibold">{zh ? displayText("四个题型，选一项回看") : "Review one of the four subject areas"}</h3>
+            <ResultReadingNav label={zh ? displayText("分段表现与答案解析") : "Section outcomes and answer review"} sections={result.parts.map((part, index) => ({ id: `afqt32-reading-${part.id}`, title: `${quiz.afqt32.sections[index].title[locale]} · ${part.correct}/${part.total}` }))} />
           </div>
         </div>
         <div data-afqt32-result className="space-y-6">{result.parts.map((part, i) => {
@@ -146,31 +149,31 @@ function ValidAfqt32Client({ quiz, locale, readingProfiles }: { quiz: Afqt32Ques
           const readingProfile = readingProfiles?.find(item => item.id === profile.id && item.directionIds.length === 1 && item.directionIds[0] === part.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === profile.id) ?? profile;
           return <section key={part.id} data-afqt32-part={part.id} className="rounded-lg border border-slate-200 p-4 sm:p-6">
             <h3 id={`afqt32-reading-${part.id}`} className="scroll-mt-24 text-xl font-semibold">{quiz.afqt32.sections[i].title[locale]}</h3>
-            <p data-afqt32-count className="my-3 leading-8">{counts(part)}</p><p data-afqt32-closure className="my-3 leading-7">{part.reason === "expired" ? (zh ? "到时结束；空白仍为未答。" : "Closed at the deadline; blanks remain unanswered.") : (zh ? "主动结束本部分。" : "You finished this part.")}</p>
+            <p data-afqt32-count className="my-3 leading-8">{counts(part)}</p><p data-afqt32-closure className="my-3 leading-7">{part.reason === "expired" ? (zh ? displayText("到时结束；空白仍为未答。") : "Closed at the deadline; blanks remain unanswered.") : (zh ? displayText("主动结束本部分。") : "You finished this part.")}</p>
             <div className="my-4 flex h-2 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><span className="bg-teal-600" style={{ width: `${part.correct / part.total * 100}%` }} /><span className="bg-rose-300" style={{ width: `${part.wrong / part.total * 100}%` }} /><span className="bg-slate-300" style={{ width: `${part.unanswered / part.total * 100}%` }} /></div>
             <section data-afqt32-first-review className="my-5 space-y-3 border-l-2 border-teal-300 pl-4 leading-8">
-              <h4 className="font-semibold">{zh ? "从这一题开始复盘" : "Start your review with this question"}</h4>
+              <h4 className="font-semibold">{zh ? displayText("从这一题开始复盘") : "Start your review with this question"}</h4>
               <p lang="en" className="whitespace-pre-line">{reviewQuestion.prompt.en}</p>
-              <p>{zh ? "你的选择：" : "Your choice: "}{selectedReviewOption ? <span lang="en">{selectedReviewOption.id} — {selectedReviewOption.label.en}</span> : (zh ? "未答" : "Unanswered")}</p>
-              <p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{correctReviewOption.id} — {correctReviewOption.label.en}</span></p>
+              <p>{zh ? displayText("你的选择：") : "Your choice: "}{selectedReviewOption ? <span lang="en">{selectedReviewOption.id} — {selectedReviewOption.label.en}</span> : (zh ? displayText("未答") : "Unanswered")}</p>
+              <p>{zh ? displayText("正确答案：") : "Correct answer: "}<span lang="en">{correctReviewOption.id} — {correctReviewOption.label.en}</span></p>
               <p>{reviewQuestion.explanation![locale]}</p>
             </section>
-            <details data-afqt32-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "查看八题答案与双语解析" : "Review all eight answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 8, i * 8 + 8).map(q => {
+            <details data-afqt32-review className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? displayText("查看八题答案与双语解析") : "Review all eight answers and explanations"}</summary><ol className="my-4 space-y-6">{quiz.questions.slice(i * 8, i * 8 + 8).map(q => {
               const item = result.items.find(x => x.id === q.id)!, selected = q.options.find(o => o.id === item.selectedOptionId), key = q.options.find(o => o.id === item.correctOptionId)!;
-              return <li key={q.id} data-afqt32-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? "你的选择：" : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? "未答" : "Unanswered")}</p><p>{zh ? "正确答案：" : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;
+              return <li key={q.id} data-afqt32-review-item={q.id} className="rounded-lg bg-slate-50 p-3 leading-8"><p lang="en" className="whitespace-pre-line">{q.prompt.en}</p><p className="mt-3">{zh ? displayText("你的选择：") : "Your choice: "}{selected ? <span lang="en">{selected.id} — {selected.label.en}</span> : (zh ? displayText("未答") : "Unanswered")}</p><p>{zh ? displayText("正确答案：") : "Correct answer: "}<span lang="en">{key.id} — {key.label.en}</span></p><p className="mt-3">{q.explanation![locale]}</p></li>;
             })}</ol></details>
             <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`afqt32-${part.id}`} mode="result" previewSectionIds={["review"]} />
-            <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, part.id)}>{zh ? "阅读完整公开指南" : "Read the complete public guide"}</Link>
+            <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, part.id)}>{zh ? displayText("阅读完整公开指南") : "Read the complete public guide"}</Link>
           </section>;
         })}</div>
-        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开指南链接" : "Copy public guide links"}</button>
-        {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
-        <button type="button" className={button} onClick={() => clear()}>{zh ? "清空并重新练习" : "Clear and practise again"}</button>
+        <button type="button" className={button} onClick={copyPublicLinks}>{zh ? displayText("复制公开指南链接") : "Copy public guide links"}</button>
+        {manual && <label className="block leading-7">{zh ? displayText("手动复制公开链接") : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border p-3" /></label>}
+        <button type="button" className={button} onClick={() => clear()}>{zh ? displayText("清空并重新练习") : "Clear and practise again"}</button>
       </>}
-      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear()}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear()}>{zh ? displayText("退出并清除本次回答") : "Exit and clear these responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     {activityConsent}
-    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备练习，请稍候。" : "Preparing practice. Please wait.")}</p>
-    <noscript><p>{zh ? "作答需要JavaScript；全部公开指南仍可阅读。" : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
+    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? displayText("正在准备练习，请稍候。") : "Preparing practice. Please wait.")}</p>
+    <noscript><p>{zh ? displayText("作答需要JavaScript；全部公开指南仍可阅读。") : "Answering requires JavaScript; all public guides remain readable."}</p></noscript>
   </section>;
 }
