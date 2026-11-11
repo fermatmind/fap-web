@@ -39,6 +39,23 @@ describe("Enneagram production seven-chapter shell", () => {
     expect(JSON.stringify(viewModel)).toBe(before);
   });
 
+  it.each(["enneagram_likert_105", "enneagram_forced_choice_144"] as const)(
+    "renders Taiwan result and keeps the original scoring and form links for %s",
+    async (formCode) => {
+      const reportData = createSevenChapterReport({ locale: "zh-CN", formCode });
+      const viewModel = assembleEnneagramResultViewModel({ reportData, locale: "zh", gate: { isFreeVariant: false } });
+      const before = structuredClone(viewModel);
+      render(<EnneagramResultShell locale="zh" displayLocale="zh-TW" attemptId="synthetic-taiwan" reportLocked={false} viewModel={viewModel} />);
+      expect(await screen.findByRole("heading", { name: "九型人格類型測評結果" })).toBeInTheDocument();
+      expect(screen.getByRole("table", { name: "九型分布數值" })).toBeInTheDocument();
+      expect(screen.getByRole("link", { name: "重新測評" })).toHaveAttribute(
+        "href", `/zh-TW/tests/enneagram-personality-test-nine-types/take?form=${formCode}`,
+      );
+      expect(screen.getByRole("link", { name: /的公開解釋/ })).toHaveAttribute("href", "/zh-TW/personality/enneagram/type-1");
+      expect(viewModel).toEqual(before);
+    },
+  );
+
   it.each(["en", "zh-CN"] as const)("keeps all three FC144 tied candidates and their guides in %s", (reportLocale) => {
     const locale = reportLocale === "zh-CN" ? "zh" : "en";
     const reportData = createSevenChapterReport({ locale: reportLocale, formCode: "enneagram_forced_choice_144", scope: "close_call", top: [6, 3, 9] });

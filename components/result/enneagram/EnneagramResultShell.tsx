@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type CSSProperties } from "react";
 import { CalendarDays, UserRound } from "lucide-react";
 import {
   assignEnneagramObservation,
@@ -24,9 +24,24 @@ import type {
   EnneagramPairComparison,
   EnneagramResultViewModel,
 } from "@/lib/enneagram/resultAssembler";
-import type { Locale } from "@/lib/i18n/locales";
+import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { buildEnneagramPublicContentPath, resolveEnneagramPublicRouteEntry } from "@/lib/personality/enneagramPublicRoutes";
 import styles from "./enneagramResult.module.css";
+
+const originalText = (source: string) => source;
+const EnneagramDisplay = createContext<{ locale: DisplayLocale; text: (source: string) => string }>({
+  locale: "en",
+  text: originalText,
+});
+
+function useEnneagramDisplay() {
+  const display = useContext(EnneagramDisplay);
+  return {
+    ...display,
+    copy: (source: string, taiwan: string) => display.locale === "zh-TW" ? taiwan : source,
+  };
+}
 
 const CHAPTERS = [
   ["chapter-1", "01", "你的九型人格测试结果", "Your Enneagram test results"],
@@ -68,6 +83,7 @@ function DistributionChart({
   viewModel: EnneagramResultViewModel;
   locale: Locale;
 }) {
+  const { copy } = useEnneagramDisplay();
   const max = Math.max(
     ...viewModel.distribution.map((row) => row.scoreDisplay),
     1,
@@ -82,12 +98,12 @@ function DistributionChart({
         >
           <title id="enneagram-chart-title">
             {locale === "zh"
-              ? "九型完整相对分布"
+              ? copy("九型完整相对分布", "九型完整相對分布")
               : "Full nine-type relative distribution"}
           </title>
           <desc id="enneagram-chart-description">
             {locale === "zh"
-              ? "每个扇区的径向长度来自本次真实计分结果。"
+              ? copy("每个扇区的径向长度来自本次真实计分结果。", "每個扇區的徑向長度來自本次真實計分結果。")
               : "Each sector radius comes from this attempt's scored result."}
           </desc>
           <g transform="translate(285 285)">
@@ -120,26 +136,27 @@ function DistributionChart({
         </svg>
       </div>
       <div className="mx-auto max-w-full overflow-x-auto">
-        <table className="w-full text-left text-sm" aria-label={locale === "zh" ? "九型分布数值" : "Nine-type distribution values"}>
-          <thead><tr><th scope="col">{locale === "zh" ? "类型" : "Type"}</th><th scope="col">{locale === "zh" ? "本次排序" : "Rank in this result"}</th><th scope="col">{locale === "zh" ? "本题本分数" : "Form-specific score"}</th></tr></thead>
+        <table className="w-full text-left text-sm" aria-label={locale === "zh" ? copy("九型分布数值", "九型分布數值") : "Nine-type distribution values"}>
+          <thead><tr><th scope="col">{locale === "zh" ? copy("类型", "類型") : "Type"}</th><th scope="col">{locale === "zh" ? "本次排序" : "Rank in this result"}</th><th scope="col">{locale === "zh" ? copy("本题本分数", "本題本分數") : "Form-specific score"}</th></tr></thead>
           <tbody>{viewModel.distribution.map((row) => <tr key={row.typeId}><th scope="row">{row.typeId}</th><td>{row.rank}</td><td>{row.scoreDisplay}</td></tr>)}</tbody>
         </table>
       </div>
       <figcaption className={styles.chartCaption}>
         {locale === "zh"
-          ? "仅用于同一题型内的相对比较。"
+          ? copy("仅用于同一题型内的相对比较。", "僅用於同一題型內的相對比較。")
           : "For relative comparison within this form only."}
         {viewModel.formCode === "enneagram_likert_105"
-          ? (locale === "zh" ? " 105题：Likert强度，原始强度线性映射至0–100展示，不是人群百分位。" : " 105 items: Likert intensity, displayed on a normalized 0–100 scale, not a population percentile.")
+          ? (locale === "zh" ? copy(" 105题：Likert强度，原始强度线性映射至0–100展示，不是人群百分位。", "105題：Likert強度，原始強度線性換算至0–100展示，不是人群百分位。") : " 105 items: Likert intensity, displayed on a normalized 0–100 scale, not a population percentile.")
           : viewModel.formCode === "enneagram_forced_choice_144"
-            ? (locale === "zh" ? " 144题：迫选选择率，0–100展示；不代表绝对强度，不与105题直接换算。" : " 144 items: forced-choice selection rate on a 0–100 display; not absolute intensity and not convertible to the 105-item score.")
-            : (locale === "zh" ? " 本次题本单位未提供。" : " The unit for this form was not provided.")}
+            ? (locale === "zh" ? copy(" 144题：迫选选择率，0–100展示；不代表绝对强度，不与105题直接换算。", "144題：強迫選擇題的選擇率，0–100展示；不代表絕對強度，不與105題直接換算。") : " 144 items: forced-choice selection rate on a 0–100 display; not absolute intensity and not convertible to the 105-item score.")
+            : (locale === "zh" ? copy(" 本次题本单位未提供。", "本次題本單位未提供。") : " The unit for this form was not provided.")}
       </figcaption>
     </figure>
   );
 }
 
 function Section({ section }: { section: EnneagramCanonicalSection }) {
+  const { text: displayText } = useEnneagramDisplay();
   return (
     <section
       id={`section-${section.sectionId}`}
@@ -148,14 +165,14 @@ function Section({ section }: { section: EnneagramCanonicalSection }) {
     >
       <div className={styles.sectionNumber}>{section.sectionId}</div>
       <div className={styles.sectionBody}>
-        <h3>{section.title}</h3>
-        <p className={styles.lead}>{section.lead}</p>
+        <h3>{displayText(section.title ?? "")}</h3>
+        <p className={styles.lead}>{displayText(section.lead ?? "")}</p>
         {section.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
+          <p key={displayText(paragraph ?? "")}>{displayText(paragraph ?? "")}</p>
         ))}
         <ul className={styles.pointList}>
           {section.points.map((point) => (
-            <li key={point}>{point}</li>
+            <li key={displayText(point ?? "")}>{displayText(point ?? "")}</li>
           ))}
         </ul>
         {section.levels.length === 9 ? (
@@ -165,11 +182,11 @@ function Section({ section }: { section: EnneagramCanonicalSection }) {
                 <li key={level.level}>
                   <span>{level.level}</span>
                   <p>
-                    <strong>{level.title}</strong>
+                    <strong>{displayText(level.title ?? "")}</strong>
                     <br />
-                    {level.description}
+                    {displayText(level.description ?? "")}
                     <br />
-                    <em>{level.observationPrompt}</em>
+                    <em>{displayText(level.observationPrompt ?? "")}</em>
                   </p>
                 </li>
               ))}
@@ -182,7 +199,7 @@ function Section({ section }: { section: EnneagramCanonicalSection }) {
               ? "OBSERVATION · NOT AN ASSIGNMENT"
               : "REFLECTION"}
           </strong>
-          <p>{section.reflectionQuestion}</p>
+          <p>{displayText(section.reflectionQuestion ?? "")}</p>
         </div>
       </div>
     </section>
@@ -198,28 +215,29 @@ const PAIR_DIMENSION_LABELS = {
 } as const;
 
 function PairComparisonCard({ comparison, locale }: { comparison: EnneagramPairComparison; locale: Locale }) {
+  const { copy, text: displayText } = useEnneagramDisplay();
   const isZh = locale === "zh";
   return (
     <section className={styles.pairComparison} data-testid="enneagram-pair-comparison" aria-labelledby="enneagram-pair-comparison-title">
       <header className={styles.pairHeader}>
         <div>
-          <span>{isZh ? "接近结果辨析" : "CLOSE-CALL COMPARISON"}</span>
+          <span>{isZh ? copy("接近结果辨析", "接近結果辨析") : "CLOSE-CALL COMPARISON"}</span>
           <h3 id="enneagram-pair-comparison-title">
-            {comparison.candidateOrder[0].typeName} <em>vs</em> {comparison.candidateOrder[1].typeName}
+            {displayText(comparison.candidateOrder[0].typeName ?? "")} <em>vs</em> {displayText(comparison.candidateOrder[1].typeName ?? "")}
           </h3>
         </div>
-        <p>{comparison.shortCompareCopy}</p>
+        <p>{displayText(comparison.shortCompareCopy ?? "")}</p>
       </header>
-      <p className={styles.pairShared}>{comparison.sharedSurfaceSimilarity}</p>
+      <p className={styles.pairShared}>{displayText(comparison.sharedSurfaceSimilarity ?? "")}</p>
       <div className={styles.pairDimensions}>
         {comparison.dimensions.map((dimension) => (
           <section key={dimension.dimensionKey}>
-            <h4>{PAIR_DIMENSION_LABELS[dimension.dimensionKey][isZh ? 0 : 1]}</h4>
+            <h4>{displayText(PAIR_DIMENSION_LABELS[dimension.dimensionKey][isZh ? 0 : 1])}</h4>
             <div>
               {dimension.sides.map((side) => (
                 <article key={side.typeId} style={{ "--candidate-accent": COLORS[(Number(side.typeId) - 1) % COLORS.length] } as CSSProperties}>
-                  <strong>#{side.rank} · {side.typeName}</strong>
-                  <p>{side.copy}</p>
+                  <strong>#{side.rank} · {displayText(side.typeName ?? "")}</strong>
+                  <p>{displayText(side.copy ?? "")}</p>
                 </article>
               ))}
             </div>
@@ -227,9 +245,9 @@ function PairComparisonCard({ comparison, locale }: { comparison: EnneagramPairC
         ))}
       </div>
       <div className={styles.pairObservation} role="note">
-        <strong>{isZh ? "七天核对问题" : "Seven-day observation"}</strong>
-        <p>{comparison.sevenDayObservationQuestion}</p>
-        <small>{comparison.resonanceFeedbackPrompt}</small>
+        <strong>{isZh ? copy("七天核对问题", "七天核對問題") : "Seven-day observation"}</strong>
+        <p>{displayText(comparison.sevenDayObservationQuestion ?? "")}</p>
+        <small>{displayText(comparison.resonanceFeedbackPrompt ?? "")}</small>
       </div>
     </section>
   );
@@ -252,6 +270,7 @@ function ObservationPanel({
   error: string | null;
   refresh: (next: EnneagramObservationStateV1 | null) => void;
 }) {
+  const { copy, text: displayText } = useEnneagramDisplay();
   const isZh = locale === "zh";
   const [busy, setBusy] = useState(false);
   const [day3, setDay3] = useState<EnneagramObservationDay3Payload>({
@@ -266,22 +285,22 @@ function ObservationPanel({
     wants_retake_same_form: false,
   });
   if (loading)
-    return <p>{isZh ? "正在读取观察状态…" : "Loading observation state…"}</p>;
+    return <p>{isZh ? copy("正在读取观察状态…", "正在讀取觀察狀態…") : "Loading observation state…"}</p>;
   return (
     <div
       className={styles.feedbackGrid}
       data-testid="enneagram-observation-panel"
     >
-      {error ? <Alert>{error}</Alert> : null}
+      {error ? <Alert>{displayText(error)}</Alert> : null}
       <p data-testid="enneagram-observation-guidance">
         {isZh
-          ? "前三候选与行动仅作为七天观察假设；反馈不会静默改写系统测量结果。"
+          ? copy("前三候选与行动仅作为七天观察假设；反馈不会静默改写系统测量结果。", "前三候選與行動僅作為七天觀察假設；回饋不會靜默改寫系統測量結果。")
           : "The Top 3 and actions are seven-day observation hypotheses only; feedback never silently rewrites the measured result."}
       </p>
       {!state ? (
         <div>
           <strong>
-            {isZh ? "启动七天观察" : "Start seven-day observation"}
+            {isZh ? copy("启动七天观察", "啟動七天觀察") : "Start seven-day observation"}
           </strong>
           <button
             data-testid="enneagram-observation-assign"
@@ -301,10 +320,10 @@ function ObservationPanel({
           >
             {selectedActionId === ""
               ? isZh
-                ? "先选择一个行动"
+                ? copy("先选择一个行动", "先選擇一個行動")
                 : "Choose an action first"
               : isZh
-                ? "开始 7 天观察"
+                ? copy("开始 7 天观察", "開始 7 天觀察")
                 : "Start observation"}
           </button>
         </div>
@@ -314,7 +333,7 @@ function ObservationPanel({
             <strong>Day 3</strong>
             {state.day3_observation_feedback ? (
               <p data-testid="enneagram-observation-day3-summary">
-                {isZh ? "已记录" : "Recorded"}
+                {isZh ? copy("已记录", "已記錄") : "Recorded"}
               </p>
             ) : (
               <form
@@ -337,7 +356,7 @@ function ObservationPanel({
                 }}
               >
                 <label>
-                  {isZh ? "更像哪个候选" : "More like"}
+                  {isZh ? copy("更像哪个候选", "更像哪個候選") : "More like"}
                   <select
                     value={day3.more_like}
                     onChange={(e) =>
@@ -355,7 +374,7 @@ function ObservationPanel({
                   </select>
                 </label>
                 <label>
-                  {isZh ? "证据句" : "Evidence sentence"}
+                  {isZh ? copy("证据句", "證據句") : "Evidence sentence"}
                   <textarea
                     required
                     value={day3.evidence_sentence}
@@ -375,7 +394,7 @@ function ObservationPanel({
             {state.day7_resonance_feedback ? (
               <p data-testid="enneagram-observation-user-confirmed">
                 {isZh
-                  ? `已记录；自我观察确认 ${state.user_confirmed_type ?? "未定"}，系统结果保持不变。`
+                  ? displayText(`已记录；自我观察确认 ${state.user_confirmed_type ?? "未定"}，系统结果保持不变。`)
                   : `Recorded; self-observation ${state.user_confirmed_type ?? "uncertain"}, measured result unchanged.`}
               </p>
             ) : (
@@ -399,7 +418,7 @@ function ObservationPanel({
                 }}
               >
                 <label>
-                  {isZh ? "最终共鸣" : "Final resonance"}
+                  {isZh ? copy("最终共鸣", "最終共鳴") : "Final resonance"}
                   <select
                     value={day7.final_resonance}
                     onChange={(e) =>
@@ -418,7 +437,7 @@ function ObservationPanel({
                   </select>
                 </label>
                 <label>
-                  {isZh ? "自我观察确认号码" : "Self-observed type"}
+                  {isZh ? copy("自我观察确认号码", "自我觀察確認號碼") : "Self-observed type"}
                   <input
                     value={day7.user_confirmed_type ?? ""}
                     onChange={(e) =>
@@ -441,19 +460,46 @@ function ObservationPanel({
   );
 }
 
-export function EnneagramResultShell({
-  locale,
-  attemptId,
-  reportLocked,
-  accessProjection,
-  viewModel,
-}: {
+type EnneagramResultProps = {
   locale: Locale;
   attemptId: string;
   reportLocked: boolean;
   accessProjection?: AttemptReportAccessView | null;
   viewModel: EnneagramResultViewModel;
-}) {
+  displayLocale?: DisplayLocale;
+};
+
+export function EnneagramResultShell(props: EnneagramResultProps) {
+  const displayLocale = props.displayLocale ?? props.locale;
+  const [translate, setTranslate] = useState<((source: string) => string) | null>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    if (displayLocale !== "zh-TW") return;
+    let active = true;
+    void loadTraditionalAssessmentText().then(
+      (convert) => { if (active) setTranslate(() => convert); },
+      () => { if (active) setFailed(true); },
+    );
+    return () => { active = false; };
+  }, [displayLocale]);
+
+  if (displayLocale !== "zh-TW") return <EnneagramResultContent {...props} />;
+  if (failed) return <p role="status">繁體報告暫時無法載入，請稍後再試。</p>;
+  if (!translate) return <p role="status">正在載入繁體報告…</p>;
+  return <EnneagramDisplay.Provider value={{ locale: displayLocale, text: translate }}>
+    <EnneagramResultContent {...props} />
+  </EnneagramDisplay.Provider>;
+}
+
+function EnneagramResultContent({
+  locale,
+  displayLocale = locale,
+  attemptId,
+  reportLocked,
+  accessProjection,
+  viewModel,
+}: EnneagramResultProps) {
+  const { copy, text: displayText } = useEnneagramDisplay();
   const isZh = locale === "zh";
   const report = viewModel.reportV2;
   const [selectedType, setSelectedType] = useState(
@@ -472,20 +518,21 @@ export function EnneagramResultShell({
     ? resolveEnneagramPublicRouteEntry([`type-${candidate.typeId}`])
     : null;
   const overview = report?.moduleMap.result_overview?.content ?? {};
-  const retakeHref = buildEnneagramTakeHref(
+  const sourceRetake = buildEnneagramTakeHref(
     SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
     locale,
     viewModel.formCode,
   );
+  const retakeHref = displayLocale === "zh-TW" ? sourceRetake.replace(/^\/zh(?=\/)/u, "/zh-TW") : sourceRetake;
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
   const chapters = useMemo(
     () =>
       CHAPTERS.map(([id, number, zh, en]) => ({
         id,
         number,
-        title: isZh ? zh : en,
+        title: isZh ? displayText(zh) : en,
       })),
-    [isZh],
+    [isZh, displayText],
   );
   useEffect(() => {
     let active = true;
@@ -524,7 +571,7 @@ export function EnneagramResultShell({
     if (viewModel.authority?.mode === "immutable_legacy_snapshot")
       return (
         <article data-testid="enneagram-legacy-snapshot" className="space-y-8">
-          <h1>{isZh ? "九型人格历史结果" : "Historical Enneagram result"}</h1>
+          <h1>{isZh ? copy("九型人格历史结果", "九型人格歷史結果") : "Historical Enneagram result"}</h1>
           {viewModel.visibleSections.map((section) => (
             <SectionRenderer
               key={section.key ?? section.title ?? "legacy"}
@@ -539,9 +586,9 @@ export function EnneagramResultShell({
     return (
       <Alert data-testid="enneagram-canonical-payload-unavailable">
         {isZh
-          ? "结果内容暂不可用，请稍后重试。"
+          ? copy("结果内容暂不可用，请稍后重试。", "結果內容暫不可用，請稍後重試。")
           : "Result content is temporarily unavailable. Please try again later."}
-        <button type="button" className="ml-3 min-h-11 rounded-lg border px-4 py-2" onClick={() => window.location.reload()}>{isZh ? "重新载入结果" : "Reload result"}</button>
+        <button type="button" className="ml-3 min-h-11 rounded-lg border px-4 py-2" onClick={() => window.location.reload()}>{isZh ? copy("重新载入结果", "重新載入結果") : "Reload result"}</button>
       </Alert>
     );
   }
@@ -559,18 +606,18 @@ export function EnneagramResultShell({
         <div className={styles.heroInner}>
           <h1>
             {isZh
-              ? "九型人格类型测评结果"
+              ? copy("九型人格类型测评结果", "九型人格類型測評結果")
               : "Enneagram type assessment results"}
           </h1>
           <hr className={styles.heroRule} />
           <div className={styles.heroResultMeta}>
             <span>
               <UserRound size={20} aria-hidden="true" />
-              {isZh ? "个人测评" : "Personal assessment"}
+              {isZh ? copy("个人测评", "個人測評") : "Personal assessment"}
             </span>
             <span>
               <CalendarDays size={20} aria-hidden="true" />
-              {viewModel.formSummaryLabel}
+              {displayText(viewModel.formSummaryLabel ?? "")}
             </span>
           </div>
         </div>
@@ -584,10 +631,10 @@ export function EnneagramResultShell({
         <aside className={styles.leftRail}>
           <nav
             className={styles.chapterNav}
-            aria-label={isZh ? "报告章节" : "Report chapters"}
+            aria-label={isZh ? copy("报告章节", "報告章節") : "Report chapters"}
           >
             <p className={styles.railHeading}>
-              {isZh ? "章节导航" : "CHAPTERS"}
+              {isZh ? copy("章节导航", "章節導航") : "CHAPTERS"}
             </p>
             <div className={styles.navInner}>
               {chapters.map((chapter) => (
@@ -612,7 +659,7 @@ export function EnneagramResultShell({
                 <span>01</span>
                 <div>
                   <h2>{chapters[0].title}</h2>
-                  <p>{String(overview.body ?? "")}</p>
+                  <p>{displayText(String(overview.body ?? ""))}</p>
                 </div>
               </div>
               <div className={styles.resultOverviewGrid}>
@@ -629,48 +676,48 @@ export function EnneagramResultShell({
                   <div className={styles.aboutTitle}>
                     <h3>
                       {isZh
-                        ? `当前阅读候选：${candidate.typeName}`
+                        ? displayText(`当前阅读候选：${candidate.typeName}`)
                         : `Current reading candidate: ${candidate.typeName}`}
                     </h3>
                   </div>
                   <p className={styles.aboutLead}>
-                    {candidate.sectionMap["2.1"].lead}
+                    {displayText(candidate.sectionMap["2.1"].lead ?? "")}
                   </p>
-                  <p>{candidate.sectionMap["2.1"].paragraphs[0]}</p>
+                  <p>{displayText(candidate.sectionMap["2.1"].paragraphs[0] ?? "")}</p>
                   <dl className={styles.candidateLens}>
                     <div>
-                      <dt>{isZh ? "有余地时" : "With capacity"}</dt>
-                      <dd>{candidate.sectionMap["3.1"].lead}</dd>
+                      <dt>{isZh ? copy("有余地时", "有餘地時") : "With capacity"}</dt>
+                      <dd>{displayText(candidate.sectionMap["3.1"].lead ?? "")}</dd>
                     </div>
                     <div>
-                      <dt>{isZh ? "倾向过量时" : "When overused"}</dt>
-                      <dd>{candidate.sectionMap["3.2"].lead}</dd>
+                      <dt>{isZh ? copy("倾向过量时", "傾向過量時") : "When overused"}</dt>
+                      <dd>{displayText(candidate.sectionMap["3.2"].lead ?? "")}</dd>
                     </div>
                     <div>
                       <dt>
-                        {isZh ? "优先寻找的反例" : "Counter-evidence to seek"}
+                        {isZh ? copy("优先寻找的反例", "優先尋找的反例") : "Counter-evidence to seek"}
                       </dt>
-                      <dd>{candidate.sectionMap["2.5"].reflectionQuestion}</dd>
+                      <dd>{displayText(candidate.sectionMap["2.5"].reflectionQuestion ?? "")}</dd>
                     </div>
                   </dl>
                   {publicTypeEntry ? (
                     <Link
-                      href={buildEnneagramPublicContentPath(locale, publicTypeEntry)}
+                      href={assessmentDisplayPath(buildEnneagramPublicContentPath(locale, publicTypeEntry).replace(/^\/(?:zh|en)(?=\/)/u, ""), displayLocale, locale)}
                       className={buttonVariants({ variant: "outline", className: "h-auto max-w-full text-center" })}
                       prefetch={false}
                     >
                       {isZh
-                        ? `阅读${candidate.typeName}的公开解释`
+                        ? displayText(`阅读${candidate.typeName}的公开解释`)
                         : `Read the public guide to ${candidate.typeName}`}
                     </Link>
                   ) : null}
                   <div className={styles.resultMethodNote} role="note">
                     <strong>
-                      {String(overview.title ?? chapters[0].title)}
+                      {displayText(String(overview.title ?? chapters[0].title))}
                     </strong>
                     <p>
-                      {String(overview.methodology_copy ?? "")}{" "}
-                      {String(overview.score_space_boundary ?? "")}
+                      {displayText(String(overview.methodology_copy ?? ""))}{" "}
+                      {displayText(String(overview.score_space_boundary ?? ""))}
                     </p>
                   </div>
                 </section>
@@ -680,7 +727,7 @@ export function EnneagramResultShell({
               className={styles.candidatePicker}
               role="group"
               aria-label={
-                isZh ? "切换当前阅读候选" : "Switch reading candidate"
+                isZh ? copy("切换当前阅读候选", "切換目前閱讀候選") : "Switch reading candidate"
               }
             >
               {viewModel.candidates.map((item) => (
@@ -700,17 +747,17 @@ export function EnneagramResultShell({
                   }
                 >
                   <strong>
-                    #{item.rank} · {item.typeName}
+                    #{item.rank} · {displayText(item.typeName ?? "")}
                   </strong>
-                  <span>{item.shortTitle}</span>
+                  <span>{displayText(item.shortTitle ?? "")}</span>
                 </button>
               ))}
             </div>
             <div className={styles.resultMethodNote} role="note">
-              <p>{isZh ? "候选与近分状态来自本次报告。切换只改变阅读视角，不改变计分或确定唯一人格。第二高分不自动是翼型；翼型只讨论相邻类型，未测的健康层级、本能与临床结论不属于本次成绩。" : "Candidates and close-score status come from this report. Switching changes the reading perspective, not scores or a fixed identity. The second-highest score is not automatically a wing; wings concern adjacent types. Unmeasured health levels, instincts and clinical conclusions are not test results."}</p>
-              <p>{isZh ? `本次解释状态：${({ clear: "候选较清晰", close_call: "候选接近", diffuse: "分布分散", low_quality: "作答质量受限", unavailable: "不可用", unknown: "未提供" })[viewModel.interpretationScope]}；信心说明：${report.classification.confidenceLevel || "未提供"}。` : `Interpretation status: ${viewModel.interpretationScope}; confidence note: ${report.classification.confidenceLevel || "not provided"}.`}</p>
-              <label className="block">{isZh ? "一次近期冲突：发生了什么、想保护什么、担心失去什么？再记一个不符合候选动机的经历。（本人自述）" : "A recent conflict: what happened, what did you want to protect and what did you fear losing? Add one experience that does not fit a candidate motivation. (Your account)"}<textarea rows={4} className="mt-2 block w-full rounded-lg border p-3" /></label>
-              <p>{isZh ? "同一行为可能有不同动机；对照候选正文与反例再选一个回应练习。自述只在本页，刷新会清空，不自动发送。" : "The same behavior can have different motivations. Compare candidate descriptions and counterexamples, then choose one response practice. Notes stay on this page, clear on refresh and are not sent automatically."}</p>
+              <p>{isZh ? copy("候选与近分状态来自本次报告。切换只改变阅读视角，不改变计分或确定唯一人格。第二高分不自动是翼型；翼型只讨论相邻类型，未测的健康层级、本能与临床结论不属于本次成绩。", "候選與近分狀態來自本次報告。切換只改變閱讀視角，不改變計分或確定唯一人格。第二高分不自動是翼型；翼型只討論相鄰類型，未測的健康層級、本能與臨床結論不屬於本次成績。") : "Candidates and close-score status come from this report. Switching changes the reading perspective, not scores or a fixed identity. The second-highest score is not automatically a wing; wings concern adjacent types. Unmeasured health levels, instincts and clinical conclusions are not test results."}</p>
+              <p>{isZh ? displayText(`本次解释状态：${({ clear: copy("候选较清晰", "候選較清晰"), close_call: copy("候选接近", "候選接近"), diffuse: copy("分布分散", "分布分散"), low_quality: copy("作答质量受限", "作答品質受限"), unavailable: "不可用", unknown: "未提供" })[viewModel.interpretationScope]}；信心说明：${report.classification.confidenceLevel || "未提供"}。`) : `Interpretation status: ${viewModel.interpretationScope}; confidence note: ${report.classification.confidenceLevel || "not provided"}.`}</p>
+              <label className="block">{isZh ? copy("一次近期冲突：发生了什么、想保护什么、担心失去什么？再记一个不符合候选动机的经历。（本人自述）", "一次近期衝突：發生了什麼、想保護什麼、擔心失去什麼？再記一個不符合候選動機的經歷。（本人自述）") : "A recent conflict: what happened, what did you want to protect and what did you fear losing? Add one experience that does not fit a candidate motivation. (Your account)"}<textarea rows={4} className="mt-2 block w-full rounded-lg border p-3" /></label>
+              <p>{isZh ? copy("同一行为可能有不同动机；对照候选正文与反例再选一个回应练习。自述只在本页，刷新会清空，不自动发送。", "同一行為可能有不同動機；對照候選正文與反例再選一個回應練習。自述只在本頁，重新整理會清空，不自動傳送。") : "The same behavior can have different motivations. Compare candidate descriptions and counterexamples, then choose one response practice. Notes stay on this page, clear on refresh and are not sent automatically."}</p>
             </div>
             {report.pairComparison ? <PairComparisonCard comparison={report.pairComparison} locale={locale} /> : null}
           </section>
@@ -742,12 +789,12 @@ export function EnneagramResultShell({
               <div className={styles.sectionBody}>
                 <h3>
                   {isZh
-                    ? "与这种模式对应的具体成长建议"
+                    ? copy("与这种模式对应的具体成长建议", "與這種模式對應的具體成長建議")
                     : "Concrete growth actions for this pattern"}
                 </h3>
                 <p className={styles.lead}>
                   {isZh
-                    ? "选择一个足够小、能够观察结果的行动。选择不会改写系统测量结果。"
+                    ? copy("选择一个足够小、能够观察结果的行动。选择不会改写系统测量结果。", "選擇一個足夠小、能夠觀察結果的行動。選擇不會改寫系統測量結果。")
                     : "Choose one small action with an observable outcome. Your choice never rewrites the measured result."}
                 </p>
               </div>
@@ -761,9 +808,9 @@ export function EnneagramResultShell({
                   onClick={() => setSelectedAction(action.actionId)}
                 >
                   <span>{selectedAction === action.actionId ? "✓" : ""}</span>
-                  <strong>{action.title}</strong>
+                  <strong>{displayText(action.title ?? "")}</strong>
                   <p>
-                    {action.instruction} · {action.observableOutcome}
+                    {displayText(action.instruction ?? "")} · {displayText(action.observableOutcome ?? "")}
                   </p>
                 </button>
               ))}
@@ -789,7 +836,7 @@ export function EnneagramResultShell({
                   filenamePrefix="enneagram-report"
                   safetyDisabled
                   safetyDisabledLabel={
-                    isZh ? "PDF 暂不可用" : "PDF unavailable"
+                    isZh ? copy("PDF 暂不可用", "PDF 暫不可用") : "PDF unavailable"
                   }
                 />
               ) : null}
@@ -797,7 +844,7 @@ export function EnneagramResultShell({
                 href={retakeHref}
                 className={buttonVariants({ variant: "outline" })}
               >
-                {isZh ? "重新测试" : "Retake test"}
+                {isZh ? copy("重新测试", "重新測評") : "Retake test"}
               </Link>
             </div>
           </footer>

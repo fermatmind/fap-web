@@ -1615,6 +1615,7 @@ export function RichResultReport({
     return (
       <EnneagramResultShell
         locale={locale}
+        displayLocale={displayLocale}
         attemptId={accessProjection?.attemptId ?? ""}
         reportLocked={accessProjection ? accessProjection.accessState !== "ready" : reportData.locked === true}
         accessProjection={accessProjection}
