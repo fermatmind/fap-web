@@ -20,6 +20,13 @@ import { recordSpatialContext4 } from "@/lib/questionnaires/spatialContext4";
 import { recordUnfamiliar20 } from "@/lib/questionnaires/unfamiliar20";
 import { recordWrittenLanguage20 } from "@/lib/questionnaires/writtenLanguage20";
 
+import { recordBirthContext16 } from "@/lib/questionnaires/birthContext16";
+import { recordCycleContext16 } from "@/lib/questionnaires/cycleContext16";
+import { recordSeasonContext16 } from "@/lib/questionnaires/seasonContext16";
+import { recordSleepExperiences20 } from "@/lib/questionnaires/sleepExperiences20";
+import { recordEatingExperiences20 } from "@/lib/questionnaires/eatingExperiences20";
+import { recordDrinkingExperiences20 } from "@/lib/questionnaires/drinkingExperiences20";
+
 afterEach(cleanup);
 
 it.each([
@@ -35,6 +42,12 @@ it.each([
   ["spatial-thinking-reflection", recordSpatialContext4],
   ["unfamiliar-experiences-reflection", recordUnfamiliar20],
   ["written-language-context-reflection", recordWrittenLanguage20],
+  ["after-childbirth-context-reflection", recordBirthContext16],
+  ["menstrual-cycle-context-reflection", recordCycleContext16],
+  ["time-of-year-context-reflection", recordSeasonContext16],
+  ["sleep-experiences-reflection", recordSleepExperiences20],
+  ["eating-experiences-reflection", recordEatingExperiences20],
+  ["drinking-experiences-reflection", recordDrinkingExperiences20],
 ] as const)("keeps the authoritative category recorder and full Taiwan readings for %s", async (slug, record) => {
   const item = (await loadTraditionalObservation(slug))!;
   const { source, quiz } = item;

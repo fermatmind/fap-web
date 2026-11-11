@@ -19,6 +19,12 @@ const pages = {
   "spatial-thinking-reflection": () => import("@/components/questionnaires/SpatialContextPage").then(module => ({ Page: module.SpatialContextPage, Guide: module.SpatialContextGuidePage })),
   "unfamiliar-experiences-reflection": () => import("@/components/questionnaires/UnfamiliarPage").then(module => ({ Page: module.UnfamiliarPage, Guide: module.UnfamiliarGuidePage })),
   "written-language-context-reflection": () => import("@/components/questionnaires/WrittenLanguagePage").then(module => ({ Page: module.WrittenLanguagePage, Guide: module.WrittenLanguageGuidePage })),
+  "after-childbirth-context-reflection": () => import("@/components/questionnaires/BirthContextPage").then(module => ({ Page: module.BirthContextPage, Guide: module.BirthContextGuidePage })),
+  "menstrual-cycle-context-reflection": () => import("@/components/questionnaires/CycleContextPage").then(module => ({ Page: module.CycleContextPage, Guide: module.CycleContextGuidePage })),
+  "time-of-year-context-reflection": () => import("@/components/questionnaires/SeasonContextPage").then(module => ({ Page: module.SeasonContextPage, Guide: module.SeasonContextGuidePage })),
+  "sleep-experiences-reflection": () => import("@/components/questionnaires/SleepExperiencesPage").then(module => ({ Page: module.SleepExperiencesPage, Guide: module.SleepExperiencesGuidePage })),
+  "eating-experiences-reflection": () => import("@/components/questionnaires/EatingExperiencesPage").then(module => ({ Page: module.EatingExperiencesPage, Guide: module.EatingExperiencesGuidePage })),
+  "drinking-experiences-reflection": () => import("@/components/questionnaires/DrinkingExperiencesPage").then(module => ({ Page: module.DrinkingExperiencesPage, Guide: module.DrinkingExperiencesGuidePage })),
 };
 
 export async function TraditionalObservationPage({ slug, take, profile }: { slug: string; take: boolean; profile?: string }) {

@@ -11,6 +11,12 @@ const profiles: Readonly<Record<string, readonly string[]>> = {
   "spatial-thinking-reflection": ["spatial-relationships-reading"],
   "unfamiliar-experiences-reflection": ["sensory-impressions-reading", "following-thoughts-reading", "wariness-and-meaning-reading", "contact-and-participation-reading", "everyday-routines-reading"],
   "written-language-context-reflection": ["following-written-text-reading", "putting-words-on-page-reading", "unfamiliar-words-and-sequences-reading", "ways-of-accessing-text-reading"],
+  "after-childbirth-context-reflection": ["mood-and-interest-after-childbirth-reading", "worry-and-self-blame-after-childbirth-reading", "rest-and-demands-after-childbirth-reading", "connection-with-self-after-childbirth-reading"],
+  "menstrual-cycle-context-reflection": ["feelings-before-a-period-reading", "irritation-before-a-period-reading", "body-and-routine-before-a-period-reading", "recalled-cycle-timing-reading"],
+  "time-of-year-context-reflection": ["mood-and-energy-across-the-year-reading", "sleep-across-the-year-reading", "appetite-across-the-year-reading", "recalled-time-of-year-patterns-reading"],
+  "sleep-experiences-reflection": ["settling-to-sleep-reading", "waking-during-rest-reading", "waking-before-planned-reading", "daytime-experiences-reading", "thoughts-about-sleep-reading"],
+  "eating-experiences-reflection": ["body-thoughts-reading", "limiting-eating-reading", "loss-of-control-reading", "undoing-eating-reading", "mental-space-reading"],
+  "drinking-experiences-reflection": ["plans-and-pull-reading", "daily-effects-reading", "situations-and-choices-reading", "body-experiences-reading"],
 };
 
 export function hasTraditionalObservation(slug: string) {

@@ -16,6 +16,13 @@ import { isSpatialContext4ConfigurationValid } from "@/lib/questionnaires/spatia
 import { isUnfamiliar20ConfigurationValid } from "@/lib/questionnaires/unfamiliar20";
 import { isWrittenLanguage20ConfigurationValid } from "@/lib/questionnaires/writtenLanguage20";
 
+import { isBirthContext16ConfigurationValid } from "@/lib/questionnaires/birthContext16";
+import { isCycleContext16ConfigurationValid } from "@/lib/questionnaires/cycleContext16";
+import { isSeasonContext16ConfigurationValid } from "@/lib/questionnaires/seasonContext16";
+import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
+import { isEatingExperiences20ConfigurationValid } from "@/lib/questionnaires/eatingExperiences20";
+import { isDrinkingExperiences20ConfigurationValid } from "@/lib/questionnaires/drinkingExperiences20";
+
 const sources = {
   "care-feelings-reflection": {
     name: "CareFeelings", prefix: "careFeelings", attribute: "care-feelings", validate: isCareFeelings20ConfigurationValid,
@@ -76,6 +83,36 @@ const sources = {
     name: "WrittenLanguage", prefix: "writtenLanguage", attribute: "written-language", validate: isWrittenLanguage20ConfigurationValid,
     load: () => import("@/lib/questionnaires/result-content/written-language-context-reflection.json"),
     editorial: () => import("@/components/questionnaires/WrittenLanguageLandingEditorial"),
+  },
+  "after-childbirth-context-reflection": {
+    name: "BirthContext", prefix: "birthContext", attribute: "birth-context", validate: isBirthContext16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/after-childbirth-context-reflection.json"),
+    editorial: () => import("@/components/questionnaires/BirthContextLandingEditorial"),
+  },
+  "menstrual-cycle-context-reflection": {
+    name: "CycleContext", prefix: "cycleContext", attribute: "cycle-context", validate: isCycleContext16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/menstrual-cycle-context-reflection.json"),
+    editorial: () => import("@/components/questionnaires/CycleContextLandingEditorial"),
+  },
+  "time-of-year-context-reflection": {
+    name: "SeasonContext", prefix: "seasonContext", attribute: "season-context", validate: isSeasonContext16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/time-of-year-context-reflection.json"),
+    editorial: () => import("@/components/questionnaires/SeasonContextLandingEditorial"),
+  },
+  "sleep-experiences-reflection": {
+    name: "SleepExperiences", prefix: "sleepExperiences", attribute: "sleep-experiences", validate: isSleepExperiences20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/sleep-experiences-reflection.json"),
+    editorial: () => import("@/components/questionnaires/SleepExperiencesLandingEditorial"),
+  },
+  "eating-experiences-reflection": {
+    name: "EatingExperiences", prefix: "eatingExperiences", attribute: "eating-experiences", validate: isEatingExperiences20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/eating-experiences-reflection.json"),
+    editorial: () => import("@/components/questionnaires/EatingExperiencesLandingEditorial"),
+  },
+  "drinking-experiences-reflection": {
+    name: "DrinkingExperiences", prefix: "drinkingExperiences", attribute: "drinking-experiences", validate: isDrinkingExperiences20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/drinking-experiences-reflection.json"),
+    editorial: () => import("@/components/questionnaires/DrinkingExperiencesLandingEditorial"),
   },
 };
 
