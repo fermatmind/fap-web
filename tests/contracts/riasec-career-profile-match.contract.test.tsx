@@ -2,6 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { RiasecCareerNextSteps } from "@/components/result/riasec/RiasecCareerNextSteps";
 import release from "@/lib/career/interestRelease.json";
+import traditionalCopy from "@/lib/career/interestRelease.zh-TW.json";
 import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
 
 const scores = (values: number[]) => ["R", "I", "A", "S", "E", "C"].map((code, i) => ({
@@ -19,6 +20,25 @@ describe("Holland result to occupational interests", () => {
     const markup = renderToStaticMarkup(<RiasecCareerNextSteps locale="zh" scores={profile} />);
     expect(markup).toContain('data-testid="riasec-profile-careers"');
     expect(markup).toContain('/zh/career/jobs/industrial-designers');
+  });
+
+  it("keeps every Taiwan candidate tied to the existing occupational identity and ranking", () => {
+    expect(Object.keys(traditionalCopy)).toEqual(Object.keys(release.careers));
+    for (const career of Object.values(release.careers)) {
+      const profile = scores(career.interestVector.map(value => (value - 1) / 6 * 100));
+      const ranked = rankRiasecCareers(profile, "zh-TW");
+      const source = rankRiasecCareers(profile, "zh");
+      expect(ranked.state).toBe(source.state);
+      expect(ranked.jobs.map(({ slug, similarity }) => [slug, similarity])).toEqual(
+        source.jobs.map(({ slug, similarity }) => [slug, similarity]),
+      );
+      for (const job of ranked.jobs) {
+        expect(job).toMatchObject(traditionalCopy[job.slug as keyof typeof traditionalCopy]);
+      }
+    }
+    const flat = renderToStaticMarkup(<RiasecCareerNextSteps locale="zh" displayLocale="zh-TW" scores={scores([60, 60, 60, 60, 60, 60])} />);
+    expect(flat).toContain("你的六向度分數較接近");
+    expect(flat).not.toContain('data-testid="riasec-profile-careers"');
   });
 
   it("does not rank flat, near-flat, missing or unverified scores", () => {

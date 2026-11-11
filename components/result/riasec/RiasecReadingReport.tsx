@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { buildRiasecTakeHref } from "@/lib/riasec/forms";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import {
   getRenderableRiasecDeepContentSlots,
   getRiasecModuleVisibility,
@@ -32,6 +32,7 @@ import { RiasecTrialRecord } from "./RiasecTrialRecord";
 type Props = {
   viewModel: RiasecResultViewModel;
   locale: Locale;
+  displayLocale?: DisplayLocale;
   actions: ReactNode;
   emailRecovery?: ReactNode;
 };
@@ -57,6 +58,7 @@ const ANCHORS = {
 export function RiasecReadingReport({
   viewModel: vm,
   locale,
+  displayLocale = locale,
   actions,
   emailRecovery,
 }: Props) {
@@ -188,7 +190,7 @@ export function RiasecReadingReport({
       ? [{ id: ANCHORS.context, label: t("工作偏好", "Work preferences") }]
       : []),
     ...(lifecycle ? [{ id: ANCHORS.methods, label: "Methods and questions" }] : []),
-    { id: ANCHORS.career, label: t("职业探索", "Career exploration") },
+    { id: ANCHORS.career, label: displayLocale === "zh-TW" ? "職涯探索" : t("职业探索", "Career exploration") },
   ];
   const chapterKey = chapters.map((chapter) => chapter.id).join(",");
 
@@ -507,8 +509,8 @@ export function RiasecReadingReport({
               showPreferences={hasContext}
             />
             <section id={ANCHORS.career} className={styles.chapter}>
-              <h2>{t("从兴趣结果到职业探索", "From your interests to career exploration")}</h2>
-              <RiasecCareerNextSteps locale={locale} scores={vm.scoreKind === "dimension_scores_0_100"
+              <h2>{displayLocale === "zh-TW" ? "從興趣結果開始探索職涯" : t("从兴趣结果到职业探索", "From your interests to career exploration")}</h2>
+              <RiasecCareerNextSteps locale={locale} displayLocale={displayLocale} scores={vm.scoreKind === "dimension_scores_0_100"
                 && qualityState === "normal" ? vm.dimensions : undefined} activityKeys={hasActivities
                 ? vm.activityExplorer?.codeActivityPack.activities.map(activity => activity.activityKey)
                 : undefined} />

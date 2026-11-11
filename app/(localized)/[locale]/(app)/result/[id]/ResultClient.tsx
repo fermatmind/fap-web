@@ -2248,6 +2248,7 @@ export default function ResultClient({
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         <RiasecResultShell
           locale={locale}
+          displayLocale={displayLocale}
           viewModel={assembleRiasecResultViewModel(resultData, locale)}
           displayMode={printSnapshotContractValid ? "static" : "interactive"}
           emailRecovery={!printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}

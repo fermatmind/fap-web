@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
 import {
@@ -29,12 +29,14 @@ import { formatDeepContentKey, formatRiasecSlotVisibility, formatRiasecDetailVal
 
 export function RiasecResultShell({
   locale,
+  displayLocale = locale,
   viewModel,
   attemptId,
   displayMode = "interactive",
   emailRecovery,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   viewModel: RiasecResultViewModel;
   attemptId?: string | null;
   displayMode?: "interactive" | "static";
@@ -161,7 +163,7 @@ export function RiasecResultShell({
 
   if (displayMode === "interactive") {
     return <RiasecReadingReport
-      viewModel={viewModel} locale={locale}
+      viewModel={viewModel} locale={locale} displayLocale={displayLocale}
       emailRecovery={emailRecovery}
       actions={<>
         {showShareAction ? <Button type="button" variant="outline" onClick={() => void handleShare()} disabled={shareState === "loading"}>
