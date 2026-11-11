@@ -34,6 +34,12 @@ beforeAll(() => { Object.defineProperty(HTMLElement.prototype, "scrollIntoView",
 
 // UI-only: no stored permission, synthetic answer or automatic submission is introduced.
 describe("entertainment preview entry", () => {
+  it("shows the Taiwan tool label and focuses the mounted input", () => {
+    render(<><ExploreTestEntry locale="zh-TW" tool /><section id="take-test"><input aria-label="年份" /></section></>);
+    fireEvent.click(screen.getByRole("button", { name: "開啟工具" }));
+    expect(screen.getByRole("textbox", { name: "年份" })).toHaveFocus();
+    cleanup();
+  });
   it("invokes the mounted start handler once without selecting any consent input", () => {
     const start = vi.fn();
     render(<><ExploreTestEntry locale="zh" tool={false} /><section id="take-test"><input aria-label="Optional statistics" type="checkbox" /><button data-explore-start onClick={start}>Native start</button></section></>);
