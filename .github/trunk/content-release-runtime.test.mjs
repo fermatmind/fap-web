@@ -57,6 +57,35 @@ test('live authentication smoke signs the exact bytes and never invalidates cont
     await assert.rejects(probe(file, 'https://example.test/api/content-release/revalidate', async () => Response.json({ ok: true, revalidated_paths: ['/llms-full.txt'], rejected_paths: [], invalidated_tags: [] })), /CONTRACT/);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
+test('authentication probe retries only a transient replay store failure with a new signed nonce', async () => {
+  const root = mkdtempSync(path.join(tmpdir(), 'runtime-probe-'));
+  try {
+    const file = path.join(root, 'config.json');
+    writeConfig(file, values);
+    const endpoint = 'https://example.test/api/content-release/revalidate';
+    const unavailable = () => Response.json({ error_code: 'REPLAY_STORE_UNAVAILABLE', message: 'revalidation replay protection unavailable' }, { status: 503 });
+    const nonces = [];
+    await probe(file, endpoint, async (_url, { headers, body }) => {
+      const nonce = headers['X-FM-Content-Release-Nonce'];
+      const signed = `${headers['X-FM-Content-Release-Timestamp']}.${nonce}.${body}`;
+      assert.equal(body, '{}');
+      assert.equal(headers['X-FM-Content-Release-Signature'], `sha256=${createHmac('sha256', values[KEYS[0]]).update(signed).digest('hex')}`);
+      nonces.push(nonce);
+      return nonces.length === 1 ? unavailable() : Response.json({ ok: true, revalidated_paths: [], rejected_paths: [], invalidated_tags: [] });
+    });
+    assert.equal(new Set(nonces).size, 2);
+    let calls = 0;
+    await assert.rejects(probe(file, endpoint, async () => { calls++; return unavailable(); }), /AUTH_PROBE_REPLAY_STORE_UNAVAILABLE/);
+    assert.equal(calls, 2);
+    calls = 0;
+    await assert.rejects(probe(file, endpoint, async () => {
+      calls++;
+      return Response.json({ error_code: 'REPLAY_STORE_UNAVAILABLE', message: 'revalidation runtime configuration unavailable' }, { status: 503 });
+    }), /AUTH_PROBE_RUNTIME_UNAVAILABLE/);
+    assert.equal(calls, 1);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});
+
 test('staging and production activation receive environment-scoped credentials; builds do not', () => {
   const workflow = readFileSync('.github/workflows/deploy.yml', 'utf8');
   const staging = workflow.split('\n  staging:')[1].split('\n  production:')[0];

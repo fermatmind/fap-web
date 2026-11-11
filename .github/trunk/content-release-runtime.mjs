@@ -34,15 +34,29 @@ export async function probe(file, endpoint, fetcher = fetch) {
   const values = readConfig(file);
   const url = new URL(endpoint);
   if (url.protocol !== 'https:' || url.username || url.password || url.hash || url.search) throw new Error('INVALID_PROBE_ENDPOINT');
-  const timestamp = String(Math.floor(Date.now() / 1000));
-  const nonce = randomBytes(24).toString('hex');
-  const body = '{}'; // Existing endpoint: authenticate, with no paths or tags to invalidate.
-  const response = await fetcher(url, { method: 'POST', redirect: 'error', signal: AbortSignal.timeout(15000),
-    headers: { 'Content-Type': 'application/json', 'X-FM-Content-Release-Timestamp': timestamp,
-      'X-FM-Content-Release-Nonce': nonce, 'X-FM-Content-Release-Signature': `sha256=${createHmac('sha256', values[KEYS[0]]).update(`${timestamp}.${nonce}.${body}`).digest('hex')}` }, body });
-  if (!response.ok) throw new Error(`AUTH_PROBE_HTTP_${response.status}`);
-  const result = await response.json();
-  if (result.ok !== true || !['revalidated_paths', 'rejected_paths', 'invalidated_tags'].every(key => Array.isArray(result[key]) && result[key].length === 0)) throw new Error('AUTH_PROBE_CONTRACT_MISMATCH');
+  const body = '{}'; // Authenticate without invalidating paths or tags.
+  for (const attempt of [1, 2]) {
+    const timestamp = String(Math.floor(Date.now() / 1000));
+    const nonce = randomBytes(24).toString('hex');
+    const response = await fetcher(url, { method: 'POST', redirect: 'error', signal: AbortSignal.timeout(15000),
+      headers: { 'Content-Type': 'application/json', 'X-FM-Content-Release-Timestamp': timestamp,
+        'X-FM-Content-Release-Nonce': nonce, 'X-FM-Content-Release-Signature': `sha256=${createHmac('sha256', values[KEYS[0]]).update(`${timestamp}.${nonce}.${body}`).digest('hex')}` }, body });
+    if (response.status === 503) {
+      const failure = await response.json().catch(() => null);
+      if (failure?.error_code === 'REPLAY_STORE_UNAVAILABLE') {
+        if (failure.message === 'revalidation runtime configuration unavailable') throw new Error('AUTH_PROBE_RUNTIME_UNAVAILABLE');
+        if (failure.message === 'revalidation replay protection unavailable') {
+          // The store may have recorded the first nonce before its response timed out.
+          if (attempt === 1) continue;
+          throw new Error('AUTH_PROBE_REPLAY_STORE_UNAVAILABLE');
+        }
+      }
+    }
+    if (!response.ok) throw new Error(`AUTH_PROBE_HTTP_${response.status}`);
+    const result = await response.json();
+    if (result.ok !== true || !['revalidated_paths', 'rejected_paths', 'invalidated_tags'].every(key => Array.isArray(result[key]) && result[key].length === 0)) throw new Error('AUTH_PROBE_CONTRACT_MISMATCH');
+    return;
+  }
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
