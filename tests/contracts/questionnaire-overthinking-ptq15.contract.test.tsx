@@ -148,13 +148,29 @@ describe("T195 original PTQ15: original key, continuous sums and disclosed worki
     const reverse = structuredClone(quiz); reverse.questions[0].reverse = true;
     const variants = [reverse, ...firstFamilyPaths.flatMap(path => (["hole", "undefined", "null"] as const).map(mutation => damageConfiguration(path, mutation)))];
     expect(variants).toHaveLength(22);
-    for (const bad of variants) {
-      vi.doMock("@/lib/questionnaires/loaders", () => ({ loadQuestionnaire: async () => bad })); vi.resetModules();
-      try {
-      const entry = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page"), guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page"), og = await import("@/app/og/fun/[slug]/route");
-      const ep = { params: Promise.resolve({ locale: "en", slug: quiz.slug }) }, gp = { params: Promise.resolve({ locale: "en", slug: quiz.slug, profile: "total-reading" }) };
-      expect((await entry.generateMetadata(ep)).robots).toEqual({ index: false, follow: false }); expect((await guide.generateMetadata(gp)).robots).toEqual({ index: false, follow: false }); await expect(entry.default(ep)).rejects.toMatchObject({ digest: "NEXT_HTTP_ERROR_FALLBACK;404" }); await expect(guide.default(gp)).rejects.toMatchObject({ digest: "NEXT_HTTP_ERROR_FALLBACK;404" }); expect((await og.GET(new Request(`https://fermatmind.com/og/fun/${quiz.slug}?locale=en`), { params: Promise.resolve({ slug: quiz.slug }) })).status).toBe(404);
-      } finally { vi.doUnmock("@/lib/questionnaires/loaders"); vi.resetModules(); }
+    const loadQuestionnaire = vi.fn<() => Promise<Questionnaire>>();
+    vi.doMock("@/lib/questionnaires/loaders", () => ({ loadQuestionnaire }));
+    vi.resetModules();
+    try {
+      const entry = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
+      const guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
+      const og = await import("@/app/og/fun/[slug]/route");
+      const ep = { params: Promise.resolve({ locale: "en", slug: quiz.slug }) };
+      const gp = { params: Promise.resolve({ locale: "en", slug: quiz.slug, profile: "total-reading" }) };
+      for (const bad of variants) {
+        loadQuestionnaire.mockClear().mockResolvedValue(bad);
+        expect((await entry.generateMetadata(ep)).robots).toEqual({ index: false, follow: false });
+        expect((await guide.generateMetadata(gp)).robots).toEqual({ index: false, follow: false });
+        await expect(entry.default(ep)).rejects.toMatchObject({ digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
+        await expect(guide.default(gp)).rejects.toMatchObject({ digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
+        expect((await og.GET(new Request(`https://fermatmind.com/og/fun/${quiz.slug}?locale=en`), {
+          params: Promise.resolve({ slug: quiz.slug }),
+        })).status).toBe(404);
+        expect(loadQuestionnaire).toHaveBeenCalledTimes(5);
+      }
+    } finally {
+      vi.doUnmock("@/lib/questionnaires/loaders");
+      vi.resetModules();
     }
   }, 30000);
 });
