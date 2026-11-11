@@ -10,6 +10,9 @@ import { normalizeReportActionHref } from "@/lib/access/reportActionUrls";
 import { createAttemptShare, type MeAttemptItem } from "@/lib/api/v0_3";
 import { fetchRiasecHistory } from "@/lib/riasec/api";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { coreShareUrlForDisplay } from "@/lib/i18n/coreShareDisplay";
+import { useHistoryDisplayText } from "../useHistoryDisplayText";
+import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref } from "@/lib/riasec/forms";
 import {
@@ -82,30 +85,32 @@ function resolveAbsoluteShareUrl(url: string): string {
   }
 }
 
-function resolveShareLabel(locale: "en" | "zh", state: ShareState): string {
-  if (state === "loading") return locale === "zh" ? "生成分享链接..." : "Preparing share...";
-  if (state === "copied") return locale === "zh" ? "分享链接已复制" : "Link copied";
-  if (state === "failed") return locale === "zh" ? "分享失败，重试" : "Share failed, retry";
-  return locale === "zh" ? "分享结果" : "Share result";
+function resolveShareLabel(displayLocale: "en" | "zh" | "zh-TW", state: ShareState): string {
+  if (state === "loading") return displayLocale === "zh-TW" ? "正在建立分享連結…" : displayLocale === "zh" ? "生成分享链接..." : "Preparing share...";
+  if (state === "copied") return displayLocale === "zh-TW" ? "已複製分享連結" : displayLocale === "zh" ? "分享链接已复制" : "Link copied";
+  if (state === "failed") return displayLocale === "zh-TW" ? "分享失敗，請重試" : displayLocale === "zh" ? "分享失败，重试" : "Share failed, retry";
+  return displayLocale === "zh-TW" ? "分享結果" : displayLocale === "zh" ? "分享结果" : "Share result";
 }
 
 export default function RiasecHistoryClient() {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const displayLocale = pathname.startsWith("/zh-TW/") ? "zh-TW" : locale;
+  const displayText = useHistoryDisplayText(displayLocale);
   const copy = {
-    title: locale === "zh" ? "RIASEC 历史记录" : "RIASEC History",
+    title: displayLocale === "zh-TW" ? "RIASEC 歷史紀錄" : locale === "zh" ? "RIASEC 历史记录" : "RIASEC History",
     scope:
-      locale === "zh"
+      displayLocale === "zh-TW" ? "這裡讀取後端已完成的 RIASEC 作答記錄，並保留正式結果頁、分享和重新測試入口。" : locale === "zh"
         ? "这里读取后端已完成的 RIASEC 作答记录，并保留正式结果页、分享和重新测试入口。"
         : "This reads completed RIASEC attempts from backend history and keeps formal result, share, and retake entry points.",
-    loading: locale === "zh" ? "正在加载历史记录..." : "Loading history...",
-    empty: locale === "zh" ? "还没有 RIASEC 测试记录。" : "No RIASEC attempts found yet.",
-    attempt: locale === "zh" ? "测试记录" : "Attempt",
-    topCode: locale === "zh" ? "霍兰德主码" : "Holland code",
-    viewResult: locale === "zh" ? "打开正式结果页" : "Open formal result",
-    retake: locale === "zh" ? "重新测试" : "Retake test",
-    previous: locale === "zh" ? "上一页" : "Previous page",
-    next: locale === "zh" ? "下一页" : "Next page",
+    loading: displayLocale === "zh-TW" ? "正在載入歷史紀錄…" : locale === "zh" ? "正在加载历史记录..." : "Loading history...",
+    empty: displayLocale === "zh-TW" ? "還沒有 RIASEC 測評紀錄。" : locale === "zh" ? "还没有 RIASEC 测试记录。" : "No RIASEC attempts found yet.",
+    attempt: displayLocale === "zh-TW" ? "測評紀錄" : locale === "zh" ? "测试记录" : "Attempt",
+    topCode: displayLocale === "zh-TW" ? "霍蘭德主碼" : locale === "zh" ? "霍兰德主码" : "Holland code",
+    viewResult: displayLocale === "zh-TW" ? "開啟正式結果頁" : locale === "zh" ? "打开正式结果页" : "Open formal result",
+    retake: displayLocale === "zh-TW" ? "重新測評" : locale === "zh" ? "重新测试" : "Retake test",
+    previous: displayLocale === "zh-TW" ? "上一頁" : locale === "zh" ? "上一页" : "Previous page",
+    next: displayLocale === "zh-TW" ? "下一頁" : locale === "zh" ? "下一页" : "Next page",
   };
 
   const [rows, setRows] = useState<Row[]>([]);
@@ -127,7 +132,7 @@ export default function RiasecHistoryClient() {
         const rawItems = history.items ?? [];
         const parsedRows = rawItems.map(normalizeRow);
         if (parsedRows.some((row) => row === null)) {
-          throw new Error(locale === "zh" ? "历史记录数据暂时无法安全展示。" : "History data cannot be displayed safely right now.");
+          throw new Error(displayLocale === "zh-TW" ? "歷史紀錄資料暫時無法安全展示。" : locale === "zh" ? "历史记录数据暂时无法安全展示。" : "History data cannot be displayed safely right now.");
         }
         const normalizedRows = parsedRows.filter((row): row is Row => Boolean(row?.attemptId));
         const meta = history.meta ?? {};
@@ -140,7 +145,7 @@ export default function RiasecHistoryClient() {
         setHasNextPage(Number.isFinite(currentPage) && Number.isFinite(lastPage) && currentPage < lastPage);
       } catch (cause) {
         if (!active) return;
-        setError(cause instanceof Error ? cause.message : "Failed to load history.");
+        setError(displayLocale === "zh-TW" ? "暫時無法載入測評紀錄。" : cause instanceof Error ? cause.message : "Failed to load history.");
       } finally {
         if (active) setLoading(false);
       }
@@ -151,7 +156,7 @@ export default function RiasecHistoryClient() {
     return () => {
       active = false;
     };
-  }, [locale, page]);
+  }, [locale, displayLocale, page]);
 
   async function handleShare(attemptId: string) {
     if (typeof window === "undefined" || shareStateByAttemptId[attemptId] === "loading") {
@@ -159,7 +164,7 @@ export default function RiasecHistoryClient() {
     }
 
     setShareStateByAttemptId((current) => ({ ...current, [attemptId]: "loading" }));
-    const shareTitle = locale === "zh" ? "分享我的 RIASEC 职业兴趣结果" : "Share my RIASEC career interest result";
+    const shareTitle = displayLocale === "zh-TW" ? "分享我的 RIASEC 職業興趣結果" : locale === "zh" ? "分享我的 RIASEC 职业兴趣结果" : "Share my RIASEC career interest result";
 
     try {
       const row = rows.find((item) => item.attemptId === attemptId);
@@ -174,9 +179,8 @@ export default function RiasecHistoryClient() {
       ) {
         throw new Error("share_authority_mismatch");
       }
-      const shareUrl = resolveAbsoluteShareUrl(
-        normalizeText(shareResponse.share_url, shareResponse.shareUrl, shareResponse.url)
-      );
+      const shareHref = coreShareUrlForDisplay(normalizeText(shareResponse.share_url, shareResponse.shareUrl, shareResponse.url));
+      const shareUrl = typeof shareHref === "string" ? resolveAbsoluteShareUrl(shareHref) : "";
       if (!shareUrl) throw new Error("share_url_missing");
 
       if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
@@ -226,9 +230,9 @@ export default function RiasecHistoryClient() {
           const retakeHref = buildRiasecTakeHref(SCALE_CANONICAL_SLUG_MAP.RIASEC, locale, row.formCode ?? undefined);
           const shareState = shareStateByAttemptId[row.attemptId] ?? "idle";
           const formMeta = [
-            row.formLabel,
-            typeof row.questionCount === "number" ? `${row.questionCount}${locale === "zh" ? " 题" : " questions"}` : "",
-            typeof row.estimatedMinutes === "number" ? `${locale === "zh" ? "约 " : "about "}${row.estimatedMinutes}${locale === "zh" ? " 分钟" : " minutes"}` : "",
+            row.formLabel ? displayText(row.formLabel) : row.formLabel,
+            typeof row.questionCount === "number" ? `${row.questionCount}${displayLocale === "zh-TW" ? "題" : locale === "zh" ? " 题" : " questions"}` : "",
+            typeof row.estimatedMinutes === "number" ? `${displayLocale === "zh-TW" ? "約" : locale === "zh" ? "约 " : "about "}${row.estimatedMinutes}${displayLocale === "zh-TW" ? "分鐘" : locale === "zh" ? " 分钟" : " minutes"}` : "",
           ].filter(Boolean).join(" · ");
 
           return (
@@ -264,11 +268,11 @@ export default function RiasecHistoryClient() {
                 ) : null}
                 {row.authority.mode === "canonical" ? (
                   <p className="m-0 text-xs text-slate-500">
-                    {locale === "zh" ? "内容修订" : "Content revision"}: {row.authority.sourceHash.slice(0, 12)}
+                    {displayLocale === "zh-TW" ? "內容修訂" : locale === "zh" ? "内容修订" : "Content revision"}: {row.authority.sourceHash.slice(0, 12)}
                   </p>
                 ) : null}
                 <div className="flex flex-wrap items-center gap-2">
-                  <Link href={resultHref} className={buttonVariants({ size: "sm" })}>
+                  <Link href={historyDisplayHref(resultHref, displayLocale)} className={buttonVariants({ size: "sm" })}>
                     {copy.viewResult}
                   </Link>
                   {row.shareEnabled ? (
@@ -280,10 +284,10 @@ export default function RiasecHistoryClient() {
                       onClick={() => void handleShare(row.attemptId)}
                       disabled={shareState === "loading"}
                     >
-                      {resolveShareLabel(locale, shareState)}
+                      {resolveShareLabel(displayLocale, shareState)}
                     </Button>
                   ) : null}
-                  <Link href={retakeHref} className={buttonVariants({ size: "sm", variant: "outline" })}>
+                  <Link href={historyDisplayHref(retakeHref, displayLocale)} className={buttonVariants({ size: "sm", variant: "outline" })}>
                     {copy.retake}
                   </Link>
                 </div>

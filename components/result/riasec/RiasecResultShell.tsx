@@ -1,5 +1,6 @@
 "use client";
 
+import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import { coreShareUrlForDisplay } from "@/lib/i18n/coreShareDisplay";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
@@ -172,8 +173,8 @@ export function RiasecResultShell({
         {showShareAction ? <Button type="button" variant="outline" onClick={() => void handleShare()} disabled={shareState === "loading"}>
           {shareState === "loading" ? (isZh ? shareCopy("生成分享链接...", "正在建立分享連結…") : "Preparing share...") : shareState === "copied" ? (isZh ? shareCopy("分享链接已复制", "已複製分享連結") : "Link copied") : shareState === "failed" ? (isZh ? shareCopy("重试分享", "重新分享") : "Retry share") : (isZh ? shareCopy("分享结果", "分享結果") : "Share result")}
         </Button> : null}
-        <Link href={retakeHref}>{isZh ? "重新测试" : "Retake test"}</Link>
-        {showHistoryAction ? <Link href={historyHref}>{isZh ? "查看历史记录" : "View history"}</Link> : null}
+        <Link href={historyDisplayHref(retakeHref, displayLocale)}>{isZh ? "重新测试" : "Retake test"}</Link>
+        {showHistoryAction ? <Link href={historyDisplayHref(historyHref, displayLocale)}>{displayLocale === "zh-TW" ? "查看歷史紀錄" : isZh ? "查看历史记录" : "View history"}</Link> : null}
       </>}
     />;
   }
@@ -281,12 +282,12 @@ export function RiasecResultShell({
                     : isZh ? shareCopy("分享结果", "分享結果") : "Share result"}
             </Button>
           ) : null}
-          <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
+          <Link href={historyDisplayHref(retakeHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>
             {isZh ? "重新测试" : "Retake test"}
           </Link>
           {showHistoryAction ? (
-            <Link href={historyHref} className={buttonVariants({ variant: "ghost" })}>
-              {isZh ? "查看历史记录" : "View history"}
+            <Link href={historyDisplayHref(historyHref, displayLocale)} className={buttonVariants({ variant: "ghost" })}>
+              {displayLocale === "zh-TW" ? "查看歷史紀錄" : isZh ? "查看历史记录" : "View history"}
             </Link>
           ) : null}
         </div> : null}
@@ -313,8 +314,8 @@ export function RiasecResultShell({
                       {shareState === "loading" ? isZh ? shareCopy("生成分享链接...", "正在建立分享連結…") : "Preparing share..." : isZh ? shareCopy("分享结果", "分享結果") : "Share result"}
                     </Button>
                   ) : null}
-                  <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "重新测试" : "Retake test"}</Link>
-                  {showHistoryAction ? <Link href={historyHref} className={buttonVariants({ variant: "ghost" })}>{isZh ? "查看历史记录" : "View history"}</Link> : null}
+                  <Link href={historyDisplayHref(retakeHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{isZh ? "重新测试" : "Retake test"}</Link>
+                  {showHistoryAction ? <Link href={historyDisplayHref(historyHref, displayLocale)} className={buttonVariants({ variant: "ghost" })}>{displayLocale === "zh-TW" ? "查看歷史紀錄" : isZh ? "查看历史记录" : "View history"}</Link> : null}
                 </div>
               </CardContent>
             </Card>

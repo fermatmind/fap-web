@@ -1578,6 +1578,7 @@ export function RichResultReport({
     return (
       <Big5ResultShell
         locale={locale}
+        displayLocale={displayLocale}
         attemptId={accessProjection?.attemptId ?? ""}
         reportLocked={accessProjection ? accessProjection.accessState !== "ready" : reportData.locked === true}
         accessProjection={accessProjection}

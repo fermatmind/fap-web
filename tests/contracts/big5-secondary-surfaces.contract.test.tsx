@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import HistoryLanguageLinks from "@/app/(localized)/[locale]/(app)/history/HistoryLanguageLinks";
 import Big5HistoryClient from "@/app/(localized)/[locale]/(app)/history/big5/Big5HistoryClient";
 import Big5CompareClient from "@/app/(localized)/[locale]/(app)/history/big5/compare/Big5CompareClient";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -150,6 +151,40 @@ describe("BIG5 secondary surfaces contract", () => {
     vi.clearAllMocks();
     hoisted.pathname = "/en/history/big5";
     hoisted.search = "";
+  });
+
+  it("keeps the selected private comparison pair when switching language", () => {
+    hoisted.pathname = "/zh-TW/history/big5/compare";
+    hoisted.search = "current=attempt-latest&previous=attempt-previous&tracking=ignored";
+    render(<HistoryLanguageLinks comparisonOnly />);
+    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute(
+      "href", "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous",
+    );
+    expect(screen.getByRole("link", { name: "简体中文" })).toHaveAttribute(
+      "href", "/zh/history/big5/compare?current=attempt-latest&previous=attempt-previous",
+    );
+  });
+
+  it("uses Taiwan history copy and preserves the attempt identity in report and comparison links", async () => {
+    hoisted.pathname = "/zh-TW/history/big5";
+    const report = withQuality(asReport(canonical120ReportFixture), "A");
+    hoisted.fetchBig5History.mockResolvedValue({
+      ok: true,
+      items: [
+        buildHistoryItem("attempt-latest", "2026-03-25T00:00:00Z", report),
+        buildHistoryItem("attempt-previous", "2026-03-18T00:00:00Z", report),
+      ],
+      history_compare: { current_attempt_id: "attempt-latest", previous_attempt_id: "attempt-previous" },
+    });
+    render(<Big5HistoryClient />);
+    expect(await screen.findByRole("heading", { name: "大五人格測評紀錄" })).toBeInTheDocument();
+    expect((await screen.findAllByRole("link", { name: "比較最近兩次結果" }))[0]).toHaveAttribute(
+      "href", "/zh-TW/history/big5/compare?current=attempt-latest&previous=attempt-previous",
+    );
+    expect(screen.getAllByRole("link", { name: "開啟正式結果頁" })[0]).toHaveAttribute(
+      "href", "/zh-TW/result/attempt-latest",
+    );
+    expect(hoisted.fetchBig5History).toHaveBeenCalledWith({ page: 1, pageSize: 10 });
   });
 
   it("keeps BIG5 history lightweight while making each row a result-center card without extra access requests", async () => {

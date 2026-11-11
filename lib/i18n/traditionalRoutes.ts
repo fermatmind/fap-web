@@ -1,3 +1,4 @@
+import { HISTORY_DISPLAY_PATHS } from "./historyDisplayRoutes";
 import { isCoreSharePath } from "./coreShareDisplay";
 import { traditionalMixedQuestionnaireRoute } from "./traditionalMixedQuestionnairePaths";
 import { traditionalCulturalSymbolRoute } from "./traditionalCulturalSymbolPaths";
@@ -40,7 +41,7 @@ export function traditionalPath(pathname: string): string | null {
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
-  if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
+  if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path) || HISTORY_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";

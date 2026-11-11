@@ -179,6 +179,18 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
   });
 
+  it.each(["mbti", "riasec", "big5", "big5/compare", "enneagram", "eq"])(
+    "serves Taiwan history %s with private response headers",
+    (route) => {
+      const response = proxy(new NextRequest(`https://example.com/zh-TW/history/${route}`));
+      expect(response.status).toBe(200);
+      expect(response.headers.get("cache-control")).toContain("no-store");
+      expect(response.headers.get("referrer-policy")).toBe("no-referrer");
+      expect(response.headers.get("x-robots-tag")).toContain("noindex");
+      expect(response.headers.get("x-middleware-request-x-fm-private-analytics-suppressed")).toBe("true");
+    },
+  );
+
   it("marks private route requests for server-side analytics bootstrap suppression", () => {
     for (const url of [
       "https://example.com/zh/orders/lookup?orderNo=SYNTHETIC_DO_NOT_USE",

@@ -24,6 +24,8 @@ import {
 import { getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
 import { getDictSync } from "@/lib/i18n/getDict";
+import { useHistoryDisplayText } from "../useHistoryDisplayText";
+import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import {
   appendMbtiActionJourneyQuery,
@@ -85,8 +87,8 @@ type RowSurface = {
 
 type HistorySurfaceCopy = ReturnType<typeof getDictSync>["history"]["mbti"]["surface"];
 
-function formatSubmittedAt(value: string, locale: "en" | "zh"): string {
-  if (!value) return locale === "zh" ? "时间待同步" : "Pending sync";
+function formatSubmittedAt(value: string, locale: "en" | "zh" | "zh-TW"): string {
+  if (!value) return locale === "zh-TW" ? "時間待同步" : locale === "zh" ? "时间待同步" : "Pending sync";
 
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
@@ -439,8 +441,10 @@ export default function MbtiHistoryClient() {
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
+  const displayLocale = pathname.startsWith("/zh-TW/") ? "zh-TW" : locale;
+  const displayText = useHistoryDisplayText(displayLocale);
   const isZh = locale === "zh";
-  const copy = getDictSync(locale).history.mbti;
+  const copy = getDictSync(displayLocale).history.mbti;
   const surfaceCopy = copy.surface;
   const startTestHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
   const resultLookupHref = localizedPath("/results/lookup", locale);
@@ -459,8 +463,8 @@ export default function MbtiHistoryClient() {
   const continuityTelemetry = useMemo(() => buildMbtiContinuityTelemetryFields(continuity), [continuity]);
   const journeyTelemetry = useMemo(() => buildMbtiActionJourneyTelemetryFields(journey), [journey]);
   const adaptiveTelemetry = useMemo(() => buildMbtiAdaptiveTelemetryFields(adaptiveSelection), [adaptiveSelection]);
-  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(String(continuity?.carryoverFocusKey ?? ""), locale);
-  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(String(continuity?.carryoverReason ?? ""), locale);
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(String(continuity?.carryoverFocusKey ?? ""), displayLocale);
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(String(continuity?.carryoverReason ?? ""), displayLocale);
   const journeyStateLabel = resolveMbtiJourneyStateLabel(String(journey?.journeyState ?? ""), locale);
   const progressStateLabel = resolveMbtiProgressStateLabel(String(journey?.progressState ?? ""), locale);
   const journeyReasonLabel = resolveMbtiRevisitReorderReasonLabel(String(journey?.revisitReorderReason ?? ""), locale);
@@ -472,7 +476,7 @@ export default function MbtiHistoryClient() {
     String(adaptiveSelection?.selectionRewriteReason ?? adaptiveSelection?.nextBestActionReason ?? ""),
     locale
   );
-  const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => resolveMbtiPulsePromptLabel(key, locale));
+  const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => displayText(resolveMbtiPulsePromptLabel(key, locale)));
   const latestRow = rows[0] ?? null;
   const latestRowSurface = latestRow ? resolveRowSurface(latestRow, locale, surfaceCopy) : null;
   const recoveryHref = latestRowSurface?.lookupHref ?? resultLookupHref;
@@ -516,7 +520,7 @@ export default function MbtiHistoryClient() {
         setHasNextPage(Number.isFinite(currentPage) && Number.isFinite(lastPage) && currentPage < lastPage);
       } catch (cause) {
         if (!active) return;
-        setError(cause instanceof Error ? cause.message : isZh ? "MBTI 历史加载失败。" : "Failed to load MBTI history.");
+        setError(displayLocale === "zh-TW" ? "MBTI 歷史載入失敗。" : cause instanceof Error ? cause.message : isZh ? "MBTI 历史加载失败。" : "Failed to load MBTI history.");
       } finally {
         if (active) {
           setLoading(false);
@@ -529,7 +533,7 @@ export default function MbtiHistoryClient() {
     return () => {
       active = false;
     };
-  }, [isZh, locale, page]);
+  }, [isZh, locale, displayLocale, page]);
 
   useEffect(() => {
     if (!continuity || carryoverImpressionTrackedRef.current) {
@@ -602,7 +606,7 @@ export default function MbtiHistoryClient() {
               className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4"
             >
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                {isZh ? "继续上次重点" : "Continue the current focus"}
+                {displayLocale === "zh-TW" ? "繼續上次重點" : isZh ? "继续上次重点" : "Continue the current focus"}
               </p>
               <p className="m-0 mt-2 text-sm font-medium text-slate-900">{continuityFocusLabel}</p>
               <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
@@ -614,13 +618,13 @@ export default function MbtiHistoryClient() {
               className="rounded-xl border border-sky-200 bg-sky-50/70 p-4"
             >
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">
-                {isZh ? "当前行动旅程" : "Current action journey"}
+                {displayLocale === "zh-TW" ? "目前的行動歷程" : isZh ? "当前行动旅程" : "Current action journey"}
               </p>
               <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-                {journeyStateLabel}
-                {progressStateLabel ? ` · ${progressStateLabel}` : ""}
+                {displayText(journeyStateLabel)}
+                {progressStateLabel ? ` · ${displayText(progressStateLabel)}` : ""}
               </p>
-              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{journeyReasonLabel}</p>
+              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{displayText(journeyReasonLabel)}</p>
               {pulsePromptLabels.length > 0 ? (
                 <ul className="mb-0 mt-2 list-disc space-y-1 pl-4 text-xs leading-6 text-slate-600">
                   {pulsePromptLabels.map((label) => (
@@ -639,20 +643,20 @@ export default function MbtiHistoryClient() {
               className="rounded-xl border border-violet-200 bg-violet-50/70 p-4"
             >
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">
-                {isZh ? "自适应继续建议" : "Adaptive continue guidance"}
+                {displayLocale === "zh-TW" ? "依目前進度提供的後續建議" : isZh ? "自适应继续建议" : "Adaptive continue guidance"}
               </p>
               <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-                {adaptiveNextBestActionLabel}
+                {displayText(adaptiveNextBestActionLabel)}
                 {adaptiveSelection.nextBestActionSection ? ` · ${adaptiveSelection.nextBestActionSection}` : ""}
               </p>
-              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{adaptiveReasonLabel}</p>
+              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{displayText(adaptiveReasonLabel)}</p>
             </div>
           ) : null}
         </div>
         <div className="flex flex-wrap gap-3">
           {latestResultHref && latestRowSurface?.latestPrimaryLabel ? (
             <Link
-              href={latestResultHref}
+              href={historyDisplayHref(latestResultHref, displayLocale)}
               className={buttonVariants({ className: "w-full sm:w-auto" })}
               data-testid="mbti-history-continue-cta"
               onClick={() => {
@@ -677,7 +681,7 @@ export default function MbtiHistoryClient() {
             </Link>
           ) : null}
           <Link
-            href={recoveryHref}
+            href={historyDisplayHref(recoveryHref, displayLocale)}
             className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
             data-testid="mbti-history-recovery-cta"
           >
@@ -706,7 +710,7 @@ export default function MbtiHistoryClient() {
               <>
                 <span>{isZh ? " · " : " · "}</span>
                 <span data-testid="mbti-history-latest-invite-stage">
-                  {resolveInviteUnlockSummaryBadge(latestRow.inviteSummary, locale)}
+                  {displayText(resolveInviteUnlockSummaryBadge(latestRow.inviteSummary, locale) ?? "")}
                 </span>
               </>
             ) : null}
@@ -729,11 +733,11 @@ export default function MbtiHistoryClient() {
               <h2 className="m-0 text-lg font-semibold text-slate-950">{copy.emptyTitle}</h2>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={startTestHref} className={buttonVariants({ className: "w-full sm:w-auto" })} data-testid="mbti-history-empty-start">
+              <Link href={historyDisplayHref(startTestHref, displayLocale)} className={buttonVariants({ className: "w-full sm:w-auto" })} data-testid="mbti-history-empty-start">
                 {copy.emptyStartCta}
               </Link>
               <Link
-                href={resultLookupHref}
+                href={historyDisplayHref(resultLookupHref, displayLocale)}
                 className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
                 data-testid="mbti-history-empty-recovery"
               >
@@ -772,7 +776,7 @@ export default function MbtiHistoryClient() {
               <p className="m-0">
                 {copy.submittedAtLabel}
                 {isZh ? "：" : ": "}
-                {formatSubmittedAt(row.submittedAt, locale)}
+                {formatSubmittedAt(row.submittedAt, displayLocale)}
               </p>
               <p className="m-0">
                 {copy.statusLabel}
@@ -798,21 +802,21 @@ export default function MbtiHistoryClient() {
                   className="m-0 rounded-xl border border-violet-200 bg-violet-50/60 px-3 py-2 text-sm text-violet-900"
                   data-testid={`mbti-history-invite-summary-${row.attemptId}`}
                 >
-                  {resolveInviteUnlockSummaryBadge(row.inviteSummary, locale)}
+                  {displayText(resolveInviteUnlockSummaryBadge(row.inviteSummary, locale) ?? "")}
                   {": "}
-                  {resolveInviteUnlockSummaryLabel(row.inviteSummary, locale)}
+                  {displayText(resolveInviteUnlockSummaryLabel(row.inviteSummary, locale) ?? "")}
                 </p>
               ) : null}
               <div className="flex flex-wrap gap-3">
                 {rowSurface.primaryHref && rowSurface.primaryLabel ? (
                   <Link
-                    href={appendMbtiActionJourneyQuery(
+                    href={historyDisplayHref(appendMbtiActionJourneyQuery(
                       appendMbtiAdaptiveSelectionQuery(
                         appendMbtiContinuityQuery(rowSurface.primaryHref, continuity),
                         adaptiveSelection
                       ),
                       journey
-                    )}
+                    ), displayLocale)}
                     className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
                     data-testid={`mbti-history-open-${row.attemptId}`}
                     onClick={() => {

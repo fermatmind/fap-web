@@ -1,5 +1,6 @@
 "use client";
 
+import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import type { Big5ReadingCopy } from "@/lib/big5/readingCopyProjection";
 
 import Link from "next/link";
@@ -16,7 +17,7 @@ import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload } from "@/lib/api/v0_3";
 import type { Big5PrivateResultAuthority } from "@/lib/big5/privateResultAuthority";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 
 type Headline = {
   badge: string;
@@ -47,6 +48,7 @@ function sectionAnchor(sectionKey: unknown): string {
 
 export function Big5ResultShell({
   locale,
+  displayLocale = locale,
   attemptId,
   reportLocked,
   accessProjection,
@@ -66,6 +68,7 @@ export function Big5ResultShell({
   recommendedOffers,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   attemptId: string;
   reportLocked: boolean;
   accessProjection?: AttemptReportAccessView | null;
@@ -165,9 +168,9 @@ export function Big5ResultShell({
 
       <section data-testid="big5-actions-card" className="flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-white p-5">
         {pdfAttemptId ? <PdfDownloadButton attemptId={pdfAttemptId} locked={reportLocked} accessProjection={accessProjection} locale={locale} taiwanPdf={taiwanPdf} /> : null}
-        <Link href={historyHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "历史" : "History"}</Link>
-        <Link href={compareHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "对比" : "Compare"}</Link>
-        <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "复测" : "Retake"}</Link>
+        <Link href={historyDisplayHref(historyHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{displayLocale === "zh-TW" ? "歷史紀錄" : isZh ? "历史" : "History"}</Link>
+        <Link href={historyDisplayHref(compareHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{displayLocale === "zh-TW" ? "比較" : isZh ? "对比" : "Compare"}</Link>
+        <Link href={historyDisplayHref(retakeHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{isZh ? "复测" : "Retake"}</Link>
       </section>
 
       {recommendedOffers.length > 0 ? (

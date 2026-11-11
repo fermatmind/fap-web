@@ -24,6 +24,8 @@ import {
   type EnneagramHistoryCompareSummary,
   type EnneagramHistoryRowSummary,
 } from "@/lib/enneagram/secondarySurfaceNormalizer";
+import { useHistoryDisplayText } from "../useHistoryDisplayText";
+import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 type Row = EnneagramHistoryRowSummary & {
@@ -77,18 +79,18 @@ function renderTopTypes(row: Row): string {
   return row.primaryType?.label ?? "";
 }
 
-function observationActionLabel(action: string | null, locale: "en" | "zh"): string {
+function observationActionLabel(action: string | null, displayLocale: "en" | "zh" | "zh-TW"): string {
   switch (action) {
     case "observe_7_days":
-      return locale === "zh" ? "继续观察" : "Continue observing";
+      return displayLocale === "zh-TW" ? "繼續觀察" : displayLocale === "zh" ? "继续观察" : "Continue observing";
     case "do_fc144":
-      return locale === "zh" ? "可补做 FC144 二选一迫选版" : "FC144 follow-up is available";
+      return displayLocale === "zh-TW" ? "可補做 FC144 二選一強迫選擇版" : displayLocale === "zh" ? "可补做 FC144 二选一迫选版" : "FC144 follow-up is available";
     case "retest_same_form":
-      return locale === "zh" ? "建议重测同一题型" : "Retake the same form";
+      return displayLocale === "zh-TW" ? "建議重測同一題型" : displayLocale === "zh" ? "建议重测同一题型" : "Retake the same form";
     case "read_top3":
-      return locale === "zh" ? "先阅读前三候选与方法边界" : "Read Top 3 and the method boundary first";
+      return displayLocale === "zh-TW" ? "先閱讀前三候選與方法邊界" : displayLocale === "zh" ? "先阅读前三候选与方法边界" : "Read Top 3 and the method boundary first";
     case "no_action":
-      return locale === "zh" ? "暂无下一步" : "No immediate next step";
+      return displayLocale === "zh-TW" ? "目前沒有下一步建議" : displayLocale === "zh" ? "暂无下一步" : "No immediate next step";
     default:
       return action ?? "";
   }
@@ -97,49 +99,51 @@ function observationActionLabel(action: string | null, locale: "en" | "zh"): str
 export default function EnneagramHistoryClient() {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const displayLocale = pathname.startsWith("/zh-TW/") ? "zh-TW" : locale;
+  const displayText = useHistoryDisplayText(displayLocale);
   const copy = {
-    title: locale === "zh" ? "九型人格历史记录" : "Enneagram History",
+    title: displayLocale === "zh-TW" ? "九型人格歷史紀錄" : locale === "zh" ? "九型人格历史记录" : "Enneagram History",
     scope:
-      locale === "zh"
+      displayLocale === "zh-TW" ? "檢視你已完成的九型人格結果，並繼續開啟報告或下載 PDF。" : locale === "zh"
         ? "查看你已完成的九型人格结果，并继续打开报告或下载 PDF。"
         : "Review completed Enneagram results, reopen reports, or download available PDFs.",
-    loading: locale === "zh" ? "正在加载历史记录..." : "Loading history...",
-    empty: locale === "zh" ? "还没有九型人格测试记录。" : "No Enneagram attempts found yet.",
-    attempt: locale === "zh" ? "测试记录" : "Attempt",
-    primaryType: locale === "zh" ? "主型" : "Primary type",
-    topTypes: locale === "zh" ? "排序类型" : "Ranked types",
-    unlockHeading: locale === "zh" ? "解锁完整模块" : "Unlock full modules",
+    loading: displayLocale === "zh-TW" ? "正在載入歷史紀錄…" : locale === "zh" ? "正在加载历史记录..." : "Loading history...",
+    empty: displayLocale === "zh-TW" ? "還沒有九型人格測評紀錄。" : locale === "zh" ? "还没有九型人格测试记录。" : "No Enneagram attempts found yet.",
+    attempt: displayLocale === "zh-TW" ? "測評紀錄" : locale === "zh" ? "测试记录" : "Attempt",
+    primaryType: displayLocale === "zh-TW" ? "主型" : locale === "zh" ? "主型" : "Primary type",
+    topTypes: displayLocale === "zh-TW" ? "排序類型" : locale === "zh" ? "排序类型" : "Ranked types",
+    unlockHeading: displayLocale === "zh-TW" ? "解鎖完整模組" : locale === "zh" ? "解锁完整模块" : "Unlock full modules",
     unlockBody:
-      locale === "zh"
+      displayLocale === "zh-TW" ? "這筆紀錄目前僅供預覽，仍可在正式結果頁解鎖完整模組。" : locale === "zh"
         ? "当前行仍处于预览访问，正式结果页的完整模块仍可解锁。"
         : "This row is still preview-only. The full formal-result modules remain unlockable.",
-    viewResult: locale === "zh" ? "打开正式结果页" : "Open formal result",
-    viewPreview: locale === "zh" ? "打开结果预览" : "Open result preview",
-    checkStatus: locale === "zh" ? "查看结果状态" : "Check result status",
-    unavailable: locale === "zh" ? "当前正式结果不可用" : "Formal result unavailable",
-    statusReady: locale === "zh" ? "正式结果已就绪" : "Formal result ready",
-    statusLocked: locale === "zh" ? "当前仍为预览访问" : "Preview access only",
-    statusProcessing: locale === "zh" ? "结果仍在处理中" : "Result still processing",
-    statusUnavailable: locale === "zh" ? "结果暂时不可用" : "Result unavailable",
-    interpretationScope: locale === "zh" ? "解释状态" : "Interpretation state",
-    closeCallPair: locale === "zh" ? "近邻竞争" : "Close call",
-    compareHeading: locale === "zh" ? "题型比较边界" : "Compare boundary",
-    compareAction: locale === "zh" ? "结果比较" : "Compare results",
+    viewResult: displayLocale === "zh-TW" ? "開啟正式結果頁" : locale === "zh" ? "打开正式结果页" : "Open formal result",
+    viewPreview: displayLocale === "zh-TW" ? "開啟結果預覽" : locale === "zh" ? "打开结果预览" : "Open result preview",
+    checkStatus: displayLocale === "zh-TW" ? "檢視結果狀態" : locale === "zh" ? "查看结果状态" : "Check result status",
+    unavailable: displayLocale === "zh-TW" ? "目前無法開啟正式結果" : locale === "zh" ? "当前正式结果不可用" : "Formal result unavailable",
+    statusReady: displayLocale === "zh-TW" ? "正式結果已就緒" : locale === "zh" ? "正式结果已就绪" : "Formal result ready",
+    statusLocked: displayLocale === "zh-TW" ? "目前僅供預覽" : locale === "zh" ? "当前仍为预览访问" : "Preview access only",
+    statusProcessing: displayLocale === "zh-TW" ? "結果仍在處理中" : locale === "zh" ? "结果仍在处理中" : "Result still processing",
+    statusUnavailable: displayLocale === "zh-TW" ? "結果暫時不可用" : locale === "zh" ? "结果暂时不可用" : "Result unavailable",
+    interpretationScope: displayLocale === "zh-TW" ? "解釋狀態" : locale === "zh" ? "解释状态" : "Interpretation state",
+    closeCallPair: displayLocale === "zh-TW" ? "近鄰競爭" : locale === "zh" ? "近邻竞争" : "Close call",
+    compareHeading: displayLocale === "zh-TW" ? "題型比較邊界" : locale === "zh" ? "题型比较边界" : "Compare boundary",
+    compareAction: displayLocale === "zh-TW" ? "結果比較" : locale === "zh" ? "结果比较" : "Compare results",
     compareAllowed:
-      locale === "zh"
+      displayLocale === "zh-TW" ? "已符合相同題型的比較條件。比較頁會在後續版本加入。" : locale === "zh"
         ? "同题型对比条件已满足。前端比较页会在后续 surface 中接入。"
         : "The same-form compare contract is ready. The compare surface will attach in the next UI step.",
     compareBlocked:
-      locale === "zh"
+      displayLocale === "zh-TW" ? "這兩次結果來自不同題型。它們都屬於 FermatMind 九型模型，但計分空間不同，因此不直接比較數值差異。你可以檢視兩次前三候選是否重疊，或回到結果頁閱讀方法邊界。" : locale === "zh"
         ? "这两次结果来自不同题型。它们都属于 FermatMind 九型模型，但计分空间不同，因此不直接比较数值差异。你可以查看两次前三候选是否重叠，或回到结果页阅读方法边界。"
         : "These two results come from different forms within the FermatMind Enneagram model, but they do not share the same score space. Review Top 3 overlap or return to the result page for the methodology boundary.",
-    observationStatus: locale === "zh" ? "观察状态" : "Observation status",
-    observationProgress: locale === "zh" ? "观察进度" : "Observation progress",
-    observationConfirmation: locale === "zh" ? "自我观察确认" : "Self-observation confirmation",
-    observationNextAction: locale === "zh" ? "下一步建议" : "Suggested next action",
-    observationDay7: locale === "zh" ? "Day7 已提交" : "Day 7 submitted",
-    previous: locale === "zh" ? "上一页" : "Previous page",
-    next: locale === "zh" ? "下一页" : "Next page",
+    observationStatus: displayLocale === "zh-TW" ? "觀察狀態" : locale === "zh" ? "观察状态" : "Observation status",
+    observationProgress: displayLocale === "zh-TW" ? "觀察進度" : locale === "zh" ? "观察进度" : "Observation progress",
+    observationConfirmation: displayLocale === "zh-TW" ? "自我觀察確認" : locale === "zh" ? "自我观察确认" : "Self-observation confirmation",
+    observationNextAction: displayLocale === "zh-TW" ? "下一步建議" : locale === "zh" ? "下一步建议" : "Suggested next action",
+    observationDay7: displayLocale === "zh-TW" ? "Day7 已提交" : locale === "zh" ? "Day7 已提交" : "Day 7 submitted",
+    previous: displayLocale === "zh-TW" ? "上一頁" : locale === "zh" ? "上一页" : "Previous page",
+    next: displayLocale === "zh-TW" ? "下一頁" : locale === "zh" ? "下一页" : "Next page",
   };
 
   const [rows, setRows] = useState<Row[]>([]);
@@ -175,7 +179,7 @@ export default function EnneagramHistoryClient() {
       } catch (cause) {
         if (!active) return;
         setCompareSummary(null);
-        setError(cause instanceof Error ? cause.message : "Failed to load history.");
+        setError(displayLocale === "zh-TW" ? "暫時無法載入測評紀錄。" : cause instanceof Error ? cause.message : "Failed to load history.");
       } finally {
         if (active) {
           setLoading(false);
@@ -188,7 +192,7 @@ export default function EnneagramHistoryClient() {
     return () => {
       active = false;
     };
-  }, [locale, page]);
+  }, [locale, displayLocale, page]);
 
   return (
     <div className="space-y-4">
@@ -282,17 +286,17 @@ export default function EnneagramHistoryClient() {
                         data-testid={`enneagram-history-row-form-${row.attemptId}`}
                         className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700"
                       >
-                        {row.formSummaryLabel}
+                        {displayText(row.formSummaryLabel)}
                       </span>
                     ) : null}
                     {row.qualityLevel ? (
                       <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
-                        {locale === "zh" ? "质量" : "Quality"} · {row.qualityLevel.toUpperCase()}
+                        {displayLocale === "zh-TW" ? "品質" : locale === "zh" ? "质量" : "Quality"} · {row.qualityLevel.toUpperCase()}
                       </span>
                     ) : null}
                     {row.confidenceLabel ? (
                       <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
-                        {locale === "zh" ? "置信" : "Confidence"} · {row.confidenceLabel}
+                        {displayLocale === "zh-TW" ? "信心程度" : locale === "zh" ? "置信" : "Confidence"} · {displayText(row.confidenceLabel)}
                       </span>
                     ) : null}
                     {row.interpretationScope ? (
@@ -360,7 +364,7 @@ export default function EnneagramHistoryClient() {
                         className="m-0 text-sm text-slate-700"
                       >
                         {copy.observationNextAction} ·{" "}
-                        {observationActionLabel(row.observationSummary.suggestedNextAction, locale)}
+                        {observationActionLabel(row.observationSummary.suggestedNextAction, displayLocale)}
                       </p>
                     ) : null}
                     {row.observationSummary.day7Submitted ? (
@@ -379,7 +383,7 @@ export default function EnneagramHistoryClient() {
                   <div className="flex flex-wrap items-center gap-2">
                     {!reportUnavailable ? (
                       <Link
-                        href={resultHref}
+                        href={historyDisplayHref(resultHref, displayLocale)}
                         className={buttonVariants({ variant: "ghost", size: "sm", className: "text-sky-700 hover:text-sky-800" })}
                       >
                         {resultLabel}
@@ -396,8 +400,8 @@ export default function EnneagramHistoryClient() {
                           locale={locale}
                           filenamePrefix="enneagram-report"
                           safetyDisabled
-                          safetyDisabledLabel={locale === "zh" ? "PDF 暂不可用" : "PDF unavailable"}
-                          downloadLabel={row.formSummaryLabel}
+                          safetyDisabledLabel={displayLocale === "zh-TW" ? "PDF 暫不可用" : locale === "zh" ? "PDF 暂不可用" : "PDF unavailable"}
+                          downloadLabel={row.formSummaryLabel ? displayText(row.formSummaryLabel) : row.formSummaryLabel}
                         />
                       </div>
                     ) : null}

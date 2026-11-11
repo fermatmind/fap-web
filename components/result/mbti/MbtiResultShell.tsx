@@ -1,5 +1,6 @@
 "use client";
 
+import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import { coreShareUrlForDisplay } from "@/lib/i18n/coreShareDisplay";
 
 import Link from "next/link";
@@ -657,7 +658,7 @@ export function MbtiResultShell({
   const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
   const mbtiFormSummary = normalizeMbtiFormSummary(reportData.mbti_form_v1 ?? null);
-  const historyHref = accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
+  const historyHref = historyDisplayHref(accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale), displayLocale);
   const orderLookupHref = accessProjection?.actions.lookupHref ?? accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
   const orderDetailHref = accessHub?.links.orderHref ?? "";
   const relationshipHubHref = accessHub?.recovery.compareInviteId
