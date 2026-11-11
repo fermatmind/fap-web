@@ -47,6 +47,15 @@ export default function TraditionalLayout({ children }: { children: React.ReactN
         <Link href="/zh-TW/help/team" className="inline-flex min-h-11 items-center py-2 underline">團隊介紹</Link>
         <Link href="/zh-TW/help/used-and-mentioned" className="inline-flex min-h-11 items-center py-2 underline">使用和提及</Link>
         <Link href="/zh-TW/help/for-business-and-research" className="inline-flex min-h-11 items-center py-2 underline">企業與研究</Link>
+        <Link href="/zh-TW/common-misconceptions" className="inline-flex min-h-11 items-center py-2 underline">常見迷思</Link>
+        <Link href="/zh-TW/data-privacy" className="inline-flex min-h-11 items-center py-2 underline">資料說明</Link>
+        <Link href="/zh-TW/help/data-deletion" className="inline-flex min-h-11 items-center py-2 underline">刪除資料與註銷帳號</Link>
+        <Link href="/zh-TW/help/payment-refund" className="inline-flex min-h-11 items-center py-2 underline">付款與退款</Link>
+        <Link href="/zh-TW/help/privacy-data" className="inline-flex min-h-11 items-center py-2 underline">測試資料與隱私</Link>
+        <Link href="/zh-TW/help/result-recovery" className="inline-flex min-h-11 items-center py-2 underline">找回測試結果</Link>
+        <Link href="/zh-TW/help/unlock-failure" className="inline-flex min-h-11 items-center py-2 underline">付款後未解鎖報告</Link>
+        <Link href="/zh-TW/item-design-notes" className="inline-flex min-h-11 items-center py-2 underline">題目設計說明</Link>
+        <Link href="/zh-TW/reliability-validity" className="inline-flex min-h-11 items-center py-2 underline">信度與效度</Link>
       </nav>
       <nav aria-label="其他語言內容" className="flex flex-wrap gap-5"><Link href="/" lang="zh-CN" className="min-h-11 py-2 underline">简体中文全站</Link><Link href="/en" lang="en" className="min-h-11 py-2 underline">English website</Link></nav>
     </footer>

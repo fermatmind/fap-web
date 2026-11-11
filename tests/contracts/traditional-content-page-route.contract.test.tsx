@@ -112,19 +112,19 @@ describe("shared Traditional CMS page route", () => {
     }
     expect(read).toHaveBeenCalledWith("help-contact", "zh-TW");
   });
-  it("exposes all sixteen published CMS pages in the actual Traditional footer", () => {
+  it("exposes all twenty-five published CMS pages in the actual Traditional footer", () => {
     const html = renderToStaticMarkup(<TraditionalLayout><p>內容</p></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"]) {
       expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
     expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
-    for (const path of ["/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research"]) {
+    for (const path of ["/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research", "/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"]) {
       expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW${path}"]`)).not.toBeNull();
     }
     expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/support"]')?.textContent).toBe("支援中心");
-    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(17);
-    for (const slug of ["pricing", "help/payment-refund"]) {
+    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(26);
+    for (const slug of ["pricing", "personality/big-five/methodology"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
     }
     expect(document.querySelectorAll("main")).toHaveLength(1);

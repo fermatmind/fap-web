@@ -39,8 +39,8 @@ it("renders Taiwan pricing disclosures without changing prices or creating a pur
   }
   expect(html).toContain('href="/zh-TW/terms"');
   expect(html).toContain('href="/zh-TW/tests/mbti-personality-test-16-personality-types"');
-  expect(html).toContain('href="/zh/help/payment-refund"');
-  expect(html).toContain("（簡體中文）");
+  expect(html).toContain('href="/zh-TW/help/payment-refund"');
+  expect(html).not.toContain("（簡體中文）");
   expect(html).not.toMatch(/href="[^"]*(?:checkout|pay\/|purchase)/i);
   expect(metadata).toMatchObject({ robots: { index: false }, alternates: { canonical: "/zh-TW/pricing" } });
   expect(traditionalEquivalent("/zh-TW/pricing")).toBeNull();

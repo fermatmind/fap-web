@@ -54,14 +54,14 @@ describe("CMS Traditional locale reader", () => {
     expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain(path);
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
   });
-  it.each(["/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"])("prepares %s for native FAQ publication while withholding discovery and language links", async path => {
+  it.each(["/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"])("opens %s for language switching while withholding search discovery", async path => {
     const { traditionalPath, traditionalEquivalent, TRADITIONAL_CMS_PUBLISHED_PATHS, TRADITIONAL_PUBLIC_PATHS } = await import("@/lib/i18n/traditionalRoutes");
     expect(traditionalPath(`/zh-TW${path}`)).toBe(`/zh-TW${path}`);
-    expect(traditionalPath(`/zh${path}`)).toBeNull();
-    expect(traditionalPath(`/en${path}`)).toBeNull();
+    expect(traditionalPath(`/zh${path}`)).toBe(`/zh-TW${path}`);
+    expect(traditionalPath(`/en${path}`)).toBe(`/zh-TW${path}`);
     expect(traditionalPath(`/zh-TW${path}/private`)).toBeNull();
     expect(traditionalEquivalent(`/zh-TW${path}`)).toBeNull();
-    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).not.toContain(path);
+    expect(TRADITIONAL_CMS_PUBLISHED_PATHS).toContain(path);
     expect(TRADITIONAL_PUBLIC_PATHS).not.toContain(path);
   });
   it("switches the four entrance pages in place while keeping their noindex routes out of discovery", async () => {

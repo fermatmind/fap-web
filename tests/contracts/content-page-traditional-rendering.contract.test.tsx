@@ -46,7 +46,7 @@ describe("Traditional CMS About complete rendering", () => {
     }} locale="zh-TW" />);
     const document = new DOMParser().parseFromString(html, "text/html");
     for (const [href, text] of [
-      ["/zh-TW/science", "測評科學"], ["/zh-TW/method-boundaries", "方法邊界"], ["/zh/item-design-notes", "題目設計說明"], ["/zh/reliability-validity", "信度與效度"],
+      ["/zh-TW/science", "測評科學"], ["/zh-TW/method-boundaries", "方法邊界"], ["/zh-TW/item-design-notes", "題目設計說明"], ["/zh-TW/reliability-validity", "信度與效度"],
       ["/zh/tests/mbti-personality-test-16-personality-types", "MBTI免費測試"],
       ["/zh/tests/big-five-personality-test-ocean-model", "大五人格免費測試"], ["/zh/tests/holland-career-interest-test-riasec", "霍蘭德職業興趣免費測試"],
     ]) {
