@@ -83,6 +83,13 @@ describe("Original intimacy priorities: importance without a type or partner ass
       expect(dom.textContent).not.toMatch(/battery|电量|剩余能量/); expect(dom.querySelector("[data-intimacy-values-next-steps] a")?.getAttribute("href")).toBe(`/${locale}/tests/play/relationship-values`);
     }
   });
+  it("links the Taiwan Chinese result to the canonical Taiwan Chinese role test", () => {
+    const dom = document.createElement("div");
+    dom.innerHTML = renderToStaticMarkup(<IntimacyValuesNextSteps locale="zh" displayLocale="zh-TW" />);
+    const link = dom.querySelector("[data-intimacy-values-next-steps] a");
+    expect(link?.getAttribute("href")).toBe("/zh-TW/tests/play/relationship-values");
+    expect(link?.getAttribute("lang")).toBeNull();
+  });
   it("suppresses ordinary analytics on entries and public guides without changing their indexability", async () => {
     const paths = ["en", "zh"].flatMap(l => [`/${l}/tests/explore/${quiz.slug}`, ...quiz.profiles.map(p => `/${l}/tests/explore/${quiz.slug}/results/${p.id}`)]);
     expect(entertainmentActivityCatalog.find(x => x.slug === quiz.slug)?.privacy).toBe("explicit_opt_in");
