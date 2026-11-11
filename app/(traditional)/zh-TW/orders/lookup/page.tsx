@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function TraditionalOrderLookupPage() {
   return <section className="mx-auto max-w-2xl space-y-4">
     <h1 className="m-0 text-2xl font-bold text-slate-900">查詢訂單</h1>
-    <p className="text-sm text-slate-600">輸入訂單編號與購買時的電子郵件地址繼續查詢。付款頁、報告與下載內容會沿用原有語言。</p>
+    <p className="text-sm text-slate-600">輸入訂單編號與購買時的電子郵件地址繼續查詢。付款服務商頁面與部分報告或下載內容可能顯示原語。</p>
     <Suspense fallback={<div aria-hidden="true" className="min-h-64" />}>
       <OrderLookupForm locale="zh" displayLocale="zh-TW" dict={getDictSync("zh-TW")} />
     </Suspense>

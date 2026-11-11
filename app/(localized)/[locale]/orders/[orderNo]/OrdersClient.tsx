@@ -71,14 +71,16 @@ function hasLocalePrefix(path: string): boolean {
 }
 
 function normalizeLocalizedPath(pathname: string): string {
-  return pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
+  return pathname.replace(/^\/(en|zh|zh-TW)(?=\/|$)/, "") || "/";
 }
 
-function localizeCommerceHref(path: string | null, localePath: (path: string) => string): string | null {
+function localizeCommerceHref(path: string | null, localePath: (path: string) => string, isTraditional: boolean): string | null {
   if (!path) {
     return null;
   }
 
+  const unprefixed = normalizeLocalizedPath(path);
+  if (isTraditional && /^\/result\/[A-Za-z0-9_-]{1,128}(?=[?#]|$)/u.test(unprefixed)) return localePath(unprefixed);
   return hasLocalePrefix(path) ? path : localePath(path);
 }
 
@@ -148,13 +150,19 @@ export default function OrdersClient({
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
-  const dict = getDictSync(locale);
-  const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
-  const initializingMessage = locale === "zh" ? "正在加载订单状态..." : "Loading order status...";
+  const isTraditional = pathname.startsWith("/zh-TW/");
+  const dict = getDictSync(isTraditional ? "zh-TW" : locale);
+  const withLocale = useCallback((path: string) => {
+    if (isTraditional && /^\/(?:pay\/wait|orders\/lookup|support|result\/[A-Za-z0-9_-]{1,128})(?=[?#]|$)/u.test(path)) {
+      return `/zh-TW${path}`;
+    }
+    return localizedPath(path, locale);
+  }, [isTraditional, locale]);
+  const initializingMessage = isTraditional ? "正在載入訂單狀態…" : locale === "zh" ? "正在加载订单状态..." : "Loading order status...";
   const identityMismatchTitle =
-    locale === "zh" ? "当前登录身份与订单所有者不匹配。" : "This order belongs to a different signed-in identity.";
+    isTraditional ? "目前登入的帳號與訂單持有人不符。" : locale === "zh" ? "当前登录身份与订单所有者不匹配。" : "This order belongs to a different signed-in identity.";
   const identityMismatchHint =
-    locale === "zh"
+    isTraditional ? "請使用原購買帳號登入。若當時未登入，請透過訂單查詢繼續付款流程。" : locale === "zh"
       ? "请使用原购买账号登录，或在匿名购买场景下通过订单查询恢复支付流程。"
       : "Sign in with the account used for purchase, or use order lookup if you checked out as a guest.";
   const queryPayType = useMemo(() => normalizePayType(searchParams.get("pay_type")), [searchParams]);
@@ -371,11 +379,11 @@ export default function OrdersClient({
     let active = true;
 
     const timeoutMessage =
-      locale === "zh"
+      isTraditional ? "訂單確認逾時，請重新整理或聯絡客服。" : locale === "zh"
         ? "订单确认超时，请刷新或联系客服。"
         : "Payment confirmation timed out. Please refresh or contact support.";
     const requestFailedMessage =
-      locale === "zh" ? "订单状态查询失败，请稍后再试。" : "Unable to check order status. Please try again.";
+      isTraditional ? "無法查詢訂單狀態，請稍後再試。" : locale === "zh" ? "订单状态查询失败，请稍后再试。" : "Unable to check order status. Please try again.";
 
     const clearPollTimer = () => {
       if (!pollTimerRef.current) return;
@@ -547,7 +555,7 @@ export default function OrdersClient({
             stopPolling();
             if (!didAutoRedirectRef.current) {
               didAutoRedirectRef.current = true;
-              router.replace(localizeCommerceHref(exactResultHref, withLocale) ?? withLocale("/orders/lookup"));
+              router.replace(localizeCommerceHref(exactResultHref, withLocale, isTraditional) ?? withLocale("/orders/lookup"));
             }
             return;
           }
@@ -659,6 +667,7 @@ export default function OrdersClient({
     effectivePaymentRecoveryToken,
     identityMismatchTitle,
     initializingMessage,
+    isTraditional,
     locale,
     orderNo,
     queryPayProvider,
@@ -708,7 +717,7 @@ export default function OrdersClient({
       const response = await resendOrderDelivery({ orderNo });
       setDeliveryFeedback({
         tone: "success",
-        message: response.message ?? (locale === "zh" ? "交付邮件已重新发送。" : "Delivery email sent again."),
+        message: response.message ?? (isTraditional ? "報告寄送郵件已重新寄出。" : locale === "zh" ? "交付邮件已重新发送。" : "Delivery email sent again."),
       });
     } catch (cause) {
       setDeliveryFeedback({
@@ -716,7 +725,7 @@ export default function OrdersClient({
         message:
           cause instanceof Error && cause.message
             ? cause.message
-            : locale === "zh"
+            : isTraditional ? "無法重新寄送報告郵件，請稍後再試。" : locale === "zh"
               ? "重发交付邮件失败，请稍后再试。"
               : "Failed to resend the delivery email. Please try again.",
       });
@@ -728,7 +737,7 @@ export default function OrdersClient({
     } finally {
       setIsResendingDelivery(false);
     }
-  }, [formSummaryRaw, isResendingDelivery, locale, orderNo]);
+  }, [formSummaryRaw, isResendingDelivery, isTraditional, locale, orderNo]);
 
   const icon = useMemo(() => {
     if (status === "paid") return <CheckCircle2 className="h-6 w-6 text-emerald-600" />;
@@ -784,10 +793,10 @@ export default function OrdersClient({
   }, [accessHub?.recovery.claimHref, delivery?.can_request_claim_email, orderNo, withLocale]);
   const canViewReport = canEnterReportPage(accessView);
   const resolvedReportHref = normalizeCommerceReportPath(accessView?.actions.pageHref ?? null);
-  const reportEntryHref = canViewReport ? localizeCommerceHref(resolvedReportHref, withLocale) : null;
+  const reportEntryHref = canViewReport ? localizeCommerceHref(resolvedReportHref, withLocale, isTraditional) : null;
   const backToResultHref = useMemo(() => {
     const safeOrderBoundResultHref = normalizeCommerceReportPath(orderBoundResultHref);
-    const localizedOrderBoundResultHref = localizeCommerceHref(safeOrderBoundResultHref, withLocale);
+    const localizedOrderBoundResultHref = localizeCommerceHref(safeOrderBoundResultHref, withLocale, isTraditional);
     if (localizedOrderBoundResultHref) {
       return localizedOrderBoundResultHref;
     }
@@ -797,7 +806,7 @@ export default function OrdersClient({
     }
 
     return null;
-  }, [orderBoundAttemptId, orderBoundResultHref, withLocale]);
+  }, [isTraditional, orderBoundAttemptId, orderBoundResultHref, withLocale]);
   const canDownloadPdf = canDownloadReportPdf(accessView);
   const resolvedPdfHref = accessView?.actions.pdfHref ?? null;
   const canResendDelivery = accessHub?.recovery.canResend ?? (delivery?.can_resend === true);
@@ -958,17 +967,17 @@ export default function OrdersClient({
                   {typeof delivery?.contact_email_present === "boolean" ? (
                     <p className="m-0" data-testid="order-delivery-contact-email">
                       {delivery.contact_email_present
-                        ? locale === "zh"
+                        ? isTraditional ? "已記錄購買時使用的電子郵件" : locale === "zh"
                           ? "已记录购买邮箱"
                           : "Purchase email on file"
-                        : locale === "zh"
+                        : isTraditional ? "尚未記錄購買時使用的電子郵件" : locale === "zh"
                           ? "尚未记录购买邮箱"
                           : "No purchase email on file"}
                     </p>
                   ) : null}
                   {deliveryLastSentAt ? (
                     <p className="m-0" data-testid="order-delivery-last-email-sent">
-                      {locale === "zh" ? "最近发送时间" : "Last delivery email"}: {deliveryLastSentAt}
+                      {isTraditional ? "最近寄送時間" : locale === "zh" ? "最近发送时间" : "Last delivery email"}: {deliveryLastSentAt}
                     </p>
                   ) : null}
                 </div>
@@ -979,7 +988,7 @@ export default function OrdersClient({
                     {reportEntryHref ? (
                       <Link href={reportEntryHref} className="inline-flex w-full" data-testid="order-workspace-lite-entry">
                         <Button className="w-full" type="button">
-                          {locale === "zh" ? "我的 MBTI 报告" : "My MBTI report"}
+                          {isTraditional ? "我的 MBTI 報告" : locale === "zh" ? "我的 MBTI 报告" : "My MBTI report"}
                         </Button>
                       </Link>
                     ) : null}
@@ -987,9 +996,9 @@ export default function OrdersClient({
                       <AttemptPdfDownloadButton
                         attemptId={accessView?.attemptId ?? attemptId}
                         locale={locale}
-                        label={locale === "zh" ? "下载 PDF" : "Download PDF"}
-                        loadingLabel={locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
-                        errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
+                        label={isTraditional ? "下載 PDF" : locale === "zh" ? "下载 PDF" : "Download PDF"}
+                        loadingLabel={isTraditional ? "正在下載 PDF…" : locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
+                        errorMessage={isTraditional ? "無法下載 PDF，請稍後再試。" : locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
                         filenamePrefix="report"
                         pdfVariant="order_delivery_hub"
                         accessProjection={accessView}
@@ -1010,10 +1019,10 @@ export default function OrdersClient({
                         data-testid="order-resend-delivery"
                       >
                         {isResendingDelivery
-                          ? locale === "zh"
+                          ? isTraditional ? "正在重新寄送…" : locale === "zh"
                             ? "正在重发..."
                             : "Resending..."
-                          : locale === "zh"
+                          : isTraditional ? "重新寄送報告郵件" : locale === "zh"
                             ? "重发交付邮件"
                             : "Resend delivery email"}
                       </Button>
@@ -1021,7 +1030,7 @@ export default function OrdersClient({
                     {canRequestClaimEmail && claimRecoveryHref ? (
                       <Link href={claimRecoveryHref} className="inline-flex w-full" data-testid="order-recover-with-email-link">
                         <Button className="w-full" type="button" variant="outline">
-                          {locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
+                          {isTraditional ? "使用購買時的電子郵件找回報告" : locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
                         </Button>
                       </Link>
                     ) : null}
@@ -1067,7 +1076,7 @@ export default function OrdersClient({
                     {canRequestClaimEmail && claimRecoveryHref ? (
                       <Link href={claimRecoveryHref} className="inline-flex" data-testid="order-recover-with-email-link">
                         <Button type="button" variant="outline">
-                          {locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
+                          {isTraditional ? "使用購買時的電子郵件找回報告" : locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
                         </Button>
                       </Link>
                     ) : null}

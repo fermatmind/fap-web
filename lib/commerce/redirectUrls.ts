@@ -195,7 +195,7 @@ export function normalizeCommerceWaitPath(value: unknown): string | null {
   }
 
   const parsed = parseUrl(normalizedPath);
-  if (!parsed || stripLocalePrefix(parsed.pathname) !== "/pay/wait") {
+  if (!parsed || (stripLocalePrefix(parsed.pathname) !== "/pay/wait" && parsed.pathname !== "/zh-TW/pay/wait")) {
     return null;
   }
 

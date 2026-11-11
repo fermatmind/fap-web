@@ -891,7 +891,7 @@ describe("MBTI checkout wiring contract", () => {
     );
   });
 
-  it("keeps checkout on wait flow even when the response only contains a legacy order number", async () => {
+  it.each(["zh", "zh-TW"] as const)("uses the %s wait page for a legacy order response", async (displayLocale) => {
     const reportData = createReportFixture();
     const onInternalNavigate = vi.fn();
 
@@ -902,20 +902,21 @@ describe("MBTI checkout wiring contract", () => {
       status: "pending",
     });
 
-    render(<MbtiResultShell {...createShellProps(reportData)} onInternalNavigate={onInternalNavigate} />);
+    render(<MbtiResultShell {...createShellProps(reportData)} displayLocale={displayLocale} onInternalNavigate={onInternalNavigate} />);
 
     fireEvent.click(getPrimaryByTestId("mbti-offers-primary-cta"));
 
     await waitFor(() => {
       expect(onInternalNavigate).toHaveBeenCalledWith(
-        "/zh/pay/wait?order_no=ord_legacy_1&payment_recovery_token=recovery_legacy_1"
+        `/${displayLocale}/pay/wait?order_no=ord_legacy_1&payment_recovery_token=recovery_legacy_1`
       );
     });
+    expect(hoisted.createCheckoutOrOrder).toHaveBeenCalledWith(expect.objectContaining({ region: "CN_MAINLAND" }));
     expect(readPendingOrder()).toMatchObject({
       orderNo: "ord_legacy_1",
       attemptId: "attempt-123",
       sku: "MBTI_REPORT_FULL_199",
-      waitUrl: "/zh/pay/wait?order_no=ord_legacy_1&payment_recovery_token=recovery_legacy_1",
+      waitUrl: `/${displayLocale}/pay/wait?order_no=ord_legacy_1&payment_recovery_token=recovery_legacy_1`,
       paymentRecoveryToken: "recovery_legacy_1",
     });
   });
@@ -994,6 +995,21 @@ describe("MBTI checkout wiring contract", () => {
     await waitFor(() => {
       expect(hoisted.routerReplace).toHaveBeenCalledWith(
         "/en/pay/wait?order_no=ord_return_wait_url_1&payment_recovery_token=recovery_return_wait_url_1"
+      );
+    });
+  });
+
+  it("keeps Taiwan provider returns in the Taiwan wait flow", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="zh-TW"
+        waitUrl="/zh/pay/wait?order_no=ord_return_tw&payment_recovery_token=recovery_return_tw"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/zh-TW/pay/wait?order_no=ord_return_tw&payment_recovery_token=recovery_return_tw"
       );
     });
   });

@@ -287,13 +287,18 @@ export function OrderLookupForm({
     [lookupHit?.payment_recovery_token]
   );
   const lookupWaitFlowHref = useMemo(
-    () => (lookupHit ? resolveLookupWaitFlowHref(lookupHit, locale) : null),
-    [locale, lookupHit]
+    () => {
+      const href = lookupHit ? resolveLookupWaitFlowHref(lookupHit, locale) : null;
+      return taiwan && href ? href.replace(/^\/(?:zh|en)\/pay\/wait(?=\?|$)/u, "/zh-TW/pay/wait") : href;
+    },
+    [locale, lookupHit, taiwan]
   );
   const lookupOrderHref = useMemo(() => {
     const resolvedOrderNo = normalizeQueryValue(typeof lookupHit?.order_no === "string" ? lookupHit.order_no : null);
-    return resolvedOrderNo ? localizedPath(`/orders/${resolvedOrderNo}`, locale) : null;
-  }, [locale, lookupHit?.order_no]);
+    if (!resolvedOrderNo) return null;
+    if (taiwan && /^[A-Za-z0-9_-]{1,128}$/u.test(resolvedOrderNo)) return `/zh-TW/orders/${resolvedOrderNo}`;
+    return localizedPath(`/orders/${resolvedOrderNo}`, locale);
+  }, [locale, lookupHit?.order_no, taiwan]);
   const lookupDelivery = lookupHit?.delivery ?? null;
   const lookupFormSummary = useMemo(
     () =>
@@ -734,7 +739,7 @@ export function OrderLookupForm({
                         onClick={handleOpenLookupPaymentPage}
                         data-testid="order-lookup-hit-open-payment"
                       >
-                        {dict.orders.openPaymentPage}{taiwan ? "（原語）" : ""}
+                        {taiwan && lookupWaitFlowHref ? "前往付款確認" : dict.orders.openPaymentPage}
                       </Button>
                     </div>
                   ) : null}

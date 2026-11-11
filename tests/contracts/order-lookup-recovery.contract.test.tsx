@@ -697,10 +697,18 @@ describe("OrderLookupForm recovery contract", () => {
     expect(response.headers.get("X-Robots-Tag")).toContain("noindex");
     expect(response.headers.get("Referrer-Policy")).toBe("no-referrer");
     expect(response.headers.get("set-cookie")).toMatch(/fap_anonymous_id_v1=/);
-    expect((await proxy(new NextRequest("https://fermatmind.com/zh-TW/orders/synthetic"))).status).toBe(404);
+    for (const path of ["/zh-TW/orders/synthetic", "/zh-TW/pay/wait", "/zh-TW/pay/return/alipay"]) {
+      const transactionResponse = await proxy(new NextRequest("https://fermatmind.com" + path));
+      expect(transactionResponse.status).toBe(200);
+      expect(transactionResponse.headers.get("Cache-Control")).toContain("no-store");
+      expect(transactionResponse.headers.get("X-Robots-Tag")).toContain("noindex");
+      expect(transactionResponse.headers.get("Referrer-Policy")).toBe("no-referrer");
+      expect(traditionalEquivalent(path)).toBeNull();
+    }
+    expect((await proxy(new NextRequest("https://fermatmind.com/zh-TW/orders/invalid.value"))).status).toBe(404);
   });
 
-  it("keeps the existing checkout handoff and checkout locale after a Taiwan lookup", async () => {
+  it("opens Taiwan payment confirmation with the existing lookup locale", async () => {
     hoisted.pathname = "/zh-TW/orders/lookup";
     hoisted.lookupOrder.mockResolvedValueOnce({
       ok: true, order_no: "ord_tw_1", status: "pending", provider: "alipay",
@@ -712,13 +720,13 @@ describe("OrderLookupForm recovery contract", () => {
     await fillLookupForm({ orderNo: "ord_tw_1", email: "buyer@example.test" });
     fireEvent.click(screen.getByTestId("order-lookup-submit"));
     const payment = await screen.findByTestId("order-lookup-hit-open-payment");
-    expect(payment).toHaveTextContent("原語");
+    expect(payment).toHaveTextContent("前往付款確認");
     expect(hoisted.lookupOrder).toHaveBeenCalledWith({ orderNo: "ord_tw_1", email: "buyer@example.test", locale: "zh" });
     expect(hoisted.captureEmailContact).toHaveBeenCalledWith(expect.objectContaining({ locale: "zh", marketing_consent: false }));
     fireEvent.click(payment);
     const [href] = hoisted.routerPush.mock.calls.at(-1) ?? [];
     const target = new URL(String(href), "https://example.test");
-    expect(target.pathname).toBe("/zh/pay/wait");
+    expect(target.pathname).toBe("/zh-TW/pay/wait");
     expect(target.searchParams.get("provider")).toBe("alipay");
     expect(target.searchParams.get("order_no")).toBe("ord_tw_1");
     expect(readPendingOrder()).toMatchObject({ orderNo: "ord_tw_1", paymentRecoveryToken: "synthetic-recovery" });

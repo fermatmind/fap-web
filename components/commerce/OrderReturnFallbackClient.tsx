@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { normalizeCommerceWaitPath } from "@/lib/commerce/redirectUrls";
 import { clearPendingOrder, readPendingOrder, type PendingOrderContext } from "@/lib/commerce/pendingOrder";
-import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, stripLocalePrefix, type DisplayLocale } from "@/lib/i18n/locales";
 import { recoverAlipayReturnContext } from "@/lib/api/v0_3";
 
 function normalizeText(value: string | null | undefined): string | null {
@@ -16,16 +16,20 @@ function normalizeText(value: string | null | undefined): string | null {
   return normalized.length > 0 ? normalized : null;
 }
 
-function buildWaitHref(locale: Locale, orderNo: string, paymentRecoveryToken: string | null): string {
+function returnFlowPath(path: string, locale: DisplayLocale): string {
+  return locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, locale);
+}
+
+function buildWaitHref(locale: DisplayLocale, orderNo: string, paymentRecoveryToken: string | null): string {
   const query = new URLSearchParams({ order_no: orderNo });
   if (paymentRecoveryToken) {
     query.set("payment_recovery_token", paymentRecoveryToken);
   }
 
-  return localizedPath(`/pay/wait?${query.toString()}`, locale);
+  return returnFlowPath(`/pay/wait?${query.toString()}`, locale);
 }
 
-function normalizeWaitHref(locale: Locale, value: string | null | undefined): string | null {
+function normalizeWaitHref(locale: DisplayLocale, value: string | null | undefined): string | null {
   const normalized = normalizeCommerceWaitPath(value);
   if (!normalized) {
     return null;
@@ -33,7 +37,7 @@ function normalizeWaitHref(locale: Locale, value: string | null | undefined): st
 
   const parsed = new URL(normalized, "https://example.test");
   const normalizedPath = stripLocalePrefix(parsed.pathname);
-  return localizedPath(`${normalizedPath}${parsed.search}`, locale);
+  return returnFlowPath(`${normalizedPath}${parsed.search}`, locale);
 }
 
 export function OrderReturnFallbackClient({
@@ -44,7 +48,7 @@ export function OrderReturnFallbackClient({
   waitUrl,
   returnParams,
 }: {
-  locale: Locale;
+  locale: DisplayLocale;
   orderNo?: string | null;
   outTradeNo?: string | null;
   paymentRecoveryToken?: string | null;
@@ -136,7 +140,7 @@ export function OrderReturnFallbackClient({
         return;
       }
 
-      router.replace(localizedPath("/orders/lookup", locale));
+      router.replace(returnFlowPath("/orders/lookup", locale));
     };
 
     void redirect();

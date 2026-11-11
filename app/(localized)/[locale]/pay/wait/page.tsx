@@ -46,7 +46,7 @@ export default async function PayWaitPage({
     firstValue(query.payment_recovery_token) || firstValue(query.paymentRecoveryToken) || null;
 
   if (!orderNo) {
-    redirect(localizedPath("/orders/lookup", locale));
+    redirect(localeParam === "zh-TW" ? "/zh-TW/orders/lookup" : localizedPath("/orders/lookup", locale));
   }
 
   return <OrdersClient orderNo={orderNo} paymentRecoveryToken={paymentRecoveryToken} />;

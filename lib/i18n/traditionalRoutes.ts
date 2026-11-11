@@ -45,6 +45,7 @@ export function traditionalPath(pathname: string): string | null {
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
+  if (prefix === "zh-TW" && (path === "/pay/wait" || path === "/pay/return/alipay" || /^\/orders\/[A-Za-z0-9_-]{1,128}$/u.test(path))) return `/zh-TW${path}`;
   if (path === "/support") return "/zh-TW/support";
   if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";

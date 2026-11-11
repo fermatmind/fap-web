@@ -371,14 +371,15 @@ function resolveLocalizedWaitFlowPath(
   action:
     | Extract<ReturnType<typeof resolveCheckoutAction>, { kind: "redirect" }>
     | Extract<ReturnType<typeof resolveCheckoutAction>, { kind: "order_wait" }>,
-  locale: Locale
+  locale: DisplayLocale
 ): string | null {
+  const waitPath = (path: string) => locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, locale);
   if (action.kind === "order_wait") {
-    return localizedPath(buildOrderWaitPath(action), locale);
+    return waitPath(buildOrderWaitPath(action));
   }
 
   if (action.waitUrl) {
-    return localizedPath(action.waitUrl, locale);
+    return waitPath(action.waitUrl);
   }
 
   const orderNo = normalizeText(action.orderNo);
@@ -394,7 +395,7 @@ function resolveLocalizedWaitFlowPath(
     params.set("payment_recovery_token", action.paymentRecoveryToken);
   }
 
-  return localizedPath(`/pay/wait?${params.toString()}`, locale);
+  return waitPath(`/pay/wait?${params.toString()}`);
 }
 
 function resolveOfferPayloads(reportData: ReportResponse): OfferPayload[] {
@@ -1442,7 +1443,7 @@ export function MbtiResultShell({
             : "");
       const waitUrl =
         action.kind === "order_wait" || action.kind === "redirect"
-          ? resolveLocalizedWaitFlowPath(action, locale)
+          ? resolveLocalizedWaitFlowPath(action, displayLocale)
           : null;
       const paymentRecoveryToken = normalizeText(
         checkout.payment_recovery_token,

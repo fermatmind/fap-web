@@ -409,11 +409,11 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   if (pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/)/, "").startsWith(AD_PLACEMENT_SEGMENT)) return createPublicAbsenceResponse(404);
   // These Traditional readers share the original anonymous/private policy.
   const isTraditionalCoreRoute = /^\/zh-TW\/(?:tests\/[^/]+(?:\/take)?|result\/[^/]+)\/?$/u.test(pathname) && traditionalPath(pathname);
-  const isTraditionalOrderLookup = /^\/zh-TW\/orders\/lookup\/?$/u.test(pathname);
+  const isTraditionalOrderRoute = /^\/zh-TW\/(?:orders\/[^/]+|pay\/(?:wait|return\/alipay))\/?$/u.test(pathname) && traditionalPath(pathname);
   const isTraditionalShare = pathname.startsWith("/zh-TW/") && isCoreSharePath(pathname.slice("/zh-TW".length));
-  const strippedPath = pathname === "/zh-TW/account" || isTraditionalCoreRoute || isTraditionalShare
+  const strippedPath = pathname === "/zh-TW/account" || isTraditionalCoreRoute || isTraditionalShare || isTraditionalOrderRoute
     ? pathname.slice("/zh-TW".length)
-    : isTraditionalOrderLookup ? "/orders/lookup" : stripLocalePrefix(pathname);
+    : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
     if (pathname !== "/zh-TW/personality" && !traditionalPath(pathname)
       && !getTraditionalPublicAssetRoute(pathname) && !isTraditionalMbtiDetailPath(pathname)) {
@@ -563,7 +563,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     search: request.nextUrl.search,
   });
   const suppressAnalyticsBootstrap = analyticsSuppression.suppressed;
-  const hardenPrivateResponse = (pathname.startsWith("/zh-TW/") && pathname.endsWith("/take")) || Boolean(parseQuestionnaireTakePath(pathname)) || isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
+  const hardenPrivateResponse = Boolean(isTraditionalOrderRoute) || (pathname.startsWith("/zh-TW/") && pathname.endsWith("/take")) || Boolean(parseQuestionnaireTakePath(pathname)) || isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
 
   if (suppressAnalyticsBootstrap) {
     requestHeaders.set(PRIVATE_ANALYTICS_SUPPRESSION_HEADER, "true");

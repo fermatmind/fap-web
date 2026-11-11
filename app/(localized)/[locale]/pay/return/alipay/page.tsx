@@ -32,22 +32,23 @@ export default async function AlipayReturnPage({
   const returnParams = Object.fromEntries(
     Object.entries(query).map(([key, value]) => [key, firstValue(value) || null])
   );
-  const ordersLookupHref = localizedPath("/orders/lookup", locale);
+  const ordersLookupHref = localeParam === "zh-TW" ? "/zh-TW/orders/lookup" : localizedPath("/orders/lookup", locale);
   const isZh = locale === "zh";
+  const isTraditional = localeParam === "zh-TW";
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-10">
       <OrderReturnFallbackClient
-        locale={locale}
+        locale={isTraditional ? "zh-TW" : locale}
         orderNo={orderNo}
         outTradeNo={outTradeNo}
         paymentRecoveryToken={paymentRecoveryToken}
         waitUrl={waitUrl}
         returnParams={returnParams}
       />
-      <h1 className="m-0 text-2xl font-bold text-slate-900">{isZh ? "正在恢复支付状态" : "Restoring your payment"}</h1>
+      <h1 className="m-0 text-2xl font-bold text-slate-900">{isTraditional ? "正在恢復付款狀態" : isZh ? "正在恢复支付状态" : "Restoring your payment"}</h1>
       <p className="mt-3 text-slate-600">
-        {isZh
+        {isTraditional ? "即將返回站內付款確認頁，繼續同步訂單狀態。" : isZh
           ? "我们会将你带回站内支付等待页，继续同步订单状态。"
           : "We'll take you back to the in-app payment wait flow and continue syncing your order."}
       </p>
@@ -55,7 +56,7 @@ export default async function AlipayReturnPage({
         href={ordersLookupHref}
         className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-500"
       >
-        {isZh ? "前往订单查询" : "Go to order lookup"}
+        {isTraditional ? "前往訂單查詢" : isZh ? "前往订单查询" : "Go to order lookup"}
       </Link>
     </main>
   );
