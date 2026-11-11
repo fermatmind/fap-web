@@ -24,7 +24,7 @@
     "deploy:pm2": "bash scripts/deploy_web_pm2.sh",
     "lint": "eslint",
     "lint:spacing": "node scripts/check-spacing-tokens.mjs",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "node --max-old-space-size=5120 ./node_modules/typescript/bin/tsc --noEmit",
     "verify:pr": "pnpm lint . && pnpm typecheck && NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build && pnpm test:contract",
     "seo:generate-sitemap": "node scripts/seo/generate-sitemap.mjs",
     "seo:generate-llms-full": "node scripts/seo/generate-llms-full.mjs",
