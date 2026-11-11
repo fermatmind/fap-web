@@ -4,6 +4,8 @@ import fixtures from "@/tests/fixtures/big5/reading-copy-projections.json";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import { assembleBig5ResultViewModel, hasUsableBig5ReportEngineV2 } from "@/lib/big5/resultAssembler";
+import { projectBig5ReportSection } from "@/lib/big5/reportDisplayCopy";
+import { loadTraditionalAssessmentText, projectTraditionalResultDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { BIG5_READING_COPY_REVISION, withBig5ReadingCopy } from "@/lib/big5/readingCopyProjection";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
@@ -33,6 +35,37 @@ describe("separate Big Five read projection over saved reports", () => {
     expect(newText.length).toBeGreaterThan(0);
     expect(newText.some(text => document.body.textContent?.includes(text))).toBe(true);
     expect(input).toEqual(before);
+  });
+
+  it("renders authorized Taiwan copy without changing report authority or metric fields", async () => {
+    const input = wire("zh-CN/big5_120");
+    const original = structuredClone(input);
+    expect(await projectTraditionalResultDisplay(input, "zh-TW")).toBe(input);
+    const translate = await loadTraditionalAssessmentText();
+    const vm = assembleBig5ResultViewModel({ reportData: input, locale: "zh", gate });
+    const section = vm.visibleSections.find(row => row.blocks?.some(block =>
+      typeof block.body === "string" && translate(block.body) !== block.body))!;
+    const projected = projectBig5ReportSection(section, translate);
+    expect(projected.key).toBe(section.key);
+    expect(projected.blocks?.map(({ id, metric_code, percentile, provenance, analytics }) =>
+      ({ id, metric_code, percentile, provenance, analytics }))).toEqual(section.blocks?.map(
+      ({ id, metric_code, percentile, provenance, analytics }) => ({ id, metric_code, percentile, provenance, analytics }),
+    ));
+    render(<RichResultReport locale="zh" displayLocale="zh-TW" reportData={input} />);
+    const shell = await screen.findByTestId("big5-result-shell");
+    expect(shell).toHaveAttribute("data-reading-copy-revision", BIG5_READING_COPY_REVISION);
+    expect(projected.blocks?.some(block => typeof block.body === "string" &&
+      block.body !== section.blocks?.find(originalBlock => originalBlock.id === block.id)?.body &&
+      shell.textContent?.includes(block.body))).toBe(true);
+    expect(screen.getByRole("region", { name: "五域與面向閱讀" })).toBeVisible();
+    expect(shell.textContent).toContain("不是只追求新鮮感");
+    expect(shell.textContent).not.toContain("不是隻追求");
+    expect(shell.textContent).toContain("這次結果的解讀信心較低，建議重新測驗");
+    expect(shell.textContent).toContain("約 20% 的人");
+    expect(shell.textContent).toContain("30 個面向分數可以提供線索");
+    expect(shell.textContent).toContain("優先情境：人際關係");
+    expect(shell.textContent).toContain("內在情緒反應的強度");
+    expect(input).toEqual(original);
   });
 
   it("preserves source compatibility when the API emits no correction", () => {

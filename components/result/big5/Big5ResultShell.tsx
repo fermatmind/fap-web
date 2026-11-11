@@ -4,6 +4,9 @@ import { historyDisplayHref } from "@/lib/i18n/historyDisplayRoutes";
 import type { Big5ReadingCopy } from "@/lib/big5/readingCopyProjection";
 
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { projectBig5ReportSection } from "@/lib/big5/reportDisplayCopy";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { Big5ReadingGuide } from "./Big5ReadingGuide";
 import { buildBig5ReadingContext, type Big5ReadingContext } from "@/lib/big5/reportReading";
 import { OfferCard } from "@/components/big5/paywall/OfferCard";
@@ -88,6 +91,25 @@ export function Big5ResultShell({
   lockedSections: ReportSection[];
   recommendedOffers: OfferPayload[];
 }) {
+  const [traditionalText, setTraditionalText] = useState<((source: string) => string) | null>(null);
+  const [traditionalUnavailable, setTraditionalUnavailable] = useState(false);
+  useEffect(() => {
+    if (displayLocale !== "zh-TW") return;
+    let active = true;
+    void loadTraditionalAssessmentText().then(
+      translate => { if (active) setTraditionalText(() => translate); },
+      () => { if (active) setTraditionalUnavailable(true); },
+    );
+    return () => { active = false; };
+  }, [displayLocale]);
+  const translate = displayLocale === "zh-TW" ? traditionalText : null;
+  const shownSections = useMemo(() => translate
+    ? visibleSections.map(section => projectBig5ReportSection(section, translate))
+    : visibleSections, [visibleSections, translate]);
+  const shownLockedSections = useMemo(() => translate
+    ? lockedSections.map(section => projectBig5ReportSection(section, translate))
+    : lockedSections, [lockedSections, translate]);
+
   const isZh = locale === "zh";
   const taiwan = displayLocale === "zh-TW";
   const displayedFormLabel = taiwan ? formSummaryLabel
@@ -101,6 +123,8 @@ export function Big5ResultShell({
     displayLocale,
   );
 
+  if (displayLocale === "zh-TW" && traditionalUnavailable) return <p role="status">繁體報告暫時無法載入，請稍後再試。</p>;
+  if (displayLocale === "zh-TW" && !translate) return <p role="status">正在載入繁體報告…</p>;
   return (
     <div
       data-testid="big5-result-shell"
@@ -122,7 +146,7 @@ export function Big5ResultShell({
             </span>
             {displayedFormLabel ? <span data-testid="big5-form-summary" className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{displayedFormLabel}</span> : null}
             {qualityLevel ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{taiwan ? "品質" : isZh ? "质量" : "Quality"} · {qualityLevel.toUpperCase()}</span> : null}
-            {normsStatus ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "常模" : "Norms"} · {normsStatus}</span> : null}
+            {normsStatus ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "常模" : "Norms"} · {translate?.(normsStatus) ?? normsStatus}</span> : null}
           </div>
           {dimensions.length > 0 && showPrecisePercentiles ? <div data-testid="big5-dimensions"><DimensionBars dimensions={dimensions} /></div> : null}
         </CardContent>
@@ -132,7 +156,7 @@ export function Big5ResultShell({
 
       {visibleSections.length > 0 ? (
         <nav aria-label={taiwan ? "報告章節" : isZh ? "报告章节" : "Report sections"} className="flex flex-wrap gap-2 rounded-2xl border border-slate-200 bg-white p-4">
-          {visibleSections.map((section) => (
+          {shownSections.map((section) => (
             <Link key={`${section.key}-nav`} href={`#${sectionAnchor(section.key)}`} className="rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-700">
               {text(section.title) || text(section.key)}
             </Link>
@@ -141,7 +165,7 @@ export function Big5ResultShell({
       ) : null}
 
       <div data-testid="big5-sections" className="space-y-4">
-        {visibleSections.map((section) => (
+        {shownSections.map((section) => (
           <SectionRenderer
             key={section.key ?? section.title ?? "section"}
             section={section}
@@ -157,7 +181,7 @@ export function Big5ResultShell({
 
       {lockedSections.length > 0 ? (
         <div data-testid="big5-locked-sections" className="space-y-4">
-          {lockedSections.map((section) => (
+          {shownLockedSections.map((section) => (
             <SectionRenderer
               key={section.key ?? section.title ?? "locked-section"}
               section={section}

@@ -209,9 +209,9 @@ export function projectValidatedEqDisplay<T>(payload: T, translate: Translate): 
 
 export async function projectTraditionalResultDisplay<T>(payload: T, displayLocale: DisplayLocale): Promise<T> {
   if (displayLocale !== "zh-TW" || !record(payload)) return payload;
-  // EQ validates the canonical report and the source-bound reading copy together.
+  // EQ and Big Five validate canonical reports with their source-bound reading copies.
   // Translate selected display fields only after the pair has been validated.
-  if (Object.hasOwn(payload, "eq60_reading_copy_v1")
+  if (Object.hasOwn(payload, "eq60_reading_copy_v1") || Object.hasOwn(payload, "big5_reading_copy_v1")
     || [payload, payload.report].some(candidate => record(candidate)
       && candidate.eq_report_mode === "self_report"
       && candidate.measurement_type === "self_report_trait_mixed_ei")) return payload;
