@@ -4,6 +4,20 @@ import { build } from './convert-zh-tw.mjs';
 const root = new URL('../../', import.meta.url);
 const output = new URL('lib/i18n/zh-TW/likert-questionnaires.generated.json', root);
 const sources = [
+    'lib/questionnaires/data/activity-engagement-patterns.json',
+    'lib/questionnaires/result-content/activity-engagement-patterns.json',
+    'components/questionnaires/ActivityEngagementLandingEditorial.ts',
+    'lib/questionnaires/data/attraction-experiences.json',
+    'lib/questionnaires/result-content/attraction-experiences.json',
+    'components/questionnaires/AttractionLandingEditorial.ts',
+    'lib/questionnaires/data/chakra.json',
+    'lib/questionnaires/result-content/chakra.json',
+    'lib/questionnaires/data/connection-meaning-reflection.json',
+    'lib/questionnaires/result-content/connection-meaning-reflection.json',
+    'components/questionnaires/ConnectionMeaningLandingEditorial.ts',
+    'lib/questionnaires/data/eq-dashboard.json',
+    'lib/questionnaires/result-content/eq-dashboard.json',
+    'components/questionnaires/EmotionDashboardLandingEditorial.ts',
     'lib/questionnaires/data/body-frame-observations.json',
     'lib/questionnaires/result-content/body-frame-observations.json',
     'components/questionnaires/BodyFrameLandingEditorial.ts',
@@ -287,6 +301,8 @@ function standaloneLikertSource(raw) {
         .replaceAll("；自愿保存的答案只在当前标签页短暂保留，完成或重测清除，", "。" + restart)
         .replaceAll("进度自愿保存在本标签页，最长二十四小时，完成或重测清除；", restart)
         .replaceAll("；可选标签页草稿的24小时期限、完成与重测清除保持原样，", "。" + restart)
+        .replaceAll("自愿启用的本标签页草稿24小时失效，完成、退出并清除或重测即删除。没有草稿时，刷新会丢失本次作答。", restart)
+        .replaceAll("原有页面内存、自选24小时标签页草稿及完成退出重测清除不变，", restart)
         .replaceAll("标签页草稿可选保存，最多二十四小时，完成、清除或重测即删除。", restart)
         .replaceAll("开放全文、可选草稿与文化表达的范围", "完整公開說明、作答隱私與文化表達的範圍")
         .replaceAll("主动保存的草稿在本标签页最多24小时，完成或重测清除；", restart)
@@ -334,7 +350,7 @@ const overrides = Object.fromEntries(await Promise.all(sources.map(async path =>
     return [path, ['Hexaco', 'TechConfidence', 'EverydayControl', 'RelationshipWorry', 'RelationshipHabits', 'DatingOutlook', 'IntimacyValues', 'Commitment', 'WorkActivity', 'WorkEthics', 'CultureFit', 'Competency', 'Interpersonal', 'SocialAttitudes', 'CulturalDimensions', 'SocialBattery', 'PeoplePleaser', 'Trust', 'PositivePressure', 'Habits', 'Friction', 'Egogram', 'Learning', 'Hsp', 'EnergyRhythm', 'Maturity', 'Sternberg', 'Jealousy', 'WholesomePartner', 'Freudian', 'ErasOfYou', 'Rizz', 'FeminineEnergy', 'Music', 'Mfq2', 'Liberty', 'FaceSelfImage'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
   }
   const raw = readFileSync(new URL(path, root), 'utf8');
-  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json') || path.endsWith('/relationship-worry-habits.json') || path.endsWith('/relationship-habits.json') || path.endsWith('/dating-outlook.json') || path.endsWith('/intimacy-values.json') || path.endsWith('/relationship-commitment.json') || path.endsWith('/work-activity-interests.json') || path.endsWith('/work-ethics.json') || path.endsWith('/culture-fit.json') || path.endsWith('/competency-test.json') || path.endsWith('/interpersonal-preferences.json') || path.endsWith('/social-attitudes-reflection.json') || path.endsWith('/cultural-dimensions.json') || path.endsWith('/social-battery.json') || path.endsWith('/humor-style.json') || path.endsWith('/people-pleaser.json') || path.endsWith('/trust-issues-test.json') || path.endsWith('/toxic-positivity-test.json') || path.endsWith('/interpersonal-habits.json') || path.endsWith('/difficult-person.json') || path.endsWith('/egogram.json') || path.endsWith('/type-ab.json') || path.endsWith('/learning-preference.json') || path.endsWith('/multiple-intelligences.json') || path.endsWith('/hsp-sensitivity-quiz.json') || path.endsWith('/energy-flow.json') || path.endsWith('/deep-desire.json') || path.endsWith('/light-triad-test.json') || path.endsWith('/maturity.json') || path.endsWith('/sdt-motivation.json') || path.endsWith('/sternberg-love.json') || path.endsWith('/jealousy-scale.json') || path.endsWith('/wholesome-partner.json') || path.endsWith('/freudian-personality.json') || path.endsWith('/eras-of-you-test.json') || path.endsWith('/rizz-test.json') || path.endsWith('/feminine-energy.json') || path.endsWith('/music-taste.json') || path.endsWith('/morality-6.json') || path.endsWith('/libertarian.json') || path.endsWith('/face-self-image.json')
+  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json') || path.endsWith('/relationship-worry-habits.json') || path.endsWith('/relationship-habits.json') || path.endsWith('/dating-outlook.json') || path.endsWith('/intimacy-values.json') || path.endsWith('/relationship-commitment.json') || path.endsWith('/work-activity-interests.json') || path.endsWith('/work-ethics.json') || path.endsWith('/culture-fit.json') || path.endsWith('/competency-test.json') || path.endsWith('/interpersonal-preferences.json') || path.endsWith('/social-attitudes-reflection.json') || path.endsWith('/cultural-dimensions.json') || path.endsWith('/social-battery.json') || path.endsWith('/humor-style.json') || path.endsWith('/people-pleaser.json') || path.endsWith('/trust-issues-test.json') || path.endsWith('/toxic-positivity-test.json') || path.endsWith('/interpersonal-habits.json') || path.endsWith('/difficult-person.json') || path.endsWith('/egogram.json') || path.endsWith('/type-ab.json') || path.endsWith('/learning-preference.json') || path.endsWith('/multiple-intelligences.json') || path.endsWith('/hsp-sensitivity-quiz.json') || path.endsWith('/energy-flow.json') || path.endsWith('/deep-desire.json') || path.endsWith('/light-triad-test.json') || path.endsWith('/maturity.json') || path.endsWith('/sdt-motivation.json') || path.endsWith('/sternberg-love.json') || path.endsWith('/jealousy-scale.json') || path.endsWith('/wholesome-partner.json') || path.endsWith('/freudian-personality.json') || path.endsWith('/eras-of-you-test.json') || path.endsWith('/rizz-test.json') || path.endsWith('/feminine-energy.json') || path.endsWith('/music-taste.json') || path.endsWith('/morality-6.json') || path.endsWith('/libertarian.json') || path.endsWith('/face-self-image.json') || path.endsWith('/eq-dashboard.json')
     ? standaloneLikertSource(raw) : JSON.parse(raw)];
 })));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sources, overrides);

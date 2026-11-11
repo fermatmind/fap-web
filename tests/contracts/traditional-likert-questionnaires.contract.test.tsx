@@ -13,7 +13,7 @@ import { scoreQuestionnaire } from "@/lib/questionnaires/scoring";
 
 afterEach(cleanup);
 
-it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection", "growth-mindset-fixed-mindset", "grit-test", "tech-savvy", "time-management", "procrastinator-type-test", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "social-battery-test", "people-pleaser", "trust-issues-test", "toxic-positivity-test", "toxic-trait", "difficult-person-test", "egogram", "type-ab", "learning-style", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "light-triad-test", "maturity-test", "sdt-motivation", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "music-taste-test", "dark-triad", "dark-tetrad-sd4", "values", "morality-6", "libertarian", "body-frame-observations", "face-self-image", "outfit-line-preferences", "humor-style-test"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
+it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-strengths", "hexaco", "work-traits-reflection", "growth-mindset-fixed-mindset", "grit-test", "tech-savvy", "time-management", "procrastinator-type-test", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "social-battery-test", "people-pleaser", "trust-issues-test", "toxic-positivity-test", "toxic-trait", "difficult-person-test", "egogram", "type-ab", "learning-style", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "light-triad-test", "maturity-test", "sdt-motivation", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "music-taste-test", "dark-triad", "dark-tetrad-sd4", "values", "morality-6", "libertarian", "body-frame-observations", "face-self-image", "outfit-line-preferences", "activity-engagement-patterns", "attraction-experiences", "chakra", "connection-meaning-reflection", "eq-dashboard", "humor-style-test"])("preserves source scoring, readings and citations for Taiwan %s", async slug => {
   const original = (await loadQuestionnaire(slug))!;
   const { quiz, extraReferences } = (await loadTraditionalLikert(slug))!;
   const identity = (item: typeof original) => item.questions.map(question => [
@@ -44,9 +44,13 @@ it.each(["locus-of-control", "empathy", "social-intelligence-test", "character-s
   const { container } = render(await LikertQuestionnairePage({ slug, take: false }));
   expect(screen.getByRole("heading", { level: 1, name: quiz.title.zh })).toBeVisible();
   expect(screen.getByRole("link", { name: profile.title.zh })).toHaveAttribute("href", guide);
-  const referencePrefix = slug === "body-frame-observations" ? "body-frame" : slug === "outfit-line-preferences" ? "outfit" : slug;
+  const inlineGuides = new Map([
+    ["body-frame-observations", "body-frame"], ["outfit-line-preferences", "outfit"],
+    ["activity-engagement-patterns", "activity"], ["connection-meaning-reflection", "connection-meaning"],
+  ]);
+  const referencePrefix = inlineGuides.get(slug) ?? slug;
   const destinations = [...container.querySelectorAll(`[id^="${referencePrefix}-reference-"] > a`)];
-  if (referencePrefix !== slug) {
+  if (inlineGuides.has(slug)) {
     expect(container.querySelectorAll(`[data-${referencePrefix}-full-guide]`)).toHaveLength(quiz.profiles.length);
   }
   expect(destinations.map(link => link.getAttribute("href"))).toEqual([...(original.references ?? []), ...extraReferences].map(reference => reference.url));

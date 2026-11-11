@@ -1,3 +1,7 @@
+import { emotionDashboardSections, emotionDashboardFaq, emotionDashboardSummaries } from "@/components/questionnaires/EmotionDashboardLandingEditorial";
+import { connectionMeaningSections, connectionMeaningFaq } from "@/components/questionnaires/ConnectionMeaningLandingEditorial";
+import { attractionLandingSections, attractionLandingFaq, attractionLandingReferences } from "@/components/questionnaires/AttractionLandingEditorial";
+import { activityLandingSections, activityLandingFaq } from "@/components/questionnaires/ActivityEngagementLandingEditorial";
 import { outfitLandingSections, outfitLandingFaq, outfitLandingReferences } from "@/components/questionnaires/OutfitLineLandingEditorial";
 import { faceSelfImageLandingSections, faceSelfImageLandingFaq, faceSelfImageLandingReferences } from "@/components/questionnaires/FaceSelfImageLandingEditorial";
 import { bodyFrameSections, bodyFrameFaq } from "@/components/questionnaires/BodyFrameLandingEditorial";
@@ -88,6 +92,47 @@ const sources = {
     prefix: "libertyLanding",
     sections: libertyLandingSections,
     faq: libertyLandingFaq,
+  },
+  "activity-engagement-patterns": {
+    reading: "activity-engagement-patterns",
+    attribute: "activity-engagement",
+    load: () => import("@/lib/questionnaires/result-content/activity-engagement-patterns.json"),
+    editorial: "ActivityEngagement",
+    prefix: "activityLanding",
+    sections: activityLandingSections,
+    faq: activityLandingFaq,
+  },
+  "attraction-experiences": {
+    reading: "attraction-experiences",
+    attribute: "attraction-experiences",
+    load: () => import("@/lib/questionnaires/result-content/attraction-experiences.json"),
+    editorial: "Attraction",
+    prefix: "attractionLanding",
+    sections: attractionLandingSections,
+    faq: attractionLandingFaq,
+  },
+  "chakra": {
+    reading: "chakra",
+    attribute: "chakra",
+    load: () => import("@/lib/questionnaires/result-content/chakra.json"),
+  },
+  "connection-meaning-reflection": {
+    reading: "connection-meaning-reflection",
+    attribute: "connection-meaning",
+    load: () => import("@/lib/questionnaires/result-content/connection-meaning-reflection.json"),
+    editorial: "ConnectionMeaning",
+    prefix: "connectionMeaning",
+    sections: connectionMeaningSections,
+    faq: connectionMeaningFaq,
+  },
+  "eq-dashboard": {
+    reading: "eq-dashboard",
+    attribute: "emotion-dashboard",
+    load: () => import("@/lib/questionnaires/result-content/eq-dashboard.json"),
+    editorial: "EmotionDashboard",
+    prefix: "emotionDashboard",
+    sections: emotionDashboardSections,
+    faq: emotionDashboardFaq,
   },
   "body-frame-observations": {
     reading: "body-frame-observations",
@@ -582,7 +627,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test", "morality-6", "libertarian", "body-frame-observations", "face-self-image", "outfit-line-preferences"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test", "morality-6", "libertarian", "body-frame-observations", "face-self-image", "outfit-line-preferences", "activity-engagement-patterns", "attraction-experiences", "connection-meaning-reflection", "eq-dashboard"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -597,6 +642,7 @@ export async function loadTraditionalLikert(slug: string) {
       "components/questionnaires/FrictionLandingEditorial.ts/frictionSummaries", units)
     : slug === "learning-style" ? projectStoryCopy(learningSummaries,
       "components/questionnaires/LearningLandingEditorial.ts/learningSummaries", units)
+    : slug === "eq-dashboard" ? projectStoryCopy(emotionDashboardSummaries, "components/questionnaires/EmotionDashboardLandingEditorial.ts/emotionDashboardSummaries", units)
     : slug === "music-taste-test" ? projectStoryCopy(musicSummaries, "components/questionnaires/MusicLandingEditorial.ts/musicSummaries", units) : {};
   const extraReferences = (() => {
     switch (slug) {
@@ -631,6 +677,7 @@ export async function loadTraditionalLikert(slug: string) {
       case "libertarian": return projectStoryCopy(libertyLandingReferences, "components/questionnaires/LibertyLandingEditorial.ts/libertyLandingReferences", units);
       case "face-self-image": return projectStoryCopy(faceSelfImageLandingReferences, "components/questionnaires/FaceSelfImageLandingEditorial.ts/faceSelfImageLandingReferences", units);
       case "outfit-line-preferences": return projectStoryCopy(outfitLandingReferences, "components/questionnaires/OutfitLineLandingEditorial.ts/outfitLandingReferences", units);
+      case "attraction-experiences": return projectStoryCopy(attractionLandingReferences, "components/questionnaires/AttractionLandingEditorial.ts/attractionLandingReferences", units);
       default: return [];
     }
   })();
