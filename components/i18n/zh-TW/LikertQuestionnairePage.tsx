@@ -1,4 +1,4 @@
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { QuestionnaireCtl41Attribution } from "@/components/questionnaires/QuestionnaireCtl41Attribution";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
@@ -26,6 +26,12 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 
 type Stage = { slug: string; take: boolean; profile?: string };
 const requireLikert = cache(async (slug: string) => {
+  if (hasTraditionalSensoryExecutive(slug)) {
+    const { loadTraditionalSensoryExecutive } = await import("@/lib/i18n/zh-TW/sensoryExecutiveQuestionnaires");
+    const item = await loadTraditionalSensoryExecutive(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalSelfEvaluation(slug)) {
     const { loadTraditionalSelfEvaluation } = await import("@/lib/i18n/zh-TW/selfEvaluationQuestionnaires");
     const item = await loadTraditionalSelfEvaluation(slug);
@@ -112,6 +118,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz && hasTraditionalSensoryExecutive(slug)) {
+      const { TraditionalSensoryExecutiveTake } = await import("./TraditionalSensoryExecutiveTake");
+      return <TraditionalSensoryExecutiveTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     if (item.takeQuiz && hasTraditionalSelfEvaluation(slug)) {
       const { TraditionalSelfEvaluationTake } = await import("./TraditionalSelfEvaluationTake");
       return <TraditionalSelfEvaluationTake quiz={quiz} takeQuiz={item.takeQuiz} />;

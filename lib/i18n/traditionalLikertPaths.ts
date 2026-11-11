@@ -1,3 +1,16 @@
+const sensoryExecutiveProfiles = {
+  "aphantasia-test": ["objects", "faces", "places", "motion"],
+  "synesthesia-test": ["symbol-color", "sound-color", "sequence-space", "personification", "taste-touch"],
+  "sensory-processing-test": ["spq92-total-reading"],
+  "sensory-sensitivity": ["late-noticing", "input-seeking", "input-distraction", "input-reducing"],
+  "misophonia-screener": ["overall", "symptom", "impairment"],
+  "executive-function": ["overall-sum-reading", "working-memory-reading", "inhibition-reading"],
+} as const;
+
+export function hasTraditionalSensoryExecutive(slug: string): boolean {
+  return Object.hasOwn(sensoryExecutiveProfiles, slug);
+}
+
 const selfEvaluationProfiles = {
   "imposter-syndrome": ["contribution", "feedback", "evaluation", "comparison", "preparation"],
   "inner-critic-voice-test": ["inadequate", "hated", "reassured"],
@@ -71,6 +84,7 @@ const profiles = {
   ...relationshipSixProfiles,
   ...officeToolProfiles,
   ...selfEvaluationProfiles,
+  ...sensoryExecutiveProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],
