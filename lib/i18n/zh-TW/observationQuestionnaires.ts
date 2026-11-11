@@ -30,6 +30,12 @@ import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWo
 import { isSuddenFear20ConfigurationValid } from "@/lib/questionnaires/suddenFear20";
 import { isTraumaResponse20ConfigurationValid } from "@/lib/questionnaires/traumaResponse20";
 
+import { isEverydayWorry12ConfigurationValid } from "@/lib/questionnaires/everydayWorry12";
+import { isFeedbackWorth12ConfigurationValid } from "@/lib/questionnaires/feedbackWorth12";
+import { isRecentMood12ConfigurationValid } from "@/lib/questionnaires/recentMood12";
+import { isUncertaintyEase6ConfigurationValid } from "@/lib/questionnaires/uncertaintyEase6";
+import { isUnwantedActions20ConfigurationValid } from "@/lib/questionnaires/unwantedActions20";
+
 const sources = {
   "care-feelings-reflection": {
     name: "CareFeelings", prefix: "careFeelings", attribute: "care-feelings", validate: isCareFeelings20ConfigurationValid,
@@ -150,6 +156,31 @@ const sources = {
     name: "TraumaResponse", prefix: "traumaLanding", attribute: "trauma", validate: isTraumaResponse20ConfigurationValid,
     load: () => import("@/lib/questionnaires/result-content/trauma-response-reflection.json"),
     editorial: () => import("@/components/questionnaires/TraumaResponseLandingEditorial"),
+  },
+  "everyday-worry-reflection": {
+    name: "EverydayWorry", prefix: "everydayWorry", attribute: "everyday-worry", validate: isEverydayWorry12ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/everyday-worry-reflection.json"),
+    editorial: () => import("@/components/questionnaires/EverydayWorryLandingEditorial"),
+  },
+  "feedback-self-worth-reflection": {
+    name: "FeedbackWorth", prefix: "feedbackWorth", attribute: "feedback-worth", validate: isFeedbackWorth12ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/feedback-self-worth-reflection.json"),
+    editorial: () => import("@/components/questionnaires/FeedbackWorthLandingEditorial"),
+  },
+  "recent-mood-reflection": {
+    name: "RecentMood", prefix: "recentMood", attribute: "recent-mood", validate: isRecentMood12ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/recent-mood-reflection.json"),
+    editorial: () => import("@/components/questionnaires/RecentMoodLandingEditorial"),
+  },
+  "uncertainty-ease-reflection": {
+    name: "UncertaintyEase", prefix: "uncertaintyEase", attribute: "uncertainty-ease", validate: isUncertaintyEase6ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/uncertainty-ease-reflection.json"),
+    editorial: () => import("@/components/questionnaires/UncertaintyEaseLandingEditorial"),
+  },
+  "unwanted-thoughts-actions-reflection": {
+    name: "UnwantedActions", prefix: "unwantedActions", attribute: "unwanted-actions", validate: isUnwantedActions20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/unwanted-thoughts-actions-reflection.json"),
+    editorial: () => import("@/components/questionnaires/UnwantedActionsLandingEditorial"),
   },
 };
 

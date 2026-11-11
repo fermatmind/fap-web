@@ -34,6 +34,12 @@ import { recordHealthWorry21 } from "@/lib/questionnaires/healthWorry21";
 import { recordSuddenFear20 } from "@/lib/questionnaires/suddenFear20";
 import { recordTraumaResponse20 } from "@/lib/questionnaires/traumaResponse20";
 
+import { recordEverydayWorry12 } from "@/lib/questionnaires/everydayWorry12";
+import { recordFeedbackWorth12 } from "@/lib/questionnaires/feedbackWorth12";
+import { recordRecentMood12 } from "@/lib/questionnaires/recentMood12";
+import { recordUncertaintyEase6 } from "@/lib/questionnaires/uncertaintyEase6";
+import { recordUnwantedActions20 } from "@/lib/questionnaires/unwantedActions20";
+
 afterEach(cleanup);
 
 it.each([
@@ -61,6 +67,11 @@ it.each([
   ["health-worries-reflection", recordHealthWorry21],
   ["sudden-fear-reflection", recordSuddenFear20],
   ["trauma-response-reflection", recordTraumaResponse20],
+  ["everyday-worry-reflection", recordEverydayWorry12],
+  ["feedback-self-worth-reflection", recordFeedbackWorth12],
+  ["recent-mood-reflection", recordRecentMood12],
+  ["uncertainty-ease-reflection", recordUncertaintyEase6],
+  ["unwanted-thoughts-actions-reflection", recordUnwantedActions20],
 ] as const)("keeps the authoritative category recorder and full Taiwan readings for %s", async (slug, record) => {
   const item = (await loadTraditionalObservation(slug))!;
   const { source, quiz } = item;

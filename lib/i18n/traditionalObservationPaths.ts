@@ -23,6 +23,11 @@ const profiles: Readonly<Record<string, readonly string[]>> = {
   "health-worries-reflection": ["attention-to-sensations-reading", "requests-and-care-decisions-reading", "serious-possibilities-reading"],
   "sudden-fear-reflection": ["sudden-waves-reading", "sensations-and-thoughts-reading", "worry-about-returning-reading", "changes-to-plans-reading"],
   "trauma-response-reflection": ["unwanted-reminders-reading", "keeping-distance-reading", "mood-and-connection-reading", "feeling-on-edge-reading"],
+  "everyday-worry-reflection": ["recurring-worries-reading", "tension-and-restlessness-reading", "worry-in-daily-activities-reading"],
+  "feedback-self-worth-reflection": ["feedback-feelings-reading", "feedback-and-worth-reading", "returning-attention-reading"],
+  "recent-mood-reflection": ["mood-and-interest-reading", "sleep-and-appetite-reading", "energy-attention-and-self-talk-reading"],
+  "uncertainty-ease-reflection": ["ease-with-uncertainty-reading"],
+  "unwanted-thoughts-actions-reflection": ["cleaning-concerns-reading", "checking-again-reading", "order-and-repetition-reading", "unwanted-thoughts-reading", "keeping-and-discarding-reading"],
 };
 
 export function hasTraditionalObservation(slug: string) {

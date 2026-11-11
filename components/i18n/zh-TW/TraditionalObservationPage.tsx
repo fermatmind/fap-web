@@ -31,6 +31,11 @@ const pages = {
   "health-worries-reflection": () => import("@/components/questionnaires/HealthWorryPage").then(module => ({ Page: module.HealthWorryPage, Guide: module.HealthWorryGuidePage })),
   "sudden-fear-reflection": () => import("@/components/questionnaires/SuddenFearPage").then(module => ({ Page: module.SuddenFearPage, Guide: module.SuddenFearGuidePage })),
   "trauma-response-reflection": () => import("@/components/questionnaires/TraumaResponsePage").then(module => ({ Page: module.TraumaResponsePage, Guide: module.TraumaResponseGuidePage })),
+  "everyday-worry-reflection": () => import("@/components/questionnaires/EverydayWorryPage").then(module => ({ Page: module.EverydayWorryPage, Guide: module.EverydayWorryGuidePage })),
+  "feedback-self-worth-reflection": () => import("@/components/questionnaires/FeedbackWorthPage").then(module => ({ Page: module.FeedbackWorthPage, Guide: module.FeedbackWorthGuidePage })),
+  "recent-mood-reflection": () => import("@/components/questionnaires/RecentMoodPage").then(module => ({ Page: module.RecentMoodPage, Guide: module.RecentMoodGuidePage })),
+  "uncertainty-ease-reflection": () => import("@/components/questionnaires/UncertaintyEasePage").then(module => ({ Page: module.UncertaintyEasePage, Guide: module.UncertaintyEaseGuidePage })),
+  "unwanted-thoughts-actions-reflection": () => import("@/components/questionnaires/UnwantedActionsPage").then(module => ({ Page: module.UnwantedActionsPage, Guide: module.UnwantedActionsGuidePage })),
 };
 
 export async function TraditionalObservationPage({ slug, take, profile }: { slug: string; take: boolean; profile?: string }) {

@@ -76,6 +76,21 @@ const sources = [
   "lib/questionnaires/data/trauma-response-reflection.json",
   "lib/questionnaires/result-content/trauma-response-reflection.json",
   "components/questionnaires/TraumaResponseLandingEditorial.ts",
+  "lib/questionnaires/data/everyday-worry-reflection.json",
+  "lib/questionnaires/result-content/everyday-worry-reflection.json",
+  "components/questionnaires/EverydayWorryLandingEditorial.ts",
+  "lib/questionnaires/data/feedback-self-worth-reflection.json",
+  "lib/questionnaires/result-content/feedback-self-worth-reflection.json",
+  "components/questionnaires/FeedbackWorthLandingEditorial.ts",
+  "lib/questionnaires/data/recent-mood-reflection.json",
+  "lib/questionnaires/result-content/recent-mood-reflection.json",
+  "components/questionnaires/RecentMoodLandingEditorial.ts",
+  "lib/questionnaires/data/uncertainty-ease-reflection.json",
+  "lib/questionnaires/result-content/uncertainty-ease-reflection.json",
+  "components/questionnaires/UncertaintyEaseLandingEditorial.ts",
+  "lib/questionnaires/data/unwanted-thoughts-actions-reflection.json",
+  "lib/questionnaires/result-content/unwanted-thoughts-actions-reflection.json",
+  "components/questionnaires/UnwantedActionsLandingEditorial.ts",
 ];
 
 const previous = readFileSync(output, "utf8");
