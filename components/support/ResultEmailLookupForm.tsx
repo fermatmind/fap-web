@@ -196,6 +196,9 @@ export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
             <div className="space-y-3">
               {items.map((item, index) => {
                 const href = resolveResultHref(item, locale);
+                const linkedLocale = locale === "zh-TW" && href
+                  ? (href.startsWith("/zh-TW/") ? "zh-TW" : href.startsWith("/en/") ? "en" : "zh-CN")
+                  : undefined;
                 const scaleLabel = resolveScaleLabel(item, locale);
                 const typeCode = normalizeText(item.type_code);
                 const itemKey = normalizeText(item.attempt_id) || normalizeText(item.result_id) || `${searchedEmail}-${index}`;
@@ -225,6 +228,7 @@ export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
                       {href ? (
                         <Link
                           href={href}
+                          hrefLang={linkedLocale}
                           prefetch={false}
                           className={cn(buttonVariants({ variant: "secondary" }), "w-full sm:w-auto")}
                           data-testid="result-email-lookup-open"
@@ -232,7 +236,7 @@ export function ResultEmailLookupForm({ locale }: { locale: DisplayLocale }) {
                             stashResultAccessTokenForAttempt(itemKey, item.result_access_token);
                           }}
                         >
-                          {labels.openResult}{locale === "zh-TW" && !href.startsWith("/zh-TW/") ? (href.startsWith("/en/") ? "（英文）" : "（簡體中文）") : ""}
+                          {labels.openResult}{linkedLocale === "en" ? "（英文）" : linkedLocale === "zh-CN" ? "（簡體中文）" : ""}
                         </Link>
                       ) : (
                         <span className="text-sm font-medium text-[var(--fm-text-muted)]">{labels.unavailable}</span>

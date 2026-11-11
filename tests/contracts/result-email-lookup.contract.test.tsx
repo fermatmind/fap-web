@@ -221,6 +221,7 @@ describe("Taiwan Traditional result lookup route", () => {
     fireEvent.click(screen.getByRole("button", { name: "查詢結果" }));
     const link = await screen.findByRole("link", { name: label });
     expect(link).toHaveAttribute("href", expected);
+    expect(link).toHaveAttribute("hrefLang", expected.startsWith("/zh-TW/") ? "zh-TW" : expected.startsWith("/en/") ? "en" : "zh-CN");
     const click = createEvent.click(link, { button: 0 });
     click.preventDefault();
     fireEvent(link, click);
