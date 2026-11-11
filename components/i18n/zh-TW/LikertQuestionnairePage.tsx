@@ -1,3 +1,4 @@
+import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { QuestionnaireMfq2Attribution } from "@/components/questionnaires/QuestionnaireMfq2Attribution";
@@ -25,7 +26,9 @@ type Stage = { slug: string; take: boolean; profile?: string };
 const requireLikert = cache(async (slug: string) => {
   const item = hasTraditionalDirectional(slug)
     ? await (await import("@/lib/i18n/zh-TW/directionalQuestionnaires")).loadTraditionalDirectional(slug)
-    : await loadTraditionalLikert(slug);
+    : hasTraditionalObservation(slug)
+      ? await (await import("@/lib/i18n/zh-TW/observationQuestionnaires")).loadTraditionalObservation(slug)
+      : await loadTraditionalLikert(slug);
   if (!item) notFound();
   return item;
 });
@@ -51,6 +54,10 @@ function CitedCopy({ text, slug }: { text: string; slug: string }) {
 }
 
 export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
+  if (hasTraditionalObservation(slug)) {
+    const { TraditionalObservationPage } = await import("./TraditionalObservationPage");
+    return <TraditionalObservationPage slug={slug} take={take} profile={profile} />;
+  }
   const { quiz, sections, faq, summaries, extraReferences } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
   const Disc = slug === "disc"

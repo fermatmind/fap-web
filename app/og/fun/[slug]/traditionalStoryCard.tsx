@@ -1,3 +1,4 @@
+import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
 import { bleachOpenGraphCard } from "@/lib/entertainment/bleachCard";
@@ -28,6 +29,15 @@ let archetypeFont: Promise<ArrayBuffer> | undefined;
 let practiceFont: Promise<ArrayBuffer> | undefined;
 
 export async function traditionalStoryCard(slug: string, portrait: string | null) {
+  if (hasTraditionalObservation(slug)) {
+    const { loadTraditionalObservation } = await import("@/lib/i18n/zh-TW/observationQuestionnaires");
+    const item = await loadTraditionalObservation(slug);
+    const result = portrait && item ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
+    if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
+    archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh,
+      Boolean(result), await archetypeFont, `${item.quiz.questions.length} 道原創觀察題`, "公開主題指南");
+  }
   if (hasTraditionalDirectional(slug)) {
     const { loadTraditionalDirectional } = await import("@/lib/i18n/zh-TW/directionalQuestionnaires");
     const item = await loadTraditionalDirectional(slug);

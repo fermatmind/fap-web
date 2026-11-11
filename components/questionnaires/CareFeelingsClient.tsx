@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -8,7 +9,9 @@ import { questionnairePath } from "@/lib/questionnaires/paths";
 import { CareFeelingsReport } from "./CareFeelingsReport";
 const subscribeReady = () => () => undefined;
 const button = "min-h-12 rounded-lg border border-slate-400 px-5 py-3 font-semibold disabled:opacity-50";
-export function CareFeelingsClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+export function CareFeelingsClient({ quiz, locale, readingProfiles, scoringQuiz = quiz }: { quiz: Questionnaire; scoringQuiz?: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { displayText: copy, traditional } = useQuestionnaireDisplayCopy();
+  const displayLocale = traditional ? "zh-TW" : locale;
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", [stage, setStage] = useState<"ready" | "answer" | "result">("ready");
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [position, setPosition] = useState(0);
@@ -27,28 +30,28 @@ export function CareFeelingsClient({ quiz, locale, readingProfiles }: { quiz: Qu
     target?.focus({ preventScroll: true }); (stage === "answer" ? context.current : target)?.scrollIntoView({ block: "start" });
   }, [stage, position]);
   function next() {
-    if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择一个类别或明确未计分。" : "Choose a category or explicitly leave this observation unscored."); return; }
+    if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? copy("请选择一个类别或明确未计分。") : "Choose a category or explicitly leave this observation unscored."); return; }
     setMessage(""); if (position < 19) { setPosition(position + 1); return; }
-    const result = recordCareFeelings20(quiz, answers);
-    if (result.status !== "complete") { clear(zh ? "记录无法核对，已清除。" : "The record could not be checked and was cleared."); return; }
+    const result = recordCareFeelings20(scoringQuiz, answers);
+    if (result.status !== "complete") { clear(zh ? copy("记录无法核对，已清除。") : "The record could not be checked and was cleared."); return; }
     setRecords(result.records); setAnswers({}); setStage("result");
   }
   async function copyPublicEntry() {
-    const text = `${quiz.title[locale]} — https://fermatmind.com${questionnairePath(locale, quiz.slug)}`;
-    try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制公开标题与入口，不含回答。" : "Copied the public title and entry without answers."); }
+    const text = `${quiz.title[locale]} — https://fermatmind.com${questionnairePath(displayLocale, quiz.slug)}`;
+    try { await navigator.clipboard.writeText(text); setMessage(zh ? copy("已复制公开标题与入口，不含回答。") : "Copied the public title and entry without answers."); }
     catch { setMessage(text); }
   }
   const q = quiz.questions[position];
   return <section id="take-test" data-stage={stage === "ready" ? "welcome" : stage} data-care-feelings-stage={stage} className="my-8 space-y-5 rounded-lg border border-slate-300 bg-white p-4 sm:p-6">
-    {stage === "ready" && <><button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始原创观察" : "Begin original observations"}</button><h2 className="text-2xl font-semibold">{zh ? "照护与感受回顾作答说明" : "Care and feelings: response instructions"}</h2><p className="leading-7">{zh ? "20条原创描述：前15条可自愿回想童年或青少年时期，后5条回顾过去四周。不必查找照片、记录或询问家人。回答只留在本页内存，不保存草稿、不提交，也没有问卷分析。下方四篇全文无需答题就能读。" : "20 original descriptions: the first fifteen concern optional childhood or adolescent recollections; the last five concern the past four weeks. No photo, record search or family questioning is needed. Answers stay in this page’s memory, with no drafts, submission or questionnaire analytics. Read all four complete guides below without answering."}</p></>}
+    {stage === "ready" && <><button data-explore-start type="button" className={`${button} bg-violet-700 text-white`} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? copy("开始原创观察") : "Begin original observations"}</button><h2 className="text-2xl font-semibold">{zh ? copy("照护与感受回顾作答说明") : "Care and feelings: response instructions"}</h2><p className="leading-7">{zh ? copy("20条原创描述：前15条可自愿回想童年或青少年时期，后5条回顾过去四周。不必查找照片、记录或询问家人。回答只留在本页内存，不保存草稿、不提交，也没有问卷分析。下方四篇全文无需答题就能读。") : "20 original descriptions: the first fifteen concern optional childhood or adolescent recollections; the last five concern the past four weeks. No photo, record search or family questioning is needed. Answers stay in this page’s memory, with no drafts, submission or questionnaire analytics. Read all four complete guides below without answering."}</p></>}
     {stage === "answer" && <div ref={context} data-care-feelings-question-context className="scroll-mt-24 space-y-5">
-      <p>{zh ? `第 ${position + 1} / 20 条 · ${position < 15 ? "可自愿回想童年或青少年时期" : "过去四周"}` : `Observation ${position + 1} / 20 · ${position < 15 ? "Optional childhood or adolescent recollection" : "Past four weeks"}`}</p>
+      <p>{zh ? copy(`第 ${position + 1} / 20 条 · ${position < 15 ? "可自愿回想童年或青少年时期" : "过去四周"}`) : `Observation ${position + 1} / 20 · ${position < 15 ? "Optional childhood or adolescent recollection" : "Past four weeks"}`}</p>
       <h2 ref={heading} id="care-feelings-active-question" tabIndex={-1} className="text-xl font-semibold leading-8 outline-none">{q.prompt[locale]}</h2>
-      <fieldset className="min-w-0 space-y-3" aria-labelledby="care-feelings-active-question">{q.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3 leading-7"><input className="mt-2 h-5 w-5 shrink-0" type="radio" name={q.id} value={o.id} checked={answers[q.id] === o.id} onChange={() => { setAnswers({ ...answers, [q.id]: o.id }); setMessage(""); }} /><span className="min-w-0">{o.id === "na" ? `${zh ? "未计分：" : "Unscored: "}${o.label[locale]}` : o.label[locale]}</span></label>)}</fieldset>
-      <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一条" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 19 ? (zh ? "整理观察记录" : "Organize observations") : (zh ? "下一条" : "Next")}</button></div>
-      <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除回答。" : "Exited and cleared answers.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl>
+      <fieldset className="min-w-0 space-y-3" aria-labelledby="care-feelings-active-question">{q.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3 leading-7"><input className="mt-2 h-5 w-5 shrink-0" type="radio" name={q.id} value={o.id} checked={answers[q.id] === o.id} onChange={() => { setAnswers({ ...answers, [q.id]: o.id }); setMessage(""); }} /><span className="min-w-0">{o.id === "na" ? `${zh ? copy("未计分：") : "Unscored: "}${o.label[locale]}` : o.label[locale]}</span></label>)}</fieldset>
+      <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? copy("上一条") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 19 ? (zh ? copy("整理观察记录") : "Organize observations") : (zh ? copy("下一条") : "Next")}</button></div>
+      <QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? copy("已退出并清除回答。") : "Exited and cleared answers.")}>{zh ? copy("退出并清除") : "Exit and clear"}</button></QuestionnaireLegacyControl>
     </div>}
-    {stage === "result" && <><CareFeelingsReport quiz={quiz} records={records} locale={locale} readingProfiles={readingProfiles} /><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "清除并重做" : "Clear and retake"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? "已退出并清除记录。" : "Exited and cleared the record.")}>{zh ? "退出并清除" : "Exit and clear"}</button></QuestionnaireLegacyControl><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button></>}
+    {stage === "result" && <><CareFeelingsReport quiz={quiz} displayLocale={displayLocale} copy={copy} records={records} locale={locale} readingProfiles={readingProfiles} /><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? copy("清除并重做") : "Clear and retake"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={() => clear(zh ? copy("已退出并清除记录。") : "Exited and cleared the record.")}>{zh ? copy("退出并清除") : "Exit and clear"}</button></QuestionnaireLegacyControl><button type="button" className={button} onClick={copyPublicEntry}>{zh ? copy("复制公开入口") : "Copy public entry"}</button></>}
     {message && <p role="status" className="break-words leading-7">{message}</p>}
   </section>;
 }

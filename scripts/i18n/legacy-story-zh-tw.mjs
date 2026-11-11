@@ -65,3 +65,4 @@ await import("./bespoke-story-zh-tw.mjs");
 await import("./archetype-questionnaire-zh-tw.mjs");
 await import("./likert-questionnaire-zh-tw.mjs");
 await import("./directional-questionnaire-zh-tw.mjs");
+await import("./observation-questionnaire-zh-tw.mjs");
