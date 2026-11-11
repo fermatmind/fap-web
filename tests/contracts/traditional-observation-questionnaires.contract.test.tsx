@@ -27,6 +27,13 @@ import { recordSleepExperiences20 } from "@/lib/questionnaires/sleepExperiences2
 import { recordEatingExperiences20 } from "@/lib/questionnaires/eatingExperiences20";
 import { recordDrinkingExperiences20 } from "@/lib/questionnaires/drinkingExperiences20";
 
+import { recordBereavement16 } from "@/lib/questionnaires/bereavement16";
+import { recordCaregiverContext20 } from "@/lib/questionnaires/caregiverContext20";
+import { recordGenderExperiences16 } from "@/lib/questionnaires/genderExperiences16";
+import { recordHealthWorry21 } from "@/lib/questionnaires/healthWorry21";
+import { recordSuddenFear20 } from "@/lib/questionnaires/suddenFear20";
+import { recordTraumaResponse20 } from "@/lib/questionnaires/traumaResponse20";
+
 afterEach(cleanup);
 
 it.each([
@@ -48,6 +55,12 @@ it.each([
   ["sleep-experiences-reflection", recordSleepExperiences20],
   ["eating-experiences-reflection", recordEatingExperiences20],
   ["drinking-experiences-reflection", recordDrinkingExperiences20],
+  ["after-bereavement-reflection", recordBereavement16],
+  ["child-focus-activity-observations", recordCaregiverContext20],
+  ["gender-experiences-reflection", recordGenderExperiences16],
+  ["health-worries-reflection", recordHealthWorry21],
+  ["sudden-fear-reflection", recordSuddenFear20],
+  ["trauma-response-reflection", recordTraumaResponse20],
 ] as const)("keeps the authoritative category recorder and full Taiwan readings for %s", async (slug, record) => {
   const item = (await loadTraditionalObservation(slug))!;
   const { source, quiz } = item;

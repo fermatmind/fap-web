@@ -23,6 +23,13 @@ import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sle
 import { isEatingExperiences20ConfigurationValid } from "@/lib/questionnaires/eatingExperiences20";
 import { isDrinkingExperiences20ConfigurationValid } from "@/lib/questionnaires/drinkingExperiences20";
 
+import { isBereavement16ConfigurationValid } from "@/lib/questionnaires/bereavement16";
+import { isCaregiverContext20ConfigurationValid } from "@/lib/questionnaires/caregiverContext20";
+import { isGenderExperiences16ConfigurationValid } from "@/lib/questionnaires/genderExperiences16";
+import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
+import { isSuddenFear20ConfigurationValid } from "@/lib/questionnaires/suddenFear20";
+import { isTraumaResponse20ConfigurationValid } from "@/lib/questionnaires/traumaResponse20";
+
 const sources = {
   "care-feelings-reflection": {
     name: "CareFeelings", prefix: "careFeelings", attribute: "care-feelings", validate: isCareFeelings20ConfigurationValid,
@@ -114,6 +121,36 @@ const sources = {
     load: () => import("@/lib/questionnaires/result-content/drinking-experiences-reflection.json"),
     editorial: () => import("@/components/questionnaires/DrinkingExperiencesLandingEditorial"),
   },
+  "after-bereavement-reflection": {
+    name: "Bereavement", prefix: "bereavement", attribute: "bereavement", validate: isBereavement16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/after-bereavement-reflection.json"),
+    editorial: () => import("@/components/questionnaires/BereavementLandingEditorial"),
+  },
+  "child-focus-activity-observations": {
+    name: "CaregiverContext", prefix: "caregiverContext", attribute: "caregiver-context", validate: isCaregiverContext20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/child-focus-activity-observations.json"),
+    editorial: () => import("@/components/questionnaires/CaregiverContextLandingEditorial"),
+  },
+  "gender-experiences-reflection": {
+    name: "GenderExperiences", prefix: "genderExperiences", attribute: "gender-experiences", validate: isGenderExperiences16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/gender-experiences-reflection.json"),
+    editorial: () => import("@/components/questionnaires/GenderExperiencesLandingEditorial"),
+  },
+  "health-worries-reflection": {
+    name: "HealthWorry", prefix: "healthWorry", attribute: "health-worry", validate: isHealthWorry21ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/health-worries-reflection.json"),
+    editorial: () => import("@/components/questionnaires/HealthWorryLandingEditorial"),
+  },
+  "sudden-fear-reflection": {
+    name: "SuddenFear", prefix: "suddenFear", attribute: "sudden-fear", validate: isSuddenFear20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/sudden-fear-reflection.json"),
+    editorial: () => import("@/components/questionnaires/SuddenFearLandingEditorial"),
+  },
+  "trauma-response-reflection": {
+    name: "TraumaResponse", prefix: "traumaLanding", attribute: "trauma", validate: isTraumaResponse20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/trauma-response-reflection.json"),
+    editorial: () => import("@/components/questionnaires/TraumaResponseLandingEditorial"),
+  },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -136,5 +173,6 @@ export async function loadTraditionalObservation(slug: string) {
   const sections = fields[edition.prefix + "Sections"] as QuestionnaireSection[];
   const faq = fields[edition.prefix + "Faq"] as Questionnaire["faq"];
   const summaries = fields[edition.prefix + "ReadingSummaries"] as Record<string, Text> | undefined;
-  return { source, quiz: { ...quiz, profiles }, sections, faq, summaries: summaries ?? {}, extraReferences: [] };
+  const extraReferences = fields[edition.prefix + "References"] as NonNullable<Questionnaire["references"]> | undefined;
+  return { source, quiz: { ...quiz, profiles }, sections, faq, summaries: summaries ?? {}, extraReferences: extraReferences ?? [] };
 }

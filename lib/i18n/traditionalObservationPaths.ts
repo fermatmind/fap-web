@@ -17,6 +17,12 @@ const profiles: Readonly<Record<string, readonly string[]>> = {
   "sleep-experiences-reflection": ["settling-to-sleep-reading", "waking-during-rest-reading", "waking-before-planned-reading", "daytime-experiences-reading", "thoughts-about-sleep-reading"],
   "eating-experiences-reflection": ["body-thoughts-reading", "limiting-eating-reading", "loss-of-control-reading", "undoing-eating-reading", "mental-space-reading"],
   "drinking-experiences-reflection": ["plans-and-pull-reading", "daily-effects-reading", "situations-and-choices-reading", "body-experiences-reading"],
+  "after-bereavement-reflection": ["missing-the-person-reading", "changed-roles-reading", "distance-from-reminders-reading", "future-and-activities-reading", "feelings-and-support-reading"],
+  "child-focus-activity-observations": ["shared-activity-attention-reading", "movement-during-activities-reading", "turns-and-starts-reading", "observed-context-and-support-reading"],
+  "gender-experiences-reflection": ["own-words-reading", "embodied-experience-reading", "social-address-reading", "daily-context-reading"],
+  "health-worries-reflection": ["attention-to-sensations-reading", "requests-and-care-decisions-reading", "serious-possibilities-reading"],
+  "sudden-fear-reflection": ["sudden-waves-reading", "sensations-and-thoughts-reading", "worry-about-returning-reading", "changes-to-plans-reading"],
+  "trauma-response-reflection": ["unwanted-reminders-reading", "keeping-distance-reading", "mood-and-connection-reading", "feeling-on-edge-reading"],
 };
 
 export function hasTraditionalObservation(slug: string) {

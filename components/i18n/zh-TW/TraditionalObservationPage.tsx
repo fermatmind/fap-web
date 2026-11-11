@@ -25,6 +25,12 @@ const pages = {
   "sleep-experiences-reflection": () => import("@/components/questionnaires/SleepExperiencesPage").then(module => ({ Page: module.SleepExperiencesPage, Guide: module.SleepExperiencesGuidePage })),
   "eating-experiences-reflection": () => import("@/components/questionnaires/EatingExperiencesPage").then(module => ({ Page: module.EatingExperiencesPage, Guide: module.EatingExperiencesGuidePage })),
   "drinking-experiences-reflection": () => import("@/components/questionnaires/DrinkingExperiencesPage").then(module => ({ Page: module.DrinkingExperiencesPage, Guide: module.DrinkingExperiencesGuidePage })),
+  "after-bereavement-reflection": () => import("@/components/questionnaires/BereavementPage").then(module => ({ Page: module.BereavementPage, Guide: module.BereavementGuidePage })),
+  "child-focus-activity-observations": () => import("@/components/questionnaires/CaregiverContextPage").then(module => ({ Page: module.CaregiverContextPage, Guide: module.CaregiverContextGuidePage })),
+  "gender-experiences-reflection": () => import("@/components/questionnaires/GenderExperiencesPage").then(module => ({ Page: module.GenderExperiencesPage, Guide: module.GenderExperiencesGuidePage })),
+  "health-worries-reflection": () => import("@/components/questionnaires/HealthWorryPage").then(module => ({ Page: module.HealthWorryPage, Guide: module.HealthWorryGuidePage })),
+  "sudden-fear-reflection": () => import("@/components/questionnaires/SuddenFearPage").then(module => ({ Page: module.SuddenFearPage, Guide: module.SuddenFearGuidePage })),
+  "trauma-response-reflection": () => import("@/components/questionnaires/TraumaResponsePage").then(module => ({ Page: module.TraumaResponsePage, Guide: module.TraumaResponseGuidePage })),
 };
 
 export async function TraditionalObservationPage({ slug, take, profile }: { slug: string; take: boolean; profile?: string }) {
@@ -33,7 +39,7 @@ export async function TraditionalObservationPage({ slug, take, profile }: { slug
     loadTraditionalObservation(slug), pages[slug as keyof typeof pages](), loadTraditionalAssessmentText(),
   ]);
   if (!item) notFound();
-  const { source, quiz, sections, faq, summaries } = item;
+  const { source, quiz, sections, faq, summaries, extraReferences } = item;
   const entry = questionnairePath("zh-TW", slug);
   if (take) return <TraditionalQuestionnaireCopy>
     <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
@@ -52,6 +58,6 @@ export async function TraditionalObservationPage({ slug, take, profile }: { slug
     </nav>
     {selected
       ? <Guide quiz={quiz} profile={selected} locale="zh" displayLocale="zh-TW" copy={copy} summaries={summaries} />
-      : <Page quiz={quiz} locale="zh" displayLocale="zh-TW" copy={copy} sections={sections} faq={faq} summaries={summaries} />}
+      : <Page quiz={quiz} locale="zh" displayLocale="zh-TW" copy={copy} sections={sections} faq={faq} summaries={summaries} extraReferences={extraReferences} />}
   </>;
 }
