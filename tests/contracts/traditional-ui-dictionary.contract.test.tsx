@@ -53,6 +53,11 @@ describe("Taiwan display dictionary", () => {
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.documentElement.lang).toBe("zh-TW");
     expect(document.querySelector('a[href="/zh-TW"]')?.textContent).toBe(traditional.header.brand);
+    const navigation = document.querySelector('header nav[aria-label="主要導覽"]');
+    expect([...navigation!.querySelectorAll("a")].map(link => link.getAttribute("href"))).toEqual([
+      "/zh-TW", "/zh-TW/tests", "/zh-TW/personality", "/zh-TW/career",
+      "/zh-TW/articles", "/zh-TW/topics", "/zh-TW/support",
+    ]);
     for (const slug of ["privacy", "terms", "science", "method-boundaries"]) {
       expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }

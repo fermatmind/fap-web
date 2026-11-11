@@ -12,14 +12,23 @@ export const metadata: Metadata = {
 };
 export default function TraditionalLayout({ children }: { children: React.ReactNode }) {
   const dict = getDictSync("zh-TW");
+  const navigation = [
+    { href: "/zh-TW/tests", label: dict.header.tests },
+    { href: "/zh-TW/personality", label: dict.header.personality },
+    { href: "/zh-TW/career", label: dict.header.career },
+    { href: "/zh-TW/articles", label: dict.header.articles },
+    { href: "/zh-TW/topics", label: "專題" },
+    { href: "/zh-TW/support", label: "支援中心" },
+  ];
   return <html lang="zh-TW"><body className={styles.body}>
     <header className="border-b border-slate-200 bg-white"><nav aria-label="主要導覽" className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-4 px-5 py-4">
       <Link href="/zh-TW" className="min-h-11 py-2 text-xl font-bold">{dict.header.brand}</Link>
-      <Link href="/zh-TW/tests" className="min-h-11 py-2 underline">繁體中文測評</Link>
+      <div className="flex flex-wrap items-center gap-x-5">
+        {navigation.map(({ href, label }) => <Link key={href} href={href} prefetch={false} className="inline-flex min-h-11 items-center py-2 underline">{label}</Link>)}
+      </div>
     </nav></header>
     <main className="mx-auto min-h-[70vh] max-w-4xl px-5 py-8 sm:py-12">{children}</main>
     <footer className="mx-auto max-w-4xl space-y-3 border-t border-slate-200 px-5 py-6 text-sm leading-7">
-      <p>瀏覽費馬測試的繁體中文品牌資訊、政策、支援說明，以及吉伊卡哇、七宗罪與七美德測試。</p>
       <nav aria-label="費馬資訊" className="flex flex-wrap gap-x-5 gap-y-1">
         <Link href="/zh-TW/about" className="inline-flex min-h-11 items-center py-2 underline">關於費馬測試</Link>
         <Link href="/zh-TW/brand" className="inline-flex min-h-11 items-center py-2 underline">品牌規範</Link>
