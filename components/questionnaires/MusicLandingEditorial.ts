@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const musicSummaries: Record<string, { zh: string; en: string }> = {
   "pop": {
     "zh": "流行音乐：从副歌旋律、人声位置和段落变化辨别喜好。可以比较同一首歌主歌与副歌最吸引你的地方；喜欢流行不等于只听热门榜单。",
     "en": "Pop: distinguish returning choruses, foreground vocals and section changes. Compare what attracts you in a verse and chorus; liking pop does not mean listening only to chart hits."
@@ -36,7 +36,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function musicLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return musicSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function musicCurrentEntryCopy(text: string, locale: "zh" | "en") {

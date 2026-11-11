@@ -1,3 +1,8 @@
+import { freudianLandingSections, freudianLandingFaq, freudianLandingReferences } from "@/components/questionnaires/FreudianLandingEditorial";
+import { erasOfYouLandingSections, erasOfYouLandingFaq, erasOfYouLandingReferences } from "@/components/questionnaires/ErasOfYouLandingEditorial";
+import { rizzLandingSections, rizzLandingFaq, rizzLandingReferences } from "@/components/questionnaires/RizzLandingEditorial";
+import { feminineEnergyLandingSections, feminineEnergyLandingFaq } from "@/components/questionnaires/FeminineEnergyLandingEditorial";
+import { musicSummaries } from "@/components/questionnaires/MusicLandingEditorial";
 import { sternbergLandingSections, sternbergLandingFaq, sternbergLandingReferences } from "@/components/questionnaires/SternbergLandingEditorial";
 import { jealousyLandingSections, jealousyLandingFaq, jealousyLandingReferences } from "@/components/questionnaires/JealousyLandingEditorial";
 import { wholesomePartnerLandingSections, wholesomePartnerLandingFaq, wholesomePartnerLandingReferences } from "@/components/questionnaires/WholesomePartnerLandingEditorial";
@@ -50,6 +55,47 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "freudian-personality": {
+    reading: "freudian-personality",
+    attribute: "freudian",
+    load: () => import("@/lib/questionnaires/result-content/freudian-personality.json"),
+    editorial: "Freudian",
+    prefix: "freudianLanding",
+    sections: freudianLandingSections,
+    faq: freudianLandingFaq,
+  },
+  "eras-of-you-test": {
+    reading: "eras-of-you-test",
+    attribute: "eras-of-you-test",
+    load: () => import("@/lib/questionnaires/result-content/eras-of-you-test.json"),
+    editorial: "ErasOfYou",
+    prefix: "erasOfYouLanding",
+    sections: erasOfYouLandingSections,
+    faq: erasOfYouLandingFaq,
+  },
+  "rizz-test": {
+    reading: "rizz-test",
+    attribute: "rizz",
+    load: () => import("@/lib/questionnaires/result-content/rizz-test.json"),
+    editorial: "Rizz",
+    prefix: "rizzLanding",
+    sections: rizzLandingSections,
+    faq: rizzLandingFaq,
+  },
+  "feminine-energy": {
+    reading: "feminine-energy",
+    attribute: "feminine-energy",
+    load: () => import("@/lib/questionnaires/result-content/feminine-energy.json"),
+    editorial: "FeminineEnergy",
+    prefix: "feminineEnergyLanding",
+    sections: feminineEnergyLandingSections,
+    faq: feminineEnergyLandingFaq,
+  },
+  "music-taste-test": {
+    reading: "music-taste",
+    attribute: "music-taste",
+    load: () => import("@/lib/questionnaires/result-content/music-taste.json"),
+  },
   "sternberg-love": {
     reading: "sternberg-love",
     attribute: "triangle",
@@ -446,7 +492,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -460,7 +506,8 @@ export async function loadTraditionalLikert(slug: string) {
     : slug === "difficult-person-test" ? projectStoryCopy(frictionSummaries,
       "components/questionnaires/FrictionLandingEditorial.ts/frictionSummaries", units)
     : slug === "learning-style" ? projectStoryCopy(learningSummaries,
-      "components/questionnaires/LearningLandingEditorial.ts/learningSummaries", units) : {};
+      "components/questionnaires/LearningLandingEditorial.ts/learningSummaries", units)
+    : slug === "music-taste-test" ? projectStoryCopy(musicSummaries, "components/questionnaires/MusicLandingEditorial.ts/musicSummaries", units) : {};
   const extraReferences = (() => {
     switch (slug) {
       case "hexaco": return projectStoryCopy(hexacoLandingReferences, "components/questionnaires/HexacoLandingEditorial.ts/hexacoLandingReferences", units);
@@ -485,6 +532,9 @@ export async function loadTraditionalLikert(slug: string) {
       case "sternberg-love": return projectStoryCopy(sternbergLandingReferences, "components/questionnaires/SternbergLandingEditorial.ts/sternbergLandingReferences", units);
       case "jealousy-scale": return projectStoryCopy(jealousyLandingReferences, "components/questionnaires/JealousyLandingEditorial.ts/jealousyLandingReferences", units);
       case "wholesome-partner": return projectStoryCopy(wholesomePartnerLandingReferences, "components/questionnaires/WholesomePartnerLandingEditorial.ts/wholesomePartnerLandingReferences", units);
+      case "freudian-personality": return projectStoryCopy(freudianLandingReferences, "components/questionnaires/FreudianLandingEditorial.ts/freudianLandingReferences", units);
+      case "eras-of-you-test": return projectStoryCopy(erasOfYouLandingReferences, "components/questionnaires/ErasOfYouLandingEditorial.ts/erasOfYouLandingReferences", units);
+      case "rizz-test": return projectStoryCopy(rizzLandingReferences, "components/questionnaires/RizzLandingEditorial.ts/rizzLandingReferences", units);
       default: return [];
     }
   })();

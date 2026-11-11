@@ -4,6 +4,21 @@ import { build } from './convert-zh-tw.mjs';
 const root = new URL('../../', import.meta.url);
 const output = new URL('lib/i18n/zh-TW/likert-questionnaires.generated.json', root);
 const sources = [
+    'lib/questionnaires/data/freudian-personality.json',
+    'lib/questionnaires/result-content/freudian-personality.json',
+    'components/questionnaires/FreudianLandingEditorial.ts',
+    'lib/questionnaires/data/eras-of-you-test.json',
+    'lib/questionnaires/result-content/eras-of-you-test.json',
+    'components/questionnaires/ErasOfYouLandingEditorial.ts',
+    'lib/questionnaires/data/rizz-test.json',
+    'lib/questionnaires/result-content/rizz-test.json',
+    'components/questionnaires/RizzLandingEditorial.ts',
+    'lib/questionnaires/data/feminine-energy.json',
+    'lib/questionnaires/result-content/feminine-energy.json',
+    'components/questionnaires/FeminineEnergyLandingEditorial.ts',
+    'lib/questionnaires/data/music-taste-test.json',
+    'lib/questionnaires/result-content/music-taste.json',
+    'components/questionnaires/MusicLandingEditorial.ts',
     'lib/questionnaires/data/sternberg-love.json',
     'lib/questionnaires/result-content/sternberg-love.json',
     'components/questionnaires/SternbergLandingEditorial.ts',
@@ -228,7 +243,24 @@ function standaloneLikertSource(raw) {
   ];
   return JSON.parse(raw, (key, value) => {
     if (key === 'zh' && typeof value === 'string') {
-      return replacements.reduce((text, from) => text.replaceAll(from, restart), value)
+      const updated = value
+        .replaceAll("开放全文、可选草稿与文化表达的范围", "完整公開說明、作答隱私與文化表達的範圍")
+        .replaceAll("主动保存的草稿在本标签页最多24小时，完成或重测清除；", restart)
+        .replaceAll("主动保存的标签页草稿24小时后失效，完成或重测清除；", restart)
+        .replaceAll("无需账号；自愿草稿只在本标签页最多24小时，完成、清除或重测即删。", "無須登入。" + restart)
+        .replaceAll("草稿自愿，只在本标签页最多24小时，完成、清除或重测即删；", restart)
+        .replaceAll("无需账号，不提供身体、照片或关系经历；自愿草稿只在本标签页保留最多24小时，完成、清除或重测即删。", "無須登入，也無須提供身體資料、照片或相處經歷。" + restart)
+        .replaceAll("主动保存后仅在本标签页保留24小时草稿，完成、重测或清除会删除；", restart)
+        .replaceAll("草稿仅在主动保存后留本标签页24小时，完成、重测或清除即删除。", restart)
+        .replaceAll("主动保存的草稿才在本标签页保留最多24小时；完成、清除或重测后删除。", restart)
+        .replaceAll("需要暂停时可主动保存本标签页进度，最多24小时，完成或重测清除。默认不保存，", restart)
+        .replaceAll("草稿仅在主动保存后按本标签页24小时约定恢复，完成、清除或重测即删除。", restart)
+        .replaceAll("；只有主动保存才在本标签页临时保留进度，最多24小时，完成、清除或重测即删除。", "。" + restart)
+        .replaceAll("点击开始即可进入题目；草稿保存是另行自愿选择，不是开始或查看结果的条件。", "點選開始即可作答。")
+        .replaceAll("点击开始直接进入题目，不必先同意保存草稿。", "點選開始即可作答。")
+        .replaceAll("答案在哪里计算？保存与分享会包含什么？", "答案在哪裡計算？進度會儲存嗎？可以分享什麼？")
+        .replaceAll("完整结果、隐私与可选草稿", "完整結果、隱私與分享");
+      return replacements.reduce((text, from) => text.replaceAll(from, restart), updated)
         .replace("若换了技能，回答可能改变；恢复草稿时请仍用原先参照，不记得可以清除后重测，而不是把两种情境当作同一结果。", "若换了技能，回答可能改变。重测同一情境时，请继续用原先的技能作参照；若想换一项技能，就把它当成一次新的观察。")
         .replace("浏览器内计分，默认不保存，主动保存的草稿仅供本标签页24小时内恢复，完成、清除或重测即删除。", "答案在瀏覽器內計分。" + restart)
         .replace("直接开始、完整免费与可选保存", "直接開始、完整免費與隱私")
@@ -255,10 +287,10 @@ const previous = existsSync(output) ? readFileSync(output, 'utf8') : '';
 const overrides = Object.fromEntries(await Promise.all(sources.map(async path => {
   if (path.endsWith('LandingEditorial.ts')) {
     const editorial = await import(new URL(path, root));
-    return [path, ['Hexaco', 'TechConfidence', 'EverydayControl', 'RelationshipWorry', 'RelationshipHabits', 'DatingOutlook', 'IntimacyValues', 'Commitment', 'WorkActivity', 'WorkEthics', 'CultureFit', 'Competency', 'Interpersonal', 'SocialAttitudes', 'CulturalDimensions', 'SocialBattery', 'PeoplePleaser', 'Trust', 'PositivePressure', 'Habits', 'Friction', 'Egogram', 'Learning', 'Hsp', 'EnergyRhythm', 'Maturity', 'Sternberg', 'Jealousy', 'WholesomePartner'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
+    return [path, ['Hexaco', 'TechConfidence', 'EverydayControl', 'RelationshipWorry', 'RelationshipHabits', 'DatingOutlook', 'IntimacyValues', 'Commitment', 'WorkActivity', 'WorkEthics', 'CultureFit', 'Competency', 'Interpersonal', 'SocialAttitudes', 'CulturalDimensions', 'SocialBattery', 'PeoplePleaser', 'Trust', 'PositivePressure', 'Habits', 'Friction', 'Egogram', 'Learning', 'Hsp', 'EnergyRhythm', 'Maturity', 'Sternberg', 'Jealousy', 'WholesomePartner', 'Freudian', 'ErasOfYou', 'Rizz', 'FeminineEnergy', 'Music'].some(name => path.endsWith('/'+name+'LandingEditorial.ts')) ? standaloneLikertSource(JSON.stringify(editorial)) : editorial];
   }
   const raw = readFileSync(new URL(path, root), 'utf8');
-  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json') || path.endsWith('/relationship-worry-habits.json') || path.endsWith('/relationship-habits.json') || path.endsWith('/dating-outlook.json') || path.endsWith('/intimacy-values.json') || path.endsWith('/relationship-commitment.json') || path.endsWith('/work-activity-interests.json') || path.endsWith('/work-ethics.json') || path.endsWith('/culture-fit.json') || path.endsWith('/competency-test.json') || path.endsWith('/interpersonal-preferences.json') || path.endsWith('/social-attitudes-reflection.json') || path.endsWith('/cultural-dimensions.json') || path.endsWith('/social-battery.json') || path.endsWith('/humor-style.json') || path.endsWith('/people-pleaser.json') || path.endsWith('/trust-issues-test.json') || path.endsWith('/toxic-positivity-test.json') || path.endsWith('/interpersonal-habits.json') || path.endsWith('/difficult-person.json') || path.endsWith('/egogram.json') || path.endsWith('/type-ab.json') || path.endsWith('/learning-preference.json') || path.endsWith('/multiple-intelligences.json') || path.endsWith('/hsp-sensitivity-quiz.json') || path.endsWith('/energy-flow.json') || path.endsWith('/deep-desire.json') || path.endsWith('/light-triad-test.json') || path.endsWith('/maturity.json') || path.endsWith('/sdt-motivation.json') || path.endsWith('/sternberg-love.json') || path.endsWith('/jealousy-scale.json') || path.endsWith('/wholesome-partner.json')
+  return [path, path.startsWith('lib/questionnaires/data/') || path.endsWith('/work-traits-reflection.json') || path.endsWith('/tech-savvy.json') || path.endsWith('/everyday-control-style.json') || path.endsWith('/love-fight-style.json') || path.endsWith('/relationship-worry-habits.json') || path.endsWith('/relationship-habits.json') || path.endsWith('/dating-outlook.json') || path.endsWith('/intimacy-values.json') || path.endsWith('/relationship-commitment.json') || path.endsWith('/work-activity-interests.json') || path.endsWith('/work-ethics.json') || path.endsWith('/culture-fit.json') || path.endsWith('/competency-test.json') || path.endsWith('/interpersonal-preferences.json') || path.endsWith('/social-attitudes-reflection.json') || path.endsWith('/cultural-dimensions.json') || path.endsWith('/social-battery.json') || path.endsWith('/humor-style.json') || path.endsWith('/people-pleaser.json') || path.endsWith('/trust-issues-test.json') || path.endsWith('/toxic-positivity-test.json') || path.endsWith('/interpersonal-habits.json') || path.endsWith('/difficult-person.json') || path.endsWith('/egogram.json') || path.endsWith('/type-ab.json') || path.endsWith('/learning-preference.json') || path.endsWith('/multiple-intelligences.json') || path.endsWith('/hsp-sensitivity-quiz.json') || path.endsWith('/energy-flow.json') || path.endsWith('/deep-desire.json') || path.endsWith('/light-triad-test.json') || path.endsWith('/maturity.json') || path.endsWith('/sdt-motivation.json') || path.endsWith('/sternberg-love.json') || path.endsWith('/jealousy-scale.json') || path.endsWith('/wholesome-partner.json') || path.endsWith('/freudian-personality.json') || path.endsWith('/eras-of-you-test.json') || path.endsWith('/rizz-test.json') || path.endsWith('/feminine-energy.json') || path.endsWith('/music-taste.json')
     ? standaloneLikertSource(raw) : JSON.parse(raw)];
 })));
 const { artifact, snapshots } = build(previous ? JSON.parse(previous) : {}, sources, overrides);
