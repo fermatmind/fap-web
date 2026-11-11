@@ -46,7 +46,7 @@ export async function generateMetadata({
     alternatesByLocale: {
       en: "/en/tests",
       zh: "/zh/tests",
-      xDefault: "/",
+      xDefault: "/zh/tests",
     },
   });
 }

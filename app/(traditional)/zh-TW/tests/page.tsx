@@ -30,7 +30,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: content?.seo.title ?? traditionalUi.hub["zh-TW"],
     description: content?.seo.description ?? traditionalUi.available["zh-TW"],
-    alternates: { canonical: `${SITE_URL}/zh-TW/tests` },
+    alternates: {
+      canonical: `${SITE_URL}/zh-TW/tests`,
+      languages: content ? {
+        en: `${SITE_URL}/en/tests`,
+        "zh-CN": `${SITE_URL}/zh/tests`,
+        "zh-TW": `${SITE_URL}/zh-TW/tests`,
+        "x-default": `${SITE_URL}/zh/tests`,
+      } : undefined,
+    },
   };
 }
 
