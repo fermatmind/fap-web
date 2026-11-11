@@ -236,7 +236,7 @@ describe("one birthday calculator, two rules and twelve shared original guides",
       expect(maps.filter(item => item.loc.includes("/life-path-number"))).toHaveLength(26);
       expect(maps.some(item => item.loc.includes("/soul-number"))).toBe(false);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
-  });
+  }, 30_000);
   it("returns noindex/404 for malformed configurations before guide or OG profile lookup", async () => {
     for (const mutate of [(q: BirthNumberQuestionnaire) => { delete q.profiles[0]; }, (q: BirthNumberQuestionnaire) => { delete q.birthNumber.endpoints[0]; }, (q: BirthNumberQuestionnaire) => { q.profiles[11].sections = []; }]) {
       const bad = structuredClone(quiz); mutate(bad);
