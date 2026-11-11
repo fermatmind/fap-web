@@ -1,5 +1,7 @@
 "use client";
 
+import { coreShareUrlForDisplay } from "@/lib/i18n/coreShareDisplay";
+
 import Link from "next/link";
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -1321,7 +1323,7 @@ export function MbtiResultShell({
         locale,
       });
       const shareUrl = resolveAbsoluteShareUrl(
-        normalizeText(shareResponse.share_url, shareResponse.shareUrl, shareResponse.url)
+        String(coreShareUrlForDisplay(normalizeText(shareResponse.share_url, shareResponse.shareUrl, shareResponse.url)) ?? "")
       );
       if (!shareUrl) {
         throw new Error(locale === "zh" ? "分享链接生成失败。" : "Share link unavailable.");

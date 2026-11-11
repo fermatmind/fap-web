@@ -1,5 +1,7 @@
 "use client";
 
+import { coreShareUrlForDisplay } from "@/lib/i18n/coreShareDisplay";
+
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { createAttemptShare } from "@/lib/api/v0_3";
@@ -43,6 +45,7 @@ export function RiasecResultShell({
   emailRecovery?: ReactNode;
 }) {
   const isZh = locale === "zh";
+  const shareCopy = (source: string, traditional: string) => displayLocale === "zh-TW" ? traditional : source;
   const [shareState, setShareState] = useState<"idle" | "loading" | "copied" | "failed">("idle");
   const trackingPayload = useMemo(
     () => buildRiasecTrustedResultTrackingPayload(viewModel, locale),
@@ -133,7 +136,7 @@ export function RiasecResultShell({
           throw new Error("share_authority_mismatch");
         }
       }
-      const rawUrl = String(response.share_url ?? response.shareUrl ?? response.url ?? "").trim();
+      const rawUrl = String(coreShareUrlForDisplay(response.share_url ?? response.shareUrl ?? response.url) ?? "").trim();
       if (!rawUrl) {
         throw new Error("share_url_missing");
       }
@@ -141,7 +144,7 @@ export function RiasecResultShell({
       trackEvent(RIASEC_TRACKING_EVENTS.shareView, trackingPayload);
 
       const shareUrl = typeof window === "undefined" ? rawUrl : new URL(rawUrl, window.location.origin).toString();
-      const shareTitle = isZh ? "分享我的 RIASEC 职业兴趣结果" : "Share my RIASEC career interest result";
+      const shareTitle = isZh ? shareCopy("分享我的 RIASEC 职业兴趣结果", "分享我的 RIASEC 職涯興趣結果") : "Share my RIASEC career interest result";
 
       if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
         await navigator.share({ title: shareTitle, text: shareTitle, url: shareUrl });
@@ -167,7 +170,7 @@ export function RiasecResultShell({
       emailRecovery={emailRecovery}
       actions={<>
         {showShareAction ? <Button type="button" variant="outline" onClick={() => void handleShare()} disabled={shareState === "loading"}>
-          {shareState === "loading" ? (isZh ? "生成分享链接..." : "Preparing share...") : shareState === "copied" ? (isZh ? "分享链接已复制" : "Link copied") : shareState === "failed" ? (isZh ? "重试分享" : "Retry share") : (isZh ? "分享结果" : "Share result")}
+          {shareState === "loading" ? (isZh ? shareCopy("生成分享链接...", "正在建立分享連結…") : "Preparing share...") : shareState === "copied" ? (isZh ? shareCopy("分享链接已复制", "已複製分享連結") : "Link copied") : shareState === "failed" ? (isZh ? shareCopy("重试分享", "重新分享") : "Retry share") : (isZh ? shareCopy("分享结果", "分享結果") : "Share result")}
         </Button> : null}
         <Link href={retakeHref}>{isZh ? "重新测试" : "Retake test"}</Link>
         {showHistoryAction ? <Link href={historyHref}>{isZh ? "查看历史记录" : "View history"}</Link> : null}
@@ -270,12 +273,12 @@ export function RiasecResultShell({
           {showShareAction ? (
             <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
               {shareState === "loading"
-                ? isZh ? "生成分享链接..." : "Preparing share..."
+                ? isZh ? shareCopy("生成分享链接...", "正在建立分享連結…") : "Preparing share..."
                 : shareState === "copied"
-                  ? isZh ? "分享链接已复制" : "Link copied"
+                  ? isZh ? shareCopy("分享链接已复制", "已複製分享連結") : "Link copied"
                   : shareState === "failed"
-                    ? isZh ? "重试分享" : "Retry share"
-                    : isZh ? "分享结果" : "Share result"}
+                    ? isZh ? shareCopy("重试分享", "重新分享") : "Retry share"
+                    : isZh ? shareCopy("分享结果", "分享結果") : "Share result"}
             </Button>
           ) : null}
           <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
@@ -307,7 +310,7 @@ export function RiasecResultShell({
                 <div className="flex flex-wrap gap-3">
                   {showShareAction ? (
                     <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
-                      {shareState === "loading" ? isZh ? "生成分享链接..." : "Preparing share..." : isZh ? "分享结果" : "Share result"}
+                      {shareState === "loading" ? isZh ? shareCopy("生成分享链接...", "正在建立分享連結…") : "Preparing share..." : isZh ? shareCopy("分享结果", "分享結果") : "Share result"}
                     </Button>
                   ) : null}
                   <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "重新测试" : "Retake test"}</Link>

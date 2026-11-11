@@ -1,5 +1,7 @@
 "use client";
 
+import { coreShareUrlForDisplay } from "@/lib/i18n/coreShareDisplay";
+
 import { useState } from "react";
 import { BIG5_DOMAIN_LABELS, type Big5DomainCode } from "@/lib/big5/taxonomy";
 import { createAttemptShare } from "@/lib/api/v0_3";
@@ -365,7 +367,7 @@ function safePublicShareUrl(value: unknown): string {
       || url.hostname === "127.0.0.1";
     const allowedProtocol = url.protocol === "https:"
       || (url.protocol === "http:" && ["localhost", "127.0.0.1", "example.test", "web.example.test"].includes(url.hostname));
-    if (!allowedHost || !allowedProtocol || !/^\/(?:en|zh)\/share\/[^/]+\/?$/.test(url.pathname)) return "";
+    if (!allowedHost || !allowedProtocol || !/^\/(?:en|zh|zh-TW)\/share\/[^/]+\/?$/.test(url.pathname)) return "";
     url.search = "";
     url.hash = "";
     return url.toString();
@@ -390,7 +392,7 @@ function ShareSave({ block, projection, locale }: RendererProps) {
     setStatus("loading");
     try {
       const response = await createAttemptShare({ attemptId, locale });
-      const shareUrl = safePublicShareUrl(response.share_url ?? response.shareUrl ?? response.url);
+      const shareUrl = safePublicShareUrl(coreShareUrlForDisplay(response.share_url ?? response.shareUrl ?? response.url));
       if (!shareUrl) throw new Error("share_url_invalid");
       if (typeof navigator.share === "function") {
         await navigator.share({

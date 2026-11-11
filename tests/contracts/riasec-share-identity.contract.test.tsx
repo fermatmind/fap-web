@@ -49,6 +49,24 @@ beforeEach(() => {
 });
 
 describe("RIASEC rich report share identity", () => {
+  it("shares the same public summary in Taiwan when started from a Taiwan result", async () => {
+    const originalPath = window.location.pathname;
+    window.history.replaceState(null, "", "/zh-TW/result/synthetic-attempt");
+    vi.mocked(createAttemptShare).mockResolvedValue({
+      ok: true,
+      share_url: "https://fermatmind.com/zh/share/public_summary",
+      riasec_private_result_authority: authority(),
+    });
+    try {
+      render(<RichResultReport locale="zh" reportData={report()} accessProjection={readyAccess()} />);
+      fireEvent.click(screen.getByRole("button", { name: "分享结果" }));
+      await screen.findByRole("button", { name: "分享链接已复制" });
+      expect(writeText).toHaveBeenCalledExactlyOnceWith(window.location.origin + "/zh-TW/share/public_summary");
+    } finally {
+      window.history.replaceState(null, "", originalPath);
+    }
+  });
+
   it.each([undefined, "", "   "])("shares using ready context when report identity is %s", async (id) => {
     render(<RichResultReport locale="zh" reportData={report(id)} accessProjection={readyAccess()} />);
     fireEvent.click(screen.getByRole("button", { name: "分享结果" }));

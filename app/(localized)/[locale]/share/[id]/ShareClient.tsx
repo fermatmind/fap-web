@@ -11,6 +11,7 @@ import MbtiShareSummaryCard from "@/components/share/MbtiShareSummaryCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
   createMbtiCompareInvite,
@@ -20,7 +21,8 @@ import {
   type ShareSummaryResponse,
 } from "@/lib/api/v0_3";
 import { captureError } from "@/lib/observability/sentry";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+import { projectTraditionalShareDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import { buildEnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
 import {
@@ -127,10 +129,13 @@ function markShareClickTracked(key: string, trackedShareClickId: string): void {
 export default function ShareClient({
   locale,
   shareId,
+  displayLocale = locale,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   shareId: string;
 }) {
+  const copy = (source: string, traditional: string) => displayLocale === "zh-TW" ? traditional : source;
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -215,8 +220,9 @@ export default function ShareClient({
           shareId,
           locale,
         });
+        const displayResponse = await projectTraditionalShareDisplay(response, displayLocale);
         if (!active) return;
-        setData(response);
+        setData(displayResponse);
       } catch (cause) {
         if (!active) return;
         const message = cause instanceof Error ? cause.message : "Share not available.";
@@ -236,7 +242,7 @@ export default function ShareClient({
     return () => {
       active = false;
     };
-  }, [locale, shareId]);
+  }, [displayLocale, locale, shareId]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -312,7 +318,9 @@ export default function ShareClient({
           )
         : shareScaleCode === "RIASEC"
           ? RIASEC_TAKE_FALLBACK_PATH
-          : MBTI_TAKE_FALLBACK_PATH;
+          : displayLocale === "zh-TW" && shareScaleCode === "BIG5_OCEAN"
+            ? `/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}/take`
+            : MBTI_TAKE_FALLBACK_PATH;
     const fallbackHref = shareScaleCode === "ENNEAGRAM" ? fallbackPath : `/${locale}${fallbackPath}`;
     const basePath = viewModel.primaryCtaPath || fallbackHref;
     const attributedPath = buildAugmentedPath(basePath, {
@@ -324,10 +332,15 @@ export default function ShareClient({
       ...utmQuery,
     }) || fallbackHref;
 
-    return shareScaleCode === "MBTI"
+    const continuedPath = shareScaleCode === "MBTI"
       ? appendMbtiContinuityQuery(attributedPath, viewModel.continuity)
       : attributedPath;
-  }, [enneagramShareViewModel?.formCode, locale, resolvedShareId, safeLandingPath, safePageReferrer, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
+    if (displayLocale !== "zh-TW") return continuedPath;
+    const url = new URL(continuedPath, "https://fap.local");
+    const sourcePath = url.pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "");
+    const taiwanPath = traditionalPath(`/zh-TW${sourcePath}`);
+    return taiwanPath ? `${taiwanPath}${url.search}${url.hash}` : continuedPath;
+  }, [displayLocale, enneagramShareViewModel?.formCode, locale, resolvedShareId, safeLandingPath, safePageReferrer, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
 
   const primaryContinueTarget = publicSurface?.continueReadingKeys[0] || "share_take_flow";
   const publicSurfaceTelemetry = useMemo(
@@ -464,25 +477,25 @@ export default function ShareClient({
     viewModel.controlledNarrative?.narrativeSummary
       ? {
           key: "narrative",
-          title: locale === "zh" ? "公开摘要" : "Public summary",
+          title: locale === "zh" ? copy("公开摘要", "公開摘要") : "Public summary",
           body: viewModel.controlledNarrative.narrativeSummary,
         }
       : null,
     comparative?.cohortRelativePosition?.summary
       ? {
           key: "comparative",
-          title: comparative.cohortRelativePosition.label || (locale === "zh" ? "相对位置" : "Relative position"),
+          title: comparative.cohortRelativePosition.label || (locale === "zh" ? copy("相对位置", "相對位置") : "Relative position"),
           body: comparative.cohortRelativePosition.summary,
         }
       : null,
     (workingLife?.careerFocusKey || viewModel.culturalCalibration?.workingLifeSummary)
       ? {
           key: "working-life",
-          title: locale === "zh" ? "工作生活线索" : "Working-life cue",
+          title: locale === "zh" ? copy("工作生活线索", "工作生活線索") : "Working-life cue",
           body:
             viewModel.culturalCalibration?.workingLifeSummary
             || (workingLife?.careerFocusKey
-              ? `${locale === "zh" ? "当前重点" : "Current focus"}: ${workingLife.careerFocusKey}`
+              ? `${locale === "zh" ? copy("当前重点", "當前重點") : "Current focus"}: ${workingLife.careerFocusKey}`
               : ""),
         }
       : null,
@@ -563,10 +576,11 @@ export default function ShareClient({
     <>
       {shareScaleCode === "ENNEAGRAM" && enneagramShareViewModel ? (
         <EnneagramShareSummaryCard
+          displayLocale={displayLocale}
           locale={locale}
           viewModel={enneagramShareViewModel}
           primaryActionHref={primaryCtaHref}
-          primaryActionLabel={viewModel.primaryCtaLabel || (locale === "zh" ? "开始九型人格免费测试" : "Start the free Enneagram test")}
+          primaryActionLabel={viewModel.primaryCtaLabel || (locale === "zh" ? copy("开始九型人格免费测试", "開始九型人格免費測試") : "Start the free Enneagram test")}
           onPrimaryActionClick={() => {
             trackEvent("ui_card_interaction", {
               slug: "share-page",
@@ -600,6 +614,7 @@ export default function ShareClient({
         />
       ) : (
         <MbtiShareSummaryCard
+          displayLocale={displayLocale}
           locale={locale}
           card={viewModel.card}
           dimensionUnit={shareScaleCode === "RIASEC" ? "score_0_100" : "percent"}
@@ -717,13 +732,13 @@ export default function ShareClient({
           >
             <div className="space-y-2">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-                {locale === "zh" ? "可嵌入洞察组件" : "Embeddable insight widget"}
+                {locale === "zh" ? copy("可嵌入洞察组件", "可嵌入洞察元件") : "Embeddable insight widget"}
               </p>
               <h2 className="m-0 text-xl font-semibold text-slate-950">
-                {widgetSurface.title || (locale === "zh" ? "结果主链摘要" : "Result-path summary")}
+                {widgetSurface.title || (locale === "zh" ? copy("结果主链摘要", "結果主鏈摘要") : "Result-path summary")}
               </h2>
               <p className="m-0 text-sm leading-7 text-slate-600">
-                {widgetSurface.summary || (locale === "zh" ? "用同一条后端权威主链继续阅读与行动。" : "Continue reading and action from the same backend-owned authority chain.")}
+                {widgetSurface.summary || (locale === "zh" ? copy("用同一条后端权威主链继续阅读与行动。", "用同一條後端權威主鏈繼續閱讀與行動。") : "Continue reading and action from the same backend-owned authority chain.")}
               </p>
             </div>
 
@@ -732,7 +747,7 @@ export default function ShareClient({
               className="mt-4 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-xs text-slate-600"
             >
               <p className="m-0 font-semibold text-slate-900">
-                {locale === "zh" ? "宿主感知组件协议" : "Host-aware widget contract"}
+                {locale === "zh" ? copy("宿主感知组件协议", "宿主感知元件協議") : "Host-aware widget contract"}
               </p>
               <p className="m-0 mt-1">
                 {widgetSurface.hostMode || "card"}
@@ -788,7 +803,7 @@ export default function ShareClient({
                   });
                 }}
               >
-                {widgetSurface.primaryCtaLabel || viewModel.primaryCtaLabel || (locale === "zh" ? "继续这里" : "Continue here")}
+                {widgetSurface.primaryCtaLabel || viewModel.primaryCtaLabel || (locale === "zh" ? copy("继续这里", "繼續這裡") : "Continue here")}
               </Link>
             </div>
 
@@ -798,14 +813,14 @@ export default function ShareClient({
                 className="mt-4 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-xs text-slate-600"
               >
                 <p className="m-0 font-semibold text-slate-900">
-                  {locale === "zh" ? "合作方安全读取" : "Partner-safe read"}
+                  {locale === "zh" ? copy("合作方安全读取", "合作方安全讀取") : "Partner-safe read"}
                 </p>
                 <p className="m-0 mt-1">
                   {partnerRead.graphScope || insightGraph.graphScope}
                   {" · "}
-                  {partnerRead.readScope || (locale === "zh" ? "只读" : "read only")}
+                  {partnerRead.readScope || (locale === "zh" ? copy("只读", "只讀") : "read only")}
                   {" · "}
-                  {partnerRead.subjectScope || (locale === "zh" ? "降级摘要" : "downgraded summary")}
+                  {partnerRead.subjectScope || (locale === "zh" ? copy("降级摘要", "降級摘要") : "downgraded summary")}
                 </p>
               </div>
             ) : null}
@@ -821,11 +836,11 @@ export default function ShareClient({
           >
             <div className="space-y-2">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                {locale === "zh" ? "继续你当前最相关的主线" : "Continue your current focus"}
+                {locale === "zh" ? copy("继续你当前最相关的主线", "繼續你當前最相關的主線") : "Continue your current focus"}
               </p>
               <h2 className="m-0 text-xl font-semibold text-slate-950">
                 {locale === "zh"
-                  ? `下一步先看 ${continuityFocusLabel || "当前重点"}`
+                  ? `下一步先看 ${continuityFocusLabel || copy("当前重点", "當前重點")}`
                   : `Start next with ${continuityFocusLabel || "the current focus"}`}
               </h2>
               <p className="m-0 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
@@ -851,7 +866,7 @@ export default function ShareClient({
                   });
                 }}
               >
-                {locale === "zh" ? "继续这里" : "Continue here"}
+                {locale === "zh" ? copy("继续这里", "繼續這裡") : "Continue here"}
               </Link>
             </div>
           </div>
@@ -866,16 +881,16 @@ export default function ShareClient({
           >
             <div className="space-y-2">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                {locale === "zh" ? "继续阅读" : "Continue from here"}
+                {locale === "zh" ? copy("继续阅读", "繼續閱讀") : "Continue from here"}
               </p>
               <h2 className="m-0 text-xl font-semibold text-slate-950">
                 {locale === "zh"
-                  ? "继续进入完整结果主链"
+                  ? copy("继续进入完整结果主链", "繼續進入完整結果主鏈")
                   : "Continue into the full result path"}
               </h2>
               <p className="m-0 text-sm leading-7 text-slate-600">
                 {locale === "zh"
-                  ? "这张公开卡片只保留安全摘要。继续测试后可以进入完整结果与后续阅读主线。"
+                  ? copy("这张公开卡片只保留安全摘要。继续测试后可以进入完整结果与后续阅读主线。", "這張公開卡片只保留安全摘要。繼續測試後可以進入完整結果與後續閱讀主線。")
                   : "This public card keeps only a safe summary. After continuing with the test, you can access the full result and the main path for further reading."}
               </p>
             </div>
@@ -900,7 +915,7 @@ export default function ShareClient({
                   });
                 }}
               >
-                {locale === "zh" ? "继续这里" : "Continue here"}
+                {locale === "zh" ? copy("继续这里", "繼續這裡") : "Continue here"}
               </Link>
             </div>
           </div>
@@ -913,11 +928,11 @@ export default function ShareClient({
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="space-y-1">
                 <p className="m-0 text-sm font-semibold text-slate-900">
-                  {locale === "zh" ? "邀请朋友来测并对比" : "Invite a friend to take the test and compare"}
+                  {locale === "zh" ? copy("邀请朋友来测并对比", "邀請朋友來測並對比") : "Invite a friend to take the test and compare"}
                 </p>
                 <p className="m-0 text-sm text-slate-600">
                   {locale === "zh"
-                    ? "流程只会展示公开安全的摘要和 compare 结果，不会泄露任何付费内容。"
+                    ? copy("流程只会展示公开安全的摘要和 compare 结果，不会泄露任何付费内容。", "流程只會展示公開安全的摘要和 compare 結果，不會洩露任何付費內容。")
                     : "The flow only exposes public-safe summary and compare data, never paid report content."}
                 </p>
               </div>
@@ -932,9 +947,9 @@ export default function ShareClient({
               >
                 {compareInvitePending
                   ? locale === "zh"
-                    ? "正在创建邀请..."
+                    ? copy("正在创建邀请...", "正在建立邀請...")
                     : "Creating invite..."
-                  : viewModel.compareCtaLabel || (locale === "zh" ? "邀请朋友来测并对比" : "Invite a friend to compare")}
+                  : viewModel.compareCtaLabel || (locale === "zh" ? copy("邀请朋友来测并对比", "邀請朋友來測並對比") : "Invite a friend to compare")}
               </Button>
             </div>
 

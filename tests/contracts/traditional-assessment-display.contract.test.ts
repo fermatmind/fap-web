@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { assessmentDisplayLocale, assessmentDisplayPath, projectTraditionalQuestionDisplay, projectTraditionalResultDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
+import { assessmentDisplayLocale, assessmentDisplayPath, projectTraditionalQuestionDisplay, projectTraditionalResultDisplay, projectTraditionalShareDisplay } from "@/lib/tests/traditionalAssessmentDisplay";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { NextRequest } from "next/server";
 import { proxy } from "@/proxy";
@@ -126,4 +126,36 @@ describe("Traditional assessment display", () => {
     expect(traditionalPath("/zh-TW/tests/non-core/take")).toBeNull();
   });
 
+});
+
+it("translates public share display copy without altering identity or source bindings", async () => {
+  const authority = { mode: "canonical", source_hash: "synthetic-source" };
+  const input = {
+    share_id: "synthetic_share",
+    share_url: "https://fermatmind.com/zh/share/synthetic_share",
+    locale: "zh-CN",
+    type_code: "INTJ",
+    title: "公开报告",
+    summary: "查看 40% 的结果",
+    big5_private_result_authority: authority,
+    big5_public_projection_v1: {
+      trait_vector: [{ label: "开放性", code: "O", percent: 40 }],
+      _meta: { description: "保留源绑定" },
+    },
+    landing_surface_v1: {
+      summary_blocks: [{ title: "继续阅读", body: "查看测评说明" }],
+      primary_cta_path: "/zh/tests/example",
+    },
+  };
+  const output = await projectTraditionalShareDisplay(input, "zh-TW");
+  expect(output.title).toBe("公開報告");
+  expect(output.summary).toBe("檢視 40% 的結果");
+  expect(output.big5_public_projection_v1.trait_vector).toEqual([{ label: "開放性", code: "O", percent: 40 }]);
+  expect(output.big5_public_projection_v1._meta).toBe(input.big5_public_projection_v1._meta);
+  expect(output.big5_private_result_authority).toBe(authority);
+  expect(output.landing_surface_v1.summary_blocks[0].title).toBe("繼續閱讀");
+  expect(output.landing_surface_v1.primary_cta_path).toBe(input.landing_surface_v1.primary_cta_path);
+  expect([output.share_id, output.share_url, output.locale, output.type_code])
+    .toEqual([input.share_id, input.share_url, input.locale, input.type_code]);
+  expect(await projectTraditionalShareDisplay(input, "en")).toBe(input);
 });

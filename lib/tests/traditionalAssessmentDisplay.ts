@@ -145,6 +145,44 @@ function reportDisplayValue(value: unknown, key: string, translate: Translate, t
   ]));
 }
 
+const shareDisplayRoots = [
+  "title", "subtitle", "type_name", "typeName", "tagline", "summary",
+  "primary_cta_label", "compare_cta_label", "rarity_label",
+  "public_tags", "publicTags", "tags", "dimensions", "profile", "identity_card", "identityCard",
+  "summary_card", "summaryCard", "mbti_public_summary_v1", "mbti_public_projection_v1",
+  "big5_public_projection_v1", "enneagram_public_summary_v1", "riasec_public_projection_v1",
+  "controlled_narrative_v1", "comparative_v1", "cultural_calibration_v1", "working_life_v1",
+  "public_surface_v1", "landing_surface_v1", "answer_surface_v1", "insight_graph_v1",
+  "embed_surface_v1", "widget_surface_v1",
+] as const;
+const shareTextFields = new Set([
+  "typeName", "tagline", "primary_cta_label", "compare_cta_label", "rarity_label",
+  "side_label", "sideLabel", "band_label", "winnerLabel", "narrative_summary",
+  "form_label", "cta_label", "primary_action_label",
+]);
+const shareTextLists = new Set(["public_tags", "publicTags"]);
+
+/** Translate visible fields in the backend's public share response. */
+export async function projectTraditionalShareDisplay<T>(payload: T, displayLocale: DisplayLocale): Promise<T> {
+  if (displayLocale !== "zh-TW" || !record(payload)) return payload;
+  const translate = await loadTraditionalAssessmentText();
+  const project = (value: unknown, key: string): unknown => {
+    if (reportProtectedBranches.has(key)) return value;
+    if (typeof value === "string") {
+      return reportTextFields.has(key) || shareTextFields.has(key) || reportTextLists.has(key) || shareTextLists.has(key)
+        ? translate(value) : value;
+    }
+    if (Array.isArray(value)) return value.map((item) => project(item, key));
+    if (!record(value)) return value;
+    return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [childKey, project(child, childKey)]));
+  };
+  const result: TextRecord = { ...payload };
+  for (const key of shareDisplayRoots) {
+    if (Object.hasOwn(payload, key)) result[key] = project(payload[key], key);
+  }
+  return result as T;
+}
+
 /** Localize visible copy on an already-authorized report without altering its authority or commerce metadata. */
 export async function projectTraditionalResultDisplay<T>(payload: T, displayLocale: DisplayLocale): Promise<T> {
   if (displayLocale !== "zh-TW" || !record(payload)) return payload;

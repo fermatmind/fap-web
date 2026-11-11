@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import type { EnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
 export default function EnneagramShareSummaryCard({
   locale,
+  displayLocale = locale,
   viewModel,
   primaryActionHref,
   primaryActionLabel,
@@ -15,6 +16,7 @@ export default function EnneagramShareSummaryCard({
   onLibraryActionClick,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   viewModel: EnneagramShareViewModel;
   primaryActionHref?: string;
   primaryActionLabel?: string;
@@ -23,9 +25,10 @@ export default function EnneagramShareSummaryCard({
   onPrimaryActionClick?: () => void;
   onLibraryActionClick?: () => void;
 }) {
-  const testsHref = localizedPath("/tests", locale);
+  const copy = (source: string, traditional: string) => displayLocale === "zh-TW" ? traditional : source;
+  const testsHref = displayLocale === "zh-TW" ? "/zh-TW/tests" : localizedPath("/tests", locale);
   const startTestHref = primaryActionHref || viewModel.startTestHref;
-  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始九型人格免费测试" : "Start the free Enneagram test");
+  const startTestLabel = primaryActionLabel || (locale === "zh" ? copy("开始九型人格免费测试", "開始九型人格免費測試") : "Start the free Enneagram test");
   const headline = viewModel.title;
 
   return (
@@ -38,7 +41,7 @@ export default function EnneagramShareSummaryCard({
           <section className="space-y-5">
             <div className="space-y-3">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">
-                {locale === "zh" ? "九型公开分享摘要" : "Enneagram public summary"}
+                {locale === "zh" ? copy("九型公开分享摘要", "九型公開分享摘要") : "Enneagram public summary"}
               </p>
               <div className="space-y-2">
                 <div className="flex flex-wrap gap-2">
@@ -92,7 +95,7 @@ export default function EnneagramShareSummaryCard({
             <div className="grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
               <div className="rounded-[24px] border border-white/80 bg-white/88 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.06)]">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  {locale === "zh" ? "全部九型概览" : "All nine overview"}
+                  {locale === "zh" ? copy("全部九型概览", "全部九型概覽") : "All nine overview"}
                 </p>
                 <div data-testid="enneagram-share-all9-profile" className="mt-3 space-y-2">
                   {viewModel.all9ProfileMini.map((type) => (
@@ -113,7 +116,7 @@ export default function EnneagramShareSummaryCard({
                 {viewModel.methodologyBoundary ? (
                   <div className="rounded-[24px] border border-white/80 bg-white/88 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.06)]">
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {locale === "zh" ? "解释边界" : "Interpretation boundary"}
+                      {locale === "zh" ? copy("解释边界", "解釋邊界") : "Interpretation boundary"}
                     </p>
                     <p data-testid="enneagram-share-methodology-boundary" className="m-0 mt-2 text-sm leading-7 text-slate-700">
                       {viewModel.methodologyBoundary}
@@ -127,7 +130,7 @@ export default function EnneagramShareSummaryCard({
                     className="rounded-[24px] border border-amber-200 bg-amber-50/70 p-4"
                   >
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
-                      {locale === "zh" ? "近邻竞争" : "Close call"}
+                      {locale === "zh" ? copy("近邻竞争", "近鄰競爭") : "Close call"}
                     </p>
                     <p className="m-0 mt-2 text-sm font-semibold text-slate-900">
                       {viewModel.closeCallPair.typeA?.label ?? "--"} / {viewModel.closeCallPair.typeB?.label ?? "--"}
@@ -150,7 +153,7 @@ export default function EnneagramShareSummaryCard({
                 className={buttonVariants({ variant: "outline", className: "min-w-[160px]" })}
                 onClick={onLibraryActionClick}
               >
-                {locale === "zh" ? "查看全部测试" : "Browse all tests"}
+                {locale === "zh" ? copy("查看全部测试", "檢視全部測試") : "Browse all tests"}
               </Link>
             </div>
           </section>

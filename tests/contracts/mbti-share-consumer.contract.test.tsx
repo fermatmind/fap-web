@@ -561,6 +561,22 @@ describe("MBTI share consumer contract", () => {
     });
   });
 
+  it("keeps the Taiwan share continuation on the Taiwan form with attribution", async () => {
+    hoisted.getShareSummary.mockResolvedValue({
+      ok: true, id: "share-123", share_id: "share-123", scale_code: "RIASEC", locale: "zh-CN",
+      title: "公开测试结果", summary: "查看职业兴趣结果", type_code: "RIA",
+      primary_cta_label: "开始霍兰德测试",
+      primary_cta_path: "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60",
+    });
+    render(<ShareClient locale="zh" displayLocale="zh-TW" shareId="share-123" />);
+    expect(await screen.findByText("檢視職業興趣結果")).toBeInTheDocument();
+    const links = screen.getAllByRole("link", { name: "開始霍蘭德測試" });
+    const target = new URL(links[0].getAttribute("href")!, "https://fermatmind.com");
+    expect(target.pathname).toBe("/zh-TW/tests/holland-career-interest-test-riasec/take");
+    expect(target.searchParams.get("form")).toBe("riasec_60");
+    expect(target.searchParams.get("share_id")).toBe("share-123");
+  });
+
   it("reuses one pending share-click write during StrictMode effect replay", async () => {
     const pending = deferred<{ ok: boolean; id: string }>();
     hoisted.trackShareClick.mockReturnValue(pending.promise);

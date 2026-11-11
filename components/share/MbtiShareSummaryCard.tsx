@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { type MbtiPublicProjectionCardViewModel } from "@/lib/mbti/publicProjection";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,6 +27,7 @@ function resolveNarrative(card: MbtiPublicProjectionCardViewModel | null): strin
 
 export default function MbtiShareSummaryCard({
   locale,
+  displayLocale = locale,
   card,
   variant = "page",
   primaryActionHref,
@@ -40,6 +41,7 @@ export default function MbtiShareSummaryCard({
   onLibraryActionClick,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   card: MbtiPublicProjectionCardViewModel | null;
   variant?: "page" | "compact";
   primaryActionHref?: string;
@@ -52,9 +54,10 @@ export default function MbtiShareSummaryCard({
   onPrimaryActionClick?: () => void;
   onLibraryActionClick?: () => void;
 }) {
+  const copy = (source: string, traditional: string) => displayLocale === "zh-TW" ? traditional : source;
   const startTestHref = primaryActionHref || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
-  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test");
-  const testsHref = localizedPath("/tests", locale);
+  const startTestLabel = primaryActionLabel || (locale === "zh" ? copy("开始 MBTI 免费测试", "開始 MBTI 免費測試") : "Start the free MBTI test");
+  const testsHref = displayLocale === "zh-TW" ? "/zh-TW/tests" : localizedPath("/tests", locale);
   const heading = resolveHeading(card, locale);
   const secondaryLabel = resolveSecondaryLabel(card, heading);
   const narrative = resolveNarrative(card);
@@ -62,8 +65,8 @@ export default function MbtiShareSummaryCard({
     <div data-testid="mbti-share-dimension-bars" className="space-y-3">
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
         {dimensionUnit === "score_0_100"
-          ? locale === "zh" ? "兴趣分数（0–100）" : "Interest scores (0–100)"
-          : locale === "zh" ? "维度概览" : "Dimension overview"}
+          ? locale === "zh" ? copy("兴趣分数（0–100）", "興趣分數（0–100）") : "Interest scores (0–100)"
+          : locale === "zh" ? copy("维度概览", "維度概覽") : "Dimension overview"}
       </p>
       {card.dimensions.map((dimension) => (
         <div key={`${dimension.code}-${dimension.label}`} className="space-y-1.5">
@@ -135,7 +138,7 @@ export default function MbtiShareSummaryCard({
           <section className="space-y-5">
             <div className="space-y-3">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
-                {locale === "zh" ? "公开分享摘要" : "Public share summary"}
+                {locale === "zh" ? copy("公开分享摘要", "公開分享摘要") : "Public share summary"}
               </p>
               <div className="space-y-2">
                 <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
@@ -184,7 +187,7 @@ export default function MbtiShareSummaryCard({
                     className={buttonVariants({ variant: "outline", className: "min-w-[160px]" })}
                     onClick={onLibraryActionClick}
                   >
-                    {locale === "zh" ? "查看全部测试" : "Browse all tests"}
+                    {locale === "zh" ? copy("查看全部测试", "檢視全部測試") : "Browse all tests"}
                   </Link>
                 ) : null}
               </div>
@@ -195,7 +198,7 @@ export default function MbtiShareSummaryCard({
             <Card className="border-white/70 bg-white/88 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
               <CardHeader className="pb-3">
                 <CardTitle className="text-base text-slate-900">
-                  {locale === "zh" ? "轻量结果卡" : "Lightweight result card"}
+                  {locale === "zh" ? copy("轻量结果卡", "輕量結果卡") : "Lightweight result card"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -216,7 +219,7 @@ export default function MbtiShareSummaryCard({
                     className={buttonVariants({ variant: "outline", className: "w-full" })}
                     onClick={onPrimaryActionClick}
                   >
-                    {locale === "zh" ? "我也来测一下" : "Start my own free test"}
+                    {locale === "zh" ? copy("我也来测一下", "我也來測一下") : "Start my own free test"}
                   </Link>
                 ) : null}
               </CardContent>

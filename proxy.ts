@@ -1,6 +1,7 @@
 import { CANONICAL_SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { AD_PLACEMENT_HEADER, AD_PLACEMENT_SEGMENT, entertainmentAdPlacement } from "@/lib/entertainment/adPlacement";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { isCoreSharePath } from "@/lib/i18n/coreShareDisplay";
 import { getTraditionalPublicAssetRoute, isTraditionalMbtiDetailPath } from "@/lib/personality/traditionalPublicAssetRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { initialQuestionnaireScripts } from "@/lib/questionnaires/initialScripts";
@@ -408,7 +409,8 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   // These Traditional readers share the original anonymous/private policy.
   const isTraditionalCoreRoute = /^\/zh-TW\/(?:tests\/[^/]+(?:\/take)?|result\/[^/]+)\/?$/u.test(pathname) && traditionalPath(pathname);
   const isTraditionalOrderLookup = /^\/zh-TW\/orders\/lookup\/?$/u.test(pathname);
-  const strippedPath = pathname === "/zh-TW/account" || isTraditionalCoreRoute
+  const isTraditionalShare = pathname.startsWith("/zh-TW/") && isCoreSharePath(pathname.slice("/zh-TW".length));
+  const strippedPath = pathname === "/zh-TW/account" || isTraditionalCoreRoute || isTraditionalShare
     ? pathname.slice("/zh-TW".length)
     : isTraditionalOrderLookup ? "/orders/lookup" : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
