@@ -16,6 +16,7 @@ export function PdfDownloadButton({
   attemptId,
   locked,
   accessProjection,
+  taiwanPdf,
   onDownloaded,
   locale = "en",
   filenamePrefix = "big5-report",
@@ -28,6 +29,7 @@ export function PdfDownloadButton({
   attemptId: string;
   locked: boolean;
   accessProjection?: AttemptReportAccessView | null;
+  taiwanPdf?: { accessToken: string | null };
   onDownloaded?: () => void;
   locale?: "en" | "zh";
   filenamePrefix?: string;
@@ -41,7 +43,14 @@ export function PdfDownloadButton({
   const [error, setError] = useState<string | null>(null);
   const resolvedAttemptId = accessProjection?.attemptId ?? attemptId;
   const pdfLocked = accessProjection ? !canDownloadReportPdf(accessProjection) : locked;
-  const copy = {
+  const copy = taiwanPdf ? {
+    locked: "解鎖後下載 PDF",
+    loading: "正在產生 PDF…",
+    ready: "下載繁體 PDF",
+    safetyDisabled: "PDF 暫時無法下載",
+    pendingError: "PDF 仍在產生中，請稍後再試。",
+    failure: "無法下載 PDF，請稍後再試。",
+  } : {
     locked: locale === "zh" ? "解锁后下载 PDF" : "Unlock to download PDF",
     loading: locale === "zh" ? "PDF 生成中..." : "Generating PDF...",
     ready: locale === "zh" ? "下载 PDF" : "Download PDF",
@@ -65,7 +74,10 @@ export function PdfDownloadButton({
 
       for (let i = 0; i < 6; i += 1) {
         try {
-          const response = await fetchAttemptReportPdfWithMeta({ attemptId: resolvedAttemptId });
+          const response = await fetchAttemptReportPdfWithMeta({
+            attemptId: resolvedAttemptId,
+            ...(taiwanPdf ? { displayLocale: "zh-TW", accessToken: taiwanPdf.accessToken } : {}),
+          });
           blob = response.blob;
           resolvedFilenameHint = response.filenameHint?.trim() || resolvedFilenameHint;
           if (blob.size > 0) break;
@@ -82,7 +94,7 @@ export function PdfDownloadButton({
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = resolvedFilenameHint || `${filenamePrefix}-${resolvedAttemptId}.pdf`;
+      anchor.download = resolvedFilenameHint || (taiwanPdf ? "fermatmind-big-five-zh-TW.pdf" : `${filenamePrefix}-${resolvedAttemptId}.pdf`);
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();

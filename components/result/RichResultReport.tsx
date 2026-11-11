@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { useState, type ReactNode } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { Big5ResultPageV2Shell } from "@/components/result/big5/Big5ResultPageV2Shell";
@@ -1396,6 +1397,7 @@ export function RichResultReport({
   snapshotDesktopCloneContent = null,
   snapshotContentStatus = null,
   onDownloadMbtiPdf,
+  taiwanBigFivePdf,
 }: {
   locale: Locale;
   reportData: ReportResponse;
@@ -1406,6 +1408,7 @@ export function RichResultReport({
   snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
   onDownloadMbtiPdf?: () => Promise<void>;
+  taiwanBigFivePdf?: { accessToken: string | null };
 }) {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode) {
@@ -1523,14 +1526,21 @@ export function RichResultReport({
     if (authority.mode === "immutable_legacy_snapshot" && hasBig5ResultPageV2Candidate(reportData)) {
       const semanticDecision = getBig5ResultPageV2SemanticDecision(reportData);
       if (semanticDecision.mode === "full") {
+        const pdf = taiwanBigFivePdf && accessProjection?.attemptId
+          ? <PdfDownloadButton attemptId={accessProjection.attemptId} locked={gate.isFreeVariant}
+              accessProjection={accessProjection} locale={locale} taiwanPdf={taiwanBigFivePdf} />
+          : null;
         return (
-          <Big5ResultPageV2Shell
-            locale={locale}
-            payload={filterBig5ResultPageV2PayloadForGate(semanticDecision.payload, {
-              isFreeVariant: gate.isFreeVariant,
-              modulesAllowed: gate.modulesAllowed,
-            })}
-          />
+          <>
+            <Big5ResultPageV2Shell
+              locale={locale}
+              payload={filterBig5ResultPageV2PayloadForGate(semanticDecision.payload, {
+                isFreeVariant: gate.isFreeVariant,
+                modulesAllowed: gate.modulesAllowed,
+              })}
+            />
+            {pdf}
+          </>
         );
       }
       if (semanticDecision.mode === "core_only") {
@@ -1566,6 +1576,7 @@ export function RichResultReport({
         attemptId={accessProjection?.attemptId ?? ""}
         reportLocked={accessProjection ? accessProjection.accessState !== "ready" : reportData.locked === true}
         accessProjection={accessProjection}
+        taiwanPdf={taiwanBigFivePdf}
         headline={headline}
         tags={tags}
         dimensions={assembled.dimensions}

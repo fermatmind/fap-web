@@ -50,6 +50,7 @@ export function Big5ResultShell({
   attemptId,
   reportLocked,
   accessProjection,
+  taiwanPdf,
   headline,
   formSummaryLabel,
   dimensions,
@@ -68,6 +69,7 @@ export function Big5ResultShell({
   attemptId: string;
   reportLocked: boolean;
   accessProjection?: AttemptReportAccessView | null;
+  taiwanPdf?: { accessToken: string | null };
   headline: Headline;
   formSummaryLabel?: string | null;
   tags: string[];
@@ -162,7 +164,7 @@ export function Big5ResultShell({
       ) : null}
 
       <section data-testid="big5-actions-card" className="flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-white p-5">
-        {pdfAttemptId ? <PdfDownloadButton attemptId={pdfAttemptId} locked={reportLocked} accessProjection={accessProjection} locale={locale} /> : null}
+        {pdfAttemptId ? <PdfDownloadButton attemptId={pdfAttemptId} locked={reportLocked} accessProjection={accessProjection} locale={locale} taiwanPdf={taiwanPdf} /> : null}
         <Link href={historyHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "历史" : "History"}</Link>
         <Link href={compareHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "对比" : "Compare"}</Link>
         <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "复测" : "Retake"}</Link>

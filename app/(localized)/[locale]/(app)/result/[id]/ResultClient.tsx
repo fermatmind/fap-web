@@ -2226,6 +2226,8 @@ export default function ResultClient({
           snapshotDesktopCloneContent={snapshotDesktopCloneContent}
           snapshotContentStatus={snapshotContentStatus}
           onDownloadMbtiPdf={onDownloadMbtiPdf}
+          taiwanBigFivePdf={!printMode && displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable
+            ? { accessToken: resultAccessToken } : undefined}
         />
         {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}

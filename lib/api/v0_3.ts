@@ -3676,11 +3676,16 @@ export async function createAttemptInviteUnlock({
 export function getAttemptReportPdfUrl({
   attemptId,
   inline,
+  displayLocale,
 }: {
   attemptId: string;
   inline?: boolean;
+  displayLocale?: "zh-TW";
 }): string {
-  return buildApiUrl(`/v0.3/attempts/${attemptId}/report.pdf${inline ? "?inline=1" : ""}`);
+  const query = new URLSearchParams();
+  if (inline) query.set("inline", "1");
+  if (displayLocale) query.set("display_locale", displayLocale);
+  return buildApiUrl(`/v0.3/attempts/${attemptId}/report.pdf${query.size ? `?${query}` : ""}`);
 }
 
 export function getAttemptResultPagePdfUrl({
@@ -3738,11 +3743,13 @@ export async function fetchAttemptReportPdfWithMeta({
   anonId,
   inline,
   accessToken,
+  displayLocale,
 }: {
   attemptId: string;
   anonId?: string;
   inline?: boolean;
   accessToken?: string | null;
+  displayLocale?: "zh-TW";
 }): Promise<AttemptReportPdfResponse> {
   const resolvedAnonId = accessToken ? undefined : resolveAnonId(anonId);
   const authToken = accessToken ? null : getFmToken();
@@ -3760,7 +3767,7 @@ export async function fetchAttemptReportPdfWithMeta({
 
   if (accessToken) headers.set("X-Result-Access-Token", accessToken);
 
-  const response = await fetch(getAttemptReportPdfUrl({ attemptId, inline }), {
+  const response = await fetch(getAttemptReportPdfUrl({ attemptId, inline, displayLocale }), {
     method: "GET",
     headers,
     cache: "no-store",
