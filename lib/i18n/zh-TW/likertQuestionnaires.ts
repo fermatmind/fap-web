@@ -1,3 +1,6 @@
+import { sternbergLandingSections, sternbergLandingFaq, sternbergLandingReferences } from "@/components/questionnaires/SternbergLandingEditorial";
+import { jealousyLandingSections, jealousyLandingFaq, jealousyLandingReferences } from "@/components/questionnaires/JealousyLandingEditorial";
+import { wholesomePartnerLandingSections, wholesomePartnerLandingFaq, wholesomePartnerLandingReferences } from "@/components/questionnaires/WholesomePartnerLandingEditorial";
 import { energyRhythmLandingSections, energyRhythmLandingFaq, energyRhythmLandingReferences } from "@/components/questionnaires/EnergyRhythmLandingEditorial";
 import { maturityLandingSections, maturityLandingFaq } from "@/components/questionnaires/MaturityLandingEditorial";
 import { egogramLandingSections, egogramLandingFaq } from "@/components/questionnaires/EgogramLandingEditorial";
@@ -47,6 +50,33 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "sternberg-love": {
+    reading: "sternberg-love",
+    attribute: "triangle",
+    load: () => import("@/lib/questionnaires/result-content/sternberg-love.json"),
+    editorial: "Sternberg",
+    prefix: "sternbergLanding",
+    sections: sternbergLandingSections,
+    faq: sternbergLandingFaq,
+  },
+  "jealousy-scale": {
+    reading: "jealousy-scale",
+    attribute: "jealousy",
+    load: () => import("@/lib/questionnaires/result-content/jealousy-scale.json"),
+    editorial: "Jealousy",
+    prefix: "jealousyLanding",
+    sections: jealousyLandingSections,
+    faq: jealousyLandingFaq,
+  },
+  "wholesome-partner": {
+    reading: "wholesome-partner",
+    attribute: "wholesome-partner",
+    load: () => import("@/lib/questionnaires/result-content/wholesome-partner.json"),
+    editorial: "WholesomePartner",
+    prefix: "wholesomePartnerLanding",
+    sections: wholesomePartnerLandingSections,
+    faq: wholesomePartnerLandingFaq,
+  },
   "energy-flow": {
     reading: "energy-flow",
     attribute: "energy-flow",
@@ -416,7 +446,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -452,6 +482,9 @@ export async function loadTraditionalLikert(slug: string) {
       case "toxic-positivity-test": return projectStoryCopy(positivePressureLandingReferences, "components/questionnaires/PositivePressureLandingEditorial.ts/positivePressureLandingReferences", units);
       case "hsp-sensitivity-quiz": return projectStoryCopy(hspLandingReferences, "components/questionnaires/HspLandingEditorial.ts/hspLandingReferences", units);
       case "energy-flow": return projectStoryCopy(energyRhythmLandingReferences, "components/questionnaires/EnergyRhythmLandingEditorial.ts/energyRhythmLandingReferences", units);
+      case "sternberg-love": return projectStoryCopy(sternbergLandingReferences, "components/questionnaires/SternbergLandingEditorial.ts/sternbergLandingReferences", units);
+      case "jealousy-scale": return projectStoryCopy(jealousyLandingReferences, "components/questionnaires/JealousyLandingEditorial.ts/jealousyLandingReferences", units);
+      case "wholesome-partner": return projectStoryCopy(wholesomePartnerLandingReferences, "components/questionnaires/WholesomePartnerLandingEditorial.ts/wholesomePartnerLandingReferences", units);
       default: return [];
     }
   })();
