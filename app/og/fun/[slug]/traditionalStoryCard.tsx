@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalPrivateReflection, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -53,11 +53,19 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       ? await (await import("@/lib/i18n/zh-TW/privateReflectionQuestionnaires")).loadTraditionalPrivateReflection(slug)
       : hasTraditionalWorkReasoning(slug)
         ? await (await import("@/lib/i18n/zh-TW/workReasoningQuestionnaires")).loadTraditionalWorkReasoning(slug)
-        : await loadTraditionalLikert(slug);
+        : hasTraditionalRelationshipSix(slug)
+          ? await (await import("@/lib/i18n/zh-TW/relationshipSixQuestionnaires")).loadTraditionalRelationshipSix(slug)
+          : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "capacity-to-love-test": "CTL-I 2018 題本工作譯版",
+      "love-languages": "費馬原創 50 道關懷方式題",
+      "love-type-16": "費馬原創 32 道關係偏好題",
+      "mote-type": "24 組互動選擇",
+      "parenting-style": "費馬原創 12 道照顧行為題",
+      "relationship-preferences": "24 組戀愛安排選擇",
       "asvab-practice-test": "費馬原創 32 道英文練習題",
       "asvab-science-mechanical-practice-test": "費馬原創 30 道英文練習題",
       "employer-reasoning-practice-test": "費馬原創 18 道英文練習題",
@@ -132,8 +140,12 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       "intimacy-values": "費馬原創 25 道親密價值題",
       "relationship-commitment": "費馬原創 24 道關係承諾題",
     };
-    const edition = editions[slug] ?? "IPIP 公有領域題目";
-    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, slug === "character-strengths" ? "公開性格優勢指南" : "公開連續分數指南");
+    const privateReflection = hasTraditionalPrivateReflection(slug);
+    const edition = editions[slug] ?? (privateReflection ? "自我觀察與回顧" : "IPIP 公有領域題目");
+    const guideLabel = slug === "character-strengths" ? "公開性格優勢指南"
+      : privateReflection || hasTraditionalRelationshipSix(slug) || hasTraditionalWorkReasoning(slug)
+        ? "公開結果指南" : "公開連續分數指南";
+    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, guideLabel);
   }
   if (traditionalPracticeRoute(`/tests/explore/${slug}`)) {
     const item = await loadTraditionalPractice(slug);

@@ -1,4 +1,5 @@
 "use client";
+import { hasTraditionalRelationshipSix } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
@@ -66,7 +67,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const traditionalArchetype = traditional && hasTraditionalArchetype(quiz.slug);
   const traditionalDirectional = traditional && hasTraditionalDirectional(quiz.slug);
-  const displayLocale = traditionalDirectional ? "zh-TW" : locale;
+  const displayLocale = traditionalDirectional || (traditional && hasTraditionalRelationshipSix(quiz.slug)) ? "zh-TW" : locale;
   const traditionalEntryShare = traditional && ((!traditionalArchetype && !traditionalDirectional) || quiz.slug === "euphoria-character-quiz" || quiz.slug === "values-assessment");
   const standalone = useQuestionnaireTake();
   const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);

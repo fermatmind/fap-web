@@ -1,3 +1,16 @@
+const relationshipSixProfiles = {
+  "capacity-to-love-test": ["interest-reading", "trust-reading", "gratitude-reading", "shared-ideal-reading", "sexual-passion-reading", "loss-reading"],
+  "love-languages": ["words", "acts", "gifts", "time", "touch"],
+  "love-type-16": ["lcro", "lcre", "lcpo", "lcpe", "laro", "lare", "lapo", "lape", "fcro", "fcre", "fcpo", "fcpe", "faro", "fare", "fapo", "fape"],
+  "mote-type": ["energy-presence-reading", "clarity-pacing-reading", "support-timing-reading", "sharing-boundary-reading"],
+  "parenting-style": ["authoritative", "authoritarian", "permissive", "uninvolved"],
+  "relationship-preferences": ["shared-participation", "personal-space", "certainty-planning", "flexible-experience", "contact-space-tie", "certainty-flexibility-tie"],
+} as const;
+
+export function hasTraditionalRelationshipSix(slug: string): boolean {
+  return Object.hasOwn(relationshipSixProfiles, slug);
+}
+
 const workReasoningProfiles = {
   "asvab-practice-test": ["arithmetic-reasoning", "word-knowledge", "paragraph-comprehension", "mathematics-knowledge"],
   "asvab-science-mechanical-practice-test": ["general-science", "mechanical", "electronics", "auto-shop", "assembling"],
@@ -31,6 +44,7 @@ export function hasTraditionalPrivateReflection(slug: string): boolean {
 const profiles = {
   ...privateReflectionProfiles,
   ...workReasoningProfiles,
+  ...relationshipSixProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],

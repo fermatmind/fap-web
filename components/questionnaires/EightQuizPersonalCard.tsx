@@ -22,10 +22,12 @@ function wrap(ctx: CanvasRenderingContext2D, value: string, x: number, y: number
 
 /** A local personal image; the copied URL always opens a fresh public entry. */
 export function EightQuizPersonalCard({ quiz, result, locale }: { quiz: Questionnaire; result: EightQuizResult; locale: Locale }) {
-  const rows = eightQuizCardRows(quiz, result, locale), zh = locale === "zh";
+  const sourceRows = eightQuizCardRows(quiz, result, locale), zh = locale === "zh";
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const displayLocale = traditional ? "zh-TW" : locale;
   const copyText = (source: string) => traditional ? displayText(source).replaceAll("測試", "測驗") : source;
+  const rows = traditional && (quiz.slug === "love-languages" || quiz.slug === "love-type-16")
+    ? sourceRows?.map(row => ({ ...row, detail: copyText(row.detail) })) : sourceRows;
   const [preview, setPreview] = useState(""), [busy, setBusy] = useState(false), [message, setMessage] = useState(""), [manual, setManual] = useState("");
   const objectUrl = useRef(""), generation = useRef(0);
   useEffect(() => () => { generation.current++; if (objectUrl.current) URL.revokeObjectURL(objectUrl.current); }, []);

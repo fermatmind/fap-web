@@ -1,9 +1,11 @@
+import { TraditionalQuestionnaireCopy } from "./TraditionalQuestionnaireCopy";
 import { LoveLanguageExamples } from "./LoveLanguageExamples";
 import { RelatedFantasyQuizzes } from "./RelatedFantasyQuizzes";
 import Image from "next/image";
 import Link from "next/link";
 import copy from "@/lib/questionnaires/eightQuizEditorial.json";
 import { eightQuizScene } from "@/lib/questionnaires/eightQuizCard";
+import { hasTraditionalRelationshipSix } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { questionnairePath, questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import type { Questionnaire, Text } from "@/lib/questionnaires/types";
@@ -24,7 +26,7 @@ export function EightQuizOverview({ quiz, locale, compact = false, traditionalCo
   if (!entry) return null;
   const scene = eightQuizScene[quiz.slug], zh = locale === "zh";
   const displayLocale = traditionalCopy ? "zh-TW" : locale;
-  const relatedTraditional = entry.related && (hasTraditionalArchetype(entry.related.slug) || entry.related.slug === "chiikawa");
+  const relatedTraditional = entry.related && (hasTraditionalArchetype(entry.related.slug) || hasTraditionalRelationshipSix(entry.related.slug) || entry.related.slug === "chiikawa");
   const copyText = (source: string) => traditionalCopy
     ? traditionalCopy(source).replaceAll("測試", "測驗").replaceAll("分院帽", "分類帽").replaceAll("標籤頁", "分頁")
     : source;
@@ -33,7 +35,9 @@ export function EightQuizOverview({ quiz, locale, compact = false, traditionalCo
   return <section data-eight-quiz-overview={quiz.slug} className="my-8 space-y-5 rounded-xl border border-slate-200 bg-white p-4 sm:p-6" aria-labelledby={titleId}>
     <Heading id={titleId} className="text-2xl font-semibold">{copyText(entry.heading[locale])}</Heading>
     <p className="leading-8">{copyText(entry.intro[locale])}</p>
-    {!compact && quiz.slug === "love-languages" && <LoveLanguageExamples locale={locale} />}
+    {!compact && quiz.slug === "love-languages" && (traditionalCopy
+      ? <TraditionalQuestionnaireCopy><LoveLanguageExamples locale={locale} /></TraditionalQuestionnaireCopy>
+      : <LoveLanguageExamples locale={locale} />)}
     {scene && <Image src={scene} width={1200} height={800} alt={zh ? copyText("本版原创主题场景插画") : "Original thematic illustration for this edition"} className="h-auto w-full rounded-lg" />}
     {Object.keys(entry.labels).length > 0 && <ul className={`grid gap-3 ${quiz.slug === "moral-alignment" ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-3"}`}>{quiz.profiles.map(profile => <li key={profile.id} className="rounded-lg border border-slate-200 p-4">
       {quiz.slug === "spirit-animal" && <QuizResultArtwork slug={quiz.slug} id={profile.id} />}

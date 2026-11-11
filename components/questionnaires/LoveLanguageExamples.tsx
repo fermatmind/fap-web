@@ -1,3 +1,6 @@
+"use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
+
 import type { Locale } from "@/lib/i18n/locales";
 
 const examples = [
@@ -8,10 +11,11 @@ const examples = [
   { id: "touch", name: { zh: "自愿的接触", en: "Welcome physical touch" }, giving: { zh: "我会先确认对方是否愿意有身体接触。", en: "I check whether physical affection is welcome." }, receiving: { zh: "我在愿意且舒服时，可能重视拥抱等接触。", en: "When welcome and comfortable, a hug may matter to me." } },
 ];
 export function LoveLanguageExamples({ locale }: { locale: Locale }) {
+  const { displayText } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <div data-love-language-examples className="my-5 space-y-3">
-    <h3 className="text-xl font-semibold">{zh ? "并排看一个表达与接收的例子" : "Compare giving and receiving in an everyday example"}</h3>
-    <p className="leading-7">{zh ? "五种方式可以同时重要。两侧不是付出差值；选一个愿意讨论的小例子，也可以不联系任何人。" : "All five ways can matter. The sides are not an effort gap to subtract. Choose an example to discuss if you wish; no contact is required."}</p>
-    {examples.map(example => <details key={example.id} className="rounded-lg border border-rose-200 p-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{example.name[locale]}</summary><dl className="grid gap-4 py-3 sm:grid-cols-2"><div><dt className="font-semibold">{zh ? "表达" : "Giving"}</dt><dd className="mt-1 leading-7">{example.giving[locale]}</dd></div><div><dt className="font-semibold">{zh ? "接收" : "Receiving"}</dt><dd className="mt-1 leading-7">{example.receiving[locale]}</dd></div></dl></details>)}
+    <h3 className="text-xl font-semibold">{zh ? displayText("并排看一个表达与接收的例子") : "Compare giving and receiving in an everyday example"}</h3>
+    <p className="leading-7">{zh ? displayText("五种方式可以同时重要。两侧不是付出差值；选一个愿意讨论的小例子，也可以不联系任何人。") : "All five ways can matter. The sides are not an effort gap to subtract. Choose an example to discuss if you wish; no contact is required."}</p>
+    {examples.map(example => <details key={example.id} className="rounded-lg border border-rose-200 p-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{displayText(example.name[locale])}</summary><dl className="grid gap-4 py-3 sm:grid-cols-2"><div><dt className="font-semibold">{zh ? displayText("表达") : "Giving"}</dt><dd className="mt-1 leading-7">{displayText(example.giving[locale])}</dd></div><div><dt className="font-semibold">{zh ? displayText("接收") : "Receiving"}</dt><dd className="mt-1 leading-7">{displayText(example.receiving[locale])}</dd></div></dl></details>)}
   </div>;
 }
