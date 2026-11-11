@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -64,11 +64,18 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
           ? await (await import("@/lib/i18n/zh-TW/relationshipSixQuestionnaires")).loadTraditionalRelationshipSix(slug)
           : hasTraditionalOfficeTool(slug)
             ? await (await import("@/lib/i18n/zh-TW/officeCareerTools")).loadTraditionalOfficeTool(slug)
-            : await loadTraditionalLikert(slug);
+            : hasTraditionalSelfEvaluation(slug)
+              ? await (await import("@/lib/i18n/zh-TW/selfEvaluationQuestionnaires")).loadTraditionalSelfEvaluation(slug)
+              : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "imposter-syndrome": "費馬原創 20 道自我觀察題",
+      "inner-critic-voice-test": "FSCRS 22 題工作譯版",
+      "self-compassion": "SCS 26 題工作譯版",
+      "self-esteem": "RSES 10 題工作譯版",
+      perfectionism: "SAPS 8 題工作譯版",
       "data-entry": "費馬原創結構化資料輸入練習",
       "ten-key-test": "費馬原創數字鍵盤練習",
       "typing-speed": "費馬原創打字速度練習",

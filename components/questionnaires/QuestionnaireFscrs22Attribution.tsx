@@ -1,11 +1,11 @@
 import type { Locale } from "@/lib/i18n/locales";
 import { isFscrs22ConfigurationValid, type Fscrs22Questionnaire } from "@/lib/questionnaires/fscrs22";
 
-export function QuestionnaireFscrs22Support({ support, locale }: {
-  support: Fscrs22Questionnaire["fscrs22"]["support"]; locale: Locale;
+export function QuestionnaireFscrs22Support({ support, locale, traditional = false }: {
+  support: Fscrs22Questionnaire["fscrs22"]["support"]; locale: Locale; traditional?: boolean;
 }) {
   return <aside data-fscrs22-support className="my-6 space-y-3 rounded-lg border border-slate-300 bg-slate-50 p-4 leading-8" aria-labelledby="fscrs22-support-title">
-    <h2 id="fscrs22-support-title" className="text-xl font-semibold">{locale === "zh" ? "需要支持时，不必等待分数" : "Support does not need a score"}</h2>
+    <h2 id="fscrs22-support-title" className="text-xl font-semibold">{locale === "zh" ? (traditional ? "需要支持時，不必等待分數" : "需要支持时，不必等待分数") : "Support does not need a score"}</h2>
     <p>{support.urgent[locale]}</p><p>{support.nonUrgent[locale]}</p>
   </aside>;
 }

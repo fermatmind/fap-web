@@ -14,7 +14,7 @@ export function QuestionnaireTakeEntry({ quiz, locale, displayLocale = locale }:
     {isFscrs22ConfigurationValid(quiz) && <>
       <p className="text-sm leading-7">{quiz.fscrs22.privacy[locale]}</p>
       <p className="text-sm leading-7">{quiz.fscrs22.sensitiveNotice[locale]}</p>
-      <QuestionnaireFscrs22Support support={quiz.fscrs22.support} locale={locale} />
+      <QuestionnaireFscrs22Support support={quiz.fscrs22.support} locale={locale} traditional={displayLocale === "zh-TW"} />
     </>}
     <StartTestButton href={`${questionnairePath(displayLocale, quiz.slug)}/take?start=1`}>
       {startLabel}<span aria-hidden="true">→</span>

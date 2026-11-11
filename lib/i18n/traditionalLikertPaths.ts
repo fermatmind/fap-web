@@ -1,3 +1,15 @@
+const selfEvaluationProfiles = {
+  "imposter-syndrome": ["contribution", "feedback", "evaluation", "comparison", "preparation"],
+  "inner-critic-voice-test": ["inadequate", "hated", "reassured"],
+  "self-compassion": ["overall-mean", "self-kindness-reading", "self-judgment-reading", "common-humanity-reading", "isolation-reading", "mindfulness-reading", "over-identification-reading"],
+  "self-esteem": ["score-reading"],
+  perfectionism: ["standards-reading", "discrepancy-reading"],
+} as const;
+
+export function hasTraditionalSelfEvaluation(slug: string): boolean {
+  return Object.hasOwn(selfEvaluationProfiles, slug);
+}
+
 const officeToolProfiles = {
   "data-entry": ["assets", "dispatch"],
   "ten-key-test": ["whole", "decimals", "references"],
@@ -58,6 +70,7 @@ const profiles = {
   ...workReasoningProfiles,
   ...relationshipSixProfiles,
   ...officeToolProfiles,
+  ...selfEvaluationProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],
