@@ -9,6 +9,13 @@ import { isEmotionsConnections21ConfigurationValid } from "@/lib/questionnaires/
 import { isFeelingsConnection8ConfigurationValid } from "@/lib/questionnaires/feelingsConnection8";
 import { isSocialContext20ConfigurationValid } from "@/lib/questionnaires/socialContext20";
 
+import { isCommunicationRoutines20ConfigurationValid } from "@/lib/questionnaires/communicationRoutines20";
+import { isFocusContext16ConfigurationValid } from "@/lib/questionnaires/focusContext16";
+import { isNumberContext20ConfigurationValid } from "@/lib/questionnaires/numberContext20";
+import { isSpatialContext4ConfigurationValid } from "@/lib/questionnaires/spatialContext4";
+import { isUnfamiliar20ConfigurationValid } from "@/lib/questionnaires/unfamiliar20";
+import { isWrittenLanguage20ConfigurationValid } from "@/lib/questionnaires/writtenLanguage20";
+
 const sources = {
   "care-feelings-reflection": {
     name: "CareFeelings", prefix: "careFeelings", attribute: "care-feelings", validate: isCareFeelings20ConfigurationValid,
@@ -39,6 +46,36 @@ const sources = {
     name: "SocialContext", prefix: "socialContext", attribute: "social-context", validate: isSocialContext20ConfigurationValid,
     load: () => import("@/lib/questionnaires/result-content/social-context-reflection.json"),
     editorial: () => import("@/components/questionnaires/SocialContextLandingEditorial"),
+  },
+  "communication-routines-context": {
+    name: "CommunicationRoutines", prefix: "communicationRoutines", attribute: "communication-routines", validate: isCommunicationRoutines20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/communication-routines-context.json"),
+    editorial: () => import("@/components/questionnaires/CommunicationRoutinesLandingEditorial"),
+  },
+  "focus-energy-context-reflection": {
+    name: "FocusContext", prefix: "focusContext", attribute: "focus-context", validate: isFocusContext16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/focus-energy-context-reflection.json"),
+    editorial: () => import("@/components/questionnaires/FocusContextLandingEditorial"),
+  },
+  "number-context-reflection": {
+    name: "NumberContext", prefix: "numberContext", attribute: "number-context", validate: isNumberContext20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/number-context-reflection.json"),
+    editorial: () => import("@/components/questionnaires/NumberContextLandingEditorial"),
+  },
+  "spatial-thinking-reflection": {
+    name: "SpatialContext", prefix: "spatialContext", attribute: "spatial-context", validate: isSpatialContext4ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/spatial-thinking-reflection.json"),
+    editorial: () => import("@/components/questionnaires/SpatialContextLandingEditorial"),
+  },
+  "unfamiliar-experiences-reflection": {
+    name: "Unfamiliar", prefix: "unfamiliar", attribute: "unfamiliar", validate: isUnfamiliar20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/unfamiliar-experiences-reflection.json"),
+    editorial: () => import("@/components/questionnaires/UnfamiliarLandingEditorial"),
+  },
+  "written-language-context-reflection": {
+    name: "WrittenLanguage", prefix: "writtenLanguage", attribute: "written-language", validate: isWrittenLanguage20ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/written-language-context-reflection.json"),
+    editorial: () => import("@/components/questionnaires/WrittenLanguageLandingEditorial"),
   },
 };
 

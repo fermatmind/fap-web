@@ -13,6 +13,13 @@ import { recordEmotionsConnections21 } from "@/lib/questionnaires/emotionsConnec
 import { recordFeelingsConnection8 } from "@/lib/questionnaires/feelingsConnection8";
 import { recordSocialContext20 } from "@/lib/questionnaires/socialContext20";
 
+import { recordCommunicationRoutines20 } from "@/lib/questionnaires/communicationRoutines20";
+import { recordFocusContext16 } from "@/lib/questionnaires/focusContext16";
+import { recordNumberContext20 } from "@/lib/questionnaires/numberContext20";
+import { recordSpatialContext4 } from "@/lib/questionnaires/spatialContext4";
+import { recordUnfamiliar20 } from "@/lib/questionnaires/unfamiliar20";
+import { recordWrittenLanguage20 } from "@/lib/questionnaires/writtenLanguage20";
+
 afterEach(cleanup);
 
 it.each([
@@ -22,6 +29,12 @@ it.each([
   ["emotions-connections-reflection", recordEmotionsConnections21],
   ["feelings-connection-reflection", recordFeelingsConnection8],
   ["social-context-reflection", recordSocialContext20],
+  ["communication-routines-context", recordCommunicationRoutines20],
+  ["focus-energy-context-reflection", recordFocusContext16],
+  ["number-context-reflection", recordNumberContext20],
+  ["spatial-thinking-reflection", recordSpatialContext4],
+  ["unfamiliar-experiences-reflection", recordUnfamiliar20],
+  ["written-language-context-reflection", recordWrittenLanguage20],
 ] as const)("keeps the authoritative category recorder and full Taiwan readings for %s", async (slug, record) => {
   const item = (await loadTraditionalObservation(slug))!;
   const { source, quiz } = item;

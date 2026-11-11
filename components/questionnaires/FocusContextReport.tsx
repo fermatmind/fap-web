@@ -1,28 +1,28 @@
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 import Link from "next/link";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { focusContextCategories, type FocusContextRecord } from "@/lib/questionnaires/focusContext16";
 
-export function FocusContextSupport({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
+export function FocusContextSupport({ locale, compact = false, copy = text => text }: { locale: Locale; compact?: boolean; copy?: (text: string) => string }) {
   const zh = locale === "zh";
-  if (compact) return <aside data-focus-context-support className="border-l-2 border-amber-300 pl-4 text-sm leading-7 text-slate-700"><p>{zh ? "不要用记录推迟评估、改变药物、照护或监测，或忽视安全担忧。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续。" : "Do not use the record to postpone assessment, change medicine, care or monitoring, or disregard a safety concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing."}</p></aside>;
+  if (compact) return <aside data-focus-context-support className="border-l-2 border-amber-300 pl-4 text-sm leading-7 text-slate-700"><p>{zh ? copy("不要用记录推迟评估、改变药物、照护或监测，或忽视安全担忧。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续。") : "Do not use the record to postpone assessment, change medicine, care or monitoring, or disregard a safety concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing."}</p></aside>;
   return <aside data-focus-context-support className="my-6 space-y-3 rounded-lg border border-violet-200 bg-violet-50 p-4 leading-7">
-    <p>{zh ? "这是供成年人自愿使用的16条原创情境观察，不是ASRS、ADHD评估或诊断。四个可能重叠的主题尚非验证独立维度；感受、精力背景和社交理解不是追加ADHD诊断标准。类别不建立原因、神经类型、智力、容量、他人意图或工作适配，也不能决定身体问题无害。只凭回忆，可保留回答、暂停或离开。" : "These 16 voluntary original context observations are for adults, not the ASRS, an ADHD assessment or a diagnosis. Four overlapping topics are not validated independent dimensions; feelings, energy context and social interpretation are not additional ADHD diagnostic criteria. Categories cannot establish a cause, neurotype, intelligence, capacity, another person’s intentions or fitness for work, or determine that a physical concern is harmless. Recall only; you may withhold, pause or leave."}</p>
-    <p>{zh ? "可向合格医疗专业人士询问，不必达到计数、持续几个月、证明童年起始或完成记录。不安排表现任务、强制静坐、运动、身体检查或打开消息。不要用记录推迟评估、改变药物、照护或监测，或忽视安全担忧。本页不评估医疗需要或紧急程度，也不替代已有专业意见。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续。" : "You can ask a qualified healthcare professional without a count, months of difficulty, proof of childhood onset or a completed record. No performance task, forced sitting, exercise, body check or message opening is assigned. Do not use the record to postpone assessment, change medicine, care or monitoring, or disregard a safety concern. This page cannot assess healthcare need or urgency or replace existing advice. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing."}</p>
-    <p className="text-sm">{zh ? "本页16条与已有独立ADEXI14题不合并成30题或联合分数，不转移回答。计数只算描述，不是事件、分钟或临床症状。计数少或未计分不证明健康或安全；四篇新全文与支持说明始终公开。页面不能观察你或作紧急响应。" : "These 16 observations and the separate existing ADEXI14 form do not become a thirty-item instrument or combined score, and answers are not transferred. Counts concern descriptions, not events, minutes or clinical symptoms. A small or unscored record does not establish health or safety. Four complete guides and support information remain public. The page cannot observe you or provide an emergency response."}</p>
+    <p>{zh ? copy("这是供成年人自愿使用的16条原创情境观察，不是ASRS、ADHD评估或诊断。四个可能重叠的主题尚非验证独立维度；感受、精力背景和社交理解不是追加ADHD诊断标准。类别不建立原因、神经类型、智力、容量、他人意图或工作适配，也不能决定身体问题无害。只凭回忆，可保留回答、暂停或离开。") : "These 16 voluntary original context observations are for adults, not the ASRS, an ADHD assessment or a diagnosis. Four overlapping topics are not validated independent dimensions; feelings, energy context and social interpretation are not additional ADHD diagnostic criteria. Categories cannot establish a cause, neurotype, intelligence, capacity, another person’s intentions or fitness for work, or determine that a physical concern is harmless. Recall only; you may withhold, pause or leave."}</p>
+    <p>{zh ? copy("可向合格医疗专业人士询问，不必达到计数、持续几个月、证明童年起始或完成记录。不安排表现任务、强制静坐、运动、身体检查或打开消息。不要用记录推迟评估、改变药物、照护或监测，或忽视安全担忧。本页不评估医疗需要或紧急程度，也不替代已有专业意见。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续。") : "You can ask a qualified healthcare professional without a count, months of difficulty, proof of childhood onset or a completed record. No performance task, forced sitting, exercise, body check or message opening is assigned. Do not use the record to postpone assessment, change medicine, care or monitoring, or disregard a safety concern. This page cannot assess healthcare need or urgency or replace existing advice. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing."}</p>
+    <p className="text-sm">{zh ? copy("本页16条与已有独立ADEXI14题不合并成30题或联合分数，不转移回答。计数只算描述，不是事件、分钟或临床症状。计数少或未计分不证明健康或安全；四篇新全文与支持说明始终公开。页面不能观察你或作紧急响应。") : "These 16 observations and the separate existing ADEXI14 form do not become a thirty-item instrument or combined score, and answers are not transferred. Counts concern descriptions, not events, minutes or clinical symptoms. A small or unscored record does not establish health or safety. Four complete guides and support information remain public. The page cannot observe you or provide an emergency response."}</p>
   </aside>;
 }
-export function FocusContextReport({ quiz, records, locale, readingProfiles }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: FocusContextRecord[]; locale: Locale }) {
+export function FocusContextReport({ quiz, records, locale, readingProfiles, displayLocale = locale, copy = text => text }: { quiz: Questionnaire; readingProfiles?: readonly QuestionnaireProfile[]; records: FocusContextRecord[]; locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
   return <section data-focus-context-result className="min-w-0 space-y-7 [overflow-wrap:anywhere]" aria-labelledby="focus-context-result-heading">
     <div className="grid gap-5 border-y border-teal-200 bg-teal-50/60 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <div>
         <h2 id="focus-context-result-heading" tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold text-teal-950 outline-none">{quiz.resultHeading![locale]}</h2>
-        <p className="mt-3 max-w-prose leading-7">{zh ? "从一个具体场景读起。主题里的计数只记录你给几条描述选了同一类别，未计分的回答单独保留。" : "Start with a situation you want to revisit. A topic count shows how many statements received the same choice. Unscored responses stay separate."}</p>
+        <p className="mt-3 max-w-prose leading-7">{zh ? copy("从一个具体场景读起。主题里的计数只记录你给几条描述选了同一类别，未计分的回答单独保留。") : "Start with a situation you want to revisit. A topic count shows how many statements received the same choice. Unscored responses stay separate."}</p>
       </div>
-      <nav aria-label={zh ? "本次主题记录" : "Topics in this record"}>
+      <nav aria-label={zh ? copy("本次主题记录") : "Topics in this record"}>
         <ul className="divide-y divide-teal-200">
           {records.map((record, index) => <li key={record.id}>
             <a href={`#focus-context-record-${record.id}`} className="flex min-h-11 items-center py-2 font-semibold text-teal-950 underline underline-offset-4">{quiz.directions[index].title[locale]}</a>
@@ -30,7 +30,7 @@ export function FocusContextReport({ quiz, records, locale, readingProfiles }: {
         </ul>
       </nav>
     </div>
-    <FocusContextSupport locale={locale} compact />
+    <FocusContextSupport locale={locale} copy={copy} compact />
     {records.map((r, i) => {
       const original = quiz.profiles[i];
       const profile = readingProfiles?.find(item => item.id === original.id && item.directionIds.length === original.directionIds.length && item.directionIds.every((id, index) => id === original.directionIds[index]) && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === original.id) ?? original;
@@ -38,21 +38,21 @@ export function FocusContextReport({ quiz, records, locale, readingProfiles }: {
       return <section id={`focus-context-record-${r.id}`} key={r.id} data-focus-context-theme={r.id} aria-labelledby={`focus-context-record-title-${r.id}`} className="scroll-mt-24 border-b border-slate-200 pb-8 last:border-b-0">
       <h3 id={`focus-context-record-title-${r.id}`} className="mb-5 text-xl font-semibold leading-8 text-slate-950">{quiz.directions[i].title[locale]}</h3>
       <p data-focus-context-topic-summary className="text-base leading-8 text-slate-700">{original.summary[locale]}</p>
-      <p data-focus-context-choice-pattern className="my-4 border-l-2 border-teal-300 pl-3 text-sm leading-7 text-slate-700">{focusContextCategories.filter(category => r.counts[category.id] > 0).map(category => `${category.label[locale]} ${r.counts[category.id]}${zh ? "条" : " statements"}`).join(" · ")}</p>
-      {r.counts.na === 4 && <p data-focus-context-unscored className="mb-4 leading-7">{zh ? "这四条全部未计分，不代表没有困难或不需要支持。" : "All four are unscored; this does not mean no difficulty or no need for support."}</p>}
+      <p data-focus-context-choice-pattern className="my-4 border-l-2 border-teal-300 pl-3 text-sm leading-7 text-slate-700">{focusContextCategories.filter(category => r.counts[category.id] > 0).map(category => `${copy(category.label[locale])} ${r.counts[category.id]}${zh ? copy("条") : " statements"}`).join(" · ")}</p>
+      {r.counts.na === 4 && <p data-focus-context-unscored className="mb-4 leading-7">{zh ? copy("这四条全部未计分，不代表没有困难或不需要支持。") : "All four are unscored; this does not mean no difficulty or no need for support."}</p>}
       <div id={`focus-context-public-${r.id}`} data-focus-context-full-reading className="scroll-mt-24">
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`focus-context-result-reading-${profile.id}`} mode="result" previewSectionIds={previewSectionIds} showHeadline={false} showSummary={false} />
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={displayLocale === "zh-TW"} headingLevel={4} idPrefix={`focus-context-result-reading-${profile.id}`} mode="result" previewSectionIds={previewSectionIds} showHeadline={false} showSummary={false} />
       </div>
-      <details className="my-5 border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? `查看这${r.observations.length}条回答与类别记录` : `Review these ${r.observations.length} responses and categories`}</summary>
-      <dl className="grid gap-x-8 gap-y-2 sm:grid-cols-2">{focusContextCategories.map(c => <div key={c.id} className="flex items-start justify-between gap-4 border-b border-slate-100 py-3"><dt className="min-w-0">{c.id === "na" ? (zh ? "未计分：没有经历／无法回想／保留回答" : "Unscored: no experience / unclear recall / withheld") : c.label[locale]}</dt><dd data-focus-context-count={`${r.id}-${c.id}`} className="shrink-0 text-lg font-semibold tabular-nums text-slate-900">{r.counts[c.id]} / 4</dd></div>)}</dl>
-      <h4 className="mb-4 mt-7 font-semibold text-slate-700">{zh ? "逐条观察与所选类别" : "Individual observations and selected categories"}</h4>
-      <ul className="space-y-4 border-l-2 border-slate-200 pl-4 text-sm leading-7 sm:pl-5">{r.observations.map(o => <li key={o.questionId} data-focus-context-observation={o.questionId}><p>{quiz.questions.find(q => q.id === o.questionId)!.prompt[locale]}</p><p className="font-semibold">{o.category === "na" ? (zh ? "未计分" : "Unscored") : focusContextCategories.find(c => c.id === o.category)!.label[locale]}</p></li>)}</ul>
+      <details className="my-5 border-t border-slate-200 pt-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? copy(`查看这${r.observations.length}条回答与类别记录`) : `Review these ${r.observations.length} responses and categories`}</summary>
+      <dl className="grid gap-x-8 gap-y-2 sm:grid-cols-2">{focusContextCategories.map(c => <div key={c.id} className="flex items-start justify-between gap-4 border-b border-slate-100 py-3"><dt className="min-w-0">{c.id === "na" ? (zh ? copy("未计分：没有经历／无法回想／保留回答") : "Unscored: no experience / unclear recall / withheld") : copy(c.label[locale])}</dt><dd data-focus-context-count={`${r.id}-${c.id}`} className="shrink-0 text-lg font-semibold tabular-nums text-slate-900">{r.counts[c.id]} / 4</dd></div>)}</dl>
+      <h4 className="mb-4 mt-7 font-semibold text-slate-700">{zh ? copy("逐条观察与所选类别") : "Individual observations and selected categories"}</h4>
+      <ul className="space-y-4 border-l-2 border-slate-200 pl-4 text-sm leading-7 sm:pl-5">{r.observations.map(o => <li key={o.questionId} data-focus-context-observation={o.questionId}><p>{quiz.questions.find(q => q.id === o.questionId)!.prompt[locale]}</p><p className="font-semibold">{o.category === "na" ? (zh ? copy("未计分") : "Unscored") : copy(focusContextCategories.find(c => c.id === o.category)!.label[locale])}</p></li>)}</ul>
       </details>
-      <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, original.id)}>{zh ? "单独打开这篇公开指南" : "Open this public guide separately"}</Link>
+      <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(displayLocale, quiz.slug, original.id)}>{zh ? copy("单独打开这篇公开指南") : "Open this public guide separately"}</Link>
     </section>; })}
-    <details className="border-t border-slate-200 pt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "计数方法、使用范围与支持说明" : "Counting method, scope and support"}</summary>
-    <p className="leading-7">{zh ? "类别只作记录，不作点数。每个主题六种计数合计四条；未计分与没有注意到分别显示。没有总分、均值、最高项或风险判断。" : "Categories are recorded without points. Each theme’s six counts add to four statements; unscored stays separate from did not notice. There is no total, mean, highest theme or risk judgment."}</p>
-      <FocusContextSupport locale={locale} />
+    <details className="border-t border-slate-200 pt-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? copy("计数方法、使用范围与支持说明") : "Counting method, scope and support"}</summary>
+    <p className="leading-7">{zh ? copy("类别只作记录，不作点数。每个主题六种计数合计四条；未计分与没有注意到分别显示。没有总分、均值、最高项或风险判断。") : "Categories are recorded without points. Each theme’s six counts add to four statements; unscored stays separate from did not notice. There is no total, mean, highest theme or risk judgment."}</p>
+      <FocusContextSupport locale={locale} copy={copy} />
     </details>
   </section>;
 }

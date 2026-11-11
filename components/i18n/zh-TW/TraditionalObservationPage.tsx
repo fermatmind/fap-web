@@ -13,6 +13,12 @@ const pages = {
   "emotions-connections-reflection": () => import("@/components/questionnaires/EmotionsConnectionsPage").then(module => ({ Page: module.EmotionsConnectionsPage, Guide: module.EmotionsConnectionsGuidePage })),
   "feelings-connection-reflection": () => import("@/components/questionnaires/FeelingsConnectionPage").then(module => ({ Page: module.FeelingsConnectionPage, Guide: module.FeelingsConnectionGuidePage })),
   "social-context-reflection": () => import("@/components/questionnaires/SocialContextPage").then(module => ({ Page: module.SocialContextPage, Guide: module.SocialContextGuidePage })),
+  "communication-routines-context": () => import("@/components/questionnaires/CommunicationRoutinesPage").then(module => ({ Page: module.CommunicationRoutinesPage, Guide: module.CommunicationRoutinesGuidePage })),
+  "focus-energy-context-reflection": () => import("@/components/questionnaires/FocusContextPage").then(module => ({ Page: module.FocusContextPage, Guide: module.FocusContextGuidePage })),
+  "number-context-reflection": () => import("@/components/questionnaires/NumberContextPage").then(module => ({ Page: module.NumberContextPage, Guide: module.NumberContextGuidePage })),
+  "spatial-thinking-reflection": () => import("@/components/questionnaires/SpatialContextPage").then(module => ({ Page: module.SpatialContextPage, Guide: module.SpatialContextGuidePage })),
+  "unfamiliar-experiences-reflection": () => import("@/components/questionnaires/UnfamiliarPage").then(module => ({ Page: module.UnfamiliarPage, Guide: module.UnfamiliarGuidePage })),
+  "written-language-context-reflection": () => import("@/components/questionnaires/WrittenLanguagePage").then(module => ({ Page: module.WrittenLanguagePage, Guide: module.WrittenLanguageGuidePage })),
 };
 
 export async function TraditionalObservationPage({ slug, take, profile }: { slug: string; take: boolean; profile?: string }) {
