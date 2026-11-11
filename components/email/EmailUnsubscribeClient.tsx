@@ -103,10 +103,10 @@ export function EmailUnsubscribeClient({
           <Link href={preferencesHref} className={buttonVariants({ variant: "default" })}>
             {copy.ctas.preferences}
           </Link>
-          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "outline" })}>
             {copy.ctas.orderLookup}
           </Link>
-          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "outline" })}>
             {copy.ctas.help}
           </Link>
         </CardContent>
@@ -125,10 +125,10 @@ export function EmailUnsubscribeClient({
           <Link href={preferencesHref} className={buttonVariants({ variant: "default" })}>
             {copy.ctas.preferences}
           </Link>
-          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
+          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "default" })}>
             {copy.ctas.orderLookup}
           </Link>
-          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "outline" })}>
             {copy.ctas.help}
           </Link>
         </CardContent>
@@ -166,7 +166,7 @@ export function EmailUnsubscribeClient({
             <Link href={preferencesHref} className={buttonVariants({ variant: "outline" })}>
               {copy.backToPreferences}
             </Link>
-            <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
+            <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "default" })}>
               {copy.ctas.orderLookup}
             </Link>
           </div>

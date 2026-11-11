@@ -91,8 +91,12 @@ describe("Email preferences and unsubscribe contract", () => {
     }
     render(await TraditionalPreferencesPage({searchParams:Promise.resolve({})}));
     expect(screen.getByTestId("email-preferences-missing")).toHaveTextContent("管理郵件偏好");
-    expect(screen.getByRole("link",{name:"去訂單找回頁（簡體中文）"})).toHaveAttribute("href","/zh/orders/lookup");
-    expect(screen.getByRole("link",{name:"檢視說明中心（簡體中文）"})).toHaveAttribute("hrefLang","zh-CN");
+    const orderLookup = screen.getByRole("link", { name: "去訂單找回頁" });
+    expect(orderLookup).toHaveAttribute("href", "/zh-TW/orders/lookup");
+    expect(orderLookup).toHaveAttribute("hrefLang", "zh-TW");
+    const help = screen.getByRole("link", { name: "檢視說明中心" });
+    expect(help).toHaveAttribute("href", "/zh-TW/support");
+    expect(help).toHaveAttribute("hrefLang", "zh-TW");
     expect(hoisted.getEmailPreferences).not.toHaveBeenCalled();
   });
 

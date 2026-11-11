@@ -160,10 +160,10 @@ export function EmailPreferencesClient({
         <CardContent className="space-y-4">
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.missingRecoveryHint}</p>
           <div className="flex flex-col gap-2 sm:flex-row">
-            <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
+            <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "default" })}>
               {copy.ctas.orderLookup}
             </Link>
-            <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+            <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "outline" })}>
               {copy.ctas.help}
             </Link>
           </div>
@@ -197,10 +197,10 @@ export function EmailPreferencesClient({
           <CardDescription>{copy.invalidDescription}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 sm:flex-row">
-          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "default" })}>
+          <Link href={orderLookupHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "default" })}>
             {copy.ctas.orderLookup}
           </Link>
-          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-CN" : undefined} className={buttonVariants({ variant: "outline" })}>
+          <Link href={helpHref} hrefLang={locale === "zh-TW" ? "zh-TW" : undefined} className={buttonVariants({ variant: "outline" })}>
             {copy.ctas.help}
           </Link>
         </CardContent>
