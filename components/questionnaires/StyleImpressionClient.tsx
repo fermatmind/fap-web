@@ -55,7 +55,7 @@ export function StyleImpressionClient({ quiz, locale }: { quiz: Questionnaire; l
       <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? copy("完整指南已开放，可以在这里结束") : "Your complete guides are open. You may finish here."}</h3>
         <p className="my-4 leading-8">{zh ? copy("也可以比较其他公开主题。若想单独观察衣服线条，可另做服装线条偏好题本；它记录五项认同均值，本次次数不换算。") : "Compare another public theme if you wish. The separate Outfit Line Preferences form explores five agreement means about garment lines. These counts do not convert into its results."}</p>
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/${quiz.slug}#questionnaire-results`}>{zh ? copy("比较八篇公开完整指南") : "Compare all eight public full guides"}</Link><br />
-        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/outfit-line-preferences`} lang={traditional ? "zh-CN" : undefined}>{traditional ? "了解獨立的服裝線條偏好（简体中文）" : zh ? copy("了解独立的服装线条偏好") : "Read about the separate Outfit Line Preferences form"}</Link><br />
+        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/outfit-line-preferences`}>{zh ? copy("了解独立的服装线条偏好") : "Read about the separate Outfit Line Preferences form"}</Link><br />
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? copy("返回全部测试") : "Back to all tests"}</Link>
       </section>
     </>}
