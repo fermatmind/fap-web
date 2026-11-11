@@ -1,3 +1,16 @@
+const valuesOrientationsProfiles = {
+  "8-values-political": ["equality", "markets", "nation", "globe", "liberty", "authority", "progress", "tradition"],
+  "conservatism": ["social", "economic"],
+  "political-coordinates": ["left-communitarian", "left-liberal", "right-communitarian", "right-liberal"],
+  "four-axes-test": ["gender", "personality", "lifestyle", "political"],
+  "moral-alignment": ["lawful-good", "neutral-good", "chaotic-good", "lawful-neutral", "true-neutral", "chaotic-neutral", "lawful-evil", "neutral-evil", "chaotic-evil"],
+  "arabic-personality-compass": ["north", "south", "east", "west", "north-east", "north-west", "south-east", "south-west", "east-north", "east-south", "west-north", "west-south"],
+} as const;
+
+export function hasTraditionalValuesOrientations(slug: string): boolean {
+  return Object.hasOwn(valuesOrientationsProfiles, slug);
+}
+
 const stressCopingProfiles = {
   "anger-issues-screener": ["anger-occurrence", "outward-expression", "kept-inside", "perceived-choice"],
   "burnout-risk": ["personal", "work"],
@@ -99,6 +112,7 @@ const profiles = {
   ...selfEvaluationProfiles,
   ...sensoryExecutiveProfiles,
   ...stressCopingProfiles,
+  ...valuesOrientationsProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],

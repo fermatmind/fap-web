@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import { FOUR_AXES_IDS, type FourAxesQuestionnaire, type FourAxesResult } from "@/lib/questionnaires/fourAxes";
@@ -7,16 +8,17 @@ import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
 type Complete = Extract<FourAxesResult, { status: "complete" }>;
 export function QuestionnaireFourAxesReport({ quiz, result, locale, readingProfiles }: { quiz: FourAxesQuestionnaire; result: Complete; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   const valid = result.status === "complete" && result.answered === 60 && FOUR_AXES_IDS.every(id => {
     const a = result.axes[id];
     return a && a.count === 15 && Number.isInteger(a.sum) && a.sum >= 0 && a.sum <= 60
       && a.highPercent === a.sum / 60 * 100 && a.lowPercent === 100 - a.highPercent;
   });
-  if (!valid) return <p role="status">{zh ? "本次结果暂不可用，可以清除后重新开始。" : "This result is unavailable. Clear it and start again."}</p>;
+  if (!valid) return <p role="status">{zh ? displayText("本次结果暂不可用，可以清除后重新开始。") : "This result is unavailable. Clear it and start again."}</p>;
   return <div data-four-axes-result className="my-6 space-y-8">
     <section className="rounded-xl border border-violet-200 bg-violet-50/60 p-4 sm:p-6" aria-labelledby="four-axes-readout-title">
-      <h3 id="four-axes-readout-title" className="text-xl font-semibold text-violet-950">{zh ? "四条轴，四个本次位置" : "Your position on each of the four axes"}</h3>
+      <h3 id="four-axes-readout-title" className="text-xl font-semibold text-violet-950">{zh ? displayText("四条轴，四个本次位置") : "Your position on each of the four axes"}</h3>
       <p className="mt-3 max-w-prose leading-7">{quiz.fourAxes.scoreExplanation[locale]}</p>
       <div className="mt-5 grid gap-x-6 md:grid-cols-2">
         {quiz.fourAxes.axes.map(axis => {
@@ -39,12 +41,12 @@ export function QuestionnaireFourAxesReport({ quiz, result, locale, readingProfi
           <div className="flex justify-between gap-4 text-sm leading-7"><span>{axis.low[locale]} {value.lowPercent.toFixed(1)}%</span><span className="text-right">{axis.high[locale]} {value.highPercent.toFixed(1)}%</span></div>
           <div aria-hidden="true" className="mt-2 flex h-4 overflow-hidden rounded-full bg-violet-100"><div className="bg-violet-700" style={{ width: `${value.lowPercent}%` }} /><div className="bg-teal-600" style={{ width: `${value.highPercent}%` }} /></div>
         </div>
-        <p data-four-axes-sum className="mb-5 text-sm leading-7">{zh ? `原始和：${value.sum} / 60；高端位置：${value.sum} ÷ 60 × 100。显示一位小数。` : `Raw sum: ${value.sum} / 60; high-end position: ${value.sum} ÷ 60 × 100. Displayed to one decimal.`}</p>
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`four-axes-report-${profile.id}`} mode="result" previewSectionIds={["meaning", "context", "reflection"]} />
-        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "单独阅读本轴完整公开指南" : "Read this axis’s complete public guide separately"}</Link>
+        <p data-four-axes-sum className="mb-5 text-sm leading-7">{zh ? displayText(`原始和：${value.sum} / 60；高端位置：${value.sum} ÷ 60 × 100。显示一位小数。`) : `Raw sum: ${value.sum} / 60; high-end position: ${value.sum} ÷ 60 × 100. Displayed to one decimal.`}</p>
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} traditional={traditional} headingLevel={4} idPrefix={`four-axes-report-${profile.id}`} mode="result" previewSectionIds={["meaning", "context", "reflection"]} />
+        <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)}>{zh ? displayText("单独阅读本轴完整公开指南") : "Read this axis’s complete public guide separately"}</Link>
       </section>;
     })}
     <p className="rounded-lg border border-slate-200 p-4 leading-8">{quiz.fourAxes.privacy[locale]}</p>
-    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
+    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${traditional ? "zh-TW" : locale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>
   </div>;
 }

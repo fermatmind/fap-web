@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -70,11 +70,19 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
                 ? await (await import("@/lib/i18n/zh-TW/sensoryExecutiveQuestionnaires")).loadTraditionalSensoryExecutive(slug)
                 : hasTraditionalStressCoping(slug)
                   ? await (await import("@/lib/i18n/zh-TW/stressCopingQuestionnaires")).loadTraditionalStressCoping(slug)
-                  : await loadTraditionalLikert(slug);
+                  : hasTraditionalValuesOrientations(slug)
+                    ? await (await import("@/lib/i18n/zh-TW/valuesOrientationsQuestionnaires")).loadTraditionalValuesOrientations(slug)
+                    : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "8-values-political": "8values MIT 授權改編",
+      conservatism: "SECS 12 題中譯版",
+      "political-coordinates": "費馬原創 36 道政策情境題",
+      "four-axes-test": "費馬原創 60 道四軸觀察題",
+      "moral-alignment": "費馬原創 24 道陣營情境題",
+      "arabic-personality-compass": "費馬原創 36 道性格羅盤題",
       "anger-issues-screener": "費馬原創 20 道憤怒回應題",
       "burnout-risk": "CBI 個人與工作倦怠模組",
       "overthinking-screener": "PTQ 15 題工作譯版",

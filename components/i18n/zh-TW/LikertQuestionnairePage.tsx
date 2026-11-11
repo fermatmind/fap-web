@@ -1,4 +1,4 @@
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { QuestionnaireCtl41Attribution } from "@/components/questionnaires/QuestionnaireCtl41Attribution";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
@@ -37,6 +37,12 @@ type LikertReader = {
 };
 
 const requireLikert = cache(async (slug: string): Promise<LikertReader> => {
+  if (hasTraditionalValuesOrientations(slug)) {
+    const { loadTraditionalValuesOrientations } = await import("@/lib/i18n/zh-TW/valuesOrientationsQuestionnaires");
+    const item = await loadTraditionalValuesOrientations(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalStressCoping(slug)) {
     const { loadTraditionalStressCoping } = await import("@/lib/i18n/zh-TW/stressCopingQuestionnaires");
     const item = await loadTraditionalStressCoping(slug);
@@ -135,6 +141,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz && hasTraditionalValuesOrientations(slug)) {
+      const { TraditionalValuesOrientationsTake } = await import("./TraditionalValuesOrientationsTake");
+      return <TraditionalValuesOrientationsTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     if (item.takeQuiz && hasTraditionalStressCoping(slug)) {
       const { TraditionalStressCopingTake } = await import("./TraditionalStressCopingTake");
       return <TraditionalStressCopingTake quiz={quiz} takeQuiz={item.takeQuiz} />;
