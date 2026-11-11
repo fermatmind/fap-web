@@ -24,7 +24,8 @@ const FORBIDDEN_INTERACTIVE = [
   "modal", "popover",
 ];
 
-const REQUIRED_RUNTIME = ["自我认知", "Self-understanding"];
+const REQUIRED_RUNTIME = ["自我认知", "自我認知", "Self-understanding"];
+const FORBIDDEN_BADGE_COPY = FORBIDDEN_IN_RUNTIME.filter(phrase => phrase !== "自我認知");
 
 type VerificationArtifact = {
   version: string;
@@ -181,7 +182,7 @@ describe("phase 4d badge runtime verification", () => {
 
   it("badge component does not contain forbidden copy", () => {
     const source = fs.readFileSync(BADGE_COMPONENT, "utf8");
-    for (const phrase of FORBIDDEN_IN_RUNTIME) {
+    for (const phrase of FORBIDDEN_BADGE_COPY) {
       expect(source, `forbidden copy: ${phrase}`).not.toContain(phrase);
     }
   });

@@ -1,8 +1,9 @@
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
-const BADGE_COPY: Record<Locale, string> = {
+const BADGE_COPY: Record<DisplayLocale, string> = {
   en: "Self-understanding",
   zh: "自我认知",
+  "zh-TW": "自我認知",
 };
 
 type SelfUnderstandingDomainBadgeProps = {
@@ -19,7 +20,7 @@ export function SelfUnderstandingDomainBadge({ locale, displayLocale = locale }:
       data-domain-visible-copy-scope="self_understanding_badge_only"
       className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-sky-700"
     >
-      {displayLocale === "zh-TW" ? "自我認知" : BADGE_COPY[locale] ?? BADGE_COPY.en}
+      {BADGE_COPY[displayLocale] ?? BADGE_COPY.en}
     </span>
   );
 }

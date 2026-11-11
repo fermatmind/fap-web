@@ -1,3 +1,4 @@
+import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { Big5ReadingGuide } from "@/components/result/big5/Big5ReadingGuide";
@@ -17,6 +18,13 @@ const gate = { isFreeVariant: false, modulesAllowed: new Set<string>(), modulesP
 const readyAccess = { accessState: "ready", reportState: "ready", variant: "full", modulesAllowed: ["big5_full", "enneagram_full"], modulesPreview: [] } as unknown as AttemptReportAccessView;
 
 describe("UX-03 report reading and domain export", () => {
+  it.each([["zh", "zh", "自我认知"], ["zh", "zh-TW", "自我認知"], ["en", "en", "Self-understanding"]] as const)(
+    "uses the display language for the non-interactive badge (%s/%s)",
+    (locale, displayLocale, label) => {
+      render(<SelfUnderstandingDomainBadge locale={locale} displayLocale={displayLocale} />);
+      expect(screen.getByText(label)).toHaveAttribute("data-domain-badge-type", "non_interactive_domain_label");
+    },
+  );
   it("never converts missing, null or forbidden percentiles into population ranks", () => {
     const context = buildBig5ReadingContext({ projection: { trait_vector: [{ key: "O", mean: 0, percentile: 98 }], facet_vector: [{ key: "O1", percentile: 92 }] }, normEvidence: { show_precise_percentiles: true, comparison_allowed: false }, includeFacets: true });
     expect(context.domains[0]).toEqual({ code: "O", band: null, mean: 0, percentile: null });
