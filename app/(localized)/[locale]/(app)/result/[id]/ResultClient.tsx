@@ -2154,8 +2154,16 @@ export default function ResultClient({
   const exportPdfProps = {
     exportPdfState: (canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable") as "ready" | "pending" | "unavailable",
     onDownloadPdf: canDownloadReportPdf(accessView) ? async () => {
-      const response = await fetchAttemptReportPdfWithMeta({ attemptId, anonId, accessToken: resultAccessToken });
-      await downloadResultPdf(response.blob, `FermatMind-${resolvedScaleCode}-report.pdf`);
+      const pdfDisplay = isIqScaleCode(resolvedScaleCode) && displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable
+        ? displayLocale
+        : undefined;
+      const response = await fetchAttemptReportPdfWithMeta({
+        attemptId,
+        anonId,
+        accessToken: resultAccessToken,
+        ...(pdfDisplay ? { displayLocale: pdfDisplay } : {}),
+      });
+      await downloadResultPdf(response.blob, pdfDisplay ? "fermatmind-iq-zh-TW.pdf" : `FermatMind-${resolvedScaleCode}-report.pdf`);
     } : undefined,
   };
 
@@ -2165,6 +2173,7 @@ export default function ResultClient({
         <IqResultShell
           {...exportPdfProps}
           locale={locale}
+          displayLocale={displayLocale}
           reportData={reportData}
           resultData={hasReadyResultPayload(resultData) ? resultData : null}
           accessView={accessView}

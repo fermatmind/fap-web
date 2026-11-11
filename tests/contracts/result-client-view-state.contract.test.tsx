@@ -44,6 +44,7 @@ type RichResultReportProps = {
 };
 
 type IqResultShellProps = {
+  onDownloadPdf?: () => Promise<void>;
   reportData?: {
     summary?: {
       iq_estimate?: number | null;
@@ -61,6 +62,8 @@ function cloneFixture<T>(fixture: T): T {
 
 const hoisted = vi.hoisted(() => ({
   fetchAttemptReportAccess: vi.fn(),
+  fetchAttemptReportPdfWithMeta: vi.fn(),
+  downloadResultPdf: vi.fn(),
   fetchAttemptInviteUnlockProgress: vi.fn(),
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
@@ -190,8 +193,9 @@ vi.mock("@/components/result/ResultSummary", () => ({
 }));
 
 vi.mock("@/components/result/iq/IqResultShell", () => ({
-  IqResultShell: ({ reportData, resultData }: IqResultShellProps) => (
+  IqResultShell: ({ reportData, resultData, onDownloadPdf }: IqResultShellProps) => (
     <div data-testid="iq-result-shell">
+      {onDownloadPdf ? <button type="button" onClick={() => void onDownloadPdf()}>IQ PDF</button> : null}
       {String(reportData?.summary?.iq_estimate ?? resultData?.iq_estimate ?? "iq-shell")}
       <span data-testid="iq-saved-duration">{resultData?.result?.breakdown_json?.duration_ms ?? "missing"}</span>
     </div>
@@ -226,12 +230,17 @@ vi.mock("@/lib/auth/fmToken", () => ({
 vi.mock("@/lib/api/v0_3", () => ({
   bindAttemptEmail: hoisted.bindAttemptEmail,
   fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
+  fetchAttemptReportPdfWithMeta: hoisted.fetchAttemptReportPdfWithMeta,
   fetchAttemptInviteUnlockProgress: hoisted.fetchAttemptInviteUnlockProgress,
   fetchAttemptReport: hoisted.fetchAttemptReport,
   fetchAttemptResult: hoisted.fetchAttemptResult,
   fetchAttemptSubmission: hoisted.fetchAttemptSubmission,
   linkAnonAttemptsOnceOnLoginSuccess: hoisted.linkAnonAttemptsOnceOnLoginSuccess,
   shouldLinkAnonAttemptsOnLoginSuccess: hoisted.shouldLinkAnonAttemptsOnLoginSuccess,
+}));
+
+vi.mock("@/lib/result-export/download", () => ({
+  downloadResultPdf: hoisted.downloadResultPdf,
 }));
 
 function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
@@ -1607,6 +1616,33 @@ describe("ResultClient view-state contract", () => {
     await waitFor(() => expect(screen.getByTestId("iq-saved-duration")).toHaveTextContent("23522"));
     expect(hoisted.fetchAttemptResult).toHaveBeenCalledTimes(1);
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    { route: "zh-TW", supported: true, traditional: true },
+    { route: "zh-TW", supported: false, traditional: false },
+    { route: "zh", supported: true, traditional: false },
+    { route: "en", supported: true, traditional: false },
+  ])("requests the localized IQ artifact only on $route when supported=$supported", async ({ route, supported, traditional }) => {
+    hoisted.pathname = `/${route}/result/attempt-123`;
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection(supported ? { pdf_display_locales: ["zh-TW"] } : {}));
+    hoisted.fetchAttemptReport.mockResolvedValue({
+      ok: true, locked: false, variant: "full",
+      report: { schema_version: "iq.report.v1", scale_code: "IQ_INTELLIGENCE_QUOTIENT", summary: { raw_score: 6 } },
+      meta: { scale_code: "IQ_INTELLIGENCE_QUOTIENT" },
+    } as unknown as ReportResponse);
+    const blob = new Blob(["%PDF-synthetic"], { type: "application/pdf" });
+    hoisted.fetchAttemptReportPdfWithMeta.mockResolvedValue({ blob });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    fireEvent.click(await screen.findByRole("button", { name: "IQ PDF" }));
+    expect(hoisted.fetchAttemptReportPdfWithMeta).toHaveBeenCalledWith({
+      attemptId: "attempt-123", anonId: "anon_result_test", accessToken: "",
+      ...(traditional ? { displayLocale: "zh-TW" } : {}),
+    });
+    await waitFor(() => expect(hoisted.downloadResultPdf).toHaveBeenCalledWith(
+      blob, traditional ? "fermatmind-iq-zh-TW.pdf" : "FermatMind-IQ_INTELLIGENCE_QUOTIENT-report.pdf",
+    ));
   });
 
   it("keeps a ready IQ report when the supplementary result read fails", async () => {

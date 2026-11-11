@@ -51,6 +51,16 @@ describe("IQ three-module result presentation", () => {
     expect(isIqReportResponse(fixture({ schema_version: "iq.report.v1", summary: null }))).toBe(false);
     expect(isIqReportResponse(fixture())).toBe(false);
   });
+  it("renders Taiwan result, chart accessibility and practice copy with unchanged counts", () => {
+    render(<IqResultShell locale="zh" displayLocale="zh-TW" reportData={fixture()} resultData={null} accessView={null} />);
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
+    expect(screen.getByTestId("iq-accuracy")).toHaveTextContent("答對率56.7%");
+    expect(screen.getByTestId("iq-performance-vspr")).toHaveTextContent("視覺空間模式推理");
+    expect(screen.getByRole("img", { name: /邏輯與語文未測量/ })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "閱讀題本與方法說明" }))
+      .toHaveAttribute("href", "/zh-TW/tests/iq-test-intelligence-quotient-assessment");
+  });
+
   it.each(["zh", "en"] as const)("renders the three approved modules in %s", (locale) => {
     show(fixture({ normative_reasoning: syntheticNorm() }), locale);
     expect(screen.getByTestId("iq-standard-score-module")).toBeInTheDocument();

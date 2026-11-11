@@ -1,4 +1,5 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+import { assessmentChineseCopy } from "@/lib/tests/traditionalAssessmentDisplay";
 
 export type IqRadarAxis = {
   code: string;
@@ -20,14 +21,15 @@ function polygon(values: number[]) {
   return values.map((value, index) => point(index, value).join(",")).join(" ");
 }
 
-export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: Locale }) {
+export function IqAbilityRadar({ axes, locale, displayLocale = locale }: { axes: IqRadarAxis[]; locale: Locale; displayLocale?: DisplayLocale }) {
   const zh = locale === "zh";
+  const copy = (source: string, traditional: string) => assessmentChineseCopy(displayLocale, source, traditional);
   const values = axes.map((axis) => axis.unmeasured ? null : axis.correct !== null && axis.total !== null && axis.total > 0
     && axis.correct >= 0 && axis.correct <= axis.total ? axis.correct / axis.total : null);
   const complete = values.length === 5 && axes.every((axis, index) => axis.unmeasured || values[index] !== null);
   return <div className="mx-auto flex aspect-square w-full max-w-[440px] flex-col justify-center rounded-2xl bg-[#142038] px-3 pb-5 pt-2 text-[#aab7ca]" data-testid="iq-five-axis-chart">
     <svg viewBox="0 0 400 325" className="mx-auto w-full max-w-[440px]" role="img"
-      aria-label={zh ? "本题本答题正确率图；逻辑与言语未测，无数值" : "Form-specific item accuracy; logic and verbal are unmeasured and have no numeric value"}>
+      aria-label={zh ? copy("本题本答题正确率图；逻辑与言语未测，无数值", "本題本的答對率圖。邏輯與語文未測量，沒有數值。") : "Form-specific item accuracy; logic and verbal are unmeasured and have no numeric value"}>
       {[0.2, 0.4, 0.6, 0.8, 1].map((level) => <polygon key={level} points={polygon(Array(5).fill(level))}
         fill="none" stroke="#2b3851" strokeWidth="1" />)}
       {axes.map((axis, index) => {
@@ -36,7 +38,7 @@ export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: 
         return <g key={axis.code}>
           <line x1={CENTER[0]} y1={CENTER[1]} x2={end[0]} y2={end[1]} stroke="#2b3851" />
           <text x={label[0]} y={label[1] - 4} textAnchor="middle" fill="#edbe4b" fontSize="13" fontWeight="650">
-            {axis.unmeasured ? zh ? "未测" : "Unmeasured" : values[index] !== null ? `${Math.round(values[index]! * 100)}%` : zh ? "数据暂缺" : "Not available"}
+            {axis.unmeasured ? zh ? copy("未测", "未測") : "Unmeasured" : values[index] !== null ? `${Math.round(values[index]! * 100)}%` : zh ? copy("数据暂缺", "資料暫缺") : "Not available"}
           </text>
           <text x={label[0]} y={label[1] + 13} textAnchor="middle" fill="#aab7ca" fontSize="12">{axis.label}</text>
         </g>;
@@ -49,11 +51,11 @@ export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: 
         })}
       </g> : null}
     </svg>
-    <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm" aria-label={zh ? "雷达图各维度数据" : "Radar values by dimension"}>
+    <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm" aria-label={zh ? copy("雷达图各维度数据", "雷達圖各維度資料") : "Radar values by dimension"}>
       {axes.map((axis, index) => <li key={axis.code} className="inline-flex items-center gap-1">
         <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: COLORS[index] }} aria-hidden="true" />
         <span>{axis.label}</span>
-        <span className="tabular-nums">{axis.unmeasured ? zh ? "未测" : "Unmeasured" : values[index] !== null ? `${axis.correct}/${axis.total}` : "—"}</span>
+        <span className="tabular-nums">{axis.unmeasured ? zh ? copy("未测", "未測") : "Unmeasured" : values[index] !== null ? `${axis.correct}/${axis.total}` : "—"}</span>
       </li>)}
     </ul>
   </div>;
