@@ -16,7 +16,7 @@ import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock"
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import { assembleBig5ResultViewModel, hasUsableBig5ReportEngineV2 } from "@/lib/big5/resultAssembler";
 import { withBig5ReadingCopy } from "@/lib/big5/readingCopyProjection";
@@ -1389,6 +1389,7 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
 
 export function RichResultReport({
   locale,
+  displayLocale = locale,
   reportData,
   accessProjection,
   inviteUnlockProgress,
@@ -1400,6 +1401,7 @@ export function RichResultReport({
   taiwanBigFivePdf,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   reportData: ReportResponse;
   accessProjection?: AttemptReportAccessView | null;
   inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
@@ -1498,6 +1500,7 @@ export function RichResultReport({
       return (
         <RiasecResultShell
           locale={locale}
+          displayLocale={displayLocale}
           viewModel={assembleRiasecResultViewModel(reportData, locale)}
           displayMode={printSnapshotMode ? "static" : "interactive"}
           emailRecovery={riasecEmailRecovery}

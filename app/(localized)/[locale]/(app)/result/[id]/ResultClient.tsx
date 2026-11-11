@@ -2218,6 +2218,7 @@ export default function ResultClient({
         </> : null}
         <RichResultReport
           locale={locale}
+          displayLocale={displayLocale}
           reportData={reportData}
           accessProjection={accessView}
           inviteUnlockProgress={inviteUnlockProgress}

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { RichResultReport } from "@/components/result/RichResultReport";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import {
@@ -14,6 +15,12 @@ import {
 import { canonicalReport, authority, SOURCE_HASH, COMPILED_HASH } from "./fixtures/riasec/canonicalReport";
 
 describe("RIASEC canonical renderer authority", () => {
+  it("passes the Taiwan display locale through the canonical rich result", () => {
+    render(<RichResultReport locale="zh" displayLocale="zh-TW" reportData={canonicalReport()} />);
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveAttribute("data-riasec-source-hash", SOURCE_HASH);
+    expect(screen.getByRole("link", { name: /前往職涯中心/ })).toHaveAttribute("href", "/zh-TW/career");
+  });
+
   it("renders only a complete hash-bound canonical payload", () => {
     const report = canonicalReport();
     expect(hasRiasecProjection(report)).toBe(true);
