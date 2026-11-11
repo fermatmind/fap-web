@@ -1,3 +1,4 @@
+import { QuestionnaireSd4Attribution } from "@/components/questionnaires/QuestionnaireSd4Attribution";
 import { QuestionnairePpsAttribution } from "@/components/questionnaires/QuestionnairePpsAttribution";
 import { WorkActivityContext } from "@/components/questionnaires/WorkActivityInterestsReport";
 import { WorkTraitsContext } from "@/components/questionnaires/WorkTraitsReport";
@@ -46,11 +47,18 @@ function CitedCopy({ text, slug }: { text: string; slug: string }) {
 export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
   const { quiz, sections, faq, summaries, extraReferences } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
-  if (take) return <TraditionalQuestionnaireCopy>
-    <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
-      <QuestionnaireClient quiz={quiz} locale="zh" />
-    </QuestionnaireTakeDocument>
-  </TraditionalQuestionnaireCopy>;
+  if (take) {
+    const Client = slug === "dark-tetrad-sd4"
+      ? (await import("@/components/questionnaires/QuestionnaireSd4Client")).QuestionnaireSd4Client
+      : slug === "dark-triad"
+        ? (await import("@/components/questionnaires/QuestionnaireDarkTriadClient")).QuestionnaireDarkTriadClient
+        : QuestionnaireClient;
+    return <TraditionalQuestionnaireCopy>
+      <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
+        <Client quiz={quiz} locale="zh" />
+      </QuestionnaireTakeDocument>
+    </TraditionalQuestionnaireCopy>;
+  }
 
   const result = profile ? quiz.profiles.find(item => item.id === profile) : undefined;
   if (profile && !result) notFound();
@@ -77,6 +85,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "work-traits-reflection" && <WorkTraitsContext locale="zh" traditional />}
     {slug === "work-activity-interests" && <WorkActivityContext locale="zh" displayLocale="zh-TW" />}
     {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
+    {slug === "dark-tetrad-sd4" && <QuestionnaireSd4Attribution locale="zh" traditional />}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -119,6 +128,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "work-traits-reflection" && <WorkTraitsContext locale="zh" traditional />}
     {slug === "work-activity-interests" && <WorkActivityContext locale="zh" displayLocale="zh-TW" />}
     {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
+    {slug === "dark-tetrad-sd4" && <QuestionnaireSd4Attribution locale="zh" traditional />}
     {references}
   </div>;
 }

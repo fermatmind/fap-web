@@ -5,7 +5,7 @@ import { recordEntertainmentActivity, type ActivityAction, type ShareMethod } fr
 
 const subscribeReady = () => () => {};
 
-export function useEntertainmentMetrics(slug: string, version: string, locale: "en" | "zh", privateActivity = false) {
+export function useEntertainmentMetrics(slug: string, version: string, locale: "en" | "zh", privateActivity = false, copy = (text: string) => text) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const scope = `${slug}:${version}:${locale}`;
   const [permission, setPermission] = useState({ scope: "", accepted: false });
@@ -31,8 +31,8 @@ export function useEntertainmentMetrics(slug: string, version: string, locale: "
   }), [send]);
   const consent = privateActivity ? <label data-entertainment-activity-opt-in className="my-4 block rounded-lg border border-slate-200 p-3 text-sm leading-6">
     <input type="checkbox" disabled={!ready} checked={optIn} onChange={event => changePermission(event.target.checked)} className="mr-2" />
-    {locale === "zh" ? "可选：允许本页匿名次数统计（默认关闭）" : "Optional: allow anonymous activity counts on this page (off by default)"}
-    <span className="block text-slate-600">{locale === "zh" ? "另遵循你的全站分析选择。只计开始、完成、结果查看和分享动作，不发送输入、答案、结果内容或身份；不回补开启前的动作。离开本页即失效。" : "Also respects your site analytics choice. Counts only starts, completions, result views and share actions. No inputs, answers, result content or identity; earlier actions are not backfilled. Permission ends when you leave this page."}</span>
+    {locale === "zh" ? copy("可选：允许本页匿名次数统计（默认关闭）") : "Optional: allow anonymous activity counts on this page (off by default)"}
+    <span className="block text-slate-600">{locale === "zh" ? copy("另遵循你的全站分析选择。只计开始、完成、结果查看和分享动作，不发送输入、答案、结果内容或身份；不回补开启前的动作。离开本页即失效。") : "Also respects your site analytics choice. Counts only starts, completions, result views and share actions. No inputs, answers, result content or identity; earlier actions are not backfilled. Permission ends when you leave this page."}</span>
   </label> : null;
   return { ...metrics, consent };
 }

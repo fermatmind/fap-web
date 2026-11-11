@@ -3,6 +3,12 @@
   "converter": "opencc-js@1.4.2:cn:twp",
   "glossary": "fermatmind-tw-1",
   "sourceHashes": {
+    "lib/questionnaires/data/dark-triad.json": "b894d69ab8a6b8f40a3a99162f253ce4e4ff5403c05a431dd80f7b382779a9b3",
+    "lib/questionnaires/result-content/dark-triad.json": "25c26bc32261e4e9a95bab517f36aced3ae3782362538103d822050c26568e57",
+    "components/questionnaires/DarkTriadLandingEditorial.ts": "c78a1dc56e63ba65a51f3a71714359618937618bcca20a1b3a00db5ab6aeaff7",
+    "lib/questionnaires/data/dark-tetrad-sd4.json": "a1e1db7f491f0d87bdf9e9909f9284bcc848bdb0cc8f98d3f5817a32f04ba04f",
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json": "da06310ec91c98f37d8c474376991ae34793f56bc38b18cd35da217f99f91d8c",
+    "components/questionnaires/Sd4LandingEditorial.ts": "c70c5fb7bf01f4df855db469a56451c8d26fe909c0f44d296ddd94dc81cfd756",
     "lib/questionnaires/data/freudian-personality.json": "fb45a992a17eb4b7fcaa149c966e19995cb28edddd3d3c47b876855f6c9f72df",
     "lib/questionnaires/result-content/freudian-personality.json": "a7c3f1aefd124f3b0a73ea15a521b2cbd57b27f01b88e9826887c49b299311ce",
     "components/questionnaires/FreudianLandingEditorial.ts": "87b2f324f8713f4971b55bceb2cb24075a14ca59055b68f9c2cb9ccc7bf147f9",
@@ -157,6 +163,2650 @@
     "components/questionnaires/WorkTraitsLandingEditorial.ts": "a104ac93bd36d92fa18b5b6b3f7d12014ef8b9fb8d699c337aacd60e47b78a06"
   },
   "units": {
+    "lib/questionnaires/data/dark-triad.json/title": {
+      "sourceHash": "e758847164ceaed2ee3f587401f77b7db0e713b7fb9628cb942b99727a626e95",
+      "text": "黑暗三角測試"
+    },
+    "lib/questionnaires/data/dark-triad.json/resultHeading": {
+      "sourceHash": "b419959394d754be7f67d563ad575016058b15f709ddd9ebd34357e09d03e9e4",
+      "text": "你的黑暗三角三組自我觀察"
+    },
+    "lib/questionnaires/data/dark-triad.json/description": {
+      "sourceHash": "a2e68e0226d8de289683bd096e9a9f15483ed2460be9102ba32bad601d884c16",
+      "text": "回顧近三個月對認可與形象、資訊與影響、他人感受和行為影響的自報做法。18條原創符合度題，三組獨立均分與完整指南免費；可不願回答，無需註冊。本版不是SD3量表。"
+    },
+    "lib/questionnaires/data/dark-triad.json/seoTitle": {
+      "sourceHash": "62409f007d49e348f8ba20c84e8c90c7a0e19321ebb4f03765e60a9b2b92dd01",
+      "text": "黑暗三角測試：18題原創主題自評、三組分數與完整解讀"
+    },
+    "lib/questionnaires/data/dark-triad.json/introduction": {
+      "sourceHash": "de683a4cac2664537ac04124de6dbcd335306c16eac26decc9fbedf9ea57c8d8",
+      "text": "面對質疑、提出請求或處理行為影響時，你怎樣回應？這份黑暗三角測試以18條原創陳述，回顧近三個月對地位、認可和形象的注意，達成目標時的資訊與影響方式，以及面對他人感受和行為影響時的距離。三組分別顯示原始和、有效條數及符合度均分，三份完整指南均可閱讀。本版提供主題自我觀察，不把三組直接命名為研究量表的自戀、馬基雅維利主義和精神病態分數。"
+    },
+    "lib/questionnaires/data/dark-triad.json/instructions": {
+      "sourceHash": "54b778dd015c52a937ead0eb6964d489019ae3c6235f969dd314bfc3fa2d7436",
+      "text": "僅為自己作答，回想近三個月，按陳述與你實際做法的符合程度選擇1完全不符合至5非常符合。3表示不確定或視情況，不是有時、正常或人群平均；不願回答請選獨立選項，不按零分處理。每組六條至少四條數值作答才顯示該組均分，其他組分別計算。無需填寫事例或第三人資訊。點選開始直接進入題目，不必勾選可選統計；答案僅留當前頁面記憶體，重新整理、切換語言或離開後不能恢復。"
+    },
+    "lib/questionnaires/data/dark-triad.json/directions/0/title": {
+      "sourceHash": "51245dcb06164dc0916688854af48591b0e772aa92691fd085dcbe57fb84b766",
+      "text": "對地位、認可和形象的注意"
+    },
+    "lib/questionnaires/data/dark-triad.json/directions/1/title": {
+      "sourceHash": "f5708e78c0fb83190ddbeff437970c9e2f3a0c1c8a8838a6d7f7cb25298e8b3c",
+      "text": "達成目標時使用資訊、關係和影響方式"
+    },
+    "lib/questionnaires/data/dark-triad.json/directions/2/title": {
+      "sourceHash": "5e91a288c9bd1be50b01305ca6b43fdeb45c8c3b0369acc242451708820913e4",
+      "text": "面對他人感受和行為影響時的距離"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/prompt": {
+      "sourceHash": "033767443f10816e4a97c00ac7265b9be3c7496544444d2b88adb8036cc640d6",
+      "text": "過去三個月，受到質疑時，比起先確認問題本身，我更急著維護自己的形象。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/options/0/label": {
+      "sourceHash": "38660eaab77cfba45094ee77be0ae9b125b3a49ec2d9a2e2059c4d6d1b088b58",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/options/1/label": {
+      "sourceHash": "4b7754e14ea3c173fce487e09be215e1da4f2f6211f79c7fb9eb23d094e6fcc2",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/options/2/label": {
+      "sourceHash": "5f161204295b45f293170413c5663ceb57d3d6797c7722d5ab91dea46b6524df",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/options/3/label": {
+      "sourceHash": "ef8130b2677e91ac83dfa4b3843eb07c0ceb7ce5bfc8bc7054ae68b249b9e10c",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/options/4/label": {
+      "sourceHash": "05900b3537e333e51c30017f3acbb5ee301cf040293828c7cbc6caf30f59d382",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/0/options/5/label": {
+      "sourceHash": "ea000bb68ecba6dcb8123353671d310f4c2554399e1b4d0b905a51a8f900f96b",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/prompt": {
+      "sourceHash": "a107697990934aa04fa9174d06ba157edc7568ee8bb246440e0d3f9c33593676",
+      "text": "過去三個月，進入一個群體時，我會經常比較自己得到多少注意，以及自己在其中的位置。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/options/0/label": {
+      "sourceHash": "89502163d40e688f4d2beb34b47d17c580512d139da4394859da2336d9822bfc",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/options/1/label": {
+      "sourceHash": "a8e2faf11d36de63ed0220384a6b3b11c50a8cfebb9fc4e7b40ab8e82e591b33",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/options/2/label": {
+      "sourceHash": "7cf4363c2a66b89aae16b86b0e831f9feb2f5508a45d8c05df7d917a4377dd11",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/options/3/label": {
+      "sourceHash": "e33ac3df641f40465b1907bf89241dd9580bc9ed07a2d09fdc12e8bdce332873",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/options/4/label": {
+      "sourceHash": "499a38a720f393d5eef13fbb20edb3a655b86b83397cff310312ae6324cd3498",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/1/options/5/label": {
+      "sourceHash": "43e3a5c93623a6645a973900efc6742d389ccbd37355ef188c4e67000c2b3981",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/prompt": {
+      "sourceHash": "8477dfe10e7ee9c45046496687b5972bc07949f90f2ad6865cff02f4be5a604b",
+      "text": "過去三個月，別人獲得更多認可時，我會把話題轉回自己的經歷或成果。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/options/0/label": {
+      "sourceHash": "71bf50683c582f5a352022048db139c1b53289fe5721236dd88caf1b1f8fc398",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/options/1/label": {
+      "sourceHash": "6c184a2d0881fce205c4c04db21086d646d168fda2d58194ddb934cb37c12b8c",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/options/2/label": {
+      "sourceHash": "d3d1452d7fdd278ddce0019d3c8d895f32fe9a96198ed179aa16498fbabbcca8",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/options/3/label": {
+      "sourceHash": "7e4e259c17d4ddf5ea3691378742021c90afb68210367c488a852a12e1ddd265",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/options/4/label": {
+      "sourceHash": "1678ac4222d53997cb8194c3748de89362e3dd0be383f495cbb6a34d133169a1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/2/options/5/label": {
+      "sourceHash": "a4b8d6baca9da8c3136c8056e4f9a3c465e0174faa88618d13e2bc5873111bd7",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/prompt": {
+      "sourceHash": "1ac1c85797f9a61781b20db762899052c8249904fa627578bb300c997e6a0220",
+      "text": "過去三個月，做決定時，我會優先考慮它對外在形象的影響，而不是實際後果。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/options/0/label": {
+      "sourceHash": "15b9fc359eacb842034b6fdc76d61ad9fb64c3a4c64444de43fc6a4366296fd2",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/options/1/label": {
+      "sourceHash": "fb197852928790fe701e62de7ad0c179a4c6ac475883ac1c86b6ef5a6c20dc49",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/options/2/label": {
+      "sourceHash": "78f9bf5d3b0de4b2d7e9e5082b9d8f89d8c5e12e9539807a93d115a6c08687c4",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/options/3/label": {
+      "sourceHash": "9549312f8627e93bcc0bcce9c3ad1db81a52a1edb72f4268c27457c8c2950b14",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/options/4/label": {
+      "sourceHash": "bd8cc164f959aa476cf5194cb58e4a0320ff48e01ea386c84893e7bb0728b1b1",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/3/options/5/label": {
+      "sourceHash": "0824cab424a0e8fb53a5778520b333e4af7cc7d726b2c8b2487e145ba1f0d0d3",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/prompt": {
+      "sourceHash": "62cd26f2e3b81897fd210ea8a1b442027e9b348b018a583d12b68e5333cca473",
+      "text": "過去三個月，為了得到認可，我會少提自己還不確定的地方。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/options/0/label": {
+      "sourceHash": "d1d44e2e1be13e405b7e6b793bc9016fb1349238a4911dfa002ed58f9b974d8e",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/options/1/label": {
+      "sourceHash": "c79335259fc197dad09a7e3c76b159d35df920c642270f145efe95ed2efa8890",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/options/2/label": {
+      "sourceHash": "62cac93c3acb12677c1125694ba3a05e8c6f82a8d70661a4ed31333dc606e6ec",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/options/3/label": {
+      "sourceHash": "bfd16610da1454d6bd560511cc1aa150326e34a9d743a1f3c16d61bc4868eaa7",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/options/4/label": {
+      "sourceHash": "1dc17455447c262afefc065d5659568ce4dc2aaaea725c2a9ea1ba0a3ad1aa8f",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/4/options/5/label": {
+      "sourceHash": "8d5e093bebb53d9640d9a226bcd2cfe6579226d50d36c0ed9a0b227ae0ff8500",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/prompt": {
+      "sourceHash": "2ec3867251a5c0aacc8761e102ce7dd6854e3bf2d159ae37b205aec29d8306fb",
+      "text": "過去三個月，我會把更多精力放在容易被看見和獲得稱讚的任務上。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/options/0/label": {
+      "sourceHash": "7cac452c682ded998f26fce7c591e14e4a4183c361f8158560a5f1407310372c",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/options/1/label": {
+      "sourceHash": "d94ea3c041a7b944aabd3d82c9fa94cef0acf018fbe6d9b8ca174315ab7c089a",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/options/2/label": {
+      "sourceHash": "712695e886ac5b393b33b082c2d4be73a948ade29076083414dab7723aeb5f19",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/options/3/label": {
+      "sourceHash": "7591aa4d23ca3f5a3d860c67993e1200b64be3f0491bd35889e0bedb224c200f",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/options/4/label": {
+      "sourceHash": "3da9b8100c7006ea00de1eca2f09a4389949c5f8b474a7ff10dc6682f388ab52",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/5/options/5/label": {
+      "sourceHash": "6cc90d24de810575fc96354acde6b3bdeb3f95ccd236d53ec9d658f42776c021",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/prompt": {
+      "sourceHash": "ecb2d668458e986c90f629f7d8c75b4242c5fa102ee99464b8b2e646e0efd2a9",
+      "text": "過去三個月，為了推進自己的目標，我會只提供有利於對方同意的資訊。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/options/0/label": {
+      "sourceHash": "d2077b831387d525ad8cf853290ccb62497f54c2f25d3a9246a573e9458e5db9",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/options/1/label": {
+      "sourceHash": "22474ae59671c78454c54dd7e9b75e48505b70d26bd09f496fdf4a02e00ff127",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/options/2/label": {
+      "sourceHash": "3d071641bc65434a361c0c2067b7dd7543cafa7d2d5f224b43b6a81f205a478b",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/options/3/label": {
+      "sourceHash": "b5a02f47e859850ab6e07be4dc256e81c2f64535d504b0a3f93f243b6d973534",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/options/4/label": {
+      "sourceHash": "20fb87a3fe096518270adc67e7c6817517fcbd11016824cf59fb78cabad3930b",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/6/options/5/label": {
+      "sourceHash": "e93b2cf7301069ede801a07b10857ba6e30a00bf899f75d2ccb59ae58f2573e0",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/prompt": {
+      "sourceHash": "28b44581ba98e2c93e81b0aa8242dfa85f0723a00f511f456b2511d6281e5dfb",
+      "text": "過去三個月，我會引用關係或以往付出，讓別人更難拒絕我的請求。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/options/0/label": {
+      "sourceHash": "1ed77ee9f644bab7642530967a9181c0bbae756c5c8e716108db6cea798fced1",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/options/1/label": {
+      "sourceHash": "78f289740973519d7dcf7089d62b50f3864a40bf0ae06ffa9489a67b6ce0f888",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/options/2/label": {
+      "sourceHash": "cbd294308d69079fde809bee59a8523cba2fd9a3fabd7e4f6550f7412dee52f0",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/options/3/label": {
+      "sourceHash": "2ffe58e1c4d401b4da64f831730479146b4eb0dcf13e8dfffa0b08dacf3f56f9",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/options/4/label": {
+      "sourceHash": "b545ef922ffb8709b581a3012f60c2e9b4107e8bb2ee4b3bcf5f65988c91017a",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/7/options/5/label": {
+      "sourceHash": "1234be3c3cca122838685e84fa9c3bb0f733678c64e59aa322697cf8e5333789",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/prompt": {
+      "sourceHash": "67f8c835fb3a4ea889983daad512d546b36f072a372832f0576435faf95b105b",
+      "text": "過去三個月，我會在對方作出初步承諾後，才說明自己的完整意圖。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/options/0/label": {
+      "sourceHash": "2b50521a825dc292100a65e7b20d618425363f469a5b23c22b26b692c34928e5",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/options/1/label": {
+      "sourceHash": "899b9e9965dacc0df3739a0c48eef4bf76e56fd8f1e0243677488349f202bffd",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/options/2/label": {
+      "sourceHash": "a47a2b3bbe204f3f6403f1cd513959946b4196841116f8e9c22c4f0067afe6da",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/options/3/label": {
+      "sourceHash": "48129dfa82851250f3b187f2134d79580827e9604534e94b5b92712ec4bfcee1",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/options/4/label": {
+      "sourceHash": "da6d82197738b25e0d8ee6383b8d4fc92841b98b79d973bffafe6718f008d7f4",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/8/options/5/label": {
+      "sourceHash": "b57f170e4992ab8de5b3f5d50e59a23a63198fe12cf333f32cc4369bc1b0ce59",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/prompt": {
+      "sourceHash": "e5610aecb5330722d4585c751eb2cd1ba758351a34e3b9ad201fb085b42ab9c9",
+      "text": "過去三個月，我主動維繫某段關係時，主要考慮對方能否幫我達成目標。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/options/0/label": {
+      "sourceHash": "49be539cbef804e3f0a618d0084cdf86a03fe8579ad39835377af6fa1797f405",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/options/1/label": {
+      "sourceHash": "e1b9a6722b7250d83f7a45496227b0d630ae3c4d5810878410e841d45d527946",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/options/2/label": {
+      "sourceHash": "273e721c5875721a6f9f7819866beab6230a5439989074fb6e57edd37dcbd4b9",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/options/3/label": {
+      "sourceHash": "f8ae16b27bbcd027fb418a7f156b5ae6a8352f864504969d8333e29bd66a9cb6",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/options/4/label": {
+      "sourceHash": "2f4c7ecb0025a7f017320669a4cf297080e099be045c61ac29e74bfa332edf3f",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/9/options/5/label": {
+      "sourceHash": "d63d9775caf080cac5c8e336b509d8c366d6fd505dbff91a426916c2d94e4fc3",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/prompt": {
+      "sourceHash": "c8554d8fe063c16072db4ec9fd6071c594d3998dff88541442c60e29678b68e4",
+      "text": "過去三個月，為了讓事情快點推進，我會鼓勵對方在資訊或思考時間不足時就做決定。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/options/0/label": {
+      "sourceHash": "7097a5db29a1ba7ba41848ecadeba888e0881e683d4d3506e32eece98cf572b0",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/options/1/label": {
+      "sourceHash": "f46cd4d3a66f0f80961812d2cca1e2e81a88be59bc1ddfcf06235f7777cdcedb",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/options/2/label": {
+      "sourceHash": "9a0471aa7c9e7edf842118bb67b8eb6d22f751bdb793a589413767a291863664",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/options/3/label": {
+      "sourceHash": "df26c50495e33213d96bc77d026688bfffa6f982c0cc69c1e6209d869baac971",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/options/4/label": {
+      "sourceHash": "216d183d1a1ca64bbe2db9e79642660c582145cb04b205c6ecbeff5993c060ac",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/10/options/5/label": {
+      "sourceHash": "461b739206f956dd321a7f06b497cb7527706dc2fbfaf2c415da68a39dcdbedd",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/prompt": {
+      "sourceHash": "e772f097bf0e8349dbb24e0459367696b3ea4296f43c2c9e258f2ef81fbbce8c",
+      "text": "過去三個月，別人表示反對時，我更在意怎麼讓對方讓步，較少確認對方的選擇。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/options/0/label": {
+      "sourceHash": "b77cfa1208f19953337a302f3f78f50f2f8f1d1ad80561fbfafc80d7deca91ac",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/options/1/label": {
+      "sourceHash": "5f4ed10eb233321cfe0412605e0efdfee3f657b90d7a4e48cab4725227e26475",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/options/2/label": {
+      "sourceHash": "71883bc5bd4e861fd7c8999e4d572b430071839fa2bb06d8be7902939cebd652",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/options/3/label": {
+      "sourceHash": "14e6361f7e80a03cbfab951d837e3137c0110d52fbce5d6a0ce3c5a2ad932ad9",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/options/4/label": {
+      "sourceHash": "489d6f43a4fe51c8a8f1969a7c419daf8f1711f8a6a4b602ed6b05558035b611",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/11/options/5/label": {
+      "sourceHash": "52b92f8000a070aef8a2e3e90d4b1640fc6a3f606ef4e0dde42d28e119553da9",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/prompt": {
+      "sourceHash": "f639f7038625aed9965adbe3d1866858f90f137b03a65fe2181b6e326ad7cb90",
+      "text": "過去三個月，我的行為造成影響後，我會繼續推進任務，而不是停下來核對。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/options/0/label": {
+      "sourceHash": "152797a8d1a618ab72056e80789825456773533375b908db99751111b5e59ec8",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/options/1/label": {
+      "sourceHash": "0630b150e8b853c8f38943621b136903001594cafd77c880ac1425bd1864d228",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/options/2/label": {
+      "sourceHash": "b56227dca0966dc49a5fb07af1cc0548d80894d23835fcbcc2d6b2c486fdf5b2",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/options/3/label": {
+      "sourceHash": "b62ee0bb4c7625cad8093f56f64f88e732c6ed700778780398282c72f17f809e",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/options/4/label": {
+      "sourceHash": "20eb17d61cf621c78fd230131283177a636d8a13dd0d46eddd7f7ea7fa5019e3",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/12/options/5/label": {
+      "sourceHash": "877ecc5110efec4d439b8dd9dd701553c50caa0259066c7b5c1bfe9294a5f094",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/prompt": {
+      "sourceHash": "c63d596a17717fcaddfe0bea8c68f0aa63ded65f4c62364b136c00ed1104b676",
+      "text": "過去三個月，別人表達不適時，我會先把這看作事情推進的阻礙。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/options/0/label": {
+      "sourceHash": "5191af542a66a41033a73a2fa18f9861ba5e2eb2d3bf9eef3622f37f4cf84c85",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/options/1/label": {
+      "sourceHash": "aeb67b8b835c8e8d297fbadf4637ef2542eeade774fe61648becbcb331411e19",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/options/2/label": {
+      "sourceHash": "29aca5f9873725b3bbd53c001c1ec1af561ec206ea1f79fe3d27764a7129c891",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/options/3/label": {
+      "sourceHash": "5229c56afb079c32107541a0cc1a317f274a47bcf30aac0bbdc240bbae262e1f",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/options/4/label": {
+      "sourceHash": "e2518fff7d052ccb861357075d0c1825cac1c8cae2175036b907444b325a6a7a",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/13/options/5/label": {
+      "sourceHash": "0e82662da7d382bf87cc2e23dcd8254e322dc891c25241d482b18d85bbdf3f3c",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/prompt": {
+      "sourceHash": "49f5b6837cd2b2c6f874593953c22c2c51157c4e80861ff2708999e6ad03085e",
+      "text": "過去三個月，在需要快速決定時，我會忽略該決定對其他人的可預見影響。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/options/0/label": {
+      "sourceHash": "0cc04cde4609e21e103da1f2c320c690b7595fc8fe4c4c72d79ae87332d5216b",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/options/1/label": {
+      "sourceHash": "82f908d1f377a60c45f81994aa24e29ee2e9d9dbaf561bc04f43da840f44f257",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/options/2/label": {
+      "sourceHash": "5a3003c58d5d2481c6d93b2b4c0edabed1d5b786c2f1ad338f6b1bf0e8b83716",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/options/3/label": {
+      "sourceHash": "79d93d91c074099d4809416271ead0607f9d348e3d280d9a2e34c323b04993f4",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/options/4/label": {
+      "sourceHash": "1f75c2edf85f5227f344e4c1a9970d86689ee0e96ab903a4d9d8d214c8f92205",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/14/options/5/label": {
+      "sourceHash": "94c99b4ff6d97a2debb9460289c6807eff33f1a6e761da2ec14dcf6dc0721df6",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/prompt": {
+      "sourceHash": "134533d3a864b861986fc8197a1f58f4fea6f04440764b72347b940a7a315acd",
+      "text": "過去三個月，道歉時我會更注意儘快結束話題，而不是了解已經造成的影響。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/options/0/label": {
+      "sourceHash": "764f783b2bf75dc89d6f3c34243932282ffc025a2bb2aa1c1664ea1c43bc13f2",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/options/1/label": {
+      "sourceHash": "148d932eff0b05b3d211774fba016bb2dd4a4a2ac412364fd0329b1ce6e08081",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/options/2/label": {
+      "sourceHash": "89d83ad192bf223e1d7a4bae9923de0c71001d4bddfea99c1f3b685aa31674cc",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/options/3/label": {
+      "sourceHash": "1ed6d0e09ff2bd5ae1cf96efc2d1ace7f00b1bc88f384be7c0c4406d4bb23496",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/options/4/label": {
+      "sourceHash": "65ebc7f52511cecb788b28b7494803b4fbfca4efdbd9bc15c7ca4ab80638c077",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/15/options/5/label": {
+      "sourceHash": "b55bcfc602b788b30dcbd999af0d23139e03875ed80ccb482f59ca3db1719721",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/prompt": {
+      "sourceHash": "0047c4e01eac81aaeca48734734c1b27681905928e90b84a7e3d61628539ed7a",
+      "text": "過去三個月，看到自己行為的後果後，我會推遲迴應，希望問題自行淡化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/options/0/label": {
+      "sourceHash": "85bcd8bb354b50fd8952a2af136e3c011e1cb6b7774e2858881f15d746571904",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/options/1/label": {
+      "sourceHash": "11cf3424c50410b30e1681ac5f74e4bad3059931274d9363769c783bbff74f27",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/options/2/label": {
+      "sourceHash": "39330a2bc323c804b5a32c724426f8ec522648f6a37a7b172981b84eb1b530f5",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/options/3/label": {
+      "sourceHash": "c8a5d9a64a15e4f3a11de28ea6003b1004f78b4279487b35515942ee39546c4d",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/options/4/label": {
+      "sourceHash": "faf9e9c29ee10c1ea08671197f660319bf1c1a7b30a8993a4f51e9988f2259ed",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/16/options/5/label": {
+      "sourceHash": "11788f78e02668da5067efe877e54d16e74f8a39d822af783c8d672806d60909",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/prompt": {
+      "sourceHash": "5978c5bc039c74c06f72ebec0a10e095a78e44408374527b66bb2927a1917460",
+      "text": "過去三個月，某個做法對我有利時，我會淡化別人已表達的擔憂或界線。"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/options/0/label": {
+      "sourceHash": "3a7f51388d3ed8cee91c6064ea6c025511a1bf9ca6461ab0e7e3364898f544ac",
+      "text": "完全不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/options/1/label": {
+      "sourceHash": "2f0eba87461f3011441b2b0ae029ef103fb756b32733e16f2c6998907bc5e31e",
+      "text": "比較不符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/options/2/label": {
+      "sourceHash": "095aea15870eb9624b3b309731cd7042f7f9ec838cdaab846151504174473d18",
+      "text": "不確定或視情況"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/options/3/label": {
+      "sourceHash": "2babb3fe7fd75f962c9094f370af7733124ced8592be22cf20d2c8dfaa626510",
+      "text": "比較符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/options/4/label": {
+      "sourceHash": "2e84ddbac514fb4af22b63b812f81980602f776ef7c91bb6358b9c238eb64ebd",
+      "text": "非常符合"
+    },
+    "lib/questionnaires/data/dark-triad.json/questions/17/options/5/label": {
+      "sourceHash": "56acf699cc1c04b014c57fff860aea700040db10f43c8b76ef1651ac3881b085",
+      "text": "我不想回答這題"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/title": {
+      "sourceHash": "7943a1c69ee4b4364045e48c915b198784dc8b99cb5664393543dc69a96e2f8e",
+      "text": "認可與形象：具體做法的完整讀法"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/headline": {
+      "sourceHash": "e86aa274dc2f7574d781bb7e81abb95130fe1703130556c899a8c47c7408a5fb",
+      "text": "把注意認可與具體優先順序分開核對。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/summary": {
+      "sourceHash": "964591e0eb811e21ad8a57b4db1c60a507df873040d251a1111bf33be2956817",
+      "text": "黑暗三角主題觀察的認可與形象完整說明：六條符合度、至少四條有效、具體例子與反例，不診斷自戀或推斷能力。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/scoreReading": {
+      "sourceHash": "b56835ba77a82faa6967b993d581a4a2938e9bc665170091696474e84595db9e",
+      "text": "僅描述本組具體做法的自報符合度，至少四條數值才有均分；不與其他組排名。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/seo/title": {
+      "sourceHash": "0fad176480bdd6f83337a4bcf69f7ea08c01cbeaed0c4250171f0c9df1da4693",
+      "text": "黑暗三角測試結果：認可與形象的完整主題說明"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/seo/description": {
+      "sourceHash": "52b4c88b8d49ca3e46d32e0113de97b07fb2f15255ca71bc185148da344f3891",
+      "text": "黑暗三角主題觀察的認可與形象完整說明：六條符合度、至少四條有效、具體例子與反例，不診斷自戀或推斷能力。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/0/title": {
+      "sourceHash": "1d3db33b8b29ba958c0036455fdf5c590d66fa0fd67f11a3840b4be1fbab6d12",
+      "text": "認可與形象：核對它是否壓過事情本身"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "f2bc211470f03f0239c7783983f472cc9f07c5d144562a60fb67517e9fb33f10",
+      "text": "這組圍繞受到質疑、進入群體、別人被表揚、安排任務等場合，回顧形象、注意和認可在自己做法中的位置。注意他人怎樣看自己是常見經驗；本組只問六條具體描述有多符合，不把所有公開展示都叫自戀，也不測自尊或自信。你可能在某些題認出自己，在其他題不符合或想保留回答。需要把這種不一致留在條目裡，不能讓一個均分替你解釋全部動機、關係或人格。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/1/title": {
+      "sourceHash": "6f0da06e1714bb94d33f7e497381437416875f424d18c7f3e8e8d19303602caa",
+      "text": "六條至少四條有效，三組不排名"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "a405d7f22bafa2377b9ee79459269124bb5815dcccc0dbfa633144db121e4a5f",
+      "text": "本版18條，三組各六條，全部同向，0反向。每條先選擇1—5符合度或“我不想回答這題”，全18次選擇才結束。每組至少四條數值有效，才顯示實際有效數、原始和及未舍入總和除有效數的兩位小數均分；四條、五條、六條的原始和範圍分別4—20、5—25、6—30，不用六作統一分母，也不比較不同條數的總和。3表示不確定或視情況，數值有效但不是穩定中立頻率；不願回答排除，不補0或3。少於四條只讓該組不足，其他組獨立保留，三份完整說明始終可讀。不加總、不派最高型、不設高低閾值或風險等級；均分不證明類別等距、組間可比或可靠變化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/2/title": {
+      "sourceHash": "c3e1c83afe942a4ecc8ade98bb8fba2ae768c6c4165c51d225ae0cdc2f263e79",
+      "text": "更多或更少符合，需要回到哪幾條"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "74abb3a24c226a224d9d4af2ff4b80d5eceb695fcbbe17d3c4c54b5869839014",
+      "text": "如果較多選擇符合，可以回顧形象維護是否在某些回答裡優先於事實核對、分享功勞或不顯眼的任務。這裡的“可以回顧”不是已證明你忽略了責任，也不能從分數判斷他人的體驗。較少符合只表示這些句子較少被自己認可，不能證明謙遜、可靠或沒有現實問題。若主要選擇3，要保留不確定或視情況的含義，不把它寫成“中等自戀”。同樣均分可來自不同題目組合，記憶、機會和作答時的理解也會影響回答。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/3/title": {
+      "sourceHash": "b5a937c756e3d94456a59541ea8f4234c2aa13e3be4be11d9ce14fb316ba60bb",
+      "text": "展示、認可需要與實際能力不能互推"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "8e6c902ba4831f44dc8eeb8f6dc0fb750e4b1a9e700af730eb02ca62e82ed6b4",
+      "text": "願意展示成果、爭取合理署名或說明被誤解的情況，不自動符合每一條。關鍵在原句所說的比較、話題轉回、隱藏不確定或優先順序，不能把合理說明刪成缺點。反過來，認可某條也不認證領導力、魅力、雄心或承受批評的能力。本站沒有觀察任務表現，也不依據研究名稱把成績解釋為臨床自戀、穩定特質或人格障礙。它更不能判斷你是好人或壞人，或作為他人應否信任你的依據。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/4/title": {
+      "sourceHash": "f2722b6e58a0e893c4ed8415078422f5406dbdd0fb9385d9ce2fbda4cbfd6fc9",
+      "text": "例子：共同活動後的成果說明"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "ac47dcac297681fc500a76a0e2e37a461aeacf1701fdc03601f79577c8eabea1",
+      "text": "設想共同活動後寫一小段成果說明。一種需要核對的情況是：為突出自己的貢獻，是否少說了別人完成的部分或仍未確定的內容。也可能你只是在補上之前遺漏的真實貢獻，情況就不同。這個例子不要求公開檢討、撤掉合理署名或揣測別人不滿；只把原句裡的優先順序放回具體事實。測試沒有讀到實際說明，也不知道分工，不能說哪一種情況已經發生，更不會給出工作表現或聲譽評價。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/5/title": {
+      "sourceHash": "a0f2299e2dbc06873f3cafd7df5b073fe8e5300c74a83c9e5a7f88c0c1eb1fa5",
+      "text": "反例：在意認可仍可完整說明事實"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "747f2cc609a62aa413f0ed83e5bc7247a7a4024455bcb8c386ad9854261aea86",
+      "text": "一個人很希望努力被看見，仍可以完整列出他人貢獻、說明未知並做好不顯眼的後續。另一個人很少公開展示，也可能在某次互動中忽略事實。外向、安靜、喜歡被誇或不喜歡聚光燈，都不直接決定這六條怎樣回答。這個反例幫助區分需要認可與具體做法，不是在要求你壓低分數以顯得謙遜。頁面不通過與影響方式、情感距離兩組的高低比較來給你定主型，也不把三組當人格的拼圖份額。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/6/title": {
+      "sourceHash": "07d10060752e001361e84eee3e5955778adaf358118045ab6dba61d957c7caef",
+      "text": "可選核對：一項貢獻與一處未知"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "c9a34bda85ed1d4d6718be5fe0f684e9c03c2f30b2b968d8b2072505db9c5b4c",
+      "text": "若願意，在一次普通、非緊急的共同安排裡，心裡找一項已經知道的他人貢獻和一處自己仍不確定的事實。判斷是否有必要補全自己的說明，也可以只留作提醒，不要求任何人回應。不記錄姓名、真實衝突或私事，不為了練習製造批評。這個核對不保證關係改善、能力增長或均分下降；當時需要暫停、保護隱私或拒絕討論，也不由本測試判成形象維護。讀完後在這裡結束同樣可以。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/7/title": {
+      "sourceHash": "2f24801ea02a71cb114437a68a3a335f098e5b9fc48c4566cf1a1eebd243a50f",
+      "text": "認可與形象組的題本範圍"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "7317091f4d85f033cf13d9ff9f5258733e038f9c72f9dbe76f473257a9da06d0",
+      "text": "黑暗三角研究把自戀、馬基雅維利主義和精神病態作為相關但可區分的研究特質，不能只憑名稱就認為任何原創題本測到了它們。本組承接費馬早期題本的六條認可與形象陳述，不採用SD3或Dirty Dozen，也不繼承其常模或驗證。難相處人格中的自我抬高、有毒特質中的比較話題與這裡有交疊，分數仍不互換。光明三元素也不是本組的反向分數。可以把這些主題並排閱讀，但不能算光暗比例或從一個均分診斷任何人。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/8/title": {
+      "sourceHash": "f1b05231010ba801965f4021016f18cf92b0846bb6f7d1a82ff264daeb213fef",
+      "text": "只留當前頁面記憶體，全文免費"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/0/sections/8/paragraphs/0": {
+      "sourceHash": "510c9a738edda43c86a281b7106a01f63322c0febae9c56c9cadef0b9d235def",
+      "text": "本測試按敏感主題保護作答隱私。答案與個人結果只在當前頁面記憶體，不寫瀏覽器儲存、不上傳答卷或傳送測試流程統計，不提供個人結果分享。重新整理、切換語言或離開後不能恢復；作答中可回上題修改，退出或重測清除。公開全文與私人作答無關，三份完整說明免費，不需郵箱、付費或另一測評解鎖，也不要求把真實衝突、姓名或他人情況輸入網站。僅回答本人過去三個月，不代伴侶、同事或任何人作答。你可以讀完結束；這些說明不能作招聘、關係篩選、醫療、司法、安保或學校評價，不從低均分證明安全，也不從高均分預測傷害。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/title": {
+      "sourceHash": "152421a81dee545d05baa529f4011dfb85e3fce8711f0a2be0cda77609f3044e",
+      "text": "影響方式：資訊與選擇的完整讀法"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/headline": {
+      "sourceHash": "e1c871ada74cdbd71539517cae853d78825df50392b22a2f18f8b0690c25412e",
+      "text": "把推進目標與保留知情、思考和拒絕空間分開看。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/summary": {
+      "sourceHash": "2c8e8b6d461a69f7a04590508e3fee7cb31f9e0e22ec938d9a5f064281d38076",
+      "text": "黑暗三角主題觀察的影響方式完整說明：六條符合度、資料不足、請求例子與反例，不測操控能力或派馬基雅維利人格。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/scoreReading": {
+      "sourceHash": "ce136e8cb49e470378e03e678e8c00c76ccab3ab3541a43519bcafa7c6bb03c0",
+      "text": "僅描述本組具體做法的自報符合度，至少四條數值才有均分；不與其他組排名。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/seo/title": {
+      "sourceHash": "9cea96e591438392a78874144970c467e50eeb78ba72bebb78bfde2ffc1ba617",
+      "text": "黑暗三角測試結果：影響方式與選擇空間完整說明"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/seo/description": {
+      "sourceHash": "b21ca5cf4c91b65986b6f6da6d04ba475736e2b734c060039b7b3b8887e7ce83",
+      "text": "黑暗三角主題觀察的影響方式完整說明：六條符合度、資料不足、請求例子與反例，不測操控能力或派馬基雅維利人格。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/0/title": {
+      "sourceHash": "5da3551c9a6fb4edf64207ee309d2aab539fa2ad18f414ed2fb2126c3e529167",
+      "text": "影響方式：資訊、意圖和拒絕空間"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "c14652a9a25f80110daeb807f1d8b5b64f565d8d9b407c816d32a43741dc06c8",
+      "text": "這組圍繞推進目標時怎樣說明資訊、使用關係、提出請求和回應反對。溝通通常會影響別人，但影響本身不等於操控；六條具體注意資訊是否有選擇地提供、完整意圖何時說明以及對方的決定空間。它不測社交技巧、談判能力或所謂“讀人術”，也不把任何有目標的關係都看成利用。請按原句看本人過去三個月，不猜某個同事或伴侶的意圖，不用別人的印象替自己或他人完成回答。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/1/title": {
+      "sourceHash": "945fcd663f72e1815a9a99df97b55eee270e77304a675e09100ffc407d4aa3bc",
+      "text": "六條至少四條有效，三組不排名"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "d077cd74c4016e17ae6990d3edbb70b9acb24b5b74319cc2cb7e0415c3a2c7da",
+      "text": "本版18條，三組各六條，全部同向，0反向。每條先選擇1—5符合度或“我不想回答這題”，全18次選擇才結束。每組至少四條數值有效，才顯示實際有效數、原始和及未舍入總和除有效數的兩位小數均分；四條、五條、六條的原始和範圍分別4—20、5—25、6—30，不用六作統一分母，也不比較不同條數的總和。3表示不確定或視情況，數值有效但不是穩定中立頻率；不願回答排除，不補0或3。少於四條只讓該組不足，其他組獨立保留，三份完整說明始終可讀。不加總、不派最高型、不設高低閾值或風險等級；均分不證明類別等距、組間可比或可靠變化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/2/title": {
+      "sourceHash": "73827f0cf5f8426efe04340eb4005dc58c83d41a57d1bfd78df0d17f04367653",
+      "text": "符合度提示回顧什麼"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "7a4934b32bbec587884d18a480567fb07aa3f70168f3870103f15b2acc310c1b",
+      "text": "較多符合時，可以逐條看資訊、說明時點、時間壓力和拒絕空間，而不是把均分叫作操控程度。題目本身有較明顯的社會讚許影響，自報低也不證明每次溝通都充分知情。較少符合不能認證誠實或他人絕對自願，較多符合也不證明策略有效或取得成功。3保留不確定或視情況，不把它解釋為中等馬基雅維利主義。若只有四條有效，均分只描述那四條，不能當其餘兩條已知，更不能從另外兩組補推。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/3/title": {
+      "sourceHash": "6c60a53e61b5843d4f55be59ec8ca00027fb5908907433545ac04e1c16401624",
+      "text": "提出請求不等於壓縮他人的選擇"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "2f5b1cd5b3f92ca780386e3d0b82602638c2ab10a74ac781785b1b764756e6c0",
+      "text": "清楚地提出自己的目標、合理的期限或協作需要，不自動符合只給有利資訊或讓人更難拒絕的描述。別人不答應也不讓請求本身變成錯誤。需要看原句所指具體做法及情境，而不是按結果是否如願判斷。這個主題不評判誰擅長協商，不把施壓包裝成必要的商業能力，也不借一個自報結果解釋他人為什麼不信任你。網頁沒有聽到真實對話、了解對方意願或觀察後續結果，不能代替這些事實。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/4/title": {
+      "sourceHash": "c8ba000841502633d700e814ffe83dcd22aeeaa7e90e70fd692cd73dd54f6fd7",
+      "text": "例子：邀請別人幫忙整理活動材料"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "de98d33cf528a5a31461223fbb7c721718e16de3c1709fcd030753e578079162",
+      "text": "設想你想請人幫忙整理一次活動的材料，需要說明工作內容、預計時間和自己希望完成的部分。一個可核對的問題是：對方決定之前，是否已經知道會影響選擇的重要內容，並有合適空間說不。這不是教你怎樣讓對方更容易同意，也不要求別人接受請求。可能對方願意、拒絕或提出修改，都不由本測驗判定好壞。題目沒有輸入實際任務或對話，不知道真實工作量，更不會認證某次同意是充分自願。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/5/title": {
+      "sourceHash": "9af51db897b2cfb3e961fb3ffe0bd98f588e56eb6ad1bb6be8fb05f600d3acf1",
+      "text": "反例：有計畫仍能完整說明條件"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "5b40cfbedf9f0acf6e3415bdd81869be356a602d796e4e1f627e733d55ee71c8",
+      "text": "一個人有明確目標和周詳安排，仍可以在請求前說明條件，讓對方選擇；另一個人沒有複雜策略，也可能遺漏對方需要知道的重要內容。做了計畫不等於馬基雅維利主義，沒有計畫也不等於沒有壓力。這個反例讓“影響”回到具體資訊與選擇，不把思考長遠或組織資源本身貼成黑暗。三組均分不互排，因此不能把這一組最高就叫最強黑暗特質；若全部不足，也不解釋為隱瞞或必須補答。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/6/title": {
+      "sourceHash": "1996d7b5d88c73d9aa4a8a946c4db8849546c5b3b074675cc768f5701d066d55",
+      "text": "可選核對：決定前有什麼還沒說明"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "4bf83c68dd6af59c7d778c1455ffc5495e75cd599f42ae073ea2ff1dd3a281f9",
+      "text": "若願意，在一項普通、可從容討論的請求裡，心裡找一條會影響別人決定、但自己還沒說清的資訊。判斷是否適合補充，或先不提出請求；也可只留作閱讀提醒。不為了練習聯絡任何人，不記錄真實目標、姓名或談話，不把這個核對當讓別人同意的技巧。它不保證關係、協商效果或分數改善。任何人都可以拒絕這項請求，測驗不負責判斷其理由，也不要求你繼續說服。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/7/title": {
+      "sourceHash": "f96fabf8c1729fff612ba3f1d999fc16b0c673556be6688d8f56d5e7b66ebccb",
+      "text": "原創影響方式主題與研究量表分開"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "4afb20f437965ddff4041735327accf28bea41f1a592515590b1109de2dc185e",
+      "text": "本組承接自有原創題本六條，不是MACH-IV、SD3或Dirty Dozen的替代測量，也不因為研究有三因素就繼承它的效度。理論背景談相關但不同的研究特質，不給本題本的個人讀數背書。難相處人格中的隱瞞施壓、光明三元素中的不把人當工具，與這裡有相鄰話題；方法與題項不同，分數不換算，也不能相加成道德或光暗比例。請用每組自己的條目、有效數和侷限閱讀，不拿網頁均分篩選關係或評價他人。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/8/title": {
+      "sourceHash": "9dc4b92143607341ec76724e370f99a5b1840ae15d4892ec88a38e61082d1b9f",
+      "text": "只留當前頁面記憶體，全文免費"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/1/sections/8/paragraphs/0": {
+      "sourceHash": "886f52c89dec4d8aa310420c81f9a8cfa1f49e08c026a35b3341b2b203ba7a47",
+      "text": "本測試按敏感主題保護作答隱私。答案與個人結果只在當前頁面記憶體，不寫瀏覽器儲存、不上傳答卷或傳送測試流程統計，不提供個人結果分享。重新整理、切換語言或離開後不能恢復；作答中可回上題修改，退出或重測清除。公開全文與私人作答無關，三份完整說明免費，不需郵箱、付費或另一測評解鎖，也不要求把真實衝突、姓名或他人情況輸入網站。僅回答本人過去三個月，不代伴侶、同事或任何人作答。你可以讀完結束；這些說明不能作招聘、關係篩選、醫療、司法、安保或學校評價，不從低均分證明安全，也不從高均分預測傷害。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/title": {
+      "sourceHash": "a6073962a1c90440d8bc7aa3d3f1c910aaa9ee74172256292af08da570307701",
+      "text": "影響距離：回應與核對的完整讀法"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/headline": {
+      "sourceHash": "2b7096dba581df0b329fe3583d1f6b1647a94afc12f03ab5b962ef6382a48f2e",
+      "text": "把情緒表達與是否核對具體影響分開閱讀。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/summary": {
+      "sourceHash": "ce48c4e41284cd8ddd98489d9b63109b8d4e5a52851e5d493f1fb0491e6c850d",
+      "text": "黑暗三角主題觀察的影響距離完整說明：六條符合度、至少四條有效、具體例子與反例，不判共情能力、精神病態或風險。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/scoreReading": {
+      "sourceHash": "2e8c0e40d292d4ccdf8c765a143bb4b9e9042a0bdbce26308e9eb0bdd6cc04a4",
+      "text": "僅描述本組具體做法的自報符合度，至少四條數值才有均分；不與其他組排名。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/seo/title": {
+      "sourceHash": "d75493fa71477721be25d10f23b78c2b6ebeaecbf00f94b1c869ecf953eee9a5",
+      "text": "黑暗三角測試結果：影響距離與回應順序完整說明"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/seo/description": {
+      "sourceHash": "de6104e8d0b16855c1a8b2e8c0b90aa2303e7e7214d896927772b693c9fb38a4",
+      "text": "黑暗三角主題觀察的影響距離完整說明：六條符合度、至少四條有效、具體例子與反例，不判共情能力、精神病態或風險。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/0/title": {
+      "sourceHash": "312bb010a8253843d294a0d0f521acdf03fbb38255b3800062c7e93a0d2f8c72",
+      "text": "影響距離：是否停下核對已表達的影響"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "1485c6ffa4afe5e1314b300852282038d92a1b0b61a49255e7202577f58d0c70",
+      "text": "這組回顧任務繼續、別人表達不適、時間緊張、道歉和後續回應等情境裡，自己怎樣面對已知或可預見的影響。它只包含六條具體做法，不測你有沒有情緒、能不能感到別人的感受，或實際是否造成傷害。情感體驗、表達方式和行為回應不能用同一個均分替代。請只回答本人過去三個月，不給一個不在場的人評分，也不把保持距離、需要休息或在不安全情境裡結束對話自動當成這些題的符合。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/1/title": {
+      "sourceHash": "66be8994d9e95d94c4ec444c768065911eff39d686d1b390913e61023f6cdbf5",
+      "text": "六條至少四條有效，三組不排名"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "8d08b4ca36b5e57c56b29d3ef2ab03a3181d11f2efefe2ecb1921b69bd5147a1",
+      "text": "本版18條，三組各六條，全部同向，0反向。每條先選擇1—5符合度或“我不想回答這題”，全18次選擇才結束。每組至少四條數值有效，才顯示實際有效數、原始和及未舍入總和除有效數的兩位小數均分；四條、五條、六條的原始和範圍分別4—20、5—25、6—30，不用六作統一分母，也不比較不同條數的總和。3表示不確定或視情況，數值有效但不是穩定中立頻率；不願回答排除，不補0或3。少於四條只讓該組不足，其他組獨立保留，三份完整說明始終可讀。不加總、不派最高型、不設高低閾值或風險等級；均分不證明類別等距、組間可比或可靠變化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/2/title": {
+      "sourceHash": "5023a8b036631aa43bf2463875735869da69e0c413ecf60cb5701f632c1e4c25",
+      "text": "從條目回顧回應與核對的順序"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "933d9e2efcaa4d0550aed5af4beae02674076e9eb9a367c0cb805793283054d2",
+      "text": "更多符合時，可以看是否有某幾條描述了繼續任務、推遲迴應或弱化已表達影響的做法，核對先後順序而不是給自己定身份。較少符合不能認證同理能力或保證從不傷害他人，較多符合也不證明冷靜、抗壓或善於決策。3仍表示不確定或視情況，不代表中等精神病態。若有效數不同，先看各自資料範圍，不用原始和或均分給三組排高低；少於四條時不從其他組推斷這裡的未知。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/3/title": {
+      "sourceHash": "6dd33587a4022f9f009d642f3cd8bffd61d4135239020ff2333eb6da8fbca2d7",
+      "text": "不表達情緒與忽略影響需要分開"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "eb1d5ab8279a3cd6d2cdd4ff95be32939bb69c1b9e3154aabcd5831558fe7dea",
+      "text": "一個人說話平靜、表情少或需要之後再談，不等於不關心對方；關鍵是原句涉及的已表達擔憂、已知影響和實際回應。也不能由即時的道歉判斷影響已經解決。測試沒有測他人的體驗、真實責任、事件嚴重程度或後續事實，不能把它們從分數里推出來。本組不評臨床人格、暴力或犯罪風險，也不把低情緒反應包裝成外科、軍警或危機決策優勢。正文只幫助理解題目覆蓋的有限做法，不提供對他人的安全結論。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/4/title": {
+      "sourceHash": "f9891eb6186840d3800f3e5e7fa69295e6102e2ad01f6417fa5e4680f6a90c06",
+      "text": "例子：共享安排臨時改動之後"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "6d2f5763d7b84b0f98f2d319f8549f4423442de595971927565b6008c4a48c47",
+      "text": "設想共同活動的安排被臨時改動，有人已說出對自己時間的影響，而活動還在繼續。一個可核對的問題是：這些已知資訊是否進入後續安排，還是被當成推進的阻礙。它不要求現場立即展開情緒對話，也不規定必須取消活動；還需知道約定、時間和相關人的選擇。網頁沒有讀到實際交流，因此不能認定任何一方被忽視或沒有責任。這個例子只讓原句中的回應順序更具體，不把猜測當事實。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/5/title": {
+      "sourceHash": "ce99ec61f5c2ec21a979ecbd16000e58ab411f8a65c7043ac70651abd6e232f2",
+      "text": "反例：保持冷靜仍可以認真回應"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "a73af0a172bc1ec2f70dc38caf15fc33756e345b92f39b7409ddbb1b701f6cc3",
+      "text": "一個人情緒反應不強，仍可以準確複述對方說出的影響並調整安排；另一個人表現得很難過，也可能沒有聽清具體內容。外在情緒不直接告訴我們這六條怎樣回答。暫停、拒絕不合理要求或保留個人隱私，也不應被當作題目預設的負面答案。這份反例沒有判哪種表達更好，而是把感受、表達和回應分開。它也不把理解本段文字等同於完成真實修復，是否改變仍需實際情境與後續行為。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/6/title": {
+      "sourceHash": "de40bf495ff14669a918303595cdd757282c2421e9c24c1c058161ce3465afab",
+      "text": "可選核對：一句已表達的資訊"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "3f762273e57ec9e174847c8a0a05537411826c484fe877128e563ccfc46f5720",
+      "text": "若願意，在普通、可從容回顧的共同安排裡，心裡找一句對方已經明確說出的影響，區分它與自己猜測的動機。可以只確認自己記得什麼、還不知道什麼，不為練習重新聯絡對方，也不記錄對話或私人事件。這個核對不保證修復關係、增加共情或改變分數，不要求你在不合適的情境裡繼續討論。它更不用於處理緊急安全問題或替別人作判斷。讀完之後停在這裡、保留未知，是允許的。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/7/title": {
+      "sourceHash": "2a6ad58906b002f7762eb5ee81b4b33cd4cc949fe69d9ec6b7e1197db4cfbb31",
+      "text": "原創主題不等於精神病態量表分數"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "124cf2a91344fdc6751bcdf31f653999d711e0ca3126ffcd3c43c15550a0c235",
+      "text": "研究中的精神病態、馬基雅維利主義和自戀有各自方法，六條“影響距離”不能覆蓋其中一個完整特質。本版承接費馬早期原創題本，不用SD3、Dirty Dozen、PCL-R或臨床工具，不提供人格障礙、精神病性症狀或風險評估。難相處人格中的忽略感受、光明三元素中的關懷話題與此有關，不能反向換算。低分不是無害證明，高分不是壓力優勢，也不是未來行為。所有三份正文完整保留，使你能看懂每組範圍後自行結束，不靠另一測試補出臨床結論。"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/8/title": {
+      "sourceHash": "7dab8a83d2b07f56af740bd29d396735d3093c3c89d3d38a900b0f6c911d2e1b",
+      "text": "只留當前頁面記憶體，全文免費"
+    },
+    "lib/questionnaires/data/dark-triad.json/profiles/2/sections/8/paragraphs/0": {
+      "sourceHash": "352e37994297669e089d86df469d8272e0d8e930ba54bc5b32395c11f45c7c91",
+      "text": "本測試按敏感主題保護作答隱私。答案與個人結果只在當前頁面記憶體，不寫瀏覽器儲存、不上傳答卷或傳送測試流程統計，不提供個人結果分享。重新整理、切換語言或離開後不能恢復；作答中可回上題修改，退出或重測清除。公開全文與私人作答無關，三份完整說明免費，不需郵箱、付費或另一測評解鎖，也不要求把真實衝突、姓名或他人情況輸入網站。僅回答本人過去三個月，不代伴侶、同事或任何人作答。你可以讀完結束；這些說明不能作招聘、關係篩選、醫療、司法、安保或學校評價，不從低均分證明安全，也不從高均分預測傷害。"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/0/title": {
+      "sourceHash": "d9662e6082542bdaac4038f9a1fb8e16441adc89ca2a98ab109bb58d7f87f813",
+      "text": "六條至少四條有效，三組不排名"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/0/paragraphs/0": {
+      "sourceHash": "9d04877f880c63982b070f8a518c02f60f56cf71586489fc7d382e00af4d3380",
+      "text": "本版18條，三組各六條，全部同向，0反向。每條先選擇1—5符合度或“我不想回答這題”，全18次選擇才結束。每組至少四條數值有效，才顯示實際有效數、原始和及未舍入總和除有效數的兩位小數均分；四條、五條、六條的原始和範圍分別4—20、5—25、6—30，不用六作統一分母，也不比較不同條數的總和。3表示不確定或視情況，數值有效但不是穩定中立頻率；不願回答排除，不補0或3。少於四條只讓該組不足，其他組獨立保留，三份完整說明始終可讀。不加總、不派最高型、不設高低閾值或風險等級；均分不證明類別等距、組間可比或可靠變化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/1/title": {
+      "sourceHash": "648216d56f45803a3bb1e34c0b1d4d0c401bc0f717044b57c6344d1b3b3e034a",
+      "text": "三組的實際覆蓋"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/1/paragraphs/0": {
+      "sourceHash": "44b4020313a0a69590b0440fc3559e6d9a892e4e1e4f49f70f92103d3344c939",
+      "text": "認可與形象看質疑、比較和注意的具體優先順序；影響方式看資訊、意圖和他人選擇空間；影響距離看已表達的感受或影響怎樣進入回應。它們是原創主題，不分別等同三個完整研究特質；不能因名稱含黑暗三角就繼承SD3或Dirty Dozen的測量證據。"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/2/title": {
+      "sourceHash": "276c39dba4a9fbc6de816a98cb5e7a33d4c67df7a6e4125b1961aa3cb1e09ca3",
+      "text": "符合度與頻率分開"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/2/paragraphs/0": {
+      "sourceHash": "64f74b07aefba034bc181c7255c5e8c0455f4ef3d8a20d6cffbbf7dadd4fd61e",
+      "text": "1—5回答的是原句多符合自己，不是每週出現次數、衝動強度或他人的觀察。3表示不確定或視情況，雖數值有效，也不能寫成穩定的中等傾向。同均分可來自不同組合，不用一條分差推斷進步或惡化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/3/title": {
+      "sourceHash": "8e8d5dac6966c01e568a7112ac339ef98c849640ac44395b81712e43688c5713",
+      "text": "原創題本的適用範圍"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/3/paragraphs/0": {
+      "sourceHash": "891924eb8b823f3fb335b4acc338c6020f61f04cea0e8da949d38b4d5b20f988",
+      "text": "這是基於費馬早期原創題本的三組主題自我觀察，借黑暗三角常見話題討論具體做法，不測標準自戀、馬基雅維利主義或精神病態量表分數，不把三組對應為三種人格。不是SD3、Dirty Dozen、臨床、司法或風險工具；不能繼承現有工具的常模、效度或預測。只回答本人過去三個月，不代他人作答，不評善惡、安全、暴力、犯罪、未來、健康、職業或招聘適配。較少符合不是安全或無傷害證明，較多符合也不認證能力或優勢。"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/4/title": {
+      "sourceHash": "c862d5aed8dadf83f8d75d34a25d10b7eaaf017648a30a0fcaf366cf33c976ba",
+      "text": "只留當前頁面記憶體，全文免費"
+    },
+    "lib/questionnaires/data/dark-triad.json/guide/4/paragraphs/0": {
+      "sourceHash": "7fc51c08f0de7ef911de950933d0d6119b672dfe0492acd97cf933454db3cd9e",
+      "text": "這份觀察採用敏感主題隱私設定。答案與個人結果只在當前頁面記憶體，不寫瀏覽器儲存、不上傳答卷或傳送測試流程統計，不提供個人結果分享。重新整理、切換語言或離開後不能恢復；作答中可回上題修改，退出或重測清除。公開全文與私人作答無關，三份完整說明免費，不需郵箱、付費或另一測評解鎖，也不要求把真實衝突、姓名或他人情況輸入網站。僅回答本人過去三個月，不代伴侶、同事或任何人作答。你可以讀完結束；這些說明不能作招聘、關係篩選、醫療、司法、安保或學校評價，不從低均分證明安全，也不從高均分預測傷害。"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/0/question": {
+      "sourceHash": "6871644b06f74b491dce3511a74e83ea62b3bb1f0f5e9fed60cfeb610f7da27d",
+      "text": "這是27題SD3或Dirty Dozen嗎？"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/0/answer": {
+      "sourceHash": "acbafbd4845d39e6f02c60c6369f3b04910cc7d97e3d7363406ecf1e56b0e8d7",
+      "text": "不是。這是費馬早期題本中 18 條原創主題陳述的網頁版本，中文題幹、順序、鍵向和計分邊界保留，英文為新試譯。三個主題不直接測完整研究特質，不繼承既有工具的常模或驗證。"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/1/question": {
+      "sourceHash": "69b27d7e64d01861687e42783ea32021a143cbf954cfcd2d1a0a3627a79c528c",
+      "text": "三組怎樣計分，不願回答會怎樣？"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/1/answer": {
+      "sourceHash": "8c25d2dada34fa96c25bb99156679132913499a92e799ded79c8c444f99a62af",
+      "text": "本版18條，三組各六條，全部同向，0反向。每條先選擇1—5符合度或“我不想回答這題”，全18次選擇才結束。每組至少四條數值有效，才顯示實際有效數、原始和及未舍入總和除有效數的兩位小數均分；四條、五條、六條的原始和範圍分別4—20、5—25、6—30，不用六作統一分母，也不比較不同條數的總和。3表示不確定或視情況，數值有效但不是穩定中立頻率；不願回答排除，不補0或3。少於四條只讓該組不足，其他組獨立保留，三份完整說明始終可讀。不加總、不派最高型、不設高低閾值或風險等級；均分不證明類別等距、組間可比或可靠變化。"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/2/question": {
+      "sourceHash": "04cc20a50bc677cc0ed3fba05f264791fbc1c96b6e5f40268be2cbbdd5a0a5de",
+      "text": "最高均分就是最強黑暗人格嗎？"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/2/answer": {
+      "sourceHash": "175a7f57ad89bdf70c42a41a4d6174c043ca6cb27f840ac16f94220ac1d36dca",
+      "text": "本版不跨組排序、加總、設閾值或派型。每組只說明自己六條的有效數、原始和及描述性均分，全部三份完整解釋一起保留。更少符合不是安全證明，更多符合也不認證優勢或預測傷害。"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/3/question": {
+      "sourceHash": "a9d1fc223a0cdb2781cba5e0d73c10a0bffab55cd8c26fd44803473c2c06fb85",
+      "text": "能替伴侶、同事或別人作答嗎？"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/3/answer": {
+      "sourceHash": "19e7f767ef4229905cb74921c3980a1a409f3e9dafaca36db3b4af7108bd69bf",
+      "text": "不能。這份自報題本只回顧本人過去三個月，不收他人資料，也不應用於招聘、關係篩選、學校、醫療、司法或安保評價。網頁不能用均分解釋他人的動機或風險。"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/4/question": {
+      "sourceHash": "79989a23c4eb42cd5f7ceeaebf415ef0e967f99ed80ec5dbfa68a4263884b640",
+      "text": "重新整理、切換語言和分享有什麼限制？"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/4/answer": {
+      "sourceHash": "a9f4b35b7e3496c8f8191b44f2ce972fa6f9999264f3a70bdd2e98f995b31f38",
+      "text": "這份觀察採用敏感主題隱私設定。答案與個人結果只在當前頁面記憶體，不寫瀏覽器儲存、不上傳答卷或傳送測試流程統計，不提供個人結果分享。重新整理、切換語言或離開後不能恢復；作答中可回上題修改，退出或重測清除。公開全文與私人作答無關，三份完整說明免費，不需郵箱、付費或另一測評解鎖，也不要求把真實衝突、姓名或他人情況輸入網站。僅回答本人過去三個月，不代伴侶、同事或任何人作答。你可以讀完結束；這些說明不能作招聘、關係篩選、醫療、司法、安保或學校評價，不從低均分證明安全，也不從高均分預測傷害。"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/5/question": {
+      "sourceHash": "4b212e4cdf388a12e10d6387934dec05b89ffa0f9cb7b7fe2051b8482cf8d284",
+      "text": "與難相處人格、光明三元素是什麼關係？"
+    },
+    "lib/questionnaires/data/dark-triad.json/faq/5/answer": {
+      "sourceHash": "f2860cc11cf00b5d6ffc9f71c90fc18ec8c08a1dbeca5e8bbf81d8ce0a440954",
+      "text": "認可、資訊施壓和對影響的回應有相鄰話題，但題項、回顧時間、選項和方法不同，不換算分數，也不算光暗比例或道德總分。本站不把這個專門主題版本自動算作獨立的新構念。"
+    },
+    "lib/questionnaires/data/dark-triad.json/references/0/title": {
+      "sourceHash": "3c27a0085bb9ce9f9b67ca78fbb37a9a77720a7b295711932224cacd86f6cef9",
+      "text": "Jones與Paulhus：SD3發表論文背景（摘要，非本站題本）"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/status-recognition/0/title": {
+      "sourceHash": "0f6635997a8ebb6a5965bdf547c7379cb88d83f7bbede93ee443ecd9c549ff7e",
+      "text": "把貢獻、署名與尚未確認的資訊分開"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/status-recognition/0/paragraphs/0": {
+      "sourceHash": "3e3e9b1cf281bbfd9511d59bda424592bdd4d645f66b81cac4c087669cb52771",
+      "text": "沿用上面的活動總結，分別想想已經確認的個人貢獻、他人的工作和仍不清楚的結果。可以考慮是否需要補上一條事實，也可以保留暫未確認的部分；不必刪去適當署名來證明謙遜。復盤只核對這份說明遺漏了什麼，不從一個均分推全部動機，也不把公開表達或希望努力被看見自動叫作自戀。無需實際釋出總結、聯絡別人或提供記錄。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/status-recognition/1/title": {
+      "sourceHash": "09357b21669cd09612c64381f8c6ef63a2bc1234f035021549d8562f8eb51d27",
+      "text": "用通用假設討論，不轉發個人結果"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/status-recognition/1/paragraphs/0": {
+      "sourceHash": "a92758f93fabf73e4e4a30c3a8b06e6fd05ce6c0015914710a79e82fd2629274",
+      "text": "如果願意討論，可以只用這份公開通用說明裡的假設：“假設一份活動總結漏掉了其他人的貢獻，又有些結果還沒確認，怎樣讓這兩類資訊分別出現？”不需要提及是否作答、選擇過什麼或得到怎樣的均分，也不把問題拿去評判某個不在場的人。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/status-recognition/1/paragraphs/1": {
+      "sourceHash": "82f507aed1f10b102c7ad70101c83d9ce3d03e7792fb44ba2b18034b0b93f855",
+      "text": "本頁不提供個人結果分享。公開說明不含私人答卷，可作為一個自選的閱讀入口；對方可以不回答或結束，不必提供真實衝突、姓名、聊天記錄，也不需要做測試。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/instrumental-influence/0/title": {
+      "sourceHash": "ab2fb9dd0e4a20b572ca817a84ede2e4925aa760e7e953f48e0becd82c496f13",
+      "text": "讓請求包含選擇前需要知道的條件"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/instrumental-influence/0/paragraphs/0": {
+      "sourceHash": "9fa9e5ebe0576343833ad7da85d3bce1e6b06b824df438eddb6889d73a8ef8c2",
+      "text": "回到上面的整理活動材料，區分希望完成的工作、預計時間、尚不確定的條件，以及對方是否仍有拒絕或改提方案的空間。可以只在心裡檢查一項未說明的資訊，不必發出請求來做練習。復盤注意資訊何時可得與選擇範圍，不以獲得同意證明溝通有效，也不由低均分認證完全自願。明確目標、維持關係或被拒絕都不能單獨說明操控。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/instrumental-influence/1/title": {
+      "sourceHash": "0dd18713976a3fbcd5fd78b11189081d828b82c765a44239bf91dcf28bda4334",
+      "text": "用通用假設討論，不轉發個人結果"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/instrumental-influence/1/paragraphs/0": {
+      "sourceHash": "7e4937c5acc9fd69e3a54cd4bbda61de32300384a4cb88d0aee67754906cd7b6",
+      "text": "如果願意討論，可以只用這份公開通用說明裡的假設：“假設邀請別人整理材料，哪些工作與時間條件應在決定前說清，怎樣保留拒絕或調整的選擇？”不需要提及是否作答、選擇過什麼或得到怎樣的均分，也不把問題拿去評判某個不在場的人。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/instrumental-influence/1/paragraphs/1": {
+      "sourceHash": "f6d9afd41e2c662982400c5931580c86e9a194ff654de7cd0977d199127b370d",
+      "text": "本頁不提供個人結果分享。公開說明不含私人答卷，可作為一個自選的閱讀入口；對方可以不回答或結束，不必提供真實衝突、姓名、聊天記錄，也不需要做測試。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/impact-distance/0/title": {
+      "sourceHash": "d00dba982f9eadc189e0d6e46f4e4e9b69aa608c6aa9ca5396ce9f8ae0d8d96b",
+      "text": "把已表達的影響與猜測的動機分開"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/impact-distance/0/paragraphs/0": {
+      "sourceHash": "e73ab1281bf4aed68776cc3b735a5c0520819fb2454ec0e4483b300e98b180cb",
+      "text": "沿用上面的活動臨時變動，先區分對方已經說出的時間影響、自己猜測的情緒或動機，以及後來安排是否考慮了這條資訊。可以只標出記不清的部分，不需要重啟交流。復盤不由表情平靜推冷漠，不由立即道歉推影響已經解決，也不讓高低均分替任何人定責、證明安全或預測傷害。是否調整、暫停或結束仍需要實際條件；本說明不要求繼續不合適的討論。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/impact-distance/1/title": {
+      "sourceHash": "8b584ad79b0187febaa1c033b52c0fd60d653fa12b2e4e6c92b7c77e02e3a439",
+      "text": "用通用假設討論，不轉發個人結果"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/impact-distance/1/paragraphs/0": {
+      "sourceHash": "57dede7e3093cf8cd27b5886fc7d75b744cdc33afcd9a28a3a0bd05b1fd0b9bd",
+      "text": "如果願意討論，可以只用這份公開通用說明裡的假設：“假設活動變動影響了某人的時間，哪些影響已明確表達，哪些仍是猜測，後續安排還缺哪條資訊？”不需要提及是否作答、選擇過什麼或得到怎樣的均分，也不把問題拿去評判某個不在場的人。"
+    },
+    "lib/questionnaires/result-content/dark-triad.json/impact-distance/1/paragraphs/1": {
+      "sourceHash": "40988e3ee8b18f517aa61038cc7f14b4d968ce0b63fc8a53b4ab73d769760a2a",
+      "text": "本頁不提供個人結果分享。公開說明不含私人答卷，可作為一個自選的閱讀入口；對方可以不回答或結束，不必提供真實衝突、姓名、聊天記錄，也不需要做測試。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/0/question": {
+      "sourceHash": "621131b3c236a219325e0a424ead272f47dcc1446c4d97ffd9acd71d137a78f8",
+      "text": "這18題就是SD3黑暗三角量表嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/0/answer": {
+      "sourceHash": "cd58edac1170cad94f9a61e1eaa7ecd0c6131c4515ebbf025b43c095b9a36f52",
+      "text": "不是。SD3論文的最終版本為27條。[1] 本站18條原創陳述整理三個觀察主題，不借用SD3的驗證結論，也不直接輸出其三個研究特質分數。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/1/question": {
+      "sourceHash": "435288831c847caced5d862dffb97e5096a65c6d131ba18ecebffdb238e74ef7",
+      "text": "3分表示正常或有時嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/1/answer": {
+      "sourceHash": "e3edc474c8650fe0d1e5627f0c2e8a5dae306d857c62b8d004477afc786bf78e",
+      "text": "不是。這裡3表示不確定或視情況，是符合度題的一個數值選項；它不表示頻率、人群平均或健康中點。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/2/question": {
+      "sourceHash": "1988ee97a88313c36280a0c07982243924bde7e16754bb5e58077bd0b22732e6",
+      "text": "只答四條，怎麼得到1.75？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/2/answer": {
+      "sourceHash": "555b6d4c5d7b5ff2222092cd74c6d2dd7fe1c2b681073414ee0d094f5e99b7d6",
+      "text": "1、2、2、2加兩條不願回答，總和7、有效4條，7÷4＝1.75。兩條缺答不補零，也不除以六。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/3/question": {
+      "sourceHash": "8aeadcdbed5d59209b7bb86fc727a0a0d94241900709683846615a89e49b135a",
+      "text": "某組六條只願答三條，會影響其他組嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/3/answer": {
+      "sourceHash": "7a37587b817c1e428b2504f70bd90a008e5b4c2b1e29f42a7d88725c0ac66620",
+      "text": "該組保留資料不足，不顯示個人均分；達到至少四條的其他組各自顯示，三份九節完整指南全部保留。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/4/question": {
+      "sourceHash": "5fce53c4630be60facf4f3514086ac47e3257dfbc975676c21f64e9fac1ddec8",
+      "text": "三組最高的就是我的黑暗人格嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/4/answer": {
+      "sourceHash": "0cbcf5b583d3ffc44b9db04ed846ac0700186e3b97603571d1a11af59c6684d8",
+      "text": "不是。三組題意不同，不加總、不排序、不派最高型；均分只概括該組有效陳述的自報符合程度。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/5/question": {
+      "sourceHash": "6735da64bf4d42ae1fb504cd703be797a13bad3e00f705c9d8d22d9f46a94b1f",
+      "text": "可以用結果判斷伴侶或同事嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/5/answer": {
+      "sourceHash": "4f58169b97647770a263f19ae4c24cba96931311d698878118083c05ea718c61",
+      "text": "不能替他人作答或據此診斷。核對具體行為、資訊是否充分、是否可以拒絕以及實際影響，比給人貼測試標籤更有用。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/6/question": {
+      "sourceHash": "4918fdccd197756d43588fc22465e882f7c541296fa78bad9bd365b35eae1708",
+      "text": "開始前必須勾選匿名統計嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/6/answer": {
+      "sourceHash": "b74a90a995364eb81dd2ef666afd2c7129e1d05398f31bf2c3fcfa56add3ee94",
+      "text": "不必。預設關閉，開始直接進入18條題目，完整結果免費。該選項只涉及可選動作統計，不傳送答案或結果內容。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/7/question": {
+      "sourceHash": "93e2f1e9eeeb4b05ef29360b49acdaa33fdc6db4a321102a2b7ee808acee37f8",
+      "text": "重新整理後能恢復答案，或者分享個人分數嗎？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingFaq/7/answer": {
+      "sourceHash": "7b7b5fa1e7043c34d99c9dcfc86f2649596c743346546cb494e4c2d50e9d78c9",
+      "text": "本頁不儲存進度、不分享個人結果；答案只留當前頁面記憶體，重新整理、切換語言或離開後不能恢復。可以不作答，直接讀公開指南。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/0/title": {
+      "sourceHash": "c19b5762617755483e791c80a5347a51eba7b11604fc295bf968448f2031a11e",
+      "text": "黑暗三角、SD3與本站原創題本：先分清研究物件"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/0/paragraphs/0": {
+      "sourceHash": "d436fb8a925e6f797f6f4e9c8b2ff11613a038d0e216e85518fdf584e5946b71",
+      "text": "黑暗三角研究討論自戀、馬基雅維利主義和精神病態三個相關特質。Jones與Paulhus的SD3開發論文報告四項研究、共1063名社群與學生參與者，最終題本為27條。[1] 這些研究對應的是SD3及其分量表，不是所有帶有“黑暗三角測試”名稱的網頁。這裡使用的是18條費馬原創題，既不是SD3的節選，也不是Dirty Dozen的改名版。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/0/paragraphs/1": {
+      "sourceHash": "57db6791d859eb711994b688a77af5109f0841653beb53694d72141b5ac862c3",
+      "text": "本版把可回顧的具體做法整理成三個主題，沒有證明它們分別等同於上述三個研究特質。論文中的因子、相關、信度或他評結果不能轉移成本站的準確率。中英文題意配對便於閱讀，但還不是跨語言測量等價性研究；本版尚未建立自身信度、效度和常模。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/1/title": {
+      "sourceHash": "36dfd320532eb6fcf79de5e623021bc3fae64e02aa32e1c3e28e4d1419ef0be9",
+      "text": "三組各看什麼？認可、影響與回應後果"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/1/paragraphs/0": {
+      "sourceHash": "c7eb1275b55dd1d86f2beec3ecff78d851b61441445daea8fcfb1a66ef4d3e88",
+      "text": "認可與形象組回顧受到質疑時先保護形象、比較獲得的注意、把話題引回成績，以及為獲得認可少說不確定之處等做法。它不把希望被肯定或維護尊嚴本身視為問題。比如澄清別人誤解你的事實，與為了形象而略過實際後果，需要用當時具體說法區分。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/1/paragraphs/1": {
+      "sourceHash": "23045be11c2998ff17daf4f69d81472512e29e97b742132d7c81628955f4e743",
+      "text": "資訊與影響組回顧只給有利資訊、借關係使請求難以拒絕、先取得承諾再解釋意圖，以及催促尚未充分了解情況的人決定等做法。清楚表達目標、協商交換或維護工作關係，不自動等於這些陳述。核對時可以問：對方知道哪些條件，有沒有時間考慮，是否真的可以拒絕或修改約定？"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/1/paragraphs/2": {
+      "sourceHash": "f33cd46523dfa4f1bf151ac1a781cabfc594bdf7305ca30b06b4b2cdde529d19",
+      "text": "影響距離組回顧把他人的不適當成推進障礙、淡化擔憂或邊界、期待問題自行消失，以及道歉時只想結束話題等做法。暫時休息、保留私人空間或先平靜再回應，可以有不同原因，不能直接等同於忽視影響。反過來，解釋行為背景也不消除實際傷害：仍應核對具體影響、對方的選擇和後續行動。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/2/title": {
+      "sourceHash": "40a013e0fdcec77390f9ad3a998633fcc81a0871fa889bf02a8756d6007d5051",
+      "text": "近三個月怎樣作答？3表示不確定或視情況"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/2/paragraphs/0": {
+      "sourceHash": "933fa61d6831d2e22efa3ed840a53163433b376d38a0cb953153534756ca3425",
+      "text": "選擇的是陳述與你的符合程度，不是出現次數、嚴重程度或是否贊成某種價值觀。1完全不符合，2比較不符合，3不確定或視情況，4比較符合，5非常符合。請參照你記得的近期做法，避免按“理想的自己”作答，也不要替伴侶、同事或陌生人評分。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/2/paragraphs/1": {
+      "sourceHash": "698cee0e7dfd0064e674bd17f22032d80424a2c1632e89f0719a198475342ec0",
+      "text": "全選3會得到三個3.00，但它記錄的是不確定或條件性回答，不證明中立、健康平衡或平均人格。相同均分也可能來自不同條目組合。獨立的“不願回答”選項只表示不計入該組數值；它不要求說明原因，也不能被解釋為隱藏了某種傾向。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/3/title": {
+      "sourceHash": "cc71e1524ef312c6175c08a09e4e04b98a7dbb9fb8d4128534d09e738b7ed0d2",
+      "text": "六條至少答四條：1.75、1.67與資料不足算例"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/3/paragraphs/0": {
+      "sourceHash": "7b9aed9fb2cef3e3c7a32df88ba69a0711554011c15d091814d24717799dc8c9",
+      "text": "本卷18條均直接計分，沒有反向題。認可組如果為1、2、2、2、不願回答、不願回答，原始和為7，有效條數4，7÷4＝1.75。影響距離組六條為1、1、1、2、2、3時，總和10，10÷6≈1.67。報告按實際有效條數計算並顯示兩位小數，不用一位小數的近似均分倒推。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/3/paragraphs/1": {
+      "sourceHash": "594de5a111358681308167879c880b1bf077215158d3d070074011a15ff6a596",
+      "text": "資訊與影響組若只有4、4、4三條數值，另三條不願回答，雖然數值相加為12，仍不足四條，因此不顯示個人均分；另外兩組不受影響。四條有效時原始和範圍4—20，五條為5—25，六條為6—30。缺答不補零，不把不同分母的總和直接比較；三份九節完整指南始終可讀，包括全部不願回答的情況。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/4/title": {
+      "sourceHash": "18e6b5e3cf23c3c6a6db18efe25f3b3964fff5c065a226ef9c605e0e99cff831",
+      "text": "怎樣讀高低？三份指南不選最高人格"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/4/paragraphs/0": {
+      "sourceHash": "68f31668043059a9a991ff567bb1147adeedcb60ff57e07590f1d05829b0c6fe",
+      "text": "均分較高，只說明本組實際計入的陳述更被自報為符合；缺答構成、情境和記憶仍需一起看。三組題意不同，不按最高均分宣佈“自戀型”“操縱型”或“危險型”，也不相加為總黑暗值、轉成惡意百分比或推斷犯罪風險。全選5時三組各為5.00，不是某種能力滿分。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/4/paragraphs/1": {
+      "sourceHash": "e6e218075c18593d53c67474b99f69411f43785e574175653b9d44ff908c8117",
+      "text": "這些結果不能與另一網站的SD3、Dirty Dozen、黑暗因素或光明三角分數互換。量表名稱、條目、反應刻度和計分用途需要分別核對。尤其不能用“光明分數加黑暗分數等於100”理解兩個不同題本，也不能把本站均分當臨床診斷、招聘通過線或他人的安全證明。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/5/title": {
+      "sourceHash": "becd9cce7bd92cf4ba47f6b0047a7ab27a036b8062165c61b502e3bcda2b225d",
+      "text": "開始、退出與隱私：不必開啟可選統計"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/5/paragraphs/0": {
+      "sourceHash": "626202ea7b6551fa5e0130ab45b5d9fef8994e761ca23aa9d8ae6cd533b9ec72",
+      "text": "點選開始直接進入第一條陳述，不要求額外同意、郵箱、註冊、購買報告或先做其他測試。答案和個人結果只在當前頁面記憶體中處理，不提供進度儲存或個人結果分享。重新整理、切換語言或離開會失去本次作答；退出並清除或重新測試會重置本次回答。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/5/paragraphs/1": {
+      "sourceHash": "e9ac91482b5ec986759fe96005a048906446c2338e2bcd928a09cceb22920bb6",
+      "text": "本頁匿名動作統計預設關閉，旁邊的勾選是可選項，未勾選也能完成全部題目和結果。若主動開啟，還遵循全站分析選擇，只統計開始、完成等允許動作，不含答案或結果內容，不回補之前的動作，離開本頁後失效。它與作答資格無關，不應被當作另一道開始門檻。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/6/title": {
+      "sourceHash": "f4ed49ea98d11f338f8274280d30d3ad762f57b4d07c011c41f78da558755346",
+      "text": "從主題回到具體行為：保留反例與後續行動"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/6/paragraphs/0": {
+      "sourceHash": "438a24d31f626f53494b3aa98a9ba4a6f2427dc5fc169f62a5762306740e0059",
+      "text": "可選擇一件你願意回顧的小事，區分事實、推測、自己的動作與實際影響。例如提出請求前補充不確定條件，明確對方可以拒絕並留出考慮時間；回應抱怨時先核對發生了什麼，再討論可以兌現的修正。不要用測試標籤代替詢問，也不要求對方原諒、公開私事或配合證明你的改變。"
+    },
+    "components/questionnaires/DarkTriadLandingEditorial.ts/darkTriadLandingSections/6/paragraphs/1": {
+      "sourceHash": "ac5f2c80969615de42a87787bdee2bb6da7e721847c676fa0df69a84526badff",
+      "text": "記錄一件符合、一件不符合主題描述的例子，有助於避免只尋找支援結果的證據。這些是可選反思提示，不是本卷驗證過的治療或改善方案。重測時先比較三個月情境、語言、有效條目和具體回答；目前沒有本版可靠變化閾值，均分變化不能直接證明人格改變或干預有效。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/title": {
+      "sourceHash": "2c8d2f31e0e423271e743dbd1450cd58252d0fed5a30b13c8a78ae11c9c7a406",
+      "text": "黑暗四特質 SD4"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/description": {
+      "sourceHash": "1a862e64937e995a34eb7b28f968ae7d1436adcc5cbfc968292ac921efa819d0",
+      "text": "完成發表版28題簡式黑暗四特質量表，分別閱讀四項七題均值與完整解釋。保留英文原題，提供中文工作譯文及透明計分；無需註冊，不生成總分或人格型別。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/seoTitle": {
+      "sourceHash": "e07f7b34ae4329c98dc0431c2bebfdee697905c9444e40e7db381251e39542c9",
+      "text": "SD4黑暗四特質測試：發表版28題與四篇完整說明"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/instructions": {
+      "sourceHash": "292a700b39e27f9b77b31b725bba9e06dc7591d8d28905119fb2d638f8ae7947",
+      "text": "僅供成年人為自己作答。按五個發表版選項表示對各陳述的認同；原題本沒有共同回憶時段。可以選擇網站附加的未評分，不必說明理由。28條均選擇後即可完成，每個分量表七條全部數值有效才顯示均值。答案僅留當前頁面記憶體。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/resultHeading": {
+      "sourceHash": "72c1243bfa47e2e0fb26ce44f68e9db140f4ea8be051be86aeccac7b98474743",
+      "text": "你的四項獨立SD4讀法"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/introduction": {
+      "sourceHash": "d98b9f1ea098d1d94a500052eaf4a6bf029436c77ea4177148bbf0142ccc13e2",
+      "text": "SD4將二十八條自報陳述分為四個研究分量表。閱讀結果從具體題意與認同選項開始，再看原始均值及回答完整性。本頁分別保留四項解釋，區分發表版英文工具、中文工作譯文與網站缺失回應規則。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/directions/0/title": {
+      "sourceHash": "f2391e8a2fc3f12e7bc7e55fbc09b95e4e40e0dc6e1e8f351160ae37c5e393ab",
+      "text": "馬基雅維利主義"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/directions/1/title": {
+      "sourceHash": "950dd0fbe9923373b9f8dd76569dbf43586a69c41aa6ae2c20d919a4055f2d04",
+      "text": "自戀研究維度"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/directions/2/title": {
+      "sourceHash": "209f7cf058e28c188a81cd1c2dda58bcbab655762b89be4e2503e5a225b59c6b",
+      "text": "精神病態研究維度"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/directions/3/title": {
+      "sourceHash": "82f1ff2608baefd13efdaf23624e4744ff243e320026874253aa6385b2b5cc5d",
+      "text": "施虐研究維度"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/prompt": {
+      "sourceHash": "774496910f9400ce04366e53fcf6db7cee37710d9dd0015d83f8ef9a2ab5ad13",
+      "text": "讓別人知道你的秘密並不明智。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/options/0/label": {
+      "sourceHash": "4c107830f6f3bbb5af616af5e194e4ea4a5b255e2223aaf920bda7438a1e52a4",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/options/1/label": {
+      "sourceHash": "f0feece97babe15530cba39c9ba1753d2341380026590765e9ba4ea4a0b738e1",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/options/2/label": {
+      "sourceHash": "8e9e2548ec67df3f0d61bc4a62154e2cb504dfe52e6719bd6a2a7004f211547b",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/options/3/label": {
+      "sourceHash": "b8542f2a180f65db8e373e0a70833554684e332073f0abe6db04c25041af39c0",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/options/4/label": {
+      "sourceHash": "1a7a6f632d2eadc4a5f1f6728a1eef97a0c25f85a1fafcd0d074d50673edf42f",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/0/options/5/label": {
+      "sourceHash": "14c5cda0fc3d9da966e934791f78b59b2a1e9d6a562d0b8b87a17ba87c7cb6ef",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/prompt": {
+      "sourceHash": "9e26e2d36b794ef798fb56c4bbbf76a0778fa6f5209f039cd735b91cb0b66fc1",
+      "text": "無論採取什麼辦法，你都必須讓重要人物站在你這一邊。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/options/0/label": {
+      "sourceHash": "69b59b8168ab39f871d4e73aeb4964a58ebe81a43dde7c3dd61431ef074dac88",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/options/1/label": {
+      "sourceHash": "aafe1a07d758a2b0b88b05f41f84a539c0e6f9124bf5bcd24c087837d050c487",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/options/2/label": {
+      "sourceHash": "10a54659cd71991e2f98003c5fcd0033a9d4d1e249588cf9c3f658db61737e66",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/options/3/label": {
+      "sourceHash": "f8bd8801238b615197d91973a4bc60868275d04fd7a7e06e93e83d9fa6c503c9",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/options/4/label": {
+      "sourceHash": "b9b140cd32cb181b1a7f63263268fded73a241d8caedc045059b55a1d9337b2a",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/1/options/5/label": {
+      "sourceHash": "b3ae04cadc88932b33f45dec61ad265caa70b7e663a0417095430f5657f659d7",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/prompt": {
+      "sourceHash": "ddc2055c2f49910f921592db0fd9e882a6f63d33a72baae2146ee5650c66689a",
+      "text": "避免直接和別人起衝突，因為他們將來可能派得上用場。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/options/0/label": {
+      "sourceHash": "ca1751a6ab70a6dd2296603934056c0e49e2c3221f63ec36d422e3d668cec82e",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/options/1/label": {
+      "sourceHash": "d20d60f2d452d8498af08b6384358402ab7dd1780be27519ccca31d558354fb6",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/options/2/label": {
+      "sourceHash": "708f60b000d449fa1bdca7466bac54c2e2b1da01440a58ef31c353bb8d070142",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/options/3/label": {
+      "sourceHash": "914035f46bd492924ecfd080357e176ce4db17eafa63ef47c15d6c36773962ef",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/options/4/label": {
+      "sourceHash": "03bfdd279ee9abd230b4998c836a4b30f20a37baf4548100e2d437a40e50000c",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/2/options/5/label": {
+      "sourceHash": "e99af0f75eb55773d22c82bea4d88e8ac5ba4c49c47ea02ccccdafe5bc69af05",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/prompt": {
+      "sourceHash": "36f24c7ffab3e96a6765f5a4d409957b0d7d734e53d69685d9ac13727b658cd8",
+      "text": "要照自己的意思做事，就得保持低調。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/options/0/label": {
+      "sourceHash": "c7e2f3171a5175fd1ef6e85e05d3293fed1d51020fdb9fa802dde140c7156de3",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/options/1/label": {
+      "sourceHash": "f65b681e7876bc0cf6bd62b2f344b28526a393c47ed2a497b002139fc98e7338",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/options/2/label": {
+      "sourceHash": "0e243a4a8d853b9064f8c0750e0d855e01163a694258be2b6d8cc985b084308a",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/options/3/label": {
+      "sourceHash": "08fe45448d6870c01a3cb922febf6e0ebc5c2055f699b8971f51937a2bffbfa4",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/options/4/label": {
+      "sourceHash": "35f529be137ccfcbf395f505ecec7935dbfc655acae040e7a8cb2af975679c9a",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/3/options/5/label": {
+      "sourceHash": "a7232ceecd789e809b6a53f2bc267b767f645eeb508c29f7e9b9558c665ce60b",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/prompt": {
+      "sourceHash": "142ff60ba221dc754ec69f6d1db5c9a1bb3aa935206b93725303730cd4907df0",
+      "text": "操縱局面需要計畫。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/options/0/label": {
+      "sourceHash": "0b8a82406d296d7fde75e8f741a384e4cddb06dbfdef727ff12783c9c156f79c",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/options/1/label": {
+      "sourceHash": "187ddd054eac4e4f88afce32f3cc91f260e29f979178960c68f6f33d0a740502",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/options/2/label": {
+      "sourceHash": "68674e18ed05acad1a013035b9c2e0952730d10c1bdfaaec82b0c083a2f6c980",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/options/3/label": {
+      "sourceHash": "ce0bc839bb32d58082946ed904914f784e121fe9c8a1b506157a81f90e69f391",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/options/4/label": {
+      "sourceHash": "e624a9524c756c7115ff56dfce5ab32c75364366c9a553bce5315049339a65e1",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/4/options/5/label": {
+      "sourceHash": "14f07cfadd3096ad635ecf6a6ad03c3c3cdb73a4c841ca35c26da5569fac4230",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/prompt": {
+      "sourceHash": "926fe37acd1dc5b3d22c8fec8866c8f90a5fe49926f379495c00714ffc3af5a9",
+      "text": "奉承是讓別人站在你這一邊的好辦法。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/options/0/label": {
+      "sourceHash": "3d2bf838daf7039b950a2ebbc47e185f0dd9b475145c3321964352595276a8a9",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/options/1/label": {
+      "sourceHash": "1d830cad0d3803a6c8a36b86e8105ca1c1dc3c337a04b9c872f4015307929ded",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/options/2/label": {
+      "sourceHash": "df7a92ade55eedaf18d5acb39673c3233ed369fd30af039175b5ab5e10ec1789",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/options/3/label": {
+      "sourceHash": "117b21bf57eeadbe7824aa1ed7d677e4888ae51e398bda58aabec510c9a33ea9",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/options/4/label": {
+      "sourceHash": "5da2e908c7a443338a7b25c25068fa1d550e4f83541ecb20171719d7584538ef",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/5/options/5/label": {
+      "sourceHash": "3d4fc52e290ef97daa48b6461709639cec4c17c43aa02c416ef3ae54b1d045f7",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/prompt": {
+      "sourceHash": "51c867d3ac410eaeae28bfa57227602fefe5f27463907f572e37accc8766cc6f",
+      "text": "我很喜歡巧妙的計畫成功時的感覺。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/options/0/label": {
+      "sourceHash": "a70a974f492bd203d236ac87db9702f342d6e5d1fba7aca99bebc61e793bcb03",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/options/1/label": {
+      "sourceHash": "f8b5d03d15b8fad594fa56c6d531d26b94e77497b9d5ea0909b566508268a99e",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/options/2/label": {
+      "sourceHash": "c34cb2b9cd6a4ed44f3fd4d5d31ee3029d04614e05db738cf2a7c92cfb671734",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/options/3/label": {
+      "sourceHash": "ee14eb85b887f4a4e168899056af3055b852a472c9fa628c467fee92cdb88f91",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/options/4/label": {
+      "sourceHash": "a25e7891400ca84d70138151a52447c4794bea6fc44ad33d734b9fbf85c2c102",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/6/options/5/label": {
+      "sourceHash": "6d961eb37a8d2faa66f10da342235b47f6fe618b7f12d8f9dc11ad4cde1e8eee",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/prompt": {
+      "sourceHash": "7fe66ca3e16881216e0508fd93d00aa37c2cb6a6f7ed39afcfbbdcfb4372f70d",
+      "text": "別人認為我是天生的領導者。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/options/0/label": {
+      "sourceHash": "e2dc1661c78295f68abb88a599a802663664d57f16488dbcec7d98fe4e91eb52",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/options/1/label": {
+      "sourceHash": "ecee8124def77eb395eb6d3a6a7658350bdce4f2e3ca95f879e3b87f1c4cd8c7",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/options/2/label": {
+      "sourceHash": "b5a8e631f470302e5eeb74da0e50358a8714cae7faecacf373dc059327da242d",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/options/3/label": {
+      "sourceHash": "1fb92612ea3a7ae6aededd3a9a267e4f4e0b33df26948109417383c8fab43ab0",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/options/4/label": {
+      "sourceHash": "d20d7b39e0dc06c839e604e530d4a55f0e8ecd1c5c2372b077c0a1ede922b6f2",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/7/options/5/label": {
+      "sourceHash": "3c9a280c5815a0260cad32d25c919e5f8a7fc6f47d4ea79a52d0885bc6a514a4",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/prompt": {
+      "sourceHash": "5aee2fbea40b49782bf831269edacaeb71a6e23b19f7f357ebd7ae665290a1e0",
+      "text": "我有獨特的說服他人的才能。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/options/0/label": {
+      "sourceHash": "30ab6f5bbbae8352570279532da90e9119d0f90444fc7883636552fc288a1d02",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/options/1/label": {
+      "sourceHash": "d32fd7f68f06f6c63cfb881ca1e6ddcec55e04875151fa830946dfa7fb1cc65d",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/options/2/label": {
+      "sourceHash": "41147e17432281f4df10bbeaed5ecc6f221640f21af3c8b7d06ecb168b5c1f1c",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/options/3/label": {
+      "sourceHash": "c1c505fa409d7731dc8f2d2931e13fab5029c0c0e2511f5c858394bf94c052e9",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/options/4/label": {
+      "sourceHash": "f715069badc982a855c017299aa471f948ed028f3070b5ead0a7dd2695436952",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/8/options/5/label": {
+      "sourceHash": "6a482eeeae0a2c93a1147cf8bb61404635b0fb317cd8e41b91874cf127c8117b",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/prompt": {
+      "sourceHash": "0af5028bfc6f9da94245457ed0e60b5c47494b699ea46f61c7ade83635e43223",
+      "text": "沒有我，集體活動往往會很無聊。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/options/0/label": {
+      "sourceHash": "9032ae3cc1fa38fbac66be4c7dfa36966a18ca2987f0de8a1eeb462caca1afb3",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/options/1/label": {
+      "sourceHash": "ff5ad41c25af2297fc055ddf84e899cabe54bcfc01b2eaced3316aa865aa9253",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/options/2/label": {
+      "sourceHash": "086db566262e0fa58379a5090e79f8c1a9934bb4c75cacefca4b56c958bcc31f",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/options/3/label": {
+      "sourceHash": "81288e87439fa758e94b530b6abb19a19d3d09aaaab37e425a547fe20bd83982",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/options/4/label": {
+      "sourceHash": "50fd863e1fdbeaae754bc8f156e9fe3edaee5291bc56faae4e990e6ccf7a4578",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/9/options/5/label": {
+      "sourceHash": "2bbfa419b52f5018bcc59aa460e683d7e9d136ffc63cd27f1d9cffed0a8aa38d",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/prompt": {
+      "sourceHash": "ada0b88530537ddef2a50cfdc398ac9681843c9f49c5842588381536a7657d24",
+      "text": "我知道自己很特別，因為別人總是這樣告訴我。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/options/0/label": {
+      "sourceHash": "6d1ed5909cf9f9fbfd996c972ba51bc5758ddc83c173274076cc637c23934cd3",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/options/1/label": {
+      "sourceHash": "d3a60f73e1e66683c626fb45e683afe8ae33a076a58d854f2d4a98a979b5c0ba",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/options/2/label": {
+      "sourceHash": "3b0217c1ad31830a8a8eb70960976dd5318051956e247b2d960a68f4a022f70e",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/options/3/label": {
+      "sourceHash": "a3df2c18de1cc86a4189c9e9afaf96a978c9a79c8de8afbe0e80fffde2f333b4",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/options/4/label": {
+      "sourceHash": "75b77acbda333a612eb081adde13a1231bea544cb19a4a6d6592d0a99c730db0",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/10/options/5/label": {
+      "sourceHash": "f7c09de370346dafc05bd3d50cc1f70524fd67db6414b7f6c8db764faa1a114b",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/prompt": {
+      "sourceHash": "039934309b6911341ee1e754f8d710815ba3ef2226d5458ff87f073029facc1b",
+      "text": "我具備一些非凡的特質。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/options/0/label": {
+      "sourceHash": "ef774e721dbc421fe3da0bc6bb8e01789cc649b881253273b724059cebb268ad",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/options/1/label": {
+      "sourceHash": "b4f6c4b3cfc4fab62bbfe9a550270bdccd49a2a39ebd2ea7e065885ab95ee63c",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/options/2/label": {
+      "sourceHash": "d7bc6eb34142fb5a5e6f314448a3b8f98628c5ee33b42d75eed08bc1885d2257",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/options/3/label": {
+      "sourceHash": "b6367543a1d746fb7da86d9a3c3ff6bb37786ea416675ca529a68a20e90de88e",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/options/4/label": {
+      "sourceHash": "ad761beb32e93776b6b9e0e52878af316c69b6cd954c9269dcbe1a260d5f4f00",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/11/options/5/label": {
+      "sourceHash": "525f810764a57b50d4043e8718c10637fe6add479281f54da24c2ecf2170bc86",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/prompt": {
+      "sourceHash": "722e4f385f1cc1327870f6f0ae496bb703c1d09eb80fdf5240857e125b229f39",
+      "text": "我很可能將來會在某個領域成為明星。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/options/0/label": {
+      "sourceHash": "e9dc47c9e9d139fe078048f7fcc87cc72a24f84b88ab779f5cd43cdac08a033c",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/options/1/label": {
+      "sourceHash": "350360a33abf4da282dc57c9dfb8ac47734b8435026821a640ef2614b7787ea0",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/options/2/label": {
+      "sourceHash": "81254eab2624f50d1750e8e38c3b5bce707c42bcd5d0b2f03bf7f0c77f634dbb",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/options/3/label": {
+      "sourceHash": "0b012372e88400f7ea2f1cd479659b73b46b74752df06b8d0a31a076b0ead1f1",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/options/4/label": {
+      "sourceHash": "0746b542834715d95fe2587114db2f9f5b2b09fa5d4e3c02fbc6e3c63e535e45",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/12/options/5/label": {
+      "sourceHash": "771501d7d1bf677614d1dc4288b4a3e7ed06ff4206a96c4c23c71ad1a7daa82d",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/prompt": {
+      "sourceHash": "08aec50e8740925c047de45566b519b84bfed47edd61c33a07dcc1743da0e632",
+      "text": "我喜歡偶爾炫耀一下。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/options/0/label": {
+      "sourceHash": "f1c84e4a08790afef53769ff5f695a5f21560de0e2d92130fd74dac046dfccce",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/options/1/label": {
+      "sourceHash": "42c07576df711f12a750c4c29b8ef8d5e45dbb827c011719e56a8e97b09f69d0",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/options/2/label": {
+      "sourceHash": "9644d06df31d76783651d1224c206b476108db8ffc43f2109e13b0dc235d3bb3",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/options/3/label": {
+      "sourceHash": "8e06516dcb2bf23f6e6c90e564c8761f475fed22df6a0506dcfd335bb5bdd274",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/options/4/label": {
+      "sourceHash": "6f77f8cf634bcc7c26a2df335cb38b228e7d942e7d4b86c8affa445996623df2",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/13/options/5/label": {
+      "sourceHash": "83d512f93dd29bd305e8732362ffa51385ba8cd55329fab8d4c9debf3883f4e7",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/prompt": {
+      "sourceHash": "57b0712f3f8e40965e516f0135451ed60860d1e89341761e2f8cc11a09a210b5",
+      "text": "別人常說我失控了。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/options/0/label": {
+      "sourceHash": "074cae6a3b40dc45d6eb3c9fc1bb3522e3edf0ddecf94ab17029049e660917ae",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/options/1/label": {
+      "sourceHash": "3c59c54a573c41678460f9503e4aef97f1fa7264b78860cb19d1c234939a54b9",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/options/2/label": {
+      "sourceHash": "b1cf0322c6028f5fa3b4ffce0eb4501de6649e7d4490578d257ba8dc2b0ff9c6",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/options/3/label": {
+      "sourceHash": "89ad599b0f96d51057e268c13fd9dba01c50c2c852f69ee0a099b0f38426b2dc",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/options/4/label": {
+      "sourceHash": "d91fb50a0338cd6a868a2aa5a56810a67979496e7401074e5097637b7947a5a3",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/14/options/5/label": {
+      "sourceHash": "bfe37b3408c74339a9745d90d006063faaf5e11fe57e7edb0f7a4c61729d765a",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/prompt": {
+      "sourceHash": "eae3edbcf1039ca173559fca66216f4f0b019217e32cfe12b55ef7556a300cdb",
+      "text": "我往往會反抗權威及其規則。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/options/0/label": {
+      "sourceHash": "2f4334bcfd8c8539ad326c5f979c5638a39f1e67da0f3ce7d15387062ad16696",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/options/1/label": {
+      "sourceHash": "d695e1d6fd13f7f9cb19c99f9ce63700760aa10e8999adcd7965280cafd42805",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/options/2/label": {
+      "sourceHash": "ab374ff0a452ca1829fd675762a034fdc1c5b98e5c89fd1da78bb9e58d9cec06",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/options/3/label": {
+      "sourceHash": "bacad827960022c8258e6066df5c94b6453b3bfdf0f1df8963b2b406a4a3478b",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/options/4/label": {
+      "sourceHash": "b4a8b3d0af810e8e613ee64c34e2b05332681c2a09af2d00eb83932334dcef49",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/15/options/5/label": {
+      "sourceHash": "b6b96f7c54e2ef1c88f2e7a4a540e9c94187d0fcea7f1509cc95016392d6814a",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/prompt": {
+      "sourceHash": "51bf052f714d2ecc5c5f792a87c416bff91acff32954e8c82ae6054d9d2dcb80",
+      "text": "與大多數同年齡、同性別的人相比，我打過更多架。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/options/0/label": {
+      "sourceHash": "1b43bdad6fde10cab81c3e4ff6dbaf6bb9bcc9939dfa9ca0332572adf6de3617",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/options/1/label": {
+      "sourceHash": "0b91e9e9ea37e8a11f180a8f09b27488b94a4a05df574cf166c56e54081347d1",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/options/2/label": {
+      "sourceHash": "1dd5c43ea4315c2667883e2d863cdbd4b7a7cbafabebebab3075d8ebb24ee30e",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/options/3/label": {
+      "sourceHash": "078bf2bca18d333da9cd7f6e9102c1d8204ebd14b8643b048fd25595a30ab786",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/options/4/label": {
+      "sourceHash": "80d0b4251e694f5b585270dd1096fafd34f5f535bd01d0b823b45a0cc7b24eb4",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/16/options/5/label": {
+      "sourceHash": "b065a9bd71531f602f98fa9200a47c8b56d707bc976708962f0fe23c4465fcd2",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/prompt": {
+      "sourceHash": "848cfa24eb8612aff5dc2ecc6676ac7807960447eafae14d7de526ba4c60b2b3",
+      "text": "我往往先衝進去，之後才問問題。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/options/0/label": {
+      "sourceHash": "f4a7210f1c4b9a2c9ff0f5e2737b54bcda08fbf44ae0fd22b1ff0907c677cf20",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/options/1/label": {
+      "sourceHash": "ca363edd476c16d66c7c5f15c88a242e0cb8337f5c158c711978724041594b4f",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/options/2/label": {
+      "sourceHash": "50add13dfe3509770370172c4a6f39438bbf9129e1d4db432768762131183cd4",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/options/3/label": {
+      "sourceHash": "7b2715b62efaaf852d80b4e59c132ab897aff14d2eaa67d99c266529fcf57d06",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/options/4/label": {
+      "sourceHash": "580c0f29f7c8feb15a112aaa1f75b13490f703f50745c4171f48bff2062e6b78",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/17/options/5/label": {
+      "sourceHash": "b2ba3ad5f140868edf436d333e073ee53ef9b693bbe55181de9f58fade76a259",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/prompt": {
+      "sourceHash": "b43126dc23ac2d3e3ae10c80c4c8173d1de61155ca2ff5ff19f42edb91144181",
+      "text": "我曾遇到過法律方面的麻煩。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/options/0/label": {
+      "sourceHash": "4954fe5c9851d789155dea796d6245f92256878d56d90a54a1d8c55f2635226e",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/options/1/label": {
+      "sourceHash": "432a355424693b4f8ce18a00db97b2fb7d3c110e27fa3092fb4d7dc0d90b8a52",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/options/2/label": {
+      "sourceHash": "3b2b8b872861a7390d4befc60f6beb36cffd17d1c7fe6ed92c2d4e5b225b26c7",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/options/3/label": {
+      "sourceHash": "e78f6af6d3cdc0a652bcf8b422b21d4043b00738e8ab949225432fa3e6c7b343",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/options/4/label": {
+      "sourceHash": "94046a3c386cbf355bebae8034a82d082f16f34a633a5f5c25076d7f1dc2c3e3",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/18/options/5/label": {
+      "sourceHash": "2f27f7c3cf4539e350db59bf4ab4cd5dfc701b93122bb6e8f686ff7cedaf76e1",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/prompt": {
+      "sourceHash": "c025a4ffbd3eb537e2eae7f711e1046488527d87ddc7328b42cb557a2033f9e2",
+      "text": "我有時會陷入危險的處境。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/options/0/label": {
+      "sourceHash": "cdfbdbb0b9490373eb5b908d013d7229ed4c69631b8d67531ada5c727c8f5867",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/options/1/label": {
+      "sourceHash": "02c4d3c20a8f206d076107966a41a305f7e5bc03adc0545149bfedadbc15e410",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/options/2/label": {
+      "sourceHash": "495646e20610e1b7b45e4ea9bafcf53ec536a5589231be6ca7d793fde8dcbf31",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/options/3/label": {
+      "sourceHash": "ce465e74c067be5ef811e2275cd5c2f66eadb4b8861fd38a95af955094561cad",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/options/4/label": {
+      "sourceHash": "90140bed40c9f0dcb0a0b16c1a42e8d91d05635052465189bd4e8e02e812f965",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/19/options/5/label": {
+      "sourceHash": "62dc66622039ff9461ff262c07f16dbb659712ac7dfd3607d07cd91f731b0510",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/prompt": {
+      "sourceHash": "d5bffc0da188bdd5f8c6f46929e5768eda69f8b71eee93325e226f47a2f07593",
+      "text": "招惹我的人總會後悔。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/options/0/label": {
+      "sourceHash": "3487c646b59e363007917b8d5feaf39f9b12451e6016b6b925a32cca2112334d",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/options/1/label": {
+      "sourceHash": "2dfccbcc0e8ae7aa8aa9f93e4d94b3e2afb0f3a1f8c8bdd061c33b261ef719a1",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/options/2/label": {
+      "sourceHash": "fa9dcd701bcaae4917939cba8e362efeaac6d1df33a5b997f7624a4d3caa4e0a",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/options/3/label": {
+      "sourceHash": "c0c7688c565a2279514fd570248c815577fd07672b4418b95503f43a35288c69",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/options/4/label": {
+      "sourceHash": "76b831a5c36807776c20926604db05195b60bb3b45cbdac21df0073edff067cf",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/20/options/5/label": {
+      "sourceHash": "338d63e60bb548aef794c20437d325a5d593cc8c35c8159c816208a2cc24d461",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/prompt": {
+      "sourceHash": "aa7749f9db4e7498efec87179fbd8dd9cf85e38de2ece6bffb4fb9b6f881e78e",
+      "text": "觀看拳腳打鬥會讓我興奮。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/options/0/label": {
+      "sourceHash": "5623c279e4038c35e53accae79ac66bda07dad51ee77c9cd9e816e376abef746",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/options/1/label": {
+      "sourceHash": "68079e2f6d54508796351c130acac3c30fedef14e64cdd31f8ef26dcb435a5bf",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/options/2/label": {
+      "sourceHash": "f472c846ff9f8bc88fa736b07d11a6b9611bb4db02b66972bf202c6c710a534a",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/options/3/label": {
+      "sourceHash": "a355226235f354d0b20f43fd796b5c2cda290c064fc3351bf7727b5420ff0ae8",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/options/4/label": {
+      "sourceHash": "9af3a3d00506ab011f3087c50fdd2c3fed68bfe332e9e7a419f575de59ce3560",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/21/options/5/label": {
+      "sourceHash": "141d7cc363a6620c3b16f5be5fe20d80f8a262299fed8a3fdc238c0f0cd119ec",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/prompt": {
+      "sourceHash": "12b957c5981216f33fe0fe2f33d66d05b04e37d1b889c8ec630b10d509c05a20",
+      "text": "我很喜歡暴力電影和電玩遊戲。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/options/0/label": {
+      "sourceHash": "ec5915ba7a712590d28b11209b9ef53982193d8b1094515828ae7b76045c5ba2",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/options/1/label": {
+      "sourceHash": "7c2b1525ac6565f31079159304290b4a4b62ac65775282fcaf9ea1855cd47a82",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/options/2/label": {
+      "sourceHash": "381c314738fa4aa03486141bf6a3a248b21d67b1db3fd0ddeb8a866b2df0c551",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/options/3/label": {
+      "sourceHash": "4077589cb74a9f03183734c78f16c028d06c66863e0bf292a891c16efa644686",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/options/4/label": {
+      "sourceHash": "2dfd8166ba3f977155f8a97b20677124121555c3da5e35d7b804fde7b47f1f07",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/22/options/5/label": {
+      "sourceHash": "4f2ae9c1730d3e5bd128f72b4f82948425bb8157ded860170773ca515081bd1b",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/prompt": {
+      "sourceHash": "bdacea54531367f3bc1a30353cdf5c73ec6c8567652440aac8bce347410f731c",
+      "text": "看到蠢人摔得臉朝下，我覺得很好笑。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/options/0/label": {
+      "sourceHash": "2fd4ab00db545fea6f963a2ad4e9f3a935b38f14dc183631342f9c05d41113ef",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/options/1/label": {
+      "sourceHash": "088f6e1fd0a38a78e2c5968de8f934fd55b7410dd2ad31befd4c5150bf1d4b50",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/options/2/label": {
+      "sourceHash": "373ea70a17e74c62dbdc9ebd54a2b1a80332308c285cad64d92008695fe7a29f",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/options/3/label": {
+      "sourceHash": "9f9281a4b49335a3e3d2ec09e6358c9e09782a7c30bf35a129126d290844319f",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/options/4/label": {
+      "sourceHash": "c8f81154a84d81e88082a2a95a688fe0ec28d1f4aa1ca9a69b7c0e0d3b3f5ca4",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/23/options/5/label": {
+      "sourceHash": "181ac0361cb92c3f3e6e9e070f6b8f9bc4b55373eab7bca2d7482176dbec9894",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/prompt": {
+      "sourceHash": "ead192461e09f80a3b9279a42b9152c19e8b68de383ad0eec0c8aeafe0352f48",
+      "text": "我喜歡看有暴力肢體碰撞的體育競賽。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/options/0/label": {
+      "sourceHash": "9bbc6d5babbdcd9446fd48d098ec0e75cb65e9886d40b3fe497d3e01629cedf5",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/options/1/label": {
+      "sourceHash": "b6203d8f66d62dad9f3287aab28b434b6b66ef389e5e2c95c08a4929ee8b7219",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/options/2/label": {
+      "sourceHash": "d4e0bbbf54db951275662ba3cbbd56a2ffb365337741cb4718b12da616f7ff47",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/options/3/label": {
+      "sourceHash": "5b4c5704bbb13954dbc3c588312d8477c76103c2c4dca2ccdc9c79714fcf9bbd",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/options/4/label": {
+      "sourceHash": "f721dc0872e391023a041234c2872d7010fba43c3b75066460187fde589da660",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/24/options/5/label": {
+      "sourceHash": "7e518e54271e051fe2482465fd4835faa0548027ef6db3eaa6538013620ccbee",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/prompt": {
+      "sourceHash": "0517f58dccb23a785e36b350247ca05bb9288a3f5a23f69cddcc4f309e44a3f1",
+      "text": "有些人就該受苦。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/options/0/label": {
+      "sourceHash": "bc15493183f0a49c70b17c656e4f5f31d2245ac08892a3dfeff65cde65b27616",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/options/1/label": {
+      "sourceHash": "c67168e9645a8dcea6efb17fa7bf3f3e8a9b2a3a75bae946efdf06c58e1b1a2d",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/options/2/label": {
+      "sourceHash": "4b37ca8ed1ed4dee346078cc7f7f4e16d5b6f74a001a777c3c91b72aa4458abd",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/options/3/label": {
+      "sourceHash": "d4eaf6b6bdb67829c1bd027af101ffd201ac8b4f30152309c8181714b7daf850",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/options/4/label": {
+      "sourceHash": "419ad12d50c4a6a0859a10aea4475624fd252496e0a358721bff6151461bee99",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/25/options/5/label": {
+      "sourceHash": "33c2f475a1dbb6765e11411d324a6b17fc5850eec71a55797c9145fa0913d359",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/prompt": {
+      "sourceHash": "75078da9fc5e53667a0ab3b575557176fd9860cc83ba3689b3f92b8a93bdb7b7",
+      "text": "只為了好玩，我曾在社群媒體上說過刻薄的話。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/options/0/label": {
+      "sourceHash": "81cb4e326ff93ddb55b7e183066809e30aa6200a0feaf0dee9e2bae0ea398b40",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/options/1/label": {
+      "sourceHash": "1554c2e4fe57c562842d3d67512287304f4fd84016df0507314939119b25e173",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/options/2/label": {
+      "sourceHash": "85a0369f252a35ace54cbe9a5c3a94340c11fd13e4672e2b500bbce0f9579d0e",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/options/3/label": {
+      "sourceHash": "5cae67038f5548a981cfa9a6b65d11da17c4f2831a4955f554c56f21d9a597b5",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/options/4/label": {
+      "sourceHash": "ddf45e636b9027f7b77cfff8774d28794e1154de7f063f814a8d62622d355682",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/26/options/5/label": {
+      "sourceHash": "73f12a78e1358cefe54d5a088a3ca4ad2bdce91339177188409a881ba72a5dcb",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/prompt": {
+      "sourceHash": "b3309d2e3bea7682eb28c92bebae9b89a55dcdd86c647f5372dafd4e173395af",
+      "text": "我知道怎樣只用言語就傷害一個人。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/options/0/label": {
+      "sourceHash": "8f6b5c5afb78df426ae86c3aaf515a5efd527edf48778f5cbe84c615dfa911aa",
+      "text": "非常不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/options/1/label": {
+      "sourceHash": "9207be37b2e82be05b8872c35e891c9e51f176eef5bcff38582c3c586fe4a67f",
+      "text": "不同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/options/2/label": {
+      "sourceHash": "0c2d73db44aff2d51fc8885e70164ea565796deac516bbe4f73f8e487672250d",
+      "text": "中立"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/options/3/label": {
+      "sourceHash": "f87416b3396fa3ed229f2a54dab0c9f51d8d12cca6b1e05d127ec8aeb3c2655e",
+      "text": "同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/options/4/label": {
+      "sourceHash": "4393be4cfc2bb7f6598fed966113aec9131976b10113d85a6257b62e39a6b2f5",
+      "text": "非常同意"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/questions/27/options/5/label": {
+      "sourceHash": "e953806b77663e3f0c5808f3435ff245ae6cbc2a439c3a7868fb285e4b6a9900",
+      "text": "未評分：我不想回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/title": {
+      "sourceHash": "06da0f93352b796027580658876cb946269194f22b9e136131147d9b7eaf9d88",
+      "text": "馬基雅維利主義"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/headline": {
+      "sourceHash": "248bc763ebc8d33db258aeff47dcb0294916829dd5b1d2d5b01c4d893198d3e2",
+      "text": "SD4發表版的獨立分量表"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/summary": {
+      "sourceHash": "f1cfd54196f8da9fe1732868eb02e92c006abfc248c7c30f630890780755e2bc",
+      "text": "結合實際題意、來源和限制，閱讀七題的馬基雅維利主義均值；不作診斷、分型或人群排名。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/seo/title": {
+      "sourceHash": "924e7e0179efb6dcf18e5fabd761299a2d9d714d657205e19bdf7497a8ab33f2",
+      "text": "SD4馬基雅維利主義完整說明"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/seo/description": {
+      "sourceHash": "420a7db3ae381cc73f55b3fc417438a6c22b546c540163bfff6934023dd6e638",
+      "text": "了解SD4馬基雅維利主義七題的內容、原始均值、缺失處理與解釋限制，完整指南免費。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/scoreReading": {
+      "sourceHash": "f04eda78a1daad1ddebd997ce8ab17ef7ae3f3d4347717b89ed032a3dc30f2b9",
+      "text": "需要七條數值有效，原始和除以7；任意未評分就不生成本項個人均值。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/0/title": {
+      "sourceHash": "0f6d64b2575da50a6724ed3bf68130dd01ce8df8bb7516583ffb06dc3f559f90",
+      "text": "這七條陳述涵蓋什麼"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/0/paragraphs/0": {
+      "sourceHash": "84562c87e8aab3767f16489b670b3056c0fad85a78f328ecc4ac56e4535da566",
+      "text": "SD4這一分量表把對保密、爭取重要人物支援、為將來利益避開衝突、保持低調、計畫、奉承，以及巧妙計畫成功時的滿足等看法放在一起。均值較高只記錄對這組特定陳述更認同，不證明你實施了操縱，不揭示具體關係中發生的事情，也不確定每次策略選擇都有相同目的。請先讀實際陳述，再理解研究名稱對自己意味著什麼。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/1/title": {
+      "sourceHash": "aafbfc67cbd1dfa46ed79a78aa586127892e32e19d69bcc1548025dc5390f560",
+      "text": "計畫與影響並不是同一行動"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/1/paragraphs/0": {
+      "sourceHash": "4674f63d0bf6d064b40aa2e54a21f4110e96ec1fad44c1cd412878fb6a7a88bf",
+      "text": "例如，你認同計畫很重要，卻不同意奉承是爭取支援的好辦法；另一個人可能給出相反組合，仍有相似均值。七題平均本身不能保留這種差異。為普通專案計畫、適當保留隱私或避開不必要爭論，都不能單獨證明傷害意圖。題目包含寬泛看法和偏好，網站不能從平均數推斷真實行動背後的動機。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/2/title": {
+      "sourceHash": "6a291d44f49282b56d5797f194fcbb4043410166e13692f74747f0d159c93508",
+      "text": "名稱屬於研究量表"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/2/paragraphs/0": {
+      "sourceHash": "09492dbd9c23850dbe7e8d7ab69e18b21a6caebc645df6e2a98c7d386bdb582b",
+      "text": "馬基雅維利主義是作者的分量表名稱，不是頁面分配給你的角色。這裡沒有把人變成操縱者、政治類別或關係角色的分界線。低均值也不提供誠實或無害的證明。當醒目名稱顯得比具體回答更確定時，這些邊界尤其重要。報告把數字放在題意旁，其他三個SD4維度繼續分別保留。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/3/title": {
+      "sourceHash": "2c2077a285bbacce5d6c70b3778ed6f475765f6c00ae815aacf004bd9cd50ba8",
+      "text": "數值差異不能確定什麼"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/3/paragraphs/0": {
+      "sourceHash": "a324c40cd8cde1c8c7d003dcb434256714ae76dbe342a315f64e56ca9913785b",
+      "text": "回答會受到你怎樣理解重要人物、秘密或巧妙計畫的影響，表單並不收集你想到的例子。因此，兩次差異無法區分情境改變、理解不同、刻意呈現形象或持久個人變化。這裡不提供可靠變化閾值或人群百分位。與朋友比高低，或代猜別人的答案來評價對方，都會增加這一自報版本無法支援的結論。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/4/title": {
+      "sourceHash": "ead42b5b230017e611d02c30b232be44e34bf8cf828482fbc4f2271823a69467",
+      "text": "四個分量表分別閱讀"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/4/paragraphs/0": {
+      "sourceHash": "b8ec38c3ab3b0140884e1dce176be055a5ee0672955424e0d24a619f452d9ced",
+      "text": "這個均值不決定SD4自戀、精神病態或施虐維度的均值。共同總分會遮蔽不同的七題組合，挑出最高項也不會生成經過驗證的主要人格型別。現有費馬Mini 18題主題觀察採用不同題庫、選項和缺失規則，三個主題不能換算成這個發表版分量表。可以閱讀所有指南，而無需把任一版本當作另一個的替代。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/5/title": {
+      "sourceHash": "4d6cfa11ef98e00d7229bcdb109e3b95d861e1ba1fd4411a38c347d46c04c714",
+      "text": "可選地看一條具體看法"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/5/paragraphs/0": {
+      "sourceHash": "74d48efe45b049aa5b7bfc70a6bd3c5b53060d6449fb0831ff4b4100bfc56e68",
+      "text": "如果想繼續觀察，可選一條陳述，私下想想當時想到的普通情境；分開自己認同的看法、實際做過的行動，以及別人可能的意圖。不需要公開例子、測試策略、聯絡任何人或改變關係。也可以認為題意不適合自己，讓這個分量表未評分。讀完解釋就可以結束。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/6/title": {
+      "sourceHash": "ecd86f72de6a36727e1db47705d9499247b05027494e98a31e9268b32b565001",
+      "text": "來源、語言與版本限制"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/6/paragraphs/0": {
+      "sourceHash": "0f006b0769a46209c28b35b4b8d11aa3a284060e877963be291b0a3bfe18a48c",
+      "text": "本頁採用共同作者Erin Buckels的SD4專案頁發表的28條英文和五個認同選項，並與Delroy Paulhus提供的工具文件逐題核對。Paulhus把SD4列為無需另行許可即可使用的公有領域工具。所引論文為Paulhus、Buckels、Trapnell與Jones發表於2021年的文章。中文是本站工作譯文，不是經驗證的中文版；原工具發表不意味著已建立本站使用者或譯文的效度、常模或準確性。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/7/title": {
+      "sourceHash": "7bb4c9654ccce9e4bca95b88e0a6935419cc37c54a3443a38dac36a889b8e6fa",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/0/sections/7/paragraphs/0": {
+      "sourceHash": "bad660c88fdcb14e229ee3788c3c2d3cde7d0ae23eaeb7ba4e8b886f902fab38",
+      "text": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是數值中立，不代表資料缺失。28條全部同向，零反向。每個分量表七條數值有效時，將原始和除以七，再顯示兩位小數。例如1、2、3、4、5、3、3之和21，均值3.00。任意一條未評分，該分量表就不顯示均值，不插補任何數值；不計算總分、主要型別、百分位或界線。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/title": {
+      "sourceHash": "aa48674894a30481edda202a1012a2cc2667f9df357a6f111ce4f616a17334f2",
+      "text": "自戀研究維度"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/headline": {
+      "sourceHash": "b57e353fb89af471727964e37bcc7637a26baca4e3bf814a9ab18f7b714e409c",
+      "text": "SD4發表版的獨立分量表"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/summary": {
+      "sourceHash": "e0e75ed549fad445261492002c35471dd4179ca762fad2ea5550735b769b55ff",
+      "text": "結合實際題意、來源和限制，閱讀七題的自戀研究維度均值；不作診斷、分型或人群排名。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/seo/title": {
+      "sourceHash": "06e193f824cc857c94aa482b4c83d474a7ad0a539b4ed469f57ffaa3a0cbce4f",
+      "text": "SD4自戀研究維度完整說明"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/seo/description": {
+      "sourceHash": "d6a36722ba25420a323718b133e7fee4905f4bea18812480732bca325414fb6d",
+      "text": "了解SD4自戀研究維度七題的內容、原始均值、缺失處理與解釋限制，完整指南免費。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/scoreReading": {
+      "sourceHash": "c32945eaebfa72f7d4e4e33c318d3e90786eb9159a2e6defcfd5d1a38237e311",
+      "text": "需要七條數值有效，原始和除以7；任意未評分就不生成本項個人均值。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/0/title": {
+      "sourceHash": "f145b805677b8e58faa19933351f1562f7ccdc755504886e73ca751892cf4741",
+      "text": "一種特定的七題自我看法"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/0/paragraphs/0": {
+      "sourceHash": "84178eda0ac17a2731ddf5a553aba3d29cb3b69b7ef2ffe0fa16586c50c751e2",
+      "text": "SD4自戀分量表涉及被視為領導者、自認為有說服才能、讓集體活動有趣、被告知很特別、非凡特質、未來成名可能，以及偶爾炫耀。均值描述對這七條的認同，不證明真實領導力、才能、未來成功或別人怎樣體驗與你相處。應把研究名稱與具體內容一起讀，不把它當作對一個人的完整定義。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/1/title": {
+      "sourceHash": "7ad072699066395f647b25a27306a78a84bdcee1c8743a967b1af8b5ae3f6c10",
+      "text": "顯眼與受到稱讚可以不同"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/1/paragraphs/0": {
+      "sourceHash": "663e08bfaa336b59dcf5163b715a4723ac189ee00861de909bb0f22bffd3f177",
+      "text": "你可能喜歡展示技能，卻很少覺得沒有自己聚會就無聊；另一人可能清楚記得受過稱讚，卻不喜歡成為焦點。不同模式可以得出相同平均數。經常公開表現的環境，也會讓部分陳述更容易聯想。表單沒有對這些情境的獨立觀察，不能裁定你的描述準確、誇大、謙虛，還是受到某類觀眾影響。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/2/title": {
+      "sourceHash": "118cc01082708b07e8c8d5f7b7589c72caa95399242a94c6e3be452b19a6f90c",
+      "text": "不作人格障礙結論"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/2/paragraphs/0": {
+      "sourceHash": "42b68c95b66aad800d9458c8ae0eeeb07dc25a7a433a469809127d683b03b5d9",
+      "text": "網站不診斷自戀型人格障礙，也不把任何人標成自戀者。發表版SD4自報分量表不是臨床訪談，七條陳述不涵蓋個體臨床評估所需的證據。低均值不排除困難，高均值不確定障礙、虐待行為或關係影響。不要把數字當成對自己、伴侶、同事或公眾人物的裁決。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/3/title": {
+      "sourceHash": "6fff6c7f41e31613f82734f24295a31d493f3e3256693e7d0707b5af5fca22f6",
+      "text": "得到認可與實際能力分別保留"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/3/paragraphs/0": {
+      "sourceHash": "c46add9ae79bb5868ab6b54f781f897b99a8a4014d88ea480e3c1046620c0bc0",
+      "text": "認同別人說自己很特別，記錄的是你對反饋的理解，並不是對那些人的調查。同樣，預期未來成功不測量相關技能或機會。均值無法在所有場合區分健康自信與問題，也不規定應該更顯眼還是更低調。可把題意當作留意自我看法的提示，不讓名稱取代某項任務或關係中的具體證據。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/4/title": {
+      "sourceHash": "7f8f8ae1971b9b04eda989c34f60903cf8afc447f3fe4e6ef36533f7736043c6",
+      "text": "單獨的SD4分數，不是獲勝型別"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/4/paragraphs/0": {
+      "sourceHash": "6628bd7d4e063015a781f345002de2131d0f4fc39e6219469cee10fba7b00f0b",
+      "text": "其他SD4分量表詢問不同題組。本項比其他均值高，不會使其成為主導型別；四項都低也不識別特別高尚的人格。這裡不生成黑暗總分、排名或等級。本版還不同於費馬原創Mini主題及其他長版或替代自戀問卷，僅有術語相近不足以合併結果、換算數字或宣稱測量完全相同的構念。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/5/title": {
+      "sourceHash": "930f3afda221a12cab31651e51c890b3b61f2f41fb930d6372dbc74185ed9843",
+      "text": "觀察時不必索取確認"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/5/paragraphs/0": {
+      "sourceHash": "e5bd8fded326d3609881442a18fdf5653d1b43ae7f5393524bb5c7a20f5a3e21",
+      "text": "可以私下把一條陳述與一次普通的稱讚、參與或展示技能經歷對照，同時分開經歷本身與對所有人怎麼看自己的假設。不需要請別人評人格、為某個標籤尋求確認，或證明描述錯誤。網站不要求例子，完成也不需要行動。任何題都可以不作數值回答，只讀公開解釋。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/6/title": {
+      "sourceHash": "62fb6f9c2d191c63d4893d01ce5b76a25b3af36e53714a410867c25701c8d3da",
+      "text": "來源、語言與版本限制"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/6/paragraphs/0": {
+      "sourceHash": "43ad2aff6c32b951725bc0e84381af0107e55bd791ba0a5b274c7827f2bdd422",
+      "text": "本頁採用共同作者Erin Buckels的SD4專案頁發表的28條英文和五個認同選項，並與Delroy Paulhus提供的工具文件逐題核對。Paulhus把SD4列為無需另行許可即可使用的公有領域工具。所引論文為Paulhus、Buckels、Trapnell與Jones發表於2021年的文章。中文是本站工作譯文，不是經驗證的中文版；原工具發表不意味著已建立本站使用者或譯文的效度、常模或準確性。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/7/title": {
+      "sourceHash": "053d62ac70c062f8069418f5cdb1a03416b61185ff18e90cd3d18ce917925090",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/1/sections/7/paragraphs/0": {
+      "sourceHash": "8bb32e5656e7768121c52ff4930b41fcdcf6c22226658e5a81f21355097fb0f4",
+      "text": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是數值中立，不代表資料缺失。28條全部同向，零反向。每個分量表七條數值有效時，將原始和除以七，再顯示兩位小數。例如1、2、3、4、5、3、3之和21，均值3.00。任意一條未評分，該分量表就不顯示均值，不插補任何數值；不計算總分、主要型別、百分位或界線。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/title": {
+      "sourceHash": "b3dc4667235941562b6175b739fc944541560245621264e728ee8296c84092bc",
+      "text": "精神病態研究維度"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/headline": {
+      "sourceHash": "91bd9cda8d89410cf9c30f0cab4cb9125f8a21cd81b74ce714c540639eacb04f",
+      "text": "SD4發表版的獨立分量表"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/summary": {
+      "sourceHash": "1dbf7c2787ef70a74539f444150bd4bc4892d1c053f9e0586a7998985a41ee79",
+      "text": "結合實際題意、來源和限制，閱讀七題的精神病態研究維度均值；不作診斷、分型或人群排名。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/seo/title": {
+      "sourceHash": "383e0d197fb7ed0b947a62863fbd6e9330cacac47165a91192fbeabce650de29",
+      "text": "SD4精神病態研究維度完整說明"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/seo/description": {
+      "sourceHash": "e40236ff6abb6787a0f02fb2f4107a29e4d442961eb6ea900fc7908a60041af7",
+      "text": "了解SD4精神病態研究維度七題的內容、原始均值、缺失處理與解釋限制，完整指南免費。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/scoreReading": {
+      "sourceHash": "fd5ea56f52abb00a8e8b096af84472646715689921376386d326341f904020af",
+      "text": "需要七條數值有效，原始和除以7；任意未評分就不生成本項個人均值。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/0/title": {
+      "sourceHash": "99e2a5cb87bb4c856832852857f9951acc6f1cdd41373bcc32afeeab5c9b8cf0",
+      "text": "發表版實際問了什麼"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/0/paragraphs/0": {
+      "sourceHash": "c42b33beb20cd47201ec8a7348efa8732e94b5059b23d6369022c52d1c41e729",
+      "text": "這個SD4分量表組合了被說失控、反抗權威規則、打架、先行動再問問題、法律方面的麻煩、危險處境，以及讓招惹自己的人後悔等自報。部分陳述涉及傾向，部分指過去經歷。作者英文沒有共同回憶時段，頁面因此不暗中加上過去一月或一年。均值總結這些回答，不確定具體事件中發生了什麼。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/1/title": {
+      "sourceHash": "5620d715f7bed9c5606d7b795d37a9dc98dc1accf69fa1b8d3e7b4a5f60994d8",
+      "text": "敏感題可以不作數值回答"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/1/paragraphs/0": {
+      "sourceHash": "62903b1b84d07a1b57017d3a68e9fdb15d818b808c7dd4df7845fa3d3c901cce",
+      "text": "關於違法麻煩或打架的陳述，你可能不想回答。可以選擇網站附加的未評分選項，不把不確定或拒答當成中立。這個擴充套件與作者五個數值選項分開。本頁只有七題全部數值有效才顯示該分量表均值，不用其他題估算缺失。即使一題未評分，也能完成表單並讀完整指南，只是不顯示本項個人均值。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/2/title": {
+      "sourceHash": "7b4fc40e540bcd452e6aecc1a1f92c07652e7d059a21acc55d7f9fa87c09d9aa",
+      "text": "研究名稱不是診斷"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/2/paragraphs/0": {
+      "sourceHash": "af1789f0f7994c21af409a4f1a72cdde010e0cb5463674f741fa6c0f1e46f9a5",
+      "text": "精神病態是作者給這組七題的研究名稱。結果不診斷精神障礙、不識別罪犯、不判斷危險性或是否值得信任；也不是法醫學工具，更不能評估沒有親自作答的人。臨床和法律結論需要不同證據與專業程式，本頁都不提供。低均值也不保證未來行為或不存在嚴重困難。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/3/title": {
+      "sourceHash": "b5009b24a24ea752548278cc434623ceb215f090c26e3be3e197371e580d82cb",
+      "text": "同一平均可能包含不同經歷"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/3/paragraphs/0": {
+      "sourceHash": "7e2801401eb403007d982eda84d926c4ac202d14f33ff38bd5a5b14db6b78ac2",
+      "text": "兩個人可能對規則、衝動行動或過往事件給出很不同的回答，卻得到同一均值。問卷不能確定事件何時發生、周圍限制、自衛因素或其他人看見什麼，也不調查指控。不要把平均數變成對經歷的重建，或把單個回答當成證明。題意不適合時保留未評分，正是保留不確定性的一種有效方式。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/4/title": {
+      "sourceHash": "2ba8a30b4f8ecfc34cf6e76532c14f51ae429c93d3c175506bb3d2708b3475b8",
+      "text": "不從其他黑暗特質版本換算"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/4/paragraphs/0": {
+      "sourceHash": "d0cbcbc1962fb3d9a9b51304f3bf7d609fb85fc901ac3713b01d0c1491586f32",
+      "text": "這是28題SD4中的發表版七題分量表，不可與其他精神病態量表、SD3、Dirty Dozen或費馬原創Mini主題互換。SD4四項均值分別保留，網站不設通用高低閾值。作者文件附帶的學生常模表不被用作一般人群參照，本站工作中文譯文也未在這裡完成心理測量驗證。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/5/title": {
+      "sourceHash": "e4d4cac6291deb270655fd88b324aa4ead20935aa90f5f71f2752db95d82917a",
+      "text": "讓進一步觀察保持私密和具體"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/5/paragraphs/0": {
+      "sourceHash": "b765d116585fa9e7336eafbdedefbffc4d7a80d1241e669670034eeb0d7f798d",
+      "text": "若想繼續觀察，可注意自己怎樣理解某條陳述，不必判定某個標籤是否適合。不需要描述法律事件、披露暴力經歷或讓其他人提供說法。表單答案只放在當前頁面記憶體，不提供個人結果分享按鈕。重新整理或離開就可結束；只讀說明、不生成個人分數，也是同樣可用的完成方式。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/6/title": {
+      "sourceHash": "267b838e0a4d0b3085b5073fd27bfe55522a23b58de58674d5c7b1fd5696ba39",
+      "text": "來源、語言與版本限制"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/6/paragraphs/0": {
+      "sourceHash": "78be6d0c66b852c400972d9a71d404fc3d43f31254aa0f99066cb80687b25b8b",
+      "text": "本頁採用共同作者Erin Buckels的SD4專案頁發表的28條英文和五個認同選項，並與Delroy Paulhus提供的工具文件逐題核對。Paulhus把SD4列為無需另行許可即可使用的公有領域工具。所引論文為Paulhus、Buckels、Trapnell與Jones發表於2021年的文章。中文是本站工作譯文，不是經驗證的中文版；原工具發表不意味著已建立本站使用者或譯文的效度、常模或準確性。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/7/title": {
+      "sourceHash": "56e85eff0d2f443f7cf7a4499aafb3c4355ada57555c336d0580b5798ef0d55f",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/2/sections/7/paragraphs/0": {
+      "sourceHash": "27240f55d061f62f263750c63f5c64f8f000d0eb68a82ef7ff7a64a4a38700ea",
+      "text": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是數值中立，不代表資料缺失。28條全部同向，零反向。每個分量表七條數值有效時，將原始和除以七，再顯示兩位小數。例如1、2、3、4、5、3、3之和21，均值3.00。任意一條未評分，該分量表就不顯示均值，不插補任何數值；不計算總分、主要型別、百分位或界線。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/title": {
+      "sourceHash": "978c9df46a652595a29c3554ec46e3db6f5d7d53699b937e1fdf40896eda68bf",
+      "text": "施虐研究維度"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/headline": {
+      "sourceHash": "6c56fed4092852dfe49c58a7bac5688427f34ccf7acde7b9695373c66ca0caca",
+      "text": "SD4發表版的獨立分量表"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/summary": {
+      "sourceHash": "bd6bda898cbd2cbba50ab1a97c4322176cb195899e0755634e7e545fd5a68cd7",
+      "text": "結合實際題意、來源和限制，閱讀七題的施虐研究維度均值；不作診斷、分型或人群排名。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/seo/title": {
+      "sourceHash": "3f3f96373de83777e24d5242c4a25bc127e14d384c44991703185ffa27d46e46",
+      "text": "SD4施虐研究維度完整說明"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/seo/description": {
+      "sourceHash": "985e904fd327a2a2a68195b33b0c3720998c7da3938ac110efe06216be3774f6",
+      "text": "了解SD4施虐研究維度七題的內容、原始均值、缺失處理與解釋限制，完整指南免費。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/scoreReading": {
+      "sourceHash": "cafb6430298f6ee0bc62086958670ca943e3970b883caca9f71163d220c85534",
+      "text": "需要七條數值有效，原始和除以7；任意未評分就不生成本項個人均值。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/0/title": {
+      "sourceHash": "446af834aa1208dcaa85d8ad086f23a0fb9f24fb323a75cd9e79901b9fe42c8d",
+      "text": "一組內容有所不同的七題"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/0/paragraphs/0": {
+      "sourceHash": "5f2fbb05396fdd4cbc8e4c2becf6833fb0344d5094e8a8c5826ecf58ea978a13",
+      "text": "SD4施虐分量表包括看拳腳打鬥的興奮、喜歡暴力影視遊戲、覺得別人摔倒好笑、暴力運動、認為有些人該受苦、為尋開心而線上刻薄評論，以及知道怎樣用言語傷人。這些內容在發表版研究工具中相關，卻不是相同行動。均值較高只記錄對這七條更認同，不證明喜歡所有痛苦，也不確定發生過具體傷害。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/1/title": {
+      "sourceHash": "4497016fbd1cdbfb19bd7ab99d6813840bf598ac39975969f9d6e6a966ca060a",
+      "text": "虛構媒介不能證明現實傷害"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/1/paragraphs/0": {
+      "sourceHash": "f93f25cc39d98124f3b9addd4fc20ede54124cc2e6847b5f72467f31994dd59f",
+      "text": "喜歡虛構的暴力遊戲，不等於傷害真人；觀看體育也不同於主動攻擊，知道言語能傷人也不同於在某次交流中這樣做過。不同陳述共同形成均值，因此逐題模式很重要。同一數字可能來自完全不同內容的認同，報告不能推斷個體觀眾或玩家在媒介之外會怎樣行動。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/2/title": {
+      "sourceHash": "1755300b0f091ae8c6d34482598423b4c3f581b65ce25b524605c7e2f5afd973",
+      "text": "分數不作道德或安全裁決"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/2/paragraphs/0": {
+      "sourceHash": "45ddf80b9c042174b7beddd5e475ee07dda2608453769719b67ced83951d256c",
+      "text": "作者的研究術語不是這裡分配的個人身份。這個分量表不診斷性興趣或障礙，不識別施虐者，不決定關係是否安全，也不把人按好壞排序；這裡不設界線。低均值不認證善良，高均值本身也不確定意圖、嚴重程度或事件責任。現實疑慮需要具體證據與適當支援，不能讓這個平均數裁決。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/3/title": {
+      "sourceHash": "75e3360c569447b6f9de11aa651915c3c6f33a216a25043809c04836a352f149",
+      "text": "痛苦、挑釁與理解分別保留"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/3/paragraphs/0": {
+      "sourceHash": "ac55a4d07c9648e02e839445370923f18a952efc77c07ceb92dec12a97be1b31",
+      "text": "一條涉及為尋開心而發刻薄評論，另一條是對誰該受苦的寬泛看法。記起一次經歷，不會讓網站知道別人感受或互動如何發展；量表也不確定你為何選擇某個答案。對侮辱交流、幽默或競爭的理解可能隨場合與語言不同。即使數值作答和計算完整，這些限制仍然存在。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/4/title": {
+      "sourceHash": "5fa9e0db4bbe8030f1ba865a7a8b19df8e7d90afb502989c90fb999a29cc1ad5",
+      "text": "第四個分量表有獨立來源身份"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/4/paragraphs/0": {
+      "sourceHash": "0f971e36ba646dc23d99799c3f413d571cc75c84cd1732bd4c8faea68e036e06",
+      "text": "SD4在其他三個研究分量表之外設定施虐分量表，四組各七題。這不使第四項成為其他Mini分數、幽默偏好或競品四型別遊戲的補丁。本頁保留髮表版28條英文、五個認同選項和四組同向計分鍵；可選未評分及缺一條便不顯示均值，是網站擴充套件，不是作者驗證過的缺失資料處理。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/5/title": {
+      "sourceHash": "71b0c7451dabde3e5e64b0c23440abe9f137dcca5094667460c3aff6dec64e2f",
+      "text": "留意一種理解，不用傷害作測試"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/5/paragraphs/0": {
+      "sourceHash": "ed29f9ce2754d65cfb5a2956e6160207ada0206e4795dc82ed0c5e2e34b2a178",
+      "text": "如想繼續觀察，可留意自己怎樣理解一條媒介、體育或線上評論陳述。無需重現情境、挑釁任何人、向別人找證據或披露私事；分開想像場景、真實行動和後果。這裡不建議行為實驗。可以保留本項未評分、讀四篇任意公開指南，或不判定研究標籤對自己意味著什麼就結束。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/6/title": {
+      "sourceHash": "f009f7ee0b9ae5bcbc64765d5a09d1c3ffaa0750931a4c10aabf7832e987285d",
+      "text": "來源、語言與版本限制"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/6/paragraphs/0": {
+      "sourceHash": "b82f9afb4a4173f607267859895fdc6c3631e1e794ffff9c741441e25bdd757f",
+      "text": "本頁採用共同作者Erin Buckels的SD4專案頁發表的28條英文和五個認同選項，並與Delroy Paulhus提供的工具文件逐題核對。Paulhus把SD4列為無需另行許可即可使用的公有領域工具。所引論文為Paulhus、Buckels、Trapnell與Jones發表於2021年的文章。中文是本站工作譯文，不是經驗證的中文版；原工具發表不意味著已建立本站使用者或譯文的效度、常模或準確性。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/7/title": {
+      "sourceHash": "4e100d93b0d17379f68a0ad623d8e4b76b0f409919b8964cc8f0813cd98b7dca",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/profiles/3/sections/7/paragraphs/0": {
+      "sourceHash": "880cd5bbfeae83e0671dbb3de221d66fb6bf4ca0545ae0993ad57459f1e04932",
+      "text": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是數值中立，不代表資料缺失。28條全部同向，零反向。每個分量表七條數值有效時，將原始和除以七，再顯示兩位小數。例如1、2、3、4、5、3、3之和21，均值3.00。任意一條未評分，該分量表就不顯示均值，不插補任何數值；不計算總分、主要型別、百分位或界線。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/guide/0/title": {
+      "sourceHash": "b6f2a97c5eb870224eda67eb635a4c322445a7d884f664cb6bca2af3d4a42d3b",
+      "text": "SD4發表版與Mini分別保留"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/guide/0/paragraphs/0": {
+      "sourceHash": "ab0207ab189c43d03d4e6e42264904754f11e63d373c1d53f56d81e316cdfec0",
+      "text": "SD4是作者的28題研究版本；費馬原創Mini 18題主題觀察採用不同題庫、選項和覆蓋，兩者分數不換算，均不提供臨床診斷。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/guide/1/title": {
+      "sourceHash": "96dec21af24c60f661fa81771f78835253b605f9adc03e1b4f0848b1833e1772",
+      "text": "僅當前頁面記憶體"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/guide/1/paragraphs/0": {
+      "sourceHash": "80eca6b7e0e1e3ddb40ce63e3041c25ad2ed63c8b7772428ea2962ef34f441dc",
+      "text": "不儲存草稿，不傳送測試流程統計，不生成個人結果URL，不分享個人結果。重新整理、切切換語言或離開會丟棄本次作答；保留未評分仍可讀所有指南。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/0/question": {
+      "sourceHash": "d9c559baea75b8a746a453dc05a71c9c539fdab93be9dcda05a668b9b043b113",
+      "text": "這是SD4發表版嗎？"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/0/answer": {
+      "sourceHash": "9b776574b61f1926d68fb56daf0592c8eef21078fadfffa0fba30ab6ca199059",
+      "text": "英文保留全部28條發表版陳述、順序、五個認同選項及四組七題同向計分鍵。中文為本站工作譯文；未評分選項與缺失時不生成均值是網站擴充套件。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/1/question": {
+      "sourceHash": "8a776f09dd14a465686e9ee681697f95cc7b96ec02e805e8fab5fc653a726dc2",
+      "text": "會診斷障礙或分配黑暗人格型別嗎？"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/1/answer": {
+      "sourceHash": "9c5ede396d330b96892823c33f1b1618dc2483d606de8e3280b65ecd75f5c459",
+      "text": "不會。四項原始均值分別保留，沒有總分、主導型別、嚴重程度、安全判斷、常模百分位或臨床診斷。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/2/question": {
+      "sourceHash": "fe267a4a9e142eff74fcba96a38ed27ff5ca8efecb6f2aabcded81b224f0a3c9",
+      "text": "不作數值回答會怎樣？"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/2/answer": {
+      "sourceHash": "53079848fff272d01843d1485185819130c9acd46b86eafbef8058b4e57af922",
+      "text": "選擇未評分，仍可正常完成。每項需要七條數值有效才有均值，一條未評分只讓該項不顯示均值；四篇全文仍開放。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/3/question": {
+      "sourceHash": "b6c17b41f62eb82f05d9b7c367d24b290bc40c4d33394cc47354a144cd761170",
+      "text": "3是中立回答嗎？"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/3/answer": {
+      "sourceHash": "38b334f3a780936268efa9cd29f46fe179ebfb1cb743ba33797095923f4ff579",
+      "text": "是。發表版選項為中立，計為3。不確定、題意不適用或不願回答可另選未評分，缺失不補3或0。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/4/question": {
+      "sourceHash": "c8397e93db04b9a368bc441c166c31e42cd7c82600ef2a0cb9025c49a39f8104",
+      "text": "答案會被儲存或分享嗎？"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/4/answer": {
+      "sourceHash": "e4b90ac29aba08a6124d078fec19fd968ed4c43c18cda00925eba728eada7c45",
+      "text": "答案只留當前頁面記憶體，不儲存草稿、不傳送測試流程統計、不分享個人結果。重新整理、切換語言或離開會丟失作答，公開指南連結不含答案或均值。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/5/question": {
+      "sourceHash": "0d7858e0fa4d55bbc72ee19199b800f9a5c9e1e4aa4bef7cf4a7da6d0d06ef4c",
+      "text": "能與Mini 18題觀察換算嗎？"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/faq/5/answer": {
+      "sourceHash": "190d47fa9d4d58fb40164f9f0622bc83ad0413ce1389e814ccca999da155fc53",
+      "text": "不能。兩者題目、選項、主題定義和缺失規則不同；原Mini作為獨立原創觀察保留，不改名、不被SD4替代。"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/references/0/title": {
+      "sourceHash": "0adbbcf871747ac40783d69ec391bc9f166942ef7eb626680a25f73f0a245e6a",
+      "text": "作者SD4題目、選項與計分鍵"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/references/1/title": {
+      "sourceHash": "d3c561c247d3886777f94e0c9fc4a7592c0bf49a8e8e2362f2a3185fd8001786",
+      "text": "Paulhus工具與公有領域授權"
+    },
+    "lib/questionnaires/data/dark-tetrad-sd4.json/references/2/title": {
+      "sourceHash": "47bc032fd3677a916d5fa0fb5c04329a5b976bcf8d490eb59c8bd4ea3be0836f",
+      "text": "Paulhus等（2021）：黑暗人格篩查研究"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/machiavellianism/0/title": {
+      "sourceHash": "88d664f89f370c3a05b092ebb764632b0fe91e6d79001c18c8e65aff01e253b5",
+      "text": "計畫與影響並不是同一行動"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/machiavellianism/0/paragraphs/0": {
+      "sourceHash": "ca5f187e46f0f53fed0cd479c979d92c6161cc7fcbf0725026214684fd58a92a",
+      "text": "補充原創虛構情境：虛構的寧七題依次選1、2、3、4、5、3、3，喬選5、4、3、2、1、3、3，兩項原始和均21、均值3.00，保密、低調、計畫等陳述上的認同卻不同。寧為普通活動列計畫，也不證明其實施過操縱。網頁只歸納本人選擇，沒核實動機、其他人的意圖或某件事的責任；同一均值不是同一行為檔案。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/machiavellianism/1/title": {
+      "sourceHash": "6a5d926daa5fb2e278f1f01e1db3f8a948aa26f11952741c3bacda9dfce38d73",
+      "text": "可選地看一條具體看法"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/machiavellianism/1/paragraphs/0": {
+      "sourceHash": "c4a3511eafe7fe542888827145c48db5c81458559e86ee1653d2c1ca8223c950",
+      "text": "可選討論提示：“怎樣區分一條信念、一個可觀察行動與未核實的意圖？”只使用上述虛構人物與資訊，說明已知、推斷與未知；可以不同意、拒絕回答或停止。無需交換本人分數、法律或暴力經歷、他人身份，不邀請任何人驗證誰更“黑暗”，也不以拒絕討論推斷人格。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/machiavellianism/2/title": {
+      "sourceHash": "4856bed2ad365abeec22815bca551341b0f0f3239db147a47d8a107a296a0f92",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/machiavellianism/2/paragraphs/0": {
+      "sourceHash": "7b83160c3b90a380993ce2e00e69b3e4a496a6bac8cdc81ad4afc6ec565f5ad1",
+      "text": "本頁為發表版SD4的28條英文自報陳述，四組固定各七條，同向計分、零反向。中文為本站工作譯文，未獨立驗證或建立語言等值。原選項為1非常不同意、2不同意、3中立、4同意、5非常同意；3不是缺答。未評分為網站另加選項，可表示不願回答、不確定或題意不適用，網頁不區分其具體原因。28題各選給定項即可完成；某組七條全為數值時，用原始和7至35除以7得均值1至5，再顯示兩位小數，不先舍入中間均值。任一未評分則僅該組不顯示均值或部分原始和，不補0、不填3、不按剩餘題折算；有效數與未評分數仍可見，其他完整組獨立保留。全未評分也可完成，四篇八節全文始終開放，不需補答、註冊或支付。沒有統一回憶時段，不另加過去一月、一年或頻率解釋。四項不相加、不排名、不選最高型別、不生成黑暗百分比、人口百分位、臨床或危險性界線；與Mini 18題、SD3、Dirty Dozen及其他問卷不互換。發表研究、作者工具與公有領域許可不驗證此網頁、工作中譯或本站使用者常模，也不為編輯新增例子背書。研究名稱不證明道德、疾病、犯罪、意圖、收入、性興趣、他人感受或關係安全；低值也不是無害證明。數字完整不等於獨立核實了自報，重測差異不能確定真實改變、原因或達到可靠變化閾值。新增例子為虛構，討論可以只分清題意和證據，不替別人作答、不要求確認或披露敏感經歷，不建議操縱、挑釁、傷害或實際行為實驗。可讀完即止，不需要承擔社交任務。答案僅留當前頁面記憶體，無草稿、測試流程統計、個人結果URL或個人結果分享按鈕；重新整理、切換語言或離開後不提供恢復，退出清空，重測從空白開始。公開四份指南內容對人人相同，不帶個人均值或答案；截圖、瀏覽器記錄和旁人看屏不因清空而被抹除。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/narcissism/0/title": {
+      "sourceHash": "2d3fa978fe2c21004f2592c1e1a3ea0aa15f226ea9791597f8087609a724b3cf",
+      "text": "顯眼與受到稱讚可以不同"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/narcissism/0/paragraphs/0": {
+      "sourceHash": "67b109fefeeefe85505d2a9af91f15ba7e08ef7756d0033638c30d2c66e11c30",
+      "text": "補充原創虛構情境：虛構的沐對“偶爾展示”較認同，對“沒我集體活動無聊”不認同；思的回答相反，七題仍可能同為21、均值3.00。兩人均值都不能核實真實領導力、別人喜不喜歡或將來是否成名。若其中一題選未評分，即使另外六條很高，也不按六條生成本項均值，更不據此給人物補一個人格障礙標籤。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/narcissism/1/title": {
+      "sourceHash": "a425a81934ada458edf040ffa67844e6e2d28e2506d00ab666fa9a6cd34652a7",
+      "text": "觀察時不必索取確認"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/narcissism/1/paragraphs/0": {
+      "sourceHash": "3ecaf45542b04d0e299d215b624e8442bd5b91a611e569cab2316f27e9a867c7",
+      "text": "可選討論提示：“怎樣談具體自我看法，而不把均值當成別人評價或臨床結論？”只使用上述虛構人物與資訊，說明已知、推斷與未知；可以不同意、拒絕回答或停止。無需交換本人分數、法律或暴力經歷、他人身份，不邀請任何人驗證誰更“黑暗”，也不以拒絕討論推斷人格。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/narcissism/2/title": {
+      "sourceHash": "3be5e1bfbe661b569d80b99875ff57a327349b8f369f1914bd9c831c6f0613d6",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/narcissism/2/paragraphs/0": {
+      "sourceHash": "608d74e06b70728b7beb3d3ce828dbddd76b38d3da2c36ab844654f259b31636",
+      "text": "本頁為發表版SD4的28條英文自報陳述，四組固定各七條，同向計分、零反向。中文為本站工作譯文，未獨立驗證或建立語言等值。原選項為1非常不同意、2不同意、3中立、4同意、5非常同意；3不是缺答。未評分為網站另加選項，可表示不願回答、不確定或題意不適用，網頁不區分其具體原因。28題各選給定項即可完成；某組七條全為數值時，用原始和7至35除以7得均值1至5，再顯示兩位小數，不先舍入中間均值。任一未評分則僅該組不顯示均值或部分原始和，不補0、不填3、不按剩餘題折算；有效數與未評分數仍可見，其他完整組獨立保留。全未評分也可完成，四篇八節全文始終開放，不需補答、註冊或支付。沒有統一回憶時段，不另加過去一月、一年或頻率解釋。四項不相加、不排名、不選最高型別、不生成黑暗百分比、人口百分位、臨床或危險性界線；與Mini 18題、SD3、Dirty Dozen及其他問卷不互換。發表研究、作者工具與公有領域許可不驗證此網頁、工作中譯或本站使用者常模，也不為編輯新增例子背書。研究名稱不證明道德、疾病、犯罪、意圖、收入、性興趣、他人感受或關係安全；低值也不是無害證明。數字完整不等於獨立核實了自報，重測差異不能確定真實改變、原因或達到可靠變化閾值。新增例子為虛構，討論可以只分清題意和證據，不替別人作答、不要求確認或披露敏感經歷，不建議操縱、挑釁、傷害或實際行為實驗。可讀完即止，不需要承擔社交任務。答案僅留當前頁面記憶體，無草稿、測試流程統計、個人結果URL或個人結果分享按鈕；重新整理、切換語言或離開後不提供恢復，退出清空，重測從空白開始。公開四份指南內容對人人相同，不帶個人均值或答案；截圖、瀏覽器記錄和旁人看屏不因清空而被抹除。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/psychopathy/0/title": {
+      "sourceHash": "6cac5462a0c5cab87dc6a7701319d7672bf78151ca04cb0588691a6ee61d818a",
+      "text": "敏感題可以不作數值回答"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/psychopathy/0/paragraphs/0": {
+      "sourceHash": "a30b13cbbdf3886f0d1d26a5a9fdbef9a7e9d6589b78946b29f07b8deef26be9",
+      "text": "補充原創虛構情境：虛構的羽對過去事件的一題不願作數值回答，明確選未評分；安七題全有效，和為19，顯示19÷7=2.71。網頁可同時保留羽本項資料不足與安的均值，但不能推斷羽隱瞞什麼、安是否危險或事件如何發生。2.71來自原始和，不先把通用計分的單小數摘要當成2.7再轉為2.70。其他完整維度照常獨立保留。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/psychopathy/1/title": {
+      "sourceHash": "4bc76e054a6aebe226436dfc130a04bc5a0991a52c65c3a60fc59c963ece390b",
+      "text": "讓進一步觀察保持私密和具體"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/psychopathy/1/paragraphs/0": {
+      "sourceHash": "77e677d18f0e9ff1e7b26cf08e443a7297cf71e6be2b60402166d24a9a75ef35",
+      "text": "可選討論提示：“怎樣尊重未評分而不猜原因，並把原始計算與對人的推斷分開？”只使用上述虛構人物與資訊，說明已知、推斷與未知；可以不同意、拒絕回答或停止。無需交換本人分數、法律或暴力經歷、他人身份，不邀請任何人驗證誰更“黑暗”，也不以拒絕討論推斷人格。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/psychopathy/2/title": {
+      "sourceHash": "b1a584e8225b6369492488554668d2e3445ee499e30fa557387293219efd0088",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/psychopathy/2/paragraphs/0": {
+      "sourceHash": "1cbcedebce20ea56bfdee2f337bb1eafc7d0c1a088a0982138a4137e787c1d24",
+      "text": "本頁為發表版SD4的28條英文自報陳述，四組固定各七條，同向計分、零反向。中文為本站工作譯文，未獨立驗證或建立語言等值。原選項為1非常不同意、2不同意、3中立、4同意、5非常同意；3不是缺答。未評分為網站另加選項，可表示不願回答、不確定或題意不適用，網頁不區分其具體原因。28題各選給定項即可完成；某組七條全為數值時，用原始和7至35除以7得均值1至5，再顯示兩位小數，不先舍入中間均值。任一未評分則僅該組不顯示均值或部分原始和，不補0、不填3、不按剩餘題折算；有效數與未評分數仍可見，其他完整組獨立保留。全未評分也可完成，四篇八節全文始終開放，不需補答、註冊或支付。沒有統一回憶時段，不另加過去一月、一年或頻率解釋。四項不相加、不排名、不選最高型別、不生成黑暗百分比、人口百分位、臨床或危險性界線；與Mini 18題、SD3、Dirty Dozen及其他問卷不互換。發表研究、作者工具與公有領域許可不驗證此網頁、工作中譯或本站使用者常模，也不為編輯新增例子背書。研究名稱不證明道德、疾病、犯罪、意圖、收入、性興趣、他人感受或關係安全；低值也不是無害證明。數字完整不等於獨立核實了自報，重測差異不能確定真實改變、原因或達到可靠變化閾值。新增例子為虛構，討論可以只分清題意和證據，不替別人作答、不要求確認或披露敏感經歷，不建議操縱、挑釁、傷害或實際行為實驗。可讀完即止，不需要承擔社交任務。答案僅留當前頁面記憶體，無草稿、測試流程統計、個人結果URL或個人結果分享按鈕；重新整理、切換語言或離開後不提供恢復，退出清空，重測從空白開始。公開四份指南內容對人人相同，不帶個人均值或答案；截圖、瀏覽器記錄和旁人看屏不因清空而被抹除。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/sadism/0/title": {
+      "sourceHash": "7b792402e0012c73f99cc021a3737f11fdf9d0886e63283b02c190e148164208",
+      "text": "虛構媒介不能證明現實傷害"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/sadism/0/paragraphs/0": {
+      "sourceHash": "f85507a4941adbf8370fdba2892f7bcb9dfe3e6c9d5d911c896fa0ffa513140d",
+      "text": "補充原創虛構情境：虛構的悅較認同一條虛構媒介偏好，卻不認同為取樂發刻薄評論；橙模式不同，也可能得到相同七題均值。這個數字不能把觀看內容變成真實傷害、把知道言語能傷人變成已經傷害過誰，也不推斷性興趣或關係安全。只需談題意怎樣被理解，不重看刺激材料、不挑釁或讓真人承受某種“驗證”。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/sadism/1/title": {
+      "sourceHash": "87d162f16ef190648ccc7706bbdf39538132f688f60ce5e37dba6510ce176546",
+      "text": "留意一種理解，不用傷害作測試"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/sadism/1/paragraphs/0": {
+      "sourceHash": "9c69981e1dbae2db2d790a15923324a1a622416708d5803c900c10652b63d27a",
+      "text": "可選討論提示：“怎樣區別媒介、信念、真實行為與後果，同時不重演任何傷害？”只使用上述虛構人物與資訊，說明已知、推斷與未知；可以不同意、拒絕回答或停止。無需交換本人分數、法律或暴力經歷、他人身份，不邀請任何人驗證誰更“黑暗”，也不以拒絕討論推斷人格。"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/sadism/2/title": {
+      "sourceHash": "42835d917863c6091b08fb801095fd30202cd86c4c667678ae959dc8b613b0e6",
+      "text": "七條同向評分與原始均值"
+    },
+    "lib/questionnaires/result-content/dark-tetrad-sd4.json/sadism/2/paragraphs/0": {
+      "sourceHash": "3f074b9e51d691502775a81f3f577d6b697d7ede9c45232711988eab3ac583e2",
+      "text": "本頁為發表版SD4的28條英文自報陳述，四組固定各七條，同向計分、零反向。中文為本站工作譯文，未獨立驗證或建立語言等值。原選項為1非常不同意、2不同意、3中立、4同意、5非常同意；3不是缺答。未評分為網站另加選項，可表示不願回答、不確定或題意不適用，網頁不區分其具體原因。28題各選給定項即可完成；某組七條全為數值時，用原始和7至35除以7得均值1至5，再顯示兩位小數，不先舍入中間均值。任一未評分則僅該組不顯示均值或部分原始和，不補0、不填3、不按剩餘題折算；有效數與未評分數仍可見，其他完整組獨立保留。全未評分也可完成，四篇八節全文始終開放，不需補答、註冊或支付。沒有統一回憶時段，不另加過去一月、一年或頻率解釋。四項不相加、不排名、不選最高型別、不生成黑暗百分比、人口百分位、臨床或危險性界線；與Mini 18題、SD3、Dirty Dozen及其他問卷不互換。發表研究、作者工具與公有領域許可不驗證此網頁、工作中譯或本站使用者常模，也不為編輯新增例子背書。研究名稱不證明道德、疾病、犯罪、意圖、收入、性興趣、他人感受或關係安全；低值也不是無害證明。數字完整不等於獨立核實了自報，重測差異不能確定真實改變、原因或達到可靠變化閾值。新增例子為虛構，討論可以只分清題意和證據，不替別人作答、不要求確認或披露敏感經歷，不建議操縱、挑釁、傷害或實際行為實驗。可讀完即止，不需要承擔社交任務。答案僅留當前頁面記憶體，無草稿、測試流程統計、個人結果URL或個人結果分享按鈕；重新整理、切換語言或離開後不提供恢復，退出清空，重測從空白開始。公開四份指南內容對人人相同，不帶個人均值或答案；截圖、瀏覽器記錄和旁人看屏不因清空而被抹除。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/0/question": {
+      "sourceHash": "4fbfff1b8f2609939808435329c0fa7e75822b3ab1220f1235adc5e498afc25e",
+      "text": "Short Dark Tetrad是什麼意思？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/0/answer": {
+      "sourceHash": "0b10ed3a9ec87ff4b78f546767f22841d82ead0a23533b0ef957b8348b82dc1c",
+      "text": "它是包含四個七題研究分量表的簡短自報工具名稱。名稱指測量內容，不是賦予作答者的黑暗身份。不生成個人均值也能閱讀全部四篇解釋。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/1/question": {
+      "sourceHash": "33f801ef06c6cffd66b7ceac2a59fc54994cd68b8fa5f16e6ec2faf844481bc6",
+      "text": "SD4有反向題嗎？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/1/answer": {
+      "sourceHash": "188e83c0fa419e18e06db752bd519445e9bb5e083d4c2a9584fd077c1d624271",
+      "text": "沒有。本版二十八條發表題全部直接按1至5計分。[1] 不要套入其他問卷的反向鍵，也不要將不同意不愉快陳述反記成高分。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/2/question": {
+      "sourceHash": "e7fb26cab66e3399fd9f17675bc808b2fb8d2494e62b56255c5b599b5a9ccfda",
+      "text": "報告為什麼顯示2.86而不是2.9？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/2/answer": {
+      "sourceHash": "2463cb31bc8daf6d6a2e0344754c928c0ec3e3ee9f76f009fc5fc28fdfd9e839",
+      "text": "報告將完整分量表原始和除以七，並顯示兩位小數。和20得到20/7=2.86。這是顯示精度，不表示0.01的差異具有心理學意義。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/3/question": {
+      "sourceHash": "6d08e1c44017c62ca9e368a7ee3defa6ae10e28ef1b08d840153e4703f06e393",
+      "text": "3.00表示平均黑暗程度嗎？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/3/answer": {
+      "sourceHash": "d7d71f1d218e961ea3dd4e2b0233c530ae126e69e28c470a09d5c248b4486fc6",
+      "text": "不是。3是中立選項，3.00也可由多種回答分佈產生。它不是人群常模、百分位或分配任何身份的界線。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/4/question": {
+      "sourceHash": "0cf4f51ce1afd77a687e7dbc4d646bd1fdcfa61bd992b6a0f4b45ba2475192ce",
+      "text": "喜歡暴力遊戲能證明現實中的殘酷嗎？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/4/answer": {
+      "sourceHash": "8778e9afa132890f950c4ab254ddfb937d349336ab4758d555417aa402d6cea9",
+      "text": "不能。施虐題組包含不同的媒體、旁觀、觀念及言語內容。某條認同或共同均值，不能確立實際傷害、動機或性興趣。應閱讀具體陳述，不把名稱當成證據。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/5/question": {
+      "sourceHash": "f1082606fe97004d37c61f9d4e99c0746228fc64aa5ff5b895fb574749862403",
+      "text": "發表研究能驗證本站中文措辭嗎？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/5/answer": {
+      "sourceHash": "beb9fc2b70d6977e693017ff7e590458c308ec0e87c8dfe1fc6e7a8ecc797068",
+      "text": "不能。原工具證據與新譯文是不同問題。本中文版本是工作譯文，尚未建立測量等值或本地常模。計算相同，不使不同語言的分數可互換。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/6/question": {
+      "sourceHash": "d750db33ee9e3e51b5ea6d0d1ce747d158a659222fd416af8519a9ad56af0dbd",
+      "text": "能替別人回答或據此判斷關係嗎？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/6/answer": {
+      "sourceHash": "7180ac0fa1753b46954de7d9292e84cdf4a2c3abbbf6b6a5779a500f9bbc21f2",
+      "text": "不能。本頁供成年人自報。猜測回應不能確立他人的特質、動機或安全性，均值較低也不認證無害。它不是伴侶選擇或招聘工具。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/7/question": {
+      "sourceHash": "7667d363ac8dbbfe70aeb09c8e26f635cca7f3a2fdf55fba7fccf534c270c9a2",
+      "text": "必須繼續其他測試才能看完整內容嗎？"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingFaq/7/answer": {
+      "sourceHash": "4ad8a4074b58e462f455590a15fe805f29e9026121909df4c7646eb8469891a6",
+      "text": "不需要。四篇各八節的公開指南已完整開放。Mini是獨立可選版本，不提供分數轉換。可以不作答直接讀、保留未評分完成，或離開而不儲存任何內容。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingReferences/0/title": {
+      "sourceHash": "809633f7c9ea20dd1b78ff20b0dca79935359f8e1e0f0256265266c7ec98c5b7",
+      "text": "作者託管的SD4原始開發論文：方法、因素結構與限制"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/0/title": {
+      "sourceHash": "9027270dadd98bb59c1a07c9593bf089b41027b5e3e4336354d697ea85a98bc8",
+      "text": "SD4測什麼：分別閱讀四個研究維度"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/0/paragraphs/0": {
+      "sourceHash": "93cf8c7474fa3cf677fa4f5c4682e332e959d3c42f1bffa5a6c65423fd75270d",
+      "text": "簡式黑暗四特質量表（Short Dark Tetrad）是關於馬基雅維利主義、自戀、精神病態與施虐的自報研究工具。[1] 本頁保留二十八條英文陳述及四組各七題，中文為工作譯文。相應作答完整時呈現四項原始均值，並提供四篇完整解釋，不生成單一黑暗分或人格型別。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/0/paragraphs/1": {
+      "sourceHash": "16a27af7d94ab1ccf135b68f022c05c7ebeb2ac6a68b5a99f1a60e859938bc01",
+      "text": "每個名稱對應一組具體陳述。認同廣義觀念、自我描述或回憶事件，提供的資訊不同；均值不會還原事件或獨立驗證觀念。公開解釋在作答前即可閱讀，即使每條都選未評分也仍然開放。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/1/title": {
+      "sourceHash": "40bec9fc15a84ed528238b4321e2ed09f1bb047ddd98cbdb4d509ff1f5f31c86",
+      "text": "怎樣作答：認同程度、原題時間範圍與可選未評分"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/1/paragraphs/0": {
+      "sourceHash": "d88e6b2469deb94987caddd8fec931e4c760c4c19142b8fa994aaf0f65317379",
+      "text": "僅由成年人為自己作答，使用發表版從非常不同意到非常同意的五個認同選項。中點3表示中立。原題本沒有統一的近一個月、近一年或工作情境參照，應按各條本身措辭回答，不把每題強行放進附加時段。無需為僱主或理想結果尋找正確答案。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/1/paragraphs/1": {
+      "sourceHash": "b9248765b3cb65edbbc8adea679c07e462bc75777cbec7e04ce82ef698fa503e",
+      "text": "網站附加未評分選項，便於不願回答敏感陳述時直接保留，不必說明理由。它與中立不同，沒有數值。二十八題均需選擇才完成，但不要求全部選數字。一條未評分只讓所屬七題組不顯示均值；其他完整組及四篇指南仍可閱讀。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/2/title": {
+      "sourceHash": "e80d49da2352f246bb5532e455ba527c81c7034066d36e93610732eeb9dbc062",
+      "text": "馬基雅維利主義與自戀：區分策略觀念和自我看法"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/2/paragraphs/0": {
+      "sourceHash": "8117ef2c293654ddac437c733fd5b1c507fd622719955b5ba87dd6d4dc9473d9",
+      "text": "第一組包含隱私、重要人物的支援、衝突時機、計畫、奉承及對計畫成功的反應。關於策略剋制的陳述不是實際操縱的記錄。可能認同計畫而不認同奉承，應先看這種差異，再將研究名稱與日常決定聯絡。均值不能推斷同事意圖或自己的情境理解是否正確。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/2/paragraphs/1": {
+      "sourceHash": "5e486942fc8098a7b0cc605cf6caf893274607b5a56cbc57a9446aaa1a68fa00",
+      "text": "第二組注意自己感到特別、得到認可、說服力、可見度與預期成功。它記錄對這些自我看法的認同，不是領導能力、才華或所有人如何看你的獨立證據。偶爾喜歡公開展示與認為小組依賴自己在場，是不同陳述，不應讓均值抹去具體含義。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/3/title": {
+      "sourceHash": "0a3085053ec8a454eda3bc832b93ac118ff1a007434c1fb1b0d570f2050293c4",
+      "text": "精神病態與施虐：先讀題意，再理解名稱"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/3/paragraphs/0": {
+      "sourceHash": "b42c6c392a3b4057ba40a836b2771d9df8fed5a744cc7269dd1659c99bd895cb",
+      "text": "第三組混合自報的衝動行動、反對規則、風險及過去衝突或法律經歷。單一均值不說明事件何時發生、有哪些限制或別人觀察到什麼。敏感問題可以保留未評分。研究名稱不判定犯罪、危險性、責任或臨床狀況。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/3/paragraphs/1": {
+      "sourceHash": "9663125d627e93132737be5e756088a12995f85f60d807ee404a515cd9cd55af",
+      "text": "第四組包含對旁觀或虛構暴力、他人失利、痛苦及傷人言語的反應。喜歡某類媒體、廣義觀念及報告一次線上評論，不是同一行動。不能將共同均值當成實際傷害、性興趣或某人安全與否的證明。理解指南不需要行為實驗、試探或披露。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/4/title": {
+      "sourceHash": "776177fe06777702d1d58ab6dc846a80a71267267433a0ac7e6911237e033095",
+      "text": "SD4怎樣計分：七條同向評分、顯示兩位小數"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/4/paragraphs/0": {
+      "sourceHash": "6fff2c45917416ccb5092cf74015d9e9811652876c6084c6e79298a9c981a72b",
+      "text": "二十八題均為同向計分，沒有反向題。[1] 每個完整組將七條評分相加，直接用未舍入原始和除以七，報告顯示兩位小數。1、1、2、3、4、4、5相加為20，20/7顯示2.86。另一種作答分佈也能有相同原始和，因此數字不保留逐題差異。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/4/paragraphs/1": {
+      "sourceHash": "8686d9a2fe02271cc5d031c2b774b04744b61f35404a14c2631094a46b649670",
+      "text": "六條5及一條未評分，即使數字和為30，也不生成均值。缺失不由其他六條估算，也不改成0或3。網站要求七條完整是報告擴充套件規則，不是原作者驗證的缺失處理方法；四組分別應用該規則。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/5/title": {
+      "sourceHash": "d2176cd4dbb1f95e5ff3806827ea9c8caec3334a9d29ea13916b2f515c04973d",
+      "text": "科學證據：發表研究與本站尚未建立的解釋"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/5/paragraphs/0": {
+      "sourceHash": "05fc7301a3b520f0298b552d8ff23c200be1dbd064871b006cc2cd68348e6c20",
+      "text": "原始開發論文報告三項研究，總樣本2,527人。探索性分析逐步精簡初始題池，後續驗證性分析考察四因素結構；作者研究各分量表與其他測量的關係，同時承認四個構念間存在重疊。[4] 這些屬於工具開發結果，不是某位訪客的準確率或臨床界線。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/5/paragraphs/1": {
+      "sourceHash": "5af8b1e0ad87699d071dd93d4e0eae9e20a82b7b26cfd79f566ba3e0418dbbcc",
+      "text": "科學評價需要區分一致性、構念解釋、研究樣本與擬議用途。保留英文題目，不確立新的中文譯文測量等值或本站訪客常模。發表論文也區分簡短的亞臨床測量與臨床評估。[4] 本版不聲稱已具備自身中文驗證、人群百分位、篩選效度或可靠變化門檻。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/6/title": {
+      "sourceHash": "f592711481fbd2878895d340a3c9529bb98cc092b04b68e4f6ad627afe5760c5",
+      "text": "為什麼四項均值不合成總分、不選主型，也不換算SD3"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/6/paragraphs/0": {
+      "sourceHash": "a37f25188cd1cf0887f12febad7a9e7a406372db089afba8e9ede38c21ee4e87",
+      "text": "數值範圍相同，不表示四組題可以互換。3.00是某組回應的均值，不是人群平均或使人歸入某類別的等級。某項更大，不會產生經驗證的主要人格型別。本頁不顯示黑暗總分、常模排名、通過線或關係安全分類。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/6/paragraphs/1": {
+      "sourceHash": "8ff0f022dc27bdbc297c27891ed8d2b217eefda321d783f291304341d1723f4c",
+      "text": "SD4、二十七題SD3、Dirty Dozen及獨立的費馬Mini觀察，題組與報告規則不同。與大五或HEXACO有相近術語，也不提供分數轉換公式。比較讀法時應先確認工具、語言、選項及具體陳述；熟悉的名稱本身不能使兩個結果等同。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/7/title": {
+      "sourceHash": "0aefd5df5583f55fbe4f89f2fae26ecb45d775ea2b7ec413423913ecb5a44907",
+      "text": "私人反思、完整指南與直接作答"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/7/paragraphs/0": {
+      "sourceHash": "763e969854f5575b5c5ee8dcf633e6d31b5530ed2b31b051f35cef30ba8c198d",
+      "text": "如有幫助，可選一條陳述，私下區分自己相信什麼、實際做過什麼，以及哪些證據支援自己的解釋。無需替伴侶作答、請別人評判品格或求證名稱是否符合。重測變化可能涉及措辭理解或回應差異，本頁不能憑兩個均值量化持久人格改變。"
+    },
+    "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingSections/7/paragraphs/1": {
+      "sourceHash": "d94a9ae04e93ac9cb6d4a995d6150c0d02a8aadacab19f4ee063f285003c2507",
+      "text": "點選開始直接進入第一題，沒有必選同意框。二十八題及四篇各八節的指南免費，無需註冊。答案僅留當前頁面記憶體，不儲存草稿、不生成個人結果網址、不分享個人結果、不傳送測試流程統計。重新整理、切換語言或離開會丟棄作答；公開指南連結不含答案或分數。"
+    },
     "lib/questionnaires/data/freudian-personality.json/title": {
       "sourceHash": "d462208d89c732ff4454d448c4e248960c1fd1a10e9480f889df42c39878f118",
       "text": "弗洛伊德人格測試：原創歷史詞彙反思版"

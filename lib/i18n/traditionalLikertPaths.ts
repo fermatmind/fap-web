@@ -12,6 +12,8 @@ const profiles = {
   "rizz-test": ["showing-interest", "threading-a-reply", "offering-playfulness", "checking-the-invitation"],
   "feminine-energy": ["playful-warmth", "expressive-flair", "poetic-detail", "composed-clarity"],
   "music-taste-test": ["pop", "rock", "hip-hop", "electronic", "jazz", "western-classical", "acoustic-folk", "country"],
+  "dark-triad": ["status-recognition", "instrumental-influence", "impact-distance"],
+  "dark-tetrad-sd4": ["machiavellianism", "narcissism", "psychopathy", "sadism"],
   "egogram": ["critical-parent", "nurturing-parent", "adult", "free-child", "adapted-child"],
   "type-ab": ["time-urgency", "competitive-comparison", "waiting-irritation", "difficulty-stopping"],
   "learning-style": ["visual", "auditory", "reading-writing", "kinesthetic"],

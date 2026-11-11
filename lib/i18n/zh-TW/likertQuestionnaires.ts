@@ -1,3 +1,6 @@
+import { isSd4ConfigurationValid } from "@/lib/questionnaires/sd4";
+import { sd4LandingSections, sd4LandingFaq, sd4LandingReferences } from "@/components/questionnaires/Sd4LandingEditorial";
+import { darkTriadLandingSections, darkTriadLandingFaq } from "@/components/questionnaires/DarkTriadLandingEditorial";
 import { freudianLandingSections, freudianLandingFaq, freudianLandingReferences } from "@/components/questionnaires/FreudianLandingEditorial";
 import { erasOfYouLandingSections, erasOfYouLandingFaq, erasOfYouLandingReferences } from "@/components/questionnaires/ErasOfYouLandingEditorial";
 import { rizzLandingSections, rizzLandingFaq, rizzLandingReferences } from "@/components/questionnaires/RizzLandingEditorial";
@@ -55,6 +58,24 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "dark-triad": {
+    reading: "dark-triad",
+    attribute: "dark-triad",
+    load: () => import("@/lib/questionnaires/result-content/dark-triad.json"),
+    editorial: "DarkTriad",
+    prefix: "darkTriadLanding",
+    sections: darkTriadLandingSections,
+    faq: darkTriadLandingFaq,
+  },
+  "dark-tetrad-sd4": {
+    reading: "dark-tetrad-sd4",
+    attribute: "sd4",
+    load: () => import("@/lib/questionnaires/result-content/dark-tetrad-sd4.json"),
+    editorial: "Sd4",
+    prefix: "sd4Landing",
+    sections: sd4LandingSections,
+    faq: sd4LandingFaq,
+  },
   "freudian-personality": {
     reading: "freudian-personality",
     attribute: "freudian",
@@ -487,12 +508,13 @@ export async function loadTraditionalLikert(slug: string) {
   const edition = sources[slug as keyof typeof sources];
   const [source, { default: resultSource }] = await Promise.all([loadQuestionnaire(slug), edition.load()]);
   if (!source || source.kind !== "likert" || !isQuestionnaireConfigurationValid(source)) return null;
+  if (slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(source)) return null;
   const quiz = projectStoryCopy(source, `lib/questionnaires/data/${slug}.json`, units);
   const readings: Record<string, QuestionnaireSection[]> = projectStoryCopy(resultSource, `lib/questionnaires/result-content/${edition.reading}.json`, units);
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -535,6 +557,7 @@ export async function loadTraditionalLikert(slug: string) {
       case "freudian-personality": return projectStoryCopy(freudianLandingReferences, "components/questionnaires/FreudianLandingEditorial.ts/freudianLandingReferences", units);
       case "eras-of-you-test": return projectStoryCopy(erasOfYouLandingReferences, "components/questionnaires/ErasOfYouLandingEditorial.ts/erasOfYouLandingReferences", units);
       case "rizz-test": return projectStoryCopy(rizzLandingReferences, "components/questionnaires/RizzLandingEditorial.ts/rizzLandingReferences", units);
+      case "dark-tetrad-sd4": return projectStoryCopy(sd4LandingReferences, "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingReferences", units);
       default: return [];
     }
   })();
