@@ -38,6 +38,18 @@ describe("UX-03 report reading and domain export", () => {
     expect(screen.getByText("本次分档 极高")).toBeVisible();
     expect(context.facets[0].band).toBe("extreme_low");
   });
+  it("renders the Taiwan guide and scenario while preserving reported values and facet identities", () => {
+    const context = buildBig5ReadingContext({ projection: { trait_vector: [{ key: "O", mean: 2.7 }], facet_vector: [{ key: "O1", bucket: "extreme_low" }] }, includeFacets: true });
+    render(<Big5ReadingGuide context={context} locale="zh" displayLocale="zh-TW" />);
+    expect(screen.getByRole("region", { name: "五域與面向閱讀" })).toBeVisible();
+    expect(screen.getByRole("button", { name: /開放性.*均分 2.7/ })).toBeVisible();
+    fireEvent.click(screen.getByRole("button", { name: "展開全部面向" }));
+    expect(screen.getByText("O1 想像力")).toBeVisible();
+    expect(screen.getByText("本次分級 極低")).toBeVisible();
+    fireEvent.change(screen.getByRole("combobox", { name: "生活情境" }), { target: { value: "work" } });
+    expect(screen.getByText(/盡責性.*開放性/)).toBeVisible();
+    expect(context.facets[0]).toMatchObject({ code: "O1", band: "extreme_low" });
+  });
   for (const locale of ["zh", "en"] as const) {
     it(`makes all thirty existing facets reachable and records an optional action in ${locale}`, () => {
       const context = buildBig5ReadingContext({ projection: { trait_vector: [{ key: "O", mean: 2.7 }], facet_vector: BIG5_FACETS.map((row) => ({ key: row.facet_code, mean: 3.2 })) }, includeFacets: true });

@@ -89,10 +89,17 @@ export function Big5ResultShell({
   recommendedOffers: OfferPayload[];
 }) {
   const isZh = locale === "zh";
+  const taiwan = displayLocale === "zh-TW";
+  const displayedFormLabel = taiwan ? formSummaryLabel
+    ?.replace("90题标准版", "90題標準版")
+    .replace("120题完整版", "120題完整版") : formSummaryLabel;
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
   const historyHref = accessProjection?.actions.historyHref ?? localizedPath("/history/big5", locale);
   const compareHref = localizedPath("/history/big5/compare", locale);
-  const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}/take`, locale);
+  const retakeHref = historyDisplayHref(
+    localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}/take`, locale),
+    displayLocale,
+  );
 
   return (
     <div
@@ -106,25 +113,25 @@ export function Big5ResultShell({
       data-public-projection={projection ? "present" : undefined}
       className="space-y-8"
     >
-      <SelfUnderstandingDomainBadge locale={locale} />
+      <SelfUnderstandingDomainBadge locale={locale} displayLocale={displayLocale} />
       <Card className="border-slate-200 bg-white shadow-sm">
         <CardContent className="space-y-5 p-6 md:p-8">
           <div className="flex flex-wrap gap-2">
             <span className="rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700">
               {headline.typeCode || "BIG5"}
             </span>
-            {formSummaryLabel ? <span data-testid="big5-form-summary" className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{formSummaryLabel}</span> : null}
-            {qualityLevel ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "质量" : "Quality"} · {qualityLevel.toUpperCase()}</span> : null}
+            {displayedFormLabel ? <span data-testid="big5-form-summary" className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{displayedFormLabel}</span> : null}
+            {qualityLevel ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{taiwan ? "品質" : isZh ? "质量" : "Quality"} · {qualityLevel.toUpperCase()}</span> : null}
             {normsStatus ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "常模" : "Norms"} · {normsStatus}</span> : null}
           </div>
           {dimensions.length > 0 && showPrecisePercentiles ? <div data-testid="big5-dimensions"><DimensionBars dimensions={dimensions} /></div> : null}
         </CardContent>
       </Card>
 
-      <Big5ReadingGuide locale={locale} context={readingContext ?? buildBig5ReadingContext({ projection, normEvidence: { status_label: normsStatus, show_precise_percentiles: false }, quality: { level: qualityLevel }, includeDomains: visibleSections.some((section) => section.key === "domains_overview" && Boolean(section.blocks?.length)), includeFacets: visibleSections.some((section) => section.key === "facet_details" && Boolean(section.blocks?.length)) })} />
+      <Big5ReadingGuide locale={locale} displayLocale={displayLocale} context={readingContext ?? buildBig5ReadingContext({ projection, normEvidence: { status_label: normsStatus, show_precise_percentiles: false }, quality: { level: qualityLevel }, includeDomains: visibleSections.some((section) => section.key === "domains_overview" && Boolean(section.blocks?.length)), includeFacets: visibleSections.some((section) => section.key === "facet_details" && Boolean(section.blocks?.length)) })} />
 
       {visibleSections.length > 0 ? (
-        <nav aria-label={isZh ? "报告章节" : "Report sections"} className="flex flex-wrap gap-2 rounded-2xl border border-slate-200 bg-white p-4">
+        <nav aria-label={taiwan ? "報告章節" : isZh ? "报告章节" : "Report sections"} className="flex flex-wrap gap-2 rounded-2xl border border-slate-200 bg-white p-4">
           {visibleSections.map((section) => (
             <Link key={`${section.key}-nav`} href={`#${sectionAnchor(section.key)}`} className="rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-700">
               {text(section.title) || text(section.key)}
@@ -157,7 +164,7 @@ export function Big5ResultShell({
               locked
               locale={locale}
               scaleCode="BIG5_OCEAN"
-              ctaLabel={isZh ? "解锁报告" : "Unlock report"}
+              ctaLabel={taiwan ? "解鎖報告" : isZh ? "解锁报告" : "Unlock report"}
               normsStatus={normsStatus}
               retakeHref={retakeHref}
               showPrecisePercentiles={showPrecisePercentiles}
@@ -170,7 +177,7 @@ export function Big5ResultShell({
         {pdfAttemptId ? <PdfDownloadButton attemptId={pdfAttemptId} locked={reportLocked} accessProjection={accessProjection} locale={locale} taiwanPdf={taiwanPdf} /> : null}
         <Link href={historyDisplayHref(historyHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{displayLocale === "zh-TW" ? "歷史紀錄" : isZh ? "历史" : "History"}</Link>
         <Link href={historyDisplayHref(compareHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{displayLocale === "zh-TW" ? "比較" : isZh ? "对比" : "Compare"}</Link>
-        <Link href={historyDisplayHref(retakeHref, displayLocale)} className={buttonVariants({ variant: "outline" })}>{isZh ? "复测" : "Retake"}</Link>
+        <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>{taiwan ? "重新測驗" : isZh ? "复测" : "Retake"}</Link>
       </section>
 
       {recommendedOffers.length > 0 ? (
