@@ -1,3 +1,4 @@
+import { releasedCareerInterestEntries } from "./interestRelease";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
 const OCCUPATIONS = {
@@ -98,7 +99,7 @@ export function careerExplorationPilotPath(locale: DisplayLocale, pilot: CareerE
 }
 
 export function indexableCareerInterestPilots() {
-  return CAREER_INTEREST_PILOTS.filter((code) => CAREER_EXPLORATION_PILOT[code].indexable).flatMap((code) =>
+  const pilots = CAREER_INTEREST_PILOTS.filter((code) => CAREER_EXPLORATION_PILOT[code].indexable).flatMap((code) =>
     (["en", "zh"] as const).map((locale) => ({
       locale,
       path: careerExplorationPilotPath(locale, code),
@@ -106,6 +107,7 @@ export function indexableCareerInterestPilots() {
       summary: CAREER_EXPLORATION_PILOT[code].copy[locale].summary,
     }))
   );
+  return [...pilots, ...releasedCareerInterestEntries()];
 }
 
 export function isCareerPilotOnIndexHold(path: string): boolean {

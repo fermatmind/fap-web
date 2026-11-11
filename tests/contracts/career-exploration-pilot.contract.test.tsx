@@ -1,12 +1,14 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import AriPage, { generateMetadata as ariMetadata } from "@/app/(localized)/[locale]/career/interests/ari/page";
+import ReleasedInterestPage, { generateMetadata as releasedMetadata } from "@/app/(localized)/[locale]/career/interests/[code]/page";
 import AcPage, { generateMetadata as acMetadata } from "@/app/(localized)/[locale]/career/interests/ac/page";
 import { TraditionalCareerInterestPage, taiwanCareerInterestMetadata } from "@/components/career/TraditionalCareerInterestPage";
 import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { appendCareerInterestPilotSitemapEntries, buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
+import { getReleasedCareerInterest } from "@/lib/career/interestRelease";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
 afterEach(cleanup);
@@ -82,17 +84,43 @@ describe("six-page career exploration pilot", () => {
     expect(traditionalPath("/zh-TW/career/interests/ric")).toBeNull();
   });
 
-  it("only appends the exact indexable ARI paths to the public sitemap", () => {
+  it.each(["zh", "en"] as const)("serves the verified RCI candidates in %s", async (locale) => {
+    const props = { params: Promise.resolve({ locale, code: "rci" }) };
+    const topic = getReleasedCareerInterest("rci", locale)!;
+    const metadata = await releasedMetadata(props);
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.alternates?.canonical).toBe(`${getSiteUrlOrThrow()}${topic.path}`);
+    render(await ReleasedInterestPage(props));
+    const exact = within(document.getElementById("interest-exact")!.parentElement!);
+    for (const job of topic.exact) {
+      expect(exact.getByRole("link", { name: job.copy[locale].name })).toHaveAttribute("href", `/${locale}/career/jobs/${job.slug}`);
+    }
+  });
+
+  it("rejects an unpublished interest code", async () => {
+    await expect(ReleasedInterestPage({ params: Promise.resolve({ locale: "en", code: "si" }) }))
+      .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+  });
+
+  it("appends the thirteen published topics in both languages and omits held paths", () => {
     const existing = { loc: "https://fermatmind.com/zh/career", lastmod: "2026-11-10T00:00:00.000Z" };
     const backendEntries = buildPublicSitemapEntries({ items: [
       existing,
       { loc: "https://fermatmind.com/zh/career/recommendations/mbti/intj" },
       { loc: "https://fermatmind.com/en/career/interests/ac" },
     ] });
-    expect(appendCareerInterestPilotSitemapEntries(backendEntries)).toEqual([
-      { loc: "https://fermatmind.com/en/career/interests/ari" },
-      existing,
-      { loc: "https://fermatmind.com/zh/career/interests/ari" },
-    ]);
+    const topics = ["a", "ari", "c", "ce", "e", "ecs", "i", "irc", "r", "rc", "rci", "ric", "s"];
+    const expected = ["en", "zh"].flatMap((locale) =>
+      topics.map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
+    );
+    const entries = appendCareerInterestPilotSitemapEntries(backendEntries);
+    expect(entries).toContainEqual(existing);
+    expect(entries.filter(({ loc }) => loc !== existing.loc).map(({ loc }) => loc)).toEqual(expected);
+    const slugs = new Set(topics.flatMap((code) => {
+      const topic = getReleasedCareerInterest(code, "en")!;
+      expect(topic.exact.length).toBeGreaterThan(0);
+      return [...topic.exact, ...topic.related].map((job) => job.slug);
+    }));
+    expect(slugs.size).toBe(53);
   });
 });

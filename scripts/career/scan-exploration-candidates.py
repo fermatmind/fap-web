@@ -262,6 +262,35 @@ def audit(manifest, entries, interests, snapshot, manifest_dir):
     }
 
 
+def interest_release(report, entries, manifest_dir):
+    """Project the validated data into the bilingual public interest reader."""
+    topics = {
+        code.lower(): {group: result[group] for group in ('exact', 'related')}
+        for code, result in report['interest_topics'].items() if result['status'] == READY
+    }
+    published_slugs = {slug for topic in topics.values() for group in topic.values() for slug in group}
+    careers = {}
+    for slug in sorted(published_slugs):
+        candidate = report['careers'][slug]
+        if candidate['status'] != READY:
+            raise ValueError(f'ineligible release candidate: {slug}')
+        copy = {}
+        for key, locale in (('en', 'en'), ('zh', 'zh-CN')):
+            entry = entries[slug][locale]
+            data = (manifest_dir / entry['path']).read_bytes()
+            if hashlib.sha256(data).hexdigest() != entry['sha256']:
+                raise ValueError(f'manifest file mismatch: {slug}/{locale}')
+            subject = json.loads(data)['subject']
+            if (subject['canonical_slug'] != slug or not subject['name'].strip()
+                    or not subject['summary'].strip()):
+                raise ValueError(f'incomplete public summary: {slug}/{locale}')
+            copy[key] = {field: subject[field] for field in ('name', 'summary')}
+        careers[slug] = {
+            'onet': candidate['onet_code'], 'interest': candidate['interest_code'], 'copy': copy,
+        }
+    return {'sourceManifestSha256': report['manifest_sha256'], 'careers': careers, 'topics': topics}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path, required=True)
@@ -269,6 +298,7 @@ def main():
     parser.add_argument('--snapshot', type=Path, required=True, help='existing snapshot or new destination with --fetch')
     parser.add_argument('--fetch', action='store_true', help='read public production once, then save reduced evidence for offline re-runs')
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--interest-release', type=Path, help='export the eligible bilingual interest reader data')
     args = parser.parse_args()
     manifest, entries = package(args.manifest)
     onet_digest = hashlib.sha256(args.onet.read_bytes()).hexdigest()
@@ -281,6 +311,9 @@ def main():
     report = audit(manifest, entries, interests, snapshot, args.manifest.parent)
     report['onet_csv_sha256'] = onet_digest
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    if args.interest_release:
+        release = interest_release(report, entries, args.manifest.parent)
+        args.interest_release.write_text(json.dumps(release, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({
         'occupations': report['occupations'], 'status_counts': report['status_counts'],
         'mbti_distinct_candidate_sets': report['mbti_distinct_candidate_sets'],

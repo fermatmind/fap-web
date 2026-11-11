@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { GET as getRootSitemap } from "@/app/sitemap.xml/route";
 import { GET as getFamilySitemap } from "@/app/sitemaps/[family]/route";
 import {
+  appendCareerInterestPilotSitemapEntries,
   buildPublicSitemapEntries,
   buildPublicSitemapFamilyMap,
   buildPublicSitemapXml,
@@ -249,14 +250,9 @@ describe("public sitemap route", () => {
       params: Promise.resolve({ family: `${family}.xml` }),
     });
     const xml = await response.text();
-    const nativeCareerEntries = [
-      { loc: "https://fermatmind.com/en/career/interests/ari" },
-      { loc: "https://fermatmind.com/zh/career/interests/ari" },
-    ];
-    const expectedEntries = buildPublicSitemapFamilyMap([
-      ...appendFriendshipSitemapEntries(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload()))),
-      ...nativeCareerEntries,
-    ])[family];
+    const expectedEntries = buildPublicSitemapFamilyMap(appendCareerInterestPilotSitemapEntries(
+      appendFriendshipSitemapEntries(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload())))
+    ))[family];
 
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toContain("application/xml");

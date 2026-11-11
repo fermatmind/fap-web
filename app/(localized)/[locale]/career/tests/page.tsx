@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CAREER_EXPLORATION_PILOT, CAREER_INTEREST_PILOTS, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
+import { releasedCareerInterestEntries } from "@/lib/career/interestRelease";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -261,6 +262,13 @@ export default async function CareerTestsPage({ params }: PageProps) {
             <li key={code}>
               <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={careerExplorationPilotPath(locale, code)}>
                 {CAREER_EXPLORATION_PILOT[code].copy[locale].title}
+              </Link>
+            </li>
+          ))}
+          {releasedCareerInterestEntries().filter((entry) => entry.locale === locale).map(({ path, title }) => (
+            <li key={path}>
+              <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={path}>
+                {title}
               </Link>
             </li>
           ))}
