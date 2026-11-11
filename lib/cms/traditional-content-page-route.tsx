@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
-import { buildContentPagePath, getContentPageWithLastKnownGood } from "@/lib/cms/content-pages";
+import { buildContentPagePath, getContentPageWithLastKnownGood, isBigFivePolicySlug } from "@/lib/cms/content-pages";
 import { buildCmsHelpFaqItems, buildVisibleHelpFaqJsonLd } from "@/lib/cms/visible-help-faq";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -34,18 +34,27 @@ export async function renderTraditionalContentPage(slug: string) {
   const page = await contentPage(slug);
   const canonicalPath = buildContentPagePath(slug, "zh-TW");
   const faqItems = buildCmsHelpFaqItems(page);
+  const isBigFivePolicy = isBigFivePolicySlug(slug);
+  const originalPages = isBigFivePolicy ? await Promise.allSettled([
+    getContentPageWithLastKnownGood(slug, "zh"),
+    getContentPageWithLastKnownGood(slug, "en"),
+  ]) : null;
+  const hasOriginalPage = (index: number) => {
+    const result = originalPages?.[index];
+    return originalPages === null || (result?.status === "fulfilled" && result.value.value !== null);
+  };
   return <>
-    <JsonLd id={`content-page-webpage-${slug}`} data={buildWebPageJsonLd({
+    {(!isBigFivePolicy || page.schemaEnabled) && <JsonLd id={`content-page-webpage-${slug}`} data={buildWebPageJsonLd({
       path: canonicalPath, title: page.title, description: page.summary, locale: "zh-TW",
-    })} />
-    <JsonLd id={`content-page-breadcrumb-${slug}`} data={buildBreadcrumbJsonLd([
+    })} />}
+    {!isBigFivePolicy && <JsonLd id={`content-page-breadcrumb-${slug}`} data={buildBreadcrumbJsonLd([
       { name: "首頁", path: "/zh-TW" }, { name: page.title, path: canonicalPath },
-    ])} />
+    ])} />}
     {faqItems.length > 0 ? <JsonLd id={`help-faq-${slug}`} data={buildVisibleHelpFaqJsonLd(faqItems)} /> : null}
     <nav aria-label="頁面語言" className="mb-5 flex flex-wrap gap-5 text-sm">
       <span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span>
-      <Link href={buildContentPagePath(slug, "zh")} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
-      <Link href={buildContentPagePath(slug, "en")} lang="en" className="min-h-11 py-2 underline">English</Link>
+      {hasOriginalPage(0) && <Link href={buildContentPagePath(slug, "zh")} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>}
+      {hasOriginalPage(1) && <Link href={buildContentPagePath(slug, "en")} lang="en" className="min-h-11 py-2 underline">English</Link>}
     </nav>
     <ContentPageTemplate page={stripContentPageReaderMetadata(page)} locale="zh-TW" />
   </>;

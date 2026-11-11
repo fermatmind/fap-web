@@ -1,4 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
+import TraditionalMethodology, { generateMetadata as traditionalMethodologyMetadata } from "@/app/(traditional)/zh-TW/personality/big-five/methodology/page";
+import TraditionalSources, { generateMetadata as traditionalSourcesMetadata } from "@/app/(traditional)/zh-TW/personality/big-five/source-review-policy/page";
+import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { SITE_URL } from "@/lib/site";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { apiClient } from "@/lib/api-client";
 import { DISCOVERABLE_CONTENT_PAGE_KEYS, buildContentPagePath, getContentPageWithLastKnownGood, normalizeBigFivePolicyContentPage } from "@/lib/cms/content-pages";
@@ -30,6 +34,17 @@ function english(overrides: Partial<RecordInput> = {}): RecordInput {
   return record({ locale: "en", path: "/en/personality/big-five/methodology",
     canonical_path: "/en/personality/big-five/methodology", operator_approval_required: true,
     operator_approved_at: "2026-09-29T00:00:00Z", ...overrides });
+}
+
+function taiwanPolicy(slug: "methodology" | "source-review-policy" = "methodology", overrides: Partial<RecordInput> = {}): RecordInput {
+  const path = `/zh-TW/personality/big-five/${slug}`;
+  return record({
+    slug, path, canonical_path: path, locale: "zh-TW", is_indexable: false,
+    page_type: slug === "methodology" ? "methodology" : "trust",
+    title: "大五人格方法說明", content_md: "## 適用範圍\n\n供自我探索使用。",
+    headings: [{ key: "scope", title: "適用範圍" }],
+    ...overrides,
+  });
 }
 
 beforeEach(() => {
@@ -146,5 +161,67 @@ describe("Big Five ContentPage policy routes", () => {
     expect((await proxy(new NextRequest("https://fermatmind.com/zh/personality/big-five/methodology"))).status).toBe(410);
     vi.stubGlobal("fetch", vi.fn(async () => { throw new Error("API unavailable"); }));
     expect((await proxy(new NextRequest("https://fermatmind.com/zh/personality/big-five/methodology"))).status).toBe(200);
+  });
+});
+
+describe("Traditional Big Five policy readers", () => {
+  it.each([
+    ["methodology", TraditionalMethodology, traditionalMethodologyMetadata],
+    ["source-review-policy", TraditionalSources, traditionalSourcesMetadata],
+  ] as const)("renders the exact approved %s CMS body at its nested canonical", async (slug, Page, metadataForPage) => {
+    vi.mocked(apiClient.get).mockImplementation(async url => {
+      const locale = String(url).includes("locale=zh-TW") ? "zh-TW" : String(url).includes("locale=en") ? "en" : "zh";
+      const path = buildContentPagePath(slug, locale);
+      return { ok: true, page: taiwanPolicy(slug, { path, canonical_path: path, locale: locale === "zh" ? "zh-CN" : locale }) };
+    });
+    const path = `/zh-TW/personality/big-five/${slug}`;
+    const metadata = await metadataForPage();
+    expect(metadata.alternates).toEqual({ canonical: SITE_URL + path });
+    expect(metadata.robots).toMatchObject({ index: false });
+    const html = renderToStaticMarkup(await Page());
+    expect(html).toContain("供自我探索使用。");
+    expect(html).not.toContain("application/ld+json");
+    expect(html).toContain(`href="/zh/personality/big-five/${slug}"`);
+    expect(html).toContain(`href="/en/personality/big-five/${slug}"`);
+    expect(apiClient.get).toHaveBeenCalledWith(expect.stringContaining(`/content-pages/${slug}?locale=zh-TW`),
+      expect.objectContaining({ headers: { "X-FAP-Locale": "zh-TW" } }));
+    expect(traditionalPath(path)).toBe(path);
+    expect(traditionalPath(path.replace("/zh-TW/", "/zh/"))).toBeNull();
+    expect(traditionalEquivalent(path)).toBeNull();
+  });
+
+  it("links only available source-language versions", async () => {
+    vi.mocked(apiClient.get).mockImplementation(async url => {
+      if (String(url).includes("locale=en")) throw new Error("Alternate unavailable");
+      return { ok: true, page: String(url).includes("locale=zh-TW") ? taiwanPolicy() : record() };
+    });
+    const html = renderToStaticMarkup(await TraditionalMethodology());
+    expect(html).toContain('href="/zh/personality/big-five/methodology"');
+    expect(html).not.toContain('href="/en/personality/big-five/methodology"');
+  });
+
+  it("accepts structured heading titles and rejects wrong path, locale, indexability and heading identity", () => {
+    expect(normalizeBigFivePolicyContentPage(taiwanPolicy(), "methodology", "zh-TW")?.headings).toEqual(["適用範圍"]);
+    for (const overrides of [
+      { canonical_path: "/zh-TW/methodology" }, { locale: "zh-CN" }, { is_indexable: true },
+      { headings: [] }, { headings: ["適用範圍"] },
+      { headings: [{ key: "scope", title: "一" }, { key: "scope", title: "二" }] },
+    ]) {
+      expect(normalizeBigFivePolicyContentPage(taiwanPolicy("methodology", overrides), "methodology", "zh-TW")).toBeNull();
+    }
+  });
+
+  it("rejects a missing or wrong-locale variant before streaming", async () => {
+    const url = "https://fermatmind.com/zh-TW/personality/big-five/methodology";
+    const mock = vi.fn(async () => new Response(null, { status: 404 }));
+    vi.stubGlobal("fetch", mock);
+    expect((await proxy(new NextRequest(url))).status).toBe(404);
+    expect(mock).toHaveBeenCalledWith(expect.stringContaining("locale=zh-TW"), expect.objectContaining({
+      headers: { Accept: "application/json", "X-FAP-Locale": "zh-TW" },
+    }));
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ ok: true, page: record() })));
+    expect((await proxy(new NextRequest(url))).status).toBe(404);
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ ok: true, page: taiwanPolicy() })));
+    expect((await proxy(new NextRequest(url))).status).toBe(200);
   });
 });

@@ -394,9 +394,13 @@ export function listContentPageSlugs(): ContentPageSlug[] {
   return [...CONTENT_PAGE_SLUGS];
 }
 
+export function isBigFivePolicySlug(slug: string): slug is "methodology" | "source-review-policy" {
+  return slug === "methodology" || slug === "source-review-policy";
+}
+
 export function buildContentPagePath(slug: string, locale: DisplayLocale): string {
   const pathFor = (path: string) => locale === "zh-TW" ? `/zh-TW${path}` : localizedPath(path, locale);
-  if (slug === "methodology" || slug === "source-review-policy") {
+  if (isBigFivePolicySlug(slug)) {
     return pathFor(`/personality/big-five/${slug}`);
   }
   if (slug.startsWith("help-")) {
@@ -409,16 +413,18 @@ export function buildContentPagePath(slug: string, locale: DisplayLocale): strin
 export function normalizeBigFivePolicyContentPage(
   record: ContentPageApiRecord,
   slug: "methodology" | "source-review-policy",
-  locale: Locale
+  locale: DisplayLocale
 ): ContentPage | null {
   const expectedPath = buildContentPagePath(slug, locale);
+  const expectedLocale = locale === "zh-TW" ? locale : toApiLocale(locale);
   const expectedType = slug === "methodology" ? "methodology" : "trust";
   if (
-    record.slug !== slug || record.locale !== toApiLocale(locale) ||
+    record.slug !== slug || record.locale !== expectedLocale ||
     record.path !== expectedPath || record.canonical_path !== expectedPath ||
     record.page_type !== expectedType || record.status !== "published" ||
     record.review_state !== "approved" || record.is_public !== true ||
     typeof record.is_indexable !== "boolean" || record.publish_allowed !== true ||
+    (locale === "zh-TW" && record.is_indexable) ||
     typeof record.schema_enabled !== "boolean" ||
     typeof record.operator_approval_required !== "boolean" ||
     !["company", "policy", "help"].includes(record.kind ?? "") ||
@@ -434,7 +440,21 @@ export function normalizeBigFivePolicyContentPage(
     return null;
   }
   const page = normalizeContentPage(record);
-  return page ? { ...page, metaDescription: normalizeText(record.seo_description ?? record.meta_description) } : null;
+  if (!page) return null;
+  if (locale === "zh-TW") {
+    if (!Array.isArray(record.headings) || record.headings.length === 0) return null;
+    const keys = new Set<string>();
+    const headings: string[] = [];
+    for (const heading of record.headings) {
+      const key = normalizeText(heading?.key);
+      const title = normalizeText(heading?.title);
+      if (!key || !title || keys.has(key)) return null;
+      keys.add(key);
+      headings.push(title);
+    }
+    page.headings = headings;
+  }
+  return { ...page, metaDescription: normalizeText(record.seo_description ?? record.meta_description) };
 }
 
 export async function getContentPage(slug: string, locale: Locale | string): Promise<ContentPage | null> {
@@ -466,8 +486,8 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
       response.page.status !== "published" || response.page.is_public !== true
     )) return null;
     const page = response.page
-      ? normalizedSlug === "methodology" || normalizedSlug === "source-review-policy"
-        ? displayLocale === "zh-TW" ? null : normalizeBigFivePolicyContentPage(response.page, normalizedSlug, normalizeLocale(locale))
+      ? isBigFivePolicySlug(normalizedSlug)
+        ? normalizeBigFivePolicyContentPage(response.page, normalizedSlug, displayLocale)
         : normalizeContentPage(response.page)
       : null;
     return page?.isPublic ? page : null;

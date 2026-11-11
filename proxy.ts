@@ -150,17 +150,18 @@ function isUnknownBigFivePublicRoute(pathname: string): boolean {
 }
 
 function resolveBigFivePolicyProbe(pathname: string): {
-  locale: "en" | "zh"; slug: "methodology" | "source-review-policy";
+  locale: "en" | "zh" | "zh-TW"; slug: "methodology" | "source-review-policy";
 } | null {
-  const match = pathname.match(/^\/(en|zh)\/personality\/big-five\/(methodology|source-review-policy)\/?$/);
-  return match ? { locale: match[1] as "en" | "zh", slug: match[2] as "methodology" | "source-review-policy" } : null;
+  const match = pathname.match(/^\/(en|zh|zh-TW)\/personality\/big-five\/(methodology|source-review-policy)\/?$/);
+  return match ? { locale: match[1] as "en" | "zh" | "zh-TW", slug: match[2] as "methodology" | "source-review-policy" } : null;
 }
 
 async function probeBigFivePolicyPublicAbsence(probe: NonNullable<ReturnType<typeof resolveBigFivePolicyProbe>>): Promise<NextResponse | null> {
-  const query = new URLSearchParams({ locale: toApiLocale(probe.locale), org_id: "0" });
+  const locale = probe.locale === "zh-TW" ? probe.locale : toApiLocale(probe.locale);
+  const query = new URLSearchParams({ locale, org_id: "0" });
   try {
     const response = await fetch(buildApiUrl(`/v0.5/content-pages/${probe.slug}?${query.toString()}`), {
-      method: "GET", headers: { Accept: "application/json", "X-FAP-Locale": toApiLocale(probe.locale) },
+      method: "GET", headers: { Accept: "application/json", "X-FAP-Locale": locale },
       cache: "no-store", redirect: "manual", signal: AbortSignal.timeout(PUBLIC_ABSENCE_PROBE_TIMEOUT_MS),
     });
     if (response.status === 404 || response.status === 410) return createPublicAbsenceResponse(response.status);
