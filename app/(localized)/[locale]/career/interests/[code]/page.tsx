@@ -22,7 +22,7 @@ async function readInterest(params: Props["params"]) {
   if (locale !== "zh" && locale !== "en") notFound();
   const topic = getReleasedCareerInterest(code, locale);
   if (!topic) notFound();
-  return { locale, code, topic };
+  return { locale, code, topic } as const;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
