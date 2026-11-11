@@ -1,8 +1,9 @@
 import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { PublicReview } from "@/lib/public-content/publicReview";
 
 type TrustStripProps = {
-  locale: "en" | "zh";
+  locale: DisplayLocale;
   reviewerStatus?: string | null;
   publicReview?: PublicReview | null;
   indexState?: string | null;
@@ -23,6 +24,18 @@ type TrustStripProps = {
 type TrustItem = {
   label: string;
   value: string;
+};
+
+const TAIWAN_TRUST_LABELS: Record<string, string> = {
+  content_version: "內容版本",
+  data_version: "資料版本",
+  logic_version: "邏輯版本",
+  compiler_version: "編譯器版本",
+  compiled_at: "編譯時間",
+  compile_run_id: "編譯批次識別碼",
+  truth_metric_id: "指標來源識別碼",
+  trust_manifest_id: "信任資料識別碼",
+  index_state_id: "索引狀態識別碼",
 };
 
 function normalizeValue(value: string | null | undefined): string | null {
@@ -75,13 +88,13 @@ export function TrustStrip({
       <div className="flex flex-wrap gap-2">
         <PublicReviewStatus review={publicReview} locale={locale} testId={testId ? `${testId}-public-review` : undefined} />
         <span className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-1 font-mono text-xs text-[var(--fm-text)]">
-          index_state: {normalizedIndexState}
+          {locale === "zh-TW" ? "索引狀態" : "index_state"}: {normalizedIndexState}
         </span>
       </div>
 
       {normalizedReasonCodes.length > 0 ? (
         <p className="m-0 mt-3 text-xs text-[var(--fm-text-muted)]">
-          reason_codes: {normalizedReasonCodes.join(", ")}
+          {locale === "zh-TW" ? "原因代碼" : "reason_codes"}: {normalizedReasonCodes.join(", ")}
         </p>
       ) : null}
 
@@ -89,7 +102,7 @@ export function TrustStrip({
         <div className="mt-3 grid gap-2 md:grid-cols-2">
           {trustItems.map((item) => (
             <p key={item.label} className="m-0 font-mono text-xs text-[var(--fm-text-muted)]">
-              {item.label}: {item.value}
+              {locale === "zh-TW" ? TAIWAN_TRUST_LABELS[item.label] ?? item.label : item.label}: {item.value}
             </p>
           ))}
         </div>
@@ -97,7 +110,7 @@ export function TrustStrip({
 
       {!compact && trustItems.length === 0 ? (
         <p className="m-0 mt-3 text-xs text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "暂无更多来源字段。" : "No additional provenance fields."}
+          {locale === "zh-TW" ? "目前沒有其他來源資訊。" : locale === "zh" ? "暂无更多来源字段。" : "No additional provenance fields."}
         </p>
       ) : null}
     </div>

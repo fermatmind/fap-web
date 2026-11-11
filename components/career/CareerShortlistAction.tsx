@@ -5,10 +5,11 @@ import { fetchCareerShortlistState } from "@/lib/career/api/fetchCareerShortlist
 import { submitCareerShortlistAdd } from "@/lib/career/api/submitCareerShortlistAdd";
 import { CAREER_TRACKING_EVENTS, trackCareerAttributionEvent } from "@/lib/career/attribution";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
 type CareerShortlistActionProps = {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   subjectSlug: string;
   sourcePageType: "career_job_detail" | "career_recommendation_detail";
   entrySurface: "career_job_detail" | "career_recommendation_detail";
@@ -40,6 +41,7 @@ function resolveVisitorKey(): string {
 
 export function CareerShortlistAction({
   locale,
+  displayLocale = locale,
   subjectSlug,
   sourcePageType,
   entrySurface,
@@ -114,7 +116,7 @@ export function CareerShortlistAction({
   const onAdd = async () => {
     if (!analyticsConsentGranted) {
       setError(
-        locale === "zh"
+        displayLocale === "zh-TW" ? "請先同意分析用途的 Cookie，再儲存候選清單。" : locale === "zh"
           ? "请先同意分析 Cookie，再保存 Shortlist。"
           : "Please allow analytics cookies before saving to shortlist."
       );
@@ -143,7 +145,7 @@ export function CareerShortlistAction({
     });
 
     if (!response || response.ok !== true) {
-      setError(locale === "zh" ? "加入候选清单失败，请稍后重试。" : "Failed to add shortlist item. Please retry.");
+      setError(displayLocale === "zh-TW" ? "無法加入候選清單，請稍後再試。" : locale === "zh" ? "加入候选清单失败，请稍后重试。" : "Failed to add shortlist item. Please retry.");
       setSaving(false);
       return;
     }
@@ -177,23 +179,23 @@ export function CareerShortlistAction({
           className="rounded-md bg-[var(--fm-accent)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
         >
           {loading
-            ? locale === "zh"
+            ? displayLocale === "zh-TW" ? "讀取中…" : locale === "zh"
               ? "读取中…"
               : "Loading…"
             : shortlisted
-              ? locale === "zh"
+              ? displayLocale === "zh-TW" ? "已加入候選清單" : locale === "zh"
                 ? "已加入 Shortlist"
                 : "Added to shortlist"
               : saving
-                ? locale === "zh"
+                ? displayLocale === "zh-TW" ? "儲存中…" : locale === "zh"
                   ? "提交中…"
                   : "Adding…"
-                : locale === "zh"
+                : displayLocale === "zh-TW" ? "加入候選清單" : locale === "zh"
                   ? "加入 Shortlist"
                   : "Add to shortlist"}
         </button>
         <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-          {locale === "zh"
+          {displayLocale === "zh-TW" ? "儲存成功後，職業會加入你的候選清單。" : locale === "zh"
             ? "Shortlist 为真实持久化动作，仅在后端写入成功后触发 attribution 事件。"
             : "Shortlist is a persisted action. Attribution is emitted only after backend write succeeds."}
         </p>

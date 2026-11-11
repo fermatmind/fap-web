@@ -2,10 +2,10 @@ import type {
   CareerExplainabilityStrainRadarAdapter,
   CareerExplainabilityStrainRadarAxisKey,
 } from "@/lib/career/adapters/types";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 type CareerStrainRadarProps = {
-  locale: Locale;
+  locale: DisplayLocale;
   radar: CareerExplainabilityStrainRadarAdapter;
   testId?: string;
 };
@@ -15,16 +15,17 @@ type AxisDefinition = {
   label: {
     en: string;
     zh: string;
+    "zh-TW": string;
   };
 };
 
 const AXES: AxisDefinition[] = [
-  { key: "peopleFriction", label: { en: "People friction", zh: "协作摩擦" } },
-  { key: "contextSwitchLoad", label: { en: "Context switch load", zh: "切换负荷" } },
-  { key: "politicalLoad", label: { en: "Political load", zh: "政治负荷" } },
-  { key: "uncertaintyLoad", label: { en: "Uncertainty load", zh: "不确定性负荷" } },
-  { key: "lowAutonomyTrap", label: { en: "Low autonomy trap", zh: "低自主陷阱" } },
-  { key: "repetitionMismatch", label: { en: "Repetition mismatch", zh: "重复错配" } },
+  { key: "peopleFriction", label: { en: "People friction", zh: "协作摩擦", "zh-TW": "協作阻力" } },
+  { key: "contextSwitchLoad", label: { en: "Context switch load", zh: "切换负荷", "zh-TW": "任務切換負荷" } },
+  { key: "politicalLoad", label: { en: "Political load", zh: "政治负荷", "zh-TW": "組織政治負荷" } },
+  { key: "uncertaintyLoad", label: { en: "Uncertainty load", zh: "不确定性负荷", "zh-TW": "不確定性負荷" } },
+  { key: "lowAutonomyTrap", label: { en: "Low autonomy trap", zh: "低自主陷阱", "zh-TW": "自主空間受限" } },
+  { key: "repetitionMismatch", label: { en: "Repetition mismatch", zh: "重复错配", "zh-TW": "重複任務與偏好不符" } },
 ];
 
 function formatNullable(value: number | null): string {
@@ -46,9 +47,9 @@ export function CareerStrainRadar({ locale, radar, testId }: CareerStrainRadarPr
       data-testid={testId}
     >
       <div className="space-y-1">
-        <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">Strain radar</h3>
+        <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{locale === "zh-TW" ? "工作負荷雷達圖" : "Strain radar"}</h3>
         <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-          {locale === "zh"
+          {locale === "zh-TW" ? "顯示評分模型提供的六項工作負荷指標。" : locale === "zh"
             ? "只渲染 backend 已提供的六轴结构化值，不在前端扩写为建议、排序或解释。"
             : "Renders only the six-axis structure already provided by the backend, without frontend advice, ranking, or interpretation."}
         </p>
@@ -74,7 +75,7 @@ export function CareerStrainRadar({ locale, radar, testId }: CareerStrainRadarPr
             >
               <div className="flex items-center justify-between gap-3">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--fm-text-muted)]">
-                  {axis.label[locale === "zh" ? "zh" : "en"]}
+                  {axis.label[locale]}
                 </p>
                 <p className="m-0 font-mono text-xs text-[var(--fm-text)]">{formatNullable(axisValue)}</p>
               </div>

@@ -7,19 +7,18 @@ import {
   CAREER_INTEREST_SOURCE,
   careerExplorationPilotPath,
   type CareerExplorationPilot as Pilot,
-  type CareerInterestPilot,
 } from "@/lib/career/explorationPilot";
-import { CAREER_INTEREST_TAIWAN_COPY, CAREER_INTEREST_TAIWAN_JOBS } from "@/lib/career/explorationPilotTaiwan";
-import type { Locale } from "@/lib/i18n/locales";
+import { CAREER_INTEREST_TAIWAN_COPY, CAREER_INTEREST_TAIWAN_JOBS, CAREER_INTJ_TAIWAN_COPY } from "@/lib/career/explorationPilotTaiwan";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
-type Props = { pilot: Pilot; locale: Locale } | { pilot: CareerInterestPilot; locale: "zh-TW" };
+type Props = { pilot: Pilot; locale: DisplayLocale };
 
 export function CareerExplorationPilot(props: Props) {
   const { pilot, locale } = props;
   const taiwan = locale === "zh-TW";
   const zh = locale === "zh";
   const { copy, occupations } = CAREER_EXPLORATION_PILOT[pilot];
-  const text = props.locale === "zh-TW" ? CAREER_INTEREST_TAIWAN_COPY[props.pilot] : copy[props.locale];
+  const text = taiwan ? (pilot === "intj" ? CAREER_INTJ_TAIWAN_COPY : CAREER_INTEREST_TAIWAN_COPY[pilot]) : copy[locale];
   const labels = (traditional: string, simplified: string, english: string) => taiwan ? traditional : zh ? simplified : english;
   const otherInterest = pilot === "ari" ? "ac" : "ari";
   const showCompare = (zh || taiwan) && pilot !== "ac";
@@ -77,7 +76,7 @@ export function CareerExplorationPilot(props: Props) {
           {labels(`瞭解 ${otherInterest.toUpperCase()} 興趣代碼`, `了解 ${otherInterest.toUpperCase()} 兴趣代码`, `Explore the ${otherInterest.toUpperCase()} interest code`)}
         </Link></li>
         {pilot === "intj" && <li><Link className="underline underline-offset-4" href={`/${locale}/personality/intj`}>
-          {zh ? "回到 INTJ 人格解读" : "Return to the INTJ profile"}
+          {labels("回到 INTJ 人格解讀", "回到 INTJ 人格解读", "Return to the INTJ profile")}
         </Link></li>}
       </ul>
     </section>

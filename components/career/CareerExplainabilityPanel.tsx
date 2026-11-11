@@ -1,9 +1,9 @@
 import type { CareerExplainabilityAdapter, CareerExplainabilityScoreDimensionAdapter } from "@/lib/career/adapters/types";
 import { CareerStrainRadar } from "@/components/career/CareerStrainRadar";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 type CareerExplainabilityPanelProps = {
-  locale: Locale;
+  locale: DisplayLocale;
   explainability: CareerExplainabilityAdapter;
   title?: string;
   subtitle?: string;
@@ -14,14 +14,15 @@ type CareerExplainabilityPanelProps = {
 type DimensionDefinition = {
   key: keyof CareerExplainabilityAdapter["scoreBundle"];
   label: string;
+  traditionalLabel: string;
 };
 
 const DIMENSIONS: DimensionDefinition[] = [
-  { key: "fitScore", label: "Fit" },
-  { key: "strainScore", label: "Strain" },
-  { key: "aiSurvivalScore", label: "AI" },
-  { key: "mobilityScore", label: "Mobility" },
-  { key: "confidenceScore", label: "Confidence" },
+  { key: "fitScore", label: "Fit", traditionalLabel: "適配度" },
+  { key: "strainScore", label: "Strain", traditionalLabel: "工作負荷" },
+  { key: "aiSurvivalScore", label: "AI", traditionalLabel: "AI 影響" },
+  { key: "mobilityScore", label: "Mobility", traditionalLabel: "職涯流動性" },
+  { key: "confidenceScore", label: "Confidence", traditionalLabel: "可信度" },
 ];
 
 function renderScoreValue(value: number | null): string {
@@ -116,11 +117,11 @@ export function CareerExplainabilityPanel({
     >
       <div className="space-y-1">
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {title ?? (locale === "zh" ? "结构化解释详情" : "Structured explainability")}
+          {title ?? (locale === "zh-TW" ? "評分依據詳情" : locale === "zh" ? "结构化解释详情" : "Structured explainability")}
         </h2>
         <p className="m-0 text-sm text-[var(--fm-text-muted)]">
           {subtitle ??
-            (locale === "zh"
+            (locale === "zh-TW" ? "這裡列出評分模型所提供的資料、限制和計算依據。" : locale === "zh"
               ? "只展示 backend explainability authority payload 的结构化字段，不在前端扩写为建议或策略。"
               : "This section shows structured fields from the backend explainability authority payload only, without frontend advice or strategy expansion.")}
         </p>
@@ -129,13 +130,13 @@ export function CareerExplainabilityPanel({
       <div className="grid gap-3 md:grid-cols-3">
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "对象类型" : "Subject kind"}
+            {locale === "zh-TW" ? "評分對象類型" : locale === "zh" ? "对象类型" : "Subject kind"}
           </p>
           <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{explainability.subjectKind}</p>
         </div>
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "整体完整性" : "Overall integrity"}
+            {locale === "zh-TW" ? "整體資料完整性" : locale === "zh" ? "整体完整性" : "Overall integrity"}
           </p>
           <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">
             {explainability.integritySummary.integrityState ?? "unknown"}
@@ -143,7 +144,7 @@ export function CareerExplainabilityPanel({
         </div>
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "结论边界" : "Claim boundary"}
+            {locale === "zh-TW" ? "結論適用範圍" : locale === "zh" ? "结论边界" : "Claim boundary"}
           </p>
           <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">
             strong_claim: {String(explainability.claimPermissions.allow_strong_claim)}
@@ -169,8 +170,8 @@ export function CareerExplainabilityPanel({
       ) : null}
 
       <div className="grid gap-4 xl:grid-cols-2">
-        {DIMENSIONS.map(({ key, label }) => (
-          <ExplainabilityDimensionCard key={key} label={label} dimension={explainability.scoreBundle[key]} />
+        {DIMENSIONS.map(({ key, label, traditionalLabel }) => (
+          <ExplainabilityDimensionCard key={key} label={locale === "zh-TW" ? traditionalLabel : label} dimension={explainability.scoreBundle[key]} />
         ))}
       </div>
 

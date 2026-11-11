@@ -26,9 +26,10 @@ import type {
   CareerWarningsAdapter,
 } from "@/lib/career/adapters/types";
 import { buildCareerJobFrontendUrl } from "@/lib/career/urls";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
 type AdaptCareerRecommendationBundleInput = {
-  locale: "en" | "zh";
+  locale: DisplayLocale;
   requestedType: string;
   payload: CareerRecommendationBundleResponseRaw | null;
 };
@@ -433,7 +434,7 @@ function buildConversionClosure(raw: Record<string, unknown>): CareerConversionC
   };
 }
 
-function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecommendationMatchedJobAdapter[] {
+function normalizeMatchedJobs(value: unknown, locale: DisplayLocale): CareerRecommendationMatchedJobAdapter[] {
   if (!Array.isArray(value)) {
     return [];
   }
@@ -446,13 +447,15 @@ function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecomm
         return null;
       }
 
+      const traditionalTitle = locale === "zh-TW" ? normalizeString(item.title_zh_tw) : null;
+      const defaultHref = buildCareerJobFrontendUrl(locale, canonicalSlug);
       const normalizedFitBucket = normalizeString(item.fit_bucket);
       const trustSummary = isRecord(item.trust_summary) ? item.trust_summary : {};
 
       return {
         occupationUuid: normalizeString(item.occupation_uuid),
         canonicalSlug,
-        title: normalizeString(item.title) ?? canonicalSlug,
+        title: traditionalTitle ?? normalizeString(item.title) ?? canonicalSlug,
         summary: normalizeString(item.summary) ?? "",
         fitBucket:
           normalizedFitBucket === "primary" || normalizedFitBucket === "secondary"
@@ -465,13 +468,13 @@ function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecomm
         trustSummary: {
           reviewerStatus: normalizeString(trustSummary.reviewer_status),
         },
-        href: buildCareerJobFrontendUrl(locale, canonicalSlug),
+        href: traditionalTitle ? defaultHref.replace(/^\/zh\//, "/zh-TW/") : defaultHref,
       };
     })
     .filter((item): item is CareerRecommendationMatchedJobAdapter => item !== null);
 }
 
-function normalizeMatchedGuides(value: unknown, locale: "en" | "zh"): CareerRecommendationMatchedGuideAdapter[] {
+function normalizeMatchedGuides(value: unknown, locale: Locale): CareerRecommendationMatchedGuideAdapter[] {
   if (!Array.isArray(value)) {
     return [];
   }
@@ -529,7 +532,7 @@ export function adaptCareerRecommendationBundle(
   const shortlistContract = buildShortlistContract(raw);
   const conversionClosure = buildConversionClosure(raw);
   const matchedJobs = normalizeMatchedJobs(raw.matched_jobs, input.locale);
-  const matchedGuides = normalizeMatchedGuides(raw.matched_guides, input.locale);
+  const matchedGuides = normalizeMatchedGuides(raw.matched_guides, input.locale === "zh-TW" ? "zh" : input.locale);
   const hasSupportingTruth =
     normalizeNumber((supportingTruth as Record<string, unknown>).median_pay_usd_annual) !== null ||
     normalizeNumber((supportingTruth as Record<string, unknown>).outlook_pct_2024_2034) !== null ||

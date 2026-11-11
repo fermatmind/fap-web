@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export type DecisionPathCardProps = {
   eyebrow: string;
+  displayLocale?: "zh-TW" | "zh" | "en";
   title: string;
   summary: string;
   upside?: string;
@@ -11,7 +12,7 @@ export type DecisionPathCardProps = {
   testId?: string;
 };
 
-export function DecisionPathCard({ eyebrow, title, summary, upside, tradeoff, ctaLabel, href, testId = "career-v1-decision-path-card" }: DecisionPathCardProps) {
+export function DecisionPathCard({ eyebrow, displayLocale, title, summary, upside, tradeoff, ctaLabel, href, testId = "career-v1-decision-path-card" }: DecisionPathCardProps) {
   return (
     <article
       className="group rounded-3xl border border-slate-200 bg-white p-5 transition hover:border-slate-300 hover:shadow-sm md:p-6"
@@ -24,13 +25,13 @@ export function DecisionPathCard({ eyebrow, title, summary, upside, tradeoff, ct
         <div className="mt-5 grid gap-3 border-t border-slate-100 pt-4 text-sm text-slate-600">
           {upside ? (
             <p className="m-0">
-              <span className="font-medium text-slate-900">Upside: </span>
+              <span className="font-medium text-slate-900">{displayLocale === "zh-TW" ? "可能的收穫：" : "Upside: "}</span>
               {upside}
             </p>
           ) : null}
           {tradeoff ? (
             <p className="m-0">
-              <span className="font-medium text-slate-900">Tradeoff: </span>
+              <span className="font-medium text-slate-900">{displayLocale === "zh-TW" ? "可能的代價：" : "Tradeoff: "}</span>
               {tradeoff}
             </p>
           ) : null}

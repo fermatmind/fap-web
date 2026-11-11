@@ -1,8 +1,8 @@
 import type { CareerProjectionTimelineAdapter } from "@/lib/career/adapters/types";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 type CareerProjectionTimelineProps = {
-  locale: Locale;
+  locale: DisplayLocale;
   timeline: CareerProjectionTimelineAdapter;
   testId?: string;
 };
@@ -31,7 +31,7 @@ export function CareerProjectionTimeline({ locale, timeline, testId }: CareerPro
       data-testid={testId ?? "career-projection-timeline"}
     >
       <h3 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-        {locale === "zh" ? "投影时间线" : "Projection timeline"}
+        {locale === "zh-TW" ? "推薦紀錄" : locale === "zh" ? "投影时间线" : "Projection timeline"}
       </h3>
       <ol className="m-0 list-none space-y-2 p-0">
         {timeline.entries.map((entry, index) => (
@@ -40,10 +40,10 @@ export function CareerProjectionTimeline({ locale, timeline, testId }: CareerPro
               {entry.entryKind ?? "entry"}
             </p>
             <p className="m-0 mt-1 text-sm font-medium text-[var(--fm-text)]">
-              {entry.entryLabel ?? (locale === "zh" ? "职业快照" : "Career snapshot")}
+              {locale === "zh-TW" && entry.entryKind === "initial" && entry.entryLabel === "Initial recommendation snapshot" ? "首次推薦快照" : entry.entryLabel ?? (locale === "zh-TW" ? "職涯推薦快照" : locale === "zh" ? "职业快照" : "Career snapshot")}
             </p>
             <p className="m-0 mt-1 text-xs text-[var(--fm-text-muted)]">
-              {locale === "zh" ? "时间" : "Time"}: {formatTimestamp(entry.createdAt)}
+              {locale === "zh-TW" ? "時間" : locale === "zh" ? "时间" : "Time"}: {formatTimestamp(entry.createdAt)}
             </p>
           </li>
         ))}

@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api-client";
 import type { CareerRecommendationBundleResponseRaw } from "@/lib/career/api/types";
-import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeDisplayLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
@@ -11,7 +11,7 @@ type FetchCareerRecommendationBundleInput = {
 
 function buildQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
-  query.set("locale", toApiLocale(locale));
+  query.set("locale", normalizeDisplayLocale(locale) === "zh-TW" ? "zh-TW" : toApiLocale(locale));
   return `?${query.toString()}`;
 }
 

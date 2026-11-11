@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 import { submitCareerRecommendationFeedback } from "@/lib/career/api/submitCareerRecommendationFeedback";
 import type { CareerLifecycleFeedbackCheckinAdapter } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, trackCareerAttributionEvent } from "@/lib/career/attribution";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
 type CareerFeedbackPanelProps = {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   recommendationType: string;
   landingPath: string;
   feedback: CareerLifecycleFeedbackCheckinAdapter | null;
@@ -19,6 +20,7 @@ const SCALE_VALUES = [1, 2, 3, 4, 5] as const;
 
 export function CareerFeedbackPanel({
   locale,
+  displayLocale = locale,
   recommendationType,
   landingPath,
   feedback,
@@ -76,11 +78,11 @@ export function CareerFeedbackPanel({
       data-testid={testId ?? "career-feedback-panel"}
     >
       <h3 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-        {locale === "zh" ? "反馈复盘" : "Feedback check-in"}
+        {displayLocale === "zh-TW" ? "回饋與檢視" : locale === "zh" ? "反馈复盘" : "Feedback check-in"}
       </h3>
       <form className="grid gap-3 md:grid-cols-3" onSubmit={onSubmit}>
         <label className="text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "倦怠" : "Burnout"}
+          {displayLocale === "zh-TW" ? "倦怠程度" : locale === "zh" ? "倦怠" : "Burnout"}
           <select
             className="mt-1 block w-full rounded-md border border-[var(--fm-border)] bg-white px-2 py-1"
             value={burnoutCheckin}
@@ -94,7 +96,7 @@ export function CareerFeedbackPanel({
           </select>
         </label>
         <label className="text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "满意度" : "Satisfaction"}
+          {displayLocale === "zh-TW" ? "滿意度" : locale === "zh" ? "满意度" : "Satisfaction"}
           <select
             className="mt-1 block w-full rounded-md border border-[var(--fm-border)] bg-white px-2 py-1"
             value={careerSatisfaction}
@@ -108,7 +110,7 @@ export function CareerFeedbackPanel({
           </select>
         </label>
         <label className="text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "转换紧迫度" : "Switch urgency"}
+          {displayLocale === "zh-TW" ? "轉職急迫程度" : locale === "zh" ? "转换紧迫度" : "Switch urgency"}
           <select
             className="mt-1 block w-full rounded-md border border-[var(--fm-border)] bg-white px-2 py-1"
             value={switchUrgency}
@@ -128,19 +130,19 @@ export function CareerFeedbackPanel({
             className="rounded-md bg-[var(--fm-accent)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
           >
             {saving
-              ? locale === "zh"
+              ? displayLocale === "zh-TW" ? "送出中…" : locale === "zh"
                 ? "提交中…"
                 : "Submitting…"
-              : locale === "zh"
+              : displayLocale === "zh-TW" ? "送出回饋" : locale === "zh"
                 ? "提交反馈"
                 : "Submit feedback"}
           </button>
           {saved ? (
-            <p className="m-0 mt-2 text-xs text-emerald-700">{locale === "zh" ? "已更新" : "Updated"}</p>
+            <p className="m-0 mt-2 text-xs text-emerald-700">{displayLocale === "zh-TW" ? "已更新" : locale === "zh" ? "已更新" : "Updated"}</p>
           ) : null}
           {error ? (
             <p className="m-0 mt-2 text-xs text-rose-700">
-              {locale === "zh" ? "提交失败，请稍后重试" : "Submit failed, please retry."}
+              {displayLocale === "zh-TW" ? "無法送出回饋，請稍後再試。" : locale === "zh" ? "提交失败，请稍后重试" : "Submit failed, please retry."}
             </p>
           ) : null}
         </div>

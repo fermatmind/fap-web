@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { ConfidenceBoundaryTone } from "@/components/career/v1/ConfidenceBoundary";
 
 export type CareerV1StateCopy = {
@@ -91,7 +91,23 @@ const EN_STATE_COPY: Record<string, Pick<CareerV1StateCopy, "label" | "descripti
   unavailable: { label: "Full page not available yet", description: "The available information does not yet support a complete public page." },
 };
 
-export function getCareerV1StateCopy(status: string | null | undefined, locale: Locale = "zh"): CareerV1StateCopy {
+const TAIWAN_STATE_COPY: Record<string, Pick<CareerV1StateCopy, "label" | "description">> = {
+  mature_public_launch: { label: "資料完整，可直接參考", description: "這頁的資訊已達公開參考標準，可用來評估下一步。" },
+  public_but_conservative: { label: "資料仍在補充", description: "這頁可供探索參考，部分結論尚未公開。" },
+  not_yet_mature: { label: "資料尚未完整，建議先看相關職業", description: "目前的資料尚不足以評估這項職業。可先查看相關職業或職業群組。" },
+  family_handoff: { label: "先從職業群組探索", description: "先了解這個職業群組，再選擇想深入探索的職業。" },
+  explorer_only: { label: "適合用來探索方向", description: "這項內容可供探索方向，做職涯決定時仍需其他依據。" },
+  blocked: { label: "暫未提供完整頁面", description: "現有資料尚不足以公開完整內容。" },
+  provisional: { label: "資料仍在校準", description: "目前結論仍在校準，頁面僅顯示已確認的資訊。" },
+  restricted: { label: "部分內容暫未公開", description: "現有資料尚不足以支持部分較明確的結論。" },
+  manual_only: { label: "需要人工複核", description: "這項內容需經人工複核，才能公開更明確的結論。" },
+  review_due: { label: "等待複核", description: "這項內容已排入後續複核。" },
+  available: { label: "資料完整，可直接參考", description: "這頁的資訊已達公開參考標準。" },
+  trust_limited: { label: "資料仍在補充", description: "這頁可供探索參考，部分結論尚未公開。" },
+  unavailable: { label: "暫未提供完整頁面", description: "現有資料尚不足以公開完整內容。" },
+};
+
+export function getCareerV1StateCopy(status: string | null | undefined, locale: DisplayLocale = "zh"): CareerV1StateCopy {
   const normalized = String(status ?? "").trim().toLowerCase();
   const copy = (
     STATE_COPY[normalized] ?? {
@@ -100,6 +116,13 @@ export function getCareerV1StateCopy(status: string | null | undefined, locale: 
       tone: "limited",
     }
   );
+  if (locale === "zh-TW") {
+    return { ...copy, ...(TAIWAN_STATE_COPY[normalized] ?? {
+      label: "資料仍在補充",
+      description: "目前僅顯示已確認的資訊，可展開區塊查看更多依據。",
+    }) };
+  }
+
   return locale === "en"
     ? { ...copy, ...(EN_STATE_COPY[normalized] ?? {
       label: "Information is still being added",
@@ -108,7 +131,7 @@ export function getCareerV1StateCopy(status: string | null | undefined, locale: 
     : copy;
 }
 
-export function getCareerV1RendererCopy(status: "blocked" | "provisional" | "restricted" | null | undefined, locale: Locale = "zh"): CareerV1StateCopy | null {
+export function getCareerV1RendererCopy(status: "blocked" | "provisional" | "restricted" | null | undefined, locale: DisplayLocale = "zh"): CareerV1StateCopy | null {
   if (!status) {
     return null;
   }

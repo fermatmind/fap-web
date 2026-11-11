@@ -15,6 +15,13 @@ export const CAREER_INTEREST_TAIWAN_COPY = {
   },
 } satisfies Record<CareerInterestPilot, { title: string; summary: string; evidence: string; exercise: string }>;
 
+export const CAREER_INTJ_TAIWAN_COPY = {
+  title: "INTJ 工作偏好與職涯探索：比較兩種設計工作",
+  summary: "如果你用 INTJ 描述自己的工作偏好，可以先觀察兩件事：你喜歡依明確條件推敲設計方案嗎？收到試用回饋時，你願意重做哪一部分？用同一個問題試做兩種職業任務。",
+  evidence: "以下是用來比較的工作任務。四個字母的類型無法推知你的霍蘭德代碼、職業勝任能力或錄取機會。",
+  exercise: "以水杯清洗為例。先畫一個容易拆洗的杯蓋，再為現有杯蓋畫一份三步驟清洗說明。記下你比較想修改杯蓋結構，還是調整圖片和閱讀順序。接著找一份真實職缺說明，核對實際任務與工作條件。",
+};
+
 export const CAREER_INTEREST_TAIWAN_JOBS = {
   "industrial-designers": { name: "工業設計師", task: "畫產品草圖，用可操作的模型修改設計，再核對安全、成本與製造條件。" },
   "graphic-designers": { name: "平面設計師", task: "編排文字和圖片，依照回饋修改版面，再準備可交付的印刷或數位檔案。" },

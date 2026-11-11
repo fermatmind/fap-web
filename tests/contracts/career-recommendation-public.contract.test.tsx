@@ -74,6 +74,31 @@ describe("career recommendation public contract", () => {
     expect(payload).not.toBeNull();
   });
 
+  it("reads published Taiwan card titles without changing matched job identity or order", async () => {
+    vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
+      expect(new URL(String(input)).searchParams.get("locale")).toBe("zh-TW");
+      return jsonResponse({
+        identity: { mbti_type: "INTJ-A" },
+        matched_jobs: [
+          { occupation_uuid: "occ-1", canonical_slug: "accountants-and-auditors", title: "Accountants and auditors", title_zh_tw: "會計師和審計師" },
+          { occupation_uuid: "occ-2", canonical_slug: "data-scientists", title: "Data scientists" },
+        ],
+      });
+    }));
+
+    const payload = await fetchCareerRecommendationBundle({ locale: "zh-TW", type: "intj-a" });
+    const traditional = adaptCareerRecommendationBundle({ locale: "zh-TW", requestedType: "intj-a", payload });
+    const simplified = adaptCareerRecommendationBundle({ locale: "zh", requestedType: "intj-a", payload });
+
+    expect(traditional?.matchedJobs).toMatchObject([
+      { occupationUuid: "occ-1", title: "會計師和審計師", href: "/zh-TW/career/jobs/accountants-and-auditors" },
+      { occupationUuid: "occ-2", title: "Data scientists", href: "/zh/career/jobs/data-scientists" },
+    ]);
+    expect(simplified?.matchedJobs[0]).toMatchObject({
+      occupationUuid: "occ-1", title: "Accountants and auditors", href: "/zh/career/jobs/accountants-and-auditors",
+    });
+  });
+
   it("requests the backend recommendation companion-links endpoint", async () => {
     vi.stubGlobal(
       "fetch",
@@ -455,7 +480,7 @@ describe("career recommendation public contract", () => {
     expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
     expect(source).toContain("normalizeCareerBundleCanonicalPath");
     expect(source).toContain("detail.seoContract.indexEligible");
-    expect(source).toContain("renderCareerDataStatus(detail, locale)");
+    expect(source).toContain("renderCareerDataStatus(detail, displayLocale)");
     expect(source).toContain("career-recommendation-matched-jobs-status");
     expect(source).toContain('testId="career-recommendation-scene-entry"');
     expect(source).toContain('data-testid="career-recommendation-type-interpretation"');

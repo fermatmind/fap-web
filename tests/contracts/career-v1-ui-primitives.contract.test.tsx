@@ -12,6 +12,9 @@ describe("career V1 UI primitives", () => {
     expect(getCareerV1StateCopy(status, "zh")).toEqual(zh);
     const en = getCareerV1StateCopy(status, "en");
     expect(en.tone).toBe(zh.tone);
+    const traditional = getCareerV1StateCopy(status, "zh-TW");
+    expect(traditional.tone).toBe(zh.tone);
+    expect(traditional).not.toEqual(zh);
     expect(en.label).not.toMatch(/[\u3400-\u9fff]/);
     expect(en.description).not.toMatch(/[\u3400-\u9fff]/);
     if (status === "blocked" || status === "unavailable") {

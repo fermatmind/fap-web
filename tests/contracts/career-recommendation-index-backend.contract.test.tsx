@@ -95,7 +95,7 @@ describe("career recommendation index backend contract", () => {
       ),
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
-      resolveLocale: vi.fn(() => "en"),
+      resolveLocale: vi.fn((locale: string) => locale === "en" ? "en" : "zh"),
     }));
     vi.doMock("@/lib/i18n/locales", async () => {
       const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
@@ -154,6 +154,18 @@ describe("career recommendation index backend contract", () => {
     expect(html).not.toContain("career-personalized-status");
     expect(html).not.toContain("View role profile");
     expect(html).not.toContain("career-job-index-card");
+
+    const { default: TraditionalPage, generateMetadata } = await import(
+      "@/app/(traditional)/zh-TW/career/recommendations/page"
+    );
+    const traditional = renderToStaticMarkup(await TraditionalPage() as ReactNode);
+    expect(traditional).toContain("按 MBTI 類型探索職業方向");
+    expect(traditional).toContain('href="/zh-TW/career/recommendations/mbti/intj"');
+    expect(traditional).not.toContain("按 MBTI 类型探索职业方向");
+    expect(await generateMetadata()).toMatchObject({
+      alternates: { canonical: expect.stringContaining("/zh-TW/career/recommendations") },
+      robots: { index: false },
+    });
   });
 
   it("suppresses score lines when the backend marks a recommendation card as trust-limited", async () => {

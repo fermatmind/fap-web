@@ -4,7 +4,8 @@ import {
   buildMbtiEntryTrackingPayload,
   type MbtiEntrySourcePageType,
 } from "@/lib/mbti/entryTracking";
-import type { Locale } from "@/lib/i18n/locales";
+import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 type SceneBlock = {
@@ -16,28 +17,30 @@ type SceneBlock = {
 
 type MbtiSceneEntrySectionProps = {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   sourcePageType: MbtiEntrySourcePageType;
   blocks?: SceneBlock[] | null;
   testId?: string;
 };
 
-function formatMbtiSceneEntryLabel(href: string, locale: Locale): string {
+function formatMbtiSceneEntryLabel(href: string, locale: DisplayLocale): string {
   return href.includes("/tests/mbti-personality-test-16-personality-types")
-    ? locale === "zh"
+    ? locale === "zh-TW" ? "免費 MBTI 測驗" : locale === "zh"
       ? "MBTI免费测试"
       : "Free MBTI test"
-    : locale === "zh"
+    : locale === "zh-TW" ? "查看入口" : locale === "zh"
       ? "查看入口"
       : "Open entry";
 }
 
 export function MbtiSceneEntrySection({
   locale,
+  displayLocale = locale,
   sourcePageType,
   blocks,
   testId = "mbti-scene-entry-section",
 }: MbtiSceneEntrySectionProps) {
-  const fallbackBlocks = buildDefaultMbtiSceneBlocks(locale);
+  const fallbackBlocks = buildDefaultMbtiSceneBlocks(displayLocale);
   const fallbackByKey = new Map(fallbackBlocks.map((block) => [block.key, block]));
   const sourceBlocks = Array.isArray(blocks) && blocks.length > 0 ? blocks : fallbackBlocks;
   const resolvedBlocks = sourceBlocks
@@ -47,6 +50,9 @@ export function MbtiSceneEntrySection({
       const title = String(block.title ?? "").trim() || fallback?.title || "";
       const body = String(block.body ?? "").trim() || fallback?.body || "";
       const href = normalizeInternalHref(block.href) || normalizeInternalHref(fallback?.href) || "";
+      const displayHref = displayLocale === "zh-TW"
+        ? traditionalPath(href.replace(/^\/(?:zh|en)(?=\/)/, "/zh-TW")) ?? href
+        : href;
       if (!title || !body || !href) {
         return null;
       }
@@ -54,7 +60,7 @@ export function MbtiSceneEntrySection({
         key: key || fallback?.key || href,
         title,
         body,
-        href,
+        href: displayHref,
       };
     })
     .filter((block): block is { key: string; title: string; body: string; href: string } => block !== null);
@@ -84,7 +90,7 @@ export function MbtiSceneEntrySection({
                 targetAction: `open_scene_${block.key}`,
               })}
             >
-              {formatMbtiSceneEntryLabel(block.href, locale)}
+              {formatMbtiSceneEntryLabel(block.href, displayLocale)}
             </TrackedEntryCtaLink>
           </article>
         ))}

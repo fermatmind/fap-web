@@ -1,12 +1,19 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { CareerWarningsAdapter } from "@/lib/career/adapters/types";
 import type { CareerWarningCopyVariant } from "@/lib/career/adapters/types";
 
 type WarningBannerProps = {
-  locale: "en" | "zh";
+  locale: DisplayLocale;
   warnings: CareerWarningsAdapter;
   title?: string;
   testId?: string;
   copyVariant?: CareerWarningCopyVariant;
+};
+
+const TAIWAN_WARNING_LABELS: Readonly<Record<string, string>> = {
+  "fit_score.provisional": "職涯適配度仍待確認",
+  "strain_score.restricted": "工作負荷評分的適用範圍有限",
+  "ai_survival_score.provisional": "AI 影響評分仍待確認",
 };
 
 export function WarningBanner({ locale, warnings, title, testId, copyVariant = "control" }: WarningBannerProps) {
@@ -19,20 +26,22 @@ export function WarningBanner({ locale, warnings, title, testId, copyVariant = "
 
   const defaultTitle =
     copyVariant === "softer"
-      ? locale === "zh"
+      ? locale === "zh-TW" ? "風險提醒與適用範圍" : locale === "zh"
         ? "风险提示与边界说明"
         : "Risk notes and boundaries"
       : copyVariant === "strict"
-        ? locale === "zh"
+        ? locale === "zh-TW" ? "優先注意的警示與限制" : locale === "zh"
           ? "高优先级警告与限制"
           : "High-priority warnings and limits"
-        : locale === "zh"
+        : locale === "zh-TW" ? "警示與限制" : locale === "zh"
           ? "显式警告与限制"
           : "Explicit warnings and limits";
 
-  const redLabel = copyVariant === "strict" ? "Critical signals" : "Red flags";
-  const amberLabel = copyVariant === "softer" ? "Watchlist" : "Amber flags";
-  const claimLabel = copyVariant === "strict" ? "Restricted claims" : "Blocked claims";
+  const redLabel = locale === "zh-TW" ? "高風險訊號" : copyVariant === "strict" ? "Critical signals" : "Red flags";
+  const amberLabel = locale === "zh-TW" ? "需留意的訊號" : copyVariant === "softer" ? "Watchlist" : "Amber flags";
+  const claimLabel = locale === "zh-TW" ? "受限制的結論" : copyVariant === "strict" ? "Restricted claims" : "Blocked claims";
+
+  const warningLabel = (code: string) => locale === "zh-TW" ? TAIWAN_WARNING_LABELS[code] ?? code : code;
 
   return (
     <section
@@ -46,19 +55,19 @@ export function WarningBanner({ locale, warnings, title, testId, copyVariant = "
         <div>
           <p className="m-0 font-medium text-[var(--fm-text)]">{redLabel}</p>
           <ul className="mt-2 space-y-1 pl-5">
-            {warnings.redFlags.length > 0 ? warnings.redFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
+            {warnings.redFlags.length > 0 ? warnings.redFlags.map((flag) => <li key={flag} data-warning-code={locale === "zh-TW" ? flag : undefined}>{warningLabel(flag)}</li>) : <li>—</li>}
           </ul>
         </div>
         <div>
           <p className="m-0 font-medium text-[var(--fm-text)]">{amberLabel}</p>
           <ul className="mt-2 space-y-1 pl-5">
-            {warnings.amberFlags.length > 0 ? warnings.amberFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
+            {warnings.amberFlags.length > 0 ? warnings.amberFlags.map((flag) => <li key={flag} data-warning-code={locale === "zh-TW" ? flag : undefined}>{warningLabel(flag)}</li>) : <li>—</li>}
           </ul>
         </div>
         <div>
           <p className="m-0 font-medium text-[var(--fm-text)]">{claimLabel}</p>
           <ul className="mt-2 space-y-1 pl-5">
-            {warnings.blockedClaims.length > 0 ? warnings.blockedClaims.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
+            {warnings.blockedClaims.length > 0 ? warnings.blockedClaims.map((flag) => <li key={flag} data-warning-code={locale === "zh-TW" ? flag : undefined}>{warningLabel(flag)}</li>) : <li>—</li>}
           </ul>
         </div>
       </div>
