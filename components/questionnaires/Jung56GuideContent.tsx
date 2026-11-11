@@ -2,7 +2,7 @@ import type { Jung56ResultReading } from "@/lib/questionnaires/result-content/ju
 import type { Locale } from "@/lib/i18n/locales";
 import type { Jung56Card } from "@/lib/questionnaires/jung56";
 
-export function Jung56GuideContent({ card, reading, locale, idPrefix = "jung56-guide", headingLevel = 4 }: { card: Jung56Card; reading?: Jung56ResultReading; locale: Locale; idPrefix?: string; headingLevel?: 3 | 4 }) {
+export function Jung56GuideContent({ card, reading, locale, copy = text => text, idPrefix = "jung56-guide", headingLevel = 4 }: { card: Jung56Card; reading?: Jung56ResultReading; locale: Locale; copy?: (text: string) => string; idPrefix?: string; headingLevel?: 3 | 4 }) {
   const zh = locale === "zh", Heading = headingLevel === 3 ? "h3" : "h4";
   const sections = [
     { key: "construct_definition", en: "What this direction describes", zh: "这个方向描述什么", paragraphs: [card.construct_definition] },
@@ -18,7 +18,7 @@ export function Jung56GuideContent({ card, reading, locale, idPrefix = "jung56-g
   ];
   const accepted = reading?.quizSlug === "cognitive-functions-test" && reading.edition === "fm_jung56_eight_public_cards_working_en_v1" && reading.profileId === card.id ? reading : undefined;
   const composed = sections.map(s => { const extra = accepted?.sections.find(x => x.id === s.key)?.paragraphs ?? []; return { ...s, paragraphs: s.key === "balance_practices" ? [...extra, ...s.paragraphs] : [...s.paragraphs, ...extra] }; });
-  return <div data-jung56-full={card.id} data-jung56-reading={accepted ? card.id : undefined} className="space-y-6 leading-8 [overflow-wrap:anywhere]">{accepted && <details className="rounded-lg border border-slate-200 p-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "本方向目录" : "Contents for this direction"}</summary><nav aria-label={zh ? "本方向目录" : "Contents for this direction"}><ul className="list-disc pl-5">{composed.map(s => <li key={s.key}><a className="inline-block min-h-11 py-2 underline" href={`#${idPrefix}-${card.id}-${s.key}`}>{zh ? s.zh : s.en}</a></li>)}</ul></nav></details>}{composed.map(s => <section id={`${idPrefix}-${card.id}-${s.key}`} key={s.key} className="scroll-mt-24">
-    <Heading className="mb-3 text-lg font-semibold">{zh ? s.zh : s.en}</Heading>{s.paragraphs.length > 1 ? <ul className="list-disc space-y-3 pl-5">{s.paragraphs.map((p, i) => <li key={i}>{p[locale]}</li>)}</ul> : <p>{s.paragraphs[0][locale]}</p>}
+  return <div data-jung56-full={card.id} data-jung56-reading={accepted ? card.id : undefined} className="space-y-6 leading-8 [overflow-wrap:anywhere]">{accepted && <details className="rounded-lg border border-slate-200 p-3"><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? copy("本方向目录") : "Contents for this direction"}</summary><nav aria-label={zh ? copy("本方向目录") : "Contents for this direction"}><ul className="list-disc pl-5">{composed.map(s => <li key={s.key}><a className="inline-block min-h-11 py-2 underline" href={`#${idPrefix}-${card.id}-${s.key}`}>{zh ? copy(s.zh) : s.en}</a></li>)}</ul></nav></details>}{composed.map(s => <section id={`${idPrefix}-${card.id}-${s.key}`} key={s.key} className="scroll-mt-24">
+    <Heading className="mb-3 text-lg font-semibold">{zh ? copy(s.zh) : s.en}</Heading>{s.paragraphs.length > 1 ? <ul className="list-disc space-y-3 pl-5">{s.paragraphs.map((p, i) => <li key={i}>{p[locale]}</li>)}</ul> : <p>{s.paragraphs[0][locale]}</p>}
   </section>)}</div>;
 }

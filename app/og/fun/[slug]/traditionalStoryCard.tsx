@@ -65,6 +65,7 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
       "music-taste-test": "費馬原創 24 道音樂偏好題",
       "dark-triad": "費馬原創 18 道主題題目",
       "dark-tetrad-sd4": "SD4 發表版 28 道題目",
+      "cognitive-functions-test": "費馬原創 32 題自評與 56 題二選一",
       "egogram": "費馬原創 20 道自我狀態題",
       "type-ab": "費馬原創 20 道行為題",
       "learning-style": "費馬原創 20 道學習偏好題",

@@ -2,7 +2,10 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
 import { LikertQuestionnairePage, traditionalLikertMetadata } from "@/components/i18n/zh-TW/LikertQuestionnairePage";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
-import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
+import { TraditionalCognitiveFunctionsPage } from "@/components/i18n/zh-TW/TraditionalCognitiveFunctionsPage";
+import { scoreJung56 } from "@/lib/questionnaires/jung56";
+import originalJungBank from "@/lib/questionnaires/jung56Bank.json";
+import { loadTraditionalCognitive, loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { prepareResultProfile } from "@/lib/questionnaires/result-content/readings";
@@ -72,6 +75,39 @@ it("keeps all 24 Taiwan character strengths guides public and scores each part i
     expect(container.querySelector("[data-character-mean], [data-character-sum]")).toBeNull();
     expect(container.querySelector("[data-character-source] a")).toHaveAttribute("href", quiz.references![0].url);
     expect(container.textContent).toContain(profile.sections.at(-1)!.paragraphs.at(-1)!.zh);
+    cleanup();
+  }
+});
+
+it("keeps both Taiwan cognitive editions and their separate public readings", async () => {
+  const slug = "cognitive-functions-test";
+  const translated = (await loadTraditionalCognitive())!;
+  const original = (await loadQuestionnaire(slug))!;
+  const { quiz, paired } = translated;
+  expect(quiz.questions).toHaveLength(32);
+  expect(paired.bank.questions).toHaveLength(56);
+  const ratings = Object.fromEntries(quiz.questions.map(q => [q.id, q.reverse ? "2" : "4"]));
+  expect(scoreQuestionnaire(quiz, ratings)).toEqual(scoreQuestionnaire(original, ratings));
+  const choices = { edition: paired.bank.edition, answers: Object.fromEntries(paired.bank.questions.map(q => [q.id, "A"])) };
+  const pairedResult = scoreJung56(paired.bank, choices);
+  expect(pairedResult).toEqual(scoreJung56(originalJungBank, choices));
+  expect(pairedResult).toMatchObject({ status: "complete", result: { topDirectionIds: expect.arrayContaining(paired.content.cards.map(card => card.id)) } });
+
+  const entry = questionnairePath("zh-TW", slug);
+  const landing = render(await TraditionalCognitiveFunctionsPage({ take: false }));
+  for (const [name, method] of [["開始 32 題自評", "ratings32"], ["開始 56 題二選一", "paired56"]]) {
+    const form = landing.getByRole("button", { name }).closest("form");
+    expect(form).toHaveAttribute("action", entry + "/take");
+    expect(form?.querySelector("input[name=edition]")).toHaveValue(method);
+  }
+  cleanup();
+
+  for (const profile of quiz.profiles) {
+    expect(traditionalPath(questionnaireGuidePath("zh", slug, profile.id))).toBe(questionnaireGuidePath("zh-TW", slug, profile.id));
+    const guide = render(await TraditionalCognitiveFunctionsPage({ take: false, profile: profile.id }));
+    expect(guide.container.querySelector("#ratings32 [data-cognitive-functions-result-reading]")).toBeInTheDocument();
+    expect(guide.container.querySelector(`#paired56 [data-jung56-reading="${profile.id}"]`)).toBeInTheDocument();
+    expect(guide.container.querySelector("[data-jung56-counts], [data-cognitive-mean]")).toBeNull();
     cleanup();
   }
 });

@@ -1,3 +1,6 @@
+import { cognitiveSections, cognitiveFaq, cognitiveSummaries, cognitiveExtraReferences } from "@/components/questionnaires/CognitiveFunctionsLandingEditorial";
+import { isJung56ConfigurationValid, isJung56ContentValid } from "@/lib/questionnaires/jung56";
+import type { Jung56ResultReading } from "@/lib/questionnaires/result-content/jung56-reading-types";
 import { isSd4ConfigurationValid } from "@/lib/questionnaires/sd4";
 import { sd4LandingSections, sd4LandingFaq, sd4LandingReferences } from "@/components/questionnaires/Sd4LandingEditorial";
 import { darkTriadLandingSections, darkTriadLandingFaq } from "@/components/questionnaires/DarkTriadLandingEditorial";
@@ -58,6 +61,16 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "cognitive-functions-test": {
+    reading: "cognitive-functions-test",
+    attribute: "cognitive-functions",
+    load: () => import("@/lib/questionnaires/result-content/cognitive-functions-test.json"),
+    editorial: "CognitiveFunctions",
+    prefix: "cognitive",
+    sections: cognitiveSections,
+    faq: cognitiveFaq,
+    summaries: cognitiveSummaries,
+  },
   "dark-triad": {
     reading: "dark-triad",
     attribute: "dark-triad",
@@ -514,7 +527,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -558,6 +571,7 @@ export async function loadTraditionalLikert(slug: string) {
       case "eras-of-you-test": return projectStoryCopy(erasOfYouLandingReferences, "components/questionnaires/ErasOfYouLandingEditorial.ts/erasOfYouLandingReferences", units);
       case "rizz-test": return projectStoryCopy(rizzLandingReferences, "components/questionnaires/RizzLandingEditorial.ts/rizzLandingReferences", units);
       case "dark-tetrad-sd4": return projectStoryCopy(sd4LandingReferences, "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingReferences", units);
+      case "cognitive-functions-test": return projectStoryCopy(cognitiveExtraReferences, "components/questionnaires/CognitiveFunctionsLandingEditorial.ts/cognitiveExtraReferences", units);
       default: return [];
     }
   })();
@@ -570,3 +584,24 @@ export async function loadTraditionalLikert(slug: string) {
   }
   return { quiz: { ...quiz, profiles }, summaries, extraReferences, sections: [], faq: [] as Questionnaire["faq"] };
 }
+
+export async function loadTraditionalCognitive() {
+  const [item, { default: rawBank }, { default: rawContent }, { default: rawReadings }] = await Promise.all([
+    loadTraditionalLikert("cognitive-functions-test"),
+    import("@/lib/questionnaires/jung56Bank.json"),
+    import("@/lib/questionnaires/jung56Content.json"),
+    import("@/lib/questionnaires/result-content/jung56-readings.json"),
+  ]);
+  if (!item || !isJung56ConfigurationValid(rawBank) || !isJung56ContentValid(rawContent)) return null;
+  const bank = projectStoryCopy(rawBank, "lib/questionnaires/jung56Bank.json", units);
+  const content = projectStoryCopy(rawContent, "lib/questionnaires/jung56Content.json", units);
+  const readings: Jung56ResultReading[] = content.cards.map(card => ({
+    quizSlug: "cognitive-functions-test",
+    edition: "fm_jung56_eight_public_cards_working_en_v1",
+    profileId: card.id,
+    sections: projectStoryCopy(rawReadings[card.id], `lib/questionnaires/result-content/jung56-readings.json/${card.id}`, units),
+  }));
+  return { ...item, paired: { bank, content }, readings };
+}
+
+export type TraditionalCognitive = NonNullable<Awaited<ReturnType<typeof loadTraditionalCognitive>>>;

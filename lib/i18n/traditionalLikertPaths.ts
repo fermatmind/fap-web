@@ -1,4 +1,5 @@
 const profiles = {
+  "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],
   "light-triad-test": ["faith-in-humanity", "humanism", "kantianism"],

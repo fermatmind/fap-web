@@ -1,10 +1,11 @@
 "use client";
 import { ResultScoreRow } from "./QuestionnaireResultPresentation";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import bank from "@/lib/questionnaires/jung56Bank.json";
-import content from "@/lib/questionnaires/jung56Content.json";
+import originalBank from "@/lib/questionnaires/jung56Bank.json";
+import originalContent from "@/lib/questionnaires/jung56Content.json";
 import { isJung56ConfigurationValid, isJung56ContentValid, scoreJung56, type Jung56Bank, type Jung56Content, type Jung56Result } from "@/lib/questionnaires/jung56";
 import type { Jung56ResultReading } from "@/lib/questionnaires/result-content/jung56-reading-types";
 import type { Locale } from "@/lib/i18n/locales";
@@ -14,11 +15,15 @@ import { Jung56GuideContent } from "./Jung56GuideContent";
 import styles from "./CognitiveFunctionsResult.module.css";
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 const subscribeReady = () => () => {};
-export default function Jung56Client({ locale, readings, startOnEntry = false }: { locale: Locale; readings?: Jung56ResultReading[]; startOnEntry?: boolean }) {
-  if (!isJung56ConfigurationValid(bank) || !isJung56ContentValid(content)) return <p role="status">{locale === "zh" ? "此版本暂不可用，请稍后重试。" : "This edition is unavailable. Please try later."}</p>;
+export default function Jung56Client({ locale, readings, localized, startOnEntry = false }: { locale: Locale; localized?: { bank: Jung56Bank; content: Jung56Content }; readings?: Jung56ResultReading[]; startOnEntry?: boolean }) {
+  const { displayText } = useQuestionnaireDisplayCopy();
+  const { bank, content } = localized ?? { bank: originalBank, content: originalContent };
+  if (!isJung56ConfigurationValid(bank) || !isJung56ContentValid(content)) return <p role="status">{locale === "zh" ? displayText("此版本暂不可用，请稍后重试。") : "This edition is unavailable. Please try later."}</p>;
   return <ValidJung56Client key={locale} bank={bank} content={content} locale={locale} readings={readings} startOnEntry={startOnEntry} />;
 }
 function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { bank: Jung56Bank; content: Jung56Content; locale: Locale; readings?: Jung56ResultReading[]; startOnEntry?: boolean }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
+  const displayLocale = traditional ? "zh-TW" : locale;
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [stage, setStage] = useState<"welcome" | "answer" | "result">(startOnEntry ? "answer" : "welcome"), [position, setPosition] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({}), [result, setResult] = useState<Jung56Result | null>(null);
@@ -53,64 +58,64 @@ function ValidJung56Client({ bank, content, locale, readings, startOnEntry }: { 
   }
   function next() {
     if (submitted.current) return;
-    if (!answersRef.current[question.id]) { setMessage(zh ? "请选择A或B，再继续；也可以退出并清除。" : "Choose A or B before continuing, or exit and clear this attempt."); return; }
+    if (!answersRef.current[question.id]) { setMessage(zh ? displayText("请选择A或B，再继续；也可以退出并清除。") : "Choose A or B before continuing, or exit and clear this attempt."); return; }
     if (position < 55) { setPosition(position + 1); setMessage(""); return; }
     const checked = scoreJung56(bank, { edition: bank.edition, answers: answersRef.current });
-    if (checked.status !== "complete") { setMessage(zh ? "本次资料不足或版本不可用，暂不生成结果。可以返回检查，或清除后重来。" : "This attempt is incomplete or unavailable. No result was generated. Go back to check it, or clear it and restart."); return; }
+    if (checked.status !== "complete") { setMessage(zh ? displayText("本次资料不足或版本不可用，暂不生成结果。可以返回检查，或清除后重来。") : "This attempt is incomplete or unavailable. No result was generated. Go back to check it, or clear it and restart."); return; }
     submitted.current = true; setResult(checked.result); setStage("result"); setMessage(""); send("complete");
   }
   async function copyPublicEntry() {
-    const copiedRevision = revision.current, text = `${zh ? "认知功能测试 · 56题二选一版" : "Cognitive Functions Test · 56-choice edition"}\nhttps://fermatmind.com/${locale}/tests/explore/cognitive-functions-test`;
-    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; send("share"); setManual(""); setMessage(zh ? "已复制公开入口，不含回答、次数或方向。" : "Copied the public entry without responses, counts or directions."); }
-    catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，请从下方手动复制公开入口。" : "Automatic copying is unavailable. Copy the public entry below manually."); }
+    const copiedRevision = revision.current, text = `${zh ? displayText("认知功能测试 · 56题二选一版") : "Cognitive Functions Test · 56-choice edition"}\nhttps://fermatmind.com/${displayLocale}/tests/explore/cognitive-functions-test`;
+    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; send("share"); setManual(""); setMessage(zh ? displayText("已复制公开入口，不含回答、次数或方向。") : "Copied the public entry without responses, counts or directions."); }
+    catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? displayText("无法自动复制，请从下方手动复制公开入口。") : "Automatic copying is unavailable. Copy the public entry below manually."); }
   }
   const privacyControls = <>
-    <label className="mb-5 block rounded-lg border p-3 text-sm leading-7"><input type="checkbox" disabled={!ready} checked={permission} onChange={e => { permissionRef.current = e.target.checked; setPermission(e.target.checked); }} className="mr-2" />{zh ? "可选：允许本次56题版匿名动作统计（默认关闭）" : "Optional: allow anonymous actions for this 56-choice edition (off by default)"}<span className="block text-slate-600">{zh ? "同时遵循全站分析选择；仅统计开始、完成、结果查看和分享，不发送回答、次数、方向或身份，不回补开启前的动作；离开或切换方法即失效。常规网页分析仍遵循全站选择。" : "Also respects your site analytics choice. Counts only starts, completions, result views and shares, without responses, counts, directions or identity. Earlier actions are not backfilled; permission ends on leaving or switching methods. Ordinary page analytics still follows your site choice."}</span></label>
+    <label className="mb-5 block rounded-lg border p-3 text-sm leading-7"><input type="checkbox" disabled={!ready} checked={permission} onChange={e => { permissionRef.current = e.target.checked; setPermission(e.target.checked); }} className="mr-2" />{zh ? displayText("可选：允许本次56题版匿名动作统计（默认关闭）") : "Optional: allow anonymous actions for this 56-choice edition (off by default)"}<span className="block text-slate-600">{zh ? displayText("同时遵循全站分析选择；仅统计开始、完成、结果查看和分享，不发送回答、次数、方向或身份，不回补开启前的动作；离开或切换方法即失效。常规网页分析仍遵循全站选择。") : "Also respects your site analytics choice. Counts only starts, completions, result views and shares, without responses, counts, directions or identity. Earlier actions are not backfilled; permission ends on leaving or switching methods. Ordinary page analytics still follows your site choice."}</span></label>
     <p className="mb-5 text-sm leading-7">{content.common.web_privacy[locale]}</p>
   </>;
   return <section id="take-test" data-stage={stage} data-jung56-client className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-busy={!ready}>
     {stage !== "result" && privacyControls}
-    <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{zh ? "56题荣格方向二选一" : "56 Jungian direction choices"}</legend>
-      {stage === "welcome" && <><h2 className="text-2xl font-semibold">{zh ? "56题二选一 · 公开试用版" : "56 choices · Public-preview edition"}</h2><p className="leading-8">{bank.questions[0].instruction[locale]}</p><p className="leading-8">{content.common.forced_choice_method[locale]}</p><p className="leading-8">{zh ? "约15分钟为估计，不限时。全部56题均需选择A或B；不想选择时可以退出，不生成未完成排序。" : "About 15 minutes is an estimate, without a time limit. All 56 questions require A or B. You can exit instead of choosing; incomplete attempts produce no ranking."}</p><p className="leading-8">{content.common.evidence_status[locale]}</p><button data-explore-start type="button" className={button} onClick={() => { setStage("answer"); send("start"); }}>{zh ? "开始56题二选一" : "Start the 56 choices"}</button></>}
+    <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{zh ? displayText("56题荣格方向二选一") : "56 Jungian direction choices"}</legend>
+      {stage === "welcome" && <><h2 className="text-2xl font-semibold">{zh ? displayText("56题二选一 · 公开试用版") : "56 choices · Public-preview edition"}</h2><p className="leading-8">{bank.questions[0].instruction[locale]}</p><p className="leading-8">{content.common.forced_choice_method[locale]}</p><p className="leading-8">{zh ? displayText("约15分钟为估计，不限时。全部56题均需选择A或B；不想选择时可以退出，不生成未完成排序。") : "About 15 minutes is an estimate, without a time limit. All 56 questions require A or B. You can exit instead of choosing; incomplete attempts produce no ranking."}</p><p className="leading-8">{content.common.evidence_status[locale]}</p><button data-explore-start type="button" className={button} onClick={() => { setStage("answer"); send("start"); }}>{zh ? displayText("开始56题二选一") : "Start the 56 choices"}</button></>}
       {stage === "answer" && <>
-        <p data-jung56-progress className="text-sm">{zh ? `第 ${position + 1} / 56 题` : `Question ${position + 1} / 56`}</p>
+        <p data-jung56-progress className="text-sm">{zh ? displayText(`第 ${position + 1} / 56 题`) : `Question ${position + 1} / 56`}</p>
         <h2 ref={heading} tabIndex={-1} id="jung56-question" className="scroll-mt-24 text-xl font-semibold">{question.instruction[locale]}</h2>
         <div role="radiogroup" aria-labelledby="jung56-question" className="space-y-3">{question.options.map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border p-3"><input type="radio" name={question.id} value={o.id} checked={answers[question.id] === o.id} onChange={() => choose(o.id)} className="mt-1 size-5 shrink-0 accent-violet-700" /><span className="leading-8">{o.id} — {o.label[locale]}</span></label>)}</div>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 55 ? (zh ? "完成并查看八方向" : "Finish and view all eight directions") : (zh ? "下一题" : "Next")}</button></div>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? displayText("上一题") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 55 ? (zh ? displayText("完成并查看八方向") : "Finish and view all eight directions") : (zh ? displayText("下一题") : "Next")}</button></div>
       </>}
       {stage === "result" && result && <>
         <div className={styles.paired} data-jung56-result-lead>
           <header className={styles.pairedLead}>
-            <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? "本次56题选择记录" : "Your 56-choice record"}</h2>
-            <p data-jung56-tie className="mt-4 text-lg font-semibold leading-7">{result.topDirectionIds.length === 8 ? (zh ? "八个方向均为7次，全部并列；没有单独最高方向。" : "All eight directions have seven selections and are tied; there is no single highest direction.") : `${zh ? "本次最高选择次数：" : "Highest selection count in this attempt: "}${result.groups[0].wins} / 14 · ${result.topDirectionIds.map(id => content.cards.find(c => c.id === id)!.display_name[locale]).join(zh ? "、" : ", ")}`}</p>
-            <p className="mt-4 text-sm leading-7">{zh ? "八方向共计56次选择，每个方向出现14次。点击方向名称，查看对应的情境和解释。" : "The eight counts add up to 56 selections, with 14 appearances per direction. Select any direction to see its situation and explanation."}</p>
+            <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{zh ? displayText("本次56题选择记录") : "Your 56-choice record"}</h2>
+            <p data-jung56-tie className="mt-4 text-lg font-semibold leading-7">{result.topDirectionIds.length === 8 ? (zh ? displayText("八个方向均为7次，全部并列；没有单独最高方向。") : "All eight directions have seven selections and are tied; there is no single highest direction.") : `${zh ? displayText("本次最高选择次数：") : "Highest selection count in this attempt: "}${result.groups[0].wins} / 14 · ${result.topDirectionIds.map(id => content.cards.find(c => c.id === id)!.display_name[locale]).join(zh ? displayText("、") : ", ")}`}</p>
+            <p className="mt-4 text-sm leading-7">{zh ? displayText("八方向共计56次选择，每个方向出现14次。点击方向名称，查看对应的情境和解释。") : "The eight counts add up to 56 selections, with 14 appearances per direction. Select any direction to see its situation and explanation."}</p>
             <details className={styles.calculation}>
-              <summary>{zh ? "次数和并列怎么读" : "How to read counts and ties"}</summary>
+              <summary>{zh ? displayText("次数和并列怎么读") : "How to read counts and ties"}</summary>
               <p>{content.common.how_to_read[locale]}</p>
               <p>{content.common.relative_score_explanation[locale]}</p>
               <p>{content.common.tie_explanation[locale]}</p>
             </details>
           </header>
-          <div className={styles.pairedCounts} aria-label={zh ? "八方向的选择次数" : "Selection counts for all eight directions"} role="region">
+          <div className={styles.pairedCounts} aria-label={zh ? displayText("八方向的选择次数") : "Selection counts for all eight directions"} role="region">
             <div data-jung56-counts className={styles.countGrid}>{result.rows.map(row => {
               const direction = content.cards.find(card => card.id === row.id)!;
               const name = `${direction.display_name[locale]} · ${row.id[0].toUpperCase() + row.id[1]}`;
               return <ResultScoreRow key={row.id} label={<a href={`#jung56-reading-${row.id}`}>{name}</a>} value={<span data-jung56-count={row.id}>{row.wins} / 14</span>} score={row.wins} min={0} max={14} />;
             })}</div>
-            <p className="mt-3 text-sm leading-7">{zh ? "次数彼此相关，不是强度、能力、人群百分位、功能栈或MBTI类型；低次数不代表缺失。" : "Counts depend on one another. They are not strength, ability, population percentiles, a function stack or an MBTI type. Lower counts do not mean absence."}</p>
+            <p className="mt-3 text-sm leading-7">{zh ? displayText("次数彼此相关，不是强度、能力、人群百分位、功能栈或MBTI类型；低次数不代表缺失。") : "Counts depend on one another. They are not strength, ability, population percentiles, a function stack or an MBTI type. Lower counts do not mean absence."}</p>
           </div>
         </div>
-        <div className={styles.pairedReadings} data-jung56-readings>{content.cards.map(card => <section key={card.id} className={styles.topic}><h3 id={`jung56-reading-${card.id}`}>{card.display_name[locale]} · {card.id[0].toUpperCase() + card.id[1]}</h3><div className="my-4 space-y-3 leading-8"><h4 className="font-semibold">{zh ? "用一个情境理解这个方向" : "Understand this direction through a situation"}</h4><p>{card.observable_tendencies[0][locale]}</p><p className="border-l-2 border-slate-200 pl-4">{card.reflection_questions[0][locale]}</p></div><details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? "展开本方向完整解释" : "Expand this direction’s full explanation"}</summary><Jung56GuideContent card={card} reading={readings?.find(r => r.profileId === card.id)} locale={locale} idPrefix="jung56-result" /></details><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/cognitive-functions-test/results/${card.id}#paired56`}>{zh ? "阅读不含个人次数的公开指南" : "Read the public guide without personal counts"}</Link></section>)}</div>
+        <div className={styles.pairedReadings} data-jung56-readings>{content.cards.map(card => <section key={card.id} className={styles.topic}><h3 id={`jung56-reading-${card.id}`}>{card.display_name[locale]} · {card.id[0].toUpperCase() + card.id[1]}</h3><div className="my-4 space-y-3 leading-8"><h4 className="font-semibold">{zh ? displayText("用一个情境理解这个方向") : "Understand this direction through a situation"}</h4><p>{card.observable_tendencies[0][locale]}</p><p className="border-l-2 border-slate-200 pl-4">{card.reflection_questions[0][locale]}</p></div><details className="my-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline">{zh ? displayText("展开本方向完整解释") : "Expand this direction’s full explanation"}</summary><Jung56GuideContent copy={displayText} card={card} reading={readings?.find(r => r.profileId === card.id)} locale={locale} idPrefix="jung56-result" /></details><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/explore/cognitive-functions-test/results/${card.id}#paired56`}>{zh ? displayText("阅读不含个人次数的公开指南") : "Read the public guide without personal counts"}</Link></section>)}</div>
         <p className="leading-8">{content.common.not_a_fixed_identity[locale]}</p><p className="leading-8">{content.common.retest_guidance[locale]}</p>
         <details className={styles.calculation}>
-          <summary>{zh ? "本次隐私与统计选项" : "Privacy and analytics for this attempt"}</summary>
+          <summary>{zh ? displayText("本次隐私与统计选项") : "Privacy and analytics for this attempt"}</summary>
           {privacyControls}
         </details>
-        <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={copyPublicEntry}>{zh ? "复制公开入口" : "Copy public entry"}</button><button type="button" className={button} onClick={clear}>{zh ? "清空并重新作答56题" : "Clear and retake the 56 choices"}</button></div>
-        {manual && <label className="block leading-7">{zh ? "手动复制公开入口" : "Public entry for manual copying"}<textarea className="mt-2 min-h-32 w-full rounded-lg border p-3" readOnly value={manual} /></label>}
-        <p className="leading-8">{zh ? "可以在这里结束，也可另做独立MBTI四偏好测评。它有自己的题目与版本，不能从以上次数换算；完整结果已经免费呈现。" : "You can finish here or choose a separate MBTI four-preference assessment. It has its own questions and editions; these counts cannot be converted into its result. Your full result here is already free."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/mbti-personality-test-16-personality-types`}>{zh ? "查看独立MBTI测评入口" : "View the separate MBTI assessment entry"}</Link>
+        <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={copyPublicEntry}>{zh ? displayText("复制公开入口") : "Copy public entry"}</button><button type="button" className={button} onClick={clear}>{zh ? displayText("清空并重新作答56题") : "Clear and retake the 56 choices"}</button></div>
+        {manual && <label className="block leading-7">{zh ? displayText("手动复制公开入口") : "Public entry for manual copying"}<textarea className="mt-2 min-h-32 w-full rounded-lg border p-3" readOnly value={manual} /></label>}
+        <p className="leading-8">{zh ? displayText("可以在这里结束，也可另做独立MBTI四偏好测评。它有自己的题目与版本，不能从以上次数换算；完整结果已经免费呈现。") : "You can finish here or choose a separate MBTI four-preference assessment. It has its own questions and editions; these counts cannot be converted into its result. Your full result here is already free."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/mbti-personality-test-16-personality-types`}>{zh ? displayText("查看独立MBTI测评入口") : "View the separate MBTI assessment entry"}</Link>
       </>}
-      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? "退出并清除56题回答" : "Exit and clear the 56-choice responses"}</button></QuestionnaireLegacyControl>}
+      {stage !== "welcome" && <QuestionnaireLegacyControl><button type="button" className={button} onClick={clear}>{zh ? displayText("退出并清除56题回答") : "Exit and clear the 56-choice responses"}</button></QuestionnaireLegacyControl>}
     </fieldset>
     <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{message}</p>
   </section>;

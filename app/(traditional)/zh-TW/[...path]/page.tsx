@@ -12,7 +12,7 @@ import { ChiikawaTake } from "@/components/i18n/zh-TW/ChiikawaTake";
 import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotTests";
 import { ChiikawaPortrait } from "@/components/questionnaires/ChiikawaPortrait";
 
-type Props = { params: Promise<{ path?: string[] }> };
+type Props = { params: Promise<{ path?: string[] }>; searchParams?: Promise<{ edition?: string | string[] }> };
 const entry = `/zh-TW${TRADITIONAL_QUIZ_PATH}`;
 async function route(props: Props) {
   const segments = (await props.params).path ?? [];
@@ -62,6 +62,11 @@ function Languages({ path }: { path: string }) {
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
   const likert = traditionalLikertRoute(path.slice("/zh-TW".length));
+  if (likert?.slug === "cognitive-functions-test") {
+    const { TraditionalCognitiveFunctionsPage } = await import("@/components/i18n/zh-TW/TraditionalCognitiveFunctionsPage");
+    const edition = likert.take ? (await props.searchParams)?.edition : undefined;
+    return <TraditionalCognitiveFunctionsPage {...likert} edition={edition} />;
+  }
   if (likert) {
     const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return <LikertQuestionnairePage {...likert} />;

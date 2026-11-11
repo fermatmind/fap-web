@@ -4,6 +4,12 @@ import { build } from './convert-zh-tw.mjs';
 const root = new URL('../../', import.meta.url);
 const output = new URL('lib/i18n/zh-TW/likert-questionnaires.generated.json', root);
 const sources = [
+    'lib/questionnaires/data/cognitive-functions-test.json',
+    'lib/questionnaires/result-content/cognitive-functions-test.json',
+    'lib/questionnaires/jung56Bank.json',
+    'lib/questionnaires/jung56Content.json',
+    'lib/questionnaires/result-content/jung56-readings.json',
+    'components/questionnaires/CognitiveFunctionsLandingEditorial.ts',
     'lib/questionnaires/data/dark-triad.json',
     'lib/questionnaires/result-content/dark-triad.json',
     'components/questionnaires/DarkTriadLandingEditorial.ts',
