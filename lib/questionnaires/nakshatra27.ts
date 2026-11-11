@@ -1,3 +1,4 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { Questionnaire, Text } from "./types";
 import { questionnairePath } from "./paths";
 
@@ -60,7 +61,7 @@ export function classifyNakshatraLongitude(longitude: unknown): NakshatraSector 
     comparison, profileIds: comparison ? [NAKSHATRA_IDS[index], NAKSHATRA_IDS[adjacent]] : [NAKSHATRA_IDS[index]] };
 }
 
-export function nakshatraPublicLinks(q: Questionnaire, locale: "en" | "zh") {
+export function nakshatraPublicLinks(q: Questionnaire, locale: DisplayLocale) {
   const entry = `https://fermatmind.com${questionnairePath(locale, q.slug)}`;
   return [entry, ...NAKSHATRA_IDS.map(id => `${entry}/results/${id}`)].join("\n");
 }

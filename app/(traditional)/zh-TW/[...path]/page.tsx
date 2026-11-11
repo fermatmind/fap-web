@@ -1,3 +1,4 @@
+import { traditionalCulturalSymbolRoute } from "@/lib/i18n/traditionalCulturalSymbolPaths";
 import { traditionalObservationRoute } from "@/lib/i18n/traditionalObservationPaths";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
@@ -24,6 +25,11 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  const culturalSymbol = traditionalCulturalSymbolRoute(path.slice("/zh-TW".length));
+  if (culturalSymbol) {
+    const { traditionalCulturalSymbolMetadata } = await import("@/components/i18n/zh-TW/TraditionalCulturalSymbolPage");
+    return traditionalCulturalSymbolMetadata(culturalSymbol);
+  }
   if (path === "/zh-TW/tests/explore/career-match") {
     const { traditionalCareerMatchMetadata } = await import("@/components/i18n/zh-TW/TraditionalCareerMatchPage");
     return traditionalCareerMatchMetadata();
@@ -67,6 +73,11 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  const culturalSymbol = traditionalCulturalSymbolRoute(path.slice("/zh-TW".length));
+  if (culturalSymbol) {
+    const { TraditionalCulturalSymbolPage } = await import("@/components/i18n/zh-TW/TraditionalCulturalSymbolPage");
+    return <TraditionalCulturalSymbolPage {...culturalSymbol} />;
+  }
   if (path === "/zh-TW/tests/explore/career-match") {
     const { TraditionalCareerMatchPage } = await import("@/components/i18n/zh-TW/TraditionalCareerMatchPage");
     return <TraditionalCareerMatchPage />;

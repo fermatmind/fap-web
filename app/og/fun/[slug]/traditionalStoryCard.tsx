@@ -1,3 +1,4 @@
+import { hasTraditionalCulturalSymbol } from "@/lib/i18n/traditionalCulturalSymbolPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
@@ -47,6 +48,22 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     if (slug === "adult-age-preferences") return adultAgePreferencesCard("zh-TW", item.quiz.title.zh, result?.directionIds, await archetypeFont);
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont,
       `${item.quiz.questions.length} 道二選一題目`, "公開結果指南");
+  }
+  if (hasTraditionalCulturalSymbol(slug)) {
+    const { loadTraditionalCulturalSymbol } = await import("@/lib/i18n/zh-TW/culturalSymbolQuestionnaires");
+    const item = await loadTraditionalCulturalSymbol(slug);
+    const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
+    if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
+    const editions: Record<string, string> = {
+      "life-path-number": "日期數字文化計算",
+      "nakshatra-spica-reference": "出生宿文化參考",
+      "natal-chart": "出生星盤文化參考",
+      "nine-star-ki": "九星節年文化參考",
+      "weton-story-preferences": "35 道故事選擇與曆法參考",
+    };
+    archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh,
+      Boolean(result), await archetypeFont, editions[slug], "公開文化指南");
   }
   if (slug === "career-match") {
     const { loadTraditionalCareerMatch } = await import("@/lib/i18n/zh-TW/officeCareerTools");

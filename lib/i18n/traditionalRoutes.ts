@@ -1,3 +1,4 @@
+import { traditionalCulturalSymbolRoute } from "./traditionalCulturalSymbolPaths";
 import { traditionalObservationRoute } from "./traditionalObservationPaths";
 import { traditionalDirectionalRoute } from "./traditionalDirectionalPaths";
 import { isFriendshipDisplayPath } from "@/lib/friendship/routes";
@@ -47,6 +48,7 @@ export function traditionalPath(pathname: string): string | null {
   if (isFriendshipDisplayPath(path)) return `/zh-TW${path}`;
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path) || traditionalPracticeRoute(path) || traditionalLikertRoute(path) || traditionalDirectionalRoute(path) || traditionalObservationRoute(path)) return `/zh-TW${path}`;
+  if (traditionalCulturalSymbolRoute(path)) return `/zh-TW${path}`;
   if (path === "/tests/explore/career-match") return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (CAREER_INTEREST_PILOTS.some(code => path === `/career/interests/${code}`)) return `/zh-TW${path}`;

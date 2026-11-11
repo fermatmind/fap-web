@@ -1,3 +1,4 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireProfile, QuestionnaireSection, Text } from "./types";
 import { NATAL_BODIES, NATAL_SIGNS, type NatalBody, type NatalSign } from "./natalChartCoordinates";
 import { questionnairePath } from "./paths";
@@ -111,7 +112,7 @@ export function isNatalChartConfigurationValid(input: unknown): input is NatalCh
     && Array.from(input.references).every(reference => plain(reference) && text(reference.title) && typeof reference.url === "string" && /^https:\/\//.test(reference.url));
 }
 
-export function natalPublicLinks(quiz: NatalChartQuestionnaire, locale: "en" | "zh"): string {
+export function natalPublicLinks(quiz: NatalChartQuestionnaire, locale: DisplayLocale): string {
   // Only fixed editorial paths. Never accept a user-supplied origin, birth input or result.
   const entryPath = questionnairePath(locale, quiz.slug);
   return [`https://fermatmind.com${entryPath}`, ...quiz.profiles.map(p => `https://fermatmind.com${entryPath}/results/${p.id}`)].join("\n");
