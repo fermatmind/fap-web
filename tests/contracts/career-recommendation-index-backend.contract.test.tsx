@@ -162,6 +162,13 @@ describe("career recommendation index backend contract", () => {
     expect(traditional).toContain("按 MBTI 類型探索職業方向");
     expect(traditional).toContain('href="/zh-TW/career/recommendations/mbti/intj"');
     expect(traditional).not.toContain("按 MBTI 类型探索职业方向");
+    const simplified = renderToStaticMarkup(await CareerRecommendationsPage({
+      params: Promise.resolve({ locale: "zh" }),
+    }) as ReactNode);
+    for (const [locale, markup] of [["en", html], ["zh", simplified], ["zh-TW", traditional]]) {
+      const document = new DOMParser().parseFromString(markup, "text/html");
+      expect(document.querySelector('nav[aria-label="Breadcrumb"]')?.querySelector(`a[href="/${locale}/career"]`)).not.toBeNull();
+    }
     expect(await generateMetadata()).toMatchObject({
       alternates: { canonical: expect.stringContaining("/zh-TW/career/recommendations") },
       robots: { index: false },

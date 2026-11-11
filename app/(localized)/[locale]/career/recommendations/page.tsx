@@ -92,7 +92,7 @@ export default async function CareerRecommendationsPage({
     : "Choose a type to browse its published career suggestions. This index does not combine your test results or assess your skills and circumstances.";
   const riasecTestPath = withLocale("/tests/holland-career-interest-test-riasec");
   const mbtiTestPath = withLocale("/tests/mbti-personality-test-16-personality-types");
-  const jobsPath = withLocale("/career");
+  const jobsPath = traditional ? "/zh-TW/career" : localizedPath("/career", locale);
   const guidesPath = withLocale("/career/guides");
 
   const payload = await fetchCareerRecommendationIndex({ locale });
