@@ -1,4 +1,4 @@
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { QuestionnaireCtl41Attribution } from "@/components/questionnaires/QuestionnaireCtl41Attribution";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
@@ -34,9 +34,16 @@ type LikertReader = {
   summaries: Record<string, Text>;
   extraReferences: NonNullable<Questionnaire["references"]>;
   angerNotice?: { attribution: Text; editionNotice: Text };
+  catqNotice?: { attribution: Text; editionNotice: Text };
 };
 
 const requireLikert = cache(async (slug: string): Promise<LikertReader> => {
+  if (hasTraditionalTraitsSocial(slug)) {
+    const { loadTraditionalTraitsSocial } = await import("@/lib/i18n/zh-TW/traitsSocialQuestionnaires");
+    const item = await loadTraditionalTraitsSocial(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalValuesOrientations(slug)) {
     const { loadTraditionalValuesOrientations } = await import("@/lib/i18n/zh-TW/valuesOrientationsQuestionnaires");
     const item = await loadTraditionalValuesOrientations(slug);
@@ -141,6 +148,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz && hasTraditionalTraitsSocial(slug)) {
+      const { TraditionalTraitsSocialTake } = await import("./TraditionalTraitsSocialTake");
+      return <TraditionalTraitsSocialTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     if (item.takeQuiz && hasTraditionalValuesOrientations(slug)) {
       const { TraditionalValuesOrientationsTake } = await import("./TraditionalValuesOrientationsTake");
       return <TraditionalValuesOrientationsTake quiz={quiz} takeQuiz={item.takeQuiz} />;
@@ -228,6 +239,13 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
   const cbiAttribution = slug === "burnout-risk" ? await Promise.all([
     import("@/components/questionnaires/QuestionnaireCbiAttribution"), loadTraditionalAssessmentText(),
   ]).then(([{ QuestionnaireCbiAttribution }, copy]) => <QuestionnaireCbiAttribution locale="zh" copy={copy} />) : null;
+  const { catqNotice } = item;
+  const traitsAttribution = catqNotice ? <aside data-catq25-attribution className="space-y-3 text-sm leading-7">
+    <p>{catqNotice.attribution.zh}</p><p>{catqNotice.editionNotice.zh}</p>
+  </aside> : slug === "tipi-10" ? await Promise.all([
+    import("@/components/questionnaires/Tipi10Attribution"), loadTraditionalAssessmentText(),
+  ]).then(([{ Tipi10Attribution }, copy]) => <Tipi10Attribution locale="zh" copy={copy} />) : slug === "caliper-style-assessment-test"
+    ? <p className="text-sm leading-7">題組、主題與解釋均為費馬原創。出版方資料僅說明正式工具的題型與常模背景，無法證明本站效度、題庫授權或合作關係。</p> : null;
   const availableReferences = [...(quiz.references ?? []), ...(result ? [] : extraReferences)];
   const references = availableReferences.length ? <section className="space-y-4 leading-8">
     <h2 className="text-2xl font-semibold">題本與計分來源</h2>
@@ -253,6 +271,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {selfEvaluationContext}
     {cbiAttribution}
     {angerAttribution}
+    {traitsAttribution}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -336,6 +355,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {selfEvaluationContext}
     {cbiAttribution}
     {angerAttribution}
+    {traitsAttribution}
     {references}
   </div>;
 }

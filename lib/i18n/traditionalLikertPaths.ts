@@ -1,3 +1,16 @@
+const traitsSocialProfiles = {
+  "caliper-style-assessment-test": ["context", "options", "finish", "details", "constraints", "understanding", "followup", "pause"],
+  "introvert-extrovert": ["introvert", "ambivert-intro", "ambivert-extro", "extrovert"],
+  "masking-test": ["overall", "compensation", "masking", "assimilation"],
+  "mattering": ["general-mattering", "anti-mattering"],
+  "optimism-pessimism": ["lower", "lower-middle", "middle", "upper-middle", "higher"],
+  "tipi-10": ["extraversion-reading", "agreeableness-reading", "conscientiousness-reading", "emotional-stability-reading", "openness-reading"],
+} as const;
+
+export function hasTraditionalTraitsSocial(slug: string): boolean {
+  return Object.hasOwn(traitsSocialProfiles, slug);
+}
+
 const valuesOrientationsProfiles = {
   "8-values-political": ["equality", "markets", "nation", "globe", "liberty", "authority", "progress", "tradition"],
   "conservatism": ["social", "economic"],
@@ -113,6 +126,7 @@ const profiles = {
   ...sensoryExecutiveProfiles,
   ...stressCopingProfiles,
   ...valuesOrientationsProfiles,
+  ...traitsSocialProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],

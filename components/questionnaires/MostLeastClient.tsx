@@ -1,4 +1,5 @@
 "use client";
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { ResultReadingNav } from "./QuestionnaireResultPresentation";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
@@ -18,13 +19,15 @@ const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-mediu
 const subscribeReady = () => () => {};
 
 export function MostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
-  if (!isMostLeastConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "练习暂不可用。" : "Practice is unavailable."}</p>;
+  const { displayText } = useQuestionnaireDisplayCopy();
+  if (!isMostLeastConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? displayText("练习暂不可用。") : "Practice is unavailable."}</p>;
   return <ValidMostLeastClient key={`${quiz.slug}:${quiz.version}:${locale}`} quiz={quiz} locale={locale} readingProfiles={readingProfiles} />;
 }
 
 function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
-  const metrics = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
+  const metrics = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true, displayText);
   const [phase, setPhase] = useState<"ready" | "answering" | "result">("ready");
   const [answers, setAnswers] = useState<MostLeastAnswers>({}), [position, setPosition] = useState(0);
   const [message, setMessage] = useState(""), [manualCopy, setManualCopy] = useState("");
@@ -51,38 +54,38 @@ function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questio
   };
   const next = () => {
     if (phase !== "answering" || submitted.current) return;
-    if (!pair.most || !pair.least || pair.most === pair.least) { setMessage(zh ? "请选择一条最符合和另一条最不符合，再继续。" : "Choose one Most and one different Least statement before continuing."); return; }
+    if (!pair.most || !pair.least || pair.most === pair.least) { setMessage(zh ? displayText("请选择一条最符合和另一条最不符合，再继续。") : "Choose one Most and one different Least statement before continuing."); return; }
     if (position < quiz.questions.length - 1) { setMessage(""); setPosition(position + 1); return; }
-    if (result.status !== "complete") { setMessage(zh ? "记录尚未完整，请返回核对各组选择。" : "The record is incomplete. Go back and check each block."); return; }
+    if (result.status !== "complete") { setMessage(zh ? displayText("记录尚未完整，请返回核对各组选择。") : "The record is incomplete. Go back and check each block."); return; }
     submitted.current = true; setMessage(""); setPhase("result"); metrics.complete();
   };
   const share = async () => {
-    const value = `${quiz.title[locale]}\nhttps://fermatmind.com${questionnairePath(locale, quiz.slug)}`;
-    try { await navigator.clipboard.writeText(value); metrics.share(); setMessage(zh ? "已复制公开练习链接，不含答案或次数。" : "Public practice link copied without answers or counts."); }
-    catch { setManualCopy(value); setMessage(zh ? "复制不可用，请手动复制公开链接。" : "Copy is unavailable. Copy the public link manually."); }
+    const value = `${quiz.title[locale]}\nhttps://fermatmind.com${questionnairePath(traditional ? "zh-TW" : locale, quiz.slug)}`;
+    try { await navigator.clipboard.writeText(value); metrics.share(); setMessage(zh ? displayText("已复制公开练习链接，不含答案或次数。") : "Public practice link copied without answers or counts."); }
+    catch { setManualCopy(value); setMessage(zh ? displayText("复制不可用，请手动复制公开链接。") : "Copy is unavailable. Copy the public link manually."); }
   };
-  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: `/${locale}/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}`, ctaId: "questionnaire_result_big5", targetAction: "questionnaire_result_big5", targetTestSlug: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN, scaleCode: "BIG5_OCEAN" };
+  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: `/${traditional ? "zh-TW" : locale}/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}`, ctaId: "questionnaire_result_big5", targetAction: "questionnaire_result_big5", targetTestSlug: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN, scaleCode: "BIG5_OCEAN" };
   const big5Href = appendSeoCtaContextParamsToHref(recommendation.href, buildSeoCtaContextParams(recommendation));
 
   return <section id="take-test" data-most-least-client data-stage={phase === "ready" ? "welcome" : phase === "answering" ? "answer" : "result"} className="my-10 scroll-mt-24 rounded-xl border border-slate-200 bg-white p-5 sm:p-8" aria-labelledby="most-least-heading">
-    {phase === "ready" && <button data-explore-start type="button" className={`${button} most-least-primary`} disabled={!ready} onClick={start}>{zh ? "开始练习" : "Start practice"}</button>}
-    <h2 id="most-least-heading" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold focus:outline-none">{phase === "result" ? quiz.resultHeading![locale] : phase === "answering" ? (zh ? `第${position + 1}组，共16组` : `Block ${position + 1} of 16`) : (zh ? "开始原创最符合／最不符合练习" : "Start the original Most/Least practice")}</h2>
-    <p className="my-4 text-sm leading-7 text-slate-600">{zh ? "进度只在当前页面内存中。刷新、换语言、离开或清空即移除；没有保存草稿。" : "Progress stays only in this page’s memory. Refreshing, changing language, leaving or clearing removes it. No draft is saved."}</p>
+    {phase === "ready" && <button data-explore-start type="button" className={`${button} most-least-primary`} disabled={!ready} onClick={start}>{zh ? displayText("开始练习") : "Start practice"}</button>}
+    <h2 id="most-least-heading" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold focus:outline-none">{phase === "result" ? quiz.resultHeading![locale] : phase === "answering" ? (zh ? displayText(`第${position + 1}组，共16组`) : `Block ${position + 1} of 16`) : (zh ? displayText("开始原创最符合／最不符合练习") : "Start the original Most/Least practice")}</h2>
+    <p className="my-4 text-sm leading-7 text-slate-600">{zh ? displayText("进度只在当前页面内存中。刷新、换语言、离开或清空即移除；没有保存草稿。") : "Progress stays only in this page’s memory. Refreshing, changing language, leaving or clearing removes it. No draft is saved."}</p>
     {phase === "ready" && <><p className="my-4 leading-8">{quiz.instructions![locale]}</p></>}
     {phase === "answering" && <>
-      <p className="my-3 text-sm">{zh ? `已完成${result.answered} / 16组` : `${result.answered} / 16 blocks completed`}</p>
+      <p className="my-3 text-sm">{zh ? displayText(`已完成${result.answered} / 16组`) : `${result.answered} / 16 blocks completed`}</p>
       <fieldset className="my-5 space-y-4"><legend className="mb-4 leading-8">{q.prompt[locale]}</legend>
         {q.options.map(o => <div key={o.id} className="rounded-lg border border-slate-200 p-4"><p className="mb-3 leading-7">{o.label[locale]}</p><div className="flex flex-wrap gap-x-6 gap-y-2">
-          {(["most", "least"] as const).map(side => <label key={side} className="flex min-h-11 cursor-pointer items-center gap-2 py-2"><input className="h-5 w-5 accent-violet-700" type="radio" name={`${q.id}-${side}`} value={o.id} checked={pair[side] === o.id} disabled={pair[side === "most" ? "least" : "most"] === o.id} onChange={() => choose(side, o.id)} /><span>{side === "most" ? (zh ? "最符合" : "Most") : (zh ? "最不符合" : "Least")}<span className="sr-only">: {o.label[locale]}</span></span></label>)}
+          {(["most", "least"] as const).map(side => <label key={side} className="flex min-h-11 cursor-pointer items-center gap-2 py-2"><input className="h-5 w-5 accent-violet-700" type="radio" name={`${q.id}-${side}`} value={o.id} checked={pair[side] === o.id} disabled={pair[side === "most" ? "least" : "most"] === o.id} onChange={() => choose(side, o.id)} /><span>{side === "most" ? (zh ? displayText("最符合") : "Most") : (zh ? displayText("最不符合") : "Least")}<span className="sr-only">: {o.label[locale]}</span></span></label>)}
         </div></div>)}
       </fieldset>
-      <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一组" : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 15 ? (zh ? "查看完整记录" : "See complete record") : (zh ? "下一组" : "Next")}</button><button type="button" className={button} onClick={() => { setAnswers(a => ({ ...a, [q.id]: {} })); setMessage(""); }}>{zh ? "清空本组" : "Clear this block"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? "清空并退出" : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
+      <div className="flex flex-wrap gap-3"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? displayText("上一组") : "Back"}</button><button data-questionnaire-next type="button" className={button} onClick={next}>{position === 15 ? (zh ? displayText("查看完整记录") : "See complete record") : (zh ? displayText("下一组") : "Next")}</button><button type="button" className={button} onClick={() => { setAnswers(a => ({ ...a, [q.id]: {} })); setMessage(""); }}>{zh ? displayText("清空本组") : "Clear this block"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? displayText("清空并退出") : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
     </>}
     {phase === "result" && result.status === "complete" && <>
       <div className="my-5 rounded-xl border border-teal-200 bg-teal-50 p-4 sm:p-6">
-        <p className="text-sm font-semibold text-teal-950">{zh ? `已完成 ${result.answered} 组练习` : `${result.answered} practice blocks completed`}</p>
-        <p className="my-3 max-w-prose text-sm leading-7 text-slate-700">{zh ? "各主题分别记录最符合与最不符合的选择次数。点一个主题，先看两种次数，再读具体例子。" : "Each topic has separate Most and Least counts. Choose a topic to read its counts and then an example."}</p>
-        <ResultReadingNav label={zh ? "八主题的最符合／最不符合记录" : "Most / Least records across eight topics"} sections={quiz.profiles.map(profile => ({ id: `most-least-reading-${profile.id}`, title: profile.title[locale] }))} />
+        <p className="text-sm font-semibold text-teal-950">{zh ? displayText(`已完成 ${result.answered} 组练习`) : `${result.answered} practice blocks completed`}</p>
+        <p className="my-3 max-w-prose text-sm leading-7 text-slate-700">{zh ? displayText("各主题分别记录最符合与最不符合的选择次数。点一个主题，先看两种次数，再读具体例子。") : "Each topic has separate Most and Least counts. Choose a topic to read its counts and then an example."}</p>
+        <ResultReadingNav label={zh ? displayText("八主题的最符合／最不符合记录") : "Most / Least records across eight topics"} sections={quiz.profiles.map(profile => ({ id: `most-least-reading-${profile.id}`, title: profile.title[locale] }))} />
       </div>
       {quiz.profiles.map(p => { const c = result.counts[p.id]; const readingProfile = readingProfiles?.find(item => item.id === p.id && item.directionIds.length === 1 && item.directionIds[0] === p.id && item.resultReading?.quizSlug === quiz.slug && item.resultReading.profileId === p.id) ?? p; return <section key={p.id} data-most-least-topic={p.id} className="my-6 overflow-hidden rounded-xl border border-slate-200">
         <header className="grid gap-4 bg-slate-50 p-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:p-6">
@@ -91,23 +94,23 @@ function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questio
             <p className="mt-2 text-sm leading-7">{p.summary[locale]}</p>
           </div>
           <dl className="grid grid-cols-3 gap-2 text-center text-sm">{(["most", "least", "difference"] as const).map(key => <div key={key} className="min-w-0 rounded-lg border border-slate-200 bg-white p-2">
-            <dt className="[overflow-wrap:anywhere]">{key === "most" ? (zh ? "最符合" : "Most") : key === "least" ? (zh ? "最不符合" : "Least") : (zh ? "差值" : "Difference")}</dt>
+            <dt className="[overflow-wrap:anywhere]">{key === "most" ? (zh ? displayText("最符合") : "Most") : key === "least" ? (zh ? displayText("最不符合") : "Least") : (zh ? displayText("差值") : "Difference")}</dt>
             <dd data-count={key} className="mt-1 text-lg font-semibold tabular-nums">{c[key]}{key === "difference" ? "" : " / 8"}
               {key !== "difference" && <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><span className={`block h-full ${key === "most" ? "bg-teal-700" : "bg-slate-500"}`} style={{ width: `${c[key] / 8 * 100}%` }} /></span>}
             </dd>
           </div>)}</dl>
         </header>
         <div className="border-t border-slate-200 p-4 sm:p-6">
-        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} headingLevel={4} idPrefix={`most-least-${p.id}`} mode="result" previewSectionIds={["example", "next"]} showSummary={false} />
-        <Link prefetch={false} className="mt-3 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, p.id)}>{zh ? "打开不含个人次数的公开指南" : "Open the public guide without personal counts"}</Link>
+        <QuestionnaireResultReading quizSlug={quiz.slug} profile={readingProfile} locale={locale} traditional={traditional} headingLevel={4} idPrefix={`most-least-${p.id}`} mode="result" previewSectionIds={["example", "next"]} showSummary={false} />
+        <Link prefetch={false} className="mt-3 inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, p.id)}>{zh ? displayText("打开不含个人次数的公开指南") : "Open the public guide without personal counts"}</Link>
         </div>
       </section>; })}
-      <p className="my-5 text-sm leading-7 text-slate-700">{zh ? "差值等于最符合减最不符合，八主题的差值合计为零。这是练习中的选择记录，不换算为 Caliper 分数。" : "Difference equals Most minus Least. The differences sum to zero across the eight topics. This practice records choices without converting them to Caliper scores."}</p>
-      <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={start}>{zh ? "重新练习" : "Retake practice"}</button><button type="button" className={button} onClick={share}>{zh ? "复制公开练习链接" : "Copy public practice link"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? "清空并退出" : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
-      <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? "按需继续，或在这里结束" : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? "大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。" : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "可选：了解大五测试与题本" : "Optional: explore Big Five and its versions"}</Link></aside>
+      <p className="my-5 text-sm leading-7 text-slate-700">{zh ? displayText("差值等于最符合减最不符合，八主题的差值合计为零。这是练习中的选择记录，不换算为 Caliper 分数。") : "Difference equals Most minus Least. The differences sum to zero across the eight topics. This practice records choices without converting them to Caliper scores."}</p>
+      <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={start}>{zh ? displayText("重新练习") : "Retake practice"}</button><button type="button" className={button} onClick={share}>{zh ? displayText("复制公开练习链接") : "Copy public practice link"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? displayText("清空并退出") : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
+      <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? displayText("按需继续，或在这里结束") : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? displayText("大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。") : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? displayText("可选：了解大五测试与题本") : "Optional: explore Big Five and its versions"}</Link></aside>
     </>}
     {metrics.consent}
     {message && <p role="status" className="my-4 leading-7">{message}</p>}
-    {manualCopy && <label className="my-4 block">{zh ? "公开练习链接" : "Public practice link"}<textarea className="mt-2 w-full rounded border p-3" readOnly value={manualCopy} rows={3} onFocus={e => e.target.select()} /></label>}
+    {manualCopy && <label className="my-4 block">{zh ? displayText("公开练习链接") : "Public practice link"}<textarea className="mt-2 w-full rounded border p-3" readOnly value={manualCopy} rows={3} onFocus={e => e.target.select()} /></label>}
   </section>;
 }

@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -72,11 +72,19 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
                   ? await (await import("@/lib/i18n/zh-TW/stressCopingQuestionnaires")).loadTraditionalStressCoping(slug)
                   : hasTraditionalValuesOrientations(slug)
                     ? await (await import("@/lib/i18n/zh-TW/valuesOrientationsQuestionnaires")).loadTraditionalValuesOrientations(slug)
-                    : await loadTraditionalLikert(slug);
+                    : hasTraditionalTraitsSocial(slug)
+                      ? await (await import("@/lib/i18n/zh-TW/traitsSocialQuestionnaires")).loadTraditionalTraitsSocial(slug)
+                      : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "caliper-style-assessment-test": "費馬原創 16 組選擇題",
+      "introvert-extrovert": "IPIP 外向性十題",
+      "masking-test": "CAT-Q 25 題工作譯版",
+      mattering: "GMS／AMS 各五題工作譯版",
+      "optimism-pessimism": "IPIP 樂觀性十題",
+      "tipi-10": "TIPI 十題工作譯版",
       "8-values-political": "8values MIT 授權改編",
       conservatism: "SECS 12 題中譯版",
       "political-coordinates": "費馬原創 36 道政策情境題",
