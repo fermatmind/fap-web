@@ -24,6 +24,10 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  if (path === "/zh-TW/tests/explore/career-match") {
+    const { traditionalCareerMatchMetadata } = await import("@/components/i18n/zh-TW/TraditionalCareerMatchPage");
+    return traditionalCareerMatchMetadata();
+  }
   const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length)) ?? traditionalObservationRoute(path.slice("/zh-TW".length));
   if (likert) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
@@ -63,6 +67,10 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  if (path === "/zh-TW/tests/explore/career-match") {
+    const { TraditionalCareerMatchPage } = await import("@/components/i18n/zh-TW/TraditionalCareerMatchPage");
+    return <TraditionalCareerMatchPage />;
+  }
   const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length)) ?? traditionalObservationRoute(path.slice("/zh-TW".length));
   if (likert?.slug === "cognitive-functions-test") {
     const { TraditionalCognitiveFunctionsPage } = await import("@/components/i18n/zh-TW/TraditionalCognitiveFunctionsPage");

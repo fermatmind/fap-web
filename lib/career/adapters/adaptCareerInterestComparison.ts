@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { careerPageHasPublicBody, normalizeCareerPage, validateCareerPageAuthority } from "@/lib/career/careerPage";
 import { normalizeCareerPublishedComponents } from "@/lib/career/publishedComponentContract";
 import type { CareerDisplayComponentId } from "@/lib/career/displaySurface";
@@ -33,7 +33,7 @@ export function readCareerInterestDirectory(value: unknown, locale: Locale): Car
 }
 
 /** A comparison excerpt, not a replacement renderer for the complete Career page. */
-export function readCareerInterestRole(value: unknown, locale: Locale, slug: string): CareerInterestRole | null {
+export function readCareerInterestRole(value: unknown, locale: DisplayLocale, slug: string): CareerInterestRole | null {
   if (!isSafeCareerJobSlug(slug) || !record(value) || value.bundle_kind !== "career_job_detail" || value.bundle_version !== "career.detail.page.v1") return null;
   const page = normalizeCareerPage(value.career_page, locale, slug);
   if (!page || !careerPageHasPublicBody(page)) return null;

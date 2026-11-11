@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -48,6 +48,13 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont,
       `${item.quiz.questions.length} 道二選一題目`, "公開結果指南");
   }
+  if (slug === "career-match") {
+    const { loadTraditionalCareerMatch } = await import("@/lib/i18n/zh-TW/officeCareerTools");
+    const item = await loadTraditionalCareerMatch();
+    if (!item || portrait) return new Response("Image unavailable", { status: 404 });
+    archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    return publicCard(item.quiz.title.zh, item.quiz.description.zh, false, await archetypeFont, "職業興趣主題比較");
+  }
   if (traditionalLikertRoute(`/tests/explore/${slug}`)) {
     const item = hasTraditionalPrivateReflection(slug)
       ? await (await import("@/lib/i18n/zh-TW/privateReflectionQuestionnaires")).loadTraditionalPrivateReflection(slug)
@@ -55,11 +62,18 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
         ? await (await import("@/lib/i18n/zh-TW/workReasoningQuestionnaires")).loadTraditionalWorkReasoning(slug)
         : hasTraditionalRelationshipSix(slug)
           ? await (await import("@/lib/i18n/zh-TW/relationshipSixQuestionnaires")).loadTraditionalRelationshipSix(slug)
-          : await loadTraditionalLikert(slug);
+          : hasTraditionalOfficeTool(slug)
+            ? await (await import("@/lib/i18n/zh-TW/officeCareerTools")).loadTraditionalOfficeTool(slug)
+            : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "data-entry": "費馬原創結構化資料輸入練習",
+      "ten-key-test": "費馬原創數字鍵盤練習",
+      "typing-speed": "費馬原創打字速度練習",
+      "skills-audit": "費馬原創 20 道技能盤點題",
+      "work-role-reflection": "費馬原創 12 道工作角色回顧題",
       "capacity-to-love-test": "CTL-I 2018 題本工作譯版",
       "love-languages": "費馬原創 50 道關懷方式題",
       "love-type-16": "費馬原創 32 道關係偏好題",
@@ -143,7 +157,7 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     const privateReflection = hasTraditionalPrivateReflection(slug);
     const edition = editions[slug] ?? (privateReflection ? "自我觀察與回顧" : "IPIP 公有領域題目");
     const guideLabel = slug === "character-strengths" ? "公開性格優勢指南"
-      : privateReflection || hasTraditionalRelationshipSix(slug) || hasTraditionalWorkReasoning(slug)
+      : privateReflection || hasTraditionalRelationshipSix(slug) || hasTraditionalWorkReasoning(slug) || hasTraditionalOfficeTool(slug)
         ? "公開結果指南" : "公開連續分數指南";
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont, edition, guideLabel);
   }

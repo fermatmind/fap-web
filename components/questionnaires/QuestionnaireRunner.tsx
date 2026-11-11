@@ -1,5 +1,5 @@
 "use client";
-import { hasTraditionalRelationshipSix } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalRelationshipSix } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
@@ -67,7 +67,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const traditionalArchetype = traditional && hasTraditionalArchetype(quiz.slug);
   const traditionalDirectional = traditional && hasTraditionalDirectional(quiz.slug);
-  const displayLocale = traditionalDirectional || (traditional && hasTraditionalRelationshipSix(quiz.slug)) ? "zh-TW" : locale;
+  const displayLocale = traditionalDirectional || (traditional && (hasTraditionalRelationshipSix(quiz.slug) || hasTraditionalOfficeTool(quiz.slug))) ? "zh-TW" : locale;
   const traditionalEntryShare = traditional && ((!traditionalArchetype && !traditionalDirectional) || quiz.slug === "euphoria-character-quiz" || quiz.slug === "values-assessment");
   const standalone = useQuestionnaireTake();
   const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);
@@ -118,7 +118,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const reportProps = { quiz, result, answers, locale, workRoleReadingProfiles, loveTypeReadingProfiles, mentalAgeReadingProfile, fds32ReadingProfiles, breakupReadingProfiles, parentingReadingProfiles, workReasoningReadingProfiles };
   const question = quiz.questions[position];
   const optionLabel = (option: NonNullable<typeof question>["options"][number]) =>
-    traditional && quiz.kind === "distributed-work24" && option.id === "skip"
+    traditional && ((quiz.kind === "distributed-work24" && option.id === "skip") || quiz.kind === "work-role12")
       ? displayText(option.label[locale])
       : option.label[locale];
   const answeredCount = quiz.questions.filter(q => selectedChoiceIds(q, answers[q.id], true) !== null).length;

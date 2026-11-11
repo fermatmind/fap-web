@@ -1,4 +1,4 @@
-import { hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { QuestionnaireCtl41Attribution } from "@/components/questionnaires/QuestionnaireCtl41Attribution";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
@@ -26,6 +26,12 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 
 type Stage = { slug: string; take: boolean; profile?: string };
 const requireLikert = cache(async (slug: string) => {
+  if (hasTraditionalOfficeTool(slug)) {
+    const { loadTraditionalOfficeTool } = await import("@/lib/i18n/zh-TW/officeCareerTools");
+    const item = await loadTraditionalOfficeTool(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalRelationshipSix(slug)) {
     const { loadTraditionalRelationshipSix } = await import("@/lib/i18n/zh-TW/relationshipSixQuestionnaires");
     const item = await loadTraditionalRelationshipSix(slug);
@@ -100,6 +106,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz && hasTraditionalOfficeTool(slug)) {
+      const { TraditionalOfficeToolTake } = await import("./TraditionalOfficeToolTake");
+      return <TraditionalOfficeToolTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     if (item.takeQuiz && hasTraditionalRelationshipSix(slug)) {
       const readingProps = quiz.kind === "love-type16" ? { loveTypeReadingProfiles: quiz.profiles }
         : quiz.kind === "parenting-practices" ? { parentingReadingProfiles: quiz.profiles } : undefined;

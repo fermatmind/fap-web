@@ -1,3 +1,15 @@
+const officeToolProfiles = {
+  "data-entry": ["assets", "dispatch"],
+  "ten-key-test": ["whole", "decimals", "references"],
+  "typing-speed": ["english", "chinese"],
+  "skills-audit": ["methods-reading", "tools-reading", "communication-reading", "domain-reading"],
+  "work-role-reflection": ["problem-clarification-reading", "delivery-checking-reading", "shared-contribution-reading"],
+} as const;
+
+export function hasTraditionalOfficeTool(slug: string): boolean {
+  return Object.hasOwn(officeToolProfiles, slug);
+}
+
 const relationshipSixProfiles = {
   "capacity-to-love-test": ["interest-reading", "trust-reading", "gratitude-reading", "shared-ideal-reading", "sexual-passion-reading", "loss-reading"],
   "love-languages": ["words", "acts", "gifts", "time", "touch"],
@@ -45,6 +57,7 @@ const profiles = {
   ...privateReflectionProfiles,
   ...workReasoningProfiles,
   ...relationshipSixProfiles,
+  ...officeToolProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],
