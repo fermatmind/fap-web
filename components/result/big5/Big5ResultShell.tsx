@@ -171,6 +171,7 @@ export function Big5ResultShell({
             section={section}
             locked={false}
             locale={locale}
+            displayLocale={displayLocale}
             scaleCode="BIG5_OCEAN"
             normsStatus={normsStatus}
             retakeHref={retakeHref}

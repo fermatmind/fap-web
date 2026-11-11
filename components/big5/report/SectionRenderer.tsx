@@ -1,3 +1,4 @@
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { BlockRenderer } from "@/components/big5/report/BlockRenderer";
 import { LockedBlock } from "@/components/big5/report/LockedBlock";
 
@@ -27,6 +28,7 @@ export function SectionRenderer({
   normsStatus,
   ctaLabel,
   locale = "en",
+  displayLocale = locale,
   scaleCode,
   retakeHref,
   showPrecisePercentiles,
@@ -36,6 +38,7 @@ export function SectionRenderer({
   normsStatus?: string;
   ctaLabel?: string;
   locale?: "en" | "zh";
+  displayLocale?: DisplayLocale;
   scaleCode?: string;
   retakeHref?: string;
   showPrecisePercentiles?: boolean;
@@ -78,7 +81,7 @@ export function SectionRenderer({
       <div className="space-y-2">
         {qualifier ? <p data-testid="big5-interpretation-qualifier" className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">{qualifier}</p> : null}
         {blocks.map((block, index) => (
-          <BlockRenderer key={`${key}-${text(block.id) || index}`} block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} retakeHref={retakeHref} showPrecisePercentiles={showPrecisePercentiles} />
+          <BlockRenderer key={`${key}-${text(block.id) || index}`} block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} displayLocale={displayLocale} retakeHref={retakeHref} showPrecisePercentiles={showPrecisePercentiles} />
         ))}
       </div>
     </section>

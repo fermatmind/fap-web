@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 import type { Big5PublicProjection } from "@/lib/api/v0_3";
 import type { Big5ResultPageV2CoreDomain } from "@/lib/big5/resultPageV2";
 import { BIG5_DOMAIN_LABELS, BIG5_DOMAIN_ORDER, type Big5DomainCode } from "@/lib/big5/taxonomy";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 
 export type Big5CoreSummaryItem = {
   code: Big5DomainCode;
@@ -99,14 +101,32 @@ export function buildLegacyBig5CoreSummaryItems(
 
 export function Big5CoreSummary({
   locale,
+  displayLocale = locale,
   items,
   source,
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   items: Big5CoreSummaryItem[];
   source: "v2" | "legacy" | "unavailable";
 }) {
   const available = items.length === BIG5_DOMAIN_ORDER.length;
+  const taiwan = displayLocale === "zh-TW";
+  const [translate, setTranslate] = useState<((source: string) => string) | null>(null);
+  const [unavailable, setUnavailable] = useState(false);
+  useEffect(() => {
+    if (!taiwan || !available) return;
+    let active = true;
+    void loadTraditionalAssessmentText().then(
+      convert => { if (active) setTranslate(() => convert); },
+      () => { if (active) setUnavailable(true); },
+    );
+    return () => { active = false; };
+  }, [taiwan, available]);
+  if (taiwan && available && !translate) {
+    return <p role="status">{unavailable ? "結果摘要暫時無法載入。" : "正在載入繁體結果摘要…"}</p>;
+  }
+  const copy = (source: string) => taiwan && translate ? translate(source) : source;
 
   return (
     <div
@@ -117,10 +137,10 @@ export function Big5CoreSummary({
       data-domain-envelope-state="metadata_only"
       className="space-y-6"
     >
-      <SelfUnderstandingDomainBadge locale={locale} />
+      <SelfUnderstandingDomainBadge locale={locale} displayLocale={displayLocale} />
       <section className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
         <h2 className="m-0 text-xl font-semibold text-slate-950">
-          {locale === "zh" ? "五维核心摘要" : "Five-domain core summary"}
+          {taiwan ? "五大特質摘要" : locale === "zh" ? "五维核心摘要" : "Five-domain core summary"}
         </h2>
         {available ? (
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5" data-testid="big5-core-domains">
@@ -135,7 +155,7 @@ export function Big5CoreSummary({
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{item.code}</p>
-                      <h3 className="m-0 mt-1 text-base font-semibold text-slate-950">{item.label}</h3>
+                      <h3 className="m-0 mt-1 text-base font-semibold text-slate-950">{copy(item.label)}</h3>
                     </div>
                     <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-sm font-semibold text-slate-800">
                       {Number.isInteger(item.score) ? item.score : item.score.toFixed(1)}
@@ -143,7 +163,7 @@ export function Big5CoreSummary({
                   </div>
                   <div
                     role="progressbar"
-                    aria-label={`${item.label} ${item.score}`}
+                    aria-label={`${copy(item.label)} ${item.score}`}
                     aria-valuemin={0}
                     aria-valuemax={100}
                     aria-valuenow={item.score}
@@ -151,15 +171,15 @@ export function Big5CoreSummary({
                   >
                     <div className="h-full rounded-full bg-sky-600" style={{ width: `${percent}%` }} />
                   </div>
-                  {item.bandLabel ? <p className="m-0 mt-2 text-xs font-medium text-slate-500">{item.bandLabel}</p> : null}
-                  {item.summary ? <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{item.summary}</p> : null}
+                  {item.bandLabel ? <p className="m-0 mt-2 text-xs font-medium text-slate-500">{copy(item.bandLabel)}</p> : null}
+                  {item.summary ? <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{copy(item.summary)}</p> : null}
                 </article>
               );
             })}
           </div>
         ) : (
           <p role="status" data-testid="big5-core-summary-unavailable" className="m-0 text-sm text-slate-600">
-            {locale === "zh" ? "结果摘要暂时不可用" : "The result summary is temporarily unavailable"}
+            {taiwan ? "結果摘要暫時不可用" : locale === "zh" ? "结果摘要暂时不可用" : "The result summary is temporarily unavailable"}
           </p>
         )}
       </section>

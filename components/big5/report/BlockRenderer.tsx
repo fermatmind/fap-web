@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+import { assessmentChineseCopy } from "@/lib/tests/traditionalAssessmentDisplay";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BIG5_DOMAIN_LABELS, type Big5DomainCode } from "@/lib/big5/taxonomy";
@@ -14,12 +16,16 @@ function percentile(value: unknown): number | null {
   const parsed = typeof value === "number" ? value : Number(value);
   return Number.isFinite(parsed) ? Math.max(0, Math.min(100, parsed)) : null;
 }
-function domainLabel(code: unknown, locale: "en" | "zh"): string {
+const TAIWAN_DOMAIN_LABELS: Record<Big5DomainCode, string> = { O: "開放性", C: "盡責性", E: "外向性", A: "宜人性", N: "情緒性" };
+
+function domainLabel(code: unknown, locale: DisplayLocale): string {
   const normalized = text(code).toUpperCase() as Big5DomainCode;
-  return BIG5_DOMAIN_LABELS[normalized]?.[locale] ?? "";
+  return (locale === "zh-TW" ? TAIWAN_DOMAIN_LABELS[normalized] : BIG5_DOMAIN_LABELS[normalized]?.[locale]) ?? "";
 }
-function bandLabel(value: unknown, locale: "en" | "zh"): string {
-  const labels = locale === "zh"
+function bandLabel(value: unknown, locale: DisplayLocale): string {
+  const labels = locale === "zh-TW"
+    ? { low: "較低", low_mid: "中低", mid: "中等", high_mid: "中高", high: "較高", not_available: "暫無資料" }
+    : locale === "zh"
     ? { low: "较低", low_mid: "中低", mid: "中等", high_mid: "中高", high: "较高", not_available: "暂无" }
     : { low: "Lower", low_mid: "Lower-mid", mid: "Mid-range", high_mid: "Upper-mid", high: "Higher", not_available: "Unavailable" };
   return labels[text(value).toLowerCase() as keyof typeof labels] ?? "";
@@ -38,7 +44,7 @@ function QualityNotice({ copy, retakeHref }: { copy: Record<string, unknown>; re
   </aside>;
 }
 
-function SynergyCallout({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: "en" | "zh"; showPrecise: boolean }) {
+function SynergyCallout({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: DisplayLocale; showPrecise: boolean }) {
   const evidence = Array.isArray(copy.evidence) ? copy.evidence.map(record).filter(Boolean) as Record<string, unknown>[] : [];
   const fields = [copy.mechanism, copy.strengths, copy.tradeoffs, copy.context_boundary, copy.action_bridge].map(text).filter(Boolean);
   return <article data-testid="big5-synergy-callout" data-evidence-mode={showPrecise ? "precise" : "provisional"} className="rounded-2xl border border-indigo-200 bg-indigo-50/70 p-5">
@@ -51,9 +57,9 @@ function SynergyCallout({ copy, locale, showPrecise }: { copy: Record<string, un
   </article>;
 }
 
-function NormEvidenceCard({ copy, locale }: { copy: Record<string, unknown>; locale: "en" | "zh" }) {
+function NormEvidenceCard({ copy, locale }: { copy: Record<string, unknown>; locale: DisplayLocale }) {
   const allowed = copy.comparison_allowed === true;
-  const details = allowed ? [text(copy.sample_label), text(copy.match_label), [text(copy.locale), text(copy.region), text(copy.gender), text(copy.age_range)].filter(Boolean).join(" · "), copy.sample_n ? `${locale === "zh" ? "样本量" : "Sample"} · ${String(copy.sample_n)}` : "", text(copy.norm_version) ? `${locale === "zh" ? "版本" : "Version"} · ${text(copy.norm_version)}` : ""].filter(Boolean) : [];
+  const details = allowed ? [text(copy.sample_label), text(copy.match_label), [text(copy.locale), text(copy.region), text(copy.gender), text(copy.age_range)].filter(Boolean).join(" · "), copy.sample_n ? `${locale !== "en" ? assessmentChineseCopy(locale, "样本量", "樣本數") : "Sample"} · ${String(copy.sample_n)}` : "", text(copy.norm_version) ? `${locale !== "en" ? assessmentChineseCopy(locale, "版本", "版本") : "Version"} · ${text(copy.norm_version)}` : ""].filter(Boolean) : [];
   return <article data-testid="big5-norm-evidence" className="rounded-2xl border border-sky-200 bg-sky-50 p-5">
     <div className="flex flex-wrap items-center justify-between gap-2"><h4 className="m-0 font-semibold text-sky-950">{text(copy.status_label)}</h4>{text(copy.status_label) ? <Badge>{text(copy.status_label)}</Badge> : null}</div>
     {details.length > 0 ? <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-sky-950">{details.map((item) => <li key={item}>{item}</li>)}</ul> : null}
@@ -62,7 +68,7 @@ function NormEvidenceCard({ copy, locale }: { copy: Record<string, unknown>; loc
   </article>;
 }
 
-function FacetCard({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: "en" | "zh"; showPrecise: boolean }) {
+function FacetCard({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: DisplayLocale; showPrecise: boolean }) {
   const values = [text(copy.body), text(copy.why_it_matters), text(copy.daily_meaning), text(copy.evidence)].filter(Boolean);
   const trait = domainLabel(copy.domain_code, locale); const delta = percentile(copy.delta_abs);
   return <article data-testid="big5-facet-anomaly" data-evidence-mode={showPrecise ? "precise" : "provisional"} className="rounded-xl border border-violet-200 bg-white p-4 shadow-sm">
@@ -71,7 +77,7 @@ function FacetCard({ copy, locale, showPrecise }: { copy: Record<string, unknown
   </article>;
 }
 
-function ActionCards({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: "en" | "zh"; showPrecise: boolean }) {
+function ActionCards({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: DisplayLocale; showPrecise: boolean }) {
   const items = Array.isArray(copy.items) ? copy.items.map(record).filter(Boolean) as Record<string, unknown>[] : [];
   return <div data-testid="big5-action-matrix" data-evidence-mode={showPrecise ? "precise" : "provisional"} className="space-y-3">
     {text(copy.title) ? <h4 className="m-0 font-semibold text-slate-900">{text(copy.title)}</h4> : null}
@@ -79,8 +85,8 @@ function ActionCards({ copy, locale, showPrecise }: { copy: Record<string, unkno
       <div className="flex flex-wrap items-center justify-between gap-2"><h5 className="m-0 font-semibold text-emerald-950">{text(item.label) || text(item.title)}</h5><div className="flex gap-2">{text(item.time_horizon_label) ? <Badge>{text(item.time_horizon_label)}</Badge> : null}{text(item.difficulty_label) ? <Badge>{text(item.difficulty_label)}</Badge> : null}</div></div>
       {text(item.title) && text(item.label) ? <p className="mt-2 font-medium text-emerald-950">{text(item.title)}</p> : null}
       {text(item.body) ? <p className="mt-1 whitespace-pre-wrap text-sm text-emerald-950">{text(item.body)}</p> : null}
-      {text(item.why_recommended) ? <p className="mt-2 text-sm text-emerald-900"><span className="font-semibold">{locale === "zh" ? "为什么推荐：" : "Why this fits: "}</span>{text(item.why_recommended)}</p> : null}
-      {text(item.completion_signal) ? <p className="mt-2 text-sm text-emerald-900"><span className="font-semibold">{locale === "zh" ? "完成信号：" : "Completion signal: "}</span>{text(item.completion_signal)}</p> : null}
+      {text(item.why_recommended) ? <p className="mt-2 text-sm text-emerald-900"><span className="font-semibold">{locale !== "en" ? assessmentChineseCopy(locale, "为什么推荐：", "推薦理由：") : "Why this fits: "}</span>{text(item.why_recommended)}</p> : null}
+      {text(item.completion_signal) ? <p className="mt-2 text-sm text-emerald-900"><span className="font-semibold">{locale !== "en" ? assessmentChineseCopy(locale, "完成信号：", "完成訊號：") : "Completion signal: "}</span>{text(item.completion_signal)}</p> : null}
       {Array.isArray(item.evidence) ? <div className="mt-3 flex flex-wrap gap-2">{item.evidence.map(record).filter(Boolean).map((evidence, evidenceIndex) => {
         const label = domainLabel(evidence?.code, locale); const value = percentile(evidence?.percentile);
         return label ? <Badge key={`${label}-${evidenceIndex}`}>{value === null || !showPrecise ? label : `${label} · ${value}`}</Badge> : null;
@@ -97,16 +103,16 @@ function ActionPriority({ copy }: { copy: Record<string, unknown> }) {
   </article>;
 }
 
-export function BlockRenderer({ block, locale = "en", retakeHref, showPrecisePercentiles = true }: { block: Block; sectionKey: string; normsStatus?: string; locale?: "en" | "zh"; retakeHref?: string; showPrecisePercentiles?: boolean }) {
+export function BlockRenderer({ block, locale = "en", displayLocale = locale, retakeHref, showPrecisePercentiles = true }: { block: Block; sectionKey: string; normsStatus?: string; locale?: Locale; displayLocale?: DisplayLocale; retakeHref?: string; showPrecisePercentiles?: boolean }) {
   const component = text(block.component); const copy = record(block.resolved_copy) ?? {};
   if (component === "BigFiveQualityNotice") return <QualityNotice copy={copy} retakeHref={retakeHref} />;
-  if (component === "BigFiveSynergyCallout") return <SynergyCallout copy={copy} locale={locale} showPrecise={showPrecisePercentiles} />;
-  if (component === "BigFiveNormEvidenceCard") return <NormEvidenceCard copy={copy} locale={locale} />;
-  if (component === "BigFiveFacetAnomalyCard") return <FacetCard copy={copy} locale={locale} showPrecise={showPrecisePercentiles} />;
-  if (component === "BigFiveActionMatrixScenarioBullets") return <ActionCards copy={copy} locale={locale} showPrecise={showPrecisePercentiles} />;
+  if (component === "BigFiveSynergyCallout") return <SynergyCallout copy={copy} locale={displayLocale} showPrecise={showPrecisePercentiles} />;
+  if (component === "BigFiveNormEvidenceCard") return <NormEvidenceCard copy={copy} locale={displayLocale} />;
+  if (component === "BigFiveFacetAnomalyCard") return <FacetCard copy={copy} locale={displayLocale} showPrecise={showPrecisePercentiles} />;
+  if (component === "BigFiveActionMatrixScenarioBullets") return <ActionCards copy={copy} locale={displayLocale} showPrecise={showPrecisePercentiles} />;
   if (component === "BigFiveActionMatrixTopPriority") return <ActionPriority copy={copy} />;
 
-  const kind = text(block.kind).toLowerCase(); const title = text(block.title); const body = text(block.body); const bullets = list(block.bullets); const tips = list(block.tips); const tags = list(block.tags); const metricPercentile = percentile(block.percentile); const bucket = bandLabel(block.bucket, locale);
+  const kind = text(block.kind).toLowerCase(); const title = text(block.title); const body = text(block.body); const bullets = list(block.bullets); const tips = list(block.tips); const tags = list(block.tags); const metricPercentile = percentile(block.percentile); const bucket = bandLabel(block.bucket, displayLocale);
   if (!title && !body && bullets.length === 0) return null;
   if (kind === "callout") return <div className="rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">{title ? <p className="m-0 font-semibold">{title}</p> : null}{body ? <p className="m-0 mt-1 whitespace-pre-wrap">{body}</p> : null}{bullets.length > 0 ? <ul className="mb-0 mt-2 list-disc space-y-1 pl-5">{bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}</div>;
   if (kind === "bullets") return <Card>{title ? <CardHeader className="pb-2"><CardTitle className="text-base">{title}</CardTitle></CardHeader> : null}<CardContent>{body ? <p className="m-0 mb-2 text-sm text-slate-700">{body}</p> : null}<ul className="list-disc space-y-1 pl-5 text-sm text-slate-700">{bullets.map((item) => <li key={item}>{item}</li>)}</ul></CardContent></Card>;

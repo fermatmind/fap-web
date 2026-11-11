@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { canRenderRichResultReport, RichResultReport } from "@/components/result/RichResultReport";
-import { BIG5_RESULT_PAGE_V2_PAYLOAD_KEY } from "@/lib/big5/resultPageV2";
+import { BIG5_RESULT_PAGE_V2_PAYLOAD_KEY, getBig5ResultPageV2SemanticDecision } from "@/lib/big5/resultPageV2";
 import { BIG5_SOURCE_HASH, canonicalPrivateReport } from "@/tests/fixtures/big5/canonicalPrivateResult";
 import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
@@ -61,13 +61,34 @@ describe("Big Five private result page consumer", () => {
     expect(render(<RichResultReport locale="zh" reportData={report} />).container).toBeEmptyDOMElement();
   });
 
-  it("localizes the stored report's share and print actions in the Taiwan reader", () => {
+  it("localizes a historical core-only report and preserves all five scores", async () => {
+    const report = canonicalPrivateReport();
+    report.big5_private_result_authority = { schema_version: "fap.big5.private_result_authority.v1", mode: "immutable_legacy_snapshot", locale: "zh-CN", source_hash: "", compiled_hash: "" };
+    report[BIG5_RESULT_PAGE_V2_PAYLOAD_KEY] = { ...createRuntimeV2Payload(), content_version: "unsupported-version" };
+    expect(getBig5ResultPageV2SemanticDecision(report).mode).toBe("core_only");
+    render(<RichResultReport locale="zh" displayLocale="zh-TW" reportData={report} />);
+    expect(await screen.findByRole("heading", { name: "五大特質摘要" })).toBeVisible();
+    expect(screen.getByText("自我認知")).toBeVisible();
+    expect(screen.getByRole("progressbar", { name: "開放性 59" })).toHaveAttribute("aria-valuenow", "59");
+    expect(screen.getAllByRole("progressbar").map(bar => bar.getAttribute("aria-valuenow"))).toEqual(["59", "32", "20", "55", "68"]);
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
+  });
+
+  it("localizes the stored report copy, scores, share and print actions in the Taiwan reader", async () => {
     const report = canonicalPrivateReport();
     report.big5_private_result_authority = { schema_version: "fap.big5.private_result_authority.v1", mode: "immutable_legacy_snapshot", locale: "zh-CN", source_hash: "", compiled_hash: "" };
     report[BIG5_RESULT_PAGE_V2_PAYLOAD_KEY] = createRuntimeV2Payload();
     expect(canRenderRichResultReport(report)).toBe(true);
+    const original = structuredClone(report);
     render(<RichResultReport locale="zh" displayLocale="zh-TW" reportData={report} />);
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(await screen.findByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "結果速覽" })).toBeVisible();
+    expect(screen.getByText(/這是一段非固定型別的畫像正文|這是一段非固定類型的畫像正文/u)).toBeVisible();
+    expect(screen.getByRole("progressbar", { name: "開放性 59" })).toHaveAttribute("aria-valuenow", "59");
+    expect(screen.getByText("作答品質狀態")).toBeVisible();
+    expect(screen.getByText("解讀界線")).toBeVisible();
+    expect(screen.getAllByText("常見誤讀").length).toBeGreaterThan(0);
+    expect(report).toEqual(original);
     expect(screen.getByRole("button", { name: "分享安全連結" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "儲存或列印" })).toBeInTheDocument();
   });

@@ -1,3 +1,4 @@
+import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
@@ -18,6 +19,25 @@ const gate = { isFreeVariant: false, modulesAllowed: new Set<string>(), modulesP
 const readyAccess = { accessState: "ready", reportState: "ready", variant: "full", modulesAllowed: ["big5_full", "enneagram_full"], modulesPreview: [] } as unknown as AttemptReportAccessView;
 
 describe("UX-03 report reading and domain export", () => {
+  it("renders Taiwan labels for report blocks without exposing hidden percentiles", () => {
+    render(<SectionRenderer locked={false} locale="zh" displayLocale="zh-TW" scaleCode="BIG5_OCEAN"
+      showPrecisePercentiles={false} section={{ key: "action_matrix", blocks: [
+        { id: "action", component: "BigFiveActionMatrixScenarioBullets", resolved_copy: {
+          items: [{ title: "開始", why_recommended: "先試一小步", completion_signal: "記錄一次", evidence: [{ code: "C", percentile: 98 }] }],
+        } },
+        { id: "norm", component: "BigFiveNormEvidenceCard", resolved_copy: {
+          comparison_allowed: true, sample_n: 1200, norm_version: "v1",
+        } },
+        { id: "chart", kind: "chart", title: "分級", bucket: "not_available", percentile: 98 },
+      ] }} />);
+    expect(screen.getByText("推薦理由：")).toBeVisible();
+    expect(screen.getByText("完成訊號：")).toBeVisible();
+    expect(screen.getByText("盡責性")).toBeVisible();
+    expect(screen.getByText("樣本數 · 1200")).toBeVisible();
+    expect(screen.getByText("暫無資料")).toBeVisible();
+    expect(screen.queryByText(/98/u)).not.toBeInTheDocument();
+    expect(screen.queryByRole("progressbar")).not.toBeInTheDocument();
+  });
   it.each([["zh", "zh", "自我认知"], ["zh", "zh-TW", "自我認知"], ["en", "en", "Self-understanding"]] as const)(
     "uses the display language for the non-interactive badge (%s/%s)",
     (locale, displayLocale, label) => {
@@ -32,6 +52,23 @@ describe("UX-03 report reading and domain export", () => {
     expect(context.domains[1].mean).toBeNull();
     expect(context.norm.region).toBe("");
   });
+  it("localizes only display wording in the Taiwan quality and norm guide", async () => {
+    const context = buildBig5ReadingContext({
+      projection: null,
+      normEvidence: { status_label: "暂定比较", sample_label: "中文参考样本", sample_n: 1200, norm_version: "zh-CN-v2", locale: "zh-CN", region: "CN_MAINLAND", percentile_explanation: "暂不显示具体百分位。" },
+      quality: { level: "D", notice_body: "当前作答质量影响报告解释。" },
+    });
+    render(<Big5ReadingGuide context={context} locale="zh" displayLocale="zh-TW" />);
+    expect(await screen.findByText("當前作答品質影響報告解釋。")).toBeVisible();
+    fireEvent.click(screen.getByText("分數單位與本次參照"));
+    expect(screen.getByText("暫定比較")).toBeVisible();
+    expect(screen.getByText("中文參考樣本")).toBeVisible();
+    expect(screen.getByText("1200")).toBeVisible();
+    expect(screen.getByText("zh-CN-v2")).toBeVisible();
+    expect(screen.getByText("CN_MAINLAND")).toBeVisible();
+    expect(context.quality.level).toBe("D");
+  });
+
   it("keeps the actual quality notice visible before any domain is expanded", () => {
     const context = buildBig5ReadingContext({ projection: null, quality: { level: "D", notice_body: "This response pattern has limited confidence." } });
     render(<Big5ReadingGuide context={context} locale="en" />);

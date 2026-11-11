@@ -12,19 +12,19 @@ import { assessmentChineseCopy } from "@/lib/tests/traditionalAssessmentDisplay"
 type RecordValue = Record<string, unknown>;
 
 const FIELD_LABELS = {
-  benefit: { zh: "优势", en: "Strength" },
-  cost: { zh: "代价", en: "Trade-off" },
-  common_misread: { zh: "常见误读", en: "Common misread" },
-  action: { zh: "行动", en: "Action" },
-  repair: { zh: "修复方式", en: "Repair" },
+  benefit: { zh: "优势", "zh-TW": "優勢", en: "Strength" },
+  cost: { zh: "代价", "zh-TW": "代價", en: "Trade-off" },
+  common_misread: { zh: "常见误读", "zh-TW": "常見誤讀", en: "Common misread" },
+  action: { zh: "行动", "zh-TW": "行動", en: "Action" },
+  repair: { zh: "修复方式", "zh-TW": "修復方式", en: "Repair" },
 } as const;
 
-const BAND_LABELS: Record<string, { zh: string; en: string }> = {
-  very_low: { zh: "明显偏低", en: "Very low" },
-  low: { zh: "偏低", en: "Low" },
-  mid: { zh: "中位", en: "Mid-range" },
-  high: { zh: "偏高", en: "High" },
-  very_high: { zh: "明显偏高", en: "Very high" },
+const BAND_LABELS: Record<string, Record<DisplayLocale, string>> = {
+  very_low: { zh: "明显偏低", "zh-TW": "明顯偏低", en: "Very low" },
+  low: { zh: "偏低", "zh-TW": "偏低", en: "Low" },
+  mid: { zh: "中位", "zh-TW": "中位", en: "Mid-range" },
+  high: { zh: "偏高", "zh-TW": "偏高", en: "High" },
+  very_high: { zh: "明显偏高", "zh-TW": "明顯偏高", en: "Very high" },
 };
 
 function asRecord(value: unknown): RecordValue | null {
@@ -70,17 +70,17 @@ function blockAttributes(block: Big5ResultPageV2Block) {
 function DetailField({
   kind,
   value,
-  locale,
+  displayLocale,
 }: {
   kind: keyof typeof FIELD_LABELS;
   value: string;
-  locale: Locale;
+  displayLocale: DisplayLocale;
 }) {
   if (!value) return null;
   return (
     <div data-detail-kind={kind} className="rounded-lg border border-slate-200 bg-slate-50 p-3">
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">
-        {FIELD_LABELS[kind][locale]}
+        {FIELD_LABELS[kind][displayLocale]}
       </p>
       <p className="m-0 mt-1 text-sm leading-7 text-slate-700">{value}</p>
     </div>
@@ -91,6 +91,7 @@ function TrustBar({
   block,
   projection,
   locale,
+  displayLocale = locale,
 }: RendererProps) {
   const content = contentOf(block);
   const boundary = content ? localizedFrom(content, locale, ["boundary", "summary", "body", "disclaimer"]) : "";
@@ -102,15 +103,15 @@ function TrustBar({
     <aside {...blockAttributes(block)} className="rounded-xl border border-sky-200 bg-sky-50 p-4">
       <dl className="m-0 grid gap-3 text-sm sm:grid-cols-[auto_auto_1fr]">
         <div>
-          <dt className="font-semibold text-sky-900">{locale === "zh" ? "质量状态" : "Quality"}</dt>
+          <dt className="font-semibold text-sky-900">{locale === "zh" ? assessmentChineseCopy(displayLocale, "质量状态", "作答品質狀態") : "Quality"}</dt>
           <dd className="m-0 mt-1 text-sky-800">{quality}</dd>
         </div>
         <div>
-          <dt className="font-semibold text-sky-900">{locale === "zh" ? "常模状态" : "Norm status"}</dt>
+          <dt className="font-semibold text-sky-900">{locale === "zh" ? assessmentChineseCopy(displayLocale, "常模状态", "常模狀態") : "Norm status"}</dt>
           <dd className="m-0 mt-1 text-sky-800">{norm}</dd>
         </div>
         <div>
-          <dt className="font-semibold text-sky-900">{locale === "zh" ? "可信边界" : "Interpretation boundary"}</dt>
+          <dt className="font-semibold text-sky-900">{locale === "zh" ? assessmentChineseCopy(displayLocale, "可信边界", "解讀界線") : "Interpretation boundary"}</dt>
           <dd className="m-0 mt-1 leading-6 text-sky-800">{boundary}</dd>
         </div>
       </dl>
@@ -137,7 +138,9 @@ function HeroSummary({ block, projection, locale }: RendererProps) {
   );
 }
 
-function TraitBar({ block, payload, projection, locale }: RendererProps) {
+const TAIWAN_TRAIT_LABELS: Record<Big5DomainCode, string> = { O: "開放性", C: "盡責性", E: "外向性", A: "宜人性", N: "情緒性" };
+
+function TraitBar({ block, payload, projection, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   const trait = asRecord(content?.trait);
   const code = text(trait?.code).toUpperCase() as Big5DomainCode;
@@ -157,10 +160,10 @@ function TraitBar({ block, payload, projection, locale }: RendererProps) {
     .find((item) => text(asRecord(item?.trait)?.code).toUpperCase() === code);
   const deepDiveTrait = asRecord(deepDiveContent?.trait);
   const label = localizedFrom(deepDiveTrait ?? trait ?? {}, locale, ["label", "public_name"])
-    || BIG5_DOMAIN_LABELS[code][locale];
+    || (displayLocale === "zh-TW" ? TAIWAN_TRAIT_LABELS[code] : BIG5_DOMAIN_LABELS[code][locale]);
   const bandContent = asRecord(deepDiveContent?.band) ?? asRecord(content.band);
   const bandLabel = localizedFrom(bandContent ?? {}, locale, ["display_band_label"])
-    || BAND_LABELS[band]?.[locale]
+    || BAND_LABELS[band]?.[displayLocale]
     || band;
 
   return (
@@ -210,7 +213,7 @@ function QuickCards({ block, locale }: RendererProps) {
   );
 }
 
-function TraitDeepDive({ block, locale }: RendererProps) {
+function TraitDeepDive({ block, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const title = localizedFrom(content, locale, ["title"]);
@@ -225,10 +228,10 @@ function TraitDeepDive({ block, locale }: RendererProps) {
       {title ? <h4 className="m-0 text-lg font-semibold text-slate-950">{title}</h4> : null}
       <p className="m-0 mt-3 whitespace-pre-wrap text-sm leading-7 text-slate-700">{body}</p>
       <div className="mt-4 grid gap-3 md:grid-cols-2">
-        <DetailField kind="benefit" value={benefit} locale={locale} />
-        <DetailField kind="cost" value={cost} locale={locale} />
-        <DetailField kind="common_misread" value={misread} locale={locale} />
-        <DetailField kind="action" value={action} locale={locale} />
+        <DetailField kind="benefit" value={benefit} displayLocale={displayLocale} />
+        <DetailField kind="cost" value={cost} displayLocale={displayLocale} />
+        <DetailField kind="common_misread" value={misread} displayLocale={displayLocale} />
+        <DetailField kind="action" value={action} displayLocale={displayLocale} />
       </div>
     </article>
   );
@@ -245,7 +248,7 @@ function stringList(value: unknown): string[] {
     : [];
 }
 
-function CouplingCards({ block, locale }: RendererProps) {
+function CouplingCards({ block, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const title = localizedFrom(content, locale, ["title"]);
@@ -263,15 +266,15 @@ function CouplingCards({ block, locale }: RendererProps) {
       {title ? <h4 className="m-0 mt-3 text-lg font-semibold text-slate-950">{title}</h4> : null}
       <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{body}</p>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
-        <DetailField kind="benefit" value={benefit} locale={locale} />
-        <DetailField kind="cost" value={cost} locale={locale} />
-        <DetailField kind="action" value={action} locale={locale} />
+        <DetailField kind="benefit" value={benefit} displayLocale={displayLocale} />
+        <DetailField kind="cost" value={cost} displayLocale={displayLocale} />
+        <DetailField kind="action" value={action} displayLocale={displayLocale} />
       </div>
     </article>
   );
 }
 
-function FacetReframe({ block, projection, locale }: RendererProps) {
+function FacetReframe({ block, projection, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const facet = text(content.facet_key ?? content.facet_code).toUpperCase();
@@ -292,22 +295,22 @@ function FacetReframe({ block, projection, locale }: RendererProps) {
       <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-sky-800">
         <span>{facet}</span>
         <span>{directionLabel}</span>
-        <span>{locale === "zh" ? "推断信号" : "Inferred signal"}</span>
-        {confidence ? <span>{locale === "zh" ? `置信度 ${confidence}` : `Confidence ${confidence}`}</span> : null}
-        <span>{locale === "zh" ? `质量 ${text(projection.quality_status)}` : `Quality ${text(projection.quality_status)}`}</span>
+        <span>{locale === "zh" ? assessmentChineseCopy(displayLocale, "推断信号", "推斷訊號") : "Inferred signal"}</span>
+        {confidence ? <span>{locale === "zh" ? `${assessmentChineseCopy(displayLocale, "置信度", "推論信心")} ${confidence}` : `Confidence ${confidence}`}</span> : null}
+        <span>{locale === "zh" ? `${assessmentChineseCopy(displayLocale, "质量", "品質")} ${text(projection.quality_status)}` : `Quality ${text(projection.quality_status)}`}</span>
       </div>
       {title ? <h4 className="m-0 mt-3 text-lg font-semibold text-slate-950">{title}</h4> : null}
       <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{body}</p>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
-        <DetailField kind="benefit" value={benefit} locale={locale} />
-        <DetailField kind="cost" value={cost} locale={locale} />
-        <DetailField kind="action" value={action} locale={locale} />
+        <DetailField kind="benefit" value={benefit} displayLocale={displayLocale} />
+        <DetailField kind="cost" value={cost} displayLocale={displayLocale} />
+        <DetailField kind="action" value={action} displayLocale={displayLocale} />
       </div>
     </article>
   );
 }
 
-function ApplicationMatrix({ block, locale }: RendererProps) {
+function ApplicationMatrix({ block, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const scenario = text(content.scenario);
@@ -325,16 +328,16 @@ function ApplicationMatrix({ block, locale }: RendererProps) {
       {title ? <h4 className="m-0 mt-2 text-lg font-semibold text-slate-950">{title}</h4> : null}
       <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{body}</p>
       <div className="mt-4 grid gap-3 md:grid-cols-2">
-        <DetailField kind="benefit" value={benefit} locale={locale} />
-        <DetailField kind="cost" value={cost} locale={locale} />
-        <DetailField kind="action" value={action} locale={locale} />
-        <DetailField kind="repair" value={repair} locale={locale} />
+        <DetailField kind="benefit" value={benefit} displayLocale={displayLocale} />
+        <DetailField kind="cost" value={cost} displayLocale={displayLocale} />
+        <DetailField kind="action" value={action} displayLocale={displayLocale} />
+        <DetailField kind="repair" value={repair} displayLocale={displayLocale} />
       </div>
     </article>
   );
 }
 
-function CollaborationManual({ block, locale }: RendererProps) {
+function CollaborationManual({ block, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const scenario = text(content.scenario);
@@ -349,9 +352,9 @@ function CollaborationManual({ block, locale }: RendererProps) {
       {title ? <h4 className="m-0 text-lg font-semibold text-slate-950">{title}</h4> : null}
       <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{body}</p>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
-        <DetailField kind="benefit" value={benefit} locale={locale} />
-        <DetailField kind="cost" value={cost} locale={locale} />
-        <DetailField kind="action" value={action} locale={locale} />
+        <DetailField kind="benefit" value={benefit} displayLocale={displayLocale} />
+        <DetailField kind="cost" value={cost} displayLocale={displayLocale} />
+        <DetailField kind="action" value={action} displayLocale={displayLocale} />
       </div>
     </article>
   );
@@ -450,7 +453,7 @@ function safeActionUrl(value: unknown): string {
   }
 }
 
-function FeedbackBlock({ block, locale }: RendererProps) {
+function FeedbackBlock({ block, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const url = safeActionUrl(content.feedback_url ?? content.action_url ?? content.href ?? content.url);
@@ -461,13 +464,13 @@ function FeedbackBlock({ block, locale }: RendererProps) {
     <article {...blockAttributes(block)} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <p className="m-0 text-sm leading-7 text-slate-700">{summary}</p>
       <a href={url} rel="noopener noreferrer" className="mt-3 inline-flex rounded-lg bg-slate-950 px-3 py-2 text-sm font-semibold text-white">
-        {label || (locale === "zh" ? "提交反馈" : "Send feedback")}
+        {label || (locale === "zh" ? assessmentChineseCopy(displayLocale, "提交反馈", "提供回饋") : "Send feedback")}
       </a>
     </article>
   );
 }
 
-function MethodBoundary({ block, projection, locale }: RendererProps) {
+function MethodBoundary({ block, projection, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   if (!content) return null;
   const title = localizedFrom(content, locale, ["title"]);
@@ -478,12 +481,12 @@ function MethodBoundary({ block, projection, locale }: RendererProps) {
   const boundary = localizedFrom(content, locale, ["boundary", "use_boundary"]);
   if (!form || !scoring || !error || !nonDiagnostic || !boundary) return null;
   const rows = [
-    [locale === "zh" ? "题型" : "Form", form],
-    [locale === "zh" ? "计分" : "Scoring", scoring],
+    [locale === "zh" ? assessmentChineseCopy(displayLocale, "题型", "題型") : "Form", form],
+    [locale === "zh" ? assessmentChineseCopy(displayLocale, "计分", "計分") : "Scoring", scoring],
     [locale === "zh" ? "常模" : "Norms", text(projection.norm_status)],
-    [locale === "zh" ? "误差" : "Error", error],
-    [locale === "zh" ? "非诊断" : "Non-diagnostic", nonDiagnostic],
-    [locale === "zh" ? "使用边界" : "Use boundary", boundary],
+    [locale === "zh" ? assessmentChineseCopy(displayLocale, "误差", "誤差") : "Error", error],
+    [locale === "zh" ? assessmentChineseCopy(displayLocale, "非诊断", "非診斷") : "Non-diagnostic", nonDiagnostic],
+    [locale === "zh" ? assessmentChineseCopy(displayLocale, "使用边界", "使用界線") : "Use boundary", boundary],
   ];
   return (
     <article {...blockAttributes(block)} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">

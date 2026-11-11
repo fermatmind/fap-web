@@ -1553,6 +1553,7 @@ export function RichResultReport({
           <Big5ResultPageV2Shell
             locale={locale}
             payload={semanticDecision.payload}
+            displayLocale={displayLocale}
             mode="core_only"
             coreDomains={semanticDecision.coreDomains}
           />
