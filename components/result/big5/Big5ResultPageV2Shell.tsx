@@ -9,7 +9,7 @@ import type {
   Big5ResultPageV2CoreDomain,
   Big5ResultPageV2Payload,
 } from "@/lib/big5/resultPageV2";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 
 const MODULE_TITLES: Record<string, { en: string; zh: string }> = {
@@ -28,11 +28,13 @@ const MODULE_TITLES: Record<string, { en: string; zh: string }> = {
 
 export function Big5ResultPageV2Shell({
   locale,
+  displayLocale = locale,
   payload,
   mode = "full",
   coreDomains = [],
 }: {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   payload: Big5ResultPageV2Payload;
   mode?: "full" | "core_only";
   coreDomains?: Big5ResultPageV2CoreDomain[];
@@ -79,6 +81,7 @@ export function Big5ResultPageV2Shell({
                   payload={payload}
                   projection={projection}
                   locale={locale}
+                  displayLocale={displayLocale}
                 />
               ))}
             </div>

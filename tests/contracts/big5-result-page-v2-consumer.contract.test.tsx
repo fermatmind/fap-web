@@ -61,12 +61,14 @@ describe("Big Five private result page consumer", () => {
     expect(render(<RichResultReport locale="zh" reportData={report} />).container).toBeEmptyDOMElement();
   });
 
-  it("allows a stored V2 shell only for an immutable legacy snapshot", () => {
+  it("localizes the stored report's share and print actions in the Taiwan reader", () => {
     const report = canonicalPrivateReport();
     report.big5_private_result_authority = { schema_version: "fap.big5.private_result_authority.v1", mode: "immutable_legacy_snapshot", locale: "zh-CN", source_hash: "", compiled_hash: "" };
     report[BIG5_RESULT_PAGE_V2_PAYLOAD_KEY] = createRuntimeV2Payload();
     expect(canRenderRichResultReport(report)).toBe(true);
-    render(<RichResultReport locale="zh" reportData={report} />);
+    render(<RichResultReport locale="zh" displayLocale="zh-TW" reportData={report} />);
     expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "分享安全連結" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "儲存或列印" })).toBeInTheDocument();
   });
 });

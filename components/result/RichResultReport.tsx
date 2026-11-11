@@ -1463,6 +1463,7 @@ export function RichResultReport({
     return (
       <MbtiResultShell
         locale={locale}
+        displayLocale={displayLocale}
         scaleCode={scaleCode}
         reportData={reportData}
         accessProjection={accessProjection}
@@ -1537,6 +1538,7 @@ export function RichResultReport({
           <>
             <Big5ResultPageV2Shell
               locale={locale}
+              displayLocale={displayLocale}
               payload={filterBig5ResultPageV2PayloadForGate(semanticDecision.payload, {
                 isFreeVariant: gate.isFreeVariant,
                 modulesAllowed: gate.modulesAllowed,

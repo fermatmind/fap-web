@@ -47,7 +47,7 @@ import {
   readStoredTrackingAttributionPayload,
   toAttemptAttributionPayload,
 } from "@/lib/tracking/attribution";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
@@ -140,6 +140,7 @@ import type {
 
 type MbtiResultShellProps = {
   locale: Locale;
+  displayLocale?: DisplayLocale;
   scaleCode: "MBTI";
   reportData: ReportResponse;
   accessProjection?: AttemptReportAccessView | null;
@@ -195,9 +196,16 @@ function normalizeText(...values: unknown[]): string {
 
 function resolveShareCtaLabel(
   locale: Locale,
+  displayLocale: DisplayLocale,
   shareStatus: "idle" | "copied" | "failed",
   isSharing: boolean
 ) {
+  if (displayLocale === "zh-TW") {
+    if (isSharing) return "正在產生分享連結…";
+    if (shareStatus === "copied") return "已複製分享連結";
+    if (shareStatus === "failed") return "重試分享";
+    return "分享結果";
+  }
   if (isSharing) {
     return locale === "zh" ? "正在生成分享链接..." : "Preparing share link...";
   }
@@ -599,6 +607,7 @@ export function MbtiResultShellLoadingShell({
 
 export function MbtiResultShell({
   locale,
+  displayLocale = locale,
   scaleCode,
   reportData,
   accessProjection,
@@ -734,7 +743,7 @@ export function MbtiResultShell({
       : "My MBTI reports"
     : primaryCtaLabel;
   const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : DESKTOP_OFFER_FULL_HASH;
-  const shareCtaLabel = resolveShareCtaLabel(locale, shareStatus, isSharing);
+  const shareCtaLabel = resolveShareCtaLabel(locale, displayLocale, shareStatus, isSharing);
   const personalizationDerived = useMemo(() => ({
     variantKeysSummary: summarizeMbtiVariantKeys(personalization),
     sceneFingerprintSummary: summarizeMbtiSceneFingerprint(personalization),
@@ -1314,7 +1323,7 @@ export function MbtiResultShell({
       return;
     }
 
-    const shareTitle = locale === "zh" ? "分享我的测试结果" : "Share my result";
+    const shareTitle = displayLocale === "zh-TW" ? "分享我的測評結果" : locale === "zh" ? "分享我的测试结果" : "Share my result";
     setIsSharing(true);
 
     try {

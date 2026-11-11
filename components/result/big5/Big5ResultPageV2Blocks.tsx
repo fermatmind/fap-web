@@ -6,7 +6,8 @@ import { useState } from "react";
 import { BIG5_DOMAIN_LABELS, type Big5DomainCode } from "@/lib/big5/taxonomy";
 import { createAttemptShare } from "@/lib/api/v0_3";
 import type { Big5ResultPageV2Block, Big5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
+import { assessmentChineseCopy } from "@/lib/tests/traditionalAssessmentDisplay";
 
 type RecordValue = Record<string, unknown>;
 
@@ -376,9 +377,11 @@ function safePublicShareUrl(value: unknown): string {
   }
 }
 
-function ShareSave({ block, projection, locale }: RendererProps) {
+function ShareSave({ block, projection, locale, displayLocale = locale }: RendererProps) {
   const content = contentOf(block);
   const [status, setStatus] = useState<"idle" | "loading" | "copied" | "failed">("idle");
+  const copy = (simplified: string, traditional: string, english: string) =>
+    locale === "zh" ? assessmentChineseCopy(displayLocale, simplified, traditional) : english;
   const summary = content ? localizedFrom(content, locale, ["summary", "body"]) : "";
   if (!content || !summary) return null;
 
@@ -396,7 +399,7 @@ function ShareSave({ block, projection, locale }: RendererProps) {
       if (!shareUrl) throw new Error("share_url_invalid");
       if (typeof navigator.share === "function") {
         await navigator.share({
-          title: locale === "zh" ? "分享测试结果" : "Share test result",
+          title: copy("分享测试结果", "分享測評結果", "Share test result"),
           url: shareUrl,
         });
         setStatus("idle");
@@ -419,17 +422,17 @@ function ShareSave({ block, projection, locale }: RendererProps) {
       <div className="mt-3 flex flex-wrap gap-2">
         <button type="button" disabled={status === "loading"} onClick={() => void share()} className="rounded-lg bg-slate-950 px-3 py-2 text-sm font-semibold text-white disabled:cursor-wait disabled:opacity-60">
           {status === "loading"
-            ? (locale === "zh" ? "正在生成安全链接" : "Creating safe link")
-            : (locale === "zh" ? "分享安全链接" : "Share safe link")}
+            ? copy("正在生成安全链接", "正在產生安全連結", "Creating safe link")
+            : copy("分享安全链接", "分享安全連結", "Share safe link")}
         </button>
         <button type="button" onClick={() => window.print()} className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800">
-          {locale === "zh" ? "保存或打印" : "Save or print"}
+          {copy("保存或打印", "儲存或列印", "Save or print")}
         </button>
       </div>
       {status === "copied" || status === "failed" ? <p role="status" className="m-0 mt-2 text-xs text-slate-600">
         {status === "copied"
-          ? (locale === "zh" ? "链接已复制" : "Link copied")
-          : (locale === "zh" ? "当前环境不支持自动分享" : "Sharing is unavailable")}
+          ? copy("链接已复制", "連結已複製", "Link copied")
+          : copy("当前环境不支持自动分享", "目前環境不支援自動分享", "Sharing is unavailable")}
       </p> : null}
     </article>
   );
@@ -500,6 +503,7 @@ type RendererProps = {
   payload: Big5ResultPageV2Payload;
   projection: RecordValue;
   locale: Locale;
+  displayLocale?: DisplayLocale;
 };
 
 export function Big5ResultPageV2BlockRenderer(props: RendererProps) {

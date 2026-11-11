@@ -793,6 +793,26 @@ describe("MBTI checkout wiring contract", () => {
     expect(window.navigator.clipboard.writeText).not.toHaveBeenCalled();
   });
 
+  it("shares a Taiwan result with the public Taiwan URL and native share title", async () => {
+    const publicId = "b113e8ef-04ee-4ccd-a1b3-76252f32118e";
+    const navigatorShare = vi.fn().mockResolvedValue(undefined);
+    window.history.replaceState(null, "", "/zh-TW/result/attempt-123");
+    hoisted.createAttemptShare.mockResolvedValue({
+      ok: true, share_id: publicId, share_url: `/zh/share/${publicId}`,
+    });
+    Object.defineProperty(window.navigator, "share", { configurable: true, value: navigatorShare });
+    render(<MbtiResultShell {...createShellProps(createReportFixture())} displayLocale="zh-TW" />);
+
+    fireEvent.click(within(getDesktopStickyRail()).getByRole("button", { name: "分享結果" }));
+
+    await waitFor(() => expect(navigatorShare).toHaveBeenCalledWith({
+      title: "分享我的測評結果",
+      text: "分享我的測評結果",
+      url: `${window.location.origin}/zh-TW/share/${publicId}`,
+    }));
+    expect(hoisted.createAttemptShare).toHaveBeenCalledWith({ attemptId: "attempt-123", locale: "zh" });
+  });
+
   it("hydrates generic backend wait_url with checkout pay payload before navigating to the wait page", async () => {
     const reportData = createReportFixture();
     const onInternalNavigate = vi.fn();
