@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -43,9 +44,20 @@ export async function generateBigFivePolicyMetadata({ params, slug }: RouteInput
 export async function renderBigFivePolicyPage({ params, slug }: RouteInput) {
   const { locale: requested } = await params;
   const locale = resolveLocale(requested);
-  const page = (await getContentPageWithLastKnownGood(slug, locale)).value;
+  const [original, taiwan] = await Promise.allSettled([
+    getContentPageWithLastKnownGood(slug, locale),
+    getContentPageWithLastKnownGood(slug, "zh-TW"),
+  ]);
+  if (original.status === "rejected") throw original.reason;
+  const page = original.value.value;
   if (!page) notFound();
+  const taiwanPage = taiwan.status === "fulfilled" ? taiwan.value.value : null;
   return <>
+    {taiwanPage?.locale === "zh-TW" && taiwanPage.slug === slug ? (
+      <nav aria-label={locale === "en" ? "Page language" : "页面语言"} className="mb-5 text-sm">
+        <Link href={buildContentPagePath(slug, "zh-TW")} lang="zh-TW" className="inline-flex min-h-11 items-center underline">繁體中文（台灣）</Link>
+      </nav>
+    ) : null}
     {page.schemaEnabled ? <JsonLd id={`${slug}-webpage`} data={buildWebPageJsonLd({
       path: page.path, title: page.title, description: page.summary, locale,
     })} /> : null}

@@ -7,6 +7,7 @@ import { TraditionalPersonalityCategoryBackLink } from "@/components/personality
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { loadTraditionalMbtiCurrentReader, TraditionalMbtiCurrentReader } from "@/components/personality/TraditionalMbtiCurrentReader";
 import { getTraditionalPersonalityPublicContentAsset } from "@/lib/cms/personality-public-content-assets";
+import { buildContentPagePath, getContentPageWithLastKnownGood } from "@/lib/cms/content-pages";
 import { getTraditionalPublicAssetRoute, isTraditionalMbtiDetailPath } from "@/lib/personality/traditionalPublicAssetRoutes";
 
 import { isConfiguredStagingSiteUrl } from "@/lib/site";
@@ -58,6 +59,12 @@ export default async function TraditionalPersonalityAssetPage(props: Props) {
   const content = await loadPage(props);
   const canonical = content.kind === "mbti" ? content.reader.canonical : content.asset.canonicalPath;
   const suffix = canonical.slice("/zh-TW".length);
+  const policies = canonical === "/zh-TW/personality/big-five"
+    ? (await Promise.allSettled(["methodology", "source-review-policy"].map(async slug => {
+        const { value } = await getContentPageWithLastKnownGood(slug, "zh-TW");
+        return value?.locale === "zh-TW" && value.slug === slug ? value : null;
+      }))).flatMap(result => result.status === "fulfilled" && result.value ? [result.value] : [])
+    : [];
   return <>
     <nav aria-label="頁面語言" className="mb-6 flex flex-wrap gap-5 text-sm">
       <Link href={"/zh" + suffix} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
@@ -66,5 +73,8 @@ export default async function TraditionalPersonalityAssetPage(props: Props) {
     {content.kind === "asset" && content.asset.entityType === "hub" ? <TraditionalPersonalityCategoryBackLink /> : null}
     {content.kind === "mbti" ? <TraditionalMbtiCurrentReader reader={content.reader} />
       : <PublicContentAssetRenderer asset={content.asset} locale="zh-TW" />}
+    {policies.length > 0 && <nav aria-label="大五人格方法與來源" className="mt-6 flex flex-wrap gap-5 text-sm">
+      {policies.map(policy => <Link key={policy.slug} href={buildContentPagePath(policy.slug, "zh-TW")} className="min-h-11 py-2 underline">{policy.title}</Link>)}
+    </nav>}
   </>;
 }

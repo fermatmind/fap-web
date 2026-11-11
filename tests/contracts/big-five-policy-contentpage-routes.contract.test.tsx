@@ -134,6 +134,17 @@ describe("Big Five ContentPage policy routes", () => {
     const html = renderToStaticMarkup(await renderBigFivePolicyPage({ params: Promise.resolve({ locale: "zh" }), slug: "methodology" }));
     expect(html).toContain("Public self-reflection content.");
     expect(html).not.toContain("application/ld+json");
+    expect(html).not.toContain('href="/zh-TW/personality/big-five/methodology"');
+  });
+
+  it("links to the Taiwan policy from its original page after publication", async () => {
+    vi.mocked(apiClient.get).mockImplementation(async url => ({
+      ok: true, page: String(url).includes("locale=zh-TW") ? taiwanPolicy() : record(),
+    }));
+    const html = renderToStaticMarkup(await renderBigFivePolicyPage({ params: Promise.resolve({ locale: "zh" }), slug: "methodology" }));
+    const document = new DOMParser().parseFromString(html, "text/html");
+    expect(document.querySelector('a[lang="zh-TW"]')?.getAttribute("href")).toBe("/zh-TW/personality/big-five/methodology");
+    expect(html).toContain("Public self-reflection content.");
   });
 
   it("allows a valid ContentPage through the prestream proxy probe", async () => {
