@@ -1,3 +1,5 @@
+import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
+import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { QuestionnaireMfq2Attribution } from "@/components/questionnaires/QuestionnaireMfq2Attribution";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { QuestionnaireSd4Attribution } from "@/components/questionnaires/QuestionnaireSd4Attribution";
@@ -21,7 +23,9 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 
 type Stage = { slug: string; take: boolean; profile?: string };
 const requireLikert = cache(async (slug: string) => {
-  const item = await loadTraditionalLikert(slug);
+  const item = hasTraditionalDirectional(slug)
+    ? await (await import("@/lib/i18n/zh-TW/directionalQuestionnaires")).loadTraditionalDirectional(slug)
+    : await loadTraditionalLikert(slug);
   if (!item) notFound();
   return item;
 });
@@ -49,6 +53,12 @@ function CitedCopy({ text, slug }: { text: string; slug: string }) {
 export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
   const { quiz, sections, faq, summaries, extraReferences } = await requireLikert(slug);
   const entry = questionnairePath("zh-TW", slug);
+  const Disc = slug === "disc"
+    ? (await import("@/components/questionnaires/DiscPage")).DiscPage
+    : null;
+  const FoodChoice = slug === "food-choice"
+    ? (await import("@/components/questionnaires/FoodChoicePage")).FoodChoicePage
+    : null;
   const Specialist = slug === "body-frame-observations"
     ? (await import("@/components/questionnaires/BodyFrameObservationsPage")).BodyFrameObservationsPage
     : slug === "outfit-line-preferences"
@@ -71,7 +81,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
           : QuestionnaireClient;
     return <TraditionalQuestionnaireCopy>
       <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
-        {Specialist ? <Specialist quiz={quiz} locale="zh" take /> : <Client quiz={quiz} locale="zh" />}
+        {Disc ? <Disc quiz={quiz} locale="zh" displayLocale="zh-TW" take /> : Specialist ? <Specialist quiz={quiz} locale="zh" take /> : <Client quiz={quiz} locale="zh" />}
       </QuestionnaireTakeDocument>
     </TraditionalQuestionnaireCopy>;
   }
@@ -108,6 +118,13 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
 
+  if (Disc || FoodChoice) {
+    const displayText = await loadTraditionalAssessmentText();
+    return <>{languages}{Disc
+      ? <Disc quiz={quiz} locale="zh" displayLocale="zh-TW" displayText={displayText} />
+      : FoodChoice && <FoodChoice quiz={quiz} locale="zh" displayLocale="zh-TW" displayText={displayText} sections={sections} faq={faq} summaries={summaries} />}</>;
+  }
+
   if (EmotionDashboard) {
     const copy = await loadTraditionalAssessmentText();
     return <>
@@ -124,6 +141,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     </>;
   }
 
+  const adultAgeCopy = slug === "adult-age-preferences" ? await loadTraditionalAssessmentText() : undefined;
   return <div className="mx-auto max-w-3xl space-y-8">
     {languages}
     <ExploreTestIntro slug={slug} locale="zh">
@@ -131,6 +149,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
       <QuestionnaireTakeEntry quiz={quiz} locale="zh" displayLocale="zh-TW" />
     </ExploreTestIntro>
+    {adultAgeCopy && <AdultAgePreferencesExamples quiz={quiz} locale="zh" displayLocale="zh-TW" copy={adultAgeCopy} />}
     <p className="whitespace-pre-line leading-8"><CitedCopy text={quiz.introduction.zh} slug={slug} /></p>
     <section id="questionnaire-results" className="space-y-4">
       <h2 className="text-2xl font-semibold">完整公開結果指南</h2>

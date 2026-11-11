@@ -8,7 +8,7 @@ import { BasicQuestionnaireClient } from "./BasicQuestionnaireClient";
 
 const source = original as Questionnaire;
 const quiz = { ...source, profiles: source.profiles.map(prepareDiscResultProfile) };
-export default function DiscAttemptClient({ locale, resume, onReady }: { locale: Locale; resume: boolean; onReady: () => void }) {
+export default function DiscAttemptClient({ locale, resume, onReady, projectedQuiz }: { locale: Locale; resume: boolean; onReady: () => void; projectedQuiz?: Questionnaire }) {
   useEffect(() => onReady(), [onReady]);
-  return <BasicQuestionnaireClient quiz={quiz} locale={locale} startOnEntry resumeOnEntry={resume} emitStartOnEntry={false} />;
+  return <BasicQuestionnaireClient quiz={projectedQuiz ?? quiz} locale={locale} startOnEntry resumeOnEntry={resume} emitStartOnEntry={false} />;
 }

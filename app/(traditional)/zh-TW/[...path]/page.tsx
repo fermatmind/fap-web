@@ -1,3 +1,4 @@
+import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -22,7 +23,7 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
-  const likert = traditionalLikertRoute(path.slice("/zh-TW".length));
+  const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length));
   if (likert) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return traditionalLikertMetadata(likert);
@@ -61,7 +62,7 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
-  const likert = traditionalLikertRoute(path.slice("/zh-TW".length));
+  const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length));
   if (likert?.slug === "cognitive-functions-test") {
     const { TraditionalCognitiveFunctionsPage } = await import("@/components/i18n/zh-TW/TraditionalCognitiveFunctionsPage");
     const edition = likert.take ? (await props.searchParams)?.edition : undefined;

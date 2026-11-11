@@ -1,3 +1,5 @@
+import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
+import { adultAgePreferencesCard } from "./adultAgePreferencesCard";
 import { bleachOpenGraphCard } from "@/lib/entertainment/bleachCard";
 import { philosopherOpenGraphCard } from "@/lib/entertainment/philosopherCard";
 import { readFile } from "node:fs/promises";
@@ -26,6 +28,16 @@ let archetypeFont: Promise<ArrayBuffer> | undefined;
 let practiceFont: Promise<ArrayBuffer> | undefined;
 
 export async function traditionalStoryCard(slug: string, portrait: string | null) {
+  if (hasTraditionalDirectional(slug)) {
+    const { loadTraditionalDirectional } = await import("@/lib/i18n/zh-TW/directionalQuestionnaires");
+    const item = await loadTraditionalDirectional(slug);
+    const result = portrait && item ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
+    if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
+    archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    if (slug === "adult-age-preferences") return adultAgePreferencesCard("zh-TW", item.quiz.title.zh, result?.directionIds, await archetypeFont);
+    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont,
+      `${item.quiz.questions.length} 道二選一題目`, "公開結果指南");
+  }
   if (traditionalLikertRoute(`/tests/explore/${slug}`)) {
     const item = await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;

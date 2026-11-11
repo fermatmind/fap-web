@@ -1,3 +1,4 @@
+import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BeachcomberPage } from "@/components/entertainment/BeachcomberPage";
@@ -88,6 +89,11 @@ const bespokePages = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}`);
+  if (directional) {
+    const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return traditionalLikertMetadata(directional);
+  }
   const quiz = await requireTraditionalStoryQuiz((await params).slug);
   const url = quizPath("zh-TW", quiz.slug);
   const { title, description } = quiz.seo;
@@ -101,6 +107,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TraditionalStoryPage({ params }: Props) {
+  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}`);
+  if (directional) {
+    const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return <LikertQuestionnairePage {...directional} />;
+  }
   const { slug } = await params;
   const quiz = await requireTraditionalStoryQuiz(slug);
   const BespokePage = Object.hasOwn(bespokePages, slug) ? bespokePages[slug as keyof typeof bespokePages] : null;

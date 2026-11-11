@@ -1,7 +1,7 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const responseColorLandingSummaries: Record<string, { zh: string; en: string }> = {
   red: { zh: "临时有了可用时间时，先选一件事开始做。结合实际例子观察及时回应怎样帮助推进，以及哪些条件适合先核对。", en: "When time unexpectedly opens up, starting one activity may come first. Explore when prompt action helps and which conditions are worth checking before moving." },
   yellow: { zh: "安排出现空白时，先展开几种有趣的可能。围绕新想法与选择，观察开放联想何时有帮助、何时需要收束成具体一步。", en: "An open space in a plan may invite several possibilities. Explore when new connections help and when narrowing them into a concrete step would be useful." },
   blue: { zh: "面对新安排时，先理清条件、顺序和遗漏。通过准备与核对的例子，比较必要的信息和可以边做边补充的细节。", en: "A new arrangement may prompt clarification of conditions, sequence and omissions. Compare information needed before starting with details that can be added along the way." },
@@ -20,7 +20,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function responseColorLandingSummary(profile: QuestionnaireProfile, locale: Locale): string {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return responseColorLandingSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 /** Current answering UI copy; the accepted source questionnaire keeps its original bytes. */

@@ -1,8 +1,8 @@
 import content from "./response-color.json";
 import type { QuestionnaireProfile, QuestionnaireSection, Text } from "../types";
 
-const text = (zh: string, en: string): Text => ({ zh, en });
 const section = (id: string, title: Text, ...paragraphs: Text[]): QuestionnaireSection => ({ id: `editorial-${id}`, title, paragraphs });
+const text = (zh: string, en: string): Text => ({ zh, en });
 const colours: Record<string, Text> = {
   RED: text("红·行动回应", "Red · Responding through action"),
   YELLOW: text("黄·开放联想", "Yellow · Exploring connections"),
@@ -11,10 +11,11 @@ const colours: Record<string, Text> = {
 };
 
 /** Editorial presentation of this edition, without modifying the source package or scorer. */
-export function responseColorResultProfile(profile: QuestionnaireProfile): QuestionnaireProfile {
-  if (!Object.hasOwn(content, profile.id)) return profile;
-  const editorial = (content as Record<string, { headline: Text; summary: Text; sections: QuestionnaireSection[] }>)[profile.id];
+export function responseColorResultProfile(profile: QuestionnaireProfile, reader = content, displayText: (source: string) => string = source => source): QuestionnaireProfile {
+  if (!Object.hasOwn(reader, profile.id)) return profile;
+  const editorial = (reader as Record<string, { headline: Text; summary: Text; sections: QuestionnaireSection[] }>)[profile.id];
   if (!editorial || !profile.directionIds.every(id => colours[id])) return profile;
+  const text = (zh: string, en: string): Text => ({ zh: displayText(zh), en });
   const tied = profile.directionIds.length > 1;
   const labels = profile.directionIds.map(id => colours[id]);
   const sections = [section("counts", text("计数怎样支持这份结果", "How the counts support this reading"),
@@ -33,3 +34,5 @@ export function responseColorResultProfile(profile: QuestionnaireProfile): Quest
       text("本版尚未建立信度、效度、常模或双语等值。Color Code与Insights Discovery等产品使用各自的颜色、定义与报告体系，即便颜色名称相同也不能互换；下列官方页面仅帮助识别版本差异，不证明本题本有效。不要把本结果换算成DISC、MBTI、职业匹配、关系配对或心理诊断。", "Reliability, validity, population norms and bilingual equivalence have not been established for this edition. Products such as Color Code and Insights Discovery use their own colours, definitions and report systems; even identically named colours are not interchangeable. Their official pages below identify edition differences without validating this questionnaire. This result cannot be converted to DISC, MBTI, career fit, relationship pairing or diagnosis.")));
   return { ...profile, headline: editorial.headline, summary: editorial.summary, sections };
 }
+
+export const responseColorReading = { attribute: "response-color", select: responseColorResultProfile, references: [{ title: { zh: "版本比较来源：Color Code", en: "Edition comparison source: Color Code" }, url: "https://www.colorcode.com/" }, { title: { zh: "版本比较来源：Insights Discovery", en: "Edition comparison source: Insights Discovery" }, url: "https://www.insights.com/products/insights-discovery/" }] };

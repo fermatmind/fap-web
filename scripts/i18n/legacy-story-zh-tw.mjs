@@ -64,3 +64,4 @@ console.log(`zh-TW stories: ${slugs.length} readers, ${Object.keys(artifact.unit
 await import("./bespoke-story-zh-tw.mjs");
 await import("./archetype-questionnaire-zh-tw.mjs");
 await import("./likert-questionnaire-zh-tw.mjs");
+await import("./directional-questionnaire-zh-tw.mjs");

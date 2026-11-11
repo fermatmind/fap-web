@@ -270,7 +270,7 @@ import { aestheticCoreResultProfile } from "./aesthetic-core";
 import { peoplePleaserResultProfile } from "./people-pleaser";
 import { difficultPersonResultProfile } from "./difficult-person";
 import { discReading } from "./disc";
-import { responseColorResultProfile } from "./response-color";
+import { responseColorReading } from "./response-color";
 import { socialBatteryResultProfile } from "./social-battery";
 import { spiritAnimalResultProfile } from "./spirit-animal";
 import { flowerResultProfile } from "./flower";
@@ -557,7 +557,7 @@ const readings: Record<string, ResultReadingDefinition> = {
   "attachment-styles": { attribute: "attachment-styles", select: attachmentStylesResultProfile },
   "love-languages": { attribute: "love-languages", select: loveLanguagesResultProfile },
   "disc": discReading,
-  "response-color": { attribute: "response-color", select: responseColorResultProfile, references: [{ title: { zh: "版本比较来源：Color Code", en: "Edition comparison source: Color Code" }, url: "https://www.colorcode.com/" }, { title: { zh: "版本比较来源：Insights Discovery", en: "Edition comparison source: Insights Discovery" }, url: "https://www.insights.com/products/insights-discovery/" }] },
+  "response-color": responseColorReading,
   "social-battery-test": { attribute: "social-battery", select: socialBatteryResultProfile },
   "spirit-animal": { attribute: "spirit-animal", select: spiritAnimalResultProfile, note: {"zh": "若本次有多个最高匹配，请分别读各份说明。并列不合成一个新动物，也不指定主次；分享某份公开说明只会打开通用读法，不会附带个人计数或答案。", "en": "If several matches share the highest count, read each separately. A tie creates neither a new animal nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers."} },
   "flower": { attribute: "flower", select: flowerResultProfile, note: {"zh": "若本次有多个最高匹配，请分别读各份说明。并列不合成一种新花朵，也不指定主次；分享某份公开说明只会打开通用读法，不会附带个人计数或答案。", "en": "If several matches share the highest count, read each separately. A tie creates neither a new flower nor a primary and secondary match. Sharing a public reading opens only the general guide, without personal counts or answers."} },

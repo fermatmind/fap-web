@@ -2,8 +2,8 @@ import { prepareSelectedResultProfile } from "./prepare-profile";
 import content from "./disc.json";
 import type { QuestionnaireProfile, QuestionnaireSection, Text } from "../types";
 
-const text = (zh: string, en: string): Text => ({ zh, en });
 const section = (id: string, title: Text, ...paragraphs: Text[]): QuestionnaireSection => ({ id, title, paragraphs });
+const text = (zh: string, en: string): Text => ({ zh, en });
 const directions: Record<string, Text> = {
   DOMINANCE: text("D·推进处理", "D · Moving things forward"),
   INFLUENCE: text("I·表达带动", "I · Engaging through expression"),
@@ -18,10 +18,11 @@ const needs: Record<string, Text> = {
 };
 
 /** Presentation only. Source questionnaire, score assignment and public identities stay authoritative. */
-export function discResultProfile(profile: QuestionnaireProfile): QuestionnaireProfile {
-  if (!Object.hasOwn(content, profile.id)) return profile;
-  const editorial = (content as Record<string, { headline: Text; summary: Text; sections: QuestionnaireSection[] }>)[profile.id];
+export function discResultProfile(profile: QuestionnaireProfile, reader = content, displayText: (source: string) => string = source => source): QuestionnaireProfile {
+  if (!Object.hasOwn(reader, profile.id)) return profile;
+  const editorial = (reader as Record<string, { headline: Text; summary: Text; sections: QuestionnaireSection[] }>)[profile.id];
   if (!editorial || !profile.directionIds.every(id => directions[id])) return profile;
+  const text = (zh: string, en: string): Text => ({ zh: displayText(zh), en });
   const tied = profile.directionIds.length > 1;
   const labels = profile.directionIds.map(id => directions[id]);
   const count = section("editorial-counts", text("先读清这次计数", "Read the counts before the description"),

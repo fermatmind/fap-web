@@ -1,3 +1,4 @@
+import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,6 +24,11 @@ async function loadPortrait(params: Props["params"]) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/results/${(await params).portrait}`);
+  if (directional) {
+    const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return traditionalLikertMetadata(directional);
+  }
   const { quiz, result } = await loadPortrait(params);
   const title = `${result.title.zh} · ${quiz.seo.topic.zh}`;
   const description = portraitDescription(result, "zh");
@@ -36,6 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TraditionalStoryPortraitPage({ params }: Props) {
+  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/results/${(await params).portrait}`);
+  if (directional) {
+    const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return <LikertQuestionnairePage {...directional} />;
+  }
   const { quiz, result } = await loadPortrait(params);
   const path = quizPath("zh-TW", quiz.slug);
   const branch = quiz.mechanism === "branch";

@@ -1,6 +1,6 @@
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 
-const summaries: Record<string, { zh: string; en: string }> = {
+export const likableLandingSummaries: Record<string, { zh: string; en: string }> = {
   "warmth": {
     "zh": "温暖侧重：回看留意感受、回应困难与让人适应的选择。核对对方想要陪伴还是空间；不把自报留意当作读心或他人已经感到被理解。",
     "en": "Warmth emphasis: revisit noticing feelings, responding to difficulty and allowing time to settle. Check whether company or space is wanted, without treating self-reported attention as mind-reading or proof of feeling understood."
@@ -128,7 +128,7 @@ const summaries: Record<string, { zh: string; en: string }> = {
 };
 
 export function likableLandingSummary(profile: QuestionnaireProfile, locale: "zh" | "en") {
-  return summaries[profile.id]?.[locale] ?? profile.summary[locale];
+  return likableLandingSummaries[profile.id]?.[locale] ?? profile.summary[locale];
 }
 
 export function likableCurrentEntryCopy(text: string, locale: "zh" | "en") {
