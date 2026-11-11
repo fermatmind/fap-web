@@ -91,6 +91,15 @@ const sources = [
   "lib/questionnaires/data/unwanted-thoughts-actions-reflection.json",
   "lib/questionnaires/result-content/unwanted-thoughts-actions-reflection.json",
   "components/questionnaires/UnwantedActionsLandingEditorial.ts",
+  "lib/questionnaires/data/considering-support-reflection.json",
+  "lib/questionnaires/result-content/considering-support-reflection.json",
+  "components/questionnaires/SupportReflectionLandingEditorial.ts",
+  "lib/questionnaires/data/mood-activity-changes-reflection.json",
+  "lib/questionnaires/result-content/mood-activity-changes-reflection.json",
+  "components/questionnaires/MoodActivityLandingEditorial.ts",
+  "lib/questionnaires/data/pressure-response-actions.json",
+  "lib/questionnaires/result-content/pressure-response-actions.json",
+  "components/questionnaires/PressureActionsLandingEditorial.ts",
 ];
 
 const previous = readFileSync(output, "utf8");

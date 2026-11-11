@@ -36,6 +36,9 @@ const pages = {
   "recent-mood-reflection": () => import("@/components/questionnaires/RecentMoodPage").then(module => ({ Page: module.RecentMoodPage, Guide: module.RecentMoodGuidePage })),
   "uncertainty-ease-reflection": () => import("@/components/questionnaires/UncertaintyEasePage").then(module => ({ Page: module.UncertaintyEasePage, Guide: module.UncertaintyEaseGuidePage })),
   "unwanted-thoughts-actions-reflection": () => import("@/components/questionnaires/UnwantedActionsPage").then(module => ({ Page: module.UnwantedActionsPage, Guide: module.UnwantedActionsGuidePage })),
+  "considering-support-reflection": () => import("@/components/questionnaires/SupportReflectionPage").then(module => ({ Page: module.SupportReflectionPage, Guide: module.SupportReflectionGuidePage })),
+  "mood-activity-changes-reflection": () => import("@/components/questionnaires/MoodActivityPage").then(module => ({ Page: module.MoodActivityPage, Guide: module.MoodActivityGuidePage })),
+  "pressure-response-actions": () => import("@/components/questionnaires/PressureActionsPage").then(module => ({ Page: module.PressureActionsPage, Guide: module.PressureActionsGuidePage })),
 };
 
 export async function TraditionalObservationPage({ slug, take, profile }: { slug: string; take: boolean; profile?: string }) {

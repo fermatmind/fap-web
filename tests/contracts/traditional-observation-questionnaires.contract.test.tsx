@@ -40,6 +40,10 @@ import { recordRecentMood12 } from "@/lib/questionnaires/recentMood12";
 import { recordUncertaintyEase6 } from "@/lib/questionnaires/uncertaintyEase6";
 import { recordUnwantedActions20 } from "@/lib/questionnaires/unwantedActions20";
 
+import { recordSupportReflection18 } from "@/lib/questionnaires/supportReflection18";
+import { recordMoodActivity16 } from "@/lib/questionnaires/moodActivity16";
+import { recordPressureActions12 } from "@/lib/questionnaires/pressureActions12";
+
 afterEach(cleanup);
 
 it.each([
@@ -72,6 +76,9 @@ it.each([
   ["recent-mood-reflection", recordRecentMood12],
   ["uncertainty-ease-reflection", recordUncertaintyEase6],
   ["unwanted-thoughts-actions-reflection", recordUnwantedActions20],
+  ["considering-support-reflection", recordSupportReflection18],
+  ["mood-activity-changes-reflection", recordMoodActivity16],
+  ["pressure-response-actions", recordPressureActions12],
 ] as const)("keeps the authoritative category recorder and full Taiwan readings for %s", async (slug, record) => {
   const item = (await loadTraditionalObservation(slug))!;
   const { source, quiz } = item;

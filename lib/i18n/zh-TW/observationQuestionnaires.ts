@@ -36,6 +36,10 @@ import { isRecentMood12ConfigurationValid } from "@/lib/questionnaires/recentMoo
 import { isUncertaintyEase6ConfigurationValid } from "@/lib/questionnaires/uncertaintyEase6";
 import { isUnwantedActions20ConfigurationValid } from "@/lib/questionnaires/unwantedActions20";
 
+import { isSupportReflection18ConfigurationValid } from "@/lib/questionnaires/supportReflection18";
+import { isMoodActivity16ConfigurationValid } from "@/lib/questionnaires/moodActivity16";
+import { isPressureActions12ConfigurationValid } from "@/lib/questionnaires/pressureActions12";
+
 const sources = {
   "care-feelings-reflection": {
     name: "CareFeelings", prefix: "careFeelings", attribute: "care-feelings", validate: isCareFeelings20ConfigurationValid,
@@ -181,6 +185,21 @@ const sources = {
     name: "UnwantedActions", prefix: "unwantedActions", attribute: "unwanted-actions", validate: isUnwantedActions20ConfigurationValid,
     load: () => import("@/lib/questionnaires/result-content/unwanted-thoughts-actions-reflection.json"),
     editorial: () => import("@/components/questionnaires/UnwantedActionsLandingEditorial"),
+  },
+  "considering-support-reflection": {
+    name: "SupportReflection", prefix: "supportReflection", attribute: "support-reflection", validate: isSupportReflection18ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/considering-support-reflection.json"),
+    editorial: () => import("@/components/questionnaires/SupportReflectionLandingEditorial"),
+  },
+  "mood-activity-changes-reflection": {
+    name: "MoodActivity", prefix: "moodActivity", attribute: "mood-activity", validate: isMoodActivity16ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/mood-activity-changes-reflection.json"),
+    editorial: () => import("@/components/questionnaires/MoodActivityLandingEditorial"),
+  },
+  "pressure-response-actions": {
+    name: "PressureActions", prefix: "pressureLanding", attribute: "pressure-actions", validate: isPressureActions12ConfigurationValid,
+    load: () => import("@/lib/questionnaires/result-content/pressure-response-actions.json"),
+    editorial: () => import("@/components/questionnaires/PressureActionsLandingEditorial"),
   },
 };
 
