@@ -182,6 +182,7 @@ const nextConfig = {
       "./scripts/**/*",
       "./test-results/**/*",
       "./tests/**/*",
+      "./tsconfig.build.json",
       "./tsconfig.json",
       "./tsconfig.tsbuildinfo",
       "./vitest.config.ts",
