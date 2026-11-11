@@ -23,7 +23,7 @@ function lines(ctx: CanvasRenderingContext2D, value: string, x: number, y: numbe
 /** The image is made locally. Only the user's explicit save/share action exports the public result names. */
 export function FantasyPersonalCard({ quiz, ids, locale }: { quiz: Questionnaire; ids: string[]; locale: Locale }) {
   const display = useQuestionnaireDisplayCopy();
-  const traditional = display.traditional && hasTraditionalArchetype(quiz.slug);
+  const traditional = display.traditional && (hasTraditionalArchetype(quiz.slug) || quiz.slug === "patronus-quiz");
   const copy = traditional ? display.displayText : (value: string) => value;
   const displayLocale = traditional ? "zh-TW" : locale;
   const zh = locale === "zh", profiles = quiz.profiles.filter(p => ids.includes(p.id));

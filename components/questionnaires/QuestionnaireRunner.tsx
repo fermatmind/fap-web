@@ -67,7 +67,7 @@ export function QuestionnaireRunner({ scoreQuestionnaire, quiz, locale, startOnE
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const traditionalArchetype = traditional && hasTraditionalArchetype(quiz.slug);
   const traditionalDirectional = traditional && hasTraditionalDirectional(quiz.slug);
-  const displayLocale = traditionalDirectional || (traditional && (hasTraditionalRelationshipSix(quiz.slug) || hasTraditionalOfficeTool(quiz.slug) || hasTraditionalSelfEvaluation(quiz.slug) || hasTraditionalSensoryExecutive(quiz.slug) || hasTraditionalStressCoping(quiz.slug) || hasTraditionalValuesOrientations(quiz.slug) || hasTraditionalTraitsSocial(quiz.slug))) ? "zh-TW" : locale;
+  const displayLocale = traditionalDirectional || (traditional && (hasTraditionalRelationshipSix(quiz.slug) || hasTraditionalOfficeTool(quiz.slug) || hasTraditionalSelfEvaluation(quiz.slug) || hasTraditionalSensoryExecutive(quiz.slug) || hasTraditionalStressCoping(quiz.slug) || hasTraditionalValuesOrientations(quiz.slug) || hasTraditionalTraitsSocial(quiz.slug) || quiz.slug === "food-disgust")) ? "zh-TW" : locale;
   const traditionalEntryShare = traditional && ((!traditionalArchetype && !traditionalDirectional) || quiz.slug === "euphoria-character-quiz" || quiz.slug === "values-assessment");
   const standalone = useQuestionnaireTake();
   const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);

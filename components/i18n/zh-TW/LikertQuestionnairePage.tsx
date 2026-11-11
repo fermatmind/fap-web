@@ -1,5 +1,6 @@
 import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
+import { QuestionnaireFds32Attribution } from "@/components/questionnaires/QuestionnaireFds32Attribution";
 import { QuestionnaireCtl41Attribution } from "@/components/questionnaires/QuestionnaireCtl41Attribution";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -38,6 +39,12 @@ type LikertReader = {
 };
 
 const requireLikert = cache(async (slug: string): Promise<LikertReader> => {
+  if (slug === "food-disgust") {
+    const { loadTraditionalMixedQuestionnaire } = await import("@/lib/i18n/zh-TW/mixedQuestionnaires");
+    const item = await loadTraditionalMixedQuestionnaire(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalTraitsSocial(slug)) {
     const { loadTraditionalTraitsSocial } = await import("@/lib/i18n/zh-TW/traitsSocialQuestionnaires");
     const item = await loadTraditionalTraitsSocial(slug);
@@ -148,6 +155,13 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (slug === "food-disgust" && item.takeQuiz) {
+      return <TraditionalQuestionnaireCopy>
+        <QuestionnaireTakeDocument quiz={quiz} locale="zh" landing={entry}>
+          <QuestionnaireClient quiz={item.takeQuiz} locale="zh" fds32ReadingProfiles={quiz.profiles} />
+        </QuestionnaireTakeDocument>
+      </TraditionalQuestionnaireCopy>;
+    }
     if (item.takeQuiz && hasTraditionalTraitsSocial(slug)) {
       const { TraditionalTraitsSocialTake } = await import("./TraditionalTraitsSocialTake");
       return <TraditionalTraitsSocialTake quiz={quiz} takeQuiz={item.takeQuiz} />;
@@ -269,6 +283,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "capacity-to-love-test" && <QuestionnaireCtl41Attribution locale="zh" traditional />}
     {workReasoningContext}
     {selfEvaluationContext}
+    {slug === "food-disgust" && <QuestionnaireFds32Attribution locale="zh" traditional />}
     {cbiAttribution}
     {angerAttribution}
     {traitsAttribution}
@@ -353,6 +368,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "capacity-to-love-test" && <QuestionnaireCtl41Attribution locale="zh" traditional />}
     {workReasoningContext}
     {selfEvaluationContext}
+    {slug === "food-disgust" && <QuestionnaireFds32Attribution locale="zh" traditional />}
     {cbiAttribution}
     {angerAttribution}
     {traitsAttribution}

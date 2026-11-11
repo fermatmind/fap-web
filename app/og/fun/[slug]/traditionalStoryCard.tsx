@@ -1,3 +1,4 @@
+import { hasTraditionalMixedQuestionnaire } from "@/lib/i18n/traditionalMixedQuestionnairePaths";
 import { hasTraditionalCulturalSymbol } from "@/lib/i18n/traditionalCulturalSymbolPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -48,6 +49,23 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
     if (slug === "adult-age-preferences") return adultAgePreferencesCard("zh-TW", item.quiz.title.zh, result?.directionIds, await archetypeFont);
     return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh, Boolean(result), await archetypeFont,
       `${item.quiz.questions.length} 道二選一題目`, "公開結果指南");
+  }
+  if (hasTraditionalMixedQuestionnaire(slug)) {
+    const { loadTraditionalMixedQuestionnaire } = await import("@/lib/i18n/zh-TW/mixedQuestionnaires");
+    const item = await loadTraditionalMixedQuestionnaire(slug);
+    const result = portrait && item ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
+    if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
+    archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    if (slug === "patronus-quiz") return fantasyOpenGraphCard(item.quiz, "zh", portrait ?? undefined, await archetypeFont, true);
+    const labels: Record<string, string> = {
+      "food-disgust": "發表題本 · 中文工作譯文",
+      "mental-age": "費馬原創趣味測驗",
+      "prakriti-inventory21": "授權題本 · 中文工作譯文",
+      "rice-purity-test": "費馬原創成人經驗清單",
+      "sbti-test": "費馬原創性格小測驗",
+    };
+    return publicCard(result?.title.zh ?? item.quiz.title.zh, result?.summary.zh ?? item.quiz.description.zh,
+      Boolean(result), await archetypeFont, labels[slug], "公開結果指南");
   }
   if (hasTraditionalCulturalSymbol(slug)) {
     const { loadTraditionalCulturalSymbol } = await import("@/lib/i18n/zh-TW/culturalSymbolQuestionnaires");

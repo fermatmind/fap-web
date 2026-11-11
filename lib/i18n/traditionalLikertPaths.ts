@@ -118,6 +118,7 @@ export function hasTraditionalPrivateReflection(slug: string): boolean {
 }
 
 const profiles = {
+  "food-disgust": ["animal-flesh", "poor-hygiene", "human-contamination", "mold", "decaying-fruit", "fish", "decaying-vegetables", "living-contaminants"],
   ...privateReflectionProfiles,
   ...workReasoningProfiles,
   ...relationshipSixProfiles,

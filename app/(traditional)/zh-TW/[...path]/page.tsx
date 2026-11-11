@@ -1,3 +1,4 @@
+import { traditionalMixedQuestionnaireRoute } from "@/lib/i18n/traditionalMixedQuestionnairePaths";
 import { traditionalCulturalSymbolRoute } from "@/lib/i18n/traditionalCulturalSymbolPaths";
 import { traditionalObservationRoute } from "@/lib/i18n/traditionalObservationPaths";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -25,6 +26,11 @@ async function route(props: Props) {
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
+  if (mixed) {
+    const { traditionalMixedQuestionnaireMetadata } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");
+    return traditionalMixedQuestionnaireMetadata(mixed);
+  }
   const culturalSymbol = traditionalCulturalSymbolRoute(path.slice("/zh-TW".length));
   if (culturalSymbol) {
     const { traditionalCulturalSymbolMetadata } = await import("@/components/i18n/zh-TW/TraditionalCulturalSymbolPage");
@@ -73,6 +79,11 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
+  if (mixed) {
+    const { TraditionalMixedQuestionnairePage } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");
+    return <TraditionalMixedQuestionnairePage {...mixed} />;
+  }
   const culturalSymbol = traditionalCulturalSymbolRoute(path.slice("/zh-TW".length));
   if (culturalSymbol) {
     const { TraditionalCulturalSymbolPage } = await import("@/components/i18n/zh-TW/TraditionalCulturalSymbolPage");
