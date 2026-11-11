@@ -1,3 +1,5 @@
+import { QuestionnaireMfq2Attribution } from "@/components/questionnaires/QuestionnaireMfq2Attribution";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { QuestionnaireSd4Attribution } from "@/components/questionnaires/QuestionnaireSd4Attribution";
 import { QuestionnairePpsAttribution } from "@/components/questionnaires/QuestionnairePpsAttribution";
 import { WorkActivityContext } from "@/components/questionnaires/WorkActivityInterestsReport";
@@ -68,6 +70,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       {locale === "zh" ? "简体中文" : "English"}
     </Link>)}
   </nav>;
+  const mfq2Copy = slug === "morality-6" ? await loadTraditionalAssessmentText() : undefined;
   const availableReferences = [...(quiz.references ?? []), ...(result ? [] : extraReferences)];
   const references = availableReferences.length ? <section className="space-y-4 leading-8">
     <h2 className="text-2xl font-semibold">題本與計分來源</h2>
@@ -86,6 +89,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "work-activity-interests" && <WorkActivityContext locale="zh" displayLocale="zh-TW" />}
     {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
     {slug === "dark-tetrad-sd4" && <QuestionnaireSd4Attribution locale="zh" traditional />}
+    {mfq2Copy && <QuestionnaireMfq2Attribution locale="zh" traditional copy={mfq2Copy} />}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -129,6 +133,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "work-activity-interests" && <WorkActivityContext locale="zh" displayLocale="zh-TW" />}
     {slug === "people-pleaser" && <QuestionnairePpsAttribution locale="zh" traditional />}
     {slug === "dark-tetrad-sd4" && <QuestionnaireSd4Attribution locale="zh" traditional />}
+    {mfq2Copy && <QuestionnaireMfq2Attribution locale="zh" traditional copy={mfq2Copy} />}
     {references}
   </div>;
 }

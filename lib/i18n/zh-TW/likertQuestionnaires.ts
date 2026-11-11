@@ -1,3 +1,5 @@
+import { libertyLandingSections, libertyLandingFaq, libertyLandingReferences } from "@/components/questionnaires/LibertyLandingEditorial";
+import { mfq2LandingSections, mfq2LandingFaq, mfq2LandingReferences } from "@/components/questionnaires/Mfq2LandingEditorial";
 import { cognitiveSections, cognitiveFaq, cognitiveSummaries, cognitiveExtraReferences } from "@/components/questionnaires/CognitiveFunctionsLandingEditorial";
 import { isJung56ConfigurationValid, isJung56ContentValid } from "@/lib/questionnaires/jung56";
 import type { Jung56ResultReading } from "@/lib/questionnaires/result-content/jung56-reading-types";
@@ -61,6 +63,29 @@ import { projectStoryCopy, type TextUnits } from "./storyReaderCopy";
 const { units } = require("./likert-questionnaires.generated.json") as { units: TextUnits };
 
 const sources = {
+  "values": {
+    reading: "values",
+    attribute: "values",
+    load: () => import("@/lib/questionnaires/result-content/values.json"),
+  },
+  "morality-6": {
+    reading: "morality-6",
+    attribute: "mfq2",
+    load: () => import("@/lib/questionnaires/result-content/morality-6.json"),
+    editorial: "Mfq2",
+    prefix: "mfq2Landing",
+    sections: mfq2LandingSections,
+    faq: mfq2LandingFaq,
+  },
+  "libertarian": {
+    reading: "libertarian",
+    attribute: "liberty",
+    load: () => import("@/lib/questionnaires/result-content/libertarian.json"),
+    editorial: "Liberty",
+    prefix: "libertyLanding",
+    sections: libertyLandingSections,
+    faq: libertyLandingFaq,
+  },
   "cognitive-functions-test": {
     reading: "cognitive-functions-test",
     attribute: "cognitive-functions",
@@ -527,7 +552,7 @@ export async function loadTraditionalLikert(slug: string) {
   const profiles = quiz.profiles.map(profile => prepareSelectedResultProfile(slug, profile, {
     attribute: edition.attribute,
     select: item => {
-      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
+      if (["empathy", "hexaco", "work-traits-reflection", "tech-savvy", "time-management", "everyday-control-style", "apology-language", "conflict-styles", "love-fight-style", "friendship-compatibility", "relationship-worry-habits", "relationship-habits", "dating-outlook", "intimacy-values", "relationship-commitment", "work-activity-interests", "work-ethics", "culture-fit", "competency-test", "interpersonal-preferences", "social-attitudes-reflection", "cultural-dimensions", "trust-issues-test", "toxic-positivity-test", "multiple-intelligences", "hsp-sensitivity-quiz", "energy-flow", "deep-desire", "sternberg-love", "jealousy-scale", "wholesome-partner", "freudian-personality", "eras-of-you-test", "rizz-test", "feminine-energy", "dark-tetrad-sd4", "cognitive-functions-test", "morality-6", "libertarian"].includes(slug)) return mergeResultReadingParagraphs(item, readings);
       return Object.hasOwn(readings, item.id) ? { ...item, sections: [...item.sections, ...readings[item.id]] } : item;
     },
   }));
@@ -572,6 +597,8 @@ export async function loadTraditionalLikert(slug: string) {
       case "rizz-test": return projectStoryCopy(rizzLandingReferences, "components/questionnaires/RizzLandingEditorial.ts/rizzLandingReferences", units);
       case "dark-tetrad-sd4": return projectStoryCopy(sd4LandingReferences, "components/questionnaires/Sd4LandingEditorial.ts/sd4LandingReferences", units);
       case "cognitive-functions-test": return projectStoryCopy(cognitiveExtraReferences, "components/questionnaires/CognitiveFunctionsLandingEditorial.ts/cognitiveExtraReferences", units);
+      case "morality-6": return projectStoryCopy(mfq2LandingReferences, "components/questionnaires/Mfq2LandingEditorial.ts/mfq2LandingReferences", units);
+      case "libertarian": return projectStoryCopy(libertyLandingReferences, "components/questionnaires/LibertyLandingEditorial.ts/libertyLandingReferences", units);
       default: return [];
     }
   })();
