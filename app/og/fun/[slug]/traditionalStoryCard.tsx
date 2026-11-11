@@ -14,7 +14,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import { spaceMarineChapterCard } from "./spaceMarineChapterCard";
 import { fantasyOpenGraphCard } from "@/lib/entertainment/fantasyCard";
 import { findPublicPortrait, portraitDescription } from "@/lib/entertainment/guides";
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalWorkReasoning, traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { loadTraditionalPractice } from "@/lib/i18n/zh-TW/practiceQuestionnaires";
@@ -68,11 +68,19 @@ export async function traditionalStoryCard(slug: string, portrait: string | null
               ? await (await import("@/lib/i18n/zh-TW/selfEvaluationQuestionnaires")).loadTraditionalSelfEvaluation(slug)
               : hasTraditionalSensoryExecutive(slug)
                 ? await (await import("@/lib/i18n/zh-TW/sensoryExecutiveQuestionnaires")).loadTraditionalSensoryExecutive(slug)
-                : await loadTraditionalLikert(slug);
+                : hasTraditionalStressCoping(slug)
+                  ? await (await import("@/lib/i18n/zh-TW/stressCopingQuestionnaires")).loadTraditionalStressCoping(slug)
+                  : await loadTraditionalLikert(slug);
     const result = item && portrait ? item.quiz.profiles.find(profile => profile.id === portrait) : undefined;
     if (!item || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
     archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
     const editions: Record<string, string> = {
+      "anger-issues-screener": "費馬原創 20 道憤怒回應題",
+      "burnout-risk": "CBI 個人與工作倦怠模組",
+      "overthinking-screener": "PTQ 15 題工作譯版",
+      "perceived-stress-scale-4": "PSS-4 工作譯版",
+      "stress-check-in-test": "費馬原創 4 道壓力回顧題",
+      "holding-yourself-back": "費馬原創 35 道日常回顧題",
       "aphantasia-test": "費馬原創 12 道意象回顧題",
       "synesthesia-test": "費馬原創 15 道經驗回顧題",
       "sensory-processing-test": "SPQ 92 題工作譯版",

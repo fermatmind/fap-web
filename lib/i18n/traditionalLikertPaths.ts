@@ -1,3 +1,16 @@
+const stressCopingProfiles = {
+  "anger-issues-screener": ["anger-occurrence", "outward-expression", "kept-inside", "perceived-choice"],
+  "burnout-risk": ["personal", "work"],
+  "overthinking-screener": ["total-reading", "core-reading", "unproductive-reading", "mental-capacity-reading"],
+  "perceived-stress-scale-4": ["reading-pss4-total"],
+  "stress-check-in-test": ["reading-your-check-in"],
+  "holding-yourself-back": ["emotion-recovery-reading", "self-doubt-reading", "direction-attention-reading", "outward-actions-reading", "rigid-standards-reading", "imagined-scenarios-reading", "interest-engagement-reading"],
+} as const;
+
+export function hasTraditionalStressCoping(slug: string): boolean {
+  return Object.hasOwn(stressCopingProfiles, slug);
+}
+
 const sensoryExecutiveProfiles = {
   "aphantasia-test": ["objects", "faces", "places", "motion"],
   "synesthesia-test": ["symbol-color", "sound-color", "sequence-space", "personification", "taste-touch"],
@@ -85,6 +98,7 @@ const profiles = {
   ...officeToolProfiles,
   ...selfEvaluationProfiles,
   ...sensoryExecutiveProfiles,
+  ...stressCopingProfiles,
   "cognitive-functions-test": ["ni", "ne", "si", "se", "ti", "te", "fi", "fe"],
   "energy-flow": ["earlier-day", "effort-blocks", "focus-conditions", "pause-noticing"],
   "deep-desire": ["autonomy", "connection", "mastery", "security", "recognition", "exploration"],

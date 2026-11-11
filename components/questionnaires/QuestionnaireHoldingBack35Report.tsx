@@ -1,3 +1,4 @@
+import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { HoldingBack35Questionnaire, HoldingBack35Result } from "@/lib/questionnaires/holdingBack35";
@@ -10,62 +11,64 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
   result: Extract<HoldingBack35Result, { status: "complete" }>;
   locale: Locale;
 }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <div data-holding-back35-result className="mt-6 space-y-8">
-    <ResultOverview locale={locale} title={zh ? "过去四周的七项观察" : "Seven observations from the past four weeks"}
+    <ResultOverview locale={locale} title={zh ? displayText("过去四周的七项观察") : "Seven observations from the past four weeks"}
       className="border-violet-200 bg-violet-50"
-      description={zh ? "选择一个熟悉情境，把事件、感受和实际行动分开阅读。" : "Choose a familiar situation and read the event, feelings and actions separately."}
+      description={zh ? displayText("选择一个熟悉情境，把事件、感受和实际行动分开阅读。") : "Choose a familiar situation and read the event, feelings and actions separately."}
       items={result.holdingBack35.domains.map(part => {
         const direction = quiz.directions.find(item => item.id === part.domainId)!;
         const profile = quiz.profiles.find(item => item.directionIds[0] === part.domainId)!;
         return { id: part.domainId, label: direction.title[locale], href: `#holding-back35-guide-${profile.id}`,
-          value: part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`,
-          note: zh ? `${part.numericCount} / 5 题有数值` : `${part.numericCount} / 5 rated items` };
+          value: part.mean === null ? (zh ? displayText("资料不足") : "Insufficient information") : `${part.mean.toFixed(1)} / 5`,
+          note: zh ? displayText(`${part.numericCount} / 5 题有数值`) : `${part.numericCount} / 5 rated items` };
       })} />
     {quiz.profiles.map(profile => <section data-holding-back35-guide={profile.id} key={profile.id}
       aria-labelledby={`holding-back35-guide-${profile.id}`}>
       <h3 id={`holding-back35-guide-${profile.id}`} className="scroll-mt-24 mb-4 text-xl font-semibold leading-snug sm:text-2xl">{profile.title[locale]}</h3>
-      {(() => { const part = result.holdingBack35.domains.find(part => part.domainId === profile.directionIds[0])!; return <p className="mb-4 font-semibold tabular-nums">{zh ? "本次均分：" : "Your mean: "}{part.mean === null ? (zh ? "资料不足" : "Insufficient information") : `${part.mean.toFixed(1)} / 5`}</p>; })()}
+      {(() => { const part = result.holdingBack35.domains.find(part => part.domainId === profile.directionIds[0])!; return <p className="mb-4 font-semibold tabular-nums">{zh ? displayText("本次均分：") : "Your mean: "}{part.mean === null ? (zh ? displayText("资料不足") : "Insufficient information") : `${part.mean.toFixed(1)} / 5`}</p>; })()}
 
-      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} mode="result" previewSectionIds={[`${profile.directionIds[0]}-3`, `${profile.directionIds[0]}-5`]} />
+      <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale={locale} traditional={traditional} headingLevel={4} idPrefix={`holding-back35-${profile.id}`} mode="result" previewSectionIds={[`${profile.directionIds[0]}-3`, `${profile.directionIds[0]}-5`]} />
       <Link prefetch={false} className="mt-5 inline-block min-h-11 py-2 underline"
-        href={questionnaireGuidePath(locale, quiz.slug, profile.id)}>{zh ? "阅读这份公开完整指南" : "Read this complete public guide"}</Link>
+        href={questionnaireGuidePath(traditional ? "zh-TW" : locale, quiz.slug, profile.id)}>{zh ? displayText("阅读这份公开完整指南") : "Read this complete public guide"}</Link>
     </section>)}
     <aside data-holding-back35-source className="space-y-3 text-sm leading-7">
       {quiz.guide.find(s => s.id === "source")?.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}
       {quiz.references?.map(reference => <p key={reference.url}><a className="underline" href={reference.url}>{reference.title[locale]}</a></p>)}
     </aside>
 
-    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? "查看全部读数、原始记录与计算说明" : "View all readings, original records and calculation notes"}</summary>
+    <details className="border-t border-slate-200 pt-3" data-result-reading-method><summary className="min-h-11 cursor-pointer py-2 font-semibold">{zh ? displayText("查看全部读数、原始记录与计算说明") : "View all readings, original records and calculation notes"}</summary>
 <p className="leading-8 text-slate-700">{zh
-      ? "以下七项按固定主题顺序分别呈现，回看过去四周的具体情境。每项五题数值齐全才给1—5均分，显示一位小数。数值只概括本网站原创情境的频率，不分档、不比较谁更严重，也不生成总分或主导类型。"
+      ? displayText("以下七项按固定主题顺序分别呈现，回看过去四周的具体情境。每项五题数值齐全才给1—5均分，显示一位小数。数值只概括本网站原创情境的频率，不分档、不比较谁更严重，也不生成总分或主导类型。")
       : "The seven topics appear separately in a fixed order, reflecting situations from the past four weeks. Each requires five numeric responses for a 1–5 mean shown to one decimal. The numbers summarize frequency in these original website scenarios, without bands, severity comparisons, an overall score or a dominant type."}</p>
 <div className="grid gap-4 sm:grid-cols-2">
       {result.holdingBack35.domains.map(part => <section data-holding-back35-part={part.domainId} key={part.domainId}
         aria-labelledby={`holding-back35-part-${part.domainId}`} className="rounded-lg border border-slate-200 p-4 sm:p-5">
         <h3 id={`holding-back35-part-${part.domainId}`} className="scroll-mt-24 text-xl font-semibold">{quiz.directions.find(d => d.id === part.domainId)!.title[locale]}</h3>
         <p data-holding-back35-mean className="mt-3 leading-7">{part.mean === null
-          ? (zh ? `资料不足：${part.numericCount}/5题有数值回答，暂不给本项均分。` : `Insufficient information: ${part.numericCount}/5 items rated. No mean for this topic.`)
-          : (zh ? `${part.mean.toFixed(1)} / 5（5/5题有数值回答）` : `${part.mean.toFixed(1)} / 5 (5/5 items rated)`)}</p>
+          ? (zh ? displayText(`资料不足：${part.numericCount}/5题有数值回答，暂不给本项均分。`) : `Insufficient information: ${part.numericCount}/5 items rated. No mean for this topic.`)
+          : (zh ? displayText(`${part.mean.toFixed(1)} / 5（5/5题有数值回答）`) : `${part.mean.toFixed(1)} / 5 (5/5 items rated)`)}</p>
       </section>)}
     </div>
 <p className="leading-8 text-slate-700">{zh
-      ? "不计分不当作零、从不或猜测答案；一项资料不足不影响其他完整项。即使全部不计分，本次也已结束，七份指南仍完整开放。“想象占用当下”仅观察日常神游与实际活动的错位，比原研究构念更窄；本观察不是IPRS量表，也不继承其验证。"
+      ? displayText("不计分不当作零、从不或猜测答案；一项资料不足不影响其他完整项。即使全部不计分，本次也已结束，七份指南仍完整开放。“想象占用当下”仅观察日常神游与实际活动的错位，比原研究构念更窄；本观察不是IPRS量表，也不继承其验证。")
       : "Unscored choices are never zero, Never or imputed answers. An unavailable mean does not affect complete topics. Even with all choices unscored, this attempt is finished and all seven guides remain available. Imagined scenarios covers everyday absorption displacing an intended activity, a narrower scope than the research construct. This is not the IPRS instrument and does not inherit its validation."}</p>
     </details>
   </div>;
 }
 
 export function QuestionnaireHoldingBack35NextSteps({ locale }: { locale: Locale }) {
+  const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const zh = locale === "zh";
   return <section data-holding-back35-next-steps className="mt-10 border-t pt-7">
-    <h3 className="text-xl font-semibold">{zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next."}</h3>
+    <h3 className="text-xl font-semibold">{zh ? displayText("本次作答已结束，下一步由你选择") : "This attempt is finished. Choose what comes next."}</h3>
     <p className="my-4 leading-7 text-slate-600">{zh
-      ? "可以回看七份完整指南，或私下选一个熟悉、低风险的情境，分开记下事件、自己的感受与实际行动。没有资料时无需勉强补答，也不用把一个数字当作成因。若持续困难让你担心或干扰生活，可以依据真实经历选择支持，不必等网页阈值。你也可以在这里结束。"
+      ? displayText("可以回看七份完整指南，或私下选一个熟悉、低风险的情境，分开记下事件、自己的感受与实际行动。没有资料时无需勉强补答，也不用把一个数字当作成因。若持续困难让你担心或干扰生活，可以依据真实经历选择支持，不必等网页阈值。你也可以在这里结束。")
       : "Review any of the seven complete guides or privately choose one familiar, low-stakes situation and separate the event, your feelings and the action taken. You do not need to force an answer when information is absent or treat a number as a cause. If a persistent difficulty concerns you or disrupts daily life, choose support based on that experience rather than a website cutoff. You can also finish here."}</p>
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline"
-      href={`/${locale}/tests/explore/holding-yourself-back#questionnaire-results`}>{zh ? "回看七份完整指南" : "Review all seven complete guides"}</Link><br />
+      href={`/${traditional ? "zh-TW" : locale}/tests/explore/holding-yourself-back#questionnaire-results`}>{zh ? displayText("回看七份完整指南") : "Review all seven complete guides"}</Link><br />
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline"
-      href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link>
+      href={`/${traditional ? "zh-TW" : locale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>
   </section>;
 }

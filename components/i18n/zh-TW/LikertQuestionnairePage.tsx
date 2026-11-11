@@ -1,4 +1,4 @@
-import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
+import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { QuestionnaireCtl41Attribution } from "@/components/questionnaires/QuestionnaireCtl41Attribution";
 import { AdultAgePreferencesExamples } from "@/components/questionnaires/AdultAgePreferencesExamples";
@@ -23,9 +23,26 @@ import { QuestionnaireTakeEntry } from "@/components/questionnaires/Questionnair
 import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { loadTraditionalLikert } from "@/lib/i18n/zh-TW/likertQuestionnaires";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import type { Questionnaire, QuestionnaireSection, Text } from "@/lib/questionnaires/types";
 
 type Stage = { slug: string; take: boolean; profile?: string };
-const requireLikert = cache(async (slug: string) => {
+type LikertReader = {
+  quiz: Questionnaire;
+  takeQuiz?: Questionnaire;
+  sections: QuestionnaireSection[];
+  faq: Questionnaire["faq"];
+  summaries: Record<string, Text>;
+  extraReferences: NonNullable<Questionnaire["references"]>;
+  angerNotice?: { attribution: Text; editionNotice: Text };
+};
+
+const requireLikert = cache(async (slug: string): Promise<LikertReader> => {
+  if (hasTraditionalStressCoping(slug)) {
+    const { loadTraditionalStressCoping } = await import("@/lib/i18n/zh-TW/stressCopingQuestionnaires");
+    const item = await loadTraditionalStressCoping(slug);
+    if (!item) notFound();
+    return item;
+  }
   if (hasTraditionalSensoryExecutive(slug)) {
     const { loadTraditionalSensoryExecutive } = await import("@/lib/i18n/zh-TW/sensoryExecutiveQuestionnaires");
     const item = await loadTraditionalSensoryExecutive(slug);
@@ -118,6 +135,10 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EmotionDashboardPage")).EmotionDashboardPage
     : null;
   if (take) {
+    if (item.takeQuiz && hasTraditionalStressCoping(slug)) {
+      const { TraditionalStressCopingTake } = await import("./TraditionalStressCopingTake");
+      return <TraditionalStressCopingTake quiz={quiz} takeQuiz={item.takeQuiz} />;
+    }
     if (item.takeQuiz && hasTraditionalSensoryExecutive(slug)) {
       const { TraditionalSensoryExecutiveTake } = await import("./TraditionalSensoryExecutiveTake");
       return <TraditionalSensoryExecutiveTake quiz={quiz} takeQuiz={item.takeQuiz} />;
@@ -190,6 +211,13 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       })
       : null;
 
+  const { angerNotice } = item;
+  const angerAttribution = angerNotice ? <aside data-anger20-attribution className="space-y-3 text-sm leading-7">
+    <p>{angerNotice.attribution.zh}</p><p>{angerNotice.editionNotice.zh}</p>
+  </aside> : null;
+  const cbiAttribution = slug === "burnout-risk" ? await Promise.all([
+    import("@/components/questionnaires/QuestionnaireCbiAttribution"), loadTraditionalAssessmentText(),
+  ]).then(([{ QuestionnaireCbiAttribution }, copy]) => <QuestionnaireCbiAttribution locale="zh" copy={copy} />) : null;
   const availableReferences = [...(quiz.references ?? []), ...(result ? [] : extraReferences)];
   const references = availableReferences.length ? <section className="space-y-4 leading-8">
     <h2 className="text-2xl font-semibold">題本與計分來源</h2>
@@ -213,6 +241,8 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "capacity-to-love-test" && <QuestionnaireCtl41Attribution locale="zh" traditional />}
     {workReasoningContext}
     {selfEvaluationContext}
+    {cbiAttribution}
+    {angerAttribution}
     {references}
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 font-semibold underline">開始免費測驗</Link>
   </article>;
@@ -294,6 +324,8 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     {slug === "capacity-to-love-test" && <QuestionnaireCtl41Attribution locale="zh" traditional />}
     {workReasoningContext}
     {selfEvaluationContext}
+    {cbiAttribution}
+    {angerAttribution}
     {references}
   </div>;
 }
