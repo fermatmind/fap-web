@@ -86,7 +86,7 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
     isDefault: false,
     isTakeEnabled: true,
     ctaState: "start",
-    labels: { en: "Reasoning Test · 40 Questions", zh: "推理测试 · 40 题" },
+    labels: { en: "Free Reasoning Test · 40 Questions", zh: "推理免费测试 · 40 题" },
     shortLabels: { en: "40-question form", zh: "40 题版" },
     descriptions: {
       en: "A mix of visual, numerical, and verbal reasoning questions. Results show the number and percentage of correct answers.",
