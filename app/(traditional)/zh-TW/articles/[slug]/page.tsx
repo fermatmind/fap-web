@@ -98,7 +98,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   );
 
   return (
-    <div className="min-w-0 space-y-8">
+    <main className="min-w-0 space-y-8">
       {schemaGate.canRenderArticleJsonLd && fragments?.article
         ? <JsonLd id={`article-jsonld-${slug}`} data={fragments.article} /> : null}
       {schemaGate.canRenderBreadcrumbJsonLd && fragments?.breadcrumbList
@@ -168,6 +168,6 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           ))}
         </section>
       ) : null}
-    </div>
+    </main>
   );
 }
