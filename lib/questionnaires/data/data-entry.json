@@ -992,7 +992,8 @@
         "en": "Criteria: its own numerical-entry speed and field accuracy description",
         "zh": "Criteria：其自有数字录入速度与字段准确率说明"
       },
-      "url": "https://www.criteriacorp.com/assess/skills/ten-key-test"
+      "url": "https://www.criteriacorp.com/assess/skills/ten-key-test",
+      "hiddenOnLanding": true
     }
   ],
   "guide": [

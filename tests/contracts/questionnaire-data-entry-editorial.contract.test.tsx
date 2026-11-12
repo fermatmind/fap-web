@@ -28,7 +28,9 @@ describe("data entry explanatory editorial", () => {
       expect(body).toContain(norm(quiz.instructions![locale]));
       for (const link of dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation")) expect(dom.querySelector(link.getAttribute("href")!)).not.toBeNull();
       for (const i of [1, 2, 4, 5]) expect(dom.querySelector(`a[href="#data-entry-reference-${i}"]`)).not.toBeNull();
-      expect(dom.querySelector('a[href*="criteriacorp.com"]')).toBeNull();
+      expect(quiz.references?.[2]).toMatchObject({ hiddenOnLanding: true });
+      expect(dom.querySelector("#data-entry-reference-3")).toBeNull();
+      for (const i of [1, 2, 4, 5]) expect(dom.querySelector(`#data-entry-reference-${i}`)).not.toBeNull();
       if (locale === "en") expect(body).not.toMatch(/\p{Script=Han}/u);
     }
   });

@@ -24,7 +24,8 @@ describe("Distributed work editorial preserves relative choices and complete bil
   });
   for (const locale of ["en", "zh"] as const) it(`renders all ${locale} editorial, source readings and public links without collapsed text`, () => {
     const html = renderToStaticMarkup(<DistributedWorkPage quiz={quiz} locale={locale} />);
-    const text = html.replace(/<[^>]*>/g, "").replace(/&amp;/g, "&").replace(/&#x27;/g, "'").replace(/&quot;/g, '"');
+    const dom = document.createElement("div"); dom.innerHTML = html;
+    const text = dom.textContent ?? "";
     expect(distributedLandingSections).toHaveLength(8);
     expect(distributedLandingFaq).toHaveLength(8);
     for (const s of [...distributedLandingSections, ...quiz.guide]) {
@@ -37,7 +38,6 @@ describe("Distributed work editorial preserves relative choices and complete bil
       expect(html).toContain(`/${locale}/tests/explore/${quiz.slug}/results/${p.id}`);
     }
     expect(html.match(/data-distributed-full-guide=/g)).toHaveLength(4);
-    const dom = document.createElement("div"); dom.innerHTML = html;
     expect(dom.querySelectorAll("details p,details section,details article")).toHaveLength(0);
     expect(html).toContain('id="distributed-reference-3"');
     expect(catalog.find(q => q.slug === quiz.slug)!.description[locale]).toBe(quiz.description[locale]);

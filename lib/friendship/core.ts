@@ -13,7 +13,17 @@ export { FRIENDSHIP_PATH as PUBLIC_PATH } from "./routes";
 export const RESOURCE_PATHS = ["", "/questions", "/how-to-play", "/scores"] as const;
 export function shuffled<T>(values: T[]): T[] {
   const copy = [...values];
-  for (let i = copy.length - 1; i > 0; i--) { const n = crypto.getRandomValues(new Uint32Array(1))[0]; const j = n % (i + 1); [copy[i], copy[j]] = [copy[j], copy[i]]; }
+  const sample = new Uint32Array(1);
+  for (let i = copy.length - 1; i > 0; i--) {
+    const bound = i + 1;
+    const mask = 2 ** Math.ceil(Math.log2(bound)) - 1;
+    let j: number;
+    do {
+      crypto.getRandomValues(sample);
+      j = (sample[0] & mask) >>> 0;
+    } while (j >= bound);
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
   return copy;
 }
 export function selectQuestions(pack: Pack, size: number, exclude: string[] = [], first?: string): Question[] {

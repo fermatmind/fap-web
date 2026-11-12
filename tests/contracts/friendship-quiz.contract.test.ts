@@ -20,7 +20,7 @@ import { filterTrackingPayload } from "@/lib/tracking/events";
 import { describe, it, expect, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
-import { average, ranked, selectQuestions, swapQuestion, title, validAnswers, type Pack, type Entry } from "@/lib/friendship/core";
+import { average, ranked, selectQuestions, shuffled, swapQuestion, title, validAnswers, type Pack, type Entry } from "@/lib/friendship/core";
 import { NextRequest } from "next/server";
 import { proxy } from "@/proxy";
 import { resourceMetadata } from "@/components/friendship/PublicContent";
@@ -28,6 +28,20 @@ const categories = ["food", "connection", "play", "reflection", "personality", "
 const pack: Pack = { version: "test", categories: Object.fromEntries(categories.map(c => [c, { en: c, zh: c }])), questions: categories.flatMap(category => Array.from({ length: 40 }, (_, i) => ({ id: `${category}-${i}`, category, en: { prompt: "Choose", options: ["A", "B"] as [string, string] }, zh: { prompt: "选择", options: ["甲", "乙"] as [string, string] } }))) };
 function entry(id: string, correct: number, hidden = false): Entry { return { id, nickname: "Synthetic", correct, hidden, categories: { food: { correct, total: 30 } } }; }
 describe("friendship quiz public and private contract", () => {
+  it("rejects a sample outside the current shuffle index range", () => {
+    const samples = [3, 2, 0];
+    const random = vi.spyOn(crypto, "getRandomValues").mockImplementation(array => {
+      if (!(array instanceof Uint32Array) || samples.length === 0) throw new Error("unexpected draw");
+      array[0] = samples.shift()!;
+      return array;
+    });
+    try {
+      const original = ["first", "second", "third"];
+      expect(shuffled(original)).toEqual(["second", "first", "third"]);
+      expect(original).toEqual(["first", "second", "third"]);
+      expect(random).toHaveBeenCalledTimes(3);
+    } finally { random.mockRestore(); }
+  });
   it.each(["en", "zh"] as const)("wires actual %s routes to public identities and private metadata", async locale => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     try {

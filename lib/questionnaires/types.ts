@@ -47,7 +47,7 @@ export type Questionnaire = {
   dataEntry?: DataEntryConfiguration;
   eightValues?: EightValuesConfiguration;
   tenKey?: TenKeyConfiguration;
-  references?: { title: Text; url: string }[];
+  references?: { title: Text; url: string; hiddenOnLanding?: boolean }[];
   minimumRatedItems?: number;
   instructions?: Text;
   title: Text;
