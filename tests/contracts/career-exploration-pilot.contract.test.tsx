@@ -18,8 +18,8 @@ describe("six-page career exploration pilot", () => {
   it.each([
     ["zh", "ari", true, ["27-1021.00", "27-1024.00"]],
     ["en", "ari", true, ["27-1021.00", "27-1024.00"]],
-    ["zh", "ac", false, ["27-1024.00", "27-4032.00"]],
-    ["en", "ac", false, ["27-1024.00", "27-4032.00"]],
+    ["zh", "ac", true, ["27-1024.00", "27-4032.00"]],
+    ["en", "ac", true, ["27-1024.00", "27-4032.00"]],
   ] as const)("%s/%s keeps official evidence, locale and indexing aligned", async (locale, code, index, socCodes) => {
     const props = { params: Promise.resolve({ locale }) };
     const metadata = await (code === "ari" ? ariMetadata : acMetadata)(props);
@@ -41,12 +41,12 @@ describe("six-page career exploration pilot", () => {
     for (const job of CAREER_EXPLORATION_PILOT[code].occupations) {
       expect(screen.getByRole("link", { name: job.name[locale] })).toHaveAttribute("href", `/${locale}/career/jobs/${job.slug}`);
     }
-    if (code === "ari") {
+    {
       const topic = getReleasedCareerInterest(code, locale)!;
       const links = [...container.querySelectorAll<HTMLAnchorElement>(`a[href^="/${locale}/career/jobs/"]`)];
       const slugs = links.map((link) => link.getAttribute("href")!.split("/").at(-1));
       const expected = new Set([
-        ...CAREER_EXPLORATION_PILOT.ari.occupations.map(({ slug }) => slug),
+        ...CAREER_EXPLORATION_PILOT[code].occupations.map(({ slug }) => slug),
         ...[...topic.exact, ...topic.related].map(({ slug }) => slug),
       ]);
       expect(new Set(slugs)).toEqual(expected);
@@ -109,19 +109,39 @@ describe("six-page career exploration pilot", () => {
     }
   });
 
+  it.each(["zh", "en"] as const)("publishes the SI examples and full groups in %s", async (locale) => {
+    const props = { params: Promise.resolve({ locale, code: "si" }) };
+    const topic = getReleasedCareerInterest("si", locale)!;
+    const metadata = await releasedMetadata(props);
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.alternates?.canonical).toBe(`${getSiteUrlOrThrow()}${topic.path}`);
+    expect(metadata.alternates?.languages).toMatchObject({
+      "zh-CN": `${getSiteUrlOrThrow()}/zh/career/interests/si`,
+      en: `${getSiteUrlOrThrow()}/en/career/interests/si`,
+    });
+    const { container } = render(await ReleasedInterestPage(props));
+    expect(document.getElementById("si-task-examples")).toBeInTheDocument();
+    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>(`a[href^="/${locale}/career/jobs/"]`));
+    expect(links).toHaveLength(81);
+    expect(new Set(links.map(link => link.getAttribute("href")))).toEqual(new Set(
+      [...topic.exact, ...topic.related].map(job => `/${locale}/career/jobs/${job.slug}`),
+    ));
+    expect(topic.exact).toHaveLength(24);
+  });
+
   it("rejects an unpublished interest code", async () => {
-    await expect(ReleasedInterestPage({ params: Promise.resolve({ locale: "en", code: "si" }) }))
+    await expect(ReleasedInterestPage({ params: Promise.resolve({ locale: "en", code: "ir" }) }))
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
-  it("appends the thirteen published topics in both languages and omits held paths", () => {
+  it("appends the fifteen published topics in both languages and omits held paths", () => {
     const existing = { loc: "https://fermatmind.com/zh/career", lastmod: "2026-11-10T00:00:00.000Z" };
     const backendEntries = buildPublicSitemapEntries({ items: [
       existing,
       { loc: "https://fermatmind.com/zh/career/recommendations/mbti/intj" },
       { loc: "https://fermatmind.com/en/career/interests/ac" },
     ] });
-    const topics = ["a", "ari", "c", "ce", "e", "ecs", "i", "irc", "r", "rc", "rci", "ric", "s"];
+    const topics = ["a", "ac", "ari", "c", "ce", "e", "ecs", "i", "irc", "r", "rc", "rci", "ric", "s", "si"];
     const expected = ["en", "zh"].flatMap((locale) =>
       topics.map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
     );

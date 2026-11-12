@@ -68,19 +68,19 @@ export const CAREER_EXPLORATION_PILOT = {
     },
   },
   ac: {
-    indexable: false,
+    indexable: true,
     occupations: [OCCUPATIONS.graphic, OCCUPATIONS.film],
     copy: {
       zh: {
         title: "霍兰德 AC 代码与职业探索：平面设计与影视剪辑",
         summary: "AC 依次代表艺术型、常规型。先看你是否喜欢创作，再观察自己是否愿意整理素材、核对交付要求和处理修订。",
-        evidence: "在 O*NET 31.0 美国职业兴趣表中，平面设计师和影视剪辑师都标为 AC。这是官方职业的两字高点代码。费马档案用于查任务，其 O*NET 对照仍为目录候选。",
+        evidence: "在 O*NET 31.0 美国职业兴趣表中，平面设计师和影视剪辑师都标为 AC。这是官方职业的两字高点代码。这两份费马职业档案已核对 O*NET 编码和中英文任务来源。下方相关职业含 A 与 C 两项兴趣，完整代码各有不同。",
         exercise: "把同一份清洗说明分别做成一页海报草图和一段 15 秒视频的三镜头分镜。请一个人复述步骤。记录你更愿意反复调整版式，还是更愿意整理镜头、节奏和声音。",
       },
       en: {
         title: "AC Holland Code careers: graphic design and video editing",
         summary: "AC stands for Artistic and Conventional, in that order. Explore whether you enjoy creating something and whether you also want to organize source material, check delivery requirements and handle revisions.",
-        evidence: "The U.S. O*NET 31.0 table lists both Graphic Designers and Film and Video Editors as AC. The official profiles have a two-letter high-point code. FermatMind dossiers illustrate work tasks, and their O*NET crosswalks are still directory candidates.",
+        evidence: "The U.S. O*NET 31.0 table lists both Graphic Designers and Film and Video Editors as AC. The official profiles have a two-letter high-point code. The two FermatMind profiles have verified O*NET codes and task sources in both languages. Related occupations below include both A and C but have different full codes.",
         exercise: "Turn the same cleaning instructions into a one-page poster sketch and a three-shot storyboard for a 15-second video. Ask someone to repeat the steps. Note whether you want to refine the layout or revisit shot order, timing and sound.",
       },
     },

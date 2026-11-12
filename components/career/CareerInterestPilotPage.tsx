@@ -35,7 +35,7 @@ export async function CareerInterestPilotPage({ params, code }: { params: Params
   const { locale, pilot } = await readPilot(params, code);
   const { title, summary } = pilot.copy[locale];
   const path = careerExplorationPilotPath(locale, code);
-  const releasedTopic = code === "ari" ? getReleasedCareerInterest(code, locale) : null;
+  const releasedTopic = getReleasedCareerInterest(code, locale);
   const pilotSlugs = new Set<string>(pilot.occupations.map(({ slug }) => slug));
   const additionalJobs = releasedTopic
     ? [...releasedTopic.exact, ...releasedTopic.related].filter(({ slug }) => !pilotSlugs.has(slug))
@@ -56,8 +56,8 @@ export async function CareerInterestPilotPage({ params, code }: { params: Params
         </header>
         <CareerExplorationPilot pilot={code} locale={locale} />
         {additionalJobs.length > 0 && (
-          <section aria-labelledby="ari-additional-occupations" className="space-y-3">
-            <h2 id="ari-additional-occupations" className="text-xl font-semibold">
+          <section aria-labelledby="related-interest-occupations" className="space-y-3">
+            <h2 id="related-interest-occupations" className="text-xl font-semibold">
               {locale === "zh" ? "更多兴趣相近的职业" : "More occupations with shared interests"}
             </h2>
             <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">

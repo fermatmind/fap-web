@@ -38,8 +38,8 @@ export function getReleasedCareerInterest(code: string, locale: Locale) {
 }
 
 export function releasedCareerInterestEntries() {
-  // ARI already uses the standalone editorial reader with its own search metadata.
-  return RELEASED_CAREER_INTEREST_CODES.filter((code) => code !== "ari").flatMap((code) =>
+  // ARI and AC use their own editorial readers and search metadata.
+  return RELEASED_CAREER_INTEREST_CODES.filter((code) => code !== "ari" && code !== "ac").flatMap((code) =>
     (["en", "zh"] as const).map((locale) => {
       const { path, name: title, summary } = getReleasedCareerInterest(code, locale)!;
       return { locale, path, title, summary };
