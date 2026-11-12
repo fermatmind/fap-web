@@ -41,6 +41,17 @@ describe("six-page career exploration pilot", () => {
     for (const job of CAREER_EXPLORATION_PILOT[code].occupations) {
       expect(screen.getByRole("link", { name: job.name[locale] })).toHaveAttribute("href", `/${locale}/career/jobs/${job.slug}`);
     }
+    if (code === "ari") {
+      const topic = getReleasedCareerInterest(code, locale)!;
+      const links = [...container.querySelectorAll<HTMLAnchorElement>(`a[href^="/${locale}/career/jobs/"]`)];
+      const slugs = links.map((link) => link.getAttribute("href")!.split("/").at(-1));
+      const expected = new Set([
+        ...CAREER_EXPLORATION_PILOT.ari.occupations.map(({ slug }) => slug),
+        ...[...topic.exact, ...topic.related].map(({ slug }) => slug),
+      ]);
+      expect(new Set(slugs)).toEqual(expected);
+      expect(slugs).toHaveLength(expected.size);
+    }
     const jsonLd = [...container.querySelectorAll('script[type="application/ld+json"]')].map((node) => JSON.parse(node.textContent!));
     expect(jsonLd.map((data) => data["@type"])).toEqual(["WebPage", "BreadcrumbList"]);
     expect(jsonLd[0].url).toBe(canonical);

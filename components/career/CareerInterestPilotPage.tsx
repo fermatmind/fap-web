@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
@@ -5,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath, type CareerInterestPilot } from "@/lib/career/explorationPilot";
+import { getReleasedCareerInterest } from "@/lib/career/interestRelease";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -33,6 +35,11 @@ export async function CareerInterestPilotPage({ params, code }: { params: Params
   const { locale, pilot } = await readPilot(params, code);
   const { title, summary } = pilot.copy[locale];
   const path = careerExplorationPilotPath(locale, code);
+  const releasedTopic = code === "ari" ? getReleasedCareerInterest(code, locale) : null;
+  const pilotSlugs = new Set(pilot.occupations.map(({ slug }) => slug));
+  const additionalJobs = releasedTopic
+    ? [...releasedTopic.exact, ...releasedTopic.related].filter(({ slug }) => !pilotSlugs.has(slug))
+    : [];
   const parents = [
     { name: locale === "zh" ? "首页" : "Home", path: `/${locale}` },
     { name: locale === "zh" ? "职业测试" : "Career tests", path: `/${locale}/career/tests` },
@@ -48,6 +55,26 @@ export async function CareerInterestPilotPage({ params, code }: { params: Params
           <p className="m-0 text-lg leading-8 text-slate-700">{summary}</p>
         </header>
         <CareerExplorationPilot pilot={code} locale={locale} />
+        {additionalJobs.length > 0 && (
+          <section aria-labelledby="ari-additional-occupations" className="space-y-3">
+            <h2 id="ari-additional-occupations" className="text-xl font-semibold">
+              {locale === "zh" ? "更多兴趣相近的职业" : "More occupations with shared interests"}
+            </h2>
+            <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
+              {additionalJobs.map(({ slug, onet, interest, copy }) => (
+                <li key={slug} className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4">
+                  <h3 className="font-semibold">
+                    <Link className="underline underline-offset-4" href={`/${locale}/career/jobs/${slug}`}>{copy[locale].name}</Link>
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">{copy[locale].summary}</p>
+                  <p className="mt-2 text-sm text-slate-700">
+                    {interest} · <a className="underline underline-offset-4" href={`https://www.onetonline.org/link/summary/${onet}`}>O*NET {onet}</a>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </Container>
     </main>
   );
