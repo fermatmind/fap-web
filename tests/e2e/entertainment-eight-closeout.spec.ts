@@ -1,4 +1,5 @@
-import {test,expect} from '@playwright/test';
+import {test,expect,type BrowserContext} from '@playwright/test';
+import { readFile } from 'node:fs/promises';
 import chakra from '../../lib/questionnaires/data/chakra.json';
 import project from '../../lib/questionnaires/data/project-management.json';
 const deny = {analytics:'denied',updatedAt:new Date().toISOString()};
@@ -23,21 +24,23 @@ for(const locale of ['en','zh'] as const){
  test(`@release closeout friendship ${locale}: real isolated backend create, invitation, guesses, full result and owner control`,async({browser,baseURL})=>{
   test.skip(!process.env.FRIENDSHIP_LOCAL_API,'Requires real isolated local backend; never substitutes response fixtures');
   test.setTimeout(180000);
-  const local=new URL(process.env.FRIENDSHIP_LOCAL_API!);expect(['127.0.0.1','localhost']).toContain(local.hostname);
+  const local=new URL(process.env.FRIENDSHIP_LOCAL_API!);
+  expect(new URL(process.env.NEXT_PUBLIC_API_URL!).origin).toBe(local.origin);expect(['127.0.0.1','localhost']).toContain(local.hostname);
   const c=await browser.newContext(),f=await browser.newContext();
-  for(const context of [c,f]){
+  const bridge = async (context: BrowserContext) => {
    await context.addInitScript(v=>localStorage.setItem('fm_consent_v1',JSON.stringify(v)),deny);
    // Transport only: execute the unmodified local Laravel API and forward its real response; no response fixture or invented score.
    await context.route('**/api/v0.3/friendship/**',async route=>{const u=new URL(route.request().url());const response=await route.fetch({url:local.origin+u.pathname+u.search});await route.fulfill({response});});
-  }
-  const owner=await c.newPage(),friend=await f.newPage();let id:string|undefined;let ownerKey:string|undefined;
+  };
+  await Promise.all([bridge(c),bridge(f)]);
+  const owner=await c.newPage(),friend=await f.newPage();let id:string|undefined;
   try{
    await owner.goto(`${baseURL}/${locale}/tests/play/friendship-quiz`);
    await owner.locator("[data-explore-start]").click();
    await owner.locator('#fq-name').fill('Local creator');await owner.locator('input[name="length"][value="30"]').check();
    await owner.getByRole('button',{name:zh?'开始出题 →':'Start my quiz →',exact:true}).click();
    for(let i=0;i<30;i++){await owner.locator('.fq-options input').first().check();await owner.getByRole('button',{name:i===29?(zh?'检查答案':'Review answers'):(zh?'下一题':'Next'),exact:true}).click();}
-   const created=owner.waitForResponse(r=>/\/friendship\/challenges$/.test(r.url())&&r.request().method()==='POST');
+   const created=owner.waitForResponse(r=>/\/friendship-browser\/challenges$/.test(r.url())&&r.request().method()==='POST');
    await owner.getByRole('button',{name:zh?'生成好友邀请':'Make my invite',exact:true}).click();
    let response=await created;
    if(response.status()===429){
@@ -45,12 +48,12 @@ for(const locale of ['en','zh'] as const){
     const header=Number(response.headers()['retry-after']);const seconds=Number.isFinite(header)&&header>0?header:61;expect(seconds).toBeLessThanOrEqual(65);
     await expect(owner.locator('.fq-warning[role="alert"]')).toBeVisible();
     await new Promise(resolve=>setTimeout(resolve,(seconds+1)*1000));
-    const retry=owner.waitForResponse(r=>/\/friendship\/challenges$/.test(r.url())&&r.request().method()==='POST');
+    const retry=owner.waitForResponse(r=>/\/friendship-browser\/challenges$/.test(r.url())&&r.request().method()==='POST');
     await owner.getByRole('button',{name:zh?'生成好友邀请':'Make my invite',exact:true}).click();response=await retry;
    }
    expect(response.status()).toBe(200);const challenge=await response.json();id=challenge.id;
    expect(challenge.questions).toHaveLength(30);expect(challenge.answers).toEqual(Array(30).fill(0));
-   const saved=await owner.evaluate(()=>JSON.parse(localStorage.getItem('fm:friendship:owners:v1')||'[]'));ownerKey=saved.find((v:{id:string})=>v.id===id).key;
+   const saved=await owner.evaluate(()=>JSON.parse(localStorage.getItem('fm:friendship:owners:v1')||'[]'));expect(saved.find((v:{id:string})=>v.id===id)).not.toHaveProperty("key");
    const invite=await friend.request.get(local.origin+`/api/v0.3/friendship/challenges/${id}`);expect(invite.status()).toBe(200);expect(await invite.json()).not.toHaveProperty('answers');
    await friend.goto(`${baseURL}/${locale}/share/friendship/${id}`);await friend.locator('#fq-friend-name').fill('Local guesser');
    await friend.getByRole('button',{name:zh?'开始猜':'Start guessing',exact:true}).click();
@@ -58,16 +61,35 @@ for(const locale of ['en','zh'] as const){
     await friend.locator('.fq-options input').first().check();await expect(friend.locator('.fq-feedback')).toBeVisible();await expect(friend.locator('.fq-options input').first()).toBeDisabled();
     await friend.getByRole('button',{name:i===29?(zh?'查看结果':'See my result'):(zh?'下一题':'Next'),exact:true}).click();
    }
-   await expect(friend.locator('.fq-ring')).toHaveAttribute('aria-label','30/30, 100%');await expect(friend.locator('.fq-category-bars > div')).toHaveCount(6);
+   await expect(friend.locator('.fq-ring')).toHaveAttribute('aria-label',zh?'猜中 30/30 题，100%':'30/30 matches, 100%');await expect(friend.locator('.fq-category-bars > div')).toHaveCount(6);
    await expect(friend.locator('.fq-ranking')).toContainText('Local guesser');await expect(friend.locator('.fq-answer-list').last().locator('li')).toHaveCount(30);
-   await friend.reload();await expect(friend.locator('.fq-ring')).toHaveAttribute('aria-label','30/30, 100%');
+   await friend.reload();await expect(friend.locator('.fq-ring')).toHaveAttribute('aria-label',zh?'猜中 30/30 题，100%':'30/30 matches, 100%');
    await owner.goto(`${baseURL}/${locale}/share/friendship/${id}/manage`);await expect(owner.locator('.fq-ranking')).toContainText('Local guesser');
    await owner.getByRole('button',{name:zh?'关闭邀请':'Close quiz',exact:true}).click();
-   const closed=await friend.request.get(local.origin+`/api/v0.3/friendship/challenges/${id}`);expect(closed.status()).toBe(410);
+   await expect.poll(async()=>(await friend.request.get(local.origin+`/api/v0.3/friendship/challenges/${id}`)).status()).toBe(410);
    await owner.getByRole('button',{name:zh?'重新开放':'Reopen quiz',exact:true}).click();
-   expect((await friend.request.get(local.origin+`/api/v0.3/friendship/challenges/${id}`)).status()).toBe(200);
+   await expect.poll(async()=>(await friend.request.get(local.origin+`/api/v0.3/friendship/challenges/${id}`)).status()).toBe(200);
+   const downloading = owner.waitForEvent('download',{timeout:15000});
+   await owner.getByRole('button',{name:zh?'保存私人管理文件':'Save private management file',exact:true}).click();
+   const download = await downloading;
+   expect(download.suggestedFilename()).toBe('fermatmind-private-management.txt');
+   const file = await download.path();
+   const backup = file ? /#key=([a-f0-9]{64})(?:\r?\n|$)/.exec(await readFile(file,'utf8'))?.[1] : undefined;
+   expect(Boolean(backup)).toBe(true);
+   const recovery = await browser.newContext();
+   try {
+    await bridge(recovery);
+    const recovered = await recovery.newPage();
+    await recovered.goto(`${baseURL}/${locale}/share/friendship/${id}/manage#key=${backup}`);
+    await expect(recovered.locator('.fq-ranking')).toContainText('Local guesser');
+    await expect.poll(()=>recovered.evaluate(()=>location.hash.length)).toBe(0);
+    expect(await recovered.evaluate(()=>JSON.parse(localStorage.getItem('fm:friendship:owners:v1')||'[]').some((entry:{key?:string})=>Boolean(entry.key)))).toBe(false);
+   } finally { await recovery.close(); }
   }finally{
-   if(id&&ownerKey){const deleted=await owner.request.delete(local.origin+`/api/v0.3/friendship/challenges/${id}/manage`,{headers:{Authorization:`Bearer ${ownerKey}`,Accept:"application/json"}});expect.soft(deleted.status()).toBe(200);}
+   if(id){
+    const status=await owner.evaluate(async challengeId=>(await fetch(`/friendship-browser/challenges/${challengeId}/manage`,{method:'DELETE'})).status,id);
+    expect.soft(status).toBe(200);
+   }
    await c.close();await f.close();
   }
  });

@@ -382,6 +382,10 @@ for (const locale of ["en", "zh"] as const) {
       const body = path.endsWith("/catalog") ? { version: "synthetic", categories: CATEGORIES, questions } : path.endsWith("/result") ? result : challenge;
       await route.fulfill({ json: body });
     });
+    await page.route("**/friendship-browser/**", async route => {
+      const path = new URL(route.request().url()).pathname;
+      await route.fulfill({ json: path.endsWith("/result") ? result : { granted: true } });
+    });
     await page.goto(`/${locale}/share/friendship/${id}`);
     const view = page.locator(".fq-result");
     await expect(view.getByRole("img", { name: /18\/30.*60%/ })).toBeVisible();

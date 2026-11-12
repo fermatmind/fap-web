@@ -11,7 +11,6 @@ export const CATEGORIES: Pack["categories"] = { food: { en: "Food", zh: "美食"
 export const LENGTHS = [30, 60, 90, 120, 150] as const;
 export { FRIENDSHIP_PATH as PUBLIC_PATH } from "./routes";
 export const RESOURCE_PATHS = ["", "/questions", "/how-to-play", "/scores"] as const;
-export function secret(): string { return Array.from(crypto.getRandomValues(new Uint8Array(32)), n => n.toString(16).padStart(2, "0")).join(""); }
 export function shuffled<T>(values: T[]): T[] {
   const copy = [...values];
   for (let i = copy.length - 1; i > 0; i--) { const n = crypto.getRandomValues(new Uint32Array(1))[0]; const j = n % (i + 1); [copy[i], copy[j]] = [copy[j], copy[i]]; }

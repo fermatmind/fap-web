@@ -4,8 +4,8 @@ import FriendshipClient from "@/components/friendship/FriendshipClient";
 import { ResultView } from "@/components/friendship/ResultView";
 import { CATEGORIES, streak, type Challenge, type Pack, type Progress, type Result } from "@/lib/friendship/core";
 
-const mocks = vi.hoisted(() => ({ api: vi.fn() }));
-vi.mock("@/lib/friendship/api", () => ({ friendshipApi: mocks.api }));
+const mocks = vi.hoisted(() => ({ api: vi.fn(), grant: vi.fn() }));
+vi.mock("@/lib/friendship/api", () => ({ friendshipApi: mocks.api, prepareFriendshipGrant: mocks.grant }));
 vi.mock("@/lib/tracking/client", () => ({ trackClientEvent: vi.fn() }));
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
 
@@ -14,7 +14,7 @@ const pack: Pack = { version: "test", categories: CATEGORIES, questions };
 const challenge: Challenge = { id: "synthetic", nickname: "Creator", locale: "en", version: "test", questions, entries: [], closed: false, expires_at: "2027-01-01 00:00:00" };
 let progress: Progress | null;
 beforeEach(() => {
-  localStorage.clear(); mocks.api.mockReset(); progress = null;
+  localStorage.clear(); mocks.api.mockReset(); mocks.grant.mockReset(); progress = null;
   mocks.api.mockImplementation(async (path: string, method: string, data?: { nickname: string; index: number; guess: 0 | 1 }) => {
     if (path === "/catalog") return pack;
     if (path.endsWith("/result")) throw new Error("missing");
@@ -36,7 +36,8 @@ describe("friendship immediate feedback and result comparison", () => {
     fireEvent.click(screen.getByRole("button", { name: "Start guessing" }));
     fireEvent.click(screen.getAllByRole("radio")[0]);
     await screen.findByText("You got it!");
-    expect(mocks.api).toHaveBeenCalledWith("/challenges/synthetic/answers", "POST", { nickname: "Friend", index: 0, guess: 0 }, expect.stringMatching(/^[a-f0-9]{64}$/));
+    expect(mocks.api).toHaveBeenCalledWith("/challenges/synthetic/answers", "POST", { nickname: "Friend", index: 0, guess: 0 });
+    expect(mocks.grant).toHaveBeenCalledWith("synthetic", "player");
     expect(screen.getAllByRole("radio").every(input => (input as HTMLInputElement).disabled)).toBe(true);
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
     expect(screen.getAllByRole("radio").every(input => !(input as HTMLInputElement).disabled)).toBe(true);
@@ -65,7 +66,49 @@ describe("friendship immediate feedback and result comparison", () => {
     expect(screen.queryByLabelText("Your nickname")).not.toBeInTheDocument();
     fireEvent.click(screen.getAllByRole("radio")[0]);
     await screen.findByText("You got it!");
-    expect(mocks.api).toHaveBeenCalledWith("/challenges/synthetic/answers", "POST", { nickname: "Returning friend", index: 2, guess: 0 }, "a".repeat(64));
+    expect(mocks.api).toHaveBeenCalledWith("/challenges/synthetic/answers", "POST", { nickname: "Returning friend", index: 2, guess: 0 });
+    expect(mocks.grant).toHaveBeenCalledWith("synthetic", "player", { legacy: "a".repeat(64) });
+    expect(JSON.parse(localStorage.getItem("fm:friendship:player:synthetic")!)).not.toHaveProperty("key");
+  });
+
+  it("keeps an old creator draft on migration failure and retries creation with the same identity", async () => {
+    const key = "a".repeat(64);
+    const ids = questions.map(question => question.id);
+    const answers = questions.map(() => 0);
+    const storage = "fm:friendship:draft:v1";
+    const draft = { id: challenge.id, key, version: pack.version, ids, answers, seen: ids, nickname: "Creator", index: 29, contribute: false, mode: "creator" };
+    localStorage.setItem(storage, JSON.stringify(draft));
+    mocks.grant.mockRejectedValueOnce(new Error("network"));
+    render(<FriendshipClient locale="en" />);
+    fireEvent.click(await screen.findByRole("button", { name: "Resume" }));
+    await screen.findByText("The connection failed. Your answers are still here. Please retry.");
+    expect(JSON.parse(localStorage.getItem(storage)!)).toEqual(draft);
+
+    fireEvent.click(screen.getByRole("button", { name: "Resume" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Review answers" }));
+    expect(mocks.grant).toHaveBeenNthCalledWith(2, challenge.id, "owner", { legacy: key, draft: true });
+    expect(JSON.parse(localStorage.getItem(storage)!)).toMatchObject({ id: challenge.id, ids, answers });
+    expect(JSON.parse(localStorage.getItem(storage)!)).not.toHaveProperty("key");
+
+    const api = mocks.api.getMockImplementation()!;
+    let firstCreate = true;
+    mocks.api.mockImplementation((...args) => {
+      if (args[0] === "/challenges" && args[1] === "POST" && firstCreate) {
+        firstCreate = false;
+        return Promise.reject(new DOMException("Timed out", "TimeoutError"));
+      }
+      return api(...args);
+    });
+    const create = screen.getByRole("button", { name: "Make my invite" });
+    fireEvent.click(create);
+    await screen.findByText("The connection failed. Your answers are still here. Please retry.");
+    fireEvent.click(create);
+    await screen.findByRole("heading", { name: "Creator’s friendship quiz" });
+    const attempts = mocks.api.mock.calls.filter(call => call[0] === "/challenges" && call[1] === "POST");
+    expect(attempts).toHaveLength(2);
+    expect(attempts[0][2]).toMatchObject({ id: challenge.id, question_ids: ids, answers });
+    expect(attempts[1][2]).toEqual(attempts[0][2]);
+    expect(localStorage.getItem(storage)).toBeNull();
   });
 
   it("counts consecutive matches and keeps the best run after a miss", () => {
