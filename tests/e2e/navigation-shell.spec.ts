@@ -45,10 +45,12 @@ test("site chrome is consistent across help and articles pages", async ({ page }
 
   await page.goto("/en/articles");
   await expectSiteChromeVisible(page);
-  const helpMenuTrigger = page.getByRole("navigation").getByRole("button", { name: "Help menu", exact: true });
-  await expect(helpMenuTrigger).toBeVisible();
-  await helpMenuTrigger.click();
-  await expect(page.getByRole("menuitem", { name: "Email & data management", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Help menu", exact: true })).toHaveCount(0);
+  const help = page.getByTestId("desktop-primary-nav-link-help");
+  await expect(help).toHaveAttribute("href", "/en/support");
+  await help.click();
+  await expect(page).toHaveURL(/\/en\/support$/);
+  await expectSiteChromeVisible(page);
 });
 
 test("site chrome is visible on immersive take page", async ({ page }) => {

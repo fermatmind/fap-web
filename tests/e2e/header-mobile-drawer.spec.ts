@@ -38,7 +38,7 @@ test.describe("mobile header drawer", () => {
     await expect(drawer).toHaveCount(0);
   });
 
-  test("supports grouped expansion and closes after submenu navigation", async ({ page }) => {
+  test("supports grouped expansion and closes after direct Blog navigation", async ({ page }) => {
     await page.goto("/en");
     await page.getByRole("button", { name: "Menu" }).click();
 
@@ -48,16 +48,15 @@ test.describe("mobile header drawer", () => {
     await expect(drawer.getByRole("link", { name: "My Account", exact: true })).toBeVisible();
     await expect(drawer.getByRole("link", { name: "Search", exact: true })).toHaveCount(0);
     await expect(drawer.getByRole("link", { name: "Business", exact: true })).toHaveCount(0);
-    await expect(drawer.getByRole("link", { name: "Chinese", exact: true })).toBeVisible();
+    await expect(drawer.getByRole("link", { name: "简体中文", exact: true })).toBeVisible();
 
     await drawer.getByRole("button", { name: "Tests menu", exact: true }).click();
     await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();
 
-    await drawer.getByRole("button", { name: "Blog menu", exact: true }).click();
-    await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toHaveCount(0);
-    await expect(drawer.getByRole("menuitem", { name: "All articles", exact: true })).toBeVisible();
-
-    await drawer.getByRole("menuitem", { name: "All articles", exact: true }).click();
+    await expect(drawer.getByRole("button", { name: "Blog menu", exact: true })).toHaveCount(0);
+    const blog = drawer.getByTestId("mobile-primary-nav-link-articles");
+    await expect(blog).toHaveAttribute("href", "/en/articles");
+    await blog.click();
     await expect(page).toHaveURL(/\/en\/articles/);
     await expect(page.getByRole("dialog", { name: "Menu" })).toHaveCount(0);
   });
