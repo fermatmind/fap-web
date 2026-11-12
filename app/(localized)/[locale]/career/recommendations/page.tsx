@@ -242,7 +242,6 @@ export default async function CareerRecommendationsPage({
             ]}
           />
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>{isZh ? copy("职业匹配 · CAREER FIT", "職業匹配 · CAREER FIT") : "CAREER FIT"}</p>
             <h1>{pageTitle}</h1>
             <p className={styles.heroDescription}>{pageDescription}</p>
             <div className={styles.heroActions}>
@@ -264,7 +263,6 @@ export default async function CareerRecommendationsPage({
             <div className={styles.sectionHeadingRow}>
               <span className={styles.iconBadge}><Target aria-hidden="true" /></span>
               <div>
-                <p className={styles.sectionKicker}>{isZh ? copy("独立探索工具", "獨立探索工具") : "Separate exploration tools"}</p>
                 <h2 id="career-profile-title">{isZh ? copy("选择你需要的探索方式", "選擇你需要的探索方式") : "Choose your next exploration step"}</h2>
               </div>
             </div>
@@ -292,7 +290,6 @@ export default async function CareerRecommendationsPage({
             <div className={styles.sectionHeadingRow}>
               <span className={styles.iconBadge}><Sparkles aria-hidden="true" /></span>
               <div>
-                <p className={styles.sectionKicker}>{isZh ? copy("公开索引示例", "公開索引示例") : "Public index examples"}</p>
                 <h2>{isZh ? copy("类型入口示例", "類型入口示例") : "Example type entry points"}</h2>
               </div>
             </div>
@@ -371,8 +368,7 @@ export default async function CareerRecommendationsPage({
         <section id="recommendations" className={styles.recommendationsSection} aria-labelledby="career-recommendation-list-title">
           <div className={styles.listHeading}>
             <div>
-              <p className={styles.sectionKicker}>MBTI</p>
-              <h2 id="career-recommendation-list-title">{isZh ? copy("按人格类型继续探索", "按人格類型繼續探索") : "Continue by personality type"}</h2>
+              <h2 id="career-recommendation-list-title">{isZh ? copy("按MBTI人格类型继续探索", "按 MBTI 人格類型繼續探索") : "Explore by MBTI personality type"}</h2>
             </div>
             <p>{isZh ? copy("类型入口来自公开职业推荐索引；页面不会把人格类型等同于职业结论。", "類型入口來自公開職業推薦索引；頁面不會把人格類型等同於職業結論。") : "These entry points come from the public recommendation index; personality type is never treated as a career verdict."}</p>
           </div>

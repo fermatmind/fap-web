@@ -42,7 +42,7 @@ describe("career planning hub", () => {
     expect(html).toContain(`href="${href}"`);
     expect(html).not.toContain('href="/zh-TW/career/guides/career-transition-playbook"');
     expect(html).toContain('href="/zh/holland-test/pdf-download"');
-    expect(html).toContain('href="/en/career/guides"');
+    expect(html).not.toContain('aria-label="頁面語言"');
     const metadata = await route.generateMetadata();
     expect(metadata.robots).toMatchObject({ index: false });
     expect(metadata.alternates?.canonical).toMatch(/\/zh-TW\/career\/guides$/u);

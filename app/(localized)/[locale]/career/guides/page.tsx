@@ -206,13 +206,11 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
   const directionPath = `${canonicalPath}/how-to-find-right-career-direction`;
   const transitionPath = `${canonicalPath}/career-transition-playbook`;
   const worksheetPath = localizedPath("/holland-test/pdf-download", locale);
-  const [listRead, exampleRead, traditionalRead] = await Promise.allSettled([
+  const [listRead, exampleRead] = await Promise.allSettled([
     listCareerGuidesFromCms(displayLocale, { fresh: true, throwOnUnavailable: true }),
     getCareerGuideFromCmsBySlug("how-to-find-right-career-direction", displayLocale),
-    traditional ? Promise.resolve([]) : listCareerGuidesFromCms("zh-TW", { perPage: 1 }),
   ]);
   const guides = listRead.status === "fulfilled" ? listRead.value : [];
-  const traditionalAvailable = traditionalRead.status === "fulfilled" && traditionalRead.value.length > 0;
   const example = exampleRead.status === "fulfilled" && exampleRead.value
     ? careerPlanningExample(exampleRead.value.bodyMd, displayLocale) : null;
   const exampleUnavailable = exampleRead.status === "rejected";
@@ -347,14 +345,7 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
               { label: t("职业规划", "Career planning", "職涯規劃") },
             ]}
           />
-          {traditional ? <nav aria-label="頁面語言" className="flex flex-wrap gap-4 text-sm">
-            <Link href="/zh/career/guides" lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
-            <Link href="/en/career/guides" lang="en" className="min-h-11 py-2 underline">English</Link>
-          </nav> : traditionalAvailable ? (
-            <Link href="/zh-TW/career/guides" lang="zh-TW" className="inline-flex min-h-11 items-center underline">繁體中文</Link>
-          ) : null}
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>{t("职业规划 · CAREER PLANNING", "CAREER PLANNING", "職涯規劃 · CAREER PLANNING")}</p>
             <h1>{pageTitle}</h1>
             <p>{pageDescription}</p>
           </div>

@@ -32,17 +32,19 @@ describe("homepage v1 hero contract", () => {
 
     expect(screen.getByRole("heading", { level: 1, name: "看清自己，走好每一步" })).toBeInTheDocument();
     expect(
-      screen.getByText("费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。")
+      screen.getByText("用 MBTI 了解性格偏好，用霍兰德测试发现职业兴趣。再从千余种职业档案中，比较真实的工作任务、技能要求和入行条件，找到值得亲自尝试的方向。")
     ).toBeInTheDocument();
   });
 
-  it("keeps the hero focused on the primary start action without the quick-start panel", async () => {
+  it("offers assessment and career entry points without the quick-start panel", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
     expect(screen.getByRole("link", { name: "免费测试" })).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types"
     );
+
+    expect(screen.getByRole("link", { name: "浏览职业库" })).toHaveAttribute("href", "/zh/career");
 
     for (const removedText of [
       "FERMATMIND / 费马测试",

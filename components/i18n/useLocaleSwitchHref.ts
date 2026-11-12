@@ -7,6 +7,13 @@ import { normalizeTraditionalPersonalityLanguageAlternates } from "@/lib/persona
 import { CANONICAL_SITE_URL } from "@/lib/site";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
+function articleReaderHref(pathname: string, language: "zh-CN" | "en" | "zh-TW", document?: ParentNode): string | undefined {
+  if (!/^\/(?:zh|en|zh-TW)\/articles\/[^/]+$/u.test(pathname)) return;
+  const href = document?.querySelector<HTMLAnchorElement>(`[data-article-reader-languages] a[lang="${language}"]`)?.getAttribute("href");
+  const prefix = language === "zh-CN" ? "zh" : language;
+  if (href && new RegExp(`^/${prefix}/articles/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$`, "u").test(href)) return href;
+}
+
 export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, head?: ParentNode, search = ""): string {
   const isCategory = /^\/(?:en|zh|zh-TW)\/articles\/category\/[^/]+\/?$/.test(pathname);
   if (!isCategory && !/^\/(?:en|zh|zh-TW)\/articles\/[^/]+\/?$/.test(pathname)) {
@@ -16,9 +23,11 @@ export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, 
     return emailTokenSwitchHref(pathname, target, search);
   }
 
+  const language = targetLocale === "zh" ? "zh-CN" : "en";
+  const readerHref = articleReaderHref(pathname, language, head);
+  if (readerHref) return readerHref;
   const fallback = localizedPath("/articles", targetLocale);
   const canonical = head?.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href;
-  const language = targetLocale === "zh" ? "zh-CN" : "en";
   const alternate = head?.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${language}"]`)?.href;
   if (!canonical || !alternate) return fallback;
 
@@ -52,6 +61,12 @@ export function useLocaleSwitchHref(pathname: string, targetLocale: Locale): str
 }
 
 export function resolveTraditionalSwitchHref(pathname: string, head?: ParentNode, search = ""): string {
+  const readerHref = articleReaderHref(pathname, "zh-TW", head);
+  if (readerHref) return readerHref;
+  if (/^\/(?:zh|en)\/topics\/[a-z0-9-]+$/u.test(pathname)) {
+    const topicHref = head?.querySelector<HTMLAnchorElement>('[data-topic-reader-language][lang="zh-TW"]')?.getAttribute("href");
+    if (topicHref === `/zh-TW${pathname.slice(pathname.indexOf("/", 1))}`) return topicHref;
+  }
   const registered = traditionalPath(pathname);
   if (registered) return emailTokenSwitchHref(pathname, registered, search);
   if (/^\/(?:en|zh)\/articles\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/u.test(pathname)

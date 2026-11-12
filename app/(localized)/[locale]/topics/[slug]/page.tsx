@@ -274,7 +274,7 @@ export default async function TopicDetailPage({
       />
 
       {topic.traditionalReaderAvailable && isTraditionalTopicSlug(topic.slug) ? (
-        <Link href={buildTopicFrontendUrl("zh-TW", topic.slug)} lang="zh-TW" className="fm-help-chip-link">
+        <Link hidden data-topic-reader-language href={buildTopicFrontendUrl("zh-TW", topic.slug)} lang="zh-TW">
           繁體中文（台灣）
         </Link>
       ) : null}

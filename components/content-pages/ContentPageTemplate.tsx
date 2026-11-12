@@ -1,3 +1,4 @@
+import { brandVisionCopy } from "@/lib/brand/visionCopy";
 import Link from "next/link";
 import { isKnownTestSlug, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { splitInternalLinkText } from "@/lib/content/internalLinkText";
@@ -443,6 +444,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
   const effectiveAt = formatDate(page.effectiveAt, locale);
   const isPolicy = page.kind === "policy";
   const isHelp = page.kind === "help";
+  const brandIntro = page.slug === "about" || page.slug === "brand" ? brandVisionCopy[locale] : null;
   const showHeroSummary = page.slug !== "help-contact";
   const showMetadataCard = Boolean(updatedAt || effectiveAt);
 
@@ -472,7 +474,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
             </h1>
             {showHeroSummary ? (
               <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)] md:text-xl md:leading-9">
-                {page.summary}
+                {brandIntro?.vision ?? page.summary}
               </p>
             ) : null}
           </div>
@@ -497,6 +499,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
 
         <div className="grid gap-10 py-12 md:grid-cols-[minmax(0,1fr)_18rem] md:py-16">
           <article className="max-w-3xl">
+            {brandIntro ? <p className="mb-8 text-base leading-8 text-[var(--fm-text)]">{brandIntro.introduction}</p> : null}
             <ContentPageBody page={page} blocks={markdownBlocks} locale={locale} />
           </article>
 

@@ -1,3 +1,4 @@
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -44,7 +45,7 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
   </TraditionalQuestionnaireCopy>;
 
   const languages = <nav aria-label="測驗語言" className="flex flex-wrap gap-5 text-sm">
-    <span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span>
+    <span aria-current="page" className="min-h-11 py-2">繁體中文</span>
     <Link href={`/zh${suffix}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
     <Link href={`/en${suffix}`} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
@@ -60,13 +61,17 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
     </div>
   </Container>;
 
-  return <Container as="main" className="space-y-8 py-10">
+  return <main className="bg-slate-50 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl space-y-8">
     {languages}
-    <h1 className="text-3xl font-bold sm:text-4xl">{quiz.title.zh}</h1>
-    <p className="text-lg leading-8">{quiz.description.zh}</p>
-    {start}
+    <ExploreTestIntro slug={quiz.slug} locale="zh-TW">
+      <h1>{quiz.title.zh}</h1>
+      <p>{quiz.description.zh}</p>
+      <div id="take-test" className="space-y-4">
+        <Link href={`${entry}/take`} className="explore-intro-entry" data-explore-start>開始免費測驗<span aria-hidden="true">→</span></Link>
+        {quiz.instructions && <p className="text-sm leading-7 text-slate-600">{quiz.instructions.zh}</p>}
+      </div>
+    </ExploreTestIntro>
     <p className="whitespace-pre-line leading-8">{quiz.introduction.zh}</p>
-    {quiz.instructions && <p className="whitespace-pre-line leading-8">{quiz.instructions.zh}</p>}
     {quiz.guide.map((section) => <section key={section.id} className="space-y-3">
       <h2 className="text-2xl font-semibold">{section.title.zh}</h2>
       {section.paragraphs.map((paragraph, index) => <p key={index} className="whitespace-pre-line leading-8">{paragraph.zh}</p>)}
@@ -93,5 +98,5 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
         {quiz.references.map((item) => <li key={item.url}><a href={item.url} className="underline">{item.title.zh}</a></li>)}
       </ul>
     </section> : null}
-  </Container>;
+  </Container></main>;
 }

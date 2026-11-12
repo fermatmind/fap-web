@@ -1,4 +1,6 @@
 "use client";
+import { QuestionnaireTakeOptions } from "@/components/questionnaires/QuestionnaireTakeOptions";
+import takeStyles from "@/components/questionnaires/QuestionnaireTake.module.css";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -44,7 +46,15 @@ export function SevenSinsTake() {
     </> : <>
       <h1 ref={heading} tabIndex={-1} className="text-3xl font-bold">{quiz.title["zh-TW"]}</h1>
       <p className="whitespace-pre-line leading-8">{quiz.instructions!["zh-TW"]}</p><p aria-live="polite">第 {position + 1} / 28 題</p>
-      <fieldset key={question.id} className="space-y-4"><legend className="mb-5 text-xl font-semibold leading-8">{question.prompt["zh-TW"]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-14 cursor-pointer items-start gap-4 rounded-xl border border-slate-300 bg-white p-4 leading-7"><input type="radio" name={question.id} checked={answers[question.id] === option.id} onChange={() => { setAnswers(current => ({ ...current, [question.id]: option.id })); setMessage(""); }} className="mt-1 size-5 shrink-0" />{option.label["zh-TW"]}</label>)}</fieldset>
+      <h2 className="mb-5 text-xl font-semibold leading-8">{question.prompt["zh-TW"]}</h2>
+      <div className={takeStyles.engine}>
+        <QuestionnaireTakeOptions questionId={question.id} prompt={question.prompt["zh-TW"]}
+          options={question.options.map(option => ({ id: option.id, label: option.label["zh-TW"] }))}
+          value={answers[question.id]} scale positiveLast onChange={id => {
+            setAnswers(current => ({ ...current, [question.id]: id }));
+            setMessage("");
+          }} />
+      </div>
       <div className="flex flex-wrap gap-4"><button className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>上一題</button><button className={button} onClick={next}>{position === 27 ? "查看結果" : "下一題"}</button></div>
     </>}
     <p role="status" className="leading-7">{message}</p><p className="text-sm leading-7 text-slate-600">作答與計分只留在此頁面記憶體；重新整理、離開或切換語言會開始新一輪。本繁體版本不傳送測評活動統計。</p>

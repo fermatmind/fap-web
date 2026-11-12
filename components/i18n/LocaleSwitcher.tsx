@@ -13,6 +13,7 @@ const LocaleSwitcherMenu = dynamic(() => import("@/components/i18n/LocaleSwitche
 export function LocaleSwitcher({ locale: displayLocale }: { locale?: DisplayLocale } = {}) {
   const pathname = usePathname() ?? "/";
   const [open, setOpen] = useState(false);
+  const hoverClose = useRef<ReturnType<typeof setTimeout> | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const contextLocale = useLocale();
@@ -44,12 +45,27 @@ export function LocaleSwitcher({ locale: displayLocale }: { locale?: DisplayLoca
     };
   }, [open]);
 
+  useEffect(() => () => {
+    if (hoverClose.current !== null) clearTimeout(hoverClose.current);
+  }, []);
+
   if (shouldDisableLocaleSwitchLinks(pathname)) return null;
 
   return (
     <div
       ref={containerRef}
       className="relative shrink-0"
+      onPointerEnter={(event) => {
+        if (event.pointerType !== "mouse") return;
+        if (hoverClose.current !== null) clearTimeout(hoverClose.current);
+        setOpen(true);
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType !== "mouse") return;
+        hoverClose.current = setTimeout(() => {
+          if (!containerRef.current?.querySelector(":focus-visible")) setOpen(false);
+        }, 180);
+      }}
       onBlur={(event) => {
         const nextTarget = event.relatedTarget;
         if (!(nextTarget instanceof Node) || !event.currentTarget.contains(nextTarget)) {
@@ -64,7 +80,11 @@ export function LocaleSwitcher({ locale: displayLocale }: { locale?: DisplayLoca
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls="site-language-menu"
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={(event) => {
+          if (hoverClose.current !== null) clearTimeout(hoverClose.current);
+          const mouseClick = event.detail > 0 && event.nativeEvent instanceof PointerEvent && event.nativeEvent.pointerType === "mouse";
+          setOpen((previous) => mouseClick || !previous);
+        }}
       >
         <Globe2 aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-[var(--fm-text-muted)]" />
         <span lang={locale === "zh" ? "zh-CN" : locale}>{currentLabel}</span>

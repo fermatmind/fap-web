@@ -318,9 +318,9 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EightQuizOverview")).EightQuizOverview : undefined;
   const relationshipCopy = RelationshipOverview ? await loadTraditionalAssessmentText() : undefined;
   const adultAgeCopy = slug === "adult-age-preferences" ? await loadTraditionalAssessmentText() : undefined;
-  return <div className="mx-auto w-full max-w-3xl space-y-8 px-[var(--fm-container-gutter)] py-10">
+  return <div className="mx-auto w-full max-w-[1160px] space-y-8 px-[var(--fm-container-gutter)] py-10">
     {languages}
-    <ExploreTestIntro slug={slug} locale="zh">
+    <ExploreTestIntro slug={slug} locale="zh-TW">
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
       <QuestionnaireTakeEntry quiz={hasTraditionalSelfEvaluation(slug) ? item.takeQuiz ?? quiz : quiz} locale="zh" displayLocale="zh-TW" />

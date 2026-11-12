@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -10,7 +9,6 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   buildCareerGuideFrontendUrl,
-  careerGuideAlternatePath,
   getCareerGuideFromCmsBySlug,
   getCareerGuideSeoFromCmsBySlug,
   normalizeCareerGuideSeoPayload,
@@ -163,9 +161,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
     updatedAt ? `${locale === "zh" ? "更新于" : "Updated"}: ${updatedAt}` : null,
   ].filter(Boolean);
   const answerSurface = withoutUnreviewedCareerJobSteps(guide.answerSurface);
-  const traditionalPath = careerGuideAlternatePath(
-    seo?.meta.alternates["zh-TW"], buildCareerGuideFrontendUrl("zh-TW", guide.slug)
-  );
+
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -181,7 +177,6 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
       />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 text-center shadow-[var(--fm-shadow-sm)]">
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{guide.title}</h1>
-        {traditionalPath ? <Link href={traditionalPath} lang="zh-TW" className="inline-flex min-h-11 items-center underline">繁體中文</Link> : null}
         {metadataParts.length > 0 ? (
           <p className="m-0 text-xs text-[var(--fm-text-muted)]">{metadataParts.join(" · ")}</p>
         ) : null}

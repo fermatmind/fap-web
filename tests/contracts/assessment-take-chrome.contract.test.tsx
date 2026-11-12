@@ -15,17 +15,17 @@ describe("Assessment take chrome", () => {
       </AssessmentSiteFrame>
     );
     expect(screen.getByRole("main")).toHaveTextContent("Assessment content");
-    expect(screen.queryByText("Full navigation")).not.toBeInTheDocument();
+    expect(screen.getByText("Full navigation")).toBeInTheDocument();
     expect(screen.queryByText("Full footer")).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: locale === "zh" ? "返回测评介绍" : "Back to assessment" })).toHaveAttribute("href", `/${locale}/tests/${slug}`);
     expect(screen.getByRole("link", { name: locale === "zh" ? "测评科学" : "Assessment science" })).toHaveAttribute("href", `/${locale}/science`);
     expect(screen.getByRole("link", { name: locale === "zh" ? "隐私保护" : "Privacy" })).toHaveAttribute("href", `/${locale}/privacy`);
   });
 
-  it.each(["tests/mbti-personality-test-16-personality-types", "tests/explore/chiikawa", "tests/play/friendship-quiz"])("uses focused chrome and a Taiwan return link for %s", (path) => {
+  it.each(["tests/mbti-personality-test-16-personality-types", "tests/explore/chiikawa", "tests/play/friendship-quiz"])("uses shared navigation and a Taiwan return link for %s", (path) => {
     route.pathname = `/zh-TW/${path}/take`;
     render(<AssessmentSiteFrame locale="zh-TW" header={<nav>Full navigation</nav>} footer={<footer>Full footer</footer>}><main>題目</main></AssessmentSiteFrame>);
-    expect(screen.queryByText("Full navigation")).not.toBeInTheDocument();
+    expect(screen.getByText("Full navigation")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "返回測驗介紹" })).toHaveAttribute("href", `/zh-TW/${path}`);
     expect(screen.getByRole("link", { name: "隱私保護" })).toHaveAttribute("href", "/zh-TW/privacy");
   });

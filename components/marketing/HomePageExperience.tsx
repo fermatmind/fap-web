@@ -1,3 +1,4 @@
+import { brandVisionCopy } from "@/lib/brand/visionCopy";
 import { GraduationCap, HeartHandshake, Microscope } from "lucide-react";
 import Link from "next/link";
 import { ArticleByline } from "@/components/articles/ArticleByline";
@@ -49,21 +50,18 @@ const HOMEPAGE_HERO_ASSETS = {
 const HOMEPAGE_HERO_COPY = {
   zh: {
     title: "看清自己，走好每一步",
-    subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
     primaryCta: "免费测试",
     socialProofCount: "",
     socialProof: "",
   },
   "zh-TW": {
     title: "看清自己，走好每一步",
-    subhead: "費馬測試把自我認知、職涯探索與能力成長，做成能測量、能練習、能回顧的成長系統。",
     primaryCta: "免費測驗",
     socialProofCount: "",
     socialProof: "",
   },
   en: {
     title: "Know yourself, move with clarity",
-    subhead: "FermatMind turns self-understanding, career exploration, and ability growth into a measurable, trainable, reviewable system.",
     primaryCta: "Take a free test",
     socialProofCount: "",
     socialProof: "",
@@ -218,6 +216,7 @@ function HomepageHeroV1({ locale, copy }: { locale: DisplayLocale; copy: HomePag
       : null;
   const ctas = [
     { label: heroCopy.primaryCta || copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
+    { label: brandVisionCopy[locale].careerLabel, href: "/career", variant: "secondary" },
   ].filter((item) => hasText(item.label) && hasText(item.href));
 
   return (
@@ -243,7 +242,7 @@ function HomepageHeroV1({ locale, copy }: { locale: DisplayLocale; copy: HomePag
               : heroCopy.title}
           </h1>
           <p className="m-0 mt-6 max-w-2xl text-[1.1rem] font-medium leading-9 text-[#5f6066] lg:text-base lg:leading-[1.6]">
-            {heroCopy.subhead || copy.hero.subhead}
+            {brandVisionCopy[locale].homeSubtitle}
           </p>
 
           {heroCopy.socialProofCount && heroCopy.socialProof && (

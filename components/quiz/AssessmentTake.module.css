@@ -3,18 +3,20 @@
   display: flex;
   flex-direction: column;
   background: #f5f5f7;
+}
+.siteFrame > :is(main, .assessmentExit, .siteFooter) {
   color: #1d1d1f;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 .siteFrame > main { flex: 1; display: grid; align-items: center; padding-top: 40px; padding-bottom: 40px; }
-.siteHeader { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px max(24px, calc((100% - 1120px) / 2)); border-bottom: 1px solid #0000000a; background: #ffffffb8; backdrop-filter: blur(20px); }
-.wordmark { color: #1d1d1f; font-size: 21px; font-weight: 650; letter-spacing: -.04em; }
+.assessmentExit { display: flex; justify-content: flex-end; padding-inline: max(24px, calc((100% - 1120px) / 2)); }
+.pageChrome :global(nav:is([aria-label="页面语言"], [aria-label="頁面語言"], [aria-label="Page language"], [aria-label="測驗語言"], [aria-label="測評語言"])) { display: none; }
 .exitLink { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: #6e6e73; font-size: 12px; }
 .exitLink span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #e8e8ed; font-size: 17px; transition: background-color 180ms ease; }
-.siteFrame a:hover { color: #0071e3; }
+.siteFrame :is(.assessmentExit, .siteFooter) a:hover { color: #0071e3; }
 .exitLink:hover span { background: #dceafa; }
-.siteFrame a:focus-visible { outline: 3px solid #0071e3; outline-offset: 4px; border-radius: 4px; }
+.siteFrame :is(.assessmentExit, .siteFooter) a:focus-visible { outline: 3px solid #0071e3; outline-offset: 4px; border-radius: 4px; }
 .siteFooter { display: flex; justify-content: space-between; align-items: center; gap: 24px; width: min(960px, calc(100% - 48px)); margin: auto auto 0; padding: 12px 0; color: #6e6e73; font-size: 11px; }
 .siteFooter nav { display: flex; gap: 24px; }
 .siteFooter a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -136,8 +138,6 @@
 .footer > button::before { content: "‹"; margin-right: 8px; font-size: 22px; line-height: 1; }
 
 @media (max-width: 640px) {
-  .siteHeader { padding: 8px 20px; gap: 12px; flex-wrap: wrap; }
-  .wordmark { font-size: 19px; }
   .exitLink { gap: 8px; font-size: 11px; }
   .siteFrame > main { display: block; padding: 20px 12px; }
   .siteFooter { width: calc(100% - 40px); padding: 4px 0; font-size: 10px; }

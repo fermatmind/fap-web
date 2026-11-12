@@ -1,7 +1,7 @@
 import type { Ref } from "react";
 import { sevenSinsDisplay } from "@/lib/i18n/zh-TW/sevenSinsUi";
 import type { DisplayLocale as Locale } from "@/lib/i18n/locales";
-import { miniVirtuesDefinitions, type MiniVirtuesDualResult } from "@/lib/questionnaires/miniVirtues";
+import { miniVirtuesDefinitions, scoreMiniVirtuesQuestionnaire, type MiniVirtuesDualResult } from "@/lib/questionnaires/miniVirtues";
 import styles from "./SevenSinsOverview.module.css";
 
 type Track = "sin" | "virtue";
@@ -86,6 +86,13 @@ function resultAxes(result: MiniVirtuesDualResult, track: Track): Axis[] {
     score: result.miniVirtues[index][track],
     track,
   }));
+}
+
+const sampleOptions = ["3", "4", "2", "5", "4", "2", "2", "3", "3", "5", "3", "3", "3", "3", "4", "3", "5", "3", "3", "4", "4", "4", "2", "4", "4", "3", "5", "3"] as const;
+
+export function buildSevenSinsSample(quiz: { questions: readonly { id: string }[] }) {
+  const answers = Object.fromEntries(quiz.questions.map((question, index) => [question.id, sampleOptions[index]]));
+  return scoreMiniVirtuesQuestionnaire(quiz, answers);
 }
 
 export function QuestionnaireSevenSinsSample({ result, locale }: { result: MiniVirtuesDualResult; locale: Locale }) {

@@ -35,19 +35,17 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
   if (pathname === withLocale("/account")) return <>{children}</>;
 
   if (!focused) {
-    return <div className="fm-page-background min-h-screen text-[var(--fm-text)]">{header}{children}{footer}</div>;
+    return <div className={`fm-page-background min-h-screen text-[var(--fm-text)] ${styles.pageChrome}`}>{header}{children}{footer}</div>;
   }
 
   return (
-    <div className={styles.siteFrame}>
-      <header className={styles.siteHeader}>
-        <Link href={withLocale("/")} className={styles.wordmark}>
-          {taiwan ? "費馬測試" : locale === "zh" ? "费马测试" : "FermatMind"}
-        </Link>
+    <div className={`${styles.siteFrame} ${styles.pageChrome}`}>
+      {header}
+      <div className={styles.assessmentExit}>
         <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? withLocale("/tests/play/friendship-quiz") : questionnaireTake ? (taiwan ? withLocale(questionnaireTake.landing.slice("/zh".length)) : questionnaireTake.landing) : withLocale(`/tests/${focusedSlug}`)} className={styles.exitLink}>
           {taiwan ? "返回測驗介紹" : locale === "zh" ? "返回测评介绍" : "Back to assessment"}<span aria-hidden>↗</span>
         </Link>
-      </header>
+      </div>
       {children}
       <footer className={styles.siteFooter}>
         <span>FermatMind</span>

@@ -1,3 +1,7 @@
+import type { ReactNode } from "react";
+import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
+import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
+import catalog from "@/lib/questionnaires/catalog.json";
 import { traditionalMixedQuestionnaireRoute } from "@/lib/i18n/traditionalMixedQuestionnairePaths";
 import { traditionalCulturalSymbolRoute } from "@/lib/i18n/traditionalCulturalSymbolPaths";
 import { traditionalObservationRoute } from "@/lib/i18n/traditionalObservationPaths";
@@ -76,62 +80,76 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 function Languages({ path }: { path: string }) {
   const suffix = path.replace("/zh-TW", "");
-  return <nav aria-label="測評語言" className="mb-8 flex flex-wrap gap-5 text-sm"><span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span><Link href={`/zh${suffix}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link><Link href={`/en${suffix}`} lang="en" className="min-h-11 py-2 underline">English</Link></nav>;
+  return <nav aria-label="測評語言" className="mb-8 flex flex-wrap gap-5 text-sm"><span aria-current="page" className="min-h-11 py-2">繁體中文</span><Link href={`/zh${suffix}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link><Link href={`/en${suffix}`} lang="en" className="min-h-11 py-2 underline">English</Link></nav>;
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  const landingSlug = /^\/zh-TW\/tests\/explore\/([^/]+)$/u.exec(path)?.[1];
+  const category = catalog.find((quiz) => quiz.slug === landingSlug)?.category;
+  const landing = (content: ReactNode) => landingSlug
+    ? <ExploreTestShell slug={landingSlug} category={category}>{content}</ExploreTestShell>
+    : content;
   const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
   if (mixed) {
     const { TraditionalMixedQuestionnairePage } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");
-    return <TraditionalMixedQuestionnairePage {...mixed} />;
+    return landing(<TraditionalMixedQuestionnairePage {...mixed} />);
   }
   const culturalSymbol = traditionalCulturalSymbolRoute(path.slice("/zh-TW".length));
   if (culturalSymbol) {
     const { TraditionalCulturalSymbolPage } = await import("@/components/i18n/zh-TW/TraditionalCulturalSymbolPage");
-    return <TraditionalCulturalSymbolPage {...culturalSymbol} />;
+    return landing(<TraditionalCulturalSymbolPage {...culturalSymbol} />);
   }
   if (path === "/zh-TW/tests/explore/career-match") {
     const { TraditionalCareerMatchPage } = await import("@/components/i18n/zh-TW/TraditionalCareerMatchPage");
-    return <TraditionalCareerMatchPage />;
+    return landing(<TraditionalCareerMatchPage />);
   }
   const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length)) ?? traditionalObservationRoute(path.slice("/zh-TW".length));
   if (likert?.slug === "cognitive-functions-test") {
     const { TraditionalCognitiveFunctionsPage } = await import("@/components/i18n/zh-TW/TraditionalCognitiveFunctionsPage");
     const edition = likert.take ? (await props.searchParams)?.edition : undefined;
-    return <TraditionalCognitiveFunctionsPage {...likert} edition={edition} />;
+    return landing(<TraditionalCognitiveFunctionsPage {...likert} edition={edition} />);
   }
   if (likert) {
     const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
-    return <LikertQuestionnairePage {...likert} />;
+    return landing(<LikertQuestionnairePage {...likert} />);
   }
   const practice = traditionalPracticeRoute(path.slice("/zh-TW".length));
   if (practice) {
     const { PracticeQuestionnairePage } = await import("@/components/i18n/zh-TW/PracticeQuestionnairePage");
-    return <PracticeQuestionnairePage {...practice} />;
+    return landing(<PracticeQuestionnairePage {...practice} />);
   }
   const archetype = traditionalArchetypeRoute(path.slice("/zh-TW".length));
   if (archetype) {
     const { ArchetypeQuestionnairePage } = await import("@/components/i18n/zh-TW/ArchetypeQuestionnairePage");
-    return <ArchetypeQuestionnairePage {...archetype} />;
+    return landing(<ArchetypeQuestionnairePage {...archetype} />);
   }
   if (relationshipQuestionnaireRoute(path.slice("/zh-TW".length))) {
     const { RelationshipQuestionnairePage } = await import("@/components/i18n/zh-TW/RelationshipQuestionnairePage");
-    return <RelationshipQuestionnairePage path={path} />;
+    return landing(<RelationshipQuestionnairePage path={path} />);
   }
   if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
     const { SevenSinsTraditionalPage } = await import("@/components/i18n/zh-TW/SevenSinsPage");
-    return <SevenSinsTraditionalPage path={path} />;
+    return landing(<SevenSinsTraditionalPage path={path} />);
   }
   const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   if (path.endsWith("/take")) return <ChiikawaTake />;
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
   if (profile) return <Container as="main" className="space-y-6 py-10"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></Container>;
   if (path !== entry) return <Container as="main" className="py-10"><TraditionalPilotTests /></Container>;
-  return <Container as="main" className="space-y-8 py-10"><Languages path={path} /><h1 className="text-3xl font-bold sm:text-4xl">{quiz.title["zh-TW"]}</h1><p className="text-lg leading-8">{quiz.description["zh-TW"]}</p><p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p><Link href={`${entry}/take`} className="inline-block min-h-11 rounded-full bg-slate-900 px-7 py-3 font-semibold text-white">{ui.start["zh-TW"]}</Link>
-    <p className="whitespace-pre-line leading-8">{quiz.instructions!["zh-TW"]}</p>
+  return landing(<main className="bg-slate-50 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl space-y-8">
+    <Languages path={path} />
+    <ExploreTestIntro slug={quiz.slug} locale="zh-TW">
+      <h1>{quiz.title["zh-TW"]}</h1>
+      <p>{quiz.description["zh-TW"]}</p>
+      <div id="take-test" className="space-y-4">
+        <Link href={`${entry}/take`} className="explore-intro-entry" data-explore-start>{ui.start["zh-TW"]}<span aria-hidden="true">→</span></Link>
+        <p className="text-sm leading-7 text-slate-600">{quiz.instructions!["zh-TW"]}</p>
+      </div>
+    </ExploreTestIntro>
+    <p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p>
     {quiz.guide.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}
     <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.guides["zh-TW"]}</h2><div className="grid gap-5 sm:grid-cols-2">{quiz.profiles.map(profile => <Link key={profile.id} href={`${entry}/results/${profile.id}`} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5"><ChiikawaPortrait id={profile.id} className="size-20 rounded-xl" /><h3 className="text-xl font-semibold underline">{profile.title["zh-TW"]}</h3><p className="leading-7">{profile.headline["zh-TW"]}</p></Link>)}</div></section>
     <section className="space-y-3"><h2 className="text-2xl font-bold">來源與範圍</h2><p className="leading-8">本站原創同人情境題與角色解讀，不是官方測驗或臨床評估。繁體版保留原題本與計分規則。</p><ul className="list-disc space-y-3 pl-5">{quiz.references?.map(reference => <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer" className="underline">{reference.title["zh-TW"]}</a></li>)}</ul></section>
     <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.faq["zh-TW"]}</h2>{quiz.faq.map((faq, index) => <div key={index}><h3 className="text-xl font-semibold">{faq.question["zh-TW"]}</h3><p className="mt-3 whitespace-pre-line leading-8">{faq.answer["zh-TW"]}</p></div>)}</section>
-  </Container>;
+  </Container></main>);
 }

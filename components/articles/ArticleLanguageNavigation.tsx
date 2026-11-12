@@ -10,7 +10,7 @@ export function ArticleLanguageNavigation({ article }: { article: CmsArticle }) 
   const locale = article.locale === "zh-CN" || article.locale === "zh-TW" ? article.locale : "en";
 
   return (
-    <nav aria-label={ariaLabels[locale]} className="flex flex-wrap gap-5 text-sm">
+    <nav data-article-reader-languages hidden aria-label={ariaLabels[locale]} className="hidden">
       {(["zh-CN", "zh-TW", "en"] as const).map((language) => {
         const slug = destinations[language];
         return slug && language !== locale ? (

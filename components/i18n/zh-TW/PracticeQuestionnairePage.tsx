@@ -86,9 +86,9 @@ export async function PracticeQuestionnairePage({ slug, take, profile }: Practic
     <PracticeSections sections={quiz.guide} />
   </article>;
 
-  return <div className="mx-auto w-full max-w-3xl space-y-8 px-[var(--fm-container-gutter)] py-10">
+  return <div className="mx-auto w-full max-w-[1160px] space-y-8 px-[var(--fm-container-gutter)] py-10">
     {languages}
-    <ExploreTestIntro slug={slug} locale="zh">
+    <ExploreTestIntro slug={slug} locale="zh-TW">
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>
       <p className="mt-5 text-lg leading-8">{quiz.description.zh}</p>
       <p className="explore-intro-meta"><span>{quiz.questions.length} 題 · 約 {quiz.minutes} 分鐘 · 無需註冊</span><span>原創練習題 · 逐題解析與複習指南免費</span></p>

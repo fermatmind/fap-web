@@ -1,3 +1,4 @@
+import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -107,17 +108,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TraditionalStoryPage({ params }: Props) {
-  const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}`);
+  const { slug } = await params;
+  const directional = traditionalDirectionalRoute(`/tests/play/${slug}`);
   if (directional) {
     const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
-    return <LikertQuestionnairePage {...directional} />;
+    return <ExploreTestShell slug={slug}><LikertQuestionnairePage {...directional} /></ExploreTestShell>;
   }
-  const { slug } = await params;
   const quiz = await requireTraditionalStoryQuiz(slug);
   const BespokePage = Object.hasOwn(bespokePages, slug) ? bespokePages[slug as keyof typeof bespokePages] : null;
   const shared = BespokePage ? null : await requireTraditionalLegacyStory(slug);
   const displayText = shared ? await loadTraditionalAssessmentText() : undefined;
-  return <>
+  return <ExploreTestShell slug={slug} category={quiz.category}>
     <nav aria-label="測驗語言" className="flex flex-wrap gap-4 py-2 text-sm">
       <Link href="/zh-TW/tests/play" className="min-h-11 py-2 underline">故事測驗總覽</Link>
       <Link href={quizPath("zh", quiz.slug)} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
@@ -125,5 +126,5 @@ export default async function TraditionalStoryPage({ params }: Props) {
     </nav>
     {BespokePage ? <BespokePage quiz={quiz} locale="zh" displayLocale="zh-TW" /> :
       <StoryEditorialPage quiz={quiz} editorial={shared?.editorial} locale="zh" displayLocale="zh-TW" displayText={displayText} />}
-  </>;
+  </ExploreTestShell>;
 }
