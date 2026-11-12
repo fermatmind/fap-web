@@ -24,7 +24,7 @@ function component(locale: Locale) {
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllEnvs(); });
 
 describe.each<Locale>(["zh", "en"])("career detail next steps: %s", locale => {
-  it("offers one localized path per task and retains the attributed RIASEC option", () => {
+  it("offers one localized path per task and renders a clean RIASEC option", () => {
     const doc = new DOMParser().parseFromString(renderToStaticMarkup(component(locale)), "text/html");
     expect(doc.querySelectorAll("aside")).toHaveLength(1);
     expect(doc.querySelectorAll("li")).toHaveLength(3);
@@ -35,8 +35,7 @@ describe.each<Locale>(["zh", "en"])("career detail next steps: %s", locale => {
     expect(doc.querySelector(`a[href="/${locale}/career/jobs"]`)).toBeNull();
     const riasec = new URL(doc.querySelector('[data-target-action="start_riasec_test"]')!.getAttribute("href")!, "https://fermatmind.com");
     expect(riasec.pathname).toBe(`/${locale}/tests/holland-career-interest-test-riasec`);
-    expect(riasec.searchParams.get("subject_key")).toBe("materials-scientists");
-    expect(riasec.searchParams.get("utm_source")).toBe("career-test");
+    expect(riasec.search).toBe("");
     expect(doc.querySelector("aside")?.textContent).toContain(locale === "zh" ? "兴趣不等于能力或职业资格" : "Interests do not establish ability or qualifications");
     expect(doc.querySelectorAll("button")).toHaveLength(0);
   });
@@ -47,7 +46,7 @@ describe.each<Locale>(["zh", "en"])("career detail next steps: %s", locale => {
     vi.resetModules();
     const { CareerRiasecExploreLink: ActiveComponent } = await import("@/components/career/CareerRiasecExploreLink");
     setAnalyticsConsent(consent);
-    const view = render(<ActiveComponent locale={locale} subjectSlug="actors" careerName={locale === "zh" ? "演员" : "Actors"} href={`/${locale}/tests/holland-career-interest-test-riasec`} />);
+    const view = render(<ActiveComponent locale={locale} subjectSlug="actors" careerName={locale === "zh" ? "演员" : "Actors"} href={buildCareerDisplayCtaHref({ locale, subjectSlug: "actors", landingPath: `/${locale}/career/jobs/actors`, attributionParams: { utm_source: "career-test" } })} />);
     const links = [...view.container.querySelectorAll("a")];
     mocks.track.mockClear();
     for (const link of links) {
@@ -57,6 +56,7 @@ describe.each<Locale>(["zh", "en"])("career detail next steps: %s", locale => {
     expect(mocks.track).toHaveBeenCalledTimes(consent === "granted" ? 4 : 0);
     if (consent === "granted") {
       expect(mocks.track.mock.calls.map(call => call[0].payload.target_action)).toEqual(["choose_career_assessment", "start_riasec_test", "browse_career_options", "plan_career_action"]);
+      expect(mocks.track.mock.calls[1][0].payload).toMatchObject({ utm_source: "career-test" });
       for (const [{ eventName, payload }] of mocks.track.mock.calls) {
         expect(eventName).toBe("career_job_detail_cta_click");
         expect(payload).toMatchObject({ locale, entry_surface: "career_job_detail", source_page_type: "career_job_detail", subject_kind: "job_slug", subject_key: "actors", landing_path: `/${locale}/career/jobs/actors` });

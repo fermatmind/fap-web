@@ -57,7 +57,7 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", stri
     en: "Learn about your 16-type personality result and four preference pairs. Choose 93 questions in about 10 minutes or 144 in about 15. Both versions are free to complete and view results, for self-understanding and communication reference.",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    zh: "了解你更喜欢哪些工作活动。60题约8分钟，140题约18分钟，两版均可免费完成并查看六维兴趣与三字代码。用结果比较实际岗位任务、课程和小项目；兴趣不等于能力，也不能保证某个职业适合你。",
+    zh: "两版均可免费完成测评并查看结果。60 题约 8 分钟，140 题约 18 分钟。结果会展示 RIASEC 六维兴趣，以及概括前三项的三字代码，帮助你找到想进一步体验的工作活动。",
     en: "Find work activities you would like to explore with this free Holland Code career interest test. Choose 60 questions in about 8 minutes or 140 in about 18. Both include your six RIASEC scores and three-letter code. Use them to compare real job tasks, courses and projects; interests do not measure ability or guarantee a career match.",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {

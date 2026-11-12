@@ -1,3 +1,4 @@
+import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import Link from "next/link";
 import type { CareerDisplaySection, CareerDisplaySurfaceViewModel } from "@/lib/career/displaySurface";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -87,7 +88,7 @@ export function CareerDecisionActionBlock({
               ? `用霍兰德 / RIASEC 看你的兴趣结构${interestProfile ? `是否接近${interestProfile}` : "是否接近这类职业需要的工作偏好"}。`
               : `Use Holland / RIASEC to check whether your interest pattern${interestProfile ? ` aligns with ${interestProfile}` : " fits this type of work"}.`}
           </p>
-          <Link
+          <CareerJobAssessmentLink
             href={primaryCtaHref}
             className="mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-100"
             data-entry-surface="career_job_detail"
@@ -96,7 +97,7 @@ export function CareerDecisionActionBlock({
             data-test-slug={surface.cta.testSlug}
           >
             {surface.cta.label}
-          </Link>
+          </CareerJobAssessmentLink>
         </article>
 
         <article className="flex min-h-64 flex-col rounded-lg border border-slate-200 bg-slate-50 p-5">

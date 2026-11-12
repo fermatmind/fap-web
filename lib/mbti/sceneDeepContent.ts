@@ -1,3 +1,4 @@
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import type { Locale } from "@/lib/i18n/locales";
 
 export const MBTI_SCENE_DEEP_PRIORITY_TYPES = [
@@ -87,7 +88,7 @@ function buildPriorityRouteBundle(locale: Locale, typeCode: MbtiSceneDeepPriorit
 
   return {
     personalityPath: withLocale(locale, `/personality/${variantSlug}`),
-    recommendationPath: withLocale(locale, `/career/recommendations/mbti/${variantSlug}`),
+    recommendationPath: personalityCareerHref(locale, variantSlug),
     topicPath: withLocale(locale, "/topics/mbti"),
     guidePath: withLocale(locale, "/career/guides/from-mbti-to-job-fit"),
     basicsArticlePath: withLocale(locale, "/articles/mbti-basics"),

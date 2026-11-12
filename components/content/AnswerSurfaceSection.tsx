@@ -1,3 +1,4 @@
+import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
@@ -110,7 +111,7 @@ function renderAnswerSurfaceLink({
   }
 
   return (
-    <Link href={href} className={className}>
+    <Link href={seoCtaAttribution ? migratePersonalityCareerHref(href, locale) : href} className={className}>
       {displayLabel}
     </Link>
   );

@@ -1,3 +1,4 @@
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cache, Suspense } from "react";
@@ -184,10 +185,10 @@ export async function generateMetadata({
     locale,
     pathname: buildJobsQueryPath(pathname, { query: submittedQuery, family, page }),
     canonicalPathname,
-    title: locale === "zh" ? "全部职业库" : "All Occupations Library",
+    title: locale === "zh" ? "中文职业库：查职业职责、入行条件与职业方向" : "All Occupations Library",
     description:
       locale === "zh"
-        ? "浏览 FermatMind 职业数据库，按行业筛选职业，并进入已开放的职业详情页。"
+        ? "按职业名称搜索或按行业浏览，查看已开放详情的工作职责、入行条件和职业方向。"
         : "Browse the FermatMind occupation library, filter by industry, and open available role profiles.",
     noindex: hasDirectoryState,
     noindexFollow: hasDirectoryState,
@@ -299,22 +300,10 @@ export default async function CareerPage({
         <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
           <div className="mx-auto w-full space-y-4">
             <h1 className="m-0 mx-auto max-w-4xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
-              {label("测量自己，看见职业，训练未来", `${occupationCount} occupations, organized by industry`)}
+              {traditional ? "測量自己，看見職業，訓練未來" : label("搜索职业，查看工作职责与入行条件", `${occupationCount} occupations, organized by industry`)}
             </h1>
           </div>
-
-          <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">
-            <Metric label={label("全部职业", "All occupations")} value={String(occupationCount)} />
-            <Metric label={label("行业分类", "Industries")} value={String(families.length)} />
-            <Metric label={label("公开条目", "Public entries")} value={String(publicDetailCount)} />
-            <Metric label={label("每页显示", "Page size")} value={String(directory.pagination.perPage)} />
-          </div>
         </section>
-
-        <Link href={`${jobsPath}/compare`} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
-          <span>{label("比较两个职业：任务、环境与入行条件", "Compare two careers: tasks, settings and entry conditions")}</span>
-          <span className="text-sm font-normal">{label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
-        </Link>
 
         <section className="space-y-5" data-testid="career-library-workspace">
           {directory.state === "stale" ? (
@@ -343,6 +332,27 @@ export default async function CareerPage({
                 ) : null}
               </div>
             </form>
+
+            {locale === "zh" && !traditional && !hasActiveFilters && page === 1 ? (
+              <div className="space-y-2 text-sm leading-6 text-slate-700">
+                <p className="m-0"><Link href={industriesPath} className="font-semibold underline underline-offset-4">按行业浏览</Link></p>
+                <p className="m-0">职责示例。<Link href="/zh/career/jobs/accountants-and-auditors" className="font-semibold underline underline-offset-4">会计师和审计师</Link>的工作包括核对账簿、编制财务报表，或按风险获取和复核审计证据。</p>
+                <p className="m-0">还没有候选方向？先看<Link href="/zh/career/tests" className="underline underline-offset-4">职业测试怎么选</Link>，或用<TrackedEntryCtaLink
+                  href="/zh/tests/holland-career-interest-test-riasec" eventName="continue_exploration"
+                  eventProperties={{ locale, entry_surface: "career_landing", source_page_type: "career_landing", target_action: "open_riasec_test", test_slug: "holland-career-interest-test-riasec" }}
+                  className="underline underline-offset-4">免费霍兰德测试</TrackedEntryCtaLink>找想尝试的工作活动。</p>
+              </div>
+            ) : null}
+            <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">
+              <Metric label={label("全部职业", "All occupations")} value={String(occupationCount)} />
+              <Metric label={label("行业分类", "Industries")} value={String(families.length)} />
+              <Metric label={label("公开条目", "Public entries")} value={String(publicDetailCount)} />
+              <Metric label={label("每页显示", "Page size")} value={String(directory.pagination.perPage)} />
+            </div>
+            <Link href={`${jobsPath}/compare`} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
+              <span>{label("比较两个职业：任务、环境与入行条件", "Compare two careers: tasks, settings and entry conditions")}</span>
+              <span className="text-sm font-normal">{label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
+            </Link>
 
             {hasActiveFilters ? (
               <div

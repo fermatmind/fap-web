@@ -1,3 +1,4 @@
+import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import { CareerAiScoreInfoLink } from './CareerAiAssessmentMethod';
 import type { ReactNode } from "react";
 import Link from "next/link";
@@ -550,7 +551,7 @@ function CareerProductionHero({
           ))}
         </div>
       ) : null}
-      {!published ? <Link
+      {!published ? <CareerJobAssessmentLink
         id={published ? "career-component-primary_cta" : undefined}
         href={heroCta ? publishedCtaHref(heroCta.href, surface.locale, primaryCtaHref) : primaryCtaHref}
         data-career-component-id={published ? "primary_cta" : undefined}
@@ -563,7 +564,7 @@ function CareerProductionHero({
       >
         {heroCta ? publishedCtaLabel(heroCta.label, surface.locale, heroCta.label) : publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
         {published ? <span aria-hidden="true">→</span> : null}
-      </Link> : null}
+      </CareerJobAssessmentLink> : null}
     </header>
   );
 }
@@ -753,11 +754,11 @@ export function CareerProductionDisplaySurface({
           data-api-label={rawCtaLabel}
         >
           {typeof ctaData.prompt === "string" ? <p className="m-0 mb-3 text-sm leading-6 text-white/95">{ctaData.prompt}</p> : null}
-          <Link href={ctaHref} className={publishedComponents
+          <CareerJobAssessmentLink href={ctaHref} className={publishedComponents
             ? "inline-flex min-h-11 max-w-full items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] hover:brightness-105"
             : "inline-flex min-h-11 items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] transition-transform hover:-translate-y-0.5"}>
             {ctaLabel}
-          </Link>
+          </CareerJobAssessmentLink>
         </section>
       );
     }
@@ -1147,7 +1148,7 @@ export function CareerProductionDisplaySurface({
               </nav>
             </div>
             {surface.componentOrder.includes("primary_cta") ? <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
-              <Link href={primaryCtaHref} className={visual.assessmentRailCta}>{surface.interfaceLabels ? surface.cta.label : copy.startTest}<span aria-hidden="true">→</span></Link>
+              <CareerJobAssessmentLink href={primaryCtaHref} className={visual.assessmentRailCta}>{surface.interfaceLabels ? surface.cta.label : copy.startTest}<span aria-hidden="true">→</span></CareerJobAssessmentLink>
             </section> : null}
           </aside>
           <main className={`min-w-0 ${visual.componentStack}`}>
@@ -1194,9 +1195,9 @@ export function CareerProductionDisplaySurface({
               </nav>
             </div>
             <section className="flex min-h-[132px] flex-col justify-center rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-6 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
-              <Link href={primaryCtaHref} className="inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
+              <CareerJobAssessmentLink href={primaryCtaHref} className="inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
                 {surface.cta.label}
-              </Link>
+              </CareerJobAssessmentLink>
             </section>
           </aside>
         </div>
@@ -1472,10 +1473,10 @@ export function CareerProductionDisplaySurface({
             className={visual.assessmentRail}
             data-testid="career-production-assessment-rail"
           >
-            <Link href={primaryCtaHref} className={visual.assessmentRailCta}>
+            <CareerJobAssessmentLink href={primaryCtaHref} className={visual.assessmentRailCta}>
               {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
               <span aria-hidden="true">→</span>
-            </Link>
+            </CareerJobAssessmentLink>
           </section> : null}
         </aside>
         <main className={`min-w-0 ${visual.componentStack}`}>

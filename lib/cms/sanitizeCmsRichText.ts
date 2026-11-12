@@ -1,3 +1,5 @@
+import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
+import { publicRiasecLandingPath } from "@/lib/tracking/seoCtaAttribution";
 import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
@@ -268,11 +270,12 @@ function isSafeMailtoAddressList(value: string): boolean {
 }
 
 function localizeInternalCmsHref(href: string, options: CmsHtmlSanitizeOptions): string {
-  if (!options.locale || !LOCALIZABLE_INTERNAL_HREF_RE.test(href)) {
-    return href;
+  if (!options.locale) return href;
+  const localized = LOCALIZABLE_INTERNAL_HREF_RE.test(href) ? localizedPath(href, options.locale) : href;
+  if (/[?&]entry_surface=/.test(localized)) {
+    return publicRiasecLandingPath(localized, options.locale) ?? localized;
   }
-
-  return localizedPath(href, options.locale);
+  return migratePersonalityCareerHref(localized, options.locale);
 }
 
 function isAllowedAttribute(tagName: string, attributeName: string): boolean {

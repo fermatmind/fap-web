@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import { buildCareerDisplayCtaHref, type CareerDisplaySurfaceViewModel } from "@/lib/career/displaySurface";
 import type { AttributionParams } from "@/lib/tracking/attribution";
 
@@ -29,7 +29,7 @@ export function CareerDisplayCTA({
           ? "用 RIASEC 先确认职业兴趣结构，再回到职业页做风险和行动判断。"
           : "Use RIASEC to check your career-interest structure before making a job-path decision."}
       </p>
-      <Link
+      <CareerJobAssessmentLink
         href={href}
         className="mt-4 inline-flex min-h-11 items-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-100"
         data-entry-surface="career_job_detail"
@@ -38,7 +38,7 @@ export function CareerDisplayCTA({
         data-test-slug={surface.cta.testSlug}
       >
         {surface.cta.label}
-      </Link>
+      </CareerJobAssessmentLink>
     </section>
   );
 }

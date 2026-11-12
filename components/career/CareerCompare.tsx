@@ -1,5 +1,6 @@
 'use client';
 
+import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { Box, BriefcaseBusiness, Building2, FileText, PanelsTopLeft, Search, Sparkles } from 'lucide-react';
@@ -223,9 +224,10 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
                   {!embedded ? <div className={styles.mbtiExploration}>
                     <span>{traditional ? 'MBTI 探索示例（簡體中文）' : 'MBTI 探索示例'}</span>
                     <ul aria-label={`${name}的 MBTI 探索示例`}>
-                      {design.mbtiTypes.map(type => (
-                        <li key={type}><Link href={`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`} hrefLang={traditional ? 'zh-CN' : undefined}>{type}</Link></li>
-                      ))}
+                      {design.mbtiTypes.map(type => {
+                        const href = `${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`;
+                        return <li key={type}><Link href={traditional ? href : migratePersonalityCareerHref(href, locale)} hrefLang={traditional ? 'zh-CN' : undefined}>{type}</Link></li>;
+                      })}
                     </ul>
                   </div> : null}
                 </> : null}

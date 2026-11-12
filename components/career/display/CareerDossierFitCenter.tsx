@@ -1,3 +1,4 @@
+import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import Link from "next/link";
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
 import type { CareerPublishedFitDecisionCenter } from "@/lib/career/publishedComponentContract";
@@ -185,14 +186,14 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
               <p className={visual.fitAssessmentWatchout} {...apiField(`personality_fit_block.assessments[${index}].watchout`)}>
                 <strong>{interfaceLabels?.["interface.fit.assessment_misuse_label"] ?? (isZh ? "别这样用：" : "Do not use it this way: ")}</strong>{assessment.watchout}
               </p>
-              <Link
+              <CareerJobAssessmentLink
                 href={assessment.id === "riasec" && primaryCtaHref ? attributedRiasecHref(assessment.cta_href, primaryCtaHref) : assessment.cta_href}
                 className={visual.fitAssessmentCta}
                 data-career-api-field={`personality_fit_block.assessments[${index}].cta_label`}
                 data-career-api-href={assessment.id === "riasec" && primaryCtaHref ? attributedRiasecHref(assessment.cta_href, primaryCtaHref) : assessment.cta_href}
               >
                 {assessment.cta_label}<span aria-hidden="true">→</span>
-              </Link>
+              </CareerJobAssessmentLink>
             </article>
           ))}
         </div>

@@ -609,7 +609,7 @@ describe("career content v3 contract", () => {
     expect(JSON.stringify(faqJsonLd)).not.toContain("API 标题不得显示");
   });
 
-  it("preserves CTA attribution while localizing the v3 button in the frontend catalog", () => {
+  it("renders a clean localized v3 assessment CTA", () => {
     const surface = adaptCareerDisplaySurface(surfaceFixture("en"), "en");
     render(<CareerDisplaySurface
       surface={surface}
@@ -618,8 +618,7 @@ describe("career content v3 contract", () => {
     />);
 
     const cta = screen.getByRole("link", { name: "Start the career interest test" });
-    expect(cta).toHaveAttribute("href", expect.stringContaining("subject_key=accountants-and-auditors"));
-    expect(cta).toHaveAttribute("href", expect.stringContaining("utm_source=contract"));
+    expect(cta).toHaveAttribute("href", "/en/tests/holland-career-interest-test-riasec");
   });
 
   it("renders the same bilingual template for all 1046 slug identities", () => {

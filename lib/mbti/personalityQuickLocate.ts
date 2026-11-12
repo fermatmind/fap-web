@@ -1,5 +1,6 @@
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { Locale } from "@/lib/i18n/locales";
 import type {
   QuickLocateCareerResult,
   QuickLocateResult,
@@ -29,7 +30,7 @@ export async function buildPersonalityQuickLocateIndex(input: {
       title: card.title,
       excerpt: card.excerpt,
       href: card.href,
-      recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+      recommendationHref: personalityCareerHref(input.locale, card.slug),
       groupKey: card.groupKey,
       groupTitle: card.groupTitle,
       launchTier: card.launchTier,

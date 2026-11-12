@@ -10,10 +10,10 @@ function read(relPath: string): string {
 }
 
 describe("career tests single entry contract", () => {
-  it("keeps /career/tests focused on the stable RIASEC path", () => {
+  it("offers a task-based choice and keeps the stable RIASEC path", () => {
     const source = read("app/(localized)/[locale]/career/tests/page.tsx");
 
-    expect(source).toContain("先做职业兴趣测试");
+    for (const task of ["探索工作活动", "理解做事偏好", "观察行为特质"]) expect(source).toContain(task);
     expect(source).not.toContain("适合还没有明确方向，想先得到一个起点的人");
     expect(source).not.toContain("For people who do not have a clear direction yet");
     expect(source).toContain("career-tests-single-entry");

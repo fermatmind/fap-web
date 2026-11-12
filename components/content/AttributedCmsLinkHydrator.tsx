@@ -15,6 +15,7 @@ import {
   buildSeoCtaNavigationHref,
   buildSeoCtaTrackingPayload,
   extractTargetTestSlugFromHref,
+  publicRiasecLandingPath,
   extractPublicReadingPathFromHref,
   type SeoCtaSourceRouteFamily,
 } from "@/lib/tracking/seoCtaAttribution";
@@ -118,7 +119,7 @@ export function AttributedCmsLinkHydrator({
         anchor.dataset.seoCtaAttributed = "true";
         anchor.setAttribute(
           "href",
-          buildSeoCtaNavigationHref({
+          publicRiasecLandingPath(originalHref.pathname, locale) ?? buildSeoCtaNavigationHref({
             locale,
             sourceRouteFamily,
             sourceSlug,

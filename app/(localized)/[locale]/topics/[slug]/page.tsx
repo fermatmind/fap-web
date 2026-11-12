@@ -1,3 +1,4 @@
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -353,7 +354,7 @@ export default async function TopicDetailPage({
                 <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
                   {typeCodes.map((typeCode) => {
                     const personalityHref = localizedPath(`/personality/${typeCode.toLowerCase()}-a`, locale);
-                    const recommendationHref = localizedPath(`/career/recommendations/mbti/${typeCode.toLowerCase()}-a`, locale);
+                    const recommendationHref = personalityCareerHref(locale, typeCode);
 
                     return (
                       <div key={typeCode} className="space-y-1 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3">
@@ -363,7 +364,7 @@ export default async function TopicDetailPage({
                             {locale === "zh" ? "类型页" : "Personality"}
                           </Link>
                           <Link href={recommendationHref} className="fm-help-chip-link">
-                            {locale === "zh" ? "职业探索" : "Recommendation"}
+                            {locale === "zh" ? "职业探索" : "Career exploration"}
                           </Link>
                         </div>
                       </div>

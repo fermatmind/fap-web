@@ -131,8 +131,7 @@ describe('Current shared UI through the actual detail route', () => {
     });
     const bodyCta = root.querySelector('[data-fit-assessment="riasec"] a')!;
     const bodyHref = new URL(bodyCta.getAttribute('href')!, 'https://fermatmind.com');
-    expect(bodyHref.searchParams.get('subject_key')).toBe(raw.subject.canonical_slug);
-    expect(bodyHref.searchParams.get('target_action')).toBe('start_riasec_test');
+    expect(bodyHref.search).toBe('');
     const wage = root.querySelector('[data-career-api-table$=".wages"]')!;
     expect(wage.querySelectorAll('tbody tr')).toHaveLength(c.career_snapshot_secondary_locale.wage_tiers.length);
     for (const tier of c.career_snapshot_secondary_locale.wage_tiers) expect(wage.textContent).toContain(tier.value);

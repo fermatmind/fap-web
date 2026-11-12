@@ -1,3 +1,4 @@
+import { migratePersonalityCareerHref, personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { applyPersonalityMetadataTitleTemplateGuard } from "@/lib/personality/metadataTitleTemplateGuard";
@@ -1124,7 +1125,7 @@ function CrossTypeInternalLinks({
         {links.map((link) => (
           <Link
             key={`${link.href}-${link.label}`}
-            href={link.href}
+            href={migratePersonalityCareerHref(link.href, locale)}
             className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)]"
           >
             {link.label}
@@ -1157,7 +1158,7 @@ function ComparisonAssetNav({
         {navLinks.map((link) => (
           <a
             key={link.href}
-            href={link.href}
+            href={migratePersonalityCareerHref(link.href, locale)}
             className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
           >
             {link.label}
@@ -1209,7 +1210,7 @@ function ComparisonReaderToc({
           {links.map((link) => (
             <li key={`comparison-toc-${link.key}`}>
               <a
-                href={link.href}
+                href={migratePersonalityCareerHref(link.href, locale)}
                 className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
               >
                 <span>{link.label}</span>
@@ -1792,7 +1793,7 @@ export default async function PersonalityDetailPage({
     locale === "zh" ? `${baseDisplayType}-A 与 ${baseDisplayType}-T 对比` : `${baseDisplayType}-A vs ${baseDisplayType}-T`;
   const dimensionSummary = buildPersonalityDimensionSummary(detail.projection, locale);
   const careerDirectionHref = !isBaseTypeProjection && fallbackProjectionGate.canRenderCareerOrRecommendationClaims
-    ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
+    ? personalityCareerHref(locale, detail.canonicalTypeCode)
     : null;
   return (
     <main
@@ -1935,7 +1936,7 @@ export default async function PersonalityDetailPage({
             link.kind === "test" ? (
               <TrackedEntryCtaLink
                 key={`sticky-local-${link.key}`}
-                href={link.href}
+                href={migratePersonalityCareerHref(link.href, locale)}
                 prefetch
                 eventProperties={mbtiIntentCtaTrackingProps}
                 className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
@@ -1945,7 +1946,7 @@ export default async function PersonalityDetailPage({
             ) : (
               <Link
                 key={`sticky-local-${link.key}`}
-                href={link.href}
+                href={migratePersonalityCareerHref(link.href, locale)}
                 className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
               >
                 {link.label}
@@ -1974,7 +1975,7 @@ export default async function PersonalityDetailPage({
                     <li key={`toc-${link.key}`}>
                       {link.kind === "test" ? (
                         <TrackedEntryCtaLink
-                          href={link.href}
+                          href={migratePersonalityCareerHref(link.href, locale)}
                           prefetch
                           eventProperties={mbtiIntentCtaTrackingProps}
                           className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
@@ -1986,7 +1987,7 @@ export default async function PersonalityDetailPage({
                         </TrackedEntryCtaLink>
                       ) : (
                         <Link
-                          href={link.href}
+                          href={migratePersonalityCareerHref(link.href, locale)}
                           className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
                         >
                           <span>{link.label}</span>

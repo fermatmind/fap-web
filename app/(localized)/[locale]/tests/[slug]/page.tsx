@@ -1,3 +1,4 @@
+import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples";
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessmentLandingSocialImage } from "@/lib/tests/assessmentLandingUi";
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
@@ -1598,6 +1599,18 @@ export default async function TestLandingPage({
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
+          {showsRiasecActions && locale === "zh" ? (
+            <section aria-labelledby="holland-synthetic-result" className="space-y-2 rounded-2xl border border-[var(--fm-border)] p-5" data-testid="riasec-result-example-entry">
+              <h2 id="holland-synthetic-result" className="m-0 text-lg font-semibold">匿名结果样例（虚构）</h2>
+              <p className="m-0 text-sm leading-6">六维兴趣分数（0–100）：{RIASEC_RESULT_EXAMPLES[0].scores.map((score, index) => `${"RIASEC"[index]} ${score}`).join("、")}。本例前三维是研究型、艺术型和社会型，代码为 IAS。</p>
+              <p className="m-0 text-sm leading-6">数字仅用于演示读法。可以先试一项相关活动，例如整理资料并写一页发现，再观察自己是否愿意继续做。分数不能判断能力或职业资格。</p>
+              <p className="m-0 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                <Link className="underline underline-offset-4" href="/zh/holland-test/pdf-download#result-examples">看分数接近与并列时怎么读</Link>
+                <Link className="underline underline-offset-4" href="/zh/career">查职业的实际工作任务</Link>
+                <Link className="underline underline-offset-4" href="/zh/career/tests">比较霍兰德、MBTI 与大五</Link>
+              </p>
+            </section>
+          ) : null}
           {showsRiasecActions && locale === "en" ? (
             <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5" data-testid="riasec-result-example-entry">
               <h2 className="m-0 text-lg font-semibold">See how to read a result</h2>

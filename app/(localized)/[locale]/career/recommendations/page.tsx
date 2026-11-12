@@ -1,3 +1,4 @@
+import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import type { Metadata } from "next";
@@ -98,7 +99,7 @@ export default async function CareerRecommendationsPage({
   const payload = await fetchCareerRecommendationIndex({ locale });
   const recommendationItems = adaptCareerRecommendationIndex({ locale, payload }).map(item => traditional
     ? { ...item, href: withLocale(`/career/recommendations/mbti/${item.recommendationSubjectMeta.publicRouteSlug}`) }
-    : item);
+    : { ...item, href: migratePersonalityCareerHref(item.href, locale) });
   const featuredRecommendations = recommendationItems.slice(0, 3);
   const isEmptyPublishedIndex = payload !== null && Array.isArray(payload.items) && payload.items.length === 0;
   const faqItems = isZh

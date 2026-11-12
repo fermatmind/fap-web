@@ -283,6 +283,11 @@ export function extractPublicTestDetailPathFromHref(
   return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug ?? "") ? `/${segments.join("/")}` : null;
 }
 
+export function publicRiasecLandingPath(href: string, locale: Locale): string | null {
+  const pathname = extractPublicTestDetailPathFromHref(href.split("?")[0], locale);
+  return pathname === `/${locale}/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}` ? pathname : null;
+}
+
 export function extractSeoCtaContextParamsFromRecord(
   record: Record<string, string | string[] | undefined>
 ): SeoCtaContextParams {

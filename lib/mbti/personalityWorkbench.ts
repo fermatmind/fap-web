@@ -1,5 +1,5 @@
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import type { Locale } from "@/lib/i18n/locales";
-import { localizedPath } from "@/lib/i18n/locales";
 import type {
   PersonalityHubFamilyGroup,
   TypeDecisionCard,
@@ -96,7 +96,7 @@ function buildWorkbenchCard(locale: Locale, card: TypeDecisionCard): TypeWorkben
 
   return {
     ...card,
-    recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, locale),
+    recommendationHref: personalityCareerHref(locale, card.slug),
     recommendationReady: true,
     derivedTraitKeys,
     derivedTraitLabels: derivedTraitKeys.map((trait) => localizeTraitLabel(locale, trait)),

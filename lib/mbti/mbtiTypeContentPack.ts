@@ -1,3 +1,4 @@
+import { migratePersonalityCareerHref, personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
@@ -192,15 +193,15 @@ function buildSharedArticleLinks(locale: Locale): RenderedLink[] {
   ];
 }
 
-function buildSupportLinks(typeCode: string, variant: MbtiVariant, locale: Locale): PersonalitySupportLinks {
+function buildSupportLinks(typeCode: string, locale: Locale): PersonalitySupportLinks {
   return {
     topicBacklink: localizeLink(locale, "mbti_topic", "返回 MBTI 主题页", "Back to MBTI topic", localizedPath("/topics/mbti", locale)),
     recommendationBacklink: localizeLink(
       locale,
-      `${typeCode.toLowerCase()}-${variant}-recommendation`,
-      variant === "a" ? `${typeCode}-A 职业建议` : `${typeCode}-T 职业建议`,
-      variant === "a" ? `${typeCode}-A career recommendations` : `${typeCode}-T career recommendations`,
-      localizedPath(`/career/recommendations/mbti/${typeCode.toLowerCase()}-${variant}`, locale)
+      `${typeCode.toLowerCase()}-career-exploration`,
+      `${typeCode} 职业探索`,
+      `${typeCode} career exploration`,
+      personalityCareerHref(locale, typeCode)
     ),
     testEntryLink: localizeLink(
       locale,
@@ -220,7 +221,7 @@ function buildSceneNextLinks(
   locale: Locale,
   scene: SceneRole
 ): RenderedLink[] {
-  const support = buildSupportLinks(typeCode, variant, locale);
+  const support = buildSupportLinks(typeCode, locale);
   const guidanceHref = localizedPath("/career/guides/from-mbti-to-job-fit", locale);
 
   if (scene === "career") {
@@ -349,7 +350,7 @@ function renderCommonPersonalityPack(
 }
 
 function buildRecommendationSupportLinks(typeCode: string, variant: MbtiVariant, locale: Locale): MbtiRecommendationContentCopy["support"] {
-  const support = buildSupportLinks(typeCode, variant, locale);
+  const support = buildSupportLinks(typeCode, locale);
   return {
     topicBacklink: support.topicBacklink,
     nextSteps: [
@@ -419,7 +420,7 @@ function adaptLegacyIntpPersonalityContent(
     nextLinks: scene.nextLinks.map((link) => ({
       key: link.key,
       label: link.label,
-      href: link.href,
+      href: migratePersonalityCareerHref(link.href, locale),
     })),
   });
 
@@ -454,8 +455,7 @@ function adaptLegacyIntpPersonalityContent(
         label: localizeLabel(locale, "返回 MBTI 主题页", "Back to MBTI topic"),
         href: localizedPath("/topics/mbti", locale),
       },
-      recommendationBacklink:
-        variant === "a" ? legacy.recommendationBacklink : legacy.recommendationBacklink,
+      recommendationBacklink: localizeLink(locale, "intp-career", "INTP 职业探索", "INTP career exploration", personalityCareerHref(locale, "intp")),
       testEntryLink: legacy.testEntryLink,
       linkedGuides: legacy.linkedGuides,
       linkedArticles: legacy.linkedArticles,
@@ -519,7 +519,7 @@ export function getMbtiPersonalityContent(slug: string, locale: Locale): MbtiPer
     variant: resolved.variant,
     common: renderCommonPersonalityPack(resolved.typeCode, locale, rawPack),
     variantCopy: renderPersonalityPack(resolved.typeCode, resolved.variant, locale, rawPack),
-    support: buildSupportLinks(resolved.typeCode, resolved.variant, locale),
+    support: buildSupportLinks(resolved.typeCode, locale),
   };
 }
 

@@ -59,6 +59,6 @@ describe("career test tool selection", () => {
     expect(document.querySelector('[data-testid="career-tools-next-step"]')).toBeNull();
     expect(document.querySelector('[data-testid="career-tests-primary-cta"]')?.getAttribute("href"))
       .toBe("/zh/tests/holland-career-interest-test-riasec");
-    expect(document.querySelector("h1")?.textContent).toBe("职业测试：先做职业兴趣测试");
+    expect(document.querySelector("h1")?.textContent).toBe("职业测试怎么选");
   });
 });

@@ -1,5 +1,7 @@
+import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import Link from "next/link";
 import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_TASKS, DESIGN_MBTI_EXPLORATION_NOTE } from "@/lib/career/designComparePilot";
+import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
 import { buttonVariants } from "@/components/ui/button";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
@@ -69,7 +71,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
           <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{design.explorationQuestion}</p>
           <div className="mt-1 flex flex-wrap gap-x-4">
             {design.mbtiTypes.map(type => (
-              <Link key={type} className={linkClass} href={`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`}>{type}</Link>
+              <Link key={type} className={linkClass} href={migratePersonalityCareerHref(`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`, locale)}>{type}</Link>
             ))}
           </div>
           <p className="m-0 text-sm leading-6 text-slate-600">{DESIGN_MBTI_EXPLORATION_NOTE}</p>
@@ -85,10 +87,10 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
                 {step.label}
               </TrackedCareerLink>
               {index === 0 ? (
-                <TrackedCareerLink href={href} className={linkClass} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick} eventPayload={payload("start_riasec_test")}
+                <CareerJobAssessmentLink href={href} className={linkClass}
                   data-entry-surface="career_job_detail" data-source-page-type="career_job_detail" data-target-action="start_riasec_test" data-test-slug="holland-career-interest-test-riasec">
                   {zh ? `霍兰德职业兴趣测试：探索${careerName}相关活动` : `Holland Code career interest test: explore ${careerName} activities`}
-                </TrackedCareerLink>
+                </CareerJobAssessmentLink>
               ) : null}
             </div>
             {index === 1 && comparisonCareer ? (

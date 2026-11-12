@@ -16,6 +16,7 @@ import {
 } from "@/lib/tracking/attribution";
 import {
   buildSeoCtaNavigationHref,
+  publicRiasecLandingPath,
   buildSeoCtaTrackingPayload,
   type SeoCtaAttributionInput,
 } from "@/lib/tracking/seoCtaAttribution";
@@ -77,8 +78,9 @@ export function SeoTrackedCtaLink({
     () => appendAttributionParamsToHref(pathname, attributionParams),
     [attributionParams, pathname]
   );
+  const riasecPath = publicRiasecLandingPath(href, locale);
   const resolvedHref = useMemo(
-    () => buildSeoCtaNavigationHref({
+    () => riasecPath ?? buildSeoCtaNavigationHref({
       locale,
       sourceRouteFamily,
       sourceSlug,
@@ -100,6 +102,7 @@ export function SeoTrackedCtaLink({
       ctaId,
       href,
       locale,
+      riasecPath,
       sourcePathWithAttribution,
       sourceRouteFamily,
       sourceSlug,
@@ -156,7 +159,7 @@ export function SeoTrackedCtaLink({
     <TrackedEntryCtaLink
       {...props}
       href={resolvedHref}
-      eventName={sourceRouteFamily === "article_detail" ? "article_to_test_click" : "start_attempt"}
+      eventName={sourceRouteFamily === "article_detail" ? "article_to_test_click" : riasecPath ? "continue_exploration" : "start_attempt"}
       eventProperties={eventProperties}
       onClick={handleClick}
     />

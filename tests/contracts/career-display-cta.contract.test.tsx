@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import {
   CAREER_DISPLAY_RIASEC_TEST_SLUG,
@@ -11,6 +11,22 @@ import {
   buildActorsDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
+
+import { trackEvent } from "@/lib/analytics";
+
+vi.mock("@/lib/analytics", async (importOriginal) => ({
+  ...await importOriginal<typeof import("@/lib/analytics")>(),
+  trackEvent: vi.fn(),
+}));
+
+function readClickPayload(cta: HTMLAnchorElement) {
+  cta.addEventListener("click", (event) => event.preventDefault(), { once: true });
+  vi.mocked(trackEvent).mockClear();
+  fireEvent.click(cta);
+  expect(trackEvent).toHaveBeenCalledTimes(1);
+  expect(trackEvent).toHaveBeenCalledWith("career_job_detail_cta_click", expect.any(Object));
+  return vi.mocked(trackEvent).mock.calls[0]?.[1] ?? {};
+}
 
 function getPrimaryDecisionCta(): HTMLAnchorElement {
   const actionContainer = screen.queryByTestId("career-production-assessment-rail") ??
@@ -36,7 +52,7 @@ describe("career display CTA contract", () => {
     const cta = getPrimaryDecisionCta();
     expect(cta).toBeInTheDocument();
     expect(cta?.getAttribute("href")).toContain(`/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`);
-    expect(cta?.getAttribute("href")).toContain(`test_slug=${CAREER_DISPLAY_RIASEC_TEST_SLUG}`);
+    expect(cta.getAttribute("href")).toBe(`/en/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`);
     expect(cta?.getAttribute("data-test-slug")).toBe(CAREER_DISPLAY_RIASEC_TEST_SLUG);
   });
 
@@ -134,24 +150,24 @@ describe("career display CTA contract", () => {
     );
 
     const cta = getPrimaryDecisionCta();
-    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+    const parsed = new URL(cta.href);
+    expect(parsed.search).toBe("");
+    const payload = readClickPayload(cta);
 
     expect(parsed.pathname).toBe("/zh/tests/holland-career-interest-test-riasec");
-    expect(parsed.searchParams.get("entry_surface")).toBe("career_job_detail");
-    expect(parsed.searchParams.get("source_page_type")).toBe("career_job_detail");
-    expect(parsed.searchParams.get("target_action")).toBe("start_riasec_test");
-    expect(parsed.searchParams.get("subject_kind")).toBe("job_slug");
-    expect(parsed.searchParams.get("subject_key")).toBe("actors");
-    expect(parsed.searchParams.get("utm_source")).toBe("zhihu");
-    expect(parsed.searchParams.get("utm_medium")).toBe("community");
-    expect(parsed.searchParams.get("utm_campaign")).toBe("career_actor_test");
-    expect(parsed.searchParams.get("utm_content")).toBe("pilot");
-    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
-    expect(parsed.searchParams.get("msclkid")).toBe("test-msclkid");
-    expect(parsed.searchParams.get("fbclid")).toBe("test-fbclid");
-    expect(parsed.searchParams.get("landing_path")).toBe(
-      "/zh/career/jobs/actors?utm_source=zhihu&utm_medium=community&utm_campaign=career_actor_test&utm_content=pilot&gclid=test-gclid&msclkid=test-msclkid&fbclid=test-fbclid"
-    );
+    expect(payload.entry_surface).toBe("career_job_detail");
+    expect(payload.source_page_type).toBe("career_job_detail");
+    expect(payload.target_action).toBe("start_riasec_test");
+    expect(payload.subject_kind).toBe("job_slug");
+    expect(payload.subject_key).toBe("actors");
+    expect(payload.utm_source).toBe("zhihu");
+    expect(payload.utm_medium).toBe("community");
+    expect(payload.utm_campaign).toBe("career_actor_test");
+    expect(payload.utm_content).toBe("pilot");
+    expect(payload.gclid).toBe("test-gclid");
+    expect(payload.msclkid).toBe("test-msclkid");
+    expect(payload.fbclid).toBe("test-fbclid");
+    expect(payload.landing_path).toBe("/zh/career/jobs/actors?utm_source=zhihu&utm_medium=community&utm_campaign=career_actor_test&utm_content=pilot&gclid=test-gclid&msclkid=test-msclkid&fbclid=test-fbclid");
   });
 
   it("preserves inbound attribution for selected non-Actors display CTAs", () => {
@@ -176,14 +192,14 @@ describe("career display CTA contract", () => {
     );
 
     const cta = getPrimaryDecisionCta();
-    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+    const parsed = new URL(cta.href);
+    expect(parsed.search).toBe("");
+    const payload = readClickPayload(cta);
 
-    expect(parsed.searchParams.get("subject_key")).toBe("registered-nurses");
-    expect(parsed.searchParams.get("utm_source")).toBe("google");
-    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
-    expect(parsed.searchParams.get("landing_path")).toBe(
-      "/en/career/jobs/registered-nurses?utm_source=google&gclid=test-gclid"
-    );
+    expect(payload.subject_key).toBe("registered-nurses");
+    expect(payload.utm_source).toBe("google");
+    expect(payload.gclid).toBe("test-gclid");
+    expect(payload.landing_path).toBe("/en/career/jobs/registered-nurses?utm_source=google&gclid=test-gclid");
   });
 
   it("uses a D5 selected slug as the display CTA subject key", () => {
@@ -208,13 +224,15 @@ describe("career display CTA contract", () => {
     );
 
     const cta = getPrimaryDecisionCta();
-    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+    const parsed = new URL(cta.href);
+    expect(parsed.search).toBe("");
+    const payload = readClickPayload(cta);
 
-    expect(parsed.searchParams.get("subject_key")).toBe("civil-engineers");
-    expect(parsed.searchParams.get("target_action")).toBe("start_riasec_test");
-    expect(parsed.searchParams.get("entry_surface")).toBe("career_job_detail");
-    expect(parsed.searchParams.get("utm_source")).toBe("d5");
-    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
+    expect(payload.subject_key).toBe("civil-engineers");
+    expect(payload.target_action).toBe("start_riasec_test");
+    expect(payload.entry_surface).toBe("career_job_detail");
+    expect(payload.utm_source).toBe("d5");
+    expect(payload.gclid).toBe("test-gclid");
   });
 
   it("uses a D8 validator-eligible slug as the display CTA subject key", () => {
@@ -239,12 +257,14 @@ describe("career display CTA contract", () => {
     );
 
     const cta = getPrimaryDecisionCta();
-    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+    const parsed = new URL(cta.href);
+    expect(parsed.search).toBe("");
+    const payload = readClickPayload(cta);
 
-    expect(parsed.searchParams.get("subject_key")).toBe("web-developers");
-    expect(parsed.searchParams.get("target_action")).toBe("start_riasec_test");
-    expect(parsed.searchParams.get("entry_surface")).toBe("career_job_detail");
-    expect(parsed.searchParams.get("utm_source")).toBe("d8");
-    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
+    expect(payload.subject_key).toBe("web-developers");
+    expect(payload.target_action).toBe("start_riasec_test");
+    expect(payload.entry_surface).toBe("career_job_detail");
+    expect(payload.utm_source).toBe("d8");
+    expect(payload.gclid).toBe("test-gclid");
   });
 });

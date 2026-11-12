@@ -149,7 +149,7 @@ describe("career recommendation index backend contract", () => {
     expect(html).not.toContain("Start career matching");
     expect(html).toContain("career-recommendation-index-card");
     expect(html).toContain("INTJ Career Match");
-    expect(html).toContain('href="/en/career/recommendations/mbti/intj"');
+    expect(html).toContain('href="/en/personality/intj#intj-career-exploration"');
     expect(html).not.toContain("Open recommendation direction");
     expect(html).not.toContain("career-personalized-status");
     expect(html).not.toContain("View role profile");
@@ -228,7 +228,7 @@ describe("career recommendation index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain('href="/en/career/recommendations/mbti/intj"');
+    expect(html).toContain('href="/en/personality/intj#intj-career-exploration"');
     expect(html).not.toContain("Open recommendation direction");
     expect(html).not.toContain("Fit score:");
     expect(html).not.toContain("Confidence score:");

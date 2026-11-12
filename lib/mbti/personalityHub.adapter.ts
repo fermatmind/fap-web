@@ -1,3 +1,4 @@
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CmsPersonalityProfileSummary } from "@/lib/cms/personality";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
@@ -222,7 +223,7 @@ function buildCareerPreviewSeed(input: BuildPersonalityHubPayloadInput, cards: T
     groupKey: card.groupKey,
     groupTitle: card.groupTitle,
     launchTier: card.launchTier,
-    recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+    recommendationHref: personalityCareerHref(input.locale, card.slug),
   }));
 }
 
@@ -252,7 +253,7 @@ function buildTypeWorkbenchSeed(input: BuildPersonalityHubPayloadInput, cards: T
 
     return {
       ...card,
-      recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+      recommendationHref: personalityCareerHref(input.locale, card.slug),
       recommendationReady: true,
       derivedTraitKeys: [...derivedTraitKeys],
       derivedTraitLabels,
@@ -443,7 +444,7 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
           href: card.href,
           groupKey: card.groupKey,
           groupTitle: card.groupTitle,
-          recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+          recommendationHref: personalityCareerHref(input.locale, card.slug),
           keywords: [card.typeCode.toLowerCase(), card.title.toLowerCase(), card.groupTitle.toLowerCase()],
           launchTier: card.launchTier,
         },

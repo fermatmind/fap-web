@@ -31,11 +31,11 @@ function documentFrom(html: string): Document {
 describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
   const params = () => Promise.resolve({ locale });
 
-  it("renders both selection tables, working assessment targets and the resource link", async () => {
+  it("renders the selection choices, comparison table and resource link", async () => {
     const document = documentFrom(renderToStaticMarkup(await CareerTestsPage({ params: params() })));
     expect(document.querySelectorAll("h1")).toHaveLength(1);
     const selection = document.querySelector('[data-testid="career-tests-selection-map"]')!;
-    expect(selection.querySelectorAll("tbody tr")).toHaveLength(3);
+    expect(selection.querySelectorAll(locale === "zh" ? "h2" : "tbody tr")).toHaveLength(3);
     expect([...selection.querySelectorAll("a")].map(a => a.getAttribute("href"))).toEqual([
       `/${locale}/tests/holland-career-interest-test-riasec`,
       `/${locale}/tests/mbti-personality-test-16-personality-types`,
@@ -85,14 +85,14 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     expect(schemas.map(schema => schema["@type"])).toEqual(["WebPage", "BreadcrumbList"]);
   });
 
-  it("uses an escaped career name and preserves existing attribution on the canonical test path", () => {
+  it("renders an escaped career name and a clean test link", () => {
     const href = buildCareerDisplayCtaHref({ locale, subjectSlug: "materials-scientists", landingPath: localizedPath("/career/jobs/materials-scientists", locale) });
     const document = documentFrom(renderToStaticMarkup(<CareerRiasecExploreLink locale={locale} careerName={'Materials <script>alert(1)</script>'} href={href} subjectSlug="materials-scientists" />));
     expect(document.querySelector("script")).toBeNull();
     const link = document.querySelector('[data-test-slug="holland-career-interest-test-riasec"]')!;
     const url = new URL(link.getAttribute("href")!, "https://fermatmind.com");
     expect(url.pathname).toBe(`/${locale}/tests/holland-career-interest-test-riasec`);
-    expect(url.searchParams.get("subject_key")).toBe("materials-scientists");
+    expect(url.search).toBe("");
     expect(link.textContent).toContain("Materials <script>alert(1)</script>");
   });
 

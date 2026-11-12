@@ -1,3 +1,4 @@
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -39,19 +40,19 @@ type Copy = {
 
 const COPY = {
   zh: {
-    title: "职业测试与职业兴趣测试：霍兰德、MBTI 怎么选",
+    title: "职业测试怎么选：霍兰德、MBTI 与大五",
     description: "比较霍兰德 RIASEC、MBTI 与大五人格测试的用途、结果和边界。免费完成 60 或 140 题职业兴趣测试，读懂六维兴趣与三字代码，再探索职业方向。",
-    h1: "职业测试：先做职业兴趣测试",
-    intro: "先了解自己喜欢哪些工作活动，再结合技能、价值观与现实条件，比较值得探索的职业方向。",
+    h1: "职业测试怎么选",
+    intro: "先选你想了解的问题。测评结果可以提供探索线索，岗位能力、资格和入行条件需要另外核对。",
     assessment: "霍兰德职业兴趣测试（RIASEC）",
     versions: "60 / 140 题，约 8 / 18 分钟。两版均可免费完成并查看六维兴趣分布与三字代码；题目更多不自动代表更准确。",
     cta: "开始霍兰德职业兴趣免费测试",
     mapTitle: "测评分类选型地图：先看你要解决什么问题",
     mapColumns: ["你的问题", "可了解的测评", "能得到什么"],
     assessmentMap: [
-      { goal: "想了解喜欢哪些工作活动", test: "霍兰德职业兴趣测试（RIASEC）", output: "六维兴趣分布与三字代码，用于探索工作任务。", path: "/tests/holland-career-interest-test-riasec" },
-      { goal: "想反思偏好与沟通方式", test: "MBTI 偏好测试", output: "偏好维度与类型解释，不能替代职业兴趣或能力评估。", path: "/tests/mbti-personality-test-16-personality-types" },
-      { goal: "想了解连续的人格特质", test: "大五人格测试", output: "五个连续人格维度及其解释，不能单独决定职业。", path: "/tests/big-five-personality-test-ocean-model" },
+      { goal: "探索工作活动", test: "霍兰德职业兴趣测试（RIASEC）", output: "看六维兴趣与三字代码，找值得尝试的工作活动。兴趣分数不能判断能力。", path: "/tests/holland-career-interest-test-riasec" },
+      { goal: "理解做事偏好", test: "MBTI 偏好测试", output: "偏好维度与类型解释，不能替代职业兴趣或能力评估。", path: "/tests/mbti-personality-test-16-personality-types" },
+      { goal: "观察行为特质", test: "大五人格测试", output: "看五个连续人格维度，观察做事、协作和应对压力的倾向。结果不能决定职业。", path: "/tests/big-five-personality-test-ocean-model" },
     ],
     comparisonTitle: "霍兰德、MBTI 与大五：分别帮助你观察什么？",
     comparisonColumns: ["比较项目", "霍兰德 RIASEC", "MBTI 风格偏好", "大五连续特质"],
@@ -181,28 +182,53 @@ export default async function CareerTestsPage({ params }: PageProps) {
         <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-600">{copy.intro}</p>
       </section>
 
-      <section aria-labelledby="career-interest-test" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8" data-testid="career-tests-single-entry">
-        <h2 id="career-interest-test" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{copy.assessment}</h2>
-        <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{copy.versions}</p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href={testPath} className={buttonVariants({ variant: "default" })} data-testid="career-tests-primary-cta">{copy.cta}</Link>
-        </div>
-      </section>
+      {locale === "en" ? (
+        <section aria-labelledby="career-interest-test" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8" data-testid="career-tests-single-entry">
+          <h2 id="career-interest-test" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{copy.assessment}</h2>
+          <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{copy.versions}</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href={testPath} className={buttonVariants({ variant: "default" })} data-testid="career-tests-primary-cta">{copy.cta}</Link>
+          </div>
+        </section>
+      ) : null}
 
-      <section aria-labelledby="career-tests-map" className="mx-auto max-w-4xl space-y-4">
-        <h2 id="career-tests-map" className="m-0 text-2xl font-semibold">{copy.mapTitle}</h2>
-        <div role="region" aria-label={copy.mapTitle} tabIndex={0} className="overflow-x-auto focus-visible:outline focus-visible:outline-2">
-          <table className="w-full min-w-[640px] border-collapse text-left text-sm" data-testid="career-tests-selection-map">
-            <caption className="sr-only">{copy.mapTitle}</caption>
-            <thead><tr>{copy.mapColumns.map(column => <th key={column} scope="col" className="border-b border-slate-300 p-3 font-semibold">{column}</th>)}</tr></thead>
-            <tbody>{copy.assessmentMap.map(item => <tr key={item.path}>
-              <th scope="row" className="border-b border-slate-200 p-3 align-top font-medium">{item.goal}</th>
-              <td className="border-b border-slate-200 p-3 align-top"><Link href={withLocale(item.path)} className="underline underline-offset-4">{item.test}</Link></td>
-              <td className="border-b border-slate-200 p-3 align-top text-slate-600">{item.output}</td>
-            </tr>)}</tbody>
-          </table>
-        </div>
-      </section>
+      {locale === "zh" ? (
+        <section aria-label="按问题选择测评" className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-3" data-testid="career-tests-selection-map">
+          {copy.assessmentMap.map((item) => (
+            <div key={item.path} className="space-y-2 rounded-2xl border border-slate-200 bg-white p-4">
+              <h2 className="m-0 text-lg font-semibold">{item.goal}</h2>
+              {item.path === "/tests/holland-career-interest-test-riasec" ? (
+                <TrackedEntryCtaLink href={testPath} eventName="continue_exploration"
+                  eventProperties={{ locale, entry_surface: "career_tests", source_page_type: "career_tests", target_action: "open_riasec_test", test_slug: "holland-career-interest-test-riasec" }}
+                  className="font-medium underline underline-offset-4" data-testid="career-tests-primary-cta">{item.test}</TrackedEntryCtaLink>
+              ) : <Link href={withLocale(item.path)} className="font-medium underline underline-offset-4">{item.test}</Link>}
+              <p className="m-0 text-sm leading-6 text-slate-600">{item.output}</p>
+            </div>
+          ))}
+        </section>
+      ) : (
+        <section aria-labelledby="career-tests-map" className="mx-auto max-w-4xl space-y-4">
+          <h2 id="career-tests-map" className="m-0 text-2xl font-semibold">{copy.mapTitle}</h2>
+          <div role="region" aria-label={copy.mapTitle} tabIndex={0} className="overflow-x-auto focus-visible:outline focus-visible:outline-2">
+            <table className="w-full min-w-[640px] border-collapse text-left text-sm" data-testid="career-tests-selection-map">
+              <caption className="sr-only">{copy.mapTitle}</caption>
+              <thead><tr>{copy.mapColumns.map(column => <th key={column} scope="col" className="border-b border-slate-300 p-3 font-semibold">{column}</th>)}</tr></thead>
+              <tbody>{copy.assessmentMap.map(item => <tr key={item.path}>
+                <th scope="row" className="border-b border-slate-200 p-3 align-top font-medium">{item.goal}</th>
+                <td className="border-b border-slate-200 p-3 align-top"><Link href={withLocale(item.path)} className="underline underline-offset-4">{item.test}</Link></td>
+                <td className="border-b border-slate-200 p-3 align-top text-slate-600">{item.output}</td>
+              </tr>)}</tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {locale === "zh" ? (
+        <p className="mx-auto max-w-4xl text-sm leading-6 text-slate-700">
+          已经有候选方向？<Link href={withLocale("/career")} className="underline underline-offset-4">到职业库查工作职责和入行条件</Link>，也可以先看
+          <Link href={withLocale("/career/jobs/accountants-and-auditors")} className="underline underline-offset-4">会计与审计的实际任务</Link>。
+        </p>
+      ) : null}
 
       <section aria-labelledby="career-tests-comparison" className="mx-auto max-w-4xl space-y-4">
         <h2 id="career-tests-comparison" className="m-0 text-2xl font-semibold">{copy.comparisonTitle}</h2>

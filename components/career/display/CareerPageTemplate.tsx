@@ -1,5 +1,5 @@
+import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import { CareerAiAssessmentMethod, CareerAiScoreInfoLink } from './CareerAiAssessmentMethod';
-import Link from 'next/link';
 import { Breadcrumb } from '@/components/breadcrumb/Breadcrumb';
 import { CAREER_PAGE_SECTIONS, careerPageHasPublicBody, type CareerPage, type CareerPageMetric } from '@/lib/career/careerPage';
 import { careerContentV3BlockCopy, type CareerContentV3Item } from '@/lib/career/contentV3';
@@ -34,7 +34,7 @@ export function CareerPageTemplate({page, ctaHref, rendererRelease}: {page: Care
           <div className={visual.tocHeading}><span className={visual.tocKicker}>{zh ? '职业档案' : 'Career dossier'}</span></div>
           <nav className={visual.tocNav} aria-label={zh ? '目录' : 'Contents'}>{CAREER_PAGE_SECTIONS.map((id, i) => <a className={visual.tocLink} href={`#career-content-${id}`} key={id}><span aria-hidden="true" className={visual.tocIndex}>{String(i + 1).padStart(2,'0')}</span><span>{title(id)}</span></a>)}</nav>
         </div>
-        <div className={visual.assessmentRail}><Link href={ctaHref} className={visual.assessmentRailCta}>{cta}<span aria-hidden="true">→</span></Link></div>
+        <div className={visual.assessmentRail}><CareerJobAssessmentLink href={ctaHref} className={visual.assessmentRailCta}>{cta}<span aria-hidden="true">→</span></CareerJobAssessmentLink></div>
       </aside>
       <div className={`min-w-0 ${visual.componentStack}`}>
         <header className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] ${visual.hero}`}>
@@ -58,7 +58,7 @@ export function CareerPageTemplate({page, ctaHref, rendererRelease}: {page: Care
             </div>)}
           </section>;
         })}
-        <Link href={ctaHref} className={visual.assessmentRailCta}>{cta}<span aria-hidden="true">→</span></Link>
+        <CareerJobAssessmentLink href={ctaHref} className={visual.assessmentRailCta}>{cta}<span aria-hidden="true">→</span></CareerJobAssessmentLink>
       </div>
     </div>
   </article>;
