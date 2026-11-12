@@ -1,5 +1,5 @@
 {
-  "sourceManifestSha256": "fe5ba9ebe7257a859c505f4f34f9e6bec7d83a50f9a1a1a9682edb6392bbfb55",
+  "sourceManifestSha256": "053c7ee0f4cb98c98ff162f01d8b005d08ce6f164347ebea68b3847d594d56db",
   "careers": {
     "actuaries": {
       "onet": "15-2011.00",
@@ -1341,6 +1341,28 @@
         2.15,
         1.83,
         3.64
+      ]
+    },
+    "biofuels-biodiesel-technology-and-product-development-managers": {
+      "onet": "11-9041.01",
+      "interest": "IER",
+      "copy": {
+        "en": {
+          "name": "Biofuels/biodiesel technology and product development managers",
+          "summary": "Biofuels and biodiesel development managers lead applied work on feedstocks and processes and judge which results warrant trials or commercial evaluation."
+        },
+        "zh": {
+          "name": "生物燃料/生物柴油技术与产品开发经理",
+          "summary": "生物燃料与生物柴油技术开发经理组织原料和工艺的应用研究，判断实验结果是否支持试制或后续商业化评估。"
+        }
+      },
+      "interestVector": [
+        4.16,
+        5.84,
+        2.11,
+        2.1,
+        4.7,
+        3.51
       ]
     },
     "biofuels-processing-technicians": {
@@ -5039,6 +5061,50 @@
         6.95
       ]
     },
+    "milling-and-planing-machine-setters-operators-and-tenders-metal-and-plastic": {
+      "onet": "51-4035.00",
+      "interest": "RC",
+      "copy": {
+        "en": {
+          "name": "Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",
+          "summary": "Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic (O*NET 51-4035.00) set up, operate, or tend mills and planers to mill, plane, shape, groove, or profile metal or plastic workpieces."
+        },
+        "zh": {
+          "name": "金属铣刨机床操作工",
+          "summary": "金属铣刨机床操作工（O*NET 51-4035.00）设置、操作或看管铣床与刨床，对金属或塑料工件进行铣削、刨削、成形、开槽或仿形加工。"
+        }
+      },
+      "interestVector": [
+        7.0,
+        2.41,
+        1.19,
+        1.0,
+        1.0,
+        4.38
+      ]
+    },
+    "millwrights": {
+      "onet": "49-9044.00",
+      "interest": "RC",
+      "copy": {
+        "en": {
+          "name": "Millwrights",
+          "summary": "Millwrights (O*NET 49-9044.00) install, dismantle, repair, and calibrate industrial machinery and equipment, including leveling, alignment, assembly, weld repairs, and troubleshooting."
+        },
+        "zh": {
+          "name": "机械安装工",
+          "summary": "机械安装工（O*NET 49-9044.00）安装、拆卸、维修与校准工业机械与设备，包括找平对中、装配、焊接修复与故障排查。"
+        }
+      },
+      "interestVector": [
+        7.0,
+        2.68,
+        1.59,
+        1.0,
+        1.09,
+        3.63
+      ]
+    },
     "mining-and-geological-engineers": {
       "onet": "17-2151.00",
       "interest": "RIC",
@@ -5171,6 +5237,28 @@
         4.67
       ]
     },
+    "motion-picture-projectionists": {
+      "onet": "39-3021.00",
+      "interest": "RC",
+      "copy": {
+        "en": {
+          "name": "Motion Picture Projectionists",
+          "summary": "Motion picture projectionists (O*NET-SOC 39-3021.00) set up and operate film projection and related sound reproduction equipment: check projection equipment and screen and curtain controls before screenings; adjust picture size and focus and sound volume and tone; start projectors and monitor picture and sound quality while screening for multiple auditoriums; import digital content and unlocking keys; perform scheduled maintenance such as lamp replacement and lens cleaning; handle minor repairs; and record projection and repair activities."
+        },
+        "zh": {
+          "name": "电影放映员",
+          "summary": "电影放映员（O*NET-SOC 39-3021.00）设置并操作电影放映与相关声音重放设备：放映前检查投映设备与银幕幕帘控制、调整画面尺寸与焦点以及音量与音调；启动放映机并监控画面与声音质量，同时为多个影厅放映；导入数字内容与解锁密钥、执行灯泡更换与镜头清洁等定期维护、处理小修并记录放映与检修情况。"
+        }
+      },
+      "interestVector": [
+        5.44,
+        2.02,
+        3.1,
+        2.02,
+        1.99,
+        4.39
+      ]
+    },
     "motorboat-mechanics-and-service-technicians": {
       "onet": "49-3051.00",
       "interest": "RC",
@@ -5191,6 +5279,28 @@
         1.01,
         1.61,
         3.88
+      ]
+    },
+    "motorboat-operators": {
+      "onet": "53-5022.00",
+      "interest": "RCE",
+      "copy": {
+        "en": {
+          "name": "Motorboat Operators",
+          "summary": "Motorboat operators (O*NET-SOC 53-5022.00) operate small motorboats and may assist with navigation-related activities: operate throttles and steering mechanisms along planned routes and maintain course using compasses or electronic navigation aids; organize and direct crew work, handle mooring and unmooring at docks, and protect passengers and cargo under safety procedures; direct emergency safety responses, report navigation hazards, and maintain equipment such as fire extinguishers, lines, and pumps."
+        },
+        "zh": {
+          "name": "机动船操作员",
+          "summary": "机动船操作员（O*NET-SOC 53-5022.00）操作小型机动船，并可协助航行相关活动：操纵油门与转向机构按预定航线航行、用罗盘或电子助航设备保持航向；组织并指挥船员工作、系解缆绳靠离码头、按安全程序保障乘客与货物安全；在紧急情况下指挥安全处置、报告航行隐患，并维护灭火器、缆绳、泵等设备。"
+        }
+      },
+      "interestVector": [
+        6.54,
+        2.22,
+        1.12,
+        1.99,
+        3.19,
+        3.66
       ]
     },
     "motorcycle-mechanics": {
@@ -6337,6 +6447,28 @@
         5.76
       ]
     },
+    "recycling-and-reclamation-workers": {
+      "onet": "53-7062.04",
+      "interest": "RC",
+      "copy": {
+        "en": {
+          "name": "Recycling and reclamation workers",
+          "summary": "Recycling and reclamation workers sort paper, plastic, metal, glass, and other recyclables by material, remove items unsuitable for the process, and bale, move, weigh, and record the destination per on-site procedures. Equipment, vehicles, and suspected hazardous materials must be handled by trained, authorized personnel; when something is abnormal, stop work first, isolate, and escalate."
+        },
+        "zh": {
+          "name": "回收与再利用工",
+          "summary": "回收与再利用工按材质分拣纸、塑料、金属和玻璃等可回收物，清除不适合该流程的物品，按现场程序打包、搬运、称重并记录去向。设备、车辆和疑似危险物质须由受训获授权人员处理；发现异常先停工、隔离并升级。"
+        }
+      },
+      "interestVector": [
+        6.28,
+        2.04,
+        1.0,
+        1.28,
+        1.59,
+        4.39
+      ]
+    },
     "respiratory-therapists": {
       "onet": "29-1126.00",
       "interest": "RSI",
@@ -6756,6 +6888,7 @@
         "fiberglass-laminators-and-fabricators",
         "foundry-mold-and-coremakers",
         "farmworkers-and-laborers-crop-nursery-and-greenhouse",
+        "millwrights",
         "rail-track-laying-and-maintenance-equipment-operators",
         "sewing-machine-operators",
         "helpers-painters-paperhangers-plasterers-and-stucco-masons",
@@ -6771,6 +6904,7 @@
         "motorboat-mechanics-and-service-technicians",
         "service-unit-operators-oil-and-gas",
         "general-maintenance-and-repair-workers",
+        "milling-and-planing-machine-setters-operators-and-tenders-metal-and-plastic",
         "glaziers",
         "hazardous-materials-removal-workers",
         "extruding-and-drawing-machine-setters-operators-and-tenders-metal-and-plastic",
@@ -6781,6 +6915,8 @@
         "forging-machine-setters-operators-and-tenders-metal-and-plastic",
         "food-cooking-machine-operators-and-tenders",
         "animal-trainers",
+        "recycling-and-reclamation-workers",
+        "motorboat-operators",
         "automotive-and-watercraft-service-attendants",
         "home-appliance-repairers",
         "audiovisual-equipment-installers-and-repairers",
@@ -6814,6 +6950,7 @@
         "fish-and-game-wardens",
         "automotive-engineering-technicians",
         "gem-and-diamond-workers",
+        "motion-picture-projectionists",
         "non-destructive-testing-specialists",
         "forest-and-conservation-technicians",
         "ship-engineers",
@@ -6931,6 +7068,7 @@
         "quality-control-analysts",
         "first-line-supervisors-of-production-and-operating-workers",
         "shipping-receiving-and-inventory-clerks",
+        "biofuels-biodiesel-technology-and-product-development-managers",
         "first-line-supervisors-of-mechanics-installers-and-repairers",
         "first-line-supervisors-of-housekeeping-and-janitorial-workers",
         "food-service-managers",
@@ -6972,6 +7110,7 @@
         "general-internal-medicine-physicians",
         "clinical-research-coordinators",
         "environmental-restoration-planners",
+        "biofuels-biodiesel-technology-and-product-development-managers",
         "histotechnologists",
         "food-scientists-and-technologists",
         "genetic-counselors",
@@ -7281,6 +7420,7 @@
         "fraud-examiners-investigators-and-analysts",
         "financial-examiners",
         "art-directors",
+        "biofuels-biodiesel-technology-and-product-development-managers",
         "air-traffic-controllers",
         "airfield-operations-specialists",
         "industrial-organizational-psychologists",
@@ -7307,6 +7447,7 @@
         "ship-engineers",
         "musicians-and-singers",
         "actuaries",
+        "motorboat-operators",
         "shipping-receiving-and-inventory-clerks"
       ]
     },
@@ -7392,6 +7533,7 @@
         "geothermal-technicians",
         "nuclear-technicians",
         "historians",
+        "motion-picture-projectionists",
         "first-line-supervisors-of-passenger-attendants",
         "general-and-operations-managers",
         "first-line-supervisors-of-landscaping-lawn-service-and-groundskeeping-workers",
@@ -7406,6 +7548,7 @@
         "aircraft-cargo-handling-supervisors",
         "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel",
         "aerospace-engineering-and-operations-technicians",
+        "recycling-and-reclamation-workers",
         "food-service-managers",
         "editors",
         "home-appliance-repairers",
@@ -7457,6 +7600,7 @@
         "advertising-promotions-and-marketing-managers",
         "fundraising-managers",
         "rail-yard-engineers-dinkey-operators-and-hostlers",
+        "milling-and-planing-machine-setters-operators-and-tenders-metal-and-plastic",
         "health-informatics-specialists",
         "pharmacists",
         "food-preparation-workers",
@@ -7539,9 +7683,11 @@
         "helpers-extraction-workers",
         "nanosystems-engineers",
         "coating-painting-and-spraying-machine-setters-operators-and-tenders",
+        "motorboat-operators",
         "helpers-painters-paperhangers-plasterers-and-stucco-masons",
         "automotive-engineers",
         "animal-breeders",
+        "millwrights",
         "environmental-restoration-planners",
         "fiberglass-laminators-and-fabricators",
         "genetic-counselors",
@@ -7586,12 +7732,14 @@
         "hand-laborers-and-material-movers",
         "septic-tank-servicers-and-sewer-pipe-cleaners",
         "railroad-brake-signal-and-switch-operators-and-locomotive-firers",
+        "recycling-and-reclamation-workers",
         "paving-surfacing-and-tamping-equipment-operators",
         "separating-filtering-clarifying-precipitating-and-still-machine-setters-operators-and-tenders",
         "extruding-forming-pressing-and-compacting-machine-setters-operators-and-tenders",
         "extruding-and-drawing-machine-setters-operators-and-tenders-metal-and-plastic",
         "industrial-truck-and-tractor-operators",
         "home-appliance-repairers",
+        "milling-and-planing-machine-setters-operators-and-tenders-metal-and-plastic",
         "heat-treating-equipment-setters-operators-and-tenders-metal-and-plastic",
         "gas-compressor-and-gas-pumping-station-operators",
         "glass-blowers-molders-benders-and-finishers",
@@ -7621,6 +7769,7 @@
         "fiberglass-laminators-and-fabricators",
         "aircraft-structure-surfaces-rigging-and-systems-assemblers",
         "helpers-painters-paperhangers-plasterers-and-stucco-masons",
+        "millwrights",
         "sewers-hand",
         "motorboat-mechanics-and-service-technicians",
         "foundry-mold-and-coremakers",
@@ -7630,6 +7779,7 @@
         "food-preparation-workers",
         "farmworkers-and-laborers-crop-nursery-and-greenhouse",
         "security-guards",
+        "motion-picture-projectionists",
         "nuclear-power-reactor-operators",
         "gem-and-diamond-workers",
         "museum-technicians-and-conservators",
@@ -7649,6 +7799,7 @@
         "aircraft-and-avionics-equipment-mechanics-and-technicians",
         "aircraft-mechanics-and-service-technicians",
         "furniture-finishers",
+        "motorboat-operators",
         "avionics-technicians",
         "prepress-technicians-and-workers",
         "railroad-conductors-and-yardmasters",
@@ -8107,7 +8258,8 @@
         "natural-sciences-managers",
         "industrial-organizational-psychologists",
         "ship-engineers",
-        "economists"
+        "economists",
+        "motorboat-operators"
       ]
     }
   }
