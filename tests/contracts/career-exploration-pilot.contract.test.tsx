@@ -9,6 +9,7 @@ import { CareerExplorationPilot } from "@/components/career/CareerExplorationPil
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { appendCareerInterestPilotSitemapEntries, buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
 import { getReleasedCareerInterest } from "@/lib/career/interestRelease";
+import release from "@/lib/career/interestRelease.json";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
 afterEach(cleanup);
@@ -121,6 +122,6 @@ describe("six-page career exploration pilot", () => {
       expect(topic.exact.length).toBeGreaterThan(0);
       return [...topic.exact, ...topic.related].map((job) => job.slug);
     }));
-    expect(slugs.size).toBe(312);
+    expect(slugs).toEqual(new Set(Object.keys(release.careers)));
   });
 });
