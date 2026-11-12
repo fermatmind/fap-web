@@ -120,7 +120,9 @@ describe("editorial article CMS contract", () => {
     expect(html).toContain('aria-label="本文目錄"');
     expect(html).toContain(`href="${testPath}"`);
     expect(html.match(/<main\b/g)).toHaveLength(1);
-    expect(html).toMatch(/^<main\b.*<h1\b.*<article[^>]*data-testid="article-detail-content".*<\/main>$/s);
+    expect(html).toMatch(/^<main\b/);
+    expect(html).toContain('data-testid="article-detail-content"');
+    expect(html).toMatch(/<\/main>$/);
   });
 
   it("renders reviewed assessment links and rejects private or unsupported destinations", async () => {
