@@ -1739,6 +1739,28 @@
         5.0
       ]
     },
+    "energy-auditors": {
+      "onet": "47-4011.01",
+      "interest": "CRI",
+      "copy": {
+        "en": {
+          "name": "Energy Auditors",
+          "summary": "Under U.S. O*NET-SOC 47-4011.01, define the audit scope and data scope with the client, collect bills and equipment records, perform on-site measurement and verification, establish an energy baseline and calculate itemized energy consumption, estimate energy-saving measures, and produce a reviewable audit report; does not carry out retrofit construction. (The U.S. wage and employment figures checked are broader-group figures.)"
+        },
+        "zh": {
+          "name": "能源审计师",
+          "summary": "按美国 O*NET-SOC 47-4011.01，与委托方界定审计范围与数据口径，收集账单与设备资料，现场测量与核查，建立能耗基线并核算分项能耗，测算节能措施并形成可复核的审计报告；不实施改造施工。（所核美国工资与就业为更宽组口径。）"
+        }
+      },
+      "interestVector": [
+        4.53,
+        4.17,
+        1.0,
+        1.89,
+        3.34,
+        5.93
+      ]
+    },
     "environmental-engineering-technicians": {
       "onet": "17-3025.00",
       "interest": "RIC",
@@ -1827,6 +1849,28 @@
         4.93
       ]
     },
+    "environmental-science-and-protection-technicians-including-health": {
+      "onet": "19-4042.00",
+      "interest": "RIC",
+      "copy": {
+        "en": {
+          "name": "Environmental Science and Protection Technicians, Including Health",
+          "summary": "Under the direction of environmental scientists, engineers, or other professionals, conduct laboratory and field testing related to environmental health: monitor pollution and health hazard factors in air, water, soil, and workplaces, investigate sources of pollution or disease outbreaks, collect samples and record data, and provide traceable testing results to protect public and worker health."
+        },
+        "zh": {
+          "name": "环境科学与保护技术人员，包括健康",
+          "summary": "在环境科学家、工程师或其他专业人员指导下，开展与环境健康相关的实验室与现场检测：监测空气、水、土壤与工作场所中的污染与健康危害因素，调查污染或疾病暴发来源，采集样品并记录数据，为保护公众与作业人员健康提供可追溯的检测结果。"
+        }
+      },
+      "interestVector": [
+        5.83,
+        5.6,
+        1.23,
+        1.93,
+        1.35,
+        4.93
+      ]
+    },
     "environmental-scientists-and-specialists": {
       "onet": "19-2041.00",
       "interest": "IRC",
@@ -1891,6 +1935,28 @@
         4.11,
         2.37,
         3.63
+      ]
+    },
+    "equal-opportunity-representatives-and-officers": {
+      "onet": "13-1041.03",
+      "interest": "ECS",
+      "copy": {
+        "en": {
+          "name": "Equal Opportunity Representatives and Officers",
+          "summary": "Monitor and evaluate compliance with equal opportunity laws, guidelines, and policies to ensure that employment practices and contracting arrangements do not discriminate on the basis of race, religion, color, national origin, sex, age, or disability: receive and investigate complaints, interview relevant parties, mediate disputes, develop and monitor anti-discrimination guidelines, and provide training and consultation to managers and employees."
+        },
+        "zh": {
+          "name": "平等机会代表与官员",
+          "summary": "监督并评估对平等机会法律、准则与政策的遵守情况，确保雇佣实践与合同安排不因种族、宗教、肤色、国籍、性别、年龄或残疾而受到歧视：受理与调查投诉、访谈相关方、调解争议、制定并监督反歧视准则，并向管理者与员工提供培训与咨询。"
+        }
+      },
+      "interestVector": [
+        1.23,
+        3.01,
+        1.73,
+        4.24,
+        5.37,
+        5.21
       ]
     },
     "exercise-physiologists": {
@@ -5743,6 +5809,28 @@
         5.76
       ]
     },
+    "opticians-dispensing": {
+      "onet": "29-2081.00",
+      "interest": "CR",
+      "copy": {
+        "en": {
+          "name": "Dispensing optician",
+          "summary": "Measure the customer's face and pupillary distance based on a written optical prescription, help select frames and lenses, send work orders to the laboratory, verify finished-glasses parameters, and adjust the fit; does not independently diagnose or prescribe."
+        },
+        "zh": {
+          "name": "配镜师",
+          "summary": "依据书面光学处方测量顾客面部与瞳距，帮助选择镜架和镜片，向实验室下达加工单，核成镜参数并调整佩戴；不独立诊断或开处方。"
+        }
+      },
+      "interestVector": [
+        4.35,
+        2.28,
+        1.41,
+        3.05,
+        3.33,
+        5.43
+      ]
+    },
     "optometrists": {
       "onet": "29-1041.00",
       "interest": "ISR",
@@ -5961,6 +6049,28 @@
         1.65,
         1.35,
         5.76
+      ]
+    },
+    "production-planning-and-expediting-clerks": {
+      "onet": "43-5061.00",
+      "interest": "CE",
+      "copy": {
+        "en": {
+          "name": "Production planning and expediting clerks",
+          "summary": "Production planning and expediting clerks coordinate work orders and material flow between departments according to the production schedule, distribute and adjust schedules, check progress and completion dates with supervisors, and compile records of inventory, cost, bottlenecks, and delays. Schedule changes must note resource conditions and the approver, and expediting must not replace safety or quality judgment."
+        },
+        "zh": {
+          "name": "生产计划与催单文员",
+          "summary": "生产计划与催单文员按照生产日程协调部门间的工单和物料流转，分发与调整排程，向主管核进度和完工日期，并整理库存、成本、瓶颈与延误记录。排程变更须标资源条件和批准人，不能用催单替代安全或质量判断。"
+        }
+      },
+      "interestVector": [
+        3.12,
+        1.2,
+        1.14,
+        2.11,
+        4.91,
+        5.92
       ]
     },
     "psychiatric-aides": {
@@ -6269,6 +6379,28 @@
         2.82,
         5.78,
         4.51
+      ]
+    },
+    "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel": {
+      "onet": "41-3091.00",
+      "interest": "ECS",
+      "copy": {
+        "en": {
+          "name": "Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel",
+          "summary": "Service sales representatives learn client needs, explain scope and terms, and coordinate quotes and handoffs. Authority to make commitments depends on the service."
+        },
+        "zh": {
+          "name": "服务销售代表（广告、保险、金融与旅游除外）",
+          "summary": "服务销售代表了解客户需求，解释服务范围和条件，协调报价及后续交接。不同服务的承诺权限各异。"
+        }
+      },
+      "interestVector": [
+        1.07,
+        1.94,
+        1.45,
+        3.75,
+        6.73,
+        5.07
       ]
     },
     "security-and-fire-alarm-systems-installers": {
@@ -6714,6 +6846,7 @@
         "radiologic-technologists-and-technicians",
         "food-servers-nonrestaurant",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "range-managers",
         "athletes-and-sports-competitors",
         "nuclear-medicine-technologists",
@@ -6763,6 +6896,7 @@
         "industrial-engineers",
         "environmental-engineers",
         "airfield-operations-specialists",
+        "opticians-dispensing",
         "biochemists-and-biophysicists",
         "nursing-assistants",
         "first-line-supervisors-of-firefighting-and-prevention-workers",
@@ -6773,6 +6907,7 @@
         "amusement-and-recreation-attendants",
         "flight-attendants",
         "nurse-anesthetists",
+        "energy-auditors",
         "molecular-and-cellular-biologists",
         "industrial-designers",
         "occupational-health-and-safety-specialists",
@@ -6864,6 +6999,7 @@
         "environmental-engineering-technicians",
         "automotive-engineers",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "mining-and-geological-engineers",
         "mining-and-geological-engineers-including-mining-safety-engineers",
         "geodetic-surveyors",
@@ -6921,6 +7057,7 @@
         "medical-records-and-health-information-technicians",
         "fire-inspectors-and-investigators",
         "healthcare-social-workers",
+        "energy-auditors",
         "avionics-technicians",
         "forest-and-conservation-technicians",
         "quality-control-systems-managers",
@@ -7043,6 +7180,7 @@
         "skincare-specialists",
         "health-informatics-specialists",
         "fundraisers",
+        "equal-opportunity-representatives-and-officers",
         "funeral-attendants",
         "first-line-supervisors-of-correctional-officers",
         "funeral-home-managers",
@@ -7063,6 +7201,7 @@
         "first-line-supervisors-of-non-retail-sales-workers",
         "first-line-supervisors-of-helpers-laborers-and-material-movers-hand",
         "first-line-supervisors-of-personal-service-workers",
+        "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel",
         "new-accounts-clerks",
         "compensation-benefits-and-job-analysis-specialists",
         "human-resources-managers",
@@ -7080,6 +7219,7 @@
         "advertising-sales-agents",
         "fundraising-managers",
         "financial-managers",
+        "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel",
         "general-and-operations-managers",
         "first-line-supervisors-of-non-retail-sales-workers",
         "gambling-managers",
@@ -7114,6 +7254,7 @@
         "lawyers",
         "aircraft-cargo-handling-supervisors",
         "first-line-supervisors-of-housekeeping-and-janitorial-workers",
+        "equal-opportunity-representatives-and-officers",
         "farmers-ranchers-and-other-agricultural-managers",
         "first-line-supervisors-of-material-moving-machine-and-vehicle-operators",
         "biofuels-production-managers",
@@ -7125,6 +7266,7 @@
         "compensation-benefits-and-job-analysis-specialists",
         "fitness-and-wellness-coordinators",
         "logisticians",
+        "production-planning-and-expediting-clerks",
         "natural-sciences-managers",
         "appraisers-and-assessors-of-real-estate",
         "quality-control-systems-managers",
@@ -7186,6 +7328,7 @@
         "government-property-inspectors-and-investigators",
         "gambling-cage-workers",
         "freight-forwarders",
+        "production-planning-and-expediting-clerks",
         "appraisers-of-personal-and-business-property",
         "prepress-technicians-and-workers",
         "network-and-computer-systems-administrators",
@@ -7193,6 +7336,8 @@
         "archivists",
         "appraisers-and-assessors-of-real-estate",
         "quality-control-analysts",
+        "opticians-dispensing",
+        "energy-auditors",
         "health-information-technologists-and-medical-registrars",
         "gambling-surveillance-officers-and-gambling-investigators",
         "gambling-dealers",
@@ -7225,6 +7370,7 @@
         "first-line-supervisors-of-gambling-services-workers",
         "personal-financial-advisors",
         "nuclear-monitoring-technicians",
+        "equal-opportunity-representatives-and-officers",
         "gambling-managers",
         "gas-compressor-and-gas-pumping-station-operators",
         "financial-managers",
@@ -7258,6 +7404,7 @@
         "bailiffs",
         "first-line-supervisors-of-non-retail-sales-workers",
         "aircraft-cargo-handling-supervisors",
+        "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel",
         "aerospace-engineering-and-operations-technicians",
         "food-service-managers",
         "editors",
@@ -7286,6 +7433,7 @@
         "first-line-supervisors-of-correctional-officers",
         "clinical-research-coordinators",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "extruding-forming-pressing-and-compacting-machine-setters-operators-and-tenders",
         "first-line-supervisors-of-mechanics-installers-and-repairers",
         "histology-technicians",
@@ -7532,11 +7680,13 @@
         "radiologic-technologists-and-technicians",
         "biological-technicians",
         "baristas",
+        "opticians-dispensing",
         "fire-inspectors-and-investigators",
         "industrial-engineering-technicians",
         "geodetic-surveyors",
         "barbers",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "environmental-engineering-technicians",
         "airline-and-commercial-pilots",
         "airline-pilots-copilots-and-flight-engineers",
@@ -7549,6 +7699,7 @@
         "barbers-hairstylists-and-cosmetologists",
         "mining-and-geological-engineers",
         "mining-and-geological-engineers-including-mining-safety-engineers",
+        "energy-auditors",
         "air-traffic-controllers",
         "food-servers-nonrestaurant",
         "architectural-and-civil-drafters",
@@ -7649,6 +7800,7 @@
         "biological-technicians",
         "environmental-engineering-technicians",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "civil-engineers",
         "geodetic-surveyors",
         "nuclear-medicine-technologists",
@@ -7664,6 +7816,7 @@
         "aerospace-engineers",
         "histotechnologists",
         "hydrologists",
+        "energy-auditors",
         "foresters",
         "quality-control-analysts",
         "geographic-information-systems-technologists-and-technicians",
@@ -7695,6 +7848,7 @@
         "electrical-and-electronics-engineering-technicians",
         "automotive-engineers",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "fuel-cell-engineers",
         "civil-engineers",
         "mining-and-geological-engineers",
@@ -7756,6 +7910,7 @@
         "bioinformatics-technicians",
         "occupational-health-and-safety-specialists",
         "geneticists",
+        "energy-auditors",
         "network-and-computer-systems-administrators"
       ]
     },
@@ -7782,6 +7937,7 @@
       "related": [
         "environmental-engineering-technicians",
         "environmental-science-and-protection-technicians",
+        "environmental-science-and-protection-technicians-including-health",
         "fuel-cell-engineers",
         "automotive-engineers",
         "automotive-engineering-technicians",
@@ -7830,12 +7986,14 @@
         "hydroelectric-plant-technicians",
         "biofuels-processing-technicians",
         "industrial-machinery-mechanics",
+        "energy-auditors",
         "network-and-computer-systems-administrators"
       ]
     },
     "ecs": {
       "exact": [
         "first-line-supervisors-of-non-retail-sales-workers",
+        "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel",
         "first-line-supervisors-of-office-and-administrative-support-workers",
         "human-resources-managers",
         "first-line-supervisors-of-retail-sales-workers",
@@ -7846,6 +8004,7 @@
         "first-line-supervisors-of-helpers-laborers-and-material-movers-hand",
         "funeral-home-managers",
         "personal-financial-advisors",
+        "equal-opportunity-representatives-and-officers",
         "first-line-supervisors-of-correctional-officers",
         "arbitrators-mediators-and-conciliators"
       ],
@@ -7862,6 +8021,7 @@
     },
     "ce": {
       "exact": [
+        "production-planning-and-expediting-clerks",
         "gambling-change-persons-and-booth-cashiers",
         "gambling-cage-workers",
         "appraisers-and-assessors-of-real-estate",
@@ -7887,6 +8047,7 @@
         "general-and-operations-managers",
         "first-line-supervisors-of-gambling-services-workers",
         "compensation-benefits-and-job-analysis-specialists",
+        "sales-representatives-of-services-except-advertising-insurance-financial-services-and-travel",
         "logisticians",
         "first-line-supervisors-of-non-retail-sales-workers",
         "gambling-surveillance-officers-and-gambling-investigators",
@@ -7897,6 +8058,7 @@
         "fraud-examiners-investigators-and-analysts",
         "first-line-supervisors-of-personal-service-workers",
         "first-line-supervisors-of-helpers-laborers-and-material-movers-hand",
+        "equal-opportunity-representatives-and-officers",
         "fundraising-managers",
         "actuaries",
         "first-line-supervisors-of-production-and-operating-workers",

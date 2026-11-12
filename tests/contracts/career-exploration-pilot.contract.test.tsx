@@ -121,6 +121,6 @@ describe("six-page career exploration pilot", () => {
       expect(topic.exact.length).toBeGreaterThan(0);
       return [...topic.exact, ...topic.related].map((job) => job.slug);
     }));
-    expect(slugs.size).toBe(300);
+    expect(slugs.size).toBe(306);
   });
 });
