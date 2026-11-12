@@ -36,7 +36,8 @@ describe("Traditional CMS About complete rendering", () => {
     }
     expect(document.querySelector('a[href="/zh-TW/foundation"]')).not.toBeNull();
     expect(document.querySelector('a[href="/zh-TW/privacy"]')).toBeNull();
-    expect(document.querySelector("main")).toBeNull(); // The Traditional root layout owns the main landmark.
+    expect(document.querySelectorAll("main")).toHaveLength(1);
+    expect(document.querySelector("main h1")).not.toBeNull();
     expect(html).not.toContain("private-source-do-not-render");
   });
 
