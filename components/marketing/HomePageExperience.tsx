@@ -12,7 +12,7 @@ import type { HomePageContent } from "@/lib/marketing/homepageContent";
 import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
 import { extractTestSlugFromEntryHref, filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
-import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { cn } from "@/lib/utils";
 
 type HomeLink = HomePageContent["quickStart"]["items"][number];
@@ -72,10 +72,7 @@ const HOMEPAGE_HERO_COPY = {
 
 function withLocale(locale: DisplayLocale, path: string): string {
   if (locale !== "zh-TW") return localizedPath(stripLocalePrefix(path), locale);
-  const source = localizedPath(stripLocalePrefix(path), "zh");
-  const pathname = source.split(/[?#]/u, 1)[0];
-  const traditional = traditionalPath(pathname);
-  return traditional ? traditional + source.slice(pathname.length) : source;
+  return displayNavigationPath(stripLocalePrefix(path), locale);
 }
 
 function hasText(value: string | null | undefined): value is string {
@@ -896,15 +893,15 @@ function getArticleDisplayDate(article: HomeArticle, locale: DisplayLocale): str
   }).format(date);
 }
 
-function HomepageArticlesBanner({ locale, articles }: { locale: DisplayLocale; articles: HomeArticle[] }) {
+function HomepageArticlesBanner({ locale, articles, archiveTitle }: { locale: DisplayLocale; articles: HomeArticle[]; archiveTitle?: string | null }) {
   const visibleArticles = articles.slice(0, 6);
 
-  if (visibleArticles.length === 0) {
+  if (visibleArticles.length === 0 && !archiveTitle) {
     return null;
   }
 
   const labels =
-    locale === "zh-TW" ? { title: "推薦閱讀（簡體中文）", all: "查看全部文章（簡體中文）", author: "作者：" }
+    locale === "zh-TW" ? { title: "推薦閱讀", all: "查看全部文章", author: "作者：" }
       : locale === "zh"
       ? { title: "推荐阅读", all: "查看全部文章", author: "作者：" }
       : { title: "Recommended reading", all: "View all articles", author: "By " };
@@ -923,7 +920,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: DisplayLocale; a
 
         <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {visibleArticles.map((article) => (
-            <article key={`${article.slug}-${article.locale}`} className="group" lang={locale === "zh-TW" ? "zh-CN" : undefined}>
+            <article key={`${article.slug}-${article.locale}`} className="group">
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
                 <ArticleCoverVisual article={article} />
                 <h3 className="m-0 mt-5 text-3xl font-normal leading-tight tracking-[-0.055em] text-slate-900 transition group-hover:text-teal-800">
@@ -932,7 +929,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: DisplayLocale; a
               </Link>
               <p className="m-0 mt-5 text-sm leading-6 text-slate-500">
                 {labels.author}
-                <span className="text-slate-700"><ArticleByline authorName={article.authorName} locale={locale === "zh-TW" ? "zh" : locale} /></span>
+                <span className="text-slate-700"><ArticleByline authorName={article.authorName} locale={locale} /></span>
               </p>
               <p className="m-0 mt-1 text-sm text-slate-400">{getArticleDisplayDate(article, locale)}</p>
             </article>
@@ -945,7 +942,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: DisplayLocale; a
             prefetch={false}
             className="inline-flex rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-teal-700 hover:text-teal-800"
           >
-            {labels.all}
+            {archiveTitle || labels.all}
           </Link>
         </div>
       </Container>
@@ -996,11 +993,13 @@ export function HomePageExperience({
   locale,
   copy,
   articles = [],
+  archiveTitle,
   supplementalTests = [],
 }: {
   locale: DisplayLocale;
   copy: HomePageContent;
   articles?: HomeArticle[];
+  archiveTitle?: string | null;
   supplementalTests?: HubTestCardItem[];
 }) {
   return (
@@ -1011,7 +1010,7 @@ export function HomePageExperience({
       <HomepageFunTests locale={locale} />
       <HomepageTrustStripV1 locale={locale} copy={copy} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
-      <HomepageArticlesBanner locale={locale} articles={articles} />
+      <HomepageArticlesBanner locale={locale} articles={articles} archiveTitle={archiveTitle} />
     </div>
   );
 }

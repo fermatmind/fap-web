@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache, Suspense } from "react";
+import { Container } from "@/components/layout/Container";
 import { TraditionalPersonalityCategoryLinks } from "@/components/personality/TraditionalPersonalityCategoryLinks";
 import { TestCategoryExperience } from "@/components/marketing/tests/TestCategoryExperience";
 import { ApiError } from "@/lib/api-client";
@@ -35,16 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TraditionalTestsCategory({ params }: Props) {
   const content = await loadCategory((await params).slug);
-  const suffix = `/tests/category/${content.slug}`;
-  return <>
-    <nav aria-label="頁面語言" className="mb-5 flex flex-wrap gap-5 text-sm">
-      <span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span>
-      <Link href={`/zh${suffix}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
-      <Link href={`/en${suffix}`} lang="en" className="min-h-11 py-2 underline">English</Link>
-    </nav>
+  return <main>
     {content.slug === "personality" ? (
-      <Suspense fallback={null}><TraditionalPersonalityCategoryLinks /></Suspense>
+      <Suspense fallback={null}><Container className="pt-6"><TraditionalPersonalityCategoryLinks /></Container></Suspense>
     ) : null}
     <TestCategoryExperience locale="zh-TW" content={content} />
-  </>;
+  </main>;
 }

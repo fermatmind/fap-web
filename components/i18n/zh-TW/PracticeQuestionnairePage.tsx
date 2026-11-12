@@ -75,7 +75,7 @@ export async function PracticeQuestionnairePage({ slug, take, profile }: Practic
     </ul>
   </section>;
 
-  if (result) return <article className="mx-auto max-w-3xl space-y-6">
+  if (result) return <article className="mx-auto w-full max-w-3xl space-y-6 px-[var(--fm-container-gutter)] py-10">
     {languages}
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
     <h1 className="text-3xl font-bold">{result.title.zh}</h1>
@@ -86,7 +86,7 @@ export async function PracticeQuestionnairePage({ slug, take, profile }: Practic
     <PracticeSections sections={quiz.guide} />
   </article>;
 
-  return <div className="mx-auto max-w-3xl space-y-8">
+  return <div className="mx-auto w-full max-w-3xl space-y-8 px-[var(--fm-container-gutter)] py-10">
     {languages}
     <ExploreTestIntro slug={slug} locale="zh">
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>

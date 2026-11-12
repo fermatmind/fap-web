@@ -267,7 +267,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
       <a href={reference.url} target="_blank" rel="noopener noreferrer" className="inline-block min-h-11 py-2 underline">{index + 1}. {reference.title.zh}</a>
     </li>)}</ol>
   </section> : null;
-  if (result) return <article className="mx-auto max-w-3xl space-y-6">
+  if (result) return <article className="mx-auto w-full max-w-3xl space-y-6 px-[var(--fm-container-gutter)] py-10">
     {languages}
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
     <h1 className="text-3xl font-bold">{result.title.zh}</h1>
@@ -318,7 +318,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     ? (await import("@/components/questionnaires/EightQuizOverview")).EightQuizOverview : undefined;
   const relationshipCopy = RelationshipOverview ? await loadTraditionalAssessmentText() : undefined;
   const adultAgeCopy = slug === "adult-age-preferences" ? await loadTraditionalAssessmentText() : undefined;
-  return <div className="mx-auto max-w-3xl space-y-8">
+  return <div className="mx-auto w-full max-w-3xl space-y-8 px-[var(--fm-container-gutter)] py-10">
     {languages}
     <ExploreTestIntro slug={slug} locale="zh">
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title.zh}</h1>

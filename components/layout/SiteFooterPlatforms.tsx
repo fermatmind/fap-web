@@ -4,7 +4,7 @@ import { useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import styles from "./site-footer.module.css";
 
 // Public listings only. Outbring has no verified stable product detail URL;
@@ -37,21 +37,22 @@ function PlatformMark({ name }: { name: string }) {
   return <>{name}<ArrowUpRight size={14} aria-hidden="true" /></>;
 }
 
-export function SiteFooterPlatforms({ locale }: { locale: Locale }) {
+export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
   const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "/zh" || pathname === "/en";
+  const isHome = pathname === "/" || pathname === "/zh" || pathname === "/en" || pathname === "/zh-TW";
   const displayedPlatforms = isHome ? [startupFame, ...platforms] : platforms;
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [paused, setPaused] = useState(false);
   const zh = locale === "zh";
-  const title = zh ? "平台收录" : "Find us on";
+  const taiwan = locale === "zh-TW";
+  const title = taiwan ? "平台收錄" : zh ? "平台收录" : "Find us on";
   const label = (name: string) => {
     const destination = name === "Outbring"
-      ? (zh ? "产品排行榜" : "product leaderboard")
+      ? (taiwan ? "產品排行榜" : zh ? "产品排行榜" : "product leaderboard")
       : name === "Zearches"
-        ? (zh ? "FermatMind 搜索结果" : "FermatMind search results")
-        : (zh ? "FermatMind 条目" : "FermatMind listing");
-    return `${name} — ${destination}${zh ? "（新窗口打开）" : " (opens in a new tab)"}`;
+        ? (taiwan ? "FermatMind 搜尋結果" : zh ? "FermatMind 搜索结果" : "FermatMind search results")
+        : (taiwan ? "FermatMind 項目" : zh ? "FermatMind 条目" : "FermatMind listing");
+    return `${name} — ${destination}${taiwan ? "（在新分頁開啟）" : zh ? "（新窗口打开）" : " (opens in a new tab)"}`;
   };
 
   return (
@@ -62,12 +63,12 @@ export function SiteFooterPlatforms({ locale }: { locale: Locale }) {
           type="button"
           disabled={!ready}
           className={styles.platformPause}
-          aria-label={zh ? "暂停平台展示滚动" : "Pause platform scrolling"}
+          aria-label={taiwan ? "暫停平台展示捲動" : zh ? "暂停平台展示滚动" : "Pause platform scrolling"}
           aria-pressed={paused}
           onClick={() => setPaused((value) => !value)}
         >
           {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
-          <span>{paused ? (zh ? "继续滚动" : "Resume") : (zh ? "暂停滚动" : "Pause")}</span>
+          <span>{paused ? (taiwan ? "繼續捲動" : zh ? "继续滚动" : "Resume") : (taiwan ? "暫停捲動" : zh ? "暂停滚动" : "Pause")}</span>
         </button>
       </div>
       <div className={styles.platformViewport}>

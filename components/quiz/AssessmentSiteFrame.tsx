@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import styles from "./AssessmentTake.module.css";
 
 import { FOCUSED_ASSESSMENT_SLUGS } from "@/lib/quiz/assessmentTakeUi";
@@ -14,7 +15,7 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
   children: ReactNode;
   header: ReactNode;
   footer: ReactNode;
-  locale: Locale;
+  locale: DisplayLocale;
 }) {
   const pathname = usePathname();
   useEffect(() => {
@@ -24,12 +25,14 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
     window.addEventListener("storage", changed);
     return () => window.removeEventListener("storage", changed);
   }, []);
-  const focusedSlug = FOCUSED_ASSESSMENT_SLUGS.find((slug) => pathname === localizedPath(`/tests/${slug}/take`, locale));
-  const questionnaireTake = parseQuestionnaireTakePath(pathname);
-  const friendshipInvite = /^\/(?:en|zh)\/share\/friendship\/[a-f0-9-]+\/?$/i.test(pathname);
+  const withLocale = (path: string) => displayNavigationPath(path, locale);
+  const taiwan = locale === "zh-TW";
+  const focusedSlug = FOCUSED_ASSESSMENT_SLUGS.find((slug) => pathname === withLocale(`/tests/${slug}/take`));
+  const questionnaireTake = parseQuestionnaireTakePath(taiwan ? pathname.replace(/^\/zh-TW(?=\/)/u, "/zh") : pathname);
+  const friendshipInvite = /^\/(?:en|zh|zh-TW)\/share\/friendship\/[a-f0-9-]+\/?$/i.test(pathname);
   const focused = friendshipInvite || Boolean(questionnaireTake) || (Boolean(focusedSlug) && isImmersiveSingleFlowEnabled());
 
-  if (pathname === localizedPath("/account", locale)) return <>{children}</>;
+  if (pathname === withLocale("/account")) return <>{children}</>;
 
   if (!focused) {
     return <div className="fm-page-background min-h-screen text-[var(--fm-text)]">{header}{children}{footer}</div>;
@@ -38,19 +41,19 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
   return (
     <div className={styles.siteFrame}>
       <header className={styles.siteHeader}>
-        <Link href={localizedPath("/", locale)} className={styles.wordmark}>
-          {locale === "zh" ? "费马测试" : "FermatMind"}
+        <Link href={withLocale("/")} className={styles.wordmark}>
+          {taiwan ? "費馬測試" : locale === "zh" ? "费马测试" : "FermatMind"}
         </Link>
-        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? localizedPath("/tests/play/friendship-quiz", locale) : questionnaireTake?.landing ?? localizedPath(`/tests/${focusedSlug}`, locale)} className={styles.exitLink}>
-          {locale === "zh" ? "返回测评介绍" : "Back to assessment"}<span aria-hidden>↗</span>
+        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? withLocale("/tests/play/friendship-quiz") : questionnaireTake ? (taiwan ? withLocale(questionnaireTake.landing.slice("/zh".length)) : questionnaireTake.landing) : withLocale(`/tests/${focusedSlug}`)} className={styles.exitLink}>
+          {taiwan ? "返回測驗介紹" : locale === "zh" ? "返回测评介绍" : "Back to assessment"}<span aria-hidden>↗</span>
         </Link>
       </header>
       {children}
       <footer className={styles.siteFooter}>
         <span>FermatMind</span>
-        <nav aria-label={locale === "zh" ? "测评相关信息" : "Assessment information"}>
-          <Link href={localizedPath("/science", locale)} target="_blank" rel="noopener noreferrer">{locale === "zh" ? "测评科学" : "Assessment science"}</Link>
-          <Link href={localizedPath("/privacy", locale)} target="_blank" rel="noopener noreferrer">{locale === "zh" ? "隐私保护" : "Privacy"}</Link>
+        <nav aria-label={taiwan ? "測驗相關資訊" : locale === "zh" ? "测评相关信息" : "Assessment information"}>
+          <Link href={withLocale("/science")} target="_blank" rel="noopener noreferrer">{taiwan ? "測評科學" : locale === "zh" ? "测评科学" : "Assessment science"}</Link>
+          <Link href={withLocale("/privacy")} target="_blank" rel="noopener noreferrer">{taiwan ? "隱私保護" : locale === "zh" ? "隐私保护" : "Privacy"}</Link>
         </nav>
       </footer>
     </div>

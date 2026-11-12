@@ -2,7 +2,7 @@ import { Suspense, type ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { DeferredSiteHeader } from "@/components/layout/DeferredSiteHeader";
 import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { AssessmentSiteFrame } from "@/components/quiz/AssessmentSiteFrame";
 
 export function SiteChrome({
@@ -11,7 +11,7 @@ export function SiteChrome({
   productPriority,
 }: {
   children: ReactNode;
-  locale: Locale;
+  locale: DisplayLocale;
   productPriority: ProductPriorityEnvSnapshot;
 }) {
   return (

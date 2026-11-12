@@ -1,11 +1,11 @@
 "use client";
 
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { contentModule } from "@/components/ui/ContentModule";
 
-export const DeferredSiteFooterSocialRail = contentModule<{ locale: Locale }>(
+export const DeferredSiteFooterSocialRail = contentModule<{ locale: DisplayLocale }>(
   () => import("./SiteFooterSocialRail").then(module => ({ default: module.SiteFooterSocialRail }))
 );
-export const DeferredSiteFooterPlatforms = contentModule<{ locale: Locale }>(
+export const DeferredSiteFooterPlatforms = contentModule<{ locale: DisplayLocale }>(
   () => import("./SiteFooterPlatforms").then(module => ({ default: module.SiteFooterPlatforms }))
 );

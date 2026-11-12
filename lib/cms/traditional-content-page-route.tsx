@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import { buildContentPagePath, getContentPageWithLastKnownGood, isBigFivePolicySlug } from "@/lib/cms/content-pages";
@@ -51,11 +52,11 @@ export async function renderTraditionalContentPage(slug: string) {
       { name: "首頁", path: "/zh-TW" }, { name: page.title, path: canonicalPath },
     ])} />}
     {faqItems.length > 0 ? <JsonLd id={`help-faq-${slug}`} data={buildVisibleHelpFaqJsonLd(faqItems)} /> : null}
-    <nav aria-label="頁面語言" className="mb-5 flex flex-wrap gap-5 text-sm">
+    <Container as="nav" aria-label="頁面語言" className="flex flex-wrap gap-5 pt-6 text-sm">
       <span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span>
       {hasOriginalPage(0) && <Link href={buildContentPagePath(slug, "zh")} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>}
       {hasOriginalPage(1) && <Link href={buildContentPagePath(slug, "en")} lang="en" className="min-h-11 py-2 underline">English</Link>}
-    </nav>
+    </Container>
     <ContentPageTemplate page={stripContentPageReaderMetadata(page)} locale="zh-TW" />
   </>;
 }

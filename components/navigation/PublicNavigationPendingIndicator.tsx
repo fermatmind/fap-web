@@ -8,7 +8,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 
 const PUBLIC_NAVIGATION_PENDING_EVENT = "fermatmind:public-navigation-pending";
 const PENDING_SAFETY_TIMEOUT_MS = 15_000;
@@ -58,7 +58,7 @@ export function PublicNavigationLink({
 export function PublicNavigationPendingIndicator({
   locale,
 }: {
-  locale: Locale;
+  locale: DisplayLocale;
 }) {
   const pathname = usePathname() ?? "/";
   const currentRouteKey = pathname;
@@ -87,7 +87,7 @@ export function PublicNavigationPendingIndicator({
 
   if (!pending) return null;
 
-  const label = locale === "zh" ? "页面加载中" : "Loading page";
+  const label = locale === "zh-TW" ? "頁面載入中" : locale === "zh" ? "页面加载中" : "Loading page";
 
   return (
     <div

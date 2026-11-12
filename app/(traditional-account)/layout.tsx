@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteFontClassName } from "@/components/layout/siteFonts";
 import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
   referrer: "strict-origin-when-cross-origin",
 };
 export default function TraditionalAccountLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="zh-TW"><body className="min-h-screen antialiased">{children}</body></html>;
+  return <html lang="zh-TW"><body className={`min-h-screen ${siteFontClassName}`}>{children}</body></html>;
 }

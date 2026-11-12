@@ -103,7 +103,7 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
   const bleach = slug === "bleach" ? bleachPresentation(result.id) : undefined;
   const philosopher = slug === "philosopher-personality-test";
   const portraitCopy = bleach || philosopher ? traditionalPortraitCopy(await loadTraditionalAssessmentText()) : undefined;
-  return <article className="mx-auto max-w-3xl space-y-6">
+  return <article className="mx-auto w-full max-w-3xl space-y-6 px-[var(--fm-container-gutter)] py-10">
     {languages}
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
     <p className="text-sm font-semibold">完整公開指南</p>

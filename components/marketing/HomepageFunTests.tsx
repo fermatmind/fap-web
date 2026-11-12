@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 
@@ -46,12 +47,16 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
         <h2 id="homepage-fun-tests-title" className="m-0 text-center text-3xl font-semibold text-slate-950 md:text-4xl">{taiwan ? "熱門娛樂測驗" : zh ? "热门娱乐测试" : "Popular fun quizzes"}</h2>
         <p className="mx-auto mt-4 max-w-2xl text-center leading-7 text-slate-600">{taiwan ? "和朋友玩一輪，或換個輕鬆的角度認識自己。完整結果免費，無須註冊。" : zh ? "和朋友玩一轮，或换个轻松的角度看看自己。完整结果免费，无需注册。" : "A friendship challenge to share, or a playful personality quiz just for you. Full results are free, with no signup."}</p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {selections.map(item => <Link key={item.slug} prefetch={false} href={`/${sourceLocale}${item.path}`} hrefLang={taiwan ? "zh-CN" : undefined} className="group flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 text-slate-950 transition-colors hover:border-[#007c9b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-reduce:transition-none">
+          {selections.map(item => {
+            const href = displayNavigationPath(item.path, locale);
+            const fallback = taiwan && href.startsWith("/zh/");
+            return <Link key={item.slug} prefetch={false} href={href} hrefLang={fallback ? "zh-CN" : undefined} className="group flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 text-slate-950 transition-colors hover:border-[#007c9b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-reduce:transition-none">
             <p className="m-0 text-sm font-medium text-slate-500">{item.meta[locale]}</p>
             <h3 className="mt-4 text-xl font-semibold leading-snug [overflow-wrap:anywhere]">{taiwan ? taiwanCards[item.slug].title : item.title[sourceLocale]}</h3>
             <p className="mt-4 flex-1 text-base leading-7 text-slate-600">{taiwan ? taiwanCards[item.slug].description : item.description[sourceLocale]}</p>
-            <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-[#007c9b]">{taiwan ? `${taiwanCards[item.slug].action}（簡體中文）` : item.action[sourceLocale]}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none">→</span></span>
-          </Link>)}
+            <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-[#007c9b]">{taiwan ? taiwanCards[item.slug].action + (fallback ? "（簡體中文）" : "") : item.action[sourceLocale]}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none">→</span></span>
+          </Link>;
+          })}
         </div>
         <p className="mt-6 text-center text-sm leading-6 text-slate-500">{taiwan ? "編輯精選的輕鬆玩法，適合娛樂與聊天。" : zh ? "编辑精选的轻松玩法，供娱乐与聊天使用。" : "An editorial selection for fun and conversation."} <Link prefetch={false} className="inline-block min-h-11 py-2 text-[#007c9b] underline underline-offset-4" href={`/${locale}/tests#more-tests`}>{taiwan ? "瀏覽全部娛樂測驗" : zh ? "浏览全部娱乐测试" : "Browse all fun quizzes"} →</Link></p>
       </div>

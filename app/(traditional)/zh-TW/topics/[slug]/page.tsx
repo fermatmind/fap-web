@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { Container } from "@/components/layout/Container";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
@@ -42,16 +44,15 @@ export default async function TraditionalTopicPage({ params }: Props) {
   const visibleSummary = iqEq ? [] : (topic.landingSurface?.summaryBlocks ?? []).slice(0, 2);
   const ctas = topic.landingSurface?.ctaBundle ?? [];
   const mbtiScenes = topic.slug === "mbti" ? await loadMbtiScenes() : [];
-  return <div className="space-y-6">
-    <nav aria-label="頁面導覽" className="flex flex-wrap gap-4 text-sm">
-      <Link href="/zh-TW/topics" className="min-h-11 py-2 underline">主題總覽</Link>
-      <span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span>
-      <Link href={buildTopicFrontendUrl("zh", topic.slug)} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
-      <Link href={buildTopicFrontendUrl("en", topic.slug)} lang="en" className="min-h-11 py-2 underline">English</Link>
-    </nav>
-    <section className="space-y-4 rounded-xl border border-slate-200 p-5">
-      {topic.heroKicker ? <p className="text-sm font-semibold">{topic.heroKicker}</p> : null}
-      <h1 className="text-3xl font-bold sm:text-4xl">{topic.title}</h1>
+  return <Container as="main" className="space-y-6 py-10">
+    <Breadcrumb items={[
+      { label: "首頁", href: "/zh-TW" },
+      { label: "主題總覽", href: "/zh-TW/topics" },
+      { label: topic.title },
+    ]} />
+    <section id="answer-first" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+      {topic.heroKicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{topic.heroKicker}</p> : null}
+      <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{topic.title}</h1>
       {topic.subtitle ? <p className="text-lg leading-8">{topic.subtitle}</p> : null}
       {topic.excerpt && topic.excerpt !== topic.subtitle ? <p className="leading-8">{topic.excerpt}</p> : null}
       {topic.heroQuote ? <blockquote className="rounded-lg bg-slate-50 p-4">{topic.heroQuote}</blockquote> : null}
@@ -78,7 +79,7 @@ export default async function TraditionalTopicPage({ params }: Props) {
         {cta.label}{cta.href.startsWith("/zh/") ? "（簡體中文）" : null}
       </Link>)}</div>
     </section> : null}
-  </div>;
+  </Container>;
 }
 
 async function loadMbtiScenes() {

@@ -4,6 +4,7 @@ import { traditionalObservationRoute } from "@/lib/i18n/traditionalObservationPa
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { notFound } from "next/navigation";
 import { traditionalPath, traditionalEquivalent, TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH } from "@/lib/i18n/traditionalRoutes";
 import { traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
@@ -124,13 +125,13 @@ export default async function TraditionalPage(props: Props) {
   const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   if (path.endsWith("/take")) return <ChiikawaTake />;
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
-  if (profile) return <div className="space-y-6"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></div>;
-  if (path !== entry) return <TraditionalPilotTests />;
-  return <div className="space-y-8"><Languages path={path} /><h1 className="text-3xl font-bold sm:text-4xl">{quiz.title["zh-TW"]}</h1><p className="text-lg leading-8">{quiz.description["zh-TW"]}</p><p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p><Link href={`${entry}/take`} className="inline-block min-h-11 rounded-full bg-slate-900 px-7 py-3 font-semibold text-white">{ui.start["zh-TW"]}</Link>
+  if (profile) return <Container as="main" className="space-y-6 py-10"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></Container>;
+  if (path !== entry) return <Container as="main" className="py-10"><TraditionalPilotTests /></Container>;
+  return <Container as="main" className="space-y-8 py-10"><Languages path={path} /><h1 className="text-3xl font-bold sm:text-4xl">{quiz.title["zh-TW"]}</h1><p className="text-lg leading-8">{quiz.description["zh-TW"]}</p><p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p><Link href={`${entry}/take`} className="inline-block min-h-11 rounded-full bg-slate-900 px-7 py-3 font-semibold text-white">{ui.start["zh-TW"]}</Link>
     <p className="whitespace-pre-line leading-8">{quiz.instructions!["zh-TW"]}</p>
     {quiz.guide.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}
     <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.guides["zh-TW"]}</h2><div className="grid gap-5 sm:grid-cols-2">{quiz.profiles.map(profile => <Link key={profile.id} href={`${entry}/results/${profile.id}`} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5"><ChiikawaPortrait id={profile.id} className="size-20 rounded-xl" /><h3 className="text-xl font-semibold underline">{profile.title["zh-TW"]}</h3><p className="leading-7">{profile.headline["zh-TW"]}</p></Link>)}</div></section>
     <section className="space-y-3"><h2 className="text-2xl font-bold">來源與範圍</h2><p className="leading-8">本站原創同人情境題與角色解讀，不是官方測驗或臨床評估。繁體版保留原題本與計分規則。</p><ul className="list-disc space-y-3 pl-5">{quiz.references?.map(reference => <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer" className="underline">{reference.title["zh-TW"]}</a></li>)}</ul></section>
     <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.faq["zh-TW"]}</h2>{quiz.faq.map((faq, index) => <div key={index}><h3 className="text-xl font-semibold">{faq.question["zh-TW"]}</h3><p className="mt-3 whitespace-pre-line leading-8">{faq.answer["zh-TW"]}</p></div>)}</section>
-  </div>;
+  </Container>;
 }

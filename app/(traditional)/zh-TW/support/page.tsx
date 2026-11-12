@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SupportCenter } from "@/components/support/SupportCenter";
 import { getContentPage } from "@/lib/cms/content-pages";
@@ -75,7 +74,7 @@ export default async function TraditionalSupportPage() {
     { key: "method_boundaries", href: "/zh-TW/method-boundaries", title: "測評方法與使用範圍", summary: "了解測評能提供哪些參考，以及如何理解結果。", topic: "assessments", kind: "article" },
   ];
   const supportEmail = contactPage.supportContact;
-  return <>
+  return (
     <SupportCenter
       locale="zh-TW" title={hero.title} entries={entries} questions={questions} tools={tools}
       contactHref={contact ? displayLink(contact.href, contact.title).href : null}
@@ -84,10 +83,5 @@ export default async function TraditionalSupportPage() {
         ? <a href={`mailto:${supportEmail}`} className="inline-flex min-h-11 items-center gap-4 rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#203c66]">{supportEmail}<ArrowUpRight size={17} aria-hidden /></a>
         : null}
     />
-    <nav aria-label="頁面語言" className="mt-5 flex flex-wrap gap-5 text-sm">
-      <span aria-current="page" className="min-h-11 py-2">繁體中文（台灣）</span>
-      <Link href="/zh/support" lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
-      <Link href="/en/support" lang="en" className="min-h-11 py-2 underline">English</Link>
-    </nav>
-  </>;
+  );
 }

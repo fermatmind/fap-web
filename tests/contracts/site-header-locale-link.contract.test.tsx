@@ -41,6 +41,15 @@ describe("SiteHeader locale link contract", () => {
     fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
     expect(await screen.findByRole("menuitem", { name: "繁體中文（台灣）" })).toHaveAttribute("href", "/zh-TW/tests/explore/chiikawa");
   });
+  it("uses the common menu on Taiwan pages with separate Simplified and English destinations", async () => {
+    navigationState.pathname = "/zh-TW/tests";
+    render(<LocaleProvider locale="zh"><LocaleSwitcher locale="zh-TW" /></LocaleProvider>);
+    fireEvent.click(screen.getByRole("button", { name: "語言選單" }));
+    expect(await screen.findByRole("menuitem", { name: "繁體中文（台灣）" })).toHaveAttribute("aria-current", "true");
+    expect(screen.getByRole("menuitem", { name: "简体中文" })).toHaveAttribute("href", "/zh/tests");
+    expect(screen.getByRole("menuitem", { name: "English" })).toHaveAttribute("href", "/en/tests");
+  });
+
   beforeEach(() => {
     navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
   });

@@ -446,9 +446,8 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
   const showHeroSummary = page.slug !== "help-contact";
   const showMetadataCard = Boolean(updatedAt || effectiveAt);
 
-  const PageRoot = locale === "zh-TW" ? "article" : "main";
   return (
-    <PageRoot className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
+    <main className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
       <Container className="py-10 md:py-14">
         <Breadcrumb
           ariaLabel={locale === "zh-TW" ? "導覽路徑" : undefined}
@@ -542,6 +541,6 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
           </aside>
         </div>
       </Container>
-    </PageRoot>
+    </main>
   );
 }

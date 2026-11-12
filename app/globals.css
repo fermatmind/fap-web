@@ -10444,3 +10444,7 @@ a {
     scroll-behavior: auto !important;
   }
 }
+
+html[lang="zh-TW"] :is(body, .font-sans) {
+  font-family: var(--font-fm-sans), "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}

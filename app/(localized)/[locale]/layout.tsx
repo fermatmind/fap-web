@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { siteFontClassName } from "@/components/layout/siteFonts";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
@@ -16,34 +16,6 @@ import { PRIVATE_ANALYTICS_SUPPRESSION_HEADER } from "@/lib/tracking/browserAnal
 import "../../globals.css";
 
 const RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell";
-
-const fmSans = localFont({
-  src: [{ path: "../../../public/fonts/manrope/Manrope-Variable.woff2", weight: "200 800", style: "normal" }],
-  variable: "--font-fm-sans",
-  display: "swap",
-  fallback: ["Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
-});
-
-const fmSerif = localFont({
-  src: [{ path: "../../../public/fonts/fraunces/Fraunces-Variable.woff2", weight: "100 900", style: "normal" }],
-  variable: "--font-fm-serif",
-  display: "swap",
-  fallback: ["Georgia", "Times New Roman", "serif"],
-});
-
-const fmMono = localFont({
-  src: [
-    {
-      path: "../../../public/fonts/jetbrains-mono/JetBrainsMono-Variable.woff2",
-      weight: "100 800",
-      style: "normal",
-    },
-  ],
-  variable: "--font-fm-mono",
-  display: "swap",
-  preload: false,
-  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -109,7 +81,7 @@ export default async function LocalizedRootLayout({
         <link rel="dns-prefetch" href="https://static.lingcecdn.com" />
       </head>
       <body
-        className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}
+        className={siteFontClassName}
         data-pdf-snapshot-shell={useResultPrintSnapshotShell ? "true" : undefined}
       >
         <AnalyticsScripts nonce={nonce} suppressServerBootstrap={suppressAnalyticsBootstrap} />

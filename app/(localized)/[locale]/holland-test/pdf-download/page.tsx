@@ -49,7 +49,7 @@ export default async function HollandPdfPage({ params }: Props) {
     { name: text("PDF 工作表", "PDF worksheet", "PDF 工作表"), path: pathname },
   ];
   return (
-    <Container as={traditional ? "div" : "main"} className="space-y-8 py-12 md:py-20">
+    <Container as="main" className="space-y-8 py-12 md:py-20">
       {traditional ? null : <JsonLd id="holland-pdf-webpage" data={buildWebPageJsonLd({ path: pathname, locale: sourceLocale, ...META[locale] })} />}
       {traditional ? null : <JsonLd id="holland-pdf-breadcrumb" data={buildBreadcrumbJsonLd(breadcrumbs)} />}
       <Breadcrumb items={breadcrumbs.map((item, index) => ({ label: item.name, href: index < breadcrumbs.length - 1 ? item.path : undefined }))} />

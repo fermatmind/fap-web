@@ -10,7 +10,8 @@ vi.mock("@/lib/cms/content-pages", async () => ({
   ...await vi.importActual("@/lib/cms/content-pages"),
   getContentPageWithLastKnownGood: read,
 }));
-vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("NOT_FOUND"); } }));
+vi.mock("@/components/layout/siteFonts", () => ({ siteFontClassName: "shared-site-font" }));
+vi.mock("next/navigation", () => ({ usePathname: () => "/zh-TW", notFound: () => { throw new Error("NOT_FOUND"); } }));
 import { generateTraditionalContentPageMetadata, renderTraditionalContentPage } from "@/lib/cms/traditional-content-page-route";
 
 function page(slug: string): ContentPage {
@@ -41,7 +42,7 @@ describe("shared Traditional CMS page route", () => {
     expect(document.body.textContent).not.toContain("**");
     expect(document.body.textContent).toContain("15K-25K RMB / 月。");
     expect(html).not.toContain("PRIVATE_SOURCE");
-    expect(document.querySelectorAll("main")).toHaveLength(0);
+    expect(document.querySelectorAll("main")).toHaveLength(1);
     const schema = [...document.querySelectorAll('script[type="application/ld+json"]')].map(node => JSON.parse(node.textContent!));
     expect(schema.find(node => node["@type"] === "WebPage")).toMatchObject({ inLanguage: "zh-TW", url: `${SITE_URL}/zh-TW/${slug}` });
     expect(read).toHaveBeenCalledWith(slug, "zh-TW");
@@ -112,21 +113,14 @@ describe("shared Traditional CMS page route", () => {
     }
     expect(read).toHaveBeenCalledWith("help-contact", "zh-TW");
   });
-  it("exposes all twenty-five published CMS pages in the actual Traditional footer", () => {
-    const html = renderToStaticMarkup(<TraditionalLayout><p>內容</p></TraditionalLayout>);
+  it("retains the Taiwan destinations in the shared footer", () => {
+    const html = renderToStaticMarkup(<TraditionalLayout><main>內容</main></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
-    for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"]) {
-      expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW/${slug}"]`)).not.toBeNull();
+    const footer = document.querySelector('[data-site-footer] nav[aria-label="頁尾導覽"]');
+    for (const slug of ["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science", "foundation", "policies", "support", "help/payment-refund", "item-design-notes", "reliability-validity"]) {
+      expect(footer?.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
     }
-    expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
-    for (const path of ["/foundation", "/policies", "/help/faq", "/help/about", "/help/team", "/help/used-and-mentioned", "/help/for-business-and-research", "/common-misconceptions", "/data-privacy", "/help/data-deletion", "/help/payment-refund", "/help/privacy-data", "/help/result-recovery", "/help/unlock-failure", "/item-design-notes", "/reliability-validity"]) {
-      expect(document.querySelector(`footer nav[aria-label="費馬資訊"] a[href="/zh-TW${path}"]`)).not.toBeNull();
-    }
-    expect(document.querySelector('footer nav[aria-label="費馬資訊"] a[href="/zh-TW/support"]')?.textContent).toBe("支援中心");
-    expect(document.querySelectorAll('footer nav[aria-label="費馬資訊"] a')).toHaveLength(26);
-    for (const slug of ["pricing", "personality/big-five/methodology"]) {
-      expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).toBeNull();
-    }
+    expect(footer?.querySelector('a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
     expect(document.querySelectorAll("main")).toHaveLength(1);
     expect(document.documentElement.lang).toBe("zh-TW");
   });

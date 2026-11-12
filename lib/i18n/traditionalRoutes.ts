@@ -7,7 +7,7 @@ import { traditionalDirectionalRoute } from "./traditionalDirectionalPaths";
 import { isFriendshipDisplayPath } from "@/lib/friendship/routes";
 import { CAREER_INTEREST_PILOTS } from "@/lib/career/explorationPilot";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
-import { normalizeDisplayLocale } from "./locales";
+import { localizedPath, normalizeDisplayLocale, type DisplayLocale } from "./locales";
 import { ACCOUNT_DISPLAY_PATHS } from "./accountDisplayRoutes";
 import { EMAIL_DISPLAY_PATHS } from "./emailDisplayRoutes";
 import { traditionalLegacyStoryPath } from "./traditionalLegacyStoryPaths";
@@ -46,6 +46,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (prefix === "zh-TW" && (path === "/pay/wait" || path === "/pay/return/alipay" || /^\/orders\/[A-Za-z0-9_-]{1,128}$/u.test(path))) return `/zh-TW${path}`;
+  if (prefix === "zh-TW" && (["/personality", "/personality/big-five", "/personality/enneagram", "/tests/play"].includes(path))) return `/zh-TW${path}`;
   if (path === "/support") return "/zh-TW/support";
   if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";
@@ -84,4 +85,15 @@ export function traditionalEquivalent(pathname: string): string | null {
   const path = traditionalPath(pathname);
   if (path === "/zh-TW" || path === "/zh-TW/tests") return path;
   return path && [TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH].some(entry => path.startsWith(`/zh-TW${entry}`)) && !path.endsWith("/take") ? path : null;
+}
+
+/** Prefer an existing Taiwan route and retain the original path on incomplete surfaces. */
+export function displayNavigationPath(path: string, locale: DisplayLocale): string {
+  if (locale !== "zh-TW") return localizedPath(path, locale);
+  const [originalPathname] = path.split(/[?#]/u, 1);
+  const pathname = originalPathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/u, "") || "/";
+  const suffix = path.slice(originalPathname.length);
+  if (pathname === "/") return `/zh-TW${suffix}`;
+  const taiwanPath = traditionalPath(`/zh-TW${pathname}`);
+  return (taiwanPath ?? localizedPath(pathname, "zh")) + suffix;
 }

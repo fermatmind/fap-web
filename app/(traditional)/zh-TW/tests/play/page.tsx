@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { FRIENDSHIP_PATH } from "@/lib/friendship/routes";
 import { CHANGAN_SLUG } from "@/lib/entertainment/changan";
 import { quizPath } from "@/lib/entertainment/guides";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function TraditionalLegacyStoriesPage() {
-  return <section className="space-y-5">
+  return <Container as="main" className="space-y-5 py-10">
     <Link href="/zh-TW/tests#interactive-stories" className="inline-block min-h-11 py-2 underline">返回全部測驗</Link>
     <h1 className="text-3xl font-bold sm:text-4xl">互動故事測驗</h1>
     <p className="leading-7">選擇想玩的故事，完成後可閱讀所有公開結果指南。</p>
@@ -28,5 +29,5 @@ export default function TraditionalLegacyStoriesPage() {
         </Link>
       </li>)}
     </ul>
-  </section>;
+  </Container>;
 }

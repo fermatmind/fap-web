@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { siteFontClassName } from "@/components/layout/siteFonts";
 import { headers } from "next/headers";
 import type { ReactNode } from "react";
 import { SiteChrome } from "@/components/layout/SiteChrome";
@@ -12,33 +12,6 @@ import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SITE_URL, canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import "../globals.css";
 import "../mbti-career-cta.css";
-
-const fmSans = localFont({
-  src: [{ path: "../../public/fonts/manrope/Manrope-Variable.woff2", weight: "200 800", style: "normal" }],
-  variable: "--font-fm-sans",
-  display: "swap",
-  fallback: ["Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
-});
-
-const fmSerif = localFont({
-  src: [{ path: "../../public/fonts/fraunces/Fraunces-Variable.woff2", weight: "100 900", style: "normal" }],
-  variable: "--font-fm-serif",
-  display: "swap",
-  fallback: ["Georgia", "Times New Roman", "serif"],
-});
-
-const fmMono = localFont({
-  src: [
-    {
-      path: "../../public/fonts/jetbrains-mono/JetBrainsMono-Variable.woff2",
-      weight: "100 800",
-      style: "normal",
-    },
-  ],
-  variable: "--font-fm-mono",
-  display: "swap",
-  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -77,7 +50,7 @@ export default async function RootRouteLayout({ children }: { children: ReactNod
         <link rel="dns-prefetch" href="https://static.lingcecdn.com" />
         <link rel="preload" as="image" href="https://static.lingcecdn.com/www/myfunquizcom/assets/img/home/top.png" fetchPriority="high" />
       </head>
-      <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
+      <body className={siteFontClassName}>
         <AnalyticsScripts nonce={nonce} />
         <Providers>
           <LocaleProvider locale="zh">

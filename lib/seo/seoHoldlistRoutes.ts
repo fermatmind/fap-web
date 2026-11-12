@@ -10,7 +10,7 @@ function normalizePathname(pathname: string): string {
 }
 
 function stripLocalePrefix(pathname: string): string {
-  return normalizePathname(pathname).replace(/^\/(?:en|zh)(?=\/|$)/, "") || "/";
+  return normalizePathname(pathname).replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "") || "/";
 }
 
 export function isPrivateUtilityRoute(pathname: string): boolean {

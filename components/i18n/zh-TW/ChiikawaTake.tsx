@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { scoreArchetypeQuestionnaire } from "@/lib/questionnaires/basicScoring";
 import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { traditionalQuiz as quiz, traditionalUi as ui } from "@/lib/i18n/zh-TW/chiikawa";
@@ -34,7 +35,7 @@ export function ChiikawaTake() {
     catch { setManualCopy(text); }
   }
   if (score.status === "unavailable" || score.status === "invalid") return <p role="alert">{ui.unavailable["zh-TW"]}</p>;
-  return <div className="space-y-6" data-stage={submitted ? "result" : "answer"}>
+  return <Container as="main" className="max-w-3xl space-y-6 py-10" data-stage={submitted ? "result" : "answer"}>
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link>
     {submitted && score.status === "complete" ? <>
       <h1 ref={heading} tabIndex={-1} className="text-3xl font-bold">{quiz.resultHeading!["zh-TW"]}</h1>
@@ -51,5 +52,5 @@ export function ChiikawaTake() {
       <div className="flex flex-wrap gap-4"><button type="button" className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{ui.back["zh-TW"]}</button><button type="button" className={button} onClick={next}>{position === quiz.questions.length - 1 ? ui.submit["zh-TW"] : ui.next["zh-TW"]}</button></div>
     </>}
     <p role="status" className="leading-7">{message}</p><p className="text-sm leading-7 text-slate-600">{ui.privacy["zh-TW"]}</p>
-  </div>;
+  </Container>;
 }

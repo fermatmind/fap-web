@@ -1,5 +1,5 @@
 "use client";
-import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { displayNavigationPath, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
 import { ChevronDown, Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -16,7 +16,7 @@ import {
 } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
-import { localizedPath } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -45,8 +45,10 @@ function shouldHideMenuHref(href: string, flags: ProductPriorityEnvSnapshot): bo
 }
 
 export function SiteHeader({
+  locale: displayLocale,
   productPriority,
 }: {
+  locale?: DisplayLocale;
   productPriority?: ProductPriorityEnvSnapshot;
 }) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
@@ -58,13 +60,15 @@ export function SiteHeader({
   const openDropdownTimeoutRef = useRef<number | null>(null);
   const closeDropdownTimeoutRef = useRef<number | null>(null);
   const pathname = usePathname() ?? "/";
-  const locale = useLocale();
+  const contextLocale = useLocale();
+  const locale = displayLocale ?? contextLocale;
   const dict = getDictSync(locale);
-  const withLocale = (path: string) => localizedPath(path, locale);
-  const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
+  const withLocale = (path: string) => displayNavigationPath(path, locale);
+  const isHomeRoute = pathname === "/zh-TW" || pathname === "/zh" || pathname === "/en" || pathname === "/";
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeHref = useLocaleSwitchHref(pathname, targetLocale);
   const traditionalHref = useTraditionalSwitchHref(pathname);
+  const englishHref = useLocaleSwitchHref(pathname, "en");
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
   const disableLocaleSwitchLinks = shouldDisableLocaleSwitchLinks(pathname);
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
@@ -348,7 +352,7 @@ export function SiteHeader({
             </nav>
 
             <div className="flex shrink-0 items-center gap-2">
-              <LocaleSwitcher />
+              <LocaleSwitcher locale={locale} />
 
               {/* A new document gives private account metadata its own lifecycle. */}
               <a
@@ -466,7 +470,9 @@ export function SiteHeader({
                     {localeLabel}
                   </PublicNavigationLink>
                 )}
-                {disableLocaleSwitchLinks ? null : <PublicNavigationLink href={traditionalHref} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)"}{!traditionalPath(pathname) && traditionalHref === "/zh-TW/tests" ? (locale === "zh" ? " · 可用測評" : " · available quizzes") : ""}</PublicNavigationLink>}
+                {disableLocaleSwitchLinks ? null : locale === "zh-TW" ? (
+                  <PublicNavigationLink href={englishHref} prefetch={false} onClick={() => { persistLocalePreferenceCookie("en"); handleMobileLinkClick(); }} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">English</PublicNavigationLink>
+                ) : <PublicNavigationLink href={traditionalHref} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)"}{!traditionalPath(pathname) && traditionalHref === "/zh-TW/tests" ? (locale === "zh" ? " · 可用測評" : " · available quizzes") : ""}</PublicNavigationLink>}
               </nav>
             </div>
 

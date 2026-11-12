@@ -3,7 +3,8 @@ import { BrandLogo } from "@/components/layout/BrandLogo";
 import { DeferredSiteFooterSocialRail as SiteFooterSocialRail, DeferredSiteFooterPlatforms as SiteFooterPlatforms } from "@/components/layout/DeferredFooterFeatures";
 import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import styles from "./site-footer.module.css";
 
@@ -19,25 +20,27 @@ type FooterGroup = {
   links: FooterLinkItem[];
 };
 
-export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
+export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
   const dict = getDictSync(locale);
-  const withLocale = (path: string) => localizedPath(path, locale);
+  const withLocale = (path: string) => displayNavigationPath(path, locale);
+  const taiwan = locale === "zh-TW";
+  const label = (zh: string, en: string, tw: string) => taiwan ? tw : locale === "zh" ? zh : en;
   const footerGroupTitles = dict.footer.groupTitles;
 
   const testLinks = filterVisiblePublicTestEntries([
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
-    { href: "/tests/big-five-personality-test-ocean-model", label: locale === "zh" ? "大五人格" : "Big Five" },
-    { href: "/tests/enneagram-personality-test-nine-types", label: locale === "zh" ? "九型人格" : "Enneagram" },
-    { href: "/tests/holland-career-interest-test-riasec", label: locale === "zh" ? "霍兰德职业兴趣测试" : "RIASEC" },
-    { href: "/tests/iq-test-intelligence-quotient-assessment", label: locale === "zh" ? "智商测试" : "IQ" },
-    { href: "/tests/eq-test-emotional-intelligence-assessment", label: locale === "zh" ? "情商测试" : "EQ" },
+    { href: "/tests/big-five-personality-test-ocean-model", label: label("大五人格", "Big Five", "大五人格") },
+    { href: "/tests/enneagram-personality-test-nine-types", label: label("九型人格", "Enneagram", "九型人格") },
+    { href: "/tests/holland-career-interest-test-riasec", label: label("霍兰德职业兴趣测试", "RIASEC", "霍蘭德職業興趣測驗") },
+    { href: "/tests/iq-test-intelligence-quotient-assessment", label: label("智商测试", "IQ", "IQ 推理練習") },
+    { href: "/tests/eq-test-emotional-intelligence-assessment", label: label("情商测试", "EQ", "情緒智力測驗") },
   ]);
 
   const articleLinks =
-    locale === "zh"
+    locale !== "en"
       ? [
-          { href: "/topics", label: "认识自己" },
-          { href: "/career/guides", label: "职业指南" },
+          { href: "/topics", label: taiwan ? "認識自己" : "认识自己" },
+          { href: "/career/guides", label: taiwan ? "職涯指南" : "职业指南" },
           { href: "/articles", label: dict.header.articles },
         ]
       : [
@@ -46,14 +49,14 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           { href: "/articles", label: dict.header.articles },
         ];
   const methodLinks: FooterLinkItem[] =
-    locale === "zh"
+    locale !== "en"
       ? [
-          { href: "/science", label: "测评科学" },
-          { href: "/method-boundaries", label: "方法边界" },
-          { href: "/item-design-notes", label: "题目设计说明" },
-          { href: "/reliability-validity", label: "信度效度" },
-          { href: "/data-privacy", label: "数据说明" },
-          { href: "/common-misconceptions", label: "常见误区" },
+          { href: "/science", label: taiwan ? "測評科學" : "测评科学" },
+          { href: "/method-boundaries", label: taiwan ? "方法邊界" : "方法边界" },
+          { href: "/item-design-notes", label: taiwan ? "題目設計說明" : "题目设计说明" },
+          { href: "/reliability-validity", label: taiwan ? "信度與效度" : "信度效度" },
+          { href: "/data-privacy", label: taiwan ? "資料說明" : "数据说明" },
+          { href: "/common-misconceptions", label: taiwan ? "常見迷思" : "常见误区" },
         ]
       : [
           { href: "/science", label: "Assessment science" },
@@ -65,17 +68,17 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         ];
   const reviewLink: FooterLinkItem = {
     href: "https://www.trustpilot.com/review/fermatmind.com",
-    label: locale === "zh" ? "在 Trustpilot 评价使用体验" : "Review your experience on Trustpilot",
+    label: label("在 Trustpilot 评价使用体验", "Review your experience on Trustpilot", "在 Trustpilot 評價使用體驗"),
     external: true,
   };
   const companyLinks: FooterLinkItem[] =
-    locale === "zh"
+    locale !== "en"
       ? [
-          { href: "/about", label: "关于我们" },
+          { href: "/about", label: taiwan ? "關於我們" : "关于我们" },
           { href: "/brand", label: "品牌" },
-          { href: "/charter", label: "宪章" },
+          { href: "/charter", label: taiwan ? "憲章" : "宪章" },
           { href: "/foundation", label: "公共利益" },
-          { href: "/careers", label: "工作机会" },
+          { href: "/careers", label: taiwan ? "工作機會" : "工作机会" },
           reviewLink,
         ]
       : [
@@ -87,12 +90,12 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           reviewLink,
         ];
   const policyLinks: FooterLinkItem[] =
-    locale === "zh"
+    locale !== "en"
       ? [
           { href: "/support", label: dict.footer.support },
           { href: "/privacy", label: dict.footer.privacy },
           { href: "/terms", label: dict.footer.terms },
-          { href: "/policies", label: "政策概览" },
+          { href: "/policies", label: taiwan ? "政策總覽" : "政策概览" },
         ]
       : [
           { href: "/support", label: dict.footer.support },
@@ -101,13 +104,14 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           { href: "/policies", label: "Policy overview" },
         ];
   policyLinks.push(
-    { href: "/pricing", label: locale === "zh" ? "价格与报告内容" : "Pricing & report contents" },
-    { href: "/help/payment-refund", label: locale === "zh" ? "退款与取消政策" : "Refunds & cancellation" },
+    { href: "/pricing", label: label("价格与报告内容", "Pricing & report contents", "價格與報告內容") },
+    { href: "/help/payment-refund", label: label("退款与取消政策", "Refunds & cancellation", "退款與取消政策") },
   );
+  if (taiwan) policyLinks.push({ href: "/help/contact", label: "聯絡支援" });
   const footerGroups: FooterGroup[] = [
     { key: "tests", title: footerGroupTitles.tests, links: testLinks },
     { key: "articles", title: footerGroupTitles.articles, links: articleLinks },
-    { key: "methods", title: locale === "zh" ? "研究与方法" : "Research & Methods", links: methodLinks },
+    { key: "methods", title: label("研究与方法", "Research & Methods", "研究與方法"), links: methodLinks },
     { key: "company", title: footerGroupTitles.company, links: companyLinks },
     { key: "policies", title: footerGroupTitles.policies, links: policyLinks },
   ];
@@ -155,7 +159,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
             <SiteFooterSocialRail locale={locale} />
           </div>
 
-          <nav className="fm-footer-navigation" aria-label={locale === "zh" ? "页脚导航" : "Footer navigation"}>
+          <nav className="fm-footer-navigation" aria-label={label("页脚导航", "Footer navigation", "頁尾導覽")}>
             {footerGroups.map((group) => (
               <div key={group.key} className="fm-footer-group" data-testid={`site-footer-group-${group.key}`}>
                 <h2 className="fm-footer-heading">{group.title}</h2>

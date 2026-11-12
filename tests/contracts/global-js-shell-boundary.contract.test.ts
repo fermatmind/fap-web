@@ -23,7 +23,8 @@ describe("global JS shell boundary", () => {
     expect(read("components/legal/CookieBanner.tsx")).toContain('"use client"');
   });
 
-  it("passes the server-resolved locale into both site chrome layouts", () => {
+  it("passes the server-resolved locale into the shared site chrome", () => {
+    expect(read("app/(traditional)/zh-TW/layout.tsx")).toContain('<SiteChrome locale="zh-TW"');
     expect(read("app/(root)/layout.tsx")).toContain('<SiteChrome locale="zh" productPriority={productPriority}>');
     expect(read("app/(localized)/[locale]/layout.tsx")).toContain(
       "<SiteChrome locale={resolvedLocale} productPriority={productPriority}>"

@@ -145,7 +145,6 @@ export default async function TakePage({
   const withLocale = (path: string) => assessmentDisplayPath(path, displayLocale, locale);
   const slug = resolveCanonicalSlug(requestedSlug);
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return notFound();
-  const Content = displayLocale === "zh-TW" ? "section" : "main";
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
   }
@@ -184,7 +183,7 @@ export default async function TakePage({
 
   if (!test.scale_code) {
     return (
-      <Content className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-[var(--fm-space-8)]">
+      <main className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-[var(--fm-space-8)]">
         <h1 className="text-2xl font-bold text-slate-900">{localizedTestTitle}</h1>
         <p className="mt-[var(--fm-space-3)] text-slate-600">
           {locale === "zh" ? "此测试当前暂不可用，请稍后再试或选择其他测评。" : "This assessment is temporarily unavailable. Please try again later or choose another test."}
@@ -195,7 +194,7 @@ export default async function TakePage({
         >
           {locale === "zh" ? "返回测试列表" : dict.header.tests}
         </Link>
-      </Content>
+      </main>
     );
   }
 
@@ -215,7 +214,7 @@ export default async function TakePage({
   }
 
   return (
-    <Content className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
+    <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient
           slug={slug}
@@ -256,6 +255,6 @@ export default async function TakePage({
           questionCount={iqBankModel?.itemCount ?? mbtiFormMeta?.questionCount ?? test.questions_count}
         />
       )}
-    </Content>
+    </main>
   );
 }

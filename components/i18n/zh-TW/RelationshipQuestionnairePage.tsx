@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
@@ -49,7 +50,7 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
   </nav>;
   const start = <Link href={`${entry}/take`} className="inline-block min-h-11 rounded-full bg-slate-900 px-7 py-3 font-semibold text-white">開始免費測驗</Link>;
 
-  if (profile) return <div className="space-y-6">
+  if (profile) return <Container as="main" className="space-y-6 py-10">
     {languages}
     <h1 className="text-3xl font-bold sm:text-4xl">{profile.title.zh}</h1>
     <p>公開閱讀指南，個人作答與分數只會顯示在本次測驗結果。</p>
@@ -57,9 +58,9 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
     <div className="flex flex-wrap gap-5">
       <Link href={entry} className="min-h-11 py-2 underline">返回測驗介紹</Link>{start}
     </div>
-  </div>;
+  </Container>;
 
-  return <div className="space-y-8">
+  return <Container as="main" className="space-y-8 py-10">
     {languages}
     <h1 className="text-3xl font-bold sm:text-4xl">{quiz.title.zh}</h1>
     <p className="text-lg leading-8">{quiz.description.zh}</p>
@@ -92,5 +93,5 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
         {quiz.references.map((item) => <li key={item.url}><a href={item.url} className="underline">{item.title.zh}</a></li>)}
       </ul>
     </section> : null}
-  </div>;
+  </Container>;
 }

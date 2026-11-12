@@ -8,9 +8,12 @@ import { CANONICAL_SITE_URL } from "@/lib/site";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
 export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, head?: ParentNode, search = ""): string {
-  const isCategory = /^\/(?:en|zh)\/articles\/category\/[^/]+\/?$/.test(pathname);
-  if (!isCategory && !/^\/(?:en|zh)\/articles\/[^/]+\/?$/.test(pathname)) {
-    return emailTokenSwitchHref(pathname, toggleLocalePath(pathname, targetLocale), search);
+  const isCategory = /^\/(?:en|zh|zh-TW)\/articles\/category\/[^/]+\/?$/.test(pathname);
+  if (!isCategory && !/^\/(?:en|zh|zh-TW)\/articles\/[^/]+\/?$/.test(pathname)) {
+    const target = pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")
+      ? localizedPath(pathname.slice("/zh-TW".length) || "/", targetLocale)
+      : toggleLocalePath(pathname, targetLocale);
+    return emailTokenSwitchHref(pathname, target, search);
   }
 
   const fallback = localizedPath("/articles", targetLocale);

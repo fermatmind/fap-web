@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 
@@ -132,5 +133,13 @@ export function MbtiPricingDetails({ locale }: { locale: DisplayLocale }) {
         </ul>
       </nav>
     </div>
+  );
+}
+
+export function MbtiPricingPageContent({ locale }: { locale: DisplayLocale }) {
+  return (
+    <Container as="main" className="max-w-4xl py-12 text-slate-700">
+      <MbtiPricingDetails locale={locale} />
+    </Container>
   );
 }

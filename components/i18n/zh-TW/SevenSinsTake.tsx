@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 import { scoreMiniVirtuesQuestionnaire } from "@/lib/questionnaires/miniVirtues";
 import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { traditionalSevenSins as quiz } from "@/lib/i18n/zh-TW/sevenSins";
@@ -32,7 +33,7 @@ export function SevenSinsTake() {
     catch { setManual(text); setMessage("請手動複製下方公開入口。"); }
   }
   if (score.status === "unavailable" || score.status === "invalid") return <p role="alert">本次結果暫不可用，請重新開始。</p>;
-  return <div className="space-y-6" data-stage={submitted ? "result" : "answer"}>
+  return <Container as="main" className="max-w-3xl space-y-6 py-10" data-stage={submitted ? "result" : "answer"}>
     <Link href={entry} className="inline-block min-h-11 py-2 underline">返回測試介紹</Link>
     {submitted && score.status === "complete" && score.model === "dual" ? <>
       <QuestionnaireSevenSinsOverview result={score} locale="zh-TW" headingRef={resultHeading} />
@@ -47,5 +48,5 @@ export function SevenSinsTake() {
       <div className="flex flex-wrap gap-4"><button className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>上一題</button><button className={button} onClick={next}>{position === 27 ? "查看結果" : "下一題"}</button></div>
     </>}
     <p role="status" className="leading-7">{message}</p><p className="text-sm leading-7 text-slate-600">作答與計分只留在此頁面記憶體；重新整理、離開或切換語言會開始新一輪。本繁體版本不傳送測評活動統計。</p>
-  </div>;
+  </Container>;
 }

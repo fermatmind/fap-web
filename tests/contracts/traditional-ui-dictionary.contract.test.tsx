@@ -1,11 +1,14 @@
 import {renderToStaticMarkup} from "react-dom/server";
-import {describe, expect, it} from "vitest";
+import {describe, expect, it, vi} from "vitest";
 import TraditionalLayout from "@/app/(traditional)/zh-TW/layout";
 import {getDict, getDictSync, resolveLocale} from "@/lib/i18n/getDict";
 import en from "@/lib/i18n/locales/en";
 import zh from "@/lib/i18n/locales/zh";
 import traditional from "@/lib/i18n/locales/zh-TW";
 import {apiLocaleForDisplay, toApiLocale} from "@/lib/i18n/locales";
+
+vi.mock("@/components/layout/siteFonts", () => ({ siteFontClassName: "shared-site-font" }));
+vi.mock("next/navigation", () => ({ usePathname: () => "/zh-TW" }));
 
 function leaves(value: unknown, prefix = "", result: Record<string, string> = {}) {
   if (typeof value === "string") result[prefix] = value;
@@ -48,20 +51,14 @@ describe("Taiwan display dictionary", () => {
     expect(apiLocaleForDisplay("zh-TW")).toBeNull();
   });
 
-  it("uses the dictionary in the server-rendered Taiwan shell with the twenty-five-page CMS navigation", () => {
-    const html = renderToStaticMarkup(<TraditionalLayout><p>測試內容</p></TraditionalLayout>);
+  it("renders the Taiwan dictionary in the common document and footer", () => {
+    const html = renderToStaticMarkup(<TraditionalLayout><main>測試內容</main></TraditionalLayout>);
     const document = new DOMParser().parseFromString(html, "text/html");
     expect(document.documentElement.lang).toBe("zh-TW");
-    expect(document.querySelector('a[href="/zh-TW"]')?.textContent).toBe(traditional.header.brand);
-    const navigation = document.querySelector('header nav[aria-label="主要導覽"]');
-    expect([...navigation!.querySelectorAll("a")].map(link => link.getAttribute("href"))).toEqual([
-      "/zh-TW", "/zh-TW/tests", "/zh-TW/personality", "/zh-TW/career",
-      "/zh-TW/articles", "/zh-TW/topics", "/zh-TW/support",
-    ]);
-    for (const slug of ["privacy", "terms", "science", "method-boundaries"]) {
-      expect(document.querySelector(`a[href="/zh-TW/${slug}"]`)).not.toBeNull();
-    }
-    expect(document.querySelector('a[href="/zh-TW/help/contact"]')?.textContent).toBe("聯絡支援");
-    expect(document.body.textContent).toContain("測試內容");
+    expect(document.body.classList.contains("shared-site-font")).toBe(true);
+    expect(document.querySelector('[data-site-footer] a[href="/zh-TW"]')?.textContent).toBe(traditional.header.brand);
+    expect(document.querySelectorAll("[data-site-footer] .fm-footer-group")).toHaveLength(5);
+    expect(document.querySelector("main")?.textContent).toBe("測試內容");
+    expect(document.querySelector("main")?.className).not.toContain("max-w-4xl");
   });
 });

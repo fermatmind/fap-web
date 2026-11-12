@@ -1,5 +1,5 @@
 import { getSelfUnderstandingMenu } from "@/lib/navigation/selfUnderstandingResources";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type HeaderNavKey = "tests" | "articles" | "personality" | "career" | "help" | "business";
@@ -17,7 +17,38 @@ export type HeaderDropdownMenu = {
 
 type HeaderDropdownRegistry = Record<HeaderNavKey, HeaderDropdownMenuItem[]>;
 
-const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
+const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
+  "zh-TW": {
+    tests: [
+      { href: "/tests", label: "全部測驗" },
+      { href: "/tests/category/personality", label: "人格與風格" },
+      { href: "/tests/category/career", label: "職業與方向" },
+      { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格測驗" },
+      { href: "/tests/big-five-personality-test-ocean-model", label: "大五人格測驗" },
+      { href: "/tests/enneagram-personality-test-nine-types", label: "九型人格測驗" },
+      { href: "/tests/holland-career-interest-test-riasec", label: "霍蘭德職業興趣測驗" },
+      { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ 推理練習" },
+      { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情緒智力測驗" },
+    ],
+    articles: [{ href: "/articles", label: "全部文章" }],
+    personality: [
+      { href: "/topics", label: "所有專題" },
+      { href: "/personality", label: "人格百科" },
+      { href: "/topics/mbti", label: "MBTI 專題" },
+      { href: "/topics/big-five", label: "大五人格專題" },
+      { href: "/topics/iq-eq", label: "IQ 與 EQ 專題" },
+    ],
+    career: [
+      { href: "/career/recommendations", label: "職涯建議" },
+      { href: "/career", label: "職涯資料庫" },
+      { href: "/career/guides", label: "職涯指南" },
+    ],
+    help: [
+      { href: "/help/contact", label: "聯絡支援" },
+      { href: "/email/preferences", label: "電子郵件與資料管理" },
+    ],
+    business: [],
+  },
   en: {
     tests: [
       { href: "/tests", label: "Tests hub" },
@@ -80,7 +111,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
   },
 };
 
-export function getHeaderDropdownMenus(locale: Locale): HeaderDropdownMenu[] {
+export function getHeaderDropdownMenus(locale: DisplayLocale): HeaderDropdownMenu[] {
   const source = HEADER_DROPDOWN_MENUS[locale];
   const order: HeaderNavKey[] = ["tests", "articles", "personality", "career", "help", "business"];
 
