@@ -53,7 +53,7 @@ export function ArticleClosing({ locale, url }: { locale: DisplayLocale; url: st
 
   return (
     <footer data-testid="article-closing" className="min-w-0 space-y-5 border-t border-[var(--fm-border)] pt-5">
-      <div role="group" aria-label={text.share} className="flex flex-wrap items-center gap-1.5">
+      <div role="group" aria-label={text.share} className="flex flex-wrap items-center gap-2">
         {destinations.map(({ name, href, icon }) => (
           <a key={name} href={href} aria-label={name} title={name} target="_blank" rel="noopener noreferrer"
             className="inline-flex size-11 items-center justify-center rounded-full border border-[var(--fm-border)] text-[var(--fm-text)] transition-colors hover:bg-[var(--fm-surface-muted)] focus-visible:outline-2 focus-visible:outline-offset-2">
