@@ -15,7 +15,9 @@ describe("self-understanding reading directory", () => {
     for (const [index, resource] of resources.entries()) {
       expect(new Set(resource.paths.map((path) => path.href)).size).toBe(3);
       const menuHref = getSelfUnderstandingMenu(locale)[index + 1].href;
-      expect(menuHref).toBe(`/topics#${resource.id}`);
+      expect(menuHref).toBe(resource.id === "riasec" && locale === "en"
+        ? "/articles/what-is-riasec-holland-code-career-interest-test"
+        : resource.paths[0].href);
       const section = container.querySelector(`#${resource.id}`)!;
       expect(section).not.toBeNull();
       const links = within(section as HTMLElement).getAllByRole("link");

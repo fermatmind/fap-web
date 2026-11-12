@@ -10408,13 +10408,6 @@ a {
   font-weight: 600;
 }
 
-.fm-locale-menu-code {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--fm-text-muted);
-}
-
 @keyframes fm-locale-menu-enter {
   from {
     opacity: 0;

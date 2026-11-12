@@ -39,13 +39,13 @@ describe("SiteHeader locale link contract", () => {
     navigationState.pathname = "/zh/tests/explore/chiikawa";
     render(<LocaleProvider locale="zh"><LocaleSwitcher /></LocaleProvider>);
     fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
-    expect(await screen.findByRole("menuitem", { name: "繁體中文（台灣）" })).toHaveAttribute("href", "/zh-TW/tests/explore/chiikawa");
+    expect(await screen.findByRole("menuitem", { name: "繁體中文" })).toHaveAttribute("href", "/zh-TW/tests/explore/chiikawa");
   });
   it("uses the common menu on Taiwan pages with separate Simplified and English destinations", async () => {
     navigationState.pathname = "/zh-TW/tests";
     render(<LocaleProvider locale="zh"><LocaleSwitcher locale="zh-TW" /></LocaleProvider>);
     fireEvent.click(screen.getByRole("button", { name: "語言選單" }));
-    expect(await screen.findByRole("menuitem", { name: "繁體中文（台灣）" })).toHaveAttribute("aria-current", "true");
+    expect(await screen.findByRole("menuitem", { name: "繁體中文" })).toHaveAttribute("aria-current", "true");
     expect(screen.getByRole("menuitem", { name: "简体中文" })).toHaveAttribute("href", "/zh/tests");
     expect(screen.getByRole("menuitem", { name: "English" })).toHaveAttribute("href", "/en/tests");
   });
@@ -57,23 +57,21 @@ describe("SiteHeader locale link contract", () => {
   it.each(["zh", "en"] as const)("links the complete CMS About variant from %s desktop and mobile menus", async (locale) => {
     navigationState.pathname = `/${locale}/about`;
     render(<LocaleProvider locale={locale}><SiteHeader /></LocaleProvider>);
-    const label = locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)";
+    const label = "繁體中文";
     fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "语言菜单" : "Language menu" }));
     expect(await screen.findByRole("menuitem", { name: label })).toHaveAttribute("href", "/zh-TW/about");
     fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "菜单" : "Menu" }));
     expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", "/zh-TW/about");
   });
 
-  it("keeps expanded IQ mobile and desktop language menus fully English", async () => {
+  it("uses native language names in the English IQ header", async () => {
     navigationState.pathname = "/en/tests/iq-test-intelligence-quotient-assessment";
     const { container } = render(<LocaleProvider locale="en"><SiteHeader /></LocaleProvider>);
     fireEvent.click(screen.getByRole("button", { name: "Menu" }));
-    expect(screen.getByRole("link", { name: "Chinese" })).toHaveAttribute("href", "/zh/tests/iq-test-intelligence-quotient-assessment");
-    expect(container.textContent).not.toMatch(/\p{Script=Han}/u);
+    expect(screen.getByRole("link", { name: "简体中文" })).toHaveAttribute("href", "/zh/tests/iq-test-intelligence-quotient-assessment");
     fireEvent.click(screen.getAllByRole("button", { name: "Close menu" })[0]);
     fireEvent.click(screen.getByRole("button", { name: "Language menu" }));
-    expect(await screen.findByRole("menuitem", { name: "Chinese (Simplified)" })).toHaveAttribute("href", "/zh/tests/iq-test-intelligence-quotient-assessment");
-    expect(container.textContent).not.toMatch(/\p{Script=Han}/u);
+    expect(await screen.findByRole("menuitem", { name: "简体中文" })).toHaveAttribute("href", "/zh/tests/iq-test-intelligence-quotient-assessment");
     for (const element of container.querySelectorAll("[aria-label],[alt],[title]")) {
       expect([element.getAttribute("aria-label"), element.getAttribute("alt"), element.getAttribute("title")].join(" ")).not.toMatch(/\p{Script=Han}/u);
     }
@@ -83,7 +81,7 @@ describe("SiteHeader locale link contract", () => {
     navigationState.pathname = "/zh/articles/independent-root";
     render(<LocaleProvider locale="zh"><SiteHeader /></LocaleProvider>);
     fireEvent.click(screen.getByRole("button", { name: "菜单" }));
-    expect(screen.getByRole("link", { name: "EN" })).toHaveAttribute("href", "/en/articles");
+    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en/articles");
   });
 
   it("does not inject live query params into the SSR-rendered locale switch href", async () => {
@@ -173,7 +171,7 @@ describe("SiteHeader locale link contract", () => {
     expect(link.getAttribute("href")).not.toContain("form=");
   });
 
-  it("renders a full language label and paired locale codes in the desktop menu", async () => {
+  it("renders only the native language names in the requested order", async () => {
     render(
       <LocaleProvider locale="zh">
         <LocaleSwitcher />
@@ -186,7 +184,6 @@ describe("SiteHeader locale link contract", () => {
 
     expect(await screen.findByRole("menuitem", { name: "简体中文" })).toHaveAttribute("aria-current", "true");
     expect(screen.getByRole("menuitem", { name: "English" })).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
-    expect(screen.getByText("ZH")).toBeInTheDocument();
-    expect(screen.getByText("EN")).toBeInTheDocument();
+    expect(screen.getAllByRole("menuitem").map(item => item.textContent)).toEqual(["简体中文", "English", "繁體中文"]);
   });
 });

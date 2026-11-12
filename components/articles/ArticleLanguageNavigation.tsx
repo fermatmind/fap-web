@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { buildArticleFrontendUrl, type CmsArticle } from "@/lib/cms/articles";
 
-const labels = { "zh-CN": "简体中文", "zh-TW": "繁體中文（台灣）", en: "English" } as const;
+const labels = { "zh-CN": "简体中文", "zh-TW": "繁體中文", en: "English" } as const;
 const ariaLabels = { "zh-CN": "页面语言", "zh-TW": "頁面語言", en: "Page language" } as const;
 
 export function ArticleLanguageNavigation({ article }: { article: CmsArticle }) {

@@ -155,6 +155,10 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(locale === "zh" ? "/" : "/en");
 
     for (const [key] of primaryNavTargets[locale]) {
+      if (key === "help" || (key === "articles" && locale === "en")) {
+        await expect(page.locator(`#header-trigger-${key}`)).toHaveCount(0);
+        continue;
+      }
       const trigger = page.getByRole("navigation").getByRole("button", {
         name: `${primaryNavLabels[locale][key]} menu`,
         exact: true,

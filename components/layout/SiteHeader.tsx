@@ -1,5 +1,5 @@
 "use client";
-import { displayNavigationPath, traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 
 import { ChevronDown, Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -16,7 +16,7 @@ import {
 } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
-import type { DisplayLocale } from "@/lib/i18n/locales";
+import { LANGUAGE_MENU_LABELS, LANGUAGE_MENU_ORDER, type DisplayLocale } from "@/lib/i18n/locales";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -65,11 +65,11 @@ export function SiteHeader({
   const dict = getDictSync(locale);
   const withLocale = (path: string) => displayNavigationPath(path, locale);
   const isHomeRoute = pathname === "/zh-TW" || pathname === "/zh" || pathname === "/en" || pathname === "/";
-  const targetLocale = locale === "zh" ? "en" : "zh";
-  const localeHref = useLocaleSwitchHref(pathname, targetLocale);
-  const traditionalHref = useTraditionalSwitchHref(pathname);
-  const englishHref = useLocaleSwitchHref(pathname, "en");
-  const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
+  const localeHrefs = {
+    zh: useLocaleSwitchHref(pathname, "zh"),
+    en: useLocaleSwitchHref(pathname, "en"),
+    "zh-TW": useTraditionalSwitchHref(pathname),
+  };
   const disableLocaleSwitchLinks = shouldDisableLocaleSwitchLinks(pathname);
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
     () =>
@@ -281,12 +281,13 @@ export function SiteHeader({
                 const triggerId = `header-trigger-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
+                const hasSubmenu = item.key !== "help" && items.some(({ href }) => href !== item.href);
 
                 return (
                   <div
                     key={item.key}
                     className="relative shrink-0"
-                    onMouseEnter={() => openDropdown(item.key, 70)}
+                    onMouseEnter={() => hasSubmenu ? openDropdown(item.key, 70) : closeDropdown()}
                     onMouseLeave={() => closeDropdown(110)}
                     onBlur={(event) => {
                       const nextTarget = event.relatedTarget;
@@ -305,7 +306,7 @@ export function SiteHeader({
                       >
                         {item.label}
                       </PublicNavigationLink>
-                      <button
+                      {hasSubmenu ? <button
                         id={triggerId}
                         type="button"
                         disabled={!ready}
@@ -330,10 +331,10 @@ export function SiteHeader({
                         )}
                       >
                         <ChevronDown className={isOpen ? "h-3.5 w-3.5 rotate-180 transition" : "h-3.5 w-3.5 transition"} />
-                      </button>
+                      </button> : null}
                     </div>
 
-                    {isOpen && items.length > 0 ? (
+                    {hasSubmenu && isOpen && items.length > 0 ? (
                       <Suspense fallback={null}>
                         <SiteHeaderDropdownPanel
                           id={menuId}
@@ -412,6 +413,7 @@ export function SiteHeader({
                 {visibleNavItems.map((item) => {
                   const isExpanded = mobileExpandedKey === item.key;
                   const menuItems = dropdownMenuMap[item.key] ?? [];
+                  const hasSubmenu = item.key !== "help" && menuItems.some(({ href }) => href !== item.href);
 
                   return (
                     <div key={`mobile-group-${item.key}`} className="rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)]">
@@ -425,7 +427,7 @@ export function SiteHeader({
                         >
                           {item.label}
                         </PublicNavigationLink>
-                        <button
+                        {hasSubmenu ? <button
                           type="button"
                           aria-label={`${item.label} menu`}
                           aria-expanded={isExpanded}
@@ -434,10 +436,10 @@ export function SiteHeader({
                           className="flex min-h-[44px] w-12 items-center justify-center rounded-r-lg text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                         >
                           <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
-                        </button>
+                        </button> : null}
                       </div>
 
-                      {isExpanded ? (
+                      {hasSubmenu && isExpanded ? (
                         <div id={`mobile-submenu-${item.key}`} role="menu" className="space-y-1 border-t border-[var(--fm-border-soft)] px-2 pb-2 pt-2">
                           {menuItems.map((menuItem, menuItemIndex) => (
                             <PublicNavigationLink
@@ -457,22 +459,30 @@ export function SiteHeader({
                   );
                 })}
 
-                {disableLocaleSwitchLinks ? null : (
-                  <PublicNavigationLink
-                    href={localeHref}
-                    prefetch={false}
-                    onClick={() => {
-                      persistLocalePreferenceCookie(targetLocale);
-                      handleMobileLinkClick();
-                    }}
-                    className="flex min-h-[44px] items-center rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
-                  >
-                    {localeLabel}
-                  </PublicNavigationLink>
-                )}
-                {disableLocaleSwitchLinks ? null : locale === "zh-TW" ? (
-                  <PublicNavigationLink href={englishHref} prefetch={false} onClick={() => { persistLocalePreferenceCookie("en"); handleMobileLinkClick(); }} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">English</PublicNavigationLink>
-                ) : <PublicNavigationLink href={traditionalHref} prefetch={false} onClick={handleMobileLinkClick} className="flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold">{locale === "zh" ? "繁體中文（台灣）" : "Chinese (Traditional, Taiwan)"}{!traditionalPath(pathname) && traditionalHref === "/zh-TW/tests" ? (locale === "zh" ? " · 可用測評" : " · available quizzes") : ""}</PublicNavigationLink>}
+                {!disableLocaleSwitchLinks && LANGUAGE_MENU_ORDER.map((language) => {
+                  const lang = language === "zh" ? "zh-CN" : language;
+                  const label = LANGUAGE_MENU_LABELS[language];
+                  const className = "flex min-h-11 items-center rounded-lg border border-[var(--fm-border-soft)] px-3 py-2 text-sm font-semibold";
+                  if (language === locale) {
+                    return <span key={language} lang={lang} aria-current="true" className={`${className} bg-[var(--fm-bg-soft)]`}>{label}</span>;
+                  }
+
+                  return (
+                    <PublicNavigationLink
+                      key={language}
+                      href={localeHrefs[language]}
+                      lang={lang}
+                      prefetch={false}
+                      className={className}
+                      onClick={() => {
+                        if (language !== "zh-TW") persistLocalePreferenceCookie(language);
+                        handleMobileLinkClick();
+                      }}
+                    >
+                      {label}
+                    </PublicNavigationLink>
+                  );
+                })}
               </nav>
             </div>
 

@@ -66,7 +66,12 @@ export function getSelfUnderstandingResources(locale: Locale): SelfUnderstanding
 export function getSelfUnderstandingMenu(locale: Locale) {
   return [
     { href: "/topics", label: locale === "zh" ? "认识自己 · 全部资源" : "Understand yourself · All resources" },
-    ...getSelfUnderstandingResources(locale).map(({ id, title }) => ({ href: `/topics#${id}`, label: title })),
+    ...getSelfUnderstandingResources(locale).map(({ id, paths, title }) => ({
+      href: id === "riasec" && locale === "en"
+        ? "/articles/what-is-riasec-holland-code-career-interest-test"
+        : paths[0].href,
+      label: title,
+    })),
   ];
 }
 

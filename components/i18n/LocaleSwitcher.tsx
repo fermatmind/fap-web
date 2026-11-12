@@ -5,7 +5,7 @@ import { ChevronDown, Globe2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
-import type { DisplayLocale } from "@/lib/i18n/locales";
+import { LANGUAGE_MENU_LABELS, type DisplayLocale } from "@/lib/i18n/locales";
 import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 
 const LocaleSwitcherMenu = dynamic(() => import("@/components/i18n/LocaleSwitcherMenu"));
@@ -17,7 +17,7 @@ export function LocaleSwitcher({ locale: displayLocale }: { locale?: DisplayLoca
 
   const contextLocale = useLocale();
   const locale = displayLocale ?? contextLocale;
-  const currentLabel = locale === "zh-TW" ? "繁體中文（台灣）" : locale === "zh" ? "简体中文" : "English";
+  const currentLabel = LANGUAGE_MENU_LABELS[locale];
 
   useEffect(() => {
     if (!open) return;
@@ -67,7 +67,7 @@ export function LocaleSwitcher({ locale: displayLocale }: { locale?: DisplayLoca
         onClick={() => setOpen((prev) => !prev)}
       >
         <Globe2 aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-[var(--fm-text-muted)]" />
-        <span>{currentLabel}</span>
+        <span lang={locale === "zh" ? "zh-CN" : locale}>{currentLabel}</span>
         <ChevronDown
           aria-hidden="true"
           className={open ? "h-3.5 w-3.5 rotate-180 transition-transform duration-200" : "h-3.5 w-3.5 transition-transform duration-200"}
