@@ -58,7 +58,12 @@ describe("Taiwan Chiikawa release", () => {
     expect(account.status).toBe(200);
     expect(account.headers.get("x-robots-tag")).toContain("noindex");
     expect(account.headers.get("cache-control")).toContain("no-store");
-    for (const path of ["/zh-TW/result/invalid!", "/zh-TW/orders/private", "/zh-TW/account/private", "/zh-TW/tests/unsupported", `${entry}/results/unknown`]) {
+    const order = await proxy(new NextRequest("https://fermatmind.com/zh-TW/orders/synthetic"));
+    expect(order.status).toBe(200);
+    expect(order.headers.get("x-robots-tag")).toContain("noindex");
+    expect(order.headers.get("cache-control")).toContain("no-store");
+    expect(order.headers.get("referrer-policy")).toBe("no-referrer");
+    for (const path of ["/zh-TW/result/invalid!", "/zh-TW/orders/invalid.value", "/zh-TW/account/private", "/zh-TW/tests/unsupported", `${entry}/results/unknown`]) {
       const denied = await proxy(new NextRequest(`https://fermatmind.com${path}`));
       expect(denied.status).toBe(404);
       expect(denied.headers.get("x-robots-tag")).toContain("noindex");
