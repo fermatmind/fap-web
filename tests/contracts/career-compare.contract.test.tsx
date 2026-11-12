@@ -11,7 +11,7 @@ import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from '@/lib/career/designCo
 import { CareerRiasecExploreLink } from '@/components/career/CareerRiasecExploreLink';
 import { RiasecCareerNextSteps } from '@/components/result/riasec/RiasecCareerNextSteps';
 import { CareerCompare } from '@/components/career/CareerCompare';
-import { EmbeddedDesignCareerCompare } from '@/components/career/EmbeddedDesignCareerCompare';
+import { EmbeddedCareerCompare, EmbeddedDesignCareerCompare } from '@/components/career/EmbeddedDesignCareerCompare';
 import { CareerCompareWorksheet } from '@/components/career/CareerCompareWorksheet';
 import { hasAnalyticsConsent } from '@/lib/consent/store';
 import { trackCareerToolEvent } from '@/lib/career/toolTracking';
@@ -277,6 +277,29 @@ describe('design comparison pilot', () => {
       fireEvent.change(notes, { target: { value: 'Compare the lid and the visual guide.' } });
       expect(trackCareerToolEvent).toHaveBeenLastCalledWith('career_worksheet_started', expect.objectContaining({ locale: 'en' }));
     } finally { print.mockRestore(); }
+  });
+
+  it('retries a configured non-design pair and prints its own task prompts', async () => {
+    respond();
+    vi.mocked(apiClient.getPublic).mockRejectedValueOnce(new Error('temporary failure'));
+    render(<EmbeddedCareerCompare locale="en" comparison={{
+      id: 'istj-career-exploration-compare',
+      pair: [{ slug: 'aviation-inspectors', name: 'Aviation Inspectors' },
+        { slug: 'calibration-technologists-and-technicians', name: 'Calibration Technicians' }],
+      worksheet: {
+        title: 'Compare records and readings',
+        brief: 'Use a fictional equipment log.',
+        tasks: [{ label: 'Inspection', prompt: 'Flag the missing sign-off.' },
+          { label: 'Calibration', prompt: 'Flag the reading to recheck.' }],
+      },
+    }} />);
+    expect(apiClient.getPublic).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Open comparison and 15-minute exercise' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Retry loading' }));
+    expect(await screen.findByTestId('career-compare-table')).toBeInTheDocument();
+    expect(apiClient.getPublic).toHaveBeenLastCalledWith(expect.stringContaining('/jobs/aviation-inspectors?'), expect.any(Object));
+    expect(document.querySelector('[data-worksheet-print]')).toHaveTextContent('Flag the reading to recheck.');
+    expect(screen.queryByText('One cup, two design tasks')).not.toBeInTheDocument();
   });
 
   it('starts once after ten non-whitespace characters and records only print intent', async () => {

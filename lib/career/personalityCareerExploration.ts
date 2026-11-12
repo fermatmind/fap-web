@@ -2,6 +2,30 @@ import { careerCompareItems, readPublishedCareerTaskPage } from '@/lib/career/co
 import type { CareerPage } from '@/lib/career/careerPage';
 import type { Locale } from '@/lib/i18n/locales';
 import { canonicalUrl } from '@/lib/site';
+import { getReleasedCareerInterestEvidence } from './interestRelease';
+import sceneCopy from './personalityCareerScenes.json';
+
+type LocalizedCopy = Record<Locale, string>;
+export type CareerScene = {
+  title: LocalizedCopy;
+  intro: LocalizedCopy;
+  examples: Array<{ slug: string; question: LocalizedCopy }>;
+  comparison: { title: LocalizedCopy; brief: LocalizedCopy; prompts: LocalizedCopy[] };
+};
+
+const scenes: Record<string, CareerScene> = sceneCopy;
+
+export function getPersonalityCareerScene(slug: string): CareerScene | undefined {
+  return Object.hasOwn(scenes, slug) ? scenes[slug] : undefined;
+}
+
+export async function readPersonalityCareerExamples(locale: Locale, scene: CareerScene) {
+  const examples = scene.examples.flatMap(({ slug, question }) => {
+    const evidence = getReleasedCareerInterestEvidence(slug);
+    return evidence ? [{ slug, question, onet: evidence.onet, interests: evidence.interest }] : [];
+  });
+  return readCareerExamples(locale, examples);
+}
 
 type CareerExample = {
   slug: string;
@@ -51,8 +75,12 @@ export type PersonalityCareerCard = CareerExample & {
   occupationalCategory: string;
 };
 
-export async function readIntjCareerExamples(locale: Locale): Promise<PersonalityCareerCard[]> {
-  const candidates = await Promise.all(INTJ_EXAMPLES.map(async (example) => {
+export function readIntjCareerExamples(locale: Locale) {
+  return readCareerExamples(locale, INTJ_EXAMPLES);
+}
+
+async function readCareerExamples(locale: Locale, examples: CareerExample[]): Promise<PersonalityCareerCard[]> {
+  const candidates = await Promise.all(examples.map(async (example) => {
     const read = await readPublishedCareerTaskPage(locale, example.slug, 'server-cache');
     if (read.state !== 'ready' || !read.page.content.subject.summary) return null;
     const { page } = read;

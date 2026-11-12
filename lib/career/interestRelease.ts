@@ -18,6 +18,10 @@ const dimensions = {
 
 const careers: Record<string, InterestCareer> = data.careers;
 
+export function getReleasedCareerInterestEvidence(slug: string) {
+  return Object.hasOwn(careers, slug) ? careers[slug] : null;
+}
+
 export const RELEASED_CAREER_INTEREST_CODES = Object.keys(data.topics) as (keyof typeof data.topics)[];
 
 export function getReleasedCareerInterest(code: string, locale: Locale) {

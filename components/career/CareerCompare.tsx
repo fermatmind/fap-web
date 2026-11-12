@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { Box, BriefcaseBusiness, Building2, FileText, PanelsTopLeft, Search, Sparkles } from 'lucide-react';
-import { CAREER_COMPARE_OPTIONS, CAREER_COMPARE_ROWS, careerCompareItems, readCareerComparePage, type CompareRead } from '@/lib/career/compare';
+import { CAREER_COMPARE_OPTIONS, CAREER_COMPARE_ROWS, careerCompareItems, readCareerComparePage, readPublishedCareerTaskPage, type CompareRead } from '@/lib/career/compare';
 import { DESIGN_COMPARE_TASKS, DESIGN_MBTI_EXPLORATION_NOTE, isDesignComparePair } from '@/lib/career/designComparePilot';
 import { buildCareerRecommendationFrontendUrl } from '@/lib/career/urls';
-import { CareerCompareWorksheet } from './CareerCompareWorksheet';
+import { CareerCompareWorksheet, type CareerWorksheetScenario } from './CareerCompareWorksheet';
 import { CareerPageItem } from '@/components/career/display/CareerPageItem';
 import { CareerEvidenceLine } from '@/components/career/display/CareerEvidenceLine';
 import type { CareerPage } from '@/lib/career/careerPage';
@@ -15,7 +15,7 @@ import { hasAnalyticsConsent } from '@/lib/consent/store';
 import { trackCareerToolEvent } from '@/lib/career/toolTracking';
 import styles from './CareerCompare.module.css';
 
-type Slot = { slug: string; read: CompareRead | { state: 'loading' | 'idle' } };
+type Slot = { slug: string; name?: string; read: CompareRead | { state: 'loading' | 'idle' } };
 const emptySlot = (): Slot => ({ slug: '', read: { state: 'idle' } });
 const careerIcons = {
   'industrial-designers': Box,
@@ -62,8 +62,8 @@ function Salary({ page, metricKey, displayLocale }: { page: CareerPage; metricKe
   </>;
 }
 
-export function CareerCompare({ locale, displayLocale = locale, initialSlots, embedded = false }: {
-  locale: Locale; displayLocale?: DisplayLocale; initialSlots?: [Slot, Slot]; embedded?: boolean;
+export function CareerCompare({ locale, displayLocale = locale, initialSlots, embedded = false, scenario }: {
+  locale: Locale; displayLocale?: DisplayLocale; initialSlots?: [Slot, Slot]; embedded?: boolean; scenario?: CareerWorksheetScenario;
 }) {
   const zh = locale === 'zh';
   const traditional = displayLocale === 'zh-TW';
@@ -78,7 +78,7 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
   const succeeded = pages.every(Boolean) && slots[0].slug !== slots[1].slug;
   const [editing, setEditing] = useState(!succeeded);
 
-  const showPilotWorksheet = (zh || embedded) && succeeded && isDesignComparePair(slots[0].slug, slots[1].slug);
+  const showWorksheet = succeeded && (scenario || ((zh || embedded) && isDesignComparePair(slots[0].slug, slots[1].slug)));
 
   useEffect(() => {
     const id = window.location.hash.slice(1);
@@ -116,11 +116,11 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
     }
     const requestId = ++requestIds.current[index];
     setNotice('');
-    setSlots(current => current.map((slot, i) => i === index ? { slug, read: { state: slug ? 'loading' : 'idle' } } : slot) as [Slot, Slot]);
+    setSlots(current => current.map((slot, i) => i === index ? { slug, name: slot.name, read: { state: slug ? 'loading' : 'idle' } } : slot) as [Slot, Slot]);
     if (!slug) return;
-    const read = await readCareerComparePage(displayLocale, slug);
+    const read = await (scenario ? readPublishedCareerTaskPage : readCareerComparePage)(displayLocale, slug);
     if (requestIds.current[index] !== requestId) return;
-    setSlots(current => current.map((slot, i) => i === index ? { slug, read } : slot) as [Slot, Slot]);
+    setSlots(current => current.map((slot, i) => i === index ? { slug, name: slot.name, read } : slot) as [Slot, Slot]);
   }
   const cell = (page: CareerPage, body: ReactNode) => <><span className={styles.cellName} aria-hidden="true">{page.content.subject.name}</span>{body}</>;
   function comparisonRow(key: string, label: string, render: (page: CareerPage) => ReactNode, compact = false) {
@@ -135,12 +135,12 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
     { id: 'compare-row-overview', label: copy('工作内容', 'Overview', '工作內容') },
     { id: 'compare-row-tasks', label: copy('工作任务', 'Tasks', '工作任務') },
     { id: 'compare-row-us_pay', label: copy('薪资参考', 'Salary references', '薪資參考') },
-    ...(showPilotWorksheet ? [{ id: 'career-compare-worksheet', label: copy('15 分钟小试做', '15-minute exercise', '15 分鐘小試作') }] : []),
+    ...(showWorksheet ? [{ id: 'career-compare-worksheet', label: copy('15 分钟小试做', '15-minute exercise', '15 分鐘小試作') }] : []),
     ...CAREER_COMPARE_ROWS.slice(1).map(row => ({ id: `compare-row-${row.key}`, label: row[displayLocale] })),
     { id: 'compare-row-sources', label: copy('来源与档案', 'Sources and profiles', '來源與資料') },
   ];
   const selectedNames = slots.map((slot, index) => pages[index]?.content.subject.name
-    ?? CAREER_COMPARE_OPTIONS.find(option => option.slug === slot.slug)?.[displayLocale]);
+    ?? slot.name ?? CAREER_COMPARE_OPTIONS.find(option => option.slug === slot.slug)?.[displayLocale]);
 
   const IntroHeading = embedded ? 'h4' : 'h1';
   const ResultsHeading = embedded ? 'h4' : 'h2';
@@ -256,11 +256,11 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
         </tbody>
       </table>
       </div>
-      {showPilotWorksheet ? <div className={styles.trial}>
-        <p><strong>{copy('同一只水杯，两种设计任务', 'One cup, two design tasks', '同一個水杯，兩種設計任務')}</strong><span>{copy('画杯盖草图，或做一张清洗说明海报。', 'Sketch a lid or create a cleaning guide.', '畫杯蓋草圖，或做一張清洗說明海報。')}</span></p>
+      {showWorksheet ? <div className={styles.trial}>
+        <p><strong>{scenario?.title ?? copy('同一只水杯，两种设计任务', 'One cup, two design tasks', '同一個水杯，兩種設計任務')}</strong><span>{scenario?.brief ?? copy('画杯盖草图，或做一张清洗说明海报。', 'Sketch a lid or create a cleaning guide.', '畫杯蓋草圖，或做一張清洗說明海報。')}</span></p>
         <a href="#career-compare-worksheet">{copy('开始 15 分钟小试做', 'Start the 15-minute exercise', '開始 15 分鐘小試作')} <span aria-hidden="true">↓</span></a>
       </div> : null}
-      {showPilotWorksheet ? <CareerCompareWorksheet traditional={traditional} locale={locale} embedded={embedded} /> : null}
+      {showWorksheet ? <CareerCompareWorksheet traditional={traditional} locale={locale} embedded={embedded} scenario={scenario} /> : null}
       {!embedded ? <aside className="mt-8 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-700">
         <h2 className="mb-2 text-lg font-bold text-slate-900">{copy('接下来，找一条真实招聘核对', 'Next, check a real job posting', '接下來，找一則實際職缺來核對')}</h2>
         <p>{copy('选一个你在意的差异，用当地招聘信息核对任务、作品要求或资格。比较薪资时，请先核对地区、年份和统计口径。', 'Pick a difference you care about and check local postings for tasks, portfolio requirements or credentials. Before comparing pay, check the region, year and measure.', '選一項你在意的差異，用當地職缺資訊核對工作任務、作品要求或資格。比較薪資時，請先核對地區、年份與統計口徑。')}</p>

@@ -1,0 +1,161 @@
+{
+  "istj": {
+    "title": {
+      "zh": "用可追溯记录核对异常",
+      "en": "Trace a discrepancy to its source"
+    },
+    "intro": {
+      "zh": "比较三种需要留下证据的工作。看你更愿意检查是否漏项、验证读数，还是把不同版本整理到可追溯。",
+      "en": "Compare three jobs that leave an audit trail. Which would you rather do: check for missing evidence, verify a reading, or make records traceable?"
+    },
+    "examples": [
+      {
+        "slug": "aviation-inspectors",
+        "question": {
+          "zh": "面对一份检查记录，你愿意逐项核对签核和附件吗？",
+          "en": "Would you go through an inspection log to verify sign-offs and attachments?"
+        }
+      },
+      {
+        "slug": "calibration-technologists-and-technicians",
+        "question": {
+          "zh": "你更愿意确认读数偏差来自测量条件还是仪器吗？",
+          "en": "Would you rather check whether a discrepancy comes from the conditions or the instrument?"
+        }
+      },
+      {
+        "slug": "document-management-specialists",
+        "question": {
+          "zh": "文件有三个版本时，你会先查哪一条修订记录？",
+          "en": "When a document has three versions, which revision record would you check first?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较记录核查与读数校准",
+        "en": "Compare inspection records and calibration"
+      },
+      "brief": {
+        "zh": "虚构记录：A 项有读数但无签名，B 项读数为 10.4，允许范围为 9.8–10.2。",
+        "en": "Fictional log: A has a reading but no signature. B reads 10.4, with an acceptable range of 9.8–10.2."
+      },
+      "prompts": [
+        {
+          "zh": "标出缺少的签核证据，并写一条交接说明。",
+          "en": "Flag the missing sign-off and write a one-line handoff."
+        },
+        {
+          "zh": "标出哪项读数要复测，并写下你会记录哪项测量条件。",
+          "en": "Flag the reading to recheck and write down one measurement condition to record."
+        }
+      ]
+    }
+  },
+  "istp": {
+    "title": {
+      "zh": "先找哪个故障线索",
+      "en": "Choose which fault to investigate first"
+    },
+    "intro": {
+      "zh": "比较诊断时如何从一个现象缩小范围。观察你更愿意查看控制信号、复现症状，还是选择合适的检测方式。",
+      "en": "Compare how each role narrows down a fault. Would you rather inspect a control signal, reproduce a symptom, or choose a way to test for defects?"
+    },
+    "examples": [
+      {
+        "slug": "robotics-technicians",
+        "question": {
+          "zh": "设备反复停机时，你想先查哪个输入信号？",
+          "en": "When a machine keeps stopping, which input signal would you check first?"
+        }
+      },
+      {
+        "slug": "automotive-service-technicians-and-mechanics",
+        "question": {
+          "zh": "面对偶发异响，你更愿意先复现症状还是核对记录？",
+          "en": "With an intermittent noise, would you first reproduce it or check the service record?"
+        }
+      },
+      {
+        "slug": "non-destructive-testing-specialists",
+        "question": {
+          "zh": "工件不能拆解时，你怎样说明为什么选一种检测方法？",
+          "en": "How would you justify a test when a part cannot be taken apart?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较机器人与汽车故障诊断",
+        "en": "Compare robot and vehicle diagnosis"
+      },
+      "brief": {
+        "zh": "虚构记录：一台模型机器人只在转弯时停下，一台玩具车只在加速时异响。用纸面记录推理。",
+        "en": "Fictional logs: a model robot stops only when turning, and a toy vehicle makes a noise only when accelerating. Work through the evidence on paper."
+      },
+      "prompts": [
+        {
+          "zh": "选一条机器人信号记录先看，并写下哪个结果会推翻猜测。",
+          "en": "Choose one robot signal to inspect and write down what result would change your mind."
+        },
+        {
+          "zh": "选一项能区分两种汽车故障假设的纸面检查，说明为什么先做它。",
+          "en": "Choose one paper-based check to separate two hypotheses and explain why it goes first."
+        }
+      ]
+    }
+  },
+  "infj": {
+    "title": {
+      "zh": "把含糊的需求说清楚",
+      "en": "Clarify what someone needs"
+    },
+    "intro": {
+      "zh": "三种工作都要理解别人表达了什么，产出却不同：厘清选项、准确转述，或给出教学调整。",
+      "en": "Each job starts by understanding what someone means, then produces something different: clearer options, a faithful restatement, or a teaching change."
+    },
+    "examples": [
+      {
+        "slug": "educational-guidance-and-career-counselors-and-advisors",
+        "question": {
+          "zh": "对方只说“我想换方向”时，你想先问清哪个条件？",
+          "en": "If someone says “I want a different direction,” which condition would you clarify first?"
+        }
+      },
+      {
+        "slug": "interpreters-and-translators",
+        "question": {
+          "zh": "你怎样保留原话的不确定性，避免替说话人作决定？",
+          "en": "How would you preserve uncertainty without deciding for the speaker?"
+        }
+      },
+      {
+        "slug": "instructional-coordinators",
+        "question": {
+          "zh": "看完一节课后，你会用什么观察支持调整建议？",
+          "en": "After observing a lesson, what evidence would support a change?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较需求澄清与准确转述",
+        "en": "Compare clarification and faithful restatement"
+      },
+      "brief": {
+        "zh": "虚构选课陈述：“我想换一门轻一点的课，但还得赶上毕业。”",
+        "en": "Fictional course request: “I want a lighter course, but I still need to graduate on time.”"
+      },
+      "prompts": [
+        {
+          "zh": "写三个问题，分别澄清工作量、先修要求和时间限制。",
+          "en": "Write three questions about workload, prerequisites, and timing."
+        },
+        {
+          "zh": "把这句话准确转述给第三方，标出一处仍不确定的意思。",
+          "en": "Restate the request for a third party and flag one point that remains uncertain."
+        }
+      ]
+    }
+  }
+}

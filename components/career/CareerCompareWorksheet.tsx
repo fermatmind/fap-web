@@ -8,17 +8,27 @@ import { trackCareerToolEvent, type CareerToolEvent } from '@/lib/career/toolTra
 import type { Locale } from '@/lib/i18n/locales';
 import styles from '@/components/marketing/RiasecWorksheet.module.css';
 
-const tasks = [
+const designTasks = [
   { key: 'industrial', label: '工业设计小试做', enLabel: 'Industrial design exercise', enPrompt: 'Sketch two lids for a reusable cup. Mark how each opens and closes, and note where you would need to test the grip.', traditionalLabel: '工業設計小試作', traditionalPrompt: '給一款可重複使用的水杯畫兩種杯蓋草圖。標出開合方式，並寫下哪一處需要實際試握。', prompt: '给一款可重复使用的水杯画两种杯盖草图。标出开合方式，并写下哪一处需要实际试握。' },
   { key: 'graphic', label: '平面设计小试做', enLabel: 'Graphic design exercise', enPrompt: 'Create a three-step cleaning poster for the same cup. Arrange the icons, headings, and reading order, then ask someone to repeat the steps.', traditionalLabel: '平面設計小試作', traditionalPrompt: '給同一個水杯畫一張三步清洗說明海報。調整圖示、標題與閱讀順序，請一位讀者複述步驟。', prompt: '给同一款水杯画一张三步清洗说明海报。调整图标、标题和阅读顺序，请一位读者复述步骤。' },
 ] as const;
 const REFLECTION_PROMPT = '哪一步你愿意再做一遍？哪项工作条件还需要核实？';
 const START_MIN_CHARS = 10;
 
-export function CareerCompareWorksheet({ traditional = false, locale = 'zh', embedded = false }: {
-  traditional?: boolean; locale?: Locale; embedded?: boolean;
+export type CareerWorksheetScenario = {
+  title: string;
+  brief: string;
+  tasks: [{ label: string; prompt: string }, { label: string; prompt: string }];
+};
+
+export function CareerCompareWorksheet({ traditional = false, locale = 'zh', embedded = false, scenario }: {
+  traditional?: boolean; locale?: Locale; embedded?: boolean; scenario?: CareerWorksheetScenario;
 }) {
   const copy = (zh: string, tw: string, en: string) => traditional ? tw : locale === 'en' ? en : zh;
+  const tasks = scenario?.tasks ?? designTasks.map(task => ({
+    label: copy(task.label, task.traditionalLabel, task.enLabel),
+    prompt: copy(task.prompt, task.traditionalPrompt, task.enPrompt),
+  }));
   const pathLocale = traditional ? 'zh-TW' : locale;
   const Heading = embedded ? 'h4' : 'h2';
   const Subheading = embedded ? 'h5' : 'h3';
@@ -67,11 +77,11 @@ export function CareerCompareWorksheet({ traditional = false, locale = 'zh', emb
     className={`${styles.shell} mt-8 scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-5 sm:p-8 min-[900px]:scroll-mt-[7.5rem]`}>
     <p className="mb-1 text-sm font-semibold text-[var(--fm-accent)]">{copy('15 分钟 · 任选一项', '15 分鐘 · 任選一項', '15 minutes · Choose one task')}</p>
     <Heading id="career-compare-worksheet-title" className="text-2xl font-bold">{copy('职业小试做', '職涯小試作', 'Try a career task')}</Heading>
-    <p className="mt-2 text-sm leading-6 text-slate-700">{copy('用同一只水杯做个草稿，体验两种职业各要交付什么。', '用同一個水杯做草稿，體驗兩種職業各要交付什麼。', 'Use the same cup to try producing two different kinds of design work.')}</p>
+    <p className="mt-2 text-sm leading-6 text-slate-700">{scenario?.brief ?? copy('用同一只水杯做个草稿，体验两种职业各要交付什么。', '用同一個水杯做草稿，體驗兩種職業各要交付什麼。', 'Use the same cup to try producing two different kinds of design work.')}</p>
     <ul className="my-5 grid list-none gap-4 border-y border-slate-200 py-4 sm:grid-cols-2 sm:gap-6">
-      {tasks.map(task => <li key={task.key} className="space-y-1 text-sm leading-6">
-        <Subheading className="font-semibold text-[var(--fm-accent)]">{copy(task.label, task.traditionalLabel, task.enLabel)}</Subheading>
-        <p>{copy(task.prompt, task.traditionalPrompt, task.enPrompt)}</p>
+      {tasks.map(task => <li key={task.label} className="space-y-1 text-sm leading-6">
+        <Subheading className="font-semibold text-[var(--fm-accent)]">{task.label}</Subheading>
+        <p>{task.prompt}</p>
       </li>)}
     </ul>
     <p className="rounded-lg bg-slate-50 px-3 py-2 text-sm leading-6 text-slate-800">{copy(REFLECTION_PROMPT, '哪一步你願意再做一遍？哪項工作條件還需要核實？', 'Which step would you repeat? What working condition do you still need to check?')}</p>
@@ -104,8 +114,8 @@ export function CareerCompareWorksheet({ traditional = false, locale = 'zh', emb
       </div>
     </section>
     <div className={styles.printRecord} data-worksheet-print>
-      <h2>{copy('职业小试做 · 工业设计师与平面设计师', '職涯小試作 · 工業設計師與平面設計師', 'Career exercise · Industrial and graphic design')}</h2>
-      {tasks.map(task => <div key={task.key}><h3>{copy(task.label, task.traditionalLabel, task.enLabel)}</h3><p>{copy(task.prompt, task.traditionalPrompt, task.enPrompt)}</p></div>)}
+      <h2>{scenario?.title ?? copy('职业小试做 · 工业设计师与平面设计师', '職涯小試作 · 工業設計師與平面設計師', 'Career exercise · Industrial and graphic design')}</h2>
+      {tasks.map(task => <div key={task.label}><h3>{task.label}</h3><p>{task.prompt}</p></div>)}
       <p>{copy(REFLECTION_PROMPT, '哪一步你願意再做一遍？哪項工作條件還需要核實？', 'Which step would you repeat? What working condition do you still need to check?')}</p>
       <dl>
         <dt>{copy('我准备试做什么？', '我準備試作什麼？', 'What will I try?')}</dt><dd className={styles.value}>{choice || '____________'}</dd>

@@ -3,6 +3,37 @@ import fs from "node:fs";
 import path from "node:path";
 import { buildMiniStrainRadarData, createCareerPreviewCardFromDetail } from "@/lib/mbti/personalityCareerPreview";
 
+import { getReleasedCareerInterestEvidence } from "@/lib/career/interestRelease";
+import scenes from "@/lib/career/personalityCareerScenes.json";
+
+describe("editorial career scenes on MBTI profiles", () => {
+  it("binds three distinct confirmed careers and a bilingual exercise to each enabled type", () => {
+    const slugs = new Set(["operations-research-analysts", "industrial-designers", "graphic-designers"]);
+    const codes = new Set(["15-2031.00", "27-1021.00", "27-1024.00"]);
+    for (const [type, scene] of Object.entries(scenes)) {
+      expect(type).toMatch(/^[ie][sn][tf][jp]$/);
+      expect(scene.examples).toHaveLength(3);
+      expect(scene.comparison.prompts).toHaveLength(2);
+      for (const locale of ["zh", "en"] as const) {
+        expect(scene.title[locale]).not.toBe("");
+        expect(scene.intro[locale]).not.toBe("");
+        expect(scene.comparison.title[locale]).not.toBe("");
+        expect(scene.comparison.brief[locale]).not.toBe("");
+        expect(scene.comparison.prompts.every(prompt => prompt[locale].trim())).toBe(true);
+        expect(scene.examples.every(example => example.question[locale].trim())).toBe(true);
+      }
+      for (const { slug } of scene.examples) {
+        const evidence = getReleasedCareerInterestEvidence(slug);
+        expect(evidence?.onet).toBeTruthy();
+        expect(slugs.has(slug)).toBe(false);
+        expect(codes.has(evidence!.onet)).toBe(false);
+        slugs.add(slug);
+        codes.add(evidence!.onet);
+      }
+    }
+  });
+});
+
 describe("personality career preview contract", () => {
   it("builds complete mini radar data from structural career signals", () => {
     const radar = buildMiniStrainRadarData(
