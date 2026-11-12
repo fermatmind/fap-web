@@ -157,5 +157,323 @@
         }
       ]
     }
+  },
+  "isfj": {
+    "title": {
+      "zh": "让下一位接手的人知道怎么办",
+      "en": "Make the next step clear for someone else"
+    },
+    "intro": {
+      "zh": "比较三种交接：协调支持资源、指引资料查找、把日常观察交给家长。哪一种细节最值得你反复确认？",
+      "en": "Compare three handoffs: coordinating support, finding information, and passing observations to a parent. Which details would you most want to verify?"
+    },
+    "examples": [
+      {
+        "slug": "healthcare-social-workers",
+        "question": {
+          "zh": "接手一个服务请求时，你会怎样核对对方还需要什么支持？",
+          "en": "When you receive a service request, how would you check what support is still needed?"
+        }
+      },
+      {
+        "slug": "library-technicians",
+        "question": {
+          "zh": "你怎样判断读者需要一个检索提示，还是应交给馆员处理？",
+          "en": "How would you tell whether someone needs a search hint or a librarian's help?"
+        }
+      },
+      {
+        "slug": "childcare-workers",
+        "question": {
+          "zh": "你会把哪一条日常观察写进交接记录，为什么？",
+          "en": "Which everyday observation would you record for the next caregiver, and why?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较服务交接与资料指引",
+        "en": "Compare a support handoff and a research referral"
+      },
+      "brief": {
+        "zh": "虚构请求：一位来访者要在周五前找到一份社区活动指南，但不确定负责机构。",
+        "en": "Fictional request: a visitor needs a community activity guide by Friday and is unsure which organization manages it."
+      },
+      "prompts": [
+        {
+          "zh": "写一张三栏交接单：已知事项、待核实事项、下一位联系人。",
+          "en": "Write a three-column handoff: confirmed facts, open questions, and next contact."
+        },
+        {
+          "zh": "写出三步查找路径，并标出哪一步之后应转给馆员。",
+          "en": "List three search steps and mark when to refer the visitor to a librarian."
+        }
+      ]
+    }
+  },
+  "infp": {
+    "title": {
+      "zh": "为同一个故事保留什么",
+      "en": "Decide what a story needs to keep"
+    },
+    "intro": {
+      "zh": "写作、编辑与视觉创作都会改变材料。比较你愿意从哪个角度表达，以及哪些意思在修订中应当保留。",
+      "en": "Writing, editing, and visual art all transform material. Compare the point of view you would choose and what you would preserve during revision."
+    },
+    "examples": [
+      {
+        "slug": "poets-lyricists-and-creative-writers",
+        "question": {
+          "zh": "你会用谁的视角来写，哪些细节能说明这个选择？",
+          "en": "Whose point of view would you use, and which details would justify it?"
+        }
+      },
+      {
+        "slug": "editors",
+        "question": {
+          "zh": "原稿有一句不够清楚但很有作者特色，你会怎样处理？",
+          "en": "How would you edit an unclear sentence that carries the author's voice?"
+        }
+      },
+      {
+        "slug": "fine-artists-including-painters-sculptors-and-illustrators",
+        "question": {
+          "zh": "如果只能用三种形状或颜色，哪一项最能表达主题？",
+          "en": "If you could use only three shapes or colors, which would do most to convey the theme?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较写作与编辑",
+        "en": "Compare writing and editing"
+      },
+      "brief": {
+        "zh": "虚构材料：雨停后，社区花园里最后一株被风吹倒的番茄苗又立了起来。",
+        "en": "Fictional material: after the rain, the last fallen tomato seedling in a community garden stood up again."
+      },
+      "prompts": [
+        {
+          "zh": "用第一人称写一小段故事，选一个能传达主题的细节。",
+          "en": "Write a short first-person story and choose one detail that conveys its theme."
+        },
+        {
+          "zh": "编辑这句草稿：“大家都说它不会再立起来，她没说话，只把木杆插回土里。”标出你会保留的表达。",
+          "en": "Edit this line: “They all said it would stay down. She said nothing and pushed the stake back into the soil.” Mark one expression you would keep."
+        }
+      ]
+    }
+  },
+  "intp": {
+    "title": {
+      "zh": "设计一个能区分解释的检验",
+      "en": "Design a test that separates explanations"
+    },
+    "intro": {
+      "zh": "三个职业都需要把假设和观测对起来，所用的材料分别是程序表现、材料读数和实物证据。",
+      "en": "All three roles test explanations against observations, using software behavior, material readings, or physical evidence."
+    },
+    "examples": [
+      {
+        "slug": "computer-and-information-research-scientists",
+        "question": {
+          "zh": "两个程序都报慢，你会怎样控制变量来比较？",
+          "en": "If two programs are reported as slow, which variable would you control first?"
+        }
+      },
+      {
+        "slug": "materials-scientists",
+        "question": {
+          "zh": "两份材料读数差异很大时，你会先复测哪一个条件？",
+          "en": "When two material readings differ sharply, which condition would you recheck first?"
+        }
+      },
+      {
+        "slug": "forensic-science-technicians",
+        "question": {
+          "zh": "你会记录什么信息，便于别人复核检验结果？",
+          "en": "What would you record so someone else could check the result?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较软件对照与材料复测",
+        "en": "Compare a software experiment and a materials retest"
+      },
+      "brief": {
+        "zh": "虚构读数：样本 A 为 8、9、8，B 为 8、14、9。B 的第二次记录环境不同。",
+        "en": "Fictional readings: A is 8, 9, 8 and B is 8, 14, 9. The second B reading was taken under different conditions."
+      },
+      "prompts": [
+        {
+          "zh": "把两组读数当作响应时间，写下一个控制变量和判定规则。",
+          "en": "Treat the readings as response times. Name one control variable and a decision rule."
+        },
+        {
+          "zh": "把两组读数当作材料测试，写下先复测哪一项及怎样记录条件。",
+          "en": "Treat the readings as material test results. Pick a first retest and say how you would document its conditions."
+        }
+      ]
+    }
+  },
+  "isfp": {
+    "title": {
+      "zh": "观察形态与节奏怎样改变观感",
+      "en": "See how form and rhythm change a first impression"
+    },
+    "intro": {
+      "zh": "比较色彩、镜头和材质三种表达手段。你愿意花时间打磨哪一种变化，并怎样看出它有效？",
+      "en": "Compare three ways to shape an impression: color, shot order, and material. Which would you refine, and what would count as improvement?"
+    },
+    "examples": [
+      {
+        "slug": "floral-designers",
+        "question": {
+          "zh": "同一个桌面，怎样用形态和颜色把注意力引到中心？",
+          "en": "How would you use form and color to direct attention to the center of a table?"
+        }
+      },
+      {
+        "slug": "film-and-video-editors",
+        "question": {
+          "zh": "去掉一个镜头会让信息更清楚，还是让情绪少一层？",
+          "en": "Would removing one shot clarify the message or flatten its emotional tone?"
+        }
+      },
+      {
+        "slug": "craft-artists",
+        "question": {
+          "zh": "哪一种表面处理最能保留材料原有的触感？",
+          "en": "Which finish would best preserve the material's texture?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较花艺构图与视频分镜",
+        "en": "Compare floral arrangement and video sequencing"
+      },
+      "brief": {
+        "zh": "虚构主题：“安静的早晨”。材料只用纸笔，不需要花材或影片。",
+        "en": "Fictional brief: “A quiet morning.” Use only paper and pencil."
+      },
+      "prompts": [
+        {
+          "zh": "画一个桌花轮廓，标出主色、留白和你想保留的一处细节。",
+          "en": "Sketch an arrangement and mark its main color, negative space, and one detail to keep."
+        },
+        {
+          "zh": "排出三个镜头，标注哪里停留、哪里转场，并写下想传达的感受。",
+          "en": "Sequence three shots, mark a pause and a cut, and describe the feeling you want to convey."
+        }
+      ]
+    }
+  },
+  "estp": {
+    "title": {
+      "zh": "现场变化时先处理哪个信号",
+      "en": "Choose what to do with a live change"
+    },
+    "intro": {
+      "zh": "比较现场信息变化后的第一步：核实通报、记录交通现象，或调动人员应对排队。",
+      "en": "Compare the first move after conditions change: verify a report, document traffic, or adjust staffing for a queue."
+    },
+    "examples": [
+      {
+        "slug": "airfield-operations-specialists",
+        "question": {
+          "zh": "两条运行通报相互矛盾时，你会先找谁核实？",
+          "en": "If two operations reports conflict, whom would you ask to verify them first?"
+        }
+      },
+      {
+        "slug": "traffic-technicians",
+        "question": {
+          "zh": "看到排队突然增加时，你先记时间、位置，还是通行障碍？",
+          "en": "When a queue grows suddenly, which would you note first: timing, location, or obstruction?"
+        }
+      },
+      {
+        "slug": "first-line-supervisors-of-food-preparation-and-serving-workers",
+        "question": {
+          "zh": "已有两处工位同时排队，你会先调整哪一项安排？",
+          "en": "When two service stations develop queues, what would you adjust first?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较运行通报与交通工单",
+        "en": "Compare an operations alert and a traffic work order"
+      },
+      "brief": {
+        "zh": "用虚构场地：东入口排队增长，一块指示牌被遮挡，有人报告西侧通道暂不可用。",
+        "en": "Fictional site: the east entrance queue is growing, a sign is obscured, and someone reports that the west passage is unavailable."
+      },
+      "prompts": [
+        {
+          "zh": "写一条模拟通报，区分你亲眼看到的情况和待核实的报告。",
+          "en": "Draft a mock alert that separates what you saw from what still needs checking."
+        },
+        {
+          "zh": "写一张指示牌工单，说明位置、问题和可观察的验收结果。",
+          "en": "Draft a work order for the sign. Include its location, the problem, and an observable completion check."
+        }
+      ]
+    }
+  },
+  "entp": {
+    "title": {
+      "zh": "把争议变成可验证的问题",
+      "en": "Turn a disagreement into a testable question"
+    },
+    "intro": {
+      "zh": "同一项产品争议可以从需求证据、技术演示和实际操作障碍入手。比较你更愿意测试哪一种解释。",
+      "en": "A product disagreement can be investigated through demand, a technical demo, or how people use the product. Which explanation would you test first?"
+    },
+    "examples": [
+      {
+        "slug": "market-research-analysts",
+        "question": {
+          "zh": "怎样提问才能区分用户说喜欢和实际会使用？",
+          "en": "What question would help distinguish stated interest from likely use?"
+        }
+      },
+      {
+        "slug": "sales-engineers",
+        "question": {
+          "zh": "技术演示只能做一项时，你想验证哪条顾虑？",
+          "en": "If you can demonstrate only one thing, which concern would you test?"
+        }
+      },
+      {
+        "slug": "human-factors-engineers-and-ergonomists",
+        "question": {
+          "zh": "用户在同一步反复出错时，你会观察界面的哪个线索？",
+          "en": "When people stumble at the same step, which interface cue would you examine?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较访谈与产品演示",
+        "en": "Compare an interview and a product demonstration"
+      },
+      "brief": {
+        "zh": "虚构争议：团队认为报名表步骤太多，用户反馈却集中在“提交后没确认”。",
+        "en": "Fictional disagreement: the team thinks registration has too many steps, but users mostly report getting no confirmation."
+      },
+      "prompts": [
+        {
+          "zh": "写两道不诱导的问题，区分步骤负担和确认反馈。",
+          "en": "Write two neutral interview questions that distinguish effort from lack of confirmation."
+        },
+        {
+          "zh": "设计一段两分钟演示，说明怎样观察确认提示是否有效。",
+          "en": "Plan a two-minute demo and say how you would tell whether the confirmation cue works."
+        }
+      ]
+    }
   }
 }

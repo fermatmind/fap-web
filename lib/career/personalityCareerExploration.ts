@@ -84,17 +84,18 @@ async function readCareerExamples(locale: Locale, examples: CareerExample[]): Pr
     const read = await readPublishedCareerTaskPage(locale, example.slug, 'server-cache');
     if (read.state !== 'ready' || !read.page.content.subject.summary) return null;
     const { page } = read;
-    const taskItem = careerCompareItems(page, ['career.item.responsibilities-block']).find(item => {
+    const taskItems = careerCompareItems(page, ['career.item.responsibilities-block']).filter(item => {
       return item.type === 'list' && Array.isArray(item.data.entries) &&
         page.content.sources.some(source => item.sourceRefs.includes(source.id) &&
           source.url?.match(/^https:\/\/(?:www\.)?onetonline\.org\/link\/(?:details|summary|custom)\/([\d.-]+)(?:[/?#]|$)/u)?.[1] === example.onet);
     });
-    if (!taskItem || !Array.isArray(taskItem.data.entries)) return null;
-    const tasks = taskItem.data.entries.filter((entry): entry is string => typeof entry === 'string' && Boolean(entry.trim()))
-      .slice(0, 3);
-    if (tasks.length !== 3 || new Set(tasks).size !== 3) return null;
+    const entries = taskItems.flatMap(item => Array.isArray(item.data.entries) ? item.data.entries : []);
+    const tasks = [...new Set(entries.filter((entry): entry is string => typeof entry === 'string')
+      .map(entry => entry.trim()).filter(Boolean))].slice(0, 3);
+    if (tasks.length !== 3) return null;
     return {
-      ...example, page, tasks: example.taskHighlights?.[locale] ?? tasks, taskSourceRefs: taskItem.sourceRefs,
+      ...example, page, tasks: example.taskHighlights?.[locale] ?? tasks,
+      taskSourceRefs: [...new Set(taskItems.flatMap(item => item.sourceRefs))],
       href: `/${locale}/career/jobs/${example.slug}`,
       occupationalCategory: `O*NET-SOC ${example.onet}`,
     };
