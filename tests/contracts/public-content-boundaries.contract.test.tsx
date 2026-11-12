@@ -88,13 +88,15 @@ describe("public content route boundaries", () => {
     expect(source).not.toContain("fallback");
   });
 
-  it("wires every declared public content family to shared loading and error shells", () => {
+  it("keeps errors bounded without streaming public navigation behind a loading shell", () => {
     for (const family of families) {
       const root = `app/(localized)/[locale]/${family}`;
-      const loading = read(`${root}/loading.tsx`);
       const error = read(`${root}/error.tsx`);
-
-      expect(loading).toContain("<PublicContentLoading />");
+      if (family === "support" || family === "research") {
+        expect(read(`${root}/loading.tsx`)).toContain("<PublicContentLoading />");
+      } else {
+        expect(fs.existsSync(path.join(process.cwd(), root, "loading.tsx"))).toBe(false);
+      }
       expect(error).toContain('"use client"');
       if (family === "career") {
         expect(error).toContain('<PublicContentError {...props} surface="career" retryAction={reloadCareerRoute} />');
@@ -102,6 +104,10 @@ describe("public content route boundaries", () => {
         expect(error).toContain(`<PublicContentError {...props} surface="${family}" />`);
       }
     }
+  });
+
+  it("keeps the interactive assessment runner's loading shell", () => {
+    expect(read("app/(localized)/[locale]/tests/[slug]/take/loading.tsx")).toContain("<PublicContentLoading />");
   });
 
   it("keeps personality errors bounded without a route loading shell that hides server-rendered comparison content", () => {
