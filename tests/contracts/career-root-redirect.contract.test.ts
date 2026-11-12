@@ -13,7 +13,7 @@ describe("career center route contract", () => {
     expect(fs.existsSync(legacyPagePath)).toBe(false);
     expect(source).toContain("fetchCareerDirectory");
     expect(source).toContain("adaptCareerDirectory");
-    expect(source).toContain("测量自己，看见职业，训练未来");
+    expect(source).toContain("搜索职业，查看工作职责与入行条件");
     expect(source).toContain('localizedPath("/career", locale)');
     expect(source).toContain('name="q"');
     expect(source).not.toContain("fetchCareerJobIndex");

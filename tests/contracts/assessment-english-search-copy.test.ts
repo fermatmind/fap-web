@@ -31,7 +31,7 @@ describe("English assessment search copy", () => {
     ["IQ_RAVEN", "en", "Free IQ Test", "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", "30 original visual matrix reasoning questions"],
     ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI 免费测试：16 型人格与偏好解读", "了解你的 16 型人格结果与四组偏好。"],
     ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Personality Test: 16 Types & Preferences", "Learn about your 16-type personality result and four preference pairs."],
-    ["RIASEC", "zh", "霍兰德职业兴趣测试（免费版）", "霍兰德职业兴趣测试免费版：60/140题与三字代码", "了解你更喜欢哪些工作活动"],
+    ["RIASEC", "zh", "霍兰德职业兴趣测试（免费版）", "霍兰德职业兴趣测试免费版：60/140题与三字代码", "两版均可免费完成测评并查看结果"],
     ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Career Interest Test: Holland Code (RIASEC)", "Find work activities you would like to explore"],
     ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits & Results", "five continuous personality traits"],
     ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试（EQ）：60题自评与四维结果", "约10分钟完成60题情商自评"],

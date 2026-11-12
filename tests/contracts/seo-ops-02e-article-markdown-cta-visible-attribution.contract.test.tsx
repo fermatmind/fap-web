@@ -1,5 +1,7 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { trackEvent } from "@/lib/analytics";
+import { renderToStaticMarkup } from "react-dom/server";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLinkHydrator";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { appendAttributionParamsToHref, extractAttributionParamsFromSearchParams } from "@/lib/tracking/attribution";
@@ -20,29 +22,18 @@ function pushArticleUrl() {
   );
 }
 
-function expectSafeVisibleHref(href: string) {
-  expect(href).toContain(`${testDetailPath}?`);
-  expect(href).toContain("utm_source=codex_qa");
-  expect(href).toContain("utm_medium=controlled_pilot");
-  expect(href).toContain("utm_campaign=seo_pilot_acceptance_r2");
-  expect(href).toContain(`utm_content=${sourceSlug}`);
-  expect(href).toContain("source_page_type=article_detail");
-  expect(href).toContain("source_route_family=article");
-  expect(href).toContain(`source_slug=${sourceSlug}`);
-  expect(href).toContain("target_test_slug=holland-career-interest-test-riasec");
-  expect(href).toContain("entrypoint=seo_cta");
-  expect(href).not.toContain("email=");
-  expect(href).not.toContain("debug=");
-  expect(href).not.toContain("order_no=");
-}
+vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
 describe("SEO-OPS-02E article Markdown CTA visible attribution contract", () => {
   beforeEach(() => {
+    vi.mocked(trackEvent).mockClear();
     window.localStorage.clear();
     pushArticleUrl();
   });
 
-  it("attributes CMS Markdown test CTA hrefs rendered by renderSimpleMarkdown", async () => {
+  it("keeps Markdown RIASEC links clean in SSR and tracks the click", () => {
+    const body = renderSimpleMarkdown(`[FermatMind 霍兰德职业兴趣测试 →](${testDetailPath}?entry_surface=article_detail#riasec-scoring)`, { locale: "zh" });
+    expect(renderToStaticMarkup(body)).toContain(`href="${testDetailPath}#riasec-scoring"`);
     render(
       <AttributedCmsLinkHydrator
         locale="zh"
@@ -51,19 +42,22 @@ describe("SEO-OPS-02E article Markdown CTA visible attribution contract", () => 
         sourcePath={sourcePath}
         contentId={88}
       >
-        {renderSimpleMarkdown(`[FermatMind 霍兰德职业兴趣测试 →](${testDetailPath})`)}
+        {body}
       </AttributedCmsLinkHydrator>
     );
 
     const cta = screen.getByRole("link", { name: "FermatMind 霍兰德职业兴趣测试 →" });
 
-    await waitFor(() => {
-      expect(cta.getAttribute("href")).toContain("utm_source=codex_qa");
-    });
-
-    expectSafeVisibleHref(cta.getAttribute("href") ?? "");
-    expect(cta.getAttribute("data-seo-cta-attributed")).toBe("true");
-    expect(cta.getAttribute("data-seo-original-href")).toBe(testDetailPath);
+    expect(cta.getAttribute("href")).toBe(`${testDetailPath}#riasec-scoring`);
+    cta.addEventListener("click", event => event.preventDefault(), { once: true });
+    fireEvent.click(cta);
+    expect(trackEvent).toHaveBeenCalledExactlyOnceWith("article_to_test_click", expect.objectContaining({
+      utm_source: "codex_qa",
+      source_page_type: "article_detail",
+      source_slug: sourceSlug,
+      target_test_slug: "holland-career-interest-test-riasec",
+    }));
+    expect(vi.mocked(trackEvent).mock.calls[0]?.[1]).not.toHaveProperty("email");
   });
 
   it.each(["", "?form=mbti_93"])("preserves the example fragment after CMS attribution with existing query %s", async (query) => {

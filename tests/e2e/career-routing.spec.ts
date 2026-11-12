@@ -847,7 +847,7 @@ test("MBTI topic page exposes grouped continuation entry links", async ({ reques
 
   expect(html).toContain('data-testid="mbti-topic-type-grid"');
   expect(html).toContain("/en/personality/intj-a");
-  expect(html).toContain("/en/career/recommendations/mbti/intj-a");
+  expect(html).toContain('href="/en/personality/intj#intj-career-exploration"');
   expect(html).toContain("/en/personality/enfp-a");
 });
 

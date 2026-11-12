@@ -1,5 +1,5 @@
 import { isValidElement, type ReactNode } from "react";
-import { sanitizeCmsUrl, stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
+import { normalizeCmsPublicAnchor, sanitizeCmsUrl, stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import type { Locale } from "@/lib/i18n/locales";
@@ -334,7 +334,7 @@ function renderPlainTextWithInternalLinks(text: string, keyPrefix: string, optio
     const key = `${keyPrefix}-plain-${index}`;
     if (part.type === "link") {
       return (
-        <a key={key} href={part.href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+        <a key={key} href={options.locale ? normalizeCmsPublicAnchor(part.href, options.locale) : part.href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
           {renderCjkPunctuationText(part.label, `${key}-text`)}
         </a>
       );
@@ -372,7 +372,7 @@ function renderInlineMarkdown(text: string, keyPrefix: string, options: Markdown
         : rawLabel;
 
       return (
-        <a key={key} href={href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+        <a key={key} href={options.locale ? normalizeCmsPublicAnchor(href, options.locale) : href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
           {renderCjkPunctuationText(label, `${key}-text`)}
         </a>
       );

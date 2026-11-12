@@ -17,7 +17,7 @@ export function CareerJobAssessmentLink({ href, ...props }: Props) {
   }
 
   return (
-    <TrackedEntryCtaLink href={url.pathname} {...props} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick}
+    <TrackedEntryCtaLink href={`${url.pathname}${url.hash}`} {...props} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick}
       eventProperties={{
         ...extractAttributionParamsFromSearchParams(url.searchParams),
         ...buildCareerDisplayCtaAttribution({

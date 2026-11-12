@@ -272,10 +272,12 @@ function isSafeMailtoAddressList(value: string): boolean {
 function localizeInternalCmsHref(href: string, options: CmsHtmlSanitizeOptions): string {
   if (!options.locale) return href;
   const localized = LOCALIZABLE_INTERNAL_HREF_RE.test(href) ? localizedPath(href, options.locale) : href;
-  if (/[?&]entry_surface=/.test(localized)) {
-    return publicRiasecLandingPath(localized, options.locale) ?? localized;
-  }
-  return migratePersonalityCareerHref(localized, options.locale);
+  return normalizeCmsPublicAnchor(localized, options.locale);
+}
+
+export function normalizeCmsPublicAnchor(href: string, locale: Locale): string {
+  if (/[?&]entry_surface=/.test(href)) return publicRiasecLandingPath(href, locale) ?? href;
+  return migratePersonalityCareerHref(href, locale);
 }
 
 function isAllowedAttribute(tagName: string, attributeName: string): boolean {

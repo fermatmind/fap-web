@@ -171,7 +171,7 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(enHtml).toContain("Business and financial (312)");
     expect(enHtml).toContain("Healthcare (184)");
     expect(enHtml).toContain("Page 1 of 21");
-    expect(zhHtml).toContain("测量自己，看见职业，训练未来");
+    expect(zhHtml).toContain("搜索职业，查看工作职责与入行条件");
     expect(zhHtml).toContain("商业与金融 (312)");
     expect(zhHtml).toContain("医疗健康 (184)");
     expect(zhHtml).toContain("第 1 / 21 页");

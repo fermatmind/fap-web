@@ -2,15 +2,14 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLinkHydrator";
-import { extractPublicReadingPathFromHref, buildSeoAttemptStartAttributionFromSearchParams, appendSeoCtaContextParamsToHref,
-  extractSeoCtaContextParamsFromSearchParams } from "@/lib/tracking/seoCtaAttribution";
+import { extractPublicReadingPathFromHref } from "@/lib/tracking/seoCtaAttribution";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
 describe("Blog public reading and assessment source paths", () => {
-  beforeEach(() => { window.localStorage.clear(); });
+  beforeEach(() => { window.localStorage.clear(); vi.mocked(trackEvent).mockClear(); });
 
   it.each(["en", "zh"] as Locale[])("carries %s article identity to chosen career/topic/test, including delayed curated edges", async (locale) => {
     window.history.replaceState({}, "", `/${locale}/articles/source?utm_source=controlled_qa&email=private%40example.com`);
@@ -21,7 +20,7 @@ describe("Blog public reading and assessment source paths", () => {
     </AttributedCmsLinkHydrator>;
     const view = render(wrapper(false));
     view.rerender(wrapper(true));
-    for (const name of ["Career", "Topic", "Assessment"]) {
+    for (const name of ["Career", "Topic"]) {
       const link = screen.getByRole("link", { name });
       await waitFor(() => expect(link.getAttribute("href")).toContain("source_slug=source"));
       const url = new URL(link.getAttribute("href")!, "https://fermatmind.com");
@@ -30,23 +29,19 @@ describe("Blog public reading and assessment source paths", () => {
       expect(url.searchParams.get("landing_path")).toBe(`/${locale}/articles/source?utm_source=controlled_qa`);
       expect(url.searchParams.get("utm_source")).toBe("controlled_qa");
       expect(url.searchParams.has("email")).toBe(false);
-      if (name !== "Assessment") expect(url.searchParams.has("test_slug")).toBe(false);
+      expect(url.searchParams.has("test_slug")).toBe(false);
     }
     const assessment = screen.getByRole("link", { name: "Assessment" });
     assessment.addEventListener("click", (event) => event.preventDefault(), { once: true });
     fireEvent.click(assessment);
-    expect(trackEvent).toHaveBeenCalledWith("article_to_test_click", expect.objectContaining({ locale, article_slug: "source", target_test_slug: "holland-career-interest-test-riasec" }));
-    const href = assessment.getAttribute("href")!;
-    const query = new URL(href, "https://fermatmind.com").searchParams;
-    const take = appendSeoCtaContextParamsToHref(`/${locale}/tests/holland-career-interest-test-riasec/take?form=riasec_60`, extractSeoCtaContextParamsFromSearchParams(query));
-    const attempt = buildSeoAttemptStartAttributionFromSearchParams({ searchParams: new URL(take, "https://fermatmind.com").searchParams });
-    expect(attempt.meta).toMatchObject({ content_id: "40", source_slug: "source", source_route_family: "article", source_page_type: "article_detail" });
-    expect(attempt.meta.landing_path).toContain(`/${locale}/articles/source`);
-    // Rehydrating/returning does not duplicate context keys or replace original destinations.
+    expect(trackEvent).toHaveBeenCalledExactlyOnceWith("article_to_test_click", expect.objectContaining({
+      locale, article_slug: "source", utm_source: "controlled_qa", target_test_slug: "holland-career-interest-test-riasec",
+    }));
+    const href = `/${locale}/tests/holland-career-interest-test-riasec`;
+    expect(assessment).toHaveAttribute("href", href);
     view.unmount();
     render(wrapper(true));
-    await waitFor(() => expect(screen.getByRole("link", { name: "Assessment" }).getAttribute("href")).toBe(href));
-    expect(query.getAll("source_slug")).toHaveLength(1);
+    expect(screen.getByRole("link", { name: "Assessment" })).toHaveAttribute("href", href);
   });
 
   it.each(["https://evil.example/en/topics/learning", "/zh/topics/learning", "/en/topics/learning?email=x", "/en/result/private",

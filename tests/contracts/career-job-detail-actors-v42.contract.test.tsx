@@ -42,12 +42,11 @@ describe('single-source career route integration',()=>{
     const metadata=await generateMetadata({params:Promise.resolve({locale:'en',slug:'actors'})});
     expect(metadata.alternates?.canonical).toContain('/en/career/jobs/actors');
   });
-  it('keeps inbound attribution on the common RIASEC CTA',async()=>{
+  it('renders the common RIASEC CTA without crawlable attribution parameters',async()=>{
     fetchMock.mockResolvedValue(bundle());
     const html=await render('actors','zh',{utm_source:'test-source',gclid:'test-click'});
-    expect(html).toContain('subject_key=actors');
-    expect(html).toContain('utm_source=test-source');
-    expect(html).toContain('gclid=test-click');
+    expect(html).toContain('href="/zh/tests/holland-career-interest-test-riasec"');
+    expect(html).not.toContain('href="/zh/tests/holland-career-interest-test-riasec?');
     expect(html).toContain('开始职业兴趣测试');
   });
   it('ignores poisoned old display and SEO copy',async()=>{

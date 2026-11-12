@@ -496,7 +496,7 @@ describe("career job index backend contract", () => {
 
     expect(source).toContain("Breadcrumb");
     expect(source).toContain('localizedPath("/career", locale)');
-    expect(source).toContain("全部职业库");
+    expect(source).toContain("中文职业库：查职业职责、入行条件与职业方向");
     expect(source).toContain("All occupations");
   });
 });

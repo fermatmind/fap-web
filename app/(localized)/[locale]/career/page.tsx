@@ -335,9 +335,9 @@ export default async function CareerPage({
 
             {locale === "zh" && !traditional && !hasActiveFilters && page === 1 ? (
               <div className="space-y-2 text-sm leading-6 text-slate-700">
-                <p className="m-0"><Link href={industriesPath} className="font-semibold underline underline-offset-4">按行业浏览</Link></p>
-                <p className="m-0">职责示例。<Link href="/zh/career/jobs/accountants-and-auditors" className="font-semibold underline underline-offset-4">会计师和审计师</Link>的工作包括核对账簿、编制财务报表，或按风险获取和复核审计证据。</p>
-                <p className="m-0">还没有候选方向？先看<Link href="/zh/career/tests" className="underline underline-offset-4">职业测试怎么选</Link>，或用<TrackedEntryCtaLink
+                <p className="m-0"><Link href={industriesPath} prefetch={false} className="font-semibold underline underline-offset-4">按行业浏览</Link></p>
+                <p className="m-0">职责示例。<Link href="/zh/career/jobs/accountants-and-auditors" prefetch={false} className="font-semibold underline underline-offset-4">会计师和审计师</Link>的工作包括核对账簿、编制财务报表，或按风险获取和复核审计证据。</p>
+                <p className="m-0">还没有候选方向？先看<Link href="/zh/career/tests" prefetch={false} className="underline underline-offset-4">职业测试怎么选</Link>，或用<TrackedEntryCtaLink
                   href="/zh/tests/holland-career-interest-test-riasec" eventName="continue_exploration"
                   eventProperties={{ locale, entry_surface: "career_landing", source_page_type: "career_landing", target_action: "open_riasec_test", test_slug: "holland-career-interest-test-riasec" }}
                   className="underline underline-offset-4">免费霍兰德测试</TrackedEntryCtaLink>找想尝试的工作活动。</p>

@@ -1,4 +1,5 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { trackEvent } from "@/lib/analytics";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { appendAttributionParamsToHref, extractAttributionParamsFromSearchParams } from "@/lib/tracking/attribution";
@@ -7,6 +8,8 @@ import {
   buildSeoCtaNavigationHref,
   extractSeoCtaContextParamsFromSearchParams,
 } from "@/lib/tracking/seoCtaAttribution";
+
+vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/zh/articles/holland-career-interest-test-can-and-cannot-tell-you",
@@ -20,13 +23,14 @@ vi.mock("next/navigation", () => ({
 
 describe("SEO-OPS-02C visible UTM navigation contract", () => {
   beforeEach(() => {
+    vi.mocked(trackEvent).mockClear();
     window.localStorage.clear();
     hoisted.search = "";
     hoisted.pathname = "/zh/articles/holland-career-interest-test-can-and-cannot-tell-you";
     window.history.pushState({}, "", hoisted.pathname);
   });
 
-  it("hydrates article CTA href from the browser URL when App Router search params and stored attribution are empty", async () => {
+  it("tracks article CTA attribution from the browser URL when App Router search params are empty", () => {
     window.history.pushState(
       {},
       "",
@@ -50,20 +54,18 @@ describe("SEO-OPS-02C visible UTM navigation contract", () => {
 
     const link = screen.getByRole("link", { name: "FermatMind 霍兰德职业兴趣测试" });
 
-    await waitFor(() => {
-      expect(link.getAttribute("href")).toContain("utm_source=codex_qa");
-    });
-
-    const href = link.getAttribute("href") ?? "";
-    expect(href).toContain("utm_medium=controlled_pilot");
-    expect(href).toContain("utm_campaign=seo_pilot_acceptance_r2");
-    expect(href).toContain("utm_content=holland-career-interest-test-can-and-cannot-tell-you");
-    expect(href).toContain("source_page_type=article_detail");
-    expect(href).toContain("source_route_family=article");
-    expect(href).toContain("cta_id=riasec_article_primary");
-    expect(href).toContain("target_test_slug=holland-career-interest-test-riasec");
-    expect(href).not.toContain("email=");
-    expect(href).not.toContain("debug=");
+    expect(link.getAttribute("href")).toBe("/zh/tests/holland-career-interest-test-riasec");
+    link.addEventListener("click", event => event.preventDefault(), { once: true });
+    fireEvent.click(link);
+    expect(trackEvent).toHaveBeenCalledExactlyOnceWith("article_to_test_click", expect.objectContaining({
+      utm_source: "codex_qa",
+      utm_medium: "controlled_pilot",
+      utm_campaign: "seo_pilot_acceptance_r2",
+      utm_content: "holland-career-interest-test-can-and-cannot-tell-you",
+      source_page_type: "article_detail",
+      target_test_slug: "holland-career-interest-test-riasec",
+    }));
+    expect(vi.mocked(trackEvent).mock.calls[0]?.[1]).not.toHaveProperty("email");
   });
 
   it("keeps safe UTM and CTA context explicit from article CTA through test detail into take URL", () => {

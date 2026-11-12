@@ -284,8 +284,10 @@ export function extractPublicTestDetailPathFromHref(
 }
 
 export function publicRiasecLandingPath(href: string, locale: Locale): string | null {
-  const pathname = extractPublicTestDetailPathFromHref(href.split("?")[0], locale);
-  return pathname === `/${locale}/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}` ? pathname : null;
+  const pathname = extractPublicTestDetailPathFromHref(href.split(/[?#]/, 1)[0], locale);
+  if (pathname !== `/${locale}/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`) return null;
+  const fragment = href.indexOf("#");
+  return fragment < 0 ? pathname : `${pathname}${href.slice(fragment)}`;
 }
 
 export function extractSeoCtaContextParamsFromRecord(

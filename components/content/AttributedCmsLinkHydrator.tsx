@@ -119,7 +119,7 @@ export function AttributedCmsLinkHydrator({
         anchor.dataset.seoCtaAttributed = "true";
         anchor.setAttribute(
           "href",
-          publicRiasecLandingPath(originalHref.pathname, locale) ?? buildSeoCtaNavigationHref({
+          publicRiasecLandingPath(originalHref.href, locale) ?? buildSeoCtaNavigationHref({
             locale,
             sourceRouteFamily,
             sourceSlug,
