@@ -47,7 +47,7 @@ import {
   startIqAttempt,
   submitIqAttempt,
 } from "@/lib/iq/api";
-import { IQ_CANONICAL_SCALE_CODE, isIqCurrentQuestionForm } from "@/lib/iq/constants";
+import { IQ_CANONICAL_SCALE_CODE, IQ_MERGED_40_BANK_ID, isIqCurrentQuestionForm } from "@/lib/iq/constants";
 import { buildIqSubmitAnswers, type IqTakeQuestion, normalizeIqQuestionsForTake } from "@/lib/iq/take";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
@@ -512,6 +512,7 @@ function QuizTakeInner({
   );
   const normalizedScaleCode = testKpiMetadata.scale_code;
   const isIqScale = useMemo(() => isCanonicalIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
+  const isMergedIq = isIqScale && testKpiMetadata.formCode === IQ_MERGED_40_BANK_ID;
   const isOwnerOriginalIq = isIqScale && isIqCurrentQuestionForm(testKpiMetadata.formCode);
   const isRiasecScale = useMemo(() => isRiasecScaleCode(normalizedScaleCode), [normalizedScaleCode]);
   const [ownerDeliveryQuestionCount, setOwnerDeliveryQuestionCount] = useState<number | null>(
@@ -1757,7 +1758,7 @@ function QuizTakeInner({
               <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[320px]"} />
             ) : null}
 
-            {isIqScale ? (
+            {isIqScale && !isMergedIq ? (
               <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
             ) : null}
 
@@ -1765,6 +1766,7 @@ function QuizTakeInner({
               <IqOptionBoard
                 questionId={question.id}
                 options={questionOptions}
+                showTextOptions={isMergedIq}
                 value={selectedOptionId}
                 locale={locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
@@ -1891,7 +1893,7 @@ function QuizTakeInner({
           <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[360px]"} />
         ) : null}
 
-        {isIqScale ? (
+        {isIqScale && !isMergedIq ? (
           <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
         ) : null}
 
@@ -1899,6 +1901,7 @@ function QuizTakeInner({
           <IqOptionBoard
             questionId={question.id}
             options={questionOptions}
+            showTextOptions={isMergedIq}
             value={selectedOptionId}
             locale={locale}
             noOptionsLabel={dict.quiz.immersive.noOptions}

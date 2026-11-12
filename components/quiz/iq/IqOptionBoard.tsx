@@ -51,6 +51,7 @@ export function IqOptionBoard({
   noOptionsLabel,
   layoutMode = "responsive",
   disabled = false,
+  showTextOptions = false,
   onChange,
   onKeyboardSelect,
 }: {
@@ -61,6 +62,7 @@ export function IqOptionBoard({
   noOptionsLabel: string;
   layoutMode?: LayoutMode;
   disabled?: boolean;
+  showTextOptions?: boolean;
   onChange: (code: string) => void;
   onKeyboardSelect?: (code: string) => void;
 }) {
@@ -106,6 +108,7 @@ export function IqOptionBoard({
               const selected = value === option.code;
               const letter = toOptionLetter(idx);
               const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
+              const optionText = showTextOptions && !option.svg && !option.image ? option.text : null;
 
               return (
                 <div key={`desktop-${option.code}`} className="relative min-h-[170px]">
@@ -114,7 +117,7 @@ export function IqOptionBoard({
                     role="radio"
                     aria-checked={selected}
                     aria-disabled={disabled}
-                    aria-label={optionLabel}
+                    aria-label={optionText ? `${optionLabel}: ${optionText}` : optionLabel}
                     disabled={disabled}
                     data-state={selected ? "selected" : "idle"}
                     data-layout="desktop"
@@ -150,7 +153,7 @@ export function IqOptionBoard({
                             ariaLabel={option.image?.alt ?? optionLabel}
                           />
                         ) : (
-                          <span className="text-sm font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
+                          <span className="text-sm font-medium text-[var(--fm-text-muted)]">{optionText ?? optionLabel}</span>
                         )}
                       </span>
 
@@ -177,6 +180,7 @@ export function IqOptionBoard({
             const selected = value === option.code;
             const letter = toOptionLetter(idx);
             const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
+            const optionText = showTextOptions && !option.svg && !option.image ? option.text : null;
 
             return (
               <div key={`mobile-${option.code}`} className="relative min-h-[128px]">
@@ -185,7 +189,7 @@ export function IqOptionBoard({
                   role="radio"
                   aria-checked={selected}
                   aria-disabled={disabled}
-                  aria-label={optionLabel}
+                  aria-label={optionText ? `${optionLabel}: ${optionText}` : optionLabel}
                   disabled={disabled}
                   data-state={selected ? "selected" : "idle"}
                   data-layout="mobile"
@@ -221,7 +225,7 @@ export function IqOptionBoard({
                           ariaLabel={option.image?.alt ?? optionLabel}
                         />
                       ) : (
-                        <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
+                        <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionText ?? optionLabel}</span>
                       )}
                     </span>
                   </div>

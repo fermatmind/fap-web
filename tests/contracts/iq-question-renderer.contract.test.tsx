@@ -209,6 +209,25 @@ describe("IQ question renderer contract", () => {
     expect(grid?.style.gridTemplateColumns).toBe("repeat(3, minmax(0, 1fr))");
   });
 
+  it.each(["desktop", "mobile"] as const)("renders text options on %s", (layoutMode) => {
+    const onChange = vi.fn();
+    render(
+      <IqOptionBoard
+        questionId="IQ_MERGED_40_01"
+        options={[{ code: "A", text: "6" }, { code: "B", text: "4" }, { code: "C", text: "8" }]}
+        locale="zh"
+        layoutMode={layoutMode}
+        noOptionsLabel="暂无选项"
+        showTextOptions
+        onChange={onChange}
+      />,
+    );
+
+    expect(screen.getByText("8")).toBeVisible();
+    fireEvent.click(screen.getByRole("radio", { name: "选项 C: 8" }));
+    expect(onChange).toHaveBeenCalledWith("C");
+  });
+
   it("renders image options in the desktop board", () => {
     render(
       <IqOptionBoard
