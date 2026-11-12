@@ -131,6 +131,13 @@ const bigFiveLegacyExact301Redirects = [
   }))
 );
 
+// Both INTJ readers cover the same design comparison in their own locale.
+const intjCareerExplorationRedirects = ["zh", "en"].map((locale) => ({
+  source: `/${locale}/career/recommendations/mbti/intj`,
+  destination: `/${locale}/personality/intj#intj-career-exploration`,
+  statusCode: 301,
+}));
+
 // Verified historical test identities. Root /tests has always selected English;
 // strip only these observed suffixes and redirect straight to the public detail.
 const historicalTestExact301Redirects = [
@@ -308,6 +315,7 @@ const nextConfig = {
         permanent: true,
       },
       ...historicalTestExact301Redirects,
+      ...intjCareerExplorationRedirects,
       {
         source: "/tests",
         destination: "/en/tests",

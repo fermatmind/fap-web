@@ -851,11 +851,16 @@ test("MBTI topic page exposes grouped continuation entry links", async ({ reques
   expect(html).toContain("/en/personality/enfp-a");
 });
 
-test("mbti career recommendation route keeps the current 4-letter compatibility entry renderable", async ({ page }) => {
-  await page.goto("/en/career/recommendations/mbti/intj");
-  await expect(page).toHaveURL("/en/career/recommendations/mbti/intj");
-  await expect(page.getByTestId("career-recommendation-v1-decision-summary")).toBeVisible();
-  await expect(page.getByTestId("career-recommendation-protocol-status")).toBeAttached();
+test("INTJ legacy career pages issue an exact 301 to the same-language work section", async ({ request }) => {
+  for (const locale of ["en", "zh"]) {
+    const response = await request.get(`/${locale}/career/recommendations/mbti/intj`, { maxRedirects: 0 });
+    expect(response.status()).toBe(301);
+    const location = new URL(response.headers().location, response.url());
+    expect(location.origin).toBe(new URL(response.url()).origin);
+    expect(location.pathname).toBe(`/${locale}/personality/intj`);
+    expect(location.search).toBe("");
+    expect(location.hash).toBe("#intj-career-exploration");
+  }
 });
 
 test("mbti result career CTA points to the 32-type recommendation authority route", async ({ page }) => {

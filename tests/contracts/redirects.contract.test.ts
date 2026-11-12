@@ -21,6 +21,22 @@ async function loadRedirects(): Promise<RedirectRule[]> {
 }
 
 describe("legacy redirect hygiene contract", () => {
+  it("redirects only the two verified INTJ career readers to the localized work section", async () => {
+    const redirects = await loadRedirects();
+    expect(redirects.filter(rule => rule.source.includes("/career/recommendations/mbti/"))).toEqual([
+      {
+        source: "/zh/career/recommendations/mbti/intj",
+        destination: "/zh/personality/intj#intj-career-exploration",
+        statusCode: 301,
+      },
+      {
+        source: "/en/career/recommendations/mbti/intj",
+        destination: "/en/personality/intj#intj-career-exploration",
+        statusCode: 301,
+      },
+    ]);
+  });
+
   it("routes industry compatibility aliases directly to the same-locale canonical directory", async () => {
     const redirects = await loadRedirects();
     for (const [alias, canonical] of [
