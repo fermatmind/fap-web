@@ -475,5 +475,323 @@
         }
       ]
     }
+  },
+  "esfp": {
+    "title": {
+      "zh": "开场时看见谁还没跟上",
+      "en": "Notice who has not joined in yet"
+    },
+    "intro": {
+      "zh": "活动开场时，设备、规则和示范都会影响参与。比较你愿意先处理哪一种现场反馈。",
+      "en": "Equipment, rules, and demonstrations all affect who can take part. Which kind of live feedback would you act on first?"
+    },
+    "examples": [
+      {
+        "slug": "audio-and-video-technicians",
+        "question": {
+          "zh": "观众听不清楚时，你会先核对哪一项设备状态？",
+          "en": "If the audience cannot hear, which equipment status would you check first?"
+        }
+      },
+      {
+        "slug": "recreation-workers",
+        "question": {
+          "zh": "迟到的人不知道怎样加入活动，你想怎样介绍规则？",
+          "en": "How would you explain the rules to someone arriving late?"
+        }
+      },
+      {
+        "slug": "fitness-trainers-and-instructors",
+        "question": {
+          "zh": "示范之后，有人没有跟上时你会怎样调整讲解？",
+          "en": "How would you adjust an explanation when someone cannot follow a demonstration?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较现场音视频与参与引导",
+        "en": "Compare event AV and activity facilitation"
+      },
+      "brief": {
+        "zh": "虚构社区活动：开场麦克风断续，另有两位访客迟到，不知道分组规则。",
+        "en": "Fictional community event: the microphone cuts out at the start and two late visitors do not know the group rules."
+      },
+      "prompts": [
+        {
+          "zh": "写一张设备问题提示卡，写明现象、位置和要告知的人。",
+          "en": "Write an equipment issue card with the symptom, location, and person to notify."
+        },
+        {
+          "zh": "写一条让迟到者在下一轮加入的简短说明。",
+          "en": "Write a short instruction that helps late arrivals join the next round."
+        }
+      ]
+    }
+  },
+  "enfp": {
+    "title": {
+      "zh": "把一个点子变成参与机会",
+      "en": "Turn an idea into a way to participate"
+    },
+    "intro": {
+      "zh": "把同一个主题做成挑战、动线或课堂活动，比较哪一种更值得你根据参与反馈继续迭代。",
+      "en": "Turn one topic into a challenge, a visitor route, or a classroom activity. Which would you most want to revise after seeing people try it?"
+    },
+    "examples": [
+      {
+        "slug": "video-game-designers",
+        "question": {
+          "zh": "怎样让参与者从一次选择中发现一个新线索？",
+          "en": "How would you let a player discover a clue through a choice?"
+        }
+      },
+      {
+        "slug": "set-and-exhibit-designers",
+        "question": {
+          "zh": "参观者走到一处分岔时，你希望他们首先注意什么？",
+          "en": "What should visitors notice first when a route branches?"
+        }
+      },
+      {
+        "slug": "self-enrichment-teachers",
+        "question": {
+          "zh": "活动对一部分学员太难时，你会怎样改材料？",
+          "en": "How would you change the materials if part of the group finds an activity too hard?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较游戏关卡与参观动线",
+        "en": "Compare a game challenge and an exhibit route"
+      },
+      "brief": {
+        "zh": "虚构展览素材：三张旧车票来自不同年份，其中一张有手写换乘说明。",
+        "en": "Fictional exhibit material: three old tickets come from different years. One carries handwritten transfer instructions."
+      },
+      "prompts": [
+        {
+          "zh": "设计一道纸面游戏挑战，写下选择、线索和成功条件。",
+          "en": "Design a paper game challenge. Specify the choice, clue, and success condition."
+        },
+        {
+          "zh": "画一条包含两个停留点的展览动线，写下你想观察的访客反应。",
+          "en": "Sketch an exhibit route with two stops and name one visitor reaction to observe."
+        }
+      ]
+    }
+  },
+  "estj": {
+    "title": {
+      "zh": "把交付期限变成可执行的安排",
+      "en": "Turn a deadline into a workable schedule"
+    },
+    "intro": {
+      "zh": "比较产线、工地和仓库怎样安排人员、顺序与验收。看你在哪一种约束下更愿意做排程。",
+      "en": "Compare how a production line, a construction site, and a warehouse organize people, sequence, and checks. Which constraints would you rather schedule around?"
+    },
+    "examples": [
+      {
+        "slug": "industrial-production-managers",
+        "question": {
+          "zh": "一台设备少一个班次时，哪项安排需要先改？",
+          "en": "If a machine loses a shift, which part of the schedule should change first?"
+        }
+      },
+      {
+        "slug": "construction-managers",
+        "question": {
+          "zh": "你怎样标清两个工序的前后依赖与验收点？",
+          "en": "How would you make two trades' dependencies and sign-offs explicit?"
+        }
+      },
+      {
+        "slug": "transportation-storage-and-distribution-managers",
+        "question": {
+          "zh": "集中到货时，你会先调整收货、存放还是出库？",
+          "en": "When shipments arrive together, would you adjust receiving, storage, or dispatch first?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较产线排程与施工协调",
+        "en": "Compare production scheduling and construction coordination"
+      },
+      "brief": {
+        "zh": "虚构项目周五交付。步骤 A 需一天，B 需两天且依赖 A，C 需半天且可并行。",
+        "en": "A fictional project is due Friday. Step A takes a day, B takes two days after A, and C takes half a day and can run in parallel."
+      },
+      "prompts": [
+        {
+          "zh": "按设备和班次安排这三步，标出一个延误后的替代安排。",
+          "en": "Schedule all three around equipment and shifts, then mark one contingency for a delay."
+        },
+        {
+          "zh": "按施工工序画一条依赖线，给每个关键交接标出负责人和验收点。",
+          "en": "Map the construction dependencies and identify the owner and acceptance check at each key handoff."
+        }
+      ]
+    }
+  },
+  "esfj": {
+    "title": {
+      "zh": "让客人的要求在交接中被兑现",
+      "en": "Carry a guest request through the handoff"
+    },
+    "intro": {
+      "zh": "比较活动协调、前台服务和餐饮运营。三个场景都要核对需求，也要让下一位同事知道该做什么。",
+      "en": "Compare event coordination, front-desk service, and food service. Each requires checking a request and making the next action clear to a colleague."
+    },
+    "examples": [
+      {
+        "slug": "meeting-convention-and-event-planners",
+        "question": {
+          "zh": "客户要求临时变更时，你会先向哪位供应商确认？",
+          "en": "When a client changes a request, which vendor would you confirm it with first?"
+        }
+      },
+      {
+        "slug": "lodging-managers",
+        "question": {
+          "zh": "同一件客诉跨两个班次时，交接卡必须写清什么？",
+          "en": "What must a front-desk note say when a guest complaint spans two shifts?"
+        }
+      },
+      {
+        "slug": "food-service-managers",
+        "question": {
+          "zh": "客流超过预期时，你会怎样重新安排岗位？",
+          "en": "How would you reassign responsibilities if more customers arrived than expected?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较会务交接与前台响应",
+        "en": "Compare an event handoff and a front-desk response"
+      },
+      "brief": {
+        "zh": "虚构活动：开场提前 20 分钟，一位访客比原计划更早抵达，房间尚未准备好。",
+        "en": "Fictional event: the start moves 20 minutes earlier and a guest arrives before their room is ready."
+      },
+      "prompts": [
+        {
+          "zh": "写三项供应商确认清单，每项加上负责人和最迟回复时间。",
+          "en": "Write three vendor checks, each with an owner and response deadline."
+        },
+        {
+          "zh": "写一张前台交接卡，明确可立即提供的帮助和后续跟进。",
+          "en": "Write a front-desk handoff card with immediate help and a follow-up action."
+        }
+      ]
+    }
+  },
+  "enfj": {
+    "title": {
+      "zh": "看见谁学会了以及下一步怎么教",
+      "en": "Check who learned what and what to teach next"
+    },
+    "intro": {
+      "zh": "比较培训设计、学习活动改编和社区项目管理。三种工作都涉及支持他人，观察进步的证据各有不同。",
+      "en": "Compare training design, adapting a lesson, and running a community program. Each supports people but looks for different evidence of progress."
+    },
+    "examples": [
+      {
+        "slug": "training-and-development-specialists",
+        "question": {
+          "zh": "你会用什么短任务检查培训是否奏效？",
+          "en": "What short task would tell you whether the training worked?"
+        }
+      },
+      {
+        "slug": "special-education-teachers-elementary-school",
+        "question": {
+          "zh": "同一个学习目标可以用哪两种方式参与？",
+          "en": "What are two ways a learner could participate toward the same goal?"
+        }
+      },
+      {
+        "slug": "social-and-community-service-managers",
+        "question": {
+          "zh": "活动结束后，哪种反馈能帮助工作人员和志愿者调整分工？",
+          "en": "Which feedback would help staff and volunteers adjust responsibilities after an activity?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较培训演示与学习活动改编",
+        "en": "Compare a training demo and a lesson adaptation"
+      },
+      "brief": {
+        "zh": "虚构学习目标：把四张卡片按两种规则分类，并说出依据。",
+        "en": "Fictional learning goal: sort four cards using two rules and explain the choice."
+      },
+      "prompts": [
+        {
+          "zh": "设计一个两分钟示范，再写一道检查是否理解规则的问题。",
+          "en": "Plan a two-minute demonstration and write a question that checks understanding."
+        },
+        {
+          "zh": "设计两种参与方式，例如口头说明或指认卡片，写下相同的理解判据。",
+          "en": "Offer two ways to participate, such as explaining or pointing, and write a common sign of understanding."
+        }
+      ]
+    }
+  },
+  "entj": {
+    "title": {
+      "zh": "预算有限时确定取舍",
+      "en": "Decide what to fund when resources are limited"
+    },
+    "intro": {
+      "zh": "比较预算配置、项目优先级和供应链取舍。注意每种判断需要哪些指标，以及什么证据会改变决策。",
+      "en": "Compare budget allocation, project priorities, and supply-chain trade-offs. What measures inform each choice, and what evidence would change it?"
+    },
+    "examples": [
+      {
+        "slug": "budget-analysts",
+        "question": {
+          "zh": "你会先核对哪个假设再调拨预算？",
+          "en": "Which assumption would you check before reallocating the budget?"
+        }
+      },
+      {
+        "slug": "chief-sustainability-officers",
+        "question": {
+          "zh": "两个项目的成本和影响不同，你会如何比较？",
+          "en": "How would you compare projects with different costs and impacts?"
+        }
+      },
+      {
+        "slug": "supply-chain-managers",
+        "question": {
+          "zh": "库存与准时交付冲突时，哪个指标需要和团队先对齐？",
+          "en": "When inventory and on-time delivery conflict, which measure should the team agree on first?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较预算配置与项目优先级",
+        "en": "Compare budget allocation and project priorities"
+      },
+      "brief": {
+        "zh": "虚构预算为 10 点。A 降耗需 6 点，B 缩短等待需 4 点，C 改善报告需 5 点。",
+        "en": "Fictional budget: 10 points. A costs 6 to cut waste, B costs 4 to reduce waits, and C costs 5 to improve reporting."
+      },
+      "prompts": [
+        {
+          "zh": "选两项并列出预算余额，再写一个会改变选择的成本假设。",
+          "en": "Choose two and calculate the remainder. Name a cost assumption that would change your choice."
+        },
+        {
+          "zh": "先为三个项目定一个影响指标，再写一条预算外的决策条件。",
+          "en": "Choose an impact measure for the projects, then name one condition beyond cost that would change the decision."
+        }
+      ]
+    }
   }
 }
