@@ -47,7 +47,7 @@ import {
   startIqAttempt,
   submitIqAttempt,
 } from "@/lib/iq/api";
-import { IQ_CANONICAL_SCALE_CODE, IQ_OWNER_ORIGINAL_30_BANK_ID } from "@/lib/iq/constants";
+import { IQ_CANONICAL_SCALE_CODE, isIqCurrentQuestionForm } from "@/lib/iq/constants";
 import { buildIqSubmitAnswers, type IqTakeQuestion, normalizeIqQuestionsForTake } from "@/lib/iq/take";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
@@ -386,7 +386,7 @@ export default function QuizTakeClient({
   );
   // Incremental IQ delivery is not a complete question inventory. Filtering a
   // persisted draft against that subset would erase earlier answers and progress.
-  const questionIds = useMemo(() => resolvedFormCode === IQ_OWNER_ORIGINAL_30_BANK_ID
+  const questionIds = useMemo(() => isIqCurrentQuestionForm(resolvedFormCode)
     ? []
     : questions.flatMap((question) => question ? [question.id] : []), [questions, resolvedFormCode]);
   return (
@@ -512,7 +512,7 @@ function QuizTakeInner({
   );
   const normalizedScaleCode = testKpiMetadata.scale_code;
   const isIqScale = useMemo(() => isCanonicalIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
-  const isOwnerOriginalIq = isIqScale && testKpiMetadata.formCode === IQ_OWNER_ORIGINAL_30_BANK_ID;
+  const isOwnerOriginalIq = isIqScale && isIqCurrentQuestionForm(testKpiMetadata.formCode);
   const isRiasecScale = useMemo(() => isRiasecScaleCode(normalizedScaleCode), [normalizedScaleCode]);
   const [ownerDeliveryQuestionCount, setOwnerDeliveryQuestionCount] = useState<number | null>(
     isOwnerOriginalIq && typeof questionCount === "number" && questionCount > 0 ? questionCount : null

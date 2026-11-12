@@ -2,13 +2,14 @@ import {
   IQ_BETA_50_BANK_ID,
   IQ_CANONICAL_SCALE_CODE,
   IQ_OWNER_ORIGINAL_30_BANK_ID,
+  IQ_MERGED_40_BANK_ID,
   IQ_PUBLIC_SLUG,
 } from "@/lib/iq/constants";
 import type { Locale } from "@/lib/i18n/locales";
 
-export type IqBankDisplayKey = "owner_original_30" | "beta_50";
+export type IqBankDisplayKey = "owner_original_30" | "merged_40" | "beta_50";
 export type IqBankAvailability = "available" | "future_placeholder";
-export type IqBankId = typeof IQ_OWNER_ORIGINAL_30_BANK_ID | typeof IQ_BETA_50_BANK_ID;
+export type IqBankId = typeof IQ_OWNER_ORIGINAL_30_BANK_ID | typeof IQ_MERGED_40_BANK_ID | typeof IQ_BETA_50_BANK_ID;
 
 export type IqBankDisplayModel = {
   key: IqBankDisplayKey;
@@ -75,6 +76,24 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
     },
   },
   {
+    key: "merged_40",
+    bankId: IQ_MERGED_40_BANK_ID,
+    formCode: IQ_MERGED_40_BANK_ID,
+    scaleCode: IQ_CANONICAL_SCALE_CODE,
+    slug: IQ_PUBLIC_SLUG,
+    availability: "available",
+    itemCount: 40,
+    isDefault: false,
+    isTakeEnabled: true,
+    ctaState: "start",
+    labels: { en: "Reasoning Test · 40 Questions", zh: "推理测试 · 40 题" },
+    shortLabels: { en: "40-question form", zh: "40 题版" },
+    descriptions: {
+      en: "A mix of visual, numerical, and verbal reasoning questions. Results show the number and percentage of correct answers.",
+      zh: "包含图形、数字和文字推理题。结果显示答对题数和正确率。",
+    },
+  },
+  {
     key: "beta_50",
     bankId: IQ_BETA_50_BANK_ID,
     formCode: IQ_BETA_50_BANK_ID,
@@ -100,7 +119,7 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
   },
 ] as const;
 
-const IQ_BANK_LANDING_DISPLAY_KEYS = new Set<IqBankDisplayKey>(["owner_original_30"]);
+const IQ_BANK_LANDING_DISPLAY_KEYS = new Set<IqBankDisplayKey>(["owner_original_30", "merged_40"]);
 
 function buildIqBankTakeHref(takeHref: string, formCode: IqBankId): string {
   const [path, queryString = ""] = takeHref.split("?");
@@ -135,8 +154,8 @@ export function getIqBankDisplayText(model: IqBankDisplayModel, locale: Locale):
     description: model.descriptions[locale],
     ctaLabel: model.ctaState === "start"
       ? isZh
-        ? "开始当前 30 题"
-        : "Start current 30-item form"
+        ? model.isDefault ? "开始当前 30 题" : "开始 40 题"
+        : model.isDefault ? "Start current 30-item form" : "Start 40-question form"
       : isZh
         ? "即将开放"
         : "Coming soon",

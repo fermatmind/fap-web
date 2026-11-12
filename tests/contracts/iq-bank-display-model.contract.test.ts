@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   IQ_BETA_50_BANK_ID,
   IQ_CANONICAL_SCALE_CODE,
+  IQ_MERGED_40_BANK_ID,
   IQ_OWNER_ORIGINAL_30_BANK_ID,
   IQ_PUBLIC_SLUG,
 } from "@/lib/iq/constants";
@@ -34,9 +35,9 @@ describe("IQ bank display model", () => {
   });
 
   it("does not introduce a second IQ scale identity", () => {
-    expect(IQ_BANK_DISPLAY_MODELS).toHaveLength(2);
+    expect(IQ_BANK_DISPLAY_MODELS).toHaveLength(3);
     expect(new Set(IQ_BANK_DISPLAY_MODELS.map((model) => model.scaleCode))).toEqual(new Set([IQ_CANONICAL_SCALE_CODE]));
-    expect(IQ_BANK_DISPLAY_MODELS.map((model) => model.key)).toEqual(["owner_original_30", "beta_50"]);
+    expect(IQ_BANK_DISPLAY_MODELS.map((model) => model.key)).toEqual(["owner_original_30", "merged_40", "beta_50"]);
   });
 
   it("keeps beta50 unavailable for result compatibility without exposing it on the landing chooser", () => {
@@ -57,14 +58,19 @@ describe("IQ bank display model", () => {
     expect(isIqBankTakeEnabled(IQ_BETA_50_BANK_ID)).toBe(false);
   });
 
-  it("builds only the owner-original landing choice with the form-coded take href", () => {
+  it("builds both available landing choices with form-coded take links", () => {
     const choices = getIqBankLandingChoices({
       locale: "en",
       takeHref: "/en/tests/iq-test-intelligence-quotient-assessment/take",
     });
     const ownerOriginal30 = choices[0];
 
-    expect(choices).toHaveLength(1);
+    expect(choices).toHaveLength(2);
+    expect(choices[1]).toMatchObject({
+      href: `/en/tests/iq-test-intelligence-quotient-assessment/take?form=${IQ_MERGED_40_BANK_ID}`,
+      ctaLabel: "Start 40-question form",
+      targetAction: "start_merged_40",
+    });
     expect(ownerOriginal30).toMatchObject({
       href: `/en/tests/iq-test-intelligence-quotient-assessment/take?form=${IQ_OWNER_ORIGINAL_30_BANK_ID}`,
       ctaLabel: "Start current 30-item form",

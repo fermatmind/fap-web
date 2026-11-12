@@ -37,3 +37,9 @@ export function normalizeIqScaleCode(value: string | null | undefined): IqScaleC
   const normalized = String(value ?? "").trim().toUpperCase();
   return isIqScaleCode(normalized) ? normalized : null;
 }
+
+export const IQ_MERGED_40_BANK_ID = "IQ_MERGED_40" as const;
+
+export function isIqCurrentQuestionForm(formCode: string | null | undefined): boolean {
+  return formCode === IQ_OWNER_ORIGINAL_30_BANK_ID || formCode === IQ_MERGED_40_BANK_ID;
+}
