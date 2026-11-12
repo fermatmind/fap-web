@@ -165,6 +165,7 @@ for (const locale of ["en", "zh"] as const) {
         name: `${primaryNavLabels[locale][key]} menu`,
         exact: true,
       });
+      await expect(trigger).toBeEnabled();
       await trigger.focus();
       await page.keyboard.press("Enter");
       await expect(trigger).toHaveAttribute("aria-expanded", "true");
