@@ -36,7 +36,7 @@ export async function CareerInterestPilotPage({ params, code }: { params: Params
   const { title, summary } = pilot.copy[locale];
   const path = careerExplorationPilotPath(locale, code);
   const releasedTopic = code === "ari" ? getReleasedCareerInterest(code, locale) : null;
-  const pilotSlugs = new Set(pilot.occupations.map(({ slug }) => slug));
+  const pilotSlugs = new Set<string>(pilot.occupations.map(({ slug }) => slug));
   const additionalJobs = releasedTopic
     ? [...releasedTopic.exact, ...releasedTopic.related].filter(({ slug }) => !pilotSlugs.has(slug))
     : [];
