@@ -1,6 +1,6 @@
 import { getCmsLandingSurfaceWithLastKnownGood, type CmsPageBlock } from "@/lib/cms/landing-surfaces";
 import type { CmsArticle, CmsArticleCategory, CmsArticleImageVariants, CmsArticleTag } from "@/lib/cms/articles";
-import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { toApiLocale, type DisplayLocale } from "@/lib/i18n/locales";
 import { unknownPublicReview } from "@/lib/public-content/publicReview";
 
 const HOMEPAGE_RECOMMENDED_ARTICLE_BLOCK_KEYS = new Set([
@@ -75,9 +75,9 @@ function normalizePublishedRevisionId(record: RecommendedArticleRecord): number 
   );
 }
 
-function normalizeArticleLocale(value: unknown, fallback: Locale): string {
+function normalizeArticleLocale(value: unknown, fallback: DisplayLocale): string {
   const normalized = normalizeText(value);
-  return normalized || toApiLocale(fallback);
+  return normalized || (fallback === "zh-TW" ? fallback : toApiLocale(fallback));
 }
 
 function normalizeImageVariant(value: unknown): CmsArticleImageVariants["hero"] {
@@ -184,11 +184,11 @@ function findRecommendedArticlesBlock(blocks: CmsPageBlock[]): CmsPageBlock | nu
   );
 }
 
-function matchesLocale(articleLocale: string, locale: Locale): boolean {
-  return articleLocale.toLowerCase() === toApiLocale(locale).toLowerCase();
+function matchesLocale(articleLocale: string, locale: DisplayLocale): boolean {
+  return articleLocale.toLowerCase() === (locale === "zh-TW" ? locale : toApiLocale(locale)).toLowerCase();
 }
 
-function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle | null {
+function normalizeRecommendedArticle(value: unknown, locale: DisplayLocale): CmsArticle | null {
   const wrapper = asRecord(value) as RecommendedArticleRecord | null;
   const record = (asRecord(wrapper?.article) ?? wrapper) as RecommendedArticleRecord | null;
   if (!record) return null;
@@ -258,10 +258,13 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
   };
 }
 
-export async function getHomepageRecommendedArticles(locale: Locale): Promise<CmsArticle[]> {
+export async function getHomepageRecommendedArticles(
+  locale: DisplayLocale,
+  readLegacyArticles?: () => Promise<CmsArticle[]>,
+): Promise<CmsArticle[]> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood("home", locale);
   const block = findRecommendedArticlesBlock(surface.value.pageBlocks);
-  if (!block) return [];
+  if (!block) return readLegacyArticles?.() ?? [];
 
   return normalizeArticleBlockItems(block.payloadJson)
     .map((item) => normalizeRecommendedArticle(item, locale))

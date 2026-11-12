@@ -7,6 +7,7 @@ import { ApiError } from "@/lib/api-client";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
 import { traditionalUi } from "@/lib/i18n/zh-TW/chiikawa";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
+import { getHomepageRecommendedArticles } from "@/lib/marketing/homepageRecommendedArticles";
 import { listVisibleTestsHubCards } from "@/lib/marketing/testsHubContent";
 import { SITE_URL } from "@/lib/site";
 
@@ -42,21 +43,25 @@ export default async function TraditionalHome() {
   const copy = await loadHome();
   if (!copy) return <Container as="main" className="py-10"><TraditionalPilotTests /></Container>;
 
-  const [supplementalTests, archive] = await Promise.all([
+  const blogArchive = loadBlogArchive("zh-TW", 1).then(({ data, failed, stale }) => {
+    const blog = data?.blog;
+    return !failed && !stale && data && blog?.configurationState === "published"
+      ? { title: blog.title, articles: data.items }
+      : null;
+  });
+  const [supplementalTests, articles, archive] = await Promise.all([
     listVisibleTestsHubCards("zh-TW").catch((error: unknown) => {
       if (error instanceof ApiError && error.status === 404) return [];
       throw error;
     }),
-    loadBlogArchive("zh-TW", 1),
+    getHomepageRecommendedArticles("zh-TW", async () => (await blogArchive)?.articles ?? []).catch(() => []),
+    blogArchive,
   ]);
-  const blog = archive.data?.blog;
-  const publishedBlog = !archive.failed && !archive.stale && blog?.configurationState === "published";
-  const articles = publishedBlog ? archive.data?.items ?? [] : [];
 
   return (
     <main className="fm-homepage">
       <HomePageExperience locale="zh-TW" copy={copy} articles={articles}
-        archiveTitle={publishedBlog ? blog.title : null} supplementalTests={supplementalTests} />
+        archiveTitle={archive?.title ?? null} supplementalTests={supplementalTests} />
     </main>
   );
 }

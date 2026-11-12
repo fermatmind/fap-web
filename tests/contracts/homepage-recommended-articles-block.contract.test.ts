@@ -128,6 +128,45 @@ describe("homepage recommended articles page block contract", () => {
     });
   });
 
+  it("uses the shared home block for public Traditional cards in supplied order", async () => {
+    const cards = ["latest-group-traditional", "earlier-group-traditional"].map((slug, index) => ({
+      slug,
+      locale: "zh-TW",
+      title: "推薦文章",
+      excerpt: "繁體公開摘要",
+      cover_image_url: "https://fermatmind.com/cover.jpg",
+      cover_image_alt: "推薦文章封面",
+      category: { id: 11, slug: "self-knowledge", name: "認識自己" },
+      tags: [{ id: 21, slug: "mbti", name: "MBTI" }],
+      status: "published",
+      is_public: true,
+      is_indexable: false,
+      published_revision_id: 61 + index,
+      published_at: index === 0 ? "2026-04-22T00:00:00Z" : "2026-04-23T00:00:00Z",
+    }));
+    landingMock.mockResolvedValueOnce(surfaceWithBlock({ items: [...cards, { ...cards[0], locale: "zh-CN", slug: "wrong-locale" }] }));
+
+    const { getHomepageRecommendedArticles } = await import("@/lib/marketing/homepageRecommendedArticles");
+    const articles = await getHomepageRecommendedArticles("zh-TW");
+    expect(landingMock).toHaveBeenCalledWith("home", "zh-TW");
+    expect(articles.map(article => article.slug)).toEqual(cards.map(card => card.slug));
+    expect(articles.map(article => article.publishedAt)).toEqual(cards.map(card => card.published_at));
+    expect(articles.every(article => !article.isIndexable)).toBe(true);
+  });
+
+  it("keeps the legacy archive cards only when the older API has no home block", async () => {
+    const { getHomepageRecommendedArticles } = await import("@/lib/marketing/homepageRecommendedArticles");
+    const empty = surfaceWithBlock({ items: [] });
+    const legacy = vi.fn(async () => []);
+    landingMock.mockResolvedValueOnce({ ...empty, value: { ...empty.value, pageBlocks: [] } });
+    await getHomepageRecommendedArticles("zh-TW", legacy);
+    expect(legacy).toHaveBeenCalledTimes(1);
+
+    landingMock.mockResolvedValueOnce(empty);
+    await getHomepageRecommendedArticles("zh-TW", legacy);
+    expect(legacy).toHaveBeenCalledTimes(1);
+  });
+
   it("keeps the CMS API health guard bilingual and metadata-complete", () => {
     const healthScript = read("scripts/check-cms-api-health.mjs");
 
