@@ -287,10 +287,15 @@ for (const locale of ["en", "zh"] as const) {
       for (const section of profile.sections) for (const paragraph of section.paragraphs) await expect(reading).toContainText(paragraph[locale]);
     }
     await inspectLayout(page, result, `character-${locale}`);
-    await result.locator('[data-archetype-match="gryffindor"]').getByRole("link", { name: locale === "zh" ? "单独阅读这项结果的完整指南" : "Read this result’s full guide separately", exact: true }).click();
-    await page.waitForURL(`**/${hogwarts.slug}/results/gryffindor`);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(hogwarts.profiles[0].title[locale]);
-    await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
+    const link = result.locator('[data-archetype-match="gryffindor"]').getByRole("link", {
+      name: locale === "zh" ? "单独阅读这项结果的完整指南（新标签页）" : "Read this result’s full guide separately (new tab)",
+      exact: true,
+    });
+    const [guide] = await Promise.all([page.waitForEvent("popup"), link.click()]);
+    await guide.waitForURL(`**/${hogwarts.slug}/results/gryffindor`);
+    await expect(guide.getByRole("heading", { level: 1 })).toHaveText(hogwarts.profiles[0].title[locale]);
+    await expect(guide.getByRole("heading", { level: 1 })).toBeInViewport();
+    await guide.close();
   });
 
   test(`entertainment result ${locale}: tally keeps every tied portrait; branching ending keeps narrative fields`, async ({ page }) => {
