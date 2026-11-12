@@ -189,17 +189,20 @@ const EXPECTED_ZH_CARDS = [
 ];
 
 describe("homepage v1 core grid contract", () => {
-  it.each(["en", "zh"] as const)("puts three localized fun quizzes directly below the six core tests in %s", async locale => {
+  it.each(["en", "zh"] as const)("puts six localized fun quizzes directly below the six core tests in %s", async locale => {
     render(<HomePageExperience locale={locale} copy={await getHomePageContent(locale)} />);
     const core = screen.getByRole("heading", { level: 2, name: locale === "zh" ? "热门测评" : "Popular assessments" }).closest("section")!;
     const fun = screen.getByRole("heading", { level: 2, name: locale === "zh" ? "热门娱乐测试" : "Popular fun quizzes" }).closest("section")!;
     expect(core.nextElementSibling).toBe(fun);
     expect(within(core).getAllByRole("heading", { level: 3 })).toHaveLength(6);
-    expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(3);
-    for (const path of ["play/friendship-quiz", "explore/what-dog-breed-am-i", "explore/mythical-creature"]) expect(fun.querySelector(`a[href="/${locale}/tests/${path}"]`)).toBeTruthy();
+    expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(Array.from(fun.querySelectorAll("h3"), heading => heading.closest("a")?.getAttribute("href"))).toEqual([
+      "explore/seven-sins-virtues-test", "play/friendship-quiz", "explore/chiikawa",
+      "explore/cyberpunk-edgerunners", "explore/moral-alignment", "explore/attachment-styles",
+    ].map(path => `/${locale}/tests/${path}`));
     if (locale === "en") {
       expect(fun.textContent).not.toMatch(/[\u3400-\u9fff]/);
-      expect(fun.textContent).toContain("12 questions");
+      expect(fun.textContent).toContain("28 questions");
       expect(fun.textContent).toContain("18 questions");
     }
   });

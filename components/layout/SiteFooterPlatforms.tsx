@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Pause, Play } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import styles from "./site-footer.module.css";
 
@@ -20,7 +19,6 @@ const startupFame = {
   name: "Startup Fame",
   href: "https://startupfa.me/s/fermatmind?utm_source=fermatmind.com",
 };
-const subscribeReady = () => () => {};
 
 // Original assets: producthunt.com/branding (logo, unmodified) and the badge
 // embed offered by saashub.com/fermatmind. No ranking/featured badge is implied.
@@ -41,8 +39,6 @@ export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
   const pathname = usePathname();
   const isHome = pathname === "/" || pathname === "/zh" || pathname === "/en" || pathname === "/zh-TW";
   const displayedPlatforms = isHome ? [startupFame, ...platforms] : platforms;
-  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
-  const [paused, setPaused] = useState(false);
   const zh = locale === "zh";
   const taiwan = locale === "zh-TW";
   const title = taiwan ? "平台收錄" : zh ? "平台收录" : "Find us on";
@@ -56,43 +52,16 @@ export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
   };
 
   return (
-    <section className={styles.platforms} aria-label={title} data-paused={paused}>
-      <div className={styles.platformHeading}>
-        <h2>{title}</h2>
-        <button
-          type="button"
-          disabled={!ready}
-          className={styles.platformPause}
-          aria-label={taiwan ? "暫停平台展示捲動" : zh ? "暂停平台展示滚动" : "Pause platform scrolling"}
-          aria-pressed={paused}
-          onClick={() => setPaused((value) => !value)}
-        >
-          {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
-          <span>{paused ? (taiwan ? "繼續捲動" : zh ? "继续滚动" : "Resume") : (taiwan ? "暫停捲動" : zh ? "暂停滚动" : "Pause")}</span>
-        </button>
-      </div>
-      <div className={styles.platformViewport}>
-        <div className={styles.platformTrack}>
-          {[false, true].map((duplicate) => (
-            <ul key={String(duplicate)} className={styles.platformGroup} aria-hidden={duplicate || undefined}>
-              {displayedPlatforms.map(({ name, href }) => (
-                <li key={name}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    tabIndex={duplicate ? -1 : undefined}
-                    aria-label={label(name)}
-                    className={styles.platformLink}
-                  >
-                    <PlatformMark name={name} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
-      </div>
+    <section className={styles.platforms} aria-label={title}>
+      <ul className={styles.platformGroup}>
+        {displayedPlatforms.map(({ name, href }) => (
+          <li key={name}>
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label(name)} className={styles.platformLink}>
+              <PlatformMark name={name} />
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

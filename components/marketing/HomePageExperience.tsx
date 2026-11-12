@@ -757,9 +757,9 @@ function HomepageHighlightedTestsBanner({
   if (items.length === 0) return null;
 
   return (
-    <section className="fm-page-background py-20 md:py-24" aria-labelledby="homepage-core-tests-title">
+    <section className="fm-page-background pt-12 pb-10 md:pt-16 md:pb-12" aria-labelledby="homepage-core-tests-title">
       <Container className="max-w-[82rem] px-6 md:px-8">
-        <div className="relative overflow-hidden bg-[var(--fm-bg-page)] py-14 text-slate-950 lg:py-20">
+        <div className="relative overflow-hidden bg-[var(--fm-bg-page)] text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2
               id="homepage-core-tests-title"
@@ -768,7 +768,7 @@ function HomepageHighlightedTestsBanner({
               {getCoreTestsSectionTitle(locale)}
             </h2>
           </div>
-          <div className="relative mt-12 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+          <div className="relative mt-8 grid gap-x-8 gap-y-7 md:grid-cols-2 xl:grid-cols-3">
             {items.slice(0, 6).map((item, index) => (
               <TestFeatureCard
                 key={getCoreTestKey(item)}

@@ -183,7 +183,7 @@ describe("mbti entry surface contract", () => {
   it.each(["zh", "en"] as const)("keeps the MBTI directory reachable through the six-area %s resource navigation", (locale) => {
     const menu = getHeaderDropdownMenus(locale).find((item) => item.key === "personality")!;
     expect(menu.items.map((item) => item.href)).toEqual([
-      "/topics", "/topics#mbti", "/topics#big-five", "/topics#enneagram", "/topics#riasec", "/topics#iq", "/topics#eq",
+      "/topics", "/personality", "/personality/big-five", "/personality/enneagram", (locale === "zh" ? "/articles/riasec-holland-career-interest-test-explained" : "/articles/what-is-riasec-holland-code-career-interest-test"), "/articles/what-is-iq-and-how-it-is-measured", "/articles/eq-test-tool-guide",
     ]);
     const mbti = getSelfUnderstandingResources(locale).find((item) => item.id === "mbti")!;
     expect(mbti.paths[0].href).toBe("/personality");

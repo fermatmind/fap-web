@@ -2,7 +2,7 @@
 
 import { useId, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronRight, CircleHelp, FileText, Fingerprint, Mail, Plus, ReceiptText, RotateCcw, Search, ShieldCheck, Users, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, Check, ChevronRight, CircleHelp, FileText, Fingerprint, Mail, Plus, ReceiptText, RotateCcw, Search, ShieldCheck, Users, X } from "lucide-react";
 import type { LandingCtaViewModel } from "@/lib/landing/landingSurface";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -16,13 +16,11 @@ const topicIds: HelpTopic[] = ["all", "results", "orders", "email", "assessments
 function getCopy(locale: DisplayLocale) {
   if (locale === "zh-TW") {
     return {
-      eyebrow: "FERMATMIND · 支援中心",
       intro: "找回已儲存的結果、查詢訂單，或找到你需要的答案。",
       search: "搜尋本頁說明",
       placeholder: "試試「報告」、「付款」或「電子郵件」",
       popular: "你可能在找",
       clear: "清除搜尋",
-      jump: "瀏覽支援主題",
       quickTitle: "常用操作",
       results: "找回已儲存的結果",
       resultsHint: "使用儲存結果時填寫的電子郵件地址。",
@@ -32,13 +30,11 @@ function getCopy(locale: DisplayLocale) {
       contactHint: "告訴我們你遇到的問題。",
       topicHeading: "依主題查詢",
       faq: "常見問題",
-      faqIntro: "先看看這些問題，答案也許就在這裡。",
       faqLink: "檢視完整常見問題",
       readMore: "閱讀說明",
       resources: "更多說明與指南",
       tools: "自助服務與設定",
       guide: "解讀指南",
-      article: "說明文章",
       tool: "操作入口",
       emptyTitle: "暫時沒有找到相關內容",
       emptyBody: "請試試更簡短的關鍵字，或直接聯絡支援。",
@@ -60,14 +56,12 @@ function getCopy(locale: DisplayLocale) {
     };
   }
   return locale === "zh" ? {
-    eyebrow: "FERMATMIND · 帮助中心",
     intro: "找回已保存的结果、查询订单，或找到你需要的答案。",
     search: "搜索本页帮助",
     placeholder: "试试“报告”“支付”或“邮件”",
     suggestions: ["报告", "退款", "邮件"],
     popular: "你可能在找",
     clear: "清除搜索",
-    jump: "浏览帮助主题",
     quickTitle: "常用操作",
     results: "找回已保存的结果",
     resultsHint: "使用保存结果时填写的邮箱。",
@@ -78,13 +72,11 @@ function getCopy(locale: DisplayLocale) {
     topicHeading: "按主题查找",
     topics: { all: "全部帮助", results: "结果与报告", orders: "订单与支付", email: "邮件设置", assessments: "理解测评", privacy: "隐私与数据", business: "企业与研究" },
     faq: "常见问题",
-    faqIntro: "先看看这些问题，答案也许就在这里。",
     faqLink: "查看完整常见问题",
     readMore: "阅读帮助",
     resources: "更多帮助与指南",
     tools: "自助与设置入口",
     guide: "解读指南",
-    article: "帮助文章",
     tool: "操作入口",
     matches: (n: number) => `${n} 条相关帮助`,
     queryLabel: (q: string) => `“${q}”的搜索结果`,
@@ -102,14 +94,12 @@ function getCopy(locale: DisplayLocale) {
     terms: "服务条款",
     about: "了解费马测试",
   } : {
-    eyebrow: "FERMATMIND · HELP CENTER",
     intro: "Find saved results, check an order, or find the answer you need.",
     search: "Search this help center",
     placeholder: "Try “results”, “payment” or “email”",
     suggestions: ["results", "refund", "email"],
     popular: "You might be looking for",
     clear: "Clear search",
-    jump: "Browse help topics",
     quickTitle: "Quick actions",
     results: "Find saved results",
     resultsHint: "Use the email you saved your results with.",
@@ -120,13 +110,11 @@ function getCopy(locale: DisplayLocale) {
     topicHeading: "Browse by topic",
     topics: { all: "All help", results: "Results & reports", orders: "Orders & payments", email: "Email settings", assessments: "Understanding assessments", privacy: "Privacy & data", business: "Business & research" },
     faq: "Common questions",
-    faqIntro: "A good place to start. Your answer may already be here.",
     faqLink: "View all common questions",
     readMore: "Read help",
     resources: "More help & guides",
     tools: "Self-service & settings",
     guide: "Interpretation guide",
-    article: "Help article",
     tool: "Self-service",
     matches: (n: number) => `${n} relevant help ${n === 1 ? "item" : "items"}`,
     queryLabel: (q: string) => `Results for “${q}”`,
@@ -194,7 +182,6 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
       <section className={styles.hero}>
         <div className={styles.container}>
           <div className={styles.heroInner}>
-            <p className={styles.eyebrow}><span aria-hidden />{copy.eyebrow}</p>
             <h1>{title}</h1>
             <p className={styles.intro}>{copy.intro}</p>
             <div className={styles.searchBox} role="search" aria-label={copy.search}>
@@ -211,7 +198,6 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
               {copy.suggestions.map((word) => <button type="button" key={word} onClick={() => { setQuery(word); setTopic("all"); }}>{word}<ArrowUpRight size={12} aria-hidden /></button>)}
             </div>
           </div>
-          <a className={styles.browseLink} href="#help-topics">{copy.jump}<ArrowDown size={15} aria-hidden /></a>
         </div>
       </section>
 
@@ -254,10 +240,9 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
 
         <div className={styles.content} id="help-content" data-testid="support-topic-groups">
           <div className={styles.contentHeading}>
-            <div><p className={styles.sectionEyebrow}>{filtering ? copy.topicHeading : taiwan ? "支援與解答" : "HELP & ANSWERS"}</p><h2>{searching ? copy.queryLabel(query.trim()) : topic !== "all" ? copy.topics[topic] : copy.faq}</h2></div>
+            <h2>{searching ? copy.queryLabel(query.trim()) : topic !== "all" ? copy.topics[topic] : copy.faq}</h2>
             <span className={styles.resultCount} role="status" aria-live="polite">{filtering ? copy.matches(total) : String(questions.length).padStart(2, "0")}</span>
           </div>
-          {!filtering ? <p className={styles.sectionIntro}>{copy.faqIntro}</p> : null}
 
           {filtering && total === 0 ? <div className={styles.empty} data-testid="support-search-empty"><Search size={28} strokeWidth={1.3} aria-hidden /><h3>{copy.emptyTitle}</h3><p>{copy.emptyBody}</p><button type="button" onClick={reset}>{copy.reset}<ArrowRight size={16} aria-hidden /></button></div> : null}
 
@@ -280,7 +265,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
           {visibleArticles.length ? <section className={styles.resources} data-testid="support-article-groups">
             <div className={styles.sectionHeader}><h2>{copy.resources}</h2><BookOpen size={19} strokeWidth={1.5} aria-hidden /></div>
             <div className={styles.resourceList}>{visibleArticles.map((entry) => <Link href={entry.href} key={entry.key} className={styles.resource}>
-              <span><span className={styles.resourceKind}>{entry.kind === "guide" ? copy.guide : copy.article}</span><strong>{entry.title}</strong>{entry.summary ? <span className={styles.resourceSummary}>{entry.summary}</span> : null}</span><ArrowUpRight size={18} aria-hidden />
+              <span>{entry.kind === "guide" ? <span className={styles.resourceKind}>{copy.guide}</span> : null}<strong>{entry.title}</strong>{entry.summary ? <span className={styles.resourceSummary}>{entry.summary}</span> : null}</span><ArrowUpRight size={18} aria-hidden />
             </Link>)}</div>
           </section> : null}
 
@@ -295,7 +280,7 @@ export function SupportCenter({ locale, title, entries, questions, tools, contac
 
       <section className={`${styles.container} ${styles.contactWrap}`} data-testid="support-contact-card">
         <div className={styles.contactBand}>
-          <div><span className={styles.contactEyebrow}><Mail size={15} aria-hidden />{taiwan ? "費馬測試支援" : "FERMATMIND SUPPORT"}</span><h2>{copy.contactTitle}</h2><p>{copy.contactIntro}</p><p className={styles.contactNote}>{copy.contactNote}</p></div>
+          <div><h2>{copy.contactTitle}</h2><p>{copy.contactIntro}</p><p className={styles.contactNote}>{copy.contactNote}</p></div>
           <div className={styles.contactActions}>{contactLink}{contactHref ? <Link href={contactHref}>{copy.contactDetails}<ArrowUpRight size={15} aria-hidden /></Link> : null}</div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
+import { ArticleClosing } from "@/components/articles/ArticleClosing";
 import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { articleByline } from "@/lib/content/articleByline";
@@ -42,7 +43,7 @@ import { resolveArticleHreflangGate, resolveArticleJsonLdAuthority, resolveArtic
 import { normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
-import { isConfiguredStagingSiteUrl } from "@/lib/site";
+import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -497,7 +498,7 @@ export default async function ArticleDetailPage({
         </div>
       </header>
 
-      {headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="max-w-4xl rounded-lg border border-[var(--fm-border)] p-5">
+      {headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="w-full rounded-lg border border-[var(--fm-border)] p-5">
         <h2 className="m-0 mb-3 text-lg font-semibold">{dict.articles.onThisPage}</h2>
         <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
           {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className={`${IQ_PUBLIC_ARTICLE_SLUGS.has(slug) ? "block " : ""}text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline`}>{heading.text}</a></li>)}
@@ -505,7 +506,7 @@ export default async function ArticleDetailPage({
       </nav> : null}
 
 
-      <ArticleFragmentNavigation key={canonicalPath} className="w-full max-w-4xl [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
+      <ArticleFragmentNavigation key={canonicalPath} className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
         <article
           id="how-it-works"
           data-testid="article-detail-content"
@@ -553,6 +554,8 @@ export default async function ArticleDetailPage({
           translationGroupId: article.translationGroupId,
         }}
       />
+
+      <ArticleClosing key={canonicalPath} locale={locale} url={canonicalUrl(canonicalPath)} />
 
       <Suspense fallback={null}>
         <AttributedCmsLinkHydrator locale={locale} sourceRouteFamily="article_detail"

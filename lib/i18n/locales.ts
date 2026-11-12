@@ -44,6 +44,15 @@ export function toApiLocale(value: string | null | undefined): "en" | "zh-CN" {
 /** Display coverage is broader than the backend-owned assessment/CMS locale set. */
 export const DISPLAY_LOCALES = ["en", "zh", "zh-TW"] as const;
 export type DisplayLocale = (typeof DISPLAY_LOCALES)[number];
+// Keep language names in their own language, independent of the current page.
+export const LANGUAGE_MENU_LABELS = {
+  zh: "简体中文",
+  en: "English",
+  "zh-TW": "繁體中文",
+} satisfies Record<DisplayLocale, string>;
+
+export const LANGUAGE_MENU_ORDER = ["zh", "en", "zh-TW"] as const;
+
 export function normalizeDisplayLocale(value: string | null | undefined): DisplayLocale | null {
   const normalized = value?.trim().toLowerCase();
   if (normalized === "zh-tw") return "zh-TW";

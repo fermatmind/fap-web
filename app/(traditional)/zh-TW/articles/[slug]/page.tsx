@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { ArticleClosing } from "@/components/articles/ArticleClosing";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
@@ -78,7 +79,7 @@ const markdownOptions = {
 
 export default async function TraditionalArticlePage({ params }: RouteProps) {
   const { slug } = await params;
-  const [{ article, seo, index, languages }, archive] = await Promise.all([loadSeo(slug), loadBlogArchive(locale, 1)]);
+  const [{ article, seo, canonical, index, languages }, archive] = await Promise.all([loadSeo(slug), loadBlogArchive(locale, 1)]);
   const authority = seo?.authority ?? null;
   const schemaGate = resolveArticleSchemaGate({
     noindex: !index,
@@ -133,7 +134,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           </ol>
         </nav>
       ) : null}
-      <ArticleFragmentNavigation className="[&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24">
+      <ArticleFragmentNavigation className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24">
         <article data-testid="article-detail-content" className="fm-content-page-prose min-w-0 break-words">
           {article.contentHtml.trim()
             ? <div dangerouslySetInnerHTML={{ __html: sanitizeCmsHtml(article.contentHtml, { minimumHeadingLevel: 2 }) }} />
@@ -168,6 +169,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           ))}
         </section>
       ) : null}
+      <ArticleClosing key={canonical} locale={locale} url={canonical} />
     </main>
   );
 }
