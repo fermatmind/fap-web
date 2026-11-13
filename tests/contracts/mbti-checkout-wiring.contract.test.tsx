@@ -639,7 +639,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
   });
 
-  it("keeps sticky and chapter unlock surfaces as anchors", () => {
+  it("keeps chapter unlock surfaces as anchors", () => {
     const reportData = createReportFixture();
     reportData.cta = {
       ...(reportData.cta ?? {
@@ -662,10 +662,7 @@ describe("MBTI checkout wiring contract", () => {
     const stickyRail = getDesktopStickyRail();
     const careerUnlockSurface = screen.getByTestId("mbti-career-traits-lock-panel");
 
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull")
-    );
+    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(within(careerUnlockSurface).getByRole("link", { name: "1.99元直接解锁" })).toHaveAttribute(
@@ -673,12 +670,6 @@ describe("MBTI checkout wiring contract", () => {
       getMbtiDesktopAnchorHash("offerFull")
     );
     expect(within(careerUnlockSurface).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
-      "/zh/career/recommendations/mbti/enfp-t?"
-    );
-    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
-      "carryover_focus_key=growth.next_actions"
-    );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.queryByText("本次类型仅呈轻微偏向")).not.toBeInTheDocument();
     expect(screen.queryByText(/至少一个核心轴只有 51%–55%/)).not.toBeInTheDocument();
@@ -687,7 +678,6 @@ describe("MBTI checkout wiring contract", () => {
     expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
-    fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(careerUnlockSurface).getByRole("link", { name: "1.99元直接解锁" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
@@ -698,7 +688,7 @@ describe("MBTI checkout wiring contract", () => {
     const firstRender = render(<MbtiResultShell {...createShellProps(reportData)} />);
     const scrollIntoViewMock = vi.mocked(Element.prototype.scrollIntoView);
 
-    fireEvent.click(within(getDesktopStickyRail()).getByRole("link", { name: "解锁完整报告" }));
+    fireEvent.click(within(screen.getByTestId("mbti-career-traits-lock-panel")).getByRole("link", { name: "1.99元直接解锁" }));
 
     await waitFor(() => {
       expect(window.location.hash).toBe(getMbtiDesktopAnchorHash("offerFull"));
@@ -759,7 +749,7 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<MbtiResultShell {...createShellProps(reportData)} />);
 
-    fireEvent.click(within(getDesktopStickyRail()).getByRole("button", { name: "分享结果" }));
+    fireEvent.click(within(screen.getByTestId("mbti-traits-tools")).getByRole("button", { name: "分享结果" }));
 
     await waitFor(() => {
       expect(hoisted.createAttemptShare).toHaveBeenCalledWith({
@@ -803,7 +793,7 @@ describe("MBTI checkout wiring contract", () => {
     Object.defineProperty(window.navigator, "share", { configurable: true, value: navigatorShare });
     render(<MbtiResultShell {...createShellProps(createReportFixture())} displayLocale="zh-TW" />);
 
-    fireEvent.click(within(getDesktopStickyRail()).getByRole("button", { name: "分享結果" }));
+    fireEvent.click(within(screen.getByTestId("mbti-traits-tools")).getByRole("button", { name: "分享結果" }));
 
     await waitFor(() => expect(navigatorShare).toHaveBeenCalledWith({
       title: "分享我的測評結果",

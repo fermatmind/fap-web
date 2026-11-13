@@ -4,6 +4,7 @@ import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/Traditi
 
 import { type ReactNode, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
@@ -16,6 +17,18 @@ import { describeMbtiAxisClarity } from "@/lib/mbti/resultScientificInterpretati
 import { selectMbtiTraitEntry, type MbtiTraitCatalog } from "@/lib/cms/mbti-trait-explanations";
 
 const ZH_AXIS_TITLES: Record<string, string> = { EI: "能量", SN: "心智", TF: "天性", JP: "应对方式", AT: "身份特征" };
+const TRAIT_ILLUSTRATIONS: Record<string, string> = {
+  "EI:E": "extraversion",
+  "EI:I": "introversion",
+  "SN:S": "sensing",
+  "SN:N": "intuition",
+  "TF:T": "thinking",
+  "TF:F": "feeling",
+  "JP:J": "judging",
+  "JP:P": "perceiving",
+  "AT:A": "assertive",
+  "AT:T": "turbulent",
+};
 const ZH_EI_LABELS: Record<string, string> = { E: "外向", I: "内向" };
 
 type TraitTool = {
@@ -31,6 +44,7 @@ type MbtiCloneTraitsSectionProps = {
   title: string;
   illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
+  chapterPreview?: ReactNode;
   assetSlots?: PersonalityDesktopCloneAssetSlot[] | null;
   dimensions: Array<Record<string, unknown>>;
   summaryTitleFallback: string;
@@ -115,6 +129,7 @@ export function MbtiCloneTraitsSection({
   title,
   illustrationSlotId,
   illustrationLabel,
+  chapterPreview,
   assetSlots,
   dimensions,
   summaryTitleFallback,
@@ -173,6 +188,9 @@ export function MbtiCloneTraitsSection({
   };
   const activeAxis =
     normalizedDimensions.find((dimension) => dimension.axisCode === selectedAxisCode) ?? normalizedDimensions[0] ?? null;
+  const traitIllustration = activeAxis
+    ? TRAIT_ILLUSTRATIONS[`${activeAxis.axisCode}:${activeAxis.dominantPole}`]
+    : undefined;
   const traitEntry = activeAxis && locale === "zh"
     ? selectMbtiTraitEntry(traitCatalog, activeAxis.axisCode, activeAxis.dominantPole, activeAxis.dominantPct)
     : null;
@@ -228,14 +246,16 @@ export function MbtiCloneTraitsSection({
       data-pdf-section="personality-traits"
       className={styles.section}
     >
-      <MbtiCloneAssetSlot
-        slotId={illustrationSlotId}
-        assetSlots={assetSlots}
-        fallbackLabel={illustrationLabel}
-        className={styles.illustrationSlot}
-        labelClassName={styles.slotLabel}
-        testId="mbti-asset-slot-traits"
-      />
+      {chapterPreview ? null : (
+        <MbtiCloneAssetSlot
+          slotId={illustrationSlotId}
+          assetSlots={assetSlots}
+          fallbackLabel={illustrationLabel}
+          className={styles.illustrationSlot}
+          labelClassName={styles.slotLabel}
+          testId="mbti-asset-slot-traits"
+        />
+      )}
       <MbtiCloneSectionHeading number={1} title={title} />
       <div className={styles.traitsCard} data-testid="mbti-traits-card">
         <div className={styles.traitsOverviewRow}>
@@ -284,14 +304,24 @@ export function MbtiCloneTraitsSection({
                 <p className={styles.summaryValue}>{summaryValue}</p>
                 <p className={styles.summaryLead}>{copy(summaryLabel)}</p>
               </div>}
-              <MbtiCloneAssetSlot
+              {traitIllustration ? (
+                <Image
+                  src={`/images/mbti/trait-axes/${traitIllustration}.webp`}
+                  width={320}
+                  height={200}
+                  alt=""
+                  unoptimized
+                  className={styles.traitSpotIllustration}
+                  data-testid="mbti-asset-slot-traits-summary"
+                />
+              ) : <MbtiCloneAssetSlot
                 slotId={summarySlotId}
                 assetSlots={assetSlots}
                 fallbackLabel={summarySlotLabel}
                 className={styles.summaryIllustration}
                 labelClassName={styles.slotLabel}
                 testId="mbti-asset-slot-traits-summary"
-              />
+              />}
               {locale !== "zh" && summaryMeta ? <p className={styles.summaryMeta}>{summaryMeta}</p> : null}
               {locale === "zh" ? (
                 <div className={styles.traitEditorial} data-testid="mbti-trait-editorial" data-content-status={traitEntry ? "ready" : traitCatalogPending ? "loading" : "unavailable"}
@@ -359,6 +389,7 @@ export function MbtiCloneTraitsSection({
           </div>
         ) : null}
       </div>
+      {chapterPreview}
       <div
         className={styles.sectionParagraphs}
         data-testid="mbti-traits-body"

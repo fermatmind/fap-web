@@ -758,6 +758,7 @@ function normalizeProfileIdentity(value: unknown): ProfileIdentity | undefined {
     code: normalizeText(value.code),
     name: normalizeText(value.name),
     nickname: normalizeText(value.nickname),
+    introduction: normalizeText(value.introduction) || undefined,
     rarity: normalizeText(value.rarity),
     keywords: value.keywords.map((keyword) => normalizeText(keyword)).filter((keyword) => keyword.length > 0),
   };

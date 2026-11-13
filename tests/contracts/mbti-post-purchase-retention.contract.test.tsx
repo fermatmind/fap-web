@@ -1,7 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
-import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
@@ -112,7 +111,7 @@ describe("MBTI post-purchase retention contract", () => {
     vi.spyOn(window, "open").mockImplementation(hoisted.openWindow);
   });
 
-  it("renders the unlocked terminal surface and flips sticky CTAs to history", () => {
+  it("renders the unlocked terminal surface with history access", () => {
     const reportData = createUnlockedFixture();
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
@@ -129,7 +128,7 @@ describe("MBTI post-purchase retention contract", () => {
     expect(within(terminalSurface).getByRole("link", { name: "订单找回" })).toHaveAttribute("href", "/zh/orders/lookup");
     expect(within(terminalSurface).queryByRole("link", { name: "查看报告" })).not.toBeInTheDocument();
 
-    expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
+    expect(within(stickyRail).queryByRole("link", { name: "我的 MBTI 报告" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
   });
@@ -159,10 +158,7 @@ describe("MBTI post-purchase retention contract", () => {
     const stickyRail = getDesktopStickyRail();
 
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull")
-    );
+    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
   });

@@ -395,13 +395,13 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
 
-  const stickyRail = page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail");
-  await stickyRail.getByRole("button", { name: "Share result" }).click();
+  const traitsTools = page.getByTestId("mbti-traits-tools");
+  await traitsTools.getByRole("button", { name: "Share result" }).click();
 
   await expect
     .poll(async () => page.evaluate(() => (window as typeof window & { __copiedShareUrl?: string }).__copiedShareUrl ?? ""))
     .toBe(shareUrl);
-  await expect(stickyRail.getByRole("button", { name: "Share link copied" })).toBeVisible();
+  await expect(traitsTools.getByRole("button", { name: "Share link copied" })).toBeVisible();
 
   await page.goto(`${shareUrl}?utm_source=wechat&utm_medium=organic&utm_campaign=mbti`, {
     referer: `http://127.0.0.1:3000/en/result/${attemptId}`,

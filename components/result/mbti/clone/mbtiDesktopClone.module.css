@@ -104,6 +104,15 @@
   border: 1px solid rgba(54, 173, 115, 0.18);
 }
 
+.heroIntroduction {
+  margin: 4px 0 0;
+  max-width: 44rem;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--clone-body);
+  overflow-wrap: anywhere;
+}
+
 .heroKeywordRow {
   display: flex;
   flex-wrap: wrap;
@@ -141,6 +150,20 @@
   align-items: center;
   justify-content: center;
   padding-right: 34px;
+}
+
+.heroPortrait {
+  display: block;
+  width: auto;
+  height: clamp(180px, 22vw, 250px);
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media print {
+  .heroPortrait {
+    height: 36mm;
+  }
 }
 
 .pageGrid {
@@ -490,6 +513,14 @@
   background:
     linear-gradient(135deg, rgba(54, 173, 115, 0.12), rgba(139, 104, 168, 0.1)),
     rgba(255, 255, 255, 0.65);
+}
+
+.traitSpotIllustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 160px;
+  margin-inline: auto;
 }
 
 .summaryIllustration {
@@ -2444,4 +2475,12 @@
   .influentialHeading > span {
     font-size: 8.5pt;
   }
+}
+
+.chapterPreview {
+  display: block;
+  width: calc(100% - 40px);
+  max-width: 680px;
+  height: auto;
+  margin: 16px auto 20px;
 }

@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, afterEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
@@ -203,16 +203,12 @@ function report(type = "ENFP-T", projection = true): ReportResponse {
   }
   return data;
 }
-async function expectNavigation(locale: "en" | "zh", type: string) {
+async function expectResultIdentity(type: string, contentAvailable = true) {
   await waitFor(() => expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument());
-  const nav = screen.getByTestId("mbti-result-personality-next-step");
-  const links = within(nav).getAllByRole("link");
-  const href = `/${locale}/personality/${type.toLowerCase()}`;
-  expect(links.map(link => link.getAttribute("href"))).toEqual([href, `${href}#growth_edges`]);
-  expect(nav).toHaveTextContent(locale === "zh" ? "尝试观察练习" : "Try an observation exercise");
-  expect(links[0]).toHaveTextContent(type);
-  if (locale === "en") expect(nav.textContent).not.toMatch(/[\u3400-\u9fff]/);
-  expect(nav.innerHTML).not.toMatch(/attempt-123|fixture-token|anon_navigation|\?/);
+  if (contentAvailable) {
+    await waitFor(() => expect(screen.getByTestId("mbti-result-shell")).toHaveTextContent(type));
+  }
+  expect(screen.queryByTestId("mbti-result-personality-next-step")).not.toBeInTheDocument();
 }
 
 beforeEach(() => {
@@ -226,18 +222,18 @@ beforeEach(() => {
 });
 afterEach(() => vi.unstubAllGlobals());
 
-describe("MBTI rich result to public personality navigation", () => {
+describe("MBTI rich result identity", () => {
   it.each(["en", "zh"] as const)("keeps both original failing %s fixtures usable without CMS or recommended reads", async (locale) => {
     state.pathname = `/${locale}/result/attempt-123`;
     for (const projection of [false, true]) {
       state.report.mockResolvedValue(report("ENFP-T", projection));
       const view = render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-      await expectNavigation(locale, "ENFP-T");
+      await expectResultIdentity("ENFP-T");
       view.unmount();
     }
   });
 
-  it.each(["en", "zh"] as const)("keeps %s free_full navigation independent of unavailable and available public content", async (locale) => {
+  it.each(["en", "zh"] as const)("keeps %s free_full identity independent of unavailable and available public content", async (locale) => {
     state.pathname = `/${locale}/result/attempt-123`;
     state.access.mockResolvedValue(access(true));
     state.report.mockResolvedValue(report());
@@ -248,7 +244,7 @@ describe("MBTI rich result to public personality navigation", () => {
         paragraphs: ["An introduction from public CMS.", "A second public paragraph."],
       } : null);
       const view = render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-      await expectNavigation(locale, "ENFP-T");
+      await expectResultIdentity("ENFP-T", locale === "en" || available);
       expect(screen.queryByTestId("mbti-offer-comparison-section")).not.toBeInTheDocument();
       view.unmount();
     }
@@ -259,7 +255,7 @@ describe("MBTI rich result to public personality navigation", () => {
       state.pathname = `/${locale}/result/attempt-123`;
       state.report.mockResolvedValue(report(type));
       render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-      await expectNavigation(locale, type);
+      await expectResultIdentity(type);
     }
   );
 

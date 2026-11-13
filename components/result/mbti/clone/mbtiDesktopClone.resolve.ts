@@ -96,6 +96,7 @@ function resolveProfileIdentity(
     code: normalizeText(authored?.code, fullCode),
     name: normalizeText(authored?.name, resolveDisplayTitle(headline, projectionViewModel)),
     nickname: normalizeText(authored?.nickname),
+    introduction: normalizeText(authored?.introduction) || undefined,
     // Chinese rarity is suppressed until the authority provides a verifiable
     // source, region, period, sample size and calculation method.
     rarity: suppressRarity ? "" : normalizeText(authored?.rarity),

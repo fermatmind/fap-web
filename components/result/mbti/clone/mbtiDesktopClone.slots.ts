@@ -80,6 +80,7 @@ export type ProfileIdentity = {
   code: string;
   name: string;
   nickname: string;
+  introduction?: string;
   rarity: string;
   keywords: string[];
 };

@@ -1,7 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
-import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -330,19 +329,14 @@ describe("MBTI shell authored fields contract", () => {
     expect(hero).not.toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );
-    expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
-    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
-      "carryover_focus_key=growth.next_actions"
-    );
+    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
       "data-recommendation-key",
       "read-action"
     );
     expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("1.99元直接解锁");
-    expect(
-      within(stickyRail).getByRole("link", { name: "解锁完整报告" })
-    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
 
     expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "view_result",
@@ -482,7 +476,7 @@ describe("MBTI shell authored fields contract", () => {
 
     expect(getPrimaryByTestId("mbti-post-purchase-section")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
       "data-recommendation-key",
       "read-explain"
@@ -513,7 +507,7 @@ describe("MBTI shell authored fields contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
-    expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
+    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "view_result",

@@ -420,14 +420,8 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       "href",
       getMbtiDesktopAnchorHash("career"),
     );
-    expect(within(rail).getByRole("link", { name: "去结算" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull"),
-    );
-    expect(within(rail).getByRole("link", { name: "工作台" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull"),
-    );
+    expect(within(rail).queryByRole("link", { name: "去结算" })).not.toBeInTheDocument();
+    expect(within(rail).queryByRole("link", { name: "工作台" })).not.toBeInTheDocument();
   });
 
   it("renders 1/2 partial-unlock progress with explicit next action and synced invite CTA labels", async () => {
@@ -647,7 +641,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     );
   });
 
-  it("downloads through the authorized callback and disables both PDF tools while pending", async () => {
+  it("downloads through the authorized callback and disables the PDF tool while pending", async () => {
     let finish!: () => void;
     const download = vi.fn(() => new Promise<void>((resolve) => { finish = resolve; }));
     renderDefaultShell({ isUnlocked: true, pdfReady: true, pdfHref: "/api/v0.3/attempts/attempt-owner/result-page.pdf", onDownloadPdf: download });
@@ -656,8 +650,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(screen.queryByRole("link", { name: "PDF" })).not.toBeInTheDocument();
     fireEvent.click(button);
     expect(download).toHaveBeenCalledTimes(1);
-    expect(screen.getAllByRole("button", { name: "正在请求 PDF…" })).toHaveLength(2);
-    for (const pending of screen.getAllByRole("button", { name: "正在请求 PDF…" })) expect(pending).toBeDisabled();
+    expect(screen.getByRole("button", { name: "正在请求 PDF…" })).toBeDisabled();
     await act(async () => { finish(); });
     expect(await screen.findByRole("button", { name: "导出 PDF" })).toBeEnabled();
   });
@@ -665,7 +658,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
   it("keeps PDF failure on the result page with a sanitized text-export fallback", async () => {
     const download = vi.fn().mockRejectedValue(new Error("SYNTHETIC_PRIVATE_DIAGNOSTIC"));
     renderDefaultShell({ isUnlocked: true, pdfReady: true, pdfHref: "/api/v0.3/attempts/attempt-owner/result-page.pdf", onDownloadPdf: download });
-    fireEvent.click(await screen.findByRole("button", { name: "PDF" }));
+    fireEvent.click(await screen.findByRole("button", { name: "导出 PDF" }));
     expect(await screen.findByText("PDF 暂时不可用。你可以继续阅读已开放内容，或用 TXT/Markdown 保存所选结果。")).toBeVisible();
     expect(screen.queryByText("SYNTHETIC_PRIVATE_DIAGNOSTIC")).not.toBeInTheDocument();
     expect(download).toHaveBeenCalledTimes(1);
