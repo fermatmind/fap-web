@@ -345,7 +345,7 @@ export default async function CareerPage({
             ) : null}
             {!traditional ? (
               <p className="m-0 text-sm leading-6 text-slate-600">
-                <Link href={localizedPath("/datasets/occupations/method", locale)} className="underline underline-offset-4">
+                <Link href={localizedPath("/datasets/occupations/method", locale)} prefetch={false} className="underline underline-offset-4">
                   {label("了解职业职责的数据来源与地区边界", "See where job duties come from and how to use them across regions")}
                 </Link>
               </p>

@@ -78,8 +78,8 @@
       "name": "dataset_method",
       "source": "app/(localized)/[locale]/datasets/occupations/method/page.tsx",
       "authority": "backend_dataset_method_bundle",
-      "allowedTypes": ["Article", "BreadcrumbList"],
-      "requiredTokens": ["method.structuredData.article", "method.structuredData.breadcrumbList", "DatasetMethodPanel"],
+      "allowedTypes": ["WebPage", "BreadcrumbList"],
+      "requiredTokens": ["buildWebPageJsonLd", "buildBreadcrumbJsonLd", "DatasetMethodPanel"],
       "forbiddenTokens": ["fetchCareerJobBundle", "fetchCareerRecommendationBundle"]
     }
   ],
