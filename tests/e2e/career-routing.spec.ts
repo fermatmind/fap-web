@@ -966,11 +966,7 @@ test("mbti result career CTA points to the 32-type recommendation authority rout
 
   await page.goto(`/en/result/${attemptId}`);
 
-  const careerCta = page.getByTestId("mbti-career-next-step-cta");
-  await expect(careerCta).toHaveAttribute(
-    "href",
-    /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
-  );
+  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
 });
 
 test("career recommendation route renders continuity carryover when query is present", async ({ request }) => {

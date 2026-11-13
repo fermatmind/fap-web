@@ -14,10 +14,10 @@ import {
   RichResultReport,
 } from "@/components/result/RichResultReport";
 import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
-import { MbtiResultReader } from "@/components/result-export/MbtiResultReader";
 import { buildBig5ResultExport } from "@/lib/big5/aiExport";
 import { buildEnneagramResultExport } from "@/lib/enneagram/aiExport";
 import { buildRiasecResultExport } from "@/lib/riasec/exportAdapter";
+import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { buildMbtiResultExport } from "@/lib/result-export/mbti";
 import { downloadResultPdf } from "@/lib/result-export/download";
 import { DimensionBars } from "@/components/result/DimensionBars";
@@ -2219,13 +2219,6 @@ export default function ResultClient({
     return (
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {resolvedScaleCode !== "MBTI" && (resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData)) ? renderOptionalEmailRecoveryCard() : null}
-        {mbtiExport ? <>
-          <MbtiResultReader projection={mbtiExport} locale={locale} />
-          <ResultExportPanel projection={mbtiExport} locale={displayLocale}
-            pdfState={canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable"}
-            onDownloadPdf={onDownloadMbtiPdf}
-          />
-        </> : null}
         <RichResultReport
           locale={locale}
           displayLocale={displayLocale}
@@ -2242,7 +2235,18 @@ export default function ResultClient({
         />
         {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}
-        {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
+        {mbtiExport ? (
+          <ResultExportPanel
+            projection={mbtiExport}
+            locale={displayLocale}
+            onDownloadPdf={onDownloadMbtiPdf}
+            mbtiType={(reportData.mbti_public_projection_v1?.display_type?.trim()
+              || reportData.mbti_public_projection_v1?.runtime_type_code) ?? undefined}
+            mbtiUnlockHref={accessView?.accessMode === "free_full" && accessView.paywallSuppressed
+              ? localizedPath("/pricing", locale)
+              : getMbtiDesktopAnchorHash("offerFull")}
+          />
+        ) : null}
         {renderPdfReadyMarker()}
       </div>
     );

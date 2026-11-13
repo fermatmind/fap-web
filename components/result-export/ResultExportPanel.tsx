@@ -1,14 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { copyWorksheet } from "@/lib/marketing/riasecWorksheetRecord";
 import { defaultResultExportDraft, serializeResultExport, type ResultExportProjection } from "@/lib/result-export/contract";
+import { RESULT_EXPORT_PROMPTS } from "@/lib/result-export/prompts";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
 type Props = {
   projection: ResultExportProjection;
   locale: DisplayLocale;
+  mbtiType?: string;
+  mbtiUnlockHref?: string;
   /** Uses the caller's existing authorized PDF chain; credentials never enter projection. */
   onDownloadPdf?: () => Promise<void>;
   pdfState?: "ready" | "pending" | "unavailable";
@@ -32,7 +36,92 @@ export function ResultExportPanel(props: Props) {
   if (traditional && unavailable) return <p role="status">文字匯出暫時無法載入。</p>;
   const displayText = traditional ? traditionalText : originalText;
   if (!displayText) return null;
+  if (props.projection.product === "MBTI") {
+    return <MbtiPromptCard locale={props.locale} displayText={displayText} typeCode={props.mbtiType} unlockHref={props.mbtiUnlockHref} onDownloadPdf={props.onDownloadPdf} />;
+  }
   return <ResultExportContent key={props.locale} {...props} displayText={displayText} />;
+}
+
+function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadPdf }: {
+  locale: DisplayLocale;
+  displayText: (value: string) => string;
+  typeCode?: string;
+  unlockHref?: string;
+  onDownloadPdf?: () => Promise<void>;
+}) {
+  const id = useId();
+  const [status, setStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
+  const copy = (zh: string, en: string) => locale === "en" ? en : displayText(zh);
+  const [pdfStatus, setPdfStatus] = useState<"idle" | "downloading" | "requested" | "failed">("idle");
+  const prompt = displayText(RESULT_EXPORT_PROMPTS.MBTI[locale === "en" ? "en" : "zh"]);
+  const baseType = typeCode?.match(/^([EI][SN][TF][JP])(?:-[AT])?$/)?.[1]?.toLowerCase();
+  const buttonClass = "inline-flex min-h-11 items-center rounded-full px-5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800";
+
+  async function copyPrompt() {
+    setStatus("copying");
+    const result = await copyWorksheet(prompt, navigator.clipboard);
+    setStatus(result === "success" ? "copied" : "failed");
+  }
+
+  async function downloadPdf() {
+    if (!onDownloadPdf || pdfStatus === "downloading") return;
+    setPdfStatus("downloading");
+    try {
+      await onDownloadPdf();
+      setPdfStatus("requested");
+    } catch {
+      setPdfStatus("failed");
+    }
+  }
+
+  return (
+    <section id="mbti-ai-export" data-testid="result-export-panel" aria-labelledby={id}
+      className="min-w-0 scroll-mt-24 rounded-xl border border-emerald-200 border-t-4 border-t-emerald-600 bg-[#e9f5ef] px-5 py-7 text-slate-900 sm:px-9 sm:py-10 print:hidden">
+      <div className="grid items-center gap-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-10">
+        <Image
+          src={baseType ? `/images/mbti/ai-conversation/${baseType}.webp` : "/images/mbti/ai-result-conversation.webp"}
+          alt=""
+          width={768}
+          height={512}
+          className="mx-auto h-auto w-full max-w-sm"
+        />
+        <div className="min-w-0 space-y-4">
+          <h2 id={id} className="text-2xl font-bold tracking-tight text-emerald-950 sm:text-3xl">
+            {copy("和 AI 深聊，认识更真实的自己", "Get to know yourself in a deeper conversation with AI")}
+          </h2>
+          <p className="whitespace-pre-wrap break-words text-sm leading-relaxed">{prompt}</p>
+          <div className="flex flex-wrap gap-3">
+            <button type="button" disabled={status === "copying"} onClick={() => void copyPrompt()}
+              className={`${buttonClass} bg-emerald-800 text-white hover:bg-emerald-900 disabled:opacity-50`}>
+              {copy("复制提示词", "Copy prompt")}
+            </button>
+            {unlockHref ? <a href={unlockHref} className={`${buttonClass} border border-emerald-700 bg-white text-emerald-900 hover:bg-emerald-50`}>
+              {copy("解锁全部结果页内容", "Unlock the full results page")}
+            </a> : null}
+            {onDownloadPdf ? (
+              <button type="button" disabled={pdfStatus === "downloading"} onClick={() => void downloadPdf()}
+                className={`${buttonClass} border border-emerald-700 bg-white text-emerald-900 hover:bg-emerald-50 disabled:opacity-50`}>
+                {pdfStatus === "downloading" ? copy("正在请求 PDF…", "Requesting PDF…") : copy("下载 PDF", "Download PDF")}
+              </button>
+            ) : null}
+          </div>
+          {unlockHref ? <p className="text-sm text-emerald-950/80">
+            {copy("付费解锁后可下载完整结果页 PDF。", "Paid unlock includes a PDF of the full results page.")}
+          </p> : null}
+          {pdfStatus === "requested" || pdfStatus === "failed" ? <p role="status" className="text-sm">
+            {pdfStatus === "requested"
+              ? copy("已请求 PDF 下载，请查看浏览器下载列表。", "PDF download requested. Check your browser’s downloads.")
+              : copy("PDF 暂时无法下载，请稍后重试。", "The PDF is temporarily unavailable. Try again later.")}
+          </p> : null}
+          {status === "copied" || status === "failed" ? <p role="status" className="text-sm">
+            {status === "copied"
+              ? copy("已复制提示词。", "Prompt copied.")
+              : copy("复制失败，请选中上方提示词手动复制。", "Copy failed. Select the prompt above to copy it manually.")}
+          </p> : null}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function ResultExportContent({ projection, locale, onDownloadPdf, pdfState = "unavailable", displayText }: Props & {
@@ -77,11 +166,22 @@ function ResultExportContent({ projection, locale, onDownloadPdf, pdfState = "un
     catch { setStatus(copy("PDF 暂时不可用。可以保留预览、下载 TXT，稍后重试 PDF。", "PDF is unavailable. Keep the preview or download TXT, then retry PDF later.")); }
     finally { setPdfBusy(false); }
   }
-  return <section className="min-w-0 [overflow-wrap:anywhere] space-y-4 rounded-2xl border border-sky-200 bg-sky-50 p-4 text-slate-900 sm:p-6 print:hidden" data-testid="result-export-panel" aria-labelledby={`${id}-title`}>
-    <h2 id={`${id}-title`} className="text-xl font-semibold">{copy("带着结果，与 AI 继续聊", "Explore your results with AI")}</h2>
-    <p>{copy("选择你愿意分享的结果，讨论现实经历和下一步。本站不会自动发送你的结果。公开分享和以后找回仍是独立功能。", "Choose results you want to share and discuss real experiences and next steps. FermatMind will not send them automatically. Public sharing and finding saved results remain separate.")}</p>
+  const title = copy("带着结果，与 AI 继续聊", "Explore your results with AI");
+  const description = copy(
+    "选择你愿意分享的结果，讨论现实经历和下一步。本站不会自动发送你的结果。公开分享和以后找回仍是独立功能。",
+    "Choose results you want to share and discuss real experiences and next steps. FermatMind will not send them automatically. Public sharing and finding saved results remain separate.",
+  );
+
+  return <section
+    className="min-w-0 [overflow-wrap:anywhere] space-y-4 rounded-2xl border border-sky-200 bg-sky-50 p-4 text-slate-900 sm:p-6 print:hidden"
+    data-testid="result-export-panel"
+    aria-labelledby={`${id}-title`}
+  >
+    <h2 id={`${id}-title`} className="text-xl font-semibold">{title}</h2>
+    <p>{description}</p>
     <details>
-      <summary className="cursor-pointer rounded-lg py-3 font-semibold focus-visible:outline-2 focus-visible:outline-sky-700">{copy("选择、预览并带走结果", "Choose, preview and take your results")}</summary>
+      <summary className="cursor-pointer rounded-lg py-3 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
+      >{copy("选择、预览并带走结果", "Choose, preview and take your results")}</summary>
       <div className="space-y-5 pt-4">
         <fieldset disabled={!hydrated || busy} className="min-w-0 [overflow-wrap:anywhere] space-y-4">
           <legend className="font-semibold">{copy("1. 选择用途与数据", "1. Choose purpose and data")}</legend>

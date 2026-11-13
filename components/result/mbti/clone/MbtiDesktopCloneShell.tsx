@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
@@ -47,7 +48,6 @@ import {
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
-import { buildMbtiResultScientificInterpretation } from "@/lib/mbti/resultScientificInterpretation";
 import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
 type DesktopCloneTool = {
@@ -412,12 +412,7 @@ export function MbtiDesktopCloneShell({
   shareCtaLabel,
   shareDisabled = false,
   onShare,
-  retakeHref,
   historyHref,
-  workspaceHref,
-  orderLookupHref,
-  orderDetailHref,
-  relationshipHref,
   pdfHref,
   pdfReady = false,
   onDownloadPdf,
@@ -565,10 +560,6 @@ export function MbtiDesktopCloneShell({
   ]);
 
   const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
-  const scientificInterpretation = buildMbtiResultScientificInterpretation({
-    displayType: fullCodeForStorage,
-    dimensions: traitDimensions,
-  });
   const slotInput = {
     locale,
     headline,
@@ -786,7 +777,6 @@ export function MbtiDesktopCloneShell({
       : null;
   const inviteCtaBusy = inviteCtaStatus === "creating" || inviteCtaStatus === "copying";
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
-  const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
   const unlockedPdfHref = isUnlocked && pdfReady ? pdfHref : "";
   const [pdfDownloading, setPdfDownloading] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
@@ -804,8 +794,6 @@ export function MbtiDesktopCloneShell({
       setPdfDownloading(false);
     }
   };
-  const unlockedOrderDetailHref = isUnlocked ? orderDetailHref : "";
-  const unlockedRelationshipHref = isUnlocked ? relationshipHref : "";
 
   useEffect(() => {
     if (inviteHrefFromProps || inviteCodeFromProps) {
@@ -972,19 +960,6 @@ export function MbtiDesktopCloneShell({
     [hasInvite, inviteCtaStatus, inviteUnlockAttemptId, locale, sectionInviteCtaHref]
   );
 
-  const railTools: DesktopCloneTool[] = [
-    { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
-    { label: cloneLocale === "zh" ? "重测" : "Retest", href: retakeHref },
-    ...(historyHref ? [{ label: cloneLocale === "zh" ? "历史" : "History", href: historyHref }] : []),
-    ...(desktopWorkspaceHref && desktopWorkspaceHref !== historyHref
-      ? [{ label: cloneLocale === "zh" ? "工作台" : "Workspace", href: desktopWorkspaceHref }]
-      : []),
-    ...(unlockedPdfHref && onDownloadPdf ? [{ label: pdfDownloading ? (cloneLocale === "zh" ? "正在请求 PDF…" : "Requesting PDF…") : "PDF", onClick: handleDownloadPdf, disabled: pdfDownloading }] : []),
-    ...(orderLookupHref ? [{ label: cloneLocale === "zh" ? "订单" : "Orders", href: orderLookupHref }] : []),
-    ...(unlockedOrderDetailHref ? [{ label: cloneLocale === "zh" ? "详情" : "Detail", href: unlockedOrderDetailHref }] : []),
-    ...(unlockedRelationshipHref ? [{ label: cloneLocale === "zh" ? "关系" : "Compare", href: unlockedRelationshipHref }] : []),
-  ];
-
   const traitsTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
     ...(unlockedPdfHref && onDownloadPdf ? [{ label: pdfDownloading ? (cloneLocale === "zh" ? "正在请求 PDF…" : "Requesting PDF…") : (cloneLocale === "zh" ? "导出 PDF" : "Export PDF"), onClick: handleDownloadPdf, disabled: pdfDownloading }] : []),
@@ -1003,9 +978,6 @@ export function MbtiDesktopCloneShell({
   const shouldRenderRail = !snapshotMode;
   const shouldRenderTrailingNodes = !snapshotMode;
   const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel, cloneLocale, storageContent?.faq ?? null);
-  const narrativeTitle = (title: string) => cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
-    ? `${title}（探索假设）`
-    : title;
   const finalOfferNode = (
     <section id={LEGACY_OFFER_SECTION_ID} data-testid="mbti-offer-full" className={styles.section}>
       <div id={getMbtiDesktopAnchorId("offerFull")}>
@@ -1041,6 +1013,22 @@ export function MbtiDesktopCloneShell({
       </div>
     </section>
   );
+  const showEstpChapterPreview = process.env.NODE_ENV === "development"
+    && !snapshotMode
+    && fullCodeForStorage === "ESTP-A";
+  const chapterPreview = (chapter: "traits" | "career" | "growth" | "relationships") =>
+    showEstpChapterPreview ? (
+      <Image
+        src={`/images/mbti/estp-chapter-preview/${chapter}.webp`}
+        alt=""
+        width={1440}
+        height={chapter === "traits" ? 800 : 960}
+        unoptimized
+        className={styles.chapterPreview}
+        data-print-decorative="true"
+      />
+    ) : undefined;
+
   const deepNarrativeSectionsNode = (
     <>
       <MbtiCloneNarrativeSection
@@ -1048,8 +1036,9 @@ export function MbtiDesktopCloneShell({
         id="career"
         anchorId={getMbtiDesktopAnchorId("career")}
         number={Number(slots.chapters.career.step)}
-        title={copy(narrativeTitle(slots.chapters.career.title))}
+        title={copy(cloneLocale === "zh" ? "你的职业道路" : slots.chapters.career.title)}
         illustrationSlotId={slots.chapters.career.asset.slotId}
+        chapterPreview={chapterPreview("career")}
         illustrationLabel={slots.chapters.career.asset.label}
         assetSlots={storageAssetSlots}
         introParagraphs={slots.chapters.career.intro}
@@ -1091,8 +1080,9 @@ export function MbtiDesktopCloneShell({
         id="growth"
         anchorId={getMbtiDesktopAnchorId("growth")}
         number={Number(slots.chapters.growth.step)}
-        title={copy(narrativeTitle(slots.chapters.growth.title))}
+        title={copy(cloneLocale === "zh" ? "你的个人成长" : slots.chapters.growth.title)}
         illustrationSlotId={slots.chapters.growth.asset.slotId}
+        chapterPreview={chapterPreview("growth")}
         illustrationLabel={slots.chapters.growth.asset.label}
         assetSlots={storageAssetSlots}
         introParagraphs={slots.chapters.growth.intro}
@@ -1132,8 +1122,9 @@ export function MbtiDesktopCloneShell({
         id="relationships"
         anchorId={getMbtiDesktopAnchorId("relationships")}
         number={Number(slots.chapters.relationships.step)}
-        title={copy(narrativeTitle(slots.chapters.relationships.title))}
+        title={copy(cloneLocale === "zh" ? "你的人际关系" : slots.chapters.relationships.title)}
         illustrationSlotId={slots.chapters.relationships.asset.slotId}
+        chapterPreview={chapterPreview("relationships")}
         illustrationLabel={slots.chapters.relationships.asset.label}
         assetSlots={storageAssetSlots}
         introParagraphs={slots.chapters.relationships.intro}
@@ -1269,6 +1260,7 @@ export function MbtiDesktopCloneShell({
               snapshotMode={snapshotMode}
               title={copy(slots.traits.title)}
               illustrationSlotId={slots.traits.asset.slotId}
+              chapterPreview={chapterPreview("traits")}
               illustrationLabel={slots.traits.asset.label}
               assetSlots={storageAssetSlots}
               dimensions={traitDimensions}
@@ -1306,9 +1298,6 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneRail
               locale={cloneLocale}
               profileIdentity={slots.hero.profileIdentity}
-              primaryCtaLabel={primaryCtaLabel}
-              primaryCtaHref={desktopEntryHref}
-              tools={railTools}
             />
           ) : null}
         </div>

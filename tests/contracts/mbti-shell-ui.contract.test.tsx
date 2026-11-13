@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
-import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneContentPayload,
@@ -310,11 +309,9 @@ describe("MBTI shell UI contract", () => {
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
     expect(within(stickyRail).getByText("2. 职业路径")).toBeInTheDocument();
     expect(within(stickyRail).getByText("4. 关系模式")).toBeInTheDocument();
-    expect(within(stickyRail).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-traits-tools")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
 
-    expect(
-      within(stickyRail).getByRole("link", { name: "解锁完整报告" })
-    ).toHaveAttribute("href", "#mbti-desktop-offer-full");
+    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
   });
 
   it("loads public desktop clone storage on locked MBTI results without leaking paid-only blocks", async () => {
@@ -368,10 +365,7 @@ describe("MBTI shell UI contract", () => {
       "href",
       "/zh/relationships/mbti"
     );
-    expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute(
-      "href",
-      "/zh/history/mbti"
-    );
+    expect(within(stickyRail).queryByRole("link", { name: "我的 MBTI 报告" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-hero-form-summary")).not.toBeInTheDocument();
   });
@@ -397,9 +391,7 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
-    expect(
-      within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
-    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+    expect(within(screen.getByTestId("mbti-sticky-rail")).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
 
     desktopRender.unmount();
 
@@ -421,9 +413,7 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
-    expect(
-      within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
-    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+    expect(within(screen.getByTestId("mbti-sticky-rail")).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
   });
 
   it("emits shell-first-paint loading phase telemetry when MBTI shell mounts", async () => {

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   getMbtiDesktopAnchorHash,
@@ -8,22 +7,10 @@ import {
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
-import { localizedPath } from "@/lib/i18n/locales";
-
-type RailTool = {
-  label: string;
-  href?: string;
-  onClick?: () => void | Promise<void>;
-  disabled?: boolean;
-  kind?: "pill" | "text";
-};
 
 type MbtiCloneRailProps = {
   locale: "zh" | "en";
   profileIdentity: ProfileIdentity;
-  primaryCtaLabel: string;
-  primaryCtaHref: string;
-  tools: RailTool[];
 };
 
 const ANCHORS = [
@@ -45,10 +32,6 @@ const ACTIVE_IDS = [
   getMbtiDesktopAnchorId("offerFull"),
 ] as const;
 
-function isHashHref(href: string) {
-  return href.startsWith("#");
-}
-
 function normalizeText(...values: unknown[]) {
   for (const value of values) {
     const normalized = String(value ?? "").trim();
@@ -63,12 +46,9 @@ function normalizeText(...values: unknown[]) {
 export function MbtiCloneRail({
   locale,
   profileIdentity,
-  primaryCtaLabel,
-  primaryCtaHref,
-  tools,
 }: MbtiCloneRailProps) {
   const [activeAnchor, setActiveAnchor] = useState(TRAITS_ANCHOR_ID);
-  const nameLine = [profileIdentity.name, profileIdentity.nickname]
+  const nameLine = (locale === "zh" ? [profileIdentity.name] : [profileIdentity.name, profileIdentity.nickname])
     .map((value) => normalizeText(value))
     .filter((value) => value.length > 0)
     .join(" · ");
@@ -133,64 +113,6 @@ export function MbtiCloneRail({
           ))}
         </div>
       </div>
-
-      <div className={styles.railCard}>
-        <p className={styles.microLabel}>{locale === "zh" ? "解锁入口" : "Unlock entry"}</p>
-        <Link href={localizedPath("/pricing", locale)} className={styles.toolLinkText} prefetch={false}>
-          {locale === "zh" ? "查看价格与报告内容（尚未开售）" : "Pricing & report contents (not on sale yet)"}
-        </Link>
-        {isHashHref(primaryCtaHref) ? (
-          <a href={primaryCtaHref} className={styles.toolLinkText}>
-            {primaryCtaLabel}
-          </a>
-        ) : (
-          <Link href={primaryCtaHref} className={styles.toolLinkText}>
-            {primaryCtaLabel}
-          </Link>
-        )}
-      </div>
-
-      {tools.length > 0 ? (
-        <div className={styles.railCard}>
-          <p className={styles.microLabel}>{locale === "zh" ? "工具" : "Tools"}</p>
-          <div className={styles.railTools}>
-            {tools.map((tool) => {
-              const key = `${tool.label}-${tool.href ?? "button"}`;
-              if (tool.onClick) {
-                return (
-                  <button
-                    key={key}
-                    type="button"
-                    onClick={() => void tool.onClick?.()}
-                    disabled={tool.disabled}
-                    className={styles.toolButton}
-                  >
-                    {tool.label}
-                  </button>
-                );
-              }
-
-              if (!tool.href) {
-                return null;
-              }
-
-              if (isHashHref(tool.href)) {
-                return (
-                  <a key={key} href={tool.href} className={styles.toolLink}>
-                    {tool.label}
-                  </a>
-                );
-              }
-
-              return (
-                <Link key={key} href={tool.href} className={styles.toolLink}>
-                  {tool.label}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
     </aside>
   );
 }

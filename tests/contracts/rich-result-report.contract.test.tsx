@@ -2,7 +2,6 @@ import { fireEvent, render, screen, waitFor, within } from "@testing-library/rea
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { RichResultReport } from "@/components/result/RichResultReport";
-import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneContentPayload,
@@ -354,7 +353,7 @@ describe("RichResultReport", () => {
     const careerChapter = screen.getByTestId("mbti-chapter-career");
     const growthChapter = screen.getByTestId("mbti-chapter-growth");
     const relationshipsChapter = screen.getByTestId("mbti-chapter-relationships");
-    const careerNextStep = screen.getByTestId("mbti-career-next-step");
+    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
     const offerComparison = getPrimaryByTestId("mbti-offer-comparison");
     const reads = screen.getByTestId("mbti-recommended-reads");
 
@@ -373,8 +372,6 @@ describe("RichResultReport", () => {
     expect(traitsChapter.compareDocumentPosition(careerChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(careerChapter.compareDocumentPosition(growthChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(growthChapter.compareDocumentPosition(relationshipsChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(relationshipsChapter.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(careerNextStep.compareDocumentPosition(offerComparison) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(offerComparison.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 
     expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
@@ -390,21 +387,9 @@ describe("RichResultReport", () => {
     expect(within(offerComparison).getByText("¥1.99")).toBeInTheDocument();
     expect(within(offerComparison).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
     expect(within(offerComparison).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull")
-    );
-    expect(within(stickyRail).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
-    expect(within(stickyRail).getByRole("link", { name: "重测" })).toHaveAttribute(
-      "href",
-      "/zh/tests/mbti-personality-test-16-personality-types/take"
-    );
-    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
-      "/zh/career/recommendations/mbti/enfp-t?"
-    );
-    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
-      "carryover_focus_key=growth.next_actions"
-    );
+    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-traits-tools")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
+    expect(within(stickyRail).queryByRole("link", { name: "重测" })).not.toBeInTheDocument();
 
     clickWithoutNavigation(screen.getByRole("link", { name: "Read the action note" }));
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -447,14 +432,14 @@ describe("RichResultReport", () => {
       const railIdentity = within(stickyRail).getByTestId("mbti-rail-profile-identity");
 
       expect(within(hero).getByRole("heading", { name: "ENFJ-T" })).toBeInTheDocument();
-      expect(within(hero).getByTestId("mbti-hero-identity-line")).toHaveTextContent("主人公型 · 温柔引路人");
+      expect(within(hero).getByTestId("mbti-hero-identity-line")).toHaveTextContent("主人公型");
       expect(within(hero).queryByTestId("mbti-hero-rarity")).not.toBeInTheDocument();
       expect(within(hero).getByTestId("mbti-hero-keywords")).toHaveTextContent("共情");
       expect(within(hero).getByTestId("mbti-hero-keywords")).toHaveTextContent("自我反思");
       expect(hero).not.toHaveTextContent("Projection Campaigner");
 
       expect(railIdentity).toHaveTextContent("ENFJ-T");
-      expect(railIdentity).toHaveTextContent("主人公型 · 温柔引路人");
+      expect(railIdentity).toHaveTextContent("主人公型");
       expect(railIdentity).not.toHaveTextContent("稀有度");
       expect(railIdentity).toHaveTextContent("共情");
       expect(railIdentity).not.toHaveTextContent("Projection Tag Alpha");
@@ -1188,7 +1173,7 @@ describe("RichResultReport", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const stickyRail = getDesktopStickyRail();
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
   });
 });

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
@@ -28,7 +29,9 @@ export function MbtiCloneHero({
   assetSlots,
 }: MbtiCloneHeroProps) {
   const { displayText: copy } = useQuestionnaireDisplayCopy();
-  const nameLine = formatNameLine(profileIdentity);
+  const baseCode = /^([IE][NS][TF][JP])(?:-[AT])?$/i.exec(profileIdentity.code)?.[1].toLowerCase();
+  const introduction = profileIdentity.introduction;
+  const nameLine = locale === "zh" ? profileIdentity.name : formatNameLine(profileIdentity);
 
   return (
     <section id={getMbtiDesktopAnchorId("hero")} data-testid="mbti-hero" className={styles.hero}>
@@ -53,16 +56,32 @@ export function MbtiCloneHero({
             ))}
           </div>
         ) : null}
+        {introduction ? (
+          <p data-testid="mbti-hero-introduction" className={styles.heroIntroduction}>{introduction}</p>
+        ) : null}
       </div>
       <div className={styles.heroIllustrationWrap}>
-        <MbtiCloneAssetSlot
-          slotId={illustrationSlotId}
-          assetSlots={assetSlots}
-          fallbackLabel={illustrationLabel}
-          className={styles.heroIllustration}
-          labelClassName={styles.slotLabel}
-          testId="mbti-asset-slot-hero"
-        />
+        {baseCode ? (
+          <Image
+            src={`/images/mbti/result-portraits/${baseCode}.webp`}
+            alt=""
+            width={360}
+            height={520}
+            unoptimized
+            loading="eager"
+            className={styles.heroPortrait}
+            data-testid="mbti-hero-portrait"
+          />
+        ) : (
+          <MbtiCloneAssetSlot
+            slotId={illustrationSlotId}
+            assetSlots={assetSlots}
+            fallbackLabel={illustrationLabel}
+            className={styles.heroIllustration}
+            labelClassName={styles.slotLabel}
+            testId="mbti-asset-slot-hero"
+          />
+        )}
       </div>
     </section>
   );

@@ -1103,7 +1103,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(await screen.findByTestId("mbti-hero")).not.toHaveTextContent("hero infj-a");
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-id", "hero-illustration");
+    expect(screen.getByTestId("mbti-hero-portrait")).toHaveAttribute("src", "/images/mbti/result-portraits/infj.webp");
   });
 
   it("uses the same authored profileIdentity in hero and rail header", async () => {
@@ -1112,10 +1112,10 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     await waitForDesktopCloneStorage("INFJ-A");
 
     expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("INFJ-A");
-    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a · nickname infj-a");
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a");
     const railIdentity = screen.getByTestId("mbti-rail-profile-identity");
     expect(railIdentity).toHaveTextContent("INFJ-A");
-    expect(railIdentity).toHaveTextContent("name infj-a · nickname infj-a");
+    expect(railIdentity).toHaveTextContent("name infj-a");
     expect(railIdentity).not.toHaveTextContent("稀有度");
     expect(railIdentity).toHaveTextContent("keyword 1 infj-a");
   });

@@ -36,6 +36,7 @@ type MbtiCloneNarrativeSectionProps = {
   title: string;
   illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
+  chapterPreview?: ReactNode;
   assetSlots?: PersonalityDesktopCloneAssetSlot[] | null;
   introParagraphs: string[];
   strengths: StrengthWeaknessBlock | null;
@@ -62,6 +63,7 @@ export function MbtiCloneNarrativeSection({
   title,
   illustrationSlotId,
   illustrationLabel,
+  chapterPreview,
   assetSlots,
   introParagraphs,
   strengths,
@@ -91,15 +93,17 @@ export function MbtiCloneNarrativeSection({
   return (
     <section id={anchorId ?? id} data-testid={`mbti-chapter-${id}`} data-pdf-section={pdfSection} className={styles.section}>
       <MbtiCloneSectionHeading number={number} title={title} />
-      <MbtiCloneAssetSlot
-        slotId={illustrationSlotId}
-        assetSlots={assetSlots}
-        fallbackLabel={illustrationLabel}
-        className={styles.illustrationSlot}
-        labelClassName={styles.slotLabel}
-        testId={`mbti-asset-slot-${id}`}
-        printDecorative
-      />
+      {chapterPreview ?? (
+        <MbtiCloneAssetSlot
+          slotId={illustrationSlotId}
+          assetSlots={assetSlots}
+          fallbackLabel={illustrationLabel}
+          className={styles.illustrationSlot}
+          labelClassName={styles.slotLabel}
+          testId={`mbti-asset-slot-${id}`}
+          printDecorative
+        />
+      )}
       <div className={styles.sectionParagraphs}>
         {introParagraphs.filter((paragraph) => paragraph.trim()).map((paragraph, index) => (
           <p key={`${id}-paragraph-${index}`}>{paragraph}</p>

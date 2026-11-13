@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi, afterEach } from "vitest";
 import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
 import { buildMbtiResultExport } from "@/lib/result-export/mbti";
@@ -87,49 +87,23 @@ describe("shared result export", () => {
       expect(output).not.toMatch(/private-(token|id|answer|email|version-key)-qa/);
     }
     render(<ResultExportPanel projection={projection} locale="zh-TW" />);
-    fireEvent.click(await screen.findByText(displayText("选择、预览并带走结果")));
-    fireEvent.change(screen.getByLabelText(displayText("目标与经历（用户自述，可留空）")), { target: { value: goal } });
-    expect((screen.getByLabelText(displayText("完整导出预览")) as HTMLTextAreaElement).value).toContain(goal);
-    expect(screen.getByRole("button", { name: "TXT" })).toBeEnabled();
-    expect(screen.queryByRole("button", { name: /PDF/ })).toBeNull();
+    expect(await screen.findByRole("button", { name: displayText("复制提示词") })).toBeEnabled();
+    expect(screen.queryByText(displayText("选择、预览并带走结果"))).toBeNull();
   });
-  it("waits for clipboard success; rejected copies preserve data and focus the full fallback", async () => {
-    let resolve!: () => void;
-    const writeText = vi.fn().mockImplementationOnce(() => new Promise<void>(done => { resolve = done; })).mockRejectedValueOnce(new DOMException("Denied", "NotAllowedError"));
-    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
-    render(<ResultExportPanel projection={buildMbtiResultExport(report(), "en")!} locale="en" pdfState="pending" />);
-    fireEvent.click(screen.getByText("Choose, preview and take your results"));
-    fireEvent.change(screen.getByLabelText("Goal and experience (your own words, optional)"), { target: { value: "My QA goal 🧪" } });
-    const button = screen.getByRole("button", { name: "Copy prompt and selected results" });
-    fireEvent.click(button); expect(screen.queryByText("Copied. Paste it into the AI you choose.")).toBeNull();
-    resolve(); await waitFor(() => expect(screen.getByText("Copied. Paste it into the AI you choose.")).toBeTruthy());
-    expect(writeText.mock.calls[0][0]).toBe((screen.getByLabelText("Full export preview") as HTMLTextAreaElement).value);
-    fireEvent.click(button); await waitFor(() => expect(document.activeElement).toBe(screen.getByLabelText("Full export preview")));
-    expect((screen.getByLabelText("Full export preview") as HTMLTextAreaElement).value).toContain("My QA goal 🧪");
-    expect(screen.getByText(/PDF is still being prepared/)).toBeTruthy();
-  });
-  it("renders user HTML as text and gives an unsupported-clipboard fallback", async () => {
-    Object.defineProperty(navigator, "clipboard", { configurable: true, value: undefined });
-    render(<ResultExportPanel projection={buildMbtiResultExport(report(), "en")!} locale="en" />);
-    fireEvent.click(screen.getByText("Choose, preview and take your results"));
-    fireEvent.change(screen.getByLabelText("Goal and experience (your own words, optional)"), { target: { value: '<img src=x onerror="alert(1)">' } });
-    expect(document.querySelector('img[src="x"]')).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: "Copy prompt and selected results" }));
-    await waitFor(() => expect(screen.getByText(/Copy was not available/)).toBeTruthy());
-  });
-  it("preserves preview and user choices when an authorized PDF request fails", async () => {
-    let rejectPdf!: (reason: Error) => void;
-    const onDownloadPdf = vi.fn(() => new Promise<void>((_resolve, reject) => { rejectPdf = reject; }));
-    render(<ResultExportPanel projection={buildMbtiResultExport(report(), "en")!} locale="en" pdfState="ready" onDownloadPdf={onDownloadPdf} />);
-    fireEvent.click(screen.getByText("Choose, preview and take your results"));
-    fireEvent.change(screen.getByLabelText("Goal and experience (your own words, optional)"), { target: { value: "Keep this QA goal" } });
-    fireEvent.click(screen.getByRole("button", { name: "Download existing report PDF" }));
-    expect(screen.getByRole("button", { name: "Copy prompt and selected results" })).toBeEnabled();
-    expect(screen.getByRole("button", { name: "TXT" })).toBeEnabled();
-    rejectPdf(new Error("PDF unavailable"));
-    await waitFor(() => expect(screen.getByText("PDF is unavailable. Keep the preview or download TXT, then retry PDF later.")).toBeInTheDocument());
-    expect((screen.getByLabelText("Full export preview") as HTMLTextAreaElement).value).toContain("Keep this QA goal");
-    expect(screen.getByRole("button", { name: "Copy prompt and selected results" })).toBeEnabled();
+  it("copies only the MBTI prompt and links to the configured unlock destination", async () => {
+    const writeText = vi.fn().mockResolvedValueOnce(undefined).mockRejectedValueOnce(new DOMException("Denied", "NotAllowedError"));
+    vi.stubGlobal("navigator", Object.create(navigator, { clipboard: { value: { writeText } } }));
+    render(<ResultExportPanel projection={buildMbtiResultExport(report(), "en")!} locale="en" mbtiType="INFJ-T" mbtiUnlockHref="/en/pricing" />);
+    expect(screen.getByRole("link", { name: "Unlock the full results page" })).toHaveAttribute("href", "/en/pricing");
+    expect(screen.queryByText("Choose, preview and take your results")).toBeNull();
+    expect(screen.queryByRole("textbox")).toBeNull();
+    const button = screen.getByRole("button", { name: "Copy prompt" });
+    fireEvent.click(button);
+    await screen.findByText("Prompt copied.");
+    expect(writeText).toHaveBeenCalledExactlyOnceWith(RESULT_EXPORT_PROMPTS.MBTI.en);
+    fireEvent.click(button);
+    await screen.findByText(/Copy failed/);
+    vi.unstubAllGlobals();
   });
   it("rejects JSON or HTML disguised as a PDF", async () => {
     await expect(downloadResultPdf(new Blob(['{"error":"pending"}'], { type: "application/json" }))).rejects.toThrow("PDF unavailable");

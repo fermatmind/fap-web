@@ -91,7 +91,7 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-hero")).toBeVisible();
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveCount(0);
   expect(reportAccessRequestCount).toBeGreaterThan(0);
   expect(reportRequestCount).toBeGreaterThan(0);
 });

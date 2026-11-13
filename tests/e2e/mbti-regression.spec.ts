@@ -297,9 +297,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByRole("button", { name: "68% Turbulent AT", exact: true })).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock now ¥1.99");
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
-    "href", /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
-  );
+  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
   await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute("data-recommendation-key", "read-action");
   await expect(page.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute("data-recommendation-key", "read-career");
@@ -314,7 +312,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page).toHaveURL(new RegExp(`${getMbtiDesktopAnchorHash("career")}$`));
   await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
 
-  await desktopStickyRail.getByRole("link", { name: "Unlock full report" }).click();
+  await page.getByTestId("mbti-career-traits-lock-panel").getByRole("link", { name: "Unlock now ¥1.99" }).click();
   await expect(page).toHaveURL(new RegExp(`${getMbtiDesktopAnchorHash("offerFull")}$`));
   await page.waitForFunction((offerId) => {
     const offerSection = document.getElementById(offerId);
@@ -550,7 +548,7 @@ test("MBTI cross assessment metadata preserves canonical identity without retire
   await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveCount(0);
   await expect(page.getByText("Big Five 显示你的情绪性更高", { exact: false })).toHaveCount(0);
   await expect(page.getByText("外部提醒", { exact: false })).toHaveCount(0);
-  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute("href", /\/en\/career\/recommendations\/mbti\/enfp-t/);
+  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
 
 });
 
@@ -717,12 +715,9 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("button", { name: "Share result" })).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Retest" })).toBeVisible();
-  await expect(page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
-    "href",
-    getMbtiDesktopAnchorHash("offerFull")
-  );
+  await expect(page.getByTestId("mbti-traits-tools").getByRole("button", { name: "Share result" })).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Retest" })).toHaveCount(0);
+  await expect(page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveCount(0);
   await expect(page.getByTestId("mbti-footer-cta")).toHaveCount(0);
 
   await page.getByTestId("mbti-offers-primary-cta").click();
@@ -1061,12 +1056,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     await expect(page.getByTestId("mbti-traits-dot-EI")).toHaveCSS("animation-name", "none");
     expect(parseFloat(await page.getByTestId("mbti-traits-dot-EI").evaluate((el) => getComputedStyle(el).transitionDuration))).toBeLessThanOrEqual(0.001);
     await page.emulateMedia({ reducedMotion: "no-preference" });
-    const careerCta = page.getByTestId("mbti-career-next-step-cta");
-    await expect(careerCta).toHaveText("继续查看 ENFP-T 的职业推荐");
-    await expect(careerCta).toHaveCSS("display", "flex");
-    await expect(careerCta).toHaveCSS("align-items", "center");
-    await expect(careerCta).toHaveCSS("justify-content", "center");
-    await expect(page.getByTestId("mbti-career-next-step").getByRole("link")).toHaveCount(1);
+    await expect(page.getByTestId("mbti-career-next-step")).toHaveCount(0);
     await expect(page.getByTestId("mbti-traits-summary-pane").locator(":scope > div")).toHaveCSS("opacity", "1");
     await expect.poll(async () => page.getByTestId("mbti-traits-track-EI").evaluate((track) => {
       const dot = track.firstElementChild!;
@@ -1084,13 +1074,10 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("1.99元直接解锁");
     await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
     await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-    await expect(stickyRail.getByRole("button", { name: "分享结果" })).toBeVisible();
-    await expect(stickyRail.getByRole("link", { name: "重测" })).toBeVisible();
+    await expect(page.getByTestId("mbti-traits-tools").getByRole("button", { name: "分享结果" })).toBeVisible();
+    await expect(stickyRail.getByRole("link", { name: "重测" })).toHaveCount(0);
     await expect(stickyRail.getByRole("link", { name: "4. 关系模式" })).toBeVisible();
-    await expect(stickyRail.getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      "#mbti-desktop-offer-full"
-    );
+    await expect(stickyRail.getByRole("link", { name: "解锁完整报告" })).toHaveCount(0);
 
     await stickyRail.getByRole("link", { name: "4. 关系模式" }).click();
     await expect(page).toHaveURL(new RegExp(`#mbti-desktop-relationships$`));
