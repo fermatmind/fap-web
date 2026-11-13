@@ -177,6 +177,7 @@ function extractPathFromCanonicalUrl(value) {
 function isForbiddenFinalSitemapPath(path) {
   const normalized = normalizePath(path);
   return (
+    /^\/(?:(?:en|zh|zh-TW)\/)?career\/recommendations\/mbti(?:\/|$)/i.test(normalized) ||
     isSharedDiscoverabilityDeniedPath(normalized) ||
     SITEMAP_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized))
   );

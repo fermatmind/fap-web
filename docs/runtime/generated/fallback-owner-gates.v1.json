@@ -147,7 +147,7 @@
       "source": "next-sitemap.config.js",
       "requiredTokens": [
         "additionalPaths",
-        "buildLocalizedAuthorityCareerPath"
+        "buildCareerJobDetailPathsFromAuthority"
       ],
       "coveredByFallbackId": "static_sitemap_layer"
     },
@@ -345,7 +345,7 @@
           "path": "next-sitemap.config.js",
           "requiredTokens": [
             "additionalPaths",
-            "buildLocalizedAuthorityCareerPath"
+            "buildCareerJobDetailPathsFromAuthority"
           ]
         }
       ],

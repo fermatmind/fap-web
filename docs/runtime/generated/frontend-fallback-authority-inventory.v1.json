@@ -113,7 +113,7 @@
       "id": "static_sitemap_layer",
       "surface": "static sitemap path layer",
       "sources": ["next-sitemap.config.js"],
-      "requiredSourceTokens": ["additionalPaths", "buildLocalizedAuthorityCareerPath"],
+      "requiredSourceTokens": ["additionalPaths", "buildCareerJobDetailPathsFromAuthority"],
       "classification": "compatibility_wrapper",
       "canBecomePublicTruth": true,
       "seoGeoRisk": true,
