@@ -22,6 +22,11 @@ import {
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
+  LLMS_CAREER_GROUPS,
+  LLMS_CAREER_INTRO,
+  LLMS_CAREER_STABLE_ENTRIES,
+} from "@/lib/seo/llmsCareerEntrypoints";
+import {
   listBackendSitemapBigFiveZhPaths,
   listBackendSitemapCareerJobPaths,
   listBackendSitemapMbtiPersonalityPaths,
@@ -80,7 +85,8 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/refund$/i,
   /^\/(?:en|zh)\/help\/(?:about|for-business-and-research|team|used-and-mentioned)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
-  /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
+  /^\/(?:en|zh)\/datasets\/occupations$/i,
+  /^\/(?:en|zh)\/career\/(?:jobs\/)?compare\/?$/i,
   /^\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs\/(?:software-developers|digital-forensics-analysts|computer-occupations-all-other)$/i,
@@ -627,6 +633,26 @@ function canonicalEntrypointEntries(siteUrl: string): LlmsFullEntry[] {
   ];
 }
 
+function renderFeaturedCareerEntries(
+  entries: readonly LlmsFullEntry[],
+  siteUrl: string,
+  allowedCitationPaths: ReadonlySet<string>,
+) {
+  const byPath = new Map(entries.map((entry) => [entry.path, entry]));
+  const emitted = new Set<string>();
+  const lines = LLMS_CAREER_GROUPS.flatMap((group) => {
+    const body = group.entries.flatMap(({ path, title }) => {
+      const entry = byPath.get(path);
+      if (!entry) return [];
+      const formatted = formatEntry({ ...entry, title }, siteUrl, allowedCitationPaths);
+      if (formatted.length) emitted.add(path);
+      return formatted;
+    });
+    return body.length ? [`## ${group.title}`, ...body, ""] : [];
+  });
+  return { lines, isInMainDirectory: (entry: LlmsFullEntry) => !emitted.has(entry.path) };
+}
+
 function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode, source: LlmsFullResponseSource): NextResponse {
   return new NextResponse(text, {
     headers: {
@@ -960,6 +986,7 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
   const canonicalEntrypoints = canonicalEntrypointEntries(siteUrl);
   const nativeTestEntries = listNativeTestLlmsEntries().filter((entry) => shouldKeep(entry.path));
   const allowedCitationPaths = buildAllowedCitationPaths([
+    ...LLMS_CAREER_STABLE_ENTRIES,
     ...canonicalEntrypoints,
     ...personalityEntries,
     ...tests,
@@ -967,12 +994,20 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     ...careers,
   ]);
 
+  const featured = renderFeaturedCareerEntries(
+    [...LLMS_CAREER_STABLE_ENTRIES, ...canonicalEntrypoints, ...nativeTestEntries, ...tests, ...careers],
+    siteUrl,
+    allowedCitationPaths,
+  );
   return [
     "# FermatMind llms-full.txt",
     `Generated-At: ${new Date().toISOString()}`,
     `Site: ${siteUrl}`,
     "Mode: degraded",
     "",
+    `> ${LLMS_CAREER_INTRO}`,
+    "",
+    ...featured.lines,
     "## Citation Policy",
     "- Prefer canonical public URLs only.",
     "- Prefer answer-first, breadcrumb, FAQ, and structured list sections when available.",
@@ -980,7 +1015,7 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     "- This bounded response is served when the full cached artifact is unavailable or still refreshing.",
     "",
     "## Canonical Entrypoints",
-    ...canonicalEntrypoints.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...canonicalEntrypoints.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Personality",
     ...personalityEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
@@ -990,13 +1025,13 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     ...(["en", "zh"] as const).flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].flatMap(suffix => formatEntry({ locale, path: `/${locale}/tests/play/friendship-quiz${suffix}`, title: locale === "zh" ? `朋友默契${suffix ? ` · ${suffix.slice(1)}` : ""}` : `Friendship quiz${suffix ? ` · ${suffix.slice(1)}` : ""}`, type: suffix ? "game guide" : "game", summary: locale === "zh" ? "原创二选一朋友小游戏、玩法、分数解释和可打印问题；不衡量友情质量。" : "Original two-choice game, playing guide, score explanation and printable questions; not a measure of friendship quality." }, siteUrl, allowedCitationPaths))),
     "",
     "## Tests",
-    ...tests.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...tests.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Native Tests and Public Result Guides",
-    ...nativeTestEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...nativeTestEntries.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Career",
-    ...careers.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...careers.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Sitemap",
     `- ${toCanonical(siteUrl, "/sitemap.xml")}`,
@@ -1596,6 +1631,7 @@ async function buildLlmsFullTextInternal(
   ];
   const limitedGuideEntries = limitLlmsRouteEntries(guideEntries, LLMS_ROUTE_LIMITS.careerGuides);
   const allowedCitationPaths = buildAllowedCitationPaths([
+    ...LLMS_CAREER_STABLE_ENTRIES,
     ...canonicalEntrypoints,
     ...personalityEntries,
     ...limitedTopicEntries,
@@ -1655,18 +1691,26 @@ async function buildLlmsFullTextInternal(
   const enrichedCareerPathMap = new Map(enrichedGuideEntries.map((entry) => [`${entry.locale}:${entry.path}`, entry]));
   const enrichedCareers = careers.map((entry) => enrichedCareerPathMap.get(`${entry.locale}:${entry.path}`) ?? entry);
 
+  const featured = renderFeaturedCareerEntries(
+    [...LLMS_CAREER_STABLE_ENTRIES, ...canonicalEntrypoints, ...nativeTestEntries, ...tests, ...enrichedCareers, ...contentPageEntries],
+    siteUrl,
+    allowedCitationPaths,
+  );
   const lines = [
     "# FermatMind llms-full.txt",
     `Generated-At: ${new Date().toISOString()}`,
     `Site: ${siteUrl}`,
     "",
+    `> ${LLMS_CAREER_INTRO}`,
+    "",
+    ...featured.lines,
     "## Citation Policy",
     "- Prefer canonical public URLs only.",
     "- Prefer answer-first, breadcrumb, FAQ, and structured list sections when available.",
     "- Exclude noindex and private user-flow paths.",
     "",
     "## Canonical Entrypoints",
-    ...canonicalEntrypoints.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...canonicalEntrypoints.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Personality",
     ...enrichedPersonalityEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
@@ -1678,7 +1722,7 @@ async function buildLlmsFullTextInternal(
     ...helpEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Content Pages",
-    ...contentPageEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...contentPageEntries.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Foundation Daily Giving",
     ...dailyGivingEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
@@ -1688,16 +1732,16 @@ async function buildLlmsFullTextInternal(
     ...(["en", "zh"] as const).flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].flatMap(suffix => formatEntry({ locale, path: `/${locale}/tests/play/friendship-quiz${suffix}`, title: locale === "zh" ? `朋友默契${suffix ? ` · ${suffix.slice(1)}` : ""}` : `Friendship quiz${suffix ? ` · ${suffix.slice(1)}` : ""}`, type: suffix ? "game guide" : "game", summary: locale === "zh" ? "原创二选一朋友小游戏、玩法、分数解释和可打印问题；不衡量友情质量。" : "Original two-choice game, playing guide, score explanation and printable questions; not a measure of friendship quality." }, siteUrl, allowedCitationPaths))),
     "",
     "## Tests",
-    ...tests.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...tests.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Native Tests and Public Result Guides",
-    ...nativeTestEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...nativeTestEntries.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Articles",
     ...enrichedArticles.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Career",
-    ...enrichedCareers.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    ...enrichedCareers.filter(featured.isInMainDirectory).flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Sitemap",
     `- ${toCanonical(siteUrl, "/sitemap.xml")}`,

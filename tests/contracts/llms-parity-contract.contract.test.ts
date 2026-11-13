@@ -118,7 +118,7 @@ function mockLlmsDependencies(
     shouldIncludeInSitemap: vi.fn((value: string) => {
       const path = String(value);
       return !/\/(?:take|result|orders|share|api|pay|payment|history)(?:\/|$)/i.test(path) &&
-        !path.includes("/career/jobs");
+        (!path.includes("/career/jobs") || path.endsWith("/accountants-and-auditors"));
     }),
   }));
   vi.doMock("@/lib/career/datasetDirectory", () => ({
@@ -175,7 +175,11 @@ function mockLlmsDependencies(
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
     listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
     listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
-    listBackendSitemapCareerJobPaths: vi.fn(async () => ["/en/career/jobs/private-denied-by-policy"]),
+    listBackendSitemapCareerJobPaths: vi.fn(async () => [
+      "/en/career/jobs/private-denied-by-policy",
+      "/en/career/jobs/accountants-and-auditors",
+      "/zh/career/jobs/accountants-and-auditors",
+    ]),
   }));
   vi.doMock("@/lib/seo/backendSitemapMbtiAuthorityCache", () => ({
     readMbtiAuthorityLastKnownGood: vi.fn(async () => []),
@@ -370,12 +374,31 @@ describe("llms parity governance", () => {
     expect(onlyInLlmsFull).toEqual([]);
     expect(policy.approved_intentional_differences.approved_canonical_urls_only_in_llms).toEqual(
       expect.arrayContaining([
-        "https://fermatmind.com/en/career/tests",
-        "https://fermatmind.com/zh/career/tests",
         "https://fermatmind.com/zh/topics/mbti",
       ])
     );
     expect(extractCanonicalUrls(llmsFullText).length).toBeGreaterThan(llmsFullUrls.length);
+
+    const degraded = await llmsFullRoute.buildDegradedLlmsFullText(SITE_URL);
+    for (const [mode, text] of Object.entries({ llmsText, llmsFullText, degraded })) {
+      const lines = text.split("\n");
+      const careerPaths = [
+        "/zh/tests/holland-career-interest-test-riasec",
+        "/zh/career/tests",
+        "/zh/career",
+        "/zh/career/jobs/accountants-and-auditors",
+        "/zh/datasets/occupations/method",
+      ];
+      const positions = careerPaths.map((pathname) => {
+        const url = SITE_URL + pathname;
+        const records = lines.filter((line) => line === `- ${url}` || line === `- URL: ${url}`);
+        expect(records, `${mode}: ${pathname}`).toHaveLength(1);
+        return lines.indexOf(records[0]);
+      });
+      expect(positions).toEqual([...positions].sort((a, b) => a - b));
+      expect(positions.at(-1)).toBeLessThan(lines.findIndex((line) => line.includes("Friendship quiz")));
+      expect(text).not.toMatch(/\/career\/compare[?\s]/);
+    }
   });
 
   it.each([
@@ -481,7 +504,7 @@ describe("llms parity governance", () => {
       expect(text).not.toMatch(/\/(?:pay|payment)(?:\/|$)/);
       expect(text).toContain("/results/pay-and-benefits");
       expect(text).not.toContain("/history");
-      expect(text).not.toContain("/career/jobs");
+      expect(text).not.toMatch(/\/career\/jobs(?:[?\s]|\/private-denied-by-policy)/);
       expect(text).not.toContain("/career/industries");
     }
   });

@@ -12,6 +12,12 @@ import type { Locale } from "@/lib/i18n/locales";
 import { listDiscoverableTopicsWithLastKnownGood } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+import {
+  LLMS_CAREER_GROUPS,
+  LLMS_CAREER_INTRO,
+  LLMS_CAREER_STABLE_ENTRIES,
+  isLlmsCareerFeaturedPath,
+} from "@/lib/seo/llmsCareerEntrypoints";
 import { readMbtiAuthorityLastKnownGood } from "@/lib/seo/backendSitemapMbtiAuthorityCache";
 import {
   listBackendSitemapBigFiveZhPaths,
@@ -48,7 +54,8 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/refund$/i,
   /^\/(?:en|zh)\/help\/(?:about|for-business-and-research|team|used-and-mentioned)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
-  /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
+  /^\/(?:en|zh)\/datasets\/occupations$/i,
+  /^\/(?:en|zh)\/career\/(?:jobs\/)?compare\/?$/i,
   /^\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs\/(?:software-developers|digital-forensics-analysts|computer-occupations-all-other)$/i,
@@ -91,6 +98,7 @@ function normalizePath(path: string): string {
 function isForbiddenFinalLlmsPath(path: string): boolean {
   const normalized = normalizePath(path);
   return (
+    /[?#]/.test(normalized) ||
     isSharedDiscoverabilityDeniedPath(normalized) ||
     LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized))
   );
@@ -378,14 +386,29 @@ export async function GET() {
     ...zhDailyGivingEntries.map((entry) => entry.path),
   ]);
 
+  const eligibleFeaturedPaths = new Set(dedupePaths([
+    ...testEntries,
+    ...nativeTestEntries,
+    ...allCareerEntries,
+    ...contentPageEntries,
+    ...LLMS_CAREER_STABLE_ENTRIES.map((entry) => entry.path),
+  ]));
+  const featuredLines = LLMS_CAREER_GROUPS.flatMap((group) => {
+    const paths = group.entries.filter((entry) => eligibleFeaturedPaths.has(entry.path));
+    return paths.length ? [
+      `## ${group.title}`,
+      ...paths.map((entry) => `- ${toCanonical(siteUrl, entry.path)}`),
+      "",
+    ] : [];
+  });
+
   const lines = [
     "# FermatMind llms.txt",
+    `> ${LLMS_CAREER_INTRO}`,
     `Site: ${siteUrl}`,
     "Languages: en, zh",
     "",
-    "Friendship quiz (original two-choice game, not a measure of friendship quality):",
-    ...["en", "zh"].flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].map(suffix => `- ${toCanonical(siteUrl, `/${locale}/tests/play/friendship-quiz${suffix}`)}`)),
-    "",
+    ...featuredLines,
     "Primary Entries:",
     `- ${toCanonical(siteUrl, "/")}`,
     `- ${toCanonical(siteUrl, "/en")}`,
@@ -393,8 +416,6 @@ export async function GET() {
     `- ${toCanonical(siteUrl, "/zh/personality")}`,
     `- ${toCanonical(siteUrl, "/en/topics")}`,
     `- ${toCanonical(siteUrl, "/zh/topics")}`,
-    `- ${toCanonical(siteUrl, "/en/career")}`,
-    `- ${toCanonical(siteUrl, "/zh/career")}`,
     ...dedupePaths(["/en/career/recommendations", "/zh/career/recommendations"]).map(
       (path) => `- ${toCanonical(siteUrl, path)}`
     ),
@@ -409,22 +430,25 @@ export async function GET() {
     ...helpEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Content Pages:",
-    ...contentPageEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    ...contentPageEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Foundation Daily Giving:",
     ...dailyGivingEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
+    "Friendship quiz (original two-choice game, not a measure of friendship quality):",
+    ...["en", "zh"].flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].map(suffix => `- ${toCanonical(siteUrl, `/${locale}/tests/play/friendship-quiz${suffix}`)}`)),
+    "",
     "Indexable Tests:",
-    ...testEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    ...testEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Native Tests and Public Result Guides:",
-    ...nativeTestEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    ...nativeTestEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Articles:",
     ...articleEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Career Entries:",
-    ...allCareerEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    ...allCareerEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     `Sitemap: ${toCanonical(siteUrl, "/sitemap.xml")}`,
   ];

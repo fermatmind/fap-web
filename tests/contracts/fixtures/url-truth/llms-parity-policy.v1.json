@@ -7,8 +7,6 @@
     "llms_full_may_include_summaries_faq_next_steps_and_safety_notes": true,
     "llms_full_must_not_introduce_additional_canonical_urls": true,
     "approved_canonical_urls_only_in_llms": [
-      "https://fermatmind.com/en/career/tests",
-      "https://fermatmind.com/zh/career/tests",
       "https://fermatmind.com/zh/topics/mbti"
     ],
     "approved_canonical_urls_only_in_llms_full": []

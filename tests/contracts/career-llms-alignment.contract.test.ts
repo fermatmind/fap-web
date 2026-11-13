@@ -428,7 +428,7 @@ describe("career llms alignment contract", () => {
     const response = await GET();
     const text = await response.text();
 
-    expect(text).toContain("[en] Career center | https://fermatmind.com/en/career");
+    expect(text).toContain("[en] Career Library | https://fermatmind.com/en/career");
     expect(text).not.toContain("[en] Career jobs | https://fermatmind.com/en/career/jobs");
     expect(text).not.toContain("[en] Career recommendations | https://fermatmind.com/en/career/recommendations");
     expect(text).toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
