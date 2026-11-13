@@ -559,6 +559,15 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
           is_active: true,
           is_indexable: true,
         },
+        // Later OG specs can reuse this catalog through the same Next data cache.
+        {
+          title: "Big Five Personality Test",
+          slug: "big-five-personality-test-ocean-model",
+          scale_code: "BIG5_OCEAN",
+          is_public: true,
+          is_active: true,
+          is_indexable: true,
+        },
       ],
     });
     return;
