@@ -137,12 +137,13 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(html).toContain('href="/zh-TW/career/industries"');
     expect(metadata.robots).toMatchObject({ index: false });
     expect(metadata.alternates).toEqual({ canonical: "/zh-TW/career" });
-    const { traditionalPath } = await import("@/lib/i18n/traditionalRoutes");
+    const { traditionalEquivalent, traditionalPath } = await import("@/lib/i18n/traditionalRoutes");
     for (const locale of ["en", "zh", "zh-TW"]) {
       expect(traditionalPath(`/${locale}/career/jobs/accountants-and-auditors`)).toBe("/zh-TW/career/jobs/accountants-and-auditors");
       expect(traditionalPath(`/${locale}/career/guides`)).toBe("/zh-TW/career/guides");
     }
     expect(traditionalPath("/en/career/jobs/accountants-and-auditors/invalid")).toBeNull();
+    expect(traditionalEquivalent("/en/career/jobs/accountants-and-auditors")).toBe("/zh-TW/career/jobs/accountants-and-auditors");
   });
 
   it("renders EN and ZH directory facets, counts, rows, and pagination from the same backend authority shape", async () => {

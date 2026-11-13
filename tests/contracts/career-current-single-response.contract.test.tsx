@@ -98,9 +98,9 @@ describe('Current Chinese same-response publication authority', () => {
 });
 
 describe('Traditional Career detail reader', () => {
-  it('uses one exact locale request and holds indexing for the authoritative Traditional page', async () => {
+  it('uses one exact locale request and indexes the authoritative Traditional page with three-language alternates', async () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://fermatmind.com');
-    const source = bundle(false);
+    const source = bundle(true);
     const canonicalPath = '/zh-TW/career/jobs/actors';
     const page = buildCareerPageFixture('actors', 'zh', '演員');
     const payload = {
@@ -118,8 +118,16 @@ describe('Traditional Career detail reader', () => {
     const metadata = await generateMetadata({params: Promise.resolve({slug: 'actors'})});
     expect(requests).toHaveBeenCalledTimes(1);
     expect(metadata.title).toBe('演員');
-    expect(metadata.robots).toEqual({index: false, follow: true});
-    expect(metadata.alternates).toEqual({canonical: `https://fermatmind.com${canonicalPath}`});
+    expect(metadata.robots).toEqual({index: true, follow: true});
+    expect(metadata.alternates).toEqual({
+      canonical: `https://fermatmind.com${canonicalPath}`,
+      languages: {
+        en: 'https://fermatmind.com/en/career/jobs/actors',
+        'zh-CN': 'https://fermatmind.com/zh/career/jobs/actors',
+        'zh-TW': `https://fermatmind.com${canonicalPath}`,
+        'x-default': 'https://fermatmind.com/en/career/jobs/actors',
+      },
+    });
   });
 
   it('rejects a Simplified Chinese payload supplied to the Traditional route', async () => {

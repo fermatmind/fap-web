@@ -84,6 +84,7 @@ export function traditionalPath(pathname: string): string | null {
 export function traditionalEquivalent(pathname: string): string | null {
   const path = traditionalPath(pathname);
   if (path === "/zh-TW" || path === "/zh-TW/tests") return path;
+  if (path && /^\/zh-TW\/career\/jobs\/[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(path)) return path;
   return path && [TRADITIONAL_QUIZ_PATH, TRADITIONAL_SEVEN_SINS_PATH].some(entry => path.startsWith(`/zh-TW${entry}`)) && !path.endsWith("/take") ? path : null;
 }
 

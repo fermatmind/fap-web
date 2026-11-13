@@ -5,7 +5,7 @@ import { cache } from "react";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { fetchCareerLinkTargets } from "@/lib/career/api/fetchCareerLinkTargets";
-import { normalizeCareerPage, validateCareerPageAuthority } from "@/lib/career/careerPage";
+import { careerPageHasPublicBody, normalizeCareerPage, validateCareerPageAuthority } from "@/lib/career/careerPage";
 import { CAREER_RENDERER_RELEASE } from "@/lib/career/detailRuntime";
 import { buildCareerDisplayCtaHref } from "@/lib/career/displaySurface";
 import { buildCareerPageDisplaySurface, careerDisplayIdentity } from "@/lib/career/pageDisplay";
@@ -33,20 +33,31 @@ const loadPage = cache(async (slug: string) => {
     throw new PublicReadError({ kind: "contract", errorCode: "CAREER_PAGE_TRADITIONAL_PROJECTION_INVALID" });
   }
   validateCareerPageAuthority(raw, page, "zh-TW", slug);
-  return { page, identity: careerDisplayIdentity(slug, raw.ontology) };
+  const seoContract = raw.seo_contract as { index_eligible: boolean };
+  return { page, identity: careerDisplayIdentity(slug, raw.ontology), indexEligible: seoContract.index_eligible };
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const { page } = await loadPage(slug);
+  const { page, indexEligible } = await loadPage(slug);
   const canonical = canonicalUrl(`/zh-TW/career/jobs/${slug}`);
+  const staging = isConfiguredStagingSiteUrl();
+  const allowsIndex = indexEligible && careerPageHasPublicBody(page) && !staging;
   const title = page.seo.title ?? page.content.subject.name;
   const description = page.seo.description ?? undefined;
   return {
     title,
     description,
-    alternates: { canonical },
-    robots: { index: false, follow: !isConfiguredStagingSiteUrl() },
+    alternates: {
+      canonical,
+      ...(allowsIndex ? { languages: {
+        en: canonicalUrl(`/en/career/jobs/${slug}`),
+        "zh-CN": canonicalUrl(`/zh/career/jobs/${slug}`),
+        "zh-TW": canonical,
+        "x-default": canonicalUrl(`/en/career/jobs/${slug}`),
+      } } : {}),
+    },
+    robots: { index: allowsIndex, follow: !staging },
     openGraph: { title, description, url: canonical, locale: "zh_TW" },
   };
 }
