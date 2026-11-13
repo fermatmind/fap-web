@@ -102,9 +102,9 @@ describe("career routing cleanup contract", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
-    expect(llms).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
-    expect(llms).toContain('import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex"');
-    expect(llmsFull).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
+    expect(llms).not.toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
+    expect(llms).not.toContain('import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex"');
+    expect(llmsFull).not.toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
     expect(llms).not.toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
     expect(llms).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
     expect(llmsFull).not.toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
