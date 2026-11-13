@@ -94,7 +94,7 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildPageMetadata");
   });
 
-  it("dataset hub and method pages inject dataset/article structured data on dedicated dataset surfaces only", () => {
+  it("dataset hub and method pages inject dataset and webpage structured data on their respective surfaces", () => {
     const hubSource = read("app/(localized)/[locale]/datasets/occupations/page.tsx");
     const methodSource = read("app/(localized)/[locale]/datasets/occupations/method/page.tsx");
 
@@ -111,7 +111,7 @@ describe("schema injection contract", () => {
     expect(methodSource).toContain("fetchCareerDatasetMethod");
     expect(methodSource).toContain("adaptCareerDatasetMethod");
     expect(methodSource).toContain("JsonLd");
-    expect(methodSource).toContain('id="dataset-method-article-jsonld"');
+    expect(methodSource).toContain('id="dataset-method-webpage-jsonld"');
     expect(methodSource).toContain('id="dataset-method-breadcrumb-jsonld"');
     expect(methodSource).toContain("DatasetMethodPanel");
     expect(methodSource).not.toContain("fetchCareerJobBundle");
