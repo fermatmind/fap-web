@@ -290,7 +290,8 @@ jobs:
           CI_RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
           set -euo pipefail
-          active="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "tr -d '\r\n' < '$APP_DIR/.next/standalone/REVISION'")"
+          active="$(timeout 45s ssh -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=10 -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "tr -d '\r\n' < '$APP_DIR/.next/standalone/REVISION'")"
           [[ "$active" =~ ^[0-9a-f]{40}$ ]]
           git fetch --no-tags origin "$active"
           ACTIVE_SHA="$active" node .github/trunk/admit-release.mjs
