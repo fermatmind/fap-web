@@ -7,7 +7,6 @@ export const MBTI_ADS_PRIMARY_WHITELIST = [
 
 export const MBTI_ADS_SECONDARY_WHITELIST = [
   "/personality/[type]",
-  "/career/recommendations/mbti/[type]",
 ] as const;
 
 export const MBTI_ADS_SEO_ONLY_PAGES = [
@@ -17,6 +16,7 @@ export const MBTI_ADS_SEO_ONLY_PAGES = [
 ] as const;
 
 export const MBTI_ADS_FORBIDDEN_PATTERNS = [
+  "/career/recommendations/mbti/[type]",
   "/result/[id]",
   "/tests/*/take",
   "/orders/*",
@@ -55,8 +55,6 @@ export const MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES = [
 
 export const MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES = ["INTJ", "INFJ", "ISTJ", "ENFJ"] as const;
 
-export const MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES = ["INTJ", "ENTJ", "INFJ", "ISTJ"] as const;
-
 export const MBTI_ADS_LAUNCH_SIGNAL_EVENTS = [
   "landing_view",
   "start_click",
@@ -88,7 +86,6 @@ export type MbtiAdsLaunchSmokeEntry = {
   pageType:
     | "test_landing"
     | "personality_detail"
-    | "career_recommendation_detail"
     | "personality_index"
     | "topic_detail";
   typeCode?: MbtiAdsTypeCode;
@@ -96,9 +93,10 @@ export type MbtiAdsLaunchSmokeEntry = {
 
 export const MBTI_ADS_STABLE_SMOKE_LOCALES = ["en", "zh"] as const;
 
-const LOCALE_PREFIX_RE = /^\/(en|zh)(?=\/|$)/;
-const SECONDARY_PATTERNS = [/^\/personality\/[^/]+$/, /^\/career\/recommendations\/mbti\/[^/]+$/];
+const LOCALE_PREFIX_RE = /^\/(en|zh|zh-TW)(?=\/|$)/;
+const SECONDARY_PATTERNS = [/^\/personality\/[^/]+$/];
 const FORBIDDEN_PATTERNS = [
+  /^\/career\/recommendations\/mbti(?:\/|$)/i,
   /^\/result\/[^/]+$/,
   /^\/tests\/[^/]+\/take(?:\/.*)?$/,
   /^\/orders(?:\/.*)?$/,
@@ -126,18 +124,10 @@ export const MBTI_ADS_LAUNCH_MANIFEST = {
       )
   ),
   stableSmokePersonalityTypes: MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES,
-  stableSmokeRecommendationTypes: MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES,
   stableSmokeLocales: MBTI_ADS_STABLE_SMOKE_LOCALES,
   launchSignalEvents: MBTI_ADS_LAUNCH_SIGNAL_EVENTS,
   launchSignalRequirements: MBTI_ADS_LAUNCH_SIGNAL_REQUIREMENTS,
 } as const;
-
-function buildLocalizedMbtiTypePath(locale: Locale, typeCode: string, kind: "personality" | "recommendation"): string {
-  const slug = `${String(typeCode).trim().toLowerCase()}-a`;
-  return kind === "personality"
-    ? `/${locale}/personality/${slug}`
-    : `/${locale}/career/recommendations/mbti/${slug}`;
-}
 
 export function normalizeMbtiAdsPath(pathname: string): string {
   const [withoutQuery] = pathname.split(/[?#]/, 1);
@@ -220,16 +210,9 @@ export function getMbtiStableLaunchSmokeEntries(locale: Locale): MbtiAdsLaunchSm
     },
     ...MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES.map((typeCode) => ({
       key: `personality_${String(typeCode).toLowerCase()}`,
-      path: buildLocalizedMbtiTypePath(locale, typeCode, "personality"),
+      path: `/${locale}/personality/${typeCode.toLowerCase()}-a`,
       surface: "secondary" as const,
       pageType: "personality_detail" as const,
-      typeCode,
-    })),
-    ...MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES.map((typeCode) => ({
-      key: `recommendation_${String(typeCode).toLowerCase()}`,
-      path: buildLocalizedMbtiTypePath(locale, typeCode, "recommendation"),
-      surface: "secondary" as const,
-      pageType: "career_recommendation_detail" as const,
       typeCode,
     })),
     {

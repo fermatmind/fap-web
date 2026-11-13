@@ -1,8 +1,7 @@
 import { CareerJobAssessmentLink } from "@/components/career/CareerJobAssessmentLink";
 import Link from "next/link";
 import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL, DESIGN_COMPARE_TASKS, DESIGN_MBTI_EXPLORATION_NOTE } from "@/lib/career/designComparePilot";
-import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
-import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { buttonVariants } from "@/components/ui/button";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { CAREER_TRACKING_EVENTS, type CareerAttributionPayloadInput } from "@/lib/career/attribution";
@@ -71,7 +70,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
           <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{design.explorationQuestion}</p>
           <div className="mt-1 flex flex-wrap gap-x-4">
             {design.mbtiTypes.map(type => (
-              <Link key={type} className={linkClass} href={migratePersonalityCareerHref(`${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`, locale)}>{type}</Link>
+              <Link key={type} className={linkClass} href={personalityCareerHref(locale, type)}>{type}</Link>
             ))}
           </div>
           <p className="m-0 text-sm leading-6 text-slate-600">{DESIGN_MBTI_EXPLORATION_NOTE}</p>

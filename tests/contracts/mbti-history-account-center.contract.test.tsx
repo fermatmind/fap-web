@@ -274,6 +274,7 @@ describe("MBTI history account-center contract", () => {
     });
 
     expect(screen.getByTestId("mbti-history-carryover-entry")).toHaveTextContent("Continue the current focus");
+    expect(screen.getByTestId("mbti-history-carryover-entry").querySelector("a, button")).toBeNull();
     expect(screen.getByTestId("mbti-history-carryover-entry")).toHaveTextContent("Work experiments");
     expect(screen.getByTestId("mbti-history-carryover-entry")).toHaveTextContent(
       "This continue entry has been switched to the next step that looks most useful from your recent feedback and action results."
@@ -298,6 +299,7 @@ describe("MBTI history account-center contract", () => {
       "work_experiment.theme.name_decision_rule"
     );
     expect(screen.getByTestId("mbti-history-continue-cta")).toHaveTextContent("Continue latest free preview");
+    expect(screen.getByTestId("mbti-history-continue-cta").getAttribute("href")).toMatch(/^\/en\/result\/attempt-history-2\?/);
     expect(screen.getByTestId("mbti-history-continue-cta").getAttribute("href")).toContain(
       "carryover_focus_key=career.work_experiments"
     );

@@ -127,9 +127,9 @@ const INTP_SCENARIO_LINKS = {
       href: "/topics/mbti",
     },
     recommendationBacklink: {
-      zh: "查看 INTP 职业推荐",
-      en: "View INTP recommendation",
-      href: "/career/recommendations/mbti/intp-a",
+      zh: "查看 INTP 工作与职业探索",
+      en: "View INTP work and career exploration",
+      href: "/personality/intp#intp-career-exploration",
     },
     testEntryLink: {
       zh: "MBTI免费测试",
@@ -159,20 +159,6 @@ const INTP_SCENARIO_LINKS = {
       },
     ],
   } as const,
-  recommendationA: {
-    recommendationBacklink: {
-      zh: "INTP-A 职业建议",
-      en: "INTP-A career recommendations",
-      href: "/career/recommendations/mbti/intp-a",
-    },
-  },
-  recommendationT: {
-    recommendationBacklink: {
-      zh: "INTP-T 职业建议",
-      en: "INTP-T career recommendations",
-      href: "/career/recommendations/mbti/intp-t",
-    },
-  },
 } as const;
 
 const COMMON_PERSONALITY_BASE: Omit<BasePersonalityCopy, "topicBacklink" | "recommendationBacklink" | "testEntryLink"> = {
@@ -327,8 +313,8 @@ const INTP_PERSONALITY_COPY: IntpCopyMap = {
       nextLinks: [
         {
           key: "career_a_recommendation",
-          label: { zh: "查看 INTP-A 职业推荐", en: "View INTP-A career recommendations" },
-          href: "/career/recommendations/mbti/intp-a",
+          label: { zh: "查看 INTP 工作与职业探索", en: "View INTP work and career exploration" },
+          href: "/personality/intp#intp-career-exploration",
         },
         {
           key: "career_a_guide",
@@ -347,8 +333,8 @@ const INTP_PERSONALITY_COPY: IntpCopyMap = {
       nextLinks: [
         {
           key: "team_a_recommendation",
-          label: { zh: "查看职业推荐", en: "View career recommendations" },
-          href: "/career/recommendations/mbti/intp-a",
+          label: { zh: "查看工作与职业探索", en: "View work and career exploration" },
+          href: "/personality/intp#intp-career-exploration",
         },
         {
           key: "team_a_topic",
@@ -367,8 +353,8 @@ const INTP_PERSONALITY_COPY: IntpCopyMap = {
       nextLinks: [
         {
           key: "growth_a_recommendation",
-          label: { zh: "查看职业推荐", en: "View career recommendations" },
-          href: "/career/recommendations/mbti/intp-a",
+          label: { zh: "查看工作与职业探索", en: "View work and career exploration" },
+          href: "/personality/intp#intp-career-exploration",
         },
         {
           key: "growth_a_topic",
@@ -414,8 +400,8 @@ const INTP_PERSONALITY_COPY: IntpCopyMap = {
       nextLinks: [
         {
           key: "career_t_recommendation",
-          label: { zh: "查看 INTP-T 职业推荐", en: "View INTP-T career recommendations" },
-          href: "/career/recommendations/mbti/intp-t",
+          label: { zh: "查看 INTP 工作与职业探索", en: "View INTP work and career exploration" },
+          href: "/personality/intp#intp-career-exploration",
         },
         {
           key: "career_t_guide",
@@ -434,8 +420,8 @@ const INTP_PERSONALITY_COPY: IntpCopyMap = {
       nextLinks: [
         {
           key: "team_t_recommendation",
-          label: { zh: "查看职业推荐", en: "View career recommendations" },
-          href: "/career/recommendations/mbti/intp-t",
+          label: { zh: "查看工作与职业探索", en: "View work and career exploration" },
+          href: "/personality/intp#intp-career-exploration",
         },
         {
           key: "team_t_topic",
@@ -454,8 +440,8 @@ const INTP_PERSONALITY_COPY: IntpCopyMap = {
       nextLinks: [
         {
           key: "growth_t_recommendation",
-          label: { zh: "查看职业推荐", en: "View career recommendations" },
-          href: "/career/recommendations/mbti/intp-t",
+          label: { zh: "查看工作与职业探索", en: "View work and career exploration" },
+          href: "/personality/intp#intp-career-exploration",
         },
         {
           key: "growth_t_topic",
@@ -557,14 +543,8 @@ export function getIntpPersonalityContent(slug: string, locale: Locale): IntpPer
     },
     recommendationBacklink: {
       key: `intp-${variant}-recommendation`,
-      label: {
-        zh: variant === "a" ? "INTP-A 职业推荐" : "INTP-T 职业推荐",
-        en: variant === "a" ? "INTP-A career recommendations" : "INTP-T career recommendations",
-      },
-      href:
-        variant === "a"
-          ? INTP_SCENARIO_LINKS.recommendationA.recommendationBacklink.href
-          : INTP_SCENARIO_LINKS.recommendationT.recommendationBacklink.href,
+      label: INTP_SCENARIO_LINKS.personalityBase.recommendationBacklink,
+      href: INTP_SCENARIO_LINKS.personalityBase.recommendationBacklink.href,
     },
     testEntryLink: {
       key: "mbti-test-landing",

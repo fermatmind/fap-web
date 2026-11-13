@@ -339,6 +339,10 @@ describe("llms-full enrichment contract", () => {
     expect(text).toContain("/results/pay-and-benefits");
     expect(text).not.toContain("/history");
     expect(isCompleteLlmsFullText(text, "https://fermatmind.com")).toBe(true);
+    expect(isCompleteLlmsFullText(
+      `${text}\n- URL: https://fermatmind.com/zh/career/recommendations/mbti/estp-a\n`,
+      "https://fermatmind.com"
+    )).toBe(false);
     expect(
       isCompleteLlmsFullText(
         `${text}\n  - Held personality surface: https://fermatmind.com/zh/personality/esfj-t`,

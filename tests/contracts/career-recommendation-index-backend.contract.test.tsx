@@ -160,7 +160,7 @@ describe("career recommendation index backend contract", () => {
     );
     const traditional = renderToStaticMarkup(await TraditionalPage() as ReactNode);
     expect(traditional).toContain("按 MBTI 類型探索職業方向");
-    expect(traditional).toContain('href="/zh-TW/career/recommendations/mbti/intj"');
+    expect(traditional).toContain('href="/zh-TW/personality/intj#work_style"');
     expect(traditional).not.toContain("按 MBTI 类型探索职业方向");
     const simplified = renderToStaticMarkup(await CareerRecommendationsPage({
       params: Promise.resolve({ locale: "zh" }),

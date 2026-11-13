@@ -406,6 +406,10 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
+  // The two verified INTJ aliases are handled by Next redirects before Proxy.
+  if (/^\/(?:(?:en|zh|zh-TW)\/)?career\/recommendations\/mbti\/[^/]+\/?$/i.test(pathname)) {
+    return createGoneResponse();
+  }
   if (pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/)/, "").startsWith(AD_PLACEMENT_SEGMENT)) return createPublicAbsenceResponse(404);
   // These Traditional readers share the original anonymous/private policy.
   const isTraditionalCoreRoute = /^\/zh-TW\/(?:tests\/[^/]+(?:\/take)?|result\/[^/]+)\/?$/u.test(pathname) && traditionalPath(pathname);

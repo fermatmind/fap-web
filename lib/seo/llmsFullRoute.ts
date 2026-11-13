@@ -3,8 +3,6 @@ import { hasExactCareerPaths } from "../../scripts/ops/career-current-inventory.
 import { after, NextResponse } from "next/server";
 import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
-import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import {
   listDiscoverableContentPagesWithLastKnownGood,
   type ContentPage,
@@ -813,7 +811,7 @@ function hasClosedLlmsFullCitationSet(text: string, siteUrl: string): boolean {
       if (parsed.origin !== siteOrigin) {
         continue;
       }
-      if (parsed.search || parsed.hash) {
+      if (parsed.search || parsed.hash || isSharedDiscoverabilityDeniedPath(parsed.pathname)) {
         return false;
       }
 
@@ -1064,16 +1062,6 @@ async function mapWithConcurrency<T, U>(
   return results;
 }
 
-function shouldKeepCareerAuthorityEntry(entry: {
-  href: string;
-  seoContract: { indexEligible: boolean | null; indexState: string | null };
-}): boolean {
-  return !isForbiddenFinalLlmsPath(entry.href) && shouldIncludeInSitemap(entry.href, {
-    indexEligible: entry.seoContract.indexEligible,
-    indexState: entry.seoContract.indexState,
-  });
-}
-
 function uniqueEntriesByPath(entries: LlmsFullEntry[]): LlmsFullEntry[] {
   const seen = new Set<string>();
   const results: LlmsFullEntry[] = [];
@@ -1320,8 +1308,6 @@ async function buildLlmsFullTextInternal(
   const [
     enCareerGuides,
     zhCareerGuides,
-    enCareerRecommendations,
-    zhCareerRecommendations,
     personalityEntries,
     topicEntries,
     enArticles,
@@ -1340,28 +1326,6 @@ async function buildLlmsFullTextInternal(
     )),
     scheduleSource(() => withLlmsRouteBudget(
       () => listCareerGuidesFromCms("zh", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
-      [],
-      optionalSourceBudget(LLMS_ROUTE_SOURCE_TIMEOUT_MS)
-    )),
-    scheduleSource(() => withLlmsRouteBudget(
-      () =>
-        fetchCareerRecommendationIndex({ locale: "en" }).then((payload) =>
-          limitLlmsRouteEntries(
-            adaptCareerRecommendationIndex({ locale: "en", payload }),
-            LLMS_ROUTE_LIMITS.careerRecommendations
-          )
-        ),
-      [],
-      optionalSourceBudget(LLMS_ROUTE_SOURCE_TIMEOUT_MS)
-    )),
-    scheduleSource(() => withLlmsRouteBudget(
-      () =>
-        fetchCareerRecommendationIndex({ locale: "zh" }).then((payload) =>
-          limitLlmsRouteEntries(
-            adaptCareerRecommendationIndex({ locale: "zh", payload }),
-            LLMS_ROUTE_LIMITS.careerRecommendations
-          )
-        ),
       [],
       optionalSourceBudget(LLMS_ROUTE_SOURCE_TIMEOUT_MS)
     )),
@@ -1587,20 +1551,6 @@ async function buildLlmsFullTextInternal(
     { locale: "zh" as const, path: "/zh/career/recommendations", title: "职业匹配", type: "career_recommendations_index", updatedAt: "" },
     ...guideEntries,
     ...indexableCareerInterestPilots().map((entry) => ({ ...entry, type: "career_interest_exploration", updatedAt: "" })),
-    ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
-      locale: "en" as const,
-      path: item.href,
-      title: item.recommendationSubjectMeta.displayTitle,
-      type: "career_recommendation",
-      updatedAt: item.provenanceMeta.compiledAt ?? "",
-    })),
-    ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
-      locale: "zh" as const,
-      path: item.href,
-      title: item.recommendationSubjectMeta.displayTitle,
-      type: "career_recommendation",
-      updatedAt: item.provenanceMeta.compiledAt ?? "",
-    })),
     ...careerJobPaths
       .map((path) => buildCareerJobEntry(path))
       .filter((entry): entry is LlmsFullEntry => Boolean(entry)),

@@ -111,7 +111,7 @@ function renderAnswerSurfaceLink({
   }
 
   return (
-    <Link href={seoCtaAttribution ? migratePersonalityCareerHref(href, locale) : href} className={className}>
+    <Link href={migratePersonalityCareerHref(href, locale)} className={className}>
       {displayLabel}
     </Link>
   );

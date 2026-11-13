@@ -295,11 +295,10 @@ describe("sitemap indexability contract", () => {
         "/zh/articles",
         "/en/career/guides",
         "/zh/career/guides",
-        "/en/career/recommendations/mbti/intj-a",
-        "/zh/career/recommendations/mbti/intj-a",
       ])
     );
     expect(locs.some((loc: string) => /^\/(?:en|zh)\/topics\/.+/.test(loc))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/career/recommendations/mbti/"))).toBe(false);
     expect(locs).toContain("/en/career/jobs/backend-architect");
     expect(locs).toContain("/zh/career/jobs/backend-architect");
     expect(locs).not.toContain("/en/help/about");

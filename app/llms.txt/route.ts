@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
-import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { indexableCareerInterestPilots } from "@/lib/career/explorationPilot";
 import {
   listDiscoverableContentPagesWithLastKnownGood,
@@ -149,16 +147,6 @@ function localizedContentPagePath(page: ContentPage, fallbackLocale: Locale): st
   return normalizePath(`/${locale}${normalizedPath}`);
 }
 
-function shouldKeepCareerAuthorityRoute(item: {
-  href: string;
-  seoContract: { indexEligible: boolean | null; indexState: string | null };
-}): boolean {
-  return !isForbiddenFinalLlmsPath(item.href) && shouldIncludeInSitemap(item.href, {
-    indexEligible: item.seoContract.indexEligible,
-    indexState: item.seoContract.indexState,
-  });
-}
-
 type PersonalityPathResult = {
   paths: string[];
   mbtiAuthorityAvailable: boolean;
@@ -227,8 +215,6 @@ export async function GET() {
   const [
     enCareerGuides,
     zhCareerGuides,
-    enCareerRecommendations,
-    zhCareerRecommendations,
     personalityResult,
     topicEntries,
     enArticles,
@@ -246,26 +232,6 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       () => listCareerGuidesFromCms("zh", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
-      []
-    ),
-    withLlmsRouteBudget(
-      () =>
-        fetchCareerRecommendationIndex({ locale: "en" }).then((payload) =>
-          limitLlmsRouteEntries(
-            adaptCareerRecommendationIndex({ locale: "en", payload }),
-            LLMS_ROUTE_LIMITS.careerRecommendations
-          )
-        ),
-      []
-    ),
-    withLlmsRouteBudget(
-      () =>
-        fetchCareerRecommendationIndex({ locale: "zh" }).then((payload) =>
-          limitLlmsRouteEntries(
-            adaptCareerRecommendationIndex({ locale: "zh", payload }),
-            LLMS_ROUTE_LIMITS.careerRecommendations
-          )
-        ),
       []
     ),
     listPersonalityPaths(),
@@ -376,8 +342,6 @@ export async function GET() {
     "/zh/career/tests",
     ...guideEntries,
     ...indexableCareerInterestPilots().map((entry) => entry.path),
-    ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
-    ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
   ]);
   const careerJobAuthorityEntries = dedupeCareerJobAuthorityPaths(careerJobEntries);
   const allCareerEntries = [...careerEntries, ...careerJobAuthorityEntries];

@@ -803,19 +803,6 @@ test("legacy professions stay gone while types routes funnel into personality", 
   expect(`${typesDetailLocation.pathname}${typesDetailLocation.search}`).toBe("/en/personality/intj-a");
 });
 
-test("mbti career recommendation route exposes the current decision path and evidence", async ({ request }) => {
-  const response = await request.get("/en/career/recommendations/mbti/intj-a");
-  expect(response.status()).toBe(200);
-  const html = await response.text();
-
-  expect(html).toContain('id="answer-first"');
-  expect(html).toContain('data-testid="career-recommendation-v1-decision-summary"');
-  expect(html).toContain('data-testid="career-recommendation-v1-decision-cards"');
-  expect(html).toContain('data-testid="career-recommendation-protocol-status"');
-  expect(html).toContain('data-testid="career-recommendation-matched-jobs-status"');
-  expect(html).toContain('data-testid="career-recommendation-v1-evidence"');
-});
-
 test("INTJ personality pages render CMS projection sections and keep source entry anchors", async ({ request }) => {
   const response = await request.get("/en/personality/intj-a");
   expect(response.status()).toBe(200);
@@ -826,18 +813,6 @@ test("INTJ personality pages render CMS projection sections and keep source entr
   expect(html).toContain('id="overview"');
   expect(html).toContain("Projection overview body");
   expect(html).not.toContain('data-testid="mbti-personality-content-pack"');
-});
-
-test("INTP recommendation pages render the current decision path instead of a list-only view", async ({ request }) => {
-  const response = await request.get("/en/career/recommendations/mbti/intp-a");
-  expect(response.status()).toBe(200);
-  const html = await response.text();
-
-  expect(html).toContain('data-testid="career-recommendation-v1-decision-summary"');
-  expect(html).toContain('data-testid="career-recommendation-v1-decision-cards"');
-  expect(html).toContain('data-testid="career-recommendation-protocol-status"');
-  expect(html).toContain('data-testid="career-recommendation-matched-jobs-status"');
-  expect(html).toContain('data-testid="career-recommendation-v1-evidence"');
 });
 
 test("MBTI topic page exposes grouped continuation entry links", async ({ request }) => {
@@ -863,7 +838,20 @@ test("INTJ legacy career pages issue an exact 301 to the same-language work sect
   }
 });
 
-test("mbti result career CTA points to the 32-type recommendation authority route", async ({ page }) => {
+test("old MBTI career detail routes return Gone without rendering continuity", async ({ request }) => {
+  for (const locale of ["en", "zh", "zh-TW"]) {
+    for (const slug of ["estp", "estp-a", "estp-t"]) {
+      const path = `/${locale}/career/recommendations/mbti/${slug}?carryover_focus_key=growth.weekly_experiments`;
+      const response = await request.get(path, { maxRedirects: 0 });
+      expect(response.status(), path).toBe(410);
+      expect(response.headers()["x-robots-tag"], path).toContain("noindex");
+      expect(response.headers().location, path).toBeUndefined();
+      expect(await response.text()).toBe("Gone");
+    }
+  }
+});
+
+test("MBTI result does not link to retired career recommendations", async ({ page }) => {
   const attemptId = "mbti-career-join-0001";
   const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
   const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
@@ -967,17 +955,7 @@ test("mbti result career CTA points to the 32-type recommendation authority rout
   await page.goto(`/en/result/${attemptId}`);
 
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveCount(0);
-});
-
-test("career recommendation route renders continuity carryover when query is present", async ({ request }) => {
-  const response = await request.get(
-    "/en/career/recommendations/mbti/intj-a?carryover_focus_key=career.next_step&carryover_reason=continue_career_bridge"
-  );
-  expect(response.status()).toBe(200);
-  const html = await response.text();
-
-  expect(html).toContain('data-testid="mbti-career-continuity-entry"');
-  expect(html).toContain("Career next step");
+  await expect(page.locator('a[href*="/career/recommendations/mbti/"]')).toHaveCount(0);
 });
 
 test("riasec canonical public entry exposes 60Q and 140Q take routes", async ({ page }) => {

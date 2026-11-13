@@ -88,7 +88,7 @@ describe("June SEO P0 mobile SEO measurement gate", () => {
       "topic_detail",
       "personality_detail",
       "career_job_detail",
-      "career_recommendation_detail",
+      "career_recommendation_index",
     ]);
     expect(gate.routeSamples.map((sample) => sample.family)).toEqual(gate.requiredRouteFamilies);
 

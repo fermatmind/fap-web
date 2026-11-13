@@ -1,12 +1,11 @@
 'use client';
 
-import { migratePersonalityCareerHref } from "@/lib/mbti/personalityCareerHref";
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { Box, BriefcaseBusiness, Building2, FileText, PanelsTopLeft, Search, Sparkles } from 'lucide-react';
 import { CAREER_COMPARE_OPTIONS, CAREER_COMPARE_ROWS, careerCompareItems, readCareerComparePage, readPublishedCareerTaskPage, type CompareRead } from '@/lib/career/compare';
 import { DESIGN_COMPARE_TASKS, DESIGN_MBTI_EXPLORATION_NOTE, isDesignComparePair } from '@/lib/career/designComparePilot';
-import { buildCareerRecommendationFrontendUrl } from '@/lib/career/urls';
 import { CareerCompareWorksheet, type CareerWorksheetScenario } from './CareerCompareWorksheet';
 import { CareerPageItem } from '@/components/career/display/CareerPageItem';
 import { CareerEvidenceLine } from '@/components/career/display/CareerEvidenceLine';
@@ -222,12 +221,11 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
                     </a>
                   </div>
                   {!embedded ? <div className={styles.mbtiExploration}>
-                    <span>{traditional ? 'MBTI 探索示例（簡體中文）' : 'MBTI 探索示例'}</span>
+                    <span>MBTI 探索示例</span>
                     <ul aria-label={`${name}的 MBTI 探索示例`}>
-                      {design.mbtiTypes.map(type => {
-                        const href = `${buildCareerRecommendationFrontendUrl(locale, type)}#design-mbti-exploration`;
-                        return <li key={type}><Link href={traditional ? href : migratePersonalityCareerHref(href, locale)} hrefLang={traditional ? 'zh-CN' : undefined}>{type}</Link></li>;
-                      })}
+                      {design.mbtiTypes.map(type => (
+                        <li key={type}><Link href={personalityCareerHref(displayLocale, type)}>{type}</Link></li>
+                      ))}
                     </ul>
                   </div> : null}
                 </> : null}

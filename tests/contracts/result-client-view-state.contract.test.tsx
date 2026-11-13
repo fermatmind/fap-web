@@ -7,7 +7,6 @@ import ResultClient, {
 import { ApiError } from "@/lib/api-client";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
-import { buildMbtiCareerRecommendationHref } from "@/lib/mbti/publicProjection";
 import { buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
@@ -424,11 +423,6 @@ describe("ResultClient view-state contract", () => {
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_READY__ = false;
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__ = undefined;
     window.sessionStorage.clear();
-  });
-
-  it("routes the public career next step through the runtime 32-type slug", () => {
-    expect(buildMbtiCareerRecommendationHref("en", "ENFP-T")).toBe("/en/career/recommendations/mbti/enfp-t");
-    expect(buildMbtiCareerRecommendationHref("zh", "INTJ-A")).toBe("/zh/career/recommendations/mbti/intj-a");
   });
 
   it("keeps a valid finished Enneagram V2 report on the rich report path", async () => {

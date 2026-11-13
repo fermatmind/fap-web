@@ -63,10 +63,7 @@ import {
   appendMbtiAdaptiveSelectionQuery,
 } from "@/lib/mbti/adaptiveSelection";
 import { captureError } from "@/lib/observability/sentry";
-import {
-  buildMbtiCareerRecommendationHref,
-  type MbtiResultProjectionViewModel,
-} from "@/lib/mbti/publicProjection";
+import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import {
   summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
@@ -566,7 +563,6 @@ export function MbtiResultShell({
   const shellReadyPhaseTrackedRef = useRef(false);
   const resultViewTrackedRef = useRef(false);
   const actionJourneyImpressionTrackedRef = useRef(false);
-  const carryoverImpressionTrackedRef = useRef(false);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
@@ -611,10 +607,6 @@ export function MbtiResultShell({
       : projectionViewModel?.keywords && projectionViewModel.keywords.length > 0
         ? projectionViewModel.keywords
         : tags;
-  const careerRecommendationHref = buildMbtiCareerRecommendationHref(
-    locale,
-    projectionViewModel?.displayType
-  );
   const publicHeadline: RichResultHeadline = {
     ...headline,
     typeCode: publicTypeCode || headline.typeCode,
@@ -827,9 +819,6 @@ export function MbtiResultShell({
   const actionFocusKey = normalizeText(personalization?.actionFocusKey);
   const carryoverFocusKey = normalizeText(personalization?.continuity?.carryoverFocusKey);
   const carryoverReason = normalizeText(personalization?.continuity?.carryoverReason);
-  const continuityCareerHref = careerRecommendationHref
-    ? appendMbtiContinuityQuery(careerRecommendationHref, personalization?.continuity)
-    : "";
   const continuityWorkspaceHref = isUnlockedPostPurchase
     ? appendMbtiContinuityQuery(accessHub?.workspaceLite.href ?? historyHref, personalization?.continuity)
     : "";
@@ -844,18 +833,6 @@ export function MbtiResultShell({
     : historyHref
       ? appendMbtiActionJourneyQuery(historyHref, actionJourney, pulseCheck)
       : "";
-  const carryoverEntryHref = normalizeText(
-    carryoverFocusKey.startsWith("career.") ? continuityCareerHref : "",
-    isUnlockedPostPurchase ? continuityWorkspaceHref : "",
-    continuityCareerHref,
-    isUnlockedPostPurchase ? continuityHistoryHref : ""
-  );
-  const carryoverTarget =
-    carryoverEntryHref && carryoverEntryHref === continuityCareerHref
-      ? "career_bridge"
-      : carryoverEntryHref && (carryoverEntryHref === continuityWorkspaceHref || carryoverEntryHref === continuityHistoryHref)
-        ? "workspace_lite"
-        : "";
   const resolvedTerminalPrimaryCtaHref = isUnlockedPostPurchase
     ? normalizeText(continuityWorkspaceHref, continuityHistoryHref, terminalPrimaryCtaHref)
     : terminalPrimaryCtaHref;
@@ -1206,22 +1183,6 @@ export function MbtiResultShell({
       ...personalizationTelemetryContext,
     });
   }, [actionJourney, attemptId, isRevisit, personalizationTelemetryContext]);
-
-  useEffect(() => {
-    if (!carryoverEntryHref || carryoverImpressionTrackedRef.current) {
-      return;
-    }
-
-    carryoverImpressionTrackedRef.current = true;
-    trackEvent("ui_card_impression", {
-      slug: "mbti-result-shell",
-      scale_code: "MBTI",
-      visual_kind: "mbti_carryover_entry",
-      attempt_id: attemptId,
-      continueTarget: carryoverTarget,
-      ...personalizationTelemetryContext,
-    });
-  }, [attemptId, carryoverEntryHref, carryoverTarget, personalizationTelemetryContext]);
 
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;

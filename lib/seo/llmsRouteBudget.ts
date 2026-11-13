@@ -27,7 +27,6 @@ export const LLMS_ROUTE_LIMITS = {
   careerFamilies: 24,
   careerGuides: 24,
   careerJobs: 2200,
-  careerRecommendations: 32,
   helpPages: 60,
   personalityProfiles: 64,
   tests: 80,

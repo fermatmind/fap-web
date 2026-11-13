@@ -44,7 +44,7 @@
     "topic_detail",
     "personality_detail",
     "career_job_detail",
-    "career_recommendation_detail"
+    "career_recommendation_index"
   ],
   "routeSamples": [
     {
@@ -177,21 +177,21 @@
       ]
     },
     {
-      "family": "career_recommendation_detail",
-      "path": "/en/career/recommendations/mbti/intp-a",
+      "family": "career_recommendation_index",
+      "path": "/en/career/recommendations",
       "locale": "en",
-      "sampleAuthority": "backend_career_recommendation_bundle_and_route_contract",
+      "sampleAuthority": "backend_career_recommendation_index_and_route_contract",
       "indexabilityExpected": "public_indexable_backend_gated",
       "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility", "claim_boundary_visible"],
       "ctaPolicy": "required",
       "sourceFiles": [
         {
-          "path": "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
-          "requiredTokens": ["fetchCareerRecommendationBundle", "ClaimGuard", "buildPageMetadata"]
+          "path": "app/(localized)/[locale]/career/recommendations/page.tsx",
+          "requiredTokens": ["fetchCareerRecommendationIndex", "personalityCareerHref", "buildPageMetadata"]
         },
         {
-          "path": "tests/e2e/career-routing.spec.ts",
-          "requiredTokens": ["/en/career/recommendations/mbti/intp-a"]
+          "path": "tests/e2e/seo-og.spec.ts",
+          "requiredTokens": ["/en/career/recommendations"]
         }
       ]
     }

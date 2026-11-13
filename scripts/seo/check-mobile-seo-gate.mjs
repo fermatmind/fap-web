@@ -19,7 +19,7 @@ const REQUIRED_ROUTE_FAMILIES = [
   "topic_detail",
   "personality_detail",
   "career_job_detail",
-  "career_recommendation_detail",
+  "career_recommendation_index",
 ];
 
 const RUNTIME_ROUTE_SAMPLE_PATHS = new Map([
@@ -30,7 +30,7 @@ const RUNTIME_ROUTE_SAMPLE_PATHS = new Map([
   ["topic_detail", "/en/topics/mbti"],
   ["personality_detail", "/en/personality/intp-a"],
   ["career_job_detail", "/zh/career/jobs/accountants-and-auditors"],
-  ["career_recommendation_detail", "/en/career/recommendations/mbti/intp-a"],
+  ["career_recommendation_index", "/en/career/recommendations"],
 ]);
 
 const PUBLIC_SAMPLE_DENY_RE = /\/(?:api|og|history|result|results|orders|share|payment|pay)(\/|$)|\/tests\/[^/]+\/take(\/|$)/i;

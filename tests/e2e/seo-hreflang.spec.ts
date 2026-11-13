@@ -52,25 +52,6 @@ test("private workflow pages still emit noindex robot headers", async ({ request
   expect(robotsTag).toContain("nofollow");
 });
 
-test("career recommendation detail preserves the independent 4-letter owner and 32-type hreflang cluster", async ({ request }) => {
-  const baseResponse = await request.get("/en/career/recommendations/mbti/intj", { maxRedirects: 0 });
-  expect(baseResponse.status()).toBe(200);
-  expect(baseResponse.headers().location).toBeUndefined();
-  const baseHtml = await baseResponse.text();
-  expect(baseHtml).toContain('href="https://fermatmind.com/en/career/recommendations/mbti/intj"');
-  expect(baseHtml).toContain('hrefLang="zh-CN"');
-
-  const response = await request.get("/en/career/recommendations/mbti/intj-a");
-  expect(response.status()).toBe(200);
-  const html = await response.text();
-
-  expect(html).toContain('rel="canonical"');
-  expect(html).toContain("/en/career/recommendations/mbti/intj-a");
-  expect(html).toContain('hrefLang="zh-CN"');
-  expect(html).toContain("/zh/career/recommendations/mbti/intj-a");
-  expect(html).toContain('hrefLang="x-default"');
-});
-
 let stopPublicApiFixture: (() => Promise<void>) | undefined;
 test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
 test.afterAll(async () => { await stopPublicApiFixture?.(); });

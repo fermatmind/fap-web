@@ -25,6 +25,25 @@ afterEach(() => {
 });
 
 describe("proxy boundary contract", () => {
+  it("retires every old MBTI career detail identity before any API read", () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    for (const locale of ["en", "zh", "zh-TW", ""]) {
+      for (const first of "ie") for (const second of "ns") for (const third of "tf") for (const fourth of "jp") {
+        for (const suffix of ["", "-a", "-t"]) {
+          const path = `${locale ? `/${locale}` : ""}/career/recommendations/mbti/${first}${second}${third}${fourth}${suffix}`;
+          // Next's two exact INTJ redirects run ahead of Proxy.
+          if ((locale === "zh" || locale === "en") && path.endsWith("/intj")) continue;
+          const response = proxy(new NextRequest(`https://example.com${path}?carryover_focus_key=growth.weekly_experiments`));
+          expect(response.status, path).toBe(410);
+          expect(response.headers.get("location"), path).toBeNull();
+          expect(response.headers.get("x-robots-tag"), path).toContain("noindex");
+        }
+      }
+    }
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it.each(["en", "zh"])("returns the authoritative held status for the %s software developers route", async (locale) => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       expect(String(input)).toContain("/api/v0.5/career/jobs/software-developers");

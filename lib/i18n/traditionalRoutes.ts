@@ -58,7 +58,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/tests/explore/career-match") return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (CAREER_INTEREST_PILOTS.some(code => path === `/career/interests/${code}`)) return `/zh-TW${path}`;
-  if (/^\/career\/recommendations(?:\/mbti\/[ie][ns][tf][jp](?:-[at])?)?$/u.test(path)) return `/zh-TW${path}`;
+  if (path === "/career/recommendations") return `/zh-TW${path}`;
   if (path === "/career/compare") return "/zh-TW/career/compare";
   if (path === "/career/industries" || (path.startsWith("/career/industries/")
     && CAREER_DATASET_FAMILY_SLUGS.includes(path.slice("/career/industries/".length)))) return `/zh-TW${path}`;

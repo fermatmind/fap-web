@@ -24,7 +24,7 @@ Representative public route families:
 | topic detail | `/en/topics/mbti` |
 | personality detail | `/en/personality/intp-a` |
 | career job detail | `/zh/career/jobs/accountants-and-auditors` |
-| career recommendation detail | `/en/career/recommendations/mbti/intp-a` |
+| career recommendation index | `/en/career/recommendations` |
 
 These samples are intentionally existing routes. They are not new URLs and they
 do not expand sitemap or `llms.txt`.

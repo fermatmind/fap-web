@@ -18,6 +18,7 @@ export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
   /^\/account(\/|$)/i,
   /^\/cms-preview(\/|$)/i,
   /^\/api(\/|$)/i,
+  /^\/career\/recommendations\/mbti(?:\/|$)/i,
   /^\/og(\/|$)/i,
   /^\/history(\/|$)/i,
   /^\/result(\/|$)/i,

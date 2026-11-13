@@ -29,10 +29,10 @@ describe("mbti ads whitelist contract", () => {
     expect(MBTI_ADS_PRIMARY_WHITELIST).toEqual(["/tests/mbti-personality-test-16-personality-types"]);
     expect(MBTI_ADS_SECONDARY_WHITELIST).toEqual([
       "/personality/[type]",
-      "/career/recommendations/mbti/[type]",
     ]);
     expect(MBTI_ADS_SEO_ONLY_PAGES).toEqual(["/personality", "/topics", "/topics/mbti"]);
     expect(MBTI_ADS_FORBIDDEN_PATTERNS).toEqual([
+      "/career/recommendations/mbti/[type]",
       "/result/[id]",
       "/tests/*/take",
       "/orders/*",
@@ -119,7 +119,7 @@ describe("mbti ads whitelist contract", () => {
   it("classifies mbti ads surfaces with locale-aware routing", () => {
     expect(getMbtiAdsSurfacePolicy("/en/tests/mbti-personality-test-16-personality-types")).toBe("primary");
     expect(getMbtiAdsSurfacePolicy("/zh/personality/intj-a")).toBe("secondary");
-    expect(getMbtiAdsSurfacePolicy("/en/career/recommendations/mbti/intj-a")).toBe("secondary");
+    expect(getMbtiAdsSurfacePolicy("/en/career/recommendations/mbti/intj-a")).toBe("forbidden");
     expect(getMbtiAdsSurfacePolicy("/zh/personality")).toBe("seo_only");
     expect(getMbtiAdsSurfacePolicy("/en/topics/mbti")).toBe("seo_only");
     expect(getMbtiAdsSurfacePolicy("/en/result/attempt-123")).toBe("forbidden");
@@ -166,19 +166,13 @@ describe("mbti ads whitelist contract", () => {
     expect(footerSocialIcons).not.toContain("localizedPath(\"/share");
   });
 
-  it("keeps personality and recommendation detail pages in the ads secondary whitelist with reduced secondary CTA weight", () => {
+  it("keeps personality pages in the ads secondary whitelist with reduced secondary CTA weight", () => {
     const personality = read("app/(localized)/[locale]/personality/[type]/page.tsx");
-    const recommendation = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(personality).toContain('data-ads-surface="secondary"');
     expect(personality).toContain('data-testid="mbti-personality-primary-cta"');
     expect(personality).toContain('size: "sm"');
     expect(personality).toContain("sourcePath: canonicalPath");
-
-    expect(recommendation).toContain('data-ads-surface="secondary"');
-    expect(recommendation).toContain('data-testid="mbti-career-primary-cta"');
-    expect(recommendation).toContain('data-testid="mbti-career-secondary-cta"');
-    expect(recommendation).toContain("sourcePath: canonicalPath");
   });
 
   it("keeps topic and personality index pages as seo-only entry surfaces while preserving landing attribution", () => {

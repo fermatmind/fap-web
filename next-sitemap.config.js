@@ -174,50 +174,6 @@ function extractPathFromCanonicalUrl(value) {
   }
 }
 
-function isExplicitCareerIndexableState(value) {
-  const normalized = normalizeSlug(value).toLowerCase();
-  if (!normalized) return null;
-  if (normalized === "indexable" || normalized === "promotion_candidate" || normalized === "seed_index") {
-    return true;
-  }
-  if (normalized === "noindex" || normalized === "blocked" || normalized === "excluded") {
-    return false;
-  }
-  return null;
-}
-
-function resolveCareerExplicitGate(item) {
-  if (!item || typeof item !== "object") {
-    return null;
-  }
-
-  const seoContract = item.seo_contract && typeof item.seo_contract === "object" ? item.seo_contract : null;
-  const seoSurface = item.seo_surface_v1 && typeof item.seo_surface_v1 === "object" ? item.seo_surface_v1 : null;
-  const indexState = normalizeSlug(
-    (seoContract && seoContract.index_state) ||
-      item.index_state ||
-      (seoSurface && (seoSurface.index_state || seoSurface.indexability_state))
-  );
-  const explicitBoolean =
-    (seoContract && typeof seoContract.index_eligible === "boolean" ? seoContract.index_eligible : null) ??
-    (typeof item.index_eligible === "boolean" ? item.index_eligible : null) ??
-    (seoSurface && typeof seoSurface.index_eligible === "boolean" ? seoSurface.index_eligible : null);
-  const derivedBoolean = explicitBoolean === null ? isExplicitCareerIndexableState(indexState) : explicitBoolean;
-
-  if (derivedBoolean === null && !indexState) {
-    return { indexEligible: null, indexState: null };
-  }
-
-  return {
-    indexEligible: derivedBoolean,
-    indexState: indexState || null,
-  };
-}
-
-function shouldIncludeCareerSitemapPath(path, item) {
-  return shouldIncludeGeneratedSitemapPath(path, resolveCareerExplicitGate(item));
-}
-
 function isForbiddenFinalSitemapPath(path) {
   const normalized = normalizePath(path);
   return (
@@ -318,31 +274,6 @@ function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
   }
   if (!shouldIncludeCmsSitemapPath(normalized)) return false;
   return shouldIncludeInSitemap(normalized, explicitGate);
-}
-
-function extractAuthorityItems(payload) {
-  if (Array.isArray(payload && payload.items)) {
-    return payload.items;
-  }
-
-  if (Array.isArray(payload && payload.data)) {
-    return payload.data;
-  }
-
-  return [];
-}
-
-function buildLocalizedAuthorityCareerPath(localePrefix, canonicalPath, fallbackPath) {
-  const normalizedCanonical = normalizePath(canonicalPath || "");
-  if (/^\/(en|zh)(\/|$)/i.test(normalizedCanonical)) {
-    return normalizedCanonical;
-  }
-
-  if (normalizedCanonical.startsWith("/career/")) {
-    return `/${localePrefix}${normalizedCanonical}`;
-  }
-
-  return normalizePath(fallbackPath);
 }
 
 const staticGeneratedPaths = buildStaticGeneratedPaths();
@@ -792,41 +723,6 @@ async function buildCareerIndustryAndFamilyPathsFromDataset() {
   }
 }
 
-async function buildCareerRecommendationDetailPathsFromAuthority() {
-  try {
-    const paths = new Set();
-
-    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      const params = new URLSearchParams({ locale: apiLocale });
-      const payload = await fetchJsonWithTimeout(
-        `${buildApiUrl("/v0.5/career/recommendations/mbti")}?${params.toString()}`
-      );
-      const items = extractAuthorityItems(payload);
-
-      for (const item of items) {
-        const routeSlug = normalizeSlug(
-          item?.recommendation_subject_meta?.public_route_slug ||
-          item?.recommendation_subject_meta?.canonical_type_code ||
-          item?.recommendation_subject_meta?.type_code
-        ).toLowerCase();
-        if (!routeSlug) continue;
-        const path = buildLocalizedAuthorityCareerPath(
-          localePrefix,
-          item?.seo_contract?.canonical_path,
-          `/${localePrefix}/career/recommendations/mbti/${routeSlug}`
-        );
-        if (shouldIncludeCareerSitemapPath(path, item)) {
-          paths.add(path);
-        }
-      }
-    }
-
-    return [...paths];
-  } catch {
-    return [];
-  }
-}
-
 async function buildTopicDetailPathsFromApi() {
   return buildCmsDetailPaths(
     "/v0.5/topics",
@@ -966,7 +862,6 @@ async function buildAdditionalSitemapEntries() {
     dataPaths,
     careerJobApiPaths,
     careerIndustryAndFamilyPaths,
-    careerRecommendationApiPaths,
     personalityPaths,
     personalityComparisonPaths,
     topicApiPaths,
@@ -979,7 +874,6 @@ async function buildAdditionalSitemapEntries() {
     buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
     buildCareerJobDetailPathsFromAuthority(),
     buildCareerIndustryAndFamilyPathsFromDataset(),
-    buildCareerRecommendationDetailPathsFromAuthority(),
     buildPersonalityDetailPathsFromAuthority(),
     buildPersonalityComparisonPathsFromAuthority(),
     buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
@@ -997,7 +891,6 @@ async function buildAdditionalSitemapEntries() {
     ...careerJobApiPaths,
     ...careerIndustryAndFamilyPaths.industries,
     ...careerIndustryAndFamilyPaths.families,
-    ...careerRecommendationApiPaths,
     ...personalityPaths,
     ...personalityComparisonPaths,
     ...topicApiPaths,

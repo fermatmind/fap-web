@@ -1,16 +1,16 @@
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { normalizeDisplayLocale, type DisplayLocale } from "@/lib/i18n/locales";
 
 const BASE_TYPE = /^[ie][ns][tf][jp]$/;
 
-export function personalityCareerHref(locale: Locale, type: string): string {
+export function personalityCareerHref(locale: DisplayLocale, type: string): string {
   const base = type.toLowerCase().replace(/-[at]$/, "");
-  return BASE_TYPE.test(base)
-    ? localizedPath(`/personality/${base}#${base}-career-exploration`, locale)
-    : localizedPath("/personality", locale);
+  if (!BASE_TYPE.test(base)) return `/${locale}/personality`;
+  const anchor = locale === "zh-TW" ? "work_style" : `${base}-career-exploration`;
+  return `/${locale}/personality/${base}#${anchor}`;
 }
 
-export function migratePersonalityCareerHref(href: string, locale: Locale): string {
-  const match = href.match(/^(?:https:\/\/fermatmind\.com)?\/(?:(zh|en)\/)?career\/recommendations\/mbti\/([ie][ns][tf][jp](?:-[at])?)\/?(#design-mbti-exploration)?$/);
-  if (!match || (match[1] && match[1] !== locale) || (match[3] && match[2] !== "intj")) return href;
-  return personalityCareerHref(locale, match[2]);
+export function migratePersonalityCareerHref(href: string, locale: DisplayLocale): string {
+  const match = href.match(/^(?:https:\/\/(?:www\.)?fermatmind\.com)?\/(?:(zh|en|zh-TW)\/)?career\/recommendations\/mbti\/([ie][ns][tf][jp](?:-[at])?)\/?(?:[?#].*)?$/i);
+  if (!match) return href;
+  return personalityCareerHref(normalizeDisplayLocale(match[1]) ?? locale, match[2]);
 }

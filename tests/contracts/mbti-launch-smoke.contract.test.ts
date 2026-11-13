@@ -31,10 +31,6 @@ describe("mbti launch smoke contract", () => {
       "/en/personality/infj-a",
       "/en/personality/istj-a",
       "/en/personality/enfj-a",
-      "/en/career/recommendations/mbti/intj-a",
-      "/en/career/recommendations/mbti/entj-a",
-      "/en/career/recommendations/mbti/infj-a",
-      "/en/career/recommendations/mbti/istj-a",
       "/en/personality",
       "/en/topics/mbti",
     ]);
@@ -60,12 +56,6 @@ describe("mbti launch smoke contract", () => {
       "INFJ",
       "ISTJ",
       "ENFJ",
-    ]);
-    expect(MBTI_ADS_LAUNCH_MANIFEST.stableSmokeRecommendationTypes).toEqual([
-      "INTJ",
-      "ENTJ",
-      "INFJ",
-      "ISTJ",
     ]);
     expect(MBTI_ADS_LAUNCH_MANIFEST.stableSmokeLocales).toEqual(MBTI_ADS_STABLE_SMOKE_LOCALES);
     expect(MBTI_ADS_LAUNCH_MANIFEST.launchSignalEvents).toEqual(MBTI_ADS_LAUNCH_SIGNAL_EVENTS);

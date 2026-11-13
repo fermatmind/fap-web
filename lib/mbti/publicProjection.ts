@@ -28,7 +28,6 @@ import type {
   WidgetSurfaceRaw,
 } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import type { Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { resolveBig5PrivateResultAuthority, type Big5PrivateResultAuthority } from "@/lib/big5/privateResultAuthority";
@@ -2342,22 +2341,6 @@ export function normalizeMbtiCanonicalTypeCode(value: unknown): string {
 export function isMbtiCanonicalTypeCode(value: unknown): boolean {
   const parsed = parseMbtiTypeCode(value);
   return Boolean(parsed && !parsed.variantCode);
-}
-
-export function buildMbtiCareerRecommendationHref(
-  locale: Locale,
-  displayType: unknown
-): string {
-  const parsed = parseMbtiTypeCode(displayType);
-  if (!parsed) {
-    return "";
-  }
-
-  const slug = parsed.variantCode
-    ? `${parsed.canonicalTypeCode}-${parsed.variantCode}`
-    : parsed.canonicalTypeCode;
-
-  return `/${locale}/career/recommendations/mbti/${slug.toLowerCase()}`;
 }
 
 export function buildSharePageViewModel(
