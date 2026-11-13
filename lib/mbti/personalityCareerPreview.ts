@@ -6,6 +6,7 @@ import {
   type CareerRecommendationMatchedJob,
 } from "@/lib/cms/career-recommendations";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import type {
   CareerPreviewCard,
   CareerPreviewSeed,
@@ -201,8 +202,8 @@ export function createCareerPreviewCardFromDetail(
     topMatchingTypes,
     stance,
     primaryCta: {
-      label: locale === "zh" ? "查看职业建议" : "View career guidance",
-      href: detail.href,
+      label: locale === "zh" ? "查看工作与职业探索" : "View work and career exploration",
+      href: personalityCareerHref(locale, detail.publicRouteSlug),
       kind: "primary",
     },
     secondaryCta: {

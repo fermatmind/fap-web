@@ -134,7 +134,7 @@ describe("personality career preview contract", () => {
     const card = createCareerPreviewCardFromDetail(detail, jobListMap, "en");
 
     expect(card).not.toBeNull();
-    expect(card?.primaryCta.href).toBe("/en/career/recommendations/mbti/intj-a");
+    expect(card?.primaryCta.href).toBe("/en/personality/intj#intj-career-exploration");
     expect(card?.secondaryCta.href).toBe("/en/career/jobs/product-strategist");
     expect(card?.signals.length).toBeGreaterThanOrEqual(2);
     expect(card?.radar.axes).toHaveLength(5);

@@ -44,7 +44,9 @@ describe("robots contract", () => {
     expect(shouldIncludeInSitemap("/en/help/faq")).toBe(true);
     expect(shouldIncludeInSitemap("/en/method-boundaries")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/method-boundaries")).toBe(true);
-    expect(shouldIncludeInSitemap("/en/career/recommendations/mbti/INTJ")).toBe(true);
+    expect(shouldIncludeInSitemap("/en/career/recommendations")).toBe(true);
+    expect(shouldIncludeInSitemap("/en/career/recommendations/mbti/INTJ")).toBe(false);
+    expect(shouldIncludeInSitemap("/zh-TW/career/recommendations/mbti/estp-a")).toBe(false);
     expect(shouldIncludeInSitemap("/en/career/jobs")).toBe(false);
     expect(shouldIncludeInSitemap("/zh/career/jobs")).toBe(false);
     expect(shouldIncludeInSitemap("/en/career/jobs?q=backend")).toBe(false);
