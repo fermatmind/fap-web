@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "8cb719378ad2bb64de56e675c7904f9d676b7efe",
+    "sha": "99354b8a8757c7e0aa2688ce47654da7cd974cfb",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -2222,8 +2222,8 @@
     },
     {
       "path": "scripts/seo/check-mobile-seo-gate.mjs",
-      "sha256": "4db336f435c9f134967cf5dfbcb6e1df2be98a81f2283a963ca1f01078929b79",
-      "byte_size": 11928,
+      "sha256": "3393662be6b5cf593b5d5aea0d39f6c7a54f3de9b08f1e38d49f252c9362fb90",
+      "byte_size": 11914,
       "classification": "deterministic_tool"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "18d174cbe47f7875c03fa8672e52ec18e1784ab837689723b45602ffdbad47dd"
+  "projection_self_hash": "9c35330823b451af492d64aa702e867e5c666f8fc2c2d62171562ca19be6469f"
 }
