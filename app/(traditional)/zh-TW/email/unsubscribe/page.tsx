@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import { EmailUnsubscribeClient } from "@/components/email/EmailUnsubscribeClient";
 import { EmailLanguageLinks } from "@/components/email/EmailLanguageLinks";
@@ -9,5 +10,5 @@ export const metadata: Metadata = {title:dict.email.unsubscribe.metadataTitle,de
 export default async function TraditionalEmailUnsubscribePage({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
   const query = await searchParams;
   const token = String(Array.isArray(query.token) ? query.token[0] ?? "" : query.token ?? "").trim();
-  return <><EmailUnsubscribeClient locale="zh-TW" token={token} dict={dict} /><EmailLanguageLinks path="/email/unsubscribe" token={token} locale="zh-TW" /></>;
+  return <Container as="main" className="max-w-3xl py-10"><EmailUnsubscribeClient locale="zh-TW" token={token} dict={dict} /><EmailLanguageLinks path="/email/unsubscribe" token={token} locale="zh-TW" /></Container>;
 }

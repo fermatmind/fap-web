@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TraditionalChanganLanding() {
   const quiz = await loadTraditionalChangan();
   if (!quiz) notFound();
-  return <section className="mx-auto max-w-3xl space-y-6">
+  return <Container as="main" className="max-w-3xl space-y-6 py-10">
     <nav aria-label="測驗語言與導覽" className="flex flex-wrap gap-4 text-sm">
       <Link href="/zh-TW/tests/play" className="min-h-11 py-2 underline">互動故事測驗</Link>
       <Link href={quizPath("zh", CHANGAN_SLUG)} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
@@ -66,5 +67,5 @@ export default async function TraditionalChanganLanding() {
       <h3 className="font-semibold">有幾種結果？</h3>
       <p>六位歷史人物各有一張插畫人物卡與一份公開指南。每次作答只會顯示一位人物。</p>
     </section>
-  </section>;
+  </Container>;
 }

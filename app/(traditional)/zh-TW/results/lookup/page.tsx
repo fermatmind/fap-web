@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ResultEmailLookupForm } from "@/components/support/ResultEmailLookupForm";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function TraditionalResultLookupPage() {
-  return <section className="mx-auto max-w-2xl space-y-4">
+  return <Container as="main" className="max-w-2xl space-y-4 py-10">
     <h1 className="m-0 text-2xl font-bold text-slate-900">找回測驗結果</h1>
     <ResultEmailLookupForm locale="zh-TW" />
     <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
@@ -20,5 +21,5 @@ export default function TraditionalResultLookupPage() {
       <Link href="/zh/results/lookup" lang="zh-CN" prefetch={false} className="min-h-11 py-2 underline">简体中文</Link>
       <Link href="/en/results/lookup" lang="en" prefetch={false} className="min-h-11 py-2 underline">English</Link>
     </nav>
-  </section>;
+  </Container>;
 }

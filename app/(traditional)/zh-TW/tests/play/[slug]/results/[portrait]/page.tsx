@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -51,7 +52,7 @@ export default async function TraditionalStoryPortraitPage({ params }: Props) {
   const path = quizPath("zh-TW", quiz.slug);
   const branch = quiz.mechanism === "branch";
   const changan = quiz.slug === CHANGAN_SLUG;
-  return <div className="mx-auto max-w-3xl space-y-7" data-story-guide={quiz.mechanism}>
+  return <Container as="main" className="max-w-3xl space-y-7 py-10" data-story-guide={quiz.mechanism}>
     <nav aria-label="指南語言" className="flex flex-wrap gap-4 text-sm">
       <Link href={path} className="min-h-11 py-2 underline">{quiz.seo.topic.zh}</Link>
       <Link href={resultPath("zh", quiz.slug, result.id)} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
@@ -110,5 +111,5 @@ export default async function TraditionalStoryPortraitPage({ params }: Props) {
       </section>
     </article>
     <Link href={path} className="inline-block min-h-11 py-2 underline">返回測驗介紹</Link>
-  </div>;
+  </Container>;
 }

@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import { EmailPreferencesClient } from "@/components/email/EmailPreferencesClient";
 import { EmailLanguageLinks } from "@/components/email/EmailLanguageLinks";
@@ -9,5 +10,5 @@ export const metadata: Metadata = {title:dict.email.preferences.metadataTitle,de
 export default async function TraditionalEmailPreferencesPage({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
   const query = await searchParams;
   const token = String(Array.isArray(query.token) ? query.token[0] ?? "" : query.token ?? "").trim();
-  return <><EmailPreferencesClient locale="zh-TW" token={token} dict={dict} /><EmailLanguageLinks path="/email/preferences" token={token} locale="zh-TW" /></>;
+  return <Container as="main" className="max-w-3xl py-10"><EmailPreferencesClient locale="zh-TW" token={token} dict={dict} /><EmailLanguageLinks path="/email/preferences" token={token} locale="zh-TW" /></Container>;
 }

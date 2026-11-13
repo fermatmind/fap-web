@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -64,7 +65,7 @@ export default async function TraditionalCareerGuidePage({ params }: RouteProps)
   const zh = careerGuideAlternatePath(seo?.meta.alternates["zh-CN"], buildCareerGuideFrontendUrl("zh", slug));
   const en = careerGuideAlternatePath(seo?.meta.alternates.en, buildCareerGuideFrontendUrl("en", slug));
   return (
-    <div className="min-w-0 space-y-6">
+    <Container as="main" className="min-w-0 space-y-6 py-10">
       <JsonLd id={`career-guide-jsonld-${slug}`} data={normalized.jsonld} />
       <header className="space-y-4">
         <Link href="/zh-TW/career/guides" className="inline-flex min-h-11 items-center underline">返回職涯路徑指南</Link>
@@ -88,6 +89,6 @@ export default async function TraditionalCareerGuidePage({ params }: RouteProps)
         />
         <RelatedContent title="相關文章" items={guide.relatedArticles} appearance="career-guide" />
       </div>
-    </div>
+    </Container>
   );
 }

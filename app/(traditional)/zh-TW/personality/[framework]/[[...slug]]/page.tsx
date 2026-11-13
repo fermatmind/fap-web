@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -66,15 +67,17 @@ export default async function TraditionalPersonalityAssetPage(props: Props) {
       }))).flatMap(result => result.status === "fulfilled" && result.value ? [result.value] : [])
     : [];
   return <>
-    <nav aria-label="頁面語言" className="mb-6 flex flex-wrap gap-5 text-sm">
-      <Link href={"/zh" + suffix} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
-      <Link href={"/en" + suffix} lang="en" className="min-h-11 py-2 underline">English</Link>
-    </nav>
-    {content.kind === "asset" && content.asset.entityType === "hub" ? <TraditionalPersonalityCategoryBackLink /> : null}
+    <Container>
+      <nav aria-label="頁面語言" className="mb-6 flex flex-wrap gap-5 text-sm">
+        <Link href={"/zh" + suffix} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
+        <Link href={"/en" + suffix} lang="en" className="min-h-11 py-2 underline">English</Link>
+      </nav>
+      {content.kind === "asset" && content.asset.entityType === "hub" ? <TraditionalPersonalityCategoryBackLink /> : null}
+    </Container>
     {content.kind === "mbti" ? <TraditionalMbtiCurrentReader reader={content.reader} />
       : <PublicContentAssetRenderer asset={content.asset} locale="zh-TW" />}
-    {policies.length > 0 && <nav aria-label="大五人格方法與來源" className="mt-6 flex flex-wrap gap-5 text-sm">
+    {policies.length > 0 && <Container as="nav" aria-label="大五人格方法與來源" className="mt-6 flex flex-wrap gap-5 text-sm">
       {policies.map(policy => <Link key={policy.slug} href={buildContentPagePath(policy.slug, "zh-TW")} className="min-h-11 py-2 underline">{policy.title}</Link>)}
-    </nav>}
+    </Container>}
   </>;
 }

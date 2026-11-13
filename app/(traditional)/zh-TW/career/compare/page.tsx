@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
 import CareerComparePage from "@/app/(localized)/[locale]/career/compare/page";
@@ -13,10 +14,10 @@ type Props = { searchParams: Promise<Record<string, string | string[] | undefine
 
 export default function TraditionalCareerComparePage({ searchParams }: Props) {
   return <>
-    <nav aria-label="頁面語言" className="flex flex-wrap gap-4 text-sm">
+    <Container as="nav" aria-label="頁面語言" className="flex flex-wrap gap-4 text-sm">
       <Link href="/zh/career/compare" lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
       <Link href="/en/career/compare" lang="en" className="min-h-11 py-2 underline">English</Link>
-    </nav>
+    </Container>
     <CareerComparePage params={Promise.resolve({ locale: "zh-TW" })} searchParams={searchParams} />
   </>;
 }

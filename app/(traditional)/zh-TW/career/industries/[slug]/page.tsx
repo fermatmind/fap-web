@@ -1,3 +1,4 @@
+import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -33,10 +34,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TraditionalIndustryDetailPage({ params, searchParams }: Props) {
   const slug = await requireSlug(params);
   return <>
-    <nav aria-label="頁面語言" className="flex flex-wrap gap-4 text-sm">
+    <Container as="nav" aria-label="頁面語言" className="flex flex-wrap gap-4 text-sm">
       <Link href={`/zh/career/industries/${slug}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
       <Link href={`/en/career/industries/${slug}`} lang="en" className="min-h-11 py-2 underline">English</Link>
-    </nav>
+    </Container>
     <CareerIndustryDetailPage params={Promise.resolve({ locale: "zh-TW", slug })} searchParams={searchParams} />
   </>;
 }

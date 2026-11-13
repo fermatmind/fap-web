@@ -6,6 +6,7 @@ import { ArticleClosing } from "@/components/articles/ArticleClosing";
 import { ArticleLanguageNavigation } from "@/components/articles/ArticleLanguageNavigation";
 import { ArticleFragmentNavigation } from "@/components/articles/ArticleFragmentNavigation";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
+import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { buildArticleFrontendUrl, getCmsArticle, getCmsArticleSeo, normalizeArticleSlug } from "@/lib/cms/articles";
@@ -99,7 +100,7 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
   );
 
   return (
-    <main className="min-w-0 space-y-8">
+    <Container as="main" className="min-w-0 space-y-8 py-10">
       {schemaGate.canRenderArticleJsonLd && fragments?.article
         ? <JsonLd id={`article-jsonld-${slug}`} data={fragments.article} /> : null}
       {schemaGate.canRenderBreadcrumbJsonLd && fragments?.breadcrumbList
@@ -108,14 +109,11 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
         {languages["zh-CN"] ? <Link href={new URL(languages["zh-CN"]).pathname} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link> : null}
         {languages.en ? <Link href={new URL(languages.en).pathname} lang="en" className="min-h-11 py-2 underline">English</Link> : null}
       </nav> : null}
-      <header className="space-y-4">
-        {publishedArchive ? <nav aria-label="部落格" className="flex flex-wrap gap-4 text-sm">
-          <Link href={blogArchivePath(locale)} className="min-h-11 py-2 underline">返回文章列表</Link>
-          {category ? <Link href={blogArchivePath(locale, category.slug)} className="min-h-11 py-2 underline">{category.name}</Link> : null}
-        </nav> : null}
-        <h1 className="break-words font-serif text-3xl font-semibold leading-tight sm:text-4xl">{article.title}</h1>
-        {article.excerpt ? <p className="text-lg leading-8">{article.excerpt}</p> : null}
-        {article.authorName ? <p className="text-sm">作者 {article.authorName}</p> : null}
+      {publishedArchive ? <nav aria-label="部落格" className="flex flex-wrap gap-4 text-sm">
+        <Link href={blogArchivePath(locale)} className="min-h-11 py-2 underline">返回文章列表</Link>
+        {category ? <Link href={blogArchivePath(locale, category.slug)} className="min-h-11 py-2 underline">{category.name}</Link> : null}
+      </nav> : null}
+      <header className="space-y-5 border-b border-[var(--fm-border)] pb-7">
         <ArticleResponsiveImage
           src={article.coverImageUrl}
           alt={article.coverImageAlt ?? article.title}
@@ -124,8 +122,13 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
           variants={article.coverImageVariants}
           mode="hero"
           priority
-          className="aspect-[16/9] rounded-lg"
+          className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
         />
+        <div className="max-w-4xl space-y-4">
+          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] [overflow-wrap:anywhere]">{article.title}</h1>
+          {article.excerpt ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
+          {article.authorName ? <p className="text-sm text-[var(--fm-text-muted)]">作者 {article.authorName}</p> : null}
+        </div>
       </header>
       {headings.length > 1 ? (
         <nav aria-label="本文目錄" className="rounded-lg border p-5">
@@ -170,6 +173,6 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
         </section>
       ) : null}
       <ArticleClosing key={canonical} locale={locale} url={canonical} />
-    </main>
+    </Container>
   );
 }

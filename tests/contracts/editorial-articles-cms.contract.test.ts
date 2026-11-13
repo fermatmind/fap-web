@@ -99,6 +99,7 @@ describe("editorial article CMS contract", () => {
         slug,
         locale: "zh-TW",
         title: "七宗罪與七美德",
+        cover_image_url: "https://fermatmind.com/cover.jpg",
         author_name: "費馬測試編輯部",
         content_md: `## 七宗罪\n\n## 七美德\n\n[開始測試](${testPath})`,
         status: "published",
@@ -120,7 +121,8 @@ describe("editorial article CMS contract", () => {
     expect(html).toContain('aria-label="本文目錄"');
     expect(html).toContain(`href="${testPath}"`);
     expect(html.match(/<main\b/g)).toHaveLength(1);
-    expect(html).toMatch(/^<main\b/);
+    expect(html).toMatch(/^<main[^>]*class="[^"]*mx-auto[^"]*max-w-6xl[^"]*--fm-container-gutter/);
+    expect(html).toMatch(/<header[\s\S]*<img[^>]*cover\.jpg[\s\S]*<h1[\s\S]*<\/header>/);
     expect(html).toContain('data-testid="article-detail-content"');
     expect(html).toMatch(/<\/main>$/);
   });
