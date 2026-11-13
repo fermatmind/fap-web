@@ -583,10 +583,12 @@ if [[ "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
   exit 1
 fi
 log "active immutable release: ${DEPLOYED_REVISION:0:12}"
-require_candidate_analytics_smoke
-if [[ -e "$STANDALONE_DIR/.tracking-runtime.json" || -L "$STANDALONE_DIR/.tracking-runtime.json" \
-   || -e "$STANDALONE_DIR/.tracking-runtime-managed.json" || -L "$STANDALONE_DIR/.tracking-runtime-managed.json" ]]; then
-  "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" auth-probe "$STANDALONE_DIR/.tracking-runtime.json"
+if [[ "$PREFLIGHT_ONLY" == "1" || "${CANDIDATE_PREFLIGHT_PASSED:-0}" != "1" ]]; then
+  require_candidate_analytics_smoke
+  if [[ -e "$STANDALONE_DIR/.tracking-runtime.json" || -L "$STANDALONE_DIR/.tracking-runtime.json" \
+     || -e "$STANDALONE_DIR/.tracking-runtime-managed.json" || -L "$STANDALONE_DIR/.tracking-runtime-managed.json" ]]; then
+    "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" auth-probe "$STANDALONE_DIR/.tracking-runtime.json"
+  fi
 fi
 if [[ "$PREFLIGHT_ONLY" == "1" ]]; then
   log "candidate preflight passed before activation"
