@@ -1768,7 +1768,7 @@ function QuizTakeInner({
                 options={questionOptions}
                 showTextOptions={isMergedIq}
                 value={selectedOptionId}
-                locale={locale}
+                locale={displayLocale === "zh-TW" ? "zh-TW" : locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 disabled={iqTransitioning || submitting || submitOverlayVisible}
                 onKeyboardSelect={(code) => handleAnswerSelection(question.id, code)}
@@ -1903,7 +1903,7 @@ function QuizTakeInner({
             options={questionOptions}
             showTextOptions={isMergedIq}
             value={selectedOptionId}
-            locale={locale}
+            locale={displayLocale === "zh-TW" ? "zh-TW" : locale}
             noOptionsLabel={dict.quiz.immersive.noOptions}
             disabled={iqTransitioning || submitting || submitOverlayVisible}
             onKeyboardSelect={(code) => handleAnswerSelection(question.id, code)}

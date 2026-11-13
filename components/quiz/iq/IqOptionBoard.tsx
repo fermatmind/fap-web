@@ -58,7 +58,7 @@ export function IqOptionBoard({
   questionId: string;
   options: IqOptionItem[];
   value?: string;
-  locale: "en" | "zh";
+  locale: "en" | "zh" | "zh-TW";
   noOptionsLabel: string;
   layoutMode?: LayoutMode;
   disabled?: boolean;
@@ -67,6 +67,7 @@ export function IqOptionBoard({
   onKeyboardSelect?: (code: string) => void;
 }) {
   const normalized = useMemo(() => normalizeOptions(options), [options]);
+  const optionPrefix = { en: "Option", zh: "选项", "zh-TW": "選項" }[locale];
   const optionCount = normalized.length;
   const columns = getDesktopColumns(optionCount);
 
@@ -107,7 +108,7 @@ export function IqOptionBoard({
             {normalized.map((option, idx) => {
               const selected = value === option.code;
               const letter = toOptionLetter(idx);
-              const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
+              const optionLabel = `${optionPrefix} ${letter}`;
               const optionText = showTextOptions && !option.svg && !option.image ? option.text : null;
 
               return (
@@ -179,7 +180,7 @@ export function IqOptionBoard({
           {normalized.map((option, idx) => {
             const selected = value === option.code;
             const letter = toOptionLetter(idx);
-            const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
+            const optionLabel = `${optionPrefix} ${letter}`;
             const optionText = showTextOptions && !option.svg && !option.image ? option.text : null;
 
             return (
