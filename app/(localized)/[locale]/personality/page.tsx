@@ -1,3 +1,4 @@
+import { getMbtiResultPortrait } from "@/lib/mbti/resultPortrait";
 import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
 import { cache } from "react";
@@ -414,6 +415,8 @@ function TypeGroupBrowse({
                       (variant) => variant.variantCode === "T" || variant.typeCode.endsWith("-T")
                     );
                     const type = variantA ?? variantT ?? typeGroup.variants[0];
+                    const portrait = getMbtiResultPortrait(typeGroup.baseTypeCode);
+                    const imageUrl = portrait ?? type?.imageUrl;
                     const isPriorityImage = groupIndex === 0 && typeIndex < 4;
                     const comparisonHref =
                       comparisonHrefByBaseType.get(typeGroup.baseTypeCode) ??
@@ -428,15 +431,15 @@ function TypeGroupBrowse({
                         </p>
                         <article className="flex min-h-[8.75rem] flex-1 flex-col rounded-xl border border-[#e6e4ea] bg-white p-4 text-[#17112f] shadow-sm">
                         <div className="flex items-center gap-2.5">
-                          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
-                            {type?.imageUrl ? (
+                          <span className="grid h-20 w-14 shrink-0 place-items-center">
+                            {imageUrl ? (
                               <Image
-                                src={type.imageUrl}
-                                alt={formatTypeLabel(type)}
-                                width={112}
-                                height={112}
-                                sizes="112px"
-                                className="h-9 w-9 object-contain"
+                                src={imageUrl}
+                                alt=""
+                                width={56}
+                                height={80}
+                                unoptimized={Boolean(portrait)}
+                                className="h-20 w-14 object-contain"
                                 data-testid="personality-type-image"
                                 data-loading-strategy={isPriorityImage ? "priority" : "lazy"}
                                 {...(isPriorityImage ? { priority: true } : { loading: "lazy" as const })}
@@ -452,7 +455,7 @@ function TypeGroupBrowse({
                           </span>
                           <div className="flex min-w-0 flex-1 flex-col items-center">
                             <div
-                              className="inline-flex w-fit max-w-full flex-nowrap items-center gap-2 whitespace-nowrap"
+                              className="inline-flex w-fit max-w-full flex-wrap items-center gap-2 whitespace-nowrap"
                             >
                               {variantA ? (
                                 <Link

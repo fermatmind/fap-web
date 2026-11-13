@@ -1,3 +1,4 @@
+import { getMbtiResultPortrait } from "@/lib/mbti/resultPortrait";
 import { migratePersonalityCareerHref, personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { withTraditionalPersonalityLanguageAlternates } from "@/lib/seo/personalityLanguageAlternates";
 import type { Metadata } from "next";
@@ -1788,6 +1789,8 @@ export default async function PersonalityDetailPage({
     ? buildV85PersonalitySectionShortcuts(locale, v85Sections)
     : legacyIntentLinks;
   const personalityBrowseHref = localizedPath(`/personality/${detail.canonicalTypeCode.toLowerCase()}-a-vs-${detail.canonicalTypeCode.toLowerCase()}-t`, locale);
+  const portrait = getMbtiResultPortrait(detail.displayType);
+  const heroImageUrl = portrait ?? detail.heroImageUrl;
   const baseDisplayType = detail.displayType.replace(/-[AT]$/i, "");
   const variantComparisonLabel =
     locale === "zh" ? `${baseDisplayType}-A 与 ${baseDisplayType}-T 对比` : `${baseDisplayType}-A vs ${baseDisplayType}-T`;
@@ -1867,19 +1870,20 @@ export default async function PersonalityDetailPage({
             ) : null}
           </div>
           <div className="w-full max-w-[16rem] justify-self-center space-y-3 md:mt-5 md:justify-self-end">
-            {detail.heroImageUrl ? (
+            {heroImageUrl ? (
               <div
                 className="rounded-[2rem] border border-white/15 bg-white/10 p-4"
                 data-testid="personality-detail-hero-image"
               >
                 <Image
-                  src={detail.heroImageUrl}
+                  src={heroImageUrl}
                   alt={formatPersonalityDetailImageAlt(detail, locale)}
                   width={192}
-                  height={192}
+                  height={portrait ? 277 : 192}
+                  unoptimized={Boolean(portrait)}
                   sizes="(min-width: 768px) 12rem, 10rem"
                   priority
-                  className="h-40 w-40 object-contain md:h-48 md:w-48"
+                  className="mx-auto h-40 w-full object-contain md:h-52"
                 />
               </div>
             ) : (

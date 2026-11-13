@@ -52,32 +52,32 @@ describe("PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01", () => {
     );
   });
 
-  it("renders hub personality images with alt text, dimensions, priority, lazy loading, and code fallback", () => {
+  it("renders hub personality images with decorative portraits, dimensions, priority, lazy loading, and code fallback", () => {
     const source = read("app/(localized)/[locale]/personality/page.tsx");
 
     expect(source).toContain('from "next/image"');
     expect(source).toContain('data-testid="personality-type-image"');
     expect(source).toContain('data-testid="personality-type-code-fallback"');
-    expect(source).toContain("alt={formatTypeLabel(type)}");
-    expect(source).toContain("width={112}");
-    expect(source).toContain("height={112}");
-    expect(source).toContain('sizes="112px"');
+    expect(source).toContain('alt=""');
+    expect(source).toContain("width={56}");
+    expect(source).toContain("height={80}");
+    expect(source).toContain('const imageUrl = portrait ?? type?.imageUrl');
     expect(source).toContain("const isPriorityImage = groupIndex === 0 && typeIndex < 4");
     expect(source).toContain('data-loading-strategy={isPriorityImage ? "priority" : "lazy"}');
     expect(source).toContain('priority: true');
     expect(source).toContain('loading: "lazy" as const');
   });
 
-  it("renders backend detail hero media in HTML with dimensions and fallback", () => {
+  it("renders a bundled portrait with backend detail hero media fallback in HTML with dimensions and fallback", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
     expect(source).toContain('from "next/image"');
-    expect(source).toContain("detail.heroImageUrl");
+    expect(source).toContain("const heroImageUrl = portrait ?? detail.heroImageUrl");
     expect(source).toContain('data-testid="personality-detail-hero-image"');
     expect(source).toContain('data-testid="personality-detail-hero-image-fallback"');
     expect(source).toContain("alt={formatPersonalityDetailImageAlt(detail, locale)}");
     expect(source).toContain("width={192}");
-    expect(source).toContain("height={192}");
+    expect(source).toContain("height={portrait ? 277 : 192}");
     expect(source).toContain("priority");
   });
 });
