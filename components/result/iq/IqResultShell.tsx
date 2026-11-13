@@ -42,7 +42,7 @@ function ScoreGauge({ score, locale, displayLocale, beta }: { score: number | nu
   const needle = angle === null ? null : { x: 160 + 89 * Math.cos(angle), y: 160 - 89 * Math.sin(angle) };
   return (
     <svg viewBox="0 0 320 245" className="mx-auto w-full max-w-[320px]" role="img"
-      aria-label={locale === "zh" ? `${beta ? copy("Beta参考分", "Beta 參照分數") : copy("推理标准分", "推理標準分數")}：${score ?? "未提供"}${copy("，显示范围", "，顯示範圍")}${minimum}至145` : `${beta ? "Beta reference score" : "Reasoning standard score"}: ${score ?? "not available"}, display range ${minimum} to 145`}>
+      aria-label={locale === "zh" ? `${copy("IQ得分", "IQ得分")}：${score ?? "未提供"}${copy("，显示范围", "，顯示範圍")}${minimum}至145` : `IQ Score: ${score ?? "not available"}, display range ${minimum} to 145`}>
       <path d="M 45 160 A 115 115 0 0 1 275 160" fill="none" stroke="var(--fm-border)" strokeWidth="13" strokeLinecap="round" />
       {progress !== null ? <path d="M 45 160 A 115 115 0 0 1 275 160" pathLength="100" fill="none"
         stroke="var(--fm-accent)" strokeWidth="13" strokeLinecap="round" strokeDasharray={`${progress * 100} 100`}
@@ -105,9 +105,12 @@ export function IqResultShell({ locale, displayLocale = locale, reportData, resu
       {viewModel.bankStatus ? <Alert><span data-testid="iq-bank-placeholder-notice" data-bank-id={viewModel.bankStatus.bankId}>{copy(viewModel.bankStatus.notice, "此結果屬於未來的 50 題 beta 版本。題庫、計分與常模完成驗證前，作答入口維持關閉。")}</span></Alert> : null}
       <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.4fr)]">
         <Card data-testid="iq-standard-score-module">
-          <CardHeader><CardTitle>{beta ? zh ? copy("Beta参考分", "Beta 參照分數") : "Beta reference score" : zh ? copy("推理标准分", "推理標準分數") : "Reasoning standard score"}</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{zh ? "IQ得分" : "IQ Score"}</CardTitle></CardHeader>
           <CardContent>
             <ScoreGauge score={presentation.standardScore} locale={locale} displayLocale={displayLocale} beta={beta} />
+            {beta ? <p className="text-center text-sm text-[var(--fm-text-muted)]">
+              {zh ? copy("按本题本模型估算", "依本題本模型估算") : "Estimated using this form’s scoring model"}
+            </p> : null}
             {presentation.standardScore === null ? <p className="text-center text-sm text-[var(--fm-text-muted)]" data-testid="iq-standard-score-status">
               {zh ? copy("暂无法估计", "暫無法估計") : "Not available yet"}
             </p> : null}
@@ -135,20 +138,6 @@ export function IqResultShell({ locale, displayLocale = locale, reportData, resu
         </Card>
       </div>
       {exportProjection ? <ResultExportPanel projection={exportProjection} locale={displayLocale} pdfState={exportPdfState} onDownloadPdf={onDownloadPdf} /> : null}
-      <Card data-testid="iq-reference-boundary">
-        <CardHeader><CardTitle>{zh ? copy("怎样理解本次结果", "如何解讀本次結果") : "How to read this result"}</CardTitle></CardHeader>
-        <CardContent className="space-y-3 text-sm leading-6">
-          <p>{beta
-            ? zh ? copy("Beta参考分和模型参考百分位来自设计参考模型，不是人口排名、正式IQ或门萨资格。", "Beta 參照分數和模型參照百分位來自設計參照模型，不代表人群排名、正式 IQ 或門薩資格。") : "The Beta score and model-reference percentile come from a designed reference model. They are not population ranks, formal IQ scores or Mensa eligibility."
-            : presentation.scoreKind === "normative_reasoning"
-              ? zh ? copy("标准分与百分位仅按本报告提供的参照样本和版本解释，不能外推未测能力。", "標準分數與百分位僅能依本報告提供的參照樣本與版本解讀，不能據此推論未測量的能力。") : "Interpret the standard score and percentile only within this report’s reference sample and versions; they do not establish unmeasured abilities."
-              : zh ? copy("本次未提供合格参考分；仍可阅读有效的正确题数和本题本表现。缺失参照不表示零分。", "本次未提供符合條件的參照分數，仍可查看有效的答對題數與本題本表現。缺少參照分數不代表得零分。") : "An eligible reference score was not provided. Valid correct-answer counts and form-specific performance remain readable. Missing references do not mean zero."}</p>
-          {presentation.referenceSource ? <p className="break-words" data-testid="iq-reference-source">{zh ? copy("参照来源/版本：", "參照來源/版本：") : "Reference source / versions: "}{presentation.referenceSource}</p> : null}
-          <p>{zh ? copy("正确率描述本次题目表现，不代表人群排名。逻辑与言语未独立测量；未测不等于0分。用时仅在返回时显示，不是强制时限。", "答對率描述本次作答表現，不代表人群排名。邏輯與語文未獨立測量，未測量不等於 0 分。系統有提供作答時間時才會顯示，該時間並非作答時限。") : "Accuracy describes these items, not population rank. Logic and verbal ability were not separately measured; unmeasured is not zero. Elapsed time is shown only when supplied and is not a time limit."}</p>
-          <p data-testid="iq-quality-notice">{zh ? copy("作答质量：", "作答品質：") : "Response quality: "}{viewModel.qualityLevel || (zh ? "未提供" : "Not provided")} · {zh ? copy("质量说明缺失不表示质量良好；请结合实际作答条件阅读。", "缺少品質說明不代表作答品質良好。請搭配實際作答情況解讀。") : "Missing quality information does not establish good response quality; consider the conditions of this attempt."}</p>
-          <p>{zh ? copy("中断、疲劳、图形显示和类似题型经验可能影响这次表现。按钮与图表的可访问性改善不意味着等价的非视觉智测。", "中斷、疲勞、圖形顯示情況與類似題型的經驗都可能影響本次表現。按鈕與圖表的無障礙設計有所改善，並不表示已有等效的非視覺智力測驗。") : "Interruptions, fatigue, image display and experience with similar tasks may affect this attempt. More accessible controls and charts do not make this an equivalent nonvisual intelligence test."}</p>
-        </CardContent>
-      </Card>
       <Card data-testid="iq-performance-radar-module">
         <CardHeader>
           <CardTitle>{zh ? copy("本题本表现", "本題本表現") : "Performance on this form"}</CardTitle>

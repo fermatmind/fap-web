@@ -39,6 +39,24 @@ describe("IQ locale completeness", () => {
     expect(items[0].title).toBe("选择缺失图形");
   });
 
+  it.each([
+    ["zh", "zh", "IQ得分", "按本题本模型估算"],
+    ["zh", "zh-TW", "IQ得分", "依本題本模型估算"],
+    ["en", "en", "IQ Score", "Estimated using this form’s scoring model"],
+  ] as const)("renders the same score and layout for %s / %s", (locale, displayLocale, label, description) => {
+    const report = { ok: true, schema_version: "iq.report.v1", scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+      summary: { raw_score: 7, question_count: 40, beta_reference: {
+        status: "available", source_kind: "designed_reference", model_version: "merged40_proportional_design_anchors_v1",
+        standard_score: 100.5, display_score: 101, percentile: 51.33, production_normed: false, population_percentile_eligible: false,
+      } },
+    } as unknown as ReportResponse;
+    const view = render(<IqResultShell locale={locale} displayLocale={displayLocale} reportData={report} resultData={null} accessView={null} />);
+    expect(view.getByRole("heading", { name: label })).toBeInTheDocument();
+    expect(view.getByText(description)).toBeInTheDocument();
+    expect(view.getByTestId("iq-standard-score-module")).toHaveTextContent("101");
+    expect(view.queryByTestId("iq-reference-boundary")).not.toBeInTheDocument();
+  });
+
   it.each([73, 79, 80, 99, 100, 115, 116, 145, null])("renders complete English result copy at score %s", (score) => {
     const copy = iqResultCopy(score, "en");
     expect(copy.title).not.toMatch(han);

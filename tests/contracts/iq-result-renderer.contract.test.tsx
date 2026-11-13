@@ -227,7 +227,7 @@ describe("designed IQ Beta reference rendering", () => {
     expect(within(chart).getByText("7/13")).toBeInTheDocument();
     expect(within(chart).getByText("2/3")).toBeInTheDocument();
     expect(screen.queryByTestId("iq-result-title")).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-quality-notice")).toBeInTheDocument();
+    expect(screen.queryByTestId("iq-reference-boundary")).not.toBeInTheDocument();
     expect(screen.queryByText("维度正确率描述本次题目表现，不代表人群排名。")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-accuracy")).toHaveTextContent("答题正确率");
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("模型参考");
@@ -246,7 +246,7 @@ describe("designed IQ Beta reference rendering", () => {
     expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("102");
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("55.30%");
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent(locale === "zh" ? "模型参考百分位" : "Model-reference percentile");
-    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent("Beta");
+    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent(locale === "zh" ? "IQ得分" : "IQ Score");
     expect(screen.queryByTestId("iq-standard-score-status")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-reference-population")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-report-locked-notice")).not.toBeInTheDocument();
@@ -286,9 +286,18 @@ describe("designed IQ Beta reference rendering", () => {
     expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("6/30");
   });
 
+  it("renders the merged 40-item designed score", () => {
+    show(fixture({ summary: { raw_score: 7, question_count: 40, beta_reference: designedBeta({
+      model_version: "merged40_proportional_design_anchors_v1",
+      raw_score: 7, standard_score: 100.5, display_score: 101,
+    }) } }));
+    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent("101");
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("7/40");
+  });
+
   it("has named Beta charts and no automated accessibility violations", async () => {
     const { container } = show(fixture({ beta_reference: designedBeta() }));
-    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/Beta参考分.*73至145/);
+    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/IQ得分.*73至145/);
     expect((await axe(container)).violations).toEqual([]);
   });
 });

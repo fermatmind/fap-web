@@ -135,7 +135,8 @@ export function buildIqResultPresentation({
   const betaPercentile = number(beta?.percentile);
   const betaEligible = !blocked && !locked && beta?.status === "available"
     && beta?.source_kind === "designed_reference"
-    && beta?.model_version === "owner30_design_anchors_2026_10_14_v1"
+    && (beta?.model_version === "owner30_design_anchors_2026_10_14_v1"
+      || (beta?.model_version === "merged40_proportional_design_anchors_v1" && total === 40))
     && beta?.production_normed === false && beta?.population_percentile_eligible === false
     && betaScore !== null && betaScore >= 73 && betaScore <= 145
     && betaDisplay !== null && betaDisplay === Math.floor(betaScore + 0.5)
