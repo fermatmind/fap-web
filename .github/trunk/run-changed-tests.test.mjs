@@ -164,3 +164,12 @@ test('large browser selections preserve all files in bounded native case shards 
  const small={...plan,e2e:files.slice(0,1)};
  assert.deepEqual(runChangedTests(small,{mode:'e2e',browserShard:'1/1',run:()=>({status:0})})[0].args,['exec','playwright','test',files[0],'--shard=1/1']);
 });
+
+test('browser selections with a fixed API port keep one worker in each shard',()=>{
+ const files=['career-routing','mbti-regression','mbti-share','mbti-post-purchase','mbti-access-first-result'].map(name=>`tests/e2e/${name}.spec.ts`);
+ const plan={...changedTestPlan([],{vitest:true}),e2e:files};
+ for(const mode of ['e2e','e2e-release']){
+  const calls=runChangedTests(plan,{mode,browserShard:'1/2',run:()=>({status:0})});
+  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,'--shard=1/2']);
+ }
+});

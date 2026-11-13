@@ -88,7 +88,8 @@ sys.exit(0 if unittest.TextTestRunner().run(suite).wasSuccessful() else 1)`,path
    const match=/^([1-8])\/([1-8])$/.exec(browserShard);
    if(!match || +match[1]>+match[2] || +match[2]!==browserShardNumbers(plan.e2e).length)throw new Error('CHANGED_BROWSER_SHARD_BINDING_HOLD');
    args.push(`--shard=${browserShard}`);
-   if(+match[2]>1)args.push('--fully-parallel','--workers=2');
+   const usesFixedApiPort = plan.e2e.some(file => /\/(career-routing|mbti-regression)\.spec\.ts$/.test(file));
+   if(+match[2]>1 && !usesFixedApiPort)args.push('--fully-parallel','--workers=2');
   }
   if(plan.e2e.length)execute('pnpm',args,'.');
  }else if(mode!=='legacy')throw new Error('UNKNOWN_CHANGED_TEST_MODE');
