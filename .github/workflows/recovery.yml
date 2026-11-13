@@ -103,6 +103,7 @@ jobs:
       - name: Activate exact validated SHA
         if: inputs.mode == 'exact_sha'
         env:
+          GOTENBERG_RESULT_PRINT_TOKEN_SECRET: ${{ secrets.GOTENBERG_RESULT_PRINT_TOKEN_SECRET }}
           RELEASE_ARCHIVE: ${{ steps.prepared.outputs.archive }}
           RELEASE_ARCHIVE_SHA256: ${{ steps.prepared.outputs.archive_sha256 }}
           RELEASE_MANIFEST_DIGEST: ${{ steps.prepared.outputs.manifest_digest }}
