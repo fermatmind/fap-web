@@ -104,6 +104,9 @@ jobs:
         if: inputs.mode == 'exact_sha'
         env:
           GOTENBERG_RESULT_PRINT_TOKEN_SECRET: ${{ secrets.GOTENBERG_RESULT_PRINT_TOKEN_SECRET }}
+          REQUIRE_TRACKING_INGEST_RUNTIME: ${{ vars.TRACK_INGEST_ENABLED == '1' && '1' || '0' }}
+          TRACK_INGEST_TOKEN: ${{ vars.TRACK_INGEST_ENABLED == '1' && secrets.TRACK_INGEST_TOKEN || '' }}
+          TRACK_INGEST_API_ORIGIN: https://api.fermatmind.com
           RELEASE_ARCHIVE: ${{ steps.prepared.outputs.archive }}
           RELEASE_ARCHIVE_SHA256: ${{ steps.prepared.outputs.archive_sha256 }}
           RELEASE_MANIFEST_DIGEST: ${{ steps.prepared.outputs.manifest_digest }}
