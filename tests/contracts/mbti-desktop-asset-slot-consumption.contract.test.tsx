@@ -350,7 +350,7 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop asset slot consumption contract", () => {
-  it("renders INFJ-A ready hero asset from storage", async () => {
+  it("uses the INFJ portrait for a known type with a CMS hero asset", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(
       createStoragePayload("INFJ-A", "hero-illustration"),
     );
@@ -361,17 +361,13 @@ describe("MBTI desktop asset slot consumption contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    const heroSlot = screen.getByTestId("mbti-asset-slot-hero");
-    await waitFor(() => {
-      expect(heroSlot).toHaveAttribute("data-slot-mode", "ready");
-    });
-
-    const heroImage = heroSlot.querySelector("img");
-    expect(heroImage?.getAttribute("src")).toBe("https://assets.fermatmind.com/mbti/desktop/hero/path.webp");
+    expect(screen.getByTestId("mbti-hero-portrait")).toHaveAttribute(
+      "src", "/images/mbti/result-portraits/infj.webp",
+    );
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toHaveAttribute("data-slot-mode", "disabled");
   });
 
-  it("keeps an authority empty alt empty for a decorative ready image", async () => {
+  it("uses an empty alt for the decorative local portrait", async () => {
     const payload = createStoragePayload("INFJ-A", "hero-illustration");
     const heroSlot = payload.assetSlots.find((slot) => slot.slotId === "hero-illustration");
     if (!heroSlot) throw new Error("Missing hero slot fixture");
@@ -380,11 +376,7 @@ describe("MBTI desktop asset slot consumption contract", () => {
 
     renderShell("INFJ-A");
 
-    const image = await waitFor(() => {
-      const candidate = screen.getByTestId("mbti-asset-slot-hero").querySelector("img");
-      expect(candidate).not.toBeNull();
-      return candidate as HTMLImageElement;
-    });
+    const image = await screen.findByTestId("mbti-hero-portrait");
     expect(image).toHaveAttribute("alt", "");
   });
 
@@ -408,7 +400,7 @@ describe("MBTI desktop asset slot consumption contract", () => {
     expect(growthImage?.getAttribute("src")).toBe("https://assets.fermatmind.com/mbti/desktop/growth/path.webp");
   });
 
-  it("keeps placeholder fallback stable when storage misses or slot is disabled", async () => {
+  it("keeps the known type portrait and traits placeholder when storage misses", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(null);
 
     renderShell("INFJ-A");
@@ -417,7 +409,7 @@ describe("MBTI desktop asset slot consumption contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-mode", "placeholder");
+    expect(screen.getByTestId("mbti-hero-portrait")).toHaveAttribute("src", "/images/mbti/result-portraits/infj.webp");
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toHaveAttribute("data-slot-mode", "placeholder");
   });
 
@@ -429,10 +421,10 @@ describe("MBTI desktop asset slot consumption contract", () => {
         "DESKTOP_CLONE_CONTENT_MISSING",
       );
     });
-    expect(screen.queryByTestId("mbti-asset-slot-hero")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-hero-portrait")).not.toBeInTheDocument();
   });
 
-  it("keeps the shell readable when a Tencent-hosted hero asset has no local fallback", async () => {
+  it("uses the local portrait when CMS supplies a Tencent-hosted hero", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce({
       ...createStoragePayload("INFJ-A", "hero-illustration"),
       assetSlots: [
@@ -460,7 +452,6 @@ describe("MBTI desktop asset slot consumption contract", () => {
       expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-content-source", "storage");
     });
 
-    const heroSlot = screen.getByTestId("mbti-asset-slot-hero");
-    expect(heroSlot).toHaveAttribute("data-slot-mode", "placeholder");
+    expect(screen.getByTestId("mbti-hero-portrait")).toHaveAttribute("src", "/images/mbti/result-portraits/infj.webp");
   });
 });
