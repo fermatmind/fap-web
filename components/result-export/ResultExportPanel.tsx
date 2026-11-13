@@ -76,7 +76,7 @@ function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadP
 
   return (
     <section id="mbti-ai-export" data-testid="result-export-panel" aria-labelledby={id}
-      className="min-w-0 scroll-mt-24 rounded-xl border border-emerald-200 border-t-4 border-t-emerald-600 bg-[#e9f5ef] px-5 py-7 text-slate-900 sm:px-9 sm:py-10 print:hidden">
+      className="min-w-0 scroll-mt-24 rounded-xl border border-emerald-200 border-t-4 border-t-emerald-600 bg-[#e9f5ef] px-5 py-7 text-slate-900 sm:px-8 sm:py-10 print:hidden">
       <div className="grid items-center gap-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-10">
         <Image
           src={baseType ? `/images/mbti/ai-conversation/${baseType}.webp` : "/images/mbti/ai-result-conversation.webp"}
