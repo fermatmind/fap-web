@@ -2235,6 +2235,7 @@ export default function ResultClient({
         />
         {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}
+        {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
         {mbtiExport ? (
           <ResultExportPanel
             projection={mbtiExport}
