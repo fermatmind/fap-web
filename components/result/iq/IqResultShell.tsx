@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
 import { buildIqResultExport } from "@/lib/iq/export";
 import { IqProcessPractice } from "./IqProcessPractice";
@@ -34,30 +35,62 @@ function duration(value: number | null): string {
   return `${Math.floor(seconds / 60).toString().padStart(2, "0")}:${(seconds % 60).toString().padStart(2, "0")}`;
 }
 
-function ScoreGauge({ score, locale, displayLocale, beta }: { score: number | null; locale: Locale; displayLocale: DisplayLocale; beta: boolean }) {
+const SCORE_TICKS = [55, 70, 85, 100, 115, 130, 145];
+const SCORE_BASELINE = 213;
+const scoreX = (score: number) => 59 + (score - 55) * 312 / 90;
+const curveY = (score: number) => SCORE_BASELINE - 7 - 184 * Math.exp(-0.5 * ((score - 100) / 13) ** 2);
+const distributionPath = `M59 ${SCORE_BASELINE} L${Array.from({ length: 91 }, (_, index) => {
+  const score = 55 + index;
+  return `${scoreX(score)} ${curveY(score)}`;
+}).join(" L")} L371 ${SCORE_BASELINE}Z`;
+
+function ScoreDistribution({ score, locale, displayLocale }: { score: number | null; locale: Locale; displayLocale: DisplayLocale }) {
+  const id = useId();
+  const distributionFill = `${id}-distribution`;
+  const markerFill = `${id}-marker`;
+  const zh = locale === "zh";
   const copy = (source: string, traditional: string) => assessmentChineseCopy(displayLocale, source, traditional);
-  const minimum = beta ? 73 : 55;
-  const progress = score === null ? null : (score - minimum) / (145 - minimum);
-  const angle = progress === null ? null : Math.PI * (1 - progress);
-  const needle = angle === null ? null : { x: 160 + 89 * Math.cos(angle), y: 160 - 89 * Math.sin(angle) };
+  const markerX = score === null ? 0 : scoreX(score);
+  const markerY = score === null ? 0 : curveY(score);
+  const arrowTip = Math.max(12, markerY - 24);
+  const chartLabel = zh
+    ? copy("参考分布示意，显示范围55至145", "參考分布示意，顯示範圍55至145")
+    : "Illustrative reference distribution, display range 55 to 145";
+
   return (
-    <svg viewBox="0 0 320 245" className="mx-auto w-full max-w-[320px]" role="img"
-      aria-label={locale === "zh" ? `${copy("IQ得分", "IQ得分")}：${score ?? "未提供"}${copy("，显示范围", "，顯示範圍")}${minimum}至145` : `IQ Score: ${score ?? "not available"}, display range ${minimum} to 145`}>
-      <path d="M 45 160 A 115 115 0 0 1 275 160" fill="none" stroke="var(--fm-border)" strokeWidth="13" strokeLinecap="round" />
-      {progress !== null ? <path d="M 45 160 A 115 115 0 0 1 275 160" pathLength="100" fill="none"
-        stroke="var(--fm-accent)" strokeWidth="13" strokeLinecap="round" strokeDasharray={`${progress * 100} 100`}
-        className="transition-[stroke-dasharray] duration-500 motion-reduce:transition-none" /> : null}
-      {(beta ? [73, 85, 100, 115, 130, 145] : [55, 70, 85, 100, 115, 130, 145]).map((tick) => {
-        const tickAngle = Math.PI * (1 - (tick - minimum) / (145 - minimum));
-        return <text key={tick} x={160 + 142 * Math.cos(tickAngle)} y={165 - 142 * Math.sin(tickAngle)}
-          textAnchor="middle" fill="var(--fm-text-muted)" fontSize="11">{tick}</text>;
-      })}
-      {needle ? <g stroke="var(--fm-accent)" strokeWidth="2.5">
-        <line x1="160" y1="160" x2={needle.x} y2={needle.y} />
-        <circle cx="160" cy="160" r="5" fill="var(--fm-surface)" />
-      </g> : null}
-      <text x="160" y="218" textAnchor="middle" fill="var(--fm-text)" fontSize="46" fontWeight="650" data-testid="iq-standard-score-value">{score ?? "—"}</text>
-    </svg>
+    <figure className="m-0">
+      <div className="mb-3 text-[clamp(3rem,5vw,3.625rem)] leading-none font-bold tracking-tight tabular-nums" data-testid="iq-standard-score-value">{score ?? "—"}</div>
+      <svg viewBox="0 -28 424 288" className="mx-auto block w-full max-w-[424px]" role="img" aria-label={chartLabel}>
+        <defs>
+          <linearGradient id={distributionFill}>
+            <stop stopColor="#65c7ec" /><stop offset=".16" stopColor="#31b3de" />
+            <stop offset=".27" stopColor="#006fae" /><stop offset=".34" stopColor="#56bce6" />
+            <stop offset=".41" stopColor="#009dd0" /><stop offset=".50" stopColor="#0073b5" />
+            <stop offset=".61" stopColor="#009dd0" /><stop offset=".68" stopColor="#55bce6" />
+            <stop offset=".78" stopColor="#0078b7" /><stop offset=".88" stopColor="#31b3de" />
+            <stop offset="1" stopColor="#65c7ec" />
+          </linearGradient>
+          <linearGradient id={markerFill}>
+            <stop stopColor="#ff2400" /><stop offset=".62" stopColor="#ff9600" /><stop offset="1" stopColor="#ffdc00" />
+          </linearGradient>
+        </defs>
+        <path d="M27 12V235H413" fill="none" stroke="#959b9f" strokeWidth="1.5" />
+        <path d="M24 13L27 3l3 10z M410 232l10 3-10 3z" fill="#959b9f" />
+        <path d={distributionPath} fill={`url(#${distributionFill})`} />
+        {score !== null ? (
+          <g transform={`translate(${markerX} 0)`} fill={`url(#${markerFill})`} data-testid="iq-score-marker">
+            <path d={`M-1.7 ${SCORE_BASELINE}V${markerY + 5}l3.4-7V${SCORE_BASELINE}z`} />
+            <path d={`M-2.8 ${arrowTip - 34}h5.6v25h7l-9.8 11-9.8-11h7z`} />
+          </g>
+        ) : null}
+        <g fill="var(--fm-text)" fontSize="12" fontWeight="700" textAnchor="middle">
+          {SCORE_TICKS.map((tick) => <text key={tick} x={scoreX(tick)} y="229">{tick}</text>)}
+          <text x="215" y="253">{zh ? "智商" : "IQ"}</text>
+          <text x="13" y="122" transform="rotate(-90 13 122)">{zh ? copy("参考频率", "參考頻率") : "Reference frequency"}</text>
+        </g>
+      </svg>
+      <figcaption className="text-center text-sm text-[var(--fm-text-muted)]">{zh ? copy("参考分布示意", "參考分布示意") : "Illustrative reference distribution"}</figcaption>
+    </figure>
   );
 }
 
@@ -103,11 +136,11 @@ export function IqResultShell({ locale, displayLocale = locale, reportData, resu
     <div className="space-y-[var(--fm-gap-lg)]" data-testid="iq-result-shell">
       {viewModel.lockedMessage ? <Alert><span data-testid="iq-report-locked-notice">{copy(viewModel.lockedMessage, "目前為免費預覽。完整 IQ 報告須在取得後端授權後才會顯示。")}</span></Alert> : null}
       {viewModel.bankStatus ? <Alert><span data-testid="iq-bank-placeholder-notice" data-bank-id={viewModel.bankStatus.bankId}>{copy(viewModel.bankStatus.notice, "此結果屬於未來的 50 題 beta 版本。題庫、計分與常模完成驗證前，作答入口維持關閉。")}</span></Alert> : null}
-      <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.4fr)]">
+      <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,1.1fr)_minmax(0,1fr)]">
         <Card data-testid="iq-standard-score-module">
-          <CardHeader><CardTitle>{zh ? "IQ得分" : "IQ Score"}</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{zh ? copy("IQ预估得分", "IQ預估得分") : "Estimated IQ score"}</CardTitle></CardHeader>
           <CardContent>
-            <ScoreGauge score={presentation.standardScore} locale={locale} displayLocale={displayLocale} beta={beta} />
+            <ScoreDistribution score={presentation.standardScore} locale={locale} displayLocale={displayLocale} />
             {beta ? <p className="text-center text-sm text-[var(--fm-text-muted)]">
               {zh ? copy("按本题本模型估算", "依本題本模型估算") : "Estimated using this form’s scoring model"}
             </p> : null}

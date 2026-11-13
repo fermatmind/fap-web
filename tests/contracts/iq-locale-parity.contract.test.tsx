@@ -40,9 +40,9 @@ describe("IQ locale completeness", () => {
   });
 
   it.each([
-    ["zh", "zh", "IQ得分", "按本题本模型估算"],
-    ["zh", "zh-TW", "IQ得分", "依本題本模型估算"],
-    ["en", "en", "IQ Score", "Estimated using this form’s scoring model"],
+    ["zh", "zh", "IQ预估得分", "按本题本模型估算"],
+    ["zh", "zh-TW", "IQ預估得分", "依本題本模型估算"],
+    ["en", "en", "Estimated IQ score", "Estimated using this form’s scoring model"],
   ] as const)("renders the same score and layout for %s / %s", (locale, displayLocale, label, description) => {
     const report = { ok: true, schema_version: "iq.report.v1", scale_code: "IQ_INTELLIGENCE_QUOTIENT",
       summary: { raw_score: 7, question_count: 40, beta_reference: {

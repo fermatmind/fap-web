@@ -67,6 +67,7 @@ describe("IQ three-module result presentation", () => {
     expect(screen.getByTestId("iq-result-overview")).toBeInTheDocument();
     expect(screen.getByTestId("iq-performance-radar-module")).toBeInTheDocument();
     expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("110");
+    expect(screen.getByTestId("iq-score-marker")).toHaveAttribute("transform", `translate(${59 + (110 - 55) * 312 / 90} 0)`);
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("75%");
     expect(screen.getByTestId("iq-accuracy")).toHaveTextContent("56.7%");
     expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
@@ -95,6 +96,7 @@ describe("IQ three-module result presentation", () => {
   it("does not relabel random-baseline Beta or legacy IQ scores as reasoning standard scores", () => {
     show(fixture({ summary: { raw_score: 17, question_count: 30, beta_standard_score: 145, iq_estimate: 110, percentile: 75, claim_eligible: true } }));
     expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("—");
+    expect(screen.queryByTestId("iq-score-marker")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
     expect(screen.queryByTestId("iq-beta-standard-score-value")).not.toBeInTheDocument();
@@ -246,7 +248,7 @@ describe("designed IQ Beta reference rendering", () => {
     expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("102");
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("55.30%");
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent(locale === "zh" ? "模型参考百分位" : "Model-reference percentile");
-    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent(locale === "zh" ? "IQ得分" : "IQ Score");
+    expect(screen.getByTestId("iq-standard-score-module")).toHaveTextContent(locale === "zh" ? "IQ预估得分" : "Estimated IQ score");
     expect(screen.queryByTestId("iq-standard-score-status")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-reference-population")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-report-locked-notice")).not.toBeInTheDocument();
@@ -297,7 +299,7 @@ describe("designed IQ Beta reference rendering", () => {
 
   it("has named Beta charts and no automated accessibility violations", async () => {
     const { container } = show(fixture({ beta_reference: designedBeta() }));
-    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/IQ得分.*73至145/);
+    expect(within(screen.getByTestId("iq-standard-score-module")).getByRole("img")).toHaveAccessibleName(/参考分布示意.*55至145/);
     expect((await axe(container)).violations).toEqual([]);
   });
 });
