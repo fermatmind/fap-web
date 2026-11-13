@@ -91,14 +91,14 @@ describe("personality type browse contract", () => {
     expect(pageSource).toContain("flex min-w-0 flex-1 flex-col items-center");
     expect(pageSource).toContain("w-full text-center font-sans text-base font-semibold tracking-[0.08em]");
     expect(pageSource).toContain("w-full text-center font-sans text-[0.95rem] font-semibold tracking-[0.03em]");
-    expect(pageSource).toContain("inline-flex w-fit max-w-full flex-nowrap items-center gap-2 whitespace-nowrap");
-    expect(pageSource).not.toContain("mt-2 inline-flex w-fit max-w-full flex-nowrap items-center gap-2 whitespace-nowrap");
+    expect(pageSource).toContain("inline-flex w-fit max-w-full flex-wrap items-center gap-2 whitespace-nowrap");
+    expect(pageSource).not.toContain("mt-2 inline-flex w-fit max-w-full flex-wrap items-center gap-2 whitespace-nowrap");
     expect(pageSource).toContain("clickablePillMotion");
     expect(pageSource).toContain("hover:scale-110");
     expect(pageSource).toContain("focus-visible:scale-110");
     expect(pageSource).toContain("hover:shadow-[0_8px_18px_rgba(33,119,140,0.18)]");
     expect(pageSource).not.toContain('className="h-3.5 w-px bg-current/20"');
-    expect(pageSource).toContain("h-12 w-12 shrink-0");
+    expect(pageSource).toContain("h-20 w-14 shrink-0");
     expect(pageSource).toContain("inline-flex h-11 w-[4.75rem] shrink-0 items-center justify-center rounded-full border");
     expect(pageSource).toContain("text-sm font-semibold leading-none");
     expect(pageSource).not.toContain("type.baseTypeCode.split");

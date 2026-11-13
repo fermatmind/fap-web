@@ -116,7 +116,7 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain('from "next/image"');
     expect(pageSource).toContain('data-testid="personality-type-image"');
     expect(pageSource).toContain('data-testid="personality-type-code-fallback"');
-    expect(pageSource).toContain("type.imageUrl");
+    expect(pageSource).toContain("portrait ?? type?.imageUrl");
     expect(pageSource).toContain('id="personality-itemlist-jsonld"');
     expect(pageSource).toContain("hubPayload.familyGroups");
     expect(pageSource).not.toContain('from "@/lib/mbti/personalityQuickLocate"');
