@@ -146,7 +146,7 @@ test('media-heavy browser selections retain all scenarios in both modes and bind
  const plan=changedTestPlan([],{vitest:true});plan.e2e=files;
  for(const mode of ['e2e','e2e-release'])for(const shard of ['1/2','2/2']){
   const calls=runChangedTests(plan,{mode,browserShard:shard,run:()=>({status:0})});
-  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,`--shard=${shard}`,'--fully-parallel','--workers=2']);
+  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,`--shard=${shard}`,'--fully-parallel','--workers=1']);
  }
  assert.throws(()=>runChangedTests(plan,{mode:'e2e',browserShard:'1/1',run:()=>{throw Error('must not run');}}),/CHANGED_BROWSER_SHARD_BINDING_HOLD/);
 });
@@ -158,7 +158,7 @@ test('large browser selections preserve all files in bounded native case shards 
  assert.deepEqual(browserShardNumbers(files.slice(0,1)),[1]);
  for(const mode of ['e2e','e2e-release'])for(let shard=1;shard<=8;shard++){
   const calls=runChangedTests(plan,{mode,browserShard:`${shard}/8`,run:()=>({status:0})});
-  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,`--shard=${shard}/8`,'--fully-parallel','--workers=2']);
+  assert.deepEqual(calls[0].args,['exec','playwright','test',...files,`--shard=${shard}/8`,'--fully-parallel','--workers=1']);
  }
  for(const browserShard of ['0/8','9/8','1/4','1/9','../8',''])assert.throws(()=>runChangedTests(plan,{mode:'e2e',browserShard,run:()=>{throw Error('must not run');}}),/CHANGED_BROWSER_SHARD_BINDING_HOLD/);
  const small={...plan,e2e:files.slice(0,1)};
