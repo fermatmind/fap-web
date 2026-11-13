@@ -1608,6 +1608,7 @@ export default async function TestLandingPage({
                 <Link className="underline underline-offset-4" href="/zh/holland-test/pdf-download#result-examples">看分数接近与并列时怎么读</Link>
                 <Link className="underline underline-offset-4" href="/zh/career">查职业的实际工作任务</Link>
                 <Link className="underline underline-offset-4" href="/zh/career/tests">比较霍兰德、MBTI 与大五</Link>
+                <Link className="underline underline-offset-4" href="/zh/datasets/occupations/method">从兴趣结果查职业任务与来源</Link>
               </p>
             </section>
           ) : null}
@@ -1618,6 +1619,7 @@ export default async function TestLandingPage({
               <div className="mt-3 flex flex-col items-start gap-3 text-sm">
                 <Link className="underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>View synthetic result examples and reading steps</Link>
                 <Link className="underline underline-offset-4" href={localizedPath("/articles/what-is-riasec-holland-code-career-interest-test", locale)}>Read the RIASEC and Holland Code guide</Link>
+                <Link className="underline underline-offset-4" href={localizedPath("/datasets/occupations/method", locale)}>Use your interests to explore job tasks and their sources</Link>
               </div>
             </section>
           ) : null}

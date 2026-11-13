@@ -343,6 +343,13 @@ export default async function CareerPage({
                   className="underline underline-offset-4">免费霍兰德测试</TrackedEntryCtaLink>找想尝试的工作活动。</p>
               </div>
             ) : null}
+            {!traditional ? (
+              <p className="m-0 text-sm leading-6 text-slate-600">
+                <Link href={localizedPath("/datasets/occupations/method", locale)} className="underline underline-offset-4">
+                  {label("了解职业职责的数据来源与地区边界", "See where job duties come from and how to use them across regions")}
+                </Link>
+              </p>
+            ) : null}
             <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">
               <Metric label={label("全部职业", "All occupations")} value={String(occupationCount)} />
               <Metric label={label("行业分类", "Industries")} value={String(families.length)} />

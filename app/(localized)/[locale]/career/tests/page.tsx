@@ -245,6 +245,11 @@ export default async function CareerTestsPage({ params }: PageProps) {
           </table>
         </div>
         <p className="m-0 text-sm leading-7 text-slate-600">{copy.comparisonNote}</p>
+        <p className="m-0 text-sm leading-7 text-slate-600">
+          <Link href={withLocale("/datasets/occupations/method")} className="underline underline-offset-4">
+            {locale === "zh" ? "了解如何用测评结果核对实际职业任务" : "See how to use assessment results to check real job tasks"}
+          </Link>
+        </p>
         <ul className="m-0 list-disc space-y-3 pl-5" data-testid="career-tests-comparison-reading">
           {copy.comparisonReading.map(item => <li key={item.href}><Link href={withLocale(item.href)} className="text-sm underline underline-offset-4">{item.title}</Link></li>)}
         </ul>

@@ -1,6 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { CareerDatasetMethodResponseRaw } from "@/lib/career/api/types";
-import type { Locale } from "@/lib/i18n/locales";
+import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 type FetchCareerDatasetMethodInput = {
@@ -11,7 +11,8 @@ export async function fetchCareerDatasetMethod(
   input: FetchCareerDatasetMethodInput
 ): Promise<CareerDatasetMethodResponseRaw | null> {
   try {
-    return await apiClient.get<CareerDatasetMethodResponseRaw>("/v0.5/career/datasets/occupations/method", {
+    const query = new URLSearchParams({ locale: toApiLocale(input.locale) });
+    return await apiClient.get<CareerDatasetMethodResponseRaw>(`/v0.5/career/datasets/occupations/method?${query}`, {
       locale: input.locale,
       skipAuth: true,
       ...PUBLIC_API_CACHE_OPTIONS,

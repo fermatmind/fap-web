@@ -8,6 +8,7 @@ import { adaptCareerDatasetMethod } from "@/lib/career/adapters/adaptCareerDatas
 import { fetchCareerDatasetMethod } from "@/lib/career/api/fetchCareerDatasetMethod";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -48,13 +49,24 @@ export default async function DatasetOccupationsMethodPage({
     notFound();
   }
 
+  const methodPath = localizedPath("/datasets/occupations/method", locale);
+  const hubPath = localizedPath("/datasets/occupations", locale);
+  const description = method.readerGuide?.intro ?? method.summary;
+
   return (
     <main className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-8 py-12 md:py-20" data-testid="dataset-method-page">
-        {method.structuredData.article ? <JsonLd id="dataset-method-article-jsonld" data={method.structuredData.article} /> : null}
-        {method.structuredData.breadcrumbList ? <JsonLd id="dataset-method-breadcrumb-jsonld" data={method.structuredData.breadcrumbList} /> : null}
+        <JsonLd id="dataset-method-webpage-jsonld" data={buildWebPageJsonLd({
+          path: methodPath, title: method.title, description, locale,
+        })} />
+        <JsonLd id="dataset-method-breadcrumb-jsonld" data={buildBreadcrumbJsonLd([
+          { path: hubPath, name: locale === "zh" ? "职业数据库" : "Occupations dataset" },
+          { path: methodPath, name: method.title },
+        ])} />
 
         <DatasetMethodPanel
+          locale={locale}
+          readerGuide={method.readerGuide}
           title={method.title}
           summary={method.summary}
           sourceSummary={method.sourceSummary}
@@ -66,7 +78,7 @@ export default async function DatasetOccupationsMethodPage({
           publication={method.publication}
         />
 
-        <Link href={localizedPath("/datasets/occupations", locale)} className="inline-flex font-semibold text-orange-600 underline-offset-2 hover:underline" data-testid="dataset-hub-entry">
+        <Link href={hubPath} className="inline-flex font-semibold text-orange-600 underline-offset-2 hover:underline" data-testid="dataset-hub-entry">
           {locale === "zh" ? "返回数据库主页" : "Back to dataset hub"}
         </Link>
       </Container>

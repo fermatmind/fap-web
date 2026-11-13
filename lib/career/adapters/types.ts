@@ -1016,7 +1016,13 @@ export type CareerDatasetMemberAdapter = {
   exclusionReasons: string[];
 };
 
+export type CareerDatasetMethodGuide = {
+  intro: string;
+  sections: { id: string; title: string; body: string; sources: { label: string; href: string }[] }[];
+};
+
 export type CareerDatasetMethodAdapter = {
+  readerGuide: CareerDatasetMethodGuide | null;
   datasetKey: string;
   datasetScope: string;
   methodUrl: string;

@@ -1,5 +1,5 @@
 import type { CareerDatasetMethodResponseRaw } from "@/lib/career/api/types";
-import type { CareerDatasetMethodAdapter } from "@/lib/career/adapters/types";
+import type { CareerDatasetMethodAdapter, CareerDatasetMethodGuide } from "@/lib/career/adapters/types";
 
 type AdaptCareerDatasetMethodInput = {
   payload: CareerDatasetMethodResponseRaw | null;
@@ -61,6 +61,41 @@ function normalizeDatasetPublicationUrl(value: unknown): string {
   }
 }
 
+const GUIDE_SECTION_IDS = [
+  "career-task-evidence",
+  "riasec-free-results",
+  "interest-and-work-style",
+  "try-a-task",
+];
+
+function adaptReaderGuide(raw: unknown): CareerDatasetMethodGuide | null {
+  const guide = normalizeObject(raw);
+  const intro = normalizeString(guide.intro);
+  if (!intro || !Array.isArray(guide.sections)) return null;
+
+  const sections = guide.sections.map((value) => {
+    const section = normalizeObject(value);
+    const sources = Array.isArray(section.sources) ? section.sources.flatMap((value) => {
+      const source = normalizeObject(value);
+      const label = normalizeString(source.label);
+      const href = normalizeDatasetPublicationUrl(source.href);
+      return label && href ? [{ label, href }] : [];
+    }) : [];
+    return {
+      id: normalizeString(section.id),
+      title: normalizeString(section.title),
+      body: normalizeString(section.body),
+      sources,
+    };
+  });
+  if (sections.length !== GUIDE_SECTION_IDS.length ||
+      !sections.every((section, index) =>
+        section.id === GUIDE_SECTION_IDS[index] && section.title && section.body && section.sources.length > 0
+      )) return null;
+
+  return { intro, sections };
+}
+
 export function adaptCareerDatasetMethod(
   input: AdaptCareerDatasetMethodInput
 ): CareerDatasetMethodAdapter | null {
@@ -78,6 +113,7 @@ export function adaptCareerDatasetMethod(
   const structuredData = normalizeObject(root.structured_data);
 
   return {
+    readerGuide: adaptReaderGuide(root.reader_guide),
     datasetKey: normalizeString(root.dataset_key),
     datasetScope: normalizeString(root.dataset_scope),
     methodUrl: normalizeString(root.method_url),

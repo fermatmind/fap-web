@@ -79,6 +79,8 @@ describe("dataset method publication links", () => {
 
     render(
       <DatasetMethodPanel
+        locale="en"
+        readerGuide={method?.readerGuide ?? null}
         title={method?.title ?? ""}
         summary={method?.summary ?? ""}
         sourceSummary={method?.sourceSummary ?? ""}

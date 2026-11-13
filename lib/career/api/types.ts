@@ -622,6 +622,7 @@ export type CareerDatasetHubResponseRaw = {
 };
 
 export type CareerDatasetMethodResponseRaw = {
+  reader_guide?: unknown;
   contract_kind?: unknown;
   contract_version?: unknown;
   dataset_key?: unknown;
