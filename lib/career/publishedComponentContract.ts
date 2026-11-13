@@ -227,7 +227,7 @@ function validateCta(value: unknown, allowPrompt = false): boolean {
   }
 
   return value.href.split("|").map((href) => href.trim()).filter(Boolean).every((href) =>
-    /^\/(?:(?:en|zh)\/)?tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href) && !href.includes("\\")
+    /^\/(?:(?:en|zh(?:-TW)?)\/)?tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href) && !href.includes("\\")
   );
 }
 
@@ -445,7 +445,7 @@ function validateFitDecisionCenter(value: unknown): boolean {
       "answer", "cta_href", "cta_label", "evidence_level", "id", "label", "question", "signals", "watchout",
     ]) && item.id === assessmentIds[index] &&
       ["answer", "cta_label", "evidence_level", "label", "question", "watchout"].every((key) => isNonEmptyString(item[key])) &&
-      /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(item.cta_href)) &&
+      /^\/(?:en|zh(?:-TW)?)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(item.cta_href)) &&
       isStringArray(item.signals)) &&
     Array.isArray(value.directions) && value.directions.length >= 1 && value.directions.length <= 6 &&
     value.directions.every((item) => {
@@ -457,7 +457,7 @@ function validateFitDecisionCenter(value: unknown): boolean {
       return hasExactKeys(item.target, ["href", "slug", "title"]) &&
         isNonEmptyString(item.target.slug) && isNonEmptyString(item.target.title) &&
         /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.target.slug) &&
-        new RegExp(`^/(?:en|zh)/career/jobs/${item.target.slug}$`).test(String(item.target.href));
+        new RegExp(`^/(?:en|zh(?:-TW)?)/career/jobs/${item.target.slug}$`).test(String(item.target.href));
     }) &&
     Array.isArray(value.questions) && value.questions.length >= 8 && value.questions.length <= 10 &&
     value.questions.every((item) => hasStringFields(item, ["answer", "question"])) &&
@@ -522,7 +522,7 @@ function validateOutlookTransitions(value: unknown): boolean {
     validateContextLinks(value.context_links) &&
     Array.isArray(value.transitions) && value.transitions.length >= 1 && value.transitions.length <= 8 && value.transitions.every((item) =>
       hasStringFields(item, ["capability_gaps", "shared_capabilities", "target_href", "target_slug", "target_title", "transition_distance"], ["source_id"]) &&
-      new RegExp(`^/(?:en|zh)/career/jobs/${String(item.target_slug)}$`).test(String(item.target_href))
+      new RegExp(`^/(?:en|zh(?:-TW)?)/career/jobs/${String(item.target_slug)}$`).test(String(item.target_href))
     ) && validateSourceLinks(value.source_links, 4);
 }
 
@@ -591,7 +591,7 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
       return validateRelatedNextPages(value);
     case "source_card":
       return hasExactKeys(value, ["eeat_signals", "note"], ["secondary_links"]) &&
-        (value.secondary_links === undefined || (Array.isArray(value.secondary_links) && value.secondary_links.every(link => hasStringFields(link, ["label", "href"]) && /^\/(?:en|zh)\/[a-z0-9/-]+$/.test(link.href)))) && isNonEmptyString(value.note) &&
+        (value.secondary_links === undefined || (Array.isArray(value.secondary_links) && value.secondary_links.every(link => hasStringFields(link, ["label", "href"]) && /^\/(?:en|zh(?:-TW)?)\/[a-z0-9/-]+$/.test(link.href)))) && isNonEmptyString(value.note) &&
         hasStringFields(value.eeat_signals, ["author", "source", "updated_at"]);
     case "review_validity_card":
       return hasStringFields(value, ["last_reviewed"]);

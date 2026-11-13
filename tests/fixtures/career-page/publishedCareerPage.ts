@@ -34,16 +34,16 @@ function readPublishedBundle(url: URL): Promise<{ career_page?: unknown }> {
 }
 
 /** Contract input is published API output or a temporary backend projection. */
-export async function publishedCareerPage(locale: 'zh' | 'en', slug = 'accountants-and-auditors') {
+export async function publishedCareerPage(locale: 'zh' | 'zh-TW' | 'en', slug = 'accountants-and-auditors') {
   if (slug === 'accountants-and-auditors' && locale === 'zh' && process.env.CAREER_TEST_PAGE_FILE) return JSON.parse(readFileSync(process.env.CAREER_TEST_PAGE_FILE, 'utf8'));
   if (process.env.CAREER_PAGE_CORPUS) {
     const pages = readFileSync(process.env.CAREER_PAGE_CORPUS, 'utf8').trim().split('\n').map(line => JSON.parse(line));
-    const page = pages.find(value => value.subject?.canonical_slug === slug && value.locale === (locale === 'zh' ? 'zh-CN' : 'en'));
+    const page = pages.find(value => value.subject?.canonical_slug === slug && value.locale === (locale === 'zh' ? 'zh-CN' : locale));
     if (!page) throw new Error(`CAREER_CORPUS_PAGE_MISSING:${locale}:${slug}`);
     return page;
   }
   const url = new URL(`/api/v0.5/career/jobs/${slug}`, process.env.NEXT_PUBLIC_API_URL || 'https://api.fermatmind.com');
-  url.searchParams.set('locale', locale === 'zh' ? 'zh-CN' : 'en');
+  url.searchParams.set('locale', locale === 'zh' ? 'zh-CN' : locale);
   url.searchParams.set('projection_contract', 'career.detail.page.v1');
   const bundle = await readPublishedBundle(url).catch((error: unknown) => {
     if (!(error instanceof Error) || error.message !== TIMEOUT) throw error;

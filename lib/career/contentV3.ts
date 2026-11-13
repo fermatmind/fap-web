@@ -385,7 +385,7 @@ function strings(value: unknown): string[] | null {
 }
 
 function safeUrl(value: unknown): boolean {
-  return typeof value === "string" && (/^https:\/\//.test(value) || /^\/(?:en|zh)\//.test(value) || /^#[a-z0-9][a-z0-9_-]*$/.test(value));
+  return typeof value === "string" && (/^https:\/\//.test(value) || /^\/(?:en|zh(?:-TW)?)\//.test(value) || /^#[a-z0-9][a-z0-9_-]*$/.test(value));
 }
 
 export function canRenderCareerContentV3Item(

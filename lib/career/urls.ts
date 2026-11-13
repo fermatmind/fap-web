@@ -8,7 +8,7 @@ function normalizeCareerSlug(value: string): string {
 }
 
 function stripLocalePrefix(path: string): string {
-  return path.replace(/^\/(?:en|zh)(?=\/|$)/i, "") || "/";
+  return path.replace(/^\/(?:en|zh(?:-TW)?)(?=\/|$)/i, "") || "/";
 }
 
 function allowedCareerRoutePrefix(path: string): string | null {

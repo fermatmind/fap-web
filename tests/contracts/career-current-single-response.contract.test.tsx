@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { buildCareerPageFixture } from './careerPage.fixture';
+import { publishedCareerPage } from '@/tests/fixtures/career-page/publishedCareerPage';
 
 function bundle(indexable = true) {
   const page = buildCareerPageFixture('actors', 'zh');
@@ -21,7 +22,13 @@ async function metadata(payload: ReturnType<typeof bundle> | null) {
   const {generateMetadata} = await import('@/app/(localized)/[locale]/career/jobs/[slug]/page');
   return generateMetadata({params: Promise.resolve({locale: 'zh', slug: 'actors'})});
 }
-afterEach(() => { vi.resetModules(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.doUnmock('@/lib/career/api/fetchCareerJobBundle'); });
+afterEach(() => {
+  vi.resetModules();
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+  vi.doUnmock('@/lib/career/api/fetchCareerJobBundle');
+  vi.doUnmock('@/lib/career/api/fetchCareerLinkTargets');
+});
 
 describe('Current Chinese same-response publication authority', () => {
   it.each(['Actors', ' actors '])('keeps the existing same-identity canonical redirect for %s', async slug => {
@@ -101,31 +108,40 @@ describe('Traditional Career detail reader', () => {
   it('uses one exact locale request and indexes the authoritative Traditional page with three-language alternates', async () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://fermatmind.com');
     const source = bundle(true);
-    const canonicalPath = '/zh-TW/career/jobs/actors';
-    const page = buildCareerPageFixture('actors', 'zh', '演員');
+    const slug = 'accountants-and-auditors';
+    const canonicalPath = `/zh-TW/career/jobs/${slug}`;
+    const page = await publishedCareerPage('zh-TW', slug) as typeof source.career_page;
     const payload = {
       ...source,
+      identity: {...source.identity, canonical_slug: slug},
       locale_policy: {requested_locale: 'zh-TW'},
-      career_page: {...page, locale: 'zh-TW', content: {...page.content, locale: 'zh-TW'}, display: {path: canonicalPath}},
-      seo_contract: {...source.seo_contract, canonical_path: canonicalPath, canonical_target: canonicalPath},
+      career_page: page,
+      seo_contract: {
+        ...source.seo_contract,
+        canonical_path: canonicalPath,
+        canonical_target: canonicalPath,
+        metadata_fingerprint: page.source_content_sha256,
+      },
     };
     const requests = vi.fn(async (input: RequestInfo | URL) => {
       expect(new URL(String(input)).searchParams.get('locale')).toBe('zh-TW');
       return new Response(JSON.stringify(payload), {headers: {'Content-Type': 'application/json'}});
     });
     vi.stubGlobal('fetch', requests);
-    const {generateMetadata} = await import('@/app/(traditional)/zh-TW/career/jobs/[slug]/page');
-    const metadata = await generateMetadata({params: Promise.resolve({slug: 'actors'})});
+    vi.doMock('@/lib/career/api/fetchCareerLinkTargets', () => ({fetchCareerLinkTargets: vi.fn(async () => [])}));
+    const {default: TraditionalPage, generateMetadata} = await import('@/app/(traditional)/zh-TW/career/jobs/[slug]/page');
+    const metadata = await generateMetadata({params: Promise.resolve({slug})});
     expect(requests).toHaveBeenCalledTimes(1);
-    expect(metadata.title).toBe('演員');
+    await expect(TraditionalPage({params: Promise.resolve({slug})})).resolves.toBeDefined();
+    expect(metadata.title).toBe(page.seo.title.text);
     expect(metadata.robots).toEqual({index: true, follow: true});
     expect(metadata.alternates).toEqual({
       canonical: `https://fermatmind.com${canonicalPath}`,
       languages: {
-        en: 'https://fermatmind.com/en/career/jobs/actors',
-        'zh-CN': 'https://fermatmind.com/zh/career/jobs/actors',
+        en: `https://fermatmind.com/en/career/jobs/${slug}`,
+        'zh-CN': `https://fermatmind.com/zh/career/jobs/${slug}`,
         'zh-TW': `https://fermatmind.com${canonicalPath}`,
-        'x-default': 'https://fermatmind.com/en/career/jobs/actors',
+        'x-default': `https://fermatmind.com/en/career/jobs/${slug}`,
       },
     });
   });

@@ -387,7 +387,7 @@ function isSafeDisplayInternalHref(href: string): boolean {
       return false;
     }
 
-    return parsed.pathname.startsWith("/tests/") || /^\/(?:en|zh)\/tests\//.test(parsed.pathname);
+    return parsed.pathname.startsWith("/tests/") || /^\/(?:en|zh(?:-TW)?)\/tests\//.test(parsed.pathname);
   } catch {
     return false;
   }
