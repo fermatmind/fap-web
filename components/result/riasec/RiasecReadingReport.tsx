@@ -29,6 +29,7 @@ import {
 import styles from "./RiasecReadingReport.module.css";
 import { RiasecExploration } from "./RiasecExploration";
 import { RiasecCareerNextSteps } from "./RiasecCareerNextSteps";
+import { RiasecLegacyCareerNextSteps } from "./RiasecLegacyCareerNextSteps";
 
 type Props = {
   viewModel: RiasecResultViewModel;
@@ -353,16 +354,20 @@ export function RiasecReadingReport({
   ) : null;
 
   const careerTitle = displayLocale === "zh-TW" ? "值得探索的職涯" : t("值得探索的职业", "Careers worth exploring");
-  const careerContent = (
+  const careerScores = mapState !== "hidden" && vm.scoreKind === "dimension_scores_0_100"
+    && qualityState === "normal" && vm.interpretationState?.readingStrength !== "retake_recommended" ? vm.dimensions : undefined;
+  const careerContent = usePortraitLayout ? (
     <RiasecCareerNextSteps
       locale={locale}
       displayLocale={displayLocale}
-      scores={mapState !== "hidden" && vm.scoreKind === "dimension_scores_0_100"
-        && qualityState === "normal" && vm.interpretationState?.readingStrength !== "retake_recommended" ? vm.dimensions : undefined}
+      scores={careerScores}
       structured={usePortraitLayout}
       careerLens={clean(desktopContent?.desktop_career_lens)}
       tieDimensions={mapState !== "hidden" && qualityState === "normal" && tieDisplay?.kind !== "none" ? tieDisplay?.dimensions : undefined}
     />
+  ) : (
+    <RiasecLegacyCareerNextSteps locale={locale} displayLocale={displayLocale} scores={careerScores}
+      activityKeys={hasActivities ? vm.activityExplorer?.codeActivityPack.activities.map(activity => activity.activityKey) : undefined} />
   );
   const careerChapter = (
     <section id={ANCHORS.career} className={styles.chapter}>

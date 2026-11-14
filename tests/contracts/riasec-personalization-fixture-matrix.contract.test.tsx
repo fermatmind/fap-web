@@ -385,17 +385,18 @@ describe("RIASEC personalization fixture matrix v2", () => {
     }
   });
 
-  it("renders visible modules and fails closed for hidden strong modules", () => {
+  it("shows approved activity evidence in the 60Q layout and fails closed for hidden strong modules", () => {
     const clearText = renderedTextFor(caseById("clear_code_normal_60q"));
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
-    expect(screen.getByTestId("riasec-governed-copy-surface")).toBeInTheDocument();
-    expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("内容示例，非职业数据库匹配");
+    expect(screen.getByRole("list", { name: "按本次兴趣选出的试做示例" })).toHaveTextContent("访谈或观察真实用户。");
+    expect(screen.queryByTestId("riasec-occupation-examples")).not.toBeInTheDocument();
+    expect(clearText).not.toContain("用户研究助理");
     expect(clearText).not.toContain("本次较突出的兴趣维度包括");
     expect(clearText).not.toContain("依次是");
 
     const broadText = renderedTextFor(caseById("broad_profile_60q"));
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
-    expect(screen.getByTestId("riasec-governed-copy-surface")).toBeInTheDocument();
+    expect(screen.getByRole("list", { name: "按本次兴趣选出的试做示例" })).toHaveTextContent("访谈或观察真实用户。");
     expect(screen.queryByTestId("riasec-occupation-examples")).not.toBeInTheDocument();
     expect(broadText).not.toContain("你的前三个兴趣维度依次是");
 
@@ -403,6 +404,7 @@ describe("RIASEC personalization fixture matrix v2", () => {
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
     expect(screen.queryByTestId("riasec-governed-copy-surface")).not.toBeInTheDocument();
     expect(screen.queryByTestId("riasec-activity-pack")).not.toBeInTheDocument();
+    expect(screen.queryByRole("list", { name: "按本次兴趣选出的试做示例" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("riasec-occupation-examples")).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "分享结果" })).toBeInTheDocument();
     expect(lowQualityText).not.toContain("理解真实人的需求");

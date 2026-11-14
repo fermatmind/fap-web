@@ -135,7 +135,12 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
     const hrefs = [...steps.querySelectorAll("a")]
       .filter(a => !suggestions.contains(a))
       .map(a => a.getAttribute("href"));
-    expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/holland-test/pdf-download`]);
+    if (locale === "zh" && form === 60) {
+      expect(hrefs).toEqual([
+        ...suggestedHrefs.map(href => `#career-${href!.split("/").at(-1)}`), "/zh/career",
+      ]);
+      for (const href of hrefs.slice(0, -1)) expect(document.getElementById(href!.slice(1))).not.toBeNull();
+    } else expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/holland-test/pdf-download`]);
     if (locale === "zh") {
       const taiwan = documentFrom(renderToStaticMarkup(<RiasecResultShell locale={locale} displayLocale="zh-TW" viewModel={vm} attemptId="private-attempt" />));
       const steps = taiwan.querySelector('[data-testid="riasec-career-next-steps"]')!;
@@ -147,6 +152,7 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
       expect(vm).toEqual(before);
     }
     expect(document.querySelector('a[href="#riasec-career-next"]')).not.toBeNull();
+    expect([...document.querySelectorAll("a")].every(link => !link.getAttribute("href")?.includes("private-attempt"))).toBe(true);
     const guide = documentFrom(renderToStaticMarkup(await HollandPdfPage({ params: params() })));
     const reading = guide.getElementById("interpret-results")!;
     expect(reading.querySelector(`a[href="/${locale}/career"]`)).not.toBeNull();
