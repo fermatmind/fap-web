@@ -656,6 +656,18 @@ a {
 }
 
 @media print {
+  body:has([data-testid="riasec-reading-report"]) :is([data-site-header], [data-site-footer], [data-cookie-banner], nextjs-portal) {
+    display: none !important;
+  }
+
+  main:has([data-testid="riasec-reading-report"]) {
+    padding: 0 !important;
+  }
+
+  body:has([data-testid="riasec-reading-report"]) .fm-page-background {
+    background: white !important;
+  }
+
   @page fermat-result-snapshot {
     size: A4;
     margin: 12mm 10mm 14mm;

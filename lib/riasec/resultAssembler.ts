@@ -624,6 +624,11 @@ const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
   "high_score_reading",
   "medium_score_reading",
   "low_score_safe_reading",
+  "atlas_reading",
+  "atlas_examples",
+  "atlas_next_step",
+  "atlas_profile_focus",
+  "desktop_insight_reading",
   "work_activity_examples",
   "possible_drains",
   "common_misread",
@@ -1124,8 +1129,33 @@ function buildDeepContentSlot(
     return null;
   }
 
-  if (slotKey === "triad_blend_copy" && context.requestedPageLocale !== "en") return null;
-  const content = buildDeepContentBody(asRecord(rawSlot.content), context.requestedPageLocale);
+  const rawContent = asRecord(rawSlot.content);
+  const content = buildDeepContentBody(rawContent, context.requestedPageLocale);
+  if (slotKey === "triad_blend_copy" && envelopeLocale === "zh") {
+    const desktop = asRecord(rawContent?.desktop_reading_v1);
+    const fields = ["headline", "scene", "screen", "question", "trial", "decision", "career_lens"] as const;
+    if (context.formCode !== "riasec_60" || normalizeText(rawSlot.module_key) !== "hero_activity_chain" ||
+      !desktop || !fields.every((field) => typeof desktop[field] === "string" && normalizeText(desktop[field]))) {
+      return null;
+    }
+    for (const field of fields) {
+      content[`desktop_${field}`] = normalizeText(desktop[field]);
+    }
+    const heroJobTip = normalizeText(desktop.hero_job_tip);
+    if (heroJobTip) {
+      content.desktop_hero_job_tip = heroJobTip;
+    }
+  }
+  if (slotKey === "pair_blend_copy" && envelopeLocale === "zh") {
+    const workDivision = asRecord(rawContent?.work_division_v1);
+    const fields = ["scene", "tradeoff", "question"] as const;
+    if (workDivision && fields.every((field) =>
+      typeof workDivision[field] === "string" && normalizeText(workDivision[field]))) {
+      for (const field of fields) {
+        content[`work_division_${field}`] = normalizeText(workDivision[field]);
+      }
+    }
+  }
   if (Object.keys(content).length === 0) {
     return null;
   }
