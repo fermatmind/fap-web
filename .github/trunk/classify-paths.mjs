@@ -85,6 +85,7 @@ export function classifyPaths(inputPaths) {
     mixed: categories.length > 1,
     deploy: categories.some((category) => category !== "docs_rules_tests_only"),
     tests_changed: testsChanged,
+    apply_public_ingress: paths.includes("deploy/openresty/fap-web-public.conf"),
     // CodeQL extracts JS/TS (including tools/tests and embedded frontend code).
     // Dependency and workflow/config changes can alter extraction or analysis.
     codeql_required: paths.some((path) => /\.(?:[cm]?[jt]sx?|html?|vue|svelte|json)$/.test(path)

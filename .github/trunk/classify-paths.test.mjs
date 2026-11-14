@@ -103,3 +103,13 @@ test('security scan selection covers extracted code and its configuration indepe
   assert.equal(classifyPaths(['tests/e2e/home.spec.ts']).deploy, false);
   assert.equal(classifyPaths(['.github/workflows/nightly.yml']).flags.deployment_infrastructure, true);
 });
+
+test("PM2 keeps runtime checks and automatic deployment without applying OpenResty", () => {
+  const pm2 = classifyPaths(["ecosystem.config.cjs"]);
+  assert.equal(pm2.flags.ingress_runtime_config, true);
+  assert.equal(pm2.deploy, true);
+  assert.equal(pm2.apply_public_ingress, false);
+
+  const mixed = classifyPaths(["ecosystem.config.cjs", "deploy/openresty/fap-web-public.conf"]);
+  assert.equal(mixed.apply_public_ingress, true);
+});

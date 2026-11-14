@@ -155,7 +155,7 @@ jobs:
           fi
           {
             echo "deploy=$deploy"
-            echo "ingress=$(jq -r .classification.flags.ingress_runtime_config "$receipt")"
+            echo "ingress=$(jq -r .classification.apply_public_ingress "$receipt")"
           } >> "$GITHUB_OUTPUT"
       - id: admission
         name: Skip already accepted candidates before staging setup
