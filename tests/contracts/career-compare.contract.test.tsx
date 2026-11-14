@@ -9,7 +9,6 @@ import { apiClient } from '@/lib/api-client';
 import { PublicReadError } from '@/lib/public-content/readError';
 import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from '@/lib/career/designComparePilot';
 import { CareerRiasecExploreLink } from '@/components/career/CareerRiasecExploreLink';
-import { RiasecCareerNextSteps } from '@/components/result/riasec/RiasecCareerNextSteps';
 import { CareerCompare } from '@/components/career/CareerCompare';
 import { EmbeddedCareerCompare, EmbeddedDesignCareerCompare } from '@/components/career/EmbeddedDesignCareerCompare';
 import { CareerCompareWorksheet } from '@/components/career/CareerCompareWorksheet';
@@ -214,16 +213,6 @@ describe('two-slot task flow', () => {
 });
 
 describe('design comparison pilot', () => {
-  it.each([
-    ['zh', ['r_proto_1'], true], ['zh', ['a_visual_1'], true],
-    ['zh', ['c_process_1'], false], ['zh', [], false], ['en', ['a_visual_1'], false],
-  ] as const)('gates the %s result CTA on shown design activities %j', (locale, activityKeys, enabled) => {
-    render(<RiasecCareerNextSteps locale={locale} activityKeys={activityKeys} />);
-    const link = screen.queryByRole('link', { name: DESIGN_COMPARE_LABEL });
-    if (enabled) expect(link).toHaveAttribute('href', DESIGN_COMPARE_HREF);
-    else expect(link).not.toBeInTheDocument();
-  });
-
   it.each([
     ['zh', 'industrial-designers', true], ['zh', 'graphic-designers', true],
     ['zh', 'architects-except-landscape-and-naval', false], ['en', 'graphic-designers', false],

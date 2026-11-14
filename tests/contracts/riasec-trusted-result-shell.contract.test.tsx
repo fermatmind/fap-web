@@ -338,7 +338,7 @@ describe("RIASEC static trusted result shell", () => {
     render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} />);
 
     const summary = screen.getByTestId("riasec-result-summary");
-    expect(summary).toHaveTextContent("作答状态稳定");
+    expect(screen.queryByTestId("riasec-quality-display")).not.toBeInTheDocument();
     expect(summary).toHaveTextContent("15–30 分钟");
     expect(summary).toHaveTextContent("不代表能力或未来结果");
     expect(screen.getByTestId("riasec-deep-report")).toBeVisible();

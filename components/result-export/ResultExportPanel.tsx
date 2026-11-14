@@ -15,6 +15,7 @@ type Props = {
   mbtiUnlockHref?: string;
   /** Uses the caller's existing authorized PDF chain; credentials never enter projection. */
   onDownloadPdf?: () => Promise<void>;
+  printResultPdf?: boolean;
   pdfState?: "ready" | "pending" | "unavailable";
 };
 
@@ -37,24 +38,35 @@ export function ResultExportPanel(props: Props) {
   const displayText = traditional ? traditionalText : originalText;
   if (!displayText) return null;
   if (props.projection.product === "MBTI") {
-    return <MbtiPromptCard locale={props.locale} displayText={displayText} typeCode={props.mbtiType} unlockHref={props.mbtiUnlockHref} onDownloadPdf={props.onDownloadPdf} />;
+    return <ResultPromptCard product="MBTI" locale={props.locale} displayText={displayText} typeCode={props.mbtiType} unlockHref={props.mbtiUnlockHref} onDownloadPdf={props.onDownloadPdf} />;
+  }
+  if (props.projection.product === "RIASEC") {
+    return <ResultPromptCard product="RIASEC" locale={props.locale} displayText={displayText} printResultPdf={props.printResultPdf} />;
   }
   return <ResultExportContent key={props.locale} {...props} displayText={displayText} />;
 }
 
-function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadPdf }: {
+function ResultPromptCard({ product, locale, displayText, typeCode, unlockHref, onDownloadPdf, printResultPdf }: {
+  product: "MBTI" | "RIASEC";
   locale: DisplayLocale;
   displayText: (value: string) => string;
   typeCode?: string;
   unlockHref?: string;
   onDownloadPdf?: () => Promise<void>;
+  printResultPdf?: boolean;
 }) {
   const id = useId();
   const [status, setStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
   const copy = (zh: string, en: string) => locale === "en" ? en : displayText(zh);
   const [pdfStatus, setPdfStatus] = useState<"idle" | "downloading" | "requested" | "failed">("idle");
-  const prompt = displayText(RESULT_EXPORT_PROMPTS.MBTI[locale === "en" ? "en" : "zh"]);
+  const prompt = displayText(RESULT_EXPORT_PROMPTS[product][locale === "en" ? "en" : "zh"]);
   const baseType = typeCode?.match(/^([EI][SN][TF][JP])(?:-[AT])?$/)?.[1]?.toLowerCase();
+  const riasec = product === "RIASEC";
+  const illustration = riasec
+    ? "/images/riasec/ai-career-interests.webp"
+    : baseType
+      ? `/images/mbti/ai-conversation/${baseType}.webp`
+      : "/images/mbti/ai-result-conversation.webp";
   const buttonClass = "inline-flex min-h-11 items-center rounded-full px-5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800";
 
   async function copyPrompt() {
@@ -64,6 +76,14 @@ function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadP
   }
 
   async function downloadPdf() {
+    if (printResultPdf) {
+      try {
+        window.print();
+      } catch {
+        setPdfStatus("failed");
+      }
+      return;
+    }
     if (!onDownloadPdf || pdfStatus === "downloading") return;
     setPdfStatus("downloading");
     try {
@@ -75,11 +95,11 @@ function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadP
   }
 
   return (
-    <section id="mbti-ai-export" data-testid="result-export-panel" aria-labelledby={id}
+    <section id={riasec ? "riasec-ai-export" : "mbti-ai-export"} data-testid="result-export-panel" aria-labelledby={id}
       className="min-w-0 scroll-mt-24 rounded-xl border border-emerald-200 border-t-4 border-t-emerald-600 bg-[#e9f5ef] px-5 py-7 text-slate-900 sm:px-8 sm:py-10 print:hidden">
       <div className="grid items-center gap-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-10">
         <Image
-          src={baseType ? `/images/mbti/ai-conversation/${baseType}.webp` : "/images/mbti/ai-result-conversation.webp"}
+          src={illustration}
           alt=""
           width={768}
           height={512}
@@ -87,7 +107,9 @@ function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadP
         />
         <div className="min-w-0 space-y-4">
           <h2 id={id} className="text-2xl font-bold tracking-tight text-emerald-950 sm:text-3xl">
-            {copy("和 AI 深聊，认识更真实的自己", "Get to know yourself in a deeper conversation with AI")}
+            {riasec
+              ? copy("和 AI 继续探索职业兴趣", "Explore your career interests with AI")
+              : copy("和 AI 深聊，认识更真实的自己", "Get to know yourself in a deeper conversation with AI")}
           </h2>
           <p className="whitespace-pre-wrap break-words text-sm leading-relaxed">{prompt}</p>
           <div className="flex flex-wrap gap-3">
@@ -98,10 +120,10 @@ function MbtiPromptCard({ locale, displayText, typeCode, unlockHref, onDownloadP
             {unlockHref ? <a href={unlockHref} className={`${buttonClass} border border-emerald-700 bg-white text-emerald-900 hover:bg-emerald-50`}>
               {copy("解锁全部结果页内容", "Unlock the full results page")}
             </a> : null}
-            {onDownloadPdf ? (
+            {onDownloadPdf || printResultPdf ? (
               <button type="button" disabled={pdfStatus === "downloading"} onClick={() => void downloadPdf()}
                 className={`${buttonClass} border border-emerald-700 bg-white text-emerald-900 hover:bg-emerald-50 disabled:opacity-50`}>
-                {pdfStatus === "downloading" ? copy("正在请求 PDF…", "Requesting PDF…") : copy("下载 PDF", "Download PDF")}
+                {pdfStatus === "downloading" ? copy("正在请求 PDF…", "Requesting PDF…") : riasec ? copy("下载完整结果页 PDF", "Download full results PDF") : copy("下载 PDF", "Download PDF")}
               </button>
             ) : null}
           </div>

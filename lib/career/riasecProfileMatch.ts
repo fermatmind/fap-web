@@ -5,6 +5,8 @@ import type { RiasecDimension } from "@/lib/riasec/resultAssembler";
 
 const taiwanCopy: Record<keyof typeof release.careers, { name: string; summary: string }> = traditionalCopy;
 
+export const RIASEC_CAREER_POOL_SIZE = Object.keys(release.careers).length;
+
 const dimensions = ["R", "I", "A", "S", "E", "C"] as const;
 // The result interpretation also treats a population standard deviation below 10 as broad.
 const minimumProfileDeviation = 10;
@@ -29,6 +31,7 @@ export function rankRiasecCareers(scores: RiasecDimension[], locale: DisplayLoca
   }
 
   // O*NET Interest Profiler Manual, chapter 7. Compare the shape of two six-score profiles.
+  const leading = values.map(score => score!).sort((a, b) => b.score - a.score)[2].score;
   const jobs = Object.entries(release.careers).flatMap(([slug, career]) => {
     const occupation = centered(career.interestVector);
     const norm = Math.hypot(...occupation);
@@ -36,7 +39,9 @@ export function rankRiasecCareers(scores: RiasecDimension[], locale: DisplayLoca
     const dot = profile.reduce((sum, value, index) => sum + value * occupation[index], 0);
     const similarity = Math.round(dot / (profileNorm * norm) * 1e6);
     const copy = locale === "zh-TW" ? taiwanCopy[slug as keyof typeof release.careers] : career.copy[locale];
-    return similarity > 0 ? [{ slug, ...copy, similarity }] : [];
+    const occupationThreshold = [...career.interestVector].sort((a, b) => b - a)[2];
+    const sharedInterests = dimensions.filter((_, index) => values[index]!.score >= leading && career.interestVector[index] >= occupationThreshold);
+    return similarity > 0 ? [{ slug, ...copy, similarity, sharedInterests }] : [];
   }).sort((a, b) => b.similarity - a.similarity || (a.slug < b.slug ? -1 : 1));
 
   return { state: "ranked" as const, jobs: jobs.slice(0, 5) };

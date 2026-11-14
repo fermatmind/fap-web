@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import styles from "./RiasecReadingReport.module.css";
 
 // A page-memory note authored by the reader, separate from measured results.
-export function RiasecTrialRecord({ locale, activities }: { locale: Locale; activities: string[] }) {
+export function RiasecTrialRecord({ locale, activities, careerName }: { locale: Locale; activities: string[]; careerName?: string }) {
   const zh = locale === "zh";
   const t = (cn: string, en: string) => zh ? cn : en;
   const [notes, setNotes] = useState<Record<string, string>>({});
@@ -17,11 +17,12 @@ export function RiasecTrialRecord({ locale, activities }: { locale: Locale; acti
   ];
   const record = [
     t("本人探索记录（由本人填写，与测量事实分开）", "My exploration record (my own notes, separate from measured results)"),
+    ...(careerName ? [careerName] : []),
     `${t("我选择的活动", "Activities I selected")}:\n${activities.join("\n")}`,
     ...fields.map(([id, label]) => `${label}:\n${notes[id] ?? ""}`),
   ].join("\n\n");
   return <section className={styles.trialRecord} aria-labelledby="riasec-trial-title">
-    <h3 id="riasec-trial-title">{t("记录一次现实试做", "Record a real-world trial")}</h3>
+    <h3 id="riasec-trial-title">{t("记录一次现实试做", "Record a real-world trial")}{careerName ? ` · ${careerName}` : ""}</h3>
     <p>{t("先选一项愿意尝试的活动，再从职业档案中核对一个真实任务与一个待核条件。这里由你填写，可留空；只在当前页面内存保留，刷新或离开可能丢失。可手动复制下方记录，或打开现有工作表继续整理。", "Choose an activity, then check one real task and one condition in a career profile. These optional notes are yours and stay in this page’s memory; refreshing or leaving may lose them. Manually copy the record below or continue in the existing worksheet.")}</p>
     {activities.length ? <ul aria-label={t("已选活动", "Selected activities")}>{activities.map(activity => <li key={activity}>{activity}</li>)}</ul> : null}
     {fields.map(([id, label]) => <label key={id} className={styles.noteField} htmlFor={`riasec-trial-${id}`}>

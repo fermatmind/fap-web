@@ -5,12 +5,13 @@ import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import samples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
 import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
+import { RESULT_EXPORT_PROMPTS } from "@/lib/result-export/prompts";
 import { buildRiasecResultExport } from "@/lib/riasec/exportAdapter";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
 
 describe("RIASEC interest to trial loop", () => {
-  it("links the summary action to the authorized shared panel with keyboard focus", () => {
+  it("shows one prompt card after the report and copies only the RIASEC prompt", async () => {
     const report = { riasec_public_projection_v2: samples["en-60"] } as unknown as ReportResponse;
     const vm = assembleRiasecResultViewModel(report, "en");
     render(<div data-result-visible-root>
@@ -18,30 +19,37 @@ describe("RIASEC interest to trial loop", () => {
       <ResultExportPanel projection={buildRiasecResultExport(report, "en")!} locale="en" />
     </div>);
     const panel = screen.getByTestId("result-export-panel");
-    const summary = panel.querySelector("summary")!;
-    const scroll = vi.fn();
-    Object.defineProperty(summary, "scrollIntoView", { value: scroll });
-    fireEvent.click(screen.getByRole("button", { name: "Explore your results with AI" }));
-    expect(summary).toHaveFocus();
-    expect(scroll).toHaveBeenCalledWith({ block: "center" });
-    expect((within(panel).getByLabelText("Full export preview") as HTMLTextAreaElement).value).toContain("riasec_60");
+    const reader = screen.getByTestId("riasec-reading-report");
+    expect(reader.compareDocumentPosition(panel)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+    expect(within(reader).queryByRole("button", { name: "Explore your results with AI" })).toBeNull();
+    expect(within(panel).getByRole("heading", { name: "Explore your career interests with AI" })).toBeVisible();
+    expect(within(panel).queryByRole("button", { name: /Unlock|PDF/ })).toBeNull();
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal("navigator", Object.create(navigator, { clipboard: { value: { writeText } } }));
+    try {
+      fireEvent.click(within(panel).getByRole("button", { name: "Copy prompt" }));
+      await within(panel).findByText("Prompt copied.");
+      expect(writeText).toHaveBeenCalledExactlyOnceWith(RESULT_EXPORT_PROMPTS.RIASEC.en);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
   it.each(["zh-CN-60", "zh-CN-140", "en-60", "en-140"] as const)("keeps %s scores separate from optional personal notes and same-language resources", key => {
     const locale = key.startsWith("zh") ? "zh" : "en";
     const vm = assembleRiasecResultViewModel({ riasec_public_projection_v2: samples[key] } as unknown as ReportResponse, locale);
     const before = structuredClone(vm);
     const { unmount } = render(<RiasecResultShell locale={locale} viewModel={vm} />);
-    expect(screen.getByTestId("riasec-form-version")).toHaveTextContent(vm.formCode!);
+    expect(screen.queryByTestId("riasec-form-version")).not.toBeInTheDocument();
     expect(screen.getByTestId("riasec-six-dimension-map")).toHaveTextContent("0–100");
-    expect(screen.getByTestId("riasec-quality-display")).toHaveTextContent(vm.resultSummary!.qualitySummary);
-    const choice = screen.queryAllByRole("checkbox")[0];
-    if (choice) {
-      fireEvent.click(choice);
-      expect(choice).toBeChecked();
-      expect(screen.getByLabelText(locale === "zh" ? "已选活动" : "Selected activities")).toHaveTextContent(vm.activityExplorer!.codeActivityPack.activities[0].activityLabel);
-    } else {
-      expect(screen.getByTestId("riasec-governed-copy-empty")).toBeVisible();
-    }
+    expect(screen.queryByTestId("riasec-quality-display")).not.toBeInTheDocument();
+    const candidates = screen.getByTestId("riasec-profile-careers");
+    expect(screen.getByTestId("riasec-six-dimension-map").compareDocumentPosition(candidates)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+    const choices = within(candidates).getAllByRole("checkbox");
+    fireEvent.click(choices[0]);
+    fireEvent.click(choices[1]);
+    expect(screen.getByRole("region", { name: locale === "zh" ? "职业比较" : "Career comparison" })).toBeVisible();
+    expect(screen.queryByRole("textbox")).toBeNull();
+    fireEvent.click(within(candidates).getAllByRole("button", { name: locale === "zh" ? "记录试做" : "Plan a trial" })[0]);
     const note = "  <script>alert(1)</script>\n```\n[goal](https://example.invalid)  ";
     const task = screen.getByLabelText(locale === "zh" ? "我愿意反复做或试做的活动／真实任务" : "An activity or real task I would repeat or try");
     fireEvent.change(task, { target: { value: note } });
@@ -52,15 +60,16 @@ describe("RIASEC interest to trial loop", () => {
     const next = screen.getByTestId("riasec-career-next-steps");
     for (const link of within(next).getAllByRole("link")) {
       const href = link.getAttribute("href") ?? "";
-      expect(href).toMatch(new RegExp(`^/${locale}/`));
-      if (href.includes("?")) {
-        expect(href).toBe("/zh/career/compare?c1=industrial-designers&c2=graphic-designers");
+      if (href.startsWith("#")) {
+        expect(document.getElementById(href.slice(1))).toBeInTheDocument();
+      } else {
+        expect(href).toMatch(new RegExp(`^/${locale}/`));
       }
     }
-    expect(next).toHaveTextContent(locale === "zh" ? "仅支持工业设计师、平面设计师和建筑师" : "industrial designers, graphic designers and architects only");
+    expect(next).not.toHaveTextContent(/仅支持工业设计师|industrial designers, graphic designers and architects only/);
     unmount();
     render(<RiasecResultShell locale={locale} viewModel={vm} />);
-    expect(screen.getByLabelText(locale === "zh" ? "我愿意反复做或试做的活动／真实任务" : "An activity or real task I would repeat or try")).toHaveValue("");
+    expect(screen.queryByRole("textbox")).toBeNull();
   });
 
   it("does not fabricate zero for a missing score or expose hidden activity choices", () => {
