@@ -196,7 +196,7 @@ describe("Blog CMS archive and SEO boundaries", () => {
     get.mockResolvedValue({ value: { ...data(), pagination: { currentPage: 1, perPage: 20, total: 40, lastPage: 2 } }, stale: false });
     const home = await blogArchiveMetadata(locale, {});
     expect(home.robots).toMatchObject({ index: true, follow: true });
-    expect(home.alternates?.languages).toEqual({ en: "https://fermatmind.com/en/articles", "zh-CN": "https://fermatmind.com/zh/articles" });
+    expect(home.alternates?.languages).toEqual({ en: "https://fermatmind.com/en/articles", "zh-CN": "https://fermatmind.com/zh/articles", "zh-TW": "https://fermatmind.com/zh-TW/articles" });
     for (const query of [{ page: "2" }, { page: "1" }, { category: "arbitrary" }]) {
       const held = await blogArchiveMetadata(locale, query);
       expect(held.robots).toMatchObject({ index: false, follow: true });

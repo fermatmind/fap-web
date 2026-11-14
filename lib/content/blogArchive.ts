@@ -4,7 +4,7 @@ import { getCmsArticlesWithLastKnownGood, normalizeArticleListPage, type GetCmsA
 import { getDict } from "@/lib/i18n/getDict";
 import { localizedPath, type DisplayLocale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { canonicalUrl, getSiteUrlOrThrow, isConfiguredStagingSiteUrl } from "@/lib/site";
+import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 
 export type BlogArchiveState = { data: GetCmsArticlesResult | null; stale: boolean; failed: boolean };
 
@@ -49,13 +49,26 @@ export async function blogArchiveMetadata(locale: DisplayLocale, query: Record<s
     && (!category || Boolean(activeCategory));
   // Public content publication does not release CMS discoverability holds.
   const held = page > 1 || Boolean(category) || (blog?.configurationState === "published" && blog.isIndexable !== true);
+  const staging = isConfiguredStagingSiteUrl();
+  const indexableBlog = (archive: BlogArchiveState) => !archive.failed && !archive.stale
+    && archive.data?.blog?.configurationState === "published" && archive.data.blog.isIndexable;
+  let languages: Record<string, string> | undefined;
+  if (exists && canonicalQuery && !held && !staging && indexableBlog(state)) {
+    const locales: DisplayLocale[] = ["en", "zh", "zh-TW"];
+    const archives = await Promise.all(locales.map((candidate) => candidate === locale ? state : loadBlogArchive(candidate, 1)));
+    const eligible = locales.filter((_, index) => indexableBlog(archives[index]));
+    if (eligible.length > 1) {
+      languages = Object.fromEntries(eligible.map((candidate) => [
+        candidate === "zh" ? "zh-CN" : candidate, canonicalUrl(blogArchivePath(candidate)),
+      ]));
+    }
+  }
   if (locale === "zh-TW") {
-    const staging = isConfiguredStagingSiteUrl();
-    const index = exists && canonicalQuery && !held && blog?.configurationState === "published";
+    const index = exists && canonicalQuery && !held && indexableBlog(state);
     return {
       title,
       ...(description ? { description } : {}),
-      alternates: { canonical: canonicalUrl(pathname) },
+      alternates: { canonical: canonicalUrl(pathname), ...(languages ? { languages } : {}) },
       robots: { index: index && !staging, follow: !staging },
     };
   }
@@ -63,21 +76,7 @@ export async function blogArchiveMetadata(locale: DisplayLocale, query: Record<s
   const metadata = buildPageMetadata({ locale, pathname, title, description, omitLanguageAlternates: true,
     noindex: !exists || !canonicalQuery || held || blog?.configurationState === "invalid" ? true : undefined,
     noindexFollow: true, alternatesByLocale: { en: "/en/articles", zh: "/zh/articles" } });
-  // Equal-looking translated paths alone are not evidence of a real pair.
-  if (exists && canonicalQuery && !held) {
-    const otherLocale = locale === "en" ? "zh" : "en";
-    const other = await loadBlogArchive(otherLocale, page, category);
-    const otherCategory = other.data?.blog?.categories.find((item) => item.slug === category);
-    if (!other.failed && !other.stale && other.data && page <= other.data.pagination.lastPage
-      && blog?.configurationState === "published" && other.data.blog?.configurationState === "published"
-      && other.data.blog.isIndexable === true
-      && (!category || (other.data.blog?.configurationState === "published" && otherCategory && otherCategory.lineKey === activeCategory?.lineKey))) {
-      metadata.alternates = { ...metadata.alternates, languages: {
-        [locale === "zh" ? "zh-CN" : "en"]: `${getSiteUrlOrThrow()}${pathname}`,
-        [otherLocale === "zh" ? "zh-CN" : "en"]: `${getSiteUrlOrThrow()}${blogArchivePath(otherLocale, category, page)}`,
-      } };
-    }
-  }
+  if (languages) metadata.alternates = { ...metadata.alternates, languages };
   if (!description) {
     delete metadata.description;
     if (metadata.openGraph) delete metadata.openGraph.description;
