@@ -63,6 +63,7 @@ module.exports = {
       },
       time: true,
       autorestart: true,
+      max_memory_restart: "1200M",
       max_restarts: 10,
       min_uptime: "10s",
       listen_timeout: 10000,
