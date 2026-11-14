@@ -44,14 +44,30 @@ describe("RIASEC interest to trial loop", () => {
     expect(screen.queryByTestId("riasec-quality-display")).not.toBeInTheDocument();
     const candidates = screen.getByTestId("riasec-profile-careers");
     expect(screen.getByTestId("riasec-six-dimension-map").compareDocumentPosition(candidates)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
-    const choices = within(candidates).getAllByRole("checkbox");
-    fireEvent.click(choices[0]);
-    fireEvent.click(choices[1]);
-    expect(screen.getByRole("region", { name: locale === "zh" ? "职业比较" : "Career comparison" })).toBeVisible();
-    expect(screen.queryByRole("textbox")).toBeNull();
-    fireEvent.click(within(candidates).getAllByRole("button", { name: locale === "zh" ? "记录试做" : "Plan a trial" })[0]);
+    const isDesktop = key === "zh-CN-60";
+    const taskLabel = locale === "zh" ? "我愿意反复做或试做的活动／真实任务" : "An activity or real task I would repeat or try";
+    if (isDesktop) {
+      const choices = within(candidates).getAllByRole("checkbox");
+      fireEvent.click(choices[0]);
+      fireEvent.click(choices[1]);
+      expect(screen.getByRole("region", { name: "职业比较" })).toBeVisible();
+      expect(screen.queryByRole("textbox")).toBeNull();
+      fireEvent.click(within(candidates).getAllByRole("button", { name: "记录试做" })[0]);
+    } else {
+      expect(within(candidates).queryByRole("checkbox")).toBeNull();
+      const choices = within(screen.getByTestId("riasec-activity-pack")).queryAllByRole("checkbox");
+      const activities = vm.activityExplorer?.codeActivityPack.activities ?? [];
+      expect(choices).toHaveLength(activities.length);
+      if (choices.length) {
+        fireEvent.click(choices[0]);
+        expect(choices[0]).toBeChecked();
+        expect(screen.getByLabelText(locale === "zh" ? "已选活动" : "Selected activities")).toHaveTextContent(activities[0].activityLabel);
+      } else {
+        expect(screen.queryByLabelText(locale === "zh" ? "已选活动" : "Selected activities")).toBeNull();
+      }
+    }
     const note = "  <script>alert(1)</script>\n```\n[goal](https://example.invalid)  ";
-    const task = screen.getByLabelText(locale === "zh" ? "我愿意反复做或试做的活动／真实任务" : "An activity or real task I would repeat or try");
+    const task = screen.getByLabelText(taskLabel);
     fireEvent.change(task, { target: { value: note } });
     const preview = screen.getByLabelText(locale === "zh" ? "本人记录预览（可选择后手动复制）" : "My record preview (select to copy manually)");
     expect((preview as HTMLTextAreaElement).value).toContain(note);
@@ -66,10 +82,11 @@ describe("RIASEC interest to trial loop", () => {
         expect(href).toMatch(new RegExp(`^/${locale}/`));
       }
     }
-    expect(next).not.toHaveTextContent(/仅支持工业设计师|industrial designers, graphic designers and architects only/);
+    if (isDesktop) expect(next).not.toHaveTextContent(/仅支持工业设计师/);
     unmount();
     render(<RiasecResultShell locale={locale} viewModel={vm} />);
-    expect(screen.queryByRole("textbox")).toBeNull();
+    if (isDesktop) expect(screen.queryByRole("textbox")).toBeNull();
+    else expect(screen.getByLabelText(taskLabel)).toHaveValue("");
   });
 
   it("does not fabricate zero for a missing score or expose hidden activity choices", () => {

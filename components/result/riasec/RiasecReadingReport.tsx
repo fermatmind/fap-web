@@ -29,6 +29,7 @@ import {
 import styles from "./RiasecReadingReport.module.css";
 import { RiasecExploration } from "./RiasecExploration";
 import { RiasecCareerNextSteps } from "./RiasecCareerNextSteps";
+import { RiasecTrialRecord } from "./RiasecTrialRecord";
 import { RiasecLegacyCareerNextSteps } from "./RiasecLegacyCareerNextSteps";
 
 type Props = {
@@ -82,6 +83,7 @@ export function RiasecReadingReport({
   const [selected, setSelected] = useState(
     vm.primaryType || vm.dimensions[0]?.code || "",
   );
+  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
   const visibility = (key: string) => getRiasecModuleVisibility(vm, key);
   const mapState = visibility("six_dimension_map");
   // Validated slots have their own backend visibility contract. Older envelopes
@@ -376,7 +378,15 @@ export function RiasecReadingReport({
           <summary><h2>{careerTitle}</h2></summary>
           <div className={styles.careerPanelBody}>{careerContent}</div>
         </details>
-      ) : <><h2>{careerTitle}</h2>{careerContent}</>}
+      ) : <>
+        <h2>{careerTitle}</h2>
+        {careerContent}
+        <RiasecTrialRecord locale={locale} activities={hasActivities
+          ? (vm.activityExplorer?.codeActivityPack.activities ?? [])
+            .filter(activity => selectedActivities.includes(activity.activityKey))
+            .map(activity => clean(activity.activityLabel))
+          : []} />
+      </>}
     </section>
   );
 
@@ -552,6 +562,12 @@ export function RiasecReadingReport({
                             >
                               <h3>{clean(activity.activityLabel)}</h3>
                               <p>{clean(activity.activityUserCopy)}</p>
+                              <label className={styles.activityChoice}>
+                                <input type="checkbox" checked={selectedActivities.includes(activity.activityKey)}
+                                  onChange={() => setSelectedActivities(previous => previous.includes(activity.activityKey)
+                                    ? previous.filter(key => key !== activity.activityKey) : [...previous, activity.activityKey])} />
+                                <span>{t("我愿意反复做或试做：", "I would repeat or try: ")}{clean(activity.activityLabel)}</span>
+                              </label>
                               <h4>{t("任务例子", "Task examples")}</h4>
                               <ul>
                                 {activity.taskExamples
