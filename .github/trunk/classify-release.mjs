@@ -14,12 +14,17 @@ export async function productionBaseline({ listRuns, listJobs, candidateSha, ski
     if (!Array.isArray(runs)) throw new Error('Invalid deployment run response');
     for (const run of runs) {
       if (!['completed', 'in_progress'].includes(run.status)
-        || (run.status === 'completed' && !['success', 'failure'].includes(run.conclusion))
+        || (run.status === 'completed' && !['success', 'failure', 'cancelled'].includes(run.conclusion))
         || run.head_branch !== 'main' || run.event !== 'workflow_run' || run.run_attempt !== 1) continue;
       if (!Number.isSafeInteger(run.id)) throw new Error('Invalid deployment identity');
       const jobs = await listJobs(run.id);
       if (!Array.isArray(jobs)) throw new Error('Invalid deployment jobs response');
       const production = jobs.filter(job => job.name === productionJob);
+      if (run.conclusion === 'cancelled') {
+        const ingress = jobs.filter(job => job.name === 'Apply changed ingress config after exact production smoke');
+        if (production.length !== 1 || production[0].conclusion !== 'success'
+          || ingress.length !== 1 || ingress[0].conclusion !== 'cancelled') continue;
+      }
       if (!production.length && (run.status === 'in_progress' || run.conclusion === 'failure')) continue;
       if (production.length !== 1) throw new Error('Ambiguous production job evidence');
       const job = production[0];

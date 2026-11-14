@@ -99,3 +99,16 @@ test('displayed workflow head does not replace accepted candidate; running opera
 test('missing production binding cannot invent a successful baseline', async () => {
   await assert.rejects(productionBaseline({listRuns:async () => [run(7)],listJobs:async () => [job()]}), /binding reader/);
 });
+
+test('cancelled ingress preserves completed production activation only', async () => {
+  const cancelled = {...run(10, before), conclusion:'cancelled'};
+  const ingress = {name:'Apply changed ingress config after exact production smoke', conclusion:'cancelled'};
+  const baseline = jobs => productionBaseline({
+    listRuns: async () => [cancelled, run(9, before)],
+    listJobs: async id => id === 10 ? jobs : [job()],
+    candidateSha: async run => run.id === 10 ? head : before,
+  });
+  assert.deepEqual(await baseline([job(), ingress]), {sha:head,runId:10});
+  assert.deepEqual(await baseline([job()]), {sha:before,runId:9});
+  assert.deepEqual(await baseline([{...job(), conclusion:'cancelled'}, ingress]), {sha:before,runId:9});
+});
