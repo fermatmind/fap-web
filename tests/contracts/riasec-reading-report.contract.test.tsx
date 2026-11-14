@@ -2,6 +2,8 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { canonicalReport } from "./fixtures/riasec/canonicalReport";
 import backendSamples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
+import profileSamples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-profile-samples.json";
+import ecrSample from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/ecr-sample.json";
 import projection from "./fixtures/riasec/deep-copy-v1.projection.json";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
@@ -75,6 +77,82 @@ describe("RIASEC interactive reading experience", () => {
     expect(vm.dimensions.map((item) => item.code)).toEqual(originalOrder);
   });
 
+  it("uses the measured ECR profile in the 60-item portrait without repeating summary highlights", () => {
+    const vm = assembleRiasecResultViewModel({
+      scale_code: "RIASEC",
+      type_code: "ECR",
+      riasec_public_projection_v2: ecrSample,
+    } as unknown as ReportResponse, "zh");
+    render(<RiasecResultShell locale="zh" viewModel={vm} />);
+
+    const hero = within(screen.getByTestId("riasec-trusted-result-card"));
+    expect(hero.getByRole("heading", { name: /^企业型$/ })).toBeVisible();
+    expect(hero.getByText("ECR（并列：R/S）", { exact: true })).toBeVisible();
+    expect(hero.getByText(vm.resultSummary!.tieNote)).toBeVisible();
+
+    const conventional = vm.resultSummary!.highlights.find(item => item.dimensionCode === "C")!;
+    expect(hero.queryByText(conventional.text)).not.toBeInTheDocument();
+    expect(screen.queryByText(conventional.text)).not.toBeInTheDocument();
+    expect(screen.getByTestId("riasec-dimension-R")).toHaveTextContent("47.5");
+    expect(screen.getByTestId("riasec-dimension-S")).toHaveTextContent("47.5");
+
+    const sidebar = within(screen.getByTestId("riasec-report-sidebar"));
+    const insight = sidebar.getByTestId("riasec-dimension-insight");
+    expect(insight).toBeVisible();
+    expect(insight).toHaveTextContent("E ·");
+    fireEvent.click(screen.getByTestId("riasec-dimension-S"));
+    expect(insight).toHaveTextContent("S ·");
+  });
+
+  it("keeps the original dimension insight and renders the separate 60-item atlas reading", () => {
+    const vm = summaryModel("zh-CN-60", false);
+    render(<RiasecResultShell locale="zh" viewModel={vm} />);
+
+    fireEvent.mouseEnter(screen.getByTestId("riasec-dimension-R"));
+    const insight = within(screen.getByTestId("riasec-dimension-insight"));
+    expect(insight.getByRole("heading", { name: "R · 现实型" })).toBeVisible();
+    expect(insight.queryByRole("heading", { name: "下一步" })).not.toBeInTheDocument();
+
+    const card = within(screen.getByRole("heading", { name: /^现实型$/ }).closest("article")!);
+    expect(card.getByText("42 分")).toBeVisible();
+    expect(card.getByRole("heading", { name: "下一步" })).toBeVisible();
+    const slot = vm.deepContentSlots!.slots.find(
+      item => item.selection?.dimensionCode === "R",
+    )!;
+    const reading = String(slot.content[slot.selection!.selectedDetailKey]);
+    const atlas = String(slot.content.atlas_reading);
+    expect(card.getByText(atlas)).toBeVisible();
+    expect(card.queryByText(reading)).not.toBeInTheDocument();
+    expect(insight.getByText(reading)).toBeVisible();
+    expect(insight.getByText(String(slot.content.core_drive))).toBeVisible();
+    expect(insight.queryByText(atlas)).not.toBeInTheDocument();
+  });
+
+  it("shows the selected score interval in the sidebar and preserves the independent atlas copy", () => {
+    const vm = assembleRiasecResultViewModel({
+      scale_code: "RIASEC",
+      type_code: "IAS",
+      riasec_public_projection_v2: profileSamples.IAS,
+    } as unknown as ReportResponse, "zh");
+    render(<RiasecResultShell locale="zh" viewModel={vm} />);
+
+    const insight = within(screen.getByTestId("riasec-dimension-insight"));
+    const investigative = vm.deepContentSlots!.slots.find(
+      slot => slot.selection?.dimensionCode === "I",
+    )!;
+    expect(insight.getByText(String(investigative.content.desktop_insight_reading))).toBeVisible();
+
+    fireEvent.mouseEnter(screen.getByTestId("riasec-dimension-R"));
+    const realistic = vm.deepContentSlots!.slots.find(
+      slot => slot.selection?.dimensionCode === "R",
+    )!;
+    expect(insight.getByRole("heading", { name: "R · 现实型" })).toBeVisible();
+    expect(insight.getByText(String(realistic.content.desktop_insight_reading))).toBeVisible();
+    expect(insight.queryByText(String(realistic.content.core_drive))).not.toBeInTheDocument();
+    const atlas = within(screen.getByRole("heading", { name: /^现实型$/ }).closest("article")!);
+    expect(atlas.getByText(String(realistic.content.atlas_reading))).toBeVisible();
+  });
+
   it("omits hidden modules from both content and navigation, including their slots", () => {
     const vm = model();
     vm.moduleVisibilityPolicy!.modules.forEach((item) => {
@@ -129,7 +207,7 @@ describe("RIASEC interactive reading experience", () => {
       vm.resultSummary!.rankingDisplay,
     );
     expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(
-      vm.resultSummary!.nextStep,
+      vm.resultSummary!.highlights[0].text,
     );
   });
 
@@ -144,7 +222,7 @@ describe("RIASEC interactive reading experience", () => {
       expect(summary).toHaveTextContent(vm.resultSummary!.boundary);
       expect(summary).toHaveTextContent(vm.interpretationState!.tieDisplay!.boundary);
       expect(summary).toHaveTextContent("可同时参考的阅读顺序: ISA");
-      expect(summary).toHaveTextContent(vm.resultSummary!.nextStep);
+      expect(summary).not.toHaveTextContent(vm.resultSummary!.nextStep);
     },
   );
 
@@ -171,15 +249,16 @@ describe("RIASEC interactive reading experience", () => {
     expect(summary).not.toHaveTextContent("可同时参考的阅读顺序");
   });
 
-  it("shows allowed detailed copy directly without a disclosure button", () => {
+  it("shows detailed copy after expanding optional reading", () => {
     const vm = model();
     vm.moduleVisibilityPolicy!.modules.find(
       (item) => item.key === "pair_blend",
     )!.visibility = "collapsed";
     render(<RiasecResultShell locale="zh" viewModel={vm} />);
     const text = screen.getByText("Backend fixture pair chemistry.");
+    expect(text).not.toBeVisible();
+    text.closest("details")!.open = true;
     expect(text).toBeVisible();
-    expect(text.closest("details")).toBeNull();
     expect(screen.queryByText("详细解读")).not.toBeInTheDocument();
     expect(screen.getByText("Backend fixture pair boundary.")).toBeVisible();
   });
@@ -209,6 +288,8 @@ describe("RIASEC interactive reading experience", () => {
     expect(screen.getByTestId("riasec-dimension-insight")).toHaveTextContent(
       vm.resultSummary.tieNote,
     );
+    expect(screen.getByTestId("riasec-six-dimension-map")).not.toHaveTextContent(vm.resultSummary.tieNote);
+    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(vm.resultSummary.tieNote);
     expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent(
       vm.resultSummary.rankingDisplay,
     );
@@ -322,18 +403,38 @@ describe("backend-generated Chinese reading samples", () => {
       render(<RiasecResultShell locale="zh" viewModel={vm} />);
       const report = screen.getByTestId("riasec-reading-report");
       expect(report).not.toHaveTextContent("Backend fixture");
-      expect(report).toHaveTextContent("研究-表达活动组合线索");
-      expect(report).toHaveTextContent("定义一个问题");
+      if (key === "zh-CN-60") {
+        const work = report.querySelector("#riasec-combinations")!;
+        const action = report.querySelector("#riasec-action-plan")!;
+        const methods = screen.getByRole("region", { name: "测评方法与科学依据" });
+        const careers = report.querySelector("#riasec-career-next")!;
+        expect(careers.compareDocumentPosition(work) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+        expect(work.compareDocumentPosition(action) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+        expect(work).toHaveTextContent("研究型 × 艺术型");
+        const pair = vm.deepContentSlots!.slots.find(slot => slot.state.pair_key === "I_A")!;
+        expect(work).toHaveTextContent(String(pair.content.positive_value));
+        expect(work).toHaveTextContent("研究型 × 社会型");
+        expect(work).toHaveTextContent("艺术型 × 社会型");
+        expect(action.querySelectorAll("ol > li")).toHaveLength(4);
+        expect(action).toHaveTextContent("入行时，你们最看重哪一种证明");
+        expect(report.querySelector("#riasec-activities")).toBeNull();
+        expect(within(methods).getByText("六维分数怎么得出")).toBeVisible();
+        expect(within(methods).getByRole("link", { name: "查看费马测评方法 →" })).toBeVisible();
+      } else {
+        expect(report).toHaveTextContent("研究-表达活动组合线索");
+        expect(report).toHaveTextContent("定义一个问题");
+      }
       const hero = screen.getByTestId("riasec-trusted-result-card");
       expect(hero).not.toHaveTextContent("你的兴趣结果摘要");
-      expect(hero).toHaveTextContent("作答状态稳定");
+      expect(hero).not.toHaveTextContent("作答状态稳定");
+      expect(screen.queryByTestId("riasec-form-version")).not.toBeInTheDocument();
       expect(hero).not.toHaveTextContent("RIASEC ·");
       expect(report).not.toHaveTextContent("当前结果没有可渲染的后端活动内容");
     },
   );
 });
 
-it("shows activity advice, occupation examples and report information without disclosure controls", () => {
+it("keeps activity advice and occupation examples in optional reading", () => {
   const vm = assembleRiasecResultViewModel(
     {
       scale_code: "RIASEC",
@@ -353,8 +454,8 @@ it("shows activity advice, occupation examples and report information without di
     screen.getByTestId("riasec-activity-pack"),
     ...screen.getAllByTestId("riasec-occupation-examples"),
   ]) {
-    expect(element).toBeVisible();
-    expect(element.closest("details")).toBeNull();
+    expect(element.closest("details")).not.toBeNull();
+    expect(element).not.toBeVisible();
   }
   expect(screen.queryByTestId("riasec-measurement-boundary")).not.toBeInTheDocument();
   for (const label of ["140题增强版 · 140 题", "内容修订", "报告快照", "跨表分数对比"])
@@ -381,24 +482,16 @@ it("keeps the interest map heading and chart expanded without a disclosure", () 
 });
 
 
-it("shows backend highlights separately and keeps insight and context copy expanded", () => {
+it("summarizes backend highlights and keeps work preferences visible", () => {
   const vm = assembleRiasecResultViewModel({
     scale_code: "RIASEC", type_code: "IAS",
     riasec_public_projection_v2: backendSamples["zh-CN-140"],
   } as unknown as ReportResponse, "zh");
   render(<RiasecResultShell locale="zh" viewModel={vm} />);
   const summary = screen.getByTestId("riasec-result-summary");
-  for (const item of vm.resultSummary!.highlights) {
-    const text = within(summary).getByText(item.text);
-    expect(text.closest("section")).toHaveTextContent(item.label);
-    const link = within(text.closest("section")!).getByRole("link");
-    expect(document.querySelector(link.getAttribute("href")!)).not.toBeNull();
-  }
-  expect(within(summary).getByText(vm.resultSummary!.nextStep)).toBeVisible();
-  const insight = screen.getByTestId("riasec-dimension-insight");
-  expect(insight.querySelector("details, summary")).toBeNull();
-  expect(within(insight).queryByText("维度洞察")).not.toBeInTheDocument();
-  expect(within(insight).queryByText("本次解读")).not.toBeInTheDocument();
+  for (const item of vm.resultSummary!.highlights) expect(summary).toHaveTextContent(item.text);
+  expect(summary.querySelectorAll("h2")).toHaveLength(0);
+  expect(screen.getByTestId("riasec-dimension-insight")).not.toBeVisible();
   const context = document.getElementById("riasec-context")!;
   expect(context.querySelector("details, summary")).toBeNull();
   expect(context.textContent!.length).toBeGreaterThan(100);
@@ -436,6 +529,7 @@ it("preserves optional backend time plans and hides them with the activity modul
   expect(vm.activityExplorer!.codeActivityPack.activities[0].actionDurationOptions).toEqual(plans);
   const { rerender } = render(<RiasecResultShell locale="en" viewModel={vm} />);
   const visiblePlans = screen.getByTestId("riasec-activity-duration-options");
+  visiblePlans.closest("details")!.open = true;
   for (const text of Object.values(plans)) expect(visiblePlans).toHaveTextContent(text);
   for (const label of ["15 minutes", "30 minutes", "2 hours", "1 week"]) expect(within(visiblePlans).getByText(label)).toBeVisible();
   vm.moduleVisibilityPolicy!.modules.find((entry) => entry.key === "activity_explorer")!.visibility = "hidden";

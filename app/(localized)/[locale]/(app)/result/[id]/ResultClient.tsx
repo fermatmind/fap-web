@@ -2199,6 +2199,8 @@ export default function ResultClient({
     );
   }
 
+  const canPrintRiasecPdf = !printMode && canDownloadReportPdf(accessView);
+
   if (hasRichReport && reportData) {
     // The export consumes only the projection already authorized and rendered here.
     // It never reads a public share, raw answers, hidden sections or another endpoint.
@@ -2233,7 +2235,7 @@ export default function ResultClient({
           taiwanBigFivePdf={!printMode && displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable
             ? { accessToken: resultAccessToken } : undefined}
         />
-        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}
         {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
         {mbtiExport ? (
@@ -2270,7 +2272,7 @@ export default function ResultClient({
           emailRecovery={!printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           attemptId={attemptId}
         />
-        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} /> : null}
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} /> : null}
       </div>
     );
   }

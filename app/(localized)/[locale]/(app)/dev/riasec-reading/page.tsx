@@ -2,42 +2,75 @@
 // Content comes from the backend canonical assets; this is not a user's persisted report.
 import { notFound } from "next/navigation";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
+import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
+import { buildRiasecResultExport } from "@/lib/riasec/exportAdapter";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import samples from "./backend-samples.json";
+import profileSamples from "./backend-profile-samples.json";
 
 export const metadata = { title: "本地报告样例 · Local report sample" };
+
+const profileLabels: Record<string, string> = {
+  RIS: "RIS（首位并列）",
+  ECR: "ECR（第三位并列）",
+  "IAS-LOW": "IAS（分数较低）",
+  NEAR: "IAS（第二、三位接近）",
+};
 
 export default async function Preview({
   params,
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ form?: string; mode?: string }>;
+  searchParams: Promise<{ form?: string; mode?: string; profile?: string }>;
 }) {
   if (process.env.NODE_ENV !== "development") notFound();
   const { locale: rawLocale } = await params;
-  const { form, mode } = await searchParams;
+  const { form, mode, profile } = await searchParams;
   const locale = rawLocale === "en" ? "en" : "zh";
-  const key =
-    `${locale === "zh" ? "zh-CN" : "en"}-${form === "60" ? "60" : "140"}` as keyof typeof samples;
-  const vm = assembleRiasecResultViewModel(
-    {
-      scale_code: "RIASEC",
-      type_code: "IAS",
-      riasec_public_projection_v2: samples[key],
-    } as unknown as ReportResponse,
-    locale,
-  );
+  const isStatic = mode === "static";
+  const sampleForm = form === "60" || (form == null && (mode === "decision" || mode === "profiles")) ? "60" : "140";
+  const key = `${locale === "zh" ? "zh-CN" : "en"}-${sampleForm}` as keyof typeof samples;
+  const profileKey = profile?.toUpperCase() ?? "IAS";
+  const generatedProfile = rawLocale === "zh" && sampleForm === "60" && !isStatic &&
+    Object.hasOwn(profileSamples, profileKey)
+    ? profileSamples[profileKey as keyof typeof profileSamples]
+    : null;
+  if (mode === "profiles" && !generatedProfile) notFound();
+  const projection = generatedProfile ?? samples[key];
+  const report = {
+    scale_code: "RIASEC",
+    type_code: projection.holland_code.code,
+    riasec_public_projection_v2: projection,
+    riasec_private_result_authority: locale === "zh" ? projection.private_result_authority : undefined,
+  } as unknown as ReportResponse;
+  const vm = assembleRiasecResultViewModel(report, locale);
+  const exportProjection = isStatic ? null : buildRiasecResultExport(report, locale);
   return (
     <main
       className="mx-auto w-full max-w-[1320px] px-6 pb-12 pt-4 md:px-10 xl:px-12"
     >
-      <RiasecResultShell
-        locale={locale}
-        viewModel={vm}
-        displayMode={mode === "static" ? "static" : "interactive"}
-      />
+      {generatedProfile ? (
+        <nav aria-label="切换合成结果样例" className="mb-4 flex flex-wrap gap-3 rounded-lg border border-stone-200 p-3 text-sm">
+          <span>合成样例</span>
+          {Object.keys(profileSamples).map((code) => (
+            <a key={code} href={`?mode=profiles&profile=${code}`}
+              aria-current={code === profileKey ? "page" : undefined}
+              className="underline aria-[current=page]:font-bold">
+              {profileLabels[code] ?? code}
+            </a>
+          ))}
+        </nav>
+      ) : null}
+      <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
+        <RiasecResultShell
+          locale={locale}
+          viewModel={vm}
+          displayMode={isStatic ? "static" : "interactive"}
+        />
+        {exportProjection ? <ResultExportPanel projection={exportProjection} locale={locale} printResultPdf /> : null}
+      </div>
     </main>
   );
 }
