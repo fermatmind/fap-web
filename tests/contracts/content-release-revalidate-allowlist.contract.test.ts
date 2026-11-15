@@ -33,6 +33,18 @@ it("allows only the prepared Traditional CMS detail cache without folding its lo
   expect(decisions.rejected).toHaveLength(5);
 });
 
+it("allows revalidation of the exact reviewed Science pages across three locales", () => {
+  const paths = ["en", "zh", "zh-TW"].flatMap(locale =>
+    ["science", "item-design-notes", "common-misconceptions"].map(slug => `/${locale}/${slug}`)
+  );
+  const decisions = collectPathDecisions({
+    content: { type: "public_content_53" },
+    cache_signal: { paths: [...paths, "/zh/data-privacy", "/en/science/private"] },
+  });
+  expect(decisions.accepted).toEqual(paths);
+  expect(decisions.rejected).toHaveLength(2);
+});
+
 describe("content release revalidate allowlist", () => {
   afterEach(() => {
     mocks.revalidatePath.mockClear();

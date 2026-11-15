@@ -160,6 +160,7 @@ function isAllowedPublicPath(path: string): boolean {
     /^\/(?:zh|en)\/personality(?:\/[a-z0-9][a-z0-9-]*)?$/,
     /^\/(?:zh|en)\/personality\/big-five\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/(?:about|brand|charter|foundation|careers|policies)$/,
+    /^\/(?:zh|en)\/(?:science|item-design-notes|common-misconceptions)$/,
     /^\/(?:zh|en)\/help\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,
     /^\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,
