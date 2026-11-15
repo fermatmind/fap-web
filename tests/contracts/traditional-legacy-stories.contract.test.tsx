@@ -65,8 +65,8 @@ it.each(["woodland-animal", "house-of-doors"])("renders and completes the Taiwan
   const result = quiz.results.find((portrait) => portrait.id === state.resultIds[0])!;
   const params = Promise.resolve({ slug });
   const portrait = Promise.resolve({ slug, portrait: resultSlug(result.id) });
-  expect(await landingMetadata({ params })).toMatchObject({ robots: { index: false } });
-  expect(await portraitMetadata({ params: portrait })).toMatchObject({ robots: { index: false } });
+  expect(await landingMetadata({ params })).toMatchObject({ robots: { index: true } });
+  expect(await portraitMetadata({ params: portrait })).toMatchObject({ robots: { index: true } });
   render(await Landing({ params }));
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   expect(screen.getByText(editorial.sections[0].paragraphs[0].zh)).toBeVisible();
@@ -99,7 +99,7 @@ it.each(traditionalBespokeStorySlugs)("keeps the original editorial, scoring and
   expect(resolveFunQuiz(quiz, answers)).toEqual(state);
   expect(quiz.results.map(result => result.id)).toEqual(original.results.map(result => result.id));
   const params = Promise.resolve({ slug });
-  expect(await landingMetadata({ params })).toMatchObject({ robots: { index: false } });
+  expect(await landingMetadata({ params })).toMatchObject({ robots: { index: true } });
   render(await Landing({ params }));
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   const form = screen.getByRole("button", { name: "開始測驗" }).closest("form");

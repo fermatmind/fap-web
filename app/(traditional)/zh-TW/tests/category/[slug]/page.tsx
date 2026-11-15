@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache, Suspense } from "react";
@@ -25,12 +26,12 @@ const loadCategory = cache(async (slug: string) => {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const content = await loadCategory((await params).slug);
-  return {
+  return traditionalSearchMetadata(`/zh-TW/tests/category/${content.slug}`, {
     title: content.seo.title,
     description: content.seo.description,
     alternates: { canonical: `${SITE_URL}/zh-TW/tests/category/${content.slug}` },
     robots: { index: false, follow: true },
-  };
+  });
 }
 
 export default async function TraditionalTestsCategory({ params }: Props) {

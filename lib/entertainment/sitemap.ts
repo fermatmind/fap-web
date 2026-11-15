@@ -1,28 +1,21 @@
+import { traditionalSearchEquivalent } from "@/lib/seo/traditionalSearchMetadata";
 import { TRADITIONAL_PUBLIC_PATHS } from "@/lib/i18n/traditionalRoutes";
-import catalog from "./catalog.json";
-import { globalHistoryStory } from "./directory";
-import questionnaires from "../questionnaires/catalog.json";
+import { entertainmentSearchEntries } from "./searchEntries";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 import type { PublicSitemapEntry } from "@/lib/seo/publicSitemap";
 
-// This code-owned experimental family has no counterpart in the backend scales registry.
-// Core assessments and all CMS families continue to use their backend authority.
 export function appendFunSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
   const result = new Map(entries.map(entry => [entry.loc, entry]));
-  for (const quiz of [...catalog, globalHistoryStory]) {
-    if (questionnaires.some(native => native.slug === quiz.slug)) continue;
+  for (const { path, lastmod } of entertainmentSearchEntries()) {
     for (const locale of ["en", "zh"]) {
-      const loc = `${CANONICAL_SITE_URL}/${locale}/tests/play/${quiz.slug}`;
-      result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
-      for (const portrait of quiz.resultSlugs) {
-        result.set(`${loc}/results/${portrait}`, { loc: `${loc}/results/${portrait}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
-      }
+      const loc = `${CANONICAL_SITE_URL}/${locale}${path}`;
+      result.set(loc, { loc, lastmod });
     }
-  }
-  for (const quiz of questionnaires) for (const locale of ["en", "zh"]) {
-    const loc = `${CANONICAL_SITE_URL}/${locale}/tests/${quiz.collection}/${quiz.slug}`;
-    result.set(loc, { loc, lastmod: `${quiz.updated}T00:00:00.000Z` });
-    for (const profile of quiz.resultSlugs) result.set(`${loc}/results/${profile}`, { loc: `${loc}/results/${profile}`, lastmod: `${quiz.updated}T00:00:00.000Z` });
+    const traditionalPath = traditionalSearchEquivalent(`/zh-TW${path}`);
+    if (traditionalPath) {
+      const loc = `${CANONICAL_SITE_URL}${traditionalPath}`;
+      result.set(loc, { loc, lastmod });
+    }
   }
   for (const path of TRADITIONAL_PUBLIC_PATHS) {
     const loc = `${CANONICAL_SITE_URL}/zh-TW${path}`;

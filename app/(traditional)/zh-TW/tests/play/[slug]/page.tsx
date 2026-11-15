@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
@@ -89,7 +90,7 @@ const bespokePages = {
   "board-game-table": BoardGameTablePage,
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+async function readMetadata({ params }: Props): Promise<Metadata> {
   const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}`);
   if (directional) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
@@ -127,4 +128,8 @@ export default async function TraditionalStoryPage({ params }: Props) {
     {BespokePage ? <BespokePage quiz={quiz} locale="zh" displayLocale="zh-TW" /> :
       <StoryEditorialPage quiz={quiz} editorial={shared?.editorial} locale="zh" displayLocale="zh-TW" displayText={displayText} />}
   </ExploreTestShell>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return traditionalSearchMetadata(`/zh-TW/tests/play/${(await params).slug}`, await readMetadata({ params }));
 }

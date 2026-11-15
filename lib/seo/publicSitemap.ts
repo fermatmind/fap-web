@@ -1,3 +1,4 @@
+import { hasTraditionalAssessmentSearchPath } from "@/lib/i18n/traditionalRoutes";
 import { promisify } from "node:util";
 import { gzip } from "node:zlib";
 
@@ -273,6 +274,24 @@ export async function fetchBackendPublicSitemapSource(signal?: AbortSignal): Pro
   }
 }
 
+export function appendTraditionalAssessmentSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
+  const byLocation = new Map(entries.map(entry => [entry.loc, entry]));
+  for (const entry of entries) {
+    const path = new URL(entry.loc).pathname;
+    if (!path.startsWith("/zh/") || !hasTraditionalAssessmentSearchPath(path.slice(3))) continue;
+    if (!byLocation.has(`${CANONICAL_SITE_URL}/en${path.slice(3)}`)) continue;
+    const loc = `${CANONICAL_SITE_URL}/zh-TW${path.slice(3)}`;
+    byLocation.set(loc, { ...entry, loc });
+  }
+  return [...byLocation.values()].sort((a, b) => a.loc.localeCompare(b.loc));
+}
+
+export function buildCompletePublicSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
+  return appendCareerInterestPilotSitemapEntries(
+    appendFriendshipSitemapEntries(appendFunSitemapEntries(appendTraditionalAssessmentSitemapEntries(entries))),
+  );
+}
+
 export async function buildPublicSitemapResponse(family?: PublicSitemapFamily, request?: Request): Promise<Response> {
   try {
     const payload = await fetchBackendPublicSitemapSource();
@@ -282,7 +301,7 @@ export async function buildPublicSitemapResponse(family?: PublicSitemapFamily, r
       throw new Error("empty_backend_sitemap_source");
     }
 
-    const allEntries = appendCareerInterestPilotSitemapEntries(appendFriendshipSitemapEntries(appendFunSitemapEntries(rootEntries)));
+    const allEntries = buildCompletePublicSitemapEntries(rootEntries);
     const entries = family ? buildPublicSitemapFamilyMap(allEntries)[family] : allEntries;
 
     return await buildPublicSitemapXmlResponse(buildPublicSitemapXml(entries), {

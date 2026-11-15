@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { Container } from "@/components/layout/Container";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
 import type { Metadata } from "next";
@@ -24,7 +25,7 @@ async function loadPortrait(params: Props["params"]) {
   return { quiz, result };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+async function readMetadata({ params }: Props): Promise<Metadata> {
   const directional = traditionalDirectionalRoute(`/tests/play/${(await params).slug}/results/${(await params).portrait}`);
   if (directional) {
     const { traditionalLikertMetadata } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
@@ -112,4 +113,8 @@ export default async function TraditionalStoryPortraitPage({ params }: Props) {
     </article>
     <Link href={path} className="inline-block min-h-11 py-2 underline">返回測驗介紹</Link>
   </Container>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return traditionalSearchMetadata(`/zh-TW/tests/play/${(await params).slug}/results/${(await params).portrait}`, await readMetadata({ params }));
 }

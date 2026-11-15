@@ -72,7 +72,10 @@ describe("friendship quiz public and private contract", () => {
       expect(metadata.robots).toMatchObject({ index: false, follow: false });
       expect(metadata.alternates?.canonical).toBeNull();
     }
-    expect(resourceMetadata("zh-TW", "questions").alternates?.languages).toBeUndefined();
+    expect(resourceMetadata("zh-TW", "questions")).toMatchObject({
+      robots: { index: true },
+      alternates: { languages: { "zh-TW": root + "/tests/play/friendship-quiz/questions" } },
+    });
     expect(publicInvitation(invitation)).toBe(invitation);
     expect(publicInvitation(invitation + "/manage")).toBeNull();
     expect(publicInvitation(invitation + "#key=synthetic")).toBeNull();

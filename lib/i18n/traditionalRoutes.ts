@@ -1,3 +1,4 @@
+import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { HISTORY_DISPLAY_PATHS } from "./historyDisplayRoutes";
 import { isCoreSharePath } from "./coreShareDisplay";
 import { traditionalMixedQuestionnaireRoute } from "./traditionalMixedQuestionnairePaths";
@@ -81,6 +82,12 @@ export function traditionalPath(pathname: string): string | null {
   )) return `/zh-TW${path}`;
   return TRADITIONAL_PUBLIC_PATHS.includes(path) || path === `${TRADITIONAL_QUIZ_PATH}/take` || path === `${TRADITIONAL_SEVEN_SINS_PATH}/take` ? `/zh-TW${path}` : null;
 }
+export function hasTraditionalAssessmentSearchPath(path: string): boolean {
+  const entry = /^\/tests\/([a-z0-9-]+)$/u.exec(path)?.[1];
+  return (entry !== undefined && resolveCanonicalSlug(entry) === entry && isCoreAssessmentSlug(entry))
+    || TRADITIONAL_CATEGORY_PATHS.some(category => category === path);
+}
+
 export function traditionalEquivalent(pathname: string): string | null {
   const path = traditionalPath(pathname);
   if (path === "/zh-TW" || path === "/zh-TW/tests") return path;

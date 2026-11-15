@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { Container } from "@/components/layout/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -9,7 +10,7 @@ import { loadTraditionalChangan } from "@/lib/i18n/zh-TW/changan";
 
 const path = quizPath("zh-TW", CHANGAN_SLUG);
 
-export async function generateMetadata(): Promise<Metadata> {
+async function readMetadata(): Promise<Metadata> {
   const quiz = await loadTraditionalChangan();
   if (!quiz) notFound();
   const title = quiz.seo.title.zh;
@@ -68,4 +69,8 @@ export default async function TraditionalChanganLanding() {
       <p>六位歷史人物各有一張插畫人物卡與一份公開指南。每次作答只會顯示一位人物。</p>
     </section>
   </Container>;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return traditionalSearchMetadata("/zh-TW/tests/play/changan-history-quiz", await readMetadata());
 }

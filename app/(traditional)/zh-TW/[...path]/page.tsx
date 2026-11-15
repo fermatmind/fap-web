@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import type { ReactNode } from "react";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
@@ -29,7 +30,7 @@ async function route(props: Props) {
   if (traditionalPath(path) !== path) notFound();
   return path;
 }
-export async function generateMetadata(props: Props): Promise<Metadata> {
+async function readMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
   const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
   if (mixed) {
@@ -152,4 +153,8 @@ export default async function TraditionalPage(props: Props) {
     <section className="space-y-3"><h2 className="text-2xl font-bold">來源與範圍</h2><p className="leading-8">本站原創同人情境題與角色解讀，不是官方測驗或臨床評估。繁體版保留原題本與計分規則。</p><ul className="list-disc space-y-3 pl-5">{quiz.references?.map(reference => <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer" className="underline">{reference.title["zh-TW"]}</a></li>)}</ul></section>
     <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.faq["zh-TW"]}</h2>{quiz.faq.map((faq, index) => <div key={index}><h3 className="text-xl font-semibold">{faq.question["zh-TW"]}</h3><p className="mt-3 whitespace-pre-line leading-8">{faq.answer["zh-TW"]}</p></div>)}</section>
   </Container></main>);
+}
+
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  return traditionalSearchMetadata(await route(props), await readMetadata(props));
 }

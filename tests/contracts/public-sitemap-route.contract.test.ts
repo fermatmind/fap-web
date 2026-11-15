@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { gunzipSync } from "node:zlib";
 
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
@@ -8,6 +9,7 @@ import { GET as getRootSitemap } from "@/app/sitemap.xml/route";
 import { GET as getFamilySitemap } from "@/app/sitemaps/[family]/route";
 import {
   appendCareerInterestPilotSitemapEntries,
+  appendTraditionalAssessmentSitemapEntries,
   buildPublicSitemapEntries,
   buildPublicSitemapFamilyMap,
   buildPublicSitemapXml,
@@ -286,4 +288,32 @@ describe("public sitemap route", () => {
     expect(response.headers.get("CDN-Cache-Control")).toBe("no-store");
     expect(body).toContain("Public sitemap source unavailable");
   });
+});
+
+
+it("projects only published bilingual core assessment paths and opens supported Taiwan assessments", () => {
+  const core = "/tests/mbti-personality-test-16-personality-types";
+  const take = core + "/take";
+  const base = "https://fermatmind.com";
+  const entries = [
+    { loc: base + "/en" + core },
+    { loc: base + "/zh" + core },
+    { loc: base + "/en/tests/category/career" },
+    { loc: base + "/zh" + take },
+  ];
+  expect(appendTraditionalAssessmentSitemapEntries(entries).filter(entry => entry.loc.includes("/zh-TW")))
+    .toEqual([{ loc: base + "/zh-TW" + core }]);
+  const source = { robots: { index: false, follow: true } };
+  const path = "/zh-TW/tests/explore/sbti-test/results/self-critic";
+  const fun = appendFunSitemapEntries([]);
+  expect(fun.find(entry => entry.loc === base + path)).toBeDefined();
+  expect(traditionalSearchMetadata(path, source)).toMatchObject({
+    robots: { index: true },
+    alternates: { canonical: base + path, languages: {
+      en: base + path.replace("/zh-TW", "/en"), "zh-CN": base + path.replace("/zh-TW", "/zh"), "zh-TW": base + path,
+    } },
+  });
+  expect(traditionalSearchMetadata("/zh-TW" + take, source)).toBe(source);
+  expect(traditionalSearchMetadata("/zh-TW/tests/explore/sbti-test/results/unknown", source)).toBe(source);
+  expect(fun.filter(entry => entry.loc.includes("/zh-TW/tests/")).every(entry => !entry.loc.endsWith("/take"))).toBe(true);
 });
