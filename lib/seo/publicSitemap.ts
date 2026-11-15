@@ -1,4 +1,4 @@
-import { hasTraditionalCareerEntrySearchPath, hasTraditionalCareerInterestSearchPath } from "@/lib/seo/traditionalSearchMetadata";
+import { hasTraditionalCareerEntrySearchPath, hasTraditionalCareerInterestSearchPath, hasTraditionalPublicResourceSearchPath } from "@/lib/seo/traditionalSearchMetadata";
 import { hasTraditionalAssessmentSearchPath } from "@/lib/i18n/traditionalRoutes";
 import { promisify } from "node:util";
 import { gzip } from "node:zlib";
@@ -286,7 +286,7 @@ export function appendTraditionalProductSitemapEntries(entries: PublicSitemapEnt
     const path = new URL(entry.loc).pathname;
     if (!path.startsWith("/zh/")) continue;
     const suffix = path.slice(3);
-    if (!hasTraditionalAssessmentSearchPath(suffix) && !hasTraditionalCareerEntrySearchPath(suffix)) continue;
+    if (!hasTraditionalAssessmentSearchPath(suffix) && !hasTraditionalCareerEntrySearchPath(suffix) && !hasTraditionalPublicResourceSearchPath(suffix)) continue;
     if (!byLocation.has(`${CANONICAL_SITE_URL}/en${path.slice(3)}`)) continue;
     const loc = `${CANONICAL_SITE_URL}/zh-TW${path.slice(3)}`;
     byLocation.set(loc, { ...entry, loc });

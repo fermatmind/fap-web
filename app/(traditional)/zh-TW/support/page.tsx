@@ -7,6 +7,8 @@ import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { getHelpGatewaySurface } from "@/lib/publicGateway";
 import { helpQuestionsFromCms, helpTopicFor, type HelpEntry } from "@/lib/support/helpCenter";
 
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
+
 const helpSlugs = ["faq", "about", "team", "used-and-mentioned", "for-business-and-research", "contact"];
 const toolPaths = {
   order_lookup: "/zh/orders/lookup",
@@ -38,12 +40,12 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { hero } = await readSupportLanding();
-  return {
+  return traditionalSearchMetadata("/zh-TW/support", {
     title: hero.title,
     description: hero.body,
     robots: { index: false, follow: true },
     alternates: { canonical: "/zh-TW/support" },
-  };
+  });
 }
 
 export default async function TraditionalSupportPage() {

@@ -30,7 +30,9 @@ export async function generateMetadata({
   const title = test ? resolveTestTitleByLocale(test, locale) : "Technical Note";
   const routeConfig = TECHNICAL_NOTE_ROUTE_CONFIG[slug as keyof typeof TECHNICAL_NOTE_ROUTE_CONFIG];
   const routePath = `/tests/${slug}/technical-note`;
-  const unavailable = slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM && !await getPublicEnneagramTechnicalNote(locale);
+  const enneagram = slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM;
+  const unavailable = enneagram && !await getPublicEnneagramTechnicalNote(locale);
+  const traditionalAvailable = enneagram && !unavailable && (locale === "zh" || Boolean(await getPublicEnneagramTechnicalNote("zh")));
 
   return {
     title: `${title} - ${locale === "en" ? "Technical Note" : "技术说明"}`,
@@ -42,6 +44,7 @@ export async function generateMetadata({
         languages: {
           "zh-CN": localizedPath(routePath, "zh"),
           en: localizedPath(routePath, "en"),
+          ...(traditionalAvailable ? { "zh-TW": `/zh-TW${routePath}` } : {}),
         },
       } : {}),
     },

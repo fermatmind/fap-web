@@ -12,6 +12,8 @@ import worksheet from "@/lib/marketing/riasecWorksheet.json";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
+
 type Props = { params: Promise<{ locale: string }> };
 const META = {
   "zh-TW": { title: "霍蘭德職業興趣測驗 PDF：結果解讀與職涯探索工作表", description: "免費下載費馬 RIASEC 結果解讀與職涯探索工作表 PDF。預覽六維興趣記錄、三字代碼與探索步驟。" },
@@ -22,11 +24,11 @@ const META = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw } = await params;
   if (raw === "zh-TW") {
-    return {
+    return traditionalSearchMetadata("/zh-TW/holland-test/pdf-download", {
       ...META["zh-TW"],
       alternates: { canonical: "/zh-TW/holland-test/pdf-download" },
       robots: { index: false, follow: true },
-    };
+    });
   }
   const locale = resolveLocale(raw);
   return buildPageMetadata({ locale, pathname: localizedPath("/holland-test/pdf-download", locale), ...META[locale], alternatesByLocale: {

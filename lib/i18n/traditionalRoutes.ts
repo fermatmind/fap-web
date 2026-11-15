@@ -48,7 +48,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (prefix === "zh-TW" && (path === "/pay/wait" || path === "/pay/return/alipay" || /^\/orders\/[A-Za-z0-9_-]{1,128}$/u.test(path))) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && (["/personality", "/personality/big-five", "/personality/enneagram", "/tests/play"].includes(path))) return `/zh-TW${path}`;
-  if (path === "/support") return "/zh-TW/support";
+  if (path === "/support" || path === "/business") return `/zh-TW${path}`;
   if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";
   if (isCoreSharePath(path)) return `/zh-TW${path}`;
@@ -74,6 +74,7 @@ export function traditionalPath(pathname: string): string | null {
   // Keep it out of the sitemap list and reciprocal search alternates.
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
+  if (path === "/tests/enneagram-personality-test-nine-types/technical-note") return `/zh-TW${path}`;
   const coreAssessment = /^\/tests\/([a-z0-9_-]+)(?:\/take)?$/iu.exec(path);
   if (prefix === "zh-TW" && coreAssessment && isCoreAssessmentSlug(coreAssessment[1])) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && /^\/result\/[A-Za-z0-9_-]{1,128}$/u.test(path)) return `/zh-TW${path}`;

@@ -673,6 +673,14 @@ else
   log "skip sitemap health (RUN_SITEMAP_HEALTH=0)"
 fi
 
+if [[ -n "${TRADITIONAL_INDEX_RELEASE_MODE:-}" ]]; then
+  traditional_args=("$PUBLIC_BASE_URL" "${TRADITIONAL_INDEX_CONTROL_DIR:?}/traditional-index-release.json" "$TRADITIONAL_INDEX_RELEASE_MODE")
+  if [[ "$TRADITIONAL_INDEX_RELEASE_MODE" == production ]]; then
+    traditional_args+=("$TRADITIONAL_INDEX_CONTROL_DIR/traditional-index-before.json")
+  fi
+  "$EXPECTED_NODE_BIN" "$TRADITIONAL_INDEX_CONTROL_DIR/verify-traditional-index-release.mjs" "${traditional_args[@]}"
+fi
+
 if [[ "$RUN_CMS_BASELINE_STAGING_SMOKE" == "1" ]]; then
   log "run staging CMS baseline smoke"
   CMS_BASELINE_API_URL="$CMS_BASELINE_API_URL" CMS_BASELINE_WEB_URL="$CMS_BASELINE_WEB_URL" bash scripts/staging_cms_baseline_smoke.sh

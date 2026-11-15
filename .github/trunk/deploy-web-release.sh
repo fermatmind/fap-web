@@ -109,10 +109,33 @@ remote_transport_duration="$control/transport-seconds"
 local_outcome="${RUNNER_TEMP:?}/deploy-outcome.json"
 ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -p "$DEPLOY_PORT")
 
+traditional_release_mode=""
+traditional_scope="scripts/ops/traditional-index-release.json"
+traditional_verify="scripts/ops/verify-traditional-index-release.mjs"
+if [[ "$PUBLIC_BASE_URL" == https://fermatmind.com || "$PUBLIC_BASE_URL" == https://staging.fermatmind.com ]]; then
+  if [[ -f "$traditional_scope" ]]; then
+    public_active_sha="$(curl -fsS --max-time 15 "$PUBLIC_BASE_URL/revision" | jq -er '.revision')"
+    [[ "$public_active_sha" =~ ^[a-f0-9]{40}$ ]]
+    git cat-file -e "$public_active_sha^{commit}"
+    if ! git diff --quiet "$public_active_sha" "$DEPLOY_SHA" -- "$traditional_scope" "$traditional_verify"; then
+      traditional_release_mode=staging
+      if [[ "$PUBLIC_BASE_URL" == https://fermatmind.com ]]; then
+        traditional_release_mode=production
+        traditional_before="${RUNNER_TEMP:?}/traditional-index-before.json"
+        node "$traditional_verify" "$PUBLIC_BASE_URL" "$traditional_scope" snapshot "$traditional_before"
+      fi
+    fi
+  fi
+fi
+
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 control_files=(scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
   scripts/rolling_reload_pm2.sh scripts/ops/verify-career-renderer.mjs lib/site.ts scripts/ops/verify-llms-full-artifact.mjs scripts/ops/career-current-inventory.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
   .github/trunk/fetch-oss-release.sh .github/trunk/install-ossutil.sh .github/trunk/tracking-runtime.cjs .github/trunk/pdf-print-runtime.mjs)
+if [[ -n "$traditional_release_mode" ]]; then
+  control_files+=("$traditional_verify" "$traditional_scope")
+  if [[ -n "${traditional_before:-}" ]]; then control_files+=("$traditional_before"); fi
+fi
 if [[ "$RELEASE_TRANSPORT_MODE" == "local" ]]; then control_files=("$RELEASE_ARCHIVE" "${control_files[@]}"); fi
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
   "${control_files[@]}" "$DEPLOY_USER@$DEPLOY_HOST:$control/"
@@ -161,6 +184,7 @@ if [[ "$transport_status" -eq 0 ]]; then
    RELEASE_ARCHIVE='$remote_archive' DEPLOY_SCRIPT='$control/deploy_web_pm2.sh' \
    TRANSPORT_SOURCE='$([[ "$RELEASE_TRANSPORT_MODE" == oss ]] && echo oss || echo github-artifact-scp)' \
    TRANSPORT_OBJECT_KEY='${OSS_OBJECT_KEY:-}' TRANSPORT_DURATION_FILE='$remote_transport_duration' \
+   TRADITIONAL_INDEX_RELEASE_MODE='$traditional_release_mode' TRADITIONAL_INDEX_CONTROL_DIR='$control' \
    ROLLING_RELOAD_SCRIPT='$control/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='${RUN_SITEMAP_HEALTH:-1}' \
    REQUIRE_LLMS_FULL_ARTIFACT='$REQUIRE_LLMS_FULL_ARTIFACT' \
    REQUIRE_CONTENT_RELEASE_REVALIDATION='$REQUIRE_CONTENT_RELEASE_REVALIDATION' \

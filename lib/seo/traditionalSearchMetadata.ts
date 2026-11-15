@@ -18,9 +18,15 @@ export function hasTraditionalCareerEntrySearchPath(path: string): boolean {
   return publicCareerEntryPaths.has(path);
 }
 
+const publicResourcePaths = new Set(["/business", "/support", "/holland-test/pdf-download", "/tests/enneagram-personality-test-nine-types/technical-note"]);
+
+export function hasTraditionalPublicResourceSearchPath(path: string): boolean {
+  return publicResourcePaths.has(path);
+}
+
 export function traditionalSearchEquivalent(pathname: string): string | null {
   const suffix = pathname.replace(/^\/(?:en|zh|zh-TW)\//u, "/");
-  if (hasTraditionalAssessmentSearchPath(suffix) || hasTraditionalCareerInterestSearchPath(suffix) || hasTraditionalCareerEntrySearchPath(suffix)) return `/zh-TW${suffix}`;
+  if (hasTraditionalPublicResourceSearchPath(suffix) || hasTraditionalAssessmentSearchPath(suffix) || hasTraditionalCareerInterestSearchPath(suffix) || hasTraditionalCareerEntrySearchPath(suffix)) return `/zh-TW${suffix}`;
   const path = traditionalPath(pathname);
   if (path && entertainmentSearchPaths.has(suffix)) return path;
   return traditionalEquivalent(pathname);
