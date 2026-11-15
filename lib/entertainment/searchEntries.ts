@@ -18,8 +18,13 @@ export function entertainmentSearchEntries(): { path: string; lastmod: string }[
     entries.set(path, lastmod);
     for (const profile of quiz.resultSlugs) entries.set(`${path}/results/${profile}`, lastmod);
   }
-  for (const suffix of RESOURCE_PATHS) entries.set(PUBLIC_PATH + suffix, "2026-11-07T00:00:00.000Z");
   return Array.from(entries, ([path, lastmod]) => ({ path, lastmod }));
 }
 
-export const entertainmentSearchPaths = new Set(entertainmentSearchEntries().map(({ path }) => path));
+const friendshipSearchEntries = RESOURCE_PATHS.map(suffix => ({
+  path: PUBLIC_PATH + suffix,
+  lastmod: "2026-11-07T00:00:00.000Z",
+}));
+
+export const traditionalEntertainmentSearchCandidates = [...entertainmentSearchEntries(), ...friendshipSearchEntries];
+export const entertainmentSearchPaths = new Set(traditionalEntertainmentSearchCandidates.map(({ path }) => path));

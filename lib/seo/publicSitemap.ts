@@ -3,7 +3,7 @@ import { promisify } from "node:util";
 import { gzip } from "node:zlib";
 
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
-import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import { appendFunSitemapEntries, appendTraditionalEntertainmentSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildApiUrl } from "@/lib/api-base";
 import { indexableCareerInterestPilots, isCareerPilotOnIndexHold } from "@/lib/career/explorationPilot";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -288,7 +288,7 @@ export function appendTraditionalAssessmentSitemapEntries(entries: PublicSitemap
 
 export function buildCompletePublicSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
   return appendCareerInterestPilotSitemapEntries(
-    appendFriendshipSitemapEntries(appendFunSitemapEntries(appendTraditionalAssessmentSitemapEntries(entries))),
+    appendTraditionalEntertainmentSitemapEntries(appendFriendshipSitemapEntries(appendFunSitemapEntries(appendTraditionalAssessmentSitemapEntries(entries)))),
   );
 }
 

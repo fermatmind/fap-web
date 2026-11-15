@@ -2,14 +2,13 @@ import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { gunzipSync } from "node:zlib";
 
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
-import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { GET as getRootSitemap } from "@/app/sitemap.xml/route";
 import { GET as getFamilySitemap } from "@/app/sitemaps/[family]/route";
 import {
-  appendCareerInterestPilotSitemapEntries,
   appendTraditionalAssessmentSitemapEntries,
+  buildCompletePublicSitemapEntries,
   buildPublicSitemapEntries,
   buildPublicSitemapFamilyMap,
   buildPublicSitemapXml,
@@ -252,8 +251,8 @@ describe("public sitemap route", () => {
       params: Promise.resolve({ family: `${family}.xml` }),
     });
     const xml = await response.text();
-    const expectedEntries = buildPublicSitemapFamilyMap(appendCareerInterestPilotSitemapEntries(
-      appendFriendshipSitemapEntries(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload())))
+    const expectedEntries = buildPublicSitemapFamilyMap(buildCompletePublicSitemapEntries(
+      buildPublicSitemapEntries(backendSitemapPayload()),
     ))[family];
 
     expect(response.status).toBe(200);
@@ -305,7 +304,7 @@ it("projects only published bilingual core assessment paths and opens supported 
     .toEqual([{ loc: base + "/zh-TW" + core }]);
   const source = { robots: { index: false, follow: true } };
   const path = "/zh-TW/tests/explore/sbti-test/results/self-critic";
-  const fun = appendFunSitemapEntries([]);
+  const fun = buildCompletePublicSitemapEntries([]);
   expect(fun.find(entry => entry.loc === base + path)).toBeDefined();
   expect(traditionalSearchMetadata(path, source)).toMatchObject({
     robots: { index: true },
