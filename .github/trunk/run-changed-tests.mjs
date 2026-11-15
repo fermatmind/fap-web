@@ -35,6 +35,7 @@ export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
    'app/(traditional)/zh-TW/tests/',
    'app/(ad-pilot)/[locale]/tests/',
    'app/(localized)/[locale]/career/tests/',
+   'app/(traditional)/zh-TW/career/tests/',
    'components/tests/',
    'components/marketing/tests/',
    'lib/tests/',

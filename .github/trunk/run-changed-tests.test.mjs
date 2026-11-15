@@ -41,6 +41,7 @@ test('career assessment index is product code without suppressing real tests',()
  const contract='tests/contracts/riasec-growth-sprint.contract.test.tsx';
  const native=route+'reader.test.mjs';
  const plan=changedTestPlan([{status:'M',path:route+'page.tsx'},
+  {status:'A',path:'app/(traditional)/zh-TW/career/tests/page.tsx'},
   {status:'A',path:contract},{status:'A',path:native}],{vitest:true});
  assert.deepEqual(plan.vitest,[contract]);assert.deepEqual(plan.node,[native]);
  assert.deepEqual(plan.unsupported,[]);
