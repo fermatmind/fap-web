@@ -157,7 +157,14 @@ describe("Taiwan Traditional support", () => {
       } };
     });
     const metadata = await generateSupportMetadata();
-    expect(metadata).toMatchObject({ title: "支援與信任中心", robots: { index: false }, alternates: { canonical: "/zh-TW/support" } });
+    expect(metadata).toMatchObject({
+      title: "支援與信任中心",
+      robots: { index: true },
+      alternates: {
+        canonical: "https://fermatmind.com/zh-TW/support",
+        languages: { "zh-TW": "https://fermatmind.com/zh-TW/support", "zh-CN": "https://fermatmind.com/zh/support", en: "https://fermatmind.com/en/support" },
+      },
+    });
     render(await TraditionalSupportPage());
     expect(apiClient.get).toHaveBeenCalledWith("/v0.3/public-gateways/help?locale=zh-TW",
       expect.objectContaining({ headers: { "X-FAP-Locale": "zh-TW" } }));

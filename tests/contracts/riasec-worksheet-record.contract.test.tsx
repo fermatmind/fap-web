@@ -17,7 +17,28 @@ it("delivers the Taiwan worksheet and preserves local notes across display langu
   const pathname = "/zh-TW/holland-test/pdf-download";
   const params = Promise.resolve({ locale: "zh-TW" });
   expect(traditionalPath("/zh/holland-test/pdf-download")).toBe(pathname);
-  expect(await generateMetadata({ params })).toMatchObject({ alternates: { canonical: pathname }, robots: { index: false } });
+  const origin = "https://fermatmind.com";
+  vi.stubEnv("NEXT_PUBLIC_SITE_URL", origin);
+  try {
+    expect(await generateMetadata({ params })).toMatchObject({
+      alternates: {
+        canonical: origin + pathname,
+        languages: {
+          "zh-TW": origin + pathname,
+          "zh-CN": origin + "/zh/holland-test/pdf-download",
+          en: origin + "/en/holland-test/pdf-download",
+        },
+      },
+      robots: { index: true },
+    });
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
+    expect(await generateMetadata({ params })).toMatchObject({
+      alternates: { canonical: pathname },
+      robots: { index: false },
+    });
+  } finally {
+    vi.unstubAllEnvs();
+  }
   render(await HollandPdfPage({ params }));
   const pdfPath = "/resources/riasec/fermatmind-career-exploration-zh-TW.pdf";
   expect(screen.getByTestId("riasec-pdf-download")).toHaveAttribute("href", pdfPath);
