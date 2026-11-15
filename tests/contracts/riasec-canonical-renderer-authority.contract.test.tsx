@@ -15,10 +15,10 @@ import {
 import { canonicalReport, authority, SOURCE_HASH, COMPILED_HASH } from "./fixtures/riasec/canonicalReport";
 
 describe("RIASEC canonical renderer authority", () => {
-  it("passes the Taiwan display locale through the canonical rich result", () => {
+  it("passes the Taiwan display locale through the canonical rich result", async () => {
     render(<RichResultReport locale="zh" displayLocale="zh-TW" reportData={canonicalReport()} />);
-    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveAttribute("data-riasec-source-hash", SOURCE_HASH);
-    expect(screen.getByRole("link", { name: /前往職涯中心/ })).toHaveAttribute("href", "/zh-TW/career");
+    expect(await screen.findByTestId("riasec-trusted-result-card")).toHaveAttribute("data-riasec-source-hash", SOURCE_HASH);
+    expect(screen.getByRole("link", { name: "瀏覽職涯中心" })).toHaveAttribute("href", "/zh-TW/career");
   });
 
   it("renders only a complete hash-bound canonical payload", () => {
