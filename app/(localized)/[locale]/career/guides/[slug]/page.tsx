@@ -115,6 +115,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ...(normalizedSeo.meta.alternates["zh-CN"]
           ? { "zh-CN": normalizedSeo.meta.alternates["zh-CN"] }
           : {}),
+        ...(!noindex && normalizedSeo.meta.alternates["zh-TW"] ? { "zh-TW": normalizedSeo.meta.alternates["zh-TW"] } : {}),
         ...(metadata.alternates?.languages?.["x-default"]
           ? { "x-default": metadata.alternates.languages["x-default"] }
           : {}),

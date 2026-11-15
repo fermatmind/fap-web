@@ -209,6 +209,7 @@ export type CmsTopicSeoPayload = {
     alternates: {
       en: string | null;
       "zh-CN": string | null;
+      "zh-TW"?: string;
     };
     og: {
       title: string;
@@ -542,6 +543,7 @@ export function normalizeTopicSeoPayload(
       alternates: {
         en: seo?.meta.alternates.en ? canonicalUrl(buildTopicFrontendUrl("en", profile.slug)) : null,
         "zh-CN": seo?.meta.alternates["zh-CN"] ? canonicalUrl(buildTopicFrontendUrl("zh", profile.slug)) : null,
+        ...(seo?.meta.alternates["zh-TW"] ? { "zh-TW": seo.meta.alternates["zh-TW"] } : {}),
       },
       og: {
         title: fallbackText(seo?.meta.og.title, profile.seoMeta?.ogTitle, title),
@@ -734,6 +736,7 @@ export async function getTopicSeoBySlug(
         alternates: {
           en: normalizeIsoValue(response.meta?.alternates?.en),
           "zh-CN": normalizeIsoValue(response.meta?.alternates?.["zh-CN"]),
+          ...(response.meta?.alternates?.["zh-TW"] ? { "zh-TW": response.meta.alternates["zh-TW"] } : {}),
         },
         og: {
           title: fallbackText(response.meta?.og?.title, response.meta?.title),

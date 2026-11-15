@@ -1,3 +1,4 @@
+import { traditionalContentPageAlternates } from "@/lib/cms/traditional-index-alternates";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -18,10 +19,11 @@ async function contentPage(slug: string) {
 export async function generateTraditionalContentPageMetadata(slug: string): Promise<Metadata> {
   const page = await contentPage(slug);
   const canonicalPath = buildContentPagePath(slug, "zh-TW");
+  const languages = page.isIndexable ? await traditionalContentPageAlternates(slug) : undefined;
   return {
     title: page.seoTitle || page.title,
     description: page.metaDescription || page.summary,
-    alternates: { canonical: `${SITE_URL}${canonicalPath}` },
+    alternates: { canonical: `${SITE_URL}${canonicalPath}`, languages },
     robots: page.isIndexable ? undefined : { index: false, follow: true },
     openGraph: {
       title: page.seoTitle || page.title,

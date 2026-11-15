@@ -1,3 +1,4 @@
+import { traditionalCollectionAlternates } from "@/lib/cms/traditional-index-alternates";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -129,16 +130,17 @@ const FEATURED_GUIDE_SLUGS = [
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (localeParam === "zh-TW") {
+    const languages = await traditionalCollectionAlternates("/career/guides");
     return {
       title: "職涯規劃：找方向、比較職業與行動回顧",
       description: "從沒有方向、已有候選或已有目標開始，比較實際任務、核對門檻，用低成本驗證和工作表更新職涯計畫。",
-      alternates: { canonical: canonicalUrl("/zh-TW/career/guides") },
-      robots: { index: false, follow: !isConfiguredStagingSiteUrl() },
+      alternates: { canonical: canonicalUrl("/zh-TW/career/guides"), languages },
+      robots: { index: Boolean(languages), follow: !isConfiguredStagingSiteUrl() },
     };
   }
   const locale = resolveLocale(localeParam);
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/career/guides" : "/en/career/guides",
     title: locale === "zh" ? "职业规划：找方向、比较职业与行动复盘" : "Career Planning: Compare, Test, and Review",
@@ -152,6 +154,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       xDefault: "/",
     },
   });
+  const languages = await traditionalCollectionAlternates("/career/guides");
+  if (languages) metadata.alternates = { ...metadata.alternates, languages: { ...metadata.alternates?.languages, ...languages } };
+  return metadata;
 }
 
 function pickLocale<T>(locale: DisplayLocale, value: Record<DisplayLocale, T>): T {

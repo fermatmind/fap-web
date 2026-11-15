@@ -616,12 +616,13 @@ export function normalizeCareerGuideSeoPayload(
       ),
       canonical: normalizedCanonical,
       alternates: {
-        en: hasEnglishProjection
-          ? canonicalUrl(buildCareerGuideFrontendUrl("en", guide.slug))
-          : null,
-        "zh-CN": hasChineseProjection
-          ? canonicalUrl(buildCareerGuideFrontendUrl("zh", guide.slug))
-          : null,
+        en: seo?.meta.alternates["zh-TW"] && seo.meta.alternates.en
+          ? seo.meta.alternates.en
+          : hasEnglishProjection ? canonicalUrl(buildCareerGuideFrontendUrl("en", guide.slug)) : null,
+        "zh-CN": seo?.meta.alternates["zh-TW"] && seo.meta.alternates["zh-CN"]
+          ? seo.meta.alternates["zh-CN"]
+          : hasChineseProjection ? canonicalUrl(buildCareerGuideFrontendUrl("zh", guide.slug)) : null,
+        ...(seo?.meta.alternates["zh-TW"] ? { "zh-TW": seo.meta.alternates["zh-TW"] } : {}),
       },
       og: {
         title: fallbackText(seo?.meta.og.title, guide.seoMeta?.ogTitle, seo?.meta.title, guide.title),
@@ -661,7 +662,7 @@ export function normalizeCareerGuideSeoPayload(
       robots: fallbackText(
         seo?.meta.robots,
         guide.seoMeta?.robots,
-        guide.isIndexable && normalizedLocale !== "zh-TW" ? "index,follow" : "noindex,follow"
+        guide.isIndexable && (normalizedLocale !== "zh-TW" || seo?.meta.alternates["zh-TW"]) ? "index,follow" : "noindex,follow"
       ),
     },
     jsonld: normalizeCareerGuideJsonLd(

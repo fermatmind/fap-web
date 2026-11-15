@@ -7,7 +7,8 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
-import { buildTopicFrontendUrl, getTopicBySlug } from "@/lib/cms/topics";
+import { buildTopicFrontendUrl, getTopicBySlug, getTopicSeoBySlug } from "@/lib/cms/topics";
+import { isConfiguredStagingSiteUrl } from "@/lib/site";
 import { isTraditionalTopicSlug } from "@/lib/i18n/traditionalTopicPaths";
 import { buildMbtiTopicScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -28,8 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = buildTopicFrontendUrl("zh-TW", topic.slug);
   const title = topic.seoMeta?.seoTitle || topic.title;
   const description = topic.seoMeta?.seoDescription || topic.excerpt || topic.subtitle;
+  const seo = topic.isIndexable && !isConfiguredStagingSiteUrl() ? await getTopicSeoBySlug(topic.slug, "zh-TW") : null;
+  const alternates = seo?.meta.alternates;
+  const languages = alternates?.["zh-TW"] && alternates.en && alternates["zh-CN"] &&
+    !/\b(?:noindex|none)\b/i.test(seo?.meta.robots ?? "")
+    ? { "zh-TW": canonical, en: alternates.en, "zh-CN": alternates["zh-CN"] }
+    : undefined;
   return {
-    title, description, alternates: { canonical }, robots: { index: false, follow: true },
+    title, description, alternates: { canonical, languages }, robots: { index: Boolean(languages), follow: true },
     openGraph: { title, description, locale: "zh_TW", url: canonical, type: "article" },
   };
 }

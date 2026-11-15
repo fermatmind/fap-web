@@ -1,3 +1,4 @@
+import { traditionalCollectionAlternates } from "@/lib/cms/traditional-index-alternates";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -177,7 +178,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     locale,
     pathname: isZh ? "/zh/topics" : "/en/topics",
     title: isZh ? "认识自己：人格、兴趣与能力阅读指南" : "Understand yourself: personality, interests and abilities",
@@ -186,6 +187,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       : "Choose the situation you face now and connect assessments, result interpretation, and action guidance.",
     alternatesByLocale: { en: "/en/topics", zh: "/zh/topics", xDefault: "/" },
   });
+  const languages = await traditionalCollectionAlternates("/topics");
+  if (languages) metadata.alternates = { ...metadata.alternates, languages: { ...metadata.alternates?.languages, ...languages } };
+  return metadata;
 }
 
 export default async function TopicsPage({ params }: { params: Promise<{ locale: string }> }) {

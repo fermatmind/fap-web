@@ -1,3 +1,4 @@
+import { traditionalContentPageAlternates } from "@/lib/cms/traditional-index-alternates";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
@@ -26,7 +27,7 @@ export async function generateContentPageMetadata({
     };
   }
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     locale,
     pathname: buildContentPagePath(page.slug, locale),
     title: page.seoTitle || page.title,
@@ -38,6 +39,9 @@ export async function generateContentPageMetadata({
       xDefault: buildContentPagePath(page.slug, "zh"),
     },
   });
+  const languages = await traditionalContentPageAlternates(page.slug);
+  if (languages) metadata.alternates = { ...metadata.alternates, languages: { ...metadata.alternates?.languages, ...languages } };
+  return metadata;
 }
 
 export async function renderContentPage({

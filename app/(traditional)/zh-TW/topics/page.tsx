@@ -1,3 +1,4 @@
+import { traditionalCollectionAlternates } from "@/lib/cms/traditional-index-alternates";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -11,12 +12,15 @@ import { isTraditionalTopicSlug } from "@/lib/i18n/traditionalTopicPaths";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "主題總覽",
-  description: "依測驗、人格與職涯主題閱讀費馬測試的繁體內容。",
-  alternates: { canonical: "/zh-TW/topics" },
-  robots: { index: false, follow: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const languages = await traditionalCollectionAlternates("/topics");
+  return {
+    title: "主題總覽",
+    description: "依測驗、人格與職涯主題閱讀費馬測試的繁體內容。",
+    alternates: { canonical: "/zh-TW/topics", languages },
+    robots: { index: Boolean(languages), follow: true },
+  };
+}
 
 export default async function TraditionalTopicsPage() {
   const [{ items }, articles, copy] = await Promise.all([

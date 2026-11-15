@@ -39,15 +39,20 @@ const loadGuide = cache(async (slug: string) => {
 
 export async function generateMetadata({ params }: RouteProps): Promise<Metadata> {
   const { slug } = await params;
-  const { normalized } = await loadGuide(slug);
+  const { guide, normalized } = await loadGuide(slug);
   const canonical = canonicalUrl(buildCareerGuideFrontendUrl(locale, slug));
   const { meta } = normalized;
   const robots = meta.robots.toLowerCase().split(",").map((value) => value.trim());
+  const index = !isConfiguredStagingSiteUrl() && guide.isIndexable && !robots.some(token => token === "noindex" || token === "none");
   return {
     title: resolveCareerGuideMetadataTitle(meta.title),
     description: meta.description,
-    alternates: { canonical },
-    robots: { index: false, follow: !isConfiguredStagingSiteUrl() && !robots.includes("nofollow") && !robots.includes("none") },
+    alternates: { canonical, ...(index ? { languages: {
+      "zh-TW": canonical,
+      ...(meta.alternates["zh-CN"] ? { "zh-CN": meta.alternates["zh-CN"] } : {}),
+      ...(meta.alternates.en ? { en: meta.alternates.en } : {}),
+    } } : {}) },
+    robots: { index, follow: !isConfiguredStagingSiteUrl() && !robots.includes("nofollow") && !robots.includes("none") },
     openGraph: {
       type: "article",
       locale: "zh_TW",
