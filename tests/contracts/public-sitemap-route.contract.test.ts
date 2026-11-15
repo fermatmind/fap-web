@@ -1,3 +1,4 @@
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { gunzipSync } from "node:zlib";
 
@@ -302,6 +303,16 @@ it("projects only published bilingual core assessment paths and opens supported 
   ];
   expect(appendTraditionalProductSitemapEntries(entries).filter(entry => entry.loc.includes("/zh-TW")))
     .toEqual([{ loc: base + "/zh-TW" + core }]);
+  for (const locale of ["en", "zh"] as const) {
+    const metadata = buildPageMetadata({
+      locale,
+      pathname: `/${locale}${core}`,
+      title: "MBTI",
+      description: "Assessment",
+      alternatesByLocale: { en: "/en" + core, zh: "/zh" + core },
+    });
+    expect(new URL(String(metadata.alternates?.languages?.["zh-TW"])).pathname).toBe("/zh-TW" + core);
+  }
   const source = { robots: { index: false, follow: true } };
   const path = "/zh-TW/tests/explore/sbti-test/results/self-critic";
   const fun = buildCompletePublicSitemapEntries([]);

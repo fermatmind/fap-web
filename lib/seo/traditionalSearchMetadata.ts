@@ -20,11 +20,9 @@ export function hasTraditionalCareerEntrySearchPath(path: string): boolean {
 
 export function traditionalSearchEquivalent(pathname: string): string | null {
   const suffix = pathname.replace(/^\/(?:en|zh|zh-TW)\//u, "/");
-  if (hasTraditionalCareerInterestSearchPath(suffix) || hasTraditionalCareerEntrySearchPath(suffix)) return `/zh-TW${suffix}`;
+  if (hasTraditionalAssessmentSearchPath(suffix) || hasTraditionalCareerInterestSearchPath(suffix) || hasTraditionalCareerEntrySearchPath(suffix)) return `/zh-TW${suffix}`;
   const path = traditionalPath(pathname);
-  if (path) {
-    if (entertainmentSearchPaths.has(suffix) || hasTraditionalAssessmentSearchPath(suffix)) return path;
-  }
+  if (path && entertainmentSearchPaths.has(suffix)) return path;
   return traditionalEquivalent(pathname);
 }
 
