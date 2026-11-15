@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+import { render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import worksheet from "@/lib/marketing/riasecWorksheet.json";
@@ -142,14 +143,24 @@ describe.each<Locale>(["zh", "en"])("RIASEC growth sprint: %s", locale => {
       for (const href of hrefs.slice(0, -1)) expect(document.getElementById(href!.slice(1))).not.toBeNull();
     } else expect(hrefs).toEqual([`/${locale}/holland-test/pdf-download#interpret-results`, `/${locale}/career`, `/${locale}/career/guides`, `/${locale}/career/tests`, `/${locale}/career/jobs/industrial-designers`, `/${locale}/career/jobs/graphic-designers`, `/${locale}/career/jobs/architects-except-landscape-and-naval`, ...(locale === "zh" ? [DESIGN_COMPARE_HREF] : []), `/${locale}/career/compare`, `/${locale}/holland-test/pdf-download`]);
     if (locale === "zh") {
-      const taiwan = documentFrom(renderToStaticMarkup(<RiasecResultShell locale={locale} displayLocale="zh-TW" viewModel={vm} attemptId="private-attempt" />));
-      const steps = taiwan.querySelector('[data-testid="riasec-career-next-steps"]')!;
-      const links = [...steps.querySelectorAll<HTMLAnchorElement>("a")].map(link => link.getAttribute("href"));
-      expect(steps.textContent).toContain("探索興趣輪廓相近的職業");
-      expect(links.slice(0, 5)).toEqual(suggestedHrefs.map(href => href!.replace("/zh/", "/zh-TW/")));
-      expect(links).toContain("/zh-TW/tests/category/career");
-      expect(links.every(href => href?.startsWith("/zh-TW/") && !href.includes("private-attempt"))).toBe(true);
+      const { container, unmount } = render(<RiasecResultShell locale={locale} displayLocale="zh-TW" viewModel={vm} attemptId="private-attempt" />);
+      const steps = await screen.findByTestId("riasec-career-next-steps");
+      const careers = steps.querySelector('[data-testid="riasec-profile-careers"]')!;
+      const careerLinks = [...careers.querySelectorAll("a")].map(link => link.getAttribute("href"));
+      const links = [...steps.querySelectorAll("a")].map(link => link.getAttribute("href")!);
+      expect(steps.textContent).toContain(form === 60 ? "職業興趣相似度一覽" : "探索興趣輪廓相近的職業");
+      expect(careerLinks).toEqual(suggestedHrefs.map(href => href!.replace("/zh/", "/zh-TW/")));
+      expect(links).toContain(form === 60 ? "/zh-TW/career" : "/zh-TW/tests/category/career");
+      for (const href of links) {
+        if (href.startsWith("#")) {
+          expect(container.querySelector(href)).not.toBeNull();
+        } else {
+          expect(href).toMatch(/^\/zh-TW\//);
+        }
+        expect(href).not.toContain("private-attempt");
+      }
       expect(vm).toEqual(before);
+      unmount();
     }
     expect(document.querySelector('a[href="#riasec-career-next"]')).not.toBeNull();
     expect([...document.querySelectorAll("a")].every(link => !link.getAttribute("href")?.includes("private-attempt"))).toBe(true);
