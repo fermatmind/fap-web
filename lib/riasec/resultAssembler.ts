@@ -1131,7 +1131,7 @@ function buildDeepContentSlot(
 
   const rawContent = asRecord(rawSlot.content);
   const content = buildDeepContentBody(rawContent, context.requestedPageLocale);
-  if (slotKey === "triad_blend_copy" && envelopeLocale === "zh") {
+  if (slotKey === "triad_blend_copy" && (envelopeLocale === "zh" || (context.formCode === "riasec_60" && rawContent?.desktop_reading_v1))) {
     const desktop = asRecord(rawContent?.desktop_reading_v1);
     const fields = ["headline", "scene", "screen", "question", "trial", "decision", "career_lens"] as const;
     if (context.formCode !== "riasec_60" || normalizeText(rawSlot.module_key) !== "hero_activity_chain" ||
@@ -1146,7 +1146,7 @@ function buildDeepContentSlot(
       content.desktop_hero_job_tip = heroJobTip;
     }
   }
-  if (slotKey === "pair_blend_copy" && envelopeLocale === "zh") {
+  if (slotKey === "pair_blend_copy" && (envelopeLocale === "zh" || context.formCode === "riasec_60")) {
     const workDivision = asRecord(rawContent?.work_division_v1);
     const fields = ["scene", "tradeoff", "question"] as const;
     if (workDivision && fields.every((field) =>

@@ -89,6 +89,61 @@ describe("Traditional assessment display", () => {
     expect(await projectTraditionalResultDisplay(input, "zh")).toBe(input);
   });
 
+  it("localizes the RIASEC 60Q desktop modules while preserving scores and asset identity", async () => {
+    const input = {
+      riasec_public_projection_v2: {
+        locale: "zh-CN",
+        scores: { dimensions: [{ code: "A", label: "艺术型", score: 40 }] },
+        activity_explorer_v0_1: { dimension_activity_families: [{ activity_families: ["查证与分析问题"] }] },
+        deep_content_slots_v1: {
+          slots: [{
+            slot_id: "untouched",
+            content: {
+              desktop_insight_reading: "操作设备。",
+              atlas_reading: "研究现场。",
+              atlas_examples: ["核对数据。", "整理记录。", "确认原因。"],
+              atlas_next_step: "询问团队。",
+              desktop_reading_v1: {
+                headline: "比较工作",
+                scene: "观察实际操作。",
+                screen: "阅读招聘说明。",
+                question: "谁来操作设备？",
+                trial: "设计一个模型。",
+                decision: "选择下一项。",
+                career_lens: "比较任务和环境。",
+                hero_job_tip: "确认职责。",
+              },
+              work_division_v1: {
+                scene: "组织活动。",
+                tradeoff: "从排查到交付。",
+                question: "谁负责？",
+              },
+            },
+          }],
+        },
+      },
+    };
+    const projected = (await projectTraditionalResultDisplay(input, "zh-TW")).riasec_public_projection_v2;
+    expect(projected.locale).toBe("zh-CN");
+    expect(projected.scores.dimensions).toEqual([{ code: "A", label: "藝術型", score: 40 }]);
+    expect(projected.activity_explorer_v0_1.dimension_activity_families).toEqual([{ activity_families: ["查證與分析問題"] }]);
+    expect(projected.deep_content_slots_v1.slots[0]).toMatchObject({
+      slot_id: "untouched",
+      content: {
+        desktop_insight_reading: "操作裝置。",
+        atlas_reading: "研究現場。",
+        atlas_examples: ["核對資料。", "整理記錄。", "確認原因。"],
+        atlas_next_step: "詢問團隊。",
+        desktop_reading_v1: {
+          headline: "比較工作", scene: "觀察實際操作。", screen: "閱讀招聘說明。",
+          question: "誰來操作裝置？", trial: "設計一個模型。", decision: "選擇下一項。",
+          career_lens: "比較任務和環境。", hero_job_tip: "確認職責。",
+        },
+        work_division_v1: { scene: "組織活動。", tradeoff: "從排查到交付。", question: "誰負責？" },
+      },
+    });
+  });
+
   it("projects only visible MBTI snapshot copy and preserves report identity", async () => {
     const snapshot = {
       hero: { profileIdentity: { code: "ENFP-T", nickname: "灵感发电机", keywords: ["创意"] } },
