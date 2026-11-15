@@ -205,6 +205,24 @@ export default async function CareerTestsPage({ params }: PageProps) {
         <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-600">{copy.intro}</p>
       </section>
 
+      {!traditional ? (
+        <section aria-labelledby="fermat-career-assessment" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
+          <h2 id="fermat-career-assessment" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+            {locale === "zh" ? "费马职业测试（94 题）" : "FermatMind Career Assessment (94 questions)"}
+          </h2>
+          <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
+            {locale === "zh"
+              ? "一起了解你喜欢的工作活动、偏好的工作方式和看重的工作条件。"
+              : "Explore the work activities you enjoy, how you prefer to work, and what conditions matter to you."}
+          </p>
+          <div className="mt-5">
+            <Link href={withLocale("/career/assessment")} className={buttonVariants({ variant: "default" })}>
+              {locale === "zh" ? "开始费马职业测试" : "Start the FermatMind Career Assessment"}
+            </Link>
+          </div>
+        </section>
+      ) : null}
+
       {locale === "en" ? (
         <section aria-labelledby="career-interest-test" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8" data-testid="career-tests-single-entry">
           <h2 id="career-interest-test" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{copy.assessment}</h2>
