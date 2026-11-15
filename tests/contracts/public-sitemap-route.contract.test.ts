@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { GET as getRootSitemap } from "@/app/sitemap.xml/route";
 import { GET as getFamilySitemap } from "@/app/sitemaps/[family]/route";
 import {
-  appendTraditionalAssessmentSitemapEntries,
+  appendTraditionalProductSitemapEntries,
   buildCompletePublicSitemapEntries,
   buildPublicSitemapEntries,
   buildPublicSitemapFamilyMap,
@@ -300,7 +300,7 @@ it("projects only published bilingual core assessment paths and opens supported 
     { loc: base + "/en/tests/category/career" },
     { loc: base + "/zh" + take },
   ];
-  expect(appendTraditionalAssessmentSitemapEntries(entries).filter(entry => entry.loc.includes("/zh-TW")))
+  expect(appendTraditionalProductSitemapEntries(entries).filter(entry => entry.loc.includes("/zh-TW")))
     .toEqual([{ loc: base + "/zh-TW" + core }]);
   const source = { robots: { index: false, follow: true } };
   const path = "/zh-TW/tests/explore/sbti-test/results/self-critic";

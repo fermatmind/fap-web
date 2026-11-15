@@ -122,7 +122,7 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
   it("uses the existing search authority and emits exact Traditional occupation links", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     const fetchDirectory = installPageMocks({ page: 2 });
-    const { default: TraditionalDirectory, metadata } = await import("@/app/(traditional)/zh-TW/career/page");
+    const { default: TraditionalDirectory, generateMetadata } = await import("@/app/(traditional)/zh-TW/career/page");
     const html = renderToStaticMarkup(await TraditionalDirectory({
       searchParams: Promise.resolve({ q: "軟體", page: "2" }),
     }));
@@ -135,8 +135,12 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(html).toContain("會計師");
     expect(html).toContain('href="/zh-TW/career/guides"');
     expect(html).toContain('href="/zh-TW/career/industries"');
-    expect(metadata.robots).toMatchObject({ index: false });
-    expect(metadata.alternates).toEqual({ canonical: "/zh-TW/career" });
+    const filtered = await generateMetadata({ searchParams: Promise.resolve({ q: "軟體", page: "2" }) });
+    expect(filtered.robots).toMatchObject({ index: false });
+    expect(filtered.alternates).toEqual({ canonical: "/zh-TW/career" });
+    const index = await generateMetadata({ searchParams: Promise.resolve({}) });
+    expect(index.robots).toMatchObject({ index: true });
+    expect(index.alternates).toMatchObject({ canonical: "https://fermatmind.com/zh-TW/career" });
     const { traditionalEquivalent, traditionalPath } = await import("@/lib/i18n/traditionalRoutes");
     for (const locale of ["en", "zh", "zh-TW"]) {
       expect(traditionalPath(`/${locale}/career/jobs/accountants-and-auditors`)).toBe("/zh-TW/career/jobs/accountants-and-auditors");

@@ -1,3 +1,6 @@
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -139,9 +142,30 @@ const COPY = {
 
 type PageProps = { params: Promise<{ locale: string }> };
 
+function translateCareerTestsCopy<T>(value: T, translate: (text: string) => string): T {
+  if (typeof value === "string") return translate(value) as T;
+  if (Array.isArray(value)) return value.map(item => translateCareerTestsCopy(item, translate)) as T;
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, translateCareerTestsCopy(item, translate)])) as T;
+  }
+  return value;
+}
+
+async function readCareerTestsCopy(params: PageProps["params"]) {
+  const displayLocale = (await params).locale;
+  const traditional = displayLocale === "zh-TW";
+  const locale = traditional ? "zh" : resolveLocale(displayLocale);
+  const translate = traditional ? await loadTraditionalAssessmentText() : (text: string) => text;
+  const copy = traditional ? translateCareerTestsCopy(COPY[locale], translate) : COPY[locale];
+  return { locale, traditional, translate, copy };
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const locale = resolveLocale((await params).locale);
-  const copy = COPY[locale];
+  const { locale, traditional, copy } = await readCareerTestsCopy(params);
+  if (traditional) return traditionalSearchMetadata("/zh-TW/career/tests", {
+    title: copy.title, description: copy.description, alternates: { canonical: "/zh-TW/career/tests" },
+    robots: { index: false, follow: true },
+  });
   return buildPageMetadata({
     locale,
     pathname: localizedPath("/career/tests", locale),
@@ -156,14 +180,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function CareerTestsPage({ params }: PageProps) {
-  const locale = resolveLocale((await params).locale);
-  const copy = COPY[locale];
-  const withLocale = (path: string) => localizedPath(path, locale);
+  const { locale, traditional, translate, copy } = await readCareerTestsCopy(params);
+  const withLocale = (path: string) => traditional ? displayNavigationPath(path, "zh-TW") : localizedPath(path, locale);
   const canonicalPath = withLocale("/career/tests");
   const testPath = withLocale("/tests/holland-career-interest-test-riasec");
   const breadcrumbs = [
     { name: locale === "zh" ? "首页" : "Home", path: withLocale("/") },
-    { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
+    { name: locale === "zh" ? "职业" : "Career", path: withLocale("/career") },
     { name: locale === "zh" ? "职业测试" : "Career tests", path: canonicalPath },
   ];
 
@@ -225,8 +248,8 @@ export default async function CareerTestsPage({ params }: PageProps) {
 
       {locale === "zh" ? (
         <p className="mx-auto max-w-4xl text-sm leading-6 text-slate-700">
-          已经有候选方向？<Link href={withLocale("/career")} className="underline underline-offset-4">到职业库查工作职责和入行条件</Link>，也可以先看
-          <Link href={withLocale("/career/jobs/accountants-and-auditors")} className="underline underline-offset-4">会计与审计的实际任务</Link>。
+          {translate("已经有候选方向？")}<Link href={withLocale("/career")} className="underline underline-offset-4">{translate("到职业库查工作职责和入行条件")}</Link>{translate("，也可以先看")}
+          <Link href={withLocale("/career/jobs/accountants-and-auditors")} className="underline underline-offset-4">{translate("会计与审计的实际任务")}</Link>。
         </p>
       ) : null}
 
@@ -247,7 +270,7 @@ export default async function CareerTestsPage({ params }: PageProps) {
         <p className="m-0 text-sm leading-7 text-slate-600">{copy.comparisonNote}</p>
         <p className="m-0 text-sm leading-7 text-slate-600">
           <Link href={withLocale("/datasets/occupations/method")} className="underline underline-offset-4">
-            {locale === "zh" ? "了解如何用测评结果核对实际职业任务" : "See how to use assessment results to check real job tasks"}
+            {translate(locale === "zh" ? "了解如何用测评结果核对实际职业任务" : "See how to use assessment results to check real job tasks")}
           </Link>
         </p>
         <ul className="m-0 list-disc space-y-3 pl-5" data-testid="career-tests-comparison-reading">
@@ -268,8 +291,8 @@ export default async function CareerTestsPage({ params }: PageProps) {
       </section>
 
       <section aria-labelledby="career-code-samples" className="mx-auto max-w-4xl space-y-4" data-testid="career-code-samples">
-        <h2 id="career-code-samples" className="m-0 text-2xl font-semibold">{locale === "zh" ? "从三字代码走到一次真实任务探索" : "Turn a three-letter code into a task to explore"}</h2>
-        <p className="m-0 text-sm leading-7 text-slate-600">{locale === "zh" ? "三个样本分别比较检修、设计和帮助学习中的活动。职业按任务选作探索示例，保留完整六维，不是个人匹配排名。" : "Compare activities in repair, design, and helping people learn. Occupations illustrate tasks to explore; keep your full six-interest profile rather than treating these as a personal fit ranking."}</p>
+        <h2 id="career-code-samples" className="m-0 text-2xl font-semibold">{translate(locale === "zh" ? "从三字代码走到一次真实任务探索" : "Turn a three-letter code into a task to explore")}</h2>
+        <p className="m-0 text-sm leading-7 text-slate-600">{translate(locale === "zh" ? "三个样本分别比较检修、设计和帮助学习中的活动。职业按任务选作探索示例，保留完整六维，不是个人匹配排名。" : "Compare activities in repair, design, and helping people learn. Occupations illustrate tasks to explore; keep your full six-interest profile rather than treating these as a personal fit ranking.")}</p>
         <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-3">
           {[
             { code: "RIC", slug: "ric-holland-code-career-exploration", zh: "实作、诊断与记录", en: "Hands-on work, diagnosis, and records" },
@@ -278,7 +301,7 @@ export default async function CareerTestsPage({ params }: PageProps) {
           ].map(sample => <li key={sample.code}>
             <Link href={withLocale(`/articles/${sample.slug}`)} className="block h-full rounded-2xl border border-slate-200 p-5 text-sm leading-6 underline underline-offset-4 hover:border-slate-400 focus-visible:outline focus-visible:outline-2">
               <span className="block text-lg font-semibold">{sample.code}</span>
-              {sample[locale]}
+              {translate(sample[locale])}
             </Link>
           </li>)}
         </ul>
@@ -286,20 +309,20 @@ export default async function CareerTestsPage({ params }: PageProps) {
 
       <section aria-labelledby="career-interest-pilot-links" className="mx-auto max-w-4xl space-y-3">
         <h2 id="career-interest-pilot-links" className="m-0 text-2xl font-semibold">
-          {locale === "zh" ? "比较同码与相近兴趣的工作任务" : "Compare work tasks across related interest codes"}
+          {translate(locale === "zh" ? "比较同码与相近兴趣的工作任务" : "Compare work tasks across related interest codes")}
         </h2>
         <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
           {CAREER_INTEREST_PILOTS.map((code) => (
             <li key={code}>
-              <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={careerExplorationPilotPath(locale, code)}>
-                {CAREER_EXPLORATION_PILOT[code].copy[locale].title}
+              <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={traditional ? displayNavigationPath(careerExplorationPilotPath(locale, code), "zh-TW") : careerExplorationPilotPath(locale, code)}>
+                {translate(CAREER_EXPLORATION_PILOT[code].copy[locale].title)}
               </Link>
             </li>
           ))}
           {releasedCareerInterestEntries().filter((entry) => entry.locale === locale).map(({ path, title }) => (
             <li key={path}>
-              <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={path}>
-                {title}
+              <Link className="inline-flex min-h-11 items-center font-medium text-[var(--fm-accent)] underline underline-offset-4" href={traditional ? displayNavigationPath(path, "zh-TW") : path}>
+                {translate(title)}
               </Link>
             </li>
           ))}

@@ -1,3 +1,4 @@
+import { hasTraditionalCareerEntrySearchPath, hasTraditionalCareerInterestSearchPath } from "@/lib/seo/traditionalSearchMetadata";
 import { hasTraditionalAssessmentSearchPath } from "@/lib/i18n/traditionalRoutes";
 import { promisify } from "node:util";
 import { gzip } from "node:zlib";
@@ -161,6 +162,11 @@ export function appendCareerInterestPilotSitemapEntries(entries: PublicSitemapEn
   for (const { path } of indexableCareerInterestPilots()) {
     const loc = buildCanonicalLoc(path, CANONICAL_SITE_URL);
     if (!byLoc.has(loc)) byLoc.set(loc, { loc });
+    const suffix = path.replace(/^\/(?:en|zh)\//u, "/");
+    if (hasTraditionalCareerInterestSearchPath(suffix)) {
+      const traditional = buildCanonicalLoc(`/zh-TW${suffix}`, CANONICAL_SITE_URL);
+      if (!byLoc.has(traditional)) byLoc.set(traditional, { loc: traditional });
+    }
   }
   return [...byLoc.values()].sort((left, right) => left.loc.localeCompare(right.loc));
 }
@@ -274,11 +280,13 @@ export async function fetchBackendPublicSitemapSource(signal?: AbortSignal): Pro
   }
 }
 
-export function appendTraditionalAssessmentSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
+export function appendTraditionalProductSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
   const byLocation = new Map(entries.map(entry => [entry.loc, entry]));
   for (const entry of entries) {
     const path = new URL(entry.loc).pathname;
-    if (!path.startsWith("/zh/") || !hasTraditionalAssessmentSearchPath(path.slice(3))) continue;
+    if (!path.startsWith("/zh/")) continue;
+    const suffix = path.slice(3);
+    if (!hasTraditionalAssessmentSearchPath(suffix) && !hasTraditionalCareerEntrySearchPath(suffix)) continue;
     if (!byLocation.has(`${CANONICAL_SITE_URL}/en${path.slice(3)}`)) continue;
     const loc = `${CANONICAL_SITE_URL}/zh-TW${path.slice(3)}`;
     byLocation.set(loc, { ...entry, loc });
@@ -288,7 +296,9 @@ export function appendTraditionalAssessmentSitemapEntries(entries: PublicSitemap
 
 export function buildCompletePublicSitemapEntries(entries: PublicSitemapEntry[]): PublicSitemapEntry[] {
   return appendCareerInterestPilotSitemapEntries(
-    appendTraditionalEntertainmentSitemapEntries(appendFriendshipSitemapEntries(appendFunSitemapEntries(appendTraditionalAssessmentSitemapEntries(entries)))),
+    appendTraditionalEntertainmentSitemapEntries(
+      appendFriendshipSitemapEntries(appendFunSitemapEntries(appendTraditionalProductSitemapEntries(entries))),
+    ),
   );
 }
 

@@ -31,7 +31,7 @@ describe("six-page career exploration pilot", () => {
       en: `${origin}/en/career/interests/${code}`,
       "zh-CN": `${origin}/zh/career/interests/${code}`,
     });
-    expect(metadata.alternates?.languages).not.toHaveProperty("zh-TW");
+    expect(metadata.alternates?.languages).toHaveProperty("zh-TW", `${origin}/zh-TW/career/interests/${code}`);
 
     const { container } = render(await (code === "ari" ? AriPage : AcPage)(props));
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(CAREER_EXPLORATION_PILOT[code].copy[locale].title);
@@ -73,13 +73,13 @@ describe("six-page career exploration pilot", () => {
     await expect(AcPage(props)).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
-  it.each(["ari", "ac"] as const)("serves the Taiwan %s guide without publishing search alternates", (code) => {
+  it.each(["ari", "ac"] as const)("serves the Taiwan %s guide with reciprocal search alternates", (code) => {
     const entry = `/zh-TW/career/interests/${code}`;
     expect(traditionalPath(`/en/career/interests/${code}`)).toBe(entry);
     expect(traditionalEquivalent(entry)).toBeNull();
     const metadata = taiwanCareerInterestMetadata(code);
-    expect(metadata.robots).toMatchObject({ index: false });
-    expect(metadata.alternates).toEqual({ canonical: entry });
+    expect(metadata.robots).toMatchObject({ index: true });
+    expect(metadata.alternates).toMatchObject({ canonical: "https://fermatmind.com" + entry, languages: { "zh-TW": "https://fermatmind.com" + entry } });
 
     render(<TraditionalCareerInterestPage code={code} />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(`霍蘭德 ${code.toUpperCase()} 代碼`);
@@ -92,8 +92,14 @@ describe("six-page career exploration pilot", () => {
     }
   });
 
-  it("keeps a Taiwan interest code outside the published pilot unavailable", () => {
-    expect(traditionalPath("/zh-TW/career/interests/ric")).toBeNull();
+  it("serves released Taiwan interest codes and rejects unknown codes", async () => {
+    const props = { params: Promise.resolve({ locale: "zh-TW", code: "ric" }) };
+    expect(traditionalPath("/zh-TW/career/interests/ric")).toBe("/zh-TW/career/interests/ric");
+    expect(await releasedMetadata(props)).toMatchObject({ robots: { index: true } });
+    render(await ReleasedInterestPage(props));
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("霍蘭德 RIC");
+    await expect(releasedMetadata({ params: Promise.resolve({ locale: "zh-TW", code: "xyz" }) }))
+      .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
   it.each(["zh", "en"] as const)("serves the verified RCI candidates in %s", async (locale) => {
@@ -134,7 +140,7 @@ describe("six-page career exploration pilot", () => {
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
-  it("appends the fifteen published topics in both languages and omits held paths", () => {
+  it("appends the fifteen published topics in three languages and omits held paths", () => {
     const existing = { loc: "https://fermatmind.com/zh/career", lastmod: "2026-11-10T00:00:00.000Z" };
     const backendEntries = buildPublicSitemapEntries({ items: [
       existing,
@@ -142,7 +148,7 @@ describe("six-page career exploration pilot", () => {
       { loc: "https://fermatmind.com/en/career/interests/ac" },
     ] });
     const topics = ["a", "ac", "ari", "c", "ce", "e", "ecs", "i", "irc", "r", "rc", "rci", "ric", "s", "si"];
-    const expected = ["en", "zh"].flatMap((locale) =>
+    const expected = ["en", "zh-TW", "zh"].flatMap((locale) =>
       topics.map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
     );
     const entries = appendCareerInterestPilotSitemapEntries(backendEntries);

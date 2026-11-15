@@ -1,3 +1,4 @@
+import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -9,12 +10,12 @@ import { isConfiguredStagingSiteUrl } from "@/lib/site";
 
 export function taiwanCareerInterestMetadata(code: CareerInterestPilot): Metadata {
   const { title, summary } = CAREER_INTEREST_TAIWAN_COPY[code];
-  return {
+  return traditionalSearchMetadata(careerExplorationPilotPath("zh-TW", code), {
     title,
     description: summary,
     alternates: { canonical: careerExplorationPilotPath("zh-TW", code) },
     robots: { index: false, follow: !isConfiguredStagingSiteUrl() },
-  };
+  });
 }
 
 export function TraditionalCareerInterestPage({ code }: { code: CareerInterestPilot }) {

@@ -58,6 +58,8 @@ export function traditionalPath(pathname: string): string | null {
   if (traditionalCulturalSymbolRoute(path) || traditionalMixedQuestionnaireRoute(path)) return `/zh-TW${path}`;
   if (path === "/tests/explore/career-match") return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
+  if (path === "/career/tests") return "/zh-TW/career/tests";
+  if (prefix === "zh-TW" && /^\/career\/interests\/[a-z]{1,3}$/u.test(path)) return `/zh-TW${path}`;
   if (CAREER_INTEREST_PILOTS.some(code => path === `/career/interests/${code}`)) return `/zh-TW${path}`;
   if (path === "/career/recommendations") return `/zh-TW${path}`;
   if (path === "/career/compare") return "/zh-TW/career/compare";

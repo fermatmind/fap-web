@@ -29,7 +29,7 @@ describe("career tests single entry contract", () => {
     const source = read("app/(localized)/[locale]/career/tests/page.tsx");
 
     expect(source).toContain("Breadcrumb");
-    expect(source).toContain('localizedPath("/career", locale)');
+    expect(source).toContain('withLocale("/career")');
     expect(source).toContain("职业测试");
     expect(source).toContain("Career tests");
   });
