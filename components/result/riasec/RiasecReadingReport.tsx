@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  createContext,
+  useContext,
   useEffect,
   useRef,
   useState,
@@ -13,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { buildRiasecTakeHref } from "@/lib/riasec/forms";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import {
   getRenderableRiasecDeepContentSlots,
@@ -67,7 +70,44 @@ const ANCHORS = {
   contextual: "riasec-contextual-clues",
 };
 
-export function RiasecReadingReport({
+type TraditionalCopy = Awaited<ReturnType<typeof loadTraditionalAssessmentText>>;
+const ReportCopyContext = createContext<{ locale: DisplayLocale; traditional?: TraditionalCopy }>({ locale: "en" });
+
+function useReportCopy() {
+  const { locale, traditional } = useContext(ReportCopyContext);
+  return (cn: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? (traditional?.(cn) ?? cn) : cn;
+}
+
+export function RiasecReadingReport(props: Props) {
+  const displayLocale = props.displayLocale ?? props.locale;
+  const [traditional, setTraditional] = useState<TraditionalCopy | "error" | null>(null);
+
+  useEffect(() => {
+    if (displayLocale !== "zh-TW") return;
+    let active = true;
+    void loadTraditionalAssessmentText().then(convert => {
+      if (active) setTraditional(() => convert);
+    }).catch(() => {
+      if (active) setTraditional("error");
+    });
+    return () => { active = false; };
+  }, [displayLocale]);
+
+  if (displayLocale === "zh-TW" && !traditional) {
+    return <p role="status">正在載入職業興趣報告…</p>;
+  }
+  if (displayLocale === "zh-TW" && traditional === "error") {
+    return <p role="alert">暫時無法載入繁體中文報告，請重新整理頁面。</p>;
+  }
+
+  return (
+    <ReportCopyContext.Provider value={{ locale: displayLocale, traditional: typeof traditional === "function" ? traditional : undefined }}>
+      <RiasecReadingReportBody {...props} />
+    </ReportCopyContext.Provider>
+  );
+}
+
+function RiasecReadingReportBody({
   viewModel: vm,
   locale,
   displayLocale = locale,
@@ -75,7 +115,7 @@ export function RiasecReadingReport({
   emailRecovery,
 }: Props) {
   const zh = locale === "zh";
-  const t = (cn: string, en: string) => (zh ? cn : en);
+  const t = useReportCopy();
   const rootRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const insightRef = useRef<HTMLDivElement>(null);
@@ -172,7 +212,9 @@ export function RiasecReadingReport({
     (slot) => slot.selection?.dimensionCode === dimension?.code,
   );
   const summary = vm.resultSummary;
-  const usePortraitLayout = displayLocale === "zh" && vm.formCode === "riasec_60";
+  const usePortraitLayout = vm.formCode === "riasec_60" && (
+    zh || dimensionSlots.some(slot => Boolean(slot.content.desktop_insight_reading))
+  );
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
   const activityState = visibility("activity_explorer");
   const hasActivities = activityState !== "hidden";
@@ -224,10 +266,10 @@ export function RiasecReadingReport({
     ...(mapState !== "hidden"
       ? [{ id: ANCHORS.overview, label: t("兴趣总览", "Overview") }]
       : []),
-    ...(usePortraitLayout && dimensionSlots.length ? [{ id: ANCHORS.dimensions, label: "六维解读" }] : []),
+    ...(usePortraitLayout && dimensionSlots.length ? [{ id: ANCHORS.dimensions, label: t("六维解读", "In-depth dimension readings") }] : []),
     { id: ANCHORS.career, label: displayLocale === "zh-TW" ? "職涯探索" : t("职业探索", "Career exploration") },
-    ...(showWorkCombination ? [{ id: ANCHORS.combinations, label: "工作分工" }] : []),
-    ...(usePortraitLayout && mapState !== "hidden" ? [{ id: ANCHORS.action, label: "验证职业方向" }] : []),
+    ...(showWorkCombination ? [{ id: ANCHORS.combinations, label: t("工作分工", "How work is divided") }] : []),
+    ...(usePortraitLayout && mapState !== "hidden" ? [{ id: ANCHORS.action, label: t("验证职业方向", "Test a career direction") }] : []),
     ...(hasContext
       ? [{ id: ANCHORS.context, label: t("工作偏好", "Work preferences") }]
       : []),
@@ -312,7 +354,6 @@ export function RiasecReadingReport({
       selectedSlot={selectedSlot}
       slotState={selectedSlot ? slotState(selectedSlot) : "hidden"}
       tieNote={tieNote}
-      locale={locale}
     />
   );
 
@@ -320,13 +361,14 @@ export function RiasecReadingReport({
     <section id={ANCHORS.dimensions} className={styles.chapter}>
       {usePortraitLayout ? (
         <details className={styles.dimensionAtlas} open>
-          <summary><h2>六维解读</h2></summary>
+          <summary><h2>{t("六维解读", "In-depth dimension readings")}</h2></summary>
           <div className={styles.dimensionEntries}>
             {dimensionSlots.map(slot => (
               <DimensionAtlasCard
                 key={slot.slotId}
                 slot={slot}
                 state={slotState(slot)}
+                locale={locale}
                 dimension={vm.dimensions.find(item => item.code === slot.selection?.dimensionCode)}
               />
             ))}
@@ -381,7 +423,7 @@ export function RiasecReadingReport({
       ) : <>
         <h2>{careerTitle}</h2>
         {careerContent}
-        <RiasecTrialRecord locale={locale} activities={hasActivities
+        <RiasecTrialRecord locale={displayLocale} activities={hasActivities
           ? (vm.activityExplorer?.codeActivityPack.activities ?? [])
             .filter(activity => selectedActivities.includes(activity.activityKey))
             .map(activity => clean(activity.activityLabel))
@@ -403,6 +445,7 @@ export function RiasecReadingReport({
       <ReportHeader
         vm={vm}
         locale={locale}
+        displayLocale={displayLocale}
         actions={actions}
         emailRecovery={emailRecovery}
         usePortraitLayout={usePortraitLayout}
@@ -424,7 +467,6 @@ export function RiasecReadingReport({
               mapState={mapState}
               selected={dimension?.code}
               onSelect={setSelected}
-              locale={locale}
               showRadar={usePortraitLayout}
             />
             {!usePortraitLayout && mapState !== "hidden" ? (
@@ -462,12 +504,12 @@ export function RiasecReadingReport({
             ) : null}
             <RiasecExploration locale={locale} showPreferences={hasContext} />
             {showWorkCombination ? (
-              <ReportTailChapter id={ANCHORS.combinations} title="你在工作中更想做哪一段"
+              <ReportTailChapter id={ANCHORS.combinations} title={t("你在工作中更想做哪一段", "Which part of the work draws you in?")}
                 icon={<GitMerge size={17} />} tone="work" open={workPairs.some(slot => slotState(slot) === "visible")}>
-                <p className={styles.tailIntro}>一个项目里，有人梳理问题，有人把方案做出来，也有人接手交付。比较岗位时，先看你想反复做的那一段，再看你能参与到哪一步。</p>
+                <p className={styles.tailIntro}>{t("一个项目里，有人梳理问题，有人把方案做出来，也有人接手交付。比较岗位时，先看你想反复做的那一段，再看你能参与到哪一步。", "In a project, someone defines the problem, someone builds the solution, and someone delivers it. When comparing roles, identify the part you would like to do regularly and check how much of it the role actually owns.")}</p>
                 {comparableTie ? <p className={styles.tailTie}>
                   {tieDisplay.dimensions.map(code => vm.dimensions.find(item => item.code === code)?.label ?? code).join("、")}
-                  {tieDisplay.kind === "exact_tie" ? "本次得分相同，可以一起比较对应的工作任务。" : "本次得分接近，可以一起比较对应的工作任务。"}
+                  {tieDisplay.kind === "exact_tie" ? t("本次得分相同，可以一起比较对应的工作任务。", "These scores are tied. Compare the corresponding work tasks side by side.") : t("本次得分接近，可以一起比较对应的工作任务。", "These scores are close. Compare the corresponding work tasks side by side.")}
                 </p> : null}
                 <div className={styles.tailScenarios}>
                   {workPairs.map(slot => {
@@ -485,24 +527,24 @@ export function RiasecReadingReport({
                     const example = authored.focus && authored.handoff && authored.question ? authored : null;
                     const body = <>
                       {taskFamilies.length === 2 ? (
-                        <ul className={styles.tailTags} aria-label="可比较的任务">
+                        <ul className={styles.tailTags} aria-label={t("可比较的任务", "Tasks to compare")}>
                           {taskFamilies.map((task, index) => <li key={dimensions[index].code}>{task}</li>)}
                         </ul>
                       ) : null}
                       {example ? <>
                         <p className={styles.tailPairCopy}>{example.focus}</p>
                         <dl className={styles.tailPairDetails}>
-                          <div><dt>工作取舍</dt><dd>{example.handoff}</dd></div>
-                          <div><dt>看岗时可以问</dt><dd>{example.question}</dd></div>
+                          <div><dt>{t("工作取舍", "The trade-off")}</dt><dd>{example.handoff}</dd></div>
+                          <div><dt>{t("看岗时可以问", "What to ask")}</dt><dd>{example.question}</dd></div>
                         </dl>
                       </> : <>
                         {clean(slot.content.positive_value) ? <p className={styles.tailPairCopy}>{clean(slot.content.positive_value)}</p> : null}
                         <dl className={styles.tailPairDetails}>
-                          {clean(slot.content.real_world_cost) ? <div><dt>选岗时留意</dt>
+                          {clean(slot.content.real_world_cost) ? <div><dt>{t("选岗时留意", "What to check")}</dt>
                             <dd>{clean(slot.content.real_world_cost).replace(/^现实条件提醒[：:]\s*/, "")}</dd>
                           </div> : null}
-                          {taskFamilies.length === 2 ? <div><dt>看岗时可以问</dt>
-                            <dd>上个项目中，{taskFamilies[0]}和{taskFamilies[1]}各由谁负责？这个岗位亲自完成哪一段，要把什么交给下一个人？</dd>
+                          {taskFamilies.length === 2 ? <div><dt>{t("看岗时可以问", "What to ask")}</dt>
+                            <dd>{t(`上个项目中，${taskFamilies[0]}和${taskFamilies[1]}各由谁负责？这个岗位亲自完成哪一段，要把什么交给下一个人？`, `On the last project, who owned each part: ${taskFamilies[0]} and ${taskFamilies[1]}? What would this role do itself, and what would it hand off?`)}</dd>
                           </div> : null}
                         </dl>
                       </>}
@@ -673,58 +715,58 @@ export function RiasecReadingReport({
             ) : null}
             {usePortraitLayout && mapState !== "hidden" ? (
               <>
-                <ReportTailChapter id={ANCHORS.action} title="怎么验证一个职业方向"
+                <ReportTailChapter id={ANCHORS.action} title={t("怎么验证一个职业方向", "How to test a career direction")}
                   icon={<Compass size={17} />} tone="action" open>
-                  <p className={styles.tailIntro}>先用下面四步，把两条看起来都不错的路，缩到一个值得继续了解的方向。</p>
+                  <p className={styles.tailIntro}>{t("先用下面四步，把两条看起来都不错的路，缩到一个值得继续了解的方向。", "Use these four steps to narrow two promising paths down to one worth exploring further.")}</p>
                   <ol className={styles.tailSteps}>
                     <li className={styles.tailCard}>
                       <span className={styles.tailStepNumber} aria-hidden="true">1</span>
                       <div>
-                        <span className={styles.tailTime}>今天</span>
-                        <h3>用两份招聘说明缩小范围</h3>
-                        <p>从职业候选里挑两个方向，各找一份同地区、经验要求相近的招聘说明。{desktopContent ? clean(desktopContent.desktop_screen) : "把每周反复做的事、要交的成果和必须满足的条件各挑一条。先圈出你愿意反复做的任务，再标出眼下最难满足的门槛。"}</p>
+                        <span className={styles.tailTime}>{t("今天", "Today")}</span>
+                        <h3>{t("用两份招聘说明缩小范围", "Narrow your options with two job descriptions")}</h3>
+                        <p>{t("从职业候选里挑两个方向，各找一份同地区、经验要求相近的招聘说明。", "Pick two directions and find a job description for each, in the same region and at a similar experience level. ")}{desktopContent ? clean(desktopContent.desktop_screen) : t("把每周反复做的事、要交的成果和必须满足的条件各挑一条。先圈出你愿意反复做的任务，再标出眼下最难满足的门槛。", "Identify one recurring task, one deliverable, and one essential requirement. Mark the task you would willingly repeat and the requirement hardest to meet today.")}</p>
                         <a href={`#${ANCHORS.career}`} onClick={() => {
                           const list = rootRef.current?.querySelector<HTMLDetailsElement>(`#${ANCHORS.career} > details`);
                           if (list) list.open = true;
-                        }}>回到职业探索 ↑</a>
+                        }}>{t("回到职业探索 ↑", "Back to career exploration ↑")}</a>
                       </div>
                     </li>
                     <li className={styles.tailCard}>
                       <span className={styles.tailStepNumber} aria-hidden="true">2</span>
                       <div>
-                        <span className={styles.tailTime}>这周</span>
-                        <h3>请从业者讲一个真实项目</h3>
+                        <span className={styles.tailTime}>{t("这周", "This week")}</span>
+                        <h3>{t("请从业者讲一个真实项目", "Ask someone in the field about a real project")}</h3>
                         <ul className={styles.tailQuestions}>
-                          <li>你们最近一位新人独立交付的第一样东西是什么？</li>
-                          <li>{desktopContent ? clean(desktopContent.desktop_question) : "在那个项目里，哪一步最花时间？最常因为什么返工？"}</li>
-                          <li>入行时，你们最看重哪一种证明？能举一个过关的例子吗？</li>
+                          <li>{t("你们最近一位新人独立交付的第一样东西是什么？", "What was the first thing a recent hire delivered on their own?")}</li>
+                          <li>{desktopContent ? clean(desktopContent.desktop_question) : t("在那个项目里，哪一步最花时间？最常因为什么返工？", "Which step took the longest, and what usually triggered rework?")}</li>
+                          <li>{t("入行时，你们最看重哪一种证明？能举一个过关的例子吗？", "What evidence do you look for in an entry-level candidate? Can you give an example that met the bar?")}</li>
                         </ul>
-                        <p>把答案和招聘说明对照一次。尤其留意你最期待做的那部分，新人是亲手做、只负责配合，还是很少接触。</p>
+                        <p>{t("把答案和招聘说明对照一次。尤其留意你最期待做的那部分，新人是亲手做、只负责配合，还是很少接触。", "Compare the answers with the job description. Find out whether new hires do the work you are most interested in, assist with it, or rarely get involved.")}</p>
                       </div>
                     </li>
                     <li className={styles.tailCard}>
                       <span className={styles.tailStepNumber} aria-hidden="true">3</span>
                       <div>
-                        <span className={styles.tailTime}>接下来两周 · 可选</span>
-                        <h3>试一次最常做的任务</h3>
-                        <p>挑一个候选岗位里反复出现的任务，用公开或模拟材料试一次。涉及专业资质或现场操作时，可以先看公开的工作演示，留意新人需要自己完成哪些环节。</p>
+                        <span className={styles.tailTime}>{t("接下来两周 · 可选", "Next two weeks · Optional")}</span>
+                        <h3>{t("试一次最常做的任务", "Try a task the role does regularly")}</h3>
+                        <p>{t("挑一个候选岗位里反复出现的任务，用公开或模拟材料试一次。涉及专业资质或现场操作时，可以先看公开的工作演示，留意新人需要自己完成哪些环节。", "Try a recurring task from one role using public or simulated material. For work that requires credentials or on-site practice, watch a public demonstration and note which steps a new hire would handle.")}</p>
                         {desktopContent ? <p>{clean(desktopContent.desktop_trial)}</p> : trialTasks.length ? (
-                          <ul className={styles.tailQuestions} aria-label="按本次兴趣选出的试做示例">
+                          <ul className={styles.tailQuestions} aria-label={t("按本次兴趣选出的试做示例", "Trials selected for your interests")}>
                             {trialTasks.map((trial) => (
                               <li key={trial.code}><strong>{trial.label} · {trial.title}：</strong>{trial.task}</li>
                             ))}
                           </ul>
                         ) : null}
-                        <a href="/resources/riasec/fermatmind-career-exploration-zh.pdf">下载职业探索工作表 PDF</a>
+                        <a href={`/resources/riasec/fermatmind-career-exploration-${displayLocale}.pdf`}>{t("下载职业探索工作表 PDF", "Download the career exploration worksheet (PDF)")}</a>
                       </div>
                     </li>
                     <li className={styles.tailCard}>
                       <span className={styles.tailStepNumber} aria-hidden="true">4</span>
                       <div>
-                        <span className={styles.tailTime}>两周后</span>
-                        <h3>决定继续、换一种岗位，还是暂缓</h3>
-                        <p>{desktopContent ? clean(desktopContent.desktop_decision) : "如果愿意反复做核心任务，且入行条件有办法满足，就挑一个岗位继续了解。喜欢任务但接受不了工作环境，可以找同类任务在另一种团队里的岗位。最吸引你的工作在新人阶段很少做时，先比较另一个方向。"}</p>
-                        <p className={styles.tailActionOutcome}>离开这页时，可以先定下一件事。找一份更接近目标的招聘说明、联系一位从业者，或确认一项入行要求。</p>
+                        <span className={styles.tailTime}>{t("两周后", "After two weeks")}</span>
+                        <h3>{t("决定继续、换一种岗位，还是暂缓", "Decide whether to continue, compare another role, or pause")}</h3>
+                        <p>{desktopContent ? clean(desktopContent.desktop_decision) : t("如果愿意反复做核心任务，且入行条件有办法满足，就挑一个岗位继续了解。喜欢任务但接受不了工作环境，可以找同类任务在另一种团队里的岗位。最吸引你的工作在新人阶段很少做时，先比较另一个方向。", "If you would repeat the core work and can meet the entry requirements, keep exploring one role. If you like the tasks but the setting is a poor fit, look for similar work in another team. If new hires rarely do the work that interests you most, compare another direction.")}</p>
+                        <p className={styles.tailActionOutcome}>{t("离开这页时，可以先定下一件事。找一份更接近目标的招聘说明、联系一位从业者，或确认一项入行要求。", "Choose one concrete next move: find a closer job description, contact someone doing the work, or check an entry requirement.")}</p>
                       </div>
                     </li>
                   </ol>
@@ -733,14 +775,14 @@ export function RiasecReadingReport({
                   data-tone="method" aria-labelledby="riasec-methods-title">
                   <header className={styles.tailHeader}>
                     <span className={styles.tailIcon} aria-hidden="true"><ScrollText size={17} /></span>
-                    <h2 id="riasec-methods-title">测评方法与科学依据</h2>
+                    <h2 id="riasec-methods-title">{t("测评方法与科学依据", "Assessment method and evidence")}</h2>
                   </header>
                   <div className={styles.tailBody}>
                     <dl className={styles.tailMethods}>
-                      <div><dt>六维分数怎么得出</dt><dd>60 道题记录你对不同工作活动的喜好，按霍兰德六类职业兴趣分别汇总，再换算为 0–100 分。分数相同的维度并列阅读，分数接近时可以一起比较。</dd></div>
-                      <div><dt>职业候选怎么选出</dt><dd>有可用的职业候选时，报告按你的六维兴趣分布与美国 O*NET 职业兴趣资料的相似程度列出候选。相似度用于探索岗位，不代表能力、入行资格或录用概率。</dd></div>
+                      <div><dt>{t("六维分数怎么得出", "How your scores are calculated")}</dt><dd>{t("60 道题记录你对不同工作活动的喜好，按霍兰德六类职业兴趣分别汇总，再换算为 0–100 分。分数相同的维度并列阅读，分数接近时可以一起比较。", "The 60 questions ask how much you like different work activities. Responses are grouped into Holland’s six interest dimensions and converted to a 0–100 scale. Read tied scores together and compare similar scores side by side.")}</dd></div>
+                      <div><dt>{t("职业候选怎么选出", "How careers are selected")}</dt><dd>{t("有可用的职业候选时，报告按你的六维兴趣分布与美国 O*NET 职业兴趣资料的相似程度列出候选。相似度用于探索岗位，不代表能力、入行资格或录用概率。", "When career suggestions are available, they are ordered by how closely your six interest scores resemble U.S. O*NET occupational interest profiles. Use the list to explore work tasks and check entry requirements separately.")}</dd></div>
                     </dl>
-                    <Link href="/zh/science">查看费马测评方法 →</Link>
+                    <Link href={assessmentDisplayPath("/science", displayLocale, locale)}>{t("查看费马测评方法 →", "Read FermatMind’s assessment methods →")}</Link>
                   </div>
                 </section>
               </>
@@ -763,7 +805,6 @@ export function RiasecReadingReport({
             chapters={chapters}
             activeSection={activeSection}
             onSelect={setActiveSection}
-            locale={locale}
           />
         </div>
       </div>
@@ -820,12 +861,15 @@ function Disclosure({
 function DimensionAtlasCard({
   slot,
   state,
+  locale,
   dimension,
 }: {
   slot: RiasecDeepContentSlot;
   state: RiasecModuleVisibility;
+  locale: Locale;
   dimension?: RiasecResultViewModel["dimensions"][number];
 }) {
+  const t = useReportCopy();
   if (state === "hidden" || !slot.selection) return null;
   const { content, selection } = slot;
   const atlasReading = clean(content.atlas_reading);
@@ -852,24 +896,24 @@ function DimensionAtlasCard({
       data-testid="riasec-deep-content-slot"
     >
       <header className={styles.atlasCardHeader}>
-        <span className={styles.atlasRing} aria-hidden="true">{title[0]}</span>
+        <span className={styles.atlasRing} aria-hidden="true">{locale === "en" ? selection.dimensionCode : title[0]}</span>
         <div>
           <h3>{title}</h3>
-          {score !== null ? <span className={styles.atlasScore}>{score} 分</span> : null}
+          {score !== null ? <span className={styles.atlasScore}>{t(`${score} 分`, `${score} points`)}</span> : null}
         </div>
       </header>
       {score !== null ? <div className={styles.atlasMeter} aria-hidden="true" /> : null}
       <div className={styles.atlasCopy}>
-        {atlasReading ? <p>{atlasReading}</p> : <DimensionReading slot={slot} locale="zh" />}
+        {atlasReading ? <p>{atlasReading}</p> : <DimensionReading slot={slot} />}
       </div>
       {examples.length || conditions || action ? (
         <div className={styles.atlasPanels}>
           {examples.length ? <div className={styles.atlasExamples}>
-            <h4>活动示例</h4>
+            <h4>{t("活动示例", "Examples of activities")}</h4>
             <ul>{examples.map(example => <li key={example}>{example}</li>)}</ul>
           </div> : null}
           {conditions || action ? <div className={styles.atlasNext}>
-            <h4>下一步</h4>
+            <h4>{t("下一步", "Next step")}</h4>
             <ul>
               {action ? <li>{action}</li> : null}
               {conditions ? <li>{conditions}</li> : null}
@@ -969,6 +1013,7 @@ function ContentCard({
 function ReportHeader({
   vm,
   locale,
+  displayLocale = locale,
   actions,
   emailRecovery,
   usePortraitLayout,
@@ -978,7 +1023,8 @@ function ReportHeader({
   usePortraitLayout: boolean;
   workScene?: ReactNode;
 }) {
-  const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
+  const t = useReportCopy();
+  const enhancedTestHref = buildRiasecTakeHref(SCALE_CANONICAL_SLUG_MAP.RIASEC, locale, "riasec_140");
   const summary = vm.resultSummary;
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
   // The snapshot-bound result summary is a separate backend projection.
@@ -1028,11 +1074,11 @@ function ReportHeader({
         </div>
       </div>
       {heroState !== "hidden" ? (
-        <SummaryContent state={heroState} locale={locale}>
+        <SummaryContent state={heroState}>
           <div data-testid="riasec-result-summary" className={showPortrait ? styles.portraitLayout : undefined}>
             {showPortrait ? <div className={styles.portraitLead}>
-              <p className={styles.portraitLabel}>{showSingleInterest ? "你的主要职业兴趣" : "你的职业兴趣轮廓"}</p>
-              <h2>{showSingleInterest ? primary?.label : broadProfile ? "多方面兴趣" : dimensionsAtTop.length > 1 ? "多项兴趣并列" : "前列兴趣接近"}</h2>
+              <p className={styles.portraitLabel}>{showSingleInterest ? t("你的主要职业兴趣", "Your leading career interest") : t("你的职业兴趣轮廓", "Your career interest profile")}</p>
+              <h2>{showSingleInterest ? primary?.label : broadProfile ? t("多方面兴趣", "Interests across several areas") : dimensionsAtTop.length > 1 ? t("多项兴趣并列", "Tied leading interests") : t("前列兴趣接近", "Closely ranked interests")}</h2>
               <Image
                 className={styles.interestArt}
                 src={interestArt ?? "/images/riasec/ai-career-interests.webp"}
@@ -1072,15 +1118,15 @@ function ReportHeader({
               {showPortrait ? (
                 <p className={workScene ? styles.summaryNext : "mt-2 text-[13px] leading-relaxed"}>
                   {workScene
-                    ? "这份霍兰德报告帮你看清了自己喜欢做什么，而这只是职业拼图的第一块。接下来，推荐你体验 "
-                    : "想进一步了解自己偏好的工作环境和团队角色，可以做 140 题的 "}
+                    ? t("这份霍兰德报告帮你看清了自己喜欢做什么，而这只是职业拼图的第一块。接下来，推荐你体验 ", "This Holland report shows which activities draw your interest. If you want to narrow your options further, try ")
+                    : t("想进一步了解自己偏好的工作环境和团队角色，可以做 140 题的 ", "To explore your preferred work settings and team roles, try the 140-question ")}
                   <Link
                     className={styles.enhancedTestLink}
-                    href={buildRiasecTakeHref(SCALE_CANONICAL_SLUG_MAP.RIASEC, locale, "riasec_140")}
+                    href={displayLocale === "zh-TW" ? enhancedTestHref.replace(/^\/zh(?=\/)/, "/zh-TW") : enhancedTestHref}
                   >
-                    {workScene ? "费马职业测试（140 题）→" : "费马综合职业测试 →"}
+                    {workScene ? t("费马职业测试（140 题）→", "FermatMind Career Test (140 questions) →") : t("费马综合职业测试 →", "FermatMind Career Test →")}
                   </Link>
-                  {workScene ? "，它会将你的职业兴趣与工作风格、看重的工作条件及现有经验结合起来，对照上千种职业，帮你直接比较出值得优先考虑的方向。" : null}
+                  {workScene ? t("，它会将你的职业兴趣与工作风格、看重的工作条件及现有经验结合起来，对照上千种职业，帮你直接比较出值得优先考虑的方向。", ". It brings your interests, work style, priorities, and experience together to help you compare directions across over a thousand careers.") : null}
                 </p>
               ) : null}
             </div>
@@ -1121,18 +1167,17 @@ function ReportHeader({
 
 function SummaryContent({
   state,
-  locale,
   children,
 }: {
   state: RiasecModuleVisibility;
-  locale: Locale;
   children: ReactNode;
 }) {
+  const t = useReportCopy();
   if (state === "visible") return <>{children}</>;
   return (
     <Disclosure
       state={state}
-      title={locale === "zh" ? "查看阅读重点" : "View reading highlights"}
+      title={t("查看阅读重点", "View reading highlights")}
     >
       {children}
     </Disclosure>
@@ -1144,15 +1189,13 @@ function ReportNavigation({
   chapters,
   activeSection,
   onSelect,
-  locale,
 }: {
   navRef: Ref<HTMLElement>;
   chapters: { id: string; label: string }[];
   activeSection: string;
   onSelect: (id: string) => void;
-  locale: Locale;
 }) {
-  const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
+  const t = useReportCopy();
   return (
     <nav
       ref={navRef}
@@ -1203,17 +1246,15 @@ function DimensionChart({
   mapState,
   selected,
   onSelect,
-  locale,
   showRadar,
 }: {
   vm: RiasecResultViewModel;
   mapState: RiasecModuleVisibility;
   selected?: string;
   onSelect: (code: string) => void;
-  locale: Locale;
   showRadar: boolean;
 }) {
-  const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
+  const t = useReportCopy();
   return mapState !== "hidden" ? (
     <section
       id={ANCHORS.overview}
@@ -1259,7 +1300,8 @@ function DimensionChart({
   ) : null;
 }
 
-function DimensionReading({ slot, locale }: { slot: RiasecDeepContentSlot; locale: Locale }) {
+function DimensionReading({ slot }: { slot: RiasecDeepContentSlot }) {
+  const t = useReportCopy();
   const { content, selection } = slot;
   const definition = clean(content.core_drive || content.body || content.summary);
   const reading = selection ? clean(content[selection.selectedDetailKey]) : "";
@@ -1268,9 +1310,7 @@ function DimensionReading({ slot, locale }: { slot: RiasecDeepContentSlot; local
       {slot.boundaries.userVisibleBoundary ? (
         <p className={styles.boundary}>{slot.boundaries.userVisibleBoundary}</p>
       ) : null}
-      <p>{definition || (locale === "zh"
-        ? "该维度暂无可展示的解读。"
-        : "No interpretation is available for this dimension.")}</p>
+      <p>{definition || t("该维度暂无可展示的解读。", "No interpretation is available for this dimension.")}</p>
       {reading && reading !== definition ? <p>{reading}</p> : null}
     </>
   );
@@ -1282,16 +1322,14 @@ function DimensionInsight({
   selectedSlot,
   slotState,
   tieNote,
-  locale,
 }: {
   dimension?: RiasecResultViewModel["dimensions"][number];
   mapState: RiasecModuleVisibility;
   selectedSlot?: RiasecDeepContentSlot;
   slotState: RiasecModuleVisibility;
   tieNote?: string;
-  locale: Locale;
 }) {
-  const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
+  const t = useReportCopy();
   return dimension && mapState !== "hidden" ? (
     <aside
       className={styles.insight}
@@ -1309,10 +1347,10 @@ function DimensionInsight({
       {tieNote ? <p className={styles.tie}>{tieNote}</p> : null}
       {selectedSlot && slotState !== "hidden" ? (
         <div className={styles.insightReading}>
-          {locale === "zh" && selectedSlot.content.desktop_insight_reading ? (
+          {selectedSlot.content.desktop_insight_reading ? (
             <p>{clean(selectedSlot.content.desktop_insight_reading)}</p>
           ) : (
-            <DimensionReading slot={selectedSlot} locale={locale} />
+            <DimensionReading slot={selectedSlot} />
           )}
         </div>
       ) : (

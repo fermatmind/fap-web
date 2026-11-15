@@ -94,27 +94,27 @@ export function RiasecCareerNextSteps({ locale, displayLocale = locale, scores, 
         <p>{t("候选来自与你六维兴趣轮廓相近的美国 O*NET 职业。入行条件请结合所在地和雇主核实。", "These U.S. O*NET occupations have interest profiles similar to yours. Check entry requirements for your location and employer.", "候選來自與你六向度興趣輪廓相近的美國 O*NET 職業。入行條件請結合所在地和雇主核實。")}</p>
       ) : null}
       {structured ? <div className={styles.careerShortlist}>
-        <h3>职业兴趣相似度一览</h3>
-        <p>从美国 O*NET 的 {RIASEC_CAREER_POOL_SIZE} 种职业中，列出兴趣分布与你最接近的 {jobs.length} 种。条越长，六维兴趣分布越接近。</p>
+        <h3>{t("职业兴趣相似度一览", "Career interest similarity at a glance", "職業興趣相似度一覽")}</h3>
+        <p>{t(`从美国 O*NET 的 ${RIASEC_CAREER_POOL_SIZE} 种职业中，列出兴趣分布与你最接近的 ${jobs.length} 种。条越长，六维兴趣分布越接近。`, `These ${jobs.length} occupations have the closest interest profiles to yours among ${RIASEC_CAREER_POOL_SIZE} in the U.S. O*NET database. A longer bar means the six scores follow a more similar pattern.`, `從美國 O*NET 的 ${RIASEC_CAREER_POOL_SIZE} 種職業中，列出興趣分布與你最接近的 ${jobs.length} 種。長條越長，六向度興趣分布越接近。`)}</p>
         {careerLens ? <p>{careerLens}</p> : null}
         <ol>{jobs.map(job => <li key={job.slug}>
           <a href={`#career-${job.slug}`}>
             <span>{job.name}</span>
-            <span className={styles.careerSimilarity}>相似度 {(job.similarity / 1e6).toFixed(3)}</span>
+            <span className={styles.careerSimilarity}>{t("相似度", "Similarity", "相似度")} {(job.similarity / 1e6).toFixed(3)}</span>
           </a>
           <span className={styles.careerTrack} aria-hidden="true">
             <span style={{ width: `${job.similarity / 1e4}%` }} />
           </span>
         </li>)}</ol>
-        <p className={styles.careerSelection}>点职业名看详情。勾选两项可并排比较。入行要求因地区和雇主而异。</p>
-        {selectedJobs.length === 2 ? <a className={styles.careerCompareLink} href="#riasec-career-comparison">查看这两个职业的对比</a> : null}
+        <p className={styles.careerSelection}>{t("点职业名看详情。勾选两项可并排比较。入行要求因地区和雇主而异。", "Select a career name for details, or check two to compare. Entry requirements vary by location and employer.", "點職業名稱看詳情。勾選兩項可並排比較。入行要求因地區和雇主而異。")}</p>
+        {selectedJobs.length === 2 ? <a className={styles.careerCompareLink} href="#riasec-career-comparison">{t("查看这两个职业的对比", "Compare these two careers", "查看這兩個職業的比較")}</a> : null}
       </div> : null}
       <div className={structured ? styles.careerEntries : "grid gap-4 md:grid-cols-2"} data-testid="riasec-profile-careers">
         {jobs.map((job, index) => {
           const checked = comparison.includes(job.slug);
           const details = evidence[`${displayLocale}/${job.slug}`];
           const taskName = details?.tasks[0]?.split(/[：:]/)[0];
-          const label = structured ? "与你相近的兴趣" : t("共同突出兴趣", "Shared leading interests", "共同突出的興趣");
+          const label = structured ? t("与你相近的兴趣", "Interests you share", "與你相近的興趣") : t("共同突出兴趣", "Shared leading interests", "共同突出的興趣");
           const jobFields = fields(job.slug);
           const evidenceList = <dl className="space-y-2 text-sm">{jobFields.map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd>{value}</dd></div>)}</dl>;
           const shared = job.sharedInterests.map(code => ({ code, label: scores?.find(score => score.code === code)?.label ?? code }));
@@ -127,7 +127,7 @@ export function RiasecCareerNextSteps({ locale, displayLocale = locale, scores, 
             </header> : <h3 className="font-semibold">{job.name}</h3>}
             <p className={structured ? styles.careerSummary : "text-sm"}>{job.summary}</p>
             {structured && details?.tasks[0] ? <div className={styles.careerTask}>
-              <strong>日常任务举例</strong>
+              <strong>{t("日常任务举例", "Example of a daily task", "日常任務舉例")}</strong>
               <p>{details.tasks[0]}</p>
             </div> : null}
             {job.sharedInterests.length ? (structured ? <div className={styles.careerInterests}>
@@ -135,7 +135,7 @@ export function RiasecCareerNextSteps({ locale, displayLocale = locale, scores, 
               <ul>{shared.map(interest => <li key={interest.code}>{interest.label}</li>)}</ul>
             </div> : <p className="text-sm">{label} · {shared.map(interest => interest.label).join(" / ")}</p>) : null}
             {structured ? <details className={styles.careerDetails}>
-              <summary>日常任务、环境和入行准备</summary>
+              <summary>{t("日常任务、环境和入行准备", "Daily tasks, work setting, and entry preparation", "日常任務、環境與入行準備")}</summary>
               {evidenceList}
             </details> : evidenceList}
             {!structured ? <p className="text-sm">{taskName && taskName.length <= 32
@@ -145,7 +145,7 @@ export function RiasecCareerNextSteps({ locale, displayLocale = locale, scores, 
               <Link className="underline underline-offset-4" href={`/${displayLocale}/career/jobs/${job.slug}`}>{t("查看职业档案", "View career profile", "查看職涯檔案")}</Link>
               <label className="flex items-center gap-2">
                 <input type="checkbox" checked={checked} disabled={!checked && selectedJobs.length >= 2}
-                  aria-label={structured ? `加入比较：${job.name}` : undefined}
+                  aria-label={structured ? t(`加入比较：${job.name}`, `Compare ${job.name}`, `加入比較：${job.name}`) : undefined}
                   onChange={() => setComparison(selected => checked ? selected.filter(slug => slug !== job.slug) : [...selected.filter(slug => jobs.some(candidate => candidate.slug === slug)).slice(0, 1), job.slug])} />
                 {t("加入比较", "Compare", "加入比較")}
               </label>
@@ -163,7 +163,7 @@ export function RiasecCareerNextSteps({ locale, displayLocale = locale, scores, 
           </tr></thead>
           <tbody>
             {structured ? <tr className="border-t align-top">
-              <th scope="row" className="p-2">工作重心</th>
+              <th scope="row" className="p-2">{t("工作重心", "Main focus of the work", "工作重心")}</th>
               {selectedJobs.map(job => <td key={job.slug} className="p-2">{job.summary}</td>)}
             </tr> : null}
             {fields(selectedJobs[0].slug).map(([label, value], index) => <tr key={label} className="border-t align-top">
@@ -175,10 +175,10 @@ export function RiasecCareerNextSteps({ locale, displayLocale = locale, scores, 
         </table>
       </section> : null}
       {trialJob ? <div className={structured ? styles.careerUtility : undefined}>
-        <RiasecTrialRecord key={trialJob.slug} locale={locale} activities={evidence[`${displayLocale}/${trialJob.slug}`]?.tasks ?? []} careerName={trialJob.name} />
+        <RiasecTrialRecord key={trialJob.slug} locale={displayLocale} activities={evidence[`${displayLocale}/${trialJob.slug}`]?.tasks ?? []} careerName={trialJob.name} />
       </div> : null}
       {structured ? (
-        <Link className="font-semibold underline underline-offset-4" href={`/${displayLocale}/career`}>浏览完整职业目录 →</Link>
+        <Link className="font-semibold underline underline-offset-4" href={`/${displayLocale}/career`}>{t("浏览完整职业目录 →", "Browse the full career directory →", "瀏覽完整職業目錄 →")}</Link>
       ) : null}
     </> : <>
       <p>{matches?.state === "flat"

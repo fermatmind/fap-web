@@ -136,6 +136,19 @@ const eqTextFields = new Set([
 ]);
 const eqTextMaps = new Set(["band_explanations", "score_notes"]);
 
+const riasecTextFields = new Set([
+  "ranking_display", "tie_note", "quality_summary", "next_step", "boundary", "user_visible_boundary",
+  "quality_label", "retake_guidance", "core_drive", "high_score_reading", "medium_score_reading",
+  "low_score_safe_reading", "positive_value", "real_world_cost", "action_advice",
+  "pair_label", "short_label", "core_reading", "desktop_insight_reading", "atlas_reading",
+  "atlas_next_step", "atlas_profile_focus", "activity_label", "scene", "screen", "trial",
+  "decision", "career_lens", "hero_job_tip", "tradeoff",
+]);
+const riasecTextLists = new Set([
+  "atlas_examples", "work_activity_examples", "task_examples", "activities_to_validate", "activity_families",
+]);
+const riasecProjectionKeys = new Set(["riasec_public_projection_v1", "riasec_public_projection_v2"]);
+
 function reportDisplayValue(
   value: unknown,
   key: string,
@@ -143,19 +156,29 @@ function reportDisplayValue(
   textContainer = false,
   mbtiSnapshot = false,
   eqDisplay = false,
+  riasecDisplay = false,
 ): unknown {
+  const isRiasec = riasecDisplay || riasecProjectionKeys.has(key);
+  if (isRiasec && key === "scores" && record(value) && Array.isArray(value.dimensions)) {
+    return {
+      ...value,
+      dimensions: value.dimensions.map(dimension =>
+        record(dimension) ? textFields(dimension, ["label"], translate) : dimension),
+    };
+  }
   if (reportProtectedBranches.has(key)) return value;
-  const visibleContainer = textContainer || reportTextLists.has(key) || (mbtiSnapshot && mbtiSnapshotTextLists.has(key));
+  const visibleContainer = textContainer || reportTextLists.has(key)
+    || (mbtiSnapshot && mbtiSnapshotTextLists.has(key)) || (isRiasec && riasecTextLists.has(key));
   if (typeof value === "string") {
-    return visibleContainer || reportTextFields.has(key) || (eqDisplay && eqTextFields.has(key)) || (mbtiSnapshot && mbtiSnapshotTextFields.has(key)) ? translate(value) : value;
+    return visibleContainer || reportTextFields.has(key) || (eqDisplay && eqTextFields.has(key)) || (isRiasec && riasecTextFields.has(key)) || (mbtiSnapshot && mbtiSnapshotTextFields.has(key)) ? translate(value) : value;
   }
   if (Array.isArray(value)) {
-    return value.map((item) => reportDisplayValue(item, key, translate, typeof item === "string" && visibleContainer, mbtiSnapshot, eqDisplay));
+    return value.map((item) => reportDisplayValue(item, key, translate, typeof item === "string" && visibleContainer, mbtiSnapshot, eqDisplay, isRiasec));
   }
   if (!record(value)) return value;
   return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [
     childKey,
-    reportDisplayValue(child, childKey, translate, key === "dimension_labels" || (eqDisplay && eqTextMaps.has(key)) || (mbtiSnapshot && key === "actions" && (childKey === "do" || childKey === "avoid")), mbtiSnapshot, eqDisplay),
+    reportDisplayValue(child, childKey, translate, key === "dimension_labels" || (eqDisplay && eqTextMaps.has(key)) || (mbtiSnapshot && key === "actions" && (childKey === "do" || childKey === "avoid")), mbtiSnapshot, eqDisplay, isRiasec),
   ]));
 }
 
