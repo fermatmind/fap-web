@@ -170,8 +170,15 @@ describe("career recommendation index backend contract", () => {
       expect(document.querySelector('nav[aria-label="Breadcrumb"]')?.querySelector(`a[href="/${locale}/career"]`)).not.toBeNull();
     }
     expect(await generateMetadata()).toMatchObject({
-      alternates: { canonical: expect.stringContaining("/zh-TW/career/recommendations") },
-      robots: { index: false },
+      alternates: {
+        canonical: "https://fermatmind.com/zh-TW/career/recommendations",
+        languages: {
+          "zh-TW": "https://fermatmind.com/zh-TW/career/recommendations",
+          "zh-CN": "https://fermatmind.com/zh/career/recommendations",
+          en: "https://fermatmind.com/en/career/recommendations",
+        },
+      },
+      robots: { index: true },
     });
   });
 
