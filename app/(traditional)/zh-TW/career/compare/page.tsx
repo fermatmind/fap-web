@@ -5,7 +5,7 @@ import CareerComparePage from "@/app/(localized)/[locale]/career/compare/page";
 
 export const metadata: Metadata = {
   title: "比較兩個職業",
-  description: "並排核對設計職業的工作任務、環境、技能與資格範圍。",
+  description: "並排核對兩個職業的工作任務、環境、技能與資格範圍。",
   alternates: { canonical: "/zh-TW/career/compare" },
   robots: { index: false, follow: true },
 };

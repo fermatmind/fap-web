@@ -6,6 +6,7 @@ import basePage from '@/tests/fixtures/career-page/health-educators.en.json';
 import { normalizeCareerPage } from '@/lib/career/careerPage';
 import { CAREER_COMPARE_OPTIONS, readCareerComparePage } from '@/lib/career/compare';
 import { apiClient } from '@/lib/api-client';
+import { fetchCareerJobIndex } from '@/lib/career/api/fetchCareerJobIndex';
 import { PublicReadError } from '@/lib/public-content/readError';
 import { DESIGN_COMPARE_HREF, DESIGN_COMPARE_LABEL } from '@/lib/career/designComparePilot';
 import { CareerRiasecExploreLink } from '@/components/career/CareerRiasecExploreLink';
@@ -17,6 +18,7 @@ import { trackCareerToolEvent } from '@/lib/career/toolTracking';
 import CompareRoute, { generateMetadata } from '@/app/(localized)/[locale]/career/compare/page';
 import { metadata as traditionalMetadata } from '@/app/(traditional)/zh-TW/career/compare/page';
 
+vi.mock('@/lib/career/api/fetchCareerJobIndex', () => ({ fetchCareerJobIndex: vi.fn(async () => null) }));
 vi.mock('@/lib/api-client', () => ({ apiClient: { getPublic: vi.fn() } }));
 vi.mock('@/lib/career/toolTracking', () => ({ trackCareerToolEvent: vi.fn() }));
 vi.mock('@/lib/consent/store', () => ({ hasAnalyticsConsent: vi.fn(() => false) }));
@@ -117,6 +119,28 @@ describe('career comparison public reader', () => {
     expect(screen.getByText('Published task for graphic-designers')).toBeVisible();
     expect(screen.queryByText('此槽位为空。')).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '职业小试做' })).toBeInTheDocument();
+  });
+
+  it('searches the public index in Chinese and English and reads only the selected careers', async () => {
+    vi.mocked(fetchCareerJobIndex).mockResolvedValueOnce({ items: [
+      { identity: { canonical_slug: 'electricians' }, titles: { canonical_zh: '电工', canonical_en: 'Electricians' } },
+      { identity: { canonical_slug: 'electrical-engineers' }, titles: { canonical_zh: '电气工程师', canonical_en: 'Electrical Engineers' } },
+    ] });
+    respond();
+    render(await CompareRoute({ params: Promise.resolve({ locale: 'zh' }), searchParams: Promise.resolve({}) }));
+    const [first, second] = screen.getAllByRole('combobox');
+    const [firstSearch, secondSearch] = screen.getAllByRole('searchbox');
+    expect(apiClient.getPublic).not.toHaveBeenCalled();
+    fireEvent.change(firstSearch, { target: { value: '电工' } });
+    expect(first.querySelector('option[value="electrical-engineers"]')).toBeNull();
+    fireEvent.change(first, { target: { value: 'electricians' } });
+    expect(second.querySelector('option[value="electricians"]')).toBeDisabled();
+    fireEvent.change(secondSearch, { target: { value: 'Electrical Engineers' } });
+    fireEvent.change(second, { target: { value: 'electrical-engineers' } });
+    expect(await screen.findByTestId('career-compare-table')).toBeVisible();
+    expect(screen.getByText('Published task for electricians')).toBeVisible();
+    expect(screen.getByText('Published task for electrical-engineers')).toBeVisible();
+    expect(apiClient.getPublic).toHaveBeenCalledTimes(2);
   });
 
   it('reads the published Taiwan pair and keeps worksheet input private', async () => {

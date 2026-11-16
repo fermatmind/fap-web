@@ -121,7 +121,8 @@
 .select { width: 100%; min-height: 44px; border: 1px solid #748597; border-radius: .55rem; background: white; padding: .5rem; font-size: 1rem; }
 .slotStatus, .status { color: var(--compare-muted); font-size: .875rem; }
 .status { margin-top: .75rem; }
-.root :is(button, select, a, summary):focus-visible { outline: 2px solid var(--fm-focus, #2378ff); outline-offset: 3px; }
+.slotActions input { grid-column: 1 / -1; margin-bottom: .4rem; }
+.root :is(button, input, select, a, summary):focus-visible { outline: 2px solid var(--fm-focus, #2378ff); outline-offset: 3px; }
 
 .comparisonLayout { margin-top: clamp(1.75rem, 4vw, 2.5rem); }
 .resultsTitle {

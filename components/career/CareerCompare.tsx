@@ -62,13 +62,19 @@ function Salary({ page, metricKey, displayLocale }: { page: CareerPage; metricKe
   </>;
 }
 
-export function CareerCompare({ locale, displayLocale = locale, initialSlots, embedded = false, scenario }: {
-  locale: Locale; displayLocale?: DisplayLocale; initialSlots?: [Slot, Slot]; embedded?: boolean; scenario?: CareerWorksheetScenario;
+export type CareerCompareOption = Record<DisplayLocale, string> & { slug: string };
+
+export function CareerCompare({ locale, displayLocale = locale, initialSlots, embedded = false, scenario, options }: {
+  locale: Locale; displayLocale?: DisplayLocale; initialSlots?: [Slot, Slot]; embedded?: boolean; scenario?: CareerWorksheetScenario; options?: CareerCompareOption[];
 }) {
   const zh = locale === 'zh';
   const traditional = displayLocale === 'zh-TW';
   const copy = compareCopy(displayLocale);
   const preset = initialSlots !== undefined;
+  const editable = !preset || options !== undefined;
+  const availableOptions = options ?? CAREER_COMPARE_OPTIONS;
+  const [searches, setSearches] = useState(['', '']);
+  const queries = searches.map(search => search.trim().toLowerCase());
   const [slots, setSlots] = useState<[Slot, Slot]>(() => initialSlots ?? [emptySlot(), emptySlot()]);
   const requestIds = useRef([0, 0]);
   const selectors = useRef<Array<HTMLSelectElement | null>>([]);
@@ -114,11 +120,12 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
       setNotice(copy('请选择两个不同的职业。', 'Choose two different careers.', '請選擇兩個不同的職業。'));
       return;
     }
+    if (options && slug && !options.some(option => option.slug === slug)) return;
     const requestId = ++requestIds.current[index];
     setNotice('');
     setSlots(current => current.map((slot, i) => i === index ? { slug, name: slot.name, read: { state: slug ? 'loading' : 'idle' } } : slot) as [Slot, Slot]);
     if (!slug) return;
-    const read = await (scenario ? readPublishedCareerTaskPage : readCareerComparePage)(displayLocale, slug);
+    const read = await (scenario || options ? readPublishedCareerTaskPage : readCareerComparePage)(displayLocale, slug);
     if (requestIds.current[index] !== requestId) return;
     setSlots(current => current.map((slot, i) => i === index ? { slug, name: slot.name, read } : slot) as [Slot, Slot]);
   }
@@ -140,7 +147,7 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
     { id: 'compare-row-sources', label: copy('来源与档案', 'Sources and profiles', '來源與資料') },
   ];
   const selectedNames = slots.map((slot, index) => pages[index]?.content.subject.name
-    ?? slot.name ?? CAREER_COMPARE_OPTIONS.find(option => option.slug === slot.slug)?.[displayLocale]);
+    ?? slot.name ?? availableOptions.find(option => option.slug === slot.slug)?.[displayLocale]);
 
   const IntroHeading = embedded ? 'h4' : 'h1';
   const ResultsHeading = embedded ? 'h4' : 'h2';
@@ -153,7 +160,7 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
       </div>
       <div className={styles.heroContent}>
         <IntroHeading className={styles.introTitle}>{copy('比较两个职业', 'Compare two careers', '比較兩個職業')}</IntroHeading>
-        <p>{preset || succeeded
+        <p>{preset || succeeded || options
           ? (copy('并排了解工作任务、薪资和入行要求。', 'See daily tasks, pay, and entry requirements side by side.', '並排查看工作任務、薪資和入行要求。'))
           : (copy('从三个设计职业中选两个，对照它们的日常任务与入行要求。', 'Choose two of the three design careers to compare their daily work and entry requirements.', '從三個設計職業中選兩個，對照日常任務與入行要求。'))}</p>
         {preset ? <div className={styles.heroPair}>
@@ -161,26 +168,33 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
           <b aria-hidden="true">VS</b>
           <span>{selectedNames[1]}</span>
         </div> : null}
-        {!preset && succeeded ? <button className={styles.edit} type="button" aria-expanded={editing} aria-controls="career-compare-controls"
+        {editable && succeeded ? <button className={styles.edit} type="button" aria-expanded={editing} aria-controls="career-compare-controls"
           onClick={() => setEditing(value => !value)}>
           {editing ? (copy('收起选择', 'Hide selectors', '收合選擇')) : (copy('更换职业', 'Change careers', '更換職業'))}
         </button> : null}
       </div>
     </header>
-    {!preset || !succeeded ? <div id="career-compare-controls" className={styles.controls} hidden={succeeded && !editing}>
+    {editable || !succeeded ? <div id="career-compare-controls" className={styles.controls} hidden={succeeded && !editing}>
       {slots.map((slot, index) => <div className={styles.slot} key={index}>
-        {!preset ? <div className={styles.slotActions}>
+        {editable ? <div className={styles.slotActions}>
           <label htmlFor={`career-slot-${index}`} className={styles.selectLabel}>{copy('职业', 'Career', '職業') + ' ' + (index + 1)}</label>
+          {options ? <input type="search" className={styles.select} aria-label={copy('搜索职业', 'Search careers', '搜尋職業') + ' ' + (index + 1)}
+            value={searches[index]} onChange={event => {
+              const search = event.target.value;
+              setSearches(current => current.map((value, slotIndex) => slotIndex === index ? search : value));
+            }} /> : null}
           <select id={`career-slot-${index}`} ref={element => { selectors.current[index] = element; }} className={styles.select} value={slot.slug} onChange={event => void choose(index, event.target.value)}>
             <option value="">{copy('选择职业', 'Select a career', '選擇職業')}</option>
-            {CAREER_COMPARE_OPTIONS.map(option => <option key={option.slug} value={option.slug} disabled={slots[1 - index].slug === option.slug}>{option[displayLocale]}</option>)}
+            {availableOptions.filter(option => slot.slug === option.slug ||
+              [option[displayLocale], option.en, option.slug].some(value => value.toLowerCase().includes(queries[index])),
+            ).map(option => <option key={option.slug} value={option.slug} disabled={slots[1 - index].slug === option.slug}>{option[displayLocale]}</option>)}
           </select>
           {slot.slug ? <button className={styles.button} type="button" onClick={() => { void choose(index, ''); selectors.current[index]?.focus(); }}>{copy('移除职业', 'Remove career', '移除職業') + ' ' + (index + 1)}</button> : null}
         </div> : <p className={styles.itemTitle}>{selectedNames[index]}</p>}
         <div className={styles.slotStatus} role="status" aria-live="polite" aria-atomic="true">
           {slot.read.state === 'loading' ? <p className="mt-3">{copy('正在读取已发布职业档案…', 'Loading the published career profile…', '正在讀取已發布的職業資料…')}</p> : null}
           {slot.read.state === 'ready' ? <p className="sr-only">{slot.read.page.content.subject.name} · {copy('已加载', 'Loaded', '已載入')}</p> : null}
-          {['missing', 'empty', 'error'].includes(slot.read.state) ? <p className="mt-3">{slot.read.state === 'missing' ? (copy('职业已失效或不在本次可选范围。', 'This career is unavailable or outside the pilot.', '這項職業已無法使用，或不在本次可選範圍內。')) : slot.read.state === 'empty' ? (copy('职业正文尚未发布，暂不能比较。', 'The career body is not published, so it cannot be compared.', '職業正文尚未發布，目前無法比較。')) : (copy('暂时无法读取职业档案，请重试。', 'The profile could not be loaded. Please retry.', '暫時無法讀取職業資料，請重試。'))}</p> : null}
+          {['missing', 'empty', 'error'].includes(slot.read.state) ? <p className="mt-3">{slot.read.state === 'missing' ? (copy('职业已失效或不在本次可选范围。', 'This career is currently unavailable.', '這項職業已無法使用，或不在本次可選範圍內。')) : slot.read.state === 'empty' ? (copy('职业正文尚未发布，暂不能比较。', 'The career body is not published, so it cannot be compared.', '職業正文尚未發布，目前無法比較。')) : (copy('暂时无法读取职业档案，请重试。', 'The profile could not be loaded. Please retry.', '暫時無法讀取職業資料，請重試。'))}</p> : null}
         </div>
         {['missing', 'empty', 'error'].includes(slot.read.state) ? <button type="button" className={styles.button} onClick={() => { void choose(index, slot.slug); selectors.current[index]?.focus(); }}>{copy('重试读取', 'Retry loading', '重試讀取')}</button> : null}
       </div>)}
