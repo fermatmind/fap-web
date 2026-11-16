@@ -1,3 +1,4 @@
+import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { brandVisionCopy } from "@/lib/brand/visionCopy";
 import { GraduationCap, HeartHandshake, Microscope } from "lucide-react";
 import Link from "next/link";
@@ -752,6 +753,7 @@ function HomepageHighlightedTestsBanner({
   supplementalTests: HubTestCardItem[];
 }) {
   const items = listCoreHomepageTests(copy, supplementalTests);
+  const careerEntry = careerAssessmentEntry(locale);
 
   if (items.length === 0) return null;
 
@@ -778,6 +780,11 @@ function HomepageHighlightedTestsBanner({
               />
             ))}
           </div>
+          <p className="mt-6 text-center">
+            <Link href={careerEntry.href} className="font-medium text-[var(--fm-accent)] underline underline-offset-4">
+              {careerEntry.label}
+            </Link>
+          </p>
         </div>
       </Container>
     </section>

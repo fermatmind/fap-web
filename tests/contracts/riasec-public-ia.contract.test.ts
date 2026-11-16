@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildRiasecTakeHref,
   getRiasecStartLabel,
-  listRiasecFormMetas,
+  listPublicRiasecFormMetas,
 } from "@/lib/riasec/forms";
 import { getHeaderDropdownMenus } from "@/lib/navigation/headerDropdownMenus";
 
@@ -23,8 +23,10 @@ describe("riasec public IA contract", () => {
     });
   });
 
-  it("keeps riasec forms ordered as standard 60Q then enhanced 140Q", () => {
-    expect(listRiasecFormMetas().map((form) => form.formCode)).toEqual(["riasec_60", "riasec_140"]);
+  it("only offers the standard form, including with a cached pre-retirement lookup", () => {
+    const cachedForms = [{ form_code: "riasec_60" }, { form_code: "riasec_140" }];
+    expect(listPublicRiasecFormMetas(cachedForms).map((form) => form.formCode)).toEqual(["riasec_60"]);
+    expect(listPublicRiasecFormMetas().map((form) => form.formCode)).toEqual(["riasec_60"]);
     expect(getRiasecStartLabel("riasec_60", "zh")).toBe("开始标准版");
     expect(getRiasecStartLabel("riasec_140", "zh")).toBe("开始增强版");
     expect(buildRiasecTakeHref("holland-career-interest-test-riasec", "zh", "riasec_60")).toBe(

@@ -1,5 +1,5 @@
 import { resolveCanonicalSlug, SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 
 export const RIASEC_SCALE_CODE = "RIASEC" as const;
 
@@ -51,6 +51,7 @@ const RIASEC_FORM_ALIAS_MAP = new Map<string, RiasecFormCode>([
   ["140", "riasec_140"],
   ["enhanced_140", "riasec_140"],
   ["expert_140", "riasec_140"],
+  ["holland_140", "riasec_140"],
 ]);
 
 export function isRiasecScaleCode(scaleCode: string | null | undefined): boolean {
@@ -104,24 +105,13 @@ function normalizeProjectedForm(value: unknown): RiasecFormMeta | null {
   };
 }
 
-export function listRiasecFormMetas(forms?: unknown): RiasecFormMeta[] {
+export function listPublicRiasecFormMetas(forms?: unknown): RiasecFormMeta[] {
   const projected = Array.isArray(forms)
     ? forms
         .map((form) => normalizeProjectedForm(form))
         .filter((form): form is RiasecFormMeta => Boolean(form))
     : [];
-  const byCode = new Map<RiasecFormCode, RiasecFormMeta>();
-
-  for (const form of projected) {
-    byCode.set(form.formCode, form);
-  }
-  for (const formCode of RIASEC_FORM_CODES) {
-    if (!byCode.has(formCode)) {
-      byCode.set(formCode, RIASEC_FORM_META[formCode]);
-    }
-  }
-
-  return RIASEC_FORM_CODES.map((formCode) => byCode.get(formCode)).filter((form): form is RiasecFormMeta => Boolean(form));
+  return [projected.find((form) => form.formCode === DEFAULT_RIASEC_FORM_CODE) ?? RIASEC_FORM_META[DEFAULT_RIASEC_FORM_CODE]];
 }
 
 export function getRiasecVariantLabel(formCode: string | null | undefined, locale: Locale): string {
@@ -153,12 +143,12 @@ export function getRiasecStartLabel(formCode: string | null | undefined, locale:
   return meta.formKind === "enhanced" ? "Start enhanced form" : "Start standard form";
 }
 
-export function getRiasecQuestionSummary(locale: Locale): string {
-  return locale === "zh" ? "60 / 140 题" : "60 / 140 questions";
+export function getRiasecQuestionSummary(locale: DisplayLocale): string {
+  return locale === "en" ? "60 questions" : locale === "zh-TW" ? "60 題" : "60 题";
 }
 
-export function getRiasecDurationSummary(locale: Locale): string {
-  return locale === "zh" ? "约 8 / 18 分钟" : "about 8 / 18 minutes";
+export function getRiasecDurationSummary(locale: DisplayLocale): string {
+  return locale === "en" ? "about 8 minutes" : locale === "zh-TW" ? "約 8 分鐘" : "约 8 分钟";
 }
 
 export function buildRiasecTakeHref(slug: string, locale: Locale, formCode: string | null | undefined): string {

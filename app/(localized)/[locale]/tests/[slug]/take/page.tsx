@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
+import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -15,7 +16,7 @@ import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 import { getIqBankDisplayModel, getIqDefaultBankDisplayModel } from "@/lib/iq/bankDisplay";
 import { isIqScaleCode } from "@/lib/iq/constants";
 import { isMbtiScaleCode, normalizeMbtiFormCode, resolveMbtiFormMeta } from "@/lib/mbti/forms";
-import { isRiasecScaleCode, normalizeRiasecFormCode, resolveRiasecFormMeta } from "@/lib/riasec/forms";
+import { isRiasecScaleCode, isRiasecSlug, normalizeRiasecFormCode, resolveRiasecFormMeta } from "@/lib/riasec/forms";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -145,6 +146,10 @@ export default async function TakePage({
   const withLocale = (path: string) => assessmentDisplayPath(path, displayLocale, locale);
   const slug = resolveCanonicalSlug(requestedSlug);
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return notFound();
+  if (isRiasecSlug(slug)
+    && normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code)) === "riasec_140") {
+    redirect(careerAssessmentEntry(displayLocale).href);
+  }
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
   }

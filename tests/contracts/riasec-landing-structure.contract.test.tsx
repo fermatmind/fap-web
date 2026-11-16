@@ -85,7 +85,7 @@ describe("ANALYTICS-SEO-P1-07 Holland RIASEC landing structure contract", () => 
     expect(source).toContain('import { RiasecLandingSurfaceSections } from "@/components/tests/RiasecLandingSurfaceSections";');
     expect(source).toContain("{showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}");
     expect(source).toContain("const showsRiasecActions = isRiasecScaleCode(test.scale_code)");
-    expect(source).toContain("listRiasecFormMetas(lookup?.forms)");
+    expect(source).toContain("listPublicRiasecFormMetas(lookup?.forms)");
     expect(source).toContain("withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode))");
     expect(source).not.toContain('import RiasecTakeClient from "./RiasecTakeClient"');
   });

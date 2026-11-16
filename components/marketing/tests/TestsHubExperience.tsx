@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
 import { MoreTests } from "@/components/entertainment/MoreTests";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -79,8 +81,14 @@ export function TestsHubExperience({
   const displayCoreTests = locale === "zh-TW"
     ? coreTests.map((test) => ({ ...test, href: traditionalHref(test.href), detailsHref: test.detailsHref ? traditionalHref(test.detailsHref) : test.detailsHref }))
     : coreTests;
+  const careerEntry = careerAssessmentEntry(locale);
   return (
     <>
+    <p className="mx-auto my-4 max-w-6xl px-[var(--fm-container-gutter)]">
+      <Link href={careerEntry.href} className="font-medium text-[var(--fm-accent)] underline underline-offset-4">
+        {careerEntry.label}
+      </Link>
+    </p>
     <MoreTests
       locale={locale}
       coreTests={displayCoreTests}

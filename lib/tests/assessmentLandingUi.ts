@@ -18,7 +18,7 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "FermatMind IQ: 30 original visual matrix questions, ~20 min. Free test and results. Review reasoning, scores and limits; no substitute for professional IQ assessment." },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free Emotional Intelligence Test (EQ) & Results", description: "Take a free 60-question EQ self-report in about 10 minutes. Explore emotional awareness, regulation, empathy and relationships, with results and practical next steps." },
-  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Career Interest Test: Holland Code (RIASEC)", description: "Take a free Holland Code test: 60 questions (~8 min) or 140 (~18). Get your six RIASEC interests and three-letter code to explore work activities and careers." },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Career Interest Test: Holland Code (RIASEC)", description: "Take a free Holland Code test: 60 questions (~8 min). Get your six RIASEC interests and three-letter code to explore work activities and careers." },
 };
 
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
@@ -33,8 +33,8 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
     description: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    title: "霍兰德职业兴趣测试免费版：60/140题与三字代码",
-    description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，140题约18分钟，测试与结果均免费。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
+    title: "霍兰德职业兴趣测试免费版：60题与三字代码",
+    description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，测试与结果均免费。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
     title: "九型人格测试免费版：105/144题与结果解读",
@@ -57,8 +57,8 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", stri
     en: "Learn about your 16-type personality result and four preference pairs. Choose 93 questions in about 10 minutes or 144 in about 15. Both versions are free to complete and view results, for self-understanding and communication reference.",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    zh: "两版均可免费完成测评并查看结果。60 题约 8 分钟，140 题约 18 分钟。结果会展示 RIASEC 六维兴趣，以及概括前三项的三字代码，帮助你找到想进一步体验的工作活动。",
-    en: "Find work activities you would like to explore with this free Holland Code career interest test. Choose 60 questions in about 8 minutes or 140 in about 18. Both include your six RIASEC scores and three-letter code. Use them to compare real job tasks, courses and projects; interests do not measure ability or guarantee a career match.",
+    zh: "60 题约 8 分钟，测试与结果均免费。结果会展示 RIASEC 六维兴趣，以及概括前三项的三字代码，帮助你找到想进一步体验的工作活动。",
+    en: "Find work activities you would like to explore with this free Holland Code career interest test. Answer 60 questions in about 8 minutes to get your six RIASEC scores and three-letter code. Use them to compare real job tasks, courses and projects; interests do not measure ability or guarantee a career match.",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
     zh: "了解你的九型分布与候选类型。105 题按程度作答，约 12 分钟；144 题每题二选一，约 18 分钟。两版均可免费完成并查看结果。",
@@ -77,8 +77,8 @@ const EDITORIAL_LAYOUTS: Partial<Record<string, AssessmentEditorialLayout>> = {
     methodItemIds: ["method", "mbti-scoring-method", "mbti-type-method"],
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    itemOrder: ["versions", "riasec-ranking", "riasec-scoring", "riasec-enhanced-method", "riasec-science"],
-    methodItemIds: ["riasec-scoring", "riasec-enhanced-method", "riasec-science"],
+    itemOrder: ["riasec-ranking", "riasec-scoring", "riasec-science"],
+    methodItemIds: ["riasec-scoring", "riasec-science"],
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
     itemOrder: ["versions", "enneagram-model", "enneagram-application", "enneagram-likert-scoring", "enneagram-forced-scoring", "enneagram-science"],

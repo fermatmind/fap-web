@@ -967,15 +967,17 @@ test("MBTI result does not link to retired career recommendations", async ({ pag
   await expect(page.locator('a[href*="/career/recommendations/mbti/"]')).toHaveCount(0);
 });
 
-test("riasec canonical public entry exposes 60Q and 140Q take routes", async ({ page }) => {
+test("public entry keeps Holland 60Q and directs the retired route to the independent 94Q assessment", async ({ page }) => {
   await page.goto("/en/tests/holland-career-interest-test-riasec");
 
   await expect(page.getByTestId("test-detail-landing-cta-riasec_60")).toHaveAttribute(
     "href",
     "/en/tests/holland-career-interest-test-riasec/take?form=riasec_60"
   );
-  await expect(page.getByTestId("test-detail-landing-cta-riasec_140")).toHaveAttribute(
-    "href",
-    "/en/tests/holland-career-interest-test-riasec/take?form=riasec_140"
-  );
+  await expect(page.getByTestId("test-detail-landing-cta-riasec_140")).toHaveCount(0);
+  await expect(page.getByTestId("test-detail-landing-cta-career-v1")).toHaveAttribute("href", "/en/career/assessment");
+
+  await page.goto("/en/tests/holland-career-interest-test-riasec/take?form=riasec_140");
+  await expect(page).toHaveURL(/\/en\/career\/assessment$/);
+  await expect(page.getByRole("heading", { name: "FermatMind Career Assessment (94 questions)" })).toBeVisible();
 });

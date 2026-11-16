@@ -155,7 +155,8 @@ describe("test detail landing contract", () => {
     expect(projectedJsonLd).toEqual(evidence.faq_page_json_ld_projection);
 
     const faqSourceSegment = source.slice(source.indexOf("const langNode ="), source.indexOf("const continuePublicContentCta"));
-    expect(faqSourceSegment).toContain("const faqItems = parseFaq(langNode.faq);");
+    expect(faqSourceSegment).toContain("const faqItems = parseFaq(langNode.faq).flatMap");
+    expect(faqSourceSegment).toContain("if (!isRiasecScaleCode(test.scale_code)) return [item];");
     expect(faqSourceSegment).toContain("const mergedFaq = faqItems.length > 0");
     expect(faqSourceSegment).toContain("? faqItems");
     expect(faqSourceSegment).toContain("buildFallbackFaq");
@@ -236,11 +237,12 @@ describe("test detail landing contract", () => {
     expect(source).toContain('showsBig5Actions');
   });
 
-  it("wires riasec dual-entry CTAs from shared forms projection", () => {
+  it("wires the public Holland form and independent career assessment entries", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
     expect(source).toContain("const showsRiasecActions = isRiasecScaleCode(test.scale_code)");
-    expect(source).toContain("listRiasecFormMetas(lookup?.forms)");
+    expect(source).toContain("listPublicRiasecFormMetas(lookup?.forms)");
+    expect(source).toContain('testId: "test-detail-landing-cta-career-v1"');
     expect(source).toContain("withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode))");
     expect(source).toContain("getRiasecStartLabel(form.formCode, locale)");
     expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');

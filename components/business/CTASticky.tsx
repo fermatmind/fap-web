@@ -29,7 +29,7 @@ import {
   getRiasecVariantSummary,
   isRiasecScaleCode,
   isRiasecSlug,
-  listRiasecFormMetas,
+  listPublicRiasecFormMetas,
 } from "@/lib/riasec/forms";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -186,7 +186,7 @@ export function CTASticky({
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
   const big5Summary = big5Forms.map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
   const enneagramSummary = listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale)).join(" / ");
-  const riasecSummary = listRiasecFormMetas().map((form) => getRiasecVariantLabel(form.formCode, locale)).join(" / ");
+  const riasecSummary = listPublicRiasecFormMetas().map((form) => getRiasecVariantLabel(form.formCode, locale)).join(" / ");
 
   return (
     <>
@@ -291,7 +291,7 @@ export function CTASticky({
               </div>
             ) : showsRiasecActions ? (
               <div className="space-y-2">
-                {listRiasecFormMetas().map((form) => (
+                {listPublicRiasecFormMetas().map((form) => (
                   <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                       {getRiasecVariantLabel(form.formCode, locale)}
@@ -435,7 +435,7 @@ export function CTASticky({
             </div>
           ) : showsRiasecActions ? (
             <div className="flex w-full gap-2 sm:w-auto">
-              {listRiasecFormMetas().map((form) => (
+              {listPublicRiasecFormMetas().map((form) => (
                 <TrackedEntryCtaLink
                   key={form.formCode}
                   href={withAttribution(buildRiasecTakeHref(slug, locale, form.formCode))}

@@ -2,6 +2,7 @@ import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
+import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -44,11 +45,11 @@ type Copy = {
 const COPY = {
   zh: {
     title: "职业测试怎么选：霍兰德、MBTI 与大五",
-    description: "比较霍兰德 RIASEC、MBTI 与大五人格测试的用途、结果和边界。免费完成 60 或 140 题职业兴趣测试，读懂六维兴趣与三字代码，再探索职业方向。",
+    description: "比较霍兰德 RIASEC、MBTI 与大五人格测试的用途、结果和边界。免费完成 60 题职业兴趣测试，读懂六维兴趣与三字代码，再探索职业方向。",
     h1: "职业测试怎么选",
     intro: "先选你想了解的问题。测评结果可以提供探索线索，岗位能力、资格和入行条件需要另外核对。",
     assessment: "霍兰德职业兴趣测试（RIASEC）",
-    versions: "60 / 140 题，约 8 / 18 分钟。两版均可免费完成并查看六维兴趣分布与三字代码；题目更多不自动代表更准确。",
+    versions: "60 题，约 8 分钟。可免费完成并查看六维兴趣分布与三字代码。",
     cta: "开始霍兰德职业兴趣免费测试",
     mapTitle: "测评分类选型地图：先看你要解决什么问题",
     mapColumns: ["你的问题", "可了解的测评", "能得到什么"],
@@ -86,17 +87,17 @@ const COPY = {
     faqTitle: "关于职业测试的常见问题",
     faq: [
       { question: "职业测试和职业兴趣测试有什么区别？", answer: "职业测试是较宽泛的说法。不同工具可能关注兴趣、人格、价值观或能力；费马这里提供的 RIASEC 测评关注职业兴趣。选择前先核对具体工具测什么、输出什么。" },
-      { question: "这里的职业兴趣测试免费吗？", answer: "费马霍兰德 60 题与 140 题版均可免费完成并查看六维兴趣分布与三字代码。开始前可在测试入口比较两个版本。" },
+      { question: "这里的职业兴趣测试免费吗？", answer: "费马霍兰德 60 题可免费完成并查看六维兴趣分布与三字代码。" },
       { question: "测完就能知道最适合我的职业吗？", answer: "结果可以帮助提出探索方向，不能保证某项职业适合你或证明岗位胜任力。还需要结合技能、工作条件和实际体验验证。" },
     ],
   },
   en: {
     title: "Career Tests & Career Interest Tests: Holland vs. MBTI",
-    description: "Compare Holland Code, MBTI-style and Big Five tests. Take a free 60- or 140-question career interest test, understand your RIASEC profile and explore careers.",
+    description: "Compare Holland Code, MBTI-style and Big Five tests. Take a free 60-question career interest test, understand your RIASEC profile and explore careers.",
     h1: "Career tests: start with a career interest test",
     intro: "Explore the work activities you enjoy, then consider skills, values and practical constraints when comparing career directions.",
     assessment: "Holland Career Interest Test (RIASEC)",
-    versions: "60 / 140 questions, about 8 / 18 minutes. Both versions are free to complete and show your six interest areas and three-letter code. More questions do not automatically mean greater accuracy.",
+    versions: "60 questions, about 8 minutes. Complete the test for free and review your six interest areas and three-letter code.",
     cta: "Start the free Holland Code test",
     mapTitle: "Assessment selection map: start with your question",
     mapColumns: ["Your question", "Assessment to explore", "What it offers"],
@@ -134,7 +135,7 @@ const COPY = {
     faqTitle: "Career test questions",
     faq: [
       { question: "How is a career test different from a career interest test?", answer: "Career test is a broad term. Different tools may address interests, personality, values or abilities. The RIASEC assessment offered here focuses on career interests. Check each tool's purpose and outputs before choosing." },
-      { question: "Is this career interest test free?", answer: "FermatMind's 60-question and 140-question Holland Code versions are free to complete and show all six interest areas and your three-letter code. Compare the versions on the test page before starting." },
+      { question: "Is this career interest test free?", answer: "FermatMind’s 60-question Holland Code test is free to complete and shows all six interest areas and your three-letter code." },
       { question: "Will the test identify the perfect career for me?", answer: "Results suggest directions to explore. They do not guarantee career fit or establish job competence. Consider skills, working conditions and real experience as well." },
     ],
   },
@@ -183,6 +184,7 @@ export default async function CareerTestsPage({ params }: PageProps) {
   const { locale, traditional, translate, copy } = await readCareerTestsCopy(params);
   const withLocale = (path: string) => traditional ? displayNavigationPath(path, "zh-TW") : localizedPath(path, locale);
   const canonicalPath = withLocale("/career/tests");
+  const careerEntry = careerAssessmentEntry(traditional ? "zh-TW" : locale);
   const testPath = withLocale("/tests/holland-career-interest-test-riasec");
   const breadcrumbs = [
     { name: locale === "zh" ? "首页" : "Home", path: withLocale("/") },
@@ -205,23 +207,19 @@ export default async function CareerTestsPage({ params }: PageProps) {
         <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-600">{copy.intro}</p>
       </section>
 
-      {!traditional ? (
-        <section aria-labelledby="fermat-career-assessment" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
-          <h2 id="fermat-career-assessment" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-            {locale === "zh" ? "费马职业测试（94 题）" : "FermatMind Career Assessment (94 questions)"}
-          </h2>
-          <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
-            {locale === "zh"
-              ? "一起了解你喜欢的工作活动、偏好的工作方式和看重的工作条件。"
-              : "Explore the work activities you enjoy, how you prefer to work, and what conditions matter to you."}
-          </p>
-          <div className="mt-5">
-            <Link href={withLocale("/career/assessment")} className={buttonVariants({ variant: "default" })}>
-              {locale === "zh" ? "开始费马职业测试" : "Start the FermatMind Career Assessment"}
-            </Link>
-          </div>
-        </section>
-      ) : null}
+      <section aria-labelledby="fermat-career-assessment" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
+        <h2 id="fermat-career-assessment" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+          {traditional ? "費馬職業測驗（94 題）" : locale === "zh" ? "费马职业测试（94 题）" : "FermatMind Career Assessment (94 questions)"}
+        </h2>
+        <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
+          {careerEntry.summary}
+        </p>
+        <div className="mt-5">
+          <Link href={careerEntry.href} className={buttonVariants({ variant: "default" })}>
+            {careerEntry.label}
+          </Link>
+        </div>
+      </section>
 
       {locale === "en" ? (
         <section aria-labelledby="career-interest-test" className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 md:p-8" data-testid="career-tests-single-entry">

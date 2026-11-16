@@ -1,7 +1,8 @@
 import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
-import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
+import { getRiasecDurationSummary, getRiasecQuestionSummary, isRiasecSlug } from "@/lib/riasec/forms";
+import { extractTestSlugFromEntryHref, filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type TestsCategorySlug = "personality" | "career";
 
@@ -184,7 +185,19 @@ function assertHubContent(value: unknown): TestsHubContent {
   return content;
 }
 
-function assertCategoryContent(value: unknown, slug: TestsCategorySlug): CategoryContent {
+function projectPublicCards(items: HubTestCardItem[], locale: DisplayLocale): HubTestCardItem[] {
+  return filterVisiblePublicTestEntries(items).map((item) => {
+    if (!isRiasecSlug(extractTestSlugFromEntryHref(item.detailsHref ?? item.href) ?? item.key)) return item;
+    return {
+      ...item,
+      questionsLabel: getRiasecQuestionSummary(locale),
+      durationLabel: getRiasecDurationSummary(locale),
+      primaryActions: item.primaryActions?.filter((action) => !/(?:form|form_code)=(?:riasec_140|140|enhanced_140|expert_140|holland_140)(?:[&#]|$)/u.test(action.href)),
+    };
+  });
+}
+
+function assertCategoryContent(value: unknown, slug: TestsCategorySlug, locale: DisplayLocale): CategoryContent {
   const content = value as CategoryContent;
   if (!content?.seo?.title || !content?.hero?.title || !Array.isArray(content?.featured?.items)) {
     throw new Error(`Invalid CMS tests category payload: ${slug}.`);
@@ -195,11 +208,11 @@ function assertCategoryContent(value: unknown, slug: TestsCategorySlug): Categor
     slug,
     featured: {
       ...content.featured,
-      items: filterVisiblePublicTestEntries(content.featured.items ?? []),
+      items: projectPublicCards(content.featured.items ?? [], locale),
     },
     allTests: {
       ...content.allTests,
-      items: filterVisiblePublicTestEntries(content.allTests.items ?? []),
+      items: projectPublicCards(content.allTests.items ?? [], locale),
     },
   };
 }
@@ -276,7 +289,7 @@ export async function getTestsHubContent(locale: DisplayLocale): Promise<TestsHu
       ...content.families,
       items: content.families.items.map((family) => ({
         ...family,
-        tests: filterVisiblePublicTestEntries(family.tests ?? []),
+        tests: projectPublicCards(family.tests ?? [], locale),
       })),
     },
   };
@@ -287,7 +300,7 @@ export async function getTestsCategoryContent(locale: DisplayLocale, slug: Tests
   if (locale === "zh-TW" && (surface.value.schemaVersion !== "tests-category.v1" || surface.value.payloadJson?.slug !== slug)) {
     throw new Error(`Invalid CMS Taiwan tests category identity: ${slug}.`);
   }
-  return assertCategoryContent(surface.value.payloadJson, slug);
+  return assertCategoryContent(surface.value.payloadJson, slug, locale);
 }
 
 export async function listVisibleTestsHubCards(locale: DisplayLocale): Promise<HubTestCardItem[]> {

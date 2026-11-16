@@ -1,3 +1,4 @@
+import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples";
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessmentLandingSocialImage } from "@/lib/tests/assessmentLandingUi";
@@ -68,7 +69,7 @@ import {
   getRiasecVariantLabel,
   getRiasecVariantSummary,
   isRiasecScaleCode,
-  listRiasecFormMetas,
+  listPublicRiasecFormMetas,
 } from "@/lib/riasec/forms";
 import {
   DEFAULT_MBTI_FORM_CODE,
@@ -278,7 +279,7 @@ function buildFallbackFaq(testTitle: string, minutes: number, questions: number,
   ];
 }
 
-function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram" | "riasec", locale: "en" | "zh"): FAQItem[] {
+function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "en" | "zh"): FAQItem[] {
   if (locale === "zh") {
     if (kind === "mbti") {
       return [
@@ -322,26 +323,7 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram" | "riasec",
       ];
     }
 
-    if (kind === "riasec") {
-      return [
-        {
-          q: "RIASEC 60 题和 140 题有什么区别？",
-          a: "60 题是默认公开标准版，用于快速建立六维职业兴趣轮廓；140 题是增强版，会进一步区分活动、环境与角色偏好。",
-        },
-        {
-          q: "我应该先做哪一个版本？",
-          a: "如果你想先快速了解职业兴趣结构，先做 60 题；如果你希望更完整地比较职业偏好层次，选择 140 题增强版。",
-        },
-        {
-          q: "两个版本属于同一个测评吗？",
-          a: "是。两个版本都属于同一个霍兰德 RIASEC 职业兴趣测试，结果会保留你选择的版本。",
-        },
-        {
-          q: "结果能直接替我决定职业吗？",
-          a: "不能。结果用于辅助职业探索和讨论，不替代真实经历、能力评估或专业咨询。",
-        },
-      ];
-    }
+
 
     return [
       {
@@ -405,26 +387,7 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram" | "riasec",
     ];
   }
 
-  if (kind === "riasec") {
-    return [
-      {
-        q: "What is the difference between RIASEC 60Q and 140Q?",
-        a: "60Q is the default public standard form for a focused six-dimension interest profile. 140Q adds activity, environment, and role preference layers.",
-      },
-      {
-        q: "Which version should I start with?",
-        a: "Start with 60Q if you want a focused career-interest read. Choose 140Q if you want a fuller comparison across preference layers.",
-      },
-      {
-        q: "Do both versions belong to the same assessment?",
-        a: "Yes. Both forms belong to the same Holland RIASEC career interest test, and the result preserves the form you selected.",
-      },
-      {
-        q: "Can the result choose a career for me?",
-        a: "No. The result supports career exploration and discussion. It does not replace experience, skill assessment, or professional guidance.",
-      },
-    ];
-  }
+
 
   return [
     {
@@ -565,10 +528,8 @@ function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "
         h1: "霍兰德职业兴趣免费测试",
         seoTitle: "霍兰德职业兴趣免费测试｜RIASEC职业测试",
         primaryCtaLabel: "开始霍兰德职业兴趣免费测试",
-        secondaryCtaLabelByFormCode: {
-          riasec_140: "开始霍兰德职业兴趣增强版免费测试",
-        },
-        freeBoundary: "两版均可免费完成并查看 RIASEC 六维兴趣分布与三字代码。",
+        secondaryCtaLabelByFormCode: {},
+        freeBoundary: "免费完成 60 题并查看 RIASEC 六维兴趣分布与三字代码。",
       };
     default:
       return null;
@@ -881,7 +842,14 @@ export default async function TestLandingPage({
     || flagshipFreeTestCopy?.freeBoundary
     || "";
   const reportSummary = toStringValue(reportNode.summary);
-  const faqItems = parseFaq(langNode.faq);
+  const faqItems = parseFaq(langNode.faq).flatMap((item) => {
+    if (!isRiasecScaleCode(test.scale_code)) return [item];
+    if (item.id === "faq-riasec-forms") return [];
+    const paragraphs = item.a.split(/\n\s*\n/u).filter((paragraph) => !/\b140\b/u.test(paragraph));
+    return paragraphs.length > 0 && !/\b140\b/u.test(item.q)
+      ? [{ ...item, a: paragraphs.join("\n\n") }]
+      : [];
+  });
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode | undefined,
     capabilities: lookup?.capabilities,
@@ -976,7 +944,7 @@ export default async function TestLandingPage({
     "clinical-depression-anxiety-assessment-professional-edition",
     "depression-screening-test-standard-edition",
   ].includes(test.slug);
-  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions;
+  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const defaultHowItWorksItems = hasFreeFullReportAuthority
     ? [
         locale === "zh"
@@ -1010,12 +978,18 @@ export default async function TestLandingPage({
     : testDetailAuthority.faq.allowed
       ? isFlagshipDualVariant
         ? buildFlagshipVariantFaq(
-            showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : showsEnneagramActions ? "enneagram" : "riasec",
+            showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : "enneagram",
             locale
           )
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
       : [];
-  const mbtiEditorial = usesIllustratedLanding ? parseMbtiEditorial(langNode) : null;
+  const editorial = usesIllustratedLanding ? parseMbtiEditorial(langNode) : null;
+  const mbtiEditorial = showsRiasecActions && editorial ? {
+    ...editorial,
+    intro: assessmentLandingUi?.heroDescription ?? editorial.intro,
+    items: editorial.items.filter((item) => item.id !== "versions" && item.id !== "riasec-enhanced-method"),
+    comparison: undefined,
+  } : editorial;
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -1077,7 +1051,7 @@ export default async function TestLandingPage({
             }),
           }))
         : showsRiasecActions
-          ? listRiasecFormMetas(lookup?.forms).map((form) => ({
+          ? listPublicRiasecFormMetas(lookup?.forms).map((form) => ({
               key: form.formCode,
               label: getRiasecVariantLabel(form.formCode, locale),
               summary: getRiasecVariantSummary(form.formCode, locale),
@@ -1096,6 +1070,17 @@ export default async function TestLandingPage({
               }),
             }))
       : [];
+  const careerEntry = careerAssessmentEntry(traditional ? "zh-TW" : locale);
+  if (showsRiasecActions) {
+    flagshipVariantChoices.push({
+      key: "career_v1",
+      label: careerEntry.label,
+      summary: careerEntry.summary,
+      href: withAttribution(careerEntry.href),
+      ctaLabel: careerEntry.label,
+      testId: "test-detail-landing-cta-career-v1",
+    });
+  }
   const depressionVersionChoices: FlagshipVariantChoice[] = showsDepressionVersionActions
     ? [
         {
@@ -1431,8 +1416,8 @@ export default async function TestLandingPage({
           description={description ? translate(description) : undefined} choices={choices}
           disabled={testDisabled || !canRenderStartCta} showChoiceSummaries />
         {disclaimer ? <p className="text-sm text-slate-600">{translate(disclaimer)}</p> : null}
-        {whenToUse ? <section className="space-y-2"><h2 className="text-xl font-semibold">何時使用這份測評</h2><p>{translate(whenToUse)}</p></section> : null}
-        {reportSummary ? <section className="space-y-2"><h2 className="text-xl font-semibold">結果與報告</h2><p>{translate(reportSummary)}</p></section> : null}
+        {whenToUse && !showsRiasecActions ? <section className="space-y-2"><h2 className="text-xl font-semibold">何時使用這份測評</h2><p>{translate(whenToUse)}</p></section> : null}
+        {reportSummary && !showsRiasecActions ? <section className="space-y-2"><h2 className="text-xl font-semibold">結果與報告</h2><p>{translate(reportSummary)}</p></section> : null}
         {mergedFaq.length ? <section className="space-y-3"><h2 className="text-xl font-semibold">常見問題</h2>
           <FAQAccordion items={mergedFaq.map((item) => ({ q: translate(item.q), a: translate(item.a) }))} />
         </section> : null}

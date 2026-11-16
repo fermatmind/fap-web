@@ -66,11 +66,11 @@ export default async function HollandPdfPage({ params }: Props) {
             {text("下载空白 PDF 工作表（2 页）", "Download the blank PDF worksheet (2 pages)", "下載空白 PDF 工作表（2 頁）")}
           </a>
           <Link href={path("/tests/holland-career-interest-test-riasec")} className={buttonVariants({ variant: "outline" })}>
-            {text("霍兰德职业兴趣测试免费版（60/140题）", "Take the online Holland Code interest test", "霍蘭德職業興趣測驗免費版（60/140題）")}
+            {text("霍兰德职业兴趣测试免费版（60 题）", "Take the online Holland Code interest test", "霍蘭德職業興趣測驗免費版（60 題）")}
           </Link>
         </div>
       </header>
-      {locale !== "en" ? <p className="mx-auto max-w-4xl text-sm leading-7 text-slate-600">{traditional ? "還沒有自己的六維結果？上方免費測驗提供 60 題與 140 題兩個版本。已有結果可直接使用下方記錄和合成範例，無須重新測驗。" : "还没有自己的六维结果？上方免费测试入口提供60题与140题两个版本。已有结果可直接使用下方记录和合成示例，不必为了查看工作表重新测试。"}</p> : null}
+      {locale !== "en" ? <p className="mx-auto max-w-4xl text-sm leading-7 text-slate-600">{traditional ? "還沒有自己的六維結果？上方可免費完成 60 題測驗。已有結果可直接使用下方記錄和合成範例，無須重新測驗。" : "还没有自己的六维结果？上方可免费完成 60 题测试。已有结果可直接使用下方记录和合成示例，不必为了查看工作表重新测试。"}</p> : null}
       <RiasecWorksheet locale={locale} />
       <RiasecResultExamples locale={locale} />
       <section id="interpret-results" aria-labelledby="interpret-results-title" className="mx-auto max-w-4xl scroll-mt-24 space-y-4" data-testid="riasec-interpretation-path">
