@@ -241,7 +241,9 @@ describe("mbti entry surface contract", () => {
   });
 
   it("keeps the mbti topic hub as a lightweight type continuation grid", () => {
-    const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+    const source = read("components/topics/MbtiTopicTypeGrid.tsx");
+    expect(read("app/(localized)/[locale]/topics/[slug]/page.tsx")).toContain("<MbtiTopicTypeGrid locale={locale}");
+    expect(read("app/(traditional)/zh-TW/topics/[slug]/page.tsx")).toContain('<MbtiTopicTypeGrid locale="zh-TW"');
 
     expect(source).toContain('data-testid="mbti-topic-type-grid"');
     expect(source).toContain("MBTI_TYPE_GROUPS");

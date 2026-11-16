@@ -131,13 +131,14 @@ export default async function TraditionalArticlePage({ params }: RouteProps) {
         </div>
       </header>
       {headings.length > 1 ? (
-        <nav aria-label="本文目錄" className="rounded-lg border p-5">
-          <ol className="space-y-2">
-            {headings.map((heading) => <li key={heading.id}><a href={`#${heading.id}`} className="underline">{heading.text}</a></li>)}
+        <nav aria-label="本文目錄" data-testid="article-toc" className="w-full rounded-lg border border-[var(--fm-border)] p-5">
+          <h2 className="m-0 mb-3 text-lg font-semibold">本文目錄</h2>
+          <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
+            {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className="text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline">{heading.text}</a></li>)}
           </ol>
         </nav>
       ) : null}
-      <ArticleFragmentNavigation className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24">
+      <ArticleFragmentNavigation className="w-full min-w-0 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
         <article data-testid="article-detail-content" className="fm-content-page-prose min-w-0 break-words">
           {article.contentHtml.trim()
             ? <div dangerouslySetInnerHTML={{ __html: sanitizeCmsHtml(article.contentHtml, { minimumHeadingLevel: 2 }) }} />

@@ -7,14 +7,17 @@ import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { CAREER_TRACKING_EVENTS, type CareerAttributionPayloadInput } from "@/lib/career/attribution";
 import type { Locale } from "@/lib/i18n/locales";
 
-export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug }: {
+export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug, traditionalCopy }: {
   locale: Locale;
   careerName: string;
   href: string;
   subjectSlug: string;
+  traditionalCopy?: (value: string) => string;
 }) {
   const zh = locale === "zh";
-  const design = zh ? DESIGN_COMPARE_TASKS.find(career => career.slug === subjectSlug) : undefined;
+  const prefix = traditionalCopy ? "zh-TW" : locale;
+  const text = traditionalCopy ?? ((value: string) => value);
+  const design = zh && !traditionalCopy ? DESIGN_COMPARE_TASKS.find(career => career.slug === subjectSlug) : undefined;
   const comparisonCareer = design
     ? DESIGN_COMPARE_TASKS.find(career => career.slug !== subjectSlug)
     : undefined;
@@ -23,7 +26,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
     entrySurface: "career_job_detail",
     sourcePageType: "career_job_detail",
     targetAction,
-    landingPath: `/${locale}/career/jobs/${subjectSlug}`,
+    landingPath: `/${prefix}/career/jobs/${subjectSlug}`,
     routeFamily: "job_detail",
     subjectKind: "job_slug",
     subjectKey: subjectSlug,
@@ -36,7 +39,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
         ? "先分清兴趣、性格和能力各能回答什么，再选择需要的测评。兴趣不等于能力或职业资格，也可以不做测试继续探索。"
         : "See what interests, personality and ability can each tell you before choosing a test. Interests do not establish ability or qualifications. You can also continue without testing.",
       label: zh ? "选择职业测评" : "Choose a career assessment",
-      path: `/${locale}/career/tests`,
+      path: `/${prefix}/career/tests`,
       action: "choose_career_assessment",
     },
     {
@@ -45,7 +48,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
         ? "把本页与另外 1—2 个职业放在一起，记录实际任务、入行要求和工作条件的差异；还不知道的信息先留作待核问题。"
         : "Compare this page with one or two other careers. Note differences in tasks, entry requirements and working conditions, and keep unknowns as questions to investigate.",
       label: zh ? "去职业库查找其他候选" : "Find other options in the career library",
-      path: `/${locale}/career`,
+      path: `/${prefix}/career`,
       action: "browse_career_options",
     },
     {
@@ -54,7 +57,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
         ? "从本页选一项真实任务，安排一次小练习或从业者访谈。用职业规划指南写下时间、产出和反馈问题，再决定是否继续。"
         : "Choose a real task from this page for a small practice project or a conversation with someone in the field. Use the planning guides to set a date, an output and feedback questions before deciding whether to continue.",
       label: zh ? "制定下一步行动" : "Plan your next action",
-      path: `/${locale}/career/guides`,
+      path: `/${prefix}/career/guides`,
       action: "plan_career_action",
     },
   ];
@@ -62,7 +65,7 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
   return (
     <aside className="mx-auto max-w-6xl px-[var(--fm-container-gutter)] py-8" aria-labelledby="career-next-steps-title" data-testid="career-riasec-explore-link">
       <h2 id="career-next-steps-title" className="m-0 text-xl font-semibold text-slate-950">
-        {zh ? `了解${careerName}之后，下一步做什么？` : `After exploring ${careerName}, what comes next?`}
+        {traditionalCopy ? `認識${careerName}之後，下一步可以做什麼？` : zh ? `了解${careerName}之后，下一步做什么？` : `After exploring ${careerName}, what comes next?`}
       </h2>
       {design ? (
         <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
@@ -79,16 +82,16 @@ export function CareerRiasecExploreLink({ locale, careerName, href, subjectSlug 
       <ul className="m-0 mt-4 list-none divide-y divide-slate-200 p-0">
         {steps.map((step, index) => (
           <li key={step.action} className="min-w-0 py-4">
-            <h3 className="m-0 text-base font-semibold text-slate-950">{step.title}</h3>
-            <p className="mb-0 mt-2 text-sm leading-7 text-slate-600">{step.body}</p>
+            <h3 className="m-0 text-base font-semibold text-slate-950">{text(step.title)}</h3>
+            <p className="mb-0 mt-2 text-sm leading-7 text-slate-600">{text(step.body)}</p>
             <div className="flex flex-wrap items-center gap-x-6">
               <TrackedCareerLink href={step.path} className={linkClass} eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick} eventPayload={payload(step.action)} data-target-action={step.action}>
-                {step.label}
+                {text(step.label)}
               </TrackedCareerLink>
               {index === 0 ? (
                 <CareerJobAssessmentLink href={href} className={linkClass}
                   data-entry-surface="career_job_detail" data-source-page-type="career_job_detail" data-target-action="start_riasec_test" data-test-slug="holland-career-interest-test-riasec">
-                  {zh ? `霍兰德职业兴趣测试：探索${careerName}相关活动` : `Holland Code career interest test: explore ${careerName} activities`}
+                  {traditionalCopy ? `霍蘭德職業興趣測驗：探索與${careerName}相關的活動` : zh ? `霍兰德职业兴趣测试：探索${careerName}相关活动` : `Holland Code career interest test: explore ${careerName} activities`}
                 </CareerJobAssessmentLink>
               ) : null}
             </div>

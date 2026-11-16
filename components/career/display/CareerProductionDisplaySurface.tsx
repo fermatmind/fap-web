@@ -932,6 +932,7 @@ export function CareerProductionDisplaySurface({
           workContext={publishedComponents.work_context_block as string}
           quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
           interfaceLabels={surface.interfaceLabels}
+          sectionLabel={surface.subject.path.startsWith("/zh-TW/") ? "職業畫像" : undefined}
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
           locale={surface.locale}
         />{profileAiDescription}</>;
@@ -1288,6 +1289,7 @@ export function CareerProductionDisplaySurface({
           workContext={publishedComponents.work_context_block as string}
           quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
           interfaceLabels={surface.interfaceLabels}
+          sectionLabel={surface.subject.path.startsWith("/zh-TW/") ? "職業畫像" : undefined}
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
           locale={surface.locale}
         />,

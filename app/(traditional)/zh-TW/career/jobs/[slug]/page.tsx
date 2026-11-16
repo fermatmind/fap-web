@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { CareerRiasecExploreLink } from "@/components/career/CareerRiasecExploreLink";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { fetchCareerLinkTargets } from "@/lib/career/api/fetchCareerLinkTargets";
@@ -74,7 +76,8 @@ export default async function TraditionalCareerJobPage({ params, searchParams }:
   });
   const surface = buildCareerPageDisplaySurface(page, identity, ctaHref);
   surface.cta.href = ctaHref.replace(/^\/zh\//u, "/zh-TW/");
-  surface.careerLinkPaths = await fetchCareerLinkTargets();
+  const [careerLinks, traditionalCopy] = await Promise.all([fetchCareerLinkTargets(), loadTraditionalAssessmentText()]);
+  surface.careerLinkPaths = careerLinks;
   return (
     <div className="relative left-1/2 w-[calc(100vw-2rem)] max-w-[1440px] -translate-x-1/2" data-evidence-page-family="career_job_detail">
       <nav aria-label="頁面語言" className="flex flex-wrap gap-5 px-5 text-sm">
@@ -90,6 +93,7 @@ export default async function TraditionalCareerJobPage({ params, searchParams }:
           { label: page.content.subject.name },
         ]}
       />
+      {careerPageHasPublicBody(page) ? <CareerRiasecExploreLink locale="zh" traditionalCopy={traditionalCopy} careerName={page.content.subject.name} href={surface.cta.href} subjectSlug={slug} /> : null}
     </div>
   );
 }

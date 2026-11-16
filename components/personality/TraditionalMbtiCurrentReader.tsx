@@ -84,11 +84,16 @@ export async function loadTraditionalMbtiCurrentReader(slug: string) {
         locale: "zh_TW",
       },
     } satisfies Metadata,
-    sections: sections.map(section => ({
-      key: section.key,
-      title: section.title,
-      content: renderTraditionalPersonalityProjectionSections([section]),
-    })),
+    sections: sections.map((section) => {
+      const title = section.key === "quick_answer" && (!section.title || section.title === section.key)
+        ? "快速解答"
+        : section.title;
+      return {
+        key: section.key,
+        title,
+        content: renderTraditionalPersonalityProjectionSections([{ ...section, title }]),
+      };
+    }),
   };
 }
 

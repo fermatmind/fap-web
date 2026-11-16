@@ -19,6 +19,7 @@ export default function SiteHeaderDropdownPanel({
       role="menu"
       aria-labelledby={triggerId}
       className="fm-header-dropdown-panel"
+      style={{ left: 0, right: "auto" }}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
           event.preventDefault();

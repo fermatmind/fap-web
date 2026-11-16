@@ -48,6 +48,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/orders/lookup") return "/zh-TW/orders/lookup";
   if (prefix === "zh-TW" && (path === "/pay/wait" || path === "/pay/return/alipay" || /^\/orders\/[A-Za-z0-9_-]{1,128}$/u.test(path))) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && (["/personality", "/personality/big-five", "/personality/enneagram", "/tests/play"].includes(path))) return `/zh-TW${path}`;
+  if (path === "/articles" || path === "/topics") return `/zh-TW${path}`;
   if (path === "/support" || path === "/business") return `/zh-TW${path}`;
   if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";
@@ -80,7 +81,6 @@ export function traditionalPath(pathname: string): string | null {
   if (prefix === "zh-TW" && /^\/result\/[A-Za-z0-9_-]{1,128}$/u.test(path)) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && (
     TRADITIONAL_CMS_READER_PATHS.some(entry => entry === path)
-    || path === "/articles"
     || /^\/articles\/(?:category\/[a-z0-9]+(?:-[a-z0-9]+)*|[A-Za-z0-9][A-Za-z0-9_-]{0,127})$/u.test(path)
   )) return `/zh-TW${path}`;
   return TRADITIONAL_PUBLIC_PATHS.includes(path) || path === `${TRADITIONAL_QUIZ_PATH}/take` || path === `${TRADITIONAL_SEVEN_SINS_PATH}/take` ? `/zh-TW${path}` : null;

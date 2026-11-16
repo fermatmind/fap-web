@@ -30,7 +30,13 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ 推理練習" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情緒智力測驗" },
     ],
-    articles: [{ href: "/articles", label: "全部文章" }],
+    articles: [
+      { href: "/articles", label: "全部文章" },
+      { href: "/articles/mbti-basics", label: "MBTI 入門" },
+      { href: "/articles/mbti-growth-guide", label: "MBTI 成長指南" },
+      { href: "/articles/big-five-tool-guide", label: "大五測驗說明" },
+      { href: "/articles/eq-test-tool-guide", label: "EQ 測驗說明" },
+    ],
     personality: [
       { href: "/topics", label: "所有專題" },
       { href: "/personality", label: "人格百科" },
@@ -39,6 +45,7 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/topics/iq-eq", label: "IQ 與 EQ 專題" },
     ],
     career: [
+      { href: "/career/tests", label: "選擇職涯測驗" },
       { href: "/career/recommendations", label: "職涯建議" },
       { href: "/career", label: "職涯資料庫" },
       { href: "/career/guides", label: "職涯指南" },
@@ -54,15 +61,19 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/tests", label: "Tests hub" },
       { href: "/tests/category/personality", label: "Personality & style" },
       { href: "/tests/category/career", label: "Career & direction" },
-      { href: "/tests/holland-career-interest-test-riasec", label: "RIASEC career interest test" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five personality test" },
       { href: "/tests/enneagram-personality-test-nine-types", label: "Enneagram test" },
+      { href: "/tests/holland-career-interest-test-riasec", label: "RIASEC career interest test" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ assessment" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ assessment" },
     ],
     articles: [
       { href: "/articles", label: "All articles" },
+      { href: "/articles/mbti-basics", label: "MBTI basics" },
+      { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
+      { href: "/articles/big-five-tool-guide", label: "Big Five test guide" },
+      { href: "/articles/eq-test-tool-guide", label: "EQ test guide" },
     ],
     personality: getSelfUnderstandingMenu("en"),
     career: [
@@ -81,6 +92,8 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
   zh: {
     tests: [
       { href: "/tests", label: "全部测试" },
+      { href: "/tests/category/personality", label: "人格与风格" },
+      { href: "/tests/category/career", label: "职业与方向" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "大五人格测试" },
       { href: "/tests/enneagram-personality-test-nine-types", label: "九型人格测试" },

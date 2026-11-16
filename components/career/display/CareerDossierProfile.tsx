@@ -25,6 +25,7 @@ import type {
 
 type Props = {
   interfaceLabels?: Record<string, string>;
+  sectionLabel?: string;
   definition: string;
   responsibilities: string[];
   workContext: string;
@@ -53,6 +54,7 @@ function splitWorkFact(value: string): [string, string] {
 
 export function CareerDossierProfile({
   interfaceLabels,
+  sectionLabel,
   definition,
   responsibilities,
   workContext,
@@ -84,7 +86,7 @@ export function CareerDossierProfile({
         data-testid="definition-block"
       >
         <div className={styles.titleRow}>
-          <h2 id="career-visual-group-title-profile" className={styles.title}>{locale === "zh" ? "职业画像" : "Career profile"}</h2>
+          <h2 id="career-visual-group-title-profile" className={styles.title}>{sectionLabel ?? (locale === "zh" ? "职业画像" : "Career profile")}</h2>
           <span aria-hidden="true" className={styles.titleRule} />
         </div>
         <p className={styles.thesis} data-career-api-field="definition_block">{definition}</p>

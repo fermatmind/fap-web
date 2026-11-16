@@ -157,7 +157,7 @@ for (const locale of ["en", "zh"] as const) {
     await page.goto(locale === "zh" ? "/" : "/en");
 
     for (const [key] of primaryNavTargets[locale]) {
-      if (key === "help" || (key === "articles" && locale === "en")) {
+      if (key === "help") {
         await expect(page.locator(`#header-trigger-${key}`)).toHaveCount(0);
         continue;
       }
@@ -171,6 +171,9 @@ for (const locale of ["en", "zh"] as const) {
       await expect(trigger).toHaveAttribute("aria-expanded", "true");
       await expect(page.getByRole("menu")).toBeVisible();
       await expect(page.getByRole("menuitem").first()).toBeVisible();
+      const panel = await page.locator(`#header-dropdown-${key}`).boundingBox();
+      const primary = await page.getByTestId(`desktop-primary-nav-link-${key}`).boundingBox();
+      expect(Math.abs(panel!.x - primary!.x)).toBeLessThan(2);
       await page.keyboard.press("Escape");
       await expect(trigger).toHaveAttribute("aria-expanded", "false");
       await page.mouse.move(0, 0);
@@ -203,3 +206,24 @@ for (const locale of ["en", "zh"] as const) {
 let stopPublicApiFixture: (() => Promise<void>) | undefined;
 test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
 test.afterAll(async () => { await stopPublicApiFixture?.(); });
+
+test("Traditional header opens aligned desktop and mobile article menus", async ({ page }) => {
+  await page.setViewportSize({ width: 1219, height: 900 });
+  await page.goto("/zh-TW");
+  const trigger = page.locator("#header-trigger-articles");
+  await expect(trigger).toBeEnabled();
+  await trigger.press("Enter");
+  const panel = page.locator("#header-dropdown-articles");
+  await expect(panel.getByRole("menuitem", { name: "MBTI 成長指南" }))
+    .toHaveAttribute("href", "/zh-TW/articles/mbti-growth-guide");
+  const primary = await page.getByTestId("desktop-primary-nav-link-articles").boundingBox();
+  const bounds = await panel.boundingBox();
+  expect(Math.abs(bounds!.x - primary!.x)).toBeLessThan(2);
+  await page.keyboard.press("Escape");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: "選單", exact: true }).click();
+  const drawer = page.getByRole("dialog");
+  await drawer.locator('button[aria-controls="mobile-submenu-articles"]').click();
+  await expect(drawer.getByRole("menuitem", { name: "MBTI 成長指南" }))
+    .toHaveAttribute("href", "/zh-TW/articles/mbti-growth-guide");
+});

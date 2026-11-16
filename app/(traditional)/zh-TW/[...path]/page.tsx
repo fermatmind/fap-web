@@ -20,6 +20,7 @@ import { SITE_URL } from "@/lib/site";
 import { ChiikawaReading } from "@/components/i18n/zh-TW/ChiikawaReading";
 import { ChiikawaTake } from "@/components/i18n/zh-TW/ChiikawaTake";
 import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotTests";
+import { ChiikawaResultExamples } from "@/components/questionnaires/ChiikawaResultExamples";
 import { ChiikawaPortrait } from "@/components/questionnaires/ChiikawaPortrait";
 
 type Props = { params: Promise<{ path?: string[] }>; searchParams?: Promise<{ edition?: string | string[] }> };
@@ -147,6 +148,14 @@ export default async function TraditionalPage(props: Props) {
         <p className="text-sm leading-7 text-slate-600">{quiz.instructions!["zh-TW"]}</p>
       </div>
     </ExploreTestIntro>
+    <ChiikawaResultExamples
+      quiz={{
+        ...quiz,
+        profiles: quiz.profiles.map((profile) => ({ ...profile, title: { ...profile.title, zh: profile.title["zh-TW"] } })),
+        directions: quiz.directions.map((direction) => ({ ...direction, title: { ...direction.title, zh: direction.title["zh-TW"] } })),
+      }}
+      locale="zh-TW"
+    />
     <p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p>
     {quiz.guide.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}
     <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.guides["zh-TW"]}</h2><div className="grid gap-5 sm:grid-cols-2">{quiz.profiles.map(profile => <Link key={profile.id} href={`${entry}/results/${profile.id}`} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5"><ChiikawaPortrait id={profile.id} className="size-20 rounded-xl" /><h3 className="text-xl font-semibold underline">{profile.title["zh-TW"]}</h3><p className="leading-7">{profile.headline["zh-TW"]}</p></Link>)}</div></section>

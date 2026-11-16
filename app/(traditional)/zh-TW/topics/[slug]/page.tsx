@@ -5,6 +5,7 @@ import { cache } from "react";
 import { Container } from "@/components/layout/Container";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { MbtiTopicTypeGrid } from "@/components/topics/MbtiTopicTypeGrid";
 import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { buildTopicFrontendUrl, getTopicBySlug, getTopicSeoBySlug } from "@/lib/cms/topics";
@@ -68,6 +69,7 @@ export default async function TraditionalTopicPage({ params }: Props) {
         {block.body && block.body !== topic.excerpt && block.body !== topic.subtitle ? <p className="leading-8">{block.body}</p> : null}
       </div>)}
     </section>
+    {topic.slug === "mbti" ? <MbtiTopicTypeGrid locale="zh-TW" /> : null}
     {renderTopicSections(topic.sections, "zh", { scrollableTables: iqEq })}
     <AnswerSurfaceSection surface={answer} locale="zh" displayLocale="zh-TW" pageFamily="topic_detail" />
     <MbtiScenarioDeepDiveSection

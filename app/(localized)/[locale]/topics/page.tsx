@@ -1,6 +1,9 @@
 import { traditionalCollectionAlternates } from "@/lib/cms/traditional-index-alternates";
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -12,7 +15,7 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getCmsArticlesWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
 import { getRelationshipReadingLinks, getSelfUnderstandingResources } from "@/lib/navigation/selfUnderstandingResources";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type Locale, type DisplayLocale } from "@/lib/i18n/locales";
 import {
   buildBreadcrumbJsonLd,
   buildCollectionPageJsonLd,
@@ -48,12 +51,12 @@ function buildTrustLinks(locale: Locale, withLocale: (pathname: string) => strin
   ];
 }
 
-function formatArticleDate(value: string | null, locale: Locale): string | null {
+function formatArticleDate(value: string | null, locale: DisplayLocale): string | null {
   if (!value) return null;
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
 
-  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.DateTimeFormat(locale === "zh-TW" ? "zh-TW" : locale === "zh" ? "zh-CN" : "en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -192,22 +195,37 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return metadata;
 }
 
-export default async function TopicsPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function TopicsPage({ params, traditionalDirectory }: { params: Promise<{ locale: string }>; traditionalDirectory?: ReactNode }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
-  const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const canonicalPath = isZh ? "/zh/topics" : "/en/topics";
+  const traditional = localeParam === "zh-TW";
+  const displayLocale = traditional ? "zh-TW" : locale;
+  const [articleResult, traditionalCopy] = await Promise.all([
+    getCmsArticlesWithLastKnownGood({
+      locale: displayLocale,
+      page: 1,
+      perPage: 100,
+      allowLocalFallback: false,
+      usePublicCache: true,
+    }).catch((error) => {
+      if (!traditional) throw error;
+      return null;
+    }),
+    traditional ? loadTraditionalAssessmentText() : undefined,
+  ]);
+  const articles = articleResult?.value.items ?? [];
+  const traditionalArticles = traditional ? new Set(articles.map((article) => article.slug)) : undefined;
+  const text = traditionalCopy ?? ((value: string) => value);
+  const withLocale = (pathname: string) => {
+    if (!traditional) return localizedPath(pathname, locale);
+    const article = /^\/articles\/([^/?#]+)/u.exec(pathname)?.[1];
+    return displayNavigationPath(pathname, article && !traditionalArticles?.has(article) ? "zh" : displayLocale);
+  };
+  const canonicalPath = traditional ? "/zh-TW/topics" : isZh ? "/zh/topics" : "/en/topics";
   const heroTitle = isZh ? "认识自己，从好问题开始。" : "Understand yourself. Start with a good question.";
-  const articleResult = await getCmsArticlesWithLastKnownGood({
-    locale,
-    page: 1,
-    perPage: 100,
-    allowLocalFallback: false,
-    usePublicCache: true,
-  });
-  const articleLandingItems = articleResult.value.landingSurface?.discoverabilityItems ?? [];
-  const curatedArticles = selectJourneyArticles(articleResult.value.items, articleLandingItems);
+  const articleLandingItems = articleResult?.value.landingSurface?.discoverabilityItems ?? [];
+  const curatedArticles = selectJourneyArticles(articles, articleLandingItems);
   const questionPaths = buildQuestionPaths(locale, withLocale);
   const trustLinks = buildTrustLinks(locale, withLocale);
   const resources = getSelfUnderstandingResources(locale);
@@ -255,20 +273,22 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
   return (
     <Container as="main" className="max-w-[1240px] pb-24">
       <AnalyticsPageViewTracker eventName="landing_view" properties={{ page_type: "topics_index", locale }} />
+      {!traditional ? <>
       <JsonLd id="topics-webpage" data={webPageJsonLd} />
       <JsonLd id="topics-collection" data={collectionPageJsonLd} />
       <JsonLd id="topics-breadcrumb" data={breadcrumbJsonLd} />
       <JsonLd id="topics-question-paths" data={journeyItemListJsonLd} />
       {curatedItemListJsonLd ? <JsonLd id="topics-recommended-articles" data={curatedItemListJsonLd} /> : null}
+      </> : null}
 
       <div className="pt-6 md:pt-8">
-        <Breadcrumb items={[{ label: isZh ? "首页" : "Home", href: withLocale("/") }, { label: isZh ? "认识自己" : "Understand yourself" }]} />
+        <Breadcrumb items={[{ label: text(isZh ? "首页" : "Home"), href: withLocale("/") }, { label: text(isZh ? "认识自己" : "Understand yourself") }]} />
       </div>
 
-      <SelfUnderstandingResources locale={locale} />
+      <SelfUnderstandingResources locale={displayLocale} traditionalCopy={traditionalCopy} traditionalArticles={traditionalArticles} />
 
       <section id="topics-question-paths-section" className="scroll-mt-24 border-t border-[var(--fm-border-subtle)] py-8" aria-labelledby="question-paths-title">
-        <h2 id="question-paths-title" className="mb-4 mt-0 font-serif text-2xl font-semibold">{isZh ? "按问题找答案" : "Find an answer to your question"}</h2>
+        <h2 id="question-paths-title" className="mb-4 mt-0 font-serif text-2xl font-semibold">{text(isZh ? "按问题找答案" : "Find an answer to your question")}</h2>
         <div className="grid items-start gap-x-10 md:grid-cols-2 lg:gap-x-14">
           {questionPaths.map((item) => {
             if (item.key === "action" || item.key === "relationships") {
@@ -278,15 +298,15 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
                 : relationshipLinks;
               return (
                 <details key={item.key} id={isResults ? "result-guides" : "relationship-guides"} className="group scroll-mt-24 border-b border-[var(--fm-border-subtle)]">
-                  <summary className="cursor-pointer rounded-sm py-4 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]">{item.title}</summary>
-                  <p className="mb-2 mt-0 text-xs leading-6 text-[var(--fm-text-muted)]">{isResults ? (isZh ? "选择你做过的测评，直接阅读结果说明。" : "Choose your assessment to read its result guide.") : (isZh ? "从具体互动入手，选择一种阅读角度。" : "Start with an interaction and choose a reading perspective.")}</p>
+                  <summary className="cursor-pointer rounded-sm py-4 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]">{text(item.title)}</summary>
+                  <p className="mb-2 mt-0 text-xs leading-6 text-[var(--fm-text-muted)]">{text(isResults ? (isZh ? "选择你做过的测评，直接阅读结果说明。" : "Choose your assessment to read its result guide.") : (isZh ? "从具体互动入手，选择一种阅读角度。" : "Start with an interaction and choose a reading perspective."))}</p>
                   <ul className={`m-0 grid list-none gap-x-4 p-0 pb-3 ${isResults ? "sm:grid-cols-2" : ""}`}>
-                    {links.map((link) => <li key={link.href}><TrackedEntryCtaLink href={withLocale(link.href)} eventName="continue_exploration" eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }} className="flex min-h-11 items-center justify-between gap-2 rounded-sm py-2 text-sm underline decoration-[var(--fm-border-subtle)] underline-offset-4 hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span>{link.label}</span><ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0" /></TrackedEntryCtaLink></li>)}
+                    {links.map((link) => <li key={link.href}><TrackedEntryCtaLink href={withLocale(link.href)} eventName="continue_exploration" eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }} className="flex min-h-11 items-center justify-between gap-2 rounded-sm py-2 text-sm underline decoration-[var(--fm-border-subtle)] underline-offset-4 hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span>{text(link.label)}</span><ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0" /></TrackedEntryCtaLink></li>)}
                   </ul>
                 </details>
               );
             }
-            return <TrackedEntryCtaLink key={item.key} href={item.href} eventName="continue_exploration" eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }} className="flex min-h-14 items-center justify-between gap-3 rounded-sm border-b border-[var(--fm-border-subtle)] py-4 text-sm font-semibold hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span>{item.title}</span><ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></TrackedEntryCtaLink>;
+            return <TrackedEntryCtaLink key={item.key} href={item.href} eventName="continue_exploration" eventProperties={{ action_category: "choose_question_path", entry_surface: `topics_question_${item.key}`, source_page_type: "topics_index", locale }} className="flex min-h-14 items-center justify-between gap-3 rounded-sm border-b border-[var(--fm-border-subtle)] py-4 text-sm font-semibold hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span>{text(item.title)}</span><ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></TrackedEntryCtaLink>;
           })}
         </div>
       </section>
@@ -295,10 +315,10 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
           <section className="pb-8 pt-2" aria-labelledby="topics-recommended-title">
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
-                <h2 id="topics-recommended-title" className="m-0 font-serif text-[1.75rem] font-semibold tracking-tight text-[var(--fm-text)] md:text-[2.125rem]">{isZh ? "精选阅读" : "Featured reading"}</h2>
+                <h2 id="topics-recommended-title" className="m-0 font-serif text-[1.75rem] font-semibold tracking-tight text-[var(--fm-text)] md:text-[2.125rem]">{text(isZh ? "精选阅读" : "Featured reading")}</h2>
               </div>
               <Link href={withLocale("/articles")} className="group inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#263a60] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4">
-                {isZh ? "查看全部文章" : "View all articles"}
+                {text(isZh ? "查看全部文章" : "View all articles")}
                 <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none" />
               </Link>
             </div>
@@ -307,7 +327,7 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
               {curatedArticles.map((article) => {
                 const categoryLabel = getArticleCategoryLabel(article, locale);
                 const modelLabel = articleModelLabel(article, locale);
-                const publishedAt = formatArticleDate(article.publishedAt ?? article.updatedAt, locale);
+                const publishedAt = formatArticleDate(article.publishedAt ?? article.updatedAt, displayLocale);
                 const readTime = formatArticleReadTime(article.readingMinutes, locale);
 
                 return (
@@ -334,9 +354,9 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
                           {modelLabel ? <span className="text-[#6554bd]">{modelLabel}</span> : null}
                         </div>
                         <h3 className="m-0 mt-3 line-clamp-3 min-h-[5.25rem] font-serif text-xl font-semibold leading-snug text-[var(--fm-text)] transition-colors group-hover:text-[#6554bd]">{article.title}</h3>
-                        <p className="m-0 mt-3 text-xs text-[var(--fm-text-muted)]">{[publishedAt, readTime].filter(Boolean).join(" / ")}</p>
+                        <p className="m-0 mt-3 text-xs text-[var(--fm-text-muted)]">{[publishedAt, readTime && text(readTime)].filter(Boolean).join(" / ")}</p>
                         <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#263a60]">
-                          {isZh ? "阅读全文" : "Read article"}
+                          {text(isZh ? "阅读全文" : "Read article")}
                           <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transform-none" />
                         </span>
                       </div>
@@ -348,11 +368,12 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
           </section>
       ) : null}
       <section className="border-t border-[var(--fm-border-subtle)] py-8" aria-labelledby="method-links-title">
-        <h2 id="method-links-title" className="mb-4 mt-0 font-serif text-2xl font-semibold">{isZh ? "研究与方法" : "Research and methods"}</h2>
+        <h2 id="method-links-title" className="mb-4 mt-0 font-serif text-2xl font-semibold">{text(isZh ? "研究与方法" : "Research and methods")}</h2>
         <div className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
-          {trustLinks.map((item) => <TrackedEntryCtaLink key={item.key} href={item.href} eventName="continue_exploration" eventProperties={{ action_category: "read_method_content", entry_surface: `topics_trust_${item.key}`, source_page_type: "topics_index", locale }} className="inline-flex min-h-14 flex-col items-start justify-center gap-1 rounded-sm py-2 hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span className="inline-flex items-center gap-2 text-sm font-semibold">{item.title}<ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></span></TrackedEntryCtaLink>)}
+          {trustLinks.map((item) => <TrackedEntryCtaLink key={item.key} href={item.href} eventName="continue_exploration" eventProperties={{ action_category: "read_method_content", entry_surface: `topics_trust_${item.key}`, source_page_type: "topics_index", locale }} className="inline-flex min-h-14 flex-col items-start justify-center gap-1 rounded-sm py-2 hover:text-[#526223] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]"><span className="inline-flex items-center gap-2 text-sm font-semibold">{text(item.title)}<ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></span></TrackedEntryCtaLink>)}
         </div>
       </section>
+      {traditionalDirectory}
     </Container>
   );
 }
