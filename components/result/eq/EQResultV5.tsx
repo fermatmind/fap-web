@@ -91,7 +91,7 @@ function EQResultContent({
   const resultPdfState = exportPdfState === "pending" ? "pending" : "unavailable";
 
   return (
-    <main data-testid="eq-result-v5" data-reading-copy-revision={viewModel.displayCopy?.revision} data-reading-source-hash={viewModel.displayCopy?.sourceHash} className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
+    <div data-testid="eq-result-v5" data-reading-copy-revision={viewModel.displayCopy?.revision} data-reading-source-hash={viewModel.displayCopy?.sourceHash} className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
       <EQResultHero viewModel={viewModel} />
       {exportProjection ? <ResultExportPanel projection={exportProjection} locale={displayLocale} pdfState={resultPdfState} /> : null}
       {lowConfidence ? (
@@ -123,14 +123,14 @@ function EQResultContent({
         loadAgentContext={loadAgentContext}
         sendAgentRuntimeMessage={sendAgentRuntimeMessage}
       />
-    </main>
+    </div>
   );
 }
 
 function EQResultV5Unavailable({ locale }: { locale: Locale }) {
   const { copy } = useEqDisplay();
   return (
-    <main data-testid="eq-result-v5-unavailable" className="mx-auto w-full max-w-3xl">
+    <div data-testid="eq-result-v5-unavailable" className="mx-auto w-full max-w-3xl">
       <section className="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm sm:p-7" role="status">
         <h1 className="text-xl font-semibold text-slate-950">
           {locale === "zh" ? copy("报告暂不可用", "報告暫不可用") : "Report unavailable"}
@@ -139,14 +139,14 @@ function EQResultV5Unavailable({ locale }: { locale: Locale }) {
           {locale === "zh" ? copy("报告数据未通过完整性校验，请稍后刷新。", "報告資料未通過完整性校驗，請稍後重新整理。") : "The report data did not pass integrity checks. Refresh later."}
         </p>
       </section>
-    </main>
+    </div>
   );
 }
 
 function EQResultV5AccessRestricted({ locale }: { locale: Locale }) {
   const { copy } = useEqDisplay();
   return (
-    <main data-testid="eq-result-v5-access-restricted" className="mx-auto w-full max-w-3xl">
+    <div data-testid="eq-result-v5-access-restricted" className="mx-auto w-full max-w-3xl">
       <section className="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
         <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
           {locale === "zh" ? copy("结果访问", "查看結果") : "Result access"}
@@ -160,6 +160,6 @@ function EQResultV5AccessRestricted({ locale }: { locale: Locale }) {
             : "The full EQ report content is not displayed for the current access state. Refresh later or return from your order or result entry point."}
         </p>
       </section>
-    </main>
+    </div>
   );
 }

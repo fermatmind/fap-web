@@ -13,6 +13,11 @@ vi.mock("@/components/big5/pdf/PdfDownloadButton", () => ({ PdfDownloadButton: (
 test("the canonical seven-chapter Enneagram result has no basic accessibility violations", async () => {
   api.fetch.mockResolvedValue({ observation_state_v1: null });
   const viewModel = assembleEnneagramResultViewModel({ reportData: createSevenChapterReport(), locale: "en", gate: { isFreeVariant: false } });
-  const { container } = render(<EnneagramResultShell locale="en" attemptId="attempt-a11y" reportLocked={false} viewModel={viewModel} />);
+  const { container, getAllByRole } = render(
+    <main>
+      <EnneagramResultShell locale="en" attemptId="attempt-a11y" reportLocked={false} viewModel={viewModel} />
+    </main>,
+  );
+  expect(getAllByRole("main")).toHaveLength(1);
   expect(await axe(container)).toHaveNoViolations();
 });

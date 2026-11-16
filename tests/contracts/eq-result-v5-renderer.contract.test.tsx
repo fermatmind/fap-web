@@ -66,6 +66,7 @@ describe("EQ v5 pure renderer contract", () => {
     render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-contract-001" />);
 
     const result = screen.getByTestId("eq-result-v5");
+    expect(screen.queryByRole("main")).not.toBeInTheDocument();
     for (const marker of [
       "BACKEND_COPY[en:route.route_headline]",
       "BACKEND_COPY[en:route.evidence_snapshot_label]",
@@ -152,6 +153,7 @@ describe("EQ v5 pure renderer contract", () => {
     expect(normalizeEqV5Report(reportData, "en")).toBeNull();
     render(<EQResultV5 locale="en" reportData={reportData} />);
     expect(screen.getByTestId("eq-result-v5-unavailable")).toHaveTextContent("integrity checks");
+    expect(screen.queryByRole("main")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-result-hero")).not.toBeInTheDocument();
   });
 
@@ -175,6 +177,7 @@ describe("EQ v5 pure renderer contract", () => {
     expect(canRenderRichResultReport(reportData)).toBe(false);
     render(<EQResultV5 locale="en" reportData={reportData} />);
     expect(screen.getByTestId("eq-result-v5-access-restricted")).toBeInTheDocument();
+    expect(screen.queryByRole("main")).not.toBeInTheDocument();
     expect(screen.queryByText("PRIVATE")).not.toBeInTheDocument();
   });
 

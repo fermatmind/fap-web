@@ -472,6 +472,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     });
 
     const traitsBody = await screen.findByTestId("mbti-traits-body");
+    expect(screen.queryByRole("main")).not.toBeInTheDocument();
 
     expect(screen.queryByTestId("mbti-p0-letters-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-overview")).not.toBeInTheDocument();
