@@ -332,6 +332,9 @@ export default async function CareerPage({
                 ) : null}
               </div>
             </form>
+            <Link href={`${jobsPath}/compare`} prefetch={false} className="inline-flex min-h-11 items-center font-semibold text-teal-900 underline underline-offset-4" data-testid="career-compare-entry">
+              {label("比较两个职业", "Compare two careers")}
+            </Link>
 
             {locale === "zh" && !traditional && !hasActiveFilters && page === 1 ? (
               <div className="space-y-2 text-sm leading-6 text-slate-700">
@@ -356,10 +359,6 @@ export default async function CareerPage({
               <Metric label={label("公开条目", "Public entries")} value={String(publicDetailCount)} />
               <Metric label={label("每页显示", "Page size")} value={String(directory.pagination.perPage)} />
             </div>
-            <Link href={`${jobsPath}/compare`} prefetch={false} className="flex min-h-12 flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal-200 bg-white px-5 py-4 font-semibold text-teal-900" data-testid="career-compare-entry">
-              <span>{label("比较两个职业：任务、环境与入行条件", "Compare two careers: tasks, settings and entry conditions")}</span>
-              <span className="text-sm font-normal">{label("首批三个设计职业 →", "Pilot: three design careers →")}</span>
-            </Link>
 
             {hasActiveFilters ? (
               <div
