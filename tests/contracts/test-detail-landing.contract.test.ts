@@ -120,7 +120,7 @@ describe("test detail landing contract", () => {
     expect(source).toContain(": testDetailAuthority.faq.allowed");
     expect(source).toContain("const faqJsonLd =");
     expect(source).toContain("mergedFaq.length > 0");
-    expect(source).toContain('{faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');
+    expect(source).toContain('{!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');
     expect(source).toContain("{mergedFaq.length > 0 ? (");
   });
 
@@ -157,7 +157,7 @@ describe("test detail landing contract", () => {
     const faqSourceSegment = source.slice(source.indexOf("const langNode ="), source.indexOf("const continuePublicContentCta"));
     expect(faqSourceSegment).toContain("const faqItems = parseFaq(langNode.faq).flatMap");
     expect(faqSourceSegment).toContain("if (!isRiasecScaleCode(test.scale_code)) return [item];");
-    expect(faqSourceSegment).toContain("const mergedFaq = faqItems.length > 0");
+    expect(faqSourceSegment).toContain("const mergedFaq: LandingFaq[] = faqItems.length > 0");
     expect(faqSourceSegment).toContain("? faqItems");
     expect(faqSourceSegment).toContain("buildFallbackFaq");
 
@@ -252,7 +252,7 @@ describe("test detail landing contract", () => {
   it("uses the illustrated entry for all six assessments and preserves each choice source", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
     expect(source).toContain("showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions || showsIqActions || showsEqActions");
-    expect(source).toContain("choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}");
+    expect(source).toContain("choices={displayChoices([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}");
     expect(source).toContain("disabled={testDisabled || !canRenderStartCta}");
   });
 

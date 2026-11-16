@@ -97,14 +97,14 @@ describe("ANALYTICS-SEO-P1-06 MBTI landing structure contract", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
     expect(source).not.toContain("previewStyles.exploreMore");
-    expect(source).toContain("{mbtiEditorial ? <MbtiWhyChoose");
+    expect(source).toContain("{displayEditorial ? <MbtiWhyChoose");
     expect(source).toContain("itemOrder={assessmentEditorialLayout?.itemOrder}");
     expect(source).toContain("methodItemIds={assessmentEditorialLayout?.methodItemIds}");
-    expect(source.indexOf("<MbtiWhyChoose content=")).toBeLessThan(source.indexOf('id="faq"'));
+    expect(source.indexOf("<MbtiWhyChoose")).toBeLessThan(source.indexOf('id="faq"'));
     expect(source).toContain("{!usesIllustratedLanding ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}");
     expect(source).toContain('{!usesIllustratedLanding ? <Card id="related-reading"');
     expect(source).toContain("const faqItems = parseFaq(langNode.faq)");
-    expect(source).toContain("const mergedFaq = faqItems.length > 0");
-    expect(source).toContain('{faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');
+    expect(source).toContain("const mergedFaq: LandingFaq[] = faqItems.length > 0");
+    expect(source).toContain('{!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');
   });
 });
