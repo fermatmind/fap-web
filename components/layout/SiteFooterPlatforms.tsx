@@ -14,6 +14,7 @@ const platforms = [
   { name: "VibeCafé", href: "https://vibecafe.ai/products/cmvdd5x4o000002l1prsfmuoy" },
   { name: "Zearches", href: "https://zearches.com/directory.php?slug=education-learning&q=FermatMind" },
   { name: "Outbring", href: "https://outbring.lol/zh/" },
+  { name: "CareerFlora", href: "https://careerflora.com/open-source-tools?q=FermatMind&category=Education" },
 ] as const;
 const startupFame = {
   name: "Startup Fame",
@@ -47,7 +48,9 @@ export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
       ? (taiwan ? "產品排行榜" : zh ? "产品排行榜" : "product leaderboard")
       : name === "Zearches"
         ? (taiwan ? "FermatMind 搜尋結果" : zh ? "FermatMind 搜索结果" : "FermatMind search results")
-        : (taiwan ? "FermatMind 項目" : zh ? "FermatMind 条目" : "FermatMind listing");
+        : name === "CareerFlora"
+          ? (taiwan ? "工具目錄" : zh ? "工具目录" : "tools directory")
+          : (taiwan ? "FermatMind 項目" : zh ? "FermatMind 条目" : "FermatMind listing");
     return `${name} — ${destination}${taiwan ? "（在新分頁開啟）" : zh ? "（新窗口打开）" : " (opens in a new tab)"}`;
   };
 
