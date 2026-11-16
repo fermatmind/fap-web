@@ -5,7 +5,7 @@ export function careerAssessmentEntry(locale: DisplayLocale) {
   if (locale === "en") {
     return {
       href,
-      label: "Take the FermatMind Career Assessment · 94 questions",
+      label: "Take the free FermatMind Career Assessment · 94 questions",
       summary: "Explore your interests alongside your preferred ways of working and the conditions you value.",
     };
   }
@@ -18,7 +18,7 @@ export function careerAssessmentEntry(locale: DisplayLocale) {
   }
   return {
     href,
-    label: "开始费马职业测试（94 题）",
+    label: "开始费马职业测试（94 题） · 免费测试",
     summary: "一起了解你感兴趣的工作活动、偏好的工作方式和看重的工作条件。",
   };
 }

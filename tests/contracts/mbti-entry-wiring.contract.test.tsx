@@ -235,7 +235,7 @@ describe("mbti entry wiring contract", () => {
     expect(big5FreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
   });
 
-  it("renders dual riasec CTAs in landing sticky CTA surface", () => {
+  it("exposes only the public 60-question form in the Holland sticky CTA", () => {
     render(
       <CTASticky
         slug="holland-career-interest-test-riasec"
@@ -250,7 +250,7 @@ describe("mbti entry wiring contract", () => {
     const riasecFreeTestLinks = screen.getAllByRole("link", { name: /开始霍兰德职业兴趣免费测试/ });
 
     expect(riasecFreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60")).toBe(true);
-    expect(riasecFreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140")).toBe(true);
+    expect(screen.queryAllByRole("link").some((link) => link.getAttribute("href")?.includes("riasec_140"))).toBe(false);
   });
 
   it("keeps homepage free of direct big5 version-entry wiring", () => {

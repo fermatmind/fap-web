@@ -94,7 +94,6 @@ const ZH_ENTRY_LABELS: Record<string, string> = {
   enneagram_likert_105: "开始 105 题 · 程度选择 · 免费测试",
   enneagram_forced_choice_144: "开始 144 题 · 二选一 · 免费测试",
   riasec_60: "开始 60 题标准版 · 免费测试",
-  riasec_140: "开始 140 题扩展版 · 免费测试",
   owner_original_30: "开始 30 题免费测试",
   eq_60: "开始60题自评 · 约10分钟 · 免费",
 };
@@ -107,13 +106,12 @@ const EN_ENTRY_LABELS: Record<string, string> = {
   enneagram_likert_105: "Start 105 items · Degree ratings · Free test",
   enneagram_forced_choice_144: "Start 144 items · Two-option choices · Free test",
   riasec_60: "Start 60-question Standard Edition · Free test",
-  riasec_140: "Start 140-question Extended Edition · Free test",
   owner_original_30: "Start free 30-question test",
   eq_60: "Start 60-item self-report · About 10 minutes · Free",
 };
 
 const TRADITIONAL_ENTRY_LABELS: Partial<Record<string, string>> = {
-  riasec_140: "開始 140 題延伸版 · 免費測試",
+  riasec_60: "開始 60 題標準版 · 免費測驗",
 };
 
 export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";
