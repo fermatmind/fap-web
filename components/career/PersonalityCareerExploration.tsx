@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { ArrowDown, ArrowRight, Compass } from 'lucide-react';
-import { EmbeddedCareerCompare, EmbeddedDesignCareerCompare, type EmbeddedComparison } from '@/components/career/EmbeddedDesignCareerCompare';
+import { EmbeddedCareerCompare, type EmbeddedComparison } from '@/components/career/EmbeddedDesignCareerCompare';
 import { CareerEvidenceLine } from '@/components/career/display/CareerEvidenceLine';
 import { buttonVariants } from '@/components/ui/button';
 import type { CareerScene, PersonalityCareerCard } from '@/lib/career/personalityCareerExploration';
 import type { Locale } from '@/lib/i18n/locales';
 
-export function PersonalityCareerExploration({ locale, type, title, intro, cards, designComparison = false, scene }: {
-  locale: Locale; type: string; title: string; intro: string; cards: PersonalityCareerCard[]; designComparison?: boolean; scene?: CareerScene;
+export function PersonalityCareerExploration({ locale, type, title, intro, cards, scene }: {
+  locale: Locale; type: string; title: string; intro: string; cards: PersonalityCareerCard[]; scene?: CareerScene;
 }) {
   const zh = locale === 'zh';
   const id = `${type.toLowerCase()}-career-exploration`;
@@ -39,10 +39,8 @@ export function PersonalityCareerExploration({ locale, type, title, intro, cards
         </p>
         <h3 id={`${id}-title`} className="mt-2 text-2xl font-bold leading-tight text-slate-950">{title}</h3>
         <p className="mt-3 text-base leading-7 text-slate-800">{intro}</p>
-        {(designComparison || comparison) ? <a href={`#${comparison?.id ?? "intj-design-comparison"}`} className="mt-2 inline-flex min-h-11 items-center gap-2 font-semibold text-[#134d70] underline underline-offset-4">
-          {designComparison
-            ? (zh ? '直接看设计对比与试做' : 'Jump to the design comparison and exercise')
-            : (zh ? '直接看职业对比与试做' : 'Jump to the career comparison and exercise')} <ArrowDown aria-hidden="true" size={16} />
+        {comparison ? <a href={`#${comparison.id}`} className="mt-2 inline-flex min-h-11 items-center gap-2 font-semibold text-[#134d70] underline underline-offset-4">
+          {zh ? '直接看职业对比与试做' : 'Jump to the career comparison and exercise'} <ArrowDown aria-hidden="true" size={16} />
         </a> : null}
       </div>
       {cards.length > 0 ? (
@@ -96,7 +94,6 @@ export function PersonalityCareerExploration({ locale, type, title, intro, cards
           </ul>
         </>
       ) : <p role="status" className="text-sm text-slate-700">{zh ? '职业档案暂不可读，请稍后重试。' : 'Career profiles are temporarily unavailable. Try again later.'}</p>}
-      {designComparison ? <EmbeddedDesignCareerCompare locale={locale} /> : null}
       {comparison ? <EmbeddedCareerCompare locale={locale} comparison={comparison} /> : null}
       <div className="rounded-xl bg-[#f8f2e9] p-4 sm:p-5">
         <p className="mb-3 text-sm leading-6 text-slate-800">{zh ? '还没想好自己想多做哪些工作活动？可以先从职业兴趣开始。' : 'Still deciding what you want to do more often at work? Start with your career interests.'}</p>

@@ -225,7 +225,9 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
               const design = zh ? DESIGN_COMPARE_TASKS.find(career => career.slug === canonicalSlug) : null;
               return <th key={canonicalSlug} id={`compare-${canonicalSlug}`} scope="col" role="columnheader">
                 <span className={styles.careerIcon}><Icon aria-hidden="true" strokeWidth={1.6} /></span>
-                <Link className={styles.careerName} href={`/${displayLocale}/career/jobs/${canonicalSlug}`}>{name}</Link>
+                {embedded ? <span className={styles.careerName}>{name}</span> : (
+                  <Link className={styles.careerName} href={`/${displayLocale}/career/jobs/${canonicalSlug}`}>{name}</Link>
+                )}
                 {design ? <>
                   <span className={styles.roleOutput}>{traditional ? design.traditional.output : design.output}</span>
                   <div className={styles.careerBadges}>
@@ -259,7 +261,9 @@ export function CareerCompare({ locale, displayLocale = locale, initialSlots, em
           {comparisonRow('china_pay', copy('中国大陆薪资参考', 'Mainland China salary reference', '中國大陸薪資參考'), page => <Salary page={page} displayLocale={displayLocale} metricKey="china_pay" />, true)}
           {CAREER_COMPARE_ROWS.slice(1).map(row => comparisonRow(row.key, row[displayLocale], page => <Items page={page} displayLocale={displayLocale} copyKeys={row.copyKeys} />))}
           {comparisonRow('sources', copy('来源与完整档案', 'Sources and full profile', '來源與完整資料'), page => <>
-            <Link className={styles.profileLink} href={`/${displayLocale}/career/jobs/${page.content.subject.canonicalSlug}`}>{copy('核对完整职业档案', 'Read the full career profile', '核對完整職業資料')}</Link>
+            {!embedded ? (
+              <Link className={styles.profileLink} href={`/${displayLocale}/career/jobs/${page.content.subject.canonicalSlug}`}>{copy('核对完整职业档案', 'Read the full career profile', '核對完整職業資料')}</Link>
+            ) : null}
             <div className={styles.items}>{page.content.sources.map(source => <div key={source.id} className={styles.item}>
               {source.publisher && source.name !== source.publisher ? <p className={styles.itemTitle}>{source.name}</p> : null}
               <CareerEvidenceLine content={page.content} sourceRefs={[source.id]} className={styles.evidence} displayLocale={displayLocale} />

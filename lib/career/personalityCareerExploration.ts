@@ -32,40 +32,7 @@ type CareerExample = {
   onet: string;
   interests: string;
   question: Record<Locale, string>;
-  taskHighlights?: Record<Locale, [string, string, string]>;
 };
-
-const INTJ_EXAMPLES: CareerExample[] = [
-  {
-    slug: 'operations-research-analysts', onet: '15-2031.00', interests: 'IC',
-    question: {
-      zh: '你更想把资源与时间的冲突写成一个能比较的模型吗？',
-      en: 'Would you rather turn competing demands for time and resources into a model you can test?',
-    },
-  },
-  {
-    slug: 'industrial-designers', onet: '27-1021.00', interests: 'ARI',
-    question: {
-      zh: '你更愿意在材料和生产约束下反复修改一个实体原型吗？',
-      en: 'Would you rather keep improving a physical prototype within material and production constraints?',
-    },
-    taskHighlights: {
-      zh: ['绘制产品构思草图和详细图纸', '用工作模型检验并修改设计', '按安全、功能和生产成本评估方案'],
-      en: ['Draw product concepts and detailed drawings', 'Use working models to test and revise designs', 'Assess designs against safety, function, and production costs'],
-    },
-  },
-  {
-    slug: 'graphic-designers', onet: '27-1024.00', interests: 'AC',
-    question: {
-      zh: '你更愿意根据读者反馈调整版式、信息层级和阅读顺序吗？',
-      en: 'Would you rather use reader feedback to improve layout, hierarchy, and reading order?',
-    },
-    taskHighlights: {
-      zh: ['与客户确认版式用途并研究受众', '安排图文版面并选择字体', '用设计软件制作插图和版式'],
-      en: ['Confirm the layout brief with clients and research the audience', 'Arrange text and images and select typefaces', 'Create illustrations and layouts with design software'],
-    },
-  },
-];
 
 export type PersonalityCareerCard = CareerExample & {
   page: CareerPage;
@@ -74,10 +41,6 @@ export type PersonalityCareerCard = CareerExample & {
   href: string;
   occupationalCategory: string;
 };
-
-export function readIntjCareerExamples(locale: Locale) {
-  return readCareerExamples(locale, INTJ_EXAMPLES);
-}
 
 async function readCareerExamples(locale: Locale, examples: CareerExample[]): Promise<PersonalityCareerCard[]> {
   const candidates = await Promise.all(examples.map(async (example) => {
@@ -94,9 +57,9 @@ async function readCareerExamples(locale: Locale, examples: CareerExample[]): Pr
       .map(entry => entry.trim()).filter(Boolean))].slice(0, 3);
     if (tasks.length !== 3) return null;
     return {
-      ...example, page, tasks: example.taskHighlights?.[locale] ?? tasks,
+      ...example, page, tasks,
       taskSourceRefs: [...new Set(taskItems.flatMap(item => item.sourceRefs))],
-      href: `/${locale}/career/jobs/${example.slug}`,
+      href: `/${locale}/career/jobs/${example.slug}#fit`,
       occupationalCategory: `O*NET-SOC ${example.onet}`,
     };
   }));
@@ -115,7 +78,7 @@ export function personalityCareerItemList(cards: PersonalityCareerCard[], title:
       position: index + 1,
       item: {
         '@type': 'Occupation',
-        url: canonicalUrl(card.href),
+        url: canonicalUrl(card.href.split('#')[0]),
         name: card.page.content.subject.name,
         description: card.page.content.subject.summary,
         occupationalCategory: card.occupationalCategory,

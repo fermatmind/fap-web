@@ -8,11 +8,12 @@ import scenes from "@/lib/career/personalityCareerScenes.json";
 
 describe("editorial career scenes on MBTI profiles", () => {
   it("binds three distinct confirmed careers and a bilingual exercise to each enabled type", () => {
-    const slugs = new Set(["operations-research-analysts", "industrial-designers", "graphic-designers"]);
-    const codes = new Set(["15-2031.00", "27-1021.00", "27-1024.00"]);
+    expect(Object.keys(scenes)).toHaveLength(16);
     for (const [type, scene] of Object.entries(scenes)) {
       expect(type).toMatch(/^[ie][sn][tf][jp]$/);
       expect(scene.examples).toHaveLength(3);
+      const slugs = new Set<string>();
+      const codes = new Set<string>();
       expect(scene.comparison.prompts).toHaveLength(2);
       for (const locale of ["zh", "en"] as const) {
         expect(scene.title[locale]).not.toBe("");

@@ -57,7 +57,7 @@ import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 import { PersonalityCareerExploration } from "@/components/career/PersonalityCareerExploration";
-import { getPersonalityCareerScene, personalityCareerItemList, readIntjCareerExamples, readPersonalityCareerExamples } from "@/lib/career/personalityCareerExploration";
+import { getPersonalityCareerScene, personalityCareerItemList, readPersonalityCareerExamples } from "@/lib/career/personalityCareerExploration";
 
 export const revalidate = 300;
 
@@ -1698,17 +1698,13 @@ export default async function PersonalityDetailPage({
   const hasCareerExplorationAuthority = isBaseTypeProjection &&
     fallbackProjectionGate.canRenderCareerOrRecommendationClaims &&
     filteredProjectionSections.some(section => section.key === "work_style");
-  const showIntjCareerExploration = hasCareerExplorationAuthority && detail.routeSlug === "intj";
   const careerScene = hasCareerExplorationAuthority ? getPersonalityCareerScene(detail.routeSlug) : undefined;
-  const careerTitle = careerScene?.title[locale] ?? (locale === "zh" ? "从工作条件选职业方向" : "Compare career options by working conditions");
-  const careerIntro = careerScene?.intro[locale] ?? (locale === "zh"
-    ? "如果你喜欢先拆解复杂问题，再用明确的条件检验方案，可以比较三类工作产出：模型、实体原型、视觉说明。选工作时也要看谁定标准、你有多少独立分析的时间，以及反馈和返工有多频繁。"
-    : "If you like breaking down a complex problem and testing a solution against clear constraints, compare three kinds of work: models, physical prototypes, and visual instructions. Ask who sets the criteria, how much time you get to work independently, and how often feedback changes the plan.");
-  const careerCards = careerScene ? await readPersonalityCareerExamples(locale, careerScene)
-    : showIntjCareerExploration ? await readIntjCareerExamples(locale) : [];
-  const workStyleSupplement = showIntjCareerExploration || careerScene
+  const careerTitle = careerScene?.title[locale] ?? "";
+  const careerIntro = careerScene?.intro[locale] ?? "";
+  const careerCards = careerScene ? await readPersonalityCareerExamples(locale, careerScene) : [];
+  const workStyleSupplement = careerScene
     ? <PersonalityCareerExploration locale={locale} type={detail.routeSlug.toUpperCase()} title={careerTitle} intro={careerIntro}
-      cards={careerCards} designComparison={showIntjCareerExploration} scene={careerScene} />
+      cards={careerCards} scene={careerScene} />
     : undefined;
   const renderedLeadingProjectionSections = renderProjectionSections(leadingProjectionSections, locale, workStyleSupplement);
   const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale, workStyleSupplement);

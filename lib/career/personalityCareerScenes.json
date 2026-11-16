@@ -1,4 +1,57 @@
 {
+  "intj": {
+    "title": {
+      "zh": "比较三种分析交付",
+      "en": "Compare three kinds of analytical work"
+    },
+    "intro": {
+      "zh": "分析岗可以交付统计判断、数学模型或供应计划。先选你想处理的问题，再核对数据质量、独立分析时间和谁会使用结果。",
+      "en": "An analytical role can produce a statistical judgment, a mathematical model, or a supply plan. Start with the problem you want to solve, then check the quality of the inputs, time for independent analysis, and who will use the result."
+    },
+    "examples": [
+      {
+        "slug": "statisticians",
+        "question": {
+          "zh": "你愿意检查样本是否有偏差，再判断观察到的差异有多可靠？",
+          "en": "Would you check the sample for bias before deciding how much confidence to place in an observed difference?"
+        }
+      },
+      {
+        "slug": "mathematicians",
+        "question": {
+          "zh": "你更想把约束写成数学关系，再检验模型在哪些条件下成立？",
+          "en": "Would you rather express constraints mathematically and test when the model holds?"
+        }
+      },
+      {
+        "slug": "supply-chain-managers",
+        "question": {
+          "zh": "需求上调、供应推迟时，你愿意调整库存计划并和相关团队确认交付顺序吗？",
+          "en": "When demand rises and supplies are delayed, would you revise the inventory plan and agree on delivery priorities with the teams involved?"
+        }
+      }
+    ],
+    "comparison": {
+      "title": {
+        "zh": "比较统计推断与数学建模",
+        "en": "Compare statistical inference and mathematical modeling"
+      },
+      "brief": {
+        "zh": "假设一组发货记录显示周五延误较多，但有些仓库缺少时间记录。团队还想知道，在固定装车能力下调整发货批次会怎样。",
+        "en": "Suppose shipping records show more delays on Fridays, but some warehouses are missing timestamps. The team also wants to understand how changing dispatch batches would affect delays with fixed loading capacity."
+      },
+      "prompts": [
+        {
+          "zh": "写出一个比较不同日期延误率的方法，以及缺失记录可能怎样改变结论。",
+          "en": "Write down one way to compare delay rates across days and how missing timestamps might change the conclusion."
+        },
+        {
+          "zh": "把装车能力和发货批次写成两个约束，说明哪种条件会使排程不可行。",
+          "en": "Express loading capacity and dispatch batches as two constraints, and explain what would make a schedule infeasible."
+        }
+      ]
+    }
+  },
   "istj": {
     "title": {
       "zh": "用可追溯记录核对异常",
@@ -10,17 +63,17 @@
     },
     "examples": [
       {
-        "slug": "aviation-inspectors",
+        "slug": "transportation-inspectors",
         "question": {
-          "zh": "面对一份检查记录，你愿意逐项核对签核和附件吗？",
-          "en": "Would you go through an inspection log to verify sign-offs and attachments?"
+          "zh": "面对运输检查记录，你会先从哪里核对设备状况和签核？",
+          "en": "Which entry would you check first to verify equipment condition and sign-off in a transport inspection?"
         }
       },
       {
-        "slug": "calibration-technologists-and-technicians",
+        "slug": "mechatronics-engineers",
         "question": {
-          "zh": "你更愿意确认读数偏差来自测量条件还是仪器吗？",
-          "en": "Would you rather check whether a discrepancy comes from the conditions or the instrument?"
+          "zh": "你愿意核对传感器读数，判断是装配、设置还是测量条件造成偏差吗？",
+          "en": "Would you trace a sensor discrepancy to assembly, setup, or measurement conditions?"
         }
       },
       {
@@ -33,8 +86,8 @@
     ],
     "comparison": {
       "title": {
-        "zh": "比较记录核查与读数校准",
-        "en": "Compare inspection records and calibration"
+        "zh": "比较运输记录核查与传感器验证",
+        "en": "Compare transport records and sensor verification"
       },
       "brief": {
         "zh": "虚构记录：A 项有读数但无签名，B 项读数为 10.4，允许范围为 9.8–10.2。",
@@ -70,17 +123,17 @@
         }
       },
       {
-        "slug": "automotive-service-technicians-and-mechanics",
+        "slug": "bus-and-truck-mechanics-and-diesel-engine-specialists",
         "question": {
-          "zh": "面对偶发异响，你更愿意先复现症状还是核对记录？",
-          "en": "With an intermittent noise, would you first reproduce it or check the service record?"
+          "zh": "你愿意根据卡车异响的出现条件缩小故障范围吗？",
+          "en": "Would you narrow down a truck fault by finding when the noise occurs?"
         }
       },
       {
-        "slug": "non-destructive-testing-specialists",
+        "slug": "validation-engineers",
         "question": {
-          "zh": "工件不能拆解时，你怎样说明为什么选一种检测方法？",
-          "en": "How would you justify a test when a part cannot be taken apart?"
+          "zh": "你愿意编写验收测试，确认一项设备变更是否满足标准吗？",
+          "en": "Would you write an acceptance test to check whether an equipment change meets the specification?"
         }
       }
     ],
@@ -164,15 +217,15 @@
       "en": "Make the next step clear for someone else"
     },
     "intro": {
-      "zh": "比较三种交接：协调支持资源、指引资料查找、把日常观察交给家长。哪一种细节最值得你反复确认？",
-      "en": "Compare three handoffs: coordinating support, finding information, and passing observations to a parent. Which details would you most want to verify?"
+      "zh": "比较康复支持转介、图书资料检索和社区服务排班。你最愿意核对哪类交接细节？",
+      "en": "Compare a rehabilitation referral, a library search, and staffing for a community program. Which handoff details would you most want to verify?"
     },
     "examples": [
       {
-        "slug": "healthcare-social-workers",
+        "slug": "rehabilitation-counselors",
         "question": {
-          "zh": "接手一个服务请求时，你会怎样核对对方还需要什么支持？",
-          "en": "When you receive a service request, how would you check what support is still needed?"
+          "zh": "你愿意和服务对象核对下一步支持和负责跟进的人吗？",
+          "en": "Would you confirm the next support step and who will follow up with the client?"
         }
       },
       {
@@ -183,10 +236,10 @@
         }
       },
       {
-        "slug": "childcare-workers",
+        "slug": "social-and-community-service-managers",
         "question": {
-          "zh": "你会把哪一条日常观察写进交接记录，为什么？",
-          "en": "Which everyday observation would you record for the next caregiver, and why?"
+          "zh": "你愿意根据服务记录调整社区项目的排班和转介流程吗？",
+          "en": "Would you use service records to adjust staffing and referral procedures for a community program?"
         }
       }
     ],
@@ -217,8 +270,8 @@
       "en": "Decide what a story needs to keep"
     },
     "intro": {
-      "zh": "写作、编辑与视觉创作都会改变材料。比较你愿意从哪个角度表达，以及哪些意思在修订中应当保留。",
-      "en": "Writing, editing, and visual art all transform material. Compare the point of view you would choose and what you would preserve during revision."
+      "zh": "比较创作短篇、修订长文和视觉表达。你想从什么角度切入，又想在修改时保住什么？",
+      "en": "Compare composing a short piece, revising a draft, and telling a story visually. Which point of view would you choose, and what would you keep during revision?"
     },
     "examples": [
       {
@@ -229,10 +282,10 @@
         }
       },
       {
-        "slug": "editors",
+        "slug": "writers-and-authors",
         "question": {
-          "zh": "原稿有一句不够清楚但很有作者特色，你会怎样处理？",
-          "en": "How would you edit an unclear sentence that carries the author's voice?"
+          "zh": "你愿意根据审稿反馈调整文章的叙事顺序，同时保留关键细节吗？",
+          "en": "Would you revise the order of a piece after editorial feedback while preserving a key detail?"
         }
       },
       {
@@ -245,8 +298,8 @@
     ],
     "comparison": {
       "title": {
-        "zh": "比较写作与编辑",
-        "en": "Compare writing and editing"
+        "zh": "比较短篇创作与文稿修订",
+        "en": "Compare short-form writing and draft revision"
       },
       "brief": {
         "zh": "虚构材料：雨停后，社区花园里最后一株被风吹倒的番茄苗又立了起来。",
@@ -270,15 +323,15 @@
       "en": "Design a test that separates explanations"
     },
     "intro": {
-      "zh": "三个职业都需要把假设和观测对起来，所用的材料分别是程序表现、材料读数和实物证据。",
-      "en": "All three roles test explanations against observations, using software behavior, material readings, or physical evidence."
+      "zh": "比较数据库响应、材料复测和临床检验记录。三项工作都要说明证据怎样影响下一步。",
+      "en": "Compare database response times, a materials retest, and clinical laboratory records. In each case, explain what the evidence changes about the next step."
     },
     "examples": [
       {
-        "slug": "computer-and-information-research-scientists",
+        "slug": "database-architects",
         "question": {
-          "zh": "两个程序都报慢，你会怎样控制变量来比较？",
-          "en": "If two programs are reported as slow, which variable would you control first?"
+          "zh": "你愿意调整数据库设计，再验证查询性能是否达到要求吗？",
+          "en": "Would you revise a database design and verify that query performance meets the requirement?"
         }
       },
       {
@@ -289,17 +342,17 @@
         }
       },
       {
-        "slug": "forensic-science-technicians",
+        "slug": "medical-and-clinical-laboratory-technologists",
         "question": {
-          "zh": "你会记录什么信息，便于别人复核检验结果？",
-          "en": "What would you record so someone else could check the result?"
+          "zh": "你愿意追溯样本记录，判断异常结果需不需要复测吗？",
+          "en": "Would you trace the specimen record to decide whether an unusual result needs a repeat test?"
         }
       }
     ],
     "comparison": {
       "title": {
-        "zh": "比较软件对照与材料复测",
-        "en": "Compare a software experiment and a materials retest"
+        "zh": "比较数据库性能测试与材料复测",
+        "en": "Compare database performance testing and a materials retest"
       },
       "brief": {
         "zh": "虚构读数：样本 A 为 8、9、8，B 为 8、14、9。B 的第二次记录环境不同。",
@@ -323,22 +376,22 @@
       "en": "See how form and rhythm change a first impression"
     },
     "intro": {
-      "zh": "比较色彩、镜头和材质三种表达手段。你愿意花时间打磨哪一种变化，并怎样看出它有效？",
-      "en": "Compare three ways to shape an impression: color, shot order, and material. Which would you refine, and what would count as improvement?"
+      "zh": "比较展陈布置、录制设置和材料制作。你更愿意反复修改空间、画面还是实物？",
+      "en": "Compare exhibit layout, recording setup, and making an object. Would you rather refine the space, the recording setup, or the object?"
     },
     "examples": [
       {
-        "slug": "floral-designers",
+        "slug": "set-and-exhibit-designers",
         "question": {
-          "zh": "同一个桌面，怎样用形态和颜色把注意力引到中心？",
-          "en": "How would you use form and color to direct attention to the center of a table?"
+          "zh": "你愿意调展陈位置和照明，让观众先注意到一件展品吗？",
+          "en": "Would you adjust the placement and lighting of a display to guide visitors toward one object first?"
         }
       },
       {
-        "slug": "film-and-video-editors",
+        "slug": "audio-and-video-technicians",
         "question": {
-          "zh": "去掉一个镜头会让信息更清楚，还是让情绪少一层？",
-          "en": "Would removing one shot clarify the message or flatten its emotional tone?"
+          "zh": "你愿意核对机位、拾音和设备设置，让一段录制清楚可用吗？",
+          "en": "Would you check camera position, sound pickup, and equipment settings to make a recording usable?"
         }
       },
       {
@@ -351,21 +404,21 @@
     ],
     "comparison": {
       "title": {
-        "zh": "比较花艺构图与视频分镜",
-        "en": "Compare floral arrangement and video sequencing"
+        "zh": "比较展陈布置和录制设置",
+        "en": "Compare display layout and recording setup"
       },
       "brief": {
-        "zh": "虚构主题：“安静的早晨”。材料只用纸笔，不需要花材或影片。",
-        "en": "Fictional brief: “A quiet morning.” Use only paper and pencil."
+        "zh": "纸面场景：展馆要陈列一件手工作品，并录制一段制作过程供观众观看。",
+        "en": "Paper exercise: a gallery wants to display a handmade object and show a recording of how it was made."
       },
       "prompts": [
         {
-          "zh": "画一个桌花轮廓，标出主色、留白和你想保留的一处细节。",
-          "en": "Sketch an arrangement and mark its main color, negative space, and one detail to keep."
+          "zh": "画出展品、入口和观看位置，标记一处需要调光的地方。",
+          "en": "Sketch the object, entrance, and viewing position. Mark one spot where lighting needs to change."
         },
         {
-          "zh": "排出三个镜头，标注哪里停留、哪里转场，并写下想传达的感受。",
-          "en": "Sequence three shots, mark a pause and a cut, and describe the feeling you want to convey."
+          "zh": "标出机位、拾音点和一项开录前要检查的条件。",
+          "en": "Mark the camera and microphone positions and one check to make before recording."
         }
       ]
     }
@@ -381,10 +434,10 @@
     },
     "examples": [
       {
-        "slug": "airfield-operations-specialists",
+        "slug": "aircraft-service-attendants",
         "question": {
-          "zh": "两条运行通报相互矛盾时，你会先找谁核实？",
-          "en": "If two operations reports conflict, whom would you ask to verify them first?"
+          "zh": "地面服务计划临时变化时，你会先核对哪项服务请求或设备状态？",
+          "en": "If a ground-service plan changes at short notice, which service request or equipment condition would you check first?"
         }
       },
       {
@@ -395,17 +448,17 @@
         }
       },
       {
-        "slug": "first-line-supervisors-of-food-preparation-and-serving-workers",
+        "slug": "lodging-managers",
         "question": {
-          "zh": "已有两处工位同时排队，你会先调整哪一项安排？",
-          "en": "When two service stations develop queues, what would you adjust first?"
+          "zh": "前台客人集中到达时，你愿意协调同事并先解决一个影响入住的问题吗？",
+          "en": "When guests arrive together, would you coordinate staff and tackle one issue holding up check-in?"
         }
       }
     ],
     "comparison": {
       "title": {
-        "zh": "比较运行通报与交通工单",
-        "en": "Compare an operations alert and a traffic work order"
+        "zh": "比较地面服务交接与交通工单",
+        "en": "Compare a ground-service handoff and a traffic work order"
       },
       "brief": {
         "zh": "用虚构场地：东入口排队增长，一块指示牌被遮挡，有人报告西侧通道暂不可用。",
@@ -429,36 +482,36 @@
       "en": "Turn a disagreement into a testable question"
     },
     "intro": {
-      "zh": "同一项产品争议可以从需求证据、技术演示和实际操作障碍入手。比较你更愿意测试哪一种解释。",
-      "en": "A product disagreement can be investigated through demand, a technical demo, or how people use the product. Which explanation would you test first?"
+      "zh": "产品上线有争议时，可以先看受众反馈、买家的技术要求或验收记录。你更想从哪种证据开始？",
+      "en": "When a product launch runs into disagreement, you can start with audience feedback, a buyer’s requirements, or acceptance results. Which evidence would you investigate first?"
     },
     "examples": [
       {
-        "slug": "market-research-analysts",
+        "slug": "public-relations-managers",
         "question": {
-          "zh": "怎样提问才能区分用户说喜欢和实际会使用？",
-          "en": "What question would help distinguish stated interest from likely use?"
+          "zh": "你愿意核对受众反馈，再判断是否调整公开说明吗？",
+          "en": "Would you review audience feedback before deciding whether a public message needs to change?"
         }
       },
       {
-        "slug": "sales-engineers",
+        "slug": "sales-representatives-wholesale-and-manufacturing-technical-and-scientific-products",
         "question": {
-          "zh": "技术演示只能做一项时，你想验证哪条顾虑？",
-          "en": "If you can demonstrate only one thing, which concern would you test?"
+          "zh": "你愿意用一次产品演示确认客户的技术要求吗？",
+          "en": "Would you use a product demonstration to clarify a buyer’s technical requirements?"
         }
       },
       {
-        "slug": "human-factors-engineers-and-ergonomists",
+        "slug": "validation-engineers",
         "question": {
-          "zh": "用户在同一步反复出错时，你会观察界面的哪个线索？",
-          "en": "When people stumble at the same step, which interface cue would you examine?"
+          "zh": "你愿意设计一项验收检查，判断产品是否达到明文规定的要求吗？",
+          "en": "Would you design an acceptance check to see whether a product meets a stated requirement?"
         }
       }
     ],
     "comparison": {
       "title": {
-        "zh": "比较访谈与产品演示",
-        "en": "Compare an interview and a product demonstration"
+        "zh": "比较受众反馈核查与产品演示",
+        "en": "Compare audience feedback and a product demonstration"
       },
       "brief": {
         "zh": "虚构争议：团队认为报名表步骤太多，用户反馈却集中在“提交后没确认”。",
@@ -501,10 +554,10 @@
         }
       },
       {
-        "slug": "fitness-trainers-and-instructors",
+        "slug": "self-enrichment-teachers",
         "question": {
-          "zh": "示范之后，有人没有跟上时你会怎样调整讲解？",
-          "en": "How would you adjust an explanation when someone cannot follow a demonstration?"
+          "zh": "学员第一次尝试新活动时，你愿意根据他们的反馈调整示范步骤吗？",
+          "en": "When learners try an activity for the first time, would you adapt your demonstration based on their feedback?"
         }
       }
     ],
@@ -593,17 +646,17 @@
     },
     "examples": [
       {
-        "slug": "industrial-production-managers",
+        "slug": "manufacturing-engineers",
         "question": {
-          "zh": "一台设备少一个班次时，哪项安排需要先改？",
-          "en": "If a machine loses a shift, which part of the schedule should change first?"
+          "zh": "当产线某道工序积压时，你愿意查数据、改流程并安排验证吗？",
+          "en": "If work backs up at one step on a production line, would you check the data, change the process, and schedule a test?"
         }
       },
       {
-        "slug": "construction-managers",
+        "slug": "first-line-supervisors-of-construction-trades-and-extraction-workers",
         "question": {
-          "zh": "你怎样标清两个工序的前后依赖与验收点？",
-          "en": "How would you make two trades' dependencies and sign-offs explicit?"
+          "zh": "你愿意按图纸和进度协调现场班组的交接、检查和返工吗？",
+          "en": "Would you coordinate trade crews’ handoffs, inspections, and rework against drawings and schedules?"
         }
       },
       {
@@ -616,8 +669,8 @@
     ],
     "comparison": {
       "title": {
-        "zh": "比较产线排程与施工协调",
-        "en": "Compare production scheduling and construction coordination"
+        "zh": "比较产线流程改进与施工班组协调",
+        "en": "Compare production process improvement and trade crew coordination"
       },
       "brief": {
         "zh": "虚构项目周五交付。步骤 A 需一天，B 需两天且依赖 A，C 需半天且可并行。",
@@ -660,10 +713,10 @@
         }
       },
       {
-        "slug": "food-service-managers",
+        "slug": "dining-room-and-cafeteria-attendants-and-bartender-helpers",
         "question": {
-          "zh": "客流超过预期时，你会怎样重新安排岗位？",
-          "en": "How would you reassign responsibilities if more customers arrived than expected?"
+          "zh": "客流增加时，你愿意先核对餐区补给，再和同事交接待处理的桌位吗？",
+          "en": "As a dining area fills, would you check supplies and hand off tables that still need attention?"
         }
       }
     ],
@@ -699,10 +752,10 @@
     },
     "examples": [
       {
-        "slug": "training-and-development-specialists",
+        "slug": "instructional-coordinators",
         "question": {
-          "zh": "你会用什么短任务检查培训是否奏效？",
-          "en": "What short task would tell you whether the training worked?"
+          "zh": "你愿意把学习目标改成一份可试教的活动，再根据教师反馈修改吗？",
+          "en": "Would you turn a learning goal into an activity instructors can try and revise it after their feedback?"
         }
       },
       {
@@ -747,22 +800,22 @@
       "en": "Decide what to fund when resources are limited"
     },
     "intro": {
-      "zh": "比较预算配置、项目优先级和供应链取舍。注意每种判断需要哪些指标，以及什么证据会改变决策。",
-      "en": "Compare budget allocation, project priorities, and supply-chain trade-offs. What measures inform each choice, and what evidence would change it?"
+      "zh": "比较项目造价、节能改造和供货计划。留意每项工作要交付的数据，以及哪些约束会改变决策。",
+      "en": "Compare project estimating, energy upgrades, and supply planning. Look at the evidence each role produces and which constraints could change a decision."
     },
     "examples": [
       {
-        "slug": "budget-analysts",
+        "slug": "cost-estimators",
         "question": {
-          "zh": "你会先核对哪个假设再调拨预算？",
-          "en": "Which assumption would you check before reallocating the budget?"
+          "zh": "你愿意拆出项目材料和工时，标记会让成本变化的假设吗？",
+          "en": "Would you estimate labor and materials and flag assumptions that could change the cost?"
         }
       },
       {
-        "slug": "chief-sustainability-officers",
+        "slug": "energy-engineers-except-wind-and-solar",
         "question": {
-          "zh": "两个项目的成本和影响不同，你会如何比较？",
-          "en": "How would you compare projects with different costs and impacts?"
+          "zh": "你愿意比较设备改造前后的能耗，再给出验证节能效果的方案吗？",
+          "en": "Would you compare equipment energy use before and after an upgrade and propose a way to verify savings?"
         }
       },
       {
@@ -775,21 +828,21 @@
     ],
     "comparison": {
       "title": {
-        "zh": "比较预算配置与项目优先级",
-        "en": "Compare budget allocation and project priorities"
+        "zh": "比较项目成本测算与节能方案",
+        "en": "Compare project estimating and an energy upgrade"
       },
       "brief": {
-        "zh": "虚构预算为 10 点。A 降耗需 6 点，B 缩短等待需 4 点，C 改善报告需 5 点。",
-        "en": "Fictional budget: 10 points. A costs 6 to cut waste, B costs 4 to reduce waits, and C costs 5 to improve reporting."
+        "zh": "纸面场景：厂房可调换一台旧设备。方案 A 初期成本低，方案 B 预计耗电较少，但运行时间尚未核实。",
+        "en": "Paper exercise: a plant can replace one old machine. Option A costs less up front. Option B is expected to use less power, but operating hours remain uncertain."
       },
       "prompts": [
         {
-          "zh": "选两项并列出预算余额，再写一个会改变选择的成本假设。",
-          "en": "Choose two and calculate the remainder. Name a cost assumption that would change your choice."
+          "zh": "列出材料、工时和停工三项成本，标出最可能改变估算的一项。",
+          "en": "List the material, labor, and downtime costs, and mark the assumption most likely to change the estimate."
         },
         {
-          "zh": "先为三个项目定一个影响指标，再写一条预算外的决策条件。",
-          "en": "Choose an impact measure for the projects, then name one condition beyond cost that would change the decision."
+          "zh": "说明需要记录哪些运行数据，以及如何比较更换前后的耗电。",
+          "en": "Name the operating data you would record and how you would compare energy use before and after replacement."
         }
       ]
     }
