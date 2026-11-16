@@ -42,6 +42,8 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/personality", label: "人格百科" },
       { href: "/topics/mbti", label: "MBTI 專題" },
       { href: "/topics/big-five", label: "大五人格專題" },
+      { href: "/personality/enneagram", label: "九型人格與成長" },
+      { href: "/articles/riasec-holland-career-interest-test-explained", label: "職業興趣" },
       { href: "/topics/iq-eq", label: "IQ 與 EQ 專題" },
     ],
     career: [

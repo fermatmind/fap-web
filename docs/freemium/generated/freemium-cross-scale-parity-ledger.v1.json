@@ -186,7 +186,7 @@
         {
           "path": "tests/contracts/riasec-public-ia.contract.test.ts",
           "requiredTokens": [
-            "listRiasecFormMetas",
+            "listPublicRiasecFormMetas",
             "SCALE_CANONICAL_SLUG_MAP.RIASEC",
             "fetchRiasecHistory",
             "createAttemptShare"
@@ -197,7 +197,7 @@
           "requiredTokens": [
             "scaleCode=\"RIASEC\"",
             "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60",
-            "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140"
+            "includes(\"riasec_140\"))).toBe(false)"
           ]
         }
       ],

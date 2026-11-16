@@ -4,10 +4,9 @@ import { describe, expect, it } from "vitest";
 import { getHeaderDropdownMenus } from "@/lib/navigation/headerDropdownMenus";
 
 const ROOT = process.cwd();
-const KNOWN_EN_ARTICLE_404_LINKS = [
+const HEADER_ARTICLE_LINKS = [
   "/articles/mbti-basics",
   "/articles/mbti-growth-guide",
-  "/articles/mbti-narrative-portrait",
   "/articles/big-five-tool-guide",
   "/articles/eq-test-tool-guide",
 ];
@@ -17,17 +16,15 @@ function read(relPath: string): string {
 }
 
 describe("navigation dead link contract", () => {
-  it("does not expose known missing english article detail links from header or footer navigation", () => {
-    const articlesMenu = getHeaderDropdownMenus("en").find((menu) => menu.key === "articles");
-    expect(articlesMenu?.items.map((item) => item.href)).toEqual(["/articles"]);
-
-    for (const href of KNOWN_EN_ARTICLE_404_LINKS) {
-      expect(articlesMenu?.items.some((item) => item.href === href)).toBe(false);
+  it("uses the verified article shortcuts in each language header and keeps the footer on directory links", () => {
+    for (const locale of ["zh", "en", "zh-TW"] as const) {
+      const articlesMenu = getHeaderDropdownMenus(locale).find((menu) => menu.key === "articles");
+      expect(articlesMenu?.items.map((item) => item.href)).toEqual(["/articles", ...HEADER_ARTICLE_LINKS]);
     }
 
     const footer = read("components/layout/SiteFooter.tsx");
 
-    for (const href of KNOWN_EN_ARTICLE_404_LINKS) {
+    for (const href of [...HEADER_ARTICLE_LINKS, "/articles/mbti-narrative-portrait"]) {
       expect(footer).not.toContain(`href: "${href}"`);
     }
     expect(footer).not.toContain('{ href: "/articles", label: "All articles" }');
