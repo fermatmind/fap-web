@@ -44,7 +44,9 @@ export default async function Page({ params, searchParams }: {
         return <a key={code} href={`?view=full&type=${code}`} aria-current={data.fullCode === code ? "page" : undefined}>{code}</a>;
       }))}
     </nav>}
-    <FullReportPreview dimensions={dimensions} data={data} isUnlocked={isUnlocked} reportId={data.fullCode === dimensionSnapshot?.fullCode ? process.env.MBTI_PREVIEW_REPORT_ID : undefined} />
+    <main>
+      <FullReportPreview dimensions={dimensions} data={data} isUnlocked={isUnlocked} reportId={data.fullCode === dimensionSnapshot?.fullCode ? process.env.MBTI_PREVIEW_REPORT_ID : undefined} />
+    </main>
   </>;
   const chapters = [["career", "职业路径"], ["growth", "个人成长"], ["relationships", "关系模式"]] as const;
   return <div className={styles.cloneRoot}>

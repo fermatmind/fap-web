@@ -593,7 +593,7 @@ function EnneagramResultContent({
     );
   }
   return (
-    <main
+    <div
       className={styles.page}
       data-testid="enneagram-result-shell"
       data-interpretation-scope={viewModel.interpretationScope}
@@ -850,6 +850,6 @@ function EnneagramResultContent({
           </footer>
         </article>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1222,7 +1222,7 @@ export function MbtiDesktopCloneShell({
         />
 
         <div className={styles.pageGrid}>
-          <main className={styles.main}>
+          <div className={styles.main}>
             <section
               className={styles.introBlock}
               data-testid="mbti-result-intro"
@@ -1292,7 +1292,7 @@ export function MbtiDesktopCloneShell({
                 {cloneLocale === "zh" ? "内容包" : "Content package"} {storageMeta.package_id ?? "mbti-zh-result"} · {storageMeta.package_hash} · revision {storageMeta.revision_no ?? "-"}
               </p>
             ) : null}
-          </main>
+          </div>
 
           {shouldRenderRail ? (
             <MbtiCloneRail
