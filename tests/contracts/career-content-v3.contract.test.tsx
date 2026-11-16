@@ -162,6 +162,8 @@ describe("career content v3 contract", () => {
     expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
     expect(screen.getByTestId("career-published-fermat_decision_card")).toBeInTheDocument();
     expect(screen.getByTestId("career-published-fit_decision_checklist")).toBeInTheDocument();
+    expect(document.querySelectorAll("#fit")).toHaveLength(1);
+    expect(document.getElementById("fit")?.parentElement).toHaveAttribute("id", "career-content-fit");
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent("Visible v3 FAQ answer.");
     expect(screen.getByTestId("career-dossier-outlook-transitions").querySelectorAll('[data-career-api-list="market_signal_card.outlook_evidence"] > article')).toHaveLength(3);
     expect(screen.getByTestId("career-dossier-outlook-transitions").querySelectorAll('[data-career-api-list="market_signal_card.transitions"] > a')).toHaveLength(8);

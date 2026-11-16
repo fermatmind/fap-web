@@ -1107,6 +1107,9 @@ export function CareerProductionDisplaySurface({
           {block.anchorId === `career-content-${block.id}` ? (
             <span id={`career-visual-group-${block.id}`} aria-hidden="true" className="sr-only" />
           ) : null}
+          {block.anchorId === "career-content-fit" ? (
+            <span id="fit" aria-hidden="true" className="block scroll-mt-24" />
+          ) : null}
           {usesQuickDecisionHeader ? (
             <header className={visual.quickDecisionHeader}>
               <h2 className={visual.quickDecisionTitle} id={`${block.anchorId}-title`}>{block.title}</h2>
@@ -1403,6 +1406,7 @@ export function CareerProductionDisplaySurface({
         aria-labelledby={hasVisibleGroupTitle ? `career-visual-group-title-${group.id}` : undefined}
         aria-label={hasVisibleGroupTitle ? undefined : visualGroupLabel(group, isZh)}
       >
+        {group.id === "fit" ? <span id="fit" aria-hidden="true" className="block scroll-mt-24" /> : null}
         {usesEnhancedQuickDecision ? (
           <header className={visual.quickDecisionHeader}>
             <h2 id={`career-visual-group-title-${group.id}`} className={visual.quickDecisionTitle}>
