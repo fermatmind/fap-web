@@ -2,7 +2,7 @@ import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples";
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessmentLandingSocialImage } from "@/lib/tests/assessmentLandingUi";
-import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
+import { parseLandingFaq as parseFaq, parseMbtiEditorial, type LandingFaq } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
 import { AssessmentReadingPaths } from "@/components/tests/AssessmentReadingPaths";
@@ -38,6 +38,7 @@ import {
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
 import {
@@ -806,6 +807,20 @@ export default async function TestLandingPage({
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}`), query));
   }
 
+  const displayLocale = traditional ? "zh-TW" : locale;
+  const translate = traditional ? await loadTraditionalAssessmentText() : null;
+  const displayText = (text: string) => {
+    if (!translate) return text;
+    const localized = translate(text).replaceAll("型別", "類型");
+    return slug === SCALE_CANONICAL_SLUG_MAP.RIASEC ? localized.replaceAll("程式碼", "代碼") : localized;
+  };
+  const displayHref = (href: string) => traditional && /^\/zh(?:[/?#]|$)/u.test(href)
+    ? displayNavigationPath(href, displayLocale)
+    : href;
+  const displayLink = (link: { label: string; href: string }) => ({
+    label: displayText(link.label),
+    href: displayHref(link.href),
+  });
   const dict = getDictSync(locale);
   const landingData = await loadTestLandingData(locale, slug).catch((error) => resolveHeldLandingFailure(error, slug));
   if (landingData === "held-unavailable") {
@@ -813,10 +828,10 @@ export default async function TestLandingPage({
     return (
       <main className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-16" data-testid="test-landing-held-unavailable">
         <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-8" role="status">
-          <h1 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.title}</h1>
-          <p className="mt-3 text-[var(--fm-text-muted)]">{copy.body}</p>
+          <h1 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{displayText(copy.title)}</h1>
+          <p className="mt-3 text-[var(--fm-text-muted)]">{displayText(copy.body)}</p>
           <Link href={withLocale("/tests")} className={buttonVariants({ variant: "outline", className: "mt-6" })}>
-            {copy.back}
+            {displayText(copy.back)}
           </Link>
         </section>
       </main>
@@ -973,7 +988,7 @@ export default async function TestLandingPage({
           ? "免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
           : "Free includes summary and core domains; full unlocks facet table, deep dive, and action plan.",
       ];
-  const mergedFaq = faqItems.length > 0
+  const mergedFaq: LandingFaq[] = faqItems.length > 0
     ? faqItems
     : testDetailAuthority.faq.allowed
       ? isFlagshipDualVariant
@@ -1399,31 +1414,42 @@ export default async function TestLandingPage({
             ) : null}
           </CiteableSection>);
 
-  if (traditional) {
-    const translate = await loadTraditionalAssessmentText();
-    const choices = withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])
-      .map((choice) => ({
-        ...choice,
-        label: assessmentLandingUi?.traditionalEntryLabels[choice.key] ?? translate(choice.label),
-        summary: translate("summary" in choice ? choice.summary : choice.description),
-        href: choice.href?.replace(/^\/zh(?=\/tests\/)/u, "/zh-TW") ?? null,
-      }));
-    const description = assessmentLandingUi?.heroDescription ?? heroCopy;
-    return (
-      <section className="space-y-8" data-test-landing-read-source={landingData.source}>
-        <nav aria-label="導覽路徑" className="flex gap-2"><Link href="/zh-TW">首頁</Link><span>/</span><Link href="/zh-TW/tests">測評</Link></nav>
-        <AssessmentLandingIntro locale="zh-TW" title={translate(heroHeadingTitle)} heroArtwork={assessmentLandingUi?.heroArtwork}
-          description={description ? translate(description) : undefined} choices={choices}
-          disabled={testDisabled || !canRenderStartCta} showChoiceSummaries />
-        {disclaimer ? <p className="text-sm text-slate-600">{translate(disclaimer)}</p> : null}
-        {whenToUse && !showsRiasecActions ? <section className="space-y-2"><h2 className="text-xl font-semibold">何時使用這份測評</h2><p>{translate(whenToUse)}</p></section> : null}
-        {reportSummary && !showsRiasecActions ? <section className="space-y-2"><h2 className="text-xl font-semibold">結果與報告</h2><p>{translate(reportSummary)}</p></section> : null}
-        {mergedFaq.length ? <section className="space-y-3"><h2 className="text-xl font-semibold">常見問題</h2>
-          <FAQAccordion items={mergedFaq.map((item) => ({ q: translate(item.q), a: translate(item.a) }))} />
-        </section> : null}
-      </section>
-    );
-  }
+  const displayFaq = traditional ? mergedFaq.map((item) => ({
+    ...item,
+    q: displayText(item.q),
+    a: displayText(item.a),
+    references: item.references?.map(displayLink),
+    related_links: item.related_links?.map(displayLink),
+  })) : mergedFaq;
+  const displayEditorial = traditional && mbtiEditorial ? {
+    ...mbtiEditorial,
+    title: displayText(mbtiEditorial.title),
+    intro: displayText(mbtiEditorial.intro),
+    items: mbtiEditorial.items.map((item) => ({
+      ...item,
+      title: displayText(item.title),
+      body: displayText(item.body),
+      link: item.link ? displayLink(item.link) : undefined,
+    })),
+    comparison: mbtiEditorial.comparison ? {
+      caption: displayText(mbtiEditorial.comparison.caption),
+      note: displayText(mbtiEditorial.comparison.note),
+      columns: mbtiEditorial.comparison.columns.map(displayText),
+      rows: mbtiEditorial.comparison.rows.map((row) => row.map(displayText)),
+    } : undefined,
+  } : mbtiEditorial;
+
+  const displayChoices = <T extends { key: string; label: string; href: string | null }>(choices: T[]): T[] => {
+    const labelled = withEntryLabels(choices);
+    if (!traditional) return labelled;
+    return labelled.map((choice) => ({
+      ...choice,
+      label: assessmentLandingUi?.traditionalEntryLabels[choice.key] ?? displayText(choice.label),
+      ...("summary" in choice && typeof choice.summary === "string" ? { summary: displayText(choice.summary) } : {}),
+      href: choice.href === null ? null : displayHref(choice.href),
+    }));
+  };
+  const heroDescription = assessmentLandingUi?.heroDescription ?? (traditional ? heroCopy : undefined);
 
   return (
     <main
@@ -1436,30 +1462,30 @@ export default async function TestLandingPage({
         "data-domain-envelope-state": "metadata_only",
       } : {})}
     >
-      <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
-      <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
-      {softwareApplicationJsonLd ? (
+      {!traditional ? <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} /> : null}
+      {!traditional ? <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} /> : null}
+      {!traditional && softwareApplicationJsonLd ? (
         <JsonLd id={`test-software-application-${test.slug}`} data={softwareApplicationJsonLd} />
       ) : null}
-      {faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
+      {!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
-      {usesIllustratedLanding ? <nav className={previewStyles.breadcrumb} aria-label={locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{locale === "zh" ? "首页" : "Home"}</Link><span>/</span><Link href={withLocale("/tests")}>{locale === "zh" ? "测试" : "Tests"}</Link><span>/</span><span>{illustratedLandingLabel}</span></nav> : null}
+      {usesIllustratedLanding ? <nav className={previewStyles.breadcrumb} aria-label={traditional ? "導覽路徑" : locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{displayText(locale === "zh" ? "首页" : "Home")}</Link><span>/</span><Link href={withLocale("/tests")}>{displayText(locale === "zh" ? "测试" : "Tests")}</Link><span>/</span><span>{displayText(illustratedLandingLabel)}</span></nav> : null}
       <div className={usesIllustratedLanding ? previewStyles.layout : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]"}>
         <div className={usesIllustratedLanding ? previewStyles.content : "space-y-6"}>
           {showsMbtiActions ? <><MbtiLandingIntro
-            locale={locale}
-            title={heroHeadingTitle}
-            description={assessmentLandingUi?.heroDescription}
+            locale={displayLocale}
+            title={displayText(heroHeadingTitle)}
+            description={heroDescription ? displayText(heroDescription) : undefined}
             heroArtwork={assessmentLandingUi?.heroArtwork}
-            choices={withEntryLabels(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
+            choices={displayChoices(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
-          /><MbtiPricingNotice locale={locale} /></> : usesIllustratedLanding ? <AssessmentLandingIntro
-            locale={locale}
-            title={heroHeadingTitle}
+          /><MbtiPricingNotice locale={displayLocale} /></> : usesIllustratedLanding ? <AssessmentLandingIntro
+            locale={displayLocale}
+            title={displayText(heroHeadingTitle)}
             heroArtwork={assessmentLandingUi?.heroArtwork}
-            description={assessmentLandingUi?.heroDescription}
-            choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
+            description={heroDescription ? displayText(heroDescription) : undefined}
+            choices={displayChoices([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
             disabled={testDisabled || !canRenderStartCta}
             showChoiceSummaries={showsEnneagramActions || showsRiasecActions}
           /> : (
@@ -1555,45 +1581,46 @@ export default async function TestLandingPage({
           </section>
           )}
 
-          <AssessmentReadingPaths slug={test.slug} locale={locale} />
+          <AssessmentReadingPaths slug={test.slug} locale={displayLocale} text={displayText} destination={displayHref} />
 
-          {showsMbtiActions && (locale === "zh" || locale === "en") ? <MbtiResultExamples locale={locale} /> : null}
+          {showsMbtiActions ? <MbtiResultExamples locale={displayLocale} guideHref={traditional ? displayHref("/zh/articles/mbti-full-report-career-relationship-communication") : undefined} /> : null}
 
           {showsIqActions ? <IqLandingPreview
-            locale={locale}
+            locale={displayLocale}
             scoringHref={mbtiEditorial?.items.some((item) => item.id === "iq-section-3") ? "#iq-section-3" : undefined}
             limitsHref={mbtiEditorial?.items.some((item) => item.id === "iq-section-5") ? "#iq-section-5" : undefined}
           /> : null}
 
           {usesIllustratedLanding && !showsMbtiActions && !mbtiEditorial ? (
             <section id="about-assessment" className={previewStyles.whyChoose}>
-              <h2>{locale === "zh" ? "了解这份测评" : "About this assessment"}</h2>
-              <p>{heroCopy}</p>
-              <p>{questionSummary} · {durationSummary}</p>
-              {whenToUse ? <p>{whenToUse}</p> : null}
+              <h2>{displayText(locale === "zh" ? "了解这份测评" : "About this assessment")}</h2>
+              <p>{displayText(heroCopy)}</p>
+              <p>{displayText(questionSummary)} · {displayText(durationSummary)}</p>
+              {whenToUse ? <p>{displayText(whenToUse)}</p> : null}
             </section>
           ) : null}
 
-          {mbtiEditorial ? <MbtiWhyChoose
-            content={mbtiEditorial}
+          {displayEditorial ? <MbtiWhyChoose
+            content={displayEditorial}
             richBody={test.slug === "iq-test-intelligence-quotient-assessment"}
             itemOrder={assessmentEditorialLayout?.itemOrder}
             methodItemIds={assessmentEditorialLayout?.methodItemIds}
-            locale={locale}
+            destination={displayHref}
+            locale={displayLocale}
           /> : null}
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
           {showsRiasecActions && locale === "zh" ? (
             <section aria-labelledby="holland-synthetic-result" className="space-y-2 rounded-2xl border border-[var(--fm-border)] p-5" data-testid="riasec-result-example-entry">
-              <h2 id="holland-synthetic-result" className="m-0 text-lg font-semibold">匿名结果样例（虚构）</h2>
-              <p className="m-0 text-sm leading-6">六维兴趣分数（0–100）：{RIASEC_RESULT_EXAMPLES[0].scores.map((score, index) => `${"RIASEC"[index]} ${score}`).join("、")}。本例前三维是研究型、艺术型和社会型，代码为 IAS。</p>
-              <p className="m-0 text-sm leading-6">数字仅用于演示读法。可以先试一项相关活动，例如整理资料并写一页发现，再观察自己是否愿意继续做。分数不能判断能力或职业资格。</p>
+              <h2 id="holland-synthetic-result" className="m-0 text-lg font-semibold">{displayText("匿名结果样例（虚构）")}</h2>
+              <p className="m-0 text-sm leading-6">{displayText("六维兴趣分数（0–100）：")}{RIASEC_RESULT_EXAMPLES[0].scores.map((score, index) => `${"RIASEC"[index]} ${score}`).join("、")}{displayText("。本例前三维是研究型、艺术型和社会型，代码为 IAS。")}</p>
+              <p className="m-0 text-sm leading-6">{displayText("数字仅用于演示读法。可以先试一项相关活动，例如整理资料并写一页发现，再观察自己是否愿意继续做。分数不能判断能力或职业资格。")}</p>
               <p className="m-0 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-                <Link className="underline underline-offset-4" href="/zh/holland-test/pdf-download#result-examples">看分数接近与并列时怎么读</Link>
-                <Link className="underline underline-offset-4" href="/zh/career">查职业的实际工作任务</Link>
-                <Link className="underline underline-offset-4" href="/zh/career/tests">比较霍兰德、MBTI 与大五</Link>
-                <Link className="underline underline-offset-4" href="/zh/datasets/occupations/method">从兴趣结果查职业任务与来源</Link>
+                <Link className="underline underline-offset-4" href={displayHref("/zh/holland-test/pdf-download#result-examples")}>{displayText("看分数接近与并列时怎么读")}</Link>
+                <Link className="underline underline-offset-4" href={displayHref("/zh/career")}>{displayText("查职业的实际工作任务")}</Link>
+                <Link className="underline underline-offset-4" href={displayHref("/zh/career/tests")}>{displayText("比较霍兰德、MBTI 与大五")}</Link>
+                <Link className="underline underline-offset-4" href={displayHref("/zh/datasets/occupations/method")}>{displayText("从兴趣结果查职业任务与来源")}</Link>
               </p>
             </section>
           ) : null}
@@ -1608,17 +1635,17 @@ export default async function TestLandingPage({
               </div>
             </section>
           ) : null}
-          {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
+          {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} text={displayText} destination={displayHref} /> : null}
 
           {!hasFreeFullReportAuthority && (rollout.paywallMode === "free_only" || !rollout.commerceEnabled) ? (
             <Card>
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "当前开放模式" : "Current availability"}</CardTitle>
+                <CardTitle>{displayText(locale === "zh" ? "当前开放模式" : "Current availability")}</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-slate-700">
-                {locale === "zh"
+                {displayText(locale === "zh"
                   ? "当前仅开放免费报告预览，付费解锁暂未开放。"
-                  : "Only the free report preview is available right now. Paid unlock is temporarily disabled."}
+                  : "Only the free report preview is available right now. Paid unlock is temporarily disabled.")}
               </CardContent>
             </Card>
           ) : null}
@@ -1626,12 +1653,12 @@ export default async function TestLandingPage({
           {maintenanceRequested ? (
             <Card>
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "当前维护中" : "Maintenance mode"}</CardTitle>
+                <CardTitle>{displayText(locale === "zh" ? "当前维护中" : "Maintenance mode")}</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-slate-700">
-                {locale === "zh"
+                {displayText(locale === "zh"
                   ? "该测评当前暂停开放，请稍后再试。"
-                  : "This assessment is temporarily unavailable. Please try again later."}
+                  : "This assessment is temporarily unavailable. Please try again later.")}
               </CardContent>
             </Card>
           ) : null}
@@ -1684,9 +1711,9 @@ export default async function TestLandingPage({
           {!isFlagshipDualVariant && reportSummary ? (
             <Card>
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "报告摘要" : "Report summary"}</CardTitle>
+                <CardTitle>{displayText(locale === "zh" ? "报告摘要" : "Report summary")}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-slate-700">{reportSummary}</CardContent>
+              <CardContent className="text-sm text-slate-700">{displayText(reportSummary)}</CardContent>
             </Card>
           ) : null}
 
@@ -1699,9 +1726,9 @@ export default async function TestLandingPage({
               data-evidence-source-type="visible_page_content"
               data-evidence-readiness="partial"
             >
-              <h2 className="text-2xl font-bold tracking-tight text-slate-900">{showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : usesIllustratedLanding ? (locale === "zh" ? "常见问题" : "Frequently asked questions") : "FAQ"}</h2>
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900">{displayText(showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : usesIllustratedLanding ? (locale === "zh" ? "常见问题" : "Frequently asked questions") : "FAQ")}</h2>
               <div data-evidence-block="faq">
-                {usesIllustratedLanding ? <MbtiFaqAnswers items={mergedFaq} locale={locale} richBody={test.slug === "iq-test-intelligence-quotient-assessment"} /> : <FAQAccordion items={mergedFaq} />}
+                {usesIllustratedLanding ? <MbtiFaqAnswers items={displayFaq} locale={displayLocale} destination={displayHref} richBody={test.slug === "iq-test-intelligence-quotient-assessment"} /> : <FAQAccordion items={mergedFaq} />}
               </div>
             </section>
           ) : null}
@@ -1709,9 +1736,9 @@ export default async function TestLandingPage({
           {disclaimer ? (
             <Card id="limitations" data-evidence-block="caveat">
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "免责声明" : "Disclaimer"}</CardTitle>
+                <CardTitle>{displayText(locale === "zh" ? "免责声明" : "Disclaimer")}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-slate-700">{disclaimer}</CardContent>
+              <CardContent className="text-sm text-slate-700">{displayText(disclaimer)}</CardContent>
             </Card>
           ) : null}
 

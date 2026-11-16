@@ -7,6 +7,8 @@ import type {
 
 type RiasecLandingSurfaceSectionsProps = {
   surface: LandingSurfaceViewModel | null;
+  text?: (value: string) => string;
+  destination?: (value: string) => string;
 };
 
 type RiasecLandingModule = {
@@ -71,7 +73,7 @@ function findCareerLinks(surface: LandingSurfaceViewModel): LandingDiscoverabili
   );
 }
 
-export function RiasecLandingSurfaceSections({ surface }: RiasecLandingSurfaceSectionsProps) {
+export function RiasecLandingSurfaceSections({ surface, text = (value) => value, destination = (value) => value }: RiasecLandingSurfaceSectionsProps) {
   if (!surface) {
     return null;
   }
@@ -93,8 +95,8 @@ export function RiasecLandingSurfaceSections({ surface }: RiasecLandingSurfaceSe
         >
           {module.blocks.map((block) => (
             <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-              {block.title ? <h2 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{block.title}</h2> : null}
-              {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
+              {block.title ? <h2 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{text(block.title)}</h2> : null}
+              {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{text(block.body)}</p> : null}
             </article>
           ))}
         </div>
@@ -108,16 +110,16 @@ export function RiasecLandingSurfaceSections({ surface }: RiasecLandingSurfaceSe
           {careerLinks.map((item) => (
             <Link
               key={item.key}
-              href={item.href}
+              href={destination(item.href)}
               className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 transition hover:border-[var(--fm-accent)]"
             >
               {item.badgeLabel ? (
                 <span className="mb-2 inline-flex text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                  {item.badgeLabel}
+                  {text(item.badgeLabel)}
                 </span>
               ) : null}
-              <span className="block text-base font-semibold text-[var(--fm-text)]">{item.title}</span>
-              {item.summary ? <span className="mt-2 block text-sm leading-7 text-[var(--fm-text-muted)]">{item.summary}</span> : null}
+              <span className="block text-base font-semibold text-[var(--fm-text)]">{text(item.title)}</span>
+              {item.summary ? <span className="mt-2 block text-sm leading-7 text-[var(--fm-text-muted)]">{text(item.summary)}</span> : null}
             </Link>
           ))}
         </div>

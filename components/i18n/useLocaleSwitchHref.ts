@@ -5,7 +5,7 @@ import { localizedPath, toggleLocalePath, type Locale } from "@/lib/i18n/locales
 import { emailTokenSwitchHref } from "@/lib/i18n/emailDisplayRoutes";
 import { normalizeTraditionalPersonalityLanguageAlternates } from "@/lib/personality/traditionalLanguageAlternates";
 import { CANONICAL_SITE_URL } from "@/lib/site";
-import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
+import { hasTraditionalAssessmentSearchPath, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
 function articleReaderHref(pathname: string, language: "zh-CN" | "en" | "zh-TW", document?: ParentNode): string | undefined {
   if (!/^\/(?:zh|en|zh-TW)\/articles\/[^/]+$/u.test(pathname)) return;
@@ -67,6 +67,8 @@ export function resolveTraditionalSwitchHref(pathname: string, head?: ParentNode
     const topicHref = head?.querySelector<HTMLAnchorElement>('[data-topic-reader-language][lang="zh-TW"]')?.getAttribute("href");
     if (topicHref === `/zh-TW${pathname.slice(pathname.indexOf("/", 1))}`) return topicHref;
   }
+  const assessmentPath = pathname.replace(/^\/(?:zh|en)(?=\/)/u, "");
+  if (assessmentPath !== pathname && hasTraditionalAssessmentSearchPath(assessmentPath)) return `/zh-TW${assessmentPath}`;
   const registered = traditionalPath(pathname);
   if (registered) return emailTokenSwitchHref(pathname, registered, search);
   if (/^\/(?:en|zh)\/articles\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/u.test(pathname)

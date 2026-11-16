@@ -1,10 +1,11 @@
 import type { EditorialLink, LandingFaq, MbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import styles from "./mbti-preview.module.css";
 
-function LinkGroup({ label, links, locale }: { label: string; links?: EditorialLink[]; locale: "zh" | "en" }) {
-  return links?.length ? <div className={styles.faqSources}>{label}{locale === "zh" ? "：" : ": "}{links.map((link, index) => <span key={link.href}>
-    {index > 0 ? (locale === "zh" ? "；" : "; ") : ""}<a href={link.href}>{link.label}</a>
+function LinkGroup({ label, links, locale }: { label: string; links?: EditorialLink[]; locale: DisplayLocale }) {
+  return links?.length ? <div className={styles.faqSources}>{label}{locale !== "en" ? "：" : ": "}{links.map((link, index) => <span key={link.href}>
+    {index > 0 ? (locale !== "en" ? "；" : "; ") : ""}<a href={link.href}>{link.label}</a>
   </span>)}</div> : null;
 }
 
@@ -24,12 +25,12 @@ function orderItems(content: MbtiEditorial, itemOrder: string[]) {
     .map(({ item }) => item);
 }
 
-function EditorialItems({ content, items, richBody, locale }: { content: MbtiEditorial; items: MbtiEditorial["items"]; richBody: boolean; locale: "zh" | "en" }) {
+function EditorialItems({ content, items, richBody, locale, destination }: { content: MbtiEditorial; items: MbtiEditorial["items"]; richBody: boolean; locale: DisplayLocale; destination?: (href: string) => string }) {
   return <div>{items.map((item) => <article id={item.id} key={item.id}>
     <h3>{item.title}</h3>
-    <div>{richBody ? renderSimpleMarkdown(item.body, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale }) : item.body.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
+    <div>{richBody ? renderSimpleMarkdown(item.body, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale: locale === "zh-TW" ? "zh" : locale, linkDestination: destination }) : item.body.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
     {item.id === "versions" && content.comparison ? <div id="version-comparison" className={styles.comparison}>
-      <p className="md:hidden">{locale === "zh" ? "左右滑动表格，比较两个版本。" : "Scroll sideways to compare both versions."}</p>
+      <p className="md:hidden">{locale === "zh-TW" ? "左右滑動表格，比較兩個版本。" : locale === "zh" ? "左右滑动表格，比较两个版本。" : "Scroll sideways to compare both versions."}</p>
       <div className={styles.tableScroll} role="region" aria-label={content.comparison.caption} tabIndex={0}>
         <table>
           <caption>{content.comparison.caption}</caption>
@@ -43,12 +44,13 @@ function EditorialItems({ content, items, richBody, locale }: { content: MbtiEdi
   </article>)}</div>;
 }
 
-export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], locale = "en", richBody = false }: {
+export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], locale = "en", richBody = false, destination }: {
   content: MbtiEditorial;
   itemOrder?: string[];
   methodItemIds?: string[];
-  locale?: "zh" | "en";
+  locale?: DisplayLocale;
   richBody?: boolean;
+  destination?: (href: string) => string;
 }) {
   const orderedItems = orderItems(content, itemOrder);
   const methodIds = new Set(methodItemIds);
@@ -58,19 +60,19 @@ export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], loc
   return <section id="why-choose" className={styles.whyChoose} aria-labelledby="why-choose-title">
     <h2 id="why-choose-title">{content.title}</h2>
     <p className={styles.whyIntro}>{content.intro}</p>
-    <EditorialItems content={content} items={overviewItems} richBody={richBody} locale={locale} />
+    <EditorialItems content={content} items={overviewItems} richBody={richBody} locale={locale} destination={destination} />
     {methodItems.length > 0 ? <section id="method-and-evidence" className={styles.methodSection} aria-labelledby="method-and-evidence-title">
-      <h2 id="method-and-evidence-title">{locale === "zh" ? "方法与证据" : "Methods and limits"}</h2>
-      <EditorialItems content={content} items={methodItems} richBody={richBody} locale={locale} />
+      <h2 id="method-and-evidence-title">{locale === "zh-TW" ? "方法與證據" : locale === "zh" ? "方法与证据" : "Methods and limits"}</h2>
+      <EditorialItems content={content} items={methodItems} richBody={richBody} locale={locale} destination={destination} />
     </section> : null}
   </section>;
 }
 
-export function MbtiFaqAnswers({ items, locale, richBody = false }: { items: LandingFaq[]; locale: "zh" | "en"; richBody?: boolean }) {
+export function MbtiFaqAnswers({ items, locale, richBody = false, destination }: { items: LandingFaq[]; locale: DisplayLocale; richBody?: boolean; destination?: (href: string) => string }) {
   return <>{items.map((item, index) => <article id={item.id} key={item.id ?? index} className={styles.faqItem}>
     <h3>{item.q}</h3>
-    {richBody ? renderSimpleMarkdown(item.a, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale }) : item.a.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-    <LinkGroup locale={locale} label={locale === "zh" ? "参考资料" : "References"} links={item.references} />
-    <LinkGroup locale={locale} label={locale === "zh" ? "产品说明／延伸阅读" : "Product information / further reading"} links={item.related_links} />
+    {richBody ? renderSimpleMarkdown(item.a, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale: locale === "zh-TW" ? "zh" : locale, linkDestination: destination }) : item.a.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+    <LinkGroup locale={locale} label={locale === "zh-TW" ? "參考資料" : locale === "zh" ? "参考资料" : "References"} links={item.references} />
+    <LinkGroup locale={locale} label={locale === "zh-TW" ? "產品說明／延伸閱讀" : locale === "zh" ? "产品说明／延伸阅读" : "Product information / further reading"} links={item.related_links} />
   </article>)}</>;
 }

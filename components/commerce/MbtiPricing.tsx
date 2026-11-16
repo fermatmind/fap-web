@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
-import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale } from "@/lib/i18n/locales";
 
 export function mbtiPricingCopy(locale: DisplayLocale) {
   if (locale === "zh-TW") {
@@ -76,14 +76,14 @@ export function mbtiPricingCopy(locale: DisplayLocale) {
   };
 }
 
-export function MbtiPricingNotice({ locale }: { locale: Locale }) {
+export function MbtiPricingNotice({ locale }: { locale: DisplayLocale }) {
   const copy = mbtiPricingCopy(locale);
   return (
     <aside data-testid="mbti-pricing-notice" className="space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
       <p className="m-0 font-semibold">{copy.price}</p>
       <p className="m-0">{copy.status} · {copy.billing}</p>
       <p className="m-0">{copy.notice}</p>
-      <Link prefetch={false} href={localizedPath("/pricing", locale)} className="inline-block font-semibold text-blue-800 underline underline-offset-4">{copy.link}</Link>
+      <Link prefetch={false} href={locale === "zh-TW" ? "/zh-TW/pricing" : localizedPath("/pricing", locale)} className="inline-block font-semibold text-blue-800 underline underline-offset-4">{copy.link}</Link>
     </aside>
   );
 }

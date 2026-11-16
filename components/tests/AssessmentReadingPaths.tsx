@@ -1,10 +1,16 @@
 import Link from "next/link";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
 // Public navigation, not another scoring or result-content authority. Reuse the
 // existing explanation, type directory and synthetic examples before the long methods section.
-export function AssessmentReadingPaths({ slug, locale }: { slug: string; locale: "zh" | "en" }) {
-  if (locale !== "zh") return null;
+export function AssessmentReadingPaths({ slug, locale, text = (value) => value, destination = (value) => value }: {
+  slug: string;
+  locale: DisplayLocale;
+  text?: (value: string) => string;
+  destination?: (value: string) => string;
+}) {
+  if (locale === "en") return null;
 
   const copy = slug === SCALE_CANONICAL_SLUG_MAP.MBTI ? {
     title: "已经知道自己的四字母类型？",
@@ -33,11 +39,11 @@ export function AssessmentReadingPaths({ slug, locale }: { slug: string; locale:
 
   return (
     <section id="read-results" aria-labelledby="read-results-title" data-testid="assessment-reading-paths" className="space-y-4">
-      <h2 id="read-results-title">{copy.title}</h2>
-      <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{copy.body}</p>
+      <h2 id="read-results-title">{text(copy.title)}</h2>
+      <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{text(copy.body)}</p>
       <ul className="m-0 list-disc space-y-3 pl-5 text-sm leading-7">
         {copy.links.map(({ href, label }) => (
-          <li key={href}><Link href={href} className="underline underline-offset-4">{label}</Link></li>
+          <li key={href}><Link href={destination(href)} className="underline underline-offset-4">{text(label)}</Link></li>
         ))}
       </ul>
     </section>

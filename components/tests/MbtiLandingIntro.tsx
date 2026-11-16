@@ -17,7 +17,7 @@ type Choice = {
 };
 
 type Props = {
-  locale: "zh" | "en";
+  locale: "zh" | "en" | "zh-TW";
   title: string;
   heroArtwork?: AssessmentArtwork;
   choices: Choice[];
@@ -26,7 +26,7 @@ type Props = {
 };
 
 export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled, description }: Props) {
-  const zh = locale === "zh";
+  const zh = locale !== "en";
   return (
     <section id="what-it-is" className={styles.hero}>
       <div className={styles.heroInner}>
@@ -36,7 +36,7 @@ export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled
         </div>
         <div id="choose-version" className={styles.heroActions} data-testid="mbti-landing-entry-cta-group">
           {disabled || choices.length === 0 ? (
-            <p role="status" className={styles.unavailable}>{zh ? "测试暂不可用，请稍后再试。" : "This test is temporarily unavailable. Please try again later."}</p>
+            <p role="status" className={styles.unavailable}>{locale === "zh-TW" ? "測試暫時無法使用，請稍後再試。" : zh ? "测试暂不可用，请稍后再试。" : "This test is temporarily unavailable. Please try again later."}</p>
           ) : (
             <div className={styles.versionActions} data-testid="mbti-ads-primary-whitelist">
               {choices.map((choice, index) => (
@@ -47,7 +47,7 @@ export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled
                     eventProperties={choice.eventProperties ?? {}}
                     data-testid={choice.testId}
                   >
-                    {zh ? choice.label.replace(/MBTI\s*/i, "").replace(/(\d+)Q/i, "$1 题") : choice.label}
+                    {zh ? choice.label.replace(/MBTI\s*/i, "").replace(/(\d+)Q/i, locale === "zh-TW" ? "$1 題" : "$1 题") : choice.label}
                     <ArrowRight size={19} aria-hidden />
                   </TrackedEntryCtaLink>
                   <p className={styles.versionSummary}>{choice.summary}</p>

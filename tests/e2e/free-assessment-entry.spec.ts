@@ -60,3 +60,30 @@ for (const locale of ["en", "zh"] as const) {
     });
   }
 }
+
+for (const slug of slugs) {
+  test(`@release ${slug} uses the complete Traditional landing shell and switches in place`, async ({ page }) => {
+    const suffix = `/tests/${slug}`;
+    await page.setViewportSize({ width: 1430, height: 940 });
+    await page.goto(`/zh${suffix}`);
+    await expect(page.locator("[data-site-header-ready=true]")).toBeVisible();
+    const language = page.locator('button[aria-controls="site-language-menu"]');
+    await language.click();
+    await page.getByRole("menuitem", { name: "繁體中文" }).click();
+    await expect(page).toHaveURL(new RegExp(`/zh-TW${suffix}$`));
+    await expect(page.locator("html")).toHaveAttribute("lang", "zh-TW");
+    const main = page.locator("main[data-test-landing-read-source]");
+    await expect(main.locator("h1")).toBeVisible();
+    await expect(main.locator("#faq h2")).toBeVisible();
+    const cta = main.locator(`a[href^="/zh-TW${suffix}/take"]`).first();
+    await expect(cta).toBeVisible();
+    if (slug.startsWith("mbti")) await expect(main.locator("#result-examples article")).toHaveCount(2);
+    if (slug.startsWith("iq")) await expect(main.locator("#iq-sample-question")).toBeVisible();
+    if (slug.startsWith("holland")) await expect(main.getByTestId("riasec-result-example-entry")).toBeVisible();
+    for (const width of [1430, 390]) {
+      await page.setViewportSize({ width, height: 940 });
+      const faq = await main.locator("#faq h2").boundingBox();
+      expect(faq?.x).toBeGreaterThan(0);
+    }
+  });
+}
