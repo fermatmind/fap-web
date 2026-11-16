@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { buildCareerPageFixture } from './careerPage.fixture';
-import { publishedCareerPage } from '@/tests/fixtures/career-page/publishedCareerPage';
+import traditionalAccountantsPage from '@/tests/fixtures/career-page/accountants-and-auditors.zh-TW.json';
 
 function bundle(indexable = true) {
   const page = buildCareerPageFixture('actors', 'zh');
@@ -110,7 +110,7 @@ describe('Traditional Career detail reader', () => {
     const source = bundle(true);
     const slug = 'accountants-and-auditors';
     const canonicalPath = `/zh-TW/career/jobs/${slug}`;
-    const page = await publishedCareerPage('zh-TW', slug) as typeof source.career_page;
+    const page = traditionalAccountantsPage;
     const payload = {
       ...source,
       identity: {...source.identity, canonical_slug: slug},
