@@ -10,7 +10,8 @@ const COPY = {
     sampleHeading: "Sample report from synthetic answers",
     source: "93 questions · Scoring version 2026.01.mbti_93 · English preview",
     summary: "FermatMind scored a synthetic set of answers using the live 93-question form. This abridged example shows the resulting type, preference scores, and the four chapter topics.",
-    poles: ["Introversion", "Intuition", "Thinking", "Judging", "T (Turbulent)"],
+    poles: ["Introversion", "Intuition", "Thinking", "Judging"],
+    additionalAxis: "Additional A/T description · T (Turbulent)",
     chapters: [
       ["Personality Traits", "Read the four preference pairs alongside the type. In this sample, the first two are close to the midpoint."],
       ["Your Career Path", "Consider which work tasks and environments suit your preferences. Compare the suggestions with work you have actually done."],
@@ -28,7 +29,8 @@ const COPY = {
     sampleHeading: "合成作答报告示例",
     source: "93 题 · 计分版本 2026.01.mbti_93 · 简体中文预览",
     summary: "费马测试用线上 93 题题本给一组人工构造的作答计分。以下节选展示实际得到的类型、偏好分数和报告四章的阅读重点。",
-    poles: ["内向", "直觉", "思考", "判断", "T"],
+    poles: ["内向", "直觉", "思考", "判断"],
+    additionalAxis: "A/T 补充描述 · T",
     chapters: [
       ["人格特质", "把四组偏好与类型一起读。此例的前两组偏好都接近中点。"],
       ["职业路径", "思考哪类任务和工作环境更符合自己的偏好，再用实际做过的工作检验这些提示。"],
@@ -46,7 +48,8 @@ const COPY = {
     sampleHeading: "合成作答報告範例",
     source: "93 題 · 計分版本 2026.01.mbti_93 · 台灣繁體中文預覽",
     summary: "費馬測試以正式上線的 93 題題本，為一組人工設計的答案計分。這份節錄展示實際得到的類型、偏好分數，以及報告四章的閱讀重點。",
-    poles: ["內向", "直覺", "思考", "判斷", "T"],
+    poles: ["內向", "直覺", "思考", "判斷"],
+    additionalAxis: "A/T 補充描述 · T",
     chapters: [
       ["人格特質", "把四組偏好與類型一起看。這個範例的前兩組偏好都接近中點。"],
       ["職涯路徑", "想想哪些工作任務和環境符合自己的偏好，再以實際做過的工作檢視這些提示。"],
@@ -58,7 +61,8 @@ const COPY = {
 } as const;
 
 // Rounded scores toward the displayed pole, from a synthetic production mbti_93 report.
-const SAMPLE_SCORES = [54, 54, 53, 57, 55] as const;
+const SAMPLE_PREFERENCE_SCORES = [54, 54, 53, 57] as const;
+const SAMPLE_AT_SCORE = 55;
 
 export function MbtiReportAccessSummary({
   locale,
@@ -97,9 +101,13 @@ export function MbtiScoredReportExample({ locale }: { locale: DisplayLocale }) {
         {copy.poles.map((pole, index) => (
           <div key={pole} className="flex flex-wrap justify-between gap-2 rounded-lg bg-slate-50 px-3 py-2">
             <dt>{pole}</dt>
-            <dd className="m-0 font-semibold tabular-nums">{SAMPLE_SCORES[index]}%</dd>
+            <dd className="m-0 font-semibold tabular-nums">{SAMPLE_PREFERENCE_SCORES[index]}%</dd>
           </div>
         ))}
+      </dl>
+      <dl className="m-0 flex flex-wrap justify-between gap-2 border-t border-slate-200 pt-3" data-testid="mbti-example-additional-axis">
+        <dt>{copy.additionalAxis}</dt>
+        <dd className="m-0 font-semibold tabular-nums">{SAMPLE_AT_SCORE}%</dd>
       </dl>
       <ol className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
         {copy.chapters.map(([heading, text], index) => (

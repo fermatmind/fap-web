@@ -28,6 +28,7 @@ describe("public MBTI report preview", () => {
     expect(html).toContain("INTJ-T");
     expect(html).toContain("2026.01.mbti_93");
     expect(html).toContain("54%");
+    expect(html).toMatch(/data-testid="mbti-example-additional-axis"[^>]*><dt>[^<]*A\/T[^<]*<\/dt><dd[^>]*>55%<\/dd>/);
     expect(html).not.toMatch(/href=|attempt_id|access_token/);
   });
 });
