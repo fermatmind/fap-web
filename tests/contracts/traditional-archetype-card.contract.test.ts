@@ -7,6 +7,10 @@ it.each(Object.entries(members))("renders only public Taiwan card data for %s", 
   const context = { params: Promise.resolve({ slug }) };
   const url = `https://fermatmind.com/og/fun/${slug}?locale=zh-TW&portrait=`;
   const result = await GET(new Request(url + ids[0]), context);
+  if (slug === "jungian-archetype") {
+    expect(result.status).toBe(404);
+    return;
+  }
   const bytes = Buffer.from(await result.arrayBuffer());
   expect(result.headers.get("X-Robots-Tag")).toBe("noindex");
   expect(bytes.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");

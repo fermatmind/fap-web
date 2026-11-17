@@ -109,17 +109,6 @@
       "layout": "grid"
     }
   },
-  "jungian-archetype": {
-    "subtitle": {
-      "zh": "十二原型的动机叙事",
-      "en": "Twelve archetypal motives"
-    },
-    "art": {
-      "primary": "mirror",
-      "secondary": "book",
-      "layout": "story"
-    }
-  },
   "introvert-extrovert": {
     "subtitle": {
       "zh": "社交参与与外向倾向",
@@ -2241,17 +2230,6 @@
       "primary": "cup",
       "secondary": "waves",
       "layout": "paired"
-    }
-  },
-  "cognitive-functions-test": {
-    "subtitle": {
-      "zh": "八组信息偏好的探索",
-      "en": "Eight information-preference themes"
-    },
-    "art": {
-      "primary": "dimensions",
-      "secondary": "book",
-      "layout": "grid"
     }
   },
   "love-type-16": {

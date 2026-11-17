@@ -148,26 +148,6 @@
       ]
     },
     {
-      "slug": "jungian-archetype",
-      "collection": "explore",
-      "code": "JUNGIAN_ARCHETYPE",
-      "formCode": "fm_archetypal_motivation_choices_36",
-      "resultSlugs": [
-        "innocent",
-        "sage",
-        "explorer",
-        "rebel",
-        "magician",
-        "hero",
-        "lover",
-        "jester",
-        "everyperson",
-        "caregiver",
-        "ruler",
-        "creator"
-      ]
-    },
-    {
       "slug": "introvert-extrovert",
       "collection": "explore",
       "code": "IPIP_EXTRAVERSION_10",
@@ -2801,22 +2781,6 @@
         "fish",
         "decaying-vegetables",
         "living-contaminants"
-      ]
-    },
-    {
-      "slug": "cognitive-functions-test",
-      "collection": "explore",
-      "code": "FM_COGNITIVE_FUNCTIONS32",
-      "formCode": "fm_cognitive_functions32_v1",
-      "resultSlugs": [
-        "ni",
-        "ne",
-        "si",
-        "se",
-        "ti",
-        "te",
-        "fi",
-        "fe"
       ]
     },
     {

@@ -26,15 +26,11 @@ describe("Jungian Archetype result conversations and observations", () => {
     const unknown = { ...quiz.profiles[0], id: "__proto__" }; expect(jungianArchetypeResultProfile(unknown)).toBe(unknown);
   });
 
-  it.each(["zh", "en"] as const)("renders all twelve public %s readings with original and new content, without private counts", async locale => {
+  it.each(["zh", "en", "zh-TW"])("returns 404 for retired %s guides", async locale => {
     const guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
     for (const profile of quiz.profiles) {
-      const root = document.createElement("div");
-      root.innerHTML = renderToStaticMarkup(await guide.default({ params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }));
-      expect(root.querySelector(`[data-jungian-archetype-result-reading="${profile.id}"]`)).not.toBeNull();
-      expect(root.querySelector("[data-archetype-count]")).toBeNull();
-      for (const section of jungianArchetypeResultProfile(profile).sections) for (const p of section.paragraphs) expect(root.querySelector(`#report-${section.id}`)?.textContent).toContain(p[locale]);
-      if (locale === "en") expect(root.textContent).not.toMatch(/\p{Script=Han}/u);
+      await expect(guide.default({ params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }))
+        .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
     }
   });
 

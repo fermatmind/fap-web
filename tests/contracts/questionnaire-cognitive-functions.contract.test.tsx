@@ -13,8 +13,8 @@ const complete = (values: string[]) => { const r = scoreQuestionnaire(quiz, answ
 const hash = (v: unknown) => createHash("sha256").update(JSON.stringify(v)).digest("hex");
 
 describe("T012 original eight-function reflection, preserved original32 alongside the separate Mini56 edition", () => {
-  it("registers 32 original bilingual prompts with three direct and one reverse item per function", async () => {
-    expect(await loadQuestionnaire(quiz.slug)).toEqual(quiz); expect(isQuestionnaireConfigurationValid(quiz)).toBe(true);
+  it("preserves 32 archived bilingual prompts with three direct and one reverse item per function", async () => {
+    expect(await loadQuestionnaire(quiz.slug)).toBeNull(); expect(isQuestionnaireConfigurationValid(quiz)).toBe(true);
     expect(quiz.kind).toBe("likert"); expect(quiz.minimumRatedItems).toBe(3); expect(quiz.questions).toHaveLength(32);
     expect(quiz.directions.map(d => d.id)).toEqual(["ni", "ne", "si", "se", "ti", "te", "fi", "fe"]);
     expect(quiz.source.psychometricValidationCompleted).toBe(false); expect(quiz.source.itemBankSha256).toBe(hash(quiz.questions)); expect(quiz.source.resultContentSha256).toBe(hash(quiz.profiles));

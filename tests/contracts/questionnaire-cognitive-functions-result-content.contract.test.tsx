@@ -4,7 +4,6 @@ import source from "@/lib/questionnaires/data/cognitive-functions-test.json";
 import raw56 from "@/lib/questionnaires/jung56Content.json";
 import bank from "@/lib/questionnaires/jung56Bank.json";
 import additions32 from "@/lib/questionnaires/result-content/cognitive-functions-test.json";
-import additions56 from "@/lib/questionnaires/result-content/jung56-readings.json";
 import { cognitiveFunctionsResultProfile, prepareCognitiveFunctionsResultProfile } from "@/lib/questionnaires/result-content/cognitive-functions-test";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { getJung56ResultReading } from "@/lib/questionnaires/result-content/jung56-readings";
@@ -31,9 +30,12 @@ describe("Both complete cognitive-function result editions, with method-specific
   for(const p of quiz.profiles){const r=cognitiveFunctionsResultProfile(p);expect(r.sections.flatMap(s=>s.paragraphs)).toHaveLength(17);expect(r.title).toEqual(p.title);expect(r.sections.map(s=>s.id)).toEqual(p.sections.map(s=>s.id));for(const s of p.sections)expect(r.sections.find(v=>v.id===s.id)!.paragraphs.slice(0,2)).toEqual(s.paragraphs);}
   const unknown={...quiz.profiles[0],id:"__proto__"};expect(cognitiveFunctionsResultProfile(unknown)).toBe(unknown);expect(getJung56ResultReading("__proto__")).toBeUndefined();expect(JSON.stringify([quiz,raw56,bank])).toBe(before);
  });
- it.each(["zh","en"] as const)("renders all eight %s public identities with both method bodies and no personal counts",async locale=>{
-  const route=await import("@/components/questionnaires/QuestionnaireGuide");
-  for(const p of quiz.profiles){const root=document.createElement('div');root.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})}));expect(root.querySelectorAll('[data-cognitive-functions-result-reading] h3')).toHaveLength(7);expect(root.querySelectorAll('[data-jung56-reading] h3')).toHaveLength(10);expect(root.querySelector('[data-cognitive-mean], [data-jung56-count]')).toBeNull();for(const s of additions32[p.id as keyof typeof additions32])for(const t of s.paragraphs)expect(root.querySelector(`#report-${s.id}`)?.textContent).toContain(t[locale]);for(const s of additions56[p.id as keyof typeof additions56])for(const t of s.paragraphs)expect(root.querySelector(`#public-jung56-${p.id}-${s.id}`)?.textContent).toContain(t[locale]);const ids=[...root.querySelectorAll('[id]')].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);for(const a of root.querySelectorAll('nav a[href^="#"]'))expect(ids).toContain(a.getAttribute('href')!.slice(1));if(locale==='en')expect(root.textContent).not.toMatch(/\p{Script=Han}/u);}
+ it.each(["zh","en","zh-TW"])("returns 404 for retired %s guides", async locale => {
+  const route = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
+  for (const profile of quiz.profiles) {
+   await expect(route.default({params: Promise.resolve({locale, slug: quiz.slug, profile: profile.id})}))
+    .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+  }
  });
  it.each(["zh","en"] as const)("retains every %s 32-rating guide beside reverse-key arithmetic and both sides of minimum three",locale=>{
   const patterns=[...["1","2","3","4","5","na"].map(v=>Array(32).fill(v)),Array.from({length:32},(_,i)=>["4","3","5","2"][i%4]),Array.from({length:32},(_,i)=>["4","na","5","2"][i%4]),Array.from({length:32},(_,i)=>["na","na","5","2"][i%4])];

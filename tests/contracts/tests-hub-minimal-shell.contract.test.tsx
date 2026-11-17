@@ -40,7 +40,7 @@ describe("tests hub minimal shell contract", () => {
     expect(route).toContain("getTestsHubContent");
     expect(route).toContain(".catch(() => null)");
     expect(route).toContain("noindex: true");
-    expect(route).toContain("<TestsHubExperience content={content} locale={locale} />");
+    expect(route).toContain("<TestsHubExperience content={content} locale={locale} additionalCoreTests={jungCards} />");
     expect(experience).toContain("content.families.items");
     expect(experience).toContain("listCoreTests");
     expect(experience).toContain("filterVisiblePublicTestEntries");

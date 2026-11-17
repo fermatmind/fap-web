@@ -64,13 +64,6 @@
       }
     },
     {
-      "slug": "jungian-archetype",
-      "title": {
-        "zh": "荣格原型测试",
-        "en": "Jungian Archetype Test"
-      }
-    },
-    {
       "slug": "introvert-extrovert",
       "title": {
         "zh": "内向还是外向测试",
@@ -1426,13 +1419,6 @@
       "title": {
         "en": "Food Disgust Test (FDS)",
         "zh": "食物厌恶测试（FDS）"
-      }
-    },
-    {
-      "slug": "cognitive-functions-test",
-      "title": {
-        "en": "Cognitive Functions Test",
-        "zh": "认知功能测试"
       }
     },
     {

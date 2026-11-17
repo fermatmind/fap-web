@@ -52,6 +52,6 @@ describe("wider public family contract", () => {
     expect(testsIndex).not.toContain("jsonLd.families");
     expect(read("components/entertainment/MoreTests.tsx")).toContain('idSuffix: "exploration-test-itemlist"');
     expect(testsIndex).toContain("<InteractiveStoryLibrary locale={locale} />");
-    expect(testsIndex).toContain("<TestsHubExperience content={content} locale={locale} />");
+    expect(testsIndex).toContain("<TestsHubExperience content={content} locale={locale} additionalCoreTests={jungCards} />");
   });
 });

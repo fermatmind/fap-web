@@ -219,10 +219,6 @@
     "zh": "安排一段小憩。你会换个场景、做件有仪式感的小事，还是找人聊两句？",
     "en": "Plan a short break. Change the scene, enjoy a small sensory ritual or have an easy chat."
   },
-  "cognitive-functions-test": {
-    "zh": "选择配对题或自评，分别查看八种认知功能的次数或均分。结果不推断功能堆栈或认知能力。",
-    "en": "Choose paired questions or ratings and see counts or means for eight cognitive functions. The results infer neither a function stack nor cognitive ability."
-  },
   "color-season": {
     "zh": "通过三色组合比较四季配色偏好，查看选择次数和示例色。无需照片。",
     "en": "Compare four seasonal palettes through sets of three colors. See choice counts and sample colors without uploading a photo."
@@ -758,10 +754,6 @@
   "jujutsu-kaisen-character": {
     "zh": "在学习与创作情境中，对照《咒术回战》六位角色的选择。结果保留最高并列。",
     "en": "Compare six Jujutsu Kaisen character perspectives through learning and creative choices. Top matches can tie."
-  },
-  "jungian-archetype": {
-    "zh": "比较十二种原型动机，查看各项选择次数、最高并列和原型来源。",
-    "en": "Compare twelve archetypal motives. See your counts, all tied leaders and where the archetypes come from."
   },
   "kitchen-improviser": {
     "zh": "一顿虚构晚餐的食材、时间和口味对不上，看看你会怎样临场调整。",
