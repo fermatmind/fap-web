@@ -545,7 +545,8 @@ describe("MBTI desktop clone p0 render contract", () => {
 
     expect(await screen.findByTestId("mbti-hero")).not.toHaveTextContent("hero infj-a");
     expect(screen.getAllByText("title infj-a").length).toBeGreaterThan(0);
-    expect(screen.getByTestId("mbti-asset-slot-traits")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-traits").querySelector('img[src="/images/mbti/result-chapters/infj/traits.webp"]'))
+      .toBeInTheDocument();
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "你的职业道路" })).toBeInTheDocument();

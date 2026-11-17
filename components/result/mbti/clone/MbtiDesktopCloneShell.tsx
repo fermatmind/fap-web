@@ -6,6 +6,7 @@ import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
+import { getCloneAssetSlot, resolveAssetSlotUrl } from "@/components/result/mbti/clone/mbtiDesktopClone.assets";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { renderMbtiProjectionSection } from "@/components/result/mbti/MbtiChapterSection";
@@ -1013,21 +1014,25 @@ export function MbtiDesktopCloneShell({
       </div>
     </section>
   );
-  const showEstpChapterPreview = process.env.NODE_ENV === "development"
-    && !snapshotMode
-    && fullCodeForStorage === "ESTP-A";
-  const chapterPreview = (chapter: "traits" | "career" | "growth" | "relationships") =>
-    showEstpChapterPreview ? (
+  const chapterIllustrationType = /^([EI][SN][TF][JP])(?:-[AT])?$/.exec(fullCodeForStorage)?.[1].toLowerCase();
+  const chapterIllustration = (chapter: "traits" | "career" | "growth" | "relationships") => {
+    if (snapshotMode || !chapterIllustrationType
+      || resolveAssetSlotUrl(getCloneAssetSlot(storageAssetSlots, `${chapter}-illustration`))) {
+      return undefined;
+    }
+
+    return (
       <Image
-        src={`/images/mbti/estp-chapter-preview/${chapter}.webp`}
+        src={`/images/mbti/result-chapters/${chapterIllustrationType}/${chapter}.webp`}
         alt=""
-        width={1440}
-        height={chapter === "traits" ? 800 : 960}
+        width={chapterIllustrationType === "estp" ? 1440 : 768}
+        height={chapterIllustrationType === "estp" ? (chapter === "traits" ? 800 : 960) : 512}
         unoptimized
         className={styles.chapterPreview}
         data-print-decorative="true"
       />
-    ) : undefined;
+    );
+  };
 
   const deepNarrativeSectionsNode = (
     <>
@@ -1038,7 +1043,7 @@ export function MbtiDesktopCloneShell({
         number={Number(slots.chapters.career.step)}
         title={copy(cloneLocale === "zh" ? "你的职业道路" : slots.chapters.career.title)}
         illustrationSlotId={slots.chapters.career.asset.slotId}
-        chapterPreview={chapterPreview("career")}
+        chapterPreview={chapterIllustration("career")}
         illustrationLabel={slots.chapters.career.asset.label}
         assetSlots={storageAssetSlots}
         introParagraphs={slots.chapters.career.intro}
@@ -1082,7 +1087,7 @@ export function MbtiDesktopCloneShell({
         number={Number(slots.chapters.growth.step)}
         title={copy(cloneLocale === "zh" ? "你的个人成长" : slots.chapters.growth.title)}
         illustrationSlotId={slots.chapters.growth.asset.slotId}
-        chapterPreview={chapterPreview("growth")}
+        chapterPreview={chapterIllustration("growth")}
         illustrationLabel={slots.chapters.growth.asset.label}
         assetSlots={storageAssetSlots}
         introParagraphs={slots.chapters.growth.intro}
@@ -1124,7 +1129,7 @@ export function MbtiDesktopCloneShell({
         number={Number(slots.chapters.relationships.step)}
         title={copy(cloneLocale === "zh" ? "你的人际关系" : slots.chapters.relationships.title)}
         illustrationSlotId={slots.chapters.relationships.asset.slotId}
-        chapterPreview={chapterPreview("relationships")}
+        chapterPreview={chapterIllustration("relationships")}
         illustrationLabel={slots.chapters.relationships.asset.label}
         assetSlots={storageAssetSlots}
         introParagraphs={slots.chapters.relationships.intro}
@@ -1260,7 +1265,7 @@ export function MbtiDesktopCloneShell({
               snapshotMode={snapshotMode}
               title={copy(slots.traits.title)}
               illustrationSlotId={slots.traits.asset.slotId}
-              chapterPreview={chapterPreview("traits")}
+              chapterPreview={chapterIllustration("traits")}
               illustrationLabel={slots.traits.asset.label}
               assetSlots={storageAssetSlots}
               dimensions={traitDimensions}

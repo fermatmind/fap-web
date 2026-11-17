@@ -350,6 +350,20 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop asset slot consumption contract", () => {
+  it.each([
+    ["ESTP-A", "estp"],
+    ["ESTP-T", "estp"],
+    ["ISFP-T", "isfp"],
+  ])("renders the four matching chapter illustrations for %s", (typeCode, baseType) => {
+    renderShell(typeCode);
+
+    for (const chapter of ["traits", "career", "growth", "relationships"]) {
+      const section = screen.getByTestId(`mbti-chapter-${chapter}`);
+      expect(section.querySelector(`img[src="/images/mbti/result-chapters/${baseType}/${chapter}.webp"]`))
+        .toBeInTheDocument();
+    }
+  });
+
   it("uses the INFJ portrait for a known type with a CMS hero asset", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(
       createStoragePayload("INFJ-A", "hero-illustration"),
