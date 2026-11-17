@@ -1290,6 +1290,11 @@ function PersonalityComparisonPage({
     hasFaq: comparisonFaqItems.length > 0,
   });
   const hasAuthoritativeComparisonJsonLd = comparison.jsonld !== null;
+  const breadcrumbItems = [
+    { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+    { label: locale === "zh" ? "人格" : "Personality", href: localizedPath("/personality", locale) },
+    { label: heading },
+  ];
 
   return (
     <main
@@ -1300,15 +1305,18 @@ function PersonalityComparisonPage({
     >
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       {hasAuthoritativeComparisonJsonLd ? (
-        <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
+        <>
+          <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
+          <JsonLd
+            id={`personality-comparison-breadcrumb-${comparison.comparisonSlug}`}
+            data={buildBreadcrumbJsonLd(breadcrumbItems.map(({ label, href }) => ({
+              name: label,
+              path: href ?? canonicalPath,
+            })))}
+          />
+        </>
       ) : null}
-      <Breadcrumb
-        items={[
-          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-          { label: locale === "zh" ? "人格" : "Personality", href: localizedPath("/personality", locale) },
-          { label: heading },
-        ]}
-      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <section
         id="comparison-overview"

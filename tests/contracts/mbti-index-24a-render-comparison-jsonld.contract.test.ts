@@ -22,7 +22,7 @@ describe("MBTI-INDEX-24A comparison JSON-LD authority", () => {
     expect(normalizePersonalityComparisonJsonLd(null, canonical)).toBeNull();
   });
 
-  it("renders one backend-authoritative block independently from noindex and removes local duplicates", () => {
+  it("keeps the backend block and derives the breadcrumb schema from the visible trail", () => {
     const source = fs.readFileSync(
       path.join(ROOT, "app/(localized)/[locale]/personality/[type]/page.tsx"),
       "utf8"
@@ -31,7 +31,9 @@ describe("MBTI-INDEX-24A comparison JSON-LD authority", () => {
     expect(source).toContain("const hasAuthoritativeComparisonJsonLd = comparison.jsonld !== null");
     expect(source).toContain("hasAuthoritativeComparisonJsonLd ? (");
     expect(source).toContain("data={comparison.jsonld}");
-    expect(source).not.toContain("personality-comparison-breadcrumb-");
+    expect(source).toContain("personality-comparison-breadcrumb-");
+    expect(source).toContain("buildBreadcrumbJsonLd(breadcrumbItems.map(");
+    expect(source).toContain("<Breadcrumb items={breadcrumbItems} />");
     expect(source).not.toContain("personality-comparison-faq-");
     expect(source).not.toContain("comparison.isIndexable && !shouldNoindex");
   });

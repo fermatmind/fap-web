@@ -483,7 +483,7 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain("comparison.jsonld");
     expect(pageSource).toContain("const hasAuthoritativeComparisonJsonLd = comparison.jsonld !== null");
     expect(pageSource).not.toContain("comparison.isIndexable && !shouldNoindex");
-    expect(pageSource).not.toContain("personality-comparison-breadcrumb-");
+    expect(pageSource).toContain("personality-comparison-breadcrumb-");
     expect(pageSource).not.toContain("personality-comparison-faq-");
     expect(pageSource).toContain("buildComparisonQuickJudgmentRows(comparison)");
     expect(pageSource).toContain("section.rows");
