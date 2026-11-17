@@ -185,6 +185,7 @@ describe("six-page career exploration pilot", () => {
       });
       expect(metadata.alternates?.languages).not.toHaveProperty("zh-TW");
     }
+    expect(traditionalPath("/zh-TW/career/interests/icr")).toBeNull();
     await expect(releasedMetadata({ params: Promise.resolve({ locale: "zh-TW", code: "icr" }) }))
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });

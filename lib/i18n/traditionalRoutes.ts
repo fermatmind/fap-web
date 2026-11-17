@@ -1,3 +1,4 @@
+import { ICR_INTEREST_PATH } from "@/lib/career/interestDirectoryRoutes";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { HISTORY_DISPLAY_PATHS } from "./historyDisplayRoutes";
 import { isCoreSharePath } from "./coreShareDisplay";
@@ -60,6 +61,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/tests/explore/career-match") return `/zh-TW${path}`;
   if (path === "/career") return "/zh-TW/career";
   if (path === "/career/tests") return "/zh-TW/career/tests";
+  if (path === ICR_INTEREST_PATH) return null;
   if (prefix === "zh-TW" && /^\/career\/interests\/[a-z]{1,3}$/u.test(path)) return `/zh-TW${path}`;
   if (CAREER_INTEREST_PILOTS.some(code => path === `/career/interests/${code}`)) return `/zh-TW${path}`;
   if (path === "/career/recommendations") return `/zh-TW${path}`;
