@@ -67,7 +67,7 @@ function ResultPromptCard({ product, locale, displayText, typeCode, unlockHref, 
     : baseType
       ? `/images/mbti/ai-conversation/${baseType}.webp`
       : "/images/mbti/ai-result-conversation.webp";
-  const buttonClass = "inline-flex min-h-11 items-center rounded-full px-5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800";
+  const buttonClass = "inline-flex min-h-11 min-w-0 max-w-full items-center rounded-full px-5 py-3 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800";
 
   async function copyPrompt() {
     setStatus("copying");
@@ -105,7 +105,7 @@ function ResultPromptCard({ product, locale, displayText, typeCode, unlockHref, 
           height={512}
           className="mx-auto h-auto w-full max-w-sm"
         />
-        <div className="min-w-0 space-y-4">
+        <div className="min-w-0 space-y-4 [overflow-wrap:anywhere]">
           <h2 id={id} className="text-2xl font-bold tracking-tight text-emerald-950 sm:text-3xl">
             {riasec
               ? copy("和 AI 继续探索职业兴趣", "Explore your career interests with AI")
