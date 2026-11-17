@@ -1,4 +1,5 @@
 import data from "./interestRelease.json";
+import directory from "./interestDirectory.json";
 import type { Locale } from "@/lib/i18n/locales";
 
 type InterestCareer = {
@@ -22,11 +23,20 @@ export function getReleasedCareerInterestEvidence(slug: string) {
   return Object.hasOwn(careers, slug) ? careers[slug] : null;
 }
 
-export const RELEASED_CAREER_INTEREST_CODES = Object.keys(data.topics) as (keyof typeof data.topics)[];
+const directorySlugs = Object.keys(directory.careers);
+const topics = {
+  ...data.topics,
+  icr: {
+    exact: directorySlugs.filter((slug) => careers[slug].interest === "ICR"),
+    related: directorySlugs.filter((slug) => careers[slug].interest !== "ICR"),
+  },
+};
+
+export const RELEASED_CAREER_INTEREST_CODES = Object.keys(topics) as (keyof typeof topics)[];
 
 export function getReleasedCareerInterest(code: string, locale: Locale) {
-  if (!Object.hasOwn(data.topics, code)) return null;
-  const topic = data.topics[code as keyof typeof data.topics];
+  if (!Object.hasOwn(topics, code)) return null;
+  const topic = topics[code as keyof typeof topics];
   const upper = code.toUpperCase();
   const labels = [...upper].map((letter) => dimensions[letter as keyof typeof dimensions][locale]);
   const label = labels.join(locale === "zh" ? "、" : ", ");

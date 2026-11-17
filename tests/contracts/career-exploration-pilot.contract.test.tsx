@@ -1,4 +1,4 @@
-import { cleanup, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import AriPage, { generateMetadata as ariMetadata } from "@/app/(localized)/[locale]/career/interests/ari/page";
 import ReleasedInterestPage, { generateMetadata as releasedMetadata } from "@/app/(localized)/[locale]/career/interests/[code]/page";
@@ -135,12 +135,66 @@ describe("six-page career exploration pilot", () => {
     expect(topic.exact).toHaveLength(24);
   });
 
+  it.each([
+    ["zh", "ric", 19, 43, 15, 0],
+    ["en", "ric", 19, 43, 15, 0],
+    ["zh", "icr", 6, 56, 4, 2],
+    ["en", "icr", 6, 56, 4, 2],
+  ] as const)("filters the %s/%s exact and related career cards", async (locale, code, exactCount, relatedCount, zone4, zone5) => {
+    const props = { params: Promise.resolve({ locale, code }) };
+    const { container } = render(await ReleasedInterestPage(props));
+    const exact = within(container.querySelector("#interest-directory-exact")!.parentElement!);
+    const related = within(container.querySelector("#interest-directory-related")!.closest("section")!);
+    const careerLinks = (area: ReturnType<typeof within>) => area.getAllByRole("link")
+      .filter((link: HTMLElement) => link.getAttribute("href")?.startsWith(`/${locale}/career/jobs/`));
+    expect(careerLinks(exact)).toHaveLength(exactCount);
+    expect(careerLinks(related)).toHaveLength(relatedCount);
+    expect(related.getAllByRole("heading", { level: 3 })).toHaveLength(5);
+    expect(exact.getAllByRole("link", { name: /O\*NET .*#/u })).toHaveLength(exactCount);
+    const slugs = [...container.querySelectorAll(`a[href^="/${locale}/career/jobs/"]`)].map((link) => link.getAttribute("href"));
+    expect(slugs).toHaveLength(code === "ric" ? 143 : 62);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(container.querySelector('a[href*="/career-compare/"]')).toBeNull();
+    if (locale === "zh") expect(container).not.toHaveTextContent(/美元|US\$|\$[\d,]+/u);
+    if (code === "ric") {
+      expect(container.querySelector(`header a[href="/${locale}/articles/ric-holland-code-career-exploration"]`)).toBeInTheDocument();
+    }
+
+    const filter = screen.getByRole("combobox", { name: locale === "zh" ? "入行准备度" : "Job preparation" });
+    fireEvent.change(filter, { target: { value: "4" } });
+    expect(careerLinks(exact)).toHaveLength(zone4);
+    expect(careerLinks(related).length).toBeGreaterThan(0);
+    expect(careerLinks(related).length).toBeLessThan(relatedCount);
+    fireEvent.change(filter, { target: { value: "5" } });
+    if (zone5) expect(careerLinks(exact)).toHaveLength(zone5);
+    else expect(exact.queryAllByRole("link")).toHaveLength(0);
+    fireEvent.change(filter, { target: { value: "" } });
+    expect(careerLinks(exact)).toHaveLength(exactCount);
+    expect(careerLinks(related)).toHaveLength(relatedCount);
+  });
+
+  it("publishes reciprocal ICR metadata only for the two selected locales", async () => {
+    const origin = getSiteUrlOrThrow();
+    for (const locale of ["zh", "en"]) {
+      const metadata = await releasedMetadata({ params: Promise.resolve({ locale, code: "icr" }) });
+      expect(metadata.robots).toMatchObject({ index: true, follow: true });
+      expect(metadata.alternates?.canonical).toBe(`${origin}/${locale}/career/interests/icr`);
+      expect(metadata.alternates?.languages).toMatchObject({
+        "zh-CN": `${origin}/zh/career/interests/icr`,
+        en: `${origin}/en/career/interests/icr`,
+      });
+      expect(metadata.alternates?.languages).not.toHaveProperty("zh-TW");
+    }
+    await expect(releasedMetadata({ params: Promise.resolve({ locale: "zh-TW", code: "icr" }) }))
+      .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+  });
+
   it("rejects an unpublished interest code", async () => {
     await expect(ReleasedInterestPage({ params: Promise.resolve({ locale: "en", code: "ir" }) }))
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
-  it("appends the fifteen published topics in three languages and omits held paths", () => {
+  it("appends the released topics, publishing ICR only in English and Simplified Chinese", () => {
     const existing = { loc: "https://fermatmind.com/zh/career", lastmod: "2026-11-10T00:00:00.000Z" };
     const backendEntries = buildPublicSitemapEntries({ items: [
       existing,
@@ -149,7 +203,7 @@ describe("six-page career exploration pilot", () => {
     ] });
     const topics = ["a", "ac", "ari", "c", "ce", "e", "ecs", "i", "irc", "r", "rc", "rci", "ric", "s", "si"];
     const expected = ["en", "zh-TW", "zh"].flatMap((locale) =>
-      topics.map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
+      [...topics, ...(locale === "zh-TW" ? [] : ["icr"])].sort().map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
     );
     const entries = appendCareerInterestPilotSitemapEntries(backendEntries);
     expect(entries).toContainEqual(existing);

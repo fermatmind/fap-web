@@ -1,10 +1,12 @@
 import CareerInterestPage, {
   generateMetadata as interestMetadata,
-  generateStaticParams,
+  generateStaticParams as bilingualStaticParams,
 } from "@/app/(localized)/[locale]/career/interests/[code]/page";
 
 export const dynamicParams = false;
-export { generateStaticParams };
+export function generateStaticParams() {
+  return bilingualStaticParams().filter(({ code }) => code !== "icr");
+}
 
 type Props = { params: Promise<{ code: string }> };
 

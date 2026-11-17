@@ -1,0 +1,379 @@
+{
+  "snapshotCommit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+  "onetVersion": "31.0",
+  "jobZonesSha256": "093f01891ac2e602a8cc6c859ecb619b5bc00eb50cd3f3c1134c05b704481944",
+  "careers": {
+    "agricultural-inspectors": {
+      "jobZone": 2,
+      "officialTaskId": 14846,
+      "zh": "检查农产品和相关作业是否符合健康、质量与安全规定。",
+      "en": "Inspect agricultural products and related operations for compliance with health, quality, and safety rules."
+    },
+    "atmospheric-and-space-scientists": {
+      "jobZone": 4,
+      "officialTaskId": 20208,
+      "zh": "开发或使用数学与计算机模型预报天气。",
+      "en": "Develop or use mathematical and computer models to forecast weather."
+    },
+    "bioinformatics-scientists": {
+      "jobZone": 5,
+      "officialTaskId": 16795,
+      "zh": "分析大规模分子数据，为临床或基础研究提供依据。",
+      "en": "Analyze large molecular datasets for clinical or basic research."
+    },
+    "biologists": {
+      "jobZone": 5,
+      "officialTaskId": 18613,
+      "zh": "撰写技术和研究报告，并向相关机构或公众说明结果。",
+      "en": "Write technical and research reports and explain the findings to organizations or the public."
+    },
+    "bus-and-truck-mechanics-and-diesel-engine-specialists": {
+      "jobZone": 3,
+      "officialTaskId": 2982,
+      "zh": "检查公交车和卡车的制动、转向和车轮轴承是否正常。",
+      "en": "Inspect brakes, steering systems, and wheel bearings to make sure they work properly."
+    },
+    "cartographers-and-photogrammetrists": {
+      "jobZone": 4,
+      "officialTaskId": 3517,
+      "zh": "整理航拍照片、测量笔记和原始地图等制图资料。",
+      "en": "Compile aerial photos, survey notes, and original maps to prepare new maps."
+    },
+    "chemical-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 18471,
+      "zh": "排查化工生产流程中的故障。",
+      "en": "Troubleshoot problems in chemical manufacturing processes."
+    },
+    "chemical-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 1537,
+      "zh": "用化学或物理实验测试协助分析样品的成分或含量。",
+      "en": "Run chemical or physical lab tests to help identify or quantify sample contents."
+    },
+    "chemists": {
+      "jobZone": 4,
+      "officialTaskId": 1505,
+      "zh": "分析化合物的成分、结构或物理化学性质。",
+      "en": "Analyze compounds to determine their composition, structure, or physical and chemical properties."
+    },
+    "computer-network-support-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 18995,
+      "zh": "用诊断软件和设备查找网络故障的原因。",
+      "en": "Use diagnostic software and equipment to identify the causes of network problems."
+    },
+    "conservation-scientists": {
+      "jobZone": 4,
+      "officialTaskId": 22134,
+      "zh": "为农场主等土地使用者提供资源保护方案和备选做法。",
+      "en": "Advise land users such as farmers and ranchers on conservation plans and alternatives."
+    },
+    "cytogenetic-technologists": {
+      "jobZone": 4,
+      "officialTaskId": 17391,
+      "zh": "分析样本中的染色体，辅助诊断与治疗遗传性疾病。",
+      "en": "Analyze chromosomes in specimens to support diagnosis and treatment of genetic disorders."
+    },
+    "dental-laboratory-technicians": {
+      "jobZone": 2,
+      "officialTaskId": 7134,
+      "zh": "制作、调整或修复义齿、牙冠和牙桥等牙科装置。",
+      "en": "Make, adjust, or repair dental appliances such as dentures, crowns, and bridges."
+    },
+    "electrical-and-electronic-equipment-assemblers": {
+      "jobZone": 2,
+      "officialTaskId": 10018,
+      "zh": "检查线路、组件或电路的运行情况，并记录测试结果。",
+      "en": "Test wiring, assemblies, or circuits for proper operation and record the results."
+    },
+    "electrical-and-electronics-installers-and-repairers-transportation-equipment": {
+      "jobZone": 3,
+      "officialTaskId": 11727,
+      "zh": "检查并测试运输设备的电气系统，定位故障。",
+      "en": "Inspect and test electrical systems on transportation equipment to diagnose malfunctions."
+    },
+    "electrical-and-electronics-repairers-powerhouse-substation-and-relay": {
+      "jobZone": 3,
+      "officialTaskId": 11747,
+      "zh": "记录电厂、变电站或继电设备的测试、维修和保养情况。",
+      "en": "Keep records of equipment tests, repairs, and maintenance."
+    },
+    "electrical-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 1348,
+      "zh": "设计、实施或改进工业、商业和家用电气设备及系统。",
+      "en": "Design, implement, or improve electrical equipment and systems for industrial, commercial, or home use."
+    },
+    "electromechanical-equipment-assemblers": {
+      "jobZone": 2,
+      "officialTaskId": 13944,
+      "zh": "测试和调整装配完成的设备，核对规格、公差和客户要求。",
+      "en": "Test and adjust assembled units to meet specifications, tolerances, and customer requirements."
+    },
+    "electronic-equipment-installers-and-repairers-motor-vehicles": {
+      "jobZone": 3,
+      "officialTaskId": 13726,
+      "zh": "诊断或修复车载音响、导航、通信或安防设备的故障。",
+      "en": "Diagnose or repair faults in a vehicle’s audio, navigation, communications, or security equipment."
+    },
+    "electronics-engineers-except-computer": {
+      "jobZone": 4,
+      "officialTaskId": 5339,
+      "zh": "设计用于商业、工业或科研等场景的电子元件与系统。",
+      "en": "Design electronic components and systems for uses such as industry, commerce, or research."
+    },
+    "endoscopy-technicians": {
+      "jobZone": 2,
+      "officialTaskId": 17519,
+      "zh": "按设备说明和机构标准清洁、消毒或校准内镜器械。",
+      "en": "Clean, disinfect, or calibrate endoscopic instruments to manufacturer and facility standards."
+    },
+    "energy-engineers-except-wind-and-solar": {
+      "jobZone": 4,
+      "officialTaskId": 20854,
+      "zh": "识别并提出节能措施，提高设施运行效率。",
+      "en": "Identify and recommend ways to make operations more energy efficient."
+    },
+    "environmental-compliance-inspectors": {
+      "jobZone": 4,
+      "officialTaskId": 10835,
+      "zh": "调查涉及倾倒、污染或产品法规的投诉和疑似违规。",
+      "en": "Investigate complaints and suspected violations involving dumping, pollution, or product regulations."
+    },
+    "information-security-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 21766,
+      "zh": "用监测指标评估信息安全控制措施是否有效。",
+      "en": "Use performance indicators to evaluate how well information security controls work."
+    },
+    "manufacturing-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 18181,
+      "zh": "排查产品设计、材料或制造流程引起的问题。",
+      "en": "Troubleshoot product problems involving designs, materials, or manufacturing processes."
+    },
+    "marine-engineers-and-naval-architects": {
+      "jobZone": 4,
+      "officialTaskId": 21887,
+      "zh": "根据规格和试验数据设计船体及上层结构。",
+      "en": "Design ship hulls and superstructures using specifications and test data."
+    },
+    "materials-scientists": {
+      "jobZone": 4,
+      "officialTaskId": 9097,
+      "zh": "测试材料在拉伸、压缩和剪切下的表现，查明金属失效原因。",
+      "en": "Test samples under tension, compression, and shear to determine why metals fail."
+    },
+    "mechatronics-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 16474,
+      "zh": "为工业作业设计自动化工程系统。",
+      "en": "Design engineering systems that automate industrial tasks."
+    },
+    "medical-and-clinical-laboratory-technologists": {
+      "jobZone": 4,
+      "officialTaskId": 1886,
+      "zh": "复核实验室检测结果的准确性。",
+      "en": "Review laboratory findings to verify that test results are accurate."
+    },
+    "medical-dosimetrists": {
+      "jobZone": 4,
+      "officialTaskId": 22834,
+      "zh": "根据放射治疗处方计算每次治疗的辐射剂量。",
+      "en": "Calculate the radiation dose for each treatment session from the prescribed treatment plan."
+    },
+    "microbiologists": {
+      "jobZone": 4,
+      "officialTaskId": 15213,
+      "zh": "检测水、食品和环境样本，查找有害微生物。",
+      "en": "Test water, food, and environmental samples for harmful microorganisms."
+    },
+    "microsystems-engineers": {
+      "jobZone": 5,
+      "officialTaskId": 16503,
+      "zh": "绘制微机电系统元件或封装组件的原理图和布局。",
+      "en": "Draw schematics and physical layouts for MEMS components or packaged assemblies."
+    },
+    "nanotechnology-engineering-technologists-and-technicians": {
+      "jobZone": 4,
+      "officialTaskId": 22047,
+      "zh": "用显微技术等手段获取纳米尺度的图像或测量数据。",
+      "en": "Use microscopy and related tools to capture images or measurements at the nanoscale."
+    },
+    "operating-engineers-and-other-construction-equipment-operators": {
+      "jobZone": 2,
+      "officialTaskId": 9852,
+      "zh": "操作推土机、挖沟机等工程机械。",
+      "en": "Operate construction machinery such as bulldozers and trench excavators."
+    },
+    "orthodontists": {
+      "jobZone": 5,
+      "officialTaskId": 7735,
+      "zh": "检查患者的颌骨发育和牙齿位置，识别异常。",
+      "en": "Examine jaw development and tooth position to identify abnormalities."
+    },
+    "penetration-testers": {
+      "jobZone": 4,
+      "officialTaskId": 21765,
+      "zh": "编写安全审计报告，说明发现的问题并提出改进建议。",
+      "en": "Write security audit reports that explain findings and recommend improvements."
+    },
+    "petroleum-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 3580,
+      "zh": "监测油气生产速率，并规划改善产量的作业。",
+      "en": "Monitor oil and gas production rates and plan work to improve output."
+    },
+    "phlebotomists": {
+      "jobZone": 3,
+      "officialTaskId": 19381,
+      "zh": "核对检验申请单与样本管是否匹配。",
+      "en": "Match laboratory request forms to specimen tubes."
+    },
+    "photonics-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 18199,
+      "zh": "开发或测试光子技术原型及模型。",
+      "en": "Develop or test photonics prototypes and models."
+    },
+    "photonics-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 20384,
+      "zh": "计算或记录光子设备的测试数据。",
+      "en": "Calculate or record photonics test data."
+    },
+    "physicists": {
+      "jobZone": 5,
+      "officialTaskId": 10905,
+      "zh": "分析关于物理现象的实验和观测数据。",
+      "en": "Analyze research data used to detect and measure physical phenomena."
+    },
+    "precision-agriculture-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 18281,
+      "zh": "用田间记录设备和地理信息系统采集土壤、产量或地块边界数据。",
+      "en": "Collect soil, crop yield, or field boundary data with field recorders and GIS."
+    },
+    "remote-sensing-scientists-and-technologists": {
+      "jobZone": 4,
+      "officialTaskId": 18256,
+      "zh": "用统计、图像分析或地理信息工具分析航空和卫星等遥感数据。",
+      "en": "Analyze remote-sensing data from aircraft, satellites, or ground systems using statistical, imaging, or GIS software."
+    },
+    "remote-sensing-technicians": {
+      "jobZone": 4,
+      "officialTaskId": 16986,
+      "zh": "核查遥感图像数据的完整性和准确性。",
+      "en": "Check remote-sensing imagery data for completeness and accuracy."
+    },
+    "robotics-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 21057,
+      "zh": "搭建、配置或测试机器人及其应用。",
+      "en": "Build, configure, or test robots and robotic applications."
+    },
+    "robotics-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 21059,
+      "zh": "维修机器人及外围设备，更换有故障的传感器或控制器等零件。",
+      "en": "Repair robots and peripheral equipment by replacing faulty parts such as sensors or controllers."
+    },
+    "security-management-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 21482,
+      "zh": "评估实体安全威胁的性质及程度，确定问题范围。",
+      "en": "Assess the nature and severity of physical security threats to define the scope of the problem."
+    },
+    "solar-energy-systems-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 16574,
+      "zh": "设计住宅或商业建筑使用的光伏或太阳能热系统。",
+      "en": "Design or coordinate the design of photovoltaic or solar thermal systems for buildings."
+    },
+    "stationary-engineers-and-boiler-operators": {
+      "jobZone": 3,
+      "officialTaskId": 10468,
+      "zh": "操作锅炉和泵等辅助设备，维持蒸汽或热力供应。",
+      "en": "Operate boilers and auxiliary equipment such as pumps to maintain steam or heat supply."
+    },
+    "surveying-and-mapping-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 22125,
+      "zh": "把定位数据、现场笔记或测量报告录入地理信息系统，生成地图或图纸。",
+      "en": "Enter positioning data, field notes, or survey reports into GIS to produce maps and drawings."
+    },
+    "surveyors": {
+      "jobZone": 4,
+      "officialTaskId": 3530,
+      "zh": "依据契据和产权文件开展测量，确定土地的法定边界。",
+      "en": "Conduct surveys using deeds and titles to establish legal property boundaries."
+    },
+    "telecommunications-engineering-specialists": {
+      "jobZone": 3,
+      "officialTaskId": 16077,
+      "zh": "记录电信设备的技术规格和操作标准。",
+      "en": "Document technical specifications and operating standards for telecommunications equipment."
+    },
+    "traffic-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 8635,
+      "zh": "评估道路照明、标志和标线的可见性对交通的影响。",
+      "en": "Study how lighting and the visibility of signs and markings affect traffic conditions."
+    },
+    "transportation-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 16323,
+      "zh": "为公路、桥梁、通勤铁路等交通设施编制工程设计方案。",
+      "en": "Prepare engineering plans for transportation facilities such as roads, bridges, and commuter rail."
+    },
+    "transportation-planners": {
+      "jobZone": 4,
+      "officialTaskId": 16945,
+      "zh": "在公共会议上解释交通规划提案，并听取受影响群体的反馈。",
+      "en": "Explain transportation proposals at public meetings and gather feedback from affected groups."
+    },
+    "validation-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 18131,
+      "zh": "分析验证测试数据，判断系统或流程是否达标，或定位生产问题的原因。",
+      "en": "Analyze validation test data to check whether systems or processes meet criteria or to find the cause of production problems."
+    },
+    "veterinary-assistants-and-laboratory-animal-caretakers": {
+      "jobZone": 2,
+      "officialTaskId": 4306,
+      "zh": "观察动物术后恢复情况，并把异常变化报告给兽医。",
+      "en": "Monitor animals recovering from surgery and alert the veterinarian to unusual changes."
+    },
+    "veterinary-technologists-and-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 4179,
+      "zh": "检测动物血液、尿液或粪便样本，为诊疗提供依据。",
+      "en": "Run laboratory tests on animal blood, urine, or fecal samples to assist diagnosis and treatment."
+    },
+    "water-resource-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 15618,
+      "zh": "建立或运行水文、水力或水质模型。",
+      "en": "Perform hydrologic, hydraulic, or water quality modeling."
+    },
+    "water-wastewater-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 16350,
+      "zh": "设计生活或工业给水与污水处理设施。",
+      "en": "Design water or wastewater treatment facilities for domestic or industrial use."
+    },
+    "wind-energy-engineers": {
+      "jobZone": 4,
+      "officialTaskId": 16559,
+      "zh": "绘制或更新风电场布局图和工程示意图。",
+      "en": "Create or maintain wind farm layouts and engineering schematics."
+    },
+    "wind-turbine-service-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 17808,
+      "zh": "诊断风力涡轮机发电设备或控制系统的故障。",
+      "en": "Diagnose faults in wind turbine generators or control systems."
+    }
+  }
+}

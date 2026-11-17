@@ -3,10 +3,13 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CareerInterestDirectory } from "@/components/career/CareerInterestDirectory";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CAREER_INTEREST_SOURCE } from "@/lib/career/explorationPilot";
+import { getInterestDirectory } from "@/lib/career/interestDirectory";
+import { ICR_INTEREST_PATH, RIC_INTEREST_ARTICLE } from "@/lib/career/interestDirectoryRoutes";
 import { getReleasedCareerInterest, RELEASED_CAREER_INTEREST_CODES } from "@/lib/career/interestRelease";
 import { buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -21,6 +24,7 @@ type Props = { params: Promise<{ locale: string; code: string }> };
 
 async function readInterest(params: Props["params"]) {
   const { locale: displayLocale, code } = await params;
+  if (displayLocale === "zh-TW" && `/career/interests/${code}` === ICR_INTEREST_PATH) notFound();
   if (displayLocale !== "zh" && displayLocale !== "en" && displayLocale !== "zh-TW") notFound();
   const locale = displayLocale === "zh-TW" ? "zh" : displayLocale;
   const topic = getReleasedCareerInterest(code, locale);
@@ -53,6 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CareerInterestPage({ params }: Props) {
   const { locale, displayLocale, code, topic, translate, path } = await readInterest(params);
   const zh = locale === "zh";
+  const directory = displayLocale !== "zh-TW" && (code === "ric" || code === "icr")
+    ? getInterestDirectory(code, locale, topic)
+    : null;
   const primary = code.length === 1;
   const exactGroups = code === "si" ? [
     {
@@ -87,6 +94,25 @@ export default async function CareerInterestPage({ params }: Props) {
       jobs: topic.related,
     },
   ];
+  const occupationSections = (directory ? [] : groups).filter(({ jobs }) => jobs.length > 0).map(({ id, name, jobs }) => (
+    <section key={id} aria-labelledby={`interest-${id}`} className="space-y-3">
+      <h2 id={`interest-${id}`} className="text-xl font-semibold">{translate(name)}</h2>
+      <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
+        {jobs.map(({ slug, onet, interest, copy }) => (
+          <li key={slug} className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4">
+            <h3 className="font-semibold">
+              <Link className="underline underline-offset-4" href={`/${displayLocale}/career/jobs/${slug}`}>{translate(copy[locale].name)}</Link>
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-slate-700">{translate(copy[locale].summary)}</p>
+            <p className="mt-2 text-sm text-slate-700">
+              {interest} · <a className="underline underline-offset-4" href={`https://www.onetonline.org/link/summary/${onet}`}>{onet}</a>
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ));
+
   return (
     <main className="min-h-screen bg-slate-50">
       <Container as="article" className="max-w-4xl space-y-8 py-10 sm:py-14">
@@ -100,7 +126,12 @@ export default async function CareerInterestPage({ params }: Props) {
         ]} />
         <header className="space-y-3">
           <h1 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{translate(topic.name)}</h1>
-          <p className="text-lg leading-8 text-slate-700">{translate(topic.summary)}</p>
+          <p className="text-lg leading-8 text-slate-700">{directory?.intro ?? translate(topic.summary)}</p>
+          {directory && code === "ric" ? (
+            <Link href={`/${locale}/articles/${RIC_INTEREST_ARTICLE}`} className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4">
+              {zh ? "阅读完整 RIC 代码解读" : "Read the full RIC code guide"}
+            </Link>
+          ) : null}
           <p className="text-sm leading-6 text-slate-700">
             {translate(zh
               ? "这里采用美国 O*NET 31.0 的职业兴趣代码。代码描述工作活动的兴趣特征，具体任务和入行要求请查看职业档案。"
@@ -125,24 +156,26 @@ export default async function CareerInterestPage({ params }: Props) {
             </p>
           </section>
         )}
-        {groups.filter(({ jobs }) => jobs.length > 0).map(({ id, name, jobs }) => (
-          <section key={id} aria-labelledby={`interest-${id}`} className="space-y-3">
-            <h2 id={`interest-${id}`} className="text-xl font-semibold">{translate(name)}</h2>
-            <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
-              {jobs.map(({ slug, onet, interest, copy }) => (
-                <li key={slug} className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4">
-                  <h3 className="font-semibold">
-                    <Link className="underline underline-offset-4" href={`/${displayLocale}/career/jobs/${slug}`}>{translate(copy[locale].name)}</Link>
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">{translate(copy[locale].summary)}</p>
-                  <p className="mt-2 text-sm text-slate-700">
-                    {interest} · <a className="underline underline-offset-4" href={`https://www.onetonline.org/link/summary/${onet}`}>{onet}</a>
-                  </p>
+        {directory ? (
+          <CareerInterestDirectory code={topic.code} locale={locale} exact={directory.exact} relatedGroups={directory.relatedGroups} />
+        ) : occupationSections}
+        {directory && directory.other.length > 0 ? (
+          <details className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4">
+            <summary className="cursor-pointer font-semibold">
+              {zh ? `更多职业（${directory.other.length}）` : `More occupations (${directory.other.length})`}
+            </summary>
+            <p className="text-sm text-slate-700">
+              {zh ? "此处保留原目录的其他职业，准备度筛选适用于上方有分级的职业。" : "These additional occupations come from the existing directory. The preparation filter applies to the occupations above."}
+            </p>
+            <ul className="m-0 grid list-none gap-x-4 gap-y-2 p-0 sm:grid-cols-2">
+              {directory.other.map(({ slug, interest, copy }) => (
+                <li key={slug} className="text-sm">
+                  <Link className="underline underline-offset-4" prefetch={false} href={`/${locale}/career/jobs/${slug}`}>{copy[locale].name}</Link>{" · "}{interest}
                 </li>
               ))}
             </ul>
-          </section>
-        ))}
+          </details>
+        ) : null}
         <Link className="inline-flex min-h-11 items-center font-medium underline underline-offset-4"
           href={`/${displayLocale}/tests/holland-career-interest-test-riasec`}>
           {translate(zh ? "做免费的霍兰德职业兴趣测评" : "Take the free Holland career interest assessment")}
