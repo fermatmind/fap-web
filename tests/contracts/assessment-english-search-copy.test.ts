@@ -4,7 +4,7 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
 describe("English assessment search copy", () => {
   it.each([
-    ["MBTI", "16 Types", "four preference pairs"],
+    ["MBTI", "93 or 144 Questions", "full 4-chapter report"],
     ["BIG5_OCEAN", "OCEAN", "30 facets"],
     ["ENNEAGRAM", "9-Type", "two-option choices"],
     ["IQ_RAVEN", "Matrix Reasoning", "Free test and results"],
@@ -15,6 +15,11 @@ describe("English assessment search copy", () => {
     const en = getAssessmentLandingUi(slug, "en")!;
     expect(en.seoTitle).toContain(term);
     expect(en.seoDescription).toContain(explanation);
+    if (code === "MBTI") {
+      expect(en.seoTitle).toContain("No Sign-Up");
+      expect(en.seoDescription).toContain("No sign-up required");
+      expect(en.seoDescription).toContain("in the browser where you took the test");
+    }
     if (code === "IQ_RAVEN") expect(en.seoDescription).toContain("no substitute for professional IQ assessment");
     if (code !== "EQ_60") expect(en.seoTitle).not.toEqual(en.title);
     expect(en.seoTitle!.length).toBeLessThan(65);
@@ -30,7 +35,7 @@ describe("English assessment search copy", () => {
     ["IQ_RAVEN", "zh", "免费智商测试（IQ）", "免费智商测试（IQ）：30题图形推理，测试与结果免费", "30道原创图形与矩阵推理题"],
     ["IQ_RAVEN", "en", "Free IQ Test", "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", "30 original visual matrix reasoning questions"],
     ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI 免费测试：16 型人格与偏好解读", "了解你的 16 型人格结果与四组偏好。"],
-    ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Personality Test: 16 Types & Preferences", "Learn about your 16-type personality result and four preference pairs."],
+    ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Test: 93 or 144 Questions, No Sign-Up", "Learn about your 16-type personality result and four preference pairs."],
     ["RIASEC", "zh", "霍兰德职业兴趣测试（免费版）", "霍兰德职业兴趣测试免费版：60题与三字代码", "60 题约 8 分钟"],
     ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Career Interest Test: Holland Code (RIASEC)", "Find work activities you would like to explore"],
     ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits & Results", "five continuous personality traits"],
