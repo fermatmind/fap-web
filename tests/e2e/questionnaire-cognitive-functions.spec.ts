@@ -3,8 +3,12 @@ import quiz from "../../lib/questionnaires/data/cognitive-functions-test.json";
 type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cognitive-functions-test`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
-async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
 const takePath = (l: Locale) => `${path(l)}/take?edition=ratings32`;
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() }));
+  });
+});
 const draftKey = "fm_questionnaire_draft:cognitive-functions-test";
 async function button(page: Page, l: Locale, en: string, zh: string) {
   await page.getByRole("button", { name: label(l, en, zh), exact: true }).click();
@@ -42,7 +46,7 @@ async function finish(page: Page, l: Locale, values: string[]) {
 for (const l of ["en", "zh"] as const) {
   test(`@release cognitive-functions-test ${l}: native hub, keyboard, eight separate means, partial data and allNA full guides`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaked: string[] = []; page.on("request", r => { if (r.method() === "POST" && /CF_[A-Z]+_|"facets"|"answers"|"mean"/.test(r.postData() ?? "")) leaked.push(r.url()); });
-    await page.goto(`/${l}/tests`); await consent(page, l); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click(); await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`); await choose32(page, l);
+    await page.goto(`/${l}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click(); await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`); await choose32(page, l);
     await button(page, l, "Next", "下一题"); await expect(page.locator("#take-test").getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     const patterns = [Array(32).fill("5"), ["4", "3", "5", "2", "4", "na", "5", "2", "5", "5", "na", "na", "1", "2", "3", "4", ...Array(16).fill("3")], Array(32).fill("na")];
     for (const [i, values] of patterns.entries()) { if (i) await button(page, l, "Retake test", "重新测试"); await finish(page, l, values); }
@@ -54,7 +58,7 @@ for (const l of ["en", "zh"] as const) {
     const storedDraft = () => page.evaluate(key => sessionStorage.getItem(key), draftKey);
 
     await page.goto(path(l));
-    await consent(page, l);
+
     const legacyDraft = { version: quiz.version, savedAt: Date.now(), answers: { CF_NI_01: "na" } };
     await page.evaluate(({ key, draft }) => sessionStorage.setItem(key, JSON.stringify(draft)), { key: draftKey, draft: legacyDraft });
     expect(await storedDraft()).not.toBeNull();
@@ -76,14 +80,13 @@ for (const l of ["en", "zh"] as const) {
 
     const other = l === "en" ? "zh" : "en";
     await page.goto(path(other));
-    await consent(page, other);
     await choose32(page, other);
     await expect(page.locator('#take-test input:checked')).toHaveCount(0);
     expect(await storedDraft()).toBeNull();
     await expect(page.locator("[data-cognitive-functions-report]")).toHaveCount(0);
   });
   test(`@release cognitive-functions-test ${l}: public sharing contains no means or answers and all eight full guides remain available`, async ({ page, context }) => {
-    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await consent(page, l); await choose32(page, l); await finish(page, l, Array(32).fill("4")); await button(page, l, "Copy public entry", "复制公开入口"); expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await choose32(page, l); await finish(page, l, Array(32).fill("4")); await button(page, l, "Copy public entry", "复制公开入口"); expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
     for (const profile of quiz.profiles) { await page.goto(`${path(l)}/results/${profile.id}`); await expect(page.locator("h1")).toHaveText(profile.title[l]); await expect(page.locator("[data-cognitive-mean]")).toHaveCount(0); for (const s of profile.sections) for (const t of s.paragraphs) await expect(page.locator("main").last()).toContainText(t[l]); }
   });
 }

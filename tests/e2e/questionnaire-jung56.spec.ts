@@ -6,13 +6,16 @@ type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cognitive-functions-test`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
 const takePath = (l: Locale, edition: "paired56" | "ratings32" = "paired56") => `${path(l)}/take?edition=${edition}`;
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() }));
+  });
+});
 const draftKey = "fm_questionnaire_draft:cognitive-functions-test";
 async function button(page: Page, l: Locale, en: string, zh: string) {
   await page.getByRole("button", { name: label(l, en, zh), exact: true }).click();
 }
 async function choose56(page: Page, l: Locale) {
-  const decline = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true });
-  if (await decline.isVisible()) await decline.click();
   await page.locator('[data-cognitive-method="paired56"]').click();
   await expect(page).toHaveURL(takePath(l));
   await expect(page.locator('input[name="JUNG_FC_001"]').first()).toBeVisible();
