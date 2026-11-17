@@ -6,6 +6,8 @@ import { resolveArticleRuntimeContract, type CmsArticle } from "@/lib/cms/articl
 import { excludeFaqCopiesInMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
+vi.mock("@/lib/cms/publicTopicEdges", () => ({ loadPublicTopicEdges: vi.fn(async () => null) }));
+
 const answerSurfaceFixture: AnswerSurfaceViewModel = {
   version: "answer.surface.v1",
   answerContractVersion: "answer.surface.v1",
@@ -158,6 +160,15 @@ async function renderArticleDetail(article: CmsArticle, seo: unknown = null, loc
       ...actual,
       getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: article })),
       getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: seo })),
+      getCmsArticlesWithLastKnownGood: vi.fn(async () => ({
+        value: {
+          items: [],
+          pagination: { currentPage: 1, perPage: 20, total: 0, lastPage: 1 },
+          landingSurface: null,
+        },
+        source: "fresh",
+        stale: false,
+      })),
     };
   });
 
