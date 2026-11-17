@@ -466,6 +466,14 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
     ? requestUrl.pathname.slice(4) || "/"
     : requestUrl.pathname;
 
+  if (pathname === "/v0.5/seo/sitemap-source") {
+    writeJson(res, 200, {
+      ok: true,
+      items: [{ loc: "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types" }],
+    });
+    return;
+  }
+
   if (pathname === "/v0.5/topics/mbti") {
     writeJson(res, 200, createMockTopicDetailResponse());
     return;
@@ -745,6 +753,22 @@ test.afterAll(async () => {
     mockApiServer?.close(() => resolve());
   });
   mockApiServer = null;
+});
+
+test("root and tests sitemaps deliver readable XML over gzip and identity HTTP responses", async ({ request }) => {
+  for (const pathname of ["/sitemap.xml", "/sitemaps/tests.xml"]) {
+    const identity = await request.get(pathname, { headers: { "Accept-Encoding": "identity" } });
+    const gzip = await request.get(pathname, { headers: { "Accept-Encoding": "gzip" } });
+    expect(identity.status(), pathname).toBe(200);
+    expect(gzip.status(), pathname).toBe(200);
+    expect(identity.headers()["content-encoding"]).toBeUndefined();
+    expect(gzip.headers()["content-encoding"]).toBe("gzip");
+    expect(gzip.headers()["vary"]?.toLowerCase()).toContain("accept-encoding");
+    const xml = await identity.text();
+    expect(xml).toMatch(/<urlset[\s>]/);
+    expect(xml).toContain("<loc>https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types</loc>");
+    expect(await gzip.text()).toBe(xml);
+  }
 });
 
 function createCareerContinuityFixture() {

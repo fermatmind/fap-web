@@ -1,6 +1,5 @@
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
-import { gunzipSync } from "node:zlib";
 
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -61,7 +60,7 @@ afterEach(() => {
 });
 
 describe("public sitemap route", () => {
-  it.each(["root", ...PUBLIC_SITEMAP_FAMILIES])("transfers the unchanged complete %s sitemap with negotiated gzip", async (family) => {
+  it.each(["root", ...PUBLIC_SITEMAP_FAMILIES])("passes the complete %s sitemap to Next for HTTP compression", async (family) => {
     vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(backendSitemapPayload()))));
     const read = (encoding: string) => family === "root"
       ? getRootSitemap(new Request("https://fermatmind.com/sitemap.xml", { headers: { "Accept-Encoding": encoding } }))
@@ -70,31 +69,29 @@ describe("public sitemap route", () => {
       });
     const plain = await read("identity");
     const xml = await plain.text();
-    const compressed = await read("br, gzip;q=0.8");
-    const bytes = new Uint8Array(await compressed.arrayBuffer());
-    expect(compressed.status).toBe(200);
-    expect(compressed.headers.get("Content-Encoding")).toBe("gzip");
-    expect(compressed.headers.get("Vary")).toBe("Accept-Encoding");
-    expect(compressed.headers.get("Cache-Control")).toBe(plain.headers.get("Cache-Control"));
-    expect(compressed.headers.get("CDN-Cache-Control")).toBe(plain.headers.get("CDN-Cache-Control"));
-    expect(gunzipSync(bytes).toString("utf8")).toBe(xml);
+    const gzipRequest = await read("gzip");
+    expect(gzipRequest.status).toBe(200);
+    expect(gzipRequest.headers.get("Content-Encoding")).toBeNull();
+    expect(gzipRequest.headers.get("Vary")).toBe("Accept-Encoding");
+    expect(gzipRequest.headers.get("Cache-Control")).toBe(plain.headers.get("Cache-Control"));
+    expect(gzipRequest.headers.get("CDN-Cache-Control")).toBe(plain.headers.get("CDN-Cache-Control"));
+    expect(await gzipRequest.text()).toBe(xml);
     expect(xml).toMatch(/<\/urlset>\s*$/);
     expect(xml).not.toContain("/result/private-attempt");
-    if (family === "root" || family === "tests") expect(bytes.byteLength).toBeLessThan(Buffer.byteLength(xml) / 4);
   });
 
   it.each([
-    ["", null, 200], ["gzip;q=0", null, 200], ["br", null, 200],
-    ["gzip;q=0.2, identity;q=0.9", null, 200], ["gzip;q=0, *;q=1", null, 200],
-    ["GZIP;q=1.000", "gzip", 200], ["*;q=0.5", "gzip", 200],
-    ["gzip;q=0, identity;q=0", null, 406], ["*;q=0", null, 406],
-  ])("honors encoding preferences %s", async (encoding, expectedEncoding, status) => {
+    ["", 200], ["gzip;q=0", 200], ["br", 200],
+    ["gzip;q=0.2, identity;q=0.9", 200], ["gzip;q=0, *;q=1", 200],
+    ["GZIP;q=1.000", 200], ["*;q=0.5", 200],
+    ["gzip;q=0, identity;q=0", 406], ["*;q=0", 406],
+  ])("validates encoding availability for %s", async (encoding, status) => {
     vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(backendSitemapPayload()))));
     const response = await getRootSitemap(new Request("https://fermatmind.com/sitemap.xml", {
-      headers: { "Accept-Encoding": encoding as string },
+      headers: { "Accept-Encoding": encoding },
     }));
     expect(response.status).toBe(status);
-    expect(response.headers.get("Content-Encoding")).toBe(expectedEncoding);
+    expect(response.headers.get("Content-Encoding")).toBeNull();
     expect(response.headers.get("Vary")).toBe("Accept-Encoding");
   });
 

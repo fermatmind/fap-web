@@ -1,7 +1,5 @@
 import { hasTraditionalCareerEntrySearchPath, hasTraditionalCareerInterestSearchPath, hasTraditionalPublicResourceSearchPath } from "@/lib/seo/traditionalSearchMetadata";
 import { hasTraditionalAssessmentSearchPath } from "@/lib/i18n/traditionalRoutes";
-import { promisify } from "node:util";
-import { gzip } from "node:zlib";
 
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { appendFunSitemapEntries, appendTraditionalEntertainmentSitemapEntries } from "@/lib/entertainment/sitemap";
@@ -32,13 +30,12 @@ const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const OWNED_SITEMAP_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const SUCCESS_CACHE_CONTROL = "public, max-age=300, s-maxage=600, stale-while-revalidate=86400";
 const FAILURE_CACHE_CONTROL = "public, max-age=60, s-maxage=60";
-const gzipAsync = promisify(gzip);
 
-export async function buildPublicSitemapXmlResponse(
+export function buildPublicSitemapXmlResponse(
   xml: string,
   cacheHeaders: Record<string, string>,
   request?: Request,
-): Promise<Response> {
+): Response {
   const qualities = new Map<string, number>();
   for (const item of (request?.headers.get("accept-encoding") ?? "").split(",")) {
     const match = item.trim().match(/^(gzip|identity|\*)(?:\s*;\s*q=(0(?:\.\d{0,3})?|1(?:\.0{0,3})?))?$/i);
@@ -51,14 +48,12 @@ export async function buildPublicSitemapXmlResponse(
     ...cacheHeaders,
     Vary: "Accept-Encoding",
   });
-  if (gzipQuality > 0 && gzipQuality >= (qualities.get("identity") ?? 0)) {
-    headers.set("Content-Encoding", "gzip");
-    return new Response(new Uint8Array(await gzipAsync(xml)), { headers });
-  }
-  if (identityQuality === 0) {
+  if (gzipQuality === 0 && identityQuality === 0) {
     headers.set("Content-Type", "text/plain; charset=utf-8");
     return new Response("No acceptable sitemap content encoding.\n", { status: 406, headers });
   }
+  // Next compresses the XML at the HTTP layer. Route Handlers strip Content-Encoding
+  // from returned responses, so their bodies must not be precompressed.
   return new Response(xml, { headers });
 }
 const FAMILY_PATH_PATTERNS: ReadonlyArray<{
@@ -314,7 +309,7 @@ export async function buildPublicSitemapResponse(family?: PublicSitemapFamily, r
     const allEntries = buildCompletePublicSitemapEntries(rootEntries);
     const entries = family ? buildPublicSitemapFamilyMap(allEntries)[family] : allEntries;
 
-    return await buildPublicSitemapXmlResponse(buildPublicSitemapXml(entries), {
+    return buildPublicSitemapXmlResponse(buildPublicSitemapXml(entries), {
       "Cache-Control": SUCCESS_CACHE_CONTROL,
     }, request);
   } catch {

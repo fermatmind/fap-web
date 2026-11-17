@@ -19,7 +19,7 @@ export async function GET(request?: Request): Promise<Response> {
       throw new Error("Backend sitemap source returned no public sitemap entries.");
     }
 
-    return await buildPublicSitemapXmlResponse(
+    return buildPublicSitemapXmlResponse(
       buildPublicSitemapXml(buildCompletePublicSitemapEntries(entries)),
       { "Cache-Control": CACHE_CONTROL, "CDN-Cache-Control": "no-store" },
       request,
