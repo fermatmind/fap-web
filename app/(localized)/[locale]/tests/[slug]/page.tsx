@@ -8,6 +8,7 @@ import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntr
 import { AssessmentReadingPaths } from "@/components/tests/AssessmentReadingPaths";
 import { IqLandingPreview } from "@/components/tests/IqLandingPreview";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
+import { MbtiReportAccessSummary, MbtiScoredReportExample } from "@/components/tests/MbtiReportPreview";
 import { MbtiResultExamples } from "@/components/tests/MbtiResultExamples";
 import previewStyles from "@/components/tests/mbti-preview.module.css";
 import type { Metadata } from "next";
@@ -78,7 +79,6 @@ import {
   getMbtiDurationSummary,
   getMbtiStartLabel,
   getMbtiVariantLabel,
-  getMbtiVariantSummary,
   isMbtiScaleCode,
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
@@ -1011,7 +1011,13 @@ export default async function TestLandingPage({
     ? listMbtiFormMetas().map((form) => ({
         key: form.formCode,
         label: getMbtiVariantLabel(form.formCode, locale),
-        summary: getMbtiVariantSummary(form.formCode, locale),
+        summary: form.formCode === "mbti_93"
+          ? traditional ? "時間有限時，先看四組核心偏好。" : locale === "zh"
+            ? "时间有限时，先看四组核心偏好。"
+            : "Choose this for a first look at the four core preferences."
+          : traditional ? "多 51 題，涵蓋更多行為情境。" : locale === "zh"
+            ? "多 51 道题，覆盖更多行为情境。"
+            : "Choose this if you have time for 51 additional items.",
         href: withAttribution(buildMbtiTakeHref(test.slug, locale, form.formCode)),
         ctaLabel: getFlagshipFreeTestCtaLabel({
           scaleCode: test.scale_code,
@@ -1497,7 +1503,16 @@ export default async function TestLandingPage({
             heroArtwork={assessmentLandingUi?.heroArtwork}
             choices={displayChoices(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
-          /><MbtiPricingNotice locale={displayLocale} /></> : usesIllustratedLanding ? <AssessmentLandingIntro
+          />
+            {test.slug === MBTI_ENTRY_TEST_SLUG ? (
+              <MbtiReportAccessSummary
+                locale={displayLocale}
+                freeFullReport={hasFreeFullReportAuthority}
+                cmsCopy={traditional ? undefined : cmsLandingSurfaceContent.heroCopy}
+              />
+            ) : null}
+            <MbtiPricingNotice locale={displayLocale} />
+          </> : usesIllustratedLanding ? <AssessmentLandingIntro
             locale={displayLocale}
             title={displayText(heroHeadingTitle)}
             heroArtwork={assessmentLandingUi?.heroArtwork}
@@ -1600,6 +1615,7 @@ export default async function TestLandingPage({
 
           <AssessmentReadingPaths slug={test.slug} locale={displayLocale} text={displayText} destination={displayHref} />
 
+          {showsMbtiActions && test.slug === MBTI_ENTRY_TEST_SLUG ? <MbtiScoredReportExample locale={displayLocale} /> : null}
           {showsMbtiActions ? <MbtiResultExamples locale={displayLocale} guideHref={traditional ? displayHref("/zh/articles/mbti-full-report-career-relationship-communication") : undefined} /> : null}
 
           {showsIqActions ? <IqLandingPreview
