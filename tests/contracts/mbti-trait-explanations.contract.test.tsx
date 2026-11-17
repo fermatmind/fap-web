@@ -17,7 +17,9 @@ const props = {
   summarySlotId: "traits-summary-illustration" as const, summarySlotLabel: "", paragraphs: ["Unchanged chapter body"], bodySource: "traits" as const, tools: [],
   traitCatalog: catalog,
 };
-beforeEach(() => get.mockReset());
+beforeEach(() => {
+  get.mockReset();
+});
 
 describe("backend-owned MBTI trait editorial bands", () => {
   it("covers every displayed integer for all ten poles, with shared tie content", () => {

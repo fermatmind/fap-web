@@ -12,7 +12,9 @@ function response(code: string, locale: Locale) {
     locale: locale === "zh" ? "zh-CN" : "en", paragraphs: [`${code} ${locale} first`, `${code} ${locale} second`],
     revision: 1, content_hash: "a".repeat(64) };
 }
-beforeEach(() => get.mockReset());
+beforeEach(() => {
+  get.mockReset();
+});
 
 describe("MBTI introduction authority", () => {
   for (const ei of ["E", "I"]) for (const sn of ["S", "N"]) for (const tf of ["T", "F"]) for (const jp of ["J", "P"]) for (const at of ["A", "T"]) {

@@ -25,7 +25,9 @@ function page(slug: string): ContentPage {
   };
 }
 
-beforeEach(() => read.mockReset());
+beforeEach(() => {
+  read.mockReset();
+});
 describe("shared Traditional CMS page route", () => {
   it.each(["about", "brand", "charter", "careers", "privacy", "terms", "method-boundaries", "science"])("renders the exact %s variant, metadata, language targets and schema", async slug => {
     read.mockResolvedValue({ value: page(slug) });

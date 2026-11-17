@@ -24,6 +24,10 @@ vi.mock("@/lib/content", () => ({
   resolveTestTitleByLocale: (test: { title?: string; title_zh?: string }) => test.title_zh ?? test.title ?? "Technical Note",
 }));
 
+vi.mock("@/lib/enneagram/technicalNote.server", () => ({
+  getPublicEnneagramTechnicalNote: async () => null,
+}));
+
 vi.mock("@/components/result/enneagram/EnneagramTechnicalNotePage", () => ({
   EnneagramTechnicalNotePage: ({ testTitle }: { testTitle: string }) => (
     <div data-testid="mock-enneagram-technical-note-page">{testTitle}</div>
@@ -92,7 +96,7 @@ describe("RIASEC technical note route contract", () => {
     expect(hoisted.notFound).toHaveBeenCalledTimes(1);
   });
 
-  it.each(["RIASEC", "ENNEAGRAM"] as const)("pairs both published locales for %s metadata", async (scaleCode) => {
+  it.each(["RIASEC", "ENNEAGRAM"] as const)("pairs both base locales for %s metadata without note authority", async (scaleCode) => {
     const slug = SCALE_CANONICAL_SLUG_MAP[scaleCode];
     for (const locale of ["zh", "en"] as const) {
       hoisted.getTestBySlug.mockResolvedValueOnce({ scale_code: scaleCode, title: "Assessment" });

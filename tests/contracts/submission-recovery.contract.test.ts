@@ -7,7 +7,9 @@ vi.mock("@/lib/api/v0_3", () => ({ fetchAttemptSubmission: readSubmission }));
 const timeout = new ApiError({ status: 408, errorCode: "REQUEST_TIMEOUT", message: "Timed out" });
 
 describe("ambiguous submission recovery", () => {
-  beforeEach(() => readSubmission.mockReset());
+  beforeEach(() => {
+    readSubmission.mockReset();
+  });
 
   it.each(["pending", "running", "succeeded"])("recovers only the original %s attempt", async (state) => {
     readSubmission.mockResolvedValue({ ok: true, attempt_id: "original", submission: { state } });
