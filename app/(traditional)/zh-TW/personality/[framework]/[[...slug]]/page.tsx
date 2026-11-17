@@ -42,7 +42,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       ...content.reader.metadata,
       alternates: { canonical: content.reader.canonical },
       robots: { index: !isConfiguredStagingSiteUrl() && content.reader.indexEligible, follow: !isConfiguredStagingSiteUrl() },
-    }, content.reader.traditionalLanguageAlternates);
+    }, content.reader.traditionalLanguageAlternates, { defaultToEnglish: true });
   }
   const { asset } = content;
   return withTraditionalPersonalityLanguageAlternates({

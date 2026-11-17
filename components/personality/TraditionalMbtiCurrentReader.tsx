@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PersonalityCareerExploration } from "@/components/career/PersonalityCareerExploration";
 import { getPersonalityCareerScene, readPersonalityCareerExamples } from "@/lib/career/personalityCareerExploration";
@@ -110,8 +112,28 @@ async function TraditionalIntjCareerExploration() {
 export function TraditionalMbtiCurrentReader({ reader }: {
   reader: NonNullable<Awaited<ReturnType<typeof loadTraditionalMbtiCurrentReader>>>;
 }) {
+  const pageSchema = buildWebPageJsonLd({
+    path: reader.canonical,
+    title: reader.title,
+    description: reader.metadata.description || reader.summary || "",
+    locale: "zh-TW",
+  });
+  const slug = reader.canonical.split("/").at(-1);
   return (
     <article className="space-y-8 [&_[id]]:scroll-mt-24" data-authority-source={reader.authority}>
+      {reader.indexEligible && <>
+        <JsonLd
+          id={`personality-webpage-${slug}`}
+          data={reader.authority === "comparison_public_projection_v1"
+            ? { ...pageSchema, "@type": "AboutPage", mainEntityOfPage: pageSchema.url }
+            : pageSchema}
+        />
+        <JsonLd id={`personality-breadcrumb-${slug}`} data={buildBreadcrumbJsonLd([
+          { name: "首頁", path: "/zh-TW" },
+          { name: "人格", path: "/zh-TW/personality" },
+          { name: reader.title, path: reader.canonical },
+        ])} />
+      </>}
       <Breadcrumb items={[{ label: "首頁", href: "/zh-TW" }, { label: "人格", href: "/zh-TW/personality" }, { label: reader.title }]} />
       <header className="flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-[#77608d] p-7 text-white sm:p-10">
         <div className="min-w-0 flex-1 space-y-4">

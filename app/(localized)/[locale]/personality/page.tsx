@@ -90,7 +90,7 @@ export async function generateMetadata({
         index: !isConfiguredStagingSiteUrl() && content.seoMeta?.robots === "index,follow",
         follow: !isConfiguredStagingSiteUrl() && content.seoMeta?.robots !== "noindex,nofollow",
       },
-    }, content.traditionalLanguageAlternates);
+    }, content.traditionalLanguageAlternates, { defaultToEnglish: true });
   }
   const locale = resolveLocale(localeParam);
   const content = await getHubContent(locale);
@@ -107,7 +107,7 @@ export async function generateMetadata({
       zh: "/zh/personality",
       xDefault: "/",
     },
-  }), content.traditionalLanguageAlternates), seoCopy.title);
+  }), content.traditionalLanguageAlternates, { defaultToEnglish: true }), seoCopy.title);
 }
 
 const GROUP_TONES: Record<
@@ -531,11 +531,20 @@ const loadTraditionalDirectory = cache(async () => {
 
 async function TraditionalPersonalityDirectory() {
   const { content, comparisons } = await loadTraditionalDirectory();
+  const { title, description } = getPersonalityPageSeoCopy("zh-TW", content);
+  const path = "/zh-TW/personality";
   const groups = buildPersonalityHubFamilyGroups({ locale: "zh-TW", personalities: content.items });
   const faq = content.sections?.find((section) => section.sectionKey === "faq");
   const faqPayload = faq?.payloadJson as { items?: { question: string; answer: string }[] } | null;
   return (
     <Container as="div" className="max-w-7xl space-y-10 pb-16 [&_[id]]:scroll-mt-24">
+      {content.seoMeta?.robots === "index,follow" && <>
+        <JsonLd id="personality-webpage" data={buildWebPageJsonLd({ path, title, description, locale: "zh-TW" })} />
+        <JsonLd id="personality-breadcrumb" data={buildBreadcrumbJsonLd([
+          { name: "首頁", path: "/zh-TW" },
+          { name: "人格", path },
+        ])} />
+      </>}
       <Breadcrumb items={[{ label: "首頁", href: "/zh-TW" }, { label: "人格" }]} />
       <nav aria-label="頁面語言" className="flex flex-wrap gap-5 text-sm">
         <Link href="/zh/personality" lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>

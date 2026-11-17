@@ -5,6 +5,7 @@ import { canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 export function withTraditionalPersonalityLanguageAlternates(
   metadata: Metadata,
   languages: TraditionalPersonalityLanguageAlternates | undefined,
+  options?: { defaultToEnglish?: boolean },
 ): Metadata {
   if (!languages || isConfiguredStagingSiteUrl() ||
     (typeof metadata.robots === "object" && metadata.robots?.index === false)) {
@@ -20,6 +21,7 @@ export function withTraditionalPersonalityLanguageAlternates(
         en: canonicalUrl(languages.en),
         "zh-CN": canonicalUrl(languages["zh-CN"]),
         "zh-TW": canonicalUrl(languages["zh-TW"]),
+        ...(options?.defaultToEnglish ? { "x-default": canonicalUrl(languages.en) } : {}),
       },
     },
   };

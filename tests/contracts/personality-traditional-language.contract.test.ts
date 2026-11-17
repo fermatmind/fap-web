@@ -41,6 +41,16 @@ describe("Traditional personality language relations", () => {
     expect(withTraditionalPersonalityLanguageAlternates(held, paths)).toBe(held);
   });
 
+  it("uses the same-identity English default only for eligible MBTI routes", () => {
+    const input = { alternates: { canonical: paths["zh-TW"] } };
+    const options = { defaultToEnglish: true };
+    expect(withTraditionalPersonalityLanguageAlternates(input, paths, options).alternates?.languages)
+      .toMatchObject({ "x-default": expect.stringMatching(/\/en\/personality\/intj$/) });
+    const held = { ...input, robots: { index: false } };
+    expect(withTraditionalPersonalityLanguageAlternates(held, paths, options)).toBe(held);
+    expect(withTraditionalPersonalityLanguageAlternates(input, undefined, options)).toBe(input);
+  });
+
   it("uses the reader's verified destination without SEO metadata", () => {
     const reader = document.createElement("main");
     const tree = document.createDocumentFragment();

@@ -134,8 +134,9 @@ function formatPersonalityDetailImageAlt(
   detail: PersonalityProjectionViewModel,
   locale: Locale
 ): string {
-  const heading = formatPersonalityDetailHeading(detail, locale);
-  return locale === "zh" ? `${heading} 人格图像` : `${heading} personality illustration`;
+  return locale === "zh"
+    ? `${detail.displayType} 人格插图`
+    : `${detail.displayType} personality illustration`;
 }
 
 function firstAvailableSectionHref(sectionKeys: Set<string>, fallbackHref: string, ...candidates: string[]): string {
@@ -1531,7 +1532,7 @@ export async function generateMetadata({
         description: comparison.seoSurface?.twitter.description || comparison.seoMeta?.twitterDescription || description,
         images: twitterImages,
       },
-    }, comparison.traditionalLanguageAlternates), effectiveMetadataTitle);
+    }, comparison.traditionalLanguageAlternates, { defaultToEnglish: true }), effectiveMetadataTitle);
   }
 
   const { detail, seo } = await loadPersonalityPublicDetail(
@@ -1591,7 +1592,7 @@ export async function generateMetadata({
       description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
       images: twitterImages,
     },
-  }, detail.traditionalLanguageAlternates), effectiveMetadataTitle);
+  }, detail.traditionalLanguageAlternates, { defaultToEnglish: true }), effectiveMetadataTitle);
 }
 
 export default async function PersonalityDetailPage({
@@ -1806,11 +1807,11 @@ export default async function PersonalityDetailPage({
       data-domain-envelope-state="metadata_only"
     >
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
-      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
-      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
-      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
+      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-jsonld-${detail.routeSlug}`} data={normalizedSeo.jsonld} /> : null}
+      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-webpage-${detail.routeSlug}`} data={webPageJsonLd} /> : null}
+      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-breadcrumb-${detail.routeSlug}`} data={breadcrumbJsonLd} /> : null}
       {fallbackProjectionGate.canRenderPublicSchema && !hasCurrentReaderSections && faqItems.length > 0 ? (
-        <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} />
+        <JsonLd id={`personality-faq-${detail.routeSlug}`} data={buildFAQPageJsonLd(faqItems)} />
       ) : null}
       {careerCards.length > 0 && fallbackProjectionGate.canRenderPublicSchema ? (
         <JsonLd id={`${detail.routeSlug}-career-exploration-jsonld`} data={personalityCareerItemList(careerCards, careerTitle)} />
