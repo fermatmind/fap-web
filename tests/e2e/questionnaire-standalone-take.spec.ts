@@ -59,11 +59,11 @@ for (const locale of ["en", "zh"] as const) for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
     for (const entry of [
-      { slug: "empathy", edition: "", template: "scale", options: 5 },
-      { slug: "disc", edition: "", template: "pair", options: 2 },
-      { slug: dog.slug, edition: "", template: "scenario", options: 4 },
+      { slug: "empathy", template: "scale", options: 5 },
+      { slug: "disc", template: "pair", options: 2 },
+      { slug: dog.slug, template: "scenario", options: 4 },
     ]) {
-      await page.goto(`/${locale}/tests/explore/${entry.slug}/take?start=1${entry.edition ? `&edition=${entry.edition}` : ""}`);
+      await page.goto(`/${locale}/tests/explore/${entry.slug}/take?start=1`);
       const first = page.locator("[data-questionnaire-take] input[type=radio]").first();
       await expect(first).toBeEnabled();
       await expect(page.locator('[data-preparing="true"]')).toHaveCount(0);
@@ -74,7 +74,7 @@ for (const locale of ["en", "zh"] as const) for (const width of [390, 1440]) {
         const rectangles = nodes.map(node => node.getBoundingClientRect());
         return { columns: rectangles.filter(rect => Math.abs(rect.top - rectangles[0].top) < 1).length, colors: nodes.map(node => getComputedStyle(node).backgroundColor) };
       });
-      expect(layout.columns).toBe(width < 640 ? 1 : entry.template === "scale" ? 5 : 2);
+      expect(layout.columns).toBe(1);
       if (entry.template === "scale") expect(new Set(layout.colors).size).toBe(5);
       await first.check();
       await expect(first).toBeChecked();

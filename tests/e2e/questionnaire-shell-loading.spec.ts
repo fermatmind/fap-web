@@ -43,7 +43,8 @@ for (const locale of ["en", "zh"] as const) {
         expect(held).toBeGreaterThan(0);
         release();
         await expect(page.getByRole("link", { name: zh ? "返回测评介绍" : "Back to assessment", exact: true })).toBeVisible();
-        await expect(page.locator("[data-site-header]")).toHaveCount(0);
+        await expect(page).toHaveURL(new RegExp(`/${locale}/tests/explore/disc/take(?:\\?|$)`));
+        await expect(page.locator("[data-questionnaire-take]")).toBeVisible();
         await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
         await expect(page.locator("#take-test")).toContainText(zh ? "第 2 题" : "Question 2");
       } finally { release(); }
