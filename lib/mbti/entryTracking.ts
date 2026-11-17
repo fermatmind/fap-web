@@ -8,6 +8,13 @@ import {
 
 export const MBTI_ENTRY_TEST_SLUG = "mbti-personality-test-16-personality-types";
 
+export function isMbtiCanonicalLandingPath(path: unknown): path is string {
+  return typeof path === "string" && ["en", "zh", "zh-TW"].some(
+    (locale) => path === `/${locale}/tests/${MBTI_ENTRY_TEST_SLUG}`,
+  );
+}
+
+
 export type MbtiEntrySurface =
   | "mbti_test_landing"
   | "mbti_topic_detail"

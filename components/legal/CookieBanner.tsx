@@ -30,9 +30,14 @@ function getServerConsentSnapshot(): BannerSnapshot {
   return "pending";
 }
 
-export function CookieBanner() {
+export function CookieBanner({ traditional = false }: { traditional?: boolean } = {}) {
   const locale = useLocale();
   const dict = getDictSync(locale);
+  const copy = traditional ? {
+    message: "我們會使用必要的 Cookie 維持網站運作。你可以選擇是否同意使用分析 Cookie，幫助我們改善網站。",
+    accept: "同意分析 Cookie",
+    decline: "僅使用必要 Cookie",
+  } : dict.cookie;
   const consent = useSyncExternalStore(subscribeConsentStore, getConsentSnapshot, getServerConsentSnapshot);
 
   const updateConsent = (next: Extract<BannerConsent, "granted" | "denied">) => {
@@ -52,7 +57,7 @@ export function CookieBanner() {
       data-cookie-banner="true"
       className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(920px,calc(100%-2rem))] rounded-2xl border border-slate-300 bg-white p-4 shadow-lg"
     >
-      <p className="m-0 text-sm text-slate-700">{dict.cookie.message}</p>
+      <p className="m-0 text-sm text-slate-700">{copy.message}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         <Button
           type="button"
@@ -60,7 +65,7 @@ export function CookieBanner() {
           data-testid="cookie-banner-accept"
           onClick={() => updateConsent("granted")}
         >
-          {dict.cookie.accept}
+          {copy.accept}
         </Button>
         <Button
           type="button"
@@ -69,7 +74,7 @@ export function CookieBanner() {
           data-testid="cookie-banner-decline"
           onClick={() => updateConsent("denied")}
         >
-          {dict.cookie.decline}
+          {copy.decline}
         </Button>
       </div>
     </div>

@@ -13,7 +13,7 @@ const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>
 
 // English search copy is distinct from the concise on-page heading.
 const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
-  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Personality Test: 16 Types & Preferences", description: "Free MBTI test: 93 questions (~10 min) or 144 (~15). Explore 16 types, four preference pairs and next steps for self-understanding and communication reference." },
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Test: 93 or 144 Questions, No Sign-Up", description: "Take a free MBTI-style test with 93 or 144 questions. No sign-up required to start or read your full 4-chapter report in the browser where you took the test." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free Big Five test: 90 items (~11 min) or FermatMind’s adapted 120-item IPIP-NEO form (~15 min). Explore five OCEAN traits and 30 facets." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "FermatMind IQ: 30 original visual matrix questions, ~20 min. Free test and results. Review reasoning, scores and limits; no substitute for professional IQ assessment." },

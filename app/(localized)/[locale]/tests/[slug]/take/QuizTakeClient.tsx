@@ -21,6 +21,7 @@ import { QuizShell } from "@/components/quiz/QuizShell";
 import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { hasAnalyticsConsent } from "@/lib/consent/store";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   isGuestTokenEndpointMissingError,
@@ -978,6 +979,8 @@ function QuizTakeInner({
                   ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
                   ...(entryContext.testSlug ? { test_slug: entryContext.testSlug } : {}),
                   ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
+                  ...(entryContext.entrySurface === "mbti_test_landing" && hasAnalyticsConsent()
+                    ? { mbti_landing_analytics_consent: true } : {}),
                 },
                 ...attribution,
                 ...(isRiasecScale ? { clientPlatform: "web", channel: "web" } : {}),

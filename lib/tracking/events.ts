@@ -51,6 +51,7 @@ export const TRACKING_EVENTS = {
   // BIG5 funnel events
   LANDING_VIEW: "landing_view",
   START_CLICK: "start_click",
+  MBTI_LANDING_CTA_CLICK: "mbti_landing_cta_click",
   QUESTION_ANSWER: "question_answer",
   SUBMIT_CLICK: "submit_click",
   REPORT_VIEW_FREE: "report_view_free",
@@ -477,6 +478,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   ],
 
   landing_view: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS],
+  mbti_landing_cta_click: ["form_code", "landing_path", "locale", "target_action", "traffic_quality", "utm_source", "utm_medium"],
   start_click: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", "disclaimer_version", "disclaimer_hash", ...COMMON_BIG5_FIELDS],
   question_answer: ["attempt_id", "question_id", "question_no", "answered_count", "locale", ...COMMON_BIG5_FIELDS],
   submit_click: ["attempt_id", "answered_count", "duration_ms", "locale", ...COMMON_BIG5_FIELDS],

@@ -35,6 +35,7 @@ vi.mock("@/lib/tracking/vibeCafe", () => ({
 
 afterEach(() => {
   window.localStorage.clear();
+  hoisted.pathname = "/zh/tests/mbti-personality-test-16-personality-types";
   hoisted.initAnalytics.mockReset();
   hoisted.trackLandingPageView.mockReset();
   hoisted.trackEvent.mockReset();
@@ -92,4 +93,19 @@ describe("analytics consent page view replay contract", () => {
     expect(hoisted.trackEvent).not.toHaveBeenCalled();
     expect(hoisted.initAnalytics).toHaveBeenCalledTimes(1);
   });
+});
+
+it("emits the direct Taiwan MBTI page view only after the localized consent choice", async () => {
+  hoisted.pathname = "/zh-TW/tests/mbti-personality-test-16-personality-types";
+  render(
+    <LocaleProvider locale="zh">
+      <AnalyticsPageViewTracker eventName="landing_view" properties={{ landing_path: hoisted.pathname }} />
+      <CookieBanner traditional />
+    </LocaleProvider>,
+  );
+
+  expect(hoisted.trackLandingPageView).not.toHaveBeenCalled();
+  fireEvent.click(await screen.findByRole("button", { name: "同意分析 Cookie" }));
+  await waitFor(() => expect(hoisted.trackLandingPageView).toHaveBeenCalledTimes(1));
+  expect(hoisted.trackLandingPageView).toHaveBeenCalledWith({ landing_path: hoisted.pathname });
 });

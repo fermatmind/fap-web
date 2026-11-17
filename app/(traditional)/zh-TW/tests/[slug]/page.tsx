@@ -1,3 +1,5 @@
+import { DeferredCookieBanner } from "@/components/legal/DeferredCookieBanner";
+import { MBTI_ENTRY_TEST_SLUG } from "@/lib/mbti/entryTracking";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -29,5 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TraditionalAssessmentLandingPage({ params, searchParams }: Props) {
   const { slug } = await params;
   if (!isCoreAssessmentSlug(slug)) return notFound();
-  return TestLandingPage({ params: Promise.resolve({ locale: "zh-TW", slug }), searchParams });
+  const landing = await TestLandingPage({ params: Promise.resolve({ locale: "zh-TW", slug }), searchParams });
+  return slug === MBTI_ENTRY_TEST_SLUG ? <>{landing}<DeferredCookieBanner locale="zh" traditional /></> : landing;
 }

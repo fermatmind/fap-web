@@ -68,6 +68,30 @@ describe("SEO funnel tracking taxonomy parity", () => {
     expect(normalizeTrackingEventName(TRACKING_EVENTS.PAY_SUCCESS)).toBe(TRACKING_EVENTS.PURCHASE_SUCCESS);
   });
 
+  it("records both canonical MBTI form clicks separately while preserving the legacy browser event", async () => {
+    grantAnalyticsConsent();
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtag = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", { configurable: true, value: gtag });
+    const path = "/zh-TW/tests/mbti-personality-test-16-personality-types";
+    for (const form of ["mbti_93", "mbti_144"]) {
+      await trackClientEvent({
+        eventName: TRACKING_EVENTS.START_CLICK,
+        path: `${path}?utm_source=search`,
+        anonymousId: "anon-session-1",
+        payload: { entry_surface: "mbti_test_landing", landing_path: path, form_code: form, locale: "zh" },
+      });
+    }
+
+    expect(gtag).toHaveBeenCalledWith("event", "test_start", expect.any(Object));
+    const envelopes = fetchMock.mock.calls.map(([, init]) => JSON.parse(String(init.body)));
+    expect(envelopes.map(({ eventName, path: landing, payload }) => [eventName, landing, payload.form_code])).toEqual([
+      ["mbti_landing_cta_click", path, "mbti_93"],
+      ["mbti_landing_cta_click", path, "mbti_144"],
+    ]);
+  });
+
   it("normalizes legacy start and submit aliases before browser and network dispatch", async () => {
     grantAnalyticsConsent();
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));

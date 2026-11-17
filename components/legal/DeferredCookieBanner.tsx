@@ -3,6 +3,6 @@
 import type { Locale } from "@/lib/i18n/locales";
 import { contentModule } from "@/components/ui/ContentModule";
 
-export const DeferredCookieBanner = contentModule<{ locale: Locale }>(
+export const DeferredCookieBanner = contentModule<{ locale: Locale; traditional?: boolean }>(
   () => import("./CookieBanner").then(module => ({ default: module.CookieBanner }))
 );

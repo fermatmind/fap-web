@@ -1,3 +1,4 @@
+import { isMbtiCanonicalLandingPath } from "@/lib/mbti/entryTracking";
 import { NextResponse, type NextRequest } from "next/server";
 import { createHmac } from "node:crypto";
 import { isIP } from "node:net";
@@ -285,6 +286,12 @@ export async function POST(request: NextRequest) {
   }
 
   const path = sanitizeAnalyticsTrackingUrl(rawPath) ?? "";
+  const isMbtiLandingClick = normalizedEventName === "mbti_landing_cta_click";
+  if (isMbtiLandingClick && (!isMbtiCanonicalLandingPath(payload.landing_path)
+    || payload.landing_path !== path.split("?")[0]
+    || (payload.form_code !== "mbti_93" && payload.form_code !== "mbti_144"))) {
+    return NextResponse.json({ ok: false, error: "invalid_mbti_landing_click" }, { status: 400 });
+  }
   const timestamp = safeText((body as { timestamp?: unknown }).timestamp, new Date().toISOString());
   const locale = localeFromPath(path);
   const payloadWithLocale = {
@@ -305,7 +312,7 @@ export async function POST(request: NextRequest) {
     requestId,
     eventName: normalizedEventName,
     anonymousId,
-    path,
+    path: isMbtiLandingClick ? path.split("?")[0] : path,
     timestamp,
     payload: {
       ...payloadWithLocale,
@@ -324,7 +331,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_target" }, { status: 502 });
   }
   const identityHeaders = isFunActivity ? {} : buildAccessStatsIdentityHeaders(request, timestamp, token);
-  const seoAttributionTarget = (isSeoConversionFunnelEvent(normalizedEventName) || isFunActivity)
+  const seoAttributionTarget = (isSeoConversionFunnelEvent(normalizedEventName) || isFunActivity || isMbtiLandingClick)
     ? (nativeOrigin ? `${nativeOrigin}/api/v0.5/seo/attribution/events` : undefined)
     : undefined;
   const nativeCareerAttributionTarget = nativeOrigin ? `${nativeOrigin}/api/v0.5/career/attribution/events` : undefined;
@@ -332,7 +339,7 @@ export async function POST(request: NextRequest) {
     || process.env.ANALYTICS_ENDPOINT?.trim()
     || nativeCareerAttributionTarget;
   const targets = uniqueTargets(
-    isFunActivity ? [seoAttributionTarget] : isCareerAttributionEvent(normalizedEventName)
+    (isFunActivity || isMbtiLandingClick) ? [seoAttributionTarget] : isCareerAttributionEvent(normalizedEventName)
       ? [seoAttributionTarget, careerAttributionTarget]
       : [
           seoAttributionTarget,

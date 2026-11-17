@@ -1,5 +1,7 @@
 "use client";
 
+import { isMbtiCanonicalLandingPath } from "@/lib/mbti/entryTracking";
+
 import { hasAnalyticsConsent } from "@/lib/consent/store";
 import { buildApiUrl } from "@/lib/api-base";
 import { buildSearchIntelligenceTrackingPayload } from "@/lib/tracking/attribution";
@@ -9,6 +11,7 @@ import {
   isSeoConversionFunnelEvent,
   isTrackingEvent,
   normalizeTrackingEventName,
+  TRACKING_EVENTS,
   type TrackingEventName,
 } from "@/lib/tracking/events";
 import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
@@ -394,14 +397,20 @@ export async function trackClientEvent({
     normalizedEventName === "continue_exploration" &&
     typeof filteredPayload.action_category !== "string"
   ) return;
-  if (shouldSuppressDuplicateConversionDispatch(normalizedEventName, safePath, filteredPayload)) return;
-  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
+  const isMbtiLandingClick = eventName === TRACKING_EVENTS.START_CLICK
+    && payload?.entry_surface === "mbti_test_landing"
+    && isMbtiCanonicalLandingPath(payload.landing_path);
+  const duplicateBrowserEvent = shouldSuppressDuplicateConversionDispatch(normalizedEventName, safePath, filteredPayload);
+  if (duplicateBrowserEvent && !isMbtiLandingClick) return;
+  if (!duplicateBrowserEvent) dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
+
+  const ingestEventName = isMbtiLandingClick ? TRACKING_EVENTS.MBTI_LANDING_CTA_CLICK : normalizedEventName;
 
   try {
     const envelope = {
       requestId: crypto.randomUUID(),
-      eventName: normalizedEventName,
-      payload: filteredPayload,
+      eventName: ingestEventName,
+      payload: isMbtiLandingClick ? filterTrackingPayload(ingestEventName, rawPayload) : filteredPayload,
       anonymousId,
       path: safePath,
       timestamp: new Date().toISOString(),
@@ -454,6 +463,11 @@ export async function trackNetworkObservableFunnelEvent({
   if (shouldSuppressDuplicateConversionDispatch(normalizedEventName, safePath, filteredPayload)) return;
 
   dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
+
+  // The durable backend event owns this landing's successful-start count.
+  if (eventName === TRACKING_EVENTS.START_ATTEMPT
+    && payload?.entry_surface === "mbti_test_landing"
+    && isMbtiCanonicalLandingPath(payload.landing_path)) return;
 
   try {
     await fetch("/api/track", {

@@ -1154,7 +1154,7 @@ export default async function TestLandingPage({
   const mbtiSecondaryChoice = showsMbtiActions
     ? flagshipVariantChoices.find((choice) => choice.key !== (mbtiPrimaryChoice?.key ?? DEFAULT_MBTI_FORM_CODE)) ?? null
     : null;
-  const mbtiLandingPath = landingPath;
+  const mbtiLandingPath = landingBasePath;
   const mbtiPrimaryHref = mbtiPrimaryChoice
     ? buildMbtiEntryHref({
         locale,
