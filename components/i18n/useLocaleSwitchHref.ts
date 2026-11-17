@@ -47,8 +47,8 @@ export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, 
 
 function subscribeMetadata(onChange: () => void): () => void {
   const observer = new MutationObserver(onChange);
-  // Next.js can stream article metadata into the body after hydration.
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["href", "hreflang", "rel"] });
+  // Next.js can stream page metadata and reader navigation into the body after hydration.
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["href", "hreflang", "rel", "data-personality-traditional-href"] });
   return () => observer.disconnect();
 }
 
@@ -77,8 +77,13 @@ export function resolveTraditionalSwitchHref(pathname: string, head?: ParentNode
     const path = alternate?.startsWith(CANONICAL_SITE_URL + "/") ? alternate.slice(CANONICAL_SITE_URL.length) : "";
     if (/^\/zh-TW\/articles\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/u.test(path)) return path;
   }
-  if (!/^\/(?:en|zh)\/personality(?:\/|$)/u.test(pathname) ||
-    head?.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href !== CANONICAL_SITE_URL + pathname) {
+  const personalityPath = /^\/(?:en|zh)(\/personality(?:\/[a-z0-9-]+)*)$/u.exec(pathname)?.[1];
+  if (!personalityPath) return "/zh-TW/tests";
+  const traditionalHref = head?.querySelector("main[data-personality-traditional-href]")
+    ?.getAttribute("data-personality-traditional-href");
+  if (traditionalHref === `/zh-TW${personalityPath}`) return traditionalHref;
+
+  if (head?.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href !== CANONICAL_SITE_URL + pathname) {
     return "/zh-TW/tests";
   }
 

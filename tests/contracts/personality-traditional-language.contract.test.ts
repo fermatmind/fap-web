@@ -41,6 +41,23 @@ describe("Traditional personality language relations", () => {
     expect(withTraditionalPersonalityLanguageAlternates(held, paths)).toBe(held);
   });
 
+  it("uses the reader's verified destination without SEO metadata", () => {
+    const reader = document.createElement("main");
+    const tree = document.createDocumentFragment();
+    tree.append(reader);
+    reader.setAttribute("data-personality-traditional-href", paths["zh-TW"]);
+    expect(resolveTraditionalSwitchHref(paths.en, tree)).toBe(paths["zh-TW"]);
+    expect(resolveTraditionalSwitchHref(paths["zh-CN"], tree)).toBe(paths["zh-TW"]);
+    expect(resolveTraditionalSwitchHref("/zh/personality/infp", tree)).toBe("/zh-TW/tests");
+
+    for (const target of ["https://other.example" + paths["zh-TW"], paths["zh-TW"] + "?x=1"]) {
+      reader.setAttribute("data-personality-traditional-href", target);
+      expect(resolveTraditionalSwitchHref(paths.en, tree)).toBe("/zh-TW/tests");
+    }
+    reader.removeAttribute("data-personality-traditional-href");
+    expect(resolveTraditionalSwitchHref(paths.en, tree)).toBe("/zh-TW/tests");
+  });
+
   it("only switches to the currently rendered, owned counterpart", () => {
     expect(resolveTraditionalSwitchHref(paths.en, metadata(paths.en, paths))).toBe(paths["zh-TW"]);
     expect(resolveTraditionalSwitchHref(paths["zh-CN"], metadata(paths["zh-CN"], paths))).toBe(paths["zh-TW"]);
