@@ -134,7 +134,9 @@ function buildAuthoritySnapshot(
   const title = toStringValue(content.title) || toStringValue(lookup.seo_title);
   const description = toStringValue(content.description) || toStringValue(lookup.seo_description);
   const questionsCount = questionCountFromAuthority(lookup, catalog);
-  const timeMinutes = positiveInt(catalog.time_minutes);
+  const forms = Array.isArray(lookup.forms) ? lookup.forms.map(toRecord) : [];
+  const selectedForm = forms.find((form) => form.is_default === true) ?? forms[0];
+  const timeMinutes = positiveInt(catalog.time_minutes) || positiveInt(selectedForm?.estimated_minutes);
   const scaleCode = normalizeSupportedScaleCode(lookup.scale_code) ?? lookup.scale_code;
 
   if (

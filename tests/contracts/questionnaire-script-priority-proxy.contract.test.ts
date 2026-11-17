@@ -8,7 +8,7 @@ import { proxy } from "@/proxy";
 beforeEach(() => { scripts.mockReset().mockReturnValue(["/_next/static/chunks/current-tool.js"]); });
 
 describe("Focused questionnaire document priority", () => {
-  it.each(["/en/tests/explore/disc", "/zh/tests/explore/disc", "/en/tests/explore/cognitive-functions-test", "/zh/tests/explore/cognitive-functions-test"])("hints installed scripts on the %s document without including query input", async path => {
+  it.each(["/en/tests/explore/disc", "/zh/tests/explore/disc"])("hints installed scripts on the %s document without including query input", async path => {
     const response = await proxy(new NextRequest(`https://fermatmind.com${path}?input=PRIVATE_INPUT`, { headers: { accept: "text/html" } }));
     expect(response.status).toBe(200);
     expect(response.headers.get("Link")).toMatch(/^<\/_next\/static\/chunks\/current-tool\.js>; rel=preload; as=script; fetchpriority=high; nonce="[A-Za-z0-9+/=_-]+"$/);

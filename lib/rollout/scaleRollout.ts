@@ -9,6 +9,14 @@ type ScaleRolloutEnvConfig = {
 };
 
 const SCALE_ROLLOUT_ENV: Record<SupportedScaleCode, ScaleRolloutEnvConfig> = {
+  JUNG_ARCHETYPES: {
+    enabledEnv: "ENABLE_JUNG_ARCHETYPES",
+    percentEnv: "ROLLOUT_PERCENT_JUNG_ARCHETYPES",
+  },
+  JUNG_COGNITIVE_FUNCTIONS: {
+    enabledEnv: "ENABLE_JUNG_COGNITIVE_FUNCTIONS",
+    percentEnv: "ROLLOUT_PERCENT_JUNG_COGNITIVE_FUNCTIONS",
+  },
   MBTI: {
     enabledEnv: "ENABLE_MBTI",
     percentEnv: "ROLLOUT_PERCENT_MBTI",

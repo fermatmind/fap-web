@@ -1,5 +1,6 @@
 "use client";
 
+import { JungResult } from "@/components/result/jung/JungResult";
 import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -1619,7 +1620,7 @@ export default function ResultClient({
         }
 
         const eqReportReady = isEqV5ReportResponse(reportResponse);
-        const richReportReady = canRenderRichResultReport(reportResponse);
+        const richReportReady = canRenderRichResultReport(reportResponse) || Boolean(reportResponse.report?.jung);
         const iqReportReady = isIqReportResponse(reportResponse) && !isGeneratingReportResponse(reportResponse);
         if (iqReportReady) {
           markReady();
@@ -1854,7 +1855,7 @@ export default function ResultClient({
   const viewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
       ? "processing"
-      : status === "ready" && (hasEqV5Report || hasRichReport || hasIqReport || hasReadyResultPayload(resultData))
+      : status === "ready" && (hasEqV5Report || hasRichReport || hasIqReport || Boolean(reportData?.report?.jung) || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
   useResultVisibilityObservation({
@@ -2166,6 +2167,10 @@ export default function ResultClient({
       await downloadResultPdf(response.blob, pdfDisplay ? "fermatmind-iq-zh-TW.pdf" : `FermatMind-${resolvedScaleCode}-report.pdf`);
     } : undefined,
   };
+
+  if (reportData && (resolvedScaleCode === "JUNG_ARCHETYPES" || resolvedScaleCode === "JUNG_COGNITIVE_FUNCTIONS")) {
+    return <JungResult scale={resolvedScaleCode} locale={locale} payload={reportData.report?.jung} />;
+  }
 
   if (isIqScaleCode(resolvedScaleCode)) {
     return (

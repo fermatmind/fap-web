@@ -9,6 +9,7 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isBig5ScaleCode, normalizeBig5FormCode, resolveProjectedBig5FormMeta } from "@/lib/big5/forms";
 import { isEnneagramScaleCode, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
+import { loadTestLandingData } from "@/lib/tests/testLandingData";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { normalizeDisplayLocale } from "@/lib/i18n/locales";
 import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -109,7 +110,9 @@ export async function generateMetadata({
   const displayLocale = normalizeDisplayLocale(localeParam) ?? locale;
   const slug = resolveCanonicalSlug(requestedSlug);
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return { robots: NOINDEX_ROBOTS };
-  const test = await getTestBySlug(slug, locale);
+  const test = slug === "jung-archetypes" || slug === "jung-cognitive-functions"
+    ? (await loadTestLandingData(locale, slug))?.test ?? null
+    : await getTestBySlug(slug, locale);
   const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
   const startTitle = test
     ? getFreeTestStartLabel({
@@ -153,7 +156,9 @@ export default async function TakePage({
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
   }
-  const test = await getTestBySlug(slug, locale);
+  const test = slug === "jung-archetypes" || slug === "jung-cognitive-functions"
+    ? (await loadTestLandingData(locale, slug))?.test ?? null
+    : await getTestBySlug(slug, locale);
 
   if (!test) return notFound();
   const title = resolveTestTitleByLocale(test, locale);
@@ -205,6 +210,11 @@ export default async function TakePage({
 
   const lookupRuntime = await fetchLookupRuntimeContext(slug, locale);
   const capabilities = lookupRuntime.capabilities;
+  const isJung = test.scale_code === "JUNG_ARCHETYPES" || test.scale_code === "JUNG_COGNITIVE_FUNCTIONS";
+  const jungForm = isJung && Array.isArray(lookupRuntime.forms)
+    ? lookupRuntime.forms.find((form) => form?.is_default === true && typeof form.form_code === "string")
+    : null;
+
   const big5FormMeta = big5FormCode
     ? resolveProjectedBig5FormMeta(big5FormCode, lookupRuntime.forms)
     : null;
@@ -220,6 +230,9 @@ export default async function TakePage({
 
   return (
     <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
+      {isJung && <p className="mx-auto mb-4 max-w-xl">
+        {locale === "zh" ? "请根据过去三个月遇到相似情境时的实际做法作答。" : "Answer based on what you typically did in similar situations over the last three months."}
+      </p>}
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient
           slug={slug}
@@ -255,7 +268,7 @@ export default async function TakePage({
           slug={slug}
           testTitle={localizedTestTitle}
           scaleCode={test.scale_code}
-          formCode={iqBankModel?.formCode ?? mbtiFormCode ?? undefined}
+          formCode={jungForm?.form_code ?? iqBankModel?.formCode ?? mbtiFormCode ?? undefined}
           estimatedMinutes={mbtiFormMeta?.estimatedMinutes ?? test.time_minutes}
           questionCount={iqBankModel?.itemCount ?? mbtiFormMeta?.questionCount ?? test.questions_count}
         />

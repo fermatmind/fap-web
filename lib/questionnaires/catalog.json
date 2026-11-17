@@ -264,39 +264,6 @@
     ]
   },
   {
-    "slug": "jungian-archetype",
-    "code": "JUNGIAN_ARCHETYPE",
-    "version": "1.0.0",
-    "updated": "2026-10-31",
-    "category": "framework",
-    "title": {
-      "zh": "荣格原型测试",
-      "en": "Jungian Archetype Test"
-    },
-    "description": {
-      "zh": "用36道原创情境四选一，比较十二原型动机。免费查看12项原始计数、所有最高并列及完整解读，了解原型来源、相近主题与使用方法，无需注册。",
-      "en": "Explore twelve archetypal motives through 36 original scenarios. View all raw counts, every highest tie and full guides, with model origins and practical examples. Free, no signup."
-    },
-    "minutes": 8,
-    "collection": "explore",
-    "formCode": "fm_archetypal_motivation_choices_36",
-    "questionCount": 36,
-    "resultSlugs": [
-      "innocent",
-      "sage",
-      "explorer",
-      "rebel",
-      "magician",
-      "hero",
-      "lover",
-      "jester",
-      "everyperson",
-      "caregiver",
-      "ruler",
-      "creator"
-    ]
-  },
-  {
     "slug": "introvert-extrovert",
     "version": "1.0.0",
     "updated": "2026-10-31",
@@ -5452,35 +5419,6 @@
       "living-contaminants"
     ],
     "collection": "explore"
-  },
-  {
-    "slug": "cognitive-functions-test",
-    "code": "FM_COGNITIVE_FUNCTIONS32",
-    "version": "fm_cognitive_functions32_v1",
-    "updated": "2026-10-29",
-    "category": "framework",
-    "title": {
-      "en": "Cognitive Functions Test",
-      "zh": "认知功能测试"
-    },
-    "description": {
-      "en": "Explore Ni, Ne, Si, Se, Ti, Te, Fi and Fe: choose 56 A/B questions or 32 ratings. Full readings free; no function stack, ability score or signup.",
-      "zh": "探索Ni、Ne、Si、Se、Ti、Te、Fi、Fe：可选56题二选一或32题自评，分别阅读选择次数或均值。完整解释免费，无需注册，不推功能栈或认知能力。"
-    },
-    "minutes": 10,
-    "collection": "explore",
-    "formCode": "fm_cognitive_functions32_v1",
-    "questionCount": 32,
-    "resultSlugs": [
-      "ni",
-      "ne",
-      "si",
-      "se",
-      "ti",
-      "te",
-      "fi",
-      "fe"
-    ]
   },
   {
     "slug": "love-type-16",

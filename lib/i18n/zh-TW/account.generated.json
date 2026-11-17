@@ -4,7 +4,7 @@
   "converterSourceHash": "55133647e2aa4a249bb67c9b1a4eeb648b54cd8bfda8627d8565f3115498f74b",
   "glossary": "fermatmind-tw-account-1",
   "sourceHashes": {
-    "components/account/AccountCenter.tsx": "fe7b50295ca5da27f0d6b3be0b47e38aac70fe6efae07174e8eff63e571bad11",
+    "components/account/AccountCenter.tsx": "9409fffd7f410887acdef0f6df57461ffb91a4e7b2e2a3d1b8a07ea66fd341ad",
     "app/(localized)/[locale]/account/page.tsx": "5beec14f02c0a6c58628dfb8bfa17d3c41ae787e97d7f5ca61c2b15ebc51050c"
   },
   "units": {
@@ -575,6 +575,14 @@
     "职业探索": {
       "sourceHash": "99de6d7931b9cb67578a9c3695b57c32624f799dde17277315fd2d09d2989ade",
       "text": "職涯探索"
+    },
+    "荣格八维认知功能测评": {
+      "sourceHash": "119e43a8fffeba2146d0fa29c825d6c88d0c9be55a772bd44eb0a96915346394",
+      "text": "榮格八維認知功能測評"
+    },
+    "荣格十二原型测评": {
+      "sourceHash": "9538e68f5d0f9a1d2e9ec4dd95c8f7b290be42c90e07a3f758e0e02a79e79c96",
+      "text": "榮格十二原型測評"
     },
     "订单与权益": {
       "sourceHash": "afc293a32c6044d93b22bef76cec932f4f03e49b91d0f7b869b639055880fd9d",

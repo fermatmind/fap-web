@@ -17,6 +17,8 @@ const CORE_TEST_SLUG_GROUPS = [
   ["enneagram-personality-test-nine-types"],
   ["iq-test-intelligence-quotient-assessment"],
   ["eq-test-emotional-intelligence-assessment"],
+  ["jung-archetypes"],
+  ["jung-cognitive-functions"],
 ] as const;
 
 function getCoreIndex(item: {
@@ -64,14 +66,16 @@ function listCoreTests(items: HubTestCardItem[]): HubTestCardItem[] {
 export function TestsHubExperience({
   content,
   locale,
+  additionalCoreTests = [],
 }: {
   content: TestsHubContent;
   locale: DisplayLocale;
+  additionalCoreTests?: HubTestCardItem[];
 }) {
   const tests = listTests(
     (content.families.items ?? []).map((family) => family.tests),
   );
-  const coreTests = listCoreTests(tests);
+  const coreTests = listCoreTests([...tests, ...additionalCoreTests]);
   const traditionalHref = (href: string) => {
     const match = /^\/(?:en|zh|zh-TW)\/tests\/([a-z0-9_-]+)(?:\/take)?(?=[?#]|$)/u.exec(href);
     return match && isCoreAssessmentSlug(match[1])

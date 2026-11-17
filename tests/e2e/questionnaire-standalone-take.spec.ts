@@ -59,7 +59,7 @@ for (const locale of ["en", "zh"] as const) for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
     for (const entry of [
-      { slug: "cognitive-functions-test", edition: "ratings32", template: "scale", options: 5 },
+      { slug: "empathy", edition: "", template: "scale", options: 5 },
       { slug: "disc", edition: "", template: "pair", options: 2 },
       { slug: dog.slug, edition: "", template: "scenario", options: 4 },
     ]) {

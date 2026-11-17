@@ -5,9 +5,6 @@ import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isArchetypeConfigurationValid, readQuestionnaireDraft, scoreArchetypeQuestionnaire } from "@/lib/questionnaires/scoring";
-import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
-import { isMissingFunRoute } from "@/lib/entertainment/routing";
-import { MoreTests } from "@/components/entertainment/MoreTests";
 import { QuestionnaireArchetypeReport } from "@/components/questionnaires/QuestionnaireArchetypeReport";
 
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
@@ -107,35 +104,4 @@ describe("T011 original modern twelve-archetype motivation quiz", () => {
     const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("publishes one bilingual primary entry and all24substantive public guides with native SEO and safe navigation", async () => {
-    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();
-    const entry = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
-    const guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
-    const maps = appendFunSitemapEntries([]);
-    try {
-      for (const locale of ["en", "zh"] as const) {
-        const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/jungian-archetype`;
-        const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
-        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
-        expect(html).toContain(quiz.instructions![locale]);
-        expect(quiz.resultHeading?.[locale]).toBeTruthy();
-        const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/jungian-archetype");
-        for (const profile of quiz.profiles) {
-          const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
-          const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
-          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
-          for (const section of profile.sections) {
-            expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]);
-            for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
-          }
-          expect(meta.title).toBe(profile.seo!.title[locale]);
-          expect(meta.description).toBe(profile.seo!.description[locale]);
-          expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/jungian-archetype/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/jungian-archetype/results/${profile.id}` });
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);
-          expect(rendered).not.toContain("data-archetype-count"); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
-        }
-      }
-    } finally { vi.unstubAllEnvs(); vi.resetModules(); }
-  });
 });

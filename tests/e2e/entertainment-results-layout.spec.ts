@@ -1,9 +1,7 @@
 import { test, expect, type Page, type Locator } from "@playwright/test";
 import disc from "../../lib/questionnaires/data/disc.json";
 import responseColor from "../../lib/questionnaires/data/response-color.json";
-import cognitive from "../../lib/questionnaires/data/cognitive-functions-test.json";
 import socialBattery from "../../lib/questionnaires/data/social-battery-test.json";
-import jung56 from "../../lib/questionnaires/jung56Bank.json";
 import relationshipValues from "../../lib/questionnaires/data/relationship-values.json";
 import healthWorry from "../../lib/questionnaires/data/health-worries-reflection.json";
 import ptq from "../../lib/questionnaires/data/overthinking-screener.json";
@@ -122,31 +120,6 @@ for (const locale of ["en", "zh"] as const) {
       expect(mobileReading.y).toBeGreaterThanOrEqual(mobileCounts.y + mobileCounts.height);
     });
   }
-
-  test(`entertainment result ${locale}: cognitive editions link each reading to its own measure`, async ({ page }) => {
-    const path = `/${locale}/tests/explore/cognitive-functions-test/take`;
-    await page.goto(`${path}?edition=ratings32&start=1`);
-    for (const [index, question] of cognitive.questions.entries()) {
-      await page.locator(`input[name="${question.id}"][value="${index < 4 ? "na" : "4"}"]`).click();
-    }
-    let result = page.locator('#take-test[data-stage="result"]');
-    const topics = result.locator("[data-cognitive-topic]");
-    await expect(topics).toHaveCount(8);
-    await expect(topics.first().locator("[data-cognitive-mean]")).toHaveText(locale === "zh" ? "不计算" : "Not calculated");
-    await expect(topics.nth(1).locator("[data-cognitive-mean]")).toHaveText("3.5 / 5");
-    await expect(topics.nth(1).locator("[data-cognitive-full]")).toBeVisible();
-    await inspectLayout(page, result, `cognitive-ratings-${locale}`);
-
-    await page.goto(`${path}?edition=paired56&start=1`);
-    for (const question of jung56.questions) await page.locator(`input[name="${question.id}"][value="A"]`).click();
-    result = page.locator('#take-test[data-stage="result"]');
-    const counts = result.locator("[data-jung56-counts]");
-    await expect(counts.locator("[data-jung56-count]")).toHaveText(Array(8).fill("7 / 14"));
-    await expect(counts.getByRole("link")).toHaveCount(8);
-    await counts.locator('a[href="#jung56-reading-se"]').click();
-    await expect(result.locator("#jung56-reading-se")).toBeInViewport();
-    await inspectLayout(page, result, `cognitive-choices-${locale}`);
-  });
 
   test(`entertainment result ${locale}: social battery distinguishes load, recovery and missing information`, async ({ page }) => {
     await page.goto(`/${locale}/tests/explore/${socialBattery.slug}/take`);

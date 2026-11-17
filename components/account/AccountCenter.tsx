@@ -1489,7 +1489,10 @@ export default function AccountCenter({ locale }: { locale: DisplayLocale }) {
               </span>
               <div className={styles.reportInfo}>
                 <h3>
-                  {test ? (zh ? accountText(locale, test.zh) : test.en) : item.scale_code}
+                  {test ? (zh ? accountText(locale, test.zh) : test.en)
+                    : item.scale_code === "JUNG_ARCHETYPES" ? (zh ? accountText(locale, "荣格十二原型测评") : "Jungian Archetypes")
+                      : item.scale_code === "JUNG_COGNITIVE_FUNCTIONS" ? (zh ? accountText(locale, "荣格八维认知功能测评") : "Jungian Cognitive Functions")
+                        : item.scale_code}
                   {item.type_code && <span>{item.type_code}</span>}
                 </h3>
                 <p>

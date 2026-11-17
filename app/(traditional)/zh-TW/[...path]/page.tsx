@@ -106,11 +106,6 @@ export default async function TraditionalPage(props: Props) {
     return landing(<TraditionalCareerMatchPage />);
   }
   const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length)) ?? traditionalObservationRoute(path.slice("/zh-TW".length));
-  if (likert?.slug === "cognitive-functions-test") {
-    const { TraditionalCognitiveFunctionsPage } = await import("@/components/i18n/zh-TW/TraditionalCognitiveFunctionsPage");
-    const edition = likert.take ? (await props.searchParams)?.edition : undefined;
-    return landing(<TraditionalCognitiveFunctionsPage {...likert} edition={edition} />);
-  }
   if (likert) {
     const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
     return landing(<LikertQuestionnairePage {...likert} />);

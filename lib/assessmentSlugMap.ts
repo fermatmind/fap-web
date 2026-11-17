@@ -1,4 +1,6 @@
 export const SCALE_CANONICAL_SLUG_MAP = {
+  JUNG_ARCHETYPES: "jung-archetypes",
+  JUNG_COGNITIVE_FUNCTIONS: "jung-cognitive-functions",
   MBTI: "mbti-personality-test-16-personality-types",
   BIG5_OCEAN: "big-five-personality-test-ocean-model",
   ENNEAGRAM: "enneagram-personality-test-nine-types",
@@ -13,6 +15,8 @@ export const SCALE_CANONICAL_SLUG_MAP = {
 export type SupportedScaleCode = keyof typeof SCALE_CANONICAL_SLUG_MAP;
 
 export const TEST_SLUG_ALIAS_MAP: Record<string, string> = {
+  "jung-archetypes": "jung-archetypes",
+  "jung-cognitive-functions": "jung-cognitive-functions",
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: SCALE_CANONICAL_SLUG_MAP.MBTI,
   "personality-mbti-test": SCALE_CANONICAL_SLUG_MAP.MBTI,
   "mbti-test": SCALE_CANONICAL_SLUG_MAP.MBTI,

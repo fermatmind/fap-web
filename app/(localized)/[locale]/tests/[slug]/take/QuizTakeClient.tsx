@@ -493,6 +493,7 @@ function QuizTakeInner({
     !isCanonicalIqScaleCode(scaleCode) &&
     (isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode) || isEqScaleCode(scaleCode));
   const quizHeaderBrand = showsTitleQuizChrome ? testTitle : dict.header.brand;
+  const showCompletedCount = scaleCode !== "JUNG_ARCHETYPES" && scaleCode !== "JUNG_COGNITIVE_FUNCTIONS";
   const trackedStartRef = useRef(false);
   const firstQuestionReadyTrackedRef = useRef(false);
   const takeMountedAtRef = useRef(Date.now());
@@ -1689,7 +1690,7 @@ function QuizTakeInner({
               brand={takeUi?.title ?? quizHeaderBrand}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
-              showCompletedCount={!isIqScale}
+              showCompletedCount={!isIqScale && showCompletedCount}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
               minutesUnit={dict.common.minutes_unit}
               estimatedMinutes={resolvedEstimatedMinutes}
@@ -1873,7 +1874,7 @@ function QuizTakeInner({
         brand={takeUi?.title ?? quizHeaderBrand}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
-        showCompletedCount={!isIqScale}
+        showCompletedCount={!isIqScale && showCompletedCount}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
         minutesUnit={dict.common.minutes_unit}
         estimatedMinutes={resolvedEstimatedMinutes}

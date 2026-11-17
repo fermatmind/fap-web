@@ -17,7 +17,7 @@ import { proxy } from "@/proxy";
 
 afterEach(cleanup);
 
-it.each(Object.entries(members))("preserves the true questions, scoring and full public guides for Taiwan %s", async (slug, profileIds) => {
+it.each(Object.entries(members).filter(([slug]) => slug !== "jungian-archetype"))("preserves the true questions, scoring and full public guides for Taiwan %s", async (slug, profileIds) => {
   const source = (await loadQuestionnaire(slug))!;
   const quiz = (await loadTraditionalArchetype(slug))!;
   expect(quiz.profiles.map(profile => profile.id)).toEqual(profileIds);
@@ -76,7 +76,7 @@ it("renders the Taiwan Disney roster with all 13 dedicated editorial summaries",
   expect(screen.getByRole("link", { name: /^莫娜：/ })).toBeVisible();
 });
 
-it.each(["jungian-archetype", "temperament", "leadership-style", "travel-personality-test",
+it.each(["temperament", "leadership-style", "travel-personality-test",
   "aesthetic-core-test", "tsundere-dere-type", "hogwarts-house-quiz"])(
   "projects the current no-draft landing copy for Taiwan %s", async slug => {
     render(await ArchetypeQuestionnairePage({ slug }));

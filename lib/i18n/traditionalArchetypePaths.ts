@@ -3,7 +3,7 @@ import members from "./zh-TW/archetype-questionnaire-members.generated.json";
 const profiles: Readonly<Record<string, readonly string[]>> = members;
 
 export function hasTraditionalArchetype(slug: string): boolean {
-  return Object.hasOwn(profiles, slug);
+  return slug !== "jungian-archetype" && Object.hasOwn(profiles, slug);
 }
 
 export function traditionalArchetypeRoute(path: string) {

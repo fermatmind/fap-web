@@ -6,6 +6,8 @@ import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperie
 import { TestsHubMinimalShell } from "@/components/marketing/tests/TestsHubMinimalShell";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
+import { getAllTests } from "@/lib/content";
+import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
 import { getTestsHubContent } from "@/lib/marketing/testsHubContent";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
@@ -79,13 +81,34 @@ export default async function TestsPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const content = await getTestsHubContent(locale).catch(() => null);
+  const [content, catalog] = await Promise.all([
+    getTestsHubContent(locale).catch(() => null),
+    getAllTests(locale).catch(() => []),
+  ]);
+  const zh = locale === "zh";
+  const jungCards = catalog.flatMap((entry): HubTestCardItem[] => {
+    if (entry.is_active !== true || entry.is_public !== true
+      || !["JUNG_ARCHETYPES", "JUNG_COGNITIVE_FUNCTIONS"].includes(entry.scale_code ?? "")) return [];
+    const href = `/${locale}/tests/${entry.slug}`;
+
+    return [{
+      key: entry.slug,
+      title: entry.title,
+      description: entry.description,
+      questionsLabel: zh ? `${entry.questions_count} 题` : `${entry.questions_count} questions`,
+      durationLabel: zh ? `约 ${entry.time_minutes} 分钟` : `About ${entry.time_minutes} min`,
+      outputLabel: zh ? "完整报告免费" : "Free full report",
+      href,
+      primaryLabel: zh ? "查看测评" : "View assessment",
+      previewVariant: "bars",
+    }];
+  });
 
   if (!content) {
     return (
       <>
         <TestsHubMinimalShell locale={locale} />
-        <MoreTests locale={locale} />
+        <MoreTests locale={locale} coreTests={jungCards} />
         <InteractiveStoryLibrary locale={locale} />
       </>
     );
@@ -100,7 +123,7 @@ export default async function TestsPage({
         id={`tests-hub-collection-${locale}`}
         data={jsonLd.collectionPage}
       />
-      <TestsHubExperience content={content} locale={locale} />
+      <TestsHubExperience content={content} locale={locale} additionalCoreTests={jungCards} />
     </main>
   );
 }

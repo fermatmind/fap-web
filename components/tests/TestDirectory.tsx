@@ -115,6 +115,17 @@ function normalizeSearch(value: string) {
 
 function coreIdentity(item: HubTestCardItem) {
   const raw = `${item.key} ${item.href} ${item.detailsHref}`;
+  if (raw.includes("jung-archetypes") || raw.includes("jung-cognitive-functions")) {
+    const archetypes = raw.includes("jung-archetypes");
+    return {
+      code: archetypes ? "12" : "8",
+      label: { zh: "费马原创结构化自评", "zh-TW": "費馬原創結構化自評", en: "Original FermatMind self-assessment" },
+      description: { zh: item.description, "zh-TW": item.description, en: item.description },
+      purpose: { zh: "了解性格", "zh-TW": "了解性格", en: "Personality" },
+      className: "jung",
+      titleZh: undefined,
+    };
+  }
   const index = raw.includes("mbti")
     ? 0
     : raw.includes("big-five")
@@ -305,10 +316,10 @@ export function TestDirectory({
                             {identity.label[locale]}
                           </span>
                         </div>
-                        <AssessmentStructureArt
+                        {identity.className !== "jung" && <AssessmentStructureArt
                           kind={identity.className}
                           locale={locale}
-                        />
+                        />}
                         <p className="catalog-core-description">
                           {identity.description[locale]}
                         </p>

@@ -315,6 +315,14 @@ const nextConfig = {
         permanent: true,
       },
       ...historicalTestExact301Redirects,
+      ...[
+        ["jungian-archetype", "jung-archetypes"],
+        ["cognitive-functions-test", "jung-cognitive-functions"],
+      ].flatMap(([legacy, current]) => ["", "/take"].map((suffix) => ({
+        source: `/:locale(en|zh)/tests/explore/${legacy}${suffix}`,
+        destination: `/:locale/tests/${current}${suffix}`,
+        permanent: true,
+      }))),
       ...intjCareerExplorationRedirects,
       {
         source: "/tests",
