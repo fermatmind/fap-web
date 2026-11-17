@@ -183,7 +183,14 @@ export function MbtiCloneTraitsSection({
     })
     .filter((dimension) => Boolean(dimension.axisCode));
   const englishAxisExplanation = (axis: (typeof normalizedDimensions)[number]) => {
-    const band = ({ boundary: "light", clear: "clear", very_clear: "strong" } as const)[axis.strengthBand as "boundary" | "clear" | "very_clear"];
+    const editorialBands: Record<string, "light" | "clear" | "strong" | undefined> = {
+      boundary: "light",
+      clear: "clear",
+      strong: "strong",
+      very_strong: "strong",
+      very_clear: "strong",
+    };
+    const band = editorialBands[axis.strengthBand];
     return band ? normalizeText(axisExplainers?.[axis.axisCode]?.[axis.dominantPole]?.[band]?.bandNuance) : "";
   };
   const activeAxis =

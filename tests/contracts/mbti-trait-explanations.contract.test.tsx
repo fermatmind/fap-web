@@ -98,6 +98,26 @@ describe("backend-owned MBTI trait editorial bands", () => {
     expect(readings).toHaveTextContent("TF source clear.");
     expect(readings).not.toHaveTextContent("incorrect upgrade");
   });
+  it("prints current strong and very_strong readings alongside the legacy very_clear band", () => {
+    const strongerBands = ["strong", "very_strong", "very_clear"];
+    const dimensions = props.dimensions.map((axis, index) => ({
+      ...axis,
+      strengthBand: strongerBands[index] ?? "clear",
+      dominantPct: index < strongerBands.length ? 78 : 67,
+    }));
+    const axisExplainers = Object.fromEntries(dimensions.map((axis) => [axis.axisCode, { [axis.dominantPole]: {
+      clear: { bandNuance: `Published ${axis.axisCode} clear reading.` },
+      strong: { bandNuance: `Published ${axis.axisCode} strong reading.` },
+    } }]));
+
+    render(<MbtiCloneTraitsSection {...props} locale="en" dimensions={dimensions} axisExplainers={axisExplainers} snapshotMode />);
+    const readings = screen.getByTestId("mbti-print-axis-readings");
+    expect(readings).not.toHaveAttribute("data-pdf-error");
+    for (const { axisCode } of dimensions.slice(0, strongerBands.length)) {
+      expect(readings).toHaveTextContent(`Published ${axisCode} strong reading.`);
+      expect(readings).not.toHaveTextContent(`Published ${axisCode} clear reading.`);
+    }
+  });
   it("blocks a snapshot with an incomplete published axis interpretation", () => {
     render(<MbtiCloneTraitsSection {...props} snapshotMode traitCatalog={null} />);
     expect(screen.getByTestId("mbti-print-axis-readings")).toHaveAttribute("data-pdf-error", "MBTI_TRAIT_CONTENT_UNAVAILABLE");
