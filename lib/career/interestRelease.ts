@@ -1,5 +1,6 @@
 import data from "./interestRelease.json";
 import directory from "./interestDirectory.json";
+import { BILINGUAL_INTEREST_DIRECTORY_CODES } from "./interestDirectoryRoutes";
 import type { Locale } from "@/lib/i18n/locales";
 
 type InterestCareer = {
@@ -23,14 +24,15 @@ export function getReleasedCareerInterestEvidence(slug: string) {
   return Object.hasOwn(careers, slug) ? careers[slug] : null;
 }
 
-const directorySlugs = Object.keys(directory.careers);
-const topics = {
-  ...data.topics,
-  icr: {
-    exact: directorySlugs.filter((slug) => careers[slug].interest === "ICR"),
-    related: directorySlugs.filter((slug) => careers[slug].interest !== "ICR"),
-  },
-};
+const permutationKey = (code: string) => [...code.toUpperCase()].sort().join("");
+const directoryGroups = Map.groupBy(Object.keys(directory.careers), (slug) => permutationKey(careers[slug].interest));
+const directoryTopics = Object.fromEntries(BILINGUAL_INTEREST_DIRECTORY_CODES.map((code) => {
+  const slugs = directoryGroups.get(permutationKey(code)) ?? [];
+  const exact = slugs.filter((slug) => careers[slug].interest === code.toUpperCase());
+  const related = slugs.filter((slug) => careers[slug].interest !== code.toUpperCase());
+  return [code, { exact, related }];
+}));
+const topics = { ...data.topics, ...directoryTopics };
 
 export const RELEASED_CAREER_INTEREST_CODES = Object.keys(topics) as (keyof typeof topics)[];
 

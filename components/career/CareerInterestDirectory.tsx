@@ -95,8 +95,8 @@ export function CareerInterestDirectory({ code, locale, exact, relatedGroups }: 
           </h2>
           <p className="text-sm leading-6 text-slate-700">
             {zh
-              ? "这些代码包含同样的三个字母，顺序不同。例如 IRC 把研究放在首位，RCI 则先看实操、再看流程。可对照卡片里的核心任务。"
-              : "These codes share the same three letters in a different order. IRC places investigation first, while RCI starts with hands-on work and puts procedures second. Use the core tasks to see how that plays out."}
+              ? "这些代码包含同样的三个字母，顺序不同。首字母表示排在第一位的兴趣方向。对照卡片中的核心任务，可以看到不同岗位的侧重。"
+              : "These codes share the same three letters in a different order. The first letter indicates the leading interest. Compare the core tasks to see what the jobs emphasize."}
           </p>
         </div>
         {relatedCount === 0 ? <p>{empty}</p> : related.filter(({ matches }) => matches.length > 0).map(({ interest, total, matches }) => (

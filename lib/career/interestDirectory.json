@@ -3,6 +3,30 @@
   "onetVersion": "31.0",
   "jobZonesSha256": "093f01891ac2e602a8cc6c859ecb619b5bc00eb50cd3f3c1134c05b704481944",
   "careers": {
+    "acupuncturists": {
+      "jobZone": 5,
+      "officialTaskId": 17362,
+      "zh": "使用针具或拔罐器具等为患者提供治疗。",
+      "en": "Treat patients using tools such as needles or cups."
+    },
+    "adapted-physical-education-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 17017,
+      "zh": "为有残障或其他特殊需要的学生提供适应性体育服务。",
+      "en": "Provide adapted physical education for students with disabilities or other support needs."
+    },
+    "administrative-services-managers": {
+      "jobZone": 3,
+      "officialTaskId": 21,
+      "zh": "编制和审核运营报告与工作日程。",
+      "en": "Prepare and review operational reports and schedules."
+    },
+    "agents-and-business-managers-of-artists-performers-and-athletes": {
+      "jobZone": 4,
+      "officialTaskId": 21163,
+      "zh": "向潜在雇主发送客户作品或宣传材料，争取试镜、赞助或代言机会。",
+      "en": "Send work samples and promotional materials to potential employers to seek auditions, sponsorships, or endorsements."
+    },
     "agricultural-inspectors": {
       "jobZone": 2,
       "officialTaskId": 14846,
@@ -27,11 +51,35 @@
       "zh": "撰写技术和研究报告，并向相关机构或公众说明结果。",
       "en": "Write technical and research reports and explain the findings to organizations or the public."
     },
+    "biomass-power-plant-managers": {
+      "jobZone": 4,
+      "officialTaskId": 15470,
+      "zh": "检查电厂生产记录，核对产量和安全状况并发现异常。",
+      "en": "Review plant logs and reports to check output and safety and spot abnormalities."
+    },
+    "brownfield-redevelopment-specialists-and-site-managers": {
+      "jobZone": 4,
+      "officialTaskId": 15857,
+      "zh": "协调污染场地的清理和修复，确保符合环境规定。",
+      "en": "Coordinate on-site cleanup and remediation to meet environmental requirements."
+    },
     "bus-and-truck-mechanics-and-diesel-engine-specialists": {
       "jobZone": 3,
       "officialTaskId": 2982,
       "zh": "检查公交车和卡车的制动、转向和车轮轴承是否正常。",
       "en": "Inspect brakes, steering systems, and wheel bearings to make sure they work properly."
+    },
+    "business-continuity-planners": {
+      "jobZone": 4,
+      "officialTaskId": 15956,
+      "zh": "测试已有的灾难恢复方案。",
+      "en": "Test documented disaster recovery plans."
+    },
+    "captains-mates-and-pilots-of-water-vessels": {
+      "jobZone": 3,
+      "officialTaskId": 23802,
+      "zh": "根据当地风况、水深、潮汐和水流等条件指挥船舶航向和速度。",
+      "en": "Direct ships’ courses and speeds based on local wind, water depth, tides, and currents."
     },
     "cartographers-and-photogrammetrists": {
       "jobZone": 4,
@@ -57,17 +105,89 @@
       "zh": "分析化合物的成分、结构或物理化学性质。",
       "en": "Analyze compounds to determine their composition, structure, or physical and chemical properties."
     },
+    "climate-change-policy-analysts": {
+      "jobZone": 5,
+      "officialTaskId": 16849,
+      "zh": "为可再生能源、能效或气候变化政策简报提供分析。",
+      "en": "Provide analysis for policy briefs on renewable energy, efficiency, or climate change."
+    },
+    "clinical-nurse-specialists": {
+      "jobZone": 5,
+      "officialTaskId": 18004,
+      "zh": "在指定专科为住院和门诊患者提供直接或间接护理。",
+      "en": "Provide direct or indirect care to inpatients and outpatients in a designated specialty."
+    },
+    "commercial-pilots": {
+      "jobZone": 3,
+      "officialTaskId": 10587,
+      "zh": "飞行前检查发动机、操纵装置和仪表是否正常。",
+      "en": "Check the aircraft’s engines, controls, and instruments before flight."
+    },
     "computer-network-support-specialists": {
       "jobZone": 4,
       "officialTaskId": 18995,
       "zh": "用诊断软件和设备查找网络故障的原因。",
       "en": "Use diagnostic software and equipment to identify the causes of network problems."
     },
+    "concierges": {
+      "jobZone": 2,
+      "officialTaskId": 20259,
+      "zh": "为客人预订餐饮或其他服务，并代办活动门票。",
+      "en": "Make dining or service reservations for guests and obtain event tickets."
+    },
     "conservation-scientists": {
       "jobZone": 4,
       "officialTaskId": 22134,
       "zh": "为农场主等土地使用者提供资源保护方案和备选做法。",
       "en": "Advise land users such as farmers and ranchers on conservation plans and alternatives."
+    },
+    "coroners": {
+      "jobZone": 3,
+      "officialTaskId": 8915,
+      "zh": "填写死亡证明，记录死亡原因和死亡方式。",
+      "en": "Complete death certificates, including the cause and manner of death."
+    },
+    "costume-attendants": {
+      "jobZone": 2,
+      "officialTaskId": 9627,
+      "zh": "制作换装清单、演出记录或服装核对表。",
+      "en": "Prepare dressing lists, show notes, or costume checklists."
+    },
+    "credit-analysts": {
+      "jobZone": 4,
+      "officialTaskId": 1250,
+      "zh": "分析信用资料和财务报表，评估贷款或授信风险。",
+      "en": "Analyze credit data and financial statements to assess lending risk."
+    },
+    "credit-authorizers-checkers-and-clerks": {
+      "jobZone": 2,
+      "officialTaskId": 23297,
+      "zh": "维护客户账单和付款记录。",
+      "en": "Maintain records of customer charges and payments."
+    },
+    "critical-care-nurses": {
+      "jobZone": 4,
+      "officialTaskId": 18327,
+      "zh": "评估患者生命体征或化验数据，判断是否需要紧急干预。",
+      "en": "Review vital signs or lab data to determine whether a patient needs urgent intervention."
+    },
+    "curators": {
+      "jobZone": 5,
+      "officialTaskId": 18641,
+      "zh": "规划藏品及相关材料的征集、保管和展出。",
+      "en": "Plan the acquisition, storage, and exhibition of collections and related materials."
+    },
+    "customer-service-representatives": {
+      "jobZone": 2,
+      "officialTaskId": 2578,
+      "zh": "记录客户咨询、投诉及已采取的处理措施。",
+      "en": "Record customer inquiries, complaints, and actions taken."
+    },
+    "customs-and-border-protection-officers": {
+      "jobZone": 3,
+      "officialTaskId": 9454,
+      "zh": "检查进出美国的货物、行李和个人物品是否符合海关规定。",
+      "en": "Inspect cargo, baggage, or personal items entering or leaving the United States for customs compliance."
     },
     "cytogenetic-technologists": {
       "jobZone": 4,
@@ -80,6 +200,36 @@
       "officialTaskId": 7134,
       "zh": "制作、调整或修复义齿、牙冠和牙桥等牙科装置。",
       "en": "Make, adjust, or repair dental appliances such as dentures, crowns, and bridges."
+    },
+    "dermatologists": {
+      "jobZone": 5,
+      "officialTaskId": 17094,
+      "zh": "对患者进行全面皮肤检查。",
+      "en": "Perform complete skin examinations."
+    },
+    "dietetic-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 23922,
+      "zh": "观察患者进食量和体重变化，并向营养师报告异常。",
+      "en": "Monitor food intake and weight and report changes or dietary problems to the dietitian."
+    },
+    "dining-room-and-cafeteria-attendants-and-bartender-helpers": {
+      "jobZone": 2,
+      "officialTaskId": 11165,
+      "zh": "清理用过的餐具，并送回厨房清洗。",
+      "en": "Clear used dishes and return tableware to the kitchen for washing."
+    },
+    "driver-sales-workers": {
+      "jobZone": 2,
+      "officialTaskId": 3158,
+      "zh": "驾驶货车配送食品、医疗用品或报纸等货物。",
+      "en": "Drive trucks to deliver goods such as food, medical supplies, or newspapers."
+    },
+    "educational-guidance-and-career-counselors-and-advisors": {
+      "jobZone": 5,
+      "officialTaskId": 18627,
+      "zh": "指导学生选择课程和学习项目，并协助规划选课和注册。",
+      "en": "Advise students on course and program selection, scheduling, and registration."
     },
     "electrical-and-electronic-equipment-assemblers": {
       "jobZone": 2,
@@ -123,6 +273,24 @@
       "zh": "设计用于商业、工业或科研等场景的电子元件与系统。",
       "en": "Design electronic components and systems for uses such as industry, commerce, or research."
     },
+    "eligibility-interviewers-government-programs": {
+      "jobZone": 3,
+      "officialTaskId": 9736,
+      "zh": "核对申请人的个人和财务资料，判断是否符合援助资格。",
+      "en": "Verify personal and financial information to determine eligibility for assistance."
+    },
+    "embalmers": {
+      "jobZone": 3,
+      "officialTaskId": 4488,
+      "zh": "为逝者化妆，整理仪容。",
+      "en": "Apply cosmetics to prepare the deceased for viewing."
+    },
+    "emergency-medicine-physicians": {
+      "jobZone": 5,
+      "officialTaskId": 22723,
+      "zh": "评估生命体征和化验数据，判断急诊干预需求与救治优先级。",
+      "en": "Use vital signs and lab data to determine emergency intervention needs and treatment priority."
+    },
     "endoscopy-technicians": {
       "jobZone": 2,
       "officialTaskId": 17519,
@@ -135,17 +303,161 @@
       "zh": "识别并提出节能措施，提高设施运行效率。",
       "en": "Identify and recommend ways to make operations more energy efficient."
     },
+    "engineering-teachers-postsecondary": {
+      "jobZone": 5,
+      "officialTaskId": 5758,
+      "zh": "编写工程课程大纲、作业和讲义。",
+      "en": "Prepare engineering course syllabi, assignments, and handouts."
+    },
+    "entertainment-and-recreation-managers-except-gambling": {
+      "jobZone": 4,
+      "officialTaskId": 21416,
+      "zh": "为休闲活动或服务项目编制预算。",
+      "en": "Prepare budgets for recreational activities or programs."
+    },
     "environmental-compliance-inspectors": {
       "jobZone": 4,
       "officialTaskId": 10835,
       "zh": "调查涉及倾倒、污染或产品法规的投诉和疑似违规。",
       "en": "Investigate complaints and suspected violations involving dumping, pollution, or product regulations."
     },
+    "environmental-economists": {
+      "jobZone": 5,
+      "officialTaskId": 16910,
+      "zh": "收集并分析数据，比较不同经济政策或做法的环境影响。",
+      "en": "Analyze data to compare the environmental effects of economic policies or practices."
+    },
+    "executive-secretaries-and-executive-administrative-assistants": {
+      "jobZone": 3,
+      "officialTaskId": 2770,
+      "zh": "安排并维护高管的工作日程。",
+      "en": "Manage executives’ schedules."
+    },
+    "fabric-and-apparel-patternmakers": {
+      "jobZone": 3,
+      "officialTaskId": 12200,
+      "zh": "按服装尺码制作各尺寸的母版。",
+      "en": "Create master patterns for each garment size in a range."
+    },
+    "facilities-managers": {
+      "jobZone": 3,
+      "officialTaskId": 21278,
+      "zh": "监督设施的机械设备、电气及机电系统维修保养。",
+      "en": "Oversee maintenance and repair of equipment and electrical and mechanical systems."
+    },
+    "farm-and-home-management-educators": {
+      "jobZone": 5,
+      "officialTaskId": 10975,
+      "zh": "围绕营养、家庭管理或农业技术开课和授课。",
+      "en": "Teach classes on nutrition, home management, or farming methods."
+    },
+    "first-line-supervisors-of-construction-trades-and-extraction-workers": {
+      "jobZone": 3,
+      "officialTaskId": 11426,
+      "zh": "监督和协调施工或采掘班组的工作安排。",
+      "en": "Supervise and schedule construction or extraction crews."
+    },
+    "first-line-supervisors-of-security-workers": {
+      "jobZone": 2,
+      "officialTaskId": 22947,
+      "zh": "调查场所内的报警、纠纷或异常情况。",
+      "en": "Investigate on-site alarms, altercations, or suspicious activity."
+    },
+    "hosts-and-hostesses-restaurant-lounge-and-coffee-shop": {
+      "jobZone": 2,
+      "officialTaskId": 2297,
+      "zh": "迎接顾客，安排入座或引导其至等候区。",
+      "en": "Greet guests and seat them or direct them to a waiting area."
+    },
     "information-security-engineers": {
       "jobZone": 4,
       "officialTaskId": 21766,
       "zh": "用监测指标评估信息安全控制措施是否有效。",
       "en": "Use performance indicators to evaluate how well information security controls work."
+    },
+    "insurance-appraisers-auto-damage": {
+      "jobZone": 3,
+      "officialTaskId": 7248,
+      "zh": "检查事故车辆，确定车身、机械或电气部件的损坏范围。",
+      "en": "Inspect vehicles to determine the extent of body, mechanical, or electrical damage."
+    },
+    "insurance-sales-agents": {
+      "jobZone": 4,
+      "officialTaskId": 724,
+      "zh": "向客户解释不同保单的特点、优势和局限。",
+      "en": "Explain the features, advantages, and disadvantages of insurance policies."
+    },
+    "insurance-underwriters": {
+      "jobZone": 4,
+      "officialTaskId": 21045,
+      "zh": "核查申请文件，评估与申请人和保险标的有关的承保风险。",
+      "en": "Review applicant and property information to assess underwriting risk."
+    },
+    "intelligence-analysts": {
+      "jobZone": 4,
+      "officialTaskId": 17555,
+      "zh": "使用其他来源的数据核验已有情报。",
+      "en": "Cross-check existing intelligence against other sources."
+    },
+    "investment-fund-managers": {
+      "jobZone": 5,
+      "officialTaskId": 15669,
+      "zh": "跟踪投资表现，检查投资组合是否符合风险目标。",
+      "en": "Monitor investment performance to check whether portfolios meet risk objectives."
+    },
+    "jewelers-and-precious-stone-and-metal-workers": {
+      "jobZone": 3,
+      "officialTaskId": 23622,
+      "zh": "用贵金属或宝石等材料制作首饰。",
+      "en": "Make jewelry from materials such as precious metals or stones."
+    },
+    "judges-magistrate-judges-and-magistrates": {
+      "jobZone": 5,
+      "officialTaskId": 5649,
+      "zh": "监督庭审过程，确保遵守适用的规则和程序。",
+      "en": "Oversee proceedings to ensure applicable rules and procedures are followed."
+    },
+    "judicial-law-clerks": {
+      "jobZone": 5,
+      "officialTaskId": 19051,
+      "zh": "查阅法律、判例和文件，为法院审理的案件提供研究支持。",
+      "en": "Research laws, decisions, and documents relevant to cases before the court."
+    },
+    "librarians-and-media-collections-specialists": {
+      "jobZone": 5,
+      "officialTaskId": 22411,
+      "zh": "查阅参考资料和线上资源，回答读者的资料查询。",
+      "en": "Search reference materials and online sources to answer patrons’ questions."
+    },
+    "licensed-practical-and-licensed-vocational-nurses": {
+      "jobZone": 3,
+      "officialTaskId": 507,
+      "zh": "观察患者状况，记录并报告治疗反应等变化。",
+      "en": "Observe patients and record or report changes such as reactions to treatment."
+    },
+    "loan-interviewers-and-clerks": {
+      "jobZone": 3,
+      "officialTaskId": 11292,
+      "zh": "访谈贷款申请人，收集个人和财务资料并协助填写申请表。",
+      "en": "Interview loan applicants and help them complete their forms."
+    },
+    "loan-officers": {
+      "jobZone": 4,
+      "officialTaskId": 3409,
+      "zh": "分析申请人的财务状况、信用和房产估值，判断贷款可行性。",
+      "en": "Assess applicants’ finances, credit, and property valuations to determine whether a loan is feasible."
+    },
+    "locker-room-coatroom-and-dressing-room-attendants": {
+      "jobZone": 2,
+      "officialTaskId": 4477,
+      "zh": "收集使用过的布草和衣物送洗。",
+      "en": "Collect used linen and clothing for laundering."
+    },
+    "lodging-managers": {
+      "jobZone": 4,
+      "officialTaskId": 1109,
+      "zh": "与其他经理协调酒店各项运营工作。",
+      "en": "Coordinate hotel operations with other managers."
     },
     "manufacturing-engineers": {
       "jobZone": 4,
@@ -183,6 +495,18 @@
       "zh": "根据放射治疗处方计算每次治疗的辐射剂量。",
       "en": "Calculate the radiation dose for each treatment session from the prescribed treatment plan."
     },
+    "medical-transcriptionists": {
+      "jobZone": 3,
+      "officialTaskId": 9419,
+      "zh": "识别医疗报告中的错误，并向医生核实正确信息。",
+      "en": "Identify errors in medical reports and verify the correct information with physicians."
+    },
+    "meeting-convention-and-event-planners": {
+      "jobZone": 4,
+      "officialTaskId": 1209,
+      "zh": "与客户沟通，明确会议、展会等活动的目标和要求。",
+      "en": "Consult with clients to define goals and requirements for meetings, conferences, and events."
+    },
     "microbiologists": {
       "jobZone": 4,
       "officialTaskId": 15213,
@@ -201,6 +525,18 @@
       "zh": "用显微技术等手段获取纳米尺度的图像或测量数据。",
       "en": "Use microscopy and related tools to capture images or measurements at the nanoscale."
     },
+    "occupational-therapy-aides": {
+      "jobZone": 3,
+      "officialTaskId": 9400,
+      "zh": "观察并记录患者的出勤、进展与训练成果。",
+      "en": "Observe and record patient attendance, progress, and accomplishments."
+    },
+    "occupational-therapy-assistants": {
+      "jobZone": 3,
+      "officialTaskId": 4258,
+      "zh": "指导患者和家属开展居家训练、练习生活技能或使用辅助设备。",
+      "en": "Help teach patients and families home programs, daily living skills, or the use of adaptive equipment."
+    },
     "operating-engineers-and-other-construction-equipment-operators": {
       "jobZone": 2,
       "officialTaskId": 9852,
@@ -213,17 +549,59 @@
       "zh": "检查患者的颌骨发育和牙齿位置，识别异常。",
       "en": "Examine jaw development and tooth position to identify abnormalities."
     },
+    "orthotists-and-prosthetists": {
+      "jobZone": 5,
+      "officialTaskId": 9384,
+      "zh": "试配和评估矫形器或假肢，调整贴合度、功能与舒适度。",
+      "en": "Fit and evaluate devices and adjust them for fit, function, and comfort."
+    },
+    "paralegals-and-legal-assistants": {
+      "jobZone": 3,
+      "officialTaskId": 23994,
+      "zh": "起草、编辑或审核诉状、上诉材料、遗嘱和合同等法律文件。",
+      "en": "Draft, edit, or review legal documents such as pleadings, appeals, wills, and contracts."
+    },
+    "parts-salespersons": {
+      "jobZone": 2,
+      "officialTaskId": 20775,
+      "zh": "用库存满足客户订单，缺货时安排订购。",
+      "en": "Fill customer orders from stock and order parts that are unavailable."
+    },
+    "patient-representatives": {
+      "jobZone": 3,
+      "officialTaskId": 17668,
+      "zh": "协调患者、家属、医护和行政人员之间的沟通。",
+      "en": "Coordinate communication among patients, families, clinicians, and administrative staff."
+    },
+    "patternmakers-metal-and-plastic": {
+      "jobZone": 3,
+      "officialTaskId": 12038,
+      "zh": "使用量具核对模样或模板的尺寸是否符合规格。",
+      "en": "Use measuring instruments to check patterns or templates against specifications."
+    },
     "penetration-testers": {
       "jobZone": 4,
       "officialTaskId": 21765,
       "zh": "编写安全审计报告，说明发现的问题并提出改进建议。",
       "en": "Write security audit reports that explain findings and recommend improvements."
     },
+    "personal-care-aides": {
+      "jobZone": 2,
+      "officialTaskId": 2370,
+      "zh": "协助服务对象行动、清洁等日常个人照护。",
+      "en": "Provide personal care such as help with mobility or hygiene."
+    },
     "petroleum-engineers": {
       "jobZone": 4,
       "officialTaskId": 3580,
       "zh": "监测油气生产速率，并规划改善产量的作业。",
       "en": "Monitor oil and gas production rates and plan work to improve output."
+    },
+    "pharmacy-aides": {
+      "jobZone": 2,
+      "officialTaskId": 2050,
+      "zh": "使用电脑和打印机制作处方标签。",
+      "en": "Prepare prescription labels on a computer and printer."
     },
     "phlebotomists": {
       "jobZone": 3,
@@ -243,17 +621,89 @@
       "zh": "计算或记录光子设备的测试数据。",
       "en": "Calculate or record photonics test data."
     },
+    "physical-therapists": {
+      "jobZone": 5,
+      "officialTaskId": 363,
+      "zh": "制定或实施个体化物理治疗方案，维持或恢复身体功能。",
+      "en": "Plan or deliver individualized physical treatment to maintain or restore physical function."
+    },
     "physicists": {
       "jobZone": 5,
       "officialTaskId": 10905,
       "zh": "分析关于物理现象的实验和观测数据。",
       "en": "Analyze research data used to detect and measure physical phenomena."
     },
+    "podiatrists": {
+      "jobZone": 5,
+      "officialTaskId": 7849,
+      "zh": "结合病史、体检、影像和化验结果诊断足部疾病和畸形。",
+      "en": "Use history, exams, imaging, and lab results to diagnose foot conditions."
+    },
+    "postmasters-and-mail-superintendents": {
+      "jobZone": 2,
+      "officialTaskId": 5260,
+      "zh": "组织并监督邮件收发处理。",
+      "en": "Organize and supervise incoming and outgoing mail processing."
+    },
     "precision-agriculture-technicians": {
       "jobZone": 3,
       "officialTaskId": 18281,
       "zh": "用田间记录设备和地理信息系统采集土壤、产量或地块边界数据。",
       "en": "Collect soil, crop yield, or field boundary data with field recorders and GIS."
+    },
+    "private-detectives-and-investigators": {
+      "jobZone": 3,
+      "officialTaskId": 13095,
+      "zh": "撰写调查报告或案件摘要，记录调查情况。",
+      "en": "Write reports or case summaries to document investigations."
+    },
+    "probation-officers-and-correctional-treatment-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 1625,
+      "zh": "定期访谈缓刑或假释人员，评估目标进展与条件遵守情况。",
+      "en": "Meet with people on probation or parole to assess progress and compliance."
+    },
+    "procurement-clerks": {
+      "jobZone": 2,
+      "officialTaskId": 2531,
+      "zh": "编制采购订单，并发送给供应商及需求部门。",
+      "en": "Prepare purchase orders and distribute them to suppliers and requesting departments."
+    },
+    "prosthodontists": {
+      "jobZone": 5,
+      "officialTaskId": 7743,
+      "zh": "为患者试戴口腔修复体，并进行必要的调整。",
+      "en": "Fit dental prostheses and make adjustments as needed."
+    },
+    "public-relations-managers": {
+      "jobZone": 4,
+      "officialTaskId": 21237,
+      "zh": "识别主要受众，为不同受众制定传播方式与计划。",
+      "en": "Identify key audiences and develop plans for communicating with them."
+    },
+    "real-estate-sales-agents": {
+      "jobZone": 2,
+      "officialTaskId": 2445,
+      "zh": "在房产买卖谈判中代表一方并协调沟通。",
+      "en": "Act as an intermediary in property negotiations, generally representing one party."
+    },
+    "receptionists-and-information-clerks": {
+      "jobZone": 2,
+      "officialTaskId": 747,
+      "zh": "接待来访者，了解来意并引导至相应地点。",
+      "en": "Greet visitors, determine their purpose, and direct them to the appropriate location."
+    },
+    "recycling-coordinators": {
+      "jobZone": 2,
+      "officialTaskId": 17888,
+      "zh": "监督回收收运或投放项目，确保符合社区条例。",
+      "en": "Oversee recycling collection or drop-off programs to meet local ordinances."
+    },
+    "regulatory-affairs-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 18048,
+      "zh": "协调、起草或审核国内外项目的监管申报材料。",
+      "en": "Coordinate, prepare, or review regulatory submissions for domestic or international projects."
     },
     "remote-sensing-scientists-and-technologists": {
       "jobZone": 4,
@@ -267,6 +717,18 @@
       "zh": "核查遥感图像数据的完整性和准确性。",
       "en": "Check remote-sensing imagery data for completeness and accuracy."
     },
+    "residential-advisors": {
+      "jobZone": 3,
+      "officialTaskId": 20138,
+      "zh": "监督、培训和评估学生宿舍工作人员。",
+      "en": "Supervise, train, and evaluate residence hall staff."
+    },
+    "retail-loss-prevention-specialists": {
+      "jobZone": 2,
+      "officialTaskId": 17560,
+      "zh": "实施或监督减少商品或财务损失的流程。",
+      "en": "Implement or monitor processes that reduce property or financial losses."
+    },
     "robotics-engineers": {
       "jobZone": 4,
       "officialTaskId": 21057,
@@ -279,11 +741,53 @@
       "zh": "维修机器人及外围设备，更换有故障的传感器或控制器等零件。",
       "en": "Repair robots and peripheral equipment by replacing faulty parts such as sensors or controllers."
     },
+    "school-bus-monitors": {
+      "jobZone": 2,
+      "officialTaskId": 23082,
+      "zh": "协助有残障或其他支持需要的儿童上下校车。",
+      "en": "Help children with disabilities or other support needs board and exit school buses."
+    },
+    "school-psychologists": {
+      "jobZone": 5,
+      "officialTaskId": 18619,
+      "zh": "解读测评结果，并为教师、管理人员和家长准备心理评估报告。",
+      "en": "Interpret assessment results and prepare psychological reports for teachers, administrators, and parents."
+    },
+    "search-marketing-strategists": {
+      "jobZone": 4,
+      "officialTaskId": 20328,
+      "zh": "跟踪并汇报搜索营销活动，为营销管理人员提供分析。",
+      "en": "Track and report search activity and provide analysis to marketing leaders."
+    },
     "security-management-specialists": {
       "jobZone": 4,
       "officialTaskId": 21482,
       "zh": "评估实体安全威胁的性质及程度，确定问题范围。",
       "en": "Assess the nature and severity of physical security threats to define the scope of the problem."
+    },
+    "shampooers": {
+      "jobZone": 2,
+      "officialTaskId": 14818,
+      "zh": "清洗和护理顾客的头发和头皮，去除多余油脂。",
+      "en": "Wash and condition clients’ hair and scalp."
+    },
+    "shoe-and-leather-workers-and-repairers": {
+      "jobZone": 2,
+      "officialTaskId": 14063,
+      "zh": "按照规格制作、装饰或修理皮革制品。",
+      "en": "Make, decorate, or repair leather products to specifications."
+    },
+    "social-and-community-service-managers": {
+      "jobZone": 4,
+      "officialTaskId": 1130,
+      "zh": "评估员工和志愿者的工作，核对服务质量与资源使用。",
+      "en": "Evaluate staff and volunteer work for program quality and effective use of resources."
+    },
+    "solar-energy-installation-managers": {
+      "jobZone": 3,
+      "officialTaskId": 17725,
+      "zh": "规划和协调光伏或太阳能热系统安装，确保符合规范。",
+      "en": "Plan and coordinate solar installations to meet applicable codes."
     },
     "solar-energy-systems-engineers": {
       "jobZone": 4,
@@ -291,11 +795,65 @@
       "zh": "设计住宅或商业建筑使用的光伏或太阳能热系统。",
       "en": "Design or coordinate the design of photovoltaic or solar thermal systems for buildings."
     },
+    "sound-engineering-technicians": {
+      "jobZone": 3,
+      "officialTaskId": 7722,
+      "zh": "在录音过程中使用调音台控制音量与音质。",
+      "en": "Use a mixing console to control volume and sound quality during recording."
+    },
+    "spa-managers": {
+      "jobZone": 3,
+      "officialTaskId": 17605,
+      "zh": "协调场地日程，提高设施利用率。",
+      "en": "Coordinate facility schedules to make efficient use of space."
+    },
+    "speech-language-pathologists": {
+      "jobZone": 5,
+      "officialTaskId": 1867,
+      "zh": "跟踪患者进展，并按需要调整言语或语言治疗。",
+      "en": "Monitor patient progress and adjust treatment as needed."
+    },
+    "speech-language-pathology-assistants": {
+      "jobZone": 3,
+      "officialTaskId": 17535,
+      "zh": "记录服务对象实现既定治疗目标的进展。",
+      "en": "Document clients’ progress toward established treatment goals."
+    },
+    "sports-medicine-physicians": {
+      "jobZone": 5,
+      "officialTaskId": 17281,
+      "zh": "诊断或治疗肌肉骨骼系统问题。",
+      "en": "Diagnose or treat musculoskeletal disorders."
+    },
     "stationary-engineers-and-boiler-operators": {
       "jobZone": 3,
       "officialTaskId": 10468,
       "zh": "操作锅炉和泵等辅助设备，维持蒸汽或热力供应。",
       "en": "Operate boilers and auxiliary equipment such as pumps to maintain steam or heat supply."
+    },
+    "stockers-and-order-fillers": {
+      "jobZone": 2,
+      "officialTaskId": 23885,
+      "zh": "盘点和检查商品，确定需要补货或重新订购的品项。",
+      "en": "Check inventory to identify items that need replenishment or reordering."
+    },
+    "stone-cutters-and-carvers-manufacturing": {
+      "jobZone": 2,
+      "officialTaskId": 12615,
+      "zh": "测量切割或雕刻的深度和尺寸，核对图纸或样模要求。",
+      "en": "Measure cuts or carvings against plans or models."
+    },
+    "surgical-assistants": {
+      "jobZone": 3,
+      "officialTaskId": 19299,
+      "zh": "在手术过程中监督和维持无菌操作。",
+      "en": "Monitor and maintain aseptic technique throughout surgery."
+    },
+    "surgical-technologists": {
+      "jobZone": 3,
+      "officialTaskId": 1959,
+      "zh": "在手术前后清点纱布、针具和器械。",
+      "en": "Count sponges, needles, and instruments before and after surgery."
     },
     "surveying-and-mapping-technicians": {
       "jobZone": 3,
@@ -309,11 +867,35 @@
       "zh": "依据契据和产权文件开展测量，确定土地的法定边界。",
       "en": "Conduct surveys using deeds and titles to establish legal property boundaries."
     },
+    "sustainability-specialists": {
+      "jobZone": 4,
+      "officialTaskId": 15980,
+      "zh": "跟踪能耗、资源使用、废弃物和回收等可持续指标。",
+      "en": "Track indicators such as energy use, resource use, waste, and recycling."
+    },
+    "team-assemblers": {
+      "jobZone": 2,
+      "officialTaskId": 20160,
+      "zh": "查阅作业单和图纸，确认装配工作符合规格。",
+      "en": "Check work orders and blueprints to ensure the work meets specifications."
+    },
     "telecommunications-engineering-specialists": {
       "jobZone": 3,
       "officialTaskId": 16077,
       "zh": "记录电信设备的技术规格和操作标准。",
       "en": "Document technical specifications and operating standards for telecommunications equipment."
+    },
+    "telemarketers": {
+      "jobZone": 2,
+      "officialTaskId": 4620,
+      "zh": "向电话客户讲解产品、服务及价格，并回答问题。",
+      "en": "Explain products, services, or prices by phone and answer questions."
+    },
+    "telephone-operators": {
+      "jobZone": 2,
+      "officialTaskId": 13247,
+      "zh": "操作电话交换系统，接通本地或长途等电话。",
+      "en": "Operate telephone switchboards to connect calls, including local or long-distance calls."
     },
     "traffic-technicians": {
       "jobZone": 3,
@@ -332,6 +914,24 @@
       "officialTaskId": 16945,
       "zh": "在公共会议上解释交通规划提案，并听取受影响群体的反馈。",
       "en": "Explain transportation proposals at public meetings and gather feedback from affected groups."
+    },
+    "travel-guides": {
+      "jobZone": 2,
+      "officialTaskId": 13155,
+      "zh": "根据交通路线和目的地情况规划行程。",
+      "en": "Plan tour itineraries using knowledge of routes and destinations."
+    },
+    "urban-and-regional-planners": {
+      "jobZone": 5,
+      "officialTaskId": 220,
+      "zh": "拟订或管理土地利用、分区及公共设施等规划政策。",
+      "en": "Develop or administer plans and policies for land use, zoning, and public facilities."
+    },
+    "urologists": {
+      "jobZone": 5,
+      "officialTaskId": 17293,
+      "zh": "开具并解读诊断检查，为评估泌尿系统问题提供依据。",
+      "en": "Order and interpret diagnostic tests to evaluate urological conditions."
     },
     "validation-engineers": {
       "jobZone": 4,
@@ -363,11 +963,23 @@
       "zh": "设计生活或工业给水与污水处理设施。",
       "en": "Design water or wastewater treatment facilities for domestic or industrial use."
     },
+    "web-administrators": {
+      "jobZone": 4,
+      "officialTaskId": 14741,
+      "zh": "确定或记录网站备份及恢复计划。",
+      "en": "Identify or document website backup and recovery plans."
+    },
     "wind-energy-engineers": {
       "jobZone": 4,
       "officialTaskId": 16559,
       "zh": "绘制或更新风电场布局图和工程示意图。",
       "en": "Create or maintain wind farm layouts and engineering schematics."
+    },
+    "wind-energy-operations-managers": {
+      "jobZone": 3,
+      "officialTaskId": 15809,
+      "zh": "记录风电场运行表现、停机事件和零部件使用情况。",
+      "en": "Track wind site performance, downtime events, and parts usage."
     },
     "wind-turbine-service-technicians": {
       "jobZone": 3,

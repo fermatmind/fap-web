@@ -1,3 +1,4 @@
+import { isBilingualInterestDirectoryPath } from "@/lib/career/interestDirectoryRoutes";
 import CareerInterestPage, {
   generateMetadata as interestMetadata,
   generateStaticParams as bilingualStaticParams,
@@ -5,7 +6,7 @@ import CareerInterestPage, {
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return bilingualStaticParams().filter(({ code }) => code !== "icr");
+  return bilingualStaticParams().filter(({ code }) => !isBilingualInterestDirectoryPath(`/career/interests/${code}`));
 }
 
 type Props = { params: Promise<{ code: string }> };

@@ -8,9 +8,17 @@ import { traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRo
 import { CareerExplorationPilot } from "@/components/career/CareerExplorationPilot";
 import { CAREER_EXPLORATION_PILOT, careerExplorationPilotPath } from "@/lib/career/explorationPilot";
 import { appendCareerInterestPilotSitemapEntries, buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
+import { getInterestDirectory } from "@/lib/career/interestDirectory";
 import { getReleasedCareerInterest } from "@/lib/career/interestRelease";
 import release from "@/lib/career/interestRelease.json";
 import { getSiteUrlOrThrow } from "@/lib/site";
+
+const waveTwoCodes = [
+  ["ces", 7, 21], ["scr", 6, 7], ["cei", 5, 11], ["cer", 5, 14],
+  ["cir", 5, 57], ["ecr", 5, 14], ["sic", 5, 4], ["cre", 4, 15],
+  ["iec", 4, 12], ["rac", 4, 3], ["rce", 4, 15], ["rcs", 4, 9],
+  ["sir", 4, 6], ["cri", 3, 59], ["eci", 3, 13], ["sce", 3, 25], ["sec", 3, 25],
+] as const;
 
 afterEach(cleanup);
 
@@ -190,12 +198,58 @@ describe("six-page career exploration pilot", () => {
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
+  it.each(waveTwoCodes)("publishes %s with the frozen exact and related cohorts in two locales", async (code, exactCount, relatedCount) => {
+    const origin = getSiteUrlOrThrow();
+    const upper = code.toUpperCase();
+    expect(traditionalPath(`/zh-TW/career/interests/${code}`)).toBeNull();
+    for (const locale of ["zh", "en"] as const) {
+      const topic = getReleasedCareerInterest(code, locale)!;
+      const view = getInterestDirectory(code, locale, topic);
+      const related = view.relatedGroups.flatMap(({ jobs }) => jobs);
+      const cards = [...view.exact, ...related];
+      expect(view.exact).toHaveLength(exactCount);
+      expect(related).toHaveLength(relatedCount);
+      expect(view.other).toEqual([]);
+      expect(new Set(cards.map(({ slug }) => slug)).size).toBe(cards.length);
+      expect(view.exact.every(({ interest }) => interest === upper)).toBe(true);
+      expect(related.every(({ interest }) => interest !== upper && [...interest].sort().join("") === [...upper].sort().join(""))).toBe(true);
+      expect(cards.every(({ task, officialTaskId, jobZone }) =>
+        task.length > 0 && !/美元|US\$|\$[\d,]+/u.test(task) && officialTaskId > 0 && [2, 3, 4, 5].includes(jobZone),
+      )).toBe(true);
+      const metadata = await releasedMetadata({ params: Promise.resolve({ locale, code }) });
+      expect(metadata.robots).toMatchObject({ index: true, follow: true });
+      expect(metadata.alternates?.canonical).toBe(`${origin}/${locale}/career/interests/${code}`);
+      expect(metadata.alternates?.languages).toMatchObject({
+        "zh-CN": `${origin}/zh/career/interests/${code}`,
+        en: `${origin}/en/career/interests/${code}`,
+      });
+      expect(metadata.alternates?.languages).not.toHaveProperty("zh-TW");
+    }
+  });
+
+  it.each([["zh", "ces"], ["en", "sir"]] as const)("reuses the directory controls on %s/%s", async (locale, code) => {
+    const view = getInterestDirectory(code, locale, getReleasedCareerInterest(code, locale)!);
+    const { container } = render(await ReleasedInterestPage({ params: Promise.resolve({ locale, code }) }));
+    const exact = within(container.querySelector("#interest-directory-exact")!.parentElement!);
+    const links = () => exact.queryAllByRole("link")
+      .filter((link: HTMLElement) => link.getAttribute("href")?.startsWith(`/${locale}/career/jobs/`));
+    expect(links()).toHaveLength(view.exact.length);
+    const filter = screen.getByRole("combobox", { name: locale === "zh" ? "入行准备度" : "Job preparation" });
+    const zone = view.exact[0].jobZone;
+    fireEvent.change(filter, { target: { value: String(zone) } });
+    expect(links()).toHaveLength(view.exact.filter(({ jobZone }) => jobZone === zone).length);
+    fireEvent.change(filter, { target: { value: "" } });
+    expect(links()).toHaveLength(view.exact.length);
+    expect(container.querySelector('a[href*="/career-compare/"], header a[href*="/articles/"]')).toBeNull();
+    if (locale === "zh") expect(container).not.toHaveTextContent(/美元|US\$|\$[\d,]+/u);
+  });
+
   it("rejects an unpublished interest code", async () => {
     await expect(ReleasedInterestPage({ params: Promise.resolve({ locale: "en", code: "ir" }) }))
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
-  it("appends the released topics, publishing ICR only in English and Simplified Chinese", () => {
+  it("appends the released topics, publishing the added directories only in English and Simplified Chinese", () => {
     const existing = { loc: "https://fermatmind.com/zh/career", lastmod: "2026-11-10T00:00:00.000Z" };
     const backendEntries = buildPublicSitemapEntries({ items: [
       existing,
@@ -204,7 +258,7 @@ describe("six-page career exploration pilot", () => {
     ] });
     const topics = ["a", "ac", "ari", "c", "ce", "e", "ecs", "i", "irc", "r", "rc", "rci", "ric", "s", "si"];
     const expected = ["en", "zh-TW", "zh"].flatMap((locale) =>
-      [...topics, ...(locale === "zh-TW" ? [] : ["icr"])].sort().map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
+      [...topics, ...(locale === "zh-TW" ? [] : ["icr", ...waveTwoCodes.map(([code]) => code)])].sort().map((code) => `https://fermatmind.com/${locale}/career/interests/${code}`)
     );
     const entries = appendCareerInterestPilotSitemapEntries(backendEntries);
     expect(entries).toContainEqual(existing);

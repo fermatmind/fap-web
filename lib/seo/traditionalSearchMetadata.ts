@@ -1,4 +1,4 @@
-import { ICR_INTEREST_PATH } from "@/lib/career/interestDirectoryRoutes";
+import { isBilingualInterestDirectoryPath } from "@/lib/career/interestDirectoryRoutes";
 import { indexableCareerInterestPilots } from "@/lib/career/explorationPilot";
 import { entertainmentSearchPaths } from "@/lib/entertainment/searchEntries";
 import type { Metadata } from "next";
@@ -10,7 +10,7 @@ const publicCareerInterestPaths = new Set(indexableCareerInterestPilots().map(({
 ));
 
 export function hasTraditionalCareerInterestSearchPath(path: string): boolean {
-  return path !== ICR_INTEREST_PATH && publicCareerInterestPaths.has(path);
+  return !isBilingualInterestDirectoryPath(path) && publicCareerInterestPaths.has(path);
 }
 
 const publicCareerEntryPaths = new Set(["/career", "/career/tests", "/career/recommendations"]);

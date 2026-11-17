@@ -28,7 +28,7 @@ const overview = {
   },
 } as const;
 
-export function getInterestDirectory(code: "ric" | "icr", locale: Locale, topic: NonNullable<ReturnType<typeof getReleasedCareerInterest>>) {
+export function getInterestDirectory(code: string, locale: Locale, topic: NonNullable<ReturnType<typeof getReleasedCareerInterest>>) {
   function readCards(jobs: typeof topic.exact) {
     return jobs.flatMap(({ slug, interest, onet, copy }): InterestDirectoryCard[] => {
       const row = evidence[slug];
@@ -43,8 +43,11 @@ export function getInterestDirectory(code: "ric" | "icr", locale: Locale, topic:
   const exact = readCards(topic.exact);
   const related = readCards(topic.related);
   const groups = Map.groupBy(related, (job) => job.interest);
+  const intro = code === "ric" || code === "icr" ? overview[code][locale] : locale === "zh"
+    ? `${topic.code} 依次是${topic.label}。先按准备度筛选，再看各岗位处理的工作对象、完成的任务和交付的成果。`
+    : `${topic.code} stands for ${topic.label}, in that order. Filter by preparation and compare what people work on and what they produce.`;
   return {
-    intro: overview[code][locale],
+    intro,
     exact,
     relatedGroups: [...groups].map(([interest, jobs]) => ({ interest, jobs }))
       .sort((left, right) => right.jobs.length - left.jobs.length || left.interest.localeCompare(right.interest)),
