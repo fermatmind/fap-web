@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { PersonalityCareerExploration } from "@/components/career/PersonalityCareerExploration";
+import { getPersonalityCareerScene, readPersonalityCareerExamples } from "@/lib/career/personalityCareerExploration";
 import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
 import {
   getPersonalityComparisonBySlug,
@@ -97,6 +99,14 @@ export async function loadTraditionalMbtiCurrentReader(slug: string) {
   };
 }
 
+async function TraditionalIntjCareerExploration() {
+  const scene = getPersonalityCareerScene("intj");
+  if (!scene?.title["zh-TW"] || !scene.intro["zh-TW"]) return null;
+  const cards = await readPersonalityCareerExamples("zh-TW", scene);
+  return <PersonalityCareerExploration locale="zh-TW" type="INTJ" title={scene.title["zh-TW"]}
+    intro={scene.intro["zh-TW"]} cards={cards} scene={scene} />;
+}
+
 export function TraditionalMbtiCurrentReader({ reader }: {
   reader: NonNullable<Awaited<ReturnType<typeof loadTraditionalMbtiCurrentReader>>>;
 }) {
@@ -124,7 +134,11 @@ export function TraditionalMbtiCurrentReader({ reader }: {
           ))}
         </ul>
       </nav>
-      {reader.sections.map(section => <div key={section.key}>{section.content}</div>)}
+      {reader.sections.map(section => <div key={section.key}>
+        {section.content}
+        {reader.canonical === "/zh-TW/personality/intj" && section.key === "work_style"
+          ? <TraditionalIntjCareerExploration /> : null}
+      </div>)}
     </article>
   );
 }

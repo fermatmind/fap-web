@@ -2,52 +2,61 @@
   "intj": {
     "title": {
       "zh": "比较三种分析交付",
-      "en": "Compare three kinds of analytical work"
+      "en": "Compare three kinds of analytical work",
+      "zh-TW": "比較三種分析工作"
     },
     "intro": {
-      "zh": "分析岗可以交付统计判断、数学模型或供应计划。先选你想处理的问题，再核对数据质量、独立分析时间和谁会使用结果。",
-      "en": "An analytical role can produce a statistical judgment, a mathematical model, or a supply plan. Start with the problem you want to solve, then check the quality of the inputs, time for independent analysis, and who will use the result."
+      "zh": "如果你偏好先把目标想清楚，可以用它来问工作条件：任务允许多少独立分析时间，谁复核假设，最后交付统计说明还是数学模型？拿两份真实招聘说明，圈出每周要做的任务和入职要求。类型和美国市场统计都不能预测个人收入。",
+      "en": "If you prefer to define the goal before starting, turn that preference into questions about the job: how much time is set aside for analysis, who reviews the assumptions, and is the deliverable a statistical note or a mathematical model? Mark the recurring tasks and entry requirements in two real job postings. Type and U.S. labor statistics cannot predict your pay.",
+      "zh-TW": "如果你習慣先釐清目標，可以拿這項偏好來問工作條件：有多少時間能專心分析？誰審查假設？最後要交統計說明還是數學模型？找兩份實際職缺，圈出例行工作和入職條件。人格類型和美國行情都不能預測你的薪資。"
     },
     "examples": [
       {
         "slug": "statisticians",
         "question": {
           "zh": "你愿意检查样本是否有偏差，再判断观察到的差异有多可靠？",
-          "en": "Would you check the sample for bias before deciding how much confidence to place in an observed difference?"
+          "en": "Would you check the sample for bias before deciding how much confidence to place in an observed difference?",
+          "zh-TW": "你願意查樣本有沒有偏差，再向同事解釋結果有多可信嗎？"
         }
       },
       {
         "slug": "mathematicians",
         "question": {
           "zh": "你更想把约束写成数学关系，再检验模型在哪些条件下成立？",
-          "en": "Would you rather express constraints mathematically and test when the model holds?"
+          "en": "Would you rather express constraints mathematically and test when the model holds?",
+          "zh-TW": "你想把限制寫成數學關係，再測試什麼條件下模型會失效嗎？"
         }
       },
       {
         "slug": "supply-chain-managers",
         "question": {
           "zh": "需求上调、供应推迟时，你愿意调整库存计划并和相关团队确认交付顺序吗？",
-          "en": "When demand rises and supplies are delayed, would you revise the inventory plan and agree on delivery priorities with the teams involved?"
+          "en": "When demand rises and supplies are delayed, would you revise the inventory plan and agree on delivery priorities with the teams involved?",
+          "zh-TW": "需求升高、供貨延誤時，你願意調整庫存並與各組確認交貨順序嗎？"
         }
       }
     ],
     "comparison": {
       "title": {
         "zh": "比较统计推断与数学建模",
-        "en": "Compare statistical inference and mathematical modeling"
+        "en": "Compare statistical inference and mathematical modeling",
+        "zh-TW": "試做：統計推論與數學建模"
       },
       "brief": {
         "zh": "假设一组发货记录显示周五延误较多，但有些仓库缺少时间记录。团队还想知道，在固定装车能力下调整发货批次会怎样。",
-        "en": "Suppose shipping records show more delays on Fridays, but some warehouses are missing timestamps. The team also wants to understand how changing dispatch batches would affect delays with fixed loading capacity."
+        "en": "Suppose shipping records show more delays on Fridays, but some warehouses are missing timestamps. The team also wants to understand how changing dispatch batches would affect delays with fixed loading capacity.",
+        "zh-TW": "假設出貨紀錄顯示週五延誤較多，但有些倉庫缺少時間戳記。團隊也想知道，在裝車容量固定的情況下，改變出貨批次有沒有幫助。"
       },
       "prompts": [
         {
           "zh": "写出一个比较不同日期延误率的方法，以及缺失记录可能怎样改变结论。",
-          "en": "Write down one way to compare delay rates across days and how missing timestamps might change the conclusion."
+          "en": "Write down one way to compare delay rates across days and how missing timestamps might change the conclusion.",
+          "zh-TW": "提出一種比較各日延誤比例的方法，說明缺漏紀錄可能如何反轉結論。"
         },
         {
           "zh": "把装车能力和发货批次写成两个约束，说明哪种条件会使排程不可行。",
-          "en": "Express loading capacity and dispatch batches as two constraints, and explain what would make a schedule infeasible."
+          "en": "Express loading capacity and dispatch batches as two constraints, and explain what would make a schedule infeasible.",
+          "zh-TW": "將裝車容量和出貨批次寫成兩項限制，找出一個讓排程不可行的反例。"
         }
       ]
     }

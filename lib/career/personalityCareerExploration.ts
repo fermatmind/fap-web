@@ -1,11 +1,11 @@
 import { careerCompareItems, readPublishedCareerTaskPage } from '@/lib/career/compare';
 import type { CareerPage } from '@/lib/career/careerPage';
-import type { Locale } from '@/lib/i18n/locales';
+import type { DisplayLocale, Locale } from '@/lib/i18n/locales';
 import { canonicalUrl } from '@/lib/site';
 import { getReleasedCareerInterestEvidence } from './interestRelease';
 import sceneCopy from './personalityCareerScenes.json';
 
-type LocalizedCopy = Record<Locale, string>;
+type LocalizedCopy = Record<Locale, string> & Partial<Record<"zh-TW", string>>;
 export type CareerScene = {
   title: LocalizedCopy;
   intro: LocalizedCopy;
@@ -19,7 +19,7 @@ export function getPersonalityCareerScene(slug: string): CareerScene | undefined
   return Object.hasOwn(scenes, slug) ? scenes[slug] : undefined;
 }
 
-export async function readPersonalityCareerExamples(locale: Locale, scene: CareerScene) {
+export async function readPersonalityCareerExamples(locale: DisplayLocale, scene: CareerScene) {
   const examples = scene.examples.flatMap(({ slug, question }) => {
     const evidence = getReleasedCareerInterestEvidence(slug);
     return evidence ? [{ slug, question, onet: evidence.onet, interests: evidence.interest }] : [];
@@ -31,7 +31,7 @@ type CareerExample = {
   slug: string;
   onet: string;
   interests: string;
-  question: Record<Locale, string>;
+  question: Record<Locale, string> & Partial<Record<"zh-TW", string>>;
 };
 
 export type PersonalityCareerCard = CareerExample & {
@@ -42,7 +42,7 @@ export type PersonalityCareerCard = CareerExample & {
   occupationalCategory: string;
 };
 
-async function readCareerExamples(locale: Locale, examples: CareerExample[]): Promise<PersonalityCareerCard[]> {
+async function readCareerExamples(locale: DisplayLocale, examples: CareerExample[]): Promise<PersonalityCareerCard[]> {
   const candidates = await Promise.all(examples.map(async (example) => {
     const read = await readPublishedCareerTaskPage(locale, example.slug, 'server-cache');
     if (read.state !== 'ready' || !read.page.content.subject.summary) return null;
