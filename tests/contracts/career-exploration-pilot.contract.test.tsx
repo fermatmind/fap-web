@@ -110,19 +110,6 @@ describe("six-page career exploration pilot", () => {
       .rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
   });
 
-  it.each(["zh", "en"] as const)("serves the verified RCI candidates in %s", async (locale) => {
-    const props = { params: Promise.resolve({ locale, code: "rci" }) };
-    const topic = getReleasedCareerInterest("rci", locale)!;
-    const metadata = await releasedMetadata(props);
-    expect(metadata.robots).toMatchObject({ index: true, follow: true });
-    expect(metadata.alternates?.canonical).toBe(`${getSiteUrlOrThrow()}${topic.path}`);
-    render(await ReleasedInterestPage(props));
-    const exact = within(document.getElementById("interest-exact")!.parentElement!);
-    for (const job of topic.exact) {
-      expect(exact.getByRole("link", { name: job.copy[locale].name })).toHaveAttribute("href", `/${locale}/career/jobs/${job.slug}`);
-    }
-  });
-
   it.each(["zh", "en"] as const)("publishes the SI examples and full groups in %s", async (locale) => {
     const props = { params: Promise.resolve({ locale, code: "si" }) };
     const topic = getReleasedCareerInterest("si", locale)!;
@@ -144,28 +131,53 @@ describe("six-page career exploration pilot", () => {
   });
 
   it.each([
-    ["zh", "ric", 19, 43, 15, 0],
-    ["en", "ric", 19, 43, 15, 0],
-    ["zh", "icr", 6, 56, 4, 2],
-    ["en", "icr", 6, 56, 4, 2],
-  ] as const)("filters the %s/%s exact and related career cards", async (locale, code, exactCount, relatedCount, zone4, zone5) => {
+    ["zh", "ric", 19, 43, 15, 0, 81],
+    ["en", "ric", 19, 43, 15, 0, 81],
+    ["zh", "icr", 6, 56, 4, 2, 0],
+    ["en", "icr", 6, 56, 4, 2, 0],
+    ["zh", "rci", 16, 46, 0, 0, 81],
+    ["en", "rci", 16, 46, 0, 0, 81],
+    ["zh", "irc", 13, 49, 9, 3, 81],
+    ["en", "irc", 13, 49, 9, 3, 81],
+    ["zh", "ecs", 11, 17, 5, 1, 31],
+    ["en", "ecs", 11, 17, 5, 1, 31],
+  ] as const)("filters the %s/%s exact and related career cards", async (locale, code, exactCount, relatedCount, zone4, zone5, otherCount) => {
     const props = { params: Promise.resolve({ locale, code }) };
     const { container } = render(await ReleasedInterestPage(props));
     const exact = within(container.querySelector("#interest-directory-exact")!.parentElement!);
     const related = within(container.querySelector("#interest-directory-related")!.closest("section")!);
-    const careerLinks = (area: ReturnType<typeof within>) => area.getAllByRole("link")
+    const careerLinks = (area: ReturnType<typeof within>) => area.queryAllByRole("link")
       .filter((link: HTMLElement) => link.getAttribute("href")?.startsWith(`/${locale}/career/jobs/`));
     expect(careerLinks(exact)).toHaveLength(exactCount);
     expect(careerLinks(related)).toHaveLength(relatedCount);
     expect(related.getAllByRole("heading", { level: 3 })).toHaveLength(5);
     expect(exact.getAllByRole("link", { name: /O\*NET .*#/u })).toHaveLength(exactCount);
     const slugs = [...container.querySelectorAll(`a[href^="/${locale}/career/jobs/"]`)].map((link) => link.getAttribute("href"));
-    expect(slugs).toHaveLength(code === "ric" ? 143 : 62);
-    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(slugs).toHaveLength(exactCount + relatedCount + otherCount);
+    const topic = getReleasedCareerInterest(code, locale)!;
+    const view = getInterestDirectory(code, locale, topic);
+    const jobPrefix = `/${locale}/career/jobs/`;
+    expect(new Set(slugs)).toEqual(new Set([...topic.exact, ...topic.related].map(({ slug }) => jobPrefix + slug)));
+    const extra = container.querySelector("details");
+    const extraLinks = extra ? [...extra.querySelectorAll(`a[href^="${jobPrefix}"]`)] : [];
+    expect(extraLinks).toHaveLength(otherCount);
+    expect(new Set(extraLinks.map((link) => link.getAttribute("href")))).toEqual(new Set(view.other.map(({ slug }) => jobPrefix + slug)));
+    expect(new Set(careerLinks(exact).map((link: HTMLElement) => link.getAttribute("href")))).toEqual(
+      new Set(view.exact.map(({ slug }) => jobPrefix + slug)),
+    );
+    expect(related.getAllByRole("link", { name: /O\*NET .*#/u })).toHaveLength(relatedCount);
+    const metadata = await releasedMetadata(props);
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.alternates?.canonical).toBe(`${getSiteUrlOrThrow()}${topic.path}`);
+    if (code !== "icr") {
+      expect(metadata.alternates?.languages).toHaveProperty("zh-TW", `${getSiteUrlOrThrow()}/zh-TW/career/interests/${code}`);
+    }
     expect(container.querySelector('a[href*="/career-compare/"]')).toBeNull();
     if (locale === "zh") expect(container).not.toHaveTextContent(/美元|US\$|\$[\d,]+/u);
     if (code === "ric") {
       expect(container.querySelector(`header a[href="/${locale}/articles/ric-holland-code-career-exploration"]`)).toBeInTheDocument();
+    } else {
+      expect(container.querySelector('header a[href*="/articles/"]')).toBeNull();
     }
 
     const filter = screen.getByRole("combobox", { name: locale === "zh" ? "入行准备度" : "Job preparation" });
@@ -179,6 +191,14 @@ describe("six-page career exploration pilot", () => {
     fireEvent.change(filter, { target: { value: "" } });
     expect(careerLinks(exact)).toHaveLength(exactCount);
     expect(careerLinks(related)).toHaveLength(relatedCount);
+  });
+
+  it.each(["rci", "irc", "ecs"] as const)("keeps the existing Traditional directory for %s", async (code) => {
+    const props = { params: Promise.resolve({ locale: "zh-TW", code }) };
+    const { container } = render(await ReleasedInterestPage(props));
+    const topic = getReleasedCareerInterest(code, "zh")!;
+    expect(container.querySelector("#career-job-zone")).toBeNull();
+    expect(container.querySelectorAll('a[href^="/zh-TW/career/jobs/"]')).toHaveLength(topic.exact.length + topic.related.length);
   });
 
   it("publishes reciprocal ICR metadata only for the two selected locales", async () => {

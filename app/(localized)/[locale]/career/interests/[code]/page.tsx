@@ -9,7 +9,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CAREER_INTEREST_SOURCE } from "@/lib/career/explorationPilot";
 import { getInterestDirectory } from "@/lib/career/interestDirectory";
-import { isBilingualInterestDirectoryPath, RIC_INTEREST_ARTICLE, RIC_INTEREST_PATH } from "@/lib/career/interestDirectoryRoutes";
+import { hasInterestDirectory, isBilingualInterestDirectoryPath, RIC_INTEREST_ARTICLE } from "@/lib/career/interestDirectoryRoutes";
 import { getReleasedCareerInterest, RELEASED_CAREER_INTEREST_CODES } from "@/lib/career/interestRelease";
 import { buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CareerInterestPage({ params }: Props) {
   const { locale, displayLocale, code, topic, translate, path } = await readInterest(params);
   const zh = locale === "zh";
-  const directory = displayLocale !== "zh-TW" && (path === `/${displayLocale}${RIC_INTEREST_PATH}` || isBilingualInterestDirectoryPath(`/career/interests/${code}`))
+  const directory = displayLocale !== "zh-TW" && hasInterestDirectory(`/career/interests/${code}`)
     ? getInterestDirectory(code, locale, topic)
     : null;
   const primary = code.length === 1;
