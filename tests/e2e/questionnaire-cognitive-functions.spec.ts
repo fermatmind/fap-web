@@ -4,13 +4,30 @@ type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cognitive-functions-test`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { if (["Start test", "Resume this tab's progress"].includes(en)) { await page.locator('[data-cognitive-method="ratings32"]').click(); await expect(page.locator('#take-test input[type="radio"]').first()).toBeVisible(); return; } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+const takePath = (l: Locale) => `${path(l)}/take?edition=ratings32`;
+const draftKey = "fm_questionnaire_draft:cognitive-functions-test";
+async function button(page: Page, l: Locale, en: string, zh: string) {
+  await page.getByRole("button", { name: label(l, en, zh), exact: true }).click();
+}
+async function choose32(page: Page, l: Locale) {
+  await page.locator('[data-cognitive-method="ratings32"]').click();
+  await expect(page).toHaveURL(takePath(l));
+  await expect(page.locator('input[name="CF_NI_01"]').first()).toBeVisible();
+}
 async function finish(page: Page, l: Locale, values: string[]) {
   for (let i = 0; i < 32; i++) {
     const q = quiz.questions[i], radio = page.locator(`input[name="${q.id}"][value="${values[i]}"]`);
-    if (!i) { await radio.focus(); await radio.press("Space"); } else await radio.check(); await expect(radio).toBeChecked(); await expect(page.locator("[data-cognitive-functions-report]")).toHaveCount(0);
-    if (i === 1) { await button(page, l, "Back", "上一题"); await expect(page.locator(`input[name="CF_NI_01"][value="${values[0]}"]`)).toBeChecked(); await button(page, l, "Next", "下一题"); }
-    await button(page, l, i === 31 ? "See full result" : "Next", i === 31 ? "查看完整结果" : "下一题");
+    await expect(page.locator("[data-cognitive-functions-report]")).toHaveCount(0);
+    if (i === 1) {
+      await expect(radio).toBeVisible();
+      await button(page, l, "Back", "上一题");
+      await expect(page.locator(`input[name="CF_NI_01"][value="${values[0]}"]`)).toBeChecked();
+      await button(page, l, "Next", "下一题");
+    }
+    if (!i) {
+      await radio.focus();
+      await radio.press("Space");
+    } else await radio.check();
   }
   await expect(page.locator("#take-test h2")).toBeFocused(); const report = page.locator("[data-cognitive-functions-report]"); await expect(report).toHaveCount(1); await expect(report.locator("h4")).toHaveCount(56); await expect(report.locator("[data-cognitive-full]")).toHaveCount(8);
   for (const [i, d] of quiz.directions.entries()) {
@@ -20,23 +37,53 @@ async function finish(page: Page, l: Locale, values: string[]) {
   for (const p of quiz.profiles) for (const s of p.sections) for (const text of s.paragraphs) await expect(report).toContainText(text[l]);
   await report.locator(":scope > details > summary").click(); for (const [i, q] of quiz.questions.entries()) await expect(report.locator(`[data-cognitive-answer="${q.id}"]`)).toContainText(q.options.find(o => o.id === values[i])!.label[l]); await report.locator(":scope > details > summary").click();
   if (values.every(v => v === "na")) await expect(page.getByRole("heading", { name: label(l, "This attempt is finished. Choose what comes next.", "本次作答已结束，下一步由你选择"), exact: true })).toBeVisible();
-  expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); const ids = await page.locator("#take-test [id]").evaluateAll(ns => ns.map(n => n.id)); expect(ids.length).toBe(new Set(ids).size);
+  await expect(page).toHaveURL(takePath(l)); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); const ids = await page.locator("#take-test [id]").evaluateAll(ns => ns.map(n => n.id)); expect(ids.length).toBe(new Set(ids).size);
 }
 for (const l of ["en", "zh"] as const) {
   test(`@release cognitive-functions-test ${l}: native hub, keyboard, eight separate means, partial data and allNA full guides`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaked: string[] = []; page.on("request", r => { if (r.method() === "POST" && /CF_[A-Z]+_|"facets"|"answers"|"mean"/.test(r.postData() ?? "")) leaked.push(r.url()); });
-    await page.goto(`/${l}/tests`); await consent(page, l); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click(); await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`); await button(page, l, "Start test", "开始测试");
+    await page.goto(`/${l}/tests`); await consent(page, l); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click(); await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`); await choose32(page, l);
     await button(page, l, "Next", "下一题"); await expect(page.locator("#take-test").getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     const patterns = [Array(32).fill("5"), ["4", "3", "5", "2", "4", "na", "5", "2", "5", "5", "na", "na", "1", "2", "3", "4", ...Array(16).fill("3")], Array(32).fill("na")];
     for (const [i, values] of patterns.entries()) { if (i) await button(page, l, "Retake test", "重新测试"); await finish(page, l, values); }
     expect(leaked).toEqual([]); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:cognitive-functions-test"))).toBeNull(); await page.screenshot({ path: test.info().outputPath(`${l}-result.png`) }); await button(page, l, "Retake test", "重新测试"); await expect(page.locator("[data-cognitive-functions-report]")).toHaveCount(0); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
   });
-  test(`@release cognitive-functions-test ${l}: opt-in draft reload, locale switch, changed response and clear`, async ({ page }) => {
-    await page.goto(path(l)); await consent(page, l); await button(page, l, "Start test", "开始测试"); await page.locator('input[name="CF_NI_01"][value="na"]').check(); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:cognitive-functions-test"))).toBeNull(); await page.getByRole("checkbox").check(); await button(page, l, "Next", "下一题"); await page.reload(); await button(page, l, "Resume this tab's progress", "恢复本标签页进度"); await expect(page.locator('input[name="CF_NI_02"]')).toHaveCount(6); await button(page, l, "Back", "上一题"); await expect(page.locator('input[name="CF_NI_01"][value="na"]')).toBeChecked(); await page.locator('input[name="CF_NI_01"][value="4"]').check();
-    const other = l === "en" ? "zh" : "en"; await page.goto(path(other)); await consent(page, other); await button(page, other, "Resume this tab's progress", "恢复本标签页进度"); await button(page, other, "Back", "上一题"); await expect(page.locator('input[name="CF_NI_01"][value="4"]')).toBeChecked(); await button(page, other, "Exit and clear this attempt", "退出并清除本次进度"); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:cognitive-functions-test"))).toBeNull();
+  test(`@release cognitive-functions-test ${l}: standalone clears legacy drafts and starts fresh after reload or locale change`, async ({ page }) => {
+    const first = page.locator('input[name="CF_NI_01"]');
+    const second = page.locator('input[name="CF_NI_02"]');
+    const storedDraft = () => page.evaluate(key => sessionStorage.getItem(key), draftKey);
+
+    await page.goto(path(l));
+    await consent(page, l);
+    const legacyDraft = { version: quiz.version, savedAt: Date.now(), answers: { CF_NI_01: "na" } };
+    await page.evaluate(({ key, draft }) => sessionStorage.setItem(key, JSON.stringify(draft)), { key: draftKey, draft: legacyDraft });
+    expect(await storedDraft()).not.toBeNull();
+
+    await choose32(page, l);
+    await expect.poll(storedDraft).toBeNull();
+    await expect(page.locator("#take-test").getByRole("checkbox")).toHaveCount(0);
+    await expect(page.locator('#take-test input:checked')).toHaveCount(0);
+    await first.and(page.locator('[value="na"]')).check();
+    await expect(second.first()).toBeVisible();
+    expect(await storedDraft()).toBeNull();
+
+    await page.reload();
+    await expect(first.first()).toBeVisible();
+    await expect(page).toHaveURL(takePath(l));
+    await expect(page.locator('#take-test input:checked')).toHaveCount(0);
+    await first.and(page.locator('[value="4"]')).check();
+    await expect(second.first()).toBeVisible();
+
+    const other = l === "en" ? "zh" : "en";
+    await page.goto(path(other));
+    await consent(page, other);
+    await choose32(page, other);
+    await expect(page.locator('#take-test input:checked')).toHaveCount(0);
+    expect(await storedDraft()).toBeNull();
+    await expect(page.locator("[data-cognitive-functions-report]")).toHaveCount(0);
   });
   test(`@release cognitive-functions-test ${l}: public sharing contains no means or answers and all eight full guides remain available`, async ({ page, context }) => {
-    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await consent(page, l); await button(page, l, "Start test", "开始测试"); await finish(page, l, Array(32).fill("4")); await button(page, l, "Copy public entry", "复制公开入口"); expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]); await page.goto(path(l)); await consent(page, l); await choose32(page, l); await finish(page, l, Array(32).fill("4")); await button(page, l, "Copy public entry", "复制公开入口"); expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${quiz.title[l]}\nhttps://fermatmind.com${path(l)}`);
     for (const profile of quiz.profiles) { await page.goto(`${path(l)}/results/${profile.id}`); await expect(page.locator("h1")).toHaveText(profile.title[l]); await expect(page.locator("[data-cognitive-mean]")).toHaveCount(0); for (const s of profile.sections) for (const t of s.paragraphs) await expect(page.locator("main").last()).toContainText(t[l]); }
   });
 }
