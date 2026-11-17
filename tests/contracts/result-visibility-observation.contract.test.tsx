@@ -6,9 +6,16 @@ vi.mock("@/lib/api/v0_3", () => ({ observeAttemptResult: mocks.send }));
 vi.mock("@/lib/auth/fmToken", () => ({ getFmToken: () => mocks.token }));
 vi.mock("@/lib/consent/store", () => ({ hasAnalyticsConsent: () => mocks.consent }));
 let intersection: IntersectionObserverCallback;
-function Probe({ enabled = true, receipt = "private-receipt" }: { enabled?: boolean; receipt?: string }) {
+const observeHeading = vi.fn();
+function Probe({ enabled = true, receipt = "private-receipt", reportLoaded = true }: {
+  enabled?: boolean; receipt?: string; reportLoaded?: boolean;
+}) {
   useResultVisibilityObservation({ attemptId: "owned-attempt", receipt, enabled });
-  return <div data-result-visible-root><aside data-testid="result-email-recovery-card"><h2>Recover by email</h2></aside><h1>Rendered result</h1></div>;
+  return <div data-result-visible-root>
+    <aside data-testid="result-email-recovery-card"><h2>Recover by email</h2></aside>
+    <aside data-testid="result-export-panel"><h2>Export</h2></aside>
+    {reportLoaded ? <h1>Rendered result</h1> : null}
+  </div>;
 }
 async function reveal() {
   const target = document.querySelector("h1")!;
@@ -22,11 +29,14 @@ beforeEach(() => {
   vi.useFakeTimers();
   vi.stubEnv("NEXT_PUBLIC_ANALYTICS_ENABLED", "true");
   mocks.send.mockReset().mockResolvedValue(undefined);
+  observeHeading.mockClear();
   mocks.consent = true; mocks.token = "fm_owner";
   Object.defineProperty(document, "visibilityState", { configurable: true, value: "visible" });
   vi.stubGlobal("IntersectionObserver", class {
     constructor(cb: IntersectionObserverCallback) { intersection = cb; }
-    observe(node: Element) { expect(node.closest('[data-testid="result-email-recovery-card"]')).toBeNull(); } disconnect() {}
+    observe(node: Element) { observeHeading(node); }
+    unobserve() {}
+    disconnect() {}
   });
 });
 afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
@@ -37,6 +47,18 @@ describe("private owner result visibility", () => {
     await reveal(); await reveal();
     expect(mocks.send).toHaveBeenCalledTimes(1);
     expect(mocks.send).toHaveBeenCalledWith({ attemptId: "owned-attempt", anonId: undefined, receipt: "private-receipt" });
+  });
+  it("waits for the late report heading and excludes earlier controls", async () => {
+    const view = render(<Probe reportLoaded={false} />);
+    expect(observeHeading).not.toHaveBeenCalled();
+    expect(mocks.send).not.toHaveBeenCalled();
+
+    await act(async () => { view.rerender(<Probe />); });
+    expect(observeHeading).toHaveBeenCalledExactlyOnceWith(document.querySelector("h1"));
+    expect(mocks.send).not.toHaveBeenCalled();
+
+    await reveal();
+    expect(mocks.send).toHaveBeenCalledTimes(1);
   });
   it("suppresses hidden and denied observations, and rechecks consent on visible resume", async () => {
     render(<Probe />);

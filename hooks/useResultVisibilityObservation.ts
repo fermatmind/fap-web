@@ -16,10 +16,7 @@ export function useResultVisibilityObservation({
     const root = document.querySelector<HTMLElement>("[data-result-visible-root]");
     if (!root || typeof IntersectionObserver === "undefined") return;
     let disposed = false;
-    // Observe actual result headings, not whitespace or recovery controls inside a large shell.
-    const anchors = [...root.querySelectorAll<HTMLElement>("h1, h2")]
-      .filter((node) => !node.closest('[data-testid="result-email-recovery-card"]'));
-    if (anchors.length === 0) return;
+    const observedAnchors = new Set<Element>();
     const visibleAnchors = new Set<Element>();
     let pending = false;
     let attempts = 0;
@@ -34,6 +31,8 @@ export function useResultVisibilityObservation({
       try {
         await observeAttemptResult({ attemptId, anonId, receipt });
         accepted.current = receipt;
+        headingsObserver.disconnect();
+        observer.disconnect();
       } catch (error) {
         // Keep the same receipt for bounded transient retries; never block the result.
         const status = (error as { status?: number }).status;
@@ -50,16 +49,41 @@ export function useResultVisibilityObservation({
     };
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
+        if (!observedAnchors.has(entry.target)) continue;
         if (entry.isIntersecting && entry.intersectionRatio > 0) visibleAnchors.add(entry.target);
         else visibleAnchors.delete(entry.target);
       }
       schedule();
     });
-    anchors.forEach((anchor) => observer.observe(anchor));
+    const syncHeadings = () => {
+      // The published report can mount after the recovery and export controls.
+      const headings = new Set<Element>(
+        Array.from(root.querySelectorAll("h1, h2")).filter((heading) =>
+          !heading.closest('[data-testid="result-email-recovery-card"], [data-testid="result-export-panel"]'),
+        ),
+      );
+      for (const previous of observedAnchors) {
+        if (!headings.has(previous)) {
+          observer.unobserve(previous);
+          observedAnchors.delete(previous);
+          visibleAnchors.delete(previous);
+        }
+      }
+      for (const heading of headings) {
+        if (!observedAnchors.has(heading)) {
+          observedAnchors.add(heading);
+          observer.observe(heading);
+        }
+      }
+    };
+    const headingsObserver = new MutationObserver(syncHeadings);
+    headingsObserver.observe(root, { childList: true, subtree: true });
+    syncHeadings();
     document.addEventListener("visibilitychange", schedule);
     window.addEventListener("fm:analytics-consent-updated", schedule);
     return () => {
       disposed = true;
+      headingsObserver.disconnect();
       observer.disconnect();
       cancelAnimationFrame(frame);
       clearTimeout(timer);
