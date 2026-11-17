@@ -72,18 +72,17 @@ it("keeps all8 complete bilingual adopted public cards and visible method-specif
   const bad=structuredClone(content);bad.cards[0].does_not_mean.pop();expect(isJung56ContentValid(bad)).toBe(false);
 });
 
-it("requires56 page opt-in plus global consent, does not backfill, and revokes on pagehide", () => {
+it("suppresses analytics for the retired 56-choice edition even with consent", () => {
   Object.defineProperty(Element.prototype,"scrollIntoView",{configurable:true,value:vi.fn()});
   const fetch=vi.fn().mockResolvedValue({ok:true});vi.stubGlobal('fetch',fetch);window.localStorage.setItem('fm_consent_v1',JSON.stringify({analytics:'granted'}));
   render(createElement(Jung56Client,{locale:'en'}));
   fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole('checkbox'));expect(fetch).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole('button',{name:'Exit and clear the 56-choice responses'}));
-  fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).toHaveBeenCalledOnce();
-  const payload=JSON.parse(fetch.mock.calls[0][1].body);expect(payload.eventName).toBe('fun_start');expect(payload.payload.form_code).toBe(bank.edition);expect(JSON.stringify(payload)).not.toMatch(/JUNG_FC_|answers|wins|rank|directionId/);
-  fireEvent.click(screen.getByRole('checkbox'));fireEvent.click(screen.getByRole('button',{name:'Exit and clear the 56-choice responses'}));fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).toHaveBeenCalledOnce();
-  fireEvent.click(screen.getByRole('checkbox'));window.localStorage.setItem('fm_consent_v1',JSON.stringify({analytics:'denied'}));fireEvent.click(screen.getByRole('button',{name:'Exit and clear the 56-choice responses'}));fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).toHaveBeenCalledOnce();
-  window.localStorage.setItem('fm_consent_v1',JSON.stringify({analytics:'granted'}));fireEvent(window,new Event('pagehide'));expect(screen.getByRole('checkbox')).not.toBeChecked();fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).toHaveBeenCalledOnce();
+  fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('checkbox'));fireEvent.click(screen.getByRole('button',{name:'Exit and clear the 56-choice responses'}));fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('checkbox'));window.localStorage.setItem('fm_consent_v1',JSON.stringify({analytics:'denied'}));fireEvent.click(screen.getByRole('button',{name:'Exit and clear the 56-choice responses'}));fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).not.toHaveBeenCalled();
+  window.localStorage.setItem('fm_consent_v1',JSON.stringify({analytics:'granted'}));fireEvent(window,new Event('pagehide'));expect(screen.getByRole('checkbox')).not.toBeChecked();fireEvent.click(screen.getByRole('button',{name:'Start the 56 choices'}));expect(fetch).not.toHaveBeenCalled();
 });
 
 it("reports a denied32 draft deletion without claiming success or blocking the memory-only56 edition", async () => {
