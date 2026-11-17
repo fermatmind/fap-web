@@ -84,7 +84,7 @@ import {
 } from "@/lib/mbti/forms";
 import { getIqBankLandingChoices, type IqBankLandingChoice } from "@/lib/iq/bankDisplay";
 import { isIqScaleCode } from "@/lib/iq/constants";
-import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { MBTI_ENTRY_TEST_SLUG, buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import {
   appendAttributionParamsToHref,
   buildTrackingAttributionPayload,
@@ -1366,7 +1366,16 @@ export default async function TestLandingPage({
     description: resolvedSeoDescription,
     locale,
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  const illustratedBreadcrumb = [
+    { name: displayText(locale === "zh" ? "首页" : "Home"), path: withLocale("/") },
+    { name: displayText(locale === "zh" ? "测试" : "Tests"), path: withLocale("/tests") },
+    { name: displayText(illustratedLandingLabel), path: withLocale(`/tests/${test.slug}`) },
+  ];
+  const showTraditionalMbtiBreadcrumb = traditional && showsMbtiActions &&
+    test.slug === MBTI_ENTRY_TEST_SLUG && test.is_public !== false &&
+    test.is_active !== false && lookup?.is_indexable !== false &&
+    !testDetailAuthority.shouldNoindexMissingMetadataAuthority;
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd(traditional ? illustratedBreadcrumb : [
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "测评" : "Tests", path: locale === "zh" ? "/zh/tests" : "/en/tests" },
     { name: localizedTestTitle, path: canonicalPath },
@@ -1463,14 +1472,22 @@ export default async function TestLandingPage({
       } : {})}
     >
       {!traditional ? <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} /> : null}
-      {!traditional ? <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} /> : null}
+      {(!traditional || showTraditionalMbtiBreadcrumb) ? <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} /> : null}
       {!traditional && softwareApplicationJsonLd ? (
         <JsonLd id={`test-software-application-${test.slug}`} data={softwareApplicationJsonLd} />
       ) : null}
       {!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
-      {usesIllustratedLanding ? <nav className={previewStyles.breadcrumb} aria-label={traditional ? "導覽路徑" : locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{displayText(locale === "zh" ? "首页" : "Home")}</Link><span>/</span><Link href={withLocale("/tests")}>{displayText(locale === "zh" ? "测试" : "Tests")}</Link><span>/</span><span>{displayText(illustratedLandingLabel)}</span></nav> : null}
+      {usesIllustratedLanding ? (
+        <nav className={previewStyles.breadcrumb} aria-label={traditional ? "導覽路徑" : locale === "zh" ? "面包屑" : "Breadcrumb"}>
+          <Link href={illustratedBreadcrumb[0].path}>{illustratedBreadcrumb[0].name}</Link>
+          <span>/</span>
+          <Link href={illustratedBreadcrumb[1].path}>{illustratedBreadcrumb[1].name}</Link>
+          <span>/</span>
+          <span>{illustratedBreadcrumb[2].name}</span>
+        </nav>
+      ) : null}
       <div className={usesIllustratedLanding ? previewStyles.layout : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]"}>
         <div className={usesIllustratedLanding ? previewStyles.content : "space-y-6"}>
           {showsMbtiActions ? <><MbtiLandingIntro
