@@ -1001,7 +1001,24 @@ test("public entry keeps Holland 60Q and directs the retired route to the indepe
   await expect(page.getByTestId("test-detail-landing-cta-riasec_140")).toHaveCount(0);
   await expect(page.getByTestId("test-detail-landing-cta-career-v1")).toHaveCount(0);
 
+  await page.route("**/v0.5/career-assessment/questions", async (route) => {
+    await route.fulfill({
+      json: {
+        form_version: "career_v1",
+        anchors: { interest: { en: ["Strongly dislike", "Dislike", "Neutral", "Like", "Strongly like"] } },
+        instructions: { interest: { en: "Choose how much you would enjoy this activity." } },
+        unknown_option: { en: "Unsure or skip" },
+        items: Array.from({ length: 94 }, (_, index) => ({
+          id: `career_item_${index + 1}`,
+          section: "interest",
+          text: { en: `Career activity ${index + 1}` },
+        })),
+      },
+    });
+  });
+
   await page.goto("/en/tests/holland-career-interest-test-riasec/take?form=riasec_140");
   await expect(page).toHaveURL(/\/en\/career\/assessment\/take$/);
-  await expect(page.getByText("FermatMind Career Assessment (94 questions)", { exact: true })).toBeVisible();
+  await expect(page.getByText("Question 1 / 94", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Career activity 1" })).toBeVisible();
 });
