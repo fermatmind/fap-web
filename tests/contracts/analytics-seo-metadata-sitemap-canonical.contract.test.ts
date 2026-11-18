@@ -78,6 +78,7 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
       "/payment/*",
       "/history/*",
       "/tests/*/take",
+      "/career/assessment/take",
       "/tests/explore/*/take",
       "/tests/play/*/take",
     ]);
@@ -100,6 +101,7 @@ describe("analytics SEO metadata sitemap canonical governance", () => {
       "/zh/share/share-raw-123",
       "/zh/payment/stripe/success",
       "/zh/tests/mbti-personality-test-16-personality-types/take",
+      "/zh/career/assessment/take",
     ]) {
       expect(isSharedDiscoverabilityDeniedPath(sample), sample).toBe(true);
       expect(shouldNoindex(sample, "zh"), sample).toBe(true);

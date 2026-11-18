@@ -27,6 +27,7 @@ describe("shared discoverability exposure policy", () => {
       "/payment/*",
       "/history/*",
       "/tests/*/take",
+      "/career/assessment/take",
       "/tests/explore/*/take",
       "/tests/play/*/take",
     ]);
@@ -44,6 +45,9 @@ describe("shared discoverability exposure policy", () => {
       "/zh/tests/mbti-personality-test-16-personality-types/take?step=1",
       "/en/tests/explore/what-dog-breed-am-i/take",
       "/zh/tests/play/story-ending/take?start=1",
+      "/en/career/assessment/take",
+      "/zh/career/assessment/take?preview=holland-report",
+      "/zh-TW/career/assessment/take",
       "/en/result/example",
       "/zh/results/lookup",
       "/en/orders/example",
@@ -67,8 +71,9 @@ describe("shared discoverability exposure policy", () => {
       "/en/personality/intj-a",
       "/zh/topics/mbti",
       "/en/support",
+      "/zh/career/assessment",
     ]) {
-      expect(stripDiscoverabilityLocalePrefix(sample), sample).toMatch(/^\/(tests|personality|topics|support)/);
+      expect(stripDiscoverabilityLocalePrefix(sample), sample).toMatch(/^\/(tests|personality|topics|support|career)/);
       expect(isSharedDiscoverabilityDeniedPath(sample), sample).toBe(false);
     }
   });
