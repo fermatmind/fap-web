@@ -15,6 +15,8 @@ export const SCALE_CANONICAL_SLUG_MAP = {
 export type SupportedScaleCode = keyof typeof SCALE_CANONICAL_SLUG_MAP;
 
 export const TEST_SLUG_ALIAS_MAP: Record<string, string> = {
+  "jung-test": "jung-test",
+
   "jung-archetypes": "jung-archetypes",
   "jung-cognitive-functions": "jung-cognitive-functions",
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: SCALE_CANONICAL_SLUG_MAP.MBTI,

@@ -515,10 +515,10 @@ function getCoreTestAccessibleTitle(locale: DisplayLocale, item: HomeCoreTestIte
   return getCoreTestKey(item) === IQ_PUBLIC_SLUG ? "IQ 智商测试" : undefined;
 }
 
-function RecommendationStars({ locale }: { locale: DisplayLocale }) {
+function RecommendationStars({ locale, count = 5 }: { locale: DisplayLocale; count?: 3 | 4 | 5 }) {
   return (
-    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label={locale === "zh-TW" ? "推薦指數 5 星" : locale === "en" ? "Recommended: 5 out of 5 stars" : "推荐指数 5 星"}>
-      {Array.from({ length: 5 }).map((_, index) => (
+    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label={locale === "zh-TW" ? `推薦指數 ${count} 星` : locale === "en" ? `Recommended: ${count} out of 5 stars` : `推荐指数 ${count} 星`}>
+      {Array.from({ length: count }).map((_, index) => (
         <span key={index} aria-hidden>
           ★
         </span>
@@ -531,14 +531,13 @@ function getCoreTestsSectionTitle(locale: DisplayLocale): string {
   return locale === "zh-TW" ? "熱門測評" : locale === "zh" ? "热门测评" : "Popular assessments";
 }
 
-function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, title: string): { card: string; detail: string; action: string } {
+function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, title: string): { card: string; action: string } {
   const key = getCoreTestKey(item);
 
   if (locale === "zh-TW") {
     if (key.includes("mbti")) {
       return {
         card: "想了解自己的性格嗎？看看你的偏好、溝通方式和決策風格。",
-        detail: "MBTI 性格測驗協助你理解日常選擇、互動方式和團隊協作中的偏好，適合作為自我了解和溝通參考。",
         action: "開始 MBTI 免費測驗。",
       };
     }
@@ -546,7 +545,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("big-five")) {
       return {
         card: "想知道你的穩定特質嗎？從五個維度了解你平時如何行動和反應。",
-        detail: "大五人格測驗圍繞開放性、盡責性、外向性、親和性和情緒穩定性，協助你獲得更連續的特質視角。",
         action: "開始大五人格免費測驗。",
       };
     }
@@ -554,7 +552,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("holland") || key.includes("riasec")) {
       return {
         card: "想知道什麼工作更吸引你嗎？看看你的興趣類型和偏好的工作環境。",
-        detail: "霍蘭德職業興趣測驗用 RIASEC 類型協助你比較職業方向、學習選擇和工作環境偏好。",
         action: "開始霍蘭德職業興趣免費測驗。",
       };
     }
@@ -562,7 +559,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("enneagram")) {
       return {
         card: "你的核心動機是什麼？看看壓力、關係和成長中的常見反應模式。",
-        detail: "九型人格測驗協助你從動機和行為模式理解自己，適合用於關係反思和個人成長參考。",
         action: "開始九型人格免費測驗。",
       };
     }
@@ -570,7 +566,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("iq")) {
       return {
         card: "想體驗圖形推理嗎？完成30道原創視覺矩陣題，查看本次答對題數與正確率。",
-        detail: "當前IQ測驗是費馬原創30題視覺矩陣推理練習，協助你了解本次作答表現；不替代專業智力評估。",
         action: "開始智商免費測驗。",
       };
     }
@@ -578,14 +573,12 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("eq")) {
       return {
         card: "想了解情緒和關係能力嗎？看看你在理解、表達和協作中的常見模式。",
-        detail: "情緒智力測驗關注情緒識別、溝通表達和關係協作，協助你獲得更清晰的互動參考。",
         action: "開始情緒智力免費測驗。",
       };
     }
 
     return {
       card: item.description || `了解 ${title} 如何幫助你認識自己。`,
-      detail: item.description || `${title} 提供一個清晰的測評入口，幫助你繼續探索自己的偏好與下一步。`,
       action: "開始測驗。",
     };
   }
@@ -593,7 +586,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("mbti")) {
       return {
         card: "想了解自己的性格吗？看看你的偏好、沟通方式和决策风格。",
-        detail: "MBTI 性格测试帮助你理解日常选择、互动方式和团队协作中的偏好，适合作为自我了解和沟通参考。",
         action: "开始 MBTI 免费测试。",
       };
     }
@@ -601,7 +593,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("big-five")) {
       return {
         card: "想知道你的稳定特质吗？从五个维度了解你平时如何行动和反应。",
-        detail: "大五人格测试围绕开放性、尽责性、外向性、宜人性和情绪稳定性，帮助你获得更连续的特质视角。",
         action: "开始大五人格免费测试。",
       };
     }
@@ -609,7 +600,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("holland") || key.includes("riasec")) {
       return {
         card: "想知道什么工作更吸引你吗？看看你的兴趣类型和偏好的工作环境。",
-        detail: "霍兰德职业兴趣测试用 RIASEC 类型帮助你比较职业方向、学习选择和工作环境偏好。",
         action: "开始霍兰德职业兴趣免费测试。",
       };
     }
@@ -617,7 +607,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("enneagram")) {
       return {
         card: "你的核心动机是什么？看看压力、关系和成长中的常见反应模式。",
-        detail: "九型人格测试帮助你从动机和行为模式理解自己，适合用于关系反思和个人成长参考。",
         action: "开始九型人格免费测试。",
       };
     }
@@ -625,7 +614,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("iq")) {
       return {
         card: "想体验图形推理吗？完成30道原创视觉矩阵题，查看本次答对题数与正确率。",
-        detail: "当前IQ测试是费马原创30题视觉矩阵推理练习，帮助你了解本次作答表现；不替代专业智力评估。",
         action: "开始智商免费测试。",
       };
     }
@@ -633,14 +621,12 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
     if (key.includes("eq")) {
       return {
         card: "想了解情绪和关系能力吗？看看你在理解、表达和协作中的常见模式。",
-        detail: "情商测试关注情绪识别、沟通表达和关系协作，帮助你获得更清晰的互动参考。",
         action: "开始情商免费测试。",
       };
     }
 
     return {
       card: item.description || `了解 ${title} 如何帮助你认识自己。`,
-      detail: item.description || `${title} 提供一个清晰的测评入口，帮助你继续探索自己的偏好与下一步。`,
       action: "开始测试。",
     };
   }
@@ -648,7 +634,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   if (key.includes("mbti")) {
     return {
       card: "Want to understand your personality? See your preferences, communication style, and decision-making patterns.",
-      detail: "The MBTI personality test helps you understand everyday choices, interaction style, and teamwork preferences as a self-reflection and communication reference.",
       action: "Start the free MBTI test.",
     };
   }
@@ -656,7 +641,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   if (key.includes("big-five")) {
     return {
       card: "Want to understand your more stable traits? See how you tend to act and respond across five dimensions.",
-      detail: "The Big Five personality test looks at openness, conscientiousness, extraversion, agreeableness, and emotional stability, giving you a more continuous trait-based view.",
       action: "Start the free Big Five test.",
     };
   }
@@ -664,7 +648,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   if (key.includes("holland") || key.includes("riasec")) {
     return {
       card: "Wonder what kind of work draws you in? Explore your interest type and preferred work environments.",
-      detail: "The Holland career interest test uses RIASEC types to help you compare career directions, study choices, and work-environment preferences.",
       action: "Start the free Holland career interest test.",
     };
   }
@@ -672,7 +655,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   if (key.includes("enneagram")) {
     return {
       card: "What is your core motivation? See common response patterns in stress, relationships, and growth.",
-      detail: "The Enneagram test helps you understand yourself through motivation and behavior patterns, as a reference for relationship reflection and personal growth.",
       action: "Start the free Enneagram test.",
     };
   }
@@ -680,7 +662,6 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   if (key.includes("iq")) {
     return {
       card: "Explore visual reasoning with 30 original matrix questions. See your correct-answer count and accuracy.",
-      detail: "The current FermatMind IQ test is an original 30-question visual matrix reasoning exercise. Review your performance on this form; it does not replace a professional intelligence assessment.",
       action: "Start the free IQ test.",
     };
   }
@@ -688,17 +669,18 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   if (key.includes("eq")) {
     return {
       card: "Want to understand emotional and relationship skills? See your patterns in understanding, expression, and collaboration.",
-      detail: "The EQ test focuses on emotion recognition, communication, and relationship collaboration, helping you gain clearer interaction references.",
       action: "Start the free EQ test.",
     };
   }
 
   return {
     card: item.description || `Explore how ${title} can help you understand yourself.`,
-    detail: item.description || `${title} gives you a clear assessment entry point for self-understanding and next-step reflection.`,
     action: "Start the free test.",
   };
 }
+
+const assessmentCardClass = "group block rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_10px_28px_rgba(15,23,42,0.14)] transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,0.18)]";
+const assessmentTitleClass = "m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition group-hover:text-slate-950";
 
 function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLocale; item: HomeCoreTestItem; priority: boolean; index: number }) {
   const href = withLocale(locale, item.href);
@@ -706,17 +688,20 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLoc
   const title = getCoreTestDisplayTitle(locale, item);
   const accessibleTitle = getCoreTestAccessibleTitle(locale, item);
   const intro = getCoreTestIntroCopy(locale, item, title);
+  const key = getCoreTestKey(item);
+  const stars = key === "eq-test-emotional-intelligence-assessment" ? 3
+    : key === "big-five-personality-test-ocean-model" || key === "enneagram-personality-test-nine-types" ? 4 : 5;
   void priority;
   void index;
 
   return (
-    <article className="grid gap-4">
-      <Link href={href} prefetch={false} className="group block rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_10px_28px_rgba(15,23,42,0.14)] transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,0.18)]">
+    <article className="grid">
+      <Link href={href} prefetch={false} className={assessmentCardClass}>
         <div className="flex items-start justify-between gap-4">
-          <h3 aria-label={accessibleTitle} className="m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition group-hover:text-slate-950">
+          <h3 aria-label={accessibleTitle} className={assessmentTitleClass}>
             {title}
           </h3>
-          <RecommendationStars locale={locale} />
+          <RecommendationStars locale={locale} count={stars} />
         </div>
         <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
           {intro.card}{" "}
@@ -728,9 +713,6 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLoc
           ))}
         </div>
       </Link>
-      <p className="m-0 text-base font-normal leading-7 tracking-normal text-slate-700">
-        {intro.detail}
-      </p>
       <div className="sr-only">
         <CmsMediaAuthorityShell
           media={item.media ?? null}
@@ -743,6 +725,82 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLoc
   );
 }
 
+function getAdditionalAssessmentCards(locale: DisplayLocale) {
+  const english = locale === "en";
+  const traditional = locale === "zh-TW";
+  const career = careerAssessmentEntry(locale);
+  const cards = [
+    {
+      key: "career",
+      title: english ? "Career Assessment" : traditional ? "職業測驗" : "职业测试",
+      duration: english ? "About 12–15 min" : traditional ? "約 12–15 分鐘" : "约 12–15 分钟",
+      description: career.summary,
+      meta: english ? "94 questions" : traditional ? "94 題" : "94 题",
+      links: [{ href: career.href, label: english ? "Start the free career assessment" : traditional ? "開始免費職業測驗" : "开始免费职业测试" }],
+    },
+    {
+      key: "jung",
+      duration: english ? "About 10 / 13 min" : traditional ? "約 10 / 13 分鐘" : "约 10 / 13 分钟",
+      title: english ? "Jungian Assessments" : traditional ? "榮格測評" : "荣格测评",
+      description: english
+        ? "Explore what motivates you or how you take in information and make decisions."
+        : traditional ? "探索你的內在動機，或了解你如何接收資訊與做決定。" : "探索你的内在动机，或了解你怎样获取信息和做决定。",
+      meta: english ? "48 / 64 questions" : traditional ? "48 / 64 題" : "48 / 64 题",
+      links: [{ href: withLocale(locale, "/tests/jung-test"), label: english ? "View both free tests" : traditional ? "查看兩套免費測驗" : "查看两套免费测试" }],
+    },
+    {
+      key: "disc",
+      duration: english ? "About 5 min" : traditional ? "約 5 分鐘" : "约 5 分钟",
+      title: english ? "DISC Behavioral Assessment" : traditional ? "DISC 行為測驗" : "DISC 行为测试",
+      description: english
+        ? "Compare four behavioral tendencies through paired choices in work situations."
+        : traditional ? "透過工作情境二選一，比較四類行為傾向。" : "通过工作情境二选一，比较四类行为倾向。",
+      meta: english ? "24 paired choices" : traditional ? "24 組選擇" : "24 组选择",
+      links: [{ href: withLocale(locale, "/tests/explore/disc"), label: english ? "View DISC" : "查看 DISC" }],
+    },
+  ];
+
+  return cards.map(({ key, title, description, links, meta, duration }) => {
+    const primary = links[0];
+    const single = links.length === 1;
+    const fallback = traditional && primary.href.startsWith("/zh/");
+    const actionClass = "text-[#007c9b] underline underline-offset-4";
+    const content = (
+      <>
+        <div className="flex items-start justify-between gap-4">
+          <h3 className={assessmentTitleClass}>{title}</h3>
+          <RecommendationStars locale={locale} count={key === "career" ? 5 : 4} />
+        </div>
+        <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
+          {description}{" "}
+          {single ? (
+            <span className={actionClass}>{primary.label}{fallback ? "（簡體中文）" : ""}</span>
+          ) : links.map(({ href, label }) => (
+            <Link key={href} href={href} hrefLang={fallback ? "zh-CN" : undefined} prefetch={false} className={`${actionClass} me-3 inline-block`}>
+              {label}{fallback ? "（簡體中文）" : ""}
+            </Link>
+          ))}
+        </p>
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-slate-500">
+          <span>{meta}</span>
+          <span>{duration}</span>
+        </div>
+      </>
+    );
+
+    const element = single ? (
+      <article key={key} data-home-assessment={key} className="grid">
+        <Link href={primary.href} hrefLang={fallback ? "zh-CN" : undefined} prefetch={false} className={assessmentCardClass}>
+          {content}
+        </Link>
+      </article>
+    ) : (
+      <article key={key} data-home-assessment={key} className={assessmentCardClass}>{content}</article>
+    );
+    return { key, element };
+  });
+}
+
 function HomepageHighlightedTestsBanner({
   locale,
   copy,
@@ -753,9 +811,31 @@ function HomepageHighlightedTestsBanner({
   supplementalTests: HubTestCardItem[];
 }) {
   const items = listCoreHomepageTests(copy, supplementalTests);
-  const careerEntry = careerAssessmentEntry(locale);
 
   if (items.length === 0) return null;
+
+  const cardOrder = [
+    "mbti-personality-test-16-personality-types",
+    "holland-career-interest-test-riasec",
+    "career",
+    IQ_PUBLIC_SLUG,
+    "big-five-personality-test-ocean-model",
+    "enneagram-personality-test-nine-types",
+    "jung",
+    "disc",
+    "eq-test-emotional-intelligence-assessment",
+  ];
+  const cards = [
+    ...items.slice(0, 6).map((item, index) => ({
+      key: getCoreTestKey(item),
+      element: <TestFeatureCard key={getCoreTestKey(item)} locale={locale} item={item} index={index} priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY} />,
+    })),
+    ...getAdditionalAssessmentCards(locale),
+  ];
+  const orderedCards = [
+    ...cardOrder.flatMap(key => cards.filter(card => card.key === key)),
+    ...cards.filter(card => !cardOrder.includes(card.key)),
+  ];
 
   return (
     <section className="fm-page-background pt-12 pb-10 md:pt-16 md:pb-12" aria-labelledby="homepage-core-tests-title">
@@ -770,21 +850,8 @@ function HomepageHighlightedTestsBanner({
             </h2>
           </div>
           <div className="relative mt-8 grid gap-x-8 gap-y-7 md:grid-cols-2 xl:grid-cols-3">
-            {items.slice(0, 6).map((item, index) => (
-              <TestFeatureCard
-                key={getCoreTestKey(item)}
-                locale={locale}
-                item={item}
-                index={index}
-                priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY}
-              />
-            ))}
+            {orderedCards.map(card => card.element)}
           </div>
-          <p className="mt-6 text-center">
-            <Link href={careerEntry.href} className="font-medium text-[var(--fm-accent)] underline underline-offset-4">
-              {careerEntry.label}
-            </Link>
-          </p>
         </div>
       </Container>
     </section>

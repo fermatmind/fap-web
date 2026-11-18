@@ -59,7 +59,10 @@ export function getRiasecExportFacts(vm: RiasecResultViewModel, locale: Locale) 
 export function buildRiasecResultExport(report: Parameters<typeof assembleRiasecResultViewModel>[0], locale: Locale) {
   const state = report as { generating?: boolean; snapshot_error?: unknown; meta?: { generating?: boolean; snapshot_error?: unknown } };
   if (state.generating || state.snapshot_error || state.meta?.generating || state.meta?.snapshot_error || !hasRiasecProjection(report)) return null;
-  const vm = assembleRiasecResultViewModel(report, locale);
+  return buildRiasecResultExportFromViewModel(assembleRiasecResultViewModel(report, locale), locale);
+}
+
+export function buildRiasecResultExportFromViewModel(vm: RiasecResultViewModel, locale: Locale) {
   const facts = getRiasecExportFacts(vm, locale);
   const t = (zh: string, en: string) => locale === "zh" ? zh : en;
   return {

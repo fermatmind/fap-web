@@ -13,7 +13,7 @@ export function hasTraditionalCareerInterestSearchPath(path: string): boolean {
   return !isBilingualInterestDirectoryPath(path) && publicCareerInterestPaths.has(path);
 }
 
-const publicCareerEntryPaths = new Set(["/career", "/career/tests", "/career/recommendations"]);
+const publicCareerEntryPaths = new Set(["/career", "/career/tests", "/career/assessment", "/career/recommendations"]);
 
 export function hasTraditionalCareerEntrySearchPath(path: string): boolean {
   return publicCareerEntryPaths.has(path);

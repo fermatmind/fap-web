@@ -7,6 +7,7 @@ import TestLandingPage, { generateMetadata as sourceMetadata } from "@/app/(loca
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
+import { JUNG_TEST_SLUG, jungAssessmentForSlug } from "@/lib/tests/freeAssessmentLanding";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 
 type Props = {
@@ -16,7 +17,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  if (!isCoreAssessmentSlug(slug)) return { robots: NOINDEX_ROBOTS };
+  if (slug !== JUNG_TEST_SLUG && !isCoreAssessmentSlug(slug)) return { robots: NOINDEX_ROBOTS };
+  if (slug === JUNG_TEST_SLUG || jungAssessmentForSlug(resolveCanonicalSlug(slug))) {
+    return sourceMetadata({ params: Promise.resolve({ locale: "zh-TW", slug }) });
+  }
   const source = await sourceMetadata({ params: Promise.resolve({ locale: "zh", slug }) });
   const translate = await loadTraditionalAssessmentText();
   const title = typeof source.title === "string" ? source.title : source.title && "absolute" in source.title ? source.title.absolute : undefined;
@@ -30,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TraditionalAssessmentLandingPage({ params, searchParams }: Props) {
   const { slug } = await params;
-  if (!isCoreAssessmentSlug(slug)) return notFound();
+  if (slug !== JUNG_TEST_SLUG && !isCoreAssessmentSlug(slug)) return notFound();
   const landing = await TestLandingPage({ params: Promise.resolve({ locale: "zh-TW", slug }), searchParams });
   return slug === MBTI_ENTRY_TEST_SLUG ? <>{landing}<DeferredCookieBanner locale="zh" traditional /></> : landing;
 }

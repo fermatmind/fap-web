@@ -106,11 +106,50 @@ function RiasecSymbol() {
   </g>;
 }
 
-const SYMBOLS = { mbti: MbtiSymbol, "big-five": BigFiveSymbol, enneagram: EnneagramSymbol, iq: IqSymbol, eq: EqSymbol, riasec: RiasecSymbol };
+function CareerSymbol() {
+  return <g>
+    <path d="M200 248V176M200 176L106 95M200 176L294 95" stroke={INK} strokeWidth="3" strokeOpacity=".4" />
+    <circle cx="106" cy="95" r="37" fill={CREAM} />
+    <circle cx="294" cy="95" r="37" fill={CORAL} />
+    <circle cx="200" cy="248" r="37" fill={GOLD} />
+    <circle cx="200" cy="176" r="44" fill={INK} />
+    <path d="M200 147l11 29-11 29-11-29Z" fill={CREAM} transform="rotate(32 200 176)" />
+  </g>;
+}
+
+function ArchetypeSymbol() {
+  return <g>
+    <circle cx="200" cy="160" r="114" fill="none" stroke={INK} strokeOpacity=".26" />
+    <circle cx="200" cy="160" r="66" fill={INK} />
+    <circle cx="200" cy="160" r="32" fill={GOLD} />
+    {Array.from({ length: 12 }, (_, i) => {
+      const p = point(i, 12, 114);
+      return <circle key={i} cx={p.x} cy={p.y} r="13" fill={[CORAL, CREAM, GOLD][i % 3]} stroke={INK} strokeOpacity=".25" />;
+    })}
+  </g>;
+}
+
+function FunctionsSymbol() {
+  const labels = ["Ni", "Ne", "Ti", "Te", "Se", "Si", "Fe", "Fi"];
+  return <g>
+    {labels.map((label, i) => {
+      const p = point(i, labels.length, 111);
+      return <g key={label}>
+        <path d={`M200 160L${p.x} ${p.y}`} stroke={INK} strokeOpacity=".32" />
+        <circle cx={p.x} cy={p.y} r="22" fill={i < 4 ? CREAM : CORAL} />
+        <text x={p.x} y={p.y + 7} textAnchor="middle" fill={INK} fontSize="19">{label}</text>
+      </g>;
+    })}
+    <circle cx="200" cy="160" r="13" fill={INK} />
+  </g>;
+}
+
+const SYMBOLS = { mbti: MbtiSymbol, "big-five": BigFiveSymbol, enneagram: EnneagramSymbol, iq: IqSymbol, eq: EqSymbol, riasec: RiasecSymbol, career: CareerSymbol, archetypes: ArchetypeSymbol, functions: FunctionsSymbol };
 
 const LANDSCAPE_TINTS: Record<AssessmentArtwork, string> = {
   mbti: "#dbe8e8", "big-five": "#dfeae3", enneagram: "#dce9eb",
   iq: "#dfe7ef", eq: "#e6e9e2", riasec: "#e0e8e2",
+  career: "#e0e8e2", archetypes: "#ebe0df", functions: "#dbe8ed",
 };
 
 /** Decorative artwork only. The centered heading and entry controls live above it. */

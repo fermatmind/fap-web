@@ -30,6 +30,21 @@ describe("Assessment take chrome", () => {
     expect(screen.getByRole("link", { name: "隱私保護" })).toHaveAttribute("href", "/zh-TW/privacy");
   });
 
+  it.each(["jung-archetypes", "jung-cognitive-functions"])("uses the shared Jung landing for %s", (slug) => {
+    route.pathname = `/zh/tests/${slug}/take`;
+    render(<AssessmentSiteFrame locale="zh" header={null} footer={<footer>Full footer</footer>}><main>题目</main></AssessmentSiteFrame>);
+    expect(screen.getByRole("link", { name: "返回测评介绍" })).toHaveAttribute("href", "/zh/tests/jung-test");
+    expect(screen.queryByText("Full footer")).not.toBeInTheDocument();
+  });
+
+  it("gives the 94-question career test the focused frame without an exit row", () => {
+    route.pathname = "/zh/career/assessment/take";
+    render(<AssessmentSiteFrame locale="zh" header={null} footer={<footer>Full footer</footer>}><main>题目</main></AssessmentSiteFrame>);
+    expect(screen.getByRole("link", { name: "测评科学" })).toHaveAttribute("href", "/zh/science");
+    expect(screen.queryByRole("link", { name: "返回测评介绍" })).not.toBeInTheDocument();
+    expect(screen.queryByText("Full footer")).not.toBeInTheDocument();
+  });
+
   it.each([
     "/zh/tests/mbti-personality-test-16-personality-types",
     "/zh/tests/iq-test-intelligence-quotient-assessment/take",

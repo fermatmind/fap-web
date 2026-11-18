@@ -1,7 +1,7 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/generateSchema";
 import { TestDirectory } from "@/components/tests/TestDirectory";
-import { directoryDescription, directoryQuizzes } from "@/lib/entertainment/directory";
+import { directoryDescription, directoryQuizzes, entertainmentDirectoryQuestionnaires } from "@/lib/entertainment/directory";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import { getFreeTestPrimaryLabel } from "@/lib/marketing/testsHubContent";
 import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
@@ -43,7 +43,7 @@ const catalog = [
     minutes: "5–25",
     pathname: "/tests/play/friendship-quiz",
   },
-  ...questionnaires.map((quiz) => ({
+  ...entertainmentDirectoryQuestionnaires.map((quiz) => ({
     ...quiz,
     minQuestionCount: quiz.questionCount,
     pathname: `/tests/${quiz.collection}/${quiz.slug}`,
@@ -58,7 +58,6 @@ const catalog = [
 export const MORE_TEST_PRODUCT_COUNT = catalog.length;
 
 const taiwanToolMeta: Record<string, string> = {
-  "cognitive-functions-test": "32 條自評／56 題二選一 · 約 10–15 分鐘 · 全部免費",
   "caliper-style-assessment-test": "16 組四項陳述 · 約 8 分鐘 · 完整解讀免費",
   "career-match": "興趣主題＋2–3 個職業 · 免費比較",
   "nakshatra-spica-reference": "已知出生時間與時區 · 27 篇完整文化指南 · 全部免費",
@@ -96,10 +95,6 @@ export function MoreTests({
     meta:
       locale === "zh-TW"
         ? taiwanToolMeta[q.slug] ?? `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} 題 · 約 ${q.minutes} 分鐘 · 全部免費`
-        : q.slug === "cognitive-functions-test"
-        ? locale === "zh"
-          ? "32条自评／56题二选一 · 约10–15分钟 · 全部免费"
-          : "32 ratings / 56 choices · About 10–15 min · fully free"
         : q.slug === "caliper-style-assessment-test"
           ? locale === "zh"
             ? "16组四陈述 · 约8分钟 · 完整读法免费"

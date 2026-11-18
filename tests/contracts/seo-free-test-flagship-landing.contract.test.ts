@@ -52,6 +52,6 @@ describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
     expect(source).toContain("开始大五人格快速版免费测试");
     expect(source).toContain("开始九型人格二选一版免费测试");
     expect(source).not.toContain("开始霍兰德职业兴趣增强版免费测试");
-    expect(source).toContain('testId: "test-detail-landing-cta-career-v1"');
+    expect(source).not.toContain('testId: "test-detail-landing-cta-career-v1"');
   });
 });

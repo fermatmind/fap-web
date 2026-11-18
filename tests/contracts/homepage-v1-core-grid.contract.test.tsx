@@ -189,12 +189,32 @@ const EXPECTED_ZH_CARDS = [
 ];
 
 describe("homepage v1 core grid contract", () => {
-  it.each(["en", "zh"] as const)("puts six localized fun quizzes directly below the six core tests in %s", async locale => {
+  it.each(["en", "zh"] as const)("places the three promoted assessments before the six localized fun quizzes in %s", async locale => {
     render(<HomePageExperience locale={locale} copy={await getHomePageContent(locale)} />);
     const core = screen.getByRole("heading", { level: 2, name: locale === "zh" ? "热门测评" : "Popular assessments" }).closest("section")!;
     const fun = screen.getByRole("heading", { level: 2, name: locale === "zh" ? "热门娱乐测试" : "Popular fun quizzes" }).closest("section")!;
     expect(core.nextElementSibling).toBe(fun);
-    expect(within(core).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(within(core).getAllByRole("heading", { level: 3 })).toHaveLength(9);
+    const cards = Array.from(core.querySelectorAll("article"));
+    expect(cards.map(card => Array.from(card.querySelectorAll("a"), link => link.getAttribute("href")))).toEqual([
+      [`/${locale}/tests/mbti-personality-test-16-personality-types`],
+      [`/${locale}/tests/holland-career-interest-test-riasec`],
+      [`/${locale}/career/assessment`],
+      [`/${locale}/tests/iq-test-intelligence-quotient-assessment`],
+      [`/${locale}/tests/big-five-personality-test-ocean-model`],
+      [`/${locale}/tests/enneagram-personality-test-nine-types`],
+      [`/${locale}/tests/jung-test`],
+      [`/${locale}/tests/explore/disc`],
+      [`/${locale}/tests/eq-test-emotional-intelligence-assessment`],
+    ]);
+    [5, 5, 5, 5, 4, 4, 4, 4, 3].forEach((count, index) => {
+      const stars = within(cards[index]).getByLabelText(locale === "zh"
+        ? `推荐指数 ${count} 星`
+        : `Recommended: ${count} out of 5 stars`);
+      expect(stars.querySelectorAll("span")).toHaveLength(count);
+    });
+    expect(cards[2]).toHaveTextContent(/94/);
+    expect(cards[6]).toHaveTextContent(/48 \/ 64/);
     expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(6);
     expect(Array.from(fun.querySelectorAll("h3"), heading => heading.closest("a")?.getAttribute("href"))).toEqual([
       "explore/seven-sins-virtues-test", "play/friendship-quiz", "explore/chiikawa",
@@ -208,15 +228,14 @@ describe("homepage v1 core grid contract", () => {
   });
   it("localizes recommendation stars and IQ card facts on the English homepage", async () => {
     render(<HomePageExperience locale="en" copy={await getHomePageContent("en")} />);
-    expect(screen.getAllByLabelText("Recommended: 5 out of 5 stars")).toHaveLength(6);
+    expect(screen.getAllByLabelText("Recommended: 5 out of 5 stars")).toHaveLength(4);
     expect(screen.queryByLabelText("推荐指数 5 星")).not.toBeInTheDocument();
     const iqLink = screen.getByRole("link", { name: /Explore visual reasoning with 30 original matrix questions/ });
     expect(iqLink).toHaveAttribute("href", "/en/tests/iq-test-intelligence-quotient-assessment");
-    expect(iqLink.closest("article")).toHaveTextContent("it does not replace a professional intelligence assessment.");
     expect(iqLink.closest("article")).not.toHaveTextContent("visual and numerical");
   });
 
-  it("renders exactly six core test cards with four fields each", async () => {
+  it("renders six core test cards without separate descriptions", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
     const gridHeading = screen.getByRole("heading", { level: 2, name: "热门测评" });
     const section = gridHeading.closest("section");
@@ -229,11 +248,10 @@ describe("homepage v1 core grid contract", () => {
       expect(article).toBeTruthy();
       expect(link).toHaveAttribute("href", card.href);
       expect(link).toHaveTextContent(card.copy);
-      expect(within(article as HTMLElement).getByText(card.detail)).toBeInTheDocument();
-      expect(within(article as HTMLElement).getByLabelText("推荐指数 5 星")).toBeInTheDocument();
+      expect(within(article as HTMLElement).queryByText(card.detail)).not.toBeInTheDocument();
     }
 
-    expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(section?.querySelectorAll(":scope article:not([data-home-assessment]) > a h3")).toHaveLength(6);
     expect(section?.innerHTML).not.toContain("/take");
     for (const article of Array.from((section as HTMLElement).querySelectorAll("article"))) {
       expect(article.innerHTML).not.toContain('href="/zh/tests"');
@@ -277,7 +295,7 @@ describe("homepage v1 core grid contract", () => {
     const gridHeading = screen.getByRole("heading", { level: 2, name: "热门测评" });
     const section = gridHeading.closest("section");
 
-    expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(section?.querySelectorAll(":scope article:not([data-home-assessment]) > a h3")).toHaveLength(6);
     const eqTitle = within(section as HTMLElement).getByRole("heading", { level: 3, name: "情商测试" });
     expect(eqTitle.closest("a")).toHaveAttribute("href", "/zh/tests/eq-test-emotional-intelligence-assessment");
     expect(section?.innerHTML).not.toContain("/zh/zh/tests");

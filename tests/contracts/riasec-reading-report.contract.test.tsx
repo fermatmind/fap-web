@@ -87,6 +87,7 @@ describe("RIASEC interactive reading experience", () => {
 
     const hero = within(screen.getByTestId("riasec-trusted-result-card"));
     expect(hero.getByRole("heading", { name: /^企业型$/ })).toBeVisible();
+    expect(hero.getByRole("link", { name: "费马职业测试（94 题）→" })).toHaveAttribute("href", "/zh/career/assessment");
     expect(hero.getByText("ECR（并列：R/S）", { exact: true })).toBeVisible();
     expect(hero.getByText(vm.resultSummary!.tieNote)).toBeVisible();
 

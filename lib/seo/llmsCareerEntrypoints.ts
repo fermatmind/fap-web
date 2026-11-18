@@ -22,9 +22,10 @@ export const LLMS_CAREER_INTRO =
   "免费探索职业兴趣，查职业职责及其来源。 Explore career interests for free and find sourced job duties.";
 
 const careerAssessmentChoices = entries("/career/tests", "职业测试怎么选", "Choose a career assessment", "career assessment guide");
+const careerTest = entries("/career/assessment", "免费职业测试（94 题）", "Free Career Test (94 questions)", "test");
 const careerMethods = entries("/datasets/occupations/method", "职业数据库方法说明", "Occupations dataset method", "career evidence methodology");
 
-export const LLMS_CAREER_STABLE_ENTRIES = [...careerAssessmentChoices, ...careerMethods];
+export const LLMS_CAREER_STABLE_ENTRIES = [...careerAssessmentChoices, ...careerTest, ...careerMethods];
 
 export const LLMS_CAREER_GROUPS = [
   {
@@ -33,7 +34,7 @@ export const LLMS_CAREER_GROUPS = [
   },
   {
     title: "职业测试怎么选 / Choose a career assessment",
-    entries: careerAssessmentChoices,
+    entries: [...careerTest, ...careerAssessmentChoices],
   },
   {
     title: "职业库与职责 / Career library and job duties",

@@ -13,7 +13,7 @@ export type AssessmentLandingChoice = {
   summary?: string;
 };
 
-export function AssessmentLandingIntro({ locale, title, heroArtwork, description, choices, disabled, showChoiceSummaries = false }: {
+export function AssessmentLandingIntro({ locale, title, heroArtwork, description, choices, disabled, showChoiceSummaries = false, wide = false }: {
   locale: "zh" | "en" | "zh-TW";
   title: string;
   heroArtwork?: AssessmentArtwork;
@@ -21,10 +21,11 @@ export function AssessmentLandingIntro({ locale, title, heroArtwork, description
   choices: AssessmentLandingChoice[];
   disabled: boolean;
   showChoiceSummaries?: boolean;
+  wide?: boolean;
 }) {
   const availableChoices = choices.filter((choice) => choice.href);
   return (
-    <section id="what-it-is" className={styles.hero}>
+    <section id="what-it-is" className={wide ? `${styles.hero} ${styles.wideHero}` : styles.hero}>
       <div className={styles.heroInner}>
         <div className={styles.heroCopy}>
           <h1>{title}</h1>

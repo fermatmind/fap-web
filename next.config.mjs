@@ -7,6 +7,7 @@ const enableSameOriginV03ApiProxy = process.env.NEXT_PUBLIC_USE_SAME_ORIGIN_API_
 const legacyPathMode = String(process.env.FAP_LEGACY_PATH_MODE || "redirect").trim().toLowerCase();
 const enableRootQuizRedirects = legacyPathMode !== "gone";
 const remotePatternHostnames = ["**.fermatmind.com"];
+const careerAssessmentPreviewOrigin = process.env.CAREER_ASSESSMENT_PREVIEW_ORIGIN || apiOrigin;
 const publicV05ApiProxySources = [
   "/api/v0.5/articles",
   "/api/v0.5/articles/:slug",
@@ -320,9 +321,14 @@ const nextConfig = {
         ["cognitive-functions-test", "jung-cognitive-functions"],
       ].flatMap(([legacy, current]) => ["", "/take"].map((suffix) => ({
         source: `/:locale(en|zh)/tests/explore/${legacy}${suffix}`,
-        destination: `/:locale/tests/${current}${suffix}`,
+        destination: suffix ? `/:locale/tests/${current}${suffix}` : "/:locale/tests/jung-test",
         permanent: true,
       }))),
+      ...["jung-archetypes", "jung-cognitive-functions"].map((slug) => ({
+        source: `/:locale(en|zh|zh-TW)/tests/${slug}`,
+        destination: "/:locale/tests/jung-test",
+        permanent: true,
+      })),
       ...intjCareerExplorationRedirects,
       {
         source: "/tests",
@@ -494,6 +500,12 @@ const nextConfig = {
                 destination: `${apiOrigin}/api/v0.3/:path*`,
               },
             ]
+          : []),
+        ...(process.env.NODE_ENV === "development"
+          ? ["/api/v0.5/career-assessment/questions", "/api/v0.5/career-assessment/score"].map(source => ({
+              source,
+              destination: `${careerAssessmentPreviewOrigin}${source}`,
+            }))
           : []),
         ...publicV05ApiProxySources.map((source) => ({
           source,

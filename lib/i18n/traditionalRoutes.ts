@@ -1,3 +1,4 @@
+import { JUNG_TEST_PATH, jungAssessmentForSlug } from "@/lib/tests/freeAssessmentLanding";
 import { isBilingualInterestDirectoryPath } from "@/lib/career/interestDirectoryRoutes";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { HISTORY_DISPLAY_PATHS } from "./historyDisplayRoutes";
@@ -78,6 +79,8 @@ export function traditionalPath(pathname: string): string | null {
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/tests/enneagram-personality-test-nine-types/technical-note") return `/zh-TW${path}`;
+  if (path === "/career/assessment") return "/zh-TW/career/assessment";
+  if (path === JUNG_TEST_PATH) return `/zh-TW${path}`;
   const coreAssessment = /^\/tests\/([a-z0-9_-]+)(?:\/take)?$/iu.exec(path);
   if (prefix === "zh-TW" && coreAssessment && isCoreAssessmentSlug(coreAssessment[1])) return `/zh-TW${path}`;
   if (prefix === "zh-TW" && /^\/result\/[A-Za-z0-9_-]{1,128}$/u.test(path)) return `/zh-TW${path}`;
@@ -89,7 +92,8 @@ export function traditionalPath(pathname: string): string | null {
 }
 export function hasTraditionalAssessmentSearchPath(path: string): boolean {
   const entry = /^\/tests\/([a-z0-9-]+)$/u.exec(path)?.[1];
-  return (entry !== undefined && resolveCanonicalSlug(entry) === entry && isCoreAssessmentSlug(entry))
+  return path === JUNG_TEST_PATH
+    || (entry !== undefined && !jungAssessmentForSlug(entry) && resolveCanonicalSlug(entry) === entry && isCoreAssessmentSlug(entry))
     || TRADITIONAL_CATEGORY_PATHS.some(category => category === path);
 }
 

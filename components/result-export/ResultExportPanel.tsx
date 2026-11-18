@@ -41,16 +41,17 @@ export function ResultExportPanel(props: Props) {
     return <ResultPromptCard product="MBTI" locale={props.locale} displayText={displayText} typeCode={props.mbtiType} unlockHref={props.mbtiUnlockHref} onDownloadPdf={props.onDownloadPdf} />;
   }
   if (props.projection.product === "RIASEC") {
-    return <ResultPromptCard product="RIASEC" locale={props.locale} displayText={displayText} printResultPdf={props.printResultPdf} />;
+    return <ResultPromptCard product="RIASEC" locale={props.locale} displayText={displayText} formCode={props.projection.assessment.formCode} printResultPdf={props.printResultPdf} />;
   }
   return <ResultExportContent key={props.locale} {...props} displayText={displayText} />;
 }
 
-function ResultPromptCard({ product, locale, displayText, typeCode, unlockHref, onDownloadPdf, printResultPdf }: {
+function ResultPromptCard({ product, locale, displayText, typeCode, unlockHref, onDownloadPdf, printResultPdf, formCode }: {
   product: "MBTI" | "RIASEC";
   locale: DisplayLocale;
   displayText: (value: string) => string;
   typeCode?: string;
+  formCode?: string | null;
   unlockHref?: string;
   onDownloadPdf?: () => Promise<void>;
   printResultPdf?: boolean;
@@ -59,7 +60,12 @@ function ResultPromptCard({ product, locale, displayText, typeCode, unlockHref, 
   const [status, setStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
   const copy = (zh: string, en: string) => locale === "en" ? en : displayText(zh);
   const [pdfStatus, setPdfStatus] = useState<"idle" | "downloading" | "requested" | "failed">("idle");
-  const prompt = displayText(RESULT_EXPORT_PROMPTS[product][locale === "en" ? "en" : "zh"]);
+  const template = RESULT_EXPORT_PROMPTS[product][locale === "en" ? "en" : "zh"];
+  const prompt = displayText(product === "RIASEC" && formCode === "career_v1"
+    ? locale === "en"
+      ? template.replace("60- or 140-item form", "94-item career assessment")
+      : template.replace("60或140题", "94 题职业测试")
+    : template);
   const baseType = typeCode?.match(/^([EI][SN][TF][JP])(?:-[AT])?$/)?.[1]?.toLowerCase();
   const riasec = product === "RIASEC";
   const illustration = riasec

@@ -115,7 +115,7 @@ function normalizeSearch(value: string) {
 
 function coreIdentity(item: HubTestCardItem) {
   const raw = `${item.key} ${item.href} ${item.detailsHref}`;
-  if (raw.includes("jung-archetypes") || raw.includes("jung-cognitive-functions")) {
+  if (raw.includes("jung-test") || raw.includes("jung-archetypes") || raw.includes("jung-cognitive-functions")) {
     const archetypes = raw.includes("jung-archetypes");
     return {
       code: archetypes ? "12" : "8",

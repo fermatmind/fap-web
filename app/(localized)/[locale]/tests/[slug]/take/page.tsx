@@ -151,7 +151,7 @@ export default async function TakePage({
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return notFound();
   if (isRiasecSlug(slug)
     && normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code)) === "riasec_140") {
-    redirect(careerAssessmentEntry(displayLocale).href);
+    redirect(`${careerAssessmentEntry(locale).href}/take`);
   }
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
@@ -230,9 +230,6 @@ export default async function TakePage({
 
   return (
     <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
-      {isJung && <p className="mx-auto mb-4 max-w-xl">
-        {locale === "zh" ? "请根据过去三个月遇到相似情境时的实际做法作答。" : "Answer based on what you typically did in similar situations over the last three months."}
-      </p>}
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient
           slug={slug}

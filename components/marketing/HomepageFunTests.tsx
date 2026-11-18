@@ -117,7 +117,7 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
             );
           })}
         </div>
-        <p className="mt-3 text-center text-sm leading-6 text-slate-500">{taiwan ? "編輯精選的輕鬆玩法，適合娛樂與聊天。" : zh ? "编辑精选的轻松玩法，供娱乐与聊天使用。" : "An editorial selection for fun and conversation."} <Link prefetch={false} className="inline-block min-h-11 py-2 text-[#007c9b] underline underline-offset-4" href={`/${locale}/tests#more-tests`}>{taiwan ? "瀏覽全部娛樂測驗" : zh ? "浏览全部娱乐测试" : "Browse all fun quizzes"} →</Link></p>
+        <p className="mt-3 text-center text-sm leading-6 text-slate-500"><Link prefetch={false} className="inline-block min-h-11 py-2 text-[#007c9b] underline underline-offset-4" href={`/${locale}/tests#more-tests`}>{taiwan ? "瀏覽全部娛樂測驗" : zh ? "浏览全部娱乐测试" : "Browse all fun quizzes"} →</Link></p>
       </div>
     </Container>
   </section>;

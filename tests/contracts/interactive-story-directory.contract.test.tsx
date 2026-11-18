@@ -9,25 +9,26 @@ import { StoryDirectory } from "@/components/entertainment/StoryDirectory";
 import { MoreTests, FUN_CATEGORIES, MORE_TEST_PRODUCT_COUNT } from "@/components/entertainment/MoreTests";
 import catalog from "@/lib/entertainment/catalog.json";
 import questionnaires from "@/lib/questionnaires/catalog.json";
-import { directoryDescription, directoryQuizzes, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
+import { directoryDescription, directoryQuizzes, entertainmentDirectoryQuestionnaires, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
 import directoryCopy from "@/lib/entertainment/directory-copy.json";
 import { canonicalUrl } from "@/lib/site";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import coverSlugs from "@/components/tests/directory-cover-slugs.json";
 
-describe("388 distinct products with separate test and story directories", () => {
-  it("keeps the 287/101 split without counting locales, formal assessments or the two adapted identities twice", () => {
-    const tests = ["friendship-quiz", ...questionnaires.map(q => q.slug), ...directoryQuizzes.filter(q => !questionnaires.some(n => n.slug === q.slug)).map(q => q.slug)];
-    expect(MORE_TEST_PRODUCT_COUNT).toBe(287);
-    expect(tests).toHaveLength(287);
+describe("387 distinct products with separate test and story directories", () => {
+  it("keeps the 286/101 split without counting locales, formal assessments or the two adapted identities twice", () => {
+    const tests = ["friendship-quiz", ...entertainmentDirectoryQuestionnaires.map(q => q.slug), ...directoryQuizzes.filter(q => !questionnaires.some(n => n.slug === q.slug)).map(q => q.slug)];
+    expect(MORE_TEST_PRODUCT_COUNT).toBe(286);
+    expect(tests).toHaveLength(286);
     expect(storyQuizzes).toHaveLength(101);
     expect(storyQuizzes.map(q => q.slug).sort()).toEqual([globalHistoryStory, ...catalog.filter(q => !["response-color", "relationship-values"].includes(q.slug))].map(q => q.slug).sort());
     expect(storyQuizzes.every(q => !tests.includes(q.slug))).toBe(true);
-    expect(new Set([...tests, ...storyQuizzes.map(q => q.slug)]).size).toBe(388);
+    expect(new Set([...tests, ...storyQuizzes.map(q => q.slug)]).size).toBe(387);
     expect(tests).not.toContain("mbti-personality-test-16-personality-types");
     expect(tests.filter(s => s === "relationship-values")).toHaveLength(1);
     expect(tests.filter(s => s === "response-color")).toHaveLength(1);
-    expect(coverSlugs).toEqual([...tests, ...storyQuizzes.map(q => q.slug)].sort());
+    expect(tests).not.toContain("disc");
+    expect(coverSlugs).toEqual([...tests, "disc", ...storyQuizzes.map(q => q.slug)].sort());
   });
   it("packages one distinct WebP asset per catalog identity", () => {
     const directory = join(process.cwd(), "public/images/test-covers");
@@ -71,24 +72,24 @@ describe("388 distinct products with separate test and story directories", () =>
       expect(schema.itemListElement.find((item: {url:string}) => item.url === canonicalUrl(path))?.description).toBe(directoryDescription(q)[locale]);
       expect(sitemap.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(true);
     }
-    expect(dom.textContent).toContain(locale === 'zh' ? '合计 388个产品' : '388 products in total');
+    expect(dom.textContent).toContain(locale === 'zh' ? '合计 387个产品' : '387 products in total');
     expect(dom.querySelector('h1')).toBeNull();
   });
-  it.each(["en", "zh"] as const)("aligns the 287 visible %s test/tool cards with their structured data", locale => {
+  it.each(["en", "zh"] as const)("aligns the 286 visible %s test/tool cards with their structured data", locale => {
     const dom = document.createElement("div");
     dom.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
     const schema = JSON.parse(dom.querySelector('script[type="application/ld+json"]')!.textContent!);
     const links = [...dom.querySelectorAll('#more-tests h4 a')];
-    expect(links).toHaveLength(287);
+    expect(links).toHaveLength(286);
     expect(schema["@type"]).toBe("ItemList");
-    expect(schema.numberOfItems).toBe(287);
+    expect(schema.numberOfItems).toBe(286);
     const expected = links.map(a => ({ name: a.textContent, url: canonicalUrl(a.getAttribute("href")!) }));
     expect(schema.itemListElement.map((item: {name:string; url:string}) => ({ name:item.name, url:item.url }))).toEqual(expected);
-    expect(new Set(expected.map(item => item.url)).size).toBe(287);
+    expect(new Set(expected.map(item => item.url)).size).toBe(286);
   });
   it("searches story titles and slugs, filters a category and recovers from an empty result", () => {
     const items=storyQuizzes.map(q=>({slug:q.slug,category:q.category,title:q.title.zh,description:q.description.zh,href:`/zh/tests/play/${q.slug}`,meta:'6次选择'}));
-    const {container}=render(<StoryDirectory items={items} categories={FUN_CATEGORIES} locale="zh" testToolCount={287}/>);
+    const {container}=render(<StoryDirectory items={items} categories={FUN_CATEGORIES} locale="zh" testToolCount={286}/>);
     const search=screen.getByRole('searchbox',{name:'搜索互动故事'});
     fireEvent.change(search,{target:{value:'weather-in-a-bottle'}}); expect(container.querySelectorAll('[data-story-slug]')).toHaveLength(1);
     expect(container.querySelector('[data-story-slug]')?.getAttribute('data-story-slug')).toBe('weather-in-a-bottle');
