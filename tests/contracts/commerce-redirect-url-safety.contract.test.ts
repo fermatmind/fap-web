@@ -80,6 +80,13 @@ describe("commerce redirect URL safety contract", () => {
     ).toBeNull();
   });
 
+  it("returns a paid 94-question result to its first-party private route", () => {
+    const path = "/zh/career/assessment/result/addef19f-c3df-45fa-9cca-d1139a765815";
+    expect(normalizeCommerceReportPath(`https://fermatmind.com${path}?access_token=redacted`)).toBe(path);
+    expect(normalizeCommerceReportPath(`https://offsite.example${path}`)).toBeNull();
+    expect(normalizeCommerceReportPath(`${path}/unexpected`)).toBeNull();
+  });
+
   it("keeps report navigation on first-party result/report paths", () => {
     expect(normalizeCommerceReportPath("/en/result/attempt_1?from=payment")).toBe("/en/result/attempt_1?from=payment");
     expect(normalizeCommerceReportPath("/attempts/attempt_2/report")).toBe("/attempts/attempt_2/report");

@@ -241,7 +241,8 @@ export function normalizeCommerceReportPath(value: unknown): string | null {
   }
 
   const pathWithoutLocale = stripLocalePrefix(parsed.pathname);
-  if (!pathWithoutLocale.startsWith("/result/") && !/^\/attempts\/[^/]+\/report(?:\/|$)/.test(pathWithoutLocale)) {
+  if (!pathWithoutLocale.startsWith("/result/") && !/^\/attempts\/[^/]+\/report(?:\/|$)/.test(pathWithoutLocale)
+    && !/^\/career\/assessment\/result\/[a-f0-9-]{36}$/i.test(pathWithoutLocale)) {
     return null;
   }
 

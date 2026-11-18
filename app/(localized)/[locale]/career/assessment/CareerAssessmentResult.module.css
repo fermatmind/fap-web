@@ -57,3 +57,24 @@
 @media (max-width: 620px) { .chart { grid-template-columns: 1fr; gap: 0; } }
 @media (max-width: 390px) { .dimensions { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .hero { animation: none; } .cta, .dimensions button { transition: none; } }
+
+.purchase { display: grid; gap: .7rem; margin-top: 1rem; }
+.purchase label { display: grid; gap: .45rem; text-align: left; }
+.purchase select { min-height: 2.75rem; border: 1px solid #bc8af4; border-radius: .5rem; padding: .35rem .6rem; color: #fff; background: #26163e; }
+.purchase a { text-decoration: underline; text-underline-offset: .2em; }
+.purchase button:disabled { opacity: .65; }
+.premium { margin: 3rem 0; border: 1px solid #bc8af4; border-radius: 1.3rem; padding: clamp(1rem, 4vw, 2rem); background: #251940; }
+.premium h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 750; }
+.premium h3 { margin: 1.4rem 0 .45rem; font-size: 1.2rem; font-weight: 700; }
+.premium p, .premium dd { margin: .55rem 0; line-height: 1.65; }
+.premium dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .7rem; }
+.premium dl > div { border: 1px solid #c5a1fc47; border-radius: .5rem; padding: .55rem .75rem; }
+.premium dt { font-weight: 650; }
+.premium .cta { width: 100%; margin-top: 1rem; }
+.actions { display: grid; gap: .6rem; }
+@media print {
+  .result, .premium { color: #1b1330; background: #fff; box-shadow: none; }
+  .section p, .premium p, .sample dd, .hero p:not(.eyebrow) { color: #1b1330; }
+  .result :is(.cta, .jump, .textButton), .currentReport { display: none; }
+  .premium dl > div { break-inside: avoid; }
+}

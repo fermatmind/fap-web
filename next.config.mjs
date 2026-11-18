@@ -502,7 +502,7 @@ const nextConfig = {
             ]
           : []),
         ...(process.env.NODE_ENV === "development"
-          ? ["/api/v0.5/career-assessment/questions", "/api/v0.5/career-assessment/score"].map(source => ({
+          ? ["/api/v0.5/career-assessment/questions", "/api/v0.5/career-assessment/score", "/api/v0.5/career-assessment/results/:path*"].map(source => ({
               source,
               destination: `${careerAssessmentPreviewOrigin}${source}`,
             }))
