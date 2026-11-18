@@ -14,6 +14,18 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { CrossTypeDetailedSections } from "@/components/personality/CrossTypeDetailedSections";
+import {
+  MbtiComparisonFaq,
+  MbtiReaderAside,
+  MbtiReaderColumns,
+  MbtiReaderHero,
+  MbtiReaderMobileNav,
+  MbtiReaderPage,
+  MbtiReaderSections,
+  MbtiReaderToc,
+  mbtiReaderDesktopLinkClass,
+  mbtiReaderMobileLinkClass,
+} from "@/components/personality/MbtiReaderLayout";
 import { MbtiTestVersionNote } from "@/components/personality/MbtiTestVersionNote";
 import { PublicTopicEdgeModule } from "@/components/public-topic-graph/PublicTopicEdgeRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -941,28 +953,7 @@ function ComparisonVisibleFaqSection({
   items: ComparisonFaqItem[];
   locale: Locale;
 }) {
-  if (items.length === 0) {
-    return null;
-  }
-
-  return (
-    <section
-      id="comparison-faq"
-      className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
-      data-testid="personality-comparison-visible-faq"
-      data-authority-source="comparison_public_projection_v1"
-    >
-      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{locale === "zh" ? "常见问题" : "FAQ"}</h2>
-      <div className="mt-4 space-y-4">
-        {items.map((item) => (
-          <article key={item.question} className="border-t border-[var(--fm-border)] pt-4 first:border-t-0 first:pt-0">
-            <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.question}</h3>
-            <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.answer}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
+  return <MbtiComparisonFaq data-testid="personality-comparison-visible-faq" id="comparison-faq" title={locale === "zh" ? "常见问题" : "FAQ"} items={items} />;
 }
 
 function asPlainRecord(value: unknown): Record<string, unknown> | null {
@@ -1152,23 +1143,20 @@ function ComparisonAssetNav({
   const navLinks = links ?? buildComparisonReaderLinks(comparison, locale, false);
 
   return (
-    <nav
-      className="sticky top-20 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
+    <MbtiReaderMobileNav
       aria-label={locale === "zh" ? "人格对比目录" : "Personality comparison navigation"}
       data-testid="personality-comparison-asset-nav"
     >
-      <div className="flex min-w-max gap-2">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={migratePersonalityCareerHref(link.href, locale)}
-            className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-    </nav>
+      {navLinks.map((link) => (
+        <a
+          key={link.href}
+          href={migratePersonalityCareerHref(link.href, locale)}
+          className={mbtiReaderMobileLinkClass}
+        >
+          {link.label}
+        </a>
+      ))}
+    </MbtiReaderMobileNav>
   );
 }
 
@@ -1204,28 +1192,25 @@ function ComparisonReaderToc({
   locale: Locale;
 }) {
   return (
-    <div data-testid="personality-comparison-left-toc">
-      <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
-        {locale === "zh" ? "阅读目录" : "Explore comparison"}
-      </p>
-      <nav aria-label={locale === "zh" ? "人格对比阅读目录" : "Personality comparison reading menu"} className="mt-2">
-        <ul className="m-0 list-none space-y-0 p-0">
-          {links.map((link) => (
-            <li key={`comparison-toc-${link.key}`}>
-              <a
-                href={migratePersonalityCareerHref(link.href, locale)}
-                className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-              >
-                <span>{link.label}</span>
-                <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                  →
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+    <MbtiReaderToc
+      data-testid="personality-comparison-left-toc"
+      title={locale === "zh" ? "阅读目录" : "Explore comparison"}
+      label={locale === "zh" ? "人格对比阅读目录" : "Personality comparison reading menu"}
+    >
+      {links.map((link) => (
+        <li key={`comparison-toc-${link.key}`}>
+          <a
+            href={migratePersonalityCareerHref(link.href, locale)}
+            className={mbtiReaderDesktopLinkClass}
+          >
+            <span>{link.label}</span>
+            <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+              →
+            </span>
+          </a>
+        </li>
+      ))}
+    </MbtiReaderToc>
   );
 }
 
@@ -1297,8 +1282,8 @@ function PersonalityComparisonPage({
   ];
 
   return (
-    <main
-      className="mx-auto w-full max-w-[86rem] space-y-8 px-[var(--fm-container-gutter)] py-8 sm:py-10 [&_[id]]:scroll-mt-[calc(var(--fm-space-30)+var(--fm-space-10))] lg:[&_[id]]:scroll-mt-24 [&_table]:min-w-[36rem]"
+    <MbtiReaderPage
+      kind="comparison"
       data-testid="personality-comparison-page"
       data-authority-source="comparison_public_projection_v1"
       data-comparison-contract-version={comparison.comparisonContractVersion}
@@ -1318,27 +1303,11 @@ function PersonalityComparisonPage({
       ) : null}
       <Breadcrumb items={breadcrumbItems} />
 
-      <section
+      <MbtiReaderHero
+        kind="comparison"
         id="comparison-overview"
-        className="overflow-hidden rounded-[1.5rem] bg-[#77608d] text-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
-      >
-        <div className="relative grid min-h-[17rem] gap-8 p-7 sm:p-10 md:grid-cols-[minmax(0,1fr)_18rem] md:items-center lg:min-h-[18.5rem] lg:p-10 xl:p-12">
-          <div className="max-w-3xl space-y-4">
-            <h1 className="m-0 max-w-4xl font-sans text-4xl font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl">{heading}</h1>
-            {description ? <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{description}</p> : null}
-            {hasCurrentReaderSections ? (
-              <>
-                <TrackedEntryCtaLink
-                  href={buildMbtiEntryHref({ locale, formCode: DEFAULT_MBTI_FORM_CODE, entrySurface: "mbti_personality_comparison", sourcePageType: "personality_comparison", targetAction: "start_test", sourcePath: canonicalPath })}
-                  eventProperties={{ ...mbtiEntryViewTrackingProps, target_action: "start_test" }}
-                  className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
-                >
-                  {formatMbtiTestCtaLabel(locale)}
-                </TrackedEntryCtaLink>
-                <MbtiTestVersionNote locale={locale} />
-              </>
-            ) : null}
-          </div>
+        title={heading}
+        visual={
           <div className="grid min-h-40 content-center gap-4 rounded-[2rem] border border-white/15 bg-white/10 p-6 text-white/92">
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
               <span className="text-right text-2xl font-semibold text-white">{assertiveLabel}</span>
@@ -1346,23 +1315,30 @@ function PersonalityComparisonPage({
               <span className="text-left text-2xl font-semibold text-white">{turbulentLabel}</span>
             </div>
           </div>
-        </div>
-      </section>
+        }
+      >
+        {description ? <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{description}</p> : null}
+        {hasCurrentReaderSections ? (
+          <>
+            <TrackedEntryCtaLink
+              href={buildMbtiEntryHref({ locale, formCode: DEFAULT_MBTI_FORM_CODE, entrySurface: "mbti_personality_comparison", sourcePageType: "personality_comparison", targetAction: "start_test", sourcePath: canonicalPath })}
+              eventProperties={{ ...mbtiEntryViewTrackingProps, target_action: "start_test" }}
+              className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
+            >
+              {formatMbtiTestCtaLabel(locale)}
+            </TrackedEntryCtaLink>
+            <MbtiTestVersionNote locale={locale} />
+          </>
+        ) : null}
+      </MbtiReaderHero>
 
       <ComparisonAssetNav comparison={comparison} locale={locale} links={readerLinks} />
 
-      <div
-        className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,48rem)_17rem] xl:items-start"
-        data-testid="personality-comparison-reading-layout"
-      >
-        <aside
-          className="sticky top-24 hidden lg:block"
-          data-testid="personality-comparison-section-map"
-        >
+      <MbtiReaderColumns kind="comparison">
+        <MbtiReaderAside data-testid="personality-comparison-section-map">
           <ComparisonReaderToc links={readerLinks} locale={locale} />
-        </aside>
-
-        <section className="w-full min-w-0 space-y-8" data-testid="personality-comparison-primary-sections">
+        </MbtiReaderAside>
+        <MbtiReaderSections data-testid="personality-comparison-primary-sections">
           {quickAnswerBody && !hasCurrentReaderSections ? (
             <section
               id="comparison-quick-answer"
@@ -1457,14 +1433,13 @@ function PersonalityComparisonPage({
           ))}
 
           {!hasCurrentReaderSections ? <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} /> : null}
-        </section>
-
-      </div>
+        </MbtiReaderSections>
+      </MbtiReaderColumns>
 
       {nextStepBlocks.length ? (
         <section id="comparison-next" className="sr-only" aria-label={locale === "zh" ? "下一步" : "Next steps"} />
       ) : null}
-    </main>
+    </MbtiReaderPage>
   );
 }
 
@@ -1805,8 +1780,8 @@ export default async function PersonalityDetailPage({
     ? personalityCareerHref(locale, detail.canonicalTypeCode)
     : null;
   return (
-    <main
-      className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10 [&_[id]]:scroll-mt-[calc(var(--fm-space-30)+var(--fm-space-10))] lg:[&_[id]]:scroll-mt-24"
+    <MbtiReaderPage
+      kind="detail"
       data-authority-source="mbti_public_projection_v1"
       data-personality-traditional-href={normalizeTraditionalPersonalityLanguageAlternates(detail.traditionalLanguageAlternates, canonicalPath)?.["zh-TW"]}
       data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}
@@ -1832,50 +1807,16 @@ export default async function PersonalityDetailPage({
         ]}
       />
 
-      <section
+      <MbtiReaderHero
+        kind="detail"
         id="answer-first"
-        className="overflow-hidden rounded-[1.5rem] bg-[#77608d] text-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
-      >
-        <div className="relative grid min-h-[17rem] gap-8 p-7 sm:p-10 md:grid-cols-[minmax(0,1fr)_16rem] md:items-center lg:min-h-[18.5rem] lg:p-10 xl:p-12">
-          <div className="max-w-3xl space-y-4">
-            <h1 className="m-0 text-4xl font-semibold leading-[1.04] text-white sm:text-5xl">
-              {heroHeadingSuffix ? (
-                <>
-                  <span className="font-sans tracking-tight">{detail.displayType}</span>
-                  <span className="font-sans tracking-tight">{heroHeadingSuffix}</span>
-                </>
-              ) : (
-                heroHeading
-              )}
-            </h1>
-            {locale !== "zh" && detail.summary ? <p className="m-0 text-lg leading-8 text-white/88">{detail.summary}</p> : null}
-            {detail.heroSummary && detail.heroSummary !== detail.summary ? (
-              <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{detail.heroSummary}</p>
-            ) : null}
-            {quickAnswerBody ? (
-              <p
-                className="m-0 max-w-3xl rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base leading-8 text-white/90"
-                data-testid="personality-detail-quick-answer"
-              >
-                {quickAnswerBody}
-              </p>
-            ) : null}
-            {(detail.rarity || detail.keywords.length > 0) ? (
-              <div className="flex flex-wrap gap-2.5 pt-3">
-                {detail.rarity ? (
-                  <span className="rounded-full bg-white/14 px-3.5 py-1.5 text-sm font-semibold text-white/92">
-                    {locale === "zh" ? "稀有度：" : "Rarity: "}
-                    {detail.rarity}
-                  </span>
-                ) : null}
-                {detail.keywords.slice(0, 5).map((keyword) => (
-                  <span key={keyword} className="rounded-full bg-white/14 px-3.5 py-1.5 text-sm font-semibold text-white/92">
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-          </div>
+        title={heroHeadingSuffix ? (
+          <>
+            <span className="font-sans tracking-tight">{detail.displayType}</span>
+            <span className="font-sans tracking-tight">{heroHeadingSuffix}</span>
+          </>
+        ) : heroHeading}
+        visual={
           <div className="w-full max-w-[16rem] justify-self-center space-y-3 md:mt-5 md:justify-self-end">
             {heroImageUrl ? (
               <div
@@ -1903,117 +1844,135 @@ export default async function PersonalityDetailPage({
               </div>
             )}
           </div>
-        </div>
-        <div className="px-7 pb-7 sm:px-10 sm:pb-10 lg:px-14" data-testid="personality-detail-next-steps">
-          <div
-            className="flex flex-wrap items-center gap-3"
-            data-testid="mbti-personality-entry-cta-group"
-            data-ads-surface="secondary"
-          >
-            {careerDirectionHref ? (
-              <Link href={careerDirectionHref} className={buttonVariants({ size: "lg" })}>
-                {locale === "zh" ? "看职业方向" : "See career direction"}
-              </Link>
-            ) : null}
-            <Link href={personalityBrowseHref} className={buttonVariants({ variant: "outline", size: "sm" })}>
-              {variantComparisonLabel}
-            </Link>
-            <TrackedEntryCtaLink
-              href={mbtiPrimaryCtaHref}
-              prefetch
-              data-testid="mbti-personality-primary-cta"
-              eventProperties={mbtiPrimaryCtaTrackingProps}
-              className={buttonVariants({ variant: "outline", size: "sm", className: "h-auto max-w-full whitespace-normal text-center" })}
+        }
+        footer={
+          <div className="px-7 pb-7 sm:px-10 sm:pb-10 lg:px-14" data-testid="personality-detail-next-steps">
+            <div
+              className="flex flex-wrap items-center gap-3"
+              data-testid="mbti-personality-entry-cta-group"
+              data-ads-surface="secondary"
             >
-              {formatMbtiTestCtaLabel(locale)}
-            </TrackedEntryCtaLink>
+              {careerDirectionHref ? (
+                <Link href={careerDirectionHref} className={buttonVariants({ size: "lg" })}>
+                  {locale === "zh" ? "看职业方向" : "See career direction"}
+                </Link>
+              ) : null}
+              <Link href={personalityBrowseHref} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                {variantComparisonLabel}
+              </Link>
+              <TrackedEntryCtaLink
+                href={mbtiPrimaryCtaHref}
+                prefetch
+                data-testid="mbti-personality-primary-cta"
+                eventProperties={mbtiPrimaryCtaTrackingProps}
+                className={buttonVariants({ variant: "outline", size: "sm", className: "h-auto max-w-full whitespace-normal text-center" })}
+              >
+                {formatMbtiTestCtaLabel(locale)}
+              </TrackedEntryCtaLink>
+            </div>
+            <MbtiTestVersionNote locale={locale} />
           </div>
-          <MbtiTestVersionNote locale={locale} />
-        </div>
-        {detail.heroQuote ? (
+        }
+        quote={detail.heroQuote ? (
           <blockquote className="m-0 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
             {detail.heroQuote}
           </blockquote>
         ) : null}
-      </section>
+      >
+        {locale !== "zh" && detail.summary ? <p className="m-0 text-lg leading-8 text-white/88">{detail.summary}</p> : null}
+        {detail.heroSummary && detail.heroSummary !== detail.summary ? (
+          <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{detail.heroSummary}</p>
+        ) : null}
+        {quickAnswerBody ? (
+          <p
+            className="m-0 max-w-3xl rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base leading-8 text-white/90"
+            data-testid="personality-detail-quick-answer"
+          >
+            {quickAnswerBody}
+          </p>
+        ) : null}
+        {(detail.rarity || detail.keywords.length > 0) ? (
+          <div className="flex flex-wrap gap-2.5 pt-3">
+            {detail.rarity ? (
+              <span className="rounded-full bg-white/14 px-3.5 py-1.5 text-sm font-semibold text-white/92">
+                {locale === "zh" ? "稀有度：" : "Rarity: "}
+                {detail.rarity}
+              </span>
+            ) : null}
+            {detail.keywords.slice(0, 5).map((keyword) => (
+              <span key={keyword} className="rounded-full bg-white/14 px-3.5 py-1.5 text-sm font-semibold text-white/92">
+                {keyword}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </MbtiReaderHero>
 
-      <nav
+      <MbtiReaderMobileNav
         aria-label={locale === "zh" ? "人格页面章节导航" : "Personality page section navigation"}
-        className="sticky top-20 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
         data-testid="personality-detail-sticky-local-nav"
       >
-        <div className="flex min-w-max gap-2">
-          {intentLinks.map((link) =>
-            link.kind === "test" ? (
-              <TrackedEntryCtaLink
-                key={`sticky-local-${link.key}`}
-                href={migratePersonalityCareerHref(link.href, locale)}
-                prefetch
-                eventProperties={mbtiIntentCtaTrackingProps}
-                className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
-              >
-                {link.label}
-              </TrackedEntryCtaLink>
-            ) : (
-              <Link
-                key={`sticky-local-${link.key}`}
-                href={migratePersonalityCareerHref(link.href, locale)}
-                className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
-        </div>
-      </nav>
+        {intentLinks.map((link) =>
+          link.kind === "test" ? (
+            <TrackedEntryCtaLink
+              key={`sticky-local-${link.key}`}
+              href={migratePersonalityCareerHref(link.href, locale)}
+              prefetch
+              eventProperties={mbtiIntentCtaTrackingProps}
+              className={mbtiReaderMobileLinkClass}
+            >
+              {link.label}
+            </TrackedEntryCtaLink>
+          ) : (
+            <Link
+              key={`sticky-local-${link.key}`}
+              href={migratePersonalityCareerHref(link.href, locale)}
+              className={mbtiReaderMobileLinkClass}
+            >
+              {link.label}
+            </Link>
+          )
+        )}
+      </MbtiReaderMobileNav>
 
       {hasReaderLayout ? (
-        <div
-          className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,48rem)_17rem] xl:items-start"
-          data-testid="personality-detail-v85-reading-layout"
-        >
-          <aside
-            className="sticky top-24 hidden lg:block"
-            data-testid="personality-detail-section-map"
-          >
-            <div data-testid="personality-detail-left-toc">
-              <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
-                {locale === "zh" ? "阅读目录" : "Explore this type"}
-              </p>
-              <nav aria-label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"} className="mt-2">
-                <ul className="m-0 list-none space-y-0 p-0">
-                  {intentLinks.map((link) => (
-                    <li key={`toc-${link.key}`}>
-                      {link.kind === "test" ? (
-                        <TrackedEntryCtaLink
-                          href={migratePersonalityCareerHref(link.href, locale)}
-                          prefetch
-                          eventProperties={mbtiIntentCtaTrackingProps}
-                          className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-                        >
-                          <span>{link.label}</span>
-                          <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                            →
-                          </span>
-                        </TrackedEntryCtaLink>
-                      ) : (
-                        <Link
-                          href={migratePersonalityCareerHref(link.href, locale)}
-                          className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-                        >
-                          <span>{link.label}</span>
-                          <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                            →
-                          </span>
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-          </aside>
-          <section className="w-full min-w-0 space-y-8" data-testid="personality-detail-v85-primary-sections">
+        <MbtiReaderColumns kind="detail">
+          <MbtiReaderAside data-testid="personality-detail-section-map">
+            <MbtiReaderToc
+              data-testid="personality-detail-left-toc"
+              title={locale === "zh" ? "阅读目录" : "Explore this type"}
+              label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"}
+            >
+              {intentLinks.map((link) => (
+                <li key={`toc-${link.key}`}>
+                  {link.kind === "test" ? (
+                    <TrackedEntryCtaLink
+                      href={migratePersonalityCareerHref(link.href, locale)}
+                      prefetch
+                      eventProperties={mbtiIntentCtaTrackingProps}
+                      className={mbtiReaderDesktopLinkClass}
+                    >
+                      <span>{link.label}</span>
+                      <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                        →
+                      </span>
+                    </TrackedEntryCtaLink>
+                  ) : (
+                    <Link
+                      href={migratePersonalityCareerHref(link.href, locale)}
+                      className={mbtiReaderDesktopLinkClass}
+                    >
+                      <span>{link.label}</span>
+                      <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                        →
+                      </span>
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </MbtiReaderToc>
+          </MbtiReaderAside>
+          <MbtiReaderSections data-testid="personality-detail-v85-primary-sections">
             {hasCurrentReaderSections ? renderedProjectionSections : renderedLeadingProjectionSections}
             {!hasCurrentReaderSections ? renderedV85Sections : null}
             {!hasCurrentReaderSections ? <AnswerSurfaceSection
@@ -2026,7 +1985,7 @@ export default async function PersonalityDetailPage({
               hideSceneLabel={locale === "zh"}
               hideSummaryLabel={locale === "zh"}
             /> : null}
-          </section>
+          </MbtiReaderSections>
           <aside
             className="sticky top-24 hidden space-y-4 xl:block"
             data-testid="personality-detail-right-summary"
@@ -2077,7 +2036,7 @@ export default async function PersonalityDetailPage({
               </section>
             ) : null}
           </aside>
-        </div>
+        </MbtiReaderColumns>
       ) : null}
 
       {shouldRenderSceneEntry ? (
@@ -2142,6 +2101,6 @@ export default async function PersonalityDetailPage({
           entrySurface="personality_detail"
         />
       </Suspense>
-    </main>
+    </MbtiReaderPage>
   );
 }

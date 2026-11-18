@@ -6,7 +6,19 @@ import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSch
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PersonalityCareerExploration } from "@/components/career/PersonalityCareerExploration";
 import { getPersonalityCareerScene, readPersonalityCareerExamples } from "@/lib/career/personalityCareerExploration";
-import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
+import {
+  MbtiComparisonFaq,
+  MbtiReaderAside,
+  MbtiReaderColumns,
+  MbtiReaderHero,
+  MbtiReaderMobileNav,
+  MbtiReaderPage,
+  MbtiReaderSections,
+  MbtiReaderToc,
+  mbtiReaderDesktopLinkClass,
+  mbtiReaderMobileLinkClass,
+} from "@/components/personality/MbtiReaderLayout";
+import { buttonVariants } from "@/components/ui/button";
 import {
   getPersonalityComparisonBySlug,
   getPersonalityProjectionDetailBySlugOrType,
@@ -52,7 +64,7 @@ export async function loadTraditionalMbtiCurrentReader(slug: string) {
         key: section.sectionKey,
         title: section.sectionKey === "faq" ? "常見問題" : section.title,
         content: section.sectionKey === "faq"
-          ? <PersonalityFaq locale="zh-TW" items={faq ? extractPersonalityFaqItems([faq]) : []} />
+          ? <MbtiComparisonFaq id="personality-faq" title="常見問題" items={faq ? extractPersonalityFaqItems([faq]) : []} />
           : renderTraditionalPersonalityRichSections([section]),
       })),
     };
@@ -119,8 +131,26 @@ export function TraditionalMbtiCurrentReader({ reader }: {
     locale: "zh-TW",
   });
   const slug = reader.canonical.split("/").at(-1);
+  const kind = reader.authority === "comparison_public_projection_v1" ? "comparison" : "detail";
+  const links = reader.sections.map(section => ({
+    key: section.key,
+    href: kind === "comparison" && section.key === "faq" ? "#personality-faq" : "#" + section.key,
+    label: section.title,
+  }));
+  const testLink = (
+    <Link
+      href={`/zh/tests/${MBTI_ENTRY_TEST_SLUG}`}
+      lang="zh-CN"
+      className={kind === "comparison"
+        ? "inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
+        : buttonVariants({ variant: "outline", size: "sm", className: "h-auto max-w-full whitespace-normal text-center" })}
+    >
+      <span lang="zh-TW">開始免費 MBTI 測驗（簡體中文）</span>
+    </Link>
+  );
+
   return (
-    <article className="space-y-8 [&_[id]]:scroll-mt-24" data-authority-source={reader.authority}>
+    <MbtiReaderPage kind={kind} data-authority-source={reader.authority}>
       {reader.indexEligible && <>
         <JsonLd
           id={`personality-webpage-${slug}`}
@@ -135,32 +165,46 @@ export function TraditionalMbtiCurrentReader({ reader }: {
         ])} />
       </>}
       <Breadcrumb items={[{ label: "首頁", href: "/zh-TW" }, { label: "人格", href: "/zh-TW/personality" }, { label: reader.title }]} />
-      <header className="flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-[#77608d] p-7 text-white sm:p-10">
-        <div className="min-w-0 flex-1 space-y-4">
-          <h1 className="m-0 text-3xl font-semibold text-white sm:text-4xl">{reader.title}</h1>
-          {reader.summary ? <p className="m-0 leading-8">{reader.summary}</p> : null}
-          <Link href={`/zh/tests/${MBTI_ENTRY_TEST_SLUG}`} lang="zh-CN" className="inline-flex min-h-11 items-center underline">
-            <span lang="zh-TW">開始免費 MBTI 測驗（簡體中文）</span>
-          </Link>
-        </div>
-        {reader.image ? <Image src={reader.image} width={160} height={160} alt="" className="h-32 w-32 object-contain sm:h-40 sm:w-40" /> : null}
-      </header>
-      <nav aria-label="閱讀目錄" className="rounded-2xl border border-[var(--fm-border)] p-4">
-        <ul className="m-0 flex list-none flex-wrap gap-x-4 p-0">
-          {reader.sections.map(section => (
-            <li key={section.key}>
-              <a href={section.key === "faq" && reader.authority === "comparison_public_projection_v1" ? "#personality-faq" : "#" + section.key} className="inline-flex min-h-11 items-center underline">
-                {section.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      {reader.sections.map(section => <div key={section.key}>
-        {section.content}
-        {reader.canonical === "/zh-TW/personality/intj" && section.key === "work_style"
-          ? <TraditionalIntjCareerExploration /> : null}
-      </div>)}
-    </article>
+      <MbtiReaderHero
+        kind={kind}
+        id={kind === "comparison" ? "comparison-overview" : "answer-first"}
+        title={reader.title}
+        visual={reader.image ? (
+          <div className="w-full max-w-[16rem] justify-self-center rounded-[2rem] border border-white/15 bg-white/10 p-4 md:mt-5 md:justify-self-end">
+            <Image src={reader.image} width={160} height={160} alt="" className="mx-auto h-40 w-full object-contain md:h-52" />
+          </div>
+        ) : undefined}
+        footer={kind === "detail" ? <div className="px-7 pb-7 sm:px-10 sm:pb-10 lg:px-14">{testLink}</div> : undefined}
+      >
+        {reader.summary ? <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{reader.summary}</p> : null}
+        {kind === "comparison" ? testLink : null}
+      </MbtiReaderHero>
+
+      <MbtiReaderMobileNav aria-label="閱讀目錄">
+        {links.map(link => <a key={link.key} href={link.href} className={mbtiReaderMobileLinkClass}>{link.label}</a>)}
+      </MbtiReaderMobileNav>
+
+      <MbtiReaderColumns kind={kind}>
+        <MbtiReaderAside>
+          <MbtiReaderToc title="閱讀目錄" label="閱讀目錄">
+            {links.map(link => (
+              <li key={link.key}>
+                <a href={link.href} className={mbtiReaderDesktopLinkClass}>
+                  <span>{link.label}</span>
+                  <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">→</span>
+                </a>
+              </li>
+            ))}
+          </MbtiReaderToc>
+        </MbtiReaderAside>
+        <MbtiReaderSections data-testid={kind === "comparison" ? "personality-comparison-primary-sections" : "personality-detail-v85-primary-sections"}>
+          {reader.sections.map(section => <div key={section.key}>
+            {section.content}
+            {reader.canonical === "/zh-TW/personality/intj" && section.key === "work_style"
+              ? <TraditionalIntjCareerExploration /> : null}
+          </div>)}
+        </MbtiReaderSections>
+      </MbtiReaderColumns>
+    </MbtiReaderPage>
   );
 }
