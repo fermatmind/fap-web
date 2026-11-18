@@ -17,7 +17,7 @@ export default async function CareerAssessmentPage({ params }: Props) {
   const { locale } = await params;
   if (locale !== "zh" && locale !== "en") notFound();
   return (
-    <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] has-[[data-testid=riasec-reading-report]]:max-w-[1320px] has-[[data-testid=riasec-reading-report]]:px-6 md:has-[[data-testid=riasec-reading-report]]:px-10 xl:has-[[data-testid=riasec-reading-report]]:px-12">
+    <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] has-[[data-testid=career-assessment-result]]:max-w-none has-[[data-testid=career-assessment-result]]:px-0">
       <CareerAssessmentForm locale={locale} />
     </main>
   );

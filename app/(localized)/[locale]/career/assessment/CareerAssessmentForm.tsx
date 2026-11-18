@@ -6,9 +6,7 @@ import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLa
 import { V2LikertScale } from "@/components/quiz/immersive/V2LikertScale";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import takeStyles from "@/components/quiz/AssessmentTake.module.css";
-import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
-import { buildRiasecResultExportFromViewModel } from "@/lib/riasec/exportAdapter";
-import { RiasecReadingReport } from "@/components/result/riasec/RiasecReadingReport";
+import { CareerAssessmentResult } from "./CareerAssessmentResult";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import { Button } from "@/components/ui/button";
 import { resolveApiBaseUrl } from "@/lib/api-base";
@@ -201,14 +199,11 @@ export function CareerAssessmentForm({ locale }: { locale: Locale }) {
   }
 
   if (viewModel) {
-    return <div ref={reportRegion} tabIndex={-1} className="space-y-[var(--fm-gap-md)]">
-      <RiasecReadingReport viewModel={viewModel} locale={locale} actions={
-        <button type="button" onClick={() => {
-          setReport(undefined);
-          requestAnimationFrame(() => heading.current?.focus());
-        }}>{t("回看答卷", "Review answers")}</button>
-      } />
-      <ResultExportPanel projection={buildRiasecResultExportFromViewModel(viewModel, locale)} locale={locale} />
+    return <div ref={reportRegion} tabIndex={-1}>
+      <CareerAssessmentResult model={viewModel} locale={locale} onReview={() => {
+        setReport(undefined);
+        requestAnimationFrame(() => heading.current?.focus());
+      }} />
     </div>;
   }
 

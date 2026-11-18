@@ -1210,7 +1210,7 @@ function ReportNavigation({
   );
 }
 
-function InterestRadar({ dimensions }: { dimensions: RiasecResultViewModel["dimensions"] }) {
+export function InterestRadar({ dimensions, theme = "light" }: { dimensions: RiasecResultViewModel["dimensions"]; theme?: "light" | "dark" }) {
   const ordered = Object.keys(RIASEC_INTEREST_COLORS).map(code => dimensions.find(item => item.code === code));
   if (ordered.some(item => !item || item.scoreAvailable === false || !Number.isFinite(item.score))) return null;
 
@@ -1221,17 +1221,21 @@ function InterestRadar({ dimensions }: { dimensions: RiasecResultViewModel["dime
   };
   const points = (scores: number[]) => scores.map((score, index) => coordinates(score, index).join(",")).join(" ");
 
+  const grid = theme === "dark" ? "#9275b6" : "#cfddd8";
+  const label = theme === "dark" ? "#e9dcff" : "#35534f";
+  const profile = theme === "dark" ? "#d59dff" : "#398276";
+
   return <svg viewBox="0 0 200 200" className={styles.interestRadar} aria-hidden="true">
-    {[25, 50, 75, 100].map(level => <polygon key={level} points={points(ordered.map(() => level))} fill="none" stroke="#cfddd8" />)}
+    {[25, 50, 75, 100].map(level => <polygon key={level} points={points(ordered.map(() => level))} fill="none" stroke={grid} />)}
     {ordered.map((axis, index) => {
       const [x, y] = coordinates(100, index);
       const [labelX, labelY] = coordinates(124, index);
       return <g key={axis?.code}>
-        <line x1="100" y1="100" x2={x} y2={y} stroke="#cfddd8" />
-        <text x={labelX} y={labelY} textAnchor="middle" dominantBaseline="central" fill="#35534f" fontSize="13" fontWeight="600">{axis?.code}</text>
+        <line x1="100" y1="100" x2={x} y2={y} stroke={grid} />
+        <text x={labelX} y={labelY} textAnchor="middle" dominantBaseline="central" fill={label} fontSize="13" fontWeight="600">{axis?.code}</text>
       </g>;
     })}
-    <polygon points={points(ordered.map(item => Math.max(0, Math.min(100, item?.score ?? 0))))} fill="#398276" fillOpacity=".22" stroke="#398276" strokeWidth="2" />
+    <polygon points={points(ordered.map(item => Math.max(0, Math.min(100, item?.score ?? 0))))} fill={profile} fillOpacity=".22" stroke={profile} strokeWidth="2" />
   </svg>;
 }
 

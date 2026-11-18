@@ -1,0 +1,59 @@
+.result {
+  color: #f9f5ff;
+  background: radial-gradient(ellipse at 50% 2%, #382063, transparent 53%), #161028;
+  padding: clamp(2.25rem, 6vw, 5rem) max(1rem, var(--fm-container-gutter));
+}
+.inner { max-width: 52rem; margin: 0 auto; }
+.hero { text-align: center; animation: enter 350ms ease-out both; }
+.eyebrow { color: #d7bafa; font-weight: 650; letter-spacing: .07em; }
+.hero h1 { font-size: clamp(2.75rem, 9vw, 5.5rem); line-height: 1.08; margin: .55rem 0; font-weight: 780; }
+.hero p:not(.eyebrow) { max-width: 38rem; margin: .6rem auto; color: #e2d8f2; }
+.hero .code { letter-spacing: .2em; font-weight: 750; }
+.portrait { display: block; width: min(68vw, 340px); height: auto; margin: 1.25rem auto; border-radius: 1.4rem; box-shadow: 0 12px 60px #0d061c70; }
+.textButton { margin: .65rem 0; color: #dcc2ff; text-decoration: underline; text-underline-offset: .25em; }
+.section { margin: clamp(2.4rem, 6vw, 4rem) 0; scroll-margin-top: 5rem; }
+.section h2, .offer h2 { margin: 0 0 .65rem; font-size: clamp(1.45rem, 4vw, 2.25rem); font-weight: 750; }
+.section p, .offer p { color: #e2d8f2; line-height: 1.65; }
+.chart { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: center; gap: 1rem; }
+.chart:not(:has(svg)) { grid-template-columns: 1fr; }
+.dimensions { margin: 1rem 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.dimensions button {
+  padding: .75rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .4rem .65rem;
+  background: #ffffff08; text-align: left; border: 1px solid #c5a1fc47; border-radius: .65rem;
+  overflow-wrap: anywhere; transition: background-color 150ms, border-color 150ms;
+}
+.dimensions button[aria-pressed="true"], .dimensions button:hover { border-color: #d0a6ff; background: #b981ff28; }
+.track { grid-column: 1 / -1; background: #efdeff30; border-radius: 1rem; height: .27rem; overflow: hidden; }
+.track > span { display: block; height: 100%; background: #d59dff; }
+.jobs { padding: 0; list-style-position: inside; }
+.jobs li { padding: .85rem 0; border-bottom: 1px solid #e3caff30; }
+.jobs a { display: inline-flex; gap: .55rem; margin-left: .55rem; text-underline-offset: .25em; }
+.jobs a:hover, .jump:hover { text-decoration: underline; }
+.jobs p { margin: .35rem 0 0; }
+.offer {
+  margin: 0 auto; max-width: 36rem; text-align: center; padding: clamp(1.25rem, 5vw, 2.75rem);
+  background: linear-gradient(150deg, #382268, #22163c 76%); border: 1px solid #bc8af4;
+  border-radius: 1.5rem; box-shadow: 0 12px 55px #8539cb38;
+}
+.offer ul { display: grid; gap: .95rem; list-style: none; text-align: left; padding: 0; margin: 1.55rem 0; }
+.offer li { display: flex; gap: .85rem; align-items: center; }
+.offer li svg { flex: none; color: #e3b0ff; }
+.cta {
+  display: flex; min-height: 3.15rem; align-items: center; justify-content: center; gap: .6rem;
+  border-radius: .7rem; border: 1px solid #d3abfb; background: linear-gradient(105deg, #8320a5, #5031a4);
+  color: #fff; font-weight: 750; transition: background-color 150ms, filter 150ms;
+}
+.cta:hover { filter: brightness(1.16); }
+.offer .status { margin: .85rem 0 0; font-size: .875rem; }
+.sample { border-top: 1px solid #e3caff45; border-bottom: 1px solid #e3caff45; padding: .9rem 0; }
+.sample summary { cursor: pointer; font-weight: 650; color: #e4c7ff; }
+.sample p { margin: .8rem 0; }
+.sample dt { font-weight: 700; margin: .85rem 0 .3rem; }
+.sample dd { color: #e2d8f2; line-height: 1.65; }
+.jump { display: block; text-align: center; font-weight: 650; color: #e4c7ff; }
+.currentReport { max-width: 1320px; margin: 0 auto; padding: 1.5rem max(1rem, var(--fm-container-gutter)); scroll-margin-top: 4.5rem; }
+.result :is(a, button, summary):focus-visible { outline: 2px solid #e4c7ff; outline-offset: 4px; }
+@keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 620px) { .chart { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 390px) { .dimensions { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .hero { animation: none; } .cta, .dimensions button { transition: none; } }
