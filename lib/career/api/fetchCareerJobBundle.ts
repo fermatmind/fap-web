@@ -122,9 +122,12 @@ export async function fetchCareerJobBundle(
         locale: input.locale,
         timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS,
         skipAuth: true,
+        includeResponseBodyInTimeout: true,
+        retryTransportOnce: true,
         ...bundleCacheOptions(),
       }
     );
+    if (!isRecord(bundle)) throw new Error("CAREER_PAGE_CONTRACT_INVALID");
     const raw = isRecord(bundle.data) ? bundle.data : bundle;
     // Current metadata belongs to the same immutable page response in both locales.
     // Do not start an independent SEO read that can replay a different decision.

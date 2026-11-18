@@ -26,11 +26,27 @@ export class ApiError extends Error {
   }
 }
 
+class ClientRequestTimeout extends ApiError {
+  constructor() {
+    super({ status: 408, errorCode: "REQUEST_TIMEOUT", message: "Request timed out." });
+  }
+}
+
+type PublicReadOptions = RequestOptions & { retryTransportOnce?: boolean };
+
+function isConnectionReset(error: unknown): boolean {
+  return error instanceof Error && (
+    ("code" in error && error.code === "ECONNRESET") ||
+    (error.cause instanceof Error && "code" in error.cause && error.cause.code === "ECONNRESET")
+  );
+}
+
 const DEFAULT_TIMEOUT_MS = 15000;
 
 type Json = Record<string, unknown>;
 type RequestOptions = RequestInit & {
   timeoutMs?: number;
+  includeResponseBodyInTimeout?: boolean;
   locale?: string;
   authToken?: string | null;
   skipAuth?: boolean;
@@ -84,19 +100,25 @@ function resolveRequestLocale(headers: Headers, localeHint?: string): "en" | "zh
 async function request<T>(method: string, path: string, body?: Json, init: RequestOptions = {}): Promise<T> {
   const {
     timeoutMs = DEFAULT_TIMEOUT_MS,
+    includeResponseBodyInTimeout = false,
     locale,
     authToken,
     skipAuth = false,
     ...fetchInit
   } = init;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
-
-  if (fetchInit.signal) {
-    fetchInit.signal.addEventListener("abort", () => controller.abort(), { once: true });
-  }
+  let timedOut = false;
+  const timeout = setTimeout(() => {
+    timedOut = true;
+    controller.abort();
+  }, timeoutMs);
+  const signal = fetchInit.signal;
+  const abort = () => controller.abort(signal?.reason);
+  if (signal?.aborted) abort();
+  else signal?.addEventListener("abort", abort, { once: true });
 
   let res: Response;
+  let payload: unknown;
   try {
     const mergedHeaders = new Headers(fetchInit.headers ?? {});
     mergedHeaders.set("Content-Type", "application/json");
@@ -118,21 +140,25 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
       headers: mergedHeaders,
       body: body ? JSON.stringify(body) : undefined,
     });
-  } catch (error) {
-    if (controller.signal.aborted) {
-      throw new ApiError({
-        status: 408,
-        errorCode: "REQUEST_TIMEOUT",
-        message: "Request timed out.",
-      });
+    if (!includeResponseBodyInTimeout) clearTimeout(timeout);
+    try {
+      payload = await res.json();
+    } catch (error) {
+      if (includeResponseBodyInTimeout && (signal?.aborted || (res.ok && (timedOut || isConnectionReset(error))))) {
+        throw error;
+      }
+      payload = null;
     }
+  } catch (error) {
+    if (signal?.aborted) throw signal.reason;
+    if (timedOut) throw new ClientRequestTimeout();
     throw error;
   } finally {
     clearTimeout(timeout);
+    signal?.removeEventListener("abort", abort);
   }
 
   if (!res.ok) {
-    const payload = await res.json().catch(() => null);
     const payloadNode =
       payload && typeof payload === "object" && !Array.isArray(payload)
         ? (payload as Record<string, unknown>)
@@ -194,16 +220,26 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
     });
   }
 
-  const data = (await res.json().catch(() => null)) as T;
-  return data;
+  return payload as T;
 }
 
 export const apiClient = {
   patch: <T>(path: string, body?: Json, init?: RequestOptions) => request<T>("PATCH", path, body, init),
   get: <T>(path: string, init?: RequestOptions) => request<T>("GET", path, undefined, init),
-  getPublic: async <T>(path: string, init?: RequestOptions) => {
+  getPublic: async <T>(path: string, init: PublicReadOptions = {}) => {
+    const { retryTransportOnce = false, ...options } = init;
+    const read = () => request<T>("GET", path, undefined, options);
+
     try {
-      return await request<T>("GET", path, undefined, init);
+      try {
+        return await read();
+      } catch (error) {
+        if (!retryTransportOnce || options.signal?.aborted ||
+            !(error instanceof ClientRequestTimeout || isConnectionReset(error))) {
+          throw error;
+        }
+        return await read();
+      }
     } catch (error) {
       throw toPublicReadError(error);
     }
