@@ -1,3 +1,4 @@
+import { JUNG_TEST_PATH, JUNG_TEST_SLUG, jungAssessmentForSlug, jungLandingCopy } from "@/lib/tests/freeAssessmentLanding";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -80,14 +81,15 @@ function normalizeCatalogItem(
     return null;
   }
 
-  const path = `/${locale}/tests/${slug}`;
+  const jung = jungAssessmentForSlug(slug) ? jungLandingCopy(locale) : null;
+  const path = `/${locale}${jung ? JUNG_TEST_PATH : `/tests/${slug}`}`;
   if (!shouldIncludeInSitemap(path)) {
     return null;
   }
 
   const scaleCode = cleanString(item.scale_code);
-  const title = localizedTitle(item, locale);
-  const description = cleanString(item.description);
+  const title = jung?.searchTitle ?? localizedTitle(item, locale);
+  const description = jung?.intro ?? cleanString(item.description);
   if (!isIqSeoRampDiscoverable({
     slug,
     scaleCode,
@@ -101,7 +103,7 @@ function normalizeCatalogItem(
 
   return {
     locale,
-    slug,
+    slug: jung ? JUNG_TEST_SLUG : slug,
     path,
     title,
     description,

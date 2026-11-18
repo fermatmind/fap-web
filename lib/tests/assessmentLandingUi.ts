@@ -114,7 +114,7 @@ const TRADITIONAL_ENTRY_LABELS: Partial<Record<string, string>> = {
   riasec_60: "開始 60 題標準版 · 免費測驗",
 };
 
-export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";
+export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec" | "career" | "archetypes" | "functions";
 
 export function resolveAssessmentLandingSocialImage(slug: string, locale: "zh" | "en", selectedImage: string) {
   const legacyMbtiImage = "https://api.fermatmind.com/static/share/mbti_square_600x600.png";

@@ -1,4 +1,5 @@
-import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
+import { FreeAssessmentLanding, freeAssessmentMetadata } from "@/components/tests/FreeAssessmentLanding";
+import { JUNG_TEST_PATH, JUNG_TEST_SLUG, jungAssessmentForSlug } from "@/lib/tests/freeAssessmentLanding";
 import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples";
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessmentLandingSocialImage } from "@/lib/tests/assessmentLandingUi";
@@ -686,6 +687,9 @@ export async function generateMetadata({
   const { locale: localeParam, slug: requestedSlug } = await params;
   const slug = resolveCanonicalSlug(requestedSlug);
   const locale = resolveLocale(localeParam);
+  if (slug === JUNG_TEST_SLUG) {
+    return freeAssessmentMetadata("jung", localeParam === "zh-TW" ? "zh-TW" : locale);
+  }
   const landingData = await loadTestLandingData(locale, slug).catch((error) => resolveHeldLandingFailure(error, slug));
 
   if (landingData === "held-unavailable") {
@@ -715,23 +719,6 @@ export async function generateMetadata({
   }
 
   const { test, lookup, cmsLandingSurface } = landingData;
-  if (test.slug === "jung-archetypes" || test.slug === "jung-cognitive-functions") {
-    const pathname = localizedPath(`/tests/${test.slug}`, locale);
-    return buildPageMetadata({
-      locale,
-      pathname,
-      canonicalPathname: pathname,
-      canonicalRouteFamily: "test_detail",
-      title: resolveTestTitleByLocale(test, locale),
-      description: test.description,
-      noindex: lookup?.is_indexable !== true,
-      alternatesByLocale: {
-        en: localizedPath(`/tests/${test.slug}`, "en"),
-        zh: localizedPath(`/tests/${test.slug}`, "zh"),
-      },
-    });
-  }
-
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
@@ -818,13 +805,18 @@ export default async function TestLandingPage({
   const locale = resolveLocale(localeParam);
   const traditional = localeParam === "zh-TW";
   const slug = resolveCanonicalSlug(requestedSlug);
-  if (traditional && !isCoreAssessmentSlug(slug)) return notFound();
+  if (traditional && slug !== JUNG_TEST_SLUG && !isCoreAssessmentSlug(slug)) return notFound();
   const withLocale = (path: string) => assessmentDisplayPath(path, traditional ? "zh-TW" : locale, locale);
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}`), query));
   }
 
   const displayLocale = traditional ? "zh-TW" : locale;
+  if (jungAssessmentForSlug(slug)) permanentRedirect(appendQuery(withLocale(JUNG_TEST_PATH), query));
+  if (slug === JUNG_TEST_SLUG) {
+    return <FreeAssessmentLanding assessment="jung" locale={displayLocale} />;
+  }
+
   const translate = traditional ? await loadTraditionalAssessmentText() : null;
   const displayText = (text: string) => {
     if (!translate) return text;
@@ -856,37 +848,6 @@ export default async function TestLandingPage({
   }
   if (!landingData) return notFound();
   const { test, lookup, cmsLandingSurface } = landingData;
-  if (test.slug === "jung-archetypes" || test.slug === "jung-cognitive-functions") {
-    const zh = locale === "zh";
-    const archetype = test.slug === "jung-archetypes";
-    return <main className="mx-auto max-w-3xl space-y-8 px-[var(--fm-container-gutter)] py-12">
-      <header className="space-y-4">
-        <h1 className="text-4xl font-semibold">{resolveTestTitleByLocale(test, locale)}</h1>
-        <p>{test.description}</p>
-        <p>{zh ? `${test.questions_count} 题 · 完整报告免费` : `${test.questions_count} questions · Full report free`}</p>
-        <Link className={buttonVariants({ variant: "default" })} href={withLocale(`/tests/${test.slug}/take`)}>{zh ? "开始测评" : "Start assessment"}</Link>
-      </header>
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold">{zh ? "测评方法" : "How the assessment works"}</h2>
-        <p>{archetype
-          ? (zh ? "参考荣格原型观与 Carol Pearson 的应用框架。以过去三个月的经历为参照，按五档评价每个情境对自己的符合程度。" : "The form draws on Jung’s archetype concept and Carol Pearson’s applied framework. Use experiences from the past three months to rate how well each scenario describes you on a five-point scale.")
-          : (zh ? "参考荣格的心理类型理论。回想过去三个月碰到类似情境的经历，按五档评价自己采用这种做法的频率。" : "The form draws on Jung’s theory of psychological types. For each scenario, rate how often you used that approach in similar situations over the last three months.")}</p>
-        <p>{archetype
-          ? (zh ? "每个原型四题。若某维四题取 4、5、3、4，换算分为 75。接近或并列的原型会一起提示。" : "Four items contribute to each archetype. Ratings of 4, 5, 3 and 4 yield a range score of 75. The report shows close and tied archetypes.")
-          : (zh ? "每个功能八题，独立换算为 0–100。四组功能轴展示两维分差，类型候选按费马的功能栈匹配规则排列。" : "Eight items contribute to each function, independently scored on a 0–100 scale. Four axes show score differences and FermatMind’s stack-fit rule ranks possible types.")}</p>
-        <p>{zh ? "费马原创题本。结果用于自我反思。当前分数以题本量尺为参照，未经人群常模校准。" : "This original FermatMind questionnaire is for self-reflection. Scores use the questionnaire’s range and have not been calibrated to population norms."}</p>
-        <a className="underline" href={archetype
-          ? "https://carolspearson.com/about/the-pearson-12-archetype-system-human-development-and-evolution"
-          : "https://press.princeton.edu/books/hardcover/9780691097701/collected-works-of-c-g-jung-volume-6"}>{archetype
-            ? (zh ? "Carol Pearson 的十二原型系统" : "Carol Pearson’s Twelve Archetype System")
-            : (zh ? "荣格《心理类型》" : "Jung’s Psychological Types")}</a>
-      </section>
-      <Link className="underline" href={withLocale(archetype ? "/tests/jung-cognitive-functions" : "/tests/jung-archetypes")}>{archetype
-        ? (zh ? "了解八维认知功能测评" : "Explore the Cognitive Functions Assessment")
-        : (zh ? "了解十二原型测评" : "Explore the Twelve Archetypes Assessment")}</Link>
-    </main>;
-  }
-
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale);
   const assessmentEditorialLayout = getAssessmentEditorialLayout(test.slug);
@@ -1139,17 +1100,6 @@ export default async function TestLandingPage({
               }),
             }))
       : [];
-  const careerEntry = careerAssessmentEntry(traditional ? "zh-TW" : locale);
-  if (showsRiasecActions) {
-    flagshipVariantChoices.push({
-      key: "career_v1",
-      label: careerEntry.label,
-      summary: careerEntry.summary,
-      href: withAttribution(careerEntry.href),
-      ctaLabel: careerEntry.label,
-      testId: "test-detail-landing-cta-career-v1",
-    });
-  }
   const depressionVersionChoices: FlagshipVariantChoice[] = showsDepressionVersionActions
     ? [
         {

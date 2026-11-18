@@ -489,11 +489,12 @@ function QuizTakeInner({
   const inviteLinkOpenedTrackedRef = useRef(false);
   const forceNewAttemptAppliedRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
+  const isJungScale = scaleCode === "JUNG_ARCHETYPES" || scaleCode === "JUNG_COGNITIVE_FUNCTIONS";
   const showsTitleQuizChrome =
     !isCanonicalIqScaleCode(scaleCode) &&
-    (isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode) || isEqScaleCode(scaleCode));
+    (isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode) || isEqScaleCode(scaleCode) || isJungScale);
   const quizHeaderBrand = showsTitleQuizChrome ? testTitle : dict.header.brand;
-  const showCompletedCount = scaleCode !== "JUNG_ARCHETYPES" && scaleCode !== "JUNG_COGNITIVE_FUNCTIONS";
+  const showCompletedCount = !isJungScale;
   const trackedStartRef = useRef(false);
   const firstQuestionReadyTrackedRef = useRef(false);
   const takeMountedAtRef = useRef(Date.now());
@@ -1666,7 +1667,12 @@ function QuizTakeInner({
   }
 
   const takeUi = getAssessmentTakeUi(slug, locale);
-  const focusedAssessment = Boolean(takeUi);
+  const focusedAssessment = Boolean(takeUi) || isJungScale;
+  const answerTip = isJungScale
+    ? locale === "zh"
+      ? assessmentChineseCopy(displayLocale, "请根据过去三个月遇到相似情境时的实际做法作答。", "請根據過去三個月遇到相似情境時的實際做法作答。")
+      : "Answer based on what you typically did in similar situations over the last three months."
+    : dict.quiz.answerTip;
 
   if (immersiveEnabled) {
     return (
@@ -1826,7 +1832,7 @@ function QuizTakeInner({
                     {locale === "zh" ? assessmentChineseCopy(displayLocale, "答案已记录，正在进入下一题…", "答案已記錄，正在進入下一題…") : "Answer recorded. Moving to the next question…"}
                   </p>
                 ) : (
-                  <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
+                  <p className="m-0 text-sm text-[var(--fm-text-muted)]">{answerTip}</p>
                 )}
               </div>
             ) : null}
@@ -1837,7 +1843,7 @@ function QuizTakeInner({
             ) : null}
 
             {!focusedAssessment && !isIqScale ? (
-              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{answerTip}</p>
             ) : null}
 
             {iqNeedsSelection ? (
@@ -1958,7 +1964,7 @@ function QuizTakeInner({
         ) : null}
 
         {!isIqScale ? (
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{answerTip}</p>
         ) : null}
 
         {iqNeedsSelection ? (

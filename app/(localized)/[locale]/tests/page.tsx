@@ -1,3 +1,4 @@
+import { JUNG_TEST_SLUG, jungLandingCopy } from "@/lib/tests/freeAssessmentLanding";
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
 import { MoreTests } from "@/components/entertainment/MoreTests";
 import type { Metadata } from "next";
@@ -86,23 +87,20 @@ export default async function TestsPage({
     getAllTests(locale).catch(() => []),
   ]);
   const zh = locale === "zh";
-  const jungCards = catalog.flatMap((entry): HubTestCardItem[] => {
-    if (entry.is_active !== true || entry.is_public !== true
-      || !["JUNG_ARCHETYPES", "JUNG_COGNITIVE_FUNCTIONS"].includes(entry.scale_code ?? "")) return [];
-    const href = `/${locale}/tests/${entry.slug}`;
-
-    return [{
-      key: entry.slug,
-      title: entry.title,
-      description: entry.description,
-      questionsLabel: zh ? `${entry.questions_count} 题` : `${entry.questions_count} questions`,
-      durationLabel: zh ? `约 ${entry.time_minutes} 分钟` : `About ${entry.time_minutes} min`,
-      outputLabel: zh ? "完整报告免费" : "Free full report",
-      href,
-      primaryLabel: zh ? "查看测评" : "View assessment",
-      previewVariant: "bars",
-    }];
-  });
+  const jung = jungLandingCopy(locale);
+  const hasJungForms = catalog.some(entry => entry.is_active === true && entry.is_public === true
+    && ["JUNG_ARCHETYPES", "JUNG_COGNITIVE_FUNCTIONS"].includes(entry.scale_code ?? ""));
+  const jungCards: HubTestCardItem[] = hasJungForms ? [{
+    key: JUNG_TEST_SLUG,
+    title: jung.title,
+    description: jung.intro,
+    questionsLabel: zh ? "48 / 64 题" : "48 / 64 questions",
+    durationLabel: zh ? "约 10 / 13 分钟" : "About 10 / 13 min",
+    outputLabel: zh ? "完整报告免费" : "Free full reports",
+    href: `/${locale}${jung.path}`,
+    primaryLabel: zh ? "查看两套测试" : "View both tests",
+    previewVariant: "bars",
+  }] : [];
 
   if (!content) {
     return (

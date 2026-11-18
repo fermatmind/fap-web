@@ -10,7 +10,7 @@ for (const locale of ["zh", "en"]) {
         const oldPath = `/${locale}/tests/explore/${legacy}${suffix}`;
         const response = await request.get(oldPath, { maxRedirects: 0 });
         expect(response.status()).toBe(308);
-        expect(response.headers().location).toBe(`/${locale}/tests/${current}${suffix}`);
+        expect(response.headers().location).toBe(suffix ? `/${locale}/tests/${current}${suffix}` : `/${locale}/tests/jung-test`);
       }
       expect((await request.get(`/${locale}/tests/explore/${legacy}/results/${profile}`)).status()).toBe(404);
       expect((await request.get(`/zh-TW/tests/explore/${legacy}/results/${profile}`)).status()).toBe(404);

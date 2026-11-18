@@ -1,4 +1,5 @@
 import catalog from "./catalog.json";
+import questionnaires from "../questionnaires/catalog.json";
 import directoryCopy from "./directory-copy.json";
 import { GLOBAL_HISTORY_MINUTES, GLOBAL_HISTORY_QUESTION_COUNT, GLOBAL_HISTORY_SLUG, GLOBAL_HISTORY_UPDATED, GLOBAL_HISTORY_VERSION,
   globalHistoryDescription, globalHistoryTitle } from "./global-history/config";
@@ -24,3 +25,6 @@ export const directoryQuizzes = catalog.filter(quiz => isDirectoryQuiz(quiz.slug
 
 // Existing story identities remain separate from the assessment directory.
 export const storyQuizzes = [globalHistoryStory, ...catalog.filter(quiz => !isDirectoryQuiz(quiz.slug))];
+
+// DISC is featured with the assessments on the homepage. Its original route still serves the test.
+export const entertainmentDirectoryQuestionnaires = questionnaires.filter(quiz => quiz.slug !== "disc");

@@ -117,7 +117,7 @@ describe("T001 DISC complete source questionnaire", () => {
         expect(html).not.toContain(sourceSavingFaq.answer[locale]);
         expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "disc")}`);
         expect(meta.description).toBe(quiz.description[locale]);
-        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${questionnairePath(locale, "disc")}"`);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).not.toContain(`href="${questionnairePath(locale, "disc")}"`);
         for (const profile of quiz.profiles) {
           const path = questionnaireGuidePath(locale, "disc", profile.id);
           expect(html).toContain(`href="${path}"`);

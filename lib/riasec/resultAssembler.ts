@@ -760,7 +760,7 @@ export function assembleRiasecResultViewModel(
         scoreAvailable: typeof scores[code] === "number" && Number.isFinite(scores[code]),
       }));
   const formCode = normalizeText(v2Form?.form_code) || normalizeText(form?.form_code) || null;
-  const deepContentFormCode = formCode && isRiasecFormCode(formCode) ? formCode : null;
+  const deepContentFormCode = formCode === "career_v1" ? "riasec_60" : formCode && isRiasecFormCode(formCode) ? formCode : null;
   const topCode = normalizeText(v2HollandCode?.code) || normalizeText(projection.top_code);
   const qualityFlags = Array.isArray(v2Quality?.flags)
     ? v2Quality.flags.map((flag) => normalizeText(flag)).filter(Boolean)

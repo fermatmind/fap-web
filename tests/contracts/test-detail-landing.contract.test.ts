@@ -237,12 +237,12 @@ describe("test detail landing contract", () => {
     expect(source).toContain('showsBig5Actions');
   });
 
-  it("wires the public Holland form and independent career assessment entries", () => {
+  it("shows only the Holland form in its landing actions", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
     expect(source).toContain("const showsRiasecActions = isRiasecScaleCode(test.scale_code)");
     expect(source).toContain("listPublicRiasecFormMetas(lookup?.forms)");
-    expect(source).toContain('testId: "test-detail-landing-cta-career-v1"');
+    expect(source).not.toContain('testId: "test-detail-landing-cta-career-v1"');
     expect(source).toContain("withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode))");
     expect(source).toContain("getRiasecStartLabel(form.formCode, locale)");
     expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');

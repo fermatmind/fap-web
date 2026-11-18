@@ -7,6 +7,8 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import styles from "./AssessmentTake.module.css";
 
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { JUNG_TEST_PATH } from "@/lib/tests/freeAssessmentLanding";
 import { FOCUSED_ASSESSMENT_SLUGS } from "@/lib/quiz/assessmentTakeUi";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { parseQuestionnaireTakePath } from "@/lib/questionnaires/takePath";
@@ -28,9 +30,11 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
   const withLocale = (path: string) => displayNavigationPath(path, locale);
   const taiwan = locale === "zh-TW";
   const focusedSlug = FOCUSED_ASSESSMENT_SLUGS.find((slug) => pathname === withLocale(`/tests/${slug}/take`));
+  const jungTake = focusedSlug === SCALE_CANONICAL_SLUG_MAP.JUNG_ARCHETYPES || focusedSlug === SCALE_CANONICAL_SLUG_MAP.JUNG_COGNITIVE_FUNCTIONS;
   const questionnaireTake = parseQuestionnaireTakePath(taiwan ? pathname.replace(/^\/zh-TW(?=\/)/u, "/zh") : pathname);
   const friendshipInvite = /^\/(?:en|zh|zh-TW)\/share\/friendship\/[a-f0-9-]+\/?$/i.test(pathname);
-  const focused = friendshipInvite || Boolean(questionnaireTake) || (Boolean(focusedSlug) && isImmersiveSingleFlowEnabled());
+  const careerTake = pathname === withLocale("/career/assessment/take");
+  const focused = careerTake || friendshipInvite || Boolean(questionnaireTake) || (Boolean(focusedSlug) && isImmersiveSingleFlowEnabled());
 
   if (pathname === withLocale("/account")) return <>{children}</>;
 
@@ -41,11 +45,11 @@ export function AssessmentSiteFrame({ children, header, footer, locale }: {
   return (
     <div className={`${styles.siteFrame} ${styles.pageChrome}`}>
       {header}
-      <div className={styles.assessmentExit}>
-        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? withLocale("/tests/play/friendship-quiz") : questionnaireTake ? (taiwan ? withLocale(questionnaireTake.landing.slice("/zh".length)) : questionnaireTake.landing) : withLocale(`/tests/${focusedSlug}`)} className={styles.exitLink}>
+      {!careerTake && <div className={styles.assessmentExit}>
+        <Link prefetch={questionnaireTake || friendshipInvite ? false : undefined} href={friendshipInvite ? withLocale("/tests/play/friendship-quiz") : questionnaireTake ? (taiwan ? withLocale(questionnaireTake.landing.slice("/zh".length)) : questionnaireTake.landing) : withLocale(jungTake ? JUNG_TEST_PATH : `/tests/${focusedSlug}`)} className={styles.exitLink}>
           {taiwan ? "返回測驗介紹" : locale === "zh" ? "返回测评介绍" : "Back to assessment"}<span aria-hidden>↗</span>
         </Link>
-      </div>
+      </div>}
       {children}
       <footer className={styles.siteFooter}>
         <span>FermatMind</span>

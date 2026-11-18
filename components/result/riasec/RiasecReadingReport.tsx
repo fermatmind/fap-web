@@ -13,6 +13,7 @@ import {
 import { Compass, GitMerge, ScrollText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { buildRiasecTakeHref } from "@/lib/riasec/forms";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -42,7 +43,7 @@ type Props = {
   actions: ReactNode;
   emailRecovery?: ReactNode;
 };
-const COLORS: Record<string, string> = {
+const RIASEC_INTEREST_COLORS: Record<string, string> = {
   R: "#547886",
   I: "#7563a8",
   A: "#b45b79",
@@ -50,7 +51,7 @@ const COLORS: Record<string, string> = {
   E: "#a97632",
   C: "#5777a3",
 };
-const INTEREST_ART: Record<string, string> = {
+const RIASEC_INTEREST_ART: Record<string, string> = {
   R: "/images/riasec/realistic.webp",
   I: "/images/riasec/ias-researcher.webp",
   A: "/images/riasec/artistic.webp",
@@ -212,9 +213,10 @@ function RiasecReadingReportBody({
     (slot) => slot.selection?.dimensionCode === dimension?.code,
   );
   const summary = vm.resultSummary;
-  const usePortraitLayout = vm.formCode === "riasec_60" && (
+  const careerAssessment = vm.formCode === "career_v1";
+  const usePortraitLayout = careerAssessment || (vm.formCode === "riasec_60" && (
     zh || dimensionSlots.some(slot => Boolean(slot.content.desktop_insight_reading))
-  );
+  ));
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
   const activityState = visibility("activity_explorer");
   const hasActivities = activityState !== "hidden";
@@ -444,7 +446,6 @@ function RiasecReadingReportBody({
     >
       <ReportHeader
         vm={vm}
-        locale={locale}
         displayLocale={displayLocale}
         actions={actions}
         emailRecovery={emailRecovery}
@@ -779,7 +780,7 @@ function RiasecReadingReportBody({
                   </header>
                   <div className={styles.tailBody}>
                     <dl className={styles.tailMethods}>
-                      <div><dt>{t("六维分数怎么得出", "How your scores are calculated")}</dt><dd>{t("60 道题记录你对不同工作活动的喜好，按霍兰德六类职业兴趣分别汇总，再换算为 0–100 分。分数相同的维度并列阅读，分数接近时可以一起比较。", "The 60 questions ask how much you like different work activities. Responses are grouped into Holland’s six interest dimensions and converted to a 0–100 scale. Read tied scores together and compare similar scores side by side.")}</dd></div>
+                      <div><dt>{t("六维分数怎么得出", "How your scores are calculated")}</dt><dd>{careerAssessment ? t("94 题中的 42 道职业兴趣题按霍兰德六维分别汇总，再换算为 0–100 分。不确定或跳过的回答不计分，有效回答不足时该维度不出分。", "The 42 interest questions in the 94-question assessment are grouped into Holland’s six dimensions and converted to 0–100. Skipped responses do not count. Dimensions with too few valid answers are left unscored.") : t("60 道题记录你对不同工作活动的喜好，按霍兰德六类职业兴趣分别汇总，再换算为 0–100 分。分数相同的维度并列阅读，分数接近时可以一起比较。", "The 60 questions ask how much you like different work activities. Responses are grouped into Holland’s six interest dimensions and converted to a 0–100 scale. Read tied scores together and compare similar scores side by side.")}</dd></div>
                       <div><dt>{t("职业候选怎么选出", "How careers are selected")}</dt><dd>{t("有可用的职业候选时，报告按你的六维兴趣分布与美国 O*NET 职业兴趣资料的相似程度列出候选。相似度用于探索岗位，不代表能力、入行资格或录用概率。", "When career suggestions are available, they are ordered by how closely your six interest scores resemble U.S. O*NET occupational interest profiles. Use the list to explore work tasks and check entry requirements separately.")}</dd></div>
                     </dl>
                     <Link href={assessmentDisplayPath("/science", displayLocale, locale)}>{t("查看费马测评方法 →", "Read FermatMind’s assessment methods →")}</Link>
@@ -891,7 +892,7 @@ function DimensionAtlasCard({
       className={styles.dimensionEntry}
       style={{
         "--interest-score": `${score ?? 0}%`,
-        "--dimension-color": COLORS[selection.dimensionCode] || COLORS.R,
+        "--dimension-color": RIASEC_INTEREST_COLORS[selection.dimensionCode] || RIASEC_INTEREST_COLORS.R,
       } as CSSProperties}
       data-testid="riasec-deep-content-slot"
     >
@@ -964,7 +965,7 @@ function ContentCard({
       className={styles.contentCard}
       id={slot.slotKey === "dimension_deep_copy" && slot.selection?.dimensionCode ? `riasec-reading-${slot.selection.dimensionCode}` : undefined}
       data-dimension={slot.selection?.dimensionCode}
-      style={{ "--dimension-color": COLORS[slot.selection?.dimensionCode || ""] } as CSSProperties}
+      style={{ "--dimension-color": RIASEC_INTEREST_COLORS[slot.selection?.dimensionCode || ""] } as CSSProperties}
       data-testid="riasec-deep-content-slot"
     >
       <h3 className={styles.contentTitle}>
@@ -1012,19 +1013,18 @@ function ContentCard({
 
 function ReportHeader({
   vm,
-  locale,
-  displayLocale = locale,
+  displayLocale = "en",
   actions,
   emailRecovery,
   usePortraitLayout,
   workScene,
-}: Omit<Props, "viewModel"> & {
+}: Pick<Props, "actions" | "emailRecovery" | "displayLocale"> & {
   vm: RiasecResultViewModel;
   usePortraitLayout: boolean;
   workScene?: ReactNode;
 }) {
   const t = useReportCopy();
-  const enhancedTestHref = buildRiasecTakeHref(SCALE_CANONICAL_SLUG_MAP.RIASEC, locale, "riasec_140");
+  const careerTestHref = careerAssessmentEntry(displayLocale).href;
   const summary = vm.resultSummary;
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
   // The snapshot-bound result summary is a separate backend projection.
@@ -1044,8 +1044,8 @@ function ReportHeader({
   const showPortrait = usePortraitLayout && Boolean(primary) && heroState === "visible" && !caution
     && vm.scoreKind === "dimension_scores_0_100"
     && vm.interpretationState?.readingStrength !== "retake_recommended";
-  const interestArt = showSingleInterest && primary ? INTEREST_ART[primary.code] : undefined;
-  const highlightCodes = summary?.highlights.map(item => item.dimensionCode) ?? [];
+  const interestArt = showSingleInterest && primary ? RIASEC_INTEREST_ART[primary.code] : undefined;
+  const highlightCodes = summary?.highlights.map(item => item.dimensionCode) ?? (vm.formCode === "career_v1" ? vm.topCode.split("") : []);
   const interestCodes = [...new Set([...highlightCodes, ...(tieDisplay?.dimensions ?? [])])];
   const rankedInterests = interestCodes.flatMap(code => {
     const dimension = vm.dimensions.find(item => item.code === code && item.scoreAvailable !== false);
@@ -1115,18 +1115,12 @@ function ReportHeader({
               {!(showPortrait && workScene) && summary?.boundary ? (
                 <p className={styles.summaryNext} data-testid="riasec-result-boundary">{summary.boundary}</p>
               ) : null}
-              {showPortrait ? (
+              {showPortrait && vm.formCode !== "career_v1" ? (
                 <p className={workScene ? styles.summaryNext : "mt-2 text-[13px] leading-relaxed"}>
-                  {workScene
-                    ? t("这份霍兰德报告帮你看清了自己喜欢做什么，而这只是职业拼图的第一块。接下来，推荐你体验 ", "This Holland report shows which activities draw your interest. If you want to narrow your options further, try ")
-                    : t("想进一步了解自己偏好的工作环境和团队角色，可以做 140 题的 ", "To explore your preferred work settings and team roles, try the 140-question ")}
-                  <Link
-                    className={styles.enhancedTestLink}
-                    href={displayLocale === "zh-TW" ? enhancedTestHref.replace(/^\/zh(?=\/)/, "/zh-TW") : enhancedTestHref}
-                  >
-                    {workScene ? t("费马职业测试（140 题）→", "FermatMind Career Test (140 questions) →") : t("费马综合职业测试 →", "FermatMind Career Test →")}
+                  {t("想把职业兴趣和工作方式、工作条件一起考虑？推荐你体验 ", "Want to consider your interests alongside your preferred ways of working and job conditions? Try ")}
+                  <Link className={styles.enhancedTestLink} href={careerTestHref}>
+                    {t("费马职业测试（94 题）→", "FermatMind Career Test (94 questions) →")}
                   </Link>
-                  {workScene ? t("，它会将你的职业兴趣与工作风格、看重的工作条件及现有经验结合起来，对照上千种职业，帮你直接比较出值得优先考虑的方向。", ". It brings your interests, work style, priorities, and experience together to help you compare directions across over a thousand careers.") : null}
                 </p>
               ) : null}
             </div>
@@ -1217,7 +1211,7 @@ function ReportNavigation({
 }
 
 function InterestRadar({ dimensions }: { dimensions: RiasecResultViewModel["dimensions"] }) {
-  const ordered = Object.keys(COLORS).map(code => dimensions.find(item => item.code === code));
+  const ordered = Object.keys(RIASEC_INTEREST_COLORS).map(code => dimensions.find(item => item.code === code));
   if (ordered.some(item => !item || item.scoreAvailable === false || !Number.isFinite(item.score))) return null;
 
   const coordinates = (score: number, index: number) => {
@@ -1278,7 +1272,7 @@ function DimensionChart({
               data-testid={`riasec-dimension-${item.code}`}
               style={
                 {
-                  "--dimension-color": COLORS[item.code] || COLORS.R,
+                  "--dimension-color": RIASEC_INTEREST_COLORS[item.code] || RIASEC_INTEREST_COLORS.R,
                 } as CSSProperties
               }
             >

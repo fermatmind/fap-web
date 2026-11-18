@@ -999,9 +999,9 @@ test("public entry keeps Holland 60Q and directs the retired route to the indepe
     "/en/tests/holland-career-interest-test-riasec/take?form=riasec_60"
   );
   await expect(page.getByTestId("test-detail-landing-cta-riasec_140")).toHaveCount(0);
-  await expect(page.getByTestId("test-detail-landing-cta-career-v1")).toHaveAttribute("href", "/en/career/assessment");
+  await expect(page.getByTestId("test-detail-landing-cta-career-v1")).toHaveCount(0);
 
   await page.goto("/en/tests/holland-career-interest-test-riasec/take?form=riasec_140");
-  await expect(page).toHaveURL(/\/en\/career\/assessment$/);
-  await expect(page.getByRole("heading", { name: "FermatMind Career Assessment (94 questions)" })).toBeVisible();
+  await expect(page).toHaveURL(/\/en\/career\/assessment\/take$/);
+  await expect(page.getByText("FermatMind Career Assessment (94 questions)", { exact: true })).toBeVisible();
 });

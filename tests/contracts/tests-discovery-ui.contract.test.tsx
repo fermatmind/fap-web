@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { MoreTests } from "@/components/entertainment/MoreTests";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 import editorial from "@/components/tests/discovery-card-editorial.json";
-import { directoryQuizzes } from "@/lib/entertainment/directory";
+import { directoryQuizzes, entertainmentDirectoryQuestionnaires } from "@/lib/entertainment/directory";
 
 describe("shared discovery directory", () => {
   it("has an explicit bilingual subtitle and illustration plan for each current identity", () => {
@@ -20,11 +20,11 @@ describe("shared discovery directory", () => {
       expect(entry.subtitle.en.trim().length).toBeGreaterThan(3);
     }
   });
-  it("retains every catalog identity and real destination, filters and recovers from an empty search", () => {
+  it("shows the entertainment catalog and its real destinations, filters and recovers from an empty search", () => {
     const { container } = render(<MoreTests locale="zh" />);
     const count =
       1 +
-      questionnaires.length +
+      entertainmentDirectoryQuestionnaires.length +
       directoryQuizzes.filter(
         (item) => !questionnaires.some((native) => native.slug === item.slug),
       ).length;
@@ -61,7 +61,8 @@ describe("shared discovery directory", () => {
         'a.catalog-item-start[href="/zh/tests/explore/caliper-style-assessment-test"]',
       )?.textContent,
     ).toContain("开始测试");
-    for (const quiz of questionnaires) {
+    expect(container.querySelector('a[href="/zh/tests/explore/disc"]')).toBeNull();
+    for (const quiz of entertainmentDirectoryQuestionnaires) {
       expect(
         container.querySelector(
           `h4 a[href="/zh/tests/${quiz.collection}/${quiz.slug}"]`,

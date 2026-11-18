@@ -17,8 +17,7 @@ const CORE_TEST_SLUG_GROUPS = [
   ["enneagram-personality-test-nine-types"],
   ["iq-test-intelligence-quotient-assessment"],
   ["eq-test-emotional-intelligence-assessment"],
-  ["jung-archetypes"],
-  ["jung-cognitive-functions"],
+  ["jung-test"],
 ] as const;
 
 function getCoreIndex(item: {
