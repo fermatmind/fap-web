@@ -17,12 +17,6 @@ import {
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
 import {
-  normalizeInviteUnlockSummary,
-  resolveInviteUnlockSummaryBadge,
-  resolveInviteUnlockSummaryLabel,
-  type InviteUnlockSummaryView,
-} from "@/lib/access/inviteUnlockSummary";
-import {
   fetchAttemptReportAccess,
   getOrderStatus,
   recoverAlipayReturnContext,
@@ -220,7 +214,6 @@ export default function OrdersClient({
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
   const triggerPollRef = useRef<((options?: { manual?: boolean }) => void) | null>(null);
-  const inviteSummaryTrackedRef = useRef(false);
   const orderLookupHref = useMemo(() => {
     const query = new URLSearchParams({ orderNo });
     return withLocale(`/orders/lookup?${query.toString()}`);
@@ -382,6 +375,7 @@ export default function OrdersClient({
       isTraditional ? "訂單確認逾時，請重新整理或聯絡客服。" : locale === "zh"
         ? "订单确认超时，请刷新或联系客服。"
         : "Payment confirmation timed out. Please refresh or contact support.";
+    let requestInFlight = false;
     const requestFailedMessage =
       isTraditional ? "無法查詢訂單狀態，請稍後再試。" : locale === "zh" ? "订单状态查询失败，请稍后再试。" : "Unable to check order status. Please try again.";
 
@@ -411,7 +405,8 @@ export default function OrdersClient({
     const poll = async (options: { manual?: boolean } = {}) => {
       const { manual = false } = options;
 
-      if (!active) return;
+      if (!active || requestInFlight) return;
+      requestInFlight = true;
       if (manual) {
         setIsRefreshing(true);
         setStatus("initializing");
@@ -459,8 +454,10 @@ export default function OrdersClient({
         const responseOrderBoundResultHref = normalizeCommerceReportPath(
           typeof response.exact_result_entry?.actions?.page_href === "string"
             ? response.exact_result_entry.actions.page_href
-            : null
+            : response.result_url
         );
+        const responseIsCareer94 = Boolean(responseOrderBoundResultHref
+          && /^\/career\/assessment\/result\/[a-f0-9-]{36}$/i.test(normalizeLocalizedPath(responseOrderBoundResultHref)));
         const responseAttemptId =
           normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
           ?? normalizeQueryValue(response.attempt_id ?? null)
@@ -472,7 +469,7 @@ export default function OrdersClient({
           ?? response.exact_result_entry?.mbti_form_v1
           ?? null;
         let nextAccessView = normalizeAttemptReportAccess(response.exact_result_entry ?? null, locale);
-        if (!nextAccessView && responseAttemptId) {
+        if (!nextAccessView && responseAttemptId && !responseIsCareer94) {
           try {
             const accessResponse = await fetchAttemptReportAccess({ attemptId: responseAttemptId, locale });
             nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
@@ -640,6 +637,7 @@ export default function OrdersClient({
           stage: "poll_order_status",
         });
       } finally {
+        requestInFlight = false;
         if (active) {
           setIsRefreshing(false);
         }
@@ -676,6 +674,20 @@ export default function OrdersClient({
     router,
     withLocale,
   ]);
+
+  useEffect(() => {
+    const resume = () => {
+      if (document.visibilityState === "visible" && !didAutoRedirectRef.current) {
+        triggerPollRef.current?.({ manual: true });
+      }
+    };
+    window.addEventListener("focus", resume);
+    document.addEventListener("visibilitychange", resume);
+    return () => {
+      window.removeEventListener("focus", resume);
+      document.removeEventListener("visibilitychange", resume);
+    };
+  }, []);
 
   const handleManualRefresh = useCallback(() => {
     if (isRefreshing) return;
@@ -749,24 +761,6 @@ export default function OrdersClient({
     () => normalizeMbtiAccessHub(accessHubRaw ?? null, locale),
     [accessHubRaw, locale]
   );
-  const inviteUnlockSummary = useMemo<InviteUnlockSummaryView | null>(() => {
-    if (accessHub?.inviteUnlock) {
-      return accessHub.inviteUnlock;
-    }
-
-    return normalizeInviteUnlockSummary(null, {
-      unlockStage: accessView?.unlockStage ?? null,
-      unlockSource: accessView?.unlockSource ?? null,
-    });
-  }, [accessHub?.inviteUnlock, accessView?.unlockSource, accessView?.unlockStage]);
-  const inviteSummaryBadge = useMemo(
-    () => resolveInviteUnlockSummaryBadge(inviteUnlockSummary, locale),
-    [inviteUnlockSummary, locale]
-  );
-  const inviteSummaryLabel = useMemo(
-    () => resolveInviteUnlockSummaryLabel(inviteUnlockSummary, locale),
-    [inviteUnlockSummary, locale]
-  );
   const formSummary = useMemo(() => normalizePublicFormSummary(formSummaryRaw), [formSummaryRaw]);
   const formSummaryLabel = useMemo(
     () => buildPublicFormDisplayLabel(formSummary, { includeScaleCode: true, locale }),
@@ -818,22 +812,6 @@ export default function OrdersClient({
   const isExactResultReady = Boolean(reportEntryHref);
   const paidStatusAlert = isExactResultReady ? dict.orders.reportReady : dict.orders.reportPendingAfterPayment;
 
-  useEffect(() => {
-    if (!inviteUnlockSummary || inviteSummaryTrackedRef.current) {
-      return;
-    }
-
-    inviteSummaryTrackedRef.current = true;
-    trackEvent("invite_staged_summary_viewed", {
-      scale_code: "MBTI",
-      unlock_stage: inviteUnlockSummary.unlockStage,
-      unlock_source: inviteUnlockSummary.unlockSource,
-      completed_invitees: inviteUnlockSummary.completedInvitees,
-      required_invitees: inviteUnlockSummary.requiredInvitees,
-      form_code: formSummary?.formCode ?? undefined,
-      locale,
-    });
-  }, [formSummary?.formCode, inviteUnlockSummary, locale]);
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
@@ -848,16 +826,7 @@ export default function OrdersClient({
               {formSummaryLabel}
             </p>
           ) : null}
-          {inviteUnlockSummary && inviteSummaryBadge && inviteSummaryLabel ? (
-            <div
-              className="rounded-lg border border-violet-200 bg-violet-50/70 px-3 py-2 text-sm text-violet-900"
-              data-testid="order-invite-unlock-summary"
-            >
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">{inviteSummaryBadge}</p>
-              <p className="m-0 mt-1">{inviteSummaryLabel}</p>
-            </div>
-          ) : null}
-          <p className="m-0 text-sm text-slate-600">{message}</p>
+          {status !== "pending" ? <p className="m-0 text-sm text-slate-600">{message}</p> : null}
         </CardHeader>
 
         <CardContent className="space-y-3">
@@ -869,7 +838,11 @@ export default function OrdersClient({
 
           {status === "pending" ? (
             <div className="space-y-3">
-              <Alert className="border-slate-200 bg-slate-50 text-slate-700">{dict.orders.pending}</Alert>
+              <Alert className="border-slate-200 bg-slate-50 text-slate-700">
+                {isTraditional ? "付款完成後會自動開啟完整報告，無需再次購買。" : locale === "zh"
+                  ? "支付完成后会自动打开完整报告，无需再次购买。"
+                  : "Your full report opens automatically after payment is confirmed. No need to purchase again."}
+              </Alert>
 
               {payType === "qr" || payType === "html" || payType === "redirect" ? (
                 <div className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-4">

@@ -119,6 +119,32 @@ describe("OrdersClient delivery contract", () => {
     vi.restoreAllMocks();
   });
 
+  it.each(["pending", "paid", "refunded"] as const)("keeps Career94 %s on its own report path without generic report generation", async (status) => {
+    const id = "674254eb-6f6c-40d6-beea-2306f6abc9e3";
+    const href = `/zh/career/assessment/result/${id}`;
+    hoisted.pathname = "/zh/pay/wait";
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true, order_no: "ord_career94", attempt_id: id, status,
+      result_url: `https://fermatmind.com${href}`,
+      exact_result_entry: status === "paid" ? {
+        attempt_id: id, access_state: "ready", report_state: "ready", actions: { page_href: href },
+      } : null,
+    });
+    render(<OrdersClient orderNo="ord_career94" />);
+    await waitFor(() => expect(hoisted.getOrderStatus).toHaveBeenCalled());
+    if (status === "paid") {
+      await waitFor(() => expect(hoisted.routerReplace).toHaveBeenCalledWith(href));
+    } else if (status === "pending") {
+      await waitFor(() => expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", href));
+      expect(hoisted.routerReplace).not.toHaveBeenCalled();
+    } else {
+      await waitFor(() => expect(hoisted.getOrderStatus).toHaveBeenCalled());
+      expect(hoisted.routerReplace).not.toHaveBeenCalled();
+    }
+    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("order-invite-unlock-summary")).not.toBeInTheDocument();
+  });
+
   it("renders a neutral loading state before the first order status response arrives", async () => {
     const pendingResponse = deferred<{
       ok: true;
@@ -204,8 +230,7 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-back-to-result-link").textContent).toContain("Back to my test result");
     expect(screen.getByTestId("order-back-to-result-link").querySelector("button")?.className).toContain("bg-[var(--fm-surface)]");
     expect(screen.getByTestId("order-refresh-button").className).toContain("bg-[var(--fm-cta-orange)]");
-    expect(screen.getByTestId("order-invite-unlock-summary")).toHaveTextContent("Invite unlock 1/2");
-    expect(screen.getByTestId("order-invite-unlock-summary")).toHaveTextContent("Invite unlock 1/2 · Career unlocked");
+    expect(screen.queryByTestId("order-invite-unlock-summary")).not.toBeInTheDocument();
     expectInlineActionOrder(screen.getByTestId("order-wait-actions-paid-ready"), [
       "Back to my test result",
       "Refresh",
@@ -216,19 +241,7 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
-    await waitFor(() => {
-      expect(hoisted.trackEvent).toHaveBeenCalledWith(
-        "invite_staged_summary_viewed",
-        expect.objectContaining({
-          unlock_stage: "partial",
-          unlock_source: "invite",
-          completed_invitees: 1,
-          required_invitees: 2,
-          scale_code: "MBTI",
-          locale: "en",
-        })
-      );
-    });
+    expect(hoisted.trackEvent).not.toHaveBeenCalledWith("invite_staged_summary_viewed", expect.anything());
 
     fireEvent.click(screen.getByTestId("order-download-pdf"));
 

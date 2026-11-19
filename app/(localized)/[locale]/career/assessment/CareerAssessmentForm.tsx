@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
@@ -11,7 +10,7 @@ import { CareerAssessmentResult } from "./CareerAssessmentResult";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import { Button } from "@/components/ui/button";
 import { Career94SaveResult } from "./Career94Purchase";
-import { careerAssessmentEndpoint as endpoint, requestCareer94Result, type Career94Market } from "./career94-api";
+import { careerAssessmentEndpoint as endpoint, requestCareer94Result, type Career94Market, Career94Offer } from "./career94-api";
 
 const sectionNames = {
   interest: ["职业兴趣", "Career interests"],
@@ -87,7 +86,6 @@ function saveDraft(answers: Answers, index: number) {
 }
 
 export function CareerAssessmentForm({ locale }: { locale: Locale }) {
-  const router = useRouter();
   const zh = locale === "zh";
   const language = zh ? "zh-CN" : "en";
   const t = (cn: string, en: string) => zh ? cn : en;
@@ -101,7 +99,7 @@ export function CareerAssessmentForm({ locale }: { locale: Locale }) {
   const [busy, setBusy] = useState(false);
   const [report, setReport] = useState<Parameters<typeof assembleRiasecResultViewModel>[0]>();
   const viewModel = useMemo(() => report ? assembleRiasecResultViewModel(report, locale) : undefined, [report, locale]);
-  const [markets, setMarkets] = useState<Career94Market[]>([]);
+  const [offers, setOffers] = useState<Career94Offer[]>([]);
   const submissionIds = useRef<Partial<Record<Career94Market, string>>>({});
   const reportRegion = useRef<HTMLDivElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -192,8 +190,8 @@ export function CareerAssessmentForm({ locale }: { locale: Locale }) {
         return;
       }
       if (!response.ok) throw new Error("Scoring unavailable");
-      const result = await response.json() as Parameters<typeof assembleRiasecResultViewModel>[0] & { purchase_markets?: Career94Market[] };
-      setMarkets(result.purchase_markets ?? []);
+      const result = await response.json() as Parameters<typeof assembleRiasecResultViewModel>[0] & { purchase_offers?: Career94Offer[] };
+      setOffers(result.purchase_offers ?? []);
       if (!result.riasec_public_projection_v2) throw new Error("Report unavailable");
       setReport(result);
     } catch {
@@ -206,12 +204,12 @@ export function CareerAssessmentForm({ locale }: { locale: Locale }) {
 
   if (viewModel) {
     return <div ref={reportRegion} tabIndex={-1}>
-      <CareerAssessmentResult purchase={markets.length > 0 && <Career94SaveResult locale={locale} markets={markets} onSave={async market => {
+      <CareerAssessmentResult purchase={offers.length > 0 && <Career94SaveResult locale={locale} offers={offers} onSave={async market => {
         submissionIds.current[market] ??= crypto.randomUUID();
         const saved = await requestCareer94Result("", {
           submission_id: submissionIds.current[market], market, form_version: form.form_version, answers, locale,
         });
-        router.push(`/${locale}/career/assessment/result/${saved.attempt_id}`);
+        return saved;
       }} />} model={viewModel} locale={locale} onReview={() => {
         setReport(undefined);
         requestAnimationFrame(() => heading.current?.focus());
