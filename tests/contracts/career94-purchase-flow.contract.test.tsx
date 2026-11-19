@@ -31,14 +31,14 @@ describe("Career94 single-click purchase", () => {
     expect(mocks.push).not.toHaveBeenCalledWith(`/zh/career/assessment/result/${id}`);
   });
 
-  it("requires an account before saving or charging", () => {
+  it("allows a guest to save and purchase without a login or registration screen", async () => {
     mocks.account.mockReturnValue(false);
-    const save = vi.fn();
+    const save = vi.fn().mockResolvedValue(saved);
     render(<Career94SaveResult locale="zh" offers={[offer]} onSave={save} />);
     fireEvent.click(screen.getByRole("button", { name: "微信支付 · ¥2.99" }));
-    expect(screen.getByRole("link", { name: "登录账户" })).toBeInTheDocument();
-    expect(save).not.toHaveBeenCalled();
-    expect(mocks.checkout).not.toHaveBeenCalled();
+    await waitFor(() => expect(mocks.checkout).toHaveBeenCalled());
+    expect(save).toHaveBeenCalledWith("CN_MAINLAND");
+    expect(screen.queryByRole("link", { name: "登录账户" })).not.toBeInTheDocument();
   });
 
   it("opens an existing report without creating another checkout", async () => {

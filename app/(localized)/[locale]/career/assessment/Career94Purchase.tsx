@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { isAccountSession } from "@/lib/account/storage";
 import { createCheckoutOrOrder } from "@/lib/api/v0_3";
 import { resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { buildApiUrl } from "@/lib/api-base";
+import { careerGuestHeaders } from "@/lib/commerce/guestOwnership";
 import { getFmToken } from "@/lib/auth/fmToken";
 import { normalizeCommercePaymentRedirectUrl } from "@/lib/commerce/redirectUrls";
 import styles from "./CareerAssessmentResult.module.css";
@@ -35,7 +35,7 @@ async function launchCheckout(offer: Career94Offer, attemptId: string, locale: L
     }
     const response = await fetch(buildApiUrl(launchPath), {
       cache: "no-store", credentials: "omit", redirect: "error",
-      headers: { Accept: "application/json", Authorization: `Bearer ${getFmToken() ?? ""}` },
+      headers: { ...careerGuestHeaders(), Accept: "application/json", Authorization: `Bearer ${getFmToken() ?? ""}` },
       signal: AbortSignal.timeout(15000),
     });
     if (!response.ok) throw new Error("CHECKOUT_UNAVAILABLE");
@@ -54,10 +54,9 @@ export function Career94SaveResult({ locale, offers, onSave }: {
 }) {
   const zh = locale === "zh";
   const router = useRouter();
-  const [state, setState] = useState<"idle" | "busy" | "login" | "failed">("idle");
+  const [state, setState] = useState<"idle" | "busy" | "failed">("idle");
 
   async function pay(offer: Career94Offer) {
-    if (!isAccountSession()) { setState("login"); return; }
     setState("busy");
     try {
       const saved = await onSave(offer.currency === "CNY" ? "CN_MAINLAND" : "INTERNATIONAL");
@@ -72,8 +71,8 @@ export function Career94SaveResult({ locale, offers, onSave }: {
       const available = saved.offers.find(item => item.sku === offer.sku && item.provider === offer.provider);
       if (!available) throw new Error("CHECKOUT_UNAVAILABLE");
       await launchCheckout(available, saved.attempt_id, locale, router.push);
-    } catch (error) {
-      setState(error instanceof Error && error.message === "ACCOUNT_REQUIRED" ? "login" : "failed");
+    } catch {
+      setState("failed");
     }
   }
 
@@ -85,9 +84,6 @@ export function Career94SaveResult({ locale, offers, onSave }: {
     <p>{zh ? "一次付款，解锁本次完整报告。" : "One payment unlocks this full report."}{" "}
       <Link href={`/${locale}/refund`}>{zh ? "退款政策" : "Refund policy"}</Link>
     </p>
-    {state === "login" && <p role="status">{zh ? "请先登录费马账户，再回此页继续。" : "Sign in to your FermatMind account, then return here."}{" "}
-      <Link href={`/${locale}/account`} target="_blank" rel="noopener">{zh ? "登录账户" : "Sign in"}</Link>
-    </p>}
     {state === "failed" && <p role="alert">{zh ? "暂时无法打开支付，请重试。" : "Checkout is unavailable. Please try again."}</p>}
   </div>;
 }

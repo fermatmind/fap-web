@@ -1361,6 +1361,10 @@ export default function AccountCenter({ locale }: { locale: DisplayLocale }) {
                               {zh ? accountText(locale, "查看订单") : "View order"}
                               <ChevronRight size={14} />
                             </AccountLink>
+                            {(order.payment_state === "paid" || order.payment_state === "refunded") && order.sku?.startsWith("CAREER94_") && <AccountLink displayLocale={locale}
+                              href={path(`/orders/${encodeURIComponent(order.order_no)}?refund=1`)}>
+                              {zh ? accountText(locale, "退款申请／进度") : "Refund request / status"}
+                            </AccountLink>}
                           </div>
                         ))}
                         <div className={styles.pagination}>

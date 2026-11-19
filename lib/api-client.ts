@@ -1,3 +1,4 @@
+import { careerGuestHeaders } from "@/lib/commerce/guestOwnership";
 import { getLocaleFromPathname, toApiLocale } from "@/lib/i18n/locales";
 import { getFmToken } from "@/lib/auth/fmToken";
 import { buildApiUrl } from "@/lib/api-base";
@@ -121,6 +122,9 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
   let payload: unknown;
   try {
     const mergedHeaders = new Headers(fetchInit.headers ?? {});
+    if (/^\/?(?:api\/)?v0\.3\/orders(?:[/?]|$)/.test(path)) {
+      for (const [name, value] of Object.entries(careerGuestHeaders())) mergedHeaders.set(name, value);
+    }
     mergedHeaders.set("Content-Type", "application/json");
     mergedHeaders.set("Accept", "application/json");
     if (!mergedHeaders.has("X-FAP-Locale")) {

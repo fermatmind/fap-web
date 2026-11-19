@@ -6,6 +6,7 @@ import Image from "next/image";
 import QRCode from "qrcode";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2, XCircle } from "lucide-react";
+import { CareerRefundPanel } from "@/components/commerce/CareerRefundPanel";
 import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
@@ -143,6 +144,7 @@ export default function OrdersClient({
   const router = useRouter();
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
+  const refundMode = searchParams.get("refund") === "1";
   const locale = getLocaleFromPathname(pathname);
   const isTraditional = pathname.startsWith("/zh-TW/");
   const dict = getDictSync(isTraditional ? "zh-TW" : locale);
@@ -550,7 +552,7 @@ export default function OrdersClient({
           if (exactResultReady && exactResultHref) {
             setMessage(dict.orders.reportReady);
             stopPolling();
-            if (!didAutoRedirectRef.current) {
+            if (!didAutoRedirectRef.current && !refundMode) {
               didAutoRedirectRef.current = true;
               router.replace(localizeCommerceHref(exactResultHref, withLocale, isTraditional) ?? withLocale("/orders/lookup"));
             }
@@ -661,6 +663,7 @@ export default function OrdersClient({
       clearPollTimer();
     };
   }, [
+    refundMode,
     dict,
     effectivePaymentRecoveryToken,
     identityMismatchTitle,
@@ -813,6 +816,12 @@ export default function OrdersClient({
   const paidStatusAlert = isExactResultReady ? dict.orders.reportReady : dict.orders.reportPendingAfterPayment;
 
 
+  const handleRefunded = useCallback(() => {
+    setStatus("refunded");
+    setAccessView(null);
+    setMessage(dict.orders.refunded);
+  }, [dict.orders.refunded]);
+
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
       <Card className="w-full">
@@ -928,6 +937,8 @@ export default function OrdersClient({
               </div>
             </div>
           ) : null}
+
+          {(status === "paid" || status === "refunded") && <CareerRefundPanel orderNo={orderNo} locale={locale} onRefunded={handleRefunded} />}
 
           {status === "paid" ? (
             <div className="space-y-3">
@@ -1102,7 +1113,7 @@ export default function OrdersClient({
             </div>
           ) : null}
 
-          {!recoveryMode && !timedOut && (status === "failed" || status === "canceled" || status === "refunded") ? (
+          {!recoveryMode && !timedOut && (status === "failed" || status === "canceled") ? (
             <div className="space-y-3">
               <Alert>{message}</Alert>
               <div className="flex flex-wrap gap-2">

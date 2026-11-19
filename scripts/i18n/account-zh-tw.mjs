@@ -5,7 +5,7 @@ import ts from 'typescript';
 import {convertText} from './convert-zh-tw.mjs';
 
 const root=new URL('../../',import.meta.url);
-const sourceFiles=['components/account/AccountCenter.tsx','app/(localized)/[locale]/account/page.tsx'];
+const sourceFiles=['components/commerce/CareerRefundPanel.tsx','components/account/AccountCenter.tsx','app/(localized)/[locale]/account/page.tsx'];
 const converter='opencc-js@1.4.2:cn:twp';
 const glossary='fermatmind-tw-account-1';
 const phrases=[['情商测试','情緒智力測試'],['职业探索','職涯探索'],['邮箱','電子郵件地址'],['账号','帳號'],['账户','帳戶'],['身份','身分'],['关联','連結'],['连接','連結'],['通过','透過'],['退出登录','登出'],['收件箱','收件匣']];

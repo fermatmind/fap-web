@@ -4,7 +4,8 @@
   "converterSourceHash": "55133647e2aa4a249bb67c9b1a4eeb648b54cd8bfda8627d8565f3115498f74b",
   "glossary": "fermatmind-tw-account-1",
   "sourceHashes": {
-    "components/account/AccountCenter.tsx": "9409fffd7f410887acdef0f6df57461ffb91a4e7b2e2a3d1b8a07ea66fd341ad",
+    "components/commerce/CareerRefundPanel.tsx": "7d2aa3dfdde9ad82076245e48b201ecb9746f77a799bb74439e4ce6475dda5da",
+    "components/account/AccountCenter.tsx": "d758fe7e51afcf7d5e22e0f9e0e51548a74c472017eced5a7813e4a68047d45b",
     "app/(localized)/[locale]/account/page.tsx": "5beec14f02c0a6c58628dfb8bfa17d3c41ae787e97d7f5ca61c2b15ebc51050c"
   },
   "units": {
@@ -168,6 +169,14 @@
       "sourceHash": "1afacc6596a861f2c2ecbf04344396af0989463043be3f7a4aca1dcae04b8c3d",
       "text": "興趣與真實工作任務"
     },
+    "其他": {
+      "sourceHash": "cbe71714cf31f8f4a5a275405047f62dff7dd4f18a6ab9f4870df601a01fc529",
+      "text": "其他"
+    },
+    "内容不符合预期": {
+      "sourceHash": "5ac7c11a2660a82107e5606f60a28549793c8691162009d657965dd6ad9d9d7b",
+      "text": "內容不符合預期"
+    },
     "动机与行为模式": {
       "sourceHash": "0fc0a1a57024953baa4b188c81a6771f97770a33abd039c98b1b3fcb687ca148",
       "text": "動機與行為模式"
@@ -183,6 +192,10 @@
     "发送验证邮件": {
       "sourceHash": "9a8af618d5717e1344d99db0e66b4d646bdda8da8b530b459e436b37d820bbf5",
       "text": "傳送驗證郵件"
+    },
+    "取消": {
+      "sourceHash": "dac1a03619a5e94a683af26fdff777cdf5b439d4c26d704bebf1f6df21385ccf",
+      "text": "取消"
     },
     "可阅读": {
       "sourceHash": "4de18e04d669aab02e5975578e52802f7ccf2b11ce5b6e074b1565b6ea134c1a",
@@ -227,6 +240,10 @@
     "已完成测评": {
       "sourceHash": "d0b018377fb718706a2533a8250999b908494f41db95a7a9c4dbd27ea570cb22",
       "text": "已完成測評"
+    },
+    "已批准，等待系统执行退款": {
+      "sourceHash": "8e7fb8a8ce0b4e54bb00bd1b2d88c0fce75fc6ffa509fad9edbf9bcdf32cc07b",
+      "text": "已批准，等待系統執行退款"
     },
     "已授权": {
       "sourceHash": "f7ec31d554203dd14ce63b13329a009e72f3449121db2c02500fc66d4a069532",
@@ -284,6 +301,10 @@
       "sourceHash": "f4778be5a0c3a58e065efce6571f546a7aad51f8b5c0843f131da3048d786025",
       "text": "待完成"
     },
+    "待审核": {
+      "sourceHash": "6f5e345c439420cb6a7a586475ccfbbe763e54fc9d28cec2b8006b5c3e392374",
+      "text": "待稽核"
+    },
     "待探索": {
       "sourceHash": "bc89d008ddf8a13505404ef060cec92e0a1137cf621cbdf259ea414d33ba8bcb",
       "text": "待探索"
@@ -299,6 +320,10 @@
     "情绪能力自评": {
       "sourceHash": "bb9342d55757c6af586c628ac6de07dae8e765135516ce429cc71a7ca6db642b",
       "text": "情緒能力自評"
+    },
+    "我理解退款成功后，本次付费报告将停止访问，免费结果保留。": {
+      "sourceHash": "12dc25496798436421283e2bdc132674e1dd63b2e38515118f9bab0d1a6aa143",
+      "text": "我理解退款成功後，本次付費報告將停止訪問，免費結果保留。"
     },
     "我的": {
       "sourceHash": "773b0b6916fcb3adeaa48aaa1425b06d7011524f6b5bcc7b16d15dce6a08aa17",
@@ -320,6 +345,10 @@
       "sourceHash": "d5ab394b1943d76740bae2346882a5ec342a3332652609c9fadbbdf2ea7e540c",
       "text": "找回訂單"
     },
+    "报告无法打开": {
+      "sourceHash": "4738fe4d65696790b71ceeeb4dfd2e833e1c950282985c3fafb9f556fcf34531",
+      "text": "報告無法開啟"
+    },
     "报告生成中": {
       "sourceHash": "91a0a0c78cf17867df0c1559795e0c932933d27e3282f82044310e39869b518b",
       "text": "報告生成中"
@@ -327,6 +356,14 @@
     "授权失败": {
       "sourceHash": "037881ec8c5938ab12737401fe4304b0051e0b900684a5f4b2617a74f4fcc646",
       "text": "授權失敗"
+    },
+    "提交退款申请": {
+      "sourceHash": "87495ece1c04e35cd260c771de5c104e2f2b1deca4871885a0cf19a0b3fa6df0",
+      "text": "提交退款申請"
+    },
+    "撤回申请": {
+      "sourceHash": "bfa29b9fb22bd5115ed8b4a9576d8f1c3da7650642a6b212086686c641c4037c",
+      "text": "撤回申請"
     },
     "支付失败": {
       "sourceHash": "7b9741b12f6c5ff7bff93d28500b109a927e33773c1e6c86def6d1c0a789641e",
@@ -359,6 +396,10 @@
     "暂不可用": {
       "sourceHash": "f5fdf556dc34162c541c30432672122ee7d687a5ab3f0f15dcc35681e75f470e",
       "text": "暫不可用"
+    },
+    "暂时无法处理，请刷新进度后重试。": {
+      "sourceHash": "f678e5799d41e5cc732b2b079be91175b60c3f45333fd992570c427e66e5bf3c",
+      "text": "暫時無法處理，請重新整理進度後重試。"
     },
     "暂时无法完成操作，请重试；也可以通过邮箱找回结果。": {
       "sourceHash": "88c8be7bc1d34ef3472d5d456dbf5b4d2e72dcb7c972073737b25c03186f3254",
@@ -432,6 +473,14 @@
       "sourceHash": "330685dee96045cd75fd7a189dd9a6d32cca375407f4a3f8393c6e1ad2d1e9a4",
       "text": "正在載入帳戶…"
     },
+    "正在处理": {
+      "sourceHash": "6bdd36d564c07176dd36d62abc78c0ba660cc3bab5db3e5a816b4fe42d63305c",
+      "text": "正在處理"
+    },
+    "正在提交…": {
+      "sourceHash": "e38b57999b3db2fb6789df4e2f813d1353fad23c2cce1a7bdbd9cfbff2274d6a",
+      "text": "正在提交…"
+    },
     "正在读取已保存的结果…": {
       "sourceHash": "76f8ce42ebb94f464cea4b9ef48bda049e78ece0fb9d963225e17971caa57f51",
       "text": "正在讀取已儲存的結果…"
@@ -495,6 +544,22 @@
     "用邮箱登录 / 注册": {
       "sourceHash": "3e796d03beec2886c43724fde5df32760784f3c005166e67aec50e37ff69fe7a",
       "text": "用電子郵件地址登入 / 註冊"
+    },
+    "申请将由工作人员审核，审核结果和退款进度可在此查看。款项按原支付方式退回，到账时间以支付渠道为准。": {
+      "sourceHash": "3a71f027806bfaf2ccaad9d1ac1c80fd2ed11e705cb21d0d4d952b99369d98b9",
+      "text": "申請將由工作人員稽核，稽核結果和退款進度可在此檢視。款項按原支付方式退回，到賬時間以支付渠道為準。"
+    },
+    "申请已撤回": {
+      "sourceHash": "33b5eeeee7d474c7252f091c72ba07d248db8e0d065158e7a52e8188a10235bb",
+      "text": "申請已撤回"
+    },
+    "申请未通过": {
+      "sourceHash": "68b7f2c69756a7f0a87e5a6ed93e38601198c2c20785623066be3a5ab96cf58e",
+      "text": "申請未透過"
+    },
+    "申请退款": {
+      "sourceHash": "8b1de9ee2a6bec3f9c45d44e1a1310453b5c76b2ec6137dbab451d612bc9cb31",
+      "text": "申請退款"
     },
     "登录后，在不同设备继续查看结果与已购报告。": {
       "sourceHash": "257731cad260c3b3a29d8d44a062e158861856cd0ba3502fef89b4269400576b",
@@ -576,6 +641,10 @@
       "sourceHash": "99de6d7931b9cb67578a9c3695b57c32624f799dde17277315fd2d09d2989ade",
       "text": "職涯探索"
     },
+    "职业测试 94 题 · 本次订单": {
+      "sourceHash": "213647a6285e7202456a33f01081bbdbb460bff1619d76c9eba2d8139d4ab308",
+      "text": "職業測試 94 題 · 本次訂單"
+    },
     "荣格八维认知功能测评": {
       "sourceHash": "119e43a8fffeba2146d0fa29c825d6c88d0c9be55a772bd44eb0a96915346394",
       "text": "榮格八維認知功能測評"
@@ -583,6 +652,10 @@
     "荣格十二原型测评": {
       "sourceHash": "9538e68f5d0f9a1d2e9ec4dd95c8f7b290be42c90e07a3f758e0e02a79e79c96",
       "text": "榮格十二原型測評"
+    },
+    "补充说明（选填）": {
+      "sourceHash": "a7cfd9052ae7e73c134903b6e7292fd5e972efba63453712d4c1095c5c9e80c6",
+      "text": "補充說明（選填）"
     },
     "订单与权益": {
       "sourceHash": "afc293a32c6044d93b22bef76cec932f4f03e49b91d0f7b869b639055880fd9d",
@@ -668,6 +741,30 @@
       "sourceHash": "c777a83a77ca9c95de5d3e27c2b7c3eac82b921bf35503bc3b2be8d7ad3a526d",
       "text": "登出"
     },
+    "退款入口暂时无法读取。": {
+      "sourceHash": "6669c3c82476d2a9d3be2bb5eda24be7cdb381102f891e7460a4c90d3af6dcaa",
+      "text": "退款入口暫時無法讀取。"
+    },
+    "退款原因": {
+      "sourceHash": "f2515f53eefafe136f886aaa096c9041e4dcd54f85ace1de3c58e8ce4f2e2061",
+      "text": "退款原因"
+    },
+    "退款处理中，等待支付渠道确认": {
+      "sourceHash": "6f0d54b22174ed9de8d08d669712c65fe2935becfec5c29bfdab45749d0882b3",
+      "text": "退款處理中，等待支付渠道確認"
+    },
+    "退款正在核对，无需重复申请": {
+      "sourceHash": "506bf90b4ea70cc30dfec8f4ed5e8c72b31cf24b3f82d89ad46fd7fb0635ebe9",
+      "text": "退款正在核對，無需重複申請"
+    },
+    "退款申请": {
+      "sourceHash": "0aca57ac530d9583bb4128ed21e402d297fb18ed387e4999e4ac125f521fe53a",
+      "text": "退款申請"
+    },
+    "退款申请／进度": {
+      "sourceHash": "8a802ada57e03c8b6f8fac9abb3e6ac5df3bc20ade56161918553e2d72611055",
+      "text": "退款申請／進度"
+    },
     "选择一个候选方向，通过小任务、访谈或项目检验想法。": {
       "sourceHash": "18203cae4663d873568c9db2b0163369c54149e6c0ecbe535b803b9bf05f4f09",
       "text": "選擇一個候選方向，透過小任務、訪談或專案檢驗想法。"
@@ -691,6 +788,10 @@
     "邮箱": {
       "sourceHash": "1bb91f94972c1aeb38e213996ae5763703c222cf8bf0ec9555d2500facbda6ac",
       "text": "電子郵件地址"
+    },
+    "重复购买": {
+      "sourceHash": "96a6c45dc4b2b08a6112658064c6ee7fc2c7ab6c1087c2ecbd211c3a0dc2df0d",
+      "text": "重複購買"
     },
     "重新加载登录": {
       "sourceHash": "a55bebdd423452f99212fe29c08384acd16f1fe80a35728ff0db75d218b20294",

@@ -33,6 +33,7 @@ export type AccountMembership = {
   expires_at: string | null;
 };
 export type AccountOrder = {
+  sku?: string;
   order_no: string;
   status: string;
   payment_state: string;
