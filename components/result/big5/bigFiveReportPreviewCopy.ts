@@ -79,11 +79,11 @@ export const overviewPatterns = [
   { title: "低外向性有不同侧面", body: "这份样例的外向性位置较低，积极情绪面向仍靠前。看活动体验时，可以把愿不愿意主动参与和参加后是否愉快分开记录，再对照独处时也感到愉快的经历。" },
 ];
 
-export const readingNotes = [
-  { title: "百分位怎么换算？", body: "费马计分先根据对应常模的均值和标准差换算，再用标准正态累计分布估计百分位。第 63 百分位表示在该换算下约位于参考分布的第 63 百分位；它是相对位置的估计，不是把样本逐一排序得到的名次，也不是答对比例。" },
-  { title: "为什么总分和细分面向的位置不同？", body: "每个大维度包含一组相关题目，面向各看更窄的内容。总分百分位不能用六个面向的百分位直接平均得到。第 89 和第 6 的差异也不是原始作答相差 83 分。" },
-  { title: "什么情况值得重新看这份结果？", body: "遇到持续影响作答的特殊经历，或发现自己在不同环境里经常表现不同，可以先回看当时的作答情境，再记录几次可比的经历。一次短期尝试只反馈那次具体做法。" },
-];
+export const readingNotes = {
+  percentile: "费马计分先根据对应常模的均值和标准差换算，再用标准正态累计分布估计百分位。第 63 百分位表示在该换算下约位于参考分布的第 63 百分位；它是相对位置的估计，不是把样本逐一排序得到的名次，也不是答对比例。",
+  aggregation: "每个大维度包含一组相关题目，面向各看更窄的内容。总分百分位不能用六个面向的百分位直接平均得到。第 89 和第 6 的差异也不是原始作答相差 83 分。",
+  context: "遇到持续影响作答的特殊经历，或发现自己在不同环境里经常表现不同，可以先回看当时的作答情境，再记录几次可比的经历。一次短期尝试只反馈那次具体做法。",
+};
 
 // fap-api BIG5_OCEAN/v1/compiled/norms.compiled.json, selected group's facet rows.
 export const facetNormReference = {
@@ -93,18 +93,23 @@ export const facetNormReference = {
 };
 
 export const scienceSources = [
-  { title: "Johnson（2014） · IPIP-NEO-120", body: "说明 120 题公开题本如何覆盖五维与 30 个面向。这里用于交代面向的研究背景，费马中文版的分数和常模以本站样例和计分流程为准。", url: "https://doi.org/10.1016/j.jrp.2014.05.003" },
-  { title: "Fleeson（2001） · 特质和日常表现", body: "日常记录研究观察到，同一个人在不同场合的表现会变动。用这个发现理解为什么报告中的倾向需要与具体情境一起读。", url: "https://pubmed.ncbi.nlm.nih.gov/11414368/" },
+  { title: "Johnson, J. A. (2014). Measuring thirty facets of the Five Factor Model with a 120-item public domain inventory: Development of the IPIP-NEO-120. Journal of Research in Personality, 51, 78–89.", body: "说明 120 题公开题本如何覆盖五维与 30 个面向。这里用于交代面向的研究背景，费马中文版的分数和常模以本站样例和计分流程为准。", url: "https://doi.org/10.1016/j.jrp.2014.05.003" },
+  { title: "Fleeson, W. (2001). Toward a structure- and process-integrated view of personality: Traits as density distributions of states. Journal of Personality and Social Psychology, 80(6), 1011–1027.", body: "日常记录研究观察到，同一个人在不同场合的表现会变动。用这个发现理解为什么报告中的倾向需要与具体情境一起读。", url: "https://pubmed.ncbi.nlm.nih.gov/11414368/" },
 ];
 
+export const careerMatchLabels = {
+  direct: "直接线索",
+  adjacent: "需要试做",
+} as const;
+
 export const careerDirections = [
-  { id: "editing", name: "内容编辑", focus: "文字与节奏", why: "如果你经常察觉语气和节奏的差异，可以试做一轮稿件编辑。", task: "用同一份事实材料写两个开头，请读者说出读完各自记住了什么。", check: ["稿件交付", "作者反馈", "事实核查"] },
-  { id: "brand", name: "品牌视觉设计", focus: "视觉表达", why: "样例里的审美感受靠前，可在视觉对比任务中核实自己具体注意到了什么。", task: "给同一活动做两份海报草稿，比较层级、识别速度和视觉感受。", check: ["视觉规范", "客户提案", "反复修改"] },
-  { id: "information", name: "信息设计", focus: "信息清晰度", why: "如果你喜欢在固定内容里尝试不同表达方式，可以看看自己是否也愿意验证读者理解。", task: "把一份流程改成单页说明，让一位第一次接触它的人实际照做。", check: ["信息结构", "可读性测试", "细节校对"] },
-  { id: "research", name: "体验研究", focus: "观察与证据", why: "观察表达差异与验证真实行为是两种任务，可以用一次小型访谈体验两者。", task: "请两人操作同一份说明，把原话、停顿位置和自己的推测分别记录。", check: ["访谈组织", "证据整理", "跨团队汇报"] },
-  { id: "exhibition", name: "展览内容策划", focus: "空间与叙事", why: "如果你也对场景氛围和顺序敏感，可以用一组现有材料试做小型叙事。", task: "为五件展品写说明并排出两条动线，请观众复述各自读到的故事。", check: ["现场协调", "展品资料", "时间与空间限制"] },
-  { id: "quality", name: "质量评审", focus: "标准与比较", why: "若你喜欢在明确标准下比较细节，可以试试把感受写成别人也能复现的判断。", task: "选两份样稿，按同一套标准记录问题、复现条件和建议。", check: ["重复检查", "标准维护", "问题交接"] },
-];
+  { id: "editing", name: "内容编辑", focus: "文字与节奏", match: "adjacent", why: "样例的审美感受可作为观察语气和节奏的起点。编辑工作还要求核实事实并在截稿前协调修改。", task: "用同一份事实材料写两个开头，请读者说出读完各自记住了什么。", check: ["稿件交付", "作者反馈", "事实核查"] },
+  { id: "brand", name: "品牌视觉设计", focus: "视觉表达", match: "direct", why: "海报比较直接涉及形式、层级和视觉质感，与样例中靠前的审美感受有交集。", task: "给同一活动做两份海报草稿，比较层级、识别速度和视觉感受。", check: ["视觉规范", "客户提案", "反复修改"] },
+  { id: "information", name: "信息设计", focus: "信息清晰度", match: "adjacent", why: "审美感受可以帮助你留意呈现方式。说明能否被人照着做，需要单独用读者测试确认。", task: "把一份流程改成单页说明，让一位第一次接触它的人实际照做。", check: ["信息结构", "可读性测试", "细节校对"] },
+  { id: "research", name: "体验研究", focus: "观察与证据", match: "adjacent", why: "可以从留意表达细节切入。访谈提问和区分观察与推测需要另外试做。", task: "请两人操作同一份说明，把原话、停顿位置和自己的推测分别记录。", check: ["访谈组织", "证据整理", "跨团队汇报"] },
+  { id: "exhibition", name: "展览内容策划", focus: "空间与叙事", match: "direct", why: "比较展品陈列的空间氛围、观看顺序和呈现质感，是审美感受可以落到的具体任务。", task: "为五件展品写说明并排出两条动线，请观众复述各自读到的故事。", check: ["现场协调", "展品资料", "时间与空间限制"] },
+  { id: "quality", name: "质量评审", focus: "标准与比较", match: "adjacent", why: "审美感受提供观察细节的入口。质量评审还要能按统一标准记录可复现的问题。", task: "选两份样稿，按同一套标准记录问题、复现条件和建议。", check: ["重复检查", "标准维护", "问题交接"] },
+] as const;
 
 export const workplace = [
   { title: "带项目时，先把决定写清楚", body: "成就推进和主张表达的百分位位置不同。接到目标模糊的小项目时，可以先写出完成标准、需要谁确认，以及最晚何时决定。", observe: "挑两个规模相近的交接，比较同事是否还需要问同一个问题。任务更简单或同事更熟悉流程，也可能让交接变顺。" },
@@ -126,15 +131,6 @@ export const money = [
 export const relationships = [
   { title: "亲密关系里，分别核对善意和需要", body: "样例中的信任起点靠前。比如临时改约时，可以观察自己会怎样理解对方的意图，再问清对方遇到什么情况。", observe: "如果还没想清自己的需要，可以约个时间再谈。复盘时分别记下对方说了什么、自己怎么理解、最后对什么达成共识。" },
   { title: "有分歧时，把边界变成可讨论的条件", body: "比如一起定旅行安排，先复述对方最在意的事，再说出自己希望保留的一项条件和一个替代选项。", observe: "谈完后检查双方是否都能说明同一个分歧。具体行为受议题、利益和安全感影响，宜人性总分无法还原那场对话。" },
-];
-
-export const people = [
-  { name: "亨利·马蒂斯", area: "剪纸与构图", body: "他与助手把涂色纸片用别针固定，逐步调整颜色与位置。可以借鉴固定前先比较的做法。", source: "纽约现代艺术博物馆", url: "https://www.moma.org/interactives/exhibitions/2014/matisse/the-cut-outs.html" },
-  { name: "碧翠丝·波特", area: "自然观察与插画", body: "她从自然对象写生，也记录显微镜下看到的细节。可以试着先画或写下观察到的形态，再补一句自己的解释。", source: "维多利亚与阿尔伯特博物馆", url: "https://www.vam.ac.uk/articles/beatrix-potter-a-life-drawing-nature" },
-  { name: "乔治亚·欧姬芙", area: "取景与尺度", body: "她尝试把花朵放大到占据画面。做一个表达方案时，可以只改变观看尺度，再问别人第一眼注意到了什么。", source: "乔治亚·欧姬芙博物馆", url: "https://www.okeeffemuseum.org/the-shared-journeys-of-jean-toomer-and-georgia-okeeffe/" },
-  { name: "查尔斯与蕾·伊姆斯", area: "家具原型", body: "两人制作装置试验胶合板成型，并留下不同的原型。遇到一个新构想时，可以先制作足够验证问题的简易样品。", source: "美国国会图书馆", url: "https://www.loc.gov/loc/lcib/9905/eames.html" },
-  { name: "安妮·阿尔伯斯", area: "编织与材料", body: "她用编织探索材料，也将编织用作独立的艺术表达。可以选一种熟悉的工具，只换材料或排列方式，看结果变在哪里。", source: "纽约现代艺术博物馆", url: "https://www.moma.org/artists/96-anni-albers" },
-  { name: "迪特·拉姆斯", area: "产品设计原则", body: "他的设计原则分别考虑实用、美感和易懂。在比较方案时，可以把这三点分开评议，看看最顺眼的方案是否也最容易用。", source: "Vitsœ", url: "https://www.vitsoe.com/us/about/good-design" },
 ];
 
 export const actionPlan = [

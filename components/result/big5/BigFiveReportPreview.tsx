@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowDown, ArrowUpRight, BookOpen, BriefcaseBusiness, Check, ChevronDown, Compass,
-  HeartHandshake, Leaf, Lightbulb, ListChecks, ScanLine, Users, Wallet, Waves,
+  ArrowDown, ArrowUpRight, BookOpen, BriefcaseBusiness, ChartNoAxesColumnIncreasing, Check, ChevronDown, Compass,
+  HeartHandshake, Leaf, Lightbulb, ListChecks, ScanLine, ShieldCheck, Wallet, Waves,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
-  actionPlan, careerDirections, insights, money, people, portrait, readingNotes,
+  actionPlan, careerDirections, careerMatchLabels, insights, money, portrait, readingNotes,
   overviewPatterns, relationships, scienceSources, stress, traits, workplace,
 } from "./bigFiveReportPreviewCopy";
+import { BigFivePreviewPrompt } from "./BigFivePreviewPrompt";
 import styles from "./BigFiveReportPreview.module.css";
 
 const traitOrder = ["O", "C", "E", "A", "N"] as const;
@@ -20,11 +21,9 @@ type Reference = { name: string; domainCount: number; facetCount: number | null;
 const bandLabels: Record<string, string> = { low: "偏低", mid: "中等", high: "偏高" };
 const chapters = [
   { id: "profile", title: "五维总览" }, { id: "traits", title: "特质图谱" },
-  { id: "career", title: "职业方向" }, { id: "work", title: "工作表现" },
-  { id: "stress", title: "压力" }, { id: "money", title: "金钱习惯" },
-  { id: "relationships", title: "人际关系" }, { id: "people", title: "人物案例" },
+  { id: "career-life", title: "职业与生活" },
   { id: "plan", title: "行动计划" }, { id: "insights", title: "重新看自己" },
-  { id: "method", title: "科学与计分" },
+  { id: "method", title: "科学与计分" }, { id: "prompt", title: "AI 继续探索" },
 ] as const;
 
 function radarPoint(index: number, percentile: number) {
@@ -133,13 +132,31 @@ function StoryCards({ items }: { items: ReadonlyArray<{ title: string; body: str
   );
 }
 
+function ScienceBlock({ title, icon, children }: { title: string; icon: ReactNode; children: ReactNode }) {
+  return (
+    <div className={styles.scienceBlock}>
+      <span className={styles.scienceIcon} aria-hidden="true">{icon}</span>
+      <div><h3>{title}</h3>{children}</div>
+    </div>
+  );
+}
+
+function ScenarioSection({ id, title, icon, children }: { id: string; title: string; icon: ReactNode; children: ReactNode }) {
+  return (
+    <section id={id} className={styles.scenario} aria-labelledby={`${id}-title`}>
+      <h3 id={`${id}-title`}>{icon}{title}</h3>
+      {children}
+    </section>
+  );
+}
+
 function ApplicationCards({ items }: { items: ReadonlyArray<{ title: string; body: string; observe: string }> }) {
   return <div className={styles.grid}>
     {items.map((item) => (
       <article className={`${styles.card} ${styles.applicationCard}`} key={item.title}>
-        <h3>{item.title}</h3>
+        <h4>{item.title}</h4>
         <p>{item.body}</p>
-        <div><h4>怎么核对</h4><p>{item.observe}</p></div>
+        <div><h5>怎么核对</h5><p>{item.observe}</p></div>
       </article>
     ))}
   </div>;
@@ -159,6 +176,14 @@ export function BigFiveReportPreview({
   }
 
   const heroFacets = portrait.facetCodes.flatMap((code) => facets.filter((facet) => facet.code === code));
+  const prompt = [
+    "我在读一份费马大五人格的固定示例。下面的百分位只用来演示读法，与我的个人成绩无关。",
+    traitOrder.map((key, index) => `${traits[key].name} ${scores[index]}`).join("、") + "。",
+    heroFacets.map(({ label, percentile }) => `${label} ${percentile}`).join("、") + "。",
+    "",
+    "先问我有没有自己的结果，或想聊哪个具体场景，一次只问一个问题。若我只提供经历，就从那次发生的事出发。分别整理事实、我的解释和缺少的信息，提出两种可能解释，再问我有没有不符合的例子。",
+    "请和我选一个成本低、可撤回的尝试，写清完成方式及何时回看。根据经历讨论倾向，职业能力、关系结果和心理健康需要各自的证据。提醒我省略姓名、单位等可识别信息。",
+  ].join("\n");
 
   return (
     <main className={styles.report}>
@@ -265,64 +290,70 @@ export function BigFiveReportPreview({
           })}
         </Chapter>
 
-        <Chapter id="career" title="职业方向" icon={<Compass size={18} />}>
-          <div className={styles.card}>
-            <h3>职业方向一览</h3>
-            <p>从样例里突出的审美感受出发，先选两类任务试做。完成后分别看自己是否想继续、使用者反馈如何、日常工作条件能否接受。</p>
-            <ul className={styles.careerOverview}>
-              {careerDirections.map((item) => <li key={item.id}><a href={`#career-${item.id}`}>{item.name}<span>{item.focus}</span></a></li>)}
-            </ul>
-          </div>
-          <div className={styles.stack}>
-            {careerDirections.map((item) => (
-              <article className={`${styles.card} ${styles.careerCard}`} id={`career-${item.id}`} key={item.id}>
-                <h3>{item.name}</h3>
-                <p>{item.why}</p>
-                <p className={styles.tryTask}><strong>可以试做</strong> {item.task}</p>
-                <ul className={styles.tags} aria-label="值得核对的工作要求">{item.check.map((label) => <li key={label}>{label}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </Chapter>
+        <Chapter id="career-life" title="职业与生活" icon={<Compass size={18} />}>
+          <ScenarioSection id="career" title="职业匹配线索" icon={<Compass size={16} aria-hidden="true" />}>
+            <div className={`${styles.card} ${styles.matchSummary}`}>
+              <h4>六个方向一览</h4>
+              <p>这里比的是岗位中的具体任务与本样例的审美感受有没有交集。「直接线索」指任务本身涉及形式或呈现效果，「需要试做」指关键要求还需用样稿或实际体验核对。</p>
+              <ul className={styles.careerOverview}>
+                {careerDirections.map((item) => (
+                  <li key={item.id}>
+                    <a href={`#career-${item.id}`}>
+                      <span><strong>{item.name}</strong><small>{item.focus}</small></span>
+                      <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className={styles.matchBasis}>大五提供工作风格线索。想比较自己愿意长期投入哪类活动，可以结合 <Link href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`}>霍兰德职业兴趣</Link> 和试做反馈。</p>
+            </div>
+            <div className={styles.stack}>
+              {careerDirections.map((item) => (
+                <article className={`${styles.card} ${styles.careerCard}`} id={`career-${item.id}`} key={item.id}>
+                  <div className={styles.careerTitle}>
+                    <h4>{item.name}</h4>
+                    <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
+                  </div>
+                  <p>{item.why}</p>
+                  <p className={styles.tryTask}><strong>可以试做</strong> {item.task}</p>
+                  <ul className={styles.tags} aria-label="值得核对的工作要求">{item.check.map((label) => <li key={label}>{label}</li>)}</ul>
+                </article>
+              ))}
+            </div>
+          </ScenarioSection>
 
-        <Chapter id="work" title="工作中的表现" icon={<BriefcaseBusiness size={18} />}>
-          <ApplicationCards items={workplace} />
-        </Chapter>
+          <ScenarioSection id="work" title="工作表现" icon={<BriefcaseBusiness size={16} aria-hidden="true" />}>
+            <ApplicationCards items={workplace} />
+          </ScenarioSection>
 
-        <Chapter id="stress" title="压力之下" icon={<Waves size={18} />}>
-          <div className={styles.card}><h3>压力体验</h3><p>{stress.pattern}</p></div>
-          <div className={styles.grid}>
-            <article className={styles.card}><h3>值得留意的线索</h3><ul className={styles.bullets}>{stress.cues.map((cue) => <li key={cue}>{cue}</li>)}</ul></article>
-            <article className={styles.card}><h3>可以尝试的方法</h3><ul className={styles.bullets}>{stress.responses.map((response) => <li key={response}>{response}</li>)}</ul></article>
-          </div>
-        </Chapter>
+          <ScenarioSection id="stress" title="压力与恢复" icon={<Waves size={16} aria-hidden="true" />}>
+            <div className={styles.card}><h4>压力体验</h4><p>{stress.pattern}</p></div>
+            <div className={styles.grid}>
+              <article className={styles.card}><h4>值得留意的线索</h4><ul className={styles.bullets}>{stress.cues.map((cue) => <li key={cue}>{cue}</li>)}</ul></article>
+              <article className={styles.card}><h4>可以尝试的方法</h4><ul className={styles.bullets}>{stress.responses.map((response) => <li key={response}>{response}</li>)}</ul></article>
+            </div>
+          </ScenarioSection>
 
-        <Chapter id="money" title="金钱习惯" icon={<Wallet size={18} />}>
-          <ApplicationCards items={money} />
-        </Chapter>
+          <ScenarioSection id="money" title="金钱习惯" icon={<Wallet size={16} aria-hidden="true" />}>
+            <ApplicationCards items={money} />
+          </ScenarioSection>
 
-        <Chapter id="relationships" title="人际关系" icon={<HeartHandshake size={18} />}>
-          <ApplicationCards items={relationships} />
-        </Chapter>
-
-        <Chapter id="people" title="人物案例" icon={<Users size={18} />}>
-          <p className={styles.lead}>这些案例来自公开的创作记录。可以借鉴他们验证想法的方法。</p>
-          <div className={styles.grid}>
-            {people.map((person) => (
-              <article className={styles.card} key={person.name}>
-                <h3>{person.name}</h3><p className={styles.caption}>{person.area}</p><p>{person.body}</p>
-                <a className={styles.source} href={person.url}>{person.source} <ArrowUpRight size={13} aria-hidden="true" /></a>
-              </article>
-            ))}
-          </div>
+          <ScenarioSection id="relationships" title="人际关系" icon={<HeartHandshake size={16} aria-hidden="true" />}>
+            <ApplicationCards items={relationships} />
+          </ScenarioSection>
         </Chapter>
 
         <Chapter id="plan" title="行动计划" icon={<ListChecks size={18} />}>
           <ol className={styles.timeline}>
-            {actionPlan.map((step) => (
+            {actionPlan.map((step, index) => (
               <li key={step.time}>
-                <span className={styles.time}>{step.time}</span>
-                <div><h3>{step.title}</h3><p>{step.body}</p><p className={styles.caption}>{step.output}</p></div>
+                <span className={styles.stepNumber} aria-hidden="true">{index + 1}</span>
+                <div className={styles.stepCard}>
+                  <p className={styles.time}>{step.time}</p>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                  <p className={styles.stepOutput}><Check size={15} aria-hidden="true" /><span>{step.output}</span></p>
+                </div>
               </li>
             ))}
           </ol>
@@ -333,37 +364,38 @@ export function BigFiveReportPreview({
         </Chapter>
 
         <Chapter id="method" title="科学与计分说明" icon={<BookOpen size={18} />}>
-          <div className={styles.card}>
-            <h3>题本与参考人群</h3>
-            <p>这份 120 题示例在五个连续维度下展示 30 个面向。五维与细分面向各用对应的常模条目换算。接近的数值，例如 63 和 65，可以并排阅读，没必要分先后。职业任务、人物案例和情境建议用于探索。</p>
+          <ScienceBlock title="大五模型与这份题本" icon={<BookOpen size={18} />}>
+            <p>这份 120 题示例在五个连续维度下展示 30 个面向。Johnson 的 IPIP-NEO-120 研究提供面向结构的背景。费马中文版的分数以对应题本和常模换算为准。 [1]</p>
+          </ScienceBlock>
+          <ScienceBlock title="分数怎样换算" icon={<ChartNoAxesColumnIncreasing size={18} />}>
+            <p>{readingNotes.percentile}</p>
+            <p>{readingNotes.aggregation}</p>
             <dl className={styles.methodFacts}>
-              <div><dt>五维常模样本量</dt><dd>{reference.name} · {reference.domainCount.toLocaleString("zh-CN")} 人</dd></div>
-              <div><dt>细分面向常模</dt><dd>{reference.facetCount === null ? "各面向按对应常模条目换算" : `各面向条目样本量 ${reference.facetCount.toLocaleString("zh-CN")}`}</dd></div>
-              <div><dt>地区和年龄</dt><dd>{reference.locale} · {reference.ageRange} 岁 · {reference.gender}</dd></div>
-              <div><dt>常模</dt><dd>{reference.version} · {reference.updatedAt}</dd></div>
-              <div><dt>计分版本</dt><dd>{reference.scoringVersion}</dd></div>
+              <div><dt>参考人群</dt><dd>{reference.name} · {reference.locale} · {reference.ageRange} 岁 · {reference.gender}</dd></div>
+              <div><dt>五维样本量</dt><dd>{reference.domainCount.toLocaleString("zh-CN")} 人</dd></div>
+              <div><dt>细分面向</dt><dd>{reference.facetCount === null ? "各面向按对应常模条目换算" : `各条目样本量 ${reference.facetCount.toLocaleString("zh-CN")}`}</dd></div>
+              <div><dt>常模与计分版本</dt><dd>{reference.version}（{reference.updatedAt}） · {reference.scoringVersion}</dd></div>
             </dl>
-          </div>
-          <div className={styles.grid}>
-            {scienceSources.map((source) => (
-              <article className={styles.card} key={source.url}>
-                <h3>{source.title}</h3><p>{source.body}</p>
-                <a className={styles.source} href={source.url}>阅读研究 <ArrowUpRight size={13} aria-hidden="true" /></a>
-              </article>
-            ))}
-          </div>
-          {readingNotes.map((item) => (
-            <details key={item.title} className={styles.note}>
-              <summary>{item.title}<ChevronDown size={18} aria-hidden="true" /></summary>
-              <p>{item.body}</p>
-            </details>
-          ))}
+          </ScienceBlock>
+          <ScienceBlock title="怎样把结果带进生活" icon={<ShieldCheck size={18} />}>
+            <p>{readingNotes.context} 日常记录研究也观察到，同一个人在不同场合的行为会变动。接近的百分位可以并排读，职业任务和情境建议可结合实际经历核对。 [2]</p>
+          </ScienceBlock>
+          <ScienceBlock title="参考文献" icon={<BookOpen size={18} />}>
+            <ol className={styles.references}>
+              {scienceSources.map((source, index) => (
+                <li key={source.url}>
+                  <span aria-hidden="true">{index + 1}</span>
+                  <div>
+                    <a className={styles.source} href={source.url}>{source.title} <ArrowUpRight size={13} aria-hidden="true" /></a>
+                    <p>{source.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </ScienceBlock>
         </Chapter>
 
-        <footer className={styles.footer}>
-          <h2>看看自己的五维画像</h2>
-          <Link className={styles.primary} href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}`}>了解大五人格测试 <ArrowUpRight size={17} aria-hidden="true" /></Link>
-        </footer>
+        <BigFivePreviewPrompt prompt={prompt} />
       </div>
       </div>
     </main>
