@@ -256,7 +256,9 @@ export function JungReportPreview() {
             />
           </div>
           <div className={styles.heroReading}>
-            <p className={styles.eyebrow}>{"智者 × 创造者 × 探索者"}</p>
+            <p className={styles.eyebrow}>
+              {"本次较高分：智者、创造者、探索者"}
+            </p>
             <h3>{profile.headline}</h3>
             <p>{profile.introduction}</p>
             <div className={styles.topScores}>
@@ -415,7 +417,7 @@ export function JungReportPreview() {
                         </ul>
                       </div>
                       <div className={styles.readingSection}>
-                        <h4>你的拿手好戏</h4>
+                        <h4>这种动机怎样表现</h4>
                         <p className={styles.readingText}>
                           <strong>{asset.sceneTitle}。</strong>
                           {asset.scene}
