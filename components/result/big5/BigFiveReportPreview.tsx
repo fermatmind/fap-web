@@ -1,30 +1,25 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import {
+  ArrowUpRight, BookOpen, BriefcaseBusiness, ChevronDown, Compass,
+  HeartHandshake, Lightbulb, ListChecks, ScanLine, Users, Wallet, Waves,
+} from "lucide-react";
+import type { ReactNode } from "react";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { careerDirections, portrait, readingNotes, situations, traits } from "./bigFiveReportPreviewCopy";
+import {
+  actionPlan, careerDirections, insights, money, people, portrait, readingNotes,
+  relationships, stress, traits, workplace,
+} from "./bigFiveReportPreviewCopy";
 import styles from "./BigFiveReportPreview.module.css";
 
 const traitOrder = ["O", "C", "E", "A", "N"] as const;
-type TraitKey = (typeof traitOrder)[number];
 type Domain = { key: string; percentile: number };
 type Facet = { code: string; label: string; domain: string; percentile: number };
 type Reference = { name: string; count: number; ageRange: string; version: string };
 
-const reportSections = [
-  { id: "profile", label: "五维画像" },
-  { id: "work", label: "职业探索" },
-  { id: "life", label: "日常应用" },
-  { id: "method", label: "报告说明" },
-];
-
 function radarPoint(index: number, percentile: number) {
   const angle = index * (2 * Math.PI / traitOrder.length) - Math.PI / 2;
-  const radius = percentile * 1.12;
-  return { x: 160 + Math.cos(angle) * radius, y: 136 + Math.sin(angle) * radius };
+  return { x: 200 + Math.cos(angle) * percentile, y: 151 + Math.sin(angle) * percentile };
 }
 
 function radarPolygon(percentiles: number[]) {
@@ -34,28 +29,32 @@ function radarPolygon(percentiles: number[]) {
   }).join(" ");
 }
 
-function Radar({ scores, selected }: { scores: number[]; selected: TraitKey }) {
+function Radar({ scores }: { scores: number[] }) {
+  const labelOffsets = [[0, -28], [43, -10], [45, 18], [-45, 18], [-43, -10]];
   return (
-    <svg className={styles.radar} viewBox="0 0 320 255" aria-hidden="true">
+    <svg className={styles.radar} viewBox="0 0 400 277" role="img" aria-label={
+      traitOrder.map((key, index) => `${traits[key].name}第 ${scores[index]} 百分位`).join("，")
+    }>
       {[25, 50, 75, 100].map((tick) => (
         <polygon key={tick} points={radarPolygon(traitOrder.map(() => tick))} fill="none"
           stroke="var(--line-strong)" strokeDasharray={tick === 50 ? "3 4" : undefined} />
       ))}
       {traitOrder.map((key, index) => {
         const endpoint = radarPoint(index, 100);
-        const label = radarPoint(index, 115);
+        const [dx, dy] = labelOffsets[index];
         return (
           <g key={key}>
-            <line x1="160" y1="136" x2={endpoint.x} y2={endpoint.y} stroke="var(--line-strong)" />
-            <text x={label.x} y={label.y + 4} textAnchor="middle" className={styles.radarLabel}>{key}</text>
+            <line x1="200" y1="151" x2={endpoint.x} y2={endpoint.y} stroke="var(--line-strong)" />
+            <text x={endpoint.x + dx} y={endpoint.y + dy} textAnchor="middle" className={styles.radarLabel}>{traits[key].name}</text>
+            <text x={endpoint.x + dx} y={endpoint.y + dy + 16} textAnchor="middle" className={styles.radarValue}>第 {scores[index]} 百分位</text>
           </g>
         );
       })}
       <polygon className={styles.radarShape} points={radarPolygon(scores)} />
-      {traitOrder.map((key, index) => {
-        const point = radarPoint(index, scores[index]);
-        return <circle key={key} cx={point.x} cy={point.y} r={key === selected ? 6 : 3.5}
-          fill="var(--accent)" stroke="var(--paper)" strokeWidth="2" />;
+      {scores.map((score, index) => {
+        const point = radarPoint(index, score);
+        return <circle key={traitOrder[index]} cx={point.x} cy={point.y} r="4.5"
+          fill="var(--accent)" stroke="var(--surface)" strokeWidth="2" />;
       })}
     </svg>
   );
@@ -69,6 +68,27 @@ function Meter({ value }: { value: number }) {
   );
 }
 
+function Chapter({ id, title, icon, children }: { id: string; title: string; icon: ReactNode; children: ReactNode }) {
+  return (
+    <details id={id} className={styles.chapter} open>
+      <summary>
+        <span className={styles.chapterIcon} aria-hidden="true">{icon}</span>
+        <h2>{title}</h2>
+        <ChevronDown size={19} className={styles.chevron} aria-hidden="true" />
+      </summary>
+      <div className={styles.chapterBody}>{children}</div>
+    </details>
+  );
+}
+
+function StoryCards({ items }: { items: ReadonlyArray<{ title: string; body: string }> }) {
+  return (
+    <div className={styles.grid}>
+      {items.map((item) => <article className={styles.card} key={item.title}><h3>{item.title}</h3><p>{item.body}</p></article>)}
+    </div>
+  );
+}
+
 export function BigFiveReportPreview({
   domains, facets, reference, questionCount,
 }: {
@@ -77,131 +97,139 @@ export function BigFiveReportPreview({
   reference: Reference;
   questionCount: number;
 }) {
-  const [selected, setSelected] = useState<TraitKey>("O");
   const scores = traitOrder.map((key) => domains.find((domain) => domain.key === key)?.percentile);
-  const trait = traits[selected];
-
   if (!scores.every((score): score is number => typeof score === "number" && score >= 0 && score <= 100)) {
     return <p role="status">暂时无法读取示例报告的五维分数。</p>;
   }
 
   return (
     <main className={styles.report}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.issue}>
-            <strong>大五人格 · 示例报告</strong>
-            <span>{questionCount} 题完整版</span>
-          </div>
-          <div className={styles.hero}>
-            <div className={styles.heroText}>
-              <p className={styles.kicker}>开放性 · OPENNESS</p>
-              <h1>{portrait.title}</h1>
-              <p className={styles.lede}>{portrait.intro}</p>
-              <a className={styles.primary} href="#profile">查看五维分数 <ArrowDown size={17} aria-hidden="true" /></a>
-            </div>
-            <figure className={styles.art}>
-              <Image src="/images/big-five/openness-preview.webp" width={1280} height={853} preload
-                alt="一位观察者端详由多层红纸折成的立体作品" />
-            </figure>
-          </div>
-        </div>
-      </header>
-
-      <nav className={styles.navigation} aria-label="报告章节">
-        <div className={styles.container}>
-          {reportSections.map((section) => <a key={section.id} href={`#${section.id}`}>{section.label}</a>)}
-        </div>
-      </nav>
-
       <div className={styles.container}>
-        <section className={styles.highlights} aria-label="样例解读要点">
-          {portrait.highlights.map((item) => (
-            <div key={item.title}><h2>{item.title}</h2><p>{item.body}</p></div>
-          ))}
+        <p className={styles.issue}>示例报告 · {questionCount} 题完整版 <span>你的报告会根据自己的作答生成。</span></p>
+
+        <header className={styles.hero}>
+          <p className={styles.kicker}>大五人格 · 开放性特写</p>
+          <h1>{portrait.title}</h1>
+          <p className={styles.heroScore}>开放性 · 第 {scores[0]} 百分位</p>
+          <figure className={styles.art}>
+            <Image src="/images/big-five/openness-preview.webp" width={1280} height={853} preload
+              alt="一位观察者端详由多层红纸折成的立体作品" />
+          </figure>
+        </header>
+
+        <section className={styles.overviewText} aria-label="综合解读">
+          <p>{portrait.intro}</p>
         </section>
 
-        <section id="profile" className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <h2>五维画像</h2>
-            <p>图表显示五项特质在样例参考人群中的百分位。选择一项查看它的六个面向。</p>
-          </div>
-          <div className={styles.overview}>
-            <div className={styles.plot}>
-              <Radar scores={scores} selected={selected} />
-              <p>虚线为第 50 百分位</p>
-            </div>
-            <div className={styles.scoreList} role="group" aria-label="选择要解读的特质">
-              {traitOrder.map((key, index) => (
-                <button key={key} type="button" aria-pressed={selected === key} aria-controls="trait-detail"
-                  className={styles.scoreRow} onClick={() => setSelected(key)}>
+        <section id="profile" className={styles.profile}>
+          <h2>五维总览</h2>
+          <p>图上的点越靠外，该特质的百分位越高。虚线是第 50 百分位。</p>
+          <Radar scores={scores} />
+        </section>
+
+        <Chapter id="traits" title="特质图谱" icon={<ScanLine size={18} />}>
+          {traitOrder.map((key, index) => {
+            const trait = traits[key];
+            return (
+              <article key={key} className={styles.traitCard} data-trait={key}>
+                <div className={styles.traitHeader}>
                   <span className={styles.traitCode} aria-hidden="true">{key}</span>
-                  <span className={styles.traitName}>{traits[key].name}</span>
-                  <Meter value={scores[index]} />
-                  <span className={styles.score}><span className={styles.srOnly}>第 </span>{scores[index]}<span className={styles.srOnly}> 百分位</span></span>
-                  <span className={styles.rowArrow} aria-hidden="true">›</span>
-                </button>
-              ))}
-            </div>
-          </div>
+                  <div><h3>{trait.name}</h3><span>{trait.english}</span></div>
+                  <strong>第 {scores[index]} 百分位</strong>
+                </div>
+                <Meter value={scores[index]} />
+                <h4>{trait.title}</h4>
+                <p>{trait.description}</p>
+                <dl className={styles.traitAdvice}>
+                  <div><dt>可以发挥的地方</dt><dd>{trait.strength}</dd></div>
+                  <div><dt>可以试的调整</dt><dd>{trait.growth}</dd></div>
+                </dl>
+                <details className={styles.facets}>
+                  <summary>六个细分面向 <ChevronDown size={16} aria-hidden="true" /></summary>
+                  <ul>
+                    {facets.filter((facet) => facet.domain === key).map((facet) => (
+                      <li key={facet.code}><span>{facet.label}</span><Meter value={facet.percentile} /><b>{facet.percentile}</b></li>
+                    ))}
+                  </ul>
+                </details>
+              </article>
+            );
+          })}
+        </Chapter>
 
-          <div id="trait-detail" className={styles.detail} aria-live="polite">
-            <div className={styles.detailStory} key={selected}>
-              <p className={styles.kicker}>{trait.name} · {trait.english}</p>
-              <h3>{trait.title}</h3>
-              <p>{trait.description}</p>
-              <dl>
-                <div><dt>可以发挥的地方</dt><dd>{trait.strength}</dd></div>
-                <div><dt>可以试的调整</dt><dd>{trait.growth}</dd></div>
-              </dl>
-            </div>
-            <div className={styles.facets}>
-              <h4>六个细分面向 <span>百分位</span></h4>
-              <ul>
-                {facets.filter((facet) => facet.domain === selected).map((facet) => (
-                  <li key={facet.code}><span>{facet.label}</span><Meter value={facet.percentile} /><b>{facet.percentile}</b></li>
-                ))}
-              </ul>
-            </div>
+        <Chapter id="career" title="职业方向" icon={<Compass size={18} />}>
+          <div className={styles.card}>
+            <h3>职业方向一览</h3>
+            <p>从样例里突出的审美感受出发，比较感兴趣的任务和工作条件。</p>
+            <ul className={styles.careerOverview}>
+              {careerDirections.map((item) => <li key={item.id}><a href={`#career-${item.id}`}>{item.name}<span>{item.focus}</span></a></li>)}
+            </ul>
           </div>
-        </section>
-
-        <section id="work" className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <h2>职业探索</h2>
-            <p>从样例里比较突出的审美感受出发，可以先试做以下任务，再结合技能、兴趣和工作环境判断。</p>
-          </div>
-          <div className={styles.careerGrid}>
-            {careerDirections.map((direction) => (
-              <article key={direction.name}>
-                <h3>{direction.name}</h3>
-                <p>{direction.task}</p>
-                <p className={styles.check}>值得核对 · {direction.check}</p>
+          <div className={styles.stack}>
+            {careerDirections.map((item) => (
+              <article className={styles.card} id={`career-${item.id}`} key={item.id}>
+                <h3>{item.name}</h3>
+                <p>{item.why}</p>
+                <p><strong>可以试做</strong> {item.task}</p>
+                <ul className={styles.tags} aria-label="值得核对的工作要求">{item.check.map((label) => <li key={label}>{label}</li>)}</ul>
               </article>
             ))}
           </div>
-        </section>
+        </Chapter>
 
-        <section id="life" className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <h2>这些倾向在日常中怎么用</h2>
-            <p>挑一个最近遇到的场景，用具体经历核对报告里的解读。</p>
+        <Chapter id="work" title="工作中的表现" icon={<BriefcaseBusiness size={18} />}>
+          <StoryCards items={workplace} />
+        </Chapter>
+
+        <Chapter id="stress" title="压力之下" icon={<Waves size={18} />}>
+          <div className={styles.card}><h3>压力体验</h3><p>{stress.pattern}</p></div>
+          <div className={styles.grid}>
+            <article className={styles.card}><h3>值得留意的线索</h3><ul className={styles.bullets}>{stress.cues.map((cue) => <li key={cue}>{cue}</li>)}</ul></article>
+            <article className={styles.card}><h3>可以尝试的方法</h3><ul className={styles.bullets}>{stress.responses.map((response) => <li key={response}>{response}</li>)}</ul></article>
           </div>
-          <div className={styles.situations}>
-            {situations.map((situation) => (
-              <article key={situation.title}>
-                <p className={styles.kicker}>{situation.label}</p>
-                <h3>{situation.title}</h3>
-                <p>{situation.body}</p>
+        </Chapter>
+
+        <Chapter id="money" title="金钱习惯" icon={<Wallet size={18} />}>
+          <StoryCards items={money} />
+        </Chapter>
+
+        <Chapter id="relationships" title="人际关系" icon={<HeartHandshake size={18} />}>
+          <StoryCards items={relationships} />
+        </Chapter>
+
+        <Chapter id="people" title="人物案例" icon={<Users size={18} />}>
+          <p className={styles.lead}>这些案例来自公开的创作记录。可以借鉴他们验证想法的方法。</p>
+          <div className={styles.grid}>
+            {people.map((person) => (
+              <article className={styles.card} key={person.name}>
+                <h3>{person.name}</h3><p className={styles.caption}>{person.area}</p><p>{person.body}</p>
+                <a className={styles.source} href={person.url}>{person.source} <ArrowUpRight size={13} aria-hidden="true" /></a>
               </article>
             ))}
           </div>
-        </section>
+        </Chapter>
 
-        <section id="method" className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <h2>读懂这份报告</h2>
-            <p>样例参考人群为{reference.name}，共 {reference.count.toLocaleString("zh-CN")} 人，年龄 {reference.ageRange} 岁。常模版本 {reference.version}。</p>
+        <Chapter id="plan" title="行动计划" icon={<ListChecks size={18} />}>
+          <ol className={styles.timeline}>
+            {actionPlan.map((step) => (
+              <li key={step.time}>
+                <span className={styles.time}>{step.time}</span>
+                <div><h3>{step.title}</h3><p>{step.body}</p><p className={styles.caption}>{step.output}</p></div>
+              </li>
+            ))}
+          </ol>
+        </Chapter>
+
+        <Chapter id="insights" title="重新看自己" icon={<Lightbulb size={18} />}>
+          <StoryCards items={insights} />
+        </Chapter>
+
+        <Chapter id="method" title="科学与计分说明" icon={<BookOpen size={18} />}>
+          <div className={styles.card}>
+            <h3>五个维度与三十个面向</h3>
+            <p>这份 120 题示例在五个连续维度下展示 30 个面向。可对照 IPIP-NEO-120 的面向结构阅读，各项数字以本报告的参考样本为准。</p>
+            <p>参考人群为{reference.name}，共 {reference.count.toLocaleString("zh-CN")} 人，年龄 {reference.ageRange} 岁。常模版本 {reference.version}。</p>
+            <a className={styles.source} href="https://ipip.ori.org/30FacetNEO-PI-RItems.htm">IPIP-NEO-120 面向资料 <ArrowUpRight size={13} aria-hidden="true" /></a>
           </div>
           {readingNotes.map((item) => (
             <details key={item.title} className={styles.note}>
@@ -209,10 +237,10 @@ export function BigFiveReportPreview({
               <p>{item.body}</p>
             </details>
           ))}
-        </section>
+        </Chapter>
 
         <footer className={styles.footer}>
-          <div><h2>看看自己的五维画像</h2><p>完成测评后，费马测试会根据你的作答生成报告。</p></div>
+          <h2>看看自己的五维画像</h2>
           <Link className={styles.primary} href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}`}>了解大五人格测试 <ArrowUpRight size={17} aria-hidden="true" /></Link>
         </footer>
       </div>
