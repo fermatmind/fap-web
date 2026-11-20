@@ -12,30 +12,55 @@
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-.container { width: min(800px, calc(100% - 48px)); margin-inline: auto; padding: 24px 0 52px; }
-.issue, .overviewText, .profile, .chapter {
+.container { width: min(800px, calc(100% - 48px)); margin-inline: auto; padding: 26px 0 52px; }
+.heroContainer { width: min(1160px, calc(100% - 48px)); margin-inline: auto; padding-top: 22px; }
+.profile, .chapter {
   border: 1px solid var(--line);
   border-radius: 13px;
   background: var(--surface);
 }
 
-.issue { padding: 12px 18px; font-size: 13px; font-weight: 700; line-height: 1.65; }
-.issue span { margin-inline-start: 10px; color: var(--muted); font-weight: 500; }
-.hero { padding: 34px 0 22px; text-align: center; }
-.kicker { color: var(--accent); font-size: 13px; font-weight: 750; letter-spacing: .1em; }
-.hero h1 {
-  margin: 8px 0 10px;
-  font-family: "Songti SC", "Noto Serif CJK SC", serif;
-  font-size: clamp(35px, 6.1vw, 67px);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -.065em;
+.issue { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 16px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.hero {
+  --hero-gold: #f4d69c;
+  --hero-text: #d4e4dc;
+  --hero-line: #d4e4dc30;
+  border-radius: 23px;
+  padding: 28px clamp(22px, 4vw, 39px) 26px;
+  background: radial-gradient(ellipse at 12% 84%, #3b6359, #204e4d 48%, #123741 100%);
+  color: #f3f8f4;
 }
-.heroScore { color: var(--muted); font-size: 14px; font-weight: 650; }
-.art { width: min(590px, 100%); margin: 22px auto 0; border: 1px solid var(--line-strong); overflow: hidden; border-radius: 10px; }
-.art img { width: 100%; height: auto; display: block; }
-.overviewText { padding: 22px; margin-bottom: 13px; background: var(--tint); border-color: #e4c6b4; }
-.overviewText p, .profile > p, .chapterBody p, .chapterBody dd, .bullets { color: var(--muted); line-height: 1.75; }
+.hero h1 { font-size: 23px; font-weight: 750; letter-spacing: -.02em; }
+.heroGrid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 30px; margin-top: 20px; }
+.heroPortrait { text-align: center; min-width: 0; }
+.kicker { color: var(--hero-text); font-size: 12px; font-weight: 650; letter-spacing: .09em; }
+.heroTrait { margin-top: 4px; font-size: clamp(44px, 5.3vw, 64px); font-weight: 760; line-height: 1.2; color: var(--hero-gold); }
+.heroScore { margin-top: 7px; color: var(--hero-text); font-size: 13px; }
+.heroArt { display: block; width: min(100%, 280px); height: auto; margin-inline: auto; filter: drop-shadow(0 12px 15px #09252c60); }
+.heroReading { border-left: 1px solid var(--hero-line); padding: 12px 0 12px clamp(18px, 3vw, 34px); min-width: 0; }
+.heroReading h2 { margin: 9px 0 10px; font-size: clamp(24px, 3vw, 33px); line-height: 1.36; font-weight: 750; }
+.heroReading > p:not(.kicker), .heroSignature p { color: var(--hero-text); font-size: 15px; line-height: 1.85; }
+.heroFacets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px; padding: 13px 0; border-block: 1px solid var(--hero-line); }
+.heroFacets dt { color: var(--hero-text); font-size: 12px; }
+.heroFacets dd { margin-top: 4px; color: var(--hero-gold); font-size: 31px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.heroContinue { display: inline-flex; gap: 8px; align-items: center; color: var(--hero-gold); margin-top: 10px; min-height: 44px; font-size: 13px; }
+.heroContinue:hover { text-decoration: underline; }
+.heroStory { margin-top: 14px; padding-top: 17px; border-top: 1px solid var(--hero-line); }
+.heroLabel { display: flex; align-items: center; gap: 12px; color: var(--hero-gold); font-size: 14px; font-weight: 750; }
+.heroLabel::after { content: ""; height: 1px; flex: 1; background: var(--hero-line); }
+.heroClues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 11px 0 20px; }
+.heroClues li { display: flex; align-items: flex-start; gap: 9px; padding: 9px 12px; border: 1px solid var(--hero-line); border-radius: 8px; background: #ffffff09; color: var(--hero-text); font-size: 13px; line-height: 1.65; }
+.heroClues svg { flex-shrink: 0; margin-top: 2px; color: var(--hero-gold); }
+.heroSignature { margin: 11px 0 19px; padding: 3px 0 3px 13px; border-left: 2px solid var(--hero-gold); }
+.heroSignature h3 { font-size: 17px; font-weight: 750; margin-bottom: 4px; }
+.heroNext { padding: 15px 19px; border-radius: 10px; background: #e7f0e5; color: #214740; }
+.heroNext h2 { font-size: 19px; font-weight: 750; }
+.heroNext p { font-size: 14px; line-height: 1.75; }
+.heroNext > p { margin-top: 5px; }
+.heroNext div { display: flex; align-items: flex-start; gap: 8px; border-top: 1px solid #21474030; margin-top: 9px; padding-top: 9px; }
+.heroNext svg { flex-shrink: 0; margin-top: 4px; }
+
+.profile > p, .chapterBody p, .chapterBody dd, .bullets { color: var(--muted); line-height: 1.75; }
 
 .profile { padding: 23px 24px 12px; margin-bottom: 19px; scroll-margin-top: 78px; }
 .profile h2, .footer h2 { font-size: 23px; font-weight: 800; margin-bottom: 4px; }
@@ -115,13 +140,24 @@
 .primary { display: inline-flex; align-items: center; gap: 9px; padding: 10px 14px; min-height: 44px; border-radius: 6px; background: var(--accent); color: #fffdf7; font-size: 14px; font-weight: 700; }
 .primary:hover { background: #752216; }
 .report :is(a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.report .hero a:focus-visible { outline-color: var(--hero-gold); }
+
+@media (max-width: 640px) {
+  .heroContainer { width: calc(100% - 28px); padding-top: 13px; }
+  .issue { gap: 8px; font-size: 11px; margin-bottom: 10px; }
+  .hero { padding: 16px 14px; border-radius: 16px; }
+  .hero h1 { font-size: 20px; }
+  .heroGrid { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 16px; }
+  .heroArt { width: min(100%, 230px); }
+  .heroReading { border-left: 0; border-top: 1px solid var(--hero-line); padding: 12px 0 0; }
+  .heroReading > p:not(.kicker), .heroSignature p { font-size: 14px; }
+  .heroFacets dd { font-size: 26px; }
+  .heroClues { grid-template-columns: minmax(0, 1fr); }
+  .heroNext { padding: 13px; }
+}
 
 @media (max-width: 575px) {
-  .container { width: calc(100% - 28px); padding: 14px 0 32px; }
-  .issue, .overviewText { padding: 12px 14px; }
-  .issue span { display: block; margin: 2px 0 0; }
-  .hero { padding: 27px 0 14px; }
-  .art { margin-top: 16px; }
+  .container { width: calc(100% - 28px); padding: 16px 0 32px; }
   .profile { padding: 16px 12px 6px; }
   .profile h2, .profile > p { padding-inline: 3px; }
   .chapter > summary { padding: 10px 12px; }

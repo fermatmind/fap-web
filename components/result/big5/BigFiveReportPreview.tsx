@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowUpRight, BookOpen, BriefcaseBusiness, ChevronDown, Compass,
-  HeartHandshake, Lightbulb, ListChecks, ScanLine, Users, Wallet, Waves,
+  ArrowDown, ArrowUpRight, BookOpen, BriefcaseBusiness, Check, ChevronDown, Compass,
+  HeartHandshake, Leaf, Lightbulb, ListChecks, ScanLine, Users, Wallet, Waves,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
@@ -102,25 +102,56 @@ export function BigFiveReportPreview({
     return <p role="status">暂时无法读取示例报告的五维分数。</p>;
   }
 
+  const heroFacets = portrait.facetCodes.flatMap((code) => facets.filter((facet) => facet.code === code));
+
   return (
     <main className={styles.report}>
-      <div className={styles.container}>
-        <p className={styles.issue}>示例报告 · {questionCount} 题完整版 <span>你的报告会根据自己的作答生成。</span></p>
+      <div className={styles.heroContainer}>
+        <p className={styles.issue}><span>本地示例报告 · 根据固定样例作答生成</span><span>{questionCount} 题完整版</span></p>
 
         <header className={styles.hero}>
-          <p className={styles.kicker}>大五人格 · 开放性特写</p>
-          <h1>{portrait.title}</h1>
-          <p className={styles.heroScore}>开放性 · 第 {scores[0]} 百分位</p>
-          <figure className={styles.art}>
-            <Image src="/images/big-five/openness-preview.webp" width={1280} height={853} preload
-              alt="一位观察者端详由多层红纸折成的立体作品" />
-          </figure>
+          <h1>大五人格报告</h1>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroPortrait}>
+              <p className={styles.kicker}>本次特写维度</p>
+              <p className={styles.heroTrait}>开放性</p>
+              <p className={styles.heroScore}>第 {scores[0]} 百分位 · Openness</p>
+              <Image className={styles.heroArt} src="/images/big-five/openness-character.webp"
+                width={560} height={700} sizes="(max-width: 640px) 230px, 280px" preload
+                alt="小熊猫手艺人坐在木凳上，端详手中的折纸鸟" />
+            </div>
+            <div className={styles.heroReading}>
+              <p className={styles.kicker}>开放性的三个面向 · 百分位</p>
+              <h2>{portrait.title}</h2>
+              <p>{portrait.intro}</p>
+              <dl className={styles.heroFacets}>
+                {heroFacets.map((facet) => (
+                  <div key={facet.code}><dt>{facet.label}</dt><dd>{facet.percentile}</dd></div>
+                ))}
+              </dl>
+              <a className={styles.heroContinue} href="#profile">查看完整五维画像 <ArrowDown size={16} aria-hidden="true" /></a>
+            </div>
+          </div>
+          <div className={styles.heroStory}>
+            <h2 className={styles.heroLabel}>结果里的关键线索</h2>
+            <ul className={styles.heroClues}>
+              {portrait.clues.map((clue) => <li key={clue}><Check size={16} aria-hidden="true" /><span>{clue}</span></li>)}
+            </ul>
+            <h2 className={styles.heroLabel}>可以发挥的地方</h2>
+            <div className={styles.heroSignature}>
+              <h3>{portrait.signature.title}</h3>
+              <p>{portrait.signature.body}</p>
+            </div>
+            <section className={styles.heroNext}>
+              <h2>{portrait.next.title}</h2>
+              <p>{portrait.next.body}</p>
+              <div><Leaf size={17} aria-hidden="true" /><p>{portrait.next.practice}</p></div>
+            </section>
+          </div>
         </header>
+      </div>
 
-        <section className={styles.overviewText} aria-label="综合解读">
-          <p>{portrait.intro}</p>
-        </section>
-
+      <div className={styles.container}>
         <section id="profile" className={styles.profile}>
           <h2>五维总览</h2>
           <p>图上的点越靠外，该特质的百分位越高。虚线是第 50 百分位。</p>
