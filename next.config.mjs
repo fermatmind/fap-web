@@ -321,13 +321,12 @@ const nextConfig = {
       ...historicalTestExact301Redirects,
       ...[
         ["jungian-archetype", "jung-archetypes"],
-        ["cognitive-functions-test", "jung-cognitive-functions"],
       ].flatMap(([legacy, current]) => ["", "/take"].map((suffix) => ({
         source: `/:locale(en|zh)/tests/explore/${legacy}${suffix}`,
         destination: suffix ? `/:locale/tests/${current}${suffix}` : "/:locale/tests/jung-test",
         permanent: true,
       }))),
-      ...["jung-archetypes", "jung-cognitive-functions"].map((slug) => ({
+      ...["jung-archetypes"].map((slug) => ({
         source: `/:locale(en|zh|zh-TW)/tests/${slug}`,
         destination: "/:locale/tests/jung-test",
         permanent: true,

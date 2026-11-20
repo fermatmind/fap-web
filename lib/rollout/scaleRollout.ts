@@ -296,10 +296,11 @@ export function resolveScaleRollout({
   const bucket = resolveBucket(normalizedScaleCode, identitySeed ?? anonId);
   const percentEnabled = bucket < envConfig.percent;
   const envEnabled = envConfig.enabled;
-  const assessmentEnabled = backendEnabled && envEnabled && percentEnabled && paywallMode !== "off";
+  const assessmentEnabled = normalizedScaleCode !== "JUNG_COGNITIVE_FUNCTIONS" && backendEnabled && envEnabled && percentEnabled && paywallMode !== "off";
   const commerceEnabled = assessmentEnabled && paywallMode === "full" && envConfig.commerceEnabled;
 
   const reasons: string[] = [];
+  if (normalizedScaleCode === "JUNG_COGNITIVE_FUNCTIONS") reasons.push("assessment_retired");
   if (!backendEnabled) reasons.push("backend_disabled");
   if (!envEnabled) reasons.push("env_disabled");
   if (!percentEnabled) reasons.push("percent_filtered");

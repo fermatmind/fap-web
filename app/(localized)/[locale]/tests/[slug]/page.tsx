@@ -1,3 +1,4 @@
+import { isRetiredJungAssessment } from "@/lib/tests/publicTestEntryVisibility";
 import { FreeAssessmentLanding, freeAssessmentMetadata } from "@/components/tests/FreeAssessmentLanding";
 import { JUNG_TEST_PATH, JUNG_TEST_SLUG, jungAssessmentForSlug } from "@/lib/tests/freeAssessmentLanding";
 import { RIASEC_RESULT_EXAMPLES } from "@/components/tests/RiasecResultExamples";
@@ -686,6 +687,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug: requestedSlug } = await params;
   const slug = resolveCanonicalSlug(requestedSlug);
+  if (isRetiredJungAssessment(slug)) notFound();
   const locale = resolveLocale(localeParam);
   if (slug === JUNG_TEST_SLUG) {
     return freeAssessmentMetadata("jung", localeParam === "zh-TW" ? "zh-TW" : locale);
@@ -805,6 +807,7 @@ export default async function TestLandingPage({
   const locale = resolveLocale(localeParam);
   const traditional = localeParam === "zh-TW";
   const slug = resolveCanonicalSlug(requestedSlug);
+  if (isRetiredJungAssessment(slug)) notFound();
   if (traditional && slug !== JUNG_TEST_SLUG && !isCoreAssessmentSlug(slug)) return notFound();
   const withLocale = (path: string) => assessmentDisplayPath(path, traditional ? "zh-TW" : locale, locale);
   if (slug !== requestedSlug) {

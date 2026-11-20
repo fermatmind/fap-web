@@ -64,38 +64,8 @@ const assessments = {
     source: ["Carol Pearson 的十二原型系统", "Carol Pearson 的十二原型系統", "Carol Pearson’s Twelve Archetype System"],
     sourceUrl: "https://carolspearson.com/about/the-pearson-12-archetype-system-human-development-and-evolution",
   },
-  functions: {
-    path: "/tests/jung-cognitive-functions",
-    artwork: "functions",
-    title: ["免费荣格八维认知功能测试（64 题）", "免費榮格八維認知功能測驗（64 題）", "Free Jung Cognitive Functions Test: 8 Functions, 64 Questions"],
-    intro: [
-      "64 道生活与工作情境题，约 13 分钟。免费查看 Ni、Ne、Si、Se、Ti、Te、Fi、Fe 八维分布；完整报告可选单次付费解锁。",
-      "64 道生活與工作情境題，約 13 分鐘。免費查看 Ni、Ne、Si、Se、Ti、Te、Fi、Fe 八維分數；完整報告可選單次付費解鎖。",
-      "Rate 64 everyday and work scenarios in about 13 minutes. Get free scores for Ni, Ne, Si, Se, Ti, Te, Fi and Fe. The full report is an optional one-time purchase.",
-    ],
-    sections: [
-      [
-        ["八维结果怎么看？", "如何閱讀八維結果？", "How should I read the eight function scores?"],
-        ["先比较八维分布，再读 Ni／Se、Ne／Si、Ti／Fe、Te／Fi 四组分差。某组分差很小时，可以对照两个做决定的经历，看看你在什么条件下采用哪种做法。", "先比較八維分布，再看 Ni／Se、Ne／Si、Ti／Fe、Te／Fi 四組分差。若某組分差很小，回想兩次具體決定，比較自己在什麼條件下採用哪種做法。", "Read the full profile before comparing Ni/Se, Ne/Si, Ti/Fe and Te/Fi. If an axis is close, recall two decisions and look at the circumstances in which you used each approach."],
-      ],
-      [
-        ["功能轴和类型候选怎么算？", "功能軸與類型候選如何計算？", "How are the axes and type candidates calculated?"],
-        ["回想过去三个月类似情境，每种功能用八题独立换算为 0–100。四组功能轴显示两维分差。费马以功能栈的配对关系对候选排序；分布接近时，结果会提示摇摆或资料不足。", "回想過去三個月的類似情境，每項功能以八題獨立換算為 0–100。四組功能軸呈現兩個分數的差距。費馬依功能堆疊的配對關係排序；分布接近時，會提示結果容易變動或資訊不足。", "Rate similar experiences from the past three months. Eight items are scaled independently to 0–100 for each function. The four axes show score differences, and a function-stack matching rule ranks possible types. Close profiles can produce unstable or insufficient evidence."],
-      ],
-      [
-        ["它和 MBTI 四组偏好有什么区别？", "它與 MBTI 四組偏好有何不同？", "How does this differ from an MBTI-style assessment?"],
-        ["八维题本比较你自评使用八种做法的频率。MBTI 风格题本按四组偏好解释结果。可以对照具体经历理解两份报告，类型候选只代表本题本与模型下的匹配，分数也没有人群常模。", "八維題本比較你自評使用八種做法的頻率。MBTI 風格題本則依四組偏好解讀。可以用具體經驗對照兩份報告；候選類型只表示在本題本與模型中的配對，分數也還沒有人群常模。", "This questionnaire compares how often you report using eight approaches. An MBTI-style questionnaire describes four preference pairs. Compare the two reports against real examples. Candidate types are matches under this model and the scores have no population norms."],
-      ],
-    ],
-    faq: [
-      [["八维结果一定会给出一个类型吗？", "八維結果一定會給出一種類型嗎？", "Will the test always assign a type?"], ["各功能分数太接近时，报告会提示候选容易变化，或显示本次分布不足以给出候选。", "各功能分數太接近時，報告會提示候選容易變動，或顯示這次分布不足以提供候選。", "When scores are very close, the report can flag unstable candidates or withhold the candidate list."]],
-      [["八维测试和报告免费吗？", "八維測驗與報告免費嗎？", "Is the full cognitive functions report free?"], ["64题作答与基础八维分数免费，完整报告可选单次付费解锁。", "64題作答與基礎八維分數免費，完整報告可選單次付費解鎖。", "All 64 questions and basic function scores are free. The full report is an optional one-time purchase."]],
-    ],
-    source: ["荣格《心理类型》", "榮格《心理類型》", "Jung’s Psychological Types"],
-    sourceUrl: "https://press.princeton.edu/books/hardcover/9780691097701/collected-works-of-c-g-jung-volume-6",
-  },
 } as const satisfies Record<string, {
-  path: string; artwork: "career" | "archetypes" | "functions";
+  path: string; artwork: "career" | "archetypes";
   title: LocaleText; intro: LocaleText; sections: readonly Section[]; faq: readonly Section[];
   source?: LocaleText; sourceUrl?: string;
 }>;
@@ -104,7 +74,6 @@ export type FreeAssessment = keyof typeof assessments;
 
 export function jungAssessmentForSlug(slug: string): FreeAssessment | null {
   if (slug === "jung-archetypes") return "archetypes";
-  if (slug === "jung-cognitive-functions") return "functions";
   return null;
 }
 
@@ -124,18 +93,18 @@ export function freeAssessmentCopy(key: FreeAssessment, locale: DisplayLocale) {
 
 export const JUNG_TEST_SLUG = "jung-test";
 export const JUNG_TEST_PATH = "/tests/jung-test";
-export const JUNG_FORMS = ["archetypes", "functions"] as const;
+export const JUNG_FORMS = ["archetypes"] as const;
 
 const jungTitle: LocaleText = ["荣格测试", "榮格測驗", "Jung Test"];
 const jungSearchTitle: LocaleText = [
-  "免费荣格测试：十二原型 48 题与八维认知功能 64 题",
-  "免費榮格測驗：十二原型 48 題與八維認知功能 64 題",
-  "Free Jung Test: 12 Archetypes & 8 Cognitive Functions",
+  "免费荣格十二原型测试：48 题，探索你的内在动机",
+  "免費榮格十二原型測驗：48 題，探索你的內在動機",
+  "Free Jung Test: 12 Archetypes, 48 Questions",
 ];
 const jungIntro: LocaleText = [
-  "想了解什么在驱动你，选 48 题十二原型测试。想比较自己如何获取信息和做决定，选 64 题八维认知功能测试。两套题独立作答，基础结果免费，完整报告可选单次付费解锁。",
-  "想知道什麼在驅動你，可選 48 題十二原型測驗。想比較自己如何取得資訊與做決定，可選 64 題八維認知功能測驗。兩套題可分開作答，基礎結果免費，完整報告可選單次付費解鎖。",
-  "Choose the 48-question archetype test to explore your motives, or the 64-question cognitive functions test to compare how you take in information and make decisions. Both tests and basic results are free; full reports are optional one-time purchases.",
+  "用 48 道情境自评，探索近期更突出的内在动机。查看十二原型的完整分布，理解自己的核心特质、日常贡献与成长方向。作答与基础结果免费，完整报告可选单次付费解锁。",
+  "用 48 道情境自評，探索近期較突出的內在動機。查看十二原型的完整分布，理解自己的核心特質、日常貢獻與成長方向。作答與基礎結果免費，完整報告可選單次付費解鎖。",
+  "Explore your recent motivations through 48 scenarios. See all 12 archetypes and reflect on your defining patterns, everyday contributions and growth. The test and basic profile are free; the full report is an optional one-time purchase.",
 ];
 export function jungLandingCopy(locale: DisplayLocale) {
   const index = locale === "zh" ? 0 : locale === "zh-TW" ? 1 : 2;

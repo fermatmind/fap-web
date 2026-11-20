@@ -1,0 +1,363 @@
+{
+  "source": "Report editorial synopses based on manifest-bound Career Current zh-CN pages; hashes identify source pages, not verbatim excerpts",
+  "manifestSha256": "ac68af9b3d9fae61a275b470ca967904ce6f3d6d85644906601c570289ffea41",
+  "careers": [
+    {
+      "slug": "actors",
+      "name": "演员",
+      "summary": "通过台词、动作和与对手的互动呈现角色，在排练中按反馈调整，再完成正式演出或拍摄。",
+      "check": "除了舞台上的表达，你是否也愿意经历准备、试镜和反复排练？可先了解一个具体项目的完整过程。",
+      "sourceSha256": "ca061de38e9464cc572aafb177ee069f3e173712829d457086029f97a28320ff"
+    },
+    {
+      "slug": "administrative-services-managers",
+      "name": "行政服务经理",
+      "summary": "协调办公支持、预算执行和记录管理，处理供应商、资料与日常服务之间的衔接。",
+      "check": "了解岗位时，看看它管理哪些服务、能决定什么，以及异常发生时需要找谁协商。",
+      "sourceSha256": "47c7166ef186b9865b476d079889d9933b87b43e95d0b4d0af140e93ce398545"
+    },
+    {
+      "slug": "anthropologists-and-archeologists",
+      "name": "人类学家与考古学家",
+      "summary": "围绕人类社会或物质遗存提出问题，通过观察、访谈、档案或遗址记录等材料开展研究。",
+      "check": "不同方向的方法差异很大。你更愿意接触人与现场，还是长时间整理记录、比较证据？",
+      "sourceSha256": "26a84007a925b1a8de2b528dd89d2d51ab9f95598d63154733197ff7d1bb0424"
+    },
+    {
+      "slug": "bakers",
+      "name": "面包师",
+      "summary": "按配方称量、搅拌和成型，跟进发酵、烘烤及批次质量，把同一种成品稳定地做出来。",
+      "check": "喜欢面包之外，也看看自己是否接受重复工序，以及具体岗位的早班、站立和高温环境。",
+      "sourceSha256": "a847d518c5becd7ccb1a68bac2100de584468bb272deec14a275b3c45bba4ba2"
+    },
+    {
+      "slug": "childcare-workers",
+      "name": "儿童照护人员",
+      "summary": "照顾儿童日常活动，留意用餐、休息与异常情况，并与家长、同事交接。",
+      "check": "不只看陪孩子玩的部分，也了解持续照看、记录和交接所需的耐心，以及当地岗位要求。",
+      "sourceSha256": "c3c8385ca3ddaab006e1e6fc5f7c79d6808d668c6316efa32521689abdfc5271"
+    },
+    {
+      "slug": "coaches-and-scouts",
+      "name": "教练与球探",
+      "summary": "围绕竞技表现安排训练，观察技术、给出反馈，并根据运动员特点调整练习或评估选材。",
+      "check": "亲自挑战和帮助别人进步是不同体验。可以先观察一次完整训练，了解示范、反馈和准备工作。",
+      "sourceSha256": "77c6a40d5751d669e370b536aa96482b7db0688cc4508f66a40df0b2dd8f7c9d"
+    },
+    {
+      "slug": "commercial-and-industrial-designers",
+      "name": "商业与工业设计师",
+      "summary": "研究产品用途、材料和制作条件，用草图或模型发展方案，再结合功能、成本与反馈修改。",
+      "check": "除构思外，你是否也愿意反复处理使用要求、材料限制与修改意见？可从一个小模型开始体验。",
+      "sourceSha256": "1c5f3636dd43e0b8e600a1076f81db20e1fbadbc5a53e6a67dda81d25799d59a"
+    },
+    {
+      "slug": "community-health-workers",
+      "name": "社区健康工作者",
+      "summary": "帮助社区居民理解健康信息、联系服务资源，沟通实际需要，并记录和跟进支持情况。",
+      "check": "了解具体岗位服务谁、需要哪些训练，以及社区沟通和健康相关操作各自的职责边界。",
+      "sourceSha256": "061c8e12113244213f6daa3fac11341099d5877e86bfe249b66bdbb7a9713a69"
+    },
+    {
+      "slug": "computer-systems-analysts",
+      "name": "计算机系统分析师",
+      "summary": "了解业务如何运作，把需求转成系统方案，比较改动的影响，并跟进实施后的结果。",
+      "check": "你是否愿意在使用者和技术团队之间反复澄清需求，而不只是提出一个新系统的想法？",
+      "sourceSha256": "be260435aed6ce4fe56735a2091bb136de3dcccc8daed4364d630c1c784369e6"
+    },
+    {
+      "slug": "craft-artists",
+      "name": "工艺艺术家",
+      "summary": "选择材料和工艺，把构想做成手工作品；根据用途还可能涉及表面处理、包装、展示和销售。",
+      "check": "可以先做一件完整作品，体验材料试验、重复制作与收尾，再了解面向客户时增加的工作。",
+      "sourceSha256": "ada83e632c8b38297416aa469f0e1e887629d0919e009dc53649985afeb225ea"
+    },
+    {
+      "slug": "customer-service-representatives",
+      "name": "客户服务代表",
+      "summary": "通过电话、聊天或邮件回应咨询，记录诉求，在权限内处理问题，并转交需要专岗解决的事项。",
+      "check": "你是否也能接受重复解释、记录和处理投诉？看清实际产品、服务渠道及处理权限。",
+      "sourceSha256": "55aa1e42b1167e700d0b087ae40fe37c5308418272ffe258361ee86715a73079"
+    },
+    {
+      "slug": "emergency-management-directors",
+      "name": "应急管理主管",
+      "summary": "评估风险、准备应急预案，组织培训和演练，并在突发事件中协调相关机构与资源。",
+      "check": "吸引你的若是应对难题，也要看看预案、日常协调与复盘。具体岗位的经验和任职要求需另查。",
+      "sourceSha256": "9e1463972fe99d0b3e9f2053bd349e050fccaee216ae96237d1f3beb74f24ea6"
+    },
+    {
+      "slug": "environmental-science-and-protection-technicians-including-health",
+      "name": "环境科学与保护技术人员，包括健康",
+      "summary": "在专业指导下开展环境现场或实验室检测，采集样品、记录数据，支持污染和健康危害调查。",
+      "check": "现场接触只是其中一部分，你是否也愿意按方法重复采样、维护记录，并遵守作业要求？",
+      "sourceSha256": "840bde0ab1b6dc4f8cdcbb7d86b2ca58ac6f7e99fd38aed5c7413dbc0be3ab70"
+    },
+    {
+      "slug": "firefighters",
+      "name": "消防员",
+      "summary": "参与灭火、救援等应急处置，同时进行训练、装备准备、检查和防火宣传。",
+      "check": "挑战的吸引力不能代替岗位要求。进一步了解时，把训练、日常值守、风险与准入条件一起看。",
+      "sourceSha256": "04cfcc88efe9f478b0f662155d75e3f3e66d5ed79291643f087531ac01fa14ba"
+    },
+    {
+      "slug": "fitness-trainers-and-instructors",
+      "name": "健身训练师与团课教练",
+      "summary": "围绕健身目标设计并指导锻炼，示范动作、观察参与者表现，再按需要作调整。",
+      "check": "你是否喜欢陪别人练习、解释和纠正，而不只是自己训练？同时了解专业训练及安全责任。",
+      "sourceSha256": "cf79220ead1d2cb73527d62e5717426aa2e0996a715b5797b4bffb08025221a6"
+    },
+    {
+      "slug": "floral-designers",
+      "name": "花艺设计师",
+      "summary": "根据场合和客户需要选择、剪切与搭配花材，制作花束或陈设，并照顾保鲜、包装和交付。",
+      "check": "除了配色与造型，也看看自己是否愿意处理备料、损耗和客户改动，以及旺季的工作节奏。",
+      "sourceSha256": "0b665e174d7999bbe9ff8e7a72ed4e80159e61e469f0e10dd55b59596c620897"
+    },
+    {
+      "slug": "general-and-operations-managers",
+      "name": "总经理和运营经理",
+      "summary": "协调多个部门或地点的日常运营，安排人力、物料与交付，跟进跨团队的问题。",
+      "check": "可以先了解一个真实组织：岗位负责多大范围，哪些决定自己作出，哪些需要共同协商？",
+      "sourceSha256": "6c9f757ea106454653c19967851bd1f15574aa66fbb73b18dfe7ed98007d9a2c"
+    },
+    {
+      "slug": "geographers",
+      "name": "地理学家",
+      "summary": "借助野外调查、地图及人口或环境数据，研究地区差异，以及自然过程与人类活动的联系。",
+      "check": "对地点好奇之外，你是否也喜欢整理数据、使用地图工具，并围绕一个问题长期研究？",
+      "sourceSha256": "26a308ae35537e804063a45eb5391799bb7951a0b5caa501596f58b1dfb8e1b9"
+    },
+    {
+      "slug": "graphic-designers",
+      "name": "平面设计师",
+      "summary": "用文字、图形、颜色和版式组织视觉信息，理解需求、比较方案并完成印刷或数字文件。",
+      "check": "可以用一个真实需求试做小作品，体验从构思到按反馈修改、检查交付的全过程。",
+      "sourceSha256": "7f563e38a7d46d518de062e7bec49e23ddb9413f598168408e4b0651c7fdb625"
+    },
+    {
+      "slug": "historians",
+      "name": "历史研究人员",
+      "summary": "提出历史问题，收集和比较档案、文献等材料，解释背景与不确定处，形成研究或史料整理成果。",
+      "check": "对历史感兴趣，也可能意味着长时间查找、核对和写作。可以先围绕一个小问题比较几份公开材料。",
+      "sourceSha256": "12d9ff020e8e69a9578a18424d485bb3dbe6a5e80c4b11b26c39024a5c7fc41d"
+    },
+    {
+      "slug": "human-resources-assistants-except-payroll-and-timekeeping",
+      "name": "人力资源助理（非薪资与工时核算）",
+      "summary": "协助核对入职材料、更新人事记录，安排招聘或员工事务中的日常流程。",
+      "check": "喜欢支持同事之外，看看是否接受细致的记录与跟进，并了解实际岗位如何划分职责。",
+      "sourceSha256": "00929429f102338d997526b87eeb1d22ada04cc6236e2954e36e2558e69ffa94"
+    },
+    {
+      "slug": "industrial-engineers",
+      "name": "工业工程师",
+      "summary": "研究人员、设备、物料与信息怎样配合，提出布局、产能、质量或成本改进方案并验证。",
+      "check": "你是否愿意把新想法放进数据和现场限制中反复比较？了解岗位偏制造、流程还是运营。",
+      "sourceSha256": "50834a73a62e8f986e17f36b8de0714a9c4489158fad30f2317a397245561ba2"
+    },
+    {
+      "slug": "industrial-organizational-psychologists",
+      "name": "工业与组织心理学工作者",
+      "summary": "用心理学与研究方法分析工作场所问题，开展岗位、人员、培训或组织相关研究和评估。",
+      "check": "对人和组织的兴趣之外，还需了解研究方法训练与当地职业要求；原型分数不能说明专业能力。",
+      "sourceSha256": "bd0918d98211a2d91620d4609866cbed21ebd23e74fe8b0ae4039477167e024f"
+    },
+    {
+      "slug": "instructional-coordinators",
+      "name": "课程与教学协调员",
+      "summary": "参与课程和教材的设计、评估与实施，观察教学情况，为教师提供反馈或培训支持。",
+      "check": "你是否愿意长期了解教学现场，并根据学习反馈修改课程？同时核对当地岗位的经验和资格要求。",
+      "sourceSha256": "2979ba44668284d21afcec99c7c9cbcb748ffc8c8e9328ccc5290a1908d16e52"
+    },
+    {
+      "slug": "interior-designers",
+      "name": "室内设计师",
+      "summary": "按使用需求安排室内空间、材料和照明，制作图纸并与施工及相关专业沟通。",
+      "check": "喜欢空间氛围之外，也看看图纸、尺寸、预算和现场沟通是否让你愿意持续投入。",
+      "sourceSha256": "0c5e7bc130a34237caae3b0db84f7f2e08ecbc021ede7ec437b21c6be92e48f5"
+    },
+    {
+      "slug": "labor-relations-specialists",
+      "name": "劳动关系专员",
+      "summary": "处理工作关系中的沟通、申诉或争议资料，了解相关条件，支持协商及后续跟进。",
+      "check": "对规则公平有兴趣，也要愿意听不同立场、整理事实。地区和岗位不同，协商及处理权限也不同。",
+      "sourceSha256": "6c16062d4165e2601e4b345e33ee93898a5b07a5f2bf7c1ba69dd6494ae1290e"
+    },
+    {
+      "slug": "landscaping-and-groundskeeping-workers",
+      "name": "园林绿化作业工",
+      "summary": "按现场安排进行栽植、修剪、草坪和苗木养护，以及绿地清理等工作。",
+      "check": "接触植物的满足之外，也了解具体岗位的户外条件、体力要求和重复养护工作。",
+      "sourceSha256": "82805921917cbde2a79f30f9ba9c5ac130a38e06d6aa89e0fd6390305589afef"
+    },
+    {
+      "slug": "lawyers",
+      "name": "律师",
+      "summary": "根据委托事项梳理事实、核对证据与法律来源，提供意见、起草文件或在权限内代理事务。",
+      "check": "质疑规则与依法处理具体事项是两回事。进一步了解专业训练、当地执业要求和日常案头工作。",
+      "sourceSha256": "973b43c633ae9ea270b5ee908d0b1a268912da1cddf99cd82d6fe2ebc8612f22"
+    },
+    {
+      "slug": "librarians-and-media-collections-specialists",
+      "name": "图书馆员与媒体馆藏专员",
+      "summary": "整理和维护图书、电子或媒体资源，支持检索与使用，并按岗位参与资源选择或读者辅导。",
+      "check": "你更喜欢组织资料、辅导读者，还是维护资源？先看具体岗位分工，不只想象安静阅读的环境。",
+      "sourceSha256": "42b8cea3d5f58d38447255ecd287be2ac26aac086adb3ca47a4b5295179ceb85"
+    },
+    {
+      "slug": "library-assistants-clerical",
+      "name": "图书馆文书助理",
+      "summary": "办理借还、维护流通记录、上架整理并回应常规咨询，复杂问题按馆内流程转交。",
+      "check": "你是否也愿意持续整理和处理重复事务？可先了解流通服务一天的工作，而不只看藏书环境。",
+      "sourceSha256": "4ca73a33a4fb38a835eee44ad07fedd8ff29707aa522855bf6db5ea799f2fa56"
+    },
+    {
+      "slug": "logisticians",
+      "name": "物流专员（物流师）",
+      "summary": "衔接采购、库存、运输和交付，跟踪延误，与仓库及承运方协调异常。",
+      "check": "安排好流程只是开始，也要跟进变化和催办。可以了解一个订单从提出到交付的真实过程。",
+      "sourceSha256": "09b712d2b321b2ef34e6c3d79e59f0b245be2be56a8e055115b26f10031bfa34"
+    },
+    {
+      "slug": "management-analysts",
+      "name": "管理分析师",
+      "summary": "了解组织如何工作，分析流程中的问题，为内部团队或客户形成改进建议。",
+      "check": "喜欢发现问题之外，你是否愿意访谈、梳理材料、解释建议，并持续回应执行中的限制？",
+      "sourceSha256": "1a465a5a4a261d6384f4059b757cf05b2a91c4af6b5886161d188e12ddea362d"
+    },
+    {
+      "slug": "meeting-convention-and-event-planners",
+      "name": "会议、会展与活动策划师",
+      "summary": "把人数、场地、供应商、预算和时间安排成活动方案，并在现场变化时协调调整。",
+      "check": "期待活动体验，也要看看准备、确认与收尾。你愿意投入的是创意环节，还是同样喜欢细致统筹？",
+      "sourceSha256": "f302905b5c7e2fa2e0a085e93927e8c843d0d23880059c668c5a4e9f965c652b"
+    },
+    {
+      "slug": "patient-representatives",
+      "name": "患者代表",
+      "summary": "协助患者和家属了解服务与政策，沟通就医障碍，联系医疗团队或转介适当资源。",
+      "check": "你是否愿意耐心听清诉求并协调流程？同时看清患者支持与临床诊疗的不同职责。",
+      "sourceSha256": "c418006d3a08823eb1f45ebff7d78aed0d7653f480a2ac1b142d2b44104c026e"
+    },
+    {
+      "slug": "personal-care-aides",
+      "name": "个人护理辅助员",
+      "summary": "按服务计划协助进食、穿衣、洗浴、行走等日常活动，也可能协助备餐和轻度家务。",
+      "check": "关心他人的意愿之外，也要了解具体照护任务、身体接触、体力需要，以及当地服务范围。",
+      "sourceSha256": "8e541e33e1b8f392a36833360c15f07df481beaf1e2010f9c7a443fd6608d029"
+    },
+    {
+      "slug": "photographers",
+      "name": "摄影师",
+      "summary": "根据用途安排拍摄、光线与构图，完成选片、修整、文件保存和按要求交图。",
+      "check": "记录美好瞬间之外，也体验一次有明确用途的拍摄，看看准备、后期和沟通是否同样让你投入。",
+      "sourceSha256": "05cf8fe54d79e367e3e256bbf51270ccdb9ad70a6393c3805e5bc09304c68994"
+    },
+    {
+      "slug": "physical-therapists",
+      "name": "物理治疗师",
+      "summary": "通过功能评估、目标设定、治疗和复测，帮助患者改善活动，并根据反应调整计划。",
+      "check": "兴趣之外，还要看是否愿意长期学习、沟通和记录。各地职业名称与资格要求需要分别了解。",
+      "sourceSha256": "32c81f2cf7bcd12a667cb780c0eb875d6b29fd31ae99567a565e614dda4ce796"
+    },
+    {
+      "slug": "producers-and-directors",
+      "name": "制片人与导演",
+      "summary": "围绕内容目标作创意取舍，组织表演或制作过程，并协调团队、时间与资源。",
+      "check": "你更愿意发展作品想法，还是也愿意处理人员、预算和制作协调？具体分工随项目而变。",
+      "sourceSha256": "d04c4f88333c492643508a20cdd119643a9536fd539c4474dcb3981c345be2b7"
+    },
+    {
+      "slug": "project-management-specialists",
+      "name": "项目管理专员",
+      "summary": "协调项目的范围、进度、人员和预算，与相关方确认目标、变更及交付。",
+      "check": "你是否愿意持续跟进而不只是制订计划？可从一个小项目体验确认需求、追踪变化与收尾。",
+      "sourceSha256": "c42dded3a8d2e7b5b5e6614ebddb4c70c6364d812da859db9f109c483b52649d"
+    },
+    {
+      "slug": "public-relations-specialists",
+      "name": "公共关系专员",
+      "summary": "核实资料、撰写新闻稿或媒体问答，回应信息请求，并维护组织与公众之间的沟通。",
+      "check": "喜欢建立联系之外，也看看自己是否愿意准确表达机构立场、处理反馈，并按授权发布信息。",
+      "sourceSha256": "bb7cf6610889f2a0e84bd4194c6c54fa14acff81449d6965bb8c4e5b151e4fbc"
+    },
+    {
+      "slug": "recreation-workers",
+      "name": "休闲活动从业人员",
+      "summary": "组织群体文体或休闲活动，准备材料，按参与者兴趣和条件调整过程并听取反馈。",
+      "check": "自己玩得开心和让不同参与者都能参与并不相同。可以先观察活动准备、带领和收尾。",
+      "sourceSha256": "985f9241da544b0caef5694904998d09236ea1dbe5f55d6ca536bc551eaf7c24"
+    },
+    {
+      "slug": "reporters-correspondents-and-broadcast-news-analysts",
+      "name": "新闻分析师、记者与新闻工作者",
+      "summary": "通过采访、调查和观察收集信息，核实事实，再按报道方式组织材料与表达。",
+      "check": "想追问公共问题，也需要反复联系、核对和修改。可先从公开材料整理一则可核查的小报道。",
+      "sourceSha256": "25e44795bca944cccfcf2bc2be28c3e54e7d45be647e6aaa419c88ab22c7de2b"
+    },
+    {
+      "slug": "social-and-community-service-managers",
+      "name": "社会与社区服务经理",
+      "summary": "协调社会或社区服务项目的人手、预算与参与条件，跟进服务交付并寻找改进。",
+      "check": "想改善服务，也要了解资源取舍和日常管理。可以先看一个项目怎样从需要走到实际提供支持。",
+      "sourceSha256": "35598ec760b4642dae995a48c8c1d6732386cbfdf38810772b879565419a2ac5"
+    },
+    {
+      "slug": "social-and-human-service-assistants",
+      "name": "社会与人类服务助理",
+      "summary": "协助联系服务对象和资源、整理资料、记录进展，并把资格或个案判断交给有权人员。",
+      "check": "你是否也愿意做重复联系、资料补充和跟进？具体服务对象与职责范围要看实际岗位。",
+      "sourceSha256": "a065d18b1f1bf9f3884edbe9f315a7b9e9a651b42292ff03a5093f338801bf70"
+    },
+    {
+      "slug": "survey-researchers",
+      "name": "调查研究员",
+      "summary": "把研究问题转成抽样和问卷设计，组织资料收集，分析并解释结果与方法限制。",
+      "check": "除了发现答案，是否也愿意反复测试问卷、清理数据和记录方法？可从一个小调查设计了解。",
+      "sourceSha256": "9d3c91ac7aedf08eaef14f2828d06e3d304a6370513a4d42b2857ce0a888b2a0"
+    },
+    {
+      "slug": "technical-writers",
+      "name": "技术写作者",
+      "summary": "把工程或产品资料整理成用户可执行的说明，与主题专家核对步骤，并维护术语和版本。",
+      "check": "你是否愿意反复向实际使用者解释、按反馈修改？可试着把一个熟悉操作写给没做过的人。",
+      "sourceSha256": "c3a3714eacb86bfe9b073d340da22f22e8d4b34ba13351a119100ca97f1c9dc0"
+    },
+    {
+      "slug": "tour-guides-and-escorts",
+      "name": "导游和陪同人员",
+      "summary": "介绍景点、回答游客问题，带领团队通过现场路线，并留意集合与开放安排。",
+      "check": "喜欢接触地点之外，也了解讲解、照顾团队和行程约束；具体排班与准入要求要另查。",
+      "sourceSha256": "609181135cdae3c167249c5f528cd482f89581e92131ce16fcf16dfc8026e9eb"
+    },
+    {
+      "slug": "training-and-development-specialists",
+      "name": "培训与发展专员",
+      "summary": "了解员工学习需要，设计或选择材料，组织培训与练习，并观察学习结果。",
+      "check": "你是否也喜欢反复解释、组织活动并根据反馈修改？可先试讲一小段，再听学习者的感受。",
+      "sourceSha256": "74186393da86573c1bea8d3b3f0d9613d9af788f8ea22719a14eb097518b0aa5"
+    },
+    {
+      "slug": "travel-guides",
+      "name": "旅行导游",
+      "summary": "组织现场行程，解释地点和服务安排，在天气、交通或团队需要变化时协调备选。",
+      "check": "自己的探索与带队出行不同。可以先了解行程准备、团队照顾，以及当地服务资质和责任。",
+      "sourceSha256": "3007d17f1b89f6385c5e2697e1e94e9e22453b6dbe0515c4bdc6692d2ae73f9f"
+    },
+    {
+      "slug": "urban-and-regional-planners",
+      "name": "城市与区域规划师",
+      "summary": "研究土地、人口、交通和设施等资料，比较空间方案，听取公众意见并形成规划建议。",
+      "check": "对公共空间有想法之外，是否愿意长期处理数据、程序和不同诉求？同时了解当地专业要求。",
+      "sourceSha256": "f1c884e12d6d47d14ffcefc9f4af2e7986f8a0426571b3b724906b38638ac414"
+    },
+    {
+      "slug": "writers-and-authors",
+      "name": "作家与作者",
+      "summary": "围绕题材或委托收集材料，写作、修订并回应编辑或委托方反馈。",
+      "check": "喜欢表达，也可能面对反复改稿和交稿期限。可以先完成一篇面向真实读者的小作品。",
+      "sourceSha256": "6632c1345034071e871f51a0174239cdcc90017970b8392377ca3b4af4dae3b7"
+    }
+  ]
+}

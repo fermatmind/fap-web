@@ -89,16 +89,16 @@ export default async function TestsPage({
   const zh = locale === "zh";
   const jung = jungLandingCopy(locale);
   const hasJungForms = catalog.some(entry => entry.is_active === true && entry.is_public === true
-    && ["JUNG_ARCHETYPES", "JUNG_COGNITIVE_FUNCTIONS"].includes(entry.scale_code ?? ""));
+    && entry.scale_code === "JUNG_ARCHETYPES");
   const jungCards: HubTestCardItem[] = hasJungForms ? [{
     key: JUNG_TEST_SLUG,
     title: jung.title,
     description: jung.intro,
-    questionsLabel: zh ? "48 / 64 题" : "48 / 64 questions",
-    durationLabel: zh ? "约 10 / 13 分钟" : "About 10 / 13 min",
-    outputLabel: zh ? "完整报告免费" : "Free full reports",
+    questionsLabel: zh ? "48 题" : "48 questions",
+    durationLabel: zh ? "约 10 分钟" : "About 10 min",
+    outputLabel: zh ? "十二原型分布" : "12-archetype profile",
     href: `/${locale}${jung.path}`,
-    primaryLabel: zh ? "查看两套测试" : "View both tests",
+    primaryLabel: zh ? "查看十二原型测试" : "View archetype test",
     previewVariant: "bars",
   }] : [];
 

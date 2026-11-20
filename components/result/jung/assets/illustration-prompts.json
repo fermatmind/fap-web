@@ -1,0 +1,72 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "sage.webp as visual style reference",
+  "transparent": true,
+  "prompts": [
+    {
+      "id": "sage",
+      "output": "/images/jung/archetypes/sage.webp",
+      "prompt": "Create one premium original editorial character illustration for a Chinese personality self-reflection report. Archetype: THE SAGE, a thoughtful anthropomorphic red fox scholar in a forest-green waistcoat and round brass glasses, seated on a small wooden stool, thoughtfully comparing an open book and a small geometric wooden model. Warm intelligent expression, curious rather than superior. Cohesive collectible character art: sophisticated stylized 3D clay sculpture, tactile matte materials, refined fur, restrained emerald, ochre and warm cream palette, soft studio light. Full body and props completely visible, centered square composition, substantial clean transparent margins, transparent background and no scenery. No text, letters, logo, charts or watermarks. Clearly original character, do not imitate a franchise. The fox should occupy 75% of frame height. Render as production website hero asset."
+    },
+    {
+      "id": "hero",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a courageous brown bear mountaineer in a moss-green hiking jacket, one foot on a small rock, securing a rope and helping build a small wooden footbridge. Determined calm expression. Symbolize chosen challenge and practice, not aggression.",
+      "output": "/images/jung/archetypes/hero.webp"
+    },
+    {
+      "id": "explorer",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: an inquisitive river otter traveler in a moss-green field jacket, small ochre backpack, holding an unfolded blank paper map and a brass compass, taking a curious step forward. Symbolize personal discovery and freedom of route.",
+      "output": "/images/jung/archetypes/explorer.webp"
+    },
+    {
+      "id": "creator",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a thoughtful beaver artisan in a moss-green apron, sitting at a compact workbench arranging a miniature wooden sculpture of an arch and carefully shaping a new piece with a simple hand tool. Symbolize giving an original idea a form.",
+      "output": "/images/jung/archetypes/creator.webp"
+    },
+    {
+      "id": "ruler",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a benevolent lion community organizer in a tailored moss-green waistcoat, seated beside a small wooden planning table, arranging distinct wooden blocks into a shared structure, holding a brass key. No crown or throne. Symbolize stewardship, shared responsibility and reliable systems.",
+      "output": "/images/jung/archetypes/ruler.webp"
+    },
+    {
+      "id": "caregiver",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a gentle capybara in a soft moss-green cardigan, holding a folded warm ochre blanket and a small cup on a tray, with a cared-for seedling beside its feet. Symbolize practical care and support without self-sacrifice.",
+      "output": "/images/jung/archetypes/caregiver.webp"
+    },
+    {
+      "id": "magician",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: an insightful owl inventor in a moss-green workshop coat, holding a glass prism above a compact assembly of wooden gears, connecting two pieces to make a new working arrangement. No wizard hat, supernatural spell or glowing magic. Symbolize reframing and transformation through connections.",
+      "output": "/images/jung/archetypes/magician.webp"
+    },
+    {
+      "id": "lover",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: an attentive graceful deer in a moss-green linen tunic and small terracotta scarf, arranging a few wildflowers in a ceramic vase and holding a handmade keepsake with care. Symbolize appreciation, meaningful connection and sensory detail, not romance stereotypes.",
+      "output": "/images/jung/archetypes/lover.webp"
+    },
+    {
+      "id": "jester",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a playful raccoon in a moss-green vest with ochre patches, balancing three small colorful wooden balls with an amused friendly expression, a tiny paper pinwheel tucked in a pocket. Symbolize shared play and humor, not circus clown makeup.",
+      "output": "/images/jung/archetypes/jester.webp"
+    },
+    {
+      "id": "everyperson",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a friendly golden-brown dog in an everyday moss-green rolled-sleeve shirt, carrying a small wooden bench and offering an extra ceramic cup at a simple little table. Symbolize belonging, ordinary contribution and welcoming equal participation.",
+      "output": "/images/jung/archetypes/everyperson.webp"
+    },
+    {
+      "id": "innocent",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: a hopeful cream rabbit in a moss-green knitted sweater, seated on a low stool holding a small potted seedling in warm morning-like studio light, with a simple folded picnic cloth nearby. Symbolize uncomplicated hope, trust and small everyday renewal, mature not babyish.",
+      "output": "/images/jung/archetypes/innocent.webp"
+    },
+    {
+      "id": "rebel",
+      "prompt": "Create ONE NEW original character illustration for a twelve-archetype report. The attached fox is ONLY a visual style reference: match its tactile premium stylized 3D collectible sculpture look, refined fur, soft studio lighting, moss green cloth, brass, ochre and warm cream palette, consistent adult storybook proportions. Do NOT include the fox or a second character. Full body entirely visible, no cropping of feet, props or ears. Centered square production composition with 8% transparent margins on all sides, isolated genuinely transparent background, no scenery or floor plane. No text, letters, logos or watermark. Same visual quality as reference, gentle relatable expression. Subject: an independent badger in a moss-green utility jacket and terracotta neckerchief, opening a small freestanding wooden gate by thoughtfully removing an unnecessary wooden crossbar, a new green shoot at the base. Symbolize questioning exclusion and making a constructive alternative, no destruction or weapons.",
+      "output": "/images/jung/archetypes/rebel.webp"
+    },
+    {
+      "id": "shared-reflection",
+      "output": "/images/jung/archetypes/shared-reflection.webp",
+      "prompt": "Create one original small shared illustration for the footer of a Chinese archetype self-reflection report. Use the attached fox ONLY as style reference: premium tactile stylized 3D clay sculpture, soft fur, moss green fabric, brass and warm cream, gentle studio lighting. Subject: a small thoughtful hedgehog in a moss green cardigan seated beside a simple open notebook and a compact brass compass, listening to a little rounded ceramic speech-bubble token in its paw. Conveys open-ended reflection and conversation, not AI omniscience. One character only, no fox, no text or letters. Landscape composition, full body and all props visible, 12% clear margins, genuinely transparent background. Restrained props, website footer asset designed to remain legible at 180 pixels."
+    }
+  ]
+}

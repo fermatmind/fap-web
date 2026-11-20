@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import Link from "next/link";
+import { JungReport } from "./JungReportPreview";
+import { readJungArchetypeScores } from "./jungReportAssets";
 
 const archetypeIds = ["hero", "sage", "explorer", "creator", "ruler", "caregiver", "magician", "lover", "jester", "everyperson", "innocent", "rebel"];
 const functionIds = ["Ni", "Ne", "Ti", "Te", "Fi", "Fe", "Si", "Se"];
@@ -33,6 +35,11 @@ export function JungResult({ scale, locale, displayLocale = locale, payload }: {
   const copy = (text: string) => displayLocale === "zh-TW" && converter ? converter(text) : text;
   const zh = locale === "zh";
   const archetype = scale === "JUNG_ARCHETYPES";
+  if (archetype && displayLocale === "zh") {
+    const scores = readJungArchetypeScores(payload);
+    return scores ? <JungReport mode="result" scores={scores} /> : <p role="status">当前无法读取报告，请刷新重试。</p>;
+  }
+
   const expected = archetype ? archetypeIds : functionIds;
   const result = payload as Projection | undefined;
   const archetypes = result?.reading?.archetypes ?? {};
