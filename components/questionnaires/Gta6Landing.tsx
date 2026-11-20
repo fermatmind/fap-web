@@ -7,6 +7,7 @@ import editorial from "@/lib/questionnaires/data/gta-6-landing.json";
 import {
   gta6Cover, gta6LandingPath, gta6Profiles, gta6Portrait, gta6ResultPath, gta6TakePath,
 } from "@/lib/questionnaires/gta6CharacterQuiz";
+import { Gta6CareerSections, gta6CareerFaq } from "./Gta6CareerSections";
 import styles from "./Gta6Landing.module.css";
 
 const copy = {
@@ -99,7 +100,13 @@ export function gta6LandingMetadata(locale: DisplayLocale): Metadata {
 
 export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
   const text = copy[locale];
-  const { faq, guide } = editorial[locale];
+  const { guide } = editorial[locale];
+  const faq = [...editorial[locale].faq, gta6CareerFaq[locale]];
+  const examples = [
+    { names: "Lucia + Jason", roles: ["lucia-caminos", "jason-duval"], body: text.pairText },
+    { names: "Boobie + Dre’Quan", roles: ["boobie-ike", "drequan-priest"], body: { en: "Boobie negotiates the budget and backup gear. Dre’Quan picks the part of the set worth protecting. Agree what can be cut before asking for more money.", zh: "Boobie 谈预算与备用设备，Dre’Quan 保住演出的关键段落。加预算前先说好哪部分能缩减。", "zh-TW": "布比談費用和備用器材，德雷・泉決定哪段節目一定要留。要追加預算前，先講好哪些地方可以縮。"}[locale] },
+    { names: "Cal + Brian", roles: ["cal-hampton", "brian-heder"], body: { en: "Cal verifies the patrol rumor. Brian sets a backup entrance and names who can switch plans. Agree when to stop waiting for confirmation.", zh: "Cal 核实巡逻传闻，Brian 安排备用入场口并确定谁可以切换方案。两人先定消息最晚确认时间。", "zh-TW": "卡爾去問消息來源，布萊恩排好備用入口，交代由誰決定換方案。先約好幾點前要回覆。"}[locale] },
+  ];
   return (
     <main className={styles.page}>
       <JsonLd id="gta6-faq" data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([name, answer]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text: answer } })) }} />
@@ -115,16 +122,28 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
               <a href="#characters">{text.guideLink}</a>
             </nav>
             <nav className={styles.anchors} aria-label="Language">
-              {(["en", "zh", "zh-TW"] as const).map((lang) => <Link key={lang} href={gta6LandingPath(lang)} lang={lang} aria-current={locale === lang ? "page" : undefined} prefetch={false}>{({ en: "English", zh: "简体中文", "zh-TW": "繁體中文" })[lang]}</Link>)}
+              {(["en", "zh", "zh-TW"] as const).map((lang) => {
+                const label = ({ en: "English", zh: "简体中文", "zh-TW": "繁體中文" })[lang];
+                return lang === locale
+                  ? <span key={lang} lang={lang} aria-current="page">{label}</span>
+                  : <Link key={lang} href={gta6LandingPath(lang)} lang={lang} prefetch={false}>{label}</Link>;
+              })}
             </nav>
           </div>
         </header>
         <div className={styles.content}>
           <section id="examples">
             <h2>{text.examples}</h2>
-            <div className={styles.examples}>
-              <div><h3>{text.solo}</h3><p>{text.soloText}</p></div>
-              <div><h3>{text.pair} · Lucia + Jason</h3><p>{text.pairText}</p></div>
+            <figure className={styles.exampleResult}>
+              <Image unoptimized src={gta6Portrait("lucia-caminos")} alt="" width={720} height={405} />
+              <figcaption><h3>{text.solo}</h3><strong>Lucia Caminos · {gta6Profiles[0].title[locale]}</strong><p>{text.soloText}</p></figcaption>
+            </figure>
+            <h3>{text.pair}</h3>
+            <div className={styles.pairs}>
+              {examples.map(example => <div key={example.names}>
+                <div className={styles.pairThumbs}>{example.roles.map(id => <Image key={id} unoptimized src={gta6Portrait(id)} alt="" width={44} height={44} />)}</div>
+                <h3>{example.names}</h3><p>{example.body}</p>
+              </div>)}
             </div>
           </section>
           <section>
@@ -145,6 +164,7 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
               ))}
             </ul>
           </section>
+          <Gta6CareerSections locale={locale} />
           <section>
             <h2>{text.method}</h2><p>{text.methodText}</p><p>{text.privacy}</p>
           </section>
