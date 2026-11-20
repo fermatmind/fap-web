@@ -106,6 +106,10 @@ export function JungReportPreview({ form }: { form: JungPreviewForm }) {
     : functionPreviewDimensions;
   const [selectedId, setSelectedId] = useState(dimensions[0].id);
   const [chapter, setChapter] = useState("profile");
+  const [candidateType, setCandidateType] = useState("ESFJ");
+  const candidateReading =
+    previewCandidates.find((candidate) => candidate.type === candidateType) ??
+    previewCandidates[0];
   const [copied, setCopied] = useState(false);
   const [completed, setCompleted] = useState<number[]>([]);
   const selected =
@@ -228,10 +232,10 @@ export function JungReportPreview({ form }: { form: JungPreviewForm }) {
         </div>
         <div className={styles.heroGrid}>
           <div className={styles.portrait}>
-            <p>{archetypes ? "本次更突出的动机" : "本次更常采用的策略"}</p>
-            <h2>{archetypes ? "智者" : "Fe × Si"}</h2>
+            <p>{archetypes ? "本次更突出的动机" : "本次更接近的类型"}</p>
+            <h2>{archetypes ? "智者" : "ESFJ"}</h2>
             <span>
-              {archetypes ? "理解之后，让想法有形" : "外倾情感 × 内倾感觉"}
+              {archetypes ? "理解之后，让想法有形" : previewCandidates[0].name}
             </span>
             <Image
               src={
@@ -251,17 +255,19 @@ export function JungReportPreview({ form }: { form: JungPreviewForm }) {
           </div>
           <div className={styles.heroReading}>
             <p className={styles.eyebrow}>
-              {archetypes ? "智者 × 创造者 × 探索者" : "先看策略，再比较候选"}
+              {archetypes
+                ? "智者 × 创造者 × 探索者"
+                : "Fe 外倾情感 · Si 内倾感觉"}
             </p>
             <h3>
               {archetypes
                 ? "想弄明白，也想亲手做出来"
-                : "让大家接得上，也让事情有章可循"}
+                : "你会先照顾参与者，再把事情安排妥当"}
             </h3>
             <p>
               {archetypes
                 ? "面对复杂问题，你可能先查清依据，再把理解变成一份别人能用的东西。新的问题会点燃好奇，真正让你投入的，是找到解释并看见它开始起作用。"
-                : "这组示例回答里，关注参与者的需要、借助熟悉经验安排下一步，两种策略相对突出。你可能常在协调关系与维持事情连续性之间来回切换。"}
+                : "你可能很快注意到谁还没进入讨论、哪项安排让人不方便，也会记住曾经有效的办法，把大家的期待落实到日常细节。能让你安心的，往往是一项承诺有人跟进，一段合作能持续运转。"}
             </p>
             <div className={styles.topScores}>
               {topThree.map((row) => (
@@ -278,7 +284,7 @@ export function JungReportPreview({ form }: { form: JungPreviewForm }) {
               <p>
                 {archetypes
                   ? "可以留意一个取舍：当“再弄清一点”和“先交出一版”同时出现时，你通常会先做哪一个？"
-                  : "可以留意一个取舍：当大家期待你答应，而自己的判断还有疑问时，你通常会先照顾什么？"}
+                  : "这组示例中，Fe 与 Si 相对突出。按费马功能栈配对规则，ESFJ 排在首位；还可以对照 ENFJ、ISFJ，回看自己最先关注什么。"}
               </p>
             </div>
             <a className={styles.heroContinue} href="#dimensions">
@@ -286,6 +292,22 @@ export function JungReportPreview({ form }: { form: JungPreviewForm }) {
             </a>
           </div>
         </div>
+        {!archetypes && (
+          <div className={styles.heroCandidates} aria-label="其他类型候选">
+            <p>还可以比较</p>
+            {previewCandidates.slice(1).map((candidate) => (
+              <a
+                key={candidate.type}
+                href="#reading"
+                onClick={() => setCandidateType(candidate.type)}
+              >
+                <strong>{candidate.type}</strong>
+                <span>{candidate.name}</span>
+                <ArrowRight size={15} />
+              </a>
+            ))}
+          </div>
+        )}
         <p className={styles.heroFootnote}>
           本报告展示过去三个月的情境自评读法。各项分数独立换算为
           0–100，当前题本尚无人群常模。
@@ -416,23 +438,70 @@ export function JungReportPreview({ form }: { form: JungPreviewForm }) {
             ) : (
               <>
                 <p className={styles.lead}>
-                  根据这组固定示例，先比较以下功能栈的组织方式。候选顺序只表示当前题本模型的排序，最终需要用自己的经历逐项核对。
+                  先理解每个候选怎样组织注意与判断，再看它如何出现在具体场景里。以下候选均来自当前固定示例，点击可比较完整解读。
                 </p>
-                <div className={styles.candidates}>
+                <div
+                  className={styles.typeTabs}
+                  role="group"
+                  aria-label="选择类型解读"
+                >
                   {previewCandidates.map((candidate) => (
-                    <article key={candidate.type}>
-                      <h3>{candidate.type}</h3>
-                      <p className={styles.stack}>
-                        {candidate.stack.join(" → ")}
-                      </p>
-                      <p>{candidate.question}</p>
-                    </article>
+                    <button
+                      key={candidate.type}
+                      aria-pressed={candidateType === candidate.type}
+                      onClick={() => setCandidateType(candidate.type)}
+                    >
+                      <strong>{candidate.type}</strong>
+                      <span>{candidate.name}</span>
+                    </button>
                   ))}
                 </div>
-                <h3>把相似候选分开的两个问题</h3>
-                <p>
-                  面对一个陌生团队，你会先了解大家的需要，还是先弄清既有分工和习惯？当熟悉流程不再奏效，你更愿意沿着实际反馈逐步调整，还是先形成一个新的长期方向？各找一件真实的事来回答，比只选择一个标签更容易看出差异。
-                </p>
+                <article className={styles.typeProfile} aria-live="polite">
+                  <p className={styles.eyebrow}>
+                    类型解读 · {candidateReading.type}
+                  </p>
+                  <h3>{candidateReading.name}</h3>
+                  <p className={styles.typeDefinition}>
+                    {candidateReading.definition}
+                  </p>
+                  <p>{candidateReading.overview}</p>
+                  <div className={styles.typeEvidence}>
+                    <h4>这组分数为何指向它</h4>
+                    <p className={styles.stack}>
+                      {candidateReading.stack.join(" → ")}
+                    </p>
+                    <p>{candidateReading.mechanism}</p>
+                  </div>
+                  <div className={styles.typeScenes}>
+                    {candidateReading.scenes.map((scene) => (
+                      <div key={scene.title}>
+                        <h4>{scene.title}</h4>
+                        <p>{scene.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className={styles.twoColumns}>
+                    <div>
+                      <h4>运用得合适时</h4>
+                      <p>{candidateReading.balanced}</p>
+                    </div>
+                    <div>
+                      <h4>用得过多时</h4>
+                      <p>{candidateReading.overused}</p>
+                    </div>
+                  </div>
+                  <div className={styles.typeEvidence}>
+                    <h4>和相似候选怎样区分</h4>
+                    <p>{candidateReading.difference}</p>
+                  </div>
+                  <p className={styles.practice}>
+                    <Leaf size={17} />
+                    <span>{candidateReading.growth}</span>
+                  </p>
+                </article>
+                <h3 className={styles.functionMechanismTitle}>
+                  从功能组合，理解你的做法
+                </h3>
                 <div className={styles.twoColumns}>
                   {topThree.slice(0, 2).map((row) => (
                     <article key={row.id}>
