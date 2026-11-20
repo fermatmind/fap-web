@@ -68,10 +68,12 @@ export function MbtiReportAccessSummary({
   locale,
   freeFullReport,
   cmsCopy,
+  showSampleLink = true,
 }: {
   locale: DisplayLocale;
   freeFullReport: boolean;
   cmsCopy?: string;
+  showSampleLink?: boolean;
 }) {
   const copy = COPY[locale];
   const publishedCopy = freeFullReport && cmsCopy;
@@ -80,7 +82,9 @@ export function MbtiReportAccessSummary({
       <h2 id="mbti-report-access" className="m-0 text-lg font-semibold">{copy.accessHeading}</h2>
       <p className="m-0">{publishedCopy || (freeFullReport ? copy.freeReport : copy.basicReport)}</p>
       <p className="m-0">{copy.recovery}</p>
-      <a className="inline-block font-semibold underline underline-offset-4" href="#scored-report-example">{copy.sampleLink}</a>
+      {showSampleLink ? (
+        <a className="inline-block font-semibold underline underline-offset-4" href="#scored-report-example">{copy.sampleLink}</a>
+      ) : null}
     </section>
   );
 }

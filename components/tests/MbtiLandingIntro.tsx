@@ -23,9 +23,10 @@ type Props = {
   choices: Choice[];
   disabled: boolean;
   description?: string;
+  showScoredReportLink?: boolean;
 };
 
-export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled, description }: Props) {
+export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled, description, showScoredReportLink }: Props) {
   const zh = locale !== "en";
   return (
     <section id="what-it-is" className={styles.hero}>
@@ -56,6 +57,11 @@ export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled
             </div>
           )}
         </div>
+        {showScoredReportLink ? (
+          <a className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-4" href="#scored-report-example">
+            {zh ? "先看实际计分的报告示例" : "See a scored result example"}
+          </a>
+        ) : null}
       </div>
       {heroArtwork ? <AssessmentHeroArtwork theme={heroArtwork} /> : null}
     </section>
