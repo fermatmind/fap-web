@@ -141,25 +141,33 @@ function ScienceBlock({ title, icon, children }: { title: string; icon: ReactNod
   );
 }
 
-function ScenarioSection({ id, title, icon, children }: { id: string; title: string; icon: ReactNode; children: ReactNode }) {
+function ScenarioRow({ id, title, takeaway, icon, children }: {
+  id: string; title: string; takeaway: string; icon: ReactNode; children: ReactNode;
+}) {
   return (
-    <section id={id} className={styles.scenario} aria-labelledby={`${id}-title`}>
-      <h3 id={`${id}-title`}>{icon}{title}</h3>
-      {children}
-    </section>
+    <details id={id} className={styles.scenarioRow}>
+      <summary>
+        <span className={styles.scenarioIcon}>{icon}</span>
+        <span className={styles.disclosureTitle}><strong>{title}</strong><span>{takeaway}</span></span>
+        <ChevronDown size={16} className={styles.disclosureChevron} aria-hidden="true" />
+      </summary>
+      <div className={styles.disclosureBody}>{children}</div>
+    </details>
   );
 }
 
-function ApplicationCards({ items }: { items: ReadonlyArray<{ title: string; body: string; observe: string }> }) {
-  return <div className={styles.grid}>
-    {items.map((item) => (
-      <article className={`${styles.card} ${styles.applicationCard}`} key={item.title}>
-        <h4>{item.title}</h4>
-        <p>{item.body}</p>
-        <div><h5>怎么核对</h5><p>{item.observe}</p></div>
-      </article>
-    ))}
-  </div>;
+function ApplicationNotes({ items }: { items: ReadonlyArray<{ title: string; body: string; observe: string }> }) {
+  return (
+    <div className={styles.applicationNotes}>
+      {items.map((item) => (
+        <div key={item.title}>
+          <h4>{item.title}</h4>
+          <p>{item.body}</p>
+          <p><strong>怎么核对</strong> {item.observe}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function BigFiveReportPreview({
@@ -291,56 +299,48 @@ export function BigFiveReportPreview({
         </Chapter>
 
         <Chapter id="career-life" title="职业与生活" icon={<Compass size={18} />}>
-          <ScenarioSection id="career" title="职业匹配线索" icon={<Compass size={16} aria-hidden="true" />}>
-            <div className={`${styles.card} ${styles.matchSummary}`}>
-              <h4>六个方向一览</h4>
-              <p>这里比的是岗位中的具体任务与本样例的审美感受有没有交集。「直接线索」指任务本身涉及形式或呈现效果，「需要试做」指关键要求还需用样稿或实际体验核对。</p>
-              <ul className={styles.careerOverview}>
-                {careerDirections.map((item) => (
-                  <li key={item.id}>
-                    <a href={`#career-${item.id}`}>
-                      <span><strong>{item.name}</strong><small>{item.focus}</small></span>
-                      <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className={styles.matchBasis}>大五提供工作风格线索。想比较自己愿意长期投入哪类活动，可以结合 <Link href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`}>霍兰德职业兴趣</Link> 和试做反馈。</p>
-            </div>
-            <div className={styles.stack}>
+          <section id="career" className={styles.scenario} aria-labelledby="career-title">
+            <h3 id="career-title">职业匹配线索</h3>
+            <p>「直接线索」表示任务涉及形式与呈现，和样例的审美感受有交集。点开任一方向查看依据和试做方法。</p>
+            <ul className={styles.careerList}>
               {careerDirections.map((item) => (
-                <article className={`${styles.card} ${styles.careerCard}`} id={`career-${item.id}`} key={item.id}>
-                  <div className={styles.careerTitle}>
-                    <h4>{item.name}</h4>
-                    <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
-                  </div>
-                  <p>{item.why}</p>
-                  <p className={styles.tryTask}><strong>可以试做</strong> {item.task}</p>
-                  <ul className={styles.tags} aria-label="值得核对的工作要求">{item.check.map((label) => <li key={label}>{label}</li>)}</ul>
-                </article>
+                <li key={item.id}>
+                  <details id={`career-${item.id}`} className={styles.careerRow}>
+                    <summary>
+                      <span className={styles.disclosureTitle}><strong>{item.name}</strong><span>{item.focus}</span></span>
+                      <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
+                      <ChevronDown size={16} className={styles.disclosureChevron} aria-hidden="true" />
+                    </summary>
+                    <div className={styles.disclosureBody}>
+                      <p>{item.why}</p>
+                      <p><strong>可以试做</strong> {item.task}</p>
+                      <p><strong>工作要求</strong> {item.check.join("、")}</p>
+                    </div>
+                  </details>
+                </li>
               ))}
+            </ul>
+            <p className={styles.matchBasis}>想比较自己愿意长期投入的活动，可以结合 <Link href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`}>霍兰德职业兴趣</Link>。</p>
+          </section>
+
+          <section className={styles.scenario} aria-labelledby="life-title">
+            <h3 id="life-title">日常场景</h3>
+            <div className={styles.scenarioList}>
+              <ScenarioRow id="work" title="工作表现" takeaway="交接时写清标准，有意见可先写下来。" icon={<BriefcaseBusiness size={16} aria-hidden="true" />}>
+                <ApplicationNotes items={workplace} />
+              </ScenarioRow>
+              <ScenarioRow id="stress" title="压力与恢复" takeaway="分别记录发生了什么、感受和持续时间。" icon={<Waves size={16} aria-hidden="true" />}>
+                <p>{stress.pattern}</p>
+                <ul className={styles.bullets}>{[...stress.cues, ...stress.responses].map((note) => <li key={note}>{note}</li>)}</ul>
+              </ScenarioRow>
+              <ScenarioRow id="money" title="金钱习惯" takeaway="先分清喜欢和需要，再用账目核对。" icon={<Wallet size={16} aria-hidden="true" />}>
+                <ApplicationNotes items={money} />
+              </ScenarioRow>
+              <ScenarioRow id="relationships" title="人际关系" takeaway="先问清对方的处境，再说明自己的需要。" icon={<HeartHandshake size={16} aria-hidden="true" />}>
+                <ApplicationNotes items={relationships} />
+              </ScenarioRow>
             </div>
-          </ScenarioSection>
-
-          <ScenarioSection id="work" title="工作表现" icon={<BriefcaseBusiness size={16} aria-hidden="true" />}>
-            <ApplicationCards items={workplace} />
-          </ScenarioSection>
-
-          <ScenarioSection id="stress" title="压力与恢复" icon={<Waves size={16} aria-hidden="true" />}>
-            <div className={styles.card}><h4>压力体验</h4><p>{stress.pattern}</p></div>
-            <div className={styles.grid}>
-              <article className={styles.card}><h4>值得留意的线索</h4><ul className={styles.bullets}>{stress.cues.map((cue) => <li key={cue}>{cue}</li>)}</ul></article>
-              <article className={styles.card}><h4>可以尝试的方法</h4><ul className={styles.bullets}>{stress.responses.map((response) => <li key={response}>{response}</li>)}</ul></article>
-            </div>
-          </ScenarioSection>
-
-          <ScenarioSection id="money" title="金钱习惯" icon={<Wallet size={16} aria-hidden="true" />}>
-            <ApplicationCards items={money} />
-          </ScenarioSection>
-
-          <ScenarioSection id="relationships" title="人际关系" icon={<HeartHandshake size={16} aria-hidden="true" />}>
-            <ApplicationCards items={relationships} />
-          </ScenarioSection>
+          </section>
         </Chapter>
 
         <Chapter id="plan" title="行动计划" icon={<ListChecks size={18} />}>
