@@ -1283,28 +1283,14 @@
   gap: 28px;
 }
 .archetypeCard {
-  --reading-accent: #72509b;
-  --reading-tint: #e4dced;
-  --reading-ink: #46345c;
-  border: 1px solid #d2c5df;
+  --reading-accent: #39765a;
+  --reading-tint: #c6dccb;
+  --reading-ink: #234c3b;
+  border: 1px solid #aac7b1;
   border-radius: 22px;
   overflow: hidden;
-  background: linear-gradient(140deg, #f5f0f7, #f8f9f3);
+  background: linear-gradient(140deg, #dce9dc, #e7eddc);
   box-shadow: 0 10px 28px #253b3008;
-}
-.archetypeCard[data-archetype="creator"] {
-  --reading-accent: #a84f6d;
-  --reading-tint: #f0dce3;
-  --reading-ink: #69384b;
-  border-color: #dec3cd;
-  background: linear-gradient(140deg, #f8eef1, #faf8ef);
-}
-.archetypeCard[data-archetype="explorer"] {
-  --reading-accent: #39765a;
-  --reading-tint: #d7e7d9;
-  --reading-ink: #2b5541;
-  border-color: #b9d1bf;
-  background: linear-gradient(140deg, #eaf2e9, #f6f6ec);
 }
 .archetypeHeader {
   display: flex;
