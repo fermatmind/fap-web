@@ -1,0 +1,195 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2963a08774ec411ad4d1ad0e584098c90cfb988c1927480f85f875cb4fb66afc",
+  "inputs": {
+    "pair_id": "chemical-technicians-vs-nanotechnology-engineering-technologists-and-technicians",
+    "slugs": [
+      "chemical-technicians",
+      "nanotechnology-engineering-technologists-and-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/chemical-technicians-vs-nanotechnology-engineering-technologists-and-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "chemical-technicians": {
+        "name": "化學技術員",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-4031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.45,
+            5.8,
+            1.51,
+            1.64,
+            1.13,
+            5.25
+          ]
+        },
+        "tasks": [
+          "實驗室檢測｜按已驗證方法執行化學與物理檢測｜執行化學或物理實驗室檢測以協助科學家作定性或定量分析，使用色譜與光譜與物理或化學分離技術與顯微鏡等方法搭建並開展實驗與檢測，並監控產品質量以確保符合標準與規範（對應 O*NET 任務重要度 88、84、84）。",
+          "樣品與溶液與試劑｜取樣與前處理並配製溶液與試劑｜按標準配方配製產品或工藝用化學溶液或設計實驗配方，制定並執行取樣與分析計劃以維持原料與中間體或產品的質量標準（對應任務重要度 84、77）。",
+          "儀器與裝置｜維護與清潔與滅菌儀器並保持可用狀態｜維護與清潔或滅菌實驗室儀器或裝置，並在需要時設計或製作實驗裝置以支援新產品或工藝開發（對應任務重要度 86、60）。",
+          "資料與報告｜彙總並解讀結果並撰寫技術報告｜彙總並解讀檢測與分析結果，撰寫技術報告或製作圖表以記錄實驗結果（對應任務重要度 82、72）。",
+          "安全與質量體系｜參與安全計劃並完成安全稽核｜參與安全計劃與委員會或小組，並通過實驗室或工廠安全稽核維護安全工作環境；訂購與盤點物料以維持供應（對應任務重要度 80、68）。",
+          "協作與帶教｜為化學家與工程師提供支援並培訓新員工｜為化學家或工程師提供技術支援或協助，就實驗室裝置的正確操作等主題培訓新員工，指導或監督生產化學產品的其他工作人員，並操作實驗性中試裝置與協助實驗設計或開發新的化學工程工藝與生產技術（對應任務重要度 79、73、65、68、51）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-4031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-4031",
+          "title_evidence": "official_title"
+        }
+      },
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "name": "奈米技術工程技師與技術人員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3026.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.16,
+            4.98,
+            1.55,
+            1.05,
+            2.01,
+            4.83
+          ]
+        },
+        "tasks": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3026.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3026",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "nanotechnology-engineering-technologists-and-technicians -> chemical-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "chemical-technicians": {
+        "file_sha256": "fb840e9460bec89bcf3adaaa64cc4283a7e0a8e17e379bcf3a093e5d111ed5a4",
+        "entries": [
+          "實驗室檢測｜按已驗證方法執行化學與物理檢測｜執行化學或物理實驗室檢測以協助科學家作定性或定量分析，使用色譜與光譜與物理或化學分離技術與顯微鏡等方法搭建並開展實驗與檢測，並監控產品質量以確保符合標準與規範（對應 O*NET 任務重要度 88、84、84）。",
+          "樣品與溶液與試劑｜取樣與前處理並配製溶液與試劑｜按標準配方配製產品或工藝用化學溶液或設計實驗配方，制定並執行取樣與分析計劃以維持原料與中間體或產品的質量標準（對應任務重要度 84、77）。",
+          "儀器與裝置｜維護與清潔與滅菌儀器並保持可用狀態｜維護與清潔或滅菌實驗室儀器或裝置，並在需要時設計或製作實驗裝置以支援新產品或工藝開發（對應任務重要度 86、60）。",
+          "資料與報告｜彙總並解讀結果並撰寫技術報告｜彙總並解讀檢測與分析結果，撰寫技術報告或製作圖表以記錄實驗結果（對應任務重要度 82、72）。",
+          "安全與質量體系｜參與安全計劃並完成安全稽核｜參與安全計劃與委員會或小組，並通過實驗室或工廠安全稽核維護安全工作環境；訂購與盤點物料以維持供應（對應任務重要度 80、68）。",
+          "協作與帶教｜為化學家與工程師提供支援並培訓新員工｜為化學家或工程師提供技術支援或協助，就實驗室裝置的正確操作等主題培訓新員工，指導或監督生產化學產品的其他工作人員，並操作實驗性中試裝置與協助實驗設計或開發新的化學工程工藝與生產技術（對應任務重要度 79、73、65、68、51）。"
+        ]
+      },
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+        "entries": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 141,
+      "source_slugs": [
+        "chemical-technicians",
+        "nanotechnology-engineering-technologists-and-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "chemical-technicians": {
+          "field": "entries",
+          "source_path": "careers/chemical-technicians/zh-TW.json",
+          "file_sha256": "fb840e9460bec89bcf3adaaa64cc4283a7e0a8e17e379bcf3a093e5d111ed5a4",
+          "count": 6
+        },
+        "nanotechnology-engineering-technologists-and-technicians": {
+          "field": "entries",
+          "source_path": "careers/nanotechnology-engineering-technologists-and-technicians/zh-TW.json",
+          "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+          "count": 8
+        }
+      }
+    }
+  }
+}

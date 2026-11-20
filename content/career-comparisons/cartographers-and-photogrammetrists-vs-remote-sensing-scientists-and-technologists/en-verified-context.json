@@ -1,0 +1,314 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "aab92317031fc4ce4572c6aaa3d89acee1fd4037327344a0a6b5720e3b3ca9f4",
+  "inputs": {
+    "pair_id": "cartographers-and-photogrammetrists-vs-remote-sensing-scientists-and-technologists",
+    "slugs": [
+      "cartographers-and-photogrammetrists",
+      "remote-sensing-scientists-and-technologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/cartographers-and-photogrammetrists-vs-remote-sensing-scientists-and-technologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cartographers-and-photogrammetrists": {
+        "name": "Cartographers and Photogrammetrists",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-1021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.62,
+            5.18,
+            3.55,
+            1.78,
+            1.64,
+            5.34
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-1021.00#Tasks"
+              }
+            ],
+            "text": "Compile data required for map preparation, including aerial photographs, survey notes, records, reports, and original maps."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-1021.00#Tasks"
+              }
+            ],
+            "text": "Delineate aerial photographic detail, such as control points, hydrography, topography, and cultural features, using precision stereoplotting apparatus or drafting instruments."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-1021.00#Tasks"
+              }
+            ],
+            "text": "Prepare and alter trace maps, charts, tables, detailed drawings, and three-dimensional optical models of terrain using stereoscopic plotting and computer graphics equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-1021.00#Tasks"
+              }
+            ],
+            "text": "Study legal records to establish boundaries of local, national, and international properties."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-1021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "17-1021",
+          "title_evidence": "official_title"
+        }
+      },
+      "remote-sensing-scientists-and-technologists": {
+        "name": "Remote Sensing Scientists and Technologists",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.86,
+            6.09,
+            1.93,
+            1.27,
+            1.44,
+            4.81
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-2099.01#Tasks"
+              }
+            ],
+            "text": "Manage or analyze data obtained from remote sensing systems to obtain meaningful results."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-2099.01#Tasks"
+              }
+            ],
+            "text": "Analyze data acquired from aircraft, satellites, or ground-based platforms, using statistical analysis software, image analysis software, or Geographic Information Systems (GIS)."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-2099.01#Tasks"
+              }
+            ],
+            "text": "Integrate other geospatial data sources into projects."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-2099.01#Tasks"
+              }
+            ],
+            "text": "Organize and maintain geospatial data and associated documentation."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-2099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "cartographers-and-photogrammetrists -> remote-sensing-scientists-and-technologists",
+      "remote-sensing-scientists-and-technologists -> cartographers-and-photogrammetrists"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "17-1021.00",
+        "source_url": "https://www.onetonline.org/link/summary/17-1021.00",
+        "locator": "Tasks 3517, 3522, 3524, 3518",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Compiles source data, extracts features and checks map products for accuracy.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "19-2099.01",
+        "source_url": "https://www.onetonline.org/link/summary/19-2099.01",
+        "locator": "Tasks 18270, 18256, 18258, 18260",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Analyzes remote-sensing data and integrates geospatial sources and documentation.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-19-2099.01",
+        "source_url": "https://www.onetonline.org/link/localwages/19-2099.01",
+        "locator": "National Wages occupational mapping",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "Wages are collected from Physical Scientists, All Other.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 row 17-1021",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025–35 projections",
+          "summary": "A bachelor’s degree is typical for cartographers and photogrammetrists.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-remote-education",
+        "source_url": "https://www.onetonline.org/link/summary/19-2099.01",
+        "locator": "Education responses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET occupation profile",
+          "summary": "Bachelor’s degree (60%) is the most frequent response.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-cart-license",
+        "source_url": "https://www.bls.gov/ooh/architecture-and-engineering/cartographers-and-photogrammetrists.htm",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current OOH",
+          "summary": "Some cartographers and photogrammetrists may need to be licensed.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 17,
+      "source_slugs": [
+        "cartographers-and-photogrammetrists",
+        "remote-sensing-scientists-and-technologists"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

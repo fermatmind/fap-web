@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6a9f71e6610ea49c0dcbe6544f91e7a6da47d931811c20d9c9930ca1c545d4b7",
+  "inputs": {
+    "pair_id": "clinical-neuropsychologists-vs-occupational-therapists",
+    "slugs": [
+      "clinical-neuropsychologists",
+      "occupational-therapists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/clinical-neuropsychologists-vs-occupational-therapists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clinical-neuropsychologists": {
+        "name": "临床神经心理学家",
+        "riasec": {
+          "code": "IS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3039.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.82,
+            7.0,
+            2.4,
+            5.69,
+            2.07,
+            3.49
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3039.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-3039",
+          "title_evidence": "official_title"
+        }
+      },
+      "occupational-therapists": {
+        "name": "作业治疗师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1122.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.57,
+            4.23,
+            3.07,
+            6.08,
+            1.83,
+            3.12
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1122.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1122",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clinical-neuropsychologists -> occupational-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：应用神经心理学理论与标准化测验评估与获得性或发育性神经系统疾病相关的高级脑功能与行为问题，访谈患者并获取完整病史，实施智力与注意与记忆与语言等评估；后岗：和当事人一起确定想恢复的日常活动，例如洗漱、穿衣或返校。",
+    "cn_qualification": {
+      "clinical-neuropsychologists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "occupational-therapists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "19-3039.03",
+        "source_url": "https://www.onetonline.org/link/summary/19-3039.03",
+        "locator": "Tasks 22208, 22209, 22219, 22224",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Evaluates cognitive domains, integrates assessment evidence and consults other professionals.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "29-1122.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-1122.00",
+        "locator": "Tasks 349, 350, 352",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Evaluates activity abilities and considers task and environment changes.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 169,
+      "source_slugs": [
+        "clinical-neuropsychologists",
+        "occupational-therapists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

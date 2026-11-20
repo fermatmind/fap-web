@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9f128ee9c9ec958354cc19a1972530406da629396332f2a91368576eb2405f67",
+  "inputs": {
+    "pair_id": "dental-laboratory-technicians-vs-prosthodontists",
+    "slugs": [
+      "dental-laboratory-technicians",
+      "prosthodontists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/dental-laboratory-technicians-vs-prosthodontists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dental-laboratory-technicians": {
+        "name": "牙科技工室技术员",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.61,
+            4.46,
+            1.52,
+            2.67,
+            1.0,
+            4.12
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-9081",
+          "title_evidence": "official_title"
+        }
+      },
+      "prosthodontists": {
+        "name": "口腔修复专科医师",
+        "riasec": {
+          "code": "RIS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1024.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.17,
+            5.54,
+            1.78,
+            4.59,
+            1.43,
+            3.22
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1024.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1024",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "prosthodontists -> dental-laboratory-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：按牙医工单制作和修理修复体，核对印模、扫描数据和材料，记录制作、检验与返修；后岗：口腔修复专科医生评估口腔功能，制定修复方案，安排试戴和随访，并与技工及临床团队核对需求。",
+    "cn_qualification": {
+      "dental-laboratory-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "prosthodontists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "lab",
+        "source_url": "https://www.onetonline.org/link/summary/51-9081.00#Tasks",
+        "locator": "51-9081.00 Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Reads work orders and models and makes, alters, or repairs dental devices, including crowns, bridges, and dentures.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "prosth",
+        "source_url": "https://www.onetonline.org/link/summary/29-1024.00#Tasks",
+        "locator": "29-1024.00 Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Examines patients, designs or oversees fabrication of prostheses, and fits and adjusts devices in clinical care.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "physician",
+        "source_url": "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=90461",
+        "locator": "中华人民共和国医师法 第12至14条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01起施行",
+          "summary": "医师资格与执业注册分别办理，未注册取得医师执业证书不得从事医师执业。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 288,
+      "source_slugs": [
+        "dental-laboratory-technicians",
+        "prosthodontists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

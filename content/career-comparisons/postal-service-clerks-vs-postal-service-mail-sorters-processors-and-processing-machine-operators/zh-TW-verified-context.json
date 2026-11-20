@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "be00bd82b906b93d2db059dc09de6915284f3e7d47da44bf4b68d3c67d52470b",
+  "inputs": {
+    "pair_id": "postal-service-clerks-vs-postal-service-mail-sorters-processors-and-processing-machine-operators",
+    "slugs": [
+      "postal-service-clerks",
+      "postal-service-mail-sorters-processors-and-processing-machine-operators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/postal-service-clerks-vs-postal-service-mail-sorters-processors-and-processing-machine-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "postal-service-clerks": {
+        "name": "郵政服務文員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.21,
+            1.0,
+            1.0,
+            2.57,
+            2.71,
+            6.55
+          ]
+        },
+        "tasks": [
+          "受理確認｜詢問郵件種類、目的地與所需服務｜檢查可辦理範圍和必需資訊，缺地址或服務選項先澄清，不憑外觀直接報資費。",
+          "稱重計費｜按郵件重量、尺寸、目的地和服務選項核算｜使用機構現行資費與系統複核金額；本頁虛構練習點數不是真實郵資。",
+          "郵件核驗｜檢查封裝、標籤、郵資和可寄條件｜發現外觀、地址或規則疑問時暫停相關步驟，交有許可權人員確認。",
+          "櫃檯交易｜銷售郵票等郵政產品並辦理收付款｜給出收據或憑證，核對支付與系統記錄，不私自調整標準或承諾額外服務。",
+          "分揀交接｜依目的地和服務類別分流郵件｜記錄件數、掃描狀態和未完成事項，向下一環節交接異常。",
+          "保密留痕｜保護使用者姓名、地址及寄遞資訊｜只在授權系統和崗位範圍內使用資料，按機構流程處理錯件、投訴與更正。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5051",
+          "title_evidence": "official_title"
+        }
+      },
+      "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+        "name": "郵政服務郵件分揀員、處理員、機器操作員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5053.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.6,
+            1.54,
+            1.0,
+            1.83,
+            1.66,
+            5.91
+          ]
+        },
+        "tasks": [
+          "收件核驗｜檢查標籤、地址與分路資訊｜資訊不可辨時標待核，不憑猜測讓郵件進入錯誤容器。",
+          "按規則分流｜按目的地或路線將郵件分到指定容器｜核手工操作與裝置輸出是否一致，保留批次狀態。",
+          "裝置操作｜在獲授權範圍裝載、監測掃描與分揀裝置｜按訓練使用，卡件或異常報警時暫停相關步驟並報告。",
+          "異形與特殊件｜區分裝置無法處理或需特殊交接的郵件｜按機構規則隔離、標識或移交，不私自開拆。",
+          "封袋與搬運｜貼標、裝卸並交接郵件容器｜核件數、標籤、目的地和實物狀態。",
+          "記錄複核｜留下掃描差異、裝置提示、異常件及下一責任人｜保護使用者資訊，確保下一班能夠追蹤和繼續處理。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5053.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5053",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "postal-service-clerks -> postal-service-mail-sorters-processors-and-processing-machine-operators",
+      "postal-service-mail-sorters-processors-and-processing-machine-operators -> postal-service-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "postal-service-clerks": {
+        "file_sha256": "89585d58d2a525ffb19a153561754fd161f16faaad6c756b24d307db8dd8ef19",
+        "entries": [
+          "受理確認｜詢問郵件種類、目的地與所需服務｜檢查可辦理範圍和必需資訊，缺地址或服務選項先澄清，不憑外觀直接報資費。",
+          "稱重計費｜按郵件重量、尺寸、目的地和服務選項核算｜使用機構現行資費與系統複核金額；本頁虛構練習點數不是真實郵資。",
+          "郵件核驗｜檢查封裝、標籤、郵資和可寄條件｜發現外觀、地址或規則疑問時暫停相關步驟，交有許可權人員確認。",
+          "櫃檯交易｜銷售郵票等郵政產品並辦理收付款｜給出收據或憑證，核對支付與系統記錄，不私自調整標準或承諾額外服務。",
+          "分揀交接｜依目的地和服務類別分流郵件｜記錄件數、掃描狀態和未完成事項，向下一環節交接異常。",
+          "保密留痕｜保護使用者姓名、地址及寄遞資訊｜只在授權系統和崗位範圍內使用資料，按機構流程處理錯件、投訴與更正。"
+        ]
+      },
+      "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+        "file_sha256": "e718709ca94a46620e4fe3c141bc4ed217c0d5bf8bbb329622a5672136edc892",
+        "entries": [
+          "收件核驗｜檢查標籤、地址與分路資訊｜資訊不可辨時標待核，不憑猜測讓郵件進入錯誤容器。",
+          "按規則分流｜按目的地或路線將郵件分到指定容器｜核手工操作與裝置輸出是否一致，保留批次狀態。",
+          "裝置操作｜在獲授權範圍裝載、監測掃描與分揀裝置｜按訓練使用，卡件或異常報警時暫停相關步驟並報告。",
+          "異形與特殊件｜區分裝置無法處理或需特殊交接的郵件｜按機構規則隔離、標識或移交，不私自開拆。",
+          "封袋與搬運｜貼標、裝卸並交接郵件容器｜核件數、標籤、目的地和實物狀態。",
+          "記錄複核｜留下掃描差異、裝置提示、異常件及下一責任人｜保護使用者資訊，確保下一班能夠追蹤和繼續處理。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 598,
+      "source_slugs": [
+        "postal-service-clerks",
+        "postal-service-mail-sorters-processors-and-processing-machine-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "postal-service-clerks": {
+          "field": "entries",
+          "source_path": "careers/postal-service-clerks/zh-TW.json",
+          "file_sha256": "89585d58d2a525ffb19a153561754fd161f16faaad6c756b24d307db8dd8ef19",
+          "count": 6
+        },
+        "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+          "field": "entries",
+          "source_path": "careers/postal-service-mail-sorters-processors-and-processing-machine-operators/zh-TW.json",
+          "file_sha256": "e718709ca94a46620e4fe3c141bc4ed217c0d5bf8bbb329622a5672136edc892",
+          "count": 6
+        }
+      }
+    }
+  }
+}

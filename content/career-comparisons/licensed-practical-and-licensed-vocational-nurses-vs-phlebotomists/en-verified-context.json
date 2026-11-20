@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0331ec8614b7f254d653cdb4946ef4b534aca863ccfb03ff28dcbaefaa4b6f5e",
+  "inputs": {
+    "pair_id": "licensed-practical-and-licensed-vocational-nurses-vs-phlebotomists",
+    "slugs": [
+      "licensed-practical-and-licensed-vocational-nurses",
+      "phlebotomists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/licensed-practical-and-licensed-vocational-nurses-vs-phlebotomists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "licensed-practical-and-licensed-vocational-nurses": {
+        "name": "Licensed Practical and Licensed Vocational Nurses",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.58,
+            3.67,
+            1.05,
+            5.5,
+            2.13,
+            4.58
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Observe patients, charting and reporting changes in patients' conditions, such as adverse reactions to medication or treatment, and taking any necessary action."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Measure and record patients' vital signs, such as height, weight, temperature, blood pressure, pulse, or respiration."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Administer prescribed medications or start intravenous fluids, noting times and amounts on patients' charts."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Provide basic patient care or treatments, such as taking temperatures or blood pressures, dressing wounds, treating bedsores, giving enemas or douches, rubbing with alcohol, massaging, or performing catheterizations."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2061",
+          "title_evidence": "official_title"
+        }
+      },
+      "phlebotomists": {
+        "name": "Phlebotomists",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-9097.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.44,
+            4.69,
+            1.0,
+            3.6,
+            1.4,
+            5.42
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9097.00#Tasks"
+              }
+            ],
+            "text": "Confirm the identities of patients by verifying their personal information."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9097.00#Tasks"
+              }
+            ],
+            "text": "Match laboratory requisition forms to specimen tubes."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9097.00#Tasks"
+              }
+            ],
+            "text": "Dispose of contaminated sharps, in accordance with applicable laws, standards, and policies."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9097.00#Tasks"
+              }
+            ],
+            "text": "Dispose of blood or other biohazard fluids or tissue, in accordance with applicable laws, standards, or policies."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-9097.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-9097",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "phlebotomists -> licensed-practical-and-licensed-vocational-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "29-2061.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-2061.00#Tasks",
+        "locator": "Tasks 507, 510, 511",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Provides assigned nursing care and monitors, records and reports patient changes.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "31-9097.00",
+        "source_url": "https://www.onetonline.org/link/summary/31-9097.00#Tasks",
+        "locator": "Tasks 24039, 19381, 19385, 19379",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Collects ordered blood specimens and matches specimen identity with laboratory requisitions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-nurse",
+        "source_url": "https://www.bls.gov/OOH/healthcare/licensed-practical-and-licensed-vocational-nurses.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "State-approved program, exam and license for LPNs/LVNs.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-phleb",
+        "source_url": "https://www.bls.gov/OOH/healthcare/phlebotomists.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Typical postsecondary certificate with some employer training routes; state and employer credentials vary.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-table",
+        "source_url": "https://www.bls.gov/emp/tables/education-and-training-by-occupation.htm",
+        "locator": "SOC 29-2061 and 31-9097",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Education and training assignments",
+          "summary": "Both occupations typically have a postsecondary nondegree award; neither related work experience nor on-the-job training is assigned in the national table.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 475,
+      "source_slugs": [
+        "licensed-practical-and-licensed-vocational-nurses",
+        "phlebotomists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

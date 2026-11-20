@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "50402472713d0166366c1127068330fd1e4124bf0228d0c9d1ea36f04b1f53d4",
+  "inputs": {
+    "pair_id": "judges-magistrate-judges-and-magistrates-vs-probation-officers-and-correctional-treatment-specialists",
+    "slugs": [
+      "judges-magistrate-judges-and-magistrates",
+      "probation-officers-and-correctional-treatment-specialists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/judges-magistrate-judges-and-magistrates-vs-probation-officers-and-correctional-treatment-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "judges-magistrate-judges-and-magistrates": {
+        "name": "法官与司法裁判人员",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "23-1023.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.33,
+            3.81,
+            2.19,
+            3.96,
+            5.27,
+            4.11
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "23-1023.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "23-1023",
+          "title_evidence": "official_title"
+        }
+      },
+      "probation-officers-and-correctional-treatment-specialists": {
+        "name": "缓刑官与惩教治疗专员",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.35,
+            3.44,
+            2.15,
+            5.56,
+            3.92,
+            4.18
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "judges-magistrate-judges-and-magistrates -> probation-officers-and-correctional-treatment-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：这个美国职业类别涵盖主持审理、处理程序事项和依法作出裁判的法官及同类司法人员；后岗：缓刑监督与矫正支持岗位按机构要求跟踪个案条件、服务与进展，并向有权人员提交记录或建议。",
+    "cn_qualification": {
+      "judges-magistrate-judges-and-magistrates": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "probation-officers-and-correctional-treatment-specialists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "judge",
+        "source_url": "https://www.onetonline.org/link/summary/23-1023.00",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Conducts proceedings and makes judicial decisions.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "officer",
+        "source_url": "https://www.onetonline.org/link/summary/21-1092.00",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Investigates cases, supervises compliance and supports rehabilitation across assignments.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "judgeslaw",
+        "source_url": "https://fgw.sh.gov.cn/ys-syjf-ss-1.1.3-%E2%91%A2-h5/20240407/0ed48d819b784245bbcb053b3c29a2ac.html",
+        "locator": "第十二、十四至十六条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2019修订",
+          "summary": "初任法官资格、从事法律工作的经历和遴选。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "community",
+        "source_url": "https://www.spp.gov.cn/spp/zdgz/201912/t20191229_451422.shtml",
+        "locator": "第十、十一、十八至二十一、二十四、四十条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2020-07-01施行",
+          "summary": "决定机关与社区矫正机构职责、文书交接及社会服务。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "training",
+        "source_url": "https://www.court.gov.cn/zixun/xiangqing/450711.html",
+        "locator": "第十二条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2024修订",
+          "summary": "拟初任法官须职前培训并考核合格。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 468,
+      "source_slugs": [
+        "judges-magistrate-judges-and-magistrates",
+        "probation-officers-and-correctional-treatment-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

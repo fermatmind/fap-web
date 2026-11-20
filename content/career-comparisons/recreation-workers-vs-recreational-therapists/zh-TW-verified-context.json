@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "072fb2e2851e86430faf851be05a162da89b4d398a535c353fbc6523185e3da3",
+  "inputs": {
+    "pair_id": "recreation-workers-vs-recreational-therapists",
+    "slugs": [
+      "recreation-workers",
+      "recreational-therapists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/recreation-workers-vs-recreational-therapists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "recreation-workers": {
+        "name": "休閒活動從業人員",
+        "riasec": {
+          "code": "SER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-9032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            1.98,
+            3.05,
+            4.9,
+            4.51,
+            3.46
+          ]
+        },
+        "tasks": [
+          "需求評估｜瞭解參與者年齡、興趣、能力和限制。｜記錄活動目標和必要調整。",
+          "活動設計｜制定流程、規則、分組、器材與時間表。｜備好替代方案和停止條件。",
+          "現場帶領｜講解並示範，鼓勵不同參與者安全加入。｜觀察反饋並調節節奏。",
+          "安全響應｜檢查場地和器材，識別不適與意外。｜按培訓範圍急救、停場和升級。",
+          "記錄復盤｜登記出勤、器材、事件和參與反饋。｜用於交接和下次改進。",
+          "協同推廣｜與同事、家屬和服務機構溝通活動安排。｜保護參與者資訊並核授權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-9032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "39-9032",
+          "title_evidence": "official_title"
+        }
+      },
+      "recreational-therapists": {
+        "name": "娛樂治療師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1125.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.69,
+            4.32,
+            2.87,
+            6.82,
+            2.51,
+            2.67
+          ]
+        },
+        "tasks": [
+          "患者評估｜從病歷、觀察、患者與團隊瞭解功能、興趣和限制。｜記錄可追溯的需求與禁忌。",
+          "治療目標｜將患者目標轉為活動和觀察指標。｜方案須與醫囑及團隊計劃一致。",
+          "活動實施｜在授權下用藝術、運動或社交活動支援康復。｜按反應調節難度。",
+          "安全響應｜識別疼痛、疲勞、感染或跌倒風險。｜異常暫停並按機構流程升級。",
+          "療效記錄｜記錄參與、反應、進展和退步。｜供團隊評估與修改方案。",
+          "團隊協作｜與醫療、護理、康復及家屬溝通。｜保護病歷資訊並核授權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1125.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1125",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "recreation-workers -> recreational-therapists",
+      "recreational-therapists -> recreation-workers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "recreation-workers": {
+        "file_sha256": "6eac8801c012dada97df7617b4da783320c5751a75cc6b03ca9e64ca4edc1d16",
+        "entries": [
+          "需求評估｜瞭解參與者年齡、興趣、能力和限制。｜記錄活動目標和必要調整。",
+          "活動設計｜制定流程、規則、分組、器材與時間表。｜備好替代方案和停止條件。",
+          "現場帶領｜講解並示範，鼓勵不同參與者安全加入。｜觀察反饋並調節節奏。",
+          "安全響應｜檢查場地和器材，識別不適與意外。｜按培訓範圍急救、停場和升級。",
+          "記錄復盤｜登記出勤、器材、事件和參與反饋。｜用於交接和下次改進。",
+          "協同推廣｜與同事、家屬和服務機構溝通活動安排。｜保護參與者資訊並核授權。"
+        ]
+      },
+      "recreational-therapists": {
+        "file_sha256": "c4dfcf1cd1297fbba93103ec1eba566e5144a7d633f01f249f315c369388c556",
+        "entries": [
+          "患者評估｜從病歷、觀察、患者與團隊瞭解功能、興趣和限制。｜記錄可追溯的需求與禁忌。",
+          "治療目標｜將患者目標轉為活動和觀察指標。｜方案須與醫囑及團隊計劃一致。",
+          "活動實施｜在授權下用藝術、運動或社交活動支援康復。｜按反應調節難度。",
+          "安全響應｜識別疼痛、疲勞、感染或跌倒風險。｜異常暫停並按機構流程升級。",
+          "療效記錄｜記錄參與、反應、進展和退步。｜供團隊評估與修改方案。",
+          "團隊協作｜與醫療、護理、康復及家屬溝通。｜保護病歷資訊並核授權。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 626,
+      "source_slugs": [
+        "recreation-workers",
+        "recreational-therapists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "recreation-workers": {
+          "field": "entries",
+          "source_path": "careers/recreation-workers/zh-TW.json",
+          "file_sha256": "6eac8801c012dada97df7617b4da783320c5751a75cc6b03ca9e64ca4edc1d16",
+          "count": 6
+        },
+        "recreational-therapists": {
+          "field": "entries",
+          "source_path": "careers/recreational-therapists/zh-TW.json",
+          "file_sha256": "c4dfcf1cd1297fbba93103ec1eba566e5144a7d633f01f249f315c369388c556",
+          "count": 6
+        }
+      }
+    }
+  }
+}

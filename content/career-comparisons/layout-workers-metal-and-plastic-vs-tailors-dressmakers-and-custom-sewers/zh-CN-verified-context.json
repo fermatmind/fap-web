@@ -1,0 +1,208 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "1c1064f56d38b407f768ecd56a1fba3b580fa852ece6423793ae39fdddcb8539",
+  "inputs": {
+    "pair_id": "layout-workers-metal-and-plastic-vs-tailors-dressmakers-and-custom-sewers",
+    "slugs": [
+      "layout-workers-metal-and-plastic",
+      "tailors-dressmakers-and-custom-sewers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/layout-workers-metal-and-plastic-vs-tailors-dressmakers-and-custom-sewers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "layout-workers-metal-and-plastic": {
+        "name": "金属与塑料工件划线工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4192.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.48,
+            2.83,
+            2.88,
+            1.02,
+            1.0,
+            3.89
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4192.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-4192",
+          "title_evidence": "official_title"
+        }
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "name": "裁缝、定制缝纫工",
+        "riasec": {
+          "code": "RA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.88,
+            1.16,
+            3.96,
+            1.99,
+            2.44,
+            3.13
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "tailors-dressmakers-and-custom-sewers -> layout-workers-metal-and-plastic"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：读图、找基准，在工件上标出后续加工的位置和轮廓；后岗：设计、制作、修改、修理并调整服装合身度，量取尺寸、制改样板、裁剪缝制、试衣返修与整烫。",
+    "cn_qualification": {
+      "layout-workers-metal-and-plastic": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "layout",
+        "source_url": "https://www.onetonline.org/link/summary/51-4192.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Layout workers transfer reference points, dimensions and features to workpieces for fabrication.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tailor",
+        "source_url": "https://www.onetonline.org/link/summary/51-6052.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Tailors measure people, mark and fit garments, and report time pressure.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-shop",
+        "source_url": "https://www.sccm.edu.cn/jx_xjxy/show-23.html",
+        "locator": "戏剧影视美术设计教研室",
+        "value": {
+          "jurisdiction": "中国大陆，四川",
+          "effective_or_period": "院校专业介绍",
+          "summary": "介绍舞台道具与服装制作教学。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-layout",
+        "source_url": "https://gxzx.xyc.edu.cn/info/1321/4701.htm",
+        "locator": "金工实训（钳工）：划线",
+        "value": {
+          "jurisdiction": "中国大陆，江西",
+          "effective_or_period": "2016 教学说明",
+          "summary": "划线训练覆盖工具量具、准备及基准选择。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-tailor",
+        "source_url": "https://fzxy.cdtc.edu.cn/info/1129/18954.htm",
+        "locator": "主要课程",
+        "value": {
+          "jurisdiction": "中国大陆，四川",
+          "effective_or_period": "院校专业介绍",
+          "summary": "服装课程含立体裁剪、工艺实训和服装结构设计。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-tailor-standard",
+        "source_url": "https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/qt/fzcwjxx/202112/W020211227599132279205.pdf",
+        "locator": "§§1.3–1.4、1.9",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2021 年版",
+          "summary": "人社部裁缝国家职业技能标准界定量体、制版、裁剪缝制和拆改，并规定职业技能等级和鉴定要求。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 472,
+      "source_slugs": [
+        "layout-workers-metal-and-plastic",
+        "tailors-dressmakers-and-custom-sewers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

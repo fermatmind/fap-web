@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e7941bc3ae54f00c86ee44f59cbf96a64f188c6080e90c77195cc74d5bfdaed5",
+  "inputs": {
+    "pair_id": "computer-network-support-specialists-vs-computer-systems-analysts",
+    "slugs": [
+      "computer-network-support-specialists",
+      "computer-systems-analysts"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/computer-network-support-specialists-vs-computer-systems-analysts",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "computer-network-support-specialists": {
+        "name": "計算機網路支援專家",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1231.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.38,
+            4.61,
+            1.0,
+            2.28,
+            2.64,
+            5.45
+          ]
+        },
+        "tasks": [
+          "網路執行維護與安全｜備份網路資料並配置安全設定與訪問許可權並維護網路活動日誌｜備份網路資料；為群組或個人配置安全設定或訪問許可權；分析並報告網路安全事件或未遂事件；安裝含安全或防火牆軟體在內的網路軟體；維護網路活動日誌（對應 O*NET 任務第一與第二與第三與第七與第二十二項）。",
+          "故障診斷與使用者支援｜用診斷工具定位網路問題併為使用者排查與提供電話支援｜用診斷測試軟體與裝置識別網路問題的原因；為個人或使用者組排查網路或連通性問題；提供與網路或連通性相關的電話支援；記錄服務檯請求與解決方案（對應 O*NET 任務第四與第八與第九與第二十四項）。",
+          "裝置與軟體安裝與引數配置｜配置路由與交換裝置並安裝與整合新硬體或軟體｜配置廣域網（WAN）或區域網（LAN）路由器或相關裝置；為網路裝置的安裝或測試配置並定義引數；安裝與既有網路系統整合的新硬體或軟體系統或元件；安裝並配置無線網路裝置（對應 O*NET 任務第六與第十三與第十四與第二十一項）。",
+          "線纜與例行維護與維修｜安裝與維修網路線纜含光纖並執行例行維護與維修｜執行網路元件或裝置的例行維護或標準維修；安裝或維修網路線纜，包括光纖線纜；用標準診斷測試裝置與程式測試計算機軟體或硬體；測試維修後的專案以確認運轉正常（對應 O*NET 任務第十二與第十六與第十五與第二十項）。",
+          "效能與資料分析｜分析網路資料與評估效能以發現問題或用於災難恢復｜分析網路資料以確定網路使用情況與磁碟空間可用性或伺服器功能；評估區域網或廣域網效能資料以保證可用性或速度並發現問題或用於災難恢復；關注行業網站或出版物上的補丁與版本與病毒資訊；執行月度網路報告（對應 O*NET 任務第十一與第十與第十七與第二十六項）。",
+          "文件與使用者支援與採購研究｜更新技術文件與使用者說明並培訓使用者並研究軟硬體產品｜建立或更新網路安裝或既有安裝變更的技術文件；培訓使用者使用網路應用軟體或相關係統；建立或修訂使用者說明與程式或手冊；研究硬體或軟體產品以滿足技術網路或安全需求（對應 O*NET 任務第十八與第十九與第二十五與第二十三項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1231.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1231",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "computer-systems-analysts": {
+        "name": "計算機系統分析師",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1211.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.27,
+            6.39,
+            1.98,
+            1.91,
+            2.23,
+            5.93
+          ]
+        },
+        "tasks": [
+          "需求｜訪談並梳理業務流程｜與客戶和使用者訪談、觀察崗位作業，梳理由誰在什麼環節處理什麼資料，形成現狀說明與問題清單。",
+          "設計｜定義系統目標與規格｜依據現狀與業務目標定義系統範圍、輸入輸出、處理規則與驗收條件，並評估候選方案與既有系統的相容性。",
+          "整合｜協調安裝與介面配置｜按設計協調軟硬體安裝、配置介面與資料流向，確保組織內系統可以交換資訊。",
+          "測試｜執行測試並監控執行｜編寫測試用例並覆蓋正常與異常路徑，記錄環境與結果；上線後監控效能與錯誤日誌，定位並修正問題。",
+          "改進｜依據執行資料改進系統流程｜依據執行指標與使用者反饋提出改進方案，評估影響面並安排變更，必要時調整流程與培訓材料。",
+          "協作｜培訓使用者並維護文件｜編寫使用者操作說明並培訓使用者，維護設計、測試與變更文件，使他人可以接手。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1211.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1211",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "computer-network-support-specialists -> computer-systems-analysts"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "computer-network-support-specialists": {
+        "file_sha256": "8e1ca5a012240414bd0b207758188a8445856bedcd4e0eb15ba4446126a14864",
+        "entries": [
+          "網路執行維護與安全｜備份網路資料並配置安全設定與訪問許可權並維護網路活動日誌｜備份網路資料；為群組或個人配置安全設定或訪問許可權；分析並報告網路安全事件或未遂事件；安裝含安全或防火牆軟體在內的網路軟體；維護網路活動日誌（對應 O*NET 任務第一與第二與第三與第七與第二十二項）。",
+          "故障診斷與使用者支援｜用診斷工具定位網路問題併為使用者排查與提供電話支援｜用診斷測試軟體與裝置識別網路問題的原因；為個人或使用者組排查網路或連通性問題；提供與網路或連通性相關的電話支援；記錄服務檯請求與解決方案（對應 O*NET 任務第四與第八與第九與第二十四項）。",
+          "裝置與軟體安裝與引數配置｜配置路由與交換裝置並安裝與整合新硬體或軟體｜配置廣域網（WAN）或區域網（LAN）路由器或相關裝置；為網路裝置的安裝或測試配置並定義引數；安裝與既有網路系統整合的新硬體或軟體系統或元件；安裝並配置無線網路裝置（對應 O*NET 任務第六與第十三與第十四與第二十一項）。",
+          "線纜與例行維護與維修｜安裝與維修網路線纜含光纖並執行例行維護與維修｜執行網路元件或裝置的例行維護或標準維修；安裝或維修網路線纜，包括光纖線纜；用標準診斷測試裝置與程式測試計算機軟體或硬體；測試維修後的專案以確認運轉正常（對應 O*NET 任務第十二與第十六與第十五與第二十項）。",
+          "效能與資料分析｜分析網路資料與評估效能以發現問題或用於災難恢復｜分析網路資料以確定網路使用情況與磁碟空間可用性或伺服器功能；評估區域網或廣域網效能資料以保證可用性或速度並發現問題或用於災難恢復；關注行業網站或出版物上的補丁與版本與病毒資訊；執行月度網路報告（對應 O*NET 任務第十一與第十與第十七與第二十六項）。",
+          "文件與使用者支援與採購研究｜更新技術文件與使用者說明並培訓使用者並研究軟硬體產品｜建立或更新網路安裝或既有安裝變更的技術文件；培訓使用者使用網路應用軟體或相關係統；建立或修訂使用者說明與程式或手冊；研究硬體或軟體產品以滿足技術網路或安全需求（對應 O*NET 任務第十八與第十九與第二十五與第二十三項）。"
+        ]
+      },
+      "computer-systems-analysts": {
+        "file_sha256": "3d6ae8acd3180492ed007127ca2fe0cec271d74d05a4d14ee7ad3ec90282adb1",
+        "entries": [
+          "需求｜訪談並梳理業務流程｜與客戶和使用者訪談、觀察崗位作業，梳理由誰在什麼環節處理什麼資料，形成現狀說明與問題清單。",
+          "設計｜定義系統目標與規格｜依據現狀與業務目標定義系統範圍、輸入輸出、處理規則與驗收條件，並評估候選方案與既有系統的相容性。",
+          "整合｜協調安裝與介面配置｜按設計協調軟硬體安裝、配置介面與資料流向，確保組織內系統可以交換資訊。",
+          "測試｜執行測試並監控執行｜編寫測試用例並覆蓋正常與異常路徑，記錄環境與結果；上線後監控效能與錯誤日誌，定位並修正問題。",
+          "改進｜依據執行資料改進系統流程｜依據執行指標與使用者反饋提出改進方案，評估影響面並安排變更，必要時調整流程與培訓材料。",
+          "協作｜培訓使用者並維護文件｜編寫使用者操作說明並培訓使用者，維護設計、測試與變更文件，使他人可以接手。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 188,
+      "source_slugs": [
+        "computer-network-support-specialists",
+        "computer-systems-analysts"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "computer-network-support-specialists": {
+          "field": "entries",
+          "source_path": "careers/computer-network-support-specialists/zh-TW.json",
+          "file_sha256": "8e1ca5a012240414bd0b207758188a8445856bedcd4e0eb15ba4446126a14864",
+          "count": 6
+        },
+        "computer-systems-analysts": {
+          "field": "entries",
+          "source_path": "careers/computer-systems-analysts/zh-TW.json",
+          "file_sha256": "3d6ae8acd3180492ed007127ca2fe0cec271d74d05a4d14ee7ad3ec90282adb1",
+          "count": 6
+        }
+      }
+    }
+  }
+}

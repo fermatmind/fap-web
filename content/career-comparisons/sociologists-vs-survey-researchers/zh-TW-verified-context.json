@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "534e1e033612b3ce57f8471ea16dc48691d436a6363c64f6ada08b49002326a2",
+  "inputs": {
+    "pair_id": "sociologists-vs-survey-researchers",
+    "slugs": [
+      "sociologists",
+      "survey-researchers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/sociologists-vs-survey-researchers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "sociologists": {
+        "name": "社會學家",
+        "riasec": {
+          "code": "ISA",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.56,
+            6.5,
+            3.99,
+            4.36,
+            3.08,
+            3.6
+          ]
+        },
+        "tasks": [
+          "研究問題與設計｜把社會現象轉成可研究的問題。｜說明概念、理論、研究物件和資料收集方法。",
+          "調查與資料收集｜通過問卷、訪談、觀察和文獻取得資料。｜真實參與者、同意、記錄與隱私按適用倫理和機構程式核。",
+          "分析與解釋｜檢驗資料質量並解釋模式。｜分母、缺失、抽樣與混雜會影響結論，不把相關當因果。",
+          "報告與傳播｜寫報告、文章並呈現研究發現。｜同時交代方法、來源、限制與不確定性。",
+          "研究協作與建議｜與研究者、管理者等討論社會問題。｜研究證據可支援政策討論，不能保證干預效果或授專業服務權。",
+          "專案與培養｜可參與研究資助、團隊指導及社會學教學。｜O*NET任務有教學，大學教師另有25-1067分類與任用要求。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3041",
+          "title_evidence": "official_title"
+        }
+      },
+      "survey-researchers": {
+        "name": "調查研究員",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.68,
+            6.11,
+            2.31,
+            2.34,
+            3.02,
+            5.25
+          ]
+        },
+        "tasks": [
+          "設計｜明確研究目標與總體｜瞭解客戶需要和既有研究，確定要回答的問題、資料來源與調查範圍。",
+          "設計｜問卷開發與預測試｜建議並測試措辭、選項與程式，發現理解或測量問題後記錄修訂。",
+          "實施｜協調收集與訪員工作｜計劃和協調單項或多項調查，組織培訓及程式溝通，審查收集工作。",
+          "監測｜樣本狀態與收集質量｜核對樣本完成情況與響應計算，評估訪問資料並跟進異常。",
+          "分析｜編碼、統計與解釋｜結合目標和資料規則處理資料，製作表格、圖表、事實摘要並解釋侷限。",
+          "交付｜方法記錄與專業更新｜記錄問卷、收集、抽樣和加權決定，持續研究調查方法，不以圖表代替方法說明。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "sociologists -> survey-researchers",
+      "survey-researchers -> sociologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "sociologists": {
+        "file_sha256": "56600de6d4df1300b5390fe0044f21f611216261d42f441e29cc5d28ee4dcd5b",
+        "entries": [
+          "研究問題與設計｜把社會現象轉成可研究的問題。｜說明概念、理論、研究物件和資料收集方法。",
+          "調查與資料收集｜通過問卷、訪談、觀察和文獻取得資料。｜真實參與者、同意、記錄與隱私按適用倫理和機構程式核。",
+          "分析與解釋｜檢驗資料質量並解釋模式。｜分母、缺失、抽樣與混雜會影響結論，不把相關當因果。",
+          "報告與傳播｜寫報告、文章並呈現研究發現。｜同時交代方法、來源、限制與不確定性。",
+          "研究協作與建議｜與研究者、管理者等討論社會問題。｜研究證據可支援政策討論，不能保證干預效果或授專業服務權。",
+          "專案與培養｜可參與研究資助、團隊指導及社會學教學。｜O*NET任務有教學，大學教師另有25-1067分類與任用要求。"
+        ]
+      },
+      "survey-researchers": {
+        "file_sha256": "7348d182c4795a88a8c3e896b9a122aee6c2f8e048d9d9d0f57613431a985d27",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 673,
+      "source_slugs": [
+        "sociologists",
+        "survey-researchers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "sociologists": {
+          "field": "entries",
+          "source_path": "careers/sociologists/zh-TW.json",
+          "file_sha256": "56600de6d4df1300b5390fe0044f21f611216261d42f441e29cc5d28ee4dcd5b",
+          "count": 6
+        },
+        "survey-researchers": {
+          "field": "paragraphs",
+          "source_path": "careers/survey-researchers/zh-TW.json",
+          "file_sha256": "7348d182c4795a88a8c3e896b9a122aee6c2f8e048d9d9d0f57613431a985d27",
+          "count": 6
+        }
+      }
+    }
+  }
+}

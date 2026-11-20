@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3cfd12e3d11139e0eb5f7da38250626121be5a19ecf99b17713ac87a9d8abaec",
+  "inputs": {
+    "pair_id": "biostatisticians-vs-clinical-data-managers",
+    "slugs": [
+      "biostatisticians",
+      "clinical-data-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/biostatisticians-vs-clinical-data-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "biostatisticians": {
+        "name": "生物統計學家",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2041.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.43,
+            7.0,
+            2.8,
+            3.11,
+            1.98,
+            4.4
+          ]
+        },
+        "tasks": [
+          "讀取與確認｜核對研究方案、既有資料與本人資料訪問授權，明確本次需要回答的統計問題與未決事項｜一份註明來源、授權範圍與未決問題的確認記錄。",
+          "設計與計劃｜與臨床或生命科學團隊確定終點、比較與人群，計算樣本量並預定義分析方法、缺失資料處理與敏感性分析｜與研究方案一致、可復現的統計分析計劃。",
+          "資料與計算｜核對資料編碼與缺失，編寫可復現的分析程式碼，保留資料版本、程式碼與分析日誌｜他人可以重跑並得到同一結果的分析資產。",
+          "推斷與解釋｜報告效應量與不確定度，做模型診斷與敏感性分析，說明結論能支援到什麼程度及限制｜含區間、假設與侷限說明的結果報告。",
+          "協作與提交｜向研究者、資料監查委員會或監管機構解釋統計問題，配合方案評審與申報材料準備｜寫明口徑、版本與責任人的統計材料。",
+          "記錄與複審｜按機構要求留存分析計劃與修改理由，接受第二人複核或由統計負責人簽署｜可追溯的計劃變更與複核記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2041.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "clinical-data-managers": {
+        "name": "臨床資料經理",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2051.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.25,
+            5.66,
+            1.27,
+            2.82,
+            3.3,
+            6.58
+          ]
+        },
+        "tasks": [
+          "資料庫設計與校驗｜把資料庫與校驗邏輯做成可複核的規格｜設計並驗證臨床資料庫（含設計或測試邏輯校驗），為接收與處理或追蹤資料設計表單並確定格式（對應 O*NET 任務第一與第七與第六項）。",
+          "資料流程與質量控制｜處理並核對資料並解決已識別問題｜處理臨床資料（含接收與錄入與核對與歸檔），根據校驗錯誤與遺漏生成資料查詢以解決問題，並執行質量控制審計以確保準確性與完整性（對應 O*NET 任務第二與第三與第十項）。",
+          "計劃與流程檔案｜編寫資料管理計劃與作業指導書｜制定針對具體專案的資料管理計劃（涵蓋編碼與報告與資料傳輸與資料庫鎖定與工作流程），撰寫作業指導書與資料採集指南或標準操作程式（對應 O*NET 任務第四與第十四項）。",
+          "分析與報告｜用統計工具分析併產出報告｜使用適當的統計工具分析臨床資料，編制資料分析列表與活動或績效或進展報告（對應 O*NET 任務第十一與第八項）。",
+          "系統與需求溝通｜與終端使用者確定並實施系統需求｜與終端使用者確定或實施臨床系統需求（如資料釋出格式與交付計劃與測試方案），為資料管理程式設計編寫技術規格並與資訊科技人員溝通需求（對應 O*NET 任務第九與第十三項）。",
+          "協作與流程改進｜支援跨職能並推動效率改進｜評估流程與技術並提出提高產出與效率的修訂建議，為市場與臨床監查與醫學事務等職能提供支援與資訊，並參與方案與臨床研究報告與監管申報等受控檔案的編寫與組織與產出（對應 O*NET 任務第十二與第二十一與第十七項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2051.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-2051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "biostatisticians -> clinical-data-managers",
+      "clinical-data-managers -> biostatisticians"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "biostatisticians": {
+        "file_sha256": "a9478965dbdb0b51cb0b269fa8496f030cd5801c3a9941a50e72accc016b942a",
+        "entries": [
+          "讀取與確認｜核對研究方案、既有資料與本人資料訪問授權，明確本次需要回答的統計問題與未決事項｜一份註明來源、授權範圍與未決問題的確認記錄。",
+          "設計與計劃｜與臨床或生命科學團隊確定終點、比較與人群，計算樣本量並預定義分析方法、缺失資料處理與敏感性分析｜與研究方案一致、可復現的統計分析計劃。",
+          "資料與計算｜核對資料編碼與缺失，編寫可復現的分析程式碼，保留資料版本、程式碼與分析日誌｜他人可以重跑並得到同一結果的分析資產。",
+          "推斷與解釋｜報告效應量與不確定度，做模型診斷與敏感性分析，說明結論能支援到什麼程度及限制｜含區間、假設與侷限說明的結果報告。",
+          "協作與提交｜向研究者、資料監查委員會或監管機構解釋統計問題，配合方案評審與申報材料準備｜寫明口徑、版本與責任人的統計材料。",
+          "記錄與複審｜按機構要求留存分析計劃與修改理由，接受第二人複核或由統計負責人簽署｜可追溯的計劃變更與複核記錄。"
+        ]
+      },
+      "clinical-data-managers": {
+        "file_sha256": "b823daa9d649531863cbe8523cb72428c5b76cb1ae63bd3a21333d5b8657fd77",
+        "entries": [
+          "資料庫設計與校驗｜把資料庫與校驗邏輯做成可複核的規格｜設計並驗證臨床資料庫（含設計或測試邏輯校驗），為接收與處理或追蹤資料設計表單並確定格式（對應 O*NET 任務第一與第七與第六項）。",
+          "資料流程與質量控制｜處理並核對資料並解決已識別問題｜處理臨床資料（含接收與錄入與核對與歸檔），根據校驗錯誤與遺漏生成資料查詢以解決問題，並執行質量控制審計以確保準確性與完整性（對應 O*NET 任務第二與第三與第十項）。",
+          "計劃與流程檔案｜編寫資料管理計劃與作業指導書｜制定針對具體專案的資料管理計劃（涵蓋編碼與報告與資料傳輸與資料庫鎖定與工作流程），撰寫作業指導書與資料採集指南或標準操作程式（對應 O*NET 任務第四與第十四項）。",
+          "分析與報告｜用統計工具分析併產出報告｜使用適當的統計工具分析臨床資料，編制資料分析列表與活動或績效或進展報告（對應 O*NET 任務第十一與第八項）。",
+          "系統與需求溝通｜與終端使用者確定並實施系統需求｜與終端使用者確定或實施臨床系統需求（如資料釋出格式與交付計劃與測試方案），為資料管理程式設計編寫技術規格並與資訊科技人員溝通需求（對應 O*NET 任務第九與第十三項）。",
+          "協作與流程改進｜支援跨職能並推動效率改進｜評估流程與技術並提出提高產出與效率的修訂建議，為市場與臨床監查與醫學事務等職能提供支援與資訊，並參與方案與臨床研究報告與監管申報等受控檔案的編寫與組織與產出（對應 O*NET 任務第十二與第二十一與第十七項）。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 14,
+      "source_slugs": [
+        "biostatisticians",
+        "clinical-data-managers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "biostatisticians": {
+          "field": "entries",
+          "source_path": "careers/biostatisticians/zh-TW.json",
+          "file_sha256": "a9478965dbdb0b51cb0b269fa8496f030cd5801c3a9941a50e72accc016b942a",
+          "count": 6
+        },
+        "clinical-data-managers": {
+          "field": "entries",
+          "source_path": "careers/clinical-data-managers/zh-TW.json",
+          "file_sha256": "b823daa9d649531863cbe8523cb72428c5b76cb1ae63bd3a21333d5b8657fd77",
+          "count": 6
+        }
+      }
+    }
+  }
+}

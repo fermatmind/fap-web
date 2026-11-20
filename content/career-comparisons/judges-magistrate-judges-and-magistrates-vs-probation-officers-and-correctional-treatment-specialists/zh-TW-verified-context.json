@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "11ef00b9d6b835c8f04bcc9c6fb31fd3c2508b98e14156c96fc975043e48d934",
+  "inputs": {
+    "pair_id": "judges-magistrate-judges-and-magistrates-vs-probation-officers-and-correctional-treatment-specialists",
+    "slugs": [
+      "judges-magistrate-judges-and-magistrates",
+      "probation-officers-and-correctional-treatment-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/judges-magistrate-judges-and-magistrates-vs-probation-officers-and-correctional-treatment-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "judges-magistrate-judges-and-magistrates": {
+        "name": "法官與司法裁判人員",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "23-1023.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.33,
+            3.81,
+            2.19,
+            3.96,
+            5.27,
+            4.11
+          ]
+        },
+        "tasks": [
+          "投入物件｜以訴狀與動議、證據與事實材料、法律與先例、程式規則與審限、當事人與代理人陳述為物件，在管轄與司法倫理邊界內執行裁判。",
+          "可檢查產出｜可複核的裁判與意見文書、事實認定與證據採納說明、程式與審限記錄、迴避與利益衝突處理記錄、救濟告知與移送記錄；結果須可追溯到案卷與法律依據。",
+          "完整工作流程｜確認管轄與程式→審查訴狀與動議→主持庭審與聽證並裁定證據可採性→研究法律與類案→形成事實認定與法律適用、撰寫裁判理由與救濟告知→送達、記錄與後續程式。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "23-1023.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "23-1023",
+          "title_evidence": "official_title"
+        }
+      },
+      "probation-officers-and-correctional-treatment-specialists": {
+        "name": "緩刑官與懲教治療專員",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.35,
+            3.44,
+            2.15,
+            5.56,
+            3.92,
+            4.18
+          ]
+        },
+        "tasks": [
+          "接收文書｜核判決或釋放條件、期限與主管機構｜不自行增加限制。",
+          "建檔評估｜整理背景、需求和保護因素｜陳述與核實事實分列。",
+          "定期面談｜解釋條件、聽取進展並記錄｜尊重隱私與程式權利。",
+          "監督核查｜按授權核報到、聯絡或其他條件｜異常先核證再升級。",
+          "資源轉介｜協調教育、就業、心理健康或物質使用服務｜不得把轉介等同治療診斷。",
+          "報告建議｜寫來源、進展、限制和待決事項｜司法處置由法定主體決定。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "judges-magistrate-judges-and-magistrates -> probation-officers-and-correctional-treatment-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "judges-magistrate-judges-and-magistrates": {
+        "file_sha256": "2f9469edc2ae78dc6923635c1d5f0e1e9fdaa49bcd60c973a0eaa33f8972dfc2",
+        "entries": [
+          "投入物件｜以訴狀與動議、證據與事實材料、法律與先例、程式規則與審限、當事人與代理人陳述為物件，在管轄與司法倫理邊界內執行裁判。",
+          "可檢查產出｜可複核的裁判與意見文書、事實認定與證據採納說明、程式與審限記錄、迴避與利益衝突處理記錄、救濟告知與移送記錄；結果須可追溯到案卷與法律依據。",
+          "完整工作流程｜確認管轄與程式→審查訴狀與動議→主持庭審與聽證並裁定證據可採性→研究法律與類案→形成事實認定與法律適用、撰寫裁判理由與救濟告知→送達、記錄與後續程式。"
+        ]
+      },
+      "probation-officers-and-correctional-treatment-specialists": {
+        "file_sha256": "9170d97658cdd2fb7b71fb4b68b29b03992cc2750aef67064c6284ce6d051e01",
+        "entries": [
+          "接收文書｜核判決或釋放條件、期限與主管機構｜不自行增加限制。",
+          "建檔評估｜整理背景、需求和保護因素｜陳述與核實事實分列。",
+          "定期面談｜解釋條件、聽取進展並記錄｜尊重隱私與程式權利。",
+          "監督核查｜按授權核報到、聯絡或其他條件｜異常先核證再升級。",
+          "資源轉介｜協調教育、就業、心理健康或物質使用服務｜不得把轉介等同治療診斷。",
+          "報告建議｜寫來源、進展、限制和待決事項｜司法處置由法定主體決定。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 468,
+      "source_slugs": [
+        "judges-magistrate-judges-and-magistrates",
+        "probation-officers-and-correctional-treatment-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "judges-magistrate-judges-and-magistrates": {
+          "field": "entries",
+          "source_path": "careers/judges-magistrate-judges-and-magistrates/zh-TW.json",
+          "file_sha256": "2f9469edc2ae78dc6923635c1d5f0e1e9fdaa49bcd60c973a0eaa33f8972dfc2",
+          "count": 3
+        },
+        "probation-officers-and-correctional-treatment-specialists": {
+          "field": "entries",
+          "source_path": "careers/probation-officers-and-correctional-treatment-specialists/zh-TW.json",
+          "file_sha256": "9170d97658cdd2fb7b71fb4b68b29b03992cc2750aef67064c6284ce6d051e01",
+          "count": 6
+        }
+      }
+    }
+  }
+}

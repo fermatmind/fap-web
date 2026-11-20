@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "17e1c148dd8983e15e3a2d1191f592d998e3cdab2bce2ca47d9f1cc4f695350a",
+  "inputs": {
+    "pair_id": "brickmasons-and-blockmasons-vs-reinforcing-iron-and-rebar-workers",
+    "slugs": [
+      "brickmasons-and-blockmasons",
+      "reinforcing-iron-and-rebar-workers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/brickmasons-and-blockmasons-vs-reinforcing-iron-and-rebar-workers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "brickmasons-and-blockmasons": {
+        "name": "磚石與砌塊工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.95,
+            2.02,
+            1.67,
+            1.11,
+            1.21,
+            3.82
+          ]
+        },
+        "tasks": [
+          "讀圖與放線｜解讀圖紙與規範確定規格，按基準點量距並標記放線，計算角度與皮數｜一份註明依據與未決問題的放線記錄。",
+          "材料與砂漿準備｜核對磚、砌塊與砂漿材料規格與數量，按技術要求配製與使用砂漿｜符合要求且留有使用記錄的材料。",
+          "砌築與做角｜鋪攤砂漿、砌築磚與砌塊，先做角再拉線填中間並按皮數校正垂直與水平｜垂直平整、灰縫均勻的砌體。",
+          "切割與固定｜按尺寸切割與修整磚塊，按結構要求用卡箍、錨栓或澆築方式固定｜尺寸準確、錨固可靠的部位。",
+          "勾縫與清理｜清除多餘砂漿、勾縫與壓光，清理作業面並保護成品｜外觀均勻封閉且成品受保護的部位。",
+          "自檢與移交｜檢查垂直度、平整度與灰縫質量，記錄偏差並移交下道工序｜可追溯的自檢與移交記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-2021",
+          "title_evidence": "official_title"
+        }
+      },
+      "reinforcing-iron-and-rebar-workers": {
+        "name": "鋼筋工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2171.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.18,
+            1.12,
+            1.2,
+            1.33,
+            3.5
+          ]
+        },
+        "tasks": [
+          "讀圖與清單｜核構件、鋼筋直徑、形狀、數量和位置。｜輸出材料與待澄清項清單。",
+          "材料準備｜按批准圖紙選擇並切彎鋼筋。｜保留規格和批次標識。",
+          "定位與固定｜放置鋼筋、墊塊和鋼筋網，按圖保持間距。｜提交澆築前可檢查的鋼筋佈置。",
+          "尺寸複核｜核位置、間距、搭接和保護層待檢項。｜記錄偏差並請有權人員判斷。",
+          "吊運協作｜與起重人員約定材料路徑與作業區。｜不越權指揮起吊。",
+          "現場安全｜控制鋼筋端頭、墜落、吊物和機具風險。｜不滿足條件時停工升級。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2171.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2171",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "brickmasons-and-blockmasons -> reinforcing-iron-and-rebar-workers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "brickmasons-and-blockmasons": {
+        "file_sha256": "787c26534fcc478bec124ba9265b26c98dc82c497cb713a25332b44b54849d6a",
+        "entries": [
+          "讀圖與放線｜解讀圖紙與規範確定規格，按基準點量距並標記放線，計算角度與皮數｜一份註明依據與未決問題的放線記錄。",
+          "材料與砂漿準備｜核對磚、砌塊與砂漿材料規格與數量，按技術要求配製與使用砂漿｜符合要求且留有使用記錄的材料。",
+          "砌築與做角｜鋪攤砂漿、砌築磚與砌塊，先做角再拉線填中間並按皮數校正垂直與水平｜垂直平整、灰縫均勻的砌體。",
+          "切割與固定｜按尺寸切割與修整磚塊，按結構要求用卡箍、錨栓或澆築方式固定｜尺寸準確、錨固可靠的部位。",
+          "勾縫與清理｜清除多餘砂漿、勾縫與壓光，清理作業面並保護成品｜外觀均勻封閉且成品受保護的部位。",
+          "自檢與移交｜檢查垂直度、平整度與灰縫質量，記錄偏差並移交下道工序｜可追溯的自檢與移交記錄。"
+        ]
+      },
+      "reinforcing-iron-and-rebar-workers": {
+        "file_sha256": "90c581871bb0d0e285e8e9de65e723f15d2c88ac8816d002d55b8ce433b5033a",
+        "entries": [
+          "讀圖與清單｜核構件、鋼筋直徑、形狀、數量和位置。｜輸出材料與待澄清項清單。",
+          "材料準備｜按批准圖紙選擇並切彎鋼筋。｜保留規格和批次標識。",
+          "定位與固定｜放置鋼筋、墊塊和鋼筋網，按圖保持間距。｜提交澆築前可檢查的鋼筋佈置。",
+          "尺寸複核｜核位置、間距、搭接和保護層待檢項。｜記錄偏差並請有權人員判斷。",
+          "吊運協作｜與起重人員約定材料路徑與作業區。｜不越權指揮起吊。",
+          "現場安全｜控制鋼筋端頭、墜落、吊物和機具風險。｜不滿足條件時停工升級。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 84,
+      "source_slugs": [
+        "brickmasons-and-blockmasons",
+        "reinforcing-iron-and-rebar-workers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "brickmasons-and-blockmasons": {
+          "field": "entries",
+          "source_path": "careers/brickmasons-and-blockmasons/zh-TW.json",
+          "file_sha256": "787c26534fcc478bec124ba9265b26c98dc82c497cb713a25332b44b54849d6a",
+          "count": 6
+        },
+        "reinforcing-iron-and-rebar-workers": {
+          "field": "entries",
+          "source_path": "careers/reinforcing-iron-and-rebar-workers/zh-TW.json",
+          "file_sha256": "90c581871bb0d0e285e8e9de65e723f15d2c88ac8816d002d55b8ce433b5033a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ded205edec00bd08b31c85e1f457e6997108d2544b4db6ebb31b4cbdff4eff09",
+  "inputs": {
+    "pair_id": "dredge-operators-vs-rotary-drill-operators-oil-and-gas",
+    "slugs": [
+      "dredge-operators",
+      "rotary-drill-operators-oil-and-gas"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/dredge-operators-vs-rotary-drill-operators-oil-and-gas",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dredge-operators": {
+        "name": "挖泥船操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.63,
+            2.99,
+            1.0,
+            1.36,
+            2.33,
+            3.48
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-7031",
+          "title_evidence": "official_title"
+        }
+      },
+      "rotary-drill-operators-oil-and-gas": {
+        "name": "石油天然气旋转钻机操作工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.04,
+            1.0,
+            1.16,
+            2.2,
+            3.78
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-5012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dredge-operators -> rotary-drill-operators-oil-and-gas"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：是疏浚与航道维护的挖泥船操作岗位：操作挖泥船清除沙子与砾石或其他材料，以开挖并维护水道中的可通航航道；后岗：油气旋转钻机岗位操作或监看钻进设备，跟踪班次、工况和异常并按程序交接。",
+    "cn_qualification": {
+      "dredge-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "rotary-drill-operators-oil-and-gas": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "53-7031.00",
+        "source_url": "https://www.onetonline.org/link/summary/53-7031.00#Tasks",
+        "locator": "Tasks 15177, 15181, 15182",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Operates dredging equipment, checks excavation depth and coordinates support work.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "47-5012.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-5012.00#Tasks",
+        "locator": "Tasks 8297, 8301, 8306",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Operates drilling equipment and records footage, tools and time.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-special-work-catalog",
+        "source_url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202605/W020260526532904903760.pdf#page=9",
+        "locator": "应急管理类 7.1–7.3",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2026 年 6 月 1 日施行",
+          "summary": "目录分列陆上石油钻井司钻和海洋石油司钻作业。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-special-work-rules",
+        "source_url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/gz11/202512/t20251219_589223.shtml",
+        "locator": "应急管理部令第 19 号第四、六、九条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2026 年 6 月 1 日施行",
+          "summary": "第4、6、9条规范年龄、健康、技能、学历、培训、考核和持证；符合特定学历或匹配的技能证书条件可免培训。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 314,
+      "source_slugs": [
+        "dredge-operators",
+        "rotary-drill-operators-oil-and-gas"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

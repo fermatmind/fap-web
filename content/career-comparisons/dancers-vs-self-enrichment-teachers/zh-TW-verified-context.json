@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e1b95650cc3cedb1fd120422ea1c4317b73c68a24e120b577290f0302183c737",
+  "inputs": {
+    "pair_id": "dancers-vs-self-enrichment-teachers",
+    "slugs": [
+      "dancers",
+      "self-enrichment-teachers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/dancers-vs-self-enrichment-teachers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dancers": {
+        "name": "舞者",
+        "riasec": {
+          "code": "ARS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-2031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.83,
+            1.43,
+            6.39,
+            3.65,
+            3.18,
+            1.61
+          ]
+        },
+        "tasks": [
+          "訓練與體能｜保持技術與身體狀態｜訓練、鍛鍊、課程為核心；足尖鞋準備為補充，僅適用需要該裝備的舞種。",
+          "體能與侷限管理｜認識並調整舞種｜培養對自身體能與侷限的瞭解，據此選擇與調整舞蹈風格與動作強度，在狀態不佳時降低風險。",
+          "學習與合排｜學動作並對齊節拍｜學習並練習角色所需的舞蹈動作，使身體動作與音樂伴奏的節奏協調一致，並與舞伴或舞蹈團體的動作協調配合。",
+          "與編舞協作｜完善與修改舞步｜與編舞者協作完善或修改舞步，確認編排意圖與個人調整的邊界，並在排練中落實修改。",
+          "演出與呈現｜按編排完成表演｜在演出中表演古典、現代或雜技舞蹈，用身體表達故事、節奏與聲音，必要時在舞蹈之外演唱或表演；並在上臺前完成準備、熱身與場地檢查。",
+          "試鏡與教學｜爭取機會並傳授經驗｜為舞蹈角色或舞團成員資格參加試鏡，參加服裝試穿、攝影與化妝通告，關注舞蹈領域趨勢，在需要時教授舞蹈學生併為自己或他人設計與編創舞蹈。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-2031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "27-2031",
+          "title_evidence": "official_title"
+        }
+      },
+      "self-enrichment-teachers": {
+        "name": "自我提升課程教師",
+        "riasec": {
+          "code": "SA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-3021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.51,
+            2.97,
+            4.18,
+            7.0,
+            3.2,
+            3.08
+          ]
+        },
+        "tasks": [
+          "瞭解學習者｜詢問興趣與起點，不假設同一水平。｜記錄目標、已有經驗與待核需求。",
+          "設定本次課目標｜把興趣主題轉為可觀察的小作品與改進方法。｜形成目標與觀察標準。",
+          "示範並組織練習｜分步解釋，備材料並觀察裝置安全。｜形成示範步驟和練習安排。",
+          "觀察和反饋｜檢視作品、表現與理解，給具體改進建議。｜記錄實際觀察與學員反饋。",
+          "調整材料與節奏｜根據初學者需要補步驟、練習或示範。｜儲存教學修訂及理由。",
+          "記錄與復盤｜按機構規則儲存進展並與相關教師協作。｜區分已觀察、未知與下一課調整。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-3021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-3021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dancers -> self-enrichment-teachers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "dancers": {
+        "file_sha256": "72fe4f5c278636134fd108b1c39d386dda8b46c04f58ffe3a290662ff83da22f",
+        "entries": []
+      },
+      "self-enrichment-teachers": {
+        "file_sha256": "deea8faed3e2803e6f31c6f5531662b36c46b80b23da914dd81fd9a3f094deb9",
+        "entries": [
+          "瞭解學習者｜詢問興趣與起點，不假設同一水平。｜記錄目標、已有經驗與待核需求。",
+          "設定本次課目標｜把興趣主題轉為可觀察的小作品與改進方法。｜形成目標與觀察標準。",
+          "示範並組織練習｜分步解釋，備材料並觀察裝置安全。｜形成示範步驟和練習安排。",
+          "觀察和反饋｜檢視作品、表現與理解，給具體改進建議。｜記錄實際觀察與學員反饋。",
+          "調整材料與節奏｜根據初學者需要補步驟、練習或示範。｜儲存教學修訂及理由。",
+          "記錄與復盤｜按機構規則儲存進展並與相關教師協作。｜區分已觀察、未知與下一課調整。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 279,
+      "source_slugs": [
+        "dancers",
+        "self-enrichment-teachers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "dancers": {
+          "field": "paragraphs",
+          "source_path": "careers/dancers/zh-TW.json",
+          "file_sha256": "72fe4f5c278636134fd108b1c39d386dda8b46c04f58ffe3a290662ff83da22f",
+          "count": 6
+        },
+        "self-enrichment-teachers": {
+          "field": "entries",
+          "source_path": "careers/self-enrichment-teachers/zh-TW.json",
+          "file_sha256": "deea8faed3e2803e6f31c6f5531662b36c46b80b23da914dd81fd9a3f094deb9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

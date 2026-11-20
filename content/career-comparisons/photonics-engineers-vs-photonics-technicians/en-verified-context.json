@@ -1,0 +1,303 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "612551c161d6789ee27bf2db0d87ae80a634015234f1fdd226ed80eb6829b4f1",
+  "inputs": {
+    "pair_id": "photonics-engineers-vs-photonics-technicians",
+    "slugs": [
+      "photonics-engineers",
+      "photonics-technicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/photonics-engineers-vs-photonics-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "photonics-engineers": {
+        "name": "Photonics Engineers",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.07",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.9,
+            5.88,
+            2.8,
+            1.39,
+            1.7,
+            3.96
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.07#Tasks"
+              }
+            ],
+            "text": "Analyze system performance or operational requirements."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.07#Tasks"
+              }
+            ],
+            "text": "Develop optical or imaging systems, such as optical imaging products, optical components, image processes, signal process technologies, or optical systems."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.07#Tasks"
+              }
+            ],
+            "text": "Develop or test photonic prototypes or models."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.07#Tasks"
+              }
+            ],
+            "text": "Design, integrate, or test photonics systems or components."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.07",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      },
+      "photonics-technicians": {
+        "name": "Photonics Technicians",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3029.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            4.18,
+            1.0,
+            1.0,
+            1.0,
+            5.46
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3029.08#Tasks"
+              }
+            ],
+            "text": "Compute or record photonic test data."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3029.08#Tasks"
+              }
+            ],
+            "text": "Maintain clean working environments, according to clean room standards."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3029.08#Tasks"
+              }
+            ],
+            "text": "Adjust or maintain equipment, such as lasers, laser systems, microscopes, oscilloscopes, pulse generators, power meters, beam analyzers, or energy measurement devices."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3029.08#Tasks"
+              }
+            ],
+            "text": "Document procedures, such as calibration of optical or fiber optic equipment."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3029.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3029",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "photonics-engineers -> photonics-technicians",
+      "photonics-technicians -> photonics-engineers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "eng",
+        "source_url": "https://www.onetonline.org/link/summary/17-2199.07",
+        "locator": "Tasks; Job Zone; Work Context; Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Engineers analyze requirements, develop optical products and test prototypes. Wage series is Engineers, All Other.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tech",
+        "source_url": "https://www.onetonline.org/link/summary/17-3029.08",
+        "locator": "Tasks; Job Zone; Work Context; Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Technicians record tests and maintain or calibrate equipment. Wage series is a residual technologist and technician group.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "rochester",
+        "source_url": "https://www.hajim.rochester.edu/optics/undergraduate/index.html",
+        "locator": "Optics vs Optical Engineering",
+        "value": {
+          "jurisdiction": "US, New York",
+          "effective_or_period": "2026 access",
+          "summary": "Optical engineering BS includes senior team design.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "mcc",
+        "source_url": "https://www.monroecc.edu/academics/programs/optical-systems-technology/index.html",
+        "locator": "Optical Systems Technology Associate of Applied Science",
+        "value": {
+          "jurisdiction": "US, New York",
+          "effective_or_period": "2026 access",
+          "summary": "The AAS is a route to technician work and includes hands-on optical testing.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "us-lab",
+        "source_url": "https://www.nist.gov/pml/about-pml/pml-working-you/it-really-bright",
+        "locator": "NIST Physical Measurement Laboratory, LED output and meter evaluation",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2020 article",
+          "summary": "NIST describes measuring LED output and evaluating manufacturers’ in-house meters.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 43,
+      "source_slugs": [
+        "photonics-engineers",
+        "photonics-technicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

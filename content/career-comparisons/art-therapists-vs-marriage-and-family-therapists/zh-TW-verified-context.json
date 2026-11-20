@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ca0140cc0167a8e6e9629ae43c6fd1523d1ee6f7a910c71d3bfb26c4080d13d4",
+  "inputs": {
+    "pair_id": "art-therapists-vs-marriage-and-family-therapists",
+    "slugs": [
+      "art-therapists",
+      "marriage-and-family-therapists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/art-therapists-vs-marriage-and-family-therapists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "art-therapists": {
+        "name": "藝術治療師",
+        "riasec": {
+          "code": "SA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1129.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.99,
+            3.67,
+            5.49,
+            5.64,
+            2.32,
+            2.86
+          ]
+        },
+        "tasks": [
+          "讀取與確認｜閱讀轉介目的、既有記錄與本人許可權，核對來訪者同意範圍與需要升級的風險｜一份註明來源、許可權與未決問題的會前確認記錄。",
+          "目標與媒介｜根據治療目標、感官與動作能力、材料風險與文化背景選擇媒介，並說明本次活動的邊界｜目標、媒介與活動邊界一一對應的活動方案。",
+          "過程與觀察｜開展有引導的自我表達，觀察創作過程與言語反應，與來訪者討論體驗而不把作品符號機械解釋為診斷｜含具體觀察依據與來訪者原話的過程記錄。",
+          "記錄與復盤｜記錄治療目標、活動和進展，按獲准分工與團隊復盤｜編輯記錄示例，不保證所有判斷可完整追溯。",
+          "協作與升級｜O*NET包含團隊協作、督導與緊急時聯絡應急人員協調治療；個人具體許可權和中止、轉介程式依真實制度核｜編輯交接提示，本頁不規定統一現場操作程式。",
+          "邊界與責任｜AATA第4節將作品視為來訪者財產及受保護資訊，某些場景可成為臨床記錄；複製、展示、保管和保留期按相應同意及制度核｜不概括每幅作品均為服務記錄，銷燬許可權未核完整。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1129.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1129",
+          "title_evidence": "official_title"
+        }
+      },
+      "marriage-and-family-therapists": {
+        "name": "婚姻與家庭治療師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.49,
+            5.32,
+            3.58,
+            6.22,
+            1.78,
+            2.9
+          ]
+        },
+        "tasks": [
+          "投入物件：來訪者與家庭的關係與症狀資訊、訪談與觀察記錄、心理測量與評估工具、治療理論與家庭系統框架、轉介與跨專業資訊、個案檔案與知情同意、督導與倫理要求。",
+          "可檢查產出：評估與診斷結論、個體化治療計劃、治療過程與進展記錄、個案檔案與建議、轉介與會診記錄、面向法院的評估說明、督導與諮詢記錄。",
+          "完整工作流程：建立安全與知情邊界 → 收集資訊與評估 → 形成診斷與治療計劃 → 實施治療並記錄進展 → 判斷轉介或升級 → 會診與督導 → 評估效果並調整的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1013",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "art-therapists -> marriage-and-family-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "art-therapists": {
+        "file_sha256": "27bd5538e69c1c82ba2e6bd092b909fd657aab4ba8ea4cc84f3fe0ca20b861d3",
+        "entries": [
+          "讀取與確認｜閱讀轉介目的、既有記錄與本人許可權，核對來訪者同意範圍與需要升級的風險｜一份註明來源、許可權與未決問題的會前確認記錄。",
+          "目標與媒介｜根據治療目標、感官與動作能力、材料風險與文化背景選擇媒介，並說明本次活動的邊界｜目標、媒介與活動邊界一一對應的活動方案。",
+          "過程與觀察｜開展有引導的自我表達，觀察創作過程與言語反應，與來訪者討論體驗而不把作品符號機械解釋為診斷｜含具體觀察依據與來訪者原話的過程記錄。",
+          "記錄與復盤｜記錄治療目標、活動和進展，按獲准分工與團隊復盤｜編輯記錄示例，不保證所有判斷可完整追溯。",
+          "協作與升級｜O*NET包含團隊協作、督導與緊急時聯絡應急人員協調治療；個人具體許可權和中止、轉介程式依真實制度核｜編輯交接提示，本頁不規定統一現場操作程式。",
+          "邊界與責任｜AATA第4節將作品視為來訪者財產及受保護資訊，某些場景可成為臨床記錄；複製、展示、保管和保留期按相應同意及制度核｜不概括每幅作品均為服務記錄，銷燬許可權未核完整。"
+        ]
+      },
+      "marriage-and-family-therapists": {
+        "file_sha256": "12561617854f2bda77271108e02b7d47c542816d4e86a7c309b0548b3025e79a",
+        "entries": [
+          "投入物件：來訪者與家庭的關係與症狀資訊、訪談與觀察記錄、心理測量與評估工具、治療理論與家庭系統框架、轉介與跨專業資訊、個案檔案與知情同意、督導與倫理要求。",
+          "可檢查產出：評估與診斷結論、個體化治療計劃、治療過程與進展記錄、個案檔案與建議、轉介與會診記錄、面向法院的評估說明、督導與諮詢記錄。",
+          "完整工作流程：建立安全與知情邊界 → 收集資訊與評估 → 形成診斷與治療計劃 → 實施治療並記錄進展 → 判斷轉介或升級 → 會診與督導 → 評估效果並調整的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 40,
+      "source_slugs": [
+        "art-therapists",
+        "marriage-and-family-therapists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "art-therapists": {
+          "field": "entries",
+          "source_path": "careers/art-therapists/zh-TW.json",
+          "file_sha256": "27bd5538e69c1c82ba2e6bd092b909fd657aab4ba8ea4cc84f3fe0ca20b861d3",
+          "count": 6
+        },
+        "marriage-and-family-therapists": {
+          "field": "entries",
+          "source_path": "careers/marriage-and-family-therapists/zh-TW.json",
+          "file_sha256": "12561617854f2bda77271108e02b7d47c542816d4e86a7c309b0548b3025e79a",
+          "count": 3
+        }
+      }
+    }
+  }
+}

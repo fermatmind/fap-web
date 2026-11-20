@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cfc89f53ff4b13b95125171385116ea5c9b91588900fdab05f8982160b607219",
+  "inputs": {
+    "pair_id": "logging-equipment-operators-vs-operating-engineers-and-other-construction-equipment-operators",
+    "slugs": [
+      "logging-equipment-operators",
+      "operating-engineers-and-other-construction-equipment-operators"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/logging-equipment-operators-vs-operating-engineers-and-other-construction-equipment-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "logging-equipment-operators": {
+        "name": "伐木设备操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "45-4022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.83,
+            1.81,
+            1.0,
+            1.11,
+            1.1,
+            4.4
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "45-4022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "45-4022",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "operating-engineers-and-other-construction-equipment-operators": {
+        "name": "工程机械操作员",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2073.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.93,
+            1.0,
+            1.14,
+            1.26,
+            3.88
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2073.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2073",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "logging-equipment-operators -> operating-engineers-and-other-construction-equipment-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在林区使用机械采伐、集材和装卸原木，开工前检查设备和作业条件，交班时记录未完成任务和设备异常；后岗：操作挖掘机、推土机、平地机、装载机等动力施工设备完成挖掘、搬运和整平。",
+    "cn_qualification": {
+      "logging-equipment-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "operating-engineers-and-other-construction-equipment-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "45-4022.00",
+        "source_url": "https://www.onetonline.org/link/summary/45-4022.00",
+        "locator": "Tasks 9802, 9803, 9804",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Checks logging equipment and moves logs from felling sites to landing areas.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "47-2073.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-2073.00",
+        "locator": "Tasks 9850, 9852, 9858, 9872",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Operates land construction equipment, coordinates with crews and records equipment issues.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 488,
+      "source_slugs": [
+        "logging-equipment-operators",
+        "operating-engineers-and-other-construction-equipment-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

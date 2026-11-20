@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3e80793c9590d67022991aaf7c4eb8c9897d1d1d60cda0e1400a79de5dbf8319",
+  "inputs": {
+    "pair_id": "clergy-vs-social-and-community-service-managers",
+    "slugs": [
+      "clergy",
+      "social-and-community-service-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clergy-vs-social-and-community-service-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clergy": {
+        "name": "神職人員",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.1,
+            2.11,
+            3.44,
+            5.91,
+            4.17,
+            2.89
+          ]
+        },
+        "tasks": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "21-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "social-and-community-service-managers": {
+        "name": "社會與社群服務經理",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9151.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.17,
+            2.43,
+            5.43,
+            6.97,
+            4.21
+          ]
+        },
+        "tasks": [
+          "需求與目標｜核社群服務需求、已有資源和專案物件。｜不能把報名人數當需求已經滿足。",
+          "專案與預算｜制定目標、進度、預算及參與者政策。｜審批權依董事會、主管或合同，不憑職位名籤支出。",
+          "團隊與志願者｜招募、培訓、排班並評價服務人員。｜管理職責與社工、諮詢或醫療專業資格分開。",
+          "質量與評估｜核服務記錄、覆蓋、投訴及資源使用。｜參加人次不是去重人數，更不等於長期成效。",
+          "夥伴與轉介｜協調社群機構、資助方和服務銜接。｜轉介建議不證明對方已接收或服務完成。",
+          "報告與改進｜維護預算、人員和專案報告並處理異常。｜未知資料和隱私限制保留，不為爭取資金補造成果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9151.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9151",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clergy -> social-and-community-service-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clergy": {
+        "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+        "entries": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ]
+      },
+      "social-and-community-service-managers": {
+        "file_sha256": "0963f951fe92b367271be99d7b0586add888ba0073437d94e339948f5033497f",
+        "entries": [
+          "需求與目標｜核社群服務需求、已有資源和專案物件。｜不能把報名人數當需求已經滿足。",
+          "專案與預算｜制定目標、進度、預算及參與者政策。｜審批權依董事會、主管或合同，不憑職位名籤支出。",
+          "團隊與志願者｜招募、培訓、排班並評價服務人員。｜管理職責與社工、諮詢或醫療專業資格分開。",
+          "質量與評估｜核服務記錄、覆蓋、投訴及資源使用。｜參加人次不是去重人數，更不等於長期成效。",
+          "夥伴與轉介｜協調社群機構、資助方和服務銜接。｜轉介建議不證明對方已接收或服務完成。",
+          "報告與改進｜維護預算、人員和專案報告並處理異常。｜未知資料和隱私限制保留，不為爭取資金補造成果。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 160,
+      "source_slugs": [
+        "clergy",
+        "social-and-community-service-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clergy": {
+          "field": "entries",
+          "source_path": "careers/clergy/zh-TW.json",
+          "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+          "count": 6
+        },
+        "social-and-community-service-managers": {
+          "field": "entries",
+          "source_path": "careers/social-and-community-service-managers/zh-TW.json",
+          "file_sha256": "0963f951fe92b367271be99d7b0586add888ba0073437d94e339948f5033497f",
+          "count": 6
+        }
+      }
+    }
+  }
+}

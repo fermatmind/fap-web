@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c2bc2ddba07a361c71418d36d6a7110f7e4e08dbb23aaa1969746113a6be04e7",
+  "inputs": {
+    "pair_id": "computer-automated-teller-and-office-machine-repairers-vs-computer-network-support-specialists",
+    "slugs": [
+      "computer-automated-teller-and-office-machine-repairers",
+      "computer-network-support-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/computer-automated-teller-and-office-machine-repairers-vs-computer-network-support-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "computer-automated-teller-and-office-machine-repairers": {
+        "name": "計算機、自動櫃員機與辦公裝置維修員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.83,
+            2.65,
+            1.0,
+            1.75,
+            1.79,
+            5.5
+          ]
+        },
+        "tasks": [
+          "現場診斷與故障定位｜前往客戶現場並按症狀測試以定位故障｜前往客戶門店或辦公室維修裝置或提供緊急維修服務；與客戶交談以確定裝置問題的細節；拆開機器檢查電線與齒輪與軸承等部件的磨損或缺陷；使用示波器與訊號發生器與電流表與電壓表或專用診斷軟體測試部件或電路以定位缺陷；並閱讀圖紙與圖表與原理圖以確定裝置設定或調整引數（對應 O*NET 任務第一與第五與第六與第十六與第十九項）。",
+          "維修與更換與調整｜維修或更換電氣與機械部件並按規格調整與校準｜使用手動工具與電動工具或焊接裝置維修、調整或更換電氣或機械部件；維修或更換部件後重新裝配裝置；按規格對齊、調整或校準裝置；並清潔、上油或調整機械部件以維持執行效率並預防故障（對應 O*NET 任務第八與第二與第二十與第十七項）。",
+          "裝配與測試與複測｜裝配機器並操作裝置以測試功能並測試新系統｜按規格裝配裝置；操作機器以測試部件或機構的功能；測試新系統以確保其處於可用狀態；並校準測試儀器（對應 O*NET 任務第十與第九與第十五與補充任務第一項）。",
+          "安裝與配置與更新｜安裝並配置新裝置與作業系統軟體與外圍裝置｜安裝並配置新裝置，包括作業系統軟體或外圍裝置；重新安裝軟體程式或調整現有軟體設定以修復裝置故障；並更新現有裝置，如安裝更新的電路板或增加記憶體（對應 O*NET 任務第十一與第十三與第十四項）。",
+          "客戶溝通與培訓｜向客戶說明裝置操作與維護或程式設計｜向客戶說明裝置操作與維護或程式設計；並培訓新的維修人員（對應 O*NET 任務第三與第二十三項）。",
+          "記錄與庫存與結算｜維護維修記錄並管理部件庫存與填寫賬單｜維護裝置維護或維修記錄；維護部件庫存並訂購維修所需的其他部件；並填寫維修賬單與車間記錄與工時卡或費用報告（對應 O*NET 任務第七與第四與第十八項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "49-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "computer-network-support-specialists": {
+        "name": "計算機網路支援專家",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1231.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.38,
+            4.61,
+            1.0,
+            2.28,
+            2.64,
+            5.45
+          ]
+        },
+        "tasks": [
+          "網路執行維護與安全｜備份網路資料並配置安全設定與訪問許可權並維護網路活動日誌｜備份網路資料；為群組或個人配置安全設定或訪問許可權；分析並報告網路安全事件或未遂事件；安裝含安全或防火牆軟體在內的網路軟體；維護網路活動日誌（對應 O*NET 任務第一與第二與第三與第七與第二十二項）。",
+          "故障診斷與使用者支援｜用診斷工具定位網路問題併為使用者排查與提供電話支援｜用診斷測試軟體與裝置識別網路問題的原因；為個人或使用者組排查網路或連通性問題；提供與網路或連通性相關的電話支援；記錄服務檯請求與解決方案（對應 O*NET 任務第四與第八與第九與第二十四項）。",
+          "裝置與軟體安裝與引數配置｜配置路由與交換裝置並安裝與整合新硬體或軟體｜配置廣域網（WAN）或區域網（LAN）路由器或相關裝置；為網路裝置的安裝或測試配置並定義引數；安裝與既有網路系統整合的新硬體或軟體系統或元件；安裝並配置無線網路裝置（對應 O*NET 任務第六與第十三與第十四與第二十一項）。",
+          "線纜與例行維護與維修｜安裝與維修網路線纜含光纖並執行例行維護與維修｜執行網路元件或裝置的例行維護或標準維修；安裝或維修網路線纜，包括光纖線纜；用標準診斷測試裝置與程式測試計算機軟體或硬體；測試維修後的專案以確認運轉正常（對應 O*NET 任務第十二與第十六與第十五與第二十項）。",
+          "效能與資料分析｜分析網路資料與評估效能以發現問題或用於災難恢復｜分析網路資料以確定網路使用情況與磁碟空間可用性或伺服器功能；評估區域網或廣域網效能資料以保證可用性或速度並發現問題或用於災難恢復；關注行業網站或出版物上的補丁與版本與病毒資訊；執行月度網路報告（對應 O*NET 任務第十一與第十與第十七與第二十六項）。",
+          "文件與使用者支援與採購研究｜更新技術文件與使用者說明並培訓使用者並研究軟硬體產品｜建立或更新網路安裝或既有安裝變更的技術文件；培訓使用者使用網路應用軟體或相關係統；建立或修訂使用者說明與程式或手冊；研究硬體或軟體產品以滿足技術網路或安全需求（對應 O*NET 任務第十八與第十九與第二十五與第二十三項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1231.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1231",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "computer-automated-teller-and-office-machine-repairers -> computer-network-support-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "computer-automated-teller-and-office-machine-repairers": {
+        "file_sha256": "e4604b9c1998d17459669d8a4acfe317d65ce4bb74ed1f76116673a2f697f3fa",
+        "entries": [
+          "現場診斷與故障定位｜前往客戶現場並按症狀測試以定位故障｜前往客戶門店或辦公室維修裝置或提供緊急維修服務；與客戶交談以確定裝置問題的細節；拆開機器檢查電線與齒輪與軸承等部件的磨損或缺陷；使用示波器與訊號發生器與電流表與電壓表或專用診斷軟體測試部件或電路以定位缺陷；並閱讀圖紙與圖表與原理圖以確定裝置設定或調整引數（對應 O*NET 任務第一與第五與第六與第十六與第十九項）。",
+          "維修與更換與調整｜維修或更換電氣與機械部件並按規格調整與校準｜使用手動工具與電動工具或焊接裝置維修、調整或更換電氣或機械部件；維修或更換部件後重新裝配裝置；按規格對齊、調整或校準裝置；並清潔、上油或調整機械部件以維持執行效率並預防故障（對應 O*NET 任務第八與第二與第二十與第十七項）。",
+          "裝配與測試與複測｜裝配機器並操作裝置以測試功能並測試新系統｜按規格裝配裝置；操作機器以測試部件或機構的功能；測試新系統以確保其處於可用狀態；並校準測試儀器（對應 O*NET 任務第十與第九與第十五與補充任務第一項）。",
+          "安裝與配置與更新｜安裝並配置新裝置與作業系統軟體與外圍裝置｜安裝並配置新裝置，包括作業系統軟體或外圍裝置；重新安裝軟體程式或調整現有軟體設定以修復裝置故障；並更新現有裝置，如安裝更新的電路板或增加記憶體（對應 O*NET 任務第十一與第十三與第十四項）。",
+          "客戶溝通與培訓｜向客戶說明裝置操作與維護或程式設計｜向客戶說明裝置操作與維護或程式設計；並培訓新的維修人員（對應 O*NET 任務第三與第二十三項）。",
+          "記錄與庫存與結算｜維護維修記錄並管理部件庫存與填寫賬單｜維護裝置維護或維修記錄；維護部件庫存並訂購維修所需的其他部件；並填寫維修賬單與車間記錄與工時卡或費用報告（對應 O*NET 任務第七與第四與第十八項）。"
+        ]
+      },
+      "computer-network-support-specialists": {
+        "file_sha256": "8e1ca5a012240414bd0b207758188a8445856bedcd4e0eb15ba4446126a14864",
+        "entries": [
+          "網路執行維護與安全｜備份網路資料並配置安全設定與訪問許可權並維護網路活動日誌｜備份網路資料；為群組或個人配置安全設定或訪問許可權；分析並報告網路安全事件或未遂事件；安裝含安全或防火牆軟體在內的網路軟體；維護網路活動日誌（對應 O*NET 任務第一與第二與第三與第七與第二十二項）。",
+          "故障診斷與使用者支援｜用診斷工具定位網路問題併為使用者排查與提供電話支援｜用診斷測試軟體與裝置識別網路問題的原因；為個人或使用者組排查網路或連通性問題；提供與網路或連通性相關的電話支援；記錄服務檯請求與解決方案（對應 O*NET 任務第四與第八與第九與第二十四項）。",
+          "裝置與軟體安裝與引數配置｜配置路由與交換裝置並安裝與整合新硬體或軟體｜配置廣域網（WAN）或區域網（LAN）路由器或相關裝置；為網路裝置的安裝或測試配置並定義引數；安裝與既有網路系統整合的新硬體或軟體系統或元件；安裝並配置無線網路裝置（對應 O*NET 任務第六與第十三與第十四與第二十一項）。",
+          "線纜與例行維護與維修｜安裝與維修網路線纜含光纖並執行例行維護與維修｜執行網路元件或裝置的例行維護或標準維修；安裝或維修網路線纜，包括光纖線纜；用標準診斷測試裝置與程式測試計算機軟體或硬體；測試維修後的專案以確認運轉正常（對應 O*NET 任務第十二與第十六與第十五與第二十項）。",
+          "效能與資料分析｜分析網路資料與評估效能以發現問題或用於災難恢復｜分析網路資料以確定網路使用情況與磁碟空間可用性或伺服器功能；評估區域網或廣域網效能資料以保證可用性或速度並發現問題或用於災難恢復；關注行業網站或出版物上的補丁與版本與病毒資訊；執行月度網路報告（對應 O*NET 任務第十一與第十與第十七與第二十六項）。",
+          "文件與使用者支援與採購研究｜更新技術文件與使用者說明並培訓使用者並研究軟硬體產品｜建立或更新網路安裝或既有安裝變更的技術文件；培訓使用者使用網路應用軟體或相關係統；建立或修訂使用者說明與程式或手冊；研究硬體或軟體產品以滿足技術網路或安全需求（對應 O*NET 任務第十八與第十九與第二十五與第二十三項）。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 186,
+      "source_slugs": [
+        "computer-automated-teller-and-office-machine-repairers",
+        "computer-network-support-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "computer-automated-teller-and-office-machine-repairers": {
+          "field": "entries",
+          "source_path": "careers/computer-automated-teller-and-office-machine-repairers/zh-TW.json",
+          "file_sha256": "e4604b9c1998d17459669d8a4acfe317d65ce4bb74ed1f76116673a2f697f3fa",
+          "count": 6
+        },
+        "computer-network-support-specialists": {
+          "field": "entries",
+          "source_path": "careers/computer-network-support-specialists/zh-TW.json",
+          "file_sha256": "8e1ca5a012240414bd0b207758188a8445856bedcd4e0eb15ba4446126a14864",
+          "count": 6
+        }
+      }
+    }
+  }
+}

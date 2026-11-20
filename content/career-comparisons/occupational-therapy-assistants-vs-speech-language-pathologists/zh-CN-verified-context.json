@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "00809eb88d2c9f6bdac18b77935ca5c318a7e6b5e95314b5e6056b49c5a9fc85",
+  "inputs": {
+    "pair_id": "occupational-therapy-assistants-vs-speech-language-pathologists",
+    "slugs": [
+      "occupational-therapy-assistants",
+      "speech-language-pathologists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/occupational-therapy-assistants-vs-speech-language-pathologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "occupational-therapy-assistants": {
+        "name": "作业治疗助理",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.53,
+            3.48,
+            2.06,
+            6.1,
+            1.14,
+            4.21
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "speech-language-pathologists": {
+        "name": "言语语言病理师",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1127.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.62,
+            5.57,
+            3.0,
+            6.09,
+            1.44,
+            4.03
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1127.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1127",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "occupational-therapy-assistants -> speech-language-pathologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在作业治疗师指导下实施活动训练、观察参与者反应、记录进展并反馈以调整计划；后岗：评估和干预沟通困难。",
+    "cn_qualification": {
+      "occupational-therapy-assistants": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "speech-language-pathologists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "ota",
+        "source_url": "https://www.onetonline.org/link/summary/31-2011.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Occupational therapy assistants carry out assigned therapy and document progress.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "slp",
+        "source_url": "https://www.onetonline.org/link/summary/29-1127.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Speech-language pathologists assess and treat speech, language and swallowing disorders.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "hospital",
+        "source_url": "https://cdfy120.cdu.edu.cn/ylksn/fssks/kfyxk/kfyxkjs.htm",
+        "locator": "科室介绍：作业治疗室和言语治疗室",
+        "value": {
+          "jurisdiction": "中国大陆·成都",
+          "effective_or_period": "机构公开信息",
+          "summary": "医院设置独立的作业及言语治疗室。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "zhscope",
+        "source_url": "https://www.nhc.gov.cn/wjw/gfxwj/201105/0fa3554447e84949aa129e88bb1cc7b6.shtml",
+        "locator": "第三、第十二条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2011",
+          "summary": "康复医学科业务和人员分工。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "training",
+        "source_url": "https://www.nhc.gov.cn/yzygj/c100068/202311/2614b8c4ffa84423b3b1ec7ef7a9aa15.shtml",
+        "locator": "康复治疗专业人员培训大纲通知",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2023",
+          "summary": "康复治疗专业人员培训文件。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 545,
+      "source_slugs": [
+        "occupational-therapy-assistants",
+        "speech-language-pathologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

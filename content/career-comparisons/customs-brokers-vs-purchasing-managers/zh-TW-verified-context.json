@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c7f88642ded6e35d015ff894574ab9edbbd29f20abac20f14a9ee8fbda24e7de",
+  "inputs": {
+    "pair_id": "customs-brokers-vs-purchasing-managers",
+    "slugs": [
+      "customs-brokers",
+      "purchasing-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/customs-brokers-vs-purchasing-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "customs-brokers": {
+        "name": "海關經紀人",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1041.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.37,
+            1.53,
+            1.0,
+            2.17,
+            5.02,
+            6.13
+          ]
+        },
+        "tasks": [
+          "歸類與單證｜按稅則歸類並編制單證｜按稅則編碼制度對商品歸類，編制與處理符合海關法規的進出口單證，並索取與彙總海關發票、原產地證與貨運管制檔案。",
+          "稅費處理｜計算並處理關稅稅費｜計算並追蹤應繳關稅與稅費、按聯邦稅則與消費稅報價，代客戶支付款項，並申請關稅減讓、退稅與退款。",
+          "客戶諮詢｜解釋限制與配額｜向進口商與出口商解釋進口出口限制、稅則制度、保險要求與配額，並提示減少關稅與稅費的合規路徑。",
+          "代表與簽署｜憑授權代表客戶｜憑授權書代表客戶簽署檔案、辦理或協助擔保，並代客戶辦理貨物清關與送達。",
+          "物流協調｜安排運輸與配送｜安排運輸、倉儲與配送，與貨運代理簽約，跟蹤貨物位置並投保，並提示包裝與標籤方式及運輸選項。",
+          "關係與申訴｜維護關係並處理申訴｜與其他口岸的海關經紀人保持聯絡以加快清關，與各機構官員協商加快清關，併為客戶準備關稅申訴材料、向政府機構報送資料。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1041.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1041",
+          "title_evidence": "official_title"
+        }
+      },
+      "purchasing-managers": {
+        "name": "採購經理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.49,
+            1.77,
+            1.2,
+            2.7,
+            7.0,
+            5.98
+          ]
+        },
+        "tasks": [
+          "需求與規格｜把使用部門需求轉成可詢價、可驗收的規格、數量、交付視窗和替代限制。｜輸出需求矩陣和待澄清問題，不自行改寫技術標準。",
+          "供應商尋源｜收集合格供應商、報價、交期、質保和責任條件並保持可比。｜輸出帶來源、版本、已知/未知項的供應商比較表。",
+          "成本與條款｜按單位、數量、稅費、運輸、包裝和付款條件復算總成本，識別合同風險。｜輸出算式、條件性方案和待批准的預算/條款變化。",
+          "合同與訂單｜按授權鏈準備訂單或合同資訊，跟蹤簽署、付款條件和變更留痕。｜輸出審批記錄；不代替法務、財務或簽署人作最終批准。",
+          "交付與驗收｜跟蹤到貨、質量證據、缺陷、延期和供應商整改。｜輸出收貨/驗收記錄、偏差單和是否可付款的證據鏈。",
+          "供應風險交接｜在規格、交期、費用或責任條件改變時及時升級。｜輸出暫停下單或條件性推薦、責任人、期限和下一步交接記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-3061",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "customs-brokers -> purchasing-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "customs-brokers": {
+        "file_sha256": "c6c8f50962c53a798eaa21a41756501f43305762ff8de045fc50e6fb3538c483",
+        "entries": []
+      },
+      "purchasing-managers": {
+        "file_sha256": "9aab8b08b5b7ab006c90e3549a21a2fef4bf80901a9b456058fc019977d76196",
+        "entries": [
+          "需求與規格｜把使用部門需求轉成可詢價、可驗收的規格、數量、交付視窗和替代限制。｜輸出需求矩陣和待澄清問題，不自行改寫技術標準。",
+          "供應商尋源｜收集合格供應商、報價、交期、質保和責任條件並保持可比。｜輸出帶來源、版本、已知/未知項的供應商比較表。",
+          "成本與條款｜按單位、數量、稅費、運輸、包裝和付款條件復算總成本，識別合同風險。｜輸出算式、條件性方案和待批准的預算/條款變化。",
+          "合同與訂單｜按授權鏈準備訂單或合同資訊，跟蹤簽署、付款條件和變更留痕。｜輸出審批記錄；不代替法務、財務或簽署人作最終批准。",
+          "交付與驗收｜跟蹤到貨、質量證據、缺陷、延期和供應商整改。｜輸出收貨/驗收記錄、偏差單和是否可付款的證據鏈。",
+          "供應風險交接｜在規格、交期、費用或責任條件改變時及時升級。｜輸出暫停下單或條件性推薦、責任人、期限和下一步交接記錄。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 273,
+      "source_slugs": [
+        "customs-brokers",
+        "purchasing-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "customs-brokers": {
+          "field": "paragraphs",
+          "source_path": "careers/customs-brokers/zh-TW.json",
+          "file_sha256": "c6c8f50962c53a798eaa21a41756501f43305762ff8de045fc50e6fb3538c483",
+          "count": 6
+        },
+        "purchasing-managers": {
+          "field": "entries",
+          "source_path": "careers/purchasing-managers/zh-TW.json",
+          "file_sha256": "9aab8b08b5b7ab006c90e3549a21a2fef4bf80901a9b456058fc019977d76196",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6155a73125d3b77575317b1158acc26f9afb3610c7aa4b749c55d20120b18042",
+  "inputs": {
+    "pair_id": "light-truck-drivers-vs-refuse-and-recyclable-material-collectors",
+    "slugs": [
+      "light-truck-drivers",
+      "refuse-and-recyclable-material-collectors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/light-truck-drivers-vs-refuse-and-recyclable-material-collectors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "light-truck-drivers": {
+        "name": "輕型卡車司機",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-3033.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.88,
+            1.54,
+            1.02,
+            1.36,
+            2.1,
+            4.42
+          ]
+        },
+        "tasks": [
+          "投入物件：訂單與貨運單據、待配送的包裹與貨物、輕型卡車或廂式貨車、配送路線與客戶時間窗、裝卸器具與固定材料，以及車輛與交付記錄。",
+          "可檢查產出：出車車輛檢查記錄、按卸貨順序完成的裝載與固定、簽收與退貨憑證、貨款與單據交接、里程與缺陷記錄、延誤與異常上報記錄。",
+          "完整流程：接收路線與訂單 → 出車檢查車輛與裝置 → 按卸貨順序裝載並固定貨物 → 按法規與路線駕駛和停車 → 與客戶交接、簽收或收款 → 記錄里程、缺陷與異常 → 回場交單與上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-3033.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-3033",
+          "title_evidence": "official_title"
+        }
+      },
+      "refuse-and-recyclable-material-collectors": {
+        "name": "垃圾與可回收材料收集員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.83,
+            1.0,
+            1.29,
+            1.36,
+            4.53
+          ]
+        },
+        "tasks": [
+          "班前檢查｜核車輛、舉升機構、燈光和故障報告。｜未消除嚴重缺陷不出車。",
+          "路線收集｜按任務單到點，核人員站位與容器類別。｜記錄未收點和禁收物。",
+          "安全裝載｜按批准程式使用機械臂或人工裝車。｜人不進入運動部件危險區。",
+          "駕駛與交通｜僅獲准人員按路線駕駛，倒車前核盲區。｜暫停有人處於危險位置的動作。",
+          "解除安裝與清潔｜到指定場站解除安裝並清潔車廂。｜保留去向和異常記錄。",
+          "交接與升級｜向排程報告延誤、事故和車況。｜不擅自處置危險物或維修關鍵系統。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-7081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "refuse-and-recyclable-material-collectors -> light-truck-drivers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "light-truck-drivers": {
+        "file_sha256": "3240be8737b9c78ed56aabc54fa45f0da523eb00e4fbf4b5a93e45cfa98b87f6",
+        "entries": [
+          "投入物件：訂單與貨運單據、待配送的包裹與貨物、輕型卡車或廂式貨車、配送路線與客戶時間窗、裝卸器具與固定材料，以及車輛與交付記錄。",
+          "可檢查產出：出車車輛檢查記錄、按卸貨順序完成的裝載與固定、簽收與退貨憑證、貨款與單據交接、里程與缺陷記錄、延誤與異常上報記錄。",
+          "完整流程：接收路線與訂單 → 出車檢查車輛與裝置 → 按卸貨順序裝載並固定貨物 → 按法規與路線駕駛和停車 → 與客戶交接、簽收或收款 → 記錄里程、缺陷與異常 → 回場交單與上報。"
+        ]
+      },
+      "refuse-and-recyclable-material-collectors": {
+        "file_sha256": "ae48f688b8130b56921b6bb4b8e671fa2d3f6e830f05c1d6fbf7d8edf311dd2a",
+        "entries": [
+          "班前檢查｜核車輛、舉升機構、燈光和故障報告。｜未消除嚴重缺陷不出車。",
+          "路線收集｜按任務單到點，核人員站位與容器類別。｜記錄未收點和禁收物。",
+          "安全裝載｜按批准程式使用機械臂或人工裝車。｜人不進入運動部件危險區。",
+          "駕駛與交通｜僅獲准人員按路線駕駛，倒車前核盲區。｜暫停有人處於危險位置的動作。",
+          "解除安裝與清潔｜到指定場站解除安裝並清潔車廂。｜保留去向和異常記錄。",
+          "交接與升級｜向排程報告延誤、事故和車況。｜不擅自處置危險物或維修關鍵系統。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 480,
+      "source_slugs": [
+        "light-truck-drivers",
+        "refuse-and-recyclable-material-collectors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "light-truck-drivers": {
+          "field": "entries",
+          "source_path": "careers/light-truck-drivers/zh-TW.json",
+          "file_sha256": "3240be8737b9c78ed56aabc54fa45f0da523eb00e4fbf4b5a93e45cfa98b87f6",
+          "count": 3
+        },
+        "refuse-and-recyclable-material-collectors": {
+          "field": "entries",
+          "source_path": "careers/refuse-and-recyclable-material-collectors/zh-TW.json",
+          "file_sha256": "ae48f688b8130b56921b6bb4b8e671fa2d3f6e830f05c1d6fbf7d8edf311dd2a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

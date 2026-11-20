@@ -1,0 +1,335 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "852acadf526fa94797b9c562e2d1f955e2b36c72171d00b64c8514fcc04b6b14",
+  "inputs": {
+    "pair_id": "commercial-pilots-vs-remote-sensing-technicians",
+    "slugs": [
+      "commercial-pilots",
+      "remote-sensing-technicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/commercial-pilots-vs-remote-sensing-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "commercial-pilots": {
+        "name": "Commercial Pilot",
+        "riasec": {
+          "code": "CRE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.79,
+            2.55,
+            1.1,
+            2.57,
+            3.92,
+            4.82
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-2012.00#Tasks"
+              }
+            ],
+            "text": "Check aircraft prior to flights to ensure that the engines, controls, instruments, and other systems are functioning properly."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-2012.00#Tasks"
+              }
+            ],
+            "text": "Co-pilot aircraft or perform captain's duties, as required."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-2012.00#Tasks"
+              }
+            ],
+            "text": "Consider airport altitudes, outside temperatures, plane weights, and wind speeds and directions to calculate the speed needed to become airborne."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-2012.00#Tasks"
+              }
+            ],
+            "text": "Use instrumentation to pilot aircraft when visibility is poor."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-2012",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "remote-sensing-technicians": {
+        "name": "Remote Sensing Technicians",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-4099.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.1,
+            4.6,
+            2.14,
+            1.51,
+            1.71,
+            5.24
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-4099.03#Tasks"
+              }
+            ],
+            "text": "Collect geospatial data, using technologies such as aerial photography, light and radio wave detection systems, digital satellites, or thermal energy systems."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-4099.03#Tasks"
+              }
+            ],
+            "text": "Verify integrity and accuracy of data contained in remote sensing image analysis systems."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-4099.03#Tasks"
+              }
+            ],
+            "text": "Integrate remotely sensed data with other geospatial data."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-4099.03#Tasks"
+              }
+            ],
+            "text": "Consult with remote sensing scientists, surveyors, cartographers, or engineers to determine project needs."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-4099.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-4099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "commercial-pilots -> remote-sensing-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "53-2012.00",
+        "source_url": "https://www.onetonline.org/link/summary/53-2012.00",
+        "locator": "Tasks 10587, 20831",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Checks aircraft before flight and performs pilot or copilot duties.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "19-4099.03",
+        "source_url": "https://www.onetonline.org/link/summary/19-4099.03",
+        "locator": "Tasks 16999, 16986, 16991, 16997",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Collects and verifies remote sensing data and processes imagery for project use.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-19-4099.03",
+        "source_url": "https://www.onetonline.org/link/localwages/19-4099.03",
+        "locator": "National Wages occupational mapping",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "Wages are collected from Life, Physical, and Social Science Technicians, All Other.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 row 53-2012",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025–35 projections",
+          "summary": "Postsecondary nondegree award and moderate-term on-the-job training are typical for commercial pilots.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "oo-BLS pilot certification",
+        "source_url": "https://www.bls.gov/ooh/transportation-and-material-moving/airline-and-commercial-pilots.htm",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current OOH",
+          "summary": "Commercial pilots require FAA certification and applicable ratings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-rs-ed",
+        "source_url": "https://www.onetonline.org/link/summary/19-4099.03",
+        "locator": "Education responses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET occupation profile",
+          "summary": "A bachelor’s degree (62%) is the most frequent response.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "us-91-3",
+        "source_url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.3",
+        "locator": "§91.3(a)",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current eCFR",
+          "summary": "The pilot in command is directly responsible for aircraft operation and has final authority over it.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "us-61-133",
+        "source_url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-F/section-61.133",
+        "locator": "§61.133(a)–(b)",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current eCFR",
+          "summary": "Commercial pilot privileges depend on qualifications under applicable rules and are subject to limitations.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 179,
+      "source_slugs": [
+        "commercial-pilots",
+        "remote-sensing-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9520fe3ec2456f36b0b0aca9b17e3946b1f072b1038c93d231f970004265920f",
+  "inputs": {
+    "pair_id": "entertainment-and-recreation-managers-except-gambling-vs-tour-guides-and-escorts",
+    "slugs": [
+      "entertainment-and-recreation-managers-except-gambling",
+      "tour-guides-and-escorts"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/entertainment-and-recreation-managers-except-gambling-vs-tour-guides-and-escorts",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "entertainment-and-recreation-managers-except-gambling": {
+        "name": "娛樂休閒業經理（非博彩）",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.35,
+            1.96,
+            1.98,
+            3.93,
+            6.25,
+            5.04
+          ]
+        },
+        "tasks": [
+          "運營場景｜依據經營目標確定運營場景與專案｜記錄依據與未決項",
+          "排班資源｜安排人員與設施資源｜按客流與容量調配",
+          "現場秩序｜組織日常運營與活動｜維持秩序並處置突發",
+          "人員管理｜招聘、培訓並管理一線人員｜落實資質要求",
+          "安全許可｜按規範檢查設施、許可與保險｜保留檢查與整改記錄",
+          "預算營銷｜編制預算並組織推廣｜複核經營指標與合規"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-9072",
+          "title_evidence": "official_title"
+        }
+      },
+      "tour-guides-and-escorts": {
+        "name": "導遊和陪同人員",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-7011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.33,
+            2.4,
+            3.46,
+            5.35,
+            3.64,
+            2.85
+          ]
+        },
+        "tasks": [
+          "資料準備｜地點與背景查證｜查地點歷史、環境和經確認說明，區分已知事實、傳說與尚需核對的資訊。",
+          "安排核對｜站點和移動時間｜結合開放、遊客需求及已確認路線，復算移動講解問答時間，保留結束限制和變化記錄。",
+          "解釋服務｜講解與傾聽問題｜向遊客介紹興趣點，用清楚語言回應問題；未知內容說明待核，不靠AI自信補造。",
+          "參觀引導｜規則和活動觀察｜引導個人或團體參觀，說明場所規則，留意影響服務與安全的情況並按流程反饋。",
+          "變更溝通｜更新與許可權確認｜收到關閉、時段或單位安排變化，先核來源和可用備選，再向相應物件溝通，真實變更依實際要求。",
+          "結束維護｜問題和資料交接｜儲存待核問題、確認變化和講解版本，按適用規則保護遊客資訊並誠實說明經驗。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-7011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-7011",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "tour-guides-and-escorts -> entertainment-and-recreation-managers-except-gambling"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "entertainment-and-recreation-managers-except-gambling": {
+        "file_sha256": "9c5e26399bf0711f963c07adb000fd3dfe87082a4fbecaa68ec01e69a367b41a",
+        "entries": [
+          "運營場景｜依據經營目標確定運營場景與專案｜記錄依據與未決項",
+          "排班資源｜安排人員與設施資源｜按客流與容量調配",
+          "現場秩序｜組織日常運營與活動｜維持秩序並處置突發",
+          "人員管理｜招聘、培訓並管理一線人員｜落實資質要求",
+          "安全許可｜按規範檢查設施、許可與保險｜保留檢查與整改記錄",
+          "預算營銷｜編制預算並組織推廣｜複核經營指標與合規"
+        ]
+      },
+      "tour-guides-and-escorts": {
+        "file_sha256": "936ffd8e1c16340eed77b94f707c292ba334d51b44b9c529994ff85a876233a0",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 401,
+      "source_slugs": [
+        "entertainment-and-recreation-managers-except-gambling",
+        "tour-guides-and-escorts"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "entertainment-and-recreation-managers-except-gambling": {
+          "field": "entries",
+          "source_path": "careers/entertainment-and-recreation-managers-except-gambling/zh-TW.json",
+          "file_sha256": "9c5e26399bf0711f963c07adb000fd3dfe87082a4fbecaa68ec01e69a367b41a",
+          "count": 6
+        },
+        "tour-guides-and-escorts": {
+          "field": "paragraphs",
+          "source_path": "careers/tour-guides-and-escorts/zh-TW.json",
+          "file_sha256": "936ffd8e1c16340eed77b94f707c292ba334d51b44b9c529994ff85a876233a0",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e89ae32ca37154cef0a613b98595b46e48f3c62f2b42f59b1072b2e88b827147",
+  "inputs": {
+    "pair_id": "property-real-estate-and-community-association-managers-vs-real-estate-sales-agents",
+    "slugs": [
+      "property-real-estate-and-community-association-managers",
+      "real-estate-sales-agents"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/property-real-estate-and-community-association-managers-vs-real-estate-sales-agents",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "property-real-estate-and-community-association-managers": {
+        "name": "物业、房地产与社区协会经理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9141.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.28,
+            2.11,
+            1.69,
+            3.53,
+            6.67,
+            5.26
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9141.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9141",
+          "title_evidence": "official_title"
+        }
+      },
+      "real-estate-sales-agents": {
+        "name": "房地产销售",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-9022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.12,
+            1.47,
+            1.92,
+            3.52,
+            6.46,
+            4.94
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-9022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "41-9022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "property-real-estate-and-community-association-managers -> real-estate-sales-agents",
+      "real-estate-sales-agents -> property-real-estate-and-community-association-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：物业、房地产及社区协会管理人员统筹物业持续运营，可能处理租户或业主请求、维修安排、预算和服务方；后岗：代理把客户需求、房源资料和交易时间线对起来，安排看房并跟进报价和材料。",
+    "cn_qualification": {
+      "property-real-estate-and-community-association-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "real-estate-sales-agents": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "property",
+        "source_url": "https://www.onetonline.org/link/summary/11-9141.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Oversee operation, repairs, budgets and service providers.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "agent",
+        "source_url": "https://www.onetonline.org/link/summary/41-9022.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Arrange showings, relay offers and coordinate transaction steps.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "civil",
+        "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+        "locator": "民法典第942、943条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "民法典",
+          "summary": "物业服务人按约维护共有部分并定期公开规定事项。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-broker",
+        "source_url": "https://www.mohurd.gov.cn/gongkai/zhengce/gzk/art/2022/art_17337_763827.html",
+        "locator": "第十四、二十、二十二条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2016修正文本",
+          "summary": "经纪业务由机构统一承接；第二十条规定经纪服务合同的机构盖章与签名人数；第二十二条规定出售、出租经纪服务合同签订时的资料查验。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-qualification",
+        "source_url": "https://www.hbdaye.gov.cn/ztfw/zjbl567/cyryzgzbl/202312/t20231216_1080634.html",
+        "locator": "专业技术人员职业资格，房地产经纪专业人员",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2021版目录政府转载",
+          "summary": "房地产经纪专业人员职业资格归为水平评价类。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 616,
+      "source_slugs": [
+        "property-real-estate-and-community-association-managers",
+        "real-estate-sales-agents"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

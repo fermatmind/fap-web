@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "a3916d949d2af3b44966ff561b963cad6c7cd221aaf53762686359c95f98a01f",
+  "inputs": {
+    "pair_id": "climate-change-policy-analysts-vs-water-resource-specialists",
+    "slugs": [
+      "climate-change-policy-analysts",
+      "water-resource-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/climate-change-policy-analysts-vs-water-resource-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "climate-change-policy-analysts": {
+        "name": "氣候變化政策分析師",
+        "riasec": {
+          "code": "IEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2041.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.37,
+            6.73,
+            3.11,
+            3.17,
+            4.69,
+            4.06
+          ]
+        },
+        "tasks": [
+          "研究與分析｜收集並提煉氣候相關研究與政策材料｜收集並審閱來自政府機構與實驗室與其他組織的與氣候相關的研究；分析與提煉與氣候相關的研究結論以提供給立法者與監管機構與其他利益相關方；研究氣候或環境管理的政策與做法與程式（對應 O*NET 任務第七與第四與第十項）。",
+          "政策建議｜為氣候與環境管理提出政策或立法建議｜為氣候或環境管理提出立法建議；提出涉及傳統與替代燃料使用與貨物運輸等與氣候相關因素的新政策或修訂政策；並審閱現行政策或立法以識別環境影響（對應 O*NET 任務第五與第二與第八項）。",
+          "書面產出｜撰寫研究報告與簡報與證詞｜撰寫研究報告與備忘錄與簡報與證詞或其他書面材料，以向政府或環境團體說明氣候變化等環境議題；撰寫報告或學術論文以傳達研究發現（對應 O*NET 任務第三與第十一項）。",
+          "口頭陳述與交流｜在會議與公開場合陳述與答辯｜在公共利益與政府或其他會議上陳述與氣候相關的資訊；陳述並答辯氣候變化研究專案的提案（對應 O*NET 任務第六與第十三項）。",
+          "專案與教育推動｜推動減緩舉措並開展教育外展｜推動政府或環境團體採取減緩氣候變化的舉措；開發或參與開發關於環境或氣候變化的教育或外展專案（對應 O*NET 任務第九與第十二項）。",
+          "經費與資源爭取｜準備撥款申請為專案取得經費｜準備撥款申請以為與氣候變化或環境管理或可持續性相關的專案取得經費；併為政策簡報類工作提供分析支援（對應 O*NET 任務第十四與第一項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2041.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-resource-specialists": {
+        "name": "水資源專員",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9121.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.45,
+            5.8,
+            1.78,
+            2.58,
+            3.53,
+            4.17
+          ]
+        },
+        "tasks": [
+          "調查｜水量與水質資料｜收集和核區域供需、監測與專案資料，標明時空範圍、單位及來源。",
+          "建模｜水文水力與水質分析｜選擇適用方法和假設，檢驗資料和模型條件，解釋輸出及侷限。",
+          "規劃｜流域與用水策略｜比較供應、節約、保護和恢復方案，明確約束及受影響物件。",
+          "評估｜設計與專案建議｜評價有關水工設施和方案資料，開展技術或成本收益比較，不以單表替代專業審查。",
+          "記錄｜技術報告與依據｜維護水體資料、版本和專案文件，保留已知、假設與未確認內容。",
+          "協調｜團隊與公共溝通｜向管理機構、業主及社群說明方案與影響，按真實分工協調監測和技術任務。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9121.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9121",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "climate-change-policy-analysts -> water-resource-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "climate-change-policy-analysts": {
+        "file_sha256": "e8e95fac377a02efebb0d889ba741785dfb68135445e8881a5b93ccecd10cfaa",
+        "entries": [
+          "研究與分析｜收集並提煉氣候相關研究與政策材料｜收集並審閱來自政府機構與實驗室與其他組織的與氣候相關的研究；分析與提煉與氣候相關的研究結論以提供給立法者與監管機構與其他利益相關方；研究氣候或環境管理的政策與做法與程式（對應 O*NET 任務第七與第四與第十項）。",
+          "政策建議｜為氣候與環境管理提出政策或立法建議｜為氣候或環境管理提出立法建議；提出涉及傳統與替代燃料使用與貨物運輸等與氣候相關因素的新政策或修訂政策；並審閱現行政策或立法以識別環境影響（對應 O*NET 任務第五與第二與第八項）。",
+          "書面產出｜撰寫研究報告與簡報與證詞｜撰寫研究報告與備忘錄與簡報與證詞或其他書面材料，以向政府或環境團體說明氣候變化等環境議題；撰寫報告或學術論文以傳達研究發現（對應 O*NET 任務第三與第十一項）。",
+          "口頭陳述與交流｜在會議與公開場合陳述與答辯｜在公共利益與政府或其他會議上陳述與氣候相關的資訊；陳述並答辯氣候變化研究專案的提案（對應 O*NET 任務第六與第十三項）。",
+          "專案與教育推動｜推動減緩舉措並開展教育外展｜推動政府或環境團體採取減緩氣候變化的舉措；開發或參與開發關於環境或氣候變化的教育或外展專案（對應 O*NET 任務第九與第十二項）。",
+          "經費與資源爭取｜準備撥款申請為專案取得經費｜準備撥款申請以為與氣候變化或環境管理或可持續性相關的專案取得經費；併為政策簡報類工作提供分析支援（對應 O*NET 任務第十四與第一項）。"
+        ]
+      },
+      "water-resource-specialists": {
+        "file_sha256": "b10d442b61b42abdf6fe0b369a4fbe2547718db8aa86546dfc2cfd8cea227f88",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 164,
+      "source_slugs": [
+        "climate-change-policy-analysts",
+        "water-resource-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "climate-change-policy-analysts": {
+          "field": "entries",
+          "source_path": "careers/climate-change-policy-analysts/zh-TW.json",
+          "file_sha256": "e8e95fac377a02efebb0d889ba741785dfb68135445e8881a5b93ccecd10cfaa",
+          "count": 6
+        },
+        "water-resource-specialists": {
+          "field": "paragraphs",
+          "source_path": "careers/water-resource-specialists/zh-TW.json",
+          "file_sha256": "b10d442b61b42abdf6fe0b369a4fbe2547718db8aa86546dfc2cfd8cea227f88",
+          "count": 6
+        }
+      }
+    }
+  }
+}

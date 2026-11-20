@@ -1,0 +1,346 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "314e4758ac56118d1f919d5215519f5389c5c3d1142bab5400b3c19e4a573e2e",
+  "inputs": {
+    "pair_id": "political-scientists-vs-urban-and-regional-planners",
+    "slugs": [
+      "political-scientists",
+      "urban-and-regional-planners"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/political-scientists-vs-urban-and-regional-planners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "political-scientists": {
+        "name": "Political Scientists",
+        "riasec": {
+          "code": "IA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3094.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            6.71,
+            3.87,
+            3.42,
+            3.61,
+            3.52
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3094.00#Tasks"
+              }
+            ],
+            "text": "Teach political science."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3094.00#Tasks"
+              }
+            ],
+            "text": "Maintain current knowledge of government policy decisions."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3094.00#Tasks"
+              }
+            ],
+            "text": "Develop and test theories, using information from interviews, newspapers, periodicals, case law, historical papers, polls, or statistical sources."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3094.00#Tasks"
+              }
+            ],
+            "text": "Disseminate research results through academic publications, written reports, or public presentations."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3094.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-3094",
+          "title_evidence": "official_title"
+        }
+      },
+      "urban-and-regional-planners": {
+        "name": "Urban and regional planners",
+        "riasec": {
+          "code": "IEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            5.31,
+            3.06,
+            3.03,
+            4.46,
+            3.96
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3051.00#Tasks"
+              }
+            ],
+            "text": "Design, promote, or administer government plans or policies affecting land use, zoning, public utilities, community facilities, housing, or transportation."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3051.00#Tasks"
+              }
+            ],
+            "text": "Advise planning officials on project feasibility, cost-effectiveness, regulatory conformance, or possible alternatives."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3051.00#Tasks"
+              }
+            ],
+            "text": "Create, prepare, or requisition graphic or narrative reports on land use data, including land area maps overlaid with geographic variables, such as population density."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-3051.00#Tasks"
+              }
+            ],
+            "text": "Hold public meetings with government officials, social scientists, lawyers, developers, the public, or special interest groups to formulate, develop, or address issues regarding land use or community plans."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "political-scientists -> urban-and-regional-planners"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "political",
+        "source_url": "https://www.onetonline.org/link/summary/19-3094.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Analyzes institutions, policy, legislation and public opinion and reports findings.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "planning",
+        "source_url": "https://www.onetonline.org/link/summary/19-3051.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Evaluates land use proposals and assembles planning information for recommendations.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "nyc",
+        "source_url": "https://legistar.council.nyc.gov/LegislationDetail.aspx?GUID=7A45A5C5-2237-4091-B715-32C146C4D977&ID=7030083",
+        "locator": "Res 0689-2024, action history and attachments",
+        "value": {
+          "jurisdiction": "New York City",
+          "effective_or_period": "2024-12-05",
+          "summary": "Council approved with modifications the City Planning Commission decision on N 240290 ZRY.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2; 19-3094 and 19-3051",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "National median annual wages USD 142080 and USD 89320. Typical entry education is a master's degree for both.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "planner-entry",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/urban-and-regional-planners.htm",
+        "locator": "Education and Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current BLS OOH",
+          "summary": "Planning education commonly includes land use law and GIS. Employers may prefer or require certification; New Jersey has licensure.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "nj",
+        "source_url": "https://www.njconsumeraffairs.gov/plan/Pages/applications.aspx",
+        "locator": "State Board of Professional Planners license applications",
+        "value": {
+          "jurisdiction": "New Jersey",
+          "effective_or_period": "Current",
+          "summary": "The board provides applications for licensure as a Professional Planner.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "adu",
+        "source_url": "https://zr.planning.nyc.gov/index.php/node/18523",
+        "locator": "§12-10 Ancillary dwelling unit, limitations 1–6",
+        "value": {
+          "jurisdiction": "New York City",
+          "effective_or_period": "Amended 2024-12-05",
+          "summary": "Backyard ADUs are prohibited in R1-2A, R2A, and R3A outside the Greater Transit Zone. The section also sets flood and other constraints.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "permit",
+        "source_url": "https://housing.hpd.nyc.gov/adu/guidebook",
+        "locator": "Permitting plans",
+        "value": {
+          "jurisdiction": "New York City",
+          "effective_or_period": "Current City guide",
+          "summary": "The Department of Buildings issues construction permits; a registered design professional handles filing.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "political-entry",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm",
+        "locator": "Work Environment and How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025 data in current OOH",
+          "summary": "Federal government accounts for 68 percent of political scientist employment. A master’s degree is typical; some employers consider bachelor’s candidates or prefer a PhD.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 596,
+      "source_slugs": [
+        "political-scientists",
+        "urban-and-regional-planners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

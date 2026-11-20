@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8bc67000b6fab0d7007edb3b73dc6fb16a429987faf096213da6593783186cf8",
+  "inputs": {
+    "pair_id": "credit-analysts-vs-insurance-sales-agents",
+    "slugs": [
+      "credit-analysts",
+      "insurance-sales-agents"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/credit-analysts-vs-insurance-sales-agents",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "credit-analysts": {
+        "name": "信用分析師",
+        "riasec": {
+          "code": "CEI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.79,
+            1.0,
+            2.41,
+            4.55,
+            6.85
+          ]
+        },
+        "tasks": [
+          "信用資料與財報分析｜讀取資料並判斷風險程度｜分析個人或企業的信用資料與財務報表，判斷放貸或授信所涉風險程度，並核對資料時點、口徑與完整性。",
+          "財務比率與盈利能力測算｜生成比率並測算盈利｜用計算機程式生成財務比率評估客戶財務狀況，分析收入增長、管理層質量與市場份額等財務資料判斷貸款的預期盈利能力。",
+          "同類機構比較｜比較流動性與信用歷史｜把受評機構的流動性、盈利能力與信用歷史，與同行業、同地區的類似機構比較，支撐風險判斷。",
+          "報告與申請編制｜編制報告與貸款申請｜編制包含風險程度的報告，完成貸款申請（含信用分析與貸款申請摘要），核對口徑後提交貸款委員會等有權機構審批。",
+          "客戶投訴與交易核實為美國Core；按收入儲蓄、還款及交易記錄評估客戶並建議還款方案為Supplemental，是否承擔與頻率由實際分工核。",
+          "逾期催收、篩選逾期檔案、信用資訊交換為美國Supplemental任務；中國具體訪問、使用、對外提供與催收許可權另核，不把任務清單當授權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "insurance-sales-agents": {
+        "name": "保險銷售人員",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-3021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.25,
+            1.09,
+            3.71,
+            5.95,
+            5.46
+          ]
+        },
+        "tasks": [
+          "投入物件｜以客戶風險與保障需求、保險產品與條款、投保與保單資料、佣金與續期規則為物件，在委託授權與合規邊界內開展銷售與服務。",
+          "可檢查產出｜可複核的需求與支付能力分析記錄、產品比較與條款與費用說明、投保資料與保單記錄、送達與回訪及變更記錄、理賠入口說明；結果須可追溯到授權範圍與產品條款版本。",
+          "完整工作流程｜尋找並聯系客戶→瞭解風險與需求→收集投保資訊→比較並解釋產品條款和費用→完成投保與記錄→送達、回訪與變更、續保及理賠入口說明。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-3021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "41-3021",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "insurance-sales-agents -> credit-analysts"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "credit-analysts": {
+        "file_sha256": "4b404c219595602f6d14cb0038314288da8f5e4110885dab0c04c79b2e0a0b96",
+        "entries": []
+      },
+      "insurance-sales-agents": {
+        "file_sha256": "3ecc70419fbf9888c7dca0d310185d6ad3424197d2d583d18393807db7f2870b",
+        "entries": [
+          "投入物件｜以客戶風險與保障需求、保險產品與條款、投保與保單資料、佣金與續期規則為物件，在委託授權與合規邊界內開展銷售與服務。",
+          "可檢查產出｜可複核的需求與支付能力分析記錄、產品比較與條款與費用說明、投保資料與保單記錄、送達與回訪及變更記錄、理賠入口說明；結果須可追溯到授權範圍與產品條款版本。",
+          "完整工作流程｜尋找並聯系客戶→瞭解風險與需求→收集投保資訊→比較並解釋產品條款和費用→完成投保與記錄→送達、回訪與變更、續保及理賠入口說明。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 250,
+      "source_slugs": [
+        "credit-analysts",
+        "insurance-sales-agents"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "credit-analysts": {
+          "field": "paragraphs",
+          "source_path": "careers/credit-analysts/zh-TW.json",
+          "file_sha256": "4b404c219595602f6d14cb0038314288da8f5e4110885dab0c04c79b2e0a0b96",
+          "count": 6
+        },
+        "insurance-sales-agents": {
+          "field": "entries",
+          "source_path": "careers/insurance-sales-agents/zh-TW.json",
+          "file_sha256": "3ecc70419fbf9888c7dca0d310185d6ad3424197d2d583d18393807db7f2870b",
+          "count": 3
+        }
+      }
+    }
+  }
+}

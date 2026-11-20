@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "46901d5d2ae959f3d742ae47e87b5d475bfd2c7d18466c249cae84cd552d6d15",
+  "inputs": {
+    "pair_id": "retail-salespersons-vs-stockers-and-order-fillers",
+    "slugs": [
+      "retail-salespersons",
+      "stockers-and-order-fillers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/retail-salespersons-vs-stockers-and-order-fillers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "retail-salespersons": {
+        "name": "零售銷售員",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-2031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.2,
+            1.0,
+            1.98,
+            2.96,
+            6.13,
+            5.17
+          ]
+        },
+        "tasks": [
+          "需求澄清｜詢問用途、尺寸、預算和限制，不先推預設商品。｜記錄顧客關鍵要求與未確認條件，方便後續核對。",
+          "商品建議｜比較官方規格、功能、價格與適配條件，演示獲准功能。｜給出兩到三個可解釋選擇，不作未經核實的效果承諾。",
+          "價格與政策說明｜核標籤、促銷期限、付款和退換條款。｜把適用條件說清，衝突或例外交主管處理。",
+          "交易執行｜使用門店POS或訂單系統核商品、數量、價格和付款結果。｜提供票據與交付資訊；收銀可為任務，但收銀員是獨立職業。",
+          "庫存與陳列｜按崗位安排補貨、核貨位、檢查商品狀態或跟進配送。｜記缺貨和異常，不把系統庫存當即時承諾。",
+          "售後與交接｜回應基礎使用疑問，記錄投訴、退換及待處理事項。｜按授權交售後、維修或經理，保留接手回執。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-2031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "41-2031",
+          "title_evidence": "official_title"
+        }
+      },
+      "stockers-and-order-fillers": {
+        "name": "補貨與訂單揀貨員",
+        "riasec": {
+          "code": "CRE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7065.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.79,
+            1.0,
+            1.0,
+            1.88,
+            3.29,
+            6.25
+          ]
+        },
+        "tasks": [
+          "收貨｜核數量與狀態｜按憑證和實際貨品核編碼、數量及損壞，記錄差異並交負責人處理。",
+          "存放｜維護貨位與標識｜依場所規定把商品存放在有標識、可訪問的貨位，保持狀態與記錄一致。",
+          "補貨｜補充貨架或貨位｜按庫存或補貨指令提取可用商品，複核貨位和數量，不擅改庫存規則。",
+          "揀貨｜按訂單準備貨品｜讀取編碼、規格、顏色、尺寸與數量，從指定位置取貨並核對訂單。",
+          "記錄｜維護進出與異常｜記錄收發、盤點和損壞，報告需補充、短缺或差異；處理許可權由崗位確定。",
+          "協作｜交接與環境維護｜與同事或顧客溝通商品資訊，保持通道和儲存區整潔，遵守培訓與裝置邊界。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7065.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "53-7065",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "retail-salespersons -> stockers-and-order-fillers",
+      "stockers-and-order-fillers -> retail-salespersons"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "retail-salespersons": {
+        "file_sha256": "582de3060f9a0559f5efa076b6a5ee584fcbceb3979fbd80ce18fd08babe850d",
+        "entries": [
+          "需求澄清｜詢問用途、尺寸、預算和限制，不先推預設商品。｜記錄顧客關鍵要求與未確認條件，方便後續核對。",
+          "商品建議｜比較官方規格、功能、價格與適配條件，演示獲准功能。｜給出兩到三個可解釋選擇，不作未經核實的效果承諾。",
+          "價格與政策說明｜核標籤、促銷期限、付款和退換條款。｜把適用條件說清，衝突或例外交主管處理。",
+          "交易執行｜使用門店POS或訂單系統核商品、數量、價格和付款結果。｜提供票據與交付資訊；收銀可為任務，但收銀員是獨立職業。",
+          "庫存與陳列｜按崗位安排補貨、核貨位、檢查商品狀態或跟進配送。｜記缺貨和異常，不把系統庫存當即時承諾。",
+          "售後與交接｜回應基礎使用疑問，記錄投訴、退換及待處理事項。｜按授權交售後、維修或經理，保留接手回執。"
+        ]
+      },
+      "stockers-and-order-fillers": {
+        "file_sha256": "9dfc36fbff83d2c950ef70cecc4efdb03d2b6b6c274cbc97ef470ff0feba18bb",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 642,
+      "source_slugs": [
+        "retail-salespersons",
+        "stockers-and-order-fillers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "retail-salespersons": {
+          "field": "entries",
+          "source_path": "careers/retail-salespersons/zh-TW.json",
+          "file_sha256": "582de3060f9a0559f5efa076b6a5ee584fcbceb3979fbd80ce18fd08babe850d",
+          "count": 6
+        },
+        "stockers-and-order-fillers": {
+          "field": "paragraphs",
+          "source_path": "careers/stockers-and-order-fillers/zh-TW.json",
+          "file_sha256": "9dfc36fbff83d2c950ef70cecc4efdb03d2b6b6c274cbc97ef470ff0feba18bb",
+          "count": 6
+        }
+      }
+    }
+  }
+}

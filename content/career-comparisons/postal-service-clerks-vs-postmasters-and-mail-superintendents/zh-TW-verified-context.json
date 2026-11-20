@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "bdd848a414ccfbdb9f40fce41e459e69f69b57a796dabfffb2f68548621155cb",
+  "inputs": {
+    "pair_id": "postal-service-clerks-vs-postmasters-and-mail-superintendents",
+    "slugs": [
+      "postal-service-clerks",
+      "postmasters-and-mail-superintendents"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/postal-service-clerks-vs-postmasters-and-mail-superintendents",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "postal-service-clerks": {
+        "name": "郵政服務文員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.21,
+            1.0,
+            1.0,
+            2.57,
+            2.71,
+            6.55
+          ]
+        },
+        "tasks": [
+          "受理確認｜詢問郵件種類、目的地與所需服務｜檢查可辦理範圍和必需資訊，缺地址或服務選項先澄清，不憑外觀直接報資費。",
+          "稱重計費｜按郵件重量、尺寸、目的地和服務選項核算｜使用機構現行資費與系統複核金額；本頁虛構練習點數不是真實郵資。",
+          "郵件核驗｜檢查封裝、標籤、郵資和可寄條件｜發現外觀、地址或規則疑問時暫停相關步驟，交有許可權人員確認。",
+          "櫃檯交易｜銷售郵票等郵政產品並辦理收付款｜給出收據或憑證，核對支付與系統記錄，不私自調整標準或承諾額外服務。",
+          "分揀交接｜依目的地和服務類別分流郵件｜記錄件數、掃描狀態和未完成事項，向下一環節交接異常。",
+          "保密留痕｜保護使用者姓名、地址及寄遞資訊｜只在授權系統和崗位範圍內使用資料，按機構流程處理錯件、投訴與更正。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5051",
+          "title_evidence": "official_title"
+        }
+      },
+      "postmasters-and-mail-superintendents": {
+        "name": "郵局主管",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9131.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.14,
+            1.3,
+            1.17,
+            3.35,
+            6.0,
+            5.69
+          ]
+        },
+        "tasks": [
+          "郵件運營｜組織來件、出件與站點交接｜核真實數量、狀態及異常，不把計劃寫成完成。",
+          "人員排班｜編制班次、核考勤和工作覆蓋｜缺員與加班按機構程式處理，不虛填記錄。",
+          "客戶問題｜調查投訴和服務差異｜核件號、憑證及處理責任，保護使用者資訊。",
+          "訓練評價｜指導員工並記錄工作表現｜裝置、收費和路線許可權由機構授予。",
+          "運營報告｜彙總郵件量、服務問題與資源需求｜資料來源、時間和口徑可複核。",
+          "管理邊界｜處理勞資爭議及資源事項須合規授權｜不憑職位名稱推法定權力或預算許可權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9131.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9131",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "postal-service-clerks -> postmasters-and-mail-superintendents",
+      "postmasters-and-mail-superintendents -> postal-service-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "postal-service-clerks": {
+        "file_sha256": "89585d58d2a525ffb19a153561754fd161f16faaad6c756b24d307db8dd8ef19",
+        "entries": [
+          "受理確認｜詢問郵件種類、目的地與所需服務｜檢查可辦理範圍和必需資訊，缺地址或服務選項先澄清，不憑外觀直接報資費。",
+          "稱重計費｜按郵件重量、尺寸、目的地和服務選項核算｜使用機構現行資費與系統複核金額；本頁虛構練習點數不是真實郵資。",
+          "郵件核驗｜檢查封裝、標籤、郵資和可寄條件｜發現外觀、地址或規則疑問時暫停相關步驟，交有許可權人員確認。",
+          "櫃檯交易｜銷售郵票等郵政產品並辦理收付款｜給出收據或憑證，核對支付與系統記錄，不私自調整標準或承諾額外服務。",
+          "分揀交接｜依目的地和服務類別分流郵件｜記錄件數、掃描狀態和未完成事項，向下一環節交接異常。",
+          "保密留痕｜保護使用者姓名、地址及寄遞資訊｜只在授權系統和崗位範圍內使用資料，按機構流程處理錯件、投訴與更正。"
+        ]
+      },
+      "postmasters-and-mail-superintendents": {
+        "file_sha256": "ec13f98ac5e7315367a518094ff6b5ec5e73f070cf78919c31766d879ffb929e",
+        "entries": [
+          "郵件運營｜組織來件、出件與站點交接｜核真實數量、狀態及異常，不把計劃寫成完成。",
+          "人員排班｜編制班次、核考勤和工作覆蓋｜缺員與加班按機構程式處理，不虛填記錄。",
+          "客戶問題｜調查投訴和服務差異｜核件號、憑證及處理責任，保護使用者資訊。",
+          "訓練評價｜指導員工並記錄工作表現｜裝置、收費和路線許可權由機構授予。",
+          "運營報告｜彙總郵件量、服務問題與資源需求｜資料來源、時間和口徑可複核。",
+          "管理邊界｜處理勞資爭議及資源事項須合規授權｜不憑職位名稱推法定權力或預算許可權。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 599,
+      "source_slugs": [
+        "postal-service-clerks",
+        "postmasters-and-mail-superintendents"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "postal-service-clerks": {
+          "field": "entries",
+          "source_path": "careers/postal-service-clerks/zh-TW.json",
+          "file_sha256": "89585d58d2a525ffb19a153561754fd161f16faaad6c756b24d307db8dd8ef19",
+          "count": 6
+        },
+        "postmasters-and-mail-superintendents": {
+          "field": "entries",
+          "source_path": "careers/postmasters-and-mail-superintendents/zh-TW.json",
+          "file_sha256": "ec13f98ac5e7315367a518094ff6b5ec5e73f070cf78919c31766d879ffb929e",
+          "count": 6
+        }
+      }
+    }
+  }
+}

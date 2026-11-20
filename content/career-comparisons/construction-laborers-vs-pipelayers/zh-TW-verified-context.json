@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "530937aa4c26367dd426b15947c3696149576056916a3a7c7c4df09413bb8d73",
+  "inputs": {
+    "pair_id": "construction-laborers-vs-pipelayers",
+    "slugs": [
+      "construction-laborers",
+      "pipelayers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/construction-laborers-vs-pipelayers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "construction-laborers": {
+        "name": "建築工人",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.68,
+            1.38,
+            1.23,
+            1.35,
+            3.61
+          ]
+        },
+        "tasks": [
+          "準備｜確認現場與隱患條件｜在開工前確認地下管線、臨邊與洞口條件，清理場地並排除可能隱患，按技術交底完成測量放樣與標記。",
+          "開挖｜開挖溝渠與基槽｜用鎬、鍬、風鎬與夯土機開挖溝渠與基槽，回填已開挖部位，並按標高夯實整平。",
+          "安裝｜搭設支撐、腳手架與臨時設施｜設定支撐以支護開挖側壁，搭設或拆除腳手架、支撐、護坡、路障與坡道等臨時結構。",
+          "配合｜協助技術工種與裝置作業｜向裝置操作員發訊號協助對位、移動與調整，協助木工、砌築工與抹灰工等工種，按要求遞料、扶正與清理。",
+          "轉運｜裝卸與分發材料機具｜按專案計劃或規格裝卸、識別並分發建材、機械與工具到指定位置，並清理碎石、廢棄物與其他廢料。",
+          "記錄｜記錄用料與作業情況並上報｜記錄材料與裝置使用情況、作業進度與問題，發現隱患時停止作業並上報處理。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-2061",
+          "title_evidence": "official_title"
+        }
+      },
+      "pipelayers": {
+        "name": "管道鋪設工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2151.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.43,
+            1.0,
+            1.3,
+            1.14,
+            3.54
+          ]
+        },
+        "tasks": [
+          "資料核查｜核圖紙、管材、地下設施和現場交底｜不明條件交負責人。",
+          "溝槽準備｜按方案核基底與防護狀態｜有危險跡象不進入。",
+          "管段定位｜將管段按圖紙位置和標高放置｜吊裝由授權人員執行。",
+          "接頭連線｜按指定工法連線與密封｜記錄材料和檢查結果。",
+          "複核回填｜由有權人員核坡度、接頭和位置後回填｜不跳過檢查。",
+          "異常交班｜記錄進水、坍塌跡象或設施衝突｜交現場負責人處置。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2151.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2151",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pipelayers -> construction-laborers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "construction-laborers": {
+        "file_sha256": "5c64e316985a39e6c15fcde29bf75dad6edee705278bb25b3cc88c3c008d9758",
+        "entries": [
+          "準備｜確認現場與隱患條件｜在開工前確認地下管線、臨邊與洞口條件，清理場地並排除可能隱患，按技術交底完成測量放樣與標記。",
+          "開挖｜開挖溝渠與基槽｜用鎬、鍬、風鎬與夯土機開挖溝渠與基槽，回填已開挖部位，並按標高夯實整平。",
+          "安裝｜搭設支撐、腳手架與臨時設施｜設定支撐以支護開挖側壁，搭設或拆除腳手架、支撐、護坡、路障與坡道等臨時結構。",
+          "配合｜協助技術工種與裝置作業｜向裝置操作員發訊號協助對位、移動與調整，協助木工、砌築工與抹灰工等工種，按要求遞料、扶正與清理。",
+          "轉運｜裝卸與分發材料機具｜按專案計劃或規格裝卸、識別並分發建材、機械與工具到指定位置，並清理碎石、廢棄物與其他廢料。",
+          "記錄｜記錄用料與作業情況並上報｜記錄材料與裝置使用情況、作業進度與問題，發現隱患時停止作業並上報處理。"
+        ]
+      },
+      "pipelayers": {
+        "file_sha256": "b87eacc02cab72c6f0d4c0729aa9940df7b20b21893d1920c2f3ef87c69c890e",
+        "entries": [
+          "資料核查｜核圖紙、管材、地下設施和現場交底｜不明條件交負責人。",
+          "溝槽準備｜按方案核基底與防護狀態｜有危險跡象不進入。",
+          "管段定位｜將管段按圖紙位置和標高放置｜吊裝由授權人員執行。",
+          "接頭連線｜按指定工法連線與密封｜記錄材料和檢查結果。",
+          "複核回填｜由有權人員核坡度、接頭和位置後回填｜不跳過檢查。",
+          "異常交班｜記錄進水、坍塌跡象或設施衝突｜交現場負責人處置。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 220,
+      "source_slugs": [
+        "construction-laborers",
+        "pipelayers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "construction-laborers": {
+          "field": "entries",
+          "source_path": "careers/construction-laborers/zh-TW.json",
+          "file_sha256": "5c64e316985a39e6c15fcde29bf75dad6edee705278bb25b3cc88c3c008d9758",
+          "count": 6
+        },
+        "pipelayers": {
+          "field": "entries",
+          "source_path": "careers/pipelayers/zh-TW.json",
+          "file_sha256": "b87eacc02cab72c6f0d4c0729aa9940df7b20b21893d1920c2f3ef87c69c890e",
+          "count": 6
+        }
+      }
+    }
+  }
+}

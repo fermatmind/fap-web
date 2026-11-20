@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8e1be0d238603aa3b4e3c802238ce4b0fc96bc866222ccdec80c27c7c5491589",
+  "inputs": {
+    "pair_id": "career-technical-education-teachers-secondary-school-vs-family-and-consumer-sciences-teachers-postsecondary",
+    "slugs": [
+      "career-technical-education-teachers-secondary-school",
+      "family-and-consumer-sciences-teachers-postsecondary"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/career-technical-education-teachers-secondary-school-vs-family-and-consumer-sciences-teachers-postsecondary",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "career-technical-education-teachers-secondary-school": {
+        "name": "高中職業技術教育教師",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.86,
+            3.38,
+            3.46,
+            7.0,
+            2.52,
+            3.92
+          ]
+        },
+        "tasks": [
+          "課堂教學｜設定課程與單元目標並準備教案與材料，使用講授與討論與演示開展個別與分組指導｜課程目標與教案與教學記錄。",
+          "實訓與安全指導｜示範並監督學生使用與保養裝置與材料，按場地與裝置規程排查隱患並維護秩序｜實訓安全與裝置檢查記錄。",
+          "評量與反饋｜佈置並批改作業與測驗，觀察並評估學生表現與行為與社會發展與身體健康｜評量結果與評分依據記錄。",
+          "個別化支援｜對有適應問題或學業問題或特殊學業興趣的學生進行指導與編制補習方案，為殘障學生提供輔助協助｜個別化支援與轉介記錄。",
+          "記錄與溝通｜按法律與學區政策與行政法規維護學生記錄，與家長或監護人與同事與管理者溝通進展與問題｜學籍與成績與溝通記錄。",
+          "課程與活動協作｜與其他教師與管理者協作開發與評估課程方案，指導學生社團與課外活動與工作體驗專案｜課程協作與活動記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-2032",
+          "title_evidence": "official_title"
+        }
+      },
+      "family-and-consumer-sciences-teachers-postsecondary": {
+        "name": "高校家庭與消費科學教師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-1192.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.93,
+            4.85,
+            3.48,
+            7.0,
+            2.79,
+            3.37
+          ]
+        },
+        "tasks": [
+          "課程教學｜設計與講授家庭與消費科學課程｜完成課程目標與考核",
+          "實驗與實訓指導｜指導學生實驗、實訓與實習｜保證安全與規範",
+          "學生指導｜指導學業課程與職業發展｜提供選課與規劃建議",
+          "評估與記錄｜評估作業專案並維護成績記錄｜保證評價一致",
+          "研究發表｜開展研究並發表成果｜形成可評審的學術產出",
+          "課題與學術服務｜申請課題並參與委員會工作｜承擔學術共同責任"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-1192.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "25-1192",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "career-technical-education-teachers-secondary-school -> family-and-consumer-sciences-teachers-postsecondary"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "career-technical-education-teachers-secondary-school": {
+        "file_sha256": "62826f9d01c03f12f41f3c977aba276d34a54e26f69d604ae96b26be839c0814",
+        "entries": [
+          "課堂教學｜設定課程與單元目標並準備教案與材料，使用講授與討論與演示開展個別與分組指導｜課程目標與教案與教學記錄。",
+          "實訓與安全指導｜示範並監督學生使用與保養裝置與材料，按場地與裝置規程排查隱患並維護秩序｜實訓安全與裝置檢查記錄。",
+          "評量與反饋｜佈置並批改作業與測驗，觀察並評估學生表現與行為與社會發展與身體健康｜評量結果與評分依據記錄。",
+          "個別化支援｜對有適應問題或學業問題或特殊學業興趣的學生進行指導與編制補習方案，為殘障學生提供輔助協助｜個別化支援與轉介記錄。",
+          "記錄與溝通｜按法律與學區政策與行政法規維護學生記錄，與家長或監護人與同事與管理者溝通進展與問題｜學籍與成績與溝通記錄。",
+          "課程與活動協作｜與其他教師與管理者協作開發與評估課程方案，指導學生社團與課外活動與工作體驗專案｜課程協作與活動記錄。"
+        ]
+      },
+      "family-and-consumer-sciences-teachers-postsecondary": {
+        "file_sha256": "8e8e94eb32a4f568817812a2213e1ea6b576ae6f3424c0a4a4ba747e996c2ee2",
+        "entries": [
+          "課程教學｜設計與講授家庭與消費科學課程｜完成課程目標與考核",
+          "實驗與實訓指導｜指導學生實驗、實訓與實習｜保證安全與規範",
+          "學生指導｜指導學業課程與職業發展｜提供選課與規劃建議",
+          "評估與記錄｜評估作業專案並維護成績記錄｜保證評價一致",
+          "研究發表｜開展研究並發表成果｜形成可評審的學術產出",
+          "課題與學術服務｜申請課題並參與委員會工作｜承擔學術共同責任"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 121,
+      "source_slugs": [
+        "career-technical-education-teachers-secondary-school",
+        "family-and-consumer-sciences-teachers-postsecondary"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "career-technical-education-teachers-secondary-school": {
+          "field": "entries",
+          "source_path": "careers/career-technical-education-teachers-secondary-school/zh-TW.json",
+          "file_sha256": "62826f9d01c03f12f41f3c977aba276d34a54e26f69d604ae96b26be839c0814",
+          "count": 6
+        },
+        "family-and-consumer-sciences-teachers-postsecondary": {
+          "field": "entries",
+          "source_path": "careers/family-and-consumer-sciences-teachers-postsecondary/zh-TW.json",
+          "file_sha256": "8e8e94eb32a4f568817812a2213e1ea6b576ae6f3424c0a4a4ba747e996c2ee2",
+          "count": 6
+        }
+      }
+    }
+  }
+}

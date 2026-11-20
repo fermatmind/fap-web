@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0174e81ed5f831b1c3c7844e79d705f447c85ef980a426f90e490a38bb742445",
+  "inputs": {
+    "pair_id": "biomass-plant-technicians-vs-biomass-power-plant-managers",
+    "slugs": [
+      "biomass-plant-technicians",
+      "biomass-power-plant-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/biomass-plant-technicians-vs-biomass-power-plant-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "biomass-plant-technicians": {
+        "name": "生物質電廠技術員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8013.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.97,
+            3.12,
+            1.0,
+            1.22,
+            1.75,
+            4.82
+          ]
+        },
+        "tasks": [
+          "交接與確認｜讓執行有依據｜接班時確認裝置狀態與執行方式與未決缺陷與本班任務，並事先說明可操作的裝置範圍與作業許可邊界。",
+          "巡檢與核對｜讓引數可信｜按路線巡檢並核對引數與裝置與原料批次，確認儀表與儀表精度與取樣點狀態並如實記錄。",
+          "操作與調節｜讓裝置可控｜按規程與指令操作或調節鍋爐與氣化與發電機與閥泵等裝置，在許可範圍內處置並如實記錄操作與依據。",
+          "檢測與維護｜讓裝置可依賴｜開展水化學與原料質量檢測與常規維護與小修，校準流量與計量裝置並如實記錄資料與更換與遺留問題。",
+          "記錄與交接｜讓結果可交接｜記錄讀數與異常與報警與處置與未決事項，按規程交班並說明需要關注與複核的部分，不隱瞞或選擇性記錄。",
+          "異常與升級｜讓風險早停止｜涉及洩漏或超溫超壓或觸電或受限空間或高處風險或超出本人授權時，按程式停機或隔離並報告，不自行處置。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8013.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-8013",
+          "title_evidence": "official_title"
+        }
+      },
+      "biomass-power-plant-managers": {
+        "name": "生物質電廠經理",
+        "riasec": {
+          "code": "CRE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3051.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.12,
+            3.19,
+            1.0,
+            1.72,
+            4.86,
+            5.34
+          ]
+        },
+        "tasks": [
+          "班前確認｜讓當班有依據｜接班時確認裝置與作業與人員狀態與許可與未決缺陷，並事先說明本班任務與授權邊界與應急安排。",
+          "現場檢查與核對｜讓判斷有依據｜到現場檢查裝置與安全條件並核對指標與燃料與排放資料，如實記錄異常與偏差。",
+          "指揮與調整｜讓生產可控｜按授權指揮執行與檢修並調整引數，在許可範圍內處置並如實記錄指令與依據與執行情況。",
+          "異常與事故處置｜讓風險早停止｜發現超溫超壓或洩漏或人員違規或事故苗頭時按程式停機或隔離並上報，組織處置與撤離，不隱瞞或延遲。",
+          "記錄與整改｜讓結果可交接｜記錄指標與異常與違規與處置與整改與閉環情況，按規程交接與復盤並跟蹤整改，不選擇性記錄。",
+          "合規與對外｜讓責任可追溯｜涉及作業許可與監管檢查與對外資料提供時按授權與制度執行，如實說明範圍與不確定性。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3051.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "11-3051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "biomass-plant-technicians -> biomass-power-plant-managers",
+      "biomass-power-plant-managers -> biomass-plant-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "biomass-plant-technicians": {
+        "file_sha256": "1e0249f4a42d9fafe2b77257654b0dd39249be780b382ab4d2efd34951a7a8ee",
+        "entries": [
+          "交接與確認｜讓執行有依據｜接班時確認裝置狀態與執行方式與未決缺陷與本班任務，並事先說明可操作的裝置範圍與作業許可邊界。",
+          "巡檢與核對｜讓引數可信｜按路線巡檢並核對引數與裝置與原料批次，確認儀表與儀表精度與取樣點狀態並如實記錄。",
+          "操作與調節｜讓裝置可控｜按規程與指令操作或調節鍋爐與氣化與發電機與閥泵等裝置，在許可範圍內處置並如實記錄操作與依據。",
+          "檢測與維護｜讓裝置可依賴｜開展水化學與原料質量檢測與常規維護與小修，校準流量與計量裝置並如實記錄資料與更換與遺留問題。",
+          "記錄與交接｜讓結果可交接｜記錄讀數與異常與報警與處置與未決事項，按規程交班並說明需要關注與複核的部分，不隱瞞或選擇性記錄。",
+          "異常與升級｜讓風險早停止｜涉及洩漏或超溫超壓或觸電或受限空間或高處風險或超出本人授權時，按程式停機或隔離並報告，不自行處置。"
+        ]
+      },
+      "biomass-power-plant-managers": {
+        "file_sha256": "91aa318d8ec83013afc6b7e53b963ab0e95052b28814c1661a1b585a12329a0d",
+        "entries": [
+          "班前確認｜讓當班有依據｜接班時確認裝置與作業與人員狀態與許可與未決缺陷，並事先說明本班任務與授權邊界與應急安排。",
+          "現場檢查與核對｜讓判斷有依據｜到現場檢查裝置與安全條件並核對指標與燃料與排放資料，如實記錄異常與偏差。",
+          "指揮與調整｜讓生產可控｜按授權指揮執行與檢修並調整引數，在許可範圍內處置並如實記錄指令與依據與執行情況。",
+          "異常與事故處置｜讓風險早停止｜發現超溫超壓或洩漏或人員違規或事故苗頭時按程式停機或隔離並上報，組織處置與撤離，不隱瞞或延遲。",
+          "記錄與整改｜讓結果可交接｜記錄指標與異常與違規與處置與整改與閉環情況，按規程交接與復盤並跟蹤整改，不選擇性記錄。",
+          "合規與對外｜讓責任可追溯｜涉及作業許可與監管檢查與對外資料提供時按授權與制度執行，如實說明範圍與不確定性。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 63,
+      "source_slugs": [
+        "biomass-plant-technicians",
+        "biomass-power-plant-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "biomass-plant-technicians": {
+          "field": "entries",
+          "source_path": "careers/biomass-plant-technicians/zh-TW.json",
+          "file_sha256": "1e0249f4a42d9fafe2b77257654b0dd39249be780b382ab4d2efd34951a7a8ee",
+          "count": 6
+        },
+        "biomass-power-plant-managers": {
+          "field": "entries",
+          "source_path": "careers/biomass-power-plant-managers/zh-TW.json",
+          "file_sha256": "91aa318d8ec83013afc6b7e53b963ab0e95052b28814c1661a1b585a12329a0d",
+          "count": 6
+        }
+      }
+    }
+  }
+}

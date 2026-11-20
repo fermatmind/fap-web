@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7b822cf0cc6f1b159a59366d74c9e923879e74d8ebc9e81b405418eb4dccbee1",
+  "inputs": {
+    "pair_id": "driver-sales-workers-vs-light-truck-drivers",
+    "slugs": [
+      "driver-sales-workers",
+      "light-truck-drivers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/driver-sales-workers-vs-light-truck-drivers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "driver-sales-workers": {
+        "name": "司機兼銷售員",
+        "riasec": {
+          "code": "RCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-3031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.34,
+            1.0,
+            1.0,
+            2.43,
+            3.67,
+            4.67
+          ]
+        },
+        "tasks": [
+          "常見輸入：配送單與訂單與路線表與客戶清單、商品與貨物與數量與批號與保質期、價格與促銷與貨款與票據與掛賬規則、車輛與食品分發裝置與冷藏與安全狀態、道路與天氣與時效要求，以及收款與差異與退貨與拒收與結算記錄要求。",
+          "按實際銷售或配送角色核交付、日記錄、客戶服務及車輛/適用食品裝置維護清潔；接單收款不是每崗全部承擔，促銷陳列、售貨機及清單裝車等為補充任務。簽收、掛賬、差異處置及交接記錄按真實制度核，不列成統一Core，食品條件依貨物適用。",
+          "典型流程：裝車與路線準備—駕駛與配送與銷售—交付與收款與開票—上貨與陳列促銷—記錄與結算與車輛裝置維護與異常上報。",
+          "常協作物件：排程與倉庫與門店與財務、客戶與收貨人、車輛與裝置維修與供應、同行與主管部門。",
+          "常見工具與物件：廂式貨車與配送車輛與車載冷藏裝置、手推車與托盤與週轉箱與裝卸工具、銷售與配送與收款與開票終端與單據與票據、食品分發與自動售貨機與清潔工具、安全與防護用品與通訊裝置、車輛與裝置檢查與記錄工具。",
+          "責任邊界：本職業承擔按配送單與路線與價格與收款制度完成配送與銷售與收款與記錄的執行責任；不核對路線與貨物就出發、不超速與疲勞駕駛或分心使用手機、不攜帶不潔或過期商品交付、不收款不留憑據或私自改價或漏記貨款、不帶缺陷車輛與裝置作業、不隱瞞或延遲上報差異與破損與投訴與事故與裝置異常，異常事項立即上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-3031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-3031",
+          "title_evidence": "official_title"
+        }
+      },
+      "light-truck-drivers": {
+        "name": "輕型卡車司機",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-3033.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.88,
+            1.54,
+            1.02,
+            1.36,
+            2.1,
+            4.42
+          ]
+        },
+        "tasks": [
+          "投入物件：訂單與貨運單據、待配送的包裹與貨物、輕型卡車或廂式貨車、配送路線與客戶時間窗、裝卸器具與固定材料，以及車輛與交付記錄。",
+          "可檢查產出：出車車輛檢查記錄、按卸貨順序完成的裝載與固定、簽收與退貨憑證、貨款與單據交接、里程與缺陷記錄、延誤與異常上報記錄。",
+          "完整流程：接收路線與訂單 → 出車檢查車輛與裝置 → 按卸貨順序裝載並固定貨物 → 按法規與路線駕駛和停車 → 與客戶交接、簽收或收款 → 記錄里程、缺陷與異常 → 回場交單與上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-3033.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-3033",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "driver-sales-workers -> light-truck-drivers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "driver-sales-workers": {
+        "file_sha256": "840d21edd422327912263271d916bba44c999f5a561e348585b101492c67dfff",
+        "entries": []
+      },
+      "light-truck-drivers": {
+        "file_sha256": "3240be8737b9c78ed56aabc54fa45f0da523eb00e4fbf4b5a93e45cfa98b87f6",
+        "entries": [
+          "投入物件：訂單與貨運單據、待配送的包裹與貨物、輕型卡車或廂式貨車、配送路線與客戶時間窗、裝卸器具與固定材料，以及車輛與交付記錄。",
+          "可檢查產出：出車車輛檢查記錄、按卸貨順序完成的裝載與固定、簽收與退貨憑證、貨款與單據交接、里程與缺陷記錄、延誤與異常上報記錄。",
+          "完整流程：接收路線與訂單 → 出車檢查車輛與裝置 → 按卸貨順序裝載並固定貨物 → 按法規與路線駕駛和停車 → 與客戶交接、簽收或收款 → 記錄里程、缺陷與異常 → 回場交單與上報。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 316,
+      "source_slugs": [
+        "driver-sales-workers",
+        "light-truck-drivers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "driver-sales-workers": {
+          "field": "paragraphs",
+          "source_path": "careers/driver-sales-workers/zh-TW.json",
+          "file_sha256": "840d21edd422327912263271d916bba44c999f5a561e348585b101492c67dfff",
+          "count": 6
+        },
+        "light-truck-drivers": {
+          "field": "entries",
+          "source_path": "careers/light-truck-drivers/zh-TW.json",
+          "file_sha256": "3240be8737b9c78ed56aabc54fa45f0da523eb00e4fbf4b5a93e45cfa98b87f6",
+          "count": 3
+        }
+      }
+    }
+  }
+}

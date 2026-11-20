@@ -1,0 +1,303 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2b7f1d5b37b2ecffaca7a756c78ee75fdc53181cc5b73afc867940259c96ac45",
+  "inputs": {
+    "pair_id": "credit-analysts-vs-loan-officers",
+    "slugs": [
+      "credit-analysts",
+      "loan-officers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/credit-analysts-vs-loan-officers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "credit-analysts": {
+        "name": "Credit analysts",
+        "riasec": {
+          "code": "CEI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.79,
+            1.0,
+            2.41,
+            4.55,
+            6.85
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2041.00#Tasks"
+              }
+            ],
+            "text": "Analyze credit data and financial statements to determine the degree of risk involved in extending credit or lending money."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2041.00#Tasks"
+              }
+            ],
+            "text": "Complete loan applications, including credit analyses and summaries of loan requests, and submit to loan committees for approval."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2041.00#Tasks"
+              }
+            ],
+            "text": "Generate financial ratios, using computer programs, to evaluate customers' financial status."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2041.00#Tasks"
+              }
+            ],
+            "text": "Prepare reports that include the degree of risk involved in extending credit or lending money."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "loan-officers": {
+        "name": "Loan Officers",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-2072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.43,
+            2.32,
+            1.0,
+            3.65,
+            4.98,
+            6.08
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2072.00#Tasks"
+              }
+            ],
+            "text": "Meet with applicants to obtain information for loan applications and to answer questions about the process."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2072.00#Tasks"
+              }
+            ],
+            "text": "Analyze applicants' financial status, credit, and property evaluations to determine feasibility of granting loans."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2072.00#Tasks"
+              }
+            ],
+            "text": "Approve loans within specified limits, and refer loan applications outside those limits to management for approval."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-2072.00#Tasks"
+              }
+            ],
+            "text": "Explain to customers the different types of loans and credit options that are available, as well as the terms of those services."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-2072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "13-2072",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "credit-analysts -> loan-officers",
+      "loan-officers -> credit-analysts"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "13-2041.00",
+        "source_url": "https://www.onetonline.org/link/summary/13-2041.00",
+        "locator": "Tasks 1250, 1254, 1255, 1251",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Analyzes borrower financial data and prepares credit risk reports for review.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "13-2072.00",
+        "source_url": "https://www.onetonline.org/link/summary/13-2072.00",
+        "locator": "Tasks 3408, 3409, 3407, 3410",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Explains loan options, reviews applications and handles approvals within delegated limits.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 13-2041, 13-2072",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 USD per year",
+          "summary": "Both: bachelor’s degree. Loan officers: less than five years of related experience and moderate-term on-the-job training. Median annual wages: 13-2041 $83,510; 13-2072 $76,690.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cfpb-G",
+        "source_url": "https://www.consumerfinance.gov/rules-policy/regulations/1007/103/",
+        "locator": "§103",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current regulation",
+          "summary": "Covered financial institution employees engaged in covered mortgage loan origination generally must register, subject to the rule’s scope and exceptions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cfpb-H",
+        "source_url": "https://www.consumerfinance.gov/rules-policy/regulations/1008/103/",
+        "locator": "§103",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current regulation",
+          "summary": "States must require applicable residential mortgage loan originators to be licensed, subject to regulatory scope and exclusions.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 25,
+      "source_slugs": [
+        "credit-analysts",
+        "loan-officers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

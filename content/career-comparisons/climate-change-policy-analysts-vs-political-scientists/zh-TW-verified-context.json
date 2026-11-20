@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f3ebfd75d349e95d468644b3f4a73684e4a75148559011cfb27ca7a7f900fc17",
+  "inputs": {
+    "pair_id": "climate-change-policy-analysts-vs-political-scientists",
+    "slugs": [
+      "climate-change-policy-analysts",
+      "political-scientists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/climate-change-policy-analysts-vs-political-scientists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "climate-change-policy-analysts": {
+        "name": "氣候變化政策分析師",
+        "riasec": {
+          "code": "IEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2041.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.37,
+            6.73,
+            3.11,
+            3.17,
+            4.69,
+            4.06
+          ]
+        },
+        "tasks": [
+          "研究與分析｜收集並提煉氣候相關研究與政策材料｜收集並審閱來自政府機構與實驗室與其他組織的與氣候相關的研究；分析與提煉與氣候相關的研究結論以提供給立法者與監管機構與其他利益相關方；研究氣候或環境管理的政策與做法與程式（對應 O*NET 任務第七與第四與第十項）。",
+          "政策建議｜為氣候與環境管理提出政策或立法建議｜為氣候或環境管理提出立法建議；提出涉及傳統與替代燃料使用與貨物運輸等與氣候相關因素的新政策或修訂政策；並審閱現行政策或立法以識別環境影響（對應 O*NET 任務第五與第二與第八項）。",
+          "書面產出｜撰寫研究報告與簡報與證詞｜撰寫研究報告與備忘錄與簡報與證詞或其他書面材料，以向政府或環境團體說明氣候變化等環境議題；撰寫報告或學術論文以傳達研究發現（對應 O*NET 任務第三與第十一項）。",
+          "口頭陳述與交流｜在會議與公開場合陳述與答辯｜在公共利益與政府或其他會議上陳述與氣候相關的資訊；陳述並答辯氣候變化研究專案的提案（對應 O*NET 任務第六與第十三項）。",
+          "專案與教育推動｜推動減緩舉措並開展教育外展｜推動政府或環境團體採取減緩氣候變化的舉措；開發或參與開發關於環境或氣候變化的教育或外展專案（對應 O*NET 任務第九與第十二項）。",
+          "經費與資源爭取｜準備撥款申請為專案取得經費｜準備撥款申請以為與氣候變化或環境管理或可持續性相關的專案取得經費；併為政策簡報類工作提供分析支援（對應 O*NET 任務第十四與第一項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2041.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "political-scientists": {
+        "name": "政治學家",
+        "riasec": {
+          "code": "IA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3094.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            6.71,
+            3.87,
+            3.42,
+            3.61,
+            3.52
+          ]
+        },
+        "tasks": [
+          "問題輸入｜界定製度、政策或公眾意見中的可檢驗問題｜說明研究物件、時間、地區、概念和所需決策，不把立場當問題定義。",
+          "資料獲取｜按許可取得原始政策、文獻、調查或選舉資料｜記錄出處、抽樣、變數定義與缺失值，保護受訪者和機構機密。",
+          "方法分析｜比較制度機制、編碼文本或分析資料｜檢驗替代解釋和穩健性，避免把相關關係直接寫成政策因果效果。",
+          "結果交付｜形成報告、論文或政策簡報｜區分觀察結果、解釋、限制與可供討論的選項，讓讀者能追溯方法和資料。",
+          "複核升級｜請同行或機構責任人複核關鍵方法與敏感結論｜法律、行政、倫理審批及最終公共決策由相應有許可權主體負責。",
+          "資料留檔｜儲存問題定義、資料版本、程式碼本、分析步驟和修訂理由｜讓接手者能復現關鍵計算並看清哪些結論仍待驗證。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3094.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-3094",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "climate-change-policy-analysts -> political-scientists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "climate-change-policy-analysts": {
+        "file_sha256": "e8e95fac377a02efebb0d889ba741785dfb68135445e8881a5b93ccecd10cfaa",
+        "entries": [
+          "研究與分析｜收集並提煉氣候相關研究與政策材料｜收集並審閱來自政府機構與實驗室與其他組織的與氣候相關的研究；分析與提煉與氣候相關的研究結論以提供給立法者與監管機構與其他利益相關方；研究氣候或環境管理的政策與做法與程式（對應 O*NET 任務第七與第四與第十項）。",
+          "政策建議｜為氣候與環境管理提出政策或立法建議｜為氣候或環境管理提出立法建議；提出涉及傳統與替代燃料使用與貨物運輸等與氣候相關因素的新政策或修訂政策；並審閱現行政策或立法以識別環境影響（對應 O*NET 任務第五與第二與第八項）。",
+          "書面產出｜撰寫研究報告與簡報與證詞｜撰寫研究報告與備忘錄與簡報與證詞或其他書面材料，以向政府或環境團體說明氣候變化等環境議題；撰寫報告或學術論文以傳達研究發現（對應 O*NET 任務第三與第十一項）。",
+          "口頭陳述與交流｜在會議與公開場合陳述與答辯｜在公共利益與政府或其他會議上陳述與氣候相關的資訊；陳述並答辯氣候變化研究專案的提案（對應 O*NET 任務第六與第十三項）。",
+          "專案與教育推動｜推動減緩舉措並開展教育外展｜推動政府或環境團體採取減緩氣候變化的舉措；開發或參與開發關於環境或氣候變化的教育或外展專案（對應 O*NET 任務第九與第十二項）。",
+          "經費與資源爭取｜準備撥款申請為專案取得經費｜準備撥款申請以為與氣候變化或環境管理或可持續性相關的專案取得經費；併為政策簡報類工作提供分析支援（對應 O*NET 任務第十四與第一項）。"
+        ]
+      },
+      "political-scientists": {
+        "file_sha256": "5011d663a9b089ee2caeaf4ee041bcac4aa3fc7f6023d29ed4c63329e17e5ea0",
+        "entries": [
+          "問題輸入｜界定製度、政策或公眾意見中的可檢驗問題｜說明研究物件、時間、地區、概念和所需決策，不把立場當問題定義。",
+          "資料獲取｜按許可取得原始政策、文獻、調查或選舉資料｜記錄出處、抽樣、變數定義與缺失值，保護受訪者和機構機密。",
+          "方法分析｜比較制度機制、編碼文本或分析資料｜檢驗替代解釋和穩健性，避免把相關關係直接寫成政策因果效果。",
+          "結果交付｜形成報告、論文或政策簡報｜區分觀察結果、解釋、限制與可供討論的選項，讓讀者能追溯方法和資料。",
+          "複核升級｜請同行或機構責任人複核關鍵方法與敏感結論｜法律、行政、倫理審批及最終公共決策由相應有許可權主體負責。",
+          "資料留檔｜儲存問題定義、資料版本、程式碼本、分析步驟和修訂理由｜讓接手者能復現關鍵計算並看清哪些結論仍待驗證。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 162,
+      "source_slugs": [
+        "climate-change-policy-analysts",
+        "political-scientists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "climate-change-policy-analysts": {
+          "field": "entries",
+          "source_path": "careers/climate-change-policy-analysts/zh-TW.json",
+          "file_sha256": "e8e95fac377a02efebb0d889ba741785dfb68135445e8881a5b93ccecd10cfaa",
+          "count": 6
+        },
+        "political-scientists": {
+          "field": "entries",
+          "source_path": "careers/political-scientists/zh-TW.json",
+          "file_sha256": "5011d663a9b089ee2caeaf4ee041bcac4aa3fc7f6023d29ed4c63329e17e5ea0",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "777a066faeb353cdda89b09f157ccf55d8210430b321859b7afb4b885c528ed5",
+  "inputs": {
+    "pair_id": "recycling-coordinators-vs-refuse-and-recyclable-material-collectors",
+    "slugs": [
+      "recycling-coordinators",
+      "refuse-and-recyclable-material-collectors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/recycling-coordinators-vs-refuse-and-recyclable-material-collectors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "recycling-coordinators": {
+        "name": "回收协调员",
+        "riasec": {
+          "code": "ECR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-1042.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.0,
+            2.25,
+            1.0,
+            3.37,
+            4.77,
+            4.57
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-1042.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-1042",
+          "title_evidence": "official_title"
+        }
+      },
+      "refuse-and-recyclable-material-collectors": {
+        "name": "垃圾与可回收材料收集员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.83,
+            1.0,
+            1.29,
+            1.36,
+            4.53
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-7081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "recycling-coordinators -> refuse-and-recyclable-material-collectors",
+      "refuse-and-recyclable-material-collectors -> recycling-coordinators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：监督市政或企业的路边收集与投放点回收项目：安排路线与人员、核对收运和交付记录、处理服务请求，培训作业人员并协调安全与合规；后岗：垃圾与可回收物收运岗位按路线收集容器内物料，记录漏收、异常或需交接的点位。",
+    "cn_qualification": {
+      "recycling-coordinators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "refuse-and-recyclable-material-collectors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "coord",
+        "source_url": "https://www.onetonline.org/link/summary/53-1042.01",
+        "locator": "Tasks, Work Context, Wages & Employment",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Recycling coordinators oversee collection programs, schedules, service and records. Wage data use a broader supervisory occupation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "collect",
+        "source_url": "https://www.onetonline.org/link/summary/53-7081.00",
+        "locator": "Tasks and Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Collectors collect refuse and recyclable material along routes and operate or ride collection vehicles.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "sh-service",
+        "source_url": "https://www.shanghai.gov.cn/xxzfgzwj/20210608/1578fa25c50145a584ac0d7e0effc192.html",
+        "locator": "分类收集容器与分类收运条款",
+        "value": {
+          "jurisdiction": "上海，中国大陆",
+          "effective_or_period": "现行文本",
+          "summary": "上海区分分类投放管理责任人和收运作业服务单位，分类收集的生活垃圾不得混同收运。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "sh-points",
+        "source_url": "https://www.shanghai.gov.cn/gwk/search/content/40b9feaa-53db-472f-8a6b-2c3cf0465def",
+        "locator": "适用范围、收集运输交付点",
+        "value": {
+          "jurisdiction": "上海，中国大陆",
+          "effective_or_period": "2024 版",
+          "summary": "上海分类指引明确交付点容器设置。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 630,
+      "source_slugs": [
+        "recycling-coordinators",
+        "refuse-and-recyclable-material-collectors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

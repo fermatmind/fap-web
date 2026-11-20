@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "18cf29fc6e9ffc955de3ac2fc0bfbdfa68ee41f22a1f54336da9b30cd64be3aa",
+  "inputs": {
+    "pair_id": "energy-engineers-except-wind-and-solar-vs-wind-energy-development-managers",
+    "slugs": [
+      "energy-engineers-except-wind-and-solar",
+      "wind-energy-development-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/energy-engineers-except-wind-and-solar-vs-wind-energy-development-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "energy-engineers-except-wind-and-solar": {
+        "name": "能源工程師（風電與太陽能除外）",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.2,
+            4.69,
+            2.03,
+            2.24,
+            3.09,
+            4.4
+          ]
+        },
+        "tasks": [
+          "需求與約束｜與業主確認用能需求與約束｜記錄依據與未決項",
+          "資料收集｜收集負荷與裝置執行資料｜核對缺失與異常",
+          "系統建模｜建立用能系統模型並模擬｜說明假設與依據",
+          "方案與計算｜設計系統方案並完成工程計算｜測算能效與成本",
+          "檔案編制｜形成設計說明與計算書｜保留原始計算記錄",
+          "複核與保密｜複核關鍵結論｜按授權處理業主與專案資料"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      },
+      "wind-energy-development-managers": {
+        "name": "風能開發經理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.10",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.44,
+            3.86,
+            1.66,
+            2.38,
+            6.71,
+            4.82
+          ]
+        },
+        "tasks": [
+          "開發｜機會與資源評估｜協調能源評估與前期研究，保依據及假設。",
+          "計劃｜範圍資源進度｜編目標任務、資源、成本及預備安排。",
+          "成本｜預算估計更新｜核報價條件與變更，計劃不冒批准。",
+          "許可｜申請及技術文件｜準備資料並核要求，草稿不寫批覆。",
+          "協作｜顧問分包與協議｜核服務質量預算及土地購電併網條件。",
+          "報告｜狀態提案及建設支援｜保版本未知與責任人，按許可權推進。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.10",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "energy-engineers-except-wind-and-solar -> wind-energy-development-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "energy-engineers-except-wind-and-solar": {
+        "file_sha256": "59269d925c928e25c7cddbae8065e2f58e1210f273273e80a503af3f9f2e4109",
+        "entries": [
+          "需求與約束｜與業主確認用能需求與約束｜記錄依據與未決項",
+          "資料收集｜收集負荷與裝置執行資料｜核對缺失與異常",
+          "系統建模｜建立用能系統模型並模擬｜說明假設與依據",
+          "方案與計算｜設計系統方案並完成工程計算｜測算能效與成本",
+          "檔案編制｜形成設計說明與計算書｜保留原始計算記錄",
+          "複核與保密｜複核關鍵結論｜按授權處理業主與專案資料"
+        ]
+      },
+      "wind-energy-development-managers": {
+        "file_sha256": "65d8662d70e7150c4d3a844139e8654c579ad0ca386911fffeb6fbc2c6fa7ecb",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 393,
+      "source_slugs": [
+        "energy-engineers-except-wind-and-solar",
+        "wind-energy-development-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "energy-engineers-except-wind-and-solar": {
+          "field": "entries",
+          "source_path": "careers/energy-engineers-except-wind-and-solar/zh-TW.json",
+          "file_sha256": "59269d925c928e25c7cddbae8065e2f58e1210f273273e80a503af3f9f2e4109",
+          "count": 6
+        },
+        "wind-energy-development-managers": {
+          "field": "paragraphs",
+          "source_path": "careers/wind-energy-development-managers/zh-TW.json",
+          "file_sha256": "65d8662d70e7150c4d3a844139e8654c579ad0ca386911fffeb6fbc2c6fa7ecb",
+          "count": 6
+        }
+      }
+    }
+  }
+}

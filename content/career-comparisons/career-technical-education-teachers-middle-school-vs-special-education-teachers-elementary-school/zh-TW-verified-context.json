@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0ae66f80681bea5a655a955cb23eae4f5a97ac00f190fd2e2112ef77f5d5be7b",
+  "inputs": {
+    "pair_id": "career-technical-education-teachers-middle-school-vs-special-education-teachers-elementary-school",
+    "slugs": [
+      "career-technical-education-teachers-middle-school",
+      "special-education-teachers-elementary-school"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/career-technical-education-teachers-middle-school-vs-special-education-teachers-elementary-school",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "career-technical-education-teachers-middle-school": {
+        "name": "初中職業技術教育教師",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2023.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.28,
+            3.31,
+            3.38,
+            7.0,
+            2.27,
+            3.82
+          ]
+        },
+        "tasks": [
+          "職業與技術課程教學｜把職業過程拆成適齡任務與目標，準備材料與任務情境，講授與示範並指導動手｜課程目標與任務設計與教學記錄。",
+          "材料裝置與安全｜準備與維護工具與材料，講清禁止動作與防護要求，在學生操作時巡視並糾正｜工具材料檢查與安全巡視記錄。",
+          "評量與反饋｜按過程與成品維度評分並寫明依據，觀察並評估學生表現與行為與社會發展與身體健康｜過程評量表與評分依據記錄。",
+          "個別化支援｜對有適應問題或學業問題或特殊學業興趣的學生進行指導與編制補習方案，為殘障學生提供輔助協助｜個別化支援與轉介記錄。",
+          "記錄與溝通｜按法律與學區政策維護學生記錄與出勤，與家長或監護人與同事與管理者溝通進展與問題｜學籍與成績與溝通記錄。",
+          "課程協作與活動｜與其他教師與管理者協作開發與評估初中課程方案，指導學生社團與課外活動與體驗式活動｜課程協作與活動記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2023.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-2023",
+          "title_evidence": "official_title"
+        }
+      },
+      "special-education-teachers-elementary-school": {
+        "name": "特殊教育教師（小學）",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2056.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.27,
+            3.94,
+            3.65,
+            7.0,
+            1.77,
+            3.48
+          ]
+        },
+        "tasks": [
+          "課程與目標｜把小學學業、社交或生活技能內容與教育需要對應。｜交可觀察目標及支援條件。",
+          "材料與方法｜調整呈現、活動和輔助工具以便參與。｜說明改動及複核依據，不憑整齊課件推效果。",
+          "教學與參與｜開展個別、小組或班級教學並支援課堂參與。｜真實實施需訓練、資格與學校安排。",
+          "觀察與進展｜儲存提示、反應及材料條件並評價教學進展。｜區分獨立和輔助，承認缺失與不可比。",
+          "家校與同伴教學協作｜與家長、普通教師和支援人員溝通。｜交中性事實、待核事項和接收責任。",
+          "年級銜接｜支援進入後續年級的課程與參與需求。｜核下一階段目標和記錄，不自動擴學段資格。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2056.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-2056",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "career-technical-education-teachers-middle-school -> special-education-teachers-elementary-school"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "career-technical-education-teachers-middle-school": {
+        "file_sha256": "61df41882a45fed90b12248f436f80dd1b01c44205f60cc1422d92c1b14c0cfc",
+        "entries": [
+          "職業與技術課程教學｜把職業過程拆成適齡任務與目標，準備材料與任務情境，講授與示範並指導動手｜課程目標與任務設計與教學記錄。",
+          "材料裝置與安全｜準備與維護工具與材料，講清禁止動作與防護要求，在學生操作時巡視並糾正｜工具材料檢查與安全巡視記錄。",
+          "評量與反饋｜按過程與成品維度評分並寫明依據，觀察並評估學生表現與行為與社會發展與身體健康｜過程評量表與評分依據記錄。",
+          "個別化支援｜對有適應問題或學業問題或特殊學業興趣的學生進行指導與編制補習方案，為殘障學生提供輔助協助｜個別化支援與轉介記錄。",
+          "記錄與溝通｜按法律與學區政策維護學生記錄與出勤，與家長或監護人與同事與管理者溝通進展與問題｜學籍與成績與溝通記錄。",
+          "課程協作與活動｜與其他教師與管理者協作開發與評估初中課程方案，指導學生社團與課外活動與體驗式活動｜課程協作與活動記錄。"
+        ]
+      },
+      "special-education-teachers-elementary-school": {
+        "file_sha256": "5f57ee72ce3c2e06c069f87c58c1b611e51df342eeb6cde0e3cb76061245fd05",
+        "entries": [
+          "課程與目標｜把小學學業、社交或生活技能內容與教育需要對應。｜交可觀察目標及支援條件。",
+          "材料與方法｜調整呈現、活動和輔助工具以便參與。｜說明改動及複核依據，不憑整齊課件推效果。",
+          "教學與參與｜開展個別、小組或班級教學並支援課堂參與。｜真實實施需訓練、資格與學校安排。",
+          "觀察與進展｜儲存提示、反應及材料條件並評價教學進展。｜區分獨立和輔助，承認缺失與不可比。",
+          "家校與同伴教學協作｜與家長、普通教師和支援人員溝通。｜交中性事實、待核事項和接收責任。",
+          "年級銜接｜支援進入後續年級的課程與參與需求。｜核下一階段目標和記錄，不自動擴學段資格。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 119,
+      "source_slugs": [
+        "career-technical-education-teachers-middle-school",
+        "special-education-teachers-elementary-school"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "career-technical-education-teachers-middle-school": {
+          "field": "entries",
+          "source_path": "careers/career-technical-education-teachers-middle-school/zh-TW.json",
+          "file_sha256": "61df41882a45fed90b12248f436f80dd1b01c44205f60cc1422d92c1b14c0cfc",
+          "count": 6
+        },
+        "special-education-teachers-elementary-school": {
+          "field": "entries",
+          "source_path": "careers/special-education-teachers-elementary-school/zh-TW.json",
+          "file_sha256": "5f57ee72ce3c2e06c069f87c58c1b611e51df342eeb6cde0e3cb76061245fd05",
+          "count": 6
+        }
+      }
+    }
+  }
+}

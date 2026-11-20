@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "52dc780678e11edba9ec664edcf28bcaec550ca06a8d44d649dbbf493dca5f13",
+  "inputs": {
+    "pair_id": "investment-fund-managers-vs-treasurers-and-controllers",
+    "slugs": [
+      "investment-fund-managers",
+      "treasurers-and-controllers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/investment-fund-managers-vs-treasurers-and-controllers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "investment-fund-managers": {
+        "name": "投資基金經理",
+        "riasec": {
+          "code": "ECI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3031.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.48,
+            3.77,
+            1.65,
+            2.69,
+            6.95,
+            5.21
+          ]
+        },
+        "tasks": [
+          "投入物件｜以基金資產與投資目標、投資授權與限額、研究與估值資料、交易與執行渠道、披露與合規要求為物件，在受託與合規邊界內執行投資管理。",
+          "可檢查產出｜可複核的投資決策與依據、組合與風險限額記錄、交易與執行記錄、估值與定價記錄、業績與合規披露材料；結果須可追溯到授權、資料來源與制度版本。",
+          "完整工作流程｜確認授權與投資目標→研究與估值→制定與執行策略→交易與執行監控→業績與風險複核→合規披露與監管應對。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3031.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-3031",
+          "title_evidence": "official_title"
+        }
+      },
+      "treasurers-and-controllers": {
+        "name": "司庫與財務控制員",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3031.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.2,
+            1.17,
+            2.68,
+            6.15,
+            6.44
+          ]
+        },
+        "tasks": [
+          "資金監測｜現金流與頭寸｜核收支和餘額，預測現金需要並識別不足；區分預測、實際及待核狀態。",
+          "資金安排｜籌措與運用｜評估資金來源和餘款安排，向管理層提出有依據的方案；銀行關係與投資活動按組織授權核。",
+          "報告管理｜財務報表與預算｜組織報表、業務報告、預測及年度預算編制，核數據完整、期間和適用報告要求。",
+          "內部控制｜職責與流程｜建立或完善現金、信用、預算和會計控制，監督資料核查及差異跟蹤，不能繞過職責分離。",
+          "團隊協調｜人員與部門｜監督相關財務人員，協助業務部門使用預算與財務資訊；按真實崗位核人員和預算管理許可權。",
+          "風險與合規｜核查及報告｜分析財務活動、協調審計和相關政策核查；外匯等專項任務需實際崗位、能力和許可權支援。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3031.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-3031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "investment-fund-managers -> treasurers-and-controllers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "investment-fund-managers": {
+        "file_sha256": "fbe83acbc4a9f04d0db396f97ce6cf2db236f73f66b07ac5e967d61bfef2ada5",
+        "entries": [
+          "投入物件｜以基金資產與投資目標、投資授權與限額、研究與估值資料、交易與執行渠道、披露與合規要求為物件，在受託與合規邊界內執行投資管理。",
+          "可檢查產出｜可複核的投資決策與依據、組合與風險限額記錄、交易與執行記錄、估值與定價記錄、業績與合規披露材料；結果須可追溯到授權、資料來源與制度版本。",
+          "完整工作流程｜確認授權與投資目標→研究與估值→制定與執行策略→交易與執行監控→業績與風險複核→合規披露與監管應對。"
+        ]
+      },
+      "treasurers-and-controllers": {
+        "file_sha256": "1a23c9992b5fbfa16e1c32db76d808d4173e36500f1278ed1f68d90eb71897e3",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 466,
+      "source_slugs": [
+        "investment-fund-managers",
+        "treasurers-and-controllers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "investment-fund-managers": {
+          "field": "entries",
+          "source_path": "careers/investment-fund-managers/zh-TW.json",
+          "file_sha256": "fbe83acbc4a9f04d0db396f97ce6cf2db236f73f66b07ac5e967d61bfef2ada5",
+          "count": 3
+        },
+        "treasurers-and-controllers": {
+          "field": "paragraphs",
+          "source_path": "careers/treasurers-and-controllers/zh-TW.json",
+          "file_sha256": "1a23c9992b5fbfa16e1c32db76d808d4173e36500f1278ed1f68d90eb71897e3",
+          "count": 6
+        }
+      }
+    }
+  }
+}

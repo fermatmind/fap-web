@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "37aea16e7560b0dc321b9aaef242cfafec95f1a6ae504d8950f2481f1716f5c2",
+  "inputs": {
+    "pair_id": "recycling-coordinators-vs-transportation-storage-and-distribution-managers",
+    "slugs": [
+      "recycling-coordinators",
+      "transportation-storage-and-distribution-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/recycling-coordinators-vs-transportation-storage-and-distribution-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "recycling-coordinators": {
+        "name": "回收協調員",
+        "riasec": {
+          "code": "ECR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-1042.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.0,
+            2.25,
+            1.0,
+            3.37,
+            4.77,
+            4.57
+          ]
+        },
+        "tasks": [
+          "專案排班｜按收集點、投放點和服務視窗安排路線與人員。｜輸出當日表及替班條件。",
+          "服務請求｜登記漏收、容器溢位和客戶問題。｜核地址與原始記錄後派工。",
+          "收運臺賬｜記錄接收、轉運和處理方交付數量。｜保留票據、批次和差異說明。",
+          "現場監督｜檢查站點安全、分類質量和服務流程。｜危險或裝置問題交獲授權人員。",
+          "員工培訓｜講解安全、分類、記錄和投訴交接。｜保留訓練與反饋記錄。",
+          "專案改進｜分析汙染、漏收和容量趨勢。｜提出可核的調整建議，預算與合同由授權者批准。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-1042.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-1042",
+          "title_evidence": "official_title"
+        }
+      },
+      "transportation-storage-and-distribution-managers": {
+        "name": "運輸、倉儲與配送經理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.6,
+            2.64,
+            1.0,
+            2.39,
+            5.99,
+            5.74
+          ]
+        },
+        "tasks": [
+          "計劃｜需求與資源分析｜核訂單庫存、服務時限、運力與庫內能力，保留單位、期間及待核條件。",
+          "組織｜人員與團隊管理｜安排下屬工作、溝通目標，按崗位組織招聘訓練與績效反饋。",
+          "預算｜費用與方案比較｜比較運輸方式和資源成本，分析變更財務影響，提出預算或改進建議。",
+          "運營｜運輸與倉儲協調｜協同銷售財務採購與承運商，跟蹤庫存、服務績效及跨部門異常。",
+          "合規｜安全與制度執行｜監督政策規則和流程遵守，按許可權組織檢查維護和安全改進，不替代專業操作職責。",
+          "改進｜資料與流程維護｜儲存績效、客戶問題及訓練安全記錄，復盤指標和合作方表現，推動獲批改進。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-3071",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "recycling-coordinators -> transportation-storage-and-distribution-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "recycling-coordinators": {
+        "file_sha256": "1294dcedbe84684c8e627af865596d98cb0faaea17fa37860fc8e6f7ad5eaf08",
+        "entries": [
+          "專案排班｜按收集點、投放點和服務視窗安排路線與人員。｜輸出當日表及替班條件。",
+          "服務請求｜登記漏收、容器溢位和客戶問題。｜核地址與原始記錄後派工。",
+          "收運臺賬｜記錄接收、轉運和處理方交付數量。｜保留票據、批次和差異說明。",
+          "現場監督｜檢查站點安全、分類質量和服務流程。｜危險或裝置問題交獲授權人員。",
+          "員工培訓｜講解安全、分類、記錄和投訴交接。｜保留訓練與反饋記錄。",
+          "專案改進｜分析汙染、漏收和容量趨勢。｜提出可核的調整建議，預算與合同由授權者批准。"
+        ]
+      },
+      "transportation-storage-and-distribution-managers": {
+        "file_sha256": "4dd149b7a00118cb009e3d7b1508890ce6ae74e4920cbed115c5f38ed5ddaedb",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 631,
+      "source_slugs": [
+        "recycling-coordinators",
+        "transportation-storage-and-distribution-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "recycling-coordinators": {
+          "field": "entries",
+          "source_path": "careers/recycling-coordinators/zh-TW.json",
+          "file_sha256": "1294dcedbe84684c8e627af865596d98cb0faaea17fa37860fc8e6f7ad5eaf08",
+          "count": 6
+        },
+        "transportation-storage-and-distribution-managers": {
+          "field": "paragraphs",
+          "source_path": "careers/transportation-storage-and-distribution-managers/zh-TW.json",
+          "file_sha256": "4dd149b7a00118cb009e3d7b1508890ce6ae74e4920cbed115c5f38ed5ddaedb",
+          "count": 6
+        }
+      }
+    }
+  }
+}

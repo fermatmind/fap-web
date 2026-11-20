@@ -1,0 +1,324 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cb04c0c0245bb6f3b7238e05a6c2a9409878a75af4600c7ce596ca3ee28905b8",
+  "inputs": {
+    "pair_id": "interior-designers-vs-set-and-exhibit-designers",
+    "slugs": [
+      "interior-designers",
+      "set-and-exhibit-designers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/interior-designers-vs-set-and-exhibit-designers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "interior-designers": {
+        "name": "Interior Designer",
+        "riasec": {
+          "code": "AR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-1025.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.12,
+            3.07,
+            5.56,
+            2.68,
+            3.7,
+            3.82
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1025.00#Tasks"
+              }
+            ],
+            "text": "Design plans to be safe and to be compliant with the American Disabilities Act (ADA)."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1025.00#Tasks"
+              }
+            ],
+            "text": "Use computer-aided drafting (CAD) and related software to produce construction documents."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1025.00#Tasks"
+              }
+            ],
+            "text": "Research health and safety code requirements to inform design."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1025.00#Tasks"
+              }
+            ],
+            "text": "Confer with client to determine factors affecting planning of interior environments, such as budget, architectural preferences, purpose, and function."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-1025.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "27-1025",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "set-and-exhibit-designers": {
+        "name": "Set and Exhibit Designers",
+        "riasec": {
+          "code": "A",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-1027.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.7,
+            2.75,
+            6.69,
+            3.04,
+            3.93,
+            3.27
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1027.00#Tasks"
+              }
+            ],
+            "text": "Develop set designs, based on evaluation of scripts, budgets, research information, and available locations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1027.00#Tasks"
+              }
+            ],
+            "text": "Prepare rough drafts and scale working drawings of sets, including floor plans, scenery, and properties to be constructed."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1027.00#Tasks"
+              }
+            ],
+            "text": "Prepare preliminary renderings of proposed exhibits, including detailed construction, layout, and material specifications, and diagrams relating to aspects such as special effects or lighting."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1027.00#Tasks"
+              }
+            ],
+            "text": "Read scripts to determine location, set, and design requirements."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-1027.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "27-1027",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "set-and-exhibit-designers -> interior-designers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "interior",
+        "source_url": "https://www.bls.gov/ooh/arts-and-design/interior-designers.htm",
+        "locator": "Duties and Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current OOH",
+          "summary": "Interior designers plan indoor spaces, select materials and coordinate with project teams.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "exhibit",
+        "source_url": "https://www.bls.gov/ooh/arts-and-design/set-and-exhibit-designers.htm",
+        "locator": "Duties and Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current OOH",
+          "summary": "Set and exhibit designers develop sets or exhibits and coordinate construction or installation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "museum",
+        "source_url": "https://www.amnh.org/exhibitions/permanent/gilder-center/collections-core",
+        "locator": "First Floor: Macaulay Family Foundation Collections Gallery",
+        "value": {
+          "jurisdiction": "New York City, United States",
+          "effective_or_period": "Museum exhibition description",
+          "summary": "The AMNH Gilder Center’s Collections Core includes the first-floor Macaulay Family Foundation Collections Gallery.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, 27-1025 and 27-1027",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "Median annual wages USD 67190 and USD 75240. Typical entry education bachelor’s degree for both.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "nj-title",
+        "source_url": "https://www.njconsumeraffairs.gov/Statutes/interior-design-law.pdf",
+        "locator": "N.J.S.A. 45:3-32",
+        "value": {
+          "jurisdiction": "New Jersey",
+          "effective_or_period": "Current",
+          "summary": "Certification is required for the Certified Interior Designer title or CID abbreviation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "nj-education",
+        "source_url": "https://www.njconsumeraffairs.gov/int/Pages/FAQ.aspx",
+        "locator": "How to become certified",
+        "value": {
+          "jurisdiction": "New Jersey",
+          "effective_or_period": "Current",
+          "summary": "NJ certification uses an NCIDQ exam and qualifying education and experience.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "wage-scope",
+        "source_url": "https://www.bls.gov/oes/2025/may/oes_tec.htm",
+        "locator": "Concepts, wage and salary employment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "May 2025 OEWS",
+          "summary": "OEWS includes wage and salary workers and excludes self-employed workers.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 463,
+      "source_slugs": [
+        "interior-designers",
+        "set-and-exhibit-designers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

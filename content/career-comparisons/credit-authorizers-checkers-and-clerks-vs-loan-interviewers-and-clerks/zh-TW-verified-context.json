@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9d267766ff529cec9fa7027871f2ac3611b8af347cffaf11cc64c5ca5515f76a",
+  "inputs": {
+    "pair_id": "credit-authorizers-checkers-and-clerks-vs-loan-interviewers-and-clerks",
+    "slugs": [
+      "credit-authorizers-checkers-and-clerks",
+      "loan-interviewers-and-clerks"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/credit-authorizers-checkers-and-clerks-vs-loan-interviewers-and-clerks",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "credit-authorizers-checkers-and-clerks": {
+        "name": "信貸授權員、核查員、文員",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            1.87,
+            1.0,
+            3.39,
+            4.48,
+            7.0
+          ]
+        },
+        "tasks": [
+          "美國Supplemental：接收申請或籤購資訊、籤購單登賬及製備卡片標牌；不是全部崗位每日必做。",
+          "美國Core：電話或面談訪談，收集信用報告所需個人財務資料；具體資料取得處理必須當地合法獲准。",
+          "美國獲取銀行等信用服務資訊並相互提供為Core；公開記錄核實為Supplemental；前僱主等核推薦就業健康社會行為為New。徵信業管理條例13/14/18/20/21/22/25按主體核：個人收集/查詢同意和用途有法定例外；企業資料規則另列；個人疾病與病史等屬於徵信機構禁止採集內容，不能因美國任務就收集。經營個人徵信業務機構須明確工作人員查詢個人資訊的許可權程式並登記；徵信機構或資訊提供者收到錯誤遺漏異議應按規定標註，自收到異議起20日核心查處理並書面答覆。",
+          "美國彙總分析調查信用資料為Core；預定標準批准新信用為Supplemental；調查建議報告為New。分檔非頻率或中國授權。",
+          "職業總述含處理申請及通知；向訂戶轉達信用報告為Supplemental，通知理由法律另按法域核。美國Regulation B§1002.9：適用不利行動通知可直接說明具體主要理由，也可按條款通知請求理由的權利；不是任何拒絕都必須當場完整說明。一般完整申請30日通知，企業信用有收入及貿易信用等不同安排；具體理由須反映實際採用因素，不能僅稱內部政策或評分不足。解釋義務不等所有決定必須人工。",
+          "美國收費付款記錄Core；寄賬單/籤購單登賬Supplemental；逾期檔案、催收、投訴交易核實New。具體分工、資料及催收許可權另核。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "43-4041",
+          "title_evidence": "official_title"
+        }
+      },
+      "loan-interviewers-and-clerks": {
+        "name": "貸款受理與文書人員",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4131.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.18,
+            1.0,
+            3.4,
+            4.61,
+            6.92
+          ]
+        },
+        "tasks": [
+          "投入物件：貸款與信貸申請、申請人個人與財務資料、信用機構與僱主等核實來源、申請與結清檔案、利息與結清費用計算、放款與資金支付記錄、貸款檔案與逾期賬款。",
+          "可檢查產出：完整且經核對的申請材料、符合要求的申請與結清檔案、經複核的利息與費用計算、放款與資金支付登記、及時更新的貸款記錄與逾期跟進記錄。",
+          "完整工作流程：受理申請並面談收集資料 → 協助填寫申請 → 核實信用與推薦資訊 → 複核檔案完整性與準確性 → 計算與複核利息、本金、還款額及結清費用 → 提交審批或準備結清檔案 → 登記放款與資金支付 → 維護貸款記錄並跟進逾期賬款。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4131.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "43-4131",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "loan-interviewers-and-clerks -> credit-authorizers-checkers-and-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "credit-authorizers-checkers-and-clerks": {
+        "file_sha256": "6ac516461a7684163a6f4678d6897ae3a020280bd3c881292b67b283c522b6b3",
+        "entries": []
+      },
+      "loan-interviewers-and-clerks": {
+        "file_sha256": "37c88694b2e8400421b53e56bec08eedb9514b8ed793f163e3deb8aee149c8d2",
+        "entries": [
+          "投入物件：貸款與信貸申請、申請人個人與財務資料、信用機構與僱主等核實來源、申請與結清檔案、利息與結清費用計算、放款與資金支付記錄、貸款檔案與逾期賬款。",
+          "可檢查產出：完整且經核對的申請材料、符合要求的申請與結清檔案、經複核的利息與費用計算、放款與資金支付登記、及時更新的貸款記錄與逾期跟進記錄。",
+          "完整工作流程：受理申請並面談收集資料 → 協助填寫申請 → 核實信用與推薦資訊 → 複核檔案完整性與準確性 → 計算與複核利息、本金、還款額及結清費用 → 提交審批或準備結清檔案 → 登記放款與資金支付 → 維護貸款記錄並跟進逾期賬款。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 253,
+      "source_slugs": [
+        "credit-authorizers-checkers-and-clerks",
+        "loan-interviewers-and-clerks"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "credit-authorizers-checkers-and-clerks": {
+          "field": "paragraphs",
+          "source_path": "careers/credit-authorizers-checkers-and-clerks/zh-TW.json",
+          "file_sha256": "6ac516461a7684163a6f4678d6897ae3a020280bd3c881292b67b283c522b6b3",
+          "count": 6
+        },
+        "loan-interviewers-and-clerks": {
+          "field": "entries",
+          "source_path": "careers/loan-interviewers-and-clerks/zh-TW.json",
+          "file_sha256": "37c88694b2e8400421b53e56bec08eedb9514b8ed793f163e3deb8aee149c8d2",
+          "count": 3
+        }
+      }
+    }
+  }
+}

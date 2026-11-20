@@ -1,0 +1,199 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "a8dee66cbae856379d1ecf59e6ab930464966ba298be85f4586cd05e850f6478",
+  "inputs": {
+    "pair_id": "special-education-teachers-kindergarten-vs-teaching-assistants-special-education",
+    "slugs": [
+      "special-education-teachers-kindergarten",
+      "teaching-assistants-special-education"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/special-education-teachers-kindergarten-vs-teaching-assistants-special-education",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "special-education-teachers-kindergarten": {
+        "name": "特殊教育教师（幼儿园）",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2055.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.55,
+            3.8,
+            3.65,
+            7.0,
+            1.73,
+            3.67
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2055.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-2055",
+          "title_evidence": "official_title"
+        }
+      },
+      "teaching-assistants-special-education": {
+        "name": "教学助理（特殊教育）",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-9043.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.98,
+            3.29,
+            3.34,
+            7.0,
+            2.14,
+            3.57
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-9043.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-9043",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "teaching-assistants-special-education -> special-education-teachers-kindergarten"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：幼儿园阶段特殊教育教师把支持嵌入集体活动和日常转换，观察孩子在提示、材料和同伴变化下怎么参与；后岗：特殊教育助教在教师或团队安排下提供个人或小组学习支持，协助课堂参与并记录可观察的表现。",
+    "cn_qualification": {
+      "special-education-teachers-kindergarten": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/199512/t19951212_780558.html"
+        ]
+      },
+      "teaching-assistants-special-education": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "25-2055.00",
+        "source_url": "https://www.onetonline.org/link/summary/25-2055.00",
+        "locator": "Tasks 22340, 22353, 22336",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans and adapts kindergarten instruction for children with disabilities.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "25-9043.00",
+        "source_url": "https://www.onetonline.org/link/summary/25-9043.00",
+        "locator": "Tasks 22506, 22509",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Assists students with special needs and supports classroom routines.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-teacher",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1443",
+        "locator": "教师资格条例第2、4、13条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "按实际任教类别核学校教师资格，认定分别依相应规则。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-sped",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=237",
+        "locator": "第42条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "专门从事残疾人教育须取得教师资格，并为特殊教育专业毕业或通过省级教育部门组织的专项培训与考核。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-preschool",
+        "source_url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2025/art_f87d2d6e02044a51a8298ef377cbe81b.html",
+        "locator": "学前教育法第2、37条",
+        "value": {
+          "jurisdiction": "中国大陆幼儿园等学前机构",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "学前教育面向三周岁到入小学前儿童。幼儿园教师须具幼儿园教师资格，或具备其他教师资格并经县级以上教育行政部门组织的学前教育专业培训合格。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 678,
+      "source_slugs": [
+        "special-education-teachers-kindergarten",
+        "teaching-assistants-special-education"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

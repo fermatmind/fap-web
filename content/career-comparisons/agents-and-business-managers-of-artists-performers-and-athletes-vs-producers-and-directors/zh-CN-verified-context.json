@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "74361e5be032aa9c6c93d38d8759b31439826abf5eb519a3bd7b99a922273773",
+  "inputs": {
+    "pair_id": "agents-and-business-managers-of-artists-performers-and-athletes-vs-producers-and-directors",
+    "slugs": [
+      "agents-and-business-managers-of-artists-performers-and-athletes",
+      "producers-and-directors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/agents-and-business-managers-of-artists-performers-and-athletes-vs-producers-and-directors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "agents-and-business-managers-of-artists-performers-and-athletes": {
+        "name": "艺术家、演艺人员与运动员经纪及业务经理",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            1.76,
+            3.55,
+            4.14,
+            6.48,
+            3.73
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1011",
+          "title_evidence": "official_title"
+        }
+      },
+      "producers-and-directors": {
+        "name": "制片人与导演",
+        "riasec": {
+          "code": "AE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.13,
+            2.24,
+            6.14,
+            3.12,
+            5.78,
+            3.56
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-2012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "agents-and-business-managers-of-artists-performers-and-athletes -> producers-and-directors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：经纪与业务经理代表客户寻找机会、沟通合作条件并协调合同事项；后岗：制片与导演岗位协调内容目标、创意取舍、团队与制作资源，分工随项目而异。",
+    "cn_qualification": {
+      "agents-and-business-managers-of-artists-performers-and-athletes": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "producers-and-directors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "13-1011.00",
+        "source_url": "https://www.onetonline.org/link/summary/13-1011.00",
+        "locator": "Tasks 12869, 12866, 12868",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Represents clients in contract discussions, career planning and scheduling engagements.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "27-2012.00",
+        "source_url": "https://www.onetonline.org/link/summary/27-2012.00",
+        "locator": "Tasks 22515, 22520, 22521, 22523",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans scenes, coordinates production work and reviews rehearsals and recordings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-agency-regulation",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1538",
+        "locator": "《营业性演出管理条例》第六、九条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "行政法规",
+          "summary": "营业性演出经纪机构的经营申请与个体演出经纪人的登记分别适用相应规定。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-agency-exam",
+        "source_url": "https://zwgk.mct.gov.cn/zfxxgkml/scgl/202602/t20260206_964610.html",
+        "locator": "2026 年全国演出经纪人员资格认定考试通知",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2026 年官方通知",
+          "summary": "文旅部统一组织演出经纪人员资格认定考试，考试通知列报考条件和程序。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-agency-qualification",
+        "source_url": "https://zwgk.mct.gov.cn/zfxxgkml/scgl/202112/t20211224_930039.html",
+        "locator": "《演出经纪人员管理办法》第二至四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01 起施行",
+          "summary": "适用人员包括个体演出经纪人和机构专职人员，从事相关活动须通过考试、取得资格证并持证上岗。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 34,
+      "source_slugs": [
+        "agents-and-business-managers-of-artists-performers-and-athletes",
+        "producers-and-directors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

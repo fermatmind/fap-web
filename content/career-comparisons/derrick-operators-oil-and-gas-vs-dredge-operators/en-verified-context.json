@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2c14e6d3d34485189d57dcf7851304c964cf1cea614849acebaf9b2d978661ce",
+  "inputs": {
+    "pair_id": "derrick-operators-oil-and-gas-vs-dredge-operators",
+    "slugs": [
+      "derrick-operators-oil-and-gas",
+      "dredge-operators"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/derrick-operators-oil-and-gas-vs-dredge-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "derrick-operators-oil-and-gas": {
+        "name": "Derrick Operators, Oil and Gas",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.54,
+            1.0,
+            1.01,
+            1.64,
+            3.64
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5011.00#Tasks"
+              }
+            ],
+            "text": "Start pumps that circulate mud through drill pipes and boreholes to cool drill bits and flush out drill cuttings."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5011.00#Tasks"
+              }
+            ],
+            "text": "Control the viscosity and weight of the drilling fluid."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5011.00#Tasks"
+              }
+            ],
+            "text": "Listen to mud pumps and check regularly for vibration and other problems to ensure that rig pumps and drilling mud systems are working properly."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5011.00#Tasks"
+              }
+            ],
+            "text": "Inspect derricks, or order their inspection, prior to being raised or lowered."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-5011",
+          "title_evidence": "official_title"
+        }
+      },
+      "dredge-operators": {
+        "name": "Dredge operators",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.63,
+            2.99,
+            1.0,
+            1.36,
+            2.33,
+            3.48
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7031.00#Tasks"
+              }
+            ],
+            "text": "Move levers to position dredges for excavation, to engage hydraulic pumps, to raise and lower suction booms, and to control rotation of cutterheads."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7031.00#Tasks"
+              }
+            ],
+            "text": "Start and stop engines to operate equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7031.00#Tasks"
+              }
+            ],
+            "text": "Start power winches that draw in or let out cables to change positions of dredges, or pull in and let out cables manually."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7031.00#Tasks"
+              }
+            ],
+            "text": "Pump water to clear machinery pipelines."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-7031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dredge-operators -> derrick-operators-oil-and-gas"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "derrick",
+        "source_url": "https://www.onetonline.org/link/summary/47-5011.00#Tasks",
+        "locator": "47-5011.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET",
+          "summary": "Sets up derrick equipment and operates and monitors pumps for drilling fluid circulation; prepares drilling mud reports.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "dredge",
+        "source_url": "https://www.onetonline.org/link/summary/53-7031.00#Tasks",
+        "locator": "53-7031.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET",
+          "summary": "Operates dredging equipment to remove material and maintain waterways; operates and monitors equipment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "market",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 47-5011 and 53-7031",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "National median annual wages $58,620 and $49,640; typical education no formal credential and high school or equivalent; related experience less than five years and none; short-term and moderate-term on-the-job training respectively.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "oil-context",
+        "source_url": "https://www.bls.gov/ooh/construction-and-extraction/oil-and-gas-workers.htm#tab-3",
+        "locator": "Work Schedules",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current BLS",
+          "summary": "Some remote or offshore oil and gas crews work long shifts and spend weeks away from home.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "dredge-context",
+        "source_url": "https://www.onetonline.org/link/summary/53-7031.00#WorkContext",
+        "locator": "Work Context, outdoors exposed to weather",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Lists outdoor exposure to weather as a working condition.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 290,
+      "source_slugs": [
+        "derrick-operators-oil-and-gas",
+        "dredge-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

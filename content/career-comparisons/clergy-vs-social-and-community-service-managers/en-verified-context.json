@@ -1,0 +1,346 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "eecd422bf1a0f3fd1c456d5fc20d727a3474b106ce9c7bfba5c14cf4ab4f71b5",
+  "inputs": {
+    "pair_id": "clergy-vs-social-and-community-service-managers",
+    "slugs": [
+      "clergy",
+      "social-and-community-service-managers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/clergy-vs-social-and-community-service-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clergy": {
+        "name": "Clergy",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.1,
+            2.11,
+            3.44,
+            5.91,
+            4.17,
+            2.89
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-2011.00#Tasks"
+              }
+            ],
+            "text": "Pray and promote spirituality."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-2011.00#Tasks"
+              }
+            ],
+            "text": "Prepare and deliver sermons or other talks."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-2011.00#Tasks"
+              }
+            ],
+            "text": "Read from sacred texts, such as the Bible, Torah, or Koran."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-2011.00#Tasks"
+              }
+            ],
+            "text": "Organize and lead regular religious services."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "21-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "social-and-community-service-managers": {
+        "name": "Social and Community Service Managers",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9151.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.17,
+            2.43,
+            5.43,
+            6.97,
+            4.21
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9151.00#Tasks"
+              }
+            ],
+            "text": "Establish and oversee administrative procedures to meet objectives set by boards of directors or senior management."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9151.00#Tasks"
+              }
+            ],
+            "text": "Direct activities of professional and technical staff members and volunteers."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9151.00#Tasks"
+              }
+            ],
+            "text": "Evaluate the work of staff and volunteers to ensure that programs are of appropriate quality and that resources are used effectively."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9151.00#Tasks"
+              }
+            ],
+            "text": "Participate in the determination of organizational policies regarding such issues as participant eligibility, program requirements, and program benefits."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9151.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9151",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clergy -> social-and-community-service-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "clergy-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/21-2011.00#Tasks",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Leads religious services and offers spiritual guidance.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "manager-tasks",
+        "source_url": "https://www.bls.gov/ooh/management/social-and-community-service-managers.htm#tab-2",
+        "locator": "What They Do",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Coordinates and supervises programs that support public well-being.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "clergy-context",
+        "source_url": "https://www.onetonline.org/link/summary/21-2011.00#WorkContext",
+        "locator": "Work Context",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Includes face-to-face communication.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "manager-context",
+        "source_url": "https://www.bls.gov/ooh/management/social-and-community-service-managers.htm#tab-3",
+        "locator": "Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Settings include offices, clinics, hospitals and shelters.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "clergy-zone",
+        "source_url": "https://www.onetonline.org/link/summary/21-2011.00#JobZone",
+        "locator": "Job Zone Five",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Extensive preparation.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "manager-entry",
+        "source_url": "https://www.bls.gov/ooh/management/social-and-community-service-managers.htm#tab-4",
+        "locator": "Education and Work Experience",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Typically at least a bachelor's degree plus related work experience.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "clergy-pay",
+        "source_url": "https://www.onetonline.org/link/localwages/21-2011.00",
+        "locator": "2025 US annual median",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "USD 60,810",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "manager-pay",
+        "source_url": "https://www.bls.gov/ooh/management/social-and-community-service-managers.htm#tab-5",
+        "locator": "May 2025 US annual median",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "USD 80,390",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "coverage",
+        "source_url": "https://www.bls.gov/oes/methods_25.pdf",
+        "locator": "Scope and exclusions",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Covers wage and salary employment, excluding self-employment.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 160,
+      "source_slugs": [
+        "clergy",
+        "social-and-community-service-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

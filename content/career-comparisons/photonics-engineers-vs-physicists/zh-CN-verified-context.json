@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "685dec65ca89f80a08bf4a17cbbab1236c9f5c870d39d15dd34311a6827a7333",
+  "inputs": {
+    "pair_id": "photonics-engineers-vs-physicists",
+    "slugs": [
+      "photonics-engineers",
+      "physicists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/photonics-engineers-vs-physicists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "photonics-engineers": {
+        "name": "光子学工程师",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.07",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.9,
+            5.88,
+            2.8,
+            1.39,
+            1.7,
+            3.96
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.07",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      },
+      "physicists": {
+        "name": "物理学家",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.94,
+            7.0,
+            2.75,
+            2.12,
+            1.77,
+            4.8
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-2012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "photonics-engineers -> physicists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：光子工程师把光学系统的性能需求转成设计和测试要求，再用原型数据判断哪些指标达标、哪些需要修改；后岗：借助数学模型、实验或计算研究物理现象。",
+    "cn_qualification": {
+      "photonics-engineers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "physicists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "eng",
+        "source_url": "https://www.onetonline.org/link/summary/17-2199.07",
+        "locator": "Tasks; Job Zone; Wages & Employment",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Prototype, analyze requirements; Zone Four. Wages are for Engineers, All Other.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "phys",
+        "source_url": "https://www.onetonline.org/link/summary/19-2012.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Research physical phenomena and use theory and experiment.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-lab",
+        "source_url": "https://www.nim.ac.cn/node/1252",
+        "locator": "辐射度/色度实验室业务介绍",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "机构公开介绍",
+          "summary": "开展光谱辐射照度等量值研究、比对与标准装置开发。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-eng",
+        "source_url": "https://ssc.just.edu.cn/2021/0612/c6431a290521/page.htm",
+        "locator": "主要实践性教学环节",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校介绍",
+          "summary": "光电检测实验和光学系统 CAD 课程设计。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-phys",
+        "source_url": "https://physics.westlake.edu.cn/programs/undergraduate_program/",
+        "locator": "主干课程及科研实训",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校介绍",
+          "summary": "有数学物理、物理实验和科研实训。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 576,
+      "source_slugs": [
+        "photonics-engineers",
+        "physicists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

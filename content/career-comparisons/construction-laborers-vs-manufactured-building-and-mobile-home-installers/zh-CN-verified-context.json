@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7e6712f50738b74019de1eaf486d64d75414a116160d73c8f1ce1561af45d216",
+  "inputs": {
+    "pair_id": "construction-laborers-vs-manufactured-building-and-mobile-home-installers",
+    "slugs": [
+      "construction-laborers",
+      "manufactured-building-and-mobile-home-installers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/construction-laborers-vs-manufactured-building-and-mobile-home-installers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "construction-laborers": {
+        "name": "建筑工人",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.68,
+            1.38,
+            1.23,
+            1.35,
+            3.61
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-2061",
+          "title_evidence": "official_title"
+        }
+      },
+      "manufactured-building-and-mobile-home-installers": {
+        "name": "预制建筑与移动房屋安装工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9095.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.83,
+            1.9,
+            1.52,
+            1.71,
+            1.17,
+            3.9
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9095.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "49-9095",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "manufactured-building-and-mobile-home-installers -> construction-laborers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在施工现场从事体力作业，操作风镐、夯土机与小型机具完成场地清理、沟槽开挖、支模与脚手架搭设、材料搬运与废弃物清理，并协助其他技术工种作业；后岗：按现场计划定位、安放和安装预制单元，核对部件、支撑和接口的状态，协调交接由其他工种负责的工作。",
+    "cn_qualification": {
+      "construction-laborers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "manufactured-building-and-mobile-home-installers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "47-2061.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-2061.00",
+        "locator": "Tasks 11455, 11456, 11461",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Prepares construction sites, reads instructions and marks or records work areas.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "49-9095.00",
+        "source_url": "https://www.onetonline.org/link/summary/49-9095.00",
+        "locator": "Tasks 13879, 13880, 13883, 13885",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans and sets up prefabricated or mobile buildings and checks components and systems.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 217,
+      "source_slugs": [
+        "construction-laborers",
+        "manufactured-building-and-mobile-home-installers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

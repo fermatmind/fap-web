@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import assert from "node:assert/strict";
 import test from "node:test";
 
@@ -112,4 +114,23 @@ test("PM2 keeps runtime checks and automatic deployment without applying OpenRes
 
   const mixed = classifyPaths(["ecosystem.config.cjs", "deploy/openresty/fap-web-public.conf"]);
   assert.equal(mixed.apply_public_ingress, true);
+});
+
+test("large content releases retain complete evidence without oversized job outputs", () => {
+  const source = readFileSync(new URL("../workflows/ci.yml", import.meta.url), "utf8");
+  const expression = source.match(/compact="\$\(jq -c '([^']+)' trunk-path-classification\.json\)"/)[1];
+  const pages = Array.from({length: 734}, (_, i) => ["zh-CN", "zh-TW", "en"].flatMap(locale => [
+    `content/career-comparisons/${"long-career-name-".repeat(5)}${i}/${locale}.md`,
+    `content/career-comparisons/${"long-career-name-".repeat(5)}${i}/${locale}-verified-context.json`,
+  ])).flat();
+  const full = classifyPaths([...pages, "package.json", "tests/e2e/reader.spec.ts"]);
+  const raw = JSON.stringify(full);
+  const summary = execFileSync("jq", ["-c", expression], {input: raw, encoding: "utf8", maxBuffer: 4 * 1024 * 1024});
+  assert.ok(Buffer.byteLength(raw, "utf16le") > 1024 * 1024);
+  assert.ok(Buffer.byteLength(summary, "utf16le") < 16 * 1024);
+  const parsed = JSON.parse(summary);
+  assert.deepEqual(parsed.paths, ["package.json", "tests/e2e/reader.spec.ts"]);
+  assert.deepEqual(parsed.flags, full.flags);
+  assert.deepEqual(parsed.categories, full.categories);
+  assert.equal(full.paths.length, pages.length + 2);
 });

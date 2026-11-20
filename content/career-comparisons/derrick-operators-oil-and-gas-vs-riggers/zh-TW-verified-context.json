@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9035f4f053fa0d908c8a5ba25a32b124ce2abc9ee2a4bebe6bbbb553b3785485",
+  "inputs": {
+    "pair_id": "derrick-operators-oil-and-gas-vs-riggers",
+    "slugs": [
+      "derrick-operators-oil-and-gas",
+      "riggers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/derrick-operators-oil-and-gas-vs-riggers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "derrick-operators-oil-and-gas": {
+        "name": "石油天然氣井架操作員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.54,
+            1.0,
+            1.01,
+            1.64,
+            3.64
+          ]
+        },
+        "tasks": [
+          "上崗前完成崗前與專項安全培訓並確認本人持有崗位要求的證書，核對本人是否存在高處與受限空間作業的職業禁忌症。",
+          "按規定檢查井架、天車、纜繩與固定夾具，檢查泵、泥漿罐與相關裝置，確認安全帶等防護裝備與作業條件後方可作業。",
+          "啟動並監聽泥漿泵，按方案稱量粘土並與水和化學品混合配製鑽井泥漿，監測並調整黏度與密度，填寫泥漿報告。",
+          "起下鑽時扶穩管柱、引導管段進出吊卡，按指揮完成協同動作，站位避開危險區域。",
+          "維修泵、泥漿罐及相關裝置，監督並培訓班組成員，如實完成交班記錄與異常上報，不隱瞞缺陷與事故徵兆。",
+          "與司鑽、鑽井工、鑽井液技術員與維護人員按職責協作，在班前會與交接班中傳遞工況、異常與未完成事項。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-5011",
+          "title_evidence": "official_title"
+        }
+      },
+      "riggers": {
+        "name": "索具工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9096.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.37,
+            1.41,
+            1.02,
+            1.95,
+            3.64
+          ]
+        },
+        "tasks": [
+          "載荷與吊點核對｜核吊物標識、重量來源、重心、吊點及移動路徑，缺項交合格人員。｜輸出已知/未知清單，不憑估計放行。",
+          "索具選擇｜按批准方案和銘牌額定能力選擇吊索、卸扣、吊梁與連線方式。｜記錄索具編號及適用限制，不超載。",
+          "班前檢查｜檢查吊索、連線件、銘牌、磨損和變形；疑似缺陷隔離停用。｜交付檢查記錄和處置狀態。",
+          "連線與試吊｜按方案連線吊點並在人員撤離危險區後進行受控試吊。｜觀察穩定性；偏斜、滑移即停機複核。",
+          "訊號與移動協作｜與起重機操作員和訊號人員確認通訊、路徑和停工口令。｜在視線或訊號中斷時停止動作並重新確認。",
+          "落位與交接｜穩定落位、解除安裝、拆除索具並處理損傷或遺留風險。｜留下吊物、索具、異常和接手人記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9096.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "49-9096",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "derrick-operators-oil-and-gas -> riggers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "derrick-operators-oil-and-gas": {
+        "file_sha256": "2435c79f06a1873f684b5b6e876d1eb8c8707fdc1441b9716b399cfa30cbda68",
+        "entries": []
+      },
+      "riggers": {
+        "file_sha256": "a55acf8078027c43ace2de2f92417d6710cdf364d6a9d68fd56ffa23f97558bd",
+        "entries": [
+          "載荷與吊點核對｜核吊物標識、重量來源、重心、吊點及移動路徑，缺項交合格人員。｜輸出已知/未知清單，不憑估計放行。",
+          "索具選擇｜按批准方案和銘牌額定能力選擇吊索、卸扣、吊梁與連線方式。｜記錄索具編號及適用限制，不超載。",
+          "班前檢查｜檢查吊索、連線件、銘牌、磨損和變形；疑似缺陷隔離停用。｜交付檢查記錄和處置狀態。",
+          "連線與試吊｜按方案連線吊點並在人員撤離危險區後進行受控試吊。｜觀察穩定性；偏斜、滑移即停機複核。",
+          "訊號與移動協作｜與起重機操作員和訊號人員確認通訊、路徑和停工口令。｜在視線或訊號中斷時停止動作並重新確認。",
+          "落位與交接｜穩定落位、解除安裝、拆除索具並處理損傷或遺留風險。｜留下吊物、索具、異常和接手人記錄。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 292,
+      "source_slugs": [
+        "derrick-operators-oil-and-gas",
+        "riggers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "derrick-operators-oil-and-gas": {
+          "field": "paragraphs",
+          "source_path": "careers/derrick-operators-oil-and-gas/zh-TW.json",
+          "file_sha256": "2435c79f06a1873f684b5b6e876d1eb8c8707fdc1441b9716b399cfa30cbda68",
+          "count": 6
+        },
+        "riggers": {
+          "field": "entries",
+          "source_path": "careers/riggers/zh-TW.json",
+          "file_sha256": "a55acf8078027c43ace2de2f92417d6710cdf364d6a9d68fd56ffa23f97558bd",
+          "count": 6
+        }
+      }
+    }
+  }
+}

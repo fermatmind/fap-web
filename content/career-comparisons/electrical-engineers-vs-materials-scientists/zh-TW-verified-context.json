@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d12aa956b3efaeabe4013ab28176978dc26fcc6dd3c45d6bda41692a4774d450",
+  "inputs": {
+    "pair_id": "electrical-engineers-vs-materials-scientists",
+    "slugs": [
+      "electrical-engineers",
+      "materials-scientists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/electrical-engineers-vs-materials-scientists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "electrical-engineers": {
+        "name": "電氣工程師",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.02,
+            5.45,
+            2.12,
+            1.72,
+            2.44,
+            4.43
+          ]
+        },
+        "tasks": [
+          "按合同、需求與適用標準研究並設計電氣裝置、部件與系統，完成電氣計算與裝置選型並記錄假設與裕度。",
+          "輸出技術圖紙、系統規範與工程檔案，並按單位制度完成校核、稽核與簽署。",
+          "組織或參與測試與驗證，依據判據確認符合性並記錄偏差處理與複測結果。",
+          "評估設計變更的影響範圍，復算受影響項並維護版本與批准記錄。",
+          "與工藝、機械、施工與供應商協作，明確介面、責任分界與交介面條件。",
+          "在授權範圍內確認設計結論，不越權批准設計檔案或變更。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2071",
+          "title_evidence": "official_title"
+        }
+      },
+      "materials-scientists": {
+        "name": "材料科學研究人員",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.82,
+            6.59,
+            2.17,
+            1.39,
+            1.86,
+            4.15
+          ]
+        },
+        "tasks": [
+          "投入物件：應用與效能要求、材料體系與樣品、試驗與檢測裝置、建模與計算工具、文獻與標準、工藝與製造成本約束、安全與合規要求、客戶與資助方需求。",
+          "可檢查產出：研究假設與試驗方案、結構與效能資料、失效與機理分析、強化或複合方案、新材料或新用途建議、論文與報告、測試方法、面向不同環境的選材建議。",
+          "完整工作流程：界定應用與效能要求 → 查閱文獻並形成假設 → 規劃並開展試驗與建模 → 分析結構與效能資料 → 提出材料或工藝方案 → 驗證並撰寫成果的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-2032",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "materials-scientists -> electrical-engineers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "electrical-engineers": {
+        "file_sha256": "b838a814a7f74cdcb7da6176dc4f6fc3dd68c2a5452b7e22df22aae34503dd02",
+        "entries": []
+      },
+      "materials-scientists": {
+        "file_sha256": "cf72d929b6c7f7a4088d6f42cc20a3d8c302000e858addc62694234def22d0a5",
+        "entries": [
+          "投入物件：應用與效能要求、材料體系與樣品、試驗與檢測裝置、建模與計算工具、文獻與標準、工藝與製造成本約束、安全與合規要求、客戶與資助方需求。",
+          "可檢查產出：研究假設與試驗方案、結構與效能資料、失效與機理分析、強化或複合方案、新材料或新用途建議、論文與報告、測試方法、面向不同環境的選材建議。",
+          "完整工作流程：界定應用與效能要求 → 查閱文獻並形成假設 → 規劃並開展試驗與建模 → 分析結構與效能資料 → 提出材料或工藝方案 → 驗證並撰寫成果的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 354,
+      "source_slugs": [
+        "electrical-engineers",
+        "materials-scientists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "electrical-engineers": {
+          "field": "paragraphs",
+          "source_path": "careers/electrical-engineers/zh-TW.json",
+          "file_sha256": "b838a814a7f74cdcb7da6176dc4f6fc3dd68c2a5452b7e22df22aae34503dd02",
+          "count": 6
+        },
+        "materials-scientists": {
+          "field": "entries",
+          "source_path": "careers/materials-scientists/zh-TW.json",
+          "file_sha256": "cf72d929b6c7f7a4088d6f42cc20a3d8c302000e858addc62694234def22d0a5",
+          "count": 3
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "fc5b8ac3bd71cdacd7761526faa0b4aa84568e3d1ee79a4e0c4e2766a955a63e",
+  "inputs": {
+    "pair_id": "brickmasons-and-blockmasons-vs-floor-layers-except-carpet-wood-and-hard-tiles",
+    "slugs": [
+      "brickmasons-and-blockmasons",
+      "floor-layers-except-carpet-wood-and-hard-tiles"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/brickmasons-and-blockmasons-vs-floor-layers-except-carpet-wood-and-hard-tiles",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "brickmasons-and-blockmasons": {
+        "name": "磚石與砌塊工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.95,
+            2.02,
+            1.67,
+            1.11,
+            1.21,
+            3.82
+          ]
+        },
+        "tasks": [
+          "讀圖與放線｜解讀圖紙與規範確定規格，按基準點量距並標記放線，計算角度與皮數｜一份註明依據與未決問題的放線記錄。",
+          "材料與砂漿準備｜核對磚、砌塊與砂漿材料規格與數量，按技術要求配製與使用砂漿｜符合要求且留有使用記錄的材料。",
+          "砌築與做角｜鋪攤砂漿、砌築磚與砌塊，先做角再拉線填中間並按皮數校正垂直與水平｜垂直平整、灰縫均勻的砌體。",
+          "切割與固定｜按尺寸切割與修整磚塊，按結構要求用卡箍、錨栓或澆築方式固定｜尺寸準確、錨固可靠的部位。",
+          "勾縫與清理｜清除多餘砂漿、勾縫與壓光，清理作業面並保護成品｜外觀均勻封閉且成品受保護的部位。",
+          "自檢與移交｜檢查垂直度、平整度與灰縫質量，記錄偏差並移交下道工序｜可追溯的自檢與移交記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-2021",
+          "title_evidence": "official_title"
+        }
+      },
+      "floor-layers-except-carpet-wood-and-hard-tiles": {
+        "name": "地板鋪設工（非地毯、木地板與硬質瓷磚類）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2042.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.39,
+            1.83,
+            1.56,
+            1.0,
+            3.68
+          ]
+        },
+        "tasks": [
+          "施工準備｜基層檢查與處理｜核對基層平整度、含水率、清潔度與強度，標記空鼓、裂縫與起砂部位，按材料說明決定找平、打磨或防潮處理方案；確認材料到貨型號、批次與儲存條件。",
+          "測量放線｜彈線與試鋪｜按房間幾何與材料規格確定起鋪基準線、鋪裝方向與拼縫排布，先做小面積試鋪驗證外觀與損耗，再展開正式鋪裝。",
+          "鋪裝作業｜裁剪、拼縫與貼上｜按尺寸裁剪與修邊，控制拼縫寬度與錯縫規則，按材料說明選用膠粘劑或鎖釦工藝並控制開放時間與壓輥工序。",
+          "收邊過渡｜邊角與門口部位｜處理牆邊收口、門口過渡、柱腳與管根部位，保證收邊順直、牢固、不翹邊，並與後續踢腳或壓條工序銜接。",
+          "完工自檢｜外觀與效能核對｜檢查空鼓、翹邊、鼓包、拼縫錯臺與色差，清理膠痕與殘料，按驗收要求形成可複核的自檢記錄。",
+          "成品保護與交接｜保護與留痕｜對已完工作面做覆蓋保護並限制交叉作業，向工長與後續工種交接已完成部位、材料餘量與需注意事項，異常與偏差一律留痕上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2042.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "47-2042",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "brickmasons-and-blockmasons -> floor-layers-except-carpet-wood-and-hard-tiles"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "brickmasons-and-blockmasons": {
+        "file_sha256": "787c26534fcc478bec124ba9265b26c98dc82c497cb713a25332b44b54849d6a",
+        "entries": [
+          "讀圖與放線｜解讀圖紙與規範確定規格，按基準點量距並標記放線，計算角度與皮數｜一份註明依據與未決問題的放線記錄。",
+          "材料與砂漿準備｜核對磚、砌塊與砂漿材料規格與數量，按技術要求配製與使用砂漿｜符合要求且留有使用記錄的材料。",
+          "砌築與做角｜鋪攤砂漿、砌築磚與砌塊，先做角再拉線填中間並按皮數校正垂直與水平｜垂直平整、灰縫均勻的砌體。",
+          "切割與固定｜按尺寸切割與修整磚塊，按結構要求用卡箍、錨栓或澆築方式固定｜尺寸準確、錨固可靠的部位。",
+          "勾縫與清理｜清除多餘砂漿、勾縫與壓光，清理作業面並保護成品｜外觀均勻封閉且成品受保護的部位。",
+          "自檢與移交｜檢查垂直度、平整度與灰縫質量，記錄偏差並移交下道工序｜可追溯的自檢與移交記錄。"
+        ]
+      },
+      "floor-layers-except-carpet-wood-and-hard-tiles": {
+        "file_sha256": "d781dd29e598fed5b106684ae34bb7d2b35597b5a8c1a89d50d22e2501aa4d96",
+        "entries": [
+          "施工準備｜基層檢查與處理｜核對基層平整度、含水率、清潔度與強度，標記空鼓、裂縫與起砂部位，按材料說明決定找平、打磨或防潮處理方案；確認材料到貨型號、批次與儲存條件。",
+          "測量放線｜彈線與試鋪｜按房間幾何與材料規格確定起鋪基準線、鋪裝方向與拼縫排布，先做小面積試鋪驗證外觀與損耗，再展開正式鋪裝。",
+          "鋪裝作業｜裁剪、拼縫與貼上｜按尺寸裁剪與修邊，控制拼縫寬度與錯縫規則，按材料說明選用膠粘劑或鎖釦工藝並控制開放時間與壓輥工序。",
+          "收邊過渡｜邊角與門口部位｜處理牆邊收口、門口過渡、柱腳與管根部位，保證收邊順直、牢固、不翹邊，並與後續踢腳或壓條工序銜接。",
+          "完工自檢｜外觀與效能核對｜檢查空鼓、翹邊、鼓包、拼縫錯臺與色差，清理膠痕與殘料，按驗收要求形成可複核的自檢記錄。",
+          "成品保護與交接｜保護與留痕｜對已完工作面做覆蓋保護並限制交叉作業，向工長與後續工種交接已完成部位、材料餘量與需注意事項，異常與偏差一律留痕上報。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 80,
+      "source_slugs": [
+        "brickmasons-and-blockmasons",
+        "floor-layers-except-carpet-wood-and-hard-tiles"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "brickmasons-and-blockmasons": {
+          "field": "entries",
+          "source_path": "careers/brickmasons-and-blockmasons/zh-TW.json",
+          "file_sha256": "787c26534fcc478bec124ba9265b26c98dc82c497cb713a25332b44b54849d6a",
+          "count": 6
+        },
+        "floor-layers-except-carpet-wood-and-hard-tiles": {
+          "field": "entries",
+          "source_path": "careers/floor-layers-except-carpet-wood-and-hard-tiles/zh-TW.json",
+          "file_sha256": "d781dd29e598fed5b106684ae34bb7d2b35597b5a8c1a89d50d22e2501aa4d96",
+          "count": 6
+        }
+      }
+    }
+  }
+}

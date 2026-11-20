@@ -1,0 +1,346 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3238b5c32520c9a0a9085861650e258a69d7bbd344b52988442abb3b236c7f95",
+  "inputs": {
+    "pair_id": "occupational-therapy-assistants-vs-speech-language-pathologists",
+    "slugs": [
+      "occupational-therapy-assistants",
+      "speech-language-pathologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/occupational-therapy-assistants-vs-speech-language-pathologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "occupational-therapy-assistants": {
+        "name": "Occupational therapy assistants",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.53,
+            3.48,
+            2.06,
+            6.1,
+            1.14,
+            4.21
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Instruct, or assist in instructing, patients and families in home programs, basic living skills, or the care and use of adaptive equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Maintain and promote a positive attitude toward clients and their treatment programs."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Report to supervisors, verbally or in writing, on patients' progress, attitudes, and behavior."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Implement, or assist occupational therapists with implementing, treatment plans designed to help clients function independently."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "speech-language-pathologists": {
+        "name": "Speech-language pathologists",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1127.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.62,
+            5.57,
+            3.0,
+            6.09,
+            1.44,
+            4.03
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1127.00#Tasks"
+              }
+            ],
+            "text": "Evaluate hearing or speech and language test results, barium swallow results, or medical or background information to diagnose and plan treatment for speech, language, fluency, voice, or swallowing disorders."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1127.00#Tasks"
+              }
+            ],
+            "text": "Write reports and maintain proper documentation of information, such as client Medicaid or billing records or caseload activities, including the initial evaluation, treatment, progress, and discharge of clients."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1127.00#Tasks"
+              }
+            ],
+            "text": "Monitor patients' progress and adjust treatments accordingly."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1127.00#Tasks"
+              }
+            ],
+            "text": "Develop or implement treatment plans for problems such as stuttering, delayed language, swallowing disorders, or inappropriate pitch or harsh voice problems, based on own assessments and recommendations of physicians, psychologists, or social workers."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1127.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1127",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "occupational-therapy-assistants -> speech-language-pathologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "ota",
+        "source_url": "https://www.onetonline.org/link/summary/31-2011.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Occupational therapy assistants carry out assigned therapy and document progress.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "slp",
+        "source_url": "https://www.onetonline.org/link/summary/29-1127.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Speech-language pathologists assess and treat speech, language and swallowing disorders.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "otbls",
+        "source_url": "https://www.bls.gov/ooh/healthcare/occupational-therapy-assistants-and-aides.htm",
+        "locator": "How to Become One; Pay",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages",
+          "summary": "OTA entry education and national median annual wage $72,300.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "slpbls",
+        "source_url": "https://www.bls.gov/ooh/healthcare/speech-language-pathologists.htm",
+        "locator": "How to Become One; Pay",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages",
+          "summary": "SLP entry education and national median annual wage $97,870.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "supervision",
+        "source_url": "https://bot.ca.gov/forms_pubs/supervision_faqs.shtml",
+        "locator": "OTA supervision and evaluation",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "OT retains overall responsibility and OTA functions under supervision.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "otalicense",
+        "source_url": "https://www.bot.ca.gov/applicants/application.shtml",
+        "locator": "Application",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "Board application for an OTA license.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "slplicense",
+        "source_url": "https://speechandhearing.ca.gov/applicants/slp/index.html",
+        "locator": "Qualifications for Licensure; Pathways",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "Graduate education, practicum, supervised experience and exam for full license.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "slpa",
+        "source_url": "https://speechandhearing.ca.gov/applicants/slp_assistant/index.html",
+        "locator": "Qualifications for Registration and supervision link",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "Separate assistant registration and supervision.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "otareq",
+        "source_url": "https://www.bot.ca.gov/forms_pubs/2026_sunsetreport.pdf",
+        "locator": "Licensing Program; BPC section 2570.6",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 report",
+          "summary": "Approved program, supervised fieldwork and examination requirements.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 545,
+      "source_slugs": [
+        "occupational-therapy-assistants",
+        "speech-language-pathologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,3 +1,10 @@
+import {
+  fixedComparisonPath,
+  isFixedComparisonLocale,
+  isFixedComparisonPreviewEnabled,
+  resolveFixedComparisonPair,
+  resolveReversedFixedComparisonPair,
+} from "@/lib/career/fixedComparisonPreview";
 import { CANONICAL_SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { AD_PLACEMENT_HEADER, AD_PLACEMENT_SEGMENT, entertainmentAdPlacement } from "@/lib/entertainment/adPlacement";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
@@ -406,6 +413,26 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
+  const comparisonIndex = pathname.match(/^\/(en|zh|zh-TW)\/career-compare\/?$/);
+  const previewComparison = isFixedComparisonPreviewEnabled() && (comparisonIndex || /^\/zh-TW\/career-compare\/[^/]+$/.test(pathname));
+  if (comparisonIndex && !isFixedComparisonPreviewEnabled()) return createPublicAbsenceResponse(404);
+  const comparison = pathname.match(/^\/([^/]+)\/career-compare\/([^/]+)$/);
+  if (comparison && isPublicReadMethod(request.method)) {
+    const [, locale, pairSlug] = comparison;
+    if (!isFixedComparisonPreviewEnabled() || !isFixedComparisonLocale(locale)) {
+      return createPublicAbsenceResponse(404);
+    }
+    const reversed = resolveReversedFixedComparisonPair(pairSlug);
+    if (reversed) {
+      const target = request.nextUrl.clone();
+      target.pathname = fixedComparisonPath(locale, reversed);
+      const response = NextResponse.redirect(target, 301);
+      response.headers.set("X-Robots-Tag", "noindex, follow");
+      response.headers.set("Cache-Control", "private, no-store");
+      return response;
+    }
+    if (!resolveFixedComparisonPair(pairSlug)) return createPublicAbsenceResponse(404);
+  }
   // The two verified INTJ aliases are handled by Next redirects before Proxy.
   if (/^\/(?:(?:en|zh|zh-TW)\/)?career\/recommendations\/mbti\/[^/]+\/?$/i.test(pathname)) {
     return createGoneResponse();
@@ -419,7 +446,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     ? pathname.slice("/zh-TW".length)
     : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
-    if (pathname !== "/zh-TW/personality" && !traditionalPath(pathname)
+    if (!previewComparison && pathname !== "/zh-TW/personality" && !traditionalPath(pathname)
       && !getTraditionalPublicAssetRoute(pathname) && !isTraditionalMbtiDetailPath(pathname)) {
       return createPublicAbsenceResponse(404);
     }
@@ -606,6 +633,10 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production" || request.nextUrl.protocol === "https:",
     });
+  }
+
+  if (comparisonIndex || comparison) {
+    response.headers.set("X-Robots-Tag", "noindex, follow");
   }
 
   if (isStagingHost) {

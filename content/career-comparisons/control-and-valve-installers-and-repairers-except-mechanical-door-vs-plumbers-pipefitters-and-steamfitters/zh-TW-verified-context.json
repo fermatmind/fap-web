@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2e8fa4d89c9e2dd022f94a2c358c0aea74d33679a98684b4f113b6983fadc984",
+  "inputs": {
+    "pair_id": "control-and-valve-installers-and-repairers-except-mechanical-door-vs-plumbers-pipefitters-and-steamfitters",
+    "slugs": [
+      "control-and-valve-installers-and-repairers-except-mechanical-door",
+      "plumbers-pipefitters-and-steamfitters"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/control-and-valve-installers-and-repairers-except-mechanical-door-vs-plumbers-pipefitters-and-steamfitters",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "control-and-valve-installers-and-repairers-except-mechanical-door": {
+        "name": "控制與閥門安裝維修工（非機械門類）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.85,
+            1.0,
+            1.2,
+            1.0,
+            4.51
+          ]
+        },
+        "tasks": [
+          "補充任務（不覆蓋全部崗位）｜安裝｜安裝計量與調節裝置｜安裝電錶、燃氣表、調壓器、恆溫器、安全閥與流量閥等機械式調節與控制裝置，並把調節器接到測試臺核對進出口壓力符合規格。",
+          "補充任務（不覆蓋全部崗位）｜檢測｜檢驗與測試裝置功能｜檢查閥門與機械控制裝置部件的缺陷、凹陷與鬆動，用測試裝置檢驗電錶、繼電器與電源，測試閥門與調壓器的洩漏與溫度壓力設定準確性。",
+          "補充任務（不覆蓋全部崗位）｜校準｜按壓力溫度流量液位校準｜按規格校準表計、壓力錶與調壓器的壓力、溫度、流量與液位讀數，調整設定機構與緊韌體至符合允許偏差。",
+          "核心拆修與潤滑｜維修機械控制裝置或閥門、潤滑運動表面為Core；換具體部件另屬Supplemental。美國1910.147限其覆蓋的裝置維護危險能量；排除電力公用事業獨佔控制的發輸配及相關計量設施、建築等，用電電危害另按subpartS。適用檢修由authorized employee按能量程式控制並驗證；不統一所有法域任務“上鎖並掛牌”。",
+          "記錄｜維護記錄為Core，抄表與安裝資料為Supplemental；按實際任務記測試、材料與維修，不能當所有崗位辦理結算。",
+          "安全與合規｜危險報告與非法接管處理為補充任務，停復供另核許可權。美國1910.147限其覆蓋的裝置維護危險能量；排除電力公用事業獨佔控制的發輸配及相關計量設施、建築等，用電電危害另按subpartS。適用檢修由authorized employee按能量程式控制並驗證；不統一所有法域任務“上鎖並掛牌”。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "49-9012",
+          "title_evidence": "official_title"
+        }
+      },
+      "plumbers-pipefitters-and-steamfitters": {
+        "name": "管道工、配管工與蒸汽管安裝工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2152.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.2,
+            1.0,
+            1.16,
+            1.0,
+            3.72
+          ]
+        },
+        "tasks": [
+          "資料核查｜核介質、圖紙版本、管材和現場交底｜不明條件交負責人。",
+          "作業準備｜由授權人員確認隔離、許可和工作範圍｜不明條件不動手。",
+          "管路安裝｜按批准方案處理管件、閥門、支架或器具｜記錄材料與位置。",
+          "系統維修｜在獲授權範圍內處理缺陷｜不自行開啟帶壓或燃氣系統。",
+          "檢查複核｜由有權人員按方案測試和驗收｜記錄結果及未完成項。",
+          "異常交班｜記錄介質、隔離和檢查疑點｜交負責人處置。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2152.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2152",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "control-and-valve-installers-and-repairers-except-mechanical-door -> plumbers-pipefitters-and-steamfitters"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "control-and-valve-installers-and-repairers-except-mechanical-door": {
+        "file_sha256": "4c64616fe2592b52a6aabd7aab6827f592d34692a695db5a9514862abe009924",
+        "entries": [
+          "補充任務（不覆蓋全部崗位）｜安裝｜安裝計量與調節裝置｜安裝電錶、燃氣表、調壓器、恆溫器、安全閥與流量閥等機械式調節與控制裝置，並把調節器接到測試臺核對進出口壓力符合規格。",
+          "補充任務（不覆蓋全部崗位）｜檢測｜檢驗與測試裝置功能｜檢查閥門與機械控制裝置部件的缺陷、凹陷與鬆動，用測試裝置檢驗電錶、繼電器與電源，測試閥門與調壓器的洩漏與溫度壓力設定準確性。",
+          "補充任務（不覆蓋全部崗位）｜校準｜按壓力溫度流量液位校準｜按規格校準表計、壓力錶與調壓器的壓力、溫度、流量與液位讀數，調整設定機構與緊韌體至符合允許偏差。",
+          "核心拆修與潤滑｜維修機械控制裝置或閥門、潤滑運動表面為Core；換具體部件另屬Supplemental。美國1910.147限其覆蓋的裝置維護危險能量；排除電力公用事業獨佔控制的發輸配及相關計量設施、建築等，用電電危害另按subpartS。適用檢修由authorized employee按能量程式控制並驗證；不統一所有法域任務“上鎖並掛牌”。",
+          "記錄｜維護記錄為Core，抄表與安裝資料為Supplemental；按實際任務記測試、材料與維修，不能當所有崗位辦理結算。",
+          "安全與合規｜危險報告與非法接管處理為補充任務，停復供另核許可權。美國1910.147限其覆蓋的裝置維護危險能量；排除電力公用事業獨佔控制的發輸配及相關計量設施、建築等，用電電危害另按subpartS。適用檢修由authorized employee按能量程式控制並驗證；不統一所有法域任務“上鎖並掛牌”。"
+        ]
+      },
+      "plumbers-pipefitters-and-steamfitters": {
+        "file_sha256": "65fe6a19c83c3c7db358cd4d73ae816a4877eced492dceba7eac93ce5622c045",
+        "entries": [
+          "資料核查｜核介質、圖紙版本、管材和現場交底｜不明條件交負責人。",
+          "作業準備｜由授權人員確認隔離、許可和工作範圍｜不明條件不動手。",
+          "管路安裝｜按批准方案處理管件、閥門、支架或器具｜記錄材料與位置。",
+          "系統維修｜在獲授權範圍內處理缺陷｜不自行開啟帶壓或燃氣系統。",
+          "檢查複核｜由有權人員按方案測試和驗收｜記錄結果及未完成項。",
+          "異常交班｜記錄介質、隔離和檢查疑點｜交負責人處置。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 231,
+      "source_slugs": [
+        "control-and-valve-installers-and-repairers-except-mechanical-door",
+        "plumbers-pipefitters-and-steamfitters"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "control-and-valve-installers-and-repairers-except-mechanical-door": {
+          "field": "entries",
+          "source_path": "careers/control-and-valve-installers-and-repairers-except-mechanical-door/zh-TW.json",
+          "file_sha256": "4c64616fe2592b52a6aabd7aab6827f592d34692a695db5a9514862abe009924",
+          "count": 6
+        },
+        "plumbers-pipefitters-and-steamfitters": {
+          "field": "entries",
+          "source_path": "careers/plumbers-pipefitters-and-steamfitters/zh-TW.json",
+          "file_sha256": "65fe6a19c83c3c7db358cd4d73ae816a4877eced492dceba7eac93ce5622c045",
+          "count": 6
+        }
+      }
+    }
+  }
+}

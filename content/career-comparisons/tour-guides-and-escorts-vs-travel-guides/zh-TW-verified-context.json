@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3c70b536cb631b09b835e47315c017cc5cdb13c25a6eb6417f40ba75d1ac894c",
+  "inputs": {
+    "pair_id": "tour-guides-and-escorts-vs-travel-guides",
+    "slugs": [
+      "tour-guides-and-escorts",
+      "travel-guides"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/tour-guides-and-escorts-vs-travel-guides",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "tour-guides-and-escorts": {
+        "name": "導遊和陪同人員",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-7011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.33,
+            2.4,
+            3.46,
+            5.35,
+            3.64,
+            2.85
+          ]
+        },
+        "tasks": [
+          "資料準備｜地點與背景查證｜查地點歷史、環境和經確認說明，區分已知事實、傳說與尚需核對的資訊。",
+          "安排核對｜站點和移動時間｜結合開放、遊客需求及已確認路線，復算移動講解問答時間，保留結束限制和變化記錄。",
+          "解釋服務｜講解與傾聽問題｜向遊客介紹興趣點，用清楚語言回應問題；未知內容說明待核，不靠AI自信補造。",
+          "參觀引導｜規則和活動觀察｜引導個人或團體參觀，說明場所規則，留意影響服務與安全的情況並按流程反饋。",
+          "變更溝通｜更新與許可權確認｜收到關閉、時段或單位安排變化，先核來源和可用備選，再向相應物件溝通，真實變更依實際要求。",
+          "結束維護｜問題和資料交接｜儲存待核問題、確認變化和講解版本，按適用規則保護遊客資訊並誠實說明經驗。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-7011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-7011",
+          "title_evidence": "official_title"
+        }
+      },
+      "travel-guides": {
+        "name": "旅行導遊",
+        "riasec": {
+          "code": "SEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-7012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.45,
+            2.34,
+            2.45,
+            4.84,
+            4.61,
+            4.3
+          ]
+        },
+        "tasks": [
+          "規劃｜研究路線與行程｜結合目的地和路線知識安排旅遊活動，核開放時間及關鍵約束。",
+          "協調｜交通住宿與裝置｜聯絡服務方確認條件，核裝置數量質量及專業支援安排。",
+          "服務｜解釋安排與團員需要｜說明集合、活動和限制，回應特別需要及問題。",
+          "執行｜跟進行程與變化｜落實已確認安排，識別延誤和服務問題，按許可權協調並報告。",
+          "記錄｜費用及服務反饋｜保留適用賬目與確認記錄，評價服務並向組織方反饋。",
+          "專項｜核能力與許可｜O*NET包含探險、車輛或急救任務；僅在取得相應能力許可權的崗位執行，不作普遍要求。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-7012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-7012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "travel-guides -> tour-guides-and-escorts"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "tour-guides-and-escorts": {
+        "file_sha256": "936ffd8e1c16340eed77b94f707c292ba334d51b44b9c529994ff85a876233a0",
+        "entries": []
+      },
+      "travel-guides": {
+        "file_sha256": "4e4654b43cba32f447381ddabf6fa17d08ed69fc58173d641e3d061d529de1b0",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 696,
+      "source_slugs": [
+        "tour-guides-and-escorts",
+        "travel-guides"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "tour-guides-and-escorts": {
+          "field": "paragraphs",
+          "source_path": "careers/tour-guides-and-escorts/zh-TW.json",
+          "file_sha256": "936ffd8e1c16340eed77b94f707c292ba334d51b44b9c529994ff85a876233a0",
+          "count": 6
+        },
+        "travel-guides": {
+          "field": "paragraphs",
+          "source_path": "careers/travel-guides/zh-TW.json",
+          "file_sha256": "4e4654b43cba32f447381ddabf6fa17d08ed69fc58173d641e3d061d529de1b0",
+          "count": 6
+        }
+      }
+    }
+  }
+}

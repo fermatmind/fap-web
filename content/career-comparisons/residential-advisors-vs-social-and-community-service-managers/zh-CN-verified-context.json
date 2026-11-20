@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7f4cf632a0c4caecaa116e30c24ff898fd8b4c3b687e2228f3ba5bdb02c01ab3",
+  "inputs": {
+    "pair_id": "residential-advisors-vs-social-and-community-service-managers",
+    "slugs": [
+      "residential-advisors",
+      "social-and-community-service-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/residential-advisors-vs-social-and-community-service-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "residential-advisors": {
+        "name": "住宿辅导员",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-9041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.82,
+            2.37,
+            2.25,
+            5.28,
+            3.81,
+            4.63
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-9041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "39-9041",
+          "title_evidence": "official_title"
+        }
+      },
+      "social-and-community-service-managers": {
+        "name": "社会与社区服务经理",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9151.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.17,
+            2.43,
+            5.43,
+            6.97,
+            4.21
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9151.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9151",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "residential-advisors -> social-and-community-service-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：住宿管理与支持岗位协调住户日常事务、物资、维修和转介，保留交班记录；后岗：协调项目、人员、预算和参与条件，跟踪实际服务交付与改进。",
+    "cn_qualification": {
+      "residential-advisors": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "social-and-community-service-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "ra",
+        "source_url": "https://www.onetonline.org/link/details/39-9041.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Residential advisors assist residents and coordinate supplies and maintenance requests.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "mgr",
+        "source_url": "https://www.onetonline.org/link/details/11-9151.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Managers direct social service programs, staff and budgets.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-housing",
+        "source_url": "https://xxgk.jscst.edu.cn/2018/0928/c1090a43727/page.htm",
+        "locator": "第二部分管理服务人员职责；第四部分第5项；第六部分第1项",
+        "value": {
+          "jurisdiction": "中国大陆，江苏徐州",
+          "effective_or_period": "2018-09-28 校方发布",
+          "summary": "江苏安全技术职业学院公开方案列明宿舍交接、报修登记、楼栋值班覆盖及公共洗衣房责任。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-program",
+        "source_url": "https://czju.suzhou.gov.cn/zfcg/html/project/db7b53eed43a4a5f9b4346a84362b895.shtml",
+        "locator": "采购需求（一）至（四）：一至三标段服务、第四标段绩效评价和财务评审",
+        "value": {
+          "jurisdiction": "中国大陆，苏州",
+          "effective_or_period": "2026",
+          "summary": "一至三标段承接站室服务，第四标段另行承担评价、督导和财务评审。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 637,
+      "source_slugs": [
+        "residential-advisors",
+        "social-and-community-service-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

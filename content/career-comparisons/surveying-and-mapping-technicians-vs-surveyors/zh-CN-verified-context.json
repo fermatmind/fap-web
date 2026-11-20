@@ -1,0 +1,166 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ac7553a5f16cae60eb4716a986143e49bcb00211451e1aeb37c02ae0c5144f80",
+  "inputs": {
+    "pair_id": "surveying-and-mapping-technicians-vs-surveyors",
+    "slugs": [
+      "surveying-and-mapping-technicians",
+      "surveyors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/surveying-and-mapping-technicians-vs-surveyors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "surveying-and-mapping-technicians": {
+        "name": "测量与制图技术员",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.94,
+            4.03,
+            1.91,
+            1.0,
+            1.0,
+            5.63
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-3031",
+          "title_evidence": "official_title"
+        }
+      },
+      "surveyors": {
+        "name": "测量师",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-1022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.25,
+            4.73,
+            2.12,
+            1.63,
+            1.88,
+            5.29
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-1022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-1022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "surveying-and-mapping-technicians -> surveyors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在工程师、测量师或制图专业人员指导下采集、整理和核对空间数据，计算测量结果并制作或更新地图；后岗：核对测量记录、地籍及权属资料，测定位置、高程和界线，编制草图、地图、报告与界线描述，并按所在法域及职责承担成果复核和认证责任。",
+    "cn_qualification": {
+      "surveying-and-mapping-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "surveyors": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/201506/t20150616_776756.html"
+        ]
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "17-3031.00",
+        "source_url": "https://www.onetonline.org/link/summary/17-3031.00",
+        "locator": "Tasks 22131, 22130, 22115, 22125",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Recovers survey points, prepares measurements and enters field and survey records into GIS.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "17-1022.00",
+        "source_url": "https://www.onetonline.org/link/summary/17-1022.00",
+        "locator": "Tasks 3530, 3528, 3534, 3529",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Conducts and verifies surveys and prepares records and legal boundary descriptions.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 687,
+      "source_slugs": [
+        "surveying-and-mapping-technicians",
+        "surveyors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

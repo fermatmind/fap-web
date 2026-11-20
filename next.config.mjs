@@ -164,10 +164,13 @@ const nextConfig = {
   // CI typechecks test sources separately; standalone builds check the application.
   typescript: { tsconfigPath: "tsconfig.build.json" },
   outputFileTracingIncludes: {
+    "/**/career-compare/**/*": ["./content/career-comparisons/*/zh-CN.md", "./content/career-comparisons/*/zh-TW.md", "./content/career-comparisons/*/en.md"],
     "/*": ["./node_modules/.pnpm/@swc+helpers@*/node_modules/@swc/helpers/**/*"],
   },
   outputFileTracingExcludes: {
     "/*": [
+      "./content/career-comparisons/**/*.json",
+      "./content/career-comparisons/README.md",
       "./AGENTS.md",
       "./CONTRIBUTING.md",
       "./README.md",

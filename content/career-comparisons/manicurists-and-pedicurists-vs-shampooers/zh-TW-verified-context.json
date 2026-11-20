@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "97f18e79bc131177fbc6c1d7356433b23a7f2ee2147c16cfff7e38d4bf05f134",
+  "inputs": {
+    "pair_id": "manicurists-and-pedicurists-vs-shampooers",
+    "slugs": [
+      "manicurists-and-pedicurists",
+      "shampooers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/manicurists-and-pedicurists-vs-shampooers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "manicurists-and-pedicurists": {
+        "name": "手足美甲師",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.63,
+            1.3,
+            2.29,
+            3.06,
+            2.35,
+            3.67
+          ]
+        },
+        "tasks": [
+          "投入物件：顧客的手指甲與腳趾甲及其狀況、預約與需求說明、美甲工具與一次性耗材、消毒用品與化學品（甲油、溶劑、粉末、卸甲液）、產品與色卡、服務與庫存記錄、收款與預約系統。",
+          "可檢查產出：清潔修整並完成上色或裝飾的指甲、完成消毒的工具與工位、甲面與手部狀況的評估與護理建議、服務與庫存記錄、預約與收款記錄、需要轉介或升級時的說明。",
+          "完整工作流程：核對預約與需求 → 檢查手部與甲面狀況並確認禁忌 → 清潔消毒工具與工位 → 處理甲緣角質並修剪打磨甲形 → 塗底油與上色或裝飾（必要時延長或加固）→ 檢查成品與顧客確認 → 記錄服務與庫存並收款。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "39-5092",
+          "title_evidence": "official_title"
+        }
+      },
+      "shampooers": {
+        "name": "洗髮師",
+        "riasec": {
+          "code": "RSC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.53,
+            1.35,
+            1.56,
+            3.75,
+            2.47,
+            3.37
+          ]
+        },
+        "tasks": [
+          "接待與確認｜詢問顧客本次洗護目標、頭皮不適、產品偏好及已知禁忌，確認服務範圍。｜交付明確的產品和服務選擇，不診斷疾病。",
+          "準備與保護｜清潔工作臺和用品，核對產品及水溫，為顧客圍上披肩或毛巾以保護衣物。｜交付可安全開始洗護的工位與用品。",
+          "清洗與按摩｜溼潤頭髮，按培訓方法塗用洗髮產品並清潔頭髮與頭皮；力度和時長按反饋調整。｜交付已清潔的頭髮，避免抓傷或刺激。",
+          "沖洗與護理｜將洗髮劑及護理產品充分衝淨，避免水或產品進入眼耳並確認顧客舒適。｜交付無明顯殘留的頭髮與頭皮。",
+          "觀察與交接｜發現持續不適、疑似傳染或異常反應時停止並向負責人報告，必要時建議就醫。｜記錄已用產品與異常，不作醫學結論。",
+          "整理與補給｜更換或清洗毛巾，清潔洗髮區，補足產品並交接下一服務環節。｜保持用品衛生和後續服務可接續。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-5093",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "manicurists-and-pedicurists -> shampooers",
+      "shampooers -> manicurists-and-pedicurists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "manicurists-and-pedicurists": {
+        "file_sha256": "70bb1673d7be38060c00e2d6b1d04cd0e667a7f8e0040f05e45e0bf7e5fa74ac",
+        "entries": [
+          "投入物件：顧客的手指甲與腳趾甲及其狀況、預約與需求說明、美甲工具與一次性耗材、消毒用品與化學品（甲油、溶劑、粉末、卸甲液）、產品與色卡、服務與庫存記錄、收款與預約系統。",
+          "可檢查產出：清潔修整並完成上色或裝飾的指甲、完成消毒的工具與工位、甲面與手部狀況的評估與護理建議、服務與庫存記錄、預約與收款記錄、需要轉介或升級時的說明。",
+          "完整工作流程：核對預約與需求 → 檢查手部與甲面狀況並確認禁忌 → 清潔消毒工具與工位 → 處理甲緣角質並修剪打磨甲形 → 塗底油與上色或裝飾（必要時延長或加固）→ 檢查成品與顧客確認 → 記錄服務與庫存並收款。"
+        ]
+      },
+      "shampooers": {
+        "file_sha256": "10787525c8bc823024f4288f315172523ce639420241505f87fbd04d92e1ecbb",
+        "entries": [
+          "接待與確認｜詢問顧客本次洗護目標、頭皮不適、產品偏好及已知禁忌，確認服務範圍。｜交付明確的產品和服務選擇，不診斷疾病。",
+          "準備與保護｜清潔工作臺和用品，核對產品及水溫，為顧客圍上披肩或毛巾以保護衣物。｜交付可安全開始洗護的工位與用品。",
+          "清洗與按摩｜溼潤頭髮，按培訓方法塗用洗髮產品並清潔頭髮與頭皮；力度和時長按反饋調整。｜交付已清潔的頭髮，避免抓傷或刺激。",
+          "沖洗與護理｜將洗髮劑及護理產品充分衝淨，避免水或產品進入眼耳並確認顧客舒適。｜交付無明顯殘留的頭髮與頭皮。",
+          "觀察與交接｜發現持續不適、疑似傳染或異常反應時停止並向負責人報告，必要時建議就醫。｜記錄已用產品與異常，不作醫學結論。",
+          "整理與補給｜更換或清洗毛巾，清潔洗髮區，補足產品並交接下一服務環節。｜保持用品衛生和後續服務可接續。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 493,
+      "source_slugs": [
+        "manicurists-and-pedicurists",
+        "shampooers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "manicurists-and-pedicurists": {
+          "field": "entries",
+          "source_path": "careers/manicurists-and-pedicurists/zh-TW.json",
+          "file_sha256": "70bb1673d7be38060c00e2d6b1d04cd0e667a7f8e0040f05e45e0bf7e5fa74ac",
+          "count": 3
+        },
+        "shampooers": {
+          "field": "entries",
+          "source_path": "careers/shampooers/zh-TW.json",
+          "file_sha256": "10787525c8bc823024f4288f315172523ce639420241505f87fbd04d92e1ecbb",
+          "count": 6
+        }
+      }
+    }
+  }
+}

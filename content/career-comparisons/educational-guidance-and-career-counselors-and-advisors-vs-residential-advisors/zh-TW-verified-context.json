@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4dbd0b3da4293399923efb0583d123054f6df918343b282a131b33517a5c0552",
+  "inputs": {
+    "pair_id": "educational-guidance-and-career-counselors-and-advisors-vs-residential-advisors",
+    "slugs": [
+      "educational-guidance-and-career-counselors-and-advisors",
+      "residential-advisors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/educational-guidance-and-career-counselors-and-advisors-vs-residential-advisors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "name": "教育指導與職業顧問",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.3,
+            3.13,
+            7.0,
+            3.92,
+            4.09
+          ]
+        },
+        "tasks": [
+          "常見輸入：來訪者能力與興趣與需求與背景、學業與升學與就業與資助資訊、諮詢與測評方法與專業倫理、學校與機構與僱主與家庭的資源與制度資訊，以及約談與講座與專案與危機與轉介安排。",
+          "核心產出：按需求與倫理實施的個人與團體諮詢與生涯規劃、按資料形成的測評解讀與指導方案、按制度完成的約談與跟進與記錄與保密與轉介記錄、按專案完成的講座與活動與評估材料，以及可複核的服務與效果記錄。",
+          "典型流程：評估與諮詢與規劃—協作與記錄與轉介—專案與倡導與專業發展。",
+          "常協作物件：來訪者與家長與教師與輔導員與班主任、院校招生與就業與資助部門、僱主與培訓機構與社工與醫療與心理諮詢人員、督導與行業協會與主管部門、社群與公益與志願資源。",
+          "常見工具與物件：需求評估與諮詢與面談與記錄與預約系統、興趣與能力與人格與生涯測評工具與解讀資料、升學與就業與資助與院校與僱主資訊庫、專案與講座與活動與效果評估工具、保密與知情同意與轉介與危機處置流程與文書。",
+          "責任邊界：本職業承擔按來訪者利益與專業倫理與資料提供諮詢與指導與記錄並對保密與轉介與來訪者安全的執行責任；須按需求與倫理與資料確定諮詢與測評目標、須按諮詢理論與測評工具與倫理實施與解釋、須按專業倫理與制度記錄與保密與跟進、須按最新資訊核對升學與就業資訊、須按制度協作與轉介、須按資料許可權與隱私使用來訪者資訊、不得超出授權對外出具醫療或心理或法律或錄用結論，異常事項按制度上報與轉介。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1012",
+          "title_evidence": "official_title"
+        }
+      },
+      "residential-advisors": {
+        "name": "住宿輔導員",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-9041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.82,
+            2.37,
+            2.25,
+            5.28,
+            3.81,
+            4.63
+          ]
+        },
+        "tasks": [
+          "住戶支援｜接收學生或住戶提出的生活與人際問題，確認事實、緊急程度及機構可提供的幫助。｜記錄問題和後續責任人，超出崗位能力時轉介輔導或醫療等專業人員。",
+          "秩序與規則｜解釋並執行住宿設施規則，觀察異常行為和衝突跡象。｜形成客觀事件記錄並按機構程式報告，不自行作醫療診斷或超授權處分。",
+          "衝突處理｜傾聽當事人、區分已知事實與爭議，必要時聯絡其他工作人員。｜記錄溝通結果、未解決事項和升級路徑。",
+          "活動協調｜按住戶需要和機構計劃組織教育、社交或生活活動。｜交付活動安排、參與反饋和後續改進記錄。",
+          "設施與物資｜巡查公共區域，報告維修和用品需求，按授權協助安排房間或物資。｜交付工單、物資記錄和責任人交接；不把工程驗收或採購簽約寫成通用職責。",
+          "交班與安全｜交接未結事項，發現傷害、火情或其他緊急風險時遵循機構預案。｜保留最小必要事實、通知記錄和接手確認；實際急救許可權依培訓及當地規定。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-9041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "39-9041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "residential-advisors -> educational-guidance-and-career-counselors-and-advisors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "file_sha256": "fea0daa4d440131bc70cbb0c4763d1db6bfa02a633eb18560688fd265617ad46",
+        "entries": []
+      },
+      "residential-advisors": {
+        "file_sha256": "a511cfb321a08ad22a445652205c0c75a0dfe652fe01fec8f892d8695fd6ec9a",
+        "entries": [
+          "住戶支援｜接收學生或住戶提出的生活與人際問題，確認事實、緊急程度及機構可提供的幫助。｜記錄問題和後續責任人，超出崗位能力時轉介輔導或醫療等專業人員。",
+          "秩序與規則｜解釋並執行住宿設施規則，觀察異常行為和衝突跡象。｜形成客觀事件記錄並按機構程式報告，不自行作醫療診斷或超授權處分。",
+          "衝突處理｜傾聽當事人、區分已知事實與爭議，必要時聯絡其他工作人員。｜記錄溝通結果、未解決事項和升級路徑。",
+          "活動協調｜按住戶需要和機構計劃組織教育、社交或生活活動。｜交付活動安排、參與反饋和後續改進記錄。",
+          "設施與物資｜巡查公共區域，報告維修和用品需求，按授權協助安排房間或物資。｜交付工單、物資記錄和責任人交接；不把工程驗收或採購簽約寫成通用職責。",
+          "交班與安全｜交接未結事項，發現傷害、火情或其他緊急風險時遵循機構預案。｜保留最小必要事實、通知記錄和接手確認；實際急救許可權依培訓及當地規定。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 329,
+      "source_slugs": [
+        "educational-guidance-and-career-counselors-and-advisors",
+        "residential-advisors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "educational-guidance-and-career-counselors-and-advisors": {
+          "field": "paragraphs",
+          "source_path": "careers/educational-guidance-and-career-counselors-and-advisors/zh-TW.json",
+          "file_sha256": "fea0daa4d440131bc70cbb0c4763d1db6bfa02a633eb18560688fd265617ad46",
+          "count": 6
+        },
+        "residential-advisors": {
+          "field": "entries",
+          "source_path": "careers/residential-advisors/zh-TW.json",
+          "file_sha256": "a511cfb321a08ad22a445652205c0c75a0dfe652fe01fec8f892d8695fd6ec9a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "849b4d5762e4f05da576c1dc7d65f2d85ed178dbc2eaa9808f491fb5d065d8e7",
+  "inputs": {
+    "pair_id": "clinical-nurse-specialists-vs-critical-care-nurses",
+    "slugs": [
+      "clinical-nurse-specialists",
+      "critical-care-nurses"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clinical-nurse-specialists-vs-critical-care-nurses",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clinical-nurse-specialists": {
+        "name": "臨床護士專員",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.34,
+            4.86,
+            1.81,
+            6.23,
+            3.69,
+            4.04
+          ]
+        },
+        "tasks": [
+          "高階護理評估與計劃｜評估患者需求並形成照護計劃｜觀察、訪談並評估患者以識別照護需求，完成全面健康評估、形成鑑別判斷、開展專科檢查或開具藥物或治療，並與其他醫療專業人員協作（對應 O*NET 任務第九與第十二與第二項）。 診斷、檢查和處方按實際執業州資質核，不由任務表授權。",
+          "專科直接與間接照護｜在指定專科內提供專門化照護｜在指定專科（如產科、神經科、腫瘤科或新生兒照護）內提供專門化的直接與間接照護，並與其他醫療專業人員及服務提供者協作以確保最佳患者照護（對應 O*NET 任務第一與第二項）。",
+          "標準與政策維護｜制定並維護護理標準與科室政策｜制定、實施或評估專科領域的護理實踐標準，維護科室政策、規程、目標或感染控制標準，並依據循證實踐指南或專家意見制定與維護患者照護標準（對應 O*NET 任務第四與第五與第七項）。",
+          "質量與流程改進｜評估並改進護理實踐與組織系統｜評估護理實踐或組織系統的質量與有效性，設計相應的評估方案，並對系統缺陷提出改進建議（對應 O*NET 任務第八與第十三項）。",
+          "教學與帶教｜培訓護理人員與醫療團隊｜指導護理人員在評估、發展、實施與評價殘障、疾病、管理、技術或資源方面的工作，向其他照護者提供輔導與帶教，識別培訓需求或開展培訓，並協調或開展教育專案與在職培訓（對應 O*NET 任務第六與第十與第十五與第十六項）。",
+          "諮詢與建議｜向團隊與患者提供專業建議｜向其他醫療提供者提供出院、患者照護或臨床操作方面的諮詢，就臨床問題向醫師、其他醫療提供者、保險機構、患者或醫療機構提出臨床建議，並推進護理部門對法規或認證流程的合規（對應 O*NET 任務第十四與第十七與第二十三項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      },
+      "critical-care-nurses": {
+        "name": "重症護理護士",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.91,
+            5.02,
+            1.7,
+            5.56,
+            2.2,
+            4.23
+          ]
+        },
+        "tasks": [
+          "持續評估與監護｜評測生命體徵與檢驗資料｜評測患者生命體徵或檢驗資料以判斷緊急干預需要，監測病情與膿毒症或休克等指徵並採取相應干預，編制並分析監護與診斷資料。",
+          "醫囑執行與生命支援護理｜按醫囑與規範執行｜經靜脈、注射、口服或胃管等途徑給藥，監測出入量與體液電解質平衡，輸注血液與血製品並觀察輸血反應，設定並監護心電監護、呼吸機與報警、氧療裝置、換能器與壓力監測管路等裝置。",
+          "操作與標本｜完成獲批的診療操作｜按臨床狀況執行獲批的治療或診斷性操作，採集檢驗標本，進行肺部評估以識別異常呼吸形態或呼吸音，協助醫生完成支氣管鏡、內鏡、氣管插管或擇期電覆律等操作。",
+          "記錄與交接｜按規範記錄並交接｜記錄病史與評估發現、治療計劃、干預與結果或計劃修訂，按結構化方式向下一班與跨專業團隊交接並參與患者照護會議。",
+          "風險與團隊協作｜識別風險並協作｜識別故障裝置、營養風險、心理社會需求與年齡相關需求，為患者與家屬提供解釋與情感支援，評估家庭適應與應對並監督本單元護理人員。",
+          "質量與專業發展：參加專業組織和繼續教育，參與護理規範制定評估、照護會議，為護理人員、團隊及社群成員規劃教育；當前任務還含死亡後護理與裝置妥善存放。Core不等個人每班必須執行全部任務。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clinical-nurse-specialists -> critical-care-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clinical-nurse-specialists": {
+        "file_sha256": "8729e3e74408138aa37794b1397f74481a2c4080843a509be610e719349227c9",
+        "entries": [
+          "高階護理評估與計劃｜評估患者需求並形成照護計劃｜觀察、訪談並評估患者以識別照護需求，完成全面健康評估、形成鑑別判斷、開展專科檢查或開具藥物或治療，並與其他醫療專業人員協作（對應 O*NET 任務第九與第十二與第二項）。 診斷、檢查和處方按實際執業州資質核，不由任務表授權。",
+          "專科直接與間接照護｜在指定專科內提供專門化照護｜在指定專科（如產科、神經科、腫瘤科或新生兒照護）內提供專門化的直接與間接照護，並與其他醫療專業人員及服務提供者協作以確保最佳患者照護（對應 O*NET 任務第一與第二項）。",
+          "標準與政策維護｜制定並維護護理標準與科室政策｜制定、實施或評估專科領域的護理實踐標準，維護科室政策、規程、目標或感染控制標準，並依據循證實踐指南或專家意見制定與維護患者照護標準（對應 O*NET 任務第四與第五與第七項）。",
+          "質量與流程改進｜評估並改進護理實踐與組織系統｜評估護理實踐或組織系統的質量與有效性，設計相應的評估方案，並對系統缺陷提出改進建議（對應 O*NET 任務第八與第十三項）。",
+          "教學與帶教｜培訓護理人員與醫療團隊｜指導護理人員在評估、發展、實施與評價殘障、疾病、管理、技術或資源方面的工作，向其他照護者提供輔導與帶教，識別培訓需求或開展培訓，並協調或開展教育專案與在職培訓（對應 O*NET 任務第六與第十與第十五與第十六項）。",
+          "諮詢與建議｜向團隊與患者提供專業建議｜向其他醫療提供者提供出院、患者照護或臨床操作方面的諮詢，就臨床問題向醫師、其他醫療提供者、保險機構、患者或醫療機構提出臨床建議，並推進護理部門對法規或認證流程的合規（對應 O*NET 任務第十四與第十七與第二十三項）。"
+        ]
+      },
+      "critical-care-nurses": {
+        "file_sha256": "22f2991cdf0dfccf2e8c8fc5da6b90a31f47f78816f6e743c3b7e97dcd27b3c4",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 171,
+      "source_slugs": [
+        "clinical-nurse-specialists",
+        "critical-care-nurses"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clinical-nurse-specialists": {
+          "field": "entries",
+          "source_path": "careers/clinical-nurse-specialists/zh-TW.json",
+          "file_sha256": "8729e3e74408138aa37794b1397f74481a2c4080843a509be610e719349227c9",
+          "count": 6
+        },
+        "critical-care-nurses": {
+          "field": "paragraphs",
+          "source_path": "careers/critical-care-nurses/zh-TW.json",
+          "file_sha256": "22f2991cdf0dfccf2e8c8fc5da6b90a31f47f78816f6e743c3b7e97dcd27b3c4",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "519fc773e8e6301360cc8b6799ba1a72ffb4e92821ecad2bee8d54a552fc3dc7",
+  "inputs": {
+    "pair_id": "farmworkers-farm-ranch-and-aquacultural-animals-vs-veterinary-technologists-and-technicians",
+    "slugs": [
+      "farmworkers-farm-ranch-and-aquacultural-animals",
+      "veterinary-technologists-and-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/farmworkers-farm-ranch-and-aquacultural-animals-vs-veterinary-technologists-and-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "farmworkers-farm-ranch-and-aquacultural-animals": {
+        "name": "農場、牧場與水產養殖農工",
+        "riasec": {
+          "code": "R",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "45-2093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.78,
+            2.66,
+            1.42,
+            2.5,
+            1.92,
+            2.95
+          ]
+        },
+        "tasks": [
+          "飼餵與供水｜按配方與時間飼餵並檢查存料｜保障飲水與礦物質供應",
+          "放牧與轉群｜按計劃趕放與輪牧｜把動物轉到稱重灌車或圈欄",
+          "健康觀察與處置｜觀察採食體況與行為異常｜按指示用藥並請獸醫處理",
+          "繁殖與標識｜協助接產與繁殖作業｜打耳標烙印或噴漆標識分群",
+          "生產作業｜執行擠奶集蛋與剪毛等作業｜按標準收集與初處理產品",
+          "清潔與設施｜清洗消毒畜舍圈欄與裝置｜檢查維修圍欄圈舍與機具"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "45-2093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "45-2093",
+          "title_evidence": "official_title"
+        }
+      },
+      "veterinary-technologists-and-technicians": {
+        "name": "獸醫技師與技術員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2056.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.71,
+            5.26,
+            1.0,
+            3.02,
+            1.0,
+            4.56
+          ]
+        },
+        "tasks": [
+          "01｜核對物件與樣本｜核對病例、動物與樣本資訊，保留標識和來源。",
+          "02｜臨床檢驗支援｜按培訓和監督安排提供臨床檢驗支援，記錄結果及狀態。",
+          "03｜護理觀察記錄｜協助護理觀察並留記錄，異常及時反饋獸醫。",
+          "04｜器械材料準備｜按單位規程準備、清潔維護器械及材料，異常另報。",
+          "05｜病例物料記錄｜記錄病例、物料與相關工作資訊，不擅造完成或診斷。",
+          "06｜職責內溝通｜與獸醫、研究團隊及飼主溝通職責內資訊，越界問題交許可權者。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2056.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-2056",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "farmworkers-farm-ranch-and-aquacultural-animals -> veterinary-technologists-and-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "farmworkers-farm-ranch-and-aquacultural-animals": {
+        "file_sha256": "858e90a8bb3c879b32a3b828ce7450594f3d10b3c7c7816c76352cf63c6fd5dd",
+        "entries": [
+          "飼餵與供水｜按配方與時間飼餵並檢查存料｜保障飲水與礦物質供應",
+          "放牧與轉群｜按計劃趕放與輪牧｜把動物轉到稱重灌車或圈欄",
+          "健康觀察與處置｜觀察採食體況與行為異常｜按指示用藥並請獸醫處理",
+          "繁殖與標識｜協助接產與繁殖作業｜打耳標烙印或噴漆標識分群",
+          "生產作業｜執行擠奶集蛋與剪毛等作業｜按標準收集與初處理產品",
+          "清潔與設施｜清洗消毒畜舍圈欄與裝置｜檢查維修圍欄圈舍與機具"
+        ]
+      },
+      "veterinary-technologists-and-technicians": {
+        "file_sha256": "937db4a5f367910910edfd59573b91d769e5d36afa3da32631892850baf9c2ee",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 427,
+      "source_slugs": [
+        "farmworkers-farm-ranch-and-aquacultural-animals",
+        "veterinary-technologists-and-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "farmworkers-farm-ranch-and-aquacultural-animals": {
+          "field": "entries",
+          "source_path": "careers/farmworkers-farm-ranch-and-aquacultural-animals/zh-TW.json",
+          "file_sha256": "858e90a8bb3c879b32a3b828ce7450594f3d10b3c7c7816c76352cf63c6fd5dd",
+          "count": 6
+        },
+        "veterinary-technologists-and-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/veterinary-technologists-and-technicians/zh-TW.json",
+          "file_sha256": "937db4a5f367910910edfd59573b91d769e5d36afa3da32631892850baf9c2ee",
+          "count": 6
+        }
+      }
+    }
+  }
+}

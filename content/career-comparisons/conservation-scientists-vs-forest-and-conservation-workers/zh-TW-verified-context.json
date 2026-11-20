@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "93c8f3f4756f73239104d46c555c9da3053a131ae4c30e3ea4a23c662e4ef6b2",
+  "inputs": {
+    "pair_id": "conservation-scientists-vs-forest-and-conservation-workers",
+    "slugs": [
+      "conservation-scientists",
+      "forest-and-conservation-workers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/conservation-scientists-vs-forest-and-conservation-workers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "conservation-scientists": {
+        "name": "自然保護科學家",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.15,
+            5.7,
+            1.97,
+            2.87,
+            3.16,
+            3.98
+          ]
+        },
+        "tasks": [
+          "調查｜開展土壤與資源調查｜開展土壤、水體與植被調查，採集地形與土地利用資料，並讀取地理資訊資料支撐判斷。",
+          "分析｜分析資料判斷成因｜整理並分析調查與監測資料，判斷侵蝕、退化或管理問題的成因與影響範圍。",
+          "設計｜編制保護方案與規格｜編制土壤保持、植被恢復與牧場改良方案，計算設計規格並寫明適用條件。",
+          "估算｜估算成本與維護要求｜計算不同保護措施的建設成本、維護週期與使用壽命，並說明計算假設。",
+          "指導｜向土地使用者提供指導｜向農戶、牧場主與土地使用方提供建議與培訓，協助其按方案實施並跟蹤效果。",
+          "合規｜核查合規並回訪複核｜在施工期間或建成後監督是否符合設計規格，開展合規核查與回訪並按規定記錄留痕。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-1031",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "forest-and-conservation-workers": {
+        "name": "森林與自然保護從業人員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "45-4011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.33,
+            1.0,
+            2.71,
+            3.03,
+            4.07
+          ]
+        },
+        "tasks": [
+          "苗木與造林作業｜培育與栽植｜按作業設計要求準備與分選苗木並完成栽植與補植。",
+          "撫育與清理作業｜除草與間伐與清林｜按指定標記或規格完成除草與間伐與枝條與灌木清理與搬運。",
+          "設施與營地維護｜道路與圍欄與營地｜修建與維護控制水分與侵蝕的設施，維護道路與圍欄與營地與休閒區補給。",
+          "病蟲害防治輔助｜藥劑與器械施用｜按標籤與規程在指導下施用殺蟲或除草藥劑並保管器械與藥劑。",
+          "防火與巡查協助｜用火管理與滅火作業｜在防火與消防負責人指揮下執行用火管理與滅火與防火帶開設與可燃物清理。",
+          "調查協助與規程告知｜計數與設樁與告知｜協助調查隊清理測線並扶持測量器具與設樁與如實計數，向使用者說明露營與用火與衛生等規定。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "45-4011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "45-4011",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "forest-and-conservation-workers -> conservation-scientists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "conservation-scientists": {
+        "file_sha256": "557ecaf10c29c0da427242166faad711aec8b4e2b983097d5be1f52755f02293",
+        "entries": [
+          "調查｜開展土壤與資源調查｜開展土壤、水體與植被調查，採集地形與土地利用資料，並讀取地理資訊資料支撐判斷。",
+          "分析｜分析資料判斷成因｜整理並分析調查與監測資料，判斷侵蝕、退化或管理問題的成因與影響範圍。",
+          "設計｜編制保護方案與規格｜編制土壤保持、植被恢復與牧場改良方案，計算設計規格並寫明適用條件。",
+          "估算｜估算成本與維護要求｜計算不同保護措施的建設成本、維護週期與使用壽命，並說明計算假設。",
+          "指導｜向土地使用者提供指導｜向農戶、牧場主與土地使用方提供建議與培訓，協助其按方案實施並跟蹤效果。",
+          "合規｜核查合規並回訪複核｜在施工期間或建成後監督是否符合設計規格，開展合規核查與回訪並按規定記錄留痕。"
+        ]
+      },
+      "forest-and-conservation-workers": {
+        "file_sha256": "54dfba8bdbc602e9f226e989fca5bd870cb1a4292a6b322a1d1f8ddecda19768",
+        "entries": [
+          "苗木與造林作業｜培育與栽植｜按作業設計要求準備與分選苗木並完成栽植與補植。",
+          "撫育與清理作業｜除草與間伐與清林｜按指定標記或規格完成除草與間伐與枝條與灌木清理與搬運。",
+          "設施與營地維護｜道路與圍欄與營地｜修建與維護控制水分與侵蝕的設施，維護道路與圍欄與營地與休閒區補給。",
+          "病蟲害防治輔助｜藥劑與器械施用｜按標籤與規程在指導下施用殺蟲或除草藥劑並保管器械與藥劑。",
+          "防火與巡查協助｜用火管理與滅火作業｜在防火與消防負責人指揮下執行用火管理與滅火與防火帶開設與可燃物清理。",
+          "調查協助與規程告知｜計數與設樁與告知｜協助調查隊清理測線並扶持測量器具與設樁與如實計數，向使用者說明露營與用火與衛生等規定。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 212,
+      "source_slugs": [
+        "conservation-scientists",
+        "forest-and-conservation-workers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "conservation-scientists": {
+          "field": "entries",
+          "source_path": "careers/conservation-scientists/zh-TW.json",
+          "file_sha256": "557ecaf10c29c0da427242166faad711aec8b4e2b983097d5be1f52755f02293",
+          "count": 6
+        },
+        "forest-and-conservation-workers": {
+          "field": "entries",
+          "source_path": "careers/forest-and-conservation-workers/zh-TW.json",
+          "file_sha256": "54dfba8bdbc602e9f226e989fca5bd870cb1a4292a6b322a1d1f8ddecda19768",
+          "count": 6
+        }
+      }
+    }
+  }
+}

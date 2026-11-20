@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cc7ad8fcc8731c95b72475ccc62da63b208574e44fbbd0fd63dfd292ba40da27",
+  "inputs": {
+    "pair_id": "power-plant-operators-vs-stationary-engineers-and-boiler-operators",
+    "slugs": [
+      "power-plant-operators",
+      "stationary-engineers-and-boiler-operators"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/power-plant-operators-vs-stationary-engineers-and-boiler-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "power-plant-operators": {
+        "name": "发电厂操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.84,
+            2.84,
+            1.0,
+            1.25,
+            1.94,
+            5.11
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-8013",
+          "title_evidence": "official_title"
+        }
+      },
+      "stationary-engineers-and-boiler-operators": {
+        "name": "固定设备工程师与锅炉操作员",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.16,
+            1.0,
+            1.1,
+            1.22,
+            4.4
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-8021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "power-plant-operators -> stationary-engineers-and-boiler-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：电厂运行人员监看发电设备和仪表状态，按站点流程记录变化并与班组交接；后岗：固定设备与锅炉运行岗位操作或维护为建筑和生产供能的设备，跟踪班次工况和异常，资质与现场职责须另核。",
+    "cn_qualification": {
+      "power-plant-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "stationary-engineers-and-boiler-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "generation",
+        "source_url": "https://www.onetonline.org/link/summary/51-8013.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Operates power generation equipment and monitors generation and auxiliary equipment.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "stationary",
+        "source_url": "https://www.onetonline.org/link/summary/51-8021.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Operates boilers, stationary engines and other equipment to provide utilities.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "case",
+        "source_url": "https://www.jnhn.gov.cn/art/2026/6/29/art_32391_2825226.html",
+        "locator": "济宁华源热电厂机组及工业蒸汽",
+        "value": {
+          "jurisdiction": "中国大陆·济宁",
+          "effective_or_period": "2026",
+          "summary": "介绍两台350 MW热电联产机组及工业供汽。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "license",
+        "source_url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/tzsbs/art/2023/art_6608605c3b334954ac72e19851c38a35.html",
+        "locator": "附件2：锅炉作业及注1",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2021年第41号公告；2022-06-01实施",
+          "summary": "工业锅炉司炉G1；电站锅炉司炉G2认定范围低于300 MW；300 MW及以上由使用单位按电力行业规范自行培训。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "course",
+        "source_url": "https://energy.csu.edu.cn/info/1149/3948.htm",
+        "locator": "能源与动力工程专业：核心课程",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校介绍",
+          "summary": "列工程热力学、锅炉原理与能源动力测试等。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 605,
+      "source_slugs": [
+        "power-plant-operators",
+        "stationary-engineers-and-boiler-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

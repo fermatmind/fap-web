@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8e78828875f1c7a4c7f43369fcb7b03c752f94889c3bfaca7b6392d243412b5e",
+  "inputs": {
+    "pair_id": "music-directors-and-composers-vs-poets-lyricists-and-creative-writers",
+    "slugs": [
+      "music-directors-and-composers",
+      "poets-lyricists-and-creative-writers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/music-directors-and-composers-vs-poets-lyricists-and-creative-writers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "music-directors-and-composers": {
+        "name": "音乐总监与作曲家",
+        "riasec": {
+          "code": "AE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.07,
+            2.28,
+            7.0,
+            3.04,
+            4.82,
+            2.63
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "poets-lyricists-and-creative-writers": {
+        "name": "诗人、作词人与创意写作者",
+        "riasec": {
+          "code": "AI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-3043.05",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.17,
+            3.58,
+            7.0,
+            2.83,
+            3.17,
+            2.88
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-3043.05",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-3043",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "poets-lyricists-and-creative-writers -> music-directors-and-composers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：使用手势来塑造播放的音乐，传达想要的节奏，语调，颜色，音调，音量，和其他性能方面；后岗：诗人、歌词作者和创意写作者把主题发展成诗歌、歌词或其他文本，并通过改稿调整节奏、视角和措辞。",
+    "cn_qualification": {
+      "music-directors-and-composers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "poets-lyricists-and-creative-writers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "27-2041.00",
+        "source_url": "https://www.onetonline.org/link/summary/27-2041.00",
+        "locator": "Tasks 22544, 22545, 22546, 22547",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops music and directs performances through tempo, phrasing and rehearsal.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "27-3043.05",
+        "source_url": "https://www.onetonline.org/link/summary/27-3043.05",
+        "locator": "Tasks 11046, 11047, 11053, 11048",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Chooses a form, organizes material and revises writing with collaborators.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 524,
+      "source_slugs": [
+        "music-directors-and-composers",
+        "poets-lyricists-and-creative-writers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

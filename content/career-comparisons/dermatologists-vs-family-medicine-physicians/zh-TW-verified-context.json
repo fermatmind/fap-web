@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c3d105c19c270abaedc223fcee3b7cd140f6628f04574a95bf465f4a8f909e3b",
+  "inputs": {
+    "pair_id": "dermatologists-vs-family-medicine-physicians",
+    "slugs": [
+      "dermatologists",
+      "family-medicine-physicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/dermatologists-vs-family-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dermatologists": {
+        "name": "皮膚科醫師",
+        "riasec": {
+          "code": "IRS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1213.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.81,
+            6.44,
+            1.87,
+            4.65,
+            1.77,
+            3.83
+          ]
+        },
+        "tasks": [
+          "核對主訴、病程、既往史與用藥及過敏史、日曬與職業暴露史、家族史，完成皮膚、毛髮與指甲的完整檢查並記錄皮損形態與分佈。",
+          "形成診斷與鑑別考慮，按規範判斷活檢與病理送檢指徵，向患者說明治療計劃、療程、風險與替代方案並取得知情同意。",
+          "按適應證開具外用與系統用藥並安排療效與不良反應監測，實施活檢、切除、冷凍、雷射或光療等操作並逐次記錄。",
+          "回報病理與檢查結果，評估療效與不良反應並調整方案，安排複診與長期管理，開展防曬與皮膚自檢宣教。",
+          "超出本人註冊執業範圍、培訓經歷或機構授權的病例與操作按流程會診、轉診或請上級醫師處理，如實上報差錯與不良事件。",
+          "與病理與檢驗科室、護理與技師、其他臨床專科及患者按職責協作，如實溝通診斷依據、治療風險與隨訪安排，並完成病歷與感染控制記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1213.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1213",
+          "title_evidence": "official_title"
+        }
+      },
+      "family-medicine-physicians": {
+        "name": "家庭醫學醫師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [
+          "接診與評估｜採集病史並做體格檢查｜形成初步判斷",
+          "診斷與治療｜安排並解讀檢查｜制定治療與用藥方案",
+          "預防保健｜開展免疫、篩查與健康指導｜管理慢性病隨訪",
+          "轉診與協作｜判斷需要轉診的情形｜與專科與護理團隊協作",
+          "記錄與溝通｜完成病歷與知情溝通｜說明風險與隨訪安排",
+          "質量與教學｜參與質量改進與病例討論｜承擔教學與培訓任務"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dermatologists -> family-medicine-physicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "dermatologists": {
+        "file_sha256": "b48cdf70aea45b5ab4a0ab358e3b301d4ebb3f79765675635cbcbcff07e33142",
+        "entries": []
+      },
+      "family-medicine-physicians": {
+        "file_sha256": "aa0e6c472dd67008c9392bc7b1bb2a05407463a397303f4d0e0ca1025205c111",
+        "entries": [
+          "接診與評估｜採集病史並做體格檢查｜形成初步判斷",
+          "診斷與治療｜安排並解讀檢查｜制定治療與用藥方案",
+          "預防保健｜開展免疫、篩查與健康指導｜管理慢性病隨訪",
+          "轉診與協作｜判斷需要轉診的情形｜與專科與護理團隊協作",
+          "記錄與溝通｜完成病歷與知情溝通｜說明風險與隨訪安排",
+          "質量與教學｜參與質量改進與病例討論｜承擔教學與培訓任務"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 289,
+      "source_slugs": [
+        "dermatologists",
+        "family-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "dermatologists": {
+          "field": "paragraphs",
+          "source_path": "careers/dermatologists/zh-TW.json",
+          "file_sha256": "b48cdf70aea45b5ab4a0ab358e3b301d4ebb3f79765675635cbcbcff07e33142",
+          "count": 6
+        },
+        "family-medicine-physicians": {
+          "field": "entries",
+          "source_path": "careers/family-medicine-physicians/zh-TW.json",
+          "file_sha256": "aa0e6c472dd67008c9392bc7b1bb2a05407463a397303f4d0e0ca1025205c111",
+          "count": 6
+        }
+      }
+    }
+  }
+}

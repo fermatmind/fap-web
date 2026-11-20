@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "507b1f21928d4534550e6b148032345c095bf132411f536f74408d20f382094d",
+  "inputs": {
+    "pair_id": "shoe-and-leather-workers-and-repairers-vs-tailors-dressmakers-and-custom-sewers",
+    "slugs": [
+      "shoe-and-leather-workers-and-repairers",
+      "tailors-dressmakers-and-custom-sewers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/shoe-and-leather-workers-and-repairers-vs-tailors-dressmakers-and-custom-sewers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "shoe-and-leather-workers-and-repairers": {
+        "name": "製鞋與皮革製品工及修理工",
+        "riasec": {
+          "code": "RCA",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.94,
+            1.63,
+            3.13,
+            1.32,
+            1.53,
+            3.19
+          ]
+        },
+        "tasks": [
+          "規格與受理｜核樣板、尺碼、材料或顧客修理要求｜記錄產品、破損位置和待確認條件，未經判斷不承諾能修好。",
+          "材料與裁料｜識別瑕疵、紋路、顏色和延伸方向｜按樣板標點標線，裁出符合工藝的部件並保留標識。",
+          "連線與成型｜縫合、膠合或壓合部件｜按材料和工藝選擇已確認的連線方案，檢查接縫、貼合與形狀。",
+          "部件與修理｜安裝鞋底、鞋跟、襯裡或扣件｜檢查並移除需更換部件，核連線和損傷範圍，不隱瞞無法修復項。",
+          "整飾與檢驗｜修邊、清潔、拋光或裝飾｜檢查尺寸、顏色、表面、縫線與連線缺陷，完成返修和質量記錄。",
+          "交接與工具｜說明完成範圍並維護工作條件｜交付產品與修理記錄，裝置或化學品異常時停止受影響作業並報告。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6041",
+          "title_evidence": "official_title"
+        }
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "name": "裁縫、定製縫紉工",
+        "riasec": {
+          "code": "RA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.88,
+            1.16,
+            3.96,
+            1.99,
+            2.44,
+            3.13
+          ]
+        },
+        "tasks": [
+          "準備｜量體與需求記錄｜量取客戶或衣物尺寸，核款式材料與修改約定；單位、成品要求和未確認項分別記。",
+          "製版｜樣板與裁片核對｜制改樣板、核方向標記和縫份，按尺寸與材料要求準備，不能以矩形練習代真實服裝製版。",
+          "製作｜裁剪組裝與縫製｜排樣裁料、疏縫或機縫組裝，保持比例與垂墜；真實工具操作需指導和實際工藝。",
+          "拆改｜合身調整與部件修理｜檢查可改餘量、放收接縫、改下襬及更換部件，試衣核是否解決問題。",
+          "檢查｜整燙與成品質量｜按材料工藝整燙，核尺寸外觀縫跡和殘針等；未經實物檢查不標已驗收。",
+          "交付｜估工記錄與客戶溝通｜估時間材料，記錄改動和待確認，核交期報價及客戶意見，收款不等淨利潤。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "shoe-and-leather-workers-and-repairers -> tailors-dressmakers-and-custom-sewers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "shoe-and-leather-workers-and-repairers": {
+        "file_sha256": "0cbfe7b59ae11d52fffa2af79567b6078459bda79e14d64275e55174d7abf2c1",
+        "entries": [
+          "規格與受理｜核樣板、尺碼、材料或顧客修理要求｜記錄產品、破損位置和待確認條件，未經判斷不承諾能修好。",
+          "材料與裁料｜識別瑕疵、紋路、顏色和延伸方向｜按樣板標點標線，裁出符合工藝的部件並保留標識。",
+          "連線與成型｜縫合、膠合或壓合部件｜按材料和工藝選擇已確認的連線方案，檢查接縫、貼合與形狀。",
+          "部件與修理｜安裝鞋底、鞋跟、襯裡或扣件｜檢查並移除需更換部件，核連線和損傷範圍，不隱瞞無法修復項。",
+          "整飾與檢驗｜修邊、清潔、拋光或裝飾｜檢查尺寸、顏色、表面、縫線與連線缺陷，完成返修和質量記錄。",
+          "交接與工具｜說明完成範圍並維護工作條件｜交付產品與修理記錄，裝置或化學品異常時停止受影響作業並報告。"
+        ]
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "file_sha256": "4a522c7c8b79e08c2d13b92565e558224cc383b57acda38cba884a8194bd90e2",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 667,
+      "source_slugs": [
+        "shoe-and-leather-workers-and-repairers",
+        "tailors-dressmakers-and-custom-sewers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "shoe-and-leather-workers-and-repairers": {
+          "field": "entries",
+          "source_path": "careers/shoe-and-leather-workers-and-repairers/zh-TW.json",
+          "file_sha256": "0cbfe7b59ae11d52fffa2af79567b6078459bda79e14d64275e55174d7abf2c1",
+          "count": 6
+        },
+        "tailors-dressmakers-and-custom-sewers": {
+          "field": "paragraphs",
+          "source_path": "careers/tailors-dressmakers-and-custom-sewers/zh-TW.json",
+          "file_sha256": "4a522c7c8b79e08c2d13b92565e558224cc383b57acda38cba884a8194bd90e2",
+          "count": 6
+        }
+      }
+    }
+  }
+}

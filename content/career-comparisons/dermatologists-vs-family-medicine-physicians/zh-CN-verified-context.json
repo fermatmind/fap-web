@@ -1,0 +1,179 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f464136e6aaacafeafc0ea98b41fccfb713e430801ae2d869b4ff9300b197673",
+  "inputs": {
+    "pair_id": "dermatologists-vs-family-medicine-physicians",
+    "slugs": [
+      "dermatologists",
+      "family-medicine-physicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/dermatologists-vs-family-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dermatologists": {
+        "name": "皮肤科医师",
+        "riasec": {
+          "code": "IRS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1213.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.81,
+            6.44,
+            1.87,
+            4.65,
+            1.77,
+            3.83
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1213.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1213",
+          "title_evidence": "official_title"
+        }
+      },
+      "family-medicine-physicians": {
+        "name": "家庭医学医师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dermatologists -> family-medicine-physicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：诊断治疗皮肤、毛发和指甲疾病，可兼皮肤外科；后岗：为各年龄段的个人与家庭提供诊断，治疗与预防保健，采集病史与体格检查，安排与解读检验和影像，作出诊断并制定治疗方案，管理慢性病与常见急性病，提供免疫。",
+    "cn_qualification": {
+      "dermatologists": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html"
+        ]
+      },
+      "family-medicine-physicians": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html"
+        ]
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "derm",
+        "source_url": "https://www.onetonline.org/link/summary/29-1213.00#Tasks",
+        "locator": "29-1213.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Diagnoses and treats conditions of the skin, hair and nails and may perform dermatologic surgery.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "family",
+        "source_url": "https://www.onetonline.org/link/summary/29-1215.00#Tasks",
+        "locator": "29-1215.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Diagnoses and treats patients across age groups, provides preventive care and coordinates referrals and follow-up.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "law",
+        "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html",
+        "locator": "《中华人民共和国医师法》第十二至十四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01起施行",
+          "summary": "取得医师资格后按规定办理注册，按注册执业地点、类别和范围执业。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 289,
+      "source_slugs": [
+        "dermatologists",
+        "family-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

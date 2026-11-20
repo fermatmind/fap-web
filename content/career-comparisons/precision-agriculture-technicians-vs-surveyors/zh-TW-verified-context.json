@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "fd5dd4003cb654c3d002ce2a26a95f6f1f5b234ceac2c1e8a1474fce8223419a",
+  "inputs": {
+    "pair_id": "precision-agriculture-technicians-vs-surveyors",
+    "slugs": [
+      "precision-agriculture-technicians",
+      "surveyors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/precision-agriculture-technicians-vs-surveyors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "precision-agriculture-technicians": {
+        "name": "精準農業技術員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-4012.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.46,
+            5.4,
+            1.23,
+            1.39,
+            2.11,
+            4.95
+          ]
+        },
+        "tasks": [
+          "地塊採集｜核位置｜邊界、土壤與取樣點。",
+          "產量製圖｜核原表｜收割機記錄可追溯。",
+          "圖層分析｜核版本｜土壤產量天氣分層。",
+          "變數建議｜核條件｜農藝證據另複核。",
+          "裝置協作｜核訓練｜感測器與農機系統。",
+          "環境記錄｜留來源｜投入與漂移條件。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-4012.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-4012",
+          "title_evidence": "official_title"
+        }
+      },
+      "surveyors": {
+        "name": "測量師",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-1022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.25,
+            4.73,
+            2.12,
+            1.63,
+            1.88,
+            5.29
+          ]
+        },
+        "tasks": [
+          "資料｜權屬與既有調查核查｜查閱地契、產權和既有測量記錄，識別描述、版本及點位不一致。",
+          "準備｜測量目標與方案｜確定調查目標、組織測量任務，協調人員、技術要求與資料條件。",
+          "觀測｜點位與高程記錄｜組織或實施位置、高程及地形測量，儲存儀器與現場記錄。",
+          "計算｜準確性與文件一致｜核對測量及計算，維護草圖、地圖和報告，定位差異並交複核。",
+          "成果｜界線描述與責任｜編寫界線及法律描述，按所在法域、執照和專案職責處理稽核認證。",
+          "協作｜帶隊與專案溝通｜指導助手，與工程師、建築師和客戶協調，說明結果用途與限制。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-1022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-1022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "precision-agriculture-technicians -> surveyors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "precision-agriculture-technicians": {
+        "file_sha256": "beca135eb56b3aca164f3cf412a3ca4702cfac3a9e22206ed29bc8c6ff9a84db",
+        "entries": [
+          "地塊採集｜核位置｜邊界、土壤與取樣點。",
+          "產量製圖｜核原表｜收割機記錄可追溯。",
+          "圖層分析｜核版本｜土壤產量天氣分層。",
+          "變數建議｜核條件｜農藝證據另複核。",
+          "裝置協作｜核訓練｜感測器與農機系統。",
+          "環境記錄｜留來源｜投入與漂移條件。"
+        ]
+      },
+      "surveyors": {
+        "file_sha256": "c5f2636a9f262311dd34743a46ffd9fc1c23c9cf42d1185c75cfe62162acc5c9",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 608,
+      "source_slugs": [
+        "precision-agriculture-technicians",
+        "surveyors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "precision-agriculture-technicians": {
+          "field": "entries",
+          "source_path": "careers/precision-agriculture-technicians/zh-TW.json",
+          "file_sha256": "beca135eb56b3aca164f3cf412a3ca4702cfac3a9e22206ed29bc8c6ff9a84db",
+          "count": 6
+        },
+        "surveyors": {
+          "field": "paragraphs",
+          "source_path": "careers/surveyors/zh-TW.json",
+          "file_sha256": "c5f2636a9f262311dd34743a46ffd9fc1c23c9cf42d1185c75cfe62162acc5c9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

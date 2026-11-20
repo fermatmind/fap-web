@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "5780ffa41683806e11f9fbdda81570c3a9e2305ff0bc8281694edaf439727af7",
+  "inputs": {
+    "pair_id": "interpreters-and-translators-vs-proofreaders-and-copy-markers",
+    "slugs": [
+      "interpreters-and-translators",
+      "proofreaders-and-copy-markers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/interpreters-and-translators-vs-proofreaders-and-copy-markers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "interpreters-and-translators": {
+        "name": "口译与笔译人员",
+        "riasec": {
+          "code": "CAS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-3091.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.89,
+            3.19,
+            4.28,
+            3.48,
+            1.9,
+            4.79
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-3091.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "27-3091",
+          "title_evidence": "official_title"
+        }
+      },
+      "proofreaders-and-copy-markers": {
+        "name": "校对员与校样标注员",
+        "riasec": {
+          "code": "CA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.44,
+            2.5,
+            3.56,
+            2.2,
+            1.53,
+            6.16
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-9081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "proofreaders-and-copy-markers -> interpreters-and-translators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：口译随交流进行，笔译可以反复修订；后岗：对照原稿和排版校样，标记拼写、标点、语法、数字、版式与遗漏错误，核实改动是否已实施，再将待决定事项交作者或编辑。",
+    "cn_qualification": {
+      "interpreters-and-translators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "proofreaders-and-copy-markers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "translator",
+        "source_url": "https://www.onetonline.org/link/summary/27-3091.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Interpret speech and translate written material while preserving meaning.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "proof",
+        "source_url": "https://www.onetonline.org/link/summary/43-9081.00",
+        "locator": "Tasks and Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Compare proofs with copy, mark errors, and check corrections. The survey reports strict deadlines and extensive seated work.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-translation",
+        "source_url": "https://rst.hubei.gov.cn/hbrsksw/zyjslks/zyjsry/2026ks/2026fyzyzgby/202604/t20260405_5908045.shtml",
+        "locator": "一、考试设置；二、报考条件",
+        "value": {
+          "jurisdiction": "中国大陆，湖北考区",
+          "effective_or_period": "2026",
+          "summary": "翻译考试按语种、级别和口译、笔译类别设置。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-publishing",
+        "source_url": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/bmgz_213/202112/t20211209_442151.html",
+        "locator": "第二条、第四条、第八至十一条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "新闻出版总署令第37号",
+          "summary": "规定范围内的出版专业技术人员须在到岗两年内取得资格证书并办理登记。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-book",
+        "source_url": "https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/bmgz_213/202112/t20211209_442152.html",
+        "locator": "第二十四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "新闻出版总署令第36号",
+          "summary": "图书出版单位实行责任编辑和责任校对制度。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 464,
+      "source_slugs": [
+        "interpreters-and-translators",
+        "proofreaders-and-copy-markers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

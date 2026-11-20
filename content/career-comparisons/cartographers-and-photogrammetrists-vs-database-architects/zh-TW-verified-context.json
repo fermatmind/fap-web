@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "64a94b1fb0056fbeea7bf984af6ff72e08711cf44e23a737391f3efa07b93ace",
+  "inputs": {
+    "pair_id": "cartographers-and-photogrammetrists-vs-database-architects",
+    "slugs": [
+      "cartographers-and-photogrammetrists",
+      "database-architects"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/cartographers-and-photogrammetrists-vs-database-architects",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cartographers-and-photogrammetrists": {
+        "name": "製圖師與攝影測量師",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-1021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.62,
+            5.18,
+            3.55,
+            1.78,
+            1.64,
+            5.34
+          ]
+        },
+        "tasks": [
+          "來源採集｜彙集並核對編制地圖所需的航空照片與測量記錄與報告與原始地圖｜來源資料與版本核對記錄。",
+          "邊界依據｜查閱法律記錄以確定地方與國家與國際地界並保留依據｜地界與權屬依據核對記錄。",
+          "座標與地形｜應用標準數學公式識別與縮放與定向大地測量點與高程與地形要素｜座標與投影與單位校驗記錄。",
+          "要素提取｜用航空攝影與遙感與立體測圖方法提取與編輯地表要素｜要素提取與編輯記錄。",
+          "成圖規範｜確定地圖內容與版面與比例與尺寸與投影與顏色等製作規範並督導製作｜成圖規範與版面說明。",
+          "檢驗與更新｜檢查成品的完整性與準確性並修訂既有地圖與更新資料庫｜質量與完整性檢查與修訂記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-1021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "17-1021",
+          "title_evidence": "official_title"
+        }
+      },
+      "database-architects": {
+        "name": "資料庫架構師",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1243.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.63,
+            5.63,
+            2.16,
+            1.91,
+            2.68,
+            6.12
+          ]
+        },
+        "tasks": [
+          "架構策略與需求｜澄清需求並制定策略｜與系統架構師、軟體架構師與設計分析師協作理解業務或行業需求，在建模、設計與實施階段制定資料庫架構策略，並編寫並歸檔資料庫架構。",
+          "建模與設計｜設計庫結構與資料模型｜設計支援業務應用的資料庫以確保可擴充套件性、安全性、效能與可靠性，為應用、後設資料表、檢視或相關結構開發資料模型，並使用公認記號歸檔並溝通資料庫模式。",
+          "儲存與整合｜選擇方案並整合系統｜設計介面、資料傳輸機制、全域性臨時表、資料分割槽與基於函式的索引，開發不同產品之間的整合方法，把新系統與既有倉庫結構整合並改進效能與功能。",
+          "標準與治理｜制定並執行開發標準｜建立並執行資料庫開發標準，識別並糾正偏離標準之處，審閱專案請求以估算所需時間與成本，並識別並評估資料庫系統的行業趨勢為高層管理提供建議。",
+          "可靠性與效能｜設定備份恢復並最佳化｜設定資料庫叢集、備份或恢復流程，演示資料庫的技術功能（如效能、安全與可靠性），開發負載均衡流程以消除備份造成的停機，規劃並安裝資料庫管理系統軟體升級，識別、評估並推薦能達到所需效能的軟硬體技術。",
+          "測試與支援｜測試並糾錯、維護應用過程程式碼/查詢、向初級員工或客戶提供支援為核心；培訓使用者並解答問題屬補充，不稱人人必做。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1243.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1243",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "cartographers-and-photogrammetrists -> database-architects"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "cartographers-and-photogrammetrists": {
+        "file_sha256": "de26bd2239165162bb965b4dd22548cb14c8780be0be7bd70f15b0b96a9e07e5",
+        "entries": [
+          "來源採集｜彙集並核對編制地圖所需的航空照片與測量記錄與報告與原始地圖｜來源資料與版本核對記錄。",
+          "邊界依據｜查閱法律記錄以確定地方與國家與國際地界並保留依據｜地界與權屬依據核對記錄。",
+          "座標與地形｜應用標準數學公式識別與縮放與定向大地測量點與高程與地形要素｜座標與投影與單位校驗記錄。",
+          "要素提取｜用航空攝影與遙感與立體測圖方法提取與編輯地表要素｜要素提取與編輯記錄。",
+          "成圖規範｜確定地圖內容與版面與比例與尺寸與投影與顏色等製作規範並督導製作｜成圖規範與版面說明。",
+          "檢驗與更新｜檢查成品的完整性與準確性並修訂既有地圖與更新資料庫｜質量與完整性檢查與修訂記錄。"
+        ]
+      },
+      "database-architects": {
+        "file_sha256": "c236ae97187308c566e3acf8c5ad0e71f83f060c7029c85dde61b562d66e6edd",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 132,
+      "source_slugs": [
+        "cartographers-and-photogrammetrists",
+        "database-architects"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "cartographers-and-photogrammetrists": {
+          "field": "entries",
+          "source_path": "careers/cartographers-and-photogrammetrists/zh-TW.json",
+          "file_sha256": "de26bd2239165162bb965b4dd22548cb14c8780be0be7bd70f15b0b96a9e07e5",
+          "count": 6
+        },
+        "database-architects": {
+          "field": "paragraphs",
+          "source_path": "careers/database-architects/zh-TW.json",
+          "file_sha256": "c236ae97187308c566e3acf8c5ad0e71f83f060c7029c85dde61b562d66e6edd",
+          "count": 6
+        }
+      }
+    }
+  }
+}

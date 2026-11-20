@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "568b6c865e1ac0a7a42ef0d3da8e4ab3f9b48e2f8335fb8fdaf884263453ce95",
+  "inputs": {
+    "pair_id": "special-education-teachers-kindergarten-vs-teaching-assistants-special-education",
+    "slugs": [
+      "special-education-teachers-kindergarten",
+      "teaching-assistants-special-education"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/special-education-teachers-kindergarten-vs-teaching-assistants-special-education",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "special-education-teachers-kindergarten": {
+        "name": "特殊教育教師（幼兒園）",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2055.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.55,
+            3.8,
+            3.65,
+            7.0,
+            1.73,
+            3.67
+          ]
+        },
+        "tasks": [
+          "課程與目標｜調整Kindergarten課程，使活動與教育支援需要對應。｜交可觀察參與目標，不作發展診斷。",
+          "環境與材料｜準備可探索、操作或想像活動的材料。｜說明呈現及支援變化，材料豐富不等效果。",
+          "活動與教學｜用符合課程和學生需要的方式開展教學。｜真實實踐依資格訓練與機構授權。",
+          "觀察與記錄｜記錄步驟反應、提示和情境條件，評價教育進展。｜獨立輔助缺失分別保留。",
+          "家園與團隊｜與家長、教師助理及專業支援人員協調。｜交事實、未結問題和對應接收責任。",
+          "學習銜接｜準備後續課程、環境與參與要求。｜記錄交接不自動擴充套件學段資格。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2055.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-2055",
+          "title_evidence": "official_title"
+        }
+      },
+      "teaching-assistants-special-education": {
+        "name": "教學助理（特殊教育）",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-9043.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.98,
+            3.29,
+            3.34,
+            7.0,
+            2.14,
+            3.57
+          ]
+        },
+        "tasks": [
+          "學業｜教師指導複習｜按目標幫助個人小組強化教師概念，材料可適配不自定診斷。",
+          "支援｜材料輔具可達｜準備呈現適配材料輔具並依安排幫助設施可達，使用訓練核。",
+          "觀察｜客觀記錄交接｜保機會原觀察和規則分類，未知更正交教師專業人員確認。",
+          "專項｜專業監督執行｜特定方案執行需特教心理或言語專業監督，任務條目不授獨立治療。",
+          "生活｜按分工支援技能｜衛生安全食物等生活技能支援依真實方法訓練，不提供讀者照護教程。",
+          "協作｜教師團隊反饋｜討論職責、原觀察與家長會議分工，爭議回學校責任人員。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-9043.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-9043",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "teaching-assistants-special-education -> special-education-teachers-kindergarten"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "special-education-teachers-kindergarten": {
+        "file_sha256": "0a285854c7d7771a510a7c4bafdb4d6f398205216732d0e31b293a710d028d84",
+        "entries": [
+          "課程與目標｜調整Kindergarten課程，使活動與教育支援需要對應。｜交可觀察參與目標，不作發展診斷。",
+          "環境與材料｜準備可探索、操作或想像活動的材料。｜說明呈現及支援變化，材料豐富不等效果。",
+          "活動與教學｜用符合課程和學生需要的方式開展教學。｜真實實踐依資格訓練與機構授權。",
+          "觀察與記錄｜記錄步驟反應、提示和情境條件，評價教育進展。｜獨立輔助缺失分別保留。",
+          "家園與團隊｜與家長、教師助理及專業支援人員協調。｜交事實、未結問題和對應接收責任。",
+          "學習銜接｜準備後續課程、環境與參與要求。｜記錄交接不自動擴充套件學段資格。"
+        ]
+      },
+      "teaching-assistants-special-education": {
+        "file_sha256": "a587d1c53ff46f7b7503783de13784f66ab2e96d1c16802651aac435aa106c46",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 678,
+      "source_slugs": [
+        "special-education-teachers-kindergarten",
+        "teaching-assistants-special-education"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "special-education-teachers-kindergarten": {
+          "field": "entries",
+          "source_path": "careers/special-education-teachers-kindergarten/zh-TW.json",
+          "file_sha256": "0a285854c7d7771a510a7c4bafdb4d6f398205216732d0e31b293a710d028d84",
+          "count": 6
+        },
+        "teaching-assistants-special-education": {
+          "field": "paragraphs",
+          "source_path": "careers/teaching-assistants-special-education/zh-TW.json",
+          "file_sha256": "a587d1c53ff46f7b7503783de13784f66ab2e96d1c16802651aac435aa106c46",
+          "count": 6
+        }
+      }
+    }
+  }
+}

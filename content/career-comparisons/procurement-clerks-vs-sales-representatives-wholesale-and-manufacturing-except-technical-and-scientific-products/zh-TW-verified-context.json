@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "acf9876bb2207a37e775e5b49209cc76d02a571ebcecc9e11522a4fe74fc3846",
+  "inputs": {
+    "pair_id": "procurement-clerks-vs-sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products",
+    "slugs": [
+      "procurement-clerks",
+      "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/procurement-clerks-vs-sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "procurement-clerks": {
+        "name": "採購文員",
+        "riasec": {
+          "code": "CER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-3061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.17,
+            1.71,
+            1.0,
+            1.63,
+            4.13,
+            7.0
+          ]
+        },
+        "tasks": [
+          "接收申請｜核規格、數量、預算與審批狀態｜資訊缺失退回澄清。",
+          "核庫存與報價｜對比可用庫存、報價條件和供應商資料｜不憑最低價自動選商。",
+          "編制訂單｜核商品編碼、數量、單價、交期與收貨地點｜按許可權送審。",
+          "跟蹤交付｜記錄供應商確認和延期｜變更先核申請人及審批。",
+          "對賬差異｜比對訂單、到貨和發票｜短交、重複或金額差異暫緩流轉。",
+          "歸檔與升級｜保留版本、溝通與審批軌跡｜異常交採購或財務負責人處理。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-3061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-3061",
+          "title_evidence": "official_title"
+        }
+      },
+      "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products": {
+        "name": "批發與製造業銷售代表（非技術與科學產品）",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-4012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.63,
+            2.24,
+            1.65,
+            2.69,
+            6.12,
+            4.92
+          ]
+        },
+        "tasks": [
+          "客戶開發｜聯絡企業或團體並核用途、採購週期與需求。｜輸出客戶需求與機會記錄，保留未知項。",
+          "商品建議｜依據型號、用途、包裝和限制推薦商品。｜輸出產品比較與選擇理由，保留未知項。",
+          "報價信用｜核單價、單位、數量、信用和合同條件。｜輸出可比報價與批准項，保留未知項。",
+          "訂單交期｜準備訂單並核庫存、運輸、保修和交付日期。｜輸出訂單版本與交期確認，保留未知項。",
+          "市場記錄｜學習商品、競品和市場並維護銷售記錄。｜輸出資料版本與銷售分析，保留未知項。",
+          "售後協調｜簽約後澄清差異並協同倉儲運輸和服務。｜輸出問題、接收人與處置交接，保留未知項。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-4012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "41-4012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products -> procurement-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "procurement-clerks": {
+        "file_sha256": "ffda56249665c9293c060fb3a65681798d08f82e86ceae4d0fe312ec929e2c7a",
+        "entries": [
+          "接收申請｜核規格、數量、預算與審批狀態｜資訊缺失退回澄清。",
+          "核庫存與報價｜對比可用庫存、報價條件和供應商資料｜不憑最低價自動選商。",
+          "編制訂單｜核商品編碼、數量、單價、交期與收貨地點｜按許可權送審。",
+          "跟蹤交付｜記錄供應商確認和延期｜變更先核申請人及審批。",
+          "對賬差異｜比對訂單、到貨和發票｜短交、重複或金額差異暫緩流轉。",
+          "歸檔與升級｜保留版本、溝通與審批軌跡｜異常交採購或財務負責人處理。"
+        ]
+      },
+      "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products": {
+        "file_sha256": "f2fdcb971fcc08ba955c34b230e79cd7c0530875b54a9b2ff579987f652fa8d4",
+        "entries": [
+          "客戶開發｜聯絡企業或團體並核用途、採購週期與需求。｜輸出客戶需求與機會記錄，保留未知項。",
+          "商品建議｜依據型號、用途、包裝和限制推薦商品。｜輸出產品比較與選擇理由，保留未知項。",
+          "報價信用｜核單價、單位、數量、信用和合同條件。｜輸出可比報價與批准項，保留未知項。",
+          "訂單交期｜準備訂單並核庫存、運輸、保修和交付日期。｜輸出訂單版本與交期確認，保留未知項。",
+          "市場記錄｜學習商品、競品和市場並維護銷售記錄。｜輸出資料版本與銷售分析，保留未知項。",
+          "售後協調｜簽約後澄清差異並協同倉儲運輸和服務。｜輸出問題、接收人與處置交接，保留未知項。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 612,
+      "source_slugs": [
+        "procurement-clerks",
+        "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "procurement-clerks": {
+          "field": "entries",
+          "source_path": "careers/procurement-clerks/zh-TW.json",
+          "file_sha256": "ffda56249665c9293c060fb3a65681798d08f82e86ceae4d0fe312ec929e2c7a",
+          "count": 6
+        },
+        "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products": {
+          "field": "entries",
+          "source_path": "careers/sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products/zh-TW.json",
+          "file_sha256": "f2fdcb971fcc08ba955c34b230e79cd7c0530875b54a9b2ff579987f652fa8d4",
+          "count": 6
+        }
+      }
+    }
+  }
+}

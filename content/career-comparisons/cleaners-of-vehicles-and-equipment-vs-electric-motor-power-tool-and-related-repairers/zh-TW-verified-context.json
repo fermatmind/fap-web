@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "fa818bcff1b06b56b3d3f5cf1a7ada04d0b256e1059d2e24ae5b437c9a1f931e",
+  "inputs": {
+    "pair_id": "cleaners-of-vehicles-and-equipment-vs-electric-motor-power-tool-and-related-repairers",
+    "slugs": [
+      "cleaners-of-vehicles-and-equipment",
+      "electric-motor-power-tool-and-related-repairers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/cleaners-of-vehicles-and-equipment-vs-electric-motor-power-tool-and-related-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cleaners-of-vehicles-and-equipment": {
+        "name": "車輛與裝置清潔工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.15,
+            1.0,
+            1.04,
+            1.0,
+            4.04
+          ]
+        },
+        "tasks": [
+          "清洗作業｜按標準清洗車輛與機械與裝置｜沖洗並把物件放上晾乾架或用布與刮水器與空氣壓縮機吹乾表面；用刮刀與刷子與清潔劑與消毒劑與酸與磨料與吸塵器與軟管擦洗與刮除與噴射機械零件與裝置與車輛；把物件預浸或沖洗（對應 O*NET 任務第一與第五與第九項）。",
+          "材料配製與庫存｜按配方配製清洗液並管理耗材｜按配方混合清洗液與磨料與其他化合物；維護耗材庫存並把物料與裝置與耗材搬運到或搬離作業區（對應 O*NET 任務第七與第八與第十九項）。",
+          "裝置操作與調節｜操作清洗裝置並調節壓力與流量｜按按鈕啟動清洗裝置；轉動閥門或手柄以調節噴槍噴嘴的水與空氣與蒸汽與磨料壓力或流量；連線軟管或管線到泵或其他裝置；轉動閥門或斷開軟管以排出機械或罐體中的水與清洗液與蒸汽（對應 O*NET 任務第十四與第十一與第十五與第十項）。",
+          "檢查與合規｜檢查清潔度與損壞與合規性｜檢查零件與裝置與車輛是否清潔與損壞以及是否符合標準或法規；監測清洗機執行並在故障時停機或通知主管（對應 O*NET 任務第六與第十三項）。",
+          "修飾與整備｜拋光打蠟與安裝飾件並做小幅調整｜給車輛塗漆與染色與拋光與上光與上蠟或做遮蔽以保護或恢復顏色與狀態；清潔車內塑膠件；安裝車尾擾流板與側裙或擋泥板；拆裝機械或裝置或車輛零件與飾件並做潤滑與小的維修調整（對應 O*NET 任務第二與第十六與第二十與第十七與第十八項）。",
+          "交付與運輸｜把車輛與裝置按要求送達並交付｜把車輛開到或開離車間或客戶工作地點或住所；清掃與剷除或吸走散落碎片與可回收廢料並轉運容器（對應 O*NET 任務第四與第十二項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-7061",
+          "title_evidence": "official_title"
+        }
+      },
+      "electric-motor-power-tool-and-related-repairers": {
+        "name": "電機與電動工具修理工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-2092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.73,
+            1.0,
+            1.19,
+            1.01,
+            4.25
+          ]
+        },
+        "tasks": [
+          "常見輸入：裝置銘牌與故障現象與執行資料、圖紙與規程與工藝與引數、備件與材料與油料與化學品、工具與測試與起重與焊接裝置、以及訂單與檢修計劃與驗收與搶修安排。",
+          "核心產出：按故障與圖紙與規程實施的拆解與檢查與修復與裝配與調整、按工藝與標準完成的繞組與絕緣與軸承與換向器與齒輪修復與更換、按制度完成的引數與測量與更換件與試執行記錄，以及可複核的維修與檢驗與交付與報廢記錄。",
+          "典型流程：診斷與安全準備—拆裝與修復—測試與記錄與交付。",
+          "常協作物件：師傅與班組與檢驗與客戶與裝置與生產人員、電氣與起重與焊接與機加工與表面處理人員、備件與材料與油料與化學品供應人員、安全與裝置與質量管理人員、外部加工與專業委託單位。",
+          "常見工具與物件：萬用表與鉗形表與絕緣與耐壓與繞組與示波與振動與測溫儀器、繞線機與浸漆與烘乾與車床與銑床與鑽床與焊接裝置、起重與搬運與拉馬與壓裝與對中工具、圖紙與工藝與檢驗與維修與備件與記錄系統、防護用品與上鎖掛牌與驗電與滅火與急救器材。",
+          "責任邊界：本職業承擔按圖紙與規程與工藝與安全提供檢修與測試與記錄並對裝置與人身安全與交付質量的執行責任；須按故障與圖紙與規程確定方案、須按圖紙與規程與工藝拆解與檢查、須按工藝與標準修復與更換與裝配、須按標準測試與試執行、須按制度斷電與上鎖掛牌與驗電與佩戴防護與合規使用起重與化學與焊接、不得超出授權從事帶電作業或對外出具電氣與安全結論，異常事項按制度上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-2092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "49-2092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "cleaners-of-vehicles-and-equipment -> electric-motor-power-tool-and-related-repairers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "cleaners-of-vehicles-and-equipment": {
+        "file_sha256": "986041c702b7bceffc7e256ebad4fa10ed76e2a8fc37b5989e00ea56d6707245",
+        "entries": [
+          "清洗作業｜按標準清洗車輛與機械與裝置｜沖洗並把物件放上晾乾架或用布與刮水器與空氣壓縮機吹乾表面；用刮刀與刷子與清潔劑與消毒劑與酸與磨料與吸塵器與軟管擦洗與刮除與噴射機械零件與裝置與車輛；把物件預浸或沖洗（對應 O*NET 任務第一與第五與第九項）。",
+          "材料配製與庫存｜按配方配製清洗液並管理耗材｜按配方混合清洗液與磨料與其他化合物；維護耗材庫存並把物料與裝置與耗材搬運到或搬離作業區（對應 O*NET 任務第七與第八與第十九項）。",
+          "裝置操作與調節｜操作清洗裝置並調節壓力與流量｜按按鈕啟動清洗裝置；轉動閥門或手柄以調節噴槍噴嘴的水與空氣與蒸汽與磨料壓力或流量；連線軟管或管線到泵或其他裝置；轉動閥門或斷開軟管以排出機械或罐體中的水與清洗液與蒸汽（對應 O*NET 任務第十四與第十一與第十五與第十項）。",
+          "檢查與合規｜檢查清潔度與損壞與合規性｜檢查零件與裝置與車輛是否清潔與損壞以及是否符合標準或法規；監測清洗機執行並在故障時停機或通知主管（對應 O*NET 任務第六與第十三項）。",
+          "修飾與整備｜拋光打蠟與安裝飾件並做小幅調整｜給車輛塗漆與染色與拋光與上光與上蠟或做遮蔽以保護或恢復顏色與狀態；清潔車內塑膠件；安裝車尾擾流板與側裙或擋泥板；拆裝機械或裝置或車輛零件與飾件並做潤滑與小的維修調整（對應 O*NET 任務第二與第十六與第二十與第十七與第十八項）。",
+          "交付與運輸｜把車輛與裝置按要求送達並交付｜把車輛開到或開離車間或客戶工作地點或住所；清掃與剷除或吸走散落碎片與可回收廢料並轉運容器（對應 O*NET 任務第四與第十二項）。"
+        ]
+      },
+      "electric-motor-power-tool-and-related-repairers": {
+        "file_sha256": "e37f602ebdd74692573227a2b7aa317ee14bef76e0e5af4f453e92df7e050372",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 154,
+      "source_slugs": [
+        "cleaners-of-vehicles-and-equipment",
+        "electric-motor-power-tool-and-related-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "cleaners-of-vehicles-and-equipment": {
+          "field": "entries",
+          "source_path": "careers/cleaners-of-vehicles-and-equipment/zh-TW.json",
+          "file_sha256": "986041c702b7bceffc7e256ebad4fa10ed76e2a8fc37b5989e00ea56d6707245",
+          "count": 6
+        },
+        "electric-motor-power-tool-and-related-repairers": {
+          "field": "paragraphs",
+          "source_path": "careers/electric-motor-power-tool-and-related-repairers/zh-TW.json",
+          "file_sha256": "e37f602ebdd74692573227a2b7aa317ee14bef76e0e5af4f453e92df7e050372",
+          "count": 6
+        }
+      }
+    }
+  }
+}

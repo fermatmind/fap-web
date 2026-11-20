@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4f9c2f6336c1ea564f5e1f1c5d0a67934ddbb249e9b52ab68be259e19d77f3d5",
+  "inputs": {
+    "pair_id": "light-truck-drivers-vs-postal-service-mail-carriers",
+    "slugs": [
+      "light-truck-drivers",
+      "postal-service-mail-carriers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/light-truck-drivers-vs-postal-service-mail-carriers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "light-truck-drivers": {
+        "name": "輕型卡車司機",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-3033.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.88,
+            1.54,
+            1.02,
+            1.36,
+            2.1,
+            4.42
+          ]
+        },
+        "tasks": [
+          "投入物件：訂單與貨運單據、待配送的包裹與貨物、輕型卡車或廂式貨車、配送路線與客戶時間窗、裝卸器具與固定材料，以及車輛與交付記錄。",
+          "可檢查產出：出車車輛檢查記錄、按卸貨順序完成的裝載與固定、簽收與退貨憑證、貨款與單據交接、里程與缺陷記錄、延誤與異常上報記錄。",
+          "完整流程：接收路線與訂單 → 出車檢查車輛與裝置 → 按卸貨順序裝載並固定貨物 → 按法規與路線駕駛和停車 → 與客戶交接、簽收或收款 → 記錄里程、缺陷與異常 → 回場交單與上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-3033.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-3033",
+          "title_evidence": "official_title"
+        }
+      },
+      "postal-service-mail-carriers": {
+        "name": "郵政服務郵件投遞員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.56,
+            1.0,
+            1.0,
+            2.69,
+            2.91,
+            6.27
+          ]
+        },
+        "tasks": [
+          "路線準備｜按地址和既定順序整理郵件｜核對路線清單、件數和標籤，不把非本路線件猜成本站投遞。",
+          "逐站交付｜步行或駕車向住戶和機構送件｜在交付前核地址、收件條件與郵件狀態，按機構流程掃描。",
+          "簽收辦理｜對適用郵件取得簽名或回執｜收件人不在或簽收缺失時不得虛記已交付，按規則留待處理記錄。",
+          "收取郵件｜按路線和服務安排收取待寄郵件｜核件數與交接去向，不代替櫃檯收費或禁寄審批。",
+          "異常處理｜識別錯路、地址疑問、無法投遞及裝置問題｜記錄事實、時間與下一責任人，按機構流程升級。",
+          "回站交接｜交回收取郵件和未完成投遞件｜核對掃描與實物一致，保護收寄人的姓名、地址與交付資訊。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "light-truck-drivers -> postal-service-mail-carriers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "light-truck-drivers": {
+        "file_sha256": "3240be8737b9c78ed56aabc54fa45f0da523eb00e4fbf4b5a93e45cfa98b87f6",
+        "entries": [
+          "投入物件：訂單與貨運單據、待配送的包裹與貨物、輕型卡車或廂式貨車、配送路線與客戶時間窗、裝卸器具與固定材料，以及車輛與交付記錄。",
+          "可檢查產出：出車車輛檢查記錄、按卸貨順序完成的裝載與固定、簽收與退貨憑證、貨款與單據交接、里程與缺陷記錄、延誤與異常上報記錄。",
+          "完整流程：接收路線與訂單 → 出車檢查車輛與裝置 → 按卸貨順序裝載並固定貨物 → 按法規與路線駕駛和停車 → 與客戶交接、簽收或收款 → 記錄里程、缺陷與異常 → 回場交單與上報。"
+        ]
+      },
+      "postal-service-mail-carriers": {
+        "file_sha256": "33e144028744dc1291f96b5e19fff2351566a211f832ba9c12385c6eb6e87e91",
+        "entries": [
+          "路線準備｜按地址和既定順序整理郵件｜核對路線清單、件數和標籤，不把非本路線件猜成本站投遞。",
+          "逐站交付｜步行或駕車向住戶和機構送件｜在交付前核地址、收件條件與郵件狀態，按機構流程掃描。",
+          "簽收辦理｜對適用郵件取得簽名或回執｜收件人不在或簽收缺失時不得虛記已交付，按規則留待處理記錄。",
+          "收取郵件｜按路線和服務安排收取待寄郵件｜核件數與交接去向，不代替櫃檯收費或禁寄審批。",
+          "異常處理｜識別錯路、地址疑問、無法投遞及裝置問題｜記錄事實、時間與下一責任人，按機構流程升級。",
+          "回站交接｜交回收取郵件和未完成投遞件｜核對掃描與實物一致，保護收寄人的姓名、地址與交付資訊。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 479,
+      "source_slugs": [
+        "light-truck-drivers",
+        "postal-service-mail-carriers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "light-truck-drivers": {
+          "field": "entries",
+          "source_path": "careers/light-truck-drivers/zh-TW.json",
+          "file_sha256": "3240be8737b9c78ed56aabc54fa45f0da523eb00e4fbf4b5a93e45cfa98b87f6",
+          "count": 3
+        },
+        "postal-service-mail-carriers": {
+          "field": "entries",
+          "source_path": "careers/postal-service-mail-carriers/zh-TW.json",
+          "file_sha256": "33e144028744dc1291f96b5e19fff2351566a211f832ba9c12385c6eb6e87e91",
+          "count": 6
+        }
+      }
+    }
+  }
+}

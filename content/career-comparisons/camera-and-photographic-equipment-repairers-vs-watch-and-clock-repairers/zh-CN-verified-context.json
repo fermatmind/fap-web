@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "1a4f49f6046004852c7ae90b5ce4459086ea1db1fd4af310473caf26cd7eab79",
+  "inputs": {
+    "pair_id": "camera-and-photographic-equipment-repairers-vs-watch-and-clock-repairers",
+    "slugs": [
+      "camera-and-photographic-equipment-repairers",
+      "watch-and-clock-repairers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/camera-and-photographic-equipment-repairers-vs-watch-and-clock-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "camera-and-photographic-equipment-repairers": {
+        "name": "摄影摄像设备修理工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.93,
+            2.66,
+            1.93,
+            1.19,
+            1.0,
+            4.83
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "49-9061",
+          "title_evidence": "official_title"
+        }
+      },
+      "watch-and-clock-repairers": {
+        "name": "钟表维修工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9064.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.54,
+            1.98,
+            1.34,
+            1.41,
+            1.13,
+            4.44
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9064.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "49-9064",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "watch-and-clock-repairers -> camera-and-photographic-equipment-repairers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：摄影设备修理工依据故障描述检查光学、机械或电子部件，完成维修并复测故障是否复现；后岗：钟表维修人员检查磨损和走时偏差，按机芯情况拆检、清洁、修整或复装，并记录返还前的状态。",
+    "cn_qualification": {
+      "camera-and-photographic-equipment-repairers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "watch-and-clock-repairers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "49-9061.00",
+        "source_url": "https://www.onetonline.org/link/summary/49-9061.00",
+        "locator": "Tasks 8435, 8439, 8440, 8441",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Diagnoses camera faults and verifies shutter, light meter, focus or alignment with instruments.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "49-9064.00",
+        "source_url": "https://www.onetonline.org/link/summary/49-9064.00",
+        "locator": "Tasks 14978, 14984, 14976, 14979",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Inspects timepiece parts, adjusts rate regulators, repairs or replaces worn parts and reassembles timepieces.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 108,
+      "source_slugs": [
+        "camera-and-photographic-equipment-repairers",
+        "watch-and-clock-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

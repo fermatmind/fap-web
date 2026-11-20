@@ -1,0 +1,311 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "974bd709ffd72283fd35affc9eff1b80ce50d844f1981a55aab8096836d40ccb",
+  "inputs": {
+    "pair_id": "manicurists-and-pedicurists-vs-shampooers",
+    "slugs": [
+      "manicurists-and-pedicurists",
+      "shampooers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/manicurists-and-pedicurists-vs-shampooers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "manicurists-and-pedicurists": {
+        "name": "Manicurists and Pedicurists",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.63,
+            1.3,
+            2.29,
+            3.06,
+            2.35,
+            3.67
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5092.00#Tasks"
+              }
+            ],
+            "text": "Clean and sanitize tools and work environment."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5092.00#Tasks"
+              }
+            ],
+            "text": "Apply undercoat and clear or colored polish onto nails with brush."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5092.00#Tasks"
+              }
+            ],
+            "text": "Maintain supply inventories and records of client services."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5092.00#Tasks"
+              }
+            ],
+            "text": "Shape and smooth ends of nails, using scissors, files, or emery boards."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "39-5092",
+          "title_evidence": "official_title"
+        }
+      },
+      "shampooers": {
+        "name": "Shampooers",
+        "riasec": {
+          "code": "RSC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.53,
+            1.35,
+            1.56,
+            3.75,
+            2.47,
+            3.37
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5093.00#Tasks"
+              }
+            ],
+            "text": "Massage, shampoo, and condition patron's hair and scalp to clean them and remove excess oil."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5093.00#Tasks"
+              }
+            ],
+            "text": "Advise patrons with chronic or potentially contagious scalp conditions to seek medical treatment."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5093.00#Tasks"
+              }
+            ],
+            "text": "Treat scalp conditions and hair loss, using specialized lotions, shampoos, or equipment such as infrared lamps or vibrating equipment."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-5093",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "manicurists-and-pedicurists -> shampooers",
+      "shampooers -> manicurists-and-pedicurists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "nails",
+        "source_url": "https://www.onetonline.org/link/details/39-5092.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Nail workers shape and decorate nails, clean tools, keep service records, and make repeated movements.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "hair",
+        "source_url": "https://www.onetonline.org/link/details/39-5093.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Shampooers wash and rinse hair and report extended standing.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tx-shampoo",
+        "source_url": "https://www.tdlr.texas.gov/barbering-and-cosmetology/who-regulates-what.htm",
+        "locator": "Shampooing and Conditioning",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "Texas does not require a license for shampooing and conditioning.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tx-nails",
+        "source_url": "https://www.tdlr.texas.gov/barbering-and-cosmetology/individuals/apply-manicurist.htm",
+        "locator": "Education and Training; Examinations",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "Texas school route specifies 600 hours at a licensed school and written and practical exams.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tx-nail-scope",
+        "source_url": "https://www.tdlr.texas.gov/barbering-and-cosmetology/scope-of-practice/manicurist.htm",
+        "locator": "What Services are Allowed?; Who Can Provide Services in Texas?",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "The listed nail services require an eligible Texas license.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "dallas",
+        "source_url": "https://www.ritzcarlton.com/en/hotels/dalrz-the-ritz-carlton-dallas/spa/",
+        "locator": "Facilities & Amenities",
+        "value": {
+          "jurisdiction": "US, Dallas",
+          "effective_or_period": "2026 access",
+          "summary": "The hotel spa lists a hair salon and a nail salon.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, 39-5092 and 39-5093",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2025 wage column",
+          "summary": "U.S. median annual wages were $35,760 and $32,600. Shampooers typically have short-term on-the-job training.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 493,
+      "source_slugs": [
+        "manicurists-and-pedicurists",
+        "shampooers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

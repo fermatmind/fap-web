@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "07fb9666b2e32120bc78694804c3baac3fcbf853035eab4774333bb75b53c66c",
+  "inputs": {
+    "pair_id": "video-game-designers-vs-web-developers",
+    "slugs": [
+      "video-game-designers",
+      "web-developers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/video-game-designers-vs-web-developers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "video-game-designers": {
+        "name": "电子游戏设计师",
+        "riasec": {
+          "code": "AI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1255.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.77,
+            4.15,
+            6.38,
+            2.3,
+            3.92,
+            3.85
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1255.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-1255",
+          "title_evidence": "official_title"
+        }
+      },
+      "web-developers": {
+        "name": "网页开发人员",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1254.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.98,
+            5.01,
+            3.13,
+            2.22,
+            2.96,
+            5.03
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1254.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-1254",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "video-game-designers -> web-developers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：定义玩法目标、机制和关卡，用文档与原型和团队验证设计，再依据测试观察修改；后岗：Web 开发人员实现页面和接口调用，维护代码与资源，按环境验证成功、失败及回退路径。",
+    "cn_qualification": {
+      "video-game-designers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "web-developers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "game",
+        "source_url": "https://www.onetonline.org/link/summary/15-1255.01",
+        "locator": "Tasks and Job Zone",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Defines mechanics and challenges, documents and prototypes gameplay, and runs gameplay reviews. O*NET assigns Job Zone Four.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "web",
+        "source_url": "https://www.onetonline.org/link/summary/15-1254.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Develops, updates and tests websites and web applications across environments.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "game-study",
+        "source_url": "https://www.moe.gov.cn/s78/A07/zcs_ztzl/2017_zt06/17zt06_bznr/bznr_zyjyzyjxbz/gdzyjy_zk/zk_whysdl/whysdl_yssjl/202502/P020250207552602050699.pdf",
+        "locator": "专业核心课程与教学要求",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025 版职业教育标准",
+          "summary": "游戏艺术设计高职专科培养包含游戏设计和按策划框架推进制作的课程。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "web-study",
+        "source_url": "https://www.moe.gov.cn/s78/A07/zcs_ztzl/2017_zt06/17zt06_bznr/bznr_zyjyzyjxbz/gdzyjy_zk/zk_dzyxxdl/dzxxdl_jsjl/202502/P020250207533323690137.pdf",
+        "locator": "职业面向与课程设置",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025 版职业教育标准",
+          "summary": "软件技术高职专科培养面向软件开发，含网站开发相关学习内容。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 703,
+      "source_slugs": [
+        "video-game-designers",
+        "web-developers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

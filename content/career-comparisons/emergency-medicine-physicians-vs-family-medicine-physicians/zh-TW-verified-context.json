@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3a583983997e5842928963868723441263b957654bfdf6457a7447d51609c43a",
+  "inputs": {
+    "pair_id": "emergency-medicine-physicians-vs-family-medicine-physicians",
+    "slugs": [
+      "emergency-medicine-physicians",
+      "family-medicine-physicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/emergency-medicine-physicians-vs-family-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "emergency-medicine-physicians": {
+        "name": "急診醫學醫師",
+        "riasec": {
+          "code": "ISC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1214.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.15,
+            5.64,
+            1.0,
+            5.6,
+            2.68,
+            4.22
+          ]
+        },
+        "tasks": [
+          "接診分級｜按病情嚴重度確定次序｜記錄分診依據與再評估時點",
+          "病史查體｜完成針對性採集與檢查｜記錄關鍵發現與來源",
+          "診斷鑑別｜列出初診與需排除情況｜寫明判斷依據與不確定性",
+          "處置用藥｜按指徵決定檢查與用藥｜越出執業範圍即會診或升級",
+          "穩定去向｜穩定病情並安排去向｜按清單完成交接",
+          "記錄複核｜形成急診病歷與醫囑｜按制度上報異常"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1214.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1214",
+          "title_evidence": "official_title"
+        }
+      },
+      "family-medicine-physicians": {
+        "name": "家庭醫學醫師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [
+          "接診與評估｜採集病史並做體格檢查｜形成初步判斷",
+          "診斷與治療｜安排並解讀檢查｜制定治療與用藥方案",
+          "預防保健｜開展免疫、篩查與健康指導｜管理慢性病隨訪",
+          "轉診與協作｜判斷需要轉診的情形｜與專科與護理團隊協作",
+          "記錄與溝通｜完成病歷與知情溝通｜說明風險與隨訪安排",
+          "質量與教學｜參與質量改進與病例討論｜承擔教學與培訓任務"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "emergency-medicine-physicians -> family-medicine-physicians",
+      "family-medicine-physicians -> emergency-medicine-physicians"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "emergency-medicine-physicians": {
+        "file_sha256": "75903e1bc38b99d3e03ba64148c15cefebbe7599f7878e963bd52c1d172619e6",
+        "entries": [
+          "接診分級｜按病情嚴重度確定次序｜記錄分診依據與再評估時點",
+          "病史查體｜完成針對性採集與檢查｜記錄關鍵發現與來源",
+          "診斷鑑別｜列出初診與需排除情況｜寫明判斷依據與不確定性",
+          "處置用藥｜按指徵決定檢查與用藥｜越出執業範圍即會診或升級",
+          "穩定去向｜穩定病情並安排去向｜按清單完成交接",
+          "記錄複核｜形成急診病歷與醫囑｜按制度上報異常"
+        ]
+      },
+      "family-medicine-physicians": {
+        "file_sha256": "aa0e6c472dd67008c9392bc7b1bb2a05407463a397303f4d0e0ca1025205c111",
+        "entries": [
+          "接診與評估｜採集病史並做體格檢查｜形成初步判斷",
+          "診斷與治療｜安排並解讀檢查｜制定治療與用藥方案",
+          "預防保健｜開展免疫、篩查與健康指導｜管理慢性病隨訪",
+          "轉診與協作｜判斷需要轉診的情形｜與專科與護理團隊協作",
+          "記錄與溝通｜完成病歷與知情溝通｜說明風險與隨訪安排",
+          "質量與教學｜參與質量改進與病例討論｜承擔教學與培訓任務"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 31,
+      "source_slugs": [
+        "emergency-medicine-physicians",
+        "family-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "emergency-medicine-physicians": {
+          "field": "entries",
+          "source_path": "careers/emergency-medicine-physicians/zh-TW.json",
+          "file_sha256": "75903e1bc38b99d3e03ba64148c15cefebbe7599f7878e963bd52c1d172619e6",
+          "count": 6
+        },
+        "family-medicine-physicians": {
+          "field": "entries",
+          "source_path": "careers/family-medicine-physicians/zh-TW.json",
+          "file_sha256": "aa0e6c472dd67008c9392bc7b1bb2a05407463a397303f4d0e0ca1025205c111",
+          "count": 6
+        }
+      }
+    }
+  }
+}

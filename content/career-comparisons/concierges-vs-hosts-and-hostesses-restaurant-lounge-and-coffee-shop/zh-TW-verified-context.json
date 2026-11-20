@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "a088cb2398de6d0cb08cb717ed69b4b821590d8046f8efef944612d097e8fd95",
+  "inputs": {
+    "pair_id": "concierges-vs-hosts-and-hostesses-restaurant-lounge-and-coffee-shop",
+    "slugs": [
+      "concierges",
+      "hosts-and-hostesses-restaurant-lounge-and-coffee-shop"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/concierges-vs-hosts-and-hostesses-restaurant-lounge-and-coffee-shop",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "concierges": {
+        "name": "禮賓員",
+        "riasec": {
+          "code": "SEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-6012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.7,
+            1.0,
+            2.29,
+            5.34,
+            4.67,
+            4.18
+          ]
+        },
+        "tasks": [
+          "資訊｜介紹本地資源並指路｜向客人介紹購物、餐飲、夜生活與休閒去處，提供前往目的地的方式與注意事項。",
+          "預訂｜為客人完成預訂與取票｜代訂餐廳、水療與球場時段，預訂機票車票與租車，並取得演出與活動票券。",
+          "行程｜安排觀光與出行安排｜為客人安排觀光與其他遊覽行程，必要時協調班車、兒童看護與翻譯服務。",
+          "代辦｜代辦事務與物品轉交｜代購鮮花、尋找稀缺物品、代收與轉交行李郵件，並辦理傳真與寄送等商務事務。",
+          "活動｜策劃並跟進小型活動｜為客人策劃聚會、宴會或會議，聯絡場地與供應方，並在現場跟進與調整。",
+          "交接｜記錄需求並做好交接｜把客人需求、預訂與代辦結果、未完成事項寫入記錄並當面交接，同時保持公共區域整潔有序。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-6012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "39-6012",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "hosts-and-hostesses-restaurant-lounge-and-coffee-shop": {
+        "name": "餐廳迎賓引位員",
+        "riasec": {
+          "code": "SEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "35-9031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.19,
+            1.0,
+            1.73,
+            5.24,
+            4.44,
+            4.09
+          ]
+        },
+        "tasks": [
+          "迎賓與問候｜接待到店顧客｜歡迎到店顧客，問候並確認人數與需求，介紹餐區與等位情況（O*NET 定義：歡迎顧客並引匯入座）。",
+          "座位安排｜檢視餐位並安排座位｜檢視餐位可用狀態與服務能力，按人數、預訂與需求安排顧客入座餐桌或酒廊（O*NET 定義：引導顧客入座餐桌或酒廊）。",
+          "預訂與等位管理｜核對接並管理候位｜核對預訂資訊、管理等位順序與候位名單，向等位顧客說明預計等待並協調先後（O*NET 任務：接待與安排顧客）。",
+          "服務交接｜遞送選單並交接服務員｜向顧客遞送選單，並把座位與顧客需求資訊交接給相應服務員（O*NET 任務：與服務人員協調）。",
+          "設施與衛生｜檢查並維護設施品質｜協助確保設施與服務品質，檢查檯面與環境清潔、走道暢通，並上報發現的問題（O*NET 定義：協助確保設施與服務品質）。",
+          "溝通與協調｜與顧客和同事溝通｜與顧客、服務員與管理人員溝通，處理需求與問題並按機構制度上報（O*NET 工作活動：與外部客戶或公眾打交道、與同事溝通）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "35-9031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "35-9031",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "hosts-and-hostesses-restaurant-lounge-and-coffee-shop -> concierges"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "concierges": {
+        "file_sha256": "c57abd87281a0cb0887b5de393756e708b320ebbdeb5fa30241d8cea17506b7d",
+        "entries": [
+          "資訊｜介紹本地資源並指路｜向客人介紹購物、餐飲、夜生活與休閒去處，提供前往目的地的方式與注意事項。",
+          "預訂｜為客人完成預訂與取票｜代訂餐廳、水療與球場時段，預訂機票車票與租車，並取得演出與活動票券。",
+          "行程｜安排觀光與出行安排｜為客人安排觀光與其他遊覽行程，必要時協調班車、兒童看護與翻譯服務。",
+          "代辦｜代辦事務與物品轉交｜代購鮮花、尋找稀缺物品、代收與轉交行李郵件，並辦理傳真與寄送等商務事務。",
+          "活動｜策劃並跟進小型活動｜為客人策劃聚會、宴會或會議，聯絡場地與供應方，並在現場跟進與調整。",
+          "交接｜記錄需求並做好交接｜把客人需求、預訂與代辦結果、未完成事項寫入記錄並當面交接，同時保持公共區域整潔有序。"
+        ]
+      },
+      "hosts-and-hostesses-restaurant-lounge-and-coffee-shop": {
+        "file_sha256": "a2e42ed1d91d2fbcecc90deacc4274a2557772258952f9cc86f301524c0137ae",
+        "entries": [
+          "迎賓與問候｜接待到店顧客｜歡迎到店顧客，問候並確認人數與需求，介紹餐區與等位情況（O*NET 定義：歡迎顧客並引匯入座）。",
+          "座位安排｜檢視餐位並安排座位｜檢視餐位可用狀態與服務能力，按人數、預訂與需求安排顧客入座餐桌或酒廊（O*NET 定義：引導顧客入座餐桌或酒廊）。",
+          "預訂與等位管理｜核對接並管理候位｜核對預訂資訊、管理等位順序與候位名單，向等位顧客說明預計等待並協調先後（O*NET 任務：接待與安排顧客）。",
+          "服務交接｜遞送選單並交接服務員｜向顧客遞送選單，並把座位與顧客需求資訊交接給相應服務員（O*NET 任務：與服務人員協調）。",
+          "設施與衛生｜檢查並維護設施品質｜協助確保設施與服務品質，檢查檯面與環境清潔、走道暢通，並上報發現的問題（O*NET 定義：協助確保設施與服務品質）。",
+          "溝通與協調｜與顧客和同事溝通｜與顧客、服務員與管理人員溝通，處理需求與問題並按機構制度上報（O*NET 工作活動：與外部客戶或公眾打交道、與同事溝通）。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 205,
+      "source_slugs": [
+        "concierges",
+        "hosts-and-hostesses-restaurant-lounge-and-coffee-shop"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "concierges": {
+          "field": "entries",
+          "source_path": "careers/concierges/zh-TW.json",
+          "file_sha256": "c57abd87281a0cb0887b5de393756e708b320ebbdeb5fa30241d8cea17506b7d",
+          "count": 6
+        },
+        "hosts-and-hostesses-restaurant-lounge-and-coffee-shop": {
+          "field": "entries",
+          "source_path": "careers/hosts-and-hostesses-restaurant-lounge-and-coffee-shop/zh-TW.json",
+          "file_sha256": "a2e42ed1d91d2fbcecc90deacc4274a2557772258952f9cc86f301524c0137ae",
+          "count": 6
+        }
+      }
+    }
+  }
+}

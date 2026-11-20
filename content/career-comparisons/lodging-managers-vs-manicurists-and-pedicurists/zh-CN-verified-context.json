@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "da5abd5d22cec28e18927bada33eacbafbeb61780cec3270956a53d941e542f6",
+  "inputs": {
+    "pair_id": "lodging-managers-vs-manicurists-and-pedicurists",
+    "slugs": [
+      "lodging-managers",
+      "manicurists-and-pedicurists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/lodging-managers-vs-manicurists-and-pedicurists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "lodging-managers": {
+        "name": "住宿运营经理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.69,
+            1.1,
+            1.43,
+            4.31,
+            6.21,
+            5.22
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-9081",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "manicurists-and-pedicurists": {
+        "name": "手足美甲师",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.63,
+            1.3,
+            2.29,
+            3.06,
+            2.35,
+            3.67
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "39-5092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "manicurists-and-pedicurists -> lodging-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：协调前台、房务、维护等团队，跟踪房间可用情况、服务质量和经营指标，处理需要跨部门决策的异常；后岗：核对客户选择，进行手部或足部的指甲修整和装饰，并记录服务项目、工具清洁状态及需要暂停或转交的问题。",
+    "cn_qualification": {
+      "lodging-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "manicurists-and-pedicurists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "11-9081.00",
+        "source_url": "https://www.onetonline.org/link/summary/11-9081.00",
+        "locator": "Tasks 1105, 1106, 1107, 1109, 1114",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Coordinates front office, staff, guest complaints and room assignments.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "39-5092.00",
+        "source_url": "https://www.onetonline.org/link/summary/39-5092.00",
+        "locator": "Tasks 8748, 8752, 8753, 8758, 8749",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Performs nail services, sanitizes tools, records services and can schedule clients.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 484,
+      "source_slugs": [
+        "lodging-managers",
+        "manicurists-and-pedicurists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

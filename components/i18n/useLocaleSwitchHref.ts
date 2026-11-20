@@ -61,6 +61,10 @@ export function useLocaleSwitchHref(pathname: string, targetLocale: Locale): str
 }
 
 export function resolveTraditionalSwitchHref(pathname: string, head?: ParentNode, search = ""): string {
+  if (/^\/(?:zh|en)\/career-compare(?:\/[a-z0-9-]+)?$/.test(pathname)) {
+    const href = head?.querySelector<HTMLAnchorElement>('[data-comparison-languages] a[lang="zh-TW"]')?.getAttribute("href");
+    if (href === pathname.replace(/^\/(?:zh|en)/, "/zh-TW")) return href;
+  }
   const readerHref = articleReaderHref(pathname, "zh-TW", head);
   if (readerHref) return readerHref;
   if (/^\/(?:zh|en)\/topics\/[a-z0-9-]+$/u.test(pathname)) {

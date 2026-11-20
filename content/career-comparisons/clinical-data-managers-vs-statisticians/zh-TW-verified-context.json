@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "696e21d2646d29c0afbd7c3469887a55178389044ee02050a45832ba0e114c27",
+  "inputs": {
+    "pair_id": "clinical-data-managers-vs-statisticians",
+    "slugs": [
+      "clinical-data-managers",
+      "statisticians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clinical-data-managers-vs-statisticians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clinical-data-managers": {
+        "name": "臨床資料經理",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2051.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.25,
+            5.66,
+            1.27,
+            2.82,
+            3.3,
+            6.58
+          ]
+        },
+        "tasks": [
+          "資料庫設計與校驗｜把資料庫與校驗邏輯做成可複核的規格｜設計並驗證臨床資料庫（含設計或測試邏輯校驗），為接收與處理或追蹤資料設計表單並確定格式（對應 O*NET 任務第一與第七與第六項）。",
+          "資料流程與質量控制｜處理並核對資料並解決已識別問題｜處理臨床資料（含接收與錄入與核對與歸檔），根據校驗錯誤與遺漏生成資料查詢以解決問題，並執行質量控制審計以確保準確性與完整性（對應 O*NET 任務第二與第三與第十項）。",
+          "計劃與流程檔案｜編寫資料管理計劃與作業指導書｜制定針對具體專案的資料管理計劃（涵蓋編碼與報告與資料傳輸與資料庫鎖定與工作流程），撰寫作業指導書與資料採集指南或標準操作程式（對應 O*NET 任務第四與第十四項）。",
+          "分析與報告｜用統計工具分析併產出報告｜使用適當的統計工具分析臨床資料，編制資料分析列表與活動或績效或進展報告（對應 O*NET 任務第十一與第八項）。",
+          "系統與需求溝通｜與終端使用者確定並實施系統需求｜與終端使用者確定或實施臨床系統需求（如資料釋出格式與交付計劃與測試方案），為資料管理程式設計編寫技術規格並與資訊科技人員溝通需求（對應 O*NET 任務第九與第十三項）。",
+          "協作與流程改進｜支援跨職能並推動效率改進｜評估流程與技術並提出提高產出與效率的修訂建議，為市場與臨床監查與醫學事務等職能提供支援與資訊，並參與方案與臨床研究報告與監管申報等受控檔案的編寫與組織與產出（對應 O*NET 任務第十二與第二十一與第十七項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2051.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-2051",
+          "title_evidence": "official_title"
+        }
+      },
+      "statisticians": {
+        "name": "統計師",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.14,
+            6.58,
+            1.77,
+            1.71,
+            1.82,
+            6.03
+          ]
+        },
+        "tasks": [
+          "研究問題｜與使用者明確問題、目標量和分析單位。｜形成能由資料檢驗的問題，區分描述、預測與因果目標。",
+          "樣本與測量｜設計樣本方案、調查或實驗方法。｜記錄抽樣機制和測量條件，不用樣本量掩蓋選擇偏差。",
+          "資料評估｜檢查來源可靠性、缺失與資料處理方法。｜保留處理依據和質量限制，讓結果能回到原始資料。",
+          "方法與模型｜選擇適用統計方法並檢驗條件。｜評估方法的有效性與準確性，記錄診斷和替代分析。",
+          "結果解釋｜分析關係與趨勢並檢查影響結果的因素。｜說明不確定性與適用範圍，不把相關自動寫成因果。",
+          "溝通與複核｜向使用者解釋分析並參與報告或同行複核。｜交付可復現過程和限制說明，釋出遵循專案授權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-2041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "statisticians -> clinical-data-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clinical-data-managers": {
+        "file_sha256": "b823daa9d649531863cbe8523cb72428c5b76cb1ae63bd3a21333d5b8657fd77",
+        "entries": [
+          "資料庫設計與校驗｜把資料庫與校驗邏輯做成可複核的規格｜設計並驗證臨床資料庫（含設計或測試邏輯校驗），為接收與處理或追蹤資料設計表單並確定格式（對應 O*NET 任務第一與第七與第六項）。",
+          "資料流程與質量控制｜處理並核對資料並解決已識別問題｜處理臨床資料（含接收與錄入與核對與歸檔），根據校驗錯誤與遺漏生成資料查詢以解決問題，並執行質量控制審計以確保準確性與完整性（對應 O*NET 任務第二與第三與第十項）。",
+          "計劃與流程檔案｜編寫資料管理計劃與作業指導書｜制定針對具體專案的資料管理計劃（涵蓋編碼與報告與資料傳輸與資料庫鎖定與工作流程），撰寫作業指導書與資料採集指南或標準操作程式（對應 O*NET 任務第四與第十四項）。",
+          "分析與報告｜用統計工具分析併產出報告｜使用適當的統計工具分析臨床資料，編制資料分析列表與活動或績效或進展報告（對應 O*NET 任務第十一與第八項）。",
+          "系統與需求溝通｜與終端使用者確定並實施系統需求｜與終端使用者確定或實施臨床系統需求（如資料釋出格式與交付計劃與測試方案），為資料管理程式設計編寫技術規格並與資訊科技人員溝通需求（對應 O*NET 任務第九與第十三項）。",
+          "協作與流程改進｜支援跨職能並推動效率改進｜評估流程與技術並提出提高產出與效率的修訂建議，為市場與臨床監查與醫學事務等職能提供支援與資訊，並參與方案與臨床研究報告與監管申報等受控檔案的編寫與組織與產出（對應 O*NET 任務第十二與第二十一與第十七項）。"
+        ]
+      },
+      "statisticians": {
+        "file_sha256": "4dc615e79813f0abb30748cebfdb114ab3de0fa4d49623a3bd4f8b9d98398fbc",
+        "entries": [
+          "研究問題｜與使用者明確問題、目標量和分析單位。｜形成能由資料檢驗的問題，區分描述、預測與因果目標。",
+          "樣本與測量｜設計樣本方案、調查或實驗方法。｜記錄抽樣機制和測量條件，不用樣本量掩蓋選擇偏差。",
+          "資料評估｜檢查來源可靠性、缺失與資料處理方法。｜保留處理依據和質量限制，讓結果能回到原始資料。",
+          "方法與模型｜選擇適用統計方法並檢驗條件。｜評估方法的有效性與準確性，記錄診斷和替代分析。",
+          "結果解釋｜分析關係與趨勢並檢查影響結果的因素。｜說明不確定性與適用範圍，不把相關自動寫成因果。",
+          "溝通與複核｜向使用者解釋分析並參與報告或同行複核。｜交付可復現過程和限制說明，釋出遵循專案授權。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 167,
+      "source_slugs": [
+        "clinical-data-managers",
+        "statisticians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clinical-data-managers": {
+          "field": "entries",
+          "source_path": "careers/clinical-data-managers/zh-TW.json",
+          "file_sha256": "b823daa9d649531863cbe8523cb72428c5b76cb1ae63bd3a21333d5b8657fd77",
+          "count": 6
+        },
+        "statisticians": {
+          "field": "entries",
+          "source_path": "careers/statisticians/zh-TW.json",
+          "file_sha256": "4dc615e79813f0abb30748cebfdb114ab3de0fa4d49623a3bd4f8b9d98398fbc",
+          "count": 6
+        }
+      }
+    }
+  }
+}

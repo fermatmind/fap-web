@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "65aa4bccc2f2311da0c5d6c2c5d4435d31e886459e1ba04d9be0e62dd0d4bfcb",
+  "inputs": {
+    "pair_id": "computer-systems-analysts-vs-web-administrators",
+    "slugs": [
+      "computer-systems-analysts",
+      "web-administrators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/computer-systems-analysts-vs-web-administrators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "computer-systems-analysts": {
+        "name": "計算機系統分析師",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1211.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.27,
+            6.39,
+            1.98,
+            1.91,
+            2.23,
+            5.93
+          ]
+        },
+        "tasks": [
+          "需求｜訪談並梳理業務流程｜與客戶和使用者訪談、觀察崗位作業，梳理由誰在什麼環節處理什麼資料，形成現狀說明與問題清單。",
+          "設計｜定義系統目標與規格｜依據現狀與業務目標定義系統範圍、輸入輸出、處理規則與驗收條件，並評估候選方案與既有系統的相容性。",
+          "整合｜協調安裝與介面配置｜按設計協調軟硬體安裝、配置介面與資料流向，確保組織內系統可以交換資訊。",
+          "測試｜執行測試並監控執行｜編寫測試用例並覆蓋正常與異常路徑，記錄環境與結果；上線後監控效能與錯誤日誌，定位並修正問題。",
+          "改進｜依據執行資料改進系統流程｜依據執行指標與使用者反饋提出改進方案，評估影響面並安排變更，必要時調整流程與培訓材料。",
+          "協作｜培訓使用者並維護文件｜編寫使用者操作說明並培訓使用者，維護設計、測試與變更文件，使他人可以接手。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1211.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1211",
+          "title_evidence": "official_title"
+        }
+      },
+      "web-administrators": {
+        "name": "網站管理員",
+        "riasec": {
+          "code": "CIE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1299.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.45,
+            4.41,
+            2.42,
+            2.27,
+            3.77,
+            5.54
+          ]
+        },
+        "tasks": [
+          "維護｜環境部署更新｜按範圍管理環境、補丁與配置。",
+          "診斷｜日誌與故障｜定位問題並記錄已證與待核原因。",
+          "恢復｜備份與驗證｜整理計劃，測試恢復並處理問題。",
+          "許可權｜訪問與安全｜明確訪問級別，報告異常給相應人員。",
+          "質量｜頁面與應用測試｜檢查內容連結、效能及使用者反饋。",
+          "溝通｜變更與使用者說明｜留程式和版本，通知問題及解決情況。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1299.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-1299",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "web-administrators -> computer-systems-analysts"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "computer-systems-analysts": {
+        "file_sha256": "3d6ae8acd3180492ed007127ca2fe0cec271d74d05a4d14ee7ad3ec90282adb1",
+        "entries": [
+          "需求｜訪談並梳理業務流程｜與客戶和使用者訪談、觀察崗位作業，梳理由誰在什麼環節處理什麼資料，形成現狀說明與問題清單。",
+          "設計｜定義系統目標與規格｜依據現狀與業務目標定義系統範圍、輸入輸出、處理規則與驗收條件，並評估候選方案與既有系統的相容性。",
+          "整合｜協調安裝與介面配置｜按設計協調軟硬體安裝、配置介面與資料流向，確保組織內系統可以交換資訊。",
+          "測試｜執行測試並監控執行｜編寫測試用例並覆蓋正常與異常路徑，記錄環境與結果；上線後監控效能與錯誤日誌，定位並修正問題。",
+          "改進｜依據執行資料改進系統流程｜依據執行指標與使用者反饋提出改進方案，評估影響面並安排變更，必要時調整流程與培訓材料。",
+          "協作｜培訓使用者並維護文件｜編寫使用者操作說明並培訓使用者，維護設計、測試與變更文件，使他人可以接手。"
+        ]
+      },
+      "web-administrators": {
+        "file_sha256": "0497b3e1fdad094e054fa92deeab959c4a7146e689d0dcfc9da5ebfa40293b6f",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 201,
+      "source_slugs": [
+        "computer-systems-analysts",
+        "web-administrators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "computer-systems-analysts": {
+          "field": "entries",
+          "source_path": "careers/computer-systems-analysts/zh-TW.json",
+          "file_sha256": "3d6ae8acd3180492ed007127ca2fe0cec271d74d05a4d14ee7ad3ec90282adb1",
+          "count": 6
+        },
+        "web-administrators": {
+          "field": "paragraphs",
+          "source_path": "careers/web-administrators/zh-TW.json",
+          "file_sha256": "0497b3e1fdad094e054fa92deeab959c4a7146e689d0dcfc9da5ebfa40293b6f",
+          "count": 6
+        }
+      }
+    }
+  }
+}

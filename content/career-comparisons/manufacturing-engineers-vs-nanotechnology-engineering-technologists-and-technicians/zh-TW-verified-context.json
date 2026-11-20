@@ -1,0 +1,189 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "012b5b0841b29a7428fe55d9a2a662e1cf75ee6e02bce8a963ed78707f28f8c9",
+  "inputs": {
+    "pair_id": "manufacturing-engineers-vs-nanotechnology-engineering-technologists-and-technicians",
+    "slugs": [
+      "manufacturing-engineers",
+      "nanotechnology-engineering-technologists-and-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/manufacturing-engineers-vs-nanotechnology-engineering-technologists-and-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "manufacturing-engineers": {
+        "name": "製造工程師",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2112.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.27,
+            4.53,
+            2.22,
+            1.6,
+            3.09,
+            4.41
+          ]
+        },
+        "tasks": [
+          "投入物件：產品與工藝設計、材料與公差、產線與裝置、質量與檢驗標準、生產與質量資料、成本與產能約束、相關方需求與專案範圍、法規與可持續性要求。",
+          "可檢查產出：問題界定與根因分析、資料與實驗結論、流程與佈局改進方案、可製造性評估意見、成本與工時估算、流程與工程文件、驗證與驗收結果、可持續性評估。",
+          "完整工作流程：界定問題與目標 → 收集產線與質量資料 → 分析並驗證假設與根因 → 形成並比較改進方案 → 實施與試產驗證 → 更新文件與標準 → 跟蹤效果並復盤的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2112.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2112",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "name": "奈米技術工程技師與技術人員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3026.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.16,
+            4.98,
+            1.55,
+            1.05,
+            2.01,
+            4.83
+          ]
+        },
+        "tasks": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3026.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3026",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "nanotechnology-engineering-technologists-and-technicians -> manufacturing-engineers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "manufacturing-engineers": {
+        "file_sha256": "e6c88cf81f8f2aacba00168920e4cafb68dc803bf8d5d4862db4c78051c8ecc1",
+        "entries": [
+          "投入物件：產品與工藝設計、材料與公差、產線與裝置、質量與檢驗標準、生產與質量資料、成本與產能約束、相關方需求與專案範圍、法規與可持續性要求。",
+          "可檢查產出：問題界定與根因分析、資料與實驗結論、流程與佈局改進方案、可製造性評估意見、成本與工時估算、流程與工程文件、驗證與驗收結果、可持續性評估。",
+          "完整工作流程：界定問題與目標 → 收集產線與質量資料 → 分析並驗證假設與根因 → 形成並比較改進方案 → 實施與試產驗證 → 更新文件與標準 → 跟蹤效果並復盤的閉環。"
+        ]
+      },
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+        "entries": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 497,
+      "source_slugs": [
+        "manufacturing-engineers",
+        "nanotechnology-engineering-technologists-and-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "manufacturing-engineers": {
+          "field": "entries",
+          "source_path": "careers/manufacturing-engineers/zh-TW.json",
+          "file_sha256": "e6c88cf81f8f2aacba00168920e4cafb68dc803bf8d5d4862db4c78051c8ecc1",
+          "count": 3
+        },
+        "nanotechnology-engineering-technologists-and-technicians": {
+          "field": "entries",
+          "source_path": "careers/nanotechnology-engineering-technologists-and-technicians/zh-TW.json",
+          "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+          "count": 8
+        }
+      }
+    }
+  }
+}

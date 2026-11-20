@@ -1,0 +1,210 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7b78173a707bb675cee10d14293ec7319ef28a6af8c080fc72061aba30a96cde",
+  "inputs": {
+    "pair_id": "family-medicine-physicians-vs-midwives",
+    "slugs": [
+      "family-medicine-physicians",
+      "midwives"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/family-medicine-physicians-vs-midwives",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "family-medicine-physicians": {
+        "name": "家庭医学医师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      },
+      "midwives": {
+        "name": "助产士",
+        "riasec": {
+          "code": "SR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-9099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.98,
+            3.54,
+            1.91,
+            6.04,
+            2.7,
+            3.26
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-9099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-9099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "midwives -> family-medicine-physicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：为各年龄段的个人与家庭提供诊断，治疗与预防保健，采集病史与体格检查，安排与解读检验和影像，作出诊断并制定治疗方案，管理慢性病与常见急性病，提供免疫；后岗：为孕产妇提供产前照护、分娩协助与产后随访，并识别需转诊的情况。",
+    "cn_qualification": {
+      "family-medicine-physicians": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html"
+        ]
+      },
+      "midwives": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "family",
+        "source_url": "https://www.onetonline.org/link/summary/29-1215.00",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Family physicians provide diagnosis, treatment and preventive care across the lifespan and can refer to specialists.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "midwife",
+        "source_url": "https://www.onetonline.org/link/details/29-9099.01",
+        "locator": "Overview and Tasks, 29-9099.01",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Midwives may assess patients before and after birth, monitor during labor and refer or seek assistance as needed.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "physician-law",
+        "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html",
+        "locator": "第十二至十四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01 起",
+          "summary": "取得医师资格后按规定注册，并在注册的执业地点、类别和范围内执业。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "midwifery-rules",
+        "source_url": "https://www.nhc.gov.cn/cms-search/downFiles/43296b745e384725bf0be3b18e19a4e2.pdf",
+        "locator": "《母婴保健专项技术服务许可及人员资格管理办法》第二、十、十二及十三条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2021 年修订",
+          "summary": "开展助产技术服务涉及机构许可和人员考核资格，人员资格考核办法由各省级卫生健康主管部门规定。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "family-training",
+        "source_url": "https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/201803/t20180313_329804.html",
+        "locator": "第二部分 改革完善全科医生培养制度",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "国办发〔2018〕3号",
+          "summary": "政策列出全科专业住院医师规范化培训等培养路径。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "family-transition",
+        "source_url": "https://www.nhc.gov.cn/qjjys/c100015/201904/a1e0f33b5e3249e4a3cdc3471f93c9f0.shtml",
+        "locator": "转岗培训对象",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2019 年修订版",
+          "summary": "转岗培训面向符合规定的临床医师，包括符合从业年限等要求的部分专科临床执业医师。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 426,
+      "source_slugs": [
+        "family-medicine-physicians",
+        "midwives"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

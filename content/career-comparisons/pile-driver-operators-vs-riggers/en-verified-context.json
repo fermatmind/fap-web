@@ -1,0 +1,314 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "71d336993676fc9f53c3987ef0cb1d12998cb6fd8c6e729bc053881ced1eb224",
+  "inputs": {
+    "pair_id": "pile-driver-operators-vs-riggers",
+    "slugs": [
+      "pile-driver-operators",
+      "riggers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/pile-driver-operators-vs-riggers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pile-driver-operators": {
+        "name": "Pile driver operators",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.94,
+            1.0,
+            1.02,
+            1.15,
+            3.61
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2072.00#Tasks"
+              }
+            ],
+            "text": "Move hand and foot levers of hoisting equipment to position piling leads, hoist piling into leads, and position hammers over pilings."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2072.00#Tasks"
+              }
+            ],
+            "text": "Move levers and turn valves to activate power hammers, or to raise and lower drophammers that drive piles to required depths."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2072.00#Tasks"
+              }
+            ],
+            "text": "Drive pilings to provide support for buildings or other structures, using heavy equipment with a pile driver head."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2072.00#Tasks"
+              }
+            ],
+            "text": "Conduct pre-operational checks on equipment to ensure proper functioning."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2072",
+          "title_evidence": "official_title"
+        }
+      },
+      "riggers": {
+        "name": "Riggers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9096.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.37,
+            1.41,
+            1.02,
+            1.95,
+            3.64
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9096.00#Tasks"
+              }
+            ],
+            "text": "Test rigging to ensure safety and reliability."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9096.00#Tasks"
+              }
+            ],
+            "text": "Signal or verbally direct workers engaged in hoisting and moving loads to ensure safety of workers and materials."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9096.00#Tasks"
+              }
+            ],
+            "text": "Control movement of heavy equipment through narrow openings or confined spaces, using chainfalls, gin poles, gallows frames, and other equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9096.00#Tasks"
+              }
+            ],
+            "text": "Tilt, dip, and turn suspended loads to maneuver over, under, or around obstacles, using multi-point suspension techniques."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9096.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "49-9096",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pile-driver-operators -> riggers",
+      "riggers -> pile-driver-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "47-2072.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-2072.00",
+        "locator": "Tasks 14901, 14902, 14903, 14904",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Checks and operates pile-driving equipment and installs foundation piles.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "49-9096.00",
+        "source_url": "https://www.onetonline.org/link/summary/49-9096.00",
+        "locator": "Tasks 13892, 13893, 13894, 13895",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Selects and checks rigging, attaches loads and communicates with workers moving the load.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 47-2072 and 49-9096",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 employment matrix",
+          "summary": "Annual employee wage medians $73,300 and $62,640. Typical entry: High school diploma or equivalent and moderate-term on-the-job training for pile driver operators. High school diploma or equivalent and moderate-term on-the-job training for riggers.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "osha-dedicated-pile-driver",
+        "source_url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.1439",
+        "locator": "1926.1439(a)–(d)",
+        "value": {
+          "jurisdiction": "United States federal construction",
+          "effective_or_period": "现行文本，截至 2026-11-17",
+          "summary": "Subpart CC applies to dedicated pile drivers subject to the listed modifications.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "osha-operator",
+        "source_url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.1427",
+        "locator": "1926.1427(a), (c), (f)",
+        "value": {
+          "jurisdiction": "United States federal construction",
+          "effective_or_period": "现行文本，截至 2026-11-17",
+          "summary": "Operators of covered equipment must be trained, certified or licensed and evaluated, subject to stated exceptions and supervised training provisions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "osha-rigger",
+        "source_url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.1404",
+        "locator": "1926.1404(r)(1)",
+        "value": {
+          "jurisdiction": "United States federal construction",
+          "effective_or_period": "现行文本，截至 2026-11-17",
+          "summary": "Rigging work during covered equipment assembly and disassembly must be done by a qualified rigger.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 583,
+      "source_slugs": [
+        "pile-driver-operators",
+        "riggers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

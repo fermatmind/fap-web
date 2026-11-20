@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0c1dd62bb49ad966a954f7527be5c1e074de762525e0a32ac1e1b4bfe0ac8239",
+  "inputs": {
+    "pair_id": "art-therapists-vs-mental-health-counselors",
+    "slugs": [
+      "art-therapists",
+      "mental-health-counselors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/art-therapists-vs-mental-health-counselors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "art-therapists": {
+        "name": "艺术治疗师",
+        "riasec": {
+          "code": "SA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1129.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.99,
+            3.67,
+            5.49,
+            5.64,
+            2.32,
+            2.86
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1129.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1129",
+          "title_evidence": "official_title"
+        }
+      },
+      "mental-health-counselors": {
+        "name": "心理健康咨询师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1014.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.31,
+            4.42,
+            3.06,
+            6.79,
+            2.96,
+            3.43
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1014.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1014",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "art-therapists -> mental-health-counselors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在专业照护关系中使用视觉艺术创作，与来访者沟通，并记录过程、同意与后续安排；后岗：为个人与团体提供心理健康咨询与预防服务，帮助处理成瘾、家庭、压力与自尊等议题。",
+    "cn_qualification": {
+      "art-therapists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "mental-health-counselors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "29-1129.01",
+        "source_url": "https://www.onetonline.org/link/summary/29-1129.01",
+        "locator": "Tasks 19143, 19146, 19151, 19161",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Designs creative sessions, selects media, and records responses and progress.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "21-1014.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1014.00",
+        "locator": "Tasks 1592, 1593, 1598, 18484",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Uses counseling to explore client concerns, develop coping strategies, and document progress under a treatment plan.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-mental-health-law",
+        "source_url": "https://wjw.nmg.gov.cn/ztlm/dqzt/fzjs/flfg/gjflfg/202606/t20260602_2911179.html",
+        "locator": "《中华人民共和国精神卫生法》第二十三条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2018 年修正",
+          "summary": "心理咨询人员不得从事心理治疗或精神障碍的诊断、治疗。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 41,
+      "source_slugs": [
+        "art-therapists",
+        "mental-health-counselors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

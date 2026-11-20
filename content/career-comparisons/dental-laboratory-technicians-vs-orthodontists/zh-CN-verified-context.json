@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "62ad54ddc93207878459bc5966697439e36b59a31e997a20343ea4f93dcd4933",
+  "inputs": {
+    "pair_id": "dental-laboratory-technicians-vs-orthodontists",
+    "slugs": [
+      "dental-laboratory-technicians",
+      "orthodontists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/dental-laboratory-technicians-vs-orthodontists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dental-laboratory-technicians": {
+        "name": "牙科技工室技术员",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.61,
+            4.46,
+            1.52,
+            2.67,
+            1.0,
+            4.12
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-9081",
+          "title_evidence": "official_title"
+        }
+      },
+      "orthodontists": {
+        "name": "正畸医师",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1023.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.6,
+            5.72,
+            1.57,
+            4.01,
+            1.45,
+            4.58
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1023.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1023",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "orthodontists -> dental-laboratory-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：按牙医工单制作和修理修复体，核对印模、扫描数据和材料，记录制作、检验与返修；后岗：评估牙齿、颌骨与面部结构，结合病史、检查和影像制定牙颌畸形治疗计划，安装并调整矫治装置，随访疗效及风险。",
+    "cn_qualification": {
+      "dental-laboratory-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "orthodontists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "lab",
+        "source_url": "https://www.onetonline.org/link/summary/51-9081.00#Tasks",
+        "locator": "51-9081.00 Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Makes, modifies, or repairs dental devices including orthodontic appliances; reads work orders and evaluates models.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ortho",
+        "source_url": "https://www.onetonline.org/link/summary/29-1023.00#Tasks",
+        "locator": "29-1023.00 Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Examines patients, plans orthodontic treatment, and uses appliances in clinical care.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "practice",
+        "source_url": "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=90461",
+        "locator": "《中华人民共和国医师法》第12至14条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01起施行",
+          "summary": "取得医师资格后，须办理执业注册并取得医师执业证书，按注册的执业地点、类别和范围执业。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 287,
+      "source_slugs": [
+        "dental-laboratory-technicians",
+        "orthodontists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

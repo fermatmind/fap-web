@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "964f601676c225b0607d8c4b363ffa347bb799dd6d236dcf26d425c1e6435f46",
+  "inputs": {
+    "pair_id": "clergy-vs-marriage-and-family-therapists",
+    "slugs": [
+      "clergy",
+      "marriage-and-family-therapists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clergy-vs-marriage-and-family-therapists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clergy": {
+        "name": "神職人員",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.1,
+            2.11,
+            3.44,
+            5.91,
+            4.17,
+            2.89
+          ]
+        },
+        "tasks": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "21-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "marriage-and-family-therapists": {
+        "name": "婚姻與家庭治療師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.49,
+            5.32,
+            3.58,
+            6.22,
+            1.78,
+            2.9
+          ]
+        },
+        "tasks": [
+          "投入物件：來訪者與家庭的關係與症狀資訊、訪談與觀察記錄、心理測量與評估工具、治療理論與家庭系統框架、轉介與跨專業資訊、個案檔案與知情同意、督導與倫理要求。",
+          "可檢查產出：評估與診斷結論、個體化治療計劃、治療過程與進展記錄、個案檔案與建議、轉介與會診記錄、面向法院的評估說明、督導與諮詢記錄。",
+          "完整工作流程：建立安全與知情邊界 → 收集資訊與評估 → 形成診斷與治療計劃 → 實施治療並記錄進展 → 判斷轉介或升級 → 會診與督導 → 評估效果並調整的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1013",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clergy -> marriage-and-family-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clergy": {
+        "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+        "entries": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ]
+      },
+      "marriage-and-family-therapists": {
+        "file_sha256": "12561617854f2bda77271108e02b7d47c542816d4e86a7c309b0548b3025e79a",
+        "entries": [
+          "投入物件：來訪者與家庭的關係與症狀資訊、訪談與觀察記錄、心理測量與評估工具、治療理論與家庭系統框架、轉介與跨專業資訊、個案檔案與知情同意、督導與倫理要求。",
+          "可檢查產出：評估與診斷結論、個體化治療計劃、治療過程與進展記錄、個案檔案與建議、轉介與會診記錄、面向法院的評估說明、督導與諮詢記錄。",
+          "完整工作流程：建立安全與知情邊界 → 收集資訊與評估 → 形成診斷與治療計劃 → 實施治療並記錄進展 → 判斷轉介或升級 → 會診與督導 → 評估效果並調整的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 159,
+      "source_slugs": [
+        "clergy",
+        "marriage-and-family-therapists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clergy": {
+          "field": "entries",
+          "source_path": "careers/clergy/zh-TW.json",
+          "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+          "count": 6
+        },
+        "marriage-and-family-therapists": {
+          "field": "entries",
+          "source_path": "careers/marriage-and-family-therapists/zh-TW.json",
+          "file_sha256": "12561617854f2bda77271108e02b7d47c542816d4e86a7c309b0548b3025e79a",
+          "count": 3
+        }
+      }
+    }
+  }
+}

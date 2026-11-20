@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "dba8aea522fc9ea68f4a66124d481928ff44756288c3daa994322db45b2bcfbe",
+  "inputs": {
+    "pair_id": "career-technical-education-teachers-secondary-school-vs-tutors",
+    "slugs": [
+      "career-technical-education-teachers-secondary-school",
+      "tutors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/career-technical-education-teachers-secondary-school-vs-tutors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "career-technical-education-teachers-secondary-school": {
+        "name": "高中職業技術教育教師",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.86,
+            3.38,
+            3.46,
+            7.0,
+            2.52,
+            3.92
+          ]
+        },
+        "tasks": [
+          "課堂教學｜設定課程與單元目標並準備教案與材料，使用講授與討論與演示開展個別與分組指導｜課程目標與教案與教學記錄。",
+          "實訓與安全指導｜示範並監督學生使用與保養裝置與材料，按場地與裝置規程排查隱患並維護秩序｜實訓安全與裝置檢查記錄。",
+          "評量與反饋｜佈置並批改作業與測驗，觀察並評估學生表現與行為與社會發展與身體健康｜評量結果與評分依據記錄。",
+          "個別化支援｜對有適應問題或學業問題或特殊學業興趣的學生進行指導與編制補習方案，為殘障學生提供輔助協助｜個別化支援與轉介記錄。",
+          "記錄與溝通｜按法律與學區政策與行政法規維護學生記錄，與家長或監護人與同事與管理者溝通進展與問題｜學籍與成績與溝通記錄。",
+          "課程與活動協作｜與其他教師與管理者協作開發與評估課程方案，指導學生社團與課外活動與工作體驗專案｜課程協作與活動記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-2032",
+          "title_evidence": "official_title"
+        }
+      },
+      "tutors": {
+        "name": "家教與輔導教師",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-3041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.28,
+            2.85,
+            3.07,
+            6.75,
+            1.74,
+            3.35
+          ]
+        },
+        "tasks": [
+          "目標核對｜課程與學情｜查教材與已有作答，聽學習者解釋，明確本次目標和仍未知的原因。",
+          "材料準備｜例子與練習｜選擇適合目標和基礎的資料，核答案及難度，避免版權不明或不適學段的內容。",
+          "教學支援｜解釋與提示｜用提問、例子和反饋支援理解，逐步撤去幫助，保護獨立作答與學術誠信。",
+          "學習策略｜方法與計劃｜支援閱讀、筆記、複習和考試準備等學習策略，計劃隨目標及反饋調整。",
+          "進度記錄｜結果與溝通｜記錄題目、作答和仍需練習之處，與適用的教師、家長或負責人溝通，不承諾必定提分。",
+          "組織協作｜時間與保密｜安排輔導時間、協同相關人員，按合法範圍儲存和分享學習資料。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-3041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "25-3041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "career-technical-education-teachers-secondary-school -> tutors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "career-technical-education-teachers-secondary-school": {
+        "file_sha256": "62826f9d01c03f12f41f3c977aba276d34a54e26f69d604ae96b26be839c0814",
+        "entries": [
+          "課堂教學｜設定課程與單元目標並準備教案與材料，使用講授與討論與演示開展個別與分組指導｜課程目標與教案與教學記錄。",
+          "實訓與安全指導｜示範並監督學生使用與保養裝置與材料，按場地與裝置規程排查隱患並維護秩序｜實訓安全與裝置檢查記錄。",
+          "評量與反饋｜佈置並批改作業與測驗，觀察並評估學生表現與行為與社會發展與身體健康｜評量結果與評分依據記錄。",
+          "個別化支援｜對有適應問題或學業問題或特殊學業興趣的學生進行指導與編制補習方案，為殘障學生提供輔助協助｜個別化支援與轉介記錄。",
+          "記錄與溝通｜按法律與學區政策與行政法規維護學生記錄，與家長或監護人與同事與管理者溝通進展與問題｜學籍與成績與溝通記錄。",
+          "課程與活動協作｜與其他教師與管理者協作開發與評估課程方案，指導學生社團與課外活動與工作體驗專案｜課程協作與活動記錄。"
+        ]
+      },
+      "tutors": {
+        "file_sha256": "b943ce19dcbc8087238aa41a8fb65da16b4d44e0de636e8cb2f43bab836b855d",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 123,
+      "source_slugs": [
+        "career-technical-education-teachers-secondary-school",
+        "tutors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "career-technical-education-teachers-secondary-school": {
+          "field": "entries",
+          "source_path": "careers/career-technical-education-teachers-secondary-school/zh-TW.json",
+          "file_sha256": "62826f9d01c03f12f41f3c977aba276d34a54e26f69d604ae96b26be839c0814",
+          "count": 6
+        },
+        "tutors": {
+          "field": "paragraphs",
+          "source_path": "careers/tutors/zh-TW.json",
+          "file_sha256": "b943ce19dcbc8087238aa41a8fb65da16b4d44e0de636e8cb2f43bab836b855d",
+          "count": 6
+        }
+      }
+    }
+  }
+}

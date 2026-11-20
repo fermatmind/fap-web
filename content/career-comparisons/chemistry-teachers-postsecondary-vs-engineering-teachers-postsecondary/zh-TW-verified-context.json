@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3f5d9af04485013872dca6ce24a23215a97e041335e159d5fa840f689133c6e1",
+  "inputs": {
+    "pair_id": "chemistry-teachers-postsecondary-vs-engineering-teachers-postsecondary",
+    "slugs": [
+      "chemistry-teachers-postsecondary",
+      "engineering-teachers-postsecondary"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/chemistry-teachers-postsecondary-vs-engineering-teachers-postsecondary",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "chemistry-teachers-postsecondary": {
+        "name": "高校化學教師",
+        "riasec": {
+          "code": "IS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-1052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.05,
+            5.82,
+            2.95,
+            5.71,
+            2.09,
+            3.78
+          ]
+        },
+        "tasks": [
+          "教學與課程｜準備並講授課程並主持課堂討論｜為本科生或研究生準備並講授有機化學與分析化學與化學分離等主題課程，發起與促進與主持課堂討論，準備課程材料與教學大綱與作業與講義（對應 O*NET 任務重要度 94、76、84）。",
+          "考核與評價｜編制與評閱考核並評估與修訂課程｜編制與實施並評閱考試或將此工作分配他人，評估與評閱學生的課堂作業與實驗表現與作業與論文，並規劃與評估與修訂課程體系與課程內容與教材與教學方法（對應任務重要度 84、89、84）。",
+          "實驗與安全｜指導實驗並建立與監督安全規則｜建立並講授與監督學生對化學品與裝置與其他危險材料安全規則的遵守，指導學生實驗室工作，並選擇與訂購與維護教學與研究用材料與耗材與清潔實驗室設施（對應任務重要度 93、88、68、59）。",
+          "指導與答疑｜維持答疑時間並指導學業與職業發展｜維護學生出勤與成績與其他必需記錄，維持固定的答疑時間以指導學生，就學業與職業課程與職業問題指導學生，並指導學生教學與實習與研究工作與撰寫推薦信（對應任務重要度 86、80、69、86、65）。",
+          "科研與經費｜開展研究並發表成果並申請經費｜在特定領域開展研究並在專業期刊與書籍或電子媒體發表成果，撰寫專案申請書以獲取外部研究經費，並通過閱讀文獻與與同事交流與參加專業會議跟進領域發展（對應任務重要度 77、69、73）。",
+          "學術服務與行政｜參與委員會與學會並承擔行政職責｜準備並提交與教學相關的必需報告，在涉及機構政策與院系事務與學術問題的學術或行政委員會任職，參與學生招生與註冊與就業安置活動並在委員會或專業學會任職，並可能承擔系主任等行政職責與參與校園與社群活動（對應任務重要度 64、64、59、55、67、48）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-1052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-1052",
+          "title_evidence": "official_title"
+        }
+      },
+      "engineering-teachers-postsecondary": {
+        "name": "工程學教師（高等教育）",
+        "riasec": {
+          "code": "SIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-1032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.84,
+            5.39,
+            3.16,
+            5.77,
+            2.01,
+            3.44
+          ]
+        },
+        "tasks": [
+          "課程目標｜依據培養目標確定課程與考核目標｜記錄依據與未決項",
+          "教學設計｜設計單元、活動與實驗｜說明依據與安全要求",
+          "教學交付｜講授並組織討論與實驗｜按大綱穩定交付",
+          "學生指導｜指導學業、專案與升學｜規範處理學生資訊",
+          "成績評定｜按標準評定並留依據｜給出反饋與申訴渠道",
+          "研究與服務｜開展研究並參與課程建設｜按規範處理資料與署名"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-1032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "25-1032",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "engineering-teachers-postsecondary -> chemistry-teachers-postsecondary"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "chemistry-teachers-postsecondary": {
+        "file_sha256": "8215b4ed10ceff51df9d6bc5f60eb02dce01a38fc6c4d9b8a684fb317753ea99",
+        "entries": [
+          "教學與課程｜準備並講授課程並主持課堂討論｜為本科生或研究生準備並講授有機化學與分析化學與化學分離等主題課程，發起與促進與主持課堂討論，準備課程材料與教學大綱與作業與講義（對應 O*NET 任務重要度 94、76、84）。",
+          "考核與評價｜編制與評閱考核並評估與修訂課程｜編制與實施並評閱考試或將此工作分配他人，評估與評閱學生的課堂作業與實驗表現與作業與論文，並規劃與評估與修訂課程體系與課程內容與教材與教學方法（對應任務重要度 84、89、84）。",
+          "實驗與安全｜指導實驗並建立與監督安全規則｜建立並講授與監督學生對化學品與裝置與其他危險材料安全規則的遵守，指導學生實驗室工作，並選擇與訂購與維護教學與研究用材料與耗材與清潔實驗室設施（對應任務重要度 93、88、68、59）。",
+          "指導與答疑｜維持答疑時間並指導學業與職業發展｜維護學生出勤與成績與其他必需記錄，維持固定的答疑時間以指導學生，就學業與職業課程與職業問題指導學生，並指導學生教學與實習與研究工作與撰寫推薦信（對應任務重要度 86、80、69、86、65）。",
+          "科研與經費｜開展研究並發表成果並申請經費｜在特定領域開展研究並在專業期刊與書籍或電子媒體發表成果，撰寫專案申請書以獲取外部研究經費，並通過閱讀文獻與與同事交流與參加專業會議跟進領域發展（對應任務重要度 77、69、73）。",
+          "學術服務與行政｜參與委員會與學會並承擔行政職責｜準備並提交與教學相關的必需報告，在涉及機構政策與院系事務與學術問題的學術或行政委員會任職，參與學生招生與註冊與就業安置活動並在委員會或專業學會任職，並可能承擔系主任等行政職責與參與校園與社群活動（對應任務重要度 64、64、59、55、67、48）。"
+        ]
+      },
+      "engineering-teachers-postsecondary": {
+        "file_sha256": "2ee40525e16e13f6957933e158aeb36f690083e0213c839f1974741a6ffa30bf",
+        "entries": [
+          "課程目標｜依據培養目標確定課程與考核目標｜記錄依據與未決項",
+          "教學設計｜設計單元、活動與實驗｜說明依據與安全要求",
+          "教學交付｜講授並組織討論與實驗｜按大綱穩定交付",
+          "學生指導｜指導學業、專案與升學｜規範處理學生資訊",
+          "成績評定｜按標準評定並留依據｜給出反饋與申訴渠道",
+          "研究與服務｜開展研究並參與課程建設｜按規範處理資料與署名"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 143,
+      "source_slugs": [
+        "chemistry-teachers-postsecondary",
+        "engineering-teachers-postsecondary"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "chemistry-teachers-postsecondary": {
+          "field": "entries",
+          "source_path": "careers/chemistry-teachers-postsecondary/zh-TW.json",
+          "file_sha256": "8215b4ed10ceff51df9d6bc5f60eb02dce01a38fc6c4d9b8a684fb317753ea99",
+          "count": 6
+        },
+        "engineering-teachers-postsecondary": {
+          "field": "entries",
+          "source_path": "careers/engineering-teachers-postsecondary/zh-TW.json",
+          "file_sha256": "2ee40525e16e13f6957933e158aeb36f690083e0213c839f1974741a6ffa30bf",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ff6603a1a718f4811f1fc1dee2df28d0cf83615633e0de92d0a87bc7e2ed0b24",
+  "inputs": {
+    "pair_id": "clinical-neuropsychologists-vs-marriage-and-family-therapists",
+    "slugs": [
+      "clinical-neuropsychologists",
+      "marriage-and-family-therapists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clinical-neuropsychologists-vs-marriage-and-family-therapists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clinical-neuropsychologists": {
+        "name": "臨床神經心理學家",
+        "riasec": {
+          "code": "IS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3039.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.82,
+            7.0,
+            2.4,
+            5.69,
+            2.07,
+            3.49
+          ]
+        },
+        "tasks": [
+          "評估與診斷｜對患者實施標準化神經心理評估並作出判斷｜訪談患者以獲取完整病史，實施智力、學業能力、注意、專注、感覺運動功能、語言、學習與記憶等評估，並診斷累及中樞神經系統損傷的疾病（對應 O*NET 任務第一與第三與第四項）。 O*NET任務描述不是中國診斷授權，實際範圍另核。",
+          "鑑別與基線｜區分心因性與神經源性表現並建立可比的基線｜區分心因性與神經源性綜合徵、兩種以上疑似腦功能障礙病因，並建立神經行為基線以監測進行性腦病或恢復過程（對應 O*NET 任務第七與第十二項）。",
+          "報告與解釋｜把多源證據整合成限度明確的書面報告｜依據心理或神經心理測驗、自評量表、評定量表、直接觀察或訪談的資料，撰寫或準備詳細的臨床神經心理學報告（對應 O*NET 任務第二項）。",
+          "干預與康復｜設計或實施康復計劃並比較干預前後變化｜設計或實施認知功能障礙患者的康復計劃，並比較患者在藥物、手術或行為干預前後的進展（對應 O*NET 任務第十六與第十三項）。",
+          "會診與反饋｜就神經系統狀況與他人協作並把結果講清楚｜就患者的神經系統狀況與其他專業人員會診，向個人與家庭提供教育或諮詢，並向患者及其家庭反饋評估結果與建議（對應 O*NET 任務第九與第六與第十九項）。",
+          "教學與持續學習｜教育督導他人並保持專業更新｜教育並督導實習學生、心理學實習生或醫院工作人員，參加教育專案、在職培訓或工作坊，並持續閱讀文獻與參加專業組織或會議（對應 O*NET 任務第十五與第十四與第十項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3039.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-3039",
+          "title_evidence": "official_title"
+        }
+      },
+      "marriage-and-family-therapists": {
+        "name": "婚姻與家庭治療師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.49,
+            5.32,
+            3.58,
+            6.22,
+            1.78,
+            2.9
+          ]
+        },
+        "tasks": [
+          "投入物件：來訪者與家庭的關係與症狀資訊、訪談與觀察記錄、心理測量與評估工具、治療理論與家庭系統框架、轉介與跨專業資訊、個案檔案與知情同意、督導與倫理要求。",
+          "可檢查產出：評估與診斷結論、個體化治療計劃、治療過程與進展記錄、個案檔案與建議、轉介與會診記錄、面向法院的評估說明、督導與諮詢記錄。",
+          "完整工作流程：建立安全與知情邊界 → 收集資訊與評估 → 形成診斷與治療計劃 → 實施治療並記錄進展 → 判斷轉介或升級 → 會診與督導 → 評估效果並調整的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1013",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "marriage-and-family-therapists -> clinical-neuropsychologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clinical-neuropsychologists": {
+        "file_sha256": "06813c9e0d659bf3f13d1527eedf042b03662553fc763690d5903bad26d8079b",
+        "entries": [
+          "評估與診斷｜對患者實施標準化神經心理評估並作出判斷｜訪談患者以獲取完整病史，實施智力、學業能力、注意、專注、感覺運動功能、語言、學習與記憶等評估，並診斷累及中樞神經系統損傷的疾病（對應 O*NET 任務第一與第三與第四項）。 O*NET任務描述不是中國診斷授權，實際範圍另核。",
+          "鑑別與基線｜區分心因性與神經源性表現並建立可比的基線｜區分心因性與神經源性綜合徵、兩種以上疑似腦功能障礙病因，並建立神經行為基線以監測進行性腦病或恢復過程（對應 O*NET 任務第七與第十二項）。",
+          "報告與解釋｜把多源證據整合成限度明確的書面報告｜依據心理或神經心理測驗、自評量表、評定量表、直接觀察或訪談的資料，撰寫或準備詳細的臨床神經心理學報告（對應 O*NET 任務第二項）。",
+          "干預與康復｜設計或實施康復計劃並比較干預前後變化｜設計或實施認知功能障礙患者的康復計劃，並比較患者在藥物、手術或行為干預前後的進展（對應 O*NET 任務第十六與第十三項）。",
+          "會診與反饋｜就神經系統狀況與他人協作並把結果講清楚｜就患者的神經系統狀況與其他專業人員會診，向個人與家庭提供教育或諮詢，並向患者及其家庭反饋評估結果與建議（對應 O*NET 任務第九與第六與第十九項）。",
+          "教學與持續學習｜教育督導他人並保持專業更新｜教育並督導實習學生、心理學實習生或醫院工作人員，參加教育專案、在職培訓或工作坊，並持續閱讀文獻與參加專業組織或會議（對應 O*NET 任務第十五與第十四與第十項）。"
+        ]
+      },
+      "marriage-and-family-therapists": {
+        "file_sha256": "12561617854f2bda77271108e02b7d47c542816d4e86a7c309b0548b3025e79a",
+        "entries": [
+          "投入物件：來訪者與家庭的關係與症狀資訊、訪談與觀察記錄、心理測量與評估工具、治療理論與家庭系統框架、轉介與跨專業資訊、個案檔案與知情同意、督導與倫理要求。",
+          "可檢查產出：評估與診斷結論、個體化治療計劃、治療過程與進展記錄、個案檔案與建議、轉介與會診記錄、面向法院的評估說明、督導與諮詢記錄。",
+          "完整工作流程：建立安全與知情邊界 → 收集資訊與評估 → 形成診斷與治療計劃 → 實施治療並記錄進展 → 判斷轉介或升級 → 會診與督導 → 評估效果並調整的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 168,
+      "source_slugs": [
+        "clinical-neuropsychologists",
+        "marriage-and-family-therapists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clinical-neuropsychologists": {
+          "field": "entries",
+          "source_path": "careers/clinical-neuropsychologists/zh-TW.json",
+          "file_sha256": "06813c9e0d659bf3f13d1527eedf042b03662553fc763690d5903bad26d8079b",
+          "count": 6
+        },
+        "marriage-and-family-therapists": {
+          "field": "entries",
+          "source_path": "careers/marriage-and-family-therapists/zh-TW.json",
+          "file_sha256": "12561617854f2bda77271108e02b7d47c542816d4e86a7c309b0548b3025e79a",
+          "count": 3
+        }
+      }
+    }
+  }
+}

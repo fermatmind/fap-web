@@ -1,3 +1,4 @@
+import { FixedComparisonPreviewEntry } from "@/components/career/FixedComparisonPreviewEntry";
 import { fetchCareerLinkTargets } from "@/lib/career/api/fetchCareerLinkTargets";
 import type { Metadata } from 'next';
 import { cache } from "react";
@@ -176,6 +177,7 @@ export default async function CareerJobDetailPage({params, searchParams}: {param
     {job.renderState.canRenderStructuredData && job.seoSurface?.structuredDataKeys.includes('Occupation') ? <JsonLd id={`career-job-occupation-${job.slug}`} data={{'@context': 'https://schema.org', '@type': 'Occupation', name: page.content.subject.name, ...(page.content.subject.summary ? {description: page.content.subject.summary} : {}), url: job.seoSurface.canonicalUrl}} /> : null}
     {faq.length ? <JsonLd id={`career-job-display-faq-${job.slug}`} data={buildFAQPageJsonLd(faq)} /> : null}
     {restoredSurface ? <CareerDisplaySurface surface={restoredSurface} rendererRelease={CAREER_RENDERER_RELEASE} ctaAttributionParams={attributionParams} ctaLandingPath={landingPath} breadcrumbItems={[{label:locale === 'zh' ? '首页' : 'Home',href:`/${locale}`},{label:locale === 'zh' ? '职业' : 'Career',href:`/${locale}/career`},{label:page.content.subject.name}]} /> : <CareerPageTemplate page={page} ctaHref={ctaHref} rendererRelease={CAREER_RENDERER_RELEASE} />}
+    {careerPageHasPublicBody(page) ? <FixedComparisonPreviewEntry locale={locale} slug={job.slug} /> : null}
     {careerPageHasPublicBody(page) ? <CareerRiasecExploreLink locale={locale} careerName={page.content.subject.name} href={ctaHref} subjectSlug={job.slug} /> : null}
   </main>;
 }

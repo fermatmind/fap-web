@@ -1,0 +1,187 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "34c5c028a47d83a0ab4a928ac77addde8a1b46c7f540eb4314791502179ae655",
+  "inputs": {
+    "pair_id": "logging-equipment-operators-vs-operating-engineers-and-other-construction-equipment-operators",
+    "slugs": [
+      "logging-equipment-operators",
+      "operating-engineers-and-other-construction-equipment-operators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/logging-equipment-operators-vs-operating-engineers-and-other-construction-equipment-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "logging-equipment-operators": {
+        "name": "伐木裝置操作員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "45-4022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.83,
+            1.81,
+            1.0,
+            1.11,
+            1.1,
+            4.4
+          ]
+        },
+        "tasks": [
+          "投入物件：伐木拖拉機與集材機械、推土鏟與前切刀等配件、原木與樹樁、集材道路與作業面、分級標準與木材換算表、裝置維護與班次記錄。",
+          "可檢查產出：按計劃完成的採伐與集材量、經驗收的原木裝載與堆垛、按標準完成的原木分級、維護到位的集材道路、裝置檢查與班次記錄。",
+          "完整工作流程：班前交底與裝置檢查 → 確認作業面與安全條件 → 伐倒樹木並集材 → 裝載、解除安裝與堆垛 → 按特徵與標準分級並造材 → 維護集材道路與裝置 → 記錄並交接班。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "45-4022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "45-4022",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "operating-engineers-and-other-construction-equipment-operators": {
+        "name": "工程機械操作員",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2073.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.93,
+            1.0,
+            1.14,
+            1.26,
+            3.88
+          ]
+        },
+        "tasks": [
+          "核裝置、液壓、制動、警示和作業區。",
+          "看圖紙、地形、地下管線與人員通道。",
+          "按訊號啟動、移動和控制挖掘或整平。",
+          "在許可範圍挖土、裝載和移動材料。",
+          "與指揮員和其他機械保持安全距離。",
+          "記錄故障並進行授權範圍內保養。",
+          "異常停機、隔離並交接狀態與剩餘風險。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2073.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2073",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "logging-equipment-operators -> operating-engineers-and-other-construction-equipment-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "logging-equipment-operators": {
+        "file_sha256": "72cde1b295f4a953410a0cd30612a2c595db558759419f1a236407bb3e0a0621",
+        "entries": [
+          "投入物件：伐木拖拉機與集材機械、推土鏟與前切刀等配件、原木與樹樁、集材道路與作業面、分級標準與木材換算表、裝置維護與班次記錄。",
+          "可檢查產出：按計劃完成的採伐與集材量、經驗收的原木裝載與堆垛、按標準完成的原木分級、維護到位的集材道路、裝置檢查與班次記錄。",
+          "完整工作流程：班前交底與裝置檢查 → 確認作業面與安全條件 → 伐倒樹木並集材 → 裝載、解除安裝與堆垛 → 按特徵與標準分級並造材 → 維護集材道路與裝置 → 記錄並交接班。"
+        ]
+      },
+      "operating-engineers-and-other-construction-equipment-operators": {
+        "file_sha256": "d00ab139f9f7772e393d44b28d8372c854cec72eb829002ca4e854eff246ff64",
+        "entries": [
+          "核裝置、液壓、制動、警示和作業區。",
+          "看圖紙、地形、地下管線與人員通道。",
+          "按訊號啟動、移動和控制挖掘或整平。",
+          "在許可範圍挖土、裝載和移動材料。",
+          "與指揮員和其他機械保持安全距離。",
+          "記錄故障並進行授權範圍內保養。",
+          "異常停機、隔離並交接狀態與剩餘風險。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 488,
+      "source_slugs": [
+        "logging-equipment-operators",
+        "operating-engineers-and-other-construction-equipment-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "logging-equipment-operators": {
+          "field": "entries",
+          "source_path": "careers/logging-equipment-operators/zh-TW.json",
+          "file_sha256": "72cde1b295f4a953410a0cd30612a2c595db558759419f1a236407bb3e0a0621",
+          "count": 3
+        },
+        "operating-engineers-and-other-construction-equipment-operators": {
+          "field": "entries",
+          "source_path": "careers/operating-engineers-and-other-construction-equipment-operators/zh-TW.json",
+          "file_sha256": "d00ab139f9f7772e393d44b28d8372c854cec72eb829002ca4e854eff246ff64",
+          "count": 7
+        }
+      }
+    }
+  }
+}

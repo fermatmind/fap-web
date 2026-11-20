@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7a85d9990df2ee51a6d685ab9d28377e65001b63ea29a1e4559f1fe892f79b3b",
+  "inputs": {
+    "pair_id": "layout-workers-metal-and-plastic-vs-tailors-dressmakers-and-custom-sewers",
+    "slugs": [
+      "layout-workers-metal-and-plastic",
+      "tailors-dressmakers-and-custom-sewers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/layout-workers-metal-and-plastic-vs-tailors-dressmakers-and-custom-sewers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "layout-workers-metal-and-plastic": {
+        "name": "金屬與塑膠工件劃線工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4192.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.48,
+            2.83,
+            2.88,
+            1.02,
+            1.0,
+            3.89
+          ]
+        },
+        "tasks": [
+          "投入物件：金屬與塑膠工件、工程圖紙與樣板、量具與劃線工具、尺寸與公差資訊、基準和加工順序。",
+          "可檢查產出：按圖紙計算尺寸並建立基準點，形成可複核的劃線標記、檢查記錄和異常升級記錄。",
+          "完整工作流程：讀圖並核對版本與單位，選擇基準並計算尺寸，定位與劃線，複核標記，規劃切割、鑽孔、彎曲或焊接順序，交付並留痕。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4192.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-4192",
+          "title_evidence": "official_title"
+        }
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "name": "裁縫、定製縫紉工",
+        "riasec": {
+          "code": "RA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.88,
+            1.16,
+            3.96,
+            1.99,
+            2.44,
+            3.13
+          ]
+        },
+        "tasks": [
+          "準備｜量體與需求記錄｜量取客戶或衣物尺寸，核款式材料與修改約定；單位、成品要求和未確認項分別記。",
+          "製版｜樣板與裁片核對｜制改樣板、核方向標記和縫份，按尺寸與材料要求準備，不能以矩形練習代真實服裝製版。",
+          "製作｜裁剪組裝與縫製｜排樣裁料、疏縫或機縫組裝，保持比例與垂墜；真實工具操作需指導和實際工藝。",
+          "拆改｜合身調整與部件修理｜檢查可改餘量、放收接縫、改下襬及更換部件，試衣核是否解決問題。",
+          "檢查｜整燙與成品質量｜按材料工藝整燙，核尺寸外觀縫跡和殘針等；未經實物檢查不標已驗收。",
+          "交付｜估工記錄與客戶溝通｜估時間材料，記錄改動和待確認，核交期報價及客戶意見，收款不等淨利潤。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "tailors-dressmakers-and-custom-sewers -> layout-workers-metal-and-plastic"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "layout-workers-metal-and-plastic": {
+        "file_sha256": "6fbb188caa88cb2e4cce4659767c164b0cb8143c84869d5d66d11f9f9b8d5ca8",
+        "entries": [
+          "投入物件：金屬與塑膠工件、工程圖紙與樣板、量具與劃線工具、尺寸與公差資訊、基準和加工順序。",
+          "可檢查產出：按圖紙計算尺寸並建立基準點，形成可複核的劃線標記、檢查記錄和異常升級記錄。",
+          "完整工作流程：讀圖並核對版本與單位，選擇基準並計算尺寸，定位與劃線，複核標記，規劃切割、鑽孔、彎曲或焊接順序，交付並留痕。"
+        ]
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "file_sha256": "4a522c7c8b79e08c2d13b92565e558224cc383b57acda38cba884a8194bd90e2",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 472,
+      "source_slugs": [
+        "layout-workers-metal-and-plastic",
+        "tailors-dressmakers-and-custom-sewers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "layout-workers-metal-and-plastic": {
+          "field": "entries",
+          "source_path": "careers/layout-workers-metal-and-plastic/zh-TW.json",
+          "file_sha256": "6fbb188caa88cb2e4cce4659767c164b0cb8143c84869d5d66d11f9f9b8d5ca8",
+          "count": 3
+        },
+        "tailors-dressmakers-and-custom-sewers": {
+          "field": "paragraphs",
+          "source_path": "careers/tailors-dressmakers-and-custom-sewers/zh-TW.json",
+          "file_sha256": "4a522c7c8b79e08c2d13b92565e558224cc383b57acda38cba884a8194bd90e2",
+          "count": 6
+        }
+      }
+    }
+  }
+}

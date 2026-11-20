@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "31a75073811ddf557c53b0db76373ad4dbb03b66ec11a9748b5fb28aa5f2592a",
+  "inputs": {
+    "pair_id": "interpreters-and-translators-vs-proofreaders-and-copy-markers",
+    "slugs": [
+      "interpreters-and-translators",
+      "proofreaders-and-copy-markers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/interpreters-and-translators-vs-proofreaders-and-copy-markers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "interpreters-and-translators": {
+        "name": "Interpreters and Translators",
+        "riasec": {
+          "code": "CAS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-3091.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.89,
+            3.19,
+            4.28,
+            3.48,
+            1.9,
+            4.79
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-3091.00#Tasks"
+              }
+            ],
+            "text": "Follow ethical codes that protect the confidentiality of information."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-3091.00#Tasks"
+              }
+            ],
+            "text": "Translate messages simultaneously or consecutively into specified languages, orally or by using hand signs, maintaining message content, context, and style as much as possible."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-3091.00#Tasks"
+              }
+            ],
+            "text": "Listen to speakers' statements to determine meanings and to prepare translations, using electronic listening systems as necessary."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-3091.00#Tasks"
+              }
+            ],
+            "text": "Compile terminology and information to be used in translations, including technical terms such as those for legal or medical material."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-3091.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "27-3091",
+          "title_evidence": "official_title"
+        }
+      },
+      "proofreaders-and-copy-markers": {
+        "name": "Proofreaders and copy markers",
+        "riasec": {
+          "code": "CA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.44,
+            2.5,
+            3.56,
+            2.2,
+            1.53,
+            6.16
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-9081.00#Tasks"
+              }
+            ],
+            "text": "Mark copy to indicate and correct errors in type, arrangement, grammar, punctuation, or spelling, using standard printers' marks."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-9081.00#Tasks"
+              }
+            ],
+            "text": "Read corrected copies or proofs to ensure that all corrections have been made."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-9081.00#Tasks"
+              }
+            ],
+            "text": "Correct or record omissions, errors, or inconsistencies found."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-9081.00#Tasks"
+              }
+            ],
+            "text": "Compare information or figures on one record against same data on other records, or with original copy, to detect errors."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-9081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "proofreaders-and-copy-markers -> interpreters-and-translators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "translator",
+        "source_url": "https://www.onetonline.org/link/summary/27-3091.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Interpret speech and translate written material while preserving meaning.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "proof",
+        "source_url": "https://www.onetonline.org/link/summary/43-9081.00",
+        "locator": "Tasks and Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Compare proofs with copy, mark errors, and check corrections. The survey reports strict deadlines and extensive seated work.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "park-guide",
+        "source_url": "https://www.nps.gov/subjects/hfc/upload/Spanish-HFC-Style-Guide-2015-1.pdf",
+        "locator": "Sections 6.13 and 7.45",
+        "value": {
+          "jurisdiction": "US, NPS Harpers Ferry Center",
+          "effective_or_period": "October 2015",
+          "summary": "Style guidance for orientation materials keeps map place names in their original form so visitors can match signs and maps.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls-translation",
+        "source_url": "https://www.bls.gov/ooh/media-and-communication/interpreters-and-translators.htm",
+        "locator": "Duties, Work Schedules, and How to Become",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2025–35 edition",
+          "summary": "Interpreters work in spoken or signed languages, translators work with writing, and schedules may vary.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls-compare",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, SOC 27-3091 and 43-9081",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wage column, 2025–35 edition",
+          "summary": "A bachelor's degree is typical for entry in both. May 2025 U.S. median annual wages were $60,170 and $51,120 respectively.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 464,
+      "source_slugs": [
+        "interpreters-and-translators",
+        "proofreaders-and-copy-markers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ff671770d690d5a401f654f60af4020a10a22af109bc665e250b663967a44993",
+  "inputs": {
+    "pair_id": "solar-energy-installation-managers-vs-solar-photovoltaic-installers",
+    "slugs": [
+      "solar-energy-installation-managers",
+      "solar-photovoltaic-installers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/solar-energy-installation-managers-vs-solar-photovoltaic-installers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "solar-energy-installation-managers": {
+        "name": "Solar Energy Installation Managers",
+        "riasec": {
+          "code": "REC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-1011.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.86,
+            2.65,
+            1.27,
+            1.74,
+            4.85,
+            4.19
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-1011.03#Tasks"
+              }
+            ],
+            "text": "Plan and coordinate installations of photovoltaic (PV) solar and solar thermal systems to ensure conformance to codes."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-1011.03#Tasks"
+              }
+            ],
+            "text": "Supervise solar installers, technicians, and subcontractors for solar installation projects to ensure compliance with safety standards."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-1011.03#Tasks"
+              }
+            ],
+            "text": "Estimate materials, equipment, and personnel needed for residential or commercial solar installation projects."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-1011.03#Tasks"
+              }
+            ],
+            "text": "Prepare solar installation project proposals, quotes, budgets, or schedules."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-1011.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-1011",
+          "title_evidence": "official_title"
+        }
+      },
+      "solar-photovoltaic-installers": {
+        "name": "Solar photovoltaic installers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2231.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.65,
+            1.39,
+            1.19,
+            1.73,
+            4.08
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Install photovoltaic (PV) systems in accordance with codes and standards, using drawings, schematics, and instructions."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Check electrical installation for proper wiring, polarity, grounding, or integrity of terminations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Identify electrical, environmental, and safety hazards associated with photovoltaic (PV) installations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Identify installation locations with proper orientation, area, solar access, or structural integrity for photovoltaic (PV) arrays."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2231.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-2231",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "solar-energy-installation-managers -> solar-photovoltaic-installers",
+      "solar-photovoltaic-installers -> solar-energy-installation-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "47-1011.03",
+        "source_url": "https://www.onetonline.org/link/summary/47-1011.03",
+        "locator": "Tasks 17725, 17726, 17729, 17738",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Coordinates solar installation, supervises staff and schedules inspections.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "47-2231.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-2231.00",
+        "locator": "Tasks 17742, 17754, 17740",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Identifies suitable locations and installs photovoltaic modules and supports to plans.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-solar-mgr-wage",
+        "source_url": "https://www.onetonline.org/link/summary/47-1011.03",
+        "locator": "Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "Wages use First-Line Supervisors of Construction Trades and Extraction Workers.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-solar-mgr-education",
+        "source_url": "https://www.onetonline.org/link/summary/47-1011.03",
+        "locator": "Education responses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET occupation profile",
+          "summary": "High school or equivalent (53%) is the most frequent response.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 row 47-2231",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025–35 projections",
+          "summary": "High school diploma or equivalent and moderate-term on-the-job training are typical for solar photovoltaic installers.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-pv-license",
+        "source_url": "https://www.bls.gov/ooh/construction-and-extraction/solar-photovoltaic-installers.htm",
+        "locator": "Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current OOH",
+          "summary": "Some states require photovoltaic installers to be licensed.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 677,
+      "source_slugs": [
+        "solar-energy-installation-managers",
+        "solar-photovoltaic-installers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

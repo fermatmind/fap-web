@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "1275fc7da924b8f912d5516ed1f7ff17dcc40431c28248a6bfc664470a5d4848",
+  "inputs": {
+    "pair_id": "postal-service-clerks-vs-postal-service-mail-carriers",
+    "slugs": [
+      "postal-service-clerks",
+      "postal-service-mail-carriers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/postal-service-clerks-vs-postal-service-mail-carriers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "postal-service-clerks": {
+        "name": "郵政服務文員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.21,
+            1.0,
+            1.0,
+            2.57,
+            2.71,
+            6.55
+          ]
+        },
+        "tasks": [
+          "受理確認｜詢問郵件種類、目的地與所需服務｜檢查可辦理範圍和必需資訊，缺地址或服務選項先澄清，不憑外觀直接報資費。",
+          "稱重計費｜按郵件重量、尺寸、目的地和服務選項核算｜使用機構現行資費與系統複核金額；本頁虛構練習點數不是真實郵資。",
+          "郵件核驗｜檢查封裝、標籤、郵資和可寄條件｜發現外觀、地址或規則疑問時暫停相關步驟，交有許可權人員確認。",
+          "櫃檯交易｜銷售郵票等郵政產品並辦理收付款｜給出收據或憑證，核對支付與系統記錄，不私自調整標準或承諾額外服務。",
+          "分揀交接｜依目的地和服務類別分流郵件｜記錄件數、掃描狀態和未完成事項，向下一環節交接異常。",
+          "保密留痕｜保護使用者姓名、地址及寄遞資訊｜只在授權系統和崗位範圍內使用資料，按機構流程處理錯件、投訴與更正。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5051",
+          "title_evidence": "official_title"
+        }
+      },
+      "postal-service-mail-carriers": {
+        "name": "郵政服務郵件投遞員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.56,
+            1.0,
+            1.0,
+            2.69,
+            2.91,
+            6.27
+          ]
+        },
+        "tasks": [
+          "路線準備｜按地址和既定順序整理郵件｜核對路線清單、件數和標籤，不把非本路線件猜成本站投遞。",
+          "逐站交付｜步行或駕車向住戶和機構送件｜在交付前核地址、收件條件與郵件狀態，按機構流程掃描。",
+          "簽收辦理｜對適用郵件取得簽名或回執｜收件人不在或簽收缺失時不得虛記已交付，按規則留待處理記錄。",
+          "收取郵件｜按路線和服務安排收取待寄郵件｜核件數與交接去向，不代替櫃檯收費或禁寄審批。",
+          "異常處理｜識別錯路、地址疑問、無法投遞及裝置問題｜記錄事實、時間與下一責任人，按機構流程升級。",
+          "回站交接｜交回收取郵件和未完成投遞件｜核對掃描與實物一致，保護收寄人的姓名、地址與交付資訊。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "postal-service-clerks -> postal-service-mail-carriers",
+      "postal-service-mail-carriers -> postal-service-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "postal-service-clerks": {
+        "file_sha256": "89585d58d2a525ffb19a153561754fd161f16faaad6c756b24d307db8dd8ef19",
+        "entries": [
+          "受理確認｜詢問郵件種類、目的地與所需服務｜檢查可辦理範圍和必需資訊，缺地址或服務選項先澄清，不憑外觀直接報資費。",
+          "稱重計費｜按郵件重量、尺寸、目的地和服務選項核算｜使用機構現行資費與系統複核金額；本頁虛構練習點數不是真實郵資。",
+          "郵件核驗｜檢查封裝、標籤、郵資和可寄條件｜發現外觀、地址或規則疑問時暫停相關步驟，交有許可權人員確認。",
+          "櫃檯交易｜銷售郵票等郵政產品並辦理收付款｜給出收據或憑證，核對支付與系統記錄，不私自調整標準或承諾額外服務。",
+          "分揀交接｜依目的地和服務類別分流郵件｜記錄件數、掃描狀態和未完成事項，向下一環節交接異常。",
+          "保密留痕｜保護使用者姓名、地址及寄遞資訊｜只在授權系統和崗位範圍內使用資料，按機構流程處理錯件、投訴與更正。"
+        ]
+      },
+      "postal-service-mail-carriers": {
+        "file_sha256": "33e144028744dc1291f96b5e19fff2351566a211f832ba9c12385c6eb6e87e91",
+        "entries": [
+          "路線準備｜按地址和既定順序整理郵件｜核對路線清單、件數和標籤，不把非本路線件猜成本站投遞。",
+          "逐站交付｜步行或駕車向住戶和機構送件｜在交付前核地址、收件條件與郵件狀態，按機構流程掃描。",
+          "簽收辦理｜對適用郵件取得簽名或回執｜收件人不在或簽收缺失時不得虛記已交付，按規則留待處理記錄。",
+          "收取郵件｜按路線和服務安排收取待寄郵件｜核件數與交接去向，不代替櫃檯收費或禁寄審批。",
+          "異常處理｜識別錯路、地址疑問、無法投遞及裝置問題｜記錄事實、時間與下一責任人，按機構流程升級。",
+          "回站交接｜交回收取郵件和未完成投遞件｜核對掃描與實物一致，保護收寄人的姓名、地址與交付資訊。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 597,
+      "source_slugs": [
+        "postal-service-clerks",
+        "postal-service-mail-carriers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "postal-service-clerks": {
+          "field": "entries",
+          "source_path": "careers/postal-service-clerks/zh-TW.json",
+          "file_sha256": "89585d58d2a525ffb19a153561754fd161f16faaad6c756b24d307db8dd8ef19",
+          "count": 6
+        },
+        "postal-service-mail-carriers": {
+          "field": "entries",
+          "source_path": "careers/postal-service-mail-carriers/zh-TW.json",
+          "file_sha256": "33e144028744dc1291f96b5e19fff2351566a211f832ba9c12385c6eb6e87e91",
+          "count": 6
+        }
+      }
+    }
+  }
+}

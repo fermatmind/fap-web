@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "088f9c7aab91d9ad5365907b8a1650d23b3af0b48044bc22013868c3ec37d508",
+  "inputs": {
+    "pair_id": "chemistry-teachers-postsecondary-vs-materials-scientists",
+    "slugs": [
+      "chemistry-teachers-postsecondary",
+      "materials-scientists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/chemistry-teachers-postsecondary-vs-materials-scientists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "chemistry-teachers-postsecondary": {
+        "name": "高校化學教師",
+        "riasec": {
+          "code": "IS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-1052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.05,
+            5.82,
+            2.95,
+            5.71,
+            2.09,
+            3.78
+          ]
+        },
+        "tasks": [
+          "教學與課程｜準備並講授課程並主持課堂討論｜為本科生或研究生準備並講授有機化學與分析化學與化學分離等主題課程，發起與促進與主持課堂討論，準備課程材料與教學大綱與作業與講義（對應 O*NET 任務重要度 94、76、84）。",
+          "考核與評價｜編制與評閱考核並評估與修訂課程｜編制與實施並評閱考試或將此工作分配他人，評估與評閱學生的課堂作業與實驗表現與作業與論文，並規劃與評估與修訂課程體系與課程內容與教材與教學方法（對應任務重要度 84、89、84）。",
+          "實驗與安全｜指導實驗並建立與監督安全規則｜建立並講授與監督學生對化學品與裝置與其他危險材料安全規則的遵守，指導學生實驗室工作，並選擇與訂購與維護教學與研究用材料與耗材與清潔實驗室設施（對應任務重要度 93、88、68、59）。",
+          "指導與答疑｜維持答疑時間並指導學業與職業發展｜維護學生出勤與成績與其他必需記錄，維持固定的答疑時間以指導學生，就學業與職業課程與職業問題指導學生，並指導學生教學與實習與研究工作與撰寫推薦信（對應任務重要度 86、80、69、86、65）。",
+          "科研與經費｜開展研究並發表成果並申請經費｜在特定領域開展研究並在專業期刊與書籍或電子媒體發表成果，撰寫專案申請書以獲取外部研究經費，並通過閱讀文獻與與同事交流與參加專業會議跟進領域發展（對應任務重要度 77、69、73）。",
+          "學術服務與行政｜參與委員會與學會並承擔行政職責｜準備並提交與教學相關的必需報告，在涉及機構政策與院系事務與學術問題的學術或行政委員會任職，參與學生招生與註冊與就業安置活動並在委員會或專業學會任職，並可能承擔系主任等行政職責與參與校園與社群活動（對應任務重要度 64、64、59、55、67、48）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-1052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-1052",
+          "title_evidence": "official_title"
+        }
+      },
+      "materials-scientists": {
+        "name": "材料科學研究人員",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.82,
+            6.59,
+            2.17,
+            1.39,
+            1.86,
+            4.15
+          ]
+        },
+        "tasks": [
+          "投入物件：應用與效能要求、材料體系與樣品、試驗與檢測裝置、建模與計算工具、文獻與標準、工藝與製造成本約束、安全與合規要求、客戶與資助方需求。",
+          "可檢查產出：研究假設與試驗方案、結構與效能資料、失效與機理分析、強化或複合方案、新材料或新用途建議、論文與報告、測試方法、面向不同環境的選材建議。",
+          "完整工作流程：界定應用與效能要求 → 查閱文獻並形成假設 → 規劃並開展試驗與建模 → 分析結構與效能資料 → 提出材料或工藝方案 → 驗證並撰寫成果的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-2032",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "chemistry-teachers-postsecondary -> materials-scientists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "chemistry-teachers-postsecondary": {
+        "file_sha256": "8215b4ed10ceff51df9d6bc5f60eb02dce01a38fc6c4d9b8a684fb317753ea99",
+        "entries": [
+          "教學與課程｜準備並講授課程並主持課堂討論｜為本科生或研究生準備並講授有機化學與分析化學與化學分離等主題課程，發起與促進與主持課堂討論，準備課程材料與教學大綱與作業與講義（對應 O*NET 任務重要度 94、76、84）。",
+          "考核與評價｜編制與評閱考核並評估與修訂課程｜編制與實施並評閱考試或將此工作分配他人，評估與評閱學生的課堂作業與實驗表現與作業與論文，並規劃與評估與修訂課程體系與課程內容與教材與教學方法（對應任務重要度 84、89、84）。",
+          "實驗與安全｜指導實驗並建立與監督安全規則｜建立並講授與監督學生對化學品與裝置與其他危險材料安全規則的遵守，指導學生實驗室工作，並選擇與訂購與維護教學與研究用材料與耗材與清潔實驗室設施（對應任務重要度 93、88、68、59）。",
+          "指導與答疑｜維持答疑時間並指導學業與職業發展｜維護學生出勤與成績與其他必需記錄，維持固定的答疑時間以指導學生，就學業與職業課程與職業問題指導學生，並指導學生教學與實習與研究工作與撰寫推薦信（對應任務重要度 86、80、69、86、65）。",
+          "科研與經費｜開展研究並發表成果並申請經費｜在特定領域開展研究並在專業期刊與書籍或電子媒體發表成果，撰寫專案申請書以獲取外部研究經費，並通過閱讀文獻與與同事交流與參加專業會議跟進領域發展（對應任務重要度 77、69、73）。",
+          "學術服務與行政｜參與委員會與學會並承擔行政職責｜準備並提交與教學相關的必需報告，在涉及機構政策與院系事務與學術問題的學術或行政委員會任職，參與學生招生與註冊與就業安置活動並在委員會或專業學會任職，並可能承擔系主任等行政職責與參與校園與社群活動（對應任務重要度 64、64、59、55、67、48）。"
+        ]
+      },
+      "materials-scientists": {
+        "file_sha256": "cf72d929b6c7f7a4088d6f42cc20a3d8c302000e858addc62694234def22d0a5",
+        "entries": [
+          "投入物件：應用與效能要求、材料體系與樣品、試驗與檢測裝置、建模與計算工具、文獻與標準、工藝與製造成本約束、安全與合規要求、客戶與資助方需求。",
+          "可檢查產出：研究假設與試驗方案、結構與效能資料、失效與機理分析、強化或複合方案、新材料或新用途建議、論文與報告、測試方法、面向不同環境的選材建議。",
+          "完整工作流程：界定應用與效能要求 → 查閱文獻並形成假設 → 規劃並開展試驗與建模 → 分析結構與效能資料 → 提出材料或工藝方案 → 驗證並撰寫成果的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 144,
+      "source_slugs": [
+        "chemistry-teachers-postsecondary",
+        "materials-scientists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "chemistry-teachers-postsecondary": {
+          "field": "entries",
+          "source_path": "careers/chemistry-teachers-postsecondary/zh-TW.json",
+          "file_sha256": "8215b4ed10ceff51df9d6bc5f60eb02dce01a38fc6c4d9b8a684fb317753ea99",
+          "count": 6
+        },
+        "materials-scientists": {
+          "field": "entries",
+          "source_path": "careers/materials-scientists/zh-TW.json",
+          "file_sha256": "cf72d929b6c7f7a4088d6f42cc20a3d8c302000e858addc62694234def22d0a5",
+          "count": 3
+        }
+      }
+    }
+  }
+}

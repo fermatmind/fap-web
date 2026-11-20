@@ -1,0 +1,179 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f2beabbaaffdedba57d51bab3011db2b3329e26a3c49304e25152b9253ae6f44",
+  "inputs": {
+    "pair_id": "dietetic-technicians-vs-dietitians-and-nutritionists",
+    "slugs": [
+      "dietetic-technicians",
+      "dietitians-and-nutritionists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/dietetic-technicians-vs-dietitians-and-nutritionists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dietetic-technicians": {
+        "name": "膳食技術員",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.81,
+            3.45,
+            2.54,
+            5.05,
+            2.57,
+            3.82
+          ]
+        },
+        "tasks": [
+          "監測與記錄：按餐次觀察並記錄患者的進食量與進食方式，按規程測量並登記體重與相關指標，觀察並記錄與飲食相關的異常表現。",
+          "營養評估與飲食史：O*NET明確Conduct nutritional assessments，不能統一寫成只整理；中國臨床人員按指南及附件條件執行。中國醫療機構：2022指南第5條規定經臨床營養培訓醫師按規定開展診療，第6條規定經專業教育或培訓的營養專業技術人員按規定開展諮詢、篩查及評估、腸內營養配製、醫療膳食配置與宣教，不統一縮為只整理材料。附件第5條要求營養篩查由具有相關執業資質且經培訓的醫務人員完成，首診醫師為第一責任人；第10條評估由臨床營養專業技術人員收集臨床資料開展，第14條記錄納入病歷。崗前培訓或公共營養師證書本身不代相關執業資質。",
+          "選單與膳食配置：按營養需求與既定指南協助計劃選單與膳食，按食譜製作主餐並核算團體份量，分析並標準化食譜、測試新產品與核算成本。",
+          "治療飲食執行：按醫囑飲食類別與限制核對治療飲食與特殊膳食的配置與份量，核對分發物件，規範管理醫療膳食業務並記錄。",
+          "食品安全與衛生：落實食品原料檔案、餐具消毒、溫度核對與食品留樣等要求並記錄，按要求穿戴防護裝備並遵守感染控制與手衛生規定。",
+          "教育協作及管理：跨學科會議、研究、入職和在職教育、職位描述及排班為核心；轉介與演講為補充。具體崗位可有取捨，不由13項清單確定個人全部許可權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-2051",
+          "title_evidence": "official_title"
+        }
+      },
+      "dietitians-and-nutritionists": {
+        "name": "膳食與營養師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.03,
+            4.8,
+            2.4,
+            5.5,
+            3.42,
+            3.35
+          ]
+        },
+        "tasks": [
+          "常見輸入包括飲食與健康史、食物標籤與配方、實驗室檢查、文化宗教與預算偏好、機構營養指南，以及在授權範圍內使用的臨床資料。",
+          "核心產出是營養評估記錄、個體化飲食照護計劃、教育材料、選單與專案方案、監測記錄，以及需要轉交醫療團隊的問題清單。",
+          "O*NET列28任務，13核心、15補充：核心含需求與限制評估、檢驗監測、個體群體諮詢、文化適應、醫師協作、食物史及過敏/用藥收集、選單、諮詢協調、教育課程、研究及專業培訓；管理食品人員、採購成本、特殊膳食、營養基因研究等屬補充，不是人人承擔全部。BLS區分臨床醫療營養治療、社群教育及食品服務管理。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dietetic-technicians -> dietitians-and-nutritionists",
+      "dietitians-and-nutritionists -> dietetic-technicians"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "dietetic-technicians": {
+        "file_sha256": "442f22e6515cdd98bad8e7b9b955fa9b33dd095466060d80210bdb1995e0349c",
+        "entries": []
+      },
+      "dietitians-and-nutritionists": {
+        "file_sha256": "3041dfd1442c1c165fc27e2d7e251c8809d2e56c7652281a2b2228c684ff1871",
+        "entries": [
+          "常見輸入包括飲食與健康史、食物標籤與配方、實驗室檢查、文化宗教與預算偏好、機構營養指南，以及在授權範圍內使用的臨床資料。",
+          "核心產出是營養評估記錄、個體化飲食照護計劃、教育材料、選單與專案方案、監測記錄，以及需要轉交醫療團隊的問題清單。",
+          "O*NET列28任務，13核心、15補充：核心含需求與限制評估、檢驗監測、個體群體諮詢、文化適應、醫師協作、食物史及過敏/用藥收集、選單、諮詢協調、教育課程、研究及專業培訓；管理食品人員、採購成本、特殊膳食、營養基因研究等屬補充，不是人人承擔全部。BLS區分臨床醫療營養治療、社群教育及食品服務管理。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 29,
+      "source_slugs": [
+        "dietetic-technicians",
+        "dietitians-and-nutritionists"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "dietetic-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/dietetic-technicians/zh-TW.json",
+          "file_sha256": "442f22e6515cdd98bad8e7b9b955fa9b33dd095466060d80210bdb1995e0349c",
+          "count": 6
+        },
+        "dietitians-and-nutritionists": {
+          "field": "entries",
+          "source_path": "careers/dietitians-and-nutritionists/zh-TW.json",
+          "file_sha256": "3041dfd1442c1c165fc27e2d7e251c8809d2e56c7652281a2b2228c684ff1871",
+          "count": 3
+        }
+      }
+    }
+  }
+}

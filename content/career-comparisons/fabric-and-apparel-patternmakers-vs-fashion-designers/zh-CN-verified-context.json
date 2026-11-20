@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b9acc489575a94c65ec1f45d4286c49a83d290aef4630c55c301ce3e2d0f1edd",
+  "inputs": {
+    "pair_id": "fabric-and-apparel-patternmakers-vs-fashion-designers",
+    "slugs": [
+      "fabric-and-apparel-patternmakers",
+      "fashion-designers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/fabric-and-apparel-patternmakers-vs-fashion-designers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "fabric-and-apparel-patternmakers": {
+        "name": "织物与服装制版工",
+        "riasec": {
+          "code": "RAC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.65,
+            1.34,
+            5.4,
+            1.31,
+            1.45,
+            4.17
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-6092",
+          "title_evidence": "official_title"
+        }
+      },
+      "fashion-designers": {
+        "name": "时装设计师",
+        "riasec": {
+          "code": "ARE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-1022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.34,
+            2.17,
+            7.0,
+            2.35,
+            3.96,
+            2.94
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-1022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "27-1022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "fabric-and-apparel-patternmakers -> fashion-designers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：按设计图与规格绘制并制作精确的母版纸样与排版图，必要时标记与裁剪面料与服装；后岗：设计服装、配饰与鞋类：研读流行刊物、参加时装秀并走访面料展厅收集趋势与面料信息。",
+    "cn_qualification": {
+      "fabric-and-apparel-patternmakers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "fashion-designers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "51-6092.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-6092.00",
+        "locator": "Tasks 12200, 20930, 12198, 20931",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops apparel patterns and adjusts them after fittings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "27-1022.00",
+        "source_url": "https://www.onetonline.org/link/summary/27-1022.00",
+        "locator": "Tasks 13015, 13014, 13019",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops garment specifications, reviews samples and selects construction techniques.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 413,
+      "source_slugs": [
+        "fabric-and-apparel-patternmakers",
+        "fashion-designers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

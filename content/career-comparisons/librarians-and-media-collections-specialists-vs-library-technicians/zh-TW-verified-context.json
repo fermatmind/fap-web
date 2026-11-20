@@ -1,0 +1,180 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "17442c90d2b9ca4ff1cc48df33c9e5cf36166287f8c97364f3d2538071c6849e",
+  "inputs": {
+    "pair_id": "librarians-and-media-collections-specialists-vs-library-technicians",
+    "slugs": [
+      "librarians-and-media-collections-specialists",
+      "library-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/librarians-and-media-collections-specialists-vs-library-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "librarians-and-media-collections-specialists": {
+        "name": "圖書館員與媒體館藏專員",
+        "riasec": {
+          "code": "CSI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-4022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.32,
+            3.63,
+            2.65,
+            4.04,
+            2.75,
+            5.83
+          ]
+        },
+        "tasks": [
+          "投入物件：讀者與機構的檢索與借閱需求、書目與館藏目錄、分類與編目規則、採購預算與供應商報價，以及資料庫、視聽裝置與版權條款。",
+          "可檢查產出：可檢索的編目記錄、採購與淘汰清單、流通與館藏清單、參考諮詢答覆、資訊素養課程或指南、資料庫與媒體裝置配置記錄。",
+          "完整流程：分析讀者與機構需求 → 評估並選購資料 → 分類編目與加工 → 上架與流通管理 → 提供參考諮詢與資訊素養教學 → 維護記錄、裝置與版權合規 → 定期清查與淘汰。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-4022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "25-4022",
+          "title_evidence": "official_title"
+        }
+      },
+      "library-technicians": {
+        "name": "圖書館技術員",
+        "riasec": {
+          "code": "CS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-4031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.08,
+            2.7,
+            1.59,
+            4.07,
+            1.88,
+            6.52
+          ]
+        },
+        "tasks": [
+          "投入物件：讀者的檢索與借還需求、館藏目錄與資料庫、圖書與視聽資料、讀者證與借閱記錄、分類與排架規則，以及計算機與視聽裝置。",
+          "可檢查產出：借還登記與讀者記錄、上架與整架結果、資料加工與修復記錄、裝置維護與故障記錄、檢索答覆、館藏統計報表。",
+          "完整流程：接收與登記資料 → 分類排序與上架 → 辦理借還與續借 → 幫助讀者檢索與使用資源 → 加工與修復資料 → 維護裝置與系統 → 統計、盤點和異常升級。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-4031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "25-4031",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "librarians-and-media-collections-specialists -> library-technicians",
+      "library-technicians -> librarians-and-media-collections-specialists"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "librarians-and-media-collections-specialists": {
+        "file_sha256": "94eeeeebe606a4162e4f0291e1f115c72d8cb86b63351b0ee99b16ba427a067b",
+        "entries": [
+          "投入物件：讀者與機構的檢索與借閱需求、書目與館藏目錄、分類與編目規則、採購預算與供應商報價，以及資料庫、視聽裝置與版權條款。",
+          "可檢查產出：可檢索的編目記錄、採購與淘汰清單、流通與館藏清單、參考諮詢答覆、資訊素養課程或指南、資料庫與媒體裝置配置記錄。",
+          "完整流程：分析讀者與機構需求 → 評估並選購資料 → 分類編目與加工 → 上架與流通管理 → 提供參考諮詢與資訊素養教學 → 維護記錄、裝置與版權合規 → 定期清查與淘汰。"
+        ]
+      },
+      "library-technicians": {
+        "file_sha256": "2290686d3117943d0fc6d2a07a28c0a95506a72b007bd0ace927abe595b56fdf",
+        "entries": [
+          "投入物件：讀者的檢索與借還需求、館藏目錄與資料庫、圖書與視聽資料、讀者證與借閱記錄、分類與排架規則，以及計算機與視聽裝置。",
+          "可檢查產出：借還登記與讀者記錄、上架與整架結果、資料加工與修復記錄、裝置維護與故障記錄、檢索答覆、館藏統計報表。",
+          "完整流程：接收與登記資料 → 分類排序與上架 → 辦理借還與續借 → 幫助讀者檢索與使用資源 → 加工與修復資料 → 維護裝置與系統 → 統計、盤點和異常升級。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 35,
+      "source_slugs": [
+        "librarians-and-media-collections-specialists",
+        "library-technicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "librarians-and-media-collections-specialists": {
+          "field": "entries",
+          "source_path": "careers/librarians-and-media-collections-specialists/zh-TW.json",
+          "file_sha256": "94eeeeebe606a4162e4f0291e1f115c72d8cb86b63351b0ee99b16ba427a067b",
+          "count": 3
+        },
+        "library-technicians": {
+          "field": "entries",
+          "source_path": "careers/library-technicians/zh-TW.json",
+          "file_sha256": "2290686d3117943d0fc6d2a07a28c0a95506a72b007bd0ace927abe595b56fdf",
+          "count": 3
+        }
+      }
+    }
+  }
+}

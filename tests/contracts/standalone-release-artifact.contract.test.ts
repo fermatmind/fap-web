@@ -84,6 +84,18 @@ afterEach(() => {
 });
 
 describe("immutable standalone release artifact", () => {
+  it("packages only runtime comparison Markdown, rejecting editorial sidecars", () => {
+    const root = tempDirectory();
+    const source = createStandalone(root);
+    const directory = path.join(source, "content/career-comparisons/first-vs-second");
+    fs.mkdirSync(directory, { recursive: true });
+    fs.writeFileSync(path.join(directory, "zh-TW.md"), "# 比較\n");
+    packageArtifact(source, path.join(root, "allowed"));
+    expect(verifyArtifact(path.join(root, "allowed")).status).toBe(0);
+    fs.writeFileSync(path.join(directory, "zh-TW-verified-context.json"), "{}");
+    expect(() => packageArtifact(source, path.join(root, "rejected"))).toThrow();
+  });
+
   it("binds the exact revision and produces a deterministic manifest without exposing config values", () => {
     const root = tempDirectory();
     const source = createStandalone(root);

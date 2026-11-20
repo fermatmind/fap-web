@@ -1,0 +1,183 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d204022de370ea2546436ff3e379df1525be64c1c01a8ff5ab22fc6debcf61c2",
+  "inputs": {
+    "pair_id": "family-medicine-physicians-vs-midwives",
+    "slugs": [
+      "family-medicine-physicians",
+      "midwives"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/family-medicine-physicians-vs-midwives",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "family-medicine-physicians": {
+        "name": "家庭醫學醫師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [
+          "接診與評估｜採集病史並做體格檢查｜形成初步判斷",
+          "診斷與治療｜安排並解讀檢查｜制定治療與用藥方案",
+          "預防保健｜開展免疫、篩查與健康指導｜管理慢性病隨訪",
+          "轉診與協作｜判斷需要轉診的情形｜與專科與護理團隊協作",
+          "記錄與溝通｜完成病歷與知情溝通｜說明風險與隨訪安排",
+          "質量與教學｜參與質量改進與病例討論｜承擔教學與培訓任務"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      },
+      "midwives": {
+        "name": "助產士",
+        "riasec": {
+          "code": "SR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-9099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.98,
+            3.54,
+            1.91,
+            6.04,
+            2.7,
+            3.26
+          ]
+        },
+        "tasks": [
+          "本頁嚴格指 O*NET 29-9099.01 Midwives，中文頁面語言不把它自動對映為中國職業分類。",
+          "職責為提供產前照護與分娩協助，具體範圍以所在地法規與機構授權為準。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-9099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-9099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "midwives -> family-medicine-physicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "family-medicine-physicians": {
+        "file_sha256": "aa0e6c472dd67008c9392bc7b1bb2a05407463a397303f4d0e0ca1025205c111",
+        "entries": [
+          "接診與評估｜採集病史並做體格檢查｜形成初步判斷",
+          "診斷與治療｜安排並解讀檢查｜制定治療與用藥方案",
+          "預防保健｜開展免疫、篩查與健康指導｜管理慢性病隨訪",
+          "轉診與協作｜判斷需要轉診的情形｜與專科與護理團隊協作",
+          "記錄與溝通｜完成病歷與知情溝通｜說明風險與隨訪安排",
+          "質量與教學｜參與質量改進與病例討論｜承擔教學與培訓任務"
+        ]
+      },
+      "midwives": {
+        "file_sha256": "dd4eb022a64f7a222a73f17a09b171bd7bf1fb94755cbb20f152ce8e01e82e77",
+        "entries": [
+          "本頁嚴格指 O*NET 29-9099.01 Midwives，中文頁面語言不把它自動對映為中國職業分類。",
+          "職責為提供產前照護與分娩協助，具體範圍以所在地法規與機構授權為準。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 426,
+      "source_slugs": [
+        "family-medicine-physicians",
+        "midwives"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "family-medicine-physicians": {
+          "field": "entries",
+          "source_path": "careers/family-medicine-physicians/zh-TW.json",
+          "file_sha256": "aa0e6c472dd67008c9392bc7b1bb2a05407463a397303f4d0e0ca1025205c111",
+          "count": 6
+        },
+        "midwives": {
+          "field": "entries",
+          "source_path": "careers/midwives/zh-TW.json",
+          "file_sha256": "dd4eb022a64f7a222a73f17a09b171bd7bf1fb94755cbb20f152ce8e01e82e77",
+          "count": 2
+        }
+      }
+    }
+  }
+}

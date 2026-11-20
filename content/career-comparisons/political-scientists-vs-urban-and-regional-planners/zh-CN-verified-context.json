@@ -1,0 +1,221 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c8b77ab3f1b5d48d375a4e12b0d40d1c093b837f2a58574de715a82aa334c408",
+  "inputs": {
+    "pair_id": "political-scientists-vs-urban-and-regional-planners",
+    "slugs": [
+      "political-scientists",
+      "urban-and-regional-planners"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/political-scientists-vs-urban-and-regional-planners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "political-scientists": {
+        "name": "政治学家",
+        "riasec": {
+          "code": "IA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3094.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            6.71,
+            3.87,
+            3.42,
+            3.61,
+            3.52
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3094.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-3094",
+          "title_evidence": "official_title"
+        }
+      },
+      "urban-and-regional-planners": {
+        "name": "城市与区域规划师",
+        "riasec": {
+          "code": "IEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            5.31,
+            3.06,
+            3.03,
+            4.46,
+            3.96
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "political-scientists -> urban-and-regional-planners"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：研究制度、政策与公共意见，用文献、调查或比较资料回答可检验的问题；后岗：把土地、人口、交通、设施与法规资料转为可讨论的空间方案和实施建议，调查现状、比较替代选项、协调公众意见并保持图件与文本一致。",
+    "cn_qualification": {
+      "political-scientists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "urban-and-regional-planners": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=101144"
+        ]
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "political",
+        "source_url": "https://www.onetonline.org/link/summary/19-3094.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Analyzes institutions, policy, legislation and public opinion and reports findings.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "planning",
+        "source_url": "https://www.onetonline.org/link/summary/19-3051.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Evaluates land use proposals and assembles planning information for recommendations.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "nyc",
+        "source_url": "https://legistar.council.nyc.gov/LegislationDetail.aspx?GUID=7A45A5C5-2237-4091-B715-32C146C4D977&ID=7030083",
+        "locator": "Res 0689-2024, action history and attachments",
+        "value": {
+          "jurisdiction": "New York City",
+          "effective_or_period": "2024-12-05",
+          "summary": "Council approved with modifications the City Planning Commission decision on N 240290 ZRY.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "degree",
+        "source_url": "https://hudong.moe.gov.cn/srcsite/A22/moe_833/202209/W020220914572994461110.pdf",
+        "locator": "第 4 页 0302 政治学",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022 年目录",
+          "summary": "政治学是研究生一级学科。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "registration",
+        "source_url": "https://gk.mnr.gov.cn/zc/zxgfxwj/202410/P020241022562916161523.doc",
+        "locator": "自然资规〔2024〕3号附件，第三、八、九、十一、十三、二十六条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2024",
+          "summary": "普通城乡规划本科与国土空间规划业务满3年为报考路径之一，考试取证与注册执业分开。特定规划成果由实际参与编制的注册规划师签字。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "adu",
+        "source_url": "https://zr.planning.nyc.gov/index.php/node/18523",
+        "locator": "§12-10 Ancillary dwelling unit, limitations 1–6",
+        "value": {
+          "jurisdiction": "New York City",
+          "effective_or_period": "Amended 2024-12-05",
+          "summary": "Backyard ADUs are prohibited in R1-2A, R2A, and R3A outside the Greater Transit Zone. The section also sets flood and other constraints.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "permit",
+        "source_url": "https://housing.hpd.nyc.gov/adu/guidebook",
+        "locator": "Permitting plans",
+        "value": {
+          "jurisdiction": "New York City",
+          "effective_or_period": "Current City guide",
+          "summary": "The Department of Buildings issues construction permits; a registered design professional handles filing.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 596,
+      "source_slugs": [
+        "political-scientists",
+        "urban-and-regional-planners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

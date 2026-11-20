@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e65f1a3c3e2b8e0676eead8ebf761fe133dc68cbfec69bbb3d642c32f2ab3e0d",
+  "inputs": {
+    "pair_id": "biostatisticians-vs-mathematicians",
+    "slugs": [
+      "biostatisticians",
+      "mathematicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/biostatisticians-vs-mathematicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "biostatisticians": {
+        "name": "生物統計學家",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2041.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.43,
+            7.0,
+            2.8,
+            3.11,
+            1.98,
+            4.4
+          ]
+        },
+        "tasks": [
+          "讀取與確認｜核對研究方案、既有資料與本人資料訪問授權，明確本次需要回答的統計問題與未決事項｜一份註明來源、授權範圍與未決問題的確認記錄。",
+          "設計與計劃｜與臨床或生命科學團隊確定終點、比較與人群，計算樣本量並預定義分析方法、缺失資料處理與敏感性分析｜與研究方案一致、可復現的統計分析計劃。",
+          "資料與計算｜核對資料編碼與缺失，編寫可復現的分析程式碼，保留資料版本、程式碼與分析日誌｜他人可以重跑並得到同一結果的分析資產。",
+          "推斷與解釋｜報告效應量與不確定度，做模型診斷與敏感性分析，說明結論能支援到什麼程度及限制｜含區間、假設與侷限說明的結果報告。",
+          "協作與提交｜向研究者、資料監查委員會或監管機構解釋統計問題，配合方案評審與申報材料準備｜寫明口徑、版本與責任人的統計材料。",
+          "記錄與複審｜按機構要求留存分析計劃與修改理由，接受第二人複核或由統計負責人簽署｜可追溯的計劃變更與複核記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2041.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "mathematicians": {
+        "name": "數學研究人員",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            7.0,
+            3.23,
+            1.95,
+            1.11,
+            5.03
+          ]
+        },
+        "tasks": [
+          "投入物件：數學問題與猜想、觀測或模擬資料、假設與公理條件、計算與數值方法、建模需求與應用背景、文獻與既有成果、經費與協作資訊。",
+          "可檢查產出：證明與定理、模型與數學表述、數值計算與模擬結果、演算法與計算方法、研究報告與論文、學術報告與講義、對應用問題的結論與建議。",
+          "完整工作流程：界定問題與假設 → 查閱文獻並選擇方法 → 推導或建模並計算 → 驗證結果與邊界 → 撰寫成果並報告 → 接受評審並修正的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-2021",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "biostatisticians -> mathematicians",
+      "mathematicians -> biostatisticians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "biostatisticians": {
+        "file_sha256": "a9478965dbdb0b51cb0b269fa8496f030cd5801c3a9941a50e72accc016b942a",
+        "entries": [
+          "讀取與確認｜核對研究方案、既有資料與本人資料訪問授權，明確本次需要回答的統計問題與未決事項｜一份註明來源、授權範圍與未決問題的確認記錄。",
+          "設計與計劃｜與臨床或生命科學團隊確定終點、比較與人群，計算樣本量並預定義分析方法、缺失資料處理與敏感性分析｜與研究方案一致、可復現的統計分析計劃。",
+          "資料與計算｜核對資料編碼與缺失，編寫可復現的分析程式碼，保留資料版本、程式碼與分析日誌｜他人可以重跑並得到同一結果的分析資產。",
+          "推斷與解釋｜報告效應量與不確定度，做模型診斷與敏感性分析，說明結論能支援到什麼程度及限制｜含區間、假設與侷限說明的結果報告。",
+          "協作與提交｜向研究者、資料監查委員會或監管機構解釋統計問題，配合方案評審與申報材料準備｜寫明口徑、版本與責任人的統計材料。",
+          "記錄與複審｜按機構要求留存分析計劃與修改理由，接受第二人複核或由統計負責人簽署｜可追溯的計劃變更與複核記錄。"
+        ]
+      },
+      "mathematicians": {
+        "file_sha256": "7270bf7b55ee500459698d4fbb31d182611ceced8c3c8512bc61623612c3722f",
+        "entries": [
+          "投入物件：數學問題與猜想、觀測或模擬資料、假設與公理條件、計算與數值方法、建模需求與應用背景、文獻與既有成果、經費與協作資訊。",
+          "可檢查產出：證明與定理、模型與數學表述、數值計算與模擬結果、演算法與計算方法、研究報告與論文、學術報告與講義、對應用問題的結論與建議。",
+          "完整工作流程：界定問題與假設 → 查閱文獻並選擇方法 → 推導或建模並計算 → 驗證結果與邊界 → 撰寫成果並報告 → 接受評審並修正的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 70,
+      "source_slugs": [
+        "biostatisticians",
+        "mathematicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "biostatisticians": {
+          "field": "entries",
+          "source_path": "careers/biostatisticians/zh-TW.json",
+          "file_sha256": "a9478965dbdb0b51cb0b269fa8496f030cd5801c3a9941a50e72accc016b942a",
+          "count": 6
+        },
+        "mathematicians": {
+          "field": "entries",
+          "source_path": "careers/mathematicians/zh-TW.json",
+          "file_sha256": "7270bf7b55ee500459698d4fbb31d182611ceced8c3c8512bc61623612c3722f",
+          "count": 3
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4abce836257da9541348c6ab666b80aeeec1dfb44ccc9008576d366c0ea29f77",
+  "inputs": {
+    "pair_id": "clergy-vs-directors-religious-activities-and-education",
+    "slugs": [
+      "clergy",
+      "directors-religious-activities-and-education"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clergy-vs-directors-religious-activities-and-education",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clergy": {
+        "name": "神職人員",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.1,
+            2.11,
+            3.44,
+            5.91,
+            4.17,
+            2.89
+          ]
+        },
+        "tasks": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "21-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "directors-religious-activities-and-education": {
+        "name": "宗教活動與教育主管",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.71,
+            3.38,
+            7.0,
+            6.16,
+            3.16
+          ]
+        },
+        "tasks": [
+          "常見輸入：團體的教育目標與信仰立場、目標人群與參與情況、課程與教材與審批要求、志願者與同工名冊、活動場地與安全與未成年人保護要求、預算與審批許可權與財務制度。",
+          "核心產出：選定的課程與班級結構、可執行的課程與活動方案、招募並培訓到位的志願者隊伍、按計劃舉辦的活動與營會，以及參與度與成本的復盤與交接記錄。",
+          "典型流程：分析參與情況確定需求—選擇課程與班級結構—招募與培訓志願者—安排活動與落實材料與場地—按預算與授權執行—宣傳並爭取支援—復盤並交接。",
+          "常協作物件：神職人員與會眾負責人、志願教學人員與同工、財務與場地方、宣傳與通訊、社群與跨信仰協作方、機構負責人。",
+          "常見工具與物件：課程與教材、班次與排期表、志願者名冊與培訓材料、活動與場地與安全方案、預算與收支臺賬、通訊與公告與郵件與報名系統。",
+          "責任按實際職責與資格核；職業名不一律禁止兼具資格人員主持。中國《宗教事務條例》2018施行：36條教職人員經團體認定、縣級以上宗教事務部門備案後可從事宗教教務，37條場所主要教職任離另需團體同意備案；不將美國職業名自動認定為教職或主要教職。40條集體活動一般在場所，由場所/團體/院校組織，教職人員或符合本宗教規定的其他人員主持，不一律僅限備案教職。41條非團體/院校/場所不得宗教教育培訓；18條團體或寺觀教堂開展培養教職且學習時間在3個月以上的教育培訓須按規定報批，不把所有短課程一概許可或所有培訓一概3個月報批。44條非宗教學校及其他教育機構不得傳教、舉行宗教活動等。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-2021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clergy -> directors-religious-activities-and-education",
+      "directors-religious-activities-and-education -> clergy"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clergy": {
+        "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+        "entries": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ]
+      },
+      "directors-religious-activities-and-education": {
+        "file_sha256": "ddd9f2b9778e5d7c68a1afa1d51aa406aab48112bd73219e311cad91ea9c9803",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 157,
+      "source_slugs": [
+        "clergy",
+        "directors-religious-activities-and-education"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clergy": {
+          "field": "entries",
+          "source_path": "careers/clergy/zh-TW.json",
+          "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+          "count": 6
+        },
+        "directors-religious-activities-and-education": {
+          "field": "paragraphs",
+          "source_path": "careers/directors-religious-activities-and-education/zh-TW.json",
+          "file_sha256": "ddd9f2b9778e5d7c68a1afa1d51aa406aab48112bd73219e311cad91ea9c9803",
+          "count": 6
+        }
+      }
+    }
+  }
+}

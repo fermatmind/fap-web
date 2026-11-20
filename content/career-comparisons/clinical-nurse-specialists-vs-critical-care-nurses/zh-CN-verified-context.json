@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f338238764d05a9193efdfba7c4c89f6c549ab61de6280aae78b6fee6655f8dd",
+  "inputs": {
+    "pair_id": "clinical-nurse-specialists-vs-critical-care-nurses",
+    "slugs": [
+      "clinical-nurse-specialists",
+      "critical-care-nurses"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/clinical-nurse-specialists-vs-critical-care-nurses",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clinical-nurse-specialists": {
+        "name": "临床护士专员",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.34,
+            4.86,
+            1.81,
+            6.23,
+            3.69,
+            4.04
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      },
+      "critical-care-nurses": {
+        "name": "重症护理护士",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.91,
+            5.02,
+            1.7,
+            5.56,
+            2.2,
+            4.23
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clinical-nurse-specialists -> critical-care-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在临床实践场所指导护理人员提供患者照护并确保护理遵循既定的临床政策与规程与法规与标准，观察与访谈并评估患者以识别照护需求，在指定专科内提供直接与间接照护；后岗：为重症监护病房（ICU/CCU）等场景中危重或受伤的患者提供专科注册护理，持续评估生命体征与检验数据。",
+    "cn_qualification": {
+      "clinical-nurse-specialists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "critical-care-nurses": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://xzfg.moj.gov.cn/front/law/detail?LawID=209"
+        ]
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "cns",
+        "source_url": "https://www.bls.gov/ooh/healthcare/registered-nurses.htm",
+        "locator": "Duties and How to Become a Registered Nurse",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current BLS OOH",
+          "summary": "Clinical nurse specialists provide direct care and improve care quality across staff or services. BLS describes graduate nursing education and prior experience.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "icu",
+        "source_url": "https://www.onetonline.org/link/summary/29-1141.03#Tasks",
+        "locator": "29-1141.03 Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Critical care nurses assess and monitor seriously ill patients, document changes, and coordinate care.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-rn",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=209",
+        "locator": "《护士条例》第2、7条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "现行行政法规",
+          "summary": "护士执业须经注册取得护士执业证书。条文规定一般护士执业条件。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 171,
+      "source_slugs": [
+        "clinical-nurse-specialists",
+        "critical-care-nurses"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

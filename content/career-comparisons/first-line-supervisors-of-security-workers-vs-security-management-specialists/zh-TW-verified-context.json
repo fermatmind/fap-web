@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "1de5c73982a32935a94ecd8e462cb4325b7342a566c522165d67897f9ef57031",
+  "inputs": {
+    "pair_id": "first-line-supervisors-of-security-workers-vs-security-management-specialists",
+    "slugs": [
+      "first-line-supervisors-of-security-workers",
+      "security-management-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/first-line-supervisors-of-security-workers-vs-security-management-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "first-line-supervisors-of-security-workers": {
+        "name": "保安一線主管",
+        "riasec": {
+          "code": "ECR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "33-1091.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.38,
+            1.82,
+            1.0,
+            3.57,
+            5.95,
+            5.1
+          ]
+        },
+        "tasks": [
+          "排班派工與崗前交底｜按場址風險與班次與合同或制度要求制定工作排班｜把保安員分配到崗位與巡邏路線並儲存排班與工時與交底記錄",
+          "門禁與訪客與車輛管理｜按授權核對員工與訪客與車輛與隨身物品的進入許可權｜完成登記與證卡與鑰匙發放回收與出入口控制並留痕",
+          "巡邏與監控與電子安防值守｜按路線與點位執行巡邏並值守閉路電視與報警系統｜發現並記錄入侵與破壞與異常並按規定處置或升級",
+          "事件調查與應急處置與報告｜調查報警與糾紛與可疑活動與事故並保護現場｜形成事件與巡邏與門禁與裝置記錄並按程式報告僱主與執法或消防",
+          "培訓演練與人員管理｜對保安員開展防護程式與急救與消防安全與裝置使用訓練並組織應急演練｜進行考勤與行為監督與評價與招聘與崗位調整",
+          "採購預算與制度與記錄｜編制安全程式與制度並撰寫部門預算與採購申請｜管理鑰匙與制服與徽章與裝置等物資並維護安全記錄"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "33-1091.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "33-1091",
+          "title_evidence": "official_title"
+        }
+      },
+      "security-management-specialists": {
+        "name": "安全管理專員",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1199.07",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.86,
+            5.09,
+            1.68,
+            1.96,
+            3.73,
+            5.68
+          ]
+        },
+        "tasks": [
+          "範圍確認｜核資產、場所、人員和安全目標。｜輸出評估邊界。",
+          "威脅識別｜收集現場、事件和系統證據。｜輸出威脅與脆弱性清單。",
+          "風險分析｜核現有控制、影響和不確定性。｜輸出風險排序。",
+          "控制設計｜提出門禁、監控、告警與流程對策。｜輸出方案和理由。",
+          "實施複核｜核安裝、測試、培訓和未通過項。｜輸出整改跟蹤。",
+          "管理交接｜說明殘餘風險、責任人和批准事項。｜輸出決策記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1199.07",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "13-1199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "first-line-supervisors-of-security-workers -> security-management-specialists",
+      "security-management-specialists -> first-line-supervisors-of-security-workers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "first-line-supervisors-of-security-workers": {
+        "file_sha256": "41d90c2faf91a7b43021bb1beb451b087692aa420cb45e961ab45988cfac16c4",
+        "entries": [
+          "排班派工與崗前交底｜按場址風險與班次與合同或制度要求制定工作排班｜把保安員分配到崗位與巡邏路線並儲存排班與工時與交底記錄",
+          "門禁與訪客與車輛管理｜按授權核對員工與訪客與車輛與隨身物品的進入許可權｜完成登記與證卡與鑰匙發放回收與出入口控制並留痕",
+          "巡邏與監控與電子安防值守｜按路線與點位執行巡邏並值守閉路電視與報警系統｜發現並記錄入侵與破壞與異常並按規定處置或升級",
+          "事件調查與應急處置與報告｜調查報警與糾紛與可疑活動與事故並保護現場｜形成事件與巡邏與門禁與裝置記錄並按程式報告僱主與執法或消防",
+          "培訓演練與人員管理｜對保安員開展防護程式與急救與消防安全與裝置使用訓練並組織應急演練｜進行考勤與行為監督與評價與招聘與崗位調整",
+          "採購預算與制度與記錄｜編制安全程式與制度並撰寫部門預算與採購申請｜管理鑰匙與制服與徽章與裝置等物資並維護安全記錄"
+        ]
+      },
+      "security-management-specialists": {
+        "file_sha256": "30b153a1b881ae7a8d1fe2d7ad7fe11899ef4450a1d11cff51a4f5246420f0da",
+        "entries": [
+          "範圍確認｜核資產、場所、人員和安全目標。｜輸出評估邊界。",
+          "威脅識別｜收集現場、事件和系統證據。｜輸出威脅與脆弱性清單。",
+          "風險分析｜核現有控制、影響和不確定性。｜輸出風險排序。",
+          "控制設計｜提出門禁、監控、告警與流程對策。｜輸出方案和理由。",
+          "實施複核｜核安裝、測試、培訓和未通過項。｜輸出整改跟蹤。",
+          "管理交接｜說明殘餘風險、責任人和批准事項。｜輸出決策記錄。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 437,
+      "source_slugs": [
+        "first-line-supervisors-of-security-workers",
+        "security-management-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "first-line-supervisors-of-security-workers": {
+          "field": "entries",
+          "source_path": "careers/first-line-supervisors-of-security-workers/zh-TW.json",
+          "file_sha256": "41d90c2faf91a7b43021bb1beb451b087692aa420cb45e961ab45988cfac16c4",
+          "count": 6
+        },
+        "security-management-specialists": {
+          "field": "entries",
+          "source_path": "careers/security-management-specialists/zh-TW.json",
+          "file_sha256": "30b153a1b881ae7a8d1fe2d7ad7fe11899ef4450a1d11cff51a4f5246420f0da",
+          "count": 6
+        }
+      }
+    }
+  }
+}

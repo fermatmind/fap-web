@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "49f9968c1130ef048475ba2371ce518a2d9523b7858de17f9394d91c7de4acc1",
+  "inputs": {
+    "pair_id": "roustabouts-oil-and-gas-vs-wellhead-pumpers",
+    "slugs": [
+      "roustabouts-oil-and-gas",
+      "wellhead-pumpers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/roustabouts-oil-and-gas-vs-wellhead-pumpers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "roustabouts-oil-and-gas": {
+        "name": "油气井场杂务工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.79,
+            1.0,
+            1.0,
+            1.0,
+            3.29
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-5071",
+          "title_evidence": "official_title"
+        }
+      },
+      "wellhead-pumpers": {
+        "name": "井口泵操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7073.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.92,
+            2.26,
+            1.0,
+            1.11,
+            1.77,
+            4.29
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7073.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "53-7073",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "roustabouts-oil-and-gas -> wellhead-pumpers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：油气现场辅助岗位按分工支持设备组装、物料和维修任务，及时记录需由专业人员处理的事项；后岗：井口泵工监看泵、流量、压力和管线状态，记录产量或异常，把维修、隔离和恢复交给有相应权限的岗位。",
+    "cn_qualification": {
+      "roustabouts-oil-and-gas": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "wellhead-pumpers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "roustabout",
+        "source_url": "https://www.onetonline.org/link/summary/47-5071.00",
+        "locator": "Overview; Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Assembles or repairs field equipment and supports field tasks.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "pumper",
+        "source_url": "https://www.onetonline.org/link/details/53-7073.00",
+        "locator": "Overview; Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Operates well pumps and related equipment, records production, and performs routine maintenance within assigned scope.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "daqing",
+        "source_url": "https://vod.dj.cnpc.com.cn/content/h/content_46263.shtml",
+        "locator": "407注采班线上预警与线下复核",
+        "value": {
+          "jurisdiction": "中国大陆·大庆",
+          "effective_or_period": "2026报道",
+          "summary": "大庆油田案例介绍注采班使用远程预警及现场复核。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "training",
+        "source_url": "https://www.pypcc.edu.cn/__local/8/9D/1E/6074245CEB3905CF91E8C82720A_E2D0E0D7_12969B.pdf",
+        "locator": "油气智能开采技术：专业课程与采油工程",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校培养方案",
+          "summary": "包含采油工程与人工举升相关基础。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "safety",
+        "source_url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/gz11/202512/t20251219_589223.shtml?jump=true",
+        "locator": "第三、四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "现行规定",
+          "summary": "实际承担纳入目录的特种作业时，经培训考核取得对应操作证。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 652,
+      "source_slugs": [
+        "roustabouts-oil-and-gas",
+        "wellhead-pumpers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

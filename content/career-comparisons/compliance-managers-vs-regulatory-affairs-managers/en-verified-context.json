@@ -1,0 +1,292 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8a65c13a628478ea719cb8309dc91c98cf6ac02202204dc406241754c71a33ad",
+  "inputs": {
+    "pair_id": "compliance-managers-vs-regulatory-affairs-managers",
+    "slugs": [
+      "compliance-managers",
+      "regulatory-affairs-managers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/compliance-managers-vs-regulatory-affairs-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "compliance-managers": {
+        "name": "Compliance Managers",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.92,
+            2.98,
+            1.0,
+            3.1,
+            5.93,
+            6.3
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.02#Tasks"
+              }
+            ],
+            "text": "Report violations of compliance or regulatory standards to duly authorized enforcement agencies as appropriate or required."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.02#Tasks"
+              }
+            ],
+            "text": "Identify compliance issues that require follow-up or investigation."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.02#Tasks"
+              }
+            ],
+            "text": "Discuss emerging compliance issues to ensure that management and employees are informed about compliance reporting systems, policies, and practices."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.02#Tasks"
+              }
+            ],
+            "text": "File appropriate compliance reports with regulatory agencies."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      },
+      "regulatory-affairs-managers": {
+        "name": "Regulatory affairs managers",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.93,
+            2.99,
+            1.34,
+            2.65,
+            6.55,
+            5.67
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.01#Tasks"
+              }
+            ],
+            "text": "Develop regulatory strategies and implementation plans for the preparation and submission of new products."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.01#Tasks"
+              }
+            ],
+            "text": "Review all regulatory agency submission materials to ensure timeliness, accuracy, comprehensiveness, or compliance with regulatory standards."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.01#Tasks"
+              }
+            ],
+            "text": "Direct the preparation and submission of regulatory agency applications, reports, or correspondence."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.01#Tasks"
+              }
+            ],
+            "text": "Investigate product complaints and prepare documentation and submissions to appropriate regulatory agencies as necessary."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "compliance-managers -> regulatory-affairs-managers",
+      "regulatory-affairs-managers -> compliance-managers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "11-9199.02-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.02#Tasks",
+        "locator": "Tasks: internal investigations, periodic internal reviews, and compliance reporting",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Directs internal compliance investigations and reviews and files appropriate reports.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "11-9199.01-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.01#Tasks",
+        "locator": "Tasks: submission strategy, submission material review, and agency responses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Plans product submissions, reviews materials for completeness and accuracy, and responds to agency questions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "11-9199.02-zone",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.02#JobZone",
+        "locator": "Job Zone: Title, Education and Related Experience",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Job Zone Four describes considerable preparation, commonly including a four-year degree and related experience.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "11-9199.01-zone",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.01#JobZone",
+        "locator": "Job Zone: Title, Education and Related Experience",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Job Zone Four describes considerable preparation, commonly including a four-year degree and related experience.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 23,
+      "source_slugs": [
+        "compliance-managers",
+        "regulatory-affairs-managers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

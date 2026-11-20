@@ -1,0 +1,208 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f425c3639c3633d94985a837a9d2a92c6ecd8e92870488e70b3a4b76031d0170",
+  "inputs": {
+    "pair_id": "marriage-and-family-therapists-vs-school-psychologists",
+    "slugs": [
+      "marriage-and-family-therapists",
+      "school-psychologists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/marriage-and-family-therapists-vs-school-psychologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "marriage-and-family-therapists": {
+        "name": "婚姻与家庭治疗师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.49,
+            5.32,
+            3.58,
+            6.22,
+            1.78,
+            2.9
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1013",
+          "title_evidence": "official_title"
+        }
+      },
+      "school-psychologists": {
+        "name": "学校心理学家",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3034.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            5.0,
+            3.31,
+            6.77,
+            2.82,
+            4.01
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3034.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3034",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "marriage-and-family-therapists -> school-psychologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：两类路径都涉及听清家庭成员需求、管理记录和交接，具体服务与执业权限按所在地核对；后岗：学校心理学岗位围绕学习、行为和发展问题收集证据，与学校和家庭协作评估及复核支持措施。",
+    "cn_qualification": {
+      "marriage-and-family-therapists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "school-psychologists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "mft-work",
+        "source_url": "https://www.bls.gov/ooh/community-and-social-service/marriage-and-family-therapists.htm#tab-2",
+        "locator": "What They Do",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live OOH",
+          "summary": "Provides therapy for individuals, couples and families with attention to relationships.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "school-work",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/psychologists.htm#tab-2",
+        "locator": "What They Do: School psychologists",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live OOH",
+          "summary": "Evaluates school-related needs and consults with teachers and families.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "mft-setting",
+        "source_url": "https://www.bls.gov/ooh/community-and-social-service/marriage-and-family-therapists.htm#tab-3",
+        "locator": "Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live OOH",
+          "summary": "Works in settings including mental health centers and private practice.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "school-setting",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/psychologists.htm#tab-3",
+        "locator": "Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live OOH",
+          "summary": "School psychologists work in educational settings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-therapy-current",
+        "source_url": "https://wsjk.fuxin.gov.cn/wjw/file/2022-01-24/1643009036431ff8080817de469ed396017e8af8508f7143.pdf",
+        "locator": "2018 修正版第二十三条、第五十一条",
+        "value": {
+          "jurisdiction": "China mainland",
+          "effective_or_period": "2018 revised law",
+          "summary": "Psychological counselors do not provide psychotherapy or diagnose or treat mental disorders; psychotherapy is conducted in medical institutions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-school-guidance",
+        "source_url": "https://www.moe.gov.cn/srcsite/A06/s3325/201212/t20121211_145679.html",
+        "locator": "中小学心理健康教育指导纲要，途径和方法",
+        "value": {
+          "jurisdiction": "China mainland",
+          "effective_or_period": "2012 revised guidance",
+          "summary": "Describes school mental health education and psychological guidance.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 503,
+      "source_slugs": [
+        "marriage-and-family-therapists",
+        "school-psychologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

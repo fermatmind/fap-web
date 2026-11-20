@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "bd00c8a16ac1d9272a8ce32702fd7ac62268cb61a25ba2931eb41c2efe3f7719",
+  "inputs": {
+    "pair_id": "shampooers-vs-spa-managers",
+    "slugs": [
+      "shampooers",
+      "spa-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/shampooers-vs-spa-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "shampooers": {
+        "name": "洗髮師",
+        "riasec": {
+          "code": "RSC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.53,
+            1.35,
+            1.56,
+            3.75,
+            2.47,
+            3.37
+          ]
+        },
+        "tasks": [
+          "接待與確認｜詢問顧客本次洗護目標、頭皮不適、產品偏好及已知禁忌，確認服務範圍。｜交付明確的產品和服務選擇，不診斷疾病。",
+          "準備與保護｜清潔工作臺和用品，核對產品及水溫，為顧客圍上披肩或毛巾以保護衣物。｜交付可安全開始洗護的工位與用品。",
+          "清洗與按摩｜溼潤頭髮，按培訓方法塗用洗髮產品並清潔頭髮與頭皮；力度和時長按反饋調整。｜交付已清潔的頭髮，避免抓傷或刺激。",
+          "沖洗與護理｜將洗髮劑及護理產品充分衝淨，避免水或產品進入眼耳並確認顧客舒適。｜交付無明顯殘留的頭髮與頭皮。",
+          "觀察與交接｜發現持續不適、疑似傳染或異常反應時停止並向負責人報告，必要時建議就醫。｜記錄已用產品與異常，不作醫學結論。",
+          "整理與補給｜更換或清洗毛巾，清潔洗髮區，補足產品並交接下一服務環節。｜保持用品衛生和後續服務可接續。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-5093",
+          "title_evidence": "official_title"
+        }
+      },
+      "spa-managers": {
+        "name": "水療中心經理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9179.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.5,
+            1.31,
+            1.84,
+            4.19,
+            7.0,
+            4.91
+          ]
+        },
+        "tasks": [
+          "預約與班表｜安排客戶預約和員工班次。｜交容量與變更記錄，不把未知設施算可用。",
+          "人員與訓練｜核資質、招聘、反饋績效並組織培訓。｜交匹配狀態和待補訓練，經理頭銜不擴服務範圍。",
+          "設施與衛生｜檢查裝置，監督運營衛生並協調維修。｜交異常和接收人，維修與水設施按對應規則核。",
+          "財務與庫存｜看現金流、預算、存貨和用品訂單。｜交日結差額和庫存記錄，收款不全等收入。",
+          "客戶與體驗｜答疑、處理投訴，維護客戶資料。｜交事實、處理狀態和未結事項，控制資訊許可權。",
+          "服務與營銷｜規劃服務專案及營銷，跟進目標。｜交方案與依據，不用未經支援健康宣告促銷。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9179.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9179",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "shampooers -> spa-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "shampooers": {
+        "file_sha256": "10787525c8bc823024f4288f315172523ce639420241505f87fbd04d92e1ecbb",
+        "entries": [
+          "接待與確認｜詢問顧客本次洗護目標、頭皮不適、產品偏好及已知禁忌，確認服務範圍。｜交付明確的產品和服務選擇，不診斷疾病。",
+          "準備與保護｜清潔工作臺和用品，核對產品及水溫，為顧客圍上披肩或毛巾以保護衣物。｜交付可安全開始洗護的工位與用品。",
+          "清洗與按摩｜溼潤頭髮，按培訓方法塗用洗髮產品並清潔頭髮與頭皮；力度和時長按反饋調整。｜交付已清潔的頭髮，避免抓傷或刺激。",
+          "沖洗與護理｜將洗髮劑及護理產品充分衝淨，避免水或產品進入眼耳並確認顧客舒適。｜交付無明顯殘留的頭髮與頭皮。",
+          "觀察與交接｜發現持續不適、疑似傳染或異常反應時停止並向負責人報告，必要時建議就醫。｜記錄已用產品與異常，不作醫學結論。",
+          "整理與補給｜更換或清洗毛巾，清潔洗髮區，補足產品並交接下一服務環節。｜保持用品衛生和後續服務可接續。"
+        ]
+      },
+      "spa-managers": {
+        "file_sha256": "640e26f25fda7b10ac4c70ad64634b380b2da218471f5bd0c29daffe99e821de",
+        "entries": [
+          "預約與班表｜安排客戶預約和員工班次。｜交容量與變更記錄，不把未知設施算可用。",
+          "人員與訓練｜核資質、招聘、反饋績效並組織培訓。｜交匹配狀態和待補訓練，經理頭銜不擴服務範圍。",
+          "設施與衛生｜檢查裝置，監督運營衛生並協調維修。｜交異常和接收人，維修與水設施按對應規則核。",
+          "財務與庫存｜看現金流、預算、存貨和用品訂單。｜交日結差額和庫存記錄，收款不全等收入。",
+          "客戶與體驗｜答疑、處理投訴，維護客戶資料。｜交事實、處理狀態和未結事項，控制資訊許可權。",
+          "服務與營銷｜規劃服務專案及營銷，跟進目標。｜交方案與依據，不用未經支援健康宣告促銷。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 665,
+      "source_slugs": [
+        "shampooers",
+        "spa-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "shampooers": {
+          "field": "entries",
+          "source_path": "careers/shampooers/zh-TW.json",
+          "file_sha256": "10787525c8bc823024f4288f315172523ce639420241505f87fbd04d92e1ecbb",
+          "count": 6
+        },
+        "spa-managers": {
+          "field": "entries",
+          "source_path": "careers/spa-managers/zh-TW.json",
+          "file_sha256": "640e26f25fda7b10ac4c70ad64634b380b2da218471f5bd0c29daffe99e821de",
+          "count": 6
+        }
+      }
+    }
+  }
+}

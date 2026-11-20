@@ -1,0 +1,195 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d6b6ee8dc4ce4ebf0566654f67d9e425863f3b2a578cea0713618e5b4f6b18cc",
+  "inputs": {
+    "pair_id": "nanotechnology-engineering-technologists-and-technicians-vs-photonics-technicians",
+    "slugs": [
+      "nanotechnology-engineering-technologists-and-technicians",
+      "photonics-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/nanotechnology-engineering-technologists-and-technicians-vs-photonics-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "name": "奈米技術工程技師與技術人員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3026.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.16,
+            4.98,
+            1.55,
+            1.05,
+            2.01,
+            4.83
+          ]
+        },
+        "tasks": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3026.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3026",
+          "title_evidence": "official_title"
+        }
+      },
+      "photonics-technicians": {
+        "name": "光子學技術員",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3029.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            4.18,
+            1.0,
+            1.0,
+            1.0,
+            5.46
+          ]
+        },
+        "tasks": [
+          "輸入核對｜確認工單、器件批次、校準狀態、測試條件與安全授權的來源、版本和完整性｜缺項先標註。",
+          "任務執行｜裝配、安裝、測試或維護雷射器、透鏡、反射鏡與光纖等光學裝置，並記錄測試資料｜按崗位範圍和制度。",
+          "質量複核｜核可複核的裝配與測試記錄、異常隔離和裝置維護交接與原始資料是否一致｜保留差異。",
+          "溝通協作｜與光子工程師、質量、裝置維護和製造人員協作｜寫明待回覆事項。",
+          "異常升級｜器件混批、校準過期、測試條件失配、裝置故障、潔淨度失控或雷射安全缺口時暫停受影響步驟｜交有權人員。",
+          "留檔交接｜寫來源、時間、接收人和未決項｜便於複核。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3029.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3029",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "photonics-technicians -> nanotechnology-engineering-technologists-and-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+        "entries": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ]
+      },
+      "photonics-technicians": {
+        "file_sha256": "17787091de935b0d4b7fa91df901c02e5ba2d56ca18f06ddf51dc54abd3fd6b3",
+        "entries": [
+          "輸入核對｜確認工單、器件批次、校準狀態、測試條件與安全授權的來源、版本和完整性｜缺項先標註。",
+          "任務執行｜裝配、安裝、測試或維護雷射器、透鏡、反射鏡與光纖等光學裝置，並記錄測試資料｜按崗位範圍和制度。",
+          "質量複核｜核可複核的裝配與測試記錄、異常隔離和裝置維護交接與原始資料是否一致｜保留差異。",
+          "溝通協作｜與光子工程師、質量、裝置維護和製造人員協作｜寫明待回覆事項。",
+          "異常升級｜器件混批、校準過期、測試條件失配、裝置故障、潔淨度失控或雷射安全缺口時暫停受影響步驟｜交有權人員。",
+          "留檔交接｜寫來源、時間、接收人和未決項｜便於複核。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 527,
+      "source_slugs": [
+        "nanotechnology-engineering-technologists-and-technicians",
+        "photonics-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "nanotechnology-engineering-technologists-and-technicians": {
+          "field": "entries",
+          "source_path": "careers/nanotechnology-engineering-technologists-and-technicians/zh-TW.json",
+          "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+          "count": 8
+        },
+        "photonics-technicians": {
+          "field": "entries",
+          "source_path": "careers/photonics-technicians/zh-TW.json",
+          "file_sha256": "17787091de935b0d4b7fa91df901c02e5ba2d56ca18f06ddf51dc54abd3fd6b3",
+          "count": 6
+        }
+      }
+    }
+  }
+}

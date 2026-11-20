@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6a055ddd87822434dce6a72b5bcbb46fdefa21c415a5d079bed18ecb64f538cd",
+  "inputs": {
+    "pair_id": "cost-estimators-vs-surveyors",
+    "slugs": [
+      "cost-estimators",
+      "surveyors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/cost-estimators-vs-surveyors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cost-estimators": {
+        "name": "成本估算師",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.01,
+            3.18,
+            1.12,
+            1.66,
+            4.65,
+            6.44
+          ]
+        },
+        "tasks": [
+          "監控與歷史成本｜建立監控報告流程、收集歷史成本供未來參考；比較實際與投標及方案成本效益，口徑依據按真實專案。",
+          "估算與選擇｜判讀圖紙規格時間材料人工，為計劃排程及供應商選擇編估算，判斷自制或外購；不是自行獲採購許可權。",
+          "報表編制｜編製成本與支出報表｜在專案週期內定期編製成本與支出報表及其他必要檔案，跟蹤實際與估算差異並說明原因。",
+          "現場踏勘｜記錄場地與市政條件｜到現場記錄通道、排水與地形以及市政管線條件，在無法到場時藉助遙感或無人機評估場地。",
+          "名錄與招標協商｜維護供應商承包商分包名錄、與客戶等商討估算，建立招標流程並談判為Core，簽約及承諾仍核實際授權。",
+          "特殊研究｜建立標準工時與成本資料｜開展特殊研究以建立標準工時與成本資料，或為降低成本提供依據。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1051",
+          "title_evidence": "official_title"
+        }
+      },
+      "surveyors": {
+        "name": "測量師",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-1022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.25,
+            4.73,
+            2.12,
+            1.63,
+            1.88,
+            5.29
+          ]
+        },
+        "tasks": [
+          "資料｜權屬與既有調查核查｜查閱地契、產權和既有測量記錄，識別描述、版本及點位不一致。",
+          "準備｜測量目標與方案｜確定調查目標、組織測量任務，協調人員、技術要求與資料條件。",
+          "觀測｜點位與高程記錄｜組織或實施位置、高程及地形測量，儲存儀器與現場記錄。",
+          "計算｜準確性與文件一致｜核對測量及計算，維護草圖、地圖和報告，定位差異並交複核。",
+          "成果｜界線描述與責任｜編寫界線及法律描述，按所在法域、執照和專案職責處理稽核認證。",
+          "協作｜帶隊與專案溝通｜指導助手，與工程師、建築師和客戶協調，說明結果用途與限制。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-1022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-1022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "surveyors -> cost-estimators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "cost-estimators": {
+        "file_sha256": "490bf703ca716e3e6087ea07d28d0b26a0e4c01c5270ec974a89da99ded901ad",
+        "entries": []
+      },
+      "surveyors": {
+        "file_sha256": "c5f2636a9f262311dd34743a46ffd9fc1c23c9cf42d1185c75cfe62162acc5c9",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 238,
+      "source_slugs": [
+        "cost-estimators",
+        "surveyors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "cost-estimators": {
+          "field": "paragraphs",
+          "source_path": "careers/cost-estimators/zh-TW.json",
+          "file_sha256": "490bf703ca716e3e6087ea07d28d0b26a0e4c01c5270ec974a89da99ded901ad",
+          "count": 6
+        },
+        "surveyors": {
+          "field": "paragraphs",
+          "source_path": "careers/surveyors/zh-TW.json",
+          "file_sha256": "c5f2636a9f262311dd34743a46ffd9fc1c23c9cf42d1185c75cfe62162acc5c9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

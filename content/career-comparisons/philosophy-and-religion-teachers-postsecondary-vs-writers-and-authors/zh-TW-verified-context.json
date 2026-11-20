@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8a9d497a4eb45e3be80d9bfe73317bfcdfce277707b3b2d076f640905b8d82ab",
+  "inputs": {
+    "pair_id": "philosophy-and-religion-teachers-postsecondary-vs-writers-and-authors",
+    "slugs": [
+      "philosophy-and-religion-teachers-postsecondary",
+      "writers-and-authors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/philosophy-and-religion-teachers-postsecondary-vs-writers-and-authors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "philosophy-and-religion-teachers-postsecondary": {
+        "name": "高校哲學與宗教學教師",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-1126.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.46,
+            5.14,
+            3.76,
+            7.0,
+            2.77,
+            3.48
+          ]
+        },
+        "tasks": [
+          "閱讀與備課｜核原始文本版本、頁碼和課程目標，準備閱讀單與講義｜找不到原文先標待核。",
+          "課堂教學｜講解概念、主持討論並回應反例，區分作者立場與學生觀點｜保留合理學術分歧。",
+          "作業評價｜依公開規準評價作業和考試，記錄評分理由與反饋｜正式成績按課程分工複核。",
+          "答疑協作｜與學生及課程組溝通疑問、材料與評價安排｜寫明未決問題。",
+          "學術研究｜按聘任職責查閱文獻、開展研究並寫作，標明引用及作者歸屬｜研究職責因崗位而異。",
+          "課程記錄｜維護課程材料、評價與修改記錄，交接待核引用和未決事項｜核學生資料的使用範圍。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-1126.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "25-1126",
+          "title_evidence": "official_title"
+        }
+      },
+      "writers-and-authors": {
+        "name": "作家與作者",
+        "riasec": {
+          "code": "AE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-3043.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.25,
+            6.68,
+            2.86,
+            4.75,
+            3.34
+          ]
+        },
+        "tasks": [
+          "構思｜主題與讀者｜明確目的和內容結構。",
+          "研究｜事實與素材｜核來源引用和資料範圍。",
+          "創作｜原創文字｜按媒介受眾形成稿件。",
+          "改稿｜編輯客戶反饋｜說明修改理由與未知。",
+          "協作｜編輯設計團隊｜核交稿和確認條件。",
+          "權屬｜合同與使用｜區分交付、許可及轉讓。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-3043.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "27-3043",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "philosophy-and-religion-teachers-postsecondary -> writers-and-authors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "philosophy-and-religion-teachers-postsecondary": {
+        "file_sha256": "cf41230d96df138b26b75512e1c7034b410d63bd192ff038b8973eb630d23310",
+        "entries": [
+          "閱讀與備課｜核原始文本版本、頁碼和課程目標，準備閱讀單與講義｜找不到原文先標待核。",
+          "課堂教學｜講解概念、主持討論並回應反例，區分作者立場與學生觀點｜保留合理學術分歧。",
+          "作業評價｜依公開規準評價作業和考試，記錄評分理由與反饋｜正式成績按課程分工複核。",
+          "答疑協作｜與學生及課程組溝通疑問、材料與評價安排｜寫明未決問題。",
+          "學術研究｜按聘任職責查閱文獻、開展研究並寫作，標明引用及作者歸屬｜研究職責因崗位而異。",
+          "課程記錄｜維護課程材料、評價與修改記錄，交接待核引用和未決事項｜核學生資料的使用範圍。"
+        ]
+      },
+      "writers-and-authors": {
+        "file_sha256": "556b69762a75c27f8457d819091d9c1a08243ecc45cbdb700d63679fc7fb6360",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 573,
+      "source_slugs": [
+        "philosophy-and-religion-teachers-postsecondary",
+        "writers-and-authors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "philosophy-and-religion-teachers-postsecondary": {
+          "field": "entries",
+          "source_path": "careers/philosophy-and-religion-teachers-postsecondary/zh-TW.json",
+          "file_sha256": "cf41230d96df138b26b75512e1c7034b410d63bd192ff038b8973eb630d23310",
+          "count": 6
+        },
+        "writers-and-authors": {
+          "field": "paragraphs",
+          "source_path": "careers/writers-and-authors/zh-TW.json",
+          "file_sha256": "556b69762a75c27f8457d819091d9c1a08243ecc45cbdb700d63679fc7fb6360",
+          "count": 6
+        }
+      }
+    }
+  }
+}

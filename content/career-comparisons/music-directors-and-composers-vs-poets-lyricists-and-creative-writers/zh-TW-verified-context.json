@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f96acc0f6cc5a123ea769cc7ac1fcd5e6ad19ef2e832d19b7b24e0bdc64c4ef4",
+  "inputs": {
+    "pair_id": "music-directors-and-composers-vs-poets-lyricists-and-creative-writers",
+    "slugs": [
+      "music-directors-and-composers",
+      "poets-lyricists-and-creative-writers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/music-directors-and-composers-vs-poets-lyricists-and-creative-writers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "music-directors-and-composers": {
+        "name": "音樂總監與作曲家",
+        "riasec": {
+          "code": "AE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.07,
+            2.28,
+            7.0,
+            3.04,
+            4.82,
+            2.63
+          ]
+        },
+        "tasks": [
+          "音樂指揮：研究總譜、作品背景與樂團條件，形成速度、分句、力度、發音和整體風格解釋。",
+          "音樂指揮：選擇或確認曲目、安排排練次序，通過手勢、語言和示範糾正節奏、音準、平衡與合奏問題。",
+          "音樂指揮：與獨奏者、聲部長、舞臺/錄音團隊協調，決定何時繼續、拆分、重練或保留一次演出。",
+          "作曲家：把委約目標、劇本、畫面或自主創意轉成主題、和聲、節奏、結構與配器方案。",
+          "作曲家：用譜面、MIDI、錄音軟體或樂器製作草稿，聽取演奏/製作反饋後修訂可演奏性與情緒效果。",
+          "作曲家：交付總譜、分譜、音訊樣稿或工程檔案，並保持版本、素材來源和修改範圍可追溯。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "poets-lyricists-and-creative-writers": {
+        "name": "詩人、作詞人與創意寫作者",
+        "riasec": {
+          "code": "AI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-3043.05",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.17,
+            3.58,
+            7.0,
+            2.83,
+            3.17,
+            2.88
+          ]
+        },
+        "tasks": [
+          "需求確認｜核讀者、題材、形式、字數或音樂約束｜不明條件先問委託方。",
+          "素材研究｜蒐集公開可核資料和原創靈感｜區分事實、虛構與授權素材。",
+          "結構起草｜寫出完整詩稿、歌詞或場景｜保留大綱與初稿版本。",
+          "反饋修訂｜與編輯、作曲者或製作方討論｜記錄修改依據與未解決意見。",
+          "定稿核對｜檢查節奏、事實、引用、署名和交付格式｜權利不清先暫停使用。",
+          "交付留檔｜提交約定版本並儲存修改與授權記錄｜超範圍需求按合同另議。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-3043.05",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-3043",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "poets-lyricists-and-creative-writers -> music-directors-and-composers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "music-directors-and-composers": {
+        "file_sha256": "de33df0377403c8afc5e4571c48873590b6417ce0c75eb3c729ee15d0cc7de3a",
+        "entries": [
+          "音樂指揮：研究總譜、作品背景與樂團條件，形成速度、分句、力度、發音和整體風格解釋。",
+          "音樂指揮：選擇或確認曲目、安排排練次序，通過手勢、語言和示範糾正節奏、音準、平衡與合奏問題。",
+          "音樂指揮：與獨奏者、聲部長、舞臺/錄音團隊協調，決定何時繼續、拆分、重練或保留一次演出。",
+          "作曲家：把委約目標、劇本、畫面或自主創意轉成主題、和聲、節奏、結構與配器方案。",
+          "作曲家：用譜面、MIDI、錄音軟體或樂器製作草稿，聽取演奏/製作反饋後修訂可演奏性與情緒效果。",
+          "作曲家：交付總譜、分譜、音訊樣稿或工程檔案，並保持版本、素材來源和修改範圍可追溯。"
+        ]
+      },
+      "poets-lyricists-and-creative-writers": {
+        "file_sha256": "0bdeb2b7b0fc8cc7c7d0f2e8d049740efff70b6e1bdb3568478eb9892d706c04",
+        "entries": [
+          "需求確認｜核讀者、題材、形式、字數或音樂約束｜不明條件先問委託方。",
+          "素材研究｜蒐集公開可核資料和原創靈感｜區分事實、虛構與授權素材。",
+          "結構起草｜寫出完整詩稿、歌詞或場景｜保留大綱與初稿版本。",
+          "反饋修訂｜與編輯、作曲者或製作方討論｜記錄修改依據與未解決意見。",
+          "定稿核對｜檢查節奏、事實、引用、署名和交付格式｜權利不清先暫停使用。",
+          "交付留檔｜提交約定版本並儲存修改與授權記錄｜超範圍需求按合同另議。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 524,
+      "source_slugs": [
+        "music-directors-and-composers",
+        "poets-lyricists-and-creative-writers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "music-directors-and-composers": {
+          "field": "entries",
+          "source_path": "careers/music-directors-and-composers/zh-TW.json",
+          "file_sha256": "de33df0377403c8afc5e4571c48873590b6417ce0c75eb3c729ee15d0cc7de3a",
+          "count": 6
+        },
+        "poets-lyricists-and-creative-writers": {
+          "field": "entries",
+          "source_path": "careers/poets-lyricists-and-creative-writers/zh-TW.json",
+          "file_sha256": "0bdeb2b7b0fc8cc7c7d0f2e8d049740efff70b6e1bdb3568478eb9892d706c04",
+          "count": 6
+        }
+      }
+    }
+  }
+}

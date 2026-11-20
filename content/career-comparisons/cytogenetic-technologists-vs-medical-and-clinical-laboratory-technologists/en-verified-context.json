@@ -1,0 +1,313 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "dbc75fa2e8ab2733e1257a4094a58ec08b01ac2279ebf80f9d01e493a116d138",
+  "inputs": {
+    "pair_id": "cytogenetic-technologists-vs-medical-and-clinical-laboratory-technologists",
+    "slugs": [
+      "cytogenetic-technologists",
+      "medical-and-clinical-laboratory-technologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/cytogenetic-technologists-vs-medical-and-clinical-laboratory-technologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cytogenetic-technologists": {
+        "name": "Cytogenetic Technologists",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2011.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.32,
+            5.91,
+            1.48,
+            1.93,
+            1.56,
+            5.02
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.01#Tasks"
+              }
+            ],
+            "text": "Arrange and attach chromosomes in numbered pairs on karyotype charts, using standard genetics laboratory practices and nomenclature, to identify normal or abnormal chromosomes."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.01#Tasks"
+              }
+            ],
+            "text": "Analyze chromosomes found in biological specimens to aid diagnoses and treatments for genetic diseases such as congenital disabilities, fertility problems, and hematological disorders."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.01#Tasks"
+              }
+            ],
+            "text": "Prepare biological specimens such as amniotic fluids, bone marrow, tumors, chorionic villi, and blood, for chromosome examinations."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.01#Tasks"
+              }
+            ],
+            "text": "Harvest cell cultures using substances such as mitotic arrestants, cell releasing agents, and cell fixatives."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2011.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "medical-and-clinical-laboratory-technologists": {
+        "name": "Clinical Laboratory Technologist",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.81,
+            6.15,
+            1.13,
+            2.77,
+            1.51,
+            4.99
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Analyze samples of biological material for chemical content or reaction."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Analyze laboratory findings to check the accuracy of the results."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Conduct chemical analysis of body fluids, including blood, urine, or spinal fluid, to determine presence of normal or abnormal components."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Enter data from analysis of medical tests or clinical results into computer for storage."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2011",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "cytogenetic-technologists -> medical-and-clinical-laboratory-technologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "cyto_tasks",
+        "source_url": "https://www.onetonline.org/link/details/29-2011.01",
+        "locator": "Occupation summary and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 2026",
+          "summary": "Pairs and classifies chromosomes on karyotype charts and documents findings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "lab_tasks",
+        "source_url": "https://www.onetonline.org/link/details/29-2011.00",
+        "locator": "Occupation summary and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 2026",
+          "summary": "Performs clinical laboratory tests, monitors test quality and records results.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ca_cyto",
+        "source_url": "https://www.cdph.ca.gov/Programs/OSPHLD/LFS/Pages/CLS-Cytogeneticist.aspx",
+        "locator": "Scope of Practice, Academic Requirements, Training or Experience, and Documents",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current",
+          "summary": "Specialty scope in CLIA-certified high-complexity clinical cytogenetics. Bachelor’s or higher, specified courses, minimum year of qualifying training or experience, certification examination verification and California quiz.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ca_cls",
+        "source_url": "https://www.cdph.ca.gov/Programs/OSPHLD/LFS/Pages/CLS.aspx",
+        "locator": "Scope of Practice, Academic Requirements and Training or Experience",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "2025 coursework rules",
+          "summary": "Generalist license permits work across clinical laboratory specialties. Bachelor’s with specified coursework and minimum year of comprehensive clinical training or work experience covering hematology, chemistry, blood bank and microbiology.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ca_exam",
+        "source_url": "https://www.cdph.ca.gov/Programs/OSPHLD/LFS/Pages/Approved-Certifying-Organization-Examinations.aspx",
+        "locator": "Clinical Laboratory Scientist Licensure – Generalist & Specialties",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current",
+          "summary": "Approved certification exams are part of the state licensing path; applicants also meet education and training requirements.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls_entry",
+        "source_url": "https://www.bls.gov/OOH/healthcare/clinical-laboratory-technologists-and-technicians.htm",
+        "locator": "How to Become a Clinical Laboratory Technologist or Technician",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026 Occupational Outlook Handbook",
+          "summary": "Clinical laboratory technologists typically need a bachelor’s degree. Some states require licensure. The profile includes technologists and technicians.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 277,
+      "source_slugs": [
+        "cytogenetic-technologists",
+        "medical-and-clinical-laboratory-technologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

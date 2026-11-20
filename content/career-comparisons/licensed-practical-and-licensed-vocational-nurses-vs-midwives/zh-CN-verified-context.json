@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "dd47efd91cc6ba90f547ba94f5c0cc621514f911e25ed0397489221bfbf76bb2",
+  "inputs": {
+    "pair_id": "licensed-practical-and-licensed-vocational-nurses-vs-midwives",
+    "slugs": [
+      "licensed-practical-and-licensed-vocational-nurses",
+      "midwives"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/licensed-practical-and-licensed-vocational-nurses-vs-midwives",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "licensed-practical-and-licensed-vocational-nurses": {
+        "name": "执业护士与职业护士",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.58,
+            3.67,
+            1.05,
+            5.5,
+            2.13,
+            4.58
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2061",
+          "title_evidence": "official_title"
+        }
+      },
+      "midwives": {
+        "name": "助产士",
+        "riasec": {
+          "code": "SR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-9099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.98,
+            3.54,
+            1.91,
+            6.04,
+            2.7,
+            3.26
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-9099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-9099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "midwives -> licensed-practical-and-licensed-vocational-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：观察患者，记录并报告病情变化（如用药或治疗后的不良反应），并采取必要措施；后岗：为孕产妇提供产前照护、分娩协助与产后随访，并识别需转诊的情况。",
+    "cn_qualification": {
+      "licensed-practical-and-licensed-vocational-nurses": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "midwives": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "29-2061.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-2061.00#Tasks",
+        "locator": "Tasks 507, 510, 511",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Provides assigned care and observes and reports changes.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "29-9099.01",
+        "source_url": "https://www.onetonline.org/link/summary/29-9099.01#Tasks",
+        "locator": "Tasks 17466, 17472, 17474",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Assesses maternal health, monitors during labor and makes contingency plans.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-nurse",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=209",
+        "locator": "《护士条例》第七条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2020 年修订",
+          "summary": "Nursing practice requires registration and a nurse practice certificate.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-midwife",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1680",
+        "locator": "《中华人民共和国母婴保健法实施办法》第三十五条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2023 年修订",
+          "summary": "Midwifery technical services require authorization and relevant certificates for institutions and personnel.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-lpn-supervision",
+        "source_url": "https://www.bls.gov/OOH/healthcare/licensed-practical-and-licensed-vocational-nurses.htm#tab-2",
+        "locator": "What They Do",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "LPNs and LVNs typically work under RNs or physicians; state rules determine the extent of direct supervision.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 474,
+      "source_slugs": [
+        "licensed-practical-and-licensed-vocational-nurses",
+        "midwives"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

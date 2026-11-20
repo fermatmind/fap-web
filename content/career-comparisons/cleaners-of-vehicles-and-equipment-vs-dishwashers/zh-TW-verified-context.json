@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d36b815721ba540bb95910b9ff50c451b22a6d9b405e38411ef1d70eef7888b3",
+  "inputs": {
+    "pair_id": "cleaners-of-vehicles-and-equipment-vs-dishwashers",
+    "slugs": [
+      "cleaners-of-vehicles-and-equipment",
+      "dishwashers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/cleaners-of-vehicles-and-equipment-vs-dishwashers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cleaners-of-vehicles-and-equipment": {
+        "name": "車輛與裝置清潔工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.15,
+            1.0,
+            1.04,
+            1.0,
+            4.04
+          ]
+        },
+        "tasks": [
+          "清洗作業｜按標準清洗車輛與機械與裝置｜沖洗並把物件放上晾乾架或用布與刮水器與空氣壓縮機吹乾表面；用刮刀與刷子與清潔劑與消毒劑與酸與磨料與吸塵器與軟管擦洗與刮除與噴射機械零件與裝置與車輛；把物件預浸或沖洗（對應 O*NET 任務第一與第五與第九項）。",
+          "材料配製與庫存｜按配方配製清洗液並管理耗材｜按配方混合清洗液與磨料與其他化合物；維護耗材庫存並把物料與裝置與耗材搬運到或搬離作業區（對應 O*NET 任務第七與第八與第十九項）。",
+          "裝置操作與調節｜操作清洗裝置並調節壓力與流量｜按按鈕啟動清洗裝置；轉動閥門或手柄以調節噴槍噴嘴的水與空氣與蒸汽與磨料壓力或流量；連線軟管或管線到泵或其他裝置；轉動閥門或斷開軟管以排出機械或罐體中的水與清洗液與蒸汽（對應 O*NET 任務第十四與第十一與第十五與第十項）。",
+          "檢查與合規｜檢查清潔度與損壞與合規性｜檢查零件與裝置與車輛是否清潔與損壞以及是否符合標準或法規；監測清洗機執行並在故障時停機或通知主管（對應 O*NET 任務第六與第十三項）。",
+          "修飾與整備｜拋光打蠟與安裝飾件並做小幅調整｜給車輛塗漆與染色與拋光與上光與上蠟或做遮蔽以保護或恢復顏色與狀態；清潔車內塑膠件；安裝車尾擾流板與側裙或擋泥板；拆裝機械或裝置或車輛零件與飾件並做潤滑與小的維修調整（對應 O*NET 任務第二與第十六與第二十與第十七與第十八項）。",
+          "交付與運輸｜把車輛與裝置按要求送達並交付｜把車輛開到或開離車間或客戶工作地點或住所；清掃與剷除或吸走散落碎片與可回收廢料並轉運容器（對應 O*NET 任務第四與第十二項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-7061",
+          "title_evidence": "official_title"
+        }
+      },
+      "dishwashers": {
+        "name": "洗碗工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "35-9021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.0,
+            1.0,
+            1.83,
+            1.44,
+            4.45
+          ]
+        },
+        "tasks": [
+          "常見輸入：當班洗滌與消毒流程與水溫與藥劑濃度要求、餐具與廚具與玻璃器皿與鍋具、清潔劑與消毒劑與清潔用品、洗滌與消毒與保潔設施與裝置狀態、出餐檯與庫房物資與缺貨清單，以及值班負責人的班次指令與個人衛生與上崗前健康檢查要求。",
+          "核心產出：按流程完成洗滌與消毒的餐具與廚具、歸位到位的存放與保潔區、補充到位的出餐與庫房物資、清潔的洗滌區與地面與就餐區、清運到位的垃圾，以及缺貨與破損與裝置異常的登記與交接記錄。",
+          "編輯流程：分類/刮殘→洗淨→按適用方式消毒與瀝乾/乾燥→保潔存放和補貨→區域清潔和垃圾→異常交接；不一律要求熱風烘乾。",
+          "常協作物件：後廚與出餐口、傳菜與前廳、庫房與採購、保潔與裝置維護、值班主管。",
+          "常見工具與物件：洗碗機與洗滌與消毒與保潔設施、餐具與玻璃器皿與鍋具與炊具、清潔劑與消毒劑與清潔用品與防護用品、垃圾桶與垃圾收集區、手推車與貨梯與搬運工具。",
+          "責任邊界：本職業承擔後場清洗與保潔執行責任；不跳過清洗與消毒步驟或降低標準、不混用或超濃度使用清潔劑與消毒劑、不擅自拆裝維修裝置與電氣與排水設施、不對外承諾衛生結果，異常與越權事項立即上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "35-9021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "35-9021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "cleaners-of-vehicles-and-equipment -> dishwashers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "cleaners-of-vehicles-and-equipment": {
+        "file_sha256": "986041c702b7bceffc7e256ebad4fa10ed76e2a8fc37b5989e00ea56d6707245",
+        "entries": [
+          "清洗作業｜按標準清洗車輛與機械與裝置｜沖洗並把物件放上晾乾架或用布與刮水器與空氣壓縮機吹乾表面；用刮刀與刷子與清潔劑與消毒劑與酸與磨料與吸塵器與軟管擦洗與刮除與噴射機械零件與裝置與車輛；把物件預浸或沖洗（對應 O*NET 任務第一與第五與第九項）。",
+          "材料配製與庫存｜按配方配製清洗液並管理耗材｜按配方混合清洗液與磨料與其他化合物；維護耗材庫存並把物料與裝置與耗材搬運到或搬離作業區（對應 O*NET 任務第七與第八與第十九項）。",
+          "裝置操作與調節｜操作清洗裝置並調節壓力與流量｜按按鈕啟動清洗裝置；轉動閥門或手柄以調節噴槍噴嘴的水與空氣與蒸汽與磨料壓力或流量；連線軟管或管線到泵或其他裝置；轉動閥門或斷開軟管以排出機械或罐體中的水與清洗液與蒸汽（對應 O*NET 任務第十四與第十一與第十五與第十項）。",
+          "檢查與合規｜檢查清潔度與損壞與合規性｜檢查零件與裝置與車輛是否清潔與損壞以及是否符合標準或法規；監測清洗機執行並在故障時停機或通知主管（對應 O*NET 任務第六與第十三項）。",
+          "修飾與整備｜拋光打蠟與安裝飾件並做小幅調整｜給車輛塗漆與染色與拋光與上光與上蠟或做遮蔽以保護或恢復顏色與狀態；清潔車內塑膠件；安裝車尾擾流板與側裙或擋泥板；拆裝機械或裝置或車輛零件與飾件並做潤滑與小的維修調整（對應 O*NET 任務第二與第十六與第二十與第十七與第十八項）。",
+          "交付與運輸｜把車輛與裝置按要求送達並交付｜把車輛開到或開離車間或客戶工作地點或住所；清掃與剷除或吸走散落碎片與可回收廢料並轉運容器（對應 O*NET 任務第四與第十二項）。"
+        ]
+      },
+      "dishwashers": {
+        "file_sha256": "401d68be6425a9aa485e42156531c450ac6aa43f80c03f60df4c0975a719c803",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 153,
+      "source_slugs": [
+        "cleaners-of-vehicles-and-equipment",
+        "dishwashers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "cleaners-of-vehicles-and-equipment": {
+          "field": "entries",
+          "source_path": "careers/cleaners-of-vehicles-and-equipment/zh-TW.json",
+          "file_sha256": "986041c702b7bceffc7e256ebad4fa10ed76e2a8fc37b5989e00ea56d6707245",
+          "count": 6
+        },
+        "dishwashers": {
+          "field": "paragraphs",
+          "source_path": "careers/dishwashers/zh-TW.json",
+          "file_sha256": "401d68be6425a9aa485e42156531c450ac6aa43f80c03f60df4c0975a719c803",
+          "count": 6
+        }
+      }
+    }
+  }
+}

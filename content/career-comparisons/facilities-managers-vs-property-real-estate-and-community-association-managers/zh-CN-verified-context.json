@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "50a5a87a02a2e94fde929a68b5938ab5c7d621e49f7205d27afd3a801cfbe876",
+  "inputs": {
+    "pair_id": "facilities-managers-vs-property-real-estate-and-community-association-managers",
+    "slugs": [
+      "facilities-managers",
+      "property-real-estate-and-community-association-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/facilities-managers-vs-property-real-estate-and-community-association-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "facilities-managers": {
+        "name": "设施经理",
+        "riasec": {
+          "code": "ECR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.15,
+            2.6,
+            1.61,
+            3.58,
+            5.35,
+            5.35
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-3013",
+          "title_evidence": "official_title"
+        }
+      },
+      "property-real-estate-and-community-association-managers": {
+        "name": "物业、房地产与社区协会经理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9141.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.28,
+            2.11,
+            1.69,
+            3.53,
+            6.67,
+            5.26
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9141.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "property-real-estate-and-community-association-managers -> facilities-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：围绕设施、设备、预算、合同、物资与供应商交付组织工作，持续核对安全、合规、质量、异常和授权边界；后岗：物业、房地产及社区协会管理人员统筹物业持续运营，可能处理租户或业主请求、维修安排、预算和服务方。",
+    "cn_qualification": {
+      "facilities-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "property-real-estate-and-community-association-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "facilities",
+        "source_url": "https://www.onetonline.org/link/summary/11-3013.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Oversees maintenance, repairs and renovations, monitors facility condition, and administers related budgets.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "property",
+        "source_url": "https://www.onetonline.org/link/summary/11-9141.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Coordinates repairs, services and property finances, and liaises between owners and occupants.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-civil",
+        "source_url": "https://tjca.miit.gov.cn/zwgk/zcwj/flfg/art/2020/art_20cf1a2e1b854924b5caa744c8045d1f.html",
+        "locator": "第九百三十七条、九百四十二条",
+        "value": {
+          "jurisdiction": "China mainland",
+          "effective_or_period": "Effective January 1, 2021",
+          "summary": "Defines property service contracts and duties of the property service provider for owners' common areas.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 418,
+      "source_slugs": [
+        "facilities-managers",
+        "property-real-estate-and-community-association-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "692987a5c31439a3da552e345aca2eb88c9fe62b2e8715dca4b319892e3186ab",
+  "inputs": {
+    "pair_id": "mathematicians-vs-physicists",
+    "slugs": [
+      "mathematicians",
+      "physicists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/mathematicians-vs-physicists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "mathematicians": {
+        "name": "數學研究人員",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            7.0,
+            3.23,
+            1.95,
+            1.11,
+            5.03
+          ]
+        },
+        "tasks": [
+          "投入物件：數學問題與猜想、觀測或模擬資料、假設與公理條件、計算與數值方法、建模需求與應用背景、文獻與既有成果、經費與協作資訊。",
+          "可檢查產出：證明與定理、模型與數學表述、數值計算與模擬結果、演算法與計算方法、研究報告與論文、學術報告與講義、對應用問題的結論與建議。",
+          "完整工作流程：界定問題與假設 → 查閱文獻並選擇方法 → 推導或建模並計算 → 驗證結果與邊界 → 撰寫成果並報告 → 接受評審並修正的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-2021",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "physicists": {
+        "name": "物理學家",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.94,
+            7.0,
+            2.75,
+            2.12,
+            1.77,
+            4.8
+          ]
+        },
+        "tasks": [
+          "問題輸入｜提出可檢驗的物理問題並梳理文獻｜區分已知、假設與待測量。",
+          "方法設計｜選擇理論推導、實驗或模擬｜明確變數、邊界條件與對照。",
+          "資料取得｜按訓練和制度操作裝置或獲取授權資料｜儲存校準、引數和原始記錄。",
+          "分析解釋｜核量綱、誤差和替代解釋｜不把模型擬合等同因果證明。",
+          "研究輸出｜寫論文、報告或模型程式碼｜提供方法、限制和可復算材料。",
+          "同行複核｜回應質詢並重復關鍵結果｜記錄修訂及不一致。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-2012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "physicists -> mathematicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "mathematicians": {
+        "file_sha256": "7270bf7b55ee500459698d4fbb31d182611ceced8c3c8512bc61623612c3722f",
+        "entries": [
+          "投入物件：數學問題與猜想、觀測或模擬資料、假設與公理條件、計算與數值方法、建模需求與應用背景、文獻與既有成果、經費與協作資訊。",
+          "可檢查產出：證明與定理、模型與數學表述、數值計算與模擬結果、演算法與計算方法、研究報告與論文、學術報告與講義、對應用問題的結論與建議。",
+          "完整工作流程：界定問題與假設 → 查閱文獻並選擇方法 → 推導或建模並計算 → 驗證結果與邊界 → 撰寫成果並報告 → 接受評審並修正的閉環。"
+        ]
+      },
+      "physicists": {
+        "file_sha256": "cae5df58af73afb7cfaa144d16c9c3a4c2e3d31c854e38acf388474a0fee59ca",
+        "entries": [
+          "問題輸入｜提出可檢驗的物理問題並梳理文獻｜區分已知、假設與待測量。",
+          "方法設計｜選擇理論推導、實驗或模擬｜明確變數、邊界條件與對照。",
+          "資料取得｜按訓練和制度操作裝置或獲取授權資料｜儲存校準、引數和原始記錄。",
+          "分析解釋｜核量綱、誤差和替代解釋｜不把模型擬合等同因果證明。",
+          "研究輸出｜寫論文、報告或模型程式碼｜提供方法、限制和可復算材料。",
+          "同行複核｜回應質詢並重復關鍵結果｜記錄修訂及不一致。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 505,
+      "source_slugs": [
+        "mathematicians",
+        "physicists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "mathematicians": {
+          "field": "entries",
+          "source_path": "careers/mathematicians/zh-TW.json",
+          "file_sha256": "7270bf7b55ee500459698d4fbb31d182611ceced8c3c8512bc61623612c3722f",
+          "count": 3
+        },
+        "physicists": {
+          "field": "entries",
+          "source_path": "careers/physicists/zh-TW.json",
+          "file_sha256": "cae5df58af73afb7cfaa144d16c9c3a4c2e3d31c854e38acf388474a0fee59ca",
+          "count": 6
+        }
+      }
+    }
+  }
+}

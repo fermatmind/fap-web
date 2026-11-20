@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "350b7598ff2b17a6125b1cc8a66506e990b1847a28d1ee1b0509d6176c6418d7",
+  "inputs": {
+    "pair_id": "medical-scientists-except-epidemiologists-vs-urologists",
+    "slugs": [
+      "medical-scientists-except-epidemiologists",
+      "urologists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/medical-scientists-except-epidemiologists-vs-urologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "medical-scientists-except-epidemiologists": {
+        "name": "医学科学家（不含流行病学家）",
+        "riasec": {
+          "code": "IR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1042.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.27,
+            7.0,
+            2.42,
+            3.29,
+            2.22,
+            3.7
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1042.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-1042",
+          "title_evidence": "official_title"
+        }
+      },
+      "urologists": {
+        "name": "泌尿科医师",
+        "riasec": {
+          "code": "ISR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1229.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.85,
+            6.85,
+            1.31,
+            5.45,
+            2.22,
+            3.43
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1229.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1229",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "urologists -> medical-scientists-except-epidemiologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：就人类疾病的理解与健康改善开展研究与临床调查，设计并执行实验与观察研究、分析生物医学数据、遵守伦理与生物安全规范，并撰写论文与报告；后岗：结合病史、检查和检验评估泌尿及相关生殖系统问题，按执业和机构授权开展治疗与随访。",
+    "cn_qualification": {
+      "medical-scientists-except-epidemiologists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "urologists": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html"
+        ]
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "research",
+        "source_url": "https://wjw.xinjiang.gov.cn/hfpc/zcwj4/202409/12897793ea3a4a5099469647ccefa5de.shtml",
+        "locator": "国卫科教发〔2024〕32号第二、二十至二十三、三十二、四十二条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2024-10-01起",
+          "summary": "医疗卫生机构研究者发起、非产品注册目的的临床研究需立项，并按批准方案实施；管理部门审核研究报告并结项。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "physician",
+        "source_url": "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=90461",
+        "locator": "医师法第二、九、十二至十四、二十二条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01起",
+          "summary": "医师资格考试与执业注册分别办理，按注册的执业地点、类别、范围执业。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "hospital",
+        "source_url": "https://www.pkuih.edu.cn/department/details_931_3319.html",
+        "locator": "泌尿外科及泌尿系结石亚专科介绍",
+        "value": {
+          "jurisdiction": "中国大陆北京",
+          "effective_or_period": "院方公开科室介绍",
+          "summary": "该院泌尿外科涵盖门诊、住院和泌尿系结石诊疗，按病例安排个性化预防随访。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 510,
+      "source_slugs": [
+        "medical-scientists-except-epidemiologists",
+        "urologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

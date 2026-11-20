@@ -1,0 +1,198 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6b012822f70bed6e39c8199d8f69c0a448245e0d791849150c6828f918c18340",
+  "inputs": {
+    "pair_id": "postal-service-clerks-vs-postal-service-mail-carriers",
+    "slugs": [
+      "postal-service-clerks",
+      "postal-service-mail-carriers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/postal-service-clerks-vs-postal-service-mail-carriers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "postal-service-clerks": {
+        "name": "邮政服务文员",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.21,
+            1.0,
+            1.0,
+            2.57,
+            2.71,
+            6.55
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5051",
+          "title_evidence": "official_title"
+        }
+      },
+      "postal-service-mail-carriers": {
+        "name": "邮政服务邮件投递员",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.56,
+            1.0,
+            1.0,
+            2.69,
+            2.91,
+            6.27
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "postal-service-clerks -> postal-service-mail-carriers",
+      "postal-service-mail-carriers -> postal-service-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在邮局柜台收寄邮件和包裹，称重核资费、办理邮票与其他邮政产品交易、检查邮件状态并按目的地分拣或交接；后岗：按既定路线步行或驾车递送与收取邮件，依地址和顺序分拣、扫描，办理需要签收的邮件，并把未完成投递和异常件交接。",
+    "cn_qualification": {
+      "postal-service-clerks": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "postal-service-mail-carriers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "counter",
+        "source_url": "https://www.onetonline.org/link/summary/43-5051.00",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Clerks serve customers and handle mailing transactions, including weighing and rating parcels.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "carrier",
+        "source_url": "https://www.onetonline.org/link/summary/43-5052.00",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Mail carriers sort and deliver USPS mail on established routes on foot or by vehicle.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "skills",
+        "source_url": "https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/rcrs_4225/jnrc/202504/t20250428_541226.html",
+        "locator": "通知目录，4-02-07-01 与 4-02-07-04",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025",
+          "summary": "人社部和国家邮政局联合颁布包括邮政营业员和邮政投递员在内的国家职业标准。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "universal",
+        "source_url": "https://www.spb.gov.cn/gjyzj/c100009/c100012/202411/2d0b117547164fe5ba55d3b1957ea2cc/files/W020170210536692258770.pdf",
+        "locator": "适用范围、收寄和投递章节",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "YZ/T 0129—2016",
+          "summary": "邮政普遍服务标准适用于相关企业和组织人员，规定收寄、投递服务要求。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "education",
+        "source_url": "https://www.moe.gov.cn/s78/A07/zcs_ztzl/2017_zt06/17zt06_bznr/bznr_zyjyzyjxbz/zyjyzyjxbz_zz/zz_jtysdl/jtysdl_yzl/202502/P020250207453140478011.pdf",
+        "locator": "第 5 节职业面向",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025 公开标准",
+          "summary": "中职邮政通信服务专业教学标准列出邮政营业员与邮政投递员岗位。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 597,
+      "source_slugs": [
+        "postal-service-clerks",
+        "postal-service-mail-carriers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

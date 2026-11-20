@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "1e8768f1e4f0659d07a9bbae6b19eaf30092504b03cd7ab76386427297818c36",
+  "inputs": {
+    "pair_id": "costume-attendants-vs-set-and-exhibit-designers",
+    "slugs": [
+      "costume-attendants",
+      "set-and-exhibit-designers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/costume-attendants-vs-set-and-exhibit-designers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "costume-attendants": {
+        "name": "服装服务员",
+        "riasec": {
+          "code": "ACR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-3092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.88,
+            1.0,
+            5.61,
+            3.26,
+            2.84,
+            4.27
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-3092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "39-3092",
+          "title_evidence": "official_title"
+        }
+      },
+      "set-and-exhibit-designers": {
+        "name": "布景与展陈设计师",
+        "riasec": {
+          "code": "A",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-1027.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.7,
+            2.75,
+            6.69,
+            3.04,
+            3.93,
+            3.27
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-1027.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "27-1027",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "costume-attendants -> set-and-exhibit-designers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：按角色与场次准备、协助演员试装、标记和维护戏服，协助演出换装，结束后清点、处理破损并归位；后岗：布景与展陈设计岗位把内容目标和空间条件变成设计方案，与制作团队核材料、尺寸及落地限制。",
+    "cn_qualification": {
+      "costume-attendants": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "set-and-exhibit-designers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "39-3092.00",
+        "source_url": "https://www.onetonline.org/link/summary/39-3092.00",
+        "locator": "Tasks 9627, 20898, 9616, 9629",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Maintains dressing lists, arranges costume changes and records fit problems.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "27-1027.00",
+        "source_url": "https://www.onetonline.org/link/summary/27-1027.00",
+        "locator": "Tasks 9289, 9286, 9294",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Designs sets and exhibits and prepares layout and construction drawings.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 241,
+      "source_slugs": [
+        "costume-attendants",
+        "set-and-exhibit-designers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

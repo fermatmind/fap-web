@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "1c2bdefd13d01e64605510a41f754de9c98aa2729e8cfb0367082e31742e85ca",
+  "inputs": {
+    "pair_id": "political-scientists-vs-urban-and-regional-planners",
+    "slugs": [
+      "political-scientists",
+      "urban-and-regional-planners"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/political-scientists-vs-urban-and-regional-planners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "political-scientists": {
+        "name": "政治學家",
+        "riasec": {
+          "code": "IA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3094.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            6.71,
+            3.87,
+            3.42,
+            3.61,
+            3.52
+          ]
+        },
+        "tasks": [
+          "問題輸入｜界定製度、政策或公眾意見中的可檢驗問題｜說明研究物件、時間、地區、概念和所需決策，不把立場當問題定義。",
+          "資料獲取｜按許可取得原始政策、文獻、調查或選舉資料｜記錄出處、抽樣、變數定義與缺失值，保護受訪者和機構機密。",
+          "方法分析｜比較制度機制、編碼文本或分析資料｜檢驗替代解釋和穩健性，避免把相關關係直接寫成政策因果效果。",
+          "結果交付｜形成報告、論文或政策簡報｜區分觀察結果、解釋、限制與可供討論的選項，讓讀者能追溯方法和資料。",
+          "複核升級｜請同行或機構責任人複核關鍵方法與敏感結論｜法律、行政、倫理審批及最終公共決策由相應有許可權主體負責。",
+          "資料留檔｜儲存問題定義、資料版本、程式碼本、分析步驟和修訂理由｜讓接手者能復現關鍵計算並看清哪些結論仍待驗證。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3094.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-3094",
+          "title_evidence": "official_title"
+        }
+      },
+      "urban-and-regional-planners": {
+        "name": "城市與區域規劃師",
+        "riasec": {
+          "code": "IEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            5.31,
+            3.06,
+            3.03,
+            4.46,
+            3.96
+          ]
+        },
+        "tasks": [
+          "資料調查｜調查與資料核對｜現場調查或研究人口、社會經濟、法規與物理因素，說明資料時期範圍與限制，不將缺失值自動補齊。",
+          "方案分析｜方案與指標比較｜評估用地與設施選擇的可行性和替代方案，解釋比較標準及影響，不只憑效果圖或一個得分。",
+          "資訊維護｜地圖與資料庫維護｜編制維護地圖、資料庫和統計記錄，核空間口徑、圖例、欄位與文本一致，保修改版本。",
+          "溝通協調｜公眾與專業協調｜組織溝通或會議，回應諮詢和不同訴求，與交通建築經濟等專業協調，不虛構公眾共識。",
+          "規則核查｜法規與約束核對｜跟蹤土地利用、分割槽、建築和環境等適用規定，說明技術分析與管理程式，不能用美國規則替中國。",
+          "成果說明｜報告與實施建議｜用報告圖表解釋規劃研究，提出批准/不批准/附條件等技術建議或實施評估；最終許可權由實際程式核定。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "political-scientists -> urban-and-regional-planners"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "political-scientists": {
+        "file_sha256": "5011d663a9b089ee2caeaf4ee041bcac4aa3fc7f6023d29ed4c63329e17e5ea0",
+        "entries": [
+          "問題輸入｜界定製度、政策或公眾意見中的可檢驗問題｜說明研究物件、時間、地區、概念和所需決策，不把立場當問題定義。",
+          "資料獲取｜按許可取得原始政策、文獻、調查或選舉資料｜記錄出處、抽樣、變數定義與缺失值，保護受訪者和機構機密。",
+          "方法分析｜比較制度機制、編碼文本或分析資料｜檢驗替代解釋和穩健性，避免把相關關係直接寫成政策因果效果。",
+          "結果交付｜形成報告、論文或政策簡報｜區分觀察結果、解釋、限制與可供討論的選項，讓讀者能追溯方法和資料。",
+          "複核升級｜請同行或機構責任人複核關鍵方法與敏感結論｜法律、行政、倫理審批及最終公共決策由相應有許可權主體負責。",
+          "資料留檔｜儲存問題定義、資料版本、程式碼本、分析步驟和修訂理由｜讓接手者能復現關鍵計算並看清哪些結論仍待驗證。"
+        ]
+      },
+      "urban-and-regional-planners": {
+        "file_sha256": "a494b7d730836c3f23417504bb505ea3679387e193f5e58041d0b667c4dc71ff",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 596,
+      "source_slugs": [
+        "political-scientists",
+        "urban-and-regional-planners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "political-scientists": {
+          "field": "entries",
+          "source_path": "careers/political-scientists/zh-TW.json",
+          "file_sha256": "5011d663a9b089ee2caeaf4ee041bcac4aa3fc7f6023d29ed4c63329e17e5ea0",
+          "count": 6
+        },
+        "urban-and-regional-planners": {
+          "field": "paragraphs",
+          "source_path": "careers/urban-and-regional-planners/zh-TW.json",
+          "file_sha256": "a494b7d730836c3f23417504bb505ea3679387e193f5e58041d0b667c4dc71ff",
+          "count": 6
+        }
+      }
+    }
+  }
+}

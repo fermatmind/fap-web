@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d68523935b060f2843cb923699769dde47763ce5f04f5fd9b549b2646f9ef4c6",
+  "inputs": {
+    "pair_id": "clergy-vs-educational-guidance-and-career-counselors-and-advisors",
+    "slugs": [
+      "clergy",
+      "educational-guidance-and-career-counselors-and-advisors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/clergy-vs-educational-guidance-and-career-counselors-and-advisors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "clergy": {
+        "name": "神職人員",
+        "riasec": {
+          "code": "SE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.1,
+            2.11,
+            3.44,
+            5.91,
+            4.17,
+            2.89
+          ]
+        },
+        "tasks": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "21-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "name": "教育指導與職業顧問",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.3,
+            3.13,
+            7.0,
+            3.92,
+            4.09
+          ]
+        },
+        "tasks": [
+          "常見輸入：來訪者能力與興趣與需求與背景、學業與升學與就業與資助資訊、諮詢與測評方法與專業倫理、學校與機構與僱主與家庭的資源與制度資訊，以及約談與講座與專案與危機與轉介安排。",
+          "核心產出：按需求與倫理實施的個人與團體諮詢與生涯規劃、按資料形成的測評解讀與指導方案、按制度完成的約談與跟進與記錄與保密與轉介記錄、按專案完成的講座與活動與評估材料，以及可複核的服務與效果記錄。",
+          "典型流程：評估與諮詢與規劃—協作與記錄與轉介—專案與倡導與專業發展。",
+          "常協作物件：來訪者與家長與教師與輔導員與班主任、院校招生與就業與資助部門、僱主與培訓機構與社工與醫療與心理諮詢人員、督導與行業協會與主管部門、社群與公益與志願資源。",
+          "常見工具與物件：需求評估與諮詢與面談與記錄與預約系統、興趣與能力與人格與生涯測評工具與解讀資料、升學與就業與資助與院校與僱主資訊庫、專案與講座與活動與效果評估工具、保密與知情同意與轉介與危機處置流程與文書。",
+          "責任邊界：本職業承擔按來訪者利益與專業倫理與資料提供諮詢與指導與記錄並對保密與轉介與來訪者安全的執行責任；須按需求與倫理與資料確定諮詢與測評目標、須按諮詢理論與測評工具與倫理實施與解釋、須按專業倫理與制度記錄與保密與跟進、須按最新資訊核對升學與就業資訊、須按制度協作與轉介、須按資料許可權與隱私使用來訪者資訊、不得超出授權對外出具醫療或心理或法律或錄用結論，異常事項按制度上報與轉介。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "clergy -> educational-guidance-and-career-counselors-and-advisors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "clergy": {
+        "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+        "entries": [
+          "儀式與教導｜主持禮拜與儀式並宣講教義｜祈禱並倡導靈性；準備並宣講講道或其他講話；誦讀經書；組織並主持例行宗教儀式；主持婚禮與葬禮與堅信禮等特別儀式；施行宗教禮儀或聖事（對應 O*NET 任務第一與第二與第三與第四與第十五與第八項）。",
+          "精神陪伴與輔導｜為個人與群體提供精神與情感輔導｜就精神與情感與個人需要提供輔導；到住所與醫院與監獄探訪以提供慰藉與支援；在緊急情況或危機中回應求助；把需要的人轉介給社群支援服務或心理學家或醫生（對應 O*NET 任務第七與第十與第十四與第十八項）。",
+          "教導與培育｜訓練帶領者並籌劃宗教教育｜訓練教會與社群與青年團體的帶領者；籌劃或帶領宗教教育專案；研究與詮釋宗教法規與教義與傳統；指導尋求皈依者（對應 O*NET 任務第十一與第十二與第十三與第五項）。",
+          "社群溝通與傳播｜通過寫作與演講與教學分享宗教議題｜就宗教議題撰寫文章或發表演講或教學；組織或參與跨宗教與社群與公民與教育或娛樂活動；設法擴充堂會成員（對應 O*NET 任務第六與第十九與第十六項）。",
+          "教務與資源管理｜處理堂會財務與行政事務｜與委員會或個人協作處理堂會的財務或行政事務；承擔建築管理或採購或簽約或督導員工與志願者等行政職責；參與籌款活動以支援堂會活動或設施（對應 O*NET 任務第十七與第二十與第二十一項）。",
+          "儀式的準備與陪伴到場｜幫助信眾為儀式做準備併到場陪伴｜幫助人們為參加宗教儀式做準備；在婚喪與危機等場合到場並保持可被信賴的在場與記錄（對應 O*NET 任務第九與第十與第十四項）。"
+        ]
+      },
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "file_sha256": "fea0daa4d440131bc70cbb0c4763d1db6bfa02a633eb18560688fd265617ad46",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 158,
+      "source_slugs": [
+        "clergy",
+        "educational-guidance-and-career-counselors-and-advisors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "clergy": {
+          "field": "entries",
+          "source_path": "careers/clergy/zh-TW.json",
+          "file_sha256": "8f69be4a94252ee1fff66edc314714a448563021ca3e78d0b1e44b371e3182f8",
+          "count": 6
+        },
+        "educational-guidance-and-career-counselors-and-advisors": {
+          "field": "paragraphs",
+          "source_path": "careers/educational-guidance-and-career-counselors-and-advisors/zh-TW.json",
+          "file_sha256": "fea0daa4d440131bc70cbb0c4763d1db6bfa02a633eb18560688fd265617ad46",
+          "count": 6
+        }
+      }
+    }
+  }
+}

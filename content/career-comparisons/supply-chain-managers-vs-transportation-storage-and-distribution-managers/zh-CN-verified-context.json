@@ -1,0 +1,208 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "5f999f70cfc036a23699e5bf8fe70f04f0090297eade80ea59b16276a889a198",
+  "inputs": {
+    "pair_id": "supply-chain-managers-vs-transportation-storage-and-distribution-managers",
+    "slugs": [
+      "supply-chain-managers",
+      "transportation-storage-and-distribution-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/supply-chain-managers-vs-transportation-storage-and-distribution-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "supply-chain-managers": {
+        "name": "供应链经理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3071.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.39,
+            2.46,
+            1.0,
+            2.04,
+            6.24,
+            5.25
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3071.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-3071",
+          "title_evidence": "official_title"
+        }
+      },
+      "transportation-storage-and-distribution-managers": {
+        "name": "运输、仓储与配送经理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.6,
+            2.64,
+            1.0,
+            2.39,
+            5.99,
+            5.74
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-3071",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "transportation-storage-and-distribution-managers -> supply-chain-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：协调采购、库存、仓储与运输，比较交付周期、库存风险和成本，并安排跨部门处理缺货或到货变化；后岗：安排收货、存放、发运及人员协作，并检查设备或仓库运行情况。",
+    "cn_qualification": {
+      "supply-chain-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "transportation-storage-and-distribution-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "supply",
+        "source_url": "https://www.onetonline.org/link/summary/11-3071.04",
+        "locator": "Tasks, Job Zone, Wages & Employment",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Supply chain managers coordinate purchasing, materials and logistics. O*NET Job Zone Four; displayed wages use the broader 11-3071 occupation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "ops",
+        "source_url": "https://www.bls.gov/ooh/management/transportation-storage-and-distribution-managers.htm",
+        "locator": "Duties, Work Environment, How to Become One",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "Current OOH",
+          "summary": "Managers run transportation, storage or distribution teams. Related experience matters and degree expectations vary.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "port",
+        "source_url": "https://portoflosangeles.org/business/supply-chain/port-optimizer%E2%84%A2",
+        "locator": "Port Optimizer overview",
+        "value": {
+          "jurisdiction": "Los Angeles, US",
+          "effective_or_period": "Current port description",
+          "summary": "The port portal shares supply chain data with cargo owners and partners.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "appointments",
+        "source_url": "https://portoflosangeles.org/business/operations",
+        "locator": "Cargo Operations Dashboard",
+        "value": {
+          "jurisdiction": "Los Angeles, US",
+          "effective_or_period": "Current port description",
+          "summary": "The port describes truck appointment and cargo tracking tools.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-supply",
+        "source_url": "https://edu.xmht.com/Uploadfile/20250828091777367736.pdf",
+        "locator": "厦门华天涉外职业技术学院，2025级供应链运营人才培养方案，职业面向与课程",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025",
+          "summary": "该校培养方案列出采购、物流与供应链运营等培养方向。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-ops",
+        "source_url": "https://jwc.zepc.edu.cn/__local/F/D9/93/861CDEF868711AE733487B1453C_A5317BA4_5D566.pdf",
+        "locator": "教务处公开的教育部2025版现代物流管理专业教学标准，职业面向与课程设置",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025",
+          "summary": "本专业教学标准含仓储、运输等学习方向。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 685,
+      "source_slugs": [
+        "supply-chain-managers",
+        "transportation-storage-and-distribution-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}
