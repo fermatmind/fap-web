@@ -146,7 +146,12 @@ export default function OrdersClient({
   const searchParams = useSearchParams();
   const refundMode = searchParams.get("refund") === "1";
   const locale = getLocaleFromPathname(pathname);
-  const isTraditional = pathname.startsWith("/zh-TW/");
+  const [traditionalCheckout, setTraditionalCheckout] = useState(false);
+  useEffect(() => {
+    const pending = readPendingOrder();
+    setTraditionalCheckout(pending?.orderNo === orderNo && pending.displayLocale === "zh-TW");
+  }, [orderNo]);
+  const isTraditional = pathname.startsWith("/zh-TW/") || traditionalCheckout;
   const dict = getDictSync(isTraditional ? "zh-TW" : locale);
   const withLocale = useCallback((path: string) => {
     if (isTraditional && /^\/(?:pay\/wait|orders\/lookup|support|result\/[A-Za-z0-9_-]{1,128})(?=[?#]|$)/u.test(path)) {

@@ -145,6 +145,19 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.queryByTestId("order-invite-unlock-summary")).not.toBeInTheDocument();
   });
 
+  it("returns a Holland checkout to the original Taiwan display language", async () => {
+    const id = "674254eb-6f6c-40d6-beea-2306f6abc9e3";
+    hoisted.pathname = "/zh/pay/wait";
+    writePendingOrder({orderNo:"ord_holland_tw", attemptId:id, displayLocale:"zh-TW"});
+    expect(readPendingOrder()?.displayLocale).toBe("zh-TW");
+    hoisted.getOrderStatus.mockResolvedValue({ok:true, order_no:"ord_holland_tw", attempt_id:id, status:"paid",
+      result_url:`https://fermatmind.com/zh/result/${id}`,
+      exact_result_entry:{attempt_id:id, access_state:"ready", report_state:"ready", actions:{page_href:`/zh/result/${id}`}}});
+    render(<OrdersClient orderNo="ord_holland_tw" />);
+    await waitFor(() => expect(hoisted.routerReplace).toHaveBeenCalledWith(`/zh-TW/result/${id}`));
+    expect(hoisted.routerReplace).not.toHaveBeenCalledWith(`/zh/result/${id}`);
+  });
+
   it("renders a neutral loading state before the first order status response arrives", async () => {
     const pendingResponse = deferred<{
       ok: true;

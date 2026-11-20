@@ -5,11 +5,12 @@ import { CareerRefundPanel } from "@/components/commerce/CareerRefundPanel";
 import { useCallback, useEffect, useState } from "react";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import { CareerAssessmentResult } from "./CareerAssessmentResult";
+import { Career94ReportView } from "./Career94FreeReport";
 import { Career94Checkout } from "./Career94Purchase";
 import { requestCareer94Result, type Career94Result } from "./career94-api";
 import type { Locale } from "./CareerAssessmentForm";
 
-export function Career94SavedResult({ locale, attemptId }: { locale: Locale; attemptId: string }) {
+export function Career94SavedResult({ locale, attemptId, reading = false }: { locale: Locale; attemptId: string; reading?: boolean }) {
   const zh = locale === "zh";
   const [result, setResult] = useState<Career94Result>();
   const [error, setError] = useState<"login" | "unavailable">();
@@ -39,6 +40,8 @@ export function Career94SavedResult({ locale, attemptId }: { locale: Locale; att
       <button className="underline" type="button" onClick={() => { setError(undefined); setRetry(retry + 1); }}>{zh ? "重新加载" : "Reload report"}</button>
     </div>;
   }
+
+  if (reading) return <Career94ReportView model={assembleRiasecResultViewModel(result.result, locale)} locale={locale} backHref={`/${locale}/career/assessment/result/${attemptId}`} />;
 
   return <>
     {result.order_no && <CareerRefundPanel orderNo={result.order_no} locale={locale} onRefunded={refreshAfterRefund} />}

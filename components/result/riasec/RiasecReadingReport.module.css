@@ -1100,3 +1100,8 @@
   .report .careerDetails > summary { color: #222; }
   .report .dimensionEntry, .report .careerEntry { break-inside: avoid; }
 }
+
+.heroInterests li > p { margin: 10px 0 0; font-size: 13px; line-height: 1.75; color: inherit; }
+.insightQuestions { margin-top: 16px; padding-top: 14px; border-top: 1px solid #54788633; }
+.insightQuestions h3 { margin: 0 0 10px; font-size: 14px; }
+.insightQuestions ul { margin: 0; padding-left: 18px; display: grid; gap: 10px; font-size: 13px; line-height: 1.8; }

@@ -55,7 +55,7 @@ export function SiteFooterPlatforms({ locale }: { locale: DisplayLocale }) {
   };
 
   return (
-    <section className={styles.platforms} aria-label={title}>
+    <section className={styles.platforms} aria-label={title} tabIndex={0}>
       <ul className={styles.platformGroup}>
         {displayedPlatforms.map(({ name, href }) => (
           <li key={name}>

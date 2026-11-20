@@ -6,19 +6,19 @@ export function careerAssessmentEntry(locale: DisplayLocale) {
     return {
       href,
       label: "Take the free FermatMind Career Assessment · 94 questions",
-      summary: "Explore your interests alongside your preferred ways of working and the conditions you value.",
+      summary: "What kind of work would you want to keep doing? Explore your interests, working preferences and priorities to narrow down your next direction.",
     };
   }
   if (locale === "zh-TW") {
     return {
       href,
       label: "開始費馬職業測驗（94 題）",
-      summary: "一起了解你感興趣的工作活動、偏好的工作方式和重視的工作條件。",
+      summary: "選科系、找工作或想轉職？從你願意反覆做的事出發，找出值得探索的職涯方向。",
     };
   }
   return {
     href,
     label: "开始费马职业测试（94 题） · 免费测试",
-    summary: "一起了解你感兴趣的工作活动、偏好的工作方式和看重的工作条件。",
+    summary: "选专业、找工作，还是想转行？从你愿意反复做的事出发，找出值得探索的职业方向。",
   };
 }

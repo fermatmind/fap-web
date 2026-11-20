@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { CareerAssessmentIntro } from "./CareerAssessmentIntro";
+import { CareerAssessmentContent } from "./CareerAssessmentContent";
+import careerStyles from "./career-assessment-intro.module.css";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -20,7 +23,7 @@ export function freeAssessmentMetadata(assessment: Landing, locale: DisplayLocal
     locale: primary,
     pathname,
     canonicalPathname: `/${primary}${copy.path}`,
-    title: "searchTitle" in copy ? copy.searchTitle : copy.title,
+    title: copy.searchTitle,
     description: copy.intro,
     noindex: !indexable,
     alternatesByLocale: { en: `/en${copy.path}`, zh: `/zh${copy.path}`, xDefault: `/en${copy.path}` },
@@ -66,14 +69,11 @@ export function FreeAssessmentLanding({ assessment, locale }: {
   ] : [
     {
       question: l("有效作答太少时怎么办？", "有效作答太少時怎麼辦？", "What if I have too few usable answers?"),
-      answer: l("每个兴趣维度至少需要 6 个有效回答，工作方式及条件每维至少需要 3 个。达不到时不显示该维分数。尤其是没体验过的活动，可以选不确定，之后再找机会体验。", "每項興趣面向至少要有 6 個有效回答，工作方式與條件每項至少要有 3 個。未達門檻就不顯示分數。沒體驗過的活動可以選不確定，再找機會試試。", "Each interest score needs six usable answers. Each work-style or work-value score needs three. The report omits scores below those thresholds. Mark unfamiliar activities unsure and look for ways to try them."),
-    },
-    {
-      question: l("职业测试会给出最适合我的岗位吗？", "職業測驗會給出最適合我的職位嗎？", "Does the assessment name the best job for me?"),
-      answer: l("报告分别列出兴趣、方式和条件，供你核对岗位信息。它没有把三类分数加成一个匹配率，也不能替你判断任职资格。", "報告分別列出興趣、方式與條件，供你核對職缺資訊。它不會將三類分數合成配對率，也不能代替任用資格判斷。", "The report provides separate profiles you can compare with role information. It does not combine the three into a match percentage or assess your qualifications."),
+      answer: l("每个兴趣维度至少需要 6 个有效回答，工作方式及条件每维至少需要 3 个。达不到时不显示该维分数。尤其是没体验过的活动，可以选不确定，之后再找机会体验。", "每項興趣面向至少要有 6 個有效回答，工作方式與條件每項至少要有 3 個。未達門檻就不顯示分數。沒體驗過的活動可以選不確定，再找機會試試。", "Each interest score needs six usable answers. Each dimension for work style or working conditions needs three. The report omits scores below those thresholds. Mark unfamiliar activities unsure and look for ways to try them."),
     },
   ];
-  const faq = [...extraFaq, ...guides.flatMap(guide => guide.faq)];
+  const guideFaq = guides.flatMap(guide => guide.faq);
+  const faq = jung ? [...extraFaq, ...guideFaq] : [...guideFaq, ...extraFaq];
   const breadcrumb = [
     { name: l("首页", "首頁", "Home"), path: english ? "/en" : traditional ? "/zh-TW" : "/" },
     { name: l("测试", "測驗", "Tests"), path: `/${locale}/tests` },
@@ -88,7 +88,7 @@ export function FreeAssessmentLanding({ assessment, locale }: {
     ];
 
   return (
-    <main className={styles.page}>
+    <main className={jung ? styles.page : `${styles.page} ${careerStyles.page}`}>
       <JsonLd id="free-assessment-page" data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -100,13 +100,15 @@ export function FreeAssessmentLanding({ assessment, locale }: {
       }} />
       <JsonLd id="free-assessment-breadcrumb" data={buildBreadcrumbJsonLd(breadcrumb)} />
       <JsonLd id="free-assessment-faq" data={buildFAQPageJsonLd(faq)} />
-      <nav className={styles.breadcrumb} aria-label={l("面包屑导航", "導覽路徑", "Breadcrumb")}>
+      <nav className={`${styles.breadcrumb} ${!jung ? careerStyles.breadcrumb : ""}`} aria-label={l("面包屑导航", "導覽路徑", "Breadcrumb")}>
         {breadcrumb.slice(0, -1).map(item => <Link key={item.path} href={item.path} prefetch={false}>{item.name}</Link>)}
         <span aria-current="page">{copy.title}</span>
       </nav>
-      <div className={styles.content}>
-        <AssessmentLandingIntro locale={locale} title={copy.title} description={copy.intro}
-          heroArtwork={jung ? "functions" : "career"} disabled={false} choices={choices} showChoiceSummaries wide={jung} />
+      <div className={jung ? styles.content : careerStyles.landing}>
+        {jung ? <AssessmentLandingIntro locale={locale} title={copy.title} description={copy.intro}
+          heroArtwork="functions" disabled={false} choices={choices} showChoiceSummaries wide />
+          : <CareerAssessmentIntro locale={locale} title={copy.title} description={copy.intro} choice={choices[0]} />}
+        {jung ? <>
         <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label={l("本页目录", "本頁目錄", "On this page")}>
           {guides.map(({ key }) => <a className="underline underline-offset-4" key={key} href={`#${key}`}>{
             key === "archetypes" ? l("十二原型 · 48 题", "十二原型 · 48 題", "12 Archetypes · 48 questions")
@@ -147,6 +149,7 @@ export function FreeAssessmentLanding({ assessment, locale }: {
           <h2 id="free-assessment-related">{l("相关测试与资料", "相關測驗與資料", "Related tests and resources")}</h2>
           <ul className="space-y-3">{related.map(link => <li key={link.path}><Link className="underline underline-offset-4" href={`/${locale}${link.path}`}>{link.title}</Link></li>)}</ul>
         </section>
+        </> : <CareerAssessmentContent locale={locale} choice={choices[0]} faq={faq} rows={guides[0].guide.rows} />}
       </div>
     </main>
   );

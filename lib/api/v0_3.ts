@@ -1,3 +1,4 @@
+import { careerGuestHeaders } from "@/lib/commerce/guestOwnership";
 import { readOwnershipProofs, saveOwnershipProof } from "@/lib/account/storage";
 import { getFmToken } from "@/lib/auth/fmToken";
 import { getOrCreateAnonId, removePendingAnonLinkAttempts } from "@/lib/anon";
@@ -245,7 +246,10 @@ export type AttemptSubmissionResponse = {
   meta?: Record<string, unknown>;
 };
 
+export type RiasecPurchase = { attempt_id: string; unlocked: boolean; order_no: string | null; payment_state: string | null; offers: Array<{ provider: "alipay" | "waffo"; sku: string; currency: "CNY" | "USD"; amount_cents: number }> };
+
 export type ResultResponse = {
+  riasec_purchase?: RiasecPurchase;
   ok: boolean;
   result_visibility_receipt?: string | null;
   attempt_id?: string;
@@ -1054,6 +1058,7 @@ export type MbtiPreviewContractV1Raw = {
 };
 
 export type ReportResponse = {
+  riasec_purchase?: RiasecPurchase;
   mbti_pdf_content?: unknown;
   result_visibility_receipt?: string | null;
   ok?: boolean;
@@ -2879,6 +2884,7 @@ export async function linkAnonAttemptsOnceOnLoginSuccess({
 function anonHeader(anonId?: string, extraHeaders?: Record<string, string>) {
   const resolvedAnonId = resolveAnonId(anonId);
   const headers: Record<string, string> = {
+    ...careerGuestHeaders(),
     ...(extraHeaders ?? {}),
   };
 
@@ -2895,6 +2901,7 @@ function anonHeader(anonId?: string, extraHeaders?: Record<string, string>) {
 
 function explicitAnonHeader(anonId: string | undefined, extraHeaders?: Record<string, string>) {
   const headers: Record<string, string> = {
+    ...careerGuestHeaders(),
     ...(extraHeaders ?? {}),
   };
 
@@ -3154,7 +3161,7 @@ export async function startAttempt({
         ...(meta ? { meta } : {}),
         ...(attribution ?? {}),
       },
-      anonHeader(resolvedAnonId)
+      anonHeader(resolvedAnonId, careerGuestHeaders(resolvedScaleCode === "RIASEC"))
     )
   );
 

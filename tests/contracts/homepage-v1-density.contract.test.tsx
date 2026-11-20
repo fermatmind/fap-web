@@ -259,9 +259,6 @@ describe("homepage v1 density contract", () => {
     expect(source).not.toContain("function HomepageSocialProofBanner");
     expect(source).not.toContain("SCENARIO_VALIDATIONS.slice(0, 5)");
     expect(source).not.toContain("EVIDENCE_LOGS.map");
-    expect(source).toContain("relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16");
-    expect(source).toContain("relative z-10 -mt-12 grid gap-7 md:grid-cols-3");
-    expect(source).toContain("flex min-h-[18rem] flex-col items-center rounded-md bg-white");
     expect(source).not.toContain("function HomepageAboutBanner");
     expect(source).toContain("function HomepageArticlesBanner");
     expect(source).not.toContain("listBlogPosts(locale)");

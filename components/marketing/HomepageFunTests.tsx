@@ -100,7 +100,7 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
                 prefetch={false}
                 href={href}
                 hrefLang={fallback ? "zh-CN" : undefined}
-                className="group block min-w-0 rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_10px_28px_rgba(15,23,42,0.14)] transition hover:shadow-[0_14px_34px_rgba(15,23,42,0.18)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none"
+                className="group block min-w-0 rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_6px_22px_rgba(15,23,42,0.09)] transition hover:shadow-[0_12px_28px_rgba(15,23,42,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none"
               >
                 <h3 className="m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition [overflow-wrap:anywhere] group-hover:text-slate-950">
                   {taiwan ? taiwanTitles[item.slug] : item.title[sourceLocale]}

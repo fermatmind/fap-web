@@ -1,5 +1,7 @@
 "use client";
 
+import { RiasecPaidResult } from "@/components/result/riasec/RiasecPaidResult";
+
 import { JungResult } from "@/components/result/jung/JungResult";
 import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -2202,6 +2204,11 @@ export default function ResultClient({
         />
       </div>
     );
+  }
+
+  const paidRiasec = reportData?.riasec_purchase ? reportData : resultData?.riasec_purchase ? resultData : null;
+  if (paidRiasec?.riasec_purchase) {
+    return <RiasecPaidResult data={paidRiasec} purchase={paidRiasec.riasec_purchase} locale={displayLocale} />;
   }
 
   const canPrintRiasecPdf = !printMode && canDownloadReportPdf(accessView);
