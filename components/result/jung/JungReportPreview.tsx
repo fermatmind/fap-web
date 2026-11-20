@@ -204,8 +204,8 @@ export function JungReportPreview({
     "innocent",
     "rebel",
   ];
-  const chartDimensions = chartOrder.map(
-    (id) => dimensions.find((row) => row.id === id)!,
+  const chartDimensions = chartOrder.map((id) =>
+    dimensions.find((row) => row.id === id)!,
   );
   const prompt = view.prompt;
   useEffect(() => {
@@ -495,7 +495,7 @@ export function JungReportPreview({
                         {asset.pursuit}。
                       </p>
                       <div className={styles.readingSection}>
-                        <h4>核心特质</h4>
+                        <h4>可能让你有共鸣的地方</h4>
                         <ul className={styles.readingTraits}>
                           {asset.traits.map((trait) => (
                             <li key={trait}>
@@ -551,7 +551,7 @@ export function JungReportPreview({
                         <span className={styles.matchBadge}>
                           {view.result.state === "flat"
                             ? "原型参考"
-                            : "动机匹配"}{" "}
+                            : "动机关联"}{" "}
                           <ArrowRight size={13} />
                         </span>
                       </Link>
@@ -561,7 +561,7 @@ export function JungReportPreview({
                 <p>
                   {view.result.state === "flat"
                     ? `以下按当前阅读的「${view.asset.name}」整理职业任务参考；本次结果不指定主导原型。`
-                    : "按本次示例的动机与职业任务关联整理，结合技能、训练要求与工作条件继续核对。"}
+                    : "这些职业包含与本次较突出动机有联系的任务，由编辑整理，不是职业适合度排名。先看哪种日常工作吸引你，再了解训练要求与工作条件。"}
                 </p>
                 <Link className={styles.careerLibraryLink} href="/zh/career">
                   浏览全部 1046 个职业 <ArrowRight size={14} />
@@ -580,7 +580,10 @@ export function JungReportPreview({
                     </div>
                     <p className={styles.readingText}>{career.task}</p>
                     <p className={styles.readingText}>{career.connection}</p>
-                    <p className={styles.careerCheck}>{career.check}</p>
+                    <p className={styles.careerCheck}>
+                      <strong>进一步了解：</strong>
+                      {career.check}
+                    </p>
                     <div className={styles.careerMatchLinks}>
                       <Link href={`/zh/career/jobs/${career.slug}`}>
                         查看职业详情 <ArrowRight size={14} />
@@ -691,9 +694,7 @@ export function JungReportPreview({
             aria-labelledby="actions-title"
           >
             <h2 id="actions-title">行动计划</h2>
-            <p className={styles.lead}>
-              按自己的节奏，选择一个与当前生活有关的起点。每个阶段都留下具体经历和反馈，让下一步建立在你实际学到的东西上。
-            </p>
+            <p className={styles.lead}>{view.asset.actionIntro}</p>
             <div className={styles.actionList}>
               {actionItems.map(([time, heading, body], index) => (
                 <label

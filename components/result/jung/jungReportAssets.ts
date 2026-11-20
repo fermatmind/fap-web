@@ -177,7 +177,7 @@ export function buildReportView(
       id: "work",
       number: "05",
       label: "工作与生活",
-      title: `${asset.name}动机，在日常选择中的展开`,
+      title: asset.work.title,
       intro: asset.work.intro,
       paragraphs: asset.work.paragraphs.map((body, index) => ({
         heading: headings[index],
@@ -190,7 +190,7 @@ export function buildReportView(
       id: "relationships",
       number: "06",
       label: "人际关系",
-      title: `在关系里，理解${asset.name}重视的东西`,
+      title: asset.relationship.title,
       intro: asset.relationship.intro,
       paragraphs: asset.relationship.paragraphs.map((body, index) => ({
         heading: ["表达关心", "面对分歧", "亲近与个人空间"][index],

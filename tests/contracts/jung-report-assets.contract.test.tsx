@@ -121,6 +121,23 @@ describe("twelve-archetype replacement report", () => {
       expect(root.querySelector("#profile h2")?.textContent).toBe(name);
       expect(root.querySelectorAll("#careers article")).toHaveLength(5);
       expect(root.querySelectorAll("#actions input")).toHaveLength(5);
+      const asset = archetypeAssets.find((asset) => asset.id === id)!;
+      expect(root.querySelector("#work h3")?.textContent).toBe(
+        asset.work.title,
+      );
+      expect(root.querySelector("#relationships h3")?.textContent).toBe(
+        asset.relationship.title,
+      );
+      expect(root.querySelector("#actions")?.textContent).toContain(
+        asset.actionIntro,
+      );
+      for (const career of buildReportView(makePreviewScores(id, "clear"), id)
+        .careers) {
+        const link = root.querySelector(
+          `#careers a[href="/zh/career/jobs/${career.slug}"]`,
+        );
+        expect(link?.textContent).toContain(career.name);
+      }
       expect(html).toContain(
         archetypeAssets.find((asset) => asset.id === id)!.work.intro,
       );
@@ -130,6 +147,31 @@ describe("twelve-archetype replacement report", () => {
       );
     },
   );
+  it("shows report career synopses without leaking source-page exercises or internal slots", () => {
+    for (const career of careerData.careers) {
+      expect(career.summary + career.check).not.toMatch(
+        /内部评审|不参与页面展示|虚构材料|到 09|去 09|下方完整|使用下方|A1–A5|AP-55/,
+      );
+      expect(career.sourceSha256).toMatch(/^[a-f0-9]{64}$/);
+    }
+    const tied = buildReportView(
+      { ...allScores(25), sage: 100, explorer: 100 },
+      "hero",
+    );
+    expect(new Set(tied.careers.map((career) => career.slug))).toEqual(
+      new Set(
+        archetypeAssets
+          .filter((asset) => ["sage", "explorer"].includes(asset.id))
+          .flatMap((asset) => asset.careerLinks.map((link) => link.slug)),
+      ),
+    );
+    const flat = buildReportView(allScores(50), "sage");
+    expect(flat.careers.map((career) => career.slug)).toEqual(
+      archetypeAssets
+        .find((asset) => asset.id === "sage")!
+        .careerLinks.map((link) => link.slug),
+    );
+  });
   it("uses the score-authoritative single leader even if a different reference is selected", () => {
     const view = buildReportView({ ...allScores(25), hero: 100 }, "sage");
     expect(view.profile.primaryId).toBe("hero");
