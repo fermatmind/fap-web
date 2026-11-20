@@ -7,20 +7,20 @@ const assessments = {
   career: {
     path: "/career/assessment",
     artwork: "career",
-    title: ["免费职业测试（94 题）", "免費職業測驗（94 題）", "Free Career Test: Interests, Work Style and Values"],
+    title: ["免费职业测试：看清偏好，让职业选择更有方向", "免費職業測驗：看清偏好，讓職涯選擇更有方向", "Free Career Test: Get Clearer on What You Want from Work"],
     intro: [
-      "用 94 道题梳理职业兴趣、工作方式和工作条件，约 12–15 分钟。完成后免费查看各维度得分，用它们比较你正在考虑的工作。",
-      "用 94 道題整理職涯興趣、工作方式與工作條件，約 12–15 分鐘。完成後可免費查看各面向分數，用來比較你正在考慮的工作。",
-      "Take 94 questions in about 12–15 minutes and get free scores for career interests, work style and work values. Use the three profiles to compare roles you are considering.",
+      "不知道从哪类工作开始，或正在几个方向之间犹豫？用约 12–15 分钟，梳理你喜欢的工作活动、偏好的做事方式和在意的条件，为下一步了解、比较和尝试工作建立依据。",
+      "不知道從哪類工作開始，或正在幾個方向之間猶豫？用約 12–15 分鐘，整理你喜歡的工作活動、偏好的做事方式和在意的條件，為下一步了解、比較和嘗試工作建立依據。",
+      "Considering a career change or weighing a few options? Spend about 12–15 minutes exploring the activities you enjoy, how you prefer to work and the conditions that matter—then use those clues to compare real roles.",
     ],
     sections: [
       [
         ["结果会告诉你什么？", "結果會告訴你什麼？", "What does the career test show?"],
-        ["兴趣关心你喜欢做什么，工作方式关心你喜欢怎样做，工作条件关心你希望雇主提供什么。比如你喜欢研究问题，也希望工时稳定。比较职位时，就把研究任务与实际工时分开核对。", "興趣看你喜歡做什麼，工作方式看你偏好怎麼做，工作條件看你希望雇主提供什麼。比方說，你喜歡研究問題，也重視工時穩定。比較職缺時，可把研究任務與實際工時分開確認。", "Interests describe the activities you enjoy, work style describes how you prefer to do them, and work values describe the conditions you want. If you enjoy investigating problems and value predictable hours, check the research duties and actual work schedule separately."],
+        ["兴趣关心你喜欢做什么，工作方式关心你喜欢怎样做，工作条件关心你希望雇主提供什么。比如你喜欢研究问题，也希望工时稳定。比较职位时，就把研究任务与实际工时分开核对。", "興趣看你喜歡做什麼，工作方式看你偏好怎麼做，工作條件看你希望雇主提供什麼。比方說，你喜歡研究問題，也重視工時穩定。比較職缺時，可把研究任務與實際工時分開確認。", "Interests describe the activities you enjoy, work style describes how you prefer to do them, and working conditions describe what matters to you in a work environment. If you enjoy investigating problems and value predictable hours, check the research duties and actual work schedule separately."],
       ],
       [
         ["94 题职业测试怎么计分？", "94 題職業測驗如何計分？", "How are the 94 questions scored?"],
-        ["兴趣、方式和条件分别给出各维度的分数，并显示有效作答数。可以选「不确定／没体验过」，这类回答不计入平均分。当前情况题用于记录背景，不进入这三类分数。", "興趣、工作方式與條件各自呈現分數，並顯示有效作答題數。你可以選「不確定／沒有經驗」，這類作答不列入平均分。現況題用來記錄背景，不納入這三類分數。", "Interests, work style and work values have separate scores and answer counts. An unsure or no-experience response is excluded from the average. Current-circumstance questions record context and do not contribute to those scores."],
+        ["兴趣、方式和条件分别给出各维度的分数，并显示有效作答数。可以选「不确定／没体验过」，这类回答不计入平均分。当前情况题用于记录背景，不进入这三类分数。", "興趣、工作方式與條件各自呈現分數，並顯示有效作答題數。你可以選「不確定／沒有經驗」，這類作答不列入平均分。現況題用來記錄背景，不納入這三類分數。", "Interests, work style and working conditions have separate scores and answer counts. An unsure or no-experience response is excluded from the average. Current-circumstance questions record context and do not contribute to those scores."],
       ],
       [
         ["如何把结果用到选职业？", "如何用結果探索職涯？", "How can I use the results to explore careers?"],
@@ -28,8 +28,10 @@ const assessments = {
       ],
     ],
     faq: [
-      [["职业测试和霍兰德测试有什么区别？", "職業測驗與霍蘭德測驗有何不同？", "How does this differ from the Holland Code test?"], ["60 题霍兰德测试聚焦 RIASEC 六类活动兴趣。94 题职业测试同时查看兴趣、做事方式和工作条件。", "60 題霍蘭德測驗聚焦 RIASEC 六類活動興趣。94 題職業測驗同時涵蓋興趣、做事方式與工作條件。", "The 60-question Holland Code test focuses on six RIASEC interests. This 94-question assessment also covers work style and conditions."]],
-      [["测试和分数免费吗？", "測驗與分數免費嗎？", "Is the career test free?"], ["作答和查看结果均免费。", "作答與查看結果均免費。", "Taking the test and viewing your scores are free."]],
+      [["做完这份职业测试，能帮我什么？", "完成這份職涯測驗，能幫助我什麼？", "How can this career test help me?"], ["把喜欢的工作活动、偏好的做事方式和在意的工作条件分开梳理，形成比较职业方向的依据。你可以据此查岗位任务、询问协作和工时安排，或试做一项任务，再判断哪些方向值得继续了解。它不会替你决定唯一职业。", "分別整理喜歡的工作活動、偏好的做事方式和在意的工作條件，作為比較職涯方向的依據。你可以據此了解職務內容、詢問協作與工時安排，或試做一項任務，再判斷哪些方向值得繼續探索。測驗不會替你決定唯一職業。", "Clarify the activities you enjoy, how you prefer to work and the working conditions that matter to you. Use those clues to research tasks, ask about team routines and schedules, or try a representative task. The assessment supports exploration rather than choosing one career for you."]],
+      [["测试和分数免费吗？", "測驗與分數免費嗎？", "Is the career test free?"], ["答题、六维职业兴趣概览与初步职业候选免费，无需注册。完整深度报告为单次可选付费，付款前会显示价格与包含内容。", "作答、六維職涯興趣概覽與初步職涯選項免費，無須註冊。完整深度報告為單次選購，付款前會顯示價格及內容。", "The test, six-interest overview and initial career suggestions are free, with no signup. The deep report is an optional one-time purchase; review the price and contents before paying."]],
+      [["职业测试和霍兰德测试有什么区别？", "職涯測驗與霍蘭德測驗有何不同？", "How does this differ from the Holland Code test?"], ["60 题霍兰德测试聚焦 RIASEC 六类活动兴趣。94 题职业测试同时查看兴趣、做事方式和工作条件。", "60 題霍蘭德測驗聚焦 RIASEC 六類活動興趣。94 題職涯測驗同時涵蓋興趣、做事方式與工作條件。", "The 60-question Holland Code test focuses on six RIASEC interests. This 94-question assessment also covers work style and working conditions."]],
+      [["这是职业能力测验吗？", "這是職業能力測驗嗎？", "Is this a career aptitude test?"], ["这是一份兴趣与偏好自评，不测认知能力或专业技能，也不判断任职资格。0–100 分不是能力分、职业适配百分比或录用概率；探索岗位时，还需要另外核实技能、资格和实际工作条件。", "這是一份興趣與偏好自評，不測認知能力或專業技能，也不判斷任職資格。0–100 分不是能力分數、職位適配百分比或錄取機率；探索職缺時，仍須另行確認技能、資格與實際工作條件。", "This is a self-report assessment of interests, work style and working conditions, not a test of cognitive ability or technical skills. Scores are not ability ratings, job-match percentages or hiring probabilities. Check skills and qualifications separately when exploring a role."]],
     ],
   },
   archetypes: {
@@ -112,6 +114,7 @@ export function freeAssessmentCopy(key: FreeAssessment, locale: DisplayLocale) {
   return {
     ...entry,
     title: entry.title[index],
+    searchTitle: key === "career" ? ["免费职业测试（94题）｜RIASEC职业兴趣、工作方式与职业探索", "免費職業測驗（94題）｜RIASEC職涯興趣與工作偏好", "Free Career Test (94 Questions) | RIASEC Interests & Work Preferences"][index] : entry.title[index],
     intro: entry.intro[index],
     sections: entry.sections.map(([heading, body]) => ({ heading: heading[index], body: body[index] })),
     faq: entry.faq.map(([question, answer]) => ({ question: question[index], answer: answer[index] })),

@@ -145,7 +145,7 @@ const riasecTextFields = new Set([
   "decision", "career_lens", "hero_job_tip", "tradeoff",
 ]);
 const riasecTextLists = new Set([
-  "atlas_examples", "work_activity_examples", "task_examples", "activities_to_validate", "activity_families",
+  "atlas_examples", "atlas_next_steps", "desktop_insight_questions", "work_activity_examples", "task_examples", "activities_to_validate", "activity_families",
 ]);
 const riasecProjectionKeys = new Set(["riasec_public_projection_v1", "riasec_public_projection_v2"]);
 

@@ -1,6 +1,7 @@
 "use client";
 
 export type PendingOrderContext = {
+  displayLocale?: "zh" | "zh-TW" | "en";
   orderNo: string;
   attemptId: string | null;
   sku: string | null;
@@ -89,6 +90,7 @@ function parsePendingOrder(raw: string | null): PendingOrderContext | null {
     }
 
     return {
+      ...(["zh", "zh-TW", "en"].includes(parsed.displayLocale ?? "") ? { displayLocale: parsed.displayLocale } : {}),
       orderNo,
       attemptId,
       sku,
@@ -105,6 +107,7 @@ function parsePendingOrder(raw: string | null): PendingOrderContext | null {
 }
 
 type PendingOrderWriteInput = {
+  displayLocale?: "zh" | "zh-TW" | "en";
   orderNo: string;
   attemptId?: string | null;
   sku?: string | null;
@@ -140,6 +143,7 @@ export function writePendingOrder(
 
   const now = Date.now();
   const payload: PendingOrderContext = {
+    ...(payloadInput.displayLocale ? { displayLocale: payloadInput.displayLocale } : {}),
     orderNo: normalizedOrderNo,
     attemptId: normalizedAttemptId,
     sku: normalizedSku,

@@ -103,6 +103,8 @@ describe("Traditional assessment display", () => {
               atlas_reading: "研究现场。",
               atlas_examples: ["核对数据。", "整理记录。", "确认原因。"],
               atlas_next_step: "询问团队。",
+              atlas_next_steps: ["询问团队。", "核对数据。", "设计调查。", "检查记录。"],
+              desktop_insight_questions: ["核对数据。", "设计调查。", "检查记录。"],
               desktop_reading_v1: {
                 headline: "比较工作",
                 scene: "观察实际操作。",
@@ -134,6 +136,8 @@ describe("Traditional assessment display", () => {
         atlas_reading: "研究現場。",
         atlas_examples: ["核對資料。", "整理記錄。", "確認原因。"],
         atlas_next_step: "詢問團隊。",
+        atlas_next_steps: ["詢問團隊。", "核對資料。", "設計調查。", "檢查記錄。"],
+        desktop_insight_questions: ["核對資料。", "設計調查。", "檢查記錄。"],
         desktop_reading_v1: {
           headline: "比較工作", scene: "觀察實際操作。", screen: "閱讀招聘說明。",
           question: "誰來操作裝置？", trial: "設計一個模型。", decision: "選擇下一項。",

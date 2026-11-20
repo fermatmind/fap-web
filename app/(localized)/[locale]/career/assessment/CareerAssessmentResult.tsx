@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, BarChart3, BriefcaseBusiness, FileText, Sparkles } from "lucide-react";
-import { useId, useRef, useState, type ReactNode } from "react";
-import { ResultExportPanel } from "@/components/result-export/ResultExportPanel";
-import { InterestRadar, RiasecReadingReport } from "@/components/result/riasec/RiasecReadingReport";
+import { ArrowUpRight, BarChart3, BriefcaseBusiness, FileText, Sparkles } from "lucide-react";
+import { useEffect, useId, useState, type ReactNode } from "react";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
+import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
+import { InterestRadar } from "@/components/result/riasec/RiasecReadingReport";
 import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
-import { buildRiasecResultExportFromViewModel } from "@/lib/riasec/exportAdapter";
 import {
   getRenderableRiasecDeepContentSlots,
   getRiasecModuleVisibility,
@@ -28,50 +29,72 @@ const reportModules = [
   [FileText, "职业行动计划与 PDF", "Career action plan and PDF"],
 ] as const;
 
-export function CareerAssessmentResult({ model, locale, onReview, purchase, premium }: {
+export function CareerAssessmentResult({ model, locale, displayLocale = locale, assessment = "career94", sampleHref, onReview, purchase, premium }: {
   model: RiasecResultViewModel;
   locale: "zh" | "en";
+  displayLocale?: DisplayLocale;
+  assessment?: "career94" | "riasec60";
+  sampleHref?: string;
   onReview?: () => void;
   purchase?: ReactNode;
   premium?: Career94Premium;
 }) {
-  const t = (zh: string, en: string) => locale === "zh" ? zh : en;
+  const [traditional, setTraditional] = useState<((source: string) => string) | "failed" | null>(null);
+  useEffect(() => {
+    if (displayLocale !== "zh-TW") return;
+    let active = true;
+    void loadTraditionalAssessmentText().then(convert => { if (active) setTraditional(() => convert); })
+      .catch(() => { if (active) setTraditional("failed"); });
+    return () => { active = false; };
+  }, [displayLocale]);
+  const t = (zh: string, en: string) => locale === "en" ? en : typeof traditional === "function" ? traditional(zh) : zh;
+  const holland = assessment === "riasec60";
+  const reportTitle = holland ? t("霍兰德职业兴趣深度报告", "Holland career interest deep report") : t("职业深度报告", "Career deep report");
+  const modules = holland ? reportModules.map(row => row[0] === BarChart3
+    ? [BarChart3, "RIASEC 六维兴趣解读", "RIASEC interest breakdown"] as const : row) : reportModules;
   const [selected, setSelected] = useState(model.primaryType);
   const dimensionDetailId = useId();
-  const sample = useRef<HTMLDetailsElement>(null);
   const canReadDimensions = getRiasecModuleVisibility(model, "six_dimension_map") !== "hidden";
   const dimensions = canReadDimensions ? model.dimensions : [];
-  const isTied = (model.interpretationState?.tieDisplay?.dimensions.length ?? 0) > 1;
+  const isTied = (model.interpretationState?.tieDisplay?.dimensions ?? []).includes(model.primaryType);
   const leading = dimensions.find(dimension => dimension.code === model.primaryType && dimension.scoreAvailable);
   const title = leading && !isTied
     ? leading.label
     : t("你的职业兴趣轮廓", "Your career interest profile");
+  const tiedLabels = (model.interpretationState?.tieDisplay?.dimensions ?? []).map(code => dimensions.find(d => d.code === code)?.label ?? code);
   const active = dimensions.find(dimension => dimension.code === selected) ?? leading ?? dimensions[0];
   const explanations = getRenderableRiasecDeepContentSlots(model).filter(slot =>
     slot.slotKey === "dimension_deep_copy" && slot.selection?.dimensionCode === active?.code &&
     getRiasecModuleVisibility(model, slot.moduleKey) !== "hidden");
   const explanation = explanations[0]?.content.summary;
   const rankedJobs = canReadDimensions && model.scoreKind === "dimension_scores_0_100"
-    ? rankRiasecCareers(dimensions, locale).jobs.slice(0, 8)
+    ? rankRiasecCareers(dimensions, displayLocale).jobs.slice(0, 8)
     : [];
   const jobs = rankedJobs.slice(0, 3);
   const art = leading && !isTied && portraits[leading.code] ? portraits[leading.code] : "ai-career-interests";
+
+  if (displayLocale === "zh-TW" && !traditional) return <p role="status">正在載入繁體預覽…</p>;
+  if (displayLocale === "zh-TW" && traditional === "failed") return <p role="alert">繁體顯示暫時無法載入，請重新整理。</p>;
 
   return <>
     <div className={styles.result} data-testid="career-assessment-result">
       <div className={styles.inner}>
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>{t("费马职业测试 · 94 题", "FermatMind Career Assessment · 94 questions")}</p>
+          <p className={styles.eyebrow}>{holland ? t("霍兰德职业兴趣测试 · 60 题", "Holland Career Interest Test · 60 questions") : t("费马职业测试 · 94 题", "FermatMind Career Assessment · 94 questions")}</p>
           <h1>{title}</h1>
-          {model.topCode && canReadDimensions ? <p className={styles.code}>{model.topCode}</p> : null}
           <Image src={`/images/riasec/${art}.webp`} width={340} height={340} sizes="(max-width: 600px) 65vw, 340px" alt="" className={styles.portrait} />
-          <p>{model.resultSummary?.tieNote || model.interpretationState?.tieDisplay?.note ||
+          <p>{tiedLabels.length > 1 ? `${tiedLabels.join(" / ")} · ` : ""}{model.resultSummary?.tieNote || model.interpretationState?.tieDisplay?.note ||
             t("从本次答卷看，你更愿意尝试哪些工作活动？", "Which work activities did this assessment suggest you might want to try?")}</p>
+          {model.topCode && canReadDimensions && <section className={styles.topCode} aria-label={t("本次霍兰德兴趣代码", "Your Holland interest code")}>
+            <p>{t("你的霍兰德兴趣代码", "Your Holland interest code")}</p>
+            <strong className={styles.code}>{model.topCode}</strong>
+            <ul>{model.topCode.split("").map((code, index) => <li key={`${code}-${index}`}><span aria-hidden>{code}</span>{dimensions.find(d => d.code === code)?.label ?? code}</li>)}</ul>
+          </section>}
           {onReview && <button type="button" className={styles.textButton} onClick={onReview}>{t("回看答卷", "Review answers")}</button>}
         </header>
 
         {dimensions.length > 0 ? <section className={styles.section} aria-label={t("六维兴趣", "Six interest dimensions")}>
-          <h2>{t("六维兴趣", "Six interest dimensions")}</h2>
+          <div className={styles.sectionHeading}><p>{t("兴趣地图", "YOUR INTEREST MAP")}</p><h2>{t("你更愿意投入哪些工作活动？", "Which work activities draw you in?")}</h2></div>
           <div className={styles.chart}>
             <InterestRadar dimensions={dimensions} theme="dark" />
             <div className={styles.dimensions}>
@@ -89,22 +112,22 @@ export function CareerAssessmentResult({ model, locale, onReview, purchase, prem
         </section> : null}
 
         {jobs.length > 0 ? <section className={styles.section} aria-label={t("职业候选", "Careers to explore")}>
-          <h2>{t("职业候选", "Careers to explore")}</h2>
+          <div className={styles.sectionHeading}><p>{t("值得探索的方向", "DIRECTIONS TO EXPLORE")}</p><h2>{t("从兴趣走向真实的工作", "Connect your interests to real work")}</h2></div>
           <p>{t("根据六维兴趣分布，从美国 O*NET 职业资料中选出。", "Selected by comparing your six interest scores with U.S. O*NET occupational profiles.")}</p>
           <ol className={styles.jobs}>
             {jobs.map(job => <li key={job.slug}>
-              <Link href={`/${locale}/career/jobs/${job.slug}`}><strong>{job.name}</strong><span aria-hidden="true">↗</span></Link>
+              <Link href={displayNavigationPath(`/career/jobs/${job.slug}`, displayLocale)}><strong>{job.name}</strong><span aria-hidden="true">↗</span></Link>
               <p>{job.summary}</p>
             </li>)}
           </ol>
         </section> : null}
 
         {premium ? <section className={styles.premium} aria-label={t("已解锁的职业深度报告", "Unlocked career report")}>
-          <h2>{t("职业深度报告", "Career deep report")}</h2>
+          <h2>{reportTitle}</h2>
           {rankedJobs.length > 0 && <>
             <h3>{t("职业候选与岗位对比", "Compare your career shortlist")}</h3>
             <ol className={styles.jobs}>{rankedJobs.map(job => <li key={job.slug}>
-              <Link href={`/${locale}/career/jobs/${job.slug}`}>{job.name}</Link><p>{job.summary}</p>
+              <Link href={displayNavigationPath(`/career/jobs/${job.slug}`, displayLocale)}>{job.name}</Link><p>{job.summary}</p>
             </li>)}</ol>
           </>}
           <h3>{t("六维兴趣解读", "Interest breakdown")}</h3>
@@ -114,39 +137,23 @@ export function CareerAssessmentResult({ model, locale, onReview, purchase, prem
             <dl>{premium.preferences.map(row => <div key={row.label}><dt>{row.label} · {Math.round(row.score)}</dt><dd>{row.detail}</dd></div>)}</dl>
           </>}
           <p>{premium.condition_note}</p>
-          <h3>{t("七天职业行动计划", "Seven-day career action plan")}</h3>
+          <h3>{holland ? t("职业探索行动计划", "Career exploration action plan") : t("七天职业行动计划", "Seven-day career action plan")}</h3>
           <ol className={styles.actions}>{premium.actions.map(action => <li key={action}>{action}</li>)}</ol>
           <h3>{t("AI 职业探索提示词", "AI career exploration prompt")}</h3>
           <p>{premium.ai_prompt}</p>
           <button type="button" className={styles.cta} onClick={() => window.print()}>{t("打印或保存为 PDF", "Print or save as PDF")}</button>
         </section> : <>
-        <section className={styles.offer} aria-label={t("职业深度报告", "Career deep report")}>
-          <h2>{t("职业深度报告", "Career deep report")}</h2>
+        <section id={holland ? "riasec60-paywall" : "career94-paywall"} className={styles.offer} aria-label={reportTitle}>
+          <h2>{reportTitle}</h2>
           <p>{t("把职业兴趣变成可以验证的方向。", "Turn your interests into career directions you can test.")}</p>
-          <ul>{reportModules.map(([Icon, cn, en]) => <li key={en}><Icon aria-hidden="true" size={23} /><span>{t(cn, en)}</span></li>)}</ul>
-          <a className={styles.cta} href="#career94-sample" onClick={() => { if (sample.current) sample.current.open = true; }}>{t("查看示例报告", "View sample report")} <ArrowDown aria-hidden="true" size={18} /></a>
+          <ul>{modules.map(([Icon, cn, en]) => <li key={en}><Icon aria-hidden="true" size={23} /><span>{t(cn, en)}</span></li>)}</ul>
           {purchase || <p className={styles.status}>{t("深度报告预览 · 暂未开放购买", "Deep report preview · Purchase unavailable")}</p>}
+          <Link className={styles.sampleLink} href={sampleHref ?? `/${locale}/career/assessment/sample`} target="_blank" rel="noopener">{t("查看示例报告", "View sample report")} <ArrowUpRight size={14} aria-hidden /></Link>
         </section>
 
-        <section className={styles.section} id="career94-sample" aria-label={t("报告示例", "Report sample")}>
-          <details ref={sample} className={styles.sample}>
-            <summary>{t("展开一份示例 · 研究型与现实型", "Open a sample · Investigative and Realistic")}</summary>
-            <p>{t("示例用虚构的作答情境展示报告格式。", "This sample uses a fictional response profile to show the report format.")}</p>
-            <dl>
-              <dt>{t("解读", "Interpretation")}</dt><dd>{t("你可能既喜欢查清问题的原因，也喜欢用工具验证结论。比较岗位时，先找同时包含分析和实际操作的任务。", "You might enjoy both tracing a problem to its cause and using tools to test a conclusion. Start with roles that combine analysis and hands-on work.")}</dd>
-              <dt>{t("岗位对比", "Compare roles")}</dt><dd>{t("对比质量检验员与实验室技术员：前者常围绕合格标准检查产品，后者常按流程准备样本并记录结果。", "Compare quality control inspectors with laboratory technicians: one checks products against standards, the other prepares samples and records results.")}</dd>
-              <dt>{t("一周行动", "This week")}</dt><dd>{t("每个方向找一份当地招聘启事，标出三项日常任务，再选一项做 30 分钟小练习。", "Find one local posting per direction, highlight three daily tasks, then try one of them for 30 minutes.")}</dd>
-            </dl>
-          </details>
-        </section>
         </>}
-        <a className={styles.jump} href="#career94-free-report">{t("查看现有职业兴趣报告 ↓", "Read your career interest report ↓")}</a>
-      </div>
-    </div>
 
-    <div id="career94-free-report" className={styles.currentReport}>
-      <RiasecReadingReport viewModel={model} locale={locale} actions={null} />
-      <ResultExportPanel projection={buildRiasecResultExportFromViewModel(model, locale)} locale={locale} />
+      </div>
     </div>
   </>;
 }

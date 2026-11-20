@@ -211,10 +211,6 @@ function getCoreMetaItems(item: HomeCoreTestItem): string[] {
 
 function HomepageHeroV1({ locale, copy }: { locale: DisplayLocale; copy: HomePageContent }) {
   const heroCopy = HOMEPAGE_HERO_COPY[locale];
-  const titleSegments =
-    locale !== "en" && heroCopy.title.includes("，")
-      ? heroCopy.title.split("，").map((segment, index, segments) => (index < segments.length - 1 ? `${segment}，` : segment))
-      : null;
   const ctas = [
     { label: heroCopy.primaryCta || copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
     { label: brandVisionCopy[locale].careerLabel, href: "/career", variant: "secondary" },
@@ -232,15 +228,9 @@ function HomepageHeroV1({ locale, copy }: { locale: DisplayLocale; copy: HomePag
         <div className="mx-auto w-full max-w-[43rem] text-center lg:mx-0 lg:text-left">
           <h1
             aria-label={heroCopy.title}
-            className="m-0 text-balance break-words text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[2.5rem] lg:leading-[1.2]"
+            className={cn("m-0 font-black leading-tight tracking-normal text-[#333]", locale === "en" ? "text-balance text-[2.55rem] sm:text-[2.8rem] lg:text-[2.5rem]" : "whitespace-nowrap text-[clamp(1.45rem,4vw,2.5rem)]")}
           >
-            {titleSegments
-              ? titleSegments.map((segment) => (
-                  <span key={segment} aria-hidden="true" className="inline-block whitespace-nowrap lg:block">
-                    {segment}
-                  </span>
-                ))
-              : heroCopy.title}
+            {heroCopy.title}
           </h1>
           <p className="m-0 mt-6 max-w-2xl text-[1.1rem] font-medium leading-9 text-[#5f6066] lg:text-base lg:leading-[1.6]">
             {brandVisionCopy[locale].homeSubtitle}
@@ -679,7 +669,7 @@ function getCoreTestIntroCopy(locale: DisplayLocale, item: HomeCoreTestItem, tit
   };
 }
 
-const assessmentCardClass = "group block rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_10px_28px_rgba(15,23,42,0.14)] transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,0.18)]";
+const assessmentCardClass = "group block rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_6px_22px_rgba(15,23,42,0.09)] transition motion-safe:hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(15,23,42,0.13)] motion-reduce:transition-none";
 const assessmentTitleClass = "m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition group-hover:text-slate-950";
 
 function TestFeatureCard({ locale, item, priority, index }: { locale: DisplayLocale; item: HomeCoreTestItem; priority: boolean; index: number }) {
@@ -840,7 +830,7 @@ function HomepageHighlightedTestsBanner({
   return (
     <section className="fm-page-background pt-12 pb-10 md:pt-16 md:pb-12" aria-labelledby="homepage-core-tests-title">
       <Container className="max-w-[82rem] px-6 md:px-8">
-        <div className="relative overflow-hidden bg-[var(--fm-bg-page)] text-slate-950">
+        <div className="relative bg-[var(--fm-bg-page)] text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2
               id="homepage-core-tests-title"
@@ -869,16 +859,16 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: DisplayLocale; copy: H
   if (families.length === 0) return null;
 
   return (
-    <section className="fm-section-soft py-20 md:py-24" aria-labelledby="homepage-family-title">
+    <section className="fm-section-soft py-12 md:py-14" aria-labelledby="homepage-family-title">
       <Container className="max-w-[82rem] px-6 md:px-8">
-        <div className="relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16 text-slate-950">
+        <div className="relative mb-7 text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
               {locale === "zh-TW" ? "關於費馬測試" : locale === "zh" ? "关于费马测试" : "About FermatMind"}
             </h2>
           </div>
         </div>
-        <div className="relative z-10 -mt-12 grid gap-7 md:grid-cols-3">
+        <div className="relative grid gap-5 md:grid-cols-3">
           {families.slice(0, 3).map((family, index) => {
             const display =
               index === 0
@@ -909,9 +899,9 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: DisplayLocale; copy: H
                     };
 
             return (
-              <article key={`${family.title}-${index}`} className="flex min-h-[18rem] flex-col items-center rounded-md bg-white px-8 py-9 text-center shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+              <article key={`${family.title}-${index}`} className="flex min-h-[14rem] flex-col items-center rounded-md bg-white px-7 py-6 text-center shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
                 <AboutIcon index={index} />
-                <h3 className="m-0 mt-8 text-lg font-semibold text-slate-950">{display.title}</h3>
+                <h3 className="m-0 mt-5 text-lg font-semibold text-slate-950">{display.title}</h3>
                 <p className="m-0 mt-4 text-base leading-7 text-slate-600">{display.description}</p>
                 {display.links.length > 0 ? (
                   <div className="mt-auto flex flex-wrap justify-center gap-2 pt-5">

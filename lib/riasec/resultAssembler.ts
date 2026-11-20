@@ -627,6 +627,8 @@ const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
   "atlas_reading",
   "atlas_examples",
   "atlas_next_step",
+  "atlas_next_steps",
+  "desktop_insight_questions",
   "atlas_profile_focus",
   "desktop_insight_reading",
   "work_activity_examples",

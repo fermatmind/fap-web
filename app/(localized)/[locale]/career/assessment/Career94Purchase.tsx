@@ -12,6 +12,7 @@ import { getFmToken } from "@/lib/auth/fmToken";
 import { normalizeCommercePaymentRedirectUrl } from "@/lib/commerce/redirectUrls";
 import styles from "./CareerAssessmentResult.module.css";
 import type { Career94Market, Career94Offer, Career94Result } from "./career94-api";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import type { Locale } from "./CareerAssessmentForm";
 
 function offerLabel(offer: Career94Offer, zh: boolean): string {
@@ -20,12 +21,12 @@ function offerLabel(offer: Career94Offer, zh: boolean): string {
   return `${channel} · ${offer.currency === "CNY" ? "¥" : "US$"}${(offer.amount_cents / 100).toFixed(2)}`;
 }
 
-async function launchCheckout(offer: Career94Offer, attemptId: string, locale: Locale, navigate: (href: string) => void) {
+async function launchCheckout(offer: Career94Offer, attemptId: string, locale: DisplayLocale, navigate: (href: string) => void) {
   const order = await createCheckoutOrOrder({ attemptId, sku: offer.sku, provider: offer.provider });
   const action = resolveCheckoutAction(order, "Checkout is unavailable.");
   if (action.kind === "error" || !action.orderNo) throw new Error("CHECKOUT_UNAVAILABLE");
   writePendingOrder({
-    orderNo: action.orderNo, attemptId, sku: offer.sku, provider: action.provider,
+    displayLocale: locale, orderNo: action.orderNo, attemptId, sku: offer.sku, provider: action.provider,
     waitUrl: action.waitUrl, paymentRecoveryToken: action.paymentRecoveryToken, resultUrl: action.resultUrl,
   });
   if (offer.provider === "alipay") {
@@ -88,14 +89,16 @@ export function Career94SaveResult({ locale, offers, onSave }: {
   </div>;
 }
 
-export function Career94Checkout({ locale, attemptId, offers }: {
+export function Career94Checkout({ locale, attemptId, offers, displayLocale = locale }: {
   locale: Locale;
   attemptId: string;
   offers: Career94Offer[];
+  displayLocale?: DisplayLocale;
 }) {
   const zh = locale === "zh";
+  const copy = (source: string, traditional: string) => displayLocale === "zh-TW" ? traditional : source;
   const router = useRouter();
-  const failure = zh ? "暂时无法发起支付。请重试或查看已有订单。" : "Checkout is unavailable. Try again or check your existing order.";
+  const failure = zh ? copy("暂时无法发起支付。请重试或查看已有订单。", "暫時無法發起付款。請重試或查看現有訂單。") : "Checkout is unavailable. Try again or check your existing order.";
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -103,7 +106,7 @@ export function Career94Checkout({ locale, attemptId, offers }: {
     setBusy(true);
     setFailed(false);
     try {
-      await launchCheckout(offer, attemptId, locale, router.push);
+      await launchCheckout(offer, attemptId, displayLocale, router.push);
     } catch {
       setFailed(true);
       setBusy(false);
@@ -112,15 +115,15 @@ export function Career94Checkout({ locale, attemptId, offers }: {
 
   return <div className={styles.purchase}>
     {offers.map(offer => {
-      return <button key={offer.provider} type="button" className={styles.cta} onClick={() => void checkout(offer)} disabled={busy}>
-        {busy ? (zh ? "正在打开收银台…" : "Opening checkout…") : offerLabel(offer, zh)}
+      return <button key={`${offer.provider}:${offer.sku}`} type="button" className={styles.cta} onClick={() => void checkout(offer)} disabled={busy}>
+        {busy ? (zh ? copy("正在打开收银台…", "正在開啟收銀台…") : "Opening checkout…") : (displayLocale === "zh-TW" ? offerLabel(offer, zh).replace("支付宝", "支付寶").replace("海外银行卡", "海外銀行卡") : offerLabel(offer, zh))}
       </button>;
     })}
-    <p>{zh ? "一次付款，解锁本次报告。请在付款前查看" : "One payment unlocks this report. Before paying, review the"}{" "}
+    <p>{zh ? copy("一次付款，解锁本次报告。请在付款前查看", "一次付款，解鎖本次報告。請在付款前查看") : "One payment unlocks this report. Before paying, review the"}{" "}
       <Link href={`/${locale}/refund`}>{zh ? "退款政策" : "refund policy"}</Link>
       {zh ? "。" : "."}
     </p>
-    {offers.some(offer => offer.currency === "USD") && <p>{zh ? "发卡机构可能按本币结算。" : "Your card issuer may convert the charge to your local currency."}</p>}
-    {failed && <p role="alert">{failure}{" "}<Link href={`/${locale}/account?section=orders`}>{zh ? "我的订单" : "My orders"}</Link></p>}
+    {offers.some(offer => offer.currency === "USD") && <p>{zh ? copy("发卡机构可能按本币结算。", "發卡機構可能按本幣結算。") : "Your card issuer may convert the charge to your local currency."}</p>}
+    {failed && <p role="alert">{failure}{" "}<Link href={`/${locale}/account?section=orders`}>{zh ? copy("我的订单", "我的訂單") : "My orders"}</Link></p>}
   </div>;
 }

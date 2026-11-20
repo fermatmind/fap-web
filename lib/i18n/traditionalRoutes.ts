@@ -44,6 +44,8 @@ export function traditionalPath(pathname: string): string | null {
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
+  if (process.env.NODE_ENV === "development" && prefix === "zh-TW"
+    && path === "/tests/holland-career-interest-test-riasec/preview") return `/zh-TW${path}`;
   if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path) || HISTORY_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
@@ -79,6 +81,7 @@ export function traditionalPath(pathname: string): string | null {
   if (TRADITIONAL_CMS_PUBLISHED_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (TRADITIONAL_CATEGORY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/tests/enneagram-personality-test-nine-types/technical-note") return `/zh-TW${path}`;
+  if (path === "/tests/holland-career-interest-test-riasec/sample") return `/zh-TW${path}`;
   if (path === "/career/assessment") return "/zh-TW/career/assessment";
   if (path === JUNG_TEST_PATH) return `/zh-TW${path}`;
   const coreAssessment = /^\/tests\/([a-z0-9_-]+)(?:\/take)?$/iu.exec(path);

@@ -119,20 +119,27 @@
 }
 
 .platforms {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
   border-top: 1px solid var(--fm-border-subtle);
   padding: 24px 0 28px;
 }
 
 .platformGroup {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-  gap: 12px 32px;
+  justify-content: space-between;
+  width: max-content;
+  min-width: 100%;
+  gap: 32px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
+.platformGroup > li { flex: 0 0 auto; }
 
 .platformLink {
   display: inline-flex;

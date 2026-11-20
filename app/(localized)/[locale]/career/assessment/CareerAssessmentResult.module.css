@@ -3,18 +3,18 @@
   background: radial-gradient(ellipse at 50% 2%, #382063, transparent 53%), #161028;
   padding: clamp(2.25rem, 6vw, 5rem) max(1rem, var(--fm-container-gutter));
 }
-.inner { max-width: 52rem; margin: 0 auto; }
-.hero { text-align: center; animation: enter 350ms ease-out both; }
+.inner { max-width: 54rem; margin: 0 auto; }
+.hero { max-width: 44rem; margin: 0 auto; text-align: center; animation: enter 400ms ease-out both; }
 .eyebrow { color: #d7bafa; font-weight: 650; letter-spacing: .07em; }
-.hero h1 { font-size: clamp(2.75rem, 9vw, 5.5rem); line-height: 1.08; margin: .55rem 0; font-weight: 780; }
+.hero h1 { font-size: clamp(2.35rem, 7vw, 4.5rem); line-height: 1.08; margin: .55rem 0; font-weight: 780; }
 .hero p:not(.eyebrow) { max-width: 38rem; margin: .6rem auto; color: #e2d8f2; }
 .hero .code { letter-spacing: .2em; font-weight: 750; }
-.portrait { display: block; width: min(68vw, 340px); height: auto; margin: 1.25rem auto; border-radius: 1.4rem; box-shadow: 0 12px 60px #0d061c70; }
+.portrait { display: block; width: min(68vw, 340px); height: auto; margin: 1.25rem auto; filter: drop-shadow(0 16px 34px #c29aef24); }
 .textButton { margin: .65rem 0; color: #dcc2ff; text-decoration: underline; text-underline-offset: .25em; }
 .section { margin: clamp(2.4rem, 6vw, 4rem) 0; scroll-margin-top: 5rem; }
 .section h2, .offer h2 { margin: 0 0 .65rem; font-size: clamp(1.45rem, 4vw, 2.25rem); font-weight: 750; }
 .section p, .offer p { color: #e2d8f2; line-height: 1.65; }
-.chart { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: center; gap: 1rem; }
+.chart { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); align-items: center; gap: 1rem; }
 .chart:not(:has(svg)) { grid-template-columns: 1fr; }
 .dimensions { margin: 1rem 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
 .dimensions button {
@@ -28,14 +28,14 @@
 .jobs { padding: 0; list-style-position: inside; }
 .jobs li { padding: .85rem 0; border-bottom: 1px solid #e3caff30; }
 .jobs a { display: inline-flex; gap: .55rem; margin-left: .55rem; text-underline-offset: .25em; }
-.jobs a:hover, .jump:hover { text-decoration: underline; }
-.jobs p { margin: .35rem 0 0; }
+.jobs a:hover { text-decoration: underline; }
+.jobs p { margin: .4rem 0 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-size: .94rem; color: #d0c3e2; }
 .offer {
   margin: 0 auto; max-width: 36rem; text-align: center; padding: clamp(1.25rem, 5vw, 2.75rem);
   background: linear-gradient(150deg, #382268, #22163c 76%); border: 1px solid #bc8af4;
   border-radius: 1.5rem; box-shadow: 0 12px 55px #8539cb38;
 }
-.offer ul { display: grid; gap: .95rem; list-style: none; text-align: left; padding: 0; margin: 1.55rem 0; }
+.offer ul { display: grid; width: fit-content; max-width: 100%; gap: .95rem; list-style: none; text-align: left; padding: 0; margin: 1.55rem auto; }
 .offer li { display: flex; gap: .85rem; align-items: center; }
 .offer li svg { flex: none; color: #e3b0ff; }
 .cta {
@@ -50,7 +50,6 @@
 .sample p { margin: .8rem 0; }
 .sample dt { font-weight: 700; margin: .85rem 0 .3rem; }
 .sample dd { color: #e2d8f2; line-height: 1.65; }
-.jump { display: block; text-align: center; font-weight: 650; color: #e4c7ff; }
 .currentReport { max-width: 1320px; margin: 0 auto; padding: 1.5rem max(1rem, var(--fm-container-gutter)); scroll-margin-top: 4.5rem; }
 .result :is(a, button, summary):focus-visible { outline: 2px solid #e4c7ff; outline-offset: 4px; }
 @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -75,6 +74,35 @@
 @media print {
   .result, .premium { color: #1b1330; background: #fff; box-shadow: none; }
   .section p, .premium p, .sample dd, .hero p:not(.eyebrow) { color: #1b1330; }
-  .result :is(.cta, .jump, .textButton), .currentReport { display: none; }
+  .result :is(.cta, .textButton), .currentReport { display: none; }
   .premium dl > div { break-inside: avoid; }
 }
+
+.topCode { max-width: 32rem; margin: 1.8rem auto 1.25rem; padding: 1.2rem 1.3rem; border: 1px solid #c2a2ec30; border-radius: 1.2rem; background: #ffffff05; }
+.hero .topCode > p { font-size: .8rem; color: #bda7db; margin: 0; }
+.topCode > .code { display: block; font-size: 3rem; line-height: 1.2; letter-spacing: .12em; color: #f6f0ff; margin: .4rem 0 1rem; }
+.topCode ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; list-style: none; margin: 0; padding: 0; }
+.topCode li { display: grid; justify-items: center; gap: .5rem; font-size: .85rem; color: #e2d2f6; }
+.topCode li > span { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 1px solid #cba0ff44; border-radius: 50%; color: #dfa4ff; font-size: 1.05rem; background: #aa54ec14; }
+.sectionHeading { margin-bottom: 1.4rem; }
+.sectionHeading > p { color: #bfa1e1; font-size: .74rem; font-weight: 650; letter-spacing: .08em; margin: 0 0 .4rem; }
+.sectionHeading h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); }
+.offer { margin-top: 4rem; }
+.sampleLink { display: inline-flex; gap: .3rem; align-items: center; margin-top: 1.4rem; color: #c6b3dd; font-size: .8rem; text-decoration: underline; text-underline-offset: .2rem; }
+.readingPage { max-width: 1320px; margin: auto; padding: 2rem max(1rem, var(--fm-container-gutter)); }
+.readingHeader { padding: 1rem 0 2rem; max-width: 48rem; }
+.readingHeader > a:first-child { font-size: .85rem; color: #3b6d6b; }
+.readingHeader h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.3; font-weight: 750; margin: 1rem 0; color: #173d46; }
+.readingHeader p { color: #516c71; line-height: 1.8; }
+.readingCta { display: inline-flex; padding: .7rem 1.15rem; background: #008783; color: #fff; border-radius: 999px; margin-top: .8rem; }
+.readingPage :global(.riasec-reading-report) { min-width: 0; }
+.readingEmpty { max-width: 40rem; margin: 3rem auto; padding: 1.5rem; line-height: 1.8; }
+.readingEmpty a, .readingEmpty button { color: #277370; text-decoration: underline; margin-inline-end: 1rem; }
+@media (max-width: 620px) { .hero .portrait { width: min(78vw, 340px); } .topCode { padding: 1rem; } .topCode ul { gap: .5rem; } }
+@media print { .readingHeader > a { display: none; } }
+
+.readingEyebrow { color: #527d78; font-size: .8rem; font-weight: 650; letter-spacing: .06em; }
+
+.previewBanner { background: #fff6d8; padding: .75rem 1rem; text-align: center; color: #654a1d; font-size: .85rem; }
+
+.previewBanner + .result .purchase button:disabled { opacity: 1; cursor: not-allowed; }

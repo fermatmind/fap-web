@@ -41,6 +41,7 @@ type Props = {
   locale: Locale;
   displayLocale?: DisplayLocale;
   actions: ReactNode;
+  reportTitle?: string;
   emailRecovery?: ReactNode;
 };
 const RIASEC_INTEREST_COLORS: Record<string, string> = {
@@ -114,6 +115,7 @@ function RiasecReadingReportBody({
   displayLocale = locale,
   actions,
   emailRecovery,
+  reportTitle,
 }: Props) {
   const zh = locale === "zh";
   const t = useReportCopy();
@@ -446,6 +448,7 @@ function RiasecReadingReportBody({
     >
       <ReportHeader
         vm={vm}
+        reportTitle={reportTitle}
         displayLocale={displayLocale}
         actions={actions}
         emailRecovery={emailRecovery}
@@ -506,7 +509,7 @@ function RiasecReadingReportBody({
             <RiasecExploration locale={locale} showPreferences={hasContext} />
             {showWorkCombination ? (
               <ReportTailChapter id={ANCHORS.combinations} title={t("你在工作中更想做哪一段", "Which part of the work draws you in?")}
-                icon={<GitMerge size={17} />} tone="work" open={workPairs.some(slot => slotState(slot) === "visible")}>
+                icon={<GitMerge size={17} />} tone="work" open={qualityState === "normal" && vm.interpretationState?.readingStrength !== "retake_recommended"}>
                 <p className={styles.tailIntro}>{t("一个项目里，有人梳理问题，有人把方案做出来，也有人接手交付。比较岗位时，先看你想反复做的那一段，再看你能参与到哪一步。", "In a project, someone defines the problem, someone builds the solution, and someone delivers it. When comparing roles, identify the part you would like to do regularly and check how much of it the role actually owns.")}</p>
                 {comparableTie ? <p className={styles.tailTie}>
                   {tieDisplay.dimensions.map(code => vm.dimensions.find(item => item.code === code)?.label ?? code).join("、")}
@@ -550,7 +553,7 @@ function RiasecReadingReportBody({
                         </dl>
                       </>}
                     </>;
-                    return slotState(slot) === "visible" ? (
+                    return slotState(slot) === "visible" || (qualityState === "normal" && vm.interpretationState?.readingStrength !== "retake_recommended") ? (
                       <article className={styles.tailCard} key={slot.slotId}><h3>{title}</h3>{body}</article>
                     ) : (
                       <details className={styles.tailCard} key={slot.slotId}><summary>{title}</summary>{body}</details>
@@ -877,6 +880,9 @@ function DimensionAtlasCard({
   const bandAction = clean(content.atlas_next_step);
   const conditions = bandAction ? "" : clean(content.real_world_cost);
   const action = bandAction || clean(content.action_advice);
+  const nextSteps = Array.isArray(content.atlas_next_steps)
+    ? content.atlas_next_steps.map(formatRiasecDetailValue).filter(Boolean).slice(0, 4)
+    : action ? [action] : [];
   const activityExamples = content.atlas_examples ?? content.work_activity_examples;
   const examples = Array.isArray(activityExamples)
     ? activityExamples.map(formatRiasecDetailValue).filter(Boolean).slice(0, 4)
@@ -907,16 +913,16 @@ function DimensionAtlasCard({
       <div className={styles.atlasCopy}>
         {atlasReading ? <p>{atlasReading}</p> : <DimensionReading slot={slot} />}
       </div>
-      {examples.length || conditions || action ? (
+      {examples.length || conditions || nextSteps.length ? (
         <div className={styles.atlasPanels}>
           {examples.length ? <div className={styles.atlasExamples}>
             <h4>{t("活动示例", "Examples of activities")}</h4>
             <ul>{examples.map(example => <li key={example}>{example}</li>)}</ul>
           </div> : null}
-          {conditions || action ? <div className={styles.atlasNext}>
-            <h4>{t("下一步", "Next step")}</h4>
+          {conditions || nextSteps.length ? <div className={styles.atlasNext}>
+            <h4>{t("下一步", "Next steps")}</h4>
             <ul>
-              {action ? <li>{action}</li> : null}
+              {nextSteps.map(step => <li key={step}>{step}</li>)}
               {conditions ? <li>{conditions}</li> : null}
             </ul>
           </div> : null}
@@ -1018,7 +1024,8 @@ function ReportHeader({
   emailRecovery,
   usePortraitLayout,
   workScene,
-}: Pick<Props, "actions" | "emailRecovery" | "displayLocale"> & {
+  reportTitle,
+}: Pick<Props, "actions" | "emailRecovery" | "displayLocale" | "reportTitle"> & {
   vm: RiasecResultViewModel;
   usePortraitLayout: boolean;
   workScene?: ReactNode;
@@ -1026,6 +1033,7 @@ function ReportHeader({
   const t = useReportCopy();
   const careerTestHref = careerAssessmentEntry(displayLocale).href;
   const summary = vm.resultSummary;
+  const rankingText = summary?.rankingDisplay || vm.interpretationState?.tieDisplay?.headline || vm.topCode;
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
   // The snapshot-bound result summary is a separate backend projection.
   // Activity-chain visibility only governs the legacy hero fallback.
@@ -1063,7 +1071,7 @@ function ReportHeader({
       <div className={styles.titleRow}>
         <div>
           <h1>
-            {t("霍兰德职业兴趣报告", "Your Holland Career Interest Report")}
+            {reportTitle ?? t("霍兰德职业兴趣报告", "Your Holland Career Interest Report")}
           </h1>
         </div>
         <div className={styles.tools}>
@@ -1091,7 +1099,7 @@ function ReportHeader({
             <div className={showPortrait ? styles.rankingPanel : undefined}>
               <div className={styles.summaryIntro}>
                 <span>{t("本次兴趣重点", "Your interest pattern")}</span>
-                <strong>{summary?.rankingDisplay || vm.interpretationState?.tieDisplay?.headline || vm.topCode}</strong>
+                <strong>{t(rankingText, rankingText)}</strong>
                 {tieNote ? <p>{tieNote}</p> : null}
                 {vm.interpretationState?.tieDisplay?.alternateCodes.length ? (
                   <p>{t("可同时参考的阅读顺序", "Additional reading order")}: {vm.interpretationState.tieDisplay.alternateCodes.join(" / ")}</p>
@@ -1104,6 +1112,12 @@ function ReportHeader({
                 <ul className={styles.heroInterests}>
                   {rankedInterests.map(item => <li key={item.code}>
                     <div><strong>{item.code} · {item.label}</strong><span>{item.score}</span></div>
+                    {(() => {
+                      const slot = getRenderableRiasecDeepContentSlots(vm).find(entry => entry.slotKey === "dimension_deep_copy" && entry.selection?.dimensionCode === item.code);
+                      const focus = slot && getRiasecModuleVisibility(vm, slot.moduleKey) === "visible"
+                        ? clean(slot.content.atlas_profile_focus) : "";
+                      return focus ? <p>{focus}</p> : null;
+                    })()}
                   </li>)}
                 </ul>
               ) : null}
@@ -1350,6 +1364,12 @@ function DimensionInsight({
           ) : (
             <DimensionReading slot={selectedSlot} />
           )}
+          {Array.isArray(selectedSlot.content.desktop_insight_questions) && selectedSlot.content.desktop_insight_questions.length > 0 ? (
+            <section className={styles.insightQuestions}>
+              <h3>{t("用实际任务核实", "Check against real tasks")}</h3>
+              <ul>{selectedSlot.content.desktop_insight_questions.map(formatRiasecDetailValue).filter(Boolean).slice(0, 3).map(question => <li key={question}>{question}</li>)}</ul>
+            </section>
+          ) : null}
         </div>
       ) : (
         <p>
