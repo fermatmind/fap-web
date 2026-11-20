@@ -17,6 +17,68 @@ export type JungPreviewDimension = {
   scoreContext?: string;
 };
 export type PreviewPattern = keyof typeof common.states;
+export type JungReportMode = "preview" | "sample" | "result";
+
+// One public sample for everyone, independent of attempts, query strings and randomness.
+export const jungSampleScores: Readonly<Record<string, number>> = Object.freeze(
+  {
+    hero: 6.25,
+    sage: 87.5,
+    explorer: 75,
+    creator: 62.5,
+    ruler: 56.25,
+    caregiver: 50,
+    magician: 43.75,
+    lover: 37.5,
+    jester: 31.25,
+    everyperson: 25,
+    innocent: 18.75,
+    rebel: 12.5,
+  },
+);
+
+export function readJungArchetypeScores(
+  payload: unknown,
+): Record<string, number> | null {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload))
+    return null;
+  const value = payload as Record<string, unknown>;
+  if (
+    !value.scores ||
+    typeof value.scores !== "object" ||
+    Array.isArray(value.scores)
+  )
+    return null;
+  const scores = value.scores as Record<string, number>;
+  try {
+    const result = interpretJungScores(scores);
+    const fields = {
+      primary: result.primary,
+      secondary: result.secondary,
+      near_leaders: result.nearLeaders,
+    };
+    for (const [key, expected] of Object.entries(fields)) {
+      if (!Object.hasOwn(value, key)) continue;
+      const actual = value[key];
+      if (
+        !Array.isArray(actual) ||
+        actual.length !== expected.length ||
+        new Set(actual).size !== actual.length ||
+        !actual.every((id) => expected.includes(id))
+      )
+        return null;
+    }
+    if (
+      Object.hasOwn(value, "pattern") &&
+      value.pattern !== (result.state === "flat" ? "flat" : "differentiated")
+    )
+      return null;
+    return { ...scores };
+  } catch {
+    return null;
+  }
+}
+
 export const reportChapters = [
   ["profile", "结果总览"],
   ["dimensions", "完整分数"],
@@ -121,6 +183,7 @@ export function makePreviewScores(
 export function buildReportView(
   scores: Record<string, number>,
   referenceId: string,
+  mode: JungReportMode = "preview",
 ) {
   const result = interpretJungScores(scores),
     reference = getArchetype(referenceId),
@@ -249,6 +312,14 @@ export function buildReportView(
       body,
     ]),
     prompt: common.ai.template
+      .replace(
+        "{context}",
+        mode === "result"
+          ? "以下是我本次作答得到的十二原型分数："
+          : mode === "sample"
+            ? "以下分数来自所有人共用的固定示例，不能当作我的真实测评结果："
+            : "以下数据来自本地虚构预览，不能当作我的真实测评结果：",
+      )
       .replace(
         "{scores}",
         dimensions.map((row) => `${row.name} ${row.score}`).join("、"),

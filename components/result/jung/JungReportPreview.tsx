@@ -20,6 +20,7 @@ import {
   buildReportView,
   makePreviewScores,
   reportChapters,
+  interpretJungScores,
   type JungPreviewDimension,
   type PreviewPattern,
 } from "./jungReportAssets";
@@ -164,13 +165,66 @@ export function JungReportPreview({
   initialArchetype?: string;
   initialPattern?: PreviewPattern;
 }) {
-  const [previewId, setPreviewId] = useState(initialArchetype);
-  const [previewPattern, setPreviewPattern] =
-    useState<PreviewPattern>(initialPattern);
-  const view = buildReportView(
-    makePreviewScores(previewId, previewPattern),
-    previewId,
+  return (
+    <JungReportContent
+      mode="preview"
+      initialArchetype={initialArchetype}
+      initialPattern={initialPattern}
+    />
   );
+}
+
+export function JungReport({
+  scores,
+  mode,
+  referenceId,
+}: {
+  scores: Record<string, number>;
+  mode: "result" | "sample";
+  referenceId?: string;
+}) {
+  // Never replace an unavailable real result with demonstration scores.
+  try {
+    const result = interpretJungScores(scores);
+    const reference = referenceId ?? result.primary[0] ?? "sage";
+    if (!archetypeAssets.some((asset) => asset.id === reference))
+      throw new Error("Unknown reference");
+    return (
+      <JungReportContent
+        key={mode + JSON.stringify(scores)}
+        mode={mode}
+        scores={scores}
+        initialArchetype={reference}
+      />
+    );
+  } catch {
+    return <p role="status">当前无法读取报告，请刷新重试。</p>;
+  }
+}
+
+type ReportContentProps =
+  | {
+      mode: "preview";
+      initialArchetype: string;
+      initialPattern: PreviewPattern;
+    }
+  | {
+      mode: "result" | "sample";
+      scores: Record<string, number>;
+      initialArchetype: string;
+    };
+
+function JungReportContent(props: ReportContentProps) {
+  const { mode, initialArchetype } = props;
+  const [previewId, setPreviewId] = useState(initialArchetype);
+  const [previewPattern, setPreviewPattern] = useState<PreviewPattern>(
+    props.mode === "preview" ? props.initialPattern : "clear",
+  );
+  const scores =
+    props.mode === "preview"
+      ? makePreviewScores(previewId, previewPattern)
+      : props.scores;
+  const view = buildReportView(scores, previewId, mode);
   const dimensions = view.dimensions;
   const [selectedId, setSelectedId] = useState(initialArchetype);
   const [chapter, setChapter] = useState("profile");
@@ -235,53 +289,70 @@ export function JungReportPreview({
     }
   }
   const actionItems = view.actions;
+  const ReportRoot = mode === "result" ? "article" : "main";
   return (
-    <main className={styles.page} data-result-visible-root>
-      <div className={styles.previewBar}>
-        <p>本地示例报告 · 固定虚构分数</p>
-        <div className={styles.previewControls}>
-          <label>
-            阅读原型
-            <select
-              aria-label="阅读原型"
-              value={previewId}
-              onChange={(event) => {
-                setPreviewId(event.target.value);
-                setSelectedId(event.target.value);
-                setCompleted([]);
-                setCopied(false);
-                setCopyFailed(false);
-              }}
-            >
-              {archetypeAssets.map((asset) => (
-                <option key={asset.id} value={asset.id}>
-                  {asset.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            结果状态
-            <select
-              aria-label="结果状态"
-              value={previewPattern}
-              onChange={(event) => {
-                setPreviewPattern(event.target.value as PreviewPattern);
-                setCompleted([]);
-                setCopied(false);
-                setCopyFailed(false);
-              }}
-            >
-              {Object.entries(commonAssets.states).map(([key, state]) => (
-                <option key={key} value={key}>
-                  {state.label}
-                </option>
-              ))}
-            </select>
-          </label>
+    <ReportRoot
+      className={styles.page}
+      data-testid={mode === "result" ? "jung-report-shell" : undefined}
+      data-result-visible-root
+      data-report-mode={mode}
+    >
+      {mode === "preview" ? (
+        <div className={styles.previewBar}>
+          <p>本地示例报告 · 固定虚构分数</p>
+          <div className={styles.previewControls}>
+            <label>
+              阅读原型
+              <select
+                aria-label="阅读原型"
+                value={previewId}
+                onChange={(event) => {
+                  setPreviewId(event.target.value);
+                  setSelectedId(event.target.value);
+                  setCompleted([]);
+                  setCopied(false);
+                  setCopyFailed(false);
+                }}
+              >
+                {archetypeAssets.map((asset) => (
+                  <option key={asset.id} value={asset.id}>
+                    {asset.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              结果状态
+              <select
+                aria-label="结果状态"
+                value={previewPattern}
+                onChange={(event) => {
+                  setPreviewPattern(event.target.value as PreviewPattern);
+                  setCompleted([]);
+                  setCopied(false);
+                  setCopyFailed(false);
+                }}
+              >
+                {Object.entries(commonAssets.states).map(([key, state]) => (
+                  <option key={key} value={key}>
+                    {state.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <span>十二原型 · 48 题</span>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.previewBar}>
+          <p>
+            {mode === "sample"
+              ? "示例报告 · 固定虚构分数，所有人看到相同示例；你的报告将按自己的作答生成。"
+              : "你的荣格十二原型报告 · 根据本次作答生成"}
+          </p>
           <span>十二原型 · 48 题</span>
         </div>
-      </div>
+      )}
 
       <section
         id="profile"
@@ -598,7 +669,10 @@ export function JungReportPreview({
           {!hasSingleLeader && (
             <p className={styles.referenceNotice}>
               以下工作、关系与行动内容按当前选择的「{view.asset.name}
-              」提供参考，不把它指定为主导原型。可以使用页首“阅读原型”切换了解其他动机。
+              」提供参考，不把它指定为主导原型。
+              {mode === "preview"
+                ? "可以使用页首“阅读原型”切换了解其他动机。"
+                : "可以先对照上方原型解读，选择与经历相符的部分。"}
             </p>
           )}
           {archetypeApplicationSections.map((section) => (
@@ -820,6 +894,6 @@ export function JungReportPreview({
           </div>
         </aside>
       </div>
-    </main>
+    </ReportRoot>
   );
 }

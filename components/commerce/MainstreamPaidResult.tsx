@@ -64,7 +64,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   Object.assign(labels, {explorer:["探索者","探索者","Explorer"],lover:["情人","情人","Lover"],creator:["创造者","創造者","Creator"],jester:["弄臣","弄臣","Jester"],ruler:["统治者","統治者","Ruler"],everyperson:["凡人","凡人","Everyperson"],hero:["英雄","英雄","Hero"],caregiver:["照顾者","照顧者","Caregiver"],innocent:["天真者","天真者","Innocent"],sage:["智者","智者","Sage"],magician:["魔法师","魔法師","Magician"],rebel:["反叛者","反叛者","Rebel"],TOTAL:["综合分","綜合分","Overall score"]});
   const discLabels:Record<string,[string,string,string]>={D:["主导","主導","Dominance"],I:["影响","影響","Influence"],S:["稳健","穩健","Steadiness"],C:["审慎","審慎","Conscientiousness"]};
   const label = (key:string) => scale === "DISC_BEHAVIOR" && discLabels[key] ? t(...discLabels[key]) : labels[key] ? t(...labels[key]) : /^T[1-9]$/.test(key) ? t(`候选类型 ${key.slice(1)}`,`候選型別 ${key.slice(1)}`,`Candidate type ${key.slice(1)}`) : key;
-  return <div className={paid ? "mx-auto max-w-6xl px-4 py-8" : styles.page} data-result-visible-root data-testid="mainstream-paid-result">
+  return <div className={paid ? (scale === "JUNG_ARCHETYPES" && locale === "zh" ? "w-full space-y-6" : "mx-auto max-w-6xl px-4 py-8") : styles.page} data-result-visible-root data-testid="mainstream-paid-result">
     {purchase.order_no && <CareerRefundPanel orderNo={purchase.order_no} locale={locale} onRefunded={() => setRefunded(true)} />}
     {paid ? children : <>
       <div className={styles.shell}>
