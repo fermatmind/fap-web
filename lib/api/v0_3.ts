@@ -5,7 +5,7 @@ import { getOrCreateAnonId, removePendingAnonLinkAttempts } from "@/lib/anon";
 import { buildApiUrl } from "@/lib/api-base";
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
-import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
+import { buildRequestScaleCodeCandidates, toScaleCodeV1 } from "@/lib/scaleCodeMode";
 
 export type ScaleQuestionOption = {
   code: string;
@@ -3161,7 +3161,7 @@ export async function startAttempt({
         ...(meta ? { meta } : {}),
         ...(attribution ?? {}),
       },
-      anonHeader(resolvedAnonId, careerGuestHeaders(resolvedScaleCode === "RIASEC"))
+      anonHeader(resolvedAnonId, careerGuestHeaders(toScaleCodeV1(resolvedScaleCode) === "RIASEC"))
     )
   );
 
