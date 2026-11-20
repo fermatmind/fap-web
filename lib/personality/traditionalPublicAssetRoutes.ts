@@ -1,3 +1,4 @@
+import { normalizePersonalityComparisonSlug } from "@/lib/mbti/personalityComparison";
 import { BIG_FIVE_PUBLIC_ROUTE_ENTRIES, buildBigFivePublicContentPath } from "@/lib/personality/bigFivePublicRoutes";
 import { ENNEAGRAM_PUBLIC_ROUTE_ENTRIES, buildEnneagramPublicContentPath } from "@/lib/personality/enneagramPublicRoutes";
 
@@ -20,22 +21,13 @@ export function getTraditionalPublicAssetRoute(pathname: string) {
   return assetRoutes.get(pathname) ?? null;
 }
 
-
-const MBTI_TRADITIONAL_DETAIL_PATH = /^\/zh-TW\/personality\/([ie][ns][ft][jp])(?:-[at]|-a-vs-\1-t)?$/u;
-const MBTI_TRADITIONAL_CROSS_TYPES = new Set([
-  "enfp-vs-entp",
-  "entj-vs-intj",
-  "estj-vs-entj",
-  "infj-vs-infp",
-  "intj-vs-intp",
-  "isfp-vs-infp",
-  "istj-vs-isfj",
-]);
+const MBTI_TRADITIONAL_PROFILE_PATH = /^\/zh-TW\/personality\/([ie][ns][ft][jp])(?:-[at])?$/u;
 
 export function isTraditionalMbtiDetailPath(pathname: string): boolean {
   const prefix = "/zh-TW/personality/";
-  return pathname.startsWith(prefix) && (
-    MBTI_TRADITIONAL_DETAIL_PATH.test(pathname) ||
-    MBTI_TRADITIONAL_CROSS_TYPES.has(pathname.slice(prefix.length))
-  );
+  if (!pathname.startsWith(prefix)) return false;
+
+  const slug = pathname.slice(prefix.length);
+  return MBTI_TRADITIONAL_PROFILE_PATH.test(pathname) ||
+    normalizePersonalityComparisonSlug(slug) === slug;
 }
