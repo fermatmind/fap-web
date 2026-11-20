@@ -1,6 +1,8 @@
 import { isClinicalDepressionPendingSlug } from "@/lib/seo/seoHoldlistRoutes";
 
 export const HIDDEN_PUBLIC_TEST_ENTRY_SLUGS = [
+  "jung-cognitive-functions",
+  "cognitive-functions-test",
   "clinical-depression-anxiety-assessment-professional-edition",
   "depression-screening-test-standard-edition",
 ] as const;
@@ -20,6 +22,10 @@ export function extractTestSlugFromEntryHref(href: string | null | undefined): s
   return normalizeSlug(matched?.[1]);
 }
 
+export function isRetiredJungAssessment(slug: string): boolean {
+  return ["jung-cognitive-functions", "cognitive-functions-test"].includes(slug.trim().toLowerCase());
+}
+
 export function isPublicTestEntryVisible(input: {
   slug?: string | null;
   href?: string | null;
@@ -29,7 +35,7 @@ export function isPublicTestEntryVisible(input: {
     return true;
   }
 
-  return !isClinicalDepressionPendingSlug(slug);
+  return !isRetiredJungAssessment(slug) && !isClinicalDepressionPendingSlug(slug);
 }
 
 export function filterVisiblePublicTestEntries<T extends { href?: string | null; slug?: string | null; key?: string | null }>(

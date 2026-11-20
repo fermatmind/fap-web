@@ -3,7 +3,6 @@ import { expect, test } from "@playwright/test";
 for (const locale of ["zh", "en"]) {
   for (const [legacy, current, profile] of [
     ["jungian-archetype", "jung-archetypes", "hero"],
-    ["cognitive-functions-test", "jung-cognitive-functions", "ni"],
   ]) {
     test(`@release ${locale} retires ${legacy} and forwards entry to ${current}`, async ({ request }) => {
       for (const suffix of ["", "/take"]) {
@@ -16,4 +15,14 @@ for (const locale of ["zh", "en"]) {
       expect((await request.get(`/zh-TW/tests/explore/${legacy}/results/${profile}`)).status()).toBe(404);
     });
   }
+}
+
+for (const locale of ["zh", "en", "zh-TW"]) {
+  test(`${locale} retires cognitive function entry and questionnaire`, async ({ request }) => {
+    for (const path of ["jung-cognitive-functions", "explore/cognitive-functions-test"]) {
+      for (const suffix of ["", "/take"]) {
+        expect((await request.get(`/${locale}/tests/${path}${suffix}`)).status()).toBe(404);
+      }
+    }
+  });
 }

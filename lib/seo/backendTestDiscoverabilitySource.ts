@@ -6,7 +6,7 @@ import {
   getIqSeoRampAuthorityForLocale,
   isIqSeoRampDiscoverable,
 } from "@/lib/seo/iqSeoRampAuthority";
-import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
+import { isRetiredJungAssessment, filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { Locale } from "@/lib/i18n/locales";
 
 type BackendScaleCatalogItem = {
@@ -77,7 +77,7 @@ function normalizeCatalogItem(
   iqSeoRampAuthority: Awaited<ReturnType<typeof getIqSeoRampAuthorityForLocale>>
 ): BackendDiscoverabilityTestEntry | null {
   const slug = cleanString(item.slug).toLowerCase();
-  if (!slug || !isPublicIndexableCatalogItem(item)) {
+  if (!slug || isRetiredJungAssessment(slug) || !isPublicIndexableCatalogItem(item)) {
     return null;
   }
 

@@ -18,17 +18,6 @@ const archetypes: readonly Row[] = [
   [["反叛者", "反叛者", "Rebel"], ["挑战多余的约束", "挑戰多餘的約束", "Challenge needless constraints"], ["指出旧规则造成的具体代价，拿出可试的替代方案。", "指出舊規則造成的具體代價，提出可試的替代做法。", "Name the cost of an outdated rule and propose an alternative."]],
 ];
 
-const functions: readonly Row[] = [
-  [["Ni 内倾直觉", "Ni 內傾直覺", "Ni · Introverted intuition"], ["把线索收束成可能的走向", "把線索收束成可能的走向", "Converge on a possible direction"], ["把几次延期看作同一个交接问题的迹象。", "把幾次延期看成同一個交接問題的跡象。", "Treat repeated delays as clues to one handoff problem."]],
-  [["Ne 外倾直觉", "Ne 外傾直覺", "Ne · Extraverted intuition"], ["由一个线索展开多种可能", "由一個線索展開多種可能", "Generate alternatives from a cue"], ["从一条反馈提出三个可试的改法。", "從一則回饋提出三種可試的改法。", "Use one piece of feedback to suggest three experiments."]],
-  [["Si 内倾感觉", "Si 內傾感覺", "Si · Introverted sensation"], ["用具体经验比对当下", "用具體經驗比對當下", "Compare the present with specific past experience"], ["翻看上次记录，找出这次流程哪里不同。", "翻看上次紀錄，找出這次流程哪裡不同。", "Check the previous log to see what differs this time."]],
-  [["Se 外倾感觉", "Se 外傾感覺", "Se · Extraverted sensation"], ["根据现场变化即时调整", "根據現場變化即時調整", "Adapt to what you observe in real time"], ["看到现场排队变长，立即调整服务顺序。", "看到現場隊伍變長，立刻調整服務順序。", "Reorder service when you see the queue growing."]],
-  [["Ti 内倾思维", "Ti 內傾思考", "Ti · Introverted thinking"], ["检查定义和推理是否一致", "檢查定義和推理是否一致", "Check internal logical consistency"], ["先澄清大家所说的「完成」是否指同一件事。", "先釐清大家說的「完成」是不是指同一件事。", "Clarify whether everyone means the same thing by ‘done’."]],
-  [["Te 外倾思维", "Te 外傾思考", "Te · Extraverted thinking"], ["用可核对的标准推进决定", "用可核對的標準推進決定", "Use verifiable criteria to decide"], ["比较交付成本、期限和验收条件后选方案。", "比較交付成本、期限與驗收條件後選方案。", "Choose a plan after comparing cost, deadlines and acceptance criteria."]],
-  [["Fi 内倾情感", "Fi 內傾情感", "Fi · Introverted feeling"], ["对照自己的价值和边界", "對照自己的價值與界線", "Check choices against personal values"], ["遇到一个机会，先想接受它是否符合自己的原则。", "遇到一個機會，先想接受它是否符合自己的原則。", "Consider whether taking an opportunity fits your principles."]],
-  [["Fe 外倾情感", "Fe 外傾情感", "Fe · Extraverted feeling"], ["参考共同期待和他人反应", "參照共同期待與他人反應", "Attend to shared expectations and reactions"], ["听出讨论中有人没有参与，主动留时间听他们的意见。", "察覺討論中有人沒參與，主動留時間聽聽他們的意見。", "Notice someone has been quiet and make space for their view."]],
-];
-
 const career: readonly Row[] = [
   [["职业兴趣 · 42 题", "職涯興趣 · 42 題", "Interests · 42 items"], ["六类 RIASEC 活动偏好，每类七题。", "六類 RIASEC 活動偏好，每類七題。", "Seven items for each of the six RIASEC activity interests."], ["喜欢调查和解释证据，可以核对职位是否真的包含分析任务。", "喜歡調查與解釋證據，可確認職缺是否真的包含分析任務。", "If investigating evidence appeals to you, check that the role involves analysis."]],
   [["工作方式 · 20 题", "工作方式 · 20 題", "Work style · 20 items"], ["五个维度，每维四题，覆盖协作、自主、切换、对外沟通和走动。", "五個面向，每個四題，涵蓋合作、自主、切換、對外溝通及走動。", "Five four-item dimensions cover coordination, discretion, task switching, external contact and physical activity."], ["都叫分析师，一个团队每天开协调会，另一个主要独立写报告。", "同樣是分析師，一個團隊天天開協調會，另一個主要獨立寫報告。", "Two analyst roles can differ in how much of the day is spent coordinating or writing independently."]],
@@ -50,16 +39,6 @@ const readings = {
       "Suppose Creator scores 75, Explorer 68.75 and Caregiver 50. Creator leads by one scoring step, and Explorer is still flagged as close to the lead. Compare two concrete episodes: were you motivated to finish a piece of work or to open up a new direction? If the highest and lowest of all 12 scores are within 6.25 points, the report withholds a primary archetype. These scores are illustrative.",
     ],
     rows: archetypes,
-  },
-  functions: {
-    title: ["八种认知功能的含义与情境", "八種認知功能的含義與情境", "What the eight cognitive functions mean in practice"],
-    exampleTitle: ["八维报告示例", "八維報告示例", "Worked example: axes and type candidates"],
-    example: [
-      "假设 Ni 68.75 与 Se 65.625，分差为 3.125。当前算法将这个差距视为接近，无方向标记。先看其他三个轴，再看候选类型对小幅作答变化是否敏感。若候选摇摆，可比较自己在熟悉任务和陌生任务里的表现，暂时保留多个候选。",
-      "假設 Ni 為 68.75、Se 為 65.625，兩者相差 3.125。這個差距在目前算法中屬接近，不標方向。先看另外三組，再看小幅作答變動是否會改變候選類型。候選不穩定時，可比較自己處理熟悉與陌生任務的做法，暫時保留多個候選。",
-      "Suppose Ni scores 68.75 and Se 65.625. A gap of 3.125 is treated as close and receives no lean marker. Read the other three axes and check whether a small change in answers would shift the candidate ranking. If it would, compare familiar and unfamiliar tasks and keep several candidates open.",
-    ],
-    rows: functions,
   },
   career: {
     title: ["94 题测什么？", "94 題測什麼？", "What the 94 questions cover"],

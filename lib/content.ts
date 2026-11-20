@@ -1,3 +1,4 @@
+import { isRetiredJungAssessment } from "@/lib/tests/publicTestEntryVisibility";
 import { apiClient } from "@/lib/api-client";
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
@@ -270,7 +271,7 @@ export async function getAllTests(locale: Locale = "en"): Promise<TestListItem[]
 
   return payloadNode.items
     .map(normalizeCatalogItem)
-    .filter((item): item is TestListItem => item !== null)
+    .filter((item): item is TestListItem => item !== null && !isRetiredJungAssessment(item.slug))
     .sort(
       (a, b) => (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0) || a.title.localeCompare(b.title)
     );

@@ -413,6 +413,9 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
 
 function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
+  if (/^\/(?:en|zh|zh-TW)\/tests\/(?:jung-cognitive-functions|(?:explore|play)\/cognitive-functions-test)(?:\/|$)/i.test(pathname)) {
+    return createPublicAbsenceResponse(404);
+  }
   const comparisonIndex = pathname.match(/^\/(en|zh|zh-TW)\/career-compare\/?$/);
   const previewComparison = isFixedComparisonPreviewEnabled() && (comparisonIndex || /^\/zh-TW\/career-compare\/[^/]+$/.test(pathname));
   if (comparisonIndex && !isFixedComparisonPreviewEnabled()) return createPublicAbsenceResponse(404);

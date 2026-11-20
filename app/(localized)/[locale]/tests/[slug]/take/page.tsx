@@ -1,3 +1,4 @@
+import { isRetiredJungAssessment } from "@/lib/tests/publicTestEntryVisibility";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
@@ -109,8 +110,9 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const displayLocale = normalizeDisplayLocale(localeParam) ?? locale;
   const slug = resolveCanonicalSlug(requestedSlug);
+  if (isRetiredJungAssessment(slug)) notFound();
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return { robots: NOINDEX_ROBOTS };
-  const test = slug === "jung-archetypes" || slug === "jung-cognitive-functions"
+  const test = slug === "jung-archetypes"
     ? (await loadTestLandingData(locale, slug))?.test ?? null
     : await getTestBySlug(slug, locale);
   const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
@@ -148,6 +150,7 @@ export default async function TakePage({
   const dict = getDictSync(displayLocale);
   const withLocale = (path: string) => assessmentDisplayPath(path, displayLocale, locale);
   const slug = resolveCanonicalSlug(requestedSlug);
+  if (isRetiredJungAssessment(slug)) notFound();
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return notFound();
   if (isRiasecSlug(slug)
     && normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code)) === "riasec_140") {
@@ -156,7 +159,7 @@ export default async function TakePage({
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
   }
-  const test = slug === "jung-archetypes" || slug === "jung-cognitive-functions"
+  const test = slug === "jung-archetypes"
     ? (await loadTestLandingData(locale, slug))?.test ?? null
     : await getTestBySlug(slug, locale);
 
@@ -210,7 +213,7 @@ export default async function TakePage({
 
   const lookupRuntime = await fetchLookupRuntimeContext(slug, locale);
   const capabilities = lookupRuntime.capabilities;
-  const isJung = test.scale_code === "JUNG_ARCHETYPES" || test.scale_code === "JUNG_COGNITIVE_FUNCTIONS";
+  const isJung = test.scale_code === "JUNG_ARCHETYPES";
   const jungForm = isJung && Array.isArray(lookupRuntime.forms)
     ? lookupRuntime.forms.find((form) => form?.is_default === true && typeof form.form_code === "string")
     : null;

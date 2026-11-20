@@ -25,6 +25,22 @@ afterEach(() => {
 });
 
 describe("proxy boundary contract", () => {
+  it("returns hard 404 for retired Jung cognitive tests before streaming or API reads", () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    for (const locale of ["en", "zh", "zh-TW"]) {
+      for (const path of ["jung-cognitive-functions", "explore/cognitive-functions-test", "play/cognitive-functions-test"]) {
+        for (const suffix of ["", "/take", "/results/ni"]) {
+          const response = proxy(new NextRequest(`https://example.com/${locale}/tests/${path}${suffix}`));
+          expect(response.status).toBe(404);
+          expect(response.headers.get("x-robots-tag")).toContain("noindex");
+          expect(response.headers.get("location")).toBeNull();
+        }
+      }
+    }
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it("retires every old MBTI career detail identity before any API read", () => {
     const fetchMock = vi.fn();
     vi.stubGlobal("fetch", fetchMock);

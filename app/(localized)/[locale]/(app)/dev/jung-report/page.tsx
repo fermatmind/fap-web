@@ -17,6 +17,6 @@ export default async function Page({
   const { locale } = await params;
   if (locale !== "zh") notFound();
   const { form } = await searchParams;
-  const selected = form === "functions" ? "functions" : "archetypes";
-  return <JungReportPreview key={selected} form={selected} />;
+  if (form && form !== "archetypes") notFound();
+  return <JungReportPreview />;
 }

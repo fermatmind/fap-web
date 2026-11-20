@@ -56,10 +56,11 @@ describe("Career94 landing page", () => {
     }
   });
 
-  it("keeps the shared Jung landing on its existing independent questionnaire entries", () => {
+  it("offers only the twelve-archetype questionnaire on the Jung landing", () => {
     render(<FreeAssessmentLanding assessment="jung" locale="en" />);
     expect(screen.getByTestId("free-assessment-start-archetypes")).toHaveAttribute("href", "/en/tests/jung-archetypes/take");
-    expect(screen.getByTestId("free-assessment-start-functions")).toHaveAttribute("href", "/en/tests/jung-cognitive-functions/take");
+    expect(screen.queryByTestId("free-assessment-start-functions")).not.toBeInTheDocument();
+    expect(screen.queryByText(/8 Cognitive Functions/)).not.toBeInTheDocument();
     expect(screen.queryByTestId("free-assessment-start-closing")).not.toBeInTheDocument();
   });
 });

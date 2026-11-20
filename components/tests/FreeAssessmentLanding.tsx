@@ -51,17 +51,12 @@ export function FreeAssessmentLanding({ assessment, locale }: {
   const choices = guides.map(({ key, path, intro }) => ({
     key,
     label: key === "archetypes" ? l("开始十二原型测试 · 48 题", "開始十二原型測驗 · 48 題", "Start 12 Archetypes · 48 questions")
-      : key === "functions" ? l("开始八维认知功能测试 · 64 题", "開始八維認知功能測驗 · 64 題", "Start 8 Cognitive Functions · 64 questions")
       : l("开始免费职业测试", "開始免費職業測驗", "Start the free career test"),
     href: `/${takeLocale}${path}/take`,
     testId: key === "career" ? "free-assessment-start" : `free-assessment-start-${key}`,
     summary: traditional ? "作答使用簡體中文題本。" : jung ? intro : undefined,
   }));
   const extraFaq = jung ? [
-    {
-      question: l("两套荣格测试必须一起做吗？", "兩套榮格測驗一定要一起做嗎？", "Do I have to take both Jung tests?"),
-      answer: l("可以只做一套。原型分析近期动机，八维比较处理信息和判断的方式。两份报告独立出分，不合成一个总分。", "可以只做一套。原型分析近期動機，八維比較處理資訊與判斷的方式。兩份報告各自計分，不合成總分。", "You can take either one. Archetypes describe recent motives and the functions test compares ways of processing information and judging. The reports are scored independently."),
-    },
     {
       question: l("0–100 分是百分位吗？", "0–100 分是百分位嗎？", "Is a 0–100 score a percentile?"),
       answer: l("分数来自题本量尺的换算。75 分说明本次作答在该维度的量尺位置，并没有拿人群样本来计算百分位。", "分數由題本量尺換算。75 分表示這次作答在該面向的量尺位置，沒有使用人群樣本計算百分位。", "Scores are rescaled from the questionnaire. A score of 75 locates your responses on that scale; no population sample is used to calculate a percentile."),
@@ -106,13 +101,12 @@ export function FreeAssessmentLanding({ assessment, locale }: {
       </nav>
       <div className={jung ? styles.content : careerStyles.landing}>
         {jung ? <AssessmentLandingIntro locale={locale} title={copy.title} description={copy.intro}
-          heroArtwork="functions" disabled={false} choices={choices} showChoiceSummaries wide />
+          heroArtwork="archetypes" disabled={false} choices={choices} showChoiceSummaries wide />
           : <CareerAssessmentIntro locale={locale} title={copy.title} description={copy.intro} choice={choices[0]} />}
         {jung ? <>
         <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label={l("本页目录", "本頁目錄", "On this page")}>
           {guides.map(({ key }) => <a className="underline underline-offset-4" key={key} href={`#${key}`}>{
             key === "archetypes" ? l("十二原型 · 48 题", "十二原型 · 48 題", "12 Archetypes · 48 questions")
-              : key === "functions" ? l("八维认知功能 · 64 题", "八維認知功能 · 64 題", "8 Cognitive Functions · 64 questions")
               : l("题本、计分与结果示例", "題本、計分與結果示例", "Questionnaire, scoring and example")
           }</a>)}
           <a className="underline underline-offset-4" href="#assessment-faq">{l("常见问题", "常見問題", "Frequently asked questions")}</a>
