@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
+  BriefcaseBusiness,
+  Gauge,
+  Wallet,
   Check,
   CheckCheck,
   Copy,
@@ -317,10 +320,6 @@ export function JungReportPreview() {
             <p>{profile.growth.practice}</p>
           </div>
         </div>
-        <p className={styles.heroFootnote}>
-          本报告展示过去三个月的情境自评读法。各项分数独立换算为
-          0–100，当前题本尚无人群常模。
-        </p>
       </section>
 
       <div className={styles.reportGrid}>
@@ -462,15 +461,36 @@ export function JungReportPreview() {
               <h2 id="careers-title">职业匹配</h2>
             </header>
             <div className={styles.applicationBody}>
-              <h3>从你愿意投入的任务，寻找职业方向</h3>
-              <p className={styles.readingText}>
-                结合本次示例中的求知、创作与探索动机，以下三个方向可优先了解。这里展示的是任务关联，不是职业适合度排名；选择时还需要结合兴趣、技能、训练要求和工作条件。
-              </p>
+              <div className={styles.matchOverview}>
+                <h3>职业匹配一览</h3>
+                <ul>
+                  {archetypeCareerPreview.map((career) => (
+                    <li key={career.slug}>
+                      <Link href={`/zh/career/jobs/${career.slug}`}>
+                        <span>{career.name}</span>
+                        <span className={styles.matchBadge}>
+                          动机匹配 <ArrowRight size={13} />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  按本次示例的动机与职业任务关联整理，结合技能、训练要求与工作条件继续核对。
+                </p>
+                <Link className={styles.careerLibraryLink} href="/zh/career">
+                  浏览全部 1046 个职业 <ArrowRight size={14} />
+                </Link>
+              </div>
               <div className={styles.careerMatches}>
                 {archetypeCareerPreview.map((career) => (
                   <article key={career.slug}>
                     <div className={styles.careerMatchHeading}>
-                      <h4>{career.name}</h4>
+                      <h4>
+                        <Link href={`/zh/career/jobs/${career.slug}`}>
+                          {career.name}
+                        </Link>
+                      </h4>
                       <span>{career.focus}</span>
                     </div>
                     <p className={styles.readingText}>{career.task}</p>
@@ -480,9 +500,6 @@ export function JungReportPreview() {
                       <Link href={`/zh/career/jobs/${career.slug}`}>
                         查看职业详情 <ArrowRight size={14} />
                       </Link>
-                      <a href={career.source} target="_blank" rel="noreferrer">
-                        任务来源：O*NET
-                      </a>
                     </div>
                   </article>
                 ))}
@@ -502,14 +519,41 @@ export function JungReportPreview() {
                 <h2 id={`${section.id}-title`}>{section.label}</h2>
               </header>
               <div className={styles.applicationBody}>
-                <h3>{section.title}</h3>
+                <h3
+                  className={
+                    section.id === "work" ? styles.workIntroTitle : undefined
+                  }
+                >
+                  {section.id === "work" && (
+                    <span className={styles.workIntroIcon} aria-hidden="true">
+                      <BriefcaseBusiness size={22} />
+                    </span>
+                  )}
+                  {section.title}
+                </h3>
                 <p className={styles.readingText}>{section.intro}</p>
                 {section.paragraphs.map((paragraph) => (
                   <div
                     className={styles.readingSection}
                     key={paragraph.heading}
                   >
-                    <h4>{paragraph.heading}</h4>
+                    <h4
+                      className={
+                        section.id === "work"
+                          ? styles.workTopicHeading
+                          : undefined
+                      }
+                    >
+                      {section.id === "work" &&
+                        (paragraph.heading.startsWith("工作中") ? (
+                          <BriefcaseBusiness size={17} aria-hidden="true" />
+                        ) : paragraph.heading.startsWith("压力之下") ? (
+                          <Gauge size={17} aria-hidden="true" />
+                        ) : (
+                          <Wallet size={17} aria-hidden="true" />
+                        ))}
+                      {paragraph.heading}
+                    </h4>
                     <p className={styles.readingText}>{paragraph.body}</p>
                   </div>
                 ))}
@@ -555,7 +599,6 @@ export function JungReportPreview() {
             className={styles.section}
             aria-labelledby="actions-title"
           >
-            <p className={styles.eyebrow}>从理解到实践</p>
             <h2 id="actions-title">行动计划</h2>
             <p className={styles.lead}>
               按自己的节奏，选择一个与当前生活有关的起点。每个阶段都留下具体经历和反馈，让下一步建立在你实际学到的东西上。
@@ -596,7 +639,6 @@ export function JungReportPreview() {
             className={styles.section}
             aria-labelledby="method-title"
           >
-            <p className={styles.eyebrow}>理论来源与测量边界</p>
             <h2 id="method-title">科学依据</h2>
             <div className={styles.scienceCopy}>
               <h3>从荣格的原型概念，到现代十二原型框架</h3>
@@ -659,7 +701,6 @@ export function JungReportPreview() {
                 alt=""
               />
               <div>
-                <p className={styles.eyebrow}>继续探索</p>
                 <h2 id="ai-title">和 AI 继续探索你的原型动机</h2>
                 <p>
                   带着结果和一段真实经历，和 AI
@@ -705,12 +746,6 @@ export function JungReportPreview() {
             </p>
           </div>
         </aside>
-      </div>
-      <div className={styles.end}>
-        <p>看见一种习惯，也多一种选择。</p>
-        <Link href="/zh/tests/jung-test">
-          了解荣格十二原型测试 <ArrowRight size={17} />
-        </Link>
       </div>
     </main>
   );
