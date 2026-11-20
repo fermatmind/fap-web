@@ -6,7 +6,7 @@ import {
   getEnneagramPublicContentAsset,
   getTraditionalPersonalityPublicContentAsset,
 } from "@/lib/cms/personality-public-content-assets";
-import { getTraditionalPublicAssetRoute } from "@/lib/personality/traditionalPublicAssetRoutes";
+import { getTraditionalPublicAssetRoute, isTraditionalMbtiDetailPath } from "@/lib/personality/traditionalPublicAssetRoutes";
 import { PublicReadError } from "@/lib/public-content/readError";
 
 const ROOT = process.cwd();
@@ -154,6 +154,23 @@ describe("public personality asset read stability", () => {
     expect(url.searchParams.get("code")).toBe("type-1/self-preservation");
     expect(url.searchParams.get("locale")).toBe("zh-TW");
     expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it("admits canonical Taiwan MBTI comparisons for backend lookup", () => {
+    for (const slug of ["intj-vs-isfj", "infj-vs-intp", "istj-vs-isfj", "infj-a-vs-infj-t", "infj-t", "infj"]) {
+      expect(isTraditionalMbtiDetailPath(`/zh-TW/personality/${slug}`)).toBe(true);
+    }
+
+    for (const path of [
+      "/zh/personality/intj-vs-isfj",
+      "/zh-TW/personality/INTJ-vs-isfj",
+      "/zh-TW/personality/intj-vs-intj",
+      "/zh-TW/personality/intj-vs-xxxx",
+      "/zh-TW/personality/intj-vs-isfj/details",
+      "/zh-TW/personality/",
+    ]) {
+      expect(isTraditionalMbtiDetailPath(path)).toBe(false);
+    }
   });
 
   it("memoizes one backend-authority read across metadata and page rendering with primitive route keys", () => {
