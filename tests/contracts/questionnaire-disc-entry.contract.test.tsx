@@ -1,5 +1,5 @@
 import { StrictMode } from "react";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeAll, afterAll, describe, expect, it, vi } from "vitest";
 import original from "@/lib/questionnaires/data/disc.json";
 import type { Questionnaire } from "@/lib/questionnaires/types";
@@ -10,9 +10,7 @@ import { prepareDiscResultProfile } from "@/lib/questionnaires/result-content/di
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { DiscEntryClient } from "@/components/questionnaires/DiscEntryClient";
 
-const tracking = vi.hoisted(() => ({ trackEvent: vi.fn(), activity: vi.fn(), save: vi.fn(), push: vi.fn() }));
-vi.mock("next/navigation", () => ({ useRouter: () => ({push: tracking.push}) }));
-vi.mock("@/lib/api/v0_3", () => ({ saveDiscAssessment: tracking.save }));
+const tracking = vi.hoisted(() => ({ trackEvent: vi.fn(), activity: vi.fn() }));
 vi.mock("@/lib/analytics", () => ({ trackEvent: tracking.trackEvent }));
 vi.mock("@/lib/entertainment/activity", () => ({ recordEntertainmentActivity: tracking.activity }));
 const quiz = original as Questionnaire, entry = discEntryDefinition(quiz);
@@ -40,9 +38,6 @@ describe("DISC entry and selected complete engine", () => {
   });
   it.each(["en", "zh"] as const)("preserves once-only %s start/completion/view identities across the lazy boundary", async locale => {
     const zh = locale === "zh";
-    tracking.save.mockResolvedValue({ok:true, attempt_id:"owned-disc-result"});
-    tracking.push.mockClear();
-    tracking.save.mockClear();
     render(<StrictMode><DiscEntryClient quiz={entry} locale={locale} /></StrictMode>);
     fireEvent.click(screen.getByRole("button", { name: zh ? "开始测试" : "Start test" }));
     expect(tracking.trackEvent.mock.calls.filter(([event]) => event === "start_test")).toHaveLength(1);
@@ -50,12 +45,9 @@ describe("DISC entry and selected complete engine", () => {
     expect(tracking.trackEvent.mock.calls.filter(([event]) => event === "start_test")).toHaveLength(1);
     for (let i = 0; i < quiz.questions.length; i++) {
       fireEvent.click(screen.getAllByRole("radio")[0]);
-      fireEvent.click(screen.getByRole("button", { name: i === 23 ? (zh ? "查看基础结果" : "See basic result") : (zh ? "下一题" : "Next") }));
+      fireEvent.click(screen.getByRole("button", { name: i === 23 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next") }));
     }
-    await waitFor(() => expect(tracking.push).toHaveBeenCalledWith(`/${locale}/result/owned-disc-result`));
-    expect(tracking.save).toHaveBeenCalledTimes(1);
-    expect(tracking.trackEvent.mock.calls.filter(([event]) => event === "view_result")).toHaveLength(0);
-    for (const event of ["start_test", "complete_test"]) {
+    for (const event of ["start_test", "complete_test", "view_result"]) {
       const calls = tracking.trackEvent.mock.calls.filter(([name]) => name === event);
       expect(calls).toHaveLength(1);
       expect(calls[0][1]).toEqual({ slug: "disc", locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: "self_report", page_type: "test_detail" });
