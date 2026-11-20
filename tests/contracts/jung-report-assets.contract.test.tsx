@@ -94,13 +94,14 @@ describe("twelve-archetype replacement report", () => {
     ]);
   });
   it("rejects missing, foreign, nonfinite and off-grid score inputs", () => {
-    for (const bad of [
+    const invalidScores: Record<string, number>[] = [
       { hero: 100 },
       { ...allScores(50), hero: NaN },
       { ...allScores(50), hero: 51 },
       { ...allScores(50), hero: 101 },
       { ...allScores(50), foreign: 50 },
-    ])
+    ];
+    for (const bad of invalidScores)
       expect(() => interpretJungScores(bad)).toThrow();
   });
   it.each(archetypeAssets.map((asset) => [asset.id, asset.name]))(
