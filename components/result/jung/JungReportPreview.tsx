@@ -25,7 +25,15 @@ function coordinates(index: number, count: number, radius: number) {
     (value) => Number(value.toFixed(3)),
   );
 }
-function ProfileChart({ dimensions }: { dimensions: JungPreviewDimension[] }) {
+function ProfileChart({
+  dimensions,
+  selectedId,
+  onSelect,
+}: {
+  dimensions: JungPreviewDimension[];
+  selectedId: string;
+  onSelect: (id: string) => void;
+}) {
   const count = dimensions.length;
   const polygon = (radius: number) =>
     dimensions.map((_, i) => coordinates(i, count, radius).join(",")).join(" ");
@@ -80,13 +88,32 @@ function ProfileChart({ dimensions }: { dimensions: JungPreviewDimension[] }) {
               key={row.id}
               cx={cx}
               cy={cy}
-              r="4"
+              r={selectedId === row.id ? 6 : 4}
               fill="#246b60"
               stroke="white"
               strokeWidth="2"
             />
           );
         })}
+        <g aria-hidden="true">
+          {dimensions.map((row, i) => {
+            const [ax, ay] = coordinates(i - 0.5, count, 190);
+            const [bx, by] = coordinates(i + 0.5, count, 190);
+            return (
+              <path
+                key={row.id}
+                data-dimension={row.id}
+                d={`M210 210 L${ax} ${ay} A190 190 0 0 1 ${bx} ${by} Z`}
+                fill="transparent"
+                style={{ cursor: "pointer" }}
+                onPointerEnter={(event) => {
+                  if (event.pointerType !== "touch") onSelect(row.id);
+                }}
+                onClick={() => onSelect(row.id)}
+              />
+            );
+          })}
+        </g>
       </svg>
       <figcaption>维度分 · 0–100</figcaption>
     </figure>
@@ -261,7 +288,7 @@ export function JungReportPreview() {
                 <p className={styles.eyebrow}>完整分数</p>
                 <h2 id="dimension-title">{"你的十二原型分布"}</h2>
               </div>
-              <span>点击维度，查看解读</span>
+              <span>悬停或点击维度，查看解读</span>
             </div>
             <p className={styles.lead}>
               {
@@ -269,12 +296,20 @@ export function JungReportPreview() {
               }
             </p>
             <div className={styles.scoreGrid}>
-              <ProfileChart dimensions={chartDimensions} />
+              <ProfileChart
+                dimensions={chartDimensions}
+                selectedId={selectedId}
+                onSelect={setSelectedId}
+              />
               <div className={styles.scoreList}>
                 {dimensions.map((row) => (
                   <button
                     key={row.id}
                     onClick={() => setSelectedId(row.id)}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType !== "touch") setSelectedId(row.id);
+                    }}
+                    onFocus={() => setSelectedId(row.id)}
                     aria-pressed={selected.id === row.id}
                     className={styles.scoreRow}
                   >

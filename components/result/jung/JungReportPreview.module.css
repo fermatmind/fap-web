@@ -1246,15 +1246,28 @@
 /* Distribution card: the existing chart and copy sit on one layered surface. */
 .page section[id="dimensions"] {
   padding: 30px 28px 28px;
-  border: 1px solid #cbdcd388;
+  border: 1px solid #91b09f;
   border-radius: 24px;
   background:
-    radial-gradient(ellipse at 0% 0%, #dcebe4b3, transparent 62%),
-    radial-gradient(ellipse at 100% 100%, #f0e8d378, transparent 58%),
-    linear-gradient(145deg, #f7faf6 0%, #eef4ef 100%);
+    radial-gradient(ellipse at 0% 0%, #accbbb, transparent 68%),
+    radial-gradient(ellipse at 100% 100%, #d8ccaaad, transparent 62%),
+    linear-gradient(145deg, #c7d9cb 0%, #d7dfc9 100%);
   box-shadow:
     inset 0 1px 0 #ffffffd9,
-    0 12px 32px #173e3206;
+    0 12px 32px #173e3210;
+}
+.page section[id="dimensions"] .lead,
+.page section[id="dimensions"] .eyebrow,
+.page section[id="dimensions"] .sectionHeading > span,
+.page section[id="dimensions"] .chart figcaption,
+.page section[id="dimensions"] .scoreRow {
+  color: #405f52;
+}
+.page section[id="dimensions"] .chart text {
+  fill: #405f52;
+}
+.page section[id="dimensions"] .bar {
+  background: #91ac9b4d;
 }
 .page section[id="dimensions"] .selectedReading {
   border: 1px solid #ccdcd480;
@@ -1277,4 +1290,14 @@
     background: #fff;
     box-shadow: none;
   }
+}
+
+.page section[id="dimensions"] .scoreRow > span,
+.page section[id="dimensions"] .scoreRow b,
+.page section[id="dimensions"] .chart text {
+  font-weight: 650;
+}
+.page section[id="dimensions"] .lead,
+.page section[id="dimensions"] .selectedReading p {
+  font-weight: 500;
 }
