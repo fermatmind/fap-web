@@ -1544,3 +1544,251 @@
     break-inside: avoid;
   }
 }
+
+/* One continuous report canvas; scoped to this local preview. */
+@media screen {
+  :global(body):has(.page) {
+    background: #11363f;
+  }
+  :global(.fm-page-background):has(.page) {
+    --fm-bg-page: #153d43;
+    --fm-bg-soft: #254e4d;
+    --fm-text: #e6eeea;
+    --fm-text-main: #e6eeea;
+    --fm-text-secondary: #b9d0c6;
+    --fm-border-soft: #ffffff24;
+    --fm-border-subtle: #ffffff24;
+    background: radial-gradient(
+      ellipse at 17% 76%,
+      #456d62 0%,
+      #1c4849 47%,
+      #11363f 100%
+    );
+    background-attachment: fixed;
+  }
+  :global(.fm-page-background):has(.page) :global([data-site-header]) {
+    background: #11363fef;
+    border-color: #ffffff24;
+    backdrop-filter: blur(16px);
+  }
+  :global(.fm-page-background):has(.page)
+    :global([data-site-header])
+    :is(a, button) {
+    color: #e6eeea;
+  }
+  :global(.fm-page-background):has(.page) :global([data-site-footer]) {
+    background: #0f313a70;
+    border-color: #ffffff24;
+  }
+  .page {
+    --jung-ink: #e6eeea;
+    --jung-muted: #bdd2c8;
+    --jung-teal: #abd4c1;
+    --jung-line: #ffffff24;
+    color: #e6eeea;
+  }
+  .page .hero {
+    background: transparent;
+  }
+  .page .previewBar,
+  .page .lead,
+  .page .eyebrow,
+  .page .twoColumns p,
+  .page .twoColumns ul,
+  .page .stressRows p,
+  .page .actionList p,
+  .page .method dd,
+  .page .completion,
+  .page .allReadings article p,
+  .page .sideNote {
+    color: #bdd2c8;
+  }
+  .page .twoColumns h4,
+  .page .method dt,
+  .page .sources,
+  .page .careerBridge a,
+  .page .taskExamples .textLink,
+  .page .end a,
+  .page .actionList span {
+    color: #e6cf98;
+  }
+  .page .end > p {
+    color: #d6e4d7;
+  }
+  .page .profileGrowth,
+  .page .careerBridge,
+  .page .dialogue,
+  .page .allReadings,
+  .page .sideInsight,
+  .page .sidebar nav {
+    background: #ffffff09;
+    border: 1px solid #ffffff24;
+    color: #e1ece4;
+  }
+  .page .profileGrowth :is(h3, p),
+  .page .dialogue :is(h3, p),
+  .page .allReadings summary,
+  .page .sideInsight > p:first-child,
+  .page .sideInsight > p:last-child,
+  .page .sideInsight > span,
+  .page .sidebar nav a,
+  .page .allReadings small {
+    color: #c9dcd1;
+  }
+  .page .sideInsight strong {
+    color: #eed5a0;
+  }
+  .page .sideInsight h3,
+  .page .profileGrowth > div {
+    border-color: #ffffff24;
+  }
+  .page .sidebar nav a:hover {
+    color: #fff;
+    background: #ffffff12;
+  }
+  .page .sidebar nav a[aria-current="location"] {
+    color: #fff;
+    background: #4e7d6d80;
+  }
+  .page .aiSection {
+    background: #0c2e3690;
+    border: 1px solid #ffffff24;
+  }
+  .page .practice {
+    background: #ffffff09;
+    color: #c6d9cb;
+  }
+  .page section[id="dimensions"] {
+    background: linear-gradient(140deg, #47736555, #123b4399);
+    border-color: #ffffff38;
+    box-shadow:
+      inset 0 1px 0 #ffffff15,
+      0 12px 32px #071e2618;
+  }
+  .page
+    section[id="dimensions"]
+    :is(.lead, .eyebrow, .sectionHeading > span, .chart figcaption, .scoreRow) {
+    color: #d0e0d7;
+  }
+  .page section[id="dimensions"] .scoreRow:hover,
+  .page section[id="dimensions"] .scoreRow[aria-pressed="true"] {
+    background: #ffffff14;
+    border-color: #ffffff30;
+    color: #fff;
+  }
+  .page section[id="dimensions"] .bar {
+    background: #ffffff18;
+  }
+  .page section[id="dimensions"] .bar i {
+    background: #9fc5b2;
+  }
+  .page section[id="dimensions"] .scoreRow[aria-pressed="true"] .bar i {
+    background: #efd398;
+  }
+  .page section[id="dimensions"] .selectedReading {
+    background: #0d303859;
+    border-color: #ffffff25;
+    border-left-color: #d6c18d;
+    box-shadow: none;
+  }
+  .page section[id="dimensions"] .selectedReading > span {
+    color: #edd5a5;
+  }
+  .page section[id="dimensions"] .selectedReading p {
+    color: #c8dacf;
+  }
+  .page .archetypeCard {
+    --reading-accent: #cfb7ee;
+    --reading-tint: #8860a632;
+    --reading-ink: #e0cef3;
+    background: linear-gradient(135deg, #3d42548c, #183e4299);
+    border-color: #ba9ed342;
+  }
+  .page .archetypeCard[data-archetype="creator"] {
+    --reading-accent: #efb6c9;
+    --reading-tint: #ae667b32;
+    --reading-ink: #f2d1dc;
+    background: linear-gradient(135deg, #55434b8c, #183e4299);
+    border-color: #d79db142;
+  }
+  .page .archetypeCard[data-archetype="explorer"] {
+    --reading-accent: #b5dcb4;
+    --reading-tint: #65966b32;
+    --reading-ink: #d3e8cf;
+    background: linear-gradient(135deg, #3e59478c, #183e4299);
+    border-color: #9fc69c42;
+  }
+  .page .archetypeHeader,
+  .page .readingGrowth {
+    border-color: #ffffff18;
+  }
+  .page .readingIndex,
+  .page .motivePair > div,
+  .page .readingScene {
+    background: #ffffff07;
+    border-color: #ffffff20;
+  }
+  .page .readingScene {
+    border-left-color: var(--reading-accent);
+  }
+  .page .readingBalance > div + div,
+  .page .readingCombination,
+  .page .readingReflection {
+    border-color: #ffffff24;
+  }
+  .page .archetypeDefinition,
+  .page .archetypeNarrative,
+  .page .readingTraits li,
+  .page .readingScene > p:last-child,
+  .page .readingBalance p,
+  .page .readingCombination p,
+  .page .readingGrowth > p {
+    color: #c9dcd0;
+  }
+  .page .readingGrowth .readingReflection {
+    color: var(--reading-ink);
+  }
+}
+
+/* Requested black-type comparison on the same deep-teal canvas. */
+@media screen {
+  .page,
+  .page
+    :is(
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      span,
+      strong,
+      b,
+      a,
+      summary,
+      dt,
+      dd,
+      li,
+      pre,
+      small
+    ) {
+    color: #101817 !important;
+  }
+  .page .chart text {
+    fill: #101817 !important;
+  }
+  :global(.fm-page-background):has(.page)
+    :global([data-site-header])
+    :is(a, button, span),
+  :global(.fm-page-background):has(.page)
+    :global([data-site-footer])
+    :is(a, button, p, span, h2, h3) {
+    color: #101817 !important;
+  }
+}
+@media screen {
+  .page .portrait h2,
+  .page .topScores strong,
+  .page .hero .profileSubheading {
+    color: #f0d295 !important;
+  }
+}
