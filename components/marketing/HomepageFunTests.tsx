@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
-import { gta6Name, gta6Slug, gta6LandingPath, isGta6PreviewEnabled } from "@/lib/questionnaires/gta6CharacterQuiz";
+import { gta6Name, gta6Slug, gta6LandingPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 
@@ -97,7 +97,7 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
     title: gta6Name,
     meta: { zh: "12题 · 约2分钟 · 双人组队", "zh-TW": "12 題 · 約 2 分鐘 · 雙人組隊", en: "12 questions · ~2 min · 2-player co-op" },
   };
-  const cards = !isGta6PreviewEnabled() ? selections : [
+  const cards = [
     gta6Card,
     ...selections.filter(item => item.slug === "friendship-quiz"),
     ...selections.filter(item => item.slug !== "friendship-quiz" && item.slug !== "attachment-styles"),

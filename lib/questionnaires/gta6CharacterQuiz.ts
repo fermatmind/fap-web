@@ -3,7 +3,6 @@ import { questionnaireGuidePath, questionnairePath } from "./paths";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
 export const gta6Slug = "gta-6-character-quiz";
-export const isGta6PreviewEnabled = () => process.env.NODE_ENV !== "production";
 export const gta6Portrait = (id: string) => `/images/gta6/${id}.webp`;
 export const gta6Cover = "/images/test-covers/gta6-waterfront.webp";
 export const gta6Name = { zh: "GTA 6 角色测试", en: "GTA 6 Character Quiz", "zh-TW": "GTA 6 角色測驗" };
@@ -13,9 +12,9 @@ export const gta6Questions = content.questions;
 export const gta6Profiles = content.profiles;
 export type Gta6Profile = (typeof gta6Profiles)[number];
 
-export function isGta6PreviewPath(path: string) {
+export function isGta6PublicPath(path: string) {
   const match = path.match(/^\/(?:zh|en|zh-TW)\/tests\/explore\/gta-6-character-quiz(?:\/(take)|\/results\/([a-z-]+))?\/?$/);
-  return isGta6PreviewEnabled() && !!match && (!match[2] || !!gta6Profile(match[2]));
+  return !!match && (!match[2] || !!gta6Profile(match[2]));
 }
 
 export function gta6LandingPath(locale: DisplayLocale) {

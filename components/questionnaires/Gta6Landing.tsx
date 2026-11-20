@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { isConfiguredStagingSiteUrl } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import editorial from "@/lib/questionnaires/data/gta-6-landing.json";
 import {
@@ -32,7 +33,7 @@ const copy = {
     privacy: "The quiz scores answers in your browser. Progress is kept in this tab only if you opt in. The link you send a friend is a public character guide. Its quiz button passes the character ID to the new attempt, which has 28 distinct cross-role or eight same-role pairings.",
     faq: "GTA 6 Character Quiz FAQ",
     sources: "Sources and independence",
-    sourcesText: "Rockstar’s character profiles and launch announcement are the sources for names and basic setting. FermatMind independently created the party, questions and crew roles. Preview character artwork is sourced from Rockstar Games. This quiz is unofficial and unaffiliated.",
+    sourcesText: "Rockstar’s character profiles and launch announcement are the sources for names and basic setting. FermatMind independently created the party, questions and crew roles. Character artwork is sourced from Rockstar Games. This quiz is unofficial and unaffiliated.",
   },
   zh: {
     h1: "GTA 6 角色测试｜你是罪恶都市里的谁？",
@@ -55,7 +56,7 @@ const copy = {
     privacy: "作答和计分留在浏览器。你可以选择把进度保存在当前标签页。分享只发送公开角色页，好友从那里点击开测时再携带公开角色代号。两人完答可组合出 28 种不同角色搭配或 8 种同角色对照。",
     faq: "GTA 6 角色测试常见问题",
     sources: "创作背景与官方信源",
-    sourcesText: "角色姓名和基础设定核对 Rockstar Games 的人物介绍及发行公告。派对剧情、题目和分工由费马独立创作。预览中的人物图来自 Rockstar Games。本测验为非官方娱乐作品。",
+    sourcesText: "角色姓名和基础设定核对 Rockstar Games 的人物介绍及发行公告。派对剧情、题目和分工由费马独立创作。人物图来自 Rockstar Games。本测验为非官方娱乐作品。",
   },
   "zh-TW": {
     h1: "GTA 6 角色測驗｜你是罪惡城市裡的誰？",
@@ -78,7 +79,7 @@ const copy = {
     privacy: "你的選項由瀏覽器計分。勾選儲存後，這個分頁才會保留進度。你傳給朋友的是公開指南，朋友從指南點進去才會帶入邀請。做完可以看 28 種跨角色分工或 8 種同角色對照。",
     faq: "GTA 6 角色測驗常見問題",
     sources: "角色出處與創作說明",
-    sourcesText: "人物姓名和基本資料比對 Rockstar Games 的角色專頁與發售公告。派對、題目與分工是費馬自主創作，預覽人物圖取自 Rockstar Games。費馬與遊戲發行方並無隸屬關係。",
+    sourcesText: "人物姓名和基本資料比對 Rockstar Games 的角色專頁與發售公告。派對、題目與分工是費馬自主創作，人物圖取自 Rockstar Games。費馬與遊戲發行方並無隸屬關係。",
   },
 };
 
@@ -86,14 +87,19 @@ export function gta6Alternates(path: (locale: DisplayLocale) => string) {
   return { en: path("en"), "zh-Hans": path("zh"), "zh-TW": path("zh-TW"), "x-default": path("en") };
 }
 
-export function gta6LandingMetadata(locale: DisplayLocale): Metadata {
+export function gta6PublishedRobots(hasQuery: boolean): Metadata["robots"] {
+  if (process.env.NODE_ENV !== "production" || isConfiguredStagingSiteUrl()) return { index: false, follow: false };
+  return { index: !hasQuery, follow: true };
+}
+
+export function gta6LandingMetadata(locale: DisplayLocale, hasQuery: boolean): Metadata {
   const page = copy[locale];
   const path = gta6LandingPath(locale);
   return {
     title: { absolute: page.title },
     description: page.description,
     alternates: { canonical: path, languages: gta6Alternates(gta6LandingPath) },
-    robots: { index: false, follow: false },
+    robots: gta6PublishedRobots(hasQuery),
     openGraph: { title: page.h1, description: page.description, url: path, images: [gta6Cover] },
   };
 }

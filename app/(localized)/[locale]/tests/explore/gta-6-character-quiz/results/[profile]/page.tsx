@@ -3,7 +3,7 @@ import { Gta6Guide, gta6GuideMetadata } from "@/components/questionnaires/Gta6Gu
 import { isSupportedLocale } from "@/lib/i18n/locales";
 import { gta6Profile } from "@/lib/questionnaires/gta6CharacterQuiz";
 
-type Props = { params: Promise<{ locale: string; profile: string }> };
+type Props = { params: Promise<{ locale: string; profile: string }>; searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 async function resolvePage(params: Props["params"]) {
   const { locale, profile: id } = await params;
@@ -12,9 +12,9 @@ async function resolvePage(params: Props["params"]) {
   return { locale, profile };
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params, searchParams }: Props) {
   const { locale, profile } = await resolvePage(params);
-  return gta6GuideMetadata(locale, profile);
+  return gta6GuideMetadata(locale, profile, Object.keys(await searchParams).length > 0);
 }
 
 export default async function Page({ params }: Props) {
