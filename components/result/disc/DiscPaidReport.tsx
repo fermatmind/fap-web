@@ -9,7 +9,7 @@ import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessment
 type DiscReport = { counts: Record<string, number>; profile: QuestionnaireProfile };
 function traditionalProfile(profile: QuestionnaireProfile, copy: (text: string) => string): QuestionnaireProfile {
   const text = (value: {zh: string; en: string}) => ({ ...value, zh: copy(value.zh) });
-  return { ...profile, title: text(profile.title), headline: text(profile.headline), summary: text(profile.summary),
+  return { ...profile, title: text(profile.title), headline: text(profile.headline), summary: text(profile.summary), scoreReading: text(profile.scoreReading),
     sections: profile.sections.map(section => ({ ...section, title: text(section.title), paragraphs: section.paragraphs.map(text) })),
     ...(profile.resultReading ? {resultReading: {...profile.resultReading,
       ...(profile.resultReading.note ? {note: text(profile.resultReading.note)} : {}),
