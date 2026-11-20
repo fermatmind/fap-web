@@ -20,4 +20,11 @@ describe("mainstream per-attempt full report purchase", () => {
     expect(screen.getByText(/This order was refunded/)).toBeVisible();
     expect(screen.queryByText("Checkout en")).not.toBeInTheDocument();
   });
+  it("uses one fixed sample for all MBTI results and prevents orders in design preview", () => {
+    render(<MainstreamPaidResult data={{ok:true, meta:{scale_code:"MBTI"}, result:{type_code:"INTJ", scores_pct:{EI:75}}}} purchase={purchase} locale="zh-TW" preview />);
+    expect(screen.queryByText("Checkout zh-TW")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", {name:/查看完整示例報告/})).toHaveAttribute("href", "/zh-TW/reports/samples/mbti");
+    expect(screen.getAllByRole("button").every(button => button.hasAttribute("disabled"))).toBe(true);
+  });
+
 });

@@ -9,7 +9,7 @@ import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntr
 import { AssessmentReadingPaths } from "@/components/tests/AssessmentReadingPaths";
 import { IqLandingPreview } from "@/components/tests/IqLandingPreview";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
-import { MbtiReportAccessSummary, MbtiScoredReportExample } from "@/components/tests/MbtiReportPreview";
+import { MbtiReportAccessSummary } from "@/components/tests/MbtiReportPreview";
 import { MbtiResultExamples } from "@/components/tests/MbtiResultExamples";
 import previewStyles from "@/components/tests/mbti-preview.module.css";
 import type { Metadata } from "next";
@@ -1617,7 +1617,7 @@ export default async function TestLandingPage({
 
           <AssessmentReadingPaths slug={test.slug} locale={displayLocale} text={displayText} destination={displayHref} />
 
-          {showsMbtiActions && test.slug === MBTI_ENTRY_TEST_SLUG ? <MbtiScoredReportExample locale={displayLocale} /> : null}
+          {({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN:"iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[test.scale_code ?? ""] ? <section id="scored-report-example" className="my-8 rounded-2xl border border-purple-200 bg-purple-50 p-6"><Link className="font-semibold text-purple-900 underline underline-offset-4" href={`/${displayLocale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN:"iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[test.scale_code ?? ""]}`}>{displayLocale === "en" ? "View the complete sample report" : traditional ? "查看完整示例報告" : "查看完整示例报告"} ↗</Link><p className="mt-2 text-sm text-slate-600">{displayLocale === "en" ? "One fixed example, using the full report layout. Your report is based on your answers." : traditional ? "完整報告版式的固定示例。你的報告將依自己的作答生成。" : "完整报告版式的固定示例。你的报告将依自己的作答生成。"}</p></section> : null}
           {showsMbtiActions ? <MbtiResultExamples locale={displayLocale} guideHref={traditional ? displayHref("/zh/articles/mbti-full-report-career-relationship-communication") : undefined} /> : null}
 
           {showsIqActions ? <IqLandingPreview

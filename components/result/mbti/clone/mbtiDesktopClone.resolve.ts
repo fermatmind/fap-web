@@ -23,6 +23,7 @@ export type ResolveMbtiDesktopCloneSlotsArgs = {
 export type ResolveMbtiDesktopCloneSlotsOptions = {
   mode?: "normal" | "snapshot";
   allowPlaceholder?: boolean;
+  allowStorageContentForLocale?: boolean;
 };
 
 export type ResolveMbtiDesktopCloneSlotsResult =
@@ -287,7 +288,7 @@ export function resolveMbtiDesktopCloneSlotsResult(
   return {
     ok: true,
     slots: resolveMbtiDesktopCloneSlots(args, {
-      allowStorageContentForLocale: options.mode === "snapshot",
+      allowStorageContentForLocale: options.mode === "snapshot" || options.allowStorageContentForLocale === true,
     }),
   };
 }

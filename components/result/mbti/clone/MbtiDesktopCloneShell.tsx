@@ -106,6 +106,7 @@ type MbtiDesktopCloneShellProps = {
   storageManagedExternally?: boolean;
   canLoadDesktopCloneStorage?: boolean;
   snapshotMode?: boolean;
+  sampleMode?: boolean;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
   suppressUnlockSurfaces?: boolean;
   storageContentPending?: boolean;
@@ -437,6 +438,7 @@ export function MbtiDesktopCloneShell({
   storageManagedExternally = false,
   canLoadDesktopCloneStorage,
   snapshotMode = false,
+  sampleMode = false,
   snapshotContentStatus = null,
   suppressUnlockSurfaces = false,
   storageContentPending = false,
@@ -453,7 +455,7 @@ export function MbtiDesktopCloneShell({
   const introduction = useMbtiResultIntroduction(fullCodeForStorage, locale);
   const traitCatalog = useMbtiTraitCatalog(locale);
   const display = useQuestionnaireDisplayCopy();
-  const localize = snapshotMode && display.traditional;
+  const localize = display.traditional;
   const copy = localize ? display.displayText : (value: string) => value;
   const traitContent = localize && traitCatalog.content ? {
     ...traitCatalog.content,
@@ -576,6 +578,7 @@ export function MbtiDesktopCloneShell({
   const strictSlotsResult = resolveMbtiDesktopCloneSlotsResult(slotInput, {
     mode: snapshotMode ? "snapshot" : "normal",
     allowPlaceholder: !mustUsePublishedContent,
+    allowStorageContentForLocale: Boolean(storageContentOverride),
   });
   const slots = strictSlotsResult.ok
     ? strictSlotsResult.slots
@@ -595,7 +598,7 @@ export function MbtiDesktopCloneShell({
   const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
   const fullContentVisible = snapshotMode || isUnlocked || suppressUnlockSurfaces;
-  const useEnglishProjectionContent = cloneLocale === "en" && !snapshotMode && fullContentVisible;
+  const useEnglishProjectionContent = cloneLocale === "en" && !snapshotMode && fullContentVisible && !storageContentOverride;
   const englishProjectionBody = (chapter: "traits" | "career" | "growth" | "relationships"): ReactNode[] => {
     if (!useEnglishProjectionContent) return [];
 
@@ -977,12 +980,12 @@ export function MbtiDesktopCloneShell({
   const showTopInviteProgress = !snapshotMode && !suppressUnlockSurfaces && isMobileViewport && inviteProgressDisplay.showProgressCard;
   const shouldRenderFinalOffer = !snapshotMode && !suppressUnlockSurfaces;
   const shouldRenderRail = !snapshotMode;
-  const shouldRenderTrailingNodes = !snapshotMode;
+  const shouldRenderTrailingNodes = !snapshotMode && !sampleMode;
   const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel, cloneLocale, storageContent?.faq ?? null);
   const finalOfferNode = (
     <section id={LEGACY_OFFER_SECTION_ID} data-testid="mbti-offer-full" className={styles.section}>
       <div id={getMbtiDesktopAnchorId("offerFull")}>
-      {!snapshotMode ? <MbtiPricingNotice locale={cloneLocale} /> : null}
+      {!snapshotMode && !sampleMode ? <MbtiPricingNotice locale={cloneLocale} /> : null}
       <MbtiCloneFinalOffer
         locale={cloneLocale}
         eyebrow={slots.finalOffer.eyebrow}
@@ -1166,7 +1169,7 @@ export function MbtiDesktopCloneShell({
 
       {canonicalFaqNode}
 
-      {!snapshotMode ? supplementaryNodes.map((node, index) => (
+      {!snapshotMode && !sampleMode ? supplementaryNodes.map((node, index) => (
         <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
       )) : null}
     </>
@@ -1282,8 +1285,8 @@ export function MbtiDesktopCloneShell({
               bodySource={traitBodySource}
               bodyPending={locale === "zh" && traitCatalog.pending}
               bodyUnavailable={locale === "zh" && traitCatalog.unavailable}
-              tools={snapshotMode ? snapshotTraitsTools : traitsTools}
-              toolsPrompt={snapshotMode ? "" : traitsToolsPrompt}
+              tools={snapshotMode || sampleMode ? snapshotTraitsTools : traitsTools}
+              toolsPrompt={snapshotMode || sampleMode ? "" : traitsToolsPrompt}
             >
               {englishProjectionBody("traits")}
             </MbtiCloneTraitsSection>
