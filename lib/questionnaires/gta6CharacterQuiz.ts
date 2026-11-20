@@ -4,7 +4,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 
 export const gta6Slug = "gta-6-character-quiz";
 export const gta6Portrait = (id: string) => `/images/gta6/${id}.webp`;
-export const gta6Cover = "/images/test-covers/gta6-waterfront.webp";
+export const gta6Cover = "/images/gta6/waterfront.webp";
 export const gta6Name = { zh: "GTA 6 角色测试", en: "GTA 6 Character Quiz", "zh-TW": "GTA 6 角色測驗" };
 export const gta6Draft = { kind: "archetype", version: "1.1" } as const;
 export const gta6DraftKey = `fm_questionnaire_draft:${gta6Slug}`;
