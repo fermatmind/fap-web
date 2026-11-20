@@ -395,63 +395,51 @@ export function JungReportPreview() {
                     </header>
                     <div className={styles.archetypeBody}>
                       <h4 className={styles.archetypeRole}>{asset.role}</h4>
-                      <p className={styles.archetypeDefinition}>
+                      <p className={styles.readingText}>
                         {asset.definition}
-                      </p>
-                      <div className={styles.motivePair}>
-                        <div>
-                          <span>核心追求</span>
-                          <p>{asset.pursuit}</p>
-                        </div>
-                        <div>
-                          <span>值得留意</span>
-                          <p>{asset.watchFor}</p>
-                        </div>
-                      </div>
-                      <p className={styles.archetypeNarrative}>
                         {asset.narrative}
                       </p>
-                      <h4 className={styles.readingSubheading}>
-                        你可能熟悉的表现
-                      </h4>
-                      <ul className={styles.readingTraits}>
-                        {asset.traits.map((trait) => (
-                          <li key={trait}>
-                            <Check size={16} />
-                            <span>{trait}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className={styles.readingScene}>
-                        <p>一个具体场景</p>
-                        <h4>{asset.sceneTitle}</h4>
-                        <p>{asset.scene}</p>
+                      <p className={styles.readingMotive}>
+                        <strong>核心追求：</strong>
+                        {asset.pursuit}。
+                      </p>
+                      <div className={styles.readingSection}>
+                        <h4>核心特质</h4>
+                        <ul className={styles.readingTraits}>
+                          {asset.traits.map((trait) => (
+                            <li key={trait}>
+                              <Check size={16} />
+                              <span>{trait}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className={styles.readingBalance}>
-                        <div>
-                          <h4>运用得合适时</h4>
-                          <p>{asset.balanced}</p>
-                        </div>
-                        <div>
-                          <h4>用得过多时</h4>
-                          <p>{asset.overused}</p>
-                        </div>
+                      <div className={styles.readingSection}>
+                        <h4>你的拿手好戏</h4>
+                        <p className={styles.readingText}>
+                          <strong>{asset.sceneTitle}。</strong>
+                          {asset.scene}
+                          {asset.balanced}
+                        </p>
                       </div>
-                      <div className={styles.readingCombination}>
-                        <h4>与另外两个原型一起看</h4>
-                        <p>{asset.combination}</p>
+                      <div className={styles.readingSection}>
+                        <h4>成长方向</h4>
+                        <p className={styles.readingText}>
+                          {asset.overused}
+                          {asset.combination}
+                        </p>
+                      </div>
+                      <div className={styles.readingGrowth}>
+                        <h4>
+                          <Leaf size={17} />
+                          这周可以试一次
+                        </h4>
+                        <p className={styles.readingText}>
+                          {asset.action}
+                          <strong>{asset.reflection}</strong>
+                        </p>
                       </div>
                     </div>
-                    <footer className={styles.readingGrowth}>
-                      <div>
-                        <Leaf size={19} />
-                        <h4>这周可以试一次</h4>
-                      </div>
-                      <p>{asset.action}</p>
-                      <p className={styles.readingReflection}>
-                        {asset.reflection}
-                      </p>
-                    </footer>
                   </article>
                 );
               })}

@@ -1343,134 +1343,66 @@
   color: var(--reading-accent);
 }
 .archetypeBody {
-  padding: 26px 28px;
+  padding: 22px 28px 24px;
 }
 .archetypeBody .archetypeRole {
   font-size: 22px;
   line-height: 1.6;
   color: var(--reading-ink);
 }
-.archetypeDefinition,
-.archetypeNarrative {
+.readingText {
   color: #405d51;
-  line-height: 2.05;
+  line-height: 1.9;
   font-size: 14px;
-  margin-top: 15px !important;
+  margin-top: 10px !important;
 }
-.motivePair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 22px 0;
+.readingMotive {
+  margin-top: 10px !important;
+  color: var(--reading-ink);
+  font-size: 13px;
 }
-.motivePair > div {
-  padding: 15px 18px;
-  border: 1px solid #ffffff;
-  border-radius: 12px;
-  background: #ffffff70;
+.readingSection {
+  margin-top: 19px;
 }
-.motivePair span {
-  font-size: 11px;
-  color: var(--reading-accent);
+.readingSection h4,
+.readingGrowth h4 {
+  color: var(--reading-ink);
+  font-size: 15px;
   font-weight: 650;
-}
-.motivePair p {
-  margin-top: 5px;
-  color: var(--reading-ink);
-  font-size: 14px;
-  font-weight: 550;
-  line-height: 1.8;
-}
-.archetypeBody .readingSubheading {
-  margin: 24px 0 13px;
-  color: var(--reading-ink);
 }
 .readingTraits {
   padding: 0;
-  margin: 0;
+  margin: 9px 0 0;
   list-style: none;
   display: grid;
-  gap: 10px;
+  gap: 5px;
 }
 .readingTraits li {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   color: #405d51;
   font-size: 14px;
+  line-height: 1.8;
 }
 .readingTraits svg {
   margin-top: 5px;
   flex-shrink: 0;
   color: var(--reading-accent);
 }
-.readingScene {
-  padding: 20px 22px;
-  margin-top: 25px;
-  border-radius: 12px;
-  border-left: 3px solid var(--reading-accent);
-  background: #ffffff8c;
-}
-.readingScene > p:first-child {
-  font-size: 11px;
-  color: var(--reading-accent);
-}
-.readingScene h4 {
-  color: var(--reading-ink);
-  margin: 5px 0 9px;
-  font-size: 16px;
-}
-.readingScene > p:last-child,
-.readingBalance p,
-.readingCombination p {
-  color: #486354;
-  line-height: 2;
-  font-size: 13px;
-}
-.readingBalance {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-  margin-top: 26px;
-}
-.readingBalance > div + div {
-  padding-left: 24px;
-  border-left: 1px solid #a0b19e50;
-}
-.readingBalance h4,
-.readingCombination h4 {
-  color: var(--reading-ink);
-  margin-bottom: 8px;
-}
-.readingCombination {
-  border-top: 1px solid #a0b19e50;
-  margin-top: 24px;
-  padding-top: 20px;
-}
 .readingGrowth {
-  padding: 22px 28px 24px;
-  background: linear-gradient(110deg, var(--reading-tint), #ffffff40);
-  border-top: 1px solid #ffffffb3;
+  margin-top: 19px;
+  padding-top: 17px;
+  border-top: 1px solid #9db8a569;
 }
-.readingGrowth > div {
+.readingGrowth h4 {
   display: flex;
-  gap: 10px;
   align-items: center;
-  color: var(--reading-ink);
+  gap: 8px;
 }
-.readingGrowth > p {
-  color: #3c5b49;
-  font-size: 13px;
-  line-height: 2;
-  margin-top: 10px;
-}
-.readingGrowth .readingReflection {
+.readingText strong {
   color: var(--reading-ink);
-  font-size: 14px;
-  font-weight: 650;
-  padding-top: 14px;
-  margin-top: 14px;
-  border-top: 1px solid #ffffffc0;
+  font-weight: 600;
 }
 @media (max-width: 760px) {
   .archetypeHeader {
@@ -1500,23 +1432,6 @@
   .archetypeBody .archetypeRole {
     font-size: 20px;
   }
-  .motivePair,
-  .readingBalance {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .readingBalance > div + div {
-    padding-left: 0;
-    padding-top: 16px;
-    border-left: 0;
-    border-top: 1px solid #a0b19e50;
-  }
-  .readingScene {
-    padding: 18px;
-  }
-  .readingGrowth {
-    padding: 20px;
-  }
 }
 @media print {
   .archetypeCard {
@@ -1524,8 +1439,7 @@
     overflow: visible;
   }
   .archetypeHeader,
-  .readingScene,
-  .readingBalance,
+  .readingSection,
   .readingGrowth {
     break-inside: avoid;
   }
