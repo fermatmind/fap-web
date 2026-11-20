@@ -732,6 +732,7 @@ describe("ResultClient view-state contract", () => {
   it("uses server-prefetched print data without client report fetches or invite-unlocks polling", async () => {
     const setIntervalSpy = vi.spyOn(window, "setInterval");
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.report_purchase = {attempt_id: "attempt-123", unlocked: true, order_no: "paid-order", payment_state: "paid", offers: []};
     reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     const initialReportAccess = createAccessProjection();
 
@@ -752,6 +753,7 @@ describe("ResultClient view-state contract", () => {
     await waitFor(() => {
       expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
+    expect(screen.queryByTestId("mainstream-payment-boundary")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-result-pdf-shell")).not.toBeInTheDocument();

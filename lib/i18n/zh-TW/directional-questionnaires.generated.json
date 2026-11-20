@@ -6,7 +6,7 @@
     "lib/questionnaires/data/adult-age-preferences.json": "c7d864da76c2f45a5f4a2f4729238e82549119e57502a522f687a82ad653e5d8",
     "lib/questionnaires/result-content/adult-age-preferences.json": "065d7bd33d1444f6f1e143c921311f45bf599228977d606b9dfaf0eb803a5991",
     "components/questionnaires/AdultAgePreferencesLandingEditorial.ts": "e3e2636902f81dc8a5e6b16fa2ce14240db938e84b13a031d15df09829c350be",
-    "lib/questionnaires/data/disc.json": "6950dea11a72883453a2fd531024b7d5579f256ba2a07dca123443724e67ebd2",
+    "lib/questionnaires/data/disc.json": "59b9536d18414e16d3b11f8c086e3362bfa98ac0c266193a287668c095e9190e",
     "lib/questionnaires/result-content/disc.json": "0e96624a6fbb7cec76ec2f70bd153b8fbba21e51d6085a4bd0178c7627fcae4c",
     "lib/questionnaires/data/egen-teto.json": "020db488ccdaa6870994247cebf79dc202213fd216d0b70671e306342bd84d5b",
     "lib/questionnaires/result-content/egen-teto.json": "ada82ab979bd01305e9b3753b3cfd85c41ca866ceab0ffecb01407445dba1027",
@@ -1609,8 +1609,8 @@
       "text": "DISC測試"
     },
     "lib/questionnaires/data/disc.json/description": {
-      "sourceHash": "4d603fec4e84fa3de7b8e0b0a6e928bf8b8a5d43ddb342ff8a5d4c1389b6ce74",
-      "text": "通過24道工作情境二選一，觀察任務推進、表達帶動、穩定支援與規範核對四類行為選擇。約5分鐘，免費檢視原始計數、全部最高並列與完整解讀。"
+      "sourceHash": "6d51467220315ff51d0d0a06810c0c2973dab217b88c82427d0ce362682b7d98",
+      "text": "通過24道工作情境二選一，觀察四類行為選擇。約5分鐘，免費檢視原始計數與最高並列，完整報告可選付費解鎖，無需註冊。"
     },
     "lib/questionnaires/data/disc.json/seoTitle": {
       "sourceHash": "34cfee3b629cdf1f924c001e6ac2bdbc59c71a4df3fcfe0b8bdd6f7d41cecbcc",
@@ -5561,8 +5561,8 @@
       "text": "DISC測試要多久，是否免費、需要註冊嗎？"
     },
     "lib/questionnaires/data/disc.json/faq/3/answer": {
-      "sourceHash": "28c531909b769b12d4c6db06c0315e8926a33070bbb130f8a81edd83f183b196",
-      "text": "共24道工作情境二選一，預計約5分鐘，實際用時因閱讀與思考速度而異。全部題目、四項計數和15種結果指南免費，無需註冊或先完成MBTI。約5分鐘是閱讀作答估計，不是倒計時限制。"
+      "sourceHash": "58e023d84c99a99c7db2c4b926ba7eb8f9d131ab29d7f726f95494018eddb35a",
+      "text": "約5分鐘，共24組二選一。作答、基礎計數與最高並列免費；完整報告可選單次付費解鎖。無需註冊或登入，付款前會展示價格與報告範圍。"
     },
     "lib/questionnaires/data/disc.json/faq/4/question": {
       "sourceHash": "a12c2a34f11ac9906128f13a2fc619f092ff3de4dfc10f333601226c5ec18b26",
@@ -5601,8 +5601,8 @@
       "text": "答案在哪裡計算，是否會儲存？"
     },
     "lib/questionnaires/data/disc.json/faq/8/answer": {
-      "sourceHash": "344621f1ca787a64c8667c199344fdb204c4fae3898d59a569cad1738045bb26",
-      "text": "答案在當前瀏覽器內計分，不隨計分請求上傳伺服器，也不寫入網址或分析事件。預設不儲存作答；作答進度不會儲存。重新整理、切換語言或離開後，需要重新開始。網站可能記錄不含答案的開始、完成等使用事件，具體以隱私與Cookie設定為準。"
+      "sourceHash": "53208b7a93afd95264711793bdd1ccbec1e4d29766af8c50ad0182652b281bdc",
+      "text": "作答時可在本標籤頁臨時儲存進度；完成後，答案會發送到費馬伺服器核算並儲存本次結果，用於免登入支付、報告訪問及退款後的許可權同步。題目答案不放入公開連結或統計事件。請保留本瀏覽器和結果連結；跨裝置找回可自行選擇郵箱儲存。"
     },
     "lib/questionnaires/data/disc.json/faq/9/question": {
       "sourceHash": "43c16466eb63a39b501436eea11d8c0f5155955062f891a9cd923e362fbd9003",
@@ -5661,8 +5661,8 @@
       "text": "JobCannon · 四動物公開命名對照（單獨12題產品）"
     },
     "lib/questionnaires/data/disc.json/instructions": {
-      "sourceHash": "dfc121a562a17c85e15e495de73113544dd3353968e5c12ee6347195d239f995",
-      "text": "請以近期較常見的工作、學習或合作經歷為參照，每題選擇更貼近自己通常做法的一項。兩項都像時，比較哪項更經常、或更先出現；兩項都不像時，選相對更貼近的一項。題目沒有正確答案，不必按理想形象作答。完成全部24題後生成計數與完整結果。"
+      "sourceHash": "2cf1a68c33f3c4ea8ae02080b768bfc0102520f26fcea940d520dc4519b35320",
+      "text": "請以近期較常見的工作、學習或合作經歷為參照，每題選擇更貼近自己通常做法的一項。兩項都像時，比較哪項更經常、或更先出現；兩項都不像時，選相對更貼近的一項。題目沒有正確答案，不必按理想形象作答。完成全部24題後檢視基礎計數與並列，完整報告可選付費解鎖。"
     },
     "lib/questionnaires/result-content/disc.json/single-d/headline": {
       "sourceHash": "5a6aeb47c78848308fa949db38f095436398d338279c3914fc46d358683e5a3a",

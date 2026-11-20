@@ -10,8 +10,8 @@
     "en": "DISC Personality Test"
   },
   "description": {
-    "zh": "通过24道工作情境二选一，观察任务推进、表达带动、稳定支持与规范核对四类行为选择。约5分钟，免费查看原始计数、全部最高并列与完整解读。",
-    "en": "Explore four work-style directions with 24 paired choices. See raw counts, every highest-count tie and full explanations free, with no signup."
+    "zh": "通过24道工作情境二选一，观察四类行为选择。约5分钟，免费查看原始计数与最高并列，完整报告可选付费解锁，无需注册。",
+    "en": "Explore four behavioral styles with 24 paired choices in about 5 minutes. Free basic counts and ties; optional paid full report. No signup."
   },
   "seoTitle": {
     "zh": "DISC测试：24题行为风格、透明计分与完整结果",
@@ -1215,7 +1215,7 @@
     }
   ],
   "instructions": {
-    "zh": "请以近期较常见的工作、学习或合作经历为参照，每题选择更贴近自己通常做法的一项。两项都像时，比较哪项更经常、或更先出现；两项都不像时，选相对更贴近的一项。题目没有正确答案，不必按理想形象作答。完成全部24题后生成计数与完整结果。",
-    "en": "Use recent, typical work, study or collaborative experiences as your reference. Choose the response closer to what you usually do. If both fit, consider which happens more often or first; if neither fits, choose the closer one. There are no correct answers, so avoid answering as an ideal version of yourself. Complete all 24 choices to generate counts and the full result."
+    "zh": "请以近期较常见的工作、学习或合作经历为参照，每题选择更贴近自己通常做法的一项。两项都像时，比较哪项更经常、或更先出现；两项都不像时，选相对更贴近的一项。题目没有正确答案，不必按理想形象作答。完成全部24题后查看基础计数与并列，完整报告可选付费解锁。",
+    "en": "Use recent, typical work, study or collaborative experiences as your reference. Choose the response closer to what you usually do. If both fit, consider which happens more often or first; if neither fits, choose the closer one. There are no correct answers, so avoid answering as an ideal version of yourself. Complete all 24 choices to view basic counts and ties, with an optional paid full report."
   }
 }

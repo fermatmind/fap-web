@@ -978,6 +978,7 @@ if (quiz.kind === "archetype") return (zh ? "原创象征测验 · 完整结果�
 if (quiz.slug === "connection-meaning-reflection") return (zh ? "原创连接反思 · 五篇全文免费" : "Original connection reflection · Five full guides free");
 if (quiz.slug === "body-frame-observations") return (zh ? "原创轮廓观察 · 三篇全文免费" : "Original outline reflection · Three full guides free");
 if (quiz.kind === "likert") return (zh ? "原创自我观察问卷 · 完整结果免费" : "Original self-reflection questionnaire · Full results free");
+if (quiz.slug === "disc") return (zh ? "自编风格问卷 · 基础结果免费，完整报告可选付费解锁" : "Original style questionnaire · Free basic results; optional paid full report");
 return (zh ? "自编风格问卷 · 完整结果免费" : "Original style questionnaire · Full results free");
 })();
   const pageReferences = (() => {

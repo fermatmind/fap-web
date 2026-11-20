@@ -10,8 +10,8 @@
       "en": "DISC Personality Test"
     },
     "description": {
-      "zh": "通过24道工作情境二选一，观察任务推进、表达带动、稳定支持与规范核对四类行为选择。约5分钟，免费查看原始计数、全部最高并列与完整解读。",
-      "en": "Explore four work-style directions with 24 paired choices. See raw counts, every highest-count tie and full explanations free, with no signup."
+      "zh": "通过24道工作情境二选一，观察四类行为选择。约5分钟，免费查看原始计数与最高并列，完整报告可选付费解锁，无需注册。",
+      "en": "Explore four behavioral styles with 24 paired choices in about 5 minutes. Free basic counts and ties; optional paid full report. No signup."
     },
     "minutes": 5,
     "formCode": "disc_behavior_forced_choice_24",

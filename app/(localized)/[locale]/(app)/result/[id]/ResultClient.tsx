@@ -2181,7 +2181,7 @@ export default function ResultClient({
   };
 
   const webReport = reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
-  const withPurchase = (children: React.ReactNode) => webReport?.report_purchase
+  const withPurchase = (children: React.ReactNode) => !printMode && webReport?.report_purchase
     ? <MainstreamPaidResult data={webReport} purchase={webReport.report_purchase} locale={displayLocale}>{children}</MainstreamPaidResult>
     : children;
   if (webReport?.report_purchase && !webReport.report_purchase.unlocked) return withPurchase(null);

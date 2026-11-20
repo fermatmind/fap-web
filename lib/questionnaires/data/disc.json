@@ -10,8 +10,8 @@
     "en": "DISC Personality Test"
   },
   "description": {
-    "zh": "通过24道工作情境二选一，观察任务推进、表达带动、稳定支持与规范核对四类行为选择。约5分钟，免费查看原始计数、全部最高并列与完整解读。",
-    "en": "Explore four work-style directions with 24 paired choices. See raw counts, every highest-count tie and full explanations free, with no signup."
+    "zh": "通过24道工作情境二选一，观察四类行为选择。约5分钟，免费查看原始计数与最高并列，完整报告可选付费解锁，无需注册。",
+    "en": "Explore four behavioral styles with 24 paired choices in about 5 minutes. Free basic counts and ties; optional paid full report. No signup."
   },
   "seoTitle": {
     "zh": "DISC测试：24题行为风格、透明计分与完整结果",
@@ -5616,11 +5616,11 @@
     {
       "question": {
         "zh": "DISC测试要多久，是否免费、需要注册吗？",
-        "en": "How long does it take, and are questions and full results free?"
+        "en": "How long does it take, what is free, and is signup required?"
       },
       "answer": {
-        "zh": "共24道工作情境二选一，预计约5分钟，实际用时因阅读与思考速度而异。全部题目、四项计数和15种结果指南免费，无需注册或先完成MBTI。约5分钟是阅读作答估计，不是倒计时限制。",
-        "en": "There are 24 paired work-situation choices, with an estimated completion time of about five minutes depending on reading and reflection. All items, four counts and 15 result guides are free, with no signup or prerequisite MBTI test. Five minutes is an estimate, not a countdown limit."
+        "zh": "约5分钟，共24组二选一。作答、基础计数与最高并列免费；完整报告可选单次付费解锁。无需注册或登录，付款前会展示价格与报告范围。",
+        "en": "About 5 minutes for 24 paired choices. Questions, basic counts and highest-count ties are free; the full report is an optional one-time purchase. No registration or sign-in is required. Prices and report contents are shown before payment."
       }
     },
     {
@@ -5669,8 +5669,8 @@
         "en": "Where are answers calculated, and can I save progress?"
       },
       "answer": {
-        "zh": "答案在当前浏览器内计分，不随计分请求上传服务器，也不写入网址或分析事件。默认不保存作答；主动勾选临时保存后，本标签页可在24小时内恢复，完成、退出清除或重测会删除进度。网站可能记录不含答案的开始、完成等使用事件，具体以隐私与Cookie设置为准。",
-        "en": "Answers are scored in the current browser, not uploaded for scoring or placed in URLs or analytics events. Attempts are not saved by default. Opt-in tab saving permits resumption within 24 hours and clears on completion, exit-and-clear or retake. The website may record answer-free start or completion events subject to privacy and cookie settings."
+        "zh": "作答时可在本标签页临时保存进度；完成后，答案会发送到费马服务器核算并保存本次结果，用于免登录支付、报告访问及退款后的权限同步。题目答案不放入公开链接或统计事件。请保留本浏览器和结果链接；跨设备找回可自行选择邮箱保存。",
+        "en": "You can temporarily save progress in this tab. On completion, answers are sent to FermatMind’s server to calculate and save the result for guest payment, report access and access updates after a refund. Answers are excluded from public links and analytics events. Keep this browser and your result link; email recovery is optional."
       }
     },
     {
@@ -5755,7 +5755,7 @@
     }
   ],
   "instructions": {
-    "zh": "请以近期较常见的工作、学习或合作经历为参照，每题选择更贴近自己通常做法的一项。两项都像时，比较哪项更经常、或更先出现；两项都不像时，选相对更贴近的一项。题目没有正确答案，不必按理想形象作答。完成全部24题后生成计数与完整结果。",
-    "en": "Use recent, typical work, study or collaborative experiences as your reference. Choose the response closer to what you usually do. If both fit, consider which happens more often or first; if neither fits, choose the closer one. There are no correct answers, so avoid answering as an ideal version of yourself. Complete all 24 choices to generate counts and the full result."
+    "zh": "请以近期较常见的工作、学习或合作经历为参照，每题选择更贴近自己通常做法的一项。两项都像时，比较哪项更经常、或更先出现；两项都不像时，选相对更贴近的一项。题目没有正确答案，不必按理想形象作答。完成全部24题后查看基础计数与并列，完整报告可选付费解锁。",
+    "en": "Use recent, typical work, study or collaborative experiences as your reference. Choose the response closer to what you usually do. If both fit, consider which happens more often or first; if neither fits, choose the closer one. There are no correct answers, so avoid answering as an ideal version of yourself. Complete all 24 choices to view basic counts and ties, with an optional paid full report."
   }
 }
