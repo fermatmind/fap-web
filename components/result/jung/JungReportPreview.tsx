@@ -16,6 +16,7 @@ import {
   archetypeDeepReadings,
   archetypeProfilePreview,
   archetypeApplicationSections,
+  archetypeCareerPreview,
   reportChapters,
   type JungPreviewDimension,
 } from "./jungReportPreviewData";
@@ -208,19 +209,29 @@ export function JungReportPreview() {
   }
   const actionItems = [
     [
-      "今天 · 10 分钟",
-      "从一件真实的小事开始",
-      "选一次你主动查资料、修改作品或尝试新方法的经历。写下当时想解决什么、自己做了什么，以及哪个环节最让你愿意继续。",
+      "本周 · 20 分钟",
+      "找到动机出现的真实场景",
+      "回看最近一次你愿意持续投入的经历。分别写下：你想弄清什么、想表达什么、想亲自尝试什么。再找一件不符合报告描述的经历，看看情境有什么不同。",
     ],
     [
-      "这周 · 30 分钟",
-      "让一个想法得到真实反馈",
-      "把正在琢磨的东西做成一页草稿，找一位真正会使用它的人试读。先听对方卡在哪里，再决定要继续查证还是先改一版。",
+      "第 2 周 · 一次小任务",
+      "让理解接上实际行动",
+      "选一个已经思考了一段时间的问题，写下当前判断与最关键的依据，再做出一版能被别人看见或使用的东西。约定交付边界，观察从理解到完成时，哪个环节最吸引你。",
     ],
     [
-      "一周后 · 15 分钟",
-      "回看兴趣，也回看代价",
-      "比较这次行动前后的感受。你想重复的是查证、表达还是探索？哪部分让你耗竭？给下一次尝试加一条更合适的边界。",
+      "第 3–4 周 · 两次反馈",
+      "练习一种平时较少采用的做法",
+      "围绕当前任务，选择一个有需要的动作：向他人求助、明确分工、先听完感受，或允许初稿进入试用。记录它有没有改善结果；不必为了补低分而强迫自己练习所有原型。",
+    ],
+    [
+      "第 2 个月 · 一个完整项目",
+      "把熟悉的方式与新的做法接起来",
+      "选择一个范围清楚的小项目，事先写下目标、投入与完成标准。过程中保留求知和创作的空间，也按约定分享进度。结束后比较兴趣、实际成果和付出的代价。",
+    ],
+    [
+      "每季度 · 30 分钟",
+      "用经历更新对自己的理解",
+      "回看哪些投入仍有吸引力，哪些做法已经失去帮助，以及角色和环境发生了什么变化。保留有效的习惯，只选一个需要调整的方向进入下一阶段。",
     ],
   ];
   return (
@@ -441,6 +452,44 @@ export function JungReportPreview() {
             </div>
           </section>
 
+          <section
+            id="careers"
+            className={styles.applicationSection}
+            aria-labelledby="careers-title"
+          >
+            <header className={styles.applicationHeader}>
+              <span className={styles.readingIndex}>04</span>
+              <h2 id="careers-title">职业匹配</h2>
+            </header>
+            <div className={styles.applicationBody}>
+              <h3>从你愿意投入的任务，寻找职业方向</h3>
+              <p className={styles.readingText}>
+                结合本次示例中的求知、创作与探索动机，以下三个方向可优先了解。这里展示的是任务关联，不是职业适合度排名；选择时还需要结合兴趣、技能、训练要求和工作条件。
+              </p>
+              <div className={styles.careerMatches}>
+                {archetypeCareerPreview.map((career) => (
+                  <article key={career.slug}>
+                    <div className={styles.careerMatchHeading}>
+                      <h4>{career.name}</h4>
+                      <span>{career.focus}</span>
+                    </div>
+                    <p className={styles.readingText}>{career.task}</p>
+                    <p className={styles.readingText}>{career.connection}</p>
+                    <p className={styles.careerCheck}>{career.check}</p>
+                    <div className={styles.careerMatchLinks}>
+                      <Link href={`/zh/career/jobs/${career.slug}`}>
+                        查看职业详情 <ArrowRight size={14} />
+                      </Link>
+                      <a href={career.source} target="_blank" rel="noreferrer">
+                        任务来源：O*NET
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {archetypeApplicationSections.map((section) => (
             <section
               key={section.id}
@@ -506,10 +555,10 @@ export function JungReportPreview() {
             className={styles.section}
             aria-labelledby="actions-title"
           >
-            <p className={styles.eyebrow}>成长行动</p>
-            <h2 id="actions-title">用一周，验证一条线索</h2>
+            <p className={styles.eyebrow}>从理解到实践</p>
+            <h2 id="actions-title">行动计划</h2>
             <p className={styles.lead}>
-              挑一项与你当下生活有关的尝试。完成后勾选，再回到自己的经历里看它有没有帮助。
+              按自己的节奏，选择一个与当前生活有关的起点。每个阶段都留下具体经历和反馈，让下一步建立在你实际学到的东西上。
             </p>
             <div className={styles.actionList}>
               {actionItems.map(([time, heading, body], index) => (
@@ -538,7 +587,7 @@ export function JungReportPreview() {
             </div>
             <p className={styles.completion} role="status">
               <CheckCheck size={16} />
-              已完成 {completed.length} / 3 项
+              已完成 {completed.length} / {actionItems.length} 项
             </p>
           </section>
 
@@ -547,45 +596,52 @@ export function JungReportPreview() {
             className={styles.section}
             aria-labelledby="method-title"
           >
-            <p className={styles.eyebrow}>测评方法</p>
-            <h2 id="method-title">这份结果怎样得到</h2>
-            <dl className={styles.method}>
-              <div>
-                <dt>题本与计分</dt>
-                <dd>
-                  {
-                    "48 道情境自评，每个原型 4 题。按五档作答后，将各维度得分分别换算到 0–100。原型分数相同或接近时，一起比较具体经历。"
-                  }
-                </dd>
-              </div>
-              <div>
-                <dt>分数怎样使用</dt>
-                <dd>
-                  参考过去三个月的真实情境，比较自己更常采用的做法。每次作答受到经历、角色与当时状态影响，当前题本尚未建立人群常模。
-                </dd>
-              </div>
-              <div>
-                <dt>理论与题本</dt>
-                <dd>
-                  {
-                    "费马原创题本参考荣格原型概念与 Carol S. Pearson 的十二原型应用框架。"
-                  }{" "}
-                  此预览使用固定虚构分数和待评审的原创解读。
-                </dd>
-              </div>
-            </dl>
-            <p className={styles.sources}>
-              <a
-                href={
-                  "https://www.carolspearson.com/about/the-pearson-12-archetype-system"
-                }
-              >
-                {"Pearson 十二原型框架"} <ArrowRight size={14} />
-              </a>
-              <Link href="/zh/science">
-                费马测评方法 <ArrowRight size={14} />
-              </Link>
-            </p>
+            <p className={styles.eyebrow}>理论来源与测量边界</p>
+            <h2 id="method-title">科学依据</h2>
+            <div className={styles.scienceCopy}>
+              <h3>从荣格的原型概念，到现代十二原型框架</h3>
+              <p>
+                荣格以原型讨论反复出现在神话、象征与心理经验中的模式。今天常见的十二原型应用框架，由
+                Carol S. Pearson
+                在荣格等人的思想基础上发展；它不是荣格本人制定的十二种人格分类。原型名称帮助我们讨论动机与生活叙事，不把一个人限定为单一类型。
+              </p>
+              <h3>理论框架、具体量表与验证证据需要分开</h3>
+              <p>
+                Pearson-Marr Archetype
+                Indicator®（PMAI®）是有独立题目、计分方法和研究资料的量表。费马使用自己的原创题本，因此不能把
+                PMAI
+                的信效度结果直接当作本题本的验证。当前题本尚未建立人群常模，也没有可用于承诺个体预测准确性的信效度证据。
+              </p>
+              <h3>这份报告的分数说明什么</h3>
+              <p>
+                本题本有 48 道五档自评题，每个原型 4 题，各维独立换算到
+                0–100。分数表示相关描述在本次回答中得到的认同程度，不是人群百分位，也不代表十二项比例之和为
+                100%。回答可能随经历、角色与状态改变；相同或接近的高分应结合具体经历一起看。
+              </p>
+              <h3>怎样使用更有帮助</h3>
+              <p>
+                把解读作为可以核对的线索，同时寻找符合与不符合的经历。职业、关系、压力和金钱部分提供反思方向，不据此判断能力、诊断心理问题、预测职业表现或投资适合度。本页使用固定虚构分数，供查看报告结构与内容。
+              </p>
+              <p className={styles.sources}>
+                <a
+                  href="https://carolspearson.com/about/the-pearson-12-archetype-system-human-development-and-evolution"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Pearson 十二原型框架 <ArrowRight size={14} />
+                </a>
+                <a
+                  href="https://www.storywell.com/about-the-pmai/Why-is-Scientific-Validity-Important.htm"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  PMAI 的测量与验证说明 <ArrowRight size={14} />
+                </a>
+                <Link href="/zh/science">
+                  费马测评方法 <ArrowRight size={14} />
+                </Link>
+              </p>
+            </div>
           </section>
 
           <section
@@ -593,25 +649,32 @@ export function JungReportPreview() {
             className={styles.aiSection}
             aria-labelledby="ai-title"
           >
-            <div>
-              <p className={styles.eyebrow}>继续探索</p>
-              <h2 id="ai-title">把报告，变成一次具体的对话</h2>
-              <p>
-                带着结果和一段真实经历，和 AI
-                一起梳理。先核对它有没有读懂报告，再讨论你想改变的事。
-              </p>
-              <button onClick={() => void copyPrompt()}>
-                {copied ? <Check size={17} /> : <Copy size={17} />}
-                {copied ? "已复制提示词" : "复制提示词"}
-              </button>
-              <span role="status" className={styles.copyStatus}>
-                {copied ? "可以粘贴到你常用的 AI 对话中。" : ""}
-              </span>
+            <div className={styles.aiLayout}>
+              <Image
+                className={styles.aiIllustration}
+                src="/images/riasec/ai-career-interests.webp"
+                width={960}
+                height={640}
+                sizes="(max-width: 760px) 180px, 220px"
+                alt=""
+              />
+              <div>
+                <p className={styles.eyebrow}>继续探索</p>
+                <h2 id="ai-title">和 AI 继续探索你的原型动机</h2>
+                <p>
+                  带着结果和一段真实经历，和 AI
+                  一起梳理。先核对它有没有读懂报告，再讨论你想改变的事。
+                </p>
+                <pre className={styles.visiblePrompt}>{prompt}</pre>
+                <button onClick={() => void copyPrompt()}>
+                  {copied ? <Check size={17} /> : <Copy size={17} />}
+                  {copied ? "已复制提示词" : "复制提示词"}
+                </button>
+                <span role="status" className={styles.copyStatus}>
+                  {copied ? "可以粘贴到你常用的 AI 对话中。" : ""}
+                </span>
+              </div>
             </div>
-            <details>
-              <summary>查看完整提示词</summary>
-              <pre>{prompt}</pre>
-            </details>
           </section>
         </div>
 

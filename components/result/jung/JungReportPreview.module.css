@@ -1510,3 +1510,120 @@
     break-inside: avoid;
   }
 }
+
+.careerMatches {
+  margin-top: 20px;
+}
+.careerMatches article {
+  padding: 22px 0;
+  border-top: 1px solid #acc5af80;
+}
+.careerMatches article:last-child {
+  padding-bottom: 0;
+}
+.careerMatchHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+}
+.careerMatchHeading h4 {
+  color: #234c3b;
+  font-size: 19px;
+  font-weight: 650;
+}
+.careerMatchHeading > span {
+  color: #39765a;
+  font-size: 12px;
+}
+.careerCheck {
+  color: #405d51;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-top: 12px !important;
+}
+.careerMatchLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin-top: 12px;
+}
+.careerMatchLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d6859;
+  font-size: 12px;
+}
+
+.page section[id="actions"],
+.page section[id="method"] {
+  margin-top: 28px;
+  padding: 26px 28px;
+  border: 1px solid #aac7b1;
+  border-radius: 22px;
+  background: linear-gradient(140deg, #e4eee1, #eef2e8);
+}
+.scienceCopy h3 {
+  margin-top: 22px;
+  font-size: 16px;
+  color: #234c3b;
+}
+.scienceCopy p {
+  margin-top: 10px;
+  color: #405d51;
+  font-size: 14px;
+  line-height: 1.95;
+}
+.aiLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  align-items: center;
+  gap: 24px;
+}
+.aiIllustration {
+  width: 100%;
+  height: auto;
+  max-width: 220px;
+  margin: 0 auto;
+}
+.page .aiSection {
+  background: #e9f5ef;
+  color: #234c3b;
+  border: 1px solid #b6d2be;
+  border-top: 4px solid #39765a;
+}
+.page .aiSection .eyebrow {
+  color: #39765a;
+}
+.page .aiSection p:not(.eyebrow),
+.page .aiSection pre {
+  color: #405d51;
+}
+.page .aiSection .visiblePrompt {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.9;
+  font-size: 13px;
+  margin-top: 16px;
+}
+.page .aiSection button {
+  background: #2d6859;
+  color: white;
+}
+.page .copyStatus {
+  color: #39765a;
+}
+@media (max-width: 760px) {
+  .page section[id="actions"],
+  .page section[id="method"] {
+    padding: 22px 20px;
+  }
+  .aiLayout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .aiIllustration {
+    max-width: 180px;
+  }
+}
