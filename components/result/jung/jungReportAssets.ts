@@ -1,3 +1,4 @@
+import fixedJungSample from "@/lib/reports/fixed-samples/zh-jung_archetypes_48.json";
 import packs from "./assets/archetypes.json";
 import careerData from "./assets/careers.json";
 import common from "./assets/common.json";
@@ -21,20 +22,7 @@ export type JungReportMode = "preview" | "sample" | "result";
 
 // One public sample for everyone, independent of attempts, query strings and randomness.
 export const jungSampleScores: Readonly<Record<string, number>> = Object.freeze(
-  {
-    hero: 6.25,
-    sage: 87.5,
-    explorer: 75,
-    creator: 62.5,
-    ruler: 56.25,
-    caregiver: 50,
-    magician: 43.75,
-    lover: 37.5,
-    jester: 31.25,
-    everyperson: 25,
-    innocent: 18.75,
-    rebel: 12.5,
-  },
+  { ...fixedJungSample.report.jung.scores },
 );
 
 export function readJungArchetypeScores(

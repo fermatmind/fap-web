@@ -13,6 +13,8 @@ import {
 import SamplePage, {
   metadata,
 } from "@/app/(localized)/[locale]/tests/jung-archetypes/sample/page";
+import CanonicalSamplePage from "@/app/(localized)/[locale]/reports/samples/[test]/page";
+import { loadFixedSample } from "@/lib/reports/fixedSamples";
 import type { RiasecPurchase } from "@/lib/api/v0_3";
 
 vi.mock(
@@ -63,6 +65,17 @@ describe("shared Chinese Jung report and fixed public sample", () => {
         await SamplePage({ params: Promise.resolve({ locale: "zh" }) }),
       ),
     );
+    const canonical = rootFor(
+      renderToStaticMarkup(
+        await CanonicalSamplePage({
+          params: Promise.resolve({ locale: "zh", test: "archetypes" }),
+        }),
+      ),
+    );
+    expect(canonical.textContent).toBe(sample.textContent);
+    expect(
+      (await loadFixedSample("archetypes", "zh"))?.report?.jung,
+    ).toMatchObject(payloadFor({ ...jungSampleScores }));
     const real = rootFor(
       renderToStaticMarkup(
         <JungResult
@@ -136,6 +149,16 @@ describe("shared Chinese Jung report and fixed public sample", () => {
       );
     },
   );
+  it.each(["zh", "en", "zh-TW"])(
+    "does not expose the retired cognitive sample in %s",
+    async (locale) => {
+      await expect(
+        CanonicalSamplePage({
+          params: Promise.resolve({ locale, test: "cognitive" }),
+        }),
+      ).rejects.toThrow();
+    },
+  );
   it("fails unavailable or inconsistent real payloads without falling back to the sample", () => {
     for (const bad of [
       undefined,
@@ -169,8 +192,8 @@ describe("shared Chinese Jung report and fixed public sample", () => {
     expect(screen.queryByText("Private real result")).not.toBeInTheDocument();
     expect(screen.getByText("Existing checkout")).toBeVisible();
     expect(
-      screen.getByRole("link", { name: "查看完整示例报告" }),
-    ).toHaveAttribute("href", "/zh/tests/jung-archetypes/sample");
+      screen.getByRole("link", { name: /查看完整示例报告/ }),
+    ).toHaveAttribute("href", "/zh/reports/samples/archetypes");
     rerender(
       <MainstreamPaidResult
         data={data}
@@ -187,12 +210,12 @@ describe("shared Chinese Jung report and fixed public sample", () => {
     );
     expect(screen.getByText("Private real result")).toBeVisible();
     expect(
-      screen.queryByRole("link", { name: "查看完整示例报告" }),
+      screen.queryByRole("link", { name: /查看完整示例报告/ }),
     ).not.toBeInTheDocument();
     fireEvent.click(screen.getByText("Refund"));
     expect(screen.queryByText("Private real result")).not.toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "查看完整示例报告" }),
+      screen.getByRole("link", { name: /查看完整示例报告/ }),
     ).toBeVisible();
     expect(screen.queryByText("Existing checkout")).not.toBeInTheDocument();
   });
