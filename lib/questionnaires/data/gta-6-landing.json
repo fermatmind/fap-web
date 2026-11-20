@@ -1,0 +1,180 @@
+{
+  "zh": {
+    "guide": [
+      "从一次海岸场地缩水后的现场踩点读 Lucia 的行动逻辑：区分“果断抢占先机”与“忽略队友同步”，对比 Brian 的幕后排局，并查看她与 Jason 搭档时的分工边界。",
+      "从承诺与退路看 Jason 的处事原则：区分“稳住全队防线”与“独自硬扛所有压力”，对比 Lucia 的前沿突破，以及他在高压现场对伙伴的支持方式。",
+      "沿一条真假难辨的“巡逻队清场”群聊传闻展开：看 Cal 如何在全员慌乱时追溯消息源头、过滤噪音，对比 Brian 的全局调度，以及什么时候该停止核查立刻拍板。",
+      "从排好主备方案和交接点理解 Brian 的后台调度，再和 Boobie 的对外谈判比较。提前排好分工后，他还需要让每个接手的人知道下一步。",
+      "从备用音响和最后一首安可看 Raul 如何争取短暂窗口，再和 Lucia 优先做成第一步的行动方式对照。",
+      "从临时租用隔壁场地与锁定设备底价读 Boobie 的资源手腕：如何把人情、预算与分成摆上桌面谈清，对比 Dre'Quan 对作品纯度的坚持，以及合作条款的留白空间。",
+      "在设备缩水与返听失真时看 Dre'Quan 的创作定力：宁可压缩规模也不牺牲声音质感，对比 Real Dimez 的台前流量引爆，以及演出倒计时前的打磨取舍。",
+      "从入口排队长龙与冷场危机看这对说唱双子星的台前能量：如何把焦躁的围观者转化为现场气氛引擎，并说明单人作答匹配到双人组合时的视角读法。"
+    ],
+    "faq": [
+      [
+        "本版采用哪部作品、包含哪些可选人物？",
+        "采用 Rockstar Games《侠盗猎车手6》（GTA 6 / GTA VI）官方专题页《Only in Leonida》公布的 8 组核心角色条目，共对应 9 位人物：Lucia Caminos、Jason Duval、Cal Hampton、Brian Heder、Raul Bautista、Boobie Ike、Dre'Quan Priest，以及由 Bae-Luxe 和 Roxy 组成的双人组合 Real Dimez。未列入官方核心名录的边缘路人角色不在结果池中。"
+      ],
+      [
+        "GTA 6、GTA VI 和《侠盗猎车手6》是同一款游戏吗？为什么页面不用“GT6”？",
+        "GTA 6 和 GTA VI 都指 Grand Theft Auto VI，中文常见译名为《侠盗猎车手6》。GT6 容易与赛车游戏 Gran Turismo 6 混淆。"
+      ],
+      [
+        "这是 Rockstar 官方发布或经过心理测量验证的测试吗？",
+        "不是。这是费马测试（FermatMind）独立策划编写的非官方娱乐情景测验，没有 Rockstar Games 的官方合作、授权或背书，也不属于经过临床或心理测量学常模验证的人格量表。角色姓名与基础身份设定仅用于指称人物。"
+      ],
+      [
+        "没玩过 GTA 系列或还没通关 GTA 6，做这个测试会有剧透吗？",
+        "完全不会，也无需任何游戏背景知识。所有 12 道题目均设定在虚构的“罪恶都市海岸地下派对”单晚突发事件中，考察的是日常危机应对与团队协作偏好，不涉及任何游戏主线剧情剧透或任务考题。"
+      ],
+      [
+        "12 道题是如何计算出匹配结果的？",
+        "每题选择一个选项，为对应角色加一票，12 题合计 12 票。八组角色在题本各出现 6 次。主角色优先看总票数，同票时再按第三幕和题序规则比较。"
+      ],
+      [
+        "如果出现最高分并列，或者两个角色只差 1 分怎么办？",
+        "总票相同时先比较午夜一幕的命中次数；仍相同，从第 12 题往前找，较晚命中的角色优先。只显示一个主角色。第二名有票且落后不超过一票时，显示为次要行事风格。"
+      ],
+      [
+        "如何和朋友一起测「双人组队分工」？会泄露我的答题记录吗？",
+        "分享无参公开角色页。好友在该页点「我也来测，看看怎么组队」，答题页才用公开角色代号标记邀请。两人答题选项都在各自浏览器计分，分享链接只包含角色身份。"
+      ],
+      [
+        "为什么 Real Dimez 是两个人（Bae-Luxe 和 Roxy），单人测试也会匹配到吗？",
+        "Bae-Luxe 和 Roxy 是从高中相识的说唱搭档，合为 Real Dimez 一个结果。单人匹配到她们，代表你代入的是调动观众这一份台前分工。"
+      ],
+      [
+        "测出来的角色结果可以换算成 MBTI 或霍兰德职业代码吗？",
+        "本页不提供任何换算。娱乐情景角色联想与标准化心理构念属于完全不同的评估体系，12 题的计数结果无法直接对应 MBTI 四字母类型或职业兴趣代码。如果你想探索严谨的性格或职业倾向，可在页面顶部菜单进入独立的专业测评。"
+      ],
+      [
+        "不答题可以直接查看全部 8 个角色的公开指南吗？",
+        "可以。全部 8 篇公开角色指南在开测前即可直接点击阅读，它们属于通用角色解析，不包含任何用户的私人测试数据，提前阅读也不会影响后续作答与计分规则。"
+      ],
+      [
+        "刷新页面或切换语言会保留进度吗？",
+        "可以选择在当前标签页保存进度，草稿最多保留 24 小时，完成或重测后清除。没有勾选时，刷新或切换语言会开启新的作答。"
+      ]
+    ]
+  },
+  "en": {
+    "guide": [
+      "Read Lucia's lens through an immediate lot walk-through after half the venue closes: separating sharp initiation from outrunning your crew, contrasting with Brian's backstage planning, and pairing with Jason.",
+      "Explore Jason's approach through keeping promises under pressure: distinguishing reliable support from silently carrying too much alone, contrasting with Lucia's front-line push.",
+      "Follow a false group-chat rumor about a coastal patrol sweep: see how Cal traces sources and catches hidden snags early, contrasting with Brian's structural delegation, and knowing when to stop verifying and act.",
+      "Understand Brian's behind-the-scenes control through backup lines and single points of contact: restoring order without stepping into the spotlight, contrasting with Boobie's external deal-making.",
+      "An unfamiliar sound setup or a short encore can open a window for Raul. Compare his willingness to try another option with Lucia’s focus on making the first workable move.",
+      "Examine Boobie's business instincts through negotiating overflow lot space and locking in vendor rates: putting people and terms on the table, contrasting with Dre'Quan's creative perfectionism.",
+      "Look at Dre'Quan's craft-first focus when backup gear threatens the set: refusing to compromise on sound quality, contrasting with Real Dimez's crowd hype, and managing final-minute tweaks.",
+      "Read how Bae-Luxe and Roxy use music and audience participation to turn a long line into part of the night, and what that style means when a solo player matches the duo."
+    ],
+    "faq": [
+      [
+        "Which game and characters are included in this quiz?",
+        "This quiz covers all 8 official character entries (9 individuals) featured in Rockstar Games' Only in Leonida roster for Grand Theft Auto VI: Lucia Caminos, Jason Duval, Cal Hampton, Brian Heder, Raul Bautista, Boobie Ike, Dre'Quan Priest, and the rap duo Real Dimez (Bae-Luxe & Roxy). Minor background NPCs are excluded."
+      ],
+      [
+        "Are GTA 6, GTA VI, and Grand Theft Auto VI the same game? Why not \"GT6\"?",
+        "Yes—GTA 6 and GTA VI both refer to Rockstar Games' Grand Theft Auto VI. We avoid the shorthand \"GT6\" to prevent confusion with the racing simulator Gran Turismo 6."
+      ],
+      [
+        "Is this an official Rockstar Games quiz or a validated personality test?",
+        "No. This is an unofficial entertainment quiz independently created by FermatMind. It is not affiliated with, endorsed by, or licensed by Rockstar Games or Take-Two Interactive, nor is it a clinically validated psychometric instrument."
+      ],
+      [
+        "Do I need to have played GTA 6 or worry about story spoilers?",
+        "Not at all. All 12 questions take place during a standalone, fictional waterfront party in Vice City. No prior game knowledge is needed, and the quiz contains zero main-story spoilers."
+      ],
+      [
+        "How are my 12 answers scored?",
+        "Each answer adds one vote to its mapped character, for 12 votes in total. Every character appears in six questions. Total votes rank first, with the final-act and question-order rules used to resolve ties."
+      ],
+      [
+        "What happens if I get a tie or two characters are 1 point apart?",
+        "A tie in total votes is resolved by the number of midnight choices. If still tied, the most recent question answered for either character decides. A runner-up with votes and within one vote of the winner appears as a secondary play style."
+      ],
+      [
+        "How does the 2-player co-op feature work, and is my ballot private?",
+        "Copy your public result page and send it to a friend. They can start the quiz from that page, which passes the public character ID to the take page. Your answer choices stay in your browser."
+      ],
+      [
+        "Why is Real Dimez a duo (Bae-Luxe & Roxy), and can a solo player match with them?",
+        "Bae-Luxe and Roxy are high-school friends who perform as Real Dimez. They count as one result. A solo match with the duo reflects how you brought other people into the scene."
+      ],
+      [
+        "Can my GTA 6 character result be converted into an MBTI type or Holland Code?",
+        "No. Scenario-based character matching and standardized psychological constructs measure completely different things. If you are looking for structured personality or career assessments, explore our dedicated tests in the top navigation menu."
+      ],
+      [
+        "Can I read all 8 character guides without taking the quiz?",
+        "Yes. All 8 public character guides are accessible before starting the quiz. They provide general character perspectives rather than private user results, and reading them does not affect your scoring."
+      ],
+      [
+        "Does refreshing the page or switching languages keep my progress?",
+        "If you opt in to saving in this tab, the draft lasts up to 24 hours and is cleared on completion or retake. Otherwise a reload or language change starts a fresh attempt."
+      ]
+    ]
+  },
+  "zh-TW": {
+    "guide": [
+      "場地忽然少一半，露西婭會先實地走一趟。比較布萊恩先排備案的做法，也想想她怎麼讓傑森接得上。",
+      "原定開場可能臨時被換掉，傑森會先找原來的夥伴商量。和露西婭搭檔時，他顧的是已經答應的事。",
+      "遇到巡邏隊要來的群組傳言，卡爾會去找第一手說法。布萊恩先統一窗口，兩人解的是不同問題。",
+      "器材不夠時，布萊恩會先安排主備方案及交接。布比忙的是對外談支援與費用，這兩份工作可以同時做。",
+      "主秀快開始時，勞爾會想試眼前剛好能借到的配備。露西婭先抓一個能執行的動作，兩人要約好試到哪裡為止。",
+      "入口排隊塞住，布比可能去問隔壁酒吧能不能借後院。德雷・泉關心的是演出效果，兩人分別顧條件和作品。",
+      "喇叭臨時故障，德雷・泉先想怎麼改編還能保住音色。Real Dimez 會從台前接住正在等待的觀眾。",
+      "排隊的人開始躁動時，Bae-Luxe 和 Roxy 的分工是帶大家一起參與。配對到 Real Dimez 的單人答題者會代入這份熱場工作。"
+    ],
+    "faq": [
+      [
+        "這份測驗以哪一代 GTA 為主？會配對到誰？",
+        "以 Rockstar Games 的《俠盜獵車手6》為背景。取自官方 Only in Leonida 專頁的八組角色包含 Lucia、Jason、Cal、Brian、Raul、Boobie、Dre’Quan，以及由 Bae-Luxe 和 Roxy 組成的 Real Dimez。"
+      ],
+      [
+        "GTA 6、俠盜獵車手6與罪惡城市角色測驗有什麼不同？",
+        "GTA 6、GTA VI 和《俠盜獵車手6》指同一款遊戲。這裡的「罪惡城市角色測驗」是費馬以 GTA VI 的 Vice City 與雷歐奈達州（Leonida）為背景創作的角色測驗。GT6 則容易和賽車遊戲 Gran Turismo 6 搞混。"
+      ],
+      [
+        "這是 Rockstar 官方測驗嗎？",
+        "這是費馬測試獨立製作的非官方娛樂作品，與 Rockstar Games、Take-Two Interactive 無隸屬關係。角色背景參考官方資料，海岸派對與分工由費馬創作。"
+      ],
+      [
+        "還沒玩過，會被爆雷嗎？",
+        "可以直接玩。十二題都發生在費馬虛構的海岸派對，靠情境就能作答，題目與解讀都避開遊戲主線。"
+      ],
+      [
+        "每題的選擇怎麼變成角色結果？",
+        "選一項就給對應角色一票，總共十二票。每組角色會在六題出現，每幕兩題，優先比較總票數。"
+      ],
+      [
+        "票數相同時會顯示兩個角色嗎？",
+        "同票先比午夜那一幕的命中次數。仍相同，就從第十二題往前找，最後一次命中的角色優先。最後只顯示一個主角色，落後至多一票且得到票的第二名可以一起參考。"
+      ],
+      [
+        "怎麼把連結傳給朋友一起玩？我的答案會被看到嗎？",
+        "把結果頁的公開連結傳給朋友。朋友從那一頁開始組隊，完成後就會看到雙方的分工。公開連結只帶角色頁面，不會分享你的選項，作答也留在各自的瀏覽器。"
+      ],
+      [
+        "只有一個人作答，怎麼會配對到 Real Dimez？",
+        "Bae-Luxe 和 Roxy 是說唱搭檔，在測驗裡合為一組。配對到她們，表示你選到的是熱場、帶大家一起參與的做法。"
+      ],
+      [
+        "測到的角色可以對應 MBTI 或霍蘭德代碼嗎？",
+        "這是一份故事情境的娛樂配對，結果不能換算成人格類型或職涯興趣。也有人會把這類遊戲叫作心理測驗，本頁的票數只用來比較這十二題的選擇。"
+      ],
+      [
+        "可以先看角色，再決定要不要做測驗嗎？",
+        "可以。八份角色指南全部公開，從本頁的角色區就能點進去。閱讀不會影響後續計分。"
+      ],
+      [
+        "重整頁面或切換語言，作答會留著嗎？",
+        "勾選「在此分頁儲存進度」後，同一分頁最多保留草稿 24 小時。完成或重測時會清除；沒勾選，重新整理或換語言會開始新的作答。"
+      ],
+      [
+        "露西婭、傑森和罪惡城市在其他中文版本也指同一個人或地方嗎？",
+        "Lucia Caminos 有「露西婭／露西娅」等譯法，Jason Duval 有「傑森／杰森」。Vice City 常見「罪惡城市／罪惡都市」。香港玩家也可能把「角色測驗」寫成「角色測試」，本頁三語的角色 ID、題序和計分都一致。"
+      ]
+    ]
+  }
+}

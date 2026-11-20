@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
+import { gta6Name, gta6Slug, gta6LandingPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 
@@ -17,7 +18,12 @@ const rankedSlugs = [
 
 type CardCopy = Record<DisplayLocale, string>;
 
-const descriptions: Record<(typeof rankedSlugs)[number], CardCopy> = {
+const descriptions: Record<(typeof rankedSlugs)[number] | typeof gta6Slug, CardCopy> = {
+  [gta6Slug]: {
+    zh: "你更像露西娅、杰森还是布莱恩？在八组罪恶都市角色中测出你的救场风格。",
+    "zh-TW": "你比較像露西婭、傑森，還是布萊恩？到罪惡城市找找你會怎麼救場。",
+    en: "Are you more like Lucia, Jason, or Brian? Find your role among eight Vice City character matches.",
+  },
   "seven-sins-virtues-test": {
     zh: "看看你的七宗罪与七美德各得几分，查看雷达图和七组对照解读。",
     "zh-TW": "看看你的七宗罪與七美德各得幾分，查看雷達圖與七組對照解讀。",
@@ -60,7 +66,7 @@ const taiwanTitles: Record<(typeof rankedSlugs)[number], string> = {
 };
 
 type Selection = {
-  slug: (typeof rankedSlugs)[number];
+  slug: (typeof rankedSlugs)[number] | typeof gta6Slug;
   path: string;
   title: Record<"zh" | "en", string>;
   meta: CardCopy;
@@ -85,14 +91,25 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
   const zh = locale === "zh";
   const action = taiwan ? "開始免費測驗。" : zh ? "开始免费测试。" : "Start the free quiz.";
   const friendshipAction = taiwan ? "建立我的挑戰。" : zh ? "创建我的挑战。" : "Make my friendship quiz.";
+  const gta6Card: Selection = {
+    slug: gta6Slug,
+    path: gta6LandingPath(locale),
+    title: gta6Name,
+    meta: { zh: "12题 · 约2分钟 · 双人组队", "zh-TW": "12 題 · 約 2 分鐘 · 雙人組隊", en: "12 questions · ~2 min · 2-player co-op" },
+  };
+  const cards = [
+    gta6Card,
+    ...selections.filter(item => item.slug === "friendship-quiz"),
+    ...selections.filter(item => item.slug !== "friendship-quiz" && item.slug !== "attachment-styles"),
+  ];
   return <section className="fm-page-background pb-10 md:pb-12" aria-labelledby="homepage-fun-tests-title">
     <Container className="max-w-[82rem] px-6 md:px-8">
       <div className="border-t border-[var(--fm-border-soft)] pt-8 md:pt-10">
-        <h2 id="homepage-fun-tests-title" className="m-0 text-center text-3xl font-semibold text-slate-950 md:text-4xl">{taiwan ? "熱門娛樂測驗" : zh ? "热门娱乐测试" : "Popular fun quizzes"}</h2>
+        <h2 id="homepage-fun-tests-title" className="m-0 text-center text-3xl font-semibold text-slate-950 md:text-4xl">{taiwan ? "熱門娛樂測驗" : zh ? "热门娱乐测试" : "Popular Entertainment Quizzes"}</h2>
         <p className="mx-auto mt-3 max-w-2xl text-center leading-7 text-slate-600">{taiwan ? "和朋友玩一輪，或換個輕鬆的角度認識自己。完整結果免費，無須註冊。" : zh ? "和朋友玩一轮，或换个轻松的角度看看自己。完整结果免费，无需注册。" : "A friendship challenge to share, or a playful personality quiz just for you. Full results are free, with no signup."}</p>
         <div className="mt-8 grid gap-x-8 gap-y-7 md:grid-cols-2 xl:grid-cols-3">
-          {selections.map(item => {
-            const href = displayNavigationPath(item.path, locale);
+          {cards.map(item => {
+            const href = item.slug === gta6Slug ? item.path : displayNavigationPath(item.path, locale);
             const fallback = taiwan && href.startsWith("/zh/");
             return (
               <Link
@@ -103,7 +120,7 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
                 className="group block min-w-0 rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_6px_22px_rgba(15,23,42,0.09)] transition hover:shadow-[0_12px_28px_rgba(15,23,42,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none"
               >
                 <h3 className="m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition [overflow-wrap:anywhere] group-hover:text-slate-950">
-                  {taiwan ? taiwanTitles[item.slug] : item.title[sourceLocale]}
+                  {item.slug === gta6Slug ? gta6Name[locale] : taiwan ? taiwanTitles[item.slug] : item.title[sourceLocale]}
                 </h3>
                 <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
                   {descriptions[item.slug][locale]}{" "}
