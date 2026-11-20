@@ -19,7 +19,7 @@ export function DiscPage({ quiz, locale, take = false, displayLocale = locale, d
   const methods = ["raw-wins-explanation", "ties-explanation", "low-direction-explanation"];
   const references = (quiz.references ?? []).filter(reference => !["jobcannon.io", "idrlabs.com"].includes(new URL(reference.url).hostname.replace(/^www\./, "")));
   const copy = (text: string) => <DiscCitations text={text} locale={locale} referencePrefix="disc" />;
-  const engine = <DiscEntryClient quiz={discEntryDefinition(quiz)} locale={locale} projectedQuiz={displayLocale === "zh-TW" ? quiz : undefined} />;
+  const engine = <DiscEntryClient quiz={discEntryDefinition(quiz)} locale={locale} projectedQuiz={{ ...quiz, guide: [], faq: [], profiles: quiz.profiles.map(profile => ({ ...profile, headline: {zh:"", en:""}, summary:{zh:"", en:""}, sections:[] })) }} />;
   if (take) return engine;
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${displayLocale}` }, { name: zh ? displayText("全部测试") : "All tests", path: `/${displayLocale}/tests` }, { name: quiz.title[locale], path }])} />
@@ -27,7 +27,7 @@ export function DiscPage({ quiz, locale, take = false, displayLocale = locale, d
     <ExploreTestIntro slug={quiz.slug} locale={locale}>
       <h1 className="mt-3 text-4xl font-semibold leading-tight">{quiz.title[locale]}</h1>
       <p className="mt-5 text-lg leading-8 text-slate-700">{quiz.description[locale]}</p>
-      <p className="explore-intro-meta"><span>{zh ? displayText(`${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册`) : `${quiz.questions.length} questions · about ${quiz.minutes} minutes · no signup`}</span><span>{zh ? displayText("自编风格问卷 · 完整结果免费") : "Original style questionnaire · Full results free"}</span></p>
+      <p className="explore-intro-meta"><span>{zh ? displayText(`${quiz.questions.length}题 · 约${quiz.minutes}分钟 · 无需注册`) : `${quiz.questions.length} questions · about ${quiz.minutes} minutes · no signup`}</span><span>{zh ? displayText("自编风格问卷 · 基础结果免费，完整报告可选付费解锁") : "Original style questionnaire · Free basic results; optional paid full report"}</span></p>
       <QuestionnaireTakeEntry quiz={quiz} locale={locale} displayLocale={displayLocale} />
     </ExploreTestIntro>
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose">

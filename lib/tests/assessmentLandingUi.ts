@@ -19,17 +19,17 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free Big Five test: 90 items (~11 min) or FermatMind’s adapted 120-item IPIP-NEO form (~15 min). Explore five OCEAN traits and 30 facets." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
-  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "FermatMind IQ: 30 original visual matrix questions, ~20 min. Free test and results. Review reasoning, scores and limits; no substitute for professional IQ assessment." },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "FermatMind IQ: 30 original visual matrix questions, ~20 min. Free test and basic results; optional paid full report. Review reasoning, scores and limits; no substitute for professional IQ assessment." },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free Emotional Intelligence Test (EQ) & Results", description: "Take a free 60-question EQ self-report in about 10 minutes. Explore emotional awareness, regulation, empathy and relationships, with results and practical next steps." },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Career Interest Test: Holland Code (RIASEC)", description: "Take a free Holland Code test: 60 questions (~8 min). Get your six RIASEC interests and three-letter code to explore work activities and careers." },
 };
 
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "免费大五人格测试：OCEAN 五维与30个侧面", description: "免费大五人格测试：90题约11分钟，费马改写的120题 IPIP-NEO 结构题本约15分钟。了解 OCEAN 五个连续维度与30个侧面；120题并非未经改动的 Johnson 原版。" },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试（EQ）：60题自评与四维结果", description: "约10分钟完成60题情商自评，测试与结果免费。了解自我觉察、情绪调节、共情和关系管理，结合实际经历选择一个沟通练习；结果不等于能力评定。" },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试（EQ）：60题自评与四维结果", description: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情和关系管理，结合实际经历选择一个沟通练习；结果不等于能力评定。" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
-    title: "免费智商测试（IQ）：30题图形推理，测试与结果免费",
-    description: "在线完成费马30题原创图形与矩阵推理练习，预计约20分钟，测试与结果均免费。观察本次规律识别与抽象推理表现，了解成绩含义和使用边界；不替代专业智力评估。",
+    title: "免费智商测试（IQ）：30题图形推理，作答与基础结果免费，完整报告可选付费解锁",
+    description: "在线完成费马30题原创图形与矩阵推理练习，预计约20分钟，作答与基础结果免费，完整报告可选付费解锁。观察本次规律识别与抽象推理表现，了解成绩含义和使用边界；不替代专业智力评估。",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     title: "MBTI 免费测试：16 型人格与偏好解读",
@@ -37,11 +37,11 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
     title: "霍兰德职业兴趣测试免费版：60题与三字代码",
-    description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，测试与结果均免费。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
+    description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，作答与基础结果免费，完整报告可选付费解锁。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
     title: "九型人格测试免费版：105/144题与结果解读",
-    description: "在线免费完成九型人格测试：105题程度选择约12分钟，144题二选一约18分钟，测试与结果均免费。查看九型分布与候选类型解释，再按结果解读步骤对照自己的动机和具体经历。",
+    description: "在线免费完成九型人格测试：105题程度选择约12分钟，144题二选一约18分钟，作答与基础结果免费，完整报告可选付费解锁。查看九型分布与候选类型解释，再按结果解读步骤对照自己的动机和具体经历。",
   },
 };
 
@@ -52,26 +52,26 @@ const TRADITIONAL_MBTI_SEARCH_COPY = {
 
 const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en" | "zh-TW", string>>>> = {
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
-    zh: "30道原创图形与矩阵推理题，预计约20分钟，测试与结果均免费。查看答对题数、正确率和题组表现，并保存TXT或Markdown摘要。这是推理练习，不替代专业智力评估。",
-    en: "30 original visual matrix reasoning questions, estimated at about 20 minutes. The test and results are free. Review correct-answer count, accuracy and performance by item group, then save a TXT or Markdown summary. This reasoning exercise does not replace a professional intelligence assessment.",
+    zh: "30道原创图形与矩阵推理题，预计约20分钟，作答与基础结果免费，完整报告可选付费解锁。查看答对题数、正确率和题组表现，并保存TXT或Markdown摘要。这是推理练习，不替代专业智力评估。",
+    en: "30 original visual matrix reasoning questions, estimated at about 20 minutes. The test and basic results are free; the full report is an optional one-time purchase. Review correct-answer count, accuracy and performance by item group, then save a TXT or Markdown summary. This reasoning exercise does not replace a professional intelligence assessment.",
   },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，测试与结果免费。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
-    zh: "观察开放性、尽责性、外向性、宜人性与神经质五个连续维度。120题为费马按 IPIP-NEO-120 五维、30侧面结构改写的题本，并非未经改动的 Johnson 原版；原版的效度与常模不能直接套用于本改写版。90题约11分钟，120题约15分钟，两版均可免费完成并查看结果；侧面明细以实际展示为准。",
-    en: "Explore five continuous personality traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 120-item form is FermatMind’s adaptation using the IPIP-NEO-120 structure of five traits and 30 facets, not the unmodified Johnson form. Original-form validation and norms do not automatically apply to this adaptation. Choose 90 items (~11 minutes) or 120 (~15); both are free to complete and view results. Facet detail depends on the selected version.",
+    zh: "观察开放性、尽责性、外向性、宜人性与神经质五个连续维度。120题为费马按 IPIP-NEO-120 五维、30侧面结构改写的题本，并非未经改动的 Johnson 原版；原版的效度与常模不能直接套用于本改写版。90题约11分钟，120题约15分钟，两版均可免费完成并查看基础结果，完整报告可选付费解锁；侧面明细以实际展示为准。",
+    en: "Explore five continuous personality traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 120-item form is FermatMind’s adaptation using the IPIP-NEO-120 structure of five traits and 30 facets, not the unmodified Johnson form. Original-form validation and norms do not automatically apply to this adaptation. Choose 90 items (~11 minutes) or 120 (~15); both are free to complete and view basic results; the full report is an optional one-time purchase. Facet detail depends on the selected version.",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     zh: "了解你的 16 型人格结果与四组偏好。时间有限，可以先做 93 题版。想比较自己在更多情境下的选择，可以做 144 题版。两版均可免费完成并查看基础结果，供自我了解与沟通参考。",
-    "zh-TW": "了解你的 16 型人格结果与四组偏好。93 题约 10 分钟，144 题约 15 分钟，两版均可免费完成并查看结果，用于自我了解与沟通参考。",
+    "zh-TW": "了解你的 16 型人格结果与四组偏好。93 题约 10 分钟，144 题约 15 分钟，两版均可免费完成并查看基础结果，完整报告可选付费解锁，用于自我了解与沟通参考。",
     en: "Take a free MBTI-style personality test and see your four-letter type and scores for the four preference pairs. Choose 93 questions (about 10 minutes) or 144 (about 15 minutes). Both versions include free basic results.",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    zh: "60 题约 8 分钟，测试与结果均免费。结果会展示 RIASEC 六维兴趣，以及概括前三项的三字代码，帮助你找到想进一步体验的工作活动。",
+    zh: "60 题约 8 分钟，作答与基础结果免费，完整报告可选付费解锁。结果会展示 RIASEC 六维兴趣，以及概括前三项的三字代码，帮助你找到想进一步体验的工作活动。",
     en: "Find work activities you would like to explore with this free Holland Code career interest test. Answer 60 questions in about 8 minutes to get your six RIASEC scores and three-letter code. Use them to compare real job tasks, courses and projects; interests do not measure ability or guarantee a career match.",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
-    zh: "了解你的九型分布与候选类型。105 题按程度作答，约 12 分钟；144 题每题二选一，约 18 分钟。两版均可免费完成并查看结果。",
-    en: "Explore your nine-type distribution and candidate types. Rate the degree to which 105 items apply to you in about 12 minutes, or choose between two options for each of 144 items in about 18 minutes. Both versions are free to complete and view results.",
+    zh: "了解你的九型分布与候选类型。105 题按程度作答，约 12 分钟；144 题每题二选一，约 18 分钟。两版均可免费完成并查看基础结果，完整报告可选付费解锁。",
+    en: "Explore your nine-type distribution and candidate types. Rate the degree to which 105 items apply to you in about 12 minutes, or choose between two options for each of 144 items in about 18 minutes. Both versions are free to complete and view basic results; the full report is an optional one-time purchase.",
   },
 };
 

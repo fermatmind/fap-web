@@ -249,6 +249,7 @@ export type AttemptSubmissionResponse = {
 export type RiasecPurchase = { attempt_id: string; unlocked: boolean; order_no: string | null; payment_state: string | null; offers: Array<{ provider: "alipay" | "waffo"; sku: string; currency: "CNY" | "USD"; amount_cents: number }> };
 
 export type ResultResponse = {
+  report_purchase?: RiasecPurchase;
   riasec_purchase?: RiasecPurchase;
   ok: boolean;
   result_visibility_receipt?: string | null;
@@ -1058,6 +1059,7 @@ export type MbtiPreviewContractV1Raw = {
 };
 
 export type ReportResponse = {
+  report_purchase?: RiasecPurchase;
   riasec_purchase?: RiasecPurchase;
   mbti_pdf_content?: unknown;
   result_visibility_receipt?: string | null;
@@ -4532,4 +4534,13 @@ export async function resendOrderDelivery({
 }): Promise<OrderResendResponse> {
   const response = await apiClient.post<OrderResendResponse>(`/v0.3/orders/${orderNo}/resend`);
   return assertApiOk(response, "Unable to resend delivery link.");
+}
+
+export async function saveDiscAssessment(answers: Record<string, string>, locale: string, clientRef: string): Promise<ResultResponse & { attempt_id: string }> {
+  const anonId = getOrCreateAnonId();
+  const { ensureFmTokenReady, runWithGuestTokenRetry } = await import("@/lib/auth/authRetry");
+  await ensureFmTokenReady({ anonId, locale });
+  return runWithGuestTokenRetry({ anonId, locale, runner: () => apiClient.post<ResultResponse & { attempt_id: string }>("/v0.3/disc-assessment/results", {
+    answers, client_ref: clientRef, locale: locale === "zh" ? "zh-CN" : locale,
+  }, anonHeader(anonId, careerGuestHeaders(true))) });
 }

@@ -1,0 +1,1221 @@
+{
+  "slug": "disc",
+  "code": "DISC_BEHAVIOR",
+  "version": "1.0.0",
+  "updated": "2026-10-31",
+  "category": "framework",
+  "kind": "directional",
+  "title": {
+    "zh": "DISC测试",
+    "en": "DISC Personality Test"
+  },
+  "description": {
+    "zh": "通过24道工作情境二选一，观察任务推进、表达带动、稳定支持与规范核对四类行为选择。约5分钟，免费查看原始计数、全部最高并列与完整解读。",
+    "en": "Explore four work-style directions with 24 paired choices. See raw counts, every highest-count tie and full explanations free, with no signup."
+  },
+  "seoTitle": {
+    "zh": "DISC测试：24题行为风格、透明计分与完整结果",
+    "en": "DISC Test: 24 Questions, Scoring and Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "DISC是一组描述行为风格的框架，常用D（Dominance，主导）、I（Influence，影响）、S（Steadiness，稳定）与C（Conscientiousness，审慎）组织对行动、互动、支持与标准的讨论。其理论源流通常追溯到Marston在1928年的著作；今天使用的题本、计分与报告则由不同开发者分别建立。[1] 本页是费马原创的24题强迫选择式自报问卷：四个方向分别称为“推进处理、表达带动、稳定支持、规范核对”，用于整理本次情境中的相对选择。它适合希望回看日常协作与沟通习惯的读者。完成后可查看四项原始计数、所有最高并列、对应完整说明及两种泰国四动物命名对照；下面也可先阅读全部15种单项或并列指南。",
+    "en": "DISC is a family of behavioral-style frameworks using D (Dominance), I (Influence), S (Steadiness) and C (Conscientiousness) to organize discussion of action, interaction, support and standards. Its theoretical roots are commonly traced to Marston’s 1928 work; later developers created distinct questionnaires, scoring methods and reports.[1] This page is FermatMind’s original 24-item forced-choice self-report. Its four directions—moving things forward, engaging through expression, steady support, and standards and checks—summarize relative choices in these situations. It is intended for readers reflecting on everyday collaboration and communication. The output includes four raw counts, every highest-count tie, complete explanations and two Thai Four Animals naming comparisons. All 15 single-direction or tied guides are also available to read before taking the test."
+  },
+  "source": {
+    "kind": "FermatMind original mini-program questionnaire",
+    "formCode": "disc_behavior_forced_choice_24",
+    "itemBankVersion": "0.1.1-preview",
+    "scoringVersion": "0.1.1-preview",
+    "resultContentVersion": "0.2.0-preview",
+    "itemBankSha256": "2e130ff9cc18aab707e312331e59e6cccd4bda382040760f73efb0d7325898ff",
+    "resultContentSha256": "def40fcafc437b7003ec3896d4e7a9ed13babef02574ec54271c399d9940f95d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "DOMINANCE",
+      "title": {
+        "zh": "D·推进处理",
+        "en": "D · Moving things forward"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "INFLUENCE",
+      "title": {
+        "zh": "I·表达带动",
+        "en": "I · Engaging through expression"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "STEADINESS",
+      "title": {
+        "zh": "S·稳定支持",
+        "en": "S · Steady support"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "CONSCIENTIOUSNESS",
+      "title": {
+        "zh": "C·规范核对",
+        "en": "C · Standards and checks"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DISC_FC_001",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "合作任务刚启动时，我会先推动大家定下下一步。",
+            "en": "When a shared task begins, I first push for agreement on the next step."
+          },
+          "directionId": "DOMINANCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "合作任务刚启动时，我会先让大家说起来。",
+            "en": "When a shared task begins, I first get people talking."
+          },
+          "directionId": "INFLUENCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_002",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "会议有些沉闷时，我会先用一个话题带动交流。",
+            "en": "When a meeting feels flat, I first introduce a topic to get the conversation going."
+          },
+          "directionId": "INFLUENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "会议有些沉闷时，我会先提议直接进入决定。",
+            "en": "When a meeting feels flat, I first suggest moving straight to a decision."
+          },
+          "directionId": "DOMINANCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_003",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "时间变紧时，我倾向先砍掉次要环节继续推进。",
+            "en": "When time gets tight, I tend to cut secondary steps and keep moving."
+          },
+          "directionId": "DOMINANCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "时间变紧时，我倾向先说明状况让大家加入。",
+            "en": "When time gets tight, I tend to explain the situation and bring everyone in."
+          },
+          "directionId": "INFLUENCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_004",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "面对陌生团队，我通常先与几个人建立轻松互动。",
+            "en": "With an unfamiliar team, I usually start by building relaxed interactions with a few people."
+          },
+          "directionId": "INFLUENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "面对陌生团队，我通常先问清目标并推进行动。",
+            "en": "With an unfamiliar team, I usually start by clarifying the goal and moving toward action."
+          },
+          "directionId": "DOMINANCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_005",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "意见卡住时，我会先给出可执行的取舍方案。",
+            "en": "When opinions reach a standstill, I first offer a practical way to make the tradeoff."
+          },
+          "directionId": "DOMINANCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "意见卡住时，我会先让各方把担心说完。",
+            "en": "When opinions reach a standstill, I first let each side finish explaining its concerns."
+          },
+          "directionId": "STEADINESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_006",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "计划临时改变时，我会先帮大家保持原有节奏。",
+            "en": "When plans change at short notice, I first help everyone maintain their existing rhythm."
+          },
+          "directionId": "STEADINESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "计划临时改变时，我会先重排优先级并行动。",
+            "en": "When plans change at short notice, I first reset priorities and act."
+          },
+          "directionId": "DOMINANCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_007",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "任务进展缓慢时，我倾向明确追问障碍和时间点。",
+            "en": "When a task is moving slowly, I tend to ask directly about the obstacles and timing."
+          },
+          "directionId": "DOMINANCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "任务进展缓慢时，我倾向先补位支持当前节奏。",
+            "en": "When a task is moving slowly, I tend to step in and support the current rhythm."
+          },
+          "directionId": "STEADINESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_008",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "多人配合忙乱时，我通常先稳住衔接和分工。",
+            "en": "When collaboration gets hectic, I usually first steady the handoffs and division of work."
+          },
+          "directionId": "STEADINESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "多人配合忙乱时，我通常先指出最需要解决的一件事。",
+            "en": "When collaboration gets hectic, I usually first point out the one issue that most needs solving."
+          },
+          "directionId": "DOMINANCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_009",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "需要当场决定时，我会先用现有信息选一条路。",
+            "en": "When a decision is needed on the spot, I first choose a path using the information available."
+          },
+          "directionId": "DOMINANCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "需要当场决定时，我会先核对几个关键条件。",
+            "en": "When a decision is needed on the spot, I first check a few key conditions."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_010",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "交付前发现小偏差时，我会先评估是否需要修正。",
+            "en": "When a small discrepancy appears before delivery, I first assess whether it needs correcting."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "交付前发现小偏差时，我会先保证主要结果按时落地。",
+            "en": "When a small discrepancy appears before delivery, I first make sure the main outcome arrives on time."
+          },
+          "directionId": "DOMINANCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_011",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "规则不够清楚时，我倾向先提出一个可行做法。",
+            "en": "When the rules are unclear, I tend to suggest a workable approach first."
+          },
+          "directionId": "DOMINANCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "规则不够清楚时，我倾向先确认边界和标准。",
+            "en": "When the rules are unclear, I tend to confirm the boundaries and standards first."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_012",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "新方案还有不确定时，我通常先检查可能出错的环节。",
+            "en": "When a new proposal still involves uncertainty, I usually first check where things might go wrong."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "新方案还有不确定时，我通常先做一小步看实际反馈。",
+            "en": "When a new proposal still involves uncertainty, I usually first take a small step and look at the feedback."
+          },
+          "directionId": "DOMINANCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_013",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "讨论出现分歧时，我会先用自己的理解帮大家对话。",
+            "en": "When disagreement emerges, I first use my understanding to help people talk to each other."
+          },
+          "directionId": "INFLUENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "讨论出现分歧时，我会先听完各方再缓和节奏。",
+            "en": "When disagreement emerges, I first hear everyone out and then ease the pace."
+          },
+          "directionId": "STEADINESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_014",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "新成员加入时，我会先陪他熟悉现有节奏。",
+            "en": "When a new member joins, I first help them get used to the team's existing rhythm."
+          },
+          "directionId": "STEADINESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "新成员加入时，我会先帮他与大家自然聊起来。",
+            "en": "When a new member joins, I first help them start talking naturally with everyone."
+          },
+          "directionId": "INFLUENCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_015",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "需要多人配合时，我倾向先讲清画面让大家愿意参与。",
+            "en": "When several people need to work together, I tend to explain the picture first so they want to take part."
+          },
+          "directionId": "INFLUENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "需要多人配合时，我倾向先保证每个人都能接上进度。",
+            "en": "When several people need to work together, I tend to make sure everyone can keep up with progress first."
+          },
+          "directionId": "STEADINESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_016",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "沟通对象有些犹豫时，我通常先给他空间慢慢表达。",
+            "en": "When someone seems hesitant in a conversation, I usually first give them room to express themselves gradually."
+          },
+          "directionId": "STEADINESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沟通对象有些犹豫时，我通常先用问题引出他的想法。",
+            "en": "When someone seems hesitant in a conversation, I usually first ask questions to draw out their thoughts."
+          },
+          "directionId": "INFLUENCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_017",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "介绍一个新想法时，我会先讲它能带来的变化。",
+            "en": "When introducing a new idea, I first describe the changes it could bring."
+          },
+          "directionId": "INFLUENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "介绍一个新想法时，我会先讲依据和实施条件。",
+            "en": "When introducing a new idea, I first explain the evidence and conditions for putting it into practice."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_018",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "收到模糊反馈时，我会先问清具体例子和标准。",
+            "en": "When feedback is vague, I first ask for specific examples and standards."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "收到模糊反馈时，我会先通过交流理解对方的感受。",
+            "en": "When feedback is vague, I first try to understand the other person's feelings through conversation."
+          },
+          "directionId": "INFLUENCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_019",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "团队准备对外说明时，我倾向先组织一个有吸引力的开场。",
+            "en": "When the team is preparing an external presentation, I tend to organize an engaging opening first."
+          },
+          "directionId": "INFLUENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "团队准备对外说明时，我倾向先检查用词和数据。",
+            "en": "When the team is preparing an external presentation, I tend to check the wording and data first."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_020",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "现场被问到细节时，我通常先确认信息再回答。",
+            "en": "When asked about details on the spot, I usually confirm the information before answering."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "现场被问到细节时，我通常先与对方建立共同理解。",
+            "en": "When asked about details on the spot, I usually establish a shared understanding with the other person first."
+          },
+          "directionId": "INFLUENCE"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_021",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "流程频繁变动时，我会先保留让大家安心的固定环节。",
+            "en": "When processes change frequently, I first retain some fixed steps that help everyone feel settled."
+          },
+          "directionId": "STEADINESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "流程频繁变动时，我会先整理新规则和异常点。",
+            "en": "When processes change frequently, I first organize the new rules and exceptions."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_022",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "同事交付了一份初稿时，我会先核对它是否符合要求。",
+            "en": "When a colleague delivers a first draft, I first check whether it meets the requirements."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "同事交付了一份初稿时，我会先了解他还需要哪些支持。",
+            "en": "When a colleague delivers a first draft, I first find out what support they still need."
+          },
+          "directionId": "STEADINESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_023",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "日常协作出现遗漏时，我倾向先补上缺口保持连续。",
+            "en": "When something is missed in everyday collaboration, I tend to fill the gap first to maintain continuity."
+          },
+          "directionId": "STEADINESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "日常协作出现遗漏时，我倾向先找出是哪个环节失准。",
+            "en": "When something is missed in everyday collaboration, I tend to identify which step went off track first."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        }
+      ]
+    },
+    {
+      "id": "DISC_FC_024",
+      "prompt": {
+        "zh": "在下面这个情境中，哪一项通常更自然或更先出现？",
+        "en": "In the following situation, which response usually comes more naturally or happens first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "工作要移交给别人时，我通常先整理清单和注意事项。",
+            "en": "When handing work over to someone else, I usually first prepare a checklist and points to watch."
+          },
+          "directionId": "CONSCIENTIOUSNESS"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "工作要移交给别人时，我通常先安排平稳的衔接过程。",
+            "en": "When handing work over to someone else, I usually first arrange a smooth transition."
+          },
+          "directionId": "STEADINESS"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "single-d",
+      "directionIds": [
+        "DOMINANCE"
+      ],
+      "title": {
+        "zh": "D·推进处理",
+        "en": "D · Moving things forward"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "怎么算分：每道题都是两个方向二选一，选中的方向得 1 次；四个方向各出场 12 次。本次 D·推进处理次数最多。这个数字只在这 24 题内部成立，不是人群百分位，不是准确率，也跟浓度无关。",
+        "en": "How scoring works: each question asks you to choose between two directions, and the selected direction gains 1 count. Each of the four directions appears 12 times. D, moving things forward, had the highest count this time. This number applies only within these 24 questions; it is not a population percentile, an accuracy rate or a concentration."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D型结果：推进方式、取舍与沟通",
+          "en": "DISC D Result: Action, Tradeoffs and Communication"
+        },
+        "description": {
+          "zh": "阅读DISC问卷中D方向领先的完整结果：主动推进的具体情境、容易遗漏的信息、沟通建议及与I/S/C的比较。原始选择次数不等于领导力或职业适配。",
+          "en": "Explore the DISC D guide: action-oriented choices, everyday examples, communication tradeoffs and comparisons with I, S and C. Full report, without a leadership verdict."
+        }
+      }
+    },
+    {
+      "id": "single-i",
+      "directionIds": [
+        "INFLUENCE"
+      ],
+      "title": {
+        "zh": "I·表达带动",
+        "en": "I · Engaging through expression"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "计分方式很简单：每道题都是两个方向的二选一，你选中的方向记 1 次；四个方向各出场 12 次。这次 I·表达带动拿到的次数最多。请注意，这个数字只在本次作答内部有效——它跟人群排名无关，更不是百分位、准确率或什么浓度。",
+        "en": "The scoring is simple: each question offers two directions, and your selected direction gains 1 count. Each of the four directions appears 12 times. I, engaging through expression, had the highest count this time. This number is valid only within this attempt. It is not a population ranking, percentile, accuracy rate or concentration."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC I型结果：表达互动与沟通边界",
+          "en": "DISC I Result: Expression, Interaction and Tradeoffs"
+        },
+        "description": {
+          "zh": "查看DISC I方向结果的完整解释：如何表达想法、邀请互动、处理细节与跟进，并比较其他方向。不以问卷次数判断受欢迎程度，结果免费可读。",
+          "en": "Read the DISC I result guide on expression, inviting participation, detail and follow-through. Compare nearby approaches through a full free report, without popularity claims."
+        }
+      }
+    },
+    {
+      "id": "single-s",
+      "directionIds": [
+        "STEADINESS"
+      ],
+      "title": {
+        "zh": "S·稳定支持",
+        "en": "S · Steady support"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "本题四个方向各被安排了 12 次出场，你每选中一次就记 1 分。本次 S·稳定支持得分最高。这个分数只在这一次作答内部有意义：它不涉及人群里的位置，更不是准确率、浓度或百分位，只说明这次你相对更常选它。",
+        "en": "Each of the four directions appears 12 times, and each selection earns it 1 count. S, steady support, had the highest total this time. The total is meaningful only within this attempt. It is not a position in the population, an accuracy rate, concentration or percentile. It shows only that you selected this direction relatively more often this time."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC S型结果：稳定协作与变化中的表达",
+          "en": "DISC S Result: Steadiness, Cooperation and Change"
+        },
+        "description": {
+          "zh": "阅读DISC S方向完整报告，了解稳定协作、维护节奏、面对变化和表达分歧的具体例子与取舍。结果描述本次选择，不定义固定性格或工作能力。",
+          "en": "Explore the DISC S guide: steady cooperation, pace, change and expressing disagreement. Read concrete examples and tradeoffs without treating the result as a fixed identity."
+        }
+      }
+    },
+    {
+      "id": "single-c",
+      "directionIds": [
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "C·规范核对",
+        "en": "C · Standards and checks"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每个方向参与 12 次比较，被选中即得 1 次。本次 C·规范核对次数居首。这个数字不能跨出本次作答使用：它不是人群排名，不是准确率，也不是浓度或百分位，只是本次的相对结果。",
+        "en": "Each direction takes part in 12 comparisons and gains 1 count when selected. C, standards and checks, had the highest count this time. The number cannot be used beyond this attempt. It is not a population ranking, accuracy rate, concentration or percentile, only a relative result within this attempt."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC C型结果：审慎整理、标准与沟通",
+          "en": "DISC C Result: Careful Review, Standards and Communication"
+        },
+        "description": {
+          "zh": "查看DISC C方向领先时的完整结果：核对依据、整理细节、把握标准及行动时机。包含沟通情境与方向比较，不把审慎计数换算成智力或正确率。",
+          "en": "Read the DISC C guide to checking evidence, organising details and deciding when to act. Full examples and comparisons, without converting careful choices into intelligence."
+        }
+      }
+    },
+    {
+      "id": "tied-d-i",
+      "directionIds": [
+        "DOMINANCE",
+        "INFLUENCE"
+      ],
+      "title": {
+        "zh": "D / I 并列",
+        "en": "D / I tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / I 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / I have the same count, above the other directions, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D/I并列：行动推进与表达互动",
+          "en": "DISC D/I Tie: Action and Expression"
+        },
+        "description": {
+          "zh": "D与I原始次数并列最高怎样读？比较推进决定与邀请互动的具体情境，阅读完整并列报告、沟通取舍和下一步。不按选项顺序强分主次。",
+          "en": "D and I share the highest raw count. Compare moving decisions forward with inviting interaction, read the full tied report and consider communication tradeoffs without forcing a winner."
+        }
+      }
+    },
+    {
+      "id": "tied-d-s",
+      "directionIds": [
+        "DOMINANCE",
+        "STEADINESS"
+      ],
+      "title": {
+        "zh": "D / S 并列",
+        "en": "D / S tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / S 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / S have the same count, above the other directions, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D/S并列：推进变化与稳定协作",
+          "en": "DISC D/S Tie: Initiative and Steady Cooperation"
+        },
+        "description": {
+          "zh": "阅读DISC D/S并列完整说明：主动推进与维持稳定如何在不同情境中出现，怎样表达节奏和分歧。并列保留两个方向，不推断固定组合型人格。",
+          "en": "Explore the full DISC D/S tie guide: initiative, a steady pace and expressing disagreement in context. Both highest directions remain, without certifying a combined personality type."
+        }
+      }
+    },
+    {
+      "id": "tied-d-c",
+      "directionIds": [
+        "DOMINANCE",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "D / C 并列",
+        "en": "D / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / C have the same count, above the other directions, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D/C并列：行动节奏与审慎核对",
+          "en": "DISC D/C Tie: Action and Careful Review"
+        },
+        "description": {
+          "zh": "D与C次数相同且领先时，怎样比较先推进和先核对？查看完整情境解释、取舍与沟通建议；并列来自本题组，不代表两种能力都很强。",
+          "en": "Read the DISC D/C tie guide on acting and checking first. Compare practical situations, tradeoffs and communication choices; equal counts do not establish two exceptional abilities."
+        }
+      }
+    },
+    {
+      "id": "tied-i-s",
+      "directionIds": [
+        "INFLUENCE",
+        "STEADINESS"
+      ],
+      "title": {
+        "zh": "I / S 并列",
+        "en": "I / S tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 I / S 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. I / S have the same count, above the other directions, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC I/S并列：互动表达与稳定陪伴",
+          "en": "DISC I/S Tie: Expression and Steadiness"
+        },
+        "description": {
+          "zh": "查看DISC I/S并列结果的完整解释，比较表达、互动和维持稳定节奏的具体做法。包括沟通场景与可尝试的下一步，不以并列判断关系匹配。",
+          "en": "I and S tie at the top. Explore expression, interaction and maintaining a steady pace through the full DISC guide, with examples and next steps rather than compatibility predictions."
+        }
+      }
+    },
+    {
+      "id": "tied-i-c",
+      "directionIds": [
+        "INFLUENCE",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "I / C 并列",
+        "en": "I / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 I / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. I / C have the same count, above the other directions, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC I/C并列：开放表达与细节整理",
+          "en": "DISC I/C Tie: Expression and Detail"
+        },
+        "description": {
+          "zh": "阅读DISC I/C并列完整报告：表达交流与核对细节各自何时有用，怎样协调沟通节奏和信息标准。原始次数并列不自动证明灵活或全面。",
+          "en": "Explore the DISC I/C tie: expressing ideas, checking details and agreeing on information needs. Read the full report without interpreting equal counts as proof of versatility."
+        }
+      }
+    },
+    {
+      "id": "tied-s-c",
+      "directionIds": [
+        "STEADINESS",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "S / C 并列",
+        "en": "S / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. S / C have the same count, above the other directions, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC S/C并列：稳定节奏与审慎标准",
+          "en": "DISC S/C Tie: Steady Pace and Careful Standards"
+        },
+        "description": {
+          "zh": "DISC S与C并列最高是什么意思？比较稳定协作、细节标准与变化中的沟通，阅读完整说明及情境例子。不把两方向并列当作能力排名。",
+          "en": "Read the full DISC S/C guide: a steady pace, careful standards and communication during change. Examples explain equal highest counts without assigning an ability rank."
+        }
+      }
+    },
+    {
+      "id": "tied-d-i-s",
+      "directionIds": [
+        "DOMINANCE",
+        "INFLUENCE",
+        "STEADINESS"
+      ],
+      "title": {
+        "zh": "D / I / S 并列",
+        "en": "D / I / S tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / I / S 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / I / S have the same count, above the other direction, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D/I/S三方向并列：怎样比较不同情境",
+          "en": "DISC D/I/S Tie: Comparing Three Leading Directions"
+        },
+        "description": {
+          "zh": "D、I、S同时并列最高，没有唯一顶部方向。阅读完整报告，比较推进、表达与稳定协作的情境和取舍；较低C次数也不等于缺乏审慎能力。",
+          "en": "D, I and S share the highest count. Compare action, expression and steady cooperation through a full guide. A lower C tally does not establish a lack of carefulness or skill."
+        }
+      }
+    },
+    {
+      "id": "tied-d-i-c",
+      "directionIds": [
+        "DOMINANCE",
+        "INFLUENCE",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "D / I / C 并列",
+        "en": "D / I / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / I / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / I / C have the same count, above the other direction, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D/I/C三方向并列：行动、表达与核对",
+          "en": "DISC D/I/C Tie: Action, Expression and Review"
+        },
+        "description": {
+          "zh": "查看DISC D/I/C三方向并列完整结果，分别理解行动、互动和核对依据的情境，并比较另一方向。并列不强排主次，也不认证全能人格。",
+          "en": "Explore the DISC D/I/C three-way tie: action, interaction and checking evidence. The full report keeps every leading direction without ordering them or certifying an all-round type."
+        }
+      }
+    },
+    {
+      "id": "tied-d-s-c",
+      "directionIds": [
+        "DOMINANCE",
+        "STEADINESS",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "D / S / C 并列",
+        "en": "D / S / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / S / C have the same count, above the other direction, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC D/S/C三方向并列：推进、稳定与标准",
+          "en": "DISC D/S/C Tie: Initiative, Steadiness and Standards"
+        },
+        "description": {
+          "zh": "阅读DISC D/S/C完整并列报告，比较推进决定、维持节奏和检查标准时的具体选择。三项原始次数相同不等于人格平衡或职业更广。",
+          "en": "Read the full DISC D/S/C tie guide on initiative, pace and standards. Equal leading counts invite comparison of choices, not conclusions about personality balance or career range."
+        }
+      }
+    },
+    {
+      "id": "tied-i-s-c",
+      "directionIds": [
+        "INFLUENCE",
+        "STEADINESS",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "I / S / C 并列",
+        "en": "I / S / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 I / S / C 的次数相同且高于其余方向，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. I / S / C have the same count, above the other direction, in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC I/S/C三方向并列：互动、节奏与细节",
+          "en": "DISC I/S/C Tie: Interaction, Pace and Detail"
+        },
+        "description": {
+          "zh": "I、S、C同时领先怎样解释？查看互动表达、稳定合作和细节核对的完整情境说明，以及沟通取舍和下一步。较低D次数不决定自信或领导能力。",
+          "en": "I, S and C share the lead. Read the full guide to interaction, steady cooperation and detail, with communication tradeoffs. A lower D tally determines neither confidence nor leadership."
+        }
+      }
+    },
+    {
+      "id": "tied-d-i-s-c",
+      "directionIds": [
+        "DOMINANCE",
+        "INFLUENCE",
+        "STEADINESS",
+        "CONSCIENTIOUSNESS"
+      ],
+      "title": {
+        "zh": "D / I / S / C 并列",
+        "en": "D / I / S / C tie"
+      },
+      "headline": {
+        "zh": "",
+        "en": ""
+      },
+      "summary": {
+        "zh": "",
+        "en": ""
+      },
+      "scoreReading": {
+        "zh": "每道题只给被选中的方向记 1 次；本次 D / I / S / C 的次数相同，共同位于最高，系统完整保留并列，不使用题号、字母或选项位置破同分。",
+        "en": "Each question gives only the selected direction 1 count. D / I / S / C all have the same count and share the lead in this attempt. The system keeps the full tie rather than breaking it by question number, letter or option position."
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "zh": "DISC四方向次数相同：完整结果怎样读",
+          "en": "DISC Four-Way Tie: Reading Equal Counts"
+        },
+        "description": {
+          "zh": "DISC D/I/S/C四项次数完全相同时，不指定领先方向。阅读完整并列说明、具体情境、计分局限和下一步；这不是全能、完美平衡或测试失败的证明。",
+          "en": "All four DISC directions have equal counts, so no leader is assigned. Explore the full tie guide, context and scoring limits; equality proves neither perfect balance nor test failure."
+        }
+      }
+    }
+  ],
+  "guide": [],
+  "faq": [],
+  "references": [
+    {
+      "title": {
+        "zh": "Wiley · Everything DiSC Research Report，§1（模型背景与该产品的测量研究）",
+        "en": "Wiley · Everything DiSC Research Report, §1: model background and product-specific research"
+      },
+      "url": "https://www.everythingdisc.com/EverythingDiSC/media/SiteFiles/Assets/History/Everything-DiSC-Research-Report.pdf"
+    },
+    {
+      "title": {
+        "zh": "Martinussen、Richardsen与Vårum（2001）· DISCUS自比式测量验证，Scandinavian Journal of Psychology 42:411–416",
+        "en": "Martinussen, Richardsen & Vårum (2001) · Validation of an ipsative personality measure (DISCUS), Scandinavian Journal of Psychology 42:411–416"
+      },
+      "url": "https://doi.org/10.1111/1467-9450.00253"
+    },
+    {
+      "title": {
+        "zh": "Inskru · 教师2021年课堂活动原文（四动物命名的版本示例）",
+        "en": "Inskru · Teacher’s 2021 classroom activity: an example of Four Animals naming"
+      },
+      "url": "https://inskru.com/idea/-Mo92H9lGEhATD1OwjvT/"
+    },
+    {
+      "title": {
+        "zh": "JobCannon · 四动物公开命名对照（单独12题产品）",
+        "en": "JobCannon · Public Four Animals naming comparison: a separate 12-item product"
+      },
+      "url": "https://jobcannon.io/tests/thai-four-animals"
+    }
+  ],
+  "instructions": {
+    "zh": "请以近期较常见的工作、学习或合作经历为参照，每题选择更贴近自己通常做法的一项。两项都像时，比较哪项更经常、或更先出现；两项都不像时，选相对更贴近的一项。题目没有正确答案，不必按理想形象作答。完成全部24题后生成计数与完整结果。",
+    "en": "Use recent, typical work, study or collaborative experiences as your reference. Choose the response closer to what you usually do. If both fit, consider which happens more often or first; if neither fits, choose the closer one. There are no correct answers, so avoid answering as an ideal version of yourself. Complete all 24 choices to generate counts and the full result."
+  }
+}

@@ -1,5 +1,8 @@
 "use client";
 
+import { DiscPaidReport } from "@/components/result/disc/DiscPaidReport";
+import { MainstreamPaidResult } from "@/components/commerce/MainstreamPaidResult";
+
 import { RiasecPaidResult } from "@/components/result/riasec/RiasecPaidResult";
 
 import { JungResult } from "@/components/result/jung/JungResult";
@@ -1548,7 +1551,7 @@ export default function ResultClient({
         });
 
         const mbtiReportAccessPath = isMbtiReportAccessResponse(accessResponse);
-        const allowMbtiLockedPreview = mbtiReportAccessPath || hasMbtiReportAccessRouteHint(accessResponse);
+        const allowMbtiLockedPreview = Boolean(accessResponse.report_purchase) || mbtiReportAccessPath || hasMbtiReportAccessRouteHint(accessResponse);
         if (mbtiReportAccessPath) {
           setMbtiAccessPath(true);
           if (!mbtiBootstrapPhaseTrackedRef.current) {
@@ -1562,7 +1565,7 @@ export default function ResultClient({
               locale,
             });
           }
-          if (!printMode) {
+          if (!printMode && !accessResponse.report_purchase) {
             startInviteProgressSync();
           }
         }
@@ -1606,6 +1609,13 @@ export default function ResultClient({
         const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
         routeScaleCodeRef.current = reportScaleCode;
 
+        if (reportResponse.report_purchase && !reportResponse.report_purchase.unlocked) {
+          setReportData(reportResponse);
+          setResultData(null);
+          markReady();
+          return;
+        }
+
         if (isEnneagramPrivateResultContractInvalid(reportResponse, locale)) {
           setReportData(null);
           setResultData(null);
@@ -1617,12 +1627,12 @@ export default function ResultClient({
         setReportData(reportResponse);
         setResultData(null);
 
-        if (reportScaleCode === "MBTI" && !printMode) {
+        if (reportScaleCode === "MBTI" && !printMode && !reportResponse.report_purchase) {
           startInviteProgressSync();
         }
 
         const eqReportReady = isEqV5ReportResponse(reportResponse);
-        const richReportReady = canRenderRichResultReport(reportResponse) || Boolean(reportResponse.report?.jung);
+        const richReportReady = canRenderRichResultReport(reportResponse) || Boolean(reportResponse.report?.jung) || Boolean(reportResponse.report?.disc);
         const iqReportReady = isIqReportResponse(reportResponse) && !isGeneratingReportResponse(reportResponse);
         if (iqReportReady) {
           markReady();
@@ -1857,7 +1867,7 @@ export default function ResultClient({
   const viewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
       ? "processing"
-      : status === "ready" && (hasEqV5Report || hasRichReport || hasIqReport || Boolean(reportData?.report?.jung) || hasReadyResultPayload(resultData))
+      : status === "ready" && (hasEqV5Report || hasRichReport || hasIqReport || Boolean(reportData?.report?.jung) || Boolean(reportData?.report?.disc) || Boolean(reportData?.report_purchase) || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
   useResultVisibilityObservation({
@@ -2170,12 +2180,21 @@ export default function ResultClient({
     } : undefined,
   };
 
+  const webReport = reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
+  const withPurchase = (children: React.ReactNode) => webReport?.report_purchase
+    ? <MainstreamPaidResult data={webReport} purchase={webReport.report_purchase} locale={displayLocale}>{children}</MainstreamPaidResult>
+    : children;
+  if (webReport?.report_purchase && !webReport.report_purchase.unlocked) return withPurchase(null);
+  if (webReport?.report_purchase && resolvedScaleCode === "DISC_BEHAVIOR") {
+    return withPurchase(<DiscPaidReport payload={reportData?.report?.disc} locale={locale} displayLocale={displayLocale} />);
+  }
+
   if (reportData && (resolvedScaleCode === "JUNG_ARCHETYPES" || resolvedScaleCode === "JUNG_COGNITIVE_FUNCTIONS")) {
-    return <JungResult scale={resolvedScaleCode} locale={locale} payload={reportData.report?.jung} />;
+    return withPurchase(<JungResult scale={resolvedScaleCode} locale={locale} displayLocale={displayLocale} payload={reportData.report?.jung} />);
   }
 
   if (isIqScaleCode(resolvedScaleCode)) {
-    return (
+    return withPurchase(
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         <IqResultShell
           {...exportPdfProps}
@@ -2191,7 +2210,7 @@ export default function ResultClient({
   }
 
   if (hasEqV5Report && reportData) {
-    return (
+    return withPurchase(
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}
         <EQResultV5
@@ -2230,7 +2249,7 @@ export default function ResultClient({
       ? resolvedScaleCode === "BIG5_OCEAN" ? buildBig5ResultExport(reportData, locale, accessView)
         : resolvedScaleCode === "ENNEAGRAM" ? buildEnneagramResultExport(reportData, locale, accessView) : null
       : null;
-    return (
+    return withPurchase(
       <div data-result-visible-root className="space-y-[var(--fm-gap-md)]">
         {resolvedScaleCode !== "MBTI" && (resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData)) ? renderOptionalEmailRecoveryCard() : null}
         <RichResultReport

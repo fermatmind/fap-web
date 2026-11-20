@@ -86,6 +86,10 @@ const hoisted = vi.hoisted(() => ({
   })),
 }));
 
+vi.mock("@/components/commerce/MainstreamPaidResult", () => ({
+  MainstreamPaidResult: () => <div data-testid="mainstream-payment-boundary">Guest checkout</div>,
+}));
+
 vi.mock("next/navigation", () => ({
   usePathname: () => hoisted.pathname,
   useSearchParams: () => new URLSearchParams(hoisted.search),
@@ -423,6 +427,23 @@ describe("ResultClient view-state contract", () => {
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_READY__ = false;
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__ = undefined;
     window.sessionStorage.clear();
+  });
+
+  it.each(["MBTI", "BIG5_OCEAN", "ENNEAGRAM", "EQ_60", "IQ_RAVEN", "JUNG_ARCHETYPES", "DISC_BEHAVIOR"])("opens guest checkout for an unpaid %s report without a native full-report payload", async scale => {
+    const purchase = { attempt_id: "attempt-123", unlocked: false, order_no: null, payment_state: null, offers: [] };
+    hoisted.fetchAttemptReportAccess.mockResolvedValue({
+      ok: true, attempt_id: "attempt-123", scale_code: scale, access_state: "locked", report_state: "ready", pdf_state: "missing",
+      actions: { page_href: "/result/attempt-123" }, report_purchase: purchase,
+    });
+    hoisted.fetchAttemptReport.mockResolvedValue({
+      ok: true, attempt_id: "attempt-123", scale_code: scale, meta: { scale_code: scale },
+      result: { type_code: "fixture", scores_pct: {} }, locked: true, report_purchase: purchase,
+    });
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await waitFor(() => expect(screen.getByTestId("mainstream-payment-boundary")).toBeVisible());
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalled();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
   });
 
   it("keeps a valid finished Enneagram V2 report on the rich report path", async () => {

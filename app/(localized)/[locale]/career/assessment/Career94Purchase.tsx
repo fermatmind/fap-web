@@ -120,10 +120,10 @@ export function Career94Checkout({ locale, attemptId, offers, displayLocale = lo
       </button>;
     })}
     <p>{zh ? copy("一次付款，解锁本次报告。请在付款前查看", "一次付款，解鎖本次報告。請在付款前查看") : "One payment unlocks this report. Before paying, review the"}{" "}
-      <Link href={`/${locale}/refund`}>{zh ? "退款政策" : "refund policy"}</Link>
+      <Link href={`/${displayLocale}/refund`}>{zh ? "退款政策" : "refund policy"}</Link>
       {zh ? "。" : "."}
     </p>
     {offers.some(offer => offer.currency === "USD") && <p>{zh ? copy("发卡机构可能按本币结算。", "發卡機構可能按本幣結算。") : "Your card issuer may convert the charge to your local currency."}</p>}
-    {failed && <p role="alert">{failure}{" "}<Link href={`/${locale}/account?section=orders`}>{zh ? copy("我的订单", "我的訂單") : "My orders"}</Link></p>}
+    {failed && <p role="alert">{failure}{" "}<Link href={`/${displayLocale}/account?section=orders`}>{zh ? copy("我的订单", "我的訂單") : "My orders"}</Link></p>}
   </div>;
 }

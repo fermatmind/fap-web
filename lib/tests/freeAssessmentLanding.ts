@@ -39,9 +39,9 @@ const assessments = {
     artwork: "archetypes",
     title: ["免费荣格十二原型测试（48 题）", "免費榮格十二原型測驗（48 題）", "Free Jungian Archetype Test: 12 Archetypes, 48 Questions"],
     intro: [
-      "48 道情境自评，约 10 分钟。查看十二原型的得分分布，了解哪些内在动机和角色表达与你近期的经历更吻合。测试和完整报告均免费。",
-      "48 道情境自評，約 10 分鐘。查看十二原型分數，了解哪些內在動機與角色表達更貼近你的近期經驗。測驗及完整報告均免費。",
-      "Rate 48 scenarios in about 10 minutes and get a free report across 12 archetypes. See which motivations and ways of taking on roles best describe your recent experiences.",
+      "48 道情境自评，约 10 分钟。查看十二原型的得分分布，了解哪些内在动机和角色表达与你近期的经历更吻合。作答与基础结果免费，完整报告可选单次付费解锁。",
+      "48 道情境自評，約 10 分鐘。查看十二原型分數，了解哪些內在動機與角色表達更貼近你的近期經驗。作答與基礎結果免費，完整報告可選單次付費解鎖。",
+      "Rate 48 scenarios in about 10 minutes and get a free basic score profile across 12 archetypes. See which motivations and ways of taking on roles best describe your recent experiences.",
     ],
     sections: [
       [
@@ -59,7 +59,7 @@ const assessments = {
     ],
     faq: [
       [["我只有一个原型吗？", "我只有一種原型嗎？", "Do I have only one archetype?"], ["报告呈现全部十二项。高分相近时，可以比较不同动机在生活和工作中分别何时出现。", "報告呈現全部十二項。高分相近時，可比較不同動機在生活或工作中何時出現。", "The report shows all 12. If two scores are close, compare when each motivation comes up in your life and work."]],
-      [["完整原型报告免费吗？", "完整原型報告免費嗎？", "Are the full archetype results free?"], ["是的，完成 48 题后可免费查看完整报告。", "是的，完成 48 題後可免費查看完整報告。", "Yes. The full report is free after you complete all 48 items."]],
+      [["完整原型报告免费吗？", "完整原型報告免費嗎？", "Are the full archetype results free?"], ["作答与基础原型分布免费，完整报告可选单次付费解锁。", "作答與基礎原型分布免費，完整報告可選單次付費解鎖。", "The test and basic archetype profile are free. The full report is an optional one-time purchase."]],
     ],
     source: ["Carol Pearson 的十二原型系统", "Carol Pearson 的十二原型系統", "Carol Pearson’s Twelve Archetype System"],
     sourceUrl: "https://carolspearson.com/about/the-pearson-12-archetype-system-human-development-and-evolution",
@@ -69,9 +69,9 @@ const assessments = {
     artwork: "functions",
     title: ["免费荣格八维认知功能测试（64 题）", "免費榮格八維認知功能測驗（64 題）", "Free Jung Cognitive Functions Test: 8 Functions, 64 Questions"],
     intro: [
-      "64 道生活与工作情境题，约 13 分钟。免费查看 Ni、Ne、Si、Se、Ti、Te、Fi、Fe 八维分布、四组功能轴及符合本模型的类型候选。",
-      "64 道生活與工作情境題，約 13 分鐘。免費查看 Ni、Ne、Si、Se、Ti、Te、Fi、Fe 八維分數、四組功能軸及符合本模型的類型候選。",
-      "Rate 64 everyday and work scenarios in about 13 minutes. Get free scores for Ni, Ne, Si, Se, Ti, Te, Fi and Fe, four function comparisons and possible types under this model.",
+      "64 道生活与工作情境题，约 13 分钟。免费查看 Ni、Ne、Si、Se、Ti、Te、Fi、Fe 八维分布；完整报告可选单次付费解锁。",
+      "64 道生活與工作情境題，約 13 分鐘。免費查看 Ni、Ne、Si、Se、Ti、Te、Fi、Fe 八維分數；完整報告可選單次付費解鎖。",
+      "Rate 64 everyday and work scenarios in about 13 minutes. Get free scores for Ni, Ne, Si, Se, Ti, Te, Fi and Fe. The full report is an optional one-time purchase.",
     ],
     sections: [
       [
@@ -89,7 +89,7 @@ const assessments = {
     ],
     faq: [
       [["八维结果一定会给出一个类型吗？", "八維結果一定會給出一種類型嗎？", "Will the test always assign a type?"], ["各功能分数太接近时，报告会提示候选容易变化，或显示本次分布不足以给出候选。", "各功能分數太接近時，報告會提示候選容易變動，或顯示這次分布不足以提供候選。", "When scores are very close, the report can flag unstable candidates or withhold the candidate list."]],
-      [["八维测试和报告免费吗？", "八維測驗與報告免費嗎？", "Is the full cognitive functions report free?"], ["是的，64 题作答和完整报告均免费。", "是的，64 題作答和完整報告均免費。", "Yes. All 64 questions and the full report are free."]],
+      [["八维测试和报告免费吗？", "八維測驗與報告免費嗎？", "Is the full cognitive functions report free?"], ["64题作答与基础八维分数免费，完整报告可选单次付费解锁。", "64題作答與基礎八維分數免費，完整報告可選單次付費解鎖。", "All 64 questions and basic function scores are free. The full report is an optional one-time purchase."]],
     ],
     source: ["荣格《心理类型》", "榮格《心理類型》", "Jung’s Psychological Types"],
     sourceUrl: "https://press.princeton.edu/books/hardcover/9780691097701/collected-works-of-c-g-jung-volume-6",
@@ -133,9 +133,9 @@ const jungSearchTitle: LocaleText = [
   "Free Jung Test: 12 Archetypes & 8 Cognitive Functions",
 ];
 const jungIntro: LocaleText = [
-  "想了解什么在驱动你，选 48 题十二原型测试。想比较自己如何获取信息和做决定，选 64 题八维认知功能测试。两套题独立作答，完整报告均免费。",
-  "想知道什麼在驅動你，可選 48 題十二原型測驗。想比較自己如何取得資訊與做決定，可選 64 題八維認知功能測驗。兩套題可分開作答，完整報告皆免費。",
-  "Choose the 48-question archetype test to explore your motives, or the 64-question cognitive functions test to compare how you take in information and make decisions. Both tests and complete reports are free.",
+  "想了解什么在驱动你，选 48 题十二原型测试。想比较自己如何获取信息和做决定，选 64 题八维认知功能测试。两套题独立作答，基础结果免费，完整报告可选单次付费解锁。",
+  "想知道什麼在驅動你，可選 48 題十二原型測驗。想比較自己如何取得資訊與做決定，可選 64 題八維認知功能測驗。兩套題可分開作答，基礎結果免費，完整報告可選單次付費解鎖。",
+  "Choose the 48-question archetype test to explore your motives, or the 64-question cognitive functions test to compare how you take in information and make decisions. Both tests and basic results are free; full reports are optional one-time purchases.",
 ];
 export function jungLandingCopy(locale: DisplayLocale) {
   const index = locale === "zh" ? 0 : locale === "zh-TW" ? 1 : 2;
