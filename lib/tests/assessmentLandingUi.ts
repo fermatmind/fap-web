@@ -13,7 +13,10 @@ const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>
 
 // English search copy is distinct from the concise on-page heading.
 const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
-  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Test: 93 or 144 Questions, No Sign-Up", description: "Take a free MBTI-style test with 93 or 144 questions. No sign-up required to start or read your full 4-chapter report in the browser where you took the test." },
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
+    title: "Free MBTI Personality Test with Results",
+    description: "Take a free MBTI-style test: 93 questions (~10 min) or 144 (~15 min). Get your free 16-type result and four preference scores. See a scored example before you start.",
+  },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free Big Five test: 90 items (~11 min) or FermatMind’s adapted 120-item IPIP-NEO form (~15 min). Explore five OCEAN traits and 30 facets." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "FermatMind IQ: 30 original visual matrix questions, ~20 min. Free test and results. Review reasoning, scores and limits; no substitute for professional IQ assessment." },
@@ -42,7 +45,12 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   },
 };
 
-const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", string>>>> = {
+const TRADITIONAL_MBTI_SEARCH_COPY = {
+  title: "免費 MBTI 人格測驗｜查看 16 型結果與四組偏好",
+  description: "93 題約 10 分鐘，144 題約 15 分鐘。交卷後可免費查看基本人格類型與四組偏好，也可先看實際計分的報告範例。",
+};
+
+const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en" | "zh-TW", string>>>> = {
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
     zh: "30道原创图形与矩阵推理题，预计约20分钟，测试与结果均免费。查看答对题数、正确率和题组表现，并保存TXT或Markdown摘要。这是推理练习，不替代专业智力评估。",
     en: "30 original visual matrix reasoning questions, estimated at about 20 minutes. The test and results are free. Review correct-answer count, accuracy and performance by item group, then save a TXT or Markdown summary. This reasoning exercise does not replace a professional intelligence assessment.",
@@ -53,8 +61,9 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", stri
     en: "Explore five continuous personality traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 120-item form is FermatMind’s adaptation using the IPIP-NEO-120 structure of five traits and 30 facets, not the unmodified Johnson form. Original-form validation and norms do not automatically apply to this adaptation. Choose 90 items (~11 minutes) or 120 (~15); both are free to complete and view results. Facet detail depends on the selected version.",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
-    zh: "了解你的 16 型人格结果与四组偏好。93 题约 10 分钟，144 题约 15 分钟，两版均可免费完成并查看结果，用于自我了解与沟通参考。",
-    en: "Learn about your 16-type personality result and four preference pairs. Choose 93 questions in about 10 minutes or 144 in about 15. Both versions are free to complete and view results, for self-understanding and communication reference.",
+    zh: "了解你的 16 型人格结果与四组偏好。时间有限，可以先做 93 题版。想比较自己在更多情境下的选择，可以做 144 题版。两版均可免费完成并查看基础结果，供自我了解与沟通参考。",
+    "zh-TW": "了解你的 16 型人格结果与四组偏好。93 题约 10 分钟，144 题约 15 分钟，两版均可免费完成并查看结果，用于自我了解与沟通参考。",
+    en: "Take a free MBTI-style personality test and see your four-letter type and scores for the four preference pairs. Choose 93 questions (about 10 minutes) or 144 (about 15 minutes). Both versions include free basic results.",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
     zh: "60 题约 8 分钟，测试与结果均免费。结果会展示 RIASEC 六维兴趣，以及概括前三项的三字代码，帮助你找到想进一步体验的工作活动。",
@@ -133,7 +142,7 @@ const HERO_ARTWORK: Partial<Record<string, AssessmentArtwork>> = {
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: "riasec",
 };
 
-export function getAssessmentLandingUi(slug: string, locale: "zh" | "en") {
+export function getAssessmentLandingUi(slug: string, locale: "zh" | "en", displayLocale: "zh" | "en" | "zh-TW" = locale) {
   const names = Object.hasOwn(ASSESSMENT_LANDING_UI, slug) ? ASSESSMENT_LANDING_UI[slug] : undefined;
   return names ? {
     title: locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.MBTI
@@ -141,7 +150,8 @@ export function getAssessmentLandingUi(slug: string, locale: "zh" | "en") {
       : names[locale],
     seoTitle: locale === "en" ? EN_SEARCH_COPY[slug]?.title : ZH_SEARCH_COPY[slug]?.title,
     seoDescription: locale === "en" ? EN_SEARCH_COPY[slug]?.description : ZH_SEARCH_COPY[slug]?.description,
-    heroDescription: HERO_DESCRIPTIONS[slug]?.[locale],
+    traditionalSearchCopy: slug === SCALE_CANONICAL_SLUG_MAP.MBTI ? TRADITIONAL_MBTI_SEARCH_COPY : undefined,
+    heroDescription: HERO_DESCRIPTIONS[slug]?.[displayLocale] ?? HERO_DESCRIPTIONS[slug]?.[locale],
     entryLabels: locale === "zh" ? ZH_ENTRY_LABELS : EN_ENTRY_LABELS,
     traditionalEntryLabels: TRADITIONAL_ENTRY_LABELS,
     heroArtwork: HERO_ARTWORK[slug],

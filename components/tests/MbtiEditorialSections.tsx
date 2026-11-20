@@ -1,4 +1,5 @@
 import type { EditorialLink, LandingFaq, MbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
+import type { ReactNode } from "react";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import styles from "./mbti-preview.module.css";
@@ -44,10 +45,11 @@ function EditorialItems({ content, items, richBody, locale, destination }: { con
   </article>)}</div>;
 }
 
-export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], locale = "en", richBody = false, destination }: {
+export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], methodIntro, locale = "en", richBody = false, destination }: {
   content: MbtiEditorial;
   itemOrder?: string[];
   methodItemIds?: string[];
+  methodIntro?: ReactNode;
   locale?: DisplayLocale;
   richBody?: boolean;
   destination?: (href: string) => string;
@@ -63,6 +65,7 @@ export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], loc
     <EditorialItems content={content} items={overviewItems} richBody={richBody} locale={locale} destination={destination} />
     {methodItems.length > 0 ? <section id="method-and-evidence" className={styles.methodSection} aria-labelledby="method-and-evidence-title">
       <h2 id="method-and-evidence-title">{locale === "zh-TW" ? "方法與證據" : locale === "zh" ? "方法与证据" : "Methods and limits"}</h2>
+      {methodIntro ? <p>{methodIntro}</p> : null}
       <EditorialItems content={content} items={methodItems} richBody={richBody} locale={locale} destination={destination} />
     </section> : null}
   </section>;

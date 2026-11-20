@@ -36,6 +36,11 @@ describe("MBTI preview version selection", () => {
     expect(screen.queryByRole("radio")).not.toBeInTheDocument();
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
+  it("links directly to the scored example when enabled, even if starts are unavailable", () => {
+    render(<MbtiLandingIntro {...props} locale="zh" disabled showScoredReportLink />);
+    expect(screen.getByRole("link", { name: "先看实际计分的报告示例" })).toHaveAttribute("href", "#scored-report-example");
+    expect(screen.getAllByRole("link")).toHaveLength(1);
+  });
   it("shows an unavailable state rather than inventing a version when no choices exist", () => {
     render(<MbtiLandingIntro {...props} choices={[]} />);
     expect(screen.getByRole("status")).toHaveTextContent("temporarily unavailable");

@@ -849,7 +849,7 @@ export default async function TestLandingPage({
   if (!landingData) return notFound();
   const { test, lookup, cmsLandingSurface } = landingData;
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
-  const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale);
+  const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale, displayLocale);
   const assessmentEditorialLayout = getAssessmentEditorialLayout(test.slug);
   const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
@@ -1463,6 +1463,8 @@ export default async function TestLandingPage({
     }));
   };
   const heroDescription = assessmentLandingUi?.heroDescription ?? (traditional ? heroCopy : undefined);
+  const isMbtiLanding = test.slug === MBTI_ENTRY_TEST_SLUG;
+  const showScoredReportInHero = isMbtiLanding && displayLocale !== "zh-TW";
 
   return (
     <main
@@ -1501,12 +1503,14 @@ export default async function TestLandingPage({
             heroArtwork={assessmentLandingUi?.heroArtwork}
             choices={displayChoices(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
+            showScoredReportLink={showScoredReportInHero}
           />
             {test.slug === MBTI_ENTRY_TEST_SLUG ? (
               <MbtiReportAccessSummary
                 locale={displayLocale}
                 freeFullReport={hasFreeFullReportAuthority}
                 cmsCopy={traditional ? undefined : cmsLandingSurfaceContent.heroCopy}
+                showSampleLink={!showScoredReportInHero}
               />
             ) : null}
             <MbtiPricingNotice locale={displayLocale} />
@@ -1636,6 +1640,9 @@ export default async function TestLandingPage({
             richBody={test.slug === "iq-test-intelligence-quotient-assessment"}
             itemOrder={assessmentEditorialLayout?.itemOrder}
             methodItemIds={assessmentEditorialLayout?.methodItemIds}
+            methodIntro={isMbtiLanding && displayLocale === "zh" ? <>
+              93 题和 144 题版都根据本次作答计算四组偏好的百分比。越接近 50%，代表这次作答在该维度上越接近两端均衡。可用<a className="underline underline-offset-4" href="#scored-report-example">实际计分的合成作答示例</a>对照百分比和四字母类型。结果供自我了解与沟通参考。
+            </> : undefined}
             destination={displayHref}
             locale={displayLocale}
           /> : null}
