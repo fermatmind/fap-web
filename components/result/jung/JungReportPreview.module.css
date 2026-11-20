@@ -1281,7 +1281,6 @@
 .readingCards {
   display: grid;
   gap: 28px;
-  margin-top: 26px;
 }
 .archetypeCard {
   --reading-accent: #72509b;

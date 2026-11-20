@@ -365,13 +365,8 @@ export function JungReportPreview() {
           <section
             id="reading"
             className={styles.section}
-            aria-labelledby="reading-title"
+            aria-label="原型解读"
           >
-            <p className={styles.eyebrow}>深入解读</p>
-            <h2 id="reading-title">{"三种动机，怎样一起出现在你身上"}</h2>
-            <p className={styles.lead}>
-              智者关注理解，创造者关注表达，探索者关注亲身体验。这三个原型在本次示例中较突出，可以分别对照自己的经历，也看看它们怎样互相支持。
-            </p>
             <div className={styles.readingCards}>
               {archetypeDeepReadings.map((asset, index) => {
                 const dimension = dimensions.find(
