@@ -1,5 +1,5 @@
 .page { background: #f7f7f5; color: #18212d; }
-.hero { background: linear-gradient(90deg, #0c1420f5, #0c1420a3 70%, #0c14206b), url("/images/test-covers/gta6-waterfront.webp") 55% 55% / cover; }
+.hero { background: linear-gradient(90deg, #0c1420f5, #0c1420a3 70%, #0c14206b), url("/images/gta6/waterfront.webp") 55% 55% / cover; }
 .heroInner { max-width: 1120px; margin-inline: auto; padding: clamp(44px, 9vw, 108px) clamp(18px, 5vw, 55px); color: #fff; }
 .heroInner h1 { max-width: 790px; margin: 0; color: #fff; font-size: clamp(34px, 6vw, 74px); font-weight: 820; line-height: 1.08; letter-spacing: -.055em; text-wrap: balance; }
 .heroInner p { max-width: 53ch; margin: 20px 0; color: #f5f4f7; font-size: clamp(16px, 2vw, 20px); line-height: 1.65; }

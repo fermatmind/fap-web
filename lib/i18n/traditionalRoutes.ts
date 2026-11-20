@@ -22,6 +22,7 @@ import { GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
 import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
 import { isTraditionalTopicPath } from "./traditionalTopicPaths";
 import { isCoreAssessmentSlug } from "@/lib/tests/coreAssessmentSlugs";
+import { isGta6PublicPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 // Partial display-language support is deliberately separate from legacy API/form locales.
 // No CMS, report-language, region, price or entitlement mapping is inferred here.
 export const TRADITIONAL_LOCALE = "zh-TW" as const;
@@ -58,6 +59,7 @@ export function traditionalPath(pathname: string): string | null {
   if (path === "/holland-test/pdf-download") return "/zh-TW/holland-test/pdf-download";
   if (path === "/pricing") return "/zh-TW/pricing";
   if (isCoreSharePath(path)) return `/zh-TW${path}`;
+  if (isGta6PublicPath(`/zh-TW${path}`)) return `/zh-TW${path}`;
   if (isFriendshipDisplayPath(path)) return `/zh-TW${path}`;
   if (traditionalLegacyStoryPath(path)) return `/zh-TW${path}`;
   if (relationshipQuestionnaireRoute(path) || traditionalArchetypeRoute(path) || traditionalPracticeRoute(path) || traditionalLikertRoute(path) || traditionalDirectionalRoute(path) || traditionalObservationRoute(path)) return `/zh-TW${path}`;

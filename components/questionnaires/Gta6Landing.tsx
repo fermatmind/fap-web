@@ -4,7 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { isConfiguredStagingSiteUrl } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
-import editorial from "@/lib/questionnaires/data/gta-6-landing.json";
+import editorial from "@/lib/questionnaires/gta-6-landing.json";
 import {
   gta6Cover, gta6LandingPath, gta6Profiles, gta6Portrait, gta6ResultPath, gta6TakePath,
 } from "@/lib/questionnaires/gta6CharacterQuiz";

@@ -5,7 +5,7 @@
   --paper: #f1f2ed;
   --muted: #b0bbc3;
   --accent: #ff8b88;
-  --shot: url("/images/test-covers/gta6-waterfront.webp");
+  --shot: url("/images/gta6/waterfront.webp");
   min-height: calc(100svh - 64px);
   padding: clamp(20px, 4vw, 58px) clamp(12px, 4vw, 52px);
   color-scheme: dark;
