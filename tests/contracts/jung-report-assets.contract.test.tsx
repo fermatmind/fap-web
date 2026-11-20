@@ -8,6 +8,7 @@ import {
   buildReportView,
   makePreviewScores,
   interpretJungScores,
+  dimensionScoreContext,
 } from "@/components/result/jung/jungReportAssets";
 import careerData from "@/components/result/jung/assets/careers.json";
 import { JungReportPreview } from "@/components/result/jung/JungReportPreview";
@@ -136,6 +137,49 @@ describe("twelve-archetype replacement report", () => {
       archetypeAssets.find((asset) => asset.id === "hero")!.work.intro,
     );
   });
+  it("keeps score position factual for a low score, a near tie and a flat profile", () => {
+    const scores = { ...allScores(25), hero: 100, sage: 93.75, jester: 0 };
+    expect(dimensionScoreContext(scores, "hero")).toContain("得分最高");
+    expect(dimensionScoreContext(scores, "sage")).toContain("6.25");
+    expect(dimensionScoreContext(scores, "jester")).toContain("100");
+    expect(dimensionScoreContext(allScores(50), "sage")).toContain(
+      "不单独指定为主导",
+    );
+    expect(dimensionScoreContext({ ...scores, sage: 100 }, "sage")).toContain(
+      "并列最高",
+    );
+  });
+  it("keeps opening growth, dimension readings and sidebar reflections separate for all twelve", () => {
+    for (const asset of archetypeAssets) {
+      const view = buildReportView(
+        makePreviewScores(asset.id, "clear"),
+        asset.id,
+      );
+      expect(view.profile.growth).toEqual({
+        label: "成长方向",
+        ...asset.profile.growth,
+      });
+      expect(view.profile.growth.practice).not.toBe(asset.dimension.practice);
+      expect(view.profile.growth.body).not.toBe(
+        asset.deep.growth.slice(1).join(""),
+      );
+      expect(asset.dimension.reading).not.toBe(asset.dimension.practice);
+    }
+  });
+  it.each(["tied", "flat"] as const)(
+    "shows the %s state explanation only once in the opening",
+    (state) => {
+      const root = document.createElement("div");
+      root.innerHTML = renderToStaticMarkup(
+        <JungReportPreview initialArchetype="sage" initialPattern={state} />,
+      );
+      const opening = root.querySelector("#profile")!;
+      expect(opening.getAttribute("data-result-state")).toBe(state);
+      expect(
+        opening.textContent!.split(commonAssets.states[state].body),
+      ).toHaveLength(2);
+    },
+  );
   it("keeps the preview development-only and validates query selections", () => {
     const source = readFileSync(
       join(

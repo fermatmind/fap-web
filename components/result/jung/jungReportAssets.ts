@@ -14,6 +14,7 @@ export type JungPreviewDimension = {
   strength: string;
   blindSpot: string;
   practice: string;
+  scoreContext?: string;
 };
 export type PreviewPattern = keyof typeof common.states;
 export const reportChapters = [
@@ -73,6 +74,23 @@ export function interpretJungScores(scores: Record<string, number>) {
     : ranked.filter((row) => row.score >= ranked[2].score).map((row) => row.id);
   return { state, primary, secondary, nearLeaders, readingIds, ranked };
 }
+export function dimensionScoreContext(
+  scores: Record<string, number>,
+  id: string,
+) {
+  const result = interpretJungScores(scores);
+  getArchetype(id);
+  if (result.state === "flat")
+    return "本次十二项得分接近，这一项也不单独指定为主导。";
+  if (result.primary.includes(id))
+    return result.primary.length > 1
+      ? "本次并列最高，可以和其他并列原型一起读。"
+      : "本次得分最高，可以先从这种动机读起。";
+  const gap = result.ranked[0].score - scores[id];
+  if (result.nearLeaders.includes(id))
+    return `与最高分相差 ${gap} 分，属于本次的接近高分。`;
+  return `距本次最高分 ${gap} 分。`;
+}
 export function makePreviewScores(
   id: string,
   pattern: PreviewPattern,
@@ -112,6 +130,7 @@ export function buildReportView(
     ...getArchetype(row.id).dimension,
     ...row,
     name: getArchetype(row.id).name,
+    scoreContext: dimensionScoreContext(scores, row.id),
   }));
   const scopeIds = result.state === "flat" ? [referenceId] : result.primary;
   const references = scopeIds.map(getArchetype);
@@ -211,9 +230,9 @@ export function buildReportView(
     },
     growth: {
       label: "成长方向",
-      title: asset.deep.growth[0],
-      body: asset.deep.growth.slice(1).join(""),
-      practice: asset.dimension.practice,
+      title: asset.profile.growth.title,
+      body: asset.profile.growth.body,
+      practice: asset.profile.growth.practice,
     },
   };
   return {

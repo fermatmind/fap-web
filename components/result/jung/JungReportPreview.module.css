@@ -1765,3 +1765,16 @@
     overflow-wrap: anywhere;
   }
 }
+
+.selectedReading .scoreContext {
+  color: #3c6a55;
+  font-size: 12px;
+  margin-top: 6px;
+  line-height: 1.8;
+}
+.sideInsight .sideScoreContext {
+  color: #52725f;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 10px;
+}

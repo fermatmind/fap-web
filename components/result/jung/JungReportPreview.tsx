@@ -285,6 +285,7 @@ export function JungReportPreview({
 
       <section
         id="profile"
+        data-result-state={view.result.state}
         className={styles.hero}
         aria-labelledby="jung-report-title"
       >
@@ -352,9 +353,11 @@ export function JungReportPreview({
           </div>
         </div>
 
-        <p className={styles.resultState} data-result-state={view.result.state}>
-          <strong>{resultState.label}</strong>　{resultState.body}
-        </p>
+        {hasSingleLeader && (
+          <p className={styles.resultState}>
+            <strong>{resultState.label}</strong>　{resultState.body}
+          </p>
+        )}
         {hasSingleLeader && (
           <>
             <div className={styles.profileStory}>
@@ -372,7 +375,9 @@ export function JungReportPreview({
                   </li>
                 ))}
               </ul>
-              <h3 className={styles.profileSubheading}>你的拿手好戏</h3>
+              <h3 className={styles.profileSubheading}>
+                这份投入，可以带来什么
+              </h3>
               <div className={styles.profileSignature}>
                 <h4>{profile.signature.title}</h4>
                 <p>{profile.signature.body}</p>
@@ -407,9 +412,13 @@ export function JungReportPreview({
               <span>悬停或点击维度，查看解读</span>
             </div>
             <p className={styles.lead}>
-              {
-                "先看整体分布，再比较相邻的高分。一个人可以在不同情境里采用多种动机模式。"
-              }
+              {view.result.state === "flat"
+                ? commonAssets.distribution.flatLead
+                : view.result.state === "tied"
+                  ? commonAssets.distribution.tiedLead
+                  : view.result.state === "near"
+                    ? commonAssets.distribution.nearLead
+                    : commonAssets.distribution.lead}
             </p>
             <div className={styles.scoreGrid}>
               <ProfileChart
@@ -440,6 +449,7 @@ export function JungReportPreview({
             </div>
             <div className={styles.selectedReading}>
               <span>{selected.name}</span>
+              <p className={styles.scoreContext}>{selected.scoreContext}</p>
               <p>{selected.reading}</p>
             </div>
           </section>
@@ -786,6 +796,7 @@ export function JungReportPreview({
               <p>{selected.name}</p>
               <strong>{selected.score}</strong>
               <span>本次维度分</span>
+              <p className={styles.sideScoreContext}>{selected.scoreContext}</p>
               <h3>{selected.question}</h3>
               <p>{selected.practice}</p>
             </div>
