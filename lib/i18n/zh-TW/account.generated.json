@@ -5,7 +5,7 @@
   "glossary": "fermatmind-tw-account-1",
   "sourceHashes": {
     "components/commerce/CareerRefundPanel.tsx": "7d2aa3dfdde9ad82076245e48b201ecb9746f77a799bb74439e4ce6475dda5da",
-    "components/account/AccountCenter.tsx": "d758fe7e51afcf7d5e22e0f9e0e51548a74c472017eced5a7813e4a68047d45b",
+    "components/account/AccountCenter.tsx": "d8888d20e36c722e9dc9ec14b46e0b0169c61544436a7dcc0e85788bb0fb82a9",
     "app/(localized)/[locale]/account/page.tsx": "5beec14f02c0a6c58628dfb8bfa17d3c41ae787e97d7f5ca61c2b15ebc51050c"
   },
   "units": {
