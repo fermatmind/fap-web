@@ -248,7 +248,7 @@ export function CTASticky({
                     </p>
                     <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getBig5VariantSummary(form.formCode, locale, forms)}</p>
                     <TrackedEntryCtaLink
-                      href={withAttribution(buildBig5TakeHref(slug, locale, form.formCode))}
+                      href={withAttribution(buildBig5TakeHref(slug, locale))}
                       eventProperties={buildStartClickTrackingProps({
                         formCode: form.formCode,
                         targetAction: `start_${form.formCode}`,
@@ -398,7 +398,7 @@ export function CTASticky({
               {big5Forms.map((form) => (
                 <TrackedEntryCtaLink
                   key={form.formCode}
-                  href={withAttribution(buildBig5TakeHref(slug, locale, form.formCode))}
+                  href={withAttribution(buildBig5TakeHref(slug, locale))}
                   eventProperties={buildStartClickTrackingProps({
                     formCode: form.formCode,
                     targetAction: `start_${form.formCode}`,

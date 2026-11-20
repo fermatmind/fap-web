@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./BigFiveReportPreview.module.css";
 
-export function BigFivePreviewPrompt({ prompt }: { prompt: string }) {
+export function BigFivePreviewPrompt({ prompt, art, alt }: { prompt: string; art: string; alt: string }) {
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
 
   async function copyPrompt() {
@@ -19,8 +19,8 @@ export function BigFivePreviewPrompt({ prompt }: { prompt: string }) {
 
   return (
     <section id="prompt" className={styles.promptSection} aria-labelledby="prompt-title">
-      <Image src="/images/big-five/openness-character.webp" width={560} height={700}
-        sizes="(max-width: 640px) 130px, 185px" alt="折纸小熊猫" />
+      <Image src={art} width={560} height={700}
+        sizes="(max-width: 640px) 130px, 185px" alt={alt} />
       <div>
         <h2 id="prompt-title">带着具体经历，和 AI 继续认识自己</h2>
         <p>复制提示词到你常用的 AI，再补充一个你想聊的场景。</p>

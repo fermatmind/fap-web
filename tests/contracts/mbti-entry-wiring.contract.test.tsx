@@ -217,13 +217,14 @@ describe("mbti entry wiring contract", () => {
     expect(source).toContain('getMbtiStartLabel(form.formCode, locale)');
   });
 
-  it("renders dual big5 CTAs in landing sticky CTA surface", () => {
+  it("keeps the Big Five sticky CTA on the active 90-question form", () => {
     render(
       <CTASticky
         slug="big-five-personality-test-ocean-model"
         title="大五人格测试"
-        questions={120}
-        minutes={20}
+        questions={90}
+        minutes={11}
+        forms={[{ form_code: "big5_120" }, { form_code: "big5_90" }]}
         scaleCode="BIG5_OCEAN"
         locale="zh"
       />
@@ -231,7 +232,7 @@ describe("mbti entry wiring contract", () => {
 
     const big5FreeTestLinks = screen.getAllByRole("link", { name: /开始大五人格免费测试/ });
 
-    expect(big5FreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120")).toBe(true);
+    expect(big5FreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120")).toBe(false);
     expect(big5FreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
   });
 

@@ -4,7 +4,7 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 export const BIG5_FORM_CODES = ["big5_120", "big5_90"] as const;
 export type Big5FormCode = (typeof BIG5_FORM_CODES)[number];
 
-export const DEFAULT_BIG5_FORM_CODE: Big5FormCode = "big5_120";
+export const DEFAULT_BIG5_FORM_CODE: Big5FormCode = "big5_90";
 
 export type Big5FormMeta = {
   formCode: Big5FormCode;
@@ -39,7 +39,7 @@ const BIG5_FORM_ALIAS_MAP = new Map<string, Big5FormCode>([
   ["120", "big5_120"],
   ["big5-120", "big5_120"],
   ["standard_120", "big5_120"],
-  ["default", "big5_120"],
+  ["default", DEFAULT_BIG5_FORM_CODE],
   ["big5_90", "big5_90"],
   ["90", "big5_90"],
   ["big5-90", "big5_90"],
@@ -96,7 +96,7 @@ export function listBig5FormMetas(forms?: unknown): Big5FormMeta[] {
     : [];
   const byCode = new Map(projected.map((form) => [form.formCode, form]));
 
-  return BIG5_FORM_CODES.map((formCode) => byCode.get(formCode) ?? BIG5_FORM_META[formCode]);
+  return [byCode.get(DEFAULT_BIG5_FORM_CODE) ?? BIG5_FORM_META[DEFAULT_BIG5_FORM_CODE]];
 }
 
 export function resolveProjectedBig5FormMeta(
@@ -115,9 +115,9 @@ export function getBig5VariantName(formCode: string | null | undefined): string 
 export function getBig5VariantDescriptor(formCode: string | null | undefined, locale: Locale): string {
   const meta = resolveBig5FormMeta(formCode);
   if (locale === "zh") {
-    return meta.formCode === "big5_90" ? "快速版" : "完整特质档案";
+    return meta.formCode === "big5_90" ? "五维特质报告" : "完整特质档案";
   }
-  return meta.formCode === "big5_90" ? "Quick Read" : "Full Trait Profile";
+  return meta.formCode === "big5_90" ? "Trait Profile" : "Full Trait Profile";
 }
 
 export function getBig5VariantLabel(formCode: string | null | undefined, locale: Locale): string {
@@ -139,9 +139,9 @@ export function getBig5VariantSummary(formCode: string | null | undefined, local
 export function getBig5StartLabel(formCode: string | null | undefined, locale: Locale): string {
   const meta = resolveBig5FormMeta(formCode);
   if (locale === "zh") {
-    return meta.formCode === "big5_90" ? "开始快速版" : "开始深度版";
+    return meta.formCode === "big5_90" ? "开始大五人格测试" : "开始深度版";
   }
-  return meta.formCode === "big5_90" ? "Start Quick Read" : "Start Full Trait Profile";
+  return meta.formCode === "big5_90" ? "Start Big Five Test" : "Start Full Trait Profile";
 }
 
 export function getBig5QuestionSummary(locale: Locale, forms?: unknown): string {
@@ -156,8 +156,8 @@ export function getBig5DurationSummary(locale: Locale, forms?: unknown): string 
     .join(" / ");
 }
 
-export function buildBig5TakeHref(slug: string, locale: Locale, formCode: string | null | undefined): string {
+export function buildBig5TakeHref(slug: string, locale: Locale): string {
   const canonicalSlug = resolveCanonicalSlug(slug) || slug;
-  const params = new URLSearchParams({ form: normalizeBig5FormCode(formCode) });
+  const params = new URLSearchParams({ form: DEFAULT_BIG5_FORM_CODE });
   return `${localizedPath(`/tests/${canonicalSlug}/take`, locale)}?${params.toString()}`;
 }

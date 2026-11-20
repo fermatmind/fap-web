@@ -268,7 +268,7 @@ describe("test detail landing contract", () => {
     expect(takeSource).toContain('redirect(withLocale(`/tests/${slug}?bank_unavailable=1`))');
     expect(takeSource).toContain('normalizeMbtiFormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
     expect(takeSource).toContain('formCode={jungForm?.form_code ?? iqBankModel?.formCode ?? mbtiFormCode ?? undefined}');
-    expect(takeSource).toContain('normalizeBig5FormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
+    expect(takeSource).toContain('? DEFAULT_BIG5_FORM_CODE');
     expect(takeSource).toContain('formCode={big5FormCode ?? undefined}');
     expect(takeSource).toContain('normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
     expect(takeSource).toContain('formCode={enneagramFormCode ?? undefined}');

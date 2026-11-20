@@ -1,7 +1,7 @@
 import type { ReportResponse } from "@/lib/api/v0_3";
 export const fixedSampleLoaders = {
   mbti: {zh: () => import("./fixed-samples/zh-mbti_144.json"), en: () => import("./fixed-samples/en-mbti_144.json")},
-  big5: {zh: () => import("./fixed-samples/zh-big5_120.json"), en: () => import("./fixed-samples/en-big5_120.json")},
+  big5: {zh: () => import("./fixed-samples/zh-big5_90.json"), en: () => import("./fixed-samples/en-big5_90.json")},
   enneagram: {zh: () => import("./fixed-samples/zh-enneagram_likert_105.json"), en: () => import("./fixed-samples/en-enneagram_likert_105.json")},
   iq30: {zh: () => import("./fixed-samples/zh-IQ_OWNER_ORIGINAL_30.json"), en: () => import("./fixed-samples/en-IQ_OWNER_ORIGINAL_30.json")},
   iq40: {zh: () => import("./fixed-samples/zh-IQ_MERGED_40.json"), en: () => import("./fixed-samples/en-IQ_MERGED_40.json")},

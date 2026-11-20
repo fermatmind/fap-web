@@ -37,6 +37,9 @@
   color: #f3f8f4;
 }
 .hero h1 { font-size: 23px; font-weight: 750; letter-spacing: -.02em; }
+.focusNav { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.focusNav a { color: var(--hero-text); padding: 5px 11px; border: 1px solid var(--hero-line); border-radius: 999px; font-size: 13px; }
+.focusNav a:hover, .focusNav a[aria-current] { color: var(--hero-gold); border-color: var(--hero-gold); }
 .heroGrid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 30px; margin-top: 20px; }
 .heroPortrait { text-align: center; min-width: 0; }
 .kicker { color: var(--hero-text); font-size: 12px; font-weight: 650; letter-spacing: .09em; }
@@ -46,9 +49,6 @@
 .heroReading { border-left: 1px solid var(--hero-line); padding: 12px 0 12px clamp(18px, 3vw, 34px); min-width: 0; }
 .heroReading h2 { margin: 9px 0 10px; font-size: clamp(24px, 3vw, 33px); line-height: 1.36; font-weight: 750; }
 .heroReading > p:not(.kicker), .heroSignature p { color: var(--hero-text); font-size: 15px; line-height: 1.85; }
-.heroFacets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px; padding: 13px 0; border-block: 1px solid var(--hero-line); }
-.heroFacets dt { color: var(--hero-text); font-size: 12px; }
-.heroFacets dd { margin-top: 4px; color: var(--hero-gold); font-size: 31px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1.15; }
 .heroContinue { display: inline-flex; gap: 8px; align-items: center; color: var(--hero-gold); margin-top: 10px; min-height: 44px; font-size: 13px; }
 .heroContinue:hover { text-decoration: underline; }
 .heroStory { margin-top: 14px; padding-top: 17px; border-top: 1px solid var(--hero-line); }
@@ -228,7 +228,6 @@
   .heroArt { width: min(100%, 230px); }
   .heroReading { border-left: 0; border-top: 1px solid var(--hero-line); padding: 12px 0 0; }
   .heroReading > p:not(.kicker), .heroSignature p { font-size: 14px; }
-  .heroFacets dd { font-size: 26px; }
   .heroClues { grid-template-columns: minmax(0, 1fr); }
   .heroNext { padding: 13px; }
 }
