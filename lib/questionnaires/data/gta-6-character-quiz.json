@@ -1,0 +1,690 @@
+{
+  "questions": [
+    {
+      "id": "Q01",
+      "prompt": {
+        "zh": "离派对开场只剩三小时，一半海岸区域突然被拉线封控。你先做什么？",
+        "en": "Three hours to doors, and half the waterfront lot is suddenly cordoned off. What's your first move?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先摸清到底哪几块真被封了、消息从哪传出来的。",
+            "en": "Check which zones are actually off-limits and where the order came from."
+          },
+          "role": "cal-hampton"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "赶在隔壁私人码头关门前，争取借用今晚的空档。",
+            "en": "Ask about borrowing the private pier next door before it closes."
+          },
+          "role": "raul-bautista"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "亲自走一遍还能用的半场，当场划出一条能开演的动线。",
+            "en": "Walk the usable half yourself and map a playable layout on the spot."
+          },
+          "role": "lucia-caminos"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把舞台和编排缩成贴脸近距离版，小场子照样炸场。",
+            "en": "Strip the set down for a tight, close-up crowd so the vibe still hits."
+          },
+          "role": "drequan-priest"
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "prompt": {
+        "zh": "群里突然疯传「今晚派对取消，巡逻队要来清场」。你先做什么？",
+        "en": "Rumors hit the group chat that tonight's party is off and patrol is sweeping the coast. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "甩一段现场试音短片出去，用热度把大家的注意力拽回来。",
+            "en": "Drop a raw soundcheck clip to pull everyone's hype back to tonight."
+          },
+          "role": "real-dimez"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "顺着转发链找到源头，跟放风的人核对哪句才是真的。",
+            "en": "Trace the message back to its source and verify what's actually true."
+          },
+          "role": "cal-hampton"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "立刻统一各组口径，只留一个对外发消息的出口。",
+            "en": "Lock every crew onto one story and funnel updates through a single channel."
+          },
+          "role": "brian-heder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "赶录一段随时能线上放出的混音，就算换地方也能保住今晚的牌子。",
+            "en": "Cut a ready-to-stream mix so the night's sound survives no matter what."
+          },
+          "role": "drequan-priest"
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "prompt": {
+        "zh": "一位本地大牌玩家临时说要带人来客串，但会挤掉原定的开场秀。你先做什么？",
+        "en": "A heavy-hitter wants to drop in for a surprise set, squeezing out your planned opener. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "赌一把时间差，硬挤出一个短时同台窗口抢这波曝光。",
+            "en": "Gamble on a tight slot and squeeze in a high-stakes joint set."
+          },
+          "role": "raul-bautista"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "当场敲定一版能落地的调整，马上跟两边拍板确认。",
+            "en": "Pick a workable cut right now and lock it in with both sides."
+          },
+          "role": "lucia-caminos"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把对方能带多少人、出多少资源和条件摆上台面谈清。",
+            "en": "Put the numbers, crowd draw, and terms on the table before saying yes."
+          },
+          "role": "boobie-ike"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先找原定开场的伙伴通气，死保当初答应人家的位置。",
+            "en": "Talk to your original opener first and protect the slot you promised them."
+          },
+          "role": "jason-duval"
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "prompt": {
+        "zh": "一位临时赞助人愿意给今晚加预算。你打算用在哪？",
+        "en": "A last-minute sponsor offers you an extra budget for tonight. Where does it go?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拆成两份压在最容易掉链子的环节上，留足备用方案。",
+            "en": "Split it across the two riskiest bottlenecks as an instant backup fund."
+          },
+          "role": "brian-heder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "搞一个能让全场举起手机一起玩的互动装置，先把气氛点着。",
+            "en": "Build an interactive moment the crowd will film and jump into tonight."
+          },
+          "role": "real-dimez"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给一直在后台默默扛活的兄弟多配几个帮手。",
+            "en": "Get extra hands for the crew members quietly carrying the back end."
+          },
+          "role": "jason-duval"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "跟设备商谈一笔透明账，顺便把下次合作的价格也锁死。",
+            "en": "Cut a clean gear deal with the vendor that locks in rates for next time too."
+          },
+          "role": "boobie-ike"
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "prompt": {
+        "zh": "门口突然涌来一大批不请自来的玩家，入口瞬间堵死。你先做什么？",
+        "en": "An unexpected wave of guests floods the entrance and jams the gate. What's your first move?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "找隔壁酒吧老板谈条件，临时租下他们的后院做分流缓冲。",
+            "en": "Strike a deal with the bar next door to use its courtyard as overflow space."
+          },
+          "role": "boobie-ike"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "走到门口划出一条等候线，当场引导人流。",
+            "en": "Step out front, mark a clear lane, and direct the line yourself."
+          },
+          "role": "lucia-caminos"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "拿麦跟排队的人群玩起即时互动，把干等变成预热秀。",
+            "en": "Grab a mic and hype the waiting crowd so the line feels like part of the show."
+          },
+          "role": "real-dimez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先看清楚入口到底卡在哪个环节，再通知团队精准放行。",
+            "en": "Pinpoint where the bottleneck actually is before signaling the crew."
+          },
+          "role": "cal-hampton"
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "prompt": {
+        "zh": "离主秀开场只剩五分钟，主音箱突然烧了。你打算怎么救？",
+        "en": "Five minutes to the main set, and the main speakers blow out. How do you save it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "立刻联系租赁商，谈妥加急送货、技术兜底和整晚包干价。",
+            "en": "Call the rental house and negotiate rush delivery, tech support, and a flat rate."
+          },
+          "role": "boobie-ike"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "快速改用小功率备用箱编排，死保低音和现场质感不走样。",
+            "en": "Rework the set for smaller backup speakers without losing the signature sound."
+          },
+          "role": "drequan-priest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "争取试用旁边游艇上刚好能借的音响组合。",
+            "en": "Ask to try the sound setup a nearby yacht crew can lend you tonight."
+          },
+          "role": "raul-bautista"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先带全场玩一轮人声节奏互动，给后台抢修硬生生拖出三分钟。",
+            "en": "Lead a crowd-wide chant to buy the tech crew three minutes to fix it."
+          },
+          "role": "real-dimez"
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "prompt": {
+        "zh": "第一首炸完，台上的伙伴打手势说返听全是杂音。你先做什么？",
+        "en": "After the first track drops, the performers signal that their stage monitors are a mess. What do you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "微调下一首的鼓点和频段，让台上的节奏感立刻清晰起来。",
+            "en": "Tweak the next track's mix so the beat cuts through clearly on stage."
+          },
+          "role": "drequan-priest"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "贴到台边问清伙伴现在最缺哪一路声音，亲自帮他们盯住。",
+            "en": "Check in with the performers on what they need most and stay by their side."
+          },
+          "role": "jason-duval"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "趁两首歌之间的短暂停顿，试一次全队都没用过的设置。",
+            "en": "Use the short break between tracks to try a setup the crew hasn't used before."
+          },
+          "role": "raul-bautista"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "立刻定好主备两套线路，指派专人盯切换、专人盯确认。",
+            "en": "Set a primary and backup line, assigning one person to switch and one to verify."
+          },
+          "role": "brian-heder"
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "prompt": {
+        "zh": "现场彻底乱套，搭档被十几个人的消息轰炸到快崩溃。你先做什么？",
+        "en": "The night goes sideways and your partner is buried under nonstop pings from every crew. What's your first move?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先理清哪条信息最关键、谁在等真消息，过滤掉无效噪音。",
+            "en": "Filter out the noise and find which message actually matters right now."
+          },
+          "role": "cal-hampton"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "直接站到搭档身边一起扛，先把眼前的急活一件件收掉。",
+            "en": "Step right beside your partner and help clear what's in front of them."
+          },
+          "role": "jason-duval"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑出最火烧眉毛的一件事亲手干完，再向全队同步进度。",
+            "en": "Knock out the single most urgent task yourself, then update everyone."
+          },
+          "role": "lucia-caminos"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "重新切分各组职责，指定唯一的对接窗口替搭档挡掉杂音。",
+            "en": "Reassign the crews and set one single point of contact to shield your partner."
+          },
+          "role": "brian-heder"
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "prompt": {
+        "zh": "离今晚约定的散场时间只剩十分钟。你想再做哪一件事？",
+        "en": "Ten minutes to the agreed closing time. What one last thing do you do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问还没走的嘉宾能否来一首限时安可，承担临时重排。",
+            "en": "Ask the guest to try a short encore and make time to reshuffle the set."
+          },
+          "role": "raul-bautista"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "迅速把设备打包、退场和清场任务分派给最顺手的人。",
+            "en": "Assign gear pack-out, returns, and cleanup to the right hands fast."
+          },
+          "role": "brian-heder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "请观众留一句今晚的回顾，自愿入镜。",
+            "en": "Invite the crowd to leave a line for the recap and join the clip if they want."
+          },
+          "role": "real-dimez"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "率先清出一条畅通的撤离通道，带头启动全队收尾。",
+            "en": "Clear a clean exit lane first so the whole crew can start wrapping up."
+          },
+          "role": "lucia-caminos"
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "prompt": {
+        "zh": "人群散尽后，发现还有一批重型设备没交还。你先做什么？",
+        "en": "The crowd is gone, and a batch of heavy gear still needs to go back. What's your first move?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "定死打包和装车的交接点，再把搬运人手一一排好。",
+            "en": "Lock down the packing and loading handoff point, then assign the crew."
+          },
+          "role": "brian-heder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "直接跟租赁商谈夜归费和明早交接的折中条件。",
+            "en": "Call the rental shop to negotiate late fees and a morning drop-off window."
+          },
+          "role": "boobie-ike"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先逐条核对清单，搞清到底哪几件真还在场子里。",
+            "en": "Check the manifest line by line to see what's actually still on site."
+          },
+          "role": "cal-hampton"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "抢在仓库关门前确认最后一个交接时段，争取当晚交还。",
+            "en": "Check if the warehouse still has a drop-off slot and try to return it tonight."
+          },
+          "role": "raul-bautista"
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "prompt": {
+        "zh": "天亮前，你打算怎么向外界讲今晚这场局？",
+        "en": "Before sunrise, how do you tell the story of tonight's show?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "复盘最惊险的那次临场救场，把硬核解法留给后来的人。",
+            "en": "Break down the one clutch fix that saved the night so others can use it."
+          },
+          "role": "lucia-caminos"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "放一段今晚音质最炸的现场切片，让作品自己说话。",
+            "en": "Drop a short clip of the cleanest, hardest-hitting sound from the set."
+          },
+          "role": "drequan-priest"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "讲讲那个在幕后默默补位、撑住全场的搭档故事。",
+            "en": "Tell the story of the teammate who quietly stepped in and held the line."
+          },
+          "role": "jason-duval"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把大家拍的碎片和留言拼在一起，做成一场全员共创回顾。",
+            "en": "Stitch everyone's clips and shoutouts into one crowd-made recap."
+          },
+          "role": "real-dimez"
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "prompt": {
+        "zh": "午夜过后，大家聊起「下一场还干不干」。你最想先聊哪件事？",
+        "en": "After midnight, someone asks if you're doing another one. What do you bring up first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "原班人马里谁还愿意接着干、各自能扛哪一块。",
+            "en": "Who from the original crew wants back in and what they can take on."
+          },
+          "role": "jason-duval"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "今晚哪个信号被我们漏掉了，下次怎么提前一步察觉。",
+            "en": "What signal we missed tonight and how we catch it earlier next time."
+          },
+          "role": "cal-hampton"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "下一场要把声音和现场氛围推向什么新高度。",
+            "en": "How far we can push the sound and vibe on the next show."
+          },
+          "role": "drequan-priest"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "场地、成本和分成比例能不能一次谈成铁板一块。",
+            "en": "Whether we can lock down the venue, costs, and split up front."
+          },
+          "role": "boobie-ike"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "lucia-caminos",
+      "name": "Lucia Caminos",
+      "title": {
+        "zh": "破局行动派",
+        "en": "The Decisive Starter"
+      },
+      "summary": {
+        "zh": "露西娅想靠更聪明的选择改变处境。在这场海岸派对里，你会先找出一件马上能做的事，让卡住的局面动起来。",
+        "en": "Lucia wants to change her odds by making smarter moves. At the waterfront party, you find one thing the crew can do right now and get it moving."
+      },
+      "contribution": {
+        "zh": "打破僵局，先跑通一步。",
+        "en": "Make the first move."
+      },
+      "friction": {
+        "zh": "一动起来，记得告诉搭档下一步。",
+        "en": "Give your partner a heads-up before you move on."
+      },
+      "share": {
+        "zh": "我测出了 Lucia · 破局行动派。罪恶都市今晚失控，你来跟我组队救场吗？",
+        "en": "I got Lucia — The Decisive Starter. Vice City is going sideways. Want to team up?"
+      }
+    },
+    {
+      "id": "jason-duval",
+      "name": "Jason Duval",
+      "title": {
+        "zh": "稳场搭档",
+        "en": "The Steady Anchor"
+      },
+      "summary": {
+        "zh": "杰森有从军经历，想过得简单些。派对越乱，你越留意之前答应了谁、队友眼下缺什么，收场时也愿意留下来搭把手。",
+        "en": "Jason served in the Army and wants a simpler life. As the night gets louder, you keep promises in view, back your crew and stay to help wrap up."
+      },
+      "contribution": {
+        "zh": "照顾承诺，稳住队友。",
+        "en": "Keep the crew steady."
+      },
+      "friction": {
+        "zh": "忙不过来就喊人，别让大家以为已经有人兜底。",
+        "en": "Tell the crew when you need backup."
+      },
+      "share": {
+        "zh": "我测出了 Jason · 稳场搭档。来看看混乱之夜咱俩怎么分工？",
+        "en": "I got Jason — The Steady Anchor. See how we'd split the work on a wild Vice City night."
+      }
+    },
+    {
+      "id": "cal-hampton",
+      "name": "Cal Hampton",
+      "title": {
+        "zh": "信号捕手",
+        "en": "The Signal Watcher"
+      },
+      "summary": {
+        "zh": "卡尔习惯待在家里留意外头的消息。群聊传出巡逻队要来时，你会先核对源头，找出大家说的是不是同一件事。",
+        "en": "Cal likes to keep tabs on what's happening outside. When rumors about patrols fill the chat, you trace the story back and check what people actually know."
+      },
+      "contribution": {
+        "zh": "核对风声，找出遗漏。",
+        "en": "Check the source and catch what's missing."
+      },
+      "friction": {
+        "zh": "先约好查到哪一步就能拍板。",
+        "en": "Agree on when you have enough to make a call."
+      },
+      "share": {
+        "zh": "我测出了 Cal · 信号捕手。全场都在传消息，你先信谁？",
+        "en": "I got Cal — The Signal Watcher. Everyone's talking. Who would you believe first?"
+      }
+    },
+    {
+      "id": "brian-heder",
+      "name": "Brian Heder",
+      "title": {
+        "zh": "幕后操盘手",
+        "en": "The Backstage Strategist"
+      },
+      "summary": {
+        "zh": "布莱恩在群岛经营船场，也懂得怎么在后台调度。你会先排好人手、备选和交接点，让接力的人知道该在哪儿接手。",
+        "en": "Brian runs a boatyard in the Keys and knows how to work behind the scenes. You line up backups and handoffs so everyone knows where to step in."
+      },
+      "contribution": {
+        "zh": "统筹人手、备选和交接。",
+        "en": "Line up people, backups and handoffs."
+      },
+      "friction": {
+        "zh": "计划排好了，也要让一线的人听明白。",
+        "en": "Share the plan with the crew who's doing the work."
+      },
+      "share": {
+        "zh": "我测出了 Brian · 幕后操盘手。台前越乱我越想排个班。来组队？",
+        "en": "I got Brian — The Backstage Strategist. See how we'd run the night together."
+      }
+    },
+    {
+      "id": "raul-bautista",
+      "name": "Raul Bautista",
+      "title": {
+        "zh": "压线加码派",
+        "en": "The Big-Swing Opportunist"
+      },
+      "summary": {
+        "zh": "劳尔擅长发现高风险机会，也想找愿意跟他尝试的人。幕间几十秒或只剩一首歌的空档，在你眼里也可能够试一个新版本。",
+        "en": "Raul looks for people willing to take a chance. You see the last ten minutes or a gap between sets as a window to try one more thing."
+      },
+      "contribution": {
+        "zh": "抓住短暂窗口，争取多一个版本。",
+        "en": "Go for the brief opening."
+      },
+      "friction": {
+        "zh": "加码前和搭档约好什么时候收手。",
+        "en": "Agree on a cutoff before you double down."
+      },
+      "share": {
+        "zh": "我测出了 Raul · 压线加码派。还剩十分钟，你敢跟我加一首吗？",
+        "en": "I got Raul — The Big-Swing Opportunist. Ten minutes left. Would you go for one more track?"
+      }
+    },
+    {
+      "id": "boobie-ike",
+      "name": "Boobie Ike",
+      "title": {
+        "zh": "谈判桌主理人",
+        "en": "The Vice City Deal Maker"
+      },
+      "summary": {
+        "zh": "布比在罪恶都市经营多种生意。场子乱的时候，你会先把场地、价格和承诺摆上桌，顺便看看下次能不能接着合作。",
+        "en": "Boobie runs businesses across Vice City. In the middle of the scramble, you put the venue, the costs and the terms on the table so there's a chance to do it again."
+      },
+      "contribution": {
+        "zh": "谈清资源、预算和条款。",
+        "en": "Get the resources and terms sorted."
+      },
+      "friction": {
+        "zh": "把条件谈清，也给作品留点空间。",
+        "en": "Leave room for the creative crew to make it work."
+      },
+      "share": {
+        "zh": "我测出了 Boobie · 谈判桌主理人。资源我来谈，你来选今晚怎么上场？",
+        "en": "I got Boobie — The Vice City Deal Maker. I'll talk terms. What do you want to put onstage?"
+      }
+    },
+    {
+      "id": "drequan-priest",
+      "name": "Dre'Quan Priest",
+      "title": {
+        "zh": "声音造梦人",
+        "en": "The Sound Architect"
+      },
+      "summary": {
+        "zh": "德雷·泉一心想在音乐圈做出成绩。就算只剩一套备用音箱，你也想让人听得出来，这就是今晚那场派对。",
+        "en": "Dre'Quan wants to make his mark in music. Even with half the venue or one spare speaker, you want tonight's show to have a sound of its own."
+      },
+      "contribution": {
+        "zh": "守住声音和演出的特色。",
+        "en": "Protect the show's sound and feel."
+      },
+      "friction": {
+        "zh": "想再调一版时，先看看开场还剩多久。",
+        "en": "Check the clock before making one more tweak."
+      },
+      "share": {
+        "zh": "我测出了 Dre’Quan · 声音造梦人。设备可以缩水，今晚得有自己的声音。你来吗？",
+        "en": "I got Dre’Quan — The Sound Architect. The setup can shrink, but the show still needs its own sound."
+      }
+    },
+    {
+      "id": "real-dimez",
+      "name": "Real Dimez",
+      "title": {
+        "zh": "气氛引爆者",
+        "en": "The Spotlight Catalyst"
+      },
+      "summary": {
+        "zh": "你一个人就能把场子带热，有 Real Dimez 那股台前劲儿。Bae-Luxe 和 Roxy 从高中就是朋友，也善于借音乐和社交媒体聚起注意力。",
+        "en": "You bring the onstage energy of Real Dimez all on your own. Bae-Luxe and Roxy have been friends since high school and know how to draw a crowd through music and social media."
+      },
+      "contribution": {
+        "zh": "给围观的人一个参与的理由。",
+        "en": "Give the crowd a way to join in."
+      },
+      "friction": {
+        "zh": "把台前带热时，也给后台伙伴留束光。",
+        "en": "Give the crew backstage a moment in the spotlight too."
+      },
+      "share": {
+        "zh": "我测出了 Real Dimez · 气氛引爆者。派对冷场，你来跟我一起热场？",
+        "en": "I got Real Dimez — The Spotlight Catalyst. Want to help me bring this party to life?"
+      }
+    }
+  ]
+}

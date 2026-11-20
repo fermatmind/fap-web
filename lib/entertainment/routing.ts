@@ -2,6 +2,7 @@ import catalog from "./catalog.json";
 import questionnaires from "../questionnaires/catalog.json";
 import { PUBLIC_PATH, RESOURCE_PATHS } from "../friendship/core";
 import { hasQuestionnaireTake } from "../questionnaires/take";
+import { gta6Profile, gta6Slug, isGta6PreviewEnabled } from "../questionnaires/gta6CharacterQuiz";
 import { parseQuestionnaireTakePath } from "../questionnaires/takePath";
 import { GLOBAL_HISTORY_SLUG } from "./global-history/config";
 import { findHistoryPerson } from "./global-history/people";
@@ -11,6 +12,7 @@ const questionnaireIds = new Map(questionnaires.map(quiz => [`${quiz.collection}
 export function isMissingFunRoute(pathname: string): boolean {
   const take = parseQuestionnaireTakePath(pathname);
   if (take) {
+    if (take.collection === "explore" && take.slug === gta6Slug) return !isGta6PreviewEnabled();
     if (take.collection === "play" && (take.slug === "friendship-quiz" || take.slug === GLOBAL_HISTORY_SLUG)) return false;
     if (questionnaireIds.has(`${take.collection}/${take.slug}`)) return !hasQuestionnaireTake(take.slug);
     return take.collection !== "play" || !identities.has(take.slug);
@@ -23,6 +25,7 @@ export function isMissingFunRoute(pathname: string): boolean {
   if (/^\/(?:en|zh)\/tests\/explore(?:\/|$)/.test(pathname)) {
     const match = pathname.match(/^\/(?:en|zh)\/tests\/explore\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/results\/([a-z0-9]+(?:-[a-z0-9]+)*))?\/?$/);
     if (!match) return true;
+    if (match[1] === gta6Slug) return !isGta6PreviewEnabled() || !gta6Profile(match[2]);
     const profiles = questionnaireIds.get(`explore/${match[1]}`);
     return !profiles || Boolean(match[2] && !profiles.includes(match[2]));
   }
