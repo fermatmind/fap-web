@@ -3161,7 +3161,7 @@ export async function startAttempt({
         ...(meta ? { meta } : {}),
         ...(attribution ?? {}),
       },
-      anonHeader(resolvedAnonId, careerGuestHeaders(toScaleCodeV1(resolvedScaleCode) === "RIASEC"))
+      anonHeader(resolvedAnonId, careerGuestHeaders(["RIASEC", "MBTI", "BIG5_OCEAN", "ENNEAGRAM", "EQ_60", "IQ_RAVEN", "IQ_INTELLIGENCE_QUOTIENT", "JUNG_ARCHETYPES", "JUNG_COGNITIVE_FUNCTIONS"].includes(toScaleCodeV1(resolvedScaleCode))))
     )
   );
 
