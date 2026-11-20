@@ -27,3 +27,19 @@ test('real imports and source reads select consumer union; mixed and unknown ret
   for(const changed of [{candidate_sha:'b'.repeat(40)},{paths:['lib/b.ts']},{test_selection:{...a,files:[],contracts_required:true}},{test_selection:{...a,files:['missing.ts']}}]) assert.throws(()=>validateTestSelection({...classification,...changed},'a'.repeat(40),a.files),/BINDING/);
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+test('large tracked content inventories do not exceed the default child-process buffer',()=>{
+ const root=mkdtempSync(tmpdir()+'/test-consumers-large-');
+ try {
+  execFileSync('git',['init','-q'],{cwd:root});
+  const blob=execFileSync('git',['hash-object','-w','--stdin'],{cwd:root,input:'',encoding:'utf8'}).trim();
+  const files=Array.from({length:7000},(_,i)=>`content/career-comparisons/${'career-'.repeat(24)}${i}/zh-TW.md`);
+  const index=files.map(file=>`100644 ${blob}\t${file}\0`).join('');
+  execFileSync('git',['update-index','-z','--index-info'],{cwd:root,input:index});
+  const actual=execFileSync('git',['ls-files','-z'],{cwd:root,maxBuffer:16*1024*1024});
+  assert.ok(actual.length>1024*1024);
+  const plan=selectTests(['docs/readme.md'],root);
+  assert.equal(plan.contracts_required,false);
+  assert.deepEqual(plan.files,[]);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});

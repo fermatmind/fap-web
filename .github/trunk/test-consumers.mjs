@@ -5,7 +5,7 @@ import path from 'node:path';
 // Imports and literal source/fixture reads connect contracts to their real inputs.
 // Unresolved/dynamic repository inputs retain the complete regression selection.
 export function selectTests(changed, root=process.cwd()) {
-  const tracked=execFileSync('git',['ls-files','-z'],{cwd:root}).toString().split('\0').filter(Boolean);
+  const tracked=execFileSync('git',['ls-files','-z'],{cwd:root,maxBuffer:16*1024*1024}).toString().split('\0').filter(Boolean);
   const known=new Set(tracked), edges=new Map();
   const tests=tracked.filter(p=>/^tests\/(?:contracts|a11y)\//.test(p)&&/\.test\.[jt]sx?$/.test(p));
   const resolve=(value, parent)=>{
