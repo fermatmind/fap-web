@@ -594,7 +594,7 @@ export default function AccountCenter({ locale }: { locale: DisplayLocale }) {
       setItems([]);
       setError(message(e, locale));
       if (e instanceof ApiError && e.status === 401) {
-        clearAccountSession();
+        clearAccountSession({ preserveAnonymousIdentity: true });
         setAccount(null);
       }
     } finally {

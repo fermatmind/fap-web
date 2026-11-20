@@ -25,7 +25,7 @@ export async function runWithGuestTokenRetry<T>({
     }
 
     if (isAccountSession()) {
-      clearAccountSession();
+      clearAccountSession({ preserveAnonymousIdentity: true });
       throw error;
     }
 

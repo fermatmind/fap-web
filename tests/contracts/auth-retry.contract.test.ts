@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { saveAccountSession, clearAccountSession } from "@/lib/account/storage";
+import { getOrCreateAnonId, ANON_ID_COOKIE_NAME } from "@/lib/anon";
 import { ApiError } from "@/lib/api-client";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
@@ -22,6 +23,34 @@ describe("auth guest token retry contract", () => {
     const runner = vi.fn().mockRejectedValue(error);
     await expect(runWithGuestTokenRetry({runner, locale:"en"})).rejects.toBe(error);
     expect(fetch).not.toHaveBeenCalled(); expect(runner).toHaveBeenCalledTimes(1); expect(getFmToken()).toBeNull();
+  });
+
+  it("uses the same visitor identity to submit and read a result after account expiration", async () => {
+    const attemptAnonId = getOrCreateAnonId();
+    expect(attemptAnonId).toBeTruthy();
+    saveAccountSession("fm_aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee");
+    const error = new ApiError({ status: 401, errorCode: "UNAUTHENTICATED", message: "Expired" });
+    const fetch = vi.fn<typeof globalThis.fetch>().mockImplementation(async () => new Response(JSON.stringify({
+      ok: true,
+      fm_token: "fm_11111111-2222-3333-4444-555555555555",
+    }), { status: 200 }));
+    vi.stubGlobal("fetch", fetch);
+
+    await expect(runWithGuestTokenRetry({
+      anonId: attemptAnonId,
+      runner: vi.fn().mockRejectedValue(error),
+    })).rejects.toBe(error);
+    expect(document.cookie).toContain(`${ANON_ID_COOKIE_NAME}=${attemptAnonId}`);
+
+    const submit = vi.fn().mockRejectedValueOnce(error).mockResolvedValueOnce("submitted");
+    await expect(runWithGuestTokenRetry({ runner: submit, anonId: attemptAnonId })).resolves.toBe("submitted");
+
+    const resultPageAnonId = getOrCreateAnonId();
+    await expect(ensureFmTokenReady({ anonId: resultPageAnonId, forceRefresh: true })).resolves.toBe("issued");
+    expect(fetch.mock.calls).toHaveLength(2);
+    for (const [, request] of fetch.mock.calls) {
+      expect(JSON.parse(String(request?.body))).toEqual({ anon_id: attemptAnonId });
+    }
   });
 
   it("does not overwrite a newer account with a delayed guest response", async () => {

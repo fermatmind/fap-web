@@ -1,3 +1,4 @@
+import { ANON_ID_STORAGE_KEY } from "@/lib/anon";
 import { clearFmToken, getFmToken, setFmToken } from "@/lib/auth/fmToken";
 
 const SESSION = "fm_account_session_v1";
@@ -74,16 +75,20 @@ export function removeOwnershipProofs(ids: string[]) {
   }
 }
 
-export function clearAccountSession() {
+export function clearAccountSession({ preserveAnonymousIdentity = false } = {}) {
   clearFmToken();
   if (typeof window === "undefined") return;
   // Remove only private Fermat result/session state, preserving language and consent.
   const privateKeys =
     /^(fm_account_session_v1|fm_result_ownership_proofs_v1|fap_anonymous_id_v1|fap_anon_link_attempt_queue_v1|fm_big5_(attempt|last_report|last_order)|fm_pending_order|fm_clinical_attempt|fm\.result_access_token\.|fm_link_anon_|fm_attempt|fm_quiz)/;
   for (const storage of [window.localStorage, window.sessionStorage]) {
-    for (const key of Object.keys(storage))
+    for (const key of Object.keys(storage)) {
+      if (preserveAnonymousIdentity && key === ANON_ID_STORAGE_KEY) continue;
       if (privateKeys.test(key)) storage.removeItem(key);
+    }
   }
-  document.cookie = "fap_anonymous_id_v1=; Path=/; Max-Age=0; SameSite=Lax";
+  if (!preserveAnonymousIdentity) {
+    document.cookie = "fap_anonymous_id_v1=; Path=/; Max-Age=0; SameSite=Lax";
+  }
   window.dispatchEvent(new Event("fm-account-changed"));
 }
