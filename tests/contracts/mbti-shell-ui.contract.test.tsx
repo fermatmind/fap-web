@@ -429,4 +429,13 @@ describe("MBTI shell UI contract", () => {
       );
     });
   });
+  it("keeps sample reading interactive without personal report operations", () => {
+    render(<RichResultReport locale="zh" reportData={createUnlockedFixture()} sampleMode />);
+    expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-print-axis-readings")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-full")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", {name: "分享结果"})).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", {name: "下载 PDF"})).not.toBeInTheDocument();
+  });
+
 });

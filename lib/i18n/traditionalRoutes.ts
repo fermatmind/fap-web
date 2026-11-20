@@ -44,6 +44,7 @@ export function traditionalPath(pathname: string): string | null {
   const prefix = pathname.split("/")[1];
   if (!normalizeDisplayLocale(prefix)) return null;
   const path = pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "").replace(/\/$/, "");
+  if (/^\/reports\/samples\/(?:mbti|big5|enneagram|iq30|iq40|eq|archetypes|cognitive|disc)$/u.test(path)) return `/zh-TW${path}`;
   if (process.env.NODE_ENV === "development" && prefix === "zh-TW"
     && path === "/tests/holland-career-interest-test-riasec/preview") return `/zh-TW${path}`;
   if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path) || HISTORY_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;

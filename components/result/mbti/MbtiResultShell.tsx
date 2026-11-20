@@ -153,6 +153,7 @@ type MbtiResultShellProps = {
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
   printSnapshotMode?: boolean;
+  sampleMode?: boolean;
   initialDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
   onDownloadPdf?: () => Promise<void>;
@@ -551,6 +552,7 @@ export function MbtiResultShell({
   sectionUnlocks,
   offers,
   printSnapshotMode = false,
+  sampleMode = false,
   initialDesktopCloneContent = null,
   snapshotContentStatus = null,
   onDownloadPdf,
@@ -637,7 +639,7 @@ export function MbtiResultShell({
       meta: initialDesktopCloneContent.meta,
     };
   }, [fullCodeForStorage, initialDesktopCloneContent, locale]);
-  const canLoadPublicDesktopCloneStorage = (printSnapshotMode || locale === "zh") && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
+  const canLoadPublicDesktopCloneStorage = (printSnapshotMode || locale === "zh" || Boolean(initialDesktopCloneContent)) && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
   const [desktopCloneSnapshot, setDesktopCloneSnapshot] = useState<{
     locale: Locale;
     fullCode: string;
@@ -1545,8 +1547,9 @@ export function MbtiResultShell({
         storageManagedExternally
         canLoadDesktopCloneStorage={canLoadPublicDesktopCloneStorage}
         snapshotMode={printSnapshotMode}
+        sampleMode={sampleMode}
         snapshotContentStatus={snapshotContentStatus}
-        suppressUnlockSurfaces={isFreeFullMode}
+        suppressUnlockSurfaces={isFreeFullMode || sampleMode}
         storageContentPending={hasAuthoritativeAccessMode && canLoadPublicDesktopCloneStorage && !initialDesktopCloneSnapshot && desktopCloneSnapshot === null}
         requirePublishedContent={hasAuthoritativeAccessMode}
       />

@@ -115,7 +115,7 @@ const reportProtectedBranches = new Set([
   "scores", "scores_0_100", "scores_pct", "scoresPct", "axis_states",
 ]);
 const mbtiSnapshotTextFields = new Set([
-  "nickname", "bandNuance", "fitReason", "expression", "advantage", "whyItMatters",
+  "introduction", "nickname", "bandNuance", "fitReason", "expression", "advantage", "whyItMatters",
   "overuseRisk", "realWorldSignal", "upgradeHint",
 ]);
 const mbtiSnapshotTextLists = new Set(["intro", "keywords", "signals", "jobExamples"]);

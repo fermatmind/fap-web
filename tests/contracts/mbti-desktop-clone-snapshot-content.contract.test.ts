@@ -143,6 +143,15 @@ function createPayload(content = createContent()): PersonalityDesktopCloneConten
   };
 }
 
+describe("interactive preloaded report content", () => {
+  it("uses supplied English report copy without selecting the print layout", () => {
+    const args = {...createResolveArgs(createContent()), locale: "en" as const};
+    const result = resolveMbtiDesktopCloneSlotsResult(args, {mode:"normal", allowStorageContentForLocale:true});
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.slots.meta.contentSource).toBe("storage");
+  });
+});
+
 describe("MBTI desktop clone snapshot content contract", () => {
   it("requires unredacted English full-report blocks and rejects mixed-language copy", () => {
     const content = createContent();

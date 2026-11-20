@@ -1394,6 +1394,7 @@ export function RichResultReport({
   accessProjection,
   inviteUnlockProgress,
   printSnapshotMode = false,
+  sampleMode = false,
   riasecEmailRecovery,
   snapshotDesktopCloneContent = null,
   snapshotContentStatus = null,
@@ -1406,6 +1407,7 @@ export function RichResultReport({
   accessProjection?: AttemptReportAccessView | null;
   inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
   printSnapshotMode?: boolean;
+  sampleMode?: boolean;
   riasecEmailRecovery?: ReactNode;
   snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
@@ -1479,6 +1481,7 @@ export function RichResultReport({
         sectionUnlocks={sectionUnlocks}
         offers={resolvedOffers}
         printSnapshotMode={printSnapshotMode}
+        sampleMode={sampleMode}
         initialDesktopCloneContent={snapshotDesktopCloneContent}
         snapshotContentStatus={snapshotContentStatus}
         onDownloadPdf={onDownloadMbtiPdf}
