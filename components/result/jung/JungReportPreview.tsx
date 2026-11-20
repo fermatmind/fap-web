@@ -101,9 +101,7 @@ function ProfileChart({
                 y={ly}
                 textAnchor="middle"
                 dominantBaseline="central"
-                style={{
-                  fill: `color-mix(in srgb, ${archetypeChartColors[row.id].fill} 55%, white)`,
-                }}
+                style={{ fill: archetypeChartColors[row.id].label }}
               >
                 {row.name}
               </text>
