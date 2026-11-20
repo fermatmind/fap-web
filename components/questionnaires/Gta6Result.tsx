@@ -7,6 +7,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import {
   gta6Cover, gta6LandingPath, gta6Name, gta6Portrait, gta6Profiles, gta6ResultPath, gta6TakePath, type Gta6Profile,
 } from "@/lib/questionnaires/gta6CharacterQuiz";
+import { Gta6ResultReading } from "./Gta6ResultReading";
 import styles from "./Gta6Quiz.module.css";
 
 type Props = {
@@ -15,11 +16,10 @@ type Props = {
   secondary?: Gta6Profile;
   invite?: Gta6Profile;
   reasons?: string[];
-  guide?: string;
   onRestart?: () => void;
 };
 
-export function Gta6Result({ locale, profile, secondary, invite, reasons, guide, onRestart }: Props) {
+export function Gta6Result({ locale, profile, secondary, invite, reasons, onRestart }: Props) {
   const zh = locale !== "en";
   const heading = useRef<HTMLHeadingElement>(null);
   const [fallback, setFallback] = useState("");
@@ -79,7 +79,8 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, guide,
       ctx.fillText("FERMATMIND", 72, 98);
       ctx.font = "800 88px system-ui, sans-serif";
       ctx.fillText(profile.name, 72, 824, 936);
-      ctx.fillStyle = "#ff8b88";
+      const accent = heading.current ? getComputedStyle(heading.current).getPropertyValue("--accent").trim() : "";
+      ctx.fillStyle = accent || "#ff8b88";
       ctx.font = "700 36px system-ui, sans-serif";
       ctx.fillText(profile.title[locale], 72, 895, 936);
       ctx.fillStyle = "#ffffff";
@@ -100,7 +101,7 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, guide,
   }
 
   return (
-    <main className={styles.screen} data-stage="result">
+    <main className={styles.screen} data-stage="result" data-character={profile.id}>
       <article className={styles.resultLayout}>
         <header className={styles.resultHero}>
           <Image unoptimized priority className={styles.resultPortrait} src={gta6Portrait(profile.id)} alt={profile.name} width={740} height={500} />
@@ -116,10 +117,26 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, guide,
             <p className={styles.resultTitle}>{profile.title[locale]}</p>
           </div>
         </header>
+        <div className={styles.resultActions}>
+          {onRestart ? (
+            <>
+              <button type="button" className={styles.primaryButton} onClick={copy}>{zh ? (locale === "zh-TW" ? "複製結果，揪朋友" : "复制结果，邀请好友") : "Copy result and invite a friend"} <span aria-hidden="true">↗</span></button>
+              <button type="button" className={styles.secondaryButton} disabled={downloading} onClick={downloadCard}>{zh ? (locale === "zh-TW" ? "儲存結果卡" : "保存结果卡") : "Save result card"}</button>
+              <button type="button" className={styles.secondaryButton} onClick={onRestart}>{zh ? (locale === "zh-TW" ? "再玩一次" : "重新测试") : "Retake"}</button>
+            </>
+          ) : (
+            <>
+              <Link prefetch={false} href={gta6TakePath(locale, profile.id)} className={styles.primaryButton}>{zh ? (locale === "zh-TW" ? "我也來測，看看我們怎麼分工" : "我也来测，看看怎么组队") : "Take the quiz and team up"} <span aria-hidden="true">→</span></Link>
+              <Link prefetch={false} href={`${gta6LandingPath(locale)}#characters`} className={styles.secondaryButton}>{locale === "en" ? "Browse all eight guides" : locale === "zh-TW" ? "瀏覽八組角色指南" : "查看八种角色指南"}</Link>
+              <Link prefetch={false} href={gta6TakePath(locale)} className={styles.secondaryButton}>{zh ? (locale === "zh-TW" ? "自己玩一輪" : "独自开测") : "Play solo"}</Link>
+            </>
+          )}
+        </div>
+        {message && <p className={styles.notice} role="status">{message}</p>}
+        {fallback && <textarea className={styles.shareText} aria-label={zh ? (locale === "zh-TW" ? "分享文字與連結" : "分享文案与链接") : "Share message and link"} readOnly value={fallback} onFocus={(event) => event.currentTarget.select()} />}
         <div className={styles.report}>
           <div>
             <p className={styles.resultSummary}>{profile.summary[locale]}</p>
-            {guide && <section className={styles.reportSection}><h2>{locale === "en" ? "In the party scenario" : locale === "zh-TW" ? "放進派對情境看" : "放到派对情境里看"}</h2><p>{guide}</p></section>}
             {reasons?.length ? (
               <section className={styles.reportSection}>
                 <h2>{zh ? (locale === "zh-TW" ? "哪些選擇讓你配對到這個角色" : "为什么是这个角色") : "Why you matched"}</h2>
@@ -149,23 +166,7 @@ export function Gta6Result({ locale, profile, secondary, invite, reasons, guide,
             {invite && <p className={styles.crewPrompt}>{zh ? (locale === "zh-TW" ? "巡邏隊提醒，派對十分鐘後結束。誰負責帶大家離開？誰留在後台收拾？" : "巡逻队提醒还有十分钟散场。你俩谁先带观众离场，谁负责收尾？") : "Patrol says the party wraps in ten minutes. Who guides the crowd out, and who wraps up backstage?"}</p>}
           </section>
         </div>
-        <div className={styles.resultActions}>
-          {onRestart ? (
-            <>
-              <button type="button" className={styles.primaryButton} onClick={copy}>{zh ? (locale === "zh-TW" ? "複製結果，揪朋友" : "复制结果，邀请好友") : "Copy result and invite a friend"} <span aria-hidden="true">↗</span></button>
-              <button type="button" className={styles.secondaryButton} disabled={downloading} onClick={downloadCard}>{zh ? (locale === "zh-TW" ? "儲存結果卡" : "保存结果卡") : "Save result card"}</button>
-              <button type="button" className={styles.secondaryButton} onClick={onRestart}>{zh ? (locale === "zh-TW" ? "再玩一次" : "重新测试") : "Retake"}</button>
-            </>
-          ) : (
-            <>
-              <Link prefetch={false} href={gta6TakePath(locale, profile.id)} className={styles.primaryButton}>{zh ? (locale === "zh-TW" ? "我也來測，看看我們怎麼分工" : "我也来测，看看怎么组队") : "Take the quiz and team up"} <span aria-hidden="true">→</span></Link>
-              <Link prefetch={false} href={gta6LandingPath(locale)} className={styles.secondaryButton}>{locale === "en" ? "Quiz overview" : locale === "zh-TW" ? "回測驗介紹" : "返回测试介绍"}</Link>
-              <Link prefetch={false} href={gta6TakePath(locale)} className={styles.secondaryButton}>{zh ? (locale === "zh-TW" ? "自己玩一輪" : "独自开测") : "Play solo"}</Link>
-            </>
-          )}
-        </div>
-        {message && <p className={styles.notice} role="status">{message}</p>}
-        {fallback && <textarea className={styles.shareText} aria-label={zh ? (locale === "zh-TW" ? "分享文字與連結" : "分享文案与链接") : "Share message and link"} readOnly value={fallback} onFocus={(event) => event.currentTarget.select()} />}
+        <Gta6ResultReading locale={locale} profile={profile} publicGuide={!onRestart} />
         <details className={styles.otherResults}>
           <summary>{zh ? (locale === "zh-TW" ? "逛逛其他角色" : "查看其他角色") : "Browse other characters"}</summary>
           <ul>

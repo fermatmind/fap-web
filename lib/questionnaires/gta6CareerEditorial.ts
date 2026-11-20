@@ -1,3 +1,12 @@
+export const gta6CareerDimensions = {
+  R: ["Realistic · hands-on work", "现实型 · 动手操作", "實作型 · 動手操作"],
+  I: ["Investigative · inquiry", "研究型 · 研究分析", "研究型 · 查證與分析"],
+  A: ["Artistic · creative work", "艺术型 · 创意表达", "藝術型 · 創作表達"],
+  S: ["Social · helping and teaching", "社会型 · 帮助或教学", "社會型 · 幫助或教學"],
+  E: ["Enterprising · organizing or negotiating", "企业型 · 组织或谈判", "企業型 · 組織與協商"],
+  C: ["Conventional · procedures or records", "常规型 · 流程或记录", "事務型 · 流程與紀錄"],
+} as const;
+
 export const gta6CareerRows = [
   {
     role: "lucia-caminos", interests: ["E", "R"],

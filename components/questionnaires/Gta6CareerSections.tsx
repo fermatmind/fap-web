@@ -1,18 +1,11 @@
 import Link from "next/link";
 import type { DisplayLocale } from "@/lib/i18n/locales";
-import { gta6CareerRows, gta6CareerTopics } from "@/lib/questionnaires/gta6CareerEditorial";
+import { gta6CareerDimensions, gta6CareerRows, gta6CareerTopics } from "@/lib/questionnaires/gta6CareerEditorial";
 import { gta6Profile, gta6ResultPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import styles from "./Gta6Landing.module.css";
 
 const copyIndex = { en: 0, zh: 1, "zh-TW": 2 } as const;
-const dimensions = {
-  R: ["Realistic · hands-on work", "现实型 · 动手操作", "實作型 · 動手操作"],
-  I: ["Investigative · inquiry", "研究型 · 研究分析", "研究型 · 查證與分析"],
-  A: ["Artistic · creative work", "艺术型 · 创意表达", "藝術型 · 創作表達"],
-  S: ["Social · helping and teaching", "社会型 · 帮助或教学", "社會型 · 幫助或教學"],
-  E: ["Enterprising · organizing or negotiating", "企业型 · 组织或谈判", "企業型 · 組織與協商"],
-  C: ["Conventional · procedures or records", "常规型 · 流程或记录", "事務型 · 流程與紀錄"],
-};
+
 
 export const gta6CareerFaq = {
   en: ["How can I explore real careers from my GTA 6 character result?", "Start with a task that caught your attention. Lucia’s scene points to project handoffs, Jason and Brian’s to logistics and coordination, Cal’s to source verification, Raul’s to evaluating time-sensitive risks, and Boobie’s to negotiating terms. Dre’Quan and Real Dimez offer examples of production and audience engagement. Use the career guides to compare actual work. Take the separate Holland assessment for a personal RIASEC profile."],
@@ -67,7 +60,7 @@ export function Gta6CareerSections({ locale }: { locale: DisplayLocale }) {
               return <tr key={row.role}>
                 <th scope="row"><Link prefetch={false} href={gta6ResultPath(locale, row.role)}>{person?.name}</Link><small>{person?.title[locale]}</small></th>
                 <td>{row.tag[index]}</td><td>{row.behavior[index]}</td>
-                <td><ul>{row.interests.map(letter => <li key={letter}><strong>{letter}</strong> · {dimensions[letter][index]}</li>)}</ul></td>
+                <td><ul>{row.interests.map(letter => <li key={letter}><strong>{letter}</strong> · {gta6CareerDimensions[letter][index]}</li>)}</ul></td>
                 <td><ul>{row.jobs.map(([slug, ...labels]) => <li key={slug}><Link prefetch={false} href={`/${locale}/career/jobs/${slug}`}>{labels[index]}</Link></li>)}</ul></td>
               </tr>;
             })}</tbody>

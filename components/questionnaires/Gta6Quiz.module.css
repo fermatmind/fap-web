@@ -235,3 +235,36 @@
 }
 .resultPortrait[src$="/lucia-caminos.webp"],
 .crew dt img[src$="/lucia-caminos.webp"] { object-position: 36% 26%; }
+
+.screen[data-character="lucia-caminos"] { --accent: #ff9e8a; }
+.screen[data-character="jason-duval"] { --accent: #a6d3c2; }
+.screen[data-character="cal-hampton"] { --accent: #a9d8f7; }
+.screen[data-character="brian-heder"] { --accent: #eed29d; }
+.screen[data-character="raul-bautista"] { --accent: #ffb67d; }
+.screen[data-character="boobie-ike"] { --accent: #ebc5a7; }
+.screen[data-character="drequan-priest"] { --accent: #cbb9ff; }
+.screen[data-character="real-dimez"] { --accent: #ffaed6; }
+.screen[data-stage="result"] .primaryButton:hover { background: var(--accent); filter: brightness(1.1); }
+.resultActions + .report { margin-top: 22px; }
+.extendedReading { margin: 26px clamp(20px, 4vw, 45px) 0; }
+.extendedReading section { padding: 19px 0; border-top: 1px solid var(--line); }
+.extendedReading h2 { margin: 0 0 10px; color: var(--paper); font-weight: 780; font-size: clamp(18px, 2.4vw, 26px); }
+.extendedReading h3 { margin: 0 0 6px; color: var(--paper); font-weight: 730; }
+.extendedReading p { max-width: 79ch; margin: 8px 0; color: var(--muted); }
+.extendedReading a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.extendedReading .scenarioNote { padding-left: 12px; border-left: 2px solid var(--accent); color: var(--paper); }
+.readingGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 12px 0; }
+.readingGrid > div { padding: 13px; border: 1px solid var(--line); background: #19222d; }
+.readingGrid li { margin-top: 5px; color: var(--muted); }
+.readingGrid ul { padding-left: 16px; list-style: disc; }
+.interestList, .assessmentLinks { display: flex; flex-wrap: wrap; gap: 7px 14px; margin: 10px 0; }
+.interestList { padding: 0; list-style: none; }
+.interestList li { color: var(--muted); }
+.interestList strong { color: var(--accent); }
+.extendedReading .relationLabel { margin: 0; font-size: .76rem; }
+.assessmentLinks a { padding: 8px 10px; border: 1px solid var(--line); border-radius: 3px; }
+.assessmentLinks a:hover { border-color: var(--accent); }
+.extendedReading details { margin-top: 9px; color: var(--paper); }
+.extendedReading summary { cursor: pointer; }
+.extendedReading summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 580px) { .readingGrid { grid-template-columns: minmax(0, 1fr); } }
