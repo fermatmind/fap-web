@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b544f080fd99646cee1807593bb991f92ffb0c4ca4a7f15233d2b94544e8c75d",
+  "inputs": {
+    "pair_id": "recreational-therapists-vs-speech-language-pathology-assistants",
+    "slugs": [
+      "recreational-therapists",
+      "speech-language-pathology-assistants"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/recreational-therapists-vs-speech-language-pathology-assistants",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "recreational-therapists": {
+        "name": "娱乐治疗师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1125.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.69,
+            4.32,
+            2.87,
+            6.82,
+            2.51,
+            2.67
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1125.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1125",
+          "title_evidence": "official_title"
+        }
+      },
+      "speech-language-pathology-assistants": {
+        "name": "言语病理学助理",
+        "riasec": {
+          "code": "SCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-9099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.47,
+            4.37,
+            2.65,
+            5.48,
+            1.53,
+            5.0
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-9099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "31-9099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "speech-language-pathology-assistants -> recreational-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：康乐治疗岗位在机构计划内选择活动、调整参与方式，观察进展并向团队记录反馈；后岗：言语语言治疗助理按专业人员制定的计划实施获授权活动、记录表现并反馈。",
+    "cn_qualification": {
+      "recreational-therapists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "speech-language-pathology-assistants": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "29-1125.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-1125.00#Tasks",
+        "locator": "Tasks 387, 388, 391",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans recreational therapy, tracks participation and coordinates with the care team.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "31-9099.01",
+        "source_url": "https://www.onetonline.org/link/summary/31-9099.01#Tasks",
+        "locator": "Tasks 17532, 17534, 17535",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Implements assigned speech-language tasks and documents progress toward established goals.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "asha-slpa",
+        "source_url": "https://www.asha.org/policy/slpa-scope-of-practice/",
+        "locator": "Minimum Requirements; Service Delivery; Responsibilities Outside the Scope",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "ASHA professional guidance",
+          "summary": "Describes qualifications and supervised delegated activities. The supervising SLP retains responsibility for clinical interpretation and diagnosis.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 629,
+      "source_slugs": [
+        "recreational-therapists",
+        "speech-language-pathology-assistants"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

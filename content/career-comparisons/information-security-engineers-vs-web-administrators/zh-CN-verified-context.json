@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "531daba17a62478f37758fb80a6a9d6aab27cb7a9624e98f9d0ba2598d6ecfe4",
+  "inputs": {
+    "pair_id": "information-security-engineers-vs-web-administrators",
+    "slugs": [
+      "information-security-engineers",
+      "web-administrators"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/information-security-engineers-vs-web-administrators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "information-security-engineers": {
+        "name": "信息安全工程师",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1299.05",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.3,
+            5.54,
+            1.33,
+            1.83,
+            2.66,
+            6.06
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1299.05",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-1299",
+          "title_evidence": "official_title"
+        }
+      },
+      "web-administrators": {
+        "name": "网站管理员",
+        "riasec": {
+          "code": "CIE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1299.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.45,
+            4.41,
+            2.42,
+            2.27,
+            3.77,
+            5.54
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1299.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-1299",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "information-security-engineers -> web-administrators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：制定安全制度，构建和维护防护技术，并设计、评估系统与数据的安全控制；后岗：看可用性、访问和备份记录，处理或上报异常，并按授权维护配置与恢复计划。",
+    "cn_qualification": {
+      "information-security-engineers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "web-administrators": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "security",
+        "source_url": "https://www.onetonline.org/link/details/15-1299.05",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "美国任务参照",
+          "effective_or_period": "O*NET",
+          "summary": "信息安全工程涉及控制设计、实施及验证。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "web",
+        "source_url": "https://www.onetonline.org/link/details/15-1299.01",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "美国任务参照",
+          "effective_or_period": "O*NET",
+          "summary": "网站管理覆盖部署、维护、质量检查与恢复记录。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn",
+        "source_url": "https://chinajob.mohrss.gov.cn/c/2022-10-28/363398.shtml",
+        "locator": "数字职业附表第19、63项",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022",
+          "summary": "列信息安全工程技术人员、信息通信信息化系统管理员，可用于检索相近岗位。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 455,
+      "source_slugs": [
+        "information-security-engineers",
+        "web-administrators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

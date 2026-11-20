@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7fbb6057125d9762b4e990cc374e5106879da2fda30deff0e412ef10dc8e4064",
+  "inputs": {
+    "pair_id": "pump-operators-except-wellhead-pumpers-vs-wellhead-pumpers",
+    "slugs": [
+      "pump-operators-except-wellhead-pumpers",
+      "wellhead-pumpers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/pump-operators-except-wellhead-pumpers-vs-wellhead-pumpers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pump-operators-except-wellhead-pumpers": {
+        "name": "泵操作員（井口泵除外）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.68,
+            2.27,
+            1.0,
+            1.28,
+            1.46,
+            4.5
+          ]
+        },
+        "tasks": [
+          "任務輸入｜確認物料、來源去向與轉運要求｜核對容器、泵、管線、閥位、許可和交接資訊；資訊衝突先停下核實。",
+          "裝置準備｜按程式檢查泵與歧管｜確認連線、閥位、液位和儀表狀態；不自行越過裝置聯鎖或授權。",
+          "執行轉運｜按批准順序啟停與調閥｜持續讀取流量、壓力、液位，核對物料去向並記錄關鍵節點。",
+          "執行監測｜識別洩漏、異常噪聲和壓力變化｜對偏離限值或不明狀態按程式降載、停機、通知授權人員。",
+          "停機交接｜按工藝流程結束轉運｜記錄批次、數量、異常和未解決事項，使下一班能複核。",
+          "維修邊界｜涉及檢修、清堵與儲能釋放時升級｜由受訓授權人員執行適用隔離程式，不把正常停機當作能量隔離。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-7072",
+          "title_evidence": "official_title"
+        }
+      },
+      "wellhead-pumpers": {
+        "name": "井口泵操作員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7073.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.92,
+            2.26,
+            1.0,
+            1.11,
+            1.77,
+            4.29
+          ]
+        },
+        "tasks": [
+          "準備｜核井號與任務｜先確認井和裝置物件及當前任務，保留檔案依據。",
+          "觀察｜泵與流線狀態｜按指定程式觀察裝置及異常，未知及時說明。",
+          "計量｜生產資料採集｜依據適用方法記錄產量，保留時段單位與來源。",
+          "執行｜受訓操作與監控｜按確認任務操作動力泵輔助裝置，不擅改設定。",
+          "維護｜限定保養與協作｜做已授權日常任務，故障和新增職責另核。",
+          "交接｜原值異常與待確認｜保留觀察事實和計算依據，不用總數替狀態。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7073.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "53-7073",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pump-operators-except-wellhead-pumpers -> wellhead-pumpers",
+      "wellhead-pumpers -> pump-operators-except-wellhead-pumpers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "pump-operators-except-wellhead-pumpers": {
+        "file_sha256": "dcd8588ce48cf37aa9b1667eac80ef581ff21a9b316c8bdca7bedeff07133ad4",
+        "entries": [
+          "任務輸入｜確認物料、來源去向與轉運要求｜核對容器、泵、管線、閥位、許可和交接資訊；資訊衝突先停下核實。",
+          "裝置準備｜按程式檢查泵與歧管｜確認連線、閥位、液位和儀表狀態；不自行越過裝置聯鎖或授權。",
+          "執行轉運｜按批准順序啟停與調閥｜持續讀取流量、壓力、液位，核對物料去向並記錄關鍵節點。",
+          "執行監測｜識別洩漏、異常噪聲和壓力變化｜對偏離限值或不明狀態按程式降載、停機、通知授權人員。",
+          "停機交接｜按工藝流程結束轉運｜記錄批次、數量、異常和未解決事項，使下一班能複核。",
+          "維修邊界｜涉及檢修、清堵與儲能釋放時升級｜由受訓授權人員執行適用隔離程式，不把正常停機當作能量隔離。"
+        ]
+      },
+      "wellhead-pumpers": {
+        "file_sha256": "a3eaa9bcf2e9028a56e62c40b6ed4821d17d0f141d9f86e18eafc70330226e24",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 622,
+      "source_slugs": [
+        "pump-operators-except-wellhead-pumpers",
+        "wellhead-pumpers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "pump-operators-except-wellhead-pumpers": {
+          "field": "entries",
+          "source_path": "careers/pump-operators-except-wellhead-pumpers/zh-TW.json",
+          "file_sha256": "dcd8588ce48cf37aa9b1667eac80ef581ff21a9b316c8bdca7bedeff07133ad4",
+          "count": 6
+        },
+        "wellhead-pumpers": {
+          "field": "paragraphs",
+          "source_path": "careers/wellhead-pumpers/zh-TW.json",
+          "file_sha256": "a3eaa9bcf2e9028a56e62c40b6ed4821d17d0f141d9f86e18eafc70330226e24",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0eefa8dfbc3a47048be7b095982757532f6b102d75995d3685e65db487bd06f7",
+  "inputs": {
+    "pair_id": "light-truck-drivers-vs-refuse-and-recyclable-material-collectors",
+    "slugs": [
+      "light-truck-drivers",
+      "refuse-and-recyclable-material-collectors"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/light-truck-drivers-vs-refuse-and-recyclable-material-collectors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "light-truck-drivers": {
+        "name": "Light Truck Drivers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-3033.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.88,
+            1.54,
+            1.02,
+            1.36,
+            2.1,
+            4.42
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-3033.00#Tasks"
+              }
+            ],
+            "text": "Obey traffic laws and follow established traffic and transportation procedures."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-3033.00#Tasks"
+              }
+            ],
+            "text": "Report any mechanical problems encountered with vehicles."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-3033.00#Tasks"
+              }
+            ],
+            "text": "Verify the contents of inventory loads against shipping papers."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-3033.00#Tasks"
+              }
+            ],
+            "text": "Inspect and maintain vehicle supplies and equipment, such as gas, oil, water, tires, lights, or brakes, to ensure that vehicles are in proper working condition."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-3033.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-3033",
+          "title_evidence": "official_title"
+        }
+      },
+      "refuse-and-recyclable-material-collectors": {
+        "name": "Refuse and recyclable material collectors",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.83,
+            1.0,
+            1.29,
+            1.36,
+            4.53
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7081.00#Tasks"
+              }
+            ],
+            "text": "Inspect trucks prior to beginning routes to ensure safe operating condition."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7081.00#Tasks"
+              }
+            ],
+            "text": "Drive trucks, following established routes, through residential streets or alleys or through business or industrial areas."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7081.00#Tasks"
+              }
+            ],
+            "text": "Refuel trucks or add other fluids, such as oil or brake fluid."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7081.00#Tasks"
+              }
+            ],
+            "text": "Dump refuse or recyclable materials at disposal sites."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-7081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "refuse-and-recyclable-material-collectors -> light-truck-drivers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "truck",
+        "source_url": "https://www.onetonline.org/link/summary/53-3033.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Checks loads against shipping papers and records deliveries and pickups.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "collect",
+        "source_url": "https://www.onetonline.org/link/summary/53-7081.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Follows routes to collect waste or recyclable materials and transfers collected materials to designated facilities.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, 53-3033 and 53-7081; OEWS note",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "National medians $44,860 and $49,690. Typical entry high school or equivalent and no formal educational credential respectively, short-term on-the-job training for both. OEWS excludes self-employment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "fmcsa",
+        "source_url": "https://www.fmcsa.dot.gov/registration/commercial-drivers-license/drivers",
+        "locator": "Classes of License",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "CDL classes depend on vehicle/combination weight rating and certain passenger or hazardous-material use.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 480,
+      "source_slugs": [
+        "light-truck-drivers",
+        "refuse-and-recyclable-material-collectors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

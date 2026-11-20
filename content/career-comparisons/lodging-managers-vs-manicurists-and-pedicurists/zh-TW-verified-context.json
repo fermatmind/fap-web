@@ -1,0 +1,179 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cea0a3a4cede4be62b4ac3e97cd0afea3afa9d7735ff21685cc4eb7f06c657a8",
+  "inputs": {
+    "pair_id": "lodging-managers-vs-manicurists-and-pedicurists",
+    "slugs": [
+      "lodging-managers",
+      "manicurists-and-pedicurists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/lodging-managers-vs-manicurists-and-pedicurists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "lodging-managers": {
+        "name": "住宿運營經理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.69,
+            1.1,
+            1.43,
+            4.31,
+            6.21,
+            5.22
+          ]
+        },
+        "tasks": [
+          "投入物件：客房與公共區域、前臺與預訂系統、房價與預算、營收與賬務記錄、員工與排班、採購物資與外部服務、住客投訴與會議活動需求。",
+          "可檢查產出：達標的前臺與客房服務、經核對的房價與營收記錄、按政策執行的排班與培訓、採購與檢查記錄、投訴處置與會議活動協調記錄。",
+          "完整工作流程：接班核對房態與賬務 → 協調前臺與客房服務 → 安排排班與分工並培訓 → 設定與執行房價、監控營收 → 採購與檢查設施 → 處理住客投訴與會議需求 → 記錄與交接。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-9081",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "manicurists-and-pedicurists": {
+        "name": "手足美甲師",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.63,
+            1.3,
+            2.29,
+            3.06,
+            2.35,
+            3.67
+          ]
+        },
+        "tasks": [
+          "投入物件：顧客的手指甲與腳趾甲及其狀況、預約與需求說明、美甲工具與一次性耗材、消毒用品與化學品（甲油、溶劑、粉末、卸甲液）、產品與色卡、服務與庫存記錄、收款與預約系統。",
+          "可檢查產出：清潔修整並完成上色或裝飾的指甲、完成消毒的工具與工位、甲面與手部狀況的評估與護理建議、服務與庫存記錄、預約與收款記錄、需要轉介或升級時的說明。",
+          "完整工作流程：核對預約與需求 → 檢查手部與甲面狀況並確認禁忌 → 清潔消毒工具與工位 → 處理甲緣角質並修剪打磨甲形 → 塗底油與上色或裝飾（必要時延長或加固）→ 檢查成品與顧客確認 → 記錄服務與庫存並收款。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "39-5092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "manicurists-and-pedicurists -> lodging-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "lodging-managers": {
+        "file_sha256": "e3fcddb1db0df324d378627d4bf5aca8a9692624c19887838a32283ad7800152",
+        "entries": [
+          "投入物件：客房與公共區域、前臺與預訂系統、房價與預算、營收與賬務記錄、員工與排班、採購物資與外部服務、住客投訴與會議活動需求。",
+          "可檢查產出：達標的前臺與客房服務、經核對的房價與營收記錄、按政策執行的排班與培訓、採購與檢查記錄、投訴處置與會議活動協調記錄。",
+          "完整工作流程：接班核對房態與賬務 → 協調前臺與客房服務 → 安排排班與分工並培訓 → 設定與執行房價、監控營收 → 採購與檢查設施 → 處理住客投訴與會議需求 → 記錄與交接。"
+        ]
+      },
+      "manicurists-and-pedicurists": {
+        "file_sha256": "70bb1673d7be38060c00e2d6b1d04cd0e667a7f8e0040f05e45e0bf7e5fa74ac",
+        "entries": [
+          "投入物件：顧客的手指甲與腳趾甲及其狀況、預約與需求說明、美甲工具與一次性耗材、消毒用品與化學品（甲油、溶劑、粉末、卸甲液）、產品與色卡、服務與庫存記錄、收款與預約系統。",
+          "可檢查產出：清潔修整並完成上色或裝飾的指甲、完成消毒的工具與工位、甲面與手部狀況的評估與護理建議、服務與庫存記錄、預約與收款記錄、需要轉介或升級時的說明。",
+          "完整工作流程：核對預約與需求 → 檢查手部與甲面狀況並確認禁忌 → 清潔消毒工具與工位 → 處理甲緣角質並修剪打磨甲形 → 塗底油與上色或裝飾（必要時延長或加固）→ 檢查成品與顧客確認 → 記錄服務與庫存並收款。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 484,
+      "source_slugs": [
+        "lodging-managers",
+        "manicurists-and-pedicurists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "lodging-managers": {
+          "field": "entries",
+          "source_path": "careers/lodging-managers/zh-TW.json",
+          "file_sha256": "e3fcddb1db0df324d378627d4bf5aca8a9692624c19887838a32283ad7800152",
+          "count": 3
+        },
+        "manicurists-and-pedicurists": {
+          "field": "entries",
+          "source_path": "careers/manicurists-and-pedicurists/zh-TW.json",
+          "file_sha256": "70bb1673d7be38060c00e2d6b1d04cd0e667a7f8e0040f05e45e0bf7e5fa74ac",
+          "count": 3
+        }
+      }
+    }
+  }
+}

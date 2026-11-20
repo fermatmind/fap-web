@@ -1,0 +1,314 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "212c1a43bb45ff3f6be06220650e85d2dd5a67af0386baec858c42765716819c",
+  "inputs": {
+    "pair_id": "solar-energy-systems-engineers-vs-solar-photovoltaic-installers",
+    "slugs": [
+      "solar-energy-systems-engineers",
+      "solar-photovoltaic-installers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/solar-energy-systems-engineers-vs-solar-photovoltaic-installers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "solar-energy-systems-engineers": {
+        "name": "Solar Energy Systems Engineers",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.11",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.97,
+            5.02,
+            2.11,
+            1.9,
+            3.05,
+            3.96
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.11#Tasks"
+              }
+            ],
+            "text": "Conduct engineering site audits to collect structural, electrical, and related site information for use in the design of residential or commercial solar power systems."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.11#Tasks"
+              }
+            ],
+            "text": "Create plans for solar energy system development, monitoring, and evaluation activities."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.11#Tasks"
+              }
+            ],
+            "text": "Design or coordinate design of photovoltaic (PV) or solar thermal systems, including system components, for residential and commercial buildings."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2199.11#Tasks"
+              }
+            ],
+            "text": "Provide technical direction or support to installation teams during installation, start-up, testing, system commissioning, or performance monitoring."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.11",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      },
+      "solar-photovoltaic-installers": {
+        "name": "Solar photovoltaic installers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2231.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.65,
+            1.39,
+            1.19,
+            1.73,
+            4.08
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Install photovoltaic (PV) systems in accordance with codes and standards, using drawings, schematics, and instructions."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Check electrical installation for proper wiring, polarity, grounding, or integrity of terminations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Identify electrical, environmental, and safety hazards associated with photovoltaic (PV) installations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-2231.00#Tasks"
+              }
+            ],
+            "text": "Identify installation locations with proper orientation, area, solar access, or structural integrity for photovoltaic (PV) arrays."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2231.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-2231",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "solar-energy-systems-engineers -> solar-photovoltaic-installers",
+      "solar-photovoltaic-installers -> solar-energy-systems-engineers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "17-2199.11",
+        "source_url": "https://www.onetonline.org/link/summary/17-2199.11",
+        "locator": "Tasks 16575, 16574, 16568",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Collects solar site information, designs systems and supports installation and performance verification.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "47-2231.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-2231.00",
+        "locator": "Tasks 17742, 17754, 17740",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Identifies suitable locations and installs photovoltaic modules and supports to plans.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-17-2199.11",
+        "source_url": "https://www.onetonline.org/link/localwages/17-2199.11",
+        "locator": "National Wages occupational mapping",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "Wages are collected from Engineers, All Other.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 row 47-2231",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025–35 projections",
+          "summary": "High school diploma or equivalent and moderate-term on-the-job training are typical for solar photovoltaic installers.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-pv-license",
+        "source_url": "https://www.bls.gov/ooh/construction-and-extraction/solar-photovoltaic-installers.htm",
+        "locator": "Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current OOH",
+          "summary": "Some states require photovoltaic installers to be licensed.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "edu-17-2199.11",
+        "source_url": "https://www.onetonline.org/link/summary/17-2199.11",
+        "locator": "Education response distribution",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET occupation profile",
+          "summary": "Bachelor’s degree is the most frequent education response.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 49,
+      "source_slugs": [
+        "solar-energy-systems-engineers",
+        "solar-photovoltaic-installers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

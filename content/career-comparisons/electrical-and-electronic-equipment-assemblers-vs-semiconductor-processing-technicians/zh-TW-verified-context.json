@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b84361250a2d7aef7eb9084f56294bec6f1b1c251e64f99d9aabfab050e1e00a",
+  "inputs": {
+    "pair_id": "electrical-and-electronic-equipment-assemblers-vs-semiconductor-processing-technicians",
+    "slugs": [
+      "electrical-and-electronic-equipment-assemblers",
+      "semiconductor-processing-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/electrical-and-electronic-equipment-assemblers-vs-semiconductor-processing-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "electrical-and-electronic-equipment-assemblers": {
+        "name": "電氣與電子裝置裝配工",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-2022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.26,
+            1.7,
+            1.21,
+            1.0,
+            3.96
+          ]
+        },
+        "tasks": [
+          "常見輸入：圖紙與工藝與作業指導與工單與版本、物料與元件與線束與聯結器與工裝與測試裝置、防靜電與防護與用電與化學品與噪聲安全資訊，以及節拍與換型與交付與追溯安排。",
+          "核心產出：按工序與節拍完成的焊錫與壓接與繞線與緊固與佈線與點膠與清潔、按標準完成的量測與目檢與功能測試、按制度完成的裝配與檢驗與追溯與異常記錄，以及合格可交付或按流程隔離與返工的實物與狀態。",
+          "典型流程：準備與核對—裝配與自檢—記錄與異常與交付。",
+          "常協作物件：師傅與班組與質檢與工藝與裝置與倉儲與計劃人員、測試與工裝與維護人員、防靜電與安全與職業健康人員、上道與下道工序與總裝與包裝人員、客戶與供應商質量人員。",
+          "常見工具與物件：圖紙與工藝與作業指導與工單系統、烙鐵與焊臺與壓接鉗與繞線機與電動工具與扭力扳手與點膠與清潔工具、萬用表與測試臺與量具與放大與照明與防靜電手環與工裝、防靜電與防護與通風與 5S 與裝置點檢工具、裝配與檢驗與批次與追溯與異常記錄系統。",
+          "責任邊界：本職業承擔按圖紙與工藝與質量完成裝配與自檢與記錄並對批次與追溯與交付狀態的執行責任；須按圖紙與工藝與工單核對物料與版本、須按工藝裝配、須按標準自檢與記錄、須按防靜電與防護與安全要求作業、須按制度隔離不合格品與上報異常、不得超出授權對外出具質量與安全或法律結論，異常事項按制度上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-2022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-2022",
+          "title_evidence": "official_title"
+        }
+      },
+      "semiconductor-processing-technicians": {
+        "name": "半導體加工技術員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9141.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.4,
+            3.07,
+            1.0,
+            1.11,
+            1.46,
+            5.15
+          ]
+        },
+        "tasks": [
+          "核工單與版本｜核規格、批次及順序，不憑記憶選配方。｜留工單與版本核對記錄。",
+          "核裝置與條件｜檢視狀態及洩漏等異常，按崗位核潔淨准入。｜留檢查與待核事項。",
+          "裝載和清潔晶圓｜依工序操作專用清潔、裝卸或持片工具。｜留批次和片數記錄。",
+          "按授權啟動加工｜依工單使用裝置控制與引數，不擅改配方。｜留工序和執行記錄。",
+          "監視引數與異常｜核日誌、狀態和偏差，異常升級。｜留時間、引數與影響待核。",
+          "檢驗與交接｜按程式核表面缺陷及電路，維護加工檢驗報告。｜區分實測、待判和批准狀態。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9141.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-9141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "semiconductor-processing-technicians -> electrical-and-electronic-equipment-assemblers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "electrical-and-electronic-equipment-assemblers": {
+        "file_sha256": "351324a3eb6b6c9f1976673487255bbe93e095ffbe4e5479c2b252567ea8211d",
+        "entries": []
+      },
+      "semiconductor-processing-technicians": {
+        "file_sha256": "754b4194241ee46d3fc2f005440ff473b869a3a776fade9e92288e465290231b",
+        "entries": [
+          "核工單與版本｜核規格、批次及順序，不憑記憶選配方。｜留工單與版本核對記錄。",
+          "核裝置與條件｜檢視狀態及洩漏等異常，按崗位核潔淨准入。｜留檢查與待核事項。",
+          "裝載和清潔晶圓｜依工序操作專用清潔、裝卸或持片工具。｜留批次和片數記錄。",
+          "按授權啟動加工｜依工單使用裝置控制與引數，不擅改配方。｜留工序和執行記錄。",
+          "監視引數與異常｜核日誌、狀態和偏差，異常升級。｜留時間、引數與影響待核。",
+          "檢驗與交接｜按程式核表面缺陷及電路，維護加工檢驗報告。｜區分實測、待判和批准狀態。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 339,
+      "source_slugs": [
+        "electrical-and-electronic-equipment-assemblers",
+        "semiconductor-processing-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "electrical-and-electronic-equipment-assemblers": {
+          "field": "paragraphs",
+          "source_path": "careers/electrical-and-electronic-equipment-assemblers/zh-TW.json",
+          "file_sha256": "351324a3eb6b6c9f1976673487255bbe93e095ffbe4e5479c2b252567ea8211d",
+          "count": 6
+        },
+        "semiconductor-processing-technicians": {
+          "field": "entries",
+          "source_path": "careers/semiconductor-processing-technicians/zh-TW.json",
+          "file_sha256": "754b4194241ee46d3fc2f005440ff473b869a3a776fade9e92288e465290231b",
+          "count": 6
+        }
+      }
+    }
+  }
+}

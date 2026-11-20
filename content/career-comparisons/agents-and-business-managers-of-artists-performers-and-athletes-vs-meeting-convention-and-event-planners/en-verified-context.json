@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cbf6d6f42b093fc2ac635d6fc2478db12f02835f1ab5eca74bb20d658addf00d",
+  "inputs": {
+    "pair_id": "agents-and-business-managers-of-artists-performers-and-athletes-vs-meeting-convention-and-event-planners",
+    "slugs": [
+      "agents-and-business-managers-of-artists-performers-and-athletes",
+      "meeting-convention-and-event-planners"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/agents-and-business-managers-of-artists-performers-and-athletes-vs-meeting-convention-and-event-planners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "agents-and-business-managers-of-artists-performers-and-athletes": {
+        "name": "Agents and business managers of artists, performers and athletes",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            1.76,
+            3.55,
+            4.14,
+            6.48,
+            3.73
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1011.00#Tasks"
+              }
+            ],
+            "text": "Collect fees, commissions, or other payments, according to contract terms."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1011.00#Tasks"
+              }
+            ],
+            "text": "Send samples of clients' work and other promotional material to potential employers to obtain auditions, sponsorships, or endorsement deals."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1011.00#Tasks"
+              }
+            ],
+            "text": "Keep informed of industry trends and deals."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1011.00#Tasks"
+              }
+            ],
+            "text": "Conduct auditions or interviews to evaluate potential clients."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1011",
+          "title_evidence": "official_title"
+        }
+      },
+      "meeting-convention-and-event-planners": {
+        "name": "Meeting, Convention, and Event Planners",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1121.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            1.56,
+            2.49,
+            4.56,
+            7.0,
+            4.96
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1121.00#Tasks"
+              }
+            ],
+            "text": "Consult with customers to determine objectives and requirements for events, such as meetings, conferences, and conventions."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1121.00#Tasks"
+              }
+            ],
+            "text": "Review event bills for accuracy and approve payment."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1121.00#Tasks"
+              }
+            ],
+            "text": "Coordinate services for events, such as accommodation and transportation for participants, facilities, catering, signage, displays, special needs requirements, printing and event security."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1121.00#Tasks"
+              }
+            ],
+            "text": "Arrange the availability of audio-visual equipment, transportation, displays, and other event needs."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1121.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "13-1121",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "agents-and-business-managers-of-artists-performers-and-athletes -> meeting-convention-and-event-planners"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "13-1011.00",
+        "source_url": "https://www.onetonline.org/link/summary/13-1011.00",
+        "locator": "Tasks 12865, 12869, 12866, 12868",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Represents clients in negotiations, schedules engagements and collects payment under contract.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "13-1121.00",
+        "source_url": "https://www.onetonline.org/link/summary/13-1121.00",
+        "locator": "Tasks 1209, 1211, 1214, 1215, 1216, 1217",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Clarifies event requirements, coordinates venue services and equipment, checks setup and keeps event records.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 13-1011 and 13-1121",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 USD per year",
+          "summary": "Agents and business managers of artists, performers and athletes: typical entry bachelor’s degree and less than five years of related experience, median $82,890. Meeting, Convention, and Event Planners: typical entry bachelor’s degree, median $61,160.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ca-talent-agency",
+        "source_url": "https://dir.ca.gov/dlse/talent_agency_license.html",
+        "locator": "Requirements and definitions; Labor Code §§1700.4(a), 1700.5",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current agency guidance",
+          "summary": "Operating a talent agency requires a Labor Commissioner license; procuring recording contracts on its own does not trigger licensing under this chapter.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 33,
+      "source_slugs": [
+        "agents-and-business-managers-of-artists-performers-and-athletes",
+        "meeting-convention-and-event-planners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

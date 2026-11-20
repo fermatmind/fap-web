@@ -1,0 +1,176 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7799498a08f266d666a00a92c6b3124f5e55537f41e453907984274daa595ca8",
+  "inputs": {
+    "pair_id": "dental-laboratory-technicians-vs-orthodontists",
+    "slugs": [
+      "dental-laboratory-technicians",
+      "orthodontists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/dental-laboratory-technicians-vs-orthodontists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dental-laboratory-technicians": {
+        "name": "牙科技工室技術員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.61,
+            4.46,
+            1.52,
+            2.67,
+            1.0,
+            4.12
+          ]
+        },
+        "tasks": [
+          "按加工單與處方規格核對材料、顏色、咬合與鄰接要求，缺項先澄清再開工。",
+          "按模型與掃描資料製作代型、蠟型與熔模，按工藝規程完成鑄造、打磨、上瓷與燒結並記錄引數。",
+          "按處方規格在模型/咬合架上核對精度與咬合，具體檢驗項按產品技術要求；實驗室在模型/咬合架上檢驗、試配與患者臨床戴用除錯分開；2026指導原則要求具有專業資質醫師戴用除錯，技工經驗/培訓或主管批准不代醫師資格。",
+          "依實際產品材料/工藝與質量體系核記錄、檢驗、清潔消毒/包裝驗證；指導原則非通用固定引數法條。2026 年 11 月 1 日起，定製式義齒適用修訂後的生產質量管理規範及現行義齒附錄。國藥監械管〔2026〕16 號的專項檢查指導原則列有印模、模型、掃描資料和設計單的接收準則，以及每批（個）的生產和檢驗記錄；企業授權人員簽發放行單。",
+          "發現模型破損、資料不清、材料註冊資訊不明或成品不合格時，留樣記錄並按流程返修或退回。",
+          "與醫師、技工室主管和同事按職責協作，如實反饋交付時限、返修原因與質量風險。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-9081",
+          "title_evidence": "official_title"
+        }
+      },
+      "orthodontists": {
+        "name": "正畸醫師",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1023.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.6,
+            5.72,
+            1.57,
+            4.01,
+            1.45,
+            4.58
+          ]
+        },
+        "tasks": [
+          "正畸醫師對應美國 O*NET 29-1023.00 Orthodontists。該職業檢查、診斷和治療牙頜畸形及相關口腔異常，設計和使用矯治裝置以調整牙齒與頜骨關係。中國執業範圍須另按本地醫師註冊規則和機構條件核定。",
+          "主要交付是可追溯的評估、方案溝通、矯治操作與隨訪記錄；臨床判斷仍由有相應執業許可權的醫師承擔。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1023.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1023",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "orthodontists -> dental-laboratory-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "dental-laboratory-technicians": {
+        "file_sha256": "e1578a0768dde29f8d438a39e47e5b4c54504f86f667fe067eed46eae0138960",
+        "entries": []
+      },
+      "orthodontists": {
+        "file_sha256": "3c50bdd6351c2c6142b3ecb12f3987516b90d509db8b3bd2188067fe6983978b",
+        "entries": [
+          "正畸醫師對應美國 O*NET 29-1023.00 Orthodontists。該職業檢查、診斷和治療牙頜畸形及相關口腔異常，設計和使用矯治裝置以調整牙齒與頜骨關係。中國執業範圍須另按本地醫師註冊規則和機構條件核定。",
+          "主要交付是可追溯的評估、方案溝通、矯治操作與隨訪記錄；臨床判斷仍由有相應執業許可權的醫師承擔。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 287,
+      "source_slugs": [
+        "dental-laboratory-technicians",
+        "orthodontists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "dental-laboratory-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/dental-laboratory-technicians/zh-TW.json",
+          "file_sha256": "e1578a0768dde29f8d438a39e47e5b4c54504f86f667fe067eed46eae0138960",
+          "count": 6
+        },
+        "orthodontists": {
+          "field": "entries",
+          "source_path": "careers/orthodontists/zh-TW.json",
+          "file_sha256": "3c50bdd6351c2c6142b3ecb12f3987516b90d509db8b3bd2188067fe6983978b",
+          "count": 2
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d29c88bcc7fb46abd2d2b304c6c66a3871c68ddfc638c725ea105dd37154f6b3",
+  "inputs": {
+    "pair_id": "wind-energy-operations-managers-vs-wind-turbine-service-technicians",
+    "slugs": [
+      "wind-energy-operations-managers",
+      "wind-turbine-service-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/wind-energy-operations-managers-vs-wind-turbine-service-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "wind-energy-operations-managers": {
+        "name": "風能運營經理",
+        "riasec": {
+          "code": "ECR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.09",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.16,
+            3.04,
+            1.0,
+            2.34,
+            6.47,
+            5.24
+          ]
+        },
+        "tasks": [
+          "組織｜執行維護｜統籌場站資產維護和工作質量。",
+          "記錄｜表現與停機｜跟蹤事件、備件和工單資料。",
+          "財務｜預算與成本｜估算維修及預防維護支出。",
+          "合同｜採購與保修｜核範圍與許可權，跟進修換服務。",
+          "人員｜選聘與培訓｜組織員工及承包商訓練監督。",
+          "協調｜目標與關係｜明確優先順序，與客戶電網等溝通。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.09",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      },
+      "wind-turbine-service-technicians": {
+        "name": "風力渦輪機服務技術員",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.6,
+            1.0,
+            1.62,
+            1.77,
+            4.29
+          ]
+        },
+        "tasks": [
+          "診斷｜電機控制｜核故障症狀與檢測依據。",
+          "維護｜機組及系統｜按範圍計劃檢修保過程記錄。",
+          "測試｜部件與結構｜依測試計劃配合專業團隊。",
+          "庫存｜工具與備件｜追蹤領用和餘量。",
+          "資料｜裝置執行｜收集測試分析資料保版本。",
+          "協作｜技術與現場｜溝通異常和責任授權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "49-9081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "wind-energy-operations-managers -> wind-turbine-service-technicians",
+      "wind-turbine-service-technicians -> wind-energy-operations-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "wind-energy-operations-managers": {
+        "file_sha256": "a39fe36869d4a96e267c39b3743a6cc0b2a0aa45517ea96e05c947e5fcf69791",
+        "entries": []
+      },
+      "wind-turbine-service-technicians": {
+        "file_sha256": "3ecdae30a55346200544cda548be890517b4e529b666ad4377df14ed1f55afbe",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 709,
+      "source_slugs": [
+        "wind-energy-operations-managers",
+        "wind-turbine-service-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "wind-energy-operations-managers": {
+          "field": "paragraphs",
+          "source_path": "careers/wind-energy-operations-managers/zh-TW.json",
+          "file_sha256": "a39fe36869d4a96e267c39b3743a6cc0b2a0aa45517ea96e05c947e5fcf69791",
+          "count": 6
+        },
+        "wind-turbine-service-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/wind-turbine-service-technicians/zh-TW.json",
+          "file_sha256": "3ecdae30a55346200544cda548be890517b4e529b666ad4377df14ed1f55afbe",
+          "count": 6
+        }
+      }
+    }
+  }
+}

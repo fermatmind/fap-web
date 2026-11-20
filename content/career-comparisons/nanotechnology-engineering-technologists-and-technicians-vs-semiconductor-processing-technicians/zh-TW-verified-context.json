@@ -1,0 +1,195 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0ff06d45fb043a02c749f7a52abdbc18f0d2eca5c49a7f63ed077ea256d55b8f",
+  "inputs": {
+    "pair_id": "nanotechnology-engineering-technologists-and-technicians-vs-semiconductor-processing-technicians",
+    "slugs": [
+      "nanotechnology-engineering-technologists-and-technicians",
+      "semiconductor-processing-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/nanotechnology-engineering-technologists-and-technicians-vs-semiconductor-processing-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "name": "奈米技術工程技師與技術人員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3026.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.16,
+            4.98,
+            1.55,
+            1.05,
+            2.01,
+            4.83
+          ]
+        },
+        "tasks": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3026.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3026",
+          "title_evidence": "official_title"
+        }
+      },
+      "semiconductor-processing-technicians": {
+        "name": "半導體加工技術員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9141.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.4,
+            3.07,
+            1.0,
+            1.11,
+            1.46,
+            5.15
+          ]
+        },
+        "tasks": [
+          "核工單與版本｜核規格、批次及順序，不憑記憶選配方。｜留工單與版本核對記錄。",
+          "核裝置與條件｜檢視狀態及洩漏等異常，按崗位核潔淨准入。｜留檢查與待核事項。",
+          "裝載和清潔晶圓｜依工序操作專用清潔、裝卸或持片工具。｜留批次和片數記錄。",
+          "按授權啟動加工｜依工單使用裝置控制與引數，不擅改配方。｜留工序和執行記錄。",
+          "監視引數與異常｜核日誌、狀態和偏差，異常升級。｜留時間、引數與影響待核。",
+          "檢驗與交接｜按程式核表面缺陷及電路，維護加工檢驗報告。｜區分實測、待判和批准狀態。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9141.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-9141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "nanotechnology-engineering-technologists-and-technicians -> semiconductor-processing-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+        "entries": [
+          "按作業指導書執行奈米材料或器件的生產與製備步驟。",
+          "操作與維護奈米加工、鍍膜、刻蝕或檢測裝置並記錄引數。",
+          "使用電子顯微鏡、原子力顯微鏡等裝置觀察與操作奈米級物件。",
+          "按標準方法測量樣品並整理測量資料。",
+          "對產品、工藝或系統執行測試與檢驗，記錄偏差。",
+          "校準裝置、更換耗材並完成清潔與維護。",
+          "按要求記錄資料、編寫報告並向工程師或主管交接。",
+          "遵守安全、化學品與潔淨室規程，異常時停機並上報。"
+        ]
+      },
+      "semiconductor-processing-technicians": {
+        "file_sha256": "754b4194241ee46d3fc2f005440ff473b869a3a776fade9e92288e465290231b",
+        "entries": [
+          "核工單與版本｜核規格、批次及順序，不憑記憶選配方。｜留工單與版本核對記錄。",
+          "核裝置與條件｜檢視狀態及洩漏等異常，按崗位核潔淨准入。｜留檢查與待核事項。",
+          "裝載和清潔晶圓｜依工序操作專用清潔、裝卸或持片工具。｜留批次和片數記錄。",
+          "按授權啟動加工｜依工單使用裝置控制與引數，不擅改配方。｜留工序和執行記錄。",
+          "監視引數與異常｜核日誌、狀態和偏差，異常升級。｜留時間、引數與影響待核。",
+          "檢驗與交接｜按程式核表面缺陷及電路，維護加工檢驗報告。｜區分實測、待判和批准狀態。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 528,
+      "source_slugs": [
+        "nanotechnology-engineering-technologists-and-technicians",
+        "semiconductor-processing-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "nanotechnology-engineering-technologists-and-technicians": {
+          "field": "entries",
+          "source_path": "careers/nanotechnology-engineering-technologists-and-technicians/zh-TW.json",
+          "file_sha256": "db419a112d45de00ff812e84346eb41fc3dc8b5c9b67babe7d7776d3376faa23",
+          "count": 8
+        },
+        "semiconductor-processing-technicians": {
+          "field": "entries",
+          "source_path": "careers/semiconductor-processing-technicians/zh-TW.json",
+          "file_sha256": "754b4194241ee46d3fc2f005440ff473b869a3a776fade9e92288e465290231b",
+          "count": 6
+        }
+      }
+    }
+  }
+}

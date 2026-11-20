@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "30112727428a707a38467d18fb8c2bb368c600b4236d17afb5769cb380556c7f",
+  "inputs": {
+    "pair_id": "craft-artists-vs-fabric-and-apparel-patternmakers",
+    "slugs": [
+      "craft-artists",
+      "fabric-and-apparel-patternmakers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/craft-artists-vs-fabric-and-apparel-patternmakers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "craft-artists": {
+        "name": "工藝藝術家",
+        "riasec": {
+          "code": "AR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-1012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.89,
+            1.85,
+            5.93,
+            1.68,
+            2.86,
+            2.66
+          ]
+        },
+        "tasks": [
+          "構思與選材｜確定概念並選擇材料｜確定要製作的物件與創意概念，按強度、色彩、質感、平衡、重量、尺寸與延展性等特性選擇材料，並設定材料、尺寸與表面處理規格。",
+          "畫稿與打樣｜繪製示意並製作樣板原型｜繪製要製作的物件草稿或示意圖，製作引導生產的樣板或模板，先做出原型或模型，也用專業軟體出設計圖。",
+          "製作成形｜切割成形與裝配加工｜用手工方法、手工工具、電動工具或機器把材料切割、成形、裝配、澆注或加工，以多種方法與材料製作功能或裝飾物件。",
+          "表面處理與質檢｜施加處理並核對質量｜對成品施加並完成表面處理，過程中監控材料與工序、檢查是否出現缺陷，並按尺寸與公差核對。",
+          "包裝定價與推介｜設計包裝並推介作品｜制定產品的包裝、陳列與定價做法，打包發貨，通過網際網路廣告與宣傳冊等方式推介作品與產品。",
+          "客戶與展銷溝通｜溝通需求並參加展銷｜與客戶溝通了解需求或獲取反饋，策劃並參加手工藝展銷會，調研工藝潮流、銷售渠道與客戶購買習慣。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-1012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "27-1012",
+          "title_evidence": "official_title"
+        }
+      },
+      "fabric-and-apparel-patternmakers": {
+        "name": "織物與服裝製版工",
+        "riasec": {
+          "code": "RAC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.65,
+            1.34,
+            5.4,
+            1.31,
+            1.45,
+            4.17
+          ]
+        },
+        "tasks": [
+          "母版製作｜按款式與規格繪製衣片｜製作母版紙樣",
+          "放碼與縮碼｜按尺碼範圍推算尺寸｜核對關鍵部位與彈量",
+          "排料與用料｜排布衣片並計算用料｜減少浪費並標記面料",
+          "樣衣驗證｜製作樣衣並安排試穿｜記錄問題並修正紙樣",
+          "規格與說明｜整理尺寸表與縫製說明｜維護版型檔案",
+          "設計協作｜與設計師確認設計意圖｜與生產確認工藝可行性"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-6092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "fabric-and-apparel-patternmakers -> craft-artists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "craft-artists": {
+        "file_sha256": "09983720a2837ea63b28252c1476bfa9eaba9b55c5f9bedb65564a14e758173c",
+        "entries": []
+      },
+      "fabric-and-apparel-patternmakers": {
+        "file_sha256": "d11ab212b4b5efa9b1cbf23c1b9d892e3271db9d75550d155f2b3525e78f948f",
+        "entries": [
+          "母版製作｜按款式與規格繪製衣片｜製作母版紙樣",
+          "放碼與縮碼｜按尺碼範圍推算尺寸｜核對關鍵部位與彈量",
+          "排料與用料｜排布衣片並計算用料｜減少浪費並標記面料",
+          "樣衣驗證｜製作樣衣並安排試穿｜記錄問題並修正紙樣",
+          "規格與說明｜整理尺寸表與縫製說明｜維護版型檔案",
+          "設計協作｜與設計師確認設計意圖｜與生產確認工藝可行性"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 243,
+      "source_slugs": [
+        "craft-artists",
+        "fabric-and-apparel-patternmakers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "craft-artists": {
+          "field": "paragraphs",
+          "source_path": "careers/craft-artists/zh-TW.json",
+          "file_sha256": "09983720a2837ea63b28252c1476bfa9eaba9b55c5f9bedb65564a14e758173c",
+          "count": 6
+        },
+        "fabric-and-apparel-patternmakers": {
+          "field": "entries",
+          "source_path": "careers/fabric-and-apparel-patternmakers/zh-TW.json",
+          "file_sha256": "d11ab212b4b5efa9b1cbf23c1b9d892e3271db9d75550d155f2b3525e78f948f",
+          "count": 6
+        }
+      }
+    }
+  }
+}

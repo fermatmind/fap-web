@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9a4d395f94e1f19b96236e960549fd9e23de4fdb8a2c074a42a51d283127db4c",
+  "inputs": {
+    "pair_id": "medical-and-clinical-laboratory-technologists-vs-medical-scientists-except-epidemiologists",
+    "slugs": [
+      "medical-and-clinical-laboratory-technologists",
+      "medical-scientists-except-epidemiologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/medical-and-clinical-laboratory-technologists-vs-medical-scientists-except-epidemiologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "medical-and-clinical-laboratory-technologists": {
+        "name": "Clinical Laboratory Technologist",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.81,
+            6.15,
+            1.13,
+            2.77,
+            1.51,
+            4.99
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Analyze samples of biological material for chemical content or reaction."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Analyze laboratory findings to check the accuracy of the results."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Conduct chemical analysis of body fluids, including blood, urine, or spinal fluid, to determine presence of normal or abnormal components."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Enter data from analysis of medical tests or clinical results into computer for storage."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2011",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "medical-scientists-except-epidemiologists": {
+        "name": "Medical Scientists, Except Epidemiologists",
+        "riasec": {
+          "code": "IR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1042.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.27,
+            7.0,
+            2.42,
+            3.29,
+            2.22,
+            3.7
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Follow strict safety procedures when handling toxic materials to avoid contamination."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Evaluate effects of drugs, gases, pesticides, parasites, and microorganisms at various levels."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Plan and direct studies to investigate human or animal disease, preventive methods, and treatments for disease."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Prepare and analyze organ, tissue, and cell samples to identify toxicity, bacteria, or microorganisms or to study cell structure."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1042.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-1042",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "medical-and-clinical-laboratory-technologists -> medical-scientists-except-epidemiologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "lab",
+        "source_url": "https://www.bls.gov/OOH/healthcare/clinical-laboratory-technologists-and-technicians.htm",
+        "locator": "Duties, Work Schedules, Education, Licenses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026 OOH",
+          "summary": "Technologists typically need a bachelor’s degree. Hospital shifts can include nights, weekends and holidays. State licensure varies.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "med",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/medical-scientists.htm",
+        "locator": "Duties; Education; Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026 OOH",
+          "summary": "Medical scientists design and conduct studies. A Ph.D. or medical degree is typical, and treating patients requires applicable practitioner licensure.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ca",
+        "source_url": "https://www.cdph.ca.gov/Programs/OSPHLD/LFS/Pages/CLS.aspx",
+        "locator": "Academic Requirements; Training or Experience; Examinations",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current",
+          "summary": "CDPH describes a bachelor’s degree with specified coursework, qualifying clinical training or high-complexity experience, approved exam and state law quiz. See state rules for applicable education and training routes.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "netlab",
+        "source_url": "https://www.onetonline.org/link/details/29-2011.00",
+        "locator": "Occupation summary and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 2026",
+          "summary": "Analyzes specimens, documents test results and monitors quality.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "netmed",
+        "source_url": "https://www.onetonline.org/link/details/19-1042.00",
+        "locator": "Occupation summary and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 2026",
+          "summary": "Conducts research to understand human disease or improve health, including clinical investigations.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 506,
+      "source_slugs": [
+        "medical-and-clinical-laboratory-technologists",
+        "medical-scientists-except-epidemiologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

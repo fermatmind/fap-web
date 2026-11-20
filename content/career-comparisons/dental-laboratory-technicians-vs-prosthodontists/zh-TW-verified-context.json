@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "06fecf870c5f0c0a3e7ffd166a9bb131ee9a79a4fde80d97fcdd7b2612b456ba",
+  "inputs": {
+    "pair_id": "dental-laboratory-technicians-vs-prosthodontists",
+    "slugs": [
+      "dental-laboratory-technicians",
+      "prosthodontists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/dental-laboratory-technicians-vs-prosthodontists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "dental-laboratory-technicians": {
+        "name": "牙科技工室技術員",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.61,
+            4.46,
+            1.52,
+            2.67,
+            1.0,
+            4.12
+          ]
+        },
+        "tasks": [
+          "按加工單與處方規格核對材料、顏色、咬合與鄰接要求，缺項先澄清再開工。",
+          "按模型與掃描資料製作代型、蠟型與熔模，按工藝規程完成鑄造、打磨、上瓷與燒結並記錄引數。",
+          "按處方規格在模型/咬合架上核對精度與咬合，具體檢驗項按產品技術要求；實驗室在模型/咬合架上檢驗、試配與患者臨床戴用除錯分開；2026指導原則要求具有專業資質醫師戴用除錯，技工經驗/培訓或主管批准不代醫師資格。",
+          "依實際產品材料/工藝與質量體系核記錄、檢驗、清潔消毒/包裝驗證；指導原則非通用固定引數法條。2026 年 11 月 1 日起，定製式義齒適用修訂後的生產質量管理規範及現行義齒附錄。國藥監械管〔2026〕16 號的專項檢查指導原則列有印模、模型、掃描資料和設計單的接收準則，以及每批（個）的生產和檢驗記錄；企業授權人員簽發放行單。",
+          "發現模型破損、資料不清、材料註冊資訊不明或成品不合格時，留樣記錄並按流程返修或退回。",
+          "與醫師、技工室主管和同事按職責協作，如實反饋交付時限、返修原因與質量風險。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-9081",
+          "title_evidence": "official_title"
+        }
+      },
+      "prosthodontists": {
+        "name": "口腔修復專科醫師",
+        "riasec": {
+          "code": "RIS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1024.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.17,
+            5.54,
+            1.78,
+            4.59,
+            1.43,
+            3.22
+          ]
+        },
+        "tasks": [
+          "評估｜核病史與口腔狀態｜記錄缺牙、咬合和患者目標。",
+          "方案｜討論修復選擇｜說明收益、風險與費用。",
+          "測量｜取模與設計｜核材料、尺寸和版本。",
+          "製作｜協調牙科技師｜按獲准方案製作裝置。",
+          "適配｜試戴與調整｜核功能、舒適度和外觀。",
+          "複診｜追蹤結果｜記錄問題、調整和轉診。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1024.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1024",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "prosthodontists -> dental-laboratory-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "dental-laboratory-technicians": {
+        "file_sha256": "e1578a0768dde29f8d438a39e47e5b4c54504f86f667fe067eed46eae0138960",
+        "entries": []
+      },
+      "prosthodontists": {
+        "file_sha256": "a1c8fdbea003d43e26b2ba4787731a73acdb63b991072bfd8e617649b26ad2bb",
+        "entries": [
+          "評估｜核病史與口腔狀態｜記錄缺牙、咬合和患者目標。",
+          "方案｜討論修復選擇｜說明收益、風險與費用。",
+          "測量｜取模與設計｜核材料、尺寸和版本。",
+          "製作｜協調牙科技師｜按獲准方案製作裝置。",
+          "適配｜試戴與調整｜核功能、舒適度和外觀。",
+          "複診｜追蹤結果｜記錄問題、調整和轉診。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 288,
+      "source_slugs": [
+        "dental-laboratory-technicians",
+        "prosthodontists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "dental-laboratory-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/dental-laboratory-technicians/zh-TW.json",
+          "file_sha256": "e1578a0768dde29f8d438a39e47e5b4c54504f86f667fe067eed46eae0138960",
+          "count": 6
+        },
+        "prosthodontists": {
+          "field": "entries",
+          "source_path": "careers/prosthodontists/zh-TW.json",
+          "file_sha256": "a1c8fdbea003d43e26b2ba4787731a73acdb63b991072bfd8e617649b26ad2bb",
+          "count": 6
+        }
+      }
+    }
+  }
+}

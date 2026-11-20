@@ -1,0 +1,292 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f888559d89a33bb5a1db8f54e925a1ece782e5bbe02c2f3158d1c61c71fc455d",
+  "inputs": {
+    "pair_id": "medical-and-clinical-laboratory-technologists-vs-microbiologists",
+    "slugs": [
+      "medical-and-clinical-laboratory-technologists",
+      "microbiologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/medical-and-clinical-laboratory-technologists-vs-microbiologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "medical-and-clinical-laboratory-technologists": {
+        "name": "Clinical Laboratory Technologist",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.81,
+            6.15,
+            1.13,
+            2.77,
+            1.51,
+            4.99
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Analyze samples of biological material for chemical content or reaction."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Analyze laboratory findings to check the accuracy of the results."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Conduct chemical analysis of body fluids, including blood, urine, or spinal fluid, to determine presence of normal or abnormal components."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2011.00#Tasks"
+              }
+            ],
+            "text": "Enter data from analysis of medical tests or clinical results into computer for storage."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2011",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "microbiologists": {
+        "name": "Microbiologists",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.29,
+            7.0,
+            1.92,
+            1.98,
+            1.07,
+            3.85
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1022.00#Tasks"
+              }
+            ],
+            "text": "Isolate and maintain cultures of bacteria or other microorganisms in prescribed or developed media, controlling moisture, aeration, temperature, and nutrition."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1022.00#Tasks"
+              }
+            ],
+            "text": "Provide laboratory services for health departments, community environmental health programs, and physicians needing information for diagnosis and treatment."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1022.00#Tasks"
+              }
+            ],
+            "text": "Monitor and perform tests on water, food, and the environment to detect harmful microorganisms or to obtain information about sources of pollution, contamination, or infection."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1022.00#Tasks"
+              }
+            ],
+            "text": "Examine physiological, morphological, and cultural characteristics, using microscope, to identify and classify microorganisms in human, water, and food specimens."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-1022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "medical-and-clinical-laboratory-technologists -> microbiologists",
+      "microbiologists -> medical-and-clinical-laboratory-technologists"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "29-2011.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-2011.00#Tasks",
+        "locator": "Tasks 1886, 1889, 1890",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Performs clinical laboratory analyses, checks accuracy and records results.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "19-1022.00",
+        "source_url": "https://www.onetonline.org/link/summary/19-1022.00#Tasks",
+        "locator": "Tasks 3680, 3681",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Studies microorganisms and communicates research findings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-clinical",
+        "source_url": "https://www.bls.gov/OOH/healthcare/clinical-laboratory-technologists-and-technicians.htm#tab-4",
+        "locator": "Education; Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Bachelor's typically for technologists; state licenses or registration and employer certification may apply.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-micro",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/microbiologists.htm#tab-4",
+        "locator": "Education",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Typical bachelor's in relevant subject; some employers prefer graduate education.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 39,
+      "source_slugs": [
+        "medical-and-clinical-laboratory-technologists",
+        "microbiologists"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

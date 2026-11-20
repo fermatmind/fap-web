@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "69a0e283e266b28b7ded5ff9b4a935065fe6a20ec67a2965534975dbbd0cd804",
+  "inputs": {
+    "pair_id": "physical-therapists-vs-sports-medicine-physicians",
+    "slugs": [
+      "physical-therapists",
+      "sports-medicine-physicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/physical-therapists-vs-sports-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "physical-therapists": {
+        "name": "物理治療師",
+        "riasec": {
+          "code": "SIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1123.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.33,
+            4.87,
+            2.17,
+            5.91,
+            2.49,
+            3.07
+          ]
+        },
+        "tasks": [
+          "患者評估｜收集病史與功能資訊｜詢問目標與症狀，進行適當檢查和運動功能測量，識別風險及需要轉介的問題。",
+          "臨床判斷｜形成物理治療診斷與目標｜整合檢查結果、患者偏好和安全限制，明確可測量的功能目標。",
+          "治療計劃｜制定並調整干預方案｜選擇合適活動、練習或其他治療，說明頻次、劑量、複測點及需協作的事項。",
+          "治療實施｜指導患者安全完成治療｜按計劃開展治療與功能訓練，觀察反應，必要時停止並按規定處理異常。",
+          "複測溝通｜依據結果修訂計劃｜比較基線與後續功能指標，向患者和團隊解釋進展、限制和下一步。",
+          "記錄教育｜留下可追溯記錄並教育患者｜記錄評估依據、實際治療、反應與轉介，指導患者理解安全的自我管理要求。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1123.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1123",
+          "title_evidence": "official_title"
+        }
+      },
+      "sports-medicine-physicians": {
+        "name": "運動醫學醫師",
+        "riasec": {
+          "code": "ISR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1229.06",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.19,
+            5.36,
+            1.2,
+            5.27,
+            3.34,
+            3.52
+          ]
+        },
+        "tasks": [
+          "身份確認｜核醫師許可、個人能力及機構範圍。｜體育經歷或認證不自動替許可。",
+          "專業評估｜獲取病史並評估運動相關傷病。｜本頁不教檢查或診斷方法。",
+          "檢查解釋｜依臨床需要安排並解釋相關檢查。｜資料完整不等診斷已經成立。",
+          "診療預防｜形成治療、預防及活動相關專業建議。｜不由紙面狀態批准運動員複賽。",
+          "轉診協作｜與其他專業人員協調合適服務。｜任務和資訊接收範圍須明確。",
+          "記錄學習｜維護專業記錄並持續學習。｜文書草稿不代本人審查簽署。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1229.06",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1229",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "sports-medicine-physicians -> physical-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "physical-therapists": {
+        "file_sha256": "27fc22c6efb6bb2dd81bb9af3df955e84d7cded71147c74de643bf3b596e3ea4",
+        "entries": [
+          "患者評估｜收集病史與功能資訊｜詢問目標與症狀，進行適當檢查和運動功能測量，識別風險及需要轉介的問題。",
+          "臨床判斷｜形成物理治療診斷與目標｜整合檢查結果、患者偏好和安全限制，明確可測量的功能目標。",
+          "治療計劃｜制定並調整干預方案｜選擇合適活動、練習或其他治療，說明頻次、劑量、複測點及需協作的事項。",
+          "治療實施｜指導患者安全完成治療｜按計劃開展治療與功能訓練，觀察反應，必要時停止並按規定處理異常。",
+          "複測溝通｜依據結果修訂計劃｜比較基線與後續功能指標，向患者和團隊解釋進展、限制和下一步。",
+          "記錄教育｜留下可追溯記錄並教育患者｜記錄評估依據、實際治療、反應與轉介，指導患者理解安全的自我管理要求。"
+        ]
+      },
+      "sports-medicine-physicians": {
+        "file_sha256": "9e97a529a337fede966b71013e179ab1f7f5d55c0598e1b4a91b05099679fef7",
+        "entries": [
+          "身份確認｜核醫師許可、個人能力及機構範圍。｜體育經歷或認證不自動替許可。",
+          "專業評估｜獲取病史並評估運動相關傷病。｜本頁不教檢查或診斷方法。",
+          "檢查解釋｜依臨床需要安排並解釋相關檢查。｜資料完整不等診斷已經成立。",
+          "診療預防｜形成治療、預防及活動相關專業建議。｜不由紙面狀態批准運動員複賽。",
+          "轉診協作｜與其他專業人員協調合適服務。｜任務和資訊接收範圍須明確。",
+          "記錄學習｜維護專業記錄並持續學習。｜文書草稿不代本人審查簽署。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 581,
+      "source_slugs": [
+        "physical-therapists",
+        "sports-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "physical-therapists": {
+          "field": "entries",
+          "source_path": "careers/physical-therapists/zh-TW.json",
+          "file_sha256": "27fc22c6efb6bb2dd81bb9af3df955e84d7cded71147c74de643bf3b596e3ea4",
+          "count": 6
+        },
+        "sports-medicine-physicians": {
+          "field": "entries",
+          "source_path": "careers/sports-medicine-physicians/zh-TW.json",
+          "file_sha256": "9e97a529a337fede966b71013e179ab1f7f5d55c0598e1b4a91b05099679fef7",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "a7c4be99e1baa6c3df8be9dc7c54a22838fa8a1b0e28d0401991234f774427d6",
+  "inputs": {
+    "pair_id": "acute-care-nurses-vs-clinical-nurse-specialists",
+    "slugs": [
+      "acute-care-nurses",
+      "clinical-nurse-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/acute-care-nurses-vs-clinical-nurse-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "acute-care-nurses": {
+        "name": "急症護理護士",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.7,
+            5.66,
+            1.75,
+            5.8,
+            1.76,
+            3.32
+          ]
+        },
+        "tasks": [
+          "評估｜病情與風險識別｜收集並核對患者狀態和已有資訊，發現急性變化時按機構路徑升級。",
+          "監測｜連續觀察與複核｜觀察患者反應、相關裝置或檢查資訊，記錄可觀察事實與待確認事項。",
+          "計劃｜護理計劃協同｜依據醫囑、團隊分工和授權範圍參與照護計劃，不把崗位名稱當作獨立決定權。",
+          "處置｜依法履行護理責任｜已註冊護士按職責處理獲准護理；危急病情立即通知醫師，緊急搶救履行必要救護責任，不把護士寫成只能等待指令。網頁練習不提供操作步驟。",
+          "溝通｜患者教育與團隊交接｜向患者、家屬和團隊說明已知資訊、下一步與需要升級的問題。",
+          "記錄｜追溯、轉診與邊界｜完整記錄評估、已執行事項、反應和交接；超範圍或資訊不足時停止並交由有權人員。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      },
+      "clinical-nurse-specialists": {
+        "name": "臨床護士專員",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.34,
+            4.86,
+            1.81,
+            6.23,
+            3.69,
+            4.04
+          ]
+        },
+        "tasks": [
+          "高階護理評估與計劃｜評估患者需求並形成照護計劃｜觀察、訪談並評估患者以識別照護需求，完成全面健康評估、形成鑑別判斷、開展專科檢查或開具藥物或治療，並與其他醫療專業人員協作（對應 O*NET 任務第九與第十二與第二項）。 診斷、檢查和處方按實際執業州資質核，不由任務表授權。",
+          "專科直接與間接照護｜在指定專科內提供專門化照護｜在指定專科（如產科、神經科、腫瘤科或新生兒照護）內提供專門化的直接與間接照護，並與其他醫療專業人員及服務提供者協作以確保最佳患者照護（對應 O*NET 任務第一與第二項）。",
+          "標準與政策維護｜制定並維護護理標準與科室政策｜制定、實施或評估專科領域的護理實踐標準，維護科室政策、規程、目標或感染控制標準，並依據循證實踐指南或專家意見制定與維護患者照護標準（對應 O*NET 任務第四與第五與第七項）。",
+          "質量與流程改進｜評估並改進護理實踐與組織系統｜評估護理實踐或組織系統的質量與有效性，設計相應的評估方案，並對系統缺陷提出改進建議（對應 O*NET 任務第八與第十三項）。",
+          "教學與帶教｜培訓護理人員與醫療團隊｜指導護理人員在評估、發展、實施與評價殘障、疾病、管理、技術或資源方面的工作，向其他照護者提供輔導與帶教，識別培訓需求或開展培訓，並協調或開展教育專案與在職培訓（對應 O*NET 任務第六與第十與第十五與第十六項）。",
+          "諮詢與建議｜向團隊與患者提供專業建議｜向其他醫療提供者提供出院、患者照護或臨床操作方面的諮詢，就臨床問題向醫師、其他醫療提供者、保險機構、患者或醫療機構提出臨床建議，並推進護理部門對法規或認證流程的合規（對應 O*NET 任務第十四與第十七與第二十三項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "acute-care-nurses -> clinical-nurse-specialists",
+      "clinical-nurse-specialists -> acute-care-nurses"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "acute-care-nurses": {
+        "file_sha256": "13b7b817a01a69c58ff999c5aa9284bf2b5704784c6df8e31d3dc69f0fb28462",
+        "entries": [
+          "評估｜病情與風險識別｜收集並核對患者狀態和已有資訊，發現急性變化時按機構路徑升級。",
+          "監測｜連續觀察與複核｜觀察患者反應、相關裝置或檢查資訊，記錄可觀察事實與待確認事項。",
+          "計劃｜護理計劃協同｜依據醫囑、團隊分工和授權範圍參與照護計劃，不把崗位名稱當作獨立決定權。",
+          "處置｜依法履行護理責任｜已註冊護士按職責處理獲准護理；危急病情立即通知醫師，緊急搶救履行必要救護責任，不把護士寫成只能等待指令。網頁練習不提供操作步驟。",
+          "溝通｜患者教育與團隊交接｜向患者、家屬和團隊說明已知資訊、下一步與需要升級的問題。",
+          "記錄｜追溯、轉診與邊界｜完整記錄評估、已執行事項、反應和交接；超範圍或資訊不足時停止並交由有權人員。"
+        ]
+      },
+      "clinical-nurse-specialists": {
+        "file_sha256": "8729e3e74408138aa37794b1397f74481a2c4080843a509be610e719349227c9",
+        "entries": [
+          "高階護理評估與計劃｜評估患者需求並形成照護計劃｜觀察、訪談並評估患者以識別照護需求，完成全面健康評估、形成鑑別判斷、開展專科檢查或開具藥物或治療，並與其他醫療專業人員協作（對應 O*NET 任務第九與第十二與第二項）。 診斷、檢查和處方按實際執業州資質核，不由任務表授權。",
+          "專科直接與間接照護｜在指定專科內提供專門化照護｜在指定專科（如產科、神經科、腫瘤科或新生兒照護）內提供專門化的直接與間接照護，並與其他醫療專業人員及服務提供者協作以確保最佳患者照護（對應 O*NET 任務第一與第二項）。",
+          "標準與政策維護｜制定並維護護理標準與科室政策｜制定、實施或評估專科領域的護理實踐標準，維護科室政策、規程、目標或感染控制標準，並依據循證實踐指南或專家意見制定與維護患者照護標準（對應 O*NET 任務第四與第五與第七項）。",
+          "質量與流程改進｜評估並改進護理實踐與組織系統｜評估護理實踐或組織系統的質量與有效性，設計相應的評估方案，並對系統缺陷提出改進建議（對應 O*NET 任務第八與第十三項）。",
+          "教學與帶教｜培訓護理人員與醫療團隊｜指導護理人員在評估、發展、實施與評價殘障、疾病、管理、技術或資源方面的工作，向其他照護者提供輔導與帶教，識別培訓需求或開展培訓，並協調或開展教育專案與在職培訓（對應 O*NET 任務第六與第十與第十五與第十六項）。",
+          "諮詢與建議｜向團隊與患者提供專業建議｜向其他醫療提供者提供出院、患者照護或臨床操作方面的諮詢，就臨床問題向醫師、其他醫療提供者、保險機構、患者或醫療機構提出臨床建議，並推進護理部門對法規或認證流程的合規（對應 O*NET 任務第十四與第十七與第二十三項）。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 7,
+      "source_slugs": [
+        "acute-care-nurses",
+        "clinical-nurse-specialists"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "acute-care-nurses": {
+          "field": "entries",
+          "source_path": "careers/acute-care-nurses/zh-TW.json",
+          "file_sha256": "13b7b817a01a69c58ff999c5aa9284bf2b5704784c6df8e31d3dc69f0fb28462",
+          "count": 6
+        },
+        "clinical-nurse-specialists": {
+          "field": "entries",
+          "source_path": "careers/clinical-nurse-specialists/zh-TW.json",
+          "file_sha256": "8729e3e74408138aa37794b1397f74481a2c4080843a509be610e719349227c9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

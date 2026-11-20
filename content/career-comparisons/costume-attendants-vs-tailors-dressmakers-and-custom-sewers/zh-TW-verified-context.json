@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b048703d21330d1c9ff093f35bba84a1cf6e38e896d126bdd548197d5b568713",
+  "inputs": {
+    "pair_id": "costume-attendants-vs-tailors-dressmakers-and-custom-sewers",
+    "slugs": [
+      "costume-attendants",
+      "tailors-dressmakers-and-custom-sewers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/costume-attendants-vs-tailors-dressmakers-and-custom-sewers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "costume-attendants": {
+        "name": "服裝服務員",
+        "riasec": {
+          "code": "ACR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-3092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.88,
+            1.0,
+            5.61,
+            3.26,
+            2.84,
+            4.27
+          ]
+        },
+        "tasks": [
+          "需求對接與資料｜對接設計並研讀資料｜與服裝設計與製作人員對接設計細節，研讀劇本與製作資料確定故事地點與年代、人物數量與所需服裝，並查閱歷史服飾資料核對形制。",
+          "庫存與保管｜清點並保管用品｜清點服裝、假髮與化妝用品的型別與狀態，按編號保管並維護庫存臺賬，安排庫房、更衣室、假髮室與洗衣區的整理與安全。",
+          "採購與養護｜採購租領、清洗整燙和小修Core；設計製作或送裁縫大修修改也Core，非服裝物件養護Supplemental。",
+          "合身與效果｜檢查演員合身記修改、舞臺燈光下核效果為Core；製作紙樣和安排試裝為New，類別不代表每日頻率。",
+          "換裝與班組｜按使用順序排序、幫助演員穿衣或分配換裝員及編檢查工作單為Core；服裝班督導Supplemental。",
+          "供應商與預算｜推薦供應商並配合預算｜向管理人員提供與服裝、保管或化妝相關的預算建議，推薦供應商並跟進其工作，承擔相應預算專案的執行。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-3092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "39-3092",
+          "title_evidence": "official_title"
+        }
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "name": "裁縫、定製縫紉工",
+        "riasec": {
+          "code": "RA",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.88,
+            1.16,
+            3.96,
+            1.99,
+            2.44,
+            3.13
+          ]
+        },
+        "tasks": [
+          "準備｜量體與需求記錄｜量取客戶或衣物尺寸，核款式材料與修改約定；單位、成品要求和未確認項分別記。",
+          "製版｜樣板與裁片核對｜制改樣板、核方向標記和縫份，按尺寸與材料要求準備，不能以矩形練習代真實服裝製版。",
+          "製作｜裁剪組裝與縫製｜排樣裁料、疏縫或機縫組裝，保持比例與垂墜；真實工具操作需指導和實際工藝。",
+          "拆改｜合身調整與部件修理｜檢查可改餘量、放收接縫、改下襬及更換部件，試衣核是否解決問題。",
+          "檢查｜整燙與成品質量｜按材料工藝整燙，核尺寸外觀縫跡和殘針等；未經實物檢查不標已驗收。",
+          "交付｜估工記錄與客戶溝通｜估時間材料，記錄改動和待確認，核交期報價及客戶意見，收款不等淨利潤。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "costume-attendants -> tailors-dressmakers-and-custom-sewers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "costume-attendants": {
+        "file_sha256": "cc3e760220e792177fcb2dc18b2af6aa67daf1576a592898170df9006f0fd8d3",
+        "entries": []
+      },
+      "tailors-dressmakers-and-custom-sewers": {
+        "file_sha256": "4a522c7c8b79e08c2d13b92565e558224cc383b57acda38cba884a8194bd90e2",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 242,
+      "source_slugs": [
+        "costume-attendants",
+        "tailors-dressmakers-and-custom-sewers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "costume-attendants": {
+          "field": "paragraphs",
+          "source_path": "careers/costume-attendants/zh-TW.json",
+          "file_sha256": "cc3e760220e792177fcb2dc18b2af6aa67daf1576a592898170df9006f0fd8d3",
+          "count": 6
+        },
+        "tailors-dressmakers-and-custom-sewers": {
+          "field": "paragraphs",
+          "source_path": "careers/tailors-dressmakers-and-custom-sewers/zh-TW.json",
+          "file_sha256": "4a522c7c8b79e08c2d13b92565e558224cc383b57acda38cba884a8194bd90e2",
+          "count": 6
+        }
+      }
+    }
+  }
+}

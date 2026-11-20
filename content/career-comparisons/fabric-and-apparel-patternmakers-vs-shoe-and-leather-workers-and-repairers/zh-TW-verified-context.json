@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9e4f9e6d1899a87617f85159a82abdf16133bdec73ec3fd7d2560bf74d18e0c3",
+  "inputs": {
+    "pair_id": "fabric-and-apparel-patternmakers-vs-shoe-and-leather-workers-and-repairers",
+    "slugs": [
+      "fabric-and-apparel-patternmakers",
+      "shoe-and-leather-workers-and-repairers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/fabric-and-apparel-patternmakers-vs-shoe-and-leather-workers-and-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "fabric-and-apparel-patternmakers": {
+        "name": "織物與服裝製版工",
+        "riasec": {
+          "code": "RAC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.65,
+            1.34,
+            5.4,
+            1.31,
+            1.45,
+            4.17
+          ]
+        },
+        "tasks": [
+          "母版製作｜按款式與規格繪製衣片｜製作母版紙樣",
+          "放碼與縮碼｜按尺碼範圍推算尺寸｜核對關鍵部位與彈量",
+          "排料與用料｜排布衣片並計算用料｜減少浪費並標記面料",
+          "樣衣驗證｜製作樣衣並安排試穿｜記錄問題並修正紙樣",
+          "規格與說明｜整理尺寸表與縫製說明｜維護版型檔案",
+          "設計協作｜與設計師確認設計意圖｜與生產確認工藝可行性"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-6092",
+          "title_evidence": "official_title"
+        }
+      },
+      "shoe-and-leather-workers-and-repairers": {
+        "name": "製鞋與皮革製品工及修理工",
+        "riasec": {
+          "code": "RCA",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.94,
+            1.63,
+            3.13,
+            1.32,
+            1.53,
+            3.19
+          ]
+        },
+        "tasks": [
+          "規格與受理｜核樣板、尺碼、材料或顧客修理要求｜記錄產品、破損位置和待確認條件，未經判斷不承諾能修好。",
+          "材料與裁料｜識別瑕疵、紋路、顏色和延伸方向｜按樣板標點標線，裁出符合工藝的部件並保留標識。",
+          "連線與成型｜縫合、膠合或壓合部件｜按材料和工藝選擇已確認的連線方案，檢查接縫、貼合與形狀。",
+          "部件與修理｜安裝鞋底、鞋跟、襯裡或扣件｜檢查並移除需更換部件，核連線和損傷範圍，不隱瞞無法修復項。",
+          "整飾與檢驗｜修邊、清潔、拋光或裝飾｜檢查尺寸、顏色、表面、縫線與連線缺陷，完成返修和質量記錄。",
+          "交接與工具｜說明完成範圍並維護工作條件｜交付產品與修理記錄，裝置或化學品異常時停止受影響作業並報告。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "shoe-and-leather-workers-and-repairers -> fabric-and-apparel-patternmakers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "fabric-and-apparel-patternmakers": {
+        "file_sha256": "d11ab212b4b5efa9b1cbf23c1b9d892e3271db9d75550d155f2b3525e78f948f",
+        "entries": [
+          "母版製作｜按款式與規格繪製衣片｜製作母版紙樣",
+          "放碼與縮碼｜按尺碼範圍推算尺寸｜核對關鍵部位與彈量",
+          "排料與用料｜排布衣片並計算用料｜減少浪費並標記面料",
+          "樣衣驗證｜製作樣衣並安排試穿｜記錄問題並修正紙樣",
+          "規格與說明｜整理尺寸表與縫製說明｜維護版型檔案",
+          "設計協作｜與設計師確認設計意圖｜與生產確認工藝可行性"
+        ]
+      },
+      "shoe-and-leather-workers-and-repairers": {
+        "file_sha256": "0cbfe7b59ae11d52fffa2af79567b6078459bda79e14d64275e55174d7abf2c1",
+        "entries": [
+          "規格與受理｜核樣板、尺碼、材料或顧客修理要求｜記錄產品、破損位置和待確認條件，未經判斷不承諾能修好。",
+          "材料與裁料｜識別瑕疵、紋路、顏色和延伸方向｜按樣板標點標線，裁出符合工藝的部件並保留標識。",
+          "連線與成型｜縫合、膠合或壓合部件｜按材料和工藝選擇已確認的連線方案，檢查接縫、貼合與形狀。",
+          "部件與修理｜安裝鞋底、鞋跟、襯裡或扣件｜檢查並移除需更換部件，核連線和損傷範圍，不隱瞞無法修復項。",
+          "整飾與檢驗｜修邊、清潔、拋光或裝飾｜檢查尺寸、顏色、表面、縫線與連線缺陷，完成返修和質量記錄。",
+          "交接與工具｜說明完成範圍並維護工作條件｜交付產品與修理記錄，裝置或化學品異常時停止受影響作業並報告。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 415,
+      "source_slugs": [
+        "fabric-and-apparel-patternmakers",
+        "shoe-and-leather-workers-and-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "fabric-and-apparel-patternmakers": {
+          "field": "entries",
+          "source_path": "careers/fabric-and-apparel-patternmakers/zh-TW.json",
+          "file_sha256": "d11ab212b4b5efa9b1cbf23c1b9d892e3271db9d75550d155f2b3525e78f948f",
+          "count": 6
+        },
+        "shoe-and-leather-workers-and-repairers": {
+          "field": "entries",
+          "source_path": "careers/shoe-and-leather-workers-and-repairers/zh-TW.json",
+          "file_sha256": "0cbfe7b59ae11d52fffa2af79567b6078459bda79e14d64275e55174d7abf2c1",
+          "count": 6
+        }
+      }
+    }
+  }
+}

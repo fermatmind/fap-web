@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "3ff057e0b9cb073a4081c7b632152db3a28eed03962c3d7e93721d4e40dcee6f",
+  "inputs": {
+    "pair_id": "database-administrators-vs-database-architects",
+    "slugs": [
+      "database-administrators",
+      "database-architects"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/database-administrators-vs-database-architects",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "database-administrators": {
+        "name": "資料庫管理員",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1242.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.83,
+            4.83,
+            1.2,
+            2.29,
+            2.94,
+            6.61
+          ]
+        },
+        "tasks": [
+          "庫結構與變更｜維護資料庫與資料字典｜修改現有資料庫與資料庫管理系統，或指導程式設計師與分析人員完成變更；編寫邏輯與物理資料庫描述並指定識別符號，按流程開發資料模型，並修訂公司資料字典中的資料定義。",
+          "效能與容量｜監測並解決效能問題｜選擇並輸入程式碼監測資料庫效能並建立生產資料庫；識別、調查並解決資料庫效能、容量與可擴充套件性問題；識別、評估並推薦能達到所需效能的硬體或軟體技術。",
+          "安全與許可權｜實施安全措施並控制訪問｜規劃、協調並實施安全措施，防止計算機檔案中的資訊被意外或未經授權地損壞、修改或洩露；為資料庫的每個片段指定使用者與訪問級別；制定軟體使用與採購以及保護脆弱資訊的標準與指南。",
+          "測試與升級｜測試變更並安裝升級｜測試資料庫應用或系統的變更；測試程式或資料庫、修正錯誤並做必要修改；規劃並安裝資料庫管理系統軟體升級以提升效能；審批、排期、規劃並監督新產品的安裝與測試。",
+          "支援與培訓｜解答問題並支援使用者｜培訓使用者並解答問題，向初級員工或客戶提供技術支援，並查閱程式設計師分析師繪製的工作流圖以瞭解計算機將執行的任務。",
+          "趨勢與技術判斷｜評估方向並提供建議｜查閱資料庫管理系統手冊中的流程以修改資料庫，識別並評估資料庫系統的行業趨勢，為高層管理提供資訊與建議，並在變更與最佳化中記錄依據與結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1242.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1242",
+          "title_evidence": "official_title"
+        }
+      },
+      "database-architects": {
+        "name": "資料庫架構師",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1243.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.63,
+            5.63,
+            2.16,
+            1.91,
+            2.68,
+            6.12
+          ]
+        },
+        "tasks": [
+          "架構策略與需求｜澄清需求並制定策略｜與系統架構師、軟體架構師與設計分析師協作理解業務或行業需求，在建模、設計與實施階段制定資料庫架構策略，並編寫並歸檔資料庫架構。",
+          "建模與設計｜設計庫結構與資料模型｜設計支援業務應用的資料庫以確保可擴充套件性、安全性、效能與可靠性，為應用、後設資料表、檢視或相關結構開發資料模型，並使用公認記號歸檔並溝通資料庫模式。",
+          "儲存與整合｜選擇方案並整合系統｜設計介面、資料傳輸機制、全域性臨時表、資料分割槽與基於函式的索引，開發不同產品之間的整合方法，把新系統與既有倉庫結構整合並改進效能與功能。",
+          "標準與治理｜制定並執行開發標準｜建立並執行資料庫開發標準，識別並糾正偏離標準之處，審閱專案請求以估算所需時間與成本，並識別並評估資料庫系統的行業趨勢為高層管理提供建議。",
+          "可靠性與效能｜設定備份恢復並最佳化｜設定資料庫叢集、備份或恢復流程，演示資料庫的技術功能（如效能、安全與可靠性），開發負載均衡流程以消除備份造成的停機，規劃並安裝資料庫管理系統軟體升級，識別、評估並推薦能達到所需效能的軟硬體技術。",
+          "測試與支援｜測試並糾錯、維護應用過程程式碼/查詢、向初級員工或客戶提供支援為核心；培訓使用者並解答問題屬補充，不稱人人必做。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1243.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1243",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "database-administrators -> database-architects",
+      "database-architects -> database-administrators"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "database-administrators": {
+        "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+        "entries": []
+      },
+      "database-architects": {
+        "file_sha256": "c236ae97187308c566e3acf8c5ad0e71f83f060c7029c85dde61b562d66e6edd",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 28,
+      "source_slugs": [
+        "database-administrators",
+        "database-architects"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "database-administrators": {
+          "field": "paragraphs",
+          "source_path": "careers/database-administrators/zh-TW.json",
+          "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+          "count": 6
+        },
+        "database-architects": {
+          "field": "paragraphs",
+          "source_path": "careers/database-architects/zh-TW.json",
+          "file_sha256": "c236ae97187308c566e3acf8c5ad0e71f83f060c7029c85dde61b562d66e6edd",
+          "count": 6
+        }
+      }
+    }
+  }
+}

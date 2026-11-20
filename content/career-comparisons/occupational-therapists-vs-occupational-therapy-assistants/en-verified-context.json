@@ -1,0 +1,303 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e013187e723c5794950a93a70ef896881b5cbe72722d7307c9af32482d38de00",
+  "inputs": {
+    "pair_id": "occupational-therapists-vs-occupational-therapy-assistants",
+    "slugs": [
+      "occupational-therapists",
+      "occupational-therapy-assistants"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/occupational-therapists-vs-occupational-therapy-assistants",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "occupational-therapists": {
+        "name": "Occupational therapists",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1122.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.57,
+            4.23,
+            3.07,
+            6.08,
+            1.83,
+            3.12
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1122.00#Tasks"
+              }
+            ],
+            "text": "Test and evaluate patients' physical and mental abilities and analyze medical data to determine realistic rehabilitation goals for patients."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1122.00#Tasks"
+              }
+            ],
+            "text": "Complete and maintain necessary records."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1122.00#Tasks"
+              }
+            ],
+            "text": "Plan, organize, and conduct occupational therapy programs in hospital, institutional, or community settings to help rehabilitate persons with disabilities because of illness, injury or psychological or developmental problems."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1122.00#Tasks"
+              }
+            ],
+            "text": "Plan and implement programs and social activities to help patients learn work or school skills and adjust to handicaps."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1122.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1122",
+          "title_evidence": "official_title"
+        }
+      },
+      "occupational-therapy-assistants": {
+        "name": "Occupational therapy assistants",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.53,
+            3.48,
+            2.06,
+            6.1,
+            1.14,
+            4.21
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Instruct, or assist in instructing, patients and families in home programs, basic living skills, or the care and use of adaptive equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Maintain and promote a positive attitude toward clients and their treatment programs."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Report to supervisors, verbally or in writing, on patients' progress, attitudes, and behavior."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Implement, or assist occupational therapists with implementing, treatment plans designed to help clients function independently."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-2011",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "occupational-therapists -> occupational-therapy-assistants",
+      "occupational-therapy-assistants -> occupational-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "29-1122.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-1122.00",
+        "locator": "Tasks 349, 350, 348",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Evaluates abilities, selects activities and reviews progress.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "31-2011.00",
+        "source_url": "https://www.onetonline.org/link/summary/31-2011.00",
+        "locator": "Tasks 4254, 4261, 4262, 4264",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Implements plans under therapist direction and documents and reports observations.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-ot",
+        "source_url": "https://www.bls.gov/ooh/healthcare/occupational-therapists.htm",
+        "locator": "How to Become an Occupational Therapist; Pay",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "OOH; May 2025 OEWS",
+          "summary": "Typical master's degree in occupational therapy and licensure in every state; national median annual wage $100,330.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-ota",
+        "source_url": "https://www.bls.gov/ooh/healthcare/occupational-therapy-assistants-and-aides.htm",
+        "locator": "Duties; How to Become an Occupational Therapy Assistant or Aide; Pay",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "OOH; May 2025 OEWS",
+          "summary": "Assistants provide treatment, report progress, and typically need an accredited associate degree. They usually need state licensure. National median annual wage $72,300.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ca-ota-assessment",
+        "source_url": "https://bot.ca.gov/forms_pubs/supervision_faqs.shtml",
+        "locator": "Can an OTA perform an initial OT evaluation and develop a plan of care?",
+        "value": {
+          "jurisdiction": "California, United States",
+          "effective_or_period": "Official eligibility guidance",
+          "summary": "The OTA may implement delegated assessments and report observations. The supervising OT reviews and interprets information for decision-making.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 530,
+      "source_slugs": [
+        "occupational-therapists",
+        "occupational-therapy-assistants"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

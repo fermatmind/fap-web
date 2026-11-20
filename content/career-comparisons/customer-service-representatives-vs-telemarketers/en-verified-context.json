@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "fc369aa04f112fb592d02902e446a81819b996c4a492c28eb4f840d557f4e594",
+  "inputs": {
+    "pair_id": "customer-service-representatives-vs-telemarketers",
+    "slugs": [
+      "customer-service-representatives",
+      "telemarketers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/customer-service-representatives-vs-telemarketers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "customer-service-representatives": {
+        "name": "Customer Service Representatives",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.97,
+            1.63,
+            1.0,
+            3.77,
+            5.08,
+            6.32
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-4051.00#Tasks"
+              }
+            ],
+            "text": "Confer with customers by telephone or in person to provide information about products or services, take or enter orders, cancel accounts, or obtain details of complaints."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-4051.00#Tasks"
+              }
+            ],
+            "text": "Keep records of customer interactions or transactions, recording details of inquiries, complaints, or comments, as well as actions taken."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-4051.00#Tasks"
+              }
+            ],
+            "text": "Check to ensure that appropriate changes were made to resolve customers' problems."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-4051.00#Tasks"
+              }
+            ],
+            "text": "Contact customers to respond to inquiries or to notify them of claim investigation results or any planned adjustments."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "43-4051",
+          "title_evidence": "official_title"
+        }
+      },
+      "telemarketers": {
+        "name": "Telemarketers",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-9041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.87,
+            1.09,
+            1.24,
+            3.61,
+            5.36,
+            5.07
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9041.00#Tasks"
+              }
+            ],
+            "text": "Contact businesses or private individuals by telephone to solicit sales for goods or services, or to request donations for charitable causes."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9041.00#Tasks"
+              }
+            ],
+            "text": "Obtain customer information such as name, address, and payment method, and enter orders into computers."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9041.00#Tasks"
+              }
+            ],
+            "text": "Explain products or services and prices, and answer questions from customers."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9041.00#Tasks"
+              }
+            ],
+            "text": "Record names, addresses, purchases, and reactions of prospects contacted."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-9041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "41-9041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "telemarketers -> customer-service-representatives"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "43-4051.00",
+        "source_url": "https://www.onetonline.org/link/summary/43-4051.00",
+        "locator": "Tasks 18565, 2578, 2580, 2581",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Handles customer inquiries, records actions and follows up on unresolved concerns.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "41-9041.00",
+        "source_url": "https://www.onetonline.org/link/summary/41-9041.00",
+        "locator": "Tasks 4619, 4620, 4627, 4625, 4618",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Contacts prospects, explains terms, records contacts and orders, and may answer incoming calls from advertising leads.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 43-4051 and 41-9041",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 employment matrix",
+          "summary": "Median annual employee wages $44,770 and $35,450. Typical entry education high school diploma or equivalent and no formal educational credential respectively; short-term on-the-job training for both.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "ftc-entity-dnc",
+        "source_url": "https://www.ftc.gov/business-guidance/resources/complying-telemarketing-sales-rule",
+        "locator": "Do Not Call Provisions; Entity-Specific Do Not Call",
+        "value": {
+          "jurisdiction": "United States federal",
+          "effective_or_period": "FTC compliance guide",
+          "summary": "On calls subject to the rule, sellers and telemarketers must honor an entity-specific request; the telemarketer may not require the person to listen to a sales pitch first.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 270,
+      "source_slugs": [
+        "customer-service-representatives",
+        "telemarketers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2c6480bb04e7fe2dfab4c892def458daeb81dcad7cb5c2b61719c89e3f8b80df",
+  "inputs": {
+    "pair_id": "photonics-engineers-vs-photonics-technicians",
+    "slugs": [
+      "photonics-engineers",
+      "photonics-technicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/photonics-engineers-vs-photonics-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "photonics-engineers": {
+        "name": "光子学工程师",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.07",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.9,
+            5.88,
+            2.8,
+            1.39,
+            1.7,
+            3.96
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.07",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      },
+      "photonics-technicians": {
+        "name": "光子学技术员",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3029.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            4.18,
+            1.0,
+            1.0,
+            1.0,
+            5.46
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3029.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3029",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "photonics-engineers -> photonics-technicians",
+      "photonics-technicians -> photonics-engineers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "photonics-engineers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "photonics-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "eng",
+        "source_url": "https://www.onetonline.org/link/summary/17-2199.07",
+        "locator": "Tasks; Work Context; Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Engineers analyze requirements, develop optical products and test prototypes. Wage series is Engineers, All Other.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tech",
+        "source_url": "https://www.onetonline.org/link/summary/17-3029.08",
+        "locator": "Tasks; Work Context; Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Technicians record tests and maintain or calibrate equipment. Wage series is a residual technologist and technician group.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-eng",
+        "source_url": "https://ssc.just.edu.cn/2021/0612/c6431a290521/page.htm",
+        "locator": "专业介绍及主要实践性教学环节",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校专业介绍",
+          "summary": "江苏科技大学列有光学系统 CAD 与光电检测实验。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-tech",
+        "source_url": "https://www.cdp.edu.cn/ddxzgc/info/1029/3756.htm",
+        "locator": "智能光电技术应用专业介绍",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校专业介绍",
+          "summary": "成都职业技术学院介绍智能光电技术应用的职业培养。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cn-lab",
+        "source_url": "https://ctoi.usst.edu.cn/2010/1230/c2766a46942/page.htm",
+        "locator": "中心检测能力与设备",
+        "value": {
+          "jurisdiction": "中国大陆，上海",
+          "effective_or_period": "机构公开介绍",
+          "summary": "中心介绍列有 LED 光强分布和光谱特性测试系统。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 43,
+      "source_slugs": [
+        "photonics-engineers",
+        "photonics-technicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一光学原型，前者定义系统性能和设计方案，后者搭建测试、校准设备并记录结果。",
+    "seed_cn_qualification_lead": "双方有招聘样本，个人资格待核。"
+  }
+}

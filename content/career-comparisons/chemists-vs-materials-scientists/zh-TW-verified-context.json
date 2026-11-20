@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2caa2bf4e924be0843e7ca0f30e750439ac8a7a0c3e02a322c3209dbdd5dc4de",
+  "inputs": {
+    "pair_id": "chemists-vs-materials-scientists",
+    "slugs": [
+      "chemists",
+      "materials-scientists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/chemists-vs-materials-scientists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "chemists": {
+        "name": "化學家",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.67,
+            6.71,
+            1.52,
+            1.14,
+            1.6,
+            4.81
+          ]
+        },
+        "tasks": [
+          "分析與檢測｜按方法分析化合物並開展質量控制測試｜使用色譜與光譜或分光光度技術分析有機或無機化合物以確定其化學或物理性質與組成與結構或反應，並開展質量控制測試（對應 O*NET 任務重要度 77、73）。",
+          "方法開發與改進｜開發或改進產品與方法並改變物質組成｜開發與改進或定製產品與裝置與配方與流程或分析方法，通過引入熱與光與能量或化學催化劑改變物質組成以進行定量或定性分析（對應任務重要度 80、74）。",
+          "記錄與報告｜彙總分析結果並撰寫報告或標準規範｜撰寫技術論文或報告，或編制流程與設施與產品或測試的標準與規範，並彙總與分析測試資訊以確定工藝或裝置執行效率或診斷故障（對應任務重要度 73、71）。",
+          "儀器與準備｜維護儀器並準備溶液與試劑｜維護實驗室儀器以確保正常工作並在需要時排除故障，為實驗室人員準備測試溶液與化合物或試劑（對應任務重要度 73、73）。",
+          "協作與指導｜與科學家與工程師協作並指導測試程式｜與科學家或工程師協商以分析研究專案與解讀測試結果或開發非標準測試，並指導與協調或建議人員執行分析材料成分或物理性質的測試程式（對應任務重要度 70、65）。",
+          "安全與供應｜評估安全程式並管理試劑與耗材採購｜評估實驗室安全程式以確保符合標準或在需要時改進，並在庫存不足或接近有效期時採購化學品等實驗室用品（對應任務重要度 67、61）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-2031",
+          "title_evidence": "official_title"
+        }
+      },
+      "materials-scientists": {
+        "name": "材料科學研究人員",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-2032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.82,
+            6.59,
+            2.17,
+            1.39,
+            1.86,
+            4.15
+          ]
+        },
+        "tasks": [
+          "投入物件：應用與效能要求、材料體系與樣品、試驗與檢測裝置、建模與計算工具、文獻與標準、工藝與製造成本約束、安全與合規要求、客戶與資助方需求。",
+          "可檢查產出：研究假設與試驗方案、結構與效能資料、失效與機理分析、強化或複合方案、新材料或新用途建議、論文與報告、測試方法、面向不同環境的選材建議。",
+          "完整工作流程：界定應用與效能要求 → 查閱文獻並形成假設 → 規劃並開展試驗與建模 → 分析結構與效能資料 → 提出材料或工藝方案 → 驗證並撰寫成果的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-2032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-2032",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "chemists -> materials-scientists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "chemists": {
+        "file_sha256": "0f515ee11422504d8bd53ea6ce995eff7a56105630eab20e46d7204179775c9f",
+        "entries": [
+          "分析與檢測｜按方法分析化合物並開展質量控制測試｜使用色譜與光譜或分光光度技術分析有機或無機化合物以確定其化學或物理性質與組成與結構或反應，並開展質量控制測試（對應 O*NET 任務重要度 77、73）。",
+          "方法開發與改進｜開發或改進產品與方法並改變物質組成｜開發與改進或定製產品與裝置與配方與流程或分析方法，通過引入熱與光與能量或化學催化劑改變物質組成以進行定量或定性分析（對應任務重要度 80、74）。",
+          "記錄與報告｜彙總分析結果並撰寫報告或標準規範｜撰寫技術論文或報告，或編制流程與設施與產品或測試的標準與規範，並彙總與分析測試資訊以確定工藝或裝置執行效率或診斷故障（對應任務重要度 73、71）。",
+          "儀器與準備｜維護儀器並準備溶液與試劑｜維護實驗室儀器以確保正常工作並在需要時排除故障，為實驗室人員準備測試溶液與化合物或試劑（對應任務重要度 73、73）。",
+          "協作與指導｜與科學家與工程師協作並指導測試程式｜與科學家或工程師協商以分析研究專案與解讀測試結果或開發非標準測試，並指導與協調或建議人員執行分析材料成分或物理性質的測試程式（對應任務重要度 70、65）。",
+          "安全與供應｜評估安全程式並管理試劑與耗材採購｜評估實驗室安全程式以確保符合標準或在需要時改進，並在庫存不足或接近有效期時採購化學品等實驗室用品（對應任務重要度 67、61）。"
+        ]
+      },
+      "materials-scientists": {
+        "file_sha256": "cf72d929b6c7f7a4088d6f42cc20a3d8c302000e858addc62694234def22d0a5",
+        "entries": [
+          "投入物件：應用與效能要求、材料體系與樣品、試驗與檢測裝置、建模與計算工具、文獻與標準、工藝與製造成本約束、安全與合規要求、客戶與資助方需求。",
+          "可檢查產出：研究假設與試驗方案、結構與效能資料、失效與機理分析、強化或複合方案、新材料或新用途建議、論文與報告、測試方法、面向不同環境的選材建議。",
+          "完整工作流程：界定應用與效能要求 → 查閱文獻並形成假設 → 規劃並開展試驗與建模 → 分析結構與效能資料 → 提出材料或工藝方案 → 驗證並撰寫成果的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 145,
+      "source_slugs": [
+        "chemists",
+        "materials-scientists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "chemists": {
+          "field": "entries",
+          "source_path": "careers/chemists/zh-TW.json",
+          "file_sha256": "0f515ee11422504d8bd53ea6ce995eff7a56105630eab20e46d7204179775c9f",
+          "count": 6
+        },
+        "materials-scientists": {
+          "field": "entries",
+          "source_path": "careers/materials-scientists/zh-TW.json",
+          "file_sha256": "cf72d929b6c7f7a4088d6f42cc20a3d8c302000e858addc62694234def22d0a5",
+          "count": 3
+        }
+      }
+    }
+  }
+}

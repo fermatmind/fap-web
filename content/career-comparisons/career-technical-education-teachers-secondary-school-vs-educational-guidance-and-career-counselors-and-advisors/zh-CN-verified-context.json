@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cb9decc1a4f012a00cfbdac6029be20f8abcfdd5f8ecc36cf0054271320929fa",
+  "inputs": {
+    "pair_id": "career-technical-education-teachers-secondary-school-vs-educational-guidance-and-career-counselors-and-advisors",
+    "slugs": [
+      "career-technical-education-teachers-secondary-school",
+      "educational-guidance-and-career-counselors-and-advisors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/career-technical-education-teachers-secondary-school-vs-educational-guidance-and-career-counselors-and-advisors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "career-technical-education-teachers-secondary-school": {
+        "name": "高中职业技术教育教师",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.86,
+            3.38,
+            3.46,
+            7.0,
+            2.52,
+            3.92
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-2032",
+          "title_evidence": "official_title"
+        }
+      },
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "name": "教育指导与职业顾问",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.3,
+            3.13,
+            7.0,
+            3.92,
+            4.09
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "career-technical-education-teachers-secondary-school -> educational-guidance-and-career-counselors-and-advisors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：高中职业技术教师组织专业课程、示范和项目实践，监督学生使用设备，并记录技能进展；后岗：是学校与院校与机构的指导与咨询岗位：为学生与求职者提供学业与职业与升学与就业指导与咨询与测评与规划。",
+    "cn_qualification": {
+      "career-technical-education-teachers-secondary-school": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/199512/t19951212_780558.html"
+        ]
+      },
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "25-2032.00",
+        "source_url": "https://www.onetonline.org/link/summary/25-2032.00",
+        "locator": "Tasks 6673, 6675, 6681",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Teaches occupational skills to secondary students, observes performance and gives feedback.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "21-1012.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1012.00",
+        "locator": "Tasks 5606, 18627, 5631",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Advises on course selection and career plans and reviews relevant student records.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-teacher",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1443",
+        "locator": "教师资格条例第2、4、5条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "学校教师资格按实际任教学段和任教类别核认定，实习指导教师使用范围有限。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 120,
+      "source_slugs": [
+        "career-technical-education-teachers-secondary-school",
+        "educational-guidance-and-career-counselors-and-advisors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

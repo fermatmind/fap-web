@@ -1,0 +1,193 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "81b0041652799f86e016d588c2e7035def64644d463b293372f89e8f2cf4ee74",
+  "inputs": {
+    "pair_id": "paralegals-and-legal-assistants-vs-private-detectives-and-investigators",
+    "slugs": [
+      "paralegals-and-legal-assistants",
+      "private-detectives-and-investigators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/paralegals-and-legal-assistants-vs-private-detectives-and-investigators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "paralegals-and-legal-assistants": {
+        "name": "律師助理與法律助理",
+        "riasec": {
+          "code": "CIE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "23-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.74,
+            5.04,
+            2.24,
+            3.12,
+            3.92,
+            5.28
+          ]
+        },
+        "tasks": [
+          "核任務範圍、律師指示和案件期限。",
+          "整理案卷、事即時間線及證據來源。",
+          "檢索法規、判例和公開記錄並註明版本。",
+          "起草函件、訴狀或合同等供律師複核。",
+          "與律師、法院或客戶協調已授權的資訊。",
+          "檢查引注、事實、附件與提交格式。",
+          "保留修改記錄並按律師確認交付。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "23-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "23-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "private-detectives-and-investigators": {
+        "name": "私家偵探與調查員",
+        "riasec": {
+          "code": "CEI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "33-9021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.39,
+            3.9,
+            1.42,
+            2.87,
+            4.07,
+            5.45
+          ]
+        },
+        "tasks": [
+          "受理委託｜核客戶、目的、問題和允許的資料範圍｜目的含糊先暫停。",
+          "制定計劃｜列可合法獲取的記錄、訪談物件和時間線｜特殊方法先核法域與授權。",
+          "資料檢索｜在授權範圍查公開記錄或客戶提供資料｜逐項記來源、日期和版本。",
+          "訪談核實｜徵得適當同意並記錄陳述與條件｜不誘導、不把說法直接當事實。",
+          "交叉驗證｜比對時間、地點和檔案之間的一致與衝突｜矛盾項保留待核狀態。",
+          "報告交付｜分列已核事實、來源、限制和仍未知事項｜按約定許可權與期限儲存或刪除。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "33-9021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "33-9021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "private-detectives-and-investigators -> paralegals-and-legal-assistants"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "paralegals-and-legal-assistants": {
+        "file_sha256": "c1c922340973988c7819ad25d1235ad1cc7367a22a4d4a6018e686e18f9c49ab",
+        "entries": [
+          "核任務範圍、律師指示和案件期限。",
+          "整理案卷、事即時間線及證據來源。",
+          "檢索法規、判例和公開記錄並註明版本。",
+          "起草函件、訴狀或合同等供律師複核。",
+          "與律師、法院或客戶協調已授權的資訊。",
+          "檢查引注、事實、附件與提交格式。",
+          "保留修改記錄並按律師確認交付。"
+        ]
+      },
+      "private-detectives-and-investigators": {
+        "file_sha256": "0af76319a6776f1dd17cba02a1c138940605441b4d588fa5be5e2d1335270819",
+        "entries": [
+          "受理委託｜核客戶、目的、問題和允許的資料範圍｜目的含糊先暫停。",
+          "制定計劃｜列可合法獲取的記錄、訪談物件和時間線｜特殊方法先核法域與授權。",
+          "資料檢索｜在授權範圍查公開記錄或客戶提供資料｜逐項記來源、日期和版本。",
+          "訪談核實｜徵得適當同意並記錄陳述與條件｜不誘導、不把說法直接當事實。",
+          "交叉驗證｜比對時間、地點和檔案之間的一致與衝突｜矛盾項保留待核狀態。",
+          "報告交付｜分列已核事實、來源、限制和仍未知事項｜按約定許可權與期限儲存或刪除。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 557,
+      "source_slugs": [
+        "paralegals-and-legal-assistants",
+        "private-detectives-and-investigators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "paralegals-and-legal-assistants": {
+          "field": "entries",
+          "source_path": "careers/paralegals-and-legal-assistants/zh-TW.json",
+          "file_sha256": "c1c922340973988c7819ad25d1235ad1cc7367a22a4d4a6018e686e18f9c49ab",
+          "count": 7
+        },
+        "private-detectives-and-investigators": {
+          "field": "entries",
+          "source_path": "careers/private-detectives-and-investigators/zh-TW.json",
+          "file_sha256": "0af76319a6776f1dd17cba02a1c138940605441b4d588fa5be5e2d1335270819",
+          "count": 6
+        }
+      }
+    }
+  }
+}

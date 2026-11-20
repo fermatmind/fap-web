@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "39fffc78c217a00c7e51696bf0a2496bb5f44aed286dadac078dd2b4ed1e8dc4",
+  "inputs": {
+    "pair_id": "mental-health-counselors-vs-psychiatrists",
+    "slugs": [
+      "mental-health-counselors",
+      "psychiatrists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/mental-health-counselors-vs-psychiatrists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "mental-health-counselors": {
+        "name": "Mental health counselor",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1014.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.31,
+            4.42,
+            3.06,
+            6.79,
+            2.96,
+            3.43
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Maintain confidentiality of records relating to clients' treatment."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Encourage clients to express their feelings and discuss what is happening in their lives, helping them to develop insight into themselves or their relationships."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Counsel clients or patients, individually or in group sessions, to assist in overcoming dependencies, adjusting to life, or making changes."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Perform crisis interventions to help ensure the safety of the patients and others."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1014.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1014",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "psychiatrists": {
+        "name": "Psychiatrists",
+        "riasec": {
+          "code": "IS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1223.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.3,
+            6.59,
+            2.65,
+            5.83,
+            1.95,
+            3.6
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1223.00#Tasks"
+              }
+            ],
+            "text": "Prescribe, direct, or administer psychotherapeutic treatments or medications to treat mental, emotional, or behavioral disorders."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1223.00#Tasks"
+              }
+            ],
+            "text": "Gather and maintain patient information and records, including social or medical history obtained from patients, relatives, or other professionals."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1223.00#Tasks"
+              }
+            ],
+            "text": "Collaborate with physicians, psychologists, social workers, psychiatric nurses, or other professionals to discuss treatment plans and progress."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1223.00#Tasks"
+              }
+            ],
+            "text": "Counsel outpatients or other patients during office visits."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1223.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1223",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "psychiatrists -> mental-health-counselors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "21-1014.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1014.00",
+        "locator": "Tasks 1592, 1593, 1598, 18484",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Explores concerns, supports coping and tracks counseling goals.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "29-1223.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-1223.00",
+        "locator": "Tasks 1827, 1828, 1829, 1830",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Assesses medical history, diagnoses mental disorders, and may prescribe medication.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-mh",
+        "source_url": "https://www.bls.gov/ooh/community-and-social-service/substance-abuse-behavioral-disorder-and-mental-health-counselors.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Typical master's degree and internship; all states require mental health counselor licensure.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-md",
+        "source_url": "https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Medical degree, specialty residency, and state physician license.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "apa-psychiatry",
+        "source_url": "https://www.psychiatry.org/patients-families/what-is-psychiatry/",
+        "locator": "What is Psychiatry?; Training",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "American Psychiatric Association",
+          "summary": "Psychiatrists are physicians trained in psychiatry and may use psychotherapy and medication.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 518,
+      "source_slugs": [
+        "mental-health-counselors",
+        "psychiatrists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

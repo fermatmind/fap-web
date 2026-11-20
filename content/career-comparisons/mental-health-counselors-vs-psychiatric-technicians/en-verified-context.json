@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ddbe5e71a1702372d8edbddb5a9baef460c95de37118ffd19928aabaf684a352",
+  "inputs": {
+    "pair_id": "mental-health-counselors-vs-psychiatric-technicians",
+    "slugs": [
+      "mental-health-counselors",
+      "psychiatric-technicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/mental-health-counselors-vs-psychiatric-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "mental-health-counselors": {
+        "name": "Mental health counselor",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1014.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.31,
+            4.42,
+            3.06,
+            6.79,
+            2.96,
+            3.43
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Maintain confidentiality of records relating to clients' treatment."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Encourage clients to express their feelings and discuss what is happening in their lives, helping them to develop insight into themselves or their relationships."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Counsel clients or patients, individually or in group sessions, to assist in overcoming dependencies, adjusting to life, or making changes."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1014.00#Tasks"
+              }
+            ],
+            "text": "Perform crisis interventions to help ensure the safety of the patients and others."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1014.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1014",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "psychiatric-technicians": {
+        "name": "Psychiatric Technicians",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2053.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.29,
+            4.57,
+            2.12,
+            6.93,
+            1.46,
+            3.46
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2053.00#Tasks"
+              }
+            ],
+            "text": "Provide nursing, psychiatric, or personal care to patients with cognitive, intellectual, or developmental disabilities."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2053.00#Tasks"
+              }
+            ],
+            "text": "Encourage patients to develop work skills and to participate in social, recreational, or other therapeutic activities that enhance interpersonal skills or develop social relationships."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2053.00#Tasks"
+              }
+            ],
+            "text": "Restrain violent, potentially violent, or suicidal patients by verbal or physical means as required."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2053.00#Tasks"
+              }
+            ],
+            "text": "Lead prescribed individual or group therapy sessions as part of specific therapeutic procedures."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2053.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-2053",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "psychiatric-technicians -> mental-health-counselors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "21-1014.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1014.00",
+        "locator": "Tasks 1592, 1593, 1598, 18484",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Explores concerns, develops coping strategies and maintains treatment and progress records.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "29-2053.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-2053.00",
+        "locator": "Tasks 6944, 6947, 6948, 6949",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Observes and reports changes, records vital signs, supports participation and assists the clinical team.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-mh",
+        "source_url": "https://www.bls.gov/ooh/community-and-social-service/substance-abuse-behavioral-disorder-and-mental-health-counselors.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Typical master's degree and internship; state licensure with supervised clinical work and an exam.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-pt",
+        "source_url": "https://www.bls.gov/ooh/healthcare/psychiatric-technicians-and-aides.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Psychiatric technicians typically need a postsecondary certificate and employer training; some states require licensure.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 517,
+      "source_slugs": [
+        "mental-health-counselors",
+        "psychiatric-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

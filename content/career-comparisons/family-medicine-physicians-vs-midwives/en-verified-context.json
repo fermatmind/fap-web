@@ -1,0 +1,335 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8b5e40499182afa969c1fe8a8d8d622678b3033095f470d8fa3f8710d9be07fe",
+  "inputs": {
+    "pair_id": "family-medicine-physicians-vs-midwives",
+    "slugs": [
+      "family-medicine-physicians",
+      "midwives"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/family-medicine-physicians-vs-midwives",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "family-medicine-physicians": {
+        "name": "Family Medicine Physicians",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1215.00#Tasks"
+              }
+            ],
+            "text": "Prescribe or administer treatment, therapy, medication, vaccination, and other specialized medical care to treat or prevent illness, disease, or injury."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1215.00#Tasks"
+              }
+            ],
+            "text": "Order, perform, and interpret tests and analyze records, reports, and examination information to diagnose patients' condition."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1215.00#Tasks"
+              }
+            ],
+            "text": "Collect, record, and maintain patient information, such as medical history, reports, or examination results."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1215.00#Tasks"
+              }
+            ],
+            "text": "Monitor patients' conditions and progress and reevaluate treatments as necessary."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      },
+      "midwives": {
+        "name": "Midwives",
+        "riasec": {
+          "code": "SR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-9099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.98,
+            3.54,
+            1.91,
+            6.04,
+            2.7,
+            3.26
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-9099.01#Tasks"
+              }
+            ],
+            "text": "Monitor maternal condition during labor by checking vital signs, monitoring uterine contractions, or performing physical examinations."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-9099.01#Tasks"
+              }
+            ],
+            "text": "Identify tubal and ectopic pregnancies and refer patients for treatments."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-9099.01#Tasks"
+              }
+            ],
+            "text": "Provide necessary medical care for infants at birth, including emergency care such as resuscitation."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-9099.01#Tasks"
+              }
+            ],
+            "text": "Conduct ongoing prenatal health assessments, tracking changes in physical and emotional health."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-9099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-9099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "midwives -> family-medicine-physicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "family",
+        "source_url": "https://www.onetonline.org/link/summary/29-1215.00",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Family physicians provide diagnosis, treatment and preventive care across the lifespan and can refer to specialists.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "midwife",
+        "source_url": "https://www.onetonline.org/link/details/29-9099.01",
+        "locator": "Overview and Tasks, 29-9099.01",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "Midwives may assess patients before and after birth, monitor during labor and refer or seek assistance as needed.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "medical-training",
+        "source_url": "https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm",
+        "locator": "How to Become a Physician or Surgeon: education, training and licensure",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current handbook",
+          "summary": "Physicians normally attend medical school and train in residency. Licensing requirements vary by state.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cpm-routes",
+        "source_url": "https://narm.org/certification-recertification/cpm-application/",
+        "locator": "Portfolio Evaluation Process and MEAC Routes of Entry",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current NARM requirements",
+          "summary": "NARM lists accredited education and a supervised portfolio evaluation among CPM application routes.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "state-license",
+        "source_url": "https://info.narm.org/article/27-meac-accredited-program-pathway-requirements-and-eligibility-for-the-pathway",
+        "locator": "MEAC-accredited program pathway requirements",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current NARM requirements",
+          "summary": "NARM determines CPM certification eligibility. State licensure eligibility is a separate question.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "nurse-midwife",
+        "source_url": "https://www.onetonline.org/link/summary/29-1161.00",
+        "locator": "Overview, 29-1161.00",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026",
+          "summary": "O*NET lists Nurse Midwives separately and includes Certified Nurse-Midwife as a reported title.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "california",
+        "source_url": "https://www.mbc.ca.gov/Licensing/Licensed-Midwives/Practice-Information/",
+        "locator": "Normal Pregnancy / Required Referrals / Transfer of Care",
+        "value": {
+          "jurisdiction": "California, United States",
+          "effective_or_period": "Current board guidance",
+          "summary": "The state board describes required referrals or transfers for licensed midwives and handoff obligations for hospital transfer.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "meac-transition",
+        "source_url": "https://info.narm.org/article/88-meac-transition-public-faq",
+        "locator": "Questions 4–8",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2026-10-01 through 2028-03-31",
+          "summary": "NARM outlines provisional eligibility and clinical verification for MEAC students already in the process.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 426,
+      "source_slugs": [
+        "family-medicine-physicians",
+        "midwives"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "04267b966e7b99a72ba706bfc211eaafebee8628b6b74b6b5926774145537b25",
+  "inputs": {
+    "pair_id": "power-distributors-and-dispatchers-vs-power-plant-operators",
+    "slugs": [
+      "power-distributors-and-dispatchers",
+      "power-plant-operators"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/power-distributors-and-dispatchers-vs-power-plant-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "power-distributors-and-dispatchers": {
+        "name": "电力调度员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.2,
+            2.43,
+            1.0,
+            1.98,
+            3.09,
+            5.11
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-8012",
+          "title_evidence": "official_title"
+        }
+      },
+      "power-plant-operators": {
+        "name": "发电厂操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.84,
+            2.84,
+            1.0,
+            1.25,
+            1.94,
+            5.11
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-8013",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "power-distributors-and-dispatchers -> power-plant-operators",
+      "power-plant-operators -> power-distributors-and-dispatchers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "power-distributors-and-dispatchers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "power-plant-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "dispatch",
+        "source_url": "https://www.onetonline.org/link/summary/51-8012.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Coordinates and monitors power flows and schedules at a system desk.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "plant",
+        "source_url": "https://www.onetonline.org/link/summary/51-8013.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Operates and monitors equipment that generates electricity.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "agreement",
+        "source_url": "https://htsfwb.samr.gov.cn/View?id=eb197824-bb5b-4518-851e-c2efed2a1372",
+        "locator": "并网调度协议示范文本第8章，尤其8.5",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2021版示范文本",
+          "summary": "描述调度机构发计划和指令、电厂执行和安排生产。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "rule",
+        "source_url": "https://xzfg.moj.gov.cn/law/download?LawID=378&t=1691435515095&type=pdf",
+        "locator": "电网调度管理条例第九、十一条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2011修订",
+          "summary": "调度系统包括各级调度机构和电网内发电厂、变电站的运行值班单位；调度系统值班人员上岗前须经培训、考核并取得合格证。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "grid-study",
+        "source_url": "https://ee.ncepu.edu.cn/bksjy/bksjyzyjs/9467e4131e7648ea9e8a2c173f71fdcb.htm",
+        "locator": "电气工程及其自动化课程",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校资料",
+          "summary": "有电力系统分析与继电保护。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "plant-study",
+        "source_url": "https://energy.csu.edu.cn/info/1149/3948.htm",
+        "locator": "能源与动力工程专业核心课程",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "院校资料",
+          "summary": "有工程热力学与能源动力测试等。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 45,
+      "source_slugs": [
+        "power-distributors-and-dispatchers",
+        "power-plant-operators"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一次负荷变化，前者协调电网供需和调度指令，后者按运行要求监控并调整厂内发电设备。",
+    "seed_cn_qualification_lead": "国内岗位资格待核。"
+  }
+}

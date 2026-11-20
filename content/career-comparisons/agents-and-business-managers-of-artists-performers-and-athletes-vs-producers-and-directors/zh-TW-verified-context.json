@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "44687bd1cfb3c92c3dcf8c5baced3b983d477b5bb6ed366430a30b53404c3858",
+  "inputs": {
+    "pair_id": "agents-and-business-managers-of-artists-performers-and-athletes-vs-producers-and-directors",
+    "slugs": [
+      "agents-and-business-managers-of-artists-performers-and-athletes",
+      "producers-and-directors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/agents-and-business-managers-of-artists-performers-and-athletes-vs-producers-and-directors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "agents-and-business-managers-of-artists-performers-and-athletes": {
+        "name": "藝術家、演藝人員與運動員經紀及業務經理",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            1.76,
+            3.55,
+            4.14,
+            6.48,
+            3.73
+          ]
+        },
+        "tasks": [
+          "客戶｜客戶開發與維護｜主動發掘並維護客戶關係，記錄行業、品類與合作歷史。",
+          "機會｜機會篩選與評估｜篩選演出、賽事與商務合作機會，核對檔期與匹配度。",
+          "談判｜報價與合同談判｜在授權範圍內洽談報酬與分成，形成可核對的合同要點。",
+          "行程｜行程與排期協調｜協調演出、賽事與宣傳行程，處理檔期衝突。",
+          "合規｜合規與檔案管理｜核對合規與保密要求，維護合同、報價與檔案版本。",
+          "結算｜結算與關係跟進｜跟進付款與結算，處理異常並維護長期客戶關係。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1011",
+          "title_evidence": "official_title"
+        }
+      },
+      "producers-and-directors": {
+        "name": "製片人與導演",
+        "riasec": {
+          "code": "AE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.13,
+            2.24,
+            6.14,
+            3.12,
+            5.78,
+            3.56
+          ]
+        },
+        "tasks": [
+          "專案開發｜讀劇本或節目目標，確定受眾、型別與交付格式｜標未定的創作與商業假設。",
+          "製作籌備｜列預算、檔期、場地、人員和權利需求｜批准前不對外承諾。",
+          "創作設計｜導演定鏡頭、表演和聲音方向；製片核資源可行性｜變更留版本。",
+          "現場執行｜協調演員、攝影、燈光、錄音和安全人員｜高風險場景按專業方案執行。",
+          "素材複核｜核畫面、聲音、連續性、授權與缺項｜記錄補拍或修改決定。",
+          "交付發行｜核成片版本、合同使用範圍和交付渠道｜保留批准與素材清單。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-2012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "agents-and-business-managers-of-artists-performers-and-athletes -> producers-and-directors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "agents-and-business-managers-of-artists-performers-and-athletes": {
+        "file_sha256": "417dcbe4705968ee3f22a0316545a99e4d246bb75324b850cd1bb4b4c11deb58",
+        "entries": [
+          "客戶｜客戶開發與維護｜主動發掘並維護客戶關係，記錄行業、品類與合作歷史。",
+          "機會｜機會篩選與評估｜篩選演出、賽事與商務合作機會，核對檔期與匹配度。",
+          "談判｜報價與合同談判｜在授權範圍內洽談報酬與分成，形成可核對的合同要點。",
+          "行程｜行程與排期協調｜協調演出、賽事與宣傳行程，處理檔期衝突。",
+          "合規｜合規與檔案管理｜核對合規與保密要求，維護合同、報價與檔案版本。",
+          "結算｜結算與關係跟進｜跟進付款與結算，處理異常並維護長期客戶關係。"
+        ]
+      },
+      "producers-and-directors": {
+        "file_sha256": "311b821ffe53ad050b543bfebe04b787ef3e2b348f952ecf50179f56a58ef177",
+        "entries": [
+          "專案開發｜讀劇本或節目目標，確定受眾、型別與交付格式｜標未定的創作與商業假設。",
+          "製作籌備｜列預算、檔期、場地、人員和權利需求｜批准前不對外承諾。",
+          "創作設計｜導演定鏡頭、表演和聲音方向；製片核資源可行性｜變更留版本。",
+          "現場執行｜協調演員、攝影、燈光、錄音和安全人員｜高風險場景按專業方案執行。",
+          "素材複核｜核畫面、聲音、連續性、授權與缺項｜記錄補拍或修改決定。",
+          "交付發行｜核成片版本、合同使用範圍和交付渠道｜保留批准與素材清單。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 34,
+      "source_slugs": [
+        "agents-and-business-managers-of-artists-performers-and-athletes",
+        "producers-and-directors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "agents-and-business-managers-of-artists-performers-and-athletes": {
+          "field": "entries",
+          "source_path": "careers/agents-and-business-managers-of-artists-performers-and-athletes/zh-TW.json",
+          "file_sha256": "417dcbe4705968ee3f22a0316545a99e4d246bb75324b850cd1bb4b4c11deb58",
+          "count": 6
+        },
+        "producers-and-directors": {
+          "field": "entries",
+          "source_path": "careers/producers-and-directors/zh-TW.json",
+          "file_sha256": "311b821ffe53ad050b543bfebe04b787ef3e2b348f952ecf50179f56a58ef177",
+          "count": 6
+        }
+      }
+    }
+  }
+}

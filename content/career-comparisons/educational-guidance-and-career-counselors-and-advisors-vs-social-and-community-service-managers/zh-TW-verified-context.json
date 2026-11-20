@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8f62bc7a840974bbf2451c9af090425d7bb3d91b85006bc4bddef9731c7406a6",
+  "inputs": {
+    "pair_id": "educational-guidance-and-career-counselors-and-advisors-vs-social-and-community-service-managers",
+    "slugs": [
+      "educational-guidance-and-career-counselors-and-advisors",
+      "social-and-community-service-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/educational-guidance-and-career-counselors-and-advisors-vs-social-and-community-service-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "name": "教育指導與職業顧問",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            3.3,
+            3.13,
+            7.0,
+            3.92,
+            4.09
+          ]
+        },
+        "tasks": [
+          "常見輸入：來訪者能力與興趣與需求與背景、學業與升學與就業與資助資訊、諮詢與測評方法與專業倫理、學校與機構與僱主與家庭的資源與制度資訊，以及約談與講座與專案與危機與轉介安排。",
+          "核心產出：按需求與倫理實施的個人與團體諮詢與生涯規劃、按資料形成的測評解讀與指導方案、按制度完成的約談與跟進與記錄與保密與轉介記錄、按專案完成的講座與活動與評估材料，以及可複核的服務與效果記錄。",
+          "典型流程：評估與諮詢與規劃—協作與記錄與轉介—專案與倡導與專業發展。",
+          "常協作物件：來訪者與家長與教師與輔導員與班主任、院校招生與就業與資助部門、僱主與培訓機構與社工與醫療與心理諮詢人員、督導與行業協會與主管部門、社群與公益與志願資源。",
+          "常見工具與物件：需求評估與諮詢與面談與記錄與預約系統、興趣與能力與人格與生涯測評工具與解讀資料、升學與就業與資助與院校與僱主資訊庫、專案與講座與活動與效果評估工具、保密與知情同意與轉介與危機處置流程與文書。",
+          "責任邊界：本職業承擔按來訪者利益與專業倫理與資料提供諮詢與指導與記錄並對保密與轉介與來訪者安全的執行責任；須按需求與倫理與資料確定諮詢與測評目標、須按諮詢理論與測評工具與倫理實施與解釋、須按專業倫理與制度記錄與保密與跟進、須按最新資訊核對升學與就業資訊、須按制度協作與轉介、須按資料許可權與隱私使用來訪者資訊、不得超出授權對外出具醫療或心理或法律或錄用結論，異常事項按制度上報與轉介。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1012",
+          "title_evidence": "official_title"
+        }
+      },
+      "social-and-community-service-managers": {
+        "name": "社會與社群服務經理",
+        "riasec": {
+          "code": "ESC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9151.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.17,
+            2.43,
+            5.43,
+            6.97,
+            4.21
+          ]
+        },
+        "tasks": [
+          "需求與目標｜核社群服務需求、已有資源和專案物件。｜不能把報名人數當需求已經滿足。",
+          "專案與預算｜制定目標、進度、預算及參與者政策。｜審批權依董事會、主管或合同，不憑職位名籤支出。",
+          "團隊與志願者｜招募、培訓、排班並評價服務人員。｜管理職責與社工、諮詢或醫療專業資格分開。",
+          "質量與評估｜核服務記錄、覆蓋、投訴及資源使用。｜參加人次不是去重人數，更不等於長期成效。",
+          "夥伴與轉介｜協調社群機構、資助方和服務銜接。｜轉介建議不證明對方已接收或服務完成。",
+          "報告與改進｜維護預算、人員和專案報告並處理異常。｜未知資料和隱私限制保留，不為爭取資金補造成果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9151.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9151",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "educational-guidance-and-career-counselors-and-advisors -> social-and-community-service-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "educational-guidance-and-career-counselors-and-advisors": {
+        "file_sha256": "fea0daa4d440131bc70cbb0c4763d1db6bfa02a633eb18560688fd265617ad46",
+        "entries": []
+      },
+      "social-and-community-service-managers": {
+        "file_sha256": "0963f951fe92b367271be99d7b0586add888ba0073437d94e339948f5033497f",
+        "entries": [
+          "需求與目標｜核社群服務需求、已有資源和專案物件。｜不能把報名人數當需求已經滿足。",
+          "專案與預算｜制定目標、進度、預算及參與者政策。｜審批權依董事會、主管或合同，不憑職位名籤支出。",
+          "團隊與志願者｜招募、培訓、排班並評價服務人員。｜管理職責與社工、諮詢或醫療專業資格分開。",
+          "質量與評估｜核服務記錄、覆蓋、投訴及資源使用。｜參加人次不是去重人數，更不等於長期成效。",
+          "夥伴與轉介｜協調社群機構、資助方和服務銜接。｜轉介建議不證明對方已接收或服務完成。",
+          "報告與改進｜維護預算、人員和專案報告並處理異常。｜未知資料和隱私限制保留，不為爭取資金補造成果。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 331,
+      "source_slugs": [
+        "educational-guidance-and-career-counselors-and-advisors",
+        "social-and-community-service-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "educational-guidance-and-career-counselors-and-advisors": {
+          "field": "paragraphs",
+          "source_path": "careers/educational-guidance-and-career-counselors-and-advisors/zh-TW.json",
+          "file_sha256": "fea0daa4d440131bc70cbb0c4763d1db6bfa02a633eb18560688fd265617ad46",
+          "count": 6
+        },
+        "social-and-community-service-managers": {
+          "field": "entries",
+          "source_path": "careers/social-and-community-service-managers/zh-TW.json",
+          "file_sha256": "0963f951fe92b367271be99d7b0586add888ba0073437d94e339948f5033497f",
+          "count": 6
+        }
+      }
+    }
+  }
+}

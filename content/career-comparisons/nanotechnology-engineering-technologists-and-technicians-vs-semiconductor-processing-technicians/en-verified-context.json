@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ae838271461dd31aa290780071dfd9dca65b8292ab9646e94ddd4b8e96224157",
+  "inputs": {
+    "pair_id": "nanotechnology-engineering-technologists-and-technicians-vs-semiconductor-processing-technicians",
+    "slugs": [
+      "nanotechnology-engineering-technologists-and-technicians",
+      "semiconductor-processing-technicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/nanotechnology-engineering-technologists-and-technicians-vs-semiconductor-processing-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "name": "Nanotechnology engineering technologists and technicians",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3026.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.16,
+            4.98,
+            1.55,
+            1.05,
+            2.01,
+            4.83
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3026.01#Tasks"
+              }
+            ],
+            "text": "Produce images or measurements, using tools or techniques such as atomic force microscopy, scanning electron microscopy, optical microscopy, particle size analysis, or zeta potential analysis."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3026.01#Tasks"
+              }
+            ],
+            "text": "Maintain accurate record or batch-record documentation of nanoproduction."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3026.01#Tasks"
+              }
+            ],
+            "text": "Calibrate nanotechnology equipment, such as weighing, testing, or production equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-3026.01#Tasks"
+              }
+            ],
+            "text": "Maintain work area according to cleanroom or other processing standards."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3026.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3026",
+          "title_evidence": "official_title"
+        }
+      },
+      "semiconductor-processing-technicians": {
+        "name": "Semiconductor Processing Technicians",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9141.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.4,
+            3.07,
+            1.0,
+            1.11,
+            1.46,
+            5.15
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9141.00#Tasks"
+              }
+            ],
+            "text": "Inspect materials, components, or products for surface defects and measure circuitry, using electronic test equipment, precision measuring instruments, microscope, and standard procedures."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9141.00#Tasks"
+              }
+            ],
+            "text": "Study work orders, instructions, formulas, and processing charts to determine specifications and sequence of operations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9141.00#Tasks"
+              }
+            ],
+            "text": "Clean semiconductor wafers using cleaning equipment, such as chemical baths, automatic wafer cleaners, or blow-off wands."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9141.00#Tasks"
+              }
+            ],
+            "text": "Maintain processing, production, and inspection information and reports."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9141.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-9141",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "nanotechnology-engineering-technologists-and-technicians -> semiconductor-processing-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "17-3026.01",
+        "source_url": "https://www.onetonline.org/link/summary/17-3026.01",
+        "locator": "Tasks 22047, 22063, 22053",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Measures samples, maintains batch records and calibrates equipment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "51-9141.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-9141.00",
+        "locator": "Tasks 12575, 12577, 12574",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Follows semiconductor process orders, inspects materials and records lot results.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "onet-17-3026.01",
+        "source_url": "https://www.onetonline.org/link/localwages/17-3026.01",
+        "locator": "National wages occupational mapping",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "Wage data come from Industrial Engineering Technologists and Technicians.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 row 51-9141",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025–35 projections",
+          "summary": "High school diploma or equivalent and moderate-term on-the-job training are typical for semiconductor processing technicians.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 528,
+      "source_slugs": [
+        "nanotechnology-engineering-technologists-and-technicians",
+        "semiconductor-processing-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

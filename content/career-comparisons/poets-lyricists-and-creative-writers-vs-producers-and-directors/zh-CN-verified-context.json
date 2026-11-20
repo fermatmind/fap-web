@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0621f2cb674594689f70af8652689ce92d5a3a52d437af68ccfc6a0df37602f9",
+  "inputs": {
+    "pair_id": "poets-lyricists-and-creative-writers-vs-producers-and-directors",
+    "slugs": [
+      "poets-lyricists-and-creative-writers",
+      "producers-and-directors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/poets-lyricists-and-creative-writers-vs-producers-and-directors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "poets-lyricists-and-creative-writers": {
+        "name": "诗人、作词人与创意写作者",
+        "riasec": {
+          "code": "AI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-3043.05",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.17,
+            3.58,
+            7.0,
+            2.83,
+            3.17,
+            2.88
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-3043.05",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-3043",
+          "title_evidence": "official_title"
+        }
+      },
+      "producers-and-directors": {
+        "name": "制片人与导演",
+        "riasec": {
+          "code": "AE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.13,
+            2.24,
+            6.14,
+            3.12,
+            5.78,
+            3.56
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "27-2012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "poets-lyricists-and-creative-writers -> producers-and-directors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：诗人、歌词作者和创意写作者把主题发展成诗歌、歌词或其他文本，并通过改稿调整节奏、视角和措辞；后岗：制片与导演岗位协调内容目标、创意取舍、团队与制作资源，分工随项目而异。",
+    "cn_qualification": {
+      "poets-lyricists-and-creative-writers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "producers-and-directors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "27-3043.05",
+        "source_url": "https://www.onetonline.org/link/summary/27-3043.05",
+        "locator": "Tasks 11046, 11047, 11053, 11048",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Chooses a form, organizes material and revises writing with collaborators.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "27-2012.00",
+        "source_url": "https://www.onetonline.org/link/summary/27-2012.00",
+        "locator": "Tasks 22515, 22516, 22523",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans scenes, directs performers and reviews rehearsals.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 590,
+      "source_slugs": [
+        "poets-lyricists-and-creative-writers",
+        "producers-and-directors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

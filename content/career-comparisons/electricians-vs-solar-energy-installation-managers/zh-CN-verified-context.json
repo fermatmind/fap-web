@@ -1,0 +1,199 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "649b44a321483ade08a357669a71b67a189e813335c34c886106f4414f31d1f7",
+  "inputs": {
+    "pair_id": "electricians-vs-solar-energy-installation-managers",
+    "slugs": [
+      "electricians",
+      "solar-energy-installation-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/electricians-vs-solar-energy-installation-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "electricians": {
+        "name": "电工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2111.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.7,
+            1.24,
+            1.32,
+            1.81,
+            4.09
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2111.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "47-2111",
+          "title_evidence": "official_title"
+        }
+      },
+      "solar-energy-installation-managers": {
+        "name": "太阳能安装经理",
+        "riasec": {
+          "code": "REC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-1011.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.86,
+            2.65,
+            1.27,
+            1.74,
+            4.85,
+            4.19
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-1011.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-1011",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "solar-energy-installation-managers -> electricians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：绘制草图或参照图纸确定布线或设备的位置，并确保符合建筑和安全规范；后岗：组织住宅或商业项目的光伏、光热安装班组，估算人员与材料，安排施工和检查，协调技术问题、安全要求及交付记录。",
+    "cn_qualification": {
+      "electricians": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202605/W020260526532904903760.pdf"
+        ]
+      },
+      "solar-energy-installation-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "47-2111.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-2111.00",
+        "locator": "Tasks 2882, 2873",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Reads drawings and installs, tests or maintains electrical equipment and wiring.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "47-1011.03",
+        "source_url": "https://www.onetonline.org/link/summary/47-1011.03",
+        "locator": "Tasks 17725, 17726, 17729, 17738",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Coordinates solar installation, supervises staff and schedules inspections.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "《特种作业目录》",
+        "source_url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202605/W020260526532904903760.pdf",
+        "locator": "第一部分 1.1、1.2；第二部分 12.1",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2026 目录",
+          "summary": "目录区分应急管理类高压或低压电工作业与房屋市政施工的建筑电工作业。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-construction-electrician-qualification",
+        "source_url": "https://www.mohurd.gov.cn/gongkai/zhengce/gzk/art/2025/art_f3913c15c84e4bbc8d4fb21af3370fb8.html",
+        "locator": "第二、三条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2026-06-01 起施行",
+          "summary": "建筑施工特种作业人员须经专门培训、考核并取得相应资格证书后上岗。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-electrician-certificate-recognition",
+        "source_url": "https://rensheju.nanyang.gov.cn/2026/01-19/1375662.html",
+        "locator": "第一（一）推进电工职业资格证书互通互认，附件序号 1–3",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "人社厅发〔2026〕1 号",
+          "summary": "有效高压或低压应急管理证申领建筑电工证可免培训直接考核；有效建筑电工证申领应急管理低压证可免培训直接参加安全技术考试。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 369,
+      "source_slugs": [
+        "electricians",
+        "solar-energy-installation-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

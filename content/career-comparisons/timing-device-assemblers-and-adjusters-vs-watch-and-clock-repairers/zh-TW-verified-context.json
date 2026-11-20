@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d4703019952cce39957f69c6554c80c56bf583bcc2c847ea3cdcf47a0defc256",
+  "inputs": {
+    "pair_id": "timing-device-assemblers-and-adjusters-vs-watch-and-clock-repairers",
+    "slugs": [
+      "timing-device-assemblers-and-adjusters",
+      "watch-and-clock-repairers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/timing-device-assemblers-and-adjusters-vs-watch-and-clock-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "timing-device-assemblers-and-adjusters": {
+        "name": "計時裝置裝配與調校工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.74,
+            2.12,
+            1.19,
+            1.0,
+            1.14,
+            4.61
+          ]
+        },
+        "tasks": [
+          "準備｜圖樣和工單｜核裝置編號、部件狀態與版本，缺失依據先澄清。",
+          "準備｜工具與量具｜按任務核工具量具及工位條件，未經訓練不直接操作。",
+          "裝配｜零件位置配合｜按工藝安裝元件，觀察配合及部件異常並記錄。",
+          "觀察｜執行和準確性｜按規定條件核執行及計時錶現，記錄原始資料。",
+          "複核｜調校和複測｜在授權範圍內處理問題，保留前後版本及複測結果。",
+          "交接｜狀態和未決項｜說明已完成範圍、異常與待確認事項，按職責交接。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-2061",
+          "title_evidence": "official_title"
+        }
+      },
+      "watch-and-clock-repairers": {
+        "name": "鐘錶維修工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9064.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.54,
+            1.98,
+            1.34,
+            1.41,
+            1.13,
+            4.44
+          ]
+        },
+        "tasks": [
+          "接收｜症狀與物件記錄｜向客戶瞭解問題和服務歷史，記錄型號、序列與外觀，保持物件與工單對應。",
+          "檢查｜故障與零件狀態｜通過適用工具和檢測觀察損壞、磨損或位置問題，區分已確認結果與待查原因。",
+          "方案｜估價與範圍溝通｜估算維修費用，核零件與處理範圍；新增問題或方案變化交有許可權者確認。",
+          "維修｜清潔修復與調整｜在訓練和授權範圍內拆裝、清潔、潤滑、維修或更換部件，按資料調整計時機構。",
+          "複核｜走時功能與外觀檢測｜記錄條件和結果，複查約定專案；未做防水或其他檢驗不能直接標合格。",
+          "交付｜服務記錄與說明｜記錄維修物件、操作和收費，說明完成範圍、檢測結果及待處理事項。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9064.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "49-9064",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "timing-device-assemblers-and-adjusters -> watch-and-clock-repairers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "timing-device-assemblers-and-adjusters": {
+        "file_sha256": "598c1c747994293c1f0817858cf0a2859af395c982bbd49aae503604e68a909d",
+        "entries": []
+      },
+      "watch-and-clock-repairers": {
+        "file_sha256": "89d4c35a2fabacd2dca5bcef38bc184a0e544cf56c788e090ab0d410a4947fcc",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 694,
+      "source_slugs": [
+        "timing-device-assemblers-and-adjusters",
+        "watch-and-clock-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "timing-device-assemblers-and-adjusters": {
+          "field": "paragraphs",
+          "source_path": "careers/timing-device-assemblers-and-adjusters/zh-TW.json",
+          "file_sha256": "598c1c747994293c1f0817858cf0a2859af395c982bbd49aae503604e68a909d",
+          "count": 6
+        },
+        "watch-and-clock-repairers": {
+          "field": "paragraphs",
+          "source_path": "careers/watch-and-clock-repairers/zh-TW.json",
+          "file_sha256": "89d4c35a2fabacd2dca5bcef38bc184a0e544cf56c788e090ab0d410a4947fcc",
+          "count": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "adee99c4f5d3432a5067b0af3ff140c1e025af841dfe070fddd9747affc37a3b",
+  "inputs": {
+    "pair_id": "administrative-services-managers-vs-compliance-managers",
+    "slugs": [
+      "administrative-services-managers",
+      "compliance-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/administrative-services-managers-vs-compliance-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "administrative-services-managers": {
+        "name": "行政服務經理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.42,
+            2.12,
+            1.11,
+            3.74,
+            6.47,
+            6.27
+          ]
+        },
+        "tasks": [
+          "需求輸入｜收集用量、庫存與部門需求｜包含供應商報價、合同到期日、投訴記錄與預算餘額；缺預算或需求確認時先補資訊，不憑印象承諾。",
+          "判斷排序｜區分必須持續的服務與可延後的需求｜比較報價是否包含交付、安裝與退出條件，並核對規格是否一致，不只按最低價排序。",
+          "結果輸出｜形成採購或服務建議與排期｜每項寫明接收人、驗收依據和需要批准的事項，使他人可據此執行。",
+          "複核確認｜由使用部門與財務按授權確認｜使用部門確認服務是否可用，財務複核付款依據，合同與個人資訊問題交由相應專業人員處理。",
+          "異常升級｜超出額度、時限或授權時上報｜附已核事實、可選方案和各自代價，說明需要誰在什麼時間前決定。",
+          "留檔記錄｜把變更、拒絕與升級理由一併存檔｜使後續接手人能解釋當時的判斷依據，而不是只看到最終結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "11-3012",
+          "title_evidence": "official_title"
+        }
+      },
+      "compliance-managers": {
+        "name": "合規經理",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.92,
+            2.98,
+            1.0,
+            3.1,
+            5.93,
+            6.3
+          ]
+        },
+        "tasks": [
+          "合規政策與程式與培訓｜制定或指導合規政策與程式並核實記錄與實施與傳達並開展培訓｜制定或指導組織內合規相關政策與程式的開發或實施；核實所有監管政策與程式已被記錄、實施並傳達；分發與合規活動相關的書面政策與程式；就合規相關主題與政策或程式向員工提供培訓；並就合規專案的實施或執行向內部管理層或業務夥伴提供建議。",
+          "風險識別與監控與審查｜識別合規問題並監控合規系統並開展定期內部審查或審計｜識別需跟進或調查的合規問題；監控合規系統以確保其有效；開展定期的內部審查或審計以確保合規程式得到遵守；設計或實施在溝通、監控或執行合規標準方面的改進；核驗軟體技術是否到位以提供充分監督與監控；並監督內部報告系統。",
+          "內部調查與紀律處理｜開展或指導內部調查並與人力資源部門協作處理紀律事項｜開展或指導對合規問題的內部調查；與人力資源部門協作以確保在違反合規標準的情形下采取一致的紀律處理策略。",
+          "報告與監管溝通｜向有權機構與監管機構報告並提交合規報告並維護文件｜按需要或按規定向有權的執法機構報告違反合規或監管標準的行為；向監管機構提交適當的合規報告；就合規活動（如收到的投訴或調查結果）維護文件；為管理層編制合規執行與進展報告；並作為員工與管理層溝通與舉報違規的保密聯絡點。",
+          "諮詢與法律與審計協同｜與公司律師商議併為內外部審計提供協助並瞭解行業趨勢｜按需要與公司律師商議以處理疑難的法律合規問題；為內部或外部審計人員的合規審查提供協助；持續瞭解行業變化與趨勢或最佳做法；並就新興合規議題進行討論以確保管理層與員工瞭解報告系統與政策與做法。",
+          "專項合規與風險管理｜制定風險管理策略並開展環境與安全與產品合規專項工作｜基於對產品、合規或運營風險的評估制定風險管理策略；複核證券銷售廣告等宣傳材料以確保未違反標準或法規；就環境合規或報告工具的開發或使用向技術人員提供建議；開展環境審計並評估測試程式以符合環境監測專案規格；複核或修改政策或運營指南以符合環境標準或法規的變化；並指導空氣或水合規與儲罐與洩漏與危險廢物與固體廢物與醫療廢物與室內空氣質量與綜合蟲害管理與員工培訓或災難準備等環境專案。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "compliance-managers -> administrative-services-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "administrative-services-managers": {
+        "file_sha256": "b7f94068b44e477f263dff6922e882d1a15f7ae8c6f424dbd47bdba916e3c5ef",
+        "entries": [
+          "需求輸入｜收集用量、庫存與部門需求｜包含供應商報價、合同到期日、投訴記錄與預算餘額；缺預算或需求確認時先補資訊，不憑印象承諾。",
+          "判斷排序｜區分必須持續的服務與可延後的需求｜比較報價是否包含交付、安裝與退出條件，並核對規格是否一致，不只按最低價排序。",
+          "結果輸出｜形成採購或服務建議與排期｜每項寫明接收人、驗收依據和需要批准的事項，使他人可據此執行。",
+          "複核確認｜由使用部門與財務按授權確認｜使用部門確認服務是否可用，財務複核付款依據，合同與個人資訊問題交由相應專業人員處理。",
+          "異常升級｜超出額度、時限或授權時上報｜附已核事實、可選方案和各自代價，說明需要誰在什麼時間前決定。",
+          "留檔記錄｜把變更、拒絕與升級理由一併存檔｜使後續接手人能解釋當時的判斷依據，而不是只看到最終結果。"
+        ]
+      },
+      "compliance-managers": {
+        "file_sha256": "85e676e98df21114729149f5dd12bf724206a0292909bd4ee5e76de3af33bb57",
+        "entries": [
+          "合規政策與程式與培訓｜制定或指導合規政策與程式並核實記錄與實施與傳達並開展培訓｜制定或指導組織內合規相關政策與程式的開發或實施；核實所有監管政策與程式已被記錄、實施並傳達；分發與合規活動相關的書面政策與程式；就合規相關主題與政策或程式向員工提供培訓；並就合規專案的實施或執行向內部管理層或業務夥伴提供建議。",
+          "風險識別與監控與審查｜識別合規問題並監控合規系統並開展定期內部審查或審計｜識別需跟進或調查的合規問題；監控合規系統以確保其有效；開展定期的內部審查或審計以確保合規程式得到遵守；設計或實施在溝通、監控或執行合規標準方面的改進；核驗軟體技術是否到位以提供充分監督與監控；並監督內部報告系統。",
+          "內部調查與紀律處理｜開展或指導內部調查並與人力資源部門協作處理紀律事項｜開展或指導對合規問題的內部調查；與人力資源部門協作以確保在違反合規標準的情形下采取一致的紀律處理策略。",
+          "報告與監管溝通｜向有權機構與監管機構報告並提交合規報告並維護文件｜按需要或按規定向有權的執法機構報告違反合規或監管標準的行為；向監管機構提交適當的合規報告；就合規活動（如收到的投訴或調查結果）維護文件；為管理層編制合規執行與進展報告；並作為員工與管理層溝通與舉報違規的保密聯絡點。",
+          "諮詢與法律與審計協同｜與公司律師商議併為內外部審計提供協助並瞭解行業趨勢｜按需要與公司律師商議以處理疑難的法律合規問題；為內部或外部審計人員的合規審查提供協助；持續瞭解行業變化與趨勢或最佳做法；並就新興合規議題進行討論以確保管理層與員工瞭解報告系統與政策與做法。",
+          "專項合規與風險管理｜制定風險管理策略並開展環境與安全與產品合規專項工作｜基於對產品、合規或運營風險的評估制定風險管理策略；複核證券銷售廣告等宣傳材料以確保未違反標準或法規；就環境合規或報告工具的開發或使用向技術人員提供建議；開展環境審計並評估測試程式以符合環境監測專案規格；複核或修改政策或運營指南以符合環境標準或法規的變化；並指導空氣或水合規與儲罐與洩漏與危險廢物與固體廢物與醫療廢物與室內空氣質量與綜合蟲害管理與員工培訓或災難準備等環境專案。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 25,
+      "source_slugs": [
+        "administrative-services-managers",
+        "compliance-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "administrative-services-managers": {
+          "field": "entries",
+          "source_path": "careers/administrative-services-managers/zh-TW.json",
+          "file_sha256": "b7f94068b44e477f263dff6922e882d1a15f7ae8c6f424dbd47bdba916e3c5ef",
+          "count": 6
+        },
+        "compliance-managers": {
+          "field": "entries",
+          "source_path": "careers/compliance-managers/zh-TW.json",
+          "file_sha256": "85e676e98df21114729149f5dd12bf724206a0292909bd4ee5e76de3af33bb57",
+          "count": 6
+        }
+      }
+    }
+  }
+}

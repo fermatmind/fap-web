@@ -1,0 +1,313 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8ec0928efc4aab463bc117a640f1ee7cf1f9ed82e84494047e98379ea60ce941",
+  "inputs": {
+    "pair_id": "endoscopy-technicians-vs-pharmacy-technicians",
+    "slugs": [
+      "endoscopy-technicians",
+      "pharmacy-technicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/endoscopy-technicians-vs-pharmacy-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "endoscopy-technicians": {
+        "name": "Endoscopy Technicians",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-9099.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.46,
+            4.09,
+            1.0,
+            3.0,
+            1.07,
+            5.14
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9099.02#Tasks"
+              }
+            ],
+            "text": "Clean, disinfect, or calibrate scopes or other endoscopic instruments according to manufacturer recommendations and facility standards."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9099.02#Tasks"
+              }
+            ],
+            "text": "Collect specimens from patients, using standard medical procedures."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9099.02#Tasks"
+              }
+            ],
+            "text": "Perform safety checks to verify proper equipment functioning."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9099.02#Tasks"
+              }
+            ],
+            "text": "Maintain or repair endoscopic equipment."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-9099.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "31-9099",
+          "title_evidence": "official_title"
+        }
+      },
+      "pharmacy-technicians": {
+        "name": "Pharmacy technicians",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.21,
+            2.99,
+            1.0,
+            3.32,
+            2.52,
+            7.0
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Receive written prescription or refill requests and verify that information is complete and accurate."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Enter prescription information into computer databases."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Establish or maintain patient profiles, including lists of medications taken by individual patients."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Maintain proper storage and security conditions for drugs."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-2052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "endoscopy-technicians -> pharmacy-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "endo",
+        "source_url": "https://www.onetonline.org/link/summary/31-9099.02",
+        "locator": "Overview; Tasks; Job Zone",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Endoscopy room and equipment support, reprocessing, and records.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "pharm",
+        "source_url": "https://www.onetonline.org/link/summary/29-2052.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Assists pharmacists with technical and administrative tasks.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cer",
+        "source_url": "https://myhspa.org/certification/certification-overview/certified-endoscope-reprocessor-cer/",
+        "locator": "CER Overview and Eligibility",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Optional role-specific credential to check for reprocessing jobs.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cal",
+        "source_url": "https://www.pharmacy.ca.gov/laws_regs/lawbook.pdf?preview=true&site_id=816",
+        "locator": "BPC §4115; 16 CCR §§1793.2 and 1793.7",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 lawbook",
+          "summary": "Permitted technical tasks and pharmacist supervision and verification.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "permit",
+        "source_url": "https://www.pharmacy.ca.gov/applicants/tch.shtml",
+        "locator": "Pharmacy Technician License",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "State application and qualification documentation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/ooh/healthcare/pharmacy-technicians.htm",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Typical education and training routes and regulation by state.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 387,
+      "source_slugs": [
+        "endoscopy-technicians",
+        "pharmacy-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

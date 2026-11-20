@@ -1,0 +1,175 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "17d98820158246dae00622629e327bb2d2cfee10497ca247e2bc870e83097f03",
+  "inputs": {
+    "pair_id": "customs-brokers-vs-purchasing-managers",
+    "slugs": [
+      "customs-brokers",
+      "purchasing-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/customs-brokers-vs-purchasing-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "customs-brokers": {
+        "name": "海关经纪人",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1041.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.37,
+            1.53,
+            1.0,
+            2.17,
+            5.02,
+            6.13
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1041.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1041",
+          "title_evidence": "official_title"
+        }
+      },
+      "purchasing-managers": {
+        "name": "采购经理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.49,
+            1.77,
+            1.2,
+            2.7,
+            7.0,
+            5.98
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-3061",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "customs-brokers -> purchasing-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：核对申报资料、归类、税费和客户授权，处理海关回执与异常；后岗：制定采购与合同规程，组织采购人员，复核供应商、合同、预算和交付条件，并在受委托范围内审批。",
+    "cn_qualification": {
+      "customs-brokers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "purchasing-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "tasks-0",
+        "source_url": "https://www.onetonline.org/link/summary/13-1041.08",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Perform customs entry work for clients, including shipment classification and arranging duties.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "tasks-1",
+        "source_url": "https://www.onetonline.org/link/summary/11-3061.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develop procurement procedures, evaluate suppliers and prepare award decisions or recommendations.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-declaration",
+        "source_url": "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=103077",
+        "locator": "《中华人民共和国海关进出口货物申报管理规定》第二条、第四条、第十四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025-05-01起施行",
+          "summary": "申报主体为进出口货物收发货人或受委托报关企业，办理申报前依法备案。受委托报关企业提交授权委托书并按授权范围办理。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 273,
+      "source_slugs": [
+        "customs-brokers",
+        "purchasing-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

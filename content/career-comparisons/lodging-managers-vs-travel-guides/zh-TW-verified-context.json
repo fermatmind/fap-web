@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "5de475c03e1f27af521bc24f8845fe0c39456911d0a75c6e6bb9cda114d470a9",
+  "inputs": {
+    "pair_id": "lodging-managers-vs-travel-guides",
+    "slugs": [
+      "lodging-managers",
+      "travel-guides"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/lodging-managers-vs-travel-guides",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "lodging-managers": {
+        "name": "住宿運營經理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.69,
+            1.1,
+            1.43,
+            4.31,
+            6.21,
+            5.22
+          ]
+        },
+        "tasks": [
+          "投入物件：客房與公共區域、前臺與預訂系統、房價與預算、營收與賬務記錄、員工與排班、採購物資與外部服務、住客投訴與會議活動需求。",
+          "可檢查產出：達標的前臺與客房服務、經核對的房價與營收記錄、按政策執行的排班與培訓、採購與檢查記錄、投訴處置與會議活動協調記錄。",
+          "完整工作流程：接班核對房態與賬務 → 協調前臺與客房服務 → 安排排班與分工並培訓 → 設定與執行房價、監控營收 → 採購與檢查設施 → 處理住客投訴與會議需求 → 記錄與交接。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-9081",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "travel-guides": {
+        "name": "旅行導遊",
+        "riasec": {
+          "code": "SEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-7012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.45,
+            2.34,
+            2.45,
+            4.84,
+            4.61,
+            4.3
+          ]
+        },
+        "tasks": [
+          "規劃｜研究路線與行程｜結合目的地和路線知識安排旅遊活動，核開放時間及關鍵約束。",
+          "協調｜交通住宿與裝置｜聯絡服務方確認條件，核裝置數量質量及專業支援安排。",
+          "服務｜解釋安排與團員需要｜說明集合、活動和限制，回應特別需要及問題。",
+          "執行｜跟進行程與變化｜落實已確認安排，識別延誤和服務問題，按許可權協調並報告。",
+          "記錄｜費用及服務反饋｜保留適用賬目與確認記錄，評價服務並向組織方反饋。",
+          "專項｜核能力與許可｜O*NET包含探險、車輛或急救任務；僅在取得相應能力許可權的崗位執行，不作普遍要求。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-7012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-7012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "travel-guides -> lodging-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "lodging-managers": {
+        "file_sha256": "e3fcddb1db0df324d378627d4bf5aca8a9692624c19887838a32283ad7800152",
+        "entries": [
+          "投入物件：客房與公共區域、前臺與預訂系統、房價與預算、營收與賬務記錄、員工與排班、採購物資與外部服務、住客投訴與會議活動需求。",
+          "可檢查產出：達標的前臺與客房服務、經核對的房價與營收記錄、按政策執行的排班與培訓、採購與檢查記錄、投訴處置與會議活動協調記錄。",
+          "完整工作流程：接班核對房態與賬務 → 協調前臺與客房服務 → 安排排班與分工並培訓 → 設定與執行房價、監控營收 → 採購與檢查設施 → 處理住客投訴與會議需求 → 記錄與交接。"
+        ]
+      },
+      "travel-guides": {
+        "file_sha256": "4e4654b43cba32f447381ddabf6fa17d08ed69fc58173d641e3d061d529de1b0",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 487,
+      "source_slugs": [
+        "lodging-managers",
+        "travel-guides"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "lodging-managers": {
+          "field": "entries",
+          "source_path": "careers/lodging-managers/zh-TW.json",
+          "file_sha256": "e3fcddb1db0df324d378627d4bf5aca8a9692624c19887838a32283ad7800152",
+          "count": 3
+        },
+        "travel-guides": {
+          "field": "paragraphs",
+          "source_path": "careers/travel-guides/zh-TW.json",
+          "file_sha256": "4e4654b43cba32f447381ddabf6fa17d08ed69fc58173d641e3d061d529de1b0",
+          "count": 6
+        }
+      }
+    }
+  }
+}

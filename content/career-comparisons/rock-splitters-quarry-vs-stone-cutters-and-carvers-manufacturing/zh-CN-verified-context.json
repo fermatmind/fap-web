@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4adaa3ba9c51808a65ffc4dcee0da106a79b5ff101bfdf2c72d3f88bd2196d26",
+  "inputs": {
+    "pair_id": "rock-splitters-quarry-vs-stone-cutters-and-carvers-manufacturing",
+    "slugs": [
+      "rock-splitters-quarry",
+      "stone-cutters-and-carvers-manufacturing"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/rock-splitters-quarry-vs-stone-cutters-and-carvers-manufacturing",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "rock-splitters-quarry": {
+        "name": "采石工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.99,
+            2.07,
+            1.74,
+            1.26,
+            1.17,
+            3.19
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-5051",
+          "title_evidence": "official_title"
+        }
+      },
+      "stone-cutters-and-carvers-manufacturing": {
+        "name": "石材切割与雕刻工（制造类）",
+        "riasec": {
+          "code": "RAC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9195.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.88,
+            3.83,
+            1.23,
+            1.0,
+            3.75
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9195.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-9195",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "rock-splitters-quarry -> stone-cutters-and-carvers-manufacturing"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：采石场石材劈裂岗位从采场分离粗石块，按材料和尺寸记录后续加工或交接；后岗：制造场景的石材切割与雕刻岗位按图样加工石材，核尺寸、深度及表面完成状态。",
+    "cn_qualification": {
+      "rock-splitters-quarry": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "stone-cutters-and-carvers-manufacturing": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "47-5051.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-5051.00",
+        "locator": "Tasks 14966, 14967, 14969",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Reads grain lines, marks dimensions and splits pieces from larger masses in quarries.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "51-9195.03",
+        "source_url": "https://www.onetonline.org/link/summary/51-9195.03",
+        "locator": "Tasks 12619, 12615, 12621",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Shapes and finishes stone and checks finished dimensions against specifications.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 645,
+      "source_slugs": [
+        "rock-splitters-quarry",
+        "stone-cutters-and-carvers-manufacturing"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

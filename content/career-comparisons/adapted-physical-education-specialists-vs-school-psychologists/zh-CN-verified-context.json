@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6daa4deb1aa05d12c5b1a4a10108179de26571d9ca2747dcbccbe4b7dbc16c82",
+  "inputs": {
+    "pair_id": "adapted-physical-education-specialists-vs-school-psychologists",
+    "slugs": [
+      "adapted-physical-education-specialists",
+      "school-psychologists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/adapted-physical-education-specialists-vs-school-psychologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "adapted-physical-education-specialists": {
+        "name": "适应性体育教育专家",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-2059.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.12,
+            3.65,
+            2.46,
+            7.0,
+            1.88,
+            4.17
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-2059.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "25-2059",
+          "title_evidence": "official_title"
+        }
+      },
+      "school-psychologists": {
+        "name": "学校心理学家",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3034.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            5.0,
+            3.31,
+            6.77,
+            2.82,
+            4.01
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3034.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3034",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "adapted-physical-education-specialists -> school-psychologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：根据学生的参与条件调整体育活动、规则和器材，记录学习表现，并与体育教师和特殊教育团队协作；后岗：学校心理学岗位围绕学习、行为和发展问题收集证据，与学校和家庭协作评估及复核支持措施。",
+    "cn_qualification": {
+      "adapted-physical-education-specialists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "school-psychologists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "adapted-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/25-2059.01#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Evaluates motor needs and provides adapted physical education instruction.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "school-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/19-3034.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Evaluates student needs and works with school staff on educational and behavioral support.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 24,
+      "source_slugs": [
+        "adapted-physical-education-specialists",
+        "school-psychologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

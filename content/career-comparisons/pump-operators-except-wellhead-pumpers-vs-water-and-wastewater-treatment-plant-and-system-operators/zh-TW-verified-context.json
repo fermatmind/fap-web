@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "a30ef6cc9bf8e8fda17764999a4fb3f1a47133b12ea39f76e4da714bf0765f09",
+  "inputs": {
+    "pair_id": "pump-operators-except-wellhead-pumpers-vs-water-and-wastewater-treatment-plant-and-system-operators",
+    "slugs": [
+      "pump-operators-except-wellhead-pumpers",
+      "water-and-wastewater-treatment-plant-and-system-operators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/pump-operators-except-wellhead-pumpers-vs-water-and-wastewater-treatment-plant-and-system-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pump-operators-except-wellhead-pumpers": {
+        "name": "泵操作員（井口泵除外）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.68,
+            2.27,
+            1.0,
+            1.28,
+            1.46,
+            4.5
+          ]
+        },
+        "tasks": [
+          "任務輸入｜確認物料、來源去向與轉運要求｜核對容器、泵、管線、閥位、許可和交接資訊；資訊衝突先停下核實。",
+          "裝置準備｜按程式檢查泵與歧管｜確認連線、閥位、液位和儀表狀態；不自行越過裝置聯鎖或授權。",
+          "執行轉運｜按批准順序啟停與調閥｜持續讀取流量、壓力、液位，核對物料去向並記錄關鍵節點。",
+          "執行監測｜識別洩漏、異常噪聲和壓力變化｜對偏離限值或不明狀態按程式降載、停機、通知授權人員。",
+          "停機交接｜按工藝流程結束轉運｜記錄批次、數量、異常和未解決事項，使下一班能複核。",
+          "維修邊界｜涉及檢修、清堵與儲能釋放時升級｜由受訓授權人員執行適用隔離程式，不把正常停機當作能量隔離。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-7072",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "name": "給排水處理廠與系統操作員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.75,
+            2.55,
+            1.0,
+            1.57,
+            1.62,
+            4.6
+          ]
+        },
+        "tasks": [
+          "執行｜裝置與流程監控｜讀控制介面、儀表和現場狀態，核裝置與時間位置；具體操作調整按訓練、規程與許可權執行。",
+          "檢測｜取樣與水質檢查｜按設施程式採集及檢測水或汙水樣本，保留樣本位置、時間、方法和結果，不憑清澈外觀下結論。",
+          "記錄｜資料與監測報告｜填寫儀表、執行、維護及排放監測資料，核單位和週期，原記錄可追溯。",
+          "維護｜裝置與工作區域｜開展受指導並獲授權的巡視、清潔和維護，發現異常按責任鏈處理，不越權檢修。",
+          "複核｜異常與安全條件｜核警報、故障和待確認事項，遵守安全程式；紙面讀數不證明裝置和水質全部合格。",
+          "協作｜班次與任務交接｜說明已做、未做、異常和負責人待辦，協調操作、檢測、維修和安全人員，避免資訊斷點。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-8031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pump-operators-except-wellhead-pumpers -> water-and-wastewater-treatment-plant-and-system-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "pump-operators-except-wellhead-pumpers": {
+        "file_sha256": "dcd8588ce48cf37aa9b1667eac80ef581ff21a9b316c8bdca7bedeff07133ad4",
+        "entries": [
+          "任務輸入｜確認物料、來源去向與轉運要求｜核對容器、泵、管線、閥位、許可和交接資訊；資訊衝突先停下核實。",
+          "裝置準備｜按程式檢查泵與歧管｜確認連線、閥位、液位和儀表狀態；不自行越過裝置聯鎖或授權。",
+          "執行轉運｜按批准順序啟停與調閥｜持續讀取流量、壓力、液位，核對物料去向並記錄關鍵節點。",
+          "執行監測｜識別洩漏、異常噪聲和壓力變化｜對偏離限值或不明狀態按程式降載、停機、通知授權人員。",
+          "停機交接｜按工藝流程結束轉運｜記錄批次、數量、異常和未解決事項，使下一班能複核。",
+          "維修邊界｜涉及檢修、清堵與儲能釋放時升級｜由受訓授權人員執行適用隔離程式，不把正常停機當作能量隔離。"
+        ]
+      },
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "file_sha256": "33d55bdb3137980818ae3712d76f122afa4e886a86a5f2fe37eef7df5f1ed1e7",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 621,
+      "source_slugs": [
+        "pump-operators-except-wellhead-pumpers",
+        "water-and-wastewater-treatment-plant-and-system-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "pump-operators-except-wellhead-pumpers": {
+          "field": "entries",
+          "source_path": "careers/pump-operators-except-wellhead-pumpers/zh-TW.json",
+          "file_sha256": "dcd8588ce48cf37aa9b1667eac80ef581ff21a9b316c8bdca7bedeff07133ad4",
+          "count": 6
+        },
+        "water-and-wastewater-treatment-plant-and-system-operators": {
+          "field": "paragraphs",
+          "source_path": "careers/water-and-wastewater-treatment-plant-and-system-operators/zh-TW.json",
+          "file_sha256": "33d55bdb3137980818ae3712d76f122afa4e886a86a5f2fe37eef7df5f1ed1e7",
+          "count": 6
+        }
+      }
+    }
+  }
+}

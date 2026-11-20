@@ -1,0 +1,197 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "526e87fd28d7270ed3254ff45f543929a3acb62a978695a91758f4ca1d152cb8",
+  "inputs": {
+    "pair_id": "shampooers-vs-spa-managers",
+    "slugs": [
+      "shampooers",
+      "spa-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/shampooers-vs-spa-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "shampooers": {
+        "name": "洗发师",
+        "riasec": {
+          "code": "RSC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.53,
+            1.35,
+            1.56,
+            3.75,
+            2.47,
+            3.37
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-5093",
+          "title_evidence": "official_title"
+        }
+      },
+      "spa-managers": {
+        "name": "水疗中心经理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9179.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.5,
+            1.31,
+            1.84,
+            4.19,
+            7.0,
+            4.91
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9179.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9179",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "shampooers -> spa-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：洗护服务岗位按门店流程准备洗发服务、与顾客确认需求，并将待确认事项交给负责人员；后岗：管预约、人手、设施和日结。",
+    "cn_qualification": {
+      "shampooers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "spa-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "shampoo",
+        "source_url": "https://www.onetonline.org/link/details/39-5093.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Shampooers wash and rinse hair and often stand for extended periods.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "spa",
+        "source_url": "https://www.onetonline.org/link/summary/11-9179.02",
+        "locator": "Tasks, Work Context, Job Zone and Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Managers oversee staffing, equipment, supplies and budgets. The wage line represents a broader occupation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "zibo",
+        "source_url": "https://zbcdc.zibo.gov.cn/art/2025/4/29/art_19936_2912049.html",
+        "locator": "二、从业人员要求；四、顾客用品用具卫生；五、卫生管理制度",
+        "value": {
+          "jurisdiction": "中国大陆，山东淄博",
+          "effective_or_period": "2025-04-29",
+          "summary": "理发店直接服务人员健康证明和卫生培训、毛巾更换消毒及卫生管理留档。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "hair-skill",
+        "source_url": "https://chinajob.mohrss.gov.cn/c/2022-04-15/347806.shtml",
+        "locator": "主要工作任务、技能等级",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-04-15",
+          "summary": "中国就业网将洗发列为较宽的美发师职业任务之一。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "hotel-course",
+        "source_url": "https://www.szjm.edu.cn/jwc/info/1157/5959.htm",
+        "locator": "培养目标与主要课程",
+        "value": {
+          "jurisdiction": "中国大陆，江苏",
+          "effective_or_period": "学校专业介绍",
+          "summary": "酒店管理课程涵盖运营、财务与人力资源等可迁能力。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 665,
+      "source_slugs": [
+        "shampooers",
+        "spa-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

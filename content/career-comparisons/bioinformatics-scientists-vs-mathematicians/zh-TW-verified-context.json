@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "a03731f1a34f034c0114429cf3ad830e85be854269ee27e57f670bb5017d213a",
+  "inputs": {
+    "pair_id": "bioinformatics-scientists-vs-mathematicians",
+    "slugs": [
+      "bioinformatics-scientists",
+      "mathematicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/bioinformatics-scientists-vs-mathematicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "bioinformatics-scientists": {
+        "name": "生物資訊學科學家",
+        "riasec": {
+          "code": "ICR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1029.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.81,
+            7.0,
+            2.51,
+            1.64,
+            1.26,
+            5.04
+          ]
+        },
+        "tasks": [
+          "澄清問題與假設｜讓分析有依據｜與研究方把問題拆成可檢驗的假設與可計算的指標，並事先說明方法與資料要求與合規邊界。",
+          "獲取與質控資料｜讓輸入可信｜按授權獲取資料並做質控與預處理，記錄來源與版本與清洗規則，不使用來源不明或超授權的資料。",
+          "分析與建模｜讓結論可檢驗｜選擇或設計合適的方法與流程並評估不確定性與偏倚，用可復現的方式實現與執行。",
+          "複核與復現｜讓結果可追溯｜對異常與失敗執行先複核與重跑，保留引數與版本與執行記錄，而不是先取想要的結果。",
+          "交付與溝通｜讓結論可交接｜撰寫報告與視覺化並溝通結果與侷限性，涉及對外發布與資料開放時按授權鏈審批。",
+          "合規與升級｜讓風險早停止｜涉及人類遺傳資源與個人資訊與倫理事項或超出本人授權時，按授權鏈報告並移交，不自行處置。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1029.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-1029",
+          "title_evidence": "official_title"
+        }
+      },
+      "mathematicians": {
+        "name": "數學研究人員",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            7.0,
+            3.23,
+            1.95,
+            1.11,
+            5.03
+          ]
+        },
+        "tasks": [
+          "投入物件：數學問題與猜想、觀測或模擬資料、假設與公理條件、計算與數值方法、建模需求與應用背景、文獻與既有成果、經費與協作資訊。",
+          "可檢查產出：證明與定理、模型與數學表述、數值計算與模擬結果、演算法與計算方法、研究報告與論文、學術報告與講義、對應用問題的結論與建議。",
+          "完整工作流程：界定問題與假設 → 查閱文獻並選擇方法 → 推導或建模並計算 → 驗證結果與邊界 → 撰寫成果並報告 → 接受評審並修正的閉環。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-2021",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "bioinformatics-scientists -> mathematicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "bioinformatics-scientists": {
+        "file_sha256": "edfc4053fd7bc60e97a3bce802153a5e734ab2dd470e99be0037726cf11a7685",
+        "entries": [
+          "澄清問題與假設｜讓分析有依據｜與研究方把問題拆成可檢驗的假設與可計算的指標，並事先說明方法與資料要求與合規邊界。",
+          "獲取與質控資料｜讓輸入可信｜按授權獲取資料並做質控與預處理，記錄來源與版本與清洗規則，不使用來源不明或超授權的資料。",
+          "分析與建模｜讓結論可檢驗｜選擇或設計合適的方法與流程並評估不確定性與偏倚，用可復現的方式實現與執行。",
+          "複核與復現｜讓結果可追溯｜對異常與失敗執行先複核與重跑，保留引數與版本與執行記錄，而不是先取想要的結果。",
+          "交付與溝通｜讓結論可交接｜撰寫報告與視覺化並溝通結果與侷限性，涉及對外發布與資料開放時按授權鏈審批。",
+          "合規與升級｜讓風險早停止｜涉及人類遺傳資源與個人資訊與倫理事項或超出本人授權時，按授權鏈報告並移交，不自行處置。"
+        ]
+      },
+      "mathematicians": {
+        "file_sha256": "7270bf7b55ee500459698d4fbb31d182611ceced8c3c8512bc61623612c3722f",
+        "entries": [
+          "投入物件：數學問題與猜想、觀測或模擬資料、假設與公理條件、計算與數值方法、建模需求與應用背景、文獻與既有成果、經費與協作資訊。",
+          "可檢查產出：證明與定理、模型與數學表述、數值計算與模擬結果、演算法與計算方法、研究報告與論文、學術報告與講義、對應用問題的結論與建議。",
+          "完整工作流程：界定問題與假設 → 查閱文獻並選擇方法 → 推導或建模並計算 → 驗證結果與邊界 → 撰寫成果並報告 → 接受評審並修正的閉環。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 55,
+      "source_slugs": [
+        "bioinformatics-scientists",
+        "mathematicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "bioinformatics-scientists": {
+          "field": "entries",
+          "source_path": "careers/bioinformatics-scientists/zh-TW.json",
+          "file_sha256": "edfc4053fd7bc60e97a3bce802153a5e734ab2dd470e99be0037726cf11a7685",
+          "count": 6
+        },
+        "mathematicians": {
+          "field": "entries",
+          "source_path": "careers/mathematicians/zh-TW.json",
+          "file_sha256": "7270bf7b55ee500459698d4fbb31d182611ceced8c3c8512bc61623612c3722f",
+          "count": 3
+        }
+      }
+    }
+  }
+}

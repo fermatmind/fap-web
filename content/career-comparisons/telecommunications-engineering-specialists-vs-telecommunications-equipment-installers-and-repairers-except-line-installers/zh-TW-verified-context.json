@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4c231f04a58c5e65e46d67b2019540dcdeaebada2fdb77fdef7b4cabafa3f814",
+  "inputs": {
+    "pair_id": "telecommunications-engineering-specialists-vs-telecommunications-equipment-installers-and-repairers-except-line-installers",
+    "slugs": [
+      "telecommunications-engineering-specialists",
+      "telecommunications-equipment-installers-and-repairers-except-line-installers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/telecommunications-engineering-specialists-vs-telecommunications-equipment-installers-and-repairers-except-line-installers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "telecommunications-engineering-specialists": {
+        "name": "電信工程專員",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1241.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.54,
+            4.29,
+            1.9,
+            2.31,
+            3.07,
+            4.95
+          ]
+        },
+        "tasks": [
+          "設計｜需求與技術規格｜確認語音影片資料需求、場地限制和服務目標，形成可審查的技術規格與連線圖。",
+          "設計｜容量、相容與成本｜核鏈路負載、裝置軟體相容性及成本估計，比較可行方案並說明待確認條件。",
+          "實施｜安裝協調與現場核查｜與安裝團隊、供應商及使用者協作，核裝置位置、佈線路徑與實施安排，遵循現場授權。",
+          "驗證｜測試與故障診斷｜測試硬體軟體的效率、可靠性和相容性，記錄問題、採取動作與驗證範圍。",
+          "維護｜效能、備份與恢復｜監測容量、效能和安全問題，按組織流程協調預防維護、備份及恢復。",
+          "交接｜文件、清單與培訓｜更新系統圖、裝置清單、問題記錄及安裝使用說明，向用戶解釋確認的操作與限制。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1241.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-1241",
+          "title_evidence": "official_title"
+        }
+      },
+      "telecommunications-equipment-installers-and-repairers-except-line-installers": {
+        "name": "電信裝置安裝與維修人員（不含線路安裝人員）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-2022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.43,
+            2.42,
+            1.0,
+            1.81,
+            1.6,
+            4.83
+          ]
+        },
+        "tasks": [
+          "準備｜工單與型號核對｜確認裝置、埠、版本與圖紙，理解任務和允許範圍，保留不明確條件。",
+          "準備｜現場條件與配件核查｜依據裝置說明核配件、接入與安全條件，向負責人報告缺項。",
+          "實施｜通訊裝置安裝與設定｜按許可安裝、調整或連線裝置，記錄變更；具體步驟以適用規程為準。",
+          "診斷｜異常讀數與故障定位｜核測試條件，結合圖紙和症狀縮小疑似範圍，與其他人員協作。",
+          "複驗｜修復結果與業務核查｜按約定測試安裝或維修後設備，分別記錄通過、未測與異常。",
+          "交接｜裝置記錄與使用者說明｜維護設施與維修記錄，說明使用方法和剩餘事項，必要時升級技術支援。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-2022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "49-2022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "telecommunications-equipment-installers-and-repairers-except-line-installers -> telecommunications-engineering-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "telecommunications-engineering-specialists": {
+        "file_sha256": "89928b096c87db4c538493fc718e9c1caea3894e3e0ab4277698f94d38c304e4",
+        "entries": []
+      },
+      "telecommunications-equipment-installers-and-repairers-except-line-installers": {
+        "file_sha256": "b4d34ee6abac5edf5aa21722e83d125d4144814b1b647f20aa43ff6d63d676dd",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 691,
+      "source_slugs": [
+        "telecommunications-engineering-specialists",
+        "telecommunications-equipment-installers-and-repairers-except-line-installers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "telecommunications-engineering-specialists": {
+          "field": "paragraphs",
+          "source_path": "careers/telecommunications-engineering-specialists/zh-TW.json",
+          "file_sha256": "89928b096c87db4c538493fc718e9c1caea3894e3e0ab4277698f94d38c304e4",
+          "count": 6
+        },
+        "telecommunications-equipment-installers-and-repairers-except-line-installers": {
+          "field": "paragraphs",
+          "source_path": "careers/telecommunications-equipment-installers-and-repairers-except-line-installers/zh-TW.json",
+          "file_sha256": "b4d34ee6abac5edf5aa21722e83d125d4144814b1b647f20aa43ff6d63d676dd",
+          "count": 6
+        }
+      }
+    }
+  }
+}

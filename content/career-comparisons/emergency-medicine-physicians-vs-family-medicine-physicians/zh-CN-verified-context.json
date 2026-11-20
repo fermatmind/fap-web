@@ -1,0 +1,211 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "fa65d4b89a392dee49e839f2eae630ee4aeca8d09e48686c3e3af9eef682bb9f",
+  "inputs": {
+    "pair_id": "emergency-medicine-physicians-vs-family-medicine-physicians",
+    "slugs": [
+      "emergency-medicine-physicians",
+      "family-medicine-physicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/emergency-medicine-physicians-vs-family-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "emergency-medicine-physicians": {
+        "name": "急诊医学医师",
+        "riasec": {
+          "code": "ISC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1214.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.15,
+            5.64,
+            1.0,
+            5.6,
+            2.68,
+            4.22
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1214.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1214",
+          "title_evidence": "official_title"
+        }
+      },
+      "family-medicine-physicians": {
+        "name": "家庭医学医师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1215.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            6.08,
+            1.45,
+            6.21,
+            2.34,
+            3.95
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1215.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-1215",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "emergency-medicine-physicians -> family-medicine-physicians",
+      "family-medicine-physicians -> emergency-medicine-physicians"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "emergency-medicine-physicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "family-medicine-physicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "emergency",
+        "source_url": "https://www.onetonline.org/link/summary/29-1214.00#Tasks",
+        "locator": "29-1214.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Evaluates and treats acute illness and injury, documents care and determines disposition.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "family",
+        "source_url": "https://www.onetonline.org/link/summary/29-1215.00#Tasks",
+        "locator": "29-1215.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Diagnoses, treats and provides preventive care across age groups; coordinates referrals.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "work",
+        "source_url": "https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm",
+        "locator": "Work Environment and Work Schedules",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current BLS",
+          "summary": "Physicians may work irregular, overnight or on-call shifts depending on assignment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "law",
+        "source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html",
+        "locator": "中华人民共和国医师法第十二至十四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-03-01起",
+          "summary": "医师资格考试、取得资格后申请执业注册，并按注册地点、类别和范围执业。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "discharge",
+        "source_url": "https://www.saem.org/about-saem/academies-interest-groups-affiliates2/cdem/for-students/online-education/m3-curriculum/documentation/documentation-of-em-encounters",
+        "locator": "Documentation of ED Encounters, Disposition",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "SAEM education",
+          "summary": "Emergency department documentation can include discharge and follow-up instructions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "general-practice",
+        "source_url": "https://www.nhc.gov.cn/qjjys/c100015/201904/a1e0f33b5e3249e4a3cdc3471f93c9f0.shtml",
+        "locator": "《全科医生转岗培训大纲（2019年修订版）》政策解读",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2019年",
+          "summary": "Describes training for eligible groups that are transitioning into general practice.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 31,
+      "source_slugs": [
+        "emergency-medicine-physicians",
+        "family-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "都接诊症状未明的患者，急诊侧优先判断紧急程度和即时处置，家庭医学侧侧重连续管理与转诊。",
+    "seed_cn_qualification_lead": "双方有医师注册线索，执业范围按岗位核。"
+  }
+}

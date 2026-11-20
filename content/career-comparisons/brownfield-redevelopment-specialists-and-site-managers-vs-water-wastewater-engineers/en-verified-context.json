@@ -1,0 +1,346 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cb226a94d72491672490e5fd8697eeda42cfc0c354e28f1425db86cc24cbb300",
+  "inputs": {
+    "pair_id": "brownfield-redevelopment-specialists-and-site-managers-vs-water-wastewater-engineers",
+    "slugs": [
+      "brownfield-redevelopment-specialists-and-site-managers",
+      "water-wastewater-engineers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/brownfield-redevelopment-specialists-and-site-managers-vs-water-wastewater-engineers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "brownfield-redevelopment-specialists-and-site-managers": {
+        "name": "Brownfield redevelopment specialists and site managers",
+        "riasec": {
+          "code": "CER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.11",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.49,
+            4.31,
+            1.46,
+            2.03,
+            4.54,
+            4.69
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.11#Tasks"
+              }
+            ],
+            "text": "Identify environmental contamination sources."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.11#Tasks"
+              }
+            ],
+            "text": "Coordinate on-site activities for environmental cleanup or remediation projects to ensure compliance with environmental laws, standards, regulations, or other requirements."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.11#Tasks"
+              }
+            ],
+            "text": "Identify and apply for project funding."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9199.11#Tasks"
+              }
+            ],
+            "text": "Plan or implement brownfield redevelopment projects to ensure safety, quality, and compliance with applicable standards or requirements."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.11",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-wastewater-engineers": {
+        "name": "Water/Wastewater Engineers",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2051.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.62,
+            5.35,
+            1.85,
+            1.76,
+            2.9,
+            4.53
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2051.02#Tasks"
+              }
+            ],
+            "text": "Provide technical direction or supervision to junior engineers, engineering or computer-aided design (CAD) technicians, or other technical personnel."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2051.02#Tasks"
+              }
+            ],
+            "text": "Review and critique proposals, plans, or designs related to water or wastewater treatment systems."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2051.02#Tasks"
+              }
+            ],
+            "text": "Design domestic or industrial water or wastewater treatment plants, including advanced facilities with sequencing batch reactors (SBR), membranes, lift stations, headworks, surge overflow basins, ultraviolet disinfection systems, aerobic digesters, sludge lagoons, or control buildings."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2051.02#Tasks"
+              }
+            ],
+            "text": "Evaluate the operation and maintenance of water or wastewater systems to identify ways to improve their efficiency."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2051.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-2051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "water-wastewater-engineers -> brownfield-redevelopment-specialists-and-site-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "site",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.11#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Coordinates cleanup and develops site reuse plans.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "water",
+        "source_url": "https://www.onetonline.org/link/summary/17-2051.02#Tasks",
+        "locator": "Tasks: runoff and water systems",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Designs water and runoff collection systems.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "assessment",
+        "source_url": "https://www.epa.gov/sites/default/files/2020-07/documents/assessing_brownfield_sites.pdf",
+        "locator": "Phase I and Phase II",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Environmental professionals complete or oversee site assessments.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "site-setting",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.11#WorkContext",
+        "locator": "Work Context and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Site coordination can involve offices and site inspections.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "design-setting",
+        "source_url": "https://www.bls.gov/ooh/architecture-and-engineering/civil-engineers.htm#tab-3",
+        "locator": "Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Civil engineers typically divide time between offices and construction sites.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "site-entry",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.11#JobZone",
+        "locator": "Job Zone Four",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Considerable preparation commonly includes a bachelor’s degree and related experience.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "design-entry",
+        "source_url": "https://www.bls.gov/ooh/architecture-and-engineering/civil-engineers.htm#tab-4",
+        "locator": "Education and Licenses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Related engineering bachelor’s degree is typical for civil engineers; state licensing depends on duties.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "site-wage",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.11#WagesEmployment",
+        "locator": "Wages & Employment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Reports Managers, All Other.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "design-wage",
+        "source_url": "https://www.onetonline.org/link/summary/17-2051.02#WagesEmployment",
+        "locator": "Wages & Employment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live source",
+          "summary": "Reports Civil Engineers.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 101,
+      "source_slugs": [
+        "brownfield-redevelopment-specialists-and-site-managers",
+        "water-wastewater-engineers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

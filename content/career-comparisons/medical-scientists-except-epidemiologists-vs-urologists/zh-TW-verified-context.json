@@ -1,0 +1,176 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "207caffc637af0aec195a14b579cfb3cc13b346be92d0b3f4b704b024108df3e",
+  "inputs": {
+    "pair_id": "medical-scientists-except-epidemiologists-vs-urologists",
+    "slugs": [
+      "medical-scientists-except-epidemiologists",
+      "urologists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/medical-scientists-except-epidemiologists-vs-urologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "medical-scientists-except-epidemiologists": {
+        "name": "醫學科學家（不含流行病學家）",
+        "riasec": {
+          "code": "IR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1042.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.27,
+            7.0,
+            2.42,
+            3.29,
+            2.22,
+            3.7
+          ]
+        },
+        "tasks": [
+          "研究設計：疾病與健康研究。",
+          "資料分析：解釋結果，撰寫報告。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1042.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-1042",
+          "title_evidence": "official_title"
+        }
+      },
+      "urologists": {
+        "name": "泌尿科醫師",
+        "riasec": {
+          "code": "ISR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1229.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.85,
+            6.85,
+            1.31,
+            5.45,
+            2.22,
+            3.43
+          ]
+        },
+        "tasks": [
+          "評估｜病史與資料核驗｜採集與複核患者病史、記錄和檢查資訊，核身份、時間和不一致，不用生成摘要代替原始資料。",
+          "診療｜醫學判斷與方案解釋｜綜合診斷資訊形成專業診療安排，向患者解釋並維護待確認事項，具體診療依資質和規範。",
+          "治療｜相應手術及技術工作｜在相應訓練和機構授權下開展本職治療，與團隊協作；本頁不提供實操教學。",
+          "照護｜交接與隨訪｜記錄實際過程和後續安排，明確責任介面，不把未完成事項寫成已完成。",
+          "協作｜會診轉診及帶教｜向其他專業人員提供諮詢，超出範圍時請求支援，並按職責參與臨床人員教學。",
+          "維護｜繼續教育與合規資料｜更新醫學知識和崗位能力，保護患者資料，按要求維護真實記錄和自身執業條件。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1229.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1229",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "urologists -> medical-scientists-except-epidemiologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "medical-scientists-except-epidemiologists": {
+        "file_sha256": "c73340c8757cd2d119cf54e74cd0b35201bd34ed0b99fd4bbbfcd07615882875",
+        "entries": [
+          "研究設計：疾病與健康研究。",
+          "資料分析：解釋結果，撰寫報告。"
+        ]
+      },
+      "urologists": {
+        "file_sha256": "5bdda7662270cf170417e59ccda926ab65b0273362b6018f0cc40aa41c6d3d0f",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 510,
+      "source_slugs": [
+        "medical-scientists-except-epidemiologists",
+        "urologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "medical-scientists-except-epidemiologists": {
+          "field": "entries",
+          "source_path": "careers/medical-scientists-except-epidemiologists/zh-TW.json",
+          "file_sha256": "c73340c8757cd2d119cf54e74cd0b35201bd34ed0b99fd4bbbfcd07615882875",
+          "count": 2
+        },
+        "urologists": {
+          "field": "paragraphs",
+          "source_path": "careers/urologists/zh-TW.json",
+          "file_sha256": "5bdda7662270cf170417e59ccda926ab65b0273362b6018f0cc40aa41c6d3d0f",
+          "count": 6
+        }
+      }
+    }
+  }
+}

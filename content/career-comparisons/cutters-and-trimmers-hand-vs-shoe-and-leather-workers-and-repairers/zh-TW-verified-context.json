@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "5f9551b7cd4a1c7d78e3bf9b9dcfe37bf6bdf56fb5e0cac147336c0cbe009198",
+  "inputs": {
+    "pair_id": "cutters-and-trimmers-hand-vs-shoe-and-leather-workers-and-repairers",
+    "slugs": [
+      "cutters-and-trimmers-hand",
+      "shoe-and-leather-workers-and-repairers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/cutters-and-trimmers-hand-vs-shoe-and-leather-workers-and-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cutters-and-trimmers-hand": {
+        "name": "手工切割與修整工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.24,
+            1.22,
+            2.2,
+            1.13,
+            1.0,
+            3.75
+          ]
+        },
+        "tasks": [
+          "下料準備｜讀工單並定位｜讀工單確定尺寸、切割位置與數量，按樣板、量具或直尺在材料上定位並畫線，必要時把材料攤開或固定到切割臺與裝置上。",
+          "裁切與仿形｜用刀具與裝置裁切｜用手持刀具、剪具、手持動力工具或臺式切割裝置切割、成型與修整材料，按需要開孔或修出缺口，並調整導板與限位控制切割深度與寬度。",
+          "修整與整形｜修邊料並整形｜修剪多餘材料及線頭，按尺寸把臺式刀具下壓到指定規格，切割前後摺疊或整形材料，並分離不同材料。",
+          "刀具維護｜檔案列更換或磨銳變鈍刀具；僅在培訓、許可權和安全程式允許時執行。涉及裝置換刀、清理或排堵時，先按裝置和僱主程式由經培訓且有許可權人員處理危險能量：停止執行、隔離相關能量、控制儲能並驗證安全狀態；單按停止按鈕不等於隔離。美國1910.147僅在其適用條件內執行，例外須滿足具體條件；中國作業按當地規定與裝置規程，不能照搬美國法條。",
+          "打磨與表面｜打磨拋光清潔｜用砂輪、刷具、鑿具、清潔劑與拋光材料對成品做清潔、處理、打磨與拋光，並標記編號、商標、等級、尺碼或型號。",
+          "檢驗與打包｜檢驗並打包搬運｜挑出斑點、汙漬、劃痕、缺角與不合格外形等瑕疵並標記，按尺寸、重量、型別、條件、顏色或色差分離分級，計數或稱重後捆紮、碼放並用推車搬運。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-9031",
+          "title_evidence": "official_title"
+        }
+      },
+      "shoe-and-leather-workers-and-repairers": {
+        "name": "製鞋與皮革製品工及修理工",
+        "riasec": {
+          "code": "RCA",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.94,
+            1.63,
+            3.13,
+            1.32,
+            1.53,
+            3.19
+          ]
+        },
+        "tasks": [
+          "規格與受理｜核樣板、尺碼、材料或顧客修理要求｜記錄產品、破損位置和待確認條件，未經判斷不承諾能修好。",
+          "材料與裁料｜識別瑕疵、紋路、顏色和延伸方向｜按樣板標點標線，裁出符合工藝的部件並保留標識。",
+          "連線與成型｜縫合、膠合或壓合部件｜按材料和工藝選擇已確認的連線方案，檢查接縫、貼合與形狀。",
+          "部件與修理｜安裝鞋底、鞋跟、襯裡或扣件｜檢查並移除需更換部件，核連線和損傷範圍，不隱瞞無法修復項。",
+          "整飾與檢驗｜修邊、清潔、拋光或裝飾｜檢查尺寸、顏色、表面、縫線與連線缺陷，完成返修和質量記錄。",
+          "交接與工具｜說明完成範圍並維護工作條件｜交付產品與修理記錄，裝置或化學品異常時停止受影響作業並報告。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-6041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "shoe-and-leather-workers-and-repairers -> cutters-and-trimmers-hand"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "cutters-and-trimmers-hand": {
+        "file_sha256": "e08d27ce2af0a68ad2b50b7dceb3cb48961c0e238dd6c1dae77e9e57148f96d7",
+        "entries": []
+      },
+      "shoe-and-leather-workers-and-repairers": {
+        "file_sha256": "0cbfe7b59ae11d52fffa2af79567b6078459bda79e14d64275e55174d7abf2c1",
+        "entries": [
+          "規格與受理｜核樣板、尺碼、材料或顧客修理要求｜記錄產品、破損位置和待確認條件，未經判斷不承諾能修好。",
+          "材料與裁料｜識別瑕疵、紋路、顏色和延伸方向｜按樣板標點標線，裁出符合工藝的部件並保留標識。",
+          "連線與成型｜縫合、膠合或壓合部件｜按材料和工藝選擇已確認的連線方案，檢查接縫、貼合與形狀。",
+          "部件與修理｜安裝鞋底、鞋跟、襯裡或扣件｜檢查並移除需更換部件，核連線和損傷範圍，不隱瞞無法修復項。",
+          "整飾與檢驗｜修邊、清潔、拋光或裝飾｜檢查尺寸、顏色、表面、縫線與連線缺陷，完成返修和質量記錄。",
+          "交接與工具｜說明完成範圍並維護工作條件｜交付產品與修理記錄，裝置或化學品異常時停止受影響作業並報告。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 276,
+      "source_slugs": [
+        "cutters-and-trimmers-hand",
+        "shoe-and-leather-workers-and-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "cutters-and-trimmers-hand": {
+          "field": "paragraphs",
+          "source_path": "careers/cutters-and-trimmers-hand/zh-TW.json",
+          "file_sha256": "e08d27ce2af0a68ad2b50b7dceb3cb48961c0e238dd6c1dae77e9e57148f96d7",
+          "count": 6
+        },
+        "shoe-and-leather-workers-and-repairers": {
+          "field": "entries",
+          "source_path": "careers/shoe-and-leather-workers-and-repairers/zh-TW.json",
+          "file_sha256": "0cbfe7b59ae11d52fffa2af79567b6078459bda79e14d64275e55174d7abf2c1",
+          "count": 6
+        }
+      }
+    }
+  }
+}

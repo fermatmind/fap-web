@@ -1,0 +1,210 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "904ced4d3ddb50bc0437ae722d5aa1aadf7e52032a72d29f3464e1d891e921e8",
+  "inputs": {
+    "pair_id": "water-and-wastewater-treatment-plant-and-system-operators-vs-water-wastewater-engineers",
+    "slugs": [
+      "water-and-wastewater-treatment-plant-and-system-operators",
+      "water-wastewater-engineers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/water-and-wastewater-treatment-plant-and-system-operators-vs-water-wastewater-engineers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "name": "给排水处理厂与系统操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.75,
+            2.55,
+            1.0,
+            1.57,
+            1.62,
+            4.6
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-8031",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-wastewater-engineers": {
+        "name": "给排水工程师（水与污水处理）",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2051.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.62,
+            5.35,
+            1.85,
+            1.76,
+            2.9,
+            4.53
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2051.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-2051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "water-and-wastewater-treatment-plant-and-system-operators -> water-wastewater-engineers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "water-wastewater-engineers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "ops",
+        "source_url": "https://www.onetonline.org/link/summary/51-8031.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Monitors, operates and documents treatment processes.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "eng",
+        "source_url": "https://www.onetonline.org/link/summary/17-2051.02",
+        "locator": "Tasks; Job Zone; Wages",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Designs and reviews water projects; wages refer to the broader Civil Engineers occupation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "cq",
+        "source_url": "https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zdxm/dtxx/201906/t20190604_8808014.html",
+        "locator": "鸡冠石污水处理厂投运与中水回用段",
+        "value": {
+          "jurisdiction": "中国大陆·重庆",
+          "effective_or_period": "2019",
+          "summary": "报道提标改造投运及厂内中水回用系统。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "school",
+        "source_url": "https://civil.cqust.edu.cn/info/1057/1549.htm",
+        "locator": "给排水科学与工程：培养目标",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "专业介绍",
+          "summary": "包括水质控制、设备仪表、水工程建设与运营。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "reg",
+        "source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202406/t20240617_3717376.html",
+        "locator": "附件1第二至第四条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "人发〔2003〕24号附件",
+          "summary": "给水排水专业工程设计的注册资格制度。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "operations-rule",
+        "source_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1826",
+        "locator": "城镇排水与污水处理条例 第十六条第四项",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "现行条例",
+          "summary": "城镇排水与污水处理设施维护运营单位的技术负责人和关键岗位人员应经专业培训并考核合格。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 53,
+      "source_slugs": [
+        "water-and-wastewater-treatment-plant-and-system-operators",
+        "water-wastewater-engineers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一污水厂，前者按运行指标监测、操作和记录，后者设计处理设施、工艺或改造方案。",
+    "seed_cn_qualification_lead": "操作侧有技能标准，工程侧有注册公用设备工程师线索。"
+  }
+}

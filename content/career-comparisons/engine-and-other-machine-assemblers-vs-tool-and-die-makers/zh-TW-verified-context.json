@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ad1f55d63b630d0e93ecbbc82b39933993eba61fd437f8c477105b1ab51e10f5",
+  "inputs": {
+    "pair_id": "engine-and-other-machine-assemblers-vs-tool-and-die-makers",
+    "slugs": [
+      "engine-and-other-machine-assemblers",
+      "tool-and-die-makers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/engine-and-other-machine-assemblers-vs-tool-and-die-makers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "engine-and-other-machine-assemblers": {
+        "name": "發動機和其他機器裝配工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-2031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.69,
+            1.23,
+            1.0,
+            1.07,
+            4.39
+          ]
+        },
+        "tasks": [
+          "圖紙與工藝｜讀取裝配圖與工藝要求｜核對版本與未決項",
+          "物料核對｜按清單領取並核對零件｜登記缺件與錯件",
+          "裝配對中｜按順序裝配部件｜完成對中與定位",
+          "緊固扭矩｜按工藝施加扭矩｜記錄關鍵引數",
+          "試運轉檢驗｜按規程試運轉並檢驗｜記錄引數與缺陷",
+          "記錄追溯｜補齊關鍵記錄｜按制度留痕並複核"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-2031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-2031",
+          "title_evidence": "official_title"
+        }
+      },
+      "tool-and-die-makers": {
+        "name": "工具和模具製造工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4111.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.94,
+            2.98,
+            1.9,
+            1.0,
+            1.0,
+            4.19
+          ]
+        },
+        "tasks": [
+          "準備｜讀圖與尺寸計算｜核圖紙、模型和技術要求，計算尺寸、形狀與公差，規劃工具或模具的加工順序。",
+          "加工｜材料與裝置選擇｜根據材料屬性和尺寸表面要求，選擇相應金屬、工具及裝置，完成獲授權的設定準備。",
+          "加工｜切削與成形｜設定和操作普通或數控機床，對部件進行車、銑、磨、鑽等加工，使其接近規定尺寸與表面要求。",
+          "裝配｜修配與工具組裝｜修整、調整和配合相關零件，製作、維修或修改模具、夾具、量規與其他工具。",
+          "複核｜尺寸與功能檢驗｜使用量具檢查尺寸、對中與間隙，並檢查模具表面、輪廓和缺陷，開展必要的工具試驗。",
+          "改進｜設計與故障處理｜按實際任務設計夾具或工具，利用CAD輔助設計，排查製造裝置異常；職責隨工具型別和崗位分工變化。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4111.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-4111",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "engine-and-other-machine-assemblers -> tool-and-die-makers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "engine-and-other-machine-assemblers": {
+        "file_sha256": "f46774d59002d6dcc6a44956be9362d525443aabd8502ee47bb6bac3c46b95b6",
+        "entries": [
+          "圖紙與工藝｜讀取裝配圖與工藝要求｜核對版本與未決項",
+          "物料核對｜按清單領取並核對零件｜登記缺件與錯件",
+          "裝配對中｜按順序裝配部件｜完成對中與定位",
+          "緊固扭矩｜按工藝施加扭矩｜記錄關鍵引數",
+          "試運轉檢驗｜按規程試運轉並檢驗｜記錄引數與缺陷",
+          "記錄追溯｜補齊關鍵記錄｜按制度留痕並複核"
+        ]
+      },
+      "tool-and-die-makers": {
+        "file_sha256": "e16d632ad5a5859a1692715fe4579ce9feecdf18deb34a839df71fb3a927a1e9",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 395,
+      "source_slugs": [
+        "engine-and-other-machine-assemblers",
+        "tool-and-die-makers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "engine-and-other-machine-assemblers": {
+          "field": "entries",
+          "source_path": "careers/engine-and-other-machine-assemblers/zh-TW.json",
+          "file_sha256": "f46774d59002d6dcc6a44956be9362d525443aabd8502ee47bb6bac3c46b95b6",
+          "count": 6
+        },
+        "tool-and-die-makers": {
+          "field": "paragraphs",
+          "source_path": "careers/tool-and-die-makers/zh-TW.json",
+          "file_sha256": "e16d632ad5a5859a1692715fe4579ce9feecdf18deb34a839df71fb3a927a1e9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

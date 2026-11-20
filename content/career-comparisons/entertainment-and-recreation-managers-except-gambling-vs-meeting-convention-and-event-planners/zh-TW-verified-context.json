@@ -1,0 +1,183 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "50be39078cb5e23a971d1dcf0306823fb19dda97dba5bf07ae6f3682710d9704",
+  "inputs": {
+    "pair_id": "entertainment-and-recreation-managers-except-gambling-vs-meeting-convention-and-event-planners",
+    "slugs": [
+      "entertainment-and-recreation-managers-except-gambling",
+      "meeting-convention-and-event-planners"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/entertainment-and-recreation-managers-except-gambling-vs-meeting-convention-and-event-planners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "entertainment-and-recreation-managers-except-gambling": {
+        "name": "娛樂休閒業經理（非博彩）",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.35,
+            1.96,
+            1.98,
+            3.93,
+            6.25,
+            5.04
+          ]
+        },
+        "tasks": [
+          "運營場景｜依據經營目標確定運營場景與專案｜記錄依據與未決項",
+          "排班資源｜安排人員與設施資源｜按客流與容量調配",
+          "現場秩序｜組織日常運營與活動｜維持秩序並處置突發",
+          "人員管理｜招聘、培訓並管理一線人員｜落實資質要求",
+          "安全許可｜按規範檢查設施、許可與保險｜保留檢查與整改記錄",
+          "預算營銷｜編制預算並組織推廣｜複核經營指標與合規"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-9072",
+          "title_evidence": "official_title"
+        }
+      },
+      "meeting-convention-and-event-planners": {
+        "name": "會議、會展與活動策劃師",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1121.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            1.56,
+            2.49,
+            4.56,
+            7.0,
+            4.96
+          ]
+        },
+        "tasks": [
+          "方案與預算：按需求與預算制定活動方案，選擇並協調場地與供應商，並核對報價與條款。",
+          "合同與執行：管理合同與結算，排布日程與執行清單，負責現場統籌、突發處置與復盤記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1121.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "13-1121",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "entertainment-and-recreation-managers-except-gambling -> meeting-convention-and-event-planners"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "entertainment-and-recreation-managers-except-gambling": {
+        "file_sha256": "9c5e26399bf0711f963c07adb000fd3dfe87082a4fbecaa68ec01e69a367b41a",
+        "entries": [
+          "運營場景｜依據經營目標確定運營場景與專案｜記錄依據與未決項",
+          "排班資源｜安排人員與設施資源｜按客流與容量調配",
+          "現場秩序｜組織日常運營與活動｜維持秩序並處置突發",
+          "人員管理｜招聘、培訓並管理一線人員｜落實資質要求",
+          "安全許可｜按規範檢查設施、許可與保險｜保留檢查與整改記錄",
+          "預算營銷｜編制預算並組織推廣｜複核經營指標與合規"
+        ]
+      },
+      "meeting-convention-and-event-planners": {
+        "file_sha256": "354e6905862d56bebec3c2a17c469aa09a9ee61cf1e9413ded6b29534b89b87d",
+        "entries": [
+          "方案與預算：按需求與預算制定活動方案，選擇並協調場地與供應商，並核對報價與條款。",
+          "合同與執行：管理合同與結算，排布日程與執行清單，負責現場統籌、突發處置與復盤記錄。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 399,
+      "source_slugs": [
+        "entertainment-and-recreation-managers-except-gambling",
+        "meeting-convention-and-event-planners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "entertainment-and-recreation-managers-except-gambling": {
+          "field": "entries",
+          "source_path": "careers/entertainment-and-recreation-managers-except-gambling/zh-TW.json",
+          "file_sha256": "9c5e26399bf0711f963c07adb000fd3dfe87082a4fbecaa68ec01e69a367b41a",
+          "count": 6
+        },
+        "meeting-convention-and-event-planners": {
+          "field": "entries",
+          "source_path": "careers/meeting-convention-and-event-planners/zh-TW.json",
+          "file_sha256": "354e6905862d56bebec3c2a17c469aa09a9ee61cf1e9413ded6b29534b89b87d",
+          "count": 2
+        }
+      }
+    }
+  }
+}

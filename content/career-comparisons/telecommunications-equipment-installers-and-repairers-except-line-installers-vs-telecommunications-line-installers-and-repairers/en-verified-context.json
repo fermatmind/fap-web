@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c22be5303c432996da68f3b7b4b0001ca0aed94b0a4d8f1e0d3d54726bdd4319",
+  "inputs": {
+    "pair_id": "telecommunications-equipment-installers-and-repairers-except-line-installers-vs-telecommunications-line-installers-and-repairers",
+    "slugs": [
+      "telecommunications-equipment-installers-and-repairers-except-line-installers",
+      "telecommunications-line-installers-and-repairers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/telecommunications-equipment-installers-and-repairers-except-line-installers-vs-telecommunications-line-installers-and-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "telecommunications-equipment-installers-and-repairers-except-line-installers": {
+        "name": "Telecommunications Equipment Installers and Repairers, Except Line Installers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-2022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.43,
+            2.42,
+            1.0,
+            1.81,
+            1.6,
+            4.83
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-2022.00#Tasks"
+              }
+            ],
+            "text": "Note differences in wire and cable colors so that work can be performed correctly."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-2022.00#Tasks"
+              }
+            ],
+            "text": "Test circuits and components of malfunctioning telecommunications equipment to isolate sources of malfunctions, using test meters, circuit diagrams, polarity probes, and other hand tools."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-2022.00#Tasks"
+              }
+            ],
+            "text": "Drive crew trucks to and from work areas."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-2022.00#Tasks"
+              }
+            ],
+            "text": "Assemble and install communication equipment such as data and telephone communication lines, wiring, switching equipment, wiring frames, power apparatus, computer systems, and networks."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-2022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "49-2022",
+          "title_evidence": "official_title"
+        }
+      },
+      "telecommunications-line-installers-and-repairers": {
+        "name": "Telecommunications Line Installers and Repairers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.48,
+            2.49,
+            1.0,
+            1.58,
+            2.01,
+            4.17
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9052.00#Tasks"
+              }
+            ],
+            "text": "Splice cables, using hand tools, epoxy, or mechanical equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9052.00#Tasks"
+              }
+            ],
+            "text": "Inspect or test lines or cables, recording and analyzing test results, to assess transmission characteristics and locate faults or malfunctions."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9052.00#Tasks"
+              }
+            ],
+            "text": "Clean or maintain tools or test equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/49-9052.00#Tasks"
+              }
+            ],
+            "text": "Set up service for customers, installing, connecting, testing, or adjusting equipment, such as digital subscriber line modems."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "49-9052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "telecommunications-line-installers-and-repairers -> telecommunications-equipment-installers-and-repairers-except-line-installers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "equipment",
+        "source_url": "https://www.onetonline.org/link/summary/49-2022.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Installs and tests telecommunications equipment, including customer premises and central offices.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "lines",
+        "source_url": "https://www.onetonline.org/link/summary/49-9052.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Installs, maintains and tests aerial, underground and other telecommunications lines.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "osha",
+        "source_url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.268",
+        "locator": "29 CFR 1910.268(a), (c)",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Telecom center and field work scope, employer training for covered tasks, with construction excluded from this section.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "pay",
+        "source_url": "https://www.bls.gov/ooh/installation-maintenance-and-repair/telecommunications-equipment-installers-and-repairers-except-line-installers.htm",
+        "locator": "What They Do; Work Environment; Pay",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 pay",
+          "summary": "National median annual wages $63,890 equipment and $74,330 line.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "training",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 49-2022 and 49-9052",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2025 worker characteristics",
+          "summary": "Typical entry education and training categories for the two trade occupations.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 692,
+      "source_slugs": [
+        "telecommunications-equipment-installers-and-repairers-except-line-installers",
+        "telecommunications-line-installers-and-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

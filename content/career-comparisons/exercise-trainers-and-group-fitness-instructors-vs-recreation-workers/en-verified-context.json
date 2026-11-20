@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9eecee69a80786d4592527a9cc7357d067187e97a6b774a60697c6ec3b7f4f8a",
+  "inputs": {
+    "pair_id": "exercise-trainers-and-group-fitness-instructors-vs-recreation-workers",
+    "slugs": [
+      "exercise-trainers-and-group-fitness-instructors",
+      "recreation-workers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/exercise-trainers-and-group-fitness-instructors-vs-recreation-workers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "exercise-trainers-and-group-fitness-instructors": {
+        "name": "Exercise Trainers and Group Fitness Instructors",
+        "riasec": {
+          "code": "SR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-9031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.23,
+            2.71,
+            2.4,
+            5.62,
+            3.51,
+            2.98
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9031.00#Tasks"
+              }
+            ],
+            "text": "Observe participants and inform them of corrective measures necessary for skill improvement."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9031.00#Tasks"
+              }
+            ],
+            "text": "Offer alternatives during classes to accommodate different levels of fitness."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9031.00#Tasks"
+              }
+            ],
+            "text": "Monitor participants' progress and adapt programs as needed."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9031.00#Tasks"
+              }
+            ],
+            "text": "Plan routines, choose appropriate music, and choose different movements for each set of muscles, depending on participants' capabilities and limitations."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-9031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "39-9031",
+          "title_evidence": "official_title"
+        }
+      },
+      "recreation-workers": {
+        "name": "Recreation Workers",
+        "riasec": {
+          "code": "SER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-9032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            1.98,
+            3.05,
+            4.9,
+            4.51,
+            3.46
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9032.00#Tasks"
+              }
+            ],
+            "text": "Enforce rules and regulations of recreational facilities to maintain discipline and ensure safety."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9032.00#Tasks"
+              }
+            ],
+            "text": "Organize, lead, and promote interest in recreational activities, such as arts, crafts, sports, games, camping, and hobbies."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9032.00#Tasks"
+              }
+            ],
+            "text": "Assess the needs and interests of individuals and groups and plan activities accordingly, given the available equipment or facilities."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-9032.00#Tasks"
+              }
+            ],
+            "text": "Manage the daily operations of recreational facilities."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-9032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "39-9032",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "recreation-workers -> exercise-trainers-and-group-fitness-instructors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "fitness",
+        "source_url": "https://www.onetonline.org/link/summary/39-9031.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Instructs people in exercise for fitness, demonstrates technique, observes and corrects form.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "recreation",
+        "source_url": "https://www.onetonline.org/link/summary/39-9032.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Leads recreation activities, assesses group interests and resources, explains procedures.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2; 39-9031 and 39-9032 and OEWS wage note",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "National median annual wages $47,160 and $36,560, respectively. Both rows list high school diploma or equivalent and short-term on-the-job training. Wage estimates for nonfarm wage and salary workers exclude self-employment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "fitness-certification",
+        "source_url": "https://www.bls.gov/ooh/personal-care-and-service/fitness-trainers-and-instructors.htm#tab-4",
+        "locator": "How to Become One; Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current source",
+          "summary": "Personal trainers usually must be certified before starting with clients; group instructors may start without certification, but employers often encourage or require it. Requirements vary by specialty and facility.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 411,
+      "source_slugs": [
+        "exercise-trainers-and-group-fitness-instructors",
+        "recreation-workers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

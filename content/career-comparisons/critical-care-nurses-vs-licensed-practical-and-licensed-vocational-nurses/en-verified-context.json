@@ -1,0 +1,313 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "36181ef66c8f52a5df1db38507cc30399ae143bd68d1d18c41e0cbc889b5388d",
+  "inputs": {
+    "pair_id": "critical-care-nurses-vs-licensed-practical-and-licensed-vocational-nurses",
+    "slugs": [
+      "critical-care-nurses",
+      "licensed-practical-and-licensed-vocational-nurses"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/critical-care-nurses-vs-licensed-practical-and-licensed-vocational-nurses",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "critical-care-nurses": {
+        "name": "Critical care nurses",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.91,
+            5.02,
+            1.7,
+            5.56,
+            2.2,
+            4.23
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1141.03#Tasks"
+              }
+            ],
+            "text": "Evaluate patients' vital signs or laboratory data to determine emergency intervention needs."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1141.03#Tasks"
+              }
+            ],
+            "text": "Monitor patients for changes in status and indications of conditions such as sepsis or shock and institute appropriate interventions."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1141.03#Tasks"
+              }
+            ],
+            "text": "Administer medications intravenously, by injection, orally, through gastric tubes, or by other methods."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1141.03#Tasks"
+              }
+            ],
+            "text": "Monitor patients' fluid intake and output to detect emerging problems, such as fluid and electrolyte imbalances."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      },
+      "licensed-practical-and-licensed-vocational-nurses": {
+        "name": "Licensed Practical and Licensed Vocational Nurses",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.58,
+            3.67,
+            1.05,
+            5.5,
+            2.13,
+            4.58
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Observe patients, charting and reporting changes in patients' conditions, such as adverse reactions to medication or treatment, and taking any necessary action."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Measure and record patients' vital signs, such as height, weight, temperature, blood pressure, pulse, or respiration."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Administer prescribed medications or start intravenous fluids, noting times and amounts on patients' charts."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2061.00#Tasks"
+              }
+            ],
+            "text": "Provide basic patient care or treatments, such as taking temperatures or blood pressures, dressing wounds, treating bedsores, giving enemas or douches, rubbing with alcohol, massaging, or performing catheterizations."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2061",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "critical-care-nurses -> licensed-practical-and-licensed-vocational-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "29-1141.03",
+        "source_url": "https://www.onetonline.org/link/summary/29-1141.03#Tasks",
+        "locator": "Tasks 18327, 18334, 18344",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Evaluates changes in critical illness and prioritizes nursing care.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "29-2061.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-2061.00#Tasks",
+        "locator": "Tasks 507, 510, 511",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Provides assigned basic care, observes patients and reports changes.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-lpn",
+        "source_url": "https://www.bls.gov/OOH/healthcare/licensed-practical-and-licensed-vocational-nurses.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "State-approved practical or vocational nurse program, exam and licensure.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-lpn-duties",
+        "source_url": "https://www.bls.gov/OOH/healthcare/licensed-practical-and-licensed-vocational-nurses.htm#tab-2",
+        "locator": "What They Do",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "State rules govern practical nursing supervision and scope.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-rn",
+        "source_url": "https://www.bls.gov/ooh/healthcare/registered-nurses.htm#tab-4",
+        "locator": "How to Become One",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Occupational Outlook Handbook",
+          "summary": "Registered nursing education, exam and state licensure.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "aacn-ccrn",
+        "source_url": "https://www.aacn.org/certification/get-certified/ccrn-adult",
+        "locator": "Initial Eligibility Requirements",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Adult direct care pathway",
+          "summary": "CCRN specialty certification requires an eligible RN or APRN license and qualifying practice.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 255,
+      "source_slugs": [
+        "critical-care-nurses",
+        "licensed-practical-and-licensed-vocational-nurses"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

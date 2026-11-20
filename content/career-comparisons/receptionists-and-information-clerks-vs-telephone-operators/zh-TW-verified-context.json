@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "86beff8d02f61c09bca9dc7f96a6e3141aa2b58c025f0ec7ab5abb80bdef00b6",
+  "inputs": {
+    "pair_id": "receptionists-and-information-clerks-vs-telephone-operators",
+    "slugs": [
+      "receptionists-and-information-clerks",
+      "telephone-operators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/receptionists-and-information-clerks-vs-telephone-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "receptionists-and-information-clerks": {
+        "name": "前臺接待與資訊文員",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4171.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.95,
+            1.79,
+            1.1,
+            3.57,
+            4.26,
+            6.3
+          ]
+        },
+        "tasks": [
+          "迎接與引導｜確認來訪目的和預約狀態，按機構規則登記並通知被訪人。｜輸出準確、最少必要的訪客記錄；不擅自放行受限區域。",
+          "電話與訊息｜接聽、篩選並轉接來電，記錄回電事項和時限。｜輸出帶接收人和時間的交接記錄；緊急事項立即升級。",
+          "預約與日曆｜核對可用時段、地點和參與人，安排、確認或改約。｜輸出更新後的日曆和通知；時間衝突標明待確認。",
+          "基本諮詢｜依據獲批准的機構資訊回答地點、營業時間和流程問題。｜超出指令碼或涉及專業意見時轉交責任人。",
+          "檔案與資訊｜整理傳入檔案、郵件或表單，並按許可權錄入系統。｜保留來源和版本；個人資訊只用於獲准目的。",
+          "投訴與異常｜記錄事實、影響與訴求，按緊急程度聯絡指定崗位。｜輸出事項編號、責任人和回訪節點，不越權承諾處理結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4171.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-4171",
+          "title_evidence": "official_title"
+        }
+      },
+      "telephone-operators": {
+        "name": "電話接線員",
+        "riasec": {
+          "code": "CSE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.23,
+            1.14,
+            1.0,
+            4.05,
+            3.33,
+            6.21
+          ]
+        },
+        "tasks": [
+          "查詢｜核需求與目錄｜複述要找的單位部門，查當前目錄，資訊不足先澄清。",
+          "查詢｜澄清名稱與線索｜核同名、拼寫或地點，不憑模糊簡稱選路由。",
+          "連線｜連線與狀態記錄｜按獲准流程嘗試連線，區分等待、接通和交接結果。",
+          "維護｜目錄更新與版本｜更新目錄資訊並核生效版本，保留改動依據。",
+          "特殊協助｜請求與許可權｜計費和輔助請求按授權安排，超範圍升級不許諾結果。",
+          "協作｜可靠交接｜留請求、已做動作和待核事項，向對應人員準確傳遞。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "43-2021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "telephone-operators -> receptionists-and-information-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "receptionists-and-information-clerks": {
+        "file_sha256": "9a44968f22a3e58e72b06bc36fe887e175cf37f8f01e3ee501503437c3e0a424",
+        "entries": [
+          "迎接與引導｜確認來訪目的和預約狀態，按機構規則登記並通知被訪人。｜輸出準確、最少必要的訪客記錄；不擅自放行受限區域。",
+          "電話與訊息｜接聽、篩選並轉接來電，記錄回電事項和時限。｜輸出帶接收人和時間的交接記錄；緊急事項立即升級。",
+          "預約與日曆｜核對可用時段、地點和參與人，安排、確認或改約。｜輸出更新後的日曆和通知；時間衝突標明待確認。",
+          "基本諮詢｜依據獲批准的機構資訊回答地點、營業時間和流程問題。｜超出指令碼或涉及專業意見時轉交責任人。",
+          "檔案與資訊｜整理傳入檔案、郵件或表單，並按許可權錄入系統。｜保留來源和版本；個人資訊只用於獲准目的。",
+          "投訴與異常｜記錄事實、影響與訴求，按緊急程度聯絡指定崗位。｜輸出事項編號、責任人和回訪節點，不越權承諾處理結果。"
+        ]
+      },
+      "telephone-operators": {
+        "file_sha256": "1e4dba300ed36e42e37e20244a4cac9781d72085e42539c7ee33b2884b7d7596",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 625,
+      "source_slugs": [
+        "receptionists-and-information-clerks",
+        "telephone-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "receptionists-and-information-clerks": {
+          "field": "entries",
+          "source_path": "careers/receptionists-and-information-clerks/zh-TW.json",
+          "file_sha256": "9a44968f22a3e58e72b06bc36fe887e175cf37f8f01e3ee501503437c3e0a424",
+          "count": 6
+        },
+        "telephone-operators": {
+          "field": "paragraphs",
+          "source_path": "careers/telephone-operators/zh-TW.json",
+          "file_sha256": "1e4dba300ed36e42e37e20244a4cac9781d72085e42539c7ee33b2884b7d7596",
+          "count": 6
+        }
+      }
+    }
+  }
+}

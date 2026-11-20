@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ec9f9cccf79782fa3e7d915d73c2ceb5cb9340453c1f3c44eadf65ffdb671194",
+  "inputs": {
+    "pair_id": "remote-sensing-technicians-vs-surveying-and-mapping-technicians",
+    "slugs": [
+      "remote-sensing-technicians",
+      "surveying-and-mapping-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/remote-sensing-technicians-vs-surveying-and-mapping-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "remote-sensing-technicians": {
+        "name": "遙感技術員",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-4099.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.1,
+            4.6,
+            2.14,
+            1.51,
+            1.71,
+            5.24
+          ]
+        },
+        "tasks": [
+          "需求與採集｜與科學家、測量製圖和工程人員確認目標，採集空間資料。｜記錄來源、裝置與授權。",
+          "裝置與質量｜校準遙感裝置、監控原始資料和採集系統。｜記錄質量異常及調整。",
+          "影像處理｜調整顯示和處理例程，修正傾斜或大氣影響、拼接影像。｜保留產品、引數和程式碼版本。",
+          "空間融合｜整合遙感與其他地理空間資料，建立或維護資料庫。｜核座標、時段與尺度。",
+          "核驗與現場｜檢查完整性準確性，必要時用GPS、照片和筆記地面核驗。｜儲存支援資料與未決項。",
+          "技術交接｜編制資料、圖表和處理文件；新任務含無人機感測器操作及領域協作。｜按具體裝置與專案許可權交付。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-4099.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-4099",
+          "title_evidence": "official_title"
+        }
+      },
+      "surveying-and-mapping-technicians": {
+        "name": "測量與製圖技術員",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.94,
+            4.03,
+            1.91,
+            1.0,
+            1.0,
+            5.63
+          ]
+        },
+        "tasks": [
+          "準備｜資料與要求核對｜讀取原圖和測量記錄，明確任務範圍、單位、座標和版本。",
+          "外業｜採集與記錄｜在受指導的範圍操作儀器或協助定位，記錄測量與描述資料。",
+          "計算｜處理與核算｜錄入資料並計算製圖資訊，保留來源和異常，不擅自補造觀測。",
+          "製圖｜圖層製作與更新｜使用資料製作或更新地圖，檢查各圖層錯誤與缺失。",
+          "複核｜準確性與完整性｜對照參考資料及標準，記錄差異並按流程糾正。",
+          "交付｜資料與方法說明｜整理圖件、記錄及方法說明，明確使用範圍與責任人。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-3031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "remote-sensing-technicians -> surveying-and-mapping-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "remote-sensing-technicians": {
+        "file_sha256": "22805d42fc56700d0b6a11ef9e2045a19f7e985f3b7d0b64ae5ae292e8e83f3d",
+        "entries": [
+          "需求與採集｜與科學家、測量製圖和工程人員確認目標，採集空間資料。｜記錄來源、裝置與授權。",
+          "裝置與質量｜校準遙感裝置、監控原始資料和採集系統。｜記錄質量異常及調整。",
+          "影像處理｜調整顯示和處理例程，修正傾斜或大氣影響、拼接影像。｜保留產品、引數和程式碼版本。",
+          "空間融合｜整合遙感與其他地理空間資料，建立或維護資料庫。｜核座標、時段與尺度。",
+          "核驗與現場｜檢查完整性準確性，必要時用GPS、照片和筆記地面核驗。｜儲存支援資料與未決項。",
+          "技術交接｜編制資料、圖表和處理文件；新任務含無人機感測器操作及領域協作。｜按具體裝置與專案許可權交付。"
+        ]
+      },
+      "surveying-and-mapping-technicians": {
+        "file_sha256": "fd986b9c86c9de69f390e137e7d85382bf233177535ac814e4a8c307a39f1cd1",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 636,
+      "source_slugs": [
+        "remote-sensing-technicians",
+        "surveying-and-mapping-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "remote-sensing-technicians": {
+          "field": "entries",
+          "source_path": "careers/remote-sensing-technicians/zh-TW.json",
+          "file_sha256": "22805d42fc56700d0b6a11ef9e2045a19f7e985f3b7d0b64ae5ae292e8e83f3d",
+          "count": 6
+        },
+        "surveying-and-mapping-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/surveying-and-mapping-technicians/zh-TW.json",
+          "file_sha256": "fd986b9c86c9de69f390e137e7d85382bf233177535ac814e4a8c307a39f1cd1",
+          "count": 6
+        }
+      }
+    }
+  }
+}

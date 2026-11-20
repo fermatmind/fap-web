@@ -1,0 +1,165 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cc675c44b673ae3ec318952e452b353a71d795c3971333a0370aa2e24821ea82",
+  "inputs": {
+    "pair_id": "coil-winders-tapers-and-finishers-vs-electrical-and-electronic-equipment-assemblers",
+    "slugs": [
+      "coil-winders-tapers-and-finishers",
+      "electrical-and-electronic-equipment-assemblers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/coil-winders-tapers-and-finishers-vs-electrical-and-electronic-equipment-assemblers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "coil-winders-tapers-and-finishers": {
+        "name": "线圈绕线工、包扎工、修整工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.54,
+            2.28,
+            1.0,
+            1.12,
+            1.4,
+            4.17
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-2021",
+          "title_evidence": "official_title"
+        }
+      },
+      "electrical-and-electronic-equipment-assemblers": {
+        "name": "电气与电子设备装配工",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-2022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.26,
+            1.7,
+            1.21,
+            1.0,
+            3.96
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-2022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-2022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "coil-winders-tapers-and-finishers -> electrical-and-electronic-equipment-assemblers",
+      "electrical-and-electronic-equipment-assemblers -> coil-winders-tapers-and-finishers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：操作或看护绕线机，把用于电气元件（如电阻器与变压器）以及电气设备与仪器（如励磁铁芯与线架与电枢铁芯与电动机与发电机与控制设备）的导线绕成线圈；后岗：按工单核对部件和版本，组装电气或电子设备，记录检验结果并把异常交给质检或班组长。",
+    "cn_qualification": {
+      "coil-winders-tapers-and-finishers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "electrical-and-electronic-equipment-assemblers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "51-2021.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-2021.00",
+        "locator": "Tasks 11904, 11909, 11905",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Winds coils and finishes wire and insulation according to work orders.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "51-2022.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-2022.00",
+        "locator": "Tasks 10018, 10019, 10026",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Installs electrical or electronic components and inspects assemblies.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 174,
+      "source_slugs": [
+        "coil-winders-tapers-and-finishers",
+        "electrical-and-electronic-equipment-assemblers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

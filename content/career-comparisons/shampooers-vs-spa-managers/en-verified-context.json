@@ -1,0 +1,288 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "dc6d8659f9abeb198b564c42a4a7403a1ea6e4c500687dbaedf40a4dffb229cc",
+  "inputs": {
+    "pair_id": "shampooers-vs-spa-managers",
+    "slugs": [
+      "shampooers",
+      "spa-managers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/shampooers-vs-spa-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "shampooers": {
+        "name": "Shampooers",
+        "riasec": {
+          "code": "RSC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-5093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.53,
+            1.35,
+            1.56,
+            3.75,
+            2.47,
+            3.37
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5093.00#Tasks"
+              }
+            ],
+            "text": "Massage, shampoo, and condition patron's hair and scalp to clean them and remove excess oil."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5093.00#Tasks"
+              }
+            ],
+            "text": "Advise patrons with chronic or potentially contagious scalp conditions to seek medical treatment."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/39-5093.00#Tasks"
+              }
+            ],
+            "text": "Treat scalp conditions and hair loss, using specialized lotions, shampoos, or equipment such as infrared lamps or vibrating equipment."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-5093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "39-5093",
+          "title_evidence": "official_title"
+        }
+      },
+      "spa-managers": {
+        "name": "Spa managers",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9179.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.5,
+            1.31,
+            1.84,
+            4.19,
+            7.0,
+            4.91
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9179.02#Tasks"
+              }
+            ],
+            "text": "Respond to customer inquiries or complaints."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9179.02#Tasks"
+              }
+            ],
+            "text": "Perform accounting duties, such as recording daily cash flow, preparing bank deposits, or generating financial statements."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9179.02#Tasks"
+              }
+            ],
+            "text": "Coordinate facility schedules to maximize usage and efficiency."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9179.02#Tasks"
+              }
+            ],
+            "text": "Assess employee performance and suggest ways to improve work."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9179.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9179",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "shampooers -> spa-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "shampoo",
+        "source_url": "https://www.onetonline.org/link/details/39-5093.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Shampooers wash and rinse hair and often stand for extended periods.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "spa",
+        "source_url": "https://www.onetonline.org/link/summary/11-9179.02",
+        "locator": "Tasks, Work Context, Job Zone and Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Managers oversee staffing, equipment, supplies and budgets. The wage line represents a broader occupation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "tx-license",
+        "source_url": "https://www.tdlr.texas.gov/media/pdf/Medspas-at-a-Glance.pdf",
+        "locator": "Shampooing and Conditioning",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "September 2025",
+          "summary": "TDLR says shampooing and conditioning are unregulated in Texas.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "dallas",
+        "source_url": "https://www.ritzcarlton.com/en/hotels/dalrz-the-ritz-carlton-dallas/spa/",
+        "locator": "Spa overview and appointment FAQ",
+        "value": {
+          "jurisdiction": "US, Dallas, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "Hotel spa includes a hair salon and requires appointments.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls-shampoo",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, SOC 39-5093",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages, projections 2025–35",
+          "summary": "Shampooers: $32,600 median annual employee wage, typical short-term on-the-job training and no formal educational credential.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 665,
+      "source_slugs": [
+        "shampooers",
+        "spa-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

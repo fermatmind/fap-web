@@ -1,0 +1,314 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "8e24ab69795332cf8ebdd080cfcb14806ea19add041580e71a7e7ed0f62a83e3",
+  "inputs": {
+    "pair_id": "pharmacy-aides-vs-pharmacy-technicians",
+    "slugs": [
+      "pharmacy-aides",
+      "pharmacy-technicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/pharmacy-aides-vs-pharmacy-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pharmacy-aides": {
+        "name": "Pharmacy aides",
+        "riasec": {
+          "code": "CER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-9095.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            1.57,
+            1.0,
+            3.11,
+            3.84,
+            6.79
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9095.00#Tasks"
+              }
+            ],
+            "text": "Process medical insurance claims, posting bill amounts and calculating copayments."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9095.00#Tasks"
+              }
+            ],
+            "text": "Answer telephone inquiries, referring callers to pharmacist when necessary."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9095.00#Tasks"
+              }
+            ],
+            "text": "Prepare prescription labels by typing or operating a computer and printer."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-9095.00#Tasks"
+              }
+            ],
+            "text": "Operate cash register to process cash or credit sales."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-9095.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-9095",
+          "title_evidence": "official_title"
+        }
+      },
+      "pharmacy-technicians": {
+        "name": "Pharmacy technicians",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.21,
+            2.99,
+            1.0,
+            3.32,
+            2.52,
+            7.0
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Receive written prescription or refill requests and verify that information is complete and accurate."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Enter prescription information into computer databases."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Establish or maintain patient profiles, including lists of medications taken by individual patients."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2052.00#Tasks"
+              }
+            ],
+            "text": "Maintain proper storage and security conditions for drugs."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-2052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pharmacy-aides -> pharmacy-technicians",
+      "pharmacy-technicians -> pharmacy-aides"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "aides",
+        "source_url": "https://www.onetonline.org/link/summary/31-9095.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Clerical, customer and stock support in pharmacy settings.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "techs",
+        "source_url": "https://www.onetonline.org/link/summary/29-2052.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Technical prescription support under a pharmacist's direction.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "ca",
+        "source_url": "https://www.pharmacy.ca.gov/laws_regs/lawbook.pdf?preview=true&site_id=816",
+        "locator": "16 CCR §§ 1793.1–1793.3 and 1793.7; BPC §§ 4115 and 4202",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "Rev 5/2026",
+          "summary": "Distinguishes pharmacist judgment, supervised technician tasks, permitted clerical work, and verification.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "license",
+        "source_url": "https://pharmacy.ca.gov/applicants/tch.shtml",
+        "locator": "Pharmacy Technician License; required documentation and qualification options",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "California board application and applicable qualification options.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2; rows 31-9095 and 29-2052; May 2025 OEWS wage column",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025",
+          "summary": "U.S. median annual wages of $37,680 and $45,750; entry education and OJT categories.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "ooh",
+        "source_url": "https://www.bls.gov/ooh/healthcare/pharmacy-technicians.htm",
+        "locator": "Work Environment; How to Become One",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Pharmacy settings, shifts, training routes and variation in state requirements.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 42,
+      "source_slugs": [
+        "pharmacy-aides",
+        "pharmacy-technicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

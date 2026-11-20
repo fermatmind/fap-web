@@ -1,0 +1,289 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d65cb84299cbdb430f57ff68e395afd07c76f8988e0199134ece1ae8fe33c895",
+  "inputs": {
+    "pair_id": "postal-service-mail-sorters-processors-and-processing-machine-operators-vs-postmasters-and-mail-superintendents",
+    "slugs": [
+      "postal-service-mail-sorters-processors-and-processing-machine-operators",
+      "postmasters-and-mail-superintendents"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/postal-service-mail-sorters-processors-and-processing-machine-operators-vs-postmasters-and-mail-superintendents",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+        "name": "Postal Service Mail Sorters, Processors, and Processing Machine Operators",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5053.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.6,
+            1.54,
+            1.0,
+            1.83,
+            1.66,
+            5.91
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-5053.00#Tasks"
+              }
+            ],
+            "text": "Clear jams in sorting equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-5053.00#Tasks"
+              }
+            ],
+            "text": "Operate various types of equipment, such as computer scanning equipment, addressographs, mimeographs, optical character readers, and bar-code sorters."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/43-5053.00#Tasks"
+              }
+            ],
+            "text": "Sort odd-sized mail by hand, sort mail that other workers have been unable to sort, and segregate items requiring special handling."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5053.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5053",
+          "title_evidence": "official_title"
+        }
+      },
+      "postmasters-and-mail-superintendents": {
+        "name": "Postmasters and Mail Superintendents",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9131.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.14,
+            1.3,
+            1.17,
+            3.35,
+            6.0,
+            5.69
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9131.00#Tasks"
+              }
+            ],
+            "text": "Monitor employees' work schedules and attendance for payroll purposes."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9131.00#Tasks"
+              }
+            ],
+            "text": "Organize and supervise activities, such as the processing of incoming and outgoing mail."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9131.00#Tasks"
+              }
+            ],
+            "text": "Resolve customer complaints."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-9131.00#Tasks"
+              }
+            ],
+            "text": "Prepare employee work schedules."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9131.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9131",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "postal-service-mail-sorters-processors-and-processing-machine-operators -> postmasters-and-mail-superintendents",
+      "postmasters-and-mail-superintendents -> postal-service-mail-sorters-processors-and-processing-machine-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "processing",
+        "source_url": "https://www.onetonline.org/link/summary/43-5053.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Processing workers operate sorting equipment, handle odd-sized pieces manually, label and route sorted mail.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "management",
+        "source_url": "https://www.onetonline.org/link/summary/11-9131.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Postmasters coordinate operations, supervise mail processing, schedule staff and handle complaints.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, 43-5053 and 11-9131",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2025",
+          "summary": "Median annual wages USD 58470 and USD 96660. Typical entry no formal credential and short-term OJT versus high school or equivalent, less than five years related experience and moderate-term OJT.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "exam",
+        "source_url": "https://about.usps.com/careers/how-to-apply/exams.htm",
+        "locator": "VEA exams by job type",
+        "value": {
+          "jurisdiction": "USPS",
+          "effective_or_period": "Current",
+          "summary": "476 listed for Mail Processing Clerk roles, 475 for Mail Handler roles.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "selection",
+        "source_url": "https://about.usps.com/handbooks/el312/el312c7_020.htm",
+        "locator": "EL-312 §743.14 and §743.21",
+        "value": {
+          "jurisdiction": "USPS",
+          "effective_or_period": "April 2026 handbook",
+          "summary": "Area of consideration defines eligibility for posted nonbargaining positions, with specified exceptions and external recruitment process.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 602,
+      "source_slugs": [
+        "postal-service-mail-sorters-processors-and-processing-machine-operators",
+        "postmasters-and-mail-superintendents"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

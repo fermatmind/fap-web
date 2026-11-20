@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c12ce0da0831840d24b1806c3702ff014ce77a965743b58f8780632481a2e4a6",
+  "inputs": {
+    "pair_id": "acute-care-nurses-vs-surgical-assistants",
+    "slugs": [
+      "acute-care-nurses",
+      "surgical-assistants"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/acute-care-nurses-vs-surgical-assistants",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "acute-care-nurses": {
+        "name": "急症護理護士",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.7,
+            5.66,
+            1.75,
+            5.8,
+            1.76,
+            3.32
+          ]
+        },
+        "tasks": [
+          "評估｜病情與風險識別｜收集並核對患者狀態和已有資訊，發現急性變化時按機構路徑升級。",
+          "監測｜連續觀察與複核｜觀察患者反應、相關裝置或檢查資訊，記錄可觀察事實與待確認事項。",
+          "計劃｜護理計劃協同｜依據醫囑、團隊分工和授權範圍參與照護計劃，不把崗位名稱當作獨立決定權。",
+          "處置｜依法履行護理責任｜已註冊護士按職責處理獲准護理；危急病情立即通知醫師，緊急搶救履行必要救護責任，不把護士寫成只能等待指令。網頁練習不提供操作步驟。",
+          "溝通｜患者教育與團隊交接｜向患者、家屬和團隊說明已知資訊、下一步與需要升級的問題。",
+          "記錄｜追溯、轉診與邊界｜完整記錄評估、已執行事項、反應和交接；超範圍或資訊不足時停止並交由有權人員。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      },
+      "surgical-assistants": {
+        "name": "手術助理",
+        "riasec": {
+          "code": "RCS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-9093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.7,
+            3.45,
+            1.0,
+            3.84,
+            1.78,
+            4.4
+          ]
+        },
+        "tasks": [
+          "準備｜核任務與身份｜瞭解美國受監督手術協作任務，中國核真實醫師、護士或輔助崗位範圍，先辨法律與機構要求。",
+          "準備｜核材料與狀態｜按機構制度確認所需材料、裝置及資訊狀態；紙面探索僅核虛構目錄，不接觸臨床器械。",
+          "協作｜資訊核對與團隊溝通｜在授權和監督下核患者及部位等團隊資訊，疑問及時報告；本頁不提供臨床操作步驟。",
+          "協作｜配合受監督任務｜按外科醫生及團隊安排完成職責，守州法、註冊及機構範圍，不把配合等同獨立診療。",
+          "複核｜準確記錄與異常報告｜區分準備、傳送、接收和稽核狀態，保留依據，不能用推測補成已完成。",
+          "發展｜正規訓練與資格核查｜按目標地區、機構和身份瞭解教育、認證、註冊及繼續學習條件，崗位名不能免除要求。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-9093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-9093",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "surgical-assistants -> acute-care-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "acute-care-nurses": {
+        "file_sha256": "13b7b817a01a69c58ff999c5aa9284bf2b5704784c6df8e31d3dc69f0fb28462",
+        "entries": [
+          "評估｜病情與風險識別｜收集並核對患者狀態和已有資訊，發現急性變化時按機構路徑升級。",
+          "監測｜連續觀察與複核｜觀察患者反應、相關裝置或檢查資訊，記錄可觀察事實與待確認事項。",
+          "計劃｜護理計劃協同｜依據醫囑、團隊分工和授權範圍參與照護計劃，不把崗位名稱當作獨立決定權。",
+          "處置｜依法履行護理責任｜已註冊護士按職責處理獲准護理；危急病情立即通知醫師，緊急搶救履行必要救護責任，不把護士寫成只能等待指令。網頁練習不提供操作步驟。",
+          "溝通｜患者教育與團隊交接｜向患者、家屬和團隊說明已知資訊、下一步與需要升級的問題。",
+          "記錄｜追溯、轉診與邊界｜完整記錄評估、已執行事項、反應和交接；超範圍或資訊不足時停止並交由有權人員。"
+        ]
+      },
+      "surgical-assistants": {
+        "file_sha256": "06a40ade214275f16525a4f92fdca625c7d82fc2a1603bb34e503843d4ff5295",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 23,
+      "source_slugs": [
+        "acute-care-nurses",
+        "surgical-assistants"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "acute-care-nurses": {
+          "field": "entries",
+          "source_path": "careers/acute-care-nurses/zh-TW.json",
+          "file_sha256": "13b7b817a01a69c58ff999c5aa9284bf2b5704784c6df8e31d3dc69f0fb28462",
+          "count": 6
+        },
+        "surgical-assistants": {
+          "field": "paragraphs",
+          "source_path": "careers/surgical-assistants/zh-TW.json",
+          "file_sha256": "06a40ade214275f16525a4f92fdca625c7d82fc2a1603bb34e503843d4ff5295",
+          "count": 6
+        }
+      }
+    }
+  }
+}

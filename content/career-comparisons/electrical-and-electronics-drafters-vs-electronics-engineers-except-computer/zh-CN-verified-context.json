@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b3df4734c8698578a76a43ac1130141bf6e70536e3a24c49d137fb2dbd7d5e83",
+  "inputs": {
+    "pair_id": "electrical-and-electronics-drafters-vs-electronics-engineers-except-computer",
+    "slugs": [
+      "electrical-and-electronics-drafters",
+      "electronics-engineers-except-computer"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/electrical-and-electronics-drafters-vs-electronics-engineers-except-computer",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "electrical-and-electronics-drafters": {
+        "name": "电气与电子制图员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.62,
+            3.44,
+            3.06,
+            1.32,
+            1.9,
+            5.53
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-3012",
+          "title_evidence": "official_title"
+        }
+      },
+      "electronics-engineers-except-computer": {
+        "name": "电子工程师（计算机除外）",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.24,
+            5.81,
+            2.03,
+            1.59,
+            1.62,
+            4.68
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2072",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "electronics-engineers-except-computer -> electrical-and-electronics-drafters"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：把确认过的电气或电子设计输入整理为原理图、接线图和清单，核对端子编号、页码和版本，把冲突交给工程人员确认；后岗：把器件、信号和接口需求转成电路方案，核对原理图、板级验证和物料版本，记录设计变更及证据。",
+    "cn_qualification": {
+      "electrical-and-electronics-drafters": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "electronics-engineers-except-computer": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "17-3012.00",
+        "source_url": "https://www.onetonline.org/link/summary/17-3012.00",
+        "locator": "Tasks 21951, 21946, 21947",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Produces circuit and assembly drawings and prepares drawing packages for engineering review.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "17-2072.00",
+        "source_url": "https://www.onetonline.org/link/summary/17-2072.00",
+        "locator": "Tasks 5339, 20494, 5349",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Designs electronic components and systems and evaluates technical adequacy or compatibility.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 343,
+      "source_slugs": [
+        "electrical-and-electronics-drafters",
+        "electronics-engineers-except-computer"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

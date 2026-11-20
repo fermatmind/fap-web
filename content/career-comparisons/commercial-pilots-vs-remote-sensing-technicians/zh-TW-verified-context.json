@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0cc24c62d037d615c0add619199c01d4b457e14d3068ae677055af157f218b7b",
+  "inputs": {
+    "pair_id": "commercial-pilots-vs-remote-sensing-technicians",
+    "slugs": [
+      "commercial-pilots",
+      "remote-sensing-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/commercial-pilots-vs-remote-sensing-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "commercial-pilots": {
+        "name": "商業飛行員",
+        "riasec": {
+          "code": "CRE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.79,
+            2.55,
+            1.1,
+            2.57,
+            3.92,
+            4.82
+          ]
+        },
+        "tasks": [
+          "飛行前檢查與航空器準備｜核對航空器系統狀態、貨物裝載與維修安排｜飛行前檢查航空器的發動機、操縱、儀表與其他系統是否正常；核對行李或貨物是否裝載正確；進行少量航空器維修與保養工作或安排大修（對應 O*NET 任務第一與第十與第十六項）。",
+          "飛行計劃與效能與燃油計算｜按規章與航圖規劃飛行並計算離地效能｜按政府與公司規章使用航圖與導航儀表規劃飛行；考慮機場標高、外界溫度、飛機重量與風向風速計算離地所需速度；獲取並複核載荷重量、燃油供應、天氣條件與航班時刻等資料（對應 O*NET 任務第三與第八與第十一項）。",
+          "飛行操作與系統監控｜啟動並操縱航空器並監控發動機與燃油與系統｜按需要擔任副駕駛或履行機長職責；在能見度差時使用儀表駕駛；啟動發動機、操作操縱裝置並按飛行計劃與規章與程式駕駛飛機運送旅客、郵件或貨物；在飛行中監控發動機運轉、燃油消耗與航空器系統工作狀況（對應 O*NET 任務第二與第四與第五與第九項）。",
+          "空管通訊與執行協調｜取得許可並協調地面與空管與機組｜使用無線電裝置聯絡管制塔臺取得起飛許可、到達指令與其他資訊；與地面機組和空中交通管制協調飛行活動並向機組成員通報飛行與測試程式；按情況請求更改高度或航路；向空中交通管制提交儀表飛行計劃以便與其他航空交通協調（對應 O*NET 任務第七與第十五與第十八與第十九項）。",
+          "執行決策與飛行記錄｜按安全與效率選擇航路並填寫飛行記錄｜為提高飛行安全而下達燃油、載荷、航路或時刻的調整指令；選擇能提供最快、最安全與最平穩飛行的航路、高度與速度；在飛行記錄中填寫飛行時間、飛行高度與燃油消耗等資訊；並在指定高度與各種天氣條件下開展飛行中測試與評估（對應 O*NET 任務第六與第十二與第十三與第十四項）。",
+          "機組管理與教學與應急｜監督機組、指導飛行員並在需要時救援｜監督其他機組成員；指導其他飛行員與學員飛行員；與其他飛行員或執照申請人同飛以評估其熟練程度；制定飛行活動與測試計劃並編寫飛行評估報告；向其他飛行員講授公司規章與程式；並在需要時實施傷員救援與撤離；該頁面另有新增任務：為商業目的操作大型無人機或無人航空器（對應 O*NET 任務第十七與補充任務第二十至第二十四項與新增任務第二十五項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-2012",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "remote-sensing-technicians": {
+        "name": "遙感技術員",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-4099.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.1,
+            4.6,
+            2.14,
+            1.51,
+            1.71,
+            5.24
+          ]
+        },
+        "tasks": [
+          "需求與採集｜與科學家、測量製圖和工程人員確認目標，採集空間資料。｜記錄來源、裝置與授權。",
+          "裝置與質量｜校準遙感裝置、監控原始資料和採集系統。｜記錄質量異常及調整。",
+          "影像處理｜調整顯示和處理例程，修正傾斜或大氣影響、拼接影像。｜保留產品、引數和程式碼版本。",
+          "空間融合｜整合遙感與其他地理空間資料，建立或維護資料庫。｜核座標、時段與尺度。",
+          "核驗與現場｜檢查完整性準確性，必要時用GPS、照片和筆記地面核驗。｜儲存支援資料與未決項。",
+          "技術交接｜編制資料、圖表和處理文件；新任務含無人機感測器操作及領域協作。｜按具體裝置與專案許可權交付。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-4099.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "19-4099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "commercial-pilots -> remote-sensing-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "commercial-pilots": {
+        "file_sha256": "d07c0565689ee07a906eee7f9061b40eebc142e6395b3c1931905f1bdb2d5b89",
+        "entries": [
+          "飛行前檢查與航空器準備｜核對航空器系統狀態、貨物裝載與維修安排｜飛行前檢查航空器的發動機、操縱、儀表與其他系統是否正常；核對行李或貨物是否裝載正確；進行少量航空器維修與保養工作或安排大修（對應 O*NET 任務第一與第十與第十六項）。",
+          "飛行計劃與效能與燃油計算｜按規章與航圖規劃飛行並計算離地效能｜按政府與公司規章使用航圖與導航儀表規劃飛行；考慮機場標高、外界溫度、飛機重量與風向風速計算離地所需速度；獲取並複核載荷重量、燃油供應、天氣條件與航班時刻等資料（對應 O*NET 任務第三與第八與第十一項）。",
+          "飛行操作與系統監控｜啟動並操縱航空器並監控發動機與燃油與系統｜按需要擔任副駕駛或履行機長職責；在能見度差時使用儀表駕駛；啟動發動機、操作操縱裝置並按飛行計劃與規章與程式駕駛飛機運送旅客、郵件或貨物；在飛行中監控發動機運轉、燃油消耗與航空器系統工作狀況（對應 O*NET 任務第二與第四與第五與第九項）。",
+          "空管通訊與執行協調｜取得許可並協調地面與空管與機組｜使用無線電裝置聯絡管制塔臺取得起飛許可、到達指令與其他資訊；與地面機組和空中交通管制協調飛行活動並向機組成員通報飛行與測試程式；按情況請求更改高度或航路；向空中交通管制提交儀表飛行計劃以便與其他航空交通協調（對應 O*NET 任務第七與第十五與第十八與第十九項）。",
+          "執行決策與飛行記錄｜按安全與效率選擇航路並填寫飛行記錄｜為提高飛行安全而下達燃油、載荷、航路或時刻的調整指令；選擇能提供最快、最安全與最平穩飛行的航路、高度與速度；在飛行記錄中填寫飛行時間、飛行高度與燃油消耗等資訊；並在指定高度與各種天氣條件下開展飛行中測試與評估（對應 O*NET 任務第六與第十二與第十三與第十四項）。",
+          "機組管理與教學與應急｜監督機組、指導飛行員並在需要時救援｜監督其他機組成員；指導其他飛行員與學員飛行員；與其他飛行員或執照申請人同飛以評估其熟練程度；制定飛行活動與測試計劃並編寫飛行評估報告；向其他飛行員講授公司規章與程式；並在需要時實施傷員救援與撤離；該頁面另有新增任務：為商業目的操作大型無人機或無人航空器（對應 O*NET 任務第十七與補充任務第二十至第二十四項與新增任務第二十五項）。"
+        ]
+      },
+      "remote-sensing-technicians": {
+        "file_sha256": "22805d42fc56700d0b6a11ef9e2045a19f7e985f3b7d0b64ae5ae292e8e83f3d",
+        "entries": [
+          "需求與採集｜與科學家、測量製圖和工程人員確認目標，採集空間資料。｜記錄來源、裝置與授權。",
+          "裝置與質量｜校準遙感裝置、監控原始資料和採集系統。｜記錄質量異常及調整。",
+          "影像處理｜調整顯示和處理例程，修正傾斜或大氣影響、拼接影像。｜保留產品、引數和程式碼版本。",
+          "空間融合｜整合遙感與其他地理空間資料，建立或維護資料庫。｜核座標、時段與尺度。",
+          "核驗與現場｜檢查完整性準確性，必要時用GPS、照片和筆記地面核驗。｜儲存支援資料與未決項。",
+          "技術交接｜編制資料、圖表和處理文件；新任務含無人機感測器操作及領域協作。｜按具體裝置與專案許可權交付。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 179,
+      "source_slugs": [
+        "commercial-pilots",
+        "remote-sensing-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "commercial-pilots": {
+          "field": "entries",
+          "source_path": "careers/commercial-pilots/zh-TW.json",
+          "file_sha256": "d07c0565689ee07a906eee7f9061b40eebc142e6395b3c1931905f1bdb2d5b89",
+          "count": 6
+        },
+        "remote-sensing-technicians": {
+          "field": "entries",
+          "source_path": "careers/remote-sensing-technicians/zh-TW.json",
+          "file_sha256": "22805d42fc56700d0b6a11ef9e2045a19f7e985f3b7d0b64ae5ae292e8e83f3d",
+          "count": 6
+        }
+      }
+    }
+  }
+}

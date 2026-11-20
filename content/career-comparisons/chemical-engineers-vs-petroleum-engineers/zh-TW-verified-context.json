@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ab4f51fd87db666824dd8393c3cede3a9553312cab1129174fbe992038411446",
+  "inputs": {
+    "pair_id": "chemical-engineers-vs-petroleum-engineers",
+    "slugs": [
+      "chemical-engineers",
+      "petroleum-engineers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/chemical-engineers-vs-petroleum-engineers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "chemical-engineers": {
+        "name": "化學工程師",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.27,
+            5.75,
+            1.8,
+            1.02,
+            1.85,
+            4.54
+          ]
+        },
+        "tasks": [
+          "安全程式｜制定並維護工藝安全與操作界限｜識別反應與物料與裝置的主要危險，形成操作界限與應急處置與培訓要求，並記錄複核與變更加依據（對應 O*NET 任務重要度 86，以及在執行的化學反應附近作業人員所採用的安全程式）。",
+          "過程診斷｜定位製造過程與實驗異常的根因｜用趨勢、批次記錄、物料與能量衡算與實驗復現分離人為、原料、裝置與控制四類原因，形成可驗證的糾正措施（對應任務重要度 82）。",
+          "資料監控｜監控並分析過程與實驗資料｜明確測點、取樣頻率、單位與誤差範圍，區分正常波動與真實偏移，並留下可追溯的資料與判斷記錄（對應任務重要度 81）。",
+          "最佳化與合規｜評估裝置與工藝並核對法規符合性｜在產能、能耗、收率與排放、職業接觸與過程安全之間做取捨，並把每條結論繫結到適用法規與工況（對應任務重要度 79）。",
+          "設計與放大｜把實驗室或中試方案放大為工業工藝｜完成物料與能量衡算、裝置選型與條件設定、反應與分離與傳熱方案、測量與控制方案，並說明放大依據與不確定度（對應任務重要度 65、57、60、59、52）。",
+          "成本與文件｜編製成本與進度報告並維護工程檔案｜維護工藝流程圖與管道儀表流程圖、計算書、裝置與儀表清單、變更記錄與合規與檢查整改記錄，向管理層說明成本與進度假設（對應任務重要度 68）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "17-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "petroleum-engineers": {
+        "name": "石油工程師",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2171.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.37,
+            5.33,
+            1.92,
+            1.78,
+            3.04,
+            4.32
+          ]
+        },
+        "tasks": [
+          "資料核對｜比對井測試、產量和裝置記錄｜註明來源、時點及缺口。",
+          "方案分析｜比較鑽井、完井和採收方法｜說明假設與適用邊界。",
+          "成本評估｜估算井產能與經濟性｜展示敏感性和不確定性。",
+          "跨團隊複核｜向地質、裝置、現場和安全人員交技術問題｜不代替授權批准。",
+          "監測記錄｜跟蹤生產率與改造結果｜異常回到原始資料和現場核查。",
+          "安全升級｜井控、裝置或環境條件不明時暫停建議｜把事實與待決項交有權人員。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2171.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-2171",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "chemical-engineers -> petroleum-engineers",
+      "petroleum-engineers -> chemical-engineers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "chemical-engineers": {
+        "file_sha256": "6ffbb6d6882b4c38d1796fb427e3c89bd97ac5940cd6d7bc897ec499bd2a364c",
+        "entries": [
+          "安全程式｜制定並維護工藝安全與操作界限｜識別反應與物料與裝置的主要危險，形成操作界限與應急處置與培訓要求，並記錄複核與變更加依據（對應 O*NET 任務重要度 86，以及在執行的化學反應附近作業人員所採用的安全程式）。",
+          "過程診斷｜定位製造過程與實驗異常的根因｜用趨勢、批次記錄、物料與能量衡算與實驗復現分離人為、原料、裝置與控制四類原因，形成可驗證的糾正措施（對應任務重要度 82）。",
+          "資料監控｜監控並分析過程與實驗資料｜明確測點、取樣頻率、單位與誤差範圍，區分正常波動與真實偏移，並留下可追溯的資料與判斷記錄（對應任務重要度 81）。",
+          "最佳化與合規｜評估裝置與工藝並核對法規符合性｜在產能、能耗、收率與排放、職業接觸與過程安全之間做取捨，並把每條結論繫結到適用法規與工況（對應任務重要度 79）。",
+          "設計與放大｜把實驗室或中試方案放大為工業工藝｜完成物料與能量衡算、裝置選型與條件設定、反應與分離與傳熱方案、測量與控制方案，並說明放大依據與不確定度（對應任務重要度 65、57、60、59、52）。",
+          "成本與文件｜編製成本與進度報告並維護工程檔案｜維護工藝流程圖與管道儀表流程圖、計算書、裝置與儀表清單、變更記錄與合規與檢查整改記錄，向管理層說明成本與進度假設（對應任務重要度 68）。"
+        ]
+      },
+      "petroleum-engineers": {
+        "file_sha256": "e14ada7e7acb75c4fa576df6a71fe8c7e2a28c5daeccc6deb3e5e36d7072081b",
+        "entries": [
+          "資料核對｜比對井測試、產量和裝置記錄｜註明來源、時點及缺口。",
+          "方案分析｜比較鑽井、完井和採收方法｜說明假設與適用邊界。",
+          "成本評估｜估算井產能與經濟性｜展示敏感性和不確定性。",
+          "跨團隊複核｜向地質、裝置、現場和安全人員交技術問題｜不代替授權批准。",
+          "監測記錄｜跟蹤生產率與改造結果｜異常回到原始資料和現場核查。",
+          "安全升級｜井控、裝置或環境條件不明時暫停建議｜把事實與待決項交有權人員。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 138,
+      "source_slugs": [
+        "chemical-engineers",
+        "petroleum-engineers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "chemical-engineers": {
+          "field": "entries",
+          "source_path": "careers/chemical-engineers/zh-TW.json",
+          "file_sha256": "6ffbb6d6882b4c38d1796fb427e3c89bd97ac5940cd6d7bc897ec499bd2a364c",
+          "count": 6
+        },
+        "petroleum-engineers": {
+          "field": "entries",
+          "source_path": "careers/petroleum-engineers/zh-TW.json",
+          "file_sha256": "e14ada7e7acb75c4fa576df6a71fe8c7e2a28c5daeccc6deb3e5e36d7072081b",
+          "count": 6
+        }
+      }
+    }
+  }
+}

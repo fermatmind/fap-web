@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7602de2b75dc8b97ee5c208f8b21601b513d5e635aece1230e73414f1d40e1f7",
+  "inputs": {
+    "pair_id": "eligibility-interviewers-government-programs-vs-patient-representatives",
+    "slugs": [
+      "eligibility-interviewers-government-programs",
+      "patient-representatives"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/eligibility-interviewers-government-programs-vs-patient-representatives",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "eligibility-interviewers-government-programs": {
+        "name": "政府專案資格稽核員",
+        "riasec": {
+          "code": "CSE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.45,
+            1.0,
+            4.46,
+            3.92,
+            6.32
+          ]
+        },
+        "tasks": [
+          "受理｜面談核實｜按專案規則面談申請人並記錄身份、收入與家庭資料。",
+          "核實｜交叉求證｜核對個人與財務資料，對矛盾處記錄來源並進一步求證。",
+          "計算｜資格與金額｜按專案條件判斷資格和計算援助，寫明條款及計算依據。",
+          "決定｜授權與告知｜在授權內辦理授予、修改、拒絕或終止，說明程式和申請人權利。",
+          "複核｜持續資格與申訴｜按專案週期複核持續資格，配合申訴和其他機構轉介。",
+          "資料｜記錄與保密｜保留個案處理記錄；許可權、資訊使用和最終決定按適用制度執行。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "43-4061",
+          "title_evidence": "official_title"
+        }
+      },
+      "patient-representatives": {
+        "name": "患者代表",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2099.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.27,
+            4.06,
+            1.59,
+            6.62,
+            3.12,
+            3.83
+          ]
+        },
+        "tasks": [
+          "需求輸入｜訪談患者或代表，識別服務障礙和關切｜記錄事實與授權範圍。",
+          "判斷排序｜辨別緊急醫療問題與常規服務問題｜疑似緊急情況立即交臨床團隊。",
+          "結果輸出｜說明既有政策和可用資源｜不承諾尚未批准的服務。",
+          "複核確認｜與醫護、行政或社群資源核轉介條件｜確認患者理解。",
+          "異常升級｜投訴、隱私或照護安全風險按機構流程上報｜保留原始事實。",
+          "留檔記錄｜記錄解釋、轉介與後續安排｜僅保留必要資訊。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2099.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-2099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "patient-representatives -> eligibility-interviewers-government-programs"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "eligibility-interviewers-government-programs": {
+        "file_sha256": "ebd870af9ba9c6d6c02f9b1be7a56bc71d08b97d4b815657b321ed93d2cd4480",
+        "entries": []
+      },
+      "patient-representatives": {
+        "file_sha256": "f5bb01c999998c80765d4fe046b3db7205d5838b1ba6cc4288aafa989517f762",
+        "entries": [
+          "需求輸入｜訪談患者或代表，識別服務障礙和關切｜記錄事實與授權範圍。",
+          "判斷排序｜辨別緊急醫療問題與常規服務問題｜疑似緊急情況立即交臨床團隊。",
+          "結果輸出｜說明既有政策和可用資源｜不承諾尚未批准的服務。",
+          "複核確認｜與醫護、行政或社群資源核轉介條件｜確認患者理解。",
+          "異常升級｜投訴、隱私或照護安全風險按機構流程上報｜保留原始事實。",
+          "留檔記錄｜記錄解釋、轉介與後續安排｜僅保留必要資訊。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 383,
+      "source_slugs": [
+        "eligibility-interviewers-government-programs",
+        "patient-representatives"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "eligibility-interviewers-government-programs": {
+          "field": "paragraphs",
+          "source_path": "careers/eligibility-interviewers-government-programs/zh-TW.json",
+          "file_sha256": "ebd870af9ba9c6d6c02f9b1be7a56bc71d08b97d4b815657b321ed93d2cd4480",
+          "count": 6
+        },
+        "patient-representatives": {
+          "field": "entries",
+          "source_path": "careers/patient-representatives/zh-TW.json",
+          "file_sha256": "f5bb01c999998c80765d4fe046b3db7205d5838b1ba6cc4288aafa989517f762",
+          "count": 6
+        }
+      }
+    }
+  }
+}

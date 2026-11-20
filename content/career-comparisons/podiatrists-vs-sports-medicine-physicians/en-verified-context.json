@@ -1,0 +1,313 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f89ac5c23ead31e9cbe1146ac37be3dcf1f614083014c130ca3bdd3a058c0bf3",
+  "inputs": {
+    "pair_id": "podiatrists-vs-sports-medicine-physicians",
+    "slugs": [
+      "podiatrists",
+      "sports-medicine-physicians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/podiatrists-vs-sports-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "podiatrists": {
+        "name": "Podiatrists",
+        "riasec": {
+          "code": "IRS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.29,
+            5.77,
+            1.72,
+            4.94,
+            2.14,
+            3.27
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Treat bone, muscle, and joint disorders affecting the feet and ankles."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Diagnose diseases and deformities of the foot using medical histories, physical examinations, x-rays, and laboratory test results."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Advise patients about treatments and foot care techniques necessary for prevention of future problems."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Prescribe medications, corrective devices, physical therapy, or surgery."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1081",
+          "title_evidence": "official_title"
+        }
+      },
+      "sports-medicine-physicians": {
+        "name": "Sports medicine physicians",
+        "riasec": {
+          "code": "ISR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1229.06",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.19,
+            5.36,
+            1.2,
+            5.27,
+            3.34,
+            3.52
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1229.06#Tasks"
+              }
+            ],
+            "text": "Diagnose or treat disorders of the musculoskeletal system."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1229.06#Tasks"
+              }
+            ],
+            "text": "Order and interpret the results of laboratory tests and diagnostic imaging procedures."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1229.06#Tasks"
+              }
+            ],
+            "text": "Record athletes' medical histories, and perform physical examinations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1229.06#Tasks"
+              }
+            ],
+            "text": "Refer athletes for specialized consultation, physical therapy, or diagnostic testing."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1229.06",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1229",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "sports-medicine-physicians -> podiatrists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "podiatry",
+        "source_url": "https://www.onetonline.org/link/summary/29-1081.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Foot and ankle evaluation and care.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "sports",
+        "source_url": "https://www.onetonline.org/link/summary/29-1229.06",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Sports injury care, prevention and return-to-play decisions.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/ooh/healthcare/podiatrists.htm",
+        "locator": "How to Become One; Work Environment",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "DPM degree, three-year residency and state license.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "ca",
+        "source_url": "https://www.pmbc.ca.gov/forms_pubs/app_summary.pdf",
+        "locator": "Scope of Practice; Resident and Permanent License",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026",
+          "summary": "Podiatric scope and state license.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "physician",
+        "source_url": "https://www.mbc.ca.gov/Licensing/Physicians-and-Surgeons/Apply/Physicians-and-Surgeons-License/",
+        "locator": "Physician's and Surgeon's License",
+        "value": {
+          "jurisdiction": "US·California",
+          "effective_or_period": "2026 access",
+          "summary": "Approved medical education, postgraduate training and exams.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "caq",
+        "source_url": "https://www.theabfm.org/added-qualifications/sports-medicine/",
+        "locator": "Initial Certification Requirements for Sports Medicine",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "ABFM route requires family medicine certification and accredited fellowship training.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 589,
+      "source_slugs": [
+        "podiatrists",
+        "sports-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

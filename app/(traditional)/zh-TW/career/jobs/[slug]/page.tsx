@@ -1,3 +1,4 @@
+import { FixedComparisonPreviewEntry } from "@/components/career/FixedComparisonPreviewEntry";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -84,6 +85,7 @@ export default async function TraditionalCareerJobPage({ params, searchParams }:
         <Link href={`/zh${path}`} lang="zh-CN" className="min-h-11 py-2 underline">简体中文</Link>
         <Link href={`/en${path}`} lang="en" className="min-h-11 py-2 underline">English</Link>
       </nav>
+      <FixedComparisonPreviewEntry locale="zh-TW" slug={slug} />
       <CareerDisplaySurface
         surface={surface}
         rendererRelease={CAREER_RENDERER_RELEASE}

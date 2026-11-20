@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e2222b356b7ec8d7e3f5fce76a1e33e9e67a5edb2ccaee212eb15a3ed3868459",
+  "inputs": {
+    "pair_id": "bus-and-truck-mechanics-and-diesel-engine-specialists-vs-tire-repairers-and-changers",
+    "slugs": [
+      "bus-and-truck-mechanics-and-diesel-engine-specialists",
+      "tire-repairers-and-changers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/bus-and-truck-mechanics-and-diesel-engine-specialists-vs-tire-repairers-and-changers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "bus-and-truck-mechanics-and-diesel-engine-specialists": {
+        "name": "公交卡車機械師與柴油機專員",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-3031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            3.27,
+            1.0,
+            1.54,
+            1.29,
+            3.73
+          ]
+        },
+        "tasks": [
+          "接車問診與檢查｜核實故障現象與使用情況，完成外觀與安全相關部件初檢｜一份註明現象與初檢結論的記錄。",
+          "診斷與測量｜讀數與測量、聽診與測試，按手冊判斷故障根源｜可復現的診斷結論與依據。",
+          "拆裝與維修｜按順序拆裝、更換或修復部件並調整到位｜維修過程記錄與更換部件清單。",
+          "安全系統複核｜對制動、轉向、輪轂軸承與防護裝置等關鍵部件複核｜安全部件複核記錄。",
+          "保養與檢查｜按週期執行換油、濾清、潤滑與檢查並反饋隱患｜保養記錄與隱患清單。",
+          "試車與交接｜試車驗證、填寫維修與竣工記錄與結算清單並交車說明｜試車記錄與結算與交車檔案。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-3031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "49-3031",
+          "title_evidence": "official_title"
+        }
+      },
+      "tire-repairers-and-changers": {
+        "name": "輪胎修理與更換工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-3093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.8,
+            1.0,
+            1.79,
+            1.58,
+            3.41
+          ]
+        },
+        "tasks": [
+          "接車｜服務請求與物件核對｜聽取需求，核車輪與輪胎標識並記錄待確認資訊。",
+          "拆裝｜車輪與輪胎更換｜按具體車輛、裝置與培訓執行輪胎服務，不以紙面練習代替操作準備。",
+          "平衡｜檢測與配重任務｜O*NET列有平衡機和配重任務；本頁不規定裝置設定或配重操作方法。",
+          "修補｜輪胎狀況與處理｜檢查缺陷、處理修補等任務依專業流程進行，不從本頁判斷損傷可修性。",
+          "複核｜結果與異常記錄｜對照服務範圍記錄檢查和處理情況，異常交負責人員確認。",
+          "外出｜現場服務與交接｜核地點條件及受訓範圍，留下服務結果和不能完成的事項。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-3093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "49-3093",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "tire-repairers-and-changers -> bus-and-truck-mechanics-and-diesel-engine-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "bus-and-truck-mechanics-and-diesel-engine-specialists": {
+        "file_sha256": "f5144d8779f9699684cda65a73b961c5783564da7c2353592c83ec29b1b2d1db",
+        "entries": [
+          "接車問診與檢查｜核實故障現象與使用情況，完成外觀與安全相關部件初檢｜一份註明現象與初檢結論的記錄。",
+          "診斷與測量｜讀數與測量、聽診與測試，按手冊判斷故障根源｜可復現的診斷結論與依據。",
+          "拆裝與維修｜按順序拆裝、更換或修復部件並調整到位｜維修過程記錄與更換部件清單。",
+          "安全系統複核｜對制動、轉向、輪轂軸承與防護裝置等關鍵部件複核｜安全部件複核記錄。",
+          "保養與檢查｜按週期執行換油、濾清、潤滑與檢查並反饋隱患｜保養記錄與隱患清單。",
+          "試車與交接｜試車驗證、填寫維修與竣工記錄與結算清單並交車說明｜試車記錄與結算與交車檔案。"
+        ]
+      },
+      "tire-repairers-and-changers": {
+        "file_sha256": "2fa2144e585ea2959bc522e6700ff469abefcae739a6a7a33da6e1bf2a03ef3a",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 103,
+      "source_slugs": [
+        "bus-and-truck-mechanics-and-diesel-engine-specialists",
+        "tire-repairers-and-changers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "bus-and-truck-mechanics-and-diesel-engine-specialists": {
+          "field": "entries",
+          "source_path": "careers/bus-and-truck-mechanics-and-diesel-engine-specialists/zh-TW.json",
+          "file_sha256": "f5144d8779f9699684cda65a73b961c5783564da7c2353592c83ec29b1b2d1db",
+          "count": 6
+        },
+        "tire-repairers-and-changers": {
+          "field": "paragraphs",
+          "source_path": "careers/tire-repairers-and-changers/zh-TW.json",
+          "file_sha256": "2fa2144e585ea2959bc522e6700ff469abefcae739a6a7a33da6e1bf2a03ef3a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

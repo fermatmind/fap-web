@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6bd23b22749ce21ed8de1b481a7caac3626b2bf3531637809045f8a9218da237",
+  "inputs": {
+    "pair_id": "database-administrators-vs-librarians-and-media-collections-specialists",
+    "slugs": [
+      "database-administrators",
+      "librarians-and-media-collections-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/database-administrators-vs-librarians-and-media-collections-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "database-administrators": {
+        "name": "資料庫管理員",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1242.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.83,
+            4.83,
+            1.2,
+            2.29,
+            2.94,
+            6.61
+          ]
+        },
+        "tasks": [
+          "庫結構與變更｜維護資料庫與資料字典｜修改現有資料庫與資料庫管理系統，或指導程式設計師與分析人員完成變更；編寫邏輯與物理資料庫描述並指定識別符號，按流程開發資料模型，並修訂公司資料字典中的資料定義。",
+          "效能與容量｜監測並解決效能問題｜選擇並輸入程式碼監測資料庫效能並建立生產資料庫；識別、調查並解決資料庫效能、容量與可擴充套件性問題；識別、評估並推薦能達到所需效能的硬體或軟體技術。",
+          "安全與許可權｜實施安全措施並控制訪問｜規劃、協調並實施安全措施，防止計算機檔案中的資訊被意外或未經授權地損壞、修改或洩露；為資料庫的每個片段指定使用者與訪問級別；制定軟體使用與採購以及保護脆弱資訊的標準與指南。",
+          "測試與升級｜測試變更並安裝升級｜測試資料庫應用或系統的變更；測試程式或資料庫、修正錯誤並做必要修改；規劃並安裝資料庫管理系統軟體升級以提升效能；審批、排期、規劃並監督新產品的安裝與測試。",
+          "支援與培訓｜解答問題並支援使用者｜培訓使用者並解答問題，向初級員工或客戶提供技術支援，並查閱程式設計師分析師繪製的工作流圖以瞭解計算機將執行的任務。",
+          "趨勢與技術判斷｜評估方向並提供建議｜查閱資料庫管理系統手冊中的流程以修改資料庫，識別並評估資料庫系統的行業趨勢，為高層管理提供資訊與建議，並在變更與最佳化中記錄依據與結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1242.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1242",
+          "title_evidence": "official_title"
+        }
+      },
+      "librarians-and-media-collections-specialists": {
+        "name": "圖書館員與媒體館藏專員",
+        "riasec": {
+          "code": "CSI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "25-4022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.32,
+            3.63,
+            2.65,
+            4.04,
+            2.75,
+            5.83
+          ]
+        },
+        "tasks": [
+          "投入物件：讀者與機構的檢索與借閱需求、書目與館藏目錄、分類與編目規則、採購預算與供應商報價，以及資料庫、視聽裝置與版權條款。",
+          "可檢查產出：可檢索的編目記錄、採購與淘汰清單、流通與館藏清單、參考諮詢答覆、資訊素養課程或指南、資料庫與媒體裝置配置記錄。",
+          "完整流程：分析讀者與機構需求 → 評估並選購資料 → 分類編目與加工 → 上架與流通管理 → 提供參考諮詢與資訊素養教學 → 維護記錄、裝置與版權合規 → 定期清查與淘汰。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "25-4022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "25-4022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "librarians-and-media-collections-specialists -> database-administrators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "database-administrators": {
+        "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+        "entries": []
+      },
+      "librarians-and-media-collections-specialists": {
+        "file_sha256": "94eeeeebe606a4162e4f0291e1f115c72d8cb86b63351b0ee99b16ba427a067b",
+        "entries": [
+          "投入物件：讀者與機構的檢索與借閱需求、書目與館藏目錄、分類與編目規則、採購預算與供應商報價，以及資料庫、視聽裝置與版權條款。",
+          "可檢查產出：可檢索的編目記錄、採購與淘汰清單、流通與館藏清單、參考諮詢答覆、資訊素養課程或指南、資料庫與媒體裝置配置記錄。",
+          "完整流程：分析讀者與機構需求 → 評估並選購資料 → 分類編目與加工 → 上架與流通管理 → 提供參考諮詢與資訊素養教學 → 維護記錄、裝置與版權合規 → 定期清查與淘汰。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 286,
+      "source_slugs": [
+        "database-administrators",
+        "librarians-and-media-collections-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "database-administrators": {
+          "field": "paragraphs",
+          "source_path": "careers/database-administrators/zh-TW.json",
+          "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+          "count": 6
+        },
+        "librarians-and-media-collections-specialists": {
+          "field": "entries",
+          "source_path": "careers/librarians-and-media-collections-specialists/zh-TW.json",
+          "file_sha256": "94eeeeebe606a4162e4f0291e1f115c72d8cb86b63351b0ee99b16ba427a067b",
+          "count": 3
+        }
+      }
+    }
+  }
+}

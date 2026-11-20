@@ -1,0 +1,200 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "877c058a3198cfe51a7d8ac8b1b5453f6d94727d35317616afdd9c7f68728d07",
+  "inputs": {
+    "pair_id": "pharmacy-aides-vs-pharmacy-technicians",
+    "slugs": [
+      "pharmacy-aides",
+      "pharmacy-technicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/pharmacy-aides-vs-pharmacy-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pharmacy-aides": {
+        "name": "药房助理",
+        "riasec": {
+          "code": "CER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-9095.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.75,
+            1.57,
+            1.0,
+            3.11,
+            3.84,
+            6.79
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-9095.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-9095",
+          "title_evidence": "official_title"
+        }
+      },
+      "pharmacy-technicians": {
+        "name": "药房技术员",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2052.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.21,
+            2.99,
+            1.0,
+            3.32,
+            2.52,
+            7.0
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2052.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-2052",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pharmacy-aides -> pharmacy-technicians",
+      "pharmacy-technicians -> pharmacy-aides"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "pharmacy-aides": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "pharmacy-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "aides",
+        "source_url": "https://www.onetonline.org/link/summary/31-9095.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Clerical, customer and stock support in pharmacy settings.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "techs",
+        "source_url": "https://www.onetonline.org/link/summary/29-2052.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Technical prescription support under a pharmacist's direction.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "gsp",
+        "source_url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_bc07ffdb7a1c4e46be371ac5a4a65f9c.html",
+        "locator": "第一百六十六至一百六十八条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "现行官网文本",
+          "summary": "零售环节岗位标识、处方审核和核对、销售记录。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "sh",
+        "source_url": "https://yjj.sh.gov.cn/zx-yp/20240829/84dc0bbcc58542d0998fd8c378b2f58f.html",
+        "locator": "第七章第三十九、四十条；第八章第四十三条",
+        "value": {
+          "jurisdiction": "中国大陆·上海",
+          "effective_or_period": "2024",
+          "summary": "明确连锁零售门店远程药学服务的配备、告知与系统条件。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "samr84",
+        "source_url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_db526cfcd7204874b8b23297fa3b02dc.html",
+        "locator": "第四十二条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2024-01-01施行",
+          "summary": "规定依法经过资格认定的药师或其他药学技术人员负责相关工作，销售处方药前须经相应审核。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 42,
+      "source_slugs": [
+        "pharmacy-aides",
+        "pharmacy-technicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一药房流程，前者偏接待、账务和库存，后者在规定范围内参与处方信息核对及调配支持。",
+    "seed_cn_qualification_lead": "助理侧有招聘样本，技术员国内对应资格待核。"
+  }
+}

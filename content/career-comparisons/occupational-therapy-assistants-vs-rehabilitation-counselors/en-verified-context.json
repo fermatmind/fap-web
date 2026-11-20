@@ -1,0 +1,292 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7449005165194054448cc69f7925011bc37a536d0d968a0104a65c98731558a8",
+  "inputs": {
+    "pair_id": "occupational-therapy-assistants-vs-rehabilitation-counselors",
+    "slugs": [
+      "occupational-therapy-assistants",
+      "rehabilitation-counselors"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/occupational-therapy-assistants-vs-rehabilitation-counselors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "occupational-therapy-assistants": {
+        "name": "Occupational therapy assistants",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.53,
+            3.48,
+            2.06,
+            6.1,
+            1.14,
+            4.21
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Instruct, or assist in instructing, patients and families in home programs, basic living skills, or the care and use of adaptive equipment."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Maintain and promote a positive attitude toward clients and their treatment programs."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Report to supervisors, verbally or in writing, on patients' progress, attitudes, and behavior."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/31-2011.00#Tasks"
+              }
+            ],
+            "text": "Implement, or assist occupational therapists with implementing, treatment plans designed to help clients function independently."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-2011",
+          "title_evidence": "official_title"
+        }
+      },
+      "rehabilitation-counselors": {
+        "name": "Rehabilitation counselors",
+        "riasec": {
+          "code": "S",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1015.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.23,
+            3.27,
+            2.98,
+            6.8,
+            3.56,
+            3.26
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1015.00#Tasks"
+              }
+            ],
+            "text": "Develop rehabilitation plans that fit clients' aptitudes, education levels, physical abilities, and career goals."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1015.00#Tasks"
+              }
+            ],
+            "text": "Confer with clients to discuss their options and goals so that rehabilitation programs and plans for accessing needed services can be developed."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1015.00#Tasks"
+              }
+            ],
+            "text": "Prepare and maintain records and case files, including documentation, such as clients' personal and eligibility information, services provided, narratives of client contacts, or relevant correspondence."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/21-1015.00#Tasks"
+              }
+            ],
+            "text": "Locate barriers to client employment, such as inaccessible work sites, inflexible schedules, or transportation problems, and work with clients to develop strategies for overcoming these barriers."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1015.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1015",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "occupational-therapy-assistants -> rehabilitation-counselors",
+      "rehabilitation-counselors -> occupational-therapy-assistants"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "31-2011.00",
+        "source_url": "https://www.onetonline.org/link/summary/31-2011.00",
+        "locator": "Tasks 4254, 4261, 4262",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Implements treatment and documents and reports progress under supervision.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "21-1015.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1015.00",
+        "locator": "Tasks 9201, 9205, 9208",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans rehabilitation services and works with clients on employment barriers.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-ota",
+        "source_url": "https://www.bls.gov/ooh/healthcare/occupational-therapy-assistants-and-aides.htm",
+        "locator": "How to Become an Occupational Therapy Assistant or Aide; Pay",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "OOH; May 2025 OEWS",
+          "summary": "Assistants typically need an accredited associate degree and usually a state license. Median annual wage $72,300.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-rc",
+        "source_url": "https://www.bls.gov/ooh/community-and-social-service/rehabilitation-counselors.htm",
+        "locator": "How to Become a Rehabilitation Counselor; Pay",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "OOH; May 2025 OEWS",
+          "summary": "Typically a master's degree; some jobs accept a bachelor's degree or require a license or certification. Median annual wage $46,850.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 544,
+      "source_slugs": [
+        "occupational-therapy-assistants",
+        "rehabilitation-counselors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "432e1076dd9a532f52dc9b7de7fde4549b26a37518939976e750b6c3a5ad8346",
+  "inputs": {
+    "pair_id": "continuous-mining-machine-operators-vs-first-line-supervisors-of-construction-trades-and-extraction-workers",
+    "slugs": [
+      "continuous-mining-machine-operators",
+      "first-line-supervisors-of-construction-trades-and-extraction-workers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/continuous-mining-machine-operators-vs-first-line-supervisors-of-construction-trades-and-extraction-workers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "continuous-mining-machine-operators": {
+        "name": "连续采矿机操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.97,
+            2.5,
+            1.0,
+            1.04,
+            1.34,
+            4.07
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-5041",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "first-line-supervisors-of-construction-trades-and-extraction-workers": {
+        "name": "建筑施工与采掘业工人一线主管",
+        "riasec": {
+          "code": "ECR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-1011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.67,
+            1.9,
+            1.0,
+            2.92,
+            6.0,
+            4.95
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-1011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "47-1011",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "continuous-mining-machine-operators -> first-line-supervisors-of-construction-trades-and-extraction-workers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：驾驶自走式采矿机，在矿体工作面连续切削煤、金属与非金属矿石、岩石与砂石，并把物料装载到输送机、梭车或卡车上；后岗：直接监督并协调建筑或采掘作业人员的工作，包括按图纸与规范检查施工进度与质量，监督作业安全与个人防护，安排班组分工与工序衔接，估算材料与工时并申购材料与设备。",
+    "cn_qualification": {
+      "continuous-mining-machine-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "first-line-supervisors-of-construction-trades-and-extraction-workers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "47-5041.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-5041.00",
+        "locator": "Tasks 14956, 14961",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Operates continuous mining machinery and observes equipment for malfunctions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "47-1011.00",
+        "source_url": "https://www.onetonline.org/link/summary/47-1011.00",
+        "locator": "Tasks 20291, 11424, 11426",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Plans, schedules and supervises crews and checks progress and conditions.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "mem-directory",
+        "source_url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202605/W020260526532904903760.pdf",
+        "locator": "应急〔2026〕45号附件第一部分5.7、5.8",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "采煤机操作和掘进机操作在目录中分列，须按岗位与设备实际职责核对。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "mem-training",
+        "source_url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/gz11/202512/t20251219_589223.shtml?jump=true",
+        "locator": "应急管理部令第19号第3、4、6条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "按目录核实实际特种作业，适用作业须经考核并取得操作证后上岗，培训及申请条件按规定核对。 首次取证的地下矿山特种作业人员须具备高中或相当于高中及以上文化程度。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 226,
+      "source_slugs": [
+        "continuous-mining-machine-operators",
+        "first-line-supervisors-of-construction-trades-and-extraction-workers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "35457ff4561d09c8d59a5111c029bdb099cff2010032aefda7baa45a2a8ae78a",
+  "inputs": {
+    "pair_id": "captains-mates-and-pilots-of-water-vessels-vs-transportation-inspectors",
+    "slugs": [
+      "captains-mates-and-pilots-of-water-vessels",
+      "transportation-inspectors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/captains-mates-and-pilots-of-water-vessels-vs-transportation-inspectors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "captains-mates-and-pilots-of-water-vessels": {
+        "name": "船长、大副与船舶引航员",
+        "riasec": {
+          "code": "RCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-5021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.61,
+            2.64,
+            1.0,
+            1.88,
+            4.22,
+            4.56
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-5021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-5021",
+          "title_evidence": "official_title"
+        }
+      },
+      "transportation-inspectors": {
+        "name": "运输检查员",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-6051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.69,
+            2.91,
+            1.0,
+            1.56,
+            2.64,
+            6.17
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-6051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "53-6051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "captains-mates-and-pilots-of-water-vessels -> transportation-inspectors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：船长、大副和引航员参与船舶航行与值班协作，分别承担指挥、船上值守或当地引航等职责；后岗：检查与安全运输有关的货物或设备，核对状态和记录并形成检查报告。",
+    "cn_qualification": {
+      "captains-mates-and-pilots-of-water-vessels": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://xxgk.mot.gov.cn/jigou/fgs/202607/t20260715_4209687.html"
+        ]
+      },
+      "transportation-inspectors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "53-5021.00",
+        "source_url": "https://www.onetonline.org/link/summary/53-5021.00",
+        "locator": "Tasks 23805, 23807, 23809",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Uses vessel navigation information, communicates operational updates and stands watch according to assignment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "53-6051.00",
+        "source_url": "https://www.onetonline.org/link/summary/53-6051.00",
+        "locator": "Tasks 23851, 23852, 23855, 23856",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Inspects freight and securing conditions, documents problems and recommends corrections within scope.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-mariner-scope",
+        "source_url": "https://js.msa.gov.cn/art/2023/7/25/art_842_1121.html",
+        "locator": "第四至七条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2023 年修订文本",
+          "summary": "船员按职务取得相应适任证书，证书注明航区（线）、船舶类别和等级等；参加航行和轮机值班的船员另有适任培训及任职资历要求。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-pilot-scope",
+        "source_url": "https://www.zj.msa.gov.cn/ZJ/zwgk/gkml/zcwj/flfg/202501/t20250123_152.html",
+        "locator": "第四至九条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025-03-01 起施行",
+          "summary": "受聘于引航机构的引航员须取得引航员适任证书，按海港或内河类别、对应等级和适用辖区范围执业。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 114,
+      "source_slugs": [
+        "captains-mates-and-pilots-of-water-vessels",
+        "transportation-inspectors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

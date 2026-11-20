@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7bc575178abdbf8ca74ebf2ea45840ad501cdf71275915e6d6bfac799fd465d0",
+  "inputs": {
+    "pair_id": "audio-and-video-technicians-vs-broadcast-technicians",
+    "slugs": [
+      "audio-and-video-technicians",
+      "broadcast-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/audio-and-video-technicians-vs-broadcast-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "audio-and-video-technicians": {
+        "name": "音訊影片技術員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-4011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.2,
+            2.74,
+            3.24,
+            1.97,
+            1.87,
+            4.58
+          ]
+        },
+        "tasks": [
+          "搭建與配置｜先讓裝置可用｜按活動或錄製需求列出裝置與通道清單，連線並核對訊號流（話筒→調音臺→處理器→功放→音箱，或攝像機→切換臺→錄製與播出），標註介面、線序與通道編號。",
+          "測試與驗證｜編輯核對建議｜對照實際訊號流記錄測試與未決狀態；具體異常中止、上報、恢復按現場合規程式，本頁未取得完整規程。",
+          "執行與排障｜讓異常可定位｜按節目單核對輸入與通道，監控畫面與聲音質量，把異常定位到具體環節後按預案切換或替換，並記錄處理過程與影響範圍。",
+          "安全與作業條件｜法域和具體作業分開｜美國OSHA1910.333(a)(1)要求暴露帶電部件作業前去電，只有僱主證明增添危險或設計執行不可行等條文條件才有例外；(b)去電核驗與鎖定掛牌、(c)(2)帶電作業qualified persons及防護條件均需核，不是普通內部授權即可。1910.303另為裝置安裝使用與防護要求。 中國應急管理部令19號自2026-06-01施行：第3條範圍按特種作業目錄，第4條相關人員須專門培訓考核合格並取得操作證才可上崗；不以普通機構授權替代，也不推所有音影片崗位都須同證。具體實際作業目錄、其他主管部門規則及場地條件另核。",
+          "撤收與清點｜編輯交接建議｜按真實規程清點記錄損壞缺失，停送電拆線由符合具體資格及程式的人員承擔，不憑本頁批准操作。",
+          "記錄與留檔｜讓過程可複核｜記錄裝置清單、測試結果、異常與處理、以及交接狀態，按機構規定管理內部資料與客戶資訊。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-4011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "27-4011",
+          "title_evidence": "official_title"
+        }
+      },
+      "broadcast-technicians": {
+        "name": "廣播技術員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-4012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.8,
+            2.99,
+            2.82,
+            2.13,
+            2.5,
+            5.14
+          ]
+        },
+        "tasks": [
+          "方案與鏈路核對｜核對播出方案與鏈路圖，確認供電、接地、介面與備用通道條件｜一份註明依據與未決問題的鏈路核對記錄。",
+          "裝置安裝與配置｜按手冊安裝並配置裝置，維護臺內計算機與網路並做校準｜可複核的配置引數與裝置臺賬。",
+          "播出值守與調整｜監看收發訊號與監視器，調節音量、訊號強度與清晰度並調整影片保真度｜按班次完成的執行引數記錄。",
+          "節目播放與錄製｜按自動化系統播放並錄製節目，選擇接收或傳送的訊號源｜播出與錄製記錄及訊號源說明。",
+          "故障處置與檢修｜排查裝置故障、做應急修復並跟蹤維修落實，按規程保養｜故障處理與檢修記錄。",
+          "讀數與交接｜監控並記錄發射機讀數，整理變更與遺留問題並向下一班交接｜完整可查的讀數表與交接記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-4012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "27-4012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "audio-and-video-technicians -> broadcast-technicians",
+      "broadcast-technicians -> audio-and-video-technicians"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "audio-and-video-technicians": {
+        "file_sha256": "ff706b648ddba4a6d6ce4dfc3dd08dc04e2ca1fb3783d466f016ed5be5d85ee6",
+        "entries": [
+          "搭建與配置｜先讓裝置可用｜按活動或錄製需求列出裝置與通道清單，連線並核對訊號流（話筒→調音臺→處理器→功放→音箱，或攝像機→切換臺→錄製與播出），標註介面、線序與通道編號。",
+          "測試與驗證｜編輯核對建議｜對照實際訊號流記錄測試與未決狀態；具體異常中止、上報、恢復按現場合規程式，本頁未取得完整規程。",
+          "執行與排障｜讓異常可定位｜按節目單核對輸入與通道，監控畫面與聲音質量，把異常定位到具體環節後按預案切換或替換，並記錄處理過程與影響範圍。",
+          "安全與作業條件｜法域和具體作業分開｜美國OSHA1910.333(a)(1)要求暴露帶電部件作業前去電，只有僱主證明增添危險或設計執行不可行等條文條件才有例外；(b)去電核驗與鎖定掛牌、(c)(2)帶電作業qualified persons及防護條件均需核，不是普通內部授權即可。1910.303另為裝置安裝使用與防護要求。 中國應急管理部令19號自2026-06-01施行：第3條範圍按特種作業目錄，第4條相關人員須專門培訓考核合格並取得操作證才可上崗；不以普通機構授權替代，也不推所有音影片崗位都須同證。具體實際作業目錄、其他主管部門規則及場地條件另核。",
+          "撤收與清點｜編輯交接建議｜按真實規程清點記錄損壞缺失，停送電拆線由符合具體資格及程式的人員承擔，不憑本頁批准操作。",
+          "記錄與留檔｜讓過程可複核｜記錄裝置清單、測試結果、異常與處理、以及交接狀態，按機構規定管理內部資料與客戶資訊。"
+        ]
+      },
+      "broadcast-technicians": {
+        "file_sha256": "c5fd3f56c225612821776c41a060de70076d1f7906910128e329253a3812cdca",
+        "entries": [
+          "方案與鏈路核對｜核對播出方案與鏈路圖，確認供電、接地、介面與備用通道條件｜一份註明依據與未決問題的鏈路核對記錄。",
+          "裝置安裝與配置｜按手冊安裝並配置裝置，維護臺內計算機與網路並做校準｜可複核的配置引數與裝置臺賬。",
+          "播出值守與調整｜監看收發訊號與監視器，調節音量、訊號強度與清晰度並調整影片保真度｜按班次完成的執行引數記錄。",
+          "節目播放與錄製｜按自動化系統播放並錄製節目，選擇接收或傳送的訊號源｜播出與錄製記錄及訊號源說明。",
+          "故障處置與檢修｜排查裝置故障、做應急修復並跟蹤維修落實，按規程保養｜故障處理與檢修記錄。",
+          "讀數與交接｜監控並記錄發射機讀數，整理變更與遺留問題並向下一班交接｜完整可查的讀數表與交接記錄。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 10,
+      "source_slugs": [
+        "audio-and-video-technicians",
+        "broadcast-technicians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "audio-and-video-technicians": {
+          "field": "entries",
+          "source_path": "careers/audio-and-video-technicians/zh-TW.json",
+          "file_sha256": "ff706b648ddba4a6d6ce4dfc3dd08dc04e2ca1fb3783d466f016ed5be5d85ee6",
+          "count": 6
+        },
+        "broadcast-technicians": {
+          "field": "entries",
+          "source_path": "careers/broadcast-technicians/zh-TW.json",
+          "file_sha256": "c5fd3f56c225612821776c41a060de70076d1f7906910128e329253a3812cdca",
+          "count": 6
+        }
+      }
+    }
+  }
+}

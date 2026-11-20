@@ -1,0 +1,280 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "beecb12b397b72713f3ca09fbb2fbcf5f023a07252c3909e75979e24de4f72c0",
+  "inputs": {
+    "pair_id": "continuous-mining-machine-operators-vs-rock-splitters-quarry",
+    "slugs": [
+      "continuous-mining-machine-operators",
+      "rock-splitters-quarry"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/continuous-mining-machine-operators-vs-rock-splitters-quarry",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "continuous-mining-machine-operators": {
+        "name": "Continuous mining machine operator",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.97,
+            2.5,
+            1.0,
+            1.04,
+            1.34,
+            4.07
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5041.00#Tasks"
+              }
+            ],
+            "text": "Hang ventilation tubing and ventilation curtains to ensure that the mining face area is kept properly ventilated."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5041.00#Tasks"
+              }
+            ],
+            "text": "Conduct methane gas checks to ensure breathing quality of air."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5041.00#Tasks"
+              }
+            ],
+            "text": "Check the stability of roof and rib support systems before mining face areas."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5041.00#Tasks"
+              }
+            ],
+            "text": "Operate mining machines to gather coal and convey it to floors or shuttle cars."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-5041",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "rock-splitters-quarry": {
+        "name": "Rock Splitters, Quarry",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.99,
+            2.07,
+            1.74,
+            1.26,
+            1.17,
+            3.19
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5051.00#Tasks"
+              }
+            ],
+            "text": "Locate grain line patterns to determine how rocks will split when cut."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5051.00#Tasks"
+              }
+            ],
+            "text": "Remove pieces of stone from larger masses, using jackhammers, wedges, and other tools."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5051.00#Tasks"
+              }
+            ],
+            "text": "Insert wedges and feathers into holes, and drive wedges with sledgehammers to split stone sections from masses."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/47-5051.00#Tasks"
+              }
+            ],
+            "text": "Mark dimensions or outlines on stone prior to cutting, using rules and chalk lines."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-5051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "continuous-mining-machine-operators -> rock-splitters-quarry"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "continuous",
+        "source_url": "https://www.onetonline.org/link/summary/47-5041.00#Tasks",
+        "locator": "47-5041.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Operates self-propelled continuous mining equipment to extract and load material.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "splitter",
+        "source_url": "https://www.onetonline.org/link/summary/47-5051.00#Tasks",
+        "locator": "47-5051.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Separates rough dimension stone blocks from the quarry mass and examines stone for flaws or size.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 47-5041 and 47-5051",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025 wages",
+          "summary": "National median annual wages $61,810 and $48,740. Both list no formal educational credential; moderate-term and short-term on-the-job training respectively.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 227,
+      "source_slugs": [
+        "continuous-mining-machine-operators",
+        "rock-splitters-quarry"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

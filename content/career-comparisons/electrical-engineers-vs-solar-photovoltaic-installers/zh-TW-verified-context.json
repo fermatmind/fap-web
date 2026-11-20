@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "cc0f3d4bb71c5f42ef7487afcccfc63139ad51891f52b4393af214c6891a548c",
+  "inputs": {
+    "pair_id": "electrical-engineers-vs-solar-photovoltaic-installers",
+    "slugs": [
+      "electrical-engineers",
+      "solar-photovoltaic-installers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/electrical-engineers-vs-solar-photovoltaic-installers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "electrical-engineers": {
+        "name": "電氣工程師",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.02,
+            5.45,
+            2.12,
+            1.72,
+            2.44,
+            4.43
+          ]
+        },
+        "tasks": [
+          "按合同、需求與適用標準研究並設計電氣裝置、部件與系統，完成電氣計算與裝置選型並記錄假設與裕度。",
+          "輸出技術圖紙、系統規範與工程檔案，並按單位制度完成校核、稽核與簽署。",
+          "組織或參與測試與驗證，依據判據確認符合性並記錄偏差處理與複測結果。",
+          "評估設計變更的影響範圍，復算受影響項並維護版本與批准記錄。",
+          "與工藝、機械、施工與供應商協作，明確介面、責任分界與交介面條件。",
+          "在授權範圍內確認設計結論，不越權批准設計檔案或變更。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2071",
+          "title_evidence": "official_title"
+        }
+      },
+      "solar-photovoltaic-installers": {
+        "name": "太陽能光伏安裝工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2231.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.65,
+            1.39,
+            1.19,
+            1.73,
+            4.08
+          ]
+        },
+        "tasks": [
+          "圖紙材料｜核當前圖紙、元件與支撐型號數量，登記不匹配。｜輸出版本和材料差額記錄，不把未知記為已確認。",
+          "裝配安裝｜依據確認要求裝配支撐和光伏元件，在獲授權範圍實施。｜輸出實際作業和異常記錄，操作需訓練監督。",
+          "標識與檔案｜核元件標識和相關檔案對應安裝物件。｜輸出可追溯物件記錄，舊版檔案不冒充當前版。",
+          "檢查與測試｜按崗位職責參與檢查測試，異常交對應專業人員。｜輸出檢查記錄與未完成項，不憑清點判合格。",
+          "維護與糾偏｜依據記錄與確認任務處理維護，必要時升級專業判斷。｜輸出維護事項與狀態，未知原因不由軟體猜定。",
+          "交接協作｜向經理及技術檢查人員說明數量版本和異常狀態。｜輸出交接清單，施工完成不等於併網批准。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2231.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-2231",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "solar-photovoltaic-installers -> electrical-engineers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "electrical-engineers": {
+        "file_sha256": "b838a814a7f74cdcb7da6176dc4f6fc3dd68c2a5452b7e22df22aae34503dd02",
+        "entries": []
+      },
+      "solar-photovoltaic-installers": {
+        "file_sha256": "ad7d2ca9512635eafa9e5d7d2a7bedb7884c758dd61ba3c95a014babe88a9430",
+        "entries": [
+          "圖紙材料｜核當前圖紙、元件與支撐型號數量，登記不匹配。｜輸出版本和材料差額記錄，不把未知記為已確認。",
+          "裝配安裝｜依據確認要求裝配支撐和光伏元件，在獲授權範圍實施。｜輸出實際作業和異常記錄，操作需訓練監督。",
+          "標識與檔案｜核元件標識和相關檔案對應安裝物件。｜輸出可追溯物件記錄，舊版檔案不冒充當前版。",
+          "檢查與測試｜按崗位職責參與檢查測試，異常交對應專業人員。｜輸出檢查記錄與未完成項，不憑清點判合格。",
+          "維護與糾偏｜依據記錄與確認任務處理維護，必要時升級專業判斷。｜輸出維護事項與狀態，未知原因不由軟體猜定。",
+          "交接協作｜向經理及技術檢查人員說明數量版本和異常狀態。｜輸出交接清單，施工完成不等於併網批准。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 362,
+      "source_slugs": [
+        "electrical-engineers",
+        "solar-photovoltaic-installers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "electrical-engineers": {
+          "field": "paragraphs",
+          "source_path": "careers/electrical-engineers/zh-TW.json",
+          "file_sha256": "b838a814a7f74cdcb7da6176dc4f6fc3dd68c2a5452b7e22df22aae34503dd02",
+          "count": 6
+        },
+        "solar-photovoltaic-installers": {
+          "field": "entries",
+          "source_path": "careers/solar-photovoltaic-installers/zh-TW.json",
+          "file_sha256": "ad7d2ca9512635eafa9e5d7d2a7bedb7884c758dd61ba3c95a014babe88a9430",
+          "count": 6
+        }
+      }
+    }
+  }
+}

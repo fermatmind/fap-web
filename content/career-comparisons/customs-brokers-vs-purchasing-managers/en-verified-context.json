@@ -1,0 +1,313 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7457dda4e9290b769df93ead3444f7a885686f22efe4e555a4f856316e5adb81",
+  "inputs": {
+    "pair_id": "customs-brokers-vs-purchasing-managers",
+    "slugs": [
+      "customs-brokers",
+      "purchasing-managers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/customs-brokers-vs-purchasing-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "customs-brokers": {
+        "name": "Customs Brokers",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1041.08",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.37,
+            1.53,
+            1.0,
+            2.17,
+            5.02,
+            6.13
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1041.08#Tasks"
+              }
+            ],
+            "text": "Pay, or arrange for payment of, taxes and duties on shipments."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1041.08#Tasks"
+              }
+            ],
+            "text": "Classify goods according to tariff coding system."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1041.08#Tasks"
+              }
+            ],
+            "text": "Clear goods through customs and to their destinations for clients."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/13-1041.08#Tasks"
+              }
+            ],
+            "text": "Prepare and process import and export documentation according to customs regulations, laws, or procedures."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1041.08",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "13-1041",
+          "title_evidence": "official_title"
+        }
+      },
+      "purchasing-managers": {
+        "name": "Purchasing Managers",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-3061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.49,
+            1.77,
+            1.2,
+            2.7,
+            7.0,
+            5.98
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-3061.00#Tasks"
+              }
+            ],
+            "text": "Develop and implement purchasing and contract management instructions, policies, and procedures."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-3061.00#Tasks"
+              }
+            ],
+            "text": "Locate vendors of materials, equipment or supplies, and interview them to determine product availability and terms of sales."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-3061.00#Tasks"
+              }
+            ],
+            "text": "Prepare bid awards requiring board approval."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/11-3061.00#Tasks"
+              }
+            ],
+            "text": "Direct and coordinate activities of personnel engaged in buying, selling, and distributing materials, equipment, machinery, and supplies."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-3061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-3061",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "customs-brokers -> purchasing-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "tasks-0",
+        "source_url": "https://www.onetonline.org/link/summary/13-1041.08",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Perform customs entry work for clients, including shipment classification and arranging duties.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "tasks-1",
+        "source_url": "https://www.onetonline.org/link/summary/11-3061.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develop procurement procedures, evaluate suppliers and prepare award decisions or recommendations.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "broker-license",
+        "source_url": "https://www.help.cbp.gov/s/article/Article-1012?language=en_US",
+        "locator": "Qualifications to become a Licensed Customs Broker",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "CBP article dated 2026-08-24",
+          "summary": "CBP individual license route uses eligibility criteria, CBLE, application and CBP approval.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "broker-role",
+        "source_url": "https://www.help.cbp.gov/s/article/Article-1169?language=en_US",
+        "locator": "Do I need a Customs Broker to clear my goods through U.S. Customs and Border Protection?",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "CBP licenses brokers to conduct customs business for importers. Importers remain responsible and may file for themselves.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "purchasing-prep",
+        "source_url": "https://www.bls.gov/ooh/business-and-financial/purchasing-managers-buyers-and-purchasing-agents.htm",
+        "locator": "How to Become One; Education and Work Experience",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "Purchasing managers typically need a bachelor's degree and several years of related experience.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "us-license-permit",
+        "source_url": "https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2",
+        "locator": "19 CFR §111.2(a)(1), (a)(2)(i)–(ii), (b)",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "Accessed 2026-11-17",
+          "summary": "A broker ordinarily needs a license and permit. The rule covers self-filing and licensed-broker employees acting for their employer with the specified authorization and supervision.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 273,
+      "source_slugs": [
+        "customs-brokers",
+        "purchasing-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

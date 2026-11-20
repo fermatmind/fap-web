@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d158334ff1ff9958d5e6a9d7e4dc54f4b7437ef2810383e94b609de2c9aa4896",
+  "inputs": {
+    "pair_id": "derrick-operators-oil-and-gas-vs-dredge-operators",
+    "slugs": [
+      "derrick-operators-oil-and-gas",
+      "dredge-operators"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/derrick-operators-oil-and-gas-vs-dredge-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "derrick-operators-oil-and-gas": {
+        "name": "石油天然气井架操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.54,
+            1.0,
+            1.01,
+            1.64,
+            3.64
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "47-5011",
+          "title_evidence": "official_title"
+        }
+      },
+      "dredge-operators": {
+        "name": "挖泥船操作员",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.63,
+            2.99,
+            1.0,
+            1.36,
+            2.33,
+            3.48
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "53-7031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "dredge-operators -> derrick-operators-oil-and-gas"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前者负责井架检查、泥浆循环与报告、起下钻协同及设备维护，后者侧重是疏浚与航道维护的挖泥船操作岗位：操作挖泥船清除沙子与砾石或其他材料，以开挖并维护水道中的可通航航道。",
+    "cn_qualification": {
+      "derrick-operators-oil-and-gas": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "dredge-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "derrick",
+        "source_url": "https://www.onetonline.org/link/summary/47-5011.00#Tasks",
+        "locator": "47-5011.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET",
+          "summary": "Sets up derrick equipment and operates and monitors pumps for drilling fluid circulation; prepares drilling mud reports.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "dredge",
+        "source_url": "https://www.onetonline.org/link/summary/53-7031.00#Tasks",
+        "locator": "53-7031.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET",
+          "summary": "Operates dredging equipment to remove material and maintain waterways; operates and monitors equipment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "oil-context",
+        "source_url": "https://www.bls.gov/ooh/construction-and-extraction/oil-and-gas-workers.htm#tab-3",
+        "locator": "Work Schedules",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current BLS",
+          "summary": "Some remote or offshore oil and gas crews work long shifts and spend weeks away from home.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "dredge-context",
+        "source_url": "https://www.onetonline.org/link/summary/53-7031.00#WorkContext",
+        "locator": "Work Context, outdoors exposed to weather",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Lists outdoor exposure to weather as a working condition.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 290,
+      "source_slugs": [
+        "derrick-operators-oil-and-gas",
+        "dredge-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "298eaf408d9821f0dffd7998233f60fc272093ef4711420fd50cec908a562355",
+  "inputs": {
+    "pair_id": "subway-and-streetcar-operators-vs-traffic-technicians",
+    "slugs": [
+      "subway-and-streetcar-operators",
+      "traffic-technicians"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/subway-and-streetcar-operators-vs-traffic-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "subway-and-streetcar-operators": {
+        "name": "地鐵與有軌電車司機",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-4041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.91,
+            1.37,
+            1.0,
+            2.8,
+            2.28,
+            4.26
+          ]
+        },
+        "tasks": [
+          "執行｜軌道客運職責｜依崗位與單位規則完成客運任務，正式訓練考核限定範圍，本頁不提供操作教學。",
+          "觀察｜環境與資訊注意｜職業任務要求注意執行相關資訊，崗位具體要求及健康適崗須正式核查。",
+          "溝通｜主管與排程報告｜準確報告延誤和裝置等問題，不能把待確認寫成獲得執行許可。",
+          "服務｜乘客資訊提供｜按崗位提供到站或延誤等資訊並回答相應問題，具體分工隨單位線路核。",
+          "記錄｜班次總結與實際情況｜記錄實際事實與未知，計劃本身、傳送動作和收到部分資料不是全部確認。",
+          "學習｜安全培訓與考核｜持續參加崗位學習，資格、訓練、考核及健康要求由適用規則與單位核。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-4041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "53-4041",
+          "title_evidence": "official_title"
+        }
+      },
+      "traffic-technicians": {
+        "name": "交通技術員",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-6041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.87,
+            4.38,
+            1.4,
+            1.93,
+            1.96,
+            4.47
+          ]
+        },
+        "tasks": [
+          "任務確認｜核調查方案｜明確地點、方向、起止時段、車型和交付口徑。",
+          "記錄採集｜計數與測量｜按批准程式收集流量、速度或延誤資料，並記錄裝置與來源。",
+          "質量複核｜缺失與重複｜核時間連續性、分類、計數異常及更正原因，保留原值。",
+          "整理分析｜圖表與報告｜編制可回溯的統計和說明，幫助工程師理解資料。",
+          "設施支援｜檢查與工單｜按授權核裝置狀態，記錄位置與維修或維護需求。",
+          "溝通交接｜說明限制｜回應具體資料問題，提交異常、覆蓋和待負責人決定的事項。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-6041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "53-6041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "subway-and-streetcar-operators -> traffic-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "subway-and-streetcar-operators": {
+        "file_sha256": "0e4d2e6480c904a7ae07cf55e5a4bf6570cdc542dd62b1e2d4fc3ec0137f85fc",
+        "entries": []
+      },
+      "traffic-technicians": {
+        "file_sha256": "1c1a8e104fbd219410c673e522cdff79add896884d05d4f4ebbf1d93b86fe156",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 684,
+      "source_slugs": [
+        "subway-and-streetcar-operators",
+        "traffic-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "subway-and-streetcar-operators": {
+          "field": "paragraphs",
+          "source_path": "careers/subway-and-streetcar-operators/zh-TW.json",
+          "file_sha256": "0e4d2e6480c904a7ae07cf55e5a4bf6570cdc542dd62b1e2d4fc3ec0137f85fc",
+          "count": 6
+        },
+        "traffic-technicians": {
+          "field": "paragraphs",
+          "source_path": "careers/traffic-technicians/zh-TW.json",
+          "file_sha256": "1c1a8e104fbd219410c673e522cdff79add896884d05d4f4ebbf1d93b86fe156",
+          "count": 6
+        }
+      }
+    }
+  }
+}

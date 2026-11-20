@@ -1,0 +1,266 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "37da31dceb8a8836e722d44c1e2c42ff7d1b2a2d62bfbffb8f950c6c8e1e18f2",
+  "inputs": {
+    "pair_id": "fabric-and-apparel-patternmakers-vs-patternmakers-metal-and-plastic",
+    "slugs": [
+      "fabric-and-apparel-patternmakers",
+      "patternmakers-metal-and-plastic"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/fabric-and-apparel-patternmakers-vs-patternmakers-metal-and-plastic",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "fabric-and-apparel-patternmakers": {
+        "name": "Fabric and Apparel Patternmakers",
+        "riasec": {
+          "code": "RAC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-6092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.65,
+            1.34,
+            5.4,
+            1.31,
+            1.45,
+            4.17
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-6092.00#Tasks"
+              }
+            ],
+            "text": "Create a master pattern for each size within a range of garment sizes, using charts, drafting instruments, computers, or grading devices."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-6092.00#Tasks"
+              }
+            ],
+            "text": "Input specifications into computers to assist with pattern design and pattern cutting."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-6092.00#Tasks"
+              }
+            ],
+            "text": "Draw details on outlined parts to indicate where parts are to be joined, as well as the positions of pleats, pockets, buttonholes, and other features, using computers or drafting instruments."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-6092.00#Tasks"
+              }
+            ],
+            "text": "Make adjustments to patterns after fittings."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-6092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "51-6092",
+          "title_evidence": "official_title"
+        }
+      },
+      "patternmakers-metal-and-plastic": {
+        "name": "Patternmakers, Metal and Plastic",
+        "riasec": {
+          "code": "RCA",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4062.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.21,
+            1.73,
+            3.37,
+            1.0,
+            1.0,
+            4.21
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-4062.00#Tasks"
+              }
+            ],
+            "text": "Read and interpret blueprints or drawings of parts to be cast or patterns to be made, compute dimensions, and plan operational sequences."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-4062.00#Tasks"
+              }
+            ],
+            "text": "Verify conformance of patterns or template dimensions to specifications, using measuring instruments such as calipers, scales, and micrometers."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-4062.00#Tasks"
+              }
+            ],
+            "text": "Repair and rework templates and patterns."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4062.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-4062",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "fabric-and-apparel-patternmakers -> patternmakers-metal-and-plastic"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "51-6092.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-6092.00",
+        "locator": "Tasks 12200, 20930, 12198, 20931",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops apparel patterns and adjusts them after fittings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "51-4062.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-4062.00",
+        "locator": "Tasks 12037, 12038, 12041, 12042",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Interprets drawings, verifies dimensions and reworks patterns or templates.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 51-6092, 51-4062",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 USD per year",
+          "summary": "Both: high school diploma or equivalent and moderate-term on-the-job training. Median annual wages: 51-6092 $62,750; 51-4062 $58,000.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 414,
+      "source_slugs": [
+        "fabric-and-apparel-patternmakers",
+        "patternmakers-metal-and-plastic"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

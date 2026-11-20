@@ -1,0 +1,167 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "57cd173c0d4e8422ce0b8e641cab4f47df8b94f4bae9fb73f5c04f6666569200",
+  "inputs": {
+    "pair_id": "compliance-managers-vs-regulatory-affairs-managers",
+    "slugs": [
+      "compliance-managers",
+      "regulatory-affairs-managers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/compliance-managers-vs-regulatory-affairs-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "compliance-managers": {
+        "name": "合规经理",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.92,
+            2.98,
+            1.0,
+            3.1,
+            5.93,
+            6.3
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      },
+      "regulatory-affairs-managers": {
+        "name": "法规事务经理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9199.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.93,
+            2.99,
+            1.34,
+            2.65,
+            6.55,
+            5.67
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9199.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "compliance-managers -> regulatory-affairs-managers",
+      "regulatory-affairs-managers -> compliance-managers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "compliance-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "regulatory-affairs-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "11-9199.02-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.02#Tasks",
+        "locator": "Tasks: internal investigations, periodic internal reviews, and compliance reporting",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Directs internal compliance investigations and reviews and files appropriate reports.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "11-9199.01-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/11-9199.01#Tasks",
+        "locator": "Tasks: submission strategy, submission material review, and agency responses",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Plans product submissions, reviews materials for completeness and accuracy, and responds to agency questions.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 23,
+      "source_slugs": [
+        "compliance-managers",
+        "regulatory-affairs-managers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一产品上市，前者管企业内部合规制度和违规风险，后者管产品申报路径与监管沟通。",
+    "seed_cn_qualification_lead": "有行业规则和内部授权线索，个人统一资格待核。"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "65336adf89976bcc3fb1e04420d50765049d7368812c0c39560c1d0ee8e64bf0",
+  "inputs": {
+    "pair_id": "computer-systems-analysts-vs-database-architects",
+    "slugs": [
+      "computer-systems-analysts",
+      "database-architects"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/computer-systems-analysts-vs-database-architects",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "computer-systems-analysts": {
+        "name": "计算机系统分析师",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1211.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.27,
+            6.39,
+            1.98,
+            1.91,
+            2.23,
+            5.93
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1211.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1211",
+          "title_evidence": "official_title"
+        }
+      },
+      "database-architects": {
+        "name": "数据库架构师",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1243.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.63,
+            5.63,
+            2.16,
+            1.91,
+            2.68,
+            6.12
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1243.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1243",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "database-architects -> computer-systems-analysts"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：分析业务与技术问题，把需求转成可实施的系统方案，并对方案依据、变更记录与上线结果负责；后岗：根据查询、容量和安全要求设计企业数据库或数据仓库，制定数据模型、标准和迁移方案，并与开发和运维团队验证。",
+    "cn_qualification": {
+      "computer-systems-analysts": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "database-architects": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "task-0",
+        "source_url": "https://www.onetonline.org/link/summary/15-1211.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Analyze computer system problems and help users resolve them.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "task-1",
+        "source_url": "https://www.onetonline.org/link/summary/15-1243.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develop and document database architecture based on business and application needs.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 195,
+      "source_slugs": [
+        "computer-systems-analysts",
+        "database-architects"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

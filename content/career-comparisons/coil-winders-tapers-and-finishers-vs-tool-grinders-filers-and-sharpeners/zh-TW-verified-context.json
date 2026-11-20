@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f17df73f473f8057122444688194f6c0a2fb47caf3f6821084cb40bd3d38efbc",
+  "inputs": {
+    "pair_id": "coil-winders-tapers-and-finishers-vs-tool-grinders-filers-and-sharpeners",
+    "slugs": [
+      "coil-winders-tapers-and-finishers",
+      "tool-grinders-filers-and-sharpeners"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/coil-winders-tapers-and-finishers-vs-tool-grinders-filers-and-sharpeners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "coil-winders-tapers-and-finishers": {
+        "name": "線圈繞線工、包紮工、修整工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.54,
+            2.28,
+            1.0,
+            1.12,
+            1.4,
+            4.17
+          ]
+        },
+        "tasks": [
+          "繞製作業與裝置看護｜按工單把導線繞成符合規格的線圈｜操作或看護繞線機繞制用於電氣元件與電氣裝置的線圈，選擇並裝載工件與零件等材料到繞制裝置，按節拍看護執行，並停機用工具取下已完成部件（對應 O*NET 任務第一與第五與第七項）。",
+          "端頭與絕緣處理｜完成線圈端頭加工與絕緣裝配｜用手工具接裝、改接並修剪導線與絕緣與線圈等材料，用鉗子與刮線器剪斷、剝皮並彎折線圈端部的導線端頭，並用片狀絕緣襯墊槽口並把線圈嵌入槽內（對應 O*NET 任務第二與第三與第九項）。",
+          "檢查測試與質量確認｜量測與電測確認電氣部件可用｜用測量裝置檢查與測試電機與電樞與定子等已繞線電氣部件並記錄測試結果（對應 O*NET 任務第八項）。",
+          "塗覆與烘烤｜給已繞線部件上漆並完成固化｜用手工具給已繞線電氣部件塗覆溶液或漆並烘烤（對應 O*NET 任務第十項）。",
+          "拆裝與維修保養｜拆裝電機並維修電氣部件與機器零件｜用手工具拆裝電機並維修保養電氣部件與機器零件（對應 O*NET 任務第十一項）。",
+          "工單核對與記錄｜按規格備料並把執行資料留痕｜審閱工單與規格以確定所需材料與待加工零件型別，並在規定表格上記錄生產與執行資料（對應 O*NET 任務第四與第六項）。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "51-2021",
+          "title_evidence": "official_title"
+        }
+      },
+      "tool-grinders-filers-and-sharpeners": {
+        "name": "工具磨削、銼削與刃磨工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4194.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.02,
+            1.25,
+            1.0,
+            1.0,
+            4.15
+          ]
+        },
+        "tasks": [
+          "準備｜圖樣與規格核對｜識讀工件或刀具圖樣，確定磨削工序與檢查要求，核對象、版本、尺寸和單位。",
+          "準備｜砂輪與磨床設定｜按規格選擇、安裝及修整砂輪，設定磨削或拋光裝置；具體操作遵守培訓與現場授權。",
+          "加工｜過程監控與異常停止｜監控裝置執行，按規定調整；出現問題停機並說明已觀察到的異常。",
+          "檢驗｜尺寸與表面複核｜測量成品並檢查缺陷、磨損和配合，區分合格、不合格及未確定項。",
+          "精修｜形面與齒形處理｜使用規定手工工具銼修表面，核算切削工具齒數、寬度與角度，並檢查結果。",
+          "維護與交接｜清潔、潤滑和記錄｜實施獲授權的基本維護，分離缺陷件並留存加工、檢驗與交接資訊。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4194.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-4194",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "coil-winders-tapers-and-finishers -> tool-grinders-filers-and-sharpeners"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "coil-winders-tapers-and-finishers": {
+        "file_sha256": "5fa1a15352601d1da50a9509ac95c836acfe81f4d20199fca438d6d3d025bf9e",
+        "entries": [
+          "繞製作業與裝置看護｜按工單把導線繞成符合規格的線圈｜操作或看護繞線機繞制用於電氣元件與電氣裝置的線圈，選擇並裝載工件與零件等材料到繞制裝置，按節拍看護執行，並停機用工具取下已完成部件（對應 O*NET 任務第一與第五與第七項）。",
+          "端頭與絕緣處理｜完成線圈端頭加工與絕緣裝配｜用手工具接裝、改接並修剪導線與絕緣與線圈等材料，用鉗子與刮線器剪斷、剝皮並彎折線圈端部的導線端頭，並用片狀絕緣襯墊槽口並把線圈嵌入槽內（對應 O*NET 任務第二與第三與第九項）。",
+          "檢查測試與質量確認｜量測與電測確認電氣部件可用｜用測量裝置檢查與測試電機與電樞與定子等已繞線電氣部件並記錄測試結果（對應 O*NET 任務第八項）。",
+          "塗覆與烘烤｜給已繞線部件上漆並完成固化｜用手工具給已繞線電氣部件塗覆溶液或漆並烘烤（對應 O*NET 任務第十項）。",
+          "拆裝與維修保養｜拆裝電機並維修電氣部件與機器零件｜用手工具拆裝電機並維修保養電氣部件與機器零件（對應 O*NET 任務第十一項）。",
+          "工單核對與記錄｜按規格備料並把執行資料留痕｜審閱工單與規格以確定所需材料與待加工零件型別，並在規定表格上記錄生產與執行資料（對應 O*NET 任務第四與第六項）。"
+        ]
+      },
+      "tool-grinders-filers-and-sharpeners": {
+        "file_sha256": "0591a6cb0297923dcc3a03dcd10e20300963c0b1f82fdb2b29e4a2ee90fadcda",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 178,
+      "source_slugs": [
+        "coil-winders-tapers-and-finishers",
+        "tool-grinders-filers-and-sharpeners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "coil-winders-tapers-and-finishers": {
+          "field": "entries",
+          "source_path": "careers/coil-winders-tapers-and-finishers/zh-TW.json",
+          "file_sha256": "5fa1a15352601d1da50a9509ac95c836acfe81f4d20199fca438d6d3d025bf9e",
+          "count": 6
+        },
+        "tool-grinders-filers-and-sharpeners": {
+          "field": "paragraphs",
+          "source_path": "careers/tool-grinders-filers-and-sharpeners/zh-TW.json",
+          "file_sha256": "0591a6cb0297923dcc3a03dcd10e20300963c0b1f82fdb2b29e4a2ee90fadcda",
+          "count": 6
+        }
+      }
+    }
+  }
+}

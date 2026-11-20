@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "99936b41191d8814715a00a030233bac95361dde430eaa1505c5b38d68e27a69",
+  "inputs": {
+    "pair_id": "property-real-estate-and-community-association-managers-vs-residential-advisors",
+    "slugs": [
+      "property-real-estate-and-community-association-managers",
+      "residential-advisors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/property-real-estate-and-community-association-managers-vs-residential-advisors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "property-real-estate-and-community-association-managers": {
+        "name": "物業、房地產與社群協會經理",
+        "riasec": {
+          "code": "EC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9141.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.28,
+            2.11,
+            1.69,
+            3.53,
+            6.67,
+            5.26
+          ]
+        },
+        "tasks": [
+          "協議｜核管理協議｜界定物業、服務範圍、收費與批准人。",
+          "運營｜查運營狀態｜核租賃、公共區域、設施和住戶投訴。",
+          "維修｜排維護事項｜檢查設施並徵集承包商報價。",
+          "財務｜核預算收支｜對照租金、會費、押金與維修費用。",
+          "治理｜協調董事會｜把規則、爭議與重大支出送有權人員決定。",
+          "交付｜驗收歸檔｜核維修結果、費用和溝通記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9141.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "11-9141",
+          "title_evidence": "official_title"
+        }
+      },
+      "residential-advisors": {
+        "name": "住宿輔導員",
+        "riasec": {
+          "code": "SCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-9041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.82,
+            2.37,
+            2.25,
+            5.28,
+            3.81,
+            4.63
+          ]
+        },
+        "tasks": [
+          "住戶支援｜接收學生或住戶提出的生活與人際問題，確認事實、緊急程度及機構可提供的幫助。｜記錄問題和後續責任人，超出崗位能力時轉介輔導或醫療等專業人員。",
+          "秩序與規則｜解釋並執行住宿設施規則，觀察異常行為和衝突跡象。｜形成客觀事件記錄並按機構程式報告，不自行作醫療診斷或超授權處分。",
+          "衝突處理｜傾聽當事人、區分已知事實與爭議，必要時聯絡其他工作人員。｜記錄溝通結果、未解決事項和升級路徑。",
+          "活動協調｜按住戶需要和機構計劃組織教育、社交或生活活動。｜交付活動安排、參與反饋和後續改進記錄。",
+          "設施與物資｜巡查公共區域，報告維修和用品需求，按授權協助安排房間或物資。｜交付工單、物資記錄和責任人交接；不把工程驗收或採購簽約寫成通用職責。",
+          "交班與安全｜交接未結事項，發現傷害、火情或其他緊急風險時遵循機構預案。｜保留最小必要事實、通知記錄和接手確認；實際急救許可權依培訓及當地規定。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-9041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "39-9041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "residential-advisors -> property-real-estate-and-community-association-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "property-real-estate-and-community-association-managers": {
+        "file_sha256": "3fead07f8363c2abe6856d92401e7e3df1d6dae4cc166bbbae4f7cde5702a715",
+        "entries": [
+          "協議｜核管理協議｜界定物業、服務範圍、收費與批准人。",
+          "運營｜查運營狀態｜核租賃、公共區域、設施和住戶投訴。",
+          "維修｜排維護事項｜檢查設施並徵集承包商報價。",
+          "財務｜核預算收支｜對照租金、會費、押金與維修費用。",
+          "治理｜協調董事會｜把規則、爭議與重大支出送有權人員決定。",
+          "交付｜驗收歸檔｜核維修結果、費用和溝通記錄。"
+        ]
+      },
+      "residential-advisors": {
+        "file_sha256": "a511cfb321a08ad22a445652205c0c75a0dfe652fe01fec8f892d8695fd6ec9a",
+        "entries": [
+          "住戶支援｜接收學生或住戶提出的生活與人際問題，確認事實、緊急程度及機構可提供的幫助。｜記錄問題和後續責任人，超出崗位能力時轉介輔導或醫療等專業人員。",
+          "秩序與規則｜解釋並執行住宿設施規則，觀察異常行為和衝突跡象。｜形成客觀事件記錄並按機構程式報告，不自行作醫療診斷或超授權處分。",
+          "衝突處理｜傾聽當事人、區分已知事實與爭議，必要時聯絡其他工作人員。｜記錄溝通結果、未解決事項和升級路徑。",
+          "活動協調｜按住戶需要和機構計劃組織教育、社交或生活活動。｜交付活動安排、參與反饋和後續改進記錄。",
+          "設施與物資｜巡查公共區域，報告維修和用品需求，按授權協助安排房間或物資。｜交付工單、物資記錄和責任人交接；不把工程驗收或採購簽約寫成通用職責。",
+          "交班與安全｜交接未結事項，發現傷害、火情或其他緊急風險時遵循機構預案。｜保留最小必要事實、通知記錄和接手確認；實際急救許可權依培訓及當地規定。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 617,
+      "source_slugs": [
+        "property-real-estate-and-community-association-managers",
+        "residential-advisors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "property-real-estate-and-community-association-managers": {
+          "field": "entries",
+          "source_path": "careers/property-real-estate-and-community-association-managers/zh-TW.json",
+          "file_sha256": "3fead07f8363c2abe6856d92401e7e3df1d6dae4cc166bbbae4f7cde5702a715",
+          "count": 6
+        },
+        "residential-advisors": {
+          "field": "entries",
+          "source_path": "careers/residential-advisors/zh-TW.json",
+          "file_sha256": "a511cfb321a08ad22a445652205c0c75a0dfe652fe01fec8f892d8695fd6ec9a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

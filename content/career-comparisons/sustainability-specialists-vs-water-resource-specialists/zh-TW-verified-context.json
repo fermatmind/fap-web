@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "701cb5bb91bd40df43a21334a6859cd28798e26af72748f6ed9d4b5c213c10c3",
+  "inputs": {
+    "pair_id": "sustainability-specialists-vs-water-resource-specialists",
+    "slugs": [
+      "sustainability-specialists",
+      "water-resource-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/sustainability-specialists-vs-water-resource-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "sustainability-specialists": {
+        "name": "可持續發展專員",
+        "riasec": {
+          "code": "IEC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-1199.05",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.06,
+            5.2,
+            2.5,
+            2.95,
+            5.09,
+            4.41
+          ]
+        },
+        "tasks": [
+          "資料｜資料與來源｜收集能源資源廢物流及政策技術資訊，記錄來源單位期間。",
+          "指標｜指標定義｜建立和監測可持續指標，核計算、分母及範圍。",
+          "方案｜方案與條件｜比較成本效益、技術可行性和接受程度，審查修改提案政策。",
+          "報告｜報告與計劃｜維護計劃、報告和演示，區分觀測、預計和待核條件。",
+          "推進｜資源與反饋｜協調專業人員與部門，爭取資源或資助，支援專案調整。",
+          "溝通｜培訓與外聯｜準備外聯和員工培訓材料，記錄反饋，不誇大結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-1199.05",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "13-1199",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-resource-specialists": {
+        "name": "水資源專員",
+        "riasec": {
+          "code": "IRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9121.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.45,
+            5.8,
+            1.78,
+            2.58,
+            3.53,
+            4.17
+          ]
+        },
+        "tasks": [
+          "調查｜水量與水質資料｜收集和核區域供需、監測與專案資料，標明時空範圍、單位及來源。",
+          "建模｜水文水力與水質分析｜選擇適用方法和假設，檢驗資料和模型條件，解釋輸出及侷限。",
+          "規劃｜流域與用水策略｜比較供應、節約、保護和恢復方案，明確約束及受影響物件。",
+          "評估｜設計與專案建議｜評價有關水工設施和方案資料，開展技術或成本收益比較，不以單表替代專業審查。",
+          "記錄｜技術報告與依據｜維護水體資料、版本和專案文件，保留已知、假設與未確認內容。",
+          "協調｜團隊與公共溝通｜向管理機構、業主及社群說明方案與影響，按真實分工協調監測和技術任務。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9121.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9121",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "sustainability-specialists -> water-resource-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "sustainability-specialists": {
+        "file_sha256": "b7279fb53c72201b974df4dc739701450b42ba3d431962e7494227b9174d60ef",
+        "entries": []
+      },
+      "water-resource-specialists": {
+        "file_sha256": "b10d442b61b42abdf6fe0b369a4fbe2547718db8aa86546dfc2cfd8cea227f88",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 690,
+      "source_slugs": [
+        "sustainability-specialists",
+        "water-resource-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "sustainability-specialists": {
+          "field": "paragraphs",
+          "source_path": "careers/sustainability-specialists/zh-TW.json",
+          "file_sha256": "b7279fb53c72201b974df4dc739701450b42ba3d431962e7494227b9174d60ef",
+          "count": 6
+        },
+        "water-resource-specialists": {
+          "field": "paragraphs",
+          "source_path": "careers/water-resource-specialists/zh-TW.json",
+          "file_sha256": "b10d442b61b42abdf6fe0b369a4fbe2547718db8aa86546dfc2cfd8cea227f88",
+          "count": 6
+        }
+      }
+    }
+  }
+}

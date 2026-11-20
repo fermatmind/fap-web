@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b608abd1b2a39300f947af9e4e1a660b96989a3972d0ba745e2a1a660bcf2ea5",
+  "inputs": {
+    "pair_id": "bridge-and-lock-tenders-vs-captains-mates-and-pilots-of-water-vessels",
+    "slugs": [
+      "bridge-and-lock-tenders",
+      "captains-mates-and-pilots-of-water-vessels"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/bridge-and-lock-tenders-vs-captains-mates-and-pilots-of-water-vessels",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "bridge-and-lock-tenders": {
+        "name": "活動橋與船閘執行員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-6011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.15,
+            2.4,
+            1.0,
+            1.79,
+            2.58,
+            4.37
+          ]
+        },
+        "tasks": [
+          "接班確認｜核對裝置、訊號、通訊與防護狀態，確認遺留事項與當前執行條件｜一份寫明裝置狀態與未決問題的接班記錄。",
+          "瞭望與識別｜持續觀察航道、橋梁區域與來船動向，識別船舶型別與通行需求｜可複核的瞭望與識別記錄。",
+          "指令與訊號｜接收並複述通航指令，釋出訊號、導航燈與警報｜與指令一致且可追溯的訊號與廣播記錄。",
+          "開合與放行｜操作控制桿或閥門開合橋跨、閘門或調節水位，引導船舶進出｜安全完成且留有記錄的通行次數。",
+          "記錄與維護｜登記船舶與通行資料、水位與天氣，提出並跟蹤維修申請，完成日常維護｜完整的通行與維修記錄。",
+          "異常與交接｜發現裝置或天氣異常時按授權升級，向接班人員交接狀態與遺留問題｜可追溯的異常報告與交接記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-6011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-6011",
+          "title_evidence": "official_title"
+        }
+      },
+      "captains-mates-and-pilots-of-water-vessels": {
+        "name": "船長、大副與船舶引航員",
+        "riasec": {
+          "code": "RCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-5021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.61,
+            2.64,
+            1.0,
+            1.88,
+            4.22,
+            4.56
+          ]
+        },
+        "tasks": [
+          "航次計劃｜查閱海圖與潮汐與天氣與航行通告，制定航行計劃並設定中止條件與備選方案｜航次計劃與中止條件記錄。",
+          "值班與監控｜在規定時段擔任航行值班，持續監控儀表與海況與他船動態並按檢查單核對｜值班與休息記錄。",
+          "操縱與靠離泊｜按標準口令操縱船舶並複誦確認，完成靠離泊與狹窄水域作業與拖帶與駁船操縱｜操縱與口令複誦記錄。",
+          "引航協作｜與引航員完成主引航交換，明確風險與中止條件與通訊與複誦與備選方案｜主引航交換記錄。",
+          "船舶與裝置管理｜檢查船舶與裝置並維護髮動機與絞車與導航與滅火與救生裝置，安排加油與補給與修理｜檢查與維護與補給記錄。",
+          "人員與合規｜分配值班與艙室、組織安全演習、監督裝卸與貨物與旅客狀態、報告違規與汙染控制情況｜人員與演習與合規報告記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-5021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-5021",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "bridge-and-lock-tenders -> captains-mates-and-pilots-of-water-vessels"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "bridge-and-lock-tenders": {
+        "file_sha256": "6e874c5f4833fcb2c14a17a74c50576a5e1ed704e5cff16a73354c041c157c0c",
+        "entries": [
+          "接班確認｜核對裝置、訊號、通訊與防護狀態，確認遺留事項與當前執行條件｜一份寫明裝置狀態與未決問題的接班記錄。",
+          "瞭望與識別｜持續觀察航道、橋梁區域與來船動向，識別船舶型別與通行需求｜可複核的瞭望與識別記錄。",
+          "指令與訊號｜接收並複述通航指令，釋出訊號、導航燈與警報｜與指令一致且可追溯的訊號與廣播記錄。",
+          "開合與放行｜操作控制桿或閥門開合橋跨、閘門或調節水位，引導船舶進出｜安全完成且留有記錄的通行次數。",
+          "記錄與維護｜登記船舶與通行資料、水位與天氣，提出並跟蹤維修申請，完成日常維護｜完整的通行與維修記錄。",
+          "異常與交接｜發現裝置或天氣異常時按授權升級，向接班人員交接狀態與遺留問題｜可追溯的異常報告與交接記錄。"
+        ]
+      },
+      "captains-mates-and-pilots-of-water-vessels": {
+        "file_sha256": "db1a0dce97fff9a9bf93b82e3824fe88efa84da730cb0914d5d33062a132cf37",
+        "entries": [
+          "航次計劃｜查閱海圖與潮汐與天氣與航行通告，制定航行計劃並設定中止條件與備選方案｜航次計劃與中止條件記錄。",
+          "值班與監控｜在規定時段擔任航行值班，持續監控儀表與海況與他船動態並按檢查單核對｜值班與休息記錄。",
+          "操縱與靠離泊｜按標準口令操縱船舶並複誦確認，完成靠離泊與狹窄水域作業與拖帶與駁船操縱｜操縱與口令複誦記錄。",
+          "引航協作｜與引航員完成主引航交換，明確風險與中止條件與通訊與複誦與備選方案｜主引航交換記錄。",
+          "船舶與裝置管理｜檢查船舶與裝置並維護髮動機與絞車與導航與滅火與救生裝置，安排加油與補給與修理｜檢查與維護與補給記錄。",
+          "人員與合規｜分配值班與艙室、組織安全演習、監督裝卸與貨物與旅客狀態、報告違規與汙染控制情況｜人員與演習與合規報告記錄。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 88,
+      "source_slugs": [
+        "bridge-and-lock-tenders",
+        "captains-mates-and-pilots-of-water-vessels"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "bridge-and-lock-tenders": {
+          "field": "entries",
+          "source_path": "careers/bridge-and-lock-tenders/zh-TW.json",
+          "file_sha256": "6e874c5f4833fcb2c14a17a74c50576a5e1ed704e5cff16a73354c041c157c0c",
+          "count": 6
+        },
+        "captains-mates-and-pilots-of-water-vessels": {
+          "field": "entries",
+          "source_path": "careers/captains-mates-and-pilots-of-water-vessels/zh-TW.json",
+          "file_sha256": "db1a0dce97fff9a9bf93b82e3824fe88efa84da730cb0914d5d33062a132cf37",
+          "count": 6
+        }
+      }
+    }
+  }
+}

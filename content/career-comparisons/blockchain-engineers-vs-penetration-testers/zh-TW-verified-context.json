@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "5851ce83eeb8768b36025615b443dd5f53576af6a114ad3106344c19853e2253",
+  "inputs": {
+    "pair_id": "blockchain-engineers-vs-penetration-testers",
+    "slugs": [
+      "blockchain-engineers",
+      "penetration-testers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/blockchain-engineers-vs-penetration-testers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "blockchain-engineers": {
+        "name": "區塊鏈工程師",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1299.07",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.4,
+            5.28,
+            2.07,
+            1.57,
+            3.39,
+            5.69
+          ]
+        },
+        "tasks": [
+          "需求與威脅澄清｜與架構師、系統工程師或網路安全專家討論並規劃系統，確認客戶需求與安全邊界｜一份註明來源、範圍與未決威脅的系統需求確認記錄。",
+          "協議與設計｜設計並驗證密碼協議，設計使交易安全、透明、不可篡改的區塊鏈設計模式｜可評審的協議與設計模式說明。",
+          "實現與資料模型｜用物件導向原則編寫可維護程式碼，更新客戶端與伺服器應用，設計與實現資料倉儲與日誌｜他人可以復現與審查的程式碼與資料模型。",
+          "部署與自動化｜通過配置管理與流水線在地理分散式節點上自動化部署更新，保留版本與回滾記錄｜可追溯的部署與回滾記錄。",
+          "測試與風險評估｜測試基礎設施的安全與效能，執行點對點網路測試，評估未測試程式碼與未受保護金鑰等威脅｜含覆蓋範圍與限制說明的測試與評估報告。",
+          "監控與故障處置｜實現災難性故障處理器以識別安全入侵併防止嚴重損害，保留處置與復盤記錄｜可追溯的告警、處置與復盤記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1299.07",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1299",
+          "title_evidence": "official_title"
+        }
+      },
+      "penetration-testers": {
+        "name": "滲透測試員",
+        "riasec": {
+          "code": "ICR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1299.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.91,
+            5.19,
+            1.31,
+            1.99,
+            2.1,
+            5.18
+          ]
+        },
+        "tasks": [
+          "範圍確認｜核書面授權、目標資產、時段和排除項｜沒有確認不測試。",
+          "測試規劃｜按風險和業務連續性選擇允許方法｜約定停止條件與聯絡人。",
+          "受控驗證｜在範圍內尋找和復現弱點｜記錄版本、條件和證據。",
+          "影響判斷｜區分真實風險、推斷和誤報｜不擴大收集敏感資料。",
+          "報告交付｜寫發現、影響、修復建議與優先順序｜由所有者決定變更。",
+          "修復複測｜先核有效授權是否覆蓋複測範圍｜未覆蓋或失效時補充授權，記錄殘餘風險。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1299.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "15-1299",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "blockchain-engineers -> penetration-testers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "blockchain-engineers": {
+        "file_sha256": "a376f6547fa8b2afe095891f38df8bb40d44a02b82f7fd948bc907204abf5ad2",
+        "entries": [
+          "需求與威脅澄清｜與架構師、系統工程師或網路安全專家討論並規劃系統，確認客戶需求與安全邊界｜一份註明來源、範圍與未決威脅的系統需求確認記錄。",
+          "協議與設計｜設計並驗證密碼協議，設計使交易安全、透明、不可篡改的區塊鏈設計模式｜可評審的協議與設計模式說明。",
+          "實現與資料模型｜用物件導向原則編寫可維護程式碼，更新客戶端與伺服器應用，設計與實現資料倉儲與日誌｜他人可以復現與審查的程式碼與資料模型。",
+          "部署與自動化｜通過配置管理與流水線在地理分散式節點上自動化部署更新，保留版本與回滾記錄｜可追溯的部署與回滾記錄。",
+          "測試與風險評估｜測試基礎設施的安全與效能，執行點對點網路測試，評估未測試程式碼與未受保護金鑰等威脅｜含覆蓋範圍與限制說明的測試與評估報告。",
+          "監控與故障處置｜實現災難性故障處理器以識別安全入侵併防止嚴重損害，保留處置與復盤記錄｜可追溯的告警、處置與復盤記錄。"
+        ]
+      },
+      "penetration-testers": {
+        "file_sha256": "da793b3f8f2c5a4c70e4103555f605086713150a67dfe7a2369135c841b9ceda",
+        "entries": [
+          "範圍確認｜核書面授權、目標資產、時段和排除項｜沒有確認不測試。",
+          "測試規劃｜按風險和業務連續性選擇允許方法｜約定停止條件與聯絡人。",
+          "受控驗證｜在範圍內尋找和復現弱點｜記錄版本、條件和證據。",
+          "影響判斷｜區分真實風險、推斷和誤報｜不擴大收集敏感資料。",
+          "報告交付｜寫發現、影響、修復建議與優先順序｜由所有者決定變更。",
+          "修復複測｜先核有效授權是否覆蓋複測範圍｜未覆蓋或失效時補充授權，記錄殘餘風險。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 77,
+      "source_slugs": [
+        "blockchain-engineers",
+        "penetration-testers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "blockchain-engineers": {
+          "field": "entries",
+          "source_path": "careers/blockchain-engineers/zh-TW.json",
+          "file_sha256": "a376f6547fa8b2afe095891f38df8bb40d44a02b82f7fd948bc907204abf5ad2",
+          "count": 6
+        },
+        "penetration-testers": {
+          "field": "entries",
+          "source_path": "careers/penetration-testers/zh-TW.json",
+          "file_sha256": "da793b3f8f2c5a4c70e4103555f605086713150a67dfe7a2369135c841b9ceda",
+          "count": 6
+        }
+      }
+    }
+  }
+}

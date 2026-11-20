@@ -1,0 +1,324 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "18d82b6b68067e6607bd58431d30e56eb2305e2f4ef80b646ee247f915ca4911",
+  "inputs": {
+    "pair_id": "real-estate-sales-agents-vs-title-examiners-abstractors-and-searchers",
+    "slugs": [
+      "real-estate-sales-agents",
+      "title-examiners-abstractors-and-searchers"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/real-estate-sales-agents-vs-title-examiners-abstractors-and-searchers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "real-estate-sales-agents": {
+        "name": "Real Estate Sales Agents",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-9022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.12,
+            1.47,
+            1.92,
+            3.52,
+            6.46,
+            4.94
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9022.00#Tasks"
+              }
+            ],
+            "text": "Present purchase offers to sellers for consideration."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9022.00#Tasks"
+              }
+            ],
+            "text": "Act as an intermediary in negotiations between buyers and sellers, generally representing one or the other."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9022.00#Tasks"
+              }
+            ],
+            "text": "Confer with escrow companies, lenders, home inspectors, and pest control operators to ensure that terms and conditions of purchase agreements are met before closing dates."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/41-9022.00#Tasks"
+              }
+            ],
+            "text": "Advise clients on market conditions, prices, mortgages, legal requirements, and related matters."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-9022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "41-9022",
+          "title_evidence": "official_title"
+        }
+      },
+      "title-examiners-abstractors-and-searchers": {
+        "name": "Title examiners, abstractors and searchers",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "23-2093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.44,
+            2.63,
+            1.11,
+            2.34,
+            3.44,
+            6.74
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/23-2093.00#Tasks"
+              }
+            ],
+            "text": "Prepare and issue title commitments and title insurance policies, based on information compiled from title searches."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/23-2093.00#Tasks"
+              }
+            ],
+            "text": "Examine documentation such as mortgages, liens, judgments, easements, plat books, maps, contracts, and agreements to verify factors such as properties' legal descriptions, ownership, or restrictions."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/23-2093.00#Tasks"
+              }
+            ],
+            "text": "Examine individual titles to determine if restrictions, such as delinquent taxes, will affect titles and limit property use."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/23-2093.00#Tasks"
+              }
+            ],
+            "text": "Prepare reports describing any title encumbrances encountered during searching activities and outlining actions needed to clear titles."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "23-2093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "23-2093",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "real-estate-sales-agents -> title-examiners-abstractors-and-searchers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "sales",
+        "source_url": "https://www.onetonline.org/link/summary/41-9022.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Sales agents arrange showings, communicate offers and track transaction requirements.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "title",
+        "source_url": "https://www.onetonline.org/link/details/23-2093.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Title staff search records, reconcile legal descriptions and summarize encumbrances and outstanding issues.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "texas-sales",
+        "source_url": "https://www.trec.texas.gov/become-licensed/sales-agent",
+        "locator": "Education; Exam; Find a Sponsor",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "Initial sales agent route includes 180 qualifying classroom hours, an exam and broker sponsorship for activation.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "texas-title",
+        "source_url": "https://www.tdi.texas.gov/title/titlefaqs.html",
+        "locator": "Title search and title commitment",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "A title company can agree to issue insurance subject to conditions; examination and search are separate services.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "texas-license",
+        "source_url": "https://tdi.texas.gov/title/titlem6a.html",
+        "locator": "L-2. TITLE INSURANCE ESCROW OFFICER, I–III",
+        "value": {
+          "jurisdiction": "US, Texas",
+          "effective_or_period": "2026 access",
+          "summary": "Escrow officer licensing and appointment rules apply to the listed duties.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "hours",
+        "source_url": "https://www.bls.gov/ooh/Sales/real-estate-brokers-and-sales-agents.htm",
+        "locator": "Work Schedules; Pay",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2025–35",
+          "summary": "Agents may work evenings and weekends and commonly receive commissions.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "wages",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2, 41-9022 and 23-2093",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages",
+          "summary": "Both list high school or equivalent and moderate-term training. Median annual employee wages $52,830 and $58,650.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 624,
+      "source_slugs": [
+        "real-estate-sales-agents",
+        "title-examiners-abstractors-and-searchers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

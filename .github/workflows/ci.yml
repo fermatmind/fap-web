@@ -54,7 +54,8 @@ jobs:
           test -s "$RUNNER_TEMP/changed-paths"
           node .github/trunk/classify-release.mjs > trunk-path-classification.json
           base_sha="$(jq -r .scope.validation_base_sha trunk-path-classification.json)"
-          compact="$(jq -c . trunk-path-classification.json)"
+          # Keep the full path evidence in the artifact, below the job-output limit.
+          compact="$(jq -c '{paths: [.paths[] | select(. == "package.json" or . == "pnpm-lock.yaml" or startswith("tests/e2e/"))], flags, categories}' trunk-path-classification.json)"
           browser_shards="$(node --input-type=module -e '
             import {readFileSync,existsSync} from "node:fs";
             import {changedTestPlan,browserShardNumbers} from "./.github/trunk/run-changed-tests.mjs";

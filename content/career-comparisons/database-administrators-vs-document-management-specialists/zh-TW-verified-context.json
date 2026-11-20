@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9ed883979f4fcc31778c4fff76fe7375cfb52bbb5aba059b4d0f0ce39c343735",
+  "inputs": {
+    "pair_id": "database-administrators-vs-document-management-specialists",
+    "slugs": [
+      "database-administrators",
+      "document-management-specialists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/database-administrators-vs-document-management-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "database-administrators": {
+        "name": "資料庫管理員",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1242.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.83,
+            4.83,
+            1.2,
+            2.29,
+            2.94,
+            6.61
+          ]
+        },
+        "tasks": [
+          "庫結構與變更｜維護資料庫與資料字典｜修改現有資料庫與資料庫管理系統，或指導程式設計師與分析人員完成變更；編寫邏輯與物理資料庫描述並指定識別符號，按流程開發資料模型，並修訂公司資料字典中的資料定義。",
+          "效能與容量｜監測並解決效能問題｜選擇並輸入程式碼監測資料庫效能並建立生產資料庫；識別、調查並解決資料庫效能、容量與可擴充套件性問題；識別、評估並推薦能達到所需效能的硬體或軟體技術。",
+          "安全與許可權｜實施安全措施並控制訪問｜規劃、協調並實施安全措施，防止計算機檔案中的資訊被意外或未經授權地損壞、修改或洩露；為資料庫的每個片段指定使用者與訪問級別；制定軟體使用與採購以及保護脆弱資訊的標準與指南。",
+          "測試與升級｜測試變更並安裝升級｜測試資料庫應用或系統的變更；測試程式或資料庫、修正錯誤並做必要修改；規劃並安裝資料庫管理系統軟體升級以提升效能；審批、排期、規劃並監督新產品的安裝與測試。",
+          "支援與培訓｜解答問題並支援使用者｜培訓使用者並解答問題，向初級員工或客戶提供技術支援，並查閱程式設計師分析師繪製的工作流圖以瞭解計算機將執行的任務。",
+          "趨勢與技術判斷｜評估方向並提供建議｜查閱資料庫管理系統手冊中的流程以修改資料庫，識別並評估資料庫系統的行業趨勢，為高層管理提供資訊與建議，並在變更與最佳化中記錄依據與結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1242.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1242",
+          "title_evidence": "official_title"
+        }
+      },
+      "document-management-specialists": {
+        "name": "文件管理專員",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1299.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.75,
+            3.89,
+            1.81,
+            2.29,
+            2.93,
+            6.74
+          ]
+        },
+        "tasks": [
+          "常見輸入：文件管理政策與分類體系與後設資料規範、密級與商業秘密與個人資訊與儲存期限要求、業務與辦公系統產生的電子檔案與其格式與介面、使用者的訪問與檢索與複製需求與授權範圍、系統版本與許可權與審計日誌與備份安排，以及到期鑑定與銷燬清單與審批記錄。",
+          "核心產出：可執行的文件管理政策與分類與後設資料規範、按規則配置的系統功能與許可權與版本控制記錄、數字化與資料捕獲與安全監督記錄、檢索與分發記錄與支援文件與培訓材料、儲存期限與鑑定與銷燬記錄、系統測試計劃與技術功能與規格；部分崗位另有系統績效分析，以及待辦與異常交接記錄。",
+          "典型流程：參與確定政策與建立分類—協同實施與配置系統與許可權與版本—抓捕獲與數字化—檢索與分發並提供支援—監控法規與儲存期限並組織鑑定與銷燬—編寫規格並交接；系統績效分析為部分崗位補充任務。",
+          "常協作物件：業務部門與終端使用者、資訊科技與資訊安全、法務與合規、檔案與記錄管理、審計與外部監管、系統與影像與掃描供應商。",
+          "常見工具與物件：文件與內容管理系統、掃描與影像與光學字元識別工具、後設資料與分類與工作流配置、許可權與版本與審計日誌、辦公與資料庫與協作工具、技術規格與績效報表。",
+          "O*NET15-1299.03實施管理企業文件系統和規程，捕獲儲存檢索共享銷燬電子記錄。23任務中22Core/1Supplemental，系統績效資料分析解釋傳播是補充，不當全部崗位必做。政策/分類、新系統評估採購部署為協助參與，配置訪問和版本控制、捕獲、檢索、需求、測試、法規跟蹤和使用者支援為核心。監控法規不自動給法務裁決權；任務與鄰職可交叉，不能一律排除檔案工作、系統開發配置或技術職責，只按主要產出/授權區分。 2024國家檔案局22號電子檔案管理辦法（11-01施行）：3/5/14/16—19條來源程式要素、後設資料全過程、歸檔範圍/期限、檢測及責任人確認；26—28條備份/遷移制度與轉換後檢測；29/30條到期鑑定、繼續儲存重劃期限、履行審批後才銷燬並記錄，不能到期自動刪。35條提出AI等用於編研/展覽/專題資料庫開發，不證明本職業部署率/效益或AI自動授權。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1299.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-1299",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "database-administrators -> document-management-specialists",
+      "document-management-specialists -> database-administrators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "database-administrators": {
+        "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+        "entries": []
+      },
+      "document-management-specialists": {
+        "file_sha256": "d7634b14c03ae321fddb6d0f9ccb86512a4f38ab3618db8f4e8a5b89bb1e5400",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 283,
+      "source_slugs": [
+        "database-administrators",
+        "document-management-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "database-administrators": {
+          "field": "paragraphs",
+          "source_path": "careers/database-administrators/zh-TW.json",
+          "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+          "count": 6
+        },
+        "document-management-specialists": {
+          "field": "paragraphs",
+          "source_path": "careers/document-management-specialists/zh-TW.json",
+          "file_sha256": "d7634b14c03ae321fddb6d0f9ccb86512a4f38ab3618db8f4e8a5b89bb1e5400",
+          "count": 6
+        }
+      }
+    }
+  }
+}

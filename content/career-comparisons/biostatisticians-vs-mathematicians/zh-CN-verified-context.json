@@ -1,0 +1,165 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "10a3e0e9dc45e863342320d87d0c5e29230a1e01f0d68b04e151aaa9c734efb8",
+  "inputs": {
+    "pair_id": "biostatisticians-vs-mathematicians",
+    "slugs": [
+      "biostatisticians",
+      "mathematicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/biostatisticians-vs-mathematicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "biostatisticians": {
+        "name": "生物统计学家",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2041.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.43,
+            7.0,
+            2.8,
+            3.11,
+            1.98,
+            4.4
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2041.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-2041",
+          "title_evidence": "official_title"
+        }
+      },
+      "mathematicians": {
+        "name": "数学研究人员",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            7.0,
+            3.23,
+            1.95,
+            1.11,
+            5.03
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-2021",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "biostatisticians -> mathematicians",
+      "mathematicians -> biostatisticians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：与医生、生命科学或公共卫生团队协作，把问题写成可复核的研究设计和分析计划，核对输入、报告结果与限制；后岗：提出可证明或可计算的问题，用定义、反例、证明或数值方法检验假设。",
+    "cn_qualification": {
+      "biostatisticians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "mathematicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "15-2041.01",
+        "source_url": "https://www.onetonline.org/link/summary/15-2041.01",
+        "locator": "Tasks 16246, 16250, 16254, 16258, 16265",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Collaborates on study design, writes analysis plans and analyzes life science or clinical data.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "15-2021.00",
+        "source_url": "https://www.onetonline.org/link/summary/15-2021.00",
+        "locator": "Tasks 7374, 7372, 7370, 7373",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops mathematical relationships, analyzes assumptions and evaluates numerical methods.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 70,
+      "source_slugs": [
+        "biostatisticians",
+        "mathematicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

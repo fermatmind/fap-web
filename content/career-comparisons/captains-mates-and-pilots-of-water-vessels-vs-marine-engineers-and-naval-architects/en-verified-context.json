@@ -1,0 +1,313 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "e157c71bed5dcc58d68de68dbd26a7c6d31e0082df9f8caa14fedfdc9592af7a",
+  "inputs": {
+    "pair_id": "captains-mates-and-pilots-of-water-vessels-vs-marine-engineers-and-naval-architects",
+    "slugs": [
+      "captains-mates-and-pilots-of-water-vessels",
+      "marine-engineers-and-naval-architects"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/captains-mates-and-pilots-of-water-vessels-vs-marine-engineers-and-naval-architects",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "captains-mates-and-pilots-of-water-vessels": {
+        "name": "Captains, Mates, and Pilots of Water Vessels",
+        "riasec": {
+          "code": "RCE",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-5021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.61,
+            2.64,
+            1.0,
+            1.88,
+            4.22,
+            4.56
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-5021.00#Tasks"
+              }
+            ],
+            "text": "Direct courses and speeds of ships, based on specialized knowledge of local winds, weather, water depths, tides, currents, and hazards."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-5021.00#Tasks"
+              }
+            ],
+            "text": "Prevent ships under navigational control from engaging in unsafe operations."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-5021.00#Tasks"
+              }
+            ],
+            "text": "Serve as a vessel's docking master upon arrival at a port or at a berth."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-5021.00#Tasks"
+              }
+            ],
+            "text": "Consult maps, charts, weather reports, or navigation equipment to determine and direct ship movements."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-5021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-5021",
+          "title_evidence": "official_title"
+        }
+      },
+      "marine-engineers-and-naval-architects": {
+        "name": "Marine Engineers and Naval Architects",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2121.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.74,
+            5.71,
+            2.62,
+            1.27,
+            3.26,
+            4.31
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/1/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2121.00#Tasks"
+              }
+            ],
+            "text": "Perform monitoring activities to ensure that ships comply with international regulations and standards for life-saving equipment and pollution preventatives."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2121.00#Tasks"
+              }
+            ],
+            "text": "Design complete hull and superstructure according to specifications and test data, in conformity with standards of safety, efficiency, and economy."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2121.00#Tasks"
+              }
+            ],
+            "text": "Conduct analyses of ships, such as stability, structural, weight, and vibration analyses."
+          },
+          {
+            "pointer": "/blocks/1/items/1/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/17-2121.00#Tasks"
+              }
+            ],
+            "text": "Study design proposals and specifications to establish basic characteristics of craft, such as size, weight, speed, propulsion, displacement, and draft."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2121.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2121",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "captains-mates-and-pilots-of-water-vessels -> marine-engineers-and-naval-architects"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "53-5021.00",
+        "source_url": "https://www.onetonline.org/link/summary/53-5021.00",
+        "locator": "Tasks 23805, 23809, 23802",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Consults vessel navigation information, stands watch and directs vessel movements according to assignment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "17-2121.00",
+        "source_url": "https://www.onetonline.org/link/summary/17-2121.00",
+        "locator": "Tasks 21889, 21892, 21905, 21915",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Establishes vessel design characteristics, evaluates trials, analyzes vessel behavior and prepares technical reports.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 53-5021 and 17-2121",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 employment matrix",
+          "summary": "National annual employee wage medians $92,460 and $112,230. Typical entry education: postsecondary nondegree award for the combined captain, mate and pilot group, bachelor's degree for the combined marine engineer and naval architect group.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-mariner-licenses",
+        "source_url": "https://www.bls.gov/ooh/transportation-and-material-moving/water-transportation-occupations.htm",
+        "locator": "How to Become a Water Transportation Worker → Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025 occupational profile",
+          "summary": "Most mariners must hold a USCG-issued MMC; maritime pilots may also need a license issued by their state.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "uscg-pilot-endorsement",
+        "source_url": "https://www.dco.uscg.mil/Portals/9/NMC/pdfs/checklists/mcp_fm_nmc5_50_web.pdf",
+        "locator": "National First Class Pilot checklist, 46 CFR 11.701 and 11.703",
+        "value": {
+          "jurisdiction": "United States federal",
+          "effective_or_period": "2026-05-01 checklist",
+          "summary": "USCG publishes a distinct First Class Pilot endorsement checklist with route-specific service and familiarization requirements.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "uscg-endorsements",
+        "source_url": "https://www.dco.uscg.mil/nmc/checklist/",
+        "locator": "National Officer Endorsements → Master and Mate",
+        "value": {
+          "jurisdiction": "United States federal",
+          "effective_or_period": "Current qualification checklists",
+          "summary": "Master and mate qualification checklists distinguish route and vessel tonnage.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 111,
+      "source_slugs": [
+        "captains-mates-and-pilots-of-water-vessels",
+        "marine-engineers-and-naval-architects"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "67cb4f45054d612226c454ba019a55ac266a623261008a9182666cba37c6fea9",
+  "inputs": {
+    "pair_id": "pest-control-workers-vs-pesticide-handlers-sprayers-and-applicators-vegetation",
+    "slugs": [
+      "pest-control-workers",
+      "pesticide-handlers-sprayers-and-applicators-vegetation"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/pest-control-workers-vs-pesticide-handlers-sprayers-and-applicators-vegetation",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pest-control-workers": {
+        "name": "Pest control workers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "37-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.85,
+            2.94,
+            1.0,
+            1.67,
+            2.21,
+            4.17
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-2021.00#Tasks"
+              }
+            ],
+            "text": "Record work activities performed."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-2021.00#Tasks"
+              }
+            ],
+            "text": "Clean work site after completion of job."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-2021.00#Tasks"
+              }
+            ],
+            "text": "Measure area dimensions requiring treatment, calculate fumigant requirements, and estimate cost for service."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-2021.00#Tasks"
+              }
+            ],
+            "text": "Spray or dust chemical solutions, powders, or gases into rooms, onto clothing, furnishings, or wood, or over marshlands, ditches, or catch basins."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "37-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "37-2021",
+          "title_evidence": "official_title"
+        }
+      },
+      "pesticide-handlers-sprayers-and-applicators-vegetation": {
+        "name": "Pesticide handlers, sprayers, and applicators, vegetation",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "37-3012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.51,
+            2.73,
+            1.0,
+            1.95,
+            1.42,
+            3.67
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-3012.00#Tasks"
+              }
+            ],
+            "text": "Fill sprayer tanks with water and chemicals, according to formulas."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-3012.00#Tasks"
+              }
+            ],
+            "text": "Record information about pesticide applications, such as the type used and amount applied."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-3012.00#Tasks"
+              }
+            ],
+            "text": "Mix pesticides, herbicides, or fungicides for application to trees, shrubs, lawns, or botanical crops."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/37-3012.00#Tasks"
+              }
+            ],
+            "text": "Start motors and engage machinery, such as sprayer agitators or pumps or portable spray equipment."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "37-3012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "37-3012",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pest-control-workers -> pesticide-handlers-sprayers-and-applicators-vegetation",
+      "pesticide-handlers-sprayers-and-applicators-vegetation -> pest-control-workers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "structural",
+        "source_url": "https://www.bls.gov/ooh/building-and-grounds-cleaning/pest-control-workers.htm",
+        "locator": "Duties and How to Become",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 OOH",
+          "summary": "Pest control workers identify and address pests; high school diploma and on-the-job training are typical.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "vegetation",
+        "source_url": "https://www.onetonline.org/link/summary/37-3012.00",
+        "locator": "Summary and Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026",
+          "summary": "Vegetation work addresses trees, shrubs, lawns or crops and includes application records.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "spcb",
+        "source_url": "https://pestboard.ca.gov/howdoi/lic.shtml",
+        "locator": "Branches, Applicator and Field Representative",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current",
+          "summary": "Branch 2 concerns household pests apart from lethal-gas fumigation. Entry-level applicator applies in Branch 2/3 on behalf of registered company. Field representative duties include inspections.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "business",
+        "source_url": "https://www.cdpr.ca.gov/wp-content/uploads/2025/01/mgardener.pdf",
+        "locator": "Licensing Requirements, Qualified person and County registration; FAC §11732",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Rev. 7/24",
+          "summary": "Incidental maintenance gardening for hire requires the applicable business license, qualified supervisor and registration in each county before work. Qualified supervisor holds QAC Q/B or QAL B.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "qac",
+        "source_url": "https://www.cdpr.ca.gov/wp-content/uploads/2025/06/qac.pdf",
+        "locator": "Category B and Subcategory Q descriptions and exam requirements",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current packet",
+          "summary": "Q is limited to eligible sites for incidental gardening and excludes California restricted materials. Category B is broader as a credential but does not widen the MGB license.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 568,
+      "source_slugs": [
+        "pest-control-workers",
+        "pesticide-handlers-sprayers-and-applicators-vegetation"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

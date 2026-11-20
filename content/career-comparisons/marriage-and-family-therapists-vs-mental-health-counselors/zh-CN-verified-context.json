@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2933d8b400ba3f5d46ead981b4147be4f071b1bfd9d2eed81e69031df7c8c262",
+  "inputs": {
+    "pair_id": "marriage-and-family-therapists-vs-mental-health-counselors",
+    "slugs": [
+      "marriage-and-family-therapists",
+      "mental-health-counselors"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/marriage-and-family-therapists-vs-mental-health-counselors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "marriage-and-family-therapists": {
+        "name": "婚姻与家庭治疗师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.49,
+            5.32,
+            3.58,
+            6.22,
+            1.78,
+            2.9
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "21-1013",
+          "title_evidence": "official_title"
+        }
+      },
+      "mental-health-counselors": {
+        "name": "心理健康咨询师",
+        "riasec": {
+          "code": "SI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "21-1014.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.31,
+            4.42,
+            3.06,
+            6.79,
+            2.96,
+            3.43
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "21-1014.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "21-1014",
+          "title_evidence": "unique_alias"
+        }
+      }
+    },
+    "edge_directions": [
+      "marriage-and-family-therapists -> mental-health-counselors",
+      "mental-health-counselors -> marriage-and-family-therapists"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "marriage-and-family-therapists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "mental-health-counselors": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "21-1013.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1013.00",
+        "locator": "Tasks 9185, 9186, 9187, 20232",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Addresses relationship problems, supports family members in developing skills, and maintains case documentation.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "21-1014.00",
+        "source_url": "https://www.onetonline.org/link/summary/21-1014.00",
+        "locator": "Tasks 1592, 1593, 1595, 1598, 18484",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Counsels individuals and groups, develops treatment plans and records progress.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "cn-mental-health-law",
+        "source_url": "https://wjw.nmg.gov.cn/ztlm/dqzt/fzjs/flfg/gjflfg/202606/t20260602_2911179.html",
+        "locator": "《中华人民共和国精神卫生法》第二十三条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2018 年修正",
+          "summary": "心理咨询人员不得从事心理治疗或精神障碍的诊断、治疗。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 37,
+      "source_slugs": [
+        "marriage-and-family-therapists",
+        "mental-health-counselors"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一求助场景，前者主要分析伴侣或家庭互动，后者覆盖更广的情绪、行为和生活困扰。",
+    "seed_cn_qualification_lead": "有国内咨询与医疗心理治疗分工线索，两个称谓的对应资格待核。"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "25c47d09f618ca82b298a52a45aafdb7446811bde91de1897d08e5bd5e4c51d5",
+  "inputs": {
+    "pair_id": "cargo-and-freight-agents-vs-dispatchers-except-police-fire-and-ambulance",
+    "slugs": [
+      "cargo-and-freight-agents",
+      "dispatchers-except-police-fire-and-ambulance"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/cargo-and-freight-agents-vs-dispatchers-except-police-fire-and-ambulance",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "cargo-and-freight-agents": {
+        "name": "貨運代理與單證操作員",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.15,
+            1.52,
+            1.0,
+            2.14,
+            4.83,
+            6.32
+          ]
+        },
+        "tasks": [
+          "訂單與報價｜向客戶接單並確認時限與服務要求，與航運或貨運公司談判並安排運輸，估算運費並給出方案與報價｜詢價與報價與訂艙記錄。",
+          "單證與合規｜確定運輸方式並製作提單與發票與其他運輸單證，檢查進出口單證並用稅則編碼歸類貨物，為貨物安排保險｜提單與單證核對與歸類記錄。",
+          "節點與交付｜跟蹤交付進度，通知收貨人或客戶並安排交付，提取與追查丟失貨物｜節點跟蹤與交付通知記錄。",
+          "收貨與差異｜檢查並清點收到的貨品並與發票核對，記錄短缺並拒收損壞貨品，聯絡供應商或理賠部門處理｜收貨檢查與短缺與拒收記錄。",
+          "裝卸與包裝｜指揮貨車到裝貨門並協助安全裝卸，指揮或參與裝貨確保裝載完整與重量均勻，安裝綁帶與襯墊｜裝卸與配載與加固記錄。",
+          "記錄與臺賬｜儲存已發出與已收到與已儲存貨物的記錄，把運輸資訊錄入系統並維護貨物流轉檯賬｜貨物流轉檯賬與系統記錄。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "43-5011",
+          "title_evidence": "official_title"
+        }
+      },
+      "dispatchers-except-police-fire-and-ambulance": {
+        "name": "排程員（不含警務、消防和救護）",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.27,
+            1.42,
+            1.0,
+            2.69,
+            2.92,
+            5.4
+          ]
+        },
+        "tasks": [
+          "常見輸入：客戶要求與規格與工作單與優先順序與服務時限、可用人員與班組與車輛與裝置的型別與數量與位置與狀態、駕駛與值守與工時與從業資格限制、路線與交通與施工與天氣與危險貨物約束、維修與備件與庫存與供應商安排，以及授權的價格與派工與變更與例外規則。",
+          "核心產出：按優先順序排好的執行與工作日程、已轉達並確認的派工與變更記錄、位置與使用監控與調整與維修安排記錄、排程與費用與庫存記錄與工作進度統計，以及待辦與異常交接記錄。",
+          "典型流程：接收與準備工作單—按資源排出執行與工作日程—轉達派工與變更並確認接收—監控位置與使用並調整—記錄與維護與安排維修—編制統計並交接。",
+          "常協作物件：客戶與現場人員、司機與班組與場站、維修與庫房與供應、主管與承運人與排程團隊。",
+          "常見工具與物件：排程與派工系統與工作單、電話與無線電與訊息系統、車輛與裝置定位與狀態監控系統、路線與時間窗與日程工具、費用與庫存與統計報表。",
+          "O*NET43-5032為運輸材料/貨物/乘客，或營業地點外安裝、服務及緊急維修安排排程人員、班組、裝置或服務車輛。12任務中10Core/2Supplemental；訂購發放用品/裝置、監督指定轄區通訊為補充，不當所有崗位普遍必做。受理工作單、資源日程、轉達資訊、位置監控、記錄費用庫存和安排維修為主要任務；安排維修不等執行維修，協調人員不等經理。不同崗位可有任務交叉，名稱不自動授駕駛、經營、安全管理或緊急排程權。 資格和異常處置按真實崗位授權與制度核。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "43-5032",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "cargo-and-freight-agents -> dispatchers-except-police-fire-and-ambulance"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "cargo-and-freight-agents": {
+        "file_sha256": "de5f7b61900b3495776a6a5d4385b4d6fb2288fb80ef7a395080b2b80fc36931",
+        "entries": [
+          "訂單與報價｜向客戶接單並確認時限與服務要求，與航運或貨運公司談判並安排運輸，估算運費並給出方案與報價｜詢價與報價與訂艙記錄。",
+          "單證與合規｜確定運輸方式並製作提單與發票與其他運輸單證，檢查進出口單證並用稅則編碼歸類貨物，為貨物安排保險｜提單與單證核對與歸類記錄。",
+          "節點與交付｜跟蹤交付進度，通知收貨人或客戶並安排交付，提取與追查丟失貨物｜節點跟蹤與交付通知記錄。",
+          "收貨與差異｜檢查並清點收到的貨品並與發票核對，記錄短缺並拒收損壞貨品，聯絡供應商或理賠部門處理｜收貨檢查與短缺與拒收記錄。",
+          "裝卸與包裝｜指揮貨車到裝貨門並協助安全裝卸，指揮或參與裝貨確保裝載完整與重量均勻，安裝綁帶與襯墊｜裝卸與配載與加固記錄。",
+          "記錄與臺賬｜儲存已發出與已收到與已儲存貨物的記錄，把運輸資訊錄入系統並維護貨物流轉檯賬｜貨物流轉檯賬與系統記錄。"
+        ]
+      },
+      "dispatchers-except-police-fire-and-ambulance": {
+        "file_sha256": "b712d679803ea4c234a5f7f8762a0dbe0ac98c00a2f815d064334a1c4db2dd7a",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 124,
+      "source_slugs": [
+        "cargo-and-freight-agents",
+        "dispatchers-except-police-fire-and-ambulance"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "cargo-and-freight-agents": {
+          "field": "entries",
+          "source_path": "careers/cargo-and-freight-agents/zh-TW.json",
+          "file_sha256": "de5f7b61900b3495776a6a5d4385b4d6fb2288fb80ef7a395080b2b80fc36931",
+          "count": 6
+        },
+        "dispatchers-except-police-fire-and-ambulance": {
+          "field": "paragraphs",
+          "source_path": "careers/dispatchers-except-police-fire-and-ambulance/zh-TW.json",
+          "file_sha256": "b712d679803ea4c234a5f7f8762a0dbe0ac98c00a2f815d064334a1c4db2dd7a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

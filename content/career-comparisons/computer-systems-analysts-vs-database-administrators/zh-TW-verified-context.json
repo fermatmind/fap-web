@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9cefcace9fa18cbc21df5d304ba4d104d1cb53edcd31a1d70fe1998d1792871b",
+  "inputs": {
+    "pair_id": "computer-systems-analysts-vs-database-administrators",
+    "slugs": [
+      "computer-systems-analysts",
+      "database-administrators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/computer-systems-analysts-vs-database-administrators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "computer-systems-analysts": {
+        "name": "計算機系統分析師",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1211.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.27,
+            6.39,
+            1.98,
+            1.91,
+            2.23,
+            5.93
+          ]
+        },
+        "tasks": [
+          "需求｜訪談並梳理業務流程｜與客戶和使用者訪談、觀察崗位作業，梳理由誰在什麼環節處理什麼資料，形成現狀說明與問題清單。",
+          "設計｜定義系統目標與規格｜依據現狀與業務目標定義系統範圍、輸入輸出、處理規則與驗收條件，並評估候選方案與既有系統的相容性。",
+          "整合｜協調安裝與介面配置｜按設計協調軟硬體安裝、配置介面與資料流向，確保組織內系統可以交換資訊。",
+          "測試｜執行測試並監控執行｜編寫測試用例並覆蓋正常與異常路徑，記錄環境與結果；上線後監控效能與錯誤日誌，定位並修正問題。",
+          "改進｜依據執行資料改進系統流程｜依據執行指標與使用者反饋提出改進方案，評估影響面並安排變更，必要時調整流程與培訓材料。",
+          "協作｜培訓使用者並維護文件｜編寫使用者操作說明並培訓使用者，維護設計、測試與變更文件，使他人可以接手。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1211.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1211",
+          "title_evidence": "official_title"
+        }
+      },
+      "database-administrators": {
+        "name": "資料庫管理員",
+        "riasec": {
+          "code": "CI",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1242.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.83,
+            4.83,
+            1.2,
+            2.29,
+            2.94,
+            6.61
+          ]
+        },
+        "tasks": [
+          "庫結構與變更｜維護資料庫與資料字典｜修改現有資料庫與資料庫管理系統，或指導程式設計師與分析人員完成變更；編寫邏輯與物理資料庫描述並指定識別符號，按流程開發資料模型，並修訂公司資料字典中的資料定義。",
+          "效能與容量｜監測並解決效能問題｜選擇並輸入程式碼監測資料庫效能並建立生產資料庫；識別、調查並解決資料庫效能、容量與可擴充套件性問題；識別、評估並推薦能達到所需效能的硬體或軟體技術。",
+          "安全與許可權｜實施安全措施並控制訪問｜規劃、協調並實施安全措施，防止計算機檔案中的資訊被意外或未經授權地損壞、修改或洩露；為資料庫的每個片段指定使用者與訪問級別；制定軟體使用與採購以及保護脆弱資訊的標準與指南。",
+          "測試與升級｜測試變更並安裝升級｜測試資料庫應用或系統的變更；測試程式或資料庫、修正錯誤並做必要修改；規劃並安裝資料庫管理系統軟體升級以提升效能；審批、排期、規劃並監督新產品的安裝與測試。",
+          "支援與培訓｜解答問題並支援使用者｜培訓使用者並解答問題，向初級員工或客戶提供技術支援，並查閱程式設計師分析師繪製的工作流圖以瞭解計算機將執行的任務。",
+          "趨勢與技術判斷｜評估方向並提供建議｜查閱資料庫管理系統手冊中的流程以修改資料庫，識別並評估資料庫系統的行業趨勢，為高層管理提供資訊與建議，並在變更與最佳化中記錄依據與結果。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1242.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1242",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "computer-systems-analysts -> database-administrators",
+      "database-administrators -> computer-systems-analysts"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "computer-systems-analysts": {
+        "file_sha256": "3d6ae8acd3180492ed007127ca2fe0cec271d74d05a4d14ee7ad3ec90282adb1",
+        "entries": [
+          "需求｜訪談並梳理業務流程｜與客戶和使用者訪談、觀察崗位作業，梳理由誰在什麼環節處理什麼資料，形成現狀說明與問題清單。",
+          "設計｜定義系統目標與規格｜依據現狀與業務目標定義系統範圍、輸入輸出、處理規則與驗收條件，並評估候選方案與既有系統的相容性。",
+          "整合｜協調安裝與介面配置｜按設計協調軟硬體安裝、配置介面與資料流向，確保組織內系統可以交換資訊。",
+          "測試｜執行測試並監控執行｜編寫測試用例並覆蓋正常與異常路徑，記錄環境與結果；上線後監控效能與錯誤日誌，定位並修正問題。",
+          "改進｜依據執行資料改進系統流程｜依據執行指標與使用者反饋提出改進方案，評估影響面並安排變更，必要時調整流程與培訓材料。",
+          "協作｜培訓使用者並維護文件｜編寫使用者操作說明並培訓使用者，維護設計、測試與變更文件，使他人可以接手。"
+        ]
+      },
+      "database-administrators": {
+        "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 194,
+      "source_slugs": [
+        "computer-systems-analysts",
+        "database-administrators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "computer-systems-analysts": {
+          "field": "entries",
+          "source_path": "careers/computer-systems-analysts/zh-TW.json",
+          "file_sha256": "3d6ae8acd3180492ed007127ca2fe0cec271d74d05a4d14ee7ad3ec90282adb1",
+          "count": 6
+        },
+        "database-administrators": {
+          "field": "paragraphs",
+          "source_path": "careers/database-administrators/zh-TW.json",
+          "file_sha256": "0c3ff3d222a74672aa0bb22ce956ce87e3ecb93dd18cb94f07db2079eecb6547",
+          "count": 6
+        }
+      }
+    }
+  }
+}

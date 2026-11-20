@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c4b9e2b34ad9acf3faedc84460cb0ca3a3a93487068b9b3e987b44251cb6d26c",
+  "inputs": {
+    "pair_id": "patternmakers-metal-and-plastic-vs-tool-and-die-makers",
+    "slugs": [
+      "patternmakers-metal-and-plastic",
+      "tool-and-die-makers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/patternmakers-metal-and-plastic-vs-tool-and-die-makers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "patternmakers-metal-and-plastic": {
+        "name": "金屬與塑膠模樣製作工",
+        "riasec": {
+          "code": "RCA",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4062.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.21,
+            1.73,
+            3.37,
+            1.0,
+            1.0,
+            4.21
+          ]
+        },
+        "tasks": [
+          "需求輸入｜核圖紙版本、樣件、材料和公差｜不憑口頭記憶加工。",
+          "判斷排序｜先確認尺寸、裝置狀態與工序｜風險工序需停下核查。",
+          "結果輸出｜加工並裝配模型、芯盒或模板｜留下識別和量測記錄。",
+          "複核確認｜用卡尺、千分尺等工具比規格｜超差時記錄複測。",
+          "異常升級｜材料、裝置或尺寸衝突交工程與質量人員｜不擅改批准圖紙。",
+          "留檔記錄｜儲存版本、測量、修整與交接資訊｜便於追溯。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4062.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-4062",
+          "title_evidence": "official_title"
+        }
+      },
+      "tool-and-die-makers": {
+        "name": "工具和模具製造工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-4111.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.94,
+            2.98,
+            1.9,
+            1.0,
+            1.0,
+            4.19
+          ]
+        },
+        "tasks": [
+          "準備｜讀圖與尺寸計算｜核圖紙、模型和技術要求，計算尺寸、形狀與公差，規劃工具或模具的加工順序。",
+          "加工｜材料與裝置選擇｜根據材料屬性和尺寸表面要求，選擇相應金屬、工具及裝置，完成獲授權的設定準備。",
+          "加工｜切削與成形｜設定和操作普通或數控機床，對部件進行車、銑、磨、鑽等加工，使其接近規定尺寸與表面要求。",
+          "裝配｜修配與工具組裝｜修整、調整和配合相關零件，製作、維修或修改模具、夾具、量規與其他工具。",
+          "複核｜尺寸與功能檢驗｜使用量具檢查尺寸、對中與間隙，並檢查模具表面、輪廓和缺陷，開展必要的工具試驗。",
+          "改進｜設計與故障處理｜按實際任務設計夾具或工具，利用CAD輔助設計，排查製造裝置異常；職責隨工具型別和崗位分工變化。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-4111.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-4111",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "patternmakers-metal-and-plastic -> tool-and-die-makers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "patternmakers-metal-and-plastic": {
+        "file_sha256": "42e7f11d854268fd2d96f189d85090772816a4b1c8d6f8f4aecb271e45d16240",
+        "entries": [
+          "需求輸入｜核圖紙版本、樣件、材料和公差｜不憑口頭記憶加工。",
+          "判斷排序｜先確認尺寸、裝置狀態與工序｜風險工序需停下核查。",
+          "結果輸出｜加工並裝配模型、芯盒或模板｜留下識別和量測記錄。",
+          "複核確認｜用卡尺、千分尺等工具比規格｜超差時記錄複測。",
+          "異常升級｜材料、裝置或尺寸衝突交工程與質量人員｜不擅改批准圖紙。",
+          "留檔記錄｜儲存版本、測量、修整與交接資訊｜便於追溯。"
+        ]
+      },
+      "tool-and-die-makers": {
+        "file_sha256": "e16d632ad5a5859a1692715fe4579ce9feecdf18deb34a839df71fb3a927a1e9",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 564,
+      "source_slugs": [
+        "patternmakers-metal-and-plastic",
+        "tool-and-die-makers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "patternmakers-metal-and-plastic": {
+          "field": "entries",
+          "source_path": "careers/patternmakers-metal-and-plastic/zh-TW.json",
+          "file_sha256": "42e7f11d854268fd2d96f189d85090772816a4b1c8d6f8f4aecb271e45d16240",
+          "count": 6
+        },
+        "tool-and-die-makers": {
+          "field": "paragraphs",
+          "source_path": "careers/tool-and-die-makers/zh-TW.json",
+          "file_sha256": "e16d632ad5a5859a1692715fe4579ce9feecdf18deb34a839df71fb3a927a1e9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

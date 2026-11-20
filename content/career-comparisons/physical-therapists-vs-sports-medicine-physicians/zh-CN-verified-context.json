@@ -1,0 +1,166 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "604f42272c92d3f86611c7585fd012318d76a5c72670dc350a4343898d9eeff3",
+  "inputs": {
+    "pair_id": "physical-therapists-vs-sports-medicine-physicians",
+    "slugs": [
+      "physical-therapists",
+      "sports-medicine-physicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/physical-therapists-vs-sports-medicine-physicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "physical-therapists": {
+        "name": "物理治疗师",
+        "riasec": {
+          "code": "SIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1123.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.33,
+            4.87,
+            2.17,
+            5.91,
+            2.49,
+            3.07
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1123.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1123",
+          "title_evidence": "official_title"
+        }
+      },
+      "sports-medicine-physicians": {
+        "name": "运动医学医师",
+        "riasec": {
+          "code": "ISR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1229.06",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.19,
+            5.36,
+            1.2,
+            5.27,
+            3.34,
+            3.52
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1229.06",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1229",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "sports-medicine-physicians -> physical-therapists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：通过功能评估、目标、治疗与复测帮助患者改善活动；后岗：运动医学医生在执业范围内评估运动相关损伤、制定随访和康复计划，并与相关团队协调恢复活动。",
+    "cn_qualification": {
+      "physical-therapists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "sports-medicine-physicians": {
+        "branch": "scoped",
+        "lead_urls": [
+          "https://www.beijing.gov.cn/zhengce/zhengcefagui/202204/t20220412_2674457.html"
+        ]
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "29-1123.00",
+        "source_url": "https://www.onetonline.org/link/summary/29-1123.00",
+        "locator": "Tasks 363, 365, 373",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Measures physical function and evaluates and adjusts treatment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "29-1229.06",
+        "source_url": "https://www.onetonline.org/link/summary/29-1229.06",
+        "locator": "Tasks 17265, 17267, 17257",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Examines athletes, refers for services and advises against return when further injury is a concern.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 581,
+      "source_slugs": [
+        "physical-therapists",
+        "sports-medicine-physicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

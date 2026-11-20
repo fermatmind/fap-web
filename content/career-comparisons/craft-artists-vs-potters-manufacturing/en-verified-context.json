@@ -1,0 +1,292 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f54f7a25bd8110e84d2fa4b663d87855e7a754fa28c7601af17b35573b2f0768",
+  "inputs": {
+    "pair_id": "craft-artists-vs-potters-manufacturing",
+    "slugs": [
+      "craft-artists",
+      "potters-manufacturing"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/craft-artists-vs-potters-manufacturing",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "craft-artists": {
+        "name": "Craft artists",
+        "riasec": {
+          "code": "AR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "27-1012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.89,
+            1.85,
+            5.93,
+            1.68,
+            2.86,
+            2.66
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1012.00#Tasks"
+              }
+            ],
+            "text": "Select materials for use based on strength, color, texture, balance, weight, size, malleability and other characteristics."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1012.00#Tasks"
+              }
+            ],
+            "text": "Create functional or decorative objects by hand, using a variety of methods and materials."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1012.00#Tasks"
+              }
+            ],
+            "text": "Develop concepts or creative ideas for craft objects."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/27-1012.00#Tasks"
+              }
+            ],
+            "text": "Apply finishes to objects being crafted."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "27-1012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "27-1012",
+          "title_evidence": "official_title"
+        }
+      },
+      "potters-manufacturing": {
+        "name": "Potters, Manufacturing",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-9195.05",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.92,
+            1.64,
+            2.16,
+            1.0,
+            1.19,
+            3.69
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9195.05#Tasks"
+              }
+            ],
+            "text": "Operate gas or electric kilns to fire pottery pieces."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9195.05#Tasks"
+              }
+            ],
+            "text": "Mix and apply glazes to pottery pieces, using tools, such as spray guns."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9195.05#Tasks"
+              }
+            ],
+            "text": "Raise and shape clay into wares, such as vases and pitchers, on revolving wheels, using hands, fingers, and thumbs."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-9195.05#Tasks"
+              }
+            ],
+            "text": "Adjust wheel speeds according to the feel of the clay as pieces enlarge and walls become thinner."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-9195.05",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-9195",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "craft-artists -> potters-manufacturing",
+      "potters-manufacturing -> craft-artists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "27-1012.00",
+        "source_url": "https://www.onetonline.org/link/summary/27-1012.00",
+        "locator": "Tasks 9247, 9250, 9251, 9252, 9253, 9256",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops and makes handmade functional or decorative objects, including samples and finishes.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "51-9195.05",
+        "source_url": "https://www.onetonline.org/link/summary/51-9195.05",
+        "locator": "Tasks 21210, 21211, 15118, 15122, 15119",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Forms, dries, glazes and fires wares; may prepare work for sale or exhibition.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bls-entry-pay",
+        "source_url": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+        "locator": "Table 1.2 rows 27-1012 and 51-9195",
+        "value": {
+          "jurisdiction": "United States national",
+          "effective_or_period": "2025 employment matrix",
+          "summary": "Craft artists: no formal educational credential and long-term on-the-job training typical. The broader 51-9195 group, which includes manufacturing potters, lists high school or equivalent and long-term on-the-job training. No potter-specific wage is reported in this table.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "potter-occupational-group",
+        "source_url": "https://www.onetonline.org/link/details/51-9195.05",
+        "locator": "Wages & Employment Trends",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "2025",
+          "summary": "O*NET assigns manufacturing potters to the broader rollup Molders, Shapers, and Casters, Except Metal and Plastic for wage and employment data.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 247,
+      "source_slugs": [
+        "craft-artists",
+        "potters-manufacturing"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

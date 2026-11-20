@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "16db3b3ad8ad48f9f1a8c6107aec64ef657f0627c49821916d7f41cb0a17b689",
+  "inputs": {
+    "pair_id": "pump-operators-except-wellhead-pumpers-vs-water-and-wastewater-treatment-plant-and-system-operators",
+    "slugs": [
+      "pump-operators-except-wellhead-pumpers",
+      "water-and-wastewater-treatment-plant-and-system-operators"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/pump-operators-except-wellhead-pumpers-vs-water-and-wastewater-treatment-plant-and-system-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pump-operators-except-wellhead-pumpers": {
+        "name": "Pump Operators, Except Wellhead Pumpers",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-7072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.68,
+            2.27,
+            1.0,
+            1.28,
+            1.46,
+            4.5
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7072.00#Tasks"
+              }
+            ],
+            "text": "Monitor gauges and flowmeters and inspect equipment to ensure that tank levels, temperatures, chemical amounts, and pressures are at specified levels, reporting abnormalities as necessary."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7072.00#Tasks"
+              }
+            ],
+            "text": "Record operating data such as products and quantities pumped, stocks used, gauging results, and operating times."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7072.00#Tasks"
+              }
+            ],
+            "text": "Plan movement of products through lines to processing, storage, and shipping units, using knowledge of interconnections and capacities of pipelines, valve manifolds, pumps, and tankage."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/53-7072.00#Tasks"
+              }
+            ],
+            "text": "Turn valves and start pumps to start or regulate flows of substances such as gases, liquids, slurries, or powdered materials."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-7072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "53-7072",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "name": "Water and wastewater treatment plant and system operators",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.75,
+            2.55,
+            1.0,
+            1.57,
+            1.62,
+            4.6
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-8031.00#Tasks"
+              }
+            ],
+            "text": "Collect and test water and sewage samples, using test equipment and color analysis standards."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-8031.00#Tasks"
+              }
+            ],
+            "text": "Operate and adjust controls on equipment to purify and clarify water, process or dispose of sewage, and generate power."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-8031.00#Tasks"
+              }
+            ],
+            "text": "Record operational data, personnel attendance, or meter and gauge readings on specified forms."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/51-8031.00#Tasks"
+              }
+            ],
+            "text": "Add chemicals, such as ammonia, chlorine, or lime, to disinfect and deodorize water and other liquids."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-8031",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "pump-operators-except-wellhead-pumpers -> water-and-wastewater-treatment-plant-and-system-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "pump",
+        "source_url": "https://www.onetonline.org/link/summary/53-7072.00",
+        "locator": "Tasks; Job Zone",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Pump operation, monitoring and transfer records; Job Zone 1–2.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "water",
+        "source_url": "https://www.onetonline.org/link/summary/51-8031.00",
+        "locator": "Tasks; Work Context",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Operates treatment processes and records monitoring information.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "dunedin",
+        "source_url": "https://engage.dunedin.gov/citywide-lift-station-control-panel-replacement",
+        "locator": "Project overview: lift station flows to wastewater treatment facility",
+        "value": {
+          "jurisdiction": "US·Florida",
+          "effective_or_period": "City project page",
+          "summary": "Describes lift stations routing wastewater to the city treatment plant.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/ooh/production/water-and-wastewater-treatment-plant-and-system-operators.htm",
+        "locator": "How to Become One; Work Environment",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Treatment operators typically need high school education, training and state licensure; shift schedules vary.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "fl",
+        "source_url": "https://floridadep.gov/water/certification-restoration/content/water-and-domestic-wastewater-operator-certification",
+        "locator": "Water and Domestic Wastewater Operator Certification Program",
+        "value": {
+          "jurisdiction": "US·Florida",
+          "effective_or_period": "2026 access",
+          "summary": "Florida DEP describes license requirements for drinking water plants, domestic wastewater plants and water distribution systems.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 621,
+      "source_slugs": [
+        "pump-operators-except-wellhead-pumpers",
+        "water-and-wastewater-treatment-plant-and-system-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

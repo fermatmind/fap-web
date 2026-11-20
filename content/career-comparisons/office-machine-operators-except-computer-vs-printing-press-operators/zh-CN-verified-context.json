@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7adc80feff2328037aa23d5401ebb90816d784b5d1de633e2568f7f232baca27",
+  "inputs": {
+    "pair_id": "office-machine-operators-except-computer-vs-printing-press-operators",
+    "slugs": [
+      "office-machine-operators-except-computer",
+      "printing-press-operators"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/office-machine-operators-except-computer-vs-printing-press-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "office-machine-operators-except-computer": {
+        "name": "办公设备操作员（计算机除外）",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-9071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.55,
+            2.13,
+            1.16,
+            1.68,
+            2.06,
+            6.57
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-9071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-9071",
+          "title_evidence": "official_title"
+        }
+      },
+      "printing-press-operators": {
+        "name": "印刷机操作员",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-5112.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.8,
+            1.18,
+            1.74,
+            1.71,
+            1.77,
+            5.43
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-5112.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "51-5112",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "office-machine-operators-except-computer -> printing-press-operators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：非计算机办公设备操作员按工单操作高速复印、扫描、装订等设备，核原件和纸张规格，检查页序与印刷质量，记录产量、耗材和积压并交付成品；后岗：读生产工单、核纸张和油墨，设置印版、供墨、套印和进纸参数。",
+    "cn_qualification": {
+      "office-machine-operators-except-computer": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "printing-press-operators": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "43-9071.00",
+        "source_url": "https://www.onetonline.org/link/summary/43-9071.00",
+        "locator": "Tasks 13288, 13301, 13292",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Reads job orders, checks output and delivers completed work.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "51-5112.00",
+        "source_url": "https://www.onetonline.org/link/summary/51-5112.00",
+        "locator": "Tasks 19430, 19423, 19431",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Reads print orders, checks stock and ink, and reviews proofs for coverage and registration.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 546,
+      "source_slugs": [
+        "office-machine-operators-except-computer",
+        "printing-press-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "dc74f5698a3212f74ef6d221b207f021f7786af968a0a0c0f3ffd50e85ec5f40",
+  "inputs": {
+    "pair_id": "traffic-technicians-vs-transportation-planners",
+    "slugs": [
+      "traffic-technicians",
+      "transportation-planners"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/traffic-technicians-vs-transportation-planners",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "traffic-technicians": {
+        "name": "交通技术员",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-6041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.87,
+            4.38,
+            1.4,
+            1.93,
+            1.96,
+            4.47
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-6041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "53-6041",
+          "title_evidence": "official_title"
+        }
+      },
+      "transportation-planners": {
+        "name": "运输规划师",
+        "riasec": {
+          "code": "ICR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-3099.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.59,
+            5.6,
+            2.01,
+            1.76,
+            3.14,
+            4.87
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-3099.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-3099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "traffic-technicians -> transportation-planners",
+      "transportation-planners -> traffic-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在交通工程师指导下调查流量、速度和交通设施状况，整理记录、复核异常并提供图表与交接资料；后岗：研究拟议运输项目，收集分析数据并比较交通情景与方案。",
+    "cn_qualification": {
+      "traffic-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "transportation-planners": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "53-6041.00",
+        "source_url": "https://www.onetonline.org/link/summary/53-6041.00",
+        "locator": "Tasks 8633, 8638, 8643, 8645",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Records traffic volumes, studies delays and summarizes flow data.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "19-3099.01",
+        "source_url": "https://www.onetonline.org/link/summary/19-3099.01",
+        "locator": "Tasks 16953, 16945, 16943, 16952, 16949",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Defines planning priorities, gathers public input and recommends transport improvements.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 698,
+      "source_slugs": [
+        "traffic-technicians",
+        "transportation-planners"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

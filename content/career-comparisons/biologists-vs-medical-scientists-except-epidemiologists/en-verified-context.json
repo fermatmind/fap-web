@@ -1,0 +1,335 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "2a1fe1e3e6429c3a9840b48a731c608e32916fff69054a5668da20fbfe4537d5",
+  "inputs": {
+    "pair_id": "biologists-vs-medical-scientists-except-epidemiologists",
+    "slugs": [
+      "biologists",
+      "medical-scientists-except-epidemiologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/biologists-vs-medical-scientists-except-epidemiologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "biologists": {
+        "name": "Biologists",
+        "riasec": {
+          "code": "ICR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1029.04",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.11,
+            7.0,
+            2.4,
+            2.62,
+            2.76,
+            4.45
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.04#Tasks"
+              }
+            ],
+            "text": "Program and use computers to store, process, and analyze data."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.04#Tasks"
+              }
+            ],
+            "text": "Prepare technical and research reports, such as environmental impact reports, and communicate the results to individuals in industry, government, or the general public."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.04#Tasks"
+              }
+            ],
+            "text": "Supervise biological technicians and technologists and other scientists."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.04#Tasks"
+              }
+            ],
+            "text": "Develop and maintain liaisons and effective working relations with groups and individuals, agencies, and the public to encourage cooperative management strategies or to develop information and interpret findings."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1029.04",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-1029",
+          "title_evidence": "official_title"
+        }
+      },
+      "medical-scientists-except-epidemiologists": {
+        "name": "Medical Scientists, Except Epidemiologists",
+        "riasec": {
+          "code": "IR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1042.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.27,
+            7.0,
+            2.42,
+            3.29,
+            2.22,
+            3.7
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Follow strict safety procedures when handling toxic materials to avoid contamination."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Evaluate effects of drugs, gases, pesticides, parasites, and microorganisms at various levels."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Plan and direct studies to investigate human or animal disease, preventive methods, and treatments for disease."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1042.00#Tasks"
+              }
+            ],
+            "text": "Prepare and analyze organ, tissue, and cell samples to identify toxicity, bacteria, or microorganisms or to study cell structure."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1042.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "19-1042",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "biologists -> medical-scientists-except-epidemiologists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "biology",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.04#Tasks",
+        "locator": "Detailed Work Activities",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Develops biological research methods and studies processes in living systems.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "medicine",
+        "source_url": "https://www.onetonline.org/link/summary/19-1042.00#Tasks",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Studies human disease and health through research and development.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "biology-setting",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.04#WorkContext",
+        "locator": "Work Context",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Reports indoor and outdoor work settings.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "medicine-setting",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/medical-scientists.htm#tab-3",
+        "locator": "Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Medical scientists typically work in offices and laboratories.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bio-entry",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.04#JobZone",
+        "locator": "Job Zone Five",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Extensive preparation frequently includes graduate study.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "med-entry",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/medical-scientists.htm#tab-4",
+        "locator": "Education and Advancement",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Doctoral or medical degrees are typical; some posts accept a master's degree with experience.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "wage-scope",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.04#WagesEmployment",
+        "locator": "Wages and Employment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Wage data are for Biological Scientists, All Other.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "med-licensure",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/medical-scientists.htm#tab-4",
+        "locator": "How to Become a Medical Scientist: Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live OOH",
+          "summary": "Research alone generally does not require a license. Those practicing medicine must be licensed as physicians or other healthcare practitioners, as appropriate to their role.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 59,
+      "source_slugs": [
+        "biologists",
+        "medical-scientists-except-epidemiologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

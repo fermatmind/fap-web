@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "9ec335db15735b2af42c31dbe8cab17ef1372db139f1e285f5e051c9f349ec01",
+  "inputs": {
+    "pair_id": "customer-service-representatives-vs-telemarketers",
+    "slugs": [
+      "customer-service-representatives",
+      "telemarketers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/customer-service-representatives-vs-telemarketers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "customer-service-representatives": {
+        "name": "客戶服務代表",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.97,
+            1.63,
+            1.0,
+            3.77,
+            5.08,
+            6.32
+          ]
+        },
+        "tasks": [
+          "客戶溝通｜接聽與答覆詢問｜與客戶通過電話或當面交流，就產品或服務的常規詢問提供基礎或按規程的資訊，並聯系客戶答覆詢問或告知索賠調查結果與計劃調整。",
+          "訂單與賬戶｜受理訂單並登記變更｜受理詢問或訂單、登記與取消賬戶、獲取投訴細節，用電腦填寫合同表單、變更地址記錄或簽發停用服務指令。",
+          "記錄與核對｜記錄互動並核對解決｜記錄與客戶的互動或交易，寫明詢問、投訴、意見與所採取的行動，核對客戶問題是否已通過適當的更改得到解決。",
+          "投訴解決｜解決服務與計費投訴｜通過換貨、退款或調整賬單解決服務或計費投訴，查閱保險條款判斷某項損失是否在承保範圍內，並獲取相關資訊判斷投訴是否成立及其原因。",
+          "收費與賬務｜確定收費並安排賬單｜確定所請求服務的收費、收取押金或款項並安排賬單，並按規定處理退回商品與相關票據。",
+          "轉交與改進｜轉交申訴並反饋建議｜把未解決的客戶申訴轉給指定部門進一步調查，按需推介新服務或產品，並就產品、包裝、配送、服務或計費方法提出改進建議。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "43-4051",
+          "title_evidence": "official_title"
+        }
+      },
+      "telemarketers": {
+        "name": "電話銷售員",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "41-9041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.87,
+            1.09,
+            1.24,
+            3.61,
+            5.36,
+            5.07
+          ]
+        },
+        "tasks": [
+          "準備｜核聯絡依據與停止狀態｜按組織流程核消費者同意和取消，不因名單可見就直接外呼。",
+          "準備｜查產品和價格版本｜明確內容、費用與已核限制，不編造優惠、庫存或專業效果。",
+          "溝通｜傾聽並解釋｜聽清客戶問題，用易懂語言回答，無法確認的事項交授權人員。",
+          "記錄｜聯絡與交易狀態｜維護聯絡賬戶訂單記錄，意向預約拒絕與確認訂單分別填寫。",
+          "協作｜預約與後續交接｜按許可權安排銷售會面或後續答覆，避免超範圍承諾。",
+          "復盤｜話術與質量反饋｜調整表達並核原資料，保留版本和質檢改進證據。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "41-9041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "41-9041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "telemarketers -> customer-service-representatives"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "customer-service-representatives": {
+        "file_sha256": "dde35584e40fa2349831ef636906c15f796ec89254c1e5f2c928e49b94799e6a",
+        "entries": []
+      },
+      "telemarketers": {
+        "file_sha256": "9051a71e1e408380c4ad2092187b823ee45254baaab4b7bb457cc099be275c35",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 270,
+      "source_slugs": [
+        "customer-service-representatives",
+        "telemarketers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "customer-service-representatives": {
+          "field": "paragraphs",
+          "source_path": "careers/customer-service-representatives/zh-TW.json",
+          "file_sha256": "dde35584e40fa2349831ef636906c15f796ec89254c1e5f2c928e49b94799e6a",
+          "count": 6
+        },
+        "telemarketers": {
+          "field": "paragraphs",
+          "source_path": "careers/telemarketers/zh-TW.json",
+          "file_sha256": "9051a71e1e408380c4ad2092187b823ee45254baaab4b7bb457cc099be275c35",
+          "count": 6
+        }
+      }
+    }
+  }
+}

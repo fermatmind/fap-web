@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "47144cdd2f8595e10e2437740ee33b649b7817c8c394a43e5fc7e0d41e1ecc9c",
+  "inputs": {
+    "pair_id": "critical-care-nurses-vs-licensed-practical-and-licensed-vocational-nurses",
+    "slugs": [
+      "critical-care-nurses",
+      "licensed-practical-and-licensed-vocational-nurses"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/critical-care-nurses-vs-licensed-practical-and-licensed-vocational-nurses",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "critical-care-nurses": {
+        "name": "重症護理護士",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1141.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.91,
+            5.02,
+            1.7,
+            5.56,
+            2.2,
+            4.23
+          ]
+        },
+        "tasks": [
+          "持續評估與監護｜評測生命體徵與檢驗資料｜評測患者生命體徵或檢驗資料以判斷緊急干預需要，監測病情與膿毒症或休克等指徵並採取相應干預，編制並分析監護與診斷資料。",
+          "醫囑執行與生命支援護理｜按醫囑與規範執行｜經靜脈、注射、口服或胃管等途徑給藥，監測出入量與體液電解質平衡，輸注血液與血製品並觀察輸血反應，設定並監護心電監護、呼吸機與報警、氧療裝置、換能器與壓力監測管路等裝置。",
+          "操作與標本｜完成獲批的診療操作｜按臨床狀況執行獲批的治療或診斷性操作，採集檢驗標本，進行肺部評估以識別異常呼吸形態或呼吸音，協助醫生完成支氣管鏡、內鏡、氣管插管或擇期電覆律等操作。",
+          "記錄與交接｜按規範記錄並交接｜記錄病史與評估發現、治療計劃、干預與結果或計劃修訂，按結構化方式向下一班與跨專業團隊交接並參與患者照護會議。",
+          "風險與團隊協作｜識別風險並協作｜識別故障裝置、營養風險、心理社會需求與年齡相關需求，為患者與家屬提供解釋與情感支援，評估家庭適應與應對並監督本單元護理人員。",
+          "質量與專業發展：參加專業組織和繼續教育，參與護理規範制定評估、照護會議，為護理人員、團隊及社群成員規劃教育；當前任務還含死亡後護理與裝置妥善存放。Core不等個人每班必須執行全部任務。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1141.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1141",
+          "title_evidence": "official_title"
+        }
+      },
+      "licensed-practical-and-licensed-vocational-nurses": {
+        "name": "執業護士與職業護士",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2061.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.58,
+            3.67,
+            1.05,
+            5.5,
+            2.13,
+            4.58
+          ]
+        },
+        "tasks": [
+          "投入物件：患者的生命體徵與症狀、醫囑與用藥單、護理與給藥記錄、傷口與導管等護理部位、樣本與護理用品，以及患者安全與隱私要求。",
+          "可檢查產出：生命體徵與觀察記錄、給藥與核對記錄、傷口與導管護理記錄、樣本採集與送檢記錄、患者/家屬溝通與異常上報記錄。",
+          "任務示意，並非固定臨床步驟：核對獲准照護資訊、觀察與記錄、執行獲准護理，與團隊溝通或交接。危急響應及報告不得以先完成日常照護或記錄為前提。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2061.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "29-2061",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "critical-care-nurses -> licensed-practical-and-licensed-vocational-nurses"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "critical-care-nurses": {
+        "file_sha256": "22f2991cdf0dfccf2e8c8fc5da6b90a31f47f78816f6e743c3b7e97dcd27b3c4",
+        "entries": []
+      },
+      "licensed-practical-and-licensed-vocational-nurses": {
+        "file_sha256": "946b1fc1750f3b3175f3bfb6abb5f6a42071f0d422cbd5ea7ffde1fa102e8b79",
+        "entries": [
+          "投入物件：患者的生命體徵與症狀、醫囑與用藥單、護理與給藥記錄、傷口與導管等護理部位、樣本與護理用品，以及患者安全與隱私要求。",
+          "可檢查產出：生命體徵與觀察記錄、給藥與核對記錄、傷口與導管護理記錄、樣本採集與送檢記錄、患者/家屬溝通與異常上報記錄。",
+          "任務示意，並非固定臨床步驟：核對獲准照護資訊、觀察與記錄、執行獲准護理，與團隊溝通或交接。危急響應及報告不得以先完成日常照護或記錄為前提。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 255,
+      "source_slugs": [
+        "critical-care-nurses",
+        "licensed-practical-and-licensed-vocational-nurses"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "critical-care-nurses": {
+          "field": "paragraphs",
+          "source_path": "careers/critical-care-nurses/zh-TW.json",
+          "file_sha256": "22f2991cdf0dfccf2e8c8fc5da6b90a31f47f78816f6e743c3b7e97dcd27b3c4",
+          "count": 6
+        },
+        "licensed-practical-and-licensed-vocational-nurses": {
+          "field": "entries",
+          "source_path": "careers/licensed-practical-and-licensed-vocational-nurses/zh-TW.json",
+          "file_sha256": "946b1fc1750f3b3175f3bfb6abb5f6a42071f0d422cbd5ea7ffde1fa102e8b79",
+          "count": 3
+        }
+      }
+    }
+  }
+}

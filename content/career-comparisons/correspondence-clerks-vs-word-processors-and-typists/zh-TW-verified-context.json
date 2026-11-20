@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "ade81c2d9832da52b807c8b73822b2c4600dfa22409fcfa80151f42750814875",
+  "inputs": {
+    "pair_id": "correspondence-clerks-vs-word-processors-and-typists",
+    "slugs": [
+      "correspondence-clerks",
+      "word-processors-and-typists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/correspondence-clerks-vs-word-processors-and-typists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "correspondence-clerks": {
+        "name": "函件文員",
+        "riasec": {
+          "code": "CE",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.32,
+            2.52,
+            1.57,
+            2.7,
+            3.43,
+            6.86
+          ]
+        },
+        "tasks": [
+          "來信閱讀與處置｜讀信判斷並分類｜閱讀來信、郵件與表單，判斷來意與訴求類別，調取相關記錄並決定處置方式與回覆模板，登記後分派給相應部門。",
+          "記錄核對與資料彙集｜核對完整與準確｜彙集訂單、賬單、賬戶與理賠記錄，檢查資訊是否完整準確，需要時把相關記錄隨函附上並標明待核項。",
+          "函件起草與回覆｜起草標準回覆與確認函｜起草商品請求、損壞索賠、信用查詢、欠款、賬單錯誤與服務投訴的回覆，開具確認函與通知函，寫明事實與引用依據。",
+          "校對與籤批｜按格式整理並送籤｜校對函件的格式與拼寫，按統一格式與正確份數整理，送有權簽署人簽字後發出，並保留校對稿與籤批記錄。",
+          "分派及補充收費事務｜分派來函是Core；提供記錄費用與付款函、收款記錄保管是Supplemental，不直接推全國崗位負責全部賬款。",
+          "報告與事務｜彙總並編制報告｜從記錄中彙總資料編制週期性報告，按快遞或掛號信準備郵寄材料，處理訂單與庫存相關的事務性查詢。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "43-4021",
+          "title_evidence": "official_title"
+        }
+      },
+      "word-processors-and-typists": {
+        "name": "文書處理員與打字員",
+        "riasec": {
+          "code": "C",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-9022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.87,
+            1.94,
+            2.26,
+            2.23,
+            1.86,
+            6.59
+          ]
+        },
+        "tasks": [
+          "來源｜草稿錄音｜核任務與版本。",
+          "轉寫｜給定內容｜忠實輸入標未知。",
+          "校對｜文字格式｜核標點數字與版式。",
+          "整理｜檔案頁序｜儲存檢索及記錄。",
+          "交接｜接收用途｜核傳遞許可權與狀態。",
+          "協作｜材料複核人員｜說明不明項與修訂。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-9022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "43-9022",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "word-processors-and-typists -> correspondence-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "correspondence-clerks": {
+        "file_sha256": "d4907dbc7998a7d7c75b2f7f3d587845bb70e0d0c055625f7923cccd6715efab",
+        "entries": []
+      },
+      "word-processors-and-typists": {
+        "file_sha256": "f762255f633922ca600d7e6bb147d5455f2f78cef8226b6e7804dec08dbe9f28",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 235,
+      "source_slugs": [
+        "correspondence-clerks",
+        "word-processors-and-typists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "correspondence-clerks": {
+          "field": "paragraphs",
+          "source_path": "careers/correspondence-clerks/zh-TW.json",
+          "file_sha256": "d4907dbc7998a7d7c75b2f7f3d587845bb70e0d0c055625f7923cccd6715efab",
+          "count": 6
+        },
+        "word-processors-and-typists": {
+          "field": "paragraphs",
+          "source_path": "careers/word-processors-and-typists/zh-TW.json",
+          "file_sha256": "f762255f633922ca600d7e6bb147d5455f2f78cef8226b6e7804dec08dbe9f28",
+          "count": 6
+        }
+      }
+    }
+  }
+}

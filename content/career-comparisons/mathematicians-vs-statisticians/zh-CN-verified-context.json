@@ -1,0 +1,167 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "20ebb27ac96fba2fd2761439b65efe6c1022a349cb23f0dc4e01aff9b7a207f3",
+  "inputs": {
+    "pair_id": "mathematicians-vs-statisticians",
+    "slugs": [
+      "mathematicians",
+      "statisticians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/mathematicians-vs-statisticians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "mathematicians": {
+        "name": "数学研究人员",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.22,
+            7.0,
+            3.23,
+            1.95,
+            1.11,
+            5.03
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "15-2021",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "statisticians": {
+        "name": "统计师",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2041.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.14,
+            6.58,
+            1.77,
+            1.71,
+            1.82,
+            6.03
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2041.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-2041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "mathematicians -> statisticians",
+      "statisticians -> mathematicians"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {
+      "mathematicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "statisticians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "15-2021.00",
+        "source_url": "https://www.onetonline.org/link/summary/15-2021.00",
+        "locator": "Tasks 7374, 7372, 7370, 7373, 20191",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops mathematical principles, tests consequences of assumptions, and performs numerical analysis.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "15-2041.00",
+        "source_url": "https://www.onetonline.org/link/summary/15-2041.00",
+        "locator": "Tasks 8953, 8955, 8956, 8957, 8958, 8966",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Develops sampling or analytical methods, evaluates data and reports statistical findings.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 38,
+      "source_slugs": [
+        "mathematicians",
+        "statisticians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "seed_task_hint_zh": "同一个建模问题，前者更偏建立方法并推导性质，后者更偏采样、估计和解释数据中的不确定性。",
+    "seed_cn_qualification_lead": "统计侧有专业技术资格线索，数学研究侧待核。"
+  }
+}

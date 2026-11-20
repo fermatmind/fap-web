@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "f363ad68bf0d949099ad9328e5c2cd67228a8d04a1b4128ce4af75826b7c38b2",
+  "inputs": {
+    "pair_id": "computer-network-support-specialists-vs-telecommunications-engineering-specialists",
+    "slugs": [
+      "computer-network-support-specialists",
+      "telecommunications-engineering-specialists"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/computer-network-support-specialists-vs-telecommunications-engineering-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "computer-network-support-specialists": {
+        "name": "计算机网络支持专家",
+        "riasec": {
+          "code": "CIR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1231.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.38,
+            4.61,
+            1.0,
+            2.28,
+            2.64,
+            5.45
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1231.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-1231",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "telecommunications-engineering-specialists": {
+        "name": "电信工程专员",
+        "riasec": {
+          "code": "CRI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-1241.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.54,
+            4.29,
+            1.9,
+            2.31,
+            3.07,
+            4.95
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-1241.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "15-1241",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "telecommunications-engineering-specialists -> computer-network-support-specialists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：网络技术支持负责让已有网络恢复并稳定运行：记录故障范围，查看监控和日志，验证可能的原因，按权限修复或升级，并把处理过程留给下一班或其他团队；后岗：制定设备或网络规格，诊断运行问题并协调改造。",
+    "cn_qualification": {
+      "computer-network-support-specialists": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "telecommunications-engineering-specialists": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "15-1231.00",
+        "source_url": "https://www.onetonline.org/link/summary/15-1231.00",
+        "locator": "Tasks 18995, 19004",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Diagnoses network problems and backs up network data.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "15-1241.01",
+        "source_url": "https://www.onetonline.org/link/summary/15-1241.01",
+        "locator": "Tasks 16077, 16064, 16073",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Documents telecom specifications, supports diagnosis and helps implement system renovations.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 190,
+      "source_slugs": [
+        "computer-network-support-specialists",
+        "telecommunications-engineering-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

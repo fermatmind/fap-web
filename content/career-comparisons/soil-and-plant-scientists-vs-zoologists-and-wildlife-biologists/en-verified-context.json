@@ -1,0 +1,302 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "fb8e9fc397e90e6d36b3b10bed0f01847bff1abdd1993064f67a48ac423e38b9",
+  "inputs": {
+    "pair_id": "soil-and-plant-scientists-vs-zoologists-and-wildlife-biologists",
+    "slugs": [
+      "soil-and-plant-scientists",
+      "zoologists-and-wildlife-biologists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/soil-and-plant-scientists-vs-zoologists-and-wildlife-biologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "soil-and-plant-scientists": {
+        "name": "Soil and Plant Scientists",
+        "riasec": {
+          "code": "IR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1013.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.43,
+            6.71,
+            2.11,
+            1.67,
+            1.71,
+            3.41
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1013.00#Tasks"
+              }
+            ],
+            "text": "Communicate research or project results to other professionals or the public or teach related courses, seminars, or workshops."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1013.00#Tasks"
+              }
+            ],
+            "text": "Develop methods of conserving or managing soil that can be applied by farmers or forestry companies."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1013.00#Tasks"
+              }
+            ],
+            "text": "Provide information or recommendations to farmers or other landowners regarding ways in which they can best use land, promote plant growth, or avoid or correct problems such as erosion."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1013.00#Tasks"
+              }
+            ],
+            "text": "Conduct experiments to develop new or improved varieties of field crops, focusing on characteristics such as yield, quality, disease resistance, nutritional value, or adaptation to specific soils or climates."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1013.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "19-1013",
+          "title_evidence": "official_title"
+        }
+      },
+      "zoologists-and-wildlife-biologists": {
+        "name": "Zoologists and wildlife biologists",
+        "riasec": {
+          "code": "IR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1023.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.43,
+            6.99,
+            2.31,
+            2.55,
+            2.33,
+            3.7
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1023.00#Tasks"
+              }
+            ],
+            "text": "Inventory or estimate plant and wildlife populations."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1023.00#Tasks"
+              }
+            ],
+            "text": "Disseminate information by writing reports and scientific papers or journal articles, and by making presentations and giving talks for schools, clubs, interest groups and park interpretive programs."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1023.00#Tasks"
+              }
+            ],
+            "text": "Develop, or make recommendations on, management systems and plans for wildlife populations and habitat, consulting with stakeholders and the public at large to explore options."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1023.00#Tasks"
+              }
+            ],
+            "text": "Study animals in their natural habitats, assessing effects of environment and industry on animals, interpreting findings and recommending alternative operating conditions for industry."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1023.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_05.json",
+          "soc": "19-1023",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "zoologists-and-wildlife-biologists -> soil-and-plant-scientists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "soil",
+        "source_url": "https://www.onetonline.org/link/summary/19-1013.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Soil properties, plant growth, mapping and evaluating management.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "wildlife",
+        "source_url": "https://www.onetonline.org/link/summary/19-1023.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Animal and wildlife research, habitat and population studies.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "grass",
+        "source_url": "https://pubs.usgs.gov/publication/70024202",
+        "locator": "Abstract: habitat and landscape associations",
+        "value": {
+          "jurisdiction": "US·Northern Iowa",
+          "effective_or_period": "2002 publication",
+          "summary": "Study compared bird communities and habitat characteristics in native and restored grasslands.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls-soil",
+        "source_url": "https://www.bls.gov/OOH/life-physical-and-social-science/agricultural-and-food-scientists.htm",
+        "locator": "Pay; Education; Licenses, Certifications, and Registrations",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 OEWS wages; 2026 access",
+          "summary": "Soil and plant scientists national median annual wage $78,850; some state licensure for certain work.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls-wildlife",
+        "source_url": "https://www.bls.gov/ooh/life-physical-and-social-science/zoologists-and-wildlife-biologists.htm",
+        "locator": "Pay; Work Environment; How to Become One",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 OEWS wages; 2026 access",
+          "summary": "Zoologists and wildlife biologists national median annual wage $76,780; bachelor's degree typical for entry, graduate training for some work.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 675,
+      "source_slugs": [
+        "soil-and-plant-scientists",
+        "zoologists-and-wildlife-biologists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

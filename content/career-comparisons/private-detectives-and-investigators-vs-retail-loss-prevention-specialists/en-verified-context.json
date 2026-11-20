@@ -1,0 +1,291 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "471771f14f52362e232c3e48db55a263e3e552f813ae18610ba9f492bfa1de6d",
+  "inputs": {
+    "pair_id": "private-detectives-and-investigators-vs-retail-loss-prevention-specialists",
+    "slugs": [
+      "private-detectives-and-investigators",
+      "retail-loss-prevention-specialists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/private-detectives-and-investigators-vs-retail-loss-prevention-specialists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "private-detectives-and-investigators": {
+        "name": "Private detectives and investigators",
+        "riasec": {
+          "code": "CEI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "33-9021.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.39,
+            3.9,
+            1.42,
+            2.87,
+            4.07,
+            5.45
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9021.00#Tasks"
+              }
+            ],
+            "text": "Write reports or case summaries to document investigations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9021.00#Tasks"
+              }
+            ],
+            "text": "Conduct private investigations on a paid basis."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9021.00#Tasks"
+              }
+            ],
+            "text": "Search computer databases, credit reports, public records, tax or legal filings, or other resources to locate persons or to compile information for investigations."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9021.00#Tasks"
+              }
+            ],
+            "text": "Conduct personal background investigations, such as pre-employment checks, to obtain information about an individual's character, financial status, or personal history."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "33-9021.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "33-9021",
+          "title_evidence": "official_title"
+        }
+      },
+      "retail-loss-prevention-specialists": {
+        "name": "Retail Loss Prevention Specialists",
+        "riasec": {
+          "code": "CER",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "33-9099.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.9,
+            3.44,
+            1.0,
+            2.71,
+            4.77,
+            5.67
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9099.02#Tasks"
+              }
+            ],
+            "text": "Investigate known or suspected internal theft, external theft, or vendor fraud."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9099.02#Tasks"
+              }
+            ],
+            "text": "Implement or monitor processes to reduce property or financial losses."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9099.02#Tasks"
+              }
+            ],
+            "text": "Identify and report merchandise or stock shortages."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/33-9099.02#Tasks"
+              }
+            ],
+            "text": "Maintain documentation or reports on security-related incidents or investigations."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "33-9099.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "33-9099",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "retail-loss-prevention-specialists -> private-detectives-and-investigators"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "pi",
+        "source_url": "https://www.bls.gov/ooh/protective-service/private-detectives-and-investigators.htm",
+        "locator": "Duties and How to Become",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 OOH",
+          "summary": "Collects information and reports findings; state licensing rules vary.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "lp",
+        "source_url": "https://www.onetonline.org/link/details/33-9099.02",
+        "locator": "Summary and Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "O*NET 2026",
+          "summary": "Identifies merchandise shortages, documents cases and monitors loss-reduction procedures.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bsis",
+        "source_url": "https://www.bsis.ca.gov/consumers/faqs/pi",
+        "locator": "FAQs 1, 20, 25",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current",
+          "summary": "BSIS explains PI license qualifications and the limits of work under a licensed PI.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "pso",
+        "source_url": "https://www.bsis.ca.gov/forms_pubs/ppso_fact",
+        "locator": "Background and Registration",
+        "value": {
+          "jurisdiction": "California",
+          "effective_or_period": "Current",
+          "summary": "Generally unarmed, exclusively employed by one employer, primarily provides security for that employer, services not contracted out, distinctive required uniform and likely public contact. Registration required if covered and no statutory exemption applies.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 609,
+      "source_slugs": [
+        "private-detectives-and-investigators",
+        "retail-loss-prevention-specialists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

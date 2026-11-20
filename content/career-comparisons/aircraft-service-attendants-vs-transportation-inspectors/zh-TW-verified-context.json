@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "17cbd65d54441c8e39edbe14d1ec2070b1bed14f29aca8f9afa1efeeb80f0801",
+  "inputs": {
+    "pair_id": "aircraft-service-attendants-vs-transportation-inspectors",
+    "slugs": [
+      "aircraft-service-attendants",
+      "transportation-inspectors"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/aircraft-service-attendants-vs-transportation-inspectors",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "aircraft-service-attendants": {
+        "name": "飛機地面勤務員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-6032.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.11,
+            1.83,
+            1.0,
+            1.87,
+            2.1,
+            4.16
+          ]
+        },
+        "tasks": [
+          "燃油加註｜軟管與油品核對｜按崗位核對加油任務、記錄和裝置。",
+          "液體補給｜水與冷卻劑｜部分崗位補充飲用水或冷卻劑；按工單核職責和授權。",
+          "汙水處置｜廁所繫統｜部分崗位處理汙水箱或補充消毒液。",
+          "除冰作業｜吊籃與除冰液｜除冰崗位按適用規程和分工處理除冰任務。",
+          "機坪引導｜牽引與訊號｜按僱主分工核機坪引導或牽引任務。",
+          "檢查與記錄｜外部清潔與上報｜外部清潔、外觀觀察和記錄按崗位分工。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-6032.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "53-6032",
+          "title_evidence": "official_title"
+        }
+      },
+      "transportation-inspectors": {
+        "name": "運輸檢查員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "53-6051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.69,
+            2.91,
+            1.0,
+            1.56,
+            2.64,
+            6.17
+          ]
+        },
+        "tasks": [
+          "準備｜確認範圍與物件｜核對委託、標識和本次檢查要回答的問題。",
+          "核對｜比對記錄與單據｜將批次、數量、單位與時間對應，記錄矛盾和缺項。",
+          "觀察｜記錄貨物或裝置狀態｜只在獲准條件和能力範圍內檢查，明確觀察限制。",
+          "溝通｜說明發現與待確認事項｜將差異提交給對應人員，不私自補造資料或宣佈放行。",
+          "報告｜整理證據與結果｜保留原始記錄，區分事實、解釋和待複核結論。",
+          "跟蹤｜核對處理與記錄留存｜記錄補充材料、複核意見及整改狀態。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "53-6051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "53-6051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "aircraft-service-attendants -> transportation-inspectors"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "aircraft-service-attendants": {
+        "file_sha256": "d7ae9fe0df9d0d82c09c25abb60a548f7e8d5e7c0743ba86d9376adbe8f9da63",
+        "entries": [
+          "燃油加註｜軟管與油品核對｜按崗位核對加油任務、記錄和裝置。",
+          "液體補給｜水與冷卻劑｜部分崗位補充飲用水或冷卻劑；按工單核職責和授權。",
+          "汙水處置｜廁所繫統｜部分崗位處理汙水箱或補充消毒液。",
+          "除冰作業｜吊籃與除冰液｜除冰崗位按適用規程和分工處理除冰任務。",
+          "機坪引導｜牽引與訊號｜按僱主分工核機坪引導或牽引任務。",
+          "檢查與記錄｜外部清潔與上報｜外部清潔、外觀觀察和記錄按崗位分工。"
+        ]
+      },
+      "transportation-inspectors": {
+        "file_sha256": "30ab2b941c4c9f1f6916d92d7276ab081ae56326276eac21d8223561635e2516",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 39,
+      "source_slugs": [
+        "aircraft-service-attendants",
+        "transportation-inspectors"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "aircraft-service-attendants": {
+          "field": "entries",
+          "source_path": "careers/aircraft-service-attendants/zh-TW.json",
+          "file_sha256": "d7ae9fe0df9d0d82c09c25abb60a548f7e8d5e7c0743ba86d9376adbe8f9da63",
+          "count": 6
+        },
+        "transportation-inspectors": {
+          "field": "paragraphs",
+          "source_path": "careers/transportation-inspectors/zh-TW.json",
+          "file_sha256": "30ab2b941c4c9f1f6916d92d7276ab081ae56326276eac21d8223561635e2516",
+          "count": 6
+        }
+      }
+    }
+  }
+}

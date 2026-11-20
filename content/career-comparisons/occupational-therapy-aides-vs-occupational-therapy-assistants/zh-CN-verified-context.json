@@ -1,0 +1,209 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d3e57e76b941f2ba07de2456fad23b1f2db3ece534fef3f9cc2ccf5d17ea72c0",
+  "inputs": {
+    "pair_id": "occupational-therapy-aides-vs-occupational-therapy-assistants",
+    "slugs": [
+      "occupational-therapy-aides",
+      "occupational-therapy-assistants"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/occupational-therapy-aides-vs-occupational-therapy-assistants",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "occupational-therapy-aides": {
+        "name": "作业治疗辅助员",
+        "riasec": {
+          "code": "SRC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-2012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.91,
+            2.55,
+            1.69,
+            6.0,
+            1.82,
+            3.72
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-2012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-2012",
+          "title_evidence": "official_title"
+        }
+      },
+      "occupational-therapy-assistants": {
+        "name": "作业治疗助理",
+        "riasec": {
+          "code": "SCR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-2011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.53,
+            3.48,
+            2.06,
+            6.1,
+            1.14,
+            4.21
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-2011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-2011",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "occupational-therapy-aides -> occupational-therapy-assistants",
+      "occupational-therapy-assistants -> occupational-therapy-aides"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：在治疗师或作业治疗助理指导下准备治疗区域和器材、迎送患者、清洁及处理预约和表单；后岗：在作业治疗师指导下实施活动训练、观察参与者反应、记录进展并反馈以调整计划。",
+    "cn_qualification": {
+      "occupational-therapy-aides": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "occupational-therapy-assistants": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "aide",
+        "source_url": "https://www.onetonline.org/link/summary/31-2012.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Treatment area preparation, cleaning, escorts, and clerical support.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "assistant",
+        "source_url": "https://www.onetonline.org/link/summary/31-2011.00",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Provides occupational therapy under direction and documents progress.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "bls",
+        "source_url": "https://www.bls.gov/ooh/Healthcare/Occupational-therapy-assistants-and-aides.htm",
+        "locator": "Duties; Work Environment; How to Become One; Pay",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages",
+          "summary": "Separate national OEWS medians and distinct entry pathways.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "hospital",
+        "source_url": "https://www.hku-szh.org/xgdxszyy/ylfw/zlzx/kfyxb/zyzlk/index.html",
+        "locator": "作业治疗科介绍",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "科室公开页",
+          "summary": "开展日常生活活动能力评估及训练。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "course",
+        "source_url": "https://zs.cqc.edu.cn/2024/0506/c927a78158/page.htm",
+        "locator": "康复治疗技术专业介绍",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2025-03-10",
+          "summary": "包含作业治疗相关课程。",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "exam",
+        "source_url": "https://www.huaihua.gov.cn/wsjkw/c100587/202512/73a23312619d4460a3685c7cd0e0645c.shtml",
+        "locator": "卫生专业技术资格考试通知",
+        "value": {
+          "jurisdiction": "中国大陆·怀化",
+          "effective_or_period": "2026考试年度",
+          "summary": "列出康复医学治疗技术相关专业。",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 537,
+      "source_slugs": [
+        "occupational-therapy-aides",
+        "occupational-therapy-assistants"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

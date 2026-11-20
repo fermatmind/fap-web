@@ -1,0 +1,186 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "446d7c033f08994205bdadc7aa744d483e464b5d0fa3bfb65eda802398963093",
+  "inputs": {
+    "pair_id": "control-and-valve-installers-and-repairers-except-mechanical-door-vs-plumbers-pipefitters-and-steamfitters",
+    "slugs": [
+      "control-and-valve-installers-and-repairers-except-mechanical-door",
+      "plumbers-pipefitters-and-steamfitters"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/control-and-valve-installers-and-repairers-except-mechanical-door-vs-plumbers-pipefitters-and-steamfitters",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "control-and-valve-installers-and-repairers-except-mechanical-door": {
+        "name": "控制与阀门安装维修工（非机械门类）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.85,
+            1.0,
+            1.2,
+            1.0,
+            4.51
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "49-9012",
+          "title_evidence": "official_title"
+        }
+      },
+      "plumbers-pipefitters-and-steamfitters": {
+        "name": "管道工、配管工与蒸汽管安装工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2152.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.2,
+            1.0,
+            1.16,
+            1.0,
+            3.72
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2152.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2152",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "control-and-valve-installers-and-repairers-except-mechanical-door -> plumbers-pipefitters-and-steamfitters"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：控制与阀门安装维修工安装，维修与维护机械式调节与控制装置，安装与检测电表，燃气调压器，恒温器，安全阀与流量阀等设备，按压力，温度，流量与液位校准仪表；后岗：按图纸装配、安装、维修输送水、蒸汽、空气或气体的管路，处理管件、阀门、设备和连接点，并检查记录异常。",
+    "cn_qualification": {
+      "control-and-valve-installers-and-repairers-except-mechanical-door": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "plumbers-pipefitters-and-steamfitters": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "valve-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/49-9012.00#Tasks",
+        "locator": "Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Repairs and tests mechanical regulating and controlling devices.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "pipe-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/47-2152.00#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Installs piping assemblies, fittings, and valves.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "valve-setting",
+        "source_url": "https://www.onetonline.org/link/summary/49-9012.00#WorkContext",
+        "locator": "Work Context: outdoor weather exposure",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Outdoor weather exposure is frequently reported.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "pipe-setting",
+        "source_url": "https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm#tab-3",
+        "locator": "Work Environment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupation profile",
+          "summary": "Worksites include homes, businesses and factories.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 231,
+      "source_slugs": [
+        "control-and-valve-installers-and-repairers-except-mechanical-door",
+        "plumbers-pipefitters-and-steamfitters"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

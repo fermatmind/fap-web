@@ -1,0 +1,336 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "41591dcc6bb09215057d12766c1cf9d2811915fa93cb9d861b65ade97fc7f14a",
+  "inputs": {
+    "pair_id": "bioinformatics-scientists-vs-biostatisticians",
+    "slugs": [
+      "bioinformatics-scientists",
+      "biostatisticians"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/bioinformatics-scientists-vs-biostatisticians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "bioinformatics-scientists": {
+        "name": "Bioinformatics Scientists",
+        "riasec": {
+          "code": "ICR",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "19-1029.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.81,
+            7.0,
+            2.51,
+            1.64,
+            1.26,
+            5.04
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.01#Tasks"
+              }
+            ],
+            "text": "Consult with researchers to analyze problems, recommend technology-based solutions, or determine computational strategies."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.01#Tasks"
+              }
+            ],
+            "text": "Provide statistical and computational tools for biologically based activities, such as genetic analysis, measurement of gene expression, or gene function determination."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.01#Tasks"
+              }
+            ],
+            "text": "Analyze large molecular datasets, such as raw microarray data, genomic sequence data, or proteomics data, for clinical or basic research purposes."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/19-1029.01#Tasks"
+              }
+            ],
+            "text": "Create novel computational approaches and analytical tools as required by research goals."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "19-1029.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "19-1029",
+          "title_evidence": "official_title"
+        }
+      },
+      "biostatisticians": {
+        "name": "Biostatisticians",
+        "riasec": {
+          "code": "IC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "15-2041.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.43,
+            7.0,
+            2.8,
+            3.11,
+            1.98,
+            4.4
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/50/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/15-2041.01#Tasks"
+              }
+            ],
+            "text": "Draw conclusions or make predictions, based on data summaries or statistical analyses."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/15-2041.01#Tasks"
+              }
+            ],
+            "text": "Analyze clinical or survey data, using statistical approaches such as longitudinal analysis, mixed-effect modeling, logistic regression analyses, and model-building techniques."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/15-2041.01#Tasks"
+              }
+            ],
+            "text": "Write detailed analysis plans and descriptions of analyses and findings for research protocols or reports."
+          },
+          {
+            "pointer": "/blocks/1/items/50/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/15-2041.01#Tasks"
+              }
+            ],
+            "text": "Calculate sample size requirements for clinical studies."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "15-2041.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "15-2041",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "bioinformatics-scientists -> biostatisticians",
+      "biostatisticians -> bioinformatics-scientists"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "bioinfo-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.01#Tasks",
+        "locator": "Tasks and Detailed Work Activities",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Develops computational approaches and organizes data for biological research.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "stats-tasks",
+        "source_url": "https://www.onetonline.org/link/summary/15-2041.01#Tasks",
+        "locator": "Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Develops statistical analysis plans and analyzes research data.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bioinfo-context",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.01#WorkContext",
+        "locator": "Work Context",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Includes indoor work in a temperature-controlled environment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "stats-context",
+        "source_url": "https://www.onetonline.org/link/summary/15-2041.01#WorkContext",
+        "locator": "Work Context",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Includes indoor work in a temperature-controlled environment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bioinfo-zone",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.01#JobZone",
+        "locator": "Job Zone Five",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Identifies extensive preparation, often including graduate study.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "bioinfo-pay",
+        "source_url": "https://www.onetonline.org/link/summary/19-1029.01#WagesEmployment",
+        "locator": "Wages and Employment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Wage series covers Biological Scientists, All Other.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "stats-zone",
+        "source_url": "https://www.onetonline.org/link/summary/15-2041.01#JobZone",
+        "locator": "Job Zone Five",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Identifies extensive preparation, often including graduate study.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "stats-pay",
+        "source_url": "https://www.onetonline.org/link/summary/15-2041.01#WagesEmployment",
+        "locator": "Wages and Employment",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Live occupational profile",
+          "summary": "Wage series covers Statisticians.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 13,
+      "source_slugs": [
+        "bioinformatics-scientists",
+        "biostatisticians"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    }
+  }
+}

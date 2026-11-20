@@ -1,0 +1,177 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "33b1fa4323f8d0cc3017568bf849a97a91c792912109528ae6efd176a2994c39",
+  "inputs": {
+    "pair_id": "water-and-wastewater-treatment-plant-and-system-operators-vs-water-wastewater-engineers",
+    "slugs": [
+      "water-and-wastewater-treatment-plant-and-system-operators",
+      "water-wastewater-engineers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/water-and-wastewater-treatment-plant-and-system-operators-vs-water-wastewater-engineers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "name": "給排水處理廠與系統操作員",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "51-8031.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.75,
+            2.55,
+            1.0,
+            1.57,
+            1.62,
+            4.6
+          ]
+        },
+        "tasks": [
+          "執行｜裝置與流程監控｜讀控制介面、儀表和現場狀態，核裝置與時間位置；具體操作調整按訓練、規程與許可權執行。",
+          "檢測｜取樣與水質檢查｜按設施程式採集及檢測水或汙水樣本，保留樣本位置、時間、方法和結果，不憑清澈外觀下結論。",
+          "記錄｜資料與監測報告｜填寫儀表、執行、維護及排放監測資料，核單位和週期，原記錄可追溯。",
+          "維護｜裝置與工作區域｜開展受指導並獲授權的巡視、清潔和維護，發現異常按責任鏈處理，不越權檢修。",
+          "複核｜異常與安全條件｜核警報、故障和待確認事項，遵守安全程式；紙面讀數不證明裝置和水質全部合格。",
+          "協作｜班次與任務交接｜說明已做、未做、異常和負責人待辦，協調操作、檢測、維修和安全人員，避免資訊斷點。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "51-8031.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "51-8031",
+          "title_evidence": "official_title"
+        }
+      },
+      "water-wastewater-engineers": {
+        "name": "給排水工程師（水與汙水處理）",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2051.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.62,
+            5.35,
+            1.85,
+            1.76,
+            2.9,
+            4.53
+          ]
+        },
+        "tasks": [
+          "資料｜水量水質與需求｜整理並分析來源、單位和變化條件。",
+          "工藝｜方法與設施方案｜比較化學、生物等處理方法，分析適用約束。",
+          "水力｜管網及泵站分析｜開展水力建模、壓力損失和網路方案分析。",
+          "工程｜設計與裝置｜形成處理設施、管道和裝置設計，依據適用標準審查。",
+          "評估｜可行性與成本收益｜比較方案及環境影響，說明假設與限制。",
+          "溝通｜報告與技術指導｜編寫技術檔案，回應審查並記錄版本與責任。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2051.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-2051",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "water-and-wastewater-treatment-plant-and-system-operators -> water-wastewater-engineers"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "water-and-wastewater-treatment-plant-and-system-operators": {
+        "file_sha256": "33d55bdb3137980818ae3712d76f122afa4e886a86a5f2fe37eef7df5f1ed1e7",
+        "entries": []
+      },
+      "water-wastewater-engineers": {
+        "file_sha256": "10d8195bc37509157e5570966f3954aa3382afbf4a9feba996ddc0a331788a6a",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 53,
+      "source_slugs": [
+        "water-and-wastewater-treatment-plant-and-system-operators",
+        "water-wastewater-engineers"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "water-and-wastewater-treatment-plant-and-system-operators": {
+          "field": "paragraphs",
+          "source_path": "careers/water-and-wastewater-treatment-plant-and-system-operators/zh-TW.json",
+          "file_sha256": "33d55bdb3137980818ae3712d76f122afa4e886a86a5f2fe37eef7df5f1ed1e7",
+          "count": 6
+        },
+        "water-wastewater-engineers": {
+          "field": "paragraphs",
+          "source_path": "careers/water-wastewater-engineers/zh-TW.json",
+          "file_sha256": "10d8195bc37509157e5570966f3954aa3382afbf4a9feba996ddc0a331788a6a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

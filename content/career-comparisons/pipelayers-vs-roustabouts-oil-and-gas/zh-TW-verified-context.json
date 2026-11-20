@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "b281875ac368c28113740ec2af3d2bb6a03a78cf8a08710dc8fe103c64365015",
+  "inputs": {
+    "pair_id": "pipelayers-vs-roustabouts-oil-and-gas",
+    "slugs": [
+      "pipelayers",
+      "roustabouts-oil-and-gas"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/pipelayers-vs-roustabouts-oil-and-gas",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "pipelayers": {
+        "name": "管道鋪設工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2151.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.43,
+            1.0,
+            1.3,
+            1.14,
+            3.54
+          ]
+        },
+        "tasks": [
+          "資料核查｜核圖紙、管材、地下設施和現場交底｜不明條件交負責人。",
+          "溝槽準備｜按方案核基底與防護狀態｜有危險跡象不進入。",
+          "管段定位｜將管段按圖紙位置和標高放置｜吊裝由授權人員執行。",
+          "接頭連線｜按指定工法連線與密封｜記錄材料和檢查結果。",
+          "複核回填｜由有權人員核坡度、接頭和位置後回填｜不跳過檢查。",
+          "異常交班｜記錄進水、坍塌跡象或設施衝突｜交現場負責人處置。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2151.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-2151",
+          "title_evidence": "official_title"
+        }
+      },
+      "roustabouts-oil-and-gas": {
+        "name": "油氣井場雜務工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-5071.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.79,
+            1.0,
+            1.0,
+            1.0,
+            3.29
+          ]
+        },
+        "tasks": [
+          "作業準備｜核作業單、工具、人員和隔離。｜標記待確認項。",
+          "管材接卸｜按程式使用扳手或夾具。｜記錄管件與扭矩要求。",
+          "裝置裝配維修｜拆修泵和機械部件。｜缺陷隔離交檢。",
+          "物料搬運｜用獲准機具或人力搬運管材。｜核載荷與人員位置。",
+          "管線巡查｜目視或用儀器找洩漏。｜報告並按授權處理。",
+          "井場清理｜清車、回收洩漏殘留與障礙物。｜分類交接。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-5071.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "47-5071",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "roustabouts-oil-and-gas -> pipelayers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "pipelayers": {
+        "file_sha256": "b87eacc02cab72c6f0d4c0729aa9940df7b20b21893d1920c2f3ef87c69c890e",
+        "entries": [
+          "資料核查｜核圖紙、管材、地下設施和現場交底｜不明條件交負責人。",
+          "溝槽準備｜按方案核基底與防護狀態｜有危險跡象不進入。",
+          "管段定位｜將管段按圖紙位置和標高放置｜吊裝由授權人員執行。",
+          "接頭連線｜按指定工法連線與密封｜記錄材料和檢查結果。",
+          "複核回填｜由有權人員核坡度、接頭和位置後回填｜不跳過檢查。",
+          "異常交班｜記錄進水、坍塌跡象或設施衝突｜交現場負責人處置。"
+        ]
+      },
+      "roustabouts-oil-and-gas": {
+        "file_sha256": "94b6cb131c4d00d7ecd98e1df9accc2bc2c32e78531e99f415b92ef2fea5f37a",
+        "entries": [
+          "作業準備｜核作業單、工具、人員和隔離。｜標記待確認項。",
+          "管材接卸｜按程式使用扳手或夾具。｜記錄管件與扭矩要求。",
+          "裝置裝配維修｜拆修泵和機械部件。｜缺陷隔離交檢。",
+          "物料搬運｜用獲准機具或人力搬運管材。｜核載荷與人員位置。",
+          "管線巡查｜目視或用儀器找洩漏。｜報告並按授權處理。",
+          "井場清理｜清車、回收洩漏殘留與障礙物。｜分類交接。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 584,
+      "source_slugs": [
+        "pipelayers",
+        "roustabouts-oil-and-gas"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "pipelayers": {
+          "field": "entries",
+          "source_path": "careers/pipelayers/zh-TW.json",
+          "file_sha256": "b87eacc02cab72c6f0d4c0729aa9940df7b20b21893d1920c2f3ef87c69c890e",
+          "count": 6
+        },
+        "roustabouts-oil-and-gas": {
+          "field": "entries",
+          "source_path": "careers/roustabouts-oil-and-gas/zh-TW.json",
+          "file_sha256": "94b6cb131c4d00d7ecd98e1df9accc2bc2c32e78531e99f415b92ef2fea5f37a",
+          "count": 6
+        }
+      }
+    }
+  }
+}

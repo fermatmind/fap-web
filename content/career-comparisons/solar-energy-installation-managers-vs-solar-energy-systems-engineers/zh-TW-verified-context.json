@@ -1,0 +1,192 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0e65a733e526f3d62bafbe3a0857b583d706f32fe072839dbefbc4dcdec188a2",
+  "inputs": {
+    "pair_id": "solar-energy-installation-managers-vs-solar-energy-systems-engineers",
+    "slugs": [
+      "solar-energy-installation-managers",
+      "solar-energy-systems-engineers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/solar-energy-installation-managers-vs-solar-energy-systems-engineers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "solar-energy-installation-managers": {
+        "name": "太陽能安裝經理",
+        "riasec": {
+          "code": "REC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-1011.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.86,
+            2.65,
+            1.27,
+            1.74,
+            4.85,
+            4.19
+          ]
+        },
+        "tasks": [
+          "開工準備｜把住宅或商業光伏/光熱範圍、圖紙版本和現場前置條件核清。｜交付開工條件表和待確認事項。",
+          "資源估算｜估材料、裝置和班組人員，核到貨與作業視窗是否匹配。｜交付資源需求、報價預算或排程依據。",
+          "班組協調｜分配安裝任務，協調技術人員、分包與客戶，跟蹤工序依賴。｜交付負責人和狀態明確的施工計劃。",
+          "質量與安全｜監督安裝符合適用方案和安全要求，記錄異常並交相應專業人員處理。｜交付問題記錄與複核關閉證據。",
+          "檢查安排｜協調建築檢查和系統測試，分別確認施工完成、檢查結果及執行條件。｜交付檢查狀態和未決事項清單。",
+          "客戶交接｜組織資料和系統交接，說明已完成範圍、變更版本及尚未獲準事項。｜交付可追溯的交接包。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-1011.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-1011",
+          "title_evidence": "official_title"
+        }
+      },
+      "solar-energy-systems-engineers": {
+        "name": "太陽能系統工程師",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.11",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.97,
+            5.02,
+            2.11,
+            1.9,
+            3.05,
+            3.96
+          ]
+        },
+        "tasks": [
+          "場地輸入｜整理場地、結構、電氣與用能資料，標明測量來源和待核引數。｜輸出有版本的輸入表，不憑假設確認現場條件。",
+          "方案與規格｜據需求比較系統與元件，形成設計目標、功能要求和候選方案。｜輸出規格、選擇依據與約束。",
+          "圖紙表達｜製作單線、連線等相關圖紙，核對應元件及設計版本。｜輸出可回查的技術文件，簽署責任另核。",
+          "效能分析｜使用適當模型分析效能或產能，檢查單位、輸入和假設。｜輸出估值及敏感性說明，不承諾真實發電。",
+          "技術審查｜審查規格並提出變更意見，記錄理由與影響範圍。｜輸出問題、複核結論和待批准設計變更。",
+          "實施支援｜回應安裝除錯測試中的技術問題並整理檢查要點。｜輸出技術回覆與交接記錄，不代替獨立檢查或併網批准。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.11",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "solar-energy-installation-managers -> solar-energy-systems-engineers",
+      "solar-energy-systems-engineers -> solar-energy-installation-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "solar-energy-installation-managers": {
+        "file_sha256": "968d52704412ae206f615dc617c384abc0e4be1df9be0d993df14823429f2e8f",
+        "entries": [
+          "開工準備｜把住宅或商業光伏/光熱範圍、圖紙版本和現場前置條件核清。｜交付開工條件表和待確認事項。",
+          "資源估算｜估材料、裝置和班組人員，核到貨與作業視窗是否匹配。｜交付資源需求、報價預算或排程依據。",
+          "班組協調｜分配安裝任務，協調技術人員、分包與客戶，跟蹤工序依賴。｜交付負責人和狀態明確的施工計劃。",
+          "質量與安全｜監督安裝符合適用方案和安全要求，記錄異常並交相應專業人員處理。｜交付問題記錄與複核關閉證據。",
+          "檢查安排｜協調建築檢查和系統測試，分別確認施工完成、檢查結果及執行條件。｜交付檢查狀態和未決事項清單。",
+          "客戶交接｜組織資料和系統交接，說明已完成範圍、變更版本及尚未獲準事項。｜交付可追溯的交接包。"
+        ]
+      },
+      "solar-energy-systems-engineers": {
+        "file_sha256": "896efb899288ac4419edda270ce9f6cc1e391ae404ea677a756c841ce84d63a9",
+        "entries": [
+          "場地輸入｜整理場地、結構、電氣與用能資料，標明測量來源和待核引數。｜輸出有版本的輸入表，不憑假設確認現場條件。",
+          "方案與規格｜據需求比較系統與元件，形成設計目標、功能要求和候選方案。｜輸出規格、選擇依據與約束。",
+          "圖紙表達｜製作單線、連線等相關圖紙，核對應元件及設計版本。｜輸出可回查的技術文件，簽署責任另核。",
+          "效能分析｜使用適當模型分析效能或產能，檢查單位、輸入和假設。｜輸出估值及敏感性說明，不承諾真實發電。",
+          "技術審查｜審查規格並提出變更意見，記錄理由與影響範圍。｜輸出問題、複核結論和待批准設計變更。",
+          "實施支援｜回應安裝除錯測試中的技術問題並整理檢查要點。｜輸出技術回覆與交接記錄，不代替獨立檢查或併網批准。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 676,
+      "source_slugs": [
+        "solar-energy-installation-managers",
+        "solar-energy-systems-engineers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "solar-energy-installation-managers": {
+          "field": "entries",
+          "source_path": "careers/solar-energy-installation-managers/zh-TW.json",
+          "file_sha256": "968d52704412ae206f615dc617c384abc0e4be1df9be0d993df14823429f2e8f",
+          "count": 6
+        },
+        "solar-energy-systems-engineers": {
+          "field": "entries",
+          "source_path": "careers/solar-energy-systems-engineers/zh-TW.json",
+          "file_sha256": "896efb899288ac4419edda270ce9f6cc1e391ae404ea677a756c841ce84d63a9",
+          "count": 6
+        }
+      }
+    }
+  }
+}

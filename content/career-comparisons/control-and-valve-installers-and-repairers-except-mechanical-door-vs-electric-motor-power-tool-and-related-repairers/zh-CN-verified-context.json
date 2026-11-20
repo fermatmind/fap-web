@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4905b93905de2e128402a8bd3be36bfbd5bd873429815841a9f9cb1b038b17ec",
+  "inputs": {
+    "pair_id": "control-and-valve-installers-and-repairers-except-mechanical-door-vs-electric-motor-power-tool-and-related-repairers",
+    "slugs": [
+      "control-and-valve-installers-and-repairers-except-mechanical-door",
+      "electric-motor-power-tool-and-related-repairers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/control-and-valve-installers-and-repairers-except-mechanical-door-vs-electric-motor-power-tool-and-related-repairers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "control-and-valve-installers-and-repairers-except-mechanical-door": {
+        "name": "控制与阀门安装维修工（非机械门类）",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-9012.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.85,
+            1.0,
+            1.2,
+            1.0,
+            4.51
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-9012.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "49-9012",
+          "title_evidence": "official_title"
+        }
+      },
+      "electric-motor-power-tool-and-related-repairers": {
+        "name": "电机与电动工具修理工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "49-2092.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.73,
+            1.0,
+            1.19,
+            1.01,
+            4.25
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "49-2092.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "49-2092",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "control-and-valve-installers-and-repairers-except-mechanical-door -> electric-motor-power-tool-and-related-repairers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：控制与阀门安装维修工安装，维修与维护机械式调节与控制装置，安装与检测电表，燃气调压器，恒温器，安全阀与流量阀等设备，按压力，温度，流量与液位校准仪表；后岗：接收送修的电机或电动工具，核对铭牌、故障描述和工单，按流程维修、复检并记录交还状态。",
+    "cn_qualification": {
+      "control-and-valve-installers-and-repairers-except-mechanical-door": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "electric-motor-power-tool-and-related-repairers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "controls",
+        "source_url": "https://www.onetonline.org/link/summary/49-9012.00#Tasks",
+        "locator": "49-9012.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Installs, maintains and repairs mechanical regulating or control devices, and checks or adjusts equipment.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "motor",
+        "source_url": "https://www.onetonline.org/link/summary/49-2092.00#Tasks",
+        "locator": "49-2092.00 Overview and Tasks",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "Current O*NET",
+          "summary": "Installs, maintains, or repairs electric motors, wiring or switches; reads work orders and records repairs.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 229,
+      "source_slugs": [
+        "control-and-valve-installers-and-repairers-except-mechanical-door",
+        "electric-motor-power-tool-and-related-repairers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

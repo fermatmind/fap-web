@@ -1,0 +1,347 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0409509eab3e7442b7c8f60284d1e2ef625aaa72c909393f22bb3b7a3f7905dc",
+  "inputs": {
+    "pair_id": "orthotists-and-prosthetists-vs-podiatrists",
+    "slugs": [
+      "orthotists-and-prosthetists",
+      "podiatrists"
+    ],
+    "locale": "en",
+    "canonical": "https://fermatmind.com/en/career-compare/orthotists-and-prosthetists-vs-podiatrists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "orthotists-and-prosthetists": {
+        "name": "Orthotist and prosthetist",
+        "riasec": {
+          "code": "RIS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2091.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.0,
+            5.1,
+            1.99,
+            4.3,
+            1.56,
+            3.58
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/0/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2091.00#Tasks"
+              }
+            ],
+            "text": "Fit, test, and evaluate devices on patients, and make adjustments for proper fit, function, and comfort."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2091.00#Tasks"
+              }
+            ],
+            "text": "Instruct patients in the use and care of orthoses and prostheses."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2091.00#Tasks"
+              }
+            ],
+            "text": "Maintain patients' records."
+          },
+          {
+            "pointer": "/blocks/1/items/0/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-2091.00#Tasks"
+              }
+            ],
+            "text": "Examine, interview, and measure patients to determine their appliance needs and to identify factors that could affect appliance fit."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2091.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-2091",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "podiatrists": {
+        "name": "Podiatrists",
+        "riasec": {
+          "code": "IRS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.29,
+            5.77,
+            1.72,
+            4.94,
+            2.14,
+            3.27
+          ]
+        },
+        "tasks": [
+          {
+            "pointer": "/blocks/1/items/2/data/entries/0",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Treat bone, muscle, and joint disorders affecting the feet and ankles."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/1",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Diagnose diseases and deformities of the foot using medical histories, physical examinations, x-rays, and laboratory test results."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/2",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Advise patients about treatments and foot care techniques necessary for prevention of future problems."
+          },
+          {
+            "pointer": "/blocks/1/items/2/data/entries/3",
+            "sources": [
+              {
+                "id": "batch52-onet-core",
+                "limitation": "Verbatim Core Task Statements excerpted from the O*NET® 31.0 Database, used under CC BY 4.0. U.S. occupational scope.",
+                "period": "O*NET 31.0",
+                "publisher": "U.S. Department of Labor, Employment and Training Administration",
+                "scope": "exact",
+                "url": "https://www.onetonline.org/link/details/29-1081.00#Tasks"
+              }
+            ],
+            "text": "Prescribe medications, corrective devices, physical therapy, or surgery."
+          }
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "29-1081",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "orthotists-and-prosthetists -> podiatrists",
+      "podiatrists -> orthotists-and-prosthetists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "additional_evidence": [
+      {
+        "id": "op",
+        "source_url": "https://www.onetonline.org/link/summary/29-2091.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Designs, fits and adjusts orthoses and prostheses.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "dpm",
+        "source_url": "https://www.onetonline.org/link/summary/29-1081.00",
+        "locator": "Overview; Tasks",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "Evaluates and treats disorders of the foot and related structures.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "blsop",
+        "source_url": "https://www.bls.gov/ooh/healthcare/orthotists-and-prosthetists.htm",
+        "locator": "Pay; How to Become One",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages",
+          "summary": "National median annual wage $81,110; master's degree and residency are typical.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "blsdpm",
+        "source_url": "https://www.bls.gov/ooh/healthcare/podiatrists.htm",
+        "locator": "Pay; How to Become One",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "May 2025 wages",
+          "summary": "National median annual wage $160,300; DPM, residency and state licensing.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "flop",
+        "source_url": "https://floridasorthotistsprosthetists.gov/licensing-renewals/",
+        "locator": "Licensure pathways",
+        "value": {
+          "jurisdiction": "US·Florida",
+          "effective_or_period": "2026 access",
+          "summary": "Official entry point to single and combined license categories.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "fldpm",
+        "source_url": "https://floridaspodiatricmedicine.gov/podiatric-physician/",
+        "locator": "Podiatric Physician licensing",
+        "value": {
+          "jurisdiction": "US·Florida",
+          "effective_or_period": "2026 access",
+          "summary": "Separate licensure with education, clinical experience and exams.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "abc",
+        "source_url": "https://www.abcop.org/individual-certification/get-certified/orthotist-prosthetist/application",
+        "locator": "Application and practice requirements",
+        "value": {
+          "jurisdiction": "US",
+          "effective_or_period": "2026 access",
+          "summary": "ABC examination application for orthotist and prosthetist candidates.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "flprescription",
+        "source_url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0400-0499/0468/Sections/0468.811.html",
+        "locator": "§468.811(1)(l)",
+        "value": {
+          "jurisdiction": "US·Florida",
+          "effective_or_period": "2026 statutes",
+          "summary": "Requires a licensed physician's written prescription for the regulated activity and specifies the existing orthosis exception.",
+          "accessed": "2026-11-18"
+        }
+      },
+      {
+        "id": "flcategories",
+        "source_url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0400-0499/0468/Sections/0468.803.html",
+        "locator": "§468.803(1)",
+        "value": {
+          "jurisdiction": "US·Florida",
+          "effective_or_period": "2026 statutes",
+          "summary": "Orthotics and prosthetics are separately licensed, and the combined license requires meeting both sets of requirements.",
+          "accessed": "2026-11-18"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 554,
+      "source_slugs": [
+        "orthotists-and-prosthetists",
+        "podiatrists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

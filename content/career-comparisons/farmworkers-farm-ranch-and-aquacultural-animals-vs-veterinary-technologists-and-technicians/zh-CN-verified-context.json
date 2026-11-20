@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "7ac5db629a130a829b40d6b1bed49e94258e723b82d27789579b4c1779cc0c96",
+  "inputs": {
+    "pair_id": "farmworkers-farm-ranch-and-aquacultural-animals-vs-veterinary-technologists-and-technicians",
+    "slugs": [
+      "farmworkers-farm-ranch-and-aquacultural-animals",
+      "veterinary-technologists-and-technicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/farmworkers-farm-ranch-and-aquacultural-animals-vs-veterinary-technologists-and-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "farmworkers-farm-ranch-and-aquacultural-animals": {
+        "name": "农场、牧场与水产养殖农工",
+        "riasec": {
+          "code": "R",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "45-2093.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.78,
+            2.66,
+            1.42,
+            2.5,
+            1.92,
+            2.95
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "45-2093.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "45-2093",
+          "title_evidence": "official_title"
+        }
+      },
+      "veterinary-technologists-and-technicians": {
+        "name": "兽医技师与技术员",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-2056.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.71,
+            5.26,
+            1.0,
+            3.02,
+            1.0,
+            4.56
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-2056.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-2056",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "farmworkers-farm-ranch-and-aquacultural-animals -> veterinary-technologists-and-technicians"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：照料农场，牧场，放牧区与水产养殖的活体动物，包括牛，羊，猪，山羊，马等马属动物，家禽，兔，鱼类，贝类与蜜蜂，以及为肉，皮，毛，羽毛，蛋；后岗：兽医技师和技术员在监督下承担采样、检验、护理和记录等技术工作，具体操作及执业范围按所在地核对。",
+    "cn_qualification": {
+      "farmworkers-farm-ranch-and-aquacultural-animals": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "veterinary-technologists-and-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "book",
+        "source_url": "https://rsj.xlgl.gov.cn/rsj/zwgk/gsgg/2025042911363847198/2025042911360419576.pdf",
+        "locator": "第5大类农林牧渔业生产及辅助人员，畜牧业生产人员及水产养殖人员",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022版",
+          "summary": "列出畜牧生产及水产养殖工种，养殖岗位涉及动物饲养与生产。",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "rules",
+        "source_url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408942.htm",
+        "locator": "农业农村部令2022年第6号第七、十一、十二、十四、十八、十九、三十四、三十五条",
+        "value": {
+          "jurisdiction": "中国大陆",
+          "effective_or_period": "2022-10-07起",
+          "summary": "执业兽医资格考试和备案；第19条区分兽医师和助理兽医师职责；饲养场聘用持证人员可凭合同备案且不得对外诊疗；省级主管部门可决定乡村助理兽医师独立诊疗安排。",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 427,
+      "source_slugs": [
+        "farmworkers-farm-ranch-and-aquacultural-animals",
+        "veterinary-technologists-and-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

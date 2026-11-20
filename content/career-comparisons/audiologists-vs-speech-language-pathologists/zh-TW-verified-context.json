@@ -1,0 +1,191 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "6472385ebdd8f98f60d57d496120935b113848192d4a136858db38364384a341",
+  "inputs": {
+    "pair_id": "audiologists-vs-speech-language-pathologists",
+    "slugs": [
+      "audiologists",
+      "speech-language-pathologists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/audiologists-vs-speech-language-pathologists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "audiologists": {
+        "name": "聽力學家",
+        "riasec": {
+          "code": "IS",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1181.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            3.98,
+            5.93,
+            2.18,
+            5.92,
+            1.81,
+            3.97
+          ]
+        },
+        "tasks": [
+          "接診與病史｜先讓資訊完整｜採集聽力與平衡相關病史、既往干預與用藥情況，記錄主訴與功能區需求，並說明檢測流程與注意事項。",
+          "檢測與質控｜編輯核對建議｜對照實際裝置說明書與檢測規程記錄條件結果；本頁未取得完整檢測與複測規程，不提供操作批准。中國醫療器械條例現為2024修正：41條二類經營備案有法定免備案情形，42條三類經營許可；具體產品分類另核。48—52條按說明書操作規範使用、重複使用消毒、一次性不得重用、需要校準維護的裝置依說明書並記錄，發現安全隱患立即停用通知檢修，未達安全標準不得繼續用。",
+          "判讀與轉診｜按真實臨床規程｜結合病史檢測記錄不確定性、核實際轉診分工；ASHA轉診指南提示突發或波動聽損等需儘快尋求耳鼻喉科評估；本頁未提供完整急轉規程，不能統一要求先重複檢測而延誤。",
+          "干預與評估｜按真實崗位和規程｜選配除錯、效果評估與人工耳蝸協作是職責；實際人員資質、具體引數和程式另核，不憑本頁獨立操作。2020助聽器驗配師技能標準設四級/中級工、三級/高階工、二級/技師、一級/高階技師；三級含兒童遊戲和言語測聽、二級含視覺強化及學齡前康復、一級含特殊兒童個性除錯。是分級評價內容，不能概括為所有兒童驗配統一某級法定門檻，也不等醫師註冊或器械經營資格。",
+          "溝通與隨訪｜讓依從性可支援｜向患者與家屬及教師與僱主指導溝通策略與聽覺訓練，安排隨訪、評估依從性並記錄效果變化。",
+          "記錄與合規｜記錄不等授權｜各階段維護病歷，個人資訊許可權按實際法域核；中國《醫師法》13—14條：未註冊取得醫師執業證書不得從事醫師執業活動，註冊後按地點、類別和範圍執業；機構內部授權不能替代。此為醫師活動規則，不把所有聽力檢測或驗配人員都當醫師。 器械進貨查驗與特定銷售記錄按條例45條適用範圍核，不說所有崗位同一制度。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1181.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "29-1181",
+          "title_evidence": "official_title"
+        }
+      },
+      "speech-language-pathologists": {
+        "name": "言語語言病理師",
+        "riasec": {
+          "code": "SIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "29-1127.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.62,
+            5.57,
+            3.0,
+            6.09,
+            1.44,
+            4.03
+          ]
+        },
+        "tasks": [
+          "專業評估｜在許可能力內評估溝通相關困難。｜形成合法評估依據，本頁不教測試操作。",
+          "個體目標｜依據具體功能需要制定適當目標與服務。｜專業目標不從虛構記錄計數推定。",
+          "服務跟蹤｜記錄服務與進展並複核改變。｜保觀察、解釋及專業決定的區別。",
+          "家庭溝通｜用可理解語言解釋獲准結果和服務。｜不能讓AI草稿代專業說明或知情同意。",
+          "團隊協作｜與學校或醫療團隊協調專業資訊。｜核接收範圍和責任，不擴大資料用途。",
+          "持續學習｜維護專業能力並指導獲准人員。｜能力範圍和監督任務須明確。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "29-1127.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "29-1127",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "audiologists -> speech-language-pathologists"
+    ],
+    "scope": "original-seed-48",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "audiologists": {
+        "file_sha256": "e598a7620f2f92752f2fc15f9991e105373dbfce90afdb5dd20e84fa7fcd202c",
+        "entries": [
+          "接診與病史｜先讓資訊完整｜採集聽力與平衡相關病史、既往干預與用藥情況，記錄主訴與功能區需求，並說明檢測流程與注意事項。",
+          "檢測與質控｜編輯核對建議｜對照實際裝置說明書與檢測規程記錄條件結果；本頁未取得完整檢測與複測規程，不提供操作批准。中國醫療器械條例現為2024修正：41條二類經營備案有法定免備案情形，42條三類經營許可；具體產品分類另核。48—52條按說明書操作規範使用、重複使用消毒、一次性不得重用、需要校準維護的裝置依說明書並記錄，發現安全隱患立即停用通知檢修，未達安全標準不得繼續用。",
+          "判讀與轉診｜按真實臨床規程｜結合病史檢測記錄不確定性、核實際轉診分工；ASHA轉診指南提示突發或波動聽損等需儘快尋求耳鼻喉科評估；本頁未提供完整急轉規程，不能統一要求先重複檢測而延誤。",
+          "干預與評估｜按真實崗位和規程｜選配除錯、效果評估與人工耳蝸協作是職責；實際人員資質、具體引數和程式另核，不憑本頁獨立操作。2020助聽器驗配師技能標準設四級/中級工、三級/高階工、二級/技師、一級/高階技師；三級含兒童遊戲和言語測聽、二級含視覺強化及學齡前康復、一級含特殊兒童個性除錯。是分級評價內容，不能概括為所有兒童驗配統一某級法定門檻，也不等醫師註冊或器械經營資格。",
+          "溝通與隨訪｜讓依從性可支援｜向患者與家屬及教師與僱主指導溝通策略與聽覺訓練，安排隨訪、評估依從性並記錄效果變化。",
+          "記錄與合規｜記錄不等授權｜各階段維護病歷，個人資訊許可權按實際法域核；中國《醫師法》13—14條：未註冊取得醫師執業證書不得從事醫師執業活動，註冊後按地點、類別和範圍執業；機構內部授權不能替代。此為醫師活動規則，不把所有聽力檢測或驗配人員都當醫師。 器械進貨查驗與特定銷售記錄按條例45條適用範圍核，不說所有崗位同一制度。"
+        ]
+      },
+      "speech-language-pathologists": {
+        "file_sha256": "22691fab17af3e076dffb9899f6bd85917af3dd8a07e12089369f74bbe300152",
+        "entries": [
+          "專業評估｜在許可能力內評估溝通相關困難。｜形成合法評估依據，本頁不教測試操作。",
+          "個體目標｜依據具體功能需要制定適當目標與服務。｜專業目標不從虛構記錄計數推定。",
+          "服務跟蹤｜記錄服務與進展並複核改變。｜保觀察、解釋及專業決定的區別。",
+          "家庭溝通｜用可理解語言解釋獲准結果和服務。｜不能讓AI草稿代專業說明或知情同意。",
+          "團隊協作｜與學校或醫療團隊協調專業資訊。｜核接收範圍和責任，不擴大資料用途。",
+          "持續學習｜維護專業能力並指導獲准人員。｜能力範圍和監督任務須明確。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "original_seed_48",
+      "source_line": 12,
+      "source_slugs": [
+        "audiologists",
+        "speech-language-pathologists"
+      ],
+      "file": "/Users/rainie/Desktop/SEO运营资料/职业对比_全量名单核验/原始48组白名单_对话原文.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "audiologists": {
+          "field": "entries",
+          "source_path": "careers/audiologists/zh-TW.json",
+          "file_sha256": "e598a7620f2f92752f2fc15f9991e105373dbfce90afdb5dd20e84fa7fcd202c",
+          "count": 6
+        },
+        "speech-language-pathologists": {
+          "field": "entries",
+          "source_path": "careers/speech-language-pathologists/zh-TW.json",
+          "file_sha256": "22691fab17af3e076dffb9899f6bd85917af3dd8a07e12089369f74bbe300152",
+          "count": 6
+        }
+      }
+    }
+  }
+}

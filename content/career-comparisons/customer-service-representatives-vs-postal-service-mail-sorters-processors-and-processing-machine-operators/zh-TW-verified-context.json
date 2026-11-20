@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "42262f9aa897aadbed7802fe71dd8514ecfee1055c6f26e6a1ab444b0fa396b7",
+  "inputs": {
+    "pair_id": "customer-service-representatives-vs-postal-service-mail-sorters-processors-and-processing-machine-operators",
+    "slugs": [
+      "customer-service-representatives",
+      "postal-service-mail-sorters-processors-and-processing-machine-operators"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/customer-service-representatives-vs-postal-service-mail-sorters-processors-and-processing-machine-operators",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "customer-service-representatives": {
+        "name": "客戶服務代表",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4051.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.97,
+            1.63,
+            1.0,
+            3.77,
+            5.08,
+            6.32
+          ]
+        },
+        "tasks": [
+          "客戶溝通｜接聽與答覆詢問｜與客戶通過電話或當面交流，就產品或服務的常規詢問提供基礎或按規程的資訊，並聯系客戶答覆詢問或告知索賠調查結果與計劃調整。",
+          "訂單與賬戶｜受理訂單並登記變更｜受理詢問或訂單、登記與取消賬戶、獲取投訴細節，用電腦填寫合同表單、變更地址記錄或簽發停用服務指令。",
+          "記錄與核對｜記錄互動並核對解決｜記錄與客戶的互動或交易，寫明詢問、投訴、意見與所採取的行動，核對客戶問題是否已通過適當的更改得到解決。",
+          "投訴解決｜解決服務與計費投訴｜通過換貨、退款或調整賬單解決服務或計費投訴，查閱保險條款判斷某項損失是否在承保範圍內，並獲取相關資訊判斷投訴是否成立及其原因。",
+          "收費與賬務｜確定收費並安排賬單｜確定所請求服務的收費、收取押金或款項並安排賬單，並按規定處理退回商品與相關票據。",
+          "轉交與改進｜轉交申訴並反饋建議｜把未解決的客戶申訴轉給指定部門進一步調查，按需推介新服務或產品，並就產品、包裝、配送、服務或計費方法提出改進建議。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4051.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_01.json",
+          "soc": "43-4051",
+          "title_evidence": "official_title"
+        }
+      },
+      "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+        "name": "郵政服務郵件分揀員、處理員、機器操作員",
+        "riasec": {
+          "code": "CR",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-5053.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            4.6,
+            1.54,
+            1.0,
+            1.83,
+            1.66,
+            5.91
+          ]
+        },
+        "tasks": [
+          "收件核驗｜檢查標籤、地址與分路資訊｜資訊不可辨時標待核，不憑猜測讓郵件進入錯誤容器。",
+          "按規則分流｜按目的地或路線將郵件分到指定容器｜核手工操作與裝置輸出是否一致，保留批次狀態。",
+          "裝置操作｜在獲授權範圍裝載、監測掃描與分揀裝置｜按訓練使用，卡件或異常報警時暫停相關步驟並報告。",
+          "異形與特殊件｜區分裝置無法處理或需特殊交接的郵件｜按機構規則隔離、標識或移交，不私自開拆。",
+          "封袋與搬運｜貼標、裝卸並交接郵件容器｜核件數、標籤、目的地和實物狀態。",
+          "記錄複核｜留下掃描差異、裝置提示、異常件及下一責任人｜保護使用者資訊，確保下一班能夠追蹤和繼續處理。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-5053.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "43-5053",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "postal-service-mail-sorters-processors-and-processing-machine-operators -> customer-service-representatives"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "customer-service-representatives": {
+        "file_sha256": "dde35584e40fa2349831ef636906c15f796ec89254c1e5f2c928e49b94799e6a",
+        "entries": []
+      },
+      "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+        "file_sha256": "e718709ca94a46620e4fe3c141bc4ed217c0d5bf8bbb329622a5672136edc892",
+        "entries": [
+          "收件核驗｜檢查標籤、地址與分路資訊｜資訊不可辨時標待核，不憑猜測讓郵件進入錯誤容器。",
+          "按規則分流｜按目的地或路線將郵件分到指定容器｜核手工操作與裝置輸出是否一致，保留批次狀態。",
+          "裝置操作｜在獲授權範圍裝載、監測掃描與分揀裝置｜按訓練使用，卡件或異常報警時暫停相關步驟並報告。",
+          "異形與特殊件｜區分裝置無法處理或需特殊交接的郵件｜按機構規則隔離、標識或移交，不私自開拆。",
+          "封袋與搬運｜貼標、裝卸並交接郵件容器｜核件數、標籤、目的地和實物狀態。",
+          "記錄複核｜留下掃描差異、裝置提示、異常件及下一責任人｜保護使用者資訊，確保下一班能夠追蹤和繼續處理。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 267,
+      "source_slugs": [
+        "customer-service-representatives",
+        "postal-service-mail-sorters-processors-and-processing-machine-operators"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "customer-service-representatives": {
+          "field": "paragraphs",
+          "source_path": "careers/customer-service-representatives/zh-TW.json",
+          "file_sha256": "dde35584e40fa2349831ef636906c15f796ec89254c1e5f2c928e49b94799e6a",
+          "count": 6
+        },
+        "postal-service-mail-sorters-processors-and-processing-machine-operators": {
+          "field": "entries",
+          "source_path": "careers/postal-service-mail-sorters-processors-and-processing-machine-operators/zh-TW.json",
+          "file_sha256": "e718709ca94a46620e4fe3c141bc4ed217c0d5bf8bbb329622a5672136edc892",
+          "count": 6
+        }
+      }
+    }
+  }
+}

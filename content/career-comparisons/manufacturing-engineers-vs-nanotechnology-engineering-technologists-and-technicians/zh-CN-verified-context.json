@@ -1,0 +1,164 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c280c524c910fdfba41b3a5aed3483b1deca76271dfdf0453582c21c9c099757",
+  "inputs": {
+    "pair_id": "manufacturing-engineers-vs-nanotechnology-engineering-technologists-and-technicians",
+    "slugs": [
+      "manufacturing-engineers",
+      "nanotechnology-engineering-technologists-and-technicians"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/manufacturing-engineers-vs-nanotechnology-engineering-technologists-and-technicians",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "manufacturing-engineers": {
+        "name": "制造工程师",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2112.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.27,
+            4.53,
+            2.22,
+            1.6,
+            3.09,
+            4.41
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2112.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "17-2112",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "name": "纳米技术工程技师与技术人员",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-3026.01",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            6.16,
+            4.98,
+            1.55,
+            1.05,
+            2.01,
+            4.83
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-3026.01",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "17-3026",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "nanotechnology-engineering-technologists-and-technicians -> manufacturing-engineers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：设计、整合或改进制造流程，协调工装、作业步骤和质量要求，并用试产记录验证流程能否稳定运行；后岗：在纳米工程人员监督下实施生产流程、操作商业规模设备生产与测试纳米尺度材料与器件、并用先进显微设备操作纳米级对象。",
+    "cn_qualification": {
+      "manufacturing-engineers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "nanotechnology-engineering-technologists-and-technicians": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "17-2112.03",
+        "source_url": "https://www.onetonline.org/link/summary/17-2112.03",
+        "locator": "Tasks 18181, 18177, 20960",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Investigates production bottlenecks and process or tooling problems.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "17-3026.01",
+        "source_url": "https://www.onetonline.org/link/summary/17-3026.01",
+        "locator": "Tasks 22047, 22063, 22053",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Measures samples, maintains batch records and calibrates equipment.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 497,
+      "source_slugs": [
+        "manufacturing-engineers",
+        "nanotechnology-engineering-technologists-and-technicians"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "c2ae97ca491462ba30c3dbe3629596da39d0a472466960d0fcb4b074f3a2fc27",
+  "inputs": {
+    "pair_id": "lodging-managers-vs-spa-managers",
+    "slugs": [
+      "lodging-managers",
+      "spa-managers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/lodging-managers-vs-spa-managers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "lodging-managers": {
+        "name": "住宿運營經理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9081.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.69,
+            1.1,
+            1.43,
+            4.31,
+            6.21,
+            5.22
+          ]
+        },
+        "tasks": [
+          "投入物件：客房與公共區域、前臺與預訂系統、房價與預算、營收與賬務記錄、員工與排班、採購物資與外部服務、住客投訴與會議活動需求。",
+          "可檢查產出：達標的前臺與客房服務、經核對的房價與營收記錄、按政策執行的排班與培訓、採購與檢查記錄、投訴處置與會議活動協調記錄。",
+          "完整工作流程：接班核對房態與賬務 → 協調前臺與客房服務 → 安排排班與分工並培訓 → 設定與執行房價、監控營收 → 採購與檢查設施 → 處理住客投訴與會議需求 → 記錄與交接。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9081.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "11-9081",
+          "title_evidence": "unique_alias"
+        }
+      },
+      "spa-managers": {
+        "name": "水療中心經理",
+        "riasec": {
+          "code": "ECS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "11-9179.02",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            2.5,
+            1.31,
+            1.84,
+            4.19,
+            7.0,
+            4.91
+          ]
+        },
+        "tasks": [
+          "預約與班表｜安排客戶預約和員工班次。｜交容量與變更記錄，不把未知設施算可用。",
+          "人員與訓練｜核資質、招聘、反饋績效並組織培訓。｜交匹配狀態和待補訓練，經理頭銜不擴服務範圍。",
+          "設施與衛生｜檢查裝置，監督運營衛生並協調維修。｜交異常和接收人，維修與水設施按對應規則核。",
+          "財務與庫存｜看現金流、預算、存貨和用品訂單。｜交日結差額和庫存記錄，收款不全等收入。",
+          "客戶與體驗｜答疑、處理投訴，維護客戶資料。｜交事實、處理狀態和未結事項，控制資訊許可權。",
+          "服務與營銷｜規劃服務專案及營銷，跟進目標。｜交方案與依據，不用未經支援健康宣告促銷。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "11-9179.02",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "11-9179",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "spa-managers -> lodging-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "lodging-managers": {
+        "file_sha256": "e3fcddb1db0df324d378627d4bf5aca8a9692624c19887838a32283ad7800152",
+        "entries": [
+          "投入物件：客房與公共區域、前臺與預訂系統、房價與預算、營收與賬務記錄、員工與排班、採購物資與外部服務、住客投訴與會議活動需求。",
+          "可檢查產出：達標的前臺與客房服務、經核對的房價與營收記錄、按政策執行的排班與培訓、採購與檢查記錄、投訴處置與會議活動協調記錄。",
+          "完整工作流程：接班核對房態與賬務 → 協調前臺與客房服務 → 安排排班與分工並培訓 → 設定與執行房價、監控營收 → 採購與檢查設施 → 處理住客投訴與會議需求 → 記錄與交接。"
+        ]
+      },
+      "spa-managers": {
+        "file_sha256": "640e26f25fda7b10ac4c70ad64634b380b2da218471f5bd0c29daffe99e821de",
+        "entries": [
+          "預約與班表｜安排客戶預約和員工班次。｜交容量與變更記錄，不把未知設施算可用。",
+          "人員與訓練｜核資質、招聘、反饋績效並組織培訓。｜交匹配狀態和待補訓練，經理頭銜不擴服務範圍。",
+          "設施與衛生｜檢查裝置，監督運營衛生並協調維修。｜交異常和接收人，維修與水設施按對應規則核。",
+          "財務與庫存｜看現金流、預算、存貨和用品訂單。｜交日結差額和庫存記錄，收款不全等收入。",
+          "客戶與體驗｜答疑、處理投訴，維護客戶資料。｜交事實、處理狀態和未結事項，控制資訊許可權。",
+          "服務與營銷｜規劃服務專案及營銷，跟進目標。｜交方案與依據，不用未經支援健康宣告促銷。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 486,
+      "source_slugs": [
+        "lodging-managers",
+        "spa-managers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "lodging-managers": {
+          "field": "entries",
+          "source_path": "careers/lodging-managers/zh-TW.json",
+          "file_sha256": "e3fcddb1db0df324d378627d4bf5aca8a9692624c19887838a32283ad7800152",
+          "count": 3
+        },
+        "spa-managers": {
+          "field": "entries",
+          "source_path": "careers/spa-managers/zh-TW.json",
+          "file_sha256": "640e26f25fda7b10ac4c70ad64634b380b2da218471f5bd0c29daffe99e821de",
+          "count": 6
+        }
+      }
+    }
+  }
+}

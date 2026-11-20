@@ -1,0 +1,165 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "adf64e65ba8fa82a1080e8ea1d49680535978c8ff6d9e92ee2c5275fe13c079a",
+  "inputs": {
+    "pair_id": "solar-energy-installation-managers-vs-solar-energy-systems-engineers",
+    "slugs": [
+      "solar-energy-installation-managers",
+      "solar-energy-systems-engineers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/solar-energy-installation-managers-vs-solar-energy-systems-engineers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "solar-energy-installation-managers": {
+        "name": "太阳能安装经理",
+        "riasec": {
+          "code": "REC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-1011.03",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.86,
+            2.65,
+            1.27,
+            1.74,
+            4.85,
+            4.19
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-1011.03",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-1011",
+          "title_evidence": "official_title"
+        }
+      },
+      "solar-energy-systems-engineers": {
+        "name": "太阳能系统工程师",
+        "riasec": {
+          "code": "RIC",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "17-2199.11",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.97,
+            5.02,
+            2.11,
+            1.9,
+            3.05,
+            3.96
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "17-2199.11",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "17-2199",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "solar-energy-installation-managers -> solar-energy-systems-engineers",
+      "solar-energy-systems-engineers -> solar-energy-installation-managers"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：组织住宅或商业项目的光伏、光热安装班组，估算人员与材料，安排施工和检查，协调技术问题、安全要求及交付记录；后岗：分析场地、能源需求和太阳能系统方案，进行光伏或光热设计、性能评估与技术审查，并支持安装调试。",
+    "cn_qualification": {
+      "solar-energy-installation-managers": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "solar-energy-systems-engineers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "47-1011.03",
+        "source_url": "https://www.onetonline.org/link/summary/47-1011.03",
+        "locator": "Tasks 17725, 17726, 17729, 17738",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Coordinates solar installation, supervises staff and schedules inspections.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "17-2199.11",
+        "source_url": "https://www.onetonline.org/link/summary/17-2199.11",
+        "locator": "Tasks 16575, 16574, 16568",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Collects solar site information, designs systems and supports installation and performance verification.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 676,
+      "source_slugs": [
+        "solar-energy-installation-managers",
+        "solar-energy-systems-engineers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "4df845b086ba519def77e4a2b995a200564928ed69c0a0a9a5c9663182b73b2c",
+  "inputs": {
+    "pair_id": "embalmers-vs-phlebotomists",
+    "slugs": [
+      "embalmers",
+      "phlebotomists"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/embalmers-vs-phlebotomists",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "embalmers": {
+        "name": "遺體防腐師",
+        "riasec": {
+          "code": "RCS",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "39-4011.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.84,
+            2.57,
+            1.61,
+            3.4,
+            2.65,
+            3.85
+          ]
+        },
+        "tasks": [
+          "授權｜身份與檔案｜核對身份、授權和適用規定，發現矛盾先升級核實。",
+          "衛生｜清潔與器械｜按受控規程清潔消毒器械和工作區，記錄防護與異常。",
+          "防腐｜專業處理｜由受訓且獲授權人員執行處理並留存藥劑及材料記錄，本頁不提供配比或操作引數。",
+          "修復｜遺容與方案｜依個案條件實施修復和儀容整理，按機構安排確認方案。",
+          "記錄｜複核與交接｜形成處理記錄並按規定完成複核、確認與交接。",
+          "範圍｜主體與許可權｜中國防腐整容服務由殯儀館專門提供；個人技能評價、美國州執照與單位授權分別核驗。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "39-4011.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "39-4011",
+          "title_evidence": "official_title"
+        }
+      },
+      "phlebotomists": {
+        "name": "採血技師",
+        "riasec": {
+          "code": "RCI",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "31-9097.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            5.44,
+            4.69,
+            1.0,
+            3.6,
+            1.4,
+            5.42
+          ]
+        },
+        "tasks": [
+          "輸入核對｜確認患者身份、檢驗或採樣申請、樣本標籤、時間和交接記錄的來源、版本和完整性｜缺項先標註。",
+          "任務執行｜為檢驗、輸血、捐獻或研究採集血液樣本，核患者身份、樣本標籤並交接，向患者解釋流程和觀察異常反應｜按崗位範圍和制度。",
+          "質量複核｜核身份與樣本對應記錄、異常報告和可追溯交接與原始資料是否一致｜保留差異。",
+          "溝通協作｜與患者、檢驗人員、護理和主管溝通異常｜寫明待回覆事項。",
+          "異常升級｜身份錯配、樣本標籤錯誤、感染防護缺口、不良反應或交接失誤時暫停受影響步驟｜交有權人員。",
+          "留檔交接｜寫來源、時間、接收人和未決項｜便於複核。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "31-9097.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_03.json",
+          "soc": "31-9097",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "embalmers -> phlebotomists"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "embalmers": {
+        "file_sha256": "4744bfd59216d1c23382b8d3e4a263e992721cb4645231dfa0f2b2eb771bc8c8",
+        "entries": []
+      },
+      "phlebotomists": {
+        "file_sha256": "bfcec412eb38eb8b562dc9adf9b180a7c5fba6c7b7a242a8704c8ca325524bd0",
+        "entries": [
+          "輸入核對｜確認患者身份、檢驗或採樣申請、樣本標籤、時間和交接記錄的來源、版本和完整性｜缺項先標註。",
+          "任務執行｜為檢驗、輸血、捐獻或研究採集血液樣本，核患者身份、樣本標籤並交接，向患者解釋流程和觀察異常反應｜按崗位範圍和制度。",
+          "質量複核｜核身份與樣本對應記錄、異常報告和可追溯交接與原始資料是否一致｜保留差異。",
+          "溝通協作｜與患者、檢驗人員、護理和主管溝通異常｜寫明待回覆事項。",
+          "異常升級｜身份錯配、樣本標籤錯誤、感染防護缺口、不良反應或交接失誤時暫停受影響步驟｜交有權人員。",
+          "留檔交接｜寫來源、時間、接收人和未決項｜便於複核。"
+        ]
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 384,
+      "source_slugs": [
+        "embalmers",
+        "phlebotomists"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "embalmers": {
+          "field": "paragraphs",
+          "source_path": "careers/embalmers/zh-TW.json",
+          "file_sha256": "4744bfd59216d1c23382b8d3e4a263e992721cb4645231dfa0f2b2eb771bc8c8",
+          "count": 6
+        },
+        "phlebotomists": {
+          "field": "entries",
+          "source_path": "careers/phlebotomists/zh-TW.json",
+          "file_sha256": "bfcec412eb38eb8b562dc9adf9b180a7c5fba6c7b7a242a8704c8ca325524bd0",
+          "count": 6
+        }
+      }
+    }
+  }
+}

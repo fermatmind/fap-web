@@ -1,0 +1,165 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "d3d1201392e87ff7f958e050dcbd143c61a9cfe00ab892d3a981df1ba1053c14",
+  "inputs": {
+    "pair_id": "loan-interviewers-and-clerks-vs-loan-officers",
+    "slugs": [
+      "loan-interviewers-and-clerks",
+      "loan-officers"
+    ],
+    "locale": "zh-CN",
+    "canonical": "https://fermatmind.com/zh/career-compare/loan-interviewers-and-clerks-vs-loan-officers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "loan-interviewers-and-clerks": {
+        "name": "贷款受理与文书人员",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "43-4131.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.0,
+            2.18,
+            1.0,
+            3.4,
+            4.61,
+            6.92
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "43-4131.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "43-4131",
+          "title_evidence": "official_title"
+        }
+      },
+      "loan-officers": {
+        "name": "信贷专员",
+        "riasec": {
+          "code": "CES",
+          "code_length": 3,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "13-2072.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            1.43,
+            2.32,
+            1.0,
+            3.65,
+            4.98,
+            6.08
+          ]
+        },
+        "tasks": [],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "13-2072.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_02.json",
+          "soc": "13-2072",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "loan-interviewers-and-clerks -> loan-officers",
+      "loan-officers -> loan-interviewers-and-clerks"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": "前岗：收集申请材料、询问缺项、核对记录并转交审查；后岗：与申请人沟通、核对材料并评估信贷申请，按机构流程记录判断依据，提出建议或在授权范围内作决定。",
+    "cn_qualification": {
+      "loan-interviewers-and-clerks": {
+        "branch": "degraded",
+        "lead_urls": []
+      },
+      "loan-officers": {
+        "branch": "degraded",
+        "lead_urls": []
+      }
+    },
+    "additional_evidence": [
+      {
+        "id": "43-4131.00",
+        "source_url": "https://www.onetonline.org/link/summary/43-4131.00",
+        "locator": "Tasks 11292, 11294, 11305, 11291",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Interviews applicants, verifies application information and submits loan files.",
+          "accessed": "2026-11-17"
+        }
+      },
+      {
+        "id": "13-2072.00",
+        "source_url": "https://www.onetonline.org/link/summary/13-2072.00",
+        "locator": "Tasks 3408, 3409, 3407, 3410",
+        "value": {
+          "jurisdiction": "United States",
+          "effective_or_period": "O*NET 31.0",
+          "summary": "Explains loan options, reviews applications and handles approvals within delegated limits.",
+          "accessed": "2026-11-17"
+        }
+      }
+    ],
+    "rules_sha256": "f59dadbbd04c50aed5b332b01cab2d8264d7ca3ab2bd6fbfdec49c19366df98d",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 481,
+      "source_slugs": [
+        "loan-interviewers-and-clerks",
+        "loan-officers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    }
+  }
+}

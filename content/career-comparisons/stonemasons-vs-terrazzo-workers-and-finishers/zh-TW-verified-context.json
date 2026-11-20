@@ -1,0 +1,178 @@
+{
+  "batch_versions": {
+    "snapshot_sha256": "73e9165382e9bb24bf78a048aac56b66f629b4ce8415dbbb073cba868a829ab8",
+    "approved_manifest_sha256": "75d83042130f5a1db7426e67ff12a313f5a63c8bdfeb298b2156ca6105b2acc2",
+    "name_map_sha256": "b9295c95abccbf7982a2799439d5a91811a155b8157afd2afc66bb71dcaf51f8",
+    "table_a_sha256": "49071bc73477e186c575f1f60ad3505b870afde2cd68d727e70295bdf3958039"
+  },
+  "input_hash": "0c31761d4b7cad45fd5d4bd9b2012387f4e1accb80cd478fff2bd64b88ddfd15",
+  "inputs": {
+    "pair_id": "stonemasons-vs-terrazzo-workers-and-finishers",
+    "slugs": [
+      "stonemasons",
+      "terrazzo-workers-and-finishers"
+    ],
+    "locale": "zh-TW",
+    "canonical": "https://fermatmind.com/zh-TW/career-compare/stonemasons-vs-terrazzo-workers-and-finishers",
+    "snapshot_commit": "01499c4b07afc968c1dc08c7e72c2281a7e31940",
+    "careers": {
+      "stonemasons": {
+        "name": "石匠",
+        "riasec": {
+          "code": "R",
+          "code_length": 1,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2022.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            2.14,
+            2.9,
+            1.86,
+            1.29,
+            3.0
+          ]
+        },
+        "tasks": [
+          "讀圖｜核佈局與基準｜閱讀圖樣、尺寸與現場佈局，確認當前版本和定位依據。",
+          "定位｜核水平垂直｜按獲准工藝確定石結構對齊與位置，使用適用工具核基準。",
+          "安裝｜形成石結構｜按佈局放置石材或預製砌體，材料、砂漿與連線方式按實際方案確認。",
+          "修整｜完成接縫與表面｜按要求處理接縫和多餘材料，具體方法與化學品使用須受訓獲准。",
+          "複核｜檢查位置與差異｜對照圖樣核位置、對齊和接縫，發現不符記錄並交接。",
+          "協作｜遵守施工許可權｜與施工組織及相關工種溝通材料、現場和變更，不自行改結構方案或質量放行。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2022.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-2022",
+          "title_evidence": "official_title"
+        }
+      },
+      "terrazzo-workers-and-finishers": {
+        "name": "水磨石工與整修工",
+        "riasec": {
+          "code": "RC",
+          "code_length": 2,
+          "dimension_order": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+          ],
+          "scale": {
+            "id": "OI",
+            "max": 7,
+            "min": 1,
+            "name": "Occupational Interests"
+          },
+          "source": {
+            "onet_soc": "47-2053.00",
+            "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+            "sha256": "19f452d51b81a4d59389b500f85baf252563858f596124fe446dd436a9f41206",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/career_interest_types.csv",
+            "version": "31.0"
+          },
+          "vector": [
+            7.0,
+            1.8,
+            1.93,
+            1.0,
+            1.0,
+            3.28
+          ]
+        },
+        "tasks": [
+          "準備｜圖紙與材料核對｜核區域、尺寸、圖案版本和材料說明，把不一致項列出並交確認。",
+          "分隔｜圖案和分割槽落實｜按已確認圖案設定分隔，注意材料與區域銜接；具體工藝按指導執行。",
+          "面層｜配製與鋪展｜按確認的材料與工藝條件形成面層，不能照抄紙面數量作為真實配方。",
+          "磨整｜表面處理與修補｜在滿足材料條件後磨整或修補，定位表面問題並核查結果。",
+          "質量｜檢查與記錄｜對照樣板和要求記錄區域、版本及未解決問題，不只看照片好不好看。",
+          "交接｜保護和後續安排｜按材料說明與專案要求處理保護、清理和交付，記錄使用限制與待核事項。"
+        ],
+        "evidence": {
+          "official_task_source": {
+            "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57",
+            "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv"
+          },
+          "onet_soc": "47-2053.00",
+          "review_report": "backend/database/data/career_onet_crosswalk_review_batch52_04.json",
+          "soc": "47-2053",
+          "title_evidence": "official_title"
+        }
+      }
+    },
+    "edge_directions": [
+      "stonemasons -> terrazzo-workers-and-finishers",
+      "terrazzo-workers-and-finishers -> stonemasons"
+    ],
+    "scope": "supplementary-table-a",
+    "table_a_task_hint_zh": null,
+    "cn_qualification": {},
+    "current_responsibilities_zh-TW": {
+      "stonemasons": {
+        "file_sha256": "ef693d3dadd91bb516a434afd7412b4584f078f4442e2df1e0170aced032964d",
+        "entries": []
+      },
+      "terrazzo-workers-and-finishers": {
+        "file_sha256": "31f8398240be70092f9c9d76012877f8ddd429b3bd7cc4b10f78f6a2d26b5c91",
+        "entries": []
+      }
+    },
+    "additional_evidence": [],
+    "rules_sha256": "f1841665b70564482da726ad08eb223eee9a486e890977aea844fc4947ecb11f",
+    "approved_source": {
+      "source": "supplementary_a",
+      "source_line": 682,
+      "source_slugs": [
+        "stonemasons",
+        "terrazzo-workers-and-finishers"
+      ],
+      "file": "/Users/rainie/Downloads/费马固定职业对比-第7号快照全量补充扫描.md"
+    },
+    "tasks_provenance": {
+      "source": "career-current-zh-TW",
+      "block": "career.item.responsibilities-block",
+      "verbatim": true,
+      "order": "original",
+      "note": "tasks are Career Current zh-TW responsibilities copied verbatim in original order; careers[*].evidence is retained unchanged and its official_task_source (O*NET snapshot crosswalk) does not source these tasks",
+      "slugs": {
+        "stonemasons": {
+          "field": "paragraphs",
+          "source_path": "careers/stonemasons/zh-TW.json",
+          "file_sha256": "ef693d3dadd91bb516a434afd7412b4584f078f4442e2df1e0170aced032964d",
+          "count": 6
+        },
+        "terrazzo-workers-and-finishers": {
+          "field": "paragraphs",
+          "source_path": "careers/terrazzo-workers-and-finishers/zh-TW.json",
+          "file_sha256": "31f8398240be70092f9c9d76012877f8ddd429b3bd7cc4b10f78f6a2d26b5c91",
+          "count": 6
+        }
+      }
+    }
+  }
+}
