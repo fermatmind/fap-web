@@ -25,6 +25,21 @@ function coordinates(index: number, count: number, radius: number) {
     (value) => Number(value.toFixed(3)),
   );
 }
+const archetypeChartColors: Record<string, { fill: string; label: string }> = {
+  hero: { fill: "#df8a50", label: "#82421e" },
+  sage: { fill: "#9b80cf", label: "#62418f" },
+  explorer: { fill: "#5baf85", label: "#286146" },
+  creator: { fill: "#e07b9c", label: "#923654" },
+  ruler: { fill: "#648fc0", label: "#345a84" },
+  caregiver: { fill: "#ddad61", label: "#78531c" },
+  magician: { fill: "#ae72ba", label: "#743980" },
+  lover: { fill: "#dc7580", label: "#92353f" },
+  jester: { fill: "#77b3b5", label: "#32666a" },
+  everyperson: { fill: "#9cad65", label: "#53622d" },
+  innocent: { fill: "#69a6cc", label: "#326484" },
+  rebel: { fill: "#b68368", label: "#754730" },
+};
+
 function ProfileChart({
   dimensions,
   selectedId,
@@ -58,6 +73,23 @@ function ProfileChart({
           />
         ))}
         {dimensions.map((row, i) => {
+          const radius = Number((row.score * 1.34).toFixed(3));
+          const [ax, ay] = coordinates(i - 0.46, count, radius);
+          const [bx, by] = coordinates(i + 0.46, count, radius);
+          return (
+            <path
+              key={row.id}
+              data-color-sector={row.id}
+              d={`M210 210 L${ax} ${ay} A${radius} ${radius} 0 0 1 ${bx} ${by} Z`}
+              fill={archetypeChartColors[row.id].fill}
+              fillOpacity={selectedId === row.id ? 0.88 : 0.65}
+              stroke={archetypeChartColors[row.id].fill}
+              strokeOpacity=".45"
+              strokeWidth="0.8"
+            />
+          );
+        })}
+        {dimensions.map((row, i) => {
           const [x, y] = coordinates(i, count, 134);
           const [lx, ly] = coordinates(i, count, 167);
           return (
@@ -68,6 +100,7 @@ function ProfileChart({
                 y={ly}
                 textAnchor="middle"
                 dominantBaseline="central"
+                style={{ fill: archetypeChartColors[row.id].label }}
               >
                 {row.name}
               </text>
@@ -76,10 +109,10 @@ function ProfileChart({
         })}
         <polygon
           points={values}
-          fill="#3b8c7e"
-          fillOpacity=".18"
-          stroke="#368576"
-          strokeWidth="2.5"
+          fill="none"
+          stroke="#ffffff"
+          strokeOpacity=".65"
+          strokeWidth="1.3"
         />
         {dimensions.map((row, i) => {
           const [cx, cy] = coordinates(i, count, row.score * 1.34);
@@ -89,7 +122,7 @@ function ProfileChart({
               cx={cx}
               cy={cy}
               r={selectedId === row.id ? 6 : 4}
-              fill="#246b60"
+              fill={archetypeChartColors[row.id].fill}
               stroke="white"
               strokeWidth="2"
             />
