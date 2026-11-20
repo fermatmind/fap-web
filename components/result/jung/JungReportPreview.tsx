@@ -426,20 +426,14 @@ export function JungReportPreview() {
                       </div>
                       <div className={styles.readingSection}>
                         <h4>成长方向</h4>
-                        <p className={styles.readingText}>
-                          {asset.overused}
-                          {asset.combination}
-                        </p>
-                      </div>
-                      <div className={styles.readingGrowth}>
-                        <h4>
-                          <Leaf size={17} />
-                          这周可以试一次
-                        </h4>
-                        <p className={styles.readingText}>
-                          {asset.action}
-                          <strong>{asset.reflection}</strong>
-                        </p>
+                        <ul className={styles.readingTraits}>
+                          {asset.growth.map((direction) => (
+                            <li key={direction}>
+                              <ArrowRight size={16} />
+                              <span>{direction}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </article>

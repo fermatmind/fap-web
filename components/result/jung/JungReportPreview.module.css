@@ -1364,8 +1364,7 @@
 .readingSection {
   margin-top: 19px;
 }
-.readingSection h4,
-.readingGrowth h4 {
+.readingSection h4 {
   color: var(--reading-ink);
   font-size: 15px;
   font-weight: 650;
@@ -1389,16 +1388,6 @@
   margin-top: 5px;
   flex-shrink: 0;
   color: var(--reading-accent);
-}
-.readingGrowth {
-  margin-top: 19px;
-  padding-top: 17px;
-  border-top: 1px solid #9db8a569;
-}
-.readingGrowth h4 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 .readingText strong {
   color: var(--reading-ink);
@@ -1439,8 +1428,7 @@
     overflow: visible;
   }
   .archetypeHeader,
-  .readingSection,
-  .readingGrowth {
+  .readingSection {
     break-inside: avoid;
   }
 }
