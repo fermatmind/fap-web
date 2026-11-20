@@ -8,14 +8,24 @@ import type { ReactNode } from "react";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
   actionPlan, careerDirections, insights, money, people, portrait, readingNotes,
-  relationships, stress, traits, workplace,
+  overviewPatterns, relationships, scienceSources, stress, traits, workplace,
 } from "./bigFiveReportPreviewCopy";
 import styles from "./BigFiveReportPreview.module.css";
 
 const traitOrder = ["O", "C", "E", "A", "N"] as const;
-type Domain = { key: string; percentile: number };
-type Facet = { code: string; label: string; domain: string; percentile: number };
-type Reference = { name: string; count: number; ageRange: string; version: string };
+type Domain = { key: string; percentile: number; band: string };
+type Facet = { code: string; label: string; meaning: string; domain: string; percentile: number };
+type Reference = { name: string; domainCount: number; facetCount: number | null; ageRange: string; version: string; locale: string; gender: string; updatedAt: string; scoringVersion: string };
+
+const bandLabels: Record<string, string> = { low: "偏低", mid: "中等", high: "偏高" };
+const chapters = [
+  { id: "profile", title: "五维总览" }, { id: "traits", title: "特质图谱" },
+  { id: "career", title: "职业方向" }, { id: "work", title: "工作表现" },
+  { id: "stress", title: "压力" }, { id: "money", title: "金钱习惯" },
+  { id: "relationships", title: "人际关系" }, { id: "people", title: "人物案例" },
+  { id: "plan", title: "行动计划" }, { id: "insights", title: "重新看自己" },
+  { id: "method", title: "科学与计分" },
+] as const;
 
 function radarPoint(index: number, percentile: number) {
   const angle = index * (2 * Math.PI / traitOrder.length) - Math.PI / 2;
@@ -68,6 +78,40 @@ function Meter({ value }: { value: number }) {
   );
 }
 
+function Scale({ score }: { score: number }) {
+  return (
+    <div className={styles.scale} aria-hidden="true">
+      <svg viewBox="0 0 100 10" preserveAspectRatio="none">
+        <path d="M1 5H30 M31 5H69 M70 5H99" />
+        <line x1="1" x2={Math.max(1, Math.min(99, score))} y1="5" y2="5" />
+      </svg>
+      <svg className={styles.scaleDots} viewBox="0 0 100 10" preserveAspectRatio="none">
+        <line x1={score} x2={score} y1="1.5" y2="8.5" />
+      </svg>
+    </div>
+  );
+}
+
+function TraitMark({ code, score }: { code: string; score: number }) {
+  return (
+    <div className={styles.traitCode} aria-hidden="true">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20" />
+        <circle cx="24" cy="24" r="20" pathLength="100" strokeDasharray={`${score} 100`} transform="rotate(-90 24 24)" />
+      </svg>
+      <span>{code}</span>
+    </div>
+  );
+}
+
+function TraitAdvice({ title, items, development }: { title: string; items: readonly string[]; development?: boolean }) {
+  const Icon = development ? ArrowUpRight : Check;
+  return <div data-development={development || undefined}>
+    <h5>{title}</h5>
+    <ul>{items.map((item) => <li key={item}><Icon size={15} aria-hidden="true" /><span>{item}</span></li>)}</ul>
+  </div>;
+}
+
 function Chapter({ id, title, icon, children }: { id: string; title: string; icon: ReactNode; children: ReactNode }) {
   return (
     <details id={id} className={styles.chapter} open>
@@ -89,6 +133,18 @@ function StoryCards({ items }: { items: ReadonlyArray<{ title: string; body: str
   );
 }
 
+function ApplicationCards({ items }: { items: ReadonlyArray<{ title: string; body: string; observe: string }> }) {
+  return <div className={styles.grid}>
+    {items.map((item) => (
+      <article className={`${styles.card} ${styles.applicationCard}`} key={item.title}>
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+        <div><h4>怎么核对</h4><p>{item.observe}</p></div>
+      </article>
+    ))}
+  </div>;
+}
+
 export function BigFiveReportPreview({
   domains, facets, reference, questionCount,
 }: {
@@ -107,7 +163,7 @@ export function BigFiveReportPreview({
   return (
     <main className={styles.report}>
       <div className={styles.heroContainer}>
-        <p className={styles.issue}><span>本地示例报告 · 根据固定样例作答生成</span><span>{questionCount} 题完整版</span></p>
+        <p className={styles.issue}><span>本地示例报告 · 固定结果样例</span><span>{questionCount} 题完整版</span></p>
 
         <header className={styles.hero}>
           <h1>大五人格报告</h1>
@@ -151,35 +207,56 @@ export function BigFiveReportPreview({
         </header>
       </div>
 
+      <div className={styles.reportLayout}>
+      <nav className={styles.chapterNav} aria-label="报告目录">
+        <strong>报告目录</strong>
+        <ul>{chapters.map(({ id, title }) => <li key={id}><a href={`#${id}`}>{title}</a></li>)}</ul>
+      </nav>
       <div className={styles.container}>
         <section id="profile" className={styles.profile}>
           <h2>五维总览</h2>
           <p>图上的点越靠外，该特质的百分位越高。虚线是第 50 百分位。</p>
-          <Radar scores={scores} />
+          <div className={styles.overviewGrid}>
+            <Radar scores={scores} />
+            <ul className={styles.scoreList} aria-label="按特质查看解读">
+              {traitOrder.map((key, index) => (
+                <li key={key} data-trait={key}><a href={`#trait-${key}`}>{traits[key].name}<Meter value={scores[index]} /><span>第 {scores[index]} 百分位</span></a></li>
+              ))}
+            </ul>
+          </div>
+          <StoryCards items={overviewPatterns} />
         </section>
 
         <Chapter id="traits" title="特质图谱" icon={<ScanLine size={18} />}>
           {traitOrder.map((key, index) => {
             const trait = traits[key];
+            const band = domains.find((domain) => domain.key === key)?.band ?? "";
             return (
-              <article key={key} className={styles.traitCard} data-trait={key}>
+              <article key={key} className={styles.traitCard} data-trait={key} id={`trait-${key}`}>
                 <div className={styles.traitHeader}>
-                  <span className={styles.traitCode} aria-hidden="true">{key}</span>
+                  <TraitMark code={key} score={scores[index]} />
                   <div><h3>{trait.name}</h3><span>{trait.english}</span></div>
-                  <strong>第 {scores[index]} 百分位</strong>
+                  <div className={styles.traitScore}>
+                    <strong>第 {scores[index]} 百分位</strong>
+                    {bandLabels[band] ? <span>{bandLabels[band]}</span> : null}
+                  </div>
                 </div>
-                <Meter value={scores[index]} />
+                <Scale score={scores[index]} />
                 <h4>{trait.title}</h4>
-                <p>{trait.description}</p>
-                <dl className={styles.traitAdvice}>
-                  <div><dt>可以发挥的地方</dt><dd>{trait.strength}</dd></div>
-                  <div><dt>可以试的调整</dt><dd>{trait.growth}</dd></div>
-                </dl>
+                <p className={styles.traitLead}>{trait.description}</p>
+                <ul className={styles.observations}>{trait.observations.map((item) => <li key={item}>{item}</li>)}</ul>
+                <div className={styles.traitAdvice}>
+                  <TraitAdvice title="可发挥的优势" items={trait.strengths} />
+                  <TraitAdvice title="成长空间" items={trait.growth} development />
+                </div>
                 <details className={styles.facets}>
                   <summary>六个细分面向 <ChevronDown size={16} aria-hidden="true" /></summary>
                   <ul>
                     {facets.filter((facet) => facet.domain === key).map((facet) => (
-                      <li key={facet.code}><span>{facet.label}</span><Meter value={facet.percentile} /><b>{facet.percentile}</b></li>
+                      <li key={facet.code}>
+                        <span>{facet.label}</span><Meter value={facet.percentile} /><b>{facet.percentile}</b>
+                        <p>{facet.code === "A2" ? "这些作答涉及处理事实、规则和合作的方式。" : facet.meaning}</p>
+                      </li>
                     ))}
                   </ul>
                 </details>
@@ -191,17 +268,17 @@ export function BigFiveReportPreview({
         <Chapter id="career" title="职业方向" icon={<Compass size={18} />}>
           <div className={styles.card}>
             <h3>职业方向一览</h3>
-            <p>从样例里突出的审美感受出发，比较感兴趣的任务和工作条件。</p>
+            <p>从样例里突出的审美感受出发，先选两类任务试做。完成后分别看自己是否想继续、使用者反馈如何、日常工作条件能否接受。</p>
             <ul className={styles.careerOverview}>
               {careerDirections.map((item) => <li key={item.id}><a href={`#career-${item.id}`}>{item.name}<span>{item.focus}</span></a></li>)}
             </ul>
           </div>
           <div className={styles.stack}>
             {careerDirections.map((item) => (
-              <article className={styles.card} id={`career-${item.id}`} key={item.id}>
+              <article className={`${styles.card} ${styles.careerCard}`} id={`career-${item.id}`} key={item.id}>
                 <h3>{item.name}</h3>
                 <p>{item.why}</p>
-                <p><strong>可以试做</strong> {item.task}</p>
+                <p className={styles.tryTask}><strong>可以试做</strong> {item.task}</p>
                 <ul className={styles.tags} aria-label="值得核对的工作要求">{item.check.map((label) => <li key={label}>{label}</li>)}</ul>
               </article>
             ))}
@@ -209,7 +286,7 @@ export function BigFiveReportPreview({
         </Chapter>
 
         <Chapter id="work" title="工作中的表现" icon={<BriefcaseBusiness size={18} />}>
-          <StoryCards items={workplace} />
+          <ApplicationCards items={workplace} />
         </Chapter>
 
         <Chapter id="stress" title="压力之下" icon={<Waves size={18} />}>
@@ -221,11 +298,11 @@ export function BigFiveReportPreview({
         </Chapter>
 
         <Chapter id="money" title="金钱习惯" icon={<Wallet size={18} />}>
-          <StoryCards items={money} />
+          <ApplicationCards items={money} />
         </Chapter>
 
         <Chapter id="relationships" title="人际关系" icon={<HeartHandshake size={18} />}>
-          <StoryCards items={relationships} />
+          <ApplicationCards items={relationships} />
         </Chapter>
 
         <Chapter id="people" title="人物案例" icon={<Users size={18} />}>
@@ -257,10 +334,23 @@ export function BigFiveReportPreview({
 
         <Chapter id="method" title="科学与计分说明" icon={<BookOpen size={18} />}>
           <div className={styles.card}>
-            <h3>五个维度与三十个面向</h3>
-            <p>这份 120 题示例在五个连续维度下展示 30 个面向。可对照 IPIP-NEO-120 的面向结构阅读，各项数字以本报告的参考样本为准。</p>
-            <p>参考人群为{reference.name}，共 {reference.count.toLocaleString("zh-CN")} 人，年龄 {reference.ageRange} 岁。常模版本 {reference.version}。</p>
-            <a className={styles.source} href="https://ipip.ori.org/30FacetNEO-PI-RItems.htm">IPIP-NEO-120 面向资料 <ArrowUpRight size={13} aria-hidden="true" /></a>
+            <h3>题本与参考人群</h3>
+            <p>这份 120 题示例在五个连续维度下展示 30 个面向。五维与细分面向各用对应的常模条目换算。接近的数值，例如 63 和 65，可以并排阅读，没必要分先后。职业任务、人物案例和情境建议用于探索。</p>
+            <dl className={styles.methodFacts}>
+              <div><dt>五维常模样本量</dt><dd>{reference.name} · {reference.domainCount.toLocaleString("zh-CN")} 人</dd></div>
+              <div><dt>细分面向常模</dt><dd>{reference.facetCount === null ? "各面向按对应常模条目换算" : `各面向条目样本量 ${reference.facetCount.toLocaleString("zh-CN")}`}</dd></div>
+              <div><dt>地区和年龄</dt><dd>{reference.locale} · {reference.ageRange} 岁 · {reference.gender}</dd></div>
+              <div><dt>常模</dt><dd>{reference.version} · {reference.updatedAt}</dd></div>
+              <div><dt>计分版本</dt><dd>{reference.scoringVersion}</dd></div>
+            </dl>
+          </div>
+          <div className={styles.grid}>
+            {scienceSources.map((source) => (
+              <article className={styles.card} key={source.url}>
+                <h3>{source.title}</h3><p>{source.body}</p>
+                <a className={styles.source} href={source.url}>阅读研究 <ArrowUpRight size={13} aria-hidden="true" /></a>
+              </article>
+            ))}
           </div>
           {readingNotes.map((item) => (
             <details key={item.title} className={styles.note}>
@@ -274,6 +364,7 @@ export function BigFiveReportPreview({
           <h2>看看自己的五维画像</h2>
           <Link className={styles.primary} href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}`}>了解大五人格测试 <ArrowUpRight size={17} aria-hidden="true" /></Link>
         </footer>
+      </div>
       </div>
     </main>
   );
