@@ -1,7 +1,7 @@
 export const portrait = {
   title: "偏爱有巧思的事物",
   intro: "这份样例里，审美感受和价值弹性位置靠前，行动尝新靠后。形式偏好、对社会变化和规则的态度、尝试新做法的意愿可以分开读。结合自己的经历，可以看看是否也曾想换一种表达，却更愿意用熟悉的工具把它做出来。",
-  facetCodes: ["O2", "O6", "O4"],
+  facetCodes: ["O2", "O6", "O4"] as const,
   clues: [
     "审美感受靠前，值得留意自己对形式、节奏和细节的反应。",
     "价值弹性靠前，线索来自对社会变化和规则的回答。",
@@ -79,22 +79,9 @@ export const overviewPatterns = [
   { title: "低外向性有不同侧面", body: "这份样例的外向性位置较低，积极情绪面向仍靠前。看活动体验时，可以把愿不愿意主动参与和参加后是否愉快分开记录，再对照独处时也感到愉快的经历。" },
 ];
 
-export const readingNotes = {
-  percentile: "费马计分先根据对应常模的均值和标准差换算，再用标准正态累计分布估计百分位。第 63 百分位表示在该换算下约位于参考分布的第 63 百分位；它是相对位置的估计，不是把样本逐一排序得到的名次，也不是答对比例。",
-  aggregation: "每个大维度包含一组相关题目，面向各看更窄的内容。总分百分位不能用六个面向的百分位直接平均得到。第 89 和第 6 的差异也不是原始作答相差 83 分。",
-  context: "遇到持续影响作答的特殊经历，或发现自己在不同环境里经常表现不同，可以先回看当时的作答情境，再记录几次可比的经历。一次短期尝试只反馈那次具体做法。",
-};
-
-// fap-api BIG5_OCEAN/v1/compiled/norms.compiled.json, selected group's facet rows.
-export const facetNormReference = {
-  version: "2026Q1_prod_v1",
-  group: "zh-CN_prod_all_18-60",
-  count: 85_000,
-};
-
 export const scienceSources = [
-  { title: "Johnson, J. A. (2014). Measuring thirty facets of the Five Factor Model with a 120-item public domain inventory: Development of the IPIP-NEO-120. Journal of Research in Personality, 51, 78–89.", body: "说明 120 题公开题本如何覆盖五维与 30 个面向。这里用于交代面向的研究背景，费马中文版的分数和常模以本站样例和计分流程为准。", url: "https://doi.org/10.1016/j.jrp.2014.05.003" },
-  { title: "Fleeson, W. (2001). Toward a structure- and process-integrated view of personality: Traits as density distributions of states. Journal of Personality and Social Psychology, 80(6), 1011–1027.", body: "日常记录研究观察到，同一个人在不同场合的表现会变动。用这个发现理解为什么报告中的倾向需要与具体情境一起读。", url: "https://pubmed.ncbi.nlm.nih.gov/11414368/" },
+  { title: "Johnson, J. A. (2014). Measuring thirty facets of the Five Factor Model with a 120-item public domain inventory: Development of the IPIP-NEO-120. Journal of Research in Personality, 51, 78–89.", body: "这项研究开发了 120 题的 IPIP-NEO，涵盖五个维度和 30 个面向，为理解面向结构提供研究背景。", url: "https://doi.org/10.1016/j.jrp.2014.05.003" },
+  { title: "Fleeson, W. (2001). Toward a structure- and process-integrated view of personality: Traits as density distributions of states. Journal of Personality and Social Psychology, 80(6), 1011–1027.", body: "这项日常记录研究发现，同一个人的行为表现随场合变动。特质反映跨场合的倾向，单次表现还受具体情境影响。", url: "https://pubmed.ncbi.nlm.nih.gov/11414368/" },
 ];
 
 export const careerMatchLabels = {

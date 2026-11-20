@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowDown, ArrowUpRight, BookOpen, BriefcaseBusiness, ChartNoAxesColumnIncreasing, Check, ChevronDown, Compass,
-  HeartHandshake, Leaf, Lightbulb, ListChecks, ScanLine, ShieldCheck, Wallet, Waves,
+  ArrowDown, ArrowUpRight, BookOpen, BriefcaseBusiness, Check, ChevronDown, Compass,
+  HeartHandshake, Leaf, Lightbulb, ListChecks, ScanLine, Wallet, Waves,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
-  actionPlan, careerDirections, careerMatchLabels, insights, money, portrait, readingNotes,
+  actionPlan, careerDirections, careerMatchLabels, insights, money, portrait,
   overviewPatterns, relationships, scienceSources, stress, traits, workplace,
 } from "./bigFiveReportPreviewCopy";
 import { BigFivePreviewPrompt } from "./BigFivePreviewPrompt";
@@ -15,15 +15,14 @@ import styles from "./BigFiveReportPreview.module.css";
 
 const traitOrder = ["O", "C", "E", "A", "N"] as const;
 type Domain = { key: string; percentile: number; band: string };
-type Facet = { code: string; label: string; meaning: string; domain: string; percentile: number };
-type Reference = { name: string; domainCount: number; facetCount: number | null; ageRange: string; version: string; locale: string; gender: string; updatedAt: string; scoringVersion: string };
+type Facet = { code: string; label: string; percentile: number };
 
 const bandLabels: Record<string, string> = { low: "偏低", mid: "中等", high: "偏高" };
 const chapters = [
   { id: "profile", title: "五维总览" }, { id: "traits", title: "特质图谱" },
-  { id: "career-life", title: "职业与生活" },
+  { id: "career", title: "职业" }, { id: "career-life", title: "日常场景" },
   { id: "plan", title: "行动计划" }, { id: "insights", title: "重新看自己" },
-  { id: "method", title: "科学与计分" }, { id: "prompt", title: "AI 继续探索" },
+  { id: "method", title: "科学依据" }, { id: "prompt", title: "AI 继续探索" },
 ] as const;
 
 function radarPoint(index: number, percentile: number) {
@@ -132,15 +131,6 @@ function StoryCards({ items }: { items: ReadonlyArray<{ title: string; body: str
   );
 }
 
-function ScienceBlock({ title, icon, children }: { title: string; icon: ReactNode; children: ReactNode }) {
-  return (
-    <div className={styles.scienceBlock}>
-      <span className={styles.scienceIcon} aria-hidden="true">{icon}</span>
-      <div><h3>{title}</h3>{children}</div>
-    </div>
-  );
-}
-
 function ScenarioRow({ id, title, takeaway, icon, children }: {
   id: string; title: string; takeaway: string; icon: ReactNode; children: ReactNode;
 }) {
@@ -171,11 +161,10 @@ function ApplicationNotes({ items }: { items: ReadonlyArray<{ title: string; bod
 }
 
 export function BigFiveReportPreview({
-  domains, facets, reference, questionCount,
+  domains, heroFacets, questionCount,
 }: {
   domains: Domain[];
-  facets: Facet[];
-  reference: Reference;
+  heroFacets: Facet[];
   questionCount: number;
 }) {
   const scores = traitOrder.map((key) => domains.find((domain) => domain.key === key)?.percentile);
@@ -183,7 +172,6 @@ export function BigFiveReportPreview({
     return <p role="status">暂时无法读取示例报告的五维分数。</p>;
   }
 
-  const heroFacets = portrait.facetCodes.flatMap((code) => facets.filter((facet) => facet.code === code));
   const prompt = [
     "我在读一份费马大五人格的固定示例。下面的百分位只用来演示读法，与我的个人成绩无关。",
     traitOrder.map((key, index) => `${traits[key].name} ${scores[index]}`).join("、") + "。",
@@ -282,26 +270,15 @@ export function BigFiveReportPreview({
                   <TraitAdvice title="可发挥的优势" items={trait.strengths} />
                   <TraitAdvice title="成长空间" items={trait.growth} development />
                 </div>
-                <details className={styles.facets}>
-                  <summary>六个细分面向 <ChevronDown size={16} aria-hidden="true" /></summary>
-                  <ul>
-                    {facets.filter((facet) => facet.domain === key).map((facet) => (
-                      <li key={facet.code}>
-                        <span>{facet.label}</span><Meter value={facet.percentile} /><b>{facet.percentile}</b>
-                        <p>{facet.code === "A2" ? "这些作答涉及处理事实、规则和合作的方式。" : facet.meaning}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
               </article>
             );
           })}
         </Chapter>
 
-        <Chapter id="career-life" title="职业与生活" icon={<Compass size={18} />}>
-          <section id="career" className={styles.scenario} aria-labelledby="career-title">
-            <h3 id="career-title">职业匹配线索</h3>
-            <p>「直接线索」表示任务涉及形式与呈现，和样例的审美感受有交集。点开任一方向查看依据和试做方法。</p>
+        <Chapter id="career" title="职业" icon={<Compass size={18} />}>
+          <section className={styles.careerMatch} aria-labelledby="career-match-title">
+            <h3 id="career-match-title">职业任务匹配一览</h3>
+            <p>条形区分两档线索。「直接线索」对应样例的审美感受，「需要试做」表示还有关键任务要核对。</p>
             <ul className={styles.careerList}>
               {careerDirections.map((item) => (
                 <li key={item.id}>
@@ -310,6 +287,7 @@ export function BigFiveReportPreview({
                       <span className={styles.disclosureTitle}><strong>{item.name}</strong><span>{item.focus}</span></span>
                       <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
                       <ChevronDown size={16} className={styles.disclosureChevron} aria-hidden="true" />
+                      <span className={styles.matchTrack} data-match={item.match} aria-hidden="true"><span /><span /></span>
                     </summary>
                     <div className={styles.disclosureBody}>
                       <p>{item.why}</p>
@@ -322,25 +300,24 @@ export function BigFiveReportPreview({
             </ul>
             <p className={styles.matchBasis}>想比较自己愿意长期投入的活动，可以结合 <Link href={`/zh/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`}>霍兰德职业兴趣</Link>。</p>
           </section>
+        </Chapter>
 
-          <section className={styles.scenario} aria-labelledby="life-title">
-            <h3 id="life-title">日常场景</h3>
-            <div className={styles.scenarioList}>
-              <ScenarioRow id="work" title="工作表现" takeaway="交接时写清标准，有意见可先写下来。" icon={<BriefcaseBusiness size={16} aria-hidden="true" />}>
-                <ApplicationNotes items={workplace} />
-              </ScenarioRow>
-              <ScenarioRow id="stress" title="压力与恢复" takeaway="分别记录发生了什么、感受和持续时间。" icon={<Waves size={16} aria-hidden="true" />}>
-                <p>{stress.pattern}</p>
-                <ul className={styles.bullets}>{[...stress.cues, ...stress.responses].map((note) => <li key={note}>{note}</li>)}</ul>
-              </ScenarioRow>
-              <ScenarioRow id="money" title="金钱习惯" takeaway="先分清喜欢和需要，再用账目核对。" icon={<Wallet size={16} aria-hidden="true" />}>
-                <ApplicationNotes items={money} />
-              </ScenarioRow>
-              <ScenarioRow id="relationships" title="人际关系" takeaway="先问清对方的处境，再说明自己的需要。" icon={<HeartHandshake size={16} aria-hidden="true" />}>
-                <ApplicationNotes items={relationships} />
-              </ScenarioRow>
-            </div>
-          </section>
+        <Chapter id="career-life" title="日常场景" icon={<Leaf size={18} />}>
+          <div className={styles.scenarioList}>
+            <ScenarioRow id="work" title="工作表现" takeaway="交接时写清标准，有意见可先写下来。" icon={<BriefcaseBusiness size={16} aria-hidden="true" />}>
+              <ApplicationNotes items={workplace} />
+            </ScenarioRow>
+            <ScenarioRow id="stress" title="压力与恢复" takeaway="分别记录发生了什么、感受和持续时间。" icon={<Waves size={16} aria-hidden="true" />}>
+              <p>{stress.pattern}</p>
+              <ul className={styles.bullets}>{[...stress.cues, ...stress.responses].map((note) => <li key={note}>{note}</li>)}</ul>
+            </ScenarioRow>
+            <ScenarioRow id="money" title="金钱习惯" takeaway="先分清喜欢和需要，再用账目核对。" icon={<Wallet size={16} aria-hidden="true" />}>
+              <ApplicationNotes items={money} />
+            </ScenarioRow>
+            <ScenarioRow id="relationships" title="人际关系" takeaway="先问清对方的处境，再说明自己的需要。" icon={<HeartHandshake size={16} aria-hidden="true" />}>
+              <ApplicationNotes items={relationships} />
+            </ScenarioRow>
+          </div>
         </Chapter>
 
         <Chapter id="plan" title="行动计划" icon={<ListChecks size={18} />}>
@@ -363,36 +340,18 @@ export function BigFiveReportPreview({
           <StoryCards items={insights} />
         </Chapter>
 
-        <Chapter id="method" title="科学与计分说明" icon={<BookOpen size={18} />}>
-          <ScienceBlock title="大五模型与这份题本" icon={<BookOpen size={18} />}>
-            <p>这份 120 题示例在五个连续维度下展示 30 个面向。Johnson 的 IPIP-NEO-120 研究提供面向结构的背景。费马中文版的分数以对应题本和常模换算为准。 [1]</p>
-          </ScienceBlock>
-          <ScienceBlock title="分数怎样换算" icon={<ChartNoAxesColumnIncreasing size={18} />}>
-            <p>{readingNotes.percentile}</p>
-            <p>{readingNotes.aggregation}</p>
-            <dl className={styles.methodFacts}>
-              <div><dt>参考人群</dt><dd>{reference.name} · {reference.locale} · {reference.ageRange} 岁 · {reference.gender}</dd></div>
-              <div><dt>五维样本量</dt><dd>{reference.domainCount.toLocaleString("zh-CN")} 人</dd></div>
-              <div><dt>细分面向</dt><dd>{reference.facetCount === null ? "各面向按对应常模条目换算" : `各条目样本量 ${reference.facetCount.toLocaleString("zh-CN")}`}</dd></div>
-              <div><dt>常模与计分版本</dt><dd>{reference.version}（{reference.updatedAt}） · {reference.scoringVersion}</dd></div>
-            </dl>
-          </ScienceBlock>
-          <ScienceBlock title="怎样把结果带进生活" icon={<ShieldCheck size={18} />}>
-            <p>{readingNotes.context} 日常记录研究也观察到，同一个人在不同场合的行为会变动。接近的百分位可以并排读，职业任务和情境建议可结合实际经历核对。 [2]</p>
-          </ScienceBlock>
-          <ScienceBlock title="参考文献" icon={<BookOpen size={18} />}>
-            <ol className={styles.references}>
-              {scienceSources.map((source, index) => (
-                <li key={source.url}>
-                  <span aria-hidden="true">{index + 1}</span>
-                  <div>
-                    <a className={styles.source} href={source.url}>{source.title} <ArrowUpRight size={13} aria-hidden="true" /></a>
-                    <p>{source.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </ScienceBlock>
+        <Chapter id="method" title="科学依据" icon={<BookOpen size={18} />}>
+          <ol className={styles.references}>
+            {scienceSources.map((source, index) => (
+              <li key={source.url}>
+                <span aria-hidden="true">{index + 1}</span>
+                <div>
+                  <a className={styles.source} href={source.url}>{source.title} <ArrowUpRight size={13} aria-hidden="true" /></a>
+                  <p>{source.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </Chapter>
 
         <BigFivePreviewPrompt prompt={prompt} />
