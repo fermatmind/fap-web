@@ -10,12 +10,12 @@ import {
   Copy,
   Download,
   Leaf,
-  MessageCircle,
 } from "lucide-react";
 import {
   archetypePreviewDimensions,
   archetypeDeepReadings,
   archetypeProfilePreview,
+  archetypeApplicationSections,
   reportChapters,
   type JungPreviewDimension,
 } from "./jungReportPreviewData";
@@ -387,7 +387,6 @@ export function JungReportPreview() {
                         </span>
                         <div>
                           <h3>{dimension.name}</h3>
-                          <p>{asset.englishName}</p>
                         </div>
                       </div>
                       <div className={styles.readingScore}>
@@ -440,165 +439,67 @@ export function JungReportPreview() {
                 );
               })}
             </div>
-            <details className={styles.allReadings}>
-              <summary>{"查看其余九个原型的解读"}</summary>
-              {dimensions.slice(3).map((row) => (
-                <article key={row.id}>
-                  <h3>
-                    {row.id.length === 2 ? row.id + " · " : ""}
-                    {row.name} <small>{row.score} 分</small>
-                  </h3>
-                  <p>{row.reading}</p>
-                  <p>
-                    <strong>观察一次</strong>　{row.practice}
-                  </p>
-                </article>
-              ))}
-            </details>
           </section>
 
-          <section
-            id="work"
-            className={styles.section}
-            aria-labelledby="work-title"
-          >
-            <p className={styles.eyebrow}>工作与协作</p>
-            <h2 id="work-title">{"让理解变成别人用得上的成果"}</h2>
-            <p className={styles.lead}>
-              {
-                "你可以从任务内容和协作方式寻找线索。一次有吸引力的工作，可能同时给你查证的空间、表达的自主权，以及接触反馈的机会。"
-              }
-            </p>
-            <div className={styles.twoColumns}>
-              <article>
-                <h3>更容易投入的环节</h3>
-                <ul>
-                  {[
-                    "比较多种解释，找出影响决定的关键证据。",
-                    "把复杂信息做成指南、方案或可试用的初稿。",
-                    "与使用者一起检查哪些地方仍然讲不清。",
-                  ].map((text) => (
-                    <li key={text}>{text}</li>
-                  ))}
-                </ul>
-              </article>
-              <article>
-                <h3>可以向合作方问清楚</h3>
-                <ul>
-                  {[
-                    "这项任务什么时候算已经查得足够？",
-                    "我能参与哪些表达与修改决定？",
-                    "完成后，能直接听到使用者的反馈吗？",
-                  ].map((text) => (
-                    <li key={text}>{text}</li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-            <div className={styles.careerBridge}>
-              <div>
-                <h3>把动机线索带到真实职业里</h3>
-                <p>
-                  选一个你正在考虑的岗位，对照每天的任务、训练要求和工作条件，再决定要试哪一小段。
-                </p>
+          {archetypeApplicationSections.map((section) => (
+            <section
+              key={section.id}
+              id={section.id}
+              className={styles.applicationSection}
+              aria-labelledby={`${section.id}-title`}
+            >
+              <header className={styles.applicationHeader}>
+                <span className={styles.readingIndex}>{section.number}</span>
+                <h2 id={`${section.id}-title`}>{section.label}</h2>
+              </header>
+              <div className={styles.applicationBody}>
+                <h3>{section.title}</h3>
+                <p className={styles.readingText}>{section.intro}</p>
+                {section.paragraphs.map((paragraph) => (
+                  <div
+                    className={styles.readingSection}
+                    key={paragraph.heading}
+                  >
+                    <h4>{paragraph.heading}</h4>
+                    <p className={styles.readingText}>{paragraph.body}</p>
+                  </div>
+                ))}
+                <div className={styles.applicationLists}>
+                  <div>
+                    <h4>值得保留的部分</h4>
+                    <ul className={styles.readingTraits}>
+                      {section.strengths.map((text) => (
+                        <li key={text}>
+                          <Check size={16} />
+                          <span>{text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>成长空间</h4>
+                    <ul className={styles.readingTraits}>
+                      {section.growth.map((text) => (
+                        <li key={text}>
+                          <ArrowRight size={16} />
+                          <span>{text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                {section.id === "work" && (
+                  <Link
+                    className={styles.applicationCareerLink}
+                    href="/zh/career"
+                  >
+                    带着任务、训练要求和工作条件，继续了解真实职业{" "}
+                    <ArrowRight size={15} />
+                  </Link>
+                )}
               </div>
-              <Link href="/zh/career">
-                去职业库核对 <ArrowRight size={17} />
-              </Link>
-            </div>
-            <div className={styles.taskExamples}>
-              {[
-                [
-                  "technical-writers",
-                  "技术写作者",
-                  "把复杂流程改写成清楚的操作说明。",
-                ],
-                [
-                  "training-and-development-specialists",
-                  "培训相关任务",
-                  "根据学习者的困难，调整内容和练习顺序。",
-                ],
-              ].map(([slug, name, task]) => (
-                <Link key={slug} href={"/zh/career/jobs/" + slug}>
-                  <span>{name}</span>
-                  <p>{task}</p>
-                  <span className={styles.textLink}>
-                    查看实际任务 <ArrowRight size={14} />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <section
-            id="relationships"
-            className={styles.section}
-            aria-labelledby="relationships-title"
-          >
-            <p className={styles.eyebrow}>关系与沟通</p>
-            <h2 id="relationships-title">{"先听见感受，再一起寻找解释"}</h2>
-            <p className={styles.lead}>
-              {
-                "你可能习惯用分析和建议表达关心。当对方需要的只是被认真听完时，先确认要不要一起解决问题，会让你的投入更容易被接住。"
-              }
-            </p>
-            <div className={styles.dialogue}>
-              <MessageCircle size={23} />
-              <div>
-                <h3>下一次可以这样开口</h3>
-                <p>{"“你现在更希望我先听你讲，还是我们一起想一个办法？”"}</p>
-              </div>
-            </div>
-            <div className={styles.twoColumns}>
-              <article>
-                <h3>发生分歧时</h3>
-                <p>
-                  先复述对方最在意的一点，再说明自己的判断与限制。将“你总是这样”换成这一次能共同检查的具体行为。
-                </p>
-              </article>
-              <article>
-                <h3>回看一次互动</h3>
-                <p>
-                  我表达的是事实、推测，还是期待？对方是否真的理解了我提出的请求？哪些部分需要重新问清楚？
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section
-            id="stress"
-            className={styles.section}
-            aria-labelledby="stress-title"
-          >
-            <p className={styles.eyebrow}>压力与盲区</p>
-            <h2 id="stress-title">{"当擅长的做法开始用得太多"}</h2>
-            <p className={styles.lead}>
-              {
-                "持续查资料、反复改初稿，可能帮助你获得把握，也可能让休息和交付不断后移。把这些行为放回当时的任务和负荷里，看看是否需要换一种做法。"
-              }
-            </p>
-            <div className={styles.stressRows}>
-              {[
-                [
-                  "值得观察的信号",
-                  "同一个问题查过很多遍，新的资料已经不再改变决定。",
-                ],
-                [
-                  "换一个可执行的动作",
-                  "把“还没弄清”写成一条具体待查项，只验证它。",
-                ],
-                [
-                  "给恢复留出空间",
-                  "约定一版可以先交出去的结果，明确今天什么时候停下来。",
-                ],
-              ].map(([heading, text]) => (
-                <article key={heading}>
-                  <h3>{heading}</h3>
-                  <p>{text}</p>
-                </article>
-              ))}
-            </div>
-          </section>
+            </section>
+          ))}
 
           <section
             id="actions"
