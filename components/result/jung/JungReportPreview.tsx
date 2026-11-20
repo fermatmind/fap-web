@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import {
   archetypePreviewDimensions,
+  archetypeDeepReadings,
   archetypeProfilePreview,
   reportChapters,
   type JungPreviewDimension,
@@ -368,41 +369,98 @@ export function JungReportPreview() {
           >
             <p className={styles.eyebrow}>深入解读</p>
             <h2 id="reading-title">{"三种动机，怎样一起出现在你身上"}</h2>
-            {
-              <>
-                <p className={styles.lead}>
-                  同一次任务里，你可能先想弄清原因，接着想做出自己的版本，最后又对另一种做法产生好奇。以下用三个不同的关注点拆开看。
-                </p>
-                {topThree.map((row, i) => (
-                  <article className={styles.deepReading} key={row.id}>
-                    <div className={styles.readingTitle}>
-                      <span>{row.name}</span>
-                      <h3>{row.question}</h3>
-                    </div>
-                    <p>{row.reading}</p>
-                    <div className={styles.twoColumns}>
+            <p className={styles.lead}>
+              智者关注理解，创造者关注表达，探索者关注亲身体验。这三个原型在本次示例中较突出，可以分别对照自己的经历，也看看它们怎样互相支持。
+            </p>
+            <div className={styles.readingCards}>
+              {archetypeDeepReadings.map((asset, index) => {
+                const dimension = dimensions.find(
+                  (row) => row.id === asset.id,
+                )!;
+                return (
+                  <article
+                    key={asset.id}
+                    className={styles.archetypeCard}
+                    data-archetype={asset.id}
+                  >
+                    <header className={styles.archetypeHeader}>
                       <div>
-                        <h4>能带来的贡献</h4>
-                        <p>{row.strength}</p>
+                        <span className={styles.readingIndex}>
+                          0{index + 1}
+                        </span>
+                        <div>
+                          <h3>{dimension.name}</h3>
+                          <p>{asset.englishName}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4>值得留意的代价</h4>
-                        <p>{row.blindSpot}</p>
+                      <div className={styles.readingScore}>
+                        <strong>{dimension.score}</strong>
+                        <span>本次维度分 · 0–100</span>
+                      </div>
+                    </header>
+                    <div className={styles.archetypeBody}>
+                      <h4 className={styles.archetypeRole}>{asset.role}</h4>
+                      <p className={styles.archetypeDefinition}>
+                        {asset.definition}
+                      </p>
+                      <div className={styles.motivePair}>
+                        <div>
+                          <span>核心追求</span>
+                          <p>{asset.pursuit}</p>
+                        </div>
+                        <div>
+                          <span>值得留意</span>
+                          <p>{asset.watchFor}</p>
+                        </div>
+                      </div>
+                      <p className={styles.archetypeNarrative}>
+                        {asset.narrative}
+                      </p>
+                      <h4 className={styles.readingSubheading}>
+                        你可能熟悉的表现
+                      </h4>
+                      <ul className={styles.readingTraits}>
+                        {asset.traits.map((trait) => (
+                          <li key={trait}>
+                            <Check size={16} />
+                            <span>{trait}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className={styles.readingScene}>
+                        <p>一个具体场景</p>
+                        <h4>{asset.sceneTitle}</h4>
+                        <p>{asset.scene}</p>
+                      </div>
+                      <div className={styles.readingBalance}>
+                        <div>
+                          <h4>运用得合适时</h4>
+                          <p>{asset.balanced}</p>
+                        </div>
+                        <div>
+                          <h4>用得过多时</h4>
+                          <p>{asset.overused}</p>
+                        </div>
+                      </div>
+                      <div className={styles.readingCombination}>
+                        <h4>与另外两个原型一起看</h4>
+                        <p>{asset.combination}</p>
                       </div>
                     </div>
-                    <p className={styles.practice}>
-                      <Leaf size={17} />
-                      <span>{row.practice}</span>
-                    </p>
-                    {i === 0 && (
-                      <blockquote>
-                        比如要给同事介绍一套新工具。你先比较资料、弄清原理，再写成操作指南。值得观察的是，什么时候这份指南已经足够让一个人先试起来。
-                      </blockquote>
-                    )}
+                    <footer className={styles.readingGrowth}>
+                      <div>
+                        <Leaf size={19} />
+                        <h4>这周可以试一次</h4>
+                      </div>
+                      <p>{asset.action}</p>
+                      <p className={styles.readingReflection}>
+                        {asset.reflection}
+                      </p>
+                    </footer>
                   </article>
-                ))}
-              </>
-            }
+                );
+              })}
+            </div>
             <details className={styles.allReadings}>
               <summary>{"查看其余九个原型的解读"}</summary>
               {dimensions.slice(3).map((row) => (
