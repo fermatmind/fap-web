@@ -15,14 +15,14 @@ import {
   Leaf,
 } from "lucide-react";
 import {
-  archetypePreviewDimensions,
-  archetypeDeepReadings,
-  archetypeProfilePreview,
-  archetypeApplicationSections,
-  archetypeCareerPreview,
+  archetypeAssets,
+  commonAssets,
+  buildReportView,
+  makePreviewScores,
   reportChapters,
   type JungPreviewDimension,
-} from "./jungReportPreviewData";
+  type PreviewPattern,
+} from "./jungReportAssets";
 import styles from "./JungReportPreview.module.css";
 function coordinates(index: number, count: number, radius: number) {
   const angle = (index / count) * Math.PI * 2 - Math.PI / 2;
@@ -157,17 +157,39 @@ function ProfileChart({
     </figure>
   );
 }
-export function JungReportPreview() {
-  const dimensions = archetypePreviewDimensions;
-  const [selectedId, setSelectedId] = useState(dimensions[0].id);
+export function JungReportPreview({
+  initialArchetype = "sage",
+  initialPattern = "clear",
+}: {
+  initialArchetype?: string;
+  initialPattern?: PreviewPattern;
+}) {
+  const [previewId, setPreviewId] = useState(initialArchetype);
+  const [previewPattern, setPreviewPattern] =
+    useState<PreviewPattern>(initialPattern);
+  const view = buildReportView(
+    makePreviewScores(previewId, previewPattern),
+    previewId,
+  );
+  const dimensions = view.dimensions;
+  const [selectedId, setSelectedId] = useState(initialArchetype);
   const [chapter, setChapter] = useState("profile");
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
   const [completed, setCompleted] = useState<number[]>([]);
   const selected =
-    dimensions.find((item) => item.id === selectedId) ?? dimensions[0];
+    dimensions.find((row) => row.id === selectedId) ?? dimensions[0];
   const title = "荣格十二原型报告";
-  const profile = archetypeProfilePreview;
-  const topThree = dimensions.slice(0, 3);
+  const profile = view.profile;
+  const archetypeDeepReadings = view.deepReadings;
+  const archetypeCareerPreview = view.careers;
+  const archetypeApplicationSections = view.sections;
+  const resultState = commonAssets.states[view.result.state];
+  const hasSingleLeader = view.result.primary.length === 1;
+  const topThree =
+    view.result.state === "flat"
+      ? []
+      : dimensions.filter((row) => view.result.readingIds.includes(row.id));
   const chartOrder = [
     "hero",
     "sage",
@@ -185,7 +207,7 @@ export function JungReportPreview() {
   const chartDimensions = chartOrder.map(
     (id) => dimensions.find((row) => row.id === id)!,
   );
-  const prompt = `这是费马测试的${title}固定虚构示例，用于讨论报告结构。请先确认我是否已经提供自己的真实结果。\n\n示例分数：${dimensions.map((row) => row.name + "（" + row.id + "）" + row.score).join("、")}。\n\n请先问我一个最近三个月的具体经历，了解当时的任务、限制、做法和结果。结合报告，提出两种可以与经历核对的解释，并指出需要补充的资料。每次只问一个问题。最后整理一个一周内能尝试的小行动和回看标准。分数按题本量尺解释；区分报告给出的信息、我补充的经历与你提出的建议。`;
+  const prompt = view.prompt;
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -206,42 +228,59 @@ export function JungReportPreview() {
     try {
       await navigator.clipboard.writeText(prompt);
       setCopied(true);
+      setCopyFailed(false);
     } catch {
       setCopied(false);
+      setCopyFailed(true);
     }
   }
-  const actionItems = [
-    [
-      "本周 · 20 分钟",
-      "找到动机出现的真实场景",
-      "回看最近一次你愿意持续投入的经历。分别写下：你想弄清什么、想表达什么、想亲自尝试什么。再找一件不符合报告描述的经历，看看情境有什么不同。",
-    ],
-    [
-      "第 2 周 · 一次小任务",
-      "让理解接上实际行动",
-      "选一个已经思考了一段时间的问题，写下当前判断与最关键的依据，再做出一版能被别人看见或使用的东西。约定交付边界，观察从理解到完成时，哪个环节最吸引你。",
-    ],
-    [
-      "第 3–4 周 · 两次反馈",
-      "练习一种平时较少采用的做法",
-      "围绕当前任务，选择一个有需要的动作：向他人求助、明确分工、先听完感受，或允许初稿进入试用。记录它有没有改善结果；不必为了补低分而强迫自己练习所有原型。",
-    ],
-    [
-      "第 2 个月 · 一个完整项目",
-      "把熟悉的方式与新的做法接起来",
-      "选择一个范围清楚的小项目，事先写下目标、投入与完成标准。过程中保留求知和创作的空间，也按约定分享进度。结束后比较兴趣、实际成果和付出的代价。",
-    ],
-    [
-      "每季度 · 30 分钟",
-      "用经历更新对自己的理解",
-      "回看哪些投入仍有吸引力，哪些做法已经失去帮助，以及角色和环境发生了什么变化。保留有效的习惯，只选一个需要调整的方向进入下一阶段。",
-    ],
-  ];
+  const actionItems = view.actions;
   return (
     <main className={styles.page} data-result-visible-root>
       <div className={styles.previewBar}>
         <p>本地示例报告 · 固定虚构分数</p>
-        <span>十二原型 · 48 题</span>
+        <div className={styles.previewControls}>
+          <label>
+            阅读原型
+            <select
+              aria-label="阅读原型"
+              value={previewId}
+              onChange={(event) => {
+                setPreviewId(event.target.value);
+                setSelectedId(event.target.value);
+                setCompleted([]);
+                setCopied(false);
+                setCopyFailed(false);
+              }}
+            >
+              {archetypeAssets.map((asset) => (
+                <option key={asset.id} value={asset.id}>
+                  {asset.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            结果状态
+            <select
+              aria-label="结果状态"
+              value={previewPattern}
+              onChange={(event) => {
+                setPreviewPattern(event.target.value as PreviewPattern);
+                setCompleted([]);
+                setCopied(false);
+                setCopyFailed(false);
+              }}
+            >
+              {Object.entries(commonAssets.states).map(([key, state]) => (
+                <option key={key} value={key}>
+                  {state.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <span>十二原型 · 48 题</span>
+        </div>
       </div>
 
       <section
@@ -258,23 +297,47 @@ export function JungReportPreview() {
         </div>
         <div className={styles.heroGrid}>
           <div className={styles.portrait}>
-            <p>本次更突出的原型</p>
-            <h2>{profile.name}</h2>
-            <span>{profile.tagline}</span>
+            <p>
+              {view.result.state === "flat" ? "本次分布" : "本次更突出的原型"}
+            </p>
+            <h2>
+              {hasSingleLeader
+                ? profile.name
+                : view.result.state === "flat"
+                  ? "分布接近"
+                  : view.result.primary
+                      .map(
+                        (id) =>
+                          archetypeAssets.find((asset) => asset.id === id)!
+                            .name,
+                      )
+                      .join("、")}
+            </h2>
+            <span>{hasSingleLeader ? profile.tagline : resultState.label}</span>
             <Image
-              src={"/images/riasec/ias-researcher.webp"}
+              src={
+                hasSingleLeader
+                  ? view.asset.illustration
+                  : commonAssets.ai.illustration
+              }
               width={480}
               height={480}
               priority
-              alt={"费马狐狸插画，坐下核对图表与记录"}
+              alt={
+                hasSingleLeader
+                  ? `${profile.name}原型原创角色插画`
+                  : "原型动机参考插画"
+              }
             />
           </div>
           <div className={styles.heroReading}>
             <p className={styles.eyebrow}>
-              {"本次较高分：智者、创造者、探索者"}
+              {view.result.state === "flat"
+                ? "十二维分布接近"
+                : `本次较高分：${topThree.map((row) => row.name).join("、")}`}
             </p>
-            <h3>{profile.headline}</h3>
-            <p>{profile.introduction}</p>
+            <h3>{hasSingleLeader ? profile.headline : resultState.title}</h3>
+            <p>{hasSingleLeader ? profile.introduction : resultState.body}</p>
             <div className={styles.topScores}>
               {topThree.map((row) => (
                 <div key={row.id}>
@@ -289,37 +352,44 @@ export function JungReportPreview() {
           </div>
         </div>
 
-        <div className={styles.profileStory}>
-          <div className={styles.profileMotivation}>
-            {profile.motivation.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <h3 className={styles.profileSubheading}>核心特质</h3>
-          <ul className={styles.profileTraits}>
-            {profile.traits.map((trait) => (
-              <li key={trait}>
-                <Check size={18} />
-                <span>{trait}</span>
-              </li>
-            ))}
-          </ul>
-          <h3 className={styles.profileSubheading}>你的拿手好戏</h3>
-          <div className={styles.profileSignature}>
-            <h4>{profile.signature.title}</h4>
-            <p>{profile.signature.body}</p>
-            <p>{profile.signature.nextStep}</p>
-          </div>
-        </div>
-        <div className={styles.profileGrowth}>
-          <p className={styles.eyebrow}>{profile.growth.label}</p>
-          <h3>{profile.growth.title}</h3>
-          <p>{profile.growth.body}</p>
-          <div>
-            <Leaf size={19} />
-            <p>{profile.growth.practice}</p>
-          </div>
-        </div>
+        <p className={styles.resultState} data-result-state={view.result.state}>
+          <strong>{resultState.label}</strong>　{resultState.body}
+        </p>
+        {hasSingleLeader && (
+          <>
+            <div className={styles.profileStory}>
+              <div className={styles.profileMotivation}>
+                {profile.motivation.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <h3 className={styles.profileSubheading}>核心特质</h3>
+              <ul className={styles.profileTraits}>
+                {profile.traits.map((trait) => (
+                  <li key={trait}>
+                    <Check size={18} />
+                    <span>{trait}</span>
+                  </li>
+                ))}
+              </ul>
+              <h3 className={styles.profileSubheading}>你的拿手好戏</h3>
+              <div className={styles.profileSignature}>
+                <h4>{profile.signature.title}</h4>
+                <p>{profile.signature.body}</p>
+                <p>{profile.signature.nextStep}</p>
+              </div>
+            </div>
+            <div className={styles.profileGrowth}>
+              <p className={styles.eyebrow}>{profile.growth.label}</p>
+              <h3>{profile.growth.title}</h3>
+              <p>{profile.growth.body}</p>
+              <div>
+                <Leaf size={19} />
+                <p>{profile.growth.practice}</p>
+              </div>
+            </div>
+          </>
+        )}
       </section>
 
       <div className={styles.reportGrid}>
@@ -469,14 +539,19 @@ export function JungReportPreview() {
                       <Link href={`/zh/career/jobs/${career.slug}`}>
                         <span>{career.name}</span>
                         <span className={styles.matchBadge}>
-                          动机匹配 <ArrowRight size={13} />
+                          {view.result.state === "flat"
+                            ? "原型参考"
+                            : "动机匹配"}{" "}
+                          <ArrowRight size={13} />
                         </span>
                       </Link>
                     </li>
                   ))}
                 </ul>
                 <p>
-                  按本次示例的动机与职业任务关联整理，结合技能、训练要求与工作条件继续核对。
+                  {view.result.state === "flat"
+                    ? `以下按当前阅读的「${view.asset.name}」整理职业任务参考；本次结果不指定主导原型。`
+                    : "按本次示例的动机与职业任务关联整理，结合技能、训练要求与工作条件继续核对。"}
                 </p>
                 <Link className={styles.careerLibraryLink} href="/zh/career">
                   浏览全部 1046 个职业 <ArrowRight size={14} />
@@ -507,6 +582,12 @@ export function JungReportPreview() {
             </div>
           </section>
 
+          {!hasSingleLeader && (
+            <p className={styles.referenceNotice}>
+              以下工作、关系与行动内容按当前选择的「{view.asset.name}
+              」提供参考，不把它指定为主导原型。可以使用页首“阅读原型”切换了解其他动机。
+            </p>
+          )}
           {archetypeApplicationSections.map((section) => (
             <section
               key={section.id}
@@ -641,44 +722,23 @@ export function JungReportPreview() {
           >
             <h2 id="method-title">科学依据</h2>
             <div className={styles.scienceCopy}>
-              <h3>从荣格的原型概念，到现代十二原型框架</h3>
-              <p>
-                荣格以原型讨论反复出现在神话、象征与心理经验中的模式。今天常见的十二原型应用框架，由
-                Carol S. Pearson
-                在荣格等人的思想基础上发展；它不是荣格本人制定的十二种人格分类。原型名称帮助我们讨论动机与生活叙事，不把一个人限定为单一类型。
-              </p>
-              <h3>理论框架、具体量表与验证证据需要分开</h3>
-              <p>
-                Pearson-Marr Archetype
-                Indicator®（PMAI®）是有独立题目、计分方法和研究资料的量表。费马使用自己的原创题本，因此不能把
-                PMAI
-                的信效度结果直接当作本题本的验证。当前题本尚未建立人群常模，也没有可用于承诺个体预测准确性的信效度证据。
-              </p>
-              <h3>这份报告的分数说明什么</h3>
-              <p>
-                本题本有 48 道五档自评题，每个原型 4 题，各维独立换算到
-                0–100。分数表示相关描述在本次回答中得到的认同程度，不是人群百分位，也不代表十二项比例之和为
-                100%。回答可能随经历、角色与状态改变；相同或接近的高分应结合具体经历一起看。
-              </p>
-              <h3>怎样使用更有帮助</h3>
-              <p>
-                把解读作为可以核对的线索，同时寻找符合与不符合的经历。职业、关系、压力和金钱部分提供反思方向，不据此判断能力、诊断心理问题、预测职业表现或投资适合度。本页使用固定虚构分数，供查看报告结构与内容。
-              </p>
+              {commonAssets.science.map((item) => (
+                <div key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              ))}
               <p className={styles.sources}>
-                <a
-                  href="https://carolspearson.com/about/the-pearson-12-archetype-system-human-development-and-evolution"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Pearson 十二原型框架 <ArrowRight size={14} />
-                </a>
-                <a
-                  href="https://www.storywell.com/about-the-pmai/Why-is-Scientific-Validity-Important.htm"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  PMAI 的测量与验证说明 <ArrowRight size={14} />
-                </a>
+                {commonAssets.sources.map((source) => (
+                  <a
+                    key={source.url}
+                    href={source.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {source.title} <ArrowRight size={14} />
+                  </a>
+                ))}
                 <Link href="/zh/science">
                   费马测评方法 <ArrowRight size={14} />
                 </Link>
@@ -694,25 +754,26 @@ export function JungReportPreview() {
             <div className={styles.aiLayout}>
               <Image
                 className={styles.aiIllustration}
-                src="/images/riasec/ai-career-interests.webp"
+                src={commonAssets.ai.illustration}
                 width={960}
                 height={640}
                 sizes="(max-width: 760px) 180px, 220px"
                 alt=""
               />
               <div>
-                <h2 id="ai-title">和 AI 继续探索你的原型动机</h2>
-                <p>
-                  带着结果和一段真实经历，和 AI
-                  一起梳理。先核对它有没有读懂报告，再讨论你想改变的事。
-                </p>
+                <h2 id="ai-title">{commonAssets.ai.title}</h2>
+                <p>{commonAssets.ai.intro}</p>
                 <pre className={styles.visiblePrompt}>{prompt}</pre>
                 <button onClick={() => void copyPrompt()}>
                   {copied ? <Check size={17} /> : <Copy size={17} />}
                   {copied ? "已复制提示词" : "复制提示词"}
                 </button>
                 <span role="status" className={styles.copyStatus}>
-                  {copied ? "可以粘贴到你常用的 AI 对话中。" : ""}
+                  {copied
+                    ? "可以粘贴到你常用的 AI 对话中。"
+                    : copyFailed
+                      ? "复制失败，请选中上方提示词手动复制。"
+                      : ""}
                 </span>
               </div>
             </div>

@@ -1,4 +1,9 @@
 import { notFound } from "next/navigation";
+import {
+  archetypeAssets,
+  commonAssets,
+  type PreviewPattern,
+} from "@/components/result/jung/jungReportAssets";
 import { JungReportPreview } from "@/components/result/jung/JungReportPreview";
 
 export const metadata = {
@@ -11,12 +16,26 @@ export default async function Page({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ form?: string }>;
+  searchParams: Promise<{
+    form?: string;
+    archetype?: string;
+    pattern?: string;
+  }>;
 }) {
   if (process.env.NODE_ENV !== "development") notFound();
   const { locale } = await params;
   if (locale !== "zh") notFound();
-  const { form } = await searchParams;
+  const { form, archetype = "sage", pattern = "clear" } = await searchParams;
   if (form && form !== "archetypes") notFound();
-  return <JungReportPreview />;
+  if (
+    !archetypeAssets.some((asset) => asset.id === archetype) ||
+    !Object.hasOwn(commonAssets.states, pattern)
+  )
+    notFound();
+  return (
+    <JungReportPreview
+      initialArchetype={archetype}
+      initialPattern={pattern as PreviewPattern}
+    />
+  );
 }
