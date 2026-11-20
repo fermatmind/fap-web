@@ -228,7 +228,7 @@ function HomepageHeroV1({ locale, copy }: { locale: DisplayLocale; copy: HomePag
         <div className="mx-auto w-full max-w-[43rem] text-center lg:mx-0 lg:text-left">
           <h1
             aria-label={heroCopy.title}
-            className={cn("m-0 font-black leading-tight tracking-normal text-[#333]", locale === "en" ? "text-balance text-[2.55rem] sm:text-[2.8rem] lg:text-[2.5rem]" : "whitespace-nowrap text-[clamp(1.45rem,4vw,2.5rem)]")}
+            className={cn("m-0 font-black leading-tight tracking-normal text-[#333]", locale === "en" ? "text-balance break-words text-[2.55rem] sm:text-[2.8rem] lg:text-[2.5rem]" : "whitespace-nowrap text-[clamp(1.45rem,4vw,2.5rem)]")}
           >
             {heroCopy.title}
           </h1>
