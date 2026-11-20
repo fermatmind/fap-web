@@ -58,6 +58,8 @@ import {
 import {
   buildEnneagramTakeHref,
   DEFAULT_ENNEAGRAM_FORM_CODE,
+  getEnneagramDurationSummary,
+  getEnneagramQuestionSummary,
   getEnneagramStartLabel,
   getEnneagramVariantLabel,
   getEnneagramVariantSummary,
@@ -282,7 +284,7 @@ function buildFallbackFaq(testTitle: string, minutes: number, questions: number,
   ];
 }
 
-function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "en" | "zh"): FAQItem[] {
+function buildFlagshipVariantFaq(kind: "mbti" | "big5", locale: "en" | "zh"): FAQItem[] {
   if (locale === "zh") {
     if (kind === "mbti") {
       return [
@@ -304,29 +306,6 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "e
         },
       ];
     }
-
-    if (kind === "enneagram") {
-      return [
-        {
-          q: "九型人格 105 题和 144 题有什么区别？",
-          a: "105 题是五点量表自评版，适合标准入口；144 题是二选一迫选版，每题在两个描述中选择更贴近自己的一个，更适合正式发布场景下的稳定比较。",
-        },
-        {
-          q: "我应该先做哪一个版本？",
-          a: "如果你想用更直接的自评方式开始，先做 105 题；如果你希望减少“都像我”的犹豫，选择 144 题二选一版。",
-        },
-        {
-          q: "两个版本会给出不同类型体系吗？",
-          a: "不会。两个版本属于同一个九型人格测评，只是答题方式不同，结果页会保留你选择的版本。",
-        },
-        {
-          q: "重新测试会保留当前版本吗？",
-          a: "会。结果页重新测试会回到同一个版本，不会把 144 题自动切回 105 题。",
-        },
-      ];
-    }
-
-
 
     return [
       {
@@ -368,29 +347,6 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "e
       },
     ];
   }
-
-  if (kind === "enneagram") {
-    return [
-      {
-        q: "What is the difference between Enneagram 105Q and 144Q?",
-        a: "105Q is the five-point self-report form. 144Q is the forced-choice pair form, where each item asks you to choose the closer statement.",
-      },
-      {
-        q: "Which version should I start with?",
-        a: "Start with 105Q if you want the standard rating-scale path. Choose 144Q if you prefer a forced-choice format that avoids rating both statements as equally true.",
-      },
-      {
-        q: "Do both versions use the same Enneagram scale?",
-        a: "Yes. They are two forms under the same Enneagram assessment, and the result keeps the form you selected.",
-      },
-      {
-        q: "Will retaking preserve the current form?",
-        a: "Yes. Retake from the result page returns to the same form instead of silently switching 144Q back to 105Q.",
-      },
-    ];
-  }
-
-
 
   return [
     {
@@ -521,10 +477,8 @@ function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "
         h1: "九型人格免费测试",
         seoTitle: "九型人格免费测试｜九型人格测试",
         primaryCtaLabel: "开始九型人格免费测试",
-        secondaryCtaLabelByFormCode: {
-          enneagram_forced_choice_144: "开始九型人格二选一版免费测试",
-        },
-        freeBoundary: "两版均可免费完成并查看九型分布与候选类型解释。",
+        secondaryCtaLabelByFormCode: {},
+        freeBoundary: "免费完成 105 题并查看九型分布与候选类型。",
       };
     case "RIASEC":
       return {
@@ -870,6 +824,32 @@ export default async function TestLandingPage({
     || "";
   const reportSummary = toStringValue(reportNode.summary);
   const faqItems = parseFaq(langNode.faq).flatMap((item) => {
+    if (isEnneagramScaleCode(test.scale_code)) {
+      const zh = locale === "zh";
+      const copy = {
+        "faq-enneagram-forms": [
+          zh ? "九型人格测试怎么作答？需要多久？" : "How do I answer the Enneagram test, and how long does it take?",
+          zh ? "105 道题用五点量表作答，约 12 分钟。按每条陈述与你平时表现的符合程度选择。" : "Rate how well each of the 105 statements describes your usual behavior. Most people can set aside about 12 minutes.",
+        ],
+        "faq-enneagram-answer": [
+          zh ? "五个程度选项该怎么选？" : "How should I choose a response on the five-point scale?",
+          zh ? "回想一段时间内反复出现的表现，再选与你最接近的程度。某一次特别强烈的经历可以作为参考，同时留意它是否代表平时的自己。" : "Think about patterns that recur over time and choose the response closest to your usual behavior. Consider whether an unusually intense event represents how you typically respond.",
+        ],
+        "faq-enneagram-free": [
+          zh ? "九型人格测试免费吗？" : "Is the Enneagram test free?",
+          zh ? "105 题作答和基础结果免费。提交后可查看九型分布与候选类型，完整报告可选付费解锁。" : "The 105-item assessment and basic results are free. You can review the nine-type profile and candidates, with an optional paid full report.",
+        ],
+      } as const;
+      if (item.id && Object.hasOwn(copy, item.id)) {
+        const [q, a] = copy[item.id as keyof typeof copy];
+        return [{ ...item, q, a }];
+      }
+      const paragraphs = item.a.split(/\n\s*\n/u).filter((paragraph) => !/\b144\b|FC144/iu.test(paragraph));
+      if (item.id === "faq-enneagram-evidence") {
+        paragraphs.push(zh ? "这份综述讨论的是已有九型研究。费马 105 题报告用于结合经历观察动机。" : "The review covers previous Enneagram research. Use FermatMind’s 105-item report to reflect on motives in real situations.");
+      }
+      return /\b144\b|FC144/iu.test(item.q) || !paragraphs.length ? [] : [{ ...item, a: paragraphs.join("\n\n") }];
+    }
     if (!isRiasecScaleCode(test.scale_code)) return [item];
     if (item.id === "faq-riasec-forms") return [];
     const paragraphs = item.a.split(/\n\s*\n/u).filter((paragraph) => !/\b140\b/u.test(paragraph));
@@ -950,7 +930,7 @@ export default async function TestLandingPage({
     : showsBig5Actions
     ? getBig5QuestionSummary(locale, lookup?.forms)
     : showsEnneagramActions
-    ? locale === "zh" ? "144题/105题" : "144Q/105Q"
+    ? getEnneagramQuestionSummary(displayLocale)
     : showsRiasecActions
     ? getRiasecQuestionSummary(locale)
     : showsIqActions
@@ -960,6 +940,8 @@ export default async function TestLandingPage({
     ? getMbtiDurationSummary(locale)
     : showsBig5Actions
     ? getBig5DurationSummary(locale, lookup?.forms)
+    : showsEnneagramActions
+    ? getEnneagramDurationSummary(displayLocale)
     : showsRiasecActions
     ? getRiasecDurationSummary(locale)
     : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`;
@@ -971,7 +953,7 @@ export default async function TestLandingPage({
     "clinical-depression-anxiety-assessment-professional-edition",
     "depression-screening-test-standard-edition",
   ].includes(test.slug);
-  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
+  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions;
   const defaultHowItWorksItems = hasFreeFullReportAuthority
     ? [
         locale === "zh"
@@ -1005,7 +987,7 @@ export default async function TestLandingPage({
     : testDetailAuthority.faq.allowed
       ? isFlagshipDualVariant
         ? buildFlagshipVariantFaq(
-            showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : "enneagram",
+            showsMbtiActions ? "mbti" : "big5",
             locale
           )
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
@@ -1015,6 +997,19 @@ export default async function TestLandingPage({
     ...editorial,
     intro: assessmentLandingUi?.heroDescription ?? editorial.intro,
     items: editorial.items.filter((item) => item.id !== "versions" && item.id !== "riasec-enhanced-method"),
+    comparison: undefined,
+  } : showsEnneagramActions && editorial ? {
+    ...editorial,
+    intro: assessmentLandingUi?.heroDescription ?? editorial.intro,
+    items: editorial.items.filter((item) => item.id !== "versions" && item.id !== "enneagram-forced-scoring")
+      .map((item) => ({
+        ...item,
+        body: item.id === "enneagram-science"
+          ? (locale === "zh"
+            ? "五点自评按预设权重计分。最高两个候选的差距用于选择报告的解释语气。Hook 等人的系统综述发现，九型研究的信度与效度证据并不一致。"
+            : "The five-point self-report uses predefined weights. The gap between the leading candidates helps set the report’s interpretive tone. Hook and colleagues’ systematic review found mixed evidence of reliability and validity for Enneagram measures.")
+          : item.body.split(/\n\s*\n/u).filter((paragraph) => !/\b144\b|FC144/iu.test(paragraph)).join("\n\n"),
+      })).filter((item) => item.body),
     comparison: undefined,
   } : editorial;
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
@@ -1069,7 +1064,7 @@ export default async function TestLandingPage({
             label: getEnneagramVariantLabel(form.formCode, locale),
             summary: getEnneagramVariantSummary(form.formCode, locale),
             // Keep the selected form and forward the same bounded attribution as other assessments.
-            href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode)),
+            href: withAttribution(buildEnneagramTakeHref(test.slug, locale)),
             ctaLabel: getFlagshipFreeTestCtaLabel({
               scaleCode: test.scale_code,
               formCode: form.formCode,

@@ -129,7 +129,7 @@ describe("enneagram frontend API contract", () => {
     });
   });
 
-  it("registers one Enneagram scale with two backend form codes", () => {
+  it("lists only the 105-item form for new assessments and keeps historical form identity", () => {
     expect(resolveCanonicalSlug("enneagram")).toBe("enneagram-personality-test-nine-types");
     expect(resolveCanonicalSlug("enneagram-personality-test")).toBe("enneagram-personality-test-nine-types");
     expect(resolveCanonicalSlug("nine-types-personality-test")).toBe("enneagram-personality-test-nine-types");
@@ -138,14 +138,12 @@ describe("enneagram frontend API contract", () => {
     expect(normalizeEnneagramFormCode("144")).toBe("enneagram_forced_choice_144");
     expect(listEnneagramFormMetas().map((form) => form.formCode)).toEqual([
       "enneagram_likert_105",
-      "enneagram_forced_choice_144",
     ]);
     expect(listEnneagramFormMetas().map((form) => [form.formCode, form.questionCount, form.estimatedMinutes])).toEqual([
       ["enneagram_likert_105", 105, 12],
-      ["enneagram_forced_choice_144", 144, 18],
     ]);
-    expect(buildEnneagramTakeHref("enneagram", "zh", "144")).toBe(
-      "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144"
+    expect(buildEnneagramTakeHref("enneagram", "zh")).toBe(
+      "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105"
     );
   });
 
@@ -170,10 +168,10 @@ describe("enneagram frontend API contract", () => {
 
     expect(landingSource).toContain("const showsEnneagramActions = isEnneagramScaleCode(test.scale_code)");
     expect(landingSource).toContain("listEnneagramFormMetas().map((form) => ({");
-    expect(landingSource).toContain("href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode))");
+    expect(landingSource).toContain("href: withAttribution(buildEnneagramTakeHref(test.slug, locale))");
     expect(stickySource).toContain("const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug)");
     expect(stickySource).toContain("listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale))");
-    expect(stickySource).toContain("href={buildEnneagramTakeHref(slug, locale, form.formCode)}");
+    expect(stickySource).toContain("href={buildEnneagramTakeHref(slug, locale)}");
   });
 
   it("fetches questions with explicit form_code through the shared v0.3 client", async () => {

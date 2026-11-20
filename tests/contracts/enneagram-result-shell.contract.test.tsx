@@ -40,7 +40,7 @@ describe("Enneagram production seven-chapter shell", () => {
   });
 
   it.each(["enneagram_likert_105", "enneagram_forced_choice_144"] as const)(
-    "renders Taiwan result and keeps the original scoring and form links for %s",
+    "renders Taiwan result and keeps original scoring and offers the active retake form for %s",
     async (formCode) => {
       const reportData = createSevenChapterReport({ locale: "zh-CN", formCode });
       const viewModel = assembleEnneagramResultViewModel({ reportData, locale: "zh", gate: { isFreeVariant: false } });
@@ -49,7 +49,7 @@ describe("Enneagram production seven-chapter shell", () => {
       expect(await screen.findByRole("heading", { name: "九型人格類型測評結果" })).toBeInTheDocument();
       expect(screen.getByRole("table", { name: "九型分布數值" })).toBeInTheDocument();
       expect(screen.getByRole("link", { name: "重新測評" })).toHaveAttribute(
-        "href", `/zh-TW/tests/enneagram-personality-test-nine-types/take?form=${formCode}`,
+        "href", `/zh-TW/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105`,
       );
       expect(screen.getByRole("link", { name: /的公開解釋/ })).toHaveAttribute("href", "/zh-TW/personality/enneagram/type-1");
       expect(viewModel).toEqual(before);
@@ -113,6 +113,42 @@ describe("Enneagram production seven-chapter shell", () => {
     renderResult({ formCode });
     expect(screen.getByTestId("enneagram-result-shell")).toHaveAttribute("data-form-variant", variant);
     expect(screen.getAllByText(/same model, separate score spaces/).length).toBeGreaterThan(0);
+  });
+
+  it("shows the selected 105-item candidate’s application examples and copies the displayed prompt", async () => {
+    const reportData = createSevenChapterReport({ top: [1, 6, 3] });
+    const raw = reportData.enneagram_report_v2;
+    if (!raw) throw new Error("Missing test report");
+    raw.e105_report_assets = {
+      candidates: ["1", "6", "3"].map((id) => ({
+        type_id: id,
+        careers: ["planner", "trainer", "writer"].map((slug) => ({
+          slug, name: `Example ${id} ${slug}`, task: "Review a task", connection: "A hypothesis",
+          verify: "Try for one week", source: "https://www.onetonline.org/link/details/13-1082.00",
+        })),
+        life_scenarios: { work: "Work scene", stress: "Stress scene", money: "Daily choice", relationships: "Relationship scene" },
+        practice_experiment: `Experiment ${id}`,
+      })),
+      plan: Array.from({ length: 8 }, (_, i) => ({ period: `Week ${i + 1}`, duration: "20 min", title: "Plan stage", body: "Review an experience" })),
+      science: Array.from({ length: 3 }, (_, i) => ({ title: `Evidence ${i + 1}`, body: "Self-report evidence" })),
+      science_sources: ["https://pubmed.ncbi.nlm.nih.gov/33332604/"],
+      ai_prompt: "Ask about one experience.",
+    };
+    const model = assembleEnneagramResultViewModel({ reportData, locale: "en", gate: { isFreeVariant: false } });
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal("navigator", { ...navigator, clipboard: { writeText } });
+    try {
+      render(<EnneagramResultShell locale="en" attemptId="sample-new-assets" reportLocked={false} viewModel={model} />);
+      expect(screen.getByRole("heading", { name: "Example 1 planner" })).toBeVisible();
+      fireEvent.click(screen.getByRole("button", { name: /#2 · Type 6/ }));
+      expect(screen.getByRole("heading", { name: "Example 6 planner" })).toBeVisible();
+      expect(screen.getByText("Experiment 6")).toBeVisible();
+      fireEvent.click(screen.getByRole("button", { name: "Copy prompt" }));
+      expect(await screen.findByText("Copied")).toBeVisible();
+      expect(writeText).toHaveBeenCalledWith(expect.stringContaining("Ask about one experience."));
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it("renders all twenty formal sections and the nine non-assigning theory levels", () => {

@@ -273,7 +273,7 @@ export function CTASticky({
                     </p>
                     <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getEnneagramVariantSummary(form.formCode, locale)}</p>
                     <TrackedEntryCtaLink
-                      href={buildEnneagramTakeHref(slug, locale, form.formCode)}
+                      href={buildEnneagramTakeHref(slug, locale)}
                       eventProperties={buildStartClickTrackingProps({
                         formCode: form.formCode,
                         targetAction: `start_${form.formCode}`,
@@ -418,7 +418,7 @@ export function CTASticky({
               {listEnneagramFormMetas().map((form) => (
                 <TrackedEntryCtaLink
                   key={form.formCode}
-                  href={buildEnneagramTakeHref(slug, locale, form.formCode)}
+                  href={buildEnneagramTakeHref(slug, locale)}
                   eventProperties={buildStartClickTrackingProps({
                     formCode: form.formCode,
                     targetAction: `start_${form.formCode}`,

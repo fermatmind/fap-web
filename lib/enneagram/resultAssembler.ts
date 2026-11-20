@@ -1,3 +1,4 @@
+import { parseE105ReportAssets, type E105ReportAssets } from "@/lib/enneagram/e105ReportAssets";
 import type {
   Big5ReportSection,
   EnneagramFormSummaryV1Raw,
@@ -150,6 +151,7 @@ export type EnneagramReportV2 = {
   modules: EnneagramReportV2Module[];
   moduleMap: Record<string, EnneagramReportV2Module>;
   pairComparison: EnneagramPairComparison | null;
+  e105ReportAssets: E105ReportAssets | null;
   provenance: {
     projectionVersion: string | null;
     reportSchemaVersion: string | null;
@@ -623,6 +625,9 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     modules,
     moduleMap,
     pairComparison,
+    e105ReportAssets: normalizeText(form?.form_code) === "enneagram_likert_105"
+      ? parseE105ReportAssets(raw.e105_report_assets, candidates.map((candidate) => candidate.typeId))
+      : null,
     provenance: {
       projectionVersion: normalizeText(provenance?.projection_version) || null,
       reportSchemaVersion: normalizeText(provenance?.report_schema_version) || null,

@@ -1,5 +1,5 @@
 import { resolveCanonicalSlug, SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, type DisplayLocale, type Locale } from "@/lib/i18n/locales";
 
 export const ENNEAGRAM_SCALE_CODE = "ENNEAGRAM" as const;
 
@@ -43,6 +43,7 @@ const ENNEAGRAM_FORM_ALIAS_MAP = new Map<string, EnneagramFormCode>([
   ["forced-choice-144", "enneagram_forced_choice_144"],
   ["pair_144", "enneagram_forced_choice_144"],
   ["144", "enneagram_forced_choice_144"],
+  ["rheti_style_144", "enneagram_forced_choice_144"],
 ]);
 
 export function isEnneagramScaleCode(scaleCode: string | null | undefined): boolean {
@@ -69,7 +70,7 @@ export function resolveEnneagramFormMeta(value: string | null | undefined): Enne
 }
 
 export function listEnneagramFormMetas(): EnneagramFormMeta[] {
-  return ENNEAGRAM_FORM_CODES.map((formCode) => ENNEAGRAM_FORM_META[formCode]);
+  return [ENNEAGRAM_FORM_META[DEFAULT_ENNEAGRAM_FORM_CODE]];
 }
 
 export function getEnneagramVariantName(formCode: string | null | undefined): string {
@@ -110,20 +111,26 @@ export function getEnneagramStartLabel(formCode: string | null | undefined, loca
   return meta.formCode === "enneagram_forced_choice_144" ? "Start forced-choice" : "Start Likert form";
 }
 
-export function getEnneagramDurationSummary(locale: Locale): string {
+export function getEnneagramDurationSummary(locale: DisplayLocale): string {
   return listEnneagramFormMetas()
-    .map((form) => (locale === "zh" ? `${form.estimatedMinutes}分钟` : `${form.estimatedMinutes} min`))
+    .map((form) => (locale === "zh-TW" ? `${form.estimatedMinutes} 分鐘` : locale === "zh" ? `${form.estimatedMinutes} 分钟` : `${form.estimatedMinutes} min`))
     .join(" / ");
 }
 
-export function getEnneagramQuestionSummary(locale: Locale): string {
+export function getEnneagramQuestionSummary(locale: DisplayLocale): string {
   return listEnneagramFormMetas()
-    .map((form) => (locale === "zh" ? `${form.questionCount}题` : `${form.questionCount}Q`))
+    .map((form) => (locale === "zh-TW" ? `${form.questionCount} 題` : locale === "zh" ? `${form.questionCount} 题` : `${form.questionCount}Q`))
     .join(" / ");
 }
 
-export function buildEnneagramTakeHref(slug: string, locale: Locale, formCode: string | null | undefined): string {
+export function isRetiredEnneagramTakeHref(href: string): boolean {
+  const params = new URLSearchParams(href.split("?")[1]?.split("#")[0]);
+  const requested = params.get("form") ?? params.get("form_code");
+  return normalizeEnneagramFormCode(requested) === "enneagram_forced_choice_144";
+}
+
+export function buildEnneagramTakeHref(slug: string, locale: Locale): string {
   const canonicalSlug = resolveCanonicalSlug(slug) || slug;
-  const params = new URLSearchParams({ form: normalizeEnneagramFormCode(formCode) });
+  const params = new URLSearchParams({ form: DEFAULT_ENNEAGRAM_FORM_CODE });
   return `${localizedPath(`/tests/${canonicalSlug}/take`, locale)}?${params.toString()}`;
 }

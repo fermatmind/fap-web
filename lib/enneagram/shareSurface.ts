@@ -193,6 +193,6 @@ export function buildEnneagramShareViewModel(
     title,
     lead: summaryText,
     methodologyBoundary: normalizeText(rawSummary.methodology_boundary) || null,
-    startTestHref: buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, formCode) || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM}/take`, locale),
+    startTestHref: buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale) || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM}/take`, locale),
   };
 }

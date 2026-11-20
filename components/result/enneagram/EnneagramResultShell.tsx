@@ -28,6 +28,7 @@ import { assessmentDisplayPath, loadTraditionalAssessmentText } from "@/lib/test
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import { buildEnneagramPublicContentPath, resolveEnneagramPublicRouteEntry } from "@/lib/personality/enneagramPublicRoutes";
 import styles from "./enneagramResult.module.css";
+import { EnneagramE105Applications } from "./EnneagramE105Applications";
 
 const originalText = (source: string) => source;
 const EnneagramDisplay = createContext<{ locale: DisplayLocale; text: (source: string) => string }>({
@@ -521,7 +522,6 @@ function EnneagramResultContent({
   const sourceRetake = buildEnneagramTakeHref(
     SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
     locale,
-    viewModel.formCode,
   );
   const retakeHref = displayLocale === "zh-TW" ? sourceRetake.replace(/^\/zh(?=\/)/u, "/zh-TW") : sourceRetake;
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
@@ -825,6 +825,15 @@ function EnneagramResultContent({
               refresh={setObservationState}
             />
           </section>
+          {report.e105ReportAssets && !reportLocked ? (
+            <EnneagramE105Applications
+              assets={report.e105ReportAssets}
+              candidateId={candidate.typeId}
+              candidateScores={viewModel.candidates.map((entry) => `${displayText(entry.typeName)} ${entry.scoreDisplay ?? entry.scoreNorm ?? ""}`).join(" · ")}
+              locale={displayLocale}
+              displayText={displayText}
+            />
+          ) : null}
           <footer className={styles.chapter}>
             <div className={styles.localTools}>
               {pdfAttemptId ? (

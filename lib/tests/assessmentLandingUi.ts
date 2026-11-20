@@ -18,7 +18,7 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
     description: "Take a free MBTI-style test: 93 questions (~10 min) or 144 (~15 min). Get your free 16-type result and four preference scores. See a scored example before you start.",
   },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free Big Five test: 90 items (~11 min) or FermatMind’s adapted 120-item IPIP-NEO form (~15 min). Explore five OCEAN traits and 30 facets." },
-  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Free Enneagram: 105 ratings (~12 min) or 144 two-option choices (~18). Read nine-type distributions and candidate explanations against real experiences, motivations and reactions." },
+  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Take the free 105-item Enneagram self-report in about 12 minutes. Compare the nine-type profile and leading candidates with your own experiences." },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "30 original visual matrix questions (~20 min). Free basic results; optional paid full report. Practice only; no substitute for professional IQ assessment." },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free Emotional Intelligence Test (EQ) & Results", description: "Take a free 60-question EQ self-report in about 10 minutes. Explore emotional awareness, regulation, empathy and relationships, with results and practical next steps." },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Career Interest Test: Holland Code (RIASEC)", description: "Take a free Holland Code test: 60 questions (~8 min). Get your six RIASEC interests and three-letter code to explore work activities and careers." },
@@ -40,8 +40,8 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
     description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，作答与基础结果免费，完整报告可选付费解锁。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
-    title: "九型人格测试免费版：105/144题与结果解读",
-    description: "在线免费完成九型人格测试：105题程度选择约12分钟，144题二选一约18分钟，作答与基础结果免费，完整报告可选付费解锁。查看九型分布与候选类型解释，再按结果解读步骤对照自己的动机和具体经历。",
+    title: "九型人格测试免费版：105 题与结果解读",
+    description: "在线免费完成九型人格测试：105 题五点自评，约 12 分钟，作答与基础结果免费，完整报告可选付费解锁。查看九型分布与候选类型解释，再按结果解读步骤对照自己的动机和具体经历。",
   },
 };
 
@@ -70,8 +70,8 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en" | "zh
     en: "Find work activities you would like to explore with this free Holland Code career interest test. Answer 60 questions in about 8 minutes to get your six RIASEC scores and three-letter code. Use them to compare real job tasks, courses and projects; interests do not measure ability or guarantee a career match.",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
-    zh: "了解你的九型分布与候选类型。105 题按程度作答，约 12 分钟；144 题每题二选一，约 18 分钟。两版均可免费完成并查看基础结果，完整报告可选付费解锁。",
-    en: "Explore your nine-type distribution and candidate types. Rate the degree to which 105 items apply to you in about 12 minutes, or choose between two options for each of 144 items in about 18 minutes. Both versions are free to complete and view basic results; the full report is an optional one-time purchase.",
+    zh: "了解你的九型分布与候选类型。105 题按程度作答，约 12 分钟。作答与基础结果免费，完整报告可选付费解锁。",
+    en: "Explore your nine-type distribution and candidate types. Rate 105 statements on a five-point scale in about 12 minutes. The test and basic results are free, with an optional paid full report.",
   },
 };
 
@@ -90,8 +90,8 @@ const EDITORIAL_LAYOUTS: Partial<Record<string, AssessmentEditorialLayout>> = {
     methodItemIds: ["riasec-scoring", "riasec-science"],
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
-    itemOrder: ["versions", "enneagram-model", "enneagram-application", "enneagram-likert-scoring", "enneagram-forced-scoring", "enneagram-science"],
-    methodItemIds: ["enneagram-likert-scoring", "enneagram-forced-scoring", "enneagram-science"],
+    itemOrder: ["enneagram-model", "enneagram-application", "enneagram-likert-scoring", "enneagram-science"],
+    methodItemIds: ["enneagram-likert-scoring", "enneagram-science"],
   },
 };
 
@@ -101,7 +101,6 @@ const ZH_ENTRY_LABELS: Record<string, string> = {
   big5_120: "开始 120 题改写版 · 免费测试",
   big5_90: "开始 90 题精简版 · 免费测试",
   enneagram_likert_105: "开始 105 题 · 程度选择 · 免费测试",
-  enneagram_forced_choice_144: "开始 144 题 · 二选一 · 免费测试",
   riasec_60: "开始 60 题标准版 · 免费测试",
   owner_original_30: "开始 30 题免费测试",
   eq_60: "开始60题自评 · 约10分钟 · 免费",
@@ -113,7 +112,6 @@ const EN_ENTRY_LABELS: Record<string, string> = {
   big5_120: "Start 120-item adapted form · Free test",
   big5_90: "Start 90-question Short Edition · Free test",
   enneagram_likert_105: "Start 105 items · Degree ratings · Free test",
-  enneagram_forced_choice_144: "Start 144 items · Two-option choices · Free test",
   riasec_60: "Start 60-question Standard Edition · Free test",
   owner_original_30: "Start free 30-question test",
   eq_60: "Start 60-item self-report · About 10 minutes · Free",

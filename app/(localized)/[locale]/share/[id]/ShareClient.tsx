@@ -313,8 +313,7 @@ export default function ShareClient({
       shareScaleCode === "ENNEAGRAM"
         ? buildEnneagramTakeHref(
             SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
-            locale,
-            enneagramShareViewModel?.formCode ?? null
+            locale
           )
         : shareScaleCode === "RIASEC"
           ? RIASEC_TAKE_FALLBACK_PATH
@@ -322,7 +321,7 @@ export default function ShareClient({
             ? `/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}/take`
             : MBTI_TAKE_FALLBACK_PATH;
     const fallbackHref = shareScaleCode === "ENNEAGRAM" ? fallbackPath : `/${locale}${fallbackPath}`;
-    const basePath = viewModel.primaryCtaPath || fallbackHref;
+    const basePath = shareScaleCode === "ENNEAGRAM" ? fallbackHref : viewModel.primaryCtaPath || fallbackHref;
     const attributedPath = buildAugmentedPath(basePath, {
       share_id: resolvedShareId,
       share_click_id: shareClickId ?? undefined,
@@ -340,7 +339,7 @@ export default function ShareClient({
     const sourcePath = url.pathname.replace(/^\/(?:en|zh|zh-TW)(?=\/|$)/, "");
     const taiwanPath = traditionalPath(`/zh-TW${sourcePath}`);
     return taiwanPath ? `${taiwanPath}${url.search}${url.hash}` : continuedPath;
-  }, [displayLocale, enneagramShareViewModel?.formCode, locale, resolvedShareId, safeLandingPath, safePageReferrer, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
+  }, [displayLocale, locale, resolvedShareId, safeLandingPath, safePageReferrer, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
 
   const primaryContinueTarget = publicSurface?.continueReadingKeys[0] || "share_take_flow";
   const publicSurfaceTelemetry = useMemo(

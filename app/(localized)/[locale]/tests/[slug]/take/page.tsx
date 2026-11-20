@@ -8,7 +8,7 @@ import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isBig5ScaleCode, normalizeBig5FormCode, resolveProjectedBig5FormMeta } from "@/lib/big5/forms";
-import { isEnneagramScaleCode, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
+import { isEnneagramScaleCode, isEnneagramSlug, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { loadTestLandingData } from "@/lib/tests/testLandingData";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -152,6 +152,10 @@ export default async function TakePage({
   const slug = resolveCanonicalSlug(requestedSlug);
   if (isRetiredJungAssessment(slug)) notFound();
   if (displayLocale === "zh-TW" && !isCoreAssessmentSlug(slug)) return notFound();
+  if (isEnneagramSlug(slug)
+    && normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code)) === "enneagram_forced_choice_144") {
+    redirect(withLocale(`/tests/${slug}`));
+  }
   if (isRiasecSlug(slug)
     && normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code)) === "riasec_140") {
     redirect(`${careerAssessmentEntry(locale).href}/take`);

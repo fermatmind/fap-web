@@ -1,3 +1,4 @@
+import { getEnneagramDurationSummary, getEnneagramQuestionSummary, isEnneagramSlug, isRetiredEnneagramTakeHref } from "@/lib/enneagram/forms";
 import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
 import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
@@ -187,7 +188,16 @@ function assertHubContent(value: unknown): TestsHubContent {
 
 function projectPublicCards(items: HubTestCardItem[], locale: DisplayLocale): HubTestCardItem[] {
   return filterVisiblePublicTestEntries(items).map((item) => {
-    if (!isRiasecSlug(extractTestSlugFromEntryHref(item.detailsHref ?? item.href) ?? item.key)) return item;
+    const slug = extractTestSlugFromEntryHref(item.detailsHref ?? item.href) ?? item.key;
+    if (isEnneagramSlug(slug)) {
+      return {
+        ...item,
+        questionsLabel: getEnneagramQuestionSummary(locale),
+        durationLabel: getEnneagramDurationSummary(locale),
+        primaryActions: item.primaryActions?.filter((action) => !isRetiredEnneagramTakeHref(action.href)),
+      };
+    }
+    if (!isRiasecSlug(slug)) return item;
     return {
       ...item,
       questionsLabel: getRiasecQuestionSummary(locale),

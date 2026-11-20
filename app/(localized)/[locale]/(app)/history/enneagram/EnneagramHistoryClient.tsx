@@ -84,7 +84,7 @@ function observationActionLabel(action: string | null, displayLocale: "en" | "zh
     case "observe_7_days":
       return displayLocale === "zh-TW" ? "繼續觀察" : displayLocale === "zh" ? "继续观察" : "Continue observing";
     case "do_fc144":
-      return displayLocale === "zh-TW" ? "可補做 FC144 二選一強迫選擇版" : displayLocale === "zh" ? "可补做 FC144 二选一迫选版" : "FC144 follow-up is available";
+      return displayLocale === "zh-TW" ? "繼續觀察 7 天" : displayLocale === "zh" ? "继续观察 7 天" : "Continue the seven-day observation";
     case "retest_same_form":
       return displayLocale === "zh-TW" ? "建議重測同一題型" : displayLocale === "zh" ? "建议重测同一题型" : "Retake the same form";
     case "read_top3":
