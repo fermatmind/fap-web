@@ -25,7 +25,7 @@ export function isMissingFunRoute(pathname: string): boolean {
   if (/^\/(?:en|zh)\/tests\/explore(?:\/|$)/.test(pathname)) {
     const match = pathname.match(/^\/(?:en|zh)\/tests\/explore\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/results\/([a-z0-9]+(?:-[a-z0-9]+)*))?\/?$/);
     if (!match) return true;
-    if (match[1] === gta6Slug) return !isGta6PreviewEnabled() || !gta6Profile(match[2]);
+    if (match[1] === gta6Slug) return !isGta6PreviewEnabled() || Boolean(match[2] && !gta6Profile(match[2]));
     const profiles = questionnaireIds.get(`explore/${match[1]}`);
     return !profiles || Boolean(match[2] && !profiles.includes(match[2]));
   }

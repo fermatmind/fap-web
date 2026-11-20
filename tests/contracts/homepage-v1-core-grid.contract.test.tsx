@@ -217,7 +217,7 @@ describe("homepage v1 core grid contract", () => {
     expect(cards[6]).toHaveTextContent(/48 \/ 64/);
     expect(within(fun).getAllByRole("heading", { level: 3 })).toHaveLength(6);
     expect(Array.from(fun.querySelectorAll("h3"), heading => heading.closest("a")?.getAttribute("href"))).toEqual([
-      "explore/gta-6-character-quiz/take", "play/friendship-quiz", "explore/seven-sins-virtues-test",
+      "explore/gta-6-character-quiz", "play/friendship-quiz", "explore/seven-sins-virtues-test",
       "explore/chiikawa", "explore/cyberpunk-edgerunners", "explore/moral-alignment",
     ].map(path => `/${locale}/tests/${path}`));
     if (locale === "en") {

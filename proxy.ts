@@ -10,6 +10,7 @@ import { AD_PLACEMENT_HEADER, AD_PLACEMENT_SEGMENT, entertainmentAdPlacement } f
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { isCoreSharePath } from "@/lib/i18n/coreShareDisplay";
 import { getTraditionalPublicAssetRoute, isTraditionalMbtiDetailPath } from "@/lib/personality/traditionalPublicAssetRoutes";
+import { isGta6PreviewPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { initialQuestionnaireScripts } from "@/lib/questionnaires/initialScripts";
 import type { NextRequest } from "next/server";
@@ -447,7 +448,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     : stripLocalePrefix(pathname);
   if (pathname === "/zh-TW" || pathname.startsWith("/zh-TW/")) {
     if (!previewComparison && pathname !== "/zh-TW/personality" && !traditionalPath(pathname)
-      && !getTraditionalPublicAssetRoute(pathname) && !isTraditionalMbtiDetailPath(pathname)) {
+      && !getTraditionalPublicAssetRoute(pathname) && !isTraditionalMbtiDetailPath(pathname) && !isGta6PreviewPath(pathname)) {
       return createPublicAbsenceResponse(404);
     }
   }

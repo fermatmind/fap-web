@@ -1,0 +1,29 @@
+.page { background: #f7f7f5; color: #18212d; }
+.hero { background: linear-gradient(90deg, #0c1420f5, #0c1420a3 70%, #0c14206b), url("/images/test-covers/gta6-waterfront.webp") 55% 55% / cover; }
+.heroInner { max-width: 1120px; margin-inline: auto; padding: clamp(44px, 9vw, 108px) clamp(18px, 5vw, 55px); color: #fff; }
+.heroInner h1 { max-width: 790px; margin: 0; color: #fff; font-size: clamp(34px, 6vw, 74px); font-weight: 820; line-height: 1.08; letter-spacing: -.055em; text-wrap: balance; }
+.heroInner p { max-width: 53ch; margin: 20px 0; color: #f5f4f7; font-size: clamp(16px, 2vw, 20px); line-height: 1.65; }
+.heroInner .tags { color: #ffd3cc; font-size: .86rem; font-weight: 700; }
+.start { display: inline-flex; padding: 13px 20px; border-radius: 4px; background: #ff938c; color: #25191c; font-weight: 750; text-decoration: none; }
+.anchors { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 17px; }
+.anchors a { color: white; font-size: .86rem; text-decoration: underline; text-underline-offset: 4px; }
+.anchors a[aria-current="page"] { color: #ffd3cc; }
+.content { max-width: 1120px; margin-inline: auto; padding: 0 clamp(16px, 5vw, 55px) 48px; }
+.content section { padding: clamp(26px, 5vw, 48px) 0; border-bottom: 1px solid #d6dce0; scroll-margin-top: 68px; }
+.content h2 { margin: 0 0 16px; font-size: clamp(24px, 4vw, 39px); line-height: 1.15; letter-spacing: -.035em; font-weight: 790; }
+.content h3 { margin: 0 0 3px; font-size: 1.05rem; font-weight: 740; }
+.content p { max-width: 80ch; margin: 8px 0; line-height: 1.72; }
+.examples, .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.examples > div { padding: 17px; border-inline-start: 3px solid #be4555; background: #fff; }
+.lenses { display: grid; gap: 8px; margin: 18px 0 0; padding-left: 20px; list-style: disc; }
+.guides { padding: 0; list-style: none; }
+.guides a { display: flex; align-items: flex-start; gap: 12px; height: 100%; padding: 12px; border: 1px solid #d6dce0; border-radius: 4px; color: #18212d; text-decoration: none; background: white; }
+.guides a:hover { border-color: #9d3853; }
+.guides img { width: min(25%, 90px); height: auto; aspect-ratio: 1; object-fit: cover; object-position: center top; border-radius: 3px; }
+.guides strong { color: #9c3247; font-size: .84rem; }
+.guides p { font-size: .9rem; }
+.content summary { padding: 12px 0; border-top: 1px solid #d6dce0; font-weight: 660; cursor: pointer; }
+.content details p { margin: 0 0 13px 14px; }
+.content section:last-child a { color: #174d79; text-decoration: underline; text-underline-offset: 3px; }
+.page a:focus-visible,.page summary:focus-visible { outline: 2px solid #dc6171; outline-offset: 4px; }
+@media (max-width: 660px) { .examples, .guides { grid-template-columns: 1fr; } }

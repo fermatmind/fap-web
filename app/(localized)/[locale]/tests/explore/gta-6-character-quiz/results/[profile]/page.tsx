@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Gta6Result } from "@/components/questionnaires/Gta6Result";
+import { Gta6Guide, gta6GuideMetadata } from "@/components/questionnaires/Gta6Guide";
 import { isSupportedLocale } from "@/lib/i18n/locales";
-import { gta6Cover, gta6Profile, gta6ResultPath } from "@/lib/questionnaires/gta6CharacterQuiz";
+import { gta6Profile } from "@/lib/questionnaires/gta6CharacterQuiz";
 
 type Props = { params: Promise<{ locale: string; profile: string }> };
 
@@ -13,20 +12,12 @@ async function resolvePage(params: Props["params"]) {
   return { locale, profile };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const { locale, profile } = await resolvePage(params);
-  const title = `${profile.name} · ${profile.title[locale]}`;
-  const url = gta6ResultPath(locale, profile.id);
-  return {
-    title,
-    description: profile.summary[locale],
-    robots: { index: false, follow: false },
-    alternates: { canonical: url },
-    openGraph: { title, description: profile.summary[locale], url, images: [gta6Cover] },
-  };
+  return gta6GuideMetadata(locale, profile);
 }
 
 export default async function Page({ params }: Props) {
   const { locale, profile } = await resolvePage(params);
-  return <Gta6Result locale={locale} profile={profile} />;
+  return <Gta6Guide locale={locale} profile={profile} />;
 }

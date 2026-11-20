@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
-import { gta6Name, gta6Slug, gta6TakePath, isGta6PreviewEnabled } from "@/lib/questionnaires/gta6CharacterQuiz";
+import { gta6Name, gta6Slug, gta6LandingPath, isGta6PreviewEnabled } from "@/lib/questionnaires/gta6CharacterQuiz";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import questionnaires from "@/lib/questionnaires/catalog.json";
 
@@ -21,7 +21,7 @@ type CardCopy = Record<DisplayLocale, string>;
 const descriptions: Record<(typeof rankedSlugs)[number] | typeof gta6Slug, CardCopy> = {
   [gta6Slug]: {
     zh: "你更像露西娅、杰森还是布莱恩？在八组罪恶都市角色中测出你的救场风格。",
-    "zh-TW": "",
+    "zh-TW": "你比較像露西婭、傑森，還是布萊恩？到罪惡城市找找你會怎麼救場。",
     en: "Are you more like Lucia, Jason, or Brian? Find your role among eight Vice City character matches.",
   },
   "seven-sins-virtues-test": {
@@ -93,11 +93,11 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
   const friendshipAction = taiwan ? "建立我的挑戰。" : zh ? "创建我的挑战。" : "Make my friendship quiz.";
   const gta6Card: Selection = {
     slug: gta6Slug,
-    path: gta6TakePath(sourceLocale),
+    path: gta6LandingPath(locale),
     title: gta6Name,
-    meta: { zh: "12题 · 约2分钟 · 双人组队", "zh-TW": "", en: "12 questions · ~2 min · 2-player co-op" },
+    meta: { zh: "12题 · 约2分钟 · 双人组队", "zh-TW": "12 題 · 約 2 分鐘 · 雙人組隊", en: "12 questions · ~2 min · 2-player co-op" },
   };
-  const cards = taiwan || !isGta6PreviewEnabled() ? selections : [
+  const cards = !isGta6PreviewEnabled() ? selections : [
     gta6Card,
     ...selections.filter(item => item.slug === "friendship-quiz"),
     ...selections.filter(item => item.slug !== "friendship-quiz" && item.slug !== "attachment-styles"),
@@ -120,7 +120,7 @@ export function HomepageFunTests({ locale }: { locale: DisplayLocale }) {
                 className="group block min-w-0 rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_6px_22px_rgba(15,23,42,0.09)] transition hover:shadow-[0_12px_28px_rgba(15,23,42,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#007c9b] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none"
               >
                 <h3 className="m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition [overflow-wrap:anywhere] group-hover:text-slate-950">
-                  {taiwan && item.slug !== gta6Slug ? taiwanTitles[item.slug] : item.title[sourceLocale]}
+                  {item.slug === gta6Slug ? gta6Name[locale] : taiwan ? taiwanTitles[item.slug] : item.title[sourceLocale]}
                 </h3>
                 <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
                   {descriptions[item.slug][locale]}{" "}

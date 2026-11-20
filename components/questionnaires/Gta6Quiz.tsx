@@ -8,19 +8,31 @@ import {
 } from "@/lib/questionnaires/gta6CharacterQuiz";
 import type { Gta6Profile } from "@/lib/questionnaires/gta6CharacterQuiz";
 import type { QuestionnaireAnswers } from "@/lib/questionnaires/types";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale } from "@/lib/i18n/locales";
 import { Gta6Result } from "./Gta6Result";
 import { QuestionnaireTakeOptions } from "./QuestionnaireTakeOptions";
 import styles from "./Gta6Quiz.module.css";
 
 const scenes = [
-  { zh: "17:00 · 落日暗涌", en: "5 PM · Sunset Heat" },
-  { zh: "20:00 · 霓虹失控", en: "8 PM · Neon & Chaos" },
-  { zh: "00:00 · 午夜收场", en: "Midnight · Last Call" },
+  {
+    "zh": "17:00 · 第一幕：落日暗涌",
+    "en": "5:00 PM · Act 1: Sunset Heat",
+    "zh-TW": "17:00 · 第一幕：落日暗湧"
+  },
+  {
+    "zh": "20:00 · 第二幕：霓虹失控",
+    "en": "8:00 PM · Act 2: Neon Chaos",
+    "zh-TW": "20:00 · 第二幕：霓虹失控"
+  },
+  {
+    "zh": "00:00 · 第三幕：午夜暗账",
+    "en": "Midnight · Act 3: Pack-Out",
+    "zh-TW": "00:00 · 第三幕：午夜收攤"
+  }
 ];
 
-export function Gta6Quiz({ locale }: { locale: Locale }) {
-  const zh = locale === "zh";
+export function Gta6Quiz({ locale }: { locale: DisplayLocale }) {
+  const zh = locale !== "en";
   const heading = useRef<HTMLHeadingElement>(null);
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
   const [position, setPosition] = useState(0);
@@ -65,7 +77,7 @@ export function Gta6Quiz({ locale }: { locale: Locale }) {
     } catch {
       if (enabled) {
         setSaving(false);
-        setNotice(zh ? "浏览器无法保存进度，当前作答仍可继续。" : "This browser couldn't save progress. You can keep answering.");
+        setNotice(zh ? (locale === "zh-TW" ? "這個瀏覽器存不了進度，你還是可以繼續答題。" : "浏览器无法保存进度，当前作答仍可继续。") : "This browser couldn't save progress. You can keep answering.");
       }
     }
   }
@@ -110,41 +122,29 @@ export function Gta6Quiz({ locale }: { locale: Locale }) {
   }
 
   return (
-    <main className={styles.screen} data-stage="answer">
+    <main className={styles.screen} data-stage="answer" data-act={act + 1}>
       <div className={styles.questionLayout}>
-        <aside className={styles.scene}>
-          <div className={styles.sceneCopy}>
-            <Link href={zh ? "/" : "/en"} prefetch={false} className={styles.brand}>FERMATMIND</Link>
-            <p className={styles.city}>VICE CITY</p>
-            <p className={styles.sceneName}>{zh ? "海岸地下派对" : "Waterfront Party"}</p>
-          </div>
-          <ol className={styles.acts} aria-label={zh ? "剧情进度" : "Story progress"}>
-            {scenes.map((scene, index) => (
-              <li key={scene.en} aria-current={index === act ? "step" : undefined} data-complete={index < act}>
-                <span>{String(index + 1).padStart(2, "0")}</span>{scene[locale]}
-              </li>
-            ))}
-          </ol>
-        </aside>
         <section className={styles.questionBody}>
           <div className={styles.topline}>
             <span>{gta6Name[locale]}</span>
-            <Link prefetch={false} href={gta6TakePath(zh ? "en" : "zh", invite?.id)} lang={zh ? "en" : "zh"}>{zh ? "English" : "简体中文"}</Link>
+            <div className={styles.languages}>
+              {(["en", "zh", "zh-TW"] as const).filter(lang => lang !== locale).map(lang => <Link key={lang} prefetch={false} href={gta6TakePath(lang, invite?.id)} lang={lang}>{({ en: "English", zh: "简体中文", "zh-TW": "繁體中文" })[lang]}</Link>)}
+            </div>
           </div>
+          <p className={styles.actLabel}>{scenes[act][locale]}</p>
           <div className={styles.progressLabel}>
-            <span>{scenes[act][locale]}</span>
-            <span>{zh ? `第 ${position + 1} / 12 题` : `Question ${position + 1} of 12`}</span>
+            <span>{zh ? (locale === "zh-TW" ? `第 ${position + 1} / 12 題` : `第 ${position + 1} / 12 题`) : `Question ${position + 1} of 12`}</span>
           </div>
-          <progress className={styles.progress} aria-label={zh ? "答题进度" : "Quiz progress"} max={gta6Questions.length} value={position + 1} />
+          <progress className={styles.progress} aria-label={zh ? (locale === "zh-TW" ? "答題進度" : "答题进度") : "Quiz progress"} max={gta6Questions.length} value={position + 1} />
           {invite && (
             <div className={styles.inviteBanner}>
-              <span>{zh ? `好友测出了 ${invite.name}，邀你组队救场。` : `Your friend got ${invite.name} and invited you to team up.`}</span>
-              <button type="button" onClick={leaveInvite}>{zh ? "退出组队" : "Leave invite"}</button>
+              <span>{zh ? (locale === "zh-TW" ? `你的朋友配對到 ${invite.name}，想揪你一起救場。` : `好友测出了 ${invite.name}，邀你组队救场。`) : `Your friend got ${invite.name} and invited you to team up.`}</span>
+              <button type="button" onClick={leaveInvite}>{zh ? (locale === "zh-TW" ? "改成自己玩" : "退出组队") : "Leave invite"}</button>
             </div>
           )}
           <div key={question.id} className={styles.prompt}>
             <h1 ref={heading} tabIndex={-1}>{question.prompt[locale]}</h1>
-            <p>{zh ? "选你当下的第一反应" : "Pick your first instinct"}</p>
+            <p>{zh ? (locale === "zh-TW" ? "選一個你現在最想做的動作" : "选你当下的第一反应") : "Pick your first instinct"}</p>
             <div className={styles.options}>
               <QuestionnaireTakeOptions
                 questionId={question.id}
@@ -161,7 +161,7 @@ export function Gta6Quiz({ locale }: { locale: Locale }) {
           </div>
           <div className={styles.actions}>
             <button type="button" className={styles.secondaryButton} disabled={position === 0} onClick={() => move(position - 1)}>
-              {zh ? "上一题" : "Back"}
+              {zh ? (locale === "zh-TW" ? "上一題" : "上一题") : "Back"}
             </button>
             <button
               type="button"
@@ -177,12 +177,12 @@ export function Gta6Quiz({ locale }: { locale: Locale }) {
                 }
               }}
             >
-              {position + 1 === gta6Questions.length ? (zh ? "查看我的角色" : "See my result") : (zh ? "下一题" : "Next question")} <span aria-hidden="true">→</span>
+              {position + 1 === gta6Questions.length ? (zh ? (locale === "zh-TW" ? "看我配對到誰" : "查看我的角色") : "See my result") : (zh ? (locale === "zh-TW" ? "下一題" : "下一题") : "Next question")} <span aria-hidden="true">→</span>
             </button>
           </div>
           <label className={styles.save}>
             <input type="checkbox" checked={saving} onChange={(event) => { setSaving(event.target.checked); save(answers, event.target.checked); }} />
-            {zh ? "在此标签页保存进度" : "Save progress in this tab"}
+            {zh ? (locale === "zh-TW" ? "在此分頁儲存進度" : "在此标签页保存进度") : "Save progress in this tab"}
           </label>
           {notice && <p role="status" className={styles.notice}>{notice}</p>}
         </section>
