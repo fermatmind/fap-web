@@ -72,7 +72,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
   const hero = landing.summaryBlocks[0];
   const contact = landing.discoverabilityItems.find((item) => item.key === "contact");
   const entries: HelpEntry[] = [
-    { key: "pricing", title: locale === "zh" ? "价格与报告内容" : "Pricing & report contents", summary: locale === "zh" ? "MBTI 单次深度报告的计划价格与交付范围；当前尚未开售。" : "Planned one-time MBTI report pricing and delivery scope; not on sale yet.", href: localizedPath("/pricing", locale), topic: "orders", kind: "article" },
+    { key: "pricing", title: locale === "zh" ? "价格与报告内容" : "Pricing & report contents", summary: locale === "zh" ? "单次测评完整报告的价格、免登录付款与交付范围。" : "One-time assessment report prices, guest payments and delivery scope.", href: localizedPath("/pricing", locale), topic: "orders", kind: "article" },
     { key: "refund_policy", title: locale === "zh" ? "退款与取消政策" : "Refund and cancellation policy", summary: "", href: localizedPath("/help/payment-refund", locale), topic: "orders", kind: "article" },
     { key: "result_lookup", title: copy.resultTitle, summary: copy.resultSummary, href: localizedPath("/results/lookup", locale), topic: "results", kind: "tool" },
     ...landing.ctaBundle.map((item): HelpEntry => ({ key: item.key, title: item.label, summary: "", href: item.href, topic: helpTopicFor(`${item.key} ${item.label}`), kind: "tool" })),

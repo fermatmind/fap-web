@@ -64,7 +64,7 @@ export default async function TraditionalSupportPage() {
   });
   const contact = cards.find(item => item.key === "contact");
   const entries: HelpEntry[] = [
-    { key: "pricing", ...displayLink("/zh/pricing", "價格與報告內容"), summary: "MBTI 單次深度報告的計畫價格與交付範圍，目前尚未開賣。", topic: "orders", kind: "article" },
+    { key: "pricing", ...displayLink("/zh/pricing", "價格與報告內容"), summary: "單次測評完整報告的價格、免登入付款與交付範圍。", topic: "orders", kind: "article" },
     { key: "refund_policy", ...displayLink("/zh/help/payment-refund", "退款與取消政策"), summary: "", topic: "orders", kind: "article" },
     { key: "result_lookup", href: "/zh-TW/results/lookup", title: "找回已儲存的結果", summary: "使用儲存結果時填寫的電子郵件地址查詢。", topic: "results", kind: "tool" },
     ...tools.map((tool): HelpEntry => ({
