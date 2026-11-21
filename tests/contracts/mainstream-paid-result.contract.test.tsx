@@ -40,4 +40,15 @@ describe("mainstream per-attempt full report purchase", () => {
     expect(screen.getByText("Checkout en")).toBeVisible();
   });
 
+  it.each(["zh", "zh-TW", "en"] as const)("uses actual EQ overview scores without disabling checkout in %s", locale => {
+    const dimensions = Object.fromEntries(["zh-CN", "zh-TW", "en"].map(language => [language, ["SA", "ER", "EM", "RM"].map((code,i) => ({code,name:code,score:111-i*5,band_label:"competent"}))]));
+    const data = {ok:true,meta:{scale_code:"EQ_60"},eq60_unlock_v1:{schema:"eq60.unlock.v1",low_confidence:false,dimensions}};
+    render(<MainstreamPaidResult data={data} purchase={purchase} locale={locale}/>);
+    expect(screen.getByText(`Checkout ${locale}`)).toBeVisible();
+    expect(screen.getByRole("heading", {level:1})).toHaveTextContent(locale === "en" ? "Self-awareness" : locale === "zh-TW" ? "自我覺察" : "自我觉察");
+    expect(screen.getAllByText(/111/).length).toBeGreaterThan(0);
+    expect(document.querySelector('a[href*="/dev/"]')).toBeNull();
+    expect(screen.queryByText("Private full report")).not.toBeInTheDocument();
+  });
+
 });

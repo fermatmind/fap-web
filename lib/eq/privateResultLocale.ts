@@ -1,3 +1,5 @@
+import { eqResultPageSchema } from "./resultPage";
+
 import type { Locale } from "@/lib/i18n/locales";
 
 const CJK_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
@@ -30,6 +32,17 @@ export function isEqPrivateResultLocaleCompatible(reportData: unknown, locale: L
     if (typeof contentLocale === "string" && ["zh", "zh-cn", "zh_cn"].includes(contentLocale.trim().toLowerCase())) return false;
 
     return Object.entries(record).every(([key, child]) => {
+      // This response-only DTO carries three explicit locale slots. Validate the
+      // schema first, then enforce the same English boundary on every rendered field.
+      if (path.length === 0 && key === "eq60_result_page_v1") {
+        const parsed = eqResultPageSchema.safeParse(child);
+        if (!parsed.success) return false;
+        const page = parsed.data;
+        return compatible({ copy: page.copy.en, quality: page.quality?.en,
+          labels: Object.values(page.result_labels).map(label => label.en),
+          bands: page.dimension_bands.map(band => band.labels.en),
+          sources: page.sources.map(source => ({title: source.title, scope: source.scope.en})) });
+      }
       // Eq60ReportComposer::publicPersonalizationRoute retains a bilingual
       // routing record here. UI copy comes exclusively from the separately
       // localized assets.personalization_route, which is still checked below.

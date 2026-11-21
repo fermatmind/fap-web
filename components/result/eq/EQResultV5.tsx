@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { EQResultPage, parseEqResultPage } from "./EQResultPage";
 import { EqDisplayContext, useEqDisplay } from "./display";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -22,7 +23,7 @@ import { EQResultHero } from "./EQResultHero";
 import { EQSaveShareRelated } from "./EQSaveShareRelated";
 import { EQScientificBoundary } from "./EQScientificBoundary";
 import type { EqAgentContextAccess, EqAgentContextLoader, EqAgentRuntimeMessageLoader } from "./types";
-import { isEqV5AccessRestricted, isLowConfidenceEqResult, normalizeEqV5Report } from "./utils";
+import { isEqV5AccessRestricted, isLowConfidenceEqResult, normalizeEqV5Report, resolveEqV5Authority } from "./utils";
 
 type EqResultProps = {
   locale: Locale;
@@ -49,6 +50,11 @@ export function EQResultV5(props: EqResultProps) {
     );
     return () => { active = false; };
   }, [displayLocale]);
+
+  const resultPage = parseEqResultPage((props.reportData as unknown as Record<string, unknown>).eq60_result_page_v1);
+  if (!isEqV5AccessRestricted(props.reportData) && isEqPrivateResultLocaleCompatible(props.reportData, props.locale) && resolveEqV5Authority(props.reportData, props.locale) && resultPage) {
+    return <div data-testid="eq-result-v5"><EQResultPage page={resultPage} locale={displayLocale}/></div>;
+  }
 
   if (displayLocale === "zh-TW" && unavailable) return <p role="status">繁體報告暫時無法載入，請稍後再試。</p>;
   if (displayLocale === "zh-TW" && !translate) return <p role="status">正在載入繁體報告…</p>;

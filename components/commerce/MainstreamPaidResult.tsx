@@ -10,9 +10,10 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import { Career94Checkout } from "@/app/(localized)/[locale]/career/assessment/Career94Purchase";
 import { ReasoningUnlockPreview, type ReasoningPreview } from "./ReasoningUnlockPreview";
 import { DiscUnlockPreview, type DiscDesignPreview } from "./DiscUnlockPreview";
-import { TraitProfileUnlockPreview, type TraitProfilePreview } from "./TraitProfileUnlockPreview";
+import { TraitProfileUnlockPreview, buildEqProfile, type TraitProfilePreview } from "./TraitProfileUnlockPreview";
 import { ResultPreviewChapters } from "./ResultPreviewChapters";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
+import { eqUnlockSchema } from "@/lib/eq/resultPage";
 import { CareerRefundPanel } from "./CareerRefundPanel";
 
 const names: Record<string, [string, string, string]> = {
@@ -119,6 +120,12 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
   const record = data as unknown as Record<string, unknown>;
   const scale = String(data.meta?.scale_code ?? record.scale_code ?? "");
+  const eqUnlock = scale === "EQ_60" ? eqUnlockSchema.safeParse(record.eq60_unlock_v1) : null;
+  const liveEq = !preview && eqUnlock?.success ? eqUnlock.data : null;
+  if (liveEq && !liveEq.low_confidence) {
+    const rows = liveEq.dimensions[locale === "zh" ? "zh-CN" : locale];
+    traitProfile = buildEqProfile(rows.map(row => ({code: row.code, standard_score: row.score})), locale);
+  }
   const name = names[scale] ?? [scale, scale, scale];
   const paid = purchase.unlocked && !refunded;
   const existing = purchase.order_no && purchase.payment_state !== "canceled";
@@ -139,7 +146,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   });
   const discLabels:Record<string,[string,string,string]>={D:["主导","主導","Dominance"],I:["影响","影響","Influence"],S:["稳健","穩健","Steadiness"],C:["审慎","審慎","Conscientiousness"]};
   const label = (key:string) => scale === "DISC_BEHAVIOR" && discLabels[key] ? t(...discLabels[key]) : labels[key] ? t(...labels[key]) : /^T[1-9]$/.test(key) ? t(`候选类型 ${key.slice(1)}`,`候選型別 ${key.slice(1)}`,`Candidate type ${key.slice(1)}`) : key;
-  const previewProfile = preview && Boolean(previewArtwork || discPreview || traitProfile || scale === "BIG5_OCEAN");
+  const previewProfile = Boolean(liveEq && traitProfile) || preview && Boolean(previewArtwork || discPreview || traitProfile || scale === "BIG5_OCEAN");
   const scoreEntries = Object.entries(scores).filter(([, value]) => typeof value === "number" && Number.isFinite(value));
   const profileHeading = previewProfile ? profileHeadings[scale] : undefined;
   const axes = scoreEntries.filter(([key]) => key !== "TOTAL").map(([key, value]) => ({
@@ -165,7 +172,8 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
     {purchase.order_no && <CareerRefundPanel orderNo={purchase.order_no} locale={locale} onRefunded={() => setRefunded(true)} />}
     {paid ? children : <>
       <div className={styles.shell}>
-      {reasoning ? <ReasoningUnlockPreview result={reasoning} locale={locale} /> : disc ? <DiscUnlockPreview result={disc} locale={locale} /> : preview && traitProfile ? <TraitProfileUnlockPreview profile={traitProfile} locale={locale} /> : <>
+
+      {liveEq?.low_confidence ? <aside role="status" className={styles.section}><h1>{t("本次暂不分类", "本次暫不分類", "No classification this time")}</h1><p>{t("这次作答的信息不足以支持稳定解读。建议在注意力充足时重新作答。", "這次作答的資訊不足以支援穩定解讀。建議在注意力充足時重新作答。", "These responses do not support a stable interpretation. Consider retaking when you have enough time and attention.")}</p></aside> : reasoning ? <ReasoningUnlockPreview result={reasoning} locale={locale} /> : disc ? <DiscUnlockPreview result={disc} locale={locale} /> : (preview || liveEq) && traitProfile ? <TraitProfileUnlockPreview profile={traitProfile} locale={locale} /> : <>
       <header className={comparisonPreview ? `${styles.hero} ${styles.traitResultHero}` : styles.hero}>
         {!bigFivePreview && <p className={styles.eyebrow}>{t(...name)}{comparisonPreview && t(" · 测评结果", " · 測驗結果", " · Assessment result")}</p>}
         {!previewProfile && <p className={styles.sectionLabel}>{t("你的测评结果", "你的測評結果", "YOUR ASSESSMENT RESULT")}</p>}

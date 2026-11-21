@@ -7,7 +7,10 @@ import {
   Orbit, Sparkles, Target, Waves, Zap,
 } from "lucide-react";
 import type { EqRedesignCandidate, EqRedesignCopy, EqPreviewQuality } from "@/lib/eq/redesignPreview";
+import type { EqResultPresentation } from "@/lib/eq/resultPage";
 import styles from "./EQResultRedesign.module.css";
+
+const scorePosition = (score: number) => Math.max(0, Math.min(1, (score - 55) / 90));
 
 const sectionIds = ["traits", "careers", "work", "pressure", "money", "relationships", "people", "plan", "insights", "science"];
 const sectionIcons = [Brain, BriefcaseBusiness, Orbit, Zap, Coins, Heart, MessageCircle, Target, Lightbulb, BookOpen];
@@ -22,7 +25,7 @@ function Radar({ copy }: { copy: EqRedesignCopy }) {
     return [cx + Math.cos(angle) * radius * value, cy + Math.sin(angle) * radius * value];
   };
   const polygon = (value: number) => [0, 1, 2, 3].map(i => point(i, value).join(",")).join(" ");
-  const positions = copy.dimensions.map((d, i) => point(i, (d.score - 55) / 90));
+  const positions = copy.dimensions.map((d, i) => point(i, scorePosition(d.score)));
   return <svg className={styles.radar} viewBox="0 0 400 350" role="img" aria-label={copy.dimensions.map(d => `${d.name}: ${d.score} ${copy.labels.standard}`).join("; ")}>
     <defs><linearGradient id="eq-radar-fill" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#f472d0" stopOpacity=".42"/><stop offset="1" stopColor="#9b7cff" stopOpacity=".15"/></linearGradient></defs>
     {[.2,.4,.6,.8,1].map(v => <polygon key={v} points={polygon(v)} fill="none" stroke="#c9d1c7" strokeOpacity=".8" />)}
@@ -38,7 +41,7 @@ function Radar({ copy }: { copy: EqRedesignCopy }) {
 
 function MiniBars({ copy }: { copy: EqRedesignCopy }) {
   return <div className={styles.miniBars} role="img" aria-label={copy.dimensions.map(d => `${d.name}: ${d.score}`).join("; ")}>
-    {copy.dimensions.map(d => <div key={d.code} className={styles.miniBar}><span className={styles.miniTrack}><span style={{ height: `${(d.score - 55) / 90 * 100}%`, background: d.color }}/></span><span>{d.name}</span><strong style={{color:d.color}}>{d.score}</strong></div>)}
+    {copy.dimensions.map(d => <div key={d.code} className={styles.miniBar}><span className={styles.miniTrack}><span style={{ height: `${scorePosition(d.score) * 100}%`, background: d.color }}/></span><span>{d.name}</span><strong style={{color:d.color}}>{d.score}</strong></div>)}
   </div>;
 }
 
@@ -54,16 +57,17 @@ function TextCard({ item, icon }: { item: {title:string;body:string}; icon?: Rea
   return <article className={styles.textCard}><h3>{icon}{item.title}</h3><p>{item.body}</p></article>;
 }
 
-export function EQResultRedesign({ candidate, locale, quality }: { candidate: EqRedesignCandidate; locale: "zh-CN" | "en" | "zh-TW"; quality?: EqPreviewQuality }) {
+export function EQResultRedesign({ candidate, locale, quality, preview = true, sample = false }: { candidate: EqRedesignCandidate | EqResultPresentation; locale: "zh-CN" | "en" | "zh-TW"; quality?: EqPreviewQuality; preview?: boolean; sample?: boolean }) {
+  const resultId = "result_id" in candidate ? candidate.result_id : candidate.sample.formulation_id;
   const c = candidate.copy[locale], l = c.labels;
-  const resultLabel = candidate.result_labels[candidate.sample.formulation_id][locale];
+  const resultLabel = candidate.result_labels[resultId][locale];
   const dimensionBandLabel = (code: string) => candidate.dimension_bands.find(band => band.code === code)!.labels[locale];
   const routeLocale = locale === "zh-CN" ? "zh" : locale;
   const [checked, setChecked] = useState<number[]>([]);
   return <div className={styles.root} data-eq-redesign="true">
     <main className={styles.report}>
-      <div className={styles.sample}><span className={styles.statusDot}/>{c.sample_notice}<span>{l.local_preview}</span></div>
-      <form className={styles.previewControls} method="get"><label htmlFor="eq-preview-result">{l.preview_result}</label><select id="eq-preview-result" name="result" defaultValue={candidate.sample.formulation_id}>{Object.entries(candidate.result_labels).map(([id, item]) => <option value={id} key={id}>{item[locale].title}</option>)}</select><button type="submit">{l.view}</button>{!quality && <a href={`/${routeLocale}/dev/mainstream-unlock?form=eq60&result=${candidate.sample.formulation_id}`}>{l.preview_unlock}</a>}<span className={styles.previewLanguages}>{[["zh","简体中文"],["zh-TW","繁體中文"],["en","English"]].map(([lang,name])=><a key={lang} href={`/${lang}/dev/eq-result?result=${candidate.sample.formulation_id}`} hrefLang={lang} aria-current={lang===routeLocale?"page":undefined}>{name}</a>)}</span></form>
+      {(preview || sample) && <div className={styles.sample}><span className={styles.statusDot}/>{c.sample_notice}{preview && <span>{l.local_preview}</span>}</div>}
+      {preview && <form className={styles.previewControls} method="get"><label htmlFor="eq-preview-result">{l.preview_result}</label><select id="eq-preview-result" name="result" defaultValue={resultId}>{Object.entries(candidate.result_labels).map(([id, item]) => <option value={id} key={id}>{item[locale].title}</option>)}</select><button type="submit">{l.view}</button>{!quality && <a href={`/${routeLocale}/dev/mainstream-unlock?form=eq60&result=${resultId}`}>{l.preview_unlock}</a>}<span className={styles.previewLanguages}>{[["zh","简体中文"],["zh-TW","繁體中文"],["en","English"]].map(([lang,name])=><a key={lang} href={`/${lang}/dev/eq-result?result=${resultId}`} hrefLang={lang} aria-current={lang===routeLocale?"page":undefined}>{name}</a>)}</span></form>}
       {quality ? <>
         <section className={styles.hero} id="overview"><h1><span className={styles.heroAccent}>{resultLabel.title}</span></h1><div className={styles.summary}><span className={styles.summaryIcon}><Sparkles size={20}/></span><div><h2>{quality.summary_title}</h2><p>{quality.summary}</p></div></div></section>
         <section className={styles.qualityPanel}><h2>{quality.reasons_title}</h2><ul>{quality.reasons.map(reason=><li key={reason}>{reason}</li>)}</ul>{quality.steps.map(item=><TextCard key={item.title} item={item}/>)}</section>
@@ -79,7 +83,7 @@ export function EQResultRedesign({ candidate, locale, quality }: { candidate: Eq
       <div className={styles.modules}>
         <Module index={0} copy={c}>{c.dimensions.map(d=><article id={`trait-${d.code}`} className={styles.traitCard} key={d.code} style={colorStyle(d.color)}>
           <div className={styles.traitHeading}><span className={styles.traitIcon}>{d.code}</span><div><h3>{d.name}</h3><small>{d.en_name}</small></div><span className={styles.band}>{dimensionBandLabel(d.band_code)}</span><strong>{d.score}<small>{l.standard}</small></strong></div>
-          <div className={styles.scoreTrack} role="img" aria-label={`${d.name} ${d.score} ${l.standard}`}><span style={{width:`${(d.score-55)/90*100}%`}}/><i style={{left:`${(d.score-55)/90*100}%`}}/></div>
+          <div className={styles.scoreTrack} role="img" aria-label={`${d.name} ${d.score} ${l.standard}`}><span style={{width:`${scorePosition(d.score)*100}%`}}/><i style={{left:`${scorePosition(d.score)*100}%`}}/></div>
           <h4>{d.lead}</h4>{d.paragraphs.map(p=><p key={p}>{p}</p>)}
           <div className={styles.traitColumns}><div><h5><Check size={14}/>{l.strengths}</h5><ul>{d.strengths.map(s=><li key={s}><Check size={13}/>{s}</li>)}</ul></div><div><h5><ArrowUpRight size={14}/>{l.growth}</h5><ul>{d.growth.map(s=><li key={s}><ArrowUpRight size={13}/>{s}</li>)}</ul></div></div>
           <div className={styles.script}><MessageCircle size={15}/><div><span>{l.try}</span><p>{d.script}</p></div></div>

@@ -32,7 +32,7 @@ const copy = z.object({
 
 export const eqRedesignPreviewSchema = z.object({
   schema: z.literal("eq60.result_redesign_preview.v1"),
-  status: z.literal("local_editorial_candidate"),
+  status: z.enum(["local_editorial_candidate", "runtime_editorial_view"]),
   locales: z.tuple([z.literal("zh-CN"), z.literal("en"), z.literal("zh-TW")]),
   result_labels: z.record(formulation, z.object({ kind: z.enum(["self_report_pattern", "quality_state"]), "zh-CN": label, en: label, "zh-TW": label })),
   dimension_bands: z.array(z.object({ code: bandCode, min: z.number(), max_exclusive: z.number(), labels: localizedText })).length(5),
@@ -85,7 +85,7 @@ const dimensionEditorial = copy.shape.dimensions.element.pick({ lead: true, para
 const qualityCopy = z.object({ summary_title: text, summary: text, reasons_title: text, reasons: z.array(text).length(3), steps: z.array(card).length(3) });
 
 export const eqRedesignLibrarySchema = z.object({
-  schema: z.literal("eq60.result_redesign_library.v2"), status: z.literal("local_editorial_candidate"),
+  schema: z.literal("eq60.result_redesign_library.v2"), status: z.enum(["local_editorial_candidate", "runtime_editorial_view"]),
   locales: z.tuple([z.literal("zh-CN"), z.literal("en"), z.literal("zh-TW")]), default_result: formulation,
   reference_version: z.literal("bootstrap_v1"),
   result_labels: eqRedesignPreviewSchema.shape.result_labels,
