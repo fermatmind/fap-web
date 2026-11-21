@@ -1,3 +1,4 @@
+import { pages } from "@/lib/friendship/publicCopy";
 import { friendshipCopy, friendshipSourceLocale } from "@/lib/friendship/traditional";
 import { FriendshipEvidenceReading } from "@/components/friendship/FriendshipEvidenceReading";
 import { DiscoveryCardArt } from "@/components/tests/DiscoveryCardArt";
@@ -8,7 +9,6 @@ import { StartTestButton } from "@/components/tests/StartTestButton";
 import RikaidoComparison from "@/components/friendship/RikaidoComparison";
 import {
   FriendshipNav,
-  pages,
   resourceMetadata,
 } from "@/components/friendship/PublicContent";
 import "@/components/friendship/friendship.css";

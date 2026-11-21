@@ -1,4 +1,5 @@
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
+import { pages, type PageKind } from "@/lib/friendship/publicCopy";
 import { friendshipCopy, friendshipSourceLocale, type FriendshipDisplayLocale } from "@/lib/friendship/traditional";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -10,14 +11,23 @@ import { QuestionActivity } from "./QuestionActivity";
 import { FriendshipScoreExample } from "./FriendshipScoreExample";
 import { CreatorToolkit } from "./CreatorToolkit";
 import "./friendship.css";
-export const pages = {
-  home: { en: ["Friendship Quiz: How Well Do You Know Me?", "Create a free friendship quiz with 30–150 questions. Let your best friends guess how well they know you, compare scores and share the friendboard. No signup."], zh: ["友谊挑战：朋友默契测试，你有多了解我？", "你有多了解我？免费创建 30 至 150 题的朋友默契测试。发一条邀请让好友猜你的选择，逐题揭晓，答完看分数和榜单。无需注册。"] },
-  questions: { en: ["24 Best Friend Quiz Questions + Printable Game", "Try six this-or-that questions for a quick offline round or use all 24. Get a free printable friendship quiz with a private answer key and guess sheet."], zh: ["朋友默契测试题目：24道二选一与可打印活动单", "24道原创朋友二选一，提供A4与Letter四页PDF：主持说明、题单、保密答案卡和好友猜测卡，附计分例子，也可在线出题。"] },
-  "how-to-play": { en: ["How to Make, Share and Manage a Friendship Quiz", "Learn how to create a friendship quiz, share the invite, or join a friend’s quiz. Keep your private management key separate from the link you share."], zh: ["朋友默契怎么玩：出题、邀请、找回与管理", "了解如何出题、发邀请或参加好友的挑战，以及怎样分别保存好友链接和私人管理密钥。"] },
-  scores: { en: ["Friendship Quiz Scores: Matches, Categories and Ties", "See a sample score for a 30-question friendship quiz. Learn how matches, incomplete rounds, the category radar and tied ranks work."], zh: ["朋友默契分数怎么看：猜中率、类别与并列榜单", "看 30 题的虚构分数示例，了解每题怎么算、缺答能否提交、六类雷达和榜单同分并列。"] },
-} as const;
-export type PageKind = keyof typeof pages;
-export function resourceMetadata(locale: FriendshipDisplayLocale, kind: PageKind): Metadata { const suffix = kind === "home" ? "" : `/${kind}`; const [title, description] = pages[kind][friendshipSourceLocale(locale)]; if (locale === "zh-TW") { const copy = friendshipCopy(locale); const path = `/${locale}${PUBLIC_PATH}${suffix}`; return traditionalSearchMetadata(path, { title: copy(title), description: copy(description), alternates: { canonical: path }, robots: { index: false, follow: true } }); } return buildPageMetadata({ locale, pathname: `/${locale}${PUBLIC_PATH}${suffix}`, title, description, alternatesByLocale: { en: `/en${PUBLIC_PATH}${suffix}`, zh: `/zh${PUBLIC_PATH}${suffix}`, xDefault: `/en${PUBLIC_PATH}${suffix}` } }); }
+const friendshipCover = "/images/test-covers/friendship-quiz.webp";
+export function resourceMetadata(locale: FriendshipDisplayLocale, kind: PageKind): Metadata {
+  const suffix = kind === "home" ? "" : `/${kind}`;
+  const [title, description] = pages[kind][friendshipSourceLocale(locale)];
+  const path = `/${locale}${PUBLIC_PATH}${suffix}`;
+  if (locale === "zh-TW") {
+    const copy = friendshipCopy(locale);
+    return traditionalSearchMetadata(path, {
+      title: copy(title), description: copy(description), alternates: { canonical: path },
+      robots: { index: false, follow: true },
+      openGraph: { title: copy(title), description: copy(description), locale: "zh_TW", url: path, images: [friendshipCover] },
+      twitter: { card: "summary_large_image", title: copy(title), description: copy(description), images: [friendshipCover] },
+    });
+  }
+  return buildPageMetadata({ locale, pathname: path, title, description, imagePath: friendshipCover,
+    alternatesByLocale: { en: `/en${PUBLIC_PATH}${suffix}`, zh: `/zh${PUBLIC_PATH}${suffix}`, xDefault: `/en${PUBLIC_PATH}${suffix}` } });
+}
 export function FriendshipNav({ locale }: { locale: FriendshipDisplayLocale }) {
   const copy = friendshipCopy(locale);
  return <nav className="fq-subnav" aria-label={locale !== "en" ? copy("朋友默契导航") : "Friendship quiz navigation"}>{Object.keys(pages).map((kind) => <Link key={kind} prefetch={false} href={`/${locale}${PUBLIC_PATH}${kind === "home" ? "" : `/${kind}`}`}>{kind === "home" ? (locale !== "en" ? copy("在线出题") : "Make a quiz") : kind === "questions" ? (locale !== "en" ? copy("问题与打印") : "Questions & printable") : kind === "scores" ? (locale !== "en" ? copy("分数解释") : "Read your score") : (locale !== "en" ? copy("玩法与管理") : "How to play")}</Link>)}<Link href={`/${locale}/tests#more-tests`}>{locale !== "en" ? copy("更多测试") : "More tests"}</Link></nav>; }

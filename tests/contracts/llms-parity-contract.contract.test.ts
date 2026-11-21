@@ -442,9 +442,14 @@ describe("llms parity governance", () => {
     const paths = entries.map((entry) => entry.path);
     const gta6Paths = ["en", "zh", "zh-TW"].flatMap((locale) => gta6IndexablePaths.map((path) => `/${locale}${path}`));
     expect(gta6Paths).toHaveLength(27);
-    expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length);
+    const taiwanB1Paths = paths.filter((path) => path.startsWith("/zh-TW/") && !gta6Paths.includes(path));
+    expect(taiwanB1Paths).toHaveLength(147);
+    expect(taiwanB1Paths).toContain("/zh-TW/tests/explore/cyberpunk-edgerunners/results/lucy");
+    expect(taiwanB1Paths).toContain("/zh-TW/tests/play/friendship-quiz/scores");
+    expect(taiwanB1Paths).not.toContain("/zh-TW/tests/play/weekend-pace");
+    expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length + taiwanB1Paths.length);
     expect(paths.filter((path) => path.includes("/gta-6-character-quiz"))).toEqual(gta6Paths);
-    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length + 3);
+    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length + 3 + 19);
     expect(entries.every((entry) => !/\?|#|\/(?:take|result|share|api|pay|payment)(?:\/|$)/.test(entry.path))).toBe(true);
     expect(entries.every((entry) => Object.keys(entry).sort().join(",") === "locale,path,summary,title,type,updatedAt")).toBe(true);
     const [short, full, degraded] = await Promise.all([

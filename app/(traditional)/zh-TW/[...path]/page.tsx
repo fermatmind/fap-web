@@ -16,7 +16,8 @@ import { traditionalLikertRoute } from "@/lib/i18n/traditionalLikertPaths";
 import { traditionalPracticeRoute } from "@/lib/i18n/traditionalPracticePaths";
 import { traditionalArchetypeRoute } from "@/lib/i18n/traditionalArchetypePaths";
 import { relationshipQuestionnaireRoute } from "@/lib/i18n/relationshipQuestionnairePaths";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, canonicalUrl } from "@/lib/site";
+import { PublicGuideShare } from "@/components/questionnaires/PublicGuideShare";
 import { ChiikawaReading } from "@/components/i18n/zh-TW/ChiikawaReading";
 import { ChiikawaTake } from "@/components/i18n/zh-TW/ChiikawaTake";
 import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotTests";
@@ -131,7 +132,7 @@ export default async function TraditionalPage(props: Props) {
   const { traditionalQuiz: quiz, traditionalUi: ui } = await import("@/lib/i18n/zh-TW/chiikawa");
   if (path.endsWith("/take")) return <ChiikawaTake />;
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
-  if (profile) return <Container as="main" className="space-y-6 py-10"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></Container>;
+  if (profile) return <Container as="main" className="space-y-6 py-10"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><PublicGuideShare url={canonicalUrl(path)} locale="zh-TW" /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></Container>;
   if (path !== entry) return <Container as="main" className="py-10"><TraditionalPilotTests /></Container>;
   return landing(<main className="bg-slate-50 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl space-y-8">
     <Languages path={path} />
