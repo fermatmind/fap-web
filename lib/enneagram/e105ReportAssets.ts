@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const text = z.string().trim().min(1);
-const source = z.url().refine((value) => new URL(value).protocol === "https:");
+const source = z.url({ protocol: /^https$/u });
 const candidate = z.object({
   type_id: z.string().regex(/^[1-9]$/u),
   careers: z.array(z.object({

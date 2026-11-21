@@ -134,6 +134,9 @@ describe("Enneagram production seven-chapter shell", () => {
       science_sources: ["https://pubmed.ncbi.nlm.nih.gov/33332604/"],
       ai_prompt: "Ask about one experience.",
     };
+    const broken = structuredClone(reportData);
+    broken.enneagram_report_v2!.e105_report_assets = { ...raw.e105_report_assets as object, science_sources: ["invalid-url"] };
+    expect(assembleEnneagramResultViewModel({ reportData: broken, locale: "en", gate: { isFreeVariant: false } }).reportV2?.e105ReportAssets).toBeNull();
     const model = assembleEnneagramResultViewModel({ reportData, locale: "en", gate: { isFreeVariant: false } });
     const writeText = vi.fn().mockResolvedValue(undefined);
     vi.stubGlobal("navigator", { ...navigator, clipboard: { writeText } });
