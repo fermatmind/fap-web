@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import styles from "./ai-conversation.module.css";
 
 const careerPrompt = `我在费马测试中的结果是 ISFJ-A。请把它当作自我探索的线索，不要据此判定我适合某个职业。
 我想讨论的岗位或工作困扰是：[填写]。
@@ -12,28 +13,36 @@ const careerPrompt = `我在费马测试中的结果是 ISFJ-A。请把它当作
 export function ResultEvidenceAndPrompts() {
   const [status, setStatus] = useState("");
   const [copying, setCopying] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   async function copy() {
     setCopying(true);
     try {
       await navigator.clipboard.writeText(careerPrompt);
       setStatus("已复制。粘贴到你使用的 AI 中，补全方括号里的经历即可。");
     } catch {
+      setExpanded(true);
       setStatus("未能自动复制，请选中下方提示词后手动复制。");
     } finally {
       setCopying(false);
     }
   }
-  return <section aria-labelledby="mbti-ai-title" data-testid="mbti-evidence-and-prompts" className="overflow-hidden rounded-xl border border-[#d6e6dc] border-t-4 border-t-[#31a879] bg-[#e9f5ef] p-5 md:p-8">
-    <h2 id="mbti-ai-title" className="mb-7 text-2xl font-semibold text-[#203d31] md:text-3xl">复制提示词，和 AI 聊聊</h2>
-    <div className="grid items-center gap-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-8">
-      <Image src="/images/mbti/ai-conversation/isfj.webp" alt="" width={768} height={512} unoptimized className="mx-auto h-auto w-full max-w-md" />
-      <div className="min-w-0">
-        <h3 className="mb-3 text-lg font-semibold text-[#203d31]">职业探索：分清喜欢、擅长与值得投入</h3>
-        <p className="mb-4 text-sm leading-7 text-[#56645c]">复制下方提示词，粘贴到你常用的 AI 中，再补全自己的经历，开始一次职业探索对话。</p>
-        <textarea aria-label="职业探索提示词" readOnly value={careerPrompt} rows={10} className="block w-full resize-y rounded-xl border border-[#cbded2] bg-white/80 p-4 text-sm leading-7 text-[#3e5148] focus:outline-emerald-700" />
-        <button type="button" disabled={copying} onClick={copy} className="mt-5 min-h-11 rounded-full bg-[#247858] px-6 py-3 text-sm font-semibold text-white disabled:opacity-60">{copying ? "正在复制…" : "复制 AI 对话提示词"}</button>
-        <p role="status" className="mb-0 mt-3 text-sm leading-6 text-[#466253]">{status}</p>
+  return <section aria-labelledby="mbti-ai-title" data-testid="mbti-evidence-and-prompts" className={styles.section}>
+    <div className={styles.layout}>
+      <div className={styles.art}>
+        <Image src="/images/mbti/ai-conversation/isfj.webp" alt="" width={768} height={512} unoptimized className={styles.image} />
+      </div>
+      <div className={styles.body}>
+        <h2 id="mbti-ai-title" className={styles.title}>和 AI 聊聊<br />你的下一步</h2>
+        <p className={styles.description}>哪些工作让你投入，哪些让你疲惫？<br />带着这份结果，聊一聊自己的真实经历。</p>
+        <button type="button" disabled={copying} onClick={copy} className={styles.button}>{copying ? "正在复制…" : "复制 AI 对话提示词"}<span aria-hidden="true">↗</span></button>
+        <p className={styles.hint}>复制后，粘贴到你常用的 AI 中开始对话。</p>
+        <button type="button" aria-expanded={expanded} aria-controls="mbti-ai-prompt" onClick={() => setExpanded(!expanded)} className={styles.toggle}>{expanded ? "收起提示词 −" : "查看提示词 +"}</button>
+        <p role="status" className={styles.status}>{status}</p>
       </div>
     </div>
+    {expanded ? <div id="mbti-ai-prompt" className={styles.prompt}>
+      <label htmlFor="mbti-ai-prompt-text">职业探索提示词</label>
+      <textarea id="mbti-ai-prompt-text" aria-label="职业探索提示词" readOnly value={careerPrompt} rows={7} />
+    </div> : null}
   </section>;
 }

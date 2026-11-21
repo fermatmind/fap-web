@@ -1,0 +1,26 @@
+.section { background: #fff; border-radius: 12px; padding: 40px 36px 24px; color: #203d31; }
+.layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.art { overflow: hidden; }
+.image { display: block; width: 145%; max-width: none; height: auto; margin-left: -22.5%; }
+.body { padding: 12px 0 0; }
+.title { margin: 0 0 20px; font-size: 34px; line-height: 1.3; font-weight: 650; letter-spacing: -.035em; }
+.description { margin: 0 0 24px; font-size: 15px; line-height: 1.9; color: #66716b; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 48px; padding: 12px 22px; border: 0; border-radius: 999px; background: #247858; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .15s, transform .15s; }
+.button:hover { background: #195d43; transform: translateY(-1px); }
+.button:disabled { opacity: .6; cursor: wait; }
+.hint { margin: 12px 0 20px; font-size: 12px; line-height: 1.7; color: #7b857f; }
+.toggle { padding: 5px 0; border: 0; background: transparent; color: #456354; font-size: 13px; cursor: pointer; }
+.toggle:hover { color: #195d43; text-decoration: underline; text-underline-offset: 4px; }
+.button:focus-visible, .toggle:focus-visible { outline: 2px solid #247858; outline-offset: 4px; }
+.status { min-height: 24px; margin: 8px 0 0; font-size: 12px; line-height: 1.7; color: #466253; }
+.prompt { margin-top: 24px; padding-top: 24px; border-top: 1px solid #e1e8e3; }
+.prompt label { display: block; margin-bottom: 12px; font-size: 14px; font-weight: 600; }
+.prompt textarea { display: block; width: 100%; resize: vertical; padding: 16px; border: 1px solid #dce5e0; border-radius: 8px; background: #f7faf8; color: #3e5148; font: inherit; font-size: 14px; line-height: 1.9; }
+@media (max-width: 767px) {
+  .section { padding: 20px 24px 24px; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .art { width: 100%; max-width: 380px; margin-inline: auto; }
+  .title { font-size: 30px; }
+  .description { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } .button:hover { transform: none; } }
