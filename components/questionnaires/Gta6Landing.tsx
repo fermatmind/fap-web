@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { isConfiguredStagingSiteUrl } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import editorial from "@/lib/questionnaires/gta-6-landing.json";
 import {
-  gta6Cover, gta6LandingPath, gta6Profiles, gta6Portrait, gta6ResultPath, gta6TakePath,
+  gta6LandingPath, gta6Profiles, gta6ResultPath, gta6TakePath,
 } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { Gta6CareerSections, gta6CareerFaq } from "./Gta6CareerSections";
 import styles from "./Gta6Landing.module.css";
@@ -33,7 +32,7 @@ const copy = {
     privacy: "The quiz scores answers in your browser. Progress is kept in this tab only if you opt in. The link you send a friend is a public character guide. Its quiz button passes the character ID to the new attempt, which has 28 distinct cross-role or eight same-role pairings.",
     faq: "GTA 6 Character Quiz FAQ",
     sources: "Sources and independence",
-    sourcesText: "Rockstar’s character profiles and launch announcement are the sources for names and basic setting. FermatMind independently created the party, questions and crew roles. Character artwork is sourced from Rockstar Games. This quiz is unofficial and unaffiliated.",
+    sourcesText: "Rockstar’s character profiles and launch announcement are the sources for names and basic setting. FermatMind independently created the party, questions and crew roles. This quiz is unofficial and unaffiliated.",
   },
   zh: {
     h1: "GTA 6 角色测试｜你是罪恶都市里的谁？",
@@ -56,7 +55,7 @@ const copy = {
     privacy: "作答和计分留在浏览器。你可以选择把进度保存在当前标签页。分享只发送公开角色页，好友从那里点击开测时再携带公开角色代号。两人完答可组合出 28 种不同角色搭配或 8 种同角色对照。",
     faq: "GTA 6 角色测试常见问题",
     sources: "创作背景与官方信源",
-    sourcesText: "角色姓名和基础设定核对 Rockstar Games 的人物介绍及发行公告。派对剧情、题目和分工由费马独立创作。人物图来自 Rockstar Games。本测验为非官方娱乐作品。",
+    sourcesText: "角色姓名和基础设定核对 Rockstar Games 的人物介绍及发行公告。派对剧情、题目和分工由费马独立创作。本测验为非官方娱乐作品。",
   },
   "zh-TW": {
     h1: "GTA 6 角色測驗｜你是罪惡城市裡的誰？",
@@ -79,7 +78,7 @@ const copy = {
     privacy: "你的選項由瀏覽器計分。勾選儲存後，這個分頁才會保留進度。你傳給朋友的是公開指南，朋友從指南點進去才會帶入邀請。做完可以看 28 種跨角色分工或 8 種同角色對照。",
     faq: "GTA 6 角色測驗常見問題",
     sources: "角色出處與創作說明",
-    sourcesText: "人物姓名和基本資料比對 Rockstar Games 的角色專頁與發售公告。派對、題目與分工是費馬自主創作，人物圖取自 Rockstar Games。費馬與遊戲發行方並無隸屬關係。",
+    sourcesText: "人物姓名和基本資料比對 Rockstar Games 的角色專頁與發售公告。派對、題目與分工是費馬自主創作。費馬與遊戲發行方並無隸屬關係。",
   },
 };
 
@@ -100,7 +99,7 @@ export function gta6LandingMetadata(locale: DisplayLocale, hasQuery: boolean): M
     description: page.description,
     alternates: { canonical: path, languages: gta6Alternates(gta6LandingPath) },
     robots: gta6PublishedRobots(hasQuery),
-    openGraph: { title: page.h1, description: page.description, url: path, images: [gta6Cover] },
+    openGraph: { title: page.h1, description: page.description, url: path },
   };
 }
 
@@ -109,9 +108,9 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
   const { guide } = editorial[locale];
   const faq = [...editorial[locale].faq, gta6CareerFaq[locale]];
   const examples = [
-    { names: "Lucia + Jason", roles: ["lucia-caminos", "jason-duval"], body: text.pairText },
-    { names: "Boobie + Dre’Quan", roles: ["boobie-ike", "drequan-priest"], body: { en: "Boobie negotiates the budget and backup gear. Dre’Quan picks the part of the set worth protecting. Agree what can be cut before asking for more money.", zh: "Boobie 谈预算与备用设备，Dre’Quan 保住演出的关键段落。加预算前先说好哪部分能缩减。", "zh-TW": "布比談費用和備用器材，德雷・泉決定哪段節目一定要留。要追加預算前，先講好哪些地方可以縮。"}[locale] },
-    { names: "Cal + Brian", roles: ["cal-hampton", "brian-heder"], body: { en: "Cal verifies the patrol rumor. Brian sets a backup entrance and names who can switch plans. Agree when to stop waiting for confirmation.", zh: "Cal 核实巡逻传闻，Brian 安排备用入场口并确定谁可以切换方案。两人先定消息最晚确认时间。", "zh-TW": "卡爾去問消息來源，布萊恩排好備用入口，交代由誰決定換方案。先約好幾點前要回覆。"}[locale] },
+    { names: "Lucia + Jason", body: text.pairText },
+    { names: "Boobie + Dre’Quan", body: { en: "Boobie negotiates the budget and backup gear. Dre’Quan picks the part of the set worth protecting. Agree what can be cut before asking for more money.", zh: "Boobie 谈预算与备用设备，Dre’Quan 保住演出的关键段落。加预算前先说好哪部分能缩减。", "zh-TW": "布比談費用和備用器材，德雷・泉決定哪段節目一定要留。要追加預算前，先講好哪些地方可以縮。"}[locale] },
+    { names: "Cal + Brian", body: { en: "Cal verifies the patrol rumor. Brian sets a backup entrance and names who can switch plans. Agree when to stop waiting for confirmation.", zh: "Cal 核实巡逻传闻，Brian 安排备用入场口并确定谁可以切换方案。两人先定消息最晚确认时间。", "zh-TW": "卡爾去問消息來源，布萊恩排好備用入口，交代由誰決定換方案。先約好幾點前要回覆。"}[locale] },
   ];
   return (
     <main className={styles.page}>
@@ -140,14 +139,14 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
         <div className={styles.content}>
           <section id="examples">
             <h2>{text.examples}</h2>
-            <figure className={styles.exampleResult}>
-              <Image unoptimized src={gta6Portrait("lucia-caminos")} alt="" width={720} height={405} />
-              <figcaption><h3>{text.solo}</h3><strong>Lucia Caminos · {gta6Profiles[0].title[locale]}</strong><p>{text.soloText}</p></figcaption>
-            </figure>
+            <div className={styles.exampleResult}>
+              <h3>{text.solo}</h3>
+              <strong>Lucia Caminos · {gta6Profiles[0].title[locale]}</strong>
+              <p>{text.soloText}</p>
+            </div>
             <h3>{text.pair}</h3>
             <div className={styles.pairs}>
               {examples.map(example => <div key={example.names}>
-                <div className={styles.pairThumbs}>{example.roles.map(id => <Image key={id} unoptimized src={gta6Portrait(id)} alt="" width={44} height={44} />)}</div>
                 <h3>{example.names}</h3><p>{example.body}</p>
               </div>)}
             </div>
@@ -163,8 +162,9 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
               {gta6Profiles.map((role, index) => (
                 <li key={role.id}>
                   <Link prefetch={false} href={gta6ResultPath(locale, role.id)}>
-                    <Image unoptimized src={gta6Portrait(role.id)} alt="" width={104} height={104} />
-                    <div><h3>{role.name}</h3><strong>{role.title[locale]}</strong><p>{guide[index]}</p></div>
+                    <h3>{role.name}</h3>
+                    <strong>{role.title[locale]}</strong>
+                    <p>{guide[index]}</p>
                   </Link>
                 </li>
               ))}

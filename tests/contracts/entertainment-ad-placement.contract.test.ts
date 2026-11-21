@@ -7,6 +7,7 @@ import { proxy } from "@/proxy";
 
 const origin = "https://fermatmind.com";
 const history = "/zh/tests/play/global-history-quiz";
+const gta6 = "/tests/explore/gta-6-character-quiz";
 const adHeader = "x-fermat-entertainment-ad";
 
 async function rewritten(path: string, response: Response) {
@@ -52,6 +53,21 @@ describe("public entertainment AdSense routes", () => {
     const response = await request(path, "fermatmind.com", { "x-fermat-entertainment-ad": "enabled" });
     expect(await rewritten(path, response)).toBeNull();
     expect(response.headers.get("x-middleware-request-x-fermat-entertainment-ad")).toBeNull();
+  });
+
+  it.each(["en", "zh", "zh-TW"])("monetizes only the %s GTA 6 landing document", async (locale) => {
+    const landing = `/${locale}${gta6}`;
+    const placement = `/${locale}/ad-placement/explore/gta-6-character-quiz`;
+    const response = await request(landing);
+    expect(response.headers.get("location")).toBeNull();
+    expect(new URL((await rewritten(landing, response))!).pathname).toBe(placement);
+
+    const preview = `${landing}?fc=alwaysshow&fctype=gdpr`;
+    expect((await request(preview)).headers.get(`x-middleware-request-${adHeader}`)).toBe("preview");
+    for (const path of [`${landing}/take`, `${landing}/take?start=1`, `${landing}/results/lucia-caminos`, `${landing}?ref=friend`]) {
+      expect(await rewritten(path, await request(path))).toBeNull();
+    }
+    expect((await request(placement)).status).toBe(404);
   });
 
   it("allows consent preview and Next navigation without treating them as ordinary query parameters", async () => {

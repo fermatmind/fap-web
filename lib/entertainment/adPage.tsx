@@ -5,8 +5,12 @@ import type { ReactNode } from "react";
 import { EntertainmentDisplayAd } from "@/components/entertainment/EntertainmentDisplayAd";
 import { AD_PLACEMENT_HEADER } from "./adPlacement";
 
-type AdPageProps = { params: Promise<{ locale?: string; slug?: string; stage?: string[] }> };
-type QuizPageProps = { params: Promise<{ locale: string; slug: string }>; take: boolean };
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+type AdPageProps = {
+  params: Promise<{ locale?: string; slug?: string; stage?: string[] }>;
+  searchParams: SearchParams;
+};
+type QuizPageProps = { params: Promise<{ locale: string; slug: string }>; searchParams: SearchParams; take: boolean };
 type QuizPage = {
   render: (props: QuizPageProps) => ReactNode | Promise<ReactNode>;
   metadata: (props: QuizPageProps) => Metadata | Promise<Metadata>;
@@ -16,11 +20,11 @@ type QuizPage = {
 // family's quiz code when the shared display ad is enabled.
 export function createEntertainmentAdPage(options: {
   intro: QuizPage;
-  take: QuizPage;
+  take?: QuizPage;
   locale?: string;
   slug?: string;
 }) {
-  async function select({ params }: AdPageProps) {
+  async function select({ params, searchParams }: AdPageProps) {
     const request = await headers();
     const mode = request.get(AD_PLACEMENT_HEADER);
     if (mode !== "enabled" && mode !== "preview") notFound();
@@ -32,12 +36,15 @@ export function createEntertainmentAdPage(options: {
     if (!locale || !slug || stage.length > 1 || (stage.length === 1 && stage[0] !== "take")) notFound();
 
     const take = stage.length === 1;
+    const page = take ? options.take : options.intro;
+    if (!page) notFound();
+
     return {
       locale,
       nonce: request.get("x-nonce"),
       consentPreview: mode === "preview",
-      page: take ? options.take : options.intro,
-      props: { params: Promise.resolve({ locale, slug }), take },
+      page,
+      props: { params: Promise.resolve({ locale, slug }), searchParams, take },
     };
   }
 

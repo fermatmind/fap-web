@@ -32,9 +32,11 @@ export function entertainmentAdPlacement(pathname: string, query: URLSearchParam
   if (!match) return null;
   const [, locale, collection, slug, takeSegment] = match;
   const take = Boolean(takeSegment);
-  const eligible = locale === "zh-TW"
-    ? collection === "explore" && (slug === "chiikawa" || slug === "seven-sins-virtues-test")
-    : (collection === "play" ? storySlugs : exploreSlugs).has(slug);
+  const eligible = collection === "explore" && slug === "gta-6-character-quiz"
+    ? !take
+    : locale === "zh-TW"
+      ? collection === "explore" && (slug === "chiikawa" || slug === "seven-sins-virtues-test")
+      : (collection === "play" ? storySlugs : exploreSlugs).has(slug);
   // This take flow includes an optional actual-age field and optional demographic screens.
   if (!eligible || (take && slug === "mental-age")) return null;
 
