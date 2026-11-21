@@ -1,11 +1,12 @@
 "use client";
+import type { ReactNode } from "react";
 
 import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiApplicationContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 
-export function FullReportPreview({ data, isUnlocked, reportId, dimensions, suppressUnlockSurfaces = false, applicationContent }: { data: PersonalityDesktopCloneContentPayload; applicationContent?: MbtiApplicationContent; isUnlocked: boolean; suppressUnlockSurfaces?: boolean; reportId?: string; dimensions: Array<Record<string, unknown>> }) {
+export function FullReportPreview({ data, isUnlocked, reportId, dimensions, suppressUnlockSurfaces = false, applicationContent, faqReplacementNode }: { data: PersonalityDesktopCloneContentPayload; applicationContent?: MbtiApplicationContent; faqReplacementNode?: ReactNode; isUnlocked: boolean; suppressUnlockSurfaces?: boolean; reportId?: string; dimensions: Array<Record<string, unknown>> }) {
   const identity = data.content.hero.profileIdentity;
   const careerHref = `https://fermatmind.com${personalityCareerHref("zh", data.fullCode)}`;
   const workspaceHref = "https://fermatmind.com/zh/history/mbti?carryover_focus_key=career.next_step";
@@ -14,7 +15,7 @@ export function FullReportPreview({ data, isUnlocked, reportId, dimensions, supp
       {`查看 ${data.fullCode.split("-")[0]} 的工作与职业探索`}
     </a></h2>
   </section>;
-  return <MbtiDesktopCloneShell locale="zh" applicationContent={applicationContent}
+  return <MbtiDesktopCloneShell locale="zh" applicationContent={applicationContent} faqReplacementNode={faqReplacementNode}
     headline={{ badge: "MBTI", typeCode: data.fullCode, displayName: identity?.name ?? "", supportingLine: "", summary: "", rarity: "" }}
     tags={identity?.keywords ?? []} dimensions={dimensions} highlights={[]} sections={[]} sectionUnlocks={{}} offers={[]}
     isUnlocked={isUnlocked} suppressUnlockSurfaces={suppressUnlockSurfaces} shareCtaLabel="分享结果" shareDisabled onShare={() => {}}

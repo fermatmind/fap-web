@@ -97,6 +97,7 @@ type MbtiDesktopCloneShellProps = {
   supplementaryNodes?: ReactNode[];
   recommendedReadsNode?: ReactNode;
   footerNode?: ReactNode;
+  faqReplacementNode?: ReactNode;
   storageContentOverride?: MbtiDesktopCloneContent | null;
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageMetaOverride?: {
@@ -434,6 +435,7 @@ export function MbtiDesktopCloneShell({
   supplementaryNodes = [],
   recommendedReadsNode = null,
   footerNode = null,
+  faqReplacementNode,
   storageContentOverride,
   storageAssetSlotsOverride,
   storageMetaOverride,
@@ -1211,7 +1213,7 @@ export function MbtiDesktopCloneShell({
         ]}
       />
 
-      {canonicalFaqNode}
+      {!snapshotMode ? faqReplacementNode ?? canonicalFaqNode : null}
 
       {!snapshotMode && !sampleMode ? supplementaryNodes.map((node, index) => (
         <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
