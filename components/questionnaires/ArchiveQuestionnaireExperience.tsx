@@ -14,7 +14,7 @@ export function ArchiveReadingSnapshot({ slug, id, locale }: { slug: string; id:
     <div className="my-4 space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-4" data-archive-reading={id}>
       <p className="font-semibold leading-7">{line}</p>
       <ul className="flex flex-wrap gap-2">
-        {traits.map(trait => <li key={trait} className="rounded-md bg-white px-2.5 py-1 text-sm leading-6">{trait}</li>)}
+        {traits.map(trait => <li key={trait} className="rounded-md bg-white px-3 py-1 text-sm leading-6">{trait}</li>)}
       </ul>
     </div>
   );
