@@ -4,6 +4,7 @@ import path from "node:path";
 import type { CmsArticleLlmsEntry } from "@/lib/cms/articles";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
@@ -430,7 +431,7 @@ describe("llms parity governance", () => {
     expect(text).not.toContain("/articles/held");
   });
 
-  it("includes every code-owned test and public guide without loading question banks or replacing backend authority", async () => {
+  it("includes eligible code-owned tests and guides without loading question banks or replacing backend authority", async () => {
     mockLlmsDependencies();
     const [{ GET }, { buildLlmsFullText, buildDegradedLlmsFullText }] = await Promise.all([
       import("@/app/llms.txt/route"),
@@ -449,7 +450,8 @@ describe("llms parity governance", () => {
     ]);
     for (const body of [short, full, degraded]) {
       const urls = new Set(extractCanonicalUrls(body));
-      expect(paths.every((entry) => urls.has(`${SITE_URL}${entry}`))).toBe(true);
+      expect(paths.filter((entry) => !urls.has(`${SITE_URL}${entry}`)))
+        .toEqual(paths.filter(isArchivedEntertainmentPath));
       expect(SIX_ASSESSMENT_TEST_PATHS.every((entry) => urls.has(`${SITE_URL}${entry}`))).toBe(true);
     }
     expect(full).not.toContain("Mode: degraded");

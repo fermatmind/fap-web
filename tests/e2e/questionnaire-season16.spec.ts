@@ -26,8 +26,13 @@ async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
   for (const [i, d] of quiz.directions.entries()) for (const [j, c] of ["0", "1", "2", "3", "4", "na"].entries()) {
     await expect(page.locator(`[data-season-context-count="${d.id}-${c}"]`)).toHaveText(`${allUnscored ? (c === "na" ? 4 : 0) : expected[i][j]} / 4`);
   }
-  await expect(page.locator("[data-season-context-result] [data-season-context-support]")).toHaveCount(1);
-  for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-season-context-full-guide="${p.id}"]`)).toContainText(t[locale]);
+  const result = page.locator("[data-season-context-result]");
+  await expect(result.locator(":scope > [data-season-context-support]")).toBeVisible();
+  await expect(result.locator("details [data-season-context-support]")).toHaveCount(1);
+  await expect(result.locator("[data-season-context-full-reading]")).toHaveCount(4);
+  for (const profile of quiz.profiles) {
+    await expect(result.locator(`a[href="${path(locale)}/results/${profile.id}"]`).first()).toBeVisible();
+  }
   expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /season-context|SEASON_/.test(k)))).toEqual([]);
 }
@@ -59,17 +64,17 @@ for (const locale of ["en", "zh"] as const) {
     await start(); await page.locator('input[value="4"]').check();
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
     await page.getByRole("button", { name: label(locale, "Back", "上一条"), exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.locator('input[value="0"]').check(); await page.getByRole("button", { name: label(locale, "Exit and clear", "退出并清除"), exact: true }).click();
+    await page.locator('input[value="0"]').check();
+    await page.locator(`a[href="${path(locale)}"]`).filter({ hasText: /Back to assessment|返回测评/ }).click();
     await start(); await expect(page.locator('input[value="0"]')).not.toBeChecked(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
     await page.locator('input[value="3"]').check(); await page.reload();
-    await expect(page.locator('[data-season-context-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="2"]').check(); await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent("pagehide")));
-    await expect(page.locator('[data-season-context-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="2"]')).not.toBeChecked();
+    await expect(page.locator("#season-context-active-question")).toHaveText(quiz.questions[0].prompt[locale]);
+    await expect(page.locator('input[value="3"]')).not.toBeChecked();
     await page.locator('input[value="1"]').check();
     await page.goto(`/${locale}/tests#more-tests`);
     await expect(page).toHaveURL(new RegExp(`/${locale}/tests#more-tests$`));
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
-    await expect(page.locator('[data-season-context-stage="ready"]')).toHaveCount(1);
+    await expect(page.locator("[data-explore-start]")).toBeVisible();
     await start(); await expect(page.locator('input[value="1"]')).not.toBeChecked();
     expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /season-context|SEASON_/.test(k)))).toEqual([]);
   });
@@ -102,13 +107,12 @@ test("@release original observations: hydration gates the start button until del
   });
   await page.route("**/_next/static/**/*.js", async route => { delayed++; await chunks; await route.continue(); });
   try {
-    await page.goto(path("en"), { waitUntil: "commit" });
+    await page.goto(`${path("en")}/take`, { waitUntil: "commit" });
     const start = page.locator("[data-explore-start]");
     await expect(start).toBeVisible({ timeout: 30000 }); await expect.poll(() => delayed).toBeGreaterThan(0);
     await expect(start).toBeDisabled();
     release();
     await page.waitForLoadState("load");
-    await expect(start).toBeEnabled(); await start.click();
     await expect(page.locator("#season-context-active-question")).toHaveText(quiz.questions[0].prompt.en);
   } finally { release(); }
 });

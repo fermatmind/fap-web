@@ -12,6 +12,7 @@ import questionnaires from "@/lib/questionnaires/catalog.json";
 import { directoryDescription, directoryQuizzes, entertainmentDirectoryQuestionnaires, globalHistoryStory, storyQuizzes } from "@/lib/entertainment/directory";
 import directoryCopy from "@/lib/entertainment/directory-copy.json";
 import { canonicalUrl } from "@/lib/site";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import coverSlugs from "@/components/tests/directory-cover-slugs.json";
 
@@ -75,17 +76,19 @@ describe("387 distinct products with separate test and story directories", () =>
     expect(dom.textContent).toContain(locale === 'zh' ? '合计 387个产品' : '387 products in total');
     expect(dom.querySelector('h1')).toBeNull();
   });
-  it.each(["en", "zh"] as const)("aligns the 286 visible %s test/tool cards with their structured data", locale => {
+  it.each(["en", "zh"] as const)("keeps all %s directory cards and only eligible entries in structured data", locale => {
     const dom = document.createElement("div");
     dom.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
     const schema = JSON.parse(dom.querySelector('script[type="application/ld+json"]')!.textContent!);
     const links = [...dom.querySelectorAll('#more-tests h4 a')];
     expect(links).toHaveLength(286);
     expect(schema["@type"]).toBe("ItemList");
-    expect(schema.numberOfItems).toBe(286);
-    const expected = links.map(a => ({ name: a.textContent, url: canonicalUrl(a.getAttribute("href")!) }));
+    const eligibleLinks = links.filter(a => !isArchivedEntertainmentPath(a.getAttribute("href")!));
+    expect(eligibleLinks.length).toBeLessThan(links.length);
+    expect(schema.numberOfItems).toBe(eligibleLinks.length);
+    const expected = eligibleLinks.map(a => ({ name: a.textContent, url: canonicalUrl(a.getAttribute("href")!) }));
     expect(schema.itemListElement.map((item: {name:string; url:string}) => ({ name:item.name, url:item.url }))).toEqual(expected);
-    expect(new Set(expected.map(item => item.url)).size).toBe(286);
+    expect(new Set(expected.map(item => item.url)).size).toBe(eligibleLinks.length);
   });
   it("searches story titles and slugs, filters a category and recovers from an empty result", () => {
     const items=storyQuizzes.map(q=>({slug:q.slug,category:q.category,title:q.title.zh,description:q.description.zh,href:`/zh/tests/play/${q.slug}`,meta:'6次选择'}));

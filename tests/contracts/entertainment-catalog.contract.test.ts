@@ -12,6 +12,7 @@ import { globalHistoryStory } from "@/lib/entertainment/directory";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { gta6LandingPath, gta6Profiles, gta6ResultPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { filterTrackingPayload } from "@/lib/tracking/events";
 import type { Answers, FunQuiz } from "@/lib/entertainment/types";
 
@@ -201,7 +202,7 @@ describe("original entertainment catalog", () => {
     expect(readFunDraft(quiz, JSON.stringify({ ...draft, answers: { q1: "bad" } }), 100000001)).toBeNull();
   });
 
-  it("publishes bilingual entries and explicit public portrait guides, and retains backend families", () => {
+  it("publishes eligible bilingual entries and portrait guides, and retains backend families", () => {
     const base = [{ loc: "https://fermatmind.com/en/career", lastmod: "2026-10-01" }];
     const entries = appendFunSitemapEntries(base);
     const gta6Entries = (["en", "zh"] as const).flatMap(locale => [
@@ -211,8 +212,6 @@ describe("original entertainment catalog", () => {
         lastmod: "2026-11-20T00:00:00.000Z",
       })),
     ]);
-    const publicCount = [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug)), ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), gta6Entries.length);
-    expect(entries).toHaveLength(1 + publicCount + TRADITIONAL_PUBLIC_PATHS.length);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
     const expectedEntries = [...base];
@@ -227,8 +226,12 @@ describe("original entertainment catalog", () => {
     }
     expectedEntries.push(...gta6Entries);
     expectedEntries.push(...TRADITIONAL_PUBLIC_PATHS.map(path => ({ loc: `https://fermatmind.com/zh-TW${path}` } as typeof expectedEntries[number])));
-    deepStrictEqual(entries, expectedEntries.sort((a, b) => a.loc.localeCompare(b.loc)));
-    expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount + TRADITIONAL_PUBLIC_PATHS.filter(path => path.startsWith("/tests")).length);
+    const eligibleEntries = expectedEntries.filter(({ loc }) => !isArchivedEntertainmentPath(new URL(loc).pathname));
+    deepStrictEqual(entries, eligibleEntries.sort((a, b) => a.loc.localeCompare(b.loc)));
+    const expectedTestCount = eligibleEntries.filter(({ loc }) =>
+      /^\/(?:en|zh|zh-TW)\/tests(?:\/|$)/.test(new URL(loc).pathname),
+    ).length;
+    expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(expectedTestCount);
     expect(entries.every(entry => !/[?#]|\/result\//.test(entry.loc))).toBe(true);
     expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh|zh-TW)\/tests\/(?:play|explore)\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
   });
