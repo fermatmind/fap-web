@@ -7,6 +7,9 @@ import { ResultExportPanel } from "@/components/result-export/ResultExportPanel"
 import { buildRiasecResultExportFromViewModel } from "@/lib/riasec/exportAdapter";
 import { getCareer94ReportSnapshot, readCareer94FreeReport, subscribeCareer94Report } from "@/lib/career/career94ReportSession";
 import { assembleRiasecResultViewModel, type RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
+import { ResultPreviewShare } from "@/components/commerce/ResultPreviewShare";
+import { interestPreviewStory } from "@/components/commerce/interestPreviewStory";
+import unlockStyles from "@/components/career/unlock-report-experience.module.css";
 import { UnlockReportExperience } from "@/components/career/UnlockReportExperience";
 import { careerAssessmentEndpoint, type Career94Offer } from "./career94-api";
 import styles from "./CareerAssessmentResult.module.css";
@@ -28,7 +31,7 @@ export function Career94ReportView({ model, locale, sample = false, backHref }: 
   </div>;
 }
 
-export function Career94FreeReport({ locale, sample = false, overview = false }: { locale: "zh" | "en"; sample?: boolean; overview?: boolean }) {
+export function Career94FreeReport({ locale, sample = false, overview = false, designPreview = false }: { locale: "zh" | "en"; sample?: boolean; overview?: boolean; designPreview?: boolean }) {
   const [sampleModel, setModel] = useState<RiasecResultViewModel>();
   const [offers, setOffers] = useState<Career94Offer[]>([]);
   const snapshot = useSyncExternalStore(subscribeCareer94Report, getCareer94ReportSnapshot, () => null);
@@ -64,12 +67,16 @@ export function Career94FreeReport({ locale, sample = false, overview = false }:
   }, [locale, sample, retry]);
 
   if (model && overview) return <>
-    <aside className={styles.previewBanner}>{t("本地设计预览 · 虚构作答 · 支付按钮不可用，不会创建订单", "Local design preview · Fictional responses · Payments are disabled; no orders are created")}</aside>
-    <UnlockReportExperience model={model} locale={locale} assessment="career94" sampleHref={`/${locale}/career/assessment/sample`} purchase={
+    {!designPreview && <aside className={styles.previewBanner}>{t("本地设计预览 · 虚构作答 · 支付按钮不可用，不会创建订单", "Local design preview · Fictional responses · Payments are disabled; no orders are created")}</aside>}
+    <UnlockReportExperience model={model} locale={locale} assessment="career94" designPreview={designPreview && sample} sampleHref={`/${locale}/career/assessment/sample`} purchase={
       <div className={styles.purchase}>{offers.map(offer => <button type="button" disabled className={styles.cta} key={`${offer.provider}:${offer.currency}`}>
         {offer.provider === "alipay" ? t("支付宝", "Alipay") : offer.currency === "CNY" ? t("微信支付", "WeChat Pay") : t("海外银行卡", "International card")} · {offer.currency === "CNY" ? "¥" : "US$"}{(offer.amount_cents / 100).toFixed(2)}
       </button>)}<p>{t("一次付款，解锁本次完整报告。", "One payment unlocks this full report.")}</p></div>
     } />
+    {designPreview && sample && <div className={unlockStyles.previewExplore}>
+      <ResultPreviewShare name={t("职业测试", "Career assessment")} locale={locale}
+        samplePath={`/${locale}/career/assessment/sample`} highlight="" story={interestPreviewStory(model, locale)} />
+    </div>}
   </>;
   if (model) return <Career94ReportView model={model} locale={locale} sample={sample} backHref={`/${locale}/career/assessment${sample ? "" : "/take"}`} />;
   const unavailable = failed || !sample;
