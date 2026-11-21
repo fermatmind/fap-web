@@ -38,8 +38,8 @@
 }
 .hero h1 { font-size: 23px; font-weight: 750; letter-spacing: -.02em; }
 .focusNav { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
-.focusNav a { color: var(--hero-text); padding: 5px 11px; border: 1px solid var(--hero-line); border-radius: 999px; font-size: 13px; }
-.focusNav a:hover, .focusNav a[aria-current] { color: var(--hero-gold); border-color: var(--hero-gold); }
+.focusNav :is(a, button) { color: var(--hero-text); padding: 5px 11px; border: 1px solid var(--hero-line); border-radius: 999px; font-size: 13px; }
+.focusNav :is(a, button):hover, .focusNav a[aria-current], .focusNav button[aria-pressed="true"] { color: var(--hero-gold); border-color: var(--hero-gold); }
 .heroGrid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 30px; margin-top: 20px; }
 .heroPortrait { text-align: center; min-width: 0; }
 .kicker { color: var(--hero-text); font-size: 12px; font-weight: 650; letter-spacing: .09em; }
