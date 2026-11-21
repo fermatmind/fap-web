@@ -96,7 +96,7 @@ describe("Big Five canonical private result assembler", () => {
         experiment: "尝试",
       };
     }
-    engine.norm_evidence = { ...engine.norm_evidence, comparison_allowed: true, show_precise_percentiles: true };
+    engine.norm_evidence = { status: "available", comparison_allowed: true, show_precise_percentiles: true };
     const view = assembleBig5ResultViewModel({ locale: "zh", reportData: report, gate });
     const layout = buildBig5LiveReport(view.readingContext, view.visibleSections);
     expect(layout?.domains.map((domain) => domain.band)).toEqual(drafts.map((block) => block.analytics?.band));
