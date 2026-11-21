@@ -4,7 +4,7 @@ import { personalityCareerHref } from "@/lib/mbti/personalityCareerHref";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 
-export function FullReportPreview({ data, isUnlocked, reportId, dimensions }: { data: PersonalityDesktopCloneContentPayload; isUnlocked: boolean; reportId?: string; dimensions: Array<Record<string, unknown>> }) {
+export function FullReportPreview({ data, isUnlocked, reportId, dimensions, suppressUnlockSurfaces = false }: { data: PersonalityDesktopCloneContentPayload; isUnlocked: boolean; suppressUnlockSurfaces?: boolean; reportId?: string; dimensions: Array<Record<string, unknown>> }) {
   const identity = data.content.hero.profileIdentity;
   const careerHref = `https://fermatmind.com${personalityCareerHref("zh", data.fullCode)}`;
   const workspaceHref = "https://fermatmind.com/zh/history/mbti?carryover_focus_key=career.next_step";
@@ -16,7 +16,7 @@ export function FullReportPreview({ data, isUnlocked, reportId, dimensions }: { 
   return <MbtiDesktopCloneShell locale="zh"
     headline={{ badge: "MBTI", typeCode: data.fullCode, displayName: identity?.name ?? "", supportingLine: "", summary: "", rarity: "" }}
     tags={identity?.keywords ?? []} dimensions={dimensions} highlights={[]} sections={[]} sectionUnlocks={{}} offers={[]}
-    isUnlocked={isUnlocked} shareCtaLabel="分享结果" shareDisabled onShare={() => {}}
+    isUnlocked={isUnlocked} suppressUnlockSurfaces={suppressUnlockSurfaces} shareCtaLabel="分享结果" shareDisabled onShare={() => {}}
     retakeHref="https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take"
     historyHref="https://fermatmind.com/zh/history/mbti" workspaceHref={workspaceHref}
     orderLookupHref="https://fermatmind.com/zh/orders/lookup"

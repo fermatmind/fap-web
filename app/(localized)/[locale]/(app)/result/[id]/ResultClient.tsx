@@ -1609,7 +1609,7 @@ export default function ResultClient({
         const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
         routeScaleCodeRef.current = reportScaleCode;
 
-        if (reportResponse.report_purchase && !reportResponse.report_purchase.unlocked) {
+        if (reportScaleCode !== "MBTI" && reportResponse.report_purchase && !reportResponse.report_purchase.unlocked) {
           setReportData(reportResponse);
           setResultData(null);
           markReady();
@@ -2180,7 +2180,7 @@ export default function ResultClient({
     } : undefined,
   };
 
-  const webReport = reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
+  const webReport = resolvedScaleCode === "MBTI" ? null : reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
   const withPurchase = (children: React.ReactNode) => !printMode && webReport?.report_purchase
     ? <MainstreamPaidResult data={webReport} purchase={webReport.report_purchase} locale={displayLocale}>{children}</MainstreamPaidResult>
     : children;
