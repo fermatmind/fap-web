@@ -10,6 +10,7 @@ import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { readFunDraft, resolveFunQuiz } from "@/lib/entertainment/scoring";
 import { globalHistoryStory } from "@/lib/entertainment/directory";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import { gta6LandingPath, gta6Profiles, gta6ResultPath } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
 import { filterTrackingPayload } from "@/lib/tracking/events";
 import type { Answers, FunQuiz } from "@/lib/entertainment/types";
@@ -203,7 +204,14 @@ describe("original entertainment catalog", () => {
   it("publishes bilingual entries and explicit public portrait guides, and retains backend families", () => {
     const base = [{ loc: "https://fermatmind.com/en/career", lastmod: "2026-10-01" }];
     const entries = appendFunSitemapEntries(base);
-    const publicCount = [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug)), ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), 0);
+    const gta6Entries = (["en", "zh"] as const).flatMap(locale => [
+      { loc: `https://fermatmind.com${gta6LandingPath(locale)}`, lastmod: "2026-11-21T00:00:00.000Z" },
+      ...gta6Profiles.map(profile => ({
+        loc: `https://fermatmind.com${gta6ResultPath(locale, profile.id)}`,
+        lastmod: "2026-11-20T00:00:00.000Z",
+      })),
+    ]);
+    const publicCount = [globalHistoryStory, ...catalog.filter(card => !questionnaires.some(native => native.slug === card.slug)), ...questionnaires].reduce((total, card) => total + 2 * (1 + card.resultSlugs.length), gta6Entries.length);
     expect(entries).toHaveLength(1 + publicCount + TRADITIONAL_PUBLIC_PATHS.length);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
@@ -217,6 +225,7 @@ describe("original entertainment catalog", () => {
       expectedEntries.push({ loc: path, lastmod: `${card.updated}T00:00:00.000Z` });
       for (const profile of card.resultSlugs) expectedEntries.push({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
+    expectedEntries.push(...gta6Entries);
     expectedEntries.push(...TRADITIONAL_PUBLIC_PATHS.map(path => ({ loc: `https://fermatmind.com/zh-TW${path}` } as typeof expectedEntries[number])));
     deepStrictEqual(entries, expectedEntries.sort((a, b) => a.loc.localeCompare(b.loc)));
     expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount + TRADITIONAL_PUBLIC_PATHS.filter(path => path.startsWith("/tests")).length);
