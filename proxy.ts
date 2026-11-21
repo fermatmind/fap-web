@@ -16,6 +16,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
 import { isKnownTestSlug, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
+import { isBig5Slug, normalizeBig5FormCode } from "@/lib/big5/forms";
 import { isSafeCareerJobSlug, normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { normalizeBlog } from "@/lib/cms/articles";
@@ -415,6 +416,14 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   const pathname = request.nextUrl.pathname;
   if (/^\/(?:en|zh|zh-TW)\/tests\/(?:jung-cognitive-functions|(?:explore|play)\/cognitive-functions-test)(?:\/|$)/i.test(pathname)) {
     return createPublicAbsenceResponse(404);
+  }
+  const assessmentTake = pathname.match(/^\/(?:(?:en|zh|zh-TW)\/)?tests\/([^/]+)\/take\/?$/i);
+  if (assessmentTake && isBig5Slug(assessmentTake[1])) {
+    const { searchParams } = request.nextUrl;
+    const requestedForms = [...searchParams.getAll("form"), ...searchParams.getAll("form_code")];
+    if (requestedForms.some((form) => normalizeBig5FormCode(form) === "big5_120")) {
+      return createPublicAbsenceResponse(404);
+    }
   }
   const comparisonIndex = pathname.match(/^\/(en|zh|zh-TW)\/career-compare\/?$/);
   const previewComparison = isFixedComparisonPreviewEnabled() && (comparisonIndex || /^\/zh-TW\/career-compare\/[^/]+$/.test(pathname));

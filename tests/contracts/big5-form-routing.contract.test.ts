@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import { NextRequest } from "next/server";
 import { describe, expect, it } from "vitest";
+import { proxy } from "@/proxy";
 import {
   buildBig5TakeHref,
   getBig5DurationSummary,
@@ -53,9 +55,23 @@ describe("big5 form routing contract", () => {
     expect(landing).not.toMatch(/BIG5[\s\S]{0,200}(?:120[^\n]*20|90[^\n]*15)/);
   });
 
-  it("replaces legacy take queries with the active form", () => {
-    const take = read("app/(localized)/[locale]/tests/[slug]/take/page.tsx");
-    expect(take).toContain("form: big5FormCode, form_code: undefined");
+  it.each([
+    "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120",
+    "/en/tests/big-five-personality-test-ocean-model/take?form_code=120",
+    "/zh-TW/tests/big-five-personality-test-ocean-model/take?form=standard_120",
+    "/zh/tests/big5-ocean/take?form=big5-120",
+    "/tests/big-five-personality-test-ocean-model/take?form=big5_90&form_code=120",
+  ])("returns 404 for retired take link %s", async (path) => {
+    const response = await proxy(new NextRequest(`https://fermatmind.com${path}`));
+    expect(response.status).toBe(404);
+    expect(response.headers.get("location")).toBeNull();
+  });
+
+  it("leaves the 90-question take link available", async () => {
+    const response = await proxy(new NextRequest(
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90"
+    ));
+    expect(response.status).toBe(200);
   });
 
   it("builds a same-slug take route with the active form query", () => {
