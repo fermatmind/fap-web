@@ -8,20 +8,33 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { rankRiasecCareers } from "@/lib/career/riasecProfileMatch";
 import { getRiasecModuleVisibility, getRenderableRiasecDeepContentSlots, type RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
+import { interestPreviewArt } from "@/components/commerce/interestPreviewStory";
+import { ResultPreviewChapters } from "@/components/commerce/ResultPreviewChapters";
 import { InterestRadar } from "@/components/result/riasec/RiasecReadingReport";
 import type { Career94Premium } from "@/app/(localized)/[locale]/career/assessment/career94-api";
 import styles from "./unlock-report-experience.module.css";
 
 export type UnlockDimensionReading = { code: string; label: string; score: number; reading: string; examples: string[]; nextStep: string; nextSteps?: string[] };
-const portraits: Record<string, string> = { R: "realistic", I: "ias-researcher", A: "artistic", S: "social", E: "enterprising", C: "conventional" };
 const firstSentence = (copy?: string) => copy?.split(/(?<=[。！？])|(?<=[.!?])\s+/u).find(Boolean);
 
 /** Shared presentation for unlock pages. Full sample reports use the actual reading renderer. */
-export function UnlockReportExperience({ model, locale, assessment = "riasec60", premium, readings = [], chainReading, purchase, sampleHref }: {
+export function UnlockReportExperience({ model, locale, assessment = "riasec60", premium, readings = [], chainReading, purchase, sampleHref, designPreview = false }: {
   model: RiasecResultViewModel; locale: DisplayLocale; assessment?: "riasec60" | "career94";
-  premium?: Career94Premium; readings?: UnlockDimensionReading[]; chainReading?: string; purchase?: ReactNode; sampleHref: string;
+  premium?: Career94Premium; readings?: UnlockDimensionReading[]; chainReading?: string; purchase?: ReactNode; sampleHref: string; designPreview?: boolean;
 }) {
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
+  const previewPayments = designPreview ? (
+    <div className="grid gap-2.5" data-testid="career-interest-preview-payment">
+      <p>{t("本地示例 · 支付已停用", "本機示例 · 付款已停用", "Local sample · Payments disabled")}</p>
+      {[
+        t("微信支付 · ¥2.99", "微信支付 · ¥2.99", "WeChat Pay · ¥2.99"),
+        t("支付宝 · ¥2.99", "支付寶 · ¥2.99", "Alipay · ¥2.99"),
+        t("海外银行卡 · US$2.99", "海外銀行卡 · US$2.99", "International card · US$2.99"),
+      ].map(label => <button key={label} type="button" disabled>{label}</button>)}
+      <p>{t("一次付款，解锁本次完整报告。", "一次付款，解鎖本次完整報告。", "One payment unlocks this full report.")}</p>
+      <p><Link className="underline" href={displayNavigationPath("/help/payment-refund", locale)}>{t("付款与退款说明", "付款與退款說明", "Payment and refund information")}</Link></p>
+    </div>
+  ) : undefined;
   const [selectedDimension, setSelectedDimension] = useState(model.primaryType);
   const [comparison, setComparison] = useState<string[]>([]);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
@@ -58,17 +71,17 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
   return <div className={`${styles.page} ${full ? styles.full : styles.locked}`} data-testid="unlock-report-experience">
     <div className={styles.shell}>
       {full && <p className={styles.sampleNotice}>{t("示例报告 · 以下使用虚构分数展示报告结构，你的报告将根据自己的作答生成。", "示例報告 · 以下使用虛構分數展示報告結構，你的報告將根據自己的作答產生。", "Sample report · This fictional profile shows the report structure. Your report will reflect your own responses.")}</p>}
-      <header className={styles.hero}>
+      <header className={designPreview ? `${styles.hero} ${styles.traitResultHero}` : styles.hero}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>{holland ? t("霍兰德职业兴趣测试 · 60 题", "霍蘭德職業興趣測試 · 60 題", "Holland Career Interest Test · 60 questions") : t("费马职业测试 · 94 题", "費馬職業測試 · 94 題", "FermatMind Career Assessment · 94 questions")}</p>
+          {!designPreview && <p className={styles.eyebrow}>{holland ? t("霍兰德职业兴趣测试 · 60 题", "霍蘭德職業興趣測試 · 60 題", "Holland Career Interest Test · 60 questions") : t("费马职业测试 · 94 题", "費馬職業測試 · 94 題", "FermatMind Career Assessment · 94 questions")}</p>}
           <p className={styles.sectionLabel}>{t("你的兴趣重点", "你的興趣重點", "YOUR INTEREST FOCUS")}</p>
           <h1>{title}</h1>
-          <p className={styles.type}>{lead && !leadTied ? `RIASEC · ${lead.code}` : model.topCode}</p>
+          <p className={styles.type}>{designPreview ? `RIASEC · ${model.topCode}` : lead && !leadTied ? `RIASEC · ${lead.code}` : model.topCode}</p>
           <p className={styles.heroLine}>{leadTied ? model.interpretationState?.tieDisplay?.note : insight ?? t("从兴趣出发，看看哪些工作活动值得亲自试一试。", "從興趣出發，看看哪些工作活動值得親自試一試。", "Start with your interests. Find work activities worth trying.")}</p>
           {full ? <span className={styles.reportBadge}><Sparkles size={14} />{t("完整报告示例", "完整報告示例", "FULL REPORT SAMPLE")}</span>
             : <a className={styles.heroCta} href="#unlock-purchase">{t("探索我的完整报告", "探索我的完整報告", "Explore my full report")}<ArrowDown size={17} /></a>}
         </div>
-        <div className={styles.art} aria-hidden="true"><Image src={`/images/riasec/${lead && !leadTied ? portraits[lead.code] ?? "ai-career-interests" : "ai-career-interests"}.webp`} width={400} height={400} sizes="(max-width: 640px) 72vw, 370px" alt="" priority /></div>
+        <div className={styles.art} aria-hidden="true"><Image src={interestPreviewArt(!leadTied ? lead?.code : undefined)} width={400} height={400} sizes="(max-width: 640px) 72vw, 370px" alt="" priority /></div>
       </header>
 
       {!full && model.topCode && visible && <section className={styles.codePanel} aria-label={t("本次霍兰德兴趣代码", "本次霍蘭德興趣代碼", "Your Holland interest code")}>
@@ -92,6 +105,12 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
       {dimensions.length > 0 && <section id="unlock-interests" className={styles.section} aria-label={t("六维兴趣", "六維興趣", "Six interest dimensions")}>
         <div className={styles.sectionHeading}><span>01</span><div><p>{t("你的兴趣地图", "你的興趣地圖", "YOUR INTEREST MAP")}</p><h2>{t("哪些活动，让你更想投入？", "哪些活動，讓你更想投入？", "Which activities draw you in?")}</h2></div></div>
         <div className={styles.chart}><InterestRadar dimensions={dimensions} theme="dark" /><div className={styles.scores}>{dimensions.map(row => <button key={row.code} type="button" aria-pressed={selectedDimension === row.code} onClick={() => setSelectedDimension(row.code)}><span>{row.code} · {row.label}</span><strong>{Math.round(row.score)}</strong><span className={styles.track} aria-hidden><i style={{width:`${row.score}%`}} /></span></button>)}</div></div>
+        {designPreview && activeDimension?.scoreAvailable && <div className={styles.previewSummary}>
+          <div className={styles.traitScoreCallout}>
+            {t("当前查看", "目前檢視", "Viewing")}
+            <strong>{activeDimension.label} {Math.round(activeDimension.score)} / 100</strong>
+          </div>
+        </div>}
         <p className={styles.scoreNote}>{activeDimension?.label} · {t("0–100 为本次作答的兴趣维度分。", "0–100 為本次作答的興趣維度分。", "0–100 describes interest reported in this assessment.")}</p>
         {premium && <div className={styles.dimensionReadings}>{premium.dimensions.map((row, index) => { const detail = readings.find(reading => reading.label === row.label); return <details key={row.label} open><summary><span><b>{detail?.code ?? String(index + 1).padStart(2,"0")}</b>{row.label}</span><span>{Math.round(row.score)}<ChevronDown size={17}/></span></summary><div className={styles.readingBody}><p>{row.detail}</p>{detail?.examples.length ? <ul className={styles.activityList}>{detail.examples.map(example => <li key={example}><Check size={15}/>{example}</li>)}</ul> : null}{detail?.nextStep && <div className={styles.nextQuestion}><span>{t("下一步", "下一步", "NEXT STEPS")}</span><ul>{(detail.nextSteps?.length ? detail.nextSteps : [detail.nextStep]).map(step => <li key={step}>{step}</li>)}</ul></div>}</div></details>; })}</div>}
         {full && chainReading && !primaryReading && <div className={styles.combination}><p className={styles.sectionLabel}>{model.topCode} · {t("把三个兴趣一起看", "把三個興趣一起看", "READ YOUR THREE INTERESTS TOGETHER")}</p><p>{chainReading}</p></div>}
@@ -108,12 +127,17 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
         <section id="unlock-plan" className={styles.section}><div className={styles.sectionHeading}><span>03</span><div><p>{t("把方向变成一次尝试", "把方向變成一次嘗試", "TURN A DIRECTION INTO AN EXPERIMENT")}</p><h2>{t("下一步，可以从这里开始", "下一步，可以從這裡開始", "A practical place to start")}</h2></div></div><ol className={styles.plan}>{premium.actions.map((action,index)=><li key={action}><span>{String(index+1).padStart(2,"0")}</span><p>{action}</p></li>)}</ol></section>
         <section id="unlock-ai" className={styles.prompt}><div className={styles.promptHeading}><Sparkles size={24}/><h2>{t("带着报告，继续探索", "帶著報告，繼續探索", "Take your report into the next conversation")}</h2></div><p className={styles.muted}>{t("复制这段提示词，在你使用的 AI 工具中继续讨论。", "複製這段提示詞，在你使用的 AI 工具中繼續討論。", "Copy this prompt into the AI tool you use to continue exploring.")}</p><blockquote>{premium.ai_prompt}</blockquote><button type="button" className={styles.secondaryButton} onClick={()=>void copyPrompt()}><Copy size={16}/>{copyState==="copied" ? t("已复制", "已複製", "Copied") : copyState==="failed" ? t("复制失败，请重试", "複製失敗，請重試", "Copy failed — retry") : t("复制提示词", "複製提示詞", "Copy prompt")}</button><span role="status" className={styles.srOnly}>{copyState==="copied" ? t("提示词已复制", "提示詞已複製", "Prompt copied") : ""}</span></section>
         <footer className={styles.reportFooter}><FileText size={28}/><h2>{t("把这份探索，留给下一步", "把這份探索，留給下一步", "Keep your next step within reach")}</h2><p>{t("打印或保存 PDF，带着问题去了解真实工作。", "列印或儲存 PDF，帶著問題去了解真實工作。", "Print or save a PDF, then take your questions into real conversations.")}</p><button type="button" className={styles.primaryButton} onClick={()=>window.print()}>{t("打印或保存为 PDF", "列印或儲存為 PDF", "Print or save as PDF")}<ArrowRight size={17}/></button><p className={styles.boundary}>{premium.condition_note}</p></footer>
-      </> : <section id="unlock-purchase" className={styles.offer} aria-label={reportTitle}>
+      </> : <>
+      {designPreview && <ResultPreviewChapters locale={locale} offerId="unlock-purchase" jobs={jobs} insights={[
+        t("挑一类你愿意多花时间的活动，找一项真实工作里的类似任务。", "挑一類你願意多花時間的活動，找一項真實工作裡的類似任務。", "Pick an activity you would spend more time on and look for a comparable task at work."),
+        t("比较同一任务在不同环境中的感受，再决定要不要继续探索。", "比較同一任務在不同環境中的感受，再決定要不要繼續探索。", "Compare how the same task feels in different settings before deciding what to explore next."),
+      ]} />}
+      <section id="unlock-purchase" className={styles.offer} aria-label={reportTitle}>
         <div className={styles.offerIcon}><LockKeyhole size={23}/></div><p className={styles.eyebrow}>{t("从兴趣线索，到下一步行动", "從興趣線索，到下一步行動", "FROM INTERESTS TO YOUR NEXT STEP")}</p><h2>{reportTitle}</h2><p className={styles.offerIntro}>{t("看懂自己的兴趣，也看清值得验证的职业方向。", "看懂自己的興趣，也看清值得驗證的職業方向。", "Understand your interests and find career directions you can put to the test.")}</p>
         <ul className={styles.benefits}>{modules.map(({Icon,title,body})=><li key={title}><Icon size={23}/><div><strong>{title}</strong><p>{body}</p></div></li>)}</ul>
-        <div className={styles.purchaseSlot}>{purchase ?? <p>{t("购买暂未开放", "購買暫未開放", "Purchase is not yet available")}</p>}</div>
+        <div className={styles.purchaseSlot}>{previewPayments ?? purchase ?? <p>{t("购买暂未开放", "購買暫未開放", "Purchase is not yet available")}</p>}</div>
         <Link className={styles.sampleLink} href={sampleHref} target="_blank" rel="noopener">{t("查看完整示例报告", "查看完整示例報告", "View the full sample report")}<ArrowUpRight size={14}/></Link>
-      </section>}
+      </section></>}
     </div>
   </div>;
 }

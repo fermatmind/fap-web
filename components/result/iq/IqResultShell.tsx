@@ -37,14 +37,17 @@ function duration(value: number | null): string {
 
 const SCORE_TICKS = [55, 70, 85, 100, 115, 130, 145];
 const SCORE_BASELINE = 213;
+// Serialise at subpixel precision so differences in Math.exp across runtimes
+// cannot change the server and browser SVG attributes.
+const svgCurveY = (value: number) => value.toFixed(3);
 const scoreX = (score: number) => 59 + (score - 55) * 312 / 90;
 const curveY = (score: number) => SCORE_BASELINE - 7 - 184 * Math.exp(-0.5 * ((score - 100) / 13) ** 2);
 const distributionPath = `M59 ${SCORE_BASELINE} L${Array.from({ length: 91 }, (_, index) => {
   const score = 55 + index;
-  return `${scoreX(score)} ${curveY(score)}`;
+  return `${scoreX(score)} ${svgCurveY(curveY(score))}`;
 }).join(" L")} L371 ${SCORE_BASELINE}Z`;
 
-function ScoreDistribution({ score, locale, displayLocale }: { score: number | null; locale: Locale; displayLocale: DisplayLocale }) {
+export function ScoreDistribution({ score, locale, displayLocale, showValue = true, showCaption = true }: { score: number | null; locale: Locale; displayLocale: DisplayLocale; showValue?: boolean; showCaption?: boolean }) {
   const id = useId();
   const distributionFill = `${id}-distribution`;
   const markerFill = `${id}-marker`;
@@ -59,7 +62,7 @@ function ScoreDistribution({ score, locale, displayLocale }: { score: number | n
 
   return (
     <figure className="m-0">
-      <div className="mb-3 text-[clamp(3rem,5vw,3.625rem)] leading-none font-bold tracking-tight tabular-nums" data-testid="iq-standard-score-value">{score ?? "—"}</div>
+      {showValue && <div className="mb-3 text-[clamp(3rem,5vw,3.625rem)] leading-none font-bold tracking-tight tabular-nums" data-testid="iq-standard-score-value">{score ?? "—"}</div>}
       <svg viewBox="0 -28 424 288" className="mx-auto block w-full max-w-[424px]" role="img" aria-label={chartLabel}>
         <defs>
           <linearGradient id={distributionFill}>
@@ -79,8 +82,8 @@ function ScoreDistribution({ score, locale, displayLocale }: { score: number | n
         <path d={distributionPath} fill={`url(#${distributionFill})`} />
         {score !== null ? (
           <g transform={`translate(${markerX} 0)`} fill={`url(#${markerFill})`} data-testid="iq-score-marker">
-            <path d={`M-1.7 ${SCORE_BASELINE}V${markerY + 5}l3.4-7V${SCORE_BASELINE}z`} />
-            <path d={`M-2.8 ${arrowTip - 34}h5.6v25h7l-9.8 11-9.8-11h7z`} />
+            <path d={`M-1.7 ${SCORE_BASELINE}V${svgCurveY(markerY + 5)}l3.4-7V${SCORE_BASELINE}z`} />
+            <path d={`M-2.8 ${svgCurveY(arrowTip - 34)}h5.6v25h7l-9.8 11-9.8-11h7z`} />
           </g>
         ) : null}
         <g fill="var(--fm-text)" fontSize="12" fontWeight="700" textAnchor="middle">
@@ -89,7 +92,7 @@ function ScoreDistribution({ score, locale, displayLocale }: { score: number | n
           <text x="13" y="122" transform="rotate(-90 13 122)">{zh ? copy("参考频率", "參考頻率") : "Reference frequency"}</text>
         </g>
       </svg>
-      <figcaption className="text-center text-sm text-[var(--fm-text-muted)]">{zh ? copy("参考分布示意", "參考分布示意") : "Illustrative reference distribution"}</figcaption>
+      {showCaption && <figcaption className="text-center text-sm text-[var(--fm-text-muted)]">{zh ? copy("参考分布示意", "參考分布示意") : "Illustrative reference distribution"}</figcaption>}
     </figure>
   );
 }
