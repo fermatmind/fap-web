@@ -1,4 +1,5 @@
 "use client";
+import type { MbtiApplicationContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import Image from "next/image";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 
@@ -60,6 +61,7 @@ type DesktopCloneTool = {
 
 type MbtiDesktopCloneShellProps = {
   locale: Locale;
+  applicationContent?: MbtiApplicationContent;
   headline: RichResultHeadline;
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
@@ -443,6 +445,7 @@ export function MbtiDesktopCloneShell({
   suppressUnlockSurfaces = false,
   storageContentPending = false,
   requirePublishedContent = false,
+  applicationContent,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
@@ -627,13 +630,13 @@ export function MbtiDesktopCloneShell({
   };
   const unlockedCareerIdeaBlock = fullContentVisible
     ? withOverrideTitle(
-        slots.chapters.career.careerIdeas,
+        applicationContent?.careerIdeas ?? slots.chapters.career.careerIdeas,
         cloneLocale === "zh" ? copy("你可能会喜欢的职业选择") : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
       )
     : null;
   const unlockedWorkStylesBlock = fullContentVisible
     ? withOverrideTitle(
-        slots.chapters.career.workStyles,
+        applicationContent?.workStyles ?? slots.chapters.career.workStyles,
         cloneLocale === "zh" ? copy("适合你的工作方式") : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
       )
     : null;
@@ -643,6 +646,7 @@ export function MbtiDesktopCloneShell({
       <MbtiCloneIdeaListBlock
         key="career-ideas"
         data={unlockedCareerIdeaBlock}
+        locale={cloneLocale}
         testId="mbti-p1-career-career-ideas"
       />,
     );
@@ -652,6 +656,7 @@ export function MbtiDesktopCloneShell({
       <MbtiCloneIdeaListBlock
         key="career-work-styles"
         data={unlockedWorkStylesBlock}
+        locale={cloneLocale}
         testId="mbti-p1-career-work-styles"
       />,
     );
@@ -669,7 +674,16 @@ export function MbtiDesktopCloneShell({
       )
     : null;
   const growthPostCoreBlocks: ReactNode[] = [];
-  if (unlockedWhatEnergizesBlock) {
+  if (fullContentVisible && applicationContent?.whatEnergizes) {
+    growthPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="growth-what-energizes"
+        locale={cloneLocale}
+        data={applicationContent.whatEnergizes}
+        testId="mbti-p1-growth-what-energizes"
+      />,
+    );
+  } else if (unlockedWhatEnergizesBlock) {
     growthPostCoreBlocks.push(
       <MbtiCloneEnergyBlock
         key="growth-what-energizes"
@@ -679,7 +693,16 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
-  if (unlockedWhatDrainsBlock) {
+  if (fullContentVisible && applicationContent?.whatDrains) {
+    growthPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="growth-what-drains"
+        locale={cloneLocale}
+        data={applicationContent.whatDrains}
+        testId="mbti-p1-growth-what-drains"
+      />,
+    );
+  } else if (unlockedWhatDrainsBlock) {
     growthPostCoreBlocks.push(
       <MbtiCloneEnergyBlock
         key="growth-what-drains"
@@ -702,7 +725,16 @@ export function MbtiDesktopCloneShell({
       )
     : null;
   const relationshipsPostCoreBlocks: ReactNode[] = [];
-  if (unlockedSuperpowersBlock) {
+  if (fullContentVisible && applicationContent?.superpowers) {
+    relationshipsPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="relationships-superpowers"
+        locale={cloneLocale}
+        data={applicationContent.superpowers}
+        testId="mbti-p1-relationships-superpowers"
+      />,
+    );
+  } else if (unlockedSuperpowersBlock) {
     relationshipsPostCoreBlocks.push(
       <MbtiCloneRelationshipInsightBlock
         key="relationships-superpowers"
@@ -712,7 +744,16 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
-  if (unlockedPitfallsBlock) {
+  if (fullContentVisible && applicationContent?.pitfalls) {
+    relationshipsPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="relationships-pitfalls"
+        locale={cloneLocale}
+        data={applicationContent.pitfalls}
+        testId="mbti-p1-relationships-pitfalls"
+      />,
+    );
+  } else if (unlockedPitfallsBlock) {
     relationshipsPostCoreBlocks.push(
       <MbtiCloneRelationshipInsightBlock
         key="relationships-pitfalls"

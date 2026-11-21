@@ -2518,3 +2518,7 @@
   .factorActionContext summary { display: none; }
   .factorActionContext::details-content { display: block; content-visibility: visible; }
 }
+
+.careerIdeaLink { color: var(--clone-green); text-decoration: underline; text-decoration-color: #b5cbbd; text-underline-offset: 4px; }
+.careerIdeaLink:hover { text-decoration-color: currentColor; }
+.careerIdeaLink:focus-visible { outline: 2px solid var(--clone-green); outline-offset: 4px; border-radius: 2px; }
