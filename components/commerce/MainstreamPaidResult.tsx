@@ -31,7 +31,7 @@ const sections: Record<string, [string, string, string][]> = {
   BIG5_OCEAN: [["五维详细解读", "五維詳細解讀", "Detailed readings of the five traits"], ["侧面解读与行动建议", "側面解讀與行動建議", "Facet readings and actions available for this form"]],
   ENNEAGRAM: [["候选类型与动机解读", "候選型別與動機解讀", "Candidate types and motivation readings"], ["关系模式与成长章节", "關係模式與成長章節", "relationship and growth chapters"]],
   IQ_RAVEN: [["本题本各类推理表现", "本題本各類推理表現", "Performance by reasoning category"], ["结果解读与报告导出", "結果解讀與報告匯出", "result readings and report export"]],
-  EQ_60: [["四维详细解释", "四維詳細解釋", "Detailed readings of the four dimensions"], ["交叉解读与日常练习", "交叉解讀與日常練習", "cross-dimension readings and everyday exercises"]],
+  EQ_60: [["四维详细解释", "四維詳細解釋", "Detailed readings of the four dimensions"], ["交叉解读与日常练习", "交叉解讀與日常練習", "Cross-dimension readings and everyday exercises"]],
   JUNG_ARCHETYPES: [["主导、辅助与接近原型", "主導、輔助與接近原型", "Primary, secondary and nearby archetypes"], ["原型动机、盲区与协作解读", "原型動機、盲區與協作解讀", "Archetype motives, blind spots and collaboration readings"]],
   JUNG_COGNITIVE_FUNCTIONS: [["功能轴与功能栈候选", "功能軸與功能棧候選", "Function axes and stack-fit candidates"], ["功能解读与情境反思", "功能解讀與情境反思", "function readings and situational reflections"]],
   DISC_BEHAVIOR: [["本次选择对应的完整解读", "本次選擇對應的完整解讀", "The complete reading for your choices"], ["行为例子、情境取舍与观察练习", "行為例子、情境取捨與觀察練習", "behavior examples, contextual trade-offs and observation exercises"]],
@@ -112,8 +112,8 @@ function ResultRadar({ axes, perimeter = false }: {
   </div>;
 }
 
-export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile }: {
-  data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview;
+export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile, previewSampleHref }: {
+  data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview; previewSampleHref?: string;
 }) {
   const [refunded, setRefunded] = useState(false);
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
@@ -249,7 +249,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
             : <p role="status">{t("本次结果暂不提供购买，请稍后重试。", "本次結果暫不提供購買，請稍後重試。", "Purchasing is unavailable for this result. Please try again later.")}</p>}
         </div>
         {previewProfile && <p className={styles.scoreNote}><Link href={displayNavigationPath("/help/payment-refund", locale)}>{t("查看付款与退款说明", "查看付款與退款說明", "Payment and refund information")}</Link></p>}
-        <Link className={styles.sampleLink} href={`/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: summary.total === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
+        <Link className={styles.sampleLink} href={preview && previewSampleHref ? previewSampleHref : `/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: summary.total === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
       </section>
       </div>
     </>}
