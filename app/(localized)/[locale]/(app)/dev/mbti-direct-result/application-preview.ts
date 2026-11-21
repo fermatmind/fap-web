@@ -9,32 +9,32 @@ export const applicationPreview = {
     "items": [
       {
         "title": "注册护士",
-        "description": "观察护理需要、实施护理并记录病情变化，探索照料他人与规范执行结合的工作；进入该职业需核对执业注册、培训与轮班要求。",
+        "description": "从日常照护到康复支持，护理工作让关心化为具体行动。如果你希望直接帮助他人，并从对方的改善中获得满足，可以进一步了解这个方向。",
         "careerSlug": "registered-nurses"
       },
       {
         "title": "诊疗辅助人员",
-        "description": "协调预约、整理记录并准备就诊，探索门诊服务中的细节与协作；临床支持的具体操作范围须按当地岗位授权核实。",
+        "description": "帮助患者理清就诊安排，让忙碌的门诊运转更有序。若你喜欢把细节安排妥当，也愿意在医护与患者之间提供支持，这类工作可能吸引你。",
         "careerSlug": "medical-assistants"
       },
       {
         "title": "图书馆员与媒体馆藏专员",
-        "description": "整理馆藏、维护检索信息并帮助读者找到资源，探索服务他人与组织信息结合的任务；具体岗位也可能偏重数字资源或媒体馆藏。",
+        "description": "把丰富的资料整理得便于查找，再帮助读者找到答案。如果你既喜欢有条理地组织信息，也享受为别人解决具体疑问，可以留意这个方向。",
         "careerSlug": "librarians-and-media-collections-specialists"
       },
       {
         "title": "人力资源专员",
-        "description": "把招聘、入职或培训安排落实到具体人员与流程，探索自己是否喜欢兼顾人的需要与一致的规则，以及持续沟通的工作。",
+        "description": "帮助新同事顺利入职，回应员工在工作中的实际疑问。若你对人的处境有兴趣，也喜欢把沟通落实为清楚的安排，可以了解人力资源工作。",
         "careerSlug": "human-resources-specialists"
       },
       {
         "title": "簿记、会计与审计文员",
-        "description": "按凭证分类、录入与核对交易，探索是否喜欢有依据的细节工作；这一岗位不等同于有权出具正式审计意见的专业人员。",
+        "description": "从一笔笔记录中理清账目，找出差异，让数据有据可查。如果你享受专注核对、逐步把事情理顺的过程，这类工作可能带来踏实的完成感。",
         "careerSlug": "bookkeeping-accounting-and-auditing-clerks"
       },
       {
         "title": "社会与人类服务助理",
-        "description": "联系服务对象、衔接资源并记录进展，探索持续支持具体人的工作；资格评定或个案决定仍须由有权人员负责。",
+        "description": "帮助有需要的人找到服务、获得资源，并跟进后续进展。如果你希望关心能够转化为实际支持，也愿意耐心陪伴一个过程，可以了解这类工作。",
         "careerSlug": "social-and-human-service-assistants"
       }
     ]

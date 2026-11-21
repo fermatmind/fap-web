@@ -623,9 +623,9 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
                 ) : null}
                 {source.details.length > 0 ? (
                   <ul className="m-0 mt-2 list-disc pl-5">
-                    {source.details.map((usage) => {
+                    {source.details.map((usage, detailIndex) => {
                       const detail = sourceDetail(usage);
-                      return <li key={usage}>
+                      return <li key={`${usage}:${detailIndex}`}>
                         {detail.text}
                         {detail.href ? <>{detail.text ? " — " : null}<a href={detail.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C3E8C] underline underline-offset-2">{detail.linkLabel}</a></> : null}
                       </li>;
