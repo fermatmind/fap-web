@@ -35,8 +35,10 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
       if (archive) {
         const engine = root.querySelector<HTMLElement>('[data-stage="answer"], [data-stage="result"]');
         const stage = engine?.dataset.stage;
-        const waitingForReport = stage === "result" && engine?.hasAttribute("data-questionnaire-slug")
-          && !engine.querySelector("[data-archive-report-ready]");
+        const waitingForReport = stage === "result" && (
+          engine?.querySelector("[data-content-module-pending]") ||
+          (engine?.hasAttribute("data-questionnaire-slug") && !engine.querySelector("[data-archive-report-ready]"))
+        );
         setArchiveStage(!waitingForReport && (stage === "answer" || stage === "result") ? stage : undefined);
       }
       if (!autoStart || entered.current) return;
@@ -54,7 +56,12 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
     }
     enter();
     const observer = new MutationObserver(enter);
-    observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["disabled", "data-stage"] });
+    observer.observe(root, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["disabled", "data-stage", "data-archive-report-ready", "data-content-module-pending"],
+    });
     const timer = autoStart ? window.setTimeout(() => setSlow(true), 12000) : undefined;
     return () => { observer.disconnect(); window.clearTimeout(timer); };
   }, [archive, autoStart]);

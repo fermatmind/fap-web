@@ -14,11 +14,16 @@ const locales = ["en", "zh", "zh-TW"] as const;
 function Example({ generic }: { generic: boolean }) {
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [readable, setReadable] = useState(!generic);
+  const [nestedReady, setNestedReady] = useState(!generic);
   return <section id="take-test" data-stage={stage} data-questionnaire-slug={generic ? "type-ab" : undefined}>
     <button data-explore-start onClick={() => setStage("answer")}>Start example</button>
     <button onClick={() => setStage("result")}>Show result</button>
     <button onClick={() => setReadable(true)}>Finish loading report</button>
-    {stage === "result" && readable && <div data-archive-report-ready>Free report</div>}
+    <button onClick={() => setNestedReady(true)}>Finish loading score sections</button>
+    {stage === "result" && readable && <>
+      {nestedReady ? <div>Free report</div> : <div role="status" data-content-module-pending>Preparing score sections</div>}
+      <span hidden data-archive-report-ready />
+    </>}
     <button onClick={() => { setStage("answer"); setReadable(!generic); }}>Retake example</button>
   </section>;
 }
@@ -60,6 +65,9 @@ describe("90-title archive experience", () => {
       await waitFor(() => expect(hint()).toBeNull());
       expect(CTA()).toBeNull();
       fireEvent.click(getByRole("button", { name: "Finish loading report" }));
+      await waitFor(() => expect(container.querySelector("[data-content-module-pending]")).not.toBeNull());
+      expect(CTA()).toBeNull();
+      fireEvent.click(getByRole("button", { name: "Finish loading score sections" }));
     }
     await waitFor(() => expect(CTA()?.querySelector("a")?.getAttribute("href"))
       .toBe("/zh-TW/tests/big-five-personality-test-ocean-model"));
