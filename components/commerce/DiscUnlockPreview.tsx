@@ -20,9 +20,11 @@ export type DiscDesignPreview = {
   axes: { code: typeof directions[number]["code"]; label: string; count: number; total: number }[];
 };
 
-export function buildDiscDesignPreview(payload: unknown, locale: DisplayLocale): DiscDesignPreview | undefined {
-  const sample = payload as { counts?: Record<string, number>; profile?: { headline: { zh: string; en: string } } } | undefined;
+export function buildDiscDesignPreview(payload: unknown, locale: DisplayLocale, artwork?: string): DiscDesignPreview | undefined {
+  const sample = payload as { counts?: Record<string, number>; profile?: { headline: Partial<Record<DisplayLocale, string>> } } | undefined;
   if (!sample?.counts || !sample.profile) return undefined;
+  const headline = sample.profile.headline[locale];
+  if (!headline) return undefined;
   const languageIndex = locale === "en" ? 2 : locale === "zh-TW" ? 1 : 0;
   const axes = directions.flatMap(({ code, id, label }) => {
     const count = sample.counts?.[id];
@@ -35,8 +37,8 @@ export function buildDiscDesignPreview(payload: unknown, locale: DisplayLocale):
   const title = leading.map(axis => `${axis.code} · ${axis.label}`).join(" / ");
   return {
     title,
-    headline: locale === "zh-TW" ? "先把下一步說清楚" : sample.profile.headline[locale],
-    art: leading.length === 1 && leading[0].code === "D" ? "/images/disc/preview-moving-forward.webp" : undefined,
+    headline,
+    art: artwork ?? (leading.length === 1 && leading[0].code === "D" ? "/images/disc/preview-moving-forward.webp" : undefined),
     axes,
   };
 }

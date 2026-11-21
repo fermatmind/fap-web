@@ -1,4 +1,6 @@
 "use client";
+import { findDiscProfileByCounts } from "@/components/result/disc/discPreviewProfiles";
+import { discPreviewLocales } from "@/components/result/disc/discPreviewLocale";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -9,7 +11,7 @@ import type { ReportResponse, ResultResponse, RiasecPurchase } from "@/lib/api/v
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { Career94Checkout } from "@/app/(localized)/[locale]/career/assessment/Career94Purchase";
 import { ReasoningUnlockPreview, type ReasoningPreview } from "./ReasoningUnlockPreview";
-import { DiscUnlockPreview, type DiscDesignPreview } from "./DiscUnlockPreview";
+import { DiscUnlockPreview, buildDiscDesignPreview, type DiscDesignPreview } from "./DiscUnlockPreview";
 import { TraitProfileUnlockPreview, buildEqProfile, type TraitProfilePreview } from "./TraitProfileUnlockPreview";
 import { ResultPreviewChapters } from "./ResultPreviewChapters";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
@@ -113,8 +115,8 @@ function ResultRadar({ axes, perimeter = false }: {
   </div>;
 }
 
-export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile, previewSampleHref }: {
-  data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview; previewSampleHref?: string;
+export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile, previewSampleHref, sampleResultId }: {
+  data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview; previewSampleHref?: string; sampleResultId?: string;
 }) {
   const [refunded, setRefunded] = useState(false);
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
@@ -146,7 +148,9 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   });
   const discLabels:Record<string,[string,string,string]>={D:["主导","主導","Dominance"],I:["影响","影響","Influence"],S:["稳健","穩健","Steadiness"],C:["审慎","審慎","Conscientiousness"]};
   const label = (key:string) => scale === "DISC_BEHAVIOR" && discLabels[key] ? t(...discLabels[key]) : labels[key] ? t(...labels[key]) : /^T[1-9]$/.test(key) ? t(`候选类型 ${key.slice(1)}`,`候選型別 ${key.slice(1)}`,`Candidate type ${key.slice(1)}`) : key;
-  const previewProfile = Boolean(liveEq && traitProfile) || preview && Boolean(previewArtwork || discPreview || traitProfile || scale === "BIG5_OCEAN");
+  const liveDiscProfile = !preview && scale === "DISC_BEHAVIOR" ? findDiscProfileByCounts(scores) : undefined;
+  if (liveDiscProfile) discPreview = buildDiscDesignPreview({ counts: scores, profile: { headline: { [locale]: discPreviewLocales[locale].profiles[liveDiscProfile.id].headline } } }, locale, liveDiscProfile.artwork);
+  const previewProfile = Boolean(liveDiscProfile && discPreview) || Boolean(liveEq && traitProfile) || preview && Boolean(previewArtwork || discPreview || traitProfile || scale === "BIG5_OCEAN");
   const scoreEntries = Object.entries(scores).filter(([, value]) => typeof value === "number" && Number.isFinite(value));
   const profileHeading = previewProfile ? profileHeadings[scale] : undefined;
   const axes = scoreEntries.filter(([key]) => key !== "TOTAL").map(([key, value]) => ({
@@ -257,7 +261,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
             : <p role="status">{t("本次结果暂不提供购买，请稍后重试。", "本次結果暫不提供購買，請稍後重試。", "Purchasing is unavailable for this result. Please try again later.")}</p>}
         </div>
         {previewProfile && <p className={styles.scoreNote}><Link href={displayNavigationPath("/help/payment-refund", locale)}>{t("查看付款与退款说明", "查看付款與退款說明", "Payment and refund information")}</Link></p>}
-        <Link className={styles.sampleLink} href={preview && previewSampleHref ? previewSampleHref : `/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: summary.total === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
+        <Link className={styles.sampleLink} href={preview && previewSampleHref ? previewSampleHref : `/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: summary.total === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}${scale === "DISC_BEHAVIOR" && sampleResultId ? `?result=${encodeURIComponent(sampleResultId)}` : ""}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
       </section>
       </div>
     </>}

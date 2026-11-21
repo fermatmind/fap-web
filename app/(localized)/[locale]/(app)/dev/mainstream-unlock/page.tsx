@@ -2,6 +2,8 @@ import { eqPreviewResultIds } from "@/lib/eq/redesignPreview";
 import { loadEqRedesignPreview } from "@/lib/eq/loadRedesignPreview";
 import { buildEqProfile, type TraitProfilePreview } from "@/components/commerce/TraitProfileUnlockPreview";
 import { interestPreviewStory } from "@/components/commerce/interestPreviewStory";
+import { findDiscPreviewProfile } from "@/components/result/disc/discPreviewProfiles";
+import { discPreviewLocales, discResultPreviewPath } from "@/components/result/disc/discPreviewLocale";
 import { buildDiscDesignPreview } from "@/components/commerce/DiscUnlockPreview";
 import { loadFixedSample } from "@/lib/reports/fixedSamples";
 import { buildIqResultPresentation } from "@/lib/iq/presentation";
@@ -34,8 +36,10 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
  const selected = forms.find(form => form[0] === (query.form ?? forms[0][0]));
  if (!selected) notFound();
  const scale=selected[1];
+ const discProfile = scale === "DISC_BEHAVIOR" ? findDiscPreviewProfile(query.result ?? "single-d") : undefined;
+ if (scale === "DISC_BEHAVIOR" && !discProfile) notFound();
  if (scale === "EQ_60" && query.result && !eqPreviewResultIds.some(id => id === query.result)) notFound();
- const resultSuffix = scale === "EQ_60" && query.result ? `&result=${encodeURIComponent(query.result)}` : "";
+ const resultSuffix = (scale === "EQ_60" || scale === "DISC_BEHAVIOR") && query.result ? `&result=${encodeURIComponent(query.result)}` : "";
  const holland = scale === "RIASEC" ? await loadRiasec60DesignReport(locale) : null;
  const names: Record<string, string> = { MBTI: "MBTI", BIG5_OCEAN: "大五人格", ENNEAGRAM: "九型人格", IQ_RAVEN: "智商测试", IQ_INTELLIGENCE_QUOTIENT: "智商测试", EQ_60: "情商测试", JUNG_ARCHETYPES: "荣格原型", DISC_BEHAVIOR: "DISC", RIASEC: "霍兰德职业兴趣", CAREER: "职业测试" };
  const scores=scale==="MBTI"?{EI:39,SN:65,TF:70,JP:54}:scale==="BIG5_OCEAN"?{O:72,C:58,E:44,A:66,N:38}:scale==="JUNG_ARCHETYPES"?{explorer:75,lover:68,creator:62,jester:60,ruler:56,everyperson:52,hero:48,caregiver:44,innocent:40,sage:38,magician:35,rebel:32}:{};
@@ -46,18 +50,20 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
    MBTI: "mbti", BIG5_OCEAN: "big5", ENNEAGRAM: "enneagram", IQ_RAVEN: "iq30", IQ_INTELLIGENCE_QUOTIENT: "iq40",
    EQ_60: "eq", JUNG_ARCHETYPES: "archetypes", DISC_BEHAVIOR: "disc",
  };
- const samplePath = scale === "EQ_60" ? `/${locale}/dev/eq-result${query.result ? `?result=${encodeURIComponent(query.result)}` : ""}` : scale === "RIASEC" ? `/${locale}/tests/holland-career-interest-test-riasec/sample`
+ const samplePath = discProfile ? discResultPreviewPath(locale, discProfile.id) : scale === "EQ_60" ? `/${locale}/dev/eq-result${query.result ? `?result=${encodeURIComponent(query.result)}` : ""}` : scale === "RIASEC" ? `/${locale}/tests/holland-career-interest-test-riasec/sample`
    : scale === "CAREER" ? `/${locale === "en" ? "en" : "zh"}/career/assessment/sample`
    : `/${locale}/reports/samples/${sampleKeys[scale]}`;
- const englishNames: Record<string, string> = { BIG5_OCEAN:"Big Five", ENNEAGRAM:"Enneagram", IQ_RAVEN:"Reasoning test", IQ_INTELLIGENCE_QUOTIENT:"Reasoning test", EQ_60:"Emotional intelligence", JUNG_ARCHETYPES:"Jungian archetypes", DISC_BEHAVIOR:"DISC", RIASEC:"Holland career interests", CAREER:"Career assessment" };
+ const englishNames: Record<string, string> = { BIG5_OCEAN:"Big Five", ENNEAGRAM:"Enneagram", MBTI:"MBTI", IQ_RAVEN:"Reasoning test", IQ_INTELLIGENCE_QUOTIENT:"Reasoning test", EQ_60:"Emotional intelligence", JUNG_ARCHETYPES:"Jungian archetypes", DISC_BEHAVIOR:"DISC", RIASEC:"Holland career interests", CAREER:"Career assessment" };
  const traditionalNames: Record<string, string> = { IQ_RAVEN:"智商測驗", IQ_INTELLIGENCE_QUOTIENT:"智商測驗", EQ_60:"情商測驗", JUNG_ARCHETYPES:"榮格原型", RIASEC:"霍蘭德職涯興趣", CAREER:"職涯測驗" };
  const bigFive = scale === "BIG5_OCEAN";
  const currentAssessmentPath = bigFive ? "/tests/big-five-personality-test-ocean-model"
    : scale === "ENNEAGRAM" ? "/tests/enneagram-personality-test-nine-types" : undefined;
  const related = displayNavigationPath(currentAssessmentPath ?? "/tests", locale);
- const disc = scale === "DISC_BEHAVIOR"
-   ? buildDiscDesignPreview((await loadFixedSample("disc", locale === "en" ? "en" : "zh"))?.report?.disc, locale)
-   : undefined;
+ const disc = discProfile ? buildDiscDesignPreview({ counts: discProfile.scores, profile: { headline: {
+   zh: discPreviewLocales.zh.profiles[discProfile.id].headline,
+   en: discPreviewLocales.en.profiles[discProfile.id].headline,
+   "zh-TW": discPreviewLocales["zh-TW"].profiles[discProfile.id].headline,
+ } } }, locale, discProfile.artwork) : undefined;
  const reasoningSample = scale.startsWith("IQ_") ? await loadFixedSample(sampleKeys[scale], locale === "en" ? "en" : "zh") : null;
  const dimensions = reasoningSample?.report?.dimensions as Record<string, {
    dimension_code: string; dimension_name: string; item_count: number; correct_count: number;
@@ -129,7 +135,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
  ) : scale === "CAREER" ? (
    <Career94FreeReport locale={locale === "en" ? "en" : "zh"} sample overview designPreview />
  ) : (
-   <MainstreamPaidResult data={data} purchase={purchase} locale={locale} preview previewArtwork={artwork[scale]} reasoningPreview={reasoning} discPreview={disc} traitProfile={traitProfile} previewSampleHref={scale === "EQ_60" ? samplePath : undefined} />
+   <MainstreamPaidResult data={data} purchase={purchase} locale={locale} preview previewArtwork={artwork[scale]} reasoningPreview={reasoning} discPreview={disc} traitProfile={traitProfile} sampleResultId={discProfile?.id} previewSampleHref={scale === "EQ_60" ? samplePath : undefined} />
  );
 
  const sharePreview = <ResultPreviewShare

@@ -1,18 +1,31 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import { DiscPaidReport } from "@/components/result/disc/DiscPaidReport";
-import { prepareDiscResultProfile } from "@/lib/questionnaires/result-content/disc";
-import source from "@/lib/questionnaires/data/disc.json";
-import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
+import { discPreviewProfiles } from "@/components/result/disc/discPreviewProfiles";
+import { discPreviewLocales } from "@/components/result/disc/discPreviewLocale";
+import type { DisplayLocale } from "@/lib/i18n/locales";
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
 
-vi.mock("@/lib/tests/traditionalAssessmentDisplay", () => ({ loadTraditionalAssessmentText: async () => (text: string) => `繁體：${text}` }));
-
-describe("paid DISC existing report language projection", () => {
-  it("translates the score-reading explanation with the rest of the Traditional report", async () => {
-    const profile = prepareDiscResultProfile(source.profiles[0] as QuestionnaireProfile);
-    render(<DiscPaidReport payload={{counts: {D: 12, I: 5, S: 4, C: 3}, profile}} locale="zh" displayLocale="zh-TW" />);
-    fireEvent.click(await screen.findByText("查看完整解釋、計分與依據"));
-    await waitFor(() => expect(screen.getByText(`繁體：${profile.scoreReading.zh}`)).toBeVisible());
-    expect(screen.queryByText(profile.scoreReading.zh, {exact:true})).not.toBeInTheDocument();
+describe("live DISC shared result", () => {
+  for (const locale of ["zh", "zh-TW", "en"] as DisplayLocale[]) {
+    it.each(discPreviewProfiles)(`${locale} renders server-scored $id without preview controls`, profile => {
+      const html = renderToStaticMarkup(<DiscPaidReport payload={{counts:profile.scores,profile:{id:profile.id}}} locale={locale === "en" ? "en" : "zh"} displayLocale={locale}/>);
+      const page = new DOMParser().parseFromString(html,"text/html");
+      expect(page.querySelector("h1")?.textContent).toBe(discPreviewLocales[locale].profiles[profile.id].title);
+      expect(page.querySelectorAll("[data-leading=true]")).toHaveLength(profile.leaders.length);
+      expect(page.querySelector("select")).toBeNull();
+      expect(page.querySelector('[aria-label="'+discPreviewLocales[locale].ui.languages+'"]')).toBeNull();
+      expect(html).not.toContain("/dev/");
+    });
+  }
+  it("preserves actual counts instead of replacing them with the sample vector", () => {
+    const counts={DOMINANCE:12,INFLUENCE:4,STEADINESS:3,CONSCIENTIOUSNESS:5};
+    const html=renderToStaticMarkup(<DiscPaidReport payload={{counts,profile:{id:"single-d"}}} locale="en" displayLocale="en"/>);
+    expect(new DOMParser().parseFromString(html,"text/html").querySelector("dd strong")?.textContent).toBe("12");
+  });
+  it.each([undefined,{counts:{DOMINANCE:24},profile:{id:"single-d"}},{counts:discPreviewProfiles[0].scores,profile:{id:"single-s"}}])("fails closed for incomplete or mismatched report identity", payload => {
+    const html=renderToStaticMarkup(<DiscPaidReport payload={payload} locale="en" displayLocale="en"/>);
+    expect(html).toContain('role="status"');
+    expect(html).not.toContain("disc-portrait");
   });
 });

@@ -1,0 +1,77 @@
+{
+  "mode": "built-in imagegen",
+  "style_reference": "public/images/disc/preview-moving-forward.webp",
+  "shared_prompt": "Use case: editorial character illustration for FermatMind DISC result hero. Reference image is STYLE reference only: match its refined 3D stop-motion sculpted clay and felt fabric, adult friendly expressive proportions, carefully crafted tactile materials, soft warm studio lighting and restrained plum/amber/cream palette. Create a NEW standalone square composition: full bodies and all hands/feet completely visible with generous transparent margins, cohesive miniature diorama, camera at eye level. Transparent alpha background, no solid backdrop, no rectangular panel, no UI, no letters, no words, no logos, no watermarks, no gold medals or status hierarchy. ",
+  "illustrations": [
+    {
+      "id": "single-i",
+      "prompt": "One expressive adult woman in a muted purple jacket and amber scarf, explaining an idea with open hands, holding a small unlettered sketchbook with abstract colored shapes. Welcoming conversation, not performing on stage.",
+      "destination": "public/images/disc/preview/single-i.webp"
+    },
+    {
+      "id": "single-s",
+      "prompt": "One calm adult man in a sage-green cardigan and warm cream trousers, crouching beside a small leafy plant, supporting its stem gently with a wooden stake. A quiet visual of maintaining a sustainable rhythm.",
+      "destination": "public/images/disc/preview/single-s.webp"
+    },
+    {
+      "id": "single-c",
+      "prompt": "One focused adult woman in an indigo vest and cream blouse, checking the alignment of wooden geometric pieces using a small measuring square on a simple waist-height work stand. Evidence and standards.",
+      "destination": "public/images/disc/preview/single-c.webp"
+    },
+    {
+      "id": "tied-d-i",
+      "prompt": "Two equal-sized adults: the amber-scarf explorer with a folded map proposes a small route; a woman in plum explains an unlettered sketch to him. They look at the proposal together, nobody leads or dominates. Action and expression as separate perspectives.",
+      "destination": "public/images/disc/preview/tied-d-i.webp"
+    },
+    {
+      "id": "tied-d-s",
+      "prompt": "Two equal-sized adults: the amber-scarf explorer takes one small step on stepping stones while a sage-clothed companion points to a safe resting spot. Both face each other, collaboratively considering pace. Action and sustainable support.",
+      "destination": "public/images/disc/preview/tied-d-s.webp"
+    },
+    {
+      "id": "tied-d-c",
+      "prompt": "Two equal-sized adults: amber-scarf explorer holds a folded map while an indigo-clothed companion uses a measuring square to check a small wooden bridge prototype between them. Reversible action and checking conditions.",
+      "destination": "public/images/disc/preview/tied-d-c.webp"
+    },
+    {
+      "id": "tied-i-s",
+      "prompt": "Two equal-sized adults: a plum-clothed expressive woman opens an unlettered sketchbook, while a sage-clothed companion attentively listens holding a cup. Shared conversation and room for a quieter pace.",
+      "destination": "public/images/disc/preview/tied-i-s.webp"
+    },
+    {
+      "id": "tied-i-c",
+      "prompt": "Two equal-sized adults: a plum-clothed woman presents a playful abstract sketch, while an indigo-clothed woman compares it with a small physical wooden model using a measuring tool. An idea and evidence brought into conversation.",
+      "destination": "public/images/disc/preview/tied-i-c.webp"
+    },
+    {
+      "id": "tied-s-c",
+      "prompt": "Two equal-sized adults: a sage-clothed person steadies a small potted tree while an indigo-clothed companion checks the fit of its support structure. Maintaining something together and clarifying the conditions.",
+      "destination": "public/images/disc/preview/tied-s-c.webp"
+    },
+    {
+      "id": "tied-d-i-s",
+      "prompt": "Three equal-sized adults in amber, plum and sage clothing collaboratively arranging a small picnic: amber person holds the route map, plum person discusses a small sketch, sage person sets a resting cushion. Action, expression and sustainable pace, no hierarchy.",
+      "destination": "public/images/disc/preview/tied-d-i-s.webp"
+    },
+    {
+      "id": "tied-d-i-c",
+      "prompt": "Three equal-sized adults in amber, plum and indigo clothing considering a little wooden windmill prototype: amber proposes one next adjustment, plum shares a sketch, indigo checks a measurement. Different perspectives, no master leader.",
+      "destination": "public/images/disc/preview/tied-d-i-c.webp"
+    },
+    {
+      "id": "tied-d-s-c",
+      "prompt": "Three equal-sized adults in amber, sage and indigo clothing building a small wooden footbridge model: amber sets down one plank, sage holds the model steady, indigo checks the joining edge. Shared task, attention to pace and conditions.",
+      "destination": "public/images/disc/preview/tied-d-s-c.webp"
+    },
+    {
+      "id": "tied-i-s-c",
+      "prompt": "Three equal-sized adults in plum, sage and indigo clothing around a small round table: plum shares an abstract sketch, sage listens with an open hand, indigo checks a small sample object. Making room for expression, comfort and accuracy.",
+      "destination": "public/images/disc/preview/tied-i-s-c.webp"
+    },
+    {
+      "id": "tied-d-i-s-c",
+      "prompt": "Four equal-sized adults in amber, plum, sage and indigo clothing seated or standing at equal height around a small round table with an unlettered map, sketchbook, cup and geometric model. A neutral open conversation, no central hero, no trophy, no implication of superior balance.",
+      "destination": "public/images/disc/preview/tied-d-i-s-c.webp"
+    }
+  ]
+}
