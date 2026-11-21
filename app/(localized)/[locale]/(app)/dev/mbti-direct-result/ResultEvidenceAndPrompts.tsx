@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Crown } from "lucide-react";
 import { useState } from "react";
 import styles from "./ai-conversation.module.css";
 
@@ -17,7 +18,7 @@ export function ResultEvidenceAndPrompts() {
     setCopying(true);
     try {
       await navigator.clipboard.writeText(careerPrompt);
-      setStatus("已复制。粘贴到你使用的 AI 中，补全方括号里的经历即可。");
+      setStatus("copied");
     } catch {
       setStatus("未能自动复制，请选中上方提示词后手动复制。");
     } finally {
@@ -30,10 +31,13 @@ export function ResultEvidenceAndPrompts() {
         <Image src="/images/mbti/ai-conversation/isfj.webp" alt="" width={768} height={512} unoptimized className={styles.image} />
       </div>
       <div className={styles.body}>
-        <h2 id="mbti-ai-title" className={styles.title}>和 AI 聊聊</h2>
+        <h2 id="mbti-ai-title" className={styles.title}>与AI探索人生</h2>
         <p data-testid="mbti-ai-prompt-text" className={styles.promptText}>{careerPrompt}</p>
-        <button type="button" disabled={copying} onClick={copy} className={styles.button}>{copying ? "正在复制…" : "复制 AI 对话提示词"}</button>
-        <p role="status" className={styles.status}>{status}</p>
+        <div className={styles.actions}>
+          <button type="button" disabled={copying} onClick={copy} className={styles.button}>{copying ? "正在复制…" : status === "copied" ? "已复制" : "复制 AI 对话提示词"}</button>
+          <a href="https://fermatmind.com/zh/history/mbti" className={styles.pdfButton} title="付费报告权益：进入我的报告下载完整PDF"><Crown size={15} aria-hidden="true" /><span className={styles.paidLabel}>付费</span>下载完整PDF</a>
+        </div>
+        {status && status !== "copied" ? <p role="status" className={styles.error}>{status}</p> : null}
       </div>
     </div>
   </section>;

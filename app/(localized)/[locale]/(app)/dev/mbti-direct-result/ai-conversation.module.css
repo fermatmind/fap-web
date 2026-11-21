@@ -4,12 +4,20 @@
 .image { display: block; width: 145%; max-width: none; height: auto; margin-left: -22.5%; }
 .body { min-width: 0; }
 .title { margin: 0 0 20px; font-size: 22px; line-height: 1.4; font-weight: 650; }
-.promptText { margin: 0 0 24px; white-space: pre-line; font-size: 14px; line-height: 1.95; color: #59685f; user-select: text; }
+.promptText { margin: 0 0 24px; white-space: pre-line; font-size: 14px; line-height: 1.95; color: #37443d; user-select: text; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 12px 24px; border: 0; border-radius: 999px; background: #247858; color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .15s; }
 .button:hover { background: #195d43; }
 .button:disabled { opacity: .6; cursor: wait; }
 .button:focus-visible { outline: 2px solid #247858; outline-offset: 4px; }
-.status { min-height: 20px; margin: 10px 0 0; font-size: 12px; line-height: 1.7; color: #466253; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.pdfButton { display: inline-flex; align-items: center; gap: 6px; min-height: 46px; padding: 10px 15px; border: 1px solid #cbd8cf; border-radius: 999px; background: #fff; color: #30493a; font-size: 13px; font-weight: 600; text-decoration: none; }
+.pdfButton svg { color: #9a6d25; }
+.pdfButton:hover { background: #f4f8f5; border-color: #247858; }
+.pdfButton:focus-visible { outline: 2px solid #247858; outline-offset: 4px; }
+.paidLabel { color: #8a601d; font-size: 11px; }
+.error { margin: 10px 0 0; font-size: 12px; line-height: 1.7; color: #8a4324; }
+.report [data-testid="mbti-desktop-clone-shell"] { --clone-body: #37443d; --clone-muted: #505e55; }
+.report [data-testid="mbti-desktop-clone-shell"] p:not([role="status"]) { color: #37443d; }
 @media (max-width: 767px) {
   .section { padding: 24px; }
   .layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }

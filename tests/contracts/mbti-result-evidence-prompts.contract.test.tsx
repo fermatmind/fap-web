@@ -14,12 +14,13 @@ describe("MBTI preview evidence and AI prompts", () => {
     render(<ResultEvidenceAndPrompts />);
     expect(screen.getByTestId("mbti-ai-prompt-text")).toBeVisible();
     expect(screen.queryByRole("button", { name: /查看提示词/ })).not.toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /和 AI 聊聊/ })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "与AI探索人生" })).toBeInTheDocument();
     expect(screen.queryByText(/科学依据/)).not.toBeInTheDocument();
     expect(screen.queryByText(/个人成长：/)).not.toBeInTheDocument();
     expect(screen.queryByText(/关系沟通：/)).not.toBeInTheDocument();
     expect(screen.queryByText(/不会自动把报告发送给 AI/)).not.toBeInTheDocument();
     expect(document.querySelector('img')?.getAttribute("src")).toContain("/ai-conversation/isfj.webp");
+    expect(screen.getByRole("link", { name: /付费.*下载完整PDF/ })).toHaveAttribute("href", "https://fermatmind.com/zh/history/mbti");
   });
 
   it("copies the selected prompt with concrete context and a request to ask before advising", async () => {
@@ -31,7 +32,8 @@ describe("MBTI preview evidence and AI prompts", () => {
     expect(writeText.mock.calls[0][0]).toContain("请先问我 3 个问题");
     expect(writeText.mock.calls[0][0]).toContain("一次低成本试做");
     expect(writeText.mock.calls[0][0]).toBe(screen.getByTestId("mbti-ai-prompt-text").textContent);
-    expect(await screen.findByText(/^已复制。/)).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "已复制" })).toBeInTheDocument();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 
   it("retains selectable text and explains manual copying when clipboard access fails", async () => {
