@@ -211,14 +211,18 @@ export function MbtiCloneTraitsSection({
         dominantLabel: activeAxis.dominantLabel,
       })
     : null;
-  const hasCriticalClarity = locale === "zh" && Boolean(activeClarity && activeClarity.percent <= 55);
+  const hasCriticalClarity = Boolean(activeClarity && activeClarity.percent <= 55);
   const summaryLabel = locale === "zh" && Math.round(activeAxis?.dominantPct ?? -1) === 50
     ? copy("两侧持平")
     : hasCriticalClarity
-    ? activeClarity?.label ?? summaryLabelFallback
+    ? locale === "en"
+      ? activeClarity?.percent === 50 ? "Neither side leads" : `Slight current lean toward ${activeAxis?.dominantLabel ?? "this side"}`
+      : activeClarity?.label ?? summaryLabelFallback
     : activeAxis?.dominantLabel || summaryLabelFallback;
   const summaryDescription = hasCriticalClarity
-    ? activeClarity?.description ?? summaryDescriptionFallback
+    ? locale === "en"
+      ? activeAxis?.summary || "Scores near the midpoint describe a small difference in these answers, not a stable fact or a measure of ability."
+      : activeClarity?.description ?? summaryDescriptionFallback
     : activeAxis?.summary || summaryDescriptionFallback;
   const summaryMeta = [
     activeAxis?.leftPole && activeAxis?.rightPole
@@ -228,8 +232,8 @@ export function MbtiCloneTraitsSection({
       : "",
     hasCriticalClarity
       ? activeClarity?.state === "tie"
-        ? copy("未形成清晰偏好")
-        : copy("当前仅有轻微偏向")
+        ? locale === "en" ? "No clear preference" : copy("未形成清晰偏好")
+        : locale === "en" ? "Only a slight current lean" : copy("当前仅有轻微偏向")
       : activeAxis?.strengthBand
         ? resolveStrengthBandLabel(locale, activeAxis.strengthBand)
         : "",
@@ -268,7 +272,7 @@ export function MbtiCloneTraitsSection({
         <div className={styles.traitsOverviewRow}>
           <div className={styles.traitsMetrics}>
             <DimensionBars
-              dimensions={normalizedDimensions}
+              dimensions={normalizedDimensions.map((axis) => ({ ...axis, axisTitle: copy(axis.axisTitle), dominantLabel: copy(axis.dominantLabel), leftPole: copy(axis.leftPole), rightPole: copy(axis.rightPole) }))}
               variant="clone16p"
               className={styles.cloneBars}
               activeDimensionCode={activeAxis?.axisCode ?? null}
@@ -349,10 +353,10 @@ export function MbtiCloneTraitsSection({
         </div>
         {tools.length > 0 ? (
           <div className={styles.traitsFooter} data-testid="mbti-traits-tools">
-            {toolsPrompt ? <p className={styles.traitsFooterLead}>{toolsPrompt}</p> : null}
+            {toolsPrompt ? <p className={styles.traitsFooterLead}>{copy(toolsPrompt)}</p> : null}
             <div className={styles.traitsTools}>
               {tools.map((tool, index) => {
-                const key = `${tool.label}-${tool.href ?? "button"}`;
+                const key = `${copy(tool.label)}-${tool.href ?? "button"}`;
                 const className = [
                   styles.subtleTool,
                   index === 0 ? styles.subtleToolPrimary : "",
@@ -369,7 +373,7 @@ export function MbtiCloneTraitsSection({
                       disabled={tool.disabled}
                       className={className}
                     >
-                      {tool.label}
+                      {copy(tool.label)}
                     </button>
                   );
                 }
@@ -381,14 +385,14 @@ export function MbtiCloneTraitsSection({
                 if (tool.href.startsWith("#")) {
                   return (
                     <a key={key} href={tool.href} className={className}>
-                      {tool.label}
+                      {copy(tool.label)}
                     </a>
                   );
                 }
 
                 return (
                   <Link key={key} href={tool.href} className={className}>
-                    {tool.label}
+                    {copy(tool.label)}
                   </Link>
                 );
               })}

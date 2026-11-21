@@ -52,3 +52,22 @@ describe("MBTI preview evidence and AI prompts", () => {
     expect(screen.getByTestId("mbti-ai-prompt-text")).toBeVisible();
   });
 });
+
+
+describe.each([
+  ["en", "Copy AI prompt", "Copied", "Ask me 3 questions first", "Paid"],
+  ["zh-TW", "複製 AI 對話提示詞", "已複製", "請先問我 3 個問題", "付費"],
+] as const)("%s AI prompt", (language, button, copied, question, paid) => {
+  it("copies the visible localized prompt and keeps the report destination", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
+    render(<ResultEvidenceAndPrompts fullCode="ENTJ-T" language={language} />);
+    const text = screen.getByTestId("mbti-ai-prompt-text").textContent;
+    expect(text).toContain("ENTJ-T");
+    expect(text).toContain(question);
+    expect(screen.getByRole("link", { name: new RegExp(paid) })).toHaveAttribute("href", `https://fermatmind.com/${language}/history/mbti`);
+    fireEvent.click(screen.getByRole("button", { name: button }));
+    expect(await screen.findByRole("button", { name: copied })).toBeInTheDocument();
+    expect(writeText).toHaveBeenCalledWith(text);
+  });
+});

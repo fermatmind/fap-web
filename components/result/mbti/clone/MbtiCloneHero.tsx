@@ -40,7 +40,7 @@ export function MbtiCloneHero({
         <h1 className={styles.heroCodePrimary}>{profileIdentity.code}</h1>
         {nameLine ? (
           <p data-testid="mbti-hero-identity-line" className={styles.heroNameLine}>
-            {nameLine}
+            {copy(nameLine)}
           </p>
         ) : null}
         {profileIdentity.rarity ? (
@@ -52,13 +52,13 @@ export function MbtiCloneHero({
           <div className={styles.heroKeywordRow} data-testid="mbti-hero-keywords">
             {profileIdentity.keywords.slice(0, 6).map((keyword) => (
               <span key={keyword} className={styles.heroKeyword}>
-                {keyword}
+                {copy(keyword)}
               </span>
             ))}
           </div>
         ) : null}
         {introduction ? (
-          <p data-testid="mbti-hero-introduction" className={styles.heroIntroduction}>{introduction}</p>
+          <p data-testid="mbti-hero-introduction" className={styles.heroIntroduction}>{copy(introduction)}</p>
         ) : null}
       </div>
       <div className={styles.heroIllustrationWrap}>

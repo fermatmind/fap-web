@@ -637,13 +637,13 @@ export function MbtiDesktopCloneShell({
   const unlockedCareerIdeaBlock = fullContentVisible
     ? withOverrideTitle(
         applicationContent?.careerIdeas ?? slots.chapters.career.careerIdeas,
-        cloneLocale === "zh" ? copy("你可能会喜欢的职业选择") : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
+        cloneLocale === "zh" ? copy("你可能会喜欢的职业选择") : (applicationContent?.careerIdeas?.title ?? slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
       )
     : null;
   const unlockedWorkStylesBlock = fullContentVisible
     ? withOverrideTitle(
         applicationContent?.workStyles ?? slots.chapters.career.workStyles,
-        cloneLocale === "zh" ? copy("适合你的工作方式") : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
+        cloneLocale === "zh" ? copy("适合你的工作方式") : (applicationContent?.workStyles?.title ?? slots.chapters.career.workStyles?.title ?? "Work Styles"),
       )
     : null;
   const careerPostCoreBlocks: ReactNode[] = [];

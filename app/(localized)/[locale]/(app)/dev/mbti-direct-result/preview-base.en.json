@@ -1,0 +1,50 @@
+{
+  "ENFJ": {
+    "name": "Protagonist"
+  },
+  "ENFP": {
+    "name": "Campaigner"
+  },
+  "ENTJ": {
+    "name": "Commander"
+  },
+  "ENTP": {
+    "name": "Debater"
+  },
+  "ESFJ": {
+    "name": "Consul"
+  },
+  "ESFP": {
+    "name": "Entertainer"
+  },
+  "ESTJ": {
+    "name": "Executive"
+  },
+  "ESTP": {
+    "name": "Entrepreneur"
+  },
+  "INFJ": {
+    "name": "Advocate"
+  },
+  "INFP": {
+    "name": "Mediator"
+  },
+  "INTJ": {
+    "name": "Architect"
+  },
+  "INTP": {
+    "name": "Logician"
+  },
+  "ISFJ": {
+    "name": "Defender"
+  },
+  "ISFP": {
+    "name": "Adventurer"
+  },
+  "ISTJ": {
+    "name": "Logistician"
+  },
+  "ISTP": {
+    "name": "Virtuoso"
+  }
+}
