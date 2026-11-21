@@ -18,8 +18,8 @@ vi.mock("@/components/result/mbti/clone/useMbtiTraitCatalog", async () => {
   return { useMbtiTraitCatalog: (locale: string) => ({ content: locale === "zh" ? parseMbtiTraitCatalog(traitCatalogResponse()) : null, pending: false, unavailable: false }) };
 });
 vi.mock("@/lib/cms/personality-result-introduction", () => ({ fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string) => ({ fullCode, contentHash: "a".repeat(64), paragraphs: ["Introduction one.", "Introduction two."] })) }));
-function report(count: number) {
-  return { ...structuredClone(fixture), mbti_form_v1: { form_code: `mbti_${count}`, label: `${count} items`, short_label: `${count}`, question_count: count, estimated_minutes: 10, scale_code: "MBTI" } } as unknown as ReportResponse;
+function report(count: number, code = "ENFP-T") {
+  return { ...JSON.parse(JSON.stringify(fixture).replaceAll("ENFP-T", code).replaceAll("ENFP", code.slice(0, 4))), mbti_form_v1: { form_code: `mbti_${count}`, label: `${count} items`, short_label: `${count}`, question_count: count, estimated_minutes: 10, scale_code: "MBTI" } } as unknown as ReportResponse;
 }
 function access(pdfState: "ready" | "locked" = "locked"): AttemptReportAccessView {
   return { attemptId: "attempt-123", accessState: "ready", reportState: "ready", pdfState, unlockStage: "locked", unlockSource: "none", reasonCode: null, accessLevel: "free", accessMode: "free_full", paywallSuppressed: true, variant: "free", projectionVersion: 1, modulesAllowed: [], modulesPreview: [], actions: { pageHref: null, pdfHref: pdfState === "ready" ? "/v0.3/attempts/attempt-123/result-page.pdf" : null, waitHref: null, historyHref: "/zh/history/mbti", lookupHref: null }, meta: { producedAt: null, refreshedAt: null } };
@@ -40,10 +40,10 @@ describe.each(["zh", "zh-TW", "en"] as const)("%s shared production result", (la
     for (const block of Object.values(value.applications)) expect(block.items).toHaveLength(6);
     for (const slot of value.data.assetSlots) expect(existsSync(`public${slot.assetRef?.url}`)).toBe(true);
   });
-  it("renders the same result for 93 and 144 items without old unlock surfaces or changed scores", async () => {
+  it.each(resultCodes)("renders %s with the same UI for 93 and 144 items without changed scores", async (code) => {
     const bodies: string[] = [];
     for (const count of [93, 144]) {
-      const data = report(count); const before = JSON.stringify(data);
+      const data = report(count, code); const before = JSON.stringify(data);
       const projection = buildMbtiResultProjectionViewModel(data)!;
       render(<RichResultReport locale={language === "en" ? "en" : "zh"} displayLocale={language} reportData={data} accessProjection={access()} />);
       await waitFor(() => expect(screen.getByTestId("mbti-evidence-and-prompts")).toBeInTheDocument());
@@ -52,6 +52,18 @@ describe.each(["zh", "zh-TW", "en"] as const)("%s shared production result", (la
       expect([...intro.children].map((child) => child.tagName)).toEqual(["P", "DIV", "P"]);
       expect(intro.children[1]).toHaveAttribute("data-testid", "mbti-asset-slot-traits");
       expect(within(screen.getByTestId("mbti-chapter-traits")).queryByTestId("mbti-asset-slot-traits")).not.toBeInTheDocument();
+      const base = code.slice(0, 4).toLowerCase();
+      for (const chapter of ["traits", "career", "growth", "relationships"]) {
+        const art = screen.getByTestId(`mbti-asset-slot-${chapter}`);
+        expect(art).toHaveAttribute("data-slot-mode", "ready");
+        expect(new URL(art.querySelector("img")!.getAttribute("src")!, "http://localhost").pathname).toBe(`/images/mbti/result-chapters/${base}/${chapter}.webp`);
+        if (chapter !== "traits") {
+          const section = screen.getByTestId(`mbti-chapter-${chapter}`);
+          expect(art.parentElement).toBe(section);
+          expect(section.querySelector("h2")!.compareDocumentPosition(art) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+          expect(art.compareDocumentPosition(section.querySelector("p")!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+        }
+      }
       expect(screen.queryByTestId("mbti-desktop-clone-snapshot-error")).not.toBeInTheDocument();
       expect(screen.queryByTestId("mbti-offer-full")).not.toBeInTheDocument();
       expect(screen.queryByTestId("result-export-panel")).not.toBeInTheDocument();
