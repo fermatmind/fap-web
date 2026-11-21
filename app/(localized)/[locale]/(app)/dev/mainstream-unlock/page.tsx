@@ -1,3 +1,5 @@
+import { eqPreviewResultIds } from "@/lib/eq/redesignPreview";
+import { loadEqRedesignPreview } from "@/lib/eq/loadRedesignPreview";
 import { buildEqProfile, type TraitProfilePreview } from "@/components/commerce/TraitProfileUnlockPreview";
 import { interestPreviewStory } from "@/components/commerce/interestPreviewStory";
 import { buildDiscDesignPreview } from "@/components/commerce/DiscUnlockPreview";
@@ -13,7 +15,10 @@ import { UnlockReportExperience } from "@/components/career/UnlockReportExperien
 import { Career94FreeReport } from "../../../career/assessment/Career94FreeReport";
 import { MainstreamPaidResult } from "@/components/commerce/MainstreamPaidResult";
 import type { ReportResponse, RiasecPurchase } from "@/lib/api/v0_3";
-export const metadata = {title:"解锁页设计预览",robots:{index:false,follow:false}};
+export async function generateMetadata({params}:{params:Promise<{locale:string}>}) {
+ const {locale}=await params;
+ return {title:locale==="en"?"Unlock page · Local preview":locale==="zh-TW"?"解鎖頁 · 本機預覽":"解锁页设计预览",robots:{index:false,follow:false}};
+}
 const forms = [["mbti93","MBTI","93"],["mbti144","MBTI","144"],["big590","BIG5_OCEAN","90"],["enneagram105","ENNEAGRAM","105"],["iq30","IQ_RAVEN","30"],["iq40","IQ_INTELLIGENCE_QUOTIENT","40"],["eq60","EQ_60","60"],["archetypes48","JUNG_ARCHETYPES","48"],["disc24","DISC_BEHAVIOR","24"],["holland60","RIASEC","60"],["career94","CAREER","94"]];
 const artwork: Record<string, string> = {
   ENNEAGRAM: "/images/enneagram-report-reflection.webp",
@@ -22,13 +27,15 @@ const artwork: Record<string, string> = {
   JUNG_ARCHETYPES: "/images/jung/archetypes/explorer.webp",
 };
 
-export default async function Preview({params,searchParams}:{params:Promise<{locale:string}>,searchParams:Promise<{form?:string,lang?:string}>}) {
+export default async function Preview({params,searchParams}:{params:Promise<{locale:string}>,searchParams:Promise<{form?:string,lang?:string,result?:string}>}) {
  if(process.env.NODE_ENV!=="development")notFound();
  const {locale:routeLocale}=await params;const query=await searchParams;
- const locale=query.lang==="zh-TW"?"zh-TW":routeLocale==="en"?"en":"zh";
+ const locale=query.lang==="zh-TW"||query.lang==="en"||query.lang==="zh"?query.lang:routeLocale==="zh-TW"?"zh-TW":routeLocale==="en"?"en":"zh";
  const selected = forms.find(form => form[0] === (query.form ?? forms[0][0]));
  if (!selected) notFound();
  const scale=selected[1];
+ if (scale === "EQ_60" && query.result && !eqPreviewResultIds.some(id => id === query.result)) notFound();
+ const resultSuffix = scale === "EQ_60" && query.result ? `&result=${encodeURIComponent(query.result)}` : "";
  const holland = scale === "RIASEC" ? await loadRiasec60DesignReport(locale) : null;
  const names: Record<string, string> = { MBTI: "MBTI", BIG5_OCEAN: "大五人格", ENNEAGRAM: "九型人格", IQ_RAVEN: "智商测试", IQ_INTELLIGENCE_QUOTIENT: "智商测试", EQ_60: "情商测试", JUNG_ARCHETYPES: "荣格原型", DISC_BEHAVIOR: "DISC", RIASEC: "霍兰德职业兴趣", CAREER: "职业测试" };
  const scores=scale==="MBTI"?{EI:39,SN:65,TF:70,JP:54}:scale==="BIG5_OCEAN"?{O:72,C:58,E:44,A:66,N:38}:scale==="JUNG_ARCHETYPES"?{explorer:75,lover:68,creator:62,jester:60,ruler:56,everyperson:52,hero:48,caregiver:44,innocent:40,sage:38,magician:35,rebel:32}:{};
@@ -39,7 +46,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
    MBTI: "mbti", BIG5_OCEAN: "big5", ENNEAGRAM: "enneagram", IQ_RAVEN: "iq30", IQ_INTELLIGENCE_QUOTIENT: "iq40",
    EQ_60: "eq", JUNG_ARCHETYPES: "archetypes", DISC_BEHAVIOR: "disc",
  };
- const samplePath = scale === "RIASEC" ? `/${locale}/tests/holland-career-interest-test-riasec/sample`
+ const samplePath = scale === "EQ_60" ? `/${locale}/dev/eq-result${query.result ? `?result=${encodeURIComponent(query.result)}` : ""}` : scale === "RIASEC" ? `/${locale}/tests/holland-career-interest-test-riasec/sample`
    : scale === "CAREER" ? `/${locale === "en" ? "en" : "zh"}/career/assessment/sample`
    : `/${locale}/reports/samples/${sampleKeys[scale]}`;
  const englishNames: Record<string, string> = { BIG5_OCEAN:"Big Five", ENNEAGRAM:"Enneagram", IQ_RAVEN:"Reasoning test", IQ_INTELLIGENCE_QUOTIENT:"Reasoning test", EQ_60:"Emotional intelligence", JUNG_ARCHETYPES:"Jungian archetypes", DISC_BEHAVIOR:"DISC", RIASEC:"Holland career interests", CAREER:"Career assessment" };
@@ -75,7 +82,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
      correct: row.correct_count,
    })),
  } : undefined;
- const profileSample = scale === "ENNEAGRAM" || scale === "EQ_60"
+ const profileSample = scale === "ENNEAGRAM"
    ? await loadFixedSample(sampleKeys[scale], locale === "en" ? "en" : "zh")
    : null;
  const enneagram = profileSample?.enneagram_report_v2 as {
@@ -84,7 +91,8 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
  } | undefined;
  const primary = enneagram?.candidates?.find(row => row.rank === 1);
  const ranked = enneagram?.candidates?.find(row => row.rank === 2);
- const eqRows = profileSample?.report?.dimension_summary as { code: string; standard_score: number }[] | undefined;
+ const eqPreview = scale === "EQ_60" ? await loadEqRedesignPreview(query.result) : null;
+ const eqRows = eqPreview?.candidate.copy[locale === "zh" ? "zh-CN" : locale].dimensions.map(row => ({ code: row.code, standard_score: row.score }));
  const traitProfile: TraitProfilePreview | undefined = primary && enneagram?.distribution?.length === 9 ? {
    kind: "enneagram",
    title: primary.type_name,
@@ -121,7 +129,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
  ) : scale === "CAREER" ? (
    <Career94FreeReport locale={locale === "en" ? "en" : "zh"} sample overview designPreview />
  ) : (
-   <MainstreamPaidResult data={data} purchase={purchase} locale={locale} preview previewArtwork={artwork[scale]} reasoningPreview={reasoning} discPreview={disc} traitProfile={traitProfile} />
+   <MainstreamPaidResult data={data} purchase={purchase} locale={locale} preview previewArtwork={artwork[scale]} reasoningPreview={reasoning} discPreview={disc} traitProfile={traitProfile} previewSampleHref={scale === "EQ_60" ? samplePath : undefined} />
  );
 
  const sharePreview = <ResultPreviewShare
@@ -138,17 +146,17 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
 
  return (
    <main className="overflow-x-clip">
-     <nav className="flex flex-wrap gap-3 bg-[#1e1634] p-4 text-sm text-white" aria-label="本地预览版本">
+     <nav className="flex flex-wrap gap-3 bg-[#1e1634] p-4 text-sm text-white" aria-label={t("本地预览版本", "本機預覽版本", "Local preview versions")}>
        {forms.map(([form, code, count]) => (
          <Link key={form} href={`?form=${form}&lang=${locale}`}
            aria-current={form === selected[0] ? "page" : undefined}
            className="underline aria-[current=page]:text-purple-300">
-           {names[code]} · {count}题
+           {locale === "en" ? englishNames[code] ?? names[code] : locale === "zh-TW" ? traditionalNames[code] ?? names[code] : names[code]} · {count}{t("题","題"," questions")}
          </Link>
        ))}
-       {scale !== "CAREER" && <Link href={`?form=${selected[0]}&lang=zh-TW`}>繁體</Link>}
-       <Link href={`/en/dev/mainstream-unlock?form=${selected[0]}`}>English</Link>
-       <Link href={`/zh/dev/mainstream-unlock?form=${selected[0]}`}>简体</Link>
+       {scale !== "CAREER" && <Link href={`/zh-TW/dev/mainstream-unlock?form=${selected[0]}${resultSuffix}`}>繁體</Link>}
+       <Link href={`/en/dev/mainstream-unlock?form=${selected[0]}${resultSuffix}`}>English</Link>
+       <Link href={`/zh/dev/mainstream-unlock?form=${selected[0]}${resultSuffix}`}>简体</Link>
      </nav>
      {scale === "MBTI" ? <>
        {previewResult}
