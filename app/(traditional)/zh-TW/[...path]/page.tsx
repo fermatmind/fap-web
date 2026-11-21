@@ -1,3 +1,4 @@
+import { Archive90GuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import type { ReactNode } from "react";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
@@ -89,9 +90,10 @@ export default async function TraditionalPage(props: Props) {
   const path = await route(props);
   const landingSlug = /^\/zh-TW\/tests\/explore\/([^/]+)$/u.exec(path)?.[1];
   const category = catalog.find((quiz) => quiz.slug === landingSlug)?.category;
+  const guide = /^\/zh-TW\/tests\/explore\/([^/]+)\/results\/([^/]+)$/u.exec(path);
   const landing = (content: ReactNode) => landingSlug
     ? <ExploreTestShell slug={landingSlug} category={category}>{content}</ExploreTestShell>
-    : content;
+    : guide ? <>{content}<Archive90GuideShare slug={guide[1]} id={guide[2]} locale="zh-TW" /></> : content;
   const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
   if (mixed) {
     const { TraditionalMixedQuestionnairePage } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");

@@ -7,7 +7,7 @@ import type { Questionnaire } from "@/lib/questionnaires/types";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
-export function WorkActivityContext({ locale, displayLocale = locale }: { locale: Locale; displayLocale?: DisplayLocale }) {
+export function WorkActivityContext({ locale, displayLocale = locale, showAssessmentLink = true }: { locale: Locale; displayLocale?: DisplayLocale; showAssessmentLink?: boolean }) {
   const zh = locale === "zh";
   const traditional = displayLocale === "zh-TW";
   return <aside data-work-activity-context className="my-6 space-y-3 rounded-lg border border-violet-200 bg-violet-50 p-4 leading-7">
@@ -15,7 +15,7 @@ export function WorkActivityContext({ locale, displayLocale = locale }: { locale
       ? "完整的核心 RIASEC（60 題標準版／140 題進階版）可用來瞭解更廣泛的職業興趣。這份原創補充題本提供六組具體活動興趣讀數，核心題本、計分和前三碼仍由核心測驗提供，兩份測驗各自作答。"
       : zh ? "完整核心RIASEC（60项标准版／140项增强版）仍是了解更广兴趣轮廓的主入口。本页只补充六组具体活动兴趣，不替换核心题本或计分，不产生核心前三代码，也不把答案转移过去。"
       : "The complete core RIASEC assessment (60-item standard / 140-item enhanced) remains the main route for a broader interest profile. This page adds six concrete-task interest readings. It does not replace core forms or scoring, produce their top-three code or transfer answers."}</p>
-    <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`/${displayLocale}/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`}>{traditional ? "前往完整的核心 RIASEC 測驗" : zh ? "进入完整核心 RIASEC" : "Visit the full core RIASEC assessment"}</Link>
+    {showAssessmentLink && <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`/${displayLocale}/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}`}>{traditional ? "前往完整的核心 RIASEC 測驗" : zh ? "进入完整核心 RIASEC" : "Visit the full core RIASEC assessment"}</Link>}
     <p className="text-sm">{traditional
       ? "本補充題本由費馬原創，中英文皆尚未建立信效度、常模或測量等值，與官方 O*NET 興趣問卷各自獨立。"
       : zh ? "本补充题本为费马原创，英中文均未建立信效度、常模或测量等值；不是官方O*NET兴趣问卷或原题译本。"
@@ -23,7 +23,8 @@ export function WorkActivityContext({ locale, displayLocale = locale }: { locale
   </aside>;
 }
 
-export function WorkActivityInterestsReport({ quiz, result, locale, displayLocale = locale, copy = text => text }: {
+export function WorkActivityInterestsReport({ quiz, result, locale, displayLocale = locale, copy = text => text, showAssessmentLink = true }: {
+  showAssessmentLink?: boolean;
   quiz: Questionnaire;
   result: Extract<FacetResult, { status: "complete" }>;
   locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string;
@@ -44,7 +45,7 @@ export function WorkActivityInterestsReport({ quiz, result, locale, displayLocal
       </ul>
     </section>
 
-    <WorkActivityContext locale={locale} displayLocale={displayLocale} />
+    <WorkActivityContext locale={locale} displayLocale={displayLocale} showAssessmentLink={showAssessmentLink} />
     {quiz.directions.map(direction => {
       const facet = result.facets[direction.id];
       const profile = quiz.profiles.find(p => p.directionIds[0] === direction.id)!;

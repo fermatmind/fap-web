@@ -66,13 +66,13 @@ export function QuestionnaireWorkValuesReport({ quiz, result, answers, locale, d
   </div>;
 }
 
-export function QuestionnaireWorkValuesNextSteps({ locale, displayLocale = locale, copy = value => value }: { locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
+export function QuestionnaireWorkValuesNextSteps({ locale, displayLocale = locale, copy = value => value, showAssessmentLink = true }: { showAssessmentLink?: boolean; locale: Locale; displayLocale?: DisplayLocale; copy?: (text: string) => string }) {
   const zh = locale === "zh";
   return <section className="mt-10 border-t pt-7">
     <h3 className="text-xl font-semibold">{zh ? copy("核对一项工作条件，或在这里结束") : "Investigate one work condition, or finish here"}</h3>
     <p className="my-4 leading-7">{zh ? copy("可以比较十份读法，再私下选一个条件寻找具体证据；无需填写单位名称、收入或个人经历。数字不替你选择岗位、评价雇主或决定去留。如果另想了解喜欢什么工作活动，RIASEC需要独立完整作答，也不把本次次数换算成能力或匹配度。") : "Compare all ten readings and privately seek concrete evidence about one condition, without entering an employer name, income or personal history. Counts do not choose a job, rate an employer or decide whether to stay. To explore enjoyable work activities separately, RIASEC needs its own full attempt; these counts are never converted into ability or fit."}</p>
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`${questionnairePath(displayLocale, "values-assessment")}#questionnaire-results`}>{zh ? copy("比较全部十份完整读法") : "Compare all ten complete readings"}</Link><br />
-    <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/holland-career-interest-test-riasec`}>{zh ? copy("可选：另做RIASEC职业兴趣测试") : "Optional: take a separate RIASEC career-interest test"}</Link><br />
+    {showAssessmentLink && <><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/holland-career-interest-test-riasec`}>{zh ? copy("可选：另做RIASEC职业兴趣测试") : "Optional: take a separate RIASEC career-interest test"}</Link><br /></>}
     <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? copy("返回全部测试") : "Back to all tests"}</Link>
   </section>;
 }

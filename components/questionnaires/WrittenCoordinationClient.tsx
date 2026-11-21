@@ -143,7 +143,8 @@ function ValidWrittenCoordinationClient({ quiz, locale }: { quiz: WrittenCoordin
     catch { if (snapshot === revision.current) { setManual(text); setMessage(zh ? "请从下方手动复制公开链接。" : "Copy the public link below manually."); } }
   }
   const outcome = (value: string) => zh ? displayText({ correct: "正确", wrong: "错误", unanswered: "未答" }[value] ?? value) : value;
-  return <section id="take-test" data-written-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+  const archiveStage = selected ? "answer" : entryRecord || Object.keys(records).length ? "result" : undefined;
+  return <section id="take-test" data-written-client data-stage={archiveStage} aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
     <p className="mb-5 text-sm leading-7 text-slate-600">{zh ? displayText("只使用虚构材料。输入仅留页面内存，不存草稿、不发答案、不采流程统计；普通页面分析关闭。完成清除原始输入，退出并清除时删除本页全部练习记录。") : "Use fictional material only. Input stays in page memory: no drafts, answer submission or flow statistics. Ordinary page analytics are disabled. Completion clears raw input; exit-and-clear removes all exercise records on this page."}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-6"><legend className="sr-only">{quiz.title[locale]}</legend>
       {!selected && <>

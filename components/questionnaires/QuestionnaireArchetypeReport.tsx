@@ -1,3 +1,4 @@
+import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { ArchiveQuestionnaireNextStep, ArchiveReadingSnapshot } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
 import { QuestionnaireArchetypeChoiceChart } from "./QuestionnaireArchetypeChoiceChart";
@@ -117,6 +118,6 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
       </section>;
     })}
     {(!placement || placement === "after") && quiz.slug !== "aura-color" && counts}
-    <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />
+    {getArchiveExperience(quiz.slug) && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />}
   </div>;
 }

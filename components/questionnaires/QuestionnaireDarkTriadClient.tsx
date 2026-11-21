@@ -1,6 +1,6 @@
 "use client";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
-import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
+import { QuestionnaireLegacyControl, useQuestionnaireTake } from "./QuestionnaireTakeContext";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import Link from "next/link";
@@ -8,13 +8,14 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { scoreLikertQuestionnaire } from "@/lib/questionnaires/basicScoring";
 import type { Locale } from "@/lib/i18n/locales";
-import { listMbtiFormMetas } from "@/lib/mbti/forms";
+import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 import { QuestionnaireDarkTriadReport } from "./QuestionnaireDarkTriadReport";
 
 const subscribeReady = () => () => {};
 const button = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 
 export function QuestionnaireDarkTriadClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const standalone = useQuestionnaireTake();
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
   const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true, displayText);
   const displayLocale = traditional ? "zh-TW" : locale;
@@ -54,11 +55,8 @@ export function QuestionnaireDarkTriadClient({ quiz, locale }: { quiz: Questionn
       <h2 ref={heading} tabIndex={-1} className="text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]">{quiz.resultHeading![locale]}</h2>
       <QuestionnaireDarkTriadReport quiz={quiz} result={result} locale={locale} displayLocale={displayLocale} copy={displayText} />
       <button className={button} onClick={() => reset("answer")}>{zh ? displayText("重新测试") : "Retake test"}</button>
-      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? displayText("本次作答已结束，下一步由你选择") : "This attempt is finished. Choose what comes next."}</h3>
-        <p className="my-4 leading-8">{zh ? displayText(`也可以在这里结束。如想另用偏好框架，MBTI提供${listMbtiFormMetas().map(f => `${f.questionCount}题（约${f.estimatedMinutes}分钟）`).join('、')}，需要重新完整作答，三组主题不换算成类型。`) : `You can stop here. For a separate preference framework, MBTI offers ${listMbtiFormMetas().map(f => `${f.questionCount} questions (about ${f.estimatedMinutes} min)`).join(' or ')}. It requires a new full attempt; these themes are not converted into a type.`}</p>
-        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests/mbti-personality-test-16-personality-types`}>{zh ? displayText("了解MBTI与题本选择") : "Explore MBTI and its versions"}</Link><br />
-        <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>
-      </section>
+      {!standalone && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />}
+      <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? displayText("返回全部测试") : "Back to all tests"}</Link>
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;

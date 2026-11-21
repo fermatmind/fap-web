@@ -1,4 +1,6 @@
 "use client";
+import { archive90Topic } from "@/lib/entertainment/archive90";
+import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
 import { useQuestionnaireAutoAdvance } from "./useQuestionnaireAutoAdvance";
@@ -14,6 +16,10 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
   useQuestionnaireAutoAdvance(region);
   const [preparing, setPreparing] = useState(autoStart), [slow, setSlow] = useState(false);
   const { displayText } = useQuestionnaireDisplayCopy();
+  const slug = landing.split("/").at(-1) ?? "";
+  const archive = archive90Topic(slug);
+  const archiveLocale = landing.startsWith("/zh-TW/") ? "zh-TW" : locale;
+  const [archiveStage, setArchiveStage] = useState<"answer" | "result">();
   const zh = locale === "zh";
   useEffect(() => {
     const root = region.current;
@@ -22,10 +28,18 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
       const url = new URL(window.location.href);
       url.searchParams.delete("start");
       window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
-      return;
+      if (!archive) return;
     }
     function enter() {
-      if (entered.current || !root) return;
+      if (!root) return;
+      if (archive) {
+        const engine = root.querySelector<HTMLElement>('[data-stage="answer"], [data-stage="result"]');
+        const stage = engine?.dataset.stage;
+        const waitingForReport = stage === "result" && engine?.hasAttribute("data-questionnaire-slug")
+          && !engine.querySelector("[data-archive-report-ready]");
+        setArchiveStage(!waitingForReport && (stage === "answer" || stage === "result") ? stage : undefined);
+      }
+      if (!autoStart || entered.current) return;
       const engine = root.querySelector<HTMLElement>('[data-stage="answer"], [data-stage="result"], [data-jung56-progress]');
       if (engine) { entered.current = true; setPreparing(false); return; }
       if (root.querySelector("[data-take-version-selector]")) { entered.current = true; setPreparing(false); return; }
@@ -41,9 +55,9 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
     enter();
     const observer = new MutationObserver(enter);
     observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["disabled", "data-stage"] });
-    const timer = window.setTimeout(() => setSlow(true), 12000);
+    const timer = autoStart ? window.setTimeout(() => setSlow(true), 12000) : undefined;
     return () => { observer.disconnect(); window.clearTimeout(timer); };
-  }, [autoStart]);
+  }, [archive, autoStart]);
   return <QuestionnaireTakeContext.Provider value>
     <main className={styles.main}>
       <div className={`${takeStyles.layout} ${styles.surface}`} data-questionnaire-take>
@@ -54,7 +68,9 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
         {preparing && <div role="status" className={styles.preparing}>{slow ? (zh ? displayText("准备时间较长，可以刷新重试或返回介绍页。") : "Preparation is taking longer. Reload to retry or return to the introduction.") : (zh ? displayText("正在准备题目…") : "Preparing your questions…")}
           {slow && <div className="mt-4 flex flex-wrap gap-4"><button type="button" onClick={() => window.location.reload()}>{zh ? displayText("刷新重试") : "Reload and retry"}</button><Link prefetch={false} href={landing}>{zh ? displayText("返回测评介绍") : "Back to introduction"}</Link></div>}
         </div>}
+        {archiveStage === "answer" && archive && <p className="mb-4 leading-7" data-archive-90-hint>{archive.hint[archiveLocale]}</p>}
         <div ref={region} className={styles.engine} data-preparing={preparing ? "true" : undefined}>{children}</div>
+        {archiveStage === "result" && archive && <ArchiveQuestionnaireNextStep slug={slug} locale={archiveLocale} />}
         <noscript><p>{zh ? displayText("答题需要JavaScript，请启用后刷新。") : "Enable JavaScript and reload to answer."} <Link href={landing}>{zh ? displayText("返回测评介绍") : "Back to introduction"}</Link></p></noscript>
       </div>
     </main>
