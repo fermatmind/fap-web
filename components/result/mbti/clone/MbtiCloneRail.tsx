@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
+import { Share2 } from "lucide-react";
+import reference from "./MbtiCloneRail.reference.module.css";
 import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
@@ -11,6 +15,11 @@ import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 type MbtiCloneRailProps = {
   locale: "zh" | "en";
   profileIdentity: ProfileIdentity;
+  referenceLayout?: boolean;
+  onShare?: () => void | Promise<void>;
+  shareDisabled?: boolean;
+  shareLabel?: string;
+  historyHref?: string;
 };
 
 const ANCHORS = [
@@ -46,6 +55,11 @@ function normalizeText(...values: unknown[]) {
 export function MbtiCloneRail({
   locale,
   profileIdentity,
+  referenceLayout = false,
+  onShare,
+  shareDisabled = true,
+  shareLabel,
+  historyHref,
 }: MbtiCloneRailProps) {
   const [activeAnchor, setActiveAnchor] = useState(TRAITS_ANCHOR_ID);
   const nameLine = (locale === "zh" ? [profileIdentity.name] : [profileIdentity.name, profileIdentity.nickname])
@@ -79,12 +93,38 @@ export function MbtiCloneRail({
     };
   }, []);
 
+  const { displayText: copy, traditional } = useQuestionnaireDisplayCopy();
+  const displayLocale = traditional ? "zh-TW" : locale;
+  const baseCode = /^([IE][NS][TF][JP])(?:-[AT])?$/i.exec(profileIdentity.code)?.[1].toLowerCase();
+  if (referenceLayout) return <aside data-testid="mbti-sticky-rail" data-result-sidebar="true" className={`${styles.rail} ${reference.rail}`}>
+    <div className={reference.card}>
+      <div className={reference.identity} data-testid="mbti-rail-profile-identity">
+        {baseCode ? <div className={reference.avatar}><Image src={`/images/mbti/result-portraits/${baseCode}.webp`} alt="" width={90} height={130} unoptimized /></div> : null}
+        <div>
+          <p className={reference.caption}>{locale === "zh" ? copy("你的人格类型是：") : "Your personality type is:"}</p>
+          <p className={reference.name}>{copy(nameLine)}</p>
+          <p className={reference.code}>{profileIdentity.code}</p>
+        </div>
+      </div>
+      <nav aria-label={locale === "zh" ? copy("本页内容") : "On this page"}>
+        <p className={reference.navTitle}>{locale === "zh" ? copy("本页内容") : "On this page"}</p>
+        {ANCHORS.map((anchor) => <a key={anchor.id} href={getMbtiDesktopAnchorHash(anchor.key)} aria-current={activeAnchor === anchor.id ? "location" : undefined} className={reference.link}>
+          {locale === "zh" ? copy({ traits: "1. 人格特征", career: "2. 你的职业道路", growth: "3. 你的个人成长", relationships: "4. 你的人际关系" }[anchor.key]) : anchor.label.en}
+        </a>)}
+        {historyHref ? <a href={historyHref || `/${displayLocale}/history/mbti`} className={reference.link}>{locale === "zh" ? copy("我的报告") : "My reports"}</a> : null}
+      </nav>
+      <div className={reference.tools}>
+        <button type="button" onClick={() => void onShare?.()} disabled={shareDisabled || !onShare}><Share2 size={14} aria-hidden="true" />{shareLabel || (locale === "zh" ? copy("分享你的结果") : "Share your results")}</button>
+      </div>
+    </div>
+  </aside>;
+
   return (
     <aside data-testid="mbti-sticky-rail" data-result-sidebar="true" className={styles.rail}>
       <div className={styles.railCard}>
         <div className={styles.railIdentityCard} data-testid="mbti-rail-profile-identity">
           <p className={styles.railCodePrimary}>{profileIdentity.code}</p>
-          {nameLine ? <p className={styles.railNameLine}>{nameLine}</p> : null}
+          {nameLine ? <p className={styles.railNameLine}>{copy(nameLine)}</p> : null}
           {profileIdentity.rarity ? <p className={styles.railRarity}>{locale === "zh" ? `稀有度：${profileIdentity.rarity}` : `Rarity: ${profileIdentity.rarity}`}</p> : null}
           {profileIdentity.keywords.length > 0 ? (
             <div className={styles.railKeywordRow}>

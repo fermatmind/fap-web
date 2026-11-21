@@ -169,9 +169,9 @@ describe("Gotenberg result print route contract", () => {
     expect(richReport).toContain("<MbtiResultShell");
     expect(mbtiShell).toContain("<MbtiDesktopCloneShell");
     expect(mbtiShell).toContain("snapshotMode={printSnapshotMode}");
-    expect(mbtiShell).toContain("storageContentOverride={activeDesktopCloneSnapshot?.content ?? null}");
-    expect(mbtiShell).toContain("storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}");
-    expect(mbtiShell).toContain("snapshotContentStatus={snapshotContentStatus}");
+    expect(mbtiShell).toContain("storageContentOverride={content}");
+    expect(mbtiShell).toContain("storageAssetSlotsOverride={editorial.data.assetSlots}");
+    expect(mbtiShell).toContain("snapshotContentStatus={contentStatus}");
     expect(desktopCloneShell).toContain('data-testid="mbti-desktop-clone-shell"');
     expect(traitsSection).toContain('data-pdf-section="personality-traits"');
     expect(narrativeSection).toContain('? "career-path"');
@@ -205,7 +205,6 @@ describe("Gotenberg result print route contract", () => {
     const api = read("lib/api/v0_3.ts");
     const apiBase = read("lib/api-base.ts");
     const button = read("components/commerce/AttemptPdfDownloadButton.tsx");
-    const mbtiPostPurchase = read("components/result/mbti/MbtiPostPurchaseSection.tsx");
     const mbtiShell = read("components/result/mbti/MbtiResultShell.tsx");
 
     expect(api).toContain("getAttemptResultPagePdfUrl");
@@ -213,8 +212,8 @@ describe("Gotenberg result print route contract", () => {
     expect(api).toContain("fetchAttemptResultPagePdfWithMeta");
     expect(button).toContain('exportSurface?: "report" | "result_page"');
     expect(button).toContain('exportSurface === "result_page"');
-    expect(mbtiPostPurchase).toContain('exportSurface="result_page"');
-    expect(mbtiShell).toContain("getAttemptResultPagePdfUrl({ attemptId: resultPagePdfAttemptId })");
+    expect(mbtiShell).toContain("canDownloadReportPdf(accessProjection ?? null)");
+    expect(mbtiShell).toContain("getAttemptResultPagePdfUrl({ attemptId })");
     expect(apiBase).toContain("RESULT_PRINT_API_PROXY_SELECTOR");
     expect(apiBase).toContain('[data-gotenberg-result-print-root="true"][data-pdf-mode="true"]');
     expect(apiBase).toContain("isResultPrintApiProxyPage()");

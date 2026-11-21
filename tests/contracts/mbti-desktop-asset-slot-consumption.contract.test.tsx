@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
 import {
@@ -12,6 +13,12 @@ vi.mock("next/navigation", () => ({
 }));
 vi.mock("@/lib/cms/personality-desktop-clone", () => ({
   fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
+}));
+
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string) => ({
+    fullCode, contentHash: "a".repeat(64), paragraphs: ["Introduction one.", "Introduction two."],
+  })),
 }));
 
 function createHeadline(typeCode: string, displayName = "MBTI 类型"): RichResultHeadline {
@@ -350,17 +357,29 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop asset slot consumption contract", () => {
+  it.each(["ISFJ-A", "ISFJ-T"])("uses a complete scene instead of the portrait for %s", (code) => {
+    render(<MbtiCloneHero
+      profileIdentity={{ code, name: "守护者型", nickname: "", rarity: "", keywords: [] }}
+      illustrationSlotId="hero-illustration" illustrationLabel="人格类型插图"
+    />);
+    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("src", "/images/mbti/result-scenes/isfj.webp");
+    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("alt", "");
+    expect(screen.queryByTestId("mbti-hero-portrait")).not.toBeInTheDocument();
+  });
+
   it.each([
     ["ESTP-A", "estp"],
     ["ESTP-T", "estp"],
     ["ISFP-T", "isfp"],
-  ])("renders the four matching chapter illustrations for %s", (typeCode, baseType) => {
+  ])("renders the four matching chapter illustrations for %s", async (typeCode, baseType) => {
     renderShell(typeCode);
+    await waitFor(() => expect(screen.getByTestId("mbti-result-intro")).toHaveAttribute("data-intro-state", "ready"));
 
     for (const chapter of ["traits", "career", "growth", "relationships"]) {
-      const section = screen.getByTestId(`mbti-chapter-${chapter}`);
-      expect(section.querySelector(`img[src="/images/mbti/result-chapters/${baseType}/${chapter}.webp"]`))
-        .toBeInTheDocument();
+      const section = screen.getByTestId(chapter === "traits" ? "mbti-result-intro" : `mbti-chapter-${chapter}`);
+      const image = section.querySelector(`[data-slot-id="${chapter}-illustration"] img`);
+      expect(image).toBeInTheDocument();
+      expect(new URL(image!.getAttribute("src")!, "http://localhost").pathname).toBe(`/images/mbti/result-chapters/${baseType}/${chapter}.webp`);
     }
   });
 

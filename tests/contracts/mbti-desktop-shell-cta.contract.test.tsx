@@ -327,6 +327,14 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
 }
 
 describe("MBTI desktop clone shell CTA wiring", () => {
+  it("places an optional full-width footer after the content and rail grid", async () => {
+    renderDefaultShell({ fullWidthFooterNode: <p data-testid="full-width-preview">AI footer</p>, referenceRail: true });
+    const footer = await screen.findByTestId("full-width-preview");
+    const rail = screen.getByTestId("mbti-sticky-rail");
+    expect(rail.parentElement?.contains(footer)).toBe(false);
+    expect(screen.getByRole("navigation", { name: "本页内容" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "比较" })).not.toBeInTheDocument();
+  });
   it("waits for Chinese trait content and fails the PDF explicitly if it cannot load", async () => {
     let rejectCatalog!: (error: Error) => void;
     vi.mocked(fetchMbtiTraitCatalog).mockReturnValueOnce(new Promise((_, reject) => { rejectCatalog = reject; }));

@@ -23,16 +23,10 @@ import { ResultExportPanel } from "@/components/result-export/ResultExportPanel"
 import { buildBig5ResultExport } from "@/lib/big5/aiExport";
 import { buildEnneagramResultExport } from "@/lib/enneagram/aiExport";
 import { buildRiasecResultExport } from "@/lib/riasec/exportAdapter";
-import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
-import { buildMbtiResultExport } from "@/lib/result-export/mbti";
 import { downloadResultPdf } from "@/lib/result-export/download";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
-import {
-  normalizeAttemptInviteUnlockProgress,
-  type AttemptInviteUnlockProgressView,
-} from "@/lib/access/inviteUnlock";
 import {
   canDownloadReportPdf,
   isProjectionLocked,
@@ -50,7 +44,6 @@ import {
   fetchAttemptReportPdfWithMeta,
   fetchAttemptResultPagePdfWithMeta,
   fetchAttemptReportAccess,
-  fetchAttemptInviteUnlockProgress,
   fetchAttemptResult,
   fetchAttemptSubmission,
   linkAnonAttemptsOnceOnLoginSuccess,
@@ -71,7 +64,7 @@ import { isIqReportResponse } from "@/lib/iq/presentation";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { isEnneagramPrivateResultContractInvalid } from "@/lib/enneagram/privateResultLocale";
 import { classifyApiError } from "@/lib/observability/httpError";
-import { logInfo, logWarn } from "@/lib/observability/logger";
+import { logInfo } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
 import { installPrivateResultPrintUrlRedaction } from "@/lib/result/privatePrintUrlRedaction";
 import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
@@ -89,7 +82,6 @@ import { Button } from "@/components/ui/button";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_GENERATION_TIMEOUT_MS = 90_000;
-const INVITE_PROGRESS_POLL_MS = 15000;
 const MBTI_PDF_REQUIRED_SELECTORS = [
   '[data-pdf-section="personality-traits"]',
   '[data-pdf-section="career-path"]',
@@ -694,93 +686,6 @@ function hasAuthOrAnonContext(anonId: string): boolean {
   return anonId.trim().length > 0 || Boolean(getFmToken());
 }
 
-type InviteProgressSnapshot = {
-  completedInvitees: number;
-  requiredInvitees: number;
-  unlockStage: "locked" | "partial" | "full" | null;
-  unlockSource: "none" | "invite" | "payment" | "mixed" | null;
-};
-
-function resolveUnlockStageRank(stage: AttemptReportAccessView["unlockStage"] | AttemptInviteUnlockProgressView["unlockStage"]): number {
-  if (stage === "full") return 3;
-  if (stage === "partial") return 2;
-  if (stage === "locked") return 1;
-  return 0;
-}
-
-function resolveUnlockSourceMerge({
-  previousSource,
-  nextSource,
-}: {
-  previousSource: AttemptReportAccessView["unlockSource"];
-  nextSource: AttemptInviteUnlockProgressView["unlockSource"];
-}): AttemptReportAccessView["unlockSource"] {
-  if (!nextSource) {
-    return previousSource;
-  }
-
-  if (!previousSource || previousSource === "none") {
-    return nextSource;
-  }
-
-  if (nextSource === "mixed") {
-    return "mixed";
-  }
-
-  return previousSource;
-}
-
-function mergeAccessUnlockStateFromInviteProgress({
-  previousStage,
-  previousSource,
-  nextStage,
-  nextSource,
-}: {
-  previousStage: AttemptReportAccessView["unlockStage"];
-  previousSource: AttemptReportAccessView["unlockSource"];
-  nextStage: AttemptInviteUnlockProgressView["unlockStage"];
-  nextSource: AttemptInviteUnlockProgressView["unlockSource"];
-}): {
-  unlockStage: AttemptReportAccessView["unlockStage"];
-  unlockSource: AttemptReportAccessView["unlockSource"];
-  changed: boolean;
-} {
-  if (!nextStage && !nextSource) {
-    return {
-      unlockStage: previousStage,
-      unlockSource: previousSource,
-      changed: false,
-    };
-  }
-
-  const previousRank = resolveUnlockStageRank(previousStage);
-  const nextRank = resolveUnlockStageRank(nextStage);
-  if (nextRank < previousRank) {
-    return {
-      unlockStage: previousStage,
-      unlockSource: previousSource,
-      changed: false,
-    };
-  }
-  const stageCanUpgrade = nextRank >= previousRank;
-  const mergedStage = stageCanUpgrade && nextStage ? nextStage : previousStage;
-  const mergedSource = stageCanUpgrade && nextRank > previousRank
-    ? resolveUnlockSourceMerge({
-        previousSource: previousSource,
-        nextSource,
-      })
-    : resolveUnlockSourceMerge({
-        previousSource,
-        nextSource,
-      });
-
-  return {
-    unlockStage: mergedStage,
-    unlockSource: mergedSource,
-    changed: mergedStage !== previousStage || mergedSource !== previousSource,
-  };
-}
-
 function resolveSubmissionFailureMessage(
   response: AttemptSubmissionResponse | null,
   fallbackMessage: string
@@ -857,7 +762,6 @@ export default function ResultClient({
   );
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
   const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(() => initialAccessView);
-  const [inviteUnlockProgress, setInviteUnlockProgress] = useState<AttemptInviteUnlockProgressView | null>(null);
   const [mbtiAccessPath, setMbtiAccessPath] = useState(() =>
     Boolean(initialReportAccess && (isMbtiReportAccessResponse(initialReportAccess) || hasMbtiReportAccessRouteHint(initialReportAccess)))
   );
@@ -891,7 +795,6 @@ export default function ResultClient({
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef(initialReportReady ? resolveScaleCodeForTelemetry(initialReportData ?? null, null) : "UNKNOWN");
-  const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
   const manualRecoveryPendingRef = useRef(false);
   const manualRecheckInFlightRef = useRef(false);
@@ -965,7 +868,6 @@ export default function ResultClient({
     setReportData(null);
     setResultData(null);
     setAccessView(null);
-    setInviteUnlockProgress(null);
     setStatus("email_required");
     setEmailGateError(null);
     setEmailBindFeedback(null);
@@ -1136,23 +1038,6 @@ export default function ResultClient({
     }
   }, [anonId, attemptId, displayLocale, locale, resultAccessToken, runWithAuthRetry, usePrintAccessTokenOnly]);
 
-  const fetchInviteUnlockProgressWithAuthMismatchRetry = useCallback(async () => {
-    try {
-      return await runWithAuthRetry(() => fetchAttemptInviteUnlockProgress({ attemptId, anonId, locale }));
-    } catch (error) {
-      if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
-        throw error;
-      }
-
-      return fetchAttemptInviteUnlockProgress({
-        attemptId,
-        anonId,
-        locale,
-        skipAuth: true,
-      });
-    }
-  }, [anonId, attemptId, locale, runWithAuthRetry]);
-
   const canLoadRichReport = useCallback((
     view: AttemptReportAccessView | null,
     options: { allowLockedPreview: boolean }
@@ -1166,7 +1051,6 @@ export default function ResultClient({
       setAccessView(initialAccessView);
       setReportData(initialReportData ?? null);
       setResultData(null);
-      setInviteUnlockProgress(null);
       setMbtiAccessPath(
         Boolean(
           initialReportAccess
@@ -1183,7 +1067,6 @@ export default function ResultClient({
       setReportData(null);
       setResultData(null);
       setAccessView(null);
-      setInviteUnlockProgress(null);
       setStatus("failed");
       setError(dict.result.reportUnavailable);
       setEnneagramContractInvalid(initialEnneagramContractInvalid);
@@ -1195,8 +1078,6 @@ export default function ResultClient({
     let generationTimeoutTimer: number | null = null;
     let generationTimedOut = false;
     let finalFailureTracked = false;
-    let inviteProgressTimer: number | null = null;
-    let inviteProgressRequested = false;
 
     const enterGenerationTimeout = () => {
       if (!active || generationTimedOut) return;
@@ -1276,144 +1157,6 @@ export default function ResultClient({
       retryTimer = window.setTimeout(() => {
         void load(attempt + 1);
       }, delayMs);
-    };
-
-    const stopInviteProgressSync = () => {
-      if (inviteProgressTimer !== null) {
-        window.clearInterval(inviteProgressTimer);
-        inviteProgressTimer = null;
-      }
-    };
-
-    const applyInviteProgressToAccessView = (normalizedProgress: AttemptInviteUnlockProgressView | null) => {
-      if (!normalizedProgress) {
-        return;
-      }
-
-      setAccessView((previous) => {
-        if (!previous) {
-          return previous;
-        }
-
-        const mergedUnlockState = mergeAccessUnlockStateFromInviteProgress({
-          previousStage: previous.unlockStage,
-          previousSource: previous.unlockSource,
-          nextStage: normalizedProgress.unlockStage,
-          nextSource: normalizedProgress.unlockSource,
-        });
-        if (!mergedUnlockState.changed) {
-          return previous;
-        }
-
-        logInfo("result_invite_unlock_status_synced", {
-          attempt_id: attemptId,
-          from_unlock_stage: previous.unlockStage,
-          to_unlock_stage: mergedUnlockState.unlockStage,
-          from_unlock_source: previous.unlockSource,
-          to_unlock_source: mergedUnlockState.unlockSource,
-          completed_invitees: normalizedProgress.completedInvitees,
-          required_invitees: normalizedProgress.requiredInvitees,
-          diagnostic_status: normalizedProgress.diagnostics?.status ?? null,
-        });
-
-        return {
-          ...previous,
-          unlockStage: mergedUnlockState.unlockStage,
-          unlockSource: mergedUnlockState.unlockSource,
-        };
-      });
-    };
-
-    const requestInviteProgress = async (reason: "initial" | "poll") => {
-      try {
-        const progressResponse = await fetchInviteUnlockProgressWithAuthMismatchRetry();
-        if (!active) {
-          return;
-        }
-
-        const normalizedProgress = normalizeAttemptInviteUnlockProgress(progressResponse, locale);
-        setInviteUnlockProgress(normalizedProgress);
-        applyInviteProgressToAccessView(normalizedProgress);
-
-        if (normalizedProgress) {
-          const previousSnapshot = inviteProgressSnapshotRef.current;
-          const currentSnapshot: InviteProgressSnapshot = {
-            completedInvitees: normalizedProgress.completedInvitees,
-            requiredInvitees: normalizedProgress.requiredInvitees,
-            unlockStage: normalizedProgress.unlockStage,
-            unlockSource: normalizedProgress.unlockSource,
-          };
-          const progressAdvanced = previousSnapshot === null
-            || previousSnapshot.completedInvitees !== currentSnapshot.completedInvitees
-            || previousSnapshot.requiredInvitees !== currentSnapshot.requiredInvitees
-            || previousSnapshot.unlockStage !== currentSnapshot.unlockStage
-            || previousSnapshot.unlockSource !== currentSnapshot.unlockSource;
-
-          if (progressAdvanced) {
-            trackEvent("invite_progress_advanced", {
-              scale_code: "MBTI",
-              attempt_id: attemptId,
-              target_attempt_id: normalizedProgress.targetAttemptId ?? attemptId,
-              completed_invitees: currentSnapshot.completedInvitees,
-              required_invitees: currentSnapshot.requiredInvitees,
-              unlock_stage: currentSnapshot.unlockStage ?? undefined,
-              unlock_source: currentSnapshot.unlockSource ?? undefined,
-              previous_completed_invitees: previousSnapshot?.completedInvitees,
-              previous_required_invitees: previousSnapshot?.requiredInvitees,
-              previous_unlock_stage: previousSnapshot?.unlockStage ?? undefined,
-              previous_unlock_source: previousSnapshot?.unlockSource ?? undefined,
-              reason,
-              entry_surface: "result_page",
-              locale,
-            });
-          }
-
-          inviteProgressSnapshotRef.current = currentSnapshot;
-        }
-
-        logInfo("result_invite_unlock_progress_refreshed", {
-          attempt_id: attemptId,
-          reason,
-          unlock_stage: normalizedProgress?.unlockStage ?? null,
-          unlock_source: normalizedProgress?.unlockSource ?? null,
-          completed_invitees: normalizedProgress?.completedInvitees ?? null,
-          required_invitees: normalizedProgress?.requiredInvitees ?? null,
-          progress_percent: normalizedProgress?.diagnostics?.progressPercent ?? null,
-          diagnostic_status: normalizedProgress?.diagnostics?.status ?? null,
-        });
-
-        if (normalizedProgress?.unlockStage === "full") {
-          stopInviteProgressSync();
-        }
-      } catch (cause) {
-        if (!active) {
-          return;
-        }
-
-        const message = cause instanceof Error ? cause.message : String(cause);
-        logWarn("result_invite_unlock_progress_refresh_failed", {
-          attempt_id: attemptId,
-          reason,
-          message,
-        });
-
-        if (reason === "initial") {
-          // Invite progress should not break the result-delivery chain.
-          setInviteUnlockProgress(null);
-        }
-      }
-    };
-
-    const startInviteProgressSync = () => {
-      if (inviteProgressRequested) {
-        return;
-      }
-
-      inviteProgressRequested = true;
-      void requestInviteProgress("initial");
-      inviteProgressTimer = window.setInterval(() => {
-        void requestInviteProgress("poll");
-      }, INVITE_PROGRESS_POLL_MS);
     };
 
     const fetchResultForCurrentAttempt = async () => {
@@ -1499,12 +1242,10 @@ export default function ResultClient({
     const load = async (attempt = 0) => {
       if (attempt === 0) {
         setStatus("loading");
-        setInviteUnlockProgress(null);
         setMbtiAccessPath(false);
         setEmailGateError(null);
         setEmailBindFeedback(null);
         setEnneagramContractInvalid(false);
-        inviteProgressSnapshotRef.current = null;
         mbtiBootstrapPhaseTrackedRef.current = false;
 
         if (!usePrintAccessTokenOnly) {
@@ -1565,9 +1306,6 @@ export default function ResultClient({
               locale,
             });
           }
-          if (!printMode && !accessResponse.report_purchase) {
-            startInviteProgressSync();
-          }
         }
 
         if (!nextAccessView) {
@@ -1609,7 +1347,7 @@ export default function ResultClient({
         const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
         routeScaleCodeRef.current = reportScaleCode;
 
-        if (reportResponse.report_purchase && !reportResponse.report_purchase.unlocked) {
+        if (reportScaleCode !== "MBTI" && reportResponse.report_purchase && !reportResponse.report_purchase.unlocked) {
           setReportData(reportResponse);
           setResultData(null);
           markReady();
@@ -1627,9 +1365,6 @@ export default function ResultClient({
         setReportData(reportResponse);
         setResultData(null);
 
-        if (reportScaleCode === "MBTI" && !printMode && !reportResponse.report_purchase) {
-          startInviteProgressSync();
-        }
 
         const eqReportReady = isEqV5ReportResponse(reportResponse);
         const richReportReady = canRenderRichResultReport(reportResponse) || Boolean(reportResponse.report?.jung) || Boolean(reportResponse.report?.disc);
@@ -1736,7 +1471,6 @@ export default function ResultClient({
 
     return () => {
       active = false;
-      stopInviteProgressSync();
       if (retryTimer) {
         window.clearTimeout(retryTimer);
       }
@@ -1750,7 +1484,6 @@ export default function ResultClient({
     displayLocale,
     canLoadRichReport,
     dict.result.reportUnavailable,
-    fetchInviteUnlockProgressWithAuthMismatchRetry,
     fetchReportAccessWithAuthMismatchRetry,
     fetchReportWithAuthMismatchRetry,
     initialAccessView,
@@ -2180,7 +1913,7 @@ export default function ResultClient({
     } : undefined,
   };
 
-  const webReport = reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
+  const webReport = resolvedScaleCode === "MBTI" ? null : reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
   const withPurchase = (children: React.ReactNode) => !printMode && webReport?.report_purchase
     ? <MainstreamPaidResult data={webReport} purchase={webReport.report_purchase} locale={displayLocale}>{children}</MainstreamPaidResult>
     : children;
@@ -2243,7 +1976,7 @@ export default function ResultClient({
       await downloadResultPdf(response.blob, pdfDisplay ? "FermatMind-MBTI-zh-TW.pdf" : undefined);
     } : undefined;
     const exportAllowed = !printMode && (!accessView || (accessView.reportState === "ready" && ["ready", "locked"].includes(accessView.accessState)));
-    const mbtiExport = exportAllowed && resolvedScaleCode === "MBTI" ? buildMbtiResultExport(reportData, locale) : null;
+
     const riasecExport = exportAllowed && resolvedScaleCode === "RIASEC" ? buildRiasecResultExport(reportData, locale) : null;
     const domainExport = exportAllowed && accessView
       ? resolvedScaleCode === "BIG5_OCEAN" ? buildBig5ResultExport(reportData, locale, accessView)
@@ -2257,7 +1990,6 @@ export default function ResultClient({
           displayLocale={displayLocale}
           reportData={reportData}
           accessProjection={accessView}
-          inviteUnlockProgress={inviteUnlockProgress}
           printSnapshotMode={printSnapshotContractValid}
           riasecEmailRecovery={resolvedScaleCode === "RIASEC" && hasRiasecProjection(reportData) && !printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           snapshotDesktopCloneContent={snapshotDesktopCloneContent}
@@ -2269,18 +2001,6 @@ export default function ResultClient({
         {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}
         {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
-        {mbtiExport ? (
-          <ResultExportPanel
-            projection={mbtiExport}
-            locale={displayLocale}
-            onDownloadPdf={onDownloadMbtiPdf}
-            mbtiType={(reportData.mbti_public_projection_v1?.display_type?.trim()
-              || reportData.mbti_public_projection_v1?.runtime_type_code) ?? undefined}
-            mbtiUnlockHref={accessView?.accessMode === "free_full" && accessView.paywallSuppressed
-              ? localizedPath("/pricing", locale)
-              : getMbtiDesktopAnchorHash("offerFull")}
-          />
-        ) : null}
         {renderPdfReadyMarker()}
       </div>
     );

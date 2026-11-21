@@ -429,7 +429,7 @@ describe("ResultClient view-state contract", () => {
     window.sessionStorage.clear();
   });
 
-  it.each(["MBTI", "BIG5_OCEAN", "ENNEAGRAM", "EQ_60", "IQ_RAVEN", "JUNG_ARCHETYPES", "DISC_BEHAVIOR"])("opens guest checkout for an unpaid %s report without a native full-report payload", async scale => {
+  it.each(["MBTI", "BIG5_OCEAN", "ENNEAGRAM", "EQ_60", "IQ_RAVEN", "JUNG_ARCHETYPES", "DISC_BEHAVIOR"])("uses the correct payment policy for an unpaid %s report without a native full-report payload", async scale => {
     const purchase = { attempt_id: "attempt-123", unlocked: false, order_no: null, payment_state: null, offers: [] };
     hoisted.fetchAttemptReportAccess.mockResolvedValue({
       ok: true, attempt_id: "attempt-123", scale_code: scale, access_state: "locked", report_state: "ready", pdf_state: "missing",
@@ -440,9 +440,14 @@ describe("ResultClient view-state contract", () => {
       result: { type_code: "fixture", scores_pct: {} }, locked: true, report_purchase: purchase,
     });
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-    await waitFor(() => expect(screen.getByTestId("mainstream-payment-boundary")).toBeVisible());
+    if (scale === "MBTI") {
+      await waitFor(() => expect(hoisted.fetchAttemptReport).toHaveBeenCalled());
+      expect(screen.queryByTestId("mainstream-payment-boundary")).not.toBeInTheDocument();
+    } else {
+      await waitFor(() => expect(screen.getByTestId("mainstream-payment-boundary")).toBeVisible());
+    }
     expect(hoisted.fetchAttemptReport).toHaveBeenCalled();
-    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    if (scale !== "MBTI") expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
   });
 
@@ -666,11 +671,7 @@ describe("ResultClient view-state contract", () => {
       anonId: "anon_result_test",
       locale: "en",
     });
-    expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledWith({
-      attemptId: "attempt-123",
-      anonId: "anon_result_test",
-      locale: "en",
-    });
+    expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(1);
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(1);
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
@@ -1710,213 +1711,16 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
   });
 
-  it("retries invite-unlocks without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned", async () => {
+  it.each(["locked", "partial", "full"])("does not fetch or poll retired invite unlocks for a %s MBTI report", async (stage) => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
-    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection({ unlock_stage: stage, payload: { scale_code: "MBTI", unlock_stage: stage } }));
     hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
-    hoisted.fetchAttemptInviteUnlockProgress
-      .mockRejectedValueOnce(
-        new ApiError({
-          status: 404,
-          errorCode: "ATTEMPT_NOT_FOUND",
-          message: "attempt not found.",
-        })
-      )
-      .mockResolvedValueOnce({
-        ok: true,
-        invite_code: "invite_retry_001",
-        required_invitees: 2,
-        completed_invitees: 0,
-      });
-
+    const timer = vi.spyOn(window, "setInterval");
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-
-    await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
-    });
-
-    await waitFor(() => {
-      expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledTimes(2);
-    });
-
-    expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenNthCalledWith(1, {
-      attemptId: "attempt-123",
-      anonId: "anon_result_test",
-      locale: "en",
-    });
-    expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenNthCalledWith(2, {
-      attemptId: "attempt-123",
-      anonId: "anon_result_test",
-      locale: "en",
-      skipAuth: true,
-    });
-  });
-
-  it("applies invite-unlocks polling updates from partial to full on the visible report state", async () => {
-    const intervalCallbacks: Array<() => void> = [];
-    const setIntervalSpy = vi
-      .spyOn(window, "setInterval")
-      .mockImplementation(((callback: TimerHandler) => {
-        if (typeof callback === "function") {
-          intervalCallbacks.push(callback as () => void);
-        }
-        return 1 as unknown as ReturnType<typeof setInterval>;
-      }) as unknown as typeof window.setInterval);
-    const clearIntervalSpy = vi.spyOn(window, "clearInterval").mockImplementation(() => {});
-
-    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
-    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(
-      createAccessProjection({
-        unlock_stage: "partial",
-        unlock_source: "invite",
-        payload: {
-          scale_code: "MBTI",
-          unlock_stage: "partial",
-          unlock_source: "invite",
-        },
-        invite_unlock_diag_v1: {
-          status: "partial_unlock",
-          status_reason: "unlock_stage_partial",
-          progress_percent: 50,
-        },
-      })
-    );
-    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
-    hoisted.fetchAttemptInviteUnlockProgress
-      .mockResolvedValueOnce({
-        ok: true,
-        status: "in_progress",
-        required_invitees: 2,
-        completed_invitees: 1,
-        unlock_stage: "partial",
-        unlock_source: "invite",
-        invite_unlock_diag_v1: {
-          status: "partial_unlock",
-          status_reason: "unlock_stage_partial",
-          remaining_invitees: 1,
-          progress_percent: 50,
-          snapshot_at: "2026-04-06T06:00:00+00:00",
-        },
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        status: "completed",
-        required_invitees: 2,
-        completed_invitees: 2,
-        unlock_stage: "full",
-        unlock_source: "invite",
-        invite_unlock_diag_v1: {
-          status: "full_unlock",
-          status_reason: "unlock_stage_full",
-          remaining_invitees: 0,
-          progress_percent: 100,
-          snapshot_at: "2026-04-06T06:00:15+00:00",
-        },
-      });
-
-    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-
-    await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "partial");
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "invite");
-    });
-
-    expect(intervalCallbacks.length).toBeGreaterThan(0);
-    intervalCallbacks.forEach((callback) => {
-      callback();
-    });
-
-    await waitFor(() => {
-      expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledTimes(2);
-    });
-
-    await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "full");
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "invite");
-    });
-
-    setIntervalSpy.mockRestore();
-    clearIntervalSpy.mockRestore();
-  });
-
-  it("keeps report-access as unlock authority when invite-unlocks snapshots are locked", async () => {
-    const intervalCallbacks: Array<() => void> = [];
-    const setIntervalSpy = vi
-      .spyOn(window, "setInterval")
-      .mockImplementation(((callback: TimerHandler) => {
-        if (typeof callback === "function") {
-          intervalCallbacks.push(callback as () => void);
-        }
-        return 1 as unknown as ReturnType<typeof setInterval>;
-      }) as unknown as typeof window.setInterval);
-    const clearIntervalSpy = vi.spyOn(window, "clearInterval").mockImplementation(() => {});
-
-    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
-    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(
-      createAccessProjection({
-        unlock_stage: "full",
-        unlock_source: "payment",
-        payload: {
-          scale_code: "MBTI",
-          unlock_stage: "full",
-          unlock_source: "payment",
-        },
-      })
-    );
-    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
-    hoisted.fetchAttemptInviteUnlockProgress
-      .mockResolvedValueOnce({
-        ok: true,
-        has_invite: false,
-        required_invitees: 2,
-        completed_invitees: 0,
-        unlock_stage: "locked",
-        unlock_source: "mixed",
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        has_invite: false,
-        required_invitees: 2,
-        completed_invitees: 0,
-        unlock_stage: "locked",
-        unlock_source: "mixed",
-      });
-
-    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
-
-    await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "full");
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "payment");
-    });
-
-    expect(intervalCallbacks.length).toBeGreaterThan(0);
-    intervalCallbacks.forEach((callback) => callback());
-
-    await waitFor(() => {
-      expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledTimes(2);
-    });
-
-    await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "full");
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "payment");
-    });
-
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "invite_progress_advanced",
-      expect.objectContaining({
-        attempt_id: "attempt-123",
-        completed_invitees: 0,
-        required_invitees: 2,
-        unlock_stage: "locked",
-        unlock_source: "mixed",
-      })
-    );
-
-    setIntervalSpy.mockRestore();
-    clearIntervalSpy.mockRestore();
+    await waitFor(() => expect(screen.getByTestId("rich-result-report")).toBeInTheDocument());
+    expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
+    expect(timer.mock.calls.some((call) => call[1] === 15000)).toBe(false);
+    timer.mockRestore();
   });
 
   it("does not trigger auth-mismatch retry for non-ATTEMPT_NOT_FOUND 404", async () => {

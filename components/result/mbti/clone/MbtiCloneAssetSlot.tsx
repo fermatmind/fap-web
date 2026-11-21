@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { type CSSProperties, useMemo, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import {
@@ -54,10 +54,12 @@ export function MbtiCloneAssetSlot({
     : slot?.status === "ready" && !assetLoadFailed && !skipRemoteAssetLoad && Boolean(resolvedUrl)
       ? "ready"
       : "placeholder";
-  const showSlotLabel = mode === "ready";
+  const showSlotLabel = mode === "ready" && slot?.meta?.decorative !== true;
 
   return (
     <div
+      style={/^(traits|career|growth|relationships)-illustration$/.test(slotId) && slot?.aspectRatio
+        ? { "--mbti-scene-aspect": slot.aspectRatio } as CSSProperties : undefined}
       data-testid={testId}
       data-slot-id={slotId}
       data-slot-mode={mode}

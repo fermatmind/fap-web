@@ -160,6 +160,36 @@
   object-fit: contain;
 }
 
+.heroWithScene {
+  min-height: 360px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  overflow: visible;
+}
+
+.heroWithScene .heroIllustrationWrap {
+  align-self: end;
+  padding: 20px 0 0;
+  margin: 0 -24px -20px -16px;
+}
+
+.heroScene {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 860px) {
+  .heroWithScene { grid-template-columns: 1fr; min-height: auto; }
+  .heroWithScene .heroIllustrationWrap { margin: 0 0 -12px; padding: 0 16px; }
+  .heroScene { max-width: 600px; margin-inline: auto; }
+}
+
+@media print {
+  .hero.heroWithScene { grid-template-columns: minmax(0, 1fr) 64mm; min-height: 42mm; }
+  .heroWithScene .heroIllustrationWrap { margin: 0; padding: 0; align-self: center; }
+}
+
 @media print {
   .heroPortrait {
     height: 36mm;
@@ -486,6 +516,22 @@
 .assetSlotReady::before,
 .assetSlotReady::after {
   opacity: 0.22;
+}
+
+@media screen {
+  /* Loaded chapter art follows its scene canvas instead of the placeholder strip. */
+  .illustrationSlot.assetSlotReady {
+    aspect-ratio: var(--mbti-scene-aspect, 3 / 2);
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .illustrationSlot.assetSlotReady::before,
+  .illustrationSlot.assetSlotReady::after {
+    display: none;
+  }
 }
 
 .assetSlotReady .slotLabel {
@@ -2479,8 +2525,52 @@
 
 .chapterPreview {
   display: block;
-  width: calc(100% - 40px);
-  max-width: 680px;
+  width: calc(100% - 56px);
+  max-width: none;
   height: auto;
-  margin: 16px auto 20px;
+  margin: 28px auto 36px;
 }
+
+/* Keep chapter factors focused on a practical decision, with context on demand. */
+.factorActionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  padding: 8px 28px 24px;
+  align-items: start;
+}
+.factorActionCard { min-width: 0; padding: 22px 0; border-bottom: 1px solid var(--clone-border); }
+.factorActionCard h4 { margin: 0 0 12px; font-size: 17px; line-height: 1.5; color: var(--clone-text); font-weight: 650; }
+.factorActionCard > p { margin: 0; font-size: 14px; line-height: 1.8; overflow-wrap: anywhere; }
+.factorActionCard > p + p { margin-top: 10px; }
+.factorActionCard > p > span { font-weight: 650; margin-right: 8px; }
+.factorActionRisk { color: var(--clone-muted); }
+.factorActionStep { color: #244d39; }
+.factorActionContext { margin-top: 14px; font-size: 13px; line-height: 1.8; color: var(--clone-body); }
+.factorActionContext summary { width: fit-content; padding: 4px 0; color: var(--clone-green); cursor: pointer; }
+.factorActionContext summary:focus-visible { outline: 2px solid var(--clone-green); outline-offset: 4px; border-radius: 2px; }
+.factorActionContext > p { margin: 12px 0; }
+.factorActionContext dl { margin: 0; }
+.factorActionContext dt { margin-top: 12px; font-weight: 650; }
+.factorActionContext dd { margin: 4px 0 0; }
+@media screen and (max-width: 760px) {
+  .factorActionGrid { grid-template-columns: minmax(0, 1fr); padding: 0 20px 16px; }
+  .factorActionCard { padding: 20px 0; }
+}
+@media print {
+  .factorActionGrid { display: block; padding: 0; }
+  .factorActionCard { break-inside: avoid; padding: 5mm 0; }
+  .factorActionContext { font-size: 10pt; }
+  .factorActionContext summary { display: none; }
+  .factorActionContext::details-content { display: block; content-visibility: visible; }
+}
+
+.careerIdeaLink { color: var(--clone-green); text-decoration: underline; text-decoration-color: #b5cbbd; text-underline-offset: 4px; }
+.careerIdeaLink:hover { text-decoration-color: currentColor; }
+.careerIdeaLink:focus-visible { outline: 2px solid var(--clone-green); outline-offset: 4px; border-radius: 2px; }
+
+@media screen and (max-width: 860px) {
+  .chapterPreview { width: calc(100% - 40px); margin: 20px auto 24px; }
+}
+
+.fullWidthFooter { margin-top: 72px; min-width: 0; }

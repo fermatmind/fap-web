@@ -1,12 +1,12 @@
 "use client";
-import Image from "next/image";
+import type { MbtiApplicationContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
-import { getCloneAssetSlot, resolveAssetSlotUrl } from "@/components/result/mbti/clone/mbtiDesktopClone.assets";
+import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { renderMbtiProjectionSection } from "@/components/result/mbti/MbtiChapterSection";
@@ -60,6 +60,7 @@ type DesktopCloneTool = {
 
 type MbtiDesktopCloneShellProps = {
   locale: Locale;
+  applicationContent?: MbtiApplicationContent;
   headline: RichResultHeadline;
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
@@ -95,6 +96,9 @@ type MbtiDesktopCloneShellProps = {
   supplementaryNodes?: ReactNode[];
   recommendedReadsNode?: ReactNode;
   footerNode?: ReactNode;
+  faqReplacementNode?: ReactNode;
+  fullWidthFooterNode?: ReactNode;
+  referenceRail?: boolean;
   storageContentOverride?: MbtiDesktopCloneContent | null;
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageMetaOverride?: {
@@ -432,6 +436,9 @@ export function MbtiDesktopCloneShell({
   supplementaryNodes = [],
   recommendedReadsNode = null,
   footerNode = null,
+  faqReplacementNode,
+  fullWidthFooterNode,
+  referenceRail = false,
   storageContentOverride,
   storageAssetSlotsOverride,
   storageMetaOverride,
@@ -443,6 +450,7 @@ export function MbtiDesktopCloneShell({
   suppressUnlockSurfaces = false,
   storageContentPending = false,
   requirePublishedContent = false,
+  applicationContent,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
@@ -627,14 +635,14 @@ export function MbtiDesktopCloneShell({
   };
   const unlockedCareerIdeaBlock = fullContentVisible
     ? withOverrideTitle(
-        slots.chapters.career.careerIdeas,
-        cloneLocale === "zh" ? copy("你可能会喜欢的职业选择") : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
+        applicationContent?.careerIdeas ?? slots.chapters.career.careerIdeas,
+        cloneLocale === "zh" ? copy("你可能会喜欢的职业选择") : (applicationContent?.careerIdeas?.title ?? slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
       )
     : null;
   const unlockedWorkStylesBlock = fullContentVisible
     ? withOverrideTitle(
-        slots.chapters.career.workStyles,
-        cloneLocale === "zh" ? copy("适合你的工作方式") : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
+        applicationContent?.workStyles ?? slots.chapters.career.workStyles,
+        cloneLocale === "zh" ? copy("适合你的工作方式") : (applicationContent?.workStyles?.title ?? slots.chapters.career.workStyles?.title ?? "Work Styles"),
       )
     : null;
   const careerPostCoreBlocks: ReactNode[] = [];
@@ -643,6 +651,7 @@ export function MbtiDesktopCloneShell({
       <MbtiCloneIdeaListBlock
         key="career-ideas"
         data={unlockedCareerIdeaBlock}
+        locale={cloneLocale}
         testId="mbti-p1-career-career-ideas"
       />,
     );
@@ -652,6 +661,7 @@ export function MbtiDesktopCloneShell({
       <MbtiCloneIdeaListBlock
         key="career-work-styles"
         data={unlockedWorkStylesBlock}
+        locale={cloneLocale}
         testId="mbti-p1-career-work-styles"
       />,
     );
@@ -669,7 +679,16 @@ export function MbtiDesktopCloneShell({
       )
     : null;
   const growthPostCoreBlocks: ReactNode[] = [];
-  if (unlockedWhatEnergizesBlock) {
+  if (fullContentVisible && applicationContent?.whatEnergizes) {
+    growthPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="growth-what-energizes"
+        locale={cloneLocale}
+        data={applicationContent.whatEnergizes}
+        testId="mbti-p1-growth-what-energizes"
+      />,
+    );
+  } else if (unlockedWhatEnergizesBlock) {
     growthPostCoreBlocks.push(
       <MbtiCloneEnergyBlock
         key="growth-what-energizes"
@@ -679,7 +698,16 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
-  if (unlockedWhatDrainsBlock) {
+  if (fullContentVisible && applicationContent?.whatDrains) {
+    growthPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="growth-what-drains"
+        locale={cloneLocale}
+        data={applicationContent.whatDrains}
+        testId="mbti-p1-growth-what-drains"
+      />,
+    );
+  } else if (unlockedWhatDrainsBlock) {
     growthPostCoreBlocks.push(
       <MbtiCloneEnergyBlock
         key="growth-what-drains"
@@ -702,7 +730,16 @@ export function MbtiDesktopCloneShell({
       )
     : null;
   const relationshipsPostCoreBlocks: ReactNode[] = [];
-  if (unlockedSuperpowersBlock) {
+  if (fullContentVisible && applicationContent?.superpowers) {
+    relationshipsPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="relationships-superpowers"
+        locale={cloneLocale}
+        data={applicationContent.superpowers}
+        testId="mbti-p1-relationships-superpowers"
+      />,
+    );
+  } else if (unlockedSuperpowersBlock) {
     relationshipsPostCoreBlocks.push(
       <MbtiCloneRelationshipInsightBlock
         key="relationships-superpowers"
@@ -712,7 +749,16 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
-  if (unlockedPitfallsBlock) {
+  if (fullContentVisible && applicationContent?.pitfalls) {
+    relationshipsPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="relationships-pitfalls"
+        locale={cloneLocale}
+        data={applicationContent.pitfalls}
+        testId="mbti-p1-relationships-pitfalls"
+      />,
+    );
+  } else if (unlockedPitfallsBlock) {
     relationshipsPostCoreBlocks.push(
       <MbtiCloneRelationshipInsightBlock
         key="relationships-pitfalls"
@@ -1019,22 +1065,16 @@ export function MbtiDesktopCloneShell({
   );
   const chapterIllustrationType = /^([EI][SN][TF][JP])(?:-[AT])?$/.exec(fullCodeForStorage)?.[1].toLowerCase();
   const chapterIllustration = (chapter: "traits" | "career" | "growth" | "relationships") => {
-    if (snapshotMode || !chapterIllustrationType
-      || resolveAssetSlotUrl(getCloneAssetSlot(storageAssetSlots, `${chapter}-illustration`))) {
-      return undefined;
-    }
-
-    return (
-      <Image
-        src={`/images/mbti/result-chapters/${chapterIllustrationType}/${chapter}.webp`}
-        alt=""
-        width={chapterIllustrationType === "estp" ? 1440 : 768}
-        height={chapterIllustrationType === "estp" ? (chapter === "traits" ? 800 : 960) : 512}
-        unoptimized
-        className={styles.chapterPreview}
-        data-print-decorative="true"
-      />
-    );
+    if (!chapterIllustrationType) return undefined;
+    const slotId = `${chapter}-illustration` as const;
+    const assetSlots = storageAssetSlots?.some((slot) => slot.slotId === slotId) ? storageAssetSlots : [{
+      slotId, label: "", aspectRatio: chapterIllustrationType === "estp" && chapter === "traits" ? "9 / 5" : "3 / 2",
+      status: "ready" as const, alt: "", meta: { decorative: true },
+      assetRef: { provider: "internal", path: null, url: `/images/mbti/result-chapters/${chapterIllustrationType}/${chapter}.webp`, version: null, checksum: null },
+    }];
+    return <MbtiCloneAssetSlot slotId={slotId} assetSlots={assetSlots} fallbackLabel=""
+      className={styles.illustrationSlot} labelClassName={styles.slotLabel}
+      testId={`mbti-asset-slot-${chapter}`} printDecorative />;
   };
 
   const deepNarrativeSectionsNode = (
@@ -1056,6 +1096,7 @@ export function MbtiDesktopCloneShell({
         matchedGuides={null}
         traits={slots.chapters.career.influentialTraits}
         traitsUnlock={slots.chapters.career.traitsUnlock}
+        snapshotMode={snapshotMode}
         isUnlocked={fullContentVisible}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
@@ -1098,6 +1139,7 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.growth.weaknesses}
         traits={slots.chapters.growth.influentialTraits}
         traitsUnlock={slots.chapters.growth.traitsUnlock}
+        snapshotMode={snapshotMode}
         isUnlocked={fullContentVisible}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
@@ -1140,6 +1182,7 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.relationships.weaknesses}
         traits={slots.chapters.relationships.influentialTraits}
         traitsUnlock={slots.chapters.relationships.traitsUnlock}
+        snapshotMode={snapshotMode}
         isUnlocked={fullContentVisible}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
@@ -1167,7 +1210,7 @@ export function MbtiDesktopCloneShell({
         ]}
       />
 
-      {canonicalFaqNode}
+      {!snapshotMode ? faqReplacementNode ?? canonicalFaqNode : null}
 
       {!snapshotMode && !sampleMode ? supplementaryNodes.map((node, index) => (
         <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
@@ -1241,6 +1284,7 @@ export function MbtiDesktopCloneShell({
               {introduction.content ? (
                 <>
                   <p>{copy(introduction.content.paragraphs[0])}</p>
+                  {chapterIllustration("traits")}
                   <p>{copy(introduction.content.paragraphs[1])}</p>
                 </>
               ) : (
@@ -1268,7 +1312,7 @@ export function MbtiDesktopCloneShell({
               snapshotMode={snapshotMode}
               title={copy(slots.traits.title)}
               illustrationSlotId={slots.traits.asset.slotId}
-              chapterPreview={chapterIllustration("traits")}
+              illustrationHidden
               illustrationLabel={slots.traits.asset.label}
               assetSlots={storageAssetSlots}
               dimensions={traitDimensions}
@@ -1306,9 +1350,12 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneRail
               locale={cloneLocale}
               profileIdentity={slots.hero.profileIdentity}
+              referenceLayout={referenceRail}
+              onShare={onShare} shareDisabled={shareDisabled} shareLabel={shareCtaLabel} historyHref={historyHref}
             />
           ) : null}
         </div>
+        {!snapshotMode && fullWidthFooterNode ? <div className={styles.fullWidthFooter}>{fullWidthFooterNode}</div> : null}
       </div>
     </div>
   );

@@ -111,7 +111,15 @@ export type StrengthWeaknessBlock = {
   items: StrengthWeaknessItem[];
 };
 
-export type IdeaListBlock = StrengthWeaknessBlock;
+export type IdeaListBlock = {
+  title: string;
+  items: Array<StrengthWeaknessItem & { careerSlug?: string }>;
+};
+
+export type MbtiApplicationContent = Partial<Record<
+  "careerIdeas" | "workStyles" | "whatEnergizes" | "whatDrains" | "superpowers" | "pitfalls",
+  IdeaListBlock
+>>;
 
 export type InsightListActions = {
   do: string;

@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { careerPageFaq } from "@/lib/career/careerPage";
 import { CareerPageItem } from "@/components/career/display/CareerPageItem";
@@ -684,6 +684,7 @@ describe("career-scoped Current FAQ and source register", () => {
   });
 
   it("renders a non-accountant FAQ and its source register without a source-card marker or fact register", () => {
+    const consoleError = vi.spyOn(console, "error");
     const fixture = surfaceFixture("zh", "actors");
     const content = v3Fixture("zh", "actors");
     content.subject.name = "演员";
@@ -695,7 +696,7 @@ describe("career-scoped Current FAQ and source register", () => {
     fixture.content_v3 = { ...content, blocks: [...content.blocks, {
       id: "source-register", copy_key: "career.block.source-register", content_state: "enhanced", availability: "available",
       items: [{ id: "published-sources", copy_key: "career.item.published-sources", type: "sources", availability: "available", data: { entries: [{
-        id: "source-one", name: "演员公开资料", url: "https://example.com/actors", publisher: "Primary source", details: ["Reviewed source detail"], limitation: "仅限来源覆盖范围",
+        id: "source-one", name: "演员公开资料", url: "https://example.com/actors", publisher: "Primary source", details: ["Reviewed source detail", "Reviewed source detail"], limitation: "仅限来源覆盖范围",
       }] } }],
     }] };
     const surface = adaptCareerDisplaySurface(fixture, "zh");
@@ -704,6 +705,8 @@ describe("career-scoped Current FAQ and source register", () => {
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent("演员具体做什么？");
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent("Reviewed answer for outlook-transition");
     expect(screen.getByTestId("source-list")).toHaveTextContent("Reviewed source detail");
+    expect(within(screen.getByTestId("source-list")).getAllByText("Reviewed source detail")).toHaveLength(2);
+    expect(consoleError.mock.calls.filter(args => args.some(arg => String(arg).includes("same key")))).toEqual([]);
     expect(screen.getByTestId("source-list")).toHaveTextContent("仅限来源覆盖范围");
     expect(screen.getByTestId("source-list").querySelector("a")).toHaveAttribute("href", "https://example.com/actors");
     expect(document.querySelector('[data-content-block-id="source-register"]')).toBeNull();

@@ -1,0 +1,16 @@
+.rail { width: 100%; }
+.card { overflow: hidden; border-top: 3px solid #30a878; border-radius: 10px; background: #fff; color: #343e50; box-shadow: 0 12px 30px rgba(35, 44, 59, .10); }
+.identity { display: flex; align-items: center; gap: 10px; padding: 16px 14px 20px; }
+.avatar { position: relative; flex: 0 0 52px; height: 56px; overflow: hidden; background: #f0f3f1; clip-path: polygon(18% 4%, 78% 0, 100% 85%, 40% 100%, 0 75%); }
+.avatar img { position: absolute; width: 76px; max-width: none; height: 110px; left: -12px; top: -6px; object-fit: cover; }
+.caption { margin: 0 0 4px; font-size: 12px; line-height: 1.5; }
+.name { margin: 0 0 3px; font-size: 17px; font-weight: 700; line-height: 1.4; }
+.code { margin: 0; font-size: 14px; line-height: 1.5; color: #278461; }
+.navTitle { margin: 0; padding: 0 18px 12px; color: #687184; font-size: 12px; font-weight: 600; }
+.link { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 12px; border-top: 1px solid #ececf0; border-left: 3px solid transparent; text-decoration: none; font-size: 14px; font-weight: 500; line-height: 1.5; color: #343e50; }
+.link[aria-current="location"] { border-left-color: #30a878; background: #f5f5f7; color: #687184; }
+.link:hover { background: #f5f5f7; }
+.link svg { color: #63a666; }
+.tools { display: flex; flex-direction: column; gap: 8px; padding: 18px; border-top: 1px solid #ececf0; }
+.tools button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 7px 12px; border: 1px solid #daddE3; border-radius: 999px; background: #fff; color: #465064; font-size: 12px; }
+@media (max-width: 860px) { .identity { padding: 20px; } .tools { display: none; } .navTitle { padding-top: 4px; } }
