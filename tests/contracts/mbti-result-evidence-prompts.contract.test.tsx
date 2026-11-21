@@ -10,19 +10,22 @@ afterEach(() => {
 });
 
 describe("MBTI preview evidence and AI prompts", () => {
-  it("offers three attributed sources and keeps all three prompts manually copyable", () => {
+  it("shows the illustrated career prompt without removed sections", () => {
     render(<ResultEvidenceAndPrompts />);
-    expect(screen.getAllByRole("link")).toHaveLength(3);
-    expect(screen.getAllByRole("textbox", { hidden: true })).toHaveLength(3);
-    expect(screen.getByText(/不等于费马题本、分数/)).toBeInTheDocument();
-    expect(screen.getByText(/不会自动把报告发送给 AI/)).toBeInTheDocument();
+    expect(screen.getAllByRole("textbox")).toHaveLength(1);
+    expect(screen.getByRole("heading", { name: "复制提示词，和 AI 聊聊" })).toBeInTheDocument();
+    expect(screen.queryByText(/科学依据/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/个人成长：/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/关系沟通：/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/不会自动把报告发送给 AI/)).not.toBeInTheDocument();
+    expect(document.querySelector('img')?.getAttribute("src")).toContain("/ai-conversation/isfj.webp");
   });
 
   it("copies the selected prompt with concrete context and a request to ask before advising", async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
     render(<ResultEvidenceAndPrompts />);
-    fireEvent.click(screen.getByRole("button", { name: /复制提示词\s*：职业探索/ }));
+    fireEvent.click(screen.getByRole("button", { name: "复制 AI 对话提示词" }));
     await waitFor(() => expect(writeText).toHaveBeenCalledOnce());
     expect(writeText.mock.calls[0][0]).toContain("请先问我 3 个问题");
     expect(writeText.mock.calls[0][0]).toContain("一次低成本试做");
@@ -33,7 +36,7 @@ describe("MBTI preview evidence and AI prompts", () => {
     const writeText = vi.fn().mockRejectedValue(new Error("denied"));
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
     render(<ResultEvidenceAndPrompts />);
-    fireEvent.click(screen.getByRole("button", { name: /复制提示词\s*：职业探索/ }));
+    fireEvent.click(screen.getByRole("button", { name: "复制 AI 对话提示词" }));
     expect(await screen.findByText(/未能自动复制/)).toBeInTheDocument();
     expect(screen.getByRole("textbox", { name: /职业探索/ })).toHaveAttribute("readonly");
   });
