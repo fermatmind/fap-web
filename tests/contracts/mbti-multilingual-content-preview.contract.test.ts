@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { applyLocalizedPreview, localizedDimensions } from "@/app/(localized)/[locale]/(app)/dev/mbti-direct-result/localized-preview";
 import { previewCodes, previewDimensions } from "@/app/(localized)/[locale]/(app)/dev/mbti-direct-result/content-preview";
-import source from "@/app/(localized)/[locale]/(app)/dev/mbti-direct-result/content-candidates.zh-CN.json";
+import source from "@/lib/mbti/result-content/content.zh-CN.json";
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 const published = (code: string) => ({ fullCode: code, baseCode: code.slice(0, 4), locale: "zh-CN", content: {
   hero: { summary: "源内容", profileIdentity: { code, name: "源类型" } }, overview: { title: "旧正文", paragraphs: ["旧正文"] },

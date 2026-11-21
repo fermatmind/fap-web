@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { ResultEvidenceAndPrompts } from "@/app/(localized)/[locale]/(app)/dev/mbti-direct-result/ResultEvidenceAndPrompts";
+import { ResultEvidenceAndPrompts } from "@/components/result/mbti/MbtiResultConversation";
 
 const clipboardDescriptor = Object.getOwnPropertyDescriptor(navigator, "clipboard");
 afterEach(() => {
@@ -20,7 +20,7 @@ describe("MBTI preview evidence and AI prompts", () => {
     expect(screen.queryByText(/关系沟通：/)).not.toBeInTheDocument();
     expect(screen.queryByText(/不会自动把报告发送给 AI/)).not.toBeInTheDocument();
     expect(document.querySelector('img')?.getAttribute("src")).toContain("/ai-conversation/isfj.webp");
-    expect(screen.getByRole("link", { name: /付费.*下载完整PDF/ })).toHaveAttribute("href", "https://fermatmind.com/zh/history/mbti");
+    expect(screen.getByRole("link", { name: "查看我的报告" })).toHaveAttribute("href", "/zh/history/mbti");
   });
 
   it.each(["INFP-T", "ENTJ-A", "ESTP-T"])("uses the %s identity in the prompt and illustration", (code) => {
@@ -55,9 +55,9 @@ describe("MBTI preview evidence and AI prompts", () => {
 
 
 describe.each([
-  ["en", "Copy AI prompt", "Copied", "Ask me 3 questions first", "Paid"],
-  ["zh-TW", "複製 AI 對話提示詞", "已複製", "請先問我 3 個問題", "付費"],
-] as const)("%s AI prompt", (language, button, copied, question, paid) => {
+  ["en", "Copy AI prompt", "Copied", "Ask me 3 questions first"],
+  ["zh-TW", "複製 AI 對話提示詞", "已複製", "請先問我 3 個問題"],
+] as const)("%s AI prompt", (language, button, copied, question) => {
   it("copies the visible localized prompt and keeps the report destination", async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
@@ -65,7 +65,7 @@ describe.each([
     const text = screen.getByTestId("mbti-ai-prompt-text").textContent;
     expect(text).toContain("ENTJ-T");
     expect(text).toContain(question);
-    expect(screen.getByRole("link", { name: new RegExp(paid) })).toHaveAttribute("href", `https://fermatmind.com/${language}/history/mbti`);
+    expect(screen.getByRole("link", { name: language === "en" ? "View my reports" : "檢視我的報告" })).toHaveAttribute("href", `/${language}/history/mbti`);
     fireEvent.click(screen.getByRole("button", { name: button }));
     expect(await screen.findByRole("button", { name: copied })).toBeInTheDocument();
     expect(writeText).toHaveBeenCalledWith(text);

@@ -1,31 +1,5 @@
-import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
-import type { MbtiApplicationContent, MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
-import pack from "./content-candidates.zh-CN.json";
-import { applicationPreview } from "./application-preview";
-import { previewStrengths } from "./strengths-preview";
-
-type Candidate = { chapters: MbtiDesktopCloneContent["chapters"]; applications: MbtiApplicationContent };
-// Local editorial candidates only. Runtime publication remains owned by backend CMS.
-const candidates = pack.types as unknown as Record<string, Candidate>;
-export const previewCodes = Object.keys(candidates).flatMap((type) => [`${type}-A`, `${type}-T`]);
-
-export function applyChinesePreview(data: PersonalityDesktopCloneContentPayload) {
-  if (data.locale !== "zh-CN" || !previewCodes.includes(data.fullCode)) {
-    throw new Error("This editorial preview requires a supported zh-CN MBTI identity.");
-  }
-  const type = data.fullCode.slice(0, 4);
-  if (type === "ISFJ") {
-    // Both suffixes share the accepted sample; suffix differences remain in the score interpretation.
-    const sample = previewStrengths({ ...data, fullCode: "ISFJ-A" });
-    return { data: { ...sample, fullCode: data.fullCode }, applications: applicationPreview };
-  }
-  const candidate = candidates[type];
-  return { data: { ...data, content: { ...data.content, chapters: {
-    career: { ...data.content.chapters.career, ...candidate.chapters.career },
-    growth: { ...data.content.chapters.growth, ...candidate.chapters.growth },
-    relationships: { ...data.content.chapters.relationships, ...candidate.chapters.relationships },
-  } } }, applications: candidate.applications };
-}
+import { resultCodes as previewCodes } from "@/lib/mbti/result-content/chinese-content";
+export { resultCodes as previewCodes, applyChineseContent as applyChinesePreview } from "@/lib/mbti/result-content/chinese-content";
 
 export function previewDimensions(code: string) {
   if (!previewCodes.includes(code)) throw new Error("Unsupported preview identity");

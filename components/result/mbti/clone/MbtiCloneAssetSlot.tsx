@@ -54,7 +54,7 @@ export function MbtiCloneAssetSlot({
     : slot?.status === "ready" && !assetLoadFailed && !skipRemoteAssetLoad && Boolean(resolvedUrl)
       ? "ready"
       : "placeholder";
-  const showSlotLabel = mode === "ready";
+  const showSlotLabel = mode === "ready" && slot?.meta?.decorative !== true;
 
   return (
     <div

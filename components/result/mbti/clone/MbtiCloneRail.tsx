@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
-import { Crown, Share2 } from "lucide-react";
+import { Share2 } from "lucide-react";
 import reference from "./MbtiCloneRail.reference.module.css";
 import {
   getMbtiDesktopAnchorHash,
@@ -16,6 +16,10 @@ type MbtiCloneRailProps = {
   locale: "zh" | "en";
   profileIdentity: ProfileIdentity;
   referenceLayout?: boolean;
+  onShare?: () => void | Promise<void>;
+  shareDisabled?: boolean;
+  shareLabel?: string;
+  historyHref?: string;
 };
 
 const ANCHORS = [
@@ -52,6 +56,10 @@ export function MbtiCloneRail({
   locale,
   profileIdentity,
   referenceLayout = false,
+  onShare,
+  shareDisabled = true,
+  shareLabel,
+  historyHref,
 }: MbtiCloneRailProps) {
   const [activeAnchor, setActiveAnchor] = useState(TRAITS_ANCHOR_ID);
   const nameLine = (locale === "zh" ? [profileIdentity.name] : [profileIdentity.name, profileIdentity.nickname])
@@ -103,10 +111,10 @@ export function MbtiCloneRail({
         {ANCHORS.map((anchor) => <a key={anchor.id} href={getMbtiDesktopAnchorHash(anchor.key)} aria-current={activeAnchor === anchor.id ? "location" : undefined} className={reference.link}>
           {locale === "zh" ? copy({ traits: "1. 人格特征", career: "2. 你的职业道路", growth: "3. 你的个人成长", relationships: "4. 你的人际关系" }[anchor.key]) : anchor.label.en}
         </a>)}
-        <a href={`https://fermatmind.com/${displayLocale}/history/mbti`} className={reference.link}><Crown size={18} aria-hidden="true" />{locale === "zh" ? copy("解锁全部结果") : "Unlock all results"}</a>
+        {historyHref ? <a href={historyHref || `/${displayLocale}/history/mbti`} className={reference.link}>{locale === "zh" ? copy("我的报告") : "My reports"}</a> : null}
       </nav>
       <div className={reference.tools}>
-        <button type="button" disabled title={locale === "zh" ? copy("本地类型预览暂不支持分享个人结果") : "Sharing a personal result is unavailable in this local type preview"}><Share2 size={14} aria-hidden="true" />{locale === "zh" ? copy("分享你的结果") : "Share your results"}</button>
+        <button type="button" onClick={() => void onShare?.()} disabled={shareDisabled || !onShare}><Share2 size={14} aria-hidden="true" />{shareLabel || (locale === "zh" ? copy("分享你的结果") : "Share your results")}</button>
       </div>
     </div>
   </aside>;

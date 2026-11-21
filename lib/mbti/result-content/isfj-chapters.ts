@@ -1,7 +1,7 @@
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 import type { NarrativeChapterSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
-// Local editorial candidate for ISFJ-A. This does not replace published CMS content.
+// Accepted ISFJ editorial copy shared by both questionnaire forms.
 // These are editorial interpretations for self-reflection, not additional scores or
 // evidence of individual ability. A/T is not used to infer empathy or competence.
 const candidate: Record<"career" | "growth" | "relationships", {
@@ -637,7 +637,7 @@ const candidate: Record<"career" | "growth" | "relationships", {
   }
 };
 
-export function previewStrengths(data: PersonalityDesktopCloneContentPayload): PersonalityDesktopCloneContentPayload {
+export function applyIsfjContent(data: PersonalityDesktopCloneContentPayload): PersonalityDesktopCloneContentPayload {
   if (data.fullCode !== "ISFJ-A") return data;
   return { ...data, content: { ...data.content, chapters: {
     ...data.content.chapters,

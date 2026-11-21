@@ -17,14 +17,14 @@ describe("MBTI funnel and unlock observability contract", () => {
     expect(takeClient).toContain("attempt_id: resultAttemptId");
   });
 
-  it("routes MBTI result, unlock, and order events through the network-observable funnel dispatcher", () => {
+  it("keeps MBTI result telemetry while retiring unlock and checkout events", () => {
     const resultShell = readSource("components/result/mbti/MbtiResultShell.tsx");
 
     expect(resultShell).toContain('trackObservableFunnelEvent("view_result"');
-    expect(resultShell).toContain('trackObservableFunnelEvent("click_unlock"');
-    expect(resultShell).toContain('trackObservableFunnelEvent("create_order"');
-    expect(resultShell).toContain("createCheckoutOrOrder({");
-    expect(resultShell).toContain("writePendingOrder({");
+    expect(resultShell).not.toContain('trackObservableFunnelEvent("click_unlock"');
+    expect(resultShell).not.toContain('trackObservableFunnelEvent("create_order"');
+    expect(resultShell).not.toContain("createCheckoutOrOrder");
+    expect(resultShell).not.toContain("writePendingOrder");
   });
 
   it("allows standard deep report and checkout events as network-visible funnel events without changing purchase conversion triggers", () => {

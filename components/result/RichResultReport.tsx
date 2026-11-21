@@ -955,11 +955,6 @@ function isMbtiFullOffer(offer: OfferPayload): boolean {
   );
 }
 
-function filterMbtiOffers(offers: OfferPayload[]): OfferPayload[] {
-  const filtered = offers.filter((offer) => isMbtiFullOffer(offer));
-  return filtered.length > 0 ? filtered : offers;
-}
-
 function resolveOfferCopy(offer: OfferPayload, locale: Locale): ResolvedOffer {
   const key = resolveOfferKey(offer);
   const normalizedKey = key.toUpperCase();
@@ -1437,31 +1432,14 @@ export function RichResultReport({
   const highlights = normalizeHighlights(reportData, gate, locale);
   const recommendedReads = resolveRecommendedReads(reportData);
   const sections =
-    scaleCode === "BIG5_OCEAN" || scaleCode === "ENNEAGRAM"
+    scaleCode === "MBTI" || scaleCode === "BIG5_OCEAN" || scaleCode === "ENNEAGRAM"
       ? []
       : normalizeRichSections(reportData, locale, gate);
   const rawOffers = normalizeOffers(reportData);
-  const offers = scaleCode === "MBTI" ? filterMbtiOffers(rawOffers) : rawOffers;
+  const offers = scaleCode === "MBTI" ? [] : rawOffers;
   const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
 
   if (scaleCode === "MBTI") {
-    const sectionUnlocks = Object.fromEntries(
-      sections.map((section) => {
-        const sectionKey = normalizeText(section.key).toLowerCase();
-        const copy = resolveLockedSectionCopy(sectionKey, locale);
-        const offer = findOfferForSection(section, offers);
-
-        return [
-          sectionKey,
-          {
-            teaser: copy.teaser,
-            benefits: copy.benefits,
-            offer: offer ? resolveOfferCopy(offer, locale) : null,
-          } satisfies MbtiSectionUnlock,
-        ];
-      })
-    ) as Record<string, MbtiSectionUnlock>;
-
     return (
       <MbtiResultShell
         locale={locale}
@@ -1478,7 +1456,7 @@ export function RichResultReport({
         recommendedReads={recommendedReads}
         previewView={previewView}
         sections={sections}
-        sectionUnlocks={sectionUnlocks}
+        sectionUnlocks={{}}
         offers={resolvedOffers}
         printSnapshotMode={printSnapshotMode}
         sampleMode={sampleMode}

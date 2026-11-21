@@ -1357,6 +1357,7 @@ export function MbtiDesktopCloneShell({
               locale={cloneLocale}
               profileIdentity={slots.hero.profileIdentity}
               referenceLayout={referenceRail}
+              onShare={onShare} shareDisabled={shareDisabled} shareLabel={shareCtaLabel} historyHref={historyHref}
             />
           ) : null}
         </div>

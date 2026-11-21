@@ -38,6 +38,9 @@ type TraitTool = {
   disabled?: boolean;
 };
 
+const EN_AXIS_TITLES: Record<string, string> = { EI: "Energy", SN: "Information", TF: "Decisions", JP: "Approach", AT: "Stress and feedback" };
+const EN_POLES: Record<string, Record<string, string>> = { EI: { E: "Extraverted", I: "Introverted" }, SN: { S: "Sensing", N: "Intuitive" }, TF: { T: "Thinking", F: "Feeling" }, JP: { J: "Judging", P: "Perceiving" }, AT: { A: "Assertive", T: "Turbulent" } };
+
 type MbtiCloneTraitsSectionProps = {
   locale: Locale;
   snapshotMode?: boolean;
@@ -159,7 +162,8 @@ export function MbtiCloneTraitsSection({
       const dominantPole = normalizeText(record.dominantPole, record.dominant_pole, record.side).toUpperCase();
       const dominantLabel = normalizeText(record.dominantLabel, record.dominant_label, record.sideLabel, record.side_label);
       const axisTitle = normalizeText(record.axisTitle, record.axis_title, record.label);
-      const summary = normalizeText(record.summary, record.description);
+      const rawSummary = normalizeText(record.summary, record.description);
+      const summary = locale === "en" && /[\u3400-\u9fff]/.test(rawSummary) ? "The percentage describes the direction of these answers, not ability, certainty or a population percentile." : rawSummary;
       const leftPole = normalizeText(record.leftPole, record.left_pole, record.leftLabel);
       const rightPole = normalizeText(record.rightPole, record.right_pole, record.rightLabel);
       const leftCode = normalizeText(record.leftCode, record.left_code, axisCode.split(/[/_-]/)[0]);
@@ -171,11 +175,11 @@ export function MbtiCloneTraitsSection({
         axisCode,
         dominantPct,
         dominantPole,
-        dominantLabel: locale === "zh" && axisCode === "EI" ? ZH_EI_LABELS[dominantPole] ?? dominantLabel : dominantLabel,
-        axisTitle: locale === "zh" ? ZH_AXIS_TITLES[axisCode] ?? axisTitle : axisTitle,
+        dominantLabel: locale === "en" ? EN_POLES[axisCode]?.[dominantPole] ?? dominantLabel : axisCode === "EI" ? ZH_EI_LABELS[dominantPole] ?? dominantLabel : dominantLabel,
+        axisTitle: locale === "zh" ? ZH_AXIS_TITLES[axisCode] ?? axisTitle : EN_AXIS_TITLES[axisCode] ?? axisTitle,
         summary,
-        leftPole: locale === "zh" && axisCode === "EI" ? ZH_EI_LABELS[leftCode] ?? leftPole : leftPole,
-        rightPole: locale === "zh" && axisCode === "EI" ? ZH_EI_LABELS[rightCode] ?? rightPole : rightPole,
+        leftPole: locale === "en" ? EN_POLES[axisCode]?.[leftCode] ?? leftPole : axisCode === "EI" ? ZH_EI_LABELS[leftCode] ?? leftPole : leftPole,
+        rightPole: locale === "en" ? EN_POLES[axisCode]?.[rightCode] ?? rightPole : axisCode === "EI" ? ZH_EI_LABELS[rightCode] ?? rightPole : rightPole,
         leftCode,
         rightCode,
         strengthBand,

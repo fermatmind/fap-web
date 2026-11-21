@@ -21,7 +21,7 @@ export async function generateMetadata({params}:{params:Promise<{locale:string}>
  const {locale}=await params;
  return {title:locale==="en"?"Unlock page · Local preview":locale==="zh-TW"?"解鎖頁 · 本機預覽":"解锁页设计预览",robots:{index:false,follow:false}};
 }
-const forms = [["mbti93","MBTI","93"],["mbti144","MBTI","144"],["big590","BIG5_OCEAN","90"],["enneagram105","ENNEAGRAM","105"],["iq30","IQ_RAVEN","30"],["iq40","IQ_INTELLIGENCE_QUOTIENT","40"],["eq60","EQ_60","60"],["archetypes48","JUNG_ARCHETYPES","48"],["disc24","DISC_BEHAVIOR","24"],["holland60","RIASEC","60"],["career94","CAREER","94"]];
+const forms = [["big590","BIG5_OCEAN","90"],["enneagram105","ENNEAGRAM","105"],["iq30","IQ_RAVEN","30"],["iq40","IQ_INTELLIGENCE_QUOTIENT","40"],["eq60","EQ_60","60"],["archetypes48","JUNG_ARCHETYPES","48"],["disc24","DISC_BEHAVIOR","24"],["holland60","RIASEC","60"],["career94","CAREER","94"]];
 const artwork: Record<string, string> = {
   ENNEAGRAM: "/images/enneagram-report-reflection.webp",
   IQ_RAVEN: "/images/test-covers/logical-reasoning.webp",

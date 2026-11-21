@@ -1,9 +1,9 @@
 import type { MbtiApplicationContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
-// ISFJ-A local editorial candidate. Career identities and names were read from
+// Accepted ISFJ content. Career identities and names were read from
 // the live 1046 directory and each career.detail.page.v1 subject on 2026-11-21.
 // Exploration links are not individually scored job recommendations.
-export const applicationPreview = {
+export const isfjApplications = {
   "careerIdeas": {
     "title": "你可能会喜欢的职业选择",
     "items": [
