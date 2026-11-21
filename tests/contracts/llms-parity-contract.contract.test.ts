@@ -1,6 +1,7 @@
+// @vitest-environment node
+import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { isModeABatchTwo } from "@/lib/entertainment/modeABatchTwo";
-// @vitest-environment node
 import fs from "node:fs";
 import path from "node:path";
 import type { CmsArticleLlmsEntry } from "@/lib/cms/articles";
@@ -459,7 +460,15 @@ describe("llms parity governance", () => {
       return [base, ...resultSlugs.map((id) => `${base}/results/${id}`)];
     });
     expect(batchThreePaths).toHaveLength(219);
-    expect(taiwanModeAPaths).toHaveLength(147 + batchTwoPaths.length + batchThreePaths.length);
+    const batchFour = catalog.filter(({ slug }) => isModeABatchFour(slug));
+    expect(batchFour).toHaveLength(25);
+    const batchFourPaths = batchFour.flatMap(({ slug, collection, resultSlugs }) => {
+      const base = `/zh-TW/tests/${collection}/${slug}`;
+      return [base, ...resultSlugs.map((id) => `${base}/results/${id}`)];
+    });
+    expect(batchFourPaths).toHaveLength(154);
+    expect(taiwanModeAPaths).toHaveLength(147 + batchTwoPaths.length + batchThreePaths.length + batchFourPaths.length);
+    expect(taiwanModeAPaths).toEqual(expect.arrayContaining(batchFourPaths));
     expect(taiwanModeAPaths).toEqual(expect.arrayContaining(batchThreePaths));
     expect(taiwanModeAPaths).toEqual(expect.arrayContaining(batchTwoPaths));
     expect(taiwanModeAPaths).toContain("/zh-TW/tests/explore/cyberpunk-edgerunners/results/lucy");
@@ -467,7 +476,7 @@ describe("llms parity governance", () => {
     expect(taiwanModeAPaths).not.toContain("/zh-TW/tests/play/weekend-pace");
     expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length + taiwanModeAPaths.length);
     expect(paths.filter((path) => path.includes("/gta-6-character-quiz"))).toEqual(gta6Paths);
-    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length + 3 + 19 + batchTwo.length + batchThree.length);
+    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length + 3 + 19 + batchTwo.length + batchThree.length + batchFour.length);
     expect(entries.every((entry) => !/\?|#|\/(?:take|result|share|api|pay|payment)(?:\/|$)/.test(entry.path))).toBe(true);
     expect(entries.every((entry) => Object.keys(entry).sort().join(",") === "locale,path,summary,title,type,updatedAt")).toBe(true);
     const [short, full, degraded] = await Promise.all([

@@ -1,3 +1,4 @@
+import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { CANONICAL_SITE_URL } from "@/lib/site";
 import { PublicGuideShare } from "@/components/questionnaires/PublicGuideShare";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
@@ -82,7 +83,7 @@ export async function PracticeQuestionnairePage({ slug, take, profile }: Practic
     {languages}
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
     <h1 className="text-3xl font-bold">{result.title.zh}</h1>
-    {isModeABatchThree(slug) && <PublicGuideShare url={CANONICAL_SITE_URL + questionnaireGuidePath("zh-TW", slug, result.id)} locale="zh-TW" />}
+    {(isModeABatchThree(slug) || isModeABatchFour(slug)) && <PublicGuideShare url={CANONICAL_SITE_URL + questionnaireGuidePath("zh-TW", slug, result.id)} locale="zh-TW" />}
     <p className="leading-8">{result.summary.zh}</p>
     <QuestionnaireResultReading quizSlug={slug} profile={result} locale="zh" traditional headingLevel={2} mode="guide" showSummary={false} />
     <Link href={`${entry}/take`} className="inline-block min-h-11 py-2 underline">開始免費練習</Link>

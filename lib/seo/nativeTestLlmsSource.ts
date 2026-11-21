@@ -1,3 +1,4 @@
+import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { isModeABatchTwo } from "@/lib/entertainment/modeABatchTwo";
 import catalog from "@/lib/questionnaires/catalog.json";
@@ -19,7 +20,7 @@ const traditionalB1NativeTests = new Set([
 ]);
 
 function listTraditionalModeAEntries() {
-  const native = catalog.filter((test) => traditionalB1NativeTests.has(test.slug) || isModeABatchTwo(test.slug) || isModeABatchThree(test.slug)).flatMap((test) => {
+  const native = catalog.filter((test) => traditionalB1NativeTests.has(test.slug) || isModeABatchTwo(test.slug) || isModeABatchThree(test.slug) || isModeABatchFour(test.slug)).flatMap((test) => {
     const base = `/tests/${test.collection}/${test.slug}`;
     const copy = taiwanDirectoryEntry({ slug: test.slug, title: test.title.zh, description: test.description.zh, href: `/zh${base}` });
     const entry = { locale: "zh-TW" as const, path: copy.href, title: copy.title, type: "native_test",

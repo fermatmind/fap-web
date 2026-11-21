@@ -136,7 +136,7 @@ describe("T114 original six-character unofficial fan quiz", () => {
       for (const locale of ["en", "zh"] as const) {
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/my-little-pony-character-quiz`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
-        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
+        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(locale === "en" ? "My Little Pony Character Quiz: Which Pony Are You?" : quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();

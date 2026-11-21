@@ -119,7 +119,7 @@ describe("T014 original classical temperament-style reflection", () => {
       for (const locale of ["en", "zh"] as const) {
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/temperament`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
-        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
+        expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(locale === "en" ? "Four Temperaments Test: Find Your Temperament in 24 Questions" : quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创古典气质自评" : "Original classical-style reflection");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
