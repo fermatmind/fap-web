@@ -5,17 +5,18 @@ import {
   HeartHandshake, Leaf, Lightbulb, ListChecks, ScanLine, Wallet, Waves,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import { BIG5_DOMAIN_ORDER as traitOrder } from "@/lib/big5/taxonomy";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
-  actionPlan, careerDirections, careerMatchLabels, insights, money,
+  actionPlan, careerDirections, careerMatchLabels, insights, methodology, money,
   overviewPatterns, relationships, scienceSources, stress, traits, workplace,
 } from "./bigFiveReportPreviewCopy";
 import { bigFivePreviewPortraits, type BigFivePreviewFocus } from "./bigFivePreviewPortraits";
 import { BigFivePreviewPrompt } from "./BigFivePreviewPrompt";
 import styles from "./BigFiveReportPreview.module.css";
 
-const traitOrder = ["O", "C", "E", "A", "N"] as const;
-type Domain = { key: string; percentile: number; band: string; definition: string | undefined };
+type Domain = { key: string; percentile: number; band: string };
+type Facet = { key: string; percentile: number; label: string };
 
 const bandLabels: Record<string, string> = { low: "偏低", mid: "中等", high: "偏高" };
 const chapters = [
@@ -161,9 +162,10 @@ function ApplicationNotes({ items }: { items: ReadonlyArray<{ title: string; bod
 }
 
 export function BigFiveReportPreview({
-  domains, focus, showPercentiles, referenceGroup, questionCount,
+  domains, facets, focus, showPercentiles, referenceGroup, questionCount,
 }: {
   domains: Domain[];
+  facets: Facet[];
   focus: BigFivePreviewFocus;
   showPercentiles: boolean;
   referenceGroup: string;
@@ -184,8 +186,9 @@ export function BigFiveReportPreview({
     "我在读一份费马大五人格 90 题的固定示例。这些数据来自样例，与我的个人成绩无关。",
     traitOrder.map((key, index) => `${traits[key].name} ${scoreLabel(key, scores[index]) ?? "无可展示结果"}`).join("、") + "。",
     "",
-    "先问我有没有自己的结果，或想聊哪个具体场景，一次只问一个问题。若我只提供经历，就从那次发生的事出发。分别整理事实、我的解释和缺少的信息，提出两种可能解释，再问我有没有不符合的例子。",
-    "请和我选一个成本低、可撤回的尝试，写清完成方式及何时回看。根据经历讨论倾向，职业能力、关系结果和心理健康需要各自的证据。提醒我省略姓名、单位等可识别信息。",
+    "请先问我想理解哪个场景。上面的数字只作示范。如果我提供自己的测评结果，请先确认题本和参照，只使用我明确提供的分数。",
+    "每次只问一个问题。请我说清当时的任务、机会、做法和结果，区分发生的事、我的解释以及未知信息。找一个同样条件下的反例，也确认是否只是没有机会。",
+    "根据我提供的经历，给出两种可能解释。和我选一个可撤回的尝试，定好要观察的结果和成本、回看的时间。用观察更新描述，避免用样例或单次行为给我贴标签。提醒我省略姓名、单位和其他识别信息。",
   ].join("\n");
 
   return (
@@ -219,11 +222,11 @@ export function BigFiveReportPreview({
             </div>
           </div>
           <div className={styles.heroStory}>
-            <h2 className={styles.heroLabel}>结果里的关键线索</h2>
+            <h2 className={styles.heroLabel}>先留意什么</h2>
             <ul className={styles.heroClues}>
               {portrait.clues.map((clue) => <li key={clue}><Check size={16} aria-hidden="true" /><span>{clue}</span></li>)}
             </ul>
-            <h2 className={styles.heroLabel}>可以发挥的地方</h2>
+            <h2 className={styles.heroLabel}>怎么带到真实场景</h2>
             <div className={styles.heroSignature}>
               <h3>{portrait.signature.title}</h3>
               <p>{portrait.signature.body}</p>
@@ -245,7 +248,7 @@ export function BigFiveReportPreview({
       <div className={styles.container}>
         <section id="profile" className={styles.profile}>
           <h2>五维总览</h2>
-          <p>{showPercentiles ? `百分位以${referenceGroup}为参照。点越靠外，百分位越高。虚线是第 50 百分位。` : "这份结果按区间展示。"}</p>
+          <p>{showPercentiles ? `点越靠外，在对应参考分布中的位置越高。虚线标出第 50 百分位。比如第 42 百分位，大致对应参考分布中从低到高的 42% 位置。五维参考样本为${referenceGroup}。` : "这份结果按区间展示。"}</p>
           <div className={styles.overviewGrid}>
             {showPercentiles ? <Radar scores={scores} /> : null}
             <ul className={styles.scoreList} aria-label="按特质查看解读">
@@ -258,9 +261,14 @@ export function BigFiveReportPreview({
         </section>
 
         <Chapter id="traits" title="特质图谱" icon={<ScanLine size={18} />}>
+          {showPercentiles ? <p>每个维度选两个面向，说明总览下面有哪些不同的自报线索。</p> : null}
           {traitOrder.map((key, index) => {
             const trait = traits[key];
             const band = domains.find((domain) => domain.key === key)?.band ?? "";
+            const facetHighlights = trait.facetPair.flatMap((code) => {
+              const facet = facets.find((candidate) => candidate.key === code);
+              return facet ? [facet] : [];
+            });
             return (
               <article key={key} className={styles.traitCard} data-trait={key} id={`trait-${key}`}>
                 <div className={styles.traitHeader}>
@@ -273,11 +281,21 @@ export function BigFiveReportPreview({
                 </div>
                 {showPercentiles ? <Scale score={scores[index]} /> : null}
                 <h4>{trait.title}</h4>
-                <p className={styles.traitLead}>{domains.find((domain) => domain.key === key)?.definition}</p>
+                <p className={styles.traitLead}>{trait.definition}</p>
+                {showPercentiles && facetHighlights.length === trait.facetPair.length ? (
+                  <div className={styles.facetHighlight}>
+                    <ul aria-label="样例面向百分位">
+                      {facetHighlights.map(({ key: code, label, percentile }) => (
+                        <li key={code}><strong>{label}</strong> 第 {percentile} 百分位</li>
+                      ))}
+                    </ul>
+                    <p>{trait.interpretation}</p>
+                  </div>
+                ) : null}
                 <ul className={styles.observations}>{trait.observations.map((item) => <li key={item}>{item}</li>)}</ul>
                 <div className={styles.traitAdvice}>
-                  <TraitAdvice title="可发挥的优势" items={trait.strengths} />
-                  <TraitAdvice title="成长空间" items={trait.growth} development />
+                  <TraitAdvice title="可以运用的做法" items={trait.strengths} />
+                  <TraitAdvice title="下一次试什么" items={trait.growth} development />
                 </div>
               </article>
             );
@@ -287,7 +305,7 @@ export function BigFiveReportPreview({
         <Chapter id="career" title="职业" icon={<Compass size={18} />}>
           <section className={styles.careerMatch} aria-labelledby="career-match-title">
             <h3 id="career-match-title">可以试做的职业任务</h3>
-            <p>条形区分两档线索。「直接线索」指任务直接涉及审美与呈现，「需要试做」表示还有关键任务要核对。</p>
+            <p>先从一项具体任务试起。「直接试做」围绕表达和呈现，「拓展试做」加入访谈、协调或复核。职业选择还需要结合兴趣、技能和实际工作条件。</p>
             <ul className={styles.careerList}>
               {careerDirections.map((item) => (
                 <li key={item.id}>
@@ -296,8 +314,7 @@ export function BigFiveReportPreview({
                       <span className={styles.disclosureTitle}><strong>{item.name}</strong><span>{item.focus}</span></span>
                       <span className={styles.matchBadge} data-match={item.match}>{careerMatchLabels[item.match]}</span>
                       <ChevronDown size={16} className={styles.disclosureChevron} aria-hidden="true" />
-                      <span className={styles.matchTrack} data-match={item.match} aria-hidden="true"><span /><span /></span>
-                    </summary>
+                      </summary>
                     <div className={styles.disclosureBody}>
                       <p>{item.why}</p>
                       <p><strong>可以试做</strong> {item.task}</p>
@@ -350,7 +367,8 @@ export function BigFiveReportPreview({
         </Chapter>
 
         <Chapter id="method" title="科学依据" icon={<BookOpen size={18} />}>
-          <ol className={styles.references}>
+          <StoryCards items={methodology} />
+          <ol className={styles.references} aria-label="参考研究">
             {scienceSources.map((source, index) => (
               <li key={source.url}>
                 <span aria-hidden="true">{index + 1}</span>

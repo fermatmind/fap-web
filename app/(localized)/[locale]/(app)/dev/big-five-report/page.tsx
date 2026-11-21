@@ -21,23 +21,26 @@ export default async function BigFiveReportPreviewPage({
 
   const focus = resolveBigFivePreviewFocus((await searchParams).focus);
   const engine = sample.big5_report_engine_v2;
-  const breakdown = sample.report.sections.find((section) => section.section_key === "domain_deep_dive");
-  const domains = sample.big5_public_projection_v1.trait_vector.map((domain) => {
-    const copy = breakdown?.blocks.find((block) =>
-      block.kind === "trait_atomic" && block.analytics && "trait_code" in block.analytics && block.analytics.trait_code === domain.key
+  const norm = engine.norm_evidence;
+  const normGroup = `${norm.sample_label}（${norm.locale}，${norm.age_range} 岁、${norm.gender}，样本量 ${norm.sample_n.toLocaleString("zh-CN")}）`;
+
+  const facetDetails = sample.report.sections.find((section) => section.section_key === "facet_details");
+  const facets = sample.big5_public_projection_v1.facet_vector.flatMap((facet) => {
+    const copy = facetDetails?.blocks.find(({ kind, resolved_copy }) =>
+      kind === "table_row" && "facet_code" in resolved_copy && resolved_copy.facet_code === facet.key
     )?.resolved_copy;
-    return {
-      ...domain,
-      definition: copy && "definition" in copy ? copy.definition : "",
-    };
+    return copy && "label_zh" in copy && typeof copy.label_zh === "string"
+      ? [{ ...facet, label: copy.label_zh }]
+      : [];
   });
 
   return (
     <BigFiveReportPreview
-      domains={domains}
+      domains={sample.big5_public_projection_v1.trait_vector}
+      facets={facets}
       focus={focus}
-      showPercentiles={engine.norm_evidence.show_precise_percentiles}
-      referenceGroup={`${engine.norm_evidence.locale} ${engine.norm_evidence.age_range} 岁参考样本`}
+      showPercentiles={norm.comparison_allowed && norm.show_precise_percentiles}
+      referenceGroup={normGroup}
       questionCount={sample.big5_form_v1.question_count}
     />
   );

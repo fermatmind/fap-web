@@ -132,6 +132,9 @@
 .meter { display: block; width: 100%; height: 5px; background: var(--trait-track, #ecded0); border-radius: 6px; color: var(--trait-ink, var(--accent)); }
 .meter rect { fill: currentColor; }
 .chapterBody .traitLead { font-weight: 650; color: var(--ink); }
+.facetHighlight { margin-top: 9px; padding: 10px 12px; border: 1px solid var(--trait-track); border-radius: 8px; }
+.facetHighlight ul { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 4px; color: var(--trait-ink); font-size: 13px; }
+.facetHighlight p { color: var(--muted); }
 .observations { margin: 9px 0 14px; padding-left: 1.25em; list-style: disc; color: var(--muted); line-height: 1.65; }
 .observations li + li { margin-top: 5px; }
 .observations li::marker { color: var(--trait-ink); }
@@ -161,10 +164,6 @@
 .careerRow > summary { display: grid; grid-template-columns: minmax(0, 1fr) auto 16px; gap: 4px 8px; padding-block: 7px; }
 .careerRow > summary::-webkit-details-marker, .scenarioRow > summary::-webkit-details-marker { display: none; }
 .careerRow > summary:hover, .scenarioRow > summary:hover { background: var(--chapter-tint); }
-.matchTrack { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; }
-.matchTrack span { height: 5px; border-radius: 8px; background: #dce5ef; }
-.matchTrack span:first-child { background: #6c86a2; }
-.matchTrack[data-match="direct"] span { background: #4c7984; }
 .disclosureTitle { display: flex; align-items: baseline; flex-wrap: wrap; flex: 1; gap: 2px 8px; }
 .disclosureTitle strong { font-size: 14px; color: var(--chapter-ink); }
 .disclosureTitle > span { color: var(--muted); font-size: 12px; }
