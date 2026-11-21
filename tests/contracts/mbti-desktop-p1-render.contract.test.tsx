@@ -1028,7 +1028,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     const careerSection = getDesktopSection("career");
     const careerScoped = within(careerSection);
-    const traitsTitle = careerScoped.getByText("影响因素");
+    const traitsTitle = careerScoped.getByText("把这些倾向用在日常");
     const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
     const strengthsCard = careerScoped.getByTestId("mbti-p0-career-strengths");
     const weaknessesCard = careerScoped.getByTestId("mbti-p0-career-weaknesses");
@@ -1051,7 +1051,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     );
   });
 
-  it("renders all twelve factors and every explanation without interaction for reading and PDF capture", async () => {
+  it("keeps all twelve actions visible and secondary explanations collapsed on screen", async () => {
     renderShell("INFJ-A", "zh", true);
     await waitForDesktopCloneStorage("INFJ-A");
 
@@ -1059,7 +1059,8 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       const scoped = within(getDesktopSection(section));
       const panel = scoped.getByTestId(`mbti-${section}-traits-unlock-panel`);
       expect(panel.querySelectorAll("article")).toHaveLength(4);
-      expect(panel.querySelectorAll("details, [hidden]")).toHaveLength(0);
+      expect(panel.querySelectorAll("details:not([open])")).toHaveLength(4);
+      expect(panel.querySelectorAll("[hidden]")).toHaveLength(0);
       for (let index = 1; index <= 4; index += 1) {
         expect(panel).toHaveTextContent(`${section} definition ${index} infj-a`);
         expect(panel).toHaveTextContent(`${section} expression ${index} infj-a`);

@@ -12,6 +12,7 @@ type MbtiCloneInfluentialTraitsCardProps = {
   traits: TraitSlot[];
   traitsUnlock?: TraitUnlockBlock | null;
   isUnlocked: boolean;
+  snapshotMode?: boolean;
   unlockHref: string;
   unlockPayLabel: string;
   unlockInviteLabel?: string;
@@ -24,6 +25,7 @@ export function MbtiCloneInfluentialTraitsCard({
   locale,
   traitsUnlock = null,
   isUnlocked,
+  snapshotMode = false,
   unlockHref,
   unlockPayLabel,
   unlockInviteLabel,
@@ -65,8 +67,8 @@ export function MbtiCloneInfluentialTraitsCard({
     <section className={styles.influentialCard}>
       <div className={styles.factorNavigation}>
       <div className={styles.influentialHeading}>
-        <h3>{locale === "zh" ? copy("影响因素") : "Influential Traits"}</h3>
-        <span>{locale === "zh" ? copy("从四个角度，理解自己的表现") : "Four perspectives on your patterns"}</span>
+        <h3>{canShowDetails ? (locale === "zh" ? copy("把这些倾向用在日常") : "Put these patterns into practice") : (locale === "zh" ? copy("影响因素") : "Influential Traits")}</h3>
+        <span>{locale === "zh" ? copy("选一个与你近况相关的建议，先试一次") : "Pick one suggestion that fits your situation and try it"}</span>
       </div>
       </div>
       {!isUnlocked ? (
@@ -101,46 +103,32 @@ export function MbtiCloneInfluentialTraitsCard({
           </div>
         </>
       ) : canShowDetails && traitsUnlock ? (
-        <div className={styles.traitsUnlockPanel} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
-          {traitsUnlock.items.map((detailItem, index) => (
-            <article className={styles.factorReading} key={detailItem.id}>
-              <header className={styles.traitsUnlockHeader}>
-                <span className={styles.factorChapterNumber} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h4 className={styles.traitsUnlockTitle}>{detailItem.label}</h4>
-                  <p className={styles.factorDefinition}>{detailItem.definition}</p>
-                </div>
-              </header>
-              <div className={styles.factorBody}>
-                <div className={styles.factorMainText}>
-                  <section>
-                  <h5>{locale === "zh" ? copy("日常中的表现") : "In everyday life"}</h5>
-                  <p>{detailItem.expression}</p>
-                  </section>
-                  <section>
-                  <h5>{fieldLabels.why}</h5>
-                  <p>{detailItem.whyItMatters}</p>
-                  </section>
-                </div>
-                <div className={styles.factorPerspectives}>
-                  <section>
-                    <h5>{fieldLabels.advantage}</h5>
-                    <p>{detailItem.advantage}</p>
-                  </section>
-                  <section>
-                    <h5>{fieldLabels.overuse}</h5>
-                    <p>{detailItem.overuseRisk}</p>
-                  </section>
-                </div>
-                <section className={styles.factorObservation}>
-                  <h5>{fieldLabels.signal}</h5>
-                  <p>{detailItem.realWorldSignal}</p>
-                </section>
-                <section className={styles.factorPractice}>
-                  <h5>{locale === "zh" ? copy("可以试试") : "Something to try"}</h5>
-                  <p>{detailItem.upgradeHint}</p>
-                </section>
-              </div>
+        <div className={styles.factorActionGrid} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
+          {traitsUnlock.items.map((detailItem) => (
+            <article className={styles.factorActionCard} key={detailItem.id}>
+              <h4>{detailItem.label}</h4>
+              <p className={styles.factorActionRisk}>
+                <span>{locale === "zh" ? copy("留意") : "Watch for"}</span>
+                {detailItem.overuseRisk}
+              </p>
+              <p className={styles.factorActionStep}>
+                <span>{locale === "zh" ? copy("试试") : "Try this"}</span>
+                {detailItem.upgradeHint}
+              </p>
+              <details className={styles.factorActionContext} open={snapshotMode || undefined}>
+                <summary>{locale === "zh" ? copy("查看具体表现") : "See how it shows up"}</summary>
+                <p>{detailItem.definition}</p>
+                <dl>
+                  <dt>{locale === "zh" ? copy("日常中的表现") : "In everyday life"}</dt>
+                  <dd>{detailItem.expression}</dd>
+                  <dt>{fieldLabels.advantage}</dt>
+                  <dd>{detailItem.advantage}</dd>
+                  <dt>{fieldLabels.signal}</dt>
+                  <dd>{detailItem.realWorldSignal}</dd>
+                  <dt>{fieldLabels.why}</dt>
+                  <dd>{detailItem.whyItMatters}</dd>
+                </dl>
+              </details>
             </article>
           ))}
         </div>

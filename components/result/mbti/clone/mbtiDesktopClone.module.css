@@ -2484,3 +2484,37 @@
   height: auto;
   margin: 16px auto 20px;
 }
+
+/* Keep chapter factors focused on a practical decision, with context on demand. */
+.factorActionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  padding: 8px 28px 24px;
+  align-items: start;
+}
+.factorActionCard { min-width: 0; padding: 22px 0; border-bottom: 1px solid var(--clone-border); }
+.factorActionCard h4 { margin: 0 0 12px; font-size: 17px; line-height: 1.5; color: var(--clone-text); font-weight: 650; }
+.factorActionCard > p { margin: 0; font-size: 14px; line-height: 1.8; overflow-wrap: anywhere; }
+.factorActionCard > p + p { margin-top: 10px; }
+.factorActionCard > p > span { font-weight: 650; margin-right: 8px; }
+.factorActionRisk { color: var(--clone-muted); }
+.factorActionStep { color: #244d39; }
+.factorActionContext { margin-top: 14px; font-size: 13px; line-height: 1.8; color: var(--clone-body); }
+.factorActionContext summary { width: fit-content; padding: 4px 0; color: var(--clone-green); cursor: pointer; }
+.factorActionContext summary:focus-visible { outline: 2px solid var(--clone-green); outline-offset: 4px; border-radius: 2px; }
+.factorActionContext > p { margin: 12px 0; }
+.factorActionContext dl { margin: 0; }
+.factorActionContext dt { margin-top: 12px; font-weight: 650; }
+.factorActionContext dd { margin: 4px 0 0; }
+@media screen and (max-width: 760px) {
+  .factorActionGrid { grid-template-columns: minmax(0, 1fr); padding: 0 20px 16px; }
+  .factorActionCard { padding: 20px 0; }
+}
+@media print {
+  .factorActionGrid { display: block; padding: 0; }
+  .factorActionCard { break-inside: avoid; padding: 5mm 0; }
+  .factorActionContext { font-size: 10pt; }
+  .factorActionContext summary { display: none; }
+  .factorActionContext::details-content { display: block; content-visibility: visible; }
+}

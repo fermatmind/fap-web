@@ -46,6 +46,7 @@ type MbtiCloneNarrativeSectionProps = {
   traits: TraitSlot[];
   traitsUnlock?: TraitUnlockBlock | null;
   isUnlocked: boolean;
+  snapshotMode?: boolean;
   unlockHref: string;
   unlockPayLabel: string;
   unlockInviteLabel?: string;
@@ -73,6 +74,7 @@ export function MbtiCloneNarrativeSection({
   traits,
   traitsUnlock = null,
   isUnlocked,
+  snapshotMode = false,
   unlockHref,
   unlockPayLabel,
   unlockInviteLabel,
@@ -115,6 +117,7 @@ export function MbtiCloneNarrativeSection({
         traits={traits}
         traitsUnlock={traitsUnlock}
         isUnlocked={isUnlocked}
+        snapshotMode={snapshotMode}
         unlockHref={unlockHref}
         unlockPayLabel={unlockPayLabel}
         unlockInviteLabel={unlockInviteLabel}
