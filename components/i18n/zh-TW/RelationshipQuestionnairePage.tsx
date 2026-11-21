@@ -1,3 +1,5 @@
+import { PublicGuideShare } from "@/components/questionnaires/PublicGuideShare";
+import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -11,7 +13,7 @@ import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/Tradit
 import { relationshipQuestionnaireRoute } from "@/lib/i18n/relationshipQuestionnairePaths";
 import { loadTraditionalRelationshipQuestionnaire } from "@/lib/i18n/zh-TW/relationshipQuestionnaire";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
-import { SITE_URL } from "@/lib/site";
+import { CANONICAL_SITE_URL, SITE_URL } from "@/lib/site";
 
 const loadPage = cache(async (path: string) => {
   const suffix = path.slice("/zh-TW".length);
@@ -29,10 +31,12 @@ export async function relationshipQuestionnaireMetadata(path: string): Promise<M
   if (route.take) return questionnaireTakeMetadata(quiz.title.zh, `${SITE_URL}${entry}`);
   const title = profile?.seo?.title.zh ?? profile?.title.zh ?? quiz.seoTitle.zh;
   const description = profile?.seo?.description.zh ?? profile?.summary.zh ?? quiz.description.zh;
+  const image = `/og/fun/${quiz.slug}?locale=zh-TW${profile ? `&portrait=${profile.id}` : ""}&v=${quiz.version}`;
   return {
     title, description, alternates: { canonical: `${SITE_URL}${path}` },
     robots: { index: false, follow: true },
-    openGraph: { title, description, locale: "zh_TW", type: "website", url: `${SITE_URL}${path}` },
+    openGraph: { title, description, locale: "zh_TW", type: "website", url: `${SITE_URL}${path}`, images: [image] },
+    twitter: { card: "summary_large_image", title, description, images: [image] },
   };
 }
 
@@ -54,6 +58,7 @@ export async function RelationshipQuestionnairePage({ path }: { path: string }) 
   if (profile) return <Container as="main" className="space-y-6 py-10">
     {languages}
     <h1 className="text-3xl font-bold sm:text-4xl">{profile.title.zh}</h1>
+    {isModeABatchThree(quiz.slug) && <PublicGuideShare url={CANONICAL_SITE_URL + questionnaireGuidePath("zh-TW", quiz.slug, profile.id)} locale="zh-TW" />}
     <p>公開閱讀指南，個人作答與分數只會顯示在本次測驗結果。</p>
     <QuestionnaireResultReading quizSlug={quiz.slug} profile={profile} locale="zh" traditional headingLevel={2} />
     <div className="flex flex-wrap gap-5">

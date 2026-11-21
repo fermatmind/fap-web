@@ -88,8 +88,10 @@ describe("complete original mini-program relationship values at the existing can
     const envelope=toSeoAttributionIngestEnvelope({eventName:event,anonymousId:"",path:`/${locale}/tests/play/relationship-values`,timestamp:"2026-10-27T00:00:00Z",payload:filterTrackingPayload(event,payload)});expect(envelope.payload).toMatchObject({scale_code:"ENTERTAINMENT",form_code:"fun_relationship-values_v1"});
     expect(JSON.stringify(payload)).not.toMatch(/answers|counts|q1|o1|raw|profileId|submission/i);
    }
-   const onward=await screen.findByRole("link",{name:zh?"了解MBTI与题本选择":"Explore MBTI and its versions"});onward.addEventListener("click",e=>e.preventDefault());fireEvent.click(onward);
-   const calls=tracking.trackEvent.mock.calls.filter(([event])=>event==="article_to_test_click");expect(calls).toHaveLength(1);expect(calls[0][1]).toMatchObject({source_path:`/${locale}/tests/play/relationship-values`,cta_id:"entertainment_result_mbti",scale_code:"MBTI"});
+   const onward=await screen.findByRole("link",{name:zh?"做 MBTI 测评":"Take the MBTI assessment"});
+   expect(onward).toHaveAttribute("href",`/${locale}/tests/mbti-personality-test-16-personality-types`);
+   onward.addEventListener("click",event=>event.preventDefault());fireEvent.click(onward);
+   expect(tracking.trackEvent.mock.calls.filter(([event])=>event==="article_to_test_click")).toHaveLength(0);
   } finally { if(prior)Object.defineProperty(HTMLElement.prototype,"scrollIntoView",prior);else Reflect.deleteProperty(HTMLElement.prototype,"scrollIntoView"); }
  });
  it("uses actual play wrappers for both entries and all30fullguides, keeps four old URLs and avoids duplicate directory/sitemap identities",async()=>{

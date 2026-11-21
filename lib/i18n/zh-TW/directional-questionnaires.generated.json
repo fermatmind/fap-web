@@ -23,7 +23,7 @@
     "lib/questionnaires/data/relationship-values.json": "aa15dbb9065afaecedc8403c09dbba54f9b301c4c66ec9a07d37ee45cc74b378",
     "lib/questionnaires/result-content/relationship-values.json": "9f38c62af90973adf1dd0fa1d96971c947febd3aac7feaa89e6126f23ef4a512",
     "components/questionnaires/RelationshipValuesLandingEditorial.ts": "40b5c72fe42ece9c02c08c51c386660d9fdd0eae9629e2b7bddd7eae91932cc8",
-    "lib/questionnaires/data/response-color.json": "6d0cf95900041d087d4498ceda29009200770e10d87e4e8af3d2491ed397c6db",
+    "lib/questionnaires/data/response-color.json": "694bd49d9fa1a105943fa969962272fbeabdaef8df72e72f62bb428ae3b1de01",
     "lib/questionnaires/result-content/response-color.json": "78beea284a283b13c47c6293c32b8467acfe22768a6f93d82c5596fe97643ee5",
     "components/questionnaires/ResponseColorLandingEditorial.ts": "48b577e1abe9276a05fae5ff95a7c63f5867a405ae9500617c17f933b8bc015e"
   },

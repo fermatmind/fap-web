@@ -1,4 +1,5 @@
 "use client";
+import { RelationshipAssessmentNextStep } from "./RelationshipAssessmentNextStep";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
 
@@ -59,6 +60,7 @@ export function ConnectionIdealsClient({ quiz, locale }: { quiz: Questionnaire; 
         <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${displayLocale}/tests#more-tests`}>{zh ? copy("返回全部测试") : "Back to all tests"}</Link>
       </section>
     </>}
+    {stage === "result" && result.status === "complete" && <RelationshipAssessmentNextStep slug="connection-ideals" locale={locale} displayLocale={displayLocale} />}
     <p data-ci-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? copy("仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新或换语言会丢失本次作答，退出并清除会移除进度。") : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; no quiz-flow statistics are sent. Refreshing or changing language loses the attempt; exit and clear removes it from the form."}</p>
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;
