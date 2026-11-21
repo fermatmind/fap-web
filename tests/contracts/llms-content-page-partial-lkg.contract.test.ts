@@ -232,7 +232,8 @@ describe("llms content-page partial collection LKG", () => {
     vi.doMock("@/lib/cms/topics", () => ({
       listDiscoverableTopicsWithLastKnownGood: vi.fn(async () => ({ value: { items: [] } })),
     }));
-    vi.doMock("@/lib/seo/discoverabilityExposurePolicy", () => ({
+    vi.doMock("@/lib/seo/discoverabilityExposurePolicy", async (importOriginal) => ({
+      ...await importOriginal<typeof import("@/lib/seo/discoverabilityExposurePolicy")>(),
       isSharedDiscoverabilityDeniedPath: vi.fn(() => false),
     }));
     vi.doMock("@/lib/seo/indexingPolicy", () => ({
