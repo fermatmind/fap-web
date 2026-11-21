@@ -48,6 +48,10 @@ describe.each(["zh", "zh-TW", "en"] as const)("%s shared production result", (la
       render(<RichResultReport locale={language === "en" ? "en" : "zh"} displayLocale={language} reportData={data} accessProjection={access()} />);
       await waitFor(() => expect(screen.getByTestId("mbti-evidence-and-prompts")).toBeInTheDocument());
       await waitFor(() => expect(screen.getByTestId("mbti-result-intro")).toHaveAttribute("data-intro-state", "ready"));
+      const intro = screen.getByTestId("mbti-result-intro");
+      expect([...intro.children].map((child) => child.tagName)).toEqual(["P", "DIV", "P"]);
+      expect(intro.children[1]).toHaveAttribute("data-testid", "mbti-asset-slot-traits");
+      expect(within(screen.getByTestId("mbti-chapter-traits")).queryByTestId("mbti-asset-slot-traits")).not.toBeInTheDocument();
       expect(screen.queryByTestId("mbti-desktop-clone-snapshot-error")).not.toBeInTheDocument();
       expect(screen.queryByTestId("mbti-offer-full")).not.toBeInTheDocument();
       expect(screen.queryByTestId("result-export-panel")).not.toBeInTheDocument();

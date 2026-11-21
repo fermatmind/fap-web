@@ -24,7 +24,7 @@ export function getMbtiResultContent(fullCode: string, language: DisplayLocale) 
     },
     assetSlots: [
       ["hero-illustration", `/images/mbti/result-portraits/${base}.webp`, "3 / 4"],
-      ...["traits", "career", "growth", "relationships"].map((key) => [`${key}-illustration`, `/images/mbti/result-chapters/${base}/${key}.webp`, "3 / 2"]),
+      ...["traits", "career", "growth", "relationships"].map((key) => [`${key}-illustration`, `/images/mbti/result-chapters/${base}/${key}.webp`, base === "estp" && key === "traits" ? "9 / 5" : "3 / 2"]),
     ].map(([slotId, url, aspectRatio]): PersonalityDesktopCloneAssetSlot => ({
       slotId: slotId as MbtiDesktopCloneAssetSlotId, label: "", aspectRatio, status: "ready", alt: "", meta: { decorative: true },
       assetRef: { provider: "internal", path: url, url, version: null, checksum: null },

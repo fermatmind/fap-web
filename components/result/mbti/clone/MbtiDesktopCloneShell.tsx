@@ -1,13 +1,12 @@
 "use client";
 import type { MbtiApplicationContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
-import Image from "next/image";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 
 import { MbtiPricingNotice } from "@/components/commerce/MbtiPricing";
 
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
-import { getCloneAssetSlot, resolveAssetSlotUrl } from "@/components/result/mbti/clone/mbtiDesktopClone.assets";
+import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { renderMbtiProjectionSection } from "@/components/result/mbti/MbtiChapterSection";
@@ -1066,22 +1065,16 @@ export function MbtiDesktopCloneShell({
   );
   const chapterIllustrationType = /^([EI][SN][TF][JP])(?:-[AT])?$/.exec(fullCodeForStorage)?.[1].toLowerCase();
   const chapterIllustration = (chapter: "traits" | "career" | "growth" | "relationships") => {
-    if (snapshotMode || !chapterIllustrationType
-      || resolveAssetSlotUrl(getCloneAssetSlot(storageAssetSlots, `${chapter}-illustration`))) {
-      return undefined;
-    }
-
-    return (
-      <Image
-        src={`/images/mbti/result-chapters/${chapterIllustrationType}/${chapter}.webp`}
-        alt=""
-        width={chapterIllustrationType === "estp" ? 1440 : 768}
-        height={chapterIllustrationType === "estp" ? (chapter === "traits" ? 800 : 960) : 512}
-        unoptimized
-        className={styles.chapterPreview}
-        data-print-decorative="true"
-      />
-    );
+    if (!chapterIllustrationType) return undefined;
+    const slotId = `${chapter}-illustration` as const;
+    const assetSlots = storageAssetSlots?.some((slot) => slot.slotId === slotId) ? storageAssetSlots : [{
+      slotId, label: "", aspectRatio: chapterIllustrationType === "estp" && chapter === "traits" ? "9 / 5" : "3 / 2",
+      status: "ready" as const, alt: "", meta: { decorative: true },
+      assetRef: { provider: "internal", path: null, url: `/images/mbti/result-chapters/${chapterIllustrationType}/${chapter}.webp`, version: null, checksum: null },
+    }];
+    return <MbtiCloneAssetSlot slotId={slotId} assetSlots={assetSlots} fallbackLabel=""
+      className={styles.illustrationSlot} labelClassName={styles.slotLabel}
+      testId={`mbti-asset-slot-${chapter}`} printDecorative />;
   };
 
   const deepNarrativeSectionsNode = (
@@ -1291,6 +1284,7 @@ export function MbtiDesktopCloneShell({
               {introduction.content ? (
                 <>
                   <p>{copy(introduction.content.paragraphs[0])}</p>
+                  {chapterIllustration("traits")}
                   <p>{copy(introduction.content.paragraphs[1])}</p>
                 </>
               ) : (
@@ -1318,7 +1312,7 @@ export function MbtiDesktopCloneShell({
               snapshotMode={snapshotMode}
               title={copy(slots.traits.title)}
               illustrationSlotId={slots.traits.asset.slotId}
-              chapterPreview={chapterIllustration("traits")}
+              illustrationHidden
               illustrationLabel={slots.traits.asset.label}
               assetSlots={storageAssetSlots}
               dimensions={traitDimensions}

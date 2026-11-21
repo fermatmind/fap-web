@@ -518,6 +518,22 @@
   opacity: 0.22;
 }
 
+@media screen {
+  /* Loaded chapter art follows its scene canvas instead of the placeholder strip. */
+  .illustrationSlot.assetSlotReady {
+    aspect-ratio: var(--mbti-scene-aspect, 3 / 2);
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .illustrationSlot.assetSlotReady::before,
+  .illustrationSlot.assetSlotReady::after {
+    display: none;
+  }
+}
+
 .assetSlotReady .slotLabel {
   z-index: 2;
   border-radius: 999px;

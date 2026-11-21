@@ -48,6 +48,7 @@ type MbtiCloneTraitsSectionProps = {
   illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
   chapterPreview?: ReactNode;
+  illustrationHidden?: boolean;
   assetSlots?: PersonalityDesktopCloneAssetSlot[] | null;
   dimensions: Array<Record<string, unknown>>;
   summaryTitleFallback: string;
@@ -133,6 +134,7 @@ export function MbtiCloneTraitsSection({
   illustrationSlotId,
   illustrationLabel,
   chapterPreview,
+  illustrationHidden = false,
   assetSlots,
   dimensions,
   summaryTitleFallback,
@@ -261,7 +263,7 @@ export function MbtiCloneTraitsSection({
       data-pdf-section="personality-traits"
       className={styles.section}
     >
-      {chapterPreview ? null : (
+      {illustrationHidden || chapterPreview ? null : (
         <MbtiCloneAssetSlot
           slotId={illustrationSlotId}
           assetSlots={assetSlots}
@@ -404,7 +406,7 @@ export function MbtiCloneTraitsSection({
           </div>
         ) : null}
       </div>
-      {chapterPreview}
+      {illustrationHidden ? null : chapterPreview}
       <div
         className={styles.sectionParagraphs}
         data-testid="mbti-traits-body"
