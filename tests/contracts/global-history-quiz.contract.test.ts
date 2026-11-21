@@ -52,7 +52,7 @@ describe("World Edition history quiz", () => {
     expect(closestHistoryPerson(people[999].vector, people)?.id).toBe(people[999].id);
   });
 
-  it("paginates the full roster and exposes only the two landing pages to indexing", () => {
+  it("paginates the full roster while keeping the archived World Edition out of the sitemap", () => {
     const end = getHistoryGalleryPage("9999");
     expect(getHistoryGalleryPage(["2", "3"]).page).toBe(1);
     expect(Array.from({ length: end.total }, (_, index) => getHistoryGalleryPage(String(index + 1)).people).flat()).toEqual(historyPeople);
@@ -63,7 +63,7 @@ describe("World Edition history quiz", () => {
       expect(isMissingFunRoute(globalHistoryResultPath(locale, "mansa-musa"))).toBe(false);
       expect(isMissingFunRoute(globalHistoryResultPath(locale, "jorge-luis-borges"))).toBe(true);
     }
-    expect(paths).toEqual([globalHistoryPath("en"), globalHistoryPath("zh")]);
+    expect(paths).toEqual([]);
   });
 
   it("projects the complete Taiwan roster without altering IDs, matching or original languages", () => {

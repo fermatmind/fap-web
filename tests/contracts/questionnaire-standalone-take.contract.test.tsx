@@ -14,6 +14,7 @@ import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireCl
 import { hasQuestionnaireTake, INLINE_QUESTIONNAIRE_TOOLS } from "@/lib/questionnaires/take";
 import { parseQuestionnaireTakePath } from "@/lib/questionnaires/takePath";
 import { questionnaireTakeMetadata } from "@/components/questionnaires/QuestionnaireTakeDocument";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { isIndexablePath } from "@/lib/seo/indexingPolicy";
 import { ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS, isAnalyticsDisabledQuestionnaireUrl } from "@/lib/tracking/privacy";
 
@@ -57,7 +58,7 @@ describe("Independent entertainment answering routes", () => {
     const route = parseQuestionnaireTakePath(path)!;
     expect(route.landing).toBe(path.replace(/\/take$/, ""));
     expect(isIndexablePath(path)).toBe(false);
-    expect(isIndexablePath(route.landing)).toBe(true);
+    expect(isIndexablePath(route.landing)).toBe(!isArchivedEntertainmentPath(route.landing));
     const metadata = questionnaireTakeMetadata("Test", route.landing);
     expect(metadata.robots).toEqual({ index: false, follow: false, nocache: true });
     expect(metadata.alternates?.canonical).toBe(route.landing);
