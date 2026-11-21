@@ -73,7 +73,8 @@ describe("local DISC full-result design candidates", () => {
     expect(findDiscPreviewProfile("__proto__")).toBeUndefined();
     expect(findDiscPreviewProfile(["single-i"])).toBeUndefined();
     const profile = findDiscPreviewProfile("single-d")!;
-    for (const scores of [{}, { ...profile.scores, DOMINANCE: 13 }, { ...profile.scores, DOMINANCE: 7 }, { DOMINANCE: 8, INFLUENCE: 8, STEADINESS: 4, CONSCIENTIOUSNESS: 4 }]) {
+    const invalidScores: Record<string, number>[] = [{}, { ...profile.scores, DOMINANCE: 13 }, { ...profile.scores, DOMINANCE: 7 }, { DOMINANCE: 8, INFLUENCE: 8, STEADINESS: 4, CONSCIENTIOUSNESS: 4 }];
+    for (const scores of invalidScores) {
       const html = renderToStaticMarkup(<DiscResultDesignPreview profileId="single-d" counts={scores} />);
       expect(html).toContain("当前示例数据无法展示");
       expect(html).not.toContain("你的行为画像");
