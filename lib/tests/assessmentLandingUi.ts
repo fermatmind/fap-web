@@ -17,7 +17,7 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
     title: "Free MBTI Personality Test with Results",
     description: "Take a free MBTI-style test: 93 questions (~10 min) or 144 (~15 min). Get your free 16-type result and four preference scores. See a scored example before you start.",
   },
-  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free 90-item Big Five test, about 11 minutes. Explore the five OCEAN traits and how to read your results." },
+  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free 90-item Big Five test, about 11 minutes. Explore five OCEAN traits and how 30 facets contribute to your results." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Take the free 105-item Enneagram self-report in about 12 minutes. Compare the nine-type profile and leading candidates with your own experiences." },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "30 original visual matrix questions (~20 min). Free basic results; optional paid full report. Practice only; no substitute for professional IQ assessment." },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free Emotional Intelligence Test (EQ) & Results", description: "Take a free 60-question EQ self-report in about 10 minutes. Explore emotional awareness, regulation, empathy and relationships, with results and practical next steps." },
@@ -58,7 +58,7 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en" | "zh
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
     zh: "从开放性、尽责性、外向性、宜人性与情绪性五个连续维度读懂自己的作答。90 题约 11 分钟，可免费完成并查看结果。",
-    en: "Explore five continuous traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 90-item test takes about 11 minutes. You can take the test and view the results for free.",
+    en: "Explore five continuous personality traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 90-item test takes about 11 minutes. You can take the test and view the results for free.",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     zh: "了解你的 16 型人格结果与四组偏好。时间有限，可以先做 93 题版。想比较自己在更多情境下的选择，可以做 144 题版。两版均可免费完成并查看基础结果，供自我了解与沟通参考。",
