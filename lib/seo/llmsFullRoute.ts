@@ -71,7 +71,7 @@ import {
   ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
 } from "@/lib/personality/enneagramPublicRoutes";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import type { Locale } from "@/lib/i18n/locales";
+import type { DisplayLocale, Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
@@ -295,8 +295,8 @@ type LlmsFaqItem = {
   answer: string;
 };
 
-type LlmsFullEntry = {
-  locale: LlmsLocale;
+type LlmsFullEntry<L extends DisplayLocale = LlmsLocale> = {
+  locale: L;
   path: string;
   title: string;
   type: string;
@@ -423,8 +423,8 @@ function buildBigFivePublicAssetEntry(path: string): LlmsFullEntry | null {
   };
 }
 
-function displayLocale(locale: LlmsLocale): string {
-  return locale === "zh" ? "zh-CN" : "en";
+function displayLocale(locale: DisplayLocale): string {
+  return locale === "zh" ? "zh-CN" : locale;
 }
 
 function firstSummaryFromAnswerSurface(surface: AnswerSurfaceViewModel | null | undefined): string {
@@ -560,7 +560,7 @@ function sanitizeNextStep(
 }
 
 function formatEntry(
-  entry: LlmsFullEntry,
+  entry: LlmsFullEntry<DisplayLocale>,
   siteUrl: string,
   allowedCitationPaths: ReadonlySet<string>
 ): string[] {
@@ -632,7 +632,7 @@ function canonicalEntrypointEntries(siteUrl: string): LlmsFullEntry[] {
 }
 
 function renderFeaturedCareerEntries(
-  entries: readonly LlmsFullEntry[],
+  entries: readonly LlmsFullEntry<DisplayLocale>[],
   siteUrl: string,
   allowedCitationPaths: ReadonlySet<string>,
 ) {
@@ -648,7 +648,7 @@ function renderFeaturedCareerEntries(
     });
     return body.length ? [`## ${group.title}`, ...body, ""] : [];
   });
-  return { lines, isInMainDirectory: (entry: LlmsFullEntry) => !emitted.has(entry.path) };
+  return { lines, isInMainDirectory: (entry: LlmsFullEntry<DisplayLocale>) => !emitted.has(entry.path) };
 }
 
 function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode, source: LlmsFullResponseSource): NextResponse {

@@ -60,7 +60,8 @@ describe("387 distinct products with separate test and story directories", () =>
     expect(dom.querySelectorAll("[data-story-slug]")).toHaveLength(101);
     const allIds = [...dom.querySelectorAll("[id]")].map(n => n.id); expect(new Set(allIds).size).toBe(allIds.length);
     const schema = JSON.parse(dom.querySelector('script[type="application/ld+json"]')!.textContent!);
-    expect(schema["@type"]).toBe("ItemList"); expect(schema.numberOfItems).toBe(101);
+    expect(schema["@type"]).toBe("ItemList");
+    expect(schema.numberOfItems).toBe(storyQuizzes.filter(q => !isArchivedEntertainmentPath(`/${locale}/tests/play/${q.slug}`)).length);
     const sitemap = appendFunSitemapEntries([]);
     for (const q of storyQuizzes) {
       const path = `/${locale}/tests/play/${q.slug}`;
@@ -70,8 +71,10 @@ describe("387 distinct products with separate test and story directories", () =>
       expect(card.textContent).toContain(q.title[locale]);
       expect(card.querySelector('.catalog-item-body > p')?.textContent).toBe(directoryDescription(q)[locale]);
       expect(card.querySelector('[data-directory-cover] > img')?.getAttribute('src')).toBe(`/images/test-covers/${q.slug}.webp`);
-      expect(schema.itemListElement.find((item: {url:string}) => item.url === canonicalUrl(path))?.description).toBe(directoryDescription(q)[locale]);
-      expect(sitemap.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(true);
+      const eligible = !isArchivedEntertainmentPath(path);
+      expect(schema.itemListElement.find((item: {url:string}) => item.url === canonicalUrl(path))?.description)
+        .toBe(eligible ? directoryDescription(q)[locale] : undefined);
+      expect(sitemap.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(eligible);
     }
     expect(dom.textContent).toContain(locale === 'zh' ? '合计 387个产品' : '387 products in total');
     expect(dom.querySelector('h1')).toBeNull();

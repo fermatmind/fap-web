@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { CmsArticleLlmsEntry } from "@/lib/cms/articles";
 import catalog from "@/lib/questionnaires/catalog.json";
+import { gta6IndexablePaths } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
 import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -431,7 +432,7 @@ describe("llms parity governance", () => {
     expect(text).not.toContain("/articles/held");
   });
 
-  it("includes eligible code-owned tests and guides without loading question banks or replacing backend authority", async () => {
+  it("includes eligible code-owned tests and guides alongside backend authority", async () => {
     mockLlmsDependencies();
     const [{ GET }, { buildLlmsFullText, buildDegradedLlmsFullText }] = await Promise.all([
       import("@/app/llms.txt/route"),
@@ -439,8 +440,11 @@ describe("llms parity governance", () => {
     ]);
     const entries = listNativeTestLlmsEntries();
     const paths = entries.map((entry) => entry.path);
-    expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0));
-    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length);
+    const gta6Paths = ["en", "zh", "zh-TW"].flatMap((locale) => gta6IndexablePaths.map((path) => `/${locale}${path}`));
+    expect(gta6Paths).toHaveLength(27);
+    expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0) + gta6Paths.length);
+    expect(paths.filter((path) => path.includes("/gta-6-character-quiz"))).toEqual(gta6Paths);
+    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length + 3);
     expect(entries.every((entry) => !/\?|#|\/(?:take|result|share|api|pay|payment)(?:\/|$)/.test(entry.path))).toBe(true);
     expect(entries.every((entry) => Object.keys(entry).sort().join(",") === "locale,path,summary,title,type,updatedAt")).toBe(true);
     const [short, full, degraded] = await Promise.all([

@@ -2,6 +2,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { taiwanDirectoryEntry } from "@/lib/i18n/zh-TW/testsDirectory";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { directoryDescription, storyQuizzes } from "@/lib/entertainment/directory";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { buildItemListJsonLd } from "@/lib/seo/generateSchema";
 import { MORE_TEST_PRODUCT_COUNT, FUN_CATEGORIES } from "./MoreTests";
 import { StoryDirectory } from "./StoryDirectory";
@@ -25,7 +26,7 @@ export function InteractiveStoryLibrary({ locale }: { locale: DisplayLocale }) {
       path: `/${locale}/tests`, idSuffix: "interactive-story-itemlist", locale,
       title: locale === "zh" ? "原创互动故事与趣味探索" : "Original interactive stories and playful exploration",
       description: locale === "zh" ? "原创想象情境与选择故事，独立于测试与工具目录。" : "Original imagined scenes and choice-based stories, separate from tests and tools.",
-      items: items.map((item) => ({ name: item.title, description: item.description, path: item.href })),
+      items: items.filter((item) => !isArchivedEntertainmentPath(item.href)).map((item) => ({ name: item.title, description: item.description, path: item.href })),
     })} />}
     <StoryDirectory items={items} categories={FUN_CATEGORIES} locale={locale} testToolCount={MORE_TEST_PRODUCT_COUNT} />
   </>;

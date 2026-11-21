@@ -1,3 +1,4 @@
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -59,10 +60,12 @@ describe("complete public entertainment result assets", () => {
           const path = (language: string) => `https://fermatmind.com/${language}/tests/play/${quiz.slug}/results/${id}`;
           const metadata = await generateMetadata({ params: Promise.resolve({ locale, slug: quiz.slug, portrait: id }) });
           expect(metadata.alternates?.canonical).toBe(path(locale));
-          expect(metadata.alternates?.languages).toMatchObject({ en: path("en"), "zh-CN": path("zh"), "x-default": path("en") });
+          const index = !isArchivedEntertainmentPath(new URL(String(metadata.alternates?.canonical)).pathname);
+          if (index) expect(metadata.alternates?.languages).toMatchObject({ en: path("en"), "zh-CN": path("zh"), "x-default": path("en") });
+          else expect(metadata.alternates?.languages).toBeUndefined();
           expect(metadata.title).toBe(`${portrait.title[locale]} · ${quiz.seo.topic[locale]}`);
           expect(metadata.openGraph?.images).toEqual([`https://fermatmind.com/og/fun/${quiz.slug}?locale=${locale}&portrait=${id}&v=${quiz.version}`]);
-          expect(metadata.robots).toMatchObject({ index: true, follow: true });
+          expect(metadata.robots).toMatchObject({ index, follow: true });
         }
       }
     } finally { vi.unstubAllEnvs(); }
@@ -83,8 +86,10 @@ describe("complete public entertainment result assets", () => {
           const canonical = `https://fermatmind.com${resultPath(locale, quiz.slug, result.id)}`;
           expect(seen.has(canonical)).toBe(false); seen.add(canonical);
           expect(metadata.alternates?.canonical).toBe(canonical);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${resultPath("en", quiz.slug, result.id)}`, "zh-CN": `https://fermatmind.com${resultPath("zh", quiz.slug, result.id)}`, "x-default": `https://fermatmind.com${resultPath("en", quiz.slug, result.id)}` });
-          expect(metadata.robots).toMatchObject({ index: true, follow: true });
+          const index = !isArchivedEntertainmentPath(new URL(String(metadata.alternates?.canonical)).pathname);
+          if (index) expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${resultPath("en", quiz.slug, result.id)}`, "zh-CN": `https://fermatmind.com${resultPath("zh", quiz.slug, result.id)}`, "x-default": `https://fermatmind.com${resultPath("en", quiz.slug, result.id)}` });
+          else expect(metadata.alternates?.languages).toBeUndefined();
+          expect(metadata.robots).toMatchObject({ index, follow: true });
           expect(metadata.description).toBeTruthy();
           expect(metadata.openGraph?.images).toEqual([`https://fermatmind.com${contentImagePath(quiz, locale, result.id)}`]);
           expect(dom.querySelectorAll("main")).toHaveLength(1);

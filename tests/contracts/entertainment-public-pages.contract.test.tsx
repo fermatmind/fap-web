@@ -1,3 +1,4 @@
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
 import { introvertExtrovertCurrentEntryCopy } from "@/components/questionnaires/IntrovertExtrovertLandingEditorial";
 import { loveLanguagesCurrentEntryCopy } from "@/components/questionnaires/LoveLanguagesLandingEditorial";
@@ -35,6 +36,7 @@ describe("complete bilingual entertainment entry rendering", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     try {
       for (const quiz of catalog) for (const locale of ["en", "zh"] as const) {
+        const index = !isArchivedEntertainmentPath(`/${locale}/tests/play/${quiz.slug}`);
         const props = { params: Promise.resolve({ slug: quiz.slug, locale }) };
         const metadata = await generateMetadata(props);
         const html = renderToStaticMarkup(await FunQuizPage(props));
@@ -47,8 +49,9 @@ describe("complete bilingual entertainment entry rendering", () => {
           expect(metadata.description).toBe(authored.description[locale]);
           expect(metadata.openGraph?.images).toEqual([`https://fermatmind.com/og/fun/${quiz.slug}?locale=${locale}&v=${authored.version}`]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/${quiz.slug}`);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
-          expect(metadata.robots).toMatchObject({ index: true, follow: true });
+          if (index) expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
+          else expect(metadata.alternates?.languages).toBeUndefined();
+          expect(metadata.robots).toMatchObject({ index, follow: true });
           for (const faq of authored.faq) {
             expect(dom.textContent).toContain(quiz.slug === "music-taste-test" ? musicCurrentEntryCopy(faq.question[locale], locale) : quiz.slug === "people-pleaser" ? peoplePleaserCurrentEntryCopy(faq.question[locale], locale) : quiz.slug === "difficult-person-test" ? frictionCurrentEntryCopy(faq.question[locale], locale) : faq.question[locale]);
             const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale)
@@ -108,8 +111,9 @@ describe("complete bilingual entertainment entry rendering", () => {
         expect(dom.querySelectorAll('#play input:not([type="hidden"])')).toHaveLength(0);expect(dom.querySelector("#play form")?.getAttribute("action")).toBe(`/${locale}/tests/play/${quiz.slug}/take`);expect([...dom.querySelectorAll<HTMLInputElement>('#play input[type="hidden"]')].map(input => [input.name, input.value])).toEqual([["start", "1"]]);
         expect(dom.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(2);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/${quiz.slug}`);
-        expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
-        expect(metadata.robots).toMatchObject({ index: true, follow: true });
+        if (index) expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
+        else expect(metadata.alternates?.languages).toBeUndefined();
+        expect(metadata.robots).toMatchObject({ index, follow: true });
       }
     } finally { vi.unstubAllEnvs(); }
   });
