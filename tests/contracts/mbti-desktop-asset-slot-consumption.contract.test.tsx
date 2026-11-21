@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
 import {
@@ -350,6 +351,16 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop asset slot consumption contract", () => {
+  it.each(["ISFJ-A", "ISFJ-T"])("uses a complete scene instead of the portrait for %s", (code) => {
+    render(<MbtiCloneHero
+      profileIdentity={{ code, name: "守护者型", nickname: "", rarity: "", keywords: [] }}
+      illustrationSlotId="hero-illustration" illustrationLabel="人格类型插图"
+    />);
+    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("src", "/images/mbti/result-scenes/isfj.webp");
+    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("alt", "");
+    expect(screen.queryByTestId("mbti-hero-portrait")).not.toBeInTheDocument();
+  });
+
   it.each([
     ["ESTP-A", "estp"],
     ["ESTP-T", "estp"],

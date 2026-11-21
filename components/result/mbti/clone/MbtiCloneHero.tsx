@@ -30,11 +30,12 @@ export function MbtiCloneHero({
 }: MbtiCloneHeroProps) {
   const { displayText: copy } = useQuestionnaireDisplayCopy();
   const baseCode = /^([IE][NS][TF][JP])(?:-[AT])?$/i.exec(profileIdentity.code)?.[1].toLowerCase();
+  const sceneSrc = baseCode === "isfj" ? "/images/mbti/result-scenes/isfj.webp" : undefined;
   const introduction = profileIdentity.introduction;
   const nameLine = locale === "zh" ? profileIdentity.name : formatNameLine(profileIdentity);
 
   return (
-    <section id={getMbtiDesktopAnchorId("hero")} data-testid="mbti-hero" className={styles.hero}>
+    <section id={getMbtiDesktopAnchorId("hero")} data-testid="mbti-hero" className={`${styles.hero} ${sceneSrc ? styles.heroWithScene : ""}`}>
       <div className={styles.heroCopy}>
         <h1 className={styles.heroCodePrimary}>{profileIdentity.code}</h1>
         {nameLine ? (
@@ -61,7 +62,18 @@ export function MbtiCloneHero({
         ) : null}
       </div>
       <div className={styles.heroIllustrationWrap}>
-        {baseCode ? (
+        {sceneSrc ? (
+          <Image
+            src={sceneSrc}
+            alt=""
+            width={1536}
+            height={864}
+            unoptimized
+            loading="eager"
+            className={styles.heroScene}
+            data-testid="mbti-hero-scene"
+          />
+        ) : baseCode ? (
           <Image
             src={`/images/mbti/result-portraits/${baseCode}.webp`}
             alt=""
