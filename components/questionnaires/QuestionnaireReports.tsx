@@ -1,4 +1,5 @@
 "use client";
+import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { RelationshipAssessmentNextStep } from "./RelationshipAssessmentNextStep";
 
@@ -260,6 +261,7 @@ export function QuestionnaireNextSteps({ quiz, result, answers, locale }: Questi
   const secs = result.status === "complete" && "secsDomains" in result ? result : undefined;
   const practice = result.status === "complete" && "practice" in result ? result : undefined;
   const loveType16 = result.status === "complete" && "loveType16" in result ? result : undefined;
+  if (getArchiveExperience(quiz.slug)) return null;
   if (isModeABatchThree(quiz.slug)) return <>
     {loveType16 && <QuestionnaireLoveType16NextSteps locale={locale} />}
     {facets && quiz.kind === "parenting-practices" && <QuestionnaireParentingPracticesNextSteps result={facets} locale={locale} />}

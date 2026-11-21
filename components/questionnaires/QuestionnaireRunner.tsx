@@ -1,4 +1,5 @@
 "use client";
+import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
 import { hasTraditionalOfficeTool, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalDirectional } from "@/lib/i18n/traditionalDirectionalPaths";
 import { hasTraditionalArchetype } from "@/lib/i18n/traditionalArchetypePaths";
@@ -68,6 +69,8 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
   const traditionalArchetype = traditional && hasTraditionalArchetype(quiz.slug);
   const traditionalDirectional = traditional && hasTraditionalDirectional(quiz.slug);
   const displayLocale = traditionalDirectional || (traditional && (hasTraditionalRelationshipSix(quiz.slug) || hasTraditionalOfficeTool(quiz.slug) || hasTraditionalSelfEvaluation(quiz.slug) || hasTraditionalSensoryExecutive(quiz.slug) || hasTraditionalStressCoping(quiz.slug) || hasTraditionalValuesOrientations(quiz.slug) || hasTraditionalTraitsSocial(quiz.slug) || quiz.slug === "food-disgust")) ? "zh-TW" : locale;
+  const archiveLocale = traditionalArchetype ? "zh-TW" : displayLocale;
+  const archiveHint = getArchiveExperience(quiz.slug)?.startHint[archiveLocale];
   const traditionalEntryShare = traditional && ((!traditionalArchetype && !traditionalDirectional) || quiz.slug === "euphoria-character-quiz" || quiz.slug === "values-assessment");
   const standalone = useQuestionnaireTake();
   const readQuestionnaireDraft = useCallback((value: Questionnaire, raw: string | null) => readQuestionnaireDraftWithScorer(value, raw, scoreQuestionnaire), [scoreQuestionnaire]);
@@ -246,6 +249,7 @@ export function QuestionnaireRunner({ onComplete, scoreQuestionnaire, quiz, loca
       {standalone ? <div className={sessionStyles.progress}><div className={takeStyles.progressMeta}><p ref={questionContext}>{zh ? displayText(`第 ${position + 1} 题 / 共 ${quiz.questions.length} 题`) : `Question ${position + 1} of ${quiz.questions.length}`}</p><span className={takeStyles.percent}>{Math.round(answeredCount / quiz.questions.length * 100)}%</span></div><progress aria-label={zh ? displayText("已作答题数") : "Questions answered"} max={quiz.questions.length} value={answeredCount} className="w-full" /></div> : <>      <p ref={questionContext} className="mb-3 text-sm scroll-mt-24">{zh ? displayText(`第${position + 1}题，共${quiz.questions.length}题`) : `Question ${position + 1} of ${quiz.questions.length}`}</p>
       <progress aria-label={zh ? displayText("已作答题数") : "Questions answered"} max={quiz.questions.length} value={answeredCount} className="mb-5 w-full accent-violet-700" />
 </>}
+      {position === 0 && archiveHint && <p className="mb-4 leading-7" data-archive-answer-hint>{archiveHint}</p>}
       {quiz.kind === "tipi10" && <p className="mb-3 leading-7">{zh ? "总体上，我认为自己：请评价这对特质整体符合的程度，即使其中一项更符合。" : "I see myself as: rate the pair overall, even if one trait applies more strongly than the other."}</p>}
       <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-8 outline-none scroll-mt-24">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h2>
       {quiz.slug === "java-test" && <QuestionnaireJavaCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}

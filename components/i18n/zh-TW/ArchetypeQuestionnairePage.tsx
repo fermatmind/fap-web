@@ -1,3 +1,5 @@
+import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
+import { ArchiveReadingSnapshot } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { isModeABatchFour } from "@/lib/entertainment/modeABatchFour";
 import { isModeABatchThree } from "@/lib/entertainment/modeABatchThree";
 import { isModeABatchTwo } from "@/lib/entertainment/modeABatchTwo";
@@ -114,7 +116,8 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <p className="text-sm font-semibold">完整公開指南</p>
     <h1 className="text-3xl font-bold sm:text-4xl">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
-    {(["cyberpunk-edgerunners", "aura-color"].includes(slug) || isModeABatchTwo(slug) || isModeABatchThree(slug) || isModeABatchFour(slug)) && <PublicGuideShare url={publicGuideUrl(questionnaireGuidePath("zh-TW", slug, result.id))} locale="zh-TW" />}
+    <ArchiveReadingSnapshot slug={slug} id={result.id} locale="zh-TW" />
+    {(getArchiveExperience(slug) || ["cyberpunk-edgerunners", "aura-color"].includes(slug) || isModeABatchTwo(slug) || isModeABatchThree(slug) || isModeABatchFour(slug)) && <PublicGuideShare url={publicGuideUrl(questionnaireGuidePath("zh-TW", slug, result.id))} locale="zh-TW" />}
     {slug === "space-marine-chapter" && <SpaceMarineChapterGuideIntro profile={result} locale="zh" displayLocale="zh-TW" />}
     {phase && moonCopy && <section className="my-6 space-y-4" data-moon-phase-public-diagram>
       <Image unoptimized src={moonPhaseImage(result.id)} width={156} height={156} alt="" className="rounded-xl" />

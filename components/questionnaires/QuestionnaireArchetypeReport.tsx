@@ -1,3 +1,4 @@
+import { ArchiveQuestionnaireNextStep, ArchiveReadingSnapshot } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalPortraitCopy } from "@/lib/questionnaires/traditionalPortraitCopy";
 import { QuestionnaireArchetypeChoiceChart } from "./QuestionnaireArchetypeChoiceChart";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
@@ -102,6 +103,7 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
           <h3 id={titleId} className="scroll-mt-24 text-2xl font-semibold leading-snug">{profile.title[locale]}</h3>
           {quiz.slug !== "moon-phase" && <p className={styles.summary}>{profile.summary[locale]}</p>}
         </header>}
+        <ArchiveReadingSnapshot slug={quiz.slug} id={id} locale={displayLocale} />
         {placement === "between" && index === 0 && counts}
         {quiz.slug === "moon-phase" ? <details data-moon-phase-full-reading open={matched.length === 1}>
           <summary aria-label={copy(`${profile.title[locale]} · ${zh ? "展开这项完整解读" : "Read this match in full"}`)} className="min-h-11 cursor-pointer py-3 font-semibold">{zh ? copy("展开这项完整解读") : "Read this match in full"}</summary>
@@ -115,5 +117,6 @@ export function QuestionnaireArchetypeReport({ quiz, result, locale, answers }: 
       </section>;
     })}
     {(!placement || placement === "after") && quiz.slug !== "aura-color" && counts}
+    <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />
   </div>;
 }
