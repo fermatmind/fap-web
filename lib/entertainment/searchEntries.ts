@@ -1,6 +1,7 @@
 import catalog from "./catalog.json";
 import { globalHistoryStory } from "./directory";
 import questionnaires from "../questionnaires/catalog.json";
+import { gta6IndexablePaths } from "../questionnaires/gta6CharacterQuiz";
 import { PUBLIC_PATH, RESOURCE_PATHS } from "../friendship/core";
 
 export function entertainmentSearchEntries(): { path: string; lastmod: string }[] {
@@ -17,6 +18,9 @@ export function entertainmentSearchEntries(): { path: string; lastmod: string }[
     const lastmod = `${quiz.updated}T00:00:00.000Z`;
     entries.set(path, lastmod);
     for (const profile of quiz.resultSlugs) entries.set(`${path}/results/${profile}`, lastmod);
+  }
+  for (const [index, path] of gta6IndexablePaths.entries()) {
+    entries.set(path, index === 0 ? "2026-11-21T00:00:00.000Z" : "2026-11-20T00:00:00.000Z");
   }
   return Array.from(entries, ([path, lastmod]) => ({ path, lastmod }));
 }

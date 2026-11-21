@@ -17,7 +17,8 @@
 .examples > div { padding: 17px; border-inline-start: 3px solid #be4555; background: #fff; }
 .lenses { display: grid; gap: 8px; margin: 18px 0 0; padding-left: 20px; list-style: disc; }
 .guides { padding: 0; list-style: none; }
-.guides a { display: block; height: 100%; padding: 12px; border: 1px solid #d6dce0; border-radius: 4px; color: #18212d; text-decoration: none; background: white; }
+.guides a { display: flex; align-items: flex-start; gap: 12px; height: 100%; padding: 12px; border: 1px solid #d6dce0; border-radius: 4px; color: #18212d; text-decoration: none; background: white; }
+.guides img { flex: 0 0 auto; width: min(25%, 90px); height: auto; aspect-ratio: 1; object-fit: cover; object-position: center top; border-radius: 3px; }
 .guides a:hover { border-color: #9d3853; }
 .guides strong { color: #9c3247; font-size: .84rem; }
 .guides p { font-size: .9rem; }
@@ -40,9 +41,13 @@
 .toolGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 15px; }
 .toolGrid article { padding: 16px; border: 1px solid #d6dce0; background: #fff; }
 .topicLinks { display: flex; flex-wrap: wrap; gap: 8px 16px; }
-.exampleResult { margin: 0 0 14px; padding: 16px; background: #152232; color: #fff; }
+.exampleResult { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); margin: 0 0 14px; background: #152232; color: #fff; }
+.exampleResult img { width: 100%; height: 100%; max-height: 215px; object-fit: cover; object-position: 36% 28%; }
+.exampleResult figcaption { padding: 16px; }
 .exampleResult :is(p, h3) { color: #fff; }
 .exampleResult strong { color: #ffd3cc; }
 .pairs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .pairs > div { padding: 14px; border: 1px solid #d6dce0; background: #fff; }
-@media (max-width: 660px) { .toolGrid, .pairs { grid-template-columns: minmax(0, 1fr); } }
+.pairThumbs { display: flex; gap: 6px; margin-bottom: 9px; }
+.pairThumbs img { width: 44px; height: 44px; object-fit: cover; object-position: center top; border-radius: 50%; }
+@media (max-width: 660px) { .toolGrid, .pairs, .exampleResult { grid-template-columns: minmax(0, 1fr); } }

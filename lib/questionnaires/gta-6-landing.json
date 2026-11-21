@@ -1,15 +1,15 @@
 {
   "zh": {
-    "guide": [
-      "从一次海岸场地缩水后的现场踩点读 Lucia 的行动逻辑：区分“果断抢占先机”与“忽略队友同步”，对比 Brian 的幕后排局，并查看她与 Jason 搭档时的分工边界。",
-      "从承诺与退路看 Jason 的处事原则：区分“稳住全队防线”与“独自硬扛所有压力”，对比 Lucia 的前沿突破，以及他在高压现场对伙伴的支持方式。",
-      "沿一条真假难辨的“巡逻队清场”群聊传闻展开：看 Cal 如何在全员慌乱时追溯消息源头、过滤噪音，对比 Brian 的全局调度，以及什么时候该停止核查立刻拍板。",
-      "从排好主备方案和交接点理解 Brian 的后台调度，再和 Boobie 的对外谈判比较。提前排好分工后，他还需要让每个接手的人知道下一步。",
-      "从备用音响和最后一首安可看 Raul 如何争取短暂窗口，再和 Lucia 优先做成第一步的行动方式对照。",
-      "从临时租用隔壁场地与锁定设备底价读 Boobie 的资源手腕：如何把人情、预算与分成摆上桌面谈清，对比 Dre'Quan 对作品纯度的坚持，以及合作条款的留白空间。",
-      "在设备缩水与返听失真时看 Dre'Quan 的创作定力：宁可压缩规模也不牺牲声音质感，对比 Real Dimez 的台前流量引爆，以及演出倒计时前的打磨取舍。",
-      "从入口排队长龙与冷场危机看这对说唱双子星的台前能量：如何把焦躁的围观者转化为现场气氛引擎，并说明单人作答匹配到双人组合时的视角读法。"
-    ],
+    "guide": {
+      "lucia-caminos": "从一次海岸场地缩水后的现场踩点读 Lucia 的行动逻辑：区分“果断抢占先机”与“忽略队友同步”，对比 Brian 的幕后排局，并查看她与 Jason 搭档时的分工边界。",
+      "jason-duval": "从承诺与退路看 Jason 的处事原则：区分“稳住全队防线”与“独自硬扛所有压力”，对比 Lucia 的前沿突破，以及他在高压现场对伙伴的支持方式。",
+      "cal-hampton": "沿一条真假难辨的“巡逻队清场”群聊传闻展开：看 Cal 如何在全员慌乱时追溯消息源头、过滤噪音，对比 Brian 的全局调度，以及什么时候该停止核查立刻拍板。",
+      "brian-heder": "从排好主备方案和交接点理解 Brian 的后台调度，再和 Boobie 的对外谈判比较。提前排好分工后，他还需要让每个接手的人知道下一步。",
+      "raul-bautista": "从备用音响和最后一首安可看 Raul 如何争取短暂窗口，再和 Lucia 优先做成第一步的行动方式对照。",
+      "boobie-ike": "从临时租用隔壁场地与锁定设备底价读 Boobie 的资源手腕：如何把人情、预算与分成摆上桌面谈清，对比 Dre'Quan 对作品纯度的坚持，以及合作条款的留白空间。",
+      "drequan-priest": "在设备缩水与返听失真时看 Dre'Quan 的创作定力：宁可压缩规模也不牺牲声音质感，对比 Real Dimez 的台前流量引爆，以及演出倒计时前的打磨取舍。",
+      "real-dimez": "从入口排队长龙与冷场危机看这对说唱双子星的台前能量：如何把焦躁的围观者转化为现场气氛引擎，并说明单人作答匹配到双人组合时的视角读法。"
+    },
     "faq": [
       [
         "本版采用哪部作品、包含哪些可选人物？",
@@ -21,7 +21,7 @@
       ],
       [
         "这是 Rockstar 官方发布或经过心理测量验证的测试吗？",
-        "不是。这是费马测试（FermatMind）独立策划编写的非官方娱乐情景测验，没有 Rockstar Games 的官方合作、授权或背书，也不属于经过临床或心理测量学常模验证的人格量表。角色姓名与基础身份设定仅用于指称人物。"
+        "不是。这是费马测试（FermatMind）独立策划编写的非官方娱乐情景测验，与 Rockstar Games 无官方合作，也不代表其背书，也不属于经过临床或心理测量学常模验证的人格量表。角色姓名与基础身份设定仅用于指称人物。"
       ],
       [
         "没玩过 GTA 系列或还没通关 GTA 6，做这个测试会有剧透吗？",
@@ -58,16 +58,16 @@
     ]
   },
   "en": {
-    "guide": [
-      "Read Lucia's lens through an immediate lot walk-through after half the venue closes: separating sharp initiation from outrunning your crew, contrasting with Brian's backstage planning, and pairing with Jason.",
-      "Explore Jason's approach through keeping promises under pressure: distinguishing reliable support from silently carrying too much alone, contrasting with Lucia's front-line push.",
-      "Follow a false group-chat rumor about a coastal patrol sweep: see how Cal traces sources and catches hidden snags early, contrasting with Brian's structural delegation, and knowing when to stop verifying and act.",
-      "Understand Brian's behind-the-scenes control through backup lines and single points of contact: restoring order without stepping into the spotlight, contrasting with Boobie's external deal-making.",
-      "An unfamiliar sound setup or a short encore can open a window for Raul. Compare his willingness to try another option with Lucia’s focus on making the first workable move.",
-      "Examine Boobie's business instincts through negotiating overflow lot space and locking in vendor rates: putting people and terms on the table, contrasting with Dre'Quan's creative perfectionism.",
-      "Look at Dre'Quan's craft-first focus when backup gear threatens the set: refusing to compromise on sound quality, contrasting with Real Dimez's crowd hype, and managing final-minute tweaks.",
-      "Read how Bae-Luxe and Roxy use music and audience participation to turn a long line into part of the night, and what that style means when a solo player matches the duo."
-    ],
+    "guide": {
+      "lucia-caminos": "Read Lucia's lens through an immediate lot walk-through after half the venue closes: separating sharp initiation from outrunning your crew, contrasting with Brian's backstage planning, and pairing with Jason.",
+      "jason-duval": "Explore Jason's approach through keeping promises under pressure: distinguishing reliable support from silently carrying too much alone, contrasting with Lucia's front-line push.",
+      "cal-hampton": "Follow a false group-chat rumor about a coastal patrol sweep: see how Cal traces sources and catches hidden snags early, contrasting with Brian's structural delegation, and knowing when to stop verifying and act.",
+      "brian-heder": "Understand Brian's behind-the-scenes control through backup lines and single points of contact: restoring order without stepping into the spotlight, contrasting with Boobie's external deal-making.",
+      "raul-bautista": "An unfamiliar sound setup or a short encore can open a window for Raul. Compare his willingness to try another option with Lucia’s focus on making the first workable move.",
+      "boobie-ike": "Examine Boobie's business instincts through negotiating overflow lot space and locking in vendor rates: putting people and terms on the table, contrasting with Dre'Quan's creative perfectionism.",
+      "drequan-priest": "Look at Dre'Quan's craft-first focus when backup gear threatens the set: refusing to compromise on sound quality, contrasting with Real Dimez's crowd hype, and managing final-minute tweaks.",
+      "real-dimez": "Read how Bae-Luxe and Roxy use music and audience participation to turn a long line into part of the night, and what that style means when a solo player matches the duo."
+    },
     "faq": [
       [
         "Which game and characters are included in this quiz?",
@@ -79,7 +79,7 @@
       ],
       [
         "Is this an official Rockstar Games quiz or a validated personality test?",
-        "No. This is an unofficial entertainment quiz independently created by FermatMind. It is not affiliated with, endorsed by, or licensed by Rockstar Games or Take-Two Interactive, nor is it a clinically validated psychometric instrument."
+        "No. This is an unofficial entertainment quiz independently created by FermatMind. It is not affiliated with or endorsed by Rockstar Games or Take-Two Interactive, nor is it a clinically validated psychometric instrument."
       ],
       [
         "Do I need to have played GTA 6 or worry about story spoilers?",
@@ -116,16 +116,16 @@
     ]
   },
   "zh-TW": {
-    "guide": [
-      "場地忽然少一半，露西婭會先實地走一趟。比較布萊恩先排備案的做法，也想想她怎麼讓傑森接得上。",
-      "原定開場可能臨時被換掉，傑森會先找原來的夥伴商量。和露西婭搭檔時，他顧的是已經答應的事。",
-      "遇到巡邏隊要來的群組傳言，卡爾會去找第一手說法。布萊恩先統一窗口，兩人解的是不同問題。",
-      "器材不夠時，布萊恩會先安排主備方案及交接。布比忙的是對外談支援與費用，這兩份工作可以同時做。",
-      "主秀快開始時，勞爾會想試眼前剛好能借到的配備。露西婭先抓一個能執行的動作，兩人要約好試到哪裡為止。",
-      "入口排隊塞住，布比可能去問隔壁酒吧能不能借後院。德雷・泉關心的是演出效果，兩人分別顧條件和作品。",
-      "喇叭臨時故障，德雷・泉先想怎麼改編還能保住音色。Real Dimez 會從台前接住正在等待的觀眾。",
-      "排隊的人開始躁動時，Bae-Luxe 和 Roxy 的分工是帶大家一起參與。配對到 Real Dimez 的單人答題者會代入這份熱場工作。"
-    ],
+    "guide": {
+      "lucia-caminos": "場地忽然少一半，露西婭會先實地走一趟。比較布萊恩先排備案的做法，也想想她怎麼讓傑森接得上。",
+      "jason-duval": "原定開場可能臨時被換掉，傑森會先找原來的夥伴商量。和露西婭搭檔時，他顧的是已經答應的事。",
+      "cal-hampton": "遇到巡邏隊要來的群組傳言，卡爾會去找第一手說法。布萊恩先統一窗口，兩人解的是不同問題。",
+      "brian-heder": "器材不夠時，布萊恩會先安排主備方案及交接。布比忙的是對外談支援與費用，這兩份工作可以同時做。",
+      "raul-bautista": "主秀快開始時，勞爾會想試眼前剛好能借到的配備。露西婭先抓一個能執行的動作，兩人要約好試到哪裡為止。",
+      "boobie-ike": "入口排隊塞住，布比可能去問隔壁酒吧能不能借後院。德雷・泉關心的是演出效果，兩人分別顧條件和作品。",
+      "drequan-priest": "喇叭臨時故障，德雷・泉先想怎麼改編還能保住音色。Real Dimez 會從台前接住正在等待的觀眾。",
+      "real-dimez": "排隊的人開始躁動時，Bae-Luxe 和 Roxy 的分工是帶大家一起參與。配對到 Real Dimez 的單人答題者會代入這份熱場工作。"
+    },
     "faq": [
       [
         "這份測驗以哪一代 GTA 為主？會配對到誰？",

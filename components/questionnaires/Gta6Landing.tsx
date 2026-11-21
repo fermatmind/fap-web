@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { EntertainmentResultGrid } from "@/components/entertainment/EntertainmentResultGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { isConfiguredStagingSiteUrl } from "@/lib/site";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import editorial from "@/lib/questionnaires/gta-6-landing.json";
 import {
-  gta6LandingPath, gta6Profiles, gta6ResultPath, gta6TakePath,
+  gta6LandingPath, gta6PageAlternates, gta6Portrait, gta6Profile, gta6Profiles, gta6ResultPath, gta6TakePath,
 } from "@/lib/questionnaires/gta6CharacterQuiz";
 import { Gta6CareerSections, gta6CareerFaq } from "./Gta6CareerSections";
 import styles from "./Gta6Landing.module.css";
@@ -82,10 +84,6 @@ const copy = {
   },
 };
 
-export function gta6Alternates(path: (locale: DisplayLocale) => string) {
-  return { en: path("en"), "zh-Hans": path("zh"), "zh-TW": path("zh-TW"), "x-default": path("en") };
-}
-
 export function gta6PublishedRobots(hasQuery: boolean): Metadata["robots"] {
   if (process.env.NODE_ENV !== "production" || isConfiguredStagingSiteUrl()) return { index: false, follow: false };
   return { index: !hasQuery, follow: true };
@@ -93,24 +91,33 @@ export function gta6PublishedRobots(hasQuery: boolean): Metadata["robots"] {
 
 export function gta6LandingMetadata(locale: DisplayLocale, hasQuery: boolean): Metadata {
   const page = copy[locale];
-  const path = gta6LandingPath(locale);
+  const alternates = gta6PageAlternates(locale);
   return {
     title: { absolute: page.title },
     description: page.description,
-    alternates: { canonical: path, languages: gta6Alternates(gta6LandingPath) },
+    alternates,
     robots: gta6PublishedRobots(hasQuery),
-    openGraph: { title: page.h1, description: page.description, url: path },
+    openGraph: { title: page.h1, description: page.description, url: alternates.canonical },
   };
 }
 
 export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
   const text = copy[locale];
   const { guide } = editorial[locale];
+  const cards = gta6Profiles.map(role => ({
+    id: role.id,
+    name: role.name,
+    title: role.title[locale],
+    summary: guide[role.id as keyof typeof guide],
+    href: gta6ResultPath(locale, role.id),
+    portrait: { src: gta6Portrait(role.id), width: 90, height: 90, alt: "" },
+  }));
+  const solo = gta6Profile("lucia-caminos");
   const faq = [...editorial[locale].faq, gta6CareerFaq[locale]];
   const examples = [
-    { names: "Lucia + Jason", body: text.pairText },
-    { names: "Boobie + Dre’Quan", body: { en: "Boobie negotiates the budget and backup gear. Dre’Quan picks the part of the set worth protecting. Agree what can be cut before asking for more money.", zh: "Boobie 谈预算与备用设备，Dre’Quan 保住演出的关键段落。加预算前先说好哪部分能缩减。", "zh-TW": "布比談費用和備用器材，德雷・泉決定哪段節目一定要留。要追加預算前，先講好哪些地方可以縮。"}[locale] },
-    { names: "Cal + Brian", body: { en: "Cal verifies the patrol rumor. Brian sets a backup entrance and names who can switch plans. Agree when to stop waiting for confirmation.", zh: "Cal 核实巡逻传闻，Brian 安排备用入场口并确定谁可以切换方案。两人先定消息最晚确认时间。", "zh-TW": "卡爾去問消息來源，布萊恩排好備用入口，交代由誰決定換方案。先約好幾點前要回覆。"}[locale] },
+    { names: "Lucia + Jason", roles: ["lucia-caminos", "jason-duval"], body: text.pairText },
+    { names: "Boobie + Dre’Quan", roles: ["boobie-ike", "drequan-priest"], body: { en: "Boobie negotiates the budget and backup gear. Dre’Quan picks the part of the set worth protecting. Agree what can be cut before asking for more money.", zh: "Boobie 谈预算与备用设备，Dre’Quan 保住演出的关键段落。加预算前先说好哪部分能缩减。", "zh-TW": "布比談費用和備用器材，德雷・泉決定哪段節目一定要留。要追加預算前，先講好哪些地方可以縮。"}[locale] },
+    { names: "Cal + Brian", roles: ["cal-hampton", "brian-heder"], body: { en: "Cal verifies the patrol rumor. Brian sets a backup entrance and names who can switch plans. Agree when to stop waiting for confirmation.", zh: "Cal 核实巡逻传闻，Brian 安排备用入场口并确定谁可以切换方案。两人先定消息最晚确认时间。", "zh-TW": "卡爾去問消息來源，布萊恩排好備用入口，交代由誰決定換方案。先約好幾點前要回覆。"}[locale] },
   ];
   return (
     <main className={styles.page}>
@@ -139,14 +146,22 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
         <div className={styles.content}>
           <section id="examples">
             <h2>{text.examples}</h2>
-            <div className={styles.exampleResult}>
-              <h3>{text.solo}</h3>
-              <strong>Lucia Caminos · {gta6Profiles[0].title[locale]}</strong>
-              <p>{text.soloText}</p>
-            </div>
+            {solo && (
+              <figure className={styles.exampleResult}>
+                <Image unoptimized loading="lazy" src={gta6Portrait(solo.id)} alt="" width={360} height={215} />
+                <figcaption>
+                  <h3>{text.solo}</h3>
+                  <strong>{solo.name} · {solo.title[locale]}</strong>
+                  <p>{text.soloText}</p>
+                </figcaption>
+              </figure>
+            )}
             <h3>{text.pair}</h3>
             <div className={styles.pairs}>
               {examples.map(example => <div key={example.names}>
+                <div className={styles.pairThumbs}>
+                  {example.roles.map(id => <Image key={id} unoptimized loading="lazy" src={gta6Portrait(id)} alt="" width={44} height={44} />)}
+                </div>
                 <h3>{example.names}</h3><p>{example.body}</p>
               </div>)}
             </div>
@@ -156,20 +171,7 @@ export function Gta6Landing({ locale }: { locale: DisplayLocale }) {
             <p>{text.overviewText}</p>
             <ul className={styles.lenses}>{gta6Profiles.map((role) => <li key={role.id}><strong>{role.name}</strong> · {role.contribution[locale]}</li>)}</ul>
           </section>
-          <section id="characters">
-            <h2>{text.guides}</h2>
-            <ul className={styles.guides}>
-              {gta6Profiles.map((role, index) => (
-                <li key={role.id}>
-                  <Link prefetch={false} href={gta6ResultPath(locale, role.id)}>
-                    <h3>{role.name}</h3>
-                    <strong>{role.title[locale]}</strong>
-                    <p>{guide[index]}</p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
+          <EntertainmentResultGrid title={text.guides} cards={cards} className={styles.guides} />
           <Gta6CareerSections locale={locale} />
           <section>
             <h2>{text.method}</h2><p>{text.methodText}</p><p>{text.privacy}</p>

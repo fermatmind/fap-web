@@ -1,5 +1,4 @@
 import content from "./data/gta-6-character-quiz.json";
-import { questionnaireGuidePath, questionnairePath } from "./paths";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
 export const gta6Slug = "gta-6-character-quiz";
@@ -12,13 +11,28 @@ export const gta6Questions = content.questions;
 export const gta6Profiles = content.profiles;
 export type Gta6Profile = (typeof gta6Profiles)[number];
 
+function gta6IndexablePath(role?: string) {
+  const landing = `/tests/explore/${gta6Slug}`;
+  return role ? `${landing}/results/${role}` : landing;
+}
+
+export const gta6IndexablePaths = [gta6IndexablePath(), ...gta6Profiles.map(profile => gta6IndexablePath(profile.id))];
+
+export function gta6PageAlternates(locale: DisplayLocale, role?: string) {
+  const path = gta6IndexablePath(role);
+  return {
+    canonical: `/${locale}${path}`,
+    languages: { en: `/en${path}`, "zh-CN": `/zh${path}`, "zh-TW": `/zh-TW${path}`, "x-default": `/en${path}` },
+  };
+}
+
 export function isGta6PublicPath(path: string) {
   const match = path.match(/^\/(?:zh|en|zh-TW)\/tests\/explore\/gta-6-character-quiz(?:\/(take)|\/results\/([a-z-]+))?\/?$/);
   return !!match && (!match[2] || !!gta6Profile(match[2]));
 }
 
 export function gta6LandingPath(locale: DisplayLocale) {
-  return questionnairePath(locale, gta6Slug);
+  return `/${locale}${gta6IndexablePath()}`;
 }
 
 export function gta6TakePath(locale: DisplayLocale, invite?: string) {
@@ -26,7 +40,7 @@ export function gta6TakePath(locale: DisplayLocale, invite?: string) {
 }
 
 export function gta6ResultPath(locale: DisplayLocale, role: string) {
-  return questionnaireGuidePath(locale, gta6Slug, role);
+  return `/${locale}${gta6IndexablePath(role)}`;
 }
 
 export function gta6Profile(id: string | null | undefined) {
