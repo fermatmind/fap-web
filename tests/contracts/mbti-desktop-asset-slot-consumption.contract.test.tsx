@@ -15,6 +15,12 @@ vi.mock("@/lib/cms/personality-desktop-clone", () => ({
   fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
 }));
 
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string) => ({
+    fullCode, contentHash: "a".repeat(64), paragraphs: ["Introduction one.", "Introduction two."],
+  })),
+}));
+
 function createHeadline(typeCode: string, displayName = "MBTI 类型"): RichResultHeadline {
   return {
     badge: "MBTI",
@@ -365,13 +371,15 @@ describe("MBTI desktop asset slot consumption contract", () => {
     ["ESTP-A", "estp"],
     ["ESTP-T", "estp"],
     ["ISFP-T", "isfp"],
-  ])("renders the four matching chapter illustrations for %s", (typeCode, baseType) => {
+  ])("renders the four matching chapter illustrations for %s", async (typeCode, baseType) => {
     renderShell(typeCode);
+    await waitFor(() => expect(screen.getByTestId("mbti-result-intro")).toHaveAttribute("data-intro-state", "ready"));
 
     for (const chapter of ["traits", "career", "growth", "relationships"]) {
-      const section = screen.getByTestId(`mbti-chapter-${chapter}`);
-      expect(section.querySelector(`img[src="/images/mbti/result-chapters/${baseType}/${chapter}.webp"]`))
-        .toBeInTheDocument();
+      const section = screen.getByTestId(chapter === "traits" ? "mbti-result-intro" : `mbti-chapter-${chapter}`);
+      const image = section.querySelector(`[data-slot-id="${chapter}-illustration"] img`);
+      expect(image).toBeInTheDocument();
+      expect(new URL(image!.getAttribute("src")!, "http://localhost").pathname).toBe(`/images/mbti/result-chapters/${baseType}/${chapter}.webp`);
     }
   });
 
