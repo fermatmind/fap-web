@@ -25,8 +25,13 @@ async function finish(page: Page, locale: "en" | "zh", allUnscored = false) {
   for (const [i, d] of quiz.directions.entries()) for (const [j, c] of ["0", "1", "2", "3", "4", "na"].entries()) {
     await expect(page.locator(`[data-number-context-count="${d.id}-${c}"]`)).toHaveText(`${allUnscored ? (c === "na" ? 5 : 0) : expected[i][j]} / 5`);
   }
-  await expect(page.locator("[data-number-context-result] [data-number-context-support]")).toHaveCount(1);
-  for (const p of quiz.profiles) for (const s of p.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-number-context-full-guide="${p.id}"]`)).toContainText(t[locale]);
+  const result = page.locator("[data-number-context-result]");
+  await expect(result.locator(":scope > [data-number-context-support]")).toBeVisible();
+  await expect(result.locator("details [data-number-context-support]")).toHaveCount(1);
+  await expect(result.locator("[data-number-context-full-reading]")).toHaveCount(4);
+  for (const profile of quiz.profiles) {
+    await expect(result.locator(`a[href="${path(locale)}/results/${profile.id}"]`).first()).toBeVisible();
+  }
   expect(new URL(page.url()).search).toBe(""); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /number|NCT_/.test(k)))).toEqual([]);
 }
@@ -58,27 +63,31 @@ for (const locale of ["en", "zh"] as const) {
     await start(); await page.locator('input[value="4"]').check();
     await page.getByRole("button", { name: label(locale, "Next", "下一条"), exact: true }).click();
     await page.getByRole("button", { name: label(locale, "Back", "上一条"), exact: true }).click(); await expect(page.locator('input[value="4"]')).toBeChecked();
-    await page.locator('input[value="0"]').check(); await page.getByRole("button", { name: label(locale, "Exit and clear", "退出并清除"), exact: true }).click();
+    await page.locator('input[value="0"]').check();
+    await page.locator(`a[href="${path(locale)}"]`).filter({ hasText: /Back to assessment|返回测评/ }).click();
     await start(); await expect(page.locator('input[value="0"]')).not.toBeChecked(); await expect(page.locator('input[value="4"]')).not.toBeChecked();
     await page.locator('input[value="3"]').check(); await page.reload();
-    await expect(page.locator('[data-number-context-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="3"]')).not.toBeChecked();
-    await page.locator('input[value="2"]').check(); await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent("pagehide")));
-    await expect(page.locator('[data-number-context-stage="ready"]')).toHaveCount(1); await start(); await expect(page.locator('input[value="2"]')).not.toBeChecked();
+    await expect(page.locator("#number-context-active-question")).toHaveText(quiz.questions[0].prompt[locale]);
+    await expect(page.locator('input[value="3"]')).not.toBeChecked();
     await page.locator('input[value="1"]').check();
     await page.goto(`/${locale}/tests#more-tests`);
     await expect(page).toHaveURL(new RegExp(`/${locale}/tests#more-tests$`));
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
-    await expect(page.locator('[data-number-context-stage="ready"]')).toHaveCount(1);
+    await expect(page.locator("[data-explore-start]")).toBeVisible();
     await start(); await expect(page.locator('input[value="1"]')).not.toBeChecked();
     expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /number|NCT_/.test(k)))).toEqual([]);
   });
 }
-test("@release original observations:10publicpages, completebodies, localepairs, privatefreeOGandinvalidroutes", async ({ page, request }) => {
+test("@release original observations:10publicpages, completebodies, noindex, privatefreeOGandinvalidroutes", async ({ page, request }) => {
   for (const locale of ["en", "zh"] as const) for (const profile of [null, ...quiz.profiles]) {
-    const url = `${path(locale)}${profile ? `/results/${profile.id}` : ""}`; expect((await page.goto(url))?.status()).toBe(200);
+    const url = `${path(locale)}${profile ? `/results/${profile.id}` : ""}`;
+    const pageResponse = await page.goto(url);
+    expect(pageResponse?.status()).toBe(200);
+    expect(pageResponse?.headers()["x-robots-tag"]).toContain("noindex, follow");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${url}`);
-    for (const [lang, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(target)}${profile ? `/results/${profile.id}` : ""}`);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /\bnoindex, follow\b/);
     if (profile) for (const s of profile.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-number-context-full-guide="${profile.id}"]`)).toContainText(t[locale]);
     await expect(page.locator("[data-number-context-support]")).toHaveCount(1); await expect(page.locator("[data-number-context-result]")).toHaveCount(0);
     const og = `/og/fun/${quiz.slug}?locale=${locale}${profile ? `&portrait=${profile.id}` : ""}`, response = await request.get(og); expect(response.status()).toBe(200);
@@ -92,15 +101,18 @@ test("@release original observations: hydration gates the start button until del
   let release!: () => void;
   const chunks = new Promise<void>(resolve => { release = resolve; });
   let delayed = 0;
+  await page.route("**/_next/static/**/*.css", async route => {
+    await new Promise(resolve => setTimeout(resolve, 6000));
+    await route.continue();
+  });
   await page.route("**/_next/static/**/*.js", async route => { delayed++; await chunks; await route.continue(); });
   try {
-    await page.goto(path("en"), { waitUntil: "commit" });
+    await page.goto(`${path("en")}/take`, { waitUntil: "commit" });
     const start = page.locator("[data-explore-start]");
     await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
     await expect(start).toBeDisabled();
     release();
     await page.waitForLoadState("load");
-    await expect(start).toBeEnabled(); await start.click();
     await expect(page.locator("#number-context-active-question")).toHaveText(quiz.questions[0].prompt.en);
   } finally { release(); }
 });

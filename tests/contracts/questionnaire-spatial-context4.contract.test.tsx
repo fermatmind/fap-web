@@ -67,13 +67,16 @@ describe("Spatial-relation thinking recollections remain private categorical rec
       for(const value of ["na","0","4"]){const r=recordSpatialContext4(quiz,answers(value));if(r.status!=="complete")throw Error("Incomplete");const result=renderToStaticMarkup(<SpatialContextReport quiz={quiz} records={r.records} locale={locale}/>);expect((result.match(/data-spatial-context-observation=/g)??[])).toHaveLength(4);expect((result.match(/data-spatial-context-unscored=/g)??[])).toHaveLength(value==="na"?1:0);}
     }
   });
-  it("publishes four locale-paired public pages and disables their analytics",async()=>{
+  it("keeps four public pages reachable without index eligibility or analytics",async()=>{
     const pages=appendFunSitemapEntries([]),entry=await import("../../components/questionnaires/QuestionnairePage"),guide=await import("../../components/questionnaires/QuestionnaireGuide");
     for(const locale of ["en","zh"])for(const p of [null,...quiz.profiles]){
       const path=`/${locale}/tests/explore/${quiz.slug}${p?`/results/${p.id}`:""}`;
-      expect(shouldHardStopPublicAnalyticsForUrl(path)).toBe(true);expect(pages.some(x=>x.loc===`https://fermatmind.com${path}`)).toBe(true);
+      expect(shouldHardStopPublicAnalyticsForUrl(path)).toBe(true);
+      expect(pages.some(x=>x.loc===`https://fermatmind.com${path}`)).toBe(false);
       const params=Promise.resolve({locale,slug:quiz.slug,profile:p?.id??""});const m=p?await guide.generateMetadata({params}):await entry.generateMetadata({params});
-      expect(m.alternates?.canonical).toBe(`${SITE_URL}${path}`);expect(m.alternates?.languages?.["zh-CN"]).toContain("/zh/tests/explore/spatial-thinking-reflection");
+      expect(m.alternates?.canonical).toBe(`${SITE_URL}${path}`);
+      expect(m.alternates?.languages).toBeUndefined();
+      expect(m.robots).toMatchObject({ index: false, follow: true });
     }
   });
 });

@@ -103,29 +103,31 @@ describe("Original number-context context observation categories, never a clinic
       }
     }
   });
-  it("loads exact identity, publishes10stableENZHURLs and disables analytics on entryandguides", async () => {
+  it("keeps the original identity and privacy policy while omitting archived pages from the sitemap", async () => {
     expect(await loadQuestionnaire(quiz.slug)).toEqual(quiz);
     const map = appendFunSitemapEntries([]);
     for (const locale of ["en", "zh"]) for (const suffix of ["", ...quiz.profiles.map(p => `/results/${p.id}`)]) {
       const path = `/${locale}/tests/explore/${quiz.slug}${suffix}`;
       expect(isAnalyticsDisabledQuestionnaireUrl(path)).toBe(true);
       expect(shouldHardStopPublicAnalyticsForUrl(path)).toBe(true);
-      expect(map.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true);
+      expect(map.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(false);
     }
     expect(entertainmentActivityCatalog.find(c => c.slug === quiz.slug)?.privacy).toBe("explicit_opt_in");
   });
-  it("binds entryandguidemetadata to localealternates rather than private answers", async () => {
+  it("keeps a same-language canonical and noindex, follow on archived pages", async () => {
     const page = await import("../../components/questionnaires/QuestionnairePage");
     const guide = await import("../../components/questionnaires/QuestionnaireGuide");
     for (const locale of ["en", "zh"]) {
       const root = `/${locale}/tests/explore/${quiz.slug}`;
       const entry = await page.generateMetadata({ params: Promise.resolve({ locale, slug: quiz.slug }) });
       expect(entry.alternates?.canonical).toBe(`${SITE_URL}${root}`);
+      expect(entry.alternates?.languages).toBeUndefined();
+      expect(entry.robots).toMatchObject({ index: false, follow: true });
       for (const p of quiz.profiles) {
         const m = await guide.generateMetadata({ params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) });
         expect(m.alternates?.canonical).toBe(`${SITE_URL}${root}/results/${p.id}`);
-        expect(m.alternates?.languages?.en).toBe(`${SITE_URL}/en/tests/explore/${quiz.slug}/results/${p.id}`);
-        expect(m.alternates?.languages?.["zh-CN"]).toBe(`${SITE_URL}/zh/tests/explore/${quiz.slug}/results/${p.id}`);
+        expect(m.alternates?.languages).toBeUndefined();
+        expect(m.robots).toMatchObject({ index: false, follow: true });
       }
     }
   });

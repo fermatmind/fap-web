@@ -39,6 +39,8 @@ const LOCALE_PREFIX_RE = /^\/(en|zh|zh-TW)(?=\/|$)/i;
 
 // ENT-PRUNE-01. These public pages remain routable for existing shares.
 const archivedEntertainmentEntries = new Set([
+  "/tests/explore/number-context-reflection",
+  "/tests/explore/spatial-thinking-reflection",
   "/tests/explore/time-of-year-context-reflection",
 ]);
 
