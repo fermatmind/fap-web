@@ -30,6 +30,7 @@ import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { resolveBigFivePublicRouteEntry } from "@/lib/personality/bigFivePublicRoutes";
 import { normalizeBigFivePolicyContentPage } from "@/lib/cms/content-pages";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { parseQuestionnaireTakePath } from "@/lib/questionnaires/takePath";
 import {
   PRIVATE_ANALYTICS_SUPPRESSION_HEADER,
@@ -656,7 +657,12 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   }
 
   if (hardenPrivateResponse) {
-    response.headers.set("X-Robots-Tag", PRIVATE_NOINDEX_VALUE);
+    const followArchivedLinks =
+      !isStagingHost && !isConfiguredStagingSiteUrl() && isArchivedEntertainmentPath(pathname);
+    response.headers.set(
+      "X-Robots-Tag",
+      followArchivedLinks ? "noindex, follow, noarchive, nocache" : PRIVATE_NOINDEX_VALUE,
+    );
     response.headers.set("Cache-Control", PRIVATE_CACHE_CONTROL_VALUE);
     response.headers.set("Referrer-Policy", placement?.take ? "strict-origin" : "no-referrer");
     if (strippedPath === "/account") {

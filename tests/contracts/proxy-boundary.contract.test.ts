@@ -25,6 +25,23 @@ afterEach(() => {
 });
 
 describe("proxy boundary contract", () => {
+  it("follows archived public quiz links while preserving staging and answer privacy", () => {
+    const slug = "time-of-year-context-reflection";
+    for (const locale of ["en", "zh", "zh-TW"]) {
+      const entry = `/${locale}/tests/explore/${slug}`;
+      for (const pathname of [entry, `${entry}/results/mood-and-energy-across-the-year-reading`]) {
+        const live = proxy(new NextRequest(`https://fermatmind.com${pathname}`));
+        expect(live.headers.get("x-robots-tag")).toBe("noindex, follow, noarchive, nocache");
+        expect(live.headers.get("cache-control")).toContain("no-store");
+        const staging = proxy(new NextRequest(`https://staging.fermatmind.com${pathname}`));
+        expect(staging.headers.get("x-robots-tag")).toContain("noindex, nofollow");
+      }
+      const take = proxy(new NextRequest(`https://fermatmind.com${entry}/take`));
+      expect(take.headers.get("x-robots-tag")).toContain("noindex, nofollow");
+      expect(take.headers.get("cache-control")).toContain("no-store");
+    }
+  });
+
   it("returns hard 404 for retired Jung cognitive tests before streaming or API reads", () => {
     const fetchMock = vi.fn();
     vi.stubGlobal("fetch", fetchMock);
