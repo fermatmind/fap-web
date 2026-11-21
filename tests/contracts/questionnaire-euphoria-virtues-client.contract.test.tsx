@@ -49,7 +49,12 @@ for(const locale of ["en","zh"] as const)for(const quiz of [virtues,euphoria]){
    expect(payload).toMatchObject({ slug: quiz.slug, form_code: quiz.source.formCode, locale });
   }
   const mbti=screen.queryByRole("link",{name:locale==="zh"?"可选：另做MBTI偏好探索":"Optional: explore MBTI preferences separately"});
-  if(quiz===virtues)expect(mbti).toBeNull();else expect(mbti).toHaveAttribute("href",expect.stringContaining("target_action=questionnaire_result_mbti"));
+  expect(mbti).toBeNull();
+  if(quiz===euphoria){
+   const next=screen.getByRole("link",{name:locale==="zh"?"了解大五人格测评":"Explore the Big Five personality assessment"});
+   expect(next).toHaveAttribute("href",`/${locale}/tests/big-five-personality-test-ocean-model`);
+   expect(next).toHaveAttribute("referrerPolicy","no-referrer");
+  }
   fireEvent.click(screen.getByRole("button",{name:locale==="zh"?"重新测试":"Retake test"}));
   expect(screen.getAllByRole("radio").some(r=>(r as HTMLInputElement).checked)).toBe(false);expect(sessionStorage.getItem(key)).toBeNull();
   expect(document.querySelectorAll("[data-mini-virtues-result],[data-archetype-match]")).toHaveLength(0);stored.mockRestore();
