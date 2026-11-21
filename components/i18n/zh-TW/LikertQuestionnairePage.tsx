@@ -1,3 +1,5 @@
+import { PublicGuideShare } from "@/components/questionnaires/PublicGuideShare";
+import { CANONICAL_SITE_URL } from "@/lib/site";
 import { hasTraditionalOfficeTool, hasTraditionalPrivateReflection, hasTraditionalRelationshipSix, hasTraditionalSelfEvaluation, hasTraditionalSensoryExecutive, hasTraditionalStressCoping, hasTraditionalTraitsSocial, hasTraditionalValuesOrientations, hasTraditionalWorkReasoning } from "@/lib/i18n/traditionalLikertPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
 import { QuestionnaireFds32Attribution } from "@/components/questionnaires/QuestionnaireFds32Attribution";
@@ -272,6 +274,7 @@ export async function LikertQuestionnairePage({ slug, take, profile }: Stage) {
     <Link href={entry} className="inline-block min-h-11 py-2 underline">{quiz.title.zh}</Link>
     <h1 className="text-3xl font-bold">{result.title.zh}</h1>
     <p className="leading-8">{result.summary.zh}</p>
+    {slug === "character-strengths" && <PublicGuideShare url={CANONICAL_SITE_URL + questionnaireGuidePath("zh-TW", slug, result.id)} locale="zh-TW" />}
     <QuestionnaireResultReading quizSlug={slug} profile={result} locale="zh" traditional headingLevel={2} mode="guide" showSummary={false} />
     {LoveTypeComparison && <TraditionalQuestionnaireCopy><LoveTypeComparison quiz={quiz} id={result.id} locale="zh" /></TraditionalQuestionnaireCopy>}
     {slug === "character-strengths" && <QuestionnaireCharacterSource locale="zh" traditional />}
