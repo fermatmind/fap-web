@@ -7,7 +7,7 @@ import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
-import { isBig5ScaleCode, normalizeBig5FormCode, resolveProjectedBig5FormMeta } from "@/lib/big5/forms";
+import { DEFAULT_BIG5_FORM_CODE, isBig5ScaleCode, resolveProjectedBig5FormMeta } from "@/lib/big5/forms";
 import { isEnneagramScaleCode, isEnneagramSlug, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { loadTestLandingData } from "@/lib/tests/testLandingData";
@@ -175,8 +175,11 @@ export default async function TakePage({
     : null;
   const mbtiFormMeta = mbtiFormCode ? resolveMbtiFormMeta(mbtiFormCode) : null;
   const big5FormCode = isBig5ScaleCode(test.scale_code)
-    ? normalizeBig5FormCode(firstNonEmptyQueryValue(query.form, query.form_code))
+    ? DEFAULT_BIG5_FORM_CODE
     : null;
+  if (big5FormCode && (query.form_code !== undefined || (query.form !== undefined && query.form !== big5FormCode))) {
+    redirect(appendQuery(withLocale(`/tests/${slug}/take`), { ...query, form: big5FormCode, form_code: undefined }));
+  }
   const enneagramFormCode = isEnneagramScaleCode(test.scale_code)
     ? normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;

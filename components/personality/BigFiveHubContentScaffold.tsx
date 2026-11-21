@@ -703,8 +703,8 @@ export default function BigFiveHubContentScaffold({
         >
           <p className="m-0">
             {isZh
-              ? "大五人格测试通过约 120 道自评题目，从五个独立维度测量稳定的人格倾向，通常需要 15–20 分钟完成。测试不是诊断工具，不判断对错、好坏或能力高低——它提供的是一个用来理解行为偏好和沟通风格的参考框架。每个维度给出从低到高的连续分数，帮助回答\u201c我在什么场景下倾向做什么，又在什么场景下需要补充策略\u201d。分数在不同阶段可能变化，不代表固定身份。"
-              : "The Big Five test uses about 120 self-report items to measure stable personality tendencies across five independent dimensions, typically taking 15–20 minutes. The test is not a diagnostic tool and does not judge right/wrong, good/bad, or ability — it provides a reference framework for understanding behavioral preferences and communication styles."}
+              ? "大五人格测试有 90 道自评题，约需 11 分钟，用五个连续维度描述人格倾向。测试不是诊断工具，不判断对错、好坏或能力高低——它提供的是一个用来理解行为偏好和沟通风格的参考框架。每个维度给出从低到高的连续分数，帮助回答\u201c我在什么场景下倾向做什么，又在什么场景下需要补充策略\u201d。分数在不同阶段可能变化，不代表固定身份。"
+              : "The Big Five test uses 90 self-report items to describe personality tendencies across five continuous dimensions, typically taking about 11 minutes. The test is not a diagnostic tool and does not judge right/wrong, good/bad, or ability — it provides a reference framework for understanding behavioral preferences and communication styles."}
           </p>
         </PreviewCard>
 
@@ -816,8 +816,8 @@ export default function BigFiveHubContentScaffold({
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[var(--fm-text-muted)]">
             {isZh
-              ? "用约 20 分钟完成 120 题，获得你的五维度详尽分布和解释。"
-              : "Complete 120 questions in about 20 minutes for your detailed five-dimension profile."}
+              ? "用约 11 分钟完成 90 题，获得你的五维度详尽分布和解释。"
+              : "Complete 90 questions in about 11 minutes for your detailed five-dimension profile."}
           </p>
           <Link
             href={`/${locale}/tests/big-five-personality-test-ocean-model`}

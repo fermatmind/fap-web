@@ -7,10 +7,14 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { projectBig5ReportSection } from "@/lib/big5/reportDisplayCopy";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
+import type { Big5AssembledSection } from "@/lib/big5/resultAssembler";
+import { buildBig5LiveReport } from "@/lib/big5/liveReportLayout";
+import { BigFiveReportPreview } from "./BigFiveReportPreview";
 import { Big5ReadingGuide } from "./Big5ReadingGuide";
 import { buildBig5ReadingContext, type Big5ReadingContext } from "@/lib/big5/reportReading";
 import { OfferCard } from "@/components/big5/paywall/OfferCard";
 import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
+import { BlockRenderer } from "@/components/big5/report/BlockRenderer";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 import { DimensionBars } from "@/components/result/DimensionBars";
@@ -65,6 +69,7 @@ export function Big5ResultShell({
   normsStatus,
   qualityLevel,
   readingContext,
+  live90 = false,
   showPrecisePercentiles = true,
   visibleSections,
   lockedSections,
@@ -84,10 +89,11 @@ export function Big5ResultShell({
   authority?: Big5PrivateResultAuthority | null;
   displayCopy?: Big5ReadingCopy;
   readingContext?: Big5ReadingContext;
+  live90?: boolean;
   normsStatus: string;
   qualityLevel: string;
   showPrecisePercentiles?: boolean;
-  visibleSections: ReportSection[];
+  visibleSections: Big5AssembledSection[];
   lockedSections: ReportSection[];
   recommendedOffers: OfferPayload[];
 }) {
@@ -123,6 +129,17 @@ export function Big5ResultShell({
     displayLocale,
   );
 
+  const liveReport = live90 && displayLocale === "zh" && readingContext && !reportLocked && authority?.mode === "canonical"
+    ? buildBig5LiveReport(readingContext, visibleSections)
+    : null;
+  const qualityNotice = liveReport
+    ? visibleSections.find((section) => section.key === "hero_summary")?.blocks.find((block) => block.component === "BigFiveQualityNotice")
+    : undefined;
+  const supplement = (...keys: string[]) => visibleSections.filter((section) => keys.includes(section.key) && section.blocks.length).map((section) => (
+    <SectionRenderer key={section.key} section={section} locked={false} locale={locale} scaleCode="BIG5_OCEAN"
+      normsStatus={normsStatus} retakeHref={retakeHref} showPrecisePercentiles={readingContext?.norm.precise === true} />
+  ));
+
   if (displayLocale === "zh-TW" && traditionalUnavailable) return <p role="status">繁體報告暫時無法載入，請稍後再試。</p>;
   if (displayLocale === "zh-TW" && !translate) return <p role="status">正在載入繁體報告…</p>;
   return (
@@ -138,6 +155,18 @@ export function Big5ResultShell({
       className="space-y-8"
     >
       <SelfUnderstandingDomainBadge locale={locale} displayLocale={displayLocale} />
+      {liveReport ? (
+        <BigFiveReportPreview {...liveReport} focus="overview" questionCount={90} live={{
+          notice: !liveReport.showPercentiles ? readingContext?.norm.explanation : "",
+          allowExercises: ["A", "B"].includes((readingContext?.quality.level ?? "").toUpperCase()),
+          qualityNotice: qualityNotice ? <BlockRenderer block={qualityNotice} sectionKey="hero_summary" locale={locale} retakeHref={retakeHref} showPrecisePercentiles={false} /> : null,
+          facetDetails: visibleSections.some((section) => section.key === "facet_details" && section.blocks.length)
+            ? supplement("facet_details") : null,
+          plan: supplement("action_plan"),
+          insights: supplement("core_portrait"),
+          method: supplement("norms_comparison", "methodology_and_access"),
+        }} />
+      ) : (<>
       <Card className="border-slate-200 bg-white shadow-sm">
         <CardContent className="space-y-5 p-6 md:p-8">
           <div className="flex flex-wrap gap-2">
@@ -179,6 +208,8 @@ export function Big5ResultShell({
           />
         ))}
       </div>
+
+      </>)}
 
       {lockedSections.length > 0 ? (
         <div data-testid="big5-locked-sections" className="space-y-4">

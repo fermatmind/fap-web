@@ -1597,6 +1597,7 @@ export function RichResultReport({
         normsStatus={assembled.normsStatus}
         qualityLevel={assembled.qualityLevel}
         readingContext={assembled.readingContext}
+        live90={!sampleMode && !printSnapshotMode && reportData.big5_form_v1?.form_code === "big5_90" && reportData.big5_form_v1.question_count === 90}
         showPrecisePercentiles={assembled.normEvidence?.show_precise_percentiles !== false}
         visibleSections={assembled.visibleSections}
         lockedSections={assembled.lockedSections}

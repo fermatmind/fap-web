@@ -17,7 +17,7 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
     title: "Free MBTI Personality Test with Results",
     description: "Take a free MBTI-style test: 93 questions (~10 min) or 144 (~15 min). Get your free 16-type result and four preference scores. See a scored example before you start.",
   },
-  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free Big Five test: 90 items (~11 min) or FermatMind’s adapted 120-item IPIP-NEO form (~15 min). Explore five OCEAN traits and 30 facets." },
+  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits & Results", description: "Free 90-item Big Five test, about 11 minutes. Explore the five OCEAN traits and how to read your results." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Take the free 105-item Enneagram self-report in about 12 minutes. Compare the nine-type profile and leading candidates with your own experiences." },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", description: "30 original visual matrix questions (~20 min). Free basic results; optional paid full report. Practice only; no substitute for professional IQ assessment." },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free Emotional Intelligence Test (EQ) & Results", description: "Take a free 60-question EQ self-report in about 10 minutes. Explore emotional awareness, regulation, empathy and relationships, with results and practical next steps." },
@@ -25,7 +25,7 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 };
 
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
-  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "免费大五人格测试：OCEAN 五维与30个侧面", description: "免费大五人格测试：90题约11分钟，费马改写的120题 IPIP-NEO 结构题本约15分钟。了解 OCEAN 五个连续维度与30个侧面；120题并非未经改动的 Johnson 原版。" },
+  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "免费大五人格测试：OCEAN 五维与30个侧面", description: "免费大五人格测试，90 题约 11 分钟。了解 OCEAN 五个连续维度，以及如何解读自己的结果。" },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试（EQ）：60题自评与四维结果", description: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情和关系管理，结合实际经历选择一个沟通练习；结果不等于能力评定。" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
     title: "免费智商测试（IQ）：30题图形推理，作答与基础结果免费，完整报告可选付费解锁",
@@ -57,8 +57,8 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en" | "zh
   },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
-    zh: "观察开放性、尽责性、外向性、宜人性与神经质五个连续维度。120题为费马按 IPIP-NEO-120 五维、30侧面结构改写的题本，并非未经改动的 Johnson 原版；原版的效度与常模不能直接套用于本改写版。90题约11分钟，120题约15分钟，两版均可免费完成并查看基础结果，完整报告可选付费解锁；侧面明细以实际展示为准。",
-    en: "Explore five continuous personality traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 120-item form is FermatMind’s adaptation using the IPIP-NEO-120 structure of five traits and 30 facets, not the unmodified Johnson form. Original-form validation and norms do not automatically apply to this adaptation. Choose 90 items (~11 minutes) or 120 (~15); both are free to complete and view basic results; the full report is an optional one-time purchase. Facet detail depends on the selected version.",
+    zh: "从开放性、尽责性、外向性、宜人性与情绪性五个连续维度读懂自己的作答。90 题约 11 分钟，可免费完成并查看结果。",
+    en: "Explore five continuous traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 90-item test takes about 11 minutes. You can take the test and view the results for free.",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     zh: "了解你的 16 型人格结果与四组偏好。时间有限，可以先做 93 题版。想比较自己在更多情境下的选择，可以做 144 题版。两版均可免费完成并查看基础结果，供自我了解与沟通参考。",
@@ -98,8 +98,7 @@ const EDITORIAL_LAYOUTS: Partial<Record<string, AssessmentEditorialLayout>> = {
 const ZH_ENTRY_LABELS: Record<string, string> = {
   mbti_144: "144 题 · 约 15 分钟 · 免费测试",
   mbti_93: "93 题 · 约 10 分钟 · 免费测试",
-  big5_120: "开始 120 题改写版 · 免费测试",
-  big5_90: "开始 90 题精简版 · 免费测试",
+  big5_90: "开始 90 题 · 免费测试",
   enneagram_likert_105: "开始 105 题 · 程度选择 · 免费测试",
   riasec_60: "开始 60 题标准版 · 免费测试",
   owner_original_30: "开始 30 题免费测试",
@@ -109,8 +108,7 @@ const ZH_ENTRY_LABELS: Record<string, string> = {
 const EN_ENTRY_LABELS: Record<string, string> = {
   mbti_144: "144 questions · About 15 minutes · Free test",
   mbti_93: "93 questions · About 10 minutes · Free test",
-  big5_120: "Start 120-item adapted form · Free test",
-  big5_90: "Start 90-question Short Edition · Free test",
+  big5_90: "Start 90-question test · Free test",
   enneagram_likert_105: "Start 105 items · Degree ratings · Free test",
   riasec_60: "Start 60-question Standard Edition · Free test",
   owner_original_30: "Start free 30-question test",

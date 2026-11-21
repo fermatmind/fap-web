@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { describe, expect, it } from "vitest";
+import { buildBig5LiveReport } from "@/lib/big5/liveReportLayout";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { BIG5_V1_SECTION_KEYS } from "@/lib/big5/sectionBlueprint";
 import { BIG5_SOURCE_HASH, canonicalPrivateReport } from "@/tests/fixtures/big5/canonicalPrivateResult";
@@ -78,6 +79,39 @@ describe("Big Five canonical private result assembler", () => {
     const html = renderToStaticMarkup(createElement(SectionRenderer, { section: section!, locked: false, locale: "zh", scaleCode: "BIG5_OCEAN" }));
     expect(html).toContain('data-testid="big5-interpretation-qualifier"');
     expect(html).toContain("请用实际经历核对当前解释。");
+  });
+
+  it("reads the backend-selected band and gates precise scores and facets independently", () => {
+    const report = canonicalPrivateReport();
+    const engine = report.big5_report_engine_v2!;
+    const deepDive = engine.sections!.find((section) => section.section_key === "domain_deep_dive")!;
+    const drafts = deepDive.blocks!.filter((block) => block.kind === "trait_atomic");
+    for (const block of drafts) {
+      block.resolved_copy!.reading = {
+        definition: "后端维度定义",
+        headline: `正文 ${block.analytics?.trait_code}`,
+        interpretation: "解释",
+        observation: "观察",
+        application: "做法",
+        experiment: "尝试",
+      };
+    }
+    engine.norm_evidence = { ...engine.norm_evidence, comparison_allowed: true, show_precise_percentiles: true };
+    const view = assembleBig5ResultViewModel({ locale: "zh", reportData: report, gate });
+    const layout = buildBig5LiveReport(view.readingContext, view.visibleSections);
+    expect(layout?.domains.map((domain) => domain.band)).toEqual(drafts.map((block) => block.analytics?.band));
+    expect(layout?.domains[0]?.reading.headline).toBe("正文 O");
+    expect(layout?.domains[0]?.reading.definition).toBe("后端维度定义");
+    expect(layout?.facets.length).toBeGreaterThan(0);
+
+    const withoutFacets = view.visibleSections.filter((section) => section.key !== "facet_details");
+    expect(buildBig5LiveReport(view.readingContext, withoutFacets)?.facets).toEqual([]);
+    const withoutDeepDive = view.visibleSections.filter((section) => section.key !== "domain_deep_dive");
+    expect(buildBig5LiveReport(view.readingContext, withoutDeepDive)).toBeNull();
+    const provisional = { ...view.readingContext, norm: { ...view.readingContext.norm, precise: false } };
+    const bandOnly = buildBig5LiveReport(provisional, view.visibleSections);
+    expect(bandOnly?.domains.every((domain) => domain.percentile === null)).toBe(true);
+    expect(bandOnly?.facets).toEqual([]);
   });
 
   it("fails closed when authority or immutable asset identity is invalid", () => {

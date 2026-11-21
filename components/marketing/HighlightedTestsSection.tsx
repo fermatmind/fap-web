@@ -477,7 +477,7 @@ export function HighlightedTestsSection({
                         {listBig5FormMetas().map((form) => (
                           <Link
                             key={form.formCode}
-                            href={buildBig5TakeHref(card.slug, locale, form.formCode)}
+                            href={buildBig5TakeHref(card.slug, locale)}
                             prefetch={false}
                             className="fm-home-calibration-slot-action"
                           >

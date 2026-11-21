@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import { NextRequest } from "next/server";
 import { describe, expect, it } from "vitest";
+import { proxy } from "@/proxy";
 import {
   buildBig5TakeHref,
   getBig5DurationSummary,
@@ -14,30 +16,30 @@ function read(relPath: string): string {
 
 describe("big5 form routing contract", () => {
   it("normalizes aliases and unknown values to backend-owned form codes", () => {
-    expect(normalizeBig5FormCode(undefined)).toBe("big5_120");
+    expect(normalizeBig5FormCode(undefined)).toBe("big5_90");
     expect(normalizeBig5FormCode("120")).toBe("big5_120");
     expect(normalizeBig5FormCode("short_90")).toBe("big5_90");
-    expect(normalizeBig5FormCode("unknown-form")).toBe("big5_120");
+    expect(normalizeBig5FormCode("unknown-form")).toBe("big5_90");
   });
 
   it("keeps the API standard_90 alias on the 90-question take route in both languages", () => {
     expect(normalizeBig5FormCode(" standard_90 ")).toBe("big5_90");
     for (const locale of ["zh", "en"] as const) {
-      expect(buildBig5TakeHref("big-five-personality-test-ocean-model", locale, "standard_90")).toBe(
+      expect(buildBig5TakeHref("big-five-personality-test-ocean-model", locale)).toBe(
         `/${locale}/tests/big-five-personality-test-ocean-model/take?form=big5_90`
       );
     }
   });
 
-  it("uses 15/11 as fallback truth and prefers lookup form projections", () => {
-    expect(listBig5FormMetas().map((form) => form.estimatedMinutes)).toEqual([15, 11]);
-    expect(getBig5DurationSummary("zh")).toBe("15分钟 / 11分钟");
+  it("only offers the active 90-question form, even with stale lookup data", () => {
+    expect(listBig5FormMetas().map((form) => form.estimatedMinutes)).toEqual([11]);
+    expect(getBig5DurationSummary("zh")).toBe("11分钟");
     expect(
       listBig5FormMetas([
         { form_code: "big5_120", question_count: 120, estimated_minutes: 16 },
         { form_code: "big5_90", question_count: 90, estimated_minutes: 12 },
       ]).map((form) => form.estimatedMinutes)
-    ).toEqual([16, 12]);
+    ).toEqual([12]);
   });
 
   it("keeps landing, JSON-LD, sticky CTA, and take runtime on lookup forms", () => {
@@ -53,11 +55,27 @@ describe("big5 form routing contract", () => {
     expect(landing).not.toMatch(/BIG5[\s\S]{0,200}(?:120[^\n]*20|90[^\n]*15)/);
   });
 
-  it("builds same-slug take routes with explicit form query", () => {
-    expect(buildBig5TakeHref("big-five-personality-test-ocean-model", "zh", "big5_120")).toBe(
-      "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120"
-    );
-    expect(buildBig5TakeHref("big-five-personality-test-ocean-model", "zh", "big5_90")).toBe(
+  it.each([
+    "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120",
+    "/en/tests/big-five-personality-test-ocean-model/take?form_code=120",
+    "/zh-TW/tests/big-five-personality-test-ocean-model/take?form=standard_120",
+    "/zh/tests/big5-ocean/take?form=big5-120",
+    "/tests/big-five-personality-test-ocean-model/take?form=big5_90&form_code=120",
+  ])("returns 404 for retired take link %s", async (path) => {
+    const response = await proxy(new NextRequest(`https://fermatmind.com${path}`));
+    expect(response.status).toBe(404);
+    expect(response.headers.get("location")).toBeNull();
+  });
+
+  it("leaves the 90-question take link available", async () => {
+    const response = await proxy(new NextRequest(
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90"
+    ));
+    expect(response.status).toBe(200);
+  });
+
+  it("builds a same-slug take route with the active form query", () => {
+    expect(buildBig5TakeHref("big-five-personality-test-ocean-model", "zh")).toBe(
       "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90"
     );
   });
