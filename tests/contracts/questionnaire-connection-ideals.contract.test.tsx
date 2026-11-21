@@ -90,7 +90,9 @@ describe("Original fictional connection ideals, without partner identification",
     expect(html).toContain("no quiz-flow statistics are sent"); expect(html).not.toContain('type="checkbox"');
     const source = readFileSync("components/questionnaires/ConnectionIdealsClient.tsx", "utf8");
     expect(source).not.toMatch(/sessionStorage|localStorage|clipboard|recordEntertainmentActivity|useEntertainmentMetrics/);
-    for (const locale of ["en", "zh"]) for (const suffix of ["", ...quiz.profiles.map(p => `/results/${p.id}`)]) expect(isAnalyticsDisabledQuestionnaireUrl(`/${locale}/tests/explore/${quiz.slug}${suffix}`)).toBe(true);
+    for (const locale of ["en", "zh", "zh-TW"]) for (const suffix of ["", "/take", ...quiz.profiles.map(p => `/results/${p.id}`)]) expect(isAnalyticsDisabledQuestionnaireUrl(`/${locale}/tests/explore/${quiz.slug}${suffix}`)).toBe(true);
+    expect(isAnalyticsDisabledQuestionnaireUrl("/zh-TW/tests/explore/connection-ideals-other")).toBe(false);
+    expect(isAnalyticsDisabledQuestionnaireUrl("/zh-TW/tests/explore/intimacy-values/take")).toBe(true);
     expect(entertainmentActivityCatalog.find(x => x.slug === quiz.slug)?.privacy).toBe("explicit_opt_in");
   });
 

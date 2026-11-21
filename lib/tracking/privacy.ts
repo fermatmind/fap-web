@@ -165,7 +165,8 @@ export function isAnalyticsDisabledQuestionnaireUrl(value: unknown): boolean {
   const normalized = normalizeTrackingText(value, 2048);
   if (!normalized || !looksLikeUrlOrPath(normalized)) return false;
   try {
-    const path = `/${routeSegments(new URL(normalized, "https://tracking.local").pathname).join("/")}`;
+    const pathname = new URL(normalized, "https://tracking.local").pathname.replace(/^\/zh-TW(?=\/|$)/i, "");
+    const path = `/${routeSegments(pathname).join("/")}`;
     return ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS.some(prefix => path === prefix || path.startsWith(`${prefix}/`));
   } catch {
     return false;

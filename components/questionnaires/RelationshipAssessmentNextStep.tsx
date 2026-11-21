@@ -49,7 +49,7 @@ export function RelationshipAssessmentNextStep({ slug, locale, displayLocale }: 
   const target = modeABatchThreeAssessments[topic];
   const href = `/${displayLocale}/tests/${target.slug}`;
   const sourcePath = questionnairePath(displayLocale, slug);
-  const privateSource = isAnalyticsDisabledQuestionnaireUrl(questionnairePath(locale, slug));
+  const privateSource = isAnalyticsDisabledQuestionnaireUrl(sourcePath);
   const action = slug === "relationship-values"
     ? "entertainment_result_mbti"
     : `questionnaire_result_${topic === "interaction" ? "eq" : topic === "boundaries" ? "bigfive" : "mbti"}`;

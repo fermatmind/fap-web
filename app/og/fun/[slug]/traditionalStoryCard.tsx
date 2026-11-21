@@ -1,3 +1,4 @@
+import { relationshipQuestionnaireSlugs } from "@/lib/i18n/relationshipQuestionnairePaths";
 import { hasTraditionalMixedQuestionnaire } from "@/lib/i18n/traditionalMixedQuestionnairePaths";
 import { hasTraditionalCulturalSymbol } from "@/lib/i18n/traditionalCulturalSymbolPaths";
 import { hasTraditionalObservation } from "@/lib/i18n/traditionalObservationPaths";
@@ -31,6 +32,15 @@ let archetypeFont: Promise<ArrayBuffer> | undefined;
 let practiceFont: Promise<ArrayBuffer> | undefined;
 
 export async function traditionalStoryCard(slug: string, portrait: string | null) {
+  if (relationshipQuestionnaireSlugs.includes(slug)) {
+    const { loadTraditionalRelationshipQuestionnaire } = await import("@/lib/i18n/zh-TW/relationshipQuestionnaire");
+    const quiz = await loadTraditionalRelationshipQuestionnaire(slug);
+    const result = portrait && quiz ? quiz.profiles.find(profile => profile.id === portrait) : undefined;
+    if (!quiz || (portrait && !result)) return new Response("Image unavailable", { status: 404 });
+    archetypeFont ??= readFont("archetype-questionnaire-700.ttf");
+    return publicCard(result?.title.zh ?? quiz.title.zh, result?.summary.zh ?? quiz.description.zh,
+      Boolean(result), await archetypeFont, `${quiz.questions.length} 道日常互動題`);
+  }
   if (hasTraditionalObservation(slug)) {
     const { loadTraditionalObservation } = await import("@/lib/i18n/zh-TW/observationQuestionnaires");
     const item = await loadTraditionalObservation(slug);
