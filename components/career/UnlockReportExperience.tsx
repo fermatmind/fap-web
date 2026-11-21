@@ -24,7 +24,7 @@ export function UnlockReportExperience({ model, locale, assessment = "riasec60",
 }) {
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
   const previewPayments = designPreview ? (
-    <div className="grid gap-2.5" data-testid="career-interest-preview-payment">
+    <div className="grid gap-3" data-testid="career-interest-preview-payment">
       <p>{t("本地示例 · 支付已停用", "本機示例 · 付款已停用", "Local sample · Payments disabled")}</p>
       {[
         t("微信支付 · ¥2.99", "微信支付 · ¥2.99", "WeChat Pay · ¥2.99"),
