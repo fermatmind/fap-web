@@ -12,9 +12,8 @@ afterEach(() => {
 describe("MBTI preview evidence and AI prompts", () => {
   it("shows the illustrated career prompt without removed sections", () => {
     render(<ResultEvidenceAndPrompts />);
-    expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "查看提示词 +" }));
-    expect(screen.getAllByRole("textbox")).toHaveLength(1);
+    expect(screen.getByTestId("mbti-ai-prompt-text")).toBeVisible();
+    expect(screen.queryByRole("button", { name: /查看提示词/ })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /和 AI 聊聊/ })).toBeInTheDocument();
     expect(screen.queryByText(/科学依据/)).not.toBeInTheDocument();
     expect(screen.queryByText(/个人成长：/)).not.toBeInTheDocument();
@@ -31,6 +30,7 @@ describe("MBTI preview evidence and AI prompts", () => {
     await waitFor(() => expect(writeText).toHaveBeenCalledOnce());
     expect(writeText.mock.calls[0][0]).toContain("请先问我 3 个问题");
     expect(writeText.mock.calls[0][0]).toContain("一次低成本试做");
+    expect(writeText.mock.calls[0][0]).toBe(screen.getByTestId("mbti-ai-prompt-text").textContent);
     expect(await screen.findByText(/^已复制。/)).toBeInTheDocument();
   });
 
@@ -40,7 +40,6 @@ describe("MBTI preview evidence and AI prompts", () => {
     render(<ResultEvidenceAndPrompts />);
     fireEvent.click(screen.getByRole("button", { name: "复制 AI 对话提示词" }));
     expect(await screen.findByText(/未能自动复制/)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "收起提示词 −" })).toHaveAttribute("aria-expanded", "true");
-    expect(screen.getByRole("textbox", { name: /职业探索/ })).toHaveAttribute("readonly");
+    expect(screen.getByTestId("mbti-ai-prompt-text")).toBeVisible();
   });
 });
