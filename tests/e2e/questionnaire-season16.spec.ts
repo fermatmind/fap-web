@@ -74,12 +74,13 @@ for (const locale of ["en", "zh"] as const) {
     expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => /season-context|SEASON_/.test(k)))).toEqual([]);
   });
 }
-test("@release original observations:10publicpages, completebodies, localepairs, privatefreeOGandinvalidroutes", async ({ page, request }) => {
+test("@release archived observations:10publicpages, completebodies, noindex, privatefreeOGandinvalidroutes", async ({ page, request }) => {
   for (const locale of ["en", "zh"] as const) for (const profile of [null, ...quiz.profiles]) {
     const url = `${path(locale)}${profile ? `/results/${profile.id}` : ""}`; expect((await page.goto(url))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText((profile?.title ?? quiz.title)[locale]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${url}`);
-    for (const [lang, target] of [["en", "en"], ["zh-CN", "zh"], ["x-default", "en"]]) await expect(page.locator(`link[rel="alternate"][hreflang="${lang}"]`)).toHaveAttribute("href", `https://fermatmind.com${path(target)}${profile ? `/results/${profile.id}` : ""}`);
+    await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /\bnoindex, follow\b/);
     if (profile) for (const s of profile.sections) for (const t of s.paragraphs) await expect(page.locator(`[data-season-context-full-guide="${profile.id}"]`)).toContainText(t[locale]);
     await expect(page.locator("[data-season-context-support]")).toHaveCount(1); await expect(page.locator("[data-season-context-result]")).toHaveCount(0);
     const og = `/og/fun/${quiz.slug}?locale=${locale}${profile ? `&portrait=${profile.id}` : ""}`, response = await request.get(og); expect(response.status()).toBe(200);

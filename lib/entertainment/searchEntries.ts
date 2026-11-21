@@ -3,6 +3,7 @@ import { globalHistoryStory } from "./directory";
 import questionnaires from "../questionnaires/catalog.json";
 import { gta6IndexablePaths } from "../questionnaires/gta6CharacterQuiz";
 import { PUBLIC_PATH, RESOURCE_PATHS } from "../friendship/core";
+import { isArchivedEntertainmentPath } from "../seo/discoverabilityExposurePolicy";
 
 export function entertainmentSearchEntries(): { path: string; lastmod: string }[] {
   const entries = new Map<string, string>();
@@ -22,7 +23,8 @@ export function entertainmentSearchEntries(): { path: string; lastmod: string }[
   for (const [index, path] of gta6IndexablePaths.entries()) {
     entries.set(path, index === 0 ? "2026-11-21T00:00:00.000Z" : "2026-11-20T00:00:00.000Z");
   }
-  return Array.from(entries, ([path, lastmod]) => ({ path, lastmod }));
+  return Array.from(entries, ([path, lastmod]) => ({ path, lastmod }))
+    .filter(({ path }) => !isArchivedEntertainmentPath(path));
 }
 
 const friendshipSearchEntries = RESOURCE_PATHS.map(suffix => ({

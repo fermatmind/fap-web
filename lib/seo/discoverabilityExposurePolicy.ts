@@ -37,6 +37,11 @@ export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
 
 const LOCALE_PREFIX_RE = /^\/(en|zh|zh-TW)(?=\/|$)/i;
 
+// ENT-PRUNE-01. These public pages remain routable for existing shares.
+const archivedEntertainmentEntries = new Set([
+  "/tests/explore/time-of-year-context-reflection",
+]);
+
 export function normalizeDiscoverabilityPath(pathname: string): string {
   const raw = String(pathname || "").trim();
   if (!raw) return "/";
@@ -57,5 +62,12 @@ export function hasDiscoverabilityLocalePrefix(pathname: string): boolean {
 
 export function isSharedDiscoverabilityDeniedPath(pathname: string): boolean {
   const stripped = stripDiscoverabilityLocalePrefix(pathname);
-  return SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS.some((pattern) => pattern.test(stripped));
+  return isArchivedEntertainmentPath(stripped)
+    || SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS.some((pattern) => pattern.test(stripped));
+}
+
+export function isArchivedEntertainmentPath(pathname: string): boolean {
+  const path = stripDiscoverabilityLocalePrefix(pathname).replace(/\/+$/, "");
+  const entry = path.replace(/\/results\/[^/]+$/, "");
+  return archivedEntertainmentEntries.has(entry);
 }

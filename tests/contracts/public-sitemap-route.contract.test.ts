@@ -1,5 +1,6 @@
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
+import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -60,6 +61,40 @@ afterEach(() => {
 });
 
 describe("public sitemap route", () => {
+  it("excludes archived test entries and guides without excluding neighboring tests", async () => {
+    const entry = "/tests/explore/time-of-year-context-reflection";
+    const guide = `${entry}/results/mood-and-energy-across-the-year-reading`;
+    const archived = ["en", "zh", "zh-TW"].flatMap((locale) =>
+      [entry, guide].map((path) => `/${locale}${path}`),
+    );
+    const retained = "/en/tests/explore/gta-6-character-quiz";
+    const payload = backendSitemapPayload();
+    payload.items.push(...archived.map((path) => ({ loc: `https://fermatmind.com${path}` })));
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(payload))));
+    const xml = await (await getRootSitemap()).text();
+    expect(xml).not.toContain(entry);
+    expect(xml).toContain(retained);
+    expect(archived.every(isSharedDiscoverabilityDeniedPath)).toBe(true);
+    expect(isSharedDiscoverabilityDeniedPath(retained)).toBe(false);
+
+    for (const pathname of archived) {
+      const locale = pathname.startsWith("/en/") ? "en" : "zh";
+      const alternates = { canonical: `https://fermatmind.com${pathname}` };
+      const metadata = pathname.startsWith("/zh-TW/")
+        ? traditionalSearchMetadata(pathname, { alternates, robots: { index: false, follow: true } })
+        : buildPageMetadata({
+            locale,
+            pathname,
+            title: "Reflection",
+            description: "A public reflection",
+            alternatesByLocale: { en: `/en${entry}`, zh: `/zh${entry}` },
+          });
+      expect(new URL(String(metadata.alternates?.canonical)).pathname).toBe(pathname);
+      expect(metadata.alternates?.languages).toBeUndefined();
+      expect(metadata.robots).toMatchObject({ index: false, follow: true });
+    }
+  });
+
   it.each(["root", ...PUBLIC_SITEMAP_FAMILIES])("passes the complete %s sitemap to Next for HTTP compression", async (family) => {
     vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(backendSitemapPayload()))));
     const read = (encoding: string) => family === "root"

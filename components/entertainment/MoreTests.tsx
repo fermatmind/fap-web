@@ -7,6 +7,7 @@ import { getFreeTestPrimaryLabel } from "@/lib/marketing/testsHubContent";
 import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
 import { taiwanDirectoryEntry } from "@/lib/i18n/zh-TW/testsDirectory";
 import type { DisplayLocale } from "@/lib/i18n/locales";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 
 export const FUN_CATEGORIES: Record<string, { en: string; zh: string; "zh-TW": string }> = {
   framework: { en: "Personality frameworks & behavior", zh: "人格框架与行为", "zh-TW": "人格架構與行為" },
@@ -136,9 +137,11 @@ export function MoreTests({
                             : `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} questions · about ${q.minutes} min · fully free`,
     };
   });
+  const indexedItems = items.filter((item) => !isArchivedEntertainmentPath(item.href));
+
   return (
     <>
-    {locale !== "zh-TW" && <JsonLd id={`exploration-tests-${locale}`} data={buildItemListJsonLd({ path: `/${locale}/tests`, idSuffix: "exploration-test-itemlist", title: locale === "zh" ? "测试与实用工具" : "Tests and practical tools", description: locale === "zh" ? `当前目录中可见的${MORE_TEST_PRODUCT_COUNT}项测试与工具。` : `The ${MORE_TEST_PRODUCT_COUNT} tests and tools visible in this directory.`, locale, items: [...items].sort((a, b) => Object.keys(FUN_CATEGORIES).indexOf(a.category) - Object.keys(FUN_CATEGORIES).indexOf(b.category)).map(item => ({ name: item.title, path: item.href, description: item.description })) })} />}
+    {locale !== "zh-TW" && <JsonLd id={`exploration-tests-${locale}`} data={buildItemListJsonLd({ path: `/${locale}/tests`, idSuffix: "exploration-test-itemlist", title: locale === "zh" ? "测试与实用工具" : "Tests and practical tools", description: locale === "zh" ? "目录中的公开测试与实用工具。" : "Public tests and practical tools in this directory.", locale, items: indexedItems.sort((a, b) => Object.keys(FUN_CATEGORIES).indexOf(a.category) - Object.keys(FUN_CATEGORIES).indexOf(b.category)).map(item => ({ name: item.title, path: item.href, description: item.description })) })} />}
     <TestDirectory
       items={items}
       categories={FUN_CATEGORIES}

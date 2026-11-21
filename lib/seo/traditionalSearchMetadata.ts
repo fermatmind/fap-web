@@ -1,6 +1,7 @@
 import { isBilingualInterestDirectoryPath } from "@/lib/career/interestDirectoryRoutes";
 import { indexableCareerInterestPilots } from "@/lib/career/explorationPilot";
 import { entertainmentSearchPaths } from "@/lib/entertainment/searchEntries";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import type { Metadata } from "next";
 import { hasTraditionalAssessmentSearchPath, traditionalEquivalent, traditionalPath } from "@/lib/i18n/traditionalRoutes";
 import { CANONICAL_SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
@@ -26,6 +27,7 @@ export function hasTraditionalPublicResourceSearchPath(path: string): boolean {
 }
 
 export function traditionalSearchEquivalent(pathname: string): string | null {
+  if (isArchivedEntertainmentPath(pathname)) return null;
   const suffix = pathname.replace(/^\/(?:en|zh|zh-TW)\//u, "/");
   if (hasTraditionalPublicResourceSearchPath(suffix) || hasTraditionalAssessmentSearchPath(suffix) || hasTraditionalCareerInterestSearchPath(suffix) || hasTraditionalCareerEntrySearchPath(suffix)) return `/zh-TW${suffix}`;
   const path = traditionalPath(pathname);

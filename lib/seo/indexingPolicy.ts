@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n/locales";
 import {
-  SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS,
   hasDiscoverabilityLocalePrefix,
+  isSharedDiscoverabilityDeniedPath,
   stripDiscoverabilityLocalePrefix,
 } from "@/lib/seo/discoverabilityExposurePolicy";
 
@@ -17,7 +17,6 @@ export type ExplicitIndexGate = {
 };
 
 const DENY_PATH_PATTERNS: RegExp[] = [
-  ...SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS,
   /^\/attempts(\/|$)/i,
   /^\/relationships(\/|$)/i,
   /^\/quiz(\/|$)/i,
@@ -50,7 +49,8 @@ export function hasLocalePrefix(pathname: string): boolean {
 
 export function isIndexablePath(pathname: string): boolean {
   const stripped = stripLocalePrefix(pathname);
-  return !DENY_PATH_PATTERNS.some((pattern) => pattern.test(stripped));
+  return !isSharedDiscoverabilityDeniedPath(stripped)
+    && !DENY_PATH_PATTERNS.some((pattern) => pattern.test(stripped));
 }
 
 export function isCareerJobsQueryPage(pathname: string): boolean {

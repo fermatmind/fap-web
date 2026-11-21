@@ -2,6 +2,7 @@ import { traditionalSearchEquivalent } from "@/lib/seo/traditionalSearchMetadata
 import type { Metadata } from "next";
 import { getSiteUrlOrThrow, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { shouldNoindex, type ExplicitIndexGate } from "@/lib/seo/indexingPolicy";
+import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 export type TwitterImages = NonNullable<NonNullable<Metadata["twitter"]>["images"]>;
@@ -248,7 +249,8 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
   const xDefaultPath = input.alternatesByLocale.xDefault ?? "/";
   const robotsPolicy = input.seoSurface?.robotsPolicy || "";
   const forceStagingNoindex = isConfiguredStagingSiteUrl();
-  const noindex = forceStagingNoindex
+  const archivedEntertainment = isArchivedEntertainmentPath(input.pathname);
+  const noindex = forceStagingNoindex || archivedEntertainment
     || (typeof input.noindex === "boolean"
       ? input.noindex
       : robotsPolicy
@@ -264,7 +266,7 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
     image ? toAbsoluteUrl(image) : undefined,
   );
   const traditional = traditionalSearchEquivalent(input.pathname);
-  const languageAlternates = input.omitLanguageAlternates
+  const languageAlternates = input.omitLanguageAlternates || archivedEntertainment
     ? undefined
     : {
         en: toAbsoluteUrl(alternates.en || input.alternatesByLocale.en),
@@ -272,7 +274,8 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
         "x-default": toAbsoluteUrl(xDefaultPath),
         ...(traditional ? { "zh-TW": toAbsoluteUrl(traditional) } : {}),
       };
-  const noindexFollow = input.noindexFollow === true;
+  const noindexFollow = input.noindexFollow === true
+    || (archivedEntertainment && !forceStagingNoindex);
 
   return {
     title,
