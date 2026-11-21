@@ -2556,3 +2556,5 @@
 @media screen and (max-width: 860px) {
   .chapterPreview { width: calc(100% - 40px); margin: 20px auto 24px; }
 }
+
+.fullWidthFooter { margin-top: 72px; min-width: 0; }

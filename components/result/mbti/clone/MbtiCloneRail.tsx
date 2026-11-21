@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Crown, Share2, HeartHandshake } from "lucide-react";
+import reference from "./MbtiCloneRail.reference.module.css";
 import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
@@ -11,6 +14,7 @@ import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 type MbtiCloneRailProps = {
   locale: "zh" | "en";
   profileIdentity: ProfileIdentity;
+  referenceLayout?: boolean;
 };
 
 const ANCHORS = [
@@ -46,6 +50,7 @@ function normalizeText(...values: unknown[]) {
 export function MbtiCloneRail({
   locale,
   profileIdentity,
+  referenceLayout = false,
 }: MbtiCloneRailProps) {
   const [activeAnchor, setActiveAnchor] = useState(TRAITS_ANCHOR_ID);
   const nameLine = (locale === "zh" ? [profileIdentity.name] : [profileIdentity.name, profileIdentity.nickname])
@@ -78,6 +83,31 @@ export function MbtiCloneRail({
       window.removeEventListener("hashchange", updateFromViewport);
     };
   }, []);
+
+  const baseCode = /^([IE][NS][TF][JP])(?:-[AT])?$/i.exec(profileIdentity.code)?.[1].toLowerCase();
+  if (referenceLayout) return <aside data-testid="mbti-sticky-rail" data-result-sidebar="true" className={`${styles.rail} ${reference.rail}`}>
+    <div className={reference.card}>
+      <div className={reference.identity} data-testid="mbti-rail-profile-identity">
+        {baseCode ? <div className={reference.avatar}><Image src={`/images/mbti/result-portraits/${baseCode}.webp`} alt="" width={90} height={130} unoptimized /></div> : null}
+        <div>
+          <p className={reference.caption}>{locale === "zh" ? "你的人格类型是：" : "Your personality type is:"}</p>
+          <p className={reference.name}>{nameLine}</p>
+          <p className={reference.code}>{profileIdentity.code}</p>
+        </div>
+      </div>
+      <nav aria-label={locale === "zh" ? "本页内容" : "On this page"}>
+        <p className={reference.navTitle}>{locale === "zh" ? "本页内容" : "On this page"}</p>
+        {ANCHORS.map((anchor) => <a key={anchor.id} href={getMbtiDesktopAnchorHash(anchor.key)} aria-current={activeAnchor === anchor.id ? "location" : undefined} className={reference.link}>
+          {locale === "zh" ? ({ traits: "1. 人格特征", career: "2. 你的职业道路", growth: "3. 你的个人成长", relationships: "4. 你的人际关系" }[anchor.key]) : anchor.label.en}
+        </a>)}
+        <a href="https://fermatmind.com/zh/history/mbti" className={reference.link}><Crown size={18} aria-hidden="true" />{locale === "zh" ? "解锁全部结果" : "Unlock all results"}</a>
+      </nav>
+      <div className={reference.tools}>
+        <button type="button" disabled title="本地类型预览暂不支持分享个人结果"><Share2 size={14} aria-hidden="true" />{locale === "zh" ? "分享你的结果" : "Share your results"}</button>
+        <button type="button" disabled title="本地类型预览暂不支持比较个人结果"><HeartHandshake size={14} aria-hidden="true" />{locale === "zh" ? "比较" : "Compare"}</button>
+      </div>
+    </div>
+  </aside>;
 
   return (
     <aside data-testid="mbti-sticky-rail" data-result-sidebar="true" className={styles.rail}>

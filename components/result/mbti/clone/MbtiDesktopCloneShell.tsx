@@ -98,6 +98,8 @@ type MbtiDesktopCloneShellProps = {
   recommendedReadsNode?: ReactNode;
   footerNode?: ReactNode;
   faqReplacementNode?: ReactNode;
+  fullWidthFooterNode?: ReactNode;
+  referenceRail?: boolean;
   storageContentOverride?: MbtiDesktopCloneContent | null;
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageMetaOverride?: {
@@ -436,6 +438,8 @@ export function MbtiDesktopCloneShell({
   recommendedReadsNode = null,
   footerNode = null,
   faqReplacementNode,
+  fullWidthFooterNode,
+  referenceRail = false,
   storageContentOverride,
   storageAssetSlotsOverride,
   storageMetaOverride,
@@ -1352,9 +1356,11 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneRail
               locale={cloneLocale}
               profileIdentity={slots.hero.profileIdentity}
+              referenceLayout={referenceRail}
             />
           ) : null}
         </div>
+        {!snapshotMode && fullWidthFooterNode ? <div className={styles.fullWidthFooter}>{fullWidthFooterNode}</div> : null}
       </div>
     </div>
   );

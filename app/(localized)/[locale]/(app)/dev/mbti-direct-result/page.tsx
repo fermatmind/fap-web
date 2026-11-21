@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return <>
     <aside className="bg-emerald-50 px-6 py-3 text-sm text-emerald-950">本地预览 · ISFJ-A · 职业、成长与关系三章为本地付费内容候选；前部为已发布类型内容，分数沿用所选结果概览。</aside>
     <main className={`${styles.report} mx-auto max-w-[1320px] px-6 py-8 md:px-10`}>
-      <FullReportPreview data={previewStrengths(data)} dimensions={dimensions} applicationContent={applicationPreview} faqReplacementNode={<ResultEvidenceAndPrompts />} isUnlocked suppressUnlockSurfaces />
+      <FullReportPreview data={previewStrengths(data)} dimensions={dimensions} applicationContent={applicationPreview} faqReplacementNode={false} fullWidthFooterNode={<ResultEvidenceAndPrompts />} referenceRail isUnlocked suppressUnlockSurfaces />
     </main>
   </>;
 }
