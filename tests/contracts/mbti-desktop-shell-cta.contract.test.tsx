@@ -333,7 +333,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     const rail = screen.getByTestId("mbti-sticky-rail");
     expect(rail.parentElement?.contains(footer)).toBe(false);
     expect(screen.getByRole("navigation", { name: "本页内容" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "比较" })).toBeDisabled();
+    expect(screen.queryByRole("button", { name: "比较" })).not.toBeInTheDocument();
   });
   it("waits for Chinese trait content and fails the PDF explicitly if it cannot load", async () => {
     let rejectCatalog!: (error: Error) => void;

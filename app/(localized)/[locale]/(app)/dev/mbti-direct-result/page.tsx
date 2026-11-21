@@ -1,31 +1,33 @@
 import { notFound } from "next/navigation";
 import { fetchPersonalityDesktopCloneContent } from "@/lib/cms/personality-desktop-clone";
-import { applicationPreview } from "./application-preview";
-import { previewStrengths } from "./strengths-preview";
+import { applyChinesePreview, previewCodes, previewDimensions } from "./content-preview";
 import { FullReportPreview } from "../mbti-influential/FullReportPreview";
 import { ResultEvidenceAndPrompts } from "./ResultEvidenceAndPrompts";
 import styles from "./ai-conversation.module.css";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "ISFJ-A · MBTI 直接结果预览", robots: { index: false, follow: false } };
+export const metadata = { title: "MBTI 简体中文结果内容预览", robots: { index: false, follow: false } };
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Page({ params, searchParams }: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ type?: string | string[] }>;
+}) {
   if (process.env.NODE_ENV !== "development" || (await params).locale !== "zh") notFound();
-  const data = await fetchPersonalityDesktopCloneContent("ISFJ-A", "zh");
-  if (!data) return <p role="alert">ISFJ-A 已发布内容暂时无法加载，请稍后重试。</p>;
-  // Raw first-pole percentages are copied from the user-selected result overview.
-  // The report body is the published type content, not a private attempt snapshot.
-  const dimensions = [
-    { axisCode: "EI", leftCode: "E", rightCode: "I", leftLabel: "外向", rightLabel: "内向", dominantPole: "I", dominantLabel: "内向", rawFirstPolePct: 49, dominantPct: 51 },
-    { axisCode: "SN", leftCode: "S", rightCode: "N", leftLabel: "实感", rightLabel: "直觉", dominantPole: "S", dominantLabel: "实感", rawFirstPolePct: 65, dominantPct: 65 },
-    { axisCode: "TF", leftCode: "T", rightCode: "F", leftLabel: "思考", rightLabel: "情感", dominantPole: "F", dominantLabel: "情感", rawFirstPolePct: 47, dominantPct: 53 },
-    { axisCode: "JP", leftCode: "J", rightCode: "P", leftLabel: "判断", rightLabel: "知觉", dominantPole: "J", dominantLabel: "判断", rawFirstPolePct: 54, dominantPct: 54 },
-    { axisCode: "AT", leftCode: "A", rightCode: "T", leftLabel: "坚定", rightLabel: "敏感", dominantPole: "A", dominantLabel: "坚定", rawFirstPolePct: 50, dominantPct: 50 },
-  ];
+  const requested = (await searchParams).type;
+  const fullCode = typeof requested === "string" ? requested.toUpperCase() : "ISFJ-A";
+  if (Array.isArray(requested) || !previewCodes.includes(fullCode)) notFound();
+  const published = await fetchPersonalityDesktopCloneContent(fullCode, "zh");
+  if (!published) return <p role="alert">{fullCode} 已发布内容暂时无法加载，请稍后重试。</p>;
+  const candidate = applyChinesePreview(published);
   return <>
-    <aside className="bg-emerald-50 px-6 py-3 text-sm text-emerald-950">本地预览 · ISFJ-A · 职业、成长与关系三章为本地付费内容候选；前部为已发布类型内容，分数沿用所选结果概览。</aside>
+    <aside className="bg-emerald-50 px-6 py-3 text-sm text-emerald-950">
+      本地预览 · {fullCode} · 简体中文三章内容候选；前部为已发布类型内容。分数仅作展示示例，不代表真实测评结果。
+      <details className="mt-2"><summary className="cursor-pointer">切换预览类型（32 个变体）</summary>
+        <nav aria-label="本地预览类型" className="mt-2 flex flex-wrap gap-3">{previewCodes.map((code) => <a key={code} href={`?type=${code}`} aria-current={code === fullCode ? "page" : undefined}>{code}</a>)}</nav>
+      </details>
+    </aside>
     <main className={`${styles.report} mx-auto max-w-[1320px] px-6 py-8 md:px-10`}>
-      <FullReportPreview data={previewStrengths(data)} dimensions={dimensions} applicationContent={applicationPreview} faqReplacementNode={false} fullWidthFooterNode={<ResultEvidenceAndPrompts />} referenceRail isUnlocked suppressUnlockSurfaces />
+      <FullReportPreview data={candidate.data} dimensions={previewDimensions(fullCode)} applicationContent={candidate.applications} faqReplacementNode={false} fullWidthFooterNode={<ResultEvidenceAndPrompts fullCode={fullCode} />} referenceRail isUnlocked suppressUnlockSurfaces />
     </main>
   </>;
 }

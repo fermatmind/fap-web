@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Crown, Share2, HeartHandshake } from "lucide-react";
+import { Crown, HeartHandshake, Share2 } from "lucide-react";
 import reference from "./MbtiCloneRail.reference.module.css";
 import {
   getMbtiDesktopAnchorHash,
@@ -104,7 +104,7 @@ export function MbtiCloneRail({
       </nav>
       <div className={reference.tools}>
         <button type="button" disabled title="本地类型预览暂不支持分享个人结果"><Share2 size={14} aria-hidden="true" />{locale === "zh" ? "分享你的结果" : "Share your results"}</button>
-        <button type="button" disabled title="本地类型预览暂不支持比较个人结果"><HeartHandshake size={14} aria-hidden="true" />{locale === "zh" ? "比较" : "Compare"}</button>
+        {locale === "en" ? <button type="button" disabled title="本地类型预览暂不支持比较个人结果"><HeartHandshake size={14} aria-hidden="true" />Compare</button> : null}
       </div>
     </div>
   </aside>;

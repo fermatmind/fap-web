@@ -23,6 +23,13 @@ describe("MBTI preview evidence and AI prompts", () => {
     expect(screen.getByRole("link", { name: /付费.*下载完整PDF/ })).toHaveAttribute("href", "https://fermatmind.com/zh/history/mbti");
   });
 
+  it.each(["INFP-T", "ENTJ-A", "ESTP-T"])("uses the %s identity in the prompt and illustration", (code) => {
+    render(<ResultEvidenceAndPrompts fullCode={code} />);
+    expect(screen.getByTestId("mbti-ai-prompt-text")).toHaveTextContent(`结果是 ${code}`);
+    expect(screen.getByTestId("mbti-ai-prompt-text")).not.toHaveTextContent("ISFJ-A");
+    expect(document.querySelector("img")?.getAttribute("src")).toContain(`/ai-conversation/${code.slice(0, 4).toLowerCase()}.webp`);
+  });
+
   it("copies the selected prompt with concrete context and a request to ask before advising", async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
