@@ -1,0 +1,117 @@
+{
+  "ui": {
+    "unavailable": "This sample cannot be displayed. Choose a valid result and try again.",
+    "sample": "Sample report",
+    "sampleNote": "One set of answers, one possible result. Your own report is based on your choices.",
+    "form": "DISC · 24 questions",
+    "switchResult": "Switch local result preview",
+    "previewCount": "15 results · reachable example scores",
+    "tied": "tied",
+    "tests": "Tests",
+    "breadcrumb": "Breadcrumb",
+    "artNote": "Illustrative scene",
+    "directionsLabel": "Directions to observe",
+    "traits": "Signature traits",
+    "readResult": "Read this result",
+    "scores": "Your four selection counts",
+    "scoreNote": "24 paired choices; the four counts total 24. They reflect relative choices within this question set, not ability scores or population percentiles.",
+    "portraitTied": "Perspectives on the tied result",
+    "portrait": "Your behavioural portrait",
+    "strengthsTied": "Five approaches to try",
+    "strengths": "Strengths you could put to use",
+    "strengthsIntro": "Use specific situations to consider what has helped and what you would still like to try.",
+    "growth": "Four reminders for more effective action",
+    "growthIntro": "When an approach stops helping, notice changes in context, workload and other people’s needs.",
+    "life": "Work and relationships",
+    "work": "At work",
+    "relationships": "In relationships",
+    "career": "Explore your preferences through real tasks",
+    "careerIntro": "Choose a low-risk task below. Record your interest, practical difficulties and feedback separately. Fewer selections do not mean lacking an ability.",
+    "careerNote": "These tasks offer exploration prompts, not a career-match list or a basis for hiring or suitability decisions.",
+    "other3": "Explore the other three directions",
+    "other2": "Explore the other two directions",
+    "other1": "Explore the remaining direction",
+    "othersIntro": "Directions outside this attempt’s highest count can also offer different perspectives.",
+    "science": "Scientific basis",
+    "source": "References",
+    "newWindow": "(opens in a new window)",
+    "method": "About FermatMind’s assessment methods",
+    "print": "Print or save PDF",
+    "languages": "DISC preview language",
+    "unlock": "View the unlock page",
+    "fullResult": "View the complete result"
+  },
+  "directions": [
+    {
+      "title": "Moving things forward",
+      "body": "When a task needs a start, clarify the goal and one adjustable next step."
+    },
+    {
+      "title": "Engaging through expression",
+      "body": "When discussion has not begun, explain the idea and invite responses."
+    },
+    {
+      "title": "Steady support",
+      "body": "When action needs to continue, check a pace and support people can sustain."
+    },
+    {
+      "title": "Standards and checks",
+      "body": "When a plan needs implementing, check evidence, standards and easily missed details."
+    }
+  ],
+  "alts": [
+    "An initiator holding a map and pointing ahead",
+    "A communicator opening a sketchbook and inviting conversation",
+    "A supporter helping a plant stand upright",
+    "A checker measuring a wooden model",
+    "Two people comparing a map and sketchbook to discuss the next step",
+    "Two people considering a route forward and a place to rest",
+    "Two people checking a map and the conditions of a small bridge model",
+    "Two people sharing a sketchbook and listening attentively",
+    "Two people comparing a creative sketch with a wooden model",
+    "Two people caring for a plant and checking its support",
+    "Three people discussing a picnic route, ideas and rest arrangements",
+    "Three people discussing a windmill model, sketches, measurements and a trial",
+    "Three people building, supporting and checking a small bridge model",
+    "Three people sharing, listening and checking a model around a table",
+    "Four people participating equally in a discussion of different approaches"
+  ],
+  "evidence": {
+    "science": [
+      {
+        "title": "Model origins: four behavioural directions",
+        "body": "The historical foundations of DISC can be traced to Marston’s 1928 theory, followed by the development of different instruments. FermatMind organises situational choices around D, moving things forward; I, engaging through expression; S, steady support; and C, standards and checks. These directions support discussion of behaviour, not four fixed personality categories. FermatMind’s original 24-item questionnaire is not Wiley’s commercial Everything DiSC instrument.",
+        "reference": "[1]"
+      },
+      {
+        "title": "Scoring: comparing this attempt’s choices",
+        "body": "The 24 questions cover the six pairs among four directions, with each pair appearing four times. Each answer adds one count to the chosen direction. The four counts total 24, and each ranges from 0–12. Every direction tied for the highest count is retained; nearby scores are not merged into a blended type. With a fixed total, choosing one direction passes over another. Counts therefore compare choices within the set, rather than ability or population percentiles.",
+        "reference": ""
+      },
+      {
+        "title": "Research evidence: check the specific instrument",
+        "body": "Wiley’s research report concerns its Everything DiSC instrument and does not validate FermatMind’s 24 items. In a DISCUS study of 103 undergraduates, Martinussen and colleagues found that the ipsative and normative versions were not equivalent. This cautions against directly converting scores or sharing validation conclusions across instruments, scoring methods or study populations merely because model names are similar.",
+        "reference": "[1][2]"
+      },
+      {
+        "title": "Scope: self-observation and communication",
+        "body": "FermatMind has not established internal consistency, test–retest reliability, structural validity, criterion relationships or Chinese reference norms for this questionnaire. Current results are for entertainment and everyday self-exploration; the scenarios and exercises are editorial suggestions for checking experience. Results are not for clinical diagnosis, hiring or promotion decisions, nor do they establish leadership ability, occupational qualifications or relationship compatibility.",
+        "reference": ""
+      }
+    ],
+    "sources": [
+      {
+        "id": "disc-source-1",
+        "title": "Wiley · Everything DiSC Research Report",
+        "detail": "Model background and measurement research on this commercial instrument; see Section 1.",
+        "url": "https://www.everythingdisc.com/EverythingDiSC/media/SiteFiles/Assets/History/Everything-DiSC-Research-Report.pdf"
+      },
+      {
+        "id": "disc-source-2",
+        "title": "Martinussen, Richardsen & Vårum (2001)",
+        "detail": "Validation of an ipsative personality measure (DISCUS). Scandinavian Journal of Psychology, 42(5), 411–416.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11771810/"
+      }
+    ]
+  }
+}

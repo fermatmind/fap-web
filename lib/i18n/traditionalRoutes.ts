@@ -48,7 +48,7 @@ export function traditionalPath(pathname: string): string | null {
   if (process.env.NODE_ENV === "development" && ["/dev/eq-result", "/dev/mainstream-unlock"].includes(path)) return `/zh-TW${path}`;
   if (/^\/reports\/samples\/(?:mbti|big5|enneagram|iq30|iq40|eq|archetypes|cognitive|disc)$/u.test(path)) return `/zh-TW${path}`;
   if (process.env.NODE_ENV === "development" && prefix === "zh-TW"
-    && path === "/tests/holland-career-interest-test-riasec/preview") return `/zh-TW${path}`;
+    && (path === "/tests/holland-career-interest-test-riasec/preview" || path === "/dev/mainstream-unlock")) return `/zh-TW${path}`;
   if (ACCOUNT_DISPLAY_PATHS.some(entry => entry === path) || HISTORY_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (EMAIL_DISPLAY_PATHS.some(entry => entry === path)) return `/zh-TW${path}`;
   if (path === "/results/lookup") return "/zh-TW/results/lookup";
