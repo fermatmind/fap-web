@@ -6,7 +6,7 @@ describe("English assessment search copy", () => {
   it.each([
     ["MBTI", "Free MBTI Personality Test", "free 16-type result"],
     ["BIG5_OCEAN", "OCEAN", "30 facets"],
-    ["ENNEAGRAM", "9-Type", "two-option choices"],
+    ["ENNEAGRAM", "9-Type", "105-item Enneagram self-report"],
     ["IQ_RAVEN", "Matrix Reasoning", "Free basic results"],
     ["EQ_60", "Emotional Intelligence", "self-report"],
     ["RIASEC", "Holland Code", "three-letter code"],
@@ -41,7 +41,7 @@ describe("English assessment search copy", () => {
     ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits & Results", "five continuous personality traits"],
     ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试（EQ）：60题自评与四维结果", "约10分钟完成60题情商自评"],
     ["EQ_60", "en", "Free Emotional Intelligence Test (EQ)", "Free Emotional Intelligence Test (EQ) & Results", "60-question emotional intelligence self-report in about 10 minutes"],
-    ["ENNEAGRAM", "zh", "九型人格测试（免费版）", "九型人格测试免费版：105/144题与结果解读", "了解你的九型分布与候选类型。"],
+    ["ENNEAGRAM", "zh", "九型人格测试（免费版）", "九型人格测试免费版：105 题与结果解读", "了解你的九型分布与候选类型。"],
     ["ENNEAGRAM", "en", "Free Enneagram Personality Test", "Free Enneagram Test: Explore Your 9-Type Profile", "Explore your nine-type distribution and candidate types."],
   ] as const)("keeps the approved %s %s H1, search title and hero introduction", (code, locale, title, seoTitle, heroStart) => {
     const copy = getAssessmentLandingUi(SCALE_CANONICAL_SLUG_MAP[code], locale)!;

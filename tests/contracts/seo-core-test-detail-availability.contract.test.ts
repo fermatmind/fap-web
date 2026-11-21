@@ -366,7 +366,7 @@ describe("SEO core test detail availability", () => {
     await expect(generateStaticParams()).resolves.toHaveLength(12);
   });
 
-  it.each(["en", "zh"] as const)("preserves bounded attribution on rendered Enneagram form links (%s)", async (locale) => {
+  it.each(["en", "zh"] as const)("preserves bounded attribution on the active Enneagram form link (%s)", async (locale) => {
     const query = {
       utm_source: "article",
       utm_medium: "content",
@@ -399,7 +399,7 @@ describe("SEO core test detail availability", () => {
     const root = document.createElement("div");
     root.innerHTML = renderToStaticMarkup(intro!);
     const links = [...root.querySelectorAll<HTMLAnchorElement>('a[data-testid^="test-detail-landing-cta-"]')];
-    expect(links).toHaveLength(2);
+    expect(links).toHaveLength(1);
     const forms: string[] = [];
     for (const link of links) {
       const href = new URL(link.getAttribute("href")!, "https://fermatmind.com");
@@ -412,7 +412,7 @@ describe("SEO core test detail availability", () => {
       }
       forms.push(href.searchParams.get("form")!);
     }
-    expect(forms.sort()).toEqual(["enneagram_forced_choice_144", "enneagram_likert_105"]);
+    expect(forms).toEqual(["enneagram_likert_105"]);
   });
 
   it.each(CORE_ROUTE_MATRIX)(
