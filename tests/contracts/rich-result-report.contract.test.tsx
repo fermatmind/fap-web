@@ -1,12 +1,10 @@
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import {
   fetchPersonalityDesktopCloneContent,
-  type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
-import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
@@ -54,14 +52,9 @@ function getDesktopStickyRail(): HTMLElement {
   return within(getDesktopCloneShell()).getByTestId("mbti-sticky-rail");
 }
 
-function getDesktopHero(): HTMLElement {
-  return within(getDesktopCloneShell()).getByTestId("mbti-hero");
-}
 
-function clickWithoutNavigation(element: HTMLElement) {
-  element.addEventListener("click", (event) => event.preventDefault(), { once: true });
-  fireEvent.click(element);
-}
+
+
 
 function createReportFixture(): ReportResponse {
   return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
@@ -71,48 +64,7 @@ function createProjectionReportFixture(): ReportResponse {
   return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
 }
 
-function createDtoPreviewFixture(): ReportResponse {
-  const reportData = applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
-  const sections = reportData.report?.sections as Record<string, unknown> | undefined;
-  const growthSection = sections?.growth as { cards?: Array<Record<string, unknown>> } | undefined;
 
-  if (!growthSection) {
-    throw new Error("Expected growth section in MBTI fixture");
-  }
-
-  growthSection.cards = [];
-  reportData.locked = true;
-  reportData.variant = "free";
-  reportData.access_level = "free";
-  reportData.modules_allowed = ["core_free"];
-  reportData.modules_preview = ["core_full"];
-  reportData.mbti_preview_v1 = {
-    mode: "module_preview",
-    modules: ["core_full"],
-    sections: [
-      {
-        key: "growth",
-        module_code: "core_full",
-        has_preview_content: true,
-        visible_preview_cards: [
-          {
-            id: "dto_growth_card",
-            title: "DTO preview growth card",
-            body: "DTO-owned preview content should render even without raw section cards.",
-            bullets: ["DTO path is authoritative"],
-            tips: [],
-            tags: ["dto"],
-            module_code: "core_full",
-            access_level: "preview",
-          },
-        ],
-        has_locked_remainder: true,
-      },
-    ],
-  };
-
-  return reportData;
-}
 
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
   return {
@@ -134,183 +86,9 @@ function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> 
   };
 }
 
-function createUnlockedAccessProjection(): AttemptReportAccessView {
-  return {
-    attemptId: "attempt-123",
-    accessState: "ready",
-    reportState: "ready",
-    pdfState: "ready",
-    unlockStage: "full",
-    unlockSource: "payment",
-    reasonCode: "report_ready",
-    accessLevel: "paid",
-    variant: "full",
-    projectionVersion: 1,
-    modulesAllowed: ["core_free", "core_full"],
-    modulesPreview: [],
-    actions: {
-      pageHref: "/zh/result/attempt-123",
-      pdfHref: "/api/v0.3/attempts/attempt-123/report.pdf",
-      waitHref: null,
-      historyHref: "/zh/history/mbti",
-      lookupHref: "/zh/orders/lookup",
-    },
-    meta: {
-      producedAt: "2026-05-01T00:00:00.000Z",
-      refreshedAt: "2026-05-01T00:00:00.000Z",
-    },
-  };
-}
 
-function createDesktopClonePayload(fullCode: "ENFJ-T"): PersonalityDesktopCloneContentPayload {
-  const keywordSet = ["共情", "愿景感", "协调者", "服务型领导", "价值驱动", "自我反思"];
-  const listItems = [1, 2, 3, 4, 5, 6].map((index) => ({
-    title: `list title ${index}`,
-    body: `list body ${index}`,
-  })) as [
-    { title: string; body: string },
-    { title: string; body: string },
-    { title: string; body: string },
-    { title: string; body: string },
-    { title: string; body: string },
-    { title: string; body: string },
-  ];
 
-  return {
-    templateKey: "mbti_desktop_clone_v1",
-    schemaVersion: "v1",
-    fullCode,
-    baseCode: "ENFJ",
-    locale: "zh-CN",
-    content: {
-      hero: {
-        summary: "desktop clone hero summary",
-        profileIdentity: {
-          code: "ENFJ-T",
-          name: "主人公型",
-          nickname: "温柔引路人",
-          rarity: "约 2–5%",
-          keywords: keywordSet,
-        },
-      },
-      intro: { paragraphs: ["intro paragraph 1", "intro paragraph 2"] },
-      lettersIntro: {
-        headline: "letters headline",
-        letters: [
-          { letter: "E", title: "外向", description: "说明一" },
-          { letter: "N", title: "直觉", description: "说明二" },
-        ],
-      },
-      overview: {
-        title: "overview title",
-        paragraphs: ["overview 1", "overview 2"],
-      },
-      traits: {
-        summaryPane: {
-          eyebrow: "traits eyebrow",
-          title: "traits title",
-          value: "67%",
-          body: "traits body",
-        },
-        body: ["traits paragraph 1", "traits paragraph 2"],
-      },
-      chapters: {
-        career: {
-          intro: ["career intro 1", "career intro 2"],
-          influentialTraits: [
-            { label: "trait 1", body: "trait body 1", colorKey: "blue" },
-            { label: "trait 2", body: "trait body 2", colorKey: "gold" },
-            { label: "trait 3", body: "trait body 3", colorKey: "green" },
-            { label: "trait 4", body: "trait body 4", colorKey: "purple" },
-          ],
-          visibleBlocks: [{ title: "career visible", items: listItems }],
-          lockedBlocks: [
-            {
-              title: "career locked 1",
-              overlayTitle: "overlay 1",
-              overlayBody: "overlay body 1",
-              overlayCtaLabel: "解锁完整报告",
-              blurredItems: listItems,
-            },
-            {
-              title: "career locked 2",
-              overlayTitle: "overlay 2",
-              overlayBody: "overlay body 2",
-              overlayCtaLabel: "解锁完整报告",
-              blurredItems: listItems,
-            },
-          ],
-        },
-        growth: {
-          intro: ["growth intro 1", "growth intro 2"],
-          influentialTraits: [
-            { label: "trait 1", body: "trait body 1", colorKey: "blue" },
-            { label: "trait 2", body: "trait body 2", colorKey: "gold" },
-            { label: "trait 3", body: "trait body 3", colorKey: "green" },
-            { label: "trait 4", body: "trait body 4", colorKey: "purple" },
-          ],
-          visibleBlocks: [{ title: "growth visible", items: listItems }],
-          lockedBlocks: [
-            {
-              title: "growth locked 1",
-              overlayTitle: "overlay 1",
-              overlayBody: "overlay body 1",
-              overlayCtaLabel: "解锁完整报告",
-              blurredItems: listItems,
-            },
-            {
-              title: "growth locked 2",
-              overlayTitle: "overlay 2",
-              overlayBody: "overlay body 2",
-              overlayCtaLabel: "解锁完整报告",
-              blurredItems: listItems,
-            },
-          ],
-        },
-        relationships: {
-          intro: ["relationships intro 1", "relationships intro 2"],
-          influentialTraits: [
-            { label: "trait 1", body: "trait body 1", colorKey: "blue" },
-            { label: "trait 2", body: "trait body 2", colorKey: "gold" },
-            { label: "trait 3", body: "trait body 3", colorKey: "green" },
-            { label: "trait 4", body: "trait body 4", colorKey: "purple" },
-          ],
-          visibleBlocks: [{ title: "relationships visible", items: listItems }],
-          lockedBlocks: [
-            {
-              title: "relationships locked 1",
-              overlayTitle: "overlay 1",
-              overlayBody: "overlay body 1",
-              overlayCtaLabel: "解锁完整报告",
-              blurredItems: listItems,
-            },
-            {
-              title: "relationships locked 2",
-              overlayTitle: "overlay 2",
-              overlayBody: "overlay body 2",
-              overlayCtaLabel: "解锁完整报告",
-              blurredItems: listItems,
-            },
-          ],
-        },
-      },
-      finalOffer: {
-        eyebrow: "final offer eyebrow",
-        headline: "final offer headline",
-        body: "final offer body",
-        priceLabel: "¥199",
-        ctaLabel: "解锁完整报告",
-        guarantee: "guarantee",
-      },
-    },
-    assetSlots: [],
-    meta: {
-      authority_source: "storage",
-      route_mode: "desktop-clone",
-      public_route_type: "full_code_exact",
-    },
-  };
-}
+
 
 describe("RichResultReport", () => {
   beforeEach(() => {
@@ -319,175 +97,37 @@ describe("RichResultReport", () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
   });
 
-  it("routes MBTI public hero and canonical sections through projection while keeping commerce and authored layers on legacy", () => {
-    const reportData = createProjectionReportFixture();
-    expect(reportData.cta).toMatchObject({
-      visible: true,
-      kind: "upsell",
-      target_sku: "MBTI_REPORT_FULL",
-      target_sku_effective: "MBTI_REPORT_FULL_199",
-    });
-    if (!reportData.report) {
-      throw new Error("Expected report payload");
-    }
-    if (!reportData.report.layers?.identity) {
-      throw new Error("Expected identity layer");
-    }
-    for (const read of reportData.report.recommended_reads ?? []) {
-      read.url = `/zh/articles/${read.id}`;
-      read.canonical_url = `/zh/articles/${read.id}`;
-    }
-    reportData.cta = createCustomCta({
-      title: "Unified MBTI unlock plan",
-      subtitle: "Use one primary commerce surface and keep the rest as mirrors.",
-      primary_label: "Unlock the authored MBTI report",
-      benefit_bullets: ["Formal entitlement A", "Formal entitlement B"],
-      badge: "Primary",
-    });
+  it("renders the shared editorial body while preserving native scores and ignoring legacy commerce copy", () => {
+ const data=createProjectionReportFixture(); const before=JSON.stringify(data);
+ render(<RichResultReport locale="zh" reportData={data}/>);
+ expect(screen.getByTestId("mbti-hero")).toHaveTextContent("ENFP-T");
+ for(const key of ["traits","career","growth","relationships"]) expect(screen.getByTestId(`mbti-chapter-${key}`)).toBeInTheDocument();
+ expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
+ expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
+ expect(JSON.stringify(data)).toBe(before);
+});
 
-    render(<RichResultReport locale="zh" reportData={reportData} />);
+  it("keeps the editorial type identity independent of the retired public clone payload", () => {
+ const data=createProjectionReportFixture(); render(<RichResultReport locale="zh" reportData={data}/>);
+ expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
+ expect(screen.getByTestId("mbti-hero")).toHaveTextContent(String(data.mbti_public_projection_v1?.display_type));
+ expect(screen.getByTestId("mbti-sticky-rail")).toHaveTextContent(String(data.mbti_public_projection_v1?.display_type));
+});
 
-    const hero = getPrimaryByTestId("mbti-hero");
-    const stickyRail = getDesktopStickyRail();
-    const traitsChapter = screen.getByTestId("mbti-chapter-traits");
-    const careerChapter = screen.getByTestId("mbti-chapter-career");
-    const growthChapter = screen.getByTestId("mbti-chapter-growth");
-    const relationshipsChapter = screen.getByTestId("mbti-chapter-relationships");
-    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
-    const offerComparison = getPrimaryByTestId("mbti-offer-comparison");
-    const reads = screen.getByTestId("mbti-recommended-reads");
+  it("keeps locked legacy metadata from restoring a purchase surface or replacing the editorial chapters", () => {
+ const data=createProjectionReportFixture(); data.locked=true;
+ render(<RichResultReport locale="zh" reportData={data}/>);
+ expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
+ expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
+ expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
+});
 
-    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(hero).toBeInTheDocument();
-    expect(traitsChapter).toBeInTheDocument();
-    expect(careerChapter).toBeInTheDocument();
-    expect(growthChapter).toBeInTheDocument();
-    expect(relationshipsChapter).toBeInTheDocument();
-    expect(offerComparison).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
-    expect(stickyRail).toBeInTheDocument();
-
-    expect(traitsChapter.compareDocumentPosition(careerChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(careerChapter.compareDocumentPosition(growthChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(growthChapter.compareDocumentPosition(relationshipsChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(offerComparison.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-
-    expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).not.not.toHaveTextContent("本次类型仅呈轻微偏向");
-    expect(hero).not.toHaveTextContent("两侧方式都可能出现");
-    expect(hero).not.toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
-    expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
-    expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
-    expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
-
-    expect(within(offerComparison).queryByText(/占位/)).not.toBeInTheDocument();
-    expect(within(offerComparison).getByText("¥1.99")).toBeInTheDocument();
-    expect(within(offerComparison).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
-    expect(within(offerComparison).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
-    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-traits-tools")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
-    expect(within(stickyRail).queryByRole("link", { name: "重测" })).not.toBeInTheDocument();
-
-    clickWithoutNavigation(screen.getByRole("link", { name: "Read the action note" }));
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_interaction",
-      expect.objectContaining({
-        visual_kind: "recommended_read_card",
-        interaction: "click",
-      })
-    );
-  });
-
-  it("rewires the current visible hero and rail identity to authored desktop clone profileIdentity", async () => {
-    const reportData = createProjectionReportFixture();
-    const projection = reportData.mbti_public_projection_v1 as Record<string, unknown>;
-    const summaryCard = projection.summary_card as Record<string, unknown>;
-
-    projection.runtime_type_code = "ENFJ-T";
-    projection.display_type = "ENFJ-T";
-    projection.canonical_type_code = "ENFJ";
-    projection.variant_code = "T";
-    summaryCard.title = "Projection Campaigner";
-
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createDesktopClonePayload("ENFJ-T"));
-
-    render(
-      <RichResultReport
-        locale="zh"
-        reportData={reportData}
-        accessProjection={createUnlockedAccessProjection()}
-      />
-    );
-
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENFJ-T", "zh");
-    });
-
-    await waitFor(() => {
-      const hero = getDesktopHero();
-      const stickyRail = getDesktopStickyRail();
-      const railIdentity = within(stickyRail).getByTestId("mbti-rail-profile-identity");
-
-      expect(within(hero).getByRole("heading", { name: "ENFJ-T" })).toBeInTheDocument();
-      expect(within(hero).getByTestId("mbti-hero-identity-line")).toHaveTextContent("主人公型");
-      expect(within(hero).queryByTestId("mbti-hero-rarity")).not.toBeInTheDocument();
-      expect(within(hero).getByTestId("mbti-hero-keywords")).toHaveTextContent("共情");
-      expect(within(hero).getByTestId("mbti-hero-keywords")).toHaveTextContent("自我反思");
-      expect(hero).not.toHaveTextContent("Projection Campaigner");
-
-      expect(railIdentity).toHaveTextContent("ENFJ-T");
-      expect(railIdentity).toHaveTextContent("主人公型");
-      expect(railIdentity).not.toHaveTextContent("稀有度");
-      expect(railIdentity).toHaveTextContent("共情");
-      expect(railIdentity).not.toHaveTextContent("Projection Tag Alpha");
-    });
-  });
-
-  it("requests public desktop clone storage for locked MBTI results without leaking paid-only blocks", async () => {
-    const reportData = createProjectionReportFixture();
-    const projection = reportData.mbti_public_projection_v1 as Record<string, unknown>;
-
-    projection.runtime_type_code = "ENFJ-T";
-    projection.display_type = "ENFJ-T";
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createDesktopClonePayload("ENFJ-T"));
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    await waitFor(() => {
-      expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    });
-
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENFJ-T", "zh");
-    });
-
-    expect(getDesktopHero()).not.toHaveTextContent("本次类型仅呈轻微偏向");
-    expect(getDesktopHero()).not.toHaveTextContent("desktop clone hero summary");
-    expect(getDesktopHero()).toHaveTextContent("主人公型");
-    expect(screen.getByText("career intro 1")).toBeInTheDocument();
-    expect(screen.queryByText("trait 1")).not.toBeInTheDocument();
-    for (const chapter of ["career", "growth", "relationships"]) {
-      expect(screen.getByTestId(`mbti-${chapter}-traits-lock-panel`)).toBeInTheDocument();
-    }
-    expect(screen.queryByText("career locked 1")).not.toBeInTheDocument();
-    expect(screen.queryByText("growth locked 1")).not.toBeInTheDocument();
-    expect(screen.queryByText("relationships locked 1")).not.toBeInTheDocument();
-  });
-
-  it("prefers mbti_preview_v1 over raw section scraping for MBTI preview chapters", () => {
-    render(<RichResultReport locale="zh" reportData={createDtoPreviewFixture()} />);
-
-    const growthChapter = screen.getByTestId("mbti-chapter-growth");
-
-    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
-    expect(screen.queryByText("DTO preview growth card")).not.toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-premium-growth-what-energizes")).toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-premium-growth-what-drains")).toBeInTheDocument();
-  });
+  it("keeps legacy preview cards outside the shared editorial result", () => {
+ const data=createProjectionReportFixture(); render(<RichResultReport locale="zh" reportData={data}/>);
+ expect(screen.getByTestId("mbti-evidence-and-prompts")).toBeInTheDocument();
+ expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
+ expect(screen.queryByTestId("mbti-growth-traits-lock-panel")).not.toBeInTheDocument();
+});
 
   it("renders MBTI cross-assessment enhancements from backend authority without frontend inference", () => {
     const reportData = createProjectionReportFixture();
@@ -580,7 +220,7 @@ describe("RichResultReport", () => {
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-hero")).not.toHaveTextContent("本次类型仅呈轻微偏向");

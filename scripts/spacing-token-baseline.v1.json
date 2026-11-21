@@ -51,24 +51,6 @@
       "count": 1
     },
     {
-      "file": "components/result/mbti/MbtiOfferComparisonSection.tsx",
-      "rule": "disallowed-spacing-key",
-      "snippet": "mt-28",
-      "count": 1
-    },
-    {
-      "file": "components/result/mbti/MbtiResultShell.tsx",
-      "rule": "disallowed-spacing-key",
-      "snippet": "mt-28",
-      "count": 1
-    },
-    {
-      "file": "components/result/mbti/MbtiResultShell.tsx",
-      "rule": "disallowed-spacing-key",
-      "snippet": "pb-28",
-      "count": 1
-    },
-    {
       "file": "components/result/mbti/MbtiSceneFingerprintSummary.tsx",
       "rule": "disallowed-spacing-key",
       "snippet": "mt-28",

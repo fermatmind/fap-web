@@ -1,62 +1,56 @@
-import { render, screen, within } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { RichResultReport } from "@/components/result/RichResultReport";
-import type { ReportResponse } from "@/lib/api/v0_3";
-import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
-import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
-
-const hoisted = vi.hoisted(() => ({
-  trackEvent: vi.fn(),
-  trackObservableFunnelEvent: vi.fn(),
-}));
-
-
-vi.mock("@/lib/cms/personality-result-introduction", () => ({
-  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
-    fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
-    paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
-  })),
-}));
-
-vi.mock("next/navigation", () => ({
-  usePathname: () => "/zh/result/attempt-123",
-}));
-
-vi.mock("@/lib/analytics", () => ({
-  trackEvent: hoisted.trackEvent,
-  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
-}));
+import { render, screen, within } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
+import { RichResultReport } from "@/components/result/RichResultReport";
+import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+import { getMbtiResultContent } from "@/lib/mbti/result-content";
+import type { ReportResponse } from "@/lib/api/v0_3";
+import fixture from "@/tests/fixtures/report_ready.mbti.projection.json";
+vi.mock("next/navigation", () => ({ usePathname: () => "/en/result/attempt-123" }));
+vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
+vi.mock("@/lib/cms/personality-result-introduction", () => ({ fetchPersonalityResultIntroduction: vi.fn(async () => null) }));
+describe("MBTI editorial authority and compatible report metadata", () => {
+  it.each(["zh", "en"] as const)("keeps %s projection scores and identity without the retired commerce or recommendation layout", (locale) => {
+    const data = structuredClone(fixture) as unknown as ReportResponse;
+    const before = JSON.stringify(data);
+    const projection = buildMbtiResultProjectionViewModel(data)!;
+    const content = getMbtiResultContent(projection.displayType, locale)!;
+    render(<RichResultReport locale={locale} reportData={data} />);
+    expect(within(screen.getByTestId("mbti-hero")).getByText(projection.displayType)).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent(content.data.content.hero.profileIdentity!.name);
+    expect(screen.getByTestId("mbti-traits-card")).toHaveTextContent(`${projection.dimensions[0].dominantPct}%`);
+    expect(screen.queryByTestId("mbti-result-faq")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
+    expect(JSON.stringify(data)).toBe(before);
+  });
+  it("keeps shared editorial chapters available when legacy authored layers and recommendations are absent", () => {
+    const data = structuredClone(fixture) as unknown as ReportResponse;
+    data.report!.layers = undefined;
+    data.report!.recommended_reads = [];
+    render(<RichResultReport locale="en" reportData={data} />);
+    const content = getMbtiResultContent("ENFP-T", "en")!;
+    for (const chapter of ["career", "growth", "relationships"] as const) {
+      expect(screen.getByTestId(`mbti-chapter-${chapter}`)).toHaveTextContent(content.data.content.chapters[chapter].intro[0]);
+    }
+  });
+  it("does not render unsafe or stale backend recommendations over the shared result content", () => {
+    const data = structuredClone(fixture) as unknown as ReportResponse;
+    for (const read of data.report!.recommended_reads ?? []) { read.title = "Unsafe backend read"; read.url = "javascript:alert(1)"; read.canonical_url = "javascript:alert(1)"; }
+    render(<RichResultReport locale="en" reportData={data} />);
+    expect(screen.queryByText("Unsafe backend read")).not.toBeInTheDocument();
+    expect(document.querySelector('a[href^="javascript:"]')).toBeNull();
+  });
+});
 
 function createReportFixture(
   options?: Parameters<typeof applyMbtiPhase2Fixture>[1]
 ): ReportResponse {
   return applyMbtiPhase2Fixture(
-    structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
+    structuredClone(fixture) as ReportResponse,
     options
   );
 }
-
-function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
-  return {
-    visible: true,
-    kind: "upsell",
-    title: "解锁完整 MBTI 报告",
-    subtitle: "查看更完整的人格层、成长路线、关系洞察与推荐阅读。",
-    primary_label: "解锁完整报告",
-    secondary_label: "先看免费版",
-    benefit_bullets: [
-      "获得四大正式模块的完整正文与更深的分析视角",
-      "查看稳定输出的推荐阅读与更完整的人格层内容",
-      "继续沿用当前结果，无需重新测试即可解锁",
-    ],
-    badge: "完整版",
-    target_sku: "MBTI_REPORT_FULL",
-    target_sku_effective: "MBTI_REPORT_FULL_199",
-    ...overrides,
-  };
-}
-
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return null;
@@ -64,11 +58,6 @@ function asRecord(value: unknown): Record<string, unknown> | null {
 
   return value as Record<string, unknown>;
 }
-
-function getPrimaryByTestId(testId: string): HTMLElement {
-  return screen.getAllByTestId(testId)[0] as HTMLElement;
-}
-
 function getSectionPersonalization(reportData: ReportResponse, sectionKey: string) {
   const viewModel = buildMbtiResultProjectionViewModel(reportData);
   const section = viewModel.sections.find((item) => item.key === sectionKey);
@@ -80,7 +69,6 @@ function getSectionPersonalization(reportData: ReportResponse, sectionKey: strin
 
   return { viewModel, personalization };
 }
-
 function overrideProjectionSectionSelection(
   reportData: ReportResponse,
   sectionKey: string,
@@ -106,268 +94,20 @@ function overrideProjectionSectionSelection(
   sectionSelectionKeys[sectionKey] = sectionSelectionKey;
   metaPersonalization.section_selection_keys = sectionSelectionKeys;
 }
-
-function createEnglishPublishedProjectionFixture(locked = false): ReportResponse {
-  const report = createReportFixture({ personalizationLocale: "en-US", hasUnlock: !locked });
-  Object.assign(report, {
-    locked,
-    variant: locked ? "free" : "full",
-    access_level: locked ? "free" : "full",
-    free_full_report_mode: !locked,
-    paywall_suppressed: !locked,
-    ...(locked ? {} : { offers: [], modules_preview: [] }),
-  });
-  const projection = asRecord(report.mbti_public_projection_v1)!;
-  projection.summary_card = {
-    ...asRecord(projection.summary_card),
-    subtitle: "旧中文摘要不应出现在英文结果",
-    summary: "The authoritative English result summary.",
-  };
-  if (Array.isArray(projection.dimensions)) {
-    projection.dimensions = projection.dimensions.map((dimension) => ({
-      ...asRecord(dimension), summary: null, description: null,
-    }));
-  }
-  projection.sections = [
-    { key: "overview", render: "rich_text", title: "Overview", body_md: "Authoritative English overview." },
-    { key: "traits.decision_style", render: "rich_text", title: "Decision style", body_md: "Authoritative English decision example." },
-    { key: "career.summary", render: "rich_text", title: "Career context", body_md: "Authoritative English career example." },
-    { key: "growth.summary", render: "rich_text", title: "Growth context", body_md: "Authoritative English growth example." },
-    { key: "relationships.summary", render: "rich_text", title: "Relationship context", body_md: "Authoritative English relationship example." },
-    { key: "growth.motivators", render: "premium_teaser", title: "Motivators", payload: { teaser: "Additional backend-provided English insight." } },
-  ];
-  return report;
-}
-
-describe("MBTI shell authored fields contract", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    window.sessionStorage.clear();
-  });
-
-  it("renders unlocked English projection chapters instead of empty clone placeholders", async () => {
-    const reportData = createEnglishPublishedProjectionFixture();
-    render(<RichResultReport locale="en" reportData={reportData} />);
-
-    expect(await screen.findByTestId("mbti-traits-summary-pane")).toHaveTextContent("Extraversion");
-    expect(screen.getByTestId("mbti-traits-summary-pane")).not.toHaveTextContent("The authoritative English result summary.");
-    expect(screen.getByTestId("mbti-traits-summary-pane")).not.toHaveTextContent("旧中文摘要");
-    expect([...screen.getByTestId("mbti-traits-summary-pane").querySelectorAll("p")].filter((p) => !p.textContent?.trim())).toHaveLength(0);
-    expect(screen.getByTestId("mbti-chapter-traits")).toHaveTextContent("Authoritative English decision example.");
-    for (const [chapter, expected] of [
-      ["career", "Authoritative English career example."],
-      ["growth", "Authoritative English growth example."],
-      ["relationships", "Authoritative English relationship example."],
-    ]) {
-      const section = screen.getByTestId(`mbti-chapter-${chapter}`);
-      expect(section).toHaveTextContent(expected);
-      expect([...section.querySelectorAll("p")].filter((p) => !p.textContent?.trim())).toHaveLength(0);
-      expect(section).not.toHaveTextContent("Influential Traits");
-    }
-    expect(screen.getByTestId("mbti-chapter-growth")).toHaveTextContent("Additional backend-provided English insight.");
-    expect(screen.queryByText("Unlock the full section in the premium experience.")).not.toBeInTheDocument();
-  });
-
-  it("does not render full English projection bodies for a locked result", async () => {
-    render(<RichResultReport locale="en" reportData={createEnglishPublishedProjectionFixture(true)} />);
-    await screen.findByTestId("mbti-result-shell");
-    expect(screen.queryByText("Authoritative English career example.")).not.toBeInTheDocument();
-    expect(screen.queryByText("Authoritative English growth example.")).not.toBeInTheDocument();
-    expect(screen.queryByText("Authoritative English relationship example.")).not.toBeInTheDocument();
-  });
-
-  it("reports missing English projection content without inventing chapter text", async () => {
-    const reportData = createEnglishPublishedProjectionFixture();
-    asRecord(reportData.mbti_public_projection_v1)!.sections = [];
-    render(<RichResultReport locale="en" reportData={reportData} />);
-    for (const chapter of ["traits", "career", "growth", "relationships"]) {
-      expect(await screen.findByTestId(`mbti-${chapter}-content-unavailable`)).toHaveTextContent("This section is currently unavailable.");
-    }
-  });
-
-  it("renders the backend-canonical FAQ payload through the active result reader", async () => {
-    const reportData = createReportFixture();
-    const projection = asRecord(reportData.mbti_public_projection_v1);
-    const sections = Array.isArray(projection?.sections) ? projection.sections : [];
-
-    sections.push({
-      key: "faq",
-      render: "faq",
-      title: "Frequently asked questions",
-      payload: {
-        items: [
-          {
-            key: "context-boundary",
-            question: "Does this result define me permanently?",
-            answer: "No. Use it as a structured reflection prompt that can change with context and experience.",
-          },
-          {
-            key: "diagnosis-boundary",
-            question: "Is this a medical diagnosis?",
-            answer: "No. This personality result is not a medical or clinical assessment.",
-          },
-          {
-            key: "incomplete-item",
-            question: "This incomplete item must stay hidden.",
-          },
-        ],
-      },
-    });
-
-    render(<RichResultReport locale="en" reportData={reportData} />);
-
-    const faq = await screen.findByTestId("mbti-result-faq");
-    expect(faq).toHaveAttribute("data-section-key", "faq");
-    expect(faq).toHaveTextContent("Frequently asked questions");
-    expect(screen.getAllByTestId("mbti-result-faq-item")).toHaveLength(2);
-    expect(faq).toHaveTextContent("Does this result define me permanently?");
-    expect(faq).toHaveTextContent("No. This personality result is not a medical or clinical assessment.");
-    expect(faq).not.toHaveTextContent("This incomplete item must stay hidden.");
-  });
-
-  it("normalizes the Chinese FAQ heading and visible item count while authority data rolls out", async () => {
-    const reportData = createReportFixture();
-    const projection = asRecord(reportData.mbti_public_projection_v1);
-    const sections = Array.isArray(projection?.sections) ? projection.sections : [];
-
-    sections.push({
-      key: "faq",
-      render: "faq",
-      title: "Frequently asked questions",
-      payload: {
-        items: Array.from({ length: 6 }, (_, index) => ({
-          key: `faq-${index + 1}`,
-          question: `问题 ${index + 1}`,
-          answer: `回答 ${index + 1}`,
-        })),
-      },
-    });
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    const faq = await screen.findByTestId("mbti-result-faq");
-    expect(within(faq).getByRole("heading", { level: 2 })).toHaveTextContent("常见问题");
-    expect(faq).not.toHaveTextContent("Frequently asked questions");
-    expect(within(faq).getAllByTestId("mbti-result-faq-item")).toHaveLength(4);
-    expect(faq).toHaveTextContent("问题 4");
-    expect(faq).not.toHaveTextContent("问题 5");
-  });
-
-  it("keeps projection-first hero telemetry and a single clone shell while authored metadata stays available in the view model", async () => {
-    const reportData = createReportFixture();
-    reportData.cta = createCustomCta({
-      title: "正式商业主位标题",
-      subtitle: "正式商业主位副标题",
-      primary_label: "解锁作者化完整版",
-      benefit_bullets: ["权益一", "权益二"],
-      badge: "主推",
-    });
-
-    const viewModel = buildMbtiResultProjectionViewModel(reportData);
-
-    expect(viewModel.personalization?.readContract?.version).toBe("mbti.read_contract.v1");
-    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
-      "longitudinal_memory_v1"
-    );
-    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
-      "adaptive_selection_v1"
-    );
-    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
-      "orchestration.primary_focus_key"
-    );
-    expect(viewModel.personalization?.longitudinalMemory?.memoryRewriteReason).toBe(
-      "resume_growth_actions"
-    );
-    expect(viewModel.personalization?.adaptiveSelection?.selectionRewriteReason).toBe(
-      "career_followthrough_loop"
-    );
-    expect(viewModel.personalization?.toneProfile?.toneFingerprint).toBe(
-      "fixture-tone-fingerprint"
-    );
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    const hero = getPrimaryByTestId("mbti-hero");
-    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
-
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-profile-seed-key",
-      "same_type.seed.name_decision_rule.jp"
-    );
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-selection-fingerprint",
-      "fixture-selection-fingerprint"
-    );
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-memory-fingerprint",
-      "fixture-memory-fingerprint"
-    );
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-memory-rewrite-reason",
-      "resume_growth_actions"
-    );
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-adaptive-fingerprint",
-      "fixture-adaptive-fingerprint"
-    );
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-selection-rewrite-reason",
-      "career_followthrough_loop"
-    );
-    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(await screen.findByText("ENFP-T zh introduction one")).toBeInTheDocument();
-    expect(document.title).toBe("ENFP-T MBTI 测评结果 | FermatMind");
-    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
-    expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).not.toHaveTextContent("本次类型仅呈轻微偏向");
-    expect(hero).not.toHaveTextContent("两侧方式都可能出现");
-    expect(hero).not.toHaveTextContent(
-      "Projection-first summary that should replace the legacy hero copy on result pages."
-    );
-    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-recommendation-key",
-      "read-action"
-    );
-    expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("1.99元直接解锁");
-    expect(within(stickyRail).queryByRole("link", { name: "解锁完整报告" })).not.toBeInTheDocument();
-
-    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
-      "view_result",
-      expect.objectContaining({
-        attemptIdMasked: "attemp...-123",
-        typeCode: "ENFP-T",
-        identity: "T",
-        variantKey: "overview:EI.E.clear:identity.T:boundary.none",
-        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
-        primaryFocusKey: "growth.next_actions",
-        readingFocusKey: "read-action",
-        actionFocusKey: "weekly_action.theme.name_decision_rule",
-      })
-    );
-  });
-
-  it("renders different memory rewrite selections through the projection model without forking the shell", () => {
-    const actionFirst = createReportFixture({
+it("preserves backend memory-rewrite selection metadata without a separate UI",()=>{
+const actionFirst = createReportFixture({
       isRevisit: true,
       hasActionEngagement: true,
       memoryRewriteReason: "resume_growth_actions",
       memoryState: "active",
     });
-    const clarityFirst = createReportFixture({
+const clarityFirst = createReportFixture({
       isRevisit: true,
       hasFeedback: true,
       memoryRewriteReason: "refine_type_clarity",
       memoryState: "refining",
     });
-
-    overrideProjectionSectionSelection(
+overrideProjectionSectionSelection(
       actionFirst,
       "growth.next_actions",
       [
@@ -377,7 +117,7 @@ describe("MBTI shell authored fields contract", () => {
       ],
       "growth.next_actions:memory.resume_growth_actions:mode.memory.action_resume"
     );
-    overrideProjectionSectionSelection(
+overrideProjectionSectionSelection(
       clarityFirst,
       "growth.next_actions",
       [
@@ -386,336 +126,17 @@ describe("MBTI shell authored fields contract", () => {
       ],
       "growth.next_actions:memory.refine_type_clarity:mode.memory.action_refine"
     );
-
-    const actionSection = getSectionPersonalization(actionFirst, "growth.next_actions");
-    const claritySection = getSectionPersonalization(clarityFirst, "growth.next_actions");
-
-    expect(actionSection.personalization.section_selection_key).toContain("memory.resume_growth_actions");
-    expect(actionSection.personalization.selected_blocks).toEqual([
+const actionSection = getSectionPersonalization(actionFirst, "growth.next_actions");
+const claritySection = getSectionPersonalization(clarityFirst, "growth.next_actions");
+expect(actionSection.personalization.section_selection_key).toContain("memory.resume_growth_actions");
+expect(actionSection.personalization.selected_blocks).toEqual([
       "growth.next_actions.next_action.EI.E",
       "growth.next_actions.identity.t",
       "growth.next_actions.boundary.TF",
     ]);
-    expect(claritySection.personalization.section_selection_key).toContain("memory.refine_type_clarity");
-    expect(claritySection.personalization.selected_blocks).toEqual([
+expect(claritySection.personalization.section_selection_key).toContain("memory.refine_type_clarity");
+expect(claritySection.personalization.selected_blocks).toEqual([
       "growth.next_actions.axis_strength.EI.E.clear",
       "growth.next_actions.boundary.TF",
     ]);
-
-    const { rerender } = render(<RichResultReport locale="zh" reportData={actionFirst} />);
-
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-memory-rewrite-reason",
-      "resume_growth_actions"
-    );
-    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-
-    rerender(<RichResultReport locale="zh" reportData={clarityFirst} />);
-
-    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
-      "data-memory-rewrite-reason",
-      "refine_type_clarity"
-    );
-    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-  });
-
-  it("shows same-type section selection differences in the projection model while keeping the single shell stable", () => {
-    const clearReport = createReportFixture();
-    const strongReport = createReportFixture();
-
-    overrideProjectionSectionSelection(
-      clearReport,
-      "growth.next_actions",
-      [
-        "growth.next_actions.next_action.EI.E",
-        "growth.next_actions.identity.t",
-      ],
-      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_identity_anchor"
-    );
-    overrideProjectionSectionSelection(
-      strongReport,
-      "growth.next_actions",
-      [
-        "growth.next_actions.next_action.EI.E",
-        "growth.next_actions.boundary.TF",
-      ],
-      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_boundary_buffered"
-    );
-
-    const clearSection = getSectionPersonalization(clearReport, "growth.next_actions");
-    const strongSection = getSectionPersonalization(strongReport, "growth.next_actions");
-
-    expect(clearSection.personalization.selected_blocks).toEqual([
-      "growth.next_actions.next_action.EI.E",
-      "growth.next_actions.identity.t",
-    ]);
-    expect(strongSection.personalization.selected_blocks).toEqual([
-      "growth.next_actions.next_action.EI.E",
-      "growth.next_actions.boundary.TF",
-    ]);
-    expect(clearSection.personalization.section_selection_key).not.toEqual(
-      strongSection.personalization.section_selection_key
-    );
-
-    render(<RichResultReport locale="zh" reportData={strongReport} />);
-
-    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
-  });
-
-  it("reorders the terminal surface on revisit while keeping the same shell", () => {
-    const reportData = createReportFixture({
-      isRevisit: true,
-      hasUnlock: true,
-      hasFeedback: true,
-      hasShare: true,
-      hasActionEngagement: true,
-    });
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    expect(getPrimaryByTestId("mbti-post-purchase-section")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-recommendation-key",
-      "read-explain"
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "post_purchase_history_entry",
-        ctaKey: "workspace_lite",
-        ctaRank: 2,
-      })
-    );
-  });
-
-  it("surfaces deeper revisit telemetry without reintroducing legacy shell nodes", () => {
-    const reportData = createReportFixture({
-      isRevisit: true,
-      hasUnlock: true,
-      hasFeedback: true,
-      hasShare: false,
-      hasActionEngagement: false,
-      feedbackSentiment: "negative",
-      feedbackCoverage: "explainability_only",
-      lastDeepReadSection: "traits.close_call_axes",
-      currentIntentCluster: "clarify_type",
-    });
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
-    expect(screen.queryByTestId("mbti-career-next-step")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
-      "view_result",
-      expect.objectContaining({
-        userState: "first:0|revisit:1|unlock:1|feedback:1|share:0|action:0",
-        feedbackSentiment: "negative",
-        feedbackCoverage: "explainability_only",
-        lastDeepReadSection: "traits.close_call_axes",
-        currentIntentCluster: "clarify_type",
-        primaryFocusKey: "traits.close_call_axes",
-        ctaPriorityKeys: "workspace_lite|career_bridge|share_result",
-      })
-    );
-  });
-
-  it("falls back safely when layers.identity is absent and recommended reads are empty", () => {
-    const reportData = createReportFixture();
-
-    if (!reportData.report) {
-      throw new Error("Expected report payload");
-    }
-
-    reportData.report.layers = {
-      ...reportData.report.layers,
-      identity: undefined,
-    };
-    reportData.report.recommended_reads = [];
-    reportData.cta = createCustomCta({
-      primary_label: "查看正式方案",
-    });
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("1.99元直接解锁");
-    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-  });
-
-  it("replays backend recommendation order when reads rely on synthesized fallback keys", () => {
-    const reportData = createReportFixture();
-
-    if (!reportData.report) {
-      throw new Error("Expected report payload");
-    }
-
-    reportData.report.recommended_reads = [
-      {
-        id: "recommended-read-1",
-        type: "article",
-        title: "Fallback read 1",
-        desc: "First fallback recommendation body",
-        url: null,
-        cover: null,
-        cta: null,
-        priority: 20,
-        tags: ["growth"],
-        estimated_minutes: null,
-        status: null,
-        published_at: null,
-        updated_at: null,
-        canonical_id: null,
-        canonical_url: null,
-      },
-      {
-        id: "recommended-read-2",
-        type: "article",
-        title: "Fallback read 2",
-        desc: "Second fallback recommendation body",
-        url: null,
-        cover: null,
-        cta: null,
-        priority: 10,
-        tags: ["career"],
-        estimated_minutes: null,
-        status: null,
-        published_at: null,
-        updated_at: null,
-        canonical_id: null,
-        canonical_url: null,
-      },
-    ];
-
-    const personalizationTargets = [
-      reportData.report?._meta,
-      reportData.mbti_public_projection_v1?._meta,
-    ].filter(Boolean) as Array<{ personalization?: Record<string, unknown> }>;
-
-    for (const target of personalizationTargets) {
-      if (!target.personalization) {
-        continue;
-      }
-
-      target.personalization.ordered_recommendation_keys = ["recommended-read-2", "recommended-read-1"];
-      target.personalization.recommendation_priority_keys = ["recommended-read-2", "recommended-read-1"];
-      target.personalization.reading_focus_key = "recommended-read-2";
-    }
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-recommendation-key",
-      "recommended-read-2"
-    );
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-reading-focus",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveTextContent(
-      "Second fallback recommendation body"
-    );
-    expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
-      "data-recommendation-key",
-      "recommended-read-1"
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "recommended_read_card",
-        recommendationKey: "recommended-read-2",
-        recommendationRank: 1,
-        readingFocusKey: "recommended-read-2",
-      })
-    );
-  });
-
-  it("drops unsafe recommended read links while preserving first-party content links", () => {
-    const reportData = createReportFixture();
-
-    if (!reportData.report) {
-      throw new Error("Expected report payload");
-    }
-
-    reportData.report.recommended_reads = [
-      {
-        id: "unsafe-read",
-        type: "article",
-        title: "Unsafe backend read",
-        desc: "This card should not expose the backend URL as a link.",
-        url: "https://api.fermatmind.com/private/report-action",
-        cover: null,
-        cta: "Open unsafe read",
-        priority: 20,
-        tags: [],
-        estimated_minutes: null,
-        status: null,
-        published_at: null,
-        updated_at: null,
-        canonical_id: null,
-        canonical_url: null,
-      },
-      {
-        id: "safe-read",
-        type: "article",
-        title: "Safe first-party read",
-        desc: "This card can keep its same-origin content link.",
-        url: "https://fermatmind.com/zh/articles/safe-report-read?ref=result",
-        cover: null,
-        cta: "Open safe read",
-        priority: 10,
-        tags: [],
-        estimated_minutes: null,
-        status: null,
-        published_at: null,
-        updated_at: null,
-        canonical_id: null,
-        canonical_url: null,
-      },
-    ];
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    const unsafeCard = screen.getByText("Unsafe backend read").closest("[data-testid^='mbti-recommended-read-card']");
-    const safeCard = screen.getByText("Safe first-party read").closest("[data-testid^='mbti-recommended-read-card']");
-
-    if (!unsafeCard || !safeCard) {
-      throw new Error("Expected recommended read cards");
-    }
-
-    expect(within(unsafeCard as HTMLElement).queryByRole("link", { name: "Open unsafe read" })).not.toBeInTheDocument();
-    const safeHref = within(safeCard as HTMLElement).getByRole("link", { name: "Open safe read" }).getAttribute("href");
-    expect(safeHref).toContain("/zh/articles/safe-report-read?ref=result");
-    expect(safeHref).not.toContain("api.fermatmind.com");
-  });
-
-  it("falls back to default CTA copy when top-level cta is absent", () => {
-    const reportData = createReportFixture();
-
-    if (!reportData.report || !reportData.report.layers?.identity) {
-      throw new Error("Expected report payload");
-    }
-
-    reportData.cta = undefined;
-    reportData.report.recommended_reads = [];
-    reportData.report.layers.identity = {
-      ...reportData.report.layers.identity,
-      title: "Legacy authored title still visible",
-      subtitle: "Legacy authored subtitle still visible",
-      one_liner: "Legacy authored bridge still exists",
-    };
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("1.99元直接解锁");
-    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-  });
 });

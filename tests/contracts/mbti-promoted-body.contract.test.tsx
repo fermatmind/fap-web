@@ -1,5 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { renderMbtiProjectionSection } from "@/components/result/mbti/MbtiChapterSection";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { buildMbtiPromotedBodyFixture as fixture } from "@/tests/fixtures/mbtiPromotedBodyFixture";
@@ -15,7 +16,7 @@ vi.mock("next/navigation", () => ({ usePathname: () => "/en/result/fixed-synthet
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
 
 
-describe("MBTI promoted canonical body through the active English reader", () => {
+describe("MBTI canonical projection compatibility and shared-reader boundary", () => {
   beforeEach(() => { vi.clearAllMocks(); window.sessionStorage.clear(); });
 
   it("preserves the backend authority marker with the canonical paragraphs and prompts", () => {
@@ -26,7 +27,8 @@ describe("MBTI promoted canonical body through the active English reader", () =>
   });
 
   it("shows both canonical paragraphs, both prompts and the existing selected scenario", async () => {
-    render(<RichResultReport locale="en" reportData={fixture()} />);
+    const model = buildMbtiResultProjectionViewModel(fixture())!;
+    render(renderMbtiProjectionSection(model.sections[0], "en", model.dimensions, model.personalization));
     const section = await screen.findByTestId("mbti-projection-section-traits-decision-style");
     for (const paragraph of canonical.body_template) expect(within(section).getByText(paragraph, { exact: false })).toBeInTheDocument();
     for (const prompt of canonical.reflection_prompts) expect(within(section).getByText(prompt)).toBeInTheDocument();
@@ -41,14 +43,16 @@ describe("MBTI promoted canonical body through the active English reader", () =>
   });
 
   it("keeps the existing selected-block behavior for sections without the promotion marker", async () => {
-    render(<RichResultReport locale="en" reportData={fixture({ promoted: false })} />);
+    const model = buildMbtiResultProjectionViewModel(fixture({ promoted: false }))!;
+    render(renderMbtiProjectionSection(model.sections[0], "en", model.dimensions, model.personalization));
     const section = await screen.findByTestId("mbti-projection-section-traits-decision-style");
     expect(section).toHaveTextContent("Existing selected scenario remains available.");
     for (const text of [...canonical.body_template, ...canonical.reflection_prompts]) expect(within(section).queryByText(text)).not.toBeInTheDocument();
   });
 
   it("renders canonical paragraphs once when there are no selected blocks", async () => {
-    render(<RichResultReport locale="en" reportData={fixture({ withBlocks: false })} />);
+    const model = buildMbtiResultProjectionViewModel(fixture({ withBlocks: false }))!;
+    render(renderMbtiProjectionSection(model.sections[0], "en", model.dimensions, model.personalization));
     const section = await screen.findByTestId("mbti-projection-section-traits-decision-style");
     for (const paragraph of canonical.body_template) expect(within(section).getAllByText(paragraph, { exact: false })).toHaveLength(1);
     for (const prompt of canonical.reflection_prompts) expect(within(section).getByText(prompt)).toBeInTheDocument();

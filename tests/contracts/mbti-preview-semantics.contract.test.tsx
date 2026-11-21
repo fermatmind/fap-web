@@ -1,5 +1,5 @@
-import { render, screen, within } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -14,15 +14,6 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: vi.fn(),
   trackObservableFunnelEvent: vi.fn(),
 }));
-
-function getPrimaryByTestId(testId: string): HTMLElement {
-  const [node] = screen.getAllByTestId(testId);
-  if (!node) {
-    throw new Error(`Missing test id: ${testId}`);
-  }
-
-  return node;
-}
 
 function getDesktopCloneShell(): HTMLElement {
   return screen.getByTestId("mbti-desktop-clone-shell");
@@ -125,63 +116,15 @@ function createPreviewFixture(modulesPreview: string[] = ["career", "relationshi
   return reportData;
 }
 
-describe("MBTI preview semantics contract", () => {
-  beforeEach(() => {
-    window.sessionStorage.clear();
-  });
-
-  it("keeps teaser surfaces on the desktop clone shell when the preview module is allowed", () => {
-    render(<RichResultReport locale="zh" reportData={createPreviewFixture()} />);
-
-    const growthChapter = screen.getByTestId("mbti-chapter-growth");
-    const desktopCloneShell = within(getDesktopCloneShell());
-
-    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
-    expect(screen.queryByText("你的成长主线：把强项做成可复用资产")).not.toBeInTheDocument();
-    expect(desktopCloneShell.getByTestId("mbti-premium-career-career-ideas")).toBeInTheDocument();
-    expect(desktopCloneShell.getByTestId("mbti-premium-career-work-styles")).toBeInTheDocument();
-    expect(desktopCloneShell.getByTestId("mbti-premium-growth-what-energizes")).toBeInTheDocument();
-    expect(desktopCloneShell.getByTestId("mbti-premium-growth-what-drains")).toBeInTheDocument();
-    expect(desktopCloneShell.getByTestId("mbti-premium-relationships-superpowers")).toBeInTheDocument();
-    expect(desktopCloneShell.getByTestId("mbti-premium-relationships-pitfalls")).toBeInTheDocument();
+describe("MBTI legacy preview metadata does not gate the shared report", () => {
+  it.each([{ modules: [] }, { modules: ["core_full"] }, { modules: ["career"] }])("renders the same editorial chapters with modules $modules", ({ modules }) => {
+    const data = createPreviewFixture(modules);
+    render(<RichResultReport locale="zh" reportData={data} />);
+    expect(getDesktopCloneShell()).toBeInTheDocument();
+    for (const chapter of ["traits", "career", "growth", "relationships"]) expect(screen.getByTestId(`mbti-chapter-${chapter}`)).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-evidence-and-prompts")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-growth-traits-lock-panel")).not.toBeInTheDocument();
     expect(screen.queryByText("这个付费卡不应该在 preview 中出现")).not.toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-growth-traits-lock-panel")).toBeInTheDocument();
-  });
-
-  it("keeps teaser rendering even when the raw section no longer carries preview cards", () => {
-    const reportData = createPreviewFixture();
-    const sections = reportData.report?.sections as Record<string, unknown> | undefined;
-    const growthSection = sections?.growth as { cards?: Array<Record<string, unknown>> } | undefined;
-
-    if (!growthSection) {
-      throw new Error("Expected growth section in MBTI fixture");
-    }
-
-    growthSection.cards = growthSection.cards?.filter((card) => card.access_level !== "preview") ?? [];
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    const growthChapter = screen.getByTestId("mbti-chapter-growth");
-
-    expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
-    expect(screen.queryByText("你的成长主线：把强项做成可复用资产")).not.toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-growth-traits-lock-panel")).toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-premium-growth-what-energizes")).toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-premium-growth-what-drains")).toBeInTheDocument();
-  });
-
-  it("keeps the teaser path when the preview module does not match", () => {
-    render(<RichResultReport locale="zh" reportData={createPreviewFixture(["career"])} />);
-
-    const growthChapter = screen.getByTestId("mbti-chapter-growth");
-
-    expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
-    expect(screen.queryByText("你的成长主线：把强项做成可复用资产")).not.toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-growth-traits-lock-panel")).toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-premium-growth-what-energizes")).toBeInTheDocument();
-    expect(within(growthChapter).getByTestId("mbti-premium-growth-what-drains")).toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
   });
 });

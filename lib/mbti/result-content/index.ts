@@ -8,14 +8,18 @@ import type { MbtiDesktopCloneContent, MbtiDesktopCloneAssetSlotId } from "@/com
 
 /** Shared editorial text. Never selects or replaces attempt scores, type, access or form metadata. */
 export function getMbtiResultContent(fullCode: string, language: DisplayLocale) {
-  if (!resultCodes.includes(fullCode)) return null;
-  const hero = (identities as Record<string, MbtiDesktopCloneContent["hero"]>)[fullCode];
+  // Older attempts may carry only a base type. Use shared chapter copy without
+  // assigning an A/T result or presenting either variant's hero narrative.
+  const baseOnly = /^[EI][SN][TF][JP]$/.test(fullCode);
+  const contentCode = baseOnly ? `${fullCode}-A` : fullCode;
+  if (!resultCodes.includes(contentCode)) return null;
+  const hero = (identities as Record<string, MbtiDesktopCloneContent["hero"]>)[contentCode];
   if (!hero) return null;
   const base = fullCode.slice(0, 4).toLowerCase();
   const body = language === "en" ? "Read each preference alongside its score and your actual experience." : "结合每组偏好、分数与实际经历理解结果。";
   const chapters = (pack.types as unknown as Record<string, { chapters: MbtiDesktopCloneContent["chapters"] }>)[fullCode.slice(0, 4)].chapters;
   const data: PersonalityDesktopCloneContentPayload = {
-    templateKey: "mbti_desktop_clone_v1", schemaVersion: "v1", fullCode, baseCode: fullCode.slice(0, 4), locale: "zh-CN", meta: null,
+    templateKey: "mbti_desktop_clone_v1", schemaVersion: "v1", fullCode: contentCode, baseCode: fullCode.slice(0, 4), locale: "zh-CN", meta: null,
     content: {
       hero, intro: { paragraphs: [body, body] },
       traits: { summaryPane: { eyebrow: "", title: "", value: "", body }, body: [body, body] },
@@ -30,5 +34,16 @@ export function getMbtiResultContent(fullCode: string, language: DisplayLocale) 
       assetRef: { provider: "internal", path: url, url, version: null, checksum: null },
     })),
   };
-  return applyLocalizedContent(data, language);
+  const localized = applyLocalizedContent(data, language);
+  if (baseOnly) {
+    const other = (identities as Record<string, MbtiDesktopCloneContent["hero"]>)[`${fullCode}-T`];
+    const identity = localized.data.content.hero.profileIdentity!;
+    localized.data.fullCode = fullCode;
+    localized.data.content.hero = {
+      summary: "",
+      profileIdentity: { ...identity, code: fullCode, nickname: "", introduction: undefined,
+        keywords: language === "en" ? identity.keywords : identity.keywords.filter((key) => other.profileIdentity?.keywords.includes(key)) },
+    };
+  }
+  return localized;
 }

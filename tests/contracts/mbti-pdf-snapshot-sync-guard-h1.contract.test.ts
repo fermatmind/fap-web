@@ -34,6 +34,7 @@ describe("MBTI PDF snapshot sync guard H1", () => {
         "app/globals.css",
         "components/result/RichResultReport.tsx",
         "components/result/mbti",
+        "lib/mbti/result-content",
         "lib/result/pdfSurface.ts",
         "lib/cms/personality-result-introduction.ts",
         "proxy.ts",

@@ -89,9 +89,9 @@ export function MbtiResultShell({ locale, displayLocale = locale, reportData, ac
   const viewed = useRef("");
   useEffect(() => {
     const key = `${attemptId}:${fullCode}:${displayLocale}`;
-    if (!attemptId || printSnapshotMode || sampleMode || viewed.current === key) return;
+    if (!attemptId || !/^[EI][SN][TF][JP](?:-[AT])?$/.test(fullCode) || printSnapshotMode || sampleMode || viewed.current === key) return;
     viewed.current = key;
-    trackObservableFunnelEvent("view_result", { scale_code: "MBTI", attempt_id: attemptId, type_code: fullCode });
+    trackObservableFunnelEvent("view_result", { scale_code: "MBTI", attempt_id: attemptId, type_code: fullCode, typeCode: fullCode, locale: displayLocale });
   }, [attemptId, displayLocale, fullCode, printSnapshotMode, sampleMode]);
 
   async function handleShare() {
@@ -119,7 +119,7 @@ export function MbtiResultShell({ locale, displayLocale = locale, reportData, ac
     } finally { shareBusy.current = false; setIsSharing(false); }
   }
 
-  if (!editorial) return <p role="alert">{displayLocale === "zh-TW" ? "結果類型暫時無法辨識，請重新整理後再試。" : locale === "zh" ? "结果类型暂时无法识别，请刷新后重试。" : "The result type is unavailable. Please refresh and try again."}</p>;
+  if (!editorial) return <div data-testid="mbti-result-shell" data-result-content-state="unavailable"><p role="alert">{displayLocale === "zh-TW" ? "結果類型暫時無法辨識，請重新整理後再試。" : locale === "zh" ? "结果类型暂时无法识别，请刷新后重试。" : "The result type is unavailable. Please refresh and try again."}</p></div>;
   const content = editorial.data.content;
   const contentStatus = snapshotContentStatus?.ok ? { ...snapshotContentStatus, source: "result-adapter" as const } : snapshotContentStatus;
   const result = <div data-testid="mbti-result-shell" data-result-content-version="editorial-v1" className={styles.report}>

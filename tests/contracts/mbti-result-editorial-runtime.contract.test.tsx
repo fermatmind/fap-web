@@ -117,3 +117,13 @@ it("prints the same editorial chapters while retaining snapshot readiness checks
   expect(screen.queryByTestId("mbti-evidence-and-prompts")).not.toBeInTheDocument();
   expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
 });
+
+it.each(["zh", "zh-TW", "en"] as const)("keeps a legacy four-letter %s identity neutral without inventing A/T", (language) => {
+  const content = getMbtiResultContent("INFP", language)!;
+  expect(content.data.fullCode).toBe("INFP");
+  expect(content.data.content.hero.profileIdentity).toMatchObject({ code: "INFP", nickname: "" });
+  expect(content.data.content.hero.profileIdentity?.introduction).toBeUndefined();
+  expect(content.data.content.hero.summary).toBe("");
+  expect(content.data.content.chapters.career.intro).toHaveLength(2);
+  expect(getMbtiResultContent("INFP-X", language)).toBeNull();
+});

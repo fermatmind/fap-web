@@ -3,6 +3,9 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
+// Historical paid-MBTI references do not govern the retired flow. Native access
+// and PDF coverage now lives in mbti-result-editorial-runtime.contract.test.tsx.
+const RETIRED_MBTI_EVIDENCE = new Set(["tests/contracts/mbti-checkout-wiring.contract.test.tsx", "tests/contracts/mbti-post-purchase-retention.contract.test.tsx"]);
 const ARTIFACT_PATH = path.join(ROOT, "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json");
 const DOC_PATH = path.join(ROOT, "docs/freemium/freemium-cross-scale-parity-ledger.md");
 const TRAIN_STATE_PATH = path.join(ROOT, "docs/codex/pr-train-phase-1b-state.json");
@@ -171,11 +174,16 @@ describe("freemium cross-scale parity ledger", () => {
     }
   });
 
-  it("anchors parity rows to current source tokens", () => {
+  it("anchors active parity sources and keeps retired MBTI purchase surfaces absent", () => {
     const ledger = readLedger();
 
     for (const scale of ledger.scales) {
       for (const source of scale.evidence) {
+        if (RETIRED_MBTI_EVIDENCE.has(source.path)) {
+          expect(fs.existsSync(path.join(ROOT, "components/result/mbti/MbtiOfferComparisonSection.tsx"))).toBe(false);
+          expect(fs.existsSync(path.join(ROOT, "components/result/mbti/MbtiPostPurchaseSection.tsx"))).toBe(false);
+          continue;
+        }
         const absoluteSource = path.join(ROOT, source.path);
         expect(fs.existsSync(absoluteSource), `${scale.scale}: ${source.path}`).toBe(true);
         const sourceText = fs.readFileSync(absoluteSource, "utf8");
