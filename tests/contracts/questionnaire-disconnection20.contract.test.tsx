@@ -71,9 +71,9 @@ describe("Experience and everyday recall remain private categorical records", ()
     const pages=appendFunSitemapEntries([]),entry=await import("../../components/questionnaires/QuestionnairePage"),guide=await import("../../components/questionnaires/QuestionnaireGuide");
     for(const locale of ["en","zh"])for(const p of [null,...quiz.profiles]){
       const path=`/${locale}/tests/explore/${quiz.slug}${p?`/results/${p.id}`:""}`;
-      expect(shouldHardStopPublicAnalyticsForUrl(path)).toBe(true);expect(pages.some(x=>x.loc===`https://fermatmind.com${path}`)).toBe(true);
+      expect(shouldHardStopPublicAnalyticsForUrl(path)).toBe(true);expect(pages.some(x=>x.loc===`https://fermatmind.com${path}`)).toBe(false);
       const params=Promise.resolve({locale,slug:quiz.slug,profile:p?.id??""});const m=p?await guide.generateMetadata({params}):await entry.generateMetadata({params});
-      expect(m.alternates?.canonical).toBe(`${SITE_URL}${path}`);expect(m.alternates?.languages?.["zh-CN"]).toContain("/zh/tests/explore/disconnection-experiences-reflection");
+      expect(m.alternates?.canonical).toBe(`${SITE_URL}${path}`);expect(m.alternates?.languages).toBeUndefined();
     }
   });
 });

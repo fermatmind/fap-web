@@ -230,7 +230,7 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
         for (const method of quiz.guide.slice(0,3)) expect(rendered.textContent).toContain(method.paragraphs[0][locale]);
         if (quiz===virtues) for (const section of quiz.guide.slice(3)) for (const p of section.paragraphs) expect(rendered.textContent).toContain(p[locale]);
         expect(rendered.querySelectorAll("#questionnaire-method h3")).toHaveLength(0);
-        expect(maps.some(e => e.loc===`https://fermatmind.com${path}`)).toBe(true);expect(isMissingFunRoute(path)).toBe(false);
+        expect(maps.some(e => e.loc===`https://fermatmind.com${path}`)).toBe(quiz === virtues);expect(isMissingFunRoute(path)).toBe(false);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);pages++;
         for (const profile of quiz.profiles) {
           const ppath=`${path}/results/${profile.id}`, props={params:Promise.resolve({locale,slug:quiz.slug,profile:profile.id})};
@@ -238,11 +238,12 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
           const presented = sevenSinsGuideProfile(quiz.slug, locale, profile);
           expect(html.querySelector("h1")?.textContent).toBe(presented.title[locale]);expect(metadata.title).toBe(presented.seo!.title[locale]);expect(metadata.description).toBe(presented.seo!.description[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${ppath}`);
-          expect(metadata.alternates?.languages).toMatchObject({en:`https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`,"zh-CN":`https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${profile.id}`});
+          if (quiz === virtues) expect(metadata.alternates?.languages).toMatchObject({en:`https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`,"zh-CN":`https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${profile.id}`});
+          else expect(metadata.alternates?.languages).toBeUndefined();
           for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(html.textContent).toContain(paragraph[locale]);
           expect(html.querySelectorAll("h2[id],section[id] > h2").length).toBeGreaterThanOrEqual(profile.sections.length);
           expect(html.querySelectorAll("[data-mini-virtues-score],[data-archetype-count]")).toHaveLength(0);
-          expect(maps.some(e => e.loc===`https://fermatmind.com${ppath}`)).toBe(true);expect(isMissingFunRoute(ppath)).toBe(false);if(locale==="en")expect(html.textContent).not.toMatch(/\p{Script=Han}/u);pages++;
+          expect(maps.some(e => e.loc===`https://fermatmind.com${ppath}`)).toBe(quiz === virtues);expect(isMissingFunRoute(ppath)).toBe(false);if(locale==="en")expect(html.textContent).not.toMatch(/\p{Script=Han}/u);pages++;
         }
       }
       expect(pages).toBe(34);

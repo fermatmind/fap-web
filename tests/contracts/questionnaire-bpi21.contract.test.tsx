@@ -91,7 +91,7 @@ describe("Licensed BPI-21 nominal choices with a working Chinese and explicit NA
         for (const profile of quiz.profiles) {
           const pp = `${path}/results/${profile.id}`, gp = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           dom.innerHTML = renderToStaticMarkup(await guide.default(gp)); const metadata = await guide.generateMetadata(gp);
-          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${pp}`); expect(maps.some(e => e.loc === `https://fermatmind.com${pp}`)).toBe(true);
+          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${pp}`); expect(maps.some(e => e.loc === `https://fermatmind.com${pp}`)).toBe(false);
           for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-bpi21-count]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

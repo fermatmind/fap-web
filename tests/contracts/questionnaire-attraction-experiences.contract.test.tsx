@@ -99,7 +99,7 @@ describe("Original attraction experiences, distinct from Mini 20 awareness refle
           const publicPath = `${path}/results/${profile.id}`, gp = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const html = renderToStaticMarkup(await guide.default(gp)), meta = await guide.generateMetadata(gp); dom.innerHTML = html;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(meta.title).toBe(profile.seo?.title[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true);
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false);
           for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-atr-mean]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

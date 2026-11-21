@@ -115,7 +115,7 @@ describe("Original Weton story preferences and a separately bounded calendar", (
         for (const profile of quiz.profiles) {
           const pp = `${path}/results/${profile.id}`, gp = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           dom.innerHTML = renderToStaticMarkup(await guide.default(gp)); const metadata = await guide.generateMetadata(gp);
-          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${pp}`); expect(maps.filter(e => e.loc === `https://fermatmind.com${pp}`)).toHaveLength(1);
+          expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${pp}`); expect(maps.filter(e => e.loc === `https://fermatmind.com${pp}`)).toHaveLength(0);
           for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-weton-count], input[type=date]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

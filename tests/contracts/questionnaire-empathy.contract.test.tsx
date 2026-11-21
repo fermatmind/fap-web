@@ -65,13 +65,13 @@ describe("T091 complete IPIP Compassion-10 with one continuous full reading", ()
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(dom.textContent).toContain(locale === "zh" ? "IPIP公有领域条目" : "Public-domain IPIP items");
         const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]'); expect(method?.querySelectorAll("p")).toHaveLength(3);
         for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) expect(method?.textContent).toContain(paragraph[locale]);
-        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`); expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`); expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(false);
         const profile = quiz.profiles[0], publicPath = `${path}/results/${profile.id}`, args = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }, meta = await guide.generateMetadata(args);
         dom.innerHTML = renderToStaticMarkup(await guide.default(args)); expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
         for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
         expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-        expect(meta.alternates?.languages).toMatchObject({ en: "https://fermatmind.com/en/tests/explore/empathy/results/compassion-reading", "zh-CN": "https://fermatmind.com/zh/tests/explore/empathy/results/compassion-reading" });
-        expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(dom.querySelector("[data-compassion-total]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
+        expect(meta.alternates?.languages).toBeUndefined();
+        expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false); expect(dom.querySelector("[data-compassion-total]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
       }
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });

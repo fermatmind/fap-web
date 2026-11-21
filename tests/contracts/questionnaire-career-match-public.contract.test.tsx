@@ -25,7 +25,7 @@ describe("Career Match public input tool, without duplicate RIASEC result pages"
       for (const faq of quiz.faq) { expect(dom.textContent).toContain(faq.question[locale]); expect(dom.textContent).toContain(faq.answer[locale]); }
       const metadata = await route.generateMetadata(props);
       expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-      expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+      expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
       expect(maps.some(x => x.loc.startsWith(`https://fermatmind.com${path}/results/`))).toBe(false);
       const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
       const card = directory.querySelector(`a[href='${path}']`)?.closest("article");

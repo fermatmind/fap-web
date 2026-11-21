@@ -161,8 +161,8 @@ describe("FSCRS22 2019 source edition, separate strict groups and optional web s
       const metadata = await page.generateMetadata(args);
       expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.description).toBe(quiz.description[locale]);
       expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-      expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}` });
-      expect(urls).toContain(`https://fermatmind.com${path}`);
+      expect(metadata.alternates?.languages).toBeUndefined();
+      expect(urls).not.toContain(`https://fermatmind.com${path}`);
       const dom = new DOMParser().parseFromString(renderToStaticMarkup(await page.default(args)), "text/html");
       expect(dom.querySelectorAll("[data-fscrs22-client]")).toHaveLength(0);
       const takeDom=await renderQuestionnaireTakeDom(locale,quiz.slug);
@@ -176,7 +176,7 @@ describe("FSCRS22 2019 source edition, separate strict groups and optional web s
         const args = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }, meta = await guide.generateMetadata(args);
         expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]);
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}/results/${profile.id}`);
-        expect(urls).toContain(`https://fermatmind.com${path}/results/${profile.id}`);
+        expect(urls).not.toContain(`https://fermatmind.com${path}/results/${profile.id}`);
         const doc = new DOMParser().parseFromString(renderToStaticMarkup(await guide.default(args)), "text/html");
         expect(doc.querySelector("[data-fscrs22-result]")).toBeNull();
         expect(doc.querySelectorAll("[data-fscrs22-support]")).toHaveLength(1);

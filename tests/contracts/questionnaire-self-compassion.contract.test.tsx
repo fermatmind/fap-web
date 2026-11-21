@@ -97,7 +97,7 @@ describe("T192 full SCS26: six equally weighted unrounded means", () => {
         for (const p of quiz.profiles) {
           const native = `${path}/results/${p.id}`, gp = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, ghtml = renderToStaticMarkup(await guide.default(gp)), gm = await guide.generateMetadata(gp), dom = document.createElement("div"); dom.innerHTML = ghtml;
           expect(gm.title).toBe(p.seo!.title[locale]); expect(gm.description).toBe(p.seo!.description[locale]); expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); expect(gm.alternates?.canonical).toBe(`https://fermatmind.com${native}`);
-          expect(gm.alternates?.languages?.en).toBe(`https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`); expect(maps.some(e => e.loc === `https://fermatmind.com${native}`)).toBe(true);
+          expect(gm.alternates?.languages).toBeUndefined(); expect(maps.some(e => e.loc === `https://fermatmind.com${native}`)).toBe(false);
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]); expect(dom.querySelector("[data-scs26-overall]")).toBeNull();
         }
       }

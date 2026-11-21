@@ -135,8 +135,8 @@ describe("T074 owned original Dark Triad thematic preview", () => {
           }
           expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/dark-triad/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/dark-triad/results/${profile.id}` });
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false);
           expect(rendered).not.toContain("data-dtt-mean"); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
       }

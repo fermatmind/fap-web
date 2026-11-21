@@ -20,19 +20,19 @@ describe("Frozen J Tech Savvy real public/native/SEO callers", () => {
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(dom.textContent).toContain(quiz.instructions![locale]);
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(1); pages++;
+        expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(0); pages++;
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const m = await guide.generateMetadata(props); dom.innerHTML = renderToStaticMarkup(await guide.default(props));
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(m.title).toBe(profile.seo!.title[locale]); expect(m.description).toBe(profile.seo!.description[locale]);
           expect(m.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(m.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/tech-savvy/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/tech-savvy/results/${profile.id}`, "x-default": `https://fermatmind.com/en/tests/explore/tech-savvy/results/${profile.id}` });
+          expect(m.alternates?.languages).toBeUndefined();
           for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-tech-confidence-mean]")).toBeNull(); expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
-          expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(1); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); pages++;
+          expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(0); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); pages++;
         }
       }
-      expect(pages).toBe(4); expect(maps.filter(e => e.loc.includes("/tests/explore/tech-savvy"))).toHaveLength(4);
+      expect(pages).toBe(4); expect(maps.filter(e => e.loc.includes("/tests/explore/tech-savvy"))).toHaveLength(0);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });
   it("rejects unknown public result identities instead of projecting an arbitrary private type", async () => {

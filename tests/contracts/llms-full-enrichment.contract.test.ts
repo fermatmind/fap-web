@@ -336,7 +336,7 @@ describe("llms-full enrichment contract", () => {
     expect(text).not.toContain("/take");
     expect(text).not.toContain("/api/");
     expect(text).not.toMatch(/\/(?:pay|payment)(?:\/|$)/);
-    expect(text).toContain("/results/pay-and-benefits");
+    expect(text).not.toContain("/results/pay-and-benefits");
     expect(text).not.toContain("/history");
     expect(isCompleteLlmsFullText(text, "https://fermatmind.com")).toBe(true);
     expect(isCompleteLlmsFullText(

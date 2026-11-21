@@ -20,19 +20,19 @@ describe("Published FDS32 real public/native/SEO callers", () => {
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(dom.querySelector("[data-fds-attribution] a[href=\"https://creativecommons.org/licenses/by/4.0/\"]")).not.toBeNull();
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(1); pages++;
+        expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(0); pages++;
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const m = await guide.generateMetadata(props); dom.innerHTML = renderToStaticMarkup(await guide.default(props));
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(dom.querySelector("[data-fds-attribution]")?.textContent).toContain("García-Gómez"); expect(m.title).toBe(profile.seo!.title[locale]); expect(m.description).toBe(profile.seo!.description[locale]);
           expect(m.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(m.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/food-disgust/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/food-disgust/results/${profile.id}`, "x-default": `https://fermatmind.com/en/tests/explore/food-disgust/results/${profile.id}` });
+          expect(m.alternates?.languages).toBeUndefined();
           for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.querySelector(`#report-${s.id}`)?.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-fds-mean]")).toBeNull(); expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
-          expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(1); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); pages++;
+          expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(0); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); pages++;
         }
       }
-      expect(pages).toBe(18); expect(maps.filter(e => e.loc.includes("/tests/explore/food-disgust"))).toHaveLength(18);
+      expect(pages).toBe(18); expect(maps.filter(e => e.loc.includes("/tests/explore/food-disgust"))).toHaveLength(0);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });
   it("rejects unknown public result identities instead of projecting an arbitrary private type", async () => {

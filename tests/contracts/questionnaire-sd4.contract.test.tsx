@@ -107,7 +107,7 @@ describe("Published SD4 28, separate from the owned Mini 18", () => {
           const html = renderToStaticMarkup(await guide.default(gp)), meta = await guide.generateMetadata(gp); dom.innerHTML = html;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(dom.querySelector("[data-sd4-source]")).not.toBeNull();
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`); expect(meta.title).toBe(profile.seo?.title[locale]);
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true);
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false);
           for (const section of profile.sections) for (const p of section.paragraphs) expect(dom.textContent).toContain(p[locale]);
           expect(dom.querySelector("[data-sd4-mean]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

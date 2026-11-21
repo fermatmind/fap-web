@@ -167,7 +167,7 @@ describe("Original role-context inventory without proficiency tiers", () => {
           for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(page.textContent).toContain(paragraph[locale]);
           const meta = await guide.generateMetadata(gp); expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-          expect(maps.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(true);
+          expect(maps.some(item => item.loc === `https://fermatmind.com${path}`)).toBe(false);
           expect(page.querySelector("[data-work-role-row]")).toBeNull();
         }
       }

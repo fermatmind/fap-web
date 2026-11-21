@@ -103,7 +103,7 @@ describe("T099 original Mini interaction-choice reuse", () => {
       for (const p of quiz.profiles) {
         const native = `${path}/results/${p.id}`, ownProps = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await guide.default(ownProps)); const ownMetadata = await guide.generateMetadata(ownProps);
         expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); for (const s of p.sections) for (const t of s.paragraphs) expect(dom.textContent).toContain(t[locale]);
-        expect(ownMetadata.title).toBe(p.seo!.title[locale]); expect(ownMetadata.description).toBe(p.seo!.description[locale]); expect(ownMetadata.alternates?.canonical).toBe(`https://fermatmind.com${native}`); expect(maps.some(e => e.loc === `https://fermatmind.com${native}`)).toBe(true); expect(dom.querySelector("[data-interaction-count]")).toBeNull();
+        expect(ownMetadata.title).toBe(p.seo!.title[locale]); expect(ownMetadata.description).toBe(p.seo!.description[locale]); expect(ownMetadata.alternates?.canonical).toBe(`https://fermatmind.com${native}`); expect(maps.some(e => e.loc === `https://fermatmind.com${native}`)).toBe(false); expect(dom.querySelector("[data-interaction-count]")).toBeNull();
       }
     } } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });

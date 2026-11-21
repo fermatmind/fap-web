@@ -110,12 +110,12 @@ describe("original CAT-Q25 self-reflection edition", () => {
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           const meta = await guide.generateMetadata(props); expect(meta.title).toBe(p.seo?.title[locale]); expect(meta.description).toBe(p.seo?.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
-          expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
           expect(dom.querySelector("[data-catq25-result]")).toBeNull();
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
-        expect(maps.filter(x => x.loc === `https://fermatmind.com${base}`)).toHaveLength(1);
+        expect(maps.filter(x => x.loc === `https://fermatmind.com${base}`)).toHaveLength(0);
       }
       await expect(guide.default({ params: Promise.resolve({ locale: "en", slug: quiz.slug, profile: "unknown" }) })).rejects.toThrow();
     } finally { vi.unstubAllEnvs(); }

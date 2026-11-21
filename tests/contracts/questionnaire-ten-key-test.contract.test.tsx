@@ -106,8 +106,8 @@ describe("T134 real 60-second numeric entry", () => {
           const rendered = renderToStaticMarkup(await guide.default(guideProps)), meta = await guide.generateMetadata(guideProps), dom = document.createElement("div"); dom.innerHTML = rendered;
           for (const section of profile.sections) for (const p of section.paragraphs) expect(dom.textContent).toContain(p[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`); expect(meta.title).toBe(profile.seo!.title[locale]);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/ten-key-test/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/ten-key-test/results/${profile.id}` });
-          expect(maps.some(item => item.loc === `https://fermatmind.com${publicPath}`)).toBe(true);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.some(item => item.loc === `https://fermatmind.com${publicPath}`)).toBe(false);
           expect(rendered).not.toContain("data-ten-key-result");
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

@@ -117,13 +117,13 @@ describe("Original everyday control reflection: two overlapping entry tasks, six
           const metadata = await guide.generateMetadata(a);
           expect(metadata.title).toBe(p.seo!.title[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${url}`);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
+          expect(metadata.alternates?.languages).toBeUndefined();
           for (const s of p.sections) for (const paragraph of s.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
           expect(dom.querySelector("[data-control-mean]")).toBeNull();
-          expect(maps.filter(r => r.loc === `https://fermatmind.com${url}`)).toHaveLength(1);
+          expect(maps.filter(r => r.loc === `https://fermatmind.com${url}`)).toHaveLength(0);
         }
       }
-      expect(maps.filter(r => r.loc.includes(`/tests/explore/${quiz.slug}`))).toHaveLength(14);
+      expect(maps.filter(r => r.loc.includes(`/tests/explore/${quiz.slug}`))).toHaveLength(0);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });
 });

@@ -105,7 +105,7 @@ describe("Original gender descriptions without scores or clinical verdicts", () 
     for (const locale of ["en", "zh"]) for (const suffix of ["", ...quiz.profiles.map(p => `/results/${p.id}`)]) {
       const path = `/${locale}/tests/explore/${quiz.slug}${suffix}`;
       expect(isAnalyticsDisabledQuestionnaireUrl(path)).toBe(true); expect(shouldHardStopPublicAnalyticsForUrl(path)).toBe(true);
-      expect(map.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true);
+      expect(map.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(false);
     }
     expect(entertainmentActivityCatalog.find(c => c.slug === quiz.slug)?.privacy).toBe("explicit_opt_in");
   });
@@ -117,8 +117,8 @@ describe("Original gender descriptions without scores or clinical verdicts", () 
       for (const p of quiz.profiles) {
         const m = await guide.generateMetadata({ params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) });
         expect(m.alternates?.canonical).toBe(`${SITE_URL}${root}/results/${p.id}`);
-        expect(m.alternates?.languages?.en).toBe(`${SITE_URL}/en/tests/explore/${quiz.slug}/results/${p.id}`);
-        expect(m.alternates?.languages?.["zh-CN"]).toBe(`${SITE_URL}/zh/tests/explore/${quiz.slug}/results/${p.id}`);
+        expect(m.alternates?.languages).toBeUndefined();
+        expect(m.alternates?.languages).toBeUndefined();
       }
     }
   });

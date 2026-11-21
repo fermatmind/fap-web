@@ -508,7 +508,7 @@ describe("llms parity governance", () => {
       expect(text).not.toContain("/share/");
       expect(text).not.toContain("/api/");
       expect(text).not.toMatch(/\/(?:pay|payment)(?:\/|$)/);
-      expect(text).toContain("/results/pay-and-benefits");
+      expect(text).not.toContain("/results/pay-and-benefits");
       expect(text).not.toContain("/history");
       expect(text).not.toMatch(/\/career\/jobs(?:[?\s]|\/private-denied-by-policy)/);
       expect(text).not.toContain("/career/industries");

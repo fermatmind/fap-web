@@ -95,15 +95,15 @@ describe("T075 original Delulu playful-anticipation edition", () => {
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.description).toBe(quiz.description[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(html).toContain(quiz.instructions![locale]); for (const section of prepareQuestionnaireResultReadings(quiz).guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true); expect(isMissingFunRoute(path)).toBe(false);
+        expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(false); expect(isMissingFunRoute(path)).toBe(false);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
           for (const section of prepareResultProfile(quiz.slug, profile).sections) { expect(dom.querySelector(`#report-${section.id} h2`)?.textContent).toBe(section.title[locale]); for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]); }
           expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/delulu-test/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/delulu-test/results/${profile.id}` });
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false); expect(isMissingFunRoute(publicPath)).toBe(false);
           expect(rendered).not.toContain("data-archetype-count"); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
       }

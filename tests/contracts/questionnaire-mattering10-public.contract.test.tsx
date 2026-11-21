@@ -20,13 +20,13 @@ describe("GMS/AMS public callers", () => {
         const gargs={params:Promise.resolve({locale,slug:"mattering",profile:p.id})},gm=await guide.generateMetadata(gargs);
         dom.innerHTML=renderToStaticMarkup(await guide.default(gargs));
         expect(gm.title).toBe(p.seo.title[locale]);expect(gm.alternates?.canonical).toBe(`https://fermatmind.com${path}/results/${p.id}`);
-        expect(gm.alternates?.languages).toMatchObject({en:`https://fermatmind.com/en/tests/explore/mattering/results/${p.id}`,"zh-CN":`https://fermatmind.com/zh/tests/explore/mattering/results/${p.id}`});
+        expect(gm.alternates?.languages).toBeUndefined();
         for(const s of p.sections)for(const para of s.paragraphs)expect(dom.textContent).toContain(para[locale]);
         expect(dom.querySelector('[data-mattering10-total]')).toBeNull();expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
         if(locale==="en")expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
       }
     }
-    expect(maps.filter(p=>p.loc.includes('/tests/explore/mattering'))).toHaveLength(6);
+    expect(maps.filter(p=>p.loc.includes('/tests/explore/mattering'))).toHaveLength(0);
     vi.unstubAllEnvs();
   });
 });

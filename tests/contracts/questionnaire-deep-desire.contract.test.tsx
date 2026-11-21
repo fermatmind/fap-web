@@ -75,13 +75,13 @@ describe("Original mini-program DEEP_DESIRE full migration", () => {
         const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(props)); expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.description).toBe(quiz.description[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]'); expect(method?.querySelectorAll("p")).toHaveLength(3);
         for (const section of quiz.guide.slice(0, 3)) for (const paragraph of section.paragraphs) expect(method?.textContent).toContain(paragraph[locale]);
-        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`); expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(true);
+        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`); expect(maps.some(e => e.loc === `https://fermatmind.com${path}`)).toBe(false);
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, args = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }, m = await guide.generateMetadata(args);
           dom.innerHTML = renderToStaticMarkup(await guide.default(args)); expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); expect(m.title).toBe(profile.seo!.title[locale]); expect(m.description).toBe(profile.seo!.description[locale]); expect(m.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(m.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/deep-desire/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/deep-desire/results/${profile.id}` });
+          expect(m.alternates?.languages).toBeUndefined();
           for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(dom.querySelector("[data-deep-desire-mean]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false); expect(dom.querySelector("[data-deep-desire-mean]")).toBeNull(); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
       }
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }

@@ -112,8 +112,8 @@ describe("T050 original six-part SDT need experience reflection", () => {
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
           expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/sdt-motivation/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/sdt-motivation/results/${profile.id}` });
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false); expect(isMissingFunRoute(publicPath)).toBe(false);
           expect(rendered).not.toContain("data-sdt-needs-facet"); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
       }

@@ -130,7 +130,7 @@ describe("Original written coordination: six separate practices, no overall or q
         expect(dom.querySelectorAll("[data-written-edge]")).toHaveLength(38); expect(dom.querySelectorAll("[data-written-node]")).toHaveLength(25);
         expect((await entry.generateMetadata(props)).alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(maps.filter(item => item.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+        expect(maps.filter(item => item.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
         for (const p of quiz.profiles) {
           const inline = dom.querySelector(`[data-written-full-guide="${p.id}"]`)!;
           expect(inline.querySelectorAll("h3")).toHaveLength(9);
@@ -141,8 +141,8 @@ describe("Original written coordination: six separate practices, no overall or q
           for (const s of p.sections) for (const text of s.paragraphs) expect(page.textContent).toContain(text[locale]);
           const metadata = await guide.generateMetadata(args); expect(metadata.title).toBe(p.seo!.title[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${url}`);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
-          expect(maps.filter(item => item.loc === `https://fermatmind.com${url}`)).toHaveLength(1);
+          expect(metadata.alternates?.languages).toBeUndefined();
+          expect(maps.filter(item => item.loc === `https://fermatmind.com${url}`)).toHaveLength(0);
         }
         const ids = Array.from(dom.querySelectorAll("[id]"), node => node.id); expect(new Set(ids).size).toBe(ids.length);
       }

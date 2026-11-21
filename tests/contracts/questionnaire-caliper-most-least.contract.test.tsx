@@ -99,7 +99,7 @@ describe("original Caliper-style most/least format practice", () => {
         for (const f of quiz.faq) expect(dom.textContent).toContain(f.answer[locale]);
         expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${base}`);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${base}"`);
-        expect(maps.filter(x => x.loc === `https://fermatmind.com${base}`)).toHaveLength(1);
+        expect(maps.filter(x => x.loc === `https://fermatmind.com${base}`)).toHaveLength(0);
         for (const p of quiz.profiles) {
           const props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, path = `${base}/results/${p.id}`;
           const html = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props);
@@ -107,8 +107,8 @@ describe("original Caliper-style most/least format practice", () => {
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(meta.title).toBe(p.seo?.title[locale]); expect(meta.description).toBe(p.seo?.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
-          expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
           expect(dom.querySelector("[data-most-least-topic]")).toBeNull();
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

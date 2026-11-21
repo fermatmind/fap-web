@@ -32,22 +32,22 @@ describe("Original ADDICTION_TENDENCY actual registered callers and public ident
         const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]'); expect(method?.querySelectorAll("p")).toHaveLength(12);
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(method?.textContent).toContain(p[locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(1); count++;
+        expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(0); count++;
         for (const p of quiz.profiles) {
           const publicPath = `${path}/results/${p.id}`, gargs = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
           const gmeta = await guide.generateMetadata(gargs); dom.innerHTML = renderToStaticMarkup(await guide.default(gargs));
           expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); expect(gmeta.title).toBe(p.seo!.title[locale]); expect(gmeta.description).toBe(p.seo!.description[locale]);
           expect(gmeta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(gmeta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/habit-patterns-test/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/habit-patterns-test/results/${p.id}` });
+          expect(gmeta.alternates?.languages).toBeUndefined();
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(dom.querySelector("[data-habit-mean]")).toBeNull();
           expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
-          expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(1);
+          expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(0);
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); count++;
         }
       }
       expect(count).toBe(12);
-      expect(maps.filter(e => e.loc.includes("/tests/explore/habit-patterns-test"))).toHaveLength(12);
+      expect(maps.filter(e => e.loc.includes("/tests/explore/habit-patterns-test"))).toHaveLength(0);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });
   it("fails closed at entry, guide metadata and image callers when the fixed original20 source is damaged", async () => {

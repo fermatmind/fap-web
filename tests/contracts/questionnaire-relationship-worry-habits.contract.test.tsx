@@ -122,12 +122,12 @@ describe("Original relationship worry: responses without labels or heaviness", (
           dom.innerHTML = renderToStaticMarkup(await guide.default(args)); const metadata = await guide.generateMetadata(args);
           expect(metadata.title).toBe(p.seo!.title[locale]);
           expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${url}`);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
+          expect(metadata.alternates?.languages).toBeUndefined();
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(dom.querySelector("[data-relationship-worry-habits-mean]")).toBeNull();
-          expect(maps.filter(x => x.loc === `https://fermatmind.com${url}`)).toHaveLength(1);
+          expect(maps.filter(x => x.loc === `https://fermatmind.com${url}`)).toHaveLength(0);
         }
-        expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+        expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
       }
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });

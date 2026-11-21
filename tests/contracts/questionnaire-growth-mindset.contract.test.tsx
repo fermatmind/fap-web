@@ -126,8 +126,8 @@ describe("T060 original selected-skill growth and fixed belief reflection", () =
       expect(dom.textContent).not.toMatch(/恢复草稿|Resume a draft|草稿需主动开启|Opted-in drafts/);
         expect(metadata.title).toBe(profile.seo!.title[locale]); expect(metadata.description).toBe(profile.seo!.description[locale]);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-        expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${slug}/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${slug}/results/${profile.id}` });
-        expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(dom.querySelector("[data-growth-mean]")).toBeNull();
+        expect(metadata.alternates?.languages).toBeUndefined();
+        expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false); expect(dom.querySelector("[data-growth-mean]")).toBeNull();
         if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
       }
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }

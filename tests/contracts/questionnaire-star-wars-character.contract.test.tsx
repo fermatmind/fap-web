@@ -144,8 +144,8 @@ describe("T045 original seven-character unofficial Star Wars fan quiz", () => {
           expect(meta.title).toBe(profile.seo!.title[locale]);
           expect(meta.description).toBe(profile.seo!.description[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/star-wars-character/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/star-wars-character/results/${profile.id}` });
-          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(true); expect(isMissingFunRoute(publicPath)).toBe(false);
+          expect(meta.alternates?.languages).toBeUndefined();
+          expect(maps.some(e => e.loc === `https://fermatmind.com${publicPath}`)).toBe(false); expect(isMissingFunRoute(publicPath)).toBe(false);
           expect(rendered).not.toContain("data-archetype-count"); if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }
       }

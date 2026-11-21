@@ -29,20 +29,20 @@ describe("Nine Star real public route and source boundaries", () => {
         for (const s of quiz.guide) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
         const directory = document.createElement("div"); directory.innerHTML = renderToStaticMarkup(<MoreTests locale={locale} />);
         const card = directory.querySelector(`a[href="${path}"]`)?.closest("article"); expect(card).not.toBeNull();
-        expect(card?.textContent).toContain(locale === "zh" ? "年份与立春界点 · 九篇完整文化指南" : "Year & Spring boundary · Nine complete cultural guides"); expect(card?.textContent).not.toMatch(/0\s*题|0 questions/); expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(1); count++;
+        expect(card?.textContent).toContain(locale === "zh" ? "年份与立春界点 · 九篇完整文化指南" : "Year & Spring boundary · Nine complete cultural guides"); expect(card?.textContent).not.toMatch(/0\s*题|0 questions/); expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(0); count++;
         for (const p of quiz.profiles) {
           const publicPath = `${path}/results/${p.id}`, gargs = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
           const gm = await guide.generateMetadata(gargs); dom.innerHTML = renderToStaticMarkup(await guide.default(gargs));
           expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); expect(gm.title).toBe(p.seo.title[locale]); expect(gm.description).toBe(p.seo.description[locale]);
           expect(gm.alternates?.canonical).toBe(`https://fermatmind.com${publicPath}`);
-          expect(gm.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/nine-star-ki/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/nine-star-ki/results/${p.id}` });
+          expect(gm.alternates?.languages).toBeUndefined();
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(dom.querySelector("input, [data-nine-star-result], [data-facet-score]")).toBeNull();
-          expect(dom.querySelector(`a[href='${path}']`)).not.toBeNull(); expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(1);
+          expect(dom.querySelector(`a[href='${path}']`)).not.toBeNull(); expect(maps.filter(e => e.loc === `https://fermatmind.com${publicPath}`)).toHaveLength(0);
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u); count++;
         }
       }
-      expect(count).toBe(20); expect(maps.filter(e => e.loc.includes("/tests/explore/nine-star-ki"))).toHaveLength(20);
+      expect(count).toBe(20); expect(maps.filter(e => e.loc.includes("/tests/explore/nine-star-ki"))).toHaveLength(0);
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });
   it("withholds entry/guide metadata, rendering and images when the adopted year or cultural source drifts", async () => {

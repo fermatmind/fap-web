@@ -98,11 +98,11 @@ describe("published English PSS-4 with an identified site Chinese translation", 
       expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
       expect(html).toContain(data.title[locale]);
       expect(html).not.toMatch(/proposed|候选要求|拟复用/);
-      expect(sitemap.filter(row => row.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+      expect(sitemap.filter(row => row.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
       expect(isAnalyticsDisabledQuestionnaireUrl(path)).toBe(true);
       const resultPath = `${path}/results/reading-pss4-total`;
       expect(isAnalyticsDisabledQuestionnaireUrl(resultPath)).toBe(true);
-      expect(sitemap.filter(row => row.loc === `https://fermatmind.com${resultPath}`)).toHaveLength(1);
+      expect(sitemap.filter(row => row.loc === `https://fermatmind.com${resultPath}`)).toHaveLength(0);
       const guideHtml = renderToStaticMarkup(await guide.default({ params: Promise.resolve({ locale, slug: data.slug, profile: "reading-pss4-total" }) }));
       for (const section of data.profiles[0].sections) for (const paragraph of section.paragraphs) expect(guideHtml).toContain(paragraph[locale]);
     }

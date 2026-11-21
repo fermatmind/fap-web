@@ -107,7 +107,7 @@ describe("original Soldier Poet King 24-scenario edition", () => {
     expect(card?.querySelector(".catalog-cover > img")?.getAttribute("src")).toBe(`/images/test-covers/${quiz.slug}.webp`);
     expect(readFileSync(`public/images/test-covers/${quiz.slug}.webp`).toString("ascii", 8, 12)).toBe("WEBP");
     const sitemap = appendFunSitemapEntries([]);
-    expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}`))).toBe(true);
-    for (const p of quiz.profiles) expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}/results/${p.id}`))).toBe(true);
+    expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}`))).toBe(false);
+    for (const p of quiz.profiles) expect(sitemap.some(row => row.loc.endsWith(`/tests/explore/${quiz.slug}/results/${p.id}`))).toBe(false);
   });
 });

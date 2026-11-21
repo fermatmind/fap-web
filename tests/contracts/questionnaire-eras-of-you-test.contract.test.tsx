@@ -122,13 +122,13 @@ describe("T083 original six current-chapter observations", () => {
         for (const profile of quiz.profiles) {
           const guidePath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           expect(html).toContain(`href="${guidePath}"`); expect(isMissingFunRoute(guidePath)).toBe(false);
-          expect(maps.some(e => e.loc === `https://fermatmind.com${guidePath}`)).toBe(true);
+          expect(maps.some(e => e.loc === `https://fermatmind.com${guidePath}`)).toBe(false);
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props);
           const dom = document.createElement("div"); dom.innerHTML = rendered;
           expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]);
           for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
           expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${guidePath}`);
-          expect(meta.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${profile.id}` });
+          expect(meta.alternates?.languages).toBeUndefined();
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
           expect(rendered).not.toContain("data-facet-score");
         }

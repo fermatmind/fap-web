@@ -127,12 +127,12 @@ describe("Original seven work themes: context, missingness and no trait winner",
           const url = `${path}/results/${p.id}`, args = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
           dom.innerHTML = renderToStaticMarkup(await guide.default(args)); const metadata = await guide.generateMetadata(args);
           expect(metadata.title).toBe(p.seo!.title[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${url}`);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/${quiz.slug}/results/${p.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/${quiz.slug}/results/${p.id}` });
+          expect(metadata.alternates?.languages).toBeUndefined();
           for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
           expect(dom.querySelector("[data-work-traits-context]")).not.toBeNull(); expect(dom.querySelector("[data-work-traits-mean]")).toBeNull();
-          expect(maps.filter(x => x.loc === `https://fermatmind.com${url}`)).toHaveLength(1);
+          expect(maps.filter(x => x.loc === `https://fermatmind.com${url}`)).toHaveLength(0);
         }
-        expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(1);
+        expect(maps.filter(x => x.loc === `https://fermatmind.com${path}`)).toHaveLength(0);
       }
     } finally { vi.unstubAllEnvs(); vi.resetModules(); }
   });

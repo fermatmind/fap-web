@@ -125,9 +125,9 @@ describe("T187 complete source SAPS with independent means and working Chinese",
     for (const locale of ["en", "zh"] as const) {
       const params = Promise.resolve({ locale, slug: quiz.slug }), metadata = await page.generateMetadata({ params });
       expect(metadata.description).toBe(quiz.description[locale]); expect(metadata.title).toBe(quiz.seoTitle[locale]);
-      const path = `/${locale}/tests/explore/perfectionism`; expect(urls).toContain(`https://fermatmind.com${path}`);
+      const path = `/${locale}/tests/explore/perfectionism`; expect(urls).not.toContain(`https://fermatmind.com${path}`);
       expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-      expect(metadata.alternates?.languages).toMatchObject({ en: "https://fermatmind.com/en/tests/explore/perfectionism", "zh-CN": "https://fermatmind.com/zh/tests/explore/perfectionism" });
+      expect(metadata.alternates?.languages).toBeUndefined();
       const entry = renderToStaticMarkup(await page.default({ params })); expect(entry).toContain("data-saps-attribution");
       const entryDom = document.createElement("div"); entryDom.innerHTML = entry;
       const method = entryDom.querySelector('section[aria-labelledby="questionnaire-method"]'); expect(method).not.toBeNull();
@@ -137,7 +137,7 @@ describe("T187 complete source SAPS with independent means and working Chinese",
         const args = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }, meta = await guide.generateMetadata(args);
         expect(meta.title).toBe(profile.seo!.title[locale]); expect(meta.description).toBe(profile.seo!.description[locale]);
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}/results/${profile.id}`);
-        expect(urls).toContain(`https://fermatmind.com${path}/results/${profile.id}`);
+        expect(urls).not.toContain(`https://fermatmind.com${path}/results/${profile.id}`);
         const markup = renderToStaticMarkup(await guide.default(args)), dom = document.createElement("div"); dom.innerHTML = markup;
         expect(markup).toContain("data-saps-attribution"); for (const section of profile.sections) for (const paragraph of section.paragraphs) expect(dom.textContent).toContain(paragraph[locale]);
       }

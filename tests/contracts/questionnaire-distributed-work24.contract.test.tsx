@@ -105,7 +105,7 @@ describe("Original distributed work choices: balanced appearances, no score or i
     for (const locale of ["en", "zh"] as const) {
       const path = `/${locale}/tests/explore/${quiz.slug}`, params = { params: Promise.resolve({ locale, slug: quiz.slug }) };
       expect((await entry.generateMetadata(params)).alternates?.canonical).toBe(`${SITE_URL}${path}`);
-      expect(sitemap).toContain(`https://fermatmind.com${path}`);
+      expect(sitemap).not.toContain(`https://fermatmind.com${path}`);
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(params));
       expect(dom.querySelectorAll("[data-distributed-full-guide]")).toHaveLength(4);
       expect(dom.querySelectorAll("[data-distributed-full-guide] h3")).toHaveLength(28);
@@ -113,7 +113,7 @@ describe("Original distributed work choices: balanced appearances, no score or i
       for (const p of quiz.profiles) {
         const gp = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) };
         const url = `https://fermatmind.com${path}/results/${p.id}`;
-        expect((await guide.generateMetadata(gp)).alternates?.canonical).toBe(`${SITE_URL}${path}/results/${p.id}`); expect(sitemap).toContain(url);
+        expect((await guide.generateMetadata(gp)).alternates?.canonical).toBe(`${SITE_URL}${path}/results/${p.id}`); expect(sitemap).not.toContain(url);
         const html = document.createElement("div"); html.innerHTML = renderToStaticMarkup(await guide.default(gp));
         for (const s of p.sections) for (const t of s.paragraphs) {
           expect(dom.querySelector(`[data-distributed-full-guide="${p.id}"]`)?.textContent).toContain(t[locale]);
