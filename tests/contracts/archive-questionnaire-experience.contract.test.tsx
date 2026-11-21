@@ -11,7 +11,7 @@ import { isArchivedEntertainmentPath } from "@/lib/seo/discoverabilityExposurePo
 const locales = ["en", "zh", "zh-TW"] as const;
 
 describe("archive questionnaire experience", () => {
-  it.each(["found-family-role-test", "travel-personality-test"])("preserves %s identity and scores while localizing the result and next step", async (slug) => {
+  it.each(["found-family-role-test", "travel-personality-test", "leadership-style", "big-fish-energy-test", "villain-era-archetype-test"])("preserves %s identity and scores while localizing the result and next step", async (slug) => {
     const source = await loadQuestionnaire(slug);
     const traditional = await loadTraditionalArchetype(slug);
     const copy = getArchiveExperience(slug);

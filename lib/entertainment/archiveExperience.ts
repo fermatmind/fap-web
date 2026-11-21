@@ -105,6 +105,140 @@ const archiveExperience: Readonly<Partial<Record<string, {
       },
     },
   },
+  "leadership-style": {
+    startHint: {
+      en: "Think of one ordinary team. Choose the first move you would make, even if you would follow it with another approach.",
+      zh: "想一个熟悉的普通团队。即便之后还会换做法，每题也只选你会先做的那一步。",
+      "zh-TW": "想著一個熟悉的團隊。就算接下來會改用別的做法，每題也只挑你會先做的那一步。",
+    },
+    next: {
+      slug: SCALE_CANONICAL_SLUG_MAP.RIASEC,
+      label: { en: "Explore the Holland career interest assessment", zh: "了解霍兰德职业兴趣测评", "zh-TW": "了解何倫碼職涯興趣測驗" },
+      detail: {
+        en: "Curious whether organizing, persuading, or supporting people is work you enjoy? Try a separate Holland assessment to compare your interests across different kinds of work.",
+        zh: "想知道组织、说服或支持他人是不是你愿意长期做的事？可以另做霍兰德测评，比较你对不同工作活动的兴趣。",
+        "zh-TW": "想知道自己喜不喜歡規劃、說服或支持他人這類工作？可以另外做何倫碼測驗，看看你對不同工作活動的興趣。",
+      },
+    },
+    profiles: {
+      autocratic: {
+        en: ["I’ll make the call and spell out the next step.", "Clear ownership", "Direct decisions"],
+        zh: ["这一步我来定，再把接下来怎么做说清楚。", "明确谁负责", "直接拍板"],
+        "zh-TW": ["這一步由我決定，再把接下來怎麼做講清楚。", "責任明確", "直接做決定"],
+      },
+      democratic: {
+        en: ["Let’s hear each proposal before deciding.", "Invite input", "Compare proposals"],
+        zh: ["先把几个方案听完，再一起定。", "听取意见", "共同比较"],
+        "zh-TW": ["先聽聽大家的方案，再一起決定。", "讓成員參與", "一起比較方案"],
+      },
+      "laissez-faire": {
+        en: ["You can work out the details among yourselves.", "Member-led choices", "Room to organize"],
+        zh: ["具体怎么做，你们可以自己商量。", "成员自主", "留出安排空间"],
+        "zh-TW": ["細節你們可以自己討論安排。", "成員自主", "讓團隊自己協調"],
+      },
+      transformational: {
+        en: ["Let’s look again at what we’re trying to change.", "Revisit the goal", "Model a new approach"],
+        zh: ["先回头看看，我们到底想改变什么。", "重看目标", "示范新做法"],
+        "zh-TW": ["先想一想，我們真正想改變的是什麼。", "再看一次目標", "示範新做法"],
+      },
+    },
+  },
+  "big-fish-energy-test": {
+    startHint: {
+      en: "Picture each ordinary scene before choosing. Go with the small thing you feel like doing this time.",
+      zh: "先想象题里的日常场景，再选你这次最想做的一件小事。",
+      "zh-TW": "先想像題目裡的日常片段，再挑你這次最想做的那件小事。",
+    },
+    next: {
+      slug: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
+      label: { en: "Explore the Big Five personality assessment", zh: "了解大五人格测评", "zh-TW": "了解大五人格測驗" },
+      detail: {
+        en: "If you want to explore broader habits around order, sociability or trying new things, those are topics you can consider in a separate Big Five assessment.",
+        zh: "如果也想看看平常怎样安排事情、与人相处或接触新事物，可以另做大五人格测评。",
+        "zh-TW": "如果也想看看自己平常怎麼安排事情、和人相處或接觸新事物，可以另外做大五人格測驗。",
+      },
+    },
+    profiles: {
+      shark: {
+        en: ["Let me finish this one thing first.", "One thing at a time", "Finish the small task"],
+        zh: ["先把手上这一件做完。", "一次专心一件", "先收好小尾巴"],
+        "zh-TW": ["先把手上這件事做完。", "一次專心一件", "先把小事收尾"],
+      },
+      dolphin: {
+        en: ["I’ll share one, and you can share one if you like.", "Take turns", "Keep it voluntary"],
+        zh: ["我先分享一个，你想接着聊也可以。", "轮流交流", "愿意才参与"],
+        "zh-TW": ["我先分享一個，你有興趣再接著聊。", "輪流交流", "想參加再加入"],
+      },
+      whale: {
+        en: ["Can we stay with this a little longer?", "Take your time", "Leave some space"],
+        zh: ["在这一刻多停留一会儿吧。", "放慢一点", "留点空间"],
+        "zh-TW": ["再多留一點時間，好好看一會兒。", "放慢步調", "留一點空間"],
+      },
+      octopus: {
+        en: ["What if we put these two things together?", "Recombine familiar things", "Try another arrangement"],
+        zh: ["把这两样熟悉的东西放在一起试试？", "重新组合", "多试一种摆法"],
+        "zh-TW": ["把這兩樣熟悉的東西搭在一起看看？", "重新搭配", "試試別的排法"],
+      },
+      pufferfish: {
+        en: ["I’ll join for a bit, and then stop there.", "Set a small limit", "Choose how much to share"],
+        zh: ["我可以参加一会儿，到这里就好。", "先划小范围", "自己决定分享多少"],
+        "zh-TW": ["我可以參加一下，到這裡就好。", "先訂個小範圍", "自己決定分享多少"],
+      },
+      anglerfish: {
+        en: ["I think I’ll keep this little find to myself for now.", "Keep a small find", "Share when ready"],
+        zh: ["这个小发现，我想暂时留给自己。", "珍藏小发现", "想分享时再说"],
+        "zh-TW": ["這個小發現，我想先留給自己。", "收好小發現", "想分享時再說"],
+      },
+    },
+  },
+  "villain-era-archetype-test": {
+    startHint: {
+      en: "Think of an ordinary request for a little extra time or effort. Choose the opening you would actually use.",
+      zh: "想象有人请你额外花一点时间或精力。选一句或一种你真的愿意用来开场的做法。",
+      "zh-TW": "想像日常裡有人請你多花一點時間或力氣。挑一句你真的會說的話，或一個你會採取的開場動作。",
+    },
+    next: {
+      slug: SCALE_CANONICAL_SLUG_MAP.EQ_60,
+      label: { en: "Explore the emotional intelligence assessment", zh: "了解情商测评", "zh-TW": "了解情緒智力測驗" },
+      detail: {
+        en: "If you want to reflect on what you notice and how you respond when a request feels awkward, explore that separately in the emotional intelligence assessment.",
+        zh: "如果想进一步观察自己遇到为难的请求时如何察觉情绪、怎么回应，可以另做一份情商测评。",
+        "zh-TW": "如果想知道自己遇到難開口的請求時，怎麼察覺情緒、怎麼回應，可以另外做情緒智力測驗。",
+      },
+    },
+    profiles: {
+      "scene-planner": {
+        en: ["I can do this part. Let’s agree where it ends.", "Name the scope", "Set an end point"],
+        zh: ["我能接这一段，我们先说好做到哪儿。", "说清范围", "定好结束点"],
+        "zh-TW": ["我可以幫這一部分，先說好做到哪裡。", "講清楚範圍", "先訂結束點"],
+      },
+      "honest-antihero": {
+        en: ["I nearly said yes. Looking at my time, I can’t take it on.", "Acknowledge hesitation", "State your capacity"],
+        zh: ["我刚才差点答应，想了想，这次确实排不开。", "承认犹豫", "说清自己的余量"],
+        "zh-TW": ["我剛才差點答應，但再看一下時間，這次真的排不下。", "承認猶豫", "說清楚能做多少"],
+      },
+      "warm-decliner": {
+        en: ["Thanks for asking. I won’t be able to do it this time.", "Show goodwill", "Say no clearly"],
+        zh: ["谢谢你想到我，这次我接不了。", "表达善意", "明确拒绝"],
+        "zh-TW": ["謝謝你想到我，這次我沒辦法接。", "保留善意", "清楚拒絕"],
+      },
+      "rule-questioner": {
+        en: ["Before I answer, how did we agree to share this out?", "Check the agreement", "Ask how tasks were assigned"],
+        zh: ["我先确认一下，这件事原本是怎么分工的？", "核对约定", "先问分工"],
+        "zh-TW": ["先確認一下，這件事原本怎麼分工？", "確認原本約定", "問清楚誰負責"],
+      },
+      "offstage-keeper": {
+        en: ["I’m stepping away now. I’ll leave this conversation here.", "Pause the conversation", "Step back"],
+        zh: ["我先下线了，这段先停在这儿。", "暂停讨论", "退出持续安排"],
+        "zh-TW": ["我先離線，這段話題就先到這裡。", "暫停討論", "從安排中退一步"],
+      },
+      "line-rewriter": {
+        en: ["I can make a cameo. I’m not taking a recurring role.", "Use light phrasing", "Keep the choice explicit"],
+        zh: ["我可以客串一次，常驻角色就不接了。", "用轻松的话开场", "把选择说清楚"],
+        "zh-TW": ["我可以客串一回，固定班底就先不加入。", "用輕鬆的話開場", "把選擇講清楚"],
+      },
+    },
+  },
 };
 
 export function getArchiveExperience(slug: string) {
