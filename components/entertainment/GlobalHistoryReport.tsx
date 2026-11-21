@@ -1,5 +1,6 @@
 "use client";
 
+import { ArchiveQuestionnaireNextStep } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { useQuestionnaireDisplayCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { useSyncExternalStore } from "react";
 import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
@@ -42,7 +43,7 @@ export function GlobalHistoryShare({ id, locale, displayLocale = locale }: { id:
   </div>;
 }
 
-export function GlobalHistoryReport({ id, profile, locale }: { id: string; profile: readonly number[]; locale: Locale }) {
+export function GlobalHistoryReport({ id, profile, locale, displayLocale = locale }: { id: string; profile: readonly number[]; locale: Locale; displayLocale?: DisplayLocale }) {
   const { displayText } = useQuestionnaireDisplayCopy();
   const raw = useSyncExternalStore(subscribe, readSaved, () => null);
   const vector = readVector(raw, id);
@@ -93,6 +94,7 @@ export function GlobalHistoryReport({ id, profile, locale }: { id: string; profi
           ? (zh ? displayText("挑一道你最犹豫的题，想想什么信息会让你选另一种做法。") : "Pick a scene you hesitated over. What new information would make you choose a different approach?")
           : displayText(historyReflections[mostDistinct.index][mostDistinct.own! < 3 ? "low" : "high"][locale])}</p>
       </section>
+      <ArchiveQuestionnaireNextStep slug={GLOBAL_HISTORY_SLUG} locale={displayLocale} />
     </>}
   </>;
 }

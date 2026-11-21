@@ -1,3 +1,4 @@
+import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -5,7 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { GlobalHistoryReport, GlobalHistoryShare } from "@/components/entertainment/GlobalHistoryReport";
 import { GlobalHistoryLocaleLinks } from "@/components/entertainment/GlobalHistoryLocaleLinks";
 import {
-  globalHistoryImagePath, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath,
+  GLOBAL_HISTORY_SLUG, globalHistoryImagePath, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath,
 } from "@/lib/entertainment/global-history/config";
 import { historyProfileHighlights } from "@/lib/entertainment/global-history/matching";
 import { findHistoryPerson, getHistoryGalleryPage, historyPeople } from "@/lib/entertainment/global-history/people";
@@ -60,7 +61,7 @@ export default async function Page({ params, searchParams }: Props) {
   const title = person.name[locale];
   const resultPath = globalHistoryResultPath(displayLocale, person.id);
   const share = <GlobalHistoryShare id={person.id} locale={locale} displayLocale={displayLocale} />;
-  const report = <GlobalHistoryReport id={person.id} profile={person.vector} locale={locale} />;
+  const report = <GlobalHistoryReport id={person.id} profile={person.vector} locale={locale} displayLocale={displayLocale} />;
   const Shell = traditional ? "div" : "main";
   return <Shell className={styles.page}>
     <Container className={`max-w-4xl ${styles.inner}`}>
@@ -101,6 +102,7 @@ export default async function Page({ params, searchParams }: Props) {
           {zh ? copy("再玩一次") : "Play again"}
         </Link></div>
       </section>
+      <ArchiveGuideShare slug={GLOBAL_HISTORY_SLUG} id={person.id} locale={displayLocale} story />
       <section className={styles.panel} id="people" aria-labelledby="history-gallery">
         <h2 id="history-gallery">{zh ? copy(`浏览全部 ${historyPeople.length} 位人物`) : `Explore all ${historyPeople.length} figures`}</h2>
         <p>{zh ? copy("这里按人物名单浏览。") : "Browse the figures in collection order."}</p>

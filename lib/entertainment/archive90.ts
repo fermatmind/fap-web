@@ -1,4 +1,5 @@
 import { archiveSecondBatch } from "./archiveSecondBatch";
+import { archiveThirdBatch } from "./archiveThirdBatch";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
@@ -213,5 +214,7 @@ export function archive90Topic(slug: string): Topic | undefined {
 
 export function archiveTopic(slug: string): Topic | undefined {
   const second = Object.hasOwn(archiveSecondBatch, slug) ? archiveSecondBatch[slug] : undefined;
-  return second ? topics[second] : archive90Topic(slug);
+  const third = Object.hasOwn(archiveThirdBatch, slug) ? archiveThirdBatch[slug] : undefined;
+  const key = second ?? third;
+  return key ? topics[key] : archive90Topic(slug);
 }

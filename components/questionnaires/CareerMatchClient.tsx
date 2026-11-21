@@ -1,4 +1,5 @@
 "use client";
+import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
@@ -165,6 +166,7 @@ function ValidCareerMatchClient({ quiz, locale, readings }: { quiz: Questionnair
       })}
       <p className="leading-7">{zh ? displayText("可以从完整档案选择一项普通任务，私下核对吸引你的部分与仍需了解的条件；也可以在这里结束。") : "Optionally choose one ordinary task from a complete profile and privately note its appeal and the conditions you still need to understand. You can also finish here."}</p>
       <CareerMatchResultReading locale={locale} content={readings} traditional={traditional} />
+      {complete && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={displayLocale} />}
       <div className="flex flex-wrap gap-3"><button type="button" className={button} onClick={share}>{zh ? displayText("复制公开入口") : "Copy public entry"}</button><button type="button" className={button} onClick={clear}>{zh ? displayText("清除并重新比较") : "Clear and compare again"}</button></div>
     </section>}
     {manual && <div className="my-4"><label className="block" htmlFor="career-match-copy">{zh ? displayText("手动复制的公开入口") : "Public entry for manual copying"}</label><textarea id="career-match-copy" readOnly value={manual} className="mt-2 min-h-28 w-full rounded-lg border p-3" /></div>}

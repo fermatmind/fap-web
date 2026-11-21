@@ -50,6 +50,8 @@ describe("original Career Match tool, reusing the interest construct and publish
     compare(); expect(container.querySelector("[data-career-match-message]")).toHaveTextContent(locale === "en" ? "different occupations" : "不同职业");
     pick(); compare(); await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='available']")).toHaveLength(2));
     await waitFor(() => expect(container.querySelector("#career-match-result-title")).toHaveFocus());
+    expect(container.querySelectorAll("[data-archive-next-step] a")).toHaveLength(1);
+    expect(container.querySelector("[data-archive-next-step] a")).toHaveAttribute("href", `/${locale}/tests/holland-career-interest-test-riasec`);
     const rows = container.querySelectorAll("[data-career-match-role]");
     expect(rows[0].getAttribute("data-career-match-role")).toBe("contract-role-a");
     expect(rows[0].querySelector("[data-career-shared-themes]")).toHaveTextContent(quiz.directions[2].title[locale]);
@@ -119,6 +121,7 @@ describe("original Career Match tool, reusing the interest construct and publish
     const compare = () => fireEvent.click(screen.getByRole("button", { name: "Compare interest themes" }));
     compare();
     await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='error']")).toHaveLength(1));
+    expect(container.querySelector("[data-archive-next-step]")).toBeNull();
     expect(container.querySelectorAll("[data-career-read-status='available']")).toHaveLength(1);
     expect(container.querySelector("#career-match-role-0")).toHaveValue("contract-role-a");
     expect(container.querySelector("[data-interest-theme='A']")).toBeChecked();

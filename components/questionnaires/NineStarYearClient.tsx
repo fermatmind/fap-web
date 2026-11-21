@@ -1,4 +1,5 @@
 "use client";
+import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
@@ -89,6 +90,7 @@ function ValidNineStarYearClient({ quiz, locale, readingProfiles }: { quiz: Nine
       <div className="my-4"><button type="button" className={button} onClick={copy}>{zh ? displayText("复制公开指南链接") : "Copy public guide links"}</button></div>
       {manual && <label className="my-4 block">{zh ? displayText("手动复制文字") : "Text for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-28 w-full rounded-lg border border-slate-300 p-3" /></label>}
       <NineStarYearReport quiz={quiz} result={finished} locale={locale} readingProfiles={readingProfiles} displayCopy={traditional ? displayText : undefined} />
+      <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={traditional ? "zh-TW" : locale} />
     </section>}
     {activityConsent}
     <noscript><p>{zh ? displayText("计算需要浏览器启用JavaScript；下方方法和九篇完整文化指南仍可阅读。") : "Calculation requires JavaScript; the methods and all nine complete cultural guides below remain readable."}</p></noscript>

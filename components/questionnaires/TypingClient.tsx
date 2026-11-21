@@ -98,7 +98,7 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
     catch { setManual(value); setMessage(zh ? "复制不可用，可手动复制公开链接。" : "Copy is unavailable. Copy the public link manually."); }
   };
   useEntertainmentResultView(recordView, phase === "result");
-  return <section id="take-test" className="my-8 rounded-2xl border border-violet-200 bg-white p-5 [overflow-wrap:anywhere]" aria-labelledby="typing-heading">
+  return <section id="take-test" data-stage={phase === "result" && finished ? "result" : phase === "running" ? "answer" : undefined} className="my-8 rounded-2xl border border-violet-200 bg-white p-5 [overflow-wrap:anywhere]" aria-labelledby="typing-heading">
     {activityConsent}
     <h2 id="typing-heading" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{phase === "result" ? (zh ? displayText("本轮60秒打字结果") : "Your 60-second typing result") : phase === "running" ? round.title[locale] : (zh ? displayText("选择语言，开始真实60秒练习") : "Choose a language for a real 60-second round")}</h2>
     {phase !== "result" && <>
