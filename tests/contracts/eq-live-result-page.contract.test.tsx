@@ -1,9 +1,13 @@
 import { render, screen, cleanup } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { eqResultPageSchema } from "@/lib/eq/resultPage";
 import { EQResultV5 } from "@/components/result/eq/EQResultV5";
 import { isEqPrivateResultLocaleCompatible } from "@/lib/eq/privateResultLocale";
 import { buildEqRendererContractFixture, eqReportResponseFromContractFixture } from "@/tests/fixtures/eq/v5/eq60RendererContractFixture";
+
+import SamplePage from "@/app/(localized)/[locale]/reports/samples/[test]/page";
+const { loadSample } = vi.hoisted(() => ({loadSample: vi.fn()}));
+vi.mock("@/lib/eq/loadResultSample", () => ({loadEqResultSample: loadSample}));
 
 const ids = ["aware_but_unregulated", "high_empathy_low_recovery", "sensitive_absorber", "calm_but_distant", "relationship_first_self_later", "self_clear_repair_weak", "steady_collaborator", "developing_foundation", "balanced_integrated", "low_confidence_result"];
 const locales = ["zh-CN", "en", "zh-TW"] as const;
@@ -36,6 +40,13 @@ describe("Live EQ shared result template",()=>{
     expect(document.querySelector('[data-eq-quality="true"]')).not.toBeNull();
     expect(document.querySelector('[data-eq-module="careers"]')).toBeNull();
     expect(screen.queryByText("Dimension SA")).not.toBeInTheDocument();
+  });
+  it.each(["zh", "zh-TW", "en"] as const)("loads the production sample route through the shared EQ component in %s",async locale=>{
+    loadSample.mockResolvedValue(eqResultPageSchema.parse(packet()));
+    render(await SamplePage({params:Promise.resolve({locale,test:"eq"})}));
+    expect(document.querySelectorAll('[data-eq-module]')).toHaveLength(10);
+    expect(screen.getByText("Sample notice")).toBeVisible();
+    expect(document.querySelector('a[href*="/dev/"]')).toBeNull();
   });
   it("rejects English leakage in any newly rendered field",()=>{
     const response=eqReportResponseFromContractFixture(buildEqRendererContractFixture("en","standard"));
