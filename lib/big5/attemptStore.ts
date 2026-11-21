@@ -178,7 +178,8 @@ function readStorageValueForContext(context: Big5StorageContext): string | null 
     return direct;
   }
 
-  if (context.formCode !== DEFAULT_BIG5_FORM_CODE) {
+  // The unversioned storage key predates the 90-item form.
+  if (context.formCode !== "big5_120") {
     return null;
   }
 
