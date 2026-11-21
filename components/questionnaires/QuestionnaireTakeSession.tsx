@@ -1,5 +1,5 @@
 "use client";
-import { archive90Topic } from "@/lib/entertainment/archive90";
+import { archiveTopic } from "@/lib/entertainment/archive90";
 import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export function QuestionnaireTakeSession({ children, title, minutes, locale, lan
   const [preparing, setPreparing] = useState(autoStart), [slow, setSlow] = useState(false);
   const { displayText } = useQuestionnaireDisplayCopy();
   const slug = landing.split("/").at(-1) ?? "";
-  const archive = archive90Topic(slug);
+  const archive = archiveTopic(slug);
   const archiveLocale = landing.startsWith("/zh-TW/") ? "zh-TW" : locale;
   const [archiveStage, setArchiveStage] = useState<"answer" | "result">();
   const zh = locale === "zh";

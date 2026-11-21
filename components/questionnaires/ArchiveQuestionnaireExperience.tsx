@@ -1,4 +1,5 @@
-import { archive90Topic } from "@/lib/entertainment/archive90";
+import { archiveTopic } from "@/lib/entertainment/archive90";
+import { resultPath } from "@/lib/entertainment/guides";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { canonicalUrl as publicGuideUrl } from "@/lib/site";
 import { PublicGuideShare } from "./PublicGuideShare";
@@ -27,7 +28,7 @@ const nextCopy = {
 } as const;
 
 export function ArchiveQuestionnaireNextStep({ slug, locale }: { slug: string; locale: DisplayLocale }) {
-  const next = getArchiveExperience(slug)?.next ?? archive90Topic(slug);
+  const next = getArchiveExperience(slug)?.next ?? archiveTopic(slug);
   if (!next) return null;
   const text = nextCopy[locale];
   return (
@@ -42,11 +43,12 @@ export function ArchiveQuestionnaireNextStep({ slug, locale }: { slug: string; l
   );
 }
 
-export function Archive90GuideShare({ slug, id, locale }: { slug: string; id: string; locale: DisplayLocale }) {
-  if (!archive90Topic(slug)) return null;
+export function ArchiveGuideShare({ slug, id, locale, story = false }: { slug: string; id: string; locale: DisplayLocale; story?: boolean }) {
+  if (!archiveTopic(slug)) return null;
+  const path = story ? resultPath(locale, slug, id) : questionnaireGuidePath(locale, slug, id);
   return (
     <div className="mx-auto w-full max-w-3xl px-5 pb-8" data-archive-guide={id}>
-      <PublicGuideShare url={publicGuideUrl(questionnaireGuidePath(locale, slug, id))} locale={locale} />
+      <PublicGuideShare url={publicGuideUrl(path)} locale={locale} />
     </div>
   );
 }

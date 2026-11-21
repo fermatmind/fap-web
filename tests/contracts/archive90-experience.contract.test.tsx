@@ -2,7 +2,7 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { useState } from "react";
 import { describe, expect, it } from "vitest";
-import { Archive90GuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
+import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { QuestionnaireTakeSession } from "@/components/questionnaires/QuestionnaireTakeSession";
 import { archive90Topic } from "@/lib/entertainment/archive90";
 import { getArchiveExperience } from "@/lib/entertainment/archiveExperience";
@@ -41,14 +41,14 @@ describe("90-title archive experience", () => {
         expect([topic.label[locale], topic.hint[locale], topic.detail[locale]].every(Boolean)).toBe(true);
         for (const id of entry.resultSlugs) {
           expect(isArchivedEntertainmentPath(questionnaireGuidePath(locale, entry.slug, id))).toBe(true);
-          const rendered = renderToStaticMarkup(<Archive90GuideShare slug={entry.slug} id={id} locale={locale} />);
+          const rendered = renderToStaticMarkup(<ArchiveGuideShare slug={entry.slug} id={id} locale={locale} />);
           expect(rendered).toContain(`data-archive-guide="${id}"`);
           expect(rendered.match(/data-public-guide-share/g)).toHaveLength(1);
         }
       }
     }
     expect(archive90Topic("constructor")).toBeUndefined();
-    expect(renderToStaticMarkup(<Archive90GuideShare slug="temperament" id="sanguine" locale="en" />)).toBe("");
+    expect(renderToStaticMarkup(<ArchiveGuideShare slug="temperament" id="sanguine" locale="en" />)).toBe("");
   });
 
   it.each([true, false])("waits for a completed free report, including a manually started session (generic=%s)", async generic => {

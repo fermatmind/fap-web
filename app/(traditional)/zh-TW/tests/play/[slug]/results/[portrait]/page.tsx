@@ -1,3 +1,4 @@
+import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { Container } from "@/components/layout/Container";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -6,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CHANGAN_SLUG, changanPortraitPath, traditionalFirstChoiceRule } from "@/lib/entertainment/changan";
-import { contentImagePath, findPublicPortrait, portraitDescription, portraitRuleExample, quizPath, resultPath } from "@/lib/entertainment/guides";
+import { contentImagePath, findPublicPortrait, portraitDescription, portraitRuleExample, quizPath, resultPath, resultSlug } from "@/lib/entertainment/guides";
 import { requireTraditionalStoryQuiz } from "@/lib/i18n/zh-TW/legacyStoryReader";
 
 type Props = { params: Promise<{ slug: string; portrait: string }> };
@@ -112,6 +113,7 @@ export default async function TraditionalStoryPortraitPage({ params }: Props) {
       </section>
     </article>
     <Link href={path} className="inline-block min-h-11 py-2 underline">返回測驗介紹</Link>
+    <ArchiveGuideShare slug={quiz.slug} id={resultSlug(result.id)} locale="zh-TW" story />
   </Container>;
 }
 

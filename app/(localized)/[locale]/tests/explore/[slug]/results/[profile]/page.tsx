@@ -1,4 +1,4 @@
-import { Archive90GuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
+import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import { notFound } from "next/navigation";
@@ -20,5 +20,5 @@ export async function generateMetadata(props: Props) {
 export default async function ExplorePage(props: Props) {
   if (!isExplore((await props.params).slug)) notFound();
   const { slug, profile, locale } = await props.params;
-  return <ExploreTestShell guide>{await Page(props)}<Archive90GuideShare slug={slug} id={profile} locale={resolveLocale(locale)} /></ExploreTestShell>;
+  return <ExploreTestShell guide>{await Page(props)}<ArchiveGuideShare slug={slug} id={profile} locale={resolveLocale(locale)} /></ExploreTestShell>;
 }

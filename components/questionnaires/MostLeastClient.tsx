@@ -1,7 +1,7 @@
 "use client";
 import { useQuestionnaireDisplayCopy } from "./TraditionalQuestionnaireCopy";
 import { ResultReadingNav } from "./QuestionnaireResultPresentation";
-import { QuestionnaireLegacyControl } from "./QuestionnaireTakeContext";
+import { QuestionnaireLegacyControl, useQuestionnaireTake } from "./QuestionnaireTakeContext";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
@@ -13,6 +13,8 @@ import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { trackEvent } from "@/lib/analytics";
 import { appendSeoCtaContextParamsToHref, buildSeoCtaContextParams, buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
+import { archiveTopic } from "@/lib/entertainment/archive90";
+import { ArchiveQuestionnaireNextStep } from "./ArchiveQuestionnaireExperience";
 import { QuestionnaireResultReading } from "./QuestionnaireResultReading";
 
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
@@ -26,6 +28,8 @@ export function MostLeastClient({ quiz, locale, readingProfiles }: { quiz: Quest
 
 function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questionnaire; locale: Locale; readingProfiles?: readonly QuestionnaireProfile[] }) {
   const { displayText, traditional } = useQuestionnaireDisplayCopy();
+  const standalone = useQuestionnaireTake();
+  const archive = archiveTopic(quiz.slug);
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const metrics = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true, displayText);
   const [phase, setPhase] = useState<"ready" | "answering" | "result">("ready");
@@ -107,7 +111,8 @@ function ValidMostLeastClient({ quiz, locale, readingProfiles }: { quiz: Questio
       </section>; })}
       <p className="my-5 text-sm leading-7 text-slate-700">{zh ? displayText("差值等于最符合减最不符合，八主题的差值合计为零。这是练习中的选择记录，不换算为 Caliper 分数。") : "Difference equals Most minus Least. The differences sum to zero across the eight topics. This practice records choices without converting them to Caliper scores."}</p>
       <div className="my-5 flex flex-wrap gap-3"><button type="button" className={button} onClick={start}>{zh ? displayText("重新练习") : "Retake practice"}</button><button type="button" className={button} onClick={share}>{zh ? displayText("复制公开练习链接") : "Copy public practice link"}</button><QuestionnaireLegacyControl><button type="button" className={button} onClick={reset}>{zh ? displayText("清空并退出") : "Clear and exit"}</button></QuestionnaireLegacyControl></div>
-      <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? displayText("按需继续，或在这里结束") : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? displayText("大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。") : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? displayText("可选：了解大五测试与题本") : "Optional: explore Big Five and its versions"}</Link></aside>
+      <aside className="my-6 border-t pt-5"><h3 className="text-xl font-semibold">{zh ? displayText("按需继续，或在这里结束") : "Continue if useful, or finish here"}</h3><p className="my-3 leading-8">{zh ? displayText("大五是另一个独立测评，需另外作答；它的维度不由本页次数推算，也不是查看完整读法的条件。") : "Big Five is a separate assessment with its own questions. Its dimensions are not inferred from these counts, and taking it is not required to read any full guide."}</p>{!archive && <Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={big5Href} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? displayText("可选：了解大五测试与题本") : "Optional: explore Big Five and its versions"}</Link>}</aside>
+      {archive && !standalone && <ArchiveQuestionnaireNextStep slug={quiz.slug} locale={traditional ? "zh-TW" : locale} />}
     </>}
     {metrics.consent}
     {message && <p role="status" className="my-4 leading-7">{message}</p>}

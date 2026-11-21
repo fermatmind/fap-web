@@ -1,3 +1,4 @@
+import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import styles from "./StoryResultGuide.module.css";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import Image from "next/image";
@@ -342,9 +343,11 @@ async function FunResultGuideContent({ params }: Props) {
 }
 
 export default async function FunResultGuide(props: Props) {
+  const { slug, portrait, locale } = await props.params;
   return (
     <ExploreTestShell guide>
       {await FunResultGuideContent(props)}
+      <ArchiveGuideShare slug={slug} id={portrait} locale={resolveLocale(locale)} story />
     </ExploreTestShell>
   );
 }

@@ -1,3 +1,4 @@
+import { archiveSecondBatch } from "./archiveSecondBatch";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 
@@ -109,6 +110,8 @@ const topics = {
   },
 } satisfies Record<string, Topic>;
 
+export type ArchiveTopicKey = keyof typeof topics;
+
 // Fixed entries from the first 90-test archive release.
 const cohort: Readonly<Partial<Record<string, keyof typeof topics>>> = {
   "ai-literacy": "work",
@@ -206,4 +209,9 @@ const cohort: Readonly<Partial<Record<string, keyof typeof topics>>> = {
 export function archive90Topic(slug: string): Topic | undefined {
   const key = Object.hasOwn(cohort, slug) ? cohort[slug] : undefined;
   return key ? topics[key] : undefined;
+}
+
+export function archiveTopic(slug: string): Topic | undefined {
+  const second = Object.hasOwn(archiveSecondBatch, slug) ? archiveSecondBatch[slug] : undefined;
+  return second ? topics[second] : archive90Topic(slug);
 }
