@@ -16,7 +16,7 @@
 .pdfButton:focus-visible { outline: 2px solid #247858; outline-offset: 4px; }
 .paidLabel { color: #8a601d; font-size: 11px; }
 .error { margin: 10px 0 0; font-size: 12px; line-height: 1.7; color: #8a4324; }
-.report [data-testid="mbti-desktop-clone-shell"] { --clone-body: #37443d; --clone-muted: #505e55; --clone-rail-col: 320px; --clone-col-gap: 48px; }
+.report [data-testid="mbti-desktop-clone-shell"] { --clone-body: #37443d; --clone-muted: #505e55; --clone-rail-col: 260px; --clone-col-gap: 32px; }
 .report [data-testid="mbti-desktop-clone-shell"] p:not([role="status"]) { color: #37443d; }
 @media (max-width: 767px) {
   .section { padding: 24px; }
