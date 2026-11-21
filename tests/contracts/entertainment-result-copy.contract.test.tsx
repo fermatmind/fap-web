@@ -1,6 +1,7 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { FunQuizClient } from "@/components/entertainment/FunQuizClient";
+import { archiveTopic } from "@/lib/entertainment/archive90";
 import { loadFunQuiz } from "@/lib/entertainment/loaders";
 import { listMbtiFormMetas } from "@/lib/mbti/forms";
 import { toSeoAttributionIngestEnvelope } from "@/app/api/track/route";
@@ -13,7 +14,8 @@ afterEach(() => { cleanup(); sessionStorage.clear(); vi.useRealTimers(); vi.clea
 describe("entertainment result onward burden and real completion", () => {
   it.each(["en", "zh"] as const)("shows the actual version burdens only after a complete %s result", async locale => {
     const zh = locale === "zh";
-    const quiz = (await loadFunQuiz("woodland-animal"))!;
+    const quiz = (await loadFunQuiz("weekend-pace"))!;
+    expect(archiveTopic(quiz.slug)).toBeUndefined();
     render(<FunQuizClient quiz={quiz} locale={locale} />);
     const linkName = zh ? "了解 MBTI 与题本选择" : "Explore MBTI and its versions";
     expect(screen.queryByRole("link", { name: linkName })).toBeNull();
@@ -31,9 +33,9 @@ describe("entertainment result onward burden and real completion", () => {
     expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "complete_test")).toHaveLength(1);
     expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "view_result")).toHaveLength(1);
     for (const [, payload] of vi.mocked(trackEvent).mock.calls) {
-      const envelope = toSeoAttributionIngestEnvelope({ eventName: "view_result", anonymousId: "", path: `/${locale}/tests/play/woodland-animal`, timestamp: "2026-10-24T00:00:00Z", payload: filterTrackingPayload("view_result", payload ?? {}) });
-      expect(envelope.payload).toMatchObject({ scale_code: "ENTERTAINMENT", form_code: "fun_woodland-animal_v1" });
-      expect(payload).toMatchObject({ scale_code: "ENTERTAINMENT", form_code: "fun_woodland-animal_v1" });
+      const envelope = toSeoAttributionIngestEnvelope({ eventName: "view_result", anonymousId: "", path: `/${locale}/tests/play/${quiz.slug}`, timestamp: "2026-10-24T00:00:00Z", payload: filterTrackingPayload("view_result", payload ?? {}) });
+      expect(envelope.payload).toMatchObject({ scale_code: "ENTERTAINMENT", form_code: `fun_${quiz.slug}_v1` });
+      expect(payload).toMatchObject({ scale_code: "ENTERTAINMENT", form_code: `fun_${quiz.slug}_v1` });
       expect(payload).not.toHaveProperty("answers"); expect(payload).not.toHaveProperty("result");
     }
     const onward = screen.getByRole("link", { name: linkName });
@@ -41,7 +43,7 @@ describe("entertainment result onward burden and real completion", () => {
     fireEvent.click(onward);
     const onwardCalls = vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "article_to_test_click");
     expect(onwardCalls).toHaveLength(1);
-    expect(onwardCalls[0][1]).toMatchObject({ scale_code: "MBTI", test_slug: "mbti-personality-test-16-personality-types", source_path: `/${locale}/tests/play/woodland-animal` });
+    expect(onwardCalls[0][1]).toMatchObject({ scale_code: "MBTI", test_slug: "mbti-personality-test-16-personality-types", source_path: `/${locale}/tests/play/${quiz.slug}` });
     expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "start_test")).toHaveLength(1);
     expect(vi.mocked(trackEvent).mock.calls.filter(([event]) => event === "complete_test")).toHaveLength(1);
   });
