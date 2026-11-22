@@ -7,11 +7,15 @@ const assessments = {
   career: {
     path: "/career/assessment",
     artwork: "career",
-    title: ["免费职业测试：看清偏好，让职业选择更有方向", "免費職業測驗：看清偏好，讓職涯選擇更有方向", "Free Career Test: Get Clearer on What You Want from Work"],
+    title: [
+      "免费职业测试（94题完整版）：看清兴趣、工作方式与现实条件",
+      "免費職業測驗（94題完整版）：看清興趣、工作方式與現實條件",
+      "Free Career Test (94-Question Full Version): Align Your Interests, Work Style & Job Conditions",
+    ],
     intro: [
-      "不知道从哪类工作开始，或正在几个方向之间犹豫？用约 12–15 分钟，梳理你喜欢的工作活动、偏好的做事方式和在意的条件，为下一步了解、比较和尝试工作建立依据。",
-      "不知道從哪類工作開始，或正在幾個方向之間猶豫？用約 12–15 分鐘，整理你喜歡的工作活動、偏好的做事方式和在意的條件，為下一步了解、比較和嘗試工作建立依據。",
-      "Considering a career change or weighing a few options? Spend about 12–15 minutes exploring the activities you enjoy, how you prefer to work and the conditions that matter—then use those clues to compare real roles.",
+      "喜欢一类工作，也要看每天怎么做、工时是否稳定、遇到难题有没有人带。选专业、找第一份工作或为转行做职业规划时，花约 12–15 分钟把兴趣、做事方式和现实条件一起理清。",
+      "喜歡一類工作，也要看每天怎麼做、工時能不能預期、遇到難題有沒有人帶。選科系、找第一份工作或考慮轉職時，花約 12–15 分鐘把興趣、做事方式和現實條件一起理清。",
+      "The work can sound right on paper and still feel wrong day to day. Take about 12–15 minutes to explore the tasks you enjoy, how you like to work and the conditions that matter when choosing a major, starting out or changing careers.",
     ],
     sections: [
       [
@@ -83,7 +87,7 @@ export function freeAssessmentCopy(key: FreeAssessment, locale: DisplayLocale) {
   return {
     ...entry,
     title: entry.title[index],
-    searchTitle: key === "career" ? ["免费职业测试（94题）｜RIASEC职业兴趣、工作方式与职业探索", "免費職業測驗（94題）｜RIASEC職涯興趣與工作偏好", "Free Career Test (94 Questions) | RIASEC Interests & Work Preferences"][index] : entry.title[index],
+    searchTitle: key === "career" ? ["免费职业测试（94题完整版）：职业规划、工作方式与职业条件评估", "免費職業測驗（94題）｜RIASEC職涯興趣與工作偏好", "Free Career Test (94 Questions) | RIASEC Interests & Work Preferences"][index] : entry.title[index],
     intro: entry.intro[index],
     sections: entry.sections.map(([heading, body]) => ({ heading: heading[index], body: body[index] })),
     faq: entry.faq.map(([question, answer]) => ({ question: question[index], answer: answer[index] })),

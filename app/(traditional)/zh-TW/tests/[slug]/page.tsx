@@ -1,3 +1,5 @@
+import { canonicalUrl } from "@/lib/site";
+import { assessmentLandingKind, getLocalizedLanding } from "@/lib/tests/localized-landings";
 import { DeferredCookieBanner } from "@/components/legal/DeferredCookieBanner";
 import { MBTI_ENTRY_TEST_SLUG } from "@/lib/mbti/entryTracking";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
@@ -27,12 +29,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = typeof source.title === "string" ? source.title : source.title && "absolute" in source.title ? source.title.absolute : undefined;
   const canonicalSlug = resolveCanonicalSlug(slug);
   const canonicalPath = `/zh-TW/tests/${canonicalSlug}`;
+  const localizedKind = assessmentLandingKind(canonicalSlug);
+  const profile = localizedKind ? getLocalizedLanding("zh-TW", localizedKind) : null;
   const searchCopy = getAssessmentLandingUi(canonicalSlug, "zh")?.traditionalSearchCopy;
+  const localizedTitle = profile?.seoTitle ?? searchCopy?.title ?? (title ? translate(title) : undefined);
+  const localizedDescription = profile?.seoDescription ?? searchCopy?.description
+    ?? (typeof source.description === "string" ? translate(source.description) : undefined);
   return traditionalSearchMetadata(canonicalPath, {
-    title: searchCopy?.title ?? (title ? translate(title) : undefined),
-    description: searchCopy?.description ?? (typeof source.description === "string" ? translate(source.description) : undefined),
+    title: localizedTitle,
+    description: localizedDescription,
     alternates: { canonical: canonicalPath },
     robots: NOINDEX_ROBOTS,
+    openGraph: {...source.openGraph, title: localizedTitle, description: localizedDescription,
+      url: canonicalUrl(canonicalPath), locale: "zh_TW"},
+    twitter: {...source.twitter, title: localizedTitle, description: localizedDescription},
   });
 }
 

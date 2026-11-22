@@ -32,11 +32,11 @@ describe("English assessment search copy", () => {
   });
 
   it.each([
-    ["IQ_RAVEN", "zh", "免费智商测试（IQ）", "免费智商测试（IQ）：30题图形推理，作答与基础结果免费，完整报告可选付费解锁", "30道原创图形与矩阵推理题"],
+    ["IQ_RAVEN", "zh", "免费智商测试（IQ）", "免费智商测试（IQ）：原创30题图形推理与成绩解读", "30道原创图形与矩阵推理题"],
     ["IQ_RAVEN", "en", "Free IQ Test", "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", "30 original visual matrix reasoning questions"],
-    ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI 免费测试：16 型人格与偏好解读", "了解你的 16 型人格结果与四组偏好。"],
+    ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI测试免费版（93/144题完整版）：16型人格与荣格八维解析", "了解你的 16 型人格结果与四组偏好。"],
     ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Personality Test with Results", "Both versions include free basic results."],
-    ["RIASEC", "zh", "霍兰德职业兴趣测试（免费版）", "霍兰德职业兴趣测试免费版：60题与三字代码", "60 题约 8 分钟"],
+    ["RIASEC", "zh", "霍兰德职业兴趣测试（60题免费版）", "霍兰德职业兴趣测试免费版（60题）：RIASEC 三字代码与职业探索", "60 题约 8 分钟"],
     ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Career Interest Test: Holland Code (RIASEC)", "Find work activities you would like to explore"],
     ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits & Results", "five continuous personality traits"],
     ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试（EQ）：60题自评与四维结果", "约10分钟完成60题情商自评"],
@@ -55,8 +55,8 @@ describe("English assessment search copy", () => {
 
     expect(copy).toMatchObject({
       title: "MBTI 16 型人格免费测试",
-      seoTitle: "MBTI 免费测试：16 型人格与偏好解读",
-      seoDescription: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
+      seoTitle: "MBTI测试免费版（93/144题完整版）：16型人格与荣格八维解析",
+      seoDescription: "费马 MBTI 免费测试支持 93 题快速版与 144 题深度版，约 10–15 分钟。查看四维偏好百分比与 16 型人格，探索荣格八维、亲密关系及职场沟通案例。",
     });
     expect(copy?.entryLabels).toMatchObject({
       mbti_144: "144 题 · 约 15 分钟 · 免费测试",

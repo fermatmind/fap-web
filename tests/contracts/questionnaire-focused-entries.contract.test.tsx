@@ -1,23 +1,35 @@
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToReadableStream } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 
-describe("Focused DISC route preserve the published landing", () => {
-  it.each(["disc"])("preserves both locales' complete body, links and metadata for %s", async slug => {
-    const legacy = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
+describe("Focused DISC landing", () => {
+  it.each(["en", "zh", "zh-TW"] as const)("offers the original questionnaire and result guides in %s", async locale => {
     const focused = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
-    for (const locale of ["en", "zh"]) {
-      const params = Promise.resolve({ locale, slug });
-      const original = document.createElement("div"), candidate = document.createElement("div");
-      original.innerHTML = renderToStaticMarkup(await legacy.default({ params }));
-      candidate.innerHTML = renderToStaticMarkup(await focused.default({ params }));
-      const text = (root: HTMLElement) => [...root.querySelectorAll("h1,h2,h3,p,li")].map(node => node.textContent);
-      expect(text(candidate)).toEqual(text(original));
-      const links = (root: HTMLElement) => [...root.querySelectorAll("a")].map(node => [node.getAttribute("href"), node.textContent]);
-      expect(links(candidate)).toEqual(links(original));
-      expect(await focused.generateMetadata({ params })).toEqual(await legacy.generateMetadata({ params }));
-      expect(candidate.querySelectorAll("main")).toHaveLength(1);
+    const quiz = await loadQuestionnaire("disc");
+    const params = Promise.resolve({ locale });
+    const stream = await renderToReadableStream(await focused.default({ params }));
+    const article = document.createElement("div");
+    article.innerHTML = await new Response(stream).text();
+    const path = questionnairePath(locale, "disc");
+    const metadata = await focused.generateMetadata({ params });
+
+    expect(article.querySelectorAll("main")).toHaveLength(1);
+    expect(article.querySelectorAll("h1")).toHaveLength(1);
+    expect(article.querySelector(`#take-test form[action="${path}/take"] input[name="start"]`)).toHaveAttribute("value", "1");
+    for (const { id } of quiz!.profiles) {
+      expect(article.querySelector(`a[href="${questionnaireGuidePath(locale, "disc", id)}"]`)).toBeTruthy();
     }
+    expect(String(metadata.alternates?.canonical)).toContain(path);
+    const schema = [...article.querySelectorAll('script[type="application/ld+json"]')]
+      .map(script => JSON.parse(script.textContent!)).find(value => value["@type"] === "FAQPage");
+    const visible = [...article.querySelectorAll("#faq details")].map(item => [
+      item.querySelector("summary")?.textContent,
+      item.querySelector("p")?.textContent,
+    ]);
+    expect(visible).toEqual(schema.mainEntity.map((item: {name: string; acceptedAnswer: {text: string}}) =>
+      [item.name, item.acceptedAnswer.text]));
   });
 });
