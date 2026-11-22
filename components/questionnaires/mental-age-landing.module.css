@@ -1,0 +1,100 @@
+.sample {
+  min-width: 0;
+  color: #eef8ee;
+  background: radial-gradient(ellipse at 85% 0, #2b5f50, transparent 63%), #12392f;
+  border: 1px solid #43715a;
+  border-radius: 1.35rem;
+  padding: clamp(1.15rem, 2.6vw, 2rem);
+  box-shadow: 0 20px 52px #183b3024;
+}
+
+.sample h2.sampleLabel, .sample .ageLabel { font-size: .82rem; font-weight: 660; color: #c1e4d3; }
+.sampleControls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; margin-top: .85rem; }
+.sampleControls button {
+  display: grid;
+  place-items: center;
+  padding: .4rem .15rem;
+  min-height: 48px;
+  border: 1px solid #ffffff38;
+  border-radius: .45rem;
+  color: #edf8ef;
+  background: #ffffff0d;
+  cursor: pointer;
+  font-size: .75rem;
+}
+.sampleControls button[aria-pressed="true"] { color: #143c2f; background: #e0f2d9; border-color: #e0f2d9; }
+.sampleControls b { font-size: .87rem; }
+.sampleBody { display: grid; grid-template-columns: minmax(0, 1fr) minmax(4rem, 26%); gap: 1rem; align-items: center; margin-top: 1.3rem; }
+.sampleAge { font-size: 1.05rem; line-height: 1; margin: .32rem 0 .6rem; }
+.sampleAge strong { font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 740; letter-spacing: -.06em; font-variant-numeric: tabular-nums; }
+.sampleStyle { font-weight: 700; }
+.sampleNote { margin-top: .3rem; font-size: .82rem; color: #d1e9df; }
+.miniCard {
+  display: block;
+  min-inline-size: 0;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 9 / 16;
+  border: 1px solid #ffffff38;
+  background: #102d32;
+  border-radius: .55rem;
+}
+.sampleScale { grid-column: 1 / -1; }
+.track { position: relative; height: .3rem; border-radius: 1rem; background: linear-gradient(90deg, #efd88e, #a6d9b2, #9bc9ec); }
+.track span { position: absolute; top: 50%; height: .85rem; width: .85rem; border: 2px solid #235847; border-radius: 50%; background: #fff; translate: -50% -50%; transition: inset-inline-start .24s ease; }
+:dir(rtl) .track span { translate: 50% -50%; }
+.scaleLabels { display: flex; justify-content: space-between; gap: .2rem; font-size: .76rem; margin-top: .4rem; }
+.sampleFacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; border-top: 1px solid #ffffff38; margin-top: .8rem; padding-top: .8rem; }
+.sampleFacts dt { font-size: .72rem; color: #c1e4d3; }
+.sampleFacts dd { font-size: .96rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+.spectrum { min-width: 0; padding: 1.25rem; border: 1px solid var(--rule); border-radius: .9rem; background: white; }
+.segments { margin-top: .85rem; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .2rem; }
+.segments button { min-height: 44px; border-radius: .3rem; background: #ecdfb1; color: #183326; font-size: clamp(.58rem, 1.1vw, .82rem); font-weight: 750; cursor: pointer; }
+.segments button:nth-child(2) { background: #e9e5b1; }
+.segments button:nth-child(3) { background: #d9e8ae; }
+.segments button:nth-child(4) { background: #bce1be; }
+.segments button:nth-child(5) { background: #b6dfdb; }
+.segments button:nth-child(6) { background: #b6d9ed; }
+.segments button:nth-child(7) { background: #b8c7eb; }
+.segments button[aria-pressed="true"] { box-shadow: inset 0 0 0 2px #294e43; }
+.spectrumReading { margin-top: .8rem; padding-top: .85rem; border-top: 1px solid var(--rule); }
+.spectrumReading p { margin: .25rem 0 .85rem; }
+
+
+@media (max-width: 800px) {
+  .sample { max-inline-size: 37rem; }
+  .miniCard { inline-size: min(100%, 5.4rem); justify-self: end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track span { transition: none; }
+}
+
+.readingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.topicList > div {
+  padding-block: .65rem;
+  border-block-start: 1px solid var(--rule);
+}
+.topicList dt { font-weight: 700; }
+.topicList dd { color: var(--muted); }
+.examples { display: grid; gap: .7rem; margin-block-start: .85rem; }
+.examples > li { padding: .8rem 1rem; border: 1px solid var(--rule); border-radius: .55rem; }
+.examples dl { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; margin-block-start: .55rem; }
+.examples dt { font-size: .86rem; color: var(--muted); }
+.examples dd { font-weight: 700; font-variant-numeric: tabular-nums; }
+.supplemental { margin-block-start: 1.25rem; border-block-start: 1px solid var(--rule); padding-block-start: .85rem; }
+.supplemental summary { cursor: pointer; font-weight: 700; }
+
+@media (max-width: 800px) {
+  .readingGrid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .readingGrid, .examples > li { break-inside: avoid; }
+}

@@ -1,0 +1,308 @@
+{
+  "zh": {
+    "facts": "费马测试的伴侣相处习惯测试用32道原创题回顾近四周在一段亲近关系中的做法，约7分钟。免费查看八项独立均分、计分题数和完整的公开情境指南。",
+    "intro": "答应了晚一点打电话，却发现今天忙不完。你会怎么说？从这种小事回想自己怎样兑现约定、尊重安排、开口求助和重谈期待。",
+    "deliverables": [
+      [
+        "八项单独显示",
+        "把能否兑现、界线、支持、沟通和修复分开看。"
+      ],
+      [
+        "有效题数",
+        "每组四题有效才显示均分。"
+      ],
+      [
+        "八份公开指南",
+        "不用填答，也能阅读每种行动的生活例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "留意一次可做到的承诺",
+        "回想当时有没有说明自己的余力。"
+      ],
+      [
+        "尊重选择和开口求助可以一起做",
+        "提出请求时，仍然让对方可以拒绝。"
+      ],
+      [
+        "下次只改一个环节",
+        "可以从提前说变更或明确自己想要什么开始。"
+      ]
+    ],
+    "profiles": {
+      "realistic-follow-through": [
+        "把约好的事说到做到",
+        "你愿意说清自己能做到的范围。",
+        "知道会晚回家，你按约提前发消息。"
+      ],
+      "respecting-autonomy": [
+        "给对方自己决定的机会",
+        "你会留意有哪些事应由当事人自己选。",
+        "你提出周末同行，也接受对方想另有安排。"
+      ],
+      "responsive-checking-in": [
+        "先问今天过得怎样",
+        "你会根据对方当下的回应调整关心方式。",
+        "听出对方累了，你问想先安静还是聊会儿。"
+      ],
+      "requesting-support": [
+        "需要帮忙时开口",
+        "你可以把自己想请对方做的事说具体。",
+        "忙不过来时，你问能否帮忙买其中两样东西。"
+      ],
+      "honest-preferences": [
+        "把真实偏好说出来",
+        "你可以表达自己的需要，即使它跟对方不一样。",
+        "大家想外出，你说明自己今天更想在家吃饭。"
+      ],
+      "understanding-perspectives": [
+        "试着听懂对方的理由",
+        "你会询问对方为什么那样看这件事。",
+        "对方不想参加活动，你先听他在意的是什么。"
+      ],
+      "negotiating-expectations": [
+        "把没说开的期待拿出来谈",
+        "你愿意在彼此理解不同的时候重新商量。",
+        "你们先核对谁以为今晚要做饭，再重新分工。"
+      ],
+      "clear-repair-talk": [
+        "补救要说清楚怎么做",
+        "你可以提出一个行动，再看看对方愿不愿接受。",
+        "你忘记回电话，提议下次先发消息说明。"
+      ]
+    },
+    "faq": [
+      [
+        "应该回想哪段相处？",
+        "近四周内同一段亲近关系，只看自己的做法。"
+      ],
+      [
+        "结果会贴上好伴侣标签吗？",
+        "结果给八项自报频率，不生成好坏排序。"
+      ],
+      [
+        "怎么计分？",
+        "各组4题须全部有效，1–5分，反向题用6减原分。"
+      ],
+      [
+        "没适用经历呢？",
+        "选未经历或无法判断，也可以直接看指南。"
+      ],
+      [
+        "能用来测试另一方吗？",
+        "无需提供对方信息，不替对方填答。"
+      ],
+      [
+        "分享会透露我的回答吗？",
+        "同语公开入口不附自己的答案和分数。"
+      ]
+    ],
+    "formula": "32题分成8组，各4题。频率1–5，反向题以6减原分。每组4题均有效才显示独立均分。",
+    "boundary": "用来回顾自己在亲近关系中的做法。读数不评价谁是好伴侣，也不要求为了填题进入不安全的互动。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的伴侶相處習慣測驗以32道原創題回顧近四週一段親近關係中的做法，約7分鐘。免費提供八項獨立平均、計分題數與完整的公開情境指南。",
+    "intro": "本來說好下班要打給對方，結果事做不完。你會怎麼說？回想類似的小事，看看自己怎麼處理承諾、偏好、求助和變更。",
+    "deliverables": [
+      [
+        "八項分開讀",
+        "把守約、尊重自主、關心、求助和修復等做法分開。"
+      ],
+      [
+        "確認有效題數",
+        "每組四題都有效才顯示平均。"
+      ],
+      [
+        "八份完整指南",
+        "從日常片段找一個可以回想的做法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先衡量自己答應得了多少",
+        "有變動時可說清楚何時能做到。"
+      ],
+      [
+        "提出請求也留人選擇",
+        "說明想要的幫忙，仍讓對方可以婉拒。"
+      ],
+      [
+        "挑一件小事調整",
+        "例如改時間前先通知，或把個人偏好說出來。"
+      ]
+    ],
+    "profiles": {
+      "realistic-follow-through": [
+        "答應前把可做到的份量說明",
+        "你會按自己有的時間作承諾。",
+        "發現會晚到時，你照原先約好的方式先傳訊息。"
+      ],
+      "respecting-autonomy": [
+        "讓對方自己選",
+        "你可以提出建議，也接受對方有別的安排。",
+        "你邀約去看展，朋友想休息時你沒有勉強。"
+      ],
+      "responsive-checking-in": [
+        "確認對方需要哪種關心",
+        "你會依對方當時想不想說來調整。",
+        "下班回家，你先問對方想安靜一會兒還是聊聊。"
+      ],
+      "requesting-support": [
+        "把需要的協助說具體",
+        "你可以直接講自己需要幫忙的部分。",
+        "準備聚餐時，你請對方幫你買兩樣食材。"
+      ],
+      "honest-preferences": [
+        "告訴對方真正想做什麼",
+        "你可以在不同意時表達自己的安排。",
+        "朋友想外出用餐，你說今天比較想回家煮。"
+      ],
+      "understanding-perspectives": [
+        "聽聽對方為什麼這樣想",
+        "你會留意同一件事在對方眼裡可能有別的限制。",
+        "對方不想參加活動，你先問他顧慮什麼。"
+      ],
+      "negotiating-expectations": [
+        "對一下雙方原本的期待",
+        "你會把分工拿出來講清楚，再決定怎麼做。",
+        "你們發現都以為對方要倒垃圾，於是重新說好哪天輪誰。"
+      ],
+      "clear-repair-talk": [
+        "把道歉接到下一步",
+        "你能提出具體變動，並問對方是否願意接受。",
+        "忘了回電後，你提議下次忙不過來時至少先傳簡訊。"
+      ]
+    },
+    "faq": [
+      [
+        "這份測驗要想哪段關係？",
+        "回想近四週同一段親近關係裡自己的做法。"
+      ],
+      [
+        "會告訴我是不是好伴侶嗎？",
+        "八項獨立讀數呈現的是自述頻率。"
+      ],
+      [
+        "如何計分？",
+        "每組四題全部計分才有平均。反向題以6減原分。"
+      ],
+      [
+        "沒有實際經歷怎麼辦？",
+        "可以選未經歷或無法判斷，也可閱讀指南。"
+      ],
+      [
+        "能替別人做嗎？",
+        "以自己的經驗為主，不用提供對方資料。"
+      ],
+      [
+        "分享有分數嗎？",
+        "分享只會開啟同語言的公開入口。"
+      ]
+    ],
+    "formula": "32題、八組各4題，頻率1至5；反向題用6減原分，每組四題皆有效才顯示平均。",
+    "boundary": "本測驗討論日常相處，不評價伴侶好壞。無須為了答題配合令自己不安全的互動。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Wholesome Partner Test uses 32 original questions to look back at one close relationship over the past four weeks. It takes about seven minutes and displays eight separate frequency averages, rated item counts, and public guides. Readers can reflect on their own follow-through, requests, boundaries, and repair attempts without signing up or providing personal information about the other person.",
+    "intro": "You promised to call after work and realize you will still be busy. How do you handle it? Look back at small things you did around commitments, boundaries and requests for support.",
+    "deliverables": [
+      [
+        "Eight separate readings",
+        "Compare actions such as following through, respecting choices, checking in and making repairs."
+      ],
+      [
+        "Rated-item counts",
+        "Each group needs all four ratings for a mean."
+      ],
+      [
+        "Eight public guides",
+        "Look at examples of each action without signing up."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Make an agreement within your capacity",
+        "Recall what you said you could do and what happened when plans changed."
+      ],
+      [
+        "Ask and leave a choice",
+        "A clear request can make room for a yes, a no or a later answer."
+      ],
+      [
+        "Revisit one concrete thing",
+        "An earlier heads-up or a clearer request gives you something to notice next time."
+      ]
+    ],
+    "profiles": {
+      "realistic-follow-through": [
+        "Follow through on something you can do",
+        "You can make a commitment that fits your actual time.",
+        "You send an update when you realize you will be late."
+      ],
+      "respecting-autonomy": [
+        "Let the other person choose",
+        "You can make an invitation with room for them to pass.",
+        "You suggest an exhibit and accept that they want time to themselves."
+      ],
+      "responsive-checking-in": [
+        "Check what sort of support is welcome",
+        "You can ask what the other person would like before stepping in.",
+        "After a long day you ask whether they want to talk or have some quiet."
+      ],
+      "requesting-support": [
+        "Make a request concrete",
+        "You can name one thing that would be useful.",
+        "While cooking, you ask for help picking up two ingredients."
+      ],
+      "honest-preferences": [
+        "Say what you actually prefer",
+        "You can offer your own answer when it differs from someone else’s.",
+        "When friends want to go out, you explain that you would rather have a quiet dinner at home."
+      ],
+      "understanding-perspectives": [
+        "Hear how the situation looks to them",
+        "You can ask what matters from the other person’s side.",
+        "When they pass on a plan, you ask what would make another option easier."
+      ],
+      "negotiating-expectations": [
+        "Find where expectations diverged",
+        "You can name two different assumptions and plan from there.",
+        "You realize you both thought the other person was taking out the bins and agree on a new plan."
+      ],
+      "clear-repair-talk": [
+        "Name a change and check it",
+        "You can offer a repair without deciding whether the person has to accept it.",
+        "After missing a call, you say you can text first next time and ask if that helps."
+      ]
+    },
+    "faq": [
+      [
+        "Which relationship should I use?",
+        "Choose one close relationship over the past four weeks and reflect on your own actions."
+      ],
+      [
+        "Does it rate whether someone is a good partner?",
+        "It shows eight separate frequencies from your own report."
+      ],
+      [
+        "How is each group scored?",
+        "Use 1 to 5. Reverse items use six minus the rating. Every group needs four valid answers."
+      ],
+      [
+        "What if I have no relevant experience?",
+        "Choose not experienced or cannot judge, or read the guides without answering."
+      ],
+      [
+        "Can I use it to test a partner?",
+        "Use your own perspective without entering someone else’s information."
+      ],
+      [
+        "What does sharing reveal?",
+        "The public link opens the quiz in the same language without your answers or ratings."
+      ]
+    ],
+    "formula": "There are eight groups of four items at 1 to 5 by frequency. Reverse items use six minus the rating. All four ratings are required for each independent mean.",
+    "boundary": "Use the quiz to reflect on your own actions in an ordinary close relationship. It does not label a person a good or bad partner. Do not enter an unsafe situation to complete it."
+  }
+}

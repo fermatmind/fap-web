@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的小马宝莉角色测试用18道原创活动题比较六位小马的做法，约5分钟。免费呈现各角色的选择次数、全部最高并列及完整的公开角色指南。",
+    "intro": "有新朋友第一次来参加活动，你会先讲清玩法、陪他试一轮、准备物品，还是留一个可以慢慢加入的位置？",
+    "deliverables": [
+      [
+        "六位小马",
+        "看六种参与共同活动的做法。"
+      ],
+      [
+        "最高并列全部保留",
+        "每位获得最高次数的角色都能读完整指南。"
+      ],
+      [
+        "六份公开指南",
+        "用不涉及剧情的普通情境理解。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "看看你最想先做什么",
+        "可能是准备规则，也可能是陪着开始。"
+      ],
+      [
+        "几种做法同时适用",
+        "先说明条件，再想换一种回应会怎样。"
+      ],
+      [
+        "把邀请说得容易接受",
+        "也让人可以不参加。"
+      ]
+    ],
+    "profiles": {
+      "twilight-sparkle": [
+        "先找让新手好上手的信息",
+        "你会把共同任务需要知道的事先准备好。",
+        "开始游戏前，你把规则整理成一张短卡。"
+      ],
+      "rainbow-dash": [
+        "陪着走完第一步",
+        "你喜欢把支持变成能马上试的行动。",
+        "新朋友没玩过，你陪他试第一轮。"
+      ],
+      "applejack": [
+        "落实一件答应的事",
+        "你会把承诺变成眼前可以用的东西。",
+        "活动开始前，你准备好说过会带的工具。"
+      ],
+      "rarity": [
+        "在细节里记得对方",
+        "你会选一个贴近对方爱好的小安排。",
+        "你用朋友喜欢的颜色做了一张邀请卡。"
+      ],
+      "pinkie-pie": [
+        "让快乐像邀请一样",
+        "你喜欢叫大家一起玩，也让人可以在旁边看。",
+        "你开一个小游戏，说想加入随时来。"
+      ],
+      "fluttershy": [
+        "照能舒服的速度开始",
+        "你会让邀请跟着当事人的意愿走。",
+        "新朋友有些紧张，你问他想先看看还是想直接试。"
+      ]
+    },
+    "faq": [
+      [
+        "需要知道剧集情节吗？",
+        "不需要。题目是原创无剧透日常场景。"
+      ],
+      [
+        "有哪些角色？",
+        "暮光闪闪、云宝、苹果嘉儿、珍奇、碧琪、柔柔。"
+      ],
+      [
+        "怎么计分？",
+        "一题四选一，每次加1，六位角色各出现12次。"
+      ],
+      [
+        "并列怎么处理？",
+        "全部最高同分保留。"
+      ],
+      [
+        "结果会给善良分吗？",
+        "各项只表示本次选择次数。"
+      ],
+      [
+        "可以分享什么？",
+        "公开指南或同语入口，没有逐题答案和个人次数。"
+      ]
+    ],
+    "formula": "18道四选一，每次给所选角色加1。每位出现12次，A到D各3次，最高并列全部保留。",
+    "boundary": "这是费马独立创作的非官方同人测试，角色只是阅读日常做法的参照，不评价现实中的善良或人格。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的彩虹小馬角色測驗用18道原創活動題比較六位小馬的做法，約5分鐘。免費提供各角色的選擇次數、全部最高同分與完整的公開角色指南。",
+    "intro": "新朋友第一次加入社團，你會先簡介玩法、陪玩一輪、備好用品，還是給他時間在旁邊看？選你最想先做的一件事。",
+    "deliverables": [
+      [
+        "六位小馬的次數",
+        "六種做法都會分開列出。"
+      ],
+      [
+        "同分一起保留",
+        "每位最高同分的角色都有完整指南。"
+      ],
+      [
+        "不劇透的情境",
+        "未看過動畫也可直接填答或閱讀六份指南。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先找你想做的第一步",
+        "可以是先準備資訊，也可以是讓大家玩得起來。"
+      ],
+      [
+        "把同分放在一起讀",
+        "兩種做法可能在活動不同時候有幫助。"
+      ],
+      [
+        "不要替別人決定怎麼加入",
+        "提供一個邀請，也讓對方可以婉拒。"
+      ]
+    ],
+    "profiles": {
+      "twilight-sparkle": [
+        "把資訊準備得剛好",
+        "你會先找新手開始需要知道的事。",
+        "開局前，你把玩法寫成短短一張卡。"
+      ],
+      "rainbow-dash": [
+        "一起試一輪",
+        "你願意用陪伴讓朋友有個開始。",
+        "新成員沒玩過，你陪著他跑完第一回合。"
+      ],
+      "applejack": [
+        "說好要帶的就備齊",
+        "你重視承諾會有可以用的成果。",
+        "大家到場前，你先準備好答應帶的用品。"
+      ],
+      "rarity": [
+        "從小地方照顧喜好",
+        "你會挑一個適合對方的貼心細節。",
+        "你把好友喜歡的顏色放進邀請卡。"
+      ],
+      "pinkie-pie": [
+        "玩法是邀請",
+        "你喜歡讓大家有得玩，也有選擇退出的空間。",
+        "你開一場短遊戲，請想參加的人隨時加入。"
+      ],
+      "fluttershy": [
+        "用舒服的速度靠近",
+        "你會問對方準備好了沒，再調整邀請。",
+        "新朋友有點緊張，你問他想先看一輪還是自己試。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過動畫能玩嗎？",
+        "可以，題目是獨立的生活情境。"
+      ],
+      [
+        "有哪六位角色？",
+        "Twilight Sparkle、Rainbow Dash、Applejack、Rarity、Pinkie Pie與Fluttershy。"
+      ],
+      [
+        "怎麼加分？",
+        "每道選一個做法加1，每種小馬方向出現12次。"
+      ],
+      [
+        "最高同分怎麼辦？",
+        "一併顯示所有達到最高次數的角色。"
+      ],
+      [
+        "會評量我的善良程度嗎？",
+        "次數只記這一回的選擇。"
+      ],
+      [
+        "能分享自己的答案嗎？",
+        "可以傳公開指南或同語言測驗連結，不附作答及次數。"
+      ]
+    ],
+    "formula": "18題，每題四個角色做法。選到的方向加1，各方向出現12次、位置各3次。最高同分都保留。",
+    "boundary": "費馬獨立製作的非官方同人測驗。角色用來閱讀活動裡的做法，不作人格、能力或道德評價。"
+  },
+  "en": {
+    "facts": "FermatMind’s free My Little Pony Character Quiz uses 18 original activity scenarios and takes about five minutes. It shows six pony counts, keeps all highest ties, and offers six complete public guides. Readers can think about different ways to welcome someone into a shared activity without signing up, knowing the show, or needing to choose a supposedly kinder or better answer.",
+    "intro": "A new friend arrives for a shared activity. Do you explain the rules, stay with them for a round, get the supplies ready, or give them a quiet moment to watch?",
+    "deliverables": [
+      [
+        "Six pony counts",
+        "Compare six approaches to making an activity work for others."
+      ],
+      [
+        "All highest ties",
+        "Each top character keeps its guide."
+      ],
+      [
+        "Six public guides",
+        "Read spoiler-free examples without answering."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Notice your first move",
+        "Think about whether you wanted to prepare, try something or help someone join."
+      ],
+      [
+        "Use both readings in a tie",
+        "Different approaches can suit different parts of the same activity."
+      ],
+      [
+        "Leave room for a no",
+        "An invitation can be friendly and still give people another option."
+      ]
+    ],
+    "profiles": {
+      "twilight-sparkle": [
+        "Prepare one useful question",
+        "You like knowing what will help someone get started.",
+        "Before a game, you write the relevant rules on one small card."
+      ],
+      "rainbow-dash": [
+        "Stay for the first round",
+        "You like turning support into something a friend can try with you.",
+        "You play one opening round with a newcomer."
+      ],
+      "applejack": [
+        "Get the promised things ready",
+        "You want your commitment to become something the group can use.",
+        "You place the supplies on the table before everyone arrives."
+      ],
+      "rarity": [
+        "Put the person into the detail",
+        "You like choosing a small touch that reflects another person’s taste.",
+        "You make an invitation card in the color a friend loves."
+      ],
+      "pinkie-pie": [
+        "Make play easy to join",
+        "You like starting a bit of fun that people can choose to join.",
+        "You set out a quick game and leave seats for any late arrivals."
+      ],
+      "fluttershy": [
+        "Let comfort set the pace",
+        "You notice how ready someone is before offering the next step.",
+        "When a newcomer looks unsure, you ask whether they would rather watch or try it."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know the show?",
+        "No. The scenarios are ordinary, original activities without plot details."
+      ],
+      [
+        "Which ponies are included?",
+        "Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie, and Fluttershy."
+      ],
+      [
+        "How are counts calculated?",
+        "Each item adds one to the pony approach you picked. Each appears 12 times."
+      ],
+      [
+        "What happens if top counts tie?",
+        "Every pony at the highest count remains in the result."
+      ],
+      [
+        "Does this score kindness?",
+        "It records the choices in these activities and does not give overall virtue points."
+      ],
+      [
+        "What can I share?",
+        "A public character guide or the same-language quiz link without choices or counts."
+      ]
+    ],
+    "formula": "Eighteen questions offer four options each. Every pony appears 12 times, three in each position. Each selection adds one, and all highest ties stay.",
+    "boundary": "FermatMind made this unofficial fan quiz around original activities. Its readings do not measure personality, kindness, or a probability of matching a character."
+  }
+}

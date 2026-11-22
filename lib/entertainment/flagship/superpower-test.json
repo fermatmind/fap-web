@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的超能力测试有20道原创日常情境题，约5分钟，免注册。完成后可免费查看五种虚构超能力的选择次数，同为最高则一并显示。五篇公开指南可直接阅读。",
+    "intro": "要跟朋友一起安排一个空闲下午，你会先听大家怎么想、换个地点看看，还是留出一段不赶的时间？用约 5 分钟回答 20 道原创题，看看哪种虚构超能力更贴近你这次选的做法。",
+    "deliverables": [
+      [
+        "看五种超能力的原始次数",
+        "每题加 1 次，总计 20。可以看看你在哪些情境里选了倾听、换视角、安排时间、先观察或搭把手。"
+      ],
+      [
+        "免费读完整公开指南",
+        "五种超能力各有独立指南。哪怕同时有几个最高，完整解读也都能免费看。"
+      ],
+      [
+        "复制公开名称与链接",
+        "单一最高时分享名称与对应指南，并列时分享全部最高名称和测试入口。不会带出答案、次数或个人标识。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "心灵感应最高，8 次",
+        "五项示例依次是 8、4、3、3、2。回想面对不清楚的意见时，你什么时候会先问当事人。"
+      ],
+      [
+        "飞行与时间控制并列，各 6 次",
+        "五项依次是 2、6、6、3、3。两篇指南一起读，可以想想换一条路和给行程留余量什么时候派得上用场。"
+      ],
+      [
+        "全选同一字母，五种各 4 次",
+        "同一选项位置上，五种做法各出现四次，所以会显示全部指南。逐题回看时，可以先看哪几条最接近你的日常。"
+      ]
+    ],
+    "profiles": {
+      "telepathy": [
+        "把听到的意思问清楚",
+        "你这次比较常选先听别人说，再确认自己有没有理解对。",
+        "朋友说最近很累时，你先问是事情太多还是需要安静一会儿，再决定怎么帮。"
+      ],
+      "flight": [
+        "绕出去看看还有什么路",
+        "你这次常选换个角度或找一条备选路线。",
+        "约好散步的公园关门后，你找了两个附近去处，再看看同行的人想往哪边走。"
+      ],
+      "time-control": [
+        "给计划留出一点空当",
+        "你这次比较常选确认时间、衔接和缓冲。",
+        "跟朋友约看电影时，你把碰面时间留早一点，好让大家买水或慢慢走进场。"
+      ],
+      "invisibility": [
+        "先观察，再决定说多少",
+        "你这次比较常选先看清发生了什么，再选择自己想公开的信息。",
+        "走进第一次参加的小组时，你先听一轮介绍，然后只说自己愿意分享的部分。"
+      ],
+      "super-strength": [
+        "认领一件具体能帮的事",
+        "你这次比较常选做一件范围明确的小协助。",
+        "邻居准备聚餐时，你主动说可以搬桌子，并约好摆完就交给布置的人。"
+      ]
+    },
+    "faq": [
+      [
+        "测试真的能发现超能力吗？",
+        "心灵感应、飞行等是把日常做法讲得有趣的虚构比喻。结果只呈现你在题目中选了什么，不测真实能力。"
+      ],
+      [
+        "五种超能力分别指什么？",
+        "这里分别指倾听确认、换角度和路线、给时间留余量、先观察并保留私下空间，以及承担一项明确的小协助。"
+      ],
+      [
+        "20 道题怎样计数？",
+        "每题四选一，给相应超能力加 1。每种在题本中出现 16 次，因此各项 0–16，五项合计 20。"
+      ],
+      [
+        "最高次数相同会怎样？",
+        "所有同为最高的结果都会显示完整解读，不用加答或付费。全选同一字母时，五种各是 4。"
+      ],
+      [
+        "可以当成 MBTI、情商或职业结果吗？",
+        "不能。这份原创情境题用于娱乐和回顾选择，不用来评估心理特质、体能、情商、适岗程度或成功概率。"
+      ],
+      [
+        "免费结果和分享包括什么？",
+        "次数和公开指南都免费。分享只复制公开名称和对应链接，不包含答案、次数或个人 PNG。独立作答页在浏览器计分，刷新不恢复进度。"
+      ]
+    ],
+    "formula": "20 题各从四项里选一种做法，给所属超能力加 1。每种出现 16 次，单项 0–16，总计 20。同为最高的结果全部保留。",
+    "boundary": "这些名称是费马原创情境题里的虚构比喻，适合回看当次的日常选择。次数不证明真的会读心、体能较强或情商较高，也不能作为能力、心理或职业测量。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的超能力測驗有20道原創生活情境題，約5分鐘，免註冊。答完可免費查看五種虛構超能力的次數，並列最高會一起顯示。五篇公開指南也可直接讀。",
+    "intro": "朋友問你空出來的下午要怎麼過，你會先聽想法、提一條新路線，還是決定哪段時間留白？回答 20 道原創情境題，看看哪種虛構超能力最像這次選的做法。約 5 分鐘，結果免費。",
+    "deliverables": [
+      [
+        "看五種做法各被選幾次",
+        "每題記 1 次，合計 20。可以看看你較常先聽、換個角度、留時間、觀察，或幫忙處理一件事。"
+      ],
+      [
+        "免費讀五篇超能力指南",
+        "每種超能力都有公開指南。幾種做法同為最高時，每篇都會列出。"
+      ],
+      [
+        "複製公開名稱和測驗連結",
+        "只有一項最高會分享該名稱和公開指南；並列時複製所有最高名稱及測驗入口，不附回答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "心靈感應最高，8 次",
+        "這份範例的五種次數是 8、4、3、3、2。可以想想什麼時候你比較想先問對方，聽聽他怎麼說。"
+      ],
+      [
+        "飛行和時間控制並列，各 6 次",
+        "這份範例依序是 2、6、6、3、3，兩篇指南都會顯示。可以比較另找路線和保留空檔各適合什麼情況。"
+      ],
+      [
+        "全選同一個字母，五種各 4 次",
+        "同一個選項位置上，五種做法各出現四次，所以會列出全部指南。想了解自己的做法，可以回去看各題的情境。"
+      ]
+    ],
+    "profiles": {
+      "telepathy": [
+        "先聽，再核對理解",
+        "你這次比較常選讓對方先說完，再確認自己聽得對不對。",
+        "朋友說最近很累，你問他比較需要人幫忙分擔，還是想騰一點時間休息。"
+      ],
+      "flight": [
+        "換個方向找路",
+        "你這次比較常選看看還有沒有別條路，或把熟悉的事情換個角度看。",
+        "原本要去的公園碰巧關閉，你找兩個替代地點，再問朋友想去哪邊走走。"
+      ],
+      "time-control": [
+        "在行程之間留一點空檔",
+        "你這次比較常選先抓好轉場時間，多留一點餘裕。",
+        "和朋友約看電影時，你把集合時間提早一點，讓大家能先買飲料再慢慢入場。"
+      ],
+      "invisibility": [
+        "先搞清楚，再決定要分享多少",
+        "你這次比較常先看情況，並保留自己想私下處理的部分。",
+        "第一次參加社團時，你先聽過其他人的自我介紹，只分享自己覺得舒服的細節。"
+      ],
+      "super-strength": [
+        "幫忙做一件範圍清楚的事",
+        "你這次比較常選認領一件自己願意、也做得完的事。",
+        "朋友辦聚餐時，你說可以幫忙搬桌椅，擺好以後就把空間交還給佈置的人。"
+      ]
+    },
+    "faq": [
+      [
+        "這真的會測出超能力嗎？",
+        "不會。超能力是形容生活做法的虛構比喻，結果只整理這次的選擇。"
+      ],
+      [
+        "五種超能力各代表什麼？",
+        "心靈感應是聆聽與確認，飛行是換角度或路線，時間控制是預留餘裕，隱身是先觀察和保留隱私，超強力量是接下一件明確的小協助。"
+      ],
+      [
+        "20 道情境題怎麼計次？",
+        "每題四選一，選到哪種加 1。每種出現 16 次，各項 0–16，五項相加是 20。"
+      ],
+      [
+        "有幾個最高結果時要加做題目嗎？",
+        "不用。所有並列最高的指南都會一起顯示，也不必付費。全選同一個字母時五種各是 4。"
+      ],
+      [
+        "可以把結果當成 MBTI、情商或職業能力嗎？",
+        "這是娛樂與自我觀察用的情境題，無法換算成 MBTI、情商、工作適配或實際體能。"
+      ],
+      [
+        "分享會帶出分數或個人圖卡嗎？",
+        "公開分享只複製名稱和連結，不附作答、次數或個人 PNG。分數在瀏覽器裡算，獨立作答頁重新整理不會恢復進度。"
+      ]
+    ],
+    "formula": "20 題各選一個做法，替對應超能力記 1 次。五種各出現 16 次，單項 0–16，合計 20。所有並列最高都會保留。",
+    "boundary": "五個名稱是費馬為這份生活情境題編寫的虛構比喻，只能用來回想這次怎麼選。結果不判斷讀心、體能、心理能力、情商或適合的職業。"
+  },
+  "en": {
+    "facts": "FermatMind’s Superpower Test has 20 original choices about everyday situations. It takes about five minutes, with no sign-up or payment. The result shows five fictional powers as counts of the actions chosen, with every highest tie retained. Five public guides explain what each metaphor means. Sharing uses public names and links without revealing anyone’s choices or their personal counts.",
+    "intro": "A friend asks what to do with a free afternoon. Do you ask what people feel like, find a different route, or leave some time open? Choose what you would do in 20 ordinary situations and see which fictional power fits the pattern in this attempt. It takes about five minutes.",
+    "deliverables": [
+      [
+        "See five counts for this attempt",
+        "Each choice adds one to a fictional power, for a total of 20. See which ordinary actions you chose most often."
+      ],
+      [
+        "Read all five guides for free",
+        "You can read any guide before or after answering. Every power tied for the highest count will have its full guide shown."
+      ],
+      [
+        "Share a public link",
+        "A single leader shares its name and public guide. Tied results share their names and the public test page. Neither includes your answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Telepathy leads at 8",
+        "The sample counts are 8, 4, 3, 3, and 2. Think about the situations where you would ask the person involved before making a guess."
+      ],
+      [
+        "Flight and Time Control tie at 6 each",
+        "The counts are 2, 6, 6, 3, and 3. Both guides are shown. Compare when a change of route sounds useful and when an extra buffer would help."
+      ],
+      [
+        "All the same letter: five powers with 4 each",
+        "Each power appears four times in each answer position. All five guides appear with this sample. What happened in the question matters more than the repeated letter."
+      ]
+    ],
+    "profiles": {
+      "telepathy": [
+        "Hear them out and check what they meant",
+        "You often chose to listen and see whether you understood what someone said.",
+        "When a friend says they’re worn out, you ask whether they would like help with a task or some time alone."
+      ],
+      "flight": [
+        "Find another way there",
+        "You often chose a different perspective or an alternate route before settling on a plan.",
+        "When a nearby park is closed, you look for two other places to walk and ask which sounds better to your friend."
+      ],
+      "time-control": [
+        "Leave a little breathing room",
+        "You often chose to notice the timing and allow for transitions.",
+        "When meeting friends for a film, you choose a time that gives everyone room to get a drink before taking their seat."
+      ],
+      "invisibility": [
+        "Look around before choosing what to share",
+        "You often chose to learn about a situation first and keep some things private.",
+        "At a new group’s first meeting, you listen to a round of introductions before sharing the details you are comfortable with."
+      ],
+      "super-strength": [
+        "Offer one clear bit of help",
+        "You often chose to take on a practical task with a clear limit.",
+        "At a group dinner, you offer to move the tables and leave the setup to the friend who planned it."
+      ]
+    },
+    "faq": [
+      [
+        "Does this test detect a real superpower?",
+        "No. The powers are fictional metaphors for ordinary actions. The result counts what you picked in this quiz."
+      ],
+      [
+        "What do the five powers stand for?",
+        "Telepathy is listening and checking. Flight is changing perspective. Time Control is leaving a buffer. Invisibility is observing and keeping some space. Super Strength is taking on one practical contribution."
+      ],
+      [
+        "How do you score the 20 questions?",
+        "Each question has four options. Your choice adds one to its power. Each power appears 16 times, giving a possible count of 0–16, and all five counts add to 20."
+      ],
+      [
+        "What happens when powers tie for the highest count?",
+        "All tied leaders receive their full guides without extra questions or payment. Choosing the same option letter throughout gives four counts to each power."
+      ],
+      [
+        "Can this test tell me my MBTI, EQ, or job fit?",
+        "This original quiz records everyday choices for entertainment. It does not assess MBTI, emotional intelligence, physical ability, or suitability for a career."
+      ],
+      [
+        "What happens when I share, and can I save my place?",
+        "Sharing copies public names and links, with no personal choices or counts and no personal PNG. The standalone test scores answers in the browser and does not restore unfinished sessions after a reload."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 20 scenarios. Each choice adds one to its power. Each power appears 16 times, so the counts run from 0 to 16 and total 20. All highest ties appear.",
+    "boundary": "The powers are fictional metaphors written by FermatMind for this quiz. The counts describe choices on this attempt and do not establish real powers, fitness, personality scores, emotional intelligence, or job fit."
+  }
+}

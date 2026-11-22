@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的抽象推理练习用24道原创题练习符号序列、类比、分类与变换，约16分钟。免费查看四组正确数、逐题参考解释和完整的公开练习指南。",
+    "intro": "看到图形变了方向，你会先猜旋转，还是先把上一格和下一格放在一起？在题目给出的有限规则里逐步核对。",
+    "deliverables": [
+      [
+        "四组各6题",
+        "练符号序列、关系类比、分类与变换。"
+      ],
+      [
+        "逐题解释",
+        "对照选项、参考答案与所用规则。"
+      ],
+      [
+        "四份公开指南",
+        "复习指定条件下的图形与关系。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先把变化拆一步",
+        "看位置、方向和数量哪个被改变。"
+      ],
+      [
+        "从正反例一起找规则",
+        "选能解释所有指定例子的条件。"
+      ],
+      [
+        "两种变换看顺序",
+        "先旋转和先平移不一定得到同一结果。"
+      ]
+    ],
+    "profiles": {
+      "series": [
+        "找连续两步都成立的运算",
+        "你可以同时核对每一次变化。",
+        "看见箭头逐格变化，你记下方向与数量。"
+      ],
+      "analogies": [
+        "把关系搬到新对象",
+        "你会找附带的变换，而不只盯着符号。",
+        "两图上下交换，你让新图也照交换规则做。"
+      ],
+      "classification": [
+        "用反例来排除",
+        "你可以找能同时支持正例、排除反例的特征。",
+        "你核对有描边的图是否全进同一组。"
+      ],
+      "transformations": [
+        "把中间状态写出来",
+        "你会按题目指定次序逐步操作。",
+        "先翻转后移动时，你先记下翻完后的图。"
+      ]
+    },
+    "faq": [
+      [
+        "共有多少题？",
+        "24道，四组六题。"
+      ],
+      [
+        "图形答案真的只有一个吗？",
+        "在题面给出的有限规则或标准范围内核对。"
+      ],
+      [
+        "有计时吗？",
+        "无计时，16分钟是估计。"
+      ],
+      [
+        "怎么计分？",
+        "与参考答案一致计1，其他有效选择为0。"
+      ],
+      [
+        "这会得到IQ吗？",
+        "读数只汇总这组练习的正确次数。"
+      ],
+      [
+        "分享有什么内容？",
+        "仅同语公开练习地址，不附个人作答。"
+      ]
+    ],
+    "formula": "24题分四组各6，参考选项匹配记1。规则按题面范围执行，没有部分分、倒扣或时间分。",
+    "boundary": "这是符号关系和指定运算练习，读数不是智商、常模或通用推理能力的测量。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的抽象推理練習以24道原創題練習符號序列、類比、分類和變換，約16分鐘。免費提供四組答對次數、逐題解說及完整公開的練習指南。",
+    "intro": "箭頭換了方向，會是固定旋轉，還是另一種操作？依題目給的有限候選規則做比較，別急著補入題目沒有說的條件。",
+    "deliverables": [
+      [
+        "四組題型",
+        "六題一組，包括序列、類比、分類和依序變換。"
+      ],
+      [
+        "逐題解說",
+        "比較自己的選擇和參考答案。"
+      ],
+      [
+        "四份公開指南",
+        "可以先看例子，或拿它複習一種操作。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看哪裡真的改變",
+        "位置、方向、數量可以分開檢查。"
+      ],
+      [
+        "把正例與反例都放進來",
+        "選能解釋題目所有例子的條件。"
+      ],
+      [
+        "照題目指定順序",
+        "先記第一步得到什麼，再做下一個操作。"
+      ]
+    ],
+    "profiles": {
+      "series": [
+        "把連續兩次的變化寫下來",
+        "你可以比較同一操作是否能說明整排符號。",
+        "你看箭頭每格的方向與數量有沒有一起變。"
+      ],
+      "analogies": [
+        "搬的是關係",
+        "你能把原本的變換換到不同物件上。",
+        "看見上下兩圖調換，你對新圖照樣做一次。"
+      ],
+      "classification": [
+        "拿反例來確認分類",
+        "你會檢查準則是否也能排除另一組。",
+        "你確認只有一組的圖形都有描邊。"
+      ],
+      "transformations": [
+        "保留做過第一步的圖",
+        "你可以照固定順序做每種操作。",
+        "題目說先翻轉再移動，你畫下翻轉後的樣子。"
+      ]
+    },
+    "faq": [
+      [
+        "有幾道題？",
+        "四組各6題，共24題。"
+      ],
+      [
+        "為什麼規則的範圍有限？",
+        "這樣可以在明示條件下核對唯一符合的選項。"
+      ],
+      [
+        "需要在時間內寫完嗎？",
+        "不計時，約16分鐘。"
+      ],
+      [
+        "如何給分？",
+        "參考答案加1，其餘有效選項為0。"
+      ],
+      [
+        "會換算IQ嗎？",
+        "讀數只統計本練習答對多少。"
+      ],
+      [
+        "分享會附作答嗎？",
+        "同語言公開連結不帶個人答案。"
+      ]
+    ],
+    "formula": "24道題分四組，每組6題。依題面規則核對參考答案，吻合記1，不計部分分或速度分。",
+    "boundary": "這份練習只用來複習題面給的關係與操作，不評定IQ或通用能力。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Abstract Reasoning practice uses 24 original symbol questions across sequences, analogies, classification, and transformations. It takes about sixteen minutes and provides four section counts, worked solutions, and complete public guides. Readers use the stated rules or limited candidate operations, with no account, timer, or personal files needed to complete the practice or review the steps behind each keyed answer.",
+    "intro": "Did the arrow turn, change position, or both? Compare what actually changes and stay within the rules the question gives you.",
+    "deliverables": [
+      [
+        "Four sections of six",
+        "Review sequences, analogies, classification, and ordered transformations."
+      ],
+      [
+        "Worked solutions",
+        "Find the operation or condition that supports the key."
+      ],
+      [
+        "Four public guides",
+        "Read one before answering or revisit it afterward."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Separate what changed",
+        "Check position, direction, and quantity individually."
+      ],
+      [
+        "Include positive and negative examples",
+        "Look for a rule that fits every supplied example."
+      ],
+      [
+        "Keep order visible",
+        "Write down the intermediate state before the second operation."
+      ]
+    ],
+    "profiles": {
+      "series": [
+        "Check that the rule repeats",
+        "You can test a proposed operation on more than one step.",
+        "In a row of arrows you note direction and quantity in each frame."
+      ],
+      "analogies": [
+        "Transfer the relationship",
+        "You can apply the change to a different pair of symbols.",
+        "After seeing two shapes trade places, you swap the corresponding shapes in the new pair."
+      ],
+      "classification": [
+        "Use a counterexample",
+        "You can check whether a rule excludes the negative examples.",
+        "You test whether an outline fits one group without including the other."
+      ],
+      "transformations": [
+        "Keep the intermediate shape",
+        "You can carry out operations in the stated order.",
+        "If the rule says flip and then move, you sketch the result of the flip first."
+      ]
+    },
+    "faq": [
+      [
+        "How many questions are included?",
+        "Twenty-four, six in each of four areas."
+      ],
+      [
+        "Why are the possible rules limited?",
+        "Each item has one checked answer under its stated rules or candidate operations."
+      ],
+      [
+        "Is the practice timed?",
+        "No. Sixteen minutes is an estimate."
+      ],
+      [
+        "How is a correct selection scored?",
+        "It adds one. Other valid choices add zero."
+      ],
+      [
+        "Does the result show IQ?",
+        "It shows counts on these exercises."
+      ],
+      [
+        "What can I share?",
+        "The public practice URL in the same language, without your answers."
+      ]
+    ],
+    "formula": "Four groups contain six questions each. A matching answer earns one under the stated rules. There is no partial credit, time adjustment, or guessing penalty.",
+    "boundary": "The questions practise specific symbol relationships and operations. Results do not establish IQ, population norms, or general reasoning ability."
+  }
+}

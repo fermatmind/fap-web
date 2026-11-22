@@ -195,3 +195,20 @@
     gap: 24px;
   }
 }
+
+.trustpilotPhrase { white-space: nowrap; }
+
+@media print {
+  .footer :global(.fm-footer-legal), .footer :global(.fm-footer-group) { break-inside: avoid; }
+}
+
+@media print {
+  .platforms { overflow: visible; }
+  .platformGroup { flex-wrap: wrap; justify-content: flex-start; width: auto; gap: 12px 24px; }
+}
+
+@media (min-width: 1280px) {
+  .footer:lang(zh) :global(.fm-footer-navigation) {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(10rem, 1.15fr) minmax(0, 1fr);
+  }
+}

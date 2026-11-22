@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的地狱客栈角色测试有18道原创社区工作坊题，约4分钟，免注册。结果免费显示六位角色的选择次数和最高并列，并提供公开指南及个人图卡。",
+    "intro": "要一起开个小工作坊，你会先欢迎刚到的人、说清自己能帮到哪儿，还是想个好玩的开场？回答 18 道原创题，看看六位角色中谁更接近你这次选的做法。",
+    "deliverables": [
+      [
+        "看六位角色的次数",
+        "每题加 1，合计 18。全部最高并列都会显示。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "可先读每位角色的生活情境解读，不用作答。"
+      ],
+      [
+        "保存个人图卡或复制公开链接",
+        "浏览器可生成含六项计数及最高匹配的 PNG，不含逐题答案。公开链接不携带个人结果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "夏莉最高，7 次",
+        "六项为 7、3、2、2、2、2。样例常给刚到的人留一个容易重新开始的机会。"
+      ],
+      [
+        "薇姬与妮芙蒂各 5 次",
+        "六项为 2、5、2、2、2、5。可比较给帮助说清界限和把一件手边的小事收尾。"
+      ],
+      [
+        "全选 A，六项各 3 次",
+        "每位在 A 位都出现三次，六篇指南一起保留。"
+      ]
+    ],
+    "profiles": {
+      "charlie": [
+        "给人一个容易开始的邀请",
+        "你这次较常选给别人一个能自愿加入或稍后重试的方式。",
+        "有位新来的人没跟上示范，你说可以从下一轮开始，也可以先看看。"
+      ],
+      "vaggie": [
+        "关心别人时把范围说清楚",
+        "你这次较常选愿意帮忙，也先商量自己能做的部分。",
+        "朋友要找人整理材料，你说可以陪他分一盒，之后要去接待其他人。"
+      ],
+      "alastor": [
+        "给这场活动定一个合适的开头",
+        "你这次较常选用开场、节奏或声音让活动有自己的风格。",
+        "工作坊刚开始，你想用一段轻快的介绍讲清这次要做什么。"
+      ],
+      "angel-dust": [
+        "给语气换一点轻松感",
+        "你这次较常选择用大家愿意接的玩笑调整气氛。",
+        "纸盒折反了，你笑问要不要把它做成一只倒着站的摆件。"
+      ],
+      "husk": [
+        "说清楚眼下真的有什么",
+        "你这次较常选先说明可用的时间、工具和帮助。",
+        "同伴想做大件作品时，你告诉他只有薄纸板，也还有一小时可用。"
+      ],
+      "niffty": [
+        "把一件小事做完",
+        "你这次较常选先收拾和完成一个看得见的小部分。",
+        "人还没到齐时，你擦干净一张桌面，把每个人要用的纸放好。"
+      ]
+    },
+    "faq": [
+      [
+        "需要看过《地狱客栈》吗？",
+        "不用。题目围绕原创工作坊活动，不考情节、台词或设定。"
+      ],
+      [
+        "有哪些角色？",
+        "夏莉、薇姬、阿拉斯托、安吉尔、哈斯克、妮芙蒂是本版六个结果。"
+      ],
+      [
+        "18 题怎样计数？",
+        "每题四选一，给对应角色加 1。每位出现 12 次，各 0–12，合计 18。"
+      ],
+      [
+        "同分会显示几个？",
+        "所有同为最高的角色都会保留。全选 A 时六位各 3 次。"
+      ],
+      [
+        "结果会判断性格或心理状况吗？",
+        "不会。题目只记录当次的日常做法，不能测人格、心理健康或职业适配。"
+      ],
+      [
+        "图卡与公开分享有什么区别？",
+        "PNG 显示六项计数和最高匹配，不含逐题答案。复制的公开链接没有个人计数。"
+      ]
+    ],
+    "formula": "18 题每题选一项，给对应角色加 1 次。每位出现 12 次，单项 0–12，合计 18。保留所有最高并列。",
+    "boundary": "费马独立编写非官方同人娱乐题。Amazon 和 A24 资料用来核对作品身份和姓名。工作坊是原创情境，结果只反映当次选择，不复制剧中行为或评估心理。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的地獄旅館角色測驗有18道原創社區工作坊題，約4分鐘，免註冊。結果免費呈現六位角色的次數和所有最高並列，公開指南與個人圖卡也可使用。",
+    "intro": "要一起辦個小工作坊，你會先招呼剛到的人、講清楚自己能幫多少，還是想一個比較好玩的開場？做完 18 道原創情境題，看看這次的選擇對應到哪些角色。",
+    "deliverables": [
+      [
+        "查看六位角色各有幾次",
+        "每題替一位角色加 1，總共 18 次。同為最高會一併列出。"
+      ],
+      [
+        "免費讀六篇公開指南",
+        "每位角色都能先看完整指南，不需交卷。"
+      ],
+      [
+        "儲存個人圖卡或複製公開連結",
+        "個人 PNG 顯示六項次數與最高配對，沒有逐題答案。公開連結不附個人結果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "夏莉最高，7 次",
+        "六項依序是 7、3、2、2、2、2。範例較常替剛來的朋友留一個能開始的空間。"
+      ],
+      [
+        "薇姬和妮芙蒂各 5 次",
+        "六項依序為 2、5、2、2、2、5。可比較先談幫忙的界線和先完成手邊一件小事。"
+      ],
+      [
+        "全選 A，六位各 3 次",
+        "角色在 A 位各出現三次，所以會列出六篇指南。"
+      ]
+    ],
+    "profiles": {
+      "charlie": [
+        "讓人想加入時還來得及",
+        "你比較常選替剛來的人留一個能選擇的起點。",
+        "新人沒趕上示範，你告訴他可以等下一輪再加入，也可以先看。"
+      ],
+      "vaggie": [
+        "在願意幫忙的範圍裡照顧彼此",
+        "你比較常選先說能做到哪裡，再接下適合的部分。",
+        "朋友找人整材料，你說可以幫一盒，等會兒再去門口招呼人。"
+      ],
+      "alastor": [
+        "替聚會安排有意思的開場",
+        "你比較常選用幾句話或一個節奏讓大家知道活動怎麼開始。",
+        "工作坊要開場時，你用一小段輕鬆的介紹把流程說清楚。"
+      ],
+      "angel-dust": [
+        "替氣氛添一點玩心",
+        "你比較常選提出有趣的轉折，再看看大家想不想接。",
+        "紙盒折反時，你問夥伴要不要把它變成一個倒過來的小擺飾。"
+      ],
+      "husk": [
+        "講清楚眼前有什麼能用",
+        "你比較常選把手邊資源和時間說明白。",
+        "夥伴想做一件大作品，你提醒桌上只剩薄紙板，還有一小時能用。"
+      ],
+      "niffty": [
+        "先把眼前的小地方處理好",
+        "你比較常選做一件可以很快收尾的事。",
+        "等人到齊以前，你先擦好桌面，再把紙分到每個位置。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過《地獄旅館》也能做嗎？",
+        "可以。題目是原創工作坊活動，不考情節、台詞或動畫知識。"
+      ],
+      [
+        "有哪些角色？",
+        "本版有夏莉、薇姬、阿拉斯托、安吉爾、哈斯克與妮芙蒂。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，替選中的角色加 1。每位出現 12 次，各 0–12，合計 18。"
+      ],
+      [
+        "有同分最高怎麼辦？",
+        "同為最高的完整指南一起列出。全選 A 時六位各 3 次。"
+      ],
+      [
+        "可以拿來判斷人格或心理嗎？",
+        "選項只整理這次想做的事，不提供心理健康、能力、職涯或人格判斷。"
+      ],
+      [
+        "分享圖卡會帶出哪些資訊？",
+        "個人 PNG 有六項次數與最高配對，不含逐題答案。複製公開連結則不帶個人結果。"
+      ]
+    ],
+    "formula": "18 題每題選一項，替相應角色加 1。六位各出現 12 次，各項 0–12，總數 18。並列最高都會保留。",
+    "boundary": "費馬獨立編寫這份非官方同人測驗。Amazon 與 A24 用來核對作品和人物。工作坊是本站原創，結果只談這次的選項，不提供心理或人格評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Hazbin Hotel Character Quiz uses 18 original community workshop scenarios and takes about four minutes. It is free without registration. Results show counts for six characters and retain every highest tie. Six complete public guides can be read before answering. The browser can also save a personal PNG with the counts and matches, without any item answers. Complete results are free to read.",
+    "intro": "A community workshop is about to open. Would you invite someone in, say what help you can offer, or get things started with a playful introduction? Answer 18 original scenes and see which six character themes come up in your choices.",
+    "deliverables": [
+      [
+        "See the six character counts",
+        "Each choice adds one, for a total of 18. Every highest tie stays."
+      ],
+      [
+        "Read six full public guides",
+        "All six guides can be opened before you answer the quiz."
+      ],
+      [
+        "Save a personal PNG or copy a public link",
+        "The browser makes a card with six counts and the highest matches, without item answers. Public links carry no personal result."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Charlie leads at 7",
+        "The counts are 7, 3, 2, 2, 2, and 2. The sample often chose to leave an easy way for someone to start again."
+      ],
+      [
+        "Vaggie and Niffty tie at 5 each",
+        "The counts are 2, 5, 2, 2, 2, and 5. Compare offering help within a limit and finishing a small task."
+      ],
+      [
+        "All A: six characters with 3 each",
+        "Every character appears three times in position A, so this example retains all six guides."
+      ]
+    ],
+    "profiles": {
+      "charlie": [
+        "Leave an easy way for someone to start",
+        "You often chose to give someone another chance to try when they were ready.",
+        "When a newcomer misses the demonstration, you say they can join the next round or watch first."
+      ],
+      "vaggie": [
+        "Make your help clear and bounded",
+        "You often chose to find the part you could help with and say where you would stop.",
+        "When somebody needs help sorting materials, you offer to do one box before greeting the next arrivals."
+      ],
+      "alastor": [
+        "Give the occasion a deliberate opening",
+        "You often chose to set a tone for the activity with words, timing, or sound.",
+        "Before the workshop starts, you make a quick introduction that lets everyone know what is about to happen."
+      ],
+      "angel-dust": [
+        "Make a playful change to the tone",
+        "You often chose to offer a light twist and see whether others wanted to try it.",
+        "When a box is folded upside down, you ask if anyone wants to turn it into a funny little sculpture."
+      ],
+      "husk": [
+        "Say what is actually available",
+        "You often chose to explain the time or supplies the group really had.",
+        "When a friend proposes a big piece, you mention the thin cardboard and the hour you have left."
+      ],
+      "niffty": [
+        "Find satisfaction in finishing a small part",
+        "You often chose one little job you could finish before the activity got busy.",
+        "While waiting for people, you wipe down a table and set out paper at each seat."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know Hazbin Hotel?",
+        "No. The situations are original community workshop scenes with no questions about the series or dialogue."
+      ],
+      [
+        "Which characters appear?",
+        "Charlie, Vaggie, Alastor, Angel Dust, Husk, and Niffty."
+      ],
+      [
+        "How are the 18 questions counted?",
+        "Your choice adds one. Each character appears 12 times, so counts are 0–12 and add to 18."
+      ],
+      [
+        "What if characters tie?",
+        "The result retains all highest ties. Choosing A every time gives all six a count of three."
+      ],
+      [
+        "Can the results assess my mental health or personality?",
+        "These are choices in invented everyday scenes. They do not assess mental health, personality, ability, or career fit."
+      ],
+      [
+        "What do the personal PNG and public link show?",
+        "The PNG shows six counts and the highest matches, without item answers. The public link does not reveal your results."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 18 questions. Each answer adds one. Every character appears 12 times, so counts are 0–12 and total 18. All highest ties are kept.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Amazon and A24 sources supply the show’s identity and names. The workshop is an original setting. The result summarizes choices without a psychological assessment."
+  }
+}

@@ -30,9 +30,9 @@ describe("individual six-character editorial", () => {
       const summaries = quiz.profiles.map(profile => chiikawaLandingSummary(profile,locale));
       expect(new Set(summaries).size).toBe(6);
       for (const summary of summaries) expect(dom.textContent).toContain(summary);
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(6);
-      expect(dom.querySelector("#questionnaire-results")?.textContent).toContain(locale === "zh" ? "六位角色" : "Six character");
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
+      expect(dom.querySelectorAll('#questionnaire-results article[data-ent-result-id]')).toHaveLength(6);
+      expect(dom.querySelectorAll('[data-ent-faq]')).toHaveLength(6);
+      expect(dom.querySelectorAll('[data-ent-faq][open]')).toHaveLength(3);
       const normalize = (text: string) => text.replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
       const body = normalize(dom.textContent ?? "");
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(body).toContain(normalize(paragraph[locale]));

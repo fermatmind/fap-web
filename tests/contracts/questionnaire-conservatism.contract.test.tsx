@@ -1,3 +1,4 @@
+import { currentStandaloneGuidePrivacy } from "@/lib/entertainment/flagship/standalone-guide-privacy";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -103,7 +104,7 @@ describe("T178 complete historical 2013 U.S. SECS twelve-term edition", () => {
     try { for (const locale of ["en", "zh"] as const) {
       const path = `/${locale}/tests/explore/conservatism`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
       expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(dom.textContent).toContain(quiz.instructions![locale]); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-      const method = dom.querySelector('[aria-labelledby="questionnaire-method"]')!; expect(method.querySelectorAll("p")).toHaveLength(3); expect(method.closest("details")).toBeNull(); for (const section of quiz.guide) expect(method.textContent).toContain(section.paragraphs[0][locale]);
+      const method = dom.querySelector('[aria-labelledby="questionnaire-insight-method"]')!; expect(method.querySelectorAll("p")).toHaveLength(3); expect(method.closest("details")).toBeNull(); for (const section of quiz.guide) expect(method.textContent).toContain(currentStandaloneGuidePrivacy(section.paragraphs[0][locale], locale));
       expect(dom.textContent).toContain(locale === "en" ? "SECS 2013 U.S. issues" : "SECS2013美国议题");
       for (const p of quiz.profiles) {
         const publicPath = `${path}/results/${p.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, html = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;

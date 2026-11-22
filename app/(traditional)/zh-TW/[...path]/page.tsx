@@ -1,8 +1,11 @@
+import { PortfolioFlagshipLanding, hasPortfolioFlagship } from "@/components/tests/PortfolioFlagshipLanding";
+import { preparePortfolioLanding } from "@/components/tests/PortfolioLandingPreview";
+import { hasPortfolioLanding } from "@/lib/entertainment/portfolioLanding";
 import { ArchiveGuideShare } from "@/components/questionnaires/ArchiveQuestionnaireExperience";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import type { ReactNode } from "react";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
-import { ExploreTestIntro } from "@/components/tests/ExploreTestIntro";
+import { CharacterQuizLanding } from "@/components/questionnaires/CharacterQuizLanding";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { traditionalMixedQuestionnaireRoute } from "@/lib/i18n/traditionalMixedQuestionnairePaths";
 import { traditionalCulturalSymbolRoute } from "@/lib/i18n/traditionalCulturalSymbolPaths";
@@ -22,8 +25,6 @@ import { PublicGuideShare } from "@/components/questionnaires/PublicGuideShare";
 import { ChiikawaReading } from "@/components/i18n/zh-TW/ChiikawaReading";
 import { ChiikawaTake } from "@/components/i18n/zh-TW/ChiikawaTake";
 import { TraditionalPilotTests } from "@/components/i18n/zh-TW/TraditionalPilotTests";
-import { ChiikawaResultExamples } from "@/components/questionnaires/ChiikawaResultExamples";
-import { ChiikawaPortrait } from "@/components/questionnaires/ChiikawaPortrait";
 
 type Props = { params: Promise<{ path?: string[] }>; searchParams?: Promise<{ edition?: string | string[] }> };
 const entry = `/zh-TW${TRADITIONAL_QUIZ_PATH}`;
@@ -95,22 +96,21 @@ export default async function TraditionalPage(props: Props) {
   const landingSlug = /^\/zh-TW\/tests\/explore\/([^/]+)$/u.exec(path)?.[1];
   const category = catalog.find((quiz) => quiz.slug === landingSlug)?.category;
   const guide = /^\/zh-TW\/tests\/explore\/([^/]+)\/results\/([^/]+)$/u.exec(path);
-  const landing = (content: ReactNode) => landingSlug
-    ? <ExploreTestShell slug={landingSlug} category={category}>{content}</ExploreTestShell>
-    : guide ? <>{content}<ArchiveGuideShare slug={guide[1]} id={guide[2]} locale="zh-TW" /></> : content;
-  if (path === "/zh-TW/tests/explore/disc") {
-    const { default: DiscLanding } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
-    return <DiscLanding params={Promise.resolve({locale: "zh-TW"})}/>;
-  }
+  const landing = async (content: ReactNode, getQuiz?: () => Promise<import("@/lib/questionnaires/types").Questionnaire | null | undefined>) => {
+    if (!landingSlug) return guide ? <>{content}<ArchiveGuideShare slug={guide[1]} id={guide[2]} locale="zh-TW" /></> : content;
+    const quiz = hasPortfolioLanding(landingSlug) ? await getQuiz?.() : null;
+    if (quiz && hasPortfolioFlagship(landingSlug)) return <PortfolioFlagshipLanding quiz={quiz} locale="zh-TW" />;
+    return <ExploreTestShell slug={landingSlug} category={category} preview={quiz ? await preparePortfolioLanding(landingSlug, "zh-TW", quiz) : null}>{content}</ExploreTestShell>;
+  };
   const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
   if (mixed) {
     const { TraditionalMixedQuestionnairePage } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");
-    return landing(<TraditionalMixedQuestionnairePage {...mixed} />);
+    return landing(<TraditionalMixedQuestionnairePage {...mixed} />, async () => (await (await import("@/lib/i18n/zh-TW/mixedQuestionnaires")).loadTraditionalMixedQuestionnaire(mixed.slug))?.quiz);
   }
   const culturalSymbol = traditionalCulturalSymbolRoute(path.slice("/zh-TW".length));
   if (culturalSymbol) {
     const { TraditionalCulturalSymbolPage } = await import("@/components/i18n/zh-TW/TraditionalCulturalSymbolPage");
-    return landing(<TraditionalCulturalSymbolPage {...culturalSymbol} />);
+    return landing(<TraditionalCulturalSymbolPage {...culturalSymbol} />, async () => (await (await import("@/lib/i18n/zh-TW/culturalSymbolQuestionnaires")).loadTraditionalCulturalSymbol(culturalSymbol.slug))?.quiz);
   }
   if (path === "/zh-TW/tests/explore/career-match") {
     const { TraditionalCareerMatchPage } = await import("@/components/i18n/zh-TW/TraditionalCareerMatchPage");
@@ -118,22 +118,23 @@ export default async function TraditionalPage(props: Props) {
   }
   const likert = traditionalLikertRoute(path.slice("/zh-TW".length)) ?? traditionalDirectionalRoute(path.slice("/zh-TW".length)) ?? traditionalObservationRoute(path.slice("/zh-TW".length));
   if (likert) {
-    const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
-    return landing(<LikertQuestionnairePage {...likert} />);
+    const { LikertQuestionnairePage, requireLikert } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    return landing(<LikertQuestionnairePage {...likert} />, async () => (await requireLikert(likert.slug)).quiz);
   }
   const practice = traditionalPracticeRoute(path.slice("/zh-TW".length));
   if (practice) {
     const { PracticeQuestionnairePage } = await import("@/components/i18n/zh-TW/PracticeQuestionnairePage");
-    return landing(<PracticeQuestionnairePage {...practice} />);
+    return landing(<PracticeQuestionnairePage {...practice} />, async () => (await (await import("@/lib/i18n/zh-TW/practiceQuestionnaires")).loadTraditionalPractice(practice.slug))?.quiz);
   }
   const archetype = traditionalArchetypeRoute(path.slice("/zh-TW".length));
   if (archetype) {
     const { ArchetypeQuestionnairePage } = await import("@/components/i18n/zh-TW/ArchetypeQuestionnairePage");
-    return landing(<ArchetypeQuestionnairePage {...archetype} />);
+    return landing(<ArchetypeQuestionnairePage {...archetype} />, async () => (await (await import("@/lib/i18n/zh-TW/archetypeQuestionnaires")).loadTraditionalArchetype(archetype.slug)));
   }
-  if (relationshipQuestionnaireRoute(path.slice("/zh-TW".length))) {
+  const relationship = relationshipQuestionnaireRoute(path.slice("/zh-TW".length));
+  if (relationship) {
     const { RelationshipQuestionnairePage } = await import("@/components/i18n/zh-TW/RelationshipQuestionnairePage");
-    return landing(<RelationshipQuestionnairePage path={path} />);
+    return landing(<RelationshipQuestionnairePage path={path} />, async () => (await (await import("@/lib/i18n/zh-TW/relationshipQuestionnaire")).loadTraditionalRelationshipQuestionnaire(relationship.slug)));
   }
   if (path.startsWith(`/zh-TW${TRADITIONAL_SEVEN_SINS_PATH}`)) {
     const { SevenSinsTraditionalPage } = await import("@/components/i18n/zh-TW/SevenSinsPage");
@@ -144,30 +145,7 @@ export default async function TraditionalPage(props: Props) {
   const profile = quiz.profiles.find(profile => path === `${entry}/results/${profile.id}`);
   if (profile) return <Container as="main" className="space-y-6 py-10"><Languages path={path} /><p>{ui.public["zh-TW"]}</p><ChiikawaReading profile={profile} level={1} /><PublicGuideShare url={canonicalUrl(path)} locale="zh-TW" /><Link href={entry} className="inline-block min-h-11 py-2 underline">{ui.return["zh-TW"]}</Link><Link href={`${entry}/take`} className="ml-5 inline-block min-h-11 py-2 underline">{ui.start["zh-TW"]}</Link></Container>;
   if (path !== entry) return <Container as="main" className="py-10"><TraditionalPilotTests /></Container>;
-  return landing(<main className="bg-slate-50 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl space-y-8">
-    <Languages path={path} />
-    <ExploreTestIntro slug={quiz.slug} locale="zh-TW">
-      <h1>{quiz.title["zh-TW"]}</h1>
-      <p>{quiz.description["zh-TW"]}</p>
-      <div id="take-test" className="space-y-4">
-        <Link href={`${entry}/take`} className="explore-intro-entry" data-explore-start>{ui.start["zh-TW"]}<span aria-hidden="true">→</span></Link>
-        <p className="text-sm leading-7 text-slate-600">{quiz.instructions!["zh-TW"]}</p>
-      </div>
-    </ExploreTestIntro>
-    <ChiikawaResultExamples
-      quiz={{
-        ...quiz,
-        profiles: quiz.profiles.map((profile) => ({ ...profile, title: { ...profile.title, zh: profile.title["zh-TW"] } })),
-        directions: quiz.directions.map((direction) => ({ ...direction, title: { ...direction.title, zh: direction.title["zh-TW"] } })),
-      }}
-      locale="zh-TW"
-    />
-    <p className="whitespace-pre-line leading-8">{quiz.introduction["zh-TW"]}</p>
-    {quiz.guide.map(section => <section key={section.id} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title["zh-TW"]}</h2>{section.paragraphs.map((text, index) => <p key={index} className="whitespace-pre-line leading-8">{text["zh-TW"]}</p>)}</section>)}
-    <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.guides["zh-TW"]}</h2><div className="grid gap-5 sm:grid-cols-2">{quiz.profiles.map(profile => <Link key={profile.id} href={`${entry}/results/${profile.id}`} className="space-y-3 rounded-xl border border-slate-200 bg-white p-5"><ChiikawaPortrait id={profile.id} className="size-20 rounded-xl" /><h3 className="text-xl font-semibold underline">{profile.title["zh-TW"]}</h3><p className="leading-7">{profile.headline["zh-TW"]}</p></Link>)}</div></section>
-    <section className="space-y-3"><h2 className="text-2xl font-bold">來源與範圍</h2><p className="leading-8">本站原創同人情境題與角色解讀，不是官方測驗或臨床評估。繁體版保留原題本與計分規則。</p><ul className="list-disc space-y-3 pl-5">{quiz.references?.map(reference => <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer" className="underline">{reference.title["zh-TW"]}</a></li>)}</ul></section>
-    <section className="space-y-5"><h2 className="text-2xl font-bold">{ui.faq["zh-TW"]}</h2>{quiz.faq.map((faq, index) => <div key={index}><h3 className="text-xl font-semibold">{faq.question["zh-TW"]}</h3><p className="mt-3 whitespace-pre-line leading-8">{faq.answer["zh-TW"]}</p></div>)}</section>
-  </Container></main>);
+  return landing(<CharacterQuizLanding quiz={quiz} slug="chiikawa" locale="zh-TW" />);
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {

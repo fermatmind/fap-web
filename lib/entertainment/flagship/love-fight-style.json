@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的伴侣争执方式测试用20道原创题回顾一段恋爱关系中近四周的普通分歧，约6分钟。免费提供四项独立频率均分、有效题数及完整的情境指南。",
+    "intro": "争执开始变快时，你会抬高话音、说自己需要暂停，还是等冷静后再回到那件事？回想当时发生过的回应，不必联系对方。",
+    "deliverables": [
+      [
+        "四项分开读",
+        "查看言语升级、表达暂停、回到具体问题、尝试并确认修复。"
+      ],
+      [
+        "有效题数",
+        "每项有五题，仅在五题都计分时显示该项均分。"
+      ],
+      [
+        "四份指南",
+        "用普通的改约、家务和沟通片段回看争执过程。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看冲突在哪一步发生变化",
+        "例如注意讨论何时离开原来的问题，开始互相指责。"
+      ],
+      [
+        "需要暂停时把话说清",
+        "在合适而安全的情况下，可说清想暂停多久、是否再谈。"
+      ],
+      [
+        "修复要看对方是否接受",
+        "提出下一次能做到的改变，再让对方决定是否愿意回应。"
+      ]
+    ],
+    "profiles": {
+      "verbal-escalation-reading": [
+        "话题越说越远",
+        "你可能说着一件具体的事，声音变高，也开始搬出其他旧事。",
+        "讨论迟到时，你一句‘你每次都这样’把话题转向了过往。"
+      ],
+      "pause-reading": [
+        "我想先缓一下",
+        "你可以在还说得清时提出暂停，也给自己离开对话的余地。",
+        "发现自己快要提高音量，你说想先到窗边坐十分钟。"
+      ],
+      "return-reading": [
+        "把讨论带回眼前那件事",
+        "你愿意在合适的时候回来，重新说清楚这次具体想解决什么。",
+        "晚些时候，你只提这次怎样通知会迟到，先把别的问题留开。"
+      ],
+      "repair-reading": [
+        "问问下一次可以怎么做",
+        "你想知道自己的补救对对方是否有用，由对方决定要不要继续。",
+        "你说明下次会先发消息，也问对方是否愿意谈具体的通知方式。"
+      ]
+    },
+    "faq": [
+      [
+        "应该考虑哪段关系？",
+        "可选目前或最近一段重要恋爱关系，考虑近四周，已结束时用最后四周。"
+      ],
+      [
+        "四组读数如何计算？",
+        "各组五题按出现频率计1–5分，须五题都有效。"
+      ],
+      [
+        "可以略过不适合自己的题吗？",
+        "选择不计分。20条都有选择后即可看结果。"
+      ],
+      [
+        "会给出固定争执类型吗？",
+        "给出四项独立读数，供回顾一次对话中的不同行为。"
+      ],
+      [
+        "做题需要联系对方吗？",
+        "不用联系、解释、道歉或原谅。可随时离开题本。"
+      ],
+      [
+        "分享会带出个人分数吗？",
+        "分享指向同语公开入口，不含答案或读数。"
+      ]
+    ],
+    "formula": "20题，四组各5。按频率计1–5分，每组5题都有效才显平均。未计分项不进入计算。",
+    "boundary": "用于观察普通关系分歧的不同环节。遇到威胁、控制或安全顾虑，可跳出题本，无需为获得读数联系对方或重回讨论。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的伴侶爭執風格測驗以20道原創題回顧一段感情近四週的一般分歧，約6分鐘。免費提供四項分開計算的頻率平均、有效題數與情境指南。",
+    "intro": "你們吵到聲音變大時，你會說想停一下，還是等晚一點再處理原來那件事？填寫時回想自己實際做過的事，不用聯絡對方。",
+    "deliverables": [
+      [
+        "四個階段的做法",
+        "分開看語氣升高、提出暫停、回到原議題及確認補救。"
+      ],
+      [
+        "每組實際計分題數",
+        "五題皆有分數才會出現該組平均。"
+      ],
+      [
+        "四份指南",
+        "用改約、家務分工等日常例子讀結果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "留意什麼時候改變了語氣",
+        "回想對話哪一刻從討論一件事，變成批評對方。"
+      ],
+      [
+        "把想暫停的意思說清楚",
+        "要是合適、也安全，可以先說想稍晚再談這件事。"
+      ],
+      [
+        "下次怎麼做可以先問問",
+        "說出你願意調整的部分，讓對方決定要不要回應。"
+      ]
+    ],
+    "profiles": {
+      "verbal-escalation-reading": [
+        "越說聲音越高",
+        "你可能從一件小事講到其他舊事，讓對話愈來愈急。",
+        "本來在談晚到，你一句「你每次都這樣」帶出了上個月的爭執。"
+      ],
+      "pause-reading": [
+        "我需要先休息一下",
+        "你可以在語氣還能控制時說要暫停，先離開當下的對話。",
+        "發現自己快提高音量，你說想去喝口水，稍後再看看。"
+      ],
+      "return-reading": [
+        "再回到原來的那件事",
+        "你會等適合談的時候，把話題拉回真正要處理的一點。",
+        "晚一點再聊時，你只提這一次要怎麼通知會晚到。"
+      ],
+      "repair-reading": [
+        "看下次能不能換個方式",
+        "你在意所提的補救是否有用，也會留給對方選擇。",
+        "你願意下次先傳訊息，也問對方願不願意談通知的方式。"
+      ]
+    },
+    "faq": [
+      [
+        "想哪一段感情來填？",
+        "想目前或最近的重要感情，以近四週為主，已結束則想最後四週。"
+      ],
+      [
+        "平均怎麼算？",
+        "每組五題給1到5分，題目全數有效才顯示平均。"
+      ],
+      [
+        "可以有不計分的回答嗎？",
+        "可以。20題皆有選擇即可看讀數。"
+      ],
+      [
+        "結果會告訴我是哪類人嗎？",
+        "四組分開顯示，適合對照一次對話裡不同階段的做法。"
+      ],
+      [
+        "一定要和對方聯絡嗎？",
+        "無須聯絡、道歉或原諒。你可以先看指南或離開。"
+      ],
+      [
+        "分享會帶出分數嗎？",
+        "只分享同語言公開入口，不帶本次答案或讀數。"
+      ]
+    ],
+    "formula": "四組各5題，共20題。頻率用1至5分表示，一組5題均有效才顯示平均。不計分選項不納入。",
+    "boundary": "只回顧一般分歧的過程。若有威脅、控制或安全顧慮，不用為了填答聯絡對方或重回對話。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Love Fight Style Test uses 20 original questions to review ordinary disagreements in one romantic relationship over four weeks. It takes about six minutes and provides four independent frequency averages, rated item counts, and full public guides. The quiz covers verbal escalation, asking for a pause, returning to the issue, and checking repair without requiring sign-up or contact with anyone.",
+    "intro": "When a disagreement speeds up, do you raise your voice, say you need a pause, or pick up the original issue later? Think about what you did, with no need to go back into the conversation.",
+    "deliverables": [
+      [
+        "Four separate readings",
+        "Review escalation, pausing, returning to the issue, and checking whether repair helped."
+      ],
+      [
+        "Rated-item counts",
+        "A mean appears only if all five answers in that group are scored."
+      ],
+      [
+        "Four full guides",
+        "Explore ordinary examples such as a missed meeting or a household mix-up."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Notice when the subject or tone changed",
+        "Think about whether the discussion moved from one issue to a string of old complaints."
+      ],
+      [
+        "Give yourself room to pause",
+        "Where safe and welcome, say what you need and whether you are open to talking later."
+      ],
+      [
+        "Give the other person a choice about repair",
+        "Name what you can change next time and let them decide whether to respond."
+      ]
+    ],
+    "profiles": {
+      "verbal-escalation-reading": [
+        "Watch the moment the tone rises",
+        "You may start with one concern and find yourself raising your voice or adding earlier complaints.",
+        "A discussion about being late turns into ‘you do this every time.’"
+      ],
+      "pause-reading": [
+        "Ask for time to cool down",
+        "You can say you need a pause before you feel pushed to keep talking.",
+        "As your voice starts to rise, you ask to take ten minutes outside."
+      ],
+      "return-reading": [
+        "Come back to the thing that started it",
+        "You can revisit one specific issue when the timing is appropriate.",
+        "Later you return to how to let each other know about delays, keeping other topics separate."
+      ],
+      "repair-reading": [
+        "Check how your suggestion lands",
+        "You can offer a concrete change and let the other person decide whether they want to discuss it.",
+        "You say you can send a message next time and ask if they want to agree on when."
+      ]
+    },
+    "faq": [
+      [
+        "Which relationship should I think about?",
+        "Use one current or most recent significant relationship. Recall the past four weeks, or its last four weeks if it ended."
+      ],
+      [
+        "How are the averages calculated?",
+        "Each group needs all five items rated from 1 to 5 by frequency."
+      ],
+      [
+        "What if a situation does not apply?",
+        "Choose the unscored option. Complete each of the 20 choices to see the readings and guides."
+      ],
+      [
+        "Will I get a conflict type?",
+        "You will see four separate sets of actions that can show up at different points in a disagreement."
+      ],
+      [
+        "Do I need to re-open a discussion?",
+        "No contact, apology, forgiveness or return to a situation is required."
+      ],
+      [
+        "What does the share text reveal?",
+        "The public quiz link for your language, without your own answers or scores."
+      ]
+    ],
+    "formula": "Twenty items form four groups of five frequency ratings. Each group needs all five scored choices from 1 to 5 for its mean. Unscored responses do not enter the calculation.",
+    "boundary": "Use this test to look back at ordinary disagreements. If there are concerns about safety, threats or control, you can leave without finishing. No result requires you to return to a situation."
+  }
+}

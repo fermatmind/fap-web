@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的墨迹人格测验使用10张原创墨迹图及10道选择题，约5分钟，免注册。结果免费显示五种观察方式的次数与并列最高结果，五篇公开指南可直接阅读。",
+    "intro": "白底上两块深青色形状互相映照，旁边散着几个小点。你想先看整体、沿边缘找细节，还是想象它怎样动？用 10 张原创墨迹图回看自己常选的观察方式。完整结果免费。",
+    "deliverables": [
+      [
+        "看五种观察方式的次数",
+        "每道题给一个观察方式加 1，合计 10。所有并列最高都保留。"
+      ],
+      [
+        "免费读五篇观察指南",
+        "五种方式各有完整指南，看看同一图还可以怎样读。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单项最高可复制对应指南，并列复制全部最高名称和入口，不附个人回答或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "整体轮廓最高，4 次",
+        "五项依次为 4、2、2、1、1。样张经常选择看整体形状、对称和空白。"
+      ],
+      [
+        "边缘细节和色块对照各 3 次",
+        "五项为 1、3、1、3、2。两份指南可以一起看，体会追一条边线和比较颜色区域的区别。"
+      ],
+      [
+        "全选 A，五种各 2 次",
+        "每种观察方式在 A 位出现两次，因此会保留五份指南。可以回头看每张图形的不同。"
+      ]
+    ],
+    "profiles": {
+      "whole-form": [
+        "先看看它整体像什么",
+        "你这次较常选看轮廓、对称关系或图形中间的空白。",
+        "看一张海报时，你先留意整张图的形状，再看文字。"
+      ],
+      "edge-detail": [
+        "沿着边缘找小变化",
+        "你这次较常选看边缘转折、小点或一个局部间隙。",
+        "看朋友的印花时，你沿着图案边缘找到几个不同的小缺口。"
+      ],
+      "motion-association": [
+        "想象形状接下来怎么动",
+        "你这次较常选联想展开、靠近或转向的动势。",
+        "看见叶子形状重叠时，你想象上面那片正在慢慢滑下来。"
+      ],
+      "contrast-noticing": [
+        "比较深浅和内外色块",
+        "你这次较常选看看不同色块与周围配在一起是什么样。",
+        "翻开一张拼贴，你注意到中间浅色和外侧深色怎样把视线带到一起。"
+      ],
+      "scene-imagining": [
+        "把图形想成一个小场景",
+        "你这次较常选从图形编出人物、地点或一段画面。",
+        "看到窗边的几段影子时，你猜它们可以是一个故事开头的街景。"
+      ]
+    },
+    "faq": [
+      [
+        "这是专业罗夏测验吗？",
+        "这是费马原创墨迹观察游戏，未使用专业牌卡、临床编码或诊断流程。"
+      ],
+      [
+        "为什么会看到图像和文字说明？",
+        "文字描述结构供对照，可能影响选择。图像加载失败会暂停答题，公开指南仍可阅读。"
+      ],
+      [
+        "10 道题怎么计数？",
+        "每题四选一，给对应方式加 1。五种各出现 8 次，单项 0–8，总数 10；保留所有并列最高。"
+      ],
+      [
+        "一定要看出具体物体吗？",
+        "不需要。只是选此刻想沿着哪种方式继续看，也可以随时离开。"
+      ],
+      [
+        "结果能判断视力、智力或潜意识吗？",
+        "不能。结果记录当次的有限选择，不能诊断、判断视觉能力或评估人格和心理健康。"
+      ],
+      [
+        "分享会附观察记录吗？",
+        "公开链接不带答卷、计数或个人标识，无个人 PNG。进度在刷新或退出后不会恢复。"
+      ]
+    ],
+    "formula": "10 题每题四选一，给所选方式加 1。五种各出现 8 次，各 0–8，总计 10。所有同为最高的观察方式都保留。",
+    "boundary": "R-PAS 资料及相关研究只用于说明专业墨迹测验的背景。本站十张墨迹与题目为原创，次数只说明在这些图上选择了哪种观察方式，不用于临床、视觉或人格评估。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的墨跡人格測驗使用10張原創墨跡圖與10道選擇題，約5分鐘，免註冊。結果會免費顯示五種觀察方式的次數及最高並列，五篇公開指南可直接閱讀。",
+    "intro": "白底上有兩塊對稱的深青色形狀，邊緣旁有幾個小墨點。你會想看整體、沿著邊緣找細節，還是想像圖形怎麼動？跟著 10 張原創墨跡圖看看這次你怎麼選。",
+    "deliverables": [
+      [
+        "查看五種觀察方式的次數",
+        "每題替所選方式加 1，合計 10。同為最高的指南一起列出。"
+      ],
+      [
+        "免費讀五篇公開指南",
+        "每種觀察方式都有一篇完整指南，還沒作答也能讀。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單項最高可分享名稱及指南；並列時複製全部最高名稱和測驗入口，不附回答和次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "整體輪廓最高，4 次",
+        "五項依序為 4、2、2、1、1。範例大多先看形狀、對稱和留白。"
+      ],
+      [
+        "邊緣細節與色塊對照各 3 次",
+        "五項是 1、3、1、3、2。可以一併讀取，看看沿著邊線觀察和比較深淺有什麼不同。"
+      ],
+      [
+        "一路選 A，五種各 2 次",
+        "每種方式在 A 位出現兩次，結果會列出所有指南。各張圖的差異也值得再看看。"
+      ]
+    ],
+    "profiles": {
+      "whole-form": [
+        "先看整體和空白如何相對",
+        "你比較常選先看輪廓、對稱，和形狀之間留了什麼。",
+        "看到一張海報時，你先看整張圖的形狀，再讀上面的字。"
+      ],
+      "edge-detail": [
+        "沿著邊線找細小轉折",
+        "你比較常選看邊緣、小墨點或局部的空隙。",
+        "看到一件印花布料時，你沿著圖案找到幾處不一樣的小缺口。"
+      ],
+      "motion-association": [
+        "想像這個形狀會怎麼動",
+        "你比較常選從畫面聯想到展開、靠近或轉向。",
+        "看到幾片葉子的影子重疊時，你想像上面那片正要滑下來。"
+      ],
+      "contrast-noticing": [
+        "比較色塊的深淺和位置",
+        "你比較常選看看顏色區域放在一起時怎麼互相影響。",
+        "看一張拼貼時，你注意到內側淺色和外圈深色怎麼把視線吸過去。"
+      ],
+      "scene-imagining": [
+        "把小圖形編成一個場景",
+        "你比較常選在圖上想像一個地方或故事。",
+        "看見窗邊的幾塊影子時，你想像那是故事開頭的一條街。"
+      ]
+    },
+    "faq": [
+      [
+        "這是專業羅夏墨跡測驗嗎？",
+        "這是費馬自己設計的觀察活動，沒有用專業牌卡、臨床編碼或診斷。"
+      ],
+      [
+        "為什麼圖旁有文字說明？",
+        "用來描述形狀和位置，也可能影響你怎麼選。圖載入失敗時無法繼續作答，公開指南仍能閱讀。"
+      ],
+      [
+        "10 題怎麼計次？",
+        "每題四選一，對應方式加 1。每種各出現 8 次，個別 0–8，合計 10。同為最高都保留。"
+      ],
+      [
+        "一定要看出某個東西嗎？",
+        "不用。選一種現在想繼續看的方式即可，你也可以隨時離開。"
+      ],
+      [
+        "能判斷視力、人格或心理狀況嗎？",
+        "無法。結果只整理這次的選項，不提供視覺、能力、人格或臨床評估。"
+      ],
+      [
+        "轉傳時會附作答或個人圖卡嗎？",
+        "公開分享不附作答、次數、識別資料或個人 PNG。重新整理或離開後，不會恢復進度。"
+      ]
+    ],
+    "formula": "10 題每題四選一，替對應的觀察方式加 1。五種方式各出現 8 次，單項 0–8，合計 10。並列最高一起保留。",
+    "boundary": "R-PAS 資料與研究供了解專業墨跡測驗。費馬另行設計十張圖與題目，這裡的次數只記錄當次觀察選項，不能進行臨床、視力或人格評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Inkblot Test uses ten original inkblot images and ten questions about ways to look at them. It takes about five minutes and is free without registration. Results show counts for five observation approaches and keep all ties for the highest count. Five public guides can be read separately. This edition uses its own images and is intended for everyday observation.",
+    "intro": "Two dark teal shapes mirror each other on white, with small dots near the edges. Do you want to look at the whole shape, follow a tiny detail, or imagine a movement? Take ten original image questions and see the kinds of observation you chose.",
+    "deliverables": [
+      [
+        "See five observation counts",
+        "Each choice adds one. All five counts total ten, and every highest tie appears."
+      ],
+      [
+        "Read five full observation guides",
+        "Each guide gives another way to look at a shape. All five can be read before answering."
+      ],
+      [
+        "Copy a public name and guide link",
+        "One leader shares its guide. Ties share the leading names and public entry, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Whole Form leads at 4",
+        "The counts are 4, 2, 2, 1, and 1. The sample often looks for the outline and negative space."
+      ],
+      [
+        "Edge Detail and Contrast Noticing tie at 3 each",
+        "The counts are 1, 3, 1, 3, and 2. Compare following an edge with looking at how neighboring shades relate."
+      ],
+      [
+        "All A: five approaches with 2 each",
+        "Each approach appears twice in position A, so all five guides are kept. Revisit the images to see what each question offered."
+      ]
+    ],
+    "profiles": {
+      "whole-form": [
+        "Start with the whole outline",
+        "You often chose to look at symmetry, overall shape, and the space between shapes.",
+        "When you see a poster, you look at its silhouette before reading the small text."
+      ],
+      "edge-detail": [
+        "Follow a small turn at the edge",
+        "You often chose to notice dots, gaps, and changes along an edge.",
+        "When you look at patterned fabric, you follow an edge and notice where it breaks."
+      ],
+      "motion-association": [
+        "Imagine which way it might move",
+        "You often chose to imagine a form unfolding, turning, or moving closer.",
+        "When two leaf shapes overlap, you imagine one drifting down over the other."
+      ],
+      "contrast-noticing": [
+        "Compare the darker and lighter areas",
+        "You often chose to notice contrasts between nearby colors and shapes.",
+        "When you look at a collage, you notice how its pale center sits inside a darker border."
+      ],
+      "scene-imagining": [
+        "Turn a shape into a little scene",
+        "You often chose to imagine a place or a moment from shapes on the page.",
+        "When shadows overlap near a window, you picture a quiet street at the start of a story."
+      ]
+    },
+    "faq": [
+      [
+        "Is this a professional Rorschach assessment?",
+        "FermatMind created the images and question choices as an observation game. It uses no professional plates, clinical coding, or diagnosis."
+      ],
+      [
+        "Why are there images and descriptions?",
+        "The descriptions help locate details and may affect choices. If an image fails to load, answering pauses. Public guides are still readable."
+      ],
+      [
+        "How are ten questions counted?",
+        "Each question offers four choices. Each approach appears eight times, so counts range from 0 to 8 and add up to ten. Highest ties remain."
+      ],
+      [
+        "Do I have to see a specific object?",
+        "No. Choose the way you would like to look at the image. You can also leave without finishing."
+      ],
+      [
+        "Can the result assess vision, personality, or mental health?",
+        "No. It records limited choices on this set and cannot establish perceptual ability, diagnosis, personality, or mental health."
+      ],
+      [
+        "Does a shared link carry my answers?",
+        "Sharing copies public names and links, without answers, counts, personal IDs, or a personal PNG. An unfinished session does not resume on reload."
+      ]
+    ],
+    "formula": "Choose one of four responses in each of ten image questions. Each selection adds one to its approach. Each approach appears eight times, and the counts total ten. Every highest tie is retained.",
+    "boundary": "R-PAS sources and research explain professional context. FermatMind independently created these images and questions. Counts describe selected ways to explore these images without assessing vision, cognition, personality, or mental health."
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "zh": {
+    "facts": "费马测试的DISC行为问卷含24道双选题，约5分钟，免注册。答完可免费查看四项选择次数及最高或并列方向。15份公开指南可直接阅读，个人完整报告可自愿付费解锁。",
+    "intro": "事情刚启动，你更想先定下一步，还是先让大家开口？用约 5 分钟在 24 组日常反应里各选一项，看看你这次更常采用什么做法。答题和基础结果免费，完整个人报告可自愿付费解锁。",
+    "deliverables": [
+      [
+        "看四项原始计数和最高方向",
+        "每一项显示 0–12 次。选择次数同为最高的方向都会保留。"
+      ],
+      [
+        "直接读 15 份公开指南",
+        "四个单项最高和十一种并列组合都有独立指南。可以分享公开指南链接，链接不包含你的回答。"
+      ],
+      [
+        "按需解锁完整个人报告",
+        "一次付费可解锁本次报告，阅读更详细的行为侧写、工作和关系情境，以及可尝试的沟通练习。可以先看免费示例报告。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "单项最高：D 8、I 5、S 4、C 7",
+        "D 最多，只比 C 多一次。可以一起回看你在哪些时候偏向先采取行动，在哪些时候会先确认条件。"
+      ],
+      [
+        "双项并列：D 8、I 8、S 4、C 4",
+        "推进和表达都是最高，结果保留 D / I。试想在开会时，你会先请大家发言，还是先确认今天要做的决定。"
+      ],
+      [
+        "四项并列：D 6、I 6、S 6、C 6",
+        "这是四项并列唯一可能的计数组合。可以回看是什么情境让你换了一种做法。"
+      ]
+    ],
+    "profiles": {
+      "single-d": [
+        "先定下一步",
+        "你这次更常选先推进。想想哪道题让你希望先把动作定下来。",
+        "聚会临时换场地时，你先确认去哪儿，再给其他人发地址。"
+      ],
+      "single-i": [
+        "先让大家说起来",
+        "你这次比较常用提问、举例或者邀请别人表达的方式开场。",
+        "新同事午餐时不太开口，你提起一个大家都经历过的场景。"
+      ],
+      "single-s": [
+        "先把协作节奏稳住",
+        "你这次更常选留意他人的步调与困难，再作下一步安排。",
+        "约好一起搬家，有人临时晚到，你先问他需要什么再调分工。"
+      ],
+      "single-c": [
+        "先核对依据和标准",
+        "你这次更常选确认事实、边界和验收要求。",
+        "民宿账单多出一项费用时，你先找预订邮件核对，之后才联系房东。"
+      ],
+      "tied-d-i": [
+        "定方向，也让别人接上话",
+        "你这次同样常选先行动与先把话题带起来。",
+        "聚会被雨打断，你提个室内方案，再问每个人哪种走法方便。"
+      ],
+      "tied-d-s": [
+        "往前走，也让伙伴跟得上",
+        "你这次在定下一步和照顾队友节奏之间并列。",
+        "交接快到点时，你先定下今天要交的内容，再问后续接手的人缺什么。"
+      ],
+      "tied-d-c": [
+        "推进前，把判断依据找齐",
+        "你这次同样常选先把事情推向行动与先核验关键依据。",
+        "预订空间即将截止，你核对人数和改期条件，随即选好一个可行的时段。"
+      ],
+      "tied-i-s": [
+        "打开话题，也给人留出时间",
+        "你这次在带动对话和照顾他人节奏上并列。",
+        "朋友有分歧时，你邀大家轮流讲，也允许暂时想不清楚的人晚点再说。"
+      ],
+      "tied-i-c": [
+        "把话讲明白，也把事实查清楚",
+        "你这次同样常选带动交流和核对标准。",
+        "邻居对新装修规则有疑问，你先收集问题，再找通知原文逐条解释。"
+      ],
+      "tied-s-c": [
+        "照顾接手的人，也核对交接细节",
+        "你这次在稳定支持和核对规范上并列。",
+        "伙伴第一次代班，你陪他走一遍流程，再一起对照物品清单。"
+      ],
+      "tied-d-i-s": [
+        "能推动、会开口，也留意谁掉队",
+        "你这次同样常选推进、表达和支持。",
+        "志愿活动人手忽然变少，你先重排任务，讲清调整，也给新来的人找个搭档。"
+      ],
+      "tied-d-i-c": [
+        "定动作、讲缘由、核实条件",
+        "你这次的最高计数并列在推进、表达和核对三个方向。",
+        "准备改聚餐地点时，你先查订位规则，给出方案，再和朋友说明费用会怎么变。"
+      ],
+      "tied-d-s-c": [
+        "先核实，再带着大家稳步做",
+        "你这次在推进、支持和核对三个方向并列。",
+        "共同订票时，你确认日期和退款条件，问谁需要晚点出发，再选一班大家赶得上的车。"
+      ],
+      "tied-i-s-c": [
+        "把人请进讨论，把标准摆上桌",
+        "你这次在表达、支持和核对三个方向并列。",
+        "小组讨论规则变更时，你让受影响的人先说，并把新旧要求写出来给大家看。"
+      ],
+      "tied-d-i-s-c": [
+        "四个方向都拿到六票",
+        "你这次四个方向的计数相同，可以回看在不同情境里你换了哪种做法。",
+        "布置活动时，你可能会先提方案、邀请补充、问人手是否够，再确认开场时间。"
+      ]
+    },
+    "faq": [
+      [
+        "DISC 的 D、I、S、C 分别代表什么？",
+        "在这份费马原创题本中，D 指推进处理，I 指表达带动，S 指稳定支持，C 指规范核对。四项用来描述答题时选中的做法。"
+      ],
+      [
+        "DISC 测试免费吗？报告要付费吗？",
+        "答题无需注册，四项选择次数与最高或并列方向可免费查看。15 份公开指南和示例报告可直接读。解锁本次完整个人报告可自愿购买，价格以付款前显示为准。"
+      ],
+      [
+        "为什么有 15 种结果，还会并列？",
+        "结果按四项中的最高次数判定。具体有 4 种单项最高、6 种双项并列、4 种三项并列和 1 种四项并列。同为最高就一起保留。"
+      ],
+      [
+        "能中途保存，或者跳过不好选的题吗？",
+        "每题都要从两项中选出此时更自然的一项，答齐才出结果。离开或刷新会丢失未交卷的进度。交卷后，答案会提交给服务器核对计分并保存本次结果。"
+      ],
+      [
+        "分享链接会带上我的分数或答案吗？",
+        "公开指南和示例报告可以分享，链接只打开对应的公开内容。个人结果页用于查看自己的记录，公开链接无需携带这次答卷。"
+      ],
+      [
+        "能换算成 MBTI、大五或用来判断适岗吗？",
+        "这些是不同测评和用途。本页的四项计数只反映当次选项，不能换算为 MBTI、大五、职业兴趣代码，也不能用来判断适岗、能力或招聘结果。"
+      ]
+    ],
+    "formula": "24 道 A/B 题全部作答，每次选择给所属方向加 1。四项各出现 12 次，计数各为 0–12，合计 24。某项次数最高就显示该方向，相同最高则全部保留。",
+    "boundary": "题目由费马原创，按四个行为方向整理本次选择。原始计数的总和固定为 24，供当次沟通反思使用，不提供常模百分位、能力评级、心理诊断或适岗判断。解锁完整报告沿用本次原计分。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的DISC行為測驗有24道二選一題，大約5分鐘，免註冊。作答後可免費查看四項選擇次數，以及最高或並列方向。15篇公開指南可直接閱讀，個人完整報告可另行選購。",
+    "intro": "事情剛起步，你會先決定接下來怎麼做，還是先讓大家聊開？花大約 5 分鐘完成 24 道二選一情境題，看看這次比較常選哪些做法。作答和基本結果免費，完整個人報告可依需要選購。",
+    "deliverables": [
+      [
+        "免費查看四項次數與最高方向",
+        "每個方向的次數介於 0–12。兩個以上方向同為最高時，會一起列出。"
+      ],
+      [
+        "閱讀 15 篇公開指南",
+        "單項最高和各種並列組合都有各自的公開指南。傳送公開指南連結時，對方只會看到指南內容。"
+      ],
+      [
+        "依需要選購完整個人報告",
+        "單次付款可解鎖本次報告，查看更完整的行為側寫、工作與人際情境，以及可以嘗試的溝通練習。也可以先看免費的報告範例。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "單項最高：D 8、I 5、S 4、C 7",
+        "D 最多，只比 C 多一次。可以回想什麼時候你想先往前做，又有哪些時候更想先核對條件。"
+      ],
+      [
+        "兩項並列：D 8、I 8、S 4、C 4",
+        "推進和表達並列，結果會同時列出 D / I。想想開會時，什麼情況下你會請大家先講，什麼時候想先把決定定下來。"
+      ],
+      [
+        "四項並列：D 6、I 6、S 6、C 6",
+        "四項並列時，每個方向都會是六次。可以回去看看是哪些場合讓你換了做法。"
+      ]
+    ],
+    "profiles": {
+      "single-d": [
+        "先把下一步定下來",
+        "你這次比較常選直接往前做的做法。可以回想哪些題目讓你特別想先決定下一步。",
+        "朋友臨時換聚餐地點時，你先挑一間大家都到得了的店，再傳定位。"
+      ],
+      "single-i": [
+        "拋出話題，讓大家聊開",
+        "你這次比較常用一句提問或一個例子，讓其他人有話可接。",
+        "午餐遇到剛到職的同事時，你先聊起大家都可能碰到的通勤經驗。"
+      ],
+      "single-s": [
+        "先顧好彼此的步調",
+        "你這次更常留意別人是否跟得上，再一起安排後面的事。",
+        "朋友幫忙搬家卻遲到，你先問他方不方便改到下一趟，再重新分配人手。"
+      ],
+      "single-c": [
+        "把依據和要求查清楚",
+        "你這次比較常先查資訊、確認界線或確認怎麼才算完成。",
+        "旅宿多收一筆費用時，你會先翻訂房確認信，再詢問櫃檯。"
+      ],
+      "tied-d-i": [
+        "先定做法，也帶起討論",
+        "你這次在往前做和帶動交流這兩個方向各拿到相同最高次數。",
+        "原定的戶外活動遇到下雨，你提出室內備案，也聽看看大家怎麼想。"
+      ],
+      "tied-d-s": [
+        "往前推，也讓大家跟得上",
+        "你這次同樣常選趕緊定下一步，或先確認夥伴能不能接手。",
+        "交件時間快到了，你決定今天先交哪一部分，再問接手的人還需要什麼。"
+      ],
+      "tied-d-c": [
+        "查到關鍵資訊，就往前走",
+        "你這次在推進與核對這兩個方向的最高次數相同。",
+        "場地預約即將截止，你先確認人數和取消條件，就決定訂哪個時段。"
+      ],
+      "tied-i-s": [
+        "帶開話題，也照顧安靜的人",
+        "你這次在帶動談話和維持大家舒服的節奏兩方面並列最高。",
+        "朋友談到有歧見的事時，你邀大家表達，也問平常比較少開口的人要不要晚點補充。"
+      ],
+      "tied-i-c": [
+        "先把疑問問出來，再查答案",
+        "你這次同樣常用對話整理問題，也常翻查規則和資料。",
+        "住戶對大樓公告有疑問，你整理大家的問題，找出原公告逐項說明。"
+      ],
+      "tied-s-c": [
+        "陪對方接手，順手把清單對一遍",
+        "你這次在穩定支援與核對要求上並列最高。",
+        "夥伴第一次代班，你先陪他操作一次，再一起確認要交還哪些器材。"
+      ],
+      "tied-d-i-s": [
+        "先動起來、把事說開、記得顧隊友",
+        "你這次在推進、表達和支援這三個方向都拿到最高次數。",
+        "志工臨時少了幾位，你重新分工、說明原因，也替第一次來的人安排同伴。"
+      ],
+      "tied-d-i-c": [
+        "有決定、有說明，也有根據",
+        "你這次在往前推、帶起討論和核對條件上並列最高。",
+        "需要換聚餐餐廳時，你查訂位條件，提出新地點，再向群組說明費用差異。"
+      ],
+      "tied-d-s-c": [
+        "查清條件，再大家一起往前",
+        "你這次同樣常採取推進、支援與核對的做法。",
+        "團體訂票時，你先確認日期和退票規則，再選一班能配合較晚出發的人。"
+      ],
+      "tied-i-s-c": [
+        "讓大家都能說，也把規則講明白",
+        "你這次的表達、支援和核對三個方向並列。",
+        "討論新規定時，你讓受影響的人先發言，再把新舊條文放在一起讓人核對。"
+      ],
+      "tied-d-i-s-c": [
+        "四個方向各拿六票",
+        "你這次四個方向的次數一樣。可以回想不同場合，是什麼讓你先做了不同的事。",
+        "籌備活動時，你可能先說個方案，問大家還有什麼想法，最後確認人手和開場時間。"
+      ]
+    },
+    "faq": [
+      [
+        "DISC 的 D、I、S、C 各是什麼？",
+        "這份費馬原創問卷以 D 代表推進處理、I 代表表達帶動、S 代表穩定支援、C 代表規範核對。四個方向用來整理你這次所選的行為。"
+      ],
+      [
+        "DISC 可以免費做嗎？哪些內容需要付費？",
+        "免註冊，可免費作答並查看四項次數和最高或並列方向，也能直接看 15 篇公開指南及報告範例。個人完整報告可另行選購，價格以付款前顯示的為準。"
+      ],
+      [
+        "為什麼有 15 種結果？可以同分嗎？",
+        "最高次數可落在單一方向，也可由多個方向並列。包含 4 種單項最高、6 種兩項並列、4 種三項並列與 1 種四項並列。同為最高的方向都會列出。"
+      ],
+      [
+        "可以作答到一半先存起來，或跳過題目嗎？",
+        "每題都要勾選一個當下較自然的做法，24 題都回答才有結果。離開或重新整理會清除未送出的進度。交卷後，伺服器會核對計分並儲存本次結果。"
+      ],
+      [
+        "轉傳連結會讓別人看到我的分數嗎？",
+        "可以轉傳公開指南或報告範例，這些連結只開啟對應的公開內容，無須附上你的作答資料。"
+      ],
+      [
+        "可以把結果換成 MBTI 或用於徵才嗎？",
+        "四項次數只記錄你在本次測驗選了什麼，不能換算成 MBTI、大五人格或職業興趣代碼，也不適用於能力評估、適職判定或徵才篩選。"
+      ]
+    ],
+    "formula": "24 題各自選 A 或 B，每選一次就替該方向加 1。四個方向各出現 12 次，每項可得 0–12 次，加起來固定為 24。最高次數相同就一起列出。",
+    "boundary": "費馬的原創題目依四種行為方向整理當次作答，可拿來回想自己怎麼協作與溝通。結果不提供常模百分等級，也不能用於心理診斷、能力評估或適職判定。選購完整個人報告後沿用本次計分。"
+  },
+  "en": {
+    "facts": "FermatMind’s DISC behavior questionnaire takes about five minutes and has 24 paired choices. No sign-up is needed. The four choice counts and all directions tied for the highest count are free to view. Readers can also open 15 public guides or a sample report. An optional one-time purchase unlocks the full report for that attempt. The full report uses the original score.",
+    "intro": "When a group gets started, do you settle the next move or get people talking? Pick the response that feels more natural in each of 24 situations. It takes about five minutes. The questionnaire and basic result are free, with an optional paid report for your own attempt.",
+    "deliverables": [
+      [
+        "See your four counts and leading direction",
+        "The report preview shows each raw count from 0 to 12. Every direction tied for the highest count is retained."
+      ],
+      [
+        "Read and share the public guides",
+        "All 15 outcomes have public guides. A public guide link opens the same general reading for everyone and carries no answers."
+      ],
+      [
+        "Explore the full report if you choose",
+        "A one-time purchase unlocks the detailed portrait, work and relationship examples, and a communication exercise for this attempt. You can read a free sample first."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Single leader: D 8, I 5, S 4, C 7",
+        "D led by one choice over C. Compare the situations where you wanted to act first with those where you wanted to check the terms first."
+      ],
+      [
+        "Two-way tie: D 8, I 8, S 4, C 4",
+        "Moving things forward and engaging through expression led together. Think about when a meeting needs time to hear everyone and when it needs a decision."
+      ],
+      [
+        "Four-way tie: D 6, I 6, S 6, C 6",
+        "Six choices in each direction is the only four-way tie. Look back at the circumstances that made you reach for different approaches."
+      ]
+    ],
+    "profiles": {
+      "single-d": [
+        "Set the next move",
+        "You picked more responses that got something moving early. Think back to the situations where deciding quickly felt useful.",
+        "When an outdoor meetup gets rained out, you pick a nearby alternative and send the address."
+      ],
+      "single-i": [
+        "Get the conversation going",
+        "You more often chose to open a discussion, offer an example, or invite someone in.",
+        "At lunch with a new colleague, you bring up a shared everyday experience they can easily talk about."
+      ],
+      "single-s": [
+        "Keep everyone up to speed",
+        "You more often chose to check how others were managing before moving things along.",
+        "When a friend arrives late to help with a move, you ask what they can still take on and adjust the plan."
+      ],
+      "single-c": [
+        "Check what the decision rests on",
+        "You more often chose to verify details, check requirements, or clarify an agreement.",
+        "When an unexpected charge appears on a reservation, you check the original booking before contacting the host."
+      ],
+      "tied-d-i": [
+        "Make a move and bring people in",
+        "You chose getting things moving and opening a conversation equally often at the top.",
+        "When a picnic gets rained out, you suggest an indoor venue and ask who can get there easily."
+      ],
+      "tied-d-s": [
+        "Keep moving and make handoffs easier",
+        "Your choices tied between settling the next move and helping others keep pace.",
+        "As a deadline approaches, you decide what can go out today and check what the next person needs from you."
+      ],
+      "tied-d-c": [
+        "Verify it, then act on it",
+        "Your choices tied between moving forward and checking the evidence.",
+        "As the room booking window closes, you confirm capacity and cancellation rules and then reserve a time."
+      ],
+      "tied-i-s": [
+        "Open the floor and leave room for pauses",
+        "Your choices tied between drawing people into discussion and giving them time.",
+        "When friends disagree, you invite everyone to speak and let the quietest person come back with their view later."
+      ],
+      "tied-i-c": [
+        "Get questions out and check the answers",
+        "Your choices tied between bringing people into a conversation and verifying the details.",
+        "When neighbors ask about a new building rule, you collect their questions and check the original notice before replying."
+      ],
+      "tied-s-c": [
+        "Support the handoff and check the details",
+        "Your choices tied between steady support and keeping track of requirements.",
+        "When someone covers your shift for the first time, you walk them through it and check the equipment list together."
+      ],
+      "tied-d-i-s": [
+        "Move the work on, talk it through, and help",
+        "You chose action, discussion, and support equally often at the top.",
+        "When a volunteer group runs short, you reorganize the tasks, explain the change, and pair a newcomer with a regular."
+      ],
+      "tied-d-i-c": [
+        "Make the call, explain it, and check the facts",
+        "Your top counts tied across action, communication, and verification.",
+        "When a group dinner needs a new venue, you check the booking rules, suggest a place, and explain how the cost changes."
+      ],
+      "tied-d-s-c": [
+        "Check the conditions and get everyone moving",
+        "Your top counts tied across action, support, and checking.",
+        "When booking group tickets, you check the refund rules and pick a departure that works for someone arriving late."
+      ],
+      "tied-i-s-c": [
+        "Invite people in and put the rules where they can see them",
+        "Your top counts tied across discussion, support, and verification.",
+        "When a rule is due to change, you ask the people affected to speak first and put both versions side by side."
+      ],
+      "tied-d-i-s-c": [
+        "Six choices in each direction",
+        "You came out even across all four directions. Look back at what prompted you to change your approach between situations.",
+        "While organizing an event, you may suggest a plan, ask for input, check who can help, and confirm the start time."
+      ]
+    },
+    "faq": [
+      [
+        "What do D, I, S, and C mean in this DISC test?",
+        "In FermatMind’s questionnaire they stand for moving things forward, engaging through expression, steady support, and standards and checks. They summarize the responses chosen here."
+      ],
+      [
+        "Is the DISC test free? What does payment unlock?",
+        "You can answer without signing up and see all four counts and the highest directions for free. The public guides and sample report are free to read. The complete personal report is an optional purchase, with the price shown before payment."
+      ],
+      [
+        "Why are there 15 outcomes? Can the counts tie?",
+        "The highest count determines which guide applies. There are four single leaders, six two-way ties, four three-way ties, and one four-way tie. Every direction at the top is listed."
+      ],
+      [
+        "Can I skip a question or save my progress?",
+        "Choose one of the two responses for every question. Leaving or reloading discards an unfinished session. When you submit, the server checks the answers and saves the result."
+      ],
+      [
+        "Will a link share my answers or scores?",
+        "You can share a public guide or the sample report link. Those links open public material and do not need your answers or any details from your attempt."
+      ],
+      [
+        "Can I convert DISC to MBTI or use it for hiring?",
+        "These counts summarize what you chose in this questionnaire. They do not convert to MBTI, Big Five traits, or career interest codes, and they cannot establish ability, job fit, or suitability for hiring."
+      ]
+    ],
+    "formula": "Each of the 24 A/B choices adds one to the direction it belongs to. Each direction appears 12 times, so each count can be 0–12 and the four counts always total 24. Every highest count is retained.",
+    "boundary": "FermatMind wrote these items to help people reflect on their actions in everyday situations. Choice counts do not supply population percentiles, diagnose a condition, or establish job fit or ability. The optional report uses the same counts."
+  }
+}

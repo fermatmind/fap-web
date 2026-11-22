@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的社交电量测试用20道原创题回顾近两周的互动负荷、协调消耗、安静恢复与轻松陪伴，约5分钟。免费查看四项均分、有效题数及公开指南。",
+    "intro": "聚会回家想安静，但和一个熟人散步反而轻松？把过去两周让你费力和让你回过神的场景分开想。",
+    "deliverables": [
+      [
+        "四项独立均分",
+        "分别看互动、协调、安静恢复及轻松陪伴。"
+      ],
+      [
+        "显示有效题数",
+        "每组至少三题计分，缺体验可以保留。"
+      ],
+      [
+        "四份公开指南",
+        "读一段贴近自己的活动后再看数值。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "分清说话与组织",
+        "散场时累，可能费力的是跟许多人聊，也可能是一直在协调行程。"
+      ],
+      [
+        "留意哪种安静有用",
+        "找一段不用回复消息的时间对照。"
+      ],
+      [
+        "有人在旁也可以休息",
+        "和熟人各做各的有时比独处更自在。"
+      ]
+    ],
+    "profiles": {
+      "interaction-load": [
+        "散场后留一点空",
+        "你可以回想多轮对话后，自己是否想安静。",
+        "你结束热闹的晚餐后，选择自己走到车站。"
+      ],
+      "coordination-load": [
+        "看见安排的消耗",
+        "你可以留意确认时间、改路线是否比聊天更累。",
+        "组织聚会时，你花了一个下午反复改集合地点。"
+      ],
+      "quiet-recovery": [
+        "给自己留一段安静",
+        "你重视能暂时不用回应别人的时间。",
+        "回家后你先静音半小时，再看群消息。"
+      ],
+      "easy-company": [
+        "和熟人一起也轻松",
+        "你可以试着识别哪类陪伴让自己不必撑场。",
+        "你和朋友并排散步，两人都不用一直找话题。"
+      ]
+    },
+    "faq": [
+      [
+        "要想多久内的经历？",
+        "过去两周确实遇到的场景。"
+      ],
+      [
+        "一共几项？",
+        "四项分别显示，不组合成电量百分比。"
+      ],
+      [
+        "每组怎么计算？",
+        "五题按1–5，至少3题有效，反向题用6减原选择。"
+      ],
+      [
+        "没经历为什么不能选几乎没有？",
+        "可以选未经历或无法判断，让计分只包含有把握的回答。"
+      ],
+      [
+        "能用结果判断是不是内向吗？",
+        "结果用于回顾当下场景，不确认人格。"
+      ],
+      [
+        "分享会带分数吗？",
+        "复制使用同语公开测试链接，不包含个人答案与读数。"
+      ]
+    ],
+    "formula": "四组各5题，1–5分。每组两道反向题按6减原评分，至少3题有效才出均分。",
+    "boundary": "用来观察社交和恢复场景的自报频率。读数限于当前体验，不做人格归类或健康判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的社交電量測驗以20道原創題回顧近兩週的互動負荷、協調耗力、安靜恢復和自在陪伴，約5分鐘。免費提供四項平均、有效題數和公開指南。",
+    "intro": "聚會結束想自己走一走，和熟人並排散步卻又很自在？想想最近兩週哪些相處讓你費力，哪些時候反而放鬆。",
+    "deliverables": [
+      [
+        "四項分開讀",
+        "互動、協調、安靜恢復和自在陪伴各列一項。"
+      ],
+      [
+        "查看實際計分題數",
+        "每組至少三道題計分，沒有經驗可選略過。"
+      ],
+      [
+        "四份公開指南",
+        "用聊天、排活動及平靜休息的例子回顧。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先找出耗力的是哪件事",
+        "和很多人說話，與不斷追問集合時間，是不同的工作。"
+      ],
+      [
+        "看看安靜時做了什麼",
+        "可以留意關掉訊息提醒或自己走路時的感覺。"
+      ],
+      [
+        "陪伴也可以不用聊天",
+        "有時和熟人各做各的就很舒服。"
+      ]
+    ],
+    "profiles": {
+      "interaction-load": [
+        "散場後給自己一點時間",
+        "你會留意接連聊了好幾回之後，自己是否想靜一下。",
+        "聚餐結束後，你自己慢慢走去搭車。"
+      ],
+      "coordination-load": [
+        "看得見協調的力氣",
+        "你可以分開想協調行程和到場聊天各花多少心力。",
+        "幫忙揪團時，你反覆確認大家能到的時間。"
+      ],
+      "quiet-recovery": [
+        "留一段不用回訊息的時間",
+        "你重視能自由決定什麼時候回應別人。",
+        "回家後你先把通知靜音，等吃完飯再回。"
+      ],
+      "easy-company": [
+        "和朋友一起也能放鬆",
+        "你可以找出哪些熟悉的陪伴不用一直想話題。",
+        "和朋友散步時，兩人安靜看了一陣子的樹。"
+      ]
+    },
+    "faq": [
+      [
+        "要想到多久以前？",
+        "回想近兩週確實遇過的互動。"
+      ],
+      [
+        "會顯示一個總電量嗎？",
+        "四組分開讀，沒有整體百分比。"
+      ],
+      [
+        "反向題怎麼算？",
+        "反向題以6減原分，其他按1至5。每組至少三題有效。"
+      ],
+      [
+        "沒有遇到時怎麼選？",
+        "選未經歷或無法判斷。"
+      ],
+      [
+        "能看出我的人格嗎？",
+        "題目用來整理當下的經驗，不用來定型。"
+      ],
+      [
+        "分享會給別人看見我的分數嗎？",
+        "分享只能開啟同語言公開測驗，不含個人讀數。"
+      ]
+    ],
+    "formula": "四組各5題，每題1到5分。每組兩道反向題以6減原分，至少3題有效才算平均。",
+    "boundary": "結果是近期經驗的回顧，可以一起考慮活動、人數、休息時間與熟悉程度。不能用來評斷人格或健康。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Social Battery Test uses 20 original questions to reflect on interactions and recovery over the past two weeks. It takes about five minutes and reports four separate frequency averages with rated item counts. Its public guides cover interaction load, coordination load, quiet recovery, and easy company, with examples that readers can use without registering or providing personal information about anyone.",
+    "intro": "A big dinner leaves you wanting a quiet walk, while a friend’s company on another day feels easy. Recall what took energy in the past two weeks and what helped you recover.",
+    "deliverables": [
+      [
+        "Four separate readings",
+        "See interaction load, coordination load, quiet recovery, and easy company."
+      ],
+      [
+        "Rated-item counts",
+        "Each group shows whether enough recent experiences were rated."
+      ],
+      [
+        "Four public guides",
+        "Read about conversations, planning, and different ways to unwind."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Separate conversation from coordination",
+        "It can take effort to socialize and a different kind of effort to keep plans together."
+      ],
+      [
+        "Notice what quiet gives you",
+        "Recall an interval when you could choose when to respond."
+      ],
+      [
+        "Make room for easy company",
+        "Consider when a shared activity is comfortable without constant conversation."
+      ]
+    ],
+    "profiles": {
+      "interaction-load": [
+        "Leave a little space after the crowd",
+        "You can notice when several conversations leave you wanting time to yourself.",
+        "After a lively dinner you choose to walk alone to the station."
+      ],
+      "coordination-load": [
+        "Count the work behind the plan",
+        "You can notice text threads and last-minute changes as their own source of effort.",
+        "While hosting, you spend the afternoon finding a time everyone can make."
+      ],
+      "quiet-recovery": [
+        "Make a return to quiet",
+        "You value time when you can decide when to reply.",
+        "At home, you turn notifications off until after dinner."
+      ],
+      "easy-company": [
+        "Find company that lets you rest",
+        "You can enjoy being around someone without filling every pause.",
+        "On a walk with a friend, both of you are happy to watch the trees awhile."
+      ]
+    },
+    "faq": [
+      [
+        "Which time period should I use?",
+        "Recall real experiences from the past two weeks."
+      ],
+      [
+        "Does it show one overall battery?",
+        "There are four independent averages."
+      ],
+      [
+        "How is each result scored?",
+        "Rate each from 1 to 5. Reverse items use six minus the rating. Each group needs three rated items."
+      ],
+      [
+        "What if a situation was unfamiliar?",
+        "Choose not experienced or cannot judge."
+      ],
+      [
+        "Can it tell whether I am an introvert?",
+        "It summarizes recent situations for reflection."
+      ],
+      [
+        "Will the link show my readings?",
+        "The public share points to the quiz in the same language without answers or scores."
+      ]
+    ],
+    "formula": "Four groups contain five items each. Rate frequency from 1 to 5. Each group has two reverse items scored as six minus the response. A mean needs at least three rated items.",
+    "boundary": "Use these readings to consider the settings, people, tasks, and breaks that shaped recent social experiences. They do not establish a personality type or health status."
+  }
+}

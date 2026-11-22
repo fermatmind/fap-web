@@ -20,11 +20,10 @@ it("connects English test, virtue-only and score-reading intents to reachable se
   const props = { params: Promise.resolve({ locale: "en", slug: quiz.slug }) };
   const dom = parse(renderToStaticMarkup(await entry(props)));
   const metadata = await entryMetadata(props);
-  expect(String(metadata.title)).toContain("Free Seven Deadly Sins and Seven Virtues Test");
+  expect(metadata.title).toMatchObject({ absolute: expect.stringContaining("7 Deadly Sins & 7 Heavenly Virtues Test") });
   expect(dom.querySelectorAll("h1")).toHaveLength(1);
-  const links = dom.querySelectorAll('nav[aria-label="Seven sins and virtues reading navigation"] a');
-  expect(links).toHaveLength(4);
-  for (const link of links) expect(dom.querySelector(link.getAttribute("href")!)).not.toBeNull();
+  expect(dom.querySelector("#seven-sins-result-patterns")).not.toBeNull();
+  expect(dom.querySelector("#questionnaire-faq")?.closest("section")?.querySelectorAll("details")).toHaveLength(6);
   const faq = dom.querySelector("#questionnaire-faq")?.closest("section")?.textContent;
   for (const text of ["seven virtues test", "Which deadly sin am I?", "not completed psychometric validation", "before display rounding", "own two questions"]) expect(faq).toContain(text);
   for (const axis of miniVirtuesDefinitions) {

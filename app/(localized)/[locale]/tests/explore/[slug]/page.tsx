@@ -1,3 +1,8 @@
+import { PortfolioFlagshipLanding, hasPortfolioFlagship } from "@/components/tests/PortfolioFlagshipLanding";
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { isQuestionnaireConfigurationValid } from "@/lib/questionnaires/scoring";
+import { resolveLocale } from "@/lib/i18n/getDict";
+import { preparePortfolioLanding } from "@/components/tests/PortfolioLandingPreview";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import { notFound } from "next/navigation";
 import Page, {
@@ -15,10 +20,17 @@ export async function generateMetadata(props: Props) {
 }
 export default async function ExplorePage(props: Props) {
   if (!isExplore((await props.params).slug)) notFound();
-  const { slug } = await props.params;
+  const { slug, locale } = await props.params;
+  if (slug === "seven-sins-virtues-test") return Page(props);
+  if (hasPortfolioFlagship(slug)) {
+    const quiz = await loadQuestionnaire(slug);
+    if (!quiz || !isQuestionnaireConfigurationValid(quiz)) notFound();
+    return <PortfolioFlagshipLanding quiz={quiz} locale={resolveLocale(locale)} />;
+  }
   return (
     <ExploreTestShell
       slug={slug}
+      preview={await preparePortfolioLanding(slug, resolveLocale(locale))}
       category={catalog.find((quiz) => quiz.slug === slug)?.category}
     >
       {await Page(props)}

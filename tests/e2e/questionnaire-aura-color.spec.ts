@@ -50,7 +50,7 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
     await expect(page).toHaveTitle(`${quiz.seoTitle[locale]} | FermatMind`);
     await page.getByRole("link", { name: zh ? "浏览七种光环颜色的含义" : "Browse all seven aura color meanings" }).click();
-    await expect(page.getByRole("link", { name: zh ? "蓝色光环在这份测试里代表什么？" : "What does a blue aura mean in this quiz?" })).toHaveAttribute("href", `${entry}/results/blue`);
+    await expect(page.locator('[data-ent-result-id="blue"] [data-ent-guide]')).toHaveAttribute("href", `${entry}/results/blue`);
     await page.getByRole("link", { name: zh ? "先看结果示例" : "See sample results" }).click();
     const samples = page.locator("#aura-examples article");
     await expect(samples).toHaveCount(2);

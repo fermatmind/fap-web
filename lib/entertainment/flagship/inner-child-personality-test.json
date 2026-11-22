@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的内在童年性格测试有18道原创情境题，约6分钟，免注册。答完可免费看六种当下玩心的选择次数，同为最高则一并显示。六篇公开指南可以直接阅读。",
+    "intro": "周末走进手作角，你会先摸摸材料、绕桌看一圈，还是拉朋友一起开工？在 18 道原创情境题里选现在想试的做法。约 6 分钟，免费查看六种玩心的次数和完整读法。",
+    "deliverables": [
+      [
+        "看看你这次怎么开始玩",
+        "每题记一次，六种玩法合计 18 次。你可以对照次数回想哪些情境左右了选择。"
+      ],
+      [
+        "免费读六篇完整指南",
+        "每种玩法都有一篇指南。同为最高的指南会一起显示，全部公开内容无需先答题。"
+      ],
+      [
+        "复制公开指南或测试入口",
+        "单一最高时分享公开指南，并列时分享全部最高名称和测试入口。链接不带答卷、次数或个人标识。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "好奇发问最多，8 次",
+        "这份样张六种玩法依次是 8、3、2、2、2、1。可以看看在哪些材料或活动上，你最想先问为什么。"
+      ],
+      [
+        "好奇发问、自主试手各 5 次",
+        "六种次数依次是 5、5、2、2、3、1；两篇最高指南一起展示。你可以对照什么时候想先探索，什么时候想直接试一个办法。"
+      ],
+      [
+        "同一字母选到底，六种各 3 次",
+        "每种玩法在同一个选项位置出现三次，所以会显示全部六篇。回想真实活动里怎么开场，比追求分数整齐更有意思。"
+      ]
+    ],
+    "profiles": {
+      "wonder-explorer": [
+        "把平常的东西看出新细节",
+        "你这次更常选摸一摸、翻过去看看，或追问为什么。可以留意哪些材料最容易勾起你的好奇。",
+        "在手作角，你把几片不同叶子放在灯下比较，再问哪种适合做拓印。"
+      ],
+      "independent-maker": [
+        "做一份你自己的版本",
+        "你比较常选动手改一改，看看自己能不能用另一种方法玩。",
+        "做纸桥时，你把试过的两种折法拼起来，再拿一枚硬币看看支不支得住。"
+      ],
+      "prepared-player": [
+        "看一轮再加入",
+        "你有些时候想先看示范、弄清楚用具和玩法，再决定要不要一起。",
+        "朋友招呼你玩桌游，你先在旁边看一轮，然后认领自己想试的角色。"
+      ],
+      "expressive-player": [
+        "让这一段有颜色和声音",
+        "你这次常选用图案、声音或动作把玩法变得更鲜活。",
+        "随手画了一张小地图后，你给每个地点配一段声音，再邀请朋友加一处。"
+      ],
+      "quiet-imaginer": [
+        "给小世界留个位置",
+        "你比较常选安静构思，留出一点不被打扰的时间，把小细节慢慢想完整。",
+        "朋友在旁边做拼贴，你把几张纸片排成夜晚小镇，慢慢想每个窗口后面住着谁。"
+      ],
+      "welcoming-companion": [
+        "让想玩的人都能接上",
+        "你会留意谁想加入、谁想先看看，也常在几个提议之间找到大家愿意试的一个。",
+        "布置绘画桌时，你问旁边的人想画、想递材料，还是先看看别人怎么做。"
+      ]
+    },
+    "faq": [
+      [
+        "这个测试测的是童年的性格吗？",
+        "题目只问你现在愿意尝试的休闲做法，无需回想童年、家庭或不愉快经历。"
+      ],
+      [
+        "六种玩心分别是什么？",
+        "包括好奇发问、自主试手、准备入场、生动表达、安静想象、友善同玩。在一次活动里也可能先后出现几种。"
+      ],
+      [
+        "18 道题如何计数？",
+        "每题从四项里选一种，给对应玩法加 1。六种玩法各出现 12 次，各项为 0–12，合计 18。"
+      ],
+      [
+        "为什么会看到不止一份结果？",
+        "同为最高的结果全部保留。同一字母选到底会得到六个 3，结果列出六篇指南。"
+      ],
+      [
+        "换一次答案或重测能看出成长、创伤或疗效吗？",
+        "次数变化只说明这一次选项不同。这个原创题本没有临床或儿童发展测量验证，无法评估创伤、成长阶段或治疗效果。"
+      ],
+      [
+        "免费结果和分享包含哪些内容？",
+        "次数及所有最高指南均免费。分享只给公开名称与同语链接，不包含答卷、次数或个人 PNG。答案在浏览器计分，未提交的进度不会保存。"
+      ]
+    ],
+    "formula": "18 题各从四种做法中选一项，给对应玩法加 1 次。每种玩法出现 12 次，单项 0–12，合计 18。所有最高次数相同的玩法一起保留。",
+    "boundary": "内在小孩在这里是一种表达玩心的说法。题本由费马原创，六种玩法帮助阅读当下选择，不能重建童年或评估创伤、儿童发展、心理健康或治疗效果。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的內在童年性格測驗有18道原創情境題，約6分鐘，免註冊。答完能免費查看六種當下玩法的次數，並列最高會一同顯示。六篇公開指南可直接閱讀。",
+    "intro": "週末走進手作角，你會先翻翻材料、看別人做一輪，還是邀人一起動手？做完 18 道原創情境題，看看你現在怎麼找樂趣。大約 6 分鐘，結果和指南都免費。",
+    "deliverables": [
+      [
+        "看六種玩法各被選幾次",
+        "18 題各記一次。可以拿次數對照你這次對活動、材料和同伴的考量。"
+      ],
+      [
+        "免費讀六篇指南",
+        "每種玩法都有公開指南。同為最高的結果會一起列出，也能直接打開其他指南。"
+      ],
+      [
+        "複製同語公開連結",
+        "只有一項最高時分享角色名稱及指南；並列時分享所有並列名稱加上測驗入口，不會帶出答案或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "好奇發問最高，8 次",
+        "這份範例依序是 8、3、2、2、2、1。可以回想什麼活動讓你想先觀察，再多問幾句。"
+      ],
+      [
+        "好奇發問和自主試做並列，各 5 次",
+        "六種次數為 5、5、2、2、3、1，前兩項一起顯示。可以想想什麼時候你想問個明白，什麼時候想動手試試。"
+      ],
+      [
+        "一路選同一個字母，六種各 3 次",
+        "每個選項位置上的六種玩法各出現三次，因此結果會列出全部指南。可以再回去看看每一題的情境有什麼不同。"
+      ]
+    ],
+    "profiles": {
+      "wonder-explorer": [
+        "在平常的東西裡發現新細節",
+        "你比較常選先翻一翻、看一看，或者多問一句怎麼回事。",
+        "做植物拓印之前，你先把幾種葉片攤開比一比，再問哪一種的紋路比較清楚。"
+      ],
+      "independent-maker": [
+        "照自己的方法試做看看",
+        "你比較常選動手組裝或修改材料，再看看能不能做出一個不一樣的版本。",
+        "你把兩種折法用在紙橋上，再放上一枚硬幣，看看它能不能承重。"
+      ],
+      "prepared-player": [
+        "先看懂玩法再加入",
+        "你有時想看別人示範一次，弄清楚可以怎麼參加，再自己決定。",
+        "朋友在玩桌遊時，你先看他們走完一輪，才選一個自己有興趣的角色。"
+      ],
+      "expressive-player": [
+        "用顏色、聲音和動作玩一段",
+        "你這次比較常選用圖案、即興對白或動作，讓一個點子變得立體。",
+        "你在紙上畫幾個地方，替每一處配一種聲音，再問大家想加哪裡。"
+      ],
+      "quiet-imaginer": [
+        "安靜安排一個小世界",
+        "你比較常選一個人慢慢構思，留出一點時間給細節。",
+        "做拼貼時，你拿剩下的小紙片排成一個夜晚小鎮，想像每扇窗後面會發生什麼事。"
+      ],
+      "welcoming-companion": [
+        "邀想玩的人用自己的方式加入",
+        "你這次比較常選邀人參與、輪流試看看，或者先商量大家想怎麼做。",
+        "手作桌多了新朋友時，你問他想自己畫、一起擺材料，還是先在旁邊看。"
+      ]
+    },
+    "faq": [
+      [
+        "這會測出我小時候是怎樣的人嗎？",
+        "問卷只問你現在怎麼選休閒時的玩法。你不必回想童年、家人或不愉快的經驗。"
+      ],
+      [
+        "六種玩法各在說什麼？",
+        "包括好奇發問、自主試做、準備入場、生動表達、安靜想像和友善同玩。一個活動也可以先後用到好幾種。"
+      ],
+      [
+        "18 道情境題怎麼計次？",
+        "每題四選一，選到哪種就加 1。每種玩法出現 12 次，各項是 0–12 次，加起來等於 18。"
+      ],
+      [
+        "為什麼同時看到好幾篇結果？",
+        "最高次數相同的指南都會顯示。如果全選同一個字母，六項各是 3，所以會看到全部。"
+      ],
+      [
+        "可以用來判斷童年創傷或治療成效嗎？",
+        "這份原創題本只記錄這次的選擇，沒有用來驗證創傷、兒童發展、心理健康或治療成效。"
+      ],
+      [
+        "免費內容能分享出去嗎？",
+        "次數與指南免費。複製的是公開角色名稱和連結，不附作答或次數，也沒有個人 PNG 圖卡。答案在瀏覽器裡計算，未完成進度不保存。"
+      ]
+    ],
+    "formula": "18 題各選一種做法，替對應的玩法記 1 次。每種玩法出現 12 次，分別為 0–12 次，六種合計 18。同為最高的結果都會列出。",
+    "boundary": "這裡把內在小孩當成談玩心的比喻。六種玩法是費馬為這份原創情境題編寫的閱讀提示，只記錄當次選擇，無法還原童年，也不提供創傷、兒童發展、心理健康或治療成效評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Inner Child Personality Test uses 18 original scenarios about how adults choose to play today. It takes about six minutes, with no sign-up or payment. Every attempt shows all six choice counts and retains every approach tied for the highest count. Six public guides can be read before or after the test. The questions use ordinary activities and require no childhood memories.",
+    "intro": "At a weekend craft table, would you reach for the materials, watch how it works, or invite a friend to join? Pick what you would try now across 18 original scenarios. It takes about six minutes, and the counts and guides are free.",
+    "deliverables": [
+      [
+        "See how you chose to play",
+        "Each question contributes one choice to the six counts, which add to 18. Read the counts alongside the settings where you made those choices."
+      ],
+      [
+        "Read all six guides for free",
+        "The results retain every approach tied for the highest count. Any of the public guides can be opened before or after answering."
+      ],
+      [
+        "Share a public link",
+        "A single highest result shares its name and public guide. Ties share all leading names and the test page, with no personal choices or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Curious Explorer leads at 8",
+        "The counts are 8, 3, 2, 2, 2, and 1 in guide order. Look for the activities that made you want to inspect a detail or ask a question first."
+      ],
+      [
+        "Curious Explorer and Independent Maker tie at 5 each",
+        "The counts are 5, 5, 2, 2, 3, and 1. Both guides appear. Compare when you want to look around first and when you would rather try your own version straight away."
+      ],
+      [
+        "Choose the same letter every time and all six count 3",
+        "Each approach appears three times in each letter position. The sample shows all the guides. To reflect on your own approach, look back at specific situations."
+      ]
+    ],
+    "profiles": {
+      "wonder-explorer": [
+        "Find something a little odd or new",
+        "You often chose to examine a material, spot a small detail, or ask what made it work.",
+        "At a craft table, you hold a few leaves up to the light before asking which would make the best print."
+      ],
+      "independent-maker": [
+        "Try a version of your own",
+        "You often chose to build or change something and see what happens when you use your own method.",
+        "While making a paper bridge, you combine two folds and test whether it can hold a coin."
+      ],
+      "prepared-player": [
+        "Watch a round, then decide",
+        "You often chose to check the rules, see an example, or learn how to join before trying something unfamiliar.",
+        "At a board game night, you watch one round and then pick whichever role sounds most enjoyable."
+      ],
+      "expressive-player": [
+        "Give the scene some color or sound",
+        "You often chose to add a pattern, an improvised line, or a movement to make playing livelier.",
+        "You make a little map, give each place a sound, and ask a friend to add one of their own."
+      ],
+      "quiet-imaginer": [
+        "Make room for a quiet little world",
+        "You often chose to imagine or arrange details on your own and spend time with them.",
+        "While others make collages, you turn some spare paper into a nighttime town and imagine who lives behind each window."
+      ],
+      "welcoming-companion": [
+        "Give others a way to join in",
+        "You often chose to invite people, take turns, or agree on a way to play together.",
+        "When someone new walks up to the craft table, you ask if they want to draw, help with supplies, or watch for a few minutes."
+      ]
+    },
+    "faq": [
+      [
+        "Does this tell me what I was like as a child?",
+        "The scenarios ask about ordinary activities you would consider now. You do not need to recall childhood, family events, or painful experiences."
+      ],
+      [
+        "What are the six play approaches?",
+        "They are Curious Explorer, Independent Maker, Prepared Player, Expressive Player, Quiet Imaginer, and Welcoming Companion. Several can show up in one activity."
+      ],
+      [
+        "How are the 18 choices scored?",
+        "Each answer adds one count to its approach. Each approach appears 12 times, so each count is 0–12 and the six counts add to 18."
+      ],
+      [
+        "Why did I get more than one result?",
+        "Every approach tied for the highest count is shown. Choosing the same letter throughout gives three each and shows all six guides."
+      ],
+      [
+        "Can I use the result to assess trauma or progress in therapy?",
+        "The original quiz records current play choices. It has no validation for assessing trauma, child development, mental health, or change with treatment."
+      ],
+      [
+        "What can I see for free, and what is shared?",
+        "All counts and guides are free. Copying shares public names and links, without answers, counts, or a personal PNG. Scoring runs in the browser, and unfinished progress is not saved."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 18 scenarios. Each choice adds one to its approach. Each approach appears 12 times. Individual counts run from 0 to 12 and add to 18, with every highest tie retained.",
+    "boundary": "Inner child is a metaphor for playfulness on this page. FermatMind’s original labels describe current choices. They have no validation for reconstructing childhood or assessing trauma, child development, mental health, or treatment outcomes."
+  }
+}

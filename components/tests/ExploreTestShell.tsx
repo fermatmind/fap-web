@@ -10,14 +10,17 @@ export function ExploreTestShell({
   category = "framework",
   guide = false,
   slug = "",
+  preview,
 }: {
   children: ReactNode;
   category?: string;
   guide?: boolean;
   slug?: string;
+  preview?: ReactNode;
 }) {
   return (
     <div
+      data-portfolio-layout={preview ? "" : undefined}
       className={`explore-test-shell${guide ? " explore-guide-shell" : " explore-landing"}`}
     >
       {!guide && (
@@ -26,6 +29,7 @@ export function ExploreTestShell({
         </div>
       )}
       {children}
+      {preview}
     </div>
   );
 }

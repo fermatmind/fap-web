@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的美学核心测试有18道原创视觉选择题，约5分钟，免注册。答完可免费查看六种风格的选择次数和所有最高并列，六篇公开指南可以直接阅读。",
+    "intro": "想给笔记本换个封面，你喜欢温暖的浅色、深调纸张，还是局部亮起来的线条？做完 18 道原创视觉选择题，看看这次更想把哪些颜色、材质和构图放到一起。",
+    "deliverables": [
+      [
+        "看六种风格各有几次",
+        "每题加 1，合计 18。同为最高的风格一起显示。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "指南分别讨论色调、材质、图案和留白，可以直接读。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单项最高分享对应指南。并列分享所有最高名称及入口，不带作答或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "田园风最高，7 次",
+        "六项依次为 7、3、2、2、2、2。样张比较常选暖浅色、植物小图案和编织质感。"
+      ],
+      [
+        "暗色学院风和赛博朋克风各 5 次",
+        "六项为 2、5、2、2、2、5。两种风格都可能用深色，一个多用纸张和格纹，一个突出局部高对比光线。"
+      ],
+      [
+        "全选 A，六项各 3 次",
+        "每种在 A 位各出现三次，所以同时保留六篇指南。可以再看每题描述的颜色或材质。"
+      ]
+    ],
+    "profiles": {
+      "cottagecore": [
+        "给画面留一些柔软和暖色",
+        "你这次较常选暖浅色、植物小图案或编织纹理。",
+        "做笔记封面时，你用米白底配一小枝叶子，让边线柔和一点。"
+      ],
+      "dark-academia": [
+        "用安静的深色做出层次",
+        "你这次较常选低饱和深色、书页、细格与规整构图。",
+        "做书签时，你把墨绿底、偏黄纸张和窄格纹放在一起试试看。"
+      ],
+      "clean-girl": [
+        "让留白和线条说话",
+        "你这次较常选浅中性色、宽留白和简洁几何。",
+        "排便笺时，你只保留一种浅灰色、一条线和一处落笔的位置。"
+      ],
+      "coastal-grandmother": [
+        "把轻木色和浅蓝放在一起",
+        "你这次较常选沙色、浅蓝白或松散的织物质感。",
+        "给桌面做一个小角落时，你用浅木托盘搭配一块蓝白布。"
+      ],
+      "goblincore": [
+        "留下自然又不规整的纹理",
+        "你这次较常选苔色、土色、斑点和旧物上的纹理。",
+        "做拼贴时，你保留纸片不整齐的边，再添几处不对称的小点。"
+      ],
+      "cyberpunk": [
+        "用一点亮光穿过暗底",
+        "你这次较常选深底和局部亮线，再加上像界面一样的几何。",
+        "设计活动小卡时，你在深色底上放一条蓝亮线，只点亮作品的标题。"
+      ]
+    },
+    "faq": [
+      [
+        "这道题测的是视觉喜好还是穿搭能力？",
+        "它统计你愿意选的颜色、材质和构图描述，不评衣品、能力或收入。"
+      ],
+      [
+        "有哪些风格结果？",
+        "田园风、暗色学院风、清爽极简风、海岸休闲风、林野奇趣风和赛博朋克风。"
+      ],
+      [
+        "18 道题怎样计算？",
+        "每题四选一，给相关风格加 1。每种出现 12 次，各 0–12，总数 18。"
+      ],
+      [
+        "同为最高会只给一个吗？",
+        "所有并列最高的风格都会显示。全选 A 时六项各 3 次。"
+      ],
+      [
+        "风格名和年龄、性别有关吗？",
+        "这些是视觉风格名称。选择清爽极简或海岸休闲不说明年龄、性别、肤质、卫生习惯或家庭身份。"
+      ],
+      [
+        "分享会附上答案吗？",
+        "分享复制公开名称与链接，不附作答、次数或个人标识。没有个人 PNG。"
+      ]
+    ],
+    "formula": "18 题每题四选一，给选中的风格加 1。每种出现 12 次，单项 0–12，合计 18。同为最高时全保留。",
+    "boundary": "费马把六个公共文化风格名用于原创视觉偏好题。词条、出版与配色研究提供背景。选择次数并不评估人格、审美能力、社会身份或生活条件。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的美學核心測驗有18道原創視覺選擇題，約5分鐘，免註冊。答完可免費看六種風格的次數與所有並列最高結果，六篇公開指南也可直接讀。",
+    "intro": "替筆記本挑一張封面，你會喜歡溫暖的淺色、深色紙張，還是幾條亮起來的線？回答 18 道原創題，看看這次想把哪些色彩、材質和構圖擺在一起。",
+    "deliverables": [
+      [
+        "看看六種風格各有幾次",
+        "每題替一種風格加 1，總數 18。同為最高都會列出。"
+      ],
+      [
+        "免費讀六篇視覺指南",
+        "每篇談一種風格的配色、圖案、材質與留白，可以先讀。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單項最高分享名稱與指南。並列時複製全部最高名稱和入口，不附回答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "田園風最高，7 次",
+        "六項依序為 7、3、2、2、2、2。範例較常選暖淺色、植物小圖案與柔和的編織材質。"
+      ],
+      [
+        "暗色學院風和賽博龐克風各 5 次",
+        "六項依序是 2、5、2、2、2、5。兩種都能用暗底，可以比較書頁感和高反差亮線各帶來什麼。"
+      ],
+      [
+        "全選 A，六種各 3 次",
+        "每種風格在 A 位出現三次，所以六篇指南都會列出。可以再看看各題的顏色和版面。"
+      ]
+    ],
+    "profiles": {
+      "cottagecore": [
+        "給畫面一點溫暖的植物紋理",
+        "你比較常選暖色系淺底、植物小圖案和柔和線條。",
+        "替筆記本做封面時，你先挑米白紙，再加一小片葉子的印記。"
+      ],
+      "dark-academia": [
+        "讓低調的深色和紙感相配",
+        "你比較常選深色、書頁的質地、細格與規整版面。",
+        "做書籤時，你拿深綠、泛黃紙色和一段窄格紋排在一起。"
+      ],
+      "clean-girl": [
+        "讓線條和留白夠簡單",
+        "你比較常選淺中性色、幾何線條和講究空間的構圖。",
+        "替桌上的便條紙定格式時，你只留一種淺灰和一條很細的線。"
+      ],
+      "coastal-grandmother": [
+        "把淡藍和淺木色變成放鬆的一角",
+        "你比較常選沙色、淺藍白與鬆鬆的織紋。",
+        "想布置桌角時，你用淺色木托盤配一塊藍白的布。"
+      ],
+      "goblincore": [
+        "把自然的不規整留在畫面裡",
+        "你比較常選苔色、斑點、土色或磨舊的質感。",
+        "做拼貼時，你保留紙邊撕開的紋理，再放幾個分布不平均的小點。"
+      ],
+      "cyberpunk": [
+        "讓小塊亮色照過暗底",
+        "你比較常選深底搭局部強光，再放些像介面連接線的形狀。",
+        "做活動小卡時，你用深色紙，讓標題附近幾條亮藍色線特別顯眼。"
+      ]
+    },
+    "faq": [
+      [
+        "這是在測風格還是穿搭能力？",
+        "題目只整理你選的配色、材質和構圖，不評穿搭、能力或身分。"
+      ],
+      [
+        "有哪六種風格？",
+        "田園、暗色學院、清爽極簡、海岸休閒、林野奇趣與賽博龐克。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，替選到的風格加 1。每種出現 12 次，各為 0–12，合計 18。"
+      ],
+      [
+        "如果好幾種同分最高呢？",
+        "同為最高的完整指南會一起列出。全選 A 時六種各 3 次。"
+      ],
+      [
+        "清爽或海岸風能說明年齡或性別嗎？",
+        "這些只是網路常見的風格名稱，無法判斷年齡、性別、外表、衛生習慣或家庭角色。"
+      ],
+      [
+        "轉傳會附上答案或個人圖卡嗎？",
+        "分享只複製公開名稱和連結，不附作答、次數、識別資料或個人 PNG。"
+      ]
+    ],
+    "formula": "18 題各選一種視覺做法，替相應風格加 1。每種出現 12 次，個別 0–12，總數 18。並列最高一起保留。",
+    "boundary": "費馬借用公開文化中的六個風格名稱編寫原創視覺題。詞典、出版資料與色彩研究只提供背景。這些次數僅整理當次選擇，不評估人格、審美能力或身分。"
+  },
+  "en": {
+    "facts": "FermatMind’s Aesthetic Core Test uses 18 original choices about color, material, and composition. It takes about five minutes and is free without registration. Results show counts for six visual styles and retain every highest tie. The six public guides are available before answering. The quiz compares descriptions for everyday objects and layouts without assessing anyone’s appearance or fashion ability. Full results are free to read.",
+    "intro": "If you needed a notebook cover, would you choose warm pale colors, dark paper textures, or a bright line on a dark background? Answer 18 original visual choices and see which six aesthetics show up in your answers.",
+    "deliverables": [
+      [
+        "See six style counts",
+        "Each choice adds one, for a total of 18. Every highest tie is kept."
+      ],
+      [
+        "Read six free visual guides",
+        "The guides cover colors, motifs, textures, and layout. Open any guide before answering."
+      ],
+      [
+        "Share a public name and link",
+        "One leader shares its guide. Highest ties share all leading names and the public quiz page, with no answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Cottagecore leads at 7",
+        "The counts are 7, 3, 2, 2, 2, and 2. The sample often chose warm pale colors, plants, and woven details."
+      ],
+      [
+        "Dark Academia and Cyberpunk tie at 5 each",
+        "The counts are 2, 5, 2, 2, 2, and 5. Both can use dark backgrounds. Compare bookish texture with a small burst of high-contrast light."
+      ],
+      [
+        "All A: six styles at 3 each",
+        "Every style appears three times in position A. All six guides appear. The actual colors and textures in each choice are worth revisiting."
+      ]
+    ],
+    "profiles": {
+      "cottagecore": [
+        "Add warmth with a small plant detail",
+        "You often chose warmer pale colors, a plant motif, or a woven texture.",
+        "For a notebook cover, you start with cream paper, add a single leaf, and keep the edges soft."
+      ],
+      "dark-academia": [
+        "Give quieter dark colors some depth",
+        "You often chose muted dark tones, paper textures, and a measured layout.",
+        "For a bookmark, you put deep green next to warm paper and a small checked pattern."
+      ],
+      "clean-girl": [
+        "Give a simple shape enough space",
+        "You often chose pale neutrals, fewer elements, and clear geometry.",
+        "When laying out a note card, you keep one shade of gray, a fine line, and plenty of empty space."
+      ],
+      "coastal-grandmother": [
+        "Pair light wood with an easy blue",
+        "You often chose sand colors, pale blues and whites, or a relaxed weave.",
+        "To set up a small corner of a desk, you pair a light wooden tray with a blue and white cloth."
+      ],
+      "goblincore": [
+        "Keep the irregular edges and old textures",
+        "You often chose moss and earth tones, speckles, and the uneven marks of older objects.",
+        "In a collage, you leave a torn paper edge visible and add a few dots at different distances."
+      ],
+      "cyberpunk": [
+        "Light up one part of a dark layout",
+        "You often chose local bright contrast and interface-like lines or geometry.",
+        "For a small event card, you use dark paper and a sharp blue line just around the title."
+      ]
+    },
+    "faq": [
+      [
+        "Does this assess fashion ability or looks?",
+        "No. It counts choices among visual descriptions and cannot establish style ability, appearance, or income."
+      ],
+      [
+        "Which styles are included?",
+        "Cottagecore, Dark Academia, Clean Girl, Coastal Grandmother, Goblincore, and Cyberpunk."
+      ],
+      [
+        "How are the 18 questions counted?",
+        "Each choice adds one. Each style appears 12 times, so counts range from 0 to 12 and sum to 18."
+      ],
+      [
+        "What if several styles tie?",
+        "Every highest tie gets its full guide. All A gives all six a count of three."
+      ],
+      [
+        "Do the labels imply age, gender, or hygiene?",
+        "These are visual style names. Neither Clean Girl nor Coastal Grandmother is a statement about a person’s age, gender, hygiene, or family role."
+      ],
+      [
+        "What does a shared link reveal?",
+        "It carries public names and links without answers, counts, private identifiers, or a personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four visual options in each of 18 questions. Each choice adds one to a style. Every style appears 12 times, so counts range from 0 to 12 and total 18. Every highest tie is retained.",
+    "boundary": "FermatMind wrote the visual-choice quiz using six names from popular culture. Dictionaries, publishers, and color-preference research provide background. These counts summarize this attempt without assessing personality, taste, or social identity."
+  }
+}

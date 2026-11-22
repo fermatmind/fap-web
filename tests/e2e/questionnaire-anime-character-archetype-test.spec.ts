@@ -3,6 +3,10 @@ import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/anime-character-archetype-test.json", "utf8")) as Questionnaire;
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied" })));
+});
+
 async function finish(page: Page, locale: "en" | "zh", mode: "lead" | "tie") {
   for (const [index, question] of quiz.questions.entries()) {
     const option = mode === "tie" ? question.options[0] : question.options.find(o => o.directionId === "lead") ?? question.options[0];
@@ -19,14 +23,19 @@ async function finish(page: Page, locale: "en" | "zh", mode: "lead" | "tie") {
   if (mode === "lead") {
     await expect(page.locator('[data-archetype-count="lead"]')).toContainText("12 / 12");
     await expect(page.locator("[data-archetype-match]")).toHaveCount(1);
-    await expect(page.locator('[data-archetype-match="lead"] h4')).toHaveCount(7);
+    const match = page.locator('[data-archetype-match="lead"]');
+    for (const section of quiz.profiles.find(profile => profile.id === "lead")!.sections) {
+      await expect(match.locator("h4").filter({ hasText: section.title[locale] })).toHaveText(section.title[locale]);
+    }
   } else {
     for (const theme of quiz.directions) {
       await expect(page.locator(`[data-archetype-count="${theme.id}"]`)).toContainText("3 / 12");
-      await expect(page.locator(`[data-archetype-match="${theme.id}"] h4`)).toHaveCount(7);
+      const match = page.locator(`[data-archetype-match="${theme.id}"]`);
+      for (const section of quiz.profiles.find(profile => profile.id === theme.id)!.sections) {
+        await expect(match.locator("h4").filter({ hasText: section.title[locale] })).toHaveText(section.title[locale]);
+      }
     }
     await expect(page.locator("[data-archetype-match]")).toHaveCount(6);
-    await expect(page.locator("#take-test h4")).toHaveCount(42);
   }
 }
 for (const locale of ["en", "zh"] as const) {
@@ -37,7 +46,7 @@ for (const locale of ["en", "zh"] as const) {
     page.on("request", request => { if (request.method() === "POST" && /ANI_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创象征测验 · 完整结果免费" : "Original symbolic quiz · Full results free", { exact: true })).toBeVisible();
+    await expect(page.getByText(zh ? "18 题 · 约 5 分钟 · 免费免注册" : "18 questions · about 5 minutes · free, no sign-up", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);
@@ -51,21 +60,22 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator("[data-archetype-count]")).toHaveCount(0); await expect(page.getByRole("radio").first()).not.toBeChecked();
     expect(posts).toEqual([]);
   });
-  test(`@release Anime story roles story roles ${locale}: opted-in tab draft survives reload, language change, edit and clear`, async ({ page }) => {
-    await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.locator('input[value="B"]').check(); await page.getByRole("checkbox").check();
-    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click(); await page.reload();
-    await page.getByRole("button", { name: zh ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: zh ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="B"]')).toBeChecked();
-    await page.locator('input[value="C"]').check();
+  test(`@release Anime story roles story roles ${locale}: standalone reload and language change start fresh`, async ({ page }) => {
+    await page.goto(entry);
+    await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
+    const choice = page.locator('input[value="B"]');
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
+    await choice.check();
+    await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
+    await page.reload();
+    await expect(choice).not.toBeChecked();
     const other = zh ? "en" : "zh";
     await page.goto(`/${other}/tests/explore/anime-character-archetype-test`);
-    await page.getByRole("button", { name: other === "zh" ? "恢复本标签页进度" : "Resume this tab's progress", exact: true }).click();
-    await page.getByRole("button", { name: other === "zh" ? "上一题" : "Back", exact: true }).click(); await expect(page.locator('input[value="C"]')).toBeChecked();
-    await page.getByRole("button", { name: other === "zh" ? "退出并清除本次进度" : "Exit and clear this attempt", exact: true }).click();
+    await page.getByRole("button", { name: other === "zh" ? "开始测试" : "Start test", exact: true }).click();
+    await expect(choice).not.toBeChecked();
     expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:anime-character-archetype-test"))).toBeNull();
   });
-  test(`@release Anime story roles story roles ${locale}: denied storage, six-way tie shows42sections and private-safe clipboard fallback`, async ({ page }) => {
+  test(`@release Anime story roles story roles ${locale}: denied storage, six-way tie and private-safe clipboard fallback`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.addInitScript(() => {
       const get = Storage.prototype.getItem, set = Storage.prototype.setItem;
@@ -74,7 +84,7 @@ for (const locale of ["en", "zh"] as const) {
       Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("synthetic clipboard denial"); } } });
     });
     await page.goto(entry); await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-    await page.getByRole("checkbox").check(); await expect(page.getByRole("status")).toContainText(zh ? "无法保存" : "could not save");
+    await expect(page.getByRole("checkbox")).toHaveCount(0);
     await finish(page, locale, "tie");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.getByRole("button", { name: zh ? "复制结果与链接" : "Copy result and link", exact: true }).click();

@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的Wojak角色测试有18道原创网络交流和兴趣情境题，约5分钟，免注册。答完可免费看六种网络梗的选择计数和最高并列结果，六篇公开指南也可直接阅读。",
+    "intro": "朋友发帖说今天有点不顺，你会先接住那句话、提个能试的小办法，还是用一句淡淡的玩笑回应？用约 5 分钟完成 18 道原创题，看看六种网络梗里，哪些更贴近这一次的选择。",
+    "deliverables": [
+      [
+        "看六种回应的选择次数",
+        "每题加 1，六项合计 18。可以对照不同场景，想想什么时候换了一种说法。"
+      ],
+      [
+        "免费读六篇完整指南",
+        "每种网络梗都有一篇指南。同为最高的结果会一起显示，也能先读指南再答题。"
+      ],
+      [
+        "复制公开名称与链接",
+        "单一最高时分享名称和指南；出现并列时分享全部最高名称和测试入口，不会附上你的答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "Feels Guy 最高，7 次",
+        "六项计数依次为 7、4、2、2、2、1。这份样张常选择先承认对方的经历。想想什么时候一句「我懂」就刚好。"
+      ],
+      [
+        "Bloomer 和 Doomer 并列，各 6 次",
+        "依次为 2、6、6、1、2、1。两份指南一起显示，可以比较什么时候适合给个小建议，什么时候该先把过高的期待放回现实。"
+      ],
+      [
+        "全选 A，六种各 3 次",
+        "每种回应在 A 位出现三次，所以六份指南都有。不妨回看各题说了什么，再想哪些选项真的合适。"
+      ]
+    ],
+    "profiles": {
+      "feels-guy": [
+        "先接住那个普通时刻",
+        "你这次更常选给对方一句共鸣，让他们知道这段经历有人听进去了。",
+        "朋友发来第一次做陶杯的照片，你说手作刚上手歪一点很常见，再问他做得最开心的是哪部分。"
+      ],
+      "bloomer": [
+        "先找一小步试试看",
+        "你这次更常选提一个目前做得到的小办法，给事情留一点可能。",
+        "听朋友说兴趣计划太满，你提议这周只挑一首想练的歌，剩下的以后再选。"
+      ],
+      "doomer": [
+        "把夸大的承诺放回现实",
+        "你这次更常选用冷一点的语气提醒别人还有什么条件要考虑。",
+        "看到一个教程宣传能解决所有剪辑难题，你说它也许能帮忙理素材，但还要留时间剪完。"
+      ],
+      "boomer": [
+        "说清楚为什么还喜欢旧的",
+        "你这次更常选重访一个熟悉的作品、物件或声音，从具体细节说起。",
+        "群里聊最近玩的游戏时，你贴了一段旧游戏音效，说自己到现在还喜欢那个提示音。"
+      ],
+      "zoomer": [
+        "换个格式试一条",
+        "你这次更常选尝试新表现形式，先看看它对自己有什么用。",
+        "看到新的读书记录模板，你只拿刚看完的一本书试一条，再决定要不要把旧记录搬过去。"
+      ],
+      "npc": [
+        "用喜欢的流程把事情做下去",
+        "你这次更常选一个顺手、好重复的安排，再按需要调整。",
+        "要每周更新照片时，你先固定星期天整理三张，哪天想换构图就再试。"
+      ]
+    },
+    "faq": [
+      [
+        "Wojak 角色测试包含哪些结果？",
+        "包括 Feels Guy、Bloomer、Doomer、Boomer、Zoomer 和 NPC。这些名称是本站用来讲日常回应的六种比喻。"
+      ],
+      [
+        "这套题需要了解梗图历史吗？",
+        "不用。题目围绕回帖、兴趣和日常小选择，你只需选此时更愿意做的事。"
+      ],
+      [
+        "18 道题怎样计数？",
+        "四选一，给对应结果加 1。六种各出现 12 次，单项 0–12，合计 18。所有同为最高的结果都保留。"
+      ],
+      [
+        "Doomer、Boomer 或 NPC 能说明年龄、心理健康或判断力吗？",
+        "不能。这里的 Doomer 指质疑夸大说法，Boomer 指喜欢具体的旧事物，NPC 指主动选一套可重复的流程。结果不能用来贬低他人或推断年龄、性别、心理健康、意识和智力。"
+      ],
+      [
+        "题目和指南来自官方或其他网站吗？",
+        "题目、选项和指南由费马独立编写。Know Your Meme 记录用法和争议，供理解梗的背景，不提供图片授权或测量验证。"
+      ],
+      [
+        "分享链接会带有分数或个人图卡吗？",
+        "可以复制公开名称及指南或入口，链接不带答卷、次数或私人标识。没有个人 PNG。独立答题页刷新后不会恢复进度。"
+      ]
+    ],
+    "formula": "18 题各从四个选项里选一项，对应结果加 1。六种结果各出现 12 次，单项 0–12，总和 18。最高次数相同就全部保留。",
+    "boundary": "这是费马原创的非官方梗文化娱乐问卷。题目和解释只谈本次回应选择，不能推断年龄、性别、政治、心理健康、智力、意识或职业适配。尊重别人对自己的描述，不用梗名给真人定等级。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的Wojak角色測驗有18道原創的網路交流與興趣情境題，約5分鐘，免註冊。答完可免費看六種網路迷因的選擇次數與並列結果，六篇公開指南也能直接閱讀。",
+    "intro": "朋友發文說今天諸事不順，你會先回一句有共鳴的話、提個輕巧的做法，還是用一個冷笑話讓氣氛鬆一點？花約 5 分鐘做完 18 道原創題，看看六種網路迷因各對應到你這次的哪些選擇。",
+    "deliverables": [
+      [
+        "查看六種回應的次數",
+        "每題加 1，合計 18。回頭看看不同場合裡，你什麼時候會換個方式回覆。"
+      ],
+      [
+        "免費讀六篇完整指南",
+        "每種迷因都有一篇指南。最高同分時，對應的完整解說會一起列出。"
+      ],
+      [
+        "複製公開名稱及連結",
+        "只有一項最高時可分享名稱及指南；並列時會複製所有最高名稱與測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "Feels Guy 最高，7 次",
+        "六種次數是 7、4、2、2、2、1。這份範例比較常先讓對方知道你有聽見。可以想想對方什麼時候只是想被聽懂。"
+      ],
+      [
+        "Bloomer 和 Doomer 並列，各 6 次",
+        "六種次數是 2、6、6、1、2、1，兩篇指南都會顯示。可以對照先想一個好做的小步驟，和先提醒有哪些限制。"
+      ],
+      [
+        "一路選 A，六種各 3 次",
+        "每種做法在 A 位出現三次，所以會看到全部指南。再讀各題的情境，才能看出這個選項是哪種回應。"
+      ]
+    ],
+    "profiles": {
+      "feels-guy": [
+        "回一句能接住對方的話",
+        "你比較常選先肯定對方說的經驗，讓聊天有個能接下去的地方。",
+        "朋友曬出第一次捏的陶杯，你說第一次做難免會有不齊的地方，再問他最喜歡哪個細節。"
+      ],
+      "bloomer": [
+        "想一件現在就能試的小事",
+        "你比較常選把大計畫縮成一個還想做的步驟。",
+        "朋友覺得興趣清單太重，你提議先挑一首還很想練的歌，其餘之後再說。"
+      ],
+      "doomer": [
+        "替太滿的承諾留點問號",
+        "你比較常選用平靜的話提醒大家還有哪些現實條件。",
+        "一支影片說新技巧能解決所有剪片問題，你提醒它可能只對整理檔案有幫助。"
+      ],
+      "boomer": [
+        "說出老東西哪裡還吸引你",
+        "你比較常選回去看看熟悉的作品或物件，說起當初喜歡的細節。",
+        "朋友在聊遊戲時，你找出一段老遊戲提示音，分享它現在聽起來還是很有趣。"
+      ],
+      "zoomer": [
+        "先試一筆新的呈現方式",
+        "你比較常選拿一小部分內容試新格式，看實際用起來如何。",
+        "你拿剛看完的一本書試填新的閱讀紀錄模板，再決定要不要換過去。"
+      ],
+      "npc": [
+        "留一套順手的日常流程",
+        "你比較常選自己訂一個簡單、好持續的做法，有需要時再調整。",
+        "每週想整理幾張照片時，你先排星期天挑三張。遇到喜歡的主題，再多留一點時間。"
+      ]
+    },
+    "faq": [
+      [
+        "這個 Wojak 測驗有哪些角色？",
+        "包括 Feels Guy、Bloomer、Doomer、Boomer、Zoomer 和 NPC。費馬用這六個名稱比喻不同的日常回應。"
+      ],
+      [
+        "需要懂網路迷因的歷史嗎？",
+        "不用。題目有發文、回覆和日常興趣等情境，照現在比較想做的方式選就好。"
+      ],
+      [
+        "18 道題怎麼計次？",
+        "每題四選一，替對應做法加 1。每種出現 12 次，單項 0–12，總數 18。同為最高都會列出。"
+      ],
+      [
+        "NPC 或 Doomer 代表年齡、身分或心理狀況嗎？",
+        "NPC 在本站指主動保留一套可重複的做法，Doomer 指對誇大的承諾多問一句。分數無法判斷年齡、性別、心理健康、思考能力或人的價值。"
+      ],
+      [
+        "這是官方迷因分類嗎？",
+        "題目與指南是費馬自己編寫。Know Your Meme 的資料用來理解迷因用法及爭議，無法證明計分，也不提供素材授權。"
+      ],
+      [
+        "轉傳會附作答或個人圖卡嗎？",
+        "公開分享只複製名稱和指南或入口，不含作答、次數、個人資料或 PNG。獨立作答頁重新整理後不會恢復進度。"
+      ]
+    ],
+    "formula": "18 題各從四項做法選一項，替它加 1 次。六種做法各出現 12 次，每項 0–12，加起來是 18。同為最高的結果一起保留。",
+    "boundary": "這份娛樂測驗由費馬獨立編寫。迷因名稱只用來解讀本次選到的回應，不推斷年齡、性別、政治觀點、心理健康、智力、意識或適合的工作。請勿拿名稱貶低真人。"
+  },
+  "en": {
+    "facts": "FermatMind’s Wojak Test has 18 original scenarios about online replies, hobbies, and ordinary choices. It takes about five minutes and is free without registration. The result counts choices for six meme themes and keeps every tie for the highest score. Each theme has a public guide. Shared links include only public names and links without any answers, private identifiers, or choice counts.",
+    "intro": "A friend posts that their day went slightly wrong. Would you acknowledge the moment, suggest one thing they could try, or answer with dry humor? Choose the response you would use in 18 everyday situations and see which of six meme themes show up most in this attempt.",
+    "deliverables": [
+      [
+        "See all six response counts",
+        "Each choice adds one to a theme, for a total of 18. Compare which replies you chose in different situations."
+      ],
+      [
+        "Read six complete guides for free",
+        "Each theme has a separate public guide. Every theme tied for the highest count gets its full reading."
+      ],
+      [
+        "Copy a public name and link",
+        "A single highest result shares its name and guide. A tie shares all leading names and the public quiz page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Feels Guy leads at 7",
+        "The counts are 7, 4, 2, 2, 2, and 1. The sample often acknowledges what happened first. Think about when a simple reply would be enough."
+      ],
+      [
+        "Bloomer and Doomer tie at 6 each",
+        "The counts are 2, 6, 6, 1, 2, and 1. Compare a situation that would benefit from one small next step with one where a big promise needs a reality check."
+      ],
+      [
+        "All A: six themes with 3 each",
+        "Each theme appears three times in position A. All guides are shown. The situation described in each question is more informative than the letter you clicked."
+      ]
+    ],
+    "profiles": {
+      "feels-guy": [
+        "Acknowledge the moment",
+        "You often chose to recognize what someone had just experienced and let them say more if they wanted.",
+        "When a friend posts a photo of their first clay cup, you mention that first attempts often wobble, then ask which bit they liked making."
+      ],
+      "bloomer": [
+        "Find one thing worth trying",
+        "You often chose a small possibility that someone could act on right away.",
+        "When a friend says their hobby list feels like homework, you suggest picking one song they still want to practice this week."
+      ],
+      "doomer": [
+        "Give a big claim a reality check",
+        "You often chose a dry reply that made room for practical limits.",
+        "When a tutorial promises to solve every editing problem, you point out that it may organize files more quickly, but there will still be cuts to make."
+      ],
+      "boomer": [
+        "Revisit a favorite for a reason",
+        "You often chose to return to a familiar work or object and describe what still holds up for you.",
+        "When friends talk about the games they play, you share a sound from an old one and mention why it still makes you smile."
+      ],
+      "zoomer": [
+        "Try one thing in a new format",
+        "You often chose to see what a new way of presenting something feels like before committing.",
+        "When you see a new reading log, you enter one book you just finished before moving any older notes across."
+      ],
+      "npc": [
+        "Choose a routine you can make your own",
+        "You often chose a repeatable way to keep a hobby going, with room to change it later.",
+        "When you want to share photos more regularly, you pick three each Sunday and keep the option of trying a different layout."
+      ]
+    },
+    "faq": [
+      [
+        "Which Wojak themes can I get?",
+        "The six are Feels Guy, Bloomer, Doomer, Boomer, Zoomer, and NPC. In this quiz they describe possible replies or ways to approach a hobby."
+      ],
+      [
+        "Do I need to know the memes?",
+        "No. The questions describe ordinary posts, replies, and activities. Choose what you would do now."
+      ],
+      [
+        "How are the 18 questions scored?",
+        "Each answer adds one to its theme. Each theme appears 12 times, so counts run from 0 to 12 and total 18. Every highest tie is kept."
+      ],
+      [
+        "Does a result describe age or mental health?",
+        "No. Choices here cannot establish age, gender, politics, or mental health. NPC refers to choosing a repeatable routine. It says nothing about consciousness, agency, or someone’s worth."
+      ],
+      [
+        "Is the quiz an official classification?",
+        "FermatMind independently wrote the questions and guides. Know Your Meme documents cultural uses and controversies. It provides neither image permission nor evidence for the quiz’s scoring."
+      ],
+      [
+        "Does sharing include my counts or a personal image?",
+        "Copying shares public names and links without answers, counts, or private IDs. There is no personal PNG, and unfinished progress on the standalone page does not resume after reloading."
+      ]
+    ],
+    "formula": "Choose one of four options per question. Each choice adds one to a theme. The six themes appear 12 times each, so individual counts range from 0 to 12 and total 18. All highest ties appear.",
+    "boundary": "FermatMind wrote this unofficial fan quiz for entertainment. The meme names describe choices from this attempt. They do not determine age, gender, politics, mental health, intelligence, consciousness, or job fit. No result gives grounds to dismiss or insult someone."
+  }
+}

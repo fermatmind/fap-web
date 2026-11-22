@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的道歉语言测试用20道原创题回顾接收道歉时重视的内容，约5分钟。免费提供五项重要程度均分、计分题数与公开指南，支持选择不计分。",
+    "intro": "对方说了对不起，你会更想听他说明做错了什么，还是先看到如何补救？不必回想真实冲突，可以用一个普通的虚构情境。",
+    "deliverables": [
+      [
+        "五项重视程度",
+        "歉意、责任、补救、改变及原谅选择分别显示。"
+      ],
+      [
+        "每组有效题数",
+        "了解均分用了哪些有效选择。"
+      ],
+      [
+        "五份完整指南",
+        "用类似改约或弄坏借用物品的例子理解。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先听清道歉指什么",
+        "说出具体影响有时比单独一句对不起更有信息。"
+      ],
+      [
+        "把承诺变成下一步",
+        "问自己看重归还、重做，还是下次的不同安排。"
+      ],
+      [
+        "不急着作出回应",
+        "你可以听见歉意，再决定何时或是否回应。"
+      ]
+    ],
+    "profiles": {
+      "regret-reading": [
+        "听见具体的歉意",
+        "你在意对方是否说清受影响的是哪件事。",
+        "朋友漏转材料后，你希望他先说知道这使你多跑了一趟。"
+      ],
+      "responsibility-reading": [
+        "把责任说清楚",
+        "你希望先听对方说出自己能承担的那一部分。",
+        "会议资料发错时，对方说是自己没核对版本。"
+      ],
+      "repair-reading": [
+        "看得到的补救",
+        "你更愿意先看眼前具体有什么能挽回。",
+        "借来的书淋湿后，对方主动提出换一本。"
+      ],
+      "change-reading": [
+        "下次有不同安排",
+        "你看重的是一项可以实际做到的改变。",
+        "临时取消多次，对方说下次会在出门前确认。"
+      ],
+      "forgiveness-choice-reading": [
+        "原谅的决定留给自己",
+        "你在意自己能按需要决定是否回应。",
+        "听完道歉，你说想晚一点再想想。"
+      ]
+    },
+    "faq": [
+      [
+        "这是官方题本吗？",
+        "题目由费马原创，五类框架为背景。"
+      ],
+      [
+        "需要想到最近一次冲突吗？",
+        "不需要，也可以参考普通的虚构场景。"
+      ],
+      [
+        "五项怎样算？",
+        "每组四题都有效才显示均分。"
+      ],
+      [
+        "没法判断怎么办？",
+        "可以选不计分。"
+      ],
+      [
+        "结果意味着该原谅吗？",
+        "读数只讲你的重视程度，原谅是个人选择。"
+      ],
+      [
+        "分享包含我的选择吗？",
+        "分享只连到同语公开页面。"
+      ]
+    ],
+    "formula": "20题、五组各4题，重要程度由1至5分。每组四题都有效才显示平均，不计分项不纳入。",
+    "boundary": "本测验回顾普通失误中的道歉接收偏好。涉及严重伤害时，安全或适用的正式程序应独立于测验。填答不要求联系、和解或原谅。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的道歉語言測驗以20題原創題整理收到道歉時在意的內容，約5分鐘。免費提供五項重要程度的平均、計分題數與公開指南，也可選擇不計分。",
+    "intro": "聽到「對不起」之後，你希望對方說清楚哪裡做錯了，還是先提出可以怎麼補救？可以用虛構的小事來填。",
+    "deliverables": [
+      [
+        "五項分開算",
+        "歉意、責任、補救、改變和原諒選擇各有平均。"
+      ],
+      [
+        "確認計分題數",
+        "不適合評的題目可保留不計分。"
+      ],
+      [
+        "看五份情境指南",
+        "不用填完就能讀，情境包括改約及借用物品。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "確認對方在為什麼道歉",
+        "知道對方注意到什麼影響，可能比較容易理解他的話。"
+      ],
+      [
+        "看說好要怎麼做",
+        "想想眼前什麼補救有幫助、下次做法要如何調整。"
+      ],
+      [
+        "回應可以等一下",
+        "你有權決定要不要回覆或原諒。"
+      ]
+    ],
+    "profiles": {
+      "regret-reading": [
+        "留下你需要的說法",
+        "你在意對方有沒有說出造成的影響。",
+        "同學漏傳資料後，你期待他理解你因此錯過報名。"
+      ],
+      "responsibility-reading": [
+        "認下自身能負責的事",
+        "你想聽對方說明他自己做了什麼。",
+        "傳錯檔案時，對方直接承認沒有核對版本。"
+      ],
+      "repair-reading": [
+        "讓事情有個補救",
+        "你重視對方能不能提出眼前可做的事。",
+        "朋友弄濕向你借的書，主動問能不能補一本。"
+      ],
+      "change-reading": [
+        "把下次的做法講清楚",
+        "你在意下次遇到同樣情況時，有沒有具體的改變。",
+        "朋友常臨時改約，這次說會提早確認行程。"
+      ],
+      "forgiveness-choice-reading": [
+        "可以先聽再決定",
+        "你希望留有時間決定是否要回應。",
+        "你聽完道歉，先說想自己安靜一下。"
+      ]
+    },
+    "faq": [
+      [
+        "這是官方題目嗎？",
+        "這是費馬原創題目，五類框架是參考背景。"
+      ],
+      [
+        "一定要想起真實衝突嗎？",
+        "不用，普通的虛構情境也可以。"
+      ],
+      [
+        "分數怎麼算？",
+        "四題均有效才顯示該組平均。"
+      ],
+      [
+        "無法評一題呢？",
+        "可以選不計分。"
+      ],
+      [
+        "測驗會要求原諒嗎？",
+        "讀數顯示自己的優先事項，是否原諒由你決定。"
+      ],
+      [
+        "分享有個人結果嗎？",
+        "分享僅含同語言公開入口。"
+      ]
+    ],
+    "formula": "共20題，五組各4題，重要程度由1至5分計算，單組4題均有效才顯示平均。",
+    "boundary": "讀數供回顧日常失誤中的道歉偏好。遇到重大傷害時，測驗不替代安全考量或正式途徑。你仍可決定是否聯絡或原諒。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Apology Language Test uses 20 original questions on what matters to someone receiving an apology for an ordinary mistake. It takes about five minutes and provides five separate importance averages, rated item counts, and public guides. Readers can consider regret, responsibility, repair, planned change, and the choice around forgiveness without an account or describing a real personal disagreement.",
+    "intro": "After someone says they are sorry, would you rather hear what they understand about the mistake or see a way to put it right? You can answer with an imagined example.",
+    "deliverables": [
+      [
+        "Five factors",
+        "See what you value in regret, responsibility, repair, change, and the request for forgiveness."
+      ],
+      [
+        "Rated-item counts",
+        "Check whether all four answers counted in a group."
+      ],
+      [
+        "Five public guides",
+        "Start with ordinary examples, even if you want to skip the quiz."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Hear what the apology refers to",
+        "Notice whether the person names the effect of what they did."
+      ],
+      [
+        "Turn a promise into an action",
+        "Consider what might put things right now or change what happens next time."
+      ],
+      [
+        "Give yourself time",
+        "Leave forgiveness and any response as your own choice."
+      ]
+    ],
+    "profiles": {
+      "regret-reading": [
+        "Name the effect",
+        "You value an apology that acknowledges what happened for you.",
+        "When a handoff is missed, you hope the other person recognizes the extra trip it caused."
+      ],
+      "responsibility-reading": [
+        "Own one part clearly",
+        "You value hearing what someone takes responsibility for.",
+        "After sending the wrong file, the person says they forgot to check the version."
+      ],
+      "repair-reading": [
+        "Offer something that can help now",
+        "You look for a concrete step to put things right.",
+        "A friend asks if they can replace the book that got wet."
+      ],
+      "change-reading": [
+        "Say what will change",
+        "You value a clear intention someone can follow through on.",
+        "After rescheduling twice, a friend offers to check their calendar a day earlier."
+      ],
+      "forgiveness-choice-reading": [
+        "Keep the option to respond later",
+        "You want space to decide what you are ready to say.",
+        "You hear the apology and ask for time to think."
+      ]
+    },
+    "faq": [
+      [
+        "Is this an official assessment?",
+        "FermatMind wrote the questions independently. A five-part framework provides background."
+      ],
+      [
+        "Do I need a real example?",
+        "No. An ordinary imagined situation can work."
+      ],
+      [
+        "How are results calculated?",
+        "A group needs all four ratings to display a mean."
+      ],
+      [
+        "What if I prefer to skip an item?",
+        "Select the unscored option."
+      ],
+      [
+        "Does a score tell me to forgive?",
+        "The readings reflect what matters to you. Forgiveness stays your choice."
+      ],
+      [
+        "What does sharing reveal?",
+        "The share link opens the public quiz in the same language."
+      ]
+    ],
+    "formula": "Twenty questions form five groups of four. Rate importance from 1 to 5. All four ratings are required for a group mean. Unscored replies are omitted.",
+    "boundary": "Use the test to explore receiving an apology after ordinary mistakes. You do not need to contact anyone, reconcile, or forgive. Serious harm may call for safety steps or a formal process independent of this quiz."
+  }
+}

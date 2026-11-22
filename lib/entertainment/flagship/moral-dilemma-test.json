@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的道德困境测试用20道原创假设情境比较五种追问方式，约6分钟。免费查看各方向原始次数、所有最高并列和五份完整的公开情境指南。",
+    "intro": "答应留给一个人的名额忽然成了大家想要的机会。你先问谁会受影响、先前约定有什么义务，还是哪种分配方法说得通？",
+    "deliverables": [
+      [
+        "五种问题各自计数",
+        "后果、原则、品格、关怀、公平。"
+      ],
+      [
+        "保留全部最高并列",
+        "不同切入点可以一起出现。"
+      ],
+      [
+        "五份公开指南",
+        "用其他普通场景理解每种问法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先记住你想问的是什么",
+        "问题做的是澄清，不必向别人承诺会怎么做。"
+      ],
+      [
+        "用另一个角度补充原来的问题",
+        "如果先想到结果，再试问已有约定是什么。"
+      ],
+      [
+        "看看每题少了哪个方向",
+        "没有出现在这一题的做法没有参与比较。"
+      ]
+    ],
+    "profiles": {
+      "consequences": [
+        "先看接下来会发生什么",
+        "你想弄清不同做法可能带来的影响。",
+        "改开放时间前，你问哪些平常会来的成员会错过。"
+      ],
+      "principles": [
+        "问清约定形成了什么",
+        "你在意是否有应当履行的责任。",
+        "有人临时想取消保留名额，你先把原先作出的承诺说清楚。"
+      ],
+      "character": [
+        "看看希望实践怎样的品格",
+        "你愿意问一个人如何在具体条件下做得诚实或负责。",
+        "遇到统计出错，你想哪种处理方式能承认问题也纠正它。"
+      ],
+      "care": [
+        "听见眼前的人需要什么",
+        "你重视当事人自己怎样理解与回应。",
+        "同伴没来活动，你先问他是否希望有人转交材料。"
+      ],
+      "fairness": [
+        "分配方式能说服不同位置的人吗",
+        "你会思考程序与每个人能承担的代价。",
+        "名额不够时，你先看大家是否能接受同一套抽签规则。"
+      ]
+    },
+    "faq": [
+      [
+        "有没有正确选项？",
+        "选择想优先问的问题，题目不判对错。"
+      ],
+      [
+        "计数怎么算？",
+        "每次给被选的关注点加1。"
+      ],
+      [
+        "每个方向出现几次？",
+        "各16次，四个位置各4次。"
+      ],
+      [
+        "最高同分怎么读？",
+        "全部并列都保留和展开。"
+      ],
+      [
+        "能判定道德水平吗？",
+        "结果只描述本次你先选了什么问题。"
+      ],
+      [
+        "怎么分享？",
+        "可分享同语公开测试或指南，不公开回答或计数。"
+      ]
+    ],
+    "formula": "20道四选一，各题选择加1。五方向各出现16次，每位置4次，最高同分全部保留。",
+    "boundary": "案例为原创的普通假设场景。读数不能替你做真实决定、评估道德水平，或判断第三方的经历。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的道德兩難測驗以20道原創假設情境比較五種問法，約6分鐘。免費提供每個方向的次數、所有最高同分結果及五份完整的公開情境指南。",
+    "intro": "原本說好留名額給一人，現在又有別人需要。你會先問誰會受影響、答應的事算不算數，還是有沒有大家都能接受的分配？",
+    "deliverables": [
+      [
+        "五種出發點",
+        "後果、原則、品格、關懷、公平分別計數。"
+      ],
+      [
+        "最高同分照樣讀",
+        "好幾個角度可以同時出現在結果。"
+      ],
+      [
+        "五份公開指南",
+        "以其他日常例子解釋不同問法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先分辨自己在問什麼",
+        "題目是挑一條想先查清楚的方向。"
+      ],
+      [
+        "用第二種做法補充",
+        "想到結果時，也可以問先前有什麼約定。"
+      ],
+      [
+        "記得每題只出現四項",
+        "這題沒列到的方向沒有參與比較。"
+      ]
+    ],
+    "profiles": {
+      "consequences": [
+        "先看看會影響到誰",
+        "你會從事情接下來的變化想起。",
+        "活動要改時間，你先問哪些參與者會因此無法到場。"
+      ],
+      "principles": [
+        "先想答應了什麼",
+        "你會看先前的話帶來哪些責任。",
+        "有人想收回留位，你回頭確認當時怎麼說的。"
+      ],
+      "character": [
+        "問哪種做法更能承擔責任",
+        "你會具體想想怎麼做到誠實或謹慎。",
+        "報表有錯時，你考慮如何告知大家並改好。"
+      ],
+      "care": [
+        "問當事人希望怎麼辦",
+        "你會聽具體情況，也保留對方拒絕的權利。",
+        "好友沒到場，你先問要不要幫他拿資料。"
+      ],
+      "fairness": [
+        "用大家都能理解的方式分配",
+        "你會查先排好規則時，是否照顧到不同位置的人。",
+        "名額不夠時，你比較抽籤、輪流和按需要分配。"
+      ]
+    },
+    "faq": [
+      [
+        "有唯一正確答案嗎？",
+        "題目請你挑一個優先想探究的問題。"
+      ],
+      [
+        "怎麼加分？",
+        "每次選擇讓對應方向加1。"
+      ],
+      [
+        "每個方向出現幾次？",
+        "各16次，每一個選項位置各4次。"
+      ],
+      [
+        "最高同分怎麼看？",
+        "所有同獲最高次數的方向都保留。"
+      ],
+      [
+        "會判定道德人格嗎？",
+        "結果只回顧這次題目裡你挑的問題。"
+      ],
+      [
+        "可以分享什麼？",
+        "同語言公開測驗與指南不含作答或次數。"
+      ]
+    ],
+    "formula": "20道四選一，每次讓對應方向加1。五項各出現16次，位置各4次。最高同分一起顯示。",
+    "boundary": "這些是原創假設情境，可用來回想不同考量。結果不評斷道德、他人或任何真正的兩難決策。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Moral Dilemma Test uses 20 original fictional situations to compare five lines of inquiry. It takes about six minutes and reports raw counts, all directions tied for the highest count, and five public guides. Readers can consider consequences, principles, character, care, and fairness without creating an account, submitting a real dilemma, or choosing an officially correct action for anyone.",
+    "intro": "A group reserved a spot for one person, and now someone else needs it. What would you ask first about the consequences, the promise, or how the place should be assigned?",
+    "deliverables": [
+      [
+        "Five question types",
+        "Review consequences, principles, character, care, and fairness separately."
+      ],
+      [
+        "Every highest tie",
+        "All perspectives sharing the top count stay available."
+      ],
+      [
+        "Five public guides",
+        "Read what each kind of question can bring to an ordinary situation."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Name the question you want answered",
+        "The item asks what you would examine first."
+      ],
+      [
+        "Try one more lens",
+        "If effects came to mind first, also ask what commitments apply."
+      ],
+      [
+        "Remember what was offered",
+        "A direction omitted from one question simply was not in that comparison."
+      ]
+    ],
+    "profiles": {
+      "consequences": [
+        "Look at what may happen next",
+        "You want to know which effects might follow for different people.",
+        "Before moving the opening time, you ask who might then be unable to come."
+      ],
+      "principles": [
+        "Check what was promised",
+        "You consider what responsibility a previous commitment might create.",
+        "If a reserved slot may be taken away, you first check what the person was told."
+      ],
+      "character": [
+        "Ask how to act responsibly in context",
+        "You look for what honesty or care would mean here.",
+        "When you find a reporting error, you consider how you would acknowledge and correct it."
+      ],
+      "care": [
+        "Hear what the person needs",
+        "You want to know the person’s view while leaving them a choice.",
+        "When a friend misses an event, you ask whether they would like the materials."
+      ],
+      "fairness": [
+        "Ask what makes a fair process",
+        "You think about who might benefit and who might carry the cost.",
+        "With too few places, you compare a lottery, a rotation and a needs-based system."
+      ]
+    },
+    "faq": [
+      [
+        "Is there a correct option?",
+        "Choose the question you want to explore first."
+      ],
+      [
+        "How do tallies work?",
+        "Each choice adds one to its line of inquiry."
+      ],
+      [
+        "How often does each perspective appear?",
+        "Sixteen times, four in each position."
+      ],
+      [
+        "What if the top counts tie?",
+        "Every highest tie appears with its full guide."
+      ],
+      [
+        "Does it assign a moral personality?",
+        "It shows which questions you chose to ask in these examples."
+      ],
+      [
+        "What can I share?",
+        "The public quiz or guide without your responses or counts."
+      ]
+    ],
+    "formula": "Each of 20 items offers four choices. Every perspective appears 16 times, four in each position. The choice adds one count and highest ties all stay.",
+    "boundary": "These fictional cases are for reflection. The readings do not judge morality, decide a real dilemma, or infer anything about someone who did not answer."
+  }
+}

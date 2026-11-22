@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的乐观倾向测试采用IPIP公开的10道自评题，约3分钟。免费显示原始总分、均分和五份公开阅读指南，分界点保留相邻的两份读法。",
+    "intro": "想到一件还没发生的事，你通常先看到可能顺利的一面，还是先把麻烦想清楚？用一般情况下的自己来选。",
+    "deliverables": [
+      [
+        "原始总分与均分",
+        "范围10–50与1–5，各看原始幅度。"
+      ],
+      [
+        "分界点保留两份读法",
+        "18、26、34、42分各连接相邻两段。"
+      ],
+      [
+        "五份公开指南",
+        "不用完成答题也能阅读不同位置的例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "低段从具体信息看起",
+        "一条正在担心的事可以先核对现在知道哪些消息。"
+      ],
+      [
+        "中段回看相同总分的不同答法",
+        "相同均分来自多种组合。"
+      ],
+      [
+        "高段也保留查证",
+        "期待顺利时，也能准备一项替代方案。"
+      ]
+    ],
+    "profiles": {
+      "lower": [
+        "先找可核对的事实",
+        "你在面对不确定的事时可能比较保留。",
+        "即将换项目，你先问什么时候有明确消息。"
+      ],
+      "lower-middle": [
+        "对照消息再决定怎么看",
+        "你会把不确定的部分留着继续想。",
+        "收到一封简短邮件，你先问清楚有没有需要改的事。"
+      ],
+      "middle": [
+        "让不同期待并排出现",
+        "你同一个总分可以来自不同答案。",
+        "你期待旅行顺利，也为转车多留十分钟。"
+      ],
+      "upper-middle": [
+        "把正向期待接到下一步",
+        "你愿意看到有希望的一面，也会继续查信息。",
+        "小组有新机会时，你说看好它，并问怎样申请。"
+      ],
+      "higher": [
+        "期待顺利也准备备选",
+        "你常能想到事情可能向好的方向走。",
+        "你期待户外活动顺利，也先选一个下雨时可去的地点。"
+      ]
+    },
+    "faq": [
+      [
+        "用的是哪一套题？",
+        "IPIP单一乐观构念10道公开题。"
+      ],
+      [
+        "总分怎么计算？",
+        "正向按1–5，六道反向题用6减原分。"
+      ],
+      [
+        "边界怎么算？",
+        "18、26、34与42各保留相邻两段，五段是本站读法。"
+      ],
+      [
+        "可以不计分吗？",
+        "可以，任何一题未评分就不显示个人总分和均分。"
+      ],
+      [
+        "结果能推断情绪问题吗？",
+        "读数仅反映题目所述期待。"
+      ],
+      [
+        "分享会公开我的答题吗？",
+        "复制可以含公开指南名称或同语入口，不带逐题答案或原始分数。"
+      ]
+    ],
+    "formula": "10题全部计分才计算总分10–50和均分1–5。六道反向题用6减原分，18、26、34、42保留邻接两个指南。",
+    "boundary": "本站用IPIP英语条目和中文工作译文。五个阅读区间是本站呈现办法，不能诊断情绪问题、证明应对能力或用于人口常模。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的樂觀傾向測驗採用IPIP公開的10道自評題，約3分鐘。免費提供原始總分、平均和五份公開解讀指南，剛好在分界會保留相鄰兩段。",
+    "intro": "想像一項還沒確定的安排，你會先想到事情可能很順利，還是先確認會遇到的阻礙？請按平常的感受選。",
+    "deliverables": [
+      [
+        "原始總分與平均",
+        "兩個讀數各用原來的範圍。"
+      ],
+      [
+        "分界點有兩份讀法",
+        "18、26、34、42分同時連到相鄰兩段。"
+      ],
+      [
+        "五份公開指南",
+        "可先讀生活例子，再做十題。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "低段先確認已知資訊",
+        "想想現在知道哪一點，還可以再問誰。"
+      ],
+      [
+        "同一讀數也有很多種組合",
+        "分數相近的人可能對不同題目有不同期待。"
+      ],
+      [
+        "看好一件事也能有備案",
+        "期待順利的同時可以先看看替代方案。"
+      ]
+    ],
+    "profiles": {
+      "lower": [
+        "先找出能確定的事",
+        "你有時會對結果先保留想法。",
+        "加入新計畫前，你先問何時有確定消息。"
+      ],
+      "lower-middle": [
+        "問一條可以弄清楚的事",
+        "你會留意不確定的地方需要什麼資料。",
+        "對方的訊息不夠清楚時，你問原來的時間還算不算。"
+      ],
+      "middle": [
+        "讓不同的期待一起留著",
+        "你會在不同事情上有不同看法，可能得到相同總分。",
+        "你期待旅行順利，也多抓一點轉車時間。"
+      ],
+      "upper-middle": [
+        "把期待放進能做的下一步",
+        "你可以看好機會，也去弄清楚如何準備。",
+        "發現一門新課後，你先確認報名時間。"
+      ],
+      "higher": [
+        "想著好結果，也會留個下雨辦法",
+        "你通常能想到可能順利的一面。",
+        "期待戶外活動如期舉行的同時，你也準備室內場地。"
+      ]
+    },
+    "faq": [
+      [
+        "題目出自哪裡？",
+        "IPIP公開的10題樂觀題本。"
+      ],
+      [
+        "10題怎麼算？",
+        "各題1到5分，六題反向計分為6減原分。"
+      ],
+      [
+        "分界點要讀哪段？",
+        "18、26、34、42分時，相鄰兩段一起讀。"
+      ],
+      [
+        "可選不計分嗎？",
+        "可以，只要一題沒有數值，總分和平均就不顯示。"
+      ],
+      [
+        "可用來判斷情緒狀況嗎？",
+        "只回顧自己對這些題目的預期。"
+      ],
+      [
+        "分享有個人答案嗎？",
+        "可分享公開入口或指南，不附題目作答或分數。"
+      ]
+    ],
+    "formula": "10題全有分才顯示10至50的總分與1至5的平均。六題反向以6減原分。分界點會保留相鄰兩份指南。",
+    "boundary": "英文題採用IPIP公開題本，中文為本站工作譯文。五段是網站讀法，不用於診斷情緒、評量應對能力或建立常模。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Optimism Test uses ten public-domain IPIP items and takes about three minutes. It provides a raw total, mean, and five public guides to reading everyday expectations. A score exactly on a boundary retains both adjacent guides. Readers can leave an item unscored and explore all of the guides without creating an account or posting their answers to a public link.",
+    "intro": "When an outcome is still unknown, do you expect things to go well or want to check where they might get difficult first? Answer for how you generally are.",
+    "deliverables": [
+      [
+        "Raw total and mean",
+        "See the total from 10 to 50 and mean from 1 to 5."
+      ],
+      [
+        "Two guides at a boundary",
+        "Totals of 18, 26, 34, and 42 keep the adjacent readings."
+      ],
+      [
+        "Five public guides",
+        "Read a familiar situation without filling out the quiz."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Check what you know so far",
+        "A concern can be broken into facts and things still to find out."
+      ],
+      [
+        "Read similar totals with care",
+        "Different responses can add up to the same number."
+      ],
+      [
+        "Keep a backup while expecting things to go well",
+        "A hopeful expectation and another plan can both fit."
+      ]
+    ],
+    "profiles": {
+      "lower": [
+        "Start with what can be checked",
+        "You may hold back until you know more about an outcome.",
+        "Before joining a project, you ask when its timetable will be confirmed."
+      ],
+      "lower-middle": [
+        "Ask one question where you have uncertainty",
+        "You can look for the missing detail without assuming an outcome.",
+        "A short message leaves you unsure, so you ask if the original time still stands."
+      ],
+      "middle": [
+        "Make room for different outlooks",
+        "You may have different expectations in different settings, even with the same total.",
+        "You look forward to a trip and allow extra time for a train change."
+      ],
+      "upper-middle": [
+        "Turn a promising possibility into a next step",
+        "You can expect a good outcome and still ask how to prepare for it.",
+        "You hear of a new course and look up the registration date."
+      ],
+      "higher": [
+        "Expect a good day and keep a second plan",
+        "You often see a favorable outcome as possible.",
+        "Before a picnic, you choose an indoor spot in case of rain."
+      ]
+    },
+    "faq": [
+      [
+        "Which items are used?",
+        "Ten items from the public-domain IPIP Optimism scale."
+      ],
+      [
+        "How are they scored?",
+        "Ratings run from 1 to 5. Six reverse items use six minus the selected value."
+      ],
+      [
+        "What happens at a boundary?",
+        "Totals of 18, 26, 34 and 42 retain both adjacent guides."
+      ],
+      [
+        "Can I leave something unscored?",
+        "Yes. Any unscored item withholds the total and mean."
+      ],
+      [
+        "Can this assess my mental health?",
+        "The reading describes how you answered these statements about expectations."
+      ],
+      [
+        "Can I share my scores?",
+        "The public links do not carry item answers or raw scores."
+      ]
+    ],
+    "formula": "Both the total from 10 to 50 and mean from 1 to 5 need all ten ratings. Six items are reversed. Exact totals of 18, 26, 34 and 42 open both adjacent guides.",
+    "boundary": "The site uses public-domain IPIP items with a working Chinese translation. Its five reading bands are a presentation convention, without clinical cutoffs or population norms."
+  }
+}

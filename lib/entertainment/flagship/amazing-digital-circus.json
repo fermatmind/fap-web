@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的神奇数字马戏团角色测试有18道原创手作舞台情境题，约5分钟，免注册。答完可免费看六位角色的选择次数和并列结果。公开指南可直接阅读。",
+    "intro": "朋友邀你来玩一场纸板舞台小活动，你会先弄清楚怎么加入、提一个好笑的点子，还是帮刚到的人找个位置？用约 5 分钟回答 18 道原创情境题，看看你的选择更接近哪种角色视角。",
+    "deliverables": [
+      [
+        "看六位角色各有几次",
+        "每题加 1，合计 18。最高并列时，所有对应读法都会显示。"
+      ],
+      [
+        "免费读六份角色指南",
+        "波姆尼、贾克斯、拉嘉莎、甘格、金格、祖布都有完整公开指南。"
+      ],
+      [
+        "复制角色名称和公开链接",
+        "单项最高可复制对应指南。并列时复制全部最高名称和测试入口，不附答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "波姆尼最高，12 次",
+        "六项依次为 12、3、3、0、0、0。这个样张每逢有机会，就选择先问清楚怎么入场。"
+      ],
+      [
+        "贾克斯和祖布各 6 次",
+        "六项为 2、6、1、1、2、6。你可以比较开个大家都愿意玩的玩笑，以及自己决定参与范围。"
+      ],
+      [
+        "全选 A，六项都是 3 次",
+        "每种视角在 A 位各出现三次。结果会保留六份指南，具体情境更能帮助回看选择。"
+      ]
+    ],
+    "profiles": {
+      "pomni": [
+        "先问怎么加入",
+        "你这次常选了解活动怎么开始，问清楚后再决定做什么。",
+        "初次走进纸板舞台时，你先问哪一轮能加入、有哪些材料可拿。"
+      ],
+      "jax": [
+        "抛一个大家愿意接的荒诞点子",
+        "你这次常选邀请大家试个轻松的新玩法。",
+        "排练时，你提议让纸板鱼主持节目，也问其他人想不想一起演。"
+      ],
+      "ragatha": [
+        "把欢迎变成一个能选的邀请",
+        "你这次常选先照顾新来的人的真实意愿，给他们几种加入方式。",
+        "有人迟到时，你告诉他可以帮翻场景、做道具，或先坐着看一会。"
+      ],
+      "gangle": [
+        "把画面的情绪设计出来",
+        "你这次常选用颜色或舞台布置表达自己想要的气氛。",
+        "表演换场时，你给下一幕选浅蓝背景和圆形道具，让画面安静一点。"
+      ],
+      "kinger": [
+        "从小细节开始看",
+        "你这次常选留意其他人可能扫过去的日常细节。",
+        "搭好纸板场景后，你注意到拐角有个小窗，便问它要不要留给故事。"
+      ],
+      "zooble": [
+        "把自己的参与范围说清楚",
+        "你这次常选自己决定加入哪一段和做到哪一步。",
+        "大家邀请你上台时，你说愿意帮忙画布景，想先坐在台下看演出。"
+      ]
+    },
+    "faq": [
+      [
+        "这包含所有角色吗？",
+        "这一版选择波姆尼、贾克斯、拉嘉莎、甘格、金格和祖布，共六位。"
+      ],
+      [
+        "要看过原作才能做吗？",
+        "不需要。题目是原创手作舞台活动，不考剧集台词或剧情。"
+      ],
+      [
+        "18 道题怎样计数？",
+        "四选一，给对应角色加 1。每位出现 12 次，单项 0–12，合计 18。"
+      ],
+      [
+        "如果同为最高怎么办？",
+        "全部最高结果都保留。全选 A 时六位角色各 3 次，会出现六份指南。"
+      ],
+      [
+        "结果会反映真实焦虑或应对压力的方法吗？",
+        "题目记录自愿的兴趣选择，不能评估创伤、焦虑、压力应对、耗竭或心理健康。"
+      ],
+      [
+        "保存或分享会带上答案吗？",
+        "复制的是公开名称和链接，不含答案、次数或私人标识。本版没有个人 PNG。"
+      ]
+    ],
+    "formula": "18 题每题四选一，给相应角色加 1。每位角色出现 12 次，加起来是 18，单项 0–12。同为最高时都保留。",
+    "boundary": "这是费马独立编写的非官方同人娱乐问卷。GLITCH 和 Netflix Tudum 的资料用于核对作品及角色名称。纸板舞台情境是原创设计，不用角色行为判断真实心理或安全应对。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的神奇數位馬戲團角色測驗有18道原創手作舞台題，約5分鐘，免註冊。答完可免費看六位角色的次數和並列結果，六篇公開指南也能直接閱讀。",
+    "intro": "朋友揪你來玩紙板舞台，你會先問怎麼加入、想一個大家都能玩的怪點子，還是讓第一次來的人知道能做什麼？花約 5 分鐘回答 18 道情境題，看看這次的選擇比較像哪個角色主題。",
+    "deliverables": [
+      [
+        "看六位角色各被選幾次",
+        "每題加 1，合計 18。同為最高的角色會一起出現。"
+      ],
+      [
+        "免費讀六篇公開指南",
+        "波姆尼、賈克斯、拉嘉莎、甘格、金格和祖布各有一篇，還沒作答也能讀。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "只有一位最高會分享角色名與指南。並列時複製全部最高名稱和測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "波姆尼最高，12 次",
+        "六項依序是 12、3、3、0、0、0。這份範例選擇先確認活動流程，再決定怎麼加入。"
+      ],
+      [
+        "賈克斯和祖布並列，各 6 次",
+        "六項依序為 2、6、1、1、2、6。可以比較先邀大家玩個怪點子，和先把自己願意做的部分講清楚。"
+      ],
+      [
+        "一路選 A，六位角色各 3 次",
+        "每種做法在 A 位各出現三次，六篇指南都會列出。可以再回頭看各題的情境。"
+      ]
+    ],
+    "profiles": {
+      "pomni": [
+        "先弄懂怎麼參加",
+        "你比較常選把流程和材料問清楚，再決定怎麼玩。",
+        "剛到手作舞台時，你先問哪一輪空得出位置、桌上的材料能不能拿。"
+      ],
+      "jax": [
+        "想到怪點子就問大家要不要玩",
+        "你比較常選提一個有趣的荒誕做法，邀有興趣的人一起試。",
+        "排戲時，你想讓紙板魚來主持，先問夥伴想不想一起演。"
+      ],
+      "ragatha": [
+        "讓新來的人挑想做的事",
+        "你比較常選招呼別人，讓他們知道可以用自己舒服的方式加入。",
+        "有人來晚了，你告訴他可以幫換布景，也可以先坐一會兒。"
+      ],
+      "gangle": [
+        "替這一幕挑一種畫面感",
+        "你比較常選用顏色和形狀，把自己要的氣氛表達出來。",
+        "準備下一幕時，你挑了淺藍背板和圓形道具，讓場景看起來安靜些。"
+      ],
+      "kinger": [
+        "發現一個容易錯過的小細節",
+        "你比較常選慢慢看身邊的小東西，再想它是不是能用在故事裡。",
+        "紙板場景搭好後，你注意到轉角有一扇小窗，想問大家要不要留著。"
+      ],
+      "zooble": [
+        "選好自己想參加哪一段",
+        "你比較常選自己決定負責多少，在合適的範圍裡加入。",
+        "夥伴邀你上台時，你說想先在台下看，也可以幫忙畫背景。"
+      ]
+    },
+    "faq": [
+      [
+        "測驗包含動畫裡的全部角色嗎？",
+        "本版選了六位角色，包括波姆尼、賈克斯、拉嘉莎、甘格、金格及祖布。"
+      ],
+      [
+        "沒看過動畫也可以嗎？",
+        "可以。題目是原創的紙板舞台活動，不用回想動畫台詞或情節。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，替選到的角色加 1。每位出現 12 次，單項 0–12，總數 18。"
+      ],
+      [
+        "同分會選一位出來嗎？",
+        "最高同分的角色都會列出。全選 A 時六位各 3 次，會顯示全部指南。"
+      ],
+      [
+        "結果可以看出焦慮或創傷嗎？",
+        "不能。題目只整理目前想參與哪些活動，無法評估焦慮、創傷、倦怠或壓力因應能力。"
+      ],
+      [
+        "分享會附作答或個人圖卡嗎？",
+        "複製的是公開名稱及連結，不含答案、次數或個人識別資料。這版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "18 題各選一個做法，替相應角色記 1 次。六位角色各出現 12 次，個別 0–12，合計 18。同為最高都保留。",
+    "boundary": "這是費馬獨立編寫的非官方同人測驗。GLITCH 和 Netflix Tudum 的資料只供核對作品及角色名稱。紙板舞台是本站原創情境，結果無法判斷心理健康、創傷或真實壓力下的反應。"
+  },
+  "en": {
+    "facts": "FermatMind’s Amazing Digital Circus Test uses 18 original scenarios about a cardboard stage activity. It takes about five minutes and is free without registration. Results show counts for six characters and retain every tie for the highest count. Six public guides can be read before answering. The questions do not require any knowledge of the show’s story. All complete results are free.",
+    "intro": "Friends invite you to a cardboard stage festival. Would you ask how to join, suggest something silly, or make it easier for someone new to take part? Answer 18 original questions to see which character lenses fit this attempt. The complete result is free.",
+    "deliverables": [
+      [
+        "See the six character counts",
+        "Each choice adds one and the six counts total 18. Every character tied at the top is shown."
+      ],
+      [
+        "Read all six public guides",
+        "Each character has a complete guide you can read before taking the quiz."
+      ],
+      [
+        "Share a public name and link",
+        "One leader shares its guide. A tie shares the leading names and the quiz page, with no answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Pomni leads at 12",
+        "The counts are 12, 3, 3, 0, 0, and 0. The sample chose to ask how to join whenever that choice appeared."
+      ],
+      [
+        "Jax and Zooble tie at 6 each",
+        "The counts are 2, 6, 1, 1, 2, and 6. One guide looks at proposing absurd play, and the other looks at choosing your own terms for joining."
+      ],
+      [
+        "All A: six characters with 3 each",
+        "Each character appears three times in position A, so all six guides appear. Consider what each situation asked rather than the letter alone."
+      ]
+    ],
+    "profiles": {
+      "pomni": [
+        "Ask how you can join",
+        "You often chose to check what happens first before deciding what to do.",
+        "When you arrive at the stage, you ask which part you can join and what materials you can use."
+      ],
+      "jax": [
+        "Make a silly idea an invitation",
+        "You often chose to offer a playful idea and see whether the others wanted to try it.",
+        "During a rehearsal, you suggest a cardboard fish as the host and ask who wants to play along."
+      ],
+      "ragatha": [
+        "Offer an easy way in",
+        "You often chose to invite people in and let them say what they wanted to do.",
+        "When someone comes in late, you say they can move scenery, make a prop, or sit and watch."
+      ],
+      "gangle": [
+        "Give the scene a visual tone",
+        "You often chose to express a mood with color, shape, or scenery.",
+        "Before a new scene, you pick a blue backdrop and round props to bring down the energy."
+      ],
+      "kinger": [
+        "Notice one small thing",
+        "You often chose to watch for an ordinary detail the group might pass by.",
+        "After the set goes up, you spot a little window in the corner and ask if it could have a place in the story."
+      ],
+      "zooble": [
+        "Decide what part you want to take",
+        "You often chose to join on terms that fit what you wanted to do.",
+        "When friends ask you to go on stage, you offer to paint the backdrop and watch the performance from your seat."
+      ]
+    },
+    "faq": [
+      [
+        "Does this quiz cover the whole cast?",
+        "This edition includes Pomni, Jax, Ragatha, Gangle, Kinger, and Zooble."
+      ],
+      [
+        "Can I take it without seeing the show?",
+        "Yes. The situations use an original cardboard stage activity, without episode or dialogue questions."
+      ],
+      [
+        "How are the 18 questions counted?",
+        "Each choice adds one to its character. Each character appears 12 times, so counts are 0–12 and add to 18."
+      ],
+      [
+        "What if several characters tie?",
+        "Every highest tie appears with its complete guide. Choosing A throughout gives each character three counts."
+      ],
+      [
+        "Does the result reflect real coping or mental health?",
+        "The options concern an activity you can join by choice. Counts cannot establish coping ability, trauma, anxiety, burnout, or mental health."
+      ],
+      [
+        "Does sharing send my answers?",
+        "Copying shares public names and links, without answers, counts, or private identifiers. There is no personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 18 scenarios. Each choice adds one to its character. The six characters appear 12 times each, so the counts range from 0 to 12 and total 18. All highest ties are kept.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. GLITCH and Netflix Tudum provide the series and character names. The cardboard stage is an original setting. Choices cannot establish real coping, trauma, or mental health."
+  }
+}

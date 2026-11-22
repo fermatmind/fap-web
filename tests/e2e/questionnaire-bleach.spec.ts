@@ -50,7 +50,7 @@ for (const locale of ["en", "zh"] as const) {
     page.on("request", request => { if (request.method() === "POST" && /BLEACH_[0-9]{2}/.test(request.postData() ?? "")) posts.push(request.url()); });
     await page.goto(`/${locale}/tests`); await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
-    await expect(page.getByText(zh ? "原创象征测验 · 完整结果免费" : "Original symbolic quiz · Full results free", { exact: true })).toBeVisible();
+    await expect(page.getByText(zh ? "21 题 · 约 7 分钟 · 免费免注册" : "21 questions · about 7 minutes · free, no sign-up", { exact: true })).toBeVisible();
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.getByRole("link", { name: zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions" })).toHaveCount(0);

@@ -194,3 +194,22 @@
   .radar { max-width: 350px; }
   .readingsLink { display: none; }
 }
+
+.previewChart { padding: .5rem .25rem 0; border-radius: .65rem; box-shadow: none; }
+.previewLegend { display: flex; justify-content: center; flex-wrap: wrap; gap: .25rem 1rem; font-size: 12px; line-height: 1.5; }
+.previewLegend span:first-child { color: #f19ba1; }
+.previewLegend span:last-child { color: #f5d799; }
+.previewChart .radar { max-inline-size: 390px; }
+.previewMetrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .35rem; margin-block-start: .75rem; }
+.previewMetrics div { border-block-start: 1px solid #9a8260; padding: .45rem .2rem 0; }
+.previewMetrics dt { color: #ebcca0; font-size: .74rem; }
+.previewMetrics dd { font-size: .87rem; font-weight: 750; overflow-wrap: anywhere; }
+.stickyStart {
+  position: fixed; z-index: 40; inset-inline: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: .45rem;
+  min-block-size: 56px; padding: .25rem max(1rem, calc((100% - 72rem)/2));
+  background: #eef5f0; color: #16392b; border-block-end: 1px solid #c9dcd3;
+  font-size: .86rem; font-weight: 720; box-shadow: 0 4px 12px #17291e16;
+}
+.stickyButton { padding: .5rem .7rem; min-block-size: 44px; border-radius: .45rem; background: #145840; color: #fff; white-space: nowrap; cursor: pointer; }
+@media print { .stickyStart { display: none; } }

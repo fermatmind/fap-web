@@ -1,0 +1,338 @@
+{
+  "zh": {
+    "facts": "费马测试的价值观测试用30道原创题回顾十类生活目标的重要程度，约6分钟。免费提供各项原始均分、完整答卷的相对读数、题数和十份公开情境指南。",
+    "intro": "你想试点新鲜的，也想知道几点能回家？两种目标都可能重要。先看各自评分，再看它们与你这次整体评分的距离。",
+    "deliverables": [
+      [
+        "十类原始均分",
+        "每类三道题都有效才显示。"
+      ],
+      [
+        "相对值和个人基线",
+        "30题均有效时，可与自己这次的整体平均比较。"
+      ],
+      [
+        "十份生活指南",
+        "看看具体做法可能服务于哪些目标。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看原始重要程度",
+        "整体打分很高时，相对值低也可以仍然重要。"
+      ],
+      [
+        "找到同一次选择的几项目标",
+        "例如新体验也可以有清楚的安全条件。"
+      ],
+      [
+        "部分答卷仍有收获",
+        "一题不计分时其他完整组仍显示原始均分。"
+      ]
+    ],
+    "profiles": {
+      "self-direction": [
+        "自己挑想走的路",
+        "你想让选择来自自己的想法。",
+        "选兴趣课时，你按自己想学的内容报名。"
+      ],
+      "stimulation": [
+        "找一次新尝试",
+        "你在意生活里有变化与挑战。",
+        "周末你想去走一段没去过的路线。"
+      ],
+      "hedonism": [
+        "给享受留时间",
+        "你珍惜事情本身带来的愉快。",
+        "你挑一下午慢慢做顿喜欢的饭。"
+      ],
+      "achievement": [
+        "做出值得认可的成果",
+        "你在意一件事做成之后的认可。",
+        "你想把共同作品完成到足以展示。"
+      ],
+      "power": [
+        "想清怎么调动资源",
+        "你在意对安排或资源有多少决定空间。",
+        "接手新项目时，你先问能决定哪些预算。"
+      ],
+      "security": [
+        "留住可靠的日常",
+        "你在意生活安排是否稳定。",
+        "你为下周出行确认交通，并留一套备用时间。"
+      ],
+      "conformity": [
+        "看见与他人的约定",
+        "你考虑自己的做法会怎样影响现场规则。",
+        "活动开始前，你按约把手机调成静音。"
+      ],
+      "tradition": [
+        "把值得延续的做法留住",
+        "你愿意按对你重要的习惯行事。",
+        "节日时，你和家人准备一道有共同记忆的菜。"
+      ],
+      "benevolence": [
+        "关心熟悉的人过得怎样",
+        "你愿意留时间照顾近处的人。",
+        "你去看看最近脚伤的朋友需不需要带饭。"
+      ],
+      "universalism": [
+        "把关心放到更广的范围",
+        "你愿意考虑陌生人或环境受到的影响。",
+        "计划活动时，你问无障碍入口和天气影响。"
+      ]
+    },
+    "faq": [
+      [
+        "这是官方施瓦茨题本吗？",
+        "十类概念作背景，30道直接评分题为费马原创。"
+      ],
+      [
+        "一组怎么计分？",
+        "三项1–5的分数平均，缺一项就不报该组。"
+      ],
+      [
+        "相对值怎么算？",
+        "每类未舍入的均分减自己这次全部30题的均分。"
+      ],
+      [
+        "一题不计分会怎样？",
+        "对应组无原始均分，全卷不报告整体基线和相对值。"
+      ],
+      [
+        "相对负值表示不重视吗？",
+        "只表示比本人这次整体平均低，应和原始均分一起读。"
+      ],
+      [
+        "共享会带读数吗？",
+        "公开链接只打开同语测试，不包含评分。"
+      ]
+    ],
+    "formula": "每类3题，1–5分且无反向，完整三题才出原始均分。全部30题有效时，才用各类原始均分减整体均分得到相对值，计算过程不提前舍入。",
+    "boundary": "本站独立编写题目，理论名称和研究出处只作概念背景。读数不用于招聘、道德排序、诊断或换算其他测评。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的價值觀測驗以30道原創題比較十類生活目標的重要程度，約6分鐘。免費提供原始平均、完整填答的相對讀數、有效題數與十份公開情境指南。",
+    "intro": "你想找點新鮮事，也在意怎麼準時回家？兩種考量可以都重要。先讀各自的原始平均，再看它們與你這次整體讀數的差。",
+    "deliverables": [
+      [
+        "十類原始平均",
+        "各類三題都計入才顯示。"
+      ],
+      [
+        "自己的整體基線",
+        "30題都有分才會顯示相對於自己整體的讀數。"
+      ],
+      [
+        "十份公開指南",
+        "以各種生活選擇說明這十個方向。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看原始分數",
+        "相對平均偏低的目標仍可能很重要。"
+      ],
+      [
+        "把幾種考量留在同一張桌上",
+        "一段小旅行可以想去新地方，也想保證回程。"
+      ],
+      [
+        "有一題沒評也能看完整指南",
+        "其他原始平均完整的組照樣保留。"
+      ]
+    ],
+    "profiles": {
+      "self-direction": [
+        "照自己的想法選",
+        "你在意可以自己決定怎麼做。",
+        "選課時，你挑一門自己一直想學的技能。"
+      ],
+      "stimulation": [
+        "替生活加一點變化",
+        "你想找些新體驗或能嘗試的挑戰。",
+        "你週末想走一條以前沒去過的步道。"
+      ],
+      "hedonism": [
+        "給自己一點好好享受的時間",
+        "你重視吃一頓喜歡的飯或完成有趣的小事。",
+        "你選一個下午烤想吃很久的餅乾。"
+      ],
+      "achievement": [
+        "完成一件願意拿出來的事",
+        "你在意伙伴看見你為成果付出的心力。",
+        "你想把共同作品完成到能公開展出。"
+      ],
+      "power": [
+        "先確認可以決定的範圍",
+        "你在意事情和資源能不能按你的判斷調配。",
+        "接新任務時，你先確認誰管預算與決策。"
+      ],
+      "security": [
+        "把生活排得可靠",
+        "你在意交通、時間和日常有沒有穩定安排。",
+        "出門前你備好回程方式及替代路線。"
+      ],
+      "conformity": [
+        "將他人的期待也算進來",
+        "你會想自己的做法對共同約定有什麼影響。",
+        "進閱覽區時，你先把手機關靜音。"
+      ],
+      "tradition": [
+        "留下一個延續的做法",
+        "你願意保留重要的習俗和家人的記憶。",
+        "過節時，你照家裡的方式準備一道菜。"
+      ],
+      "benevolence": [
+        "照顧身邊的人",
+        "你會想到朋友和家人現在需要什麼。",
+        "好友受傷時，你問要不要順便幫他買晚餐。"
+      ],
+      "universalism": [
+        "把關心放得更遠",
+        "你考量生活決定對別人或環境的影響。",
+        "辦活動時，你找有無障礙出入口的地點。"
+      ]
+    },
+    "faq": [
+      [
+        "是官方Schwartz題本嗎？",
+        "十類概念作為背景，30道題由費馬原創。"
+      ],
+      [
+        "每項原始平均怎麼算？",
+        "每項三題各1到5分，三題都有效就算平均。"
+      ],
+      [
+        "相對讀數代表什麼？",
+        "單項原始平均減你這次30道題的平均。"
+      ],
+      [
+        "少一題有影響嗎？",
+        "不提供整體基線和任一相對讀數，其他完整組別照樣顯示。"
+      ],
+      [
+        "負的相對讀數代表不重視嗎？",
+        "只是低於這次自己的整體平均，也可以有高的原始重要程度。"
+      ],
+      [
+        "分享會帶出結果嗎？",
+        "只會連到同語言的公開測驗。"
+      ]
+    ],
+    "formula": "30題服務十類目標。各類三題，1到5分，全部有效才有原始平均。所有30題皆有分，才會用各類原始平均減自己的整體平均。不先四捨五入。",
+    "boundary": "十類概念是理論背景，網頁題本為原創。讀數供回想自己的優先事項，不用來篩選他人、判斷性格或道德。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Values Test uses 30 original questions to reflect on the importance of ten kinds of life goals. It takes about six minutes and reports raw averages, rated item counts, and ten public guides. With all 30 items rated, it also shows how each value compares with the reader’s own overall average. Readers can use the guides without an account.",
+    "intro": "You can want a new experience and still care about getting home on time. Rate each priority on its own, then see where it falls relative to your own overall ratings.",
+    "deliverables": [
+      [
+        "Ten raw averages",
+        "Each value uses three rated items."
+      ],
+      [
+        "A personal comparison baseline",
+        "All 30 items need ratings to show within-person differences."
+      ],
+      [
+        "Ten public guides",
+        "Follow concrete examples of the goals behind common decisions."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Read raw importance first",
+        "Below your personal baseline can still mean very important on the 1 to 5 scale."
+      ],
+      [
+        "Find two goals in one decision",
+        "A good plan may allow both something new and a reliable finish time."
+      ],
+      [
+        "Keep incomplete results open",
+        "Raw averages from other complete groups can still appear."
+      ]
+    ],
+    "profiles": {
+      "self-direction": [
+        "Choose what you want to learn",
+        "You care about directing your own approach.",
+        "You pick a class because you have wanted to learn that skill for years."
+      ],
+      "stimulation": [
+        "Try something unfamiliar",
+        "You value new experiences and challenges.",
+        "You take an unfamiliar trail on the weekend."
+      ],
+      "hedonism": [
+        "Make room to enjoy something",
+        "You value the pleasure of an activity itself.",
+        "You make a slow meal you have been looking forward to."
+      ],
+      "achievement": [
+        "Make something others can recognize",
+        "You value taking a goal far enough to show the result.",
+        "You finish a shared work to the standard needed for an exhibition."
+      ],
+      "power": [
+        "Notice who can allocate resources",
+        "You value having scope to decide how resources are used.",
+        "Before taking on a project you ask which budgets you can control."
+      ],
+      "security": [
+        "Plan for dependable conditions",
+        "You care about stability in your routine.",
+        "You check how to get home and keep an alternative route in reach."
+      ],
+      "conformity": [
+        "Consider the expectations that apply",
+        "You take other people and their everyday rules into account.",
+        "You silence your phone before joining a shared reading session."
+      ],
+      "tradition": [
+        "Keep a practice that means something",
+        "You consider the customs you want to maintain.",
+        "You make an old family dish together on a holiday."
+      ],
+      "benevolence": [
+        "Look after people close to you",
+        "You value care for people in your immediate circle.",
+        "You ask an injured friend whether they need anything from the shop."
+      ],
+      "universalism": [
+        "Extend concern beyond your circle",
+        "You can consider how a choice affects others you do not know and the environment.",
+        "You choose a venue that is accessible to more visitors."
+      ]
+    },
+    "faq": [
+      [
+        "Is this an official Schwartz questionnaire?",
+        "The classic ten values are conceptual background. The 30 direct-importance questions are original."
+      ],
+      [
+        "How does a group get a raw average?",
+        "All three items need ratings from 1 to 5."
+      ],
+      [
+        "What is the relative reading?",
+        "The category’s unrounded mean minus your overall 30-item average."
+      ],
+      [
+        "What happens with a skipped rating?",
+        "Its group has no raw average and no relative scores or overall mean appear."
+      ],
+      [
+        "Does a negative relative number mean a value is unimportant?",
+        "It means it is below your own overall average in this run. Check the raw mean too."
+      ],
+      [
+        "Can I share my ratings?",
+        "The share link opens the same-language public quiz without your own scores."
+      ]
+    ],
+    "formula": "A raw mean requires three ratings from 1 to 5. With all 30 items rated, subtract the unrounded overall average from each unrounded value average for the relative reading.",
+    "boundary": "The original questions use a conceptual framework as background. Use the readings for personal reflection without treating them as norms, morality scores, or results for a different assessment."
+  }
+}

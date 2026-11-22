@@ -1,0 +1,323 @@
+{
+  "zh": {
+    "facts": "费马测试的道德阵营测试用24道原创二选一题比较守序与混乱、善良与邪恶两条轴，约7分钟。免费查看九个阵营指南、边界匹配和本地个人图卡。",
+    "intro": "社团临时调整一项约定时，你更愿意先遵循已有程序，还是尝试可行的替代？阵营是阅读虚构做法的工具，可以从两个方向分开想。",
+    "deliverables": [
+      [
+        "两条独立的选择轴",
+        "守序与混乱、善良与邪恶每轴12题。"
+      ],
+      [
+        "九份指南和边界匹配",
+        "每条轴的边界可能打开不止一份阵营读法。"
+      ],
+      [
+        "本地个人PNG",
+        "图卡显示本次阵营与汇总，公开链接不含答卷。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看你选的规则",
+        "做法是否合乎既有约定，由守序轴记录。"
+      ],
+      [
+        "再看行动如何影响别人",
+        "用第二条轴观察题目中的代价分配。"
+      ],
+      [
+        "边界给相邻阵营留位置",
+        "两条轴都踩到界线时，可同时读四份。"
+      ]
+    ],
+    "profiles": {
+      "lawful-good": [
+        "让准则照顾到人",
+        "你会考虑怎样在共同约定里回应真实需要。",
+        "义卖有人临时缺帮手，你按原分工流程替他安排协助。"
+      ],
+      "neutral-good": [
+        "先看谁会受到影响",
+        "你会考虑眼前的帮助能不能真正到位。",
+        "朋友需要提前离场，你先和他确认怎样把资料交给别人。"
+      ],
+      "chaotic-good": [
+        "绕开不合用的办法",
+        "你会想出替代做法，也留意它是否帮得到人。",
+        "活动入口堵住时，你提议分流并请大家确认哪条路无障碍。"
+      ],
+      "lawful-neutral": [
+        "让规则可预期",
+        "你重视类似的情况能按相同规则处理。",
+        "小组调整轮值时，你先查原有顺序。"
+      ],
+      "true-neutral": [
+        "先把情境分开看",
+        "你会考虑哪些原则值得在眼前这件事坚持。",
+        "两项活动撞期，你说明自己能照顾哪一项。"
+      ],
+      "chaotic-neutral": [
+        "用自己的判断选路",
+        "你喜欢在约定范围内选择更合适的办法。",
+        "你不想做主持，主动提议承担器材。"
+      ],
+      "lawful-evil": [
+        "看清谁得利，谁承担",
+        "你可以回想自己在坚持安排时把代价留给了谁。",
+        "办活动时你发现原办法便利自己却让别人多走一趟。"
+      ],
+      "neutral-evil": [
+        "分清自己的需要和他人代价",
+        "你可以考虑有没有把自己方便放在对方没答应的位置。",
+        "你想晚一点交接，先看看是否需要别人额外等候。"
+      ],
+      "chaotic-evil": [
+        "回看没有商量的代价",
+        "你可以留意临时改法是否把负担交给了不知情的人。",
+        "你临时换计划前，先确认谁会因此多跑一趟。"
+      ]
+    },
+    "faq": [
+      [
+        "需要懂D&D吗？",
+        "不需要，九阵营提供虚构框架。"
+      ],
+      [
+        "两条轴有几题？",
+        "各12题，共24题，选中一端加1。"
+      ],
+      [
+        "边界值怎么读？",
+        "每轴正端次数为4或8时，保留相邻两段并做组合。"
+      ],
+      [
+        "名字能评价道德吗？",
+        "阵营是虚构分类。拒绝不合理要求、照顾自己和保留边界本身不等于邪恶。"
+      ],
+      [
+        "可以存图卡吗？",
+        "本地可保存个人PNG，浏览器支持时可分享。"
+      ],
+      [
+        "公开链接带答案吗？",
+        "不会带答案或计数，仅连接同语入口或公开指南。"
+      ]
+    ],
+    "formula": "守序与混乱、善良与邪恶各12次。按守序、善良次数读区间，4与8保留邻段，再组合两轴。",
+    "boundary": "参考D&D的SRD 5.2.1九阵营设定，题文和计数由费马原创。结果是虚构阅读，不评价现实中的道德、性格或临床状态。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的道德陣營測驗以24道原創二選一題比較守序與混亂、善良與邪惡，約7分鐘。免費提供九份陣營指南、分界組合及本機個人分享圖卡。",
+    "intro": "社團臨時想改一項約定，你會順著原本的程序，還是準備另一種可能？先看題目裡的做法，再分開讀兩條軸。",
+    "deliverables": [
+      [
+        "兩條軸分開計",
+        "守序或混亂、善良或邪惡，各12次選擇。"
+      ],
+      [
+        "九份指南與分界結果",
+        "分數剛好落在分界時保留相鄰做法。"
+      ],
+      [
+        "本機個人分享圖卡",
+        "在瀏覽器生成PNG，公開連結不會附上作答。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先想現有約定有哪些",
+        "遇到規則時，你可能先照原辦法，也可能想替代做法。"
+      ],
+      [
+        "再看誰會受影響",
+        "分開想你有什麼需要、有哪些代價交給了別人。"
+      ],
+      [
+        "分界可以讀好幾份",
+        "兩軸都在分界時，同時可能有四份指南。"
+      ]
+    ],
+    "profiles": {
+      "lawful-good": [
+        "讓大家有能依靠的規則",
+        "你會在原本約定裡找照顧他人需要的方式。",
+        "公益活動臨時少一人，你用原有通報方式安排協助。"
+      ],
+      "neutral-good": [
+        "先看對人有沒有幫助",
+        "你會用他人實際需要確認做法。",
+        "朋友要早走，你問有哪些事希望別人接手。"
+      ],
+      "chaotic-good": [
+        "換個方式讓人能參與",
+        "你會找新的途徑，也考量它對別人的影響。",
+        "原入口太擠，你提議另一條能讓輪椅通行的路。"
+      ],
+      "lawful-neutral": [
+        "把規則用得一致",
+        "你在意類似的事能依同一套規則處理。",
+        "輪值臨時有人請假，你先查原先說定的替補順序。"
+      ],
+      "true-neutral": [
+        "把每個情境先看清楚",
+        "你會留意這一次自己真正要守住什麼。",
+        "活動撞期時，你先說清楚今天能幫哪邊。"
+      ],
+      "chaotic-neutral": [
+        "自己選一個能接受的方式",
+        "你看重保留選擇，同時把參與方法講清楚。",
+        "你不接主持，改問能不能幫忙備器材。"
+      ],
+      "lawful-evil": [
+        "看見規則把負擔給了誰",
+        "你可以檢查既有安排是否讓別人付出未同意的代價。",
+        "場地變動時，你發現有人因此要多換一次車。"
+      ],
+      "neutral-evil": [
+        "把自己的需要說清楚",
+        "你能留意想要方便時，別人會不會得多做一些事。",
+        "延後交接前，你先問同伴願不願意晚點等。"
+      ],
+      "chaotic-evil": [
+        "改流程前先問誰會被影響",
+        "你可以回頭確認是不是把代價加在沒有選擇的人身上。",
+        "臨時要改時間，你先問哪些人可能因此白跑。"
+      ]
+    },
+    "faq": [
+      [
+        "沒玩過D&D可以嗎？",
+        "可以。九陣營是虛構讀法。"
+      ],
+      [
+        "兩軸怎麼算？",
+        "各12道二選一，選到的一端加1。"
+      ],
+      [
+        "分界怎麼解讀？",
+        "守序或善良次數剛好是4或8時，該軸保留相鄰兩段。"
+      ],
+      [
+        "邪惡是對人的評價嗎？",
+        "詞語是遊戲陣營框架，拒絕不合理要求與保留界線不代表邪惡。"
+      ],
+      [
+        "可以儲存個人圖卡嗎？",
+        "可以本機生成PNG。瀏覽器支援時可分享圖片。"
+      ],
+      [
+        "公開連結會顯示作答嗎？",
+        "只會連到同語入口或公開指南，不附答案與次數。"
+      ]
+    ],
+    "formula": "24題，兩軸各12題。以守序和善良次數查區間，4與8同時保留相鄰區間，再組合兩軸結果。",
+    "boundary": "費馬依D&D SRD 5.2.1的九陣營概念原創題目與規則。結果只作虛構框架裡的閱讀，不用來評斷真實道德、人格或心理狀況。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Moral Alignment Quiz uses 24 original paired choices and takes about seven minutes. It describes law and chaos separately from good and evil, offers nine public alignment guides, and keeps every result allowed at a boundary. Readers can save a personal PNG in their browser and use any guide without an account or experience playing a tabletop roleplaying game.",
+    "intro": "A shared rule needs to change. Do you start with the existing agreement or try another way? Compare two axes through ordinary fictional choices.",
+    "deliverables": [
+      [
+        "Two independent axes",
+        "Twelve choices each for law versus chaos and good versus evil."
+      ],
+      [
+        "Nine guides and boundary matches",
+        "A count at an exact boundary keeps adjacent bands."
+      ],
+      [
+        "A local personal PNG",
+        "Save aggregate results without putting the answers in a public link."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Look at the approach to rules",
+        "Consider what the option does with an existing agreement."
+      ],
+      [
+        "Look at the effect on others",
+        "Ask who gains and who is asked to carry a cost."
+      ],
+      [
+        "Read the adjacent options at a boundary",
+        "With both axes on boundaries, up to four guides can fit."
+      ]
+    ],
+    "profiles": {
+      "lawful-good": [
+        "Let a rule support care",
+        "You consider how a shared process can address someone’s need.",
+        "When an event loses a volunteer, you find help through the existing handoff."
+      ],
+      "neutral-good": [
+        "Check how the help lands",
+        "You think about the person affected before committing to a solution.",
+        "A friend needs to leave early, and you ask what they want someone to take over."
+      ],
+      "chaotic-good": [
+        "Find another way to help",
+        "You can look for a new way while paying attention to its effects.",
+        "When a venue entrance is crowded, you propose another accessible route."
+      ],
+      "lawful-neutral": [
+        "Make a rule dependable",
+        "You value handling similar situations in a consistent way.",
+        "When a rota changes, you check the agreed order first."
+      ],
+      "true-neutral": [
+        "Give each case its own look",
+        "You can consider which commitments matter for this particular choice.",
+        "Two events overlap and you make clear which one you are able to help with."
+      ],
+      "chaotic-neutral": [
+        "Keep your own judgment",
+        "You can suggest a different role while being clear about how you will participate.",
+        "You turn down speaking and offer to prepare the equipment."
+      ],
+      "lawful-evil": [
+        "Notice who carries the cost",
+        "You can look at whether an arrangement benefits you while creating work for others.",
+        "When a venue changes, you notice who now needs to make an extra trip."
+      ],
+      "neutral-evil": [
+        "Distinguish a need from a cost shifted to someone else",
+        "You can ask whether another person agreed to take on the inconvenience.",
+        "Before changing a handoff, you check who would have to wait."
+      ],
+      "chaotic-evil": [
+        "Look back at costs people did not agree to",
+        "You can ask who would be affected by a sudden change.",
+        "Before changing a start time, you find out who might arrive at the wrong hour."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know D&D?",
+        "No. The quiz uses the nine fictional alignments as a framework."
+      ],
+      [
+        "How many choices shape each axis?",
+        "Each of the two axes has twelve choices, for 24 in total."
+      ],
+      [
+        "What is a boundary here?",
+        "Exactly four or eight choices for law or good keep both adjacent bands on that axis."
+      ],
+      [
+        "Does the result judge someone’s morality?",
+        "The names are fictional. Ordinary self-care and setting boundaries do not count as evil."
+      ],
+      [
+        "Can I save a personal card?",
+        "Yes. Your browser can generate a PNG and share it where the device supports that."
+      ],
+      [
+        "Do public links reveal my answers?",
+        "The links open a public guide or quiz in the same language without responses or counts."
+      ]
+    ],
+    "formula": "Twelve items count on each axis. Use the law and good counts to find their bands. Exact counts of four and eight retain adjacent bands before combining the axes.",
+    "boundary": "FermatMind wrote the scenarios and scoring with the D&D SRD 5.2.1 alignment framework as background. The result describes this fictional exercise rather than anyone’s morality, personality, or health."
+  }
+}

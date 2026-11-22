@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的数字数列推理练习用30道原创题练习五类明示的数列规则，约18分钟。免费查看分组正确数、参考答案、逐题演算与完整的公开练习指南。",
+    "intro": "差值每次相同，还是奇数位和偶数位各自走一条路？每题先看指定的规则范围，再补上中间或结尾的数字。",
+    "deliverables": [
+      [
+        "五组正确题数",
+        "固定差、固定比、变化差、交错与递推各6题。"
+      ],
+      [
+        "逐题演算",
+        "看中间步骤与题目指定的规则。"
+      ],
+      [
+        "五组公开指南",
+        "先查一种你不常用的数列手法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先写差值或比值",
+        "再确认所求项在第几个位置。"
+      ],
+      [
+        "交错时按位置拆开",
+        "奇数位和偶数位分别找规律。"
+      ],
+      [
+        "递推保留前几项",
+        "不要把上一项和前两项混用。"
+      ]
+    ],
+    "profiles": {
+      "difference": [
+        "核对每一段的差",
+        "你会把相邻差值先列出来。",
+        "5、8、11的练习里，你先确认两段都加3。"
+      ],
+      "ratio": [
+        "把倍数和符号一起写",
+        "你能保留正负与每一步的倍率。",
+        "翻倍的序列出现负项时，你检查题目允许的固定比值。"
+      ],
+      "gaps": [
+        "把变化放到第二行",
+        "你会找相邻差值怎样继续变化。",
+        "原数列加2再加4，你先把这两个差依次写下。"
+      ],
+      "interleave": [
+        "奇偶位置分开排",
+        "你能用位置帮自己找到两条规律。",
+        "你把第1、3、5项放到一行，把偶数位置放另一行。"
+      ],
+      "recurrence": [
+        "沿明确的递推关系走",
+        "你会找准每一步依赖哪几项。",
+        "题目说用前两项时，你不只看上一项的值。"
+      ]
+    },
+    "faq": [
+      [
+        "有多少道？",
+        "30题，五组各6道。"
+      ],
+      [
+        "为什么先限定规则？",
+        "给定条件可核对选项，不需要在所有可能规律里猜。"
+      ],
+      [
+        "有计时吗？",
+        "没有，18分钟是估计。"
+      ],
+      [
+        "怎么计分？",
+        "匹配参考答案记1，其他有效选择为0。"
+      ],
+      [
+        "能根据结果知道智商吗？",
+        "正确数只用于复习这些特定题目。"
+      ],
+      [
+        "分享带作答吗？",
+        "同语公开练习链接不带个人答案。"
+      ]
+    ],
+    "formula": "每题在明示规则范围内有唯一符合的选项。五组各6题，答对计1，无倒扣或时间分。",
+    "boundary": "这是按题定范围进行的数列演算练习。读数不换算智商或一般模式识别能力。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的數列推理練習以30道原創題練習五類明示的數列規則，約18分鐘。免費提供分組答對題數、參考答案、逐題演算與完整的公開練習指南。",
+    "intro": "相鄰兩項的差每次都一樣，還是奇數格和偶數格各有一套做法？先看題目說用哪種規則，再填缺的那一項。",
+    "deliverables": [
+      [
+        "五類各6題",
+        "固定差、固定比、變動差、交錯與遞迴分開看。"
+      ],
+      [
+        "逐題演算",
+        "每題有指定規則、選項和算式。"
+      ],
+      [
+        "五份公開指南",
+        "可以先挑一種常忘的做法閱讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先標出每一格的位置",
+        "比一比缺的是中間還是最後一項。"
+      ],
+      [
+        "把交錯系列分兩排",
+        "各自查奇數位置與偶數位置的變化。"
+      ],
+      [
+        "保留遞迴要用的項",
+        "改用上一項前，先看是否需要前兩項。"
+      ]
+    ],
+    "profiles": {
+      "difference": [
+        "把相鄰差列成一排",
+        "你會先看每次加減的量是否相同。",
+        "你檢查5到8、8到11兩段是不是都加3。"
+      ],
+      "ratio": [
+        "保留倍數的正負",
+        "你會依題目同時核對倍數與方向。",
+        "看到數列正負交錯，你把比值的符號一起算。"
+      ],
+      "gaps": [
+        "用差值找下一步",
+        "你可以把各段差值另寫一行。",
+        "看到相鄰增量先是2再是4，你接著查下一段。"
+      ],
+      "interleave": [
+        "把奇數與偶數位置分開",
+        "你會拆成兩條序列再比較。",
+        "你先把第1、3、5項標成同組。"
+      ],
+      "recurrence": [
+        "看清楚會用到前幾項",
+        "你能辨認所需的是上一項或前兩項。",
+        "規則要求前兩項時，你每次都把兩個值保留下來。"
+      ]
+    },
+    "faq": [
+      [
+        "共有幾題？",
+        "30道四選一，每組六題。"
+      ],
+      [
+        "為什麼先說明規則類型？",
+        "在題目設定的範圍內核對參考答案。"
+      ],
+      [
+        "有時間限制嗎？",
+        "沒有，約18分鐘只是參考。"
+      ],
+      [
+        "如何計分？",
+        "符合參考答案計1，其他有效選項為0。"
+      ],
+      [
+        "會換成智商嗎？",
+        "只記錄這幾組特定的數列作答。"
+      ],
+      [
+        "分享會出現我的答案嗎？",
+        "同語言公開連結不會分享個人資料。"
+      ]
+    ],
+    "formula": "30題分五組，每組6題。題面規則下吻合答案加1，無倒扣或速度調整。",
+    "boundary": "這是練習指定規則下的數列計算。結果不用來判定智商、學習潛力或常模百分位。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Number Series practice uses 30 original questions across five stated rule families. It takes about eighteen minutes and reports correct counts, worked answers, and complete public guides. Readers can practise finding missing terms with constant differences, ratios, changing gaps, interleaving, and recurrence without creating an account, racing a timer, or guessing which rule family the question intends them to use.",
+    "intro": "A sequence can add the same amount each time, or send the odd and even positions along different tracks. Use the stated rule family before choosing the missing number.",
+    "deliverables": [
+      [
+        "Five section counts",
+        "Each rule family has six items."
+      ],
+      [
+        "Worked answers",
+        "Review the selected term, stated conditions, and steps."
+      ],
+      [
+        "Five public guides",
+        "Read a rule family’s examples even without answering."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Write down the gap or ratio",
+        "Then check which position you have to fill."
+      ],
+      [
+        "Split interleaved positions",
+        "Put the odd and even positions on separate lines."
+      ],
+      [
+        "Carry the right earlier terms",
+        "Check whether the recurrence uses one term, two terms, or a constant."
+      ]
+    ],
+    "profiles": {
+      "difference": [
+        "Check each adjacent gap",
+        "You can put the differences on a line beneath the sequence.",
+        "With 5, 8, and 11, you check that both gaps are three."
+      ],
+      "ratio": [
+        "Keep the ratio and sign",
+        "You can track both the multiplier and whether it changes the sign.",
+        "For alternating signs, you check that the given rule allows a negative ratio."
+      ],
+      "gaps": [
+        "Use a second row for changes",
+        "You can look for how successive differences develop.",
+        "When the first gaps are two and four, you write those down before the next step."
+      ],
+      "interleave": [
+        "Split the sequence by position",
+        "You can separate odd terms from even terms before comparing.",
+        "You group positions one, three, and five on their own line."
+      ],
+      "recurrence": [
+        "Use every term the rule says to use",
+        "You can identify whether a step depends on one or two earlier terms.",
+        "If the recurrence refers to the previous two values, you keep both visible."
+      ]
+    },
+    "faq": [
+      [
+        "How many items are there?",
+        "Thirty, with six in each of the five sections."
+      ],
+      [
+        "Why does every task state a rule family?",
+        "The stated scope makes one offered value checkable under the given conditions."
+      ],
+      [
+        "Is the session timed?",
+        "No. Eighteen minutes is an estimate."
+      ],
+      [
+        "How does scoring work?",
+        "The keyed answer adds one; other valid choices add zero."
+      ],
+      [
+        "Does this give an IQ score?",
+        "It reports correct counts for these number patterns."
+      ],
+      [
+        "What can I share?",
+        "The same-language public practice link carries no answers."
+      ]
+    ],
+    "formula": "There are six questions in each of five rule families. Under the stated conditions, a matching answer adds one, with no time bonus or guessing penalty.",
+    "boundary": "This practice is limited to the rules and options each item supplies. A count does not measure intelligence or general pattern-recognition ability."
+  }
+}

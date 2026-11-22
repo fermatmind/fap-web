@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的朋友相处测试用20道原创题回顾一段成年友谊近四周的互动，约5分钟。免费提供五项独立均分、有效题数与公开指南，无需朋友共同作答。",
+    "intro": "选一位成年朋友，回想你们最近四周是怎么改计划、分担事情、留出私人空间的。几件真实小事，比猜一个默契百分比更有可说的。",
+    "deliverables": [
+      [
+        "五项读数",
+        "分开看约定、表达、投入、隐私和如何面对彼此差异。"
+      ],
+      [
+        "有效题数",
+        "读数旁会告诉你这一组有几题真正计分。"
+      ],
+      [
+        "五份公开指南",
+        "从具体的小事出发读互动，原有指南无需作答就能打开。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "重新说一遍约定",
+        "碰到行程变动，可以说出自己最在意的部分，再给朋友一个改选的机会。"
+      ],
+      [
+        "一起核对余力",
+        "如果活动总由一人准备，可以问下一次各自想承担什么。"
+      ],
+      [
+        "找不到合适经历",
+        "有些事没在最近发生，保留无读数也可以先看指南。"
+      ]
+    ],
+    "profiles": {
+      "agreements-and-priorities": [
+        "先问哪件事最重要",
+        "你可以先听听彼此最想保留什么，再商量安排。",
+        "你想慢慢逛书摊，朋友半小时后要走，你们先挑一条都想逛的街。"
+      ],
+      "room-to-speak": [
+        "给彼此把话说完",
+        "你会在决定前给彼此一点时间说出顾虑。",
+        "安排出游时，朋友说不喜欢夜路，你先问清顾虑再改路线。"
+      ],
+      "shared-effort": [
+        "出力也看余量",
+        "你可以照着各自的余力分工，也能在忙起来时重新商量。",
+        "一人负责订场地，另一人这周忙，就只在当天带饮料。"
+      ],
+      "space-and-privacy": [
+        "先问能不能转发",
+        "你尊重朋友对独处与私人消息的决定。",
+        "想分享合照时，你先问对方是否愿意公开和标记名字。"
+      ],
+      "different-strengths": [
+        "不同也能一起玩",
+        "你接受朋友和自己有不同爱好，也能商量哪些事想一起做。",
+        "一人想看展，另一人只想见面聊聊，你们改约展馆附近喝咖啡。"
+      ]
+    },
+    "faq": [
+      [
+        "这是两个人的默契测试吗？",
+        "这份问卷只需要一人。它整理你对一段友谊的观察，提供五项独立读数。"
+      ],
+      [
+        "为什么只想一位朋友？",
+        "一直以同一段友谊为参照，便于回看几次相处，而不用平均所有朋友的做法。"
+      ],
+      [
+        "题目按什么打分？",
+        "近四周遇到有关情境时，按出现频率选1–5分。"
+      ],
+      [
+        "某组为什么没有平均分？",
+        "五组各4题，只有组内4题都有效才显示均分。"
+      ],
+      [
+        "能替朋友回答吗？",
+        "只填你亲历的互动。朋友的想法需要听对方怎么说。"
+      ],
+      [
+        "复制会包含分数吗？",
+        "复制的是测试标题和同语公开入口，个人答案与读数没有放进链接。"
+      ]
+    ],
+    "formula": "20题，每题按频率计1–5分，五组各4题，一组4题均有效才显示一位小数均分。选择NA仍算完成，NA不计分。",
+    "boundary": "读数反映单人对一段成年友谊近四周的自报观察。相处机会、分工和当时的限制都值得一并考虑。无需填写姓名、聊天记录或朋友资料。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的朋友相處測驗以20題原創題回顧一段成年友誼近四週的互動，約5分鐘。免費提供五項分開計算的平均分數、有效題數與公開指南，單人即可填答。",
+    "intro": "想一位成年好友。上一次約改時間、輪流幫忙，或決定照片要不要公開時，你們怎麼說、怎麼做？從近四週真的遇到的事開始。",
+    "deliverables": [
+      [
+        "五個相處面向",
+        "分開看約定、表達、投入、個人空間與彼此差異。"
+      ],
+      [
+        "計分題數",
+        "平均旁會顯示這組一共有幾題納入計算。"
+      ],
+      [
+        "五份公開指南",
+        "用上次碰過的小事對照，未填答也可以先讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "確認各自在意什麼",
+        "改約時，先分清一定得保留的安排與可以調整的部分。"
+      ],
+      [
+        "照各自的餘裕重排分工",
+        "計畫有變時，重新確認這次各自能做多少。"
+      ],
+      [
+        "沒遇過可以略過計分",
+        "有些場景四週內沒有發生，指南仍然可以先看。"
+      ]
+    ],
+    "profiles": {
+      "agreements-and-priorities": [
+        "把在意的安排說出來",
+        "你會問對方最想保留什麼，再一起找可行時間。",
+        "你想逛舊書店，朋友要趕車，你們先決定最想逛的那一區。"
+      ],
+      "room-to-speak": [
+        "把發言空間留給彼此",
+        "你願意先把朋友的顧慮聽完，也說說自己怎麼想。",
+        "一起訂行程時，朋友不想太晚回家，你先聽完再改時間。"
+      ],
+      "shared-effort": [
+        "按餘裕一起分工",
+        "你可以按彼此手邊的事來分工，有變動也能重新商量。",
+        "這週朋友忙，你負責訂位，請他有空時看一下集合路線。"
+      ],
+      "space-and-privacy": [
+        "公開前再確認",
+        "你會讓對方自己決定哪些消息或照片能轉出去。",
+        "聚會後想上傳合照，你先問朋友介不介意公開和標註。"
+      ],
+      "different-strengths": [
+        "興趣不同也能相約",
+        "你能發現彼此喜歡的東西不一樣，也還是可以安排都想做的事。",
+        "一個人想逛展，一個人只想找個地方聊天，你們改約附近喝咖啡。"
+      ]
+    },
+    "faq": [
+      [
+        "這是雙人默契遊戲嗎？",
+        "本頁由你一人回想某段成年友誼，分開顯示五項互動讀數。"
+      ],
+      [
+        "為什麼只選一位朋友？",
+        "從頭到尾回想同一段友誼，較容易把分數對回確實發生的事。"
+      ],
+      [
+        "每題怎麼選？",
+        "以近四週為範圍，依相關情形出現的頻率選1到5分。"
+      ],
+      [
+        "為何有的面向沒分數？",
+        "每組有4題，四題都有效才顯示平均。"
+      ],
+      [
+        "可以照朋友的想法填嗎？",
+        "請填你自己遇到的事。朋友怎麼想，仍要由本人分享。"
+      ],
+      [
+        "分享文字有個人結果嗎？",
+        "分享只含測驗標題和同語言公開入口。"
+      ]
+    ],
+    "formula": "五組各4題，依頻率填1到5分。四題全數有分的組別才顯示小數一位的平均。NA可用來完成選擇，不納入計算。",
+    "boundary": "這是你就一段成年友誼近期相處的觀察。每項讀數都適合搭配實際場合解讀。填寫或分享時不用提供姓名、私訊或好友資料。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Friendship Compatibility Test uses 20 original questions to reflect on one adult friendship over the past four weeks. It takes about five minutes and reports five separate frequency averages, rated item counts, and public guides. One person completes the quiz without signing up. The readings cover plans, speaking openly, shared effort, privacy, and handling different interests or strengths.",
+    "intro": "Pick one adult friendship and think back to the past four weeks. What happened the last time you changed plans, split up a task, or decided who could see a photo?",
+    "deliverables": [
+      [
+        "Five distinct readings",
+        "Review how you handle agreements, expression, effort, privacy, and differences together."
+      ],
+      [
+        "Rated-item counts",
+        "See which groups had enough experience to display an average."
+      ],
+      [
+        "Five public guides",
+        "Get practical scenes and ways to revisit a specific interaction."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Check what the plan asks of both people",
+        "When rescheduling, say what matters most and find out what your friend can manage."
+      ],
+      [
+        "Split the work again when plans change",
+        "Ask what each person has the time and energy to do this week."
+      ],
+      [
+        "Leave room for situations that did not occur",
+        "If no relevant occasion came up, you can read the guide without filling in a number."
+      ]
+    ],
+    "profiles": {
+      "agreements-and-priorities": [
+        "Ask what matters first",
+        "You can identify the parts each person wants to keep before settling a plan.",
+        "At a book fair, you agree which stall to visit before your friend has to catch a train."
+      ],
+      "room-to-speak": [
+        "Let each person finish",
+        "You can hear a concern all the way through and then share your own.",
+        "When your friend says they would rather not drive home after dark, you ask what time would work."
+      ],
+      "shared-effort": [
+        "Split the work to fit the week",
+        "You can adjust the workload for what each person has room to do.",
+        "You book the venue this time while your busy friend brings drinks on the day."
+      ],
+      "space-and-privacy": [
+        "Ask before posting",
+        "You leave your friend a say in who can see a photo or personal detail.",
+        "Before posting a group picture, you ask if your friend is comfortable appearing or being tagged."
+      ],
+      "different-strengths": [
+        "Make time for different interests",
+        "You can take differences seriously and still find something to do together.",
+        "One of you wants an exhibit and the other wants conversation, so you meet at the café nearby."
+      ]
+    },
+    "faq": [
+      [
+        "Does my friend need to take it too?",
+        "No. One person reflects on one adult friendship and receives five separate readings."
+      ],
+      [
+        "Why focus on one friendship?",
+        "Using the same friendship keeps the readings connected to the occasions you are recalling."
+      ],
+      [
+        "How should I rate each situation?",
+        "Choose how often it applied on relevant occasions over the past four weeks, from 1 to 5."
+      ],
+      [
+        "Why is a group missing an average?",
+        "Each group needs four rated responses. Choose NA for situations you cannot or prefer not to rate."
+      ],
+      [
+        "Can these results tell me how my friend feels?",
+        "The results reflect your own observations. A conversation can give both people a chance to describe what they remember."
+      ],
+      [
+        "What is in the share text?",
+        "The public title and same-language quiz link, without your answers or readings."
+      ]
+    ],
+    "formula": "Rate 20 items from 1 to 5. All four items in any group must carry a score for its mean to appear, rounded to one decimal. NA does not count towards that mean.",
+    "boundary": "Use the readings to reflect on specific moments in one friendship as you experienced them. The quiz provides personal observations without a compatibility percentage or an assessment of either person."
+  }
+}

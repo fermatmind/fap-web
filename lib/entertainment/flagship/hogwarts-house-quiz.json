@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的霍格沃茨分院测试是非官方同人测验，含24道原创日常题，约7分钟，无需注册。答完可免费看四学院计数及所有最高匹配，阅读公开指南并保存个人图卡。",
+    "intro": "发现小组少了材料，你会先提出一个可行做法、问大家能怎么分担、从现有材料里找新点子，还是重排目标和时间？用约 7 分钟做完 24 道原创题，免费看看你的选择更常落在哪些学院主题。",
+    "deliverables": [
+      [
+        "查看四学院的原始计数",
+        "每题给一个学院加 1，四项合计 24。最高并列时，完整读法一同显示。"
+      ],
+      [
+        "免费阅读四份公开指南",
+        "四学院各有指南，解释相关选择在日常情境中的用法和取舍。无需答题也能打开。"
+      ],
+      [
+        "保存个人图卡或复制公开链接",
+        "可在浏览器生成包含四项次数和最高匹配的 PNG，不含逐题答案。另可复制不会带出计数的公开链接。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "格兰芬多最高，11 次",
+        "四项依次是 11、6、4、3。可以回想哪几题让你愿意在条件允许时先迈出一步。"
+      ],
+      [
+        "拉文克劳、斯莱特林并列，各 10 次",
+        "四项依次是 2、2、10、10。两份指南会一起显示。一个侧重弄清问题，另一个侧重在资源有限时安排目标。"
+      ],
+      [
+        "全选 A，四学院各 6 次",
+        "每个学院在 A 位各出现六次，所以全选 A 会保留四份指南。可以回看哪些题目真正让你犹豫。"
+      ]
+    ],
+    "profiles": {
+      "gryffindor": [
+        "先把犹豫变成一个小尝试",
+        "你这次更常选主动说出问题，或在安全范围内先做一小步。",
+        "社区活动快开始时，你发现路线标识不清楚，便先请大家试走一遍，再说哪里需要调整。"
+      ],
+      "hufflepuff": [
+        "把分工改到大家都接得住",
+        "你这次更常选让参与的机会和任务分配更公平，也给自己留出可承担的范围。",
+        "朋友一起准备晚餐时，你先问谁能备料、谁想帮忙收尾，再把任务分清楚。"
+      ],
+      "ravenclaw": [
+        "多问一句，找找还有没有别的解释",
+        "你这次更常选择追问原因、找联系或试出一个新办法。",
+        "架子总装不平时，你先想清是哪一处受力不同，再用一块废木试另一种固定法。"
+      ],
+      "slytherin": [
+        "先定目标，再安排手边资源",
+        "你这次更常选把目标讲清楚，再考虑时间和资源优先给哪一处。",
+        "展板材料不够时，你先选最需要说明的内容，再决定图片和文字怎么分配。"
+      ]
+    },
+    "faq": [
+      [
+        "这是官方分院帽测试吗？",
+        "这是费马独立编写的非官方同人娱乐测验。学院名称与虚构背景来自《哈利·波特》。不会同步到官方账户。"
+      ],
+      [
+        "没看过《哈利·波特》也能做吗？",
+        "可以。题目是合作、整理材料和安排计划等日常情境，不需要知道角色、剧情或魔法知识。"
+      ],
+      [
+        "24 道题是怎么计分的？",
+        "每题四项分别对应四个学院主题，选中一项加 1。每个主题在各选项位置出现六次，单项 0–24，合计 24。"
+      ],
+      [
+        "如果两个或更多学院同分怎么办？",
+        "同为最高的学院全部保留，完整指南一起显示。相差一题只代表本次多选了一次。"
+      ],
+      [
+        "拉文克劳表示智商更高吗？",
+        "题目只记录当次的做法选择，不能用于评价智力、善恶、人格、适岗或伴侣关系，也不能换算成 MBTI。"
+      ],
+      [
+        "免费结果可以下载或分享吗？",
+        "四项次数、所有最高结果和公开指南都免费。个人 PNG 会显示次数及最高匹配，不包含逐题答案。公开链接不会带出这些计数。"
+      ]
+    ],
+    "formula": "24 道题都要四选一。每个选项给对应学院主题加 1，四项合计 24。每个主题在每题出现一次，在 A、B、C、D 各出现六次。同为最高的结果一并保留。",
+    "boundary": "费马独立编写这套非官方同人测验。四学院名称和虚构背景来自《哈利·波特》，相关权利归权利人。官方资料只用于核对作品背景。本版本的计数只概括当次的日常做法选择，没有建立心理测量常模。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的霍格華茲分類帽測驗是非官方同人創作，含24道原創生活題，約7分鐘，免註冊。答完可免費查看四個學院的次數和最高配對，閱讀公開指南並儲存分享圖卡。",
+    "intro": "小組突然少了材料，你會先提一個做法、問誰願意分擔、用手邊材料試新的方法，還是重新安排資源？花約 7 分鐘回答 24 道原創情境題，看看這次的選擇比較常對應哪個學院。完整結果免費。",
+    "deliverables": [
+      [
+        "看四個學院的次數",
+        "每題在四種做法中選一項，四項加起來是 24。同為最高的學院都會列出。"
+      ],
+      [
+        "免費讀四篇學院指南",
+        "每篇用生活例子說明一個學院主題的做法與取捨，未作答也可以先看。"
+      ],
+      [
+        "儲存個人圖卡或複製公開連結",
+        "個人 PNG 會列出四項次數並標記最高配對，沒有逐題答案。公開連結則不會附上個人結果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "葛來分多最高，11 次",
+        "四項依序是 11、6、4、3。可以回想在哪些情境，你會願意先開口或試出一小步。"
+      ],
+      [
+        "雷文克勞和史萊哲林並列，各 10 次",
+        "四項依序是 2、2、10、10，兩篇指南一起顯示。可以比較先弄懂情況和先分配資源，各在哪些場合有用。"
+      ],
+      [
+        "全部選 A，四個學院各 6 次",
+        "每個學院在 A 位各出現六次，因此會一起顯示四篇指南。想了解自己的選擇，可以回頭看各題的具體情況。"
+      ]
+    ],
+    "profiles": {
+      "gryffindor": [
+        "先開口，試著走一小步",
+        "你比較常選指出眼前的問題，或在風險可控的情況下先試一次。",
+        "活動快開始時，你發現指引不容易看懂，便跟一位夥伴走一遍，再提議把標示搬到轉角。"
+      ],
+      "hufflepuff": [
+        "把每個人能做的事分清楚",
+        "你比較常選先確認彼此願意投入多少，讓事情分得公平。",
+        "朋友要一起準備晚餐，你先問誰想備料、誰能收拾，也說清楚你能幫到幾點。"
+      ],
+      "ravenclaw": [
+        "想明白原因，再試一個新做法",
+        "你比較常選追問原因，或把原本沒放在一起的線索接起來。",
+        "架子裝起來老是歪一邊，你先找出哪個接點沒對好，再用小零件試另一種固定方式。"
+      ],
+      "slytherin": [
+        "抓住目的，再把資源放到要緊的地方",
+        "你比較常選先確認想做到什麼，再分配時間和材料。",
+        "展板空間不夠時，你先決定來賓一定要看到哪幾句，再安排圖片和說明。"
+      ]
+    },
+    "faq": [
+      [
+        "這是哈利波特官方分類帽嗎？",
+        "這是費馬獨立編寫的非官方同人娛樂測驗。學院名稱和虛構背景來自《哈利波特》，結果不會進入官方帳號。"
+      ],
+      [
+        "沒讀過《哈利波特》也能做嗎？",
+        "可以。題目是生活情境，不考角色、情節或魔法設定。"
+      ],
+      [
+        "24 道題怎麼計次？",
+        "每題四個選項對應四種學院主題。選一個就加 1 次，各項的上限是 24，四項加起來固定為 24。每個學院在 A、B、C、D 各出現六次。"
+      ],
+      [
+        "如果好幾個學院同分怎麼辦？",
+        "同為最高的學院會一起列出，對應的完整指南都看得到。差一次只反映當次作答。"
+      ],
+      [
+        "雷文克勞就代表智力比較高嗎？",
+        "這裡只比較生活情境裡選了哪些做法，不能用於智力、品格、工作適配或關係判斷，也不能換算成 MBTI。"
+      ],
+      [
+        "分享圖卡和公開連結會附上什麼？",
+        "個人 PNG 會顯示四項次數和最高配對，不含逐題答案。複製的公開連結不會帶出個人結果。全部指南免費閱讀。"
+      ]
+    ],
+    "formula": "24 題每題從四個做法選一個，替對應學院加 1 次。四個次數相加固定為 24。每個主題在每題出現一次，在各選項位置各出現六次。並列最高都保留。",
+    "boundary": "費馬獨立編寫這份非官方同人娛樂測驗。四個學院名稱與虛構背景來自《哈利波特》，相關權利屬於權利人。官方資料用來核對作品設定。結果只整理這次的選擇，未建立心理計量常模。"
+  },
+  "en": {
+    "facts": "FermatMind’s Hogwarts House Quiz is an unofficial fan quiz with 24 original scenarios and takes about seven minutes. The free results show how often each of the four house themes was chosen and keep all ties for highest count. The four public guides can be read without a score. A personal picture card can be saved directly in the browser without signing up.",
+    "intro": "A group project runs short of supplies. Would you speak up, work out a fair split, try a new approach, or decide what the project needs most? Choose what you would do in 24 ordinary situations and see which house themes appear most often. It takes about seven minutes, and the full result is free.",
+    "deliverables": [
+      [
+        "See all four raw counts",
+        "Each choice adds one to a house theme. The four counts add to 24, and all tied leaders are kept."
+      ],
+      [
+        "Read all four free public guides",
+        "Each guide explains a house theme with everyday examples and trade-offs. You can open any guide before taking the quiz."
+      ],
+      [
+        "Save a personal card or copy a public link",
+        "The browser can create a PNG with all four counts and the highest matches, without item answers. A copied public link leaves out your personal result."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Gryffindor leads with 11",
+        "The sample counts are 11, 6, 4, and 3. Think about the situations where speaking up or taking a small first step feels useful."
+      ],
+      [
+        "Ravenclaw and Slytherin tie with 10 each",
+        "The counts are 2, 2, 10, and 10. Both guides appear. Compare when you want to understand a problem and when you want to set a priority with the resources available."
+      ],
+      [
+        "All A: four houses with 6 each",
+        "Each house appears six times in position A. This sample keeps all four guides. Look back at what made each option appealing rather than reading into the letter alone."
+      ]
+    ],
+    "profiles": {
+      "gryffindor": [
+        "Speak up and try a small step",
+        "You often chose to name a concern or take a first step with a clear limit.",
+        "Before a community event starts, you try walking the route with a friend so you can suggest where to move a confusing sign."
+      ],
+      "hufflepuff": [
+        "Work out what everyone can contribute",
+        "You often chose to share the work fairly and leave room for people’s limits.",
+        "Before a group dinner, you ask who wants to prepare food and who can clean up, and say when you need to leave."
+      ],
+      "ravenclaw": [
+        "Find a better explanation or a new idea",
+        "You often chose to ask why something happened, connect clues, or test a different approach.",
+        "When a shelf will not sit level, you check which joint is uneven and try a different fastening on a spare piece."
+      ],
+      "slytherin": [
+        "Set the goal and work with what you have",
+        "You often chose to clarify the outcome and spend time or materials where they would help most.",
+        "When an exhibit runs out of board space, you decide what visitors most need to read and arrange the rest around that."
+      ]
+    },
+    "faq": [
+      [
+        "Is this the official Sorting Hat quiz?",
+        "No. FermatMind wrote this unofficial fan quiz. The house names and fictional setting come from Harry Potter. Results are not sent to an official account."
+      ],
+      [
+        "Can I take the quiz without knowing Harry Potter?",
+        "Yes. The questions are about ordinary choices and require no knowledge of characters, plots, or magic."
+      ],
+      [
+        "How are the 24 questions scored?",
+        "Each answer adds one to its house theme. Every house appears once per question and six times in each answer position. Counts run from 0 to 24 and sum to 24."
+      ],
+      [
+        "What if two or more houses tie for first?",
+        "All highest ties appear with their complete guides. A gap of one reflects a single extra choice in this attempt."
+      ],
+      [
+        "Does Ravenclaw mean higher IQ?",
+        "The quiz counts chosen approaches. It cannot establish intelligence, moral worth, workplace or relationship fit, or an MBTI type."
+      ],
+      [
+        "Can I download and share the free result?",
+        "You can save a personal PNG with all four counts and the highest matches. The card omits item answers. A public link contains no personal result or counts."
+      ]
+    ],
+    "formula": "Choose one of four answers for each of 24 questions. Add one to the selected house theme, giving a total of 24. Each house appears once per question and six times in each position. All tied highest themes remain in the result.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. House names and fictional context come from Harry Potter and belong to the relevant rights holders. Official sources provide fictional context. Results summarize this attempt’s choices and do not have psychometric norms."
+  }
+}

@@ -1,0 +1,428 @@
+{
+  "zh": {
+    "facts": "费马测试的爱情类型测试有32道原创双选题，约7分钟，免注册。结果免费显示四组选择计数和全部符合的四字母组合，并提供16篇公开指南和个人图卡。",
+    "intro": "当两个人都可以提议下一次见面，你倾向先开口还是先听对方想法？答 32 道原创二选题，查看你在发起、照顾、实际与浪漫、安排方式上的选择。完整结果免费。",
+    "deliverables": [
+      [
+        "看四组 8 票的计数",
+        "每题只给所在组的一端加 1。两端同为 4 票时同时保留。"
+      ],
+      [
+        "免费读所有符合的组合",
+        "依四组保留的字母得到 1–16 个组合，全部显示完整解读。16 篇公开指南都能直接阅读。"
+      ],
+      [
+        "保存个人图卡或复制公开入口",
+        "浏览器可生成含四组次数和所有符合代码的 PNG，不含逐题答案。公开链接另行复制，不附你的结果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "四组各有一端领先：LCRO",
+        "L/F 7:1、C/A 6:2、R/P 5:3、O/E 5:3。每组只留一端，所以有一个组合。"
+      ],
+      [
+        "两组 4:4 并列，得到四种读法",
+        "L/F 4:4、C/A 6:2、R/P 4:4、O/E 3:5。保留 LCRE、LCPE、FCRE、FCPE。"
+      ],
+      [
+        "四组都是 4:4",
+        "每组都留两个字母，组成全部 16 个代码。顺序只便于查找。"
+      ]
+    ],
+    "profiles": {
+      "lcro": [
+        "先提个好改的小计划",
+        "你比较愿意先开口，也希望有人照顾到你的需要。",
+        "你提议周末喝杯咖啡，请对方选离你近一点的店，时间晚些再定。"
+      ],
+      "lcre": [
+        "把可行的邀请说清楚",
+        "你可能喜欢自己发起，也希望得到照顾并知道安排的用意。",
+        "你提议晚饭，说明是想单独聊聊，也请对方照顾你的下班时间。"
+      ],
+      "lcpo": [
+        "先提一个有感觉的点子",
+        "你较常选让浪漫感开场，也希望对方温柔回应。",
+        "你建议去听街头音乐，请对方陪你走一段，路线到了再看。"
+      ],
+      "lcpe": [
+        "说出心意，也问清彼此怎么想",
+        "你可能愿意先表达，并希望知道对方怎样理解这件事。",
+        "你提议庆祝纪念日，问对方愿不愿一起过，也说自己想收到一个小回应。"
+      ],
+      "laro": [
+        "主动做个实际、可调整的安排",
+        "你比较愿意先提议并提供一点帮忙。",
+        "你建议周末买菜，顺手带上装东西的袋子，具体几点再商量。"
+      ],
+      "lare": [
+        "把照顾写进明确安排",
+        "你可能偏好可执行的提议，以及能照着做的约定。",
+        "你提出一起吃晚饭，确认谁需要早点离开，并写下地点与时间。"
+      ],
+      "lapo": [
+        "把浪漫做成一件小事",
+        "你可能习惯先创造一个轻松的机会，同时照顾对方的偏好。",
+        "你提议路过公园顺手带两杯饮料，不强求按原路线走。"
+      ],
+      "lape": [
+        "主动准备，也说明来意",
+        "你可能喜欢做一件有心意的事，并把期待说清楚。",
+        "你请对方一起去听歌，先确认对方想去什么样的地方。"
+      ],
+      "fcro": [
+        "接住邀请，再谈现在方不方便",
+        "你可能愿意回应对方的提议，也希望安排兼顾你的需要。",
+        "对方约你散步，你提议从近一点的入口见，到时再看走多久。"
+      ],
+      "fcre": [
+        "回应一个说清楚的邀请",
+        "你可能希望对方先开口，也愿意把自己的需求说出来。",
+        "对方约你见面，你先问是轻松聚一聚还是想聊一件事，再确认时间。"
+      ],
+      "fcpo": [
+        "跟着邀请试一个暖意的小片刻",
+        "你可能习惯回应浪漫的开头，也希望保留调整余地。",
+        "对方邀请你听歌，你高兴答应，也请他陪你先走一小段。"
+      ],
+      "fcpe": [
+        "想接住心意，也想知道它的意思",
+        "你可能喜欢被温柔地邀请，同时愿意问清双方怎么理解。",
+        "收到一份小礼物时，你说很开心，再问对方是不是想一起纪念什么。"
+      ],
+      "faro": [
+        "接下提议，添一点实际帮助",
+        "你可能在对方开场后主动提供支持，也保留弹性。",
+        "对方说周末想做饭，你愿意带食材，几点开火当天再商量。"
+      ],
+      "fare": [
+        "先听清计划，再认领能帮的部分",
+        "你可能在目的明确后更容易投入。",
+        "听说对方想约朋友吃饭，你确认时间和人数，再说能提前订位。"
+      ],
+      "fapo": [
+        "回应浪漫，也给它留些空间",
+        "你可能想接住气氛，提供一点温暖的陪伴。",
+        "对方约你走走，你带一副备用耳机，路线到了再决定。"
+      ],
+      "fape": [
+        "一起回应有心意的安排",
+        "你可能在听清想法后，愿意给对方明确又温和的回应。",
+        "收到一个纪念日邀约时，你先问对方想怎样度过，也说自己能准备什么。"
+      ]
+    },
+    "faq": [
+      [
+        "这是日本官方 LoveType 测试吗？",
+        "这是费马独立编写的娱乐版，只参考公开的字母框架。题目、算法呈现、解读和视觉均由本站独立提供。"
+      ],
+      [
+        "32 道题怎么算？",
+        "四组各 8 题，每次给所在组的一端加 1。L/F 是发起或回应，C/A 是接受或提供照顾，R/P 是实际或浪漫起点，O/E 是弹性安排或明确意图。"
+      ],
+      [
+        "为什么我有好几个组合？",
+        "同组如果选成 4:4，就保留两个字母。取四组保留字母的全部组合，数量在 1–16 之间。"
+      ],
+      [
+        "能不能看两人是否合适？",
+        "不能。选择由题目和你参考的情境决定，不预测伴侣、关系走向，也不评估依恋或心理健康。"
+      ],
+      [
+        "结果和指南都免费吗？",
+        "全部计数、所有符合组合和 16 篇指南都免费，答题也不需要注册。"
+      ],
+      [
+        "分享时会公开自己的回答吗？",
+        "复制公开入口只含题名和链接。个人 PNG 含计数与代码，不含逐题答案，由你主动保存或分享。"
+      ]
+    ],
+    "formula": "32 题分四组，每组 8 题二选一。每次给该组所选的一端加 1。多数端保留一个字母，4:4 保留两个，最后列出四组字母的全部组合。",
+    "boundary": "本题用自己的原创场景讨论当时的意愿。四字母只是这些选择的组合，不能判断人格、依恋、伴侣合适程度或关系成败。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的愛情類型測驗有32道原創二選一的題目，約7分鐘，免註冊。結果免費顯示四組次數和所有符合的字母組合，也提供16篇公開指南與個人圖卡。",
+    "intro": "約見面時，你比較想先開口，還是先看看對方有什麼提議？回答 32 道原創情境題，看看這次在發起、照顧、實際與浪漫、安排方式四組上怎麼選。",
+    "deliverables": [
+      [
+        "看四組選擇次數",
+        "每組 8 題。只替該組的所選項加 1，兩端各 4 次時一併保留。"
+      ],
+      [
+        "免費閱讀 16 篇組合指南",
+        "每組選出的字母能整理出 1–16 個組合，全部可讀。還沒作答也可以直接開指南。"
+      ],
+      [
+        "儲存個人圖卡或複製公開入口",
+        "瀏覽器可以做成含四組次數與所有符合組合的 PNG，沒有逐題答案。公開連結不附個人結果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "四組都各有一端較多：LCRO",
+        "L/F 7:1、C/A 6:2、R/P 5:3、O/E 5:3。每組各留一個字母，所以得到一個組合。"
+      ],
+      [
+        "兩組各 4:4，有四個組合",
+        "L/F 4:4、C/A 6:2、R/P 4:4、O/E 3:5，會列出 LCRE、LCPE、FCRE 和 FCPE。"
+      ],
+      [
+        "四組都是 4:4",
+        "四組都保留兩個字母，會看到 16 篇完整解說。列出順序只供查找。"
+      ]
+    ],
+    "profiles": {
+      "lcro": [
+        "提一個隨時能調整的約",
+        "你比較常想自己先開口，也希望對方顧到你的方便。",
+        "約喝咖啡時，你先開個頭，請對方挑近一點的店，時間晚些再確認。"
+      ],
+      "lcre": [
+        "把邀請的用意說明白",
+        "你比較常想主動約，也希望知道對方願不願意照顧你的時間。",
+        "提議晚餐時，你說想好好聊聊，再請對方等你下班。"
+      ],
+      "lcpo": [
+        "先提一個讓人期待的點子",
+        "你比較常選帶起有情意的約會，也希望有人溫柔接話。",
+        "你先約去聽歌，請對方陪你走一段，等到了再挑路。"
+      ],
+      "lcpe": [
+        "說出心意，也問彼此期待什麼",
+        "你比較常選先提想法，同時願意聽對方怎麼理解。",
+        "想過紀念日時，你先問對方願不願意一起慶祝，也說自己想要什麼樣的回應。"
+      ],
+      "laro": [
+        "先提一個能動手也能改的安排",
+        "你比較常想開頭並提供一點實際幫忙，其他細節留著商量。",
+        "你約對方週末去買菜，也準備提袋，時間到前一天再對。"
+      ],
+      "lare": [
+        "把幫忙和約定一起講清楚",
+        "你比較常選自己開頭，先想好怎麼照顧彼此的時間。",
+        "你提議吃晚飯，確認對方得幾點離席，再把地點傳到訊息裡。"
+      ],
+      "lapo": [
+        "替浪漫留一個不費力的開頭",
+        "你比較常選先準備一些貼心的小事，也留空間讓行程變動。",
+        "你約去公園，帶兩杯喝的，願意一起換成另一條路。"
+      ],
+      "lape": [
+        "自己開口，再把期待說得明白",
+        "你比較常選先準備有心意的安排，也問對方想要怎麼過。",
+        "約去聽音樂時，你先問對方願不願意去那個場地，再一起確認時間。"
+      ],
+      "fcro": [
+        "接下邀請，也顧到自己的方便",
+        "你比較常選回應對方的點子，並說出想被照顧的部分。",
+        "朋友約散步時，你建議近一點的入口，到時再看走多遠。"
+      ],
+      "fcre": [
+        "回應之前，先問清楚是什麼安排",
+        "你比較常選等對方提議，再把用意和方便的時間問清楚。",
+        "對方約見面時，你先問是想坐坐還是有件事想談。"
+      ],
+      "fcpo": [
+        "回應一個有溫度的邀約",
+        "你比較常選接住氣氛，期待自己的感受也有人接。",
+        "答應一起聽歌時，你問對方願不願先陪你走一小段。"
+      ],
+      "fcpe": [
+        "想把溫柔和明確放在一起",
+        "你比較常選接住對方的心意，也想知道那份心意對彼此是什麼。",
+        "收到小禮物時，你先說喜歡，再問要不要選一天一起慶祝。"
+      ],
+      "faro": [
+        "回應提議時添點實際幫忙",
+        "你比較常選先聽對方想做什麼，再認領一件能處理的小事。",
+        "對方想週末煮飯，你提議帶食材，做什麼可以到時候調整。"
+      ],
+      "fare": [
+        "聽清楚安排，接一段自己能做的事",
+        "你比較常選在目的和時段談好了之後，主動幫忙一部分。",
+        "知道人數與時間後，你告訴對方可以幫忙訂位。"
+      ],
+      "fapo": [
+        "接住情意，也留時間慢慢玩",
+        "你比較常選回應有溫度的邀請，再照現場調整。",
+        "對方提議一起走走，你帶兩副耳機，希望音樂和路線到了再選。"
+      ],
+      "fape": [
+        "回應那份心意，再一起定做法",
+        "你比較常選先問清彼此怎麼想，再做一件貼心的事。",
+        "收到紀念日邀約時，你問對方想怎麼過，也說可以準備想聽的歌。"
+      ]
+    },
+    "faq": [
+      [
+        "這是日本官方的 LoveType 測驗嗎？",
+        "題目與解說由費馬獨立編寫，只參考公開的字母架構。"
+      ],
+      [
+        "四組選擇在問什麼？",
+        "L/F 是提出或回應，C/A 是接受或提供照顧，R/P 是先想實際條件或浪漫感受，O/E 是保留彈性或把意圖講清楚。"
+      ],
+      [
+        "怎麼算出多個結果？",
+        "每組 8 題。一端較多就保留一個字母，4:4 保留兩個，再列出共有 1–16 種的組合。"
+      ],
+      [
+        "可以測出對象適不適合我嗎？",
+        "不行。這些是生活情境中的當下選擇，不提供戀愛適配、依附類型、心理健康或未來判斷。"
+      ],
+      [
+        "完整指南都能免費看嗎？",
+        "可以，所有組合與讀法都免費，而且免註冊。"
+      ],
+      [
+        "分享圖卡和公開連結各有什麼？",
+        "個人 PNG 顯示次數與符合組合，不附逐題作答。複製公開連結只有名稱與入口。"
+      ]
+    ],
+    "formula": "32 題分四組，每組 8 題二選一。每次替該組一端加 1，較多的一端保留；4:4 就兩邊都留，列出四組字母的所有組合。",
+    "boundary": "費馬另行編寫原創生活情境。結果只整理當次作答，不是伴侶配對、人格分類、依附評估或關係預測。"
+  },
+  "en": {
+    "facts": "FermatMind’s Love Type Test uses 32 original paired choices and takes about seven minutes. It is free without registration. Results show counts on four axes and all four-letter combinations supported by the answers. Sixteen public guides are available without answering. A personal PNG can show the counts and codes, while the copied public link reveals no personal result. Full guides are free to read.",
+    "intro": "When either person could suggest a plan, would you open the conversation or respond first? Work through 32 paired situations and see how you chose around initiative, care, practical or romantic concerns, and how clearly to define the plan.",
+    "deliverables": [
+      [
+        "See four pairs of counts",
+        "Eight choices feed each pair. A 4:4 split keeps both letters."
+      ],
+      [
+        "Read every compatible combination for free",
+        "There can be one to sixteen codes. Each has a complete guide you can also open as a public page."
+      ],
+      [
+        "Save a personal PNG or copy a public link",
+        "The browser can make a card with four pairs of counts and all compatible codes, without item answers. The public link carries none of the result."
+      ]
+    ],
+    "interpretations": [
+      [
+        "One side leads on every axis: LCRO",
+        "L/F is 7:1, C/A is 6:2, R/P is 5:3, and O/E is 5:3. That leaves one letter per axis and one code."
+      ],
+      [
+        "Two axes tie: four possible codes",
+        "L/F is 4:4, C/A is 6:2, R/P is 4:4, and O/E is 3:5. The guides are LCRE, LCPE, FCRE, and FCPE."
+      ],
+      [
+        "All four pairs are 4:4",
+        "Every side is retained, so all sixteen codes appear. Display order is for navigation."
+      ]
+    ],
+    "profiles": {
+      "lcro": [
+        "Start with an easy plan you can adjust",
+        "You may like to propose a plan and ask for a little care around the details.",
+        "You suggest coffee, ask for somewhere close, and leave the time flexible."
+      ],
+      "lcre": [
+        "Make a practical invitation clear",
+        "You may like to initiate and know what kind of time or attention to expect.",
+        "You suggest dinner, say you want a chance to talk, and ask for a time that fits your shift."
+      ],
+      "lcpo": [
+        "Open with a romantic possibility",
+        "You may like to propose a warm moment and leave room for plans to change.",
+        "You suggest hearing some music and ask for company on the walk, with no fixed route."
+      ],
+      "lcpe": [
+        "Say what the gesture means to you",
+        "You may like to start an affectionate plan and hear how the other person sees it.",
+        "You bring up celebrating an anniversary and ask what would make it feel special to both of you."
+      ],
+      "laro": [
+        "Start a plan and help it along",
+        "You may like to make a practical suggestion and offer useful support while details remain open.",
+        "You suggest shopping together and bring bags, leaving the start time for later."
+      ],
+      "lare": [
+        "Make a clear plan with care built in",
+        "You may like to propose a practical arrangement and tell both people what they can count on.",
+        "You suggest dinner, check when the other person needs to leave, and write down the agreed time."
+      ],
+      "lapo": [
+        "Prepare a small affectionate surprise",
+        "You may like to create a warm moment and leave room for both of you to change it.",
+        "You offer to bring drinks for a walk and let the route depend on the day."
+      ],
+      "lape": [
+        "Start something meaningful and check intentions",
+        "You may like to initiate a romantic plan while asking how the other person understands it.",
+        "You invite someone to hear music and check what would make the night enjoyable for them."
+      ],
+      "fcro": [
+        "Accept the opening and check practical details",
+        "You may like to respond first and ask for an arrangement that makes space for your needs.",
+        "When someone suggests a walk, you ask to meet at a nearby gate and decide how far to go later."
+      ],
+      "fcre": [
+        "Respond once the invitation is clear",
+        "You may like someone else to start and find it easier to reply when the plan makes sense.",
+        "When invited out, you ask whether it is a casual catch-up or time for a particular conversation."
+      ],
+      "fcpo": [
+        "Follow a warm invitation at your own pace",
+        "You may like to receive an affectionate offer and leave its details open.",
+        "You accept an invitation to hear music and ask them to walk with you first."
+      ],
+      "fcpe": [
+        "Ask what a welcome gesture means",
+        "You may like to respond to warmth and ask what the other person intended.",
+        "You thank them for a gift and ask whether they were hoping to celebrate something together."
+      ],
+      "faro": [
+        "Join a practical plan and lend a hand",
+        "You may like to respond with concrete help while leaving time for changes.",
+        "When someone suggests cooking, you offer to bring ingredients and leave the serving time open."
+      ],
+      "fare": [
+        "Listen to the plan and offer one commitment",
+        "You may like to help once the plan and expectations are clear.",
+        "Once you know the time and size of a dinner, you offer to book a table."
+      ],
+      "fapo": [
+        "Support a spontaneous moment",
+        "You may like to respond to a romantic idea with a little help and some room to improvise.",
+        "When invited for a walk, you bring spare headphones and leave the route undecided."
+      ],
+      "fape": [
+        "Join a meaningful plan with a clear reply",
+        "You may like to respond warmly once you have heard what the invitation means.",
+        "When invited to celebrate an anniversary, you ask what they want to do and offer to make a playlist."
+      ]
+    },
+    "faq": [
+      [
+        "Is this the official Japanese LoveType quiz?",
+        "FermatMind made this independent entertainment quiz. Public framework terms provide context. The questions and guides are written for this edition."
+      ],
+      [
+        "What are the four pairs?",
+        "L/F is initiating or responding, C/A receiving or giving care, R/P practical or romantic starting points, and O/E flexible arrangements or explicit intentions."
+      ],
+      [
+        "Why did I get several codes?",
+        "Any 4:4 split retains both letters. The result lists all combinations of the retained letters, between one and sixteen."
+      ],
+      [
+        "Can the result match me with a partner?",
+        "No. It summarizes choices in these scenarios and cannot establish compatibility, attachment, personality, or relationship outcomes."
+      ],
+      [
+        "Are all guides free?",
+        "Yes. You can see all counts and eligible codes without registering or paying, and all sixteen guides are public."
+      ],
+      [
+        "What does sharing reveal?",
+        "A personal PNG can show the four pairs of counts and the compatible codes without item answers. Copying the public entry shares only the title and link."
+      ]
+    ],
+    "formula": "Answer eight paired choices on each of four axes. Each choice adds one to its side. The higher side is retained, and a 4:4 split keeps both. The report lists every possible combination of the retained letters.",
+    "boundary": "These independently authored scenarios describe what you chose this time. The codes do not classify personality, measure attachment or mental health, match partners, or predict relationship success."
+  }
+}

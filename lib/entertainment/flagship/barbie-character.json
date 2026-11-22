@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的芭比角色测试有18道原创艺术活动情境题，约5分钟，免注册。答完可免费看六位电影角色的选择次数和所有最高并列，六篇公开指南可直接阅读。",
+    "intro": "社区准备办一场艺术活动，你会先换个角度看熟悉的东西、挑一件自己想试的事，还是把没人用的材料变成新道具？用 18 道原创题回看你这次的六种角色选择。完整结果免费。",
+    "deliverables": [
+      [
+        "看六项选择次数",
+        "每题加 1，合计 18。所有并列最高的角色都会显示。"
+      ],
+      [
+        "免费读六篇角色指南",
+        "每位角色分别有一篇指南，作答前后都能看。"
+      ],
+      [
+        "复制公开名称和链接",
+        "一位最高时分享名称和公开指南，并列时分享全部最高名称和测试入口。链接不带答案或计数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "芭比最高，7 次",
+        "六项依次为 7、3、2、2、2、2。样张经常选择换个眼光看熟悉事物。"
+      ],
+      [
+        "怪芭比和艾伦并列，各 5 次",
+        "六项依次为 2、2、2、2、5、5。一种找出被忽略的材料的新用法，另一种给不在主计划里的贡献留位。"
+      ],
+      [
+        "全选 A，六项各 3 次",
+        "每位角色在 A 位都有三次，因此会保留六份指南。可以再看各题里你想做什么。"
+      ]
+    ],
+    "profiles": {
+      "barbie": [
+        "把熟悉的一件事再看一遍",
+        "你这次较常选择用新视角看已经习惯的东西。",
+        "旧画框已经用过几次，你把它换个方向摆上桌，试着给同一张画留出不同的边。"
+      ],
+      "ken": [
+        "挑一个只因为自己喜欢的兴趣",
+        "你这次较常选择一件不需要跟着别人做的事。",
+        "朋友们都去拼贴时，你留在一旁挑出几张纸做自己想试的小书。"
+      ],
+      "gloria": [
+        "把普通一天的经历带进作品",
+        "你这次较常选让日常经历成为可说、可画的材料。",
+        "画社区地图时，你请大家把常走的路和停一下的地方标出来。"
+      ],
+      "president-barbie": [
+        "让大家说清活动怎样进行",
+        "你这次较常选讨论分工和安排，让参与者知道怎么加入。",
+        "安排活动开场时，你和伙伴约好登记、材料和收拾分别由谁负责。"
+      ],
+      "weird-barbie": [
+        "给被忽略的东西找个用处",
+        "你这次较常选换个用途试试，而不是把剩下的材料丢掉。",
+        "桌上剩了几块剪歪的纸，你拼成一张有参差边缘的作品。"
+      ],
+      "allan": [
+        "给不在主计划里的贡献留个位置",
+        "你这次较常选接纳不同的参与方式。",
+        "有人不想画画，你请他帮忙整理颜色，也欢迎他只来看看。"
+      ]
+    },
+    "faq": [
+      [
+        "这些结果来自哪一版芭比？",
+        "本版以 2023 年电影的芭比、肯、格洛丽亚、总统芭比、怪芭比和艾伦作为六个结果名称。"
+      ],
+      [
+        "没有看电影也能做吗？",
+        "可以。都是原创社区艺术活动场景，不考电影情节、台词或玩具知识。"
+      ],
+      [
+        "18 题怎样计数？",
+        "每题四选一，给对应角色加 1。每位角色出现 12 次，单项 0–12，合计 18。"
+      ],
+      [
+        "同分会显示多个结果吗？",
+        "所有并列最高都会完整显示。全选 A 时六位各 3 次。"
+      ],
+      [
+        "结果能看出外貌、性别或人格吗？",
+        "不能。结果只记录这次的创作选择，不判断外貌、性别身份、人格或关系。"
+      ],
+      [
+        "分享会附个人答案吗？",
+        "公开链接只带名称和公开指南或入口，不附答案、次数或私人标识。无个人 PNG。"
+      ]
+    ],
+    "formula": "18 题每题四选一，给选中的角色加 1 次。六位各出现 12 次，每项 0–12，合计 18。所有最高同分都保留。",
+    "boundary": "这是费马独立编写的非官方同人问卷。Mattel 的公开电影商品资料用于核对角色身份。艺术活动是原创，测试结果只概括当次选择，无法评价外貌、性别或心理。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的芭比角色測驗有18道原創藝術活動題，約5分鐘，免註冊。答完可免費看六位電影角色的次數與所有並列最高結果，六篇公開指南也能直接閱讀。",
+    "intro": "社區要辦一場藝術活動，你會想重新看看平常的物件、找件自己喜歡的事，還是拿沒人用的材料試個新做法？花約 5 分鐘做 18 道原創題，看看這次的選擇和哪些角色主題比較接近。",
+    "deliverables": [
+      [
+        "查看六位角色各有幾次",
+        "每題替選到的角色加 1，合計 18。同為最高都一起列出。"
+      ],
+      [
+        "免費閱讀六篇公開指南",
+        "每位角色都有完整指南，還沒作答也可以先看。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "單項最高分享名稱和指南；並列時複製全部最高名稱和測驗入口，不附個人回答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "芭比最高，7 次",
+        "六項依序為 7、3、2、2、2、2。範例比較常換一個角度看原本熟悉的東西。"
+      ],
+      [
+        "怪芭比與艾倫各 5 次",
+        "六項依序是 2、2、2、2、5、5。兩篇指南說明怎麼用剩料做變化，以及怎麼讓其他貢獻加入。"
+      ],
+      [
+        "一路選 A，六位各 3 次",
+        "每位在 A 位出現三次，所以六篇指南都會列出。可以再想想各題哪個做法更像自己。"
+      ]
+    ],
+    "profiles": {
+      "barbie": [
+        "替平常的東西換個看法",
+        "你比較常選回頭看原本用過的東西，試一種新的搭配。",
+        "把舊畫框換個方向拿在手上時，你發現同一張紙可以留出另一種好看的邊。"
+      ],
+      "ken": [
+        "找一件不必跟大家一樣的事",
+        "你比較常選自己想做的那個部分，按自己的喜好試看看。",
+        "夥伴都在拼貼時，你拿幾張紙到旁邊，先折一本想留給自己的小書。"
+      ],
+      "gloria": [
+        "把日常小事也放進作品",
+        "你比較常選讓生活裡發生的事有地方能被看見。",
+        "一起畫社區地圖時，你邀大家標出常走的路和想停一下的地方。"
+      ],
+      "president-barbie": [
+        "和夥伴說好活動怎麼走",
+        "你比較常選先談好分工，讓每個人知道怎麼加入。",
+        "活動開場前，你們先對好誰管材料、誰接待，結束時又由誰收拾。"
+      ],
+      "weird-barbie": [
+        "替沒人要的材料找到新用法",
+        "你比較常選看看剪剩的東西可以怎麼搭。",
+        "桌上剩幾塊形狀不整齊的紙，你把它們拼在一起，留出原本不好剪的邊。"
+      ],
+      "allan": [
+        "邀不同的貢獻一起來",
+        "你比較常選留意哪些人想用不一樣的方式參加。",
+        "有人不太想畫，你問他想不想幫忙把顏色分好，也能先坐旁邊看。"
+      ]
+    },
+    "faq": [
+      [
+        "這是哪一版《芭比》的角色？",
+        "六位角色名稱參考 2023 年電影，包括芭比、肯、格洛麗亞、總統芭比、怪芭比和艾倫。"
+      ],
+      [
+        "沒看過電影也能做嗎？",
+        "可以。不考台詞、情節或玩具系列，題目都是原創的社區藝術活動。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "四選一，替對應角色加 1。每位出現 12 次，各為 0–12，合計 18。"
+      ],
+      [
+        "同為最高會怎麼顯示？",
+        "所有並列最高的完整指南都會保留。全選 A 時每位各有 3 次。"
+      ],
+      [
+        "可以看出外貌或性別身分嗎？",
+        "測驗只整理當次創作反應，不評估外貌、性別身分、人格或感情關係。"
+      ],
+      [
+        "轉傳會附作答或個人圖卡嗎？",
+        "公開分享只複製名稱和連結，不附答案、次數或個人識別資料。這一版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "18 題每題四選一，替選到的角色加 1 次。六位各出現 12 次，單項 0–12，總數 18。同為最高一起保留。",
+    "boundary": "費馬獨立編寫這份非官方同人測驗。Mattel 的公開商品資料供核對電影角色。藝術活動情境由本站原創，結果只說明這次的選項，不提供外貌、性別或心理評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Barbie Character Test uses 18 original scenarios about a community art afternoon. It takes about five minutes and is free without registration. Results count choices for six characters from the 2023 film and keep all highest ties. All six public guides are available before answering. None of the questions requires knowing the story, dialogue, or dolls. The complete result is free to read.",
+    "intro": "Your neighborhood puts on an art afternoon. Would you give something familiar a second look, start an activity of your own, or find something to do with the scraps? Answer 18 original scenarios and see which character themes your choices bring up.",
+    "deliverables": [
+      [
+        "See all six counts",
+        "Each choice adds one, for a total of 18. Every highest tie appears."
+      ],
+      [
+        "Read six public guides for free",
+        "Every character guide can be opened before taking the quiz."
+      ],
+      [
+        "Share a public name and link",
+        "One highest result shares its guide. Tied leaders share all leading names and the quiz page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Barbie leads at 7",
+        "The counts are 7, 3, 2, 2, 2, and 2. The sample often chose to look again at something familiar."
+      ],
+      [
+        "Weird Barbie and Allan tie at 5 each",
+        "The counts are 2, 2, 2, 2, 5, and 5. Compare finding a use for an overlooked material and leaving space for a contribution that does not follow the main plan."
+      ],
+      [
+        "All A: six characters with 3 each",
+        "Each character appears three times in position A, so every guide appears. Notice what each question actually offered."
+      ]
+    ],
+    "profiles": {
+      "barbie": [
+        "Look again at something familiar",
+        "You often chose to take a second look at something you already knew.",
+        "You turn an old frame around and see whether a familiar drawing looks different with a wider border."
+      ],
+      "ken": [
+        "Pick an interest that is yours",
+        "You often chose something you personally wanted to try, even if others were doing something else.",
+        "While friends make collages, you take a few sheets and fold a small booklet you have wanted to make."
+      ],
+      "gloria": [
+        "Make everyday experience part of the work",
+        "You often chose to pay attention to a small detail from an ordinary day.",
+        "When the group draws a neighborhood map, you invite each person to mark one place where they like to stop."
+      ],
+      "president-barbie": [
+        "Agree on how the afternoon will work",
+        "You often chose to clarify how people could join and how the time would be shared.",
+        "Before the session, you check with the group who will greet participants, set out materials, and tidy up afterward."
+      ],
+      "weird-barbie": [
+        "Use something people overlooked",
+        "You often chose to see what could be made from an unexpected or leftover piece.",
+        "You pick up a few uneven scraps and make a collage that leaves their edges visible."
+      ],
+      "allan": [
+        "Welcome a contribution outside the main plan",
+        "You often chose to leave room for someone who wanted to join in a different way.",
+        "When someone does not want to paint, you offer them a chance to sort colors or just stay and watch."
+      ]
+    },
+    "faq": [
+      [
+        "Which Barbie is the quiz based on?",
+        "The six names come from the 2023 film: Barbie, Ken, Gloria, President Barbie, Weird Barbie, and Allan."
+      ],
+      [
+        "Can I take it without seeing the movie?",
+        "Yes. It uses original art-afternoon scenes. There are no questions about dialogue, plot, or dolls."
+      ],
+      [
+        "How are the 18 questions counted?",
+        "Each choice adds one. Each character appears 12 times, so each count is 0–12 and all six add to 18."
+      ],
+      [
+        "What if several characters tie?",
+        "All highest ties get their full guides. Choosing A throughout gives all six three counts."
+      ],
+      [
+        "Does this assess appearance, gender, or personality?",
+        "No. The scores summarize creative choices in these scenes. They do not assess appearance, gender identity, personality, or relationships."
+      ],
+      [
+        "What can I share?",
+        "The copied text contains public names and links, without answers, counts, private IDs, or a personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 18 scenarios. Each choice adds one to its character. All six occur 12 times each, so counts are 0–12 and total 18. All highest ties stay.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Mattel’s public film-character materials check names and identities. The art afternoon is an original setting, and the counts describe choices made here."
+  }
+}

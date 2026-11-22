@@ -58,7 +58,7 @@ for (const locale of ["en", "zh"] as const) {
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
       await expect(page.getByText(zh ? "这个测试怎样回答“我属于哪个星际战士战团”？" : "What Space Marine Chapter am I in this quiz?", { exact: true })).toBeVisible();
       await page.getByRole("button", { name: zh ? "开始测试" : "Start test", exact: true }).click();
-      await expect(page).toHaveURL(new RegExp(`${entry}/take$`));
+      await expect(page).toHaveURL(new RegExp(`${entry}/take(?:[?]start=1)?$`));
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
       await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
       await expect(page.getByRole("status")).toContainText(zh ? "请选择" : "Choose an option");

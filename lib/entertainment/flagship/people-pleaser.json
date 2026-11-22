@@ -1,0 +1,233 @@
+{
+  "zh": {
+    "facts": "费马测试的讨好型人格测试采用10条PPS题目，约4分钟，免费呈现三项独立均分、有效题数和公开指南。读者可回看自身需要、照顾责任与他人期待。",
+    "intro": "同事忽然请你帮忙，你会先看自己的安排，还是先答应、再回头挪时间？顺着几次这样的小决定，看看你怎么权衡自己的需要和别人的期待。",
+    "deliverables": [
+      [
+        "三项独立读数",
+        "把搁置自身需要、照顾他人的责任感和迎合期望分别看。"
+      ],
+      [
+        "数一数有效题",
+        "得分旁同时展示实际计分题数，便于判断读数来自哪些选择。"
+      ],
+      [
+        "三份完整指南",
+        "分别用家庭、友情和协作里的小情境说明怎么读。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "答应前看余量",
+        "先看这次帮忙占用多少时间，试着说出自己可以做到的部分。"
+      ],
+      [
+        "分清谁接了这个任务",
+        "感到有责任时，回想双方事先约好的分工和还能商量的那部分。"
+      ],
+      [
+        "给别人一个选择",
+        "在意对方怎样看时，可试着把想法说清楚，也听听对方实际怎么想。"
+      ]
+    ],
+    "profiles": {
+      "needs": [
+        "给自己留一个位置",
+        "你一心把事情接下来，可能没顾上自己已经排满。",
+        "同事请你代班，你差点答应，才想起那天早约了家人。"
+      ],
+      "responsibility": [
+        "把余力说出来",
+        "你在意对方有没有被照顾，也可以把能承担的部分说清楚。",
+        "朋友搬家，你愿意帮着装箱，却不必同时负责借车和送货。"
+      ],
+      "expectations": [
+        "把猜测换成一句问话",
+        "你很容易先想对方希望听到什么，自己的意见却晚一步才出现。",
+        "群里约饭时，你平常顺着大伙选菜，这次先问能不能点一份清淡的。"
+      ]
+    },
+    "faq": [
+      [
+        "题目从哪里来？",
+        "题目采用 Blötner 的10条PPS，英文沿用作者题文，中文是费马测试工作译文。"
+      ],
+      [
+        "我应该回想哪个时间段？",
+        "按平常的情况来选，可以回想几次不同场合。"
+      ],
+      [
+        "三项读数怎么计算？",
+        "各题按1–5分计，自己的需要至少3/4题有效，另两组各需3/3题有效。"
+      ],
+      [
+        "可以跳过无法判断的题吗？",
+        "选NA即可。所有题先完成选择，NA不计分，指南都可阅读。"
+      ],
+      [
+        "经常帮忙也算讨好吗？",
+        "可以一起看是否自愿、是否有余量，以及自己的计划会不会受影响。"
+      ],
+      [
+        "分享会带上我的结果吗？",
+        "分享只带公开标题和同语入口，分数与选项留在本次页面。"
+      ]
+    ],
+    "formula": "10题均采用1–5分。搁置自身需要至少3/4题有效，责任感和他人期望各需3/3题有效，才显示对应均分。NA不进分母。",
+    "boundary": "本页借助PPS条目整理日常自述。原研究使用德国样本，本站英文、中文展示与未计分规则有改编，读数适合个人回顾，不能用作临床判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的討好傾向測驗使用10題PPS題目，約4分鐘。免費提供三項分開計算的平均分數、有效題數，以及回顧自身需求、照顧責任與他人期待的完整指南。",
+    "intro": "聽到「你能順手幫我一下嗎」，你會先看自己的行程，還是等答應之後才發現沒空？用幾件日常小事，看看你在顧及別人時也怎麼照顧自己。",
+    "deliverables": [
+      [
+        "三項分開看",
+        "為自己留空間、照顧別人的責任感，以及在意對方期待可以分開讀。"
+      ],
+      [
+        "每組有效題數",
+        "平均分數旁會列出計分題數，沒把握的題可選NA。"
+      ],
+      [
+        "三份公開指南",
+        "搭配工作交接、朋友邀約、家庭分工的生活例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看今天還剩多少時間",
+        "答應之前可以先翻一下行事曆，說清楚能幫到哪裡。"
+      ],
+      [
+        "把想幫忙跟分工分開想",
+        "主動幫人也可以同時說出自己的限制。"
+      ],
+      [
+        "聽對方把期待說完",
+        "猜想大家會失望時，可先問一句，再決定你想怎麼回。"
+      ]
+    ],
+    "profiles": {
+      "needs": [
+        "先看自己的行程",
+        "你常常等別人的事都安排好了，才想起自己早有約。",
+        "同事希望週六調班，你回覆前先確認那天家裡的聚餐。"
+      ],
+      "responsibility": [
+        "照顧別人也留點力氣",
+        "你很在意對方能不能順利，也能說清楚自己可以負責哪一部分。",
+        "朋友準備搬家，你可以幫忙打包，讓他自己安排叫車。"
+      ],
+      "expectations": [
+        "先問再猜",
+        "你可能會先猜大家想聽到什麼，把自己的偏好排在後面。",
+        "群組選餐廳時，你主動說想吃清淡的，也問問其他人的想法。"
+      ]
+    },
+    "faq": [
+      [
+        "這些題目出自哪裡？",
+        "採用 Blötner 的PPS十題，英文沿用作者題文，中文為費馬測試工作譯文。"
+      ],
+      [
+        "要回想多久？",
+        "照你平時的經驗填答即可，可以想到不同場合的幾件事。"
+      ],
+      [
+        "分數是怎麼算的？",
+        "各題1到5分。自身需求四題至少三題有分數，其他兩組需要三題全數計分。"
+      ],
+      [
+        "某題無法判斷怎麼辦？",
+        "可以選NA。10題都有選擇後即可看結果，所有指南都開放。"
+      ],
+      [
+        "主動幫人就是討好嗎？",
+        "是否出於自願、自己還有多少餘裕，以及這次幫忙影響了什麼，都能一起想。"
+      ],
+      [
+        "分享內容會帶分數嗎？",
+        "分享只有測驗標題和同語言公開連結。"
+      ]
+    ],
+    "formula": "10題各1到5分。自身需求一組至少3/4題計分，責任感與他人期待各需3/3題計分，才顯示各組平均。NA不計入。",
+    "boundary": "這份網頁使用PPS題目回顧日常經驗，原研究以德國樣本驗證。本站的中文譯文、選項呈現和NA規則屬網站調整，讀數限用於個人觀察。"
+  },
+  "en": {
+    "facts": "FermatMind’s free People Pleaser Test uses ten People Pleasing Scale statements and takes about four minutes. It presents three separate averages and rated item counts for setting aside needs, feeling responsible for others, and responding to others’ expectations. Readers can open all three guides without signing up and compare their responses with examples about requests, commitments, and time they can spare.",
+    "intro": "When someone says, “Could you do me a quick favor?” do you check your plans before replying? Think back to a few real requests and what you had room to take on.",
+    "deliverables": [
+      [
+        "Three separate readings",
+        "Look at your own needs, felt responsibility for others, and attention to expectations."
+      ],
+      [
+        "Rated-item counts",
+        "Each average shows how many responses entered the calculation."
+      ],
+      [
+        "Three complete guides",
+        "Compare the readings with scenes about helping friends, family members, and colleagues."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Check what is already on your plate",
+        "Before taking on another task, try naming one thing you can reasonably do."
+      ],
+      [
+        "Separate the request from your role",
+        "Think about what you agreed to handle and what could still be negotiated."
+      ],
+      [
+        "Ask what the person needs",
+        "If you find yourself guessing at expectations, you can check before volunteering."
+      ]
+    ],
+    "profiles": {
+      "needs": [
+        "Give your plans a place",
+        "You can agree quickly and realize later that you already promised the time to someone else.",
+        "When someone asks you to cover a shift, you check the family visit you had planned first."
+      ],
+      "responsibility": [
+        "Offer the part you can handle",
+        "You want things to go well for someone and can still spell out what you have room to take on.",
+        "You offer to pack boxes before a friend moves and ask them to arrange the van."
+      ],
+      "expectations": [
+        "Trade a guess for a question",
+        "You may imagine how people expect you to answer before mentioning what would work for you.",
+        "When your group chooses dinner, you suggest somewhere quieter and ask what others are after."
+      ]
+    },
+    "faq": [
+      [
+        "Where do the questions come from?",
+        "The ten English statements come from Blötner’s People Pleasing Scale. FermatMind supplies a Chinese working translation."
+      ],
+      [
+        "What time period should I use?",
+        "Answer for how things generally go. You can consider requests in several areas of your life."
+      ],
+      [
+        "How are the averages calculated?",
+        "Responses use a 1 to 5 scale. Your own needs requires at least three of four ratings. The other two groups require all three."
+      ],
+      [
+        "Can I choose not to rate an item?",
+        "Yes. Select NA where you cannot or prefer not to rate. Make a choice on every item to see the results."
+      ],
+      [
+        "Does offering help count as people pleasing?",
+        "Consider whether you chose freely, had room to help, and could say what you needed too."
+      ],
+      [
+        "Does sharing include my scores?",
+        "The share text gives the public test title and language-matched entry link. Scores and choices stay on the result screen."
+      ]
+    ],
+    "formula": "Ten ratings run from 1 to 5. Own needs requires at least 3 of 4 ratings, and each remaining group requires 3 of 3. NA is excluded from the group mean.",
+    "boundary": "The original PPS was validated in German samples. This site presents an English item set and Chinese working translation with adapted response presentation and unscored handling. Use these readings for personal reflection."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的政治坐标测试用36道原创假设政策题比较两条独立轴，约8分钟。免费呈现经济与社会政策选择次数、可用坐标和四份公开指南，支持保留未评分。",
+    "intro": "同一个公共服务目标，可以有几种筹资、参与或治理办法。按题面给出的条件选择，也可以保留不作答的立场。",
+    "deliverables": [
+      [
+        "两轴各自计数",
+        "经济左与右、共同体与个人自由优先分别比较。"
+      ],
+      [
+        "坐标和计数",
+        "以正向次数减负向次数表示，每轴满18个有效选择才显示。"
+      ],
+      [
+        "四份公开指南",
+        "为不同组合提供阅读入口，轴为零时可读相邻指南。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把政策目标和手段分开想",
+        "支持同一个目标的人，也可能选择不同的实施机制。"
+      ],
+      [
+        "看零坐标的边界",
+        "平分或接近时，可以同时阅读相关指南。"
+      ],
+      [
+        "无有效坐标可以继续阅读",
+        "不用补选不符合立场的选项。"
+      ]
+    ],
+    "profiles": {
+      "left-communitarian": [
+        "公共筹资与共同义务",
+        "你可以同时思考资金分配以及哪些义务由社区共同承担。",
+        "讨论共享空间时，你比较出资规则与公共使用约定。"
+      ],
+      "left-liberal": [
+        "公共筹资与个人选择",
+        "你可以分别看资源如何筹集、参与如何保留自主。",
+        "讨论服务资金时，你也问参加者是否能自行决定使用方式。"
+      ],
+      "right-communitarian": [
+        "市场安排与共同规则",
+        "你可以同时看经营方式、参与者要遵守的公共约定。",
+        "讨论街区活动时，你分别比较承办方式和共同使用规则。"
+      ],
+      "right-liberal": [
+        "经营选择与参与自由",
+        "你可以分别讨论市场选项与个人参与决定。",
+        "比较两个社区项目时，你把承办者的选择和住户参与方式分开看。"
+      ]
+    },
+    "faq": [
+      [
+        "两轴分别是什么？",
+        "经济左到右，社会轴由共同体优先到个人自由优先。"
+      ],
+      [
+        "坐标如何得到？",
+        "每轴正向选择减负向选择，有效区间为−18到18。"
+      ],
+      [
+        "为什么有一轴不显示？",
+        "每轴需要18次有效选择，任何NA只使所在轴不显示。"
+      ],
+      [
+        "零值怎么读？",
+        "两端各9次，可阅读所有与另一维相符的相邻指南。"
+      ],
+      [
+        "会告诉我支持哪个政党吗？",
+        "读数只比较题中假设政策，不推定党派。"
+      ],
+      [
+        "分享包含我的坐标吗？",
+        "公开入口不包含坐标或逐题回答。"
+      ]
+    ],
+    "formula": "36题每轴18项，正向次数减负向次数，范围−18到18。有NA则不呈现该轴。两轴皆有效才绘制完整坐标。",
+    "boundary": "材料是为比较而设的假设政策，不描述现行法律、政治身份、现实人群或政策效果，也不采集身份资料。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的政治座標測驗以36道原創假設政策題比較兩條獨立軸，約8分鐘。免費提供經濟和社會政策的選擇次數、有效座標及四份完整公開指南。",
+    "intro": "同一項公共服務可以用不同方式籌資，也可以讓人以不同方式參與。看清題目給的條件再選，拿不定主意可以不計分。",
+    "deliverables": [
+      [
+        "兩軸各自比較",
+        "經濟左與右、共同體優先與個人自由優先。"
+      ],
+      [
+        "從次數算座標",
+        "18題都有效後，算正向減負向。"
+      ],
+      [
+        "四種座標情境指南",
+        "兩軸齊全可按結果閱讀，座標為零可以讀相鄰的指南。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先確認兩個選項在比較什麼",
+        "同一目標會有不同籌資與執行方式。"
+      ],
+      [
+        "一邊選九次也是完整結果",
+        "若一軸平分，可以把那一軸兩端都保留下來。"
+      ],
+      [
+        "空著也有理由",
+        "題目不足以代表想法時，可以閱讀指南而不勉強選。"
+      ]
+    ],
+    "profiles": {
+      "left-communitarian": [
+        "一起籌資與共同規範",
+        "你可以分開看錢怎麼出、居民要遵守哪些約定。",
+        "討論公共空間時，你分別比較維護經費與使用守則。"
+      ],
+      "left-liberal": [
+        "一起籌資也保有自主",
+        "你可以把資金來源與參與形式分開考慮。",
+        "討論社區服務時，你也想知道居民能否自由選擇。"
+      ],
+      "right-communitarian": [
+        "看看市場機制與共同目的",
+        "你可以比較商家承辦的方式與大家共享的規則。",
+        "你談街區活動時，分開看由誰辦和民眾如何參加。"
+      ],
+      "right-liberal": [
+        "重視承辦與選擇自由",
+        "你可以思考市場安排與居民的參與決定。",
+        "你比較兩個社區方案時，分開問居民與承辦者有哪些選項。"
+      ]
+    },
+    "faq": [
+      [
+        "這份測驗比較什麼？",
+        "兩軸分別比較經濟與社會政策方案。"
+      ],
+      [
+        "座標怎麼算？",
+        "各軸正向次數減負向次數，範圍−18到18。"
+      ],
+      [
+        "選NA會怎樣？",
+        "該軸無法顯示數值，另外一軸仍可計算。"
+      ],
+      [
+        "零代表什麼？",
+        "軸的兩端各選九次，可查看符合另一軸的所有相鄰指南。"
+      ],
+      [
+        "會分出政黨身份嗎？",
+        "假設情境中的選擇用來閱讀政策做法。"
+      ],
+      [
+        "公開連結會附座標嗎？",
+        "同語言公開入口不含你的座標或答案。"
+      ]
+    ],
+    "formula": "兩軸各18題。以各自正向次數減負向次數計算。該軸有NA就留空，兩軸都有效才出現座標點。",
+    "boundary": "題目是供比較的假設方案。讀數不代表現實政黨、政治身分、法律現況或方案效果。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Political Coordinates Test uses 36 original hypothetical policy comparisons across separate economic and social axes. It takes about eight minutes and provides raw counts, available coordinates, and four complete public guides. Readers can keep individual items unscored and use the guides to compare policy choices without creating an account, submitting identifying details, or establishing their affiliation with any party.",
+    "intro": "A public service can be funded and governed in more than one way. Choose the proposal you prefer under the stated conditions, or leave an item unscored.",
+    "deliverables": [
+      [
+        "Two separate axes",
+        "Compare economic left and right, and communitarian and individual-liberty proposals."
+      ],
+      [
+        "Counts and coordinates",
+        "Each axis needs all 18 rated choices and shows positive minus negative counts."
+      ],
+      [
+        "Four public guides",
+        "Zero coordinates can leave more than one relevant guide when both axes are available."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Separate goals and tools",
+        "Similar goals can be attached to different ways of paying for a service."
+      ],
+      [
+        "Read a zero as an even split",
+        "An even count can make adjacent guides useful."
+      ],
+      [
+        "Keep uncertainty visible",
+        "Use NA when neither limited alternative represents your view."
+      ]
+    ],
+    "profiles": {
+      "left-communitarian": [
+        "Consider public funding and shared duties",
+        "You can look at how costs and community responsibilities are distributed.",
+        "In a shared-space proposal, you compare maintenance funding with the rules every user would follow."
+      ],
+      "left-liberal": [
+        "Consider public funding and individual choice",
+        "You can ask how a service is funded and where people keep choices about participation.",
+        "You compare financing a program with how people would decide to use it."
+      ],
+      "right-communitarian": [
+        "Consider market arrangements and shared purposes",
+        "You can look at who operates a service and which rules apply to everyone.",
+        "You compare providers and common access rules for a neighborhood project."
+      ],
+      "right-liberal": [
+        "Consider market options and individual freedom",
+        "You can keep arrangements for providers separate from decisions about personal participation.",
+        "You compare two local projects by who can offer services and who can take part."
+      ]
+    },
+    "faq": [
+      [
+        "What do the axes represent?",
+        "Economic left to right, and communitarian to individual liberty on the social axis."
+      ],
+      [
+        "How is a coordinate calculated?",
+        "Subtract negative choices from positive choices. Each axis ranges from minus 18 to plus 18."
+      ],
+      [
+        "What happens if I select NA?",
+        "That axis needs all 18 rated choices. The other axis can still be available."
+      ],
+      [
+        "What does an exact zero mean?",
+        "Nine choices on each side. It can leave more than one relevant guide."
+      ],
+      [
+        "Can it identify a party affiliation?",
+        "The quiz records choices in hypothetical proposals only."
+      ],
+      [
+        "Are my coordinates in the public link?",
+        "The public entry link contains neither your coordinates nor your answers."
+      ]
+    ],
+    "formula": "Each axis contains 18 comparisons. Subtract its negative count from its positive count. Any NA withholds that axis; a plotted point requires both axes.",
+    "boundary": "The original scenarios are hypothetical. They do not assert current law, guarantee policy outcomes, identify a party, or assess anyone else’s politics."
+  }
+}

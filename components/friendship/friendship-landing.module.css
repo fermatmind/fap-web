@@ -1,0 +1,89 @@
+.sample {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  border: 1px solid var(--rule);
+  border-radius: .8rem;
+  background: #fff;
+}
+
+.sample h2 {
+  font-size: 1.18rem;
+  font-weight: 740;
+}
+
+.sample > p, .sampleScore span {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.sampleChoices, .heroLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem .95rem;
+  margin-top: 1rem;
+}
+
+.sampleChoices button {
+  min-height: 44px;
+  padding-inline: .75rem;
+  border: 1px solid var(--rule);
+  border-radius: .4rem;
+  font-weight: 650;
+}
+
+.sampleChoices button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.sampleScore {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.sample :global(.fq-radar) {
+  max-width: 21rem;
+  margin-block: .75rem;
+}
+
+.categoryValues {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .3rem .9rem;
+  font-size: .82rem;
+}
+
+.categoryValues div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: .3rem;
+  padding-block: .24rem;
+  border-block-start: 1px solid var(--rule);
+}
+
+.categoryValues dd {
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.methodSteps {
+  padding-inline-start: 1.25rem;
+  list-style: decimal;
+}
+
+.methodSteps li + li, .guide {
+  margin-top: .8rem;
+}
+
+.comparison :global(.fq-section) {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.comparison :global(.fq-section) > :is(p, details) {
+  margin-block-start: .9rem;
+}

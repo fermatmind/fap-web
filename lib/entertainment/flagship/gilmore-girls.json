@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的吉尔莫女孩角色测试含18道原创阅读咖啡角情境题，约5分钟，免注册。答完可免费查看六位角色的选择次数与并列结果。公开指南可以直接阅读。",
+    "intro": "阅读咖啡角要办一个轻松的下午，你会先让聊天有来有回、追问一个有趣的问题，还是替大家准备点好吃的？用 18 道原创题回看你这次更常选哪种做法。结果和指南免费。",
+    "deliverables": [
+      [
+        "看六位角色的原始计数",
+        "每题加 1，合计 18。如有并列，所有最高角色都会显示。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "任何一位都可以先读指南，再决定是否答题。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单一最高复制角色名及公开指南；并列复制所有最高名称和入口，不附答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "洛蕾莱最高，7 次",
+        "六项依次为 7、3、2、2、2、2。这个样例较常让聊天热起来。"
+      ],
+      [
+        "罗里与帕里斯各 5 次",
+        "六项依次为 2、5、2、2、5、2。可以比较想把问题问深一点与想先把约定说清楚。"
+      ],
+      [
+        "全选 A，六项各 3 次",
+        "每位角色在 A 位各出现三次。结果会保留六份指南，具体题目能帮助回想你真正想选的做法。"
+      ]
+    ],
+    "profiles": {
+      "lorelai-gilmore": [
+        "让一句话带出下一句",
+        "你这次比较常选抛一个容易接的话题，让聊天热起来。",
+        "咖啡角刚安静下来，你问大家最近读到过哪句还想拿出来聊。"
+      ],
+      "rory-gilmore": [
+        "顺着一个好问题再问一步",
+        "你这次比较常选沿着想知道的事查一查。",
+        "读书分享结束后，你记下一个没讲透的细节，找来原书和访谈看。"
+      ],
+      "emily-gilmore": [
+        "给这一场相聚一个合适的样子",
+        "你这次比较常选想清宾客、顺序与场面的安排。",
+        "准备下午活动时，你先把桌面位置和入场顺序理好，让来的人省点问路。"
+      ],
+      "lane-kim": [
+        "分享一点自己真心喜欢的东西",
+        "你这次比较常选把自己的兴趣带进来，也给其他人留自己的空间。",
+        "交换歌单时，你加一首私心喜欢的歌，只说自己为什么反复听。"
+      ],
+      "paris-geller": [
+        "把约定说到能照着完成",
+        "你这次比较常选弄清负责范围和交付时间。",
+        "朋友一起做阅读推荐时，你先定好每人写几条，以及哪天把内容放进文档。"
+      ],
+      "sookie-st-james": [
+        "把照顾做成别人用得上的小东西",
+        "你这次比较常选先准备一项别人可以享用的具体东西。",
+        "有人没赶上点心时间，你留下一小份，问对方想要哪一种。"
+      ]
+    },
+    "faq": [
+      [
+        "需要熟悉剧集吗？",
+        "不用。题目是原创阅读咖啡角的日常活动，不考台词与剧情。"
+      ],
+      [
+        "这版有哪些角色？",
+        "洛蕾莱、罗里、艾米莉、莱恩、帕里斯和苏琪六位。"
+      ],
+      [
+        "18 道题怎么计数？",
+        "每题四选一，给对应角色加 1。各角色出现 12 次，单项 0–12，合计 18。"
+      ],
+      [
+        "如果最高并列怎么办？",
+        "都显示完整指南。全选 A 时，六个角色各 3 次。"
+      ],
+      [
+        "结果能说明亲子关系或人格吗？",
+        "只反映当次日常选择，不判断学业、家庭关系、心理健康或人格类型。"
+      ],
+      [
+        "分享会带上答案吗？",
+        "公开分享只复制名称和链接，不附作答、次数或私人标识。没有个人 PNG。"
+      ]
+    ],
+    "formula": "18 题每题选一项，对应角色加 1。每人出现 12 次，单项 0–12，合计 18。最高次数相同就全部保留。",
+    "boundary": "费马独立编写非官方同人娱乐测试。影视发行方资料仅用于核对人物与作品背景。阅读咖啡角是本站原创情境，结果不用于心理、家庭或学业评估。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的吉爾莫女孩角色測驗有18道原創閱讀咖啡角題，約5分鐘，免註冊。作答後可免費查看六位角色的次數與最高並列結果，六篇公開指南可以直接讀。",
+    "intro": "閱讀咖啡角想辦一個悠閒的下午，你會先開個話題、沿著有趣的疑問多找一點資料，還是帶大家可以吃的小點心？回答 18 道原創題，看看你這次常選哪種做法。",
+    "deliverables": [
+      [
+        "看看六位角色各被選幾次",
+        "每題替一位角色加 1，總數 18。同為最高就一起列出。"
+      ],
+      [
+        "免費讀六篇角色指南",
+        "任何指南都能先看，不需要先完成作答。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "單項最高分享角色名和指南；並列時會複製所有最高名稱與測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "洛蕾萊最高，7 次",
+        "六項依序為 7、3、2、2、2、2。範例比較常讓談話有更多來回。"
+      ],
+      [
+        "羅里和帕里斯都拿到 5 次",
+        "六項次數是 2、5、2、2、5、2。兩篇指南一起列出，可以比較追問問題和把事情安排到能做完。"
+      ],
+      [
+        "一路選 A，六位各 3 次",
+        "每位角色在 A 位出現三次，所以會看到所有指南。想回想自己偏好的做法，可以看每題在問什麼。"
+      ]
+    ],
+    "profiles": {
+      "lorelai-gilmore": [
+        "用一句話讓聊天接得下去",
+        "你比較常選帶出好聊的話題，讓大家有機會接上一句。",
+        "閱讀聚會剛安靜下來時，你問大家哪一小段還留在腦海裡。"
+      ],
+      "rory-gilmore": [
+        "沿著好奇多找一點",
+        "你比較常選順著一個沒說完的問題往下查。",
+        "讀書會結束後，你把沒聽懂的地方記下來，找作者訪談來讀。"
+      ],
+      "emily-gilmore": [
+        "替聚會安排一個舒服的樣子",
+        "你比較常選先想清楚人怎麼進來、在哪裡坐，以及流程怎麼走。",
+        "準備下午活動時，你先安排桌位和動線，讓剛到的人不用猜要去哪裡。"
+      ],
+      "lane-kim": [
+        "帶一點自己真的喜歡的東西",
+        "你比較常選把自己的喜好分享給別人，也讓對方保留自己的選擇。",
+        "交換歌單時，你先放一首自己反覆聽的歌，再簡單說喜歡哪一段。"
+      ],
+      "paris-geller": [
+        "把分工講到大家都能完成",
+        "你比較常選先把範圍和期限確認清楚。",
+        "一起寫閱讀推薦時，你先約好每人幾則，再說明什麼時候要放到共用文件。"
+      ],
+      "sookie-st-james": [
+        "備一個別人用得上的小心意",
+        "你比較常選先做一件能讓對方實際享用的事。",
+        "朋友錯過點心，你留下一小份，等他到了再問想吃哪一種。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過劇集可以做嗎？",
+        "可以。情境是費馬原創的閱讀咖啡角，不考情節和台詞。"
+      ],
+      [
+        "測驗有哪些角色？",
+        "洛蕾萊、羅里、艾米莉、萊恩、帕里斯和蘇琪，六位各有指南。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，對應角色加 1。每位角色出現 12 次，每項 0–12，合計 18。"
+      ],
+      [
+        "同為最高會怎麼顯示？",
+        "最高同分的完整指南都會保留。全選 A 時六位各有 3 次。"
+      ],
+      [
+        "可以看出家庭關係或人格嗎？",
+        "這些次數只整理這次的日常選項，無法評估家庭關係、學習能力、心理健康或人格。"
+      ],
+      [
+        "轉傳會附上答案或圖卡嗎？",
+        "分享只複製公開名稱和連結，不附作答、次數或個人識別資料。這版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "18 題每題四選一，替所選角色加 1 次。六位各出現 12 次，單項 0–12，合計 18。並列最高一起保留。",
+    "boundary": "這是費馬獨立編寫的非官方同人測驗。影視發行方介紹供核對人物與作品背景，閱讀咖啡角則是原創情境。結果不提供心理、家庭關係或學業表現評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Gilmore Girls Character Test uses 18 original scenarios in a reading café. It takes about five minutes and is free without registration. Results show how often six character themes were chosen and keep every tie for the highest count. The six public guides can be read before answering. No knowledge of the show or its dialogue is required. Complete results are also free.",
+    "intro": "A reading café asks for help with a relaxed afternoon. Would you get a conversation going, follow up on something interesting, or make a little something to share? Answer 18 original questions and see six character guides based on the choices you make.",
+    "deliverables": [
+      [
+        "See six choice counts",
+        "Each choice adds one, for a total of 18. Every tie for the highest count appears."
+      ],
+      [
+        "Read six public guides for free",
+        "Every character has a separate guide, which you can read before answering."
+      ],
+      [
+        "Copy a public name and link",
+        "One leader shares its guide. Tied leaders share all leading names and the public quiz page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Lorelai leads at 7",
+        "The counts are 7, 3, 2, 2, 2, and 2. The sample often chose to make the conversation feel lively."
+      ],
+      [
+        "Rory and Paris tie at 5 each",
+        "The counts are 2, 5, 2, 2, 5, and 2. Compare following a question further with making a commitment clear enough to finish."
+      ],
+      [
+        "All A: six characters with 3 each",
+        "Each character appears three times in position A, so all six guides appear. Go back to the situations to understand your choices."
+      ]
+    ],
+    "profiles": {
+      "lorelai-gilmore": [
+        "Give the conversation somewhere to go",
+        "You often chose to bring up something others could easily respond to.",
+        "When the café falls quiet, you ask what line someone read recently that they would still like to talk about."
+      ],
+      "rory-gilmore": [
+        "Follow a question a little further",
+        "You often chose to look for more detail on something that caught your attention.",
+        "After a book discussion, you write down an unanswered question and find an interview with the author."
+      ],
+      "emily-gilmore": [
+        "Give the occasion a shape that makes sense",
+        "You often chose to consider who is coming and how the parts of a gathering fit together.",
+        "Before an afternoon event, you arrange the seating and entry so new guests can work out where to go."
+      ],
+      "lane-kim": [
+        "Share a corner of your own taste",
+        "You often chose to bring in something you genuinely liked and let others have their own favorites.",
+        "When friends trade playlists, you add one song you keep coming back to and say what you like about it."
+      ],
+      "paris-geller": [
+        "Make the commitment clear enough to finish",
+        "You often chose to spell out who would do what and by when.",
+        "When a group puts together reading recommendations, you agree on how many each person will write and when they are due."
+      ],
+      "sookie-st-james": [
+        "Put some care into a small thing others can enjoy",
+        "You often chose to offer something concrete that another person might appreciate.",
+        "When a friend misses the snack break, you save a little and ask which kind they would like."
+      ]
+    },
+    "faq": [
+      [
+        "Can I take this without watching the show?",
+        "Yes. The reading café is an original setting. You do not need to remember plots or lines."
+      ],
+      [
+        "Which characters are included?",
+        "Lorelai Gilmore, Rory Gilmore, Emily Gilmore, Lane Kim, Paris Geller, and Sookie St. James."
+      ],
+      [
+        "How are the 18 questions counted?",
+        "Each choice adds one. Every character appears 12 times, so each count is 0–12 and all counts add to 18."
+      ],
+      [
+        "What if several characters tie?",
+        "The result retains every highest tie. Picking A throughout gives all six a count of three."
+      ],
+      [
+        "Can the result explain my personality or family relationships?",
+        "The counts are about the choices in this café scenario. They do not assess personality, family relationships, academic performance, or mental health."
+      ],
+      [
+        "Does sharing include my answers or a personal picture?",
+        "Public links carry no answers, counts, or private identifiers. This quiz has no personal PNG export."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 18 situations. Each choice adds one to a character. The six appear 12 times each, so counts range from 0 to 12 and total 18. Every highest tie stays.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Distributor material checks the series and character names. The reading café is an original setting, and the counts summarize choices without assessing anyone’s family, personality, or abilities."
+  }
+}

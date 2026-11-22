@@ -22,14 +22,11 @@ it("connects Chinese test, virtue-only and result-reading intents to existing se
   const props = { params: Promise.resolve({ locale: "zh", slug: quiz.slug }) };
   const dom = parse(renderToStaticMarkup(await entry(props)));
   const metadata = await entryMetadata(props);
-  expect(String(metadata.title)).toContain("七宗罪测试与七美德测试");
-  expect(metadata.description).toContain("28道原创题");
+  expect(metadata.title).toMatchObject({ absolute: expect.stringContaining("免费七宗罪与七美德测试") });
+  expect(metadata.description).toContain("无需注册或付费解锁");
   expect(dom.querySelectorAll("h1")).toHaveLength(1);
-  const navigation = dom.querySelector('nav[aria-label="七宗罪测试阅读导航"]')!;
-  expect(navigation).not.toBeNull();
-  for (const a of navigation.querySelectorAll("a")) {
-    expect(dom.querySelector(a.getAttribute("href")!)).not.toBeNull();
-  }
+  expect(dom.querySelector("#seven-sins-result-patterns")).not.toBeNull();
+  expect(dom.querySelector("#questionnaire-faq")?.closest("section")?.querySelectorAll("details")).toHaveLength(6);
   expect(dom.querySelector("#questionnaire-faq")?.closest("section")?.textContent).toContain("没有另一套单独的七美德题本");
   expect(dom.querySelector("#questionnaire-faq")?.closest("section")?.textContent).toContain("不是人群排名或发生概率");
   expect(dom.querySelector("#questionnaire-faq")?.closest("section")?.textContent).toContain("它不是MBTI");

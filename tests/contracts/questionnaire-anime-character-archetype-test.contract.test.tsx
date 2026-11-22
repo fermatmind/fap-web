@@ -1,3 +1,4 @@
+import { standaloneStoryLandingCopy } from "@/lib/questionnaires/storyRoleLandingCopy";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -142,9 +143,9 @@ describe("T130 original six-role anime-story quiz", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
-        expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
+        expect(html).toContain(locale === "zh" ? "原创故事角色测试" : "An original story-role quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
-        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(standaloneStoryLandingCopy(section.paragraphs[0][locale], locale));
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/anime-character-archetype-test");
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

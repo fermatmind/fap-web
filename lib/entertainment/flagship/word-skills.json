@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的Word技能练习含25道原创题，以Windows桌面版Word为准，约12分钟。答完可免费查看五项正确数、逐题解析及五篇公开指南，无需注册。",
+    "intro": "一段空白删不掉、某一页要横排、同一封信要发给许多人，你会先用哪个功能？用约 12 分钟完成 25 道 Windows 桌面版 Microsoft 365 Word 情境题。结果和解析免费，答题无需打开 Word 或上传文件。",
+    "deliverables": [
+      [
+        "看总正确数和五个分项",
+        "25 题答齐后显示总正确数。五个主题各有 5 题，可以找出值得再练的功能。"
+      ],
+      [
+        "回看每题选项和解析",
+        "结果页逐题呈现你的选择、正确选项及原因。"
+      ],
+      [
+        "随时打开五篇免费指南",
+        "做题前后都能直接读指南，也可把公开练习链接发给同事。链接不会带走答案或正确数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "全对样张：25 / 25",
+        "五个主题各答对 5 题。这份练习覆盖的是选项判断，想检验实际操作，可另用一份练习文档试做。"
+      ],
+      [
+        "分项不同样张：15 / 25",
+        "段落与格式 4、样式与结构 5、分节与表格 2、域与邮件合并 1、审阅与模板 3。可以先复习数据源和合并字段，再做一份小样。"
+      ],
+      [
+        "全错样张：0 / 25",
+        "五个分项都为 0，逐题解释及五份指南依然完整开放。可以先用编辑标记区分空格、制表符和段落，再看其他主题。"
+      ]
+    ],
+    "profiles": {
+      "paragraphs-and-formatting": [
+        "先找出空白从哪来",
+        "你可以用段落与格式指南分辨段落属性、编辑标记和直接格式。",
+        "草稿突然多出一段空白时，你先开启显示编辑标记，再判断是空段落、制表符还是空格。"
+      ],
+      "styles-and-structure": [
+        "用样式组织长文档",
+        "你可以用这份指南回看标题样式如何影响导航和目录。",
+        "收到一份几十页的报告时，你先把大标题设为标题样式，再更新自动目录。"
+      ],
+      "sections-and-tables": [
+        "让一页横排，让表头跟着走",
+        "你可以用这份指南区分分节与分页，并查看跨页表格的设置。",
+        "要给宽表格单独用横向页面时，你在前后建立分节，再检查其余页的方向。"
+      ],
+      "fields-and-mail-merge": [
+        "先预览字段，再批量生成",
+        "你可以回看域、数据源与邮件合并分别负责什么。",
+        "要给报名者生成姓名不同的确认信时，你先用几条测试数据预览合并结果。"
+      ],
+      "review-and-templates": [
+        "把审阅意见和文档底稿分开",
+        "你可以用这份指南区分修订、批注和可反复使用的模板。",
+        "和同事改同一份手册时，你保留修订记录；定稿后，再把通用结构做成模板。"
+      ]
+    },
+    "faq": [
+      [
+        "Word 技能测试以哪个版本为准？",
+        "本题本以 Windows 桌面版 Microsoft 365 Word 为准。Mac、网页版或移动端的菜单和操作可能不同。"
+      ],
+      [
+        "要打开 Word 或上传自己的文档吗？",
+        "无需打开 Word 或上传文档。只需在浏览器回答题目，不会替你编辑文件、连接收件人数据或发送邮件。"
+      ],
+      [
+        "25 道题怎么计分？",
+        "每题答对计 1、答错计 0。五个主题各 5 道，分项 0–5，总正确数 0–25。答齐才显示本次结果。"
+      ],
+      [
+        "可以免费查看全部答案和解析吗？",
+        "可以。完整作答后，25 道题的选择、正确选项和解析都可免费查看。五篇公开指南不用答题也能读。"
+      ],
+      [
+        "有倒计时或微软认证吗？",
+        "约 12 分钟是参考用时，没有倒计时或速度加分。这份独立练习不授予微软证书，也没有就业合格线。"
+      ],
+      [
+        "分享会带上分数或我的答案吗？",
+        "分享链接只指向公开练习入口，不携带答案、正确数或个人标识。没有个人 PNG。独立答题页面刷新后不会恢复未完成进度。"
+      ]
+    ],
+    "formula": "25 道题都要作答。所选项与正确选项一致计 1，否则计 0。五个主题各 5 题，各显示 0–5 的正确数，再合计为 0–25。",
+    "boundary": "这是费马原创的 Word 知识练习，以 Windows 桌面 Microsoft 365 版为准。结果反映这套题的选项判断，不提供人群常模、能力等级、入职门槛或微软授权认证。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的Word技能練習有25道原創題，以Windows桌面版Word為準，約12分鐘。交卷後可免費查看五組答對題數、逐題解析與五篇公開指南，免註冊。",
+    "intro": "段落中間突然多出一大塊空白、一張表格需要橫向頁面、同一封信要帶入不同姓名，你會先用哪個功能？花約 12 分鐘回答 25 道 Windows 桌面版 Word 情境題。結果與解析免費，免上傳文件。",
+    "deliverables": [
+      [
+        "看總答對題數與五個主題",
+        "答完 25 題會顯示總答對題數與各組成績。每組有 5 題，可以看看哪個功能想再熟悉一點。"
+      ],
+      [
+        "逐題對照正確選項和原因",
+        "交卷後可查看每題原本的選擇、正確選項和解析。"
+      ],
+      [
+        "隨時閱讀或分享公開指南",
+        "五個主題各有一篇免費指南，作答前也能閱讀。複製公開測驗連結不會帶出你的答對題數或答案。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "全部答對的範例：25 / 25",
+        "五個主題各答對 5 題。可以用一份測試文件試做格式調整與合併列印，看看實際操作是否順手。"
+      ],
+      [
+        "各組不同的範例：15 / 25",
+        "段落與格式 4、樣式與文件結構 5、分節與表格 2、欄位與合併列印 1、校閱與範本 3。可以先複習怎麼把資料來源的欄位套進主文件。"
+      ],
+      [
+        "全部答錯的範例：0 / 25",
+        "每組答對題數都是 0，仍可免費看完整解析和五篇指南。可以先學會辨認定位字元、空格和段落標記。"
+      ]
+    ],
+    "profiles": {
+      "paragraphs-and-formatting": [
+        "先找出多餘空白的原因",
+        "你可以從段落與格式指南了解哪些設定控制間距，以及怎麼用格式標記診斷問題。",
+        "文件某一段突然空了一行時，你打開顯示格式標記，確認是空段落還是定位字元或空格。"
+      ],
+      "styles-and-structure": [
+        "讓長文件的標題有層級",
+        "你可以用這篇指南把標題樣式、瀏覽和目錄串在一起。",
+        "整理社團手冊時，你先為章節套用標題樣式，再由 Word 更新目錄。"
+      ],
+      "sections-and-tables": [
+        "在同一份文件中混用橫向頁",
+        "你可以從這篇指南分辨分節和分頁，順便學跨頁表格怎麼保留標題列。",
+        "遇到比版面寬的表格，你替它隔出一節，改成橫向並確認前後頁沒有跟著變。"
+      ],
+      "fields-and-mail-merge": [
+        "先檢查欄位有沒有帶對",
+        "你可以用這篇指南回顧欄位、資料來源和合併列印各自的用途。",
+        "準備替活動報名者產生確認函時，你先預覽幾筆測試資料，看看姓名是否出現在正確位置。"
+      ],
+      "review-and-templates": [
+        "保留校閱記錄和可重複使用的版型",
+        "你可以用這篇指南區分追蹤修訂、註解和範本。",
+        "和夥伴一起修改稿件時，你先保留修訂，定稿後才另存一份通用範本。"
+      ]
+    },
+    "faq": [
+      [
+        "這份 Word 測驗是以哪個版本為準？",
+        "以 Windows 桌面版 Microsoft 365 Word 為準。Mac、網頁版和手機版的介面與功能可能不同。"
+      ],
+      [
+        "需要開啟 Word 或上傳文件嗎？",
+        "不必。測驗只在瀏覽器選答案，不會編輯你的檔案、連接收件人資料或寄信。"
+      ],
+      [
+        "25 道題是怎麼計分的？",
+        "每答對一題計 1，答錯計 0。五組各 5 題，分項為 0–5，總答對題數為 0–25。要答完才會出現結果。"
+      ],
+      [
+        "答案、詳解和指南都免費嗎？",
+        "都免費。完整作答可查看全部 25 道題的選項及詳解。五篇公開指南無須作答也能直接閱讀。"
+      ],
+      [
+        "這是限時測驗或 Microsoft 認證嗎？",
+        "約 12 分鐘只是用時參考。沒有倒數、速度加分或合格線，也不發 Microsoft 認證。"
+      ],
+      [
+        "轉傳時會連同分數或答案一起分享嗎？",
+        "公開測驗連結只會帶到入口，不附作答內容、答對題數或個人識別資料，也不會產生個人 PNG。獨立作答頁重新整理後，未交卷的進度不會恢復。"
+      ]
+    ],
+    "formula": "25 題都需要作答。每答對一題加 1，答錯 0。五個主題各有 5 題，分別顯示 0–5 題，合計為 0–25 題。",
+    "boundary": "這是費馬原創的 Word 知識練習，題目以 Windows 桌面版 Microsoft 365 Word 為準。結果只反映這一次的選項判斷，未建立常模或能力等級，也沒有適職判定或原廠認證。"
+  },
+  "en": {
+    "facts": "FermatMind’s Word Skills Practice Test presents 25 original scenarios about Microsoft 365 Word for Windows desktop and takes about 12 minutes. It is free without registration. The result includes your total, counts across five topics, and an explanation for each answer. Five public guides are available before or after the test. The practice runs in a browser and requires no document upload.",
+    "intro": "A blank space will not go away, just one page needs to be landscape, or a single letter needs different names. Which Word command would you try first? Answer 25 original scenarios for Word for Microsoft 365 on Windows desktop. It takes about 12 minutes, and all results are free.",
+    "deliverables": [
+      [
+        "See your total and five topic counts",
+        "The result shows how many of 25 you got right and how many of five you got right for each topic."
+      ],
+      [
+        "Review every answer and explanation",
+        "Compare your choice with the keyed answer. The explanation describes why that command fits the situation."
+      ],
+      [
+        "Open five guides any time",
+        "All five public guides are free to read before or after the test. You can copy the public test link without sharing answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "All correct sample: 25 / 25",
+        "The sample got all five right in each topic. Try carrying out the steps in a practice document if you want to check that they are familiar in the actual app."
+      ],
+      [
+        "Uneven topic counts: 15 / 25",
+        "The counts are 4 for formatting, 5 for styles, 2 for sections, 1 for fields, and 3 for review. To work on the lowest section first, preview a merge with a small test list."
+      ],
+      [
+        "All incorrect sample: 0 / 25",
+        "All five counts are zero. The full answer review and guides are still available. You might begin by learning to reveal formatting marks before editing a paragraph."
+      ]
+    ],
+    "profiles": {
+      "paragraphs-and-formatting": [
+        "Find out what created the extra space",
+        "You can use the formatting guide to tell paragraph settings apart from tabs, spaces, and direct formatting.",
+        "When a gap shows up in a draft, you turn on formatting marks before deleting anything."
+      ],
+      "styles-and-structure": [
+        "Use heading styles to organize a long file",
+        "You can use the styles guide to review how headings feed navigation and an automatic table of contents.",
+        "After receiving a long report with manually bolded headings, you apply heading styles and regenerate the contents."
+      ],
+      "sections-and-tables": [
+        "Change one section and keep the rest intact",
+        "You can use the sections guide to revisit section breaks, orientation changes, and repeating table headings.",
+        "To fit a wide table, you put its page in its own section and check that the surrounding pages stay in portrait."
+      ],
+      "fields-and-mail-merge": [
+        "Check the fields before merging records",
+        "You can use the merge guide to see what the fields do and where each record comes from.",
+        "Before making personalized confirmation letters, you preview a few dummy records to check how the names appear."
+      ],
+      "review-and-templates": [
+        "Keep revision decisions and reuse the layout",
+        "You can use the review guide to distinguish tracked changes, comments, and templates.",
+        "While sharing a draft with colleagues, you track edits. After agreement, you turn the reusable layout into a template."
+      ]
+    },
+    "faq": [
+      [
+        "Which version of Microsoft Word does this test use?",
+        "The bank refers to Microsoft 365 Word for Windows desktop. Mac, web, and mobile versions can have different commands or behavior."
+      ],
+      [
+        "Do I need to open Word or upload a document?",
+        "No. This is a browser-based knowledge exercise. It does not edit files, connect to recipient lists, or send a mail merge."
+      ],
+      [
+        "How are the 25 questions scored?",
+        "Each correct answer adds one. Incorrect answers add zero. Each of five topics has five items, so topic counts run from 0 to 5 and the total runs from 0 to 25."
+      ],
+      [
+        "Can I see all answers and guides for free?",
+        "Yes. A completed test shows all 25 choices, correct answers, and explanations. The five public guides are free to read at any time."
+      ],
+      [
+        "Is it timed or a Microsoft certification?",
+        "Twelve minutes is an estimate. There is no timer, speed bonus, pass mark for employment, or Microsoft credential."
+      ],
+      [
+        "Does sharing include my score or answers?",
+        "The public test link carries no answers, counts, or ID. There is no personal PNG export. Reloading the standalone test will not restore unfinished answers."
+      ]
+    ],
+    "formula": "All 25 items require an answer. Each choice matching its answer key adds one, and other choices add zero. The five topic counts each run from 0 to 5 and add up to the total from 0 to 25.",
+    "boundary": "FermatMind created this knowledge exercise for Word in Microsoft 365 on Windows desktop. Counts summarize choices on this bank. They do not provide population norms, proficiency levels, employment pass marks, or official Microsoft certification."
+  }
+}
