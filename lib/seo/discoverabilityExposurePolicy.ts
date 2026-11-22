@@ -1,3 +1,6 @@
+import { GLOBAL_HISTORY_PATH } from "@/lib/entertainment/global-history/config";
+import { findHistoryPerson } from "@/lib/entertainment/global-history/people";
+
 export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
   "/email/*",
   "/account",
@@ -238,7 +241,7 @@ const archivedEntertainmentEntries = new Set([
   "/tests/play/game-night-reset",
   "/tests/play/garden-season",
   "/tests/play/gift-note",
-  "/tests/play/global-history-quiz",
+  GLOBAL_HISTORY_PATH,
   "/tests/play/group-chat-role",
   "/tests/play/group-project-finale",
   "/tests/play/group-trip-seatmate",
@@ -328,6 +331,8 @@ export function isSharedDiscoverabilityDeniedPath(pathname: string): boolean {
 
 export function isArchivedEntertainmentPath(pathname: string): boolean {
   const path = stripDiscoverabilityLocalePrefix(pathname).replace(/\/+$/, "");
+  const historyResultPrefix = `${GLOBAL_HISTORY_PATH}/results/`;
+  if (path.startsWith(historyResultPrefix) && findHistoryPerson(path.slice(historyResultPrefix.length))) return false;
   const entry = path.replace(/\/results\/[^/]+$/, "");
   return archivedEntertainmentEntries.has(entry);
 }

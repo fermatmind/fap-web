@@ -4,6 +4,7 @@ import type { Copy } from "../types";
 export const GLOBAL_HISTORY_SLUG = "global-history-quiz";
 export const GLOBAL_HISTORY_VERSION = "1.0.0";
 export const GLOBAL_HISTORY_UPDATED = "2026-11-06";
+export const GLOBAL_HISTORY_PORTRAITS_UPDATED = "2026-11-22";
 export const GLOBAL_HISTORY_MINUTES = 4;
 export const GLOBAL_HISTORY_QUESTION_COUNT = 12;
 

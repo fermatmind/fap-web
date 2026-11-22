@@ -61,6 +61,14 @@ describe("staging discoverability containment", () => {
     expect(production.headers.get("x-robots-tag")).toBeNull();
   });
 
+  it("retains the staging noindex header for the public World Edition portraits", () => {
+    for (const locale of ["en", "zh", "zh-TW"]) {
+      const portrait = `/${locale}/tests/play/global-history-quiz/results/isaac-newton`;
+      expect(proxy(new NextRequest(STAGING_URL + portrait)).headers.get("x-robots-tag")).toBe(NOINDEX);
+      expect(proxy(new NextRequest("https://fermatmind.com" + portrait)).headers.get("x-robots-tag")).toBeNull();
+    }
+  });
+
   it("blocks staging robots from advertising a public staging sitemap", async () => {
     const response = proxy(new NextRequest(`${STAGING_URL}/robots.txt`));
     const body = await response.text();

@@ -1,3 +1,5 @@
+import { GLOBAL_HISTORY_PORTRAITS_UPDATED, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
+import { historyPeople } from "@/lib/entertainment/global-history/people";
 import { TRADITIONAL_PUBLIC_PATHS } from "@/lib/i18n/traditionalRoutes";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { createHash } from "node:crypto";
@@ -225,6 +227,9 @@ describe("original entertainment catalog", () => {
       for (const profile of card.resultSlugs) expectedEntries.push({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
     expectedEntries.push(...gta6Entries);
+    for (const { id } of historyPeople) for (const locale of ["en", "zh"] as const) {
+      expectedEntries.push({ loc: `https://fermatmind.com${globalHistoryResultPath(locale, id)}`, lastmod: GLOBAL_HISTORY_PORTRAITS_UPDATED });
+    }
     expectedEntries.push(...TRADITIONAL_PUBLIC_PATHS.map(path => ({ loc: `https://fermatmind.com/zh-TW${path}` } as typeof expectedEntries[number])));
     const eligibleEntries = expectedEntries.filter(({ loc }) => !isArchivedEntertainmentPath(new URL(loc).pathname));
     deepStrictEqual(entries, eligibleEntries.sort((a, b) => a.loc.localeCompare(b.loc)));

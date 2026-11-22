@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { GLOBAL_HISTORY_QUESTION_COUNT, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath } from "@/lib/entertainment/global-history/config";
 import { closestHistoryPerson, historyAnswerVector, isHistoryVector } from "@/lib/entertainment/global-history/matching";
 import { getHistoryGalleryPage, historyPeople } from "@/lib/entertainment/global-history/people";
@@ -8,7 +8,9 @@ import evidence from "@/lib/entertainment/global-history/new-vector-evidence.jso
 import { getCoxEstimate, getHistoryResult, historyBatchEditorial } from "@/lib/entertainment/global-history/result-v2";
 import { historyAxes, historyScenes } from "@/lib/entertainment/global-history/questions";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
-import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import { buildCompletePublicSitemapEntries, buildPublicSitemapFamilyMap } from "@/lib/seo/publicSitemap";
+import { shouldNoindex } from "@/lib/seo/indexingPolicy";
+import { CANONICAL_SITE_URL, SITE_URL } from "@/lib/site";
 import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
 import { traditionalPath } from "@/lib/i18n/traditionalRoutes";
 
@@ -144,18 +146,52 @@ describe("World Edition history quiz", () => {
     expect(closestHistoryPerson(people[999].vector, people)?.id).toBe(people[999].id);
   });
 
-  it("paginates the full roster while keeping the archived World Edition out of the sitemap", () => {
+  it("paginates the full roster and indexes only its trilingual public portraits", () => {
     const end = getHistoryGalleryPage("9999");
     expect(getHistoryGalleryPage(["2", "3"]).page).toBe(1);
     expect(Array.from({ length: end.total }, (_, index) => getHistoryGalleryPage(String(index + 1)).people).flat()).toEqual(historyPeople);
-    const paths = appendFunSitemapEntries([]).map(entry => new URL(entry.loc).pathname).filter(path => path.includes("/global-history-quiz"));
-    for (const locale of ["zh", "en"] as const) {
-      expect(isMissingFunRoute(globalHistoryPath(locale))).toBe(false);
-      expect(isMissingFunRoute(`${globalHistoryPath(locale)}/take`)).toBe(false);
-      expect(isMissingFunRoute(globalHistoryResultPath(locale, "mansa-musa"))).toBe(false);
-      expect(isMissingFunRoute(globalHistoryResultPath(locale, "jorge-luis-borges"))).toBe(true);
+
+    const entries = buildCompletePublicSitemapEntries([]);
+    const globalHistoryEntries = (items: typeof entries) => items.map(entry => entry.loc)
+      .filter(loc => new URL(loc).pathname.includes("/global-history-quiz"));
+    const locales = ["zh", "zh-TW", "en"] as const;
+    const portraitPaths = historyPeople.flatMap(({ id }) => locales.map(locale => globalHistoryResultPath(locale, id)));
+    const expected = portraitPaths.map(path => CANONICAL_SITE_URL + path).sort();
+    expect(globalHistoryEntries(entries).sort()).toEqual(expected);
+    expect(globalHistoryEntries(buildPublicSitemapFamilyMap(entries).tests).sort()).toEqual(expected);
+    for (const path of portraitPaths) expect(shouldNoindex(path, null), path).toBe(false);
+    for (const locale of locales) {
+      const landing = globalHistoryPath(locale);
+      expect(isMissingFunRoute(landing)).toBe(false);
+      expect(isMissingFunRoute(`${landing}/take`)).toBe(false);
+      expect(shouldNoindex(landing, null)).toBe(true);
+      expect(shouldNoindex(`${landing}/take`, null)).toBe(true);
+      expect(shouldNoindex(globalHistoryResultPath(locale, "missing-history-portrait"), null)).toBe(true);
     }
-    expect(paths).toEqual([]);
+  });
+
+  it("builds reciprocal absolute alternates and a self-canonical for every portrait", async () => {
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/tests/play/global-history-quiz/results/[portrait]/page");
+    for (const { id } of historyPeople) {
+      const english = SITE_URL + globalHistoryResultPath("en", id);
+      const expected = {
+        "zh-CN": SITE_URL + globalHistoryResultPath("zh", id),
+        "zh-TW": SITE_URL + globalHistoryResultPath("zh-TW", id),
+        en: english,
+        "x-default": english,
+      };
+      for (const locale of ["zh", "zh-TW", "en"] as const) {
+        expect(await generateMetadata({ params: Promise.resolve({ locale, portrait: id }), searchParams: Promise.resolve({ page: "2" }) }))
+          .toMatchObject({ robots: { index: true, follow: true }, alternates: { canonical: SITE_URL + globalHistoryResultPath(locale, id), languages: expected } });
+      }
+    }
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
+    try {
+      expect(await generateMetadata({ params: Promise.resolve({ locale: "zh-TW", portrait: "li-bai" }), searchParams: Promise.resolve({}) }))
+        .toMatchObject({ robots: { index: false, follow: false } });
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 
   it("projects the complete Taiwan roster without altering IDs, matching or original languages", () => {

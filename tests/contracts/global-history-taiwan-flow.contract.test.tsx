@@ -17,14 +17,14 @@ vi.mock("next/navigation", async (original) => ({
 }));
 vi.mock("@/lib/entertainment/activity", () => ({ recordEntertainmentActivity: vi.fn() }));
 
-it("keeps the Taiwan route private to indexing and uses the original 12-scene match", async () => {
+it("keeps the Taiwan take flow out of indexing and uses the original 12-scene match", async () => {
   const copy = await loadTraditionalAssessmentText();
   const expected = await matchGlobalHistory(Array(historyScenes.length).fill(0));
   expect(expected).not.toBeNull();
   expect(await landingMetadata()).toMatchObject({ robots: { index: false, follow: true }, alternates: { canonical: expect.stringContaining(globalHistoryPath("zh-TW")) } });
   expect(await takeMetadata()).toMatchObject({ robots: { index: false, follow: false } });
   expect(await portraitMetadata({ params: Promise.resolve({ portrait: expected!.id }), searchParams: Promise.resolve({}) }))
-    .toMatchObject({ robots: { index: false }, alternates: { canonical: expect.stringContaining(globalHistoryResultPath("zh-TW", expected!.id)) } });
+    .toMatchObject({ robots: { index: true, follow: true }, alternates: { canonical: expect.stringContaining(globalHistoryResultPath("zh-TW", expected!.id)) } });
 
   render(await HistoryTake({ params: Promise.resolve({ locale: "zh-TW" }) }));
   fireEvent.click(await screen.findByRole("button", { name: copy("走进展馆") }));

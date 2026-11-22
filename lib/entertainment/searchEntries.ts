@@ -1,5 +1,6 @@
 import catalog from "./catalog.json";
-import { globalHistoryStory } from "./directory";
+import { GLOBAL_HISTORY_PATH, GLOBAL_HISTORY_PORTRAITS_UPDATED } from "./global-history/config";
+import { historyPeople } from "./global-history/people";
 import questionnaires from "../questionnaires/catalog.json";
 import { gta6IndexablePaths } from "../questionnaires/gta6CharacterQuiz";
 import { PUBLIC_PATH, RESOURCE_PATHS } from "../friendship/core";
@@ -7,7 +8,7 @@ import { isArchivedEntertainmentPath } from "../seo/discoverabilityExposurePolic
 
 export function entertainmentSearchEntries(): { path: string; lastmod: string }[] {
   const entries = new Map<string, string>();
-  for (const quiz of [...catalog, globalHistoryStory]) {
+  for (const quiz of catalog) {
     if (questionnaires.some(native => native.slug === quiz.slug)) continue;
     const path = `/tests/play/${quiz.slug}`;
     const lastmod = `${quiz.updated}T00:00:00.000Z`;
@@ -22,6 +23,9 @@ export function entertainmentSearchEntries(): { path: string; lastmod: string }[
   }
   for (const [index, path] of gta6IndexablePaths.entries()) {
     entries.set(path, index === 0 ? "2026-11-21T00:00:00.000Z" : "2026-11-20T00:00:00.000Z");
+  }
+  for (const { id } of historyPeople) {
+    entries.set(`${GLOBAL_HISTORY_PATH}/results/${id}`, GLOBAL_HISTORY_PORTRAITS_UPDATED);
   }
   return Array.from(entries, ([path, lastmod]) => ({ path, lastmod }))
     .filter(({ path }) => !isArchivedEntertainmentPath(path));

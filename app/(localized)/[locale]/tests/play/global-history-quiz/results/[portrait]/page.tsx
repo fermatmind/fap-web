@@ -15,7 +15,7 @@ import { findHistoryPerson, getHistoryGalleryPage, historyPeople } from "@/lib/e
 import { displayHistoryPerson } from "@/lib/entertainment/global-history/traditional-roster";
 import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -42,11 +42,18 @@ export async function generateMetadata({ params }: Props) {
     const pathname = globalHistoryResultPath(displayLocale, person.id);
     const title = `${person.name[locale]} · ${sample.archetype_title[displayLocale]}`;
     const description = sample.one_line_hook[displayLocale];
+    const englishPath = globalHistoryResultPath("en", person.id);
+    const index = !isConfiguredStagingSiteUrl();
     return {
-      title, description, robots: { index: false, follow: true },
+      title, description, robots: { index, follow: index },
       alternates: {
         canonical: `${SITE_URL}${pathname}`,
-        languages: { "zh-CN": globalHistoryResultPath("zh", person.id), "zh-TW": globalHistoryResultPath("zh-TW", person.id), en: globalHistoryResultPath("en", person.id) },
+        languages: {
+          "zh-CN": `${SITE_URL}${globalHistoryResultPath("zh", person.id)}`,
+          "zh-TW": `${SITE_URL}${globalHistoryResultPath("zh-TW", person.id)}`,
+          en: `${SITE_URL}${englishPath}`,
+          "x-default": `${SITE_URL}${englishPath}`,
+        },
       },
       openGraph: { title, description, url: pathname, type: "profile", images: [globalHistoryPosterPath(displayLocale, person.id)] },
     };
