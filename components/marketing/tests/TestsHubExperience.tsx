@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { questionnairePath } from "@/lib/questionnaires/paths";
 import { careerAssessmentEntry } from "@/lib/career/assessmentEntry";
 import { InteractiveStoryLibrary } from "@/components/entertainment/InteractiveStoryLibrary";
 import { MoreTests } from "@/components/entertainment/MoreTests";
@@ -19,6 +20,12 @@ const CORE_TEST_SLUG_GROUPS = [
   ["eq-test-emotional-intelligence-assessment"],
   ["jung-test"],
 ] as const;
+
+const discCardCopy = {
+  en: { title: "DISC Behavioral Assessment", description: "Compare four behavioral tendencies through paired choices in work situations.", questionsLabel: "24 paired choices", durationLabel: "About 5 min", outputLabel: "Four behavioral tendencies", primaryLabel: "View DISC assessment" },
+  zh: { title: "DISC 行为测试", description: "通过工作情境二选一，比较四类行为倾向。", questionsLabel: "24 组选择", durationLabel: "约 5 分钟", outputLabel: "四类行为倾向", primaryLabel: "查看 DISC 测试" },
+  "zh-TW": { title: "DISC 行為測驗", description: "透過工作情境二選一，比較四類行為傾向。", questionsLabel: "24 組選擇", durationLabel: "約 5 分鐘", outputLabel: "四類行為傾向", primaryLabel: "查看 DISC 測驗" },
+} satisfies Record<DisplayLocale, Pick<HubTestCardItem, "title" | "description" | "questionsLabel" | "durationLabel" | "outputLabel" | "primaryLabel">>;
 
 function getCoreIndex(item: {
   href?: string | null;
@@ -84,6 +91,12 @@ export function TestsHubExperience({
   const displayCoreTests = locale === "zh-TW"
     ? coreTests.map((test) => ({ ...test, href: traditionalHref(test.href), detailsHref: test.detailsHref ? traditionalHref(test.detailsHref) : test.detailsHref }))
     : coreTests;
+  const discCard: HubTestCardItem = {
+    ...discCardCopy[locale],
+    key: "disc",
+    href: questionnairePath(locale, "disc"),
+    previewVariant: "bars",
+  };
   const careerEntry = careerAssessmentEntry(locale);
   return (
     <>
@@ -94,7 +107,7 @@ export function TestsHubExperience({
     </p>
     <MoreTests
       locale={locale}
-      coreTests={displayCoreTests}
+      coreTests={[...displayCoreTests, discCard]}
       heroTitle={content.hero.title}
     />
     <InteractiveStoryLibrary locale={locale} />

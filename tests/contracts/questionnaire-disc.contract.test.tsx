@@ -112,8 +112,8 @@ describe("T001 DISC complete source questionnaire", () => {
       const props = { params: Promise.resolve({ locale, slug: "disc" }) };
       const stream = await renderToReadableStream(await entry.default(props));
       const html = await new Response(stream).text(), meta = await entry.generateMetadata(props);
-      expect(html).toContain(quiz.title[locale]);
-      expect(html).toContain(locale === "zh" ? "离开或刷新" : "Leaving or reloading discards an unfinished session.");
+      expect(html).toContain(locale === "zh" ? quiz.title.zh : getLocalizedLanding("en", "disc").h1);
+      expect(html).toContain(locale === "zh" ? "独立作答页不保存答题进度" : "The questionnaire does not save in-progress answers");
       const sourceSavingFaq = quiz.faq.find(faq => faq.question.en === "Where are answers calculated, and can I save progress?")!;
       expect(html).not.toContain(sourceSavingFaq.answer[locale]);
       expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "disc")}`);

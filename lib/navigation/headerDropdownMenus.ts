@@ -29,6 +29,7 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/tests/holland-career-interest-test-riasec", label: "霍蘭德職業興趣測驗" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ 推理練習" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情緒智力測驗" },
+      { href: "/tests/explore/disc", label: "DISC 行為測驗" },
     ],
     articles: [
       { href: "/articles", label: "全部文章" },
@@ -69,6 +70,7 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/tests/holland-career-interest-test-riasec", label: "RIASEC career interest test" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ assessment" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ assessment" },
+      { href: "/tests/explore/disc", label: "DISC behavioral assessment" },
     ],
     articles: [
       { href: "/articles", label: "All articles" },
@@ -102,6 +104,7 @@ const HEADER_DROPDOWN_MENUS: Record<DisplayLocale, HeaderDropdownRegistry> = {
       { href: "/tests/holland-career-interest-test-riasec", label: "霍兰德职业兴趣测试" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "智商测试" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情商测试" },
+      { href: "/tests/explore/disc", label: "DISC 行为测试" },
     ],
     articles: [
       { href: "/articles", label: "全部文章" },

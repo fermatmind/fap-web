@@ -93,6 +93,10 @@ function Languages({ path }: { path: string }) {
 }
 export default async function TraditionalPage(props: Props) {
   const path = await route(props);
+  if (path === "/zh-TW/tests/explore/disc") {
+    const { default: DiscLanding } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
+    return <DiscLanding params={Promise.resolve({ locale: "zh-TW" })} />;
+  }
   const landingSlug = /^\/zh-TW\/tests\/explore\/([^/]+)$/u.exec(path)?.[1];
   const category = catalog.find((quiz) => quiz.slug === landingSlug)?.category;
   const guide = /^\/zh-TW\/tests\/explore\/([^/]+)\/results\/([^/]+)$/u.exec(path);

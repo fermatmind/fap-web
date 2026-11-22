@@ -10,7 +10,10 @@ describe("Focused DISC landing", () => {
     const focused = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
     const quiz = await loadQuestionnaire("disc");
     const params = Promise.resolve({ locale });
-    const stream = await renderToReadableStream(await focused.default({ params }));
+    const landing = locale === "zh-TW"
+      ? await (await import("@/app/(traditional)/zh-TW/[...path]/page")).default({ params: Promise.resolve({ path: ["tests", "explore", "disc"] }) })
+      : await focused.default({ params });
+    const stream = await renderToReadableStream(landing);
     const article = document.createElement("div");
     article.innerHTML = await new Response(stream).text();
     const path = questionnairePath(locale, "disc");
@@ -18,6 +21,8 @@ describe("Focused DISC landing", () => {
 
     expect(article.querySelectorAll("main")).toHaveLength(1);
     expect(article.querySelectorAll("h1")).toHaveLength(1);
+    expect(article.querySelector("[data-flagship-entry]")).toBeNull();
+    expect(article.querySelector(`a[href="/${locale}/reports/samples/disc"]`)).not.toBeNull();
     expect(article.querySelector(`#take-test form[action="${path}/take"] input[name="start"]`)).toHaveAttribute("value", "1");
     for (const { id } of quiz!.profiles) {
       expect(article.querySelector(`a[href="${questionnaireGuidePath(locale, "disc", id)}"]`)).toBeTruthy();

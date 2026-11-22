@@ -183,8 +183,6 @@ import { eightValuesPresentation, eightValuesSamples } from "@/lib/entertainment
 import { eightValuesPairs, scoreEightValuesQuestionnaire } from "@/lib/questionnaires/eightValues";
 import { PortfolioAxisBarSamples, type AxisSample } from "./PortfolioAxisBarSamples";
 import type { ComponentType, ReactNode } from "react";
-import { discExamples, discFreeAccess, discPresentation } from "@/lib/entertainment/flagship/disc-config";
-import disc from "@/lib/entertainment/flagship/disc.json";
 import { PortfolioSpectrumSamples } from "./PortfolioSpectrumSamples";
 import { extraversionExamples, extraversionPresentation } from "@/lib/entertainment/flagship/extraversion-config";
 import { scoreExtraversionQuestionnaire } from "@/lib/questionnaires/extraversion";
@@ -258,7 +256,6 @@ type FlagshipConfig = {
   Attribution?: ComponentType<{ locale: Locale; traditional?: boolean }>;
   notice?: Record<DisplayLocale, string>;
   freeAccessDescription?: Record<DisplayLocale, string>;
-  sampleReport?: Record<DisplayLocale, string>;
   WorkedExamples?: ComponentType<{ quiz: Questionnaire; locale: Locale; displayLocale?: DisplayLocale }>;
 } & (
   | { slot: "C"; sampleIds: readonly string[]; imageExtension?: string; imagePath?: (id: string) => string; presentation?: { [L in DisplayLocale]: Partial<(typeof philosopherPresentation)[L]> } }
@@ -479,9 +476,6 @@ const catalog: Record<string, FlagshipConfig> = {
       return locale === "zh-TW" ? archetypeEditorial("male-archetype-test", "sections", maleRoleLandingSections).filter(section => section.id === "male-role-background") : background;
     } },
   "8-values-political": { slot: "B", paired: "eight-values", copy: eightValues, presentation: eightValuesPresentation },
-  disc: { slot: "B", copy: disc, examples: discExamples, presentation: discPresentation, freeAccessDescription: discFreeAccess,
-    sampleReport: { zh: "查看完整报告示例", "zh-TW": "查看完整報告範例", en: "View a sample full report" },
-    notice: { zh: "当前答题页不提供进度保存。", "zh-TW": "目前的作答頁面不會儲存進度。", en: "This question page does not save progress." } },
 };
 
 export const hasPortfolioFlagship = (slug: string) => Object.hasOwn(catalog, slug);
@@ -703,8 +697,7 @@ export function PortfolioFlagshipLanding({ quiz, locale }: { quiz: Questionnaire
       : quiz.questions.slice(0, config.slot === "A" ? 2 : 1);
   const referencePrefix = config.referencePrefix ?? quiz.slug;
   const references = [...(quiz.references ?? []), ...(config.extraReferences?.(locale) ?? [])];
-  const publicReference = (reference: NonNullable<Questionnaire["references"]>[number]) => !reference.hiddenOnLanding
-    && (quiz.slug !== "disc" || !["jobcannon.io", "idrlabs.com"].some(domain => new URL(reference.url).hostname.replace(/^www\./, "") === domain));
+  const publicReference = (reference: NonNullable<Questionnaire["references"]>[number]) => !reference.hiddenOnLanding;
   const scopeOfFreeAccess = config.freeAccessDescription?.[locale];
   const entryUpdate = entryCopyUpdates[quiz.slug];
   const currentGuideCopy = (value: string) => entryUpdate && locale !== "zh-TW" ? entryUpdate.current(value, locale) : value;
@@ -773,7 +766,6 @@ export function PortfolioFlagshipLanding({ quiz, locale }: { quiz: Questionnaire
       heroLinks={<>{scopeOfFreeAccess && <p className="mt-3 text-sm">{scopeOfFreeAccess}</p>}
         {config.notice && <p className="mt-3 text-sm">{config.notice[locale]}</p>}<nav aria-label={locale === "en" ? "Quiz languages" : locale === "zh" ? "测评语言" : "測驗語言"} className="mt-3 flex flex-wrap gap-4 text-sm">
         {workedExampleId && <a href={`#${workedExampleId}`}>{text.sampleLink}</a>}
-        {config.sampleReport && <Link href={`/${locale}/reports/samples/disc`}>{config.sampleReport[locale]}</Link>}
         {([["zh", "zh-CN", "简体中文"], ["zh-TW", "zh-TW", "繁體中文"], ["en", "en", "English"]] as const).map(([language, lang, label]) =>
           language === locale ? <span key={language} lang={lang} aria-current="page">{label}</span>
             : <Link key={language} href={questionnairePath(language, quiz.slug)} lang={lang}>{label}</Link>,

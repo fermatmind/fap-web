@@ -23,9 +23,9 @@ function checkFlagshipLanding(markup: string, slug: string, where: string) {
 }
 
 describe("Mode A portfolio flagship landings", () => {
-  it("only enables the 86 in-scope native questionnaire landings", async () => {
-    expect(Object.keys(entries)).toHaveLength(86);
-    for (const slug of ["mental-age", "seven-sins-virtues-test", "gta-6-character-quiz", "global-history-quiz", "friendship-quiz"]) {
+  it("only enables the 85 in-scope native questionnaire landings", async () => {
+    expect(Object.keys(entries)).toHaveLength(85);
+    for (const slug of ["disc", "mental-age", "seven-sins-virtues-test", "gta-6-character-quiz", "global-history-quiz", "friendship-quiz"]) {
       expect(hasPortfolioLanding(slug)).toBe(false);
       expect(hasPortfolioFlagship(slug)).toBe(false);
     }
@@ -51,13 +51,11 @@ describe("Mode A portfolio flagship landings", () => {
   it("serves the complete English and Simplified Chinese landings through the public entry routes", async () => {
     const { default: ExplorePage } = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
     const { default: PlayPage } = await import("@/app/(localized)/[locale]/tests/play/[slug]/page");
-    const { default: DiscPage } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
     for (const locale of ["en", "zh"] as const) {
       for (const slug of Object.keys(entries)) {
         const path = questionnairePath(locale, slug);
         const props = { params: Promise.resolve({ slug, locale }) };
-        const element = slug === "disc" ? await DiscPage(props)
-          : path.includes("/play/") ? await PlayPage(props) : await ExplorePage(props);
+        const element = path.includes("/play/") ? await PlayPage(props) : await ExplorePage(props);
         checkFlagshipLanding(renderToStaticMarkup(element), slug, path);
       }
     }

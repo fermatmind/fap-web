@@ -1,4 +1,3 @@
-import { PortfolioFlagshipLanding, hasPortfolioFlagship } from "@/components/tests/PortfolioFlagshipLanding";
 import { LocalizedAssessmentLanding } from "@/components/tests/LocalizedAssessmentLanding";
 import { getLocalizedLanding } from "@/lib/tests/localized-landings";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
@@ -44,9 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 export default async function Page({ params }: Props) {
   const { locale, quiz } = await entry(params);
-  if ((locale === "zh" || locale === "en") && hasPortfolioFlagship(quiz.slug)) {
-    return <PortfolioFlagshipLanding quiz={quiz} locale={locale} />;
-  }
   if (locale === "zh") {
     const path = questionnairePath(locale, quiz.slug);
     const title = quiz.title[locale];
