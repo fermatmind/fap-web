@@ -1,3 +1,13 @@
+import { LocalizedAssessmentLanding } from "@/components/tests/LocalizedAssessmentLanding";
+import { assessmentLandingKind, getLocalizedLanding } from "@/lib/tests/localized-landings";
+import { loadMbtiLandingPublicSample } from "@/lib/mbti/landingReportSample";
+import { AssessmentEditorialLanding } from "@/components/tests/AssessmentEditorialLanding";
+import { mbtiLandingFaq, mbtiLandingTitle } from "@/lib/tests/assessmentLandingEditorial";
+import { HollandLanding } from "@/components/tests/HollandLanding";
+import { hollandFaq } from "@/lib/tests/hollandLanding";
+import { CoreAssessmentSchema } from "@/components/tests/CoreAssessmentHub";
+import { TrioLanding } from "@/components/tests/trio/TrioLanding";
+import { findTrioKind, trioProfiles } from "@/lib/tests/trioLanding";
 import { isRetiredJungAssessment } from "@/lib/tests/publicTestEntryVisibility";
 import { FreeAssessmentLanding, freeAssessmentMetadata } from "@/components/tests/FreeAssessmentLanding";
 import { JUNG_TEST_PATH, JUNG_TEST_SLUG, jungAssessmentForSlug } from "@/lib/tests/freeAssessmentLanding";
@@ -680,6 +690,8 @@ export async function generateMetadata({
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale);
+  const localizedKind = assessmentLandingKind(test.slug);
+  const localProfile = localizedKind && locale === "en" ? getLocalizedLanding(locale, localizedKind) : null;
   const seoTitle = toStringValue(lookup?.seo_title);
   const seoDescription = toStringValue(lookup?.seo_description);
   const ogImageAuthority = toStringValue(lookup?.og_image_url);
@@ -698,14 +710,16 @@ export async function generateMetadata({
   });
 
   const title =
-    assessmentLandingUi?.seoTitle
+    localProfile?.seoTitle
+    || assessmentLandingUi?.seoTitle
     || assessmentLandingUi?.title
     || cmsLandingSurfaceContent.seoTitle
     || seoTitle
     || flagshipFreeTestCopy?.seoTitle
     || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
   const description =
-    assessmentLandingUi?.seoDescription
+    localProfile?.seoDescription
+    || assessmentLandingUi?.seoDescription
     || cmsLandingSurfaceContent.seoDescription
     || seoDescription
     || (metadataAuthority.metadata.allowed ? test.description : "");
@@ -1144,8 +1158,9 @@ export default async function TestLandingPage({
           : undefined,
       }))
     : [];
+  const preferredMbtiForm = displayLocale === "zh" ? DEFAULT_MBTI_FORM_CODE : "mbti_93";
   const mbtiPrimaryChoice = showsMbtiActions
-    ? flagshipVariantChoices.find((choice) => choice.key === DEFAULT_MBTI_FORM_CODE) ?? flagshipVariantChoices[0] ?? null
+    ? flagshipVariantChoices.find((choice) => choice.key === preferredMbtiForm) ?? flagshipVariantChoices[0] ?? null
     : null;
   const mbtiSecondaryChoice = showsMbtiActions
     ? flagshipVariantChoices.find((choice) => choice.key !== (mbtiPrimaryChoice?.key ?? DEFAULT_MBTI_FORM_CODE)) ?? null
@@ -1382,6 +1397,11 @@ export default async function TestLandingPage({
     { name: locale === "zh" ? "测评" : "Tests", path: locale === "zh" ? "/zh/tests" : "/en/tests" },
     { name: localizedTestTitle, path: canonicalPath },
   ]);
+  const trioKind = displayLocale === "zh" ? findTrioKind(test.slug) : null;
+  const trioFaq: LandingFaq[] | null = trioKind && (testDetailAuthority.faq.allowed || faqItems.length > 0)
+    ? trioProfiles[trioKind].faq.map(([q, a]) => ({ q, a }))
+    : null;
+  const trioFaqJsonLd = trioFaq?.length ? buildFAQPageJsonLd(trioFaq.map(({ q, a }) => ({ question: q, answer: a }))) : null;
   const faqJsonLd =
     mergedFaq.length > 0
       ? buildFAQPageJsonLd(
@@ -1463,10 +1483,73 @@ export default async function TestLandingPage({
   const heroDescription = assessmentLandingUi?.heroDescription ?? (traditional ? heroCopy : undefined);
   const isMbtiLanding = test.slug === MBTI_ENTRY_TEST_SLUG;
   const showScoredReportInHero = isMbtiLanding && displayLocale !== "zh-TW";
+  const coreHub = test.slug === SCALE_CANONICAL_SLUG_MAP.MBTI ? "mbti"
+    : test.slug === SCALE_CANONICAL_SLUG_MAP.RIASEC ? "holland" : null;
+  const coreSchemaAllowed = !!coreHub && test.is_public !== false && test.is_active !== false &&
+    lookup?.is_indexable !== false && !testDetailAuthority.shouldNoindexMissingMetadataAuthority;
+  const localizedKind = assessmentLandingKind(test.slug);
+  if (displayLocale !== "zh" && localizedKind) {
+    const profile = getLocalizedLanding(displayLocale, localizedKind);
+    const choices = localizedKind === "iq" ? iqBankChoices
+      : localizedKind === "eq" ? eqVariantChoices
+      : localizedKind === "mbti" && mbtiEntryVariantChoices.length ? mbtiEntryVariantChoices
+      : flagshipVariantChoices;
+    const entries = testDisabled || !canRenderStartCta ? [] : displayChoices([...choices]);
+    const activeEntries = localizedKind === "holland" ? entries.filter(choice => choice.key === DEFAULT_RIASEC_FORM_CODE) : entries;
+    const mbtiFullReportNote = displayLocale === "en"
+      ? " The complete four-chapter web report is free to read in the browser where you take the test."
+      : "完整四章網頁報告可在作答的瀏覽器免費查看。";
+    const visibleProfile = localizedKind === "mbti" && hasFreeFullReportAuthority
+      ? {...profile, intro: profile.intro + mbtiFullReportNote}
+      : profile;
+    return <main data-test-landing-read-source={landingData.source} data-test-landing-cms-source={landingData.cmsSource}>
+      <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
+      <LocalizedAssessmentLanding kind={localizedKind} locale={displayLocale} entries={activeEntries} profile={visibleProfile}
+        indexable={test.is_public !== false && test.is_active !== false && lookup?.is_indexable !== false
+          && !testDetailAuthority.shouldNoindexMissingMetadataAuthority}/>
+    </main>;
+  }
+  if (displayLocale === "zh" && coreHub === "holland") {
+    const start = canRenderStartCta && !testDisabled
+      ? flagshipVariantChoices.find(({ key }) => key === DEFAULT_RIASEC_FORM_CODE)
+      : undefined;
+    return <main data-holland-landing="true" data-test-landing-read-source={landingData.source}
+      data-test-landing-cms-source={landingData.cmsSource}>
+      <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
+      {coreSchemaAllowed ? <>
+        <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
+        <CoreAssessmentSchema hub="holland" locale={displayLocale}
+          name={heroHeadingTitle} description={heroDescription || heroCopy} />
+        <JsonLd id={`test-faq-${test.slug}`} data={buildFAQPageJsonLd([...hollandFaq])} />
+      </> : null}
+      <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
+      <HollandLanding start={start} />
+    </main>;
+  }
+
+  if (displayLocale === "zh" && isMbtiLanding) {
+    const faq = mbtiLandingFaq(hasFreeFullReportAuthority);
+    const choices = canRenderStartCta && !testDisabled
+      ? displayChoices(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)
+      : [];
+    return <main data-assessment-editorial="mbti" data-test-landing-read-source={landingData.source}
+      data-test-landing-cms-source={landingData.cmsSource}>
+      <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
+      {coreSchemaAllowed ? <>
+        <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
+        <CoreAssessmentSchema hub="mbti" locale={displayLocale} name={mbtiLandingTitle} description={heroDescription || heroCopy} />
+        <JsonLd id={`test-faq-${test.slug}`} data={buildFAQPageJsonLd(faq)} />
+      </> : null}
+      <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
+      <AssessmentEditorialLanding profile="mbti" choices={choices} faq={faq} fullMbtiReport={hasFreeFullReportAuthority}
+        mbtiSample={await loadMbtiLandingPublicSample()} />
+    </main>;
+  }
+
 
   return (
     <main
-      className={usesIllustratedLanding ? previewStyles.page : "mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"}
+      className={trioKind ? undefined : usesIllustratedLanding ? previewStyles.page : "mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"}
       data-test-landing-read-source={landingData.source}
       data-test-landing-cms-source={landingData.cmsSource}
       {...(isSelfUnderstanding ? {
@@ -1480,9 +1563,18 @@ export default async function TestLandingPage({
       {!traditional && softwareApplicationJsonLd ? (
         <JsonLd id={`test-software-application-${test.slug}`} data={softwareApplicationJsonLd} />
       ) : null}
-      {!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
+      {trioKind ? <>
+        {trioFaqJsonLd && <JsonLd id={`test-faq-${test.slug}`} data={trioFaqJsonLd} />}
+        <TrioLanding
+          kind={trioKind}
+          title={heroHeadingTitle}
+          entries={testDisabled || !canRenderStartCta ? [] : displayChoices([...(trioKind === "iq" ? iqBankChoices : trioKind === "eq" ? eqVariantChoices : flagshipVariantChoices)])}
+          faq={trioFaq ?? []}
+        />
+      </> : <>
+      {!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       {usesIllustratedLanding ? (
         <nav className={previewStyles.breadcrumb} aria-label={traditional ? "導覽路徑" : locale === "zh" ? "面包屑" : "Breadcrumb"}>
           <Link href={illustratedBreadcrumb[0].path}>{illustratedBreadcrumb[0].name}</Link>
@@ -1814,6 +1906,7 @@ export default async function TestLandingPage({
           </aside>
         ) : null}
       </div>
+      </>}
     </main>
   );
 }

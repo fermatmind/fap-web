@@ -35,6 +35,10 @@ async function route(props: Props) {
 }
 async function readMetadata(props: Props): Promise<Metadata> {
   const path = await route(props);
+  if (path === "/zh-TW/tests/explore/disc") {
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
+    return generateMetadata({params: Promise.resolve({locale: "zh-TW"})});
+  }
   const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
   if (mixed) {
     const { traditionalMixedQuestionnaireMetadata } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");
@@ -94,6 +98,10 @@ export default async function TraditionalPage(props: Props) {
   const landing = (content: ReactNode) => landingSlug
     ? <ExploreTestShell slug={landingSlug} category={category}>{content}</ExploreTestShell>
     : guide ? <>{content}<ArchiveGuideShare slug={guide[1]} id={guide[2]} locale="zh-TW" /></> : content;
+  if (path === "/zh-TW/tests/explore/disc") {
+    const { default: DiscLanding } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
+    return <DiscLanding params={Promise.resolve({locale: "zh-TW"})}/>;
+  }
   const mixed = traditionalMixedQuestionnaireRoute(path.slice("/zh-TW".length));
   if (mixed) {
     const { TraditionalMixedQuestionnairePage } = await import("@/components/i18n/zh-TW/TraditionalMixedQuestionnairePage");

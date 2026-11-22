@@ -2,12 +2,13 @@ import { discResultProfile } from "@/lib/questionnaires/result-content/disc";
 import { describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToReadableStream, renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isDirectionalConfigurationValid, readQuestionnaireDraft, scoreDirectionalQuestionnaire } from "@/lib/questionnaires/scoring";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import catalog from "@/lib/questionnaires/catalog.json";
+import { getLocalizedLanding } from "@/lib/tests/localized-landings";
 import { MoreTests } from "@/components/entertainment/MoreTests";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 
@@ -110,13 +111,14 @@ describe("T001 DISC complete source questionnaire", () => {
     try {
       for (const locale of ["en", "zh"] as const) {
         const props = { params: Promise.resolve({ locale, slug: "disc" }) };
-        const html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props);
-        expect(html).toContain(quiz.title[locale]);
-        expect(html).toContain(locale === "zh" ? "当前答题页不提供进度保存" : "This question page does not save progress");
+        const stream = await renderToReadableStream(await entry.default(props));
+        const html = await new Response(stream).text(), meta = await entry.generateMetadata(props);
+        expect(html).toContain(locale === "zh" ? quiz.title.zh : getLocalizedLanding("en", "disc").h1);
+        expect(html).toContain(locale === "zh" ? "独立作答页不保存答题进度" : "The questionnaire does not save in-progress answers");
         const sourceSavingFaq = quiz.faq.find(faq => faq.question.en === "Where are answers calculated, and can I save progress?")!;
         expect(html).not.toContain(sourceSavingFaq.answer[locale]);
         expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "disc")}`);
-        expect(meta.description).toBe(quiz.description[locale]);
+        expect(meta.description).toBe(locale === "zh" ? quiz.description.zh : getLocalizedLanding("en", "disc").seoDescription);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).not.toContain(`href="${questionnairePath(locale, "disc")}"`);
         for (const profile of quiz.profiles) {
           const path = questionnaireGuidePath(locale, "disc", profile.id);

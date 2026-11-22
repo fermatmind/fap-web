@@ -1,14 +1,16 @@
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
+export const mbtiLandingTitle = "MBTI 免费测试（93/144题完整版）：看清你的思维偏好与人格底色";
+
 // Product UI authority for these six landing pages. CMS/registry text must not
 // override their headings or version-button labels; runtime availability stays API-owned.
 const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>> = {
-  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { zh: "MBTI 性格免费测试", en: "Free 16-Type MBTI-Style Personality Test" },
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { zh: mbtiLandingTitle, en: "Free 16-Type MBTI-Style Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { zh: "大五人格免费测试（Big Five）", en: "Free Big Five Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格测试（免费版）", en: "Free Enneagram Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "免费智商测试（IQ）", en: "Free IQ Test" },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free Emotional Intelligence Test (EQ)" },
-  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣测试（免费版）", en: "Free Holland Code Career Interest Test (RIASEC)" },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣测试（60题免费版）", en: "Free Holland Code Career Interest Test (RIASEC)" },
 };
 
 // English search copy is distinct from the concise on-page heading.
@@ -26,22 +28,22 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "免费大五人格测试：OCEAN 五维与30个侧面", description: "免费大五人格测试，90 题约 11 分钟。了解 OCEAN 五个连续维度，以及如何解读自己的结果。" },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试（EQ）：60题自评与四维结果", description: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情和关系管理，结合实际经历选择一个沟通练习；结果不等于能力评定。" },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试（EQ）：60题自评与四维结果", description: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告获取方式以结果页为准。了解自我觉察、情绪调节、共情和关系管理，结合实际经历选择一个沟通练习；结果不等于能力评定。" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
-    title: "免费智商测试（IQ）：30题图形推理，作答与基础结果免费，完整报告可选付费解锁",
-    description: "在线完成费马30题原创图形与矩阵推理练习，预计约20分钟，作答与基础结果免费，完整报告可选付费解锁。观察本次规律识别与抽象推理表现，了解成绩含义和使用边界；不替代专业智力评估。",
+    title: "免费智商测试（IQ）：原创30题图形推理与成绩解读",
+    description: "免费完成费马原创30题图形推理练习，预计约20分钟，另有综合40题。查看答对题数和正确率，了解成绩与适用范围。完整报告查看方式以结果页提示为准。",
   },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
-    title: "MBTI 免费测试：16 型人格与偏好解读",
-    description: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
+    title: "MBTI测试免费版（93/144题完整版）：16型人格与荣格八维解析",
+    description: "费马 MBTI 免费测试支持 93 题快速版与 144 题深度版，约 10–15 分钟。查看四维偏好百分比与 16 型人格，探索荣格八维、亲密关系及职场沟通案例。",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    title: "霍兰德职业兴趣测试免费版：60题与三字代码",
-    description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，作答与基础结果免费，完整报告可选付费解锁。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
+    title: "霍兰德职业兴趣测试免费版（60题）：RIASEC 三字代码与职业探索",
+    description: "无需注册，约 8 分钟完成 60 题霍兰德职业兴趣测试。免费查看 RIASEC 六维分数、三字代码与结果解读，对照 1,046 个职业的日常任务。",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
     title: "九型人格测试免费版：105 题与结果解读",
-    description: "在线免费完成九型人格测试：105 题五点自评，约 12 分钟，作答与基础结果免费，完整报告可选付费解锁。查看九型分布与候选类型解释，再按结果解读步骤对照自己的动机和具体经历。",
+    description: "免费完成九型人格测试：105 题五点自评，约 12 分钟。查看九型分布与候选类型，对照自己的动机和具体经历。",
   },
 };
 
@@ -55,7 +57,7 @@ const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en" | "zh
     zh: "30道原创图形与矩阵推理题，预计约20分钟，作答与基础结果免费，完整报告可选付费解锁。查看答对题数、正确率和题组表现，并保存TXT或Markdown摘要。这是推理练习，不替代专业智力评估。",
     en: "30 original visual matrix reasoning questions, estimated at about 20 minutes. The test and basic results are free; the full report is an optional one-time purchase. Review correct-answer count, accuracy and performance by item group, then save a TXT or Markdown summary. This reasoning exercise does not replace a professional intelligence assessment.",
   },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告可选付费解锁。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，作答与基础结果免费，完整报告获取方式以结果页为准。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
     zh: "从开放性、尽责性、外向性、宜人性与情绪性五个连续维度读懂自己的作答。90 题约 11 分钟，可免费完成并查看结果。",
     en: "Explore five continuous personality traits: openness, conscientiousness, extraversion, agreeableness and neuroticism. The 90-item test takes about 11 minutes. You can take the test and view the results for free.",
@@ -101,7 +103,8 @@ const ZH_ENTRY_LABELS: Record<string, string> = {
   big5_90: "开始 90 题 · 免费测试",
   enneagram_likert_105: "开始 105 题 · 程度选择 · 免费测试",
   riasec_60: "开始 60 题标准版 · 免费测试",
-  owner_original_30: "开始 30 题免费测试",
+  owner_original_30: "开始原创 30 题",
+  merged_40: "开始综合 40 题",
   eq_60: "开始60题自评 · 约10分钟 · 免费",
 };
 
