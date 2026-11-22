@@ -15,7 +15,8 @@ export function displayHistoryPerson(person: HistoryPerson, locale: DisplayLocal
   for (const field of fields) {
     const unit = units[`${source}/${index}/${field}`];
     if (!unit) throw new Error(`Missing Taiwan history copy for ${person.id}: ${field}`);
-    display[field] = { ...person[field], zh: unit.text };
+    const localized = field === "name" ? person.name["zh-TW"] ?? unit.text : unit.text;
+    display[field] = { ...person[field], zh: localized };
   }
   return display;
 }

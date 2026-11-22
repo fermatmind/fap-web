@@ -4,9 +4,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { GlobalHistoryReport, GlobalHistoryShare } from "@/components/entertainment/GlobalHistoryReport";
+import { GlobalHistoryResultV2 } from "@/components/entertainment/GlobalHistoryResultV2";
+import { getHistoryResult } from "@/lib/entertainment/global-history/result-v2";
 import { GlobalHistoryLocaleLinks } from "@/components/entertainment/GlobalHistoryLocaleLinks";
 import {
-  GLOBAL_HISTORY_SLUG, globalHistoryImagePath, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryResultPath,
+  GLOBAL_HISTORY_SLUG, globalHistoryImagePath, globalHistoryMethod, globalHistoryPath, globalHistoryPortraitPath, globalHistoryPosterPath, globalHistoryResultPath,
 } from "@/lib/entertainment/global-history/config";
 import { historyProfileHighlights } from "@/lib/entertainment/global-history/matching";
 import { findHistoryPerson, getHistoryGalleryPage, historyPeople } from "@/lib/entertainment/global-history/people";
@@ -35,6 +37,20 @@ async function loadPortrait(params: Props["params"]) {
 
 export async function generateMetadata({ params }: Props) {
   const { locale, displayLocale, person } = await loadPortrait(params);
+  const sample = getHistoryResult(person);
+  if (sample) {
+    const pathname = globalHistoryResultPath(displayLocale, person.id);
+    const title = `${person.name[locale]} · ${sample.archetype_title[displayLocale]}`;
+    const description = sample.one_line_hook[displayLocale];
+    return {
+      title, description, robots: { index: false, follow: true },
+      alternates: {
+        canonical: `${SITE_URL}${pathname}`,
+        languages: { "zh-CN": globalHistoryResultPath("zh", person.id), "zh-TW": globalHistoryResultPath("zh-TW", person.id), en: globalHistoryResultPath("en", person.id) },
+      },
+      openGraph: { title, description, url: pathname, type: "profile", images: [globalHistoryPosterPath(displayLocale, person.id)] },
+    };
+  }
   if (displayLocale === "zh-TW") {
     const pathname = globalHistoryResultPath(displayLocale, person.id);
     const title = `${person.name.zh} · 全球卷人物卡`, description = `${person.region.zh} · ${person.field.zh}`;
@@ -56,6 +72,8 @@ export default async function Page({ params, searchParams }: Props) {
   const { locale, displayLocale, person } = await loadPortrait(params);
   const traditional = displayLocale === "zh-TW";
   const copy = traditional ? await loadTraditionalAssessmentText() : (text: string) => text;
+  const sample = getHistoryResult(person);
+  if (sample) return <GlobalHistoryResultV2 person={person} locale={displayLocale} result={sample} traditionalCopy={copy} />;
   const gallery = getHistoryGalleryPage((await searchParams).page);
   const zh = locale === "zh";
   const title = person.name[locale];

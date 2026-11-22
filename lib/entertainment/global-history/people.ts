@@ -3,7 +3,7 @@ import type { Copy } from "../types";
 
 export type HistoryPerson = {
   id: string;
-  name: Copy;
+  name: Copy & { "zh-TW"?: string };
   region: Copy;
   field: Copy;
   bio: Copy;

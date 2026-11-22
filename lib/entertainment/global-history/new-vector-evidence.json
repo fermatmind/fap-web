@@ -1,0 +1,3464 @@
+{
+  "napoleon-bonaparte": {
+    "source": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/consulat-et-premier-empire/la-codification-juridique",
+    "axes": {
+      "Pace": "法典起草、会审和通过横跨数年，所选场景侧重分阶段准备。",
+      "Collaboration": "起草委员会由四位法学家组成，波拿巴和康巴塞雷斯轮流主持会审。",
+      "Inquiry": "编订从已存在的地方习惯法、成文法传统和既有法典草案出发。",
+      "Scope": "法典将个人、财产、所有权取得方式等议题纳入同一框架。",
+      "Change": "将36项法律合为统一民法典，超出对单项旧规则的修补。",
+      "Influence": "在这一编订场景中，主要做法是主持国务委员会的闭门讨论与后续全体审议。"
+    }
+  },
+  "voltaire": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb31605146b",
+    "additional_source": "https://sup.sorbonne-universite.fr/commerce-file/6188/download",
+    "axes": {
+      "Pace": "卡拉斯案的著述和公开申诉分阶段推进，经历出版和后续改判。",
+      "Collaboration": "卡拉斯家属的文书与申诉、伏尔泰的著述共同构成案件的公共记录。",
+      "Inquiry": "《论宽容》以卡拉斯案为出发点，把已经发生的个案放回讨论。",
+      "Scope": "用具体案件连起司法判断、宗教偏见与宽容。",
+      "Change": "公共著述质疑已生效的判决所依赖的前提，所选场景侧重改变判案思路。",
+      "Influence": "把卡拉斯案写进正式出版的《论宽容》，主动进入公共辩论。"
+    }
+  },
+  "blaise-pascal": {
+    "source": "https://puydesciences.uca.fr/le-media/articles/portraits/blaise-pascal-le-genie-intranquille",
+    "axes": {
+      "Pace": "先提出空气有重量的解释并设计山脚、山顶两个观测条件，再请人实测。",
+      "Collaboration": "帕斯卡提出实验，交由佩里耶登山执行并汇报结果。",
+      "Inquiry": "由大气压强的解释推出海拔改变时水银柱会怎样变化。",
+      "Scope": "将几何、机械计算、气压实验与概率问题作为不同方向的工作。",
+      "Change": "把空气重量的见解转成有对照的实验，用不同条件区分原先竞争的解释。",
+      "Influence": "既借他人在现场实施实验，也向外发表研究和论辩文字，取中性。"
+    }
+  },
+  "gilbert-burnet": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=506",
+    "additional_source": "https://dev.historyofparliamentonline.org/lord-biography/burnet-gilbert-1643-1715",
+    "axes": {
+      "Pace": "Cox 传记第 507 页记载，18 岁和次年都拒绝教职，第一次理由是年纪太轻。",
+      "Collaboration": "议会史传记记载他长期为威廉三世提供意见，参与政治讨论与制度协商。",
+      "Inquiry": "原书传记说他先系统研读神学与历史著述，再把掌握的材料用于讨论。",
+      "Scope": "人物传记共同记录了其神学、历史写作与议会活动等跨领域参与。",
+      "Change": "议会史传记记载其积极参与围绕宗教宽容的公共辩论，略倾向规则改变。",
+      "Influence": "议会史传记记载他以论辩著述和议会发言参与公共争议。"
+    }
+  },
+  "francis-bacon": {
+    "source": "https://www.earlymoderntexts.com/assets/pdfs/bacon1620.pdf",
+    "axes": {
+      "Pace": "《新工具》第二卷先布置三类实例表，整理好观察之后才进行初步归纳。",
+      "Collaboration": "第二卷在作者拟定的研究表里呈现实例，以自己定框架、吸收前人及他人的观察为主。",
+      "Inquiry": "热的研究从已有的正例、近似反例和程度差异着手，不直接从抽象定义得出结论。",
+      "Scope": "同一套热的例表横跨日光、火焰、动物体温等不同材料，以跨域比较找共同关系。",
+      "Change": "以实例对照与逐层排除重设研究方法，针对由一般原则直接推论的做法提出替代方案。",
+      "Influence": "把方法写成面向读者的公开著作《新工具》，让读者能检视和重作推理。"
+    },
+    "additional_source": "https://seop.illc.uva.nl/entries/francis-bacon/"
+  },
+  "george-washington": {
+    "source": "https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/george-washington-s-farewell-address",
+    "axes": {
+      "Pace": "第一任期末已请麦迪逊起草告别文，四年后再与汉密尔顿修订并定稿。",
+      "Collaboration": "华盛顿主动让麦迪逊和汉密尔顿参与不同阶段的起草，保留终稿编辑权。",
+      "Inquiry": "1796年的文本以1792年旧稿为材料，并在汉密尔顿重拟本上继续修改。",
+      "Scope": "告别文把地区关系、政党纷争、财政和外交放在同一套对公民的建议中。",
+      "Change": "文本为已经建立的联邦制度给出运行上的忠告，优先维持联盟而非另立制度。",
+      "Influence": "告别文经报刊直接发布给公众，以公开文本而非私下转达作为主要影响方式。"
+    },
+    "additional_source": "https://guides.loc.gov/washington-farewell-address/digital-collections"
+  },
+  "charles-darwin": {
+    "source": "https://www.darwinproject.ac.uk/origin-species",
+    "axes": {
+      "Pace": "剑桥书信项目记录达尔文先积累多年材料，已有十章多长稿，收到华莱士独立稿后才转写篇幅较短的《物种起源》。",
+      "Collaboration": "他先独立写长稿，却反复向胡克等人征询材料，并与华莱士的稿件联合呈递，取中性。",
+      "Inquiry": "他通过家鸽育种、植物授粉以及地理分布等材料校验有关物种变化的推论。",
+      "Scope": "把育种、生态、地理分布与不同生物类群的观察汇成一套物种变化论证。",
+      "Change": "自然选择提供了理解适应和物种变化的新机制，改变了既有解释框架。",
+      "Influence": "虽然没有亲自主持学会联合宣读，随后出版完整论著，面向公众科学讨论作正面回应。"
+    },
+    "additional_source": "https://www.darwinproject.ac.uk/letters/darwins-life-letters/darwin-letters-1858-1859-origin"
+  },
+  "abraham-lincoln": {
+    "source": "https://www.loc.gov/resource/mal.1723200/?st=text",
+    "axes": {
+      "Pace": "林肯写出初稿后在7月提交内阁，公开宣布留到9月，正式宣言又在次年1月生效。",
+      "Collaboration": "最早草稿由林肯交给感到意外的内阁审阅，体现先拟框架再由他人核对。",
+      "Inquiry": "7月草稿援引国会刚通过的法律及其解释决议，从已有法条出发。",
+      "Scope": "宣言的写作同时处理被奴役者身份、军事权限与区域适用边界。",
+      "Change": "宣言以行政命令改变适用地区被奴役者的法律地位。",
+      "Influence": "从内阁宣读走向公开发布，以总统名义向社会明确新的规则和生效时间。"
+    },
+    "additional_source": "https://www.archives.gov/milestone-documents/emancipation-proclamation"
+  },
+  "thomas-jefferson": {
+    "source": "https://www.loc.gov/exhibits/jefferson/jeffdec.html",
+    "axes": {
+      "Pace": "1776年6月先完成个人草稿，再在7月大陆会议采用公开版，保留有预先筹拟和两轮审议。",
+      "Collaboration": "委员会委托杰斐逊执笔，他先写初稿，亚当斯、富兰克林、委员会和大会再介入修改。",
+      "Inquiry": "起草借用了包括乔治·梅森《弗吉尼亚权利宣言》在内的已有文本和权利论证。",
+      "Scope": "文本把政治权利原则、统治合法性和具体历史申诉组织在一起。",
+      "Change": "在宣言中把独立主张转成另立政府的公开理由，重写与英国的政治关系。",
+      "Influence": "个人执笔后由委员会和大会修改，再以组织名义印行；兼有幕后起草与公开文字。"
+    },
+    "additional_source": "https://www.archives.gov/founding-docs/declaration-history"
+  },
+  "rene-descartes": {
+    "source": "https://www.classiques.uqam.ca/classiques/Descartes/discours_methode/discours_methode_tdm.html",
+    "axes": {
+      "Pace": "《谈谈方法》第二部分要求把难题拆开、由易到难排列，最后完整复查。",
+      "Collaboration": "《谈谈方法》以第一人称交代个人采用的研究规则，后经默森等学术联系人交流。",
+      "Inquiry": "第一部分到第四部分重检旧有假定，从怀疑提出新的可靠起点，再考察怎样展开推理。",
+      "Scope": "1637年同一出版工程把方法与光学、气象、几何三组研究放在一起。",
+      "Change": "方法讨论重新规定什么结论可以接受，以及如何从小问题组织后续推理。",
+      "Influence": "选择将个人实践写为法文方法论及论文组公开印行，同时借书信处理出版和反馈。"
+    },
+    "additional_source": "https://dspace.library.uu.nl/bitstream/handle/1874/1723/full.pdf"
+  },
+  "john-milton": {
+    "source": "https://www.gutenberg.org/ebooks/6087",
+    "axes": {
+      "Pace": "议会的许可令颁布于1643年，弥尔顿在次年针对其运作写出公开反对文。",
+      "Collaboration": "《论出版自由》以弥尔顿本人署名公开付印，由作者直接组织论证。",
+      "Inquiry": "反对预先审查的论证把允许读者检验争议观点设想为另一种制度路径。",
+      "Scope": "小册子把出版、教育、宗教与古典历史互相勾连，而未局限于行业技术。",
+      "Change": "直接请求议会撤销出版前许可，对既有规则提出结构性替代主张。",
+      "Influence": "这篇文本以面向英格兰议会的言说形式公开印出，在广泛读者面前提出异议。"
+    },
+    "additional_source": "https://oll.libertyfund.org/titles/milton-areopagitica-1644"
+  },
+  "johann-wolfgang-von-goethe": {
+    "source": "https://www.gutenberg.org/files/50572/50572-h/50572-h.htm",
+    "axes": {
+      "Pace": "1786年赴意大利寻求艺术转向，《色彩论》则长期积累后到1810年才出版，所选材料兼有行动转向和多年筹备。",
+      "Collaboration": "接受席勒邀请为《时序女神》撰稿，双方多年来持续交换作品意见和创作问题。",
+      "Inquiry": "《色彩论》主动改变背景与边界的观看条件，以新的提问组织实验，并观察由此产生的颜色。",
+      "Scope": "魏玛藏品与出版物同时呈现文学、绘画与光学研究，研究同一视觉经验可跨出一个学科。",
+      "Change": "在光学论述中从具体观看条件重新组织颜色现象，公开提出不同于既有方案的分类。",
+      "Influence": "《色彩论》以成书方式公开发表，其余观点也经文学期刊与读者见面。"
+    },
+    "additional_source": "https://100schaetze.klassik-stiftung.de/objekt/briefwechsel-zwischen-schiller-und-goethe-1794-1805/"
+  },
+  "alexander-von-humboldt": {
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6601271/",
+    "axes": {
+      "Pace": "1799至1804年逐地测量，返欧后又整理资料才成书，行程和汇编分为两步。",
+      "Collaboration": "旅行测量和采集长期与植物学家邦普兰共同完成，《植物地理学论集》由两人合著。",
+      "Inquiry": "图表以已经取得的地形、气候、植物观察和测量为起点。",
+      "Scope": "剖面把温度、海拔、地理位置和植物分布放在同一张图中供读者比对。",
+      "Change": "同一山地剖面组织多个变量，用综合可视化方案重设表述植物分布的办法。",
+      "Influence": "以署名书籍和附图公开呈现共同测量，主要借成果发表影响讨论。"
+    },
+    "additional_source": "https://www.si.edu/object/essay-geography-plants-alexander-von-humboldt-and-aime-bonpland-edited-introduction-stephen-t%3Asiris_sil_1065234"
+  },
+  "carl-linnaeus": {
+    "source": "https://www.uu.se/om-uu/historia/carl-von-linne/linne-online/linnes-liv",
+    "axes": {
+      "Pace": "1732年拉普兰考察在先，1735年初版《自然系统》在后，出版后还持续扩充。",
+      "Collaboration": "在乌普萨拉指导学生，学生旅行收集异地标本并将材料带入分类工作。",
+      "Inquiry": "用描述和标本的可比结构划分类群，先从已经能够观察的形态特征出发。",
+      "Scope": "《自然系统》给不同自然类群统整出目录，把跨生物类群的共同阶层关系呈现出来。",
+      "Change": "逐渐一致采用属名加种加词的处理，使名称从散乱叙述走向可复用索引。",
+      "Influence": "以不断修订的《自然系统》及教学向更广泛的使用者陈述分类。"
+    },
+    "additional_source": "https://www.linnean.org/the-society/history-of-science/carl-linnaeus"
+  },
+  "james-watt": {
+    "source": "https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/",
+    "axes": {
+      "Pace": "在纽科门机模型上分析耗损，1765年形成冷凝方案，1769年获专利后仍历经多年试制。",
+      "Collaboration": "前期由瓦特在格拉斯哥研究模型，后借资助及博尔顿合作把方案转到制造。",
+      "Inquiry": "从既有纽科门机的汽缸反复受热和冷却出发，识别明确的燃料损失来源。",
+      "Scope": "把热量管理与机器制造拉到同一工程中，主要仍解决一类蒸汽设备的效率。",
+      "Change": "用独立容器冷却蒸汽，让汽缸保持热，改变了两个过程原来的布置。",
+      "Influence": "通过模型、专利与博尔顿合作后的机器使用扩散影响，所选事件主要是幕后技术改造。"
+    },
+    "additional_source": "https://collection.sciencemuseumgroup.org.uk/search/objects/categories/motive-power/museum/science-museum/gallery/energy-hall"
+  },
+  "william-herschel": {
+    "source": "https://artsandculture.google.com/story/astronomical-discoveries-of-the-herschel-family-the-royal-society/swWRW5pqakeYJQ",
+    "axes": {
+      "Pace": "天体被写入工作笔记后继续观察和同行核算，经过复查才确认它是行星。",
+      "Collaboration": "在长期巡天中与卡罗琳协作，也把异常天体的观察交由更广的一批天文学家复核。",
+      "Inquiry": "笔记最初记录可见天体的外观并保留星或彗星两种解释，依据后续观测再判断。",
+      "Scope": "从音乐生涯转到磨镜造望远镜和天文观测，把乐手时代的手工工作空间变成观测站。",
+      "Change": "既改良仪器并扩大巡天，也承接同行对轨道的查核，既有方法和新工程共用。",
+      "Influence": "巡天靠兄妹长期记录，对异常天体则通过公开报告进入天文学界，幕后与公开均有。"
+    },
+    "additional_source": "https://research.hrc.utexas.edu/fasearch/findingAid.cfm?eadID=00568"
+  },
+  "martin-luther": {
+    "source": "https://gruber.lstc.edu/luthers_bible/1522.php",
+    "axes": {
+      "Pace": "在瓦特堡约十一周完成初稿，返维滕贝格后继续修订，当年九月即印行。",
+      "Collaboration": "路德先在瓦特堡自行翻译，之后与梅兰希通等人共同校订并经印刷团队付印。",
+      "Inquiry": "从希腊文《新约》进入翻译，并在复核时比较语言表达和释义。",
+      "Scope": "把原典语言、日常德语、木刻图像以及宗教讨论放入同一出版工程。",
+      "Change": "用较易理解的德语和规模化印刷，让原有文本进入更广的阅读环境。",
+      "Influence": "《九月圣经》公开发行，在教会以外形成大量直接读者。"
+    },
+    "additional_source": "https://www.luthermuseen.de/en/node/243"
+  },
+  "erasmus": {
+    "source": "https://clarklibrary.ucla.edu/collections/tudor/chrzanowski/title-list/1516b/",
+    "axes": {
+      "Pace": "剑桥及巴塞尔的抄本处理分阶段完成，初版仍留下材料不足时的临时补法。",
+      "Collaboration": "由伊拉斯谟主导校订和注释，弗罗本负责巴塞尔出版，成书依赖抄本持有者与印刷合作。",
+      "Inquiry": "校订以能取得的希腊文抄本和既有拉丁本互校，并为译法附上文本依据。",
+      "Scope": "同一版面把希腊原文、拉丁文与校勘说明连接起来，兼做语言和文本研究。",
+      "Change": "以公开并排文本和注释调整读者核查通行译文的办法，同时继续与旧译本对读。",
+      "Influence": "通过书籍和研究注释公开介入，但实际学术劳动主要在抄本、注释与编辑间完成。"
+    },
+    "additional_source": "https://gruber.lstc.edu/ref_docs/erasmus.php"
+  },
+  "john-locke": {
+    "source": "https://www.gutenberg.org/cache/epub/7370/pg7370-images.html",
+    "axes": {
+      "Pace": "《政府论》经历早期写作背景与1689年的后期出版，论点在政治条件改变后才付印。",
+      "Collaboration": "书中由洛克独立组织反驳和正面论述，相关思想通过少数读者的书信互通。",
+      "Inquiry": "先追问世袭权力说法的文本依据，同时以同意构造另一套解释政府正当性的前提。",
+      "Scope": "在同一部书中讨论家庭权威、财产、行政权与政治共同体，连接伦理与制度。",
+      "Change": "先批评父权政治，再以被统治者同意为起点重写合法政府的论证。",
+      "Influence": "以匿名出版和书信传播为主，所选事件不是作者实名面对公众提出意见。"
+    },
+    "additional_source": "https://plato.stanford.edu/entries/locke/"
+  },
+  "thomas-hobbes": {
+    "source": "https://www.gutenberg.org/ebooks/3207",
+    "axes": {
+      "Pace": "先写较早的政治论稿，再在流亡巴黎时期整理成涵盖多个主题的《利维坦》。",
+      "Collaboration": "政治理论由霍布斯本人组织，巴黎誊抄稿与印刷制作人员介入的是具体成书环节。",
+      "Inquiry": "尝试从没有共同权威的思想情境推演冲突、契约与服从，而非只描述现行制度。",
+      "Scope": "《利维坦》把对人的描述、国家的组织和宗教权力放在同一套论证里。",
+      "Change": "以契约授权推出统一主权，给权威的来源设定新的政治论证框架。",
+      "Influence": "留有呈递手稿与私人制作记录，同时让《利维坦》公开发行，所选场景两端并存。"
+    },
+    "additional_source": "https://celm.folger.edu/authors/hobbesthomas.html"
+  },
+  "jean-jacques-rousseau": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb32588839b",
+    "axes": {
+      "Pace": "早期《日内瓦手稿》与1762年刊本诸章经过明显改写，先形成初稿再重新组织。",
+      "Collaboration": "两版政治论述由卢梭主导写作；刊印阶段与出版商马克-米歇尔·雷伊通信讨论。",
+      "Inquiry": "以人如何在共同体中仍能自由为先行问题，从设想的契约条件推到政治安排。",
+      "Scope": "将个人自由、集体决定、立法和公民义务放进同一套概念。",
+      "Change": "不仅批评服从的现状，还尝试重建共同体何以有合法权威的论证。",
+      "Influence": "1762年以实名刊行政治论著，同时把较多修订留在发表之前。"
+    },
+    "additional_source": "https://www.cambridge.org/core/journals/review-of-politics/article/three-general-wills-in-rousseau/448B62DFE5077668595BC0EBB6DE03E9"
+  },
+  "david-hume": {
+    "source": "https://davidhume.org/",
+    "axes": {
+      "Pace": "《人性论》分卷出版，后另写摘要，再在多年后重组材料形成《人类理解研究》。",
+      "Collaboration": "几个版本和摘要由休谟主持著述与修订，出版社及友人承担传播和反馈等后续环节。",
+      "Inquiry": "以日常经验、印象和推论区别为例，检查读者在已有观察基础上如何相信因果关系。",
+      "Scope": "重写的材料横跨经验、推理、宗教争论等，且与他写作人性研究的其他部分相连。",
+      "Change": "把原大部头的部分问题重新组织成较短的论证序列，改变读者进入问题的方法。",
+      "Influence": "先有匿名出版的《人性论》，后来继续修订并公开发表《研究》，所选材料有幕后和公开。"
+    },
+    "additional_source": "https://davidhume.org/notes/copytexts"
+  },
+  "immanuel-kant": {
+    "source": "https://www.cambridge.org/core/series/cambridge-edition-of-the-works-of-immanuel-kant/703660AAB7838A41309D7E80AD5C8EEE",
+    "axes": {
+      "Pace": "《纯粹理性批判》1781年初版之后，保留有批注的自用本，且到1787年再刊修订本。",
+      "Collaboration": "两版正文和自用本批注由本人编写，出版后才针对早期书评公开补写说明。",
+      "Inquiry": "第二版序尝试变更认识起点，改从认识条件组织对象如何能够为人所认识的问题。",
+      "Scope": "前言和正文同时考察数学、自然科学及形而上学中的知识如何可能。",
+      "Change": "从询问对象自身转向审查认识能力的条件和边界，建立新的论证入口。",
+      "Influence": "研究有私人批注和改写的一面，也有出版《导论》以及两版《批判》的公开回应。"
+    },
+    "additional_source": "https://pages.ucsd.edu/faculty/ctolley/texts/kant.html"
+  },
+  "jonathan-swift": {
+    "source": "https://jonathanswiftarchive.org.uk/browse/title/intro_jsa_11_1_1_1.html",
+    "axes": {
+      "Pace": "手稿和出版的隐名安排在付印前布置，准备复制稿并经过中介交给出版商。",
+      "Collaboration": "由斯威夫特创作并安排传稿，托由抄手与中介递交，文本框架由作者拟定。",
+      "Inquiry": "虚构旅行、尺寸变化和异地政俗，把熟悉生活放入新条件里重新观察。",
+      "Scope": "把旅行书的外形、政论以及人物喜剧放进同一叙事结构。",
+      "Change": "改用虚构旅行者的角色发言，让读者检视既有政治与社会习惯。",
+      "Influence": "初版标示虚构作者和编者；真实作者借面具与中介让讽刺生效。"
+    },
+    "additional_source": "https://onlinebooks.library.upenn.edu/webbin/work?id=olbp101195"
+  },
+  "raphael": {
+    "source": "https://www.ambrosiana.it/en/discover/masterpieces/school-of-athens/",
+    "axes": {
+      "Pace": "《雅典学院》已有真人大小的全稿，留出构图、人物布置与上墙前的准备。",
+      "Collaboration": "拉斐尔亲自绘制大型底稿；工程目标来自委托，宫室落地还依赖壁画现场协作。",
+      "Inquiry": "用并非记录实际会面的想象场面容纳哲学家，调度人物和建筑先服务于构想。",
+      "Scope": "把透视建筑、人物群像、古代哲学和整个房间的图像主题合成一项作品。",
+      "Change": "在定好的房间主题下重新安排人物关系与建筑秩序，改变呈现而非改变任务本身。",
+      "Influence": "通过受委托的墙面作品传达观点，主要不是另行走到公共场合演讲。"
+    },
+    "additional_source": "https://www.ambrosiana.it/wp-content/uploads/2019/02/CS_il-Raffaello-dellAmbrosiana_eng_20.02.19.pdf"
+  },
+  "albrecht-durer": {
+    "source": "https://www.metmuseum.org/art/collection/search/349058",
+    "axes": {
+      "Pace": "《测量四书》从线、面、立体有序进入应用，作者还在自己的初版本手书添加修改。",
+      "Collaboration": "丢勒自述指导目标并自己作图，成书通过木版与印刷工序再交给使用者。",
+      "Inquiry": "从可以用圆规直尺画出的几何关系着手，再检查它们怎样帮助工匠处理透视。",
+      "Scope": "书中明说不只面向画家，也面向金匠、雕塑家、石匠、木工等多种职业。",
+      "Change": "用图解和成套尺规练习重新组织可教授的透视与测量技能。",
+      "Influence": "以公开印行的图解教程面向广泛的工艺读者，促进公开传授。"
+    },
+    "additional_source": "https://bridwell.omeka.net/exhibits/show/durer/lastbooks/underweysungdermessung"
+  },
+  "william-harvey": {
+    "source": "https://www.cai.cam.ac.uk/discover/library/online-exhibitions/out-cradle-print/de-motu-cordis-1628",
+    "axes": {
+      "Pace": "解剖观察和早期讲座在先，1628年才整理成结构清楚的著作。",
+      "Collaboration": "由哈维组织核心观察与量化论证，研究在医生学院讲课及出版网络中交流。",
+      "Inquiry": "从心脏活动、血流方向和可估计的输送量出发，逐段检查结论。",
+      "Scope": "把解剖所见、心脏运动与数量推论连在一起，兼用不同证据形式。",
+      "Change": "提出由心脏推动并不断回流的血液运动，改变血液只被消耗等传统解释。",
+      "Influence": "先向医者讲授，后以印本公开论证心脏运动，主要借可复查的公开文本影响学界。"
+    },
+    "additional_source": "https://historiamedica.org/sources/de-motu-cordis/"
+  },
+  "michael-faraday": {
+    "source": "https://www.rigb.org/explore-science/explore/person/michael-faraday-1791-1867",
+    "additional_source": "https://www.rigb.org/explore-science/explore/collection/michael-faradays-research-and-work",
+    "axes": {
+      "Pace": "自学阶段整理并装订戴维演讲笔记，拿成稿向他求职；其研究留有连续的实验记录。",
+      "Collaboration": "曾随戴维赴欧洲并担任实验室助手；电感应发现与讲座系列又由他本人主导，取中位。",
+      "Inquiry": "从电磁转动到感应、磁光效应都有实验记录，所选场景用观察搭建概念。",
+      "Scope": "同一生涯横跨苯、磁光与电化学，后以场概念连起磁与电。",
+      "Change": "从检验磁电作用到以场解释电磁现象，改写了问题框架。",
+      "Influence": "在皇家研究院作公开报告并主讲多届圣诞讲座，用现场展示向公众解释科学。"
+    }
+  },
+  "robert-boyle": {
+    "source": "https://www.sciencehistory.org/education/scientific-biographies/robert-boyle/",
+    "additional_source": "https://catalogues.royalsociety.org/CalmView/Record.aspx?id=NA8137&src=CalmView.Persons",
+    "axes": {
+      "Pace": "空气弹性一书来自持续数年的抽气实验，体现成稿前的准备和复查。",
+      "Collaboration": "与能改进气泵的胡克合作，同时参与创建皇家学会。",
+      "Inquiry": "把空气的性质交给仪器和观察检验，借实验回看已流行的解释。",
+      "Scope": "主要关心化学，也用装置研究空气的物理性质，并写作自然哲学。",
+      "Change": "《怀疑派化学家》同时挑战四元素和既有化学原则，把元素的定义移到可分析的对象上。",
+      "Influence": "通过出版实验报告和论辩著作公开其问题，而实验工作仍由实验室完成。"
+    }
+  },
+  "joseph-priestley": {
+    "source": "https://www.sciencehistory.org/education/scientific-biographies/joseph-priestley/",
+    "additional_source": "https://www.acs.org/content/dam/acsorg/education/whatischemistry/landmarks/lesson-plans/joseph-priestley-discoverer-of-oxygen.pdf",
+    "axes": {
+      "Pace": "利用装置逐样考察不同的空气，在反复取得新样本后调整对其性质的认识。",
+      "Collaboration": "受富兰克林鼓励写电学史，后参与地方科学交往；气体实验主要在自己的工作场所做。",
+      "Inquiry": "逐样比较制得气体的表现，并在既有燃素学说内解释观察。",
+      "Scope": "电学史、气体研究与宗教和政治写作并行。",
+      "Change": "实物发现使空气分类发生变化，而本人继续沿用燃素说；所选材料显示两边拉扯。",
+      "Influence": "出版气体研究，也在论著中直接参与宗教和政治争论。"
+    }
+  },
+  "antoine-lavoisier": {
+    "source": "https://www.sciencehistory.org/education/scientific-biographies/antoine-laurent-lavoisier/",
+    "additional_source": "https://www.chem.uzh.ch/dam/jcr%3Affffffff-e65b-5674-ffff-ffffe8c04c0d/5Lavoisier.pdf",
+    "axes": {
+      "Pace": "围绕严格称量安排反应前后比较，靠完善的计量设置准备关键实验。",
+      "Collaboration": "玛丽-安娜参与实验记录、插图和翻译，协作支撑了研究的形成与传播。",
+      "Inquiry": "从物质重量和可重复测值判断反应的解释是否成立。",
+      "Scope": "把燃烧、呼吸以及化学分析放在共同的问题框架里。",
+      "Change": "氧化解释、系统命名和按分析界定元素共同重写旧化学分类。",
+      "Influence": "通过教材、命名和实验图公开改革思路；推进方式仍以成体系的著述为主。"
+    }
+  },
+  "christiaan-huygens": {
+    "source": "https://catalogues.royalsociety.org/CalmView/Record.aspx?id=NA8062&pos=1&src=CalmView.Persons",
+    "additional_source": "https://www.metmuseum.org/de/essays/european-clocks-in-the-seventeenth-and-eighteenth-century",
+    "axes": {
+      "Pace": "摆钟的原型、专利和后来关于摆运动的论文先后出现，理论与器物都经历准备。",
+      "Collaboration": "与钟匠科斯特分工；惠更斯负责设计，钟匠把摆钟投入制作。",
+      "Inquiry": "从摆可以调节时钟的设想出发造出仪器，也提出过光波学说。",
+      "Scope": "把钟表调速连到航海经度，同时研究土星、碰撞与光。",
+      "Change": "以摆调节钟表，试图把更稳定的计时带到海上，改变工具的使用范围。",
+      "Influence": "发表关于土星环、摆运动和光的著作，同时借工匠与学会共享成果，表现为两种路径并用。"
+    }
+  },
+  "hans-christian-orsted": {
+    "source": "https://nbi.ku.dk/hhh/historiske_steder/fysikvidenskaben/noerregade_21/",
+    "additional_source": "https://nbi.ku.dk/english/www/hco/oersted/uddannelsen/",
+    "axes": {
+      "Pace": "在讲座准备时决定尝试演示电与磁的联系，发现后继续验证再公布。",
+      "Collaboration": "回丹麦后组织自然科学传播学会，后又主持筹建理工学院的委员会。",
+      "Inquiry": "先设想电与磁应当相连，才寻找让电流作用于磁针的办法。",
+      "Scope": "把原本分开研究的电与磁放进同一场实验，后来又把科学与工程教学相连。",
+      "Change": "建立自然科学传播学会并参与开办理工教育，拓展可学习科学的渠道。",
+      "Influence": "在讲座中公开展示现象，成立学会向普通公众传播自然科学。"
+    }
+  },
+  "adam-smith": {
+    "source": "https://www.gla.ac.uk/explore/adamsmith300/explorelearn/life/biography/",
+    "additional_source": "https://www.gla.ac.uk/explore/adamsmith300/explorelearn/ideas/keyworks/wealthofnations/",
+    "axes": {
+      "Pace": "卸下教职、结束旅行后在柯卡迪长期成稿，《国富论》出版以后仍继续改订。",
+      "Collaboration": "早期受卡姆斯鼓励办公开课，著述的大段工作又在柯卡迪独立完成，取中性。",
+      "Inquiry": "《国富论》使用针工场的分工作具体例子，公开讲课积累后来著述的问题。",
+      "Scope": "由道德情感、修辞和法学的问题过渡到分工、贸易与税务。",
+      "Change": "把制针的具体工作分解为一系列工序，用生产结构解释效率变化。",
+      "Influence": "在爱丁堡公开讲学，后任大学教授并借出版扩大发言范围。"
+    }
+  },
+  "jeremy-bentham": {
+    "source": "https://www.ucl.ac.uk/laws/research/research-projects/bentham-project/about-jeremy-bentham",
+    "additional_source": "https://www.ucl.ac.uk/library/collections/digital-collections/special-collections-digital-collections/bentham-papers",
+    "axes": {
+      "Pace": "数十年持续写作，档案保留大批草稿和未发表手稿，说明提案经过长时间推敲。",
+      "Collaboration": "常在威斯敏斯特安静地单独写稿，以通信和论争联系同道。",
+      "Inquiry": "用效用原则重新提出对法律和政治制度的判断问题。",
+      "Scope": "把同一原则带进道德、成文法、监狱设计与代议政治。",
+      "Change": "直接提出监狱新结构及立法、代议制度改革，意在换规则而非修补一条旧规定。",
+      "Influence": "公开倡言法律改革并发表论著；大量提案以手稿留存，实际公共介入留有一部分书斋路径。"
+    }
+  },
+  "charlotte-bronte": {
+    "source": "https://www.bronte.org.uk/the-lives-of-the-brontes",
+    "additional_source": "https://www.britishlibrary.cn/en/works/charlotte-brontes-jane-eyre/",
+    "axes": {
+      "Pace": "由童年持续写作到以笔名陆续投稿，公开发表是多年写作积累后的一次推进。",
+      "Collaboration": "邀请姐妹共同出版诗作；童年也同家人搭建虚构世界，保留各自文本。",
+      "Inquiry": "少女时期构建虚构世界，把想象发展为长篇；后以教师经历做小说材料。",
+      "Scope": "把布鲁塞尔教学经验和家庭女教师的工作带进小说，也参与诗歌写作。",
+      "Change": "《简·爱》让处于弱势的女主人公参与评判自身处境，公开挑战对她的旧期待。",
+      "Influence": "借柯勒·贝尔之名出版，起初让作品和合用笔名承担公共表达。"
+    }
+  },
+  "elizabeth-gaskell": {
+    "source": "https://www.library.manchester.ac.uk/rylands/special-collections/a-to-z/detail/?g2scSubmit=Go&keyword=latin&mms_id=992983876609501631",
+    "additional_source": "https://www.cambridge.org/core/books/cambridge-companion-to-victorian-womens-writing/victorian-women-writers-careers/38E8D853C4DCD946C779429B1589C72B",
+    "axes": {
+      "Pace": "在周刊连续交稿，小说先连载再结集；写作需与分期发表并行。",
+      "Collaboration": "与刊物主编狄更斯合作连载，也与勃朗特持续通信。",
+      "Inquiry": "作品从曼彻斯特工人的生活实况出发，工厂与雇佣关系成为叙事材料。",
+      "Scope": "同时写工业小说、短篇、评论和勃朗特传记，把人物生活放进社会关系中。",
+      "Change": "把工厂主与工人的对立移进可被大众连载阅读的小说，让冲突双方成为叙事参与者。",
+      "Influence": "《玛丽·巴顿》匿名首版，之后在大众周刊继续发表，公开程度随阶段提高。"
+    }
+  },
+  "harriet-martineau": {
+    "source": "https://archives.ucl.ac.uk/CalmView/Record.aspx?id=MS+OGDEN%2F101&src=CalmView.Catalog",
+    "additional_source": "https://archives.bpl.org/repositories/2/resources/155",
+    "axes": {
+      "Pace": "先以逐月连载推动《政治经济学图解》，在连续出版中把不同问题分册处理。",
+      "Collaboration": "自己逐月写稿，也与编辑福克斯建立合作，和威廉·韦尔长期通信。",
+      "Inquiry": "赴美国考察后写《美国社会》，以旅行中的观察作为议论素材。",
+      "Scope": "用小说化故事解释政治经济学，也写游记、宗教文章和针对公共政策的分析。",
+      "Change": "用每册独立的短故事让普通读者看清经济制度，另公开倡议废奴。",
+      "Influence": "以面向读者的系列、报刊和公共辩论传播观点，旅行观察也转为公开著述。"
+    }
+  },
+  "george-eliot": {
+    "source": "https://news.harvard.edu/gazette/story/2012/08/from-austen-to-zola/",
+    "additional_source": "https://plato.stanford.edu/entries/george-eliot/",
+    "axes": {
+      "Pace": "《米德尔马契》的研究笔记保留人物与事件的积累，故事形成前先攒下材料。",
+      "Collaboration": "长期独立翻译与拟稿，同时与刘易斯等人维持严肃的思想交往，取中位。",
+      "Inquiry": "从人物与事件笔记借材构建小说，并在评论里辨析对社会生活的描写。",
+      "Scope": "同时从事小说、哲学翻译与评论，把伦理问题带进虚构人物的处境。",
+      "Change": "《米德尔马契》把伦理作用写成普通人之间逐渐扩开的影响，让故事重心移向安静的人物。",
+      "Influence": "在笔名下发表小说，主要借作品和评论影响读者。"
+    }
+  },
+  "henry-wadsworth-longfellow": {
+    "source": "https://home.nps.gov/long/getinvolved/partners.htm",
+    "additional_source": "https://www.nps.gov/long/learn/news/upload/LHB-12-1-2008.pdf",
+    "axes": {
+      "Pace": "译《神曲》时长时间准备，在定期讨论后逐段改订再出版。",
+      "Collaboration": "邀洛厄尔和诺顿等人组但丁俱乐部，将难句带到固定的共同讨论。",
+      "Inquiry": "翻译从既有的意大利原文、注解和多种版本着手，围绕已经写下的东西组织判断。",
+      "Scope": "把意大利文学、英语诗歌、教学与社会交往带到同一个项目。",
+      "Change": "家庭讨论演变成长期的文学研读合作，后来形成但丁学会。",
+      "Influence": "作品发表面向公众，译本的决定主要经过家中的小规模讨论，取中性。"
+    }
+  },
+  "john-napier": {
+    "source": "https://library.si.edu/digital-library/book/mirificilogarit00napi",
+    "axes": {
+      "Pace": "以成套数表发布算法应用，成书之前先完成可重复查用的大量计算。",
+      "Collaboration": "初版由纳皮尔先做；布里格斯来访后与他讨论改进方案，并继续制作改版数表。",
+      "Inquiry": "以对数对应关系重新表述复杂计算，不照原来的乘除流程逐道操作。",
+      "Scope": "著作将数值表与三角计算结合，应用超出单独造一张数列。",
+      "Change": "把复杂乘除转化为查表与较容易的运算，重构了计算流程。",
+      "Influence": "以数表印本和同业会谈推动使用，主要是通过工具和书籍影响他人。"
+    },
+    "additional_source": "https://mathshistory.st-andrews.ac.uk/Extras/Gibson_history_4/"
+  },
+  "alexander-hamilton": {
+    "source": "https://guides.loc.gov/federalist-papers/full-text",
+    "axes": {
+      "Pace": "在宪法批准辩论展开时，1787年10月即起始报刊连载，并随进程持续推出新文。",
+      "Collaboration": "汉密尔顿与麦迪逊、杰伊同用普布利乌斯笔名参与系列写作。",
+      "Inquiry": "文章以已经提交各州的联邦宪法为讨论材料，逐项解释其安排。",
+      "Scope": "系列同时解释联合治理、财政、权限分工等多个方面，汉密尔顿也参与这些制度讨论。",
+      "Change": "系列争取以宪法框架取代现有治理安排，说明新联邦各部分为何如此设计。",
+      "Influence": "借报纸持续直接回应公众争论，但共同笔名保留真实作者在幕后的空间。"
+    },
+    "additional_source": "https://www.loc.gov/classroom-materials/alexander-hamilton/"
+  },
+  "john-stuart-mill": {
+    "source": "https://www.earlymoderntexts.com/assets/pdfs/mill1873e.pdf",
+    "axes": {
+      "Pace": "密尔在自传回忆与哈丽雅特逐句复核《论自由》，多次讨论表述而后成书。",
+      "Collaboration": "密尔本人把此书描述为两人的共同产物，并强调她参与思想和措辞。",
+      "Inquiry": "在本书中讨论已有社会习惯的压力，并从个人行动可否限制的原则组织新案例。",
+      "Scope": "将政治权力、舆论、表达、个人生活选择等多个议题放在同一论证中。",
+      "Change": "以限制权力的准则重新追问社会何时有权约束个人，超出改良单一做法。",
+      "Influence": "献词与公开成书让文字介入公共讨论，同时显著依托两人的幕后合作。"
+    },
+    "additional_source": "https://plato.stanford.edu/entries/harriet-mill/"
+  },
+  "ulysses-s-grant": {
+    "source": "https://www.nps.gov/articles/000/how-mark-twain-helped-ulysses-s-grant-write-his-personal-memoirs.htm",
+    "axes": {
+      "Pace": "从已经动笔的文章扩写成回忆录，在重病时调整地点和安排继续完成手稿。",
+      "Collaboration": "保存有格兰特亲笔本；马克·吐温主要负责出版，其他助手帮助作参考工作。",
+      "Inquiry": "从自己经历、原有文章和可用档案组织叙事，目标是回顾已经发生的事情。",
+      "Scope": "叙述聚焦军事生涯，却并置记录、个人回忆与面向家人安排的出版计划。",
+      "Change": "由原先文章扩展成完整回忆录，继续整理既有材料，没有另造记录制度。",
+      "Influence": "既亲手制作私人草稿，又委托公开出版；主要文本在格兰特逝世后与读者见面。"
+    },
+    "additional_source": "https://www.nps.gov/articles/lessons-from-the-personal-memoirs-of-u-s-grant.htm"
+  },
+  "charles-dickens": {
+    "source": "https://www.themorgan.org/printed-books/270477",
+    "axes": {
+      "Pace": "小说按期分册出版，写作和制作在首批内容已见读者后仍继续推进。",
+      "Collaboration": "文字由狄更斯创作，分册印本同时保留塞默、布斯和布朗等插画家的工作。",
+      "Inquiry": "以俱乐部成员的虚构旅行及事故构成情节，在连载前进时展开新场景。",
+      "Scope": "把小说、杂志式交付、木刻或版画插图及公众通俗阅读放在同一出版产品中。",
+      "Change": "让按月发行的插图册承担长篇叙事，发展出读者需要等待下一期的组织方式。",
+      "Influence": "以出版连载直接接触广泛读者，早期题名用笔名，因而影响与本人在场可分开。"
+    },
+    "additional_source": "https://natlib.govt.nz/records/21706134"
+  },
+  "walter-scott": {
+    "source": "https://www.walterscott.lib.ed.ac.uk/biography/novel.html",
+    "axes": {
+      "Pace": "早期动笔和搁置之后，后两卷在1814年集中写成，体现先有积累又能快速收尾。",
+      "Collaboration": "由司各特完成小说，约翰·巴兰坦特抄录手稿以免其笔迹在印制作业中暴露身份。",
+      "Inquiry": "描写苏格兰高地时参考前人第一手见闻，同时安排虚构主角游历其间。",
+      "Scope": "把高地历史、地区习俗、民间记忆和虚构人物写进同一个故事。",
+      "Change": "从地区史料出发借小说结构塑造历史叙事，使读者由没在课本中的人物进入历史。",
+      "Influence": "首印匿名，公开承认作者身份比出版晚多年，所选影响方式主要靠文本和幕后联系。"
+    },
+    "additional_source": "https://www.nls.uk/collections/stories/literature-and-poetry/sir-walter-scott-and-his-historical-influences/"
+  },
+  "moliere": {
+    "source": "https://www.comedie-francaise.fr/actualites/le-tartuffe-la-comedie-francaise",
+    "axes": {
+      "Pace": "先在1664年排演三幕本，再在演出限制下试演1667年改稿，1669年推出获准的新本。",
+      "Collaboration": "他通过剧团排演三版剧目，前两版与同一剧团运作及演出许可直接相关。",
+      "Inquiry": "用虚构的宗教伪善者与家庭冲突发展已有社会争论，没有将争议写成分析报告。",
+      "Scope": "同一剧目横跨剧本文字、表演、家庭题材和当时公共宗教争论，主要仍由舞台完成。",
+      "Change": "把三幕改成五幕，尝试换标题，定稿又纳入前两个版本各自的元素。",
+      "Influence": "对观众依靠演出，对演出禁令则亲自上书，选择正面争取舞台。"
+    },
+    "additional_source": "https://www.comedie-francaise.fr/chronologie"
+  },
+  "william-wordsworth": {
+    "source": "https://collections.wordsworth.org.uk/GtoG/home.asp?page=GtoG1cMovements1800",
+    "axes": {
+      "Pace": "1800年从六月动笔序言到九月送印，作诗与修改往往在不同日子反复进行。",
+      "Collaboration": "与柯勒律治就修改与出版写信，并在第二版成稿期间一道工作。",
+      "Inquiry": "主张先选日常生活的情境和说话方式，再用想象赋予素材不同的观看角度。",
+      "Scope": "诗集涉及乡居、地方人物和自然，工作的主要题本仍是英语诗歌。",
+      "Change": "用诗集序言公开提出日常生活和讲话方式可成为诗歌实验所用的材料。",
+      "Influence": "通过作品附带的印刷序言阐明取舍，材料重心落在写作、通信和编辑过程。"
+    },
+    "additional_source": "https://en.wikisource.org/wiki/Page:Lyrical_ballads,_Volume_1,_Wordsworth,_1800.djvu/17"
+  },
+  "thomas-more": {
+    "source": "https://www.folger.edu/blogs/collation/two-ways-of-looking-at-the-same-book/",
+    "axes": {
+      "Pace": "莫尔在1515至1516年间写作，往返安特卫普和伦敦，完成拉丁文书稿才付印。",
+      "Collaboration": "彼得·吉尔斯和伊拉斯谟帮助出版有对话结构的书稿，文学实验经欧洲通信合作传开。",
+      "Inquiry": "用虚构岛国的制度设想，令故事里的旅行报告成为质问现实习惯的办法。",
+      "Scope": "并置文学讽喻、财产安排和政治制度，借旅行故事连接多种公共问题。",
+      "Change": "把讨论从单条法令提升到整个社会制度的设想，保留不同对话者的判断角度。",
+      "Influence": "实验以拉丁文印本流通，出版先借通信网络促成，由文本去影响远方读者。"
+    },
+    "additional_source": "https://www.folger.edu/explore/the-stuart-and-mimi-rose-collection/thomas-more/"
+  },
+  "samuel-johnson": {
+    "source": "https://library.harvard.edu/sites/default/files/static/onlineexhibits/johnson/dictionary.html",
+    "axes": {
+      "Pace": "1746年开始项目，次年发布计划书，直到1755年出版首版。",
+      "Collaboration": "六位抄录员在编纂期间参与整理，他负责词汇考察、定义和取舍。",
+      "Inquiry": "按书证收集词语的真实用例，出处从莎士比亚到斯宾塞等多位作者。",
+      "Scope": "把作品里的文学材料、词义、习语与语言考察拉到同一部参考书里。",
+      "Change": "词典计划要求说明用法和词义区别，条目中结合定义与带出处的引词。",
+      "Influence": "发表编纂计划和词典，用印本直接向读者说明词汇判断；与资助者的分歧通过书信表达。"
+    },
+    "additional_source": "https://samueljohnsonbirthplace.org.uk/how-johnson-created-his-dictionary-the-important-role-of-his-amanuenses/"
+  },
+  "rembrandt": {
+    "source": "https://www.rijksmuseum.nl/en/collection/object/The-Night-Watch-Militia-Company-of-District-II-under-the-Command-of-Captain-Frans-Banninck-Cocq--3137deb45cd7765f9a76084a16c99544?tab=data",
+    "axes": {
+      "Pace": "技术成像发现画家先在画布上快画底稿，之后直接调整矛、头盔和人物腿的位置。",
+      "Collaboration": "群像由民兵队委托，底稿及改笔由画家完成，构图选择主要表现在画家个人笔迹中。",
+      "Inquiry": "将成员分派到行进中的动作和光影里，把委托的熟悉样式转为带情节的场景。",
+      "Scope": "以群像绘画为主，把军队动作、模拟光源和人物细节组织进同一专门媒介。",
+      "Change": "以现场动作安排一组被委托描绘的人，改变常见的静立合影方式。",
+      "Influence": "为民兵会所大厅制作完成作品，经机构悬挂接触观者，签名留在画布而非现场讲解。"
+    },
+    "additional_source": "https://www.rijksmuseum.nl/en/press/press-releases/preparatory-sketch-discovered-beneath-the-night-watch"
+  },
+  "peter-paul-rubens": {
+    "source": "https://www.nationalgallery.org.uk/paintings/peter-paul-rubens-minerva-protects-pax-from-mars-peace-and-war",
+    "axes": {
+      "Pace": "趁1629至1630年谈判正在进行，创作并送出一幅与当时和谈直接相关的画。",
+      "Collaboration": "作为腓力四世使者往来两国，也将接待者热比耶的孩子画入作品，将接待网络纳入表达。",
+      "Inquiry": "把罗马神祇、和平的人格化和认识的家庭放进新寓意，使国王可从画里读出外交诉求。",
+      "Scope": "同一件画连接宫廷绘画、神话、真实人物和英西外交，跨领域特征明显。",
+      "Change": "保留向国王送画的既有形式，又把它用作和谈利益的表达工具。",
+      "Influence": "亲自携作品接触国王，外交影响来自私人面见和让图像代为传达，两种方式并存。"
+    }
+  },
+  "diego-velazquez": {
+    "source": "https://www.museodelprado.es/coleccion/obra-de-arte/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f",
+    "axes": {
+      "Pace": "《宫娥》X光分析发现画家自画像头部倾斜方向曾调整，动作在制作中继续改变。",
+      "Collaboration": "帕洛米诺记录画里的公主、女官和其他宫廷人物，画家本人实际承担构图和绘画。",
+      "Inquiry": "以现实宫廷人物与王宫房间为基础，再用镜中人像与画布构成对观看位置的假设。",
+      "Scope": "在宫廷肖像的专门媒介中并用线性与空气透视，加入现场空间和角色关系。",
+      "Change": "由一位公主的肖像向正在发生的宫廷场景扩展，让画家和观看者也进入肖像的组织结构。",
+      "Influence": "宫廷画通过画面而非公开表演传达，虽出现画家自画像，此处由作品代替画家当场解释。"
+    },
+    "additional_source": "https://master.grad.hr/hdgg/kog_stranica/kog19/KoG19.pdf"
+  },
+  "nathaniel-hawthorne": {
+    "source": "https://www.nps.gov/sama/learn/historyculture/hawthorne.htm",
+    "additional_source": "https://www.nps.gov/articles/longfellow-and-hawthorne.htm",
+    "axes": {
+      "Pace": "海关职务在政党轮替后中止；随即重新投入写作，以被打断的工作生涯作为新小说的起点。",
+      "Collaboration": "取得海关职位曾得友人皮尔斯相助；小说由他独自构思和写成，友人通信主要提供支持。",
+      "Inquiry": "以自己熟悉的塞勒姆海关工作作为小说框架的具体材料；找到旧手稿是虚构情节。",
+      "Scope": "将港口公务、任职人事和清教时代的虚构叙事接到同一本书里。",
+      "Change": "没有把海关经验只写成一份任职记录，而是将其改造成穿过两个时代的叙事装置。",
+      "Influence": "把海关中的见闻留在小说和私人通信里，发力点是有距离的文字叙事。"
+    }
+  },
+  "hans-christian-andersen": {
+    "source": "https://www.kb.dk/en/inspiration/hans-christian-andersens-manuscripts-and-letters/hans-christian-andersens-own-hand",
+    "additional_source": "https://www.kb.dk/en/inspiration/hans-christian-andersens-manuscripts-and-letters",
+    "axes": {
+      "Pace": "丹麦皇家图书馆存有初稿与誊清稿；誊清阶段仍重修童话，流程留大量校订空间。",
+      "Collaboration": "来往书信显出国内外友人网络；现存童话手稿记录的是他自己的多轮写作。",
+      "Inquiry": "看《睡魔》相关诗迹和旅行信件，能看见日常场景转入童话或诗的另一个使用方式。",
+      "Scope": "同一批档案包含童话稿、剪纸、图画书、图像、书信和自传，其表达超出纯文字写作。",
+      "Change": "把纸面从写字工具改成剪纸与图画书的视觉表达材料，与故事文字并用。",
+      "Influence": "童话与自传面向公众，直接交流则保留在有明确对象的私人书信里。"
+    }
+  },
+  "johann-sebastian-bach": {
+    "source": "https://www.bach-leipzig.de/de/neutral/johann-sebastian-bach-%E2%80%93-eine-chronologie",
+    "additional_source": "https://digitalesammlungen.bach-leipzig.de/",
+    "axes": {
+      "Pace": "莱比锡初任时建立了按礼拜周期来安排的创作和演出，任务有清晰的日程约束。",
+      "Collaboration": "1729年接手莱比锡大学生音乐社，在齐默尔曼咖啡馆组织实际合奏。",
+      "Inquiry": "为教会节期写作受礼拜文本与编制约束，以已有材料和要求限制创作问题。",
+      "Scope": "实践重心仍在音乐；唱诗班、键盘和咖啡馆合奏让他来往于同一领域的数个现场。",
+      "Change": "在礼拜任务与现成乐团中发展新的音乐使用方式，保留组织框架而改变曲目与演出。",
+      "Influence": "教会演出与咖啡馆演出都面向听众；个人影响也大量留在背后的乐谱和排练里。"
+    }
+  },
+  "felix-mendelssohn": {
+    "source": "https://www.loc.gov/collections/felix-mendelssohn/articles-and-essays/felix-mendelssohn-reviving-the-works-of-bach/",
+    "additional_source": "https://www.mendelssohn-stiftung.de/en/felix",
+    "axes": {
+      "Pace": "十五岁收到《马太受难曲》抄谱，约五年后带领1829年演出；排演前有长期读谱。",
+      "Collaboration": "家人提供抄谱，在柏林由泽尔特和歌唱学院支持，组织合唱与演出需要多方协作。",
+      "Inquiry": "从已存在的巴赫抄谱开展复演，先读懂实际作品与柏林合唱资源，再做决定。",
+      "Scope": "从作曲、指挥到1843年创立莱比锡音乐院，主要在音乐内部移动。",
+      "Change": "为1829年柏林观众删节并调整《马太受难曲》，用新演出条件重新呈现旧谱。",
+      "Influence": "亲自指挥公开复演，并在布商大厦音乐会工作中持续以公开演出传播。"
+    }
+  },
+  "gioachino-rossini": {
+    "source": "https://museonazionalerossini.it/eng/biography/",
+    "additional_source": "https://www.comune.pesaro.pu.it/cultura/rossini150/biografia/",
+    "axes": {
+      "Pace": "意大利时期从1810至1823年推出三十余部歌剧，舞台委约的交付节奏很密。",
+      "Collaboration": "早期歌剧与剧团和演出方一起制作；生涯后期也接受特定委托写宗教作品。",
+      "Inquiry": "《奥里伯爵》清楚借用早前《兰斯之旅》的音乐，显示新任务从手中可用材料起步。",
+      "Scope": "作曲工作跨喜歌剧、正歌剧和后期宗教曲，但重心仍为音乐。",
+      "Change": "将为特定庆典写的《兰斯之旅》部分材料改放在另一套法语喜歌剧的剧情里。",
+      "Influence": "剧院作品交给公开观众，晚期《小庄严弥撒》最初却在私人场合上演。"
+    }
+  },
+  "ralph-waldo-emerson": {
+    "source": "https://guides.library.harvard.edu/hds/1st-100/hds/19th-century-emerson",
+    "additional_source": "https://news.harvard.edu/gazette/story/2003/04/emersons-words-continue-to-inspire/",
+    "axes": {
+      "Pace": "1836年与友人组建讨论小组，次年在哈佛发表演说，显示用接连的公开表达试新的主张。",
+      "Collaboration": "赫奇发出邀约，爱默生参与办起小组，并与多名成员持续就神学和文学交换意见。",
+      "Inquiry": "1838年演说请听众从自身的道德与体验出发，挑战仅由先例决定答案的做法。",
+      "Scope": "《自然》、美国文学独立的演说与神学院讲话跨过写作、宗教及教育的惯常分野。",
+      "Change": "呼吁听众建立自己的判断，而不是沿袭前人的宗教表达规则。",
+      "Influence": "走到哈佛几个不同的听众群体面前发表主张，也持续靠巡回讲演推动观点。"
+    }
+  },
+  "robert-fulton": {
+    "source": "https://library.si.edu/digital-library/book/robertfultonlet00fulta",
+    "additional_source": "https://tile.loc.gov/storage-services/public/gdcmassbookdig/pictureofnewyork01rugg/pictureofnewyork01rugg.pdf#page=117",
+    "axes": {
+      "Pace": "1807年8月试航后即写信给利文斯顿；同年9月已有航次和票价见报，试航较快转入运营。",
+      "Collaboration": "蒸汽船是与利文斯顿合作推进；给对方的信提供了可以点验的合作记录。",
+      "Inquiry": "从具体首航情况与之后见报的工况开始判断，路线并非只留在概念图上。",
+      "Scope": "哈德逊河公开广告给出时刻、票价和舱位，把船舶工程接到服务设计和经营。",
+      "Change": "把蒸汽船从一次试航扩成按时间、地点和收费运作的客运航线。",
+      "Influence": "影响主要落在船、时刻及商务通信；最早也借公开刊登航线消息吸引乘客。"
+    }
+  },
+  "james-madison": {
+    "source": "https://www.loc.gov/collections/james-madison-papers/articles-and-essays/james-madison-and-the-federal-constitutional-convention-of-1787/",
+    "additional_source": "https://www.loc.gov/exhibits/madison/objects.html",
+    "axes": {
+      "Pace": "制宪会议前就阅读不同历史时期的邦联研究并留下整理稿，准备工作先行。",
+      "Collaboration": "起草、表决和《联邦党人文集》均有协作者；会议细节则由本人长期保管与修订。",
+      "Inquiry": "从历史制度案例和会议上逐次发言开始做记录，有时用发言人的文本进一步核对。",
+      "Scope": "以古今邦联的比较进入政治制度设计，同时把学术材料转成会议记录和公众论证。",
+      "Change": "参加制定新的联邦结构；1789年又推出修正案，留下经由制度调整的方案。",
+      "Influence": "私人会议笔记生前未出版，联邦主义文章曾使用共同笔名；其影响相当一部分由文本承担。"
+    }
+  },
+  "john-quincy-adams": {
+    "source": "https://www.archives.gov/publications/record/1998/01/amistad.html",
+    "additional_source": "https://www.masshist.org/2012/juniper/assets/ed-curricula/allison_complete.pdf",
+    "axes": {
+      "Pace": "为阿米斯塔德案出庭前，亲笔索取下级法院文件；事后日记还记下要修订拟出版的辩词。",
+      "Collaboration": "在阿米斯塔德案作为辩护团队的一员，但可以见到他个人申领案卷与修订辩词的动作。",
+      "Inquiry": "保留的亲笔文件逐项追索下级法院案卷，是明确的材料优先行为。",
+      "Scope": "卸任总统后任众议员，又在最高法院参与法律辩护，经历穿行行政、立法与司法场域。",
+      "Change": "反对众议院使反奴隶制请愿无法讨论的禁言规则，并坚持至规则撤销。",
+      "Influence": "亲自在最高法院陈述辩护，也在众议院以公开发言抵抗禁言规则。"
+    }
+  },
+  "william-wilberforce": {
+    "source": "https://www.parliament.uk/about/living-heritage/transformingsociety/tradeindustry/slavetrade/overview/the-abolitionists/",
+    "additional_source": "https://hansard.parliament.uk/Commons/2007-03-20/debates/07032055000001/details",
+    "axes": {
+      "Pace": "在议会提出废除奴隶贸易前，研读了克拉克森与委员会收集的材料；第一次重大演说也有逐项主张。",
+      "Collaboration": "由有组织的委员会支持，克拉克森负责调查，威尔伯福斯将来自各地的行动接到议会。",
+      "Inquiry": "1789年演说的十二项主张由调查资料支撑，而非脱离资料空谈。",
+      "Scope": "把港口调查、民间请愿和议会辩论串到同一改革工程里。",
+      "Change": "目标是撤除奴隶贸易，但实践是在既有制度内逐次提交动议，在不同阶段积累支持。",
+      "Influence": "作为该运动在下议院的发言者，反复在公开议程中推动辩论与投票。"
+    }
+  },
+  "william-lloyd-garrison": {
+    "source": "https://home.nps.gov/people/william-lloyd-garrison.htm",
+    "additional_source": "https://home.nps.gov/articles/000/the-liberator.htm",
+    "axes": {
+      "Pace": "从早期主张渐进解放改成支持立即废奴，并在1831年报纸创刊时立刻写进公开宣言。",
+      "Collaboration": "与艾萨克·纳普合办报纸，《解放者报》运作还得到黑人订户与撰稿人支持。",
+      "Inquiry": "道德劝说以重新设想立即废奴的公共责任为出发点，而非只整理现有渐进办法。",
+      "Scope": "把排印、报纸订阅、公开演讲和废奴团体连接成同一事业。",
+      "Change": "改旗支持立即无补偿废奴，并利用报纸挑战原有制度、团体和政治权威。",
+      "Influence": "以公开演说与署名社论施加影响；报纸每周发行可被公众直接读到。"
+    }
+  },
+  "joseph-haydn": {
+    "source": "https://www.haydngeburtshaus.at/biographien/joseph-haydn",
+    "additional_source": "https://www.hdm.at/en/museum/composers/joseph-haydn/",
+    "axes": {
+      "Pace": "宫廷工作格局变动后接受萨洛蒙邀请，1790年年底就启程去伦敦。",
+      "Collaboration": "在埃斯特哈齐家族管理乐团，伦敦的演出转接也由小提琴手兼经纪人萨洛蒙促成。",
+      "Inquiry": "在已经熟练的宫廷乐团运作和交响曲创作经验上发展伦敦委约。",
+      "Scope": "跨交响曲、舞台与其他乐种，主要深耕作曲与演出并在两种场地转换。",
+      "Change": "从埃斯特哈齐的固定宫廷岗位转向萨洛蒙的商业演出合作，改变交付和接触观众的路径。",
+      "Influence": "伦敦系列以现场演出面向付费听众，发挥了从宫廷写作转换来的公开影响。"
+    }
+  },
+  "george-frideric-handel": {
+    "source": "https://searcharchives.bl.uk/?q=R.M.20.f.2",
+    "axes": {
+      "Pace": "亲笔谱所记日期表明，1741年8月22日至9月14日期间已大体写成《弥赛亚》的音乐。",
+      "Collaboration": "作曲由亨德尔负责，查尔斯·詹南斯汇编了歌词；作品的演出另依靠歌手及乐手。",
+      "Inquiry": "取用整理过的经文，为新创作配以宣叙调、独唱与合唱。",
+      "Scope": "在作曲专业里同时处理经文、音乐表演及慈善活动，影响场景超出演奏本身。",
+      "Change": "先快速形成大致乐谱，手稿留有大量改动，另有慈善演出所用的版本和场合。",
+      "Influence": "1750年在育婴堂安排《弥赛亚》慈善演出，作品效力直接通过观众在场的演出。"
+    },
+    "additional_source": "https://foundlingmuseum.org.uk/object/belongings-handels-will/"
+  },
+  "friedrich-schiller": {
+    "source": "https://100schaetze.klassik-stiftung.de/objekt/briefwechsel-zwischen-schiller-und-goethe-1794-1805/",
+    "axes": {
+      "Pace": "1794年六月发出邀请，同年秋季来信仍逐件讨论首期稿件，直到杂志付印，形成先联系再打磨的节奏。",
+      "Collaboration": "主动邀请歌德写稿，之后交流稿件并合作写《赠辞》，明确依靠对话形成成果。",
+      "Inquiry": "互相提议将两人感兴趣的题目发展成公开通信，允许交流过程产生原先没有的栏目。",
+      "Scope": "把美育、政治困境、诗歌、文学评论放进文学刊物和彼此的交流。",
+      "Change": "以刊物和通信为基础，后来由讽刺短诗的合作转向另一种诗歌形式，探索不同写法。",
+      "Influence": "以编辑邀请和通信推动合作，成果公开在期刊和年鉴上，少依靠当场面对观众。"
+    },
+    "additional_source": "https://www.klassik-stiftung.de/service/presse/pressemitteilung/zweiheit-im-einklang-der-briefwechsel-zwischen-schiller-und-goethe-klassik-stiftung-weimar-zeigt-ausgewaehlte-dokumente-des-literarischen-austausches-goethes-und-schillers-im-renaissancesaal-der-herzogin-anna-amalia-bibliothek/"
+  },
+  "jean-le-rond-d-alembert": {
+    "source": "https://encyclopedie.uchicago.edu/front-matter/Discours%20Pr%C3%A9liminaire",
+    "axes": {
+      "Pace": "与狄德罗接手编辑，到1751年卷一出版前先组织材料并拟定用于导读的框架。",
+      "Collaboration": "《导论》明确材料主要由众多作者提供，列出编辑负责整理的角色，并吸收狄德罗的文字。",
+      "Inquiry": "以培根的知识树为现成出发点，再讨论需要变动的分类及其理由。",
+      "Scope": "把历史、科学、艺术和工艺放进同一项目，又亲自负责数学部分的编辑。",
+      "Change": "按照人类主要能力重新安排分类，并在导论中交代与培根旧分类的联系。",
+      "Influence": "以印刷的导论向公众交代框架，同时实质性影响来自编辑、分类与写条目。"
+    },
+    "additional_source": "https://encyclopedie.uchicago.edu/project-philosophique"
+  },
+  "georges-cuvier": {
+    "source": "https://fr.wikisource.org/wiki/Notice_historique_sur_les_ouvrages_et_la_vie_de_Cuvier/3",
+    "axes": {
+      "Pace": "先将象类对比的备忘录呈报学术机构，多次积累额外观察，付梓时再增补已识别的化石。",
+      "Collaboration": "向各地学者公开寻求标本资料，委托蒙马特采石场工人收集可对比的骨片。",
+      "Inquiry": "先逐件比较亲见标本和其他书面记录中的骨骼，再由现有骨骼区别现生与化石物种。",
+      "Scope": "把解剖、物种分类、发现地点和地层连接起来，用于讨论以往的动物群。",
+      "Change": "从把化石与现生成员相认，转向将真实性状差异作为有些物种已消失的依据。",
+      "Influence": "在学术机构现场宣读并发表，同时让博物馆藏品与文章承担长期传播作用。"
+    },
+    "additional_source": "https://edu.mnhn.fr/mod/page/view.php?id=1969"
+  },
+  "humphry-davy": {
+    "source": "https://www.rigb.org/explore-science/explore/collection/humphry-davys-miners-safety-lamp",
+    "axes": {
+      "Pace": "1815年十月中旬至十二月密集开发多种原型，次年一月在矿井现场检验。",
+      "Collaboration": "受矿区人士所托进行研究，皇家研究院实验与矿业工程师、矿井经理的反馈相衔接。",
+      "Inquiry": "依据事故场景和材料测试做不同原型，随后记录矿方提供的实际使用结果。",
+      "Scope": "把化学、燃烧现象、器具设计和矿工的照明需求放在一起考察。",
+      "Change": "围绕安全目标重做灯具的部分结构，而后继续按试用记录修改。",
+      "Influence": "通过论文向学会报告，经矿方实际使用扩大影响，公开交流与器具本身同时起作用。"
+    },
+    "additional_source": "https://wellcomecollection.org/works/jnzky3e2"
+  },
+  "edward-gibbon": {
+    "source": "https://www.gutenberg.org/files/6031/6031-h/6031-h.htm",
+    "axes": {
+      "Pace": "据回忆录，前置阅读经过多年，第一章三次写作以后才满意。",
+      "Collaboration": "在自述中，他说安顿在住处及私人藏书处便开始独自撰写第一卷，出版环节另有书商。",
+      "Inquiry": "大量阅读前存文献，再安排证据与历史叙事的结构；早期阅读先于标题与章目决定。",
+      "Scope": "主题持续是历史著作，同时考察制度、宗教与跨越多地多世纪的社会事件。",
+      "Change": "在自叙中说曾在枯燥编年与修辞式论说间尝试多种声音，改变叙事安排而保留证据追索。",
+      "Influence": "以卷册陆续公开历史研究，在所选行为段落中影响来自著述而非当面动员。"
+    },
+    "additional_source": "https://news.harvard.edu/gazette/story/2007/11/houghton-exhibit-features-luminous-historian/"
+  },
+  "denis-diderot": {
+    "source": "https://encyclopedie.uchicago.edu/general-chronology-and-publication-dates/general-chronology",
+    "axes": {
+      "Pace": "1748年开始作坊调查，1749年找来插图画家，经过预告及招募订户才出首卷，受阻后又持续推进。",
+      "Collaboration": "与达朗贝尔共同接手，委托路易-雅克·古西耶补充工艺插图，并汇集不同作者的材料。",
+      "Inquiry": "走进实际作坊研究技术，对照既有插图并请画家补全，依据操作过程组织材料。",
+      "Scope": "连接文字编辑、订阅出版、工场技术、图版和当时思想争论，范围跨越知识门类。",
+      "Change": "最初项目构想是翻译钱伯斯的百科辞典，任编辑后扩为附增写内容和工艺图版的出版工程。",
+      "Influence": "既在幕后组织编辑，也公开回应批评，并将《艺术》词条随答书刊出交读者判断。"
+    },
+    "additional_source": "https://www.loc.gov/preservation/conservators/diderot/treatment.html"
+  },
+  "robert-burns": {
+    "source": "https://www.nls.uk/collections/stories/literature-and-poetry/robert-burns-and-his-history-of-myself/",
+    "axes": {
+      "Pace": "1787年加入歌曲出版计划，其后为分册持续搜集、改编并提交作品。",
+      "Collaboration": "与爱丁堡乐谱商詹姆斯·约翰逊合作，还与乔治·汤姆森通信讨论另一部歌集。",
+      "Inquiry": "从旅途中听见的歌曲出发，依据传统曲调与已有歌词增写新句。",
+      "Scope": "把口传歌曲、苏格兰语言、歌词创作与音乐印本放进同一套实践。",
+      "Change": "保留可传唱的曲调，再重配歌词及安排来源说明，兼有保存与改编。",
+      "Influence": "许多歌在生前依集子传播，常匿名刊载，主要经词曲和与出版者的信件扩散。"
+    },
+    "additional_source": "https://wee-windaes.nls.uk/the-scots-musical-museum/"
+  },
+  "michel-de-montaigne": {
+    "source": "https://montaigne.univ-tours.fr/essais-1588-exemplaire-bordeaux/",
+    "axes": {
+      "Pace": "以1588年已出版的《随笔集》为下一轮底本，反复加注并手写付印指示。",
+      "Collaboration": "多数可见改笔由蒙田亲写，另有至少三处增补由他口述、玛丽·德·古尔奈抄录。",
+      "Inquiry": "保留旧段落作为出发点，再以补记和新的思路质问旧有判断。",
+      "Scope": "波尔多本内不断延伸想象、读书与人的行为等主题，在随笔中并置跨题材素材。",
+      "Change": "继续改动已公开的书，以边注和插入段落重组论述，使一版后的增写仍有表达空间。",
+      "Influence": "新见解经正文和书边改稿向外传递；当时并未把所有留下的波尔多本痕迹直接公之于众。"
+    },
+    "additional_source": "https://montaigne.univ-tours.fr/edition-de-1595/"
+  },
+  "antonio-canova": {
+    "source": "https://www.metmuseum.org/art/collection/search/204758",
+    "axes": {
+      "Pace": "先做黏土模型并翻成石膏，再用可经测量的模型制作大理石像。",
+      "Collaboration": "委托方要求艺术家亲手完成；大型工场助手通常先依石膏模型加工，之后由卡诺瓦收尾。",
+      "Inquiry": "参考古代文字、雕塑与古物材料，第二尊珀耳修斯仍取已完成的早期版本为参照。",
+      "Scope": "工作集中于雕塑，以多种造型材料、文献与制作步骤处理同一形象。",
+      "Change": "依合同延续梵蒂冈版本，保留主构图，同时调整躯干、衣褶及支撑细节。",
+      "Influence": "原型可在工场内部协调，影响主要从委托、交付的成品和展示过程中发生。"
+    },
+    "additional_source": "https://www.metmuseum.org/art/collection/search/188954"
+  },
+  "james-cook": {
+    "source": "https://archival.sl.nsw.gov.au/Details/archive/110330179",
+    "axes": {
+      "Pace": "按日记录航向、天气与定位；触礁后先做基础修补再寻船坞，既有计划又需现场应对。",
+      "Collaboration": "为金星凌日分派他处观测小组，主观测点有格林和索兰德，并由书吏理查德·奥顿誊写航海日志。",
+      "Inquiry": "本人日志记录不同观测者对接触时间意见有差异，也记下一台望远镜的倍率不同。",
+      "Scope": "参与航行管理，串联天文、测绘、船务和随船分工采集工作。",
+      "Change": "按航程遵从任务，又在航行和维修等现场变化下调整具体路线；没有证据表明重订任务目标。",
+      "Influence": "以日志、海图和批次报给海军的誊本传递成果，方法上依赖持续记录。"
+    },
+    "additional_source": "https://transcripts.sl.nsw.gov.au/page/james-cook-journal-proceedings-his-majestys-bark-endeavour-voyage-round-world-lieutenant-177"
+  },
+  "victor-hugo": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb13516296h",
+    "axes": {
+      "Pace": "1845年开始，1848年停笔，1860年续写，定稿后于1862年出版。",
+      "Collaboration": "书稿写作与章节增补以雨果一人为主，由出版人拉克鲁瓦承担问世环节。",
+      "Inquiry": "从现实社会困境构想人物与相遇，借虚构命运追问当时的社会机制。",
+      "Scope": "在小说里交织刑罚、贫困、家庭、生计及战役回顾和历史议题。",
+      "Change": "续写并扩展较早的《苦难》稿，在后一期写作中将已经停摆的项目重新带到出版。",
+      "Influence": "作者在根西岛流亡期完成，小说多卷公开发行，通过故事而非作者现场传达。"
+    },
+    "additional_source": "https://expositions.bnf.fr/brouillons/grand/36.htm"
+  },
+  "anthony-van-dyck": {
+    "source": "https://www.rct.uk/collection/404420/charles-i-1600-1649",
+    "axes": {
+      "Pace": "据馆藏考证，约在1635年下半年开始构思和制作，至1636年国王写信说画将寄往罗马。",
+      "Collaboration": "凡·戴克负责油画，贝尼尼以画为参照负责大理石胸像，两个场地通过作品完成接力。",
+      "Inquiry": "依据查理一世实际容貌和服饰分角度表现，馆方推测也参考了洛托的三面人像。",
+      "Scope": "主要以油画肖像工作，但画面同时承担大理石雕塑交付的视觉参考。",
+      "Change": "沿用宫廷肖像的惯例及已有三面画法，并针对实际接力补齐正面与侧面的信息。",
+      "Influence": "画完后把作品交给远在罗马的合作者，影响通过他可直接使用的参照而发生。"
+    },
+    "additional_source": "https://www.rct.uk/articles/charles-is-lost-art-collection"
+  },
+  "horatio-nelson-1st-viscount-nelson": {
+    "source": "https://www.rmg.co.uk/stories/maritime-history/battle-trafalgar-background",
+    "axes": {
+      "Pace": "抵达加的斯外海后用一段准备期聚拢各船舰长，再在十月共同执行计划。",
+      "Collaboration": "以会餐向各舰长说明意图，由科林伍德分担指挥；把团队经验视为计划前提。",
+      "Inquiry": "考虑舰队规模和军舰状况，更多依凭已掌握的舰长及船员经验。",
+      "Scope": "取样聚焦同一海军行动的计划、人员协调和指挥，不据此判断他在别的领域。",
+      "Change": "舰队资源受限时换用不同路径组织行动，依靠预先建立的共同理解。",
+      "Influence": "亲自向舰长说明，又亲领其部；在所选场景里偏向本人出面。"
+    },
+    "additional_source": "https://www.rmg.co.uk/collections/objects/rmgc-object-12040"
+  },
+  "john-adams": {
+    "source": "https://www.mass.gov/guides/john-adams-the-massachusetts-constitution",
+    "axes": {
+      "Pace": "1779年八月被选派参加制宪会议，十月底完成草案，十一月启程赴欧。",
+      "Collaboration": "起草小组有三人，另两人委托亚当斯执笔，各地代表和有投票权者参与后续审批。",
+      "Inquiry": "参考政治哲学与古代及欧洲历史，也将英属殖民治理经验和早期政治著作的主张写入草案。",
+      "Scope": "结合权力安排、权利声明、州民批准程序和公共教育等议题。",
+      "Change": "新框架由专门会议起草，区分宪法与一般立法，通过城镇表决改变旧的授权安排。",
+      "Influence": "主要经写草案影响结果；各地审议和批准程序进入后续阶段时，他已在国外。"
+    },
+    "additional_source": "https://www.mass.gov/news/massachusetts-declaration-of-rights-30-articles"
+  },
+  "william-penn": {
+    "source": "https://avalon.law.yale.edu/18th_century/pa07.asp",
+    "axes": {
+      "Pace": "1682年发布初期框架，1683年有修订版，1701年又用新宪章重订制度。",
+      "Collaboration": "根据1701年宪章，代表及自由民在议会参与交回旧宪章，并请求另订框架。",
+      "Inquiry": "直接以当时居民处境和已有制度回报为参照，并据此换设基础结构。",
+      "Scope": "同一宪章考量殖民授权、宗教条件、行政管理、议会构成和修订程序。",
+      "Change": "认可旧框架部分已不适用，以新宪章重订民选议会的具体权力与运行条件。",
+      "Influence": "文本由佩恩颁行并署名，实际影响另经殖民行政、议会和居民的工作实现。"
+    },
+    "additional_source": "https://avalon.law.yale.edu/17th_century/pa04.asp"
+  },
+  "jean-de-la-fontaine": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb30715795f",
+    "axes": {
+      "Pace": "寓言先发布六卷，之后再增加卷次和素材，持续出版间隔多年。",
+      "Collaboration": "题名和馆藏记录确认由拉封丹改写成韵文，克洛德·巴尔班负责早期出版。",
+      "Inquiry": "引用现成寓言和故事模式，自第七卷起也从《卡里来和笛木乃》流传系统找新素材。",
+      "Scope": "跨越不同语言和叙事传统，以法国韵文连接故事及道德和阅读经验。",
+      "Change": "保留可识别的寓言梗概，以改写与节奏使它适合新的读者。",
+      "Influence": "献给年轻王室读者的书中也有面向成年读者的序言，通过印刷与文学表达触达。"
+    },
+    "additional_source": "https://gallica.bnf.fr/accueil/fr/html/les-sources-orientales-de-la-fontaine?mode=desktop"
+  },
+  "baruch-spinoza": {
+    "source": "https://plato.stanford.edu/archives/win2018/entries/spinoza/",
+    "axes": {
+      "Pace": "长期撰写哲学著述，曾搁开《伦理学》写《神学政治论》，匿名刊印前已制定解读方法。",
+      "Collaboration": "主要独立撰写论证，书信与讨论圈提供思想反馈，友人负责后来若干手稿的出版。",
+      "Inquiry": "从文献本身、语言与历史成书情境出发，拒绝先以别处的假定取代解释材料。",
+      "Scope": "把经文解读原则、历史考察、哲学思想和政治自由写入同一论著。",
+      "Change": "用类似研究自然的方法分析历史文本的生成，改变讨论真义时所倚赖的权威。",
+      "Influence": "匿名发表，部分著作由友人身后刊行，让文本和传播网络替代作者露面。"
+    },
+    "additional_source": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/21/75/88/22/2021758822/2021758822.pdf"
+  },
+  "hugo-grotius": {
+    "source": "https://peacepalacelibrary.nl/blog/2018/capture-santa-catarina-1603",
+    "axes": {
+      "Pace": "在受委托后花约两年完成长篇手稿，只有其中一章于1609年单独付印。",
+      "Collaboration": "委托来自荷兰东印度公司董事，格劳秀斯是主要论述者，传播经过出版安排。",
+      "Inquiry": "从一宗扣押争端出发，向可否垄断公海通行这样的更一般问题推演。",
+      "Scope": "将公司贸易、特定扣押的合法性与跨国航行和法律原则联系起来。",
+      "Change": "从回应个案转为出版一章，面向更广泛的通行问题和增多的读者。",
+      "Influence": "著述主要经印本传播，整部委托稿生前没有刊行，观点传播与本人直接露面可以区分。"
+    },
+    "additional_source": "https://peacepalacelibrary.nl/blog/2012/mare-liberum-persian"
+  },
+  "alfred-lord-tennyson": {
+    "source": "https://searcharchives.bl.uk/catalog/040-001986947",
+    "axes": {
+      "Pace": "1833年已有单篇草稿，到1850年才汇成出版的悼诗，早期手稿与定本有差别。",
+      "Collaboration": "早期由诗人写诗，至少有一份他人抄本；与哈勒姆家人讨论葬礼，往来提供创作语境。",
+      "Inquiry": "由具体私信以及想象中的船只和送别经历出发，将记忆展开为诗的场景。",
+      "Scope": "在长篇悼诗中处理生死、友情及信仰疑问，所取形式始终围绕诗歌。",
+      "Change": "在出版前将不同阶段的独立段落重排成序列，部分早期措辞在抄写与定稿中变化。",
+      "Influence": "私人哀思通过抄本和后来出版的全篇逐步接触读者，工作依靠稿件而非公开表演。"
+    },
+    "additional_source": "https://www.english.cam.ac.uk/research/tennyson/about/"
+  },
+  "alexander-pope": {
+    "source": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/23/51/21/17/2023512117/2023512117.pdf",
+    "axes": {
+      "Pace": "《伊利亚特》英译在1715至1720年分期印出，较早翻出的段落后来带小改动收进去。",
+      "Collaboration": "《伊利亚特》由蒲柏主导；《奥德赛》译本有威廉·布鲁姆和以利亚·芬顿分译。",
+      "Inquiry": "以荷马文本和译稿为凭据，但在英语押韵及此前翻译尝试中继续做文学判断。",
+      "Scope": "横跨古典阅读、英语韵文和订阅印刷，主要集中于诗歌及其出版。",
+      "Change": "把早期的单段翻译变成连续出版项目，也改变后一本译作在参与者间的分工。",
+      "Influence": "通过订阅沟通与分册交付直接接触一批读者，实际内容经译文及书商发行。"
+    }
+  },
+  "william-hogarth": {
+    "source": "https://www.nationalgallery.org.uk/paintings/catalogues/egerton-2000/marriage-a-la-mode",
+    "additional_source": "https://ohoc.arts.gla.ac.uk/cam/tools/request/showRecord.php?id=commentary_uk_1735",
+    "axes": {
+      "Pace": "《时髦婚姻》先有油画稿，再安排雕版印行，连续叙事预先规划。",
+      "Collaboration": "除委托几名刻版人制作《时髦婚姻》，他还召集版画与绘图同行集体向下议院请愿；格拉斯哥大学版权档案列出同组成员。",
+      "Inquiry": "用可看见的室内细节、物件和表情交代身份与动机，叙事从观察材料出发。",
+      "Scope": "从油画与版画走到直接订阅发行和立法请愿；一七三五年《版画版权法》扩大了保护客体，实践横跨视觉艺术、业务与法律。",
+      "Change": "把上流社会体面的婚姻肖像语法变成六幕连续讽刺。",
+      "Influence": "用订阅、印刷和系列画把作品公开送到远比私人委托更大的观众群。"
+    }
+  },
+  "ludovico-ariosto": {
+    "source": "https://www.treccani.it/enciclopedia/ludovico-ariosto_%28Enciclopedia-dell%27Italiano%29/",
+    "additional_source": "https://www.treccani.it/enciclopedia/ludovico-ariosto/",
+    "axes": {
+      "Pace": "《疯狂的奥兰多》有1516、1521、1532三个版本，改订跨越十六年。",
+      "Collaboration": "费拉拉宫廷的文学社群推动初期尝试，但长诗的反复改写由他承担。",
+      "Inquiry": "从博亚尔多留下的骑士叙事出发，设想英雄因爱情而失去理智的走向。",
+      "Scope": "同时写诗、为公爵剧场写戏剧，并在加尔法尼亚任地方长官。",
+      "Change": "第三版从四十歌增到四十六歌，并重整措辞与叙事，改写幅度超出勘误。",
+      "Influence": "留下诗篇和剧本供读者、演员传达，个人更想摆脱来回奔波的宫廷差事。"
+    }
+  },
+  "montesquieu": {
+    "source": "https://plato.stanford.edu/entries/montesquieu/",
+    "additional_source": "https://montesquieu.ens-lyon.fr/IMG/article_PDF/Le-livre-IV-de-L-Esprit-des-lois-manuscrit_a899.pdf",
+    "axes": {
+      "Pace": "欧洲旅行后着手并多年研究《论法的精神》，保存下来的手稿见重新编排的痕迹。",
+      "Collaboration": "著作主要靠个人比较与反复改稿完成；书信体中多声部属于独立构作。",
+      "Inquiry": "用历史制度、地理环境和习俗作比较材料，再探求各制度何以维持。",
+      "Scope": "结合欧洲旅行、历史案例和法律，同样也曾以《波斯人信札》写虚构书信。",
+      "Change": "将政体的限制与约束写成权力彼此牵制的结构问题，改变观察法律的尺度。",
+      "Influence": "《波斯人信札》和《论法的精神》首版匿名，以文本本身进入公众讨论。"
+    }
+  },
+  "samuel-taylor-coleridge": {
+    "source": "https://www.nationaltrust.org.uk/visit/somerset/coleridge-cottage/things-to-do-in-coleridge-cottage",
+    "additional_source": "https://www.nationaltrustcollections.org.uk/place/coleridge-cottage",
+    "axes": {
+      "Pace": "在萨默塞特短暂居住期间写出《古舟子咏》等，作品在具体同住与步行时期集中动工。",
+      "Collaboration": "与华兹华斯一起创作《抒情歌谣集》，格局由共同试验形成。",
+      "Inquiry": "《古舟子咏》用超自然情境试探诗如何写出可信的感情，不从现实题材的常规出发。",
+      "Scope": "留下诗歌与散文批评作品，将叙事、想象力和文学讨论接到一起。",
+      "Change": "与华兹华斯的联合诗集尝试改变诗以何种语言、人物与情境打动读者。",
+      "Influence": "直接影响留在诗集、合作与后续阅读里；诗以叙事者之口抓住读者，并非诗人直接演说。"
+    }
+  },
+  "jacob-grimm": {
+    "source": "https://www.grimmwelt.de/en/journal/who-told-the-fairy-tales",
+    "additional_source": "https://www.grimmwelt.de/en/journal/the-childrens-and-household-tales",
+    "axes": {
+      "Pace": "童话集从收集、记稿到多版加工，形成长期编辑流程。",
+      "Collaboration": "雅各布与威廉合编，向多位讲述者接收材料，其中多萝特娅·菲曼的贡献可单独追溯。",
+      "Inquiry": "记录不同讲述者传来的具体故事，在获得讲述材料之后做整理。",
+      "Scope": "除故事搜集，还以语言研究长期处理德语词汇与传播，连接文学、语言与民俗。",
+      "Change": "从口头或手稿材料制作可公开印行的故事集，并随新版继续改编。",
+      "Influence": "许多版本中的个人名字留在材料背后，编纂工作使故事靠书籍传播。"
+    }
+  },
+  "alexandre-dumas": {
+    "source": "https://gallica.bnf.fr/accueil/fr/html/auguste-maquet-ecrivain-et-collaborateur-dalexandre-dumas",
+    "additional_source": "https://gallica.bnf.fr/selections/fr/html/feuilletons-dalexandre-dumas",
+    "axes": {
+      "Pace": "在日报连续刊载《三个火枪手》等作品，按期推进情节，而非等待全书一次公开。",
+      "Collaboration": "与奥古斯特·马凯合作创作多部报纸连载，具体合著史有文献支持。",
+      "Inquiry": "让历史人物和事件成为虚构冒险的起点，给情节留想象空间。",
+      "Scope": "把剧场与小说的叙事手法放进报纸出版，作品也跨小说、戏剧。",
+      "Change": "把长篇切成面向报纸读者的多期单元，让悬念服务于连续阅读。",
+      "Influence": "以公开连载抓住持续增长的报纸受众，也成为作品知名的作者名字。"
+    }
+  },
+  "honore-de-balzac": {
+    "source": "https://www.maisondebalzac.paris.fr/collections/voir-au-musee/edition-originale-de-la-comedie-humaine",
+    "additional_source": "https://www.maisondebalzac.paris.fr/collections/en-reserve/epreuve-corrigee-dillusions-perdues-avec-preface-victor-hugo",
+    "axes": {
+      "Pace": "《幻灭》校样仍有大量改写，显示出版临近时也愿保留返工时间。",
+      "Collaboration": "校样的核心改动来自本人；即使出版与印刷需要多人，文本控制集中在作者手中。",
+      "Inquiry": "写作与书籍生产的经验进入《幻灭》，具体产业做法变成虚构材料。",
+      "Scope": "《人间喜剧》跨越外省、巴黎及不同社会职业，也涉及作者对出版业的理解。",
+      "Change": "将既有小说编到《人间喜剧》并组织成系统，人物得以跨作品重现。",
+      "Influence": "主要通过书籍与改稿施加影响，博物馆保留的痕迹集中在纸面。"
+    }
+  },
+  "joshua-reynolds": {
+    "source": "https://www.nationalgallery.org.uk/artists/sir-joshua-reynolds",
+    "additional_source": "https://www.gutenberg.org/cache/epub/47610/pg47610-images.html",
+    "axes": {
+      "Pace": "赴意大利研究古代艺术及旧大师作品，回国后以临摹和积累建立成熟画法。",
+      "Collaboration": "共同创立皇家艺术研究院并任首任院长，教学与展览为多位艺术家协作。",
+      "Inquiry": "《艺术讲演》鼓励学生研究已有典范，先观察、临摹、比较。",
+      "Scope": "把画像实践接到学院教学和艺术理论，重点仍为视觉艺术。",
+      "Change": "用制度化教学和公开讲演为英国绘画建立新的训练条件。",
+      "Influence": "以院长身份向学生发表讲演，作品也在学院的公开展览中传播。"
+    }
+  },
+  "nicolas-poussin": {
+    "source": "https://www.metmuseum.org/essays/nicolas-poussin-1594-1665",
+    "additional_source": "https://www.metmuseum.org/art/collection/search/437329",
+    "axes": {
+      "Pace": "为复杂画面试验不同构图，同一《劫掠萨宾妇女》留下两个构图迥异的版本。",
+      "Collaboration": "罗马友人兼赞助者卡西亚诺提供网络和古物材料，作画选择主要仍由本人承担。",
+      "Inquiry": "研究提香、希腊罗马墓葬浮雕与历史故事，由具体美术资料起步。",
+      "Scope": "把古物研究、神话诗、宗教故事与哲学命题送入同一绘画实践。",
+      "Change": "教堂委托反馈冷淡后，转去为熟悉的赞助者经营更小、更克制的作品。",
+      "Influence": "依靠画幅、收藏家与赞助圈传播，较少走罗马当时盛行的巨幅公共装饰路线。"
+    }
+  },
+  "bartolome-esteban-murillo": {
+    "source": "https://www.museothyssen.org/en/collection/artists/murillo-bartolome-esteban",
+    "additional_source": "https://www.nationalgallery.org.uk/paintings/bartolome-esteban-murillo-christ-healing-the-paralytic-at-the-pool-of-bethesda",
+    "axes": {
+      "Pace": "修道院早期系列委托历时约两年，之后又完成多件教堂画束，在连续任务中保持节奏。",
+      "Collaboration": "1660年与埃雷拉等汇集塞维利亚画家创立绘画学院，共同训练青年作者。",
+      "Inquiry": "1658年在马德里观看王室藏画；慈善兄弟会的画作依具体委托和主题展开。",
+      "Scope": "从修道院、学院、慈善兄弟会及私人客户出发，主要仍做绘画。",
+      "Change": "后期减少画面人物，扩大空间，令既有宗教题材气氛更安静。",
+      "Influence": "影响通过教堂与慈善会画作、学院工作和海外收藏传播；现场身份往往由作品代替。"
+    }
+  },
+  "wilhelm-von-humboldt": {
+    "source": "https://plato.stanford.edu/entries/wilhelm-humboldt/",
+    "additional_source": "https://www2.hu-berlin.de/architekturen-der-wissenschaft/english.html",
+    "axes": {
+      "Pace": "对巴斯克语旧说有疑问后，先走访、研究材料，不急着用另一种起源理论顶替。",
+      "Collaboration": "从与当地母语者交谈到向赫尔瓦斯和多地学者获取资料，通讯被并入研究。",
+      "Inquiry": "用文本、当地人、田野观察、统计和历史资料检验一种语言现有理论。",
+      "Scope": "在语言研究之外任外交职并参与普鲁士教育改革，把文化观察与制度工作相连。",
+      "Change": "由田野工作推进比较语言研究，也推动包括柏林大学在内的教育制度革新。",
+      "Influence": "研究影响多经书信、著述和教育制度推进，即使参与政府工作也以规划为主。"
+    }
+  },
+  "justus-von-liebig": {
+    "source": "https://archiv.gdch.de/fileadmin/downloads/GDCh/historische_staetten/liebig.pdf",
+    "additional_source": "https://www.liebig-museum.de/chemische-briefe/",
+    "axes": {
+      "Pace": "有机分析装置的改进随实际使用推进；1831年致贝采利乌斯的信写下另一项方法的耗时。",
+      "Collaboration": "吉森的教学实验室让分析工作与学生实际练习并行，也靠书信同化学同行对照问题。",
+      "Inquiry": "以装置获得的可比较数据追踪具体有机物，方法服务于实际测量。",
+      "Scope": "将实验室中的化学方法联系到农业、营养等不同问题，也写面向更广读者的通信。",
+      "Change": "参与重做有机分析的实验装置和教学组织，让分析流程能承接人手与训练。",
+      "Influence": "既发表公众可读的《化学通信》，也将许多改进留在装置和教学里。"
+    }
+  },
+  "philipp-melanchthon": {
+    "source": "https://www.ccel.org/ccel/schaff/creeds1/creeds1.viii.ii.html",
+    "axes": {
+      "Pace": "临近1530年6月25日呈交时仍逐日校改，先由同道审阅又随会议形势调整。",
+      "Collaboration": "通过书信与路德等人讨论，受代表共同签署条件制约，并组织文书供各方陈述。",
+      "Inquiry": "将先前共同维持的教义与惯例作为写作出发点，再说明具体点的分歧。",
+      "Scope": "同时处理神学、机构的做法、公开会议语言及德文和拉丁文传达。",
+      "Change": "有延续保持共识的倾向，又在后续印本中更动表达，变化包括个别教义条目。",
+      "Influence": "文本由代表提交、在会议宣读，他的关键作用来自起草、通信和文字修改。"
+    },
+    "additional_source": "https://www.projectwittenberg.org/pub/resources/text/wittenberg/concord/web/augs-000.html"
+  },
+  "lord-byron": {
+    "source": "https://www.nls.uk/collections/stories/printing-and-publishing/lord-byrons-impossible-manuscript-don-juan/",
+    "axes": {
+      "Pace": "先交头两章问世，后续继续写作，并留下标注供第一章插入的手稿碎片。",
+      "Collaboration": "主要诗篇以拜伦一人为作者，同出版者默里通信并协商，出版安排与写作分开。",
+      "Inquiry": "把既有唐璜故事改为带旁白和讽刺的长诗，允许叙述者不断插入新的话题。",
+      "Scope": "跨越旅行、社交讽刺与长叙事，主媒介集中在诗歌和印刷出版。",
+      "Change": "在谨慎出版的条件下实施匿名刊印，并将未结束的文本继续延伸为更多篇章。",
+      "Influence": "最初采用匿名印刷，与出版者的意见通过私信往返，影响借文本和原本身份的张力产生。"
+    },
+    "additional_source": "https://manuscripts.nls.uk/repositories/2/archival_objects/67556"
+  },
+  "pierre-corneille": {
+    "source": "https://ccfr.bnf.fr/portailccfr/ark:/16871/0013056390",
+    "axes": {
+      "Pace": "1637年早期版本印出，之后重新整理作品，到1648版改用悲剧分类。",
+      "Collaboration": "高乃依是文本作者；演员担任上演，围绕剧本的文坛讨论和学院评议由不同的人推动。",
+      "Inquiry": "以西班牙题材为出发点，通过虚构爱情同家族名誉的冲突，使素材转入法语舞台。",
+      "Scope": "作品在文学、演出和名誉规范之间展开，核心工作仍集中在戏剧。",
+      "Change": "从悲喜剧改题为悲剧，围绕类型与写法的变化在读者可以对照的印本中留下记录。",
+      "Influence": "经剧团上演引发公开争论，又经印本和相关批评意见继续传播，对观众属于文本及舞台两路。"
+    },
+    "additional_source": "https://catalogue.bnf.fr/affiner.do?afficheRegroup=false&critereRecherche=&index=TOUS3&listeAffinages=AUT3_11897704&motRecherche=&nbResultParPage=100&numNotice=34230198&triResultParPage=5&trouveDansFiltre=NoticePUB&typeNotice=C"
+  },
+  "pierre-simon-laplace": {
+    "source": "https://assets.cambridge.org/97811080/02097/frontmatter/9781108002097_frontmatter.pdf",
+    "axes": {
+      "Pace": "1796年先发表体系介绍，1799年修订版本问世，继以多卷进一步处理力学。",
+      "Collaboration": "所选介绍和力学著作以拉普拉斯为作者，日后翻译和介绍由其他学者承担。",
+      "Inquiry": "依据已有的天文学观察和力学问题，又提出太阳系从高温气体云演变的假说。",
+      "Scope": "把数学物理、观测历史、天文学以及行星系统起源连为一套说明。",
+      "Change": "除个别天象的力学说明，还尝试用一个形成过程组织整个太阳系的问题。",
+      "Influence": "通过初版、再版与后续著作表达，所取公开影响主要沿书籍和译本传播。"
+    }
+  },
+  "daniel-webster": {
+    "source": "https://www.senate.gov/artandhistory/history/common/generic/Speeches_Webster_7March.htm",
+    "axes": {
+      "Pace": "卡尔霍恩的发言由人于3月4日代读，韦伯斯特三天后以较仓促准备的演说回应。",
+      "Collaboration": "他参考克莱的演说，在参院各方的妥协讨论中个人发言；具体立法由多人推进。",
+      "Inquiry": "用已施行的法规和先前妥协解释领土问题，再从现实政治出发提出维持联邦的论点。",
+      "Scope": "把联邦宪法争论、奴隶制、各地利益与议场及出版传播相接。",
+      "Change": "演讲后删除部分引起争议的措辞再印行，七月对议员使用更具体的立法措辞。",
+      "Influence": "本人在参院长篇发言、旅行及向公众演说，印制的小册子延续现场影响。"
+    },
+    "additional_source": "https://www.senate.gov/artandhistory/history/common/civil_war/RoadtoWar.htm"
+  },
+  "alphonse-de-lamartine": {
+    "source": "https://classes.bnf.fr/pdf/Revol5_DrapeauR.pdf",
+    "axes": {
+      "Pace": "在1848年二月政局骤变期间于巴黎市政厅迅速作出公开回应。",
+      "Collaboration": "现场由本人发言，旗帜安排由临时政府定夺，之后另经行政指令落实。",
+      "Inquiry": "利用三色旗已存在的历史象征，向现场听众说明他主张的现时含义。",
+      "Scope": "把政治现场、象征叙事、公共修辞与行政文件连在一起。",
+      "Change": "争论中新政府沿用三色旗这一既有标识，展示以延续标识表达政局变化的选择。",
+      "Influence": "亲自面对现场发言，后续文字、图像和纪念创作扩散了这段表现。"
+    },
+    "additional_source": "https://ccfr.bnf.fr/portailccfr/jsp/index_view_direct_anonymous.jsp?record=eadcgm%3AEADC%3Ab80393929"
+  },
+  "torquato-tasso": {
+    "source": "https://www.unibo.it/en/university/who-we-are/our-history/famous-people-and-students/torquato-tasso-1",
+    "axes": {
+      "Pace": "未经作者同意的早期印本出现以后，他经历多年修订，到1593年另刊出改写本。",
+      "Collaboration": "长诗由他写作，若干早期印本由他人组织，塔索参与1581年费拉拉版。",
+      "Inquiry": "以历史题材为已有支点，在韵文叙事中安排虚构人物、情节与文学规范。",
+      "Scope": "长诗横跨史料、诗体、宗教语境及出版版本，但核心目标是重做诗篇。",
+      "Change": "没有停在纠正错漏，后来以《被征服的耶路撒冷》另题发表大幅改写的文本。",
+      "Influence": "先由非授权印本触及读者，再由辩护文字和参与修订处理公开版本，主要使用书面途径。"
+    },
+    "additional_source": "https://www.cai.cam.ac.uk/library/featured-books/tragic-poet"
+  },
+  "benjamin-disraeli": {
+    "source": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/houseofcommons/reformacts/overview/furtherreformacts/",
+    "axes": {
+      "Pace": "不同改革议案在前一年已被提出；1867年的政治过程中，他先提决议，法案在议会推进中继续改变。",
+      "Collaboration": "在下议院推动议案，最终文本经政府同僚与不同党派的议员协商、辩论和表决。",
+      "Inquiry": "以上一轮议案和既有财产、住户门槛为讨论起点，而后调整合资格范围。",
+      "Scope": "连接选民资格、住房条件、地方选区及全国议会程序等互相制约的题目。",
+      "Change": "立法扩大城镇住户的投票资格，仍沿用财产相关门槛，既重订覆盖范围也有延续。",
+      "Influence": "本人在议会提出决议并公开答辩，变化还依赖最终法案经机构通过。"
+    },
+    "additional_source": "https://api.parliament.uk/historic-hansard/lords/1884/jul/07/second-reading"
+  },
+  "john-calvin": {
+    "source": "https://www.unige.ch/presse/static/savants-pdf/savants_calvin.pdf",
+    "axes": {
+      "Pace": "首部拉丁版本在1536年问世，法文版到1541年出版，围绕不同读者需求长期展开。",
+      "Collaboration": "所选著述和法文改写主要由加尔文承担，具体出版需要书商和印刷者。",
+      "Inquiry": "从既有经文、教义和争论问题组织教材，首先为其关心的问题建立清晰结构。",
+      "Scope": "把法律训练、宗教阐释、拉丁和法文写作及机构教育结合起来。",
+      "Change": "早期以拉丁文写作，再出法文版，使论述触达语言不同的群体，并进一步投入制度教育。",
+      "Influence": "所取行为以印本作用为主，同时与加尔文在日内瓦参与建立教育机构的工作相接。"
+    },
+    "additional_source": "https://www.unige.ch/450/expositions/savantscitoyens/P450_ang.pdf"
+  },
+  "joseph-addison": {
+    "source": "https://anthologydev.lib.virginia.edu/work/Spectator/addison-spectator-10?view=pageImages",
+    "axes": {
+      "Pace": "参与日报式期刊，所选第十期很早就公开描述读法及异地使用场景。",
+      "Collaboration": "与斯蒂尔共同办刊，存有二人签订的合约；各期也有独立执笔。",
+      "Inquiry": "从咖啡馆及茶桌的日常讨论设想读者，在观察中发展新的文章题目。",
+      "Scope": "将哲学、城市交往、茶桌读报及期刊出版联系起来。",
+      "Change": "目标是让原在书房和学院的讨论进入日常公共聚会，采用固定短刊持续提供材料。",
+      "Influence": "经印刷接触日常读者，又借虚构的旁观者声音写作，影响不完全来自本人在场。"
+    },
+    "additional_source": "https://www.gutenberg.org/ebooks/9334"
+  },
+  "thomas-carlyle": {
+    "source": "https://manuscripts.nls.uk/repositories/2/resources/19264",
+    "axes": {
+      "Pace": "1835年第一卷手稿被毁后恢复写作，1837年完整著作出版；这段行为有从损失中重新开工的快速应对。",
+      "Collaboration": "稿件由卡莱尔执笔，但付诸友人约翰·斯图亚特·密尔阅读，也与爱默生通信说明进展。",
+      "Inquiry": "失稿后的任务是重建已有的历史研究和叙述，之前积累的书籍与记忆仍是依据。",
+      "Scope": "将历史材料和文学叙述结合，选取届时已分成多卷的法国革命经过。",
+      "Change": "经过失稿事件重写第一卷，项目的主题延续，已有写法须因材料损失重新搭建。",
+      "Influence": "主要发表途径是历史著作，失稿与进展先通过私信逐步让同行知道。"
+    },
+    "additional_source": "https://www.gutenberg.org/cache/epub/13583/pg13583.html"
+  },
+  "georg-wilhelm-friedrich-hegel": {
+    "source": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F99DA90947679B9AF0B08507BB7E82E3/S2051536722000415a.pdf/critique-and-speculation-reconsidering-hegels-early-dialectical-logic.pdf",
+    "axes": {
+      "Pace": "从耶拿讲义和1804至1805年的体系手稿继续准备，最终在1807年以不同方案推出著作。",
+      "Collaboration": "其所选作品由黑格尔撰写，有与歌德等人的通信和对同时代哲学方案的辩论。",
+      "Inquiry": "已掌握的逻辑和形而上学问题激发他尝试新的体系开端及意识历程。",
+      "Scope": "把逻辑、形而上学、意识经验等话题纳入同一套哲学构想。",
+      "Change": "没有发表早期体系原案，以《精神现象学》替换计划的入口，后续也没有按初定安排刊行。",
+      "Influence": "所选方案在讲义、书信和著作中展开，对读者主要依靠可以反复研读的文本。"
+    },
+    "additional_source": "https://www.cambridge.org/core/journals/royal-institute-of-philosophy-supplements/article/abs/hegel-force-and-understanding/2D6E546E4069587D9CAB9FD72CC44456"
+  },
+  "jean-racine": {
+    "source": "https://www.comedie-francaise.fr/www/comedie/media/document/pei-phedre1213.pdf",
+    "axes": {
+      "Pace": "之前一部新戏在1674年问世，筹备新作时逐句带演员试演，然后于1677年首演及出版。",
+      "Collaboration": "由拉辛执笔，与首席演员尚梅莱逐句排练，王家剧团负责正式演出。",
+      "Inquiry": "参考欧里庇得斯和塞涅卡题材，以现成故事结构转写出新的角色重心。",
+      "Scope": "在戏剧专业里沟通古典文本、法语韵律及演员表达。",
+      "Change": "将故事的重心转向菲德拉，首演刊名为《菲德拉与希波吕托斯》，再版标题进一步凸显改变。",
+      "Influence": "借演员对观众表达，参与排练了解舞台实际声音，作品和演出替代作者独自演说。"
+    },
+    "additional_source": "https://www.comedie-francaise.fr/2013-2014/phedre"
+  },
+  "john-hunter-surgeon": {
+    "source": "https://hunterianmuseum.org/about/john-hunter",
+    "axes": {
+      "Pace": "在行医之外长期投入时间做样本收藏，通过增补和使用逐步形成教学博物馆。",
+      "Collaboration": "1748年在哥哥威廉的解剖学校当助手，之后组织自己的教学和收藏工作。",
+      "Inquiry": "从实体标本出发，对比不同生命个体的结构和功能来组织讲授。",
+      "Scope": "把临床外科、人体解剖、比较动物解剖及博物馆教学联系起来。",
+      "Change": "将教学范围扩出只讲人体的做法，让学生利用跨物种材料比较结构与功能。",
+      "Influence": "标本在博物馆和解剖学校中发挥作用，亨特本人也以讲课直接指导学生。"
+    },
+    "additional_source": "https://hunterianmuseum.org/collections/explore-the-collections/hunterian-collection"
+  },
+  "george-fox": {
+    "source": "https://www.gutenberg.org/ebooks/75590",
+    "axes": {
+      "Pace": "在各地会面并引入定期聚会，狱中仍以书信保持联系，个别组织安排随接触推进。",
+      "Collaboration": "去往不同地区与当地同道合作，按月聚会及妇女聚会仰赖地方参与者建立。",
+      "Inquiry": "把自己的信念和各地实际组织问题放在同一个联络过程中，既有立场也据反馈安排。",
+      "Scope": "从布道延伸到定期聚会、通信、组织事务和成员实际需要，活动仍围绕本团体。",
+      "Change": "推动把一次性会面发展为月会等固定机构，并专门写信给各妇女聚会。",
+      "Influence": "本人频繁赴地方参加聚会与公开讲述；不能在场时通过书信继续。"
+    },
+    "additional_source": "https://findingaids.library.upenn.edu/records/HAVERFORD_HC.MC.862"
+  },
+  "thomas-cranmer": {
+    "source": "https://www.lambethpalacelibrary.info/wp-content/uploads/2021/05/Research-Guide-Thomas-Cranmer.pdf",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=282",
+    "axes": {
+      "Pace": "礼拜书先后在一五四九与一五五二年定本，见跨年筹备与修订。",
+      "Collaboration": "新礼拜文本要经委员会及政府制度配合；现存书信可见其与大陆改革者来往。",
+      "Inquiry": "从既有礼仪、祈祷文、教义辩论以及不同版本入手。",
+      "Scope": "将神学主张转成礼仪用语，借主教治理和印刷使文本落地。",
+      "Change": "在英格兰推动英语礼拜文本以及统一礼拜流程。",
+      "Influence": "参与公共教会改革，但传播赖以每天反复使用的文字，而非一次演说。"
+    }
+  },
+  "theodore-beza": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=313",
+    "additional_source": "https://academic.oup.com/edited-volume/61539/chapter/537139066",
+    "axes": {
+      "Pace": "在沃尔马指导下多年积累古典语文；成年后以古语文本校读继续这一练习。",
+      "Collaboration": "与导师沃尔马及奥尔良学者联系紧密；其后在日内瓦参与改革教育。",
+      "Inquiry": "古典学阶段读希腊文与拉丁文；新约版本工作从可对读的文本出发。",
+      "Scope": "计划学法律，却写拉丁诗、研究萨利克法，再承担改革宗教育及经文编辑。",
+      "Change": "父亲期望他执业，他保留法学研究而改走人文学术；之后将语言方法应用至经文。",
+      "Influence": "早期诗作公开印行，后通过日内瓦的教学和经文版本继续发声。"
+    }
+  },
+  "joachim-murat": {
+    "source": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/murat-joachim",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=271",
+    "axes": {
+      "Pace": "放弃神学院后迅速入伍，数次离开又返队，先选行动路线再适应条件。",
+      "Collaboration": "军队升迁与获得拿破仑任用相连，依托骑兵编制和同僚网络改变个人位置。",
+      "Inquiry": "从候选神职到军旅，随后接受那不勒斯统治，反复选择当时没有保证的新角色。",
+      "Scope": "从神学院、骑兵部队转到那不勒斯王位，跨军事与政务。",
+      "Change": "拿破仑帝国格局变动期间尝试维持独立的王权与意大利政治动员。",
+      "Influence": "作为公开发布命令和政治号召的君主、军事首长发挥影响。"
+    }
+  },
+  "giuseppe-mazzini": {
+    "source": "https://www.visitgenoa.it/en/node/6176",
+    "additional_source": "https://www.londonmuseum.org.uk/collections/v/object-461627/stato-generale-dall-amministrazione/",
+    "axes": {
+      "Pace": "在流亡期间建立青年意大利，把活动移到当时实际能开展的地方。",
+      "Collaboration": "青年意大利和伦敦的意大利学校依靠组织者、参与者及捐助，不是一个人的写作。",
+      "Inquiry": "以统一的共和意大利作为政治目标，先提出未有现成依据的制度愿景。",
+      "Scope": "从法学、文学阅读走到出版、政治组织及工人子弟教育。",
+      "Change": "在既有地方政治之外另建跨境组织，并创办服务移民子女的学校。",
+      "Influence": "发行文本组织跨地域参与，亦借公开讲话与政治行动传播主张。"
+    }
+  },
+  "marquis-de-condorcet": {
+    "source": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/grands-discours-parlementaires/condorcet-20-et-21-avril-1792",
+    "additional_source": "https://bibnum.institutdefrance.fr/records/item/24170-brouillon-du-memoire-de-condorcet-sur-l-instruction-publique?offset=2",
+    "axes": {
+      "Pace": "公共教育报告成形前已有教育手稿准备，见从草拟到提交的步骤。",
+      "Collaboration": "在国民立法议会代表公共教育委员会作报告，工作经委员会组织。",
+      "Inquiry": "教育草案兼顾当时识字与学习的社会问题，也为未来设想分层机构。",
+      "Scope": "把数学训练带入政治分析，随后将公民教育写成可由立法机构讨论的制度。",
+      "Change": "把公共教育构想写为可扩大的多层学校体系，改变准入机会。",
+      "Influence": "一七九二年亲自在国民立法议会提交并陈说方案。"
+    }
+  },
+  "thomas-chatterton": {
+    "source": "https://exhibits.library.jhu.edu/exhibits/show/fakes-lies-and-forgeries/fakes-best-sellers/chatterton",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=664",
+    "axes": {
+      "Pace": "年轻时已拟作罗利诗，十六岁给沃波尔寄信寻求回应，在写作过程中主动投递。",
+      "Collaboration": "保留书信联系沃波尔但成果出自本人；同学多不知其诗作。",
+      "Inquiry": "写作的罗利神父并无真实作者身份，诗人制作了一套拟古的归属与口吻。",
+      "Scope": "把历史阅读、纹章兴趣、旧字体与文学写作编到同一文本实践。",
+      "Change": "使现代诗作看起来像中世纪文献，不仅仅用古题材写一首当代诗。",
+      "Influence": "寄信寻求赞助时让拟古文本先说话，常使用虚构作者的名字而非本人。"
+    }
+  },
+  "anne-robert-jacques-turgot": {
+    "source": "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/turgot",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=494",
+    "axes": {
+      "Pace": "从利穆赞地方行政转任财政总监后推动一组改革敕令，执行先于稳固支持。",
+      "Collaboration": "不同职位需要行政团队；现存改革敕令仍常被归于他推动，官僚亦有实际反对。",
+      "Inquiry": "地方行政经验与财政材料为政策起点；早年跨读财政资料并提出具体反驳。",
+      "Scope": "从神学训练、语言和经济阅读进入地方治理及王室财政。",
+      "Change": "提出去除行会特权与以别的税收方式替代劳役，触及制度分配。",
+      "Influence": "青年时作过公开论辩，施政影响更多经敕令与财政总监岗位实施。"
+    }
+  },
+  "nicolas-malebranche": {
+    "source": "https://plato.stanford.edu/entries/malebranche/",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=332",
+    "axes": {
+      "Pace": "少年写论文后继续进修神学，进入奥拉托利会后长期研读，出版开篇著作以前有多年积累。",
+      "Collaboration": "拒绝巴黎圣母院职位，选择奥拉托利会内以研读为中心的生活；辩论多用书面。",
+      "Inquiry": "用理性论证重新提出知觉和因果问题，经由新学说试探解释而非主要搜集观察记录。",
+      "Scope": "将笛卡尔的心物哲学与奥古斯丁传统和神学问题联系起来。",
+      "Change": "提出不同于日常因果直觉的偶因论，重新划分有限事物和上帝在因果秩序中的角色。",
+      "Influence": "通过专著和与阿尔诺往复出版的论战影响读者，以文章为主。"
+    }
+  },
+  "georges-danton": {
+    "source": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/grands-discours-parlementaires/danton-2-septembre-1792",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=513",
+    "axes": {
+      "Pace": "在战事逼近时把紧急动员公开提出，要求立即形成决定。",
+      "Collaboration": "讲话将地方当局、公民和议员都拉进同一个动员任务。",
+      "Inquiry": "以当时局势为依据，又公开要求改变对短期行动能力的预期。",
+      "Scope": "早年法律谋生，革命期间转为司法部长与议会发言者。",
+      "Change": "在旧政府体系崩解后承担共和国过渡政务，提出新的动员安排。",
+      "Influence": "一七九二年在立法议会发表公开讲话，以口头动员争取即时响应。"
+    }
+  },
+  "thomas-chalmers": {
+    "source": "https://era.ed.ac.uk/items/978bdf9d-76e6-4400-a58b-01f43ab9b9da",
+    "additional_source": "https://webvhpool.gla.ac.uk/myglasgow/archivespecialcollections/discover/specialcollectionsa-z/hilladamson/disruptionpicture/",
+    "axes": {
+      "Pace": "圣约翰教区实践要经长期筹备与实施；一八四三年又响应教会分裂带来的即时组织任务。",
+      "Collaboration": "地方济贫依赖教区组成的工作网络；教会分裂中也是多名牧师与代表联手。",
+      "Inquiry": "用实地教区经验形成济贫主张，检验重点是现存地方组织。",
+      "Scope": "将牧职、地方济贫与教会制度设计联到一起。",
+      "Change": "在圣约翰教区调整济贫办法，后参与建立脱离既有国教体制的自由教会。",
+      "Influence": "通过讲道与教会公开活动发挥作用，同时相当多的改革留在组织日常中。"
+    }
+  },
+  "charles-xiv-john": {
+    "source": "https://www.kungahuset.se/english/royal-house/the-bernadotte-dynasty/karl-xiv-johan",
+    "additional_source": "https://www.kungahuset.se/english/royal-house/the-bernadotte-dynasty",
+    "axes": {
+      "Pace": "从律师学徒离开赴军旅，革命条件改变时又较快承担新的军政角色。",
+      "Collaboration": "瑞典王储身份以厄勒布鲁议会决定取得，北欧事务还须与当地政体协调。",
+      "Inquiry": "瑞挪联合针对芬兰已经失去后的既定格局，决策从具体约束出发。",
+      "Scope": "在法律入门、法国军事行政、法国战争部长以及瑞典王位等领域转换。",
+      "Change": "在瑞典推动与挪威联合，国家制度格局变化大于换一项政策。",
+      "Influence": "王储选举前通过画像抵达议员，后以正式加冕等公共仪式确立地位，作用也依赖政治制度。"
+    }
+  },
+  "friedrich-gottlieb-klopstock": {
+    "source": "https://universitaetsarchivleipzig.de/friedrich-gottlieb-klopstock-intensive-leipziger-zeit-der-messias/",
+    "additional_source": "https://www.deutsche-biographie.de/pnd118563386.html",
+    "axes": {
+      "Pace": "求学期间开始《弥赛亚》，先发表前三歌，并在多年后推进到全篇。",
+      "Collaboration": "借莱比锡志趣相近学生的刊物发表早期篇章，后得丹麦王室资金支持。",
+      "Inquiry": "写作用史诗体重新设想宗教题材所能采用的语言与表达方式。",
+      "Scope": "在人文学校训练、神学教育和德语诗歌之间延伸，作品仍居中心。",
+      "Change": "把德语诗的宗教叙事写成采用古典格律的长篇史诗，改变诗的形式选择。",
+      "Influence": "早期靠小刊物与友人传播，声誉取自读者所见的篇章。"
+    }
+  },
+  "thomas-wolsey": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=663",
+    "supplementary_source": "https://www.hrp.org.uk/hampton-court-palace/history-and-stories/thomas-wolsey/",
+    "axes": {
+      "Pace": "Cox describes Wolsey’s early academic advancement and earned credentials before he held authority.",
+      "Collaboration": "Historic Royal Palaces describes his work at the center of the royal court and its diplomatic networks.",
+      "Inquiry": "Wolsey’s Oxford training and church offices gave him formal precedents to work from.",
+      "Scope": "Royal administration, diplomacy and the remaking of Hampton Court required coordination beyond a single office.",
+      "Change": "His rebuilding of Hampton Court changed the site from an existing residence into a much grander court complex.",
+      "Influence": "He used the visible status of a chief minister and cardinal as well as negotiation behind closed doors."
+    }
+  },
+  "david-farragut": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=285",
+    "supplementary_source": "https://www.history.navy.mil/content/history/nhhc/browse-by-topic/people/historical-figures/david-glasgow-farragut.html",
+    "axes": {
+      "Pace": "Cox records young Farragut’s prompt decision to accept David Porter’s household arrangement and seek a life at sea.",
+      "Collaboration": "Farragut was educated in Porter’s household and in a ship’s crew, learning through assigned responsibility.",
+      "Inquiry": "His early learning came from instruction at sea and practice with the real work of a vessel.",
+      "Scope": "His later responsibilities expanded from individual assignments to directing a fleet.",
+      "Change": "He built his vocation within the navy and its hierarchy over decades.",
+      "Influence": "His later rank and fleet command put much of his influence in visible responsibility."
+    }
+  },
+  "john-bunyan": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=231",
+    "supplementary_source": "https://www.gutenberg.org/cache/epub/6046/pg6046-images.html",
+    "axes": {
+      "Pace": "Bunyan’s autobiography describes long periods of reflection and repeated examination of his own responses.",
+      "Collaboration": "He acknowledged the influence of the Bedford group, then gave his inward account in his own narrative voice.",
+      "Inquiry": "His memoir returns to particular readings, conversations, and the words in his household books.",
+      "Scope": "His literary work linked theology, autobiography, and narrative to make difficult inner experiences legible.",
+      "Change": "He reworked remembered experiences into a literary account of spiritual struggle.",
+      "Influence": "His influence crossed preaching to local listeners and distributing accounts through print."
+    }
+  },
+  "giacomo-leopardi": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=666",
+    "supplementary_source": "https://assets.cambridge.org/97811074/18554/excerpt/9781107418554_excerpt.pdf",
+    "axes": {
+      "Pace": "Day-long reading in the family library and independent study begun in childhood document a sustained pace.",
+      "Collaboration": "Playing and composing with his siblings formed one strand alongside solitary work in the library.",
+      "Inquiry": "His work on Greek pastoral poets and Homer repurposed classical material through translation.",
+      "Scope": "Independent study ranged across multiple ancient languages and later fed creative work of his own.",
+      "Change": "He moved from translating inherited works to treating them as material for his own poetic practice.",
+      "Influence": "His written translations and original texts took private study outside the household."
+    }
+  },
+  "robert-southey": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=737",
+    "supplementary_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=737",
+    "axes": {
+      "Pace": "Cox records sustained reading instead of taking part in ordinary school games.",
+      "Collaboration": "He took advantage of a friend’s library while retaining strongly individual reading habits.",
+      "Inquiry": "The childhood case describes attention to plants and insects and a taste for finding material in books already at hand.",
+      "Scope": "His work moved between poetry, biography, reviewing, and history.",
+      "Change": "Student writing and reviewing gave him room to adapt established literary forms.",
+      "Influence": "A literary periodical and the laureateship put some of that work before a public audience."
+    }
+  },
+  "ludvig-holberg": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=718",
+    "supplementary_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=718",
+    "axes": {
+      "Pace": "Cox records that he resumed formal Latin studies after interruption and later pursued study on his travels.",
+      "Collaboration": "His path combined paid tutoring and close use of books with largely self-directed learning.",
+      "Inquiry": "His reading and later satirical writing show a preference for exploring ideas beyond a fixed curriculum.",
+      "Scope": "His career crossed history, moral and political thought, and plays for the Danish stage.",
+      "Change": "Theatrical work adapted learned subjects for new popular settings.",
+      "Influence": "Books and plays deliberately placed his work before readers and theatergoers."
+    }
+  },
+  "hugh-miller": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=721",
+    "supplementary_source": "https://www.gutenberg.org/cache/epub/30737/pg30737-images.html",
+    "axes": {
+      "Pace": "Miller recalled taking the first chance to leave everyday lessons for nearby woods and shorelines.",
+      "Collaboration": "One early cave expedition was an outing with other boys, and his uncle Alec provided an example of natural history.",
+      "Inquiry": "The uncle’s exploration and Miller’s recollections center on tangible specimens and local observation.",
+      "Scope": "His education combined close reading, skilled work in stone, and curiosity about Scotland’s geology.",
+      "Change": "He made field observation a source of ideas, extending what schooling alone covered.",
+      "Influence": "The autobiography carries material studied in private and on shared expeditions to public readers."
+    }
+  },
+  "john-henry-newman": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=735",
+    "supplementary_source": "https://www.gutenberg.org/cache/epub/22088/pg22088-images.html",
+    "axes": {
+      "Pace": "His Apologia reconstructs his views through a long sequence rather than one decisive scene.",
+      "Collaboration": "Cox’s biographical case notes that peers asked him to arbitrate, despite limited interest in the usual games.",
+      "Inquiry": "He revisits particular documents and episodes when accounting for changes in his beliefs.",
+      "Scope": "That account combines personal history, philosophy, debate over doctrine, and public reputation.",
+      "Change": "The autobiographical arc draws together changes long enough to pass between religious institutions.",
+      "Influence": "He alternated between quieter reading and exchanges and answering public controversy with a book."
+    }
+  },
+  "charles-sumner": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=730",
+    "supplementary_source": "https://www.senate.gov/artandhistory/history/common/generic/CivilRightsAct1875.htm",
+    "axes": {
+      "Pace": "Cox recounts the schoolboy’s sustained reading habits and his observation of adults who had traveled.",
+      "Collaboration": "The boy sought information from others, while the senator mixed formal proposals with independent public advocacy.",
+      "Inquiry": "His early inquiries were built by asking for details of other people’s first-hand experience.",
+      "Scope": "His later bill explicitly ranged across many distinct public facilities and institutions.",
+      "Change": "Sumner sought sweeping institutional changes in access for African Americans by federal legislation.",
+      "Influence": "He made his case through Senate speeches and legislative proposals around publicly visible questions."
+    }
+  },
+  "david-livingstone": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=720",
+    "supplementary_source": "https://www.gutenberg.org/ebooks/1039",
+    "axes": {
+      "Pace": "He describes years of education fitted around long shifts at the mill from childhood.",
+      "Collaboration": "His early habits included independent reading while at work, alongside formal night lessons.",
+      "Inquiry": "Personal accounts mention studying actual plants near where he grew up, with books to check what he found.",
+      "Scope": "He joined botany, classical study, medicine, missionary work, and observation in his writing.",
+      "Change": "He used periods of formal study and travel to broaden a life that began in textile work.",
+      "Influence": "Much of the material available to readers was worked up into a written account of earlier labor and travels."
+    }
+  },
+  "francois-fenelon": {
+    "source": "https://expositions.bnf.fr/brouillons/grand/9.htm",
+    "axes": {
+      "Pace": "所存亲笔工作稿定年1692至1694，空白右页多处修订，到1699年才有匿名印本。",
+      "Collaboration": "教师面向特定学生独立撰稿，刊行前手稿由他人传抄，后续家族参与印本整理。",
+      "Inquiry": "借自古典故事中的奥德修斯之子，把治理与教育放进虚构的游历和试炼。",
+      "Scope": "把贵族教育、古典文学和对治理的设问写进同一叙事。",
+      "Change": "用人物连续经历表达教育意图，较一般教训式写法多出让读者选择和解释的空间。",
+      "Influence": "作品原为面向学生的教育文稿，私下传抄与匿名印刷后来承担公众传播。"
+    },
+    "additional_source": "https://catalogue.bnf.fr/affiner.do?afficheRegroup=false&critereRecherche=&index=AUT3_11897704&motRecherche=&nbResultParPage=100&numNotice=11886277&triResultParPage=5&trouveDansFiltre=NoticePUB&typeNotice=p"
+  },
+  "honore-gabriel-riqueti-comte-de-mirabeau": {
+    "source": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/grands-discours-parlementaires/le-roi-et-le-comte-de-mirabeau-23-juin-1789",
+    "axes": {
+      "Pace": "国王退场后，正有人要求代表离席时，米拉波就当场发言应对。",
+      "Collaboration": "呼吁议员共同维持先前达成的誓言，形成集体表示，个人发言依附于代表会同。",
+      "Inquiry": "依据在场听到的命令和已成立的誓言，再由这些事实推论制宪权的归属。",
+      "Scope": "发言涉及秩序、权力归属、集体誓言和代表职权，主要集中于新议会的行动。",
+      "Change": "要求继续制宪工作，让代表集体权限而非王命成为决定议程的中心。",
+      "Influence": "直接在众人面前回应并呼吁，争取让表态现场加入代表的共同意思。"
+    },
+    "additional_source": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/juniors/histoire/1789-1799-la-revolution-francaise"
+  },
+  "william-pitt-the-younger": {
+    "source": "https://www.parliament.uk/about/living-heritage/transformingsociety/private-lives/taxation/overview/incometax/",
+    "axes": {
+      "Pace": "间接税及早前评估方法筹款不足，1798年的预算提出改变，次年引入新税。",
+      "Collaboration": "由皮特提出并争取通过，内阁、立法者和征收机构参与后续推进，反对意见在议会发出。",
+      "Inquiry": "从国家支出、既有税收不足和不同收入门槛等可对照项目拟订方案。",
+      "Scope": "同时考虑借贷、税收、行政实施、收入档次和不同纳税群体的行为。",
+      "Change": "改变增收的税基，由原评估体系转向对不同档次收入征税。",
+      "Influence": "本人在议会用预算和公开陈述争取采纳，执行由条例及行政机构继续。"
+    },
+    "additional_source": "https://searcharchives.bl.uk/catalog/040-002481330"
+  },
+  "emanuel-swedenborg": {
+    "source": "https://swedenborg.com/emanuel-swedenborg/about-life/",
+    "axes": {
+      "Pace": "1747年申请离开矿务局，1749年至1756年陆续出版八卷神学著作。",
+      "Collaboration": "有关转行及写作主要通过本人请辞与单独写作实现；之前的工程期刊另有合作者。",
+      "Inquiry": "早期技术研究不同于后期的神学解释；在所选阶段，以私人梦记和精神体验作为构想来源。",
+      "Scope": "可确认的个人经历横跨矿务、工程学刊、宗教解释和再赴伦敦印书。",
+      "Change": "拒绝升迁并请辞，以写作方向的根本转变替代原职业道路。",
+      "Influence": "借申请书信和长篇拉丁文印本传递决定与想法，所取影响主要靠著述。"
+    },
+    "additional_source": "https://swedenborg.com/wp-content/uploads/2013/03/swedenborg_foundation_posthumous_theological_works_01.pdf"
+  },
+  "thomas-babington-macaulay": {
+    "source": "https://en.wikisource.org/wiki/The_History_Of_England_From_the_Accession_of_James_II",
+    "axes": {
+      "Pace": "在此前数年酝酿并分轮校样，1848年完成头两卷，又花多年完成另两卷。",
+      "Collaboration": "各卷由麦考莱筹划执笔，存留写给爱丽丝的信及稿件；末卷由特里维廉夫人身后编辑。",
+      "Inquiry": "正文从王位更替的具体年份讲起，借文献、时近的记忆和历史细节组织叙事。",
+      "Scope": "在主要的政权叙事中加入具体社会、教会和日常细节，以多年历史串在一起。",
+      "Change": "多轮改写与出版分卷围绕同一预设开端，调节细节和章节而非改换主要研究题目。",
+      "Influence": "经多卷成书扩大读者，日记多记录自己如何准备和读到评论，而非本人现场叙述。"
+    },
+    "additional_source": "https://api.pageplace.de/preview/DT0400.9781000420531_A41277381/preview-9781000420531_A41277381.pdf"
+  },
+  "charles-james-fox": {
+    "source": "https://wellcomecollection.org/works/n2343vmj",
+    "axes": {
+      "Pace": "法案经过两院辩论、上院向法官提问和审理，再形成1792年的制定法。",
+      "Collaboration": "由福克斯介绍议案，多位议员及法官提供意见，立法属两院共同过程。",
+      "Inquiry": "围绕刑事诽谤案中陪审团既有职能与疑义，核对法官对议会问题的答复。",
+      "Scope": "将议会过程、出版言论、审判程序和陪审团权力连接起来讨论。",
+      "Change": "澄清陪审团可就全案给出总判断，同时维持法官提出意见及指示的职能。",
+      "Influence": "在议会中亲自提出议案并进行公开争论，最终效果再由法律文本与法院落实。"
+    },
+    "additional_source": "https://lawreform.nsw.gov.au/documents/Publications/Reports/Report-04.pdf"
+  },
+  "georges-louis-leclerc-comte-de-buffon": {
+    "source": "https://www.mnhn.fr/fr/des-simples-a-l-histoire-naturelle-1719-1792",
+    "axes": {
+      "Pace": "先整顿自然史陈列与人员，1749年推出首卷，再数十年持续出版。",
+      "Collaboration": "请道本顿负责标本管理和动物解剖，图版另由雅克·德塞夫等多位绘者提供。",
+      "Inquiry": "把馆藏和解剖逐项描述用于查证，同时发展关于物种和地球的整体说明。",
+      "Scope": "同一著作覆盖地球、人、哺乳动物、鸟和矿物，连接自然史、图版与展览。",
+      "Change": "将收藏、图像和逐项说明组织成长卷出版，收藏机构也固定时间面对公众开放。",
+      "Influence": "依靠出版和组织馆藏推广，在所选事件中由博物馆人员与装置协同承担日常展示。"
+    },
+    "additional_source": "https://www.mnhn.fr/fr/monument-a-buffon"
+  },
+  "robert-peel": {
+    "source": "https://hansard.parliament.uk/commons/1846-03-02/debates/d792fe09-3f77-4a5f-b80c-b377fe73c3aa/TotalAndImmediateRepealOfTheCornLaws",
+    "axes": {
+      "Pace": "政府接到爱尔兰紧急消息后讨论即时措施和长期安排，次年才经多日议会辩论推动。",
+      "Collaboration": "以内阁的共同方案在议场发言，面对各派与公众请愿，具体决定经立法过程完成。",
+      "Inquiry": "使用当时农业和食物供给资料比较短期立即暂停与长期退出的制度后果。",
+      "Scope": "把爱尔兰紧急状况、英国其他地区的贸易、农业利益和议会程序放进同一决策。",
+      "Change": "将原来的关税制度改走废除路径，并设计过渡阶段以应对转换。",
+      "Influence": "本人在议场面对多方议员解释不同选项，其后政策由制度执行。"
+    },
+    "additional_source": "https://api.parliament.uk/historic-hansard/commons/1846/apr/24/state-of-ireland"
+  },
+  "george-sand": {
+    "source": "https://classes.bnf.fr/page/grand/145.htm",
+    "axes": {
+      "Pace": "作者回忆1831年秋着手写《印第安娜》，次年发行，之后在再版序言回顾写法与争议。",
+      "Collaboration": "开始文学工作时与朱尔·桑多合作；该小说以她的个人新笔名发行。",
+      "Inquiry": "用虚构人物表现当时的家庭关系及受制处境，序言另解释写作与现实素材的距离。",
+      "Scope": "将婚姻制度、家庭生活、身份、地方情境与小说写作合在一起。",
+      "Change": "从原先共同文学工作发展到以个人笔名出版，后来在新版序言重新说明初作被怎么读。",
+      "Influence": "用笔名和印本影响公共讨论，所选文本的表达来自叙述与序言而非当面宣讲。"
+    },
+    "additional_source": "https://fr.wikisource.org/wiki/Indiana/Texte_entier"
+  },
+  "germaine-de-stael": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb31397144g",
+    "axes": {
+      "Pace": "1810年已付印却遭查扣；加注、校样和留下的版本使著作1813年能在伦敦发行。",
+      "Collaboration": "作品属斯塔尔夫人，讨论和素材受到施莱格尔兄弟等人的影响，两处出版安排各由当地出版人承担。",
+      "Inquiry": "先研读和交流德国哲学、文学等内容，再以法语组织一个面向异地读者的解释。",
+      "Scope": "把不同语言文学、哲学和社会风俗放进跨国文化论述，并推进多地出版。",
+      "Change": "法国版本被迫停止后保留稿本或校样，改在伦敦完成公开发行过程。",
+      "Influence": "在所选阶段经稿件、校样及外地印行传递内容，作用依赖当地出版网络。"
+    },
+    "additional_source": "https://www.bnf.fr/fr/madame-de-stael-et-de-lallemagne-1813-2013-bibliographie"
+  },
+  "ben-jonson": {
+    "source": "https://shakespearedocumented.folger.edu/resource/document/works-benjamin-jonson-shakespeare-included-two-cast-lists",
+    "axes": {
+      "Pace": "约在正式出版前已选定诗作及剧本，书商登记于1616年一月，后来出版该年度对开本。",
+      "Collaboration": "由琼森监督文本与出版，收录剧团演员名单，为共同生产的演出提供纪录。",
+      "Inquiry": "从已有舞台剧本、演出资料和旧稿整理成印本，并亲自确定多篇诗的用字。",
+      "Scope": "将剧本、诗、假面戏、演出人员及舞台记录纳入一部书的读法。",
+      "Change": "把原先可分开流通的剧本编进对开本《作品集》，并保留作品和制作人员的信息。",
+      "Influence": "主动推进印本与署名身份，把容易在舞台过去的表演材料带成作品集。"
+    },
+    "additional_source": "https://celm.folger.edu/introductions/JonsonBen.html"
+  },
+  "marie-de-rabutin-chantal-marquise-de-sevigne": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb313582147",
+    "axes": {
+      "Pace": "从出现在即年通信的宫廷事件和家人近况判断，她常趁消息仍鲜明时写出来。",
+      "Collaboration": "书信主要由她写给女儿等具体对象，另一端有收信者，共同造就持续通信关系。",
+      "Inquiry": "从亲身见闻、周围听来的消息和家人近况起笔，再写下自己对事件的看法。",
+      "Scope": "同一通信兼及家人关照、宫廷生活、公共事件和阅读等话题。",
+      "Change": "利用熟悉的家书形式持续容纳日常与时代记录，出版成作品集是身后由他人完成。",
+      "Influence": "她的作用经私人书信发生；重要选集在身后由出版者和编辑处理。"
+    },
+    "additional_source": "https://salleovale.bnf.fr/fr/selections-thematiques/correspondance-madame-de-sevigne-texte-etabli-presente-et-annote-par-roger"
+  },
+  "cardinal-richelieu": {
+    "source": "https://www.academie-francaise.fr/linstitution-lhistoire/les-grandes-dates",
+    "axes": {
+      "Pace": "1633年得知文人团体，经章程和1635年王室特许状准备后，到1637年完成议会登记。",
+      "Collaboration": "秘书布瓦罗贝尔转介团体，成员参与拟定条款，孔拉尔任首位终身秘书，王室及议会也有分工。",
+      "Inquiry": "吸收团体既已进行的文学讨论，以现有成员和工作为基础扩大规模。",
+      "Scope": "将文学活动、语言标准、政治授权、组织规程及各门技艺与科学的表述相连。",
+      "Change": "私人聚会变为有明确成员制度、国家使命和特许文书的机构。",
+      "Influence": "由担任保护人、审核章程及支持正式授权推动，实际聚会由成员自己组织。"
+    },
+    "additional_source": "https://www.academie-francaise.fr/phototheque/lhistoire-de-lacademie/les-lettres-patentes"
+  },
+  "pierre-gassendi": {
+    "source": "https://plato.stanford.edu/entries/gassendi/",
+    "axes": {
+      "Pace": "据开普勒的预报预先等待凌日，在可见时间内多次观察并修订最初判断。",
+      "Collaboration": "巴黎的观测由伽桑狄承担，沿用开普勒预报，又向席卡德公开通信说明结果。",
+      "Inquiry": "起初看到的黑点小于预期，他以随时间移动的迹象辨认水星，依据实际观测纠正判断。",
+      "Scope": "日常研究跨天文、物质构成、哲学和可实际表演的科学试验，事件中又用到光学。",
+      "Change": "用真实凌日记录检验既存天文预报，并更新对目标大小的认识。",
+      "Influence": "把结果写入学术通信和1632年印本，通过可回读的记录扩大影响。"
+    },
+    "additional_source": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9A9D237035E6FFFD3FC3FC5F5813C9D7/S1743921310007350a.pdf/study_of_mercury.pdf"
+  },
+  "gotthold-ephraim-lessing": {
+    "source": "https://clarin.bbaw.de/en/objects/dta:681/",
+    "axes": {
+      "Pace": "剧院开幕之际开始写连续评论，从1767至1769年伴随演出计划与之后的写作推进。",
+      "Collaboration": "为剧院计划担任评论角色，节目由剧团演出，莱辛针对已观剧目独立执笔。",
+      "Inquiry": "从实际演出的个案、已经写出的剧本与演员表现进入讨论，再总结戏剧判断。",
+      "Scope": "连接舞台演出、批评、文学比较与对观众的教学。",
+      "Change": "用连续发表的评论来伴随演出，再由单部作品的评价扩展为戏剧理论。",
+      "Influence": "作者以刊物分析舞台，剧院现场和读者对文章的反应均构成作品传播条件。"
+    },
+    "additional_source": "https://api.pageplace.de/preview/DT0400.9781135099282_A37411402/preview-9781135099282_A37411402.pdf"
+  },
+  "camillo-benso-count-of-cavour": {
+    "source": "https://documenti.camera.it/leg18/dossier/Testi/DDS18006_1.htm",
+    "axes": {
+      "Pace": "作为有全权的代表先准备并呈交外交备忘录，再争取在会议日期内纳入议程。",
+      "Collaboration": "由皮埃蒙特外交代表共同呈交材料，法国和英国代表同意在会议提出。",
+      "Inquiry": "从意大利半岛当时处境及会议已经形成的外交关系出发组织理由。",
+      "Scope": "协调代表备忘录、多国谈判、议会报告和意大利国内政治目标。",
+      "Change": "将原先围绕战争议题的国际会议扩展到意大利半岛处境这一正式议题。",
+      "Influence": "一部分影响来自预先协调与书面材料，之后在本国议会报告取得的进展。"
+    },
+    "additional_source": "https://archiviodistatotorino.cultura.gov.it/upload/Carte%20Cavour%20322.pdf"
+  },
+  "george-monck": {
+    "source": "https://www.nam.ac.uk/explore/restoration-and-birth-british-army",
+    "additional_source": "https://dev.historyofparliamentonline.org/lord-biography/monck-george-1608-70",
+    "axes": {
+      "Pace": "一六六〇年由苏格兰入英格兰，在几次不同政治态势下依次完成军队与议会动作。",
+      "Collaboration": "复辟的条件经过长老派议员、议会及王室渠道协调，将若干集合力量并在一起。",
+      "Inquiry": "观察现存议会与军队权限，在可用的制度接口之间寻找解决方法。",
+      "Scope": "将苏格兰军队的指挥权变成处理英格兰议会与王位问题的资源。",
+      "Change": "推动退出空转的政治格局并使议会重新选举，为王政复辟提供条件。",
+      "Influence": "许多影响由安排选举、官职、书信和军队控制完成，转折也通过公开行动呈现。"
+    }
+  },
+  "william-hickling-prescott": {
+    "source": "https://www.gutenberg.org/cache/epub/59755/pg59755-images.html",
+    "additional_source": "https://www.huntington.org/collections/lib-mssli-aspace-5deddd80d7d5592f8968197780ccb80e",
+    "axes": {
+      "Pace": "《征服墨西哥史》序言详细列置资料筹措与整理，写作前先积累文献。",
+      "Collaboration": "倚靠西班牙与海外联系人获取资料、也以读者和助手帮助处理视力限制。",
+      "Inquiry": "逐项列举手稿、出版材料和版本，写作由具体文献约束。",
+      "Scope": "将档案、人名地名核对与长篇历史叙事相结合。",
+      "Change": "将海外文本和摘录安排成可用的研究流程，并给叙事配来源说明。",
+      "Influence": "主要以书稿和私人通信工作，出版的历史著作承担公众影响。"
+    }
+  },
+  "pierre-jean-de-beranger": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb12013421f",
+    "additional_source": "https://fr.wikisource.org/wiki/Proc%C3%A8s_faits_aux_chansons_de_P.-J._de_B%C3%A9ranger/Pi%C3%A8ces_justificatives",
+    "axes": {
+      "Pace": "从早年印刷和诗歌习作走向按政治与日常话题不断出歌，出版随局势推进。",
+      "Collaboration": "借熟悉旋律与出版网络传播，文本以个人创作为主。",
+      "Inquiry": "把现实政治人物或局势重新想象成有角色、转折和可唱口吻的短歌。",
+      "Scope": "将政局讽刺、流行演唱与诗歌出版连在一起。",
+      "Change": "把难以传播的政治议论写成可以被听众复述演唱的短歌。",
+      "Influence": "以出版和演唱场合的可见度传播；歌曲卷入公开审判。"
+    }
+  },
+  "pierre-beaumarchais": {
+    "source": "https://www.bnf.fr/fr/les-mille-visages-de-beaumarchais",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=453",
+    "axes": {
+      "Pace": "从制表工作迅速转到宫廷、出版与剧场，为具体机会主动行动。",
+      "Collaboration": "组织剧作家维护演出收益，在公开演出前也与演员和支持者协作。",
+      "Inquiry": "从司空见惯的社会角色中设想由仆人反过来分配话语权的戏剧。",
+      "Scope": "把制表、诉讼、商业和剧场贯穿在一身，职业实践并非单线。",
+      "Change": "将剧作家收益改为联同行争取待遇的制度问题。",
+      "Influence": "以公开戏剧、诉讼文字和作家组织多种方式直接面对公众。"
+    }
+  },
+  "francis-drake": {
+    "source": "https://www.loc.gov/collections/sir-francis-drake/articles-and-essays/drake-biography/the-famous-voyage/",
+    "additional_source": "https://www.nps.gov/pore/learn/historyculture/people_europeanexplorers_francisdrake.htm",
+    "axes": {
+      "Pace": "一五七七年随五船出航，途中船数不断减少，仍以剩下的一船继续走。",
+      "Collaboration": "航行须有船员和支持者，整合多船的筹备以德雷克指挥为中心。",
+      "Inquiry": "计划随洋流、补给和船只状况变动，实际观察决定去留。",
+      "Scope": "同一次航行连接航海、王室授权、贸易与针对西班牙的私掠。",
+      "Change": "走通一条由回程条件推动的跨洋环线，改变任务最终抵达英国的方式。",
+      "Influence": "返航后的公众名声与王室承认放大其影响，过程主要靠指挥和对外行动。"
+    }
+  },
+  "jean-victor-moreau": {
+    "source": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/moreau-jean-victor",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=255",
+    "axes": {
+      "Pace": "法学时期已参加时局中的集会，革命后转入军队历练，随政治机会迅速转换。",
+      "Collaboration": "早年组织学生，之后作为部队指挥者依靠既有人员推进。",
+      "Inquiry": "军事和政治决定围绕后方与同伴的实际处境，而非只持抽象立场。",
+      "Scope": "从法律学习和学生活动转到法军指挥、流亡及与外国政府合作。",
+      "Change": "保持军旅技艺，但从法军改走海外流亡并在大型联盟中承担职责。",
+      "Influence": "一度拒绝主动夺取政治位置；专业声望与后来政治诉讼却高度公开。"
+    }
+  },
+  "thomas-moore": {
+    "source": "https://www.themorgan.org/music-manuscripts-and-printed-music/70994",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=482",
+    "axes": {
+      "Pace": "歌词与编曲以印行分册逐步推出，给每次完成后的反馈与下一组留出时间。",
+      "Collaboration": "穆尔撰写歌词与约翰·史蒂文森编配乐曲，出版物并列记录分工。",
+      "Inquiry": "由选中的现成爱尔兰曲调出发，填入可搭配的歌词。",
+      "Scope": "将文字、歌曲、旋律传统和家用乐谱连在一起。",
+      "Change": "保留旋律骨架，给旧曲重写适于印行的声音及歌词。",
+      "Influence": "以印行和演唱传播，也依靠安排曲调的协作者工作。"
+    }
+  },
+  "samuel-clarke": {
+    "source": "https://plato.stanford.edu/entries/clarke/index.html",
+    "additional_source": "https://personal.lse.ac.uk/ROBERT49/teaching/ph103/pdf/Ariew_1715LeibnizClarkeCorrespondence.pdf",
+    "axes": {
+      "Pace": "通过多年研究、翻译、讲授与写信发展论证，逐步回应每轮批评。",
+      "Collaboration": "与牛顿的意见和卡罗琳王妃居间传信有关，公开回信仍署自己。",
+      "Inquiry": "翻译自然哲学文本时加入牛顿式说明，从已有论证与理论对照入手。",
+      "Scope": "将牛顿物理学与哲学、神学和伦理论证相连，读者跨几个学界。",
+      "Change": "在教本和论战中用牛顿式说明校正原来采用的物理假定。",
+      "Influence": "通过讲座和信件传播，最引人注意的交锋也在私人渠道传递后印行。"
+    }
+  },
+  "william-ellery-channing": {
+    "source": "https://www.hds.harvard.edu/news/2019/05/03/newly-digitized-papers-william-ellery-channing",
+    "additional_source": "https://www.channingmc.org/wp/unitarian-christianity/",
+    "axes": {
+      "Pace": "一八一九年讲道留下未刊手稿和多个草稿，正式上台前已经修订。",
+      "Collaboration": "同城市改革者、教育活动家及反战者通信，宗教实践有固定的交流网络。",
+      "Inquiry": "讲道中打开关于阅读经文和判断宗教教义的其他可行解释。",
+      "Scope": "将讲道、解释学、教会立场和城市改革话题放到实际交流里。",
+      "Change": "在巴尔的摩公开提出一神论的解释框架，在宗教争议中形成可辨认纲领。",
+      "Influence": "重要观点经公开讲道与印行扩大，档案中的作品可比对准备和传播方式。"
+    }
+  },
+  "richard-wagner": {
+    "source": "https://www.bayreuther-festspiele.de/en/festival/history/",
+    "additional_source": "https://www.wagnermuseum.de/en/museum/richard-wagner-stiftung-bayreuth/",
+    "axes": {
+      "Pace": "四部《尼伯龙根的指环》与节庆剧院计划经历长期写作、筹资、施工和排演。",
+      "Collaboration": "邀请支持者、歌手和技术人员协作，早期经费亦依赖赞助。",
+      "Inquiry": "从想象舞台应如何被观看、聆听出发，倒推空间与演出要求。",
+      "Scope": "把作曲、戏剧、建筑、观演秩序和组织节庆连为同一经验。",
+      "Change": "为作品设立专门场地和音乐节，直接改造既有演出条件。",
+      "Influence": "在公众前集中呈现整套作品及演出安排，也由音乐节运营持续传播。"
+    }
+  },
+  "william-makepeace-thackeray": {
+    "source": "https://www.themorgan.org/literary-historical/116089",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=440",
+    "axes": {
+      "Pace": "《名利场》按月分期面世，读者逐步接触故事，写绘与期限相连。",
+      "Collaboration": "手稿与自绘插图显示他承担叙述和图像两种工作，出版另有协同。",
+      "Inquiry": "以交际物件、婚姻与金钱等具体社会线索建立讽刺叙事。",
+      "Scope": "将小说写作与插图、杂志经历及月刊生产结合。",
+      "Change": "让没有理想化英雄的故事用连载与自绘图像连续观察社会攀升。",
+      "Influence": "作品在发行时直接与读者对话，主要影响通过手稿与插图传播。"
+    }
+  },
+  "gebhard-leberecht-von-blucher": {
+    "source": "https://www.bl.uk/stories/blogs/posts/waterloos-prussian-hero-bluecher-and-the-british",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=242",
+    "axes": {
+      "Pace": "利尼失利并受伤之后，很快恢复指挥并与盟军再汇合，行为上快速调整。",
+      "Collaboration": "后一轮行动因与威灵顿和盟军合力而取得结果，双方角色相互依赖。",
+      "Inquiry": "在实际损失和人员状况下推进下一步，关注仍可调动的力量。",
+      "Scope": "长期事业集中在军旅，先后退役与复出并没有脱离同一职业。",
+      "Change": "在先前安排被打断时仍能重启，重组方式仍以既有军队层次和联盟为主。",
+      "Influence": "英国来访广为公众关注，影响也经本人在联盟内部担当显著指挥角色。"
+    }
+  },
+  "charles-guillaume-etienne": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=404",
+    "supplementary_source": "https://www.academie-francaise.fr/les-immortels/charles-guillaume-etienne",
+    "axes": {
+      "Pace": "Cox records an early change of course after military service, from returning to Bar-le-Duc to the Parisian literary world.",
+      "Collaboration": "Stage productions and newspapers required regular work with others, from performers to editors.",
+      "Inquiry": "His Académie speech treated comedy as evidence from which future readers could infer political and moral revolutions.",
+      "Scope": "He moved between playwriting, journalism, censorship, and parliamentary duties.",
+      "Change": "His comedy placed social change on the stage and also prompted renewed arguments in print.",
+      "Influence": "The stage, the newspaper, and the chamber let him work in direct view of audiences."
+    }
+  },
+  "francis-atterbury": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=278",
+    "supplementary_source": "https://www.westminster-abbey.org/abbey-commemorations/commemorations/francis-atterbury",
+    "axes": {
+      "Pace": "Cox documents years as a King’s Scholar followed by extended study and work at Oxford.",
+      "Collaboration": "He moved through schools and ecclesiastical offices, yet became personally associated with his published controversies.",
+      "Inquiry": "Education and later debate depended heavily on texts and inherited ecclesiastical arguments.",
+      "Scope": "His work connected lectures, sermons, church administration and public controversy.",
+      "Change": "His documented causes often involved defending an established account of ecclesiastical authority.",
+      "Influence": "A dean and bishop, he pursued arguments through institutions and in public writing."
+    }
+  },
+  "edward-bulwer-lytton": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=460",
+    "supplementary_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=460",
+    "axes": {
+      "Pace": "Cox’s account describes young Bulwer balancing sport with writing instead of sustaining only one seated pursuit.",
+      "Collaboration": "School athletics and political activity involved others, while novel writing made room for solitary work.",
+      "Inquiry": "His historical fiction imagines plots within reconstructed places such as Pompeii.",
+      "Scope": "His career moved across poetry, the theater, fiction, and public office.",
+      "Change": "Varying fictional genres and moving between writing and politics show changes in form and audience.",
+      "Influence": "His books, plays and public roles placed his work before multiple audiences."
+    }
+  },
+  "friedrich-schleiermacher": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=601",
+    "supplementary_source": "https://plato.stanford.edu/entries/schleiermacher/",
+    "axes": {
+      "Pace": "Cox traces long concentration on theological and literary study; the eventual Plato translations occupied many years.",
+      "Collaboration": "Independent philological work sustained the translation project alongside intellectual exchange.",
+      "Inquiry": "His hermeneutics explicitly asks how a reader can reconstruct the workings of an unfamiliar author’s thought.",
+      "Scope": "Translation, interpretation, theology and language theory informed one another across his career.",
+      "Change": "He proposed ways to account for linguistic and conceptual divergence rather than treating all understanding as immediate.",
+      "Influence": "Much of his reach came through texts, courses, and interpretation rather than a single public campaign."
+    }
+  },
+  "francois-arago": {
+    "source": "https://www.gutenberg.org/files/70312/70312-h/70312-h.htm",
+    "supplementary_source": "https://www.gutenberg.org/files/70312/70312-h/70312-h.htm",
+    "axes": {
+      "Pace": "His autobiography describes sustained initiative in preparing for the École Polytechnique and leaving on the meridian project.",
+      "Collaboration": "He initially surveyed with Jean-Baptiste Biot and relied on crews and local assistance.",
+      "Inquiry": "The meridian work used direct measurements and repeated observations.",
+      "Scope": "His autobiography spans surveying, physics, navigation, and institutional work.",
+      "Change": "The survey extended prior meridian measurements beyond an old stopping point.",
+      "Influence": "His scientific service reached learned institutions and a broad public through writing and lectures."
+    }
+  },
+  "joseph-fouche": {
+    "source": "https://www.napoleon.org/histoire-des-2-empires/biographies/fouche-joseph-duc-dotrante-1759-1820/",
+    "supplementary_source": "https://www.napoleon.org/histoire-des-2-empires/biographies/fouche-joseph-duc-dotrante-1759-1820/",
+    "axes": {
+      "Pace": "The institutional biography records repeated changes of political role in the compressed events of Revolution and Empire.",
+      "Collaboration": "His appointments depended on relationships across successive governing groups.",
+      "Inquiry": "His responsibilities were attached to an office gathering reports on particular people and events.",
+      "Scope": "He moved between national politics, administration, and the ministry of police.",
+      "Change": "His career moved through Revolutionary, Consular, Imperial, and Restoration authorities.",
+      "Influence": "His support of Brumaire without overt intervention shows the backstage side of his influence."
+    }
+  },
+  "edmund-spenser": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=439",
+    "supplementary_source": "https://www.folger.edu/explore/collection-highlights/first-edition-of-spenser/",
+    "axes": {
+      "Pace": "The long projected cycle of The Faerie Queene preoccupied him across successive publications.",
+      "Collaboration": "He held secretarial positions and had patrons, but printed works credited him as author and show independent imaginative work.",
+      "Inquiry": "His poetry devised an allegorical world using and recombining genres.",
+      "Scope": "Early translations, pastoral verse and epic show a wide literary span alongside official work in Ireland.",
+      "Change": "His writing carried older models into a specifically Elizabethan project.",
+      "Influence": "Print and public dedication were deliberate ways of making the work visible."
+    }
+  },
+  "joseph-louis-lagrange": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=418",
+    "supplementary_source": "https://digitalcollections.hkust.edu.hk/Detail/objects/b523122",
+    "axes": {
+      "Pace": "Cox describes concentrated study of mathematical analysis after the young Lagrange read Halley.",
+      "Collaboration": "Early publications emerged from largely self-directed study; MacTutor records the absence of direct guidance in the early paper.",
+      "Inquiry": "His mature analytical mechanics sought general equations in place of reliance on individual geometric construction.",
+      "Scope": "A general theory interconnected several principles and applications of mechanics.",
+      "Change": "The 1788 work deliberately changed the presentation and techniques by avoiding reliance on figures.",
+      "Influence": "Technical publication and correspondence carried the work further than public performance."
+    }
+  },
+  "johann-gottfried-herder": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=359",
+    "supplementary_source": "https://betaportal.textgrid.d.sub.uni-goettingen.de/browse/pzjs.0?lang=de",
+    "axes": {
+      "Pace": "Cox describes unhurried walks in the woods and sustained attention to sound in his early years.",
+      "Collaboration": "Those walks were solitary; his childhood household also shared the practice of singing.",
+      "Inquiry": "He treated songs from different language traditions as material for ideas about culture.",
+      "Scope": "The anthology carried texts across languages and literary kinds.",
+      "Change": "Collecting and making the poems available as a collection changed the audience and value assigned to songs.",
+      "Influence": "A printed anthology widened the reach of material learned from books and collective singing."
+    }
+  },
+  "christian-charles-josias-von-bunsen": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=560",
+    "supplementary_source": "https://www.loc.gov/item/05009201/",
+    "axes": {
+      "Pace": "The early biography describes both recreation and sustained language studies, with long projects later in life.",
+      "Collaboration": "His scholarly production drew on colleagues and translators, while diplomatic appointments required working across institutions.",
+      "Inquiry": "His account of Egypt brings separate strands of evidence into a larger historical interpretation.",
+      "Scope": "Historical chronology, language scholarship, diplomacy, and comparative work all informed his career.",
+      "Change": "He assembled wide-ranging material within an existing enterprise of writing universal history.",
+      "Influence": "Research and editorial coordination carried much of his influence, alongside diplomatic employment."
+    }
+  },
+  "daniel-defoe": {
+    "source": "https://www.bpl.org/archival_post/trent-william-peterfield-collection-of-defoe-and-defoeana/",
+    "supplementary_source": "https://www.bpl.org/archival_post/trent-william-peterfield-collection-of-defoe-and-defoeana/",
+    "axes": {
+      "Pace": "A succession of pamphlets and periodical writing shows adaptation to fast-moving issues.",
+      "Collaboration": "The archive identifies a distinct and unusually extensive body of personally authored work.",
+      "Inquiry": "Defoe used invented perspectives and satirical voices to explore public arguments.",
+      "Scope": "His work spans political pamphlets, periodicals, and long-form fiction.",
+      "Change": "Political journalism and early novels show a willingness to alter form with subject.",
+      "Influence": "Printed texts entered public controversy and sometimes drew sanction."
+    }
+  },
+  "warren-hastings": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=413",
+    "supplementary_source": "https://www.parliament.uk/about/living-heritage/building/palace/westminsterhall/government-and-administration/later-state-trials-/",
+    "axes": {
+      "Pace": "Cox reports a contemplative tendency at Westminster followed by a long institutional career.",
+      "Collaboration": "School and Company appointments alternated activity within organizations with individual judgment.",
+      "Inquiry": "His school record combines close formal study with imagining a very different future from his immediate circumstances.",
+      "Scope": "His East India Company responsibilities combined governance, negotiation, and revenue.",
+      "Change": "As governor-general he helped concentrate Company administration across several domains.",
+      "Influence": "His role was administrative for much of his career, then came under unusually public scrutiny in Parliament."
+    }
+  },
+  "felicite-de-lamennais": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=587",
+    "supplementary_source": "https://www.e-rara.ch/download/pdf/24743960.pdf",
+    "axes": {
+      "Pace": "Cox describes long, repeated periods of devotional practice at an early age.",
+      "Collaboration": "Devotional routine and personal writing coexisted with later involvement in political journalism.",
+      "Inquiry": "Paroles d’un croyant uses invented scenes and images to recast questions about belief and social life.",
+      "Scope": "Early religion, literary form, and public political conviction came together in his writing.",
+      "Change": "The same religious vocabulary could later carry arguments for positions outside established authorities.",
+      "Influence": "Publication put the work in public view and allowed wider response to the author’s political turn."
+    }
+  },
+  "richard-cobden": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=281",
+    "supplementary_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=281",
+    "axes": {
+      "Pace": "Cox notes that he set aside early mornings for French while holding a warehouse job.",
+      "Collaboration": "Public reform campaigns were conducted through an organization with colleagues, including John Bright.",
+      "Inquiry": "Early business and later trade work used practical experience as a starting point for an argument.",
+      "Scope": "He carried work concerns into economics, campaigning, and parliamentary debate.",
+      "Change": "The Anti-Corn Law League campaigned to change an existing policy.",
+      "Influence": "His speeches and parliamentary activity gave the campaign a visible public voice."
+    }
+  },
+  "christoph-martin-wieland": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=648",
+    "supplementary_source": "https://www.gutenberg.org/ebooks/author/845",
+    "axes": {
+      "Pace": "His translation of a substantial portion of Shakespeare’s plays unfolded across several years.",
+      "Collaboration": "Literary translation and writing gave him extensive opportunity for independent work, alongside tutoring and editing.",
+      "Inquiry": "His German prose versions make formal choices about rendering English stage language.",
+      "Scope": "He crossed theater in translation, original long-form verse, journalism, and classical texts.",
+      "Change": "His translations and new periodical provided different routes to German readers.",
+      "Influence": "Publishing and editing made the result available beyond his own study."
+    }
+  },
+  "george-berkeley": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=559",
+    "supplementary_source": "https://www.gutenberg.org/cache/epub/4722/pg4722-images.html",
+    "axes": {
+      "Pace": "Cox records early philosophical interests followed by years of education at Kilkenny and Trinity College Dublin.",
+      "Collaboration": "The 1709 essay presents a sustained personal argument, including work on imagined problems.",
+      "Inquiry": "Berkeley asks what experience and sensation contribute to what seems a direct perception of distance.",
+      "Scope": "His vision essay touches optics, perception, language, and philosophy.",
+      "Change": "He reframed distance perception as something suggested through experience.",
+      "Influence": "His published writing addressed other thinkers and later entered wider philosophical debate."
+    }
+  },
+  "john-law": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=479",
+    "supplementary_source": "https://heritage.bnf.fr/france-ameriques/john-law-0",
+    "axes": {
+      "Pace": "The initiative following the authorization of a bank in 1716 gave way to a trading company and wider institutional changes in quick succession.",
+      "Collaboration": "Royal authorization and a public share offering made the program dependent on many actors beyond its author.",
+      "Inquiry": "Cox’s account reports an early attraction to geometry; the adult financial design reasoned about a whole system.",
+      "Scope": "The enterprise connected paper money, a bank, state finances and an overseas trading company.",
+      "Change": "The bank introduced a novel paper-money experiment in France.",
+      "Influence": "The financing program depended on royal sponsorship and sales offered to the public."
+    }
+  },
+  "madame-de-maintenon": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=297",
+    "supplementary_source": "https://en.chateauversailles.fr/discover/history/great-characters/madame-maintenon",
+    "axes": {
+      "Pace": "Versailles describes years between serving as a governess and exerting sustained influence on court and education.",
+      "Collaboration": "Care of children, court relationships, and bringing a girls’ school into being depended on other people.",
+      "Inquiry": "Versailles describes the project growing from practical work organizing the education and care of children.",
+      "Scope": "Her work extended across a royal household, the court, and a school outside it.",
+      "Change": "She persuaded Louis XIV to establish the girls’ school at Saint-Cyr.",
+      "Influence": "Governess work and her marriage to Louis XIV were conducted away from public view."
+    }
+  },
+  "lope-de-vega": {
+    "source": "https://cvc.cervantes.es/el_rinconete/anteriores/enero_10/20012010_02.htm",
+    "axes": {
+      "Pace": "经历反复舞台写作，在1609年公开说明已经在实践中形成的写法，重视演出后观众的回应。",
+      "Collaboration": "剧作由本人执笔，面向剧团使用和观众听读；写作论是应一群听者的要求而作。",
+      "Inquiry": "从观众及演出习惯取得可知线索，同时据此构想跨越古典规则的安排。",
+      "Scope": "兼顾诗体、情节和当时演出受众，所选实际目标集中在戏剧。",
+      "Change": "将悲与喜并用，因当时的舞台经验挑战既有的分隔和戏剧单位要求。",
+      "Influence": "直接向请他讨论戏剧的听者解释，也以剧场中的演出检验写作的公众效果。"
+    },
+    "additional_source": "https://cvc.cervantes.es/literatura/ci_lope/santos.htm"
+  },
+  "richard-bentley": {
+    "source": "https://www.christs.cam.ac.uk/exhibition-item-no-31",
+    "axes": {
+      "Pace": "刊印前已有相关校勘看法及评论，前言用整篇说明原文和边注的分工。",
+      "Collaboration": "本特利独立提出主要改订意见，出版者另负责刊印，亲友对部分改动提出异议。",
+      "Inquiry": "假定未知抄录者或印刷者曾改动文本，以此构想可能的原句并写出理由。",
+      "Scope": "把古典文本校勘、出版史和英诗理解连接起来，目标集中于版本编辑。",
+      "Change": "将疑似改动的地方引入边注推测，尝试重新解释作品的传承关系。",
+      "Influence": "以署名印本与边注公开主张，读者和后来的编辑可以检验各处意见。"
+    },
+    "additional_source": "https://jacklynch.net/Texts/Bentley/preface.html"
+  },
+  "oliver-goldsmith": {
+    "source": "https://searcharchives.bl.uk/catalog/040-002003091",
+    "axes": {
+      "Pace": "1773年三月上演前后仍有剧团信件和被弃用的结尾稿，属于随演出迭代的过程。",
+      "Collaboration": "本人写喜剧，剧场经理乔治·科尔曼对演出用稿加注，演员团队负责上台。",
+      "Inquiry": "构想人物对同一所房屋和身份作不同理解，借误认来展开舞台事件。",
+      "Scope": "把喜剧写作、身份举止、剧团排演等联系起来，所选行为集中在舞台作品。",
+      "Change": "试写过不同尾声，并在排演环节用带舞台批注的稿件协调内容。",
+      "Influence": "靠剧场观众和后续印本扩散，也通过工作人员和演员参与现场的具体表达。"
+    },
+    "additional_source": "https://www.tcd.ie/trinitywriters/writers/oliver-goldsmith/"
+  },
+  "vittorio-alfieri": {
+    "source": "https://www.nilalienum.it/Letteratura/Letteraturaitaliana/700/alf_vit.pdf",
+    "axes": {
+      "Pace": "自传明确将构想、散文草写和成韵分开，留时间思考结构并筛选表达。",
+      "Collaboration": "他以自己的悲剧写作为例，三个阶段主要由本人完成，文中没有把步骤分给别人。",
+      "Inquiry": "从情境和角色安排构想新的戏，先留下可自由起草的文字，再试最终表达。",
+      "Scope": "考虑情节、诗体与语言，但固定在悲剧这一专门的写作形式。",
+      "Change": "在同一构想上依次完成轮廓、草写和韵文，所选方法重在分阶段打磨与保留适合材料。",
+      "Influence": "后经自传向读者解释写作工序，所选场景的主要传达是文本和创作记录。"
+    }
+  },
+  "edmund-burke": {
+    "source": "https://anthology.lib.virginia.edu/work/Burke/burke-reflections",
+    "axes": {
+      "Pace": "1789年秋收到询问信，扩充回复到1790年底才作为独立书稿面世。",
+      "Collaboration": "伯克个人写作，法国友人德蓬来信触发讨论，伦敦出版商负责印行。",
+      "Inquiry": "比较当时法国变化、伦敦有关言论和欧洲制度先例，再推演后果。",
+      "Scope": "联系政治史、伦敦公共辩论、法国制度变动及国家权力的组织。",
+      "Change": "以继承制度、审查渐变代价为所选著作的重要取向，怀疑大幅取代既有规则。",
+      "Influence": "使用署名印本应答公共争论，拟书信体仍让公开思想保留具体个人谈话的结构。"
+    },
+    "additional_source": "https://wellcomecollection.org/works/afq98w8k"
+  },
+  "oliver-cromwell": {
+    "source": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/civilwar/overview/protectorate-parliaments/",
+    "axes": {
+      "Pace": "首届护国议会开会后约五个月解散，克伦威尔在争议与会期条文限制下选择行动。",
+      "Collaboration": "议会、枢密顾问与护国公的权力并存，克伦威尔本人推动处置，但反对者也直接参与。",
+      "Inquiry": "以《政府约法》的会期规定为解散议会的直接依据，条文解释与现场政治相牵连。",
+      "Scope": "涉及英国、苏格兰和爱尔兰治理，以及议会、军政和成文法律的分权安排。",
+      "Change": "在不同政体设计下调整政府与议会关系，动用改变机构连续性的权力解散议会。",
+      "Influence": "本人以护国公身份向议会直接出面，并行使相应职权。"
+    },
+    "additional_source": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliamentandireland/overview/cromwell-to-the-boyne/"
+  },
+  "maximilien-robespierre": {
+    "source": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/grands-discours-parlementaires/robespierre-26-juillet-1794",
+    "axes": {
+      "Pace": "在委员会和公会争议持续时发表长篇讲话，从已准备的论述转为现场辩护。",
+      "Collaboration": "发表个人演说，所选行为是向其他代表指斥政治对手，未显示由他们共同拟定。",
+      "Inquiry": "把道德原则作为判断公会内政治争论的起点，演讲中未指明被批判者姓名。",
+      "Scope": "将公会辩论、伦理、革命政府和公共安全机构的政治责任一起讨论。",
+      "Change": "在革命政府的不同机关之间要求改变分工和纪律，使用广泛的政治调整主张。",
+      "Influence": "亲自站在国民公会讲坛发言，以本人身份直接表达立场。"
+    },
+    "additional_source": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/revolution-francaise/la-terreur"
+  },
+  "francois-guizot": {
+    "source": "https://www.gutenberg.org/files/28937/28937-h/28937-h.htm",
+    "axes": {
+      "Pace": "由年初提交议案，经历数月审议，到六月通过、七月向教师发送实施说明。",
+      "Collaboration": "基佐以教育部长身份推行，议院、地方官与市镇及教师各自承担环节。",
+      "Inquiry": "循法律具体条文和教育供给的已知现况说明需要改变的要求。",
+      "Scope": "连接初等教育、地方行政、教师资格、学校经费和全国立法机构。",
+      "Change": "通过同一法律建立地方设置小学的义务与管理制度，并补充教师读得懂的说明。",
+      "Influence": "不仅在议场提出方案，也靠签署下发的书信和地方机构传递给执行人员。"
+    },
+    "additional_source": "https://www.gutenberg.org/cache/epub/15433/pg15433.html"
+  },
+  "andrew-jackson": {
+    "source": "https://www.archives.gov/legislative/resources/education/veto",
+    "axes": {
+      "Pace": "国会推进提前续约的方案后，杰克逊在当年七月及时提出否决并附具体理由。",
+      "Collaboration": "国会图书馆资料记载肯德尔、坦尼与其他盟友协助形成否决咨文，正式决定由杰克逊作出。",
+      "Inquiry": "比较银行运行及股权安排等既有事实，并据此质疑特许权及其制度影响。",
+      "Scope": "在同一否决文件里结合国家银行、财务安排、宪法与总统同议会的权力关系。",
+      "Change": "没有沿用既有续设方案，运用否决阻止国会提交的法案，要求改变原条件。",
+      "Influence": "公开发布总统咨文、以行政权表明本人立场，文本另被印出供公众阅读。"
+    },
+    "additional_source": "https://www.loc.gov/collections/andrew-jackson-papers/articles-and-essays/andrew-jackson-timeline-1767-1845/pursuing-the-presidency-1822-1837/"
+  },
+  "jacques-necker": {
+    "source": "https://www.e-rara.ch/zut/content/structure/2925863",
+    "axes": {
+      "Pace": "先依财政管理材料编成常规收支及项目说明，1781年一月形成呈报，后经王室印出。",
+      "Collaboration": "报告使用财政机关账务，由内克尔署名呈交，在王室印行体系内发布。",
+      "Inquiry": "所选工作以现有各财政部门收支和偿还款按类列出为先，使读者能回查表格。",
+      "Scope": "汇总财政收入、部门开支、王室管理、债务与对外印刷的沟通需要。",
+      "Change": "将原面向王室的说明置于印本，加入汇总表及税务区地图供读者查看。",
+      "Influence": "由印刷报告向王室和后来更广泛的读者说明财政判断，形式比本人在场重要。"
+    },
+    "additional_source": "https://fr.wikisource.org/wiki/Compte_rendu_au_roi_par_M._Necker_ed._1781/I"
+  },
+  "joseph-louis-gay-lussac": {
+    "source": "https://cnum.cnam.fr/pgi/redir.php?ident=M6120&onglet=c",
+    "axes": {
+      "Pace": "第一次升空未到所需高度，数周内另作安排进行第二次试验。",
+      "Collaboration": "第一趟与比奥同行，第二趟因载重和高度条件由盖-吕萨克一人完成。",
+      "Inquiry": "任务以复核此前空中磁性观测为目的，继续记录实际测得的温度及其他条件。",
+      "Scope": "将气球工程、物理计量、大气条件与空气化学取样放在同一任务中。",
+      "Change": "原项目继续检验先前发现；改成单人升空是为了在工具约束下获得新条件。",
+      "Influence": "本人执行升空工作，结果通过科学机构报告而传递给其他研究者。"
+    },
+    "additional_source": "https://fr.wikisource.org/wiki/Gay-Lussac_%28Arago%29/Texte_entier"
+  },
+  "henry-fielding": {
+    "source": "https://www.gutenberg.org/files/9611/9611-h/9611-h.htm",
+    "axes": {
+      "Pace": "此前已有剧作和讽仿写作，1742年在一部新作开卷时公开界定其正在尝试的形式。",
+      "Collaboration": "小说与序言为菲尔丁执笔，他将规则交给读者与批评者自行对照。",
+      "Inquiry": "由现有史诗、戏剧传统和同代小说出发，构想兼含散文与喜剧的新写法。",
+      "Scope": "把古典体裁理论、韵律差别、城市及乡间人物、小说叙事相互参照。",
+      "Change": "借序言明确区别旧类型，为兼具散文与史诗部分组成的喜剧写作另开空间。",
+      "Influence": "通过序言和全书示范与读者交流，所选影响以出版文本而非现场演说承担。"
+    },
+    "additional_source": "https://assets.cambridge.org/97805218/54511/excerpt/9780521854511_excerpt.pdf"
+  },
+  "albrecht-von-haller": {
+    "source": "https://hls-dhs-dss.ch/de/articles/010656/2009-11-05/",
+    "axes": {
+      "Pace": "1728年同伴考察后，次年写诗，至1732年匿名出版，旅行和成稿之间留出时间。",
+      "Collaboration": "与约翰内斯·格斯纳结伴旅行并长期通信，所取长诗由哈勒本人创作。",
+      "Inquiry": "据旅行所见植物、地形和居民入笔，把真实观察作为后续诗歌与科学活动的材料。",
+      "Scope": "同一趟旅行延伸到植物研究、自然史、旅行记录和德语长诗。",
+      "Change": "利用已有自然史成果和田园诗形式，将主题延伸到高山和当地人生活。",
+      "Influence": "长诗先通过手稿再经匿名印本流传，后来作者在版次说明中交代同行者和旅行背景。"
+    },
+    "additional_source": "https://www.e-rara.ch/bes_1/content/pagetext/13495307"
+  },
+  "jacques-benigne-bossuet": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb301352107",
+    "axes": {
+      "Pace": "曾任王储教师，针对课程组织较长读物，多个主题在1681年合并出版。",
+      "Collaboration": "所选作品为博叙埃执笔并题献王储，印刷出版另由专业书商负责。",
+      "Inquiry": "以既有宗教经文和帝国史材料作为组织起点，用选出的节点建立叙事。",
+      "Scope": "连结历史教育、神学、帝国更替和面向王储的政治见闻。",
+      "Change": "原面向特定学生的课程思路，以时代顺序和宗教及帝国并行解释汇为书。",
+      "Influence": "作用主要从书及此前教育安排发生；公开出版后由文本领导阅读。"
+    },
+    "additional_source": "https://fr.wikisource.org/wiki/Livre:Bossuet_-_Discours_sur_l%E2%80%99Histoire_universelle,_1681.djvu"
+  },
+  "auguste-comte": {
+    "source": "https://plato.stanford.edu/entries/comte/",
+    "axes": {
+      "Pace": "1826年开课后中断，1829年恢复，接下来多年陆续付印六卷。",
+      "Collaboration": "独立组织授课和写作，早期听众包括傅里叶、洪堡等学者，出版后还有外语版本改写。",
+      "Inquiry": "从科学各领域已经使用的方法出发，提出关于知识怎样组织和发展的整体设想。",
+      "Scope": "横跨数学、物理、化学、生物与社会研究，并为跨领域关系提出安排。",
+      "Change": "将单科成果重排成关于各种知识方法的独立课程，制定成多卷论述。",
+      "Influence": "当面讲授提供公开影响，周期很长的后续作用来自印本及后来的节译传播。"
+    },
+    "additional_source": "https://plato.stanford.edu/archives/sum2026/entries/comte/"
+  },
+  "john-dryden": {
+    "source": "https://www.folger.edu/blogs/collation/drydens-virgil-ogilbys-virgil-aeneas-nose-job/",
+    "axes": {
+      "Pace": "翻译协议在1694年就已存在，直到1697年才刊行译本，文字和图版按此前计划推进。",
+      "Collaboration": "本人译诗，汤森负责出版；德莱顿在献辞中感谢收到劳德代尔的翻译手稿作参考。",
+      "Inquiry": "使用维吉尔拉丁原文并参考已有译法，印本的插图沿用早先版的铜版。",
+      "Scope": "将古典文学、英语韵文、印刷图像和订阅发行组合为成书项目。",
+      "Change": "用旧版画提供图像，但并列新译文和献辞，保留现有材料同时更新内容。",
+      "Influence": "依靠订阅、公开署名和印刷行销，主要由文本与出版者拓展受众。"
+    },
+    "additional_source": "https://celm.folger.edu/introductions/DrydenJohn.html"
+  },
+  "adolphe-thiers": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb31456877g",
+    "axes": {
+      "Pace": "自述有时花一年准备、两个月落笔；整套书的巴黎印本跨越多年。",
+      "Collaboration": "历史著作由梯也尔执笔，他强调亲手注读；已有档案、书信及不同书商是完成所需条件。",
+      "Inquiry": "反复注读国家档案、拿破仑与不同官员的通信以及私人回忆录。",
+      "Scope": "在多卷叙述里连接行政、军事、财政、政治与国家之间的往来。",
+      "Change": "作品接续他本人先前的《法国革命史》，在延续时间线的主要框架内取得新的材料。",
+      "Influence": "这一项目的影响主要来自逐卷出版的史书，前言对读者说明如何准备材料。"
+    },
+    "additional_source": "https://www.gutenberg.org/files/61134/61134-h/61134-h.htm"
+  },
+  "victor-cousin": {
+    "source": "https://fr.wikisource.org/wiki/%C5%92uvres_de_Platon%2C_traduites_par_Victor_Cousin",
+    "axes": {
+      "Pace": "1822年开始刊出，对话和附注陆续编至1840年前后，翻译计划跨度多年。",
+      "Collaboration": "以库赞署名翻译和注释，分卷经多家书商刊印，读者评论也另外发表。",
+      "Inquiry": "从希腊对话原文、旧译及先前解释切入，借法语文本和注释提供阅读依据。",
+      "Scope": "在哲学教学及翻译工作中连接希腊原文、法语表达和跨时代注释。",
+      "Change": "将多篇早先只有个别译本或尚无通行法译的对话汇成整套本，把注释与译文同时交付。",
+      "Influence": "以公开出版的卷册与注释传播，这一项目中主要由读者自己循文本理解。"
+    },
+    "additional_source": "https://fr.wikisource.org/wiki/Platon_-_%C5%92uvres_compl%C3%A8tes%2C_traduites_par_M._V._Cousin"
+  },
+  "william-pitt-1st-earl-of-chatham": {
+    "source": "https://franklinpapers.org/yale?page=039a&vol=13",
+    "axes": {
+      "Pace": "印花税引发反弹后的数月内于1766年新会期开议时正式表态。",
+      "Collaboration": "现场由皮特本人讲话，他的看法同院内不同主张展开，富兰克林另向外通信报道。",
+      "Inquiry": "由已经生效的一项税与议会权利区分出发，比较内部征税和贸易规制的依据。",
+      "Scope": "联系财政、殖民地治理、跨大西洋贸易规则及议会讨论程序。",
+      "Change": "明确支持废除个别法律，又承认议会有其他类型监管权限。",
+      "Influence": "借本人站在议场正面演说推进影响，外部报纸及通信再传播发言。"
+    },
+    "additional_source": "https://cwfjdrlsc.omeka.net/items/show/3038"
+  },
+  "francois-rene-de-chateaubriand": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb11936539b.public",
+    "axes": {
+      "Pace": "1809年开始回忆计划，后来中止又重开，1846年仍删改章节。",
+      "Collaboration": "主要由作者整理个人经历；因蕾卡米耶的顾虑删节，日后编辑者与拥有出版安排的各方管理印本。",
+      "Inquiry": "从个人经历与具体人物出发，并把可核事实与塑造记忆的写法并置。",
+      "Scope": "内容覆盖个人成长、文学、政治、外交及对地方景观的描写。",
+      "Change": "将较早个人回忆扩成四部分，最后还取舍蕾卡米耶相关章节并重新安置保留部分。",
+      "Influence": "原计划身后发表，后来经报纸连载与分卷出版，主要让书稿在作者离世后触达读者。"
+    },
+    "additional_source": "https://expositions.bnf.fr/brouillons/grand/18.htm"
+  },
+  "jean-de-dieu-soult": {
+    "source": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/soult-nicolas-jean-de-dieu",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=272",
+    "axes": {
+      "Pace": "入伍后经历帝制、复辟和七月王朝等断点，仍迅速承接情况变化。",
+      "Collaboration": "作为参谋长、军政官员和内阁主席，必须在组织链中工作。",
+      "Inquiry": "以手中部队、命令与既有行政机构为工作材料来协调。",
+      "Scope": "从军队指挥转上参谋、战争部与内阁级行政。",
+      "Change": "在政体更换时转换岗位而持续使用组织经验，相当一部分是修正运作方式。",
+      "Influence": "虽是名将，后期的大量影响经战争部和内阁行政完成。"
+    }
+  },
+  "lazare-carnot": {
+    "source": "https://www.polytechnique.edu/bibliotheque/evenements/exposition-le-grand-carnot",
+    "additional_source": "https://www.persee.fr/doc/arcpa_0000-0000_1908_num_73_1_46503_t1_0599_0000_5",
+    "axes": {
+      "Pace": "有工程师训练，但一七九三年在紧急时间框架内代表委员会提交组织报告，综合准备与应变。",
+      "Collaboration": "共和国军队的组织建议在公安委员会中形成，报告写明代表委员会提出。",
+      "Inquiry": "以现有人员、组织分布和工程训练考察执行条件。",
+      "Scope": "在政府行政工作之外研究几何力学，将数学与组织问题交叉处理。",
+      "Change": "在革命政府里参与制定新的全国组织法令，触及机构而非单线岗位调整。",
+      "Influence": "可在公会上作报告，但相当多的工作是通过方案、行政协调与文书完成。"
+    }
+  },
+  "pedro-calderon-de-la-barca": {
+    "source": "https://www.cervantesvirtual.com/portales/calderon_de_la_barca/autor_calderon_epoca/",
+    "additional_source": "https://cervantesvirtual.com/portales/clasicos_en_la_biblioteca_nacional/obra/la-vida-es-sueno-2/",
+    "axes": {
+      "Pace": "宫廷和宗教庆典的剧作需要按委约和大型舞台条件筹备。",
+      "Collaboration": "作为剧场作者并主持演出，文字、音乐、布景与演员协同。",
+      "Inquiry": "《人生如梦》让角色按难分真假与梦境的情境选择，以设想测试伦理问题。",
+      "Scope": "从法学、神学与骑兵经历到宫廷创作并受圣职，支撑丰富剧场任务。",
+      "Change": "在新舞台条件中把哲学讨论、合唱与视觉机械接到剧情。",
+      "Influence": "以广场、宫廷和公众演出传播作品；作用也通过编剧、导演与剧场后台完成。"
+    }
+  },
+  "ali-pasha-of-ioannina": {
+    "source": "https://museumalipasha.gr/en/ali-pasha/",
+    "additional_source": "https://dataservices.ascsa.org/index.php/archives/ali-pasha-papers",
+    "axes": {
+      "Pace": "在奥斯曼边缘地区先扩展实际势力再调整与中央的关系，地方动作先行。",
+      "Collaboration": "地方行政靠家族、官吏、地方势力及跨地区外交相连。",
+      "Inquiry": "从地方税务、官员和城市之间的既有行政条件建立权力。",
+      "Scope": "治理结合地方行政、贸易、税务、外交与跨语文件。",
+      "Change": "将约阿尼纳的地方管治扩展成相对独立的地区中心，改变与帝国中央的关系。",
+      "Influence": "以任命、来往书信与官方交涉处理许多关系，日常影响有文书载体。"
+    }
+  },
+  "heinrich-heine": {
+    "source": "https://germanhistory-intersections.org/en/germanness/ghis:document-314",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=357",
+    "axes": {
+      "Pace": "再访德语地区之后写成《德国：一个冬天的童话》，迅速把旅途观察投到诗中。",
+      "Collaboration": "在巴黎居住且使用出版网络，但尖锐的游历口吻与处理方式由个人完成。",
+      "Inquiry": "令莱茵河开口吐槽民族主义歌曲，用不可能的对话试探真实的政治假设。",
+      "Scope": "用游历、政治新闻、歌词与诗衔接法德两个文化现场。",
+      "Change": "把地理象征从爱国叙事的稳定背景改成能反驳诗人的对话者。",
+      "Influence": "个人影响经出版与读者再传播，审查也会限制公开途径。"
+    }
+  },
+  "john-wesley": {
+    "source": "https://www.newroombristol.org.uk/museum/explore-the-museum/",
+    "additional_source": "https://wesley.nnu.edu/john-wesley/the-letters-of-john-wesley/wesleys-letters-1739/",
+    "axes": {
+      "Pace": "响应布里斯托两群宗教团体的请求，在一七三九年着手组织新房间；也尝试户外讲道。",
+      "Collaboration": "共同空间出自两组会众请求，小班互助安排依赖成员联结。",
+      "Inquiry": "保留日记、书信和名单，依据实际会众及反馈尝试改变。",
+      "Scope": "把讲道、成员互助、学校教育、书信和印刷联系起来。",
+      "Change": "把宗教活动移到户外及独立聚所，增设可反复开展的互助小组。",
+      "Influence": "常亲自向公众布道，同时由分组和巡回支持较长的影响。"
+    }
+  },
+  "johann-joachim-winckelmann": {
+    "source": "https://m.museivaticani.va/content/dam/museivaticani/pdf/eventi_novita/iniziative/mostre/2018/16_winckelmann_introduzione_en.pdf",
+    "additional_source": "https://research.reading.ac.uk/winckelmania/our-exhibits/longing-for-what-we-have-lost/longing-for-what-we-have-lost-1/longing-for-what-we-have-lost-1-2/",
+    "axes": {
+      "Pace": "接受古典训练并在罗马接触实物，长时间整理后出版关于古代艺术的系统著作。",
+      "Collaboration": "依靠馆藏、罗马同行与赞助接触文物，综合比较与写作主要由他完成。",
+      "Inquiry": "以古代雕塑、复制品和档案材料作为观察起点，比较其形式。",
+      "Scope": "将古典语言、古物馆藏、历史与审美论述并入单一方法。",
+      "Change": "提出按时期和风格分析古代艺术，用历史结构整理不同时期的作品。",
+      "Influence": "借馆藏职务、研究记录和出版影响读者，主要依赖文字和物件。"
+    }
+  },
+  "richard-brinsley-sheridan": {
+    "source": "https://www.qmul.ac.uk/library/archives/blogs/items/richard-sheridan-dramatist-playwriter-and-whig-politician.html",
+    "additional_source": "https://production.english-heritage.org.uk/visit/blue-plaques/richard-sheridan/",
+    "axes": {
+      "Pace": "早期喜剧、剧院管理与议会活动相继上手，面对持续变化的公开场合。",
+      "Collaboration": "经理和产权角色需要演员、出资人和合伙人配合；转向议会也经过政党联系。",
+      "Inquiry": "在《造谣学校》中设想风评怎样经观察、误认和转述生成。",
+      "Scope": "切换剧作、剧院经营与议会演说。",
+      "Change": "把社会流言的顺序改成舞台观众能直接看到的信息差与反转。",
+      "Influence": "作品面对剧院观众，后以公开议会演说延续影响。"
+    }
+  },
+  "carl-maria-von-weber": {
+    "source": "https://www.weber-gesamtausgabe.de/en/A002068/Biography.html",
+    "additional_source": "https://weber-gesamtausgabe.de/de/A002068/Korrespondenz/A041350.html",
+    "axes": {
+      "Pace": "在布拉格进职前权衡合同与创作权限，也在《奥伯龙》尚未完成时带谱出发。",
+      "Collaboration": "与剧作家金德合作，现存信件用具体段落编号讨论共同文本。",
+      "Inquiry": "往返信件对照剧本和编号，发展《魔弹射手》时有可核材料。",
+      "Scope": "在歌剧、指挥、剧场管理与自由音乐家活动间移动，主要仍是音乐。",
+      "Change": "任布拉格和德累斯顿音乐总监，利用职位改变德语音乐戏剧的演出安排。",
+      "Influence": "直接参与舞台和首演，其声望随柏林与伦敦的公开演出扩展。"
+    }
+  },
+  "william-hamilton-philosopher": {
+    "source": "https://www.scottishphilosophy.org/philosophers/sir-william-hamilton/",
+    "additional_source": "https://archives.collections.ed.ac.uk/agents/people/4269?filter_fields%5B%5D=subjects&filter_values%5B%5D=Logic",
+    "axes": {
+      "Pace": "职业工作见成批讲稿、逻辑及形而上学讲义，先整理再连续授课。",
+      "Collaboration": "曾持教授职位并经人与学界合作，主要成果来自个人注释、研究与讲稿。",
+      "Inquiry": "切入问题时大量对读其他哲学家的观念和论证。",
+      "Scope": "研究从苏格兰哲学延伸到逻辑、常识传统与德国哲学。",
+      "Change": "通过新的逻辑表示与哲学解读改变旧问题的呈现方式。",
+      "Influence": "以讲堂和注释著作传播；哲学影响主要留在课程与后续出版中。"
+    }
+  },
+  "anthony-ashley-cooper-1st-earl-of-shaftesbury": {
+    "source": "https://dev.historyofparliamentonline.org/lord-biography/cooper-anthony-ashley-1621-83",
+    "additional_source": "https://www.npg.org.uk/collections/search/person/mp04048/anthony-ashley-cooper-1st-earl-of-shaftesbury",
+    "axes": {
+      "Pace": "内战与复辟等政治重组中多次迅速转向新的联盟或议程。",
+      "Collaboration": "推动排斥法案及相关政治动员时依赖议会成员和政党网络。",
+      "Inquiry": "从已在场的议会派别、宗教政策与王位继承安排确定政治问题。",
+      "Scope": "历经地方行政、内战政治、王室官位与议会反对派。",
+      "Change": "作为反对派召集者争取以法案改变王位继承安排。",
+      "Influence": "身居公开官职，后借议会和公开政治组织施加影响。"
+    }
+  },
+  "john-bright": {
+    "source": "https://www.nationalarchives.gov.uk/education/resources/the-corn-laws/the-corn-laws-source-4/",
+    "additional_source": "https://api.parliament.uk/historic-hansard/people/mr-john-bright/1846",
+    "axes": {
+      "Pace": "在谷物法动员中利用不同演讲机会及时推进，又在关键议会阶段反复发言。",
+      "Collaboration": "与科布登同在反谷物法联盟工作，组织者可追溯到联盟出版和档案。",
+      "Inquiry": "将粮价、进口限制和民众购买负担带入发言，政策理解从具体经济处境开始。",
+      "Scope": "把工业背景、粮食贸易、舆论组织和议会辩论连到一起。",
+      "Change": "推动撤除特定粮食贸易保护，而非只改个别税率。",
+      "Influence": "公开组织活动，进入议会后也以演说推动选民和政策主张。"
+    }
+  },
+  "herman-boerhaave": {
+    "source": "https://www.boerhaavecontinuingmedicaleducation.com/about-boerhaave-cme/herman-boerhaave-teacher-of-europe/",
+    "additional_source": "https://www.rijksmuseumboerhaave.nl/en/article/museumbuilding",
+    "axes": {
+      "Pace": "将病例观察、问询和教学放在连续安排中，先看病人的实际状况。",
+      "Collaboration": "把学生带到临床，由病人、教学人员和学员共享观察过程。",
+      "Inquiry": "床边教学把实际症状列作讨论起点，植物研究也用可观察材料。",
+      "Scope": "在莱顿教授医学、植物学与化学，联接诊疗和其他学科的学习。",
+      "Change": "把教学带到实际诊疗现场，调整医学学生接触知识的方式。",
+      "Influence": "亲自指导学生，通过广受阅读的教材又越过莱顿传播。"
+    }
+  },
+  "washington-irving": {
+    "source": "https://hudsonvalley.org/news/washington-irvings-passport-from-spain-to-hhv/",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=362",
+    "axes": {
+      "Pace": "旅行、驻外与写作并行，以事先记录与新环境触发的故事积累材料。",
+      "Collaboration": "借地方友人和文献渠道接近故事；作品中的声音通常由他独立组织。",
+      "Inquiry": "在《见闻札记》等作品中把地方故事和传说推入虚构情境。",
+      "Scope": "从作家到外交岗位，跨美国地方叙事与西班牙历史文化。",
+      "Change": "将河谷的传说、风景和旧叙事从地方口传变成可在大西洋两岸阅读的作品。",
+      "Influence": "可代表政府公开任职，长远影响也主要依靠笔名及文章传播。"
+    }
+  },
+  "andre-massena": {
+    "source": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/massena-andre",
+    "additional_source": "https://www.defense.gouv.fr/en/node/3438",
+    "axes": {
+      "Pace": "在法国革命军的一系列晋升及转任中，于变化后迅速接手新指挥。",
+      "Collaboration": "作为多支部队指挥者，与下属及其他指挥者协同完成职务。",
+      "Inquiry": "从部队、补给和既有地形等实际方面考虑任命中的任务。",
+      "Scope": "生涯横跨数个政体与战场，重心仍是专业军旅。",
+      "Change": "在法国军队重组与对外任务变化中调整已有用法，在不同任务仍沿用组织经验。",
+      "Influence": "公开以将领身份负责，但作用常通过实际指挥链和军队行政完成。"
+    }
+  },
+  "benjamin-constant": {
+    "source": "https://www.institutcoppet.org/wp-content/uploads/2015/01/7.-CONSTANT-Benjamin-De-la-liberte-des-Anciens-comparee-a-celle-des-Modernes.pdf",
+    "additional_source": "https://www2.assemblee-nationale.fr/sycomore/fiche/13458",
+    "axes": {
+      "Pace": "以公开讲演陈述古今自由差异，先把比较组织成结构严密的文字。",
+      "Collaboration": "参与政务和议会，但概念梳理多以个人写作和演说完成。",
+      "Inquiry": "从古今政体实例出发，同时提出可用于看现代政治的新区别。",
+      "Scope": "连接政治术语、历史比较、个人生活与代议制度。",
+      "Change": "重新说明公民参与及个人独立在不同社会条件下如何并存。",
+      "Influence": "在雅典学会直接发表讲演，也以著作与议会工作传播论点。"
+    }
+  },
+  "johann-reuchlin": {
+    "source": "https://ausstellungen.deutsche-digitale-bibliothek.de/reuchlin",
+    "additional_source": "https://www.lbi.org/collections/rare-books/battle-books/",
+    "axes": {
+      "Pace": "发表《眼镜》前先有应询的书面意见和对希伯来语的长期研究。",
+      "Collaboration": "借助语文学者和法律网络争辩，书面论证主要由本人完成。",
+      "Inquiry": "先按书籍的实际内容及法律适用情形区分材料，反驳一概处理。",
+      "Scope": "将古典语言、希伯来语研究、文本印行与保护书籍的法律争议联结。",
+      "Change": "用司法与编辑渠道反对没收及焚毁犹太书籍的方案，挑战既有处理方向。",
+      "Influence": "先以受请撰写意见切入，再出版回应，成为公开的文献争论。"
+    }
+  },
+  "charles-augustin-sainte-beuve": {
+    "source": "https://www.academie-francaise.fr/les-immortels/charles-augustin-sainte-beuve",
+    "additional_source": "https://ccfr.bnf.fr/portailccfr/ark:/16871/0019242398",
+    "axes": {
+      "Pace": "以星期一为评论发表节奏，结合固定交付与事前阅读。",
+      "Collaboration": "接触作家和编辑社群，批评文章仍以个人读写见长。",
+      "Inquiry": "从作家生活经历、材料与作品细节展开具体判断。",
+      "Scope": "在诗歌创作、文学批评、历史研究和公共讲授之间往来。",
+      "Change": "把人物生平与作品并读形成批评方式，又以报刊栏目扩大影响。",
+      "Influence": "经《星期一闲谈》的公开报刊进入文坛，但发挥主要来自文字。"
+    }
+  },
+  "richard-baxter": {
+    "source": "https://www.stir.ac.uk/research/hub/publication/1390643",
+    "additional_source": "https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Baxter,_Richard",
+    "axes": {
+      "Pace": "基德明斯特教区工作包括安排按家庭接触并持续跟进，不靠一次讲道。",
+      "Collaboration": "按住户安排牧务、同时在更广教士群体中协作，通信可见长期联络。",
+      "Inquiry": "以实际会众与教区情况规划牧职，所见问题进入著述。",
+      "Scope": "联系讲道、社会关系、宗教争论、书信和制度化培训。",
+      "Change": "把牧师工作重新安排为更系统的主动拜访、教导与回访。",
+      "Influence": "参与公开讲道，但对人的日常影响很依赖入户与私人通信。"
+    }
+  },
+  "edward-jenner": {
+    "source": "https://history.rcp.ac.uk/blog/edward-jenner-royal-college-physicians-archives",
+    "additional_source": "https://www.jameslindlibrary.org/health-problems/smallpox/",
+    "axes": {
+      "Pace": "在一七九八年公开发表前已经积累经验、记录了多个相关病例。",
+      "Collaboration": "与医师和通信对象往来，也借其他地方早期接种者相互验证；早期发表有个人主导。",
+      "Inquiry": "从实际个案与对既有当地观察的兴趣出发，逐步提出医学问题。",
+      "Scope": "从乡村医疗观察走到公共预防与研究出版，领域仍以医学为主。",
+      "Change": "以预防疾病的方式改变既有医疗安排，接种理念走向更多组织。",
+      "Influence": "通过能被医师与公众查阅的印行小册和书信传播。"
+    }
+  },
+  "louis-agassiz": {
+    "source": "https://legacyofslaveryreport.harvard.edu/report/legacies-of-slavery-in-scholarship-race-science",
+    "additional_source": "https://measuringdifference.hsites.harvard.edu/nature",
+    "axes": {
+      "Pace": "从整理鱼类和冰川观察到组织巴西考察，既筹备采集也受机会推动。",
+      "Collaboration": "建立比较动物学博物馆，标本工作依靠资助者、同行以及家人参与。其妻为巴西考察记合著者。",
+      "Inquiry": "分类依赖标本与图录；对人类的种族主张则把偏见套进材料。",
+      "Scope": "从鱼类化石与冰川到动物地理、教学和博物馆组织。",
+      "Change": "把私人资助支持的藏品发展成大学馆藏和公共研究设施。",
+      "Influence": "以邀请讲座、馆藏和公开科学声誉传播观点，也为种族主义背书。"
+    }
+  },
+  "muhammad-ali-of-egypt": {
+    "source": "https://www.presidency.eg/EN/%D9%85%D8%B5%D8%B1/%D8%AD%D9%83%D8%A7%D9%85/%D9%85%D8%AD%D9%85%D8%AF-%D8%B9%D9%84%D9%89/",
+    "additional_source": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D80F42B31DD1CC7937D6ECA4E92DB6DB/S0020859098000236a.pdf/div-class-title-the-nation-and-its-deserters-conscription-in-mehmed-aliandapos-s-egypt-div.pdf",
+    "axes": {
+      "Pace": "先取得埃及地方职位，统治中逐步建立学校和军队所需系统，改革也是连续扩展。",
+      "Collaboration": "拓展军政与教育编制依靠官员、教师及海外学习人员，不由一人完成。",
+      "Inquiry": "制度建设借现有土地与财税体系，也向海外寻找训练和技术经验。",
+      "Scope": "把军政、教育、行政、农业和工业并入新型统治安排。",
+      "Change": "建立新式军队和学校，重组财税与劳动动员。",
+      "Influence": "以政府机构、选派人员和政令达到改革目的，权威同时由统治者个人承担。"
+    }
+  },
+  "cornelius-jansen": {
+    "source": "https://expo.bib.kuleuven.be/exhibits/show/old-university-of-leuven/faculties/faculty-of-theology",
+    "additional_source": "https://www.dbnl.org/tekst/molh003nieu07_01/molh003nieu07_01_1248.php",
+    "axes": {
+      "Pace": "多年研究奥古斯丁，死后才印行《奥古斯丁论》，流程为长期积累。",
+      "Collaboration": "与圣西朗保持联系，但长篇研究及作者责任主要由自己承担。",
+      "Inquiry": "逐卷研究奥古斯丁著作，并用古本与既有论证对照。",
+      "Scope": "兼有大学教职、主教职务及神学出版，讨论仍以教义与文本为重心。",
+      "Change": "重排过往教义材料形成新的系统性论证，催生后续大规模争议。",
+      "Influence": "主要的论述在死后通过书稿卷入跨地域讨论，本人的参加受时间限制。"
+    }
+  },
+  "robert-walpole": {
+    "source": "https://www.gov.uk/government/history/past-prime-ministers/robert-walpole",
+    "additional_source": "https://www.museumofpm.org/prime-ministers/sir-robert-walpole/",
+    "axes": {
+      "Pace": "南海泡沫后处理议会和财政事务，有应急也有维持议会多数的长期工作。",
+      "Collaboration": "同时有君主支持与议会联盟；财政方案需要让不同成员保持合作。",
+      "Inquiry": "用既有财政工具和议会条件应对泡沫后的信心问题。",
+      "Scope": "在国会政治、财政与部长组织之间转换，活动集中在政务。",
+      "Change": "在长期任内组织财政与内阁，演化出首相角色的制度先例。",
+      "Influence": "主要工作由议会多数、君主沟通和财政事务推进，称首相为后来的惯用描述。"
+    }
+  },
+  "tommaso-campanella": {
+    "source": "https://www.gutenberg.org/cache/epub/2816/pg2816-images.html",
+    "axes": {
+      "Pace": "《太阳城》先借旅人讲述整座城的空间，再逐层解释教育和治理规则。",
+      "Collaboration": "作品以两人对谈展开，理想社会的主要规则由一名旅人一路独自描述。",
+      "Inquiry": "太阳之城从反事实的想象出发，把不存在的制度写成可走访的地点。",
+      "Scope": "用天文图像、地理、动植物、教育和治理共同说明一座城如何运行。",
+      "Change": "赋予公共城墙完整的教学功能，并对劳动、产权和家庭关系另作安排。",
+      "Influence": "采用面向读者发表的对话文体。Cox还记他曾在城市群众前公开致辞。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=507"
+  },
+  "antoine-arnauld": {
+    "source": "https://fr.wikisource.org/wiki/La_Logique_de_Port-Royal",
+    "axes": {
+      "Pace": "书把观念、判断和推理先后安排，最后讨论方法，按次序训练读者。",
+      "Collaboration": "书与皮埃尔·尼科尔共同编写，两位作者同在波尔罗亚尔学术网络。",
+      "Inquiry": "用例子指出词义、命题及推论实际容易出现的歧义，由具体推理查误。",
+      "Scope": "主线专注于思考方法，借当时的哲学与神学例题展示如何辨析。",
+      "Change": "调整旧教科书的选材和顺序，以适用于实际判断和训练为目标。",
+      "Influence": "著作面向公众刊行，作者署名问题可由法国国家图书馆馆藏记录核对。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=386"
+  },
+  "ernest-renan": {
+    "source": "https://mjp.univ-perp.fr/textes/renan1882.htm",
+    "axes": {
+      "Pace": "演讲先逐一分析王朝、民族、语言、宗教与地理解释，最后提出自己的概念。",
+      "Collaboration": "演讲是个人署名，但把成员共同行动与持续合作列为共同体形成条件。",
+      "Inquiry": "通过比较历史实例，说明几个当时流行的单因素解释各自遇到的反例。",
+      "Scope": "联系政治制度、语言差异、地理、历史记忆和当代集体选择。",
+      "Change": "挑战把族源、语言等单一性质直接当作共同体决定因素的做法。",
+      "Influence": "1882年在索邦公开演讲，后以文本公开传播和讨论。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=597"
+  },
+  "robert-blake": {
+    "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-14033",
+    "axes": {
+      "Pace": "博物馆记录他早期指挥陆上防务，随后转向海上，沿途角色出现数次转换。",
+      "Collaboration": "任海上将领被安排为复数指挥者之一，实际舰队工作依赖多舰船和船员。",
+      "Inquiry": "Cox的传记记他在少年时已可能经家中航运业务接触航海与造船知识。",
+      "Scope": "由地方陆防转入共和国海军，将既有组织责任移入另一种运行环境。",
+      "Change": "变动主要在负责的作业环境和协调范围，舰队制度已有委任及现成资源。",
+      "Influence": "作为受公开委任的海上将领在队伍前方承担指挥责任。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=314"
+  },
+  "joseph-justus-scaliger": {
+    "source": "https://warburg.sas.ac.uk/research-fellowships/research-projects/archived-research-projects/joseph-justus-scaliger/scaligers-works",
+    "axes": {
+      "Pace": "从多种旧历积累材料，再于1583年出版《年代订正》系统展开。",
+      "Collaboration": "年代学书署个人作者，Cox记他青年时曾自修希腊语与多种古代语言。",
+      "Inquiry": "研究古代年度、纪年惯例及天历周期，用原来留下的数据建立联系。",
+      "Scope": "参照涉及古典语言、历史文献、天历、算术与各文明的纪年技术。",
+      "Change": "借用现有周期组合一个共同时间尺度，让原来相互隔离的纪年可以对译。",
+      "Influence": "将方法公开成书，后来在莱顿教学并能直接面向学术读者。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=304"
+  },
+  "gerolamo-cardano": {
+    "source": "https://mathshistory.st-andrews.ac.uk//Biographies/Cardan/",
+    "axes": {
+      "Pace": "在知悉塔尔塔利亚的方法后继续追查先例，最终于1545年成书发表。",
+      "Collaboration": "出版由本人署名，材料吸收塔尔塔利亚和助手费拉里的不同贡献。",
+      "Inquiry": "《大术》讨论一般方法，也处理计算中出现的表面上无法解释的数量。",
+      "Scope": "数学涉及三、四次方程；本人另行从事医学、机会计算与自传写作。",
+      "Change": "把曾用于私人挑战的解法写入可公读的代数著作，改变传播方式。",
+      "Influence": "公开刊行直接引发塔尔塔利亚的回应，争议进入刊本和讨论。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=395"
+  },
+  "william-cowper": {
+    "source": "https://www.ccel.org/ccel/cowper/works/task.htm",
+    "axes": {
+      "Pace": "序言记初得题目后久写成数卷，主题沿散步与起居一点点推进。",
+      "Collaboration": "题目来自朋友的建议，随后的长诗由考珀一人铺开并负责取舍。",
+      "Inquiry": "从现成的沙发、花园、动物和日常劳动细节写到较抽象的观点。",
+      "Scope": "各卷连接乡居、自然、时事、社会与道德问题。",
+      "Change": "接受戏拟式的家具题目却让它蜕为探讨日常生活与公共判断的长篇。",
+      "Influence": "影响经书面诗作传递，先在朋友之间收到题目，再将文本交给读者。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=399"
+  },
+  "alfred-de-musset": {
+    "source": "https://editions.bnf.fr/lorenzaccio-mises-en-sc%C3%A8ne-dhier-et-daujourdhui",
+    "axes": {
+      "Pace": "该剧首先刊布供阅读，演出安排由后来的舞台团队进一步重做。",
+      "Collaboration": "缪塞独立写作并编入自己的作品集，舞台合作主要在后续改编时发生。",
+      "Inquiry": "把不存在实体舞台的阅读当成戏的主要观看场景，使文字先承担演出。",
+      "Scope": "将历史政治、人物内心冲突与多处地点放入同一部剧本。",
+      "Change": "越过当时直接排演的约束，用供阅读的剧集给剧本另设交付形式。",
+      "Influence": "作品先通过文字影响读者，多年后由演员和导演带到观众面前。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=639"
+  },
+  "claude-adrien-helvetius": {
+    "source": "https://classiques.uqam.ca/classiques/helvetius_claude_adrien/de_l_esprit/de_l_esprit_sommaire_etendu.html",
+    "axes": {
+      "Pace": "《论精神》在序言提出问题，正文分篇安排，再由感受推到更广的判断问题。",
+      "Collaboration": "以个人名义编写体系，检验所据事例来自读书与社会见闻，并无共同作者。",
+      "Inquiry": "从感受、利益等少量解释原则出发，试图统一理解多种社会判断。",
+      "Scope": "将道德哲学、教育与政治制度纳入同一套关于人的论证。",
+      "Change": "主张人的许多能力和判断可从教育和处境重估，挑战固有区分。",
+      "Influence": "著作公开刊行并遭谴责，撤回声明也未使争议止息。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=324"
+  },
+  "augustin-pyramus-de-candolle": {
+    "source": "https://darwin-online.org.uk/converted/pdf/1819_Candolle_Theorie_elementaire_A3706.pdf",
+    "axes": {
+      "Pace": "植物学理论先说明观察和描述，再给出归类原则，重视材料整理。",
+      "Collaboration": "自然分类著作署本人，后续植物名录由多国植物学者及德康多尔家族续修。",
+      "Inquiry": "按植物的多个器官与可复查的形态特征做比较，避免只看最显眼的特征。",
+      "Scope": "需要统摄植物解剖、组织形态、命名规范和地理分布等不同资料。",
+      "Change": "在已有分类实践上重估特征的关系，逐步改造描述与排序办法。",
+      "Influence": "成书面向科学读者，持续影响也依靠植物标本与家族后代继续整理。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=464"
+  },
+  "william-temple": {
+    "source": "https://www.lyriktheorie.uni-wuppertal.de/lyriktheorie/texte/1690_temple1.html",
+    "axes": {
+      "Pace": "《论诗》先铺陈诗的产生，再逐层展开讨论不同地区和体裁的做法。",
+      "Collaboration": "随笔由个人完成。Cox早年材料还写他在旅行中通过拜访建立交往。",
+      "Inquiry": "引述可获得的旧作者及诗歌例子，对照意义再作判断。",
+      "Scope": "外交与旅行经验同多地区的诗歌、音乐、历史和语言并置。",
+      "Change": "扩宽随笔通常采用的例子，仍以旧作、诗歌类型及制度为讨论框架。",
+      "Influence": "从外交事业退下来以后完成并发表随笔，文字继续在读者之间影响。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=380"
+  },
+  "giovanni-pierluigi-da-palestrina": {
+    "source": "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/Palestrina_Di-Grazia-and-Owens.pdf",
+    "axes": {
+      "Pace": "谱曲需先严谨安排各声部的进入、交错与共同落点，成谱后由合唱者演出。",
+      "Collaboration": "声部安排由作曲者完成，最终音乐需要几支合唱声部同时协作。",
+      "Inquiry": "沿用已有礼仪文本和多声部传统，从具体词句的清晰度考虑配置。",
+      "Scope": "重点集中在礼仪音乐，又兼顾复调结构和歌词在空间里的可听性。",
+      "Change": "调整多声部与齐奏式段落的关系，继续保留弥撒既定结构。",
+      "Influence": "通过谱面与合唱队把作品传递给公众，核心布局通常在演出以前完成。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=256"
+  },
+  "william-robertson": {
+    "source": "https://oll-resources.s3.us-east-2.amazonaws.com/oll3/store/titles/2779/Robertson_1681-06_Bk.pdf",
+    "axes": {
+      "Pace": "用较长时间收集著作与可获取的原始文书，并以序言概述取材过程。",
+      "Collaboration": "序言记有他人提供资料、帮助翻查或转达信息，定稿仍由作者负责。",
+      "Inquiry": "从已有旅行、殖民及行政记录寻找证据，对比记录后提出判断。",
+      "Scope": "涉及地理、殖民经济、政治制度、航海与风俗，连成一份跨区域叙述。",
+      "Change": "加入资料来历说明并分层组织既有叙事，未完全脱离欧洲史书记录框架。",
+      "Influence": "以大部头史著公开呈现，并把需要帮助感谢的部分保留在作者序言。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=434"
+  },
+  "david-friedrich-strauss": {
+    "source": "https://www.gutenberg.org/files/64037/64037-h/64037-h.htm",
+    "axes": {
+      "Pace": "著作先定义处理方式，再分主题逐段对照具体福音叙述。",
+      "Collaboration": "主要论证由施特劳斯本人书写，引用并质疑既有神学家与解释传统。",
+      "Inquiry": "观察平行段落的对应或冲突，同时给出当时较新的神话解释。",
+      "Scope": "跨越宗教文本、古典神话、历史叙事和当时的批评方法。",
+      "Change": "拒绝仅在字面接受或自然化解释之间选择，尝试改变整套阅读框架。",
+      "Influence": "署名刊行让解释面对公众，并引发学术和宗教领域的回应。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=493"
+  },
+  "cardinal-mazarin": {
+    "source": "https://www.bibliotheque-mazarine.fr/fr/connaitre-la-bibliotheque-mazarine/histoire",
+    "axes": {
+      "Pace": "1643年已对学者开放，藏书1652年散失，回到巴黎后开始重新聚集并着眼长久管理。",
+      "Collaboration": "让加布里埃尔·诺代管理早期藏书，与诺代的继任者弗朗索瓦·德·拉波特里重建。",
+      "Inquiry": "以既有购书登记、藏书和散失的收藏为基础，再按发现和可取得的卷册重建。",
+      "Scope": "联系私人图书、文化管理、城市政治变化与学院教育结构。",
+      "Change": "经历拍卖后没有只补回书册，另决定把集合并入四国学院以提供延续。",
+      "Influence": "通过藏书、管理员和资助安排扩大阅读，平日无需由马扎然本人到场。"
+    },
+    "additional_source": "https://www.bibliotheque-mazarine.fr/fr/evenements/projets/bibliotheque-de-mazarin-en-ligne-3"
+  },
+  "walter-raleigh": {
+    "source": "https://clarklibrary.ucla.edu/collections/tudor/chrzanowski/title-list/1614r/",
+    "axes": {
+      "Pace": "长期被囚期间着手写大型历史著作，印制耗费多年，1614年才印出其首卷。",
+      "Collaboration": "雷利本人承担著述，主要可见工作围绕图书与前言；出版背后另有印刷环节。",
+      "Inquiry": "以可查书籍及古代材料解释历史过程，把其对统治权的判断写入前言。",
+      "Scope": "从古代世界延伸至帝国及统治方式的讨论，并把书籍知识带进当时政治语境。",
+      "Change": "将广泛阅读汇成有前言及历史跨度的长篇，实际仅形成计划中的首卷。",
+      "Influence": "出版时匿名，卷册遭查禁，所选阶段主要由文字传递并遭遇制度限制。"
+    },
+    "additional_source": "https://omeka.library.uvic.ca/items/show/1132.html"
+  },
+  "giulio-alberoni": {
+    "source": "https://cultura.gov.it/luogo/galleria-alberoni",
+    "axes": {
+      "Pace": "1732年获创校敕令，施工期间因人在外地而放缓，1744年返乡后恢复，1751年收生。",
+      "Collaboration": "借教宗批准创校，联系负责照料和教学的教会团体，建筑工程还需地方团队执行。",
+      "Inquiry": "利用原有医院的地点和已知教士培训需求，在已有条件下规划院舍。",
+      "Scope": "联系教育资助、教会授权、建筑工程与图书馆等配套。",
+      "Change": "把被撤的旧医院地段改作青年教士教育场所，再通过建制和经费给它持续用途。",
+      "Influence": "主要经创立、建设资助和制度安排推动，当地教育工作由学院与负责人员持续。"
+    },
+    "additional_source": "https://www.turismopiacenza.it/itinerari/piacenza/palazzi/collegio-alberoni/"
+  },
+  "johann-gottlieb-fichte": {
+    "source": "https://assets.cambridge.org/97805214/48734/excerpt/9780521448734_excerpt.pdf",
+    "axes": {
+      "Pace": "在此前数年讲演的基础上，特定冬季连续推出新的一组公开讲座，后来成书。",
+      "Collaboration": "讲演由本人撰写与讲授，以同一出版者延续其较早公开课程。",
+      "Inquiry": "从现实条件和先前课程提出关于语言、教育和共同体的新构想。",
+      "Scope": "将历史、教育制度、语言、哲学和公众演讲放进同一系列。",
+      "Change": "从描述当时境况转入倡议系统改变教育的论证，而非只改一门课的内容。",
+      "Influence": "面对柏林听众本人演讲，又以文字保存其提纲、语言及主张。"
+    },
+    "additional_source": "https://www.cambridge.org/core/books/fichte-addresses-to-the-german-nation/D202F4C5E6D9CE2BCC326CFF61134FCC/listing"
+  },
+  "albrecht-von-wallenstein": {
+    "source": "https://www.jicin.org/en/history-jicin",
+    "axes": {
+      "Pace": "三十年战争期间选定伊钦，逐步配置居所及教育等设施，建设在数年内展开。",
+      "Collaboration": "邀请耶稣会士进入当地创立学校，宫邸、铸币设施等事项也依赖分工建设及管理。",
+      "Inquiry": "利用已有城镇外形和机构，构想当地可以增加的行政功能。",
+      "Scope": "同一城镇项目涉及居住、教育、地方管理与生产设施。",
+      "Change": "把既有居民点改造成更重要的管理地点，为学校等设施另作配置。",
+      "Influence": "所选行为通过资助和组织留下物质制度，学校由受邀团体运作。"
+    },
+    "additional_source": "https://www.jicin.org/en/wallenstein-square"
+  },
+  "friedrich-wilhelm-joseph-schelling": {
+    "source": "https://plato.stanford.edu/entries/schelling/",
+    "axes": {
+      "Pace": "经1811、1813、1815年不同草稿及慕尼黑讲演之后，至1841至1842年再在柏林表述。",
+      "Collaboration": "主要哲学写作和当面讲授由谢林承担；学生记录、其他编辑的版本及作者稿均由各方形成。",
+      "Inquiry": "在既有哲学体系争论中提出新的论证方向，用来区分逻辑概念及实际存在。",
+      "Scope": "把自然哲学、宗教与启示、神话历史和严密推理纳入连续论述。",
+      "Change": "延续早年问题但以多年变体调整课程内容，用晚期哲学重新安排既有论证。",
+      "Influence": "本人先在教室发表，超出教室后的影响则依赖不同听课者的转写和编辑，二者均重要。"
+    },
+    "additional_source": "https://philreligion.nd.edu/research-initiatives/schelling-s-philosophy-of-revelation/"
+  },
+  "robert-clive": {
+    "source": "https://archives.library.wales/index.php/parliamentary-enquiry-papers",
+    "axes": {
+      "Pace": "1772年调查过程已有讲话，收集材料供辩护，次年面对连续数日的质询。",
+      "Collaboration": "议会通过委员会与证人展开调查，克莱夫组织本人所用材料，由他亲自答辩。",
+      "Inquiry": "留存官方文件、证人讯问记录及演讲等材料，可用于核对辩词；这并不使其自我陈述成为独立判断。",
+      "Scope": "议会调查横跨公司财务、殖民治理、司法、个人财富和社会舆论。",
+      "Change": "答辩为自己的殖民管理与行为作说明，主要是在现有体制中论证，未以重建调查制度为目标。",
+      "Influence": "本人在下议院连续发言和回应，之后通过印本和议会记录进一步传播。"
+    },
+    "additional_source": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/the-east-india-company-and-public-opinion/"
+  },
+  "auguste-de-marmont": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb308877648",
+    "axes": {
+      "Pace": "作品跨越其早年到1841年所述事件，以长篇手稿保存，生前没有按现存九卷格式出版。",
+      "Collaboration": "由马尔蒙本人撰写自传，身后版依据其手稿，通过书商和排印者才问世。",
+      "Inquiry": "用本人对事件的叙述作为材料，并围绕年段组织回忆；印本另附部分文件影印。",
+      "Scope": "多卷记述跨军事、宫廷或政治以及个人行旅与经历。",
+      "Change": "沿事件时间划分九卷，并保留相对明确的期间，主要在已有的回忆录框架内整理材料。",
+      "Influence": "所选影响主要经身后印本发生，无法由作者本人在场回答对内容的质疑。"
+    },
+    "additional_source": "https://books.google.com/books/about/M%C3%A9moires_du_mar%C3%A9chal_Marmont_duc_de_Ra.html?id=jxDzL-xlxC8C"
+  },
+  "girolamo-savonarola": {
+    "source": "https://www.loc.gov/item/48036828/",
+    "axes": {
+      "Pace": "所存讲道先在现场讲出，洛伦佐·维奥利据现场语言记录，之后以印本出现。",
+      "Collaboration": "思想及讲述由萨沃纳罗拉承担，维奥利转录，印刷人巴尔托洛梅奥·迪·利布里负责印制。",
+      "Inquiry": "从既有宗教传统及具体社会主题出发，将这些题目发展为面对佛罗伦萨听众的讲述。",
+      "Scope": "连接布道、当时城市生活、宗教处境与早期印刷；所选中心仍是讲道。",
+      "Change": "现场话语经摘录和印刷成为可传阅的文本，特定印本另有装饰与木刻。",
+      "Influence": "以本人讲坛发言传递影响，出版与视觉材料让不在场的人也能接触。"
+    },
+    "additional_source": "https://www.loc.gov/exhibits/heavenlycraft/heavenly-15th.html"
+  },
+  "john-churchill-1st-duke-of-marlborough": {
+    "source": "https://whc.unesco.org/en/list/425/",
+    "axes": {
+      "Pace": "授予地产与兴建安排之后，设计及营造经过多年，多个参与者持续推进。",
+      "Collaboration": "营造由建筑师范布勒和霍克斯穆尔负责，管理资料认为初期他们似乎和公爵共同讨论设计。",
+      "Inquiry": "在已有伍德斯托克地产与早期建筑基础上选择营造，建造团队在其原有条件中使用新方案。",
+      "Scope": "结合地产、住宿、建筑与园林，以及国家纪念的需要。",
+      "Change": "住宅项目被赋予公共纪念用途，通过建筑和整片景观改变原址意义。",
+      "Influence": "长期影响来自授地、承建和后来使用；所选项目依靠建筑师将讨论落实为作品。"
+    },
+    "additional_source": "https://www.blenheimestate.com/assets/files/images/downloads/estate/parkland-management-plan.pdf"
+  },
+  "huldrych-zwingli": {
+    "source": "https://www.zb.uzh.ch/en/fokus/beitrag/reformation",
+    "axes": {
+      "Pace": "1522年发生斋戒争议，先发表讲道和小册，随后在1523年一月公开辩论中陈述。",
+      "Collaboration": "争议中的印刷人弗罗绍尔也印行小册，辩论由议会召集，宗教和世俗代表共同参加。",
+      "Inquiry": "以争议现场及现有经文作为研判依据，引用经文支持改变原有实践。",
+      "Scope": "带入饮食惯例、印刷合作、神学解释和市议会的公共程序。",
+      "Change": "从一顿饭的争议延伸到苏黎世议会修改斋戒规范，并引发更广泛的制度变化。",
+      "Influence": "亲自讲道和辩论，文字留给无法在场的人，公共影响由多种渠道推进。"
+    },
+    "additional_source": "https://suche.staatsarchiv.djiktzh.ch/detail.aspx?id=4613028"
+  },
+  "george-canning": {
+    "source": "https://api.parliament.uk/historic-hansard/commons/1825/jul/05/south-america",
+    "axes": {
+      "Pace": "在前一晚间议员提出疑问后，坎宁到下议院作出说明；更长的交往有条约进程。",
+      "Collaboration": "外事依赖礼宾、政府部门与各国代表；本人代表政府回应议员巴林的疑问。",
+      "Inquiry": "以对方确有来访但尚未持正式凭证的具体情况解释事件，而非由外国干预的推测起步。",
+      "Scope": "牵涉外交礼宾、南美新政权、国家间商业往来和对议会的公开说明。",
+      "Change": "考虑怎样对待新出现的国家，同时说明本案仍有认可代表需要满足的条件。",
+      "Influence": "直接到议场回答质询，同时以外交文件和代表接触推进更广泛的关系。"
+    },
+    "additional_source": "https://hansard.parliament.uk/commons/1826-02-02/debates/1d65fdb5-fc69-4b94-96cf-248c646c6991/AddressOnTheKingSSpeechAtTheOpeningOfTheSession"
+  },
+  "august-von-kotzebue": {
+    "source": "https://www.e-rara.ch/zbs/content/titleinfo/31431916",
+    "axes": {
+      "Pace": "五幕推进，早期分离与误会在后续相遇和表态中逐渐处理。",
+      "Collaboration": "作者完成文本，印本与不同剧团留下实际演出记录，分属不同角色。",
+      "Inquiry": "靠人物尚未承认的旧事和意外重逢在戏中打开新的可能。",
+      "Scope": "以家庭关系和情感纠葛为主要焦点，集中在舞台人物之间。",
+      "Change": "沿用五幕传统，用外部事件与情绪转向把家庭故事推向公开的戏剧场。",
+      "Influence": "剧本写给剧场及观众，印本之外已有公开演出的剧目广告。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=539"
+  },
+  "andre-dupin": {
+    "source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=284",
+    "axes": {
+      "Pace": "十七岁已代理案件，随后进入法学教育，在重开法学院后取得学位。",
+      "Collaboration": "受父母有具体课程的教育，也在律师事务所和学院的安排中工作。",
+      "Inquiry": "先从案件、现行法及精选书目训练论证，再扩展成民法论文。",
+      "Scope": "将案件实务、学位训练、民法写作与后来的议会工作并列推进。",
+      "Change": "利用重新开办的法学学校和仍在使用的法律条文进入制度并整理既有原则。",
+      "Influence": "早早在法庭发言并代表本地区学生，后来有公开的议会工作。"
+    },
+    "additional_source": "https://www2.assemblee-nationale.fr/sycomore/fiche/11573"
+  },
+  "friedrich-august-wolf": {
+    "source": "https://apps.lib.umich.edu/online-exhibits/exhibits/show/translating-homer--from-papyri/the-scholarly-and-the-burlesqu/friedrich-august-wolf",
+    "axes": {
+      "Pace": "以导论形式安排证据，提出成诗、记录、流传和编辑的一系列问题。",
+      "Collaboration": "著作署个人，依赖前人版本、注释和编辑长期累积的材料。",
+      "Inquiry": "对比具体文字与传抄过程留下的证据，同时标出早期材料没有覆盖的地方。",
+      "Scope": "把已有版本、古代读写习惯、口述文化和历史性的编辑动作联系。",
+      "Change": "挑战把传世文本视为一次形成的定本，改写一个学科的主要提问。",
+      "Influence": "在教学和出版中公开呈现，这部导论引发后续学术讨论。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=628"
+  },
+  "christoph-willibald-gluck": {
+    "source": "https://www.gluck-gesamtausgabe.de/gwv/werkregister/eintrag/work-62.html",
+    "axes": {
+      "Pace": "改革主张随成形作品和后来刊印的序言出现，先有整体配置再有明确论述。",
+      "Collaboration": "歌剧依赖剧作者卡尔察比吉、歌者与乐队，文本和音乐彼此配合。",
+      "Inquiry": "序言提出音乐服务戏剧的组织原则，以此规划整体演出形态。",
+      "Scope": "同时协调诗体、音乐、舞台表演、角色情绪和观众听见的连贯性。",
+      "Change": "明确反对会挡住戏剧进程的常见手法，重设序曲、唱段和情节的关系。",
+      "Influence": "以面向剧院观众的作品和公开序言提出改革主张，参与公共艺术争论。"
+    },
+    "additional_source": "https://digital.onb.ac.at/rep/access/open/131BC5C9"
+  },
+  "george-grote": {
+    "source": "https://www.gutenberg.org/ebooks/56342",
+    "axes": {
+      "Pace": "在序言先说明全书的双分期，再经多年依序写成十二卷。",
+      "Collaboration": "个人署名编写大部头史书，引用大量其他学者和可获得的传世文本。",
+      "Inquiry": "由具体材料的性质判断结论力度，把神话叙事与较明确的纪事分开。",
+      "Scope": "把神话、政治制度、修辞、宗教仪式和不同城邦的记述放入通史。",
+      "Change": "把传说时期独立安排，继续保留传统通史的年代和事件编排。",
+      "Influence": "主要通过书面大型史著影响历史读者，另有他处参与议会的生涯。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=409"
+  },
+  "philip-dormer-stanhope": {
+    "source": "https://www.gutenberg.org/cache/epub/3361/pg3361-images.html",
+    "axes": {
+      "Pace": "以多封书信连续追踪儿子的学习进度，为以后社交与公开表达提前准备。",
+      "Collaboration": "主张主动交往不同圈子，通过听取多种场合观点学习。",
+      "Inquiry": "建议观察具体举止、发音和礼仪，并用亲见的差异校准对人群的认识。",
+      "Scope": "书信连起外交、礼仪、旅行、阅读、语言训练与个人交际。",
+      "Change": "依靠对现行礼节的观察与练习，改良人在原有社交体系里的做法。",
+      "Influence": "曾在议会发言，但书信先给一位收信人，后来出版的传播范围更广。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=319"
+  },
+  "laurent-de-gouvion-saint-cyr": {
+    "source": "https://www.senat.fr/pair-de-france/gouvion_saint_cyr_laurentpf0055.html",
+    "axes": {
+      "Pace": "从先前行政岗位与组织变化中积累问题，再将招募和服役规则纳入法案。",
+      "Collaboration": "担任部长统筹，法律经过政府推动与议会制定，实际招募有层级分工。",
+      "Inquiry": "针对复辟时期已经存在的兵员、军官及行政问题，借现行记录调整。",
+      "Scope": "法律把组织、招募、服役以及军队人事安排放在同一框架。",
+      "Change": "形成一八一八年的成文制度，系统修改过去临时配置兵员的方式。",
+      "Influence": "以部长身份给法律推进明确承担责任，制度条文及其程序留下公共记录。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=240"
+  },
+  "william-warburton": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/aa/The_works_of_the_Right_Reverend_William_Warburton_.._%28IA_worksofrightreve03warb%29.pdf",
+    "axes": {
+      "Pace": "著作先提出核心的反常缺项，再用多个卷册铺开其比较材料与推论。",
+      "Collaboration": "著作由沃伯顿署名写成，并不断进入读者和批评者的回应圈。",
+      "Inquiry": "把按其推论可能应当出现的教义缺项改成主要证据，形成逆向论证。",
+      "Scope": "动用古代律法、政治秩序、认识宗教、古典文献和历史比较来铺陈论点。",
+      "Change": "以空缺证明权威的推理反转了该问题常见论法，试图换掉论证起点。",
+      "Influence": "公开发表后范围远超过学者交流，作者亦参与随后多轮公开争论。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=274"
+  },
+  "leon-gambetta": {
+    "source": "https://www.defense.gouv.fr/de/node/22715",
+    "axes": {
+      "Pace": "在巴黎被围后迅速离开，到尚能联络各地的图尔处理政府事务。",
+      "Collaboration": "新驻地需要同政府代表、各地机关与部队等原有网络恢复分工。",
+      "Inquiry": "判断原驻地失去通行能力后换工作地点，利用现有图尔机构继续处理事务。",
+      "Scope": "行动同时牵涉政治代表性、行政、人事动员、外地联系和对巴黎的消息。",
+      "Change": "改变政府实际工作地点和负责范围来恢复运作，出现新的跨地区协调。",
+      "Influence": "以共和派人物公开发言和承担职务，一八七〇年的演讲见议会记录。"
+    },
+    "additional_source": "https://www.assemblee-nationale.fr/histoire/7ef.asp"
+  },
+  "robert-e-lee": {
+    "source": "https://www.archives.gov/publications/prologue/2015/spring/cw-surrenders.html",
+    "axes": {
+      "Pace": "在退却与选择减少的情况下往返信件，再约定面对面处理投降。",
+      "Collaboration": "投降需要双方司令、军官及人员共同落实，但谈判集中于少数具正式授权者。",
+      "Inquiry": "格兰特在往来信件中以战场处境为开头，李回信查问对方具体条件。",
+      "Scope": "交流聚焦眼前北弗吉尼亚军的投降，范围以特定部队与平民秩序连接。",
+      "Change": "按战地谈判及书面往来处理结束，用当事双方认可的程序。",
+      "Influence": "本人签递书面回复和会面，由官员与部队执行，记录后来公开。"
+    },
+    "additional_source": "https://home.nps.gov/arho/learn/historyculture/robert-e-lee-and-slavery.htm"
+  },
+  "george-villiers-4th-earl-of-clarendon": {
+    "source": "https://avalon.law.yale.edu/19th_century/decparis.asp",
+    "axes": {
+      "Pace": "战后安排经过正式外交准备和会议协商，最终才形成可签文本。",
+      "Collaboration": "巴黎会议由多个国家的代表参与，英国代表团也非一人处理各项事务。",
+      "Inquiry": "从战后实际问题与各国明确提出的海事权利入手，逐项议定。",
+      "Scope": "跨战后领土安全、海运规则、中立权利、外交承认和各国履约。",
+      "Change": "在共同签署框架里为海上捕获和中立航运划定规则，超出单国做法。",
+      "Influence": "外交影响主要靠谈判和文本，也是有署名的正式参与者与签署代表。"
+    },
+    "additional_source": "https://searcharchives.bl.uk/catalog/036-002102736"
+  },
+  "philip-sheridan": {
+    "source": "https://www.gutenberg.org/files/5856/5856-h/5856-h.htm",
+    "axes": {
+      "Pace": "回忆录按发生时间记录秋季连续行动和处境变化，有多次迅速反应。",
+      "Collaboration": "多支部队与不同指挥人员执行，与上级交涉也影响行动范围。",
+      "Inquiry": "先从现场地理、敌方与供给资料判断，回忆录同时纳入据称收到的具体信息。",
+      "Scope": "把当地农业供给、居民生活与军队持续行动的条件联系在一起。",
+      "Change": "以改变地方可用物资和生产条件为方向，远超一次单一交战的范围。",
+      "Influence": "以将领职务承担公开行动责任，并以署名回忆录提出自己的解释。"
+    },
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=712"
+  },
+  "michel-ney": {
+    "source": "https://www.napoleon.org/en/history-of-the-two-empires/biographies/ney-michel",
+    "additional_source": "https://www.senat.fr/connaitre-le-senat/lhistoire-du-senat/dossiers-dhistoire/le-proces-du-marechal-ney/le-proces-1.html",
+    "axes": {
+      "Pace": "俄国远征撤退时按变化中的人员与天气快速调整，被广泛记载为负责后卫。",
+      "Collaboration": "指挥的结果依靠能重新集合和跟上的各部队人员，纪律和团体责任共同起作用。",
+      "Inquiry": "处理人员与装备削减后的局面，主要从手中仍可用者出发。",
+      "Scope": "经历不同政府阶段，生涯重心集中在军队指挥。",
+      "Change": "在前面人员已走且原安排打断时，改用仍可维持的方式承担后卫职责。",
+      "Influence": "以军中公开身份负责；政治立场变化和后来受审使个人行为为公众所见。"
+    }
+  },
+  "xavier-bichat": {
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10919061/",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=456",
+    "axes": {
+      "Pace": "在短职涯内迅速安排大量观察与出版，多部主要研究时间相近。",
+      "Collaboration": "从德索的教学与医院环境起步，后来对组织进行的大量比较由本人系统整理。",
+      "Inquiry": "把差异建立在实际解剖观察，而非仅沿用名称和器官表。",
+      "Scope": "将临床、解剖与病理相联，工作仍集中于医学。",
+      "Change": "用组织比较重排解剖知识，使观察尺度从整体器官下移。",
+      "Influence": "研究以教材和出版著作留存，影响跨一代医学教学。"
+    }
+  },
+  "william-tecumseh-sherman": {
+    "source": "https://www.archives.gov/nhprc/projects/catalog/william-sherman-family",
+    "additional_source": "https://www.gutenberg.org/cache/epub/5852/pg5852-images.html",
+    "axes": {
+      "Pace": "档案见军队指挥、通信和当场调度，行动前有准备，遇到环境变化也试行新安排。",
+      "Collaboration": "战争时期的大型行动依托多部队指挥层与联邦高层协作。",
+      "Inquiry": "回忆录中大量载有日期、物资、路线和负责人员等实际记录。",
+      "Scope": "在军旅之外曾任银行家和学校负责人，把组织经验带到不同场域。",
+      "Change": "放弃原有补给安排，推动军队和战争事务的不同组织方式。",
+      "Influence": "主要影响通过指挥、书信与正式命令推动，战后再以回忆录解释。"
+    }
+  },
+  "henri-de-saint-simon": {
+    "source": "https://catalogue.bnf.fr/ark:/12148/cb33163732g",
+    "additional_source": "https://plato.stanford.edu/entries/comte/",
+    "axes": {
+      "Pace": "以小册、报刊和不同版本持续推出观点，讨论中不断调整写作题目。",
+      "Collaboration": "曾与奥古斯特·孔德等合作，但各自贡献与后来分歧也有明确记载。",
+      "Inquiry": "从重新设想工业社会的结构与组织角色出发。",
+      "Scope": "连接科学研究者、工业劳动、经济条件与政治秩序。",
+      "Change": "用产业与合作的安排重新构想传统社会等级下的公共组织。",
+      "Influence": "主要依靠出版与合作者传播，后来亦形成跟随其思想者的团体。"
+    }
+  },
+  "john-wilkes": {
+    "source": "https://historyofparliament.com/2019/04/04/the-will-of-the-people-the-middlesex-elections-of-1769/",
+    "additional_source": "https://www.cambridge.org/core/journals/cambridge-law-journal/article/north-briton-no-45-and-the-doctrinal-origins-of-exemplary-damages/56A5F68D302AA29980DA243362A7FE79",
+    "axes": {
+      "Pace": "当选后资格被拒仍参加续选，主要压力形成于连续公开行动。",
+      "Collaboration": "中塞克斯资格争执依靠选民支持、法律人士与支持者参与。",
+      "Inquiry": "从选举与逮捕的现实程序取材，论辩和报刊也将对权力的预期说出口。",
+      "Scope": "将报刊平面、议会选举和诉讼程序组成一场公共政治争论。",
+      "Change": "挑战对议员资格及一般搜查令的用法，推进规则本身的争议。",
+      "Influence": "以报刊、公众运动与候选人身份正面介入，反应高度公开。"
+    }
+  },
+  "william-cobbett": {
+    "source": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentwork/communicating/from-the-parliamentary-collections/collections/rural-rides/",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=234",
+    "axes": {
+      "Pace": "把骑马调查带回报刊，边看边公开写成多篇观察。",
+      "Collaboration": "经出版与地方居民接触，但路访、取舍和写作多由个人主导。",
+      "Inquiry": "以实际乡间路况、家庭处境和见闻检验对议题的抽象公开表述。",
+      "Scope": "把乡村生活、农业、报刊、社会改革和议会工作放到同一批文字。",
+      "Change": "把现场观察做成能连续供读者查验的政治报道，改变报道范围。",
+      "Influence": "以公开刊物、出书及议员身份传播，风格鲜明且有直接受众。"
+    }
+  },
+  "jean-sylvain-bailly": {
+    "source": "https://www.chateauversailles.fr/decouvrir/histoire/grands-personnages/jean-sylvain-bailly",
+    "additional_source": "https://www2.assemblee-nationale.fr/sycomore/fiche?num_dept=10580",
+    "axes": {
+      "Pace": "天文研究长期积累测算，革命中的会议安排则需要临场决定。",
+      "Collaboration": "与会议代表在场合作并主持集体宣誓，后以巴黎市政团队工作。",
+      "Inquiry": "从天文记录与可观察材料着手，进入政治后依据当下会议及团体条件。",
+      "Scope": "在天文学、史学、议会主持和巴黎市政间变化。",
+      "Change": "在旧开会条件被打断时见证以新公开承诺继续制宪讨论。",
+      "Influence": "以主席与巴黎市长的公开身份面对代表和市民，行动留在公众记录。"
+    }
+  },
+  "sebastien-le-prestre-de-vauban": {
+    "source": "https://en.chateauversailles.fr/discover/history/great-characters/sebastien-prestre-marquis-vauban",
+    "additional_source": "https://whc.unesco.org/en/list/1283",
+    "axes": {
+      "Pace": "多年考察多个地点，再分批设计、翻修和联系既有建筑。",
+      "Collaboration": "在王室委托和工程组织中领导多地人员，实施由地方工地支撑。",
+      "Inquiry": "从地势、旧建筑和城市空间等可见的地方条件选取办法。",
+      "Scope": "跨工程、城市布局、行政调查及赋税政策。",
+      "Change": "既改变防御建筑体系，也在晚年建议改造税收规则。",
+      "Influence": "以工程、工程报告和税收著述推动影响，少靠公众演说。"
+    }
+  },
+  "pierre-bayle": {
+    "source": "https://plato.stanford.edu/archives/fall2020/entries/bayle/",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=388",
+    "axes": {
+      "Pace": "筹备辞典时反复校核史实，修订并增补文本。",
+      "Collaboration": "荷兰出版与通信依赖同行，核心考证和文章由个人主导。",
+      "Inquiry": "从旧参考书的错误和多处引文入手，主动对读相反证据。",
+      "Scope": "把历史传记、哲学论证、宗教宽容与辞典编辑并在一起。",
+      "Change": "用极丰富的注释编排引入审疑，改变辞典正误处理方式。",
+      "Influence": "借辞典、期刊和争论文稿推动问题，主要以读者自行追索为媒介。"
+    }
+  },
+  "pietro-metastasio": {
+    "source": "https://epistolariometastasio.unige.it/il-progetto",
+    "additional_source": "https://biblioteche.cultura.gov.it/it/documenti/Profilo_Metastasio.pdf",
+    "axes": {
+      "Pace": "宫廷剧作须同作品拟演时期与角色安排配合，书信见长时段的制作交流。",
+      "Collaboration": "在不同作品中与演唱者、作曲家、赞助者和剧院合作；作品可由多位作曲家谱曲。",
+      "Inquiry": "以古代历史或称号为题时，仍用虚构情感抉择构造剧情。",
+      "Scope": "把诗歌、戏剧制作、演唱与不同宫廷的委托连接成工作。",
+      "Change": "使多个作曲家能围绕同一剧本演绎自己的音乐，将文学结构变成可移植的舞台材料。",
+      "Influence": "远程往来与剧本支撑演出，实际面对公众的常是演员和音乐家。"
+    }
+  },
+  "jacques-auguste-de-thou": {
+    "source": "https://www.bnf.fr/fr/de-francois-ier-louis-xiii-maitres-de-la-librairie-et-gardes-de-la-bibliotheque",
+    "additional_source": "https://comitehistoire.bnf.fr/dictionnaire-bnf/thou-jacques-auguste",
+    "axes": {
+      "Pace": "整理多卷同时代史，作者在世时分批出版，长期积累法政及史料。",
+      "Collaboration": "法国国家图书馆记载他主动延揽卡索邦、里戈与迪皮伊兄弟等学者，为王室图书馆组建持续运作的人才网络。",
+      "Inquiry": "著作尽力回看亲历时期的具体事件与材料。",
+      "Scope": "联系法政职位、藏书管理、档案和史书撰写。",
+      "Change": "将一代人的纷争系统写入多卷拉丁文历史，使当事实转成可审查的记忆。",
+      "Influence": "作为官员工作公开，但其历史影响主要来自藏书和多卷著作。"
+    }
+  },
+  "henry-brougham-1st-baron-brougham-and-vaux": {
+    "source": "https://archives.ucl.ac.uk/CalmView/Record.aspx?id=SDUK&src=CalmView.Catalog",
+    "axes": {
+      "Pace": "1826年发起学会，1829年前后形成刊物及价格等明确安排，长期用系列新刊推进。",
+      "Collaboration": "布鲁厄姆是发起人和委员会成员，同多名委员、作者和出版人分工。",
+      "Inquiry": "从成人受教育的条件与实际教员缺口出发，以出版组织尝试另一种学习方式。",
+      "Scope": "涵盖成人教育、科学、实用知识、文学普及和出版定价及供应。",
+      "Change": "由专门学会承担作者与书商之间的协调，以平价分册支持不能依靠老师的读者。",
+      "Influence": "主要影响来自团体运作与系列出版，发起人的其他公开演讲不概括本项目。"
+    },
+    "additional_source": "https://www.ucl.ac.uk/engage/events/2024/may/special-collections-visiting-fellow-talk"
+  },
+  "hernan-cortes": {
+    "source": "https://www.loc.gov/resource/gdcwdl.wdl_19994/?sp=1&st=gallery",
+    "axes": {
+      "Pace": "至1520年秋将已经发生的事件编成第二封较长报告，之后继续陆续向王室送出其他信。",
+      "Collaboration": "信由科尔特斯名义写出，流传的拉丁版本依赖译者及印刷人；同时有不同亲历者留下别的叙述。",
+      "Inquiry": "用自己选择的事件、城市及交往细节构成对行动的说明，有使自己处于有利位置的叙述目的。",
+      "Scope": "连结殖民军事行动与王室沟通、对城市的描述及多语言印刷传播。",
+      "Change": "将近况和行动组合成连续数封信，借送呈文本管理行动在远地权力中心得到的解释。",
+      "Influence": "由本人对王室作直接陈述，较广受众则通过译本和印本接触。"
+    },
+    "additional_source": "https://wwws.loc.gov/exhibits/exploring-the-early-americas/cortes-and-the-aztecs.html"
+  },
+  "giuseppe-garibaldi": {
+    "source": "https://www.museorisorgimentotorino.it/opera/lisola-di-caprera-r0003816/",
+    "axes": {
+      "Pace": "在1860年政治与军事角色发生快速变化时，完成阶段性安排后很快返回卡普雷拉。",
+      "Collaboration": "前一阶段依靠志愿人员集体活动，与维托里奥·埃马努埃莱二世及其他参与者共同面对后续安排。",
+      "Inquiry": "在统一运动已经取得的变化下讨论下一步，1865年写信表达对尚未实现目标的设想。",
+      "Scope": "经历横跨志愿组织、政治转移、个人退居和仍然持续的书面沟通。",
+      "Change": "不将原志愿队继续维持为个人常设权力，转出原角色并开始以其他方式表达意见。",
+      "Influence": "公开行动之后退居卡普雷拉，但仍通过给国王写信等方式干预问题，直接与私下影响并存。"
+    },
+    "additional_source": "https://archiviodistatotorino.cultura.gov.it/wp-content/uploads/2024/07/02_Arte_di_scegliere.pdf"
+  },
+  "barthold-georg-niebuhr": {
+    "source": "https://www.gutenberg.org/cache/epub/71375/pg71375-images.html",
+    "axes": {
+      "Pace": "1811至1812年刊出较早版本，后来长期重整内容，并在1826年以后多次回到同一主题授课。",
+      "Collaboration": "历史论述由尼布尔撰写和讲授，后来有听课者及译者整理部分记录，版本由多人传递。",
+      "Inquiry": "比较李维等文本与旧传统，对哪类资料能够反映早期历史追问证据。",
+      "Scope": "连结文献校读、罗马记忆、法律制度及早期历史方法，仍以古罗马为中心。",
+      "Change": "提出从旧叙事和文学痕迹辨别早期历史的办法，使资料本身成为需要审查的问题。",
+      "Influence": "在波恩当面讲课并出版长篇，影响通过文本和讲授两条路径保留。"
+    },
+    "additional_source": "https://assets.cambridge.org/97811080/12317/frontmatter/9781108012317_frontmatter.pdf"
+  },
+  "michel-de-lhopital": {
+    "source": "https://museeprotestant.org/notice/michel-de-lhospital-1505-1573/",
+    "additional_source": "https://catalogue.bnf.fr/ark:/12148/cb13326940p",
+    "axes": {
+      "Pace": "在宗教争执持续累积时筹备会议及分步骤政策，程序先于结果。",
+      "Collaboration": "参与安排普瓦西宗教会谈，使宗教人士、王室与执行者能在场。",
+      "Inquiry": "先面对两方既有的主张及社会条件，再提出有条件共处的政策。",
+      "Scope": "将法律、宗教、宫廷行政与公开会谈带进解决同一个治理问题。",
+      "Change": "以一五六二年一月敕令尝试改变新教礼拜在什么条件下可以进行。",
+      "Influence": "可以公开发言，但主要的手段仍是组织会谈和法令中的制度调整。"
+    }
+  },
+  "jean-paul-marat": {
+    "source": "https://artfl-project.uchicago.edu/lami-du-peuple",
+    "additional_source": "https://catalogue.bnf.fr/ark:/12148/cb119143643",
+    "axes": {
+      "Pace": "在革命进程中频繁出版并随政治变动调整报刊内容与刊名。",
+      "Collaboration": "虽依赖报纸生产网络，长期以自己主要撰稿、署名表达。",
+      "Inquiry": "针对具体政府人物和公开事件撰稿，也以政治预判偏向作出强烈解释。",
+      "Scope": "由医学和自然研究转到报刊、革命政治与议会。",
+      "Change": "报刊把杂散政治事件改编为持续号召，也直接介入新政治体制的争议。",
+      "Influence": "借街头刊物和公开立场高可见度传播，之后也在国民公会任职。"
+    }
+  },
+  "francesco-guicciardini": {
+    "source": "https://www.treccani.it/enciclopedia/francesco-guicciardini_%28Dizionario-Biografico%29/",
+    "additional_source": "https://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?Chiave=228235&TipoPag=comparc",
+    "axes": {
+      "Pace": "在外交生涯与政治事务中积累材料，晚年再返回整理《意大利史》。",
+      "Collaboration": "政府和使节职务需要与其他人磋商，但多轮手稿由他个人改订。",
+      "Inquiry": "运用亲历、外交信件、文书和逐版手稿，再由实情修正通用判断。",
+      "Scope": "从律师与外交官到教廷行政管理、文献整理和历史写作。",
+      "Change": "用当代具体利益解释地方政治事件，使一般原则接受事例限制。",
+      "Influence": "影响大量通过外交文书、建议及历史手稿流通，较少依靠公开演说。"
+    }
+  },
+  "jons-jacob-berzelius": {
+    "source": "https://www.sciencehistory.org/education/scientific-biographies/jons-jakob-berzelius/",
+    "additional_source": "https://web2.lemoyne.edu/~giunta/berzelius.html",
+    "axes": {
+      "Pace": "在大量分析工作后反复比较结果，并修编年度记录和教科书。",
+      "Collaboration": "实验室与学术网络有助手、学生及国外通信参与。",
+      "Inquiry": "由称量、分析和可重复记录决定组成，并据此修订符号表达。",
+      "Scope": "将医学背景、化学分析、符号系统、教材编订与国际评述连在一起。",
+      "Change": "用字母式化学符号重排既有记号，让不同结果能较统一地记写。",
+      "Influence": "影响主要来自符号习惯、教材和通信而非个人在公开活动频繁露面。"
+    }
+  },
+  "pierre-vergniaud": {
+    "source": "https://www2.assemblee-nationale.fr/sycomore/fiche/12957?legislature=2",
+    "additional_source": "https://gwern.net/doc/iq/high/1926-cox-theearlymentaltraitsof300geniuses.pdf#page=381",
+    "axes": {
+      "Pace": "在立法议会、国民公会关键辩论中及时响应事件与程序。",
+      "Collaboration": "由波尔多的政治联系及同属吉伦特派的议员支撑，但在场立场也各自不同。",
+      "Inquiry": "用局势及法律文件开展演说，也从其处推导国家应采取的方向。",
+      "Scope": "早年律师，到革命时期转为代议机构发言及主持。",
+      "Change": "参与国王地位和政体转换等重要议事程序，推进制度争议。",
+      "Influence": "以立法议会及国民公会的公开演说和主席职责产生可见影响。"
+    }
+  },
+  "lancelot-andrewes": {
+    "source": "https://wwwe.lib.cam.ac.uk/CUL/exhibitions/KJV/captions.html",
+    "additional_source": "https://www.westminster-abbey.org/abbey-commemorations/commemorations/lancelot-andrewes",
+    "axes": {
+      "Pace": "詹姆斯王钦定版《圣经》由几个译组筹备多年；需先释读再合稿。",
+      "Collaboration": "任威斯敏斯特译组的领导者，译本由分组及交叉审阅完成。",
+      "Inquiry": "以源文、已有英语译本以及多人的词句比较作工作材料。",
+      "Scope": "将古典语言、译经、礼仪和主教讲道联系起来，集中在宗教文本。",
+      "Change": "在较早译本及工作章程下重审语言选取，形成能共用的新定本。",
+      "Influence": "有著名的公开讲道，长远作用也经整个译本的协作工作传播。"
+    }
+  },
+  "pietro-sarpi": {
+    "source": "https://www.treccani.it/enciclopedia/paolo-sarpi_%28altro%29/",
+    "additional_source": "https://brill.com/downloadpdf/edcollchap-oa/book/9789004517240/BP000025.pdf",
+    "axes": {
+      "Pace": "历经长期索引与阅读才整理大公会议史，也保留多次政务建议。",
+      "Collaboration": "担任威尼斯顾问参与集体政务，写作与记录仍由个人组织。",
+      "Inquiry": "以会议文献、书信与制度细节为依据，核对权力如何声称与运作。",
+      "Scope": "将神学、法律、政治顾问工作与教会历史写作放在一起。",
+      "Change": "参与威尼斯与教廷争执的制度论证，又重作大公会议的整套历史叙事。",
+      "Influence": "历史著作以假名发表，许多直接作用由政府咨询稿和私人通信完成。"
+    }
+  },
+  "ludwig-tieck": {
+    "source": "https://www.deutsche-biographie.de/pnd12989432X.html",
+    "additional_source": "https://www.deutsche-biographie.de/sfz82667.html",
+    "axes": {
+      "Pace": "莎士比亚德译整理持续多年，由先行版本及不同译者补写逐部形成。",
+      "Collaboration": "德国人物传记明确说多萝特娅和鲍迪辛的译稿在其指导下合作，他组织两人补齐先前未译的戏剧，并统筹翻阅和编注。",
+      "Inquiry": "在童话和戏剧创作中利用夸张异想；译稿又受到原作语言约束。",
+      "Scope": "通跨诗歌、戏剧、文本编订、翻译及德累斯顿的剧场活动。",
+      "Change": "德译莎士比亚已开始后，将未覆盖的戏剧纳入新的合作版本。",
+      "Influence": "文学影响主要由出版的剧作、故事和译本传播，也有剧场工作。"
+    }
+  },
+  "daniel-oconnell": {
+    "source": "https://www.dib.ie/index.php/biography/oconnell-daniel-a6555",
+    "additional_source": "https://archives-en.centreculturelirlandais.com/online-exhibitions/daniel-oconnell",
+    "axes": {
+      "Pace": "以长期征集和法律准备组织天主教解放，遇议会机会时用选举和公开集会推进。",
+      "Collaboration": "天主教协会通过低额会费和地方网络扩大参与，活动依靠实际组织者与参与者。",
+      "Inquiry": "利用当时选举、任职与集会法规的具体限制决定动员路径。",
+      "Scope": "连接诉讼法、公开演说、全国募款、政党活动及议会工作。",
+      "Change": "推动改变天主教徒任职权利的安排，之后又以大规模集会挑战英爱合并制度。",
+      "Influence": "以大型公开集会、竞选和演说接触公众，并将要求推至议会。"
+    }
+  },
+  "william-henry-seward": {
+    "source": "https://history.state.gov/departmenthistory/people/seward-william-henry",
+    "additional_source": "https://www.archives.gov/dc/highlights/alaska-treasury-warrant",
+    "axes": {
+      "Pace": "在战争时期展开外交应对，又在持续的谈判中落实阿拉斯加购地。",
+      "Collaboration": "阿拉斯加条约涉及俄方谈判、参议院审议和政府支付，在多方之间形成决定。",
+      "Inquiry": "外交路径依托他国实际立场、战争局势和条约流程。",
+      "Scope": "连接州与联邦政治、对外谈判、外交政策和财政履约。",
+      "Change": "通过条约改变美俄在阿拉斯加的领土安排，不限于日常外交维护。",
+      "Influence": "以部长工作、私下谈判和公文完成许多实质影响，公开签署可见结果。"
+    }
+  },
+  "john-franklin": {
+    "source": "https://www.biographi.ca/en/bio/3394",
+    "additional_source": "https://parks.canada.ca/lhn-nhs/nu/epaveswrecks/culture/histoire-history/qui-who",
+    "axes": {
+      "Pace": "富兰克林的第二次北极陆路考察意在吸取首航教训；一八二四年已经预先运出船只、储备和人员，团队次年才出发。",
+      "Collaboration": "曾带多支北极考察队，早期合作有理查森等调查者，也依靠当地人员。",
+      "Inquiry": "以实际海岸测绘、营地条件和既有航海经验制定行动。",
+      "Scope": "除海军探险与地理调查外，也曾任范迪门地副总督。",
+      "Change": "将已知海岸逐段接起来，改变地图及后续航程所知的范围。",
+      "Influence": "引领考察队并出版游记，但人员联络、调查与航海记录承担普遍影响。"
+    }
+  }
+}

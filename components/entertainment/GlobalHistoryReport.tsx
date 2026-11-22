@@ -20,14 +20,18 @@ function readSaved() {
     return null;
   }
 }
-function readVector(raw: string | null, id: string) {
+function readVector(raw: string | null, id: string): number[] | null {
   if (!raw) return null;
   try {
-    const saved = JSON.parse(raw);
+    const saved: { id?: unknown; vector?: unknown } | null = JSON.parse(raw);
     return saved?.id === id && isHistoryVector(saved.vector) ? saved.vector : null;
   } catch {
     return null;
   }
+}
+
+export function useGlobalHistoryVector(id: string) {
+  return readVector(useSyncExternalStore(subscribe, readSaved, () => null), id);
 }
 
 export function GlobalHistoryShare({ id, locale, displayLocale = locale }: { id: string; locale: Locale; displayLocale?: DisplayLocale }) {
@@ -45,8 +49,7 @@ export function GlobalHistoryShare({ id, locale, displayLocale = locale }: { id:
 
 export function GlobalHistoryReport({ id, profile, locale, displayLocale = locale }: { id: string; profile: readonly number[]; locale: Locale; displayLocale?: DisplayLocale }) {
   const { displayText } = useQuestionnaireDisplayCopy();
-  const raw = useSyncExternalStore(subscribe, readSaved, () => null);
-  const vector = readVector(raw, id);
+  const vector = useGlobalHistoryVector(id);
   const zh = locale === "zh";
   const scores = historyAxes.map((axis, index) => ({ axis, index, figure: profile[index], own: vector?.[index] }));
   const closest = scores.filter(({ own }) => own !== undefined)

@@ -141,7 +141,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (slug === GLOBAL_HISTORY_SLUG && (locale === "en" || locale === "zh" || locale === "zh-TW")) {
     const person = portrait && findHistoryPerson(portrait);
     if (!person) return new Response("Image unavailable", { status: 404 });
-    return globalHistoryCard(person, locale, await (locale === "zh-TW" ? globalHistoryTaiwanFont() : quizFont(slug)), download);
+    return globalHistoryCard(person, locale, await (locale === "zh-TW" ? globalHistoryTaiwanFont() : quizFont(slug)), download, query.get("format") === "poster");
   }
   if (locale === "zh-TW") {
     if (slug === CHANGAN_SLUG) {

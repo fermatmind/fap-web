@@ -30,7 +30,7 @@ export function isMissingFunRoute(pathname: string): boolean {
     return !profiles || Boolean(match[2] && !profiles.includes(match[2]));
   }
   if (!/^\/(?:en|zh)\/tests\/play(?:\/|$)/.test(pathname)) return false;
-  const match = pathname.match(/^\/(?:en|zh)\/tests\/play\/([a-z]+(?:-[a-z]+)*)(?:\/results\/([a-z]+(?:-[a-z]+)*))?\/?$/);
+  const match = pathname.match(/^\/(?:en|zh)\/tests\/play\/([a-z]+(?:-[a-z]+)*)(?:\/results\/([a-z0-9]+(?:-[a-z0-9]+)*))?\/?$/);
   if (!match) return true;
   if (match[1] === GLOBAL_HISTORY_SLUG) return Boolean(match[2] && !findHistoryPerson(match[2]));
   const results = questionnaireIds.get(`play/${match[1]}`) ?? identities.get(match[1]);

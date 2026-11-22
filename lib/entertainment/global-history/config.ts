@@ -26,4 +26,6 @@ export const globalHistoryResultPath = (locale: DisplayLocale, id: string) => `$
 export const globalHistoryPortraitPath = (id: string) => `/images/global-history/${id}.jpg`;
 export const globalHistoryImagePath = (locale: DisplayLocale, id: string) =>
   `/og/fun/${GLOBAL_HISTORY_SLUG}?locale=${locale}&portrait=${id}&v=${GLOBAL_HISTORY_VERSION}`;
+export const globalHistoryPosterPath = (locale: DisplayLocale, id: string) =>
+  `/og/fun/${GLOBAL_HISTORY_SLUG}?locale=${locale}&portrait=${id}&v=3&format=poster`;
 export const globalHistoryFilename = (locale: DisplayLocale, id: string) => `fermatmind-history-${id}-${locale}.png`;
