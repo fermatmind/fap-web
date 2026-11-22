@@ -1,5 +1,6 @@
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
+export const hollandLandingTitle = "霍兰德职业兴趣测试（60题免费版）";
 export const mbtiLandingTitle = "MBTI 免费测试（93/144题完整版）：看清你的思维偏好与人格底色";
 
 // Product UI authority for these six landing pages. CMS/registry text must not
