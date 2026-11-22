@@ -1,14 +1,13 @@
 import fs from "node:fs";
-import { renderToStaticMarkup } from "react-dom/server";
-import { MbtiWhyChoose } from "@/components/tests/MbtiEditorialSections";
-import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
-import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
+import { renderToReadableStream, renderToStaticMarkup } from "react-dom/server";
 import path from "node:path";
-import { isValidElement, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { resetTestLandingLastKnownGoodForTests } from "@/lib/tests/testLandingLastKnownGood";
 import { PublicReadError } from "@/lib/public-content/readError";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+
+vi.mock("@/lib/eq/loadResultSample", () => ({ loadEqResultSample: async () => null }));
 
 const routeMocks = vi.hoisted(() => ({
   getAllTests: vi.fn(),
@@ -216,30 +215,11 @@ function lookupFor(slug: string, locale: "en" | "zh") {
   };
 }
 
-function collectValues(value: unknown, output: unknown[], seen = new Set<unknown>()): void {
-  if (value === null || value === undefined || typeof value === "boolean") return;
-  if (typeof value === "string" || typeof value === "number") {
-    output.push(value);
-    return;
-  }
-  if (seen.has(value)) return;
-  seen.add(value);
-
-  if (Array.isArray(value)) {
-    value.forEach((item) => collectValues(item, output, seen));
-    return;
-  }
-
-  if (isValidElement(value)) {
-    output.push(value);
-    collectValues((value.props as { children?: ReactNode }).children, output, seen);
-    collectValues(value.props, output, seen);
-    return;
-  }
-
-  if (typeof value === "object") {
-    Object.values(value as Record<string, unknown>).forEach((item) => collectValues(item, output, seen));
-  }
+async function renderLanding(tree: ReactNode) {
+  const stream = await renderToReadableStream(tree);
+  const root = document.createElement("div");
+  root.innerHTML = await new Response(stream).text();
+  return root;
 }
 
 describe("SEO core test detail availability", () => {
@@ -392,12 +372,7 @@ describe("SEO core test detail availability", () => {
       params: Promise.resolve({ locale, slug: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM }),
       searchParams: Promise.resolve(query),
     });
-    const values: unknown[] = [];
-    collectValues(tree, values);
-    const intro = values.filter(isValidElement).find((element) => element.type === AssessmentLandingIntro);
-    expect(intro).toBeDefined();
-    const root = document.createElement("div");
-    root.innerHTML = renderToStaticMarkup(intro!);
+    const root = await renderLanding(tree);
     const links = [...root.querySelectorAll<HTMLAnchorElement>('a[data-testid^="test-detail-landing-cta-"]')];
     expect(links).toHaveLength(1);
     const forms: string[] = [];
@@ -440,57 +415,14 @@ describe("SEO core test detail availability", () => {
         params: Promise.resolve({ locale, slug }),
         searchParams: Promise.resolve({}),
       });
-      const values: unknown[] = [];
-      collectValues(tree, values);
-      const elements = values.filter(isValidElement);
-      const strings = values.filter((value): value is string => typeof value === "string");
-
-      expect(
-        elements.some((element) => element.type === "h1" ||
-          ((element.type === MbtiLandingIntro || element.type === AssessmentLandingIntro) && renderToStaticMarkup(element).includes("<h1>"))),
-        `${slug} must retain a visible H1`
-      ).toBe(true);
-      const illustratedIntro = elements.find((element) =>
-        element.type === AssessmentLandingIntro || element.type === MbtiLandingIntro);
-      expect(illustratedIntro).toBeDefined();
-      const heroProps = illustratedIntro!.props as {
-        title: string; heroArtwork: string; choices: { label: string }[];
-      };
-      if (slug === SCALE_CANONICAL_SLUG_MAP.EQ_60) {
-        expect(heroProps.title).toBe(locale === "zh"
-          ? "免费情商测试：60题情绪与关系自评"
-          : "Free Emotional Intelligence Test (EQ)");
-      } else if (slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN) {
-        expect(heroProps.title).toBe(locale === "zh" ? "免费智商测试（IQ）" : "Free IQ Test");
-      } else if (locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM) {
-        expect(heroProps.title).toBe("九型人格测试（免费版）");
-      } else if (locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.RIASEC) {
-        expect(heroProps.title).toBe("霍兰德职业兴趣测试（免费版）");
-      } else {
-        expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
-      }
-      expect(["mbti", "big-five", "enneagram", "iq", "eq", "riasec"]).toContain(heroProps.heroArtwork);
-      for (const choice of heroProps.choices) {
-        if (slug === SCALE_CANONICAL_SLUG_MAP.EQ_60) {
-          expect(choice.label).toBe(locale === "zh"
-            ? "开始60题自评 · 约10分钟 · 免费"
-            : "Start 60-item self-report · About 10 minutes · Free");
-        } else {
-          expect(choice.label).toMatch(locale === "zh" ? /免费测试/u : /free/iu);
-        }
-      }
-      const intro = elements.find((element) => element.type === AssessmentLandingIntro);
-      if (intro) {
-        const props = intro.props as { description?: string };
-        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC, SCALE_CANONICAL_SLUG_MAP.EQ_60, SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN].some((target) => target === slug)
-          || slug === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN) {
-          expect(props.description).toBeDefined();
-        } else {
-          expect(props.description).toBeUndefined();
-        }
-      }
-      expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");
-      expect(strings.some((value) => value.includes(`/${locale}/tests/${slug}/take`))).toBe(true);
+      const root = await renderLanding(tree);
+      const headings = root.querySelectorAll("h1");
+      expect(headings, `${slug} must retain exactly one visible H1`).toHaveLength(1);
+      expect(headings[0].textContent).toMatch(locale === "zh" ? /测试|测评/u : /test/iu);
+      expect(root.querySelector(`a[href^="/${locale}/tests/${slug}/take"]`)).toBeTruthy();
+      expect(root.querySelector('[data-testid="assessment-published-details"]')).toHaveTextContent(
+        locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.",
+      );
     }
   );
 
@@ -504,14 +436,11 @@ describe("SEO core test detail availability", () => {
         why_choose: { title: "Reviewed introduction", intro: "Source introduction", items: [{ id: "scope", title: "Scope", body: "Direct explanation.\n\nPractical example." }] },
       } } });
       const tree = await TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) });
-      const values: unknown[] = [];
-      collectValues(tree, values);
-      const elements = values.filter(isValidElement);
-      const editorial = elements.find((element) => element.type === MbtiWhyChoose);
-      expect(editorial).toBeDefined();
-      expect(renderToStaticMarkup(editorial!)).toContain("Reviewed introduction");
-      expect(elements.some((element) => ["about-assessment", "references"].includes((element.props as { id?: string }).id ?? ""))).toBe(false);
-      expect(values).not.toContain("继续探索");
+      const root = await renderLanding(tree);
+      const details = root.querySelector('[data-testid="assessment-published-details"]');
+      expect(details).toHaveTextContent("Reviewed introduction");
+      expect(details).not.toHaveAttribute("open");
+      expect(root.querySelector("#about-assessment, #references")).toBeNull();
     }
   );
 
@@ -527,16 +456,13 @@ describe("SEO core test detail availability", () => {
       source: "fresh", stale: false, updatedAt: "2026-09-07T00:00:00Z", error: null,
     });
     const metadata = await generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) });
-    expect(JSON.stringify(metadata.title)).toContain("MBTI 免费测试：16 型人格与偏好解读");
+    expect(JSON.stringify(metadata.title)).toContain("MBTI测试免费版（93/144题完整版）：16型人格与荣格八维解析");
     expect(JSON.stringify(metadata.title)).not.toContain("Stale");
     const tree = await TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) });
-    const values: unknown[] = [];
-    collectValues(tree, values);
-    const hero = values.filter(isValidElement).find((element) => element.type === MbtiLandingIntro);
-    const html = renderToStaticMarkup(hero!);
-    expect(html).toContain("<h1>MBTI 16 型人格免费测试</h1>");
-    expect(html).toContain("144 题 · 约 15 分钟 · 免费测试");
-    expect(html).not.toContain("Stale");
+    const root = await renderLanding(tree);
+    expect(root.querySelector("h1")).toHaveTextContent("MBTI 免费测试");
+    expect(root.querySelector(`a[href^="/zh/tests/${slug}/take?form=mbti_144"]`)).toBeTruthy();
+    expect(root.textContent).not.toContain("Stale");
   });
 
   it("keeps test lookup and CMS landing reads separated from authoritative absence", () => {

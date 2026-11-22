@@ -7,6 +7,7 @@ import type { DisplayLocale } from "@/lib/i18n/locales";
 import worksheet from "@/lib/marketing/riasecWorksheet.json";
 import { copyWorksheet, emptyWorksheet, exampleWorksheet, serializeWorksheet, WORKSHEET_FIELDS, WORKSHEET_VERSION, worksheetLabel, type CopyResult, type WorksheetFormat } from "@/lib/marketing/riasecWorksheetRecord";
 import styles from "./RiasecWorksheet.module.css";
+import "./RiasecWorksheet.print.css";
 
 const subscribeHydration = () => () => undefined;
 const clientReady = () => true;

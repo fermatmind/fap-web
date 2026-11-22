@@ -104,35 +104,33 @@ describe("T001 DISC complete source questionnaire", () => {
     }
   });
 
-  it("renders both actual test entries and all30complete public reports with aligned metadata and stable links", async () => {
+  it.each(["en", "zh"] as const)("renders the DISC entry and all 15 complete public guides in %s", async (locale) => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules();
     const entry = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
     const guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page");
     try {
-      for (const locale of ["en", "zh"] as const) {
-        const props = { params: Promise.resolve({ locale, slug: "disc" }) };
-        const stream = await renderToReadableStream(await entry.default(props));
-        const html = await new Response(stream).text(), meta = await entry.generateMetadata(props);
-        expect(html).toContain(locale === "zh" ? quiz.title.zh : getLocalizedLanding("en", "disc").h1);
-        expect(html).toContain(locale === "zh" ? "独立作答页不保存答题进度" : "The questionnaire does not save in-progress answers");
-        const sourceSavingFaq = quiz.faq.find(faq => faq.question.en === "Where are answers calculated, and can I save progress?")!;
-        expect(html).not.toContain(sourceSavingFaq.answer[locale]);
-        expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "disc")}`);
-        expect(meta.description).toBe(locale === "zh" ? quiz.description.zh : getLocalizedLanding("en", "disc").seoDescription);
-        expect(renderToStaticMarkup(<MoreTests locale={locale} />)).not.toContain(`href="${questionnairePath(locale, "disc")}"`);
-        for (const profile of quiz.profiles) {
-          const path = questionnaireGuidePath(locale, "disc", profile.id);
-          expect(html).toContain(`href="${path}"`);
-          const props = { params: Promise.resolve({ locale, slug: "disc", profile: profile.id }) };
-          const rendered = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props);
-          const root = document.createElement("div"); root.innerHTML = rendered;
-          for (const section of discResultProfile(profile).sections) for (const paragraph of section.paragraphs) expect(root.textContent).toContain(paragraph[locale]);
-          if (locale === "en") expect(root.textContent).not.toMatch(/\p{Script=Han}/u);
-          expect(String(metadata.alternates?.canonical)).toBe(`https://fermatmind.com${path}`);
-          expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", "disc", profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", "disc", profile.id)}` });
-          expect(rendered).toContain("application/ld+json");
-          expect(rendered).toContain(`href="${questionnairePath(locale, "disc")}#take-test"`);
-        }
+      const props = { params: Promise.resolve({ locale, slug: "disc" }) };
+      const stream = await renderToReadableStream(await entry.default(props));
+      const html = await new Response(stream).text(), meta = await entry.generateMetadata(props);
+      expect(html).toContain(locale === "zh" ? quiz.title.zh : getLocalizedLanding("en", "disc").h1);
+      expect(html).toContain(locale === "zh" ? "独立作答页不保存答题进度" : "The questionnaire does not save in-progress answers");
+      const sourceSavingFaq = quiz.faq.find(faq => faq.question.en === "Where are answers calculated, and can I save progress?")!;
+      expect(html).not.toContain(sourceSavingFaq.answer[locale]);
+      expect(String(meta.alternates?.canonical)).toBe(`https://fermatmind.com${questionnairePath(locale, "disc")}`);
+      expect(meta.description).toBe(locale === "zh" ? quiz.description.zh : getLocalizedLanding("en", "disc").seoDescription);
+      expect(renderToStaticMarkup(<MoreTests locale={locale} />)).not.toContain(`href="${questionnairePath(locale, "disc")}"`);
+      for (const profile of quiz.profiles) {
+        const path = questionnaireGuidePath(locale, "disc", profile.id);
+        expect(html).toContain(`href="${path}"`);
+        const props = { params: Promise.resolve({ locale, slug: "disc", profile: profile.id }) };
+        const rendered = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props);
+        const root = document.createElement("div"); root.innerHTML = rendered;
+        for (const section of discResultProfile(profile).sections) for (const paragraph of section.paragraphs) expect(root.textContent).toContain(paragraph[locale]);
+        if (locale === "en") expect(root.textContent).not.toMatch(/\p{Script=Han}/u);
+        expect(String(metadata.alternates?.canonical)).toBe(`https://fermatmind.com${path}`);
+        expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com${questionnaireGuidePath("en", "disc", profile.id)}`, "zh-CN": `https://fermatmind.com${questionnaireGuidePath("zh", "disc", profile.id)}` });
+        expect(rendered).toContain("application/ld+json");
+        expect(rendered).toContain(`href="${questionnairePath(locale, "disc")}#take-test"`);
       }
     } finally { vi.unstubAllEnvs(); }
   });

@@ -10460,12 +10460,3 @@ a {
 html[lang="zh-TW"] :is(body, .font-sans) {
   font-family: var(--font-fm-sans), "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
-
-@media print {
-  body:has([data-worksheet-print]) *:not(:has([data-worksheet-print])):not([data-worksheet-print]):not([data-worksheet-print] *) { display: none !important; }
-  body:has([data-worksheet-print]) { background: white !important; color: black !important; }
-  body:has([data-worksheet-print]) main { max-width: none !important; padding: 0 !important; }
-  [data-testid="personality-detail-v85-reading-layout"]:has(#intj-career-exploration [data-worksheet-print]) { display: block !important; }
-  #intj-career-exploration:has([data-worksheet-print]),
-  #intj-design-comparison:has([data-worksheet-print]) { margin: 0 !important; padding: 0 !important; border: 0 !important; }
-}
