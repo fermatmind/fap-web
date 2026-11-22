@@ -69,7 +69,8 @@ describe("mainstream per-attempt full report purchase", () => {
     expect(document.querySelector(`a[href="/${locale}/reports/samples/iq${total}"]`)).not.toBeNull();
     expect(screen.queryByText(/Private full report|131 IQ|#10\/56/)).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-score-marker")).toBeInTheDocument();
-    const sections = ["reasoning-example", "reasoning-reference", "reasoning-regions", "reasoning-profile", "reasoning-categories", "reasoning-reading", "career-preview", "insight-preview", "mainstream-purchase", "result-share", "continue-exploring"];
+    expect(screen.queryByRole("heading", { name: /JobCannon/ })).not.toBeInTheDocument();
+    const sections = ["reasoning-reference", "reasoning-regions", "reasoning-profile", "reasoning-categories", "reasoning-reading", "career-preview", "insight-preview", "mainstream-purchase", "result-share", "continue-exploring"];
     const inOrder = sections.map(id => document.getElementById(id));
     for (const [index, element] of inOrder.entries()) {
       expect(element).toBeVisible();

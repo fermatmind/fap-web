@@ -119,11 +119,11 @@ export function ReasoningUnlockPreview({ result, locale, durationMs, live = fals
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
   return <>
     <ReasoningUnlockSummary result={result} locale={locale} durationMs={durationMs} />
-    <div className={styles.reasoningDetails} aria-labelledby="reasoning-example">
-      <div className={styles.reasoningPanel}>
+    <div className={styles.reasoningDetails} id={live ? "reasoning-example" : undefined} aria-labelledby={live ? "reasoning-reference" : "reasoning-example"}>
+      {!live && <div className={styles.reasoningPanel}>
         <h2 id="reasoning-example">{t("JobCannon 对标示例", "JobCannon 對標示例", "JobCannon reference example")}</h2>
-        <p>{live ? t("人物分数与地区排名是版式示例，未经独立验证。本次结果单独标出，未参与排名。", "人物分數與地區排名是版面示例，未經獨立驗證。本次結果單獨標出，未參與排名。", "Profile scores and regional rankings are unverified examples. Your result is shown separately and is unranked.") : t("以下使用你提供的示例资料。人物分数和地区排名使用示例资料。人物列表最后一行显示本次费马测试结果。", "以下使用你提供的示例資料。人物分數和地區排名使用示例資料。人物列表最後一列顯示本次費馬測驗結果。", "Profile scores and regional rankings come from the supplied example. The last profile row shows this FermatMind result.")}</p>
-      </div>
+        <p>{t("以下使用你提供的示例资料。人物分数和地区排名使用示例资料。人物列表最后一行显示本次费马测试结果。", "以下使用你提供的示例資料。人物分數和地區排名使用示例資料。人物列表最後一列顯示本次費馬測驗結果。", "Profile scores and regional rankings come from the supplied example. The last profile row shows this FermatMind result.")}</p>
+      </div>}
       <section className={styles.reasoningPanel} aria-labelledby="reasoning-reference">
         <h2 id="reasoning-reference">{t("人物分数对照", "人物分數對照", "Profile score comparison")}</h2>
         <ul className={styles.reasoningPeople}>
