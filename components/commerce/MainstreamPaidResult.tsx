@@ -14,6 +14,7 @@ import { isIqScaleCode } from "@/lib/iq/constants";
 import { ReasoningUnlockPreview, ReasoningUnlockSummary, type ReasoningPreview } from "./ReasoningUnlockPreview";
 import { DiscUnlockPreview, buildDiscDesignPreview, type DiscDesignPreview } from "./DiscUnlockPreview";
 import { TraitProfileUnlockPreview, buildEqProfile, type TraitProfilePreview } from "./TraitProfileUnlockPreview";
+import { ResultPreviewShare } from "./ResultPreviewShare";
 import { ResultPreviewChapters } from "./ResultPreviewChapters";
 import { displayNavigationPath } from "@/lib/i18n/traditionalRoutes";
 import { eqUnlockSchema } from "@/lib/eq/resultPage";
@@ -121,6 +122,36 @@ function readNonNegativeInteger(value: unknown): number | null {
   return typeof count === "number" && Number.isSafeInteger(count) && count >= 0 ? count : null;
 }
 
+function ReasoningUnlockExplore({ locale, result, samplePath, live }: {
+  locale: DisplayLocale;
+  result: ReasoningPreview;
+  samplePath: string;
+  live: boolean;
+}) {
+  const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
+  const testsPath = displayNavigationPath("/tests", locale);
+  return <div className={styles.previewExplore}>
+    <nav aria-label={t("下一步", "下一步", "Next steps")} className={styles.previewNavCards}>
+      <Link href={testsPath}>
+        <strong>{t("挑选下一项测试", "挑選下一項測驗", "Choose your next assessment")}</strong>
+        <span>{t("查看测评目录 →", "查看測驗目錄 →", "Browse the test directory →")}</span>
+      </Link>
+      <Link href={displayNavigationPath("/career/guides", locale)}>
+        <strong>{t("阅读职业指南", "閱讀職涯指南", "Read career guides")}</strong>
+        <span>{t("了解真实任务与入行准备 →", "了解真實任務與入行準備 →", "Explore real tasks and routes into work →")}</span>
+      </Link>
+    </nav>
+    <ResultPreviewShare locale={locale} samplePath={samplePath} name={t("智商测试", "智商測驗", "Reasoning test")} highlight="" reasoning={result} live={live} />
+    <section id="continue-exploring">
+      <h2>{t("继续探索", "繼續探索", "Keep exploring")}</h2>
+      <div className={styles.previewNavCards}>
+        <Link href={testsPath}>{t("浏览全部测试", "瀏覽全部測驗", "Browse all assessments")} →</Link>
+        <Link href={displayNavigationPath("/account", locale)}>{t("我的结果", "我的結果", "My results")} →</Link>
+      </div>
+    </section>
+  </div>;
+}
+
 export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile, previewSampleHref, sampleResultId }: {
   data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview; previewSampleHref?: string; sampleResultId?: string;
 }) {
@@ -161,14 +192,20 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   const label = (key:string) => scale === "DISC_BEHAVIOR" && discLabels[key] ? t(...discLabels[key]) : labels[key] ? t(...labels[key]) : /^T[1-9]$/.test(key) ? t(`候选类型 ${key.slice(1)}`,`候選型別 ${key.slice(1)}`,`Candidate type ${key.slice(1)}`) : key;
   const liveDiscProfile = !preview && scale === "DISC_BEHAVIOR" ? findDiscProfileByCounts(scores) : undefined;
   if (liveDiscProfile) discPreview = buildDiscDesignPreview({ counts: scores, profile: { headline: { [locale]: discPreviewLocales[locale].profiles[liveDiscProfile.id].headline } } }, locale, liveDiscProfile.artwork);
-  const previewProfile = Boolean(liveDiscProfile && discPreview) || Boolean(liveEq && traitProfile) || preview && Boolean(previewArtwork || discPreview || traitProfile || scale === "BIG5_OCEAN");
+  const liveReasoningPage = liveReasoning && (iqTotal === 30 || iqTotal === 40)
+    ? { ...liveReasoning, categories: [
+        { code: "correct", label: t("答对", "答對", "Correct"), correct: liveReasoning.correct, items: iqTotal },
+        { code: "not-correct", label: t("未答对", "未答對", "Not correct"), correct: iqTotal - liveReasoning.correct, items: iqTotal },
+      ] }
+    : undefined;
+  const previewProfile = Boolean(liveReasoningPage) || Boolean(liveDiscProfile && discPreview) || Boolean(liveEq && traitProfile) || preview && Boolean(previewArtwork || discPreview || traitProfile || scale === "BIG5_OCEAN");
   const scoreEntries = Object.entries(scores).filter(([, value]) => typeof value === "number" && Number.isFinite(value));
   const profileHeading = previewProfile ? profileHeadings[scale] : undefined;
   const axes = scoreEntries.filter(([key]) => key !== "TOTAL").map(([key, value]) => ({
     key, label: label(key), value: Math.round(Math.min(100, Math.max(0, Number(value)))),
   }));
   const disc = previewProfile ? discPreview : undefined;
-  const reasoning = previewProfile ? reasoningPreview : undefined;
+  const reasoning = liveReasoningPage ?? (preview ? reasoningPreview : undefined);
   const bigFivePreview = previewProfile && scale === "BIG5_OCEAN";
   const topAxis = axes.reduce<(typeof axes)[number] | undefined>((top, axis) => !top || axis.value > top.value ? axis : top, undefined);
   const uniqueTop = topAxis && axes.filter(axis => axis.value === topAxis.value).length === 1 ? topAxis : undefined;
@@ -184,12 +221,16 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   const displayedScores = comparisonPreview && scale !== "DISC_BEHAVIOR" ? [...scoreEntries].sort((a, b) => Number(b[1]) - Number(a[1])) : scoreEntries;
   const detailKey = scale === "IQ_INTELLIGENCE_QUOTIENT" ? "IQ_RAVEN" : scale;
   const lockedLayout = liveReasoning ? `${styles.page} ${styles.reasoningLive}` : styles.page;
-  return <div className={paid ? (scale === "JUNG_ARCHETYPES" && locale === "zh" ? "w-full space-y-6" : "mx-auto max-w-6xl px-4 py-8") : lockedLayout} data-result-visible-root data-testid="mainstream-paid-result">
+  const sampleKey = ({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: iqTotal === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT: iqTotal === 30 ? "iq30" : "iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale];
+  const samplePath = preview && previewSampleHref ? previewSampleHref
+    : `/${locale}/reports/samples/${sampleKey}${scale === "DISC_BEHAVIOR" && sampleResultId ? `?result=${encodeURIComponent(sampleResultId)}` : ""}`;
+  const durationMs = readNonNegativeInteger(summary.duration_ms) ?? undefined;
+  return <><div className={paid ? (scale === "JUNG_ARCHETYPES" && locale === "zh" ? "w-full space-y-6" : "mx-auto max-w-6xl px-4 py-8") : lockedLayout} data-result-visible-root data-testid="mainstream-paid-result">
     {purchase.order_no && <CareerRefundPanel orderNo={purchase.order_no} locale={locale} onRefunded={() => setRefunded(true)} />}
     {paid ? children : <>
       <div className={styles.shell}>
 
-      {liveEq?.low_confidence ? <aside role="status" className={styles.section}><h1>{t("本次暂不分类", "本次暫不分類", "No classification this time")}</h1><p>{t("这次作答的信息不足以支持稳定解读。建议在注意力充足时重新作答。", "這次作答的資訊不足以支援穩定解讀。建議在注意力充足時重新作答。", "These responses do not support a stable interpretation. Consider retaking when you have enough time and attention.")}</p></aside> : liveReasoning ? <ReasoningUnlockSummary result={liveReasoning} locale={locale} durationMs={readNonNegativeInteger(summary.duration_ms) ?? undefined} live /> : reasoning ? <ReasoningUnlockPreview result={reasoning} locale={locale} /> : disc ? <DiscUnlockPreview result={disc} locale={locale} /> : (preview || liveEq) && traitProfile ? <TraitProfileUnlockPreview profile={traitProfile} locale={locale} /> : <>
+      {liveEq?.low_confidence ? <aside role="status" className={styles.section}><h1>{t("本次暂不分类", "本次暫不分類", "No classification this time")}</h1><p>{t("这次作答的信息不足以支持稳定解读。建议在注意力充足时重新作答。", "這次作答的資訊不足以支援穩定解讀。建議在注意力充足時重新作答。", "These responses do not support a stable interpretation. Consider retaking when you have enough time and attention.")}</p></aside> : reasoning ? <ReasoningUnlockPreview result={reasoning} locale={locale} durationMs={liveReasoningPage ? durationMs : undefined} live={Boolean(liveReasoningPage)} /> : liveReasoning ? <ReasoningUnlockSummary result={liveReasoning} locale={locale} durationMs={durationMs} live /> : disc ? <DiscUnlockPreview result={disc} locale={locale} /> : (preview || liveEq) && traitProfile ? <TraitProfileUnlockPreview profile={traitProfile} locale={locale} /> : <>
       <header className={comparisonPreview ? `${styles.hero} ${styles.traitResultHero}` : styles.hero}>
         {!bigFivePreview && <p className={styles.eyebrow}>{t(...name)}{comparisonPreview && t(" · 测评结果", " · 測驗結果", " · Assessment result")}</p>}
         {!previewProfile && <p className={styles.sectionLabel}>{t("你的测评结果", "你的測評結果", "YOUR ASSESSMENT RESULT")}</p>}
@@ -273,9 +314,9 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
             : <p role="status">{t("本次结果暂不提供购买，请稍后重试。", "本次結果暫不提供購買，請稍後重試。", "Purchasing is unavailable for this result. Please try again later.")}</p>}
         </div>
         {previewProfile && <p className={styles.scoreNote}><Link href={displayNavigationPath("/help/payment-refund", locale)}>{t("查看付款与退款说明", "查看付款與退款說明", "Payment and refund information")}</Link></p>}
-        <Link className={styles.sampleLink} href={preview && previewSampleHref ? previewSampleHref : `/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: iqTotal === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT: iqTotal === 30 ? "iq30" : "iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}${scale === "DISC_BEHAVIOR" && sampleResultId ? `?result=${encodeURIComponent(sampleResultId)}` : ""}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
+        <Link className={styles.sampleLink} href={samplePath}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
       </section>
       </div>
     </>}
-  </div>;
+  </div>{!paid && reasoning && <ReasoningUnlockExplore locale={locale} result={reasoning} samplePath={samplePath} live={Boolean(liveReasoningPage)} />}</>;
 }

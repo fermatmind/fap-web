@@ -1,9 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MainstreamPaidResult } from "@/components/commerce/MainstreamPaidResult";
 import type { RiasecPurchase } from "@/lib/api/v0_3";
 vi.mock("@/app/(localized)/[locale]/career/assessment/Career94Purchase", () => ({ Career94Checkout: ({ displayLocale }: {displayLocale: string}) => <p>Checkout {displayLocale}</p> }));
 vi.mock("@/components/commerce/CareerRefundPanel", () => ({ CareerRefundPanel: ({ onRefunded }: {onRefunded: () => void}) => <button onClick={onRefunded}>Refund synchronized</button> }));
+beforeEach(() => { vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue(null); });
 const purchase: RiasecPurchase = { attempt_id: "owned-attempt", unlocked: false, order_no: null, payment_state: null, offers: [{ provider: "alipay", sku: "MBTI_WEB_REPORT_CNY_299", currency: "CNY", amount_cents: 299 }] };
 describe("mainstream per-attempt full report purchase", () => {
   it.each(["zh", "zh-TW", "en"] as const)("keeps full content out of the unpaid render in %s", locale => {
@@ -58,7 +59,7 @@ describe("mainstream per-attempt full report purchase", () => {
     ["zh", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "40 题中答对 9 题"],
     ["zh-TW", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "40 題中答對 9 題"],
     ["en", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "9 correct out of 40 questions"],
-  ] as const)("shows the real locked IQ summary in %s for %s", (locale, scale, total, correct, accuracy, sentence) => {
+  ] as const)("shows the complete locked IQ result in %s for %s", (locale, scale, total, correct, accuracy, sentence) => {
     const data = { ok: true, meta: { scale_code: scale }, result: { summary: { correct, total, percent_correct: 99, duration_ms: 30000 } } };
     render(<MainstreamPaidResult data={data} purchase={purchase} locale={locale}><p>Private full report</p></MainstreamPaidResult>);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(accuracy);
@@ -69,6 +70,18 @@ describe("mainstream per-attempt full report purchase", () => {
     expect(screen.queryByText(/JobCannon|Private full report|131 IQ/)).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-score-marker")).not.toBeInTheDocument();
     expect(document.querySelector("a[href='#mainstream-purchase']")).not.toBeNull();
+    const sections = ["reasoning-reading-guide", "reasoning-counts", "reasoning-composition", "reasoning-profile", "reasoning-categories", "reasoning-reading", "career-preview", "insight-preview", "mainstream-purchase", "result-share", "continue-exploring"];
+    const inOrder = sections.map(id => document.getElementById(id));
+    for (const [index, element] of inOrder.entries()) {
+      expect(element).toBeVisible();
+      if (index > 0) expect(inOrder[index - 1]?.compareDocumentPosition(element!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+    }
+    expect(document.querySelector('[aria-labelledby="reasoning-counts"] [data-current]')).toHaveTextContent(`${correct} / ${total}`);
+    expect(document.querySelector('[aria-labelledby="reasoning-composition"]')).toHaveTextContent(accuracy);
+    expect(document.querySelectorAll('[aria-labelledby="reasoning-categories"] li').length).toBe(4);
+    expect(document.querySelector('#result-share a[href*="owned-attempt"]')).toBeNull();
+    expect(document.querySelector('a[href$="/help/payment-refund"]')).toBeVisible();
+
   });
 
   it("renders a zero result from a legacy numeric summary without guessing the form from the scale", () => {
@@ -82,6 +95,7 @@ describe("mainstream per-attempt full report purchase", () => {
     const data = { ok: true, meta: { scale_code: "IQ_RAVEN" }, result: { summary: { correct: 31, total: 30 } } };
     render(<MainstreamPaidResult data={data} purchase={purchase} locale="en" />);
     expect(screen.queryByTestId("reasoning-preview-score")).not.toBeInTheDocument();
+    expect(document.getElementById("result-share")).toBeNull();
     expect(screen.getByText("Checkout en")).toBeVisible();
   });
 

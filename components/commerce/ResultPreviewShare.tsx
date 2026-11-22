@@ -175,15 +175,15 @@ function drawPortrait(canvas: HTMLCanvasElement, name: string, highlight: string
   return true;
 }
 
-export function ResultPreviewShare({ name, highlight, locale, samplePath, scores, reasoning, disc, story }: {
-  name: string; highlight: string; locale: DisplayLocale; samplePath: string; scores?: Score[]; reasoning?: ReasoningPreview; disc?: DiscDesignPreview; story?: StoryCard;
+export function ResultPreviewShare({ name, highlight, locale, samplePath, scores, reasoning, disc, story, live = false }: {
+  name: string; highlight: string; locale: DisplayLocale; samplePath: string; scores?: Score[]; reasoning?: ReasoningPreview; disc?: DiscDesignPreview; story?: StoryCard; live?: boolean;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const [portrait, setPortrait] = useState("");
   const [status, setStatus] = useState("");
   const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
-  const example = t("示例结果", "示例結果", "Example result");
+  const example = live ? t("本次测试结果", "本次測驗結果", "Your test result") : t("示例结果", "示例結果", "Example result");
   const correctLabel = t("答对题数", "答對題數", "Correct answers");
   const iqLabel = t("IQ 题本预估分", "IQ 題本預估分", "Estimated IQ · Form model");
   const shareUrl = `https://fermatmind.com${samplePath}`;
@@ -192,7 +192,9 @@ export function ResultPreviewShare({ name, highlight, locale, samplePath, scores
   const title = resultTitle
     ? t(`分享「${resultTitle}」结果卡`, `分享「${resultTitle}」結果卡`, `Share the ${resultTitle} card`)
     : t(`分享${name}结果卡`, `分享${name}結果卡`, `Share your ${name} card`);
-  const description = t("下载示例卡片，或把公开报告链接发给朋友。", "下載示例卡片，或把公開報告連結發給朋友。", "Download the example card or send a link to the public report.");
+  const description = live
+    ? t("下载本次结果卡，或分享公开示例报告链接。", "下載本次結果卡，或分享公開示例報告連結。", "Download your result card or share the public sample report link.")
+    : t("下载示例卡片，或把公开报告链接发给朋友。", "下載示例卡片，或把公開報告連結發給朋友。", "Download the example card or send a link to the public report.");
   const failed = t("操作未完成，请重试。", "操作未完成，請重試。", "Could not complete the action. Please try again.");
   useEffect(() => {
     let active = true;
@@ -212,12 +214,14 @@ export function ResultPreviewShare({ name, highlight, locale, samplePath, scores
     return () => { active = false; cancelAnimationFrame(frame); };
   }, [example, highlight, name, scores, reasoning, iqLabel, correctLabel, disc, story]);
 
-  const card = portrait ? <Image unoptimized className={styles.previewShareCard} src={portrait} width={720} height={1280} alt={`${name} · ${example}${resultTitle ? ` · ${resultTitle}` : scores?.length ? ` · ${highlight}` : ""}${story?.tags.length ? ` · ${story.tags.join(" · ")}` : ""}${reasoning?.referenceScore == null ? "" : ` · ${iqLabel} ${reasoning.referenceScore}`}`} /> : <div className={styles.previewShareCard} aria-hidden="true" />;
+  const reasoningAlt = reasoning?.referenceScore != null ? ` · ${iqLabel} ${reasoning.referenceScore}`
+    : reasoning ? ` · ${correctLabel} ${reasoning.correct} / ${reasoning.total}` : "";
+  const card = portrait ? <Image unoptimized className={styles.previewShareCard} src={portrait} width={720} height={1280} alt={`${name} · ${example}${resultTitle ? ` · ${resultTitle}` : scores?.length ? ` · ${highlight}` : ""}${story?.tags.length ? ` · ${story.tags.join(" · ")}` : ""}${reasoningAlt}`} /> : <div className={styles.previewShareCard} aria-hidden="true" />;
   const downloadCard = (platform?: string) => {
     if (!portrait) { setStatus(failed); return; }
     const link = document.createElement("a");
     link.href = portrait;
-    link.download = "fermatmind-example.png";
+    link.download = live ? "fermatmind-reasoning-result.png" : "fermatmind-example.png";
     link.click();
     setStatus(platform
       ? t(`已下载图片，可在 ${platform} 添加。`, `已下載圖片，可在 ${platform} 加入。`, `Image downloaded. Add it in ${platform}.`)

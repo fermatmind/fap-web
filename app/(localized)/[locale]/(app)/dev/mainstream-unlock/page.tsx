@@ -170,7 +170,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
      </> : (
        <div className={unlockStyles.dashboardPreview}>
          {previewResult}
-         <div className={unlockStyles.previewExplore}>
+         {!reasoning && <div className={unlockStyles.previewExplore}>
            <nav aria-label={t("下一步", "下一步", "Next steps")} className={unlockStyles.previewNavCards}>
              <Link href={related}><strong>{currentAssessmentPath
                ? t("查看测评介绍", "查看測驗介紹", "About this assessment")
@@ -189,7 +189,7 @@ export default async function Preview({params,searchParams}:{params:Promise<{loc
                <Link href={displayNavigationPath(bigFive ? "/history/big5" : "/account", locale)}>{t("我的结果", "我的結果", "My results")} →</Link>
              </div>
            </section>
-         </div>
+         </div>}
        </div>
      )}
    </main>

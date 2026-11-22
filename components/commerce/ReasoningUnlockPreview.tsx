@@ -1,4 +1,4 @@
-import { BookOpen, ChartNoAxesColumnIncreasing, Grid2X2, Hash, UserRound } from "lucide-react";
+import { BookOpen, ChartNoAxesColumnIncreasing, CircleCheck, CircleMinus, Grid2X2, Hash, LockKeyhole, UserRound } from "lucide-react";
 import Image from "next/image";
 import { ScoreDistribution } from "@/components/result/iq/IqResultShell";
 import type { DisplayLocale } from "@/lib/i18n/locales";
@@ -101,9 +101,93 @@ export function ReasoningUnlockSummary({ result, locale, durationMs, live }: {
   );
 }
 
-export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPreview; locale: DisplayLocale }) {
+function LiveReasoningDetails({ result, locale }: { result: ReasoningPreview; locale: DisplayLocale }) {
+  const t = (zh: string, tw: string, en: string) => locale === "en" ? en : locale === "zh-TW" ? tw : zh;
+  const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
+  const rows = [
+    { label: t("答对", "答對", "Correct"), count: result.correct, icon: CircleCheck },
+    { label: t("未答对", "未答對", "Not correct"), count: result.total - result.correct, icon: CircleMinus },
+  ];
+  const categories = [
+    { label: t("视觉空间洞察", "視覺空間洞察", "Visual-spatial insight"), icon: Grid2X2 },
+    { label: t("视觉空间模式推理", "視覺空間模式推理", "Visual-spatial pattern reasoning"), icon: ChartNoAxesColumnIncreasing },
+    { label: t("数字规律推理", "數字規律推理", "Numerical pattern reasoning"), icon: Hash },
+  ];
+
+  return <div className={styles.reasoningDetails} aria-labelledby="reasoning-reading-guide">
+    <section className={styles.reasoningPanel}>
+      <h2 id="reasoning-reading-guide">{t("如何阅读本次结果", "如何閱讀本次結果", "How to read this result")}</h2>
+      <p>{t("以下数据来自本次题本。正确率按答对题数除以总题数计算。", "以下資料來自本次題本。正確率按答對題數除以總題數計算。", "These figures come from this attempt. Accuracy is the number correct divided by the total number of questions.")}</p>
+    </section>
+    <section className={styles.reasoningPanel} aria-labelledby="reasoning-counts">
+      <h2 id="reasoning-counts">{t("本次答题表现", "本次作答表現", "Your answer counts")}</h2>
+      <ul className={styles.reasoningPeople}>
+        {rows.map(({ label, count, icon: Icon }) => <li key={label}>
+          <span className={styles.reasoningAvatar} aria-hidden="true"><Icon size={20} /></span>
+          <div><strong>{label}</strong></div>
+          <strong className={styles.reasoningComparisonValue}>{format.format(count)}</strong>
+        </li>)}
+        <li data-current>
+          <span className={styles.reasoningAvatar} aria-hidden="true"><UserRound size={20} /></span>
+          <div><strong>{t("你", "你", "You")}</strong><small>{t("本次测试结果", "本次測驗結果", "This test result")}</small></div>
+          <strong className={styles.reasoningComparisonValue}>{result.correct} / {result.total}</strong>
+        </li>
+      </ul>
+    </section>
+    <section className={styles.reasoningPanel} aria-labelledby="reasoning-composition">
+      <h2 id="reasoning-composition">{t("本次作答分布", "本次作答分布", "Answer distribution")}</h2>
+      <ul className={styles.reasoningRegions}>
+        {rows.map(({ label, count }) => {
+          const percent = count / result.total * 100;
+          return <li key={label}>
+            <div><strong>{label}</strong><strong>{format.format(percent)}%</strong></div>
+            <div className={styles.reasoningComposition} aria-hidden="true"><span style={{ width: `${percent}%` }} /></div>
+          </li>;
+        })}
+      </ul>
+    </section>
+    <section className={styles.reasoningPanel} aria-labelledby="reasoning-profile">
+      <h2 id="reasoning-profile">{t("你的认知档案", "你的認知檔案", "Your cognitive profile")}</h2>
+      <p>{t(
+        `你在这份 ${result.total} 题的题本中答对了 ${result.correct} 题。完整报告可帮助你查看各类推理题的表现。`,
+        `你在這份 ${result.total} 題的題本中答對了 ${result.correct} 題。完整報告可幫助你查看各類推理題的表現。`,
+        `You answered ${result.correct} of ${result.total} questions correctly on this form. The full report breaks down performance by reasoning category.`,
+      )}</p>
+    </section>
+    <section className={styles.reasoningPanel} aria-labelledby="reasoning-categories">
+      <h2 id="reasoning-categories">{t("认知能力分解", "認知能力分解", "Cognitive ability breakdown")}</h2>
+      <ul className={styles.reasoningCategories}>
+        {categories.map(({ label, icon: Icon }) => <li key={label}>
+          <div><Icon size={18} aria-hidden="true" /><strong>{label}</strong><span>{t("解锁后查看", "解鎖後查看", "Available after unlock")}</span></div>
+          <div className={styles.reasoningComposition} aria-hidden="true" />
+        </li>)}
+      </ul>
+      <ul className={styles.reasoningReading}>
+        <li><LockKeyhole size={18} aria-hidden="true" /><div><strong>{t("查看各类题目的正确率", "查看各類題目的正確率", "See accuracy by category")}</strong><p>{t("完整报告会按推理类别展示答对题数和题量。", "完整報告會按推理類別展示答對題數和題量。", "The full report shows the number correct and total questions for each reasoning category.")}</p></div></li>
+      </ul>
+    </section>
+    <section className={styles.reasoningPanel} aria-labelledby="reasoning-reading">
+      <h2 id="reasoning-reading">{t("本次正确率代表什么", "本次正確率代表什麼", "What your accuracy means")}</h2>
+      <ul className={styles.reasoningReading}>
+        <li><span aria-hidden="true">💼</span><div><strong>{t("工作中", "工作中", "At work")}</strong><p>{t("遇到新的图表或流程时，先列出已知关系，再逐项验证你的判断。", "遇到新的圖表或流程時，先列出已知關係，再逐項驗證你的判斷。", "When learning a new diagram or process, list the known relationships and check your assumptions one at a time.")}</p></div></li>
+        <li><span aria-hidden="true">📚</span><div><strong>{t("学习时", "學習時", "When studying")}</strong><p>{t("练习时先写下你用的规则，再用另一道题检查这个规则是否还成立。", "練習時先寫下你用的規則，再用另一道題檢查這個規則是否還成立。", "Write down the rule you used, then test it against another example.")}</p></div></li>
+      </ul>
+    </section>
+  </div>;
+}
+
+export function ReasoningUnlockPreview({ result, locale, durationMs, live = false }: {
+  result: ReasoningPreview;
+  locale: DisplayLocale;
+  durationMs?: number;
+  live?: boolean;
+}) {
   const languageIndex = locale === "en" ? 2 : locale === "zh-TW" ? 1 : 0;
   const t = (zh: string, tw: string, en: string) => [zh, tw, en][languageIndex];
+  if (live) return <>
+    <ReasoningUnlockSummary result={result} locale={locale} durationMs={durationMs} live />
+    <LiveReasoningDetails result={result} locale={locale} />
+  </>;
   const currentValue = result.referenceScore ?? ((result.correct / result.total) * 100);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
   return <>
