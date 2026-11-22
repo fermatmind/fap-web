@@ -24,11 +24,13 @@ describe("Focused DISC landing", () => {
     }
     expect(String(metadata.alternates?.canonical)).toContain(path);
     const schema = [...article.querySelectorAll('script[type="application/ld+json"]')]
-      .map(script => JSON.parse(script.textContent!)).find(value => value["@type"] === "FAQPage");
-    const visible = [...article.querySelectorAll("#faq details")].map(item => [
+      .map(script => JSON.parse(script.textContent!)).flatMap(value => value["@graph"] ?? [value])
+      .find(value => value["@type"] === "FAQPage");
+    const visible = [...article.querySelectorAll("details[data-ent-faq], #faq details")].map(item => [
       item.querySelector("summary")?.textContent,
       item.querySelector("p")?.textContent,
     ]);
+    expect(visible.length).toBeGreaterThan(0);
     expect(visible).toEqual(schema.mainEntity.map((item: {name: string; acceptedAnswer: {text: string}}) =>
       [item.name, item.acceptedAnswer.text]));
   });

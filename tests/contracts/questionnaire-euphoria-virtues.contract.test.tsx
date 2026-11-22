@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
+import { sevenSinsLandingCopy, sevenSinsLandingSeo } from "@/lib/questionnaires/sevenSinsLandingCopy";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isMiniVirtuesConfigurationValid, scoreMiniVirtuesQuestionnaire, miniVirtuesDefinitions } from "@/lib/questionnaires/miniVirtues";
 import { isEuphoriaConfigurationValid, euphoriaDefinitions } from "@/lib/questionnaires/euphoria";
@@ -224,9 +225,12 @@ describe("C formal continuation: VIRTUES source and original T110", () => {
       for (const quiz of [virtues,euphoria]) for (const locale of ["en","zh"] as const) {
         const path = `/${locale}/tests/explore/${quiz.slug}`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const rendered = dom(renderToStaticMarkup(await entry.default(props))), meta = await entry.generateMetadata(props);
-        expect(rendered.querySelectorAll("h1")).toHaveLength(1); expect(rendered.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
-        expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
-        expect(rendered.textContent).toContain(quiz.instructions![locale]);
+        expect(rendered.querySelectorAll("h1")).toHaveLength(1);
+        expect(rendered.querySelector("h1")?.textContent).toBe(quiz === virtues ? sevenSinsLandingCopy[locale].title : quiz.title[locale]);
+        expect(meta.title).toEqual(quiz === virtues ? { absolute: sevenSinsLandingSeo[locale].title } : quiz.seoTitle[locale]);
+        expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
+        if (quiz === virtues) expect(rendered.textContent).toContain(sevenSinsLandingCopy[locale].formula);
+        else expect(rendered.textContent).toContain(quiz.instructions![locale]);
         for (const method of quiz.guide.slice(0,3)) expect(rendered.textContent).toContain(method.paragraphs[0][locale]);
         if (quiz===virtues) for (const section of quiz.guide.slice(3)) for (const p of section.paragraphs) expect(rendered.textContent).toContain(p[locale]);
         expect(rendered.querySelectorAll("#questionnaire-method h3")).toHaveLength(0);

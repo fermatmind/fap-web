@@ -9,8 +9,16 @@ describe('285-product closeout: specific remaining editorial and explanation reg
     const route=await import('@/app/(localized)/[locale]/tests/explore/[slug]/page');
     const dom=document.createElement('div'); dom.innerHTML=renderToStaticMarkup(await route.default({params:Promise.resolve({locale,slug})}));
     expect(dom.querySelector('h1')?.textContent).toBe(quiz.title[locale]);
-    for(const section of completionGapEditorial[slug].sections) for(const p of section.paragraphs) expect(dom.textContent).toContain(p[locale]);
-    for(const f of completionGapEditorial[slug].faq) expect(dom.textContent).toContain(f.answer[locale]);
+    if (slug === "flower") {
+      const reference = dom.querySelector('[data-ent-module="reference"]');
+      expect(reference?.querySelectorAll("[data-ent-faq]")).toHaveLength(6);
+      expect(reference?.textContent).toContain(locale === "zh" ? "保留全部最高同分" : "All flowers at the highest count stay in the result");
+      expect(dom.querySelectorAll('[data-ent-module="profiles"] [data-ent-result-id]')).toHaveLength(6);
+      expect(dom.querySelector('[data-ent-module="method"] [data-explore-choice] button')).not.toBeNull();
+    } else {
+      for(const section of completionGapEditorial[slug].sections) for(const p of section.paragraphs) expect(dom.textContent).toContain(p[locale]);
+      for(const f of completionGapEditorial[slug].faq) expect(dom.textContent).toContain(f.answer[locale]);
+    }
     for(const p of quiz.profiles) expect(dom.querySelector(`a[href="/${locale}/tests/explore/${slug}/results/${p.id}"]`)).not.toBeNull();
     expect(dom.querySelector('#take-test')).not.toBeNull();
     expect(dom.querySelector('#take-test input[required]')).toBeNull();

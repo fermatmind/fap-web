@@ -52,7 +52,23 @@ describe("complete bilingual entertainment entry rendering", () => {
           if (index) expect(metadata.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/play/${quiz.slug}`, "zh-CN": `https://fermatmind.com/zh/tests/play/${quiz.slug}` });
           else expect(metadata.alternates?.languages).toBeUndefined();
           expect(metadata.robots).toMatchObject({ index, follow: true });
-          for (const faq of authored.faq) {
+          const schemas = [...dom.querySelectorAll('script[type="application/ld+json"]')];
+          const flagship = dom.querySelector(`main[data-flagship-entry="${quiz.slug}"]`);
+          if (flagship) {
+            expect(schemas).toHaveLength(1);
+            const graph = JSON.parse(schemas[0].textContent!)["@graph"];
+            const faq = graph.find((item: Record<string, unknown>) => item["@type"] === "FAQPage");
+            const visibleFaq = [...dom.querySelectorAll("[data-ent-faq]")].map((node) => ({
+              "@type": "Question",
+              name: node.querySelector("summary")?.textContent,
+              acceptedAnswer: { "@type": "Answer", text: node.querySelector("[data-ent-faq-answer]")?.textContent },
+            }));
+            expect(visibleFaq).toHaveLength(6);
+            expect(faq?.mainEntity).toEqual(visibleFaq);
+          } else {
+            expect(schemas).toHaveLength(2);
+          }
+          for (const faq of flagship ? [] : authored.faq) {
             expect(dom.textContent).toContain(quiz.slug === "music-taste-test" ? musicCurrentEntryCopy(faq.question[locale], locale) : quiz.slug === "people-pleaser" ? peoplePleaserCurrentEntryCopy(faq.question[locale], locale) : quiz.slug === "difficult-person-test" ? frictionCurrentEntryCopy(faq.question[locale], locale) : faq.question[locale]);
             const answer = quiz.slug === "response-color" ? responseColorCurrentEntryCopy(faq.answer[locale], locale)
               : quiz.slug === "moral-alignment" ? moralAlignmentCurrentEntryCopy(faq.answer[locale], locale)
@@ -84,7 +100,6 @@ describe("complete bilingual entertainment entry rendering", () => {
           }
           expect(dom.querySelector("#take-test")?.textContent).toContain(locale === "zh" ? "开始测试" : "Start test");
           expect(dom.querySelector("#take-test a[href*='mbti']")).toBeNull();
-          expect(dom.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(2);
           continue;
         }
         expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);

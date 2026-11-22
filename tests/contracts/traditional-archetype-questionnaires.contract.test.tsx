@@ -33,7 +33,8 @@ it.each(Object.entries(members).filter(([slug]) => slug !== "jungian-archetype")
   expect(await traditionalArchetypeMetadata({ slug })).toMatchObject({ robots: { index: false }, alternates: { canonical: route } });
 
   const { container } = render(await ArchetypeQuestionnairePage({ slug }));
-  if (hasFilmEditorial(slug)) {
+  const characterLanding = container.querySelector('main[data-ent-slot="C"]');
+  if (hasFilmEditorial(slug) && !characterLanding) {
     const citations = [...container.querySelectorAll(`a[href^="#${slug}-reference-"]`)];
     const references = slug === "color-season" ? colorSeasonLandingReferences
       : slug === "sake-type" ? sakeTypeLandingReferences
@@ -47,9 +48,19 @@ it.each(Object.entries(members).filter(([slug]) => slug !== "jungian-archetype")
   expect(screen.getByRole("heading", { name: quiz.title.zh })).toBeVisible();
   const start = screen.getByRole("button", { name: "開始測驗" }).closest("form");
   expect(start).toHaveAttribute("action", route + "/take");
-  expect(start?.querySelector('input[name="start"]')).toHaveValue("1");
+  if (characterLanding) {
+    expect(start?.querySelector('input[name="start"]')).toBeNull();
+    const references = (source.references ?? []).filter(reference => !reference.hiddenOnLanding);
+    for (const reference of references)
+      expect(characterLanding.querySelector(`[data-ent-boundary] a[href="${reference.url}"]`)).not.toBeNull();
+  } else {
+    expect(start?.querySelector('input[name="start"]')).toHaveValue("1");
+  }
   for (const profile of quiz.profiles) {
-    expect(screen.getAllByRole("link", { name: profile.title.zh }).every(link => link.getAttribute("href") === questionnaireGuidePath("zh-TW", slug, profile.id))).toBe(true);
+    const guidePath = questionnaireGuidePath("zh-TW", slug, profile.id);
+    if (characterLanding)
+      expect(characterLanding.querySelector(`[data-ent-result-id="${profile.id}"] a[href="${guidePath}"]`)).not.toBeNull();
+    else expect(screen.getAllByRole("link", { name: profile.title.zh }).every(link => link.getAttribute("href") === guidePath)).toBe(true);
     const original = prepareResultProfile(slug, source.profiles.find(item => item.id === profile.id)!);
     expect(profile.sections.map(section => [section.id, section.paragraphs.length])).toEqual(original.sections.map(section => [section.id, section.paragraphs.length]));
     expect(profile.sections.flatMap(section => section.paragraphs.map(paragraph => paragraph.en)))

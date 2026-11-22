@@ -76,6 +76,9 @@ describe("entertainment preview entry", () => {
   });
   it("renders both locales of all current native entries with their complete guide paragraphs and current progress copy", async () => {
     const entry = (await import("@/components/questionnaires/QuestionnairePage")).default;
+    const { sevenSinsLandingCopy } = await import("@/lib/questionnaires/sevenSinsLandingCopy");
+    const { standaloneStoryLandingCopy } = await import("@/lib/questionnaires/storyRoleLandingCopy");
+    const { mentalAgeLandingCopy } = await import("@/lib/questionnaires/mentalAgeLandingCopy");
     const omitted: string[] = [];
     for (const item of catalog) {
       const quiz = (await loadQuestionnaire(item.slug))!;
@@ -83,7 +86,14 @@ describe("entertainment preview entry", () => {
         const dom = document.createElement("div");
         dom.innerHTML = renderToStaticMarkup(await entry({ params: Promise.resolve({ slug: item.slug, locale }) }));
         expect(dom.querySelectorAll("h1"), `${item.slug}:${locale}`).toHaveLength(1);
-        expect(dom.querySelector("h1")?.textContent, item.slug).toBe(quiz.title[locale]);
+        const heading = item.slug === "seven-sins-virtues-test" ? sevenSinsLandingCopy[locale].title
+          : item.slug === "mental-age" ? mentalAgeLandingCopy[locale].title : quiz.title[locale];
+        expect(dom.querySelector("h1")?.textContent, item.slug).toBe(heading);
+        if (item.slug === "mental-age" || item.slug === "seven-sins-virtues-test") {
+          expect(dom.querySelector('main[data-test-explore-template]')).not.toBeNull();
+          expect(dom.querySelector('[data-test-explore-reference] details:not([open])')).not.toBeNull();
+          continue;
+        }
         for (const section of item.slug === "delulu-test" ? deluluResultSections(quiz.guide) : quiz.guide) for (const paragraph of section.paragraphs) {
           const normalize = (s: string) => s.replace(/\[[1-3]\]/g, "").replace(/\s+/g, " ").trim();
           const expected = item.slug === "bleach" ? bleachCurrentEntryCopy(paragraph[locale], locale) : item.slug === "response-color" ? responseColorCurrentEntryCopy(paragraph[locale], locale)
@@ -106,7 +116,9 @@ describe("entertainment preview entry", () => {
             : item.slug === "learning-style" ? learningCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "character-strengths" ? strengthsCurrentEntryCopy(paragraph[locale], locale)
             : item.slug === "tsundere-dere-type" ? dereCurrentEntryCopy(paragraph[locale], locale)
-            : item.slug === "hogwarts-house-quiz" ? hogwartsCurrentEntryCopy(paragraph[locale], locale) : paragraph[locale];
+            : item.slug === "hogwarts-house-quiz" ? hogwartsCurrentEntryCopy(paragraph[locale], locale)
+            : item.slug === "south-park" || item.slug === "anime-character-archetype-test" ? standaloneStoryLandingCopy(paragraph[locale], locale)
+            : paragraph[locale];
           if (!normalize(dom.textContent ?? "").includes(normalize(expected))) omitted.push(`${item.slug}:${locale}:${section.id}`);
         }
         if (item.slug === "moral-alignment" || item.slug === "jungian-archetype") {
