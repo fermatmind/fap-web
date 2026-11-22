@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToReadableStream, renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isDirectionalConfigurationValid, readQuestionnaireDraft, scoreDirectionalQuestionnaire } from "@/lib/questionnaires/scoring";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
@@ -80,16 +80,19 @@ describe("T076 original gender-neutral Egen-Teto first-move edition", () => {
   });
 
   it("describes the actual two-direction entry and retains the four-direction DISC entry", async () => {
-    const { default: entry } = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
-    for (const locale of ["en", "zh"] as const) for (const [slug, count] of [["egen-teto", 2], ["disc", 4]] as const) {
-      const root = document.createElement("div"); root.innerHTML = renderToStaticMarkup(await entry({ params: Promise.resolve({ locale, slug }) }));
-      const copy = root.querySelector('[aria-labelledby="questionnaire-results"] > p')?.textContent;
-      if (slug === "egen-teto") expect(copy).toContain(locale === "zh" ? `全部${count}个单项` : `all ${count} single directions`);
-      else {
-        expect(root.querySelector("[data-ent-module=profiles]")?.querySelectorAll("[data-ent-result-id]")).toHaveLength(15);
-        const disc = (await loadQuestionnaire(slug))!;
-        for (const profile of disc.profiles)
-          expect(root.querySelector(`[data-ent-result-id="${profile.id}"] a[href="/${locale}/tests/explore/disc/results/${profile.id}"]`)).not.toBeNull();
+    const { default: egenTeto } = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page");
+    const { default: disc } = await import("@/app/(localized)/[locale]/tests/explore/disc/page");
+    const discQuiz = (await loadQuestionnaire("disc"))!;
+    expect(discQuiz.profiles).toHaveLength(15);
+    for (const locale of ["en", "zh"] as const) {
+      const root = document.createElement("div");
+      root.innerHTML = renderToStaticMarkup(await egenTeto({ params: Promise.resolve({ locale, slug: "egen-teto" }) }));
+      expect(root.querySelector('[aria-labelledby="questionnaire-results"] > p')?.textContent)
+        .toContain(locale === "zh" ? "全部2个单项" : "all 2 single directions");
+      const page = await disc({ params: Promise.resolve({ locale }) });
+      root.innerHTML = await new Response(await renderToReadableStream(page)).text();
+      for (const { id } of discQuiz.profiles) {
+        expect(root.querySelector(`a[href="/${locale}/tests/explore/disc/results/${id}"]`)).not.toBeNull();
       }
     }
   });
