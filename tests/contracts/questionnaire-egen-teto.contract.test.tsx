@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { isDirectionalConfigurationValid, readQuestionnaireDraft, scoreDirectionalQuestionnaire } from "@/lib/questionnaires/scoring";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { MoreTests } from "@/components/entertainment/MoreTests";
 
@@ -85,8 +86,10 @@ describe("T076 original gender-neutral Egen-Teto first-move edition", () => {
       const copy = root.querySelector('[aria-labelledby="questionnaire-results"] > p')?.textContent;
       if (slug === "egen-teto") expect(copy).toContain(locale === "zh" ? `全部${count}个单项` : `all ${count} single directions`);
       else {
-        expect(copy).toContain(locale === "zh" ? "15种组合" : "All 15 single-direction or highest-count tied combinations");
-        expect(root.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(15);
+        expect(root.querySelector("[data-ent-module=profiles]")?.querySelectorAll("[data-ent-result-id]")).toHaveLength(15);
+        const disc = (await loadQuestionnaire(slug))!;
+        for (const profile of disc.profiles)
+          expect(root.querySelector(`[data-ent-result-id="${profile.id}"] a[href="/${locale}/tests/explore/disc/results/${profile.id}"]`)).not.toBeNull();
       }
     }
   });
