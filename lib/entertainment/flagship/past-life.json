@@ -1,0 +1,308 @@
+{
+  "zh": {
+    "facts": "费马测试的前世测试含24道原创历史主题情境题，约7分钟，免注册。答完可免费看八个虚构故事角色的次数与所有最高并列，八篇公开指南可直接阅读。",
+    "intro": "走进一个历史主题体验角，你想先写份记录、看看器物的形状，还是试着在纸上画一条旧地图里的路线？用约 7 分钟做完 24 道原创题，找一个愿意读下去的虚构故事角色。",
+    "deliverables": [
+      [
+        "看八种故事做法的次数",
+        "每题加 1，合计 24。最高并列的虚构角色都会保留。"
+      ],
+      [
+        "阅读八份免费故事指南",
+        "指南中的历史资料与虚构活动分开，作答前也可阅读。"
+      ],
+      [
+        "复制公开名称及链接",
+        "单项最高分享名称和指南。并列分享所有最高名称及入口，不附答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "书吏最高，7 次",
+        "八项依次是 7、3、3、3、2、2、2、2。样例比较常选把事情记下来。"
+      ],
+      [
+        "印工和海图师各 5 次",
+        "八项为 2、2、5、2、2、2、5、4。可比较复看几次印样，以及在虚构地图上比较路径。"
+      ],
+      [
+        "全选 A，八种各 3 次",
+        "每种角色在 A 位出现三次，结果会保留全部指南。不妨再看看题目讲的是什么活动。"
+      ]
+    ],
+    "profiles": {
+      "scribe": [
+        "把想留下的事写清楚",
+        "你这次较常选在虚构工作间整理文字记录。",
+        "在模拟古埃及书写展台，你写一张简短物件清单，让下一位能读懂。"
+      ],
+      "potter": [
+        "比较形状和用途",
+        "你这次较常选先想一件器物用起来会怎样。",
+        "看罗马器皿主题活动时，你在纸上画两个碗口，比较哪个便于在故事里使用。"
+      ],
+      "printer": [
+        "把两次印样摆在一起",
+        "你这次较常选看版面安排及重复呈现的细节。",
+        "在宋代印刷主题体验里，你用两张模拟印样看边框是否齐整。"
+      ],
+      "weaver": [
+        "看一小片怎样接进纹样",
+        "你这次较常选试试交错排列和重复图案。",
+        "织造主题活动里，你把彩色纸条相互穿过，再观察哪里的颜色会连续。"
+      ],
+      "drafter": [
+        "用线条试出一个构图",
+        "你这次较常选在虚构画坊里比较几种草图。",
+        "在文艺复兴主题展台，你移动纸上的几条线，试试怎样留下合适的空白。"
+      ],
+      "trader": [
+        "把交换条件说给双方听",
+        "你这次较常选比较物件描述与是否愿意交换。",
+        "在商旅故事里，你拿两张虚构货物卡比较，让对方决定是否愿意交换。"
+      ],
+      "chartmaker": [
+        "在地图上留好不确定的地方",
+        "你这次较常选标位置、比较路线并记下未知。",
+        "看虚构海岸图时，你标出两个落脚点，也用虚线画出尚未确认的路线。"
+      ],
+      "naturalist": [
+        "把观察和标注放在一起",
+        "你这次较常选描述材料上的细节并留一条说明。",
+        "在博物记录主题体验里，你给展台的叶形复制品写下颜色与边缘特征。"
+      ]
+    },
+    "faq": [
+      [
+        "能测出我真实的前世吗？",
+        "不能。结果是依据当下选择写成的虚构故事角色。"
+      ],
+      [
+        "需要生日或回忆以前的事情吗？",
+        "不需要。题目都是虚构的历史主题活动，只选你现在愿意试的做法。"
+      ],
+      [
+        "24 道题如何计数？",
+        "每题四选一，给相应角色加 1。每种出现 12 次，各 0–12，合计 24。"
+      ],
+      [
+        "如何处理并列？",
+        "全部并列最高会完整显示。全选 A 时八种各有 3 次。"
+      ],
+      [
+        "指南里的历史背景真实吗？",
+        "博物馆和文化机构资料用于注明历史背景。故事角色、活动与配对由费马创作，不据此推断任何人的真实历史。"
+      ],
+      [
+        "分享会附逐题答案吗？",
+        "公开分享只复制名称和同语链接，不附答案、次数或私人标识。本版没有个人 PNG。"
+      ]
+    ],
+    "formula": "24 题每题四选一，给选中的虚构角色加 1。八种角色各出现 12 次，各 0–12，合计 24。同为最高时全部保留。",
+    "boundary": "费马用馆藏和文化资料核对历史背景，再原创虚构情境。计数描述当下选法，不能还原前世、证明超自然现象、推断血缘身份、技能或心理状况。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的前世測驗有24道原創歷史情境題，約7分鐘，免註冊。答完可免費看八個虛構故事角色的次數與並列最高結果，八篇公開指南可以直接讀。",
+    "intro": "參加歷史主題體驗時，你會先想寫一張清單、看看器物怎麼用，還是挑一張舊海圖的路線？花約 7 分鐘答完 24 題，找找哪些虛構角色最貼近你現在想試的做法。",
+    "deliverables": [
+      [
+        "看八種做法的次數",
+        "每題替一位故事角色加 1，合計 24。並列最高都會顯示。"
+      ],
+      [
+        "免費讀八篇角色指南",
+        "指南將歷史背景與原創故事分開寫，作答前也能開來看。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "只有一項最高會分享指南；並列會複製所有最高名稱和測驗入口，不附回答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "書吏最高，7 次",
+        "八項依序是 7、3、3、3、2、2、2、2，範例比較常選擇把事情寫下來。"
+      ],
+      [
+        "印工和海圖師並列，各 5 次",
+        "八項是 2、2、5、2、2、2、5、4。可以對照怎麼檢查印樣，以及如何在虛構地圖上畫幾條可能的路。"
+      ],
+      [
+        "一路選 A，八個角色各 3 次",
+        "每個角色在 A 位出現三次，所以會列出八篇指南。再看每道題的活動更容易理解這次的選擇。"
+      ]
+    ],
+    "profiles": {
+      "scribe": [
+        "把想留下來的資訊寫下來",
+        "你比較常選把要給下一個人的資訊寫清楚。",
+        "在模擬書寫展臺，你寫一張簡短的物件清單。"
+      ],
+      "potter": [
+        "看形狀和用法怎麼配",
+        "你比較常選看看器物的形狀會帶來什麼差異。",
+        "手作活動裡，你畫兩個不同的碗口，再想故事中的人會怎麼拿。"
+      ],
+      "printer": [
+        "看看每次印出來有哪裡不同",
+        "你比較常選對照版面、邊緣和重複印樣。",
+        "在印刷體驗裡，你把兩張模擬印樣並排，看哪邊的留白不一樣。"
+      ],
+      "weaver": [
+        "用交錯的部分組成花紋",
+        "你比較常選試試紙條怎麼交錯，哪裡會形成重複。",
+        "在織造主題展示中，你用彩紙試做一小塊組合。"
+      ],
+      "drafter": [
+        "挪幾條線看畫面怎麼變",
+        "你比較常選先比較幾個構圖再決定。",
+        "在虛構畫坊裡，你挪一張剪紙，看這樣能不能多留一些空白。"
+      ],
+      "trader": [
+        "把物件與交換方式說清楚",
+        "你比較常選看看交換的條件雙方是否都能接受。",
+        "在商旅故事中，你拿著兩張貨物卡問對方想不想交換。"
+      ],
+      "chartmaker": [
+        "畫路線，也標出還不知道的地方",
+        "你比較常選先定位，再對照幾條可行的路。",
+        "看虛構海岸圖時，你標了兩個可能靠岸的位置，尚未確定的部分用虛線表示。"
+      ],
+      "naturalist": [
+        "散在畫面上的細節可以多記一點",
+        "你比較常選先觀察再寫下看見的特徵。",
+        "在博物記錄活動裡，你替一片葉形複製品記下顏色與邊緣。"
+      ]
+    },
+    "faq": [
+      [
+        "可以找出真正的前世嗎？",
+        "不行。這是以當下回答為起點的虛構角色配對。"
+      ],
+      [
+        "需要生日或以前的回憶嗎？",
+        "不用。每題是原創的歷史主題情境，只選現在比較想試的做法。"
+      ],
+      [
+        "24 題怎麼計次？",
+        "每題四選一，替選中的角色加 1。每種出現 12 次，各為 0–12，合計 24。"
+      ],
+      [
+        "幾個角色最高同分怎麼辦？",
+        "所有同為最高的都保留。全選 A 會八種各出現 3 次。"
+      ],
+      [
+        "故事資料等於真實歷史嗎？",
+        "博物館和文化機構資料用來確認歷史背景。情境、角色配對和對話是原創虛構。"
+      ],
+      [
+        "轉傳會附上作答或個人圖卡嗎？",
+        "公開分享只複製名稱與連結，不附作答、次數或識別資料。沒有個人 PNG。"
+      ]
+    ],
+    "formula": "24 題每題四選一，替對應的虛構角色加 1。八種各出現 12 次，單項 0–12，總數 24。同為最高的都保留。",
+    "boundary": "費馬用館藏與文化機構資料核對歷史背景，再另外編寫故事情境。結果無法找出前世、證實靈性現象、判定血緣身分或評估能力。"
+  },
+  "en": {
+    "facts": "FermatMind’s Past Life Quiz has 24 original history-themed scenarios and takes about seven minutes. It is free without registration. Results count choices for eight fictional story roles and keep every highest tie. Eight public guides can be read before answering. Historical sources provide background for the stories, and the quiz does not identify a previous life. Full results are free to read.",
+    "intro": "At a history-themed activity, would you write a record, look at how an object was shaped, or trace an imagined route on a chart? Answer 24 original questions to find a fictional story role you might enjoy reading about.",
+    "deliverables": [
+      [
+        "See eight story-role counts",
+        "Each choice adds one, for a total of 24. Every tie for the highest count stays."
+      ],
+      [
+        "Read all eight public guides",
+        "The guides explain what is historical background and what was invented for the quiz. Read any guide before answering."
+      ],
+      [
+        "Copy a public name and link",
+        "One highest result shares its guide. Tied results share leading names and the quiz page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Scribe leads at 7",
+        "The counts are 7, 3, 3, 3, 2, 2, 2, and 2. The sample often chose to leave a written record."
+      ],
+      [
+        "Printer and Chartmaker tie at 5 each",
+        "The counts are 2, 2, 5, 2, 2, 2, 5, and 4. Compare reviewing a pair of print samples with sketching two possible routes."
+      ],
+      [
+        "All A: eight roles with 3 each",
+        "Every role appears three times in position A, so all the guides are shown. Return to the activities to understand the choices."
+      ]
+    ],
+    "profiles": {
+      "scribe": [
+        "Write down what should be kept",
+        "You often chose to make a clear note for someone who comes after you.",
+        "At a writing station inspired by ancient Egypt, you make a short list of things on display."
+      ],
+      "potter": [
+        "Look at how shape affects use",
+        "You often chose to compare how objects might work in the story.",
+        "At the Roman pottery station, you sketch two rims and consider how each might be used."
+      ],
+      "printer": [
+        "Put two print samples side by side",
+        "You often chose to look at layout and the differences between impressions.",
+        "At a Song printing activity, you compare the margins on two sample sheets."
+      ],
+      "weaver": [
+        "See how one strip joins the pattern",
+        "You often chose to notice interlacing and repeated shapes.",
+        "At a weaving station, you interlace colored paper strips and look at which colors line up."
+      ],
+      "drafter": [
+        "Move a few lines and try a composition",
+        "You often chose to explore a different layout in a fictional workshop.",
+        "At a Renaissance-themed station, you shift part of a sketch to leave more room around it."
+      ],
+      "trader": [
+        "Make the terms of an exchange easy to read",
+        "You often chose to compare descriptions and leave the decision to both people.",
+        "In a trader story, you compare two invented goods cards and ask if the other person wants to exchange them."
+      ],
+      "chartmaker": [
+        "Mark the route and what is still unknown",
+        "You often chose to compare locations and keep uncertainties visible.",
+        "On an imaginary coastal chart, you mark two possible stops and draw an uncertain route with a dotted line."
+      ],
+      "naturalist": [
+        "Make a note beside the thing you observed",
+        "You often chose to describe details before labeling them.",
+        "At a natural history activity, you note the color and edge of a leaf replica on the table."
+      ]
+    },
+    "faq": [
+      [
+        "Can this identify a past life?",
+        "No. The result names a fictional story role based on the choices you made now."
+      ],
+      [
+        "Do I need a birthday or memories?",
+        "No. Choose what you would enjoy in each original history-themed activity."
+      ],
+      [
+        "How are the 24 answers counted?",
+        "Each choice adds one to its role. Each role appears 12 times, so counts are 0–12 and add to 24."
+      ],
+      [
+        "What if several roles tie?",
+        "All highest ties keep their full guides. Choosing A throughout gives each role three counts."
+      ],
+      [
+        "Are the guides historical accounts?",
+        "Museum and cultural institution sources provide background. The activities, scenes, and matching rules are original fiction."
+      ],
+      [
+        "Does sharing reveal my answers?",
+        "Public links carry no answers, counts, or private identifiers. There is no personal PNG export."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 24 questions. Each choice adds one to a fictional role. Every role appears 12 times, so individual counts run from 0 to 12 and total 24. All highest ties stay.",
+    "boundary": "FermatMind wrote these fictional scenarios using museum and cultural resources for historical context. The counts describe your choices here. They cannot establish a prior life, supernatural event, ancestry, ability, or psychological status."
+  }
+}

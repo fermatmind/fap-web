@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的四气质测试用24道原创情境题比较四种历史命名的行动风格，约6分钟。免费查看每项选择次数、所有最高并列及四份完整的公开阅读指南。",
+    "intro": "计划临时取消，你会找点新鲜事、抓紧做一件正事、想想原来期待什么，还是按舒服的速度度过？选近来更自然的一种。",
+    "deliverables": [
+      [
+        "四种风格分开计数",
+        "活跃探索、果断推进、细致斟酌、稳定节奏。"
+      ],
+      [
+        "保留全部最高并列",
+        "一样多的最高选择都能读。"
+      ],
+      [
+        "四份完整指南",
+        "历史称呼与原创生活例子一起呈现。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "回想自己真正想做的第一步",
+        "用最近遇到的一件事作参照。"
+      ],
+      [
+        "同分可以一起读",
+        "一种做法适合开始，另一种可能适合之后。"
+      ],
+      [
+        "把历史读法和身体医学区分",
+        "名字是沿用的历史标签，不解释人体。"
+      ]
+    ],
+    "profiles": {
+      "sanguine": [
+        "从有兴趣的地方开头",
+        "你喜欢先找一个好玩、容易参与的新选项。",
+        "晚餐改期后，你问谁愿意一起去逛个新地方。"
+      ],
+      "choleric": [
+        "把下一步变得清楚",
+        "你会挑一项能马上完成的事开始。",
+        "空出一小时，你决定先把预约办完。"
+      ],
+      "melancholic": [
+        "慢一点弄清细节",
+        "你会先想原先在意什么，再挑合适的安排。",
+        "旅行改期时，你先列出最想保留的两件事。"
+      ],
+      "phlegmatic": [
+        "按熟悉的节奏继续",
+        "你会让没填满的时间也自然发生。",
+        "原活动取消后，你照平常的时间散步。"
+      ]
+    },
+    "faq": [
+      [
+        "一定要了解四体液历史吗？",
+        "不用，做题只需要想自己的普通选择。"
+      ],
+      [
+        "每个方向有多少机会？",
+        "每道题都有四个方向，四者各出现24次。"
+      ],
+      [
+        "计分怎么做？",
+        "每道选一次，对应方向加1。"
+      ],
+      [
+        "分数一样怎么办？",
+        "全部最高同分一起呈现。"
+      ],
+      [
+        "能判断健康或固定气质吗？",
+        "这些是历史命名的日常风格，结果只记录本次题目。"
+      ],
+      [
+        "可以分享什么？",
+        "公开指南或同语入口，不附作答或次数。"
+      ]
+    ],
+    "formula": "24道四选一，四种风格每题均出现，每个位置各6次；所选加1，保留全部最高同分。",
+    "boundary": "四种名称来自历史概念。题目是现代原创生活情境，不用来推断体液、身体状态、长期性格或健康。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的四氣質測驗以24道原創情境題比較四種用歷史名稱標示的做法，約6分鐘。免費提供各項選擇次數、最高同分結果及四份公開閱讀指南。",
+    "intro": "週末空出一段時間，你會試點新鮮的、把原本卡住的事做完、想想自己真正期待什麼，還是照舒服的速度生活？",
+    "deliverables": [
+      [
+        "四種歷史名稱分開看",
+        "活躍探索、直接行動、細心考量、穩定步調各有次數。"
+      ],
+      [
+        "同分全部保留",
+        "最高同分組合可以一起閱讀。"
+      ],
+      [
+        "四份公開指南",
+        "讀日常情境與歷史語彙的關係。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "從近來的小事開始",
+        "想想在當時哪一步最自然。"
+      ],
+      [
+        "同分不必硬挑出一個",
+        "不同時候可以需要不同做法。"
+      ],
+      [
+        "把名稱放回歷史",
+        "它們是描述方式，不是醫學解釋。"
+      ]
+    ],
+    "profiles": {
+      "sanguine": [
+        "從一個有趣的選項開始",
+        "你會留意當下有什麼新鮮事可以試。",
+        "聚餐改期後，你問朋友想不想去逛不同的商圈。"
+      ],
+      "choleric": [
+        "先做得到的一步",
+        "你會想決定哪件事現在就能告一段落。",
+        "突然有空時，你先把一項遲遲未完成的安排處理好。"
+      ],
+      "melancholic": [
+        "先想自己真正要保留什麼",
+        "你會仔細看原本的安排對你有什麼意義。",
+        "出遊遇雨，你先想哪個行程最想留下來。"
+      ],
+      "phlegmatic": [
+        "留在熟悉的步調裡",
+        "你喜歡讓時間空著也不覺得需要馬上補滿。",
+        "活動取消後，你照平常的時間去走走。"
+      ]
+    },
+    "faq": [
+      [
+        "一定要知道四體液說嗎？",
+        "不用，題目用的是普通生活情境。"
+      ],
+      [
+        "每種做法出現幾次？",
+        "四種每題都會出現，全卷各24次。"
+      ],
+      [
+        "選項怎麼計次？",
+        "每題替選到的方向加1。"
+      ],
+      [
+        "最高同分時怎麼讀？",
+        "所有最高同分都會顯示。"
+      ],
+      [
+        "可以判斷真實健康狀況嗎？",
+        "分數只反映當次選擇，名稱是歷史詞語。"
+      ],
+      [
+        "分享會附上我的選擇嗎？",
+        "可分享公開指南或同語言入口，不附作答或次數。"
+      ]
+    ],
+    "formula": "24道四選一。四種做法每題都出現，各選項位置各6次。選一次加1，並保留所有最高同分。",
+    "boundary": "四種名稱是歷史上的用詞。本站以原創情境重新說明日常做法，讀數不支援體液、健康或固定人格的推論。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Four Temperaments Quiz uses 24 original scenarios to compare four approaches with historical names. It takes about six minutes and shows every tally, all approaches tied for the highest count, and four complete public guides. Readers can reflect on how they start ordinary activities without signing up, knowing the history, or using the result to draw conclusions about health.",
+    "intro": "Your plans are cancelled. Do you find something new to try, finish a task, consider what you wanted from the original plan, or carry on at a comfortable pace?",
+    "deliverables": [
+      [
+        "Four raw counts",
+        "Compare approaches labeled sanguine, choleric, melancholic, and phlegmatic."
+      ],
+      [
+        "Every highest tie",
+        "All approaches at the highest count remain visible."
+      ],
+      [
+        "Four public guides",
+        "Read ordinary examples and the limits of historical terms."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Picture the first move you would take",
+        "Use a recent ordinary example to understand a choice."
+      ],
+      [
+        "Read tied themes together",
+        "One approach might help at the start and another later."
+      ],
+      [
+        "Keep the historical labels in view",
+        "They name these approaches without explaining health."
+      ]
+    ],
+    "profiles": {
+      "sanguine": [
+        "Start with something that catches your interest",
+        "You like to find an inviting new option.",
+        "A dinner changes and you ask who wants to explore a different neighborhood."
+      ],
+      "choleric": [
+        "Choose a clear next step",
+        "You prefer picking one thing you can complete.",
+        "When an hour opens up, you finish booking an appointment."
+      ],
+      "melancholic": [
+        "Give the details room",
+        "You think about what mattered before choosing an alternative.",
+        "A trip moves, and you list two things you still want to keep."
+      ],
+      "phlegmatic": [
+        "Keep the pace comfortable",
+        "You can leave space in a schedule without needing to fill it right away.",
+        "After a cancellation, you take your usual evening walk."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know the four humors?",
+        "No. Use your own ordinary recent experiences to answer."
+      ],
+      [
+        "How often does a direction appear?",
+        "All four appear in every question, for 24 appearances each."
+      ],
+      [
+        "How does a choice count?",
+        "Each choice adds one to that approach."
+      ],
+      [
+        "What if the top counts tie?",
+        "Every approach tied at the top stays in the results."
+      ],
+      [
+        "Does this describe health or an enduring type?",
+        "The counts summarize these choices and use historical terms as labels."
+      ],
+      [
+        "What can I share?",
+        "The public quiz or same-language guide without item answers or counts."
+      ]
+    ],
+    "formula": "All four approaches appear on each of 24 questions, six times in each position. A choice adds one to its approach. All highest ties remain.",
+    "boundary": "The names have a historical background. The original situations do not assess bodily humors, health, or an enduring personality classification."
+  }
+}

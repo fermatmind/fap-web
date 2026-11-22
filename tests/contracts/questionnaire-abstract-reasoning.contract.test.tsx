@@ -107,7 +107,7 @@ describe("T148 original finite-rule abstract practice", () => {
       const path = `/${locale}/tests/explore/abstract-reasoning`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
       expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(quiz.instructions![locale]); expect(html).toContain(locale === "zh" ? "原创练习题" : "Original practice bank"); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
       const entryDom = document.createElement("div"); entryDom.innerHTML = html;
-      const method = entryDom.querySelector('section[aria-labelledby="questionnaire-method"]');
+      const method = entryDom.querySelector('[aria-labelledby="questionnaire-insight-method"]');
       const scoringText = quiz.guide.find(section => section.id === "counts")!.paragraphs[0][locale];
       expect(method?.querySelector("p")?.textContent).toBe(scoringText);
       expect(method?.closest("details")).toBeNull();

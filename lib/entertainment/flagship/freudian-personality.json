@@ -1,0 +1,308 @@
+{
+  "zh": {
+    "facts": "费马测试的弗洛伊德主题人格测试用48道原创题回顾近四周的日常行为，约10分钟。免费提供八项独立频率均分、有效题数和完整的公开情境指南。",
+    "intro": "计划突然改了，你会找人商量、试试新办法，还是自己留一点时间？借历史主题回看实际做过的事。",
+    "deliverables": [
+      [
+        "八项独立观察",
+        "从求助、自立到表达和私人空间。"
+      ],
+      [
+        "有效题数",
+        "每组六题均有效才有均分。"
+      ],
+      [
+        "八份公开指南",
+        "用普通生活例子说明词义和边界。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先找一段真实记忆",
+        "看你当时做了什么。"
+      ],
+      [
+        "允许不同做法共存",
+        "一个场景主动，另一个场景保留，不必归到一种类型。"
+      ],
+      [
+        "不要从分数倒推成长经历",
+        "读数只说明近期行为自述。"
+      ]
+    ],
+    "profiles": {
+      "support": [
+        "让别人帮你想一想",
+        "你有时会让别人参与普通决定。",
+        "买票前你问朋友两个时段哪个更方便。"
+      ],
+      "guarded": [
+        "先自己核对再开口",
+        "你会想把事情理清再决定要不要请人。",
+        "遇到不清楚的安排，你先看原通知。"
+      ],
+      "spontaneous": [
+        "给突然出现的选项留点余地",
+        "你会顺着新点子试一条路。",
+        "原定活动取消，你想到刚好能去看个展。"
+      ],
+      "structure": [
+        "把容易漏的事列清楚",
+        "你会在开始前确认细节和顺序。",
+        "去开会前，你把需要带的东西逐一核对。"
+      ],
+      "overt": [
+        "说出你想接手的部分",
+        "你会直接争取一个想参与的角色。",
+        "活动分工时，你说明想负责主持。"
+      ],
+      "argument": [
+        "先问理由和标准",
+        "你习惯用具体依据讨论意见。",
+        "大家提议换流程，你问新流程要解决什么。"
+      ],
+      "expressive": [
+        "把热情说给人听",
+        "你会用语气和故事带动交流。",
+        "见到老朋友，你讲起一路上的一件趣事。"
+      ],
+      "private": [
+        "留一个不必马上说明的空间",
+        "你会先把一些想法留给自己消化。",
+        "聚会后，你独自想想那段有趣的对话。"
+      ]
+    },
+    "faq": [
+      [
+        "这是弗洛伊德的量表吗？",
+        "题本由费马原创，历史术语作背景。"
+      ],
+      [
+        "应回想多久？",
+        "近四周确实遇到的普通情形。"
+      ],
+      [
+        "每组几题？",
+        "六题，频率1–5，全六有效才有均分。"
+      ],
+      [
+        "没碰到某题怎么办？",
+        "可以选不计分。"
+      ],
+      [
+        "能从分数判断童年经历吗？",
+        "结果只记录本次频率，不做发展阶段、性或临床推断。"
+      ],
+      [
+        "分享会附上结果吗？",
+        "同语公开入口不附作答。"
+      ]
+    ],
+    "formula": "八组各6题，按1–5频率计分，无反向。全六有效的组才显示均分。",
+    "boundary": "历史话题是命名背景。当前原创问卷不能诊断、推定童年经历或性发展，也不派发固定人格。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的佛洛伊德主題人格測驗以48道原創題回顧近四週的日常做法，約10分鐘。免費提供八項獨立頻率平均、有效題數與完整的生活情境指南。",
+    "intro": "原本的行程突然改了，你會先找人商量、跳去做別的，還是自己想一想？根據近四週確實遇過的情況來填。",
+    "deliverables": [
+      [
+        "八項分開閱讀",
+        "有求助、自立、調整計畫、主張和私人時間等做法。"
+      ],
+      [
+        "實際計分題數",
+        "每組6題都有效才有平均。"
+      ],
+      [
+        "八份公開指南",
+        "用日常情境解讀，並保留歷史用語的背景。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "從真的發生過的事開始",
+        "不用為了某個名稱改選項。"
+      ],
+      [
+        "把幾種做法放一起看",
+        "場景不同，需要的回應也不同。"
+      ],
+      [
+        "用現在的經驗讀結果",
+        "題目不會回推童年或臨床狀況。"
+      ]
+    ],
+    "profiles": {
+      "support": [
+        "找人一起想",
+        "你會讓別人陪你想想眼前的決定。",
+        "買車票以前，你問對方哪班車最方便。"
+      ],
+      "guarded": [
+        "自己多查一下",
+        "你會先釐清已有的資訊再決定要不要問別人。",
+        "大家臨時改時間，你先回去看原本的訊息。"
+      ],
+      "spontaneous": [
+        "跟著新點子試一點",
+        "你會想看看新的安排能不能行得通。",
+        "原有活動取消，你提議改去看展。"
+      ],
+      "structure": [
+        "照順序把細節排好",
+        "你會確認接下來的工作需要哪些東西。",
+        "出門前，你看一遍需要帶的資料。"
+      ],
+      "overt": [
+        "說出自己想試的任務",
+        "你會主動表達你想參加哪一部分。",
+        "分工時，你提議這次由你主持。"
+      ],
+      "argument": [
+        "請對方說明選擇的理由",
+        "你會用條件和依據來討論。",
+        "大家要改流程，你問為什麼改、有什麼新的要求。"
+      ],
+      "expressive": [
+        "讓對話多一點色彩",
+        "你會用自己的語氣和故事邀人一起聊。",
+        "見到朋友，你說起路上看到的一件趣事。"
+      ],
+      "private": [
+        "把安靜留給自己",
+        "你會先讓一些感受停一會兒再表達。",
+        "聚會回家後，你自己把想到的畫面記下來。"
+      ]
+    },
+    "faq": [
+      [
+        "是佛洛伊德制定的量表嗎？",
+        "題目由費馬原創，名稱源於歷史脈絡。"
+      ],
+      [
+        "要想什麼時候的情況？",
+        "近四週自己實際遇到的日常情況。"
+      ],
+      [
+        "怎麼計分？",
+        "每組6題以1到5分填頻率，六題都有效才顯示平均。"
+      ],
+      [
+        "沒有遇過怎麼辦？",
+        "選不計分。"
+      ],
+      [
+        "能回推出幼年經驗嗎？",
+        "讀數只呈現你最近自述的行為。"
+      ],
+      [
+        "分享會帶我的答案嗎？",
+        "分享只帶同語言公開入口。"
+      ]
+    ],
+    "formula": "共48題，每組6題，頻率由1到5，沒有反向題。六題均有效才計算該組平均。",
+    "boundary": "歷史術語供理解命名。結果不做臨床判斷、人格分類或童年經驗與性發展推論。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Freudian Personality reflection uses 48 original questions to look at everyday actions in the past four weeks. It takes about ten minutes and provides eight separate frequency averages, item counts, and full public guides. Readers can explore choices around support, structure, expression, and private space without signing up or sharing personal details. Historical names provide context for the themes.",
+    "intro": "When a plan changes, do you ask someone to help you think it through, try a new option, or keep some time for yourself? Start with what you actually did.",
+    "deliverables": [
+      [
+        "Eight separate readings",
+        "Review support, self-reliance, spontaneous ideas, structure, and four other behaviors."
+      ],
+      [
+        "Rated-item counts",
+        "Each group needs six ratings for its own average."
+      ],
+      [
+        "Eight public guides",
+        "Use everyday scenes to read the language and the historical themes."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with a real moment",
+        "Recall what you did before drawing any conclusion."
+      ],
+      [
+        "Let several readings coexist",
+        "You may react differently depending on the setting."
+      ],
+      [
+        "Stay with recent actions",
+        "The ratings do not require you to reconstruct earlier experiences."
+      ]
+    ],
+    "profiles": {
+      "support": [
+        "Ask someone to think with you",
+        "You sometimes involve others in an ordinary decision.",
+        "Before booking, you ask which of two times would work better."
+      ],
+      "guarded": [
+        "Check it for yourself first",
+        "You might prefer to work it out before asking someone for help.",
+        "When a plan sounds unclear, you look back at the original message."
+      ],
+      "spontaneous": [
+        "Make room for another option",
+        "You can follow an idea that turns up when a plan changes.",
+        "An event is cancelled, and you see an opening to visit an exhibit."
+      ],
+      "structure": [
+        "Keep the details in order",
+        "You like to preserve the steps that make the next move clear.",
+        "Before a meeting, you check the small things you need to bring."
+      ],
+      "overt": [
+        "Say what you want to take on",
+        "You can ask directly for a role you want.",
+        "While planning an event, you offer to host one part."
+      ],
+      "argument": [
+        "Ask what supports the plan",
+        "You can discuss an idea by checking its reasons.",
+        "Before changing a routine, you ask what problem the change is intended to solve."
+      ],
+      "expressive": [
+        "Make the moment easy to join",
+        "You can use a story or your tone to draw someone into conversation.",
+        "When a friend arrives, you share a funny thing that happened on the way."
+      ],
+      "private": [
+        "Keep time to work it through privately",
+        "You sometimes prefer to think or imagine before telling someone else.",
+        "After a gathering, you write down a thought you want to keep."
+      ]
+    },
+    "faq": [
+      [
+        "Did Freud write this quiz?",
+        "FermatMind wrote the items. Historical themes supply background."
+      ],
+      [
+        "Which time period should I use?",
+        "The ordinary situations you experienced in the past four weeks."
+      ],
+      [
+        "How are means calculated?",
+        "Each group needs all six ratings from 1 to 5."
+      ],
+      [
+        "Can a response stay unscored?",
+        "Yes. Choose NA if it does not apply or you would rather pass."
+      ],
+      [
+        "Does it infer childhood experience?",
+        "The readings are based on recent self-reported behavior."
+      ],
+      [
+        "What can I share?",
+        "The same-language public quiz URL without personal answers."
+      ]
+    ],
+    "formula": "Eight groups contain six items each. Rate from 1 to 5 by frequency. No items are reversed, and each group needs all six valid ratings.",
+    "boundary": "The historical themes give names to a recent-behavior reflection. The readings do not establish a type, childhood history, sexual development, or a clinical finding."
+  }
+}

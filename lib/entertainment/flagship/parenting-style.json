@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的养育方式测试用12道原创题回顾近四周照顾一名三至十二岁孩子的经历，约4分钟。免费提供温暖回应、清晰规则两项读数及四份公开指南。",
+    "intro": "孩子想把游戏再延长一轮，你会先听他为什么舍不得结束，还是先重申时间到了？这两件事可以在同一次照顾里发生。",
+    "deliverables": [
+      [
+        "两项频率均分",
+        "分开看温暖回应和清晰规则。"
+      ],
+      [
+        "有效题数",
+        "每组6个经历都能评分时才给读数。"
+      ],
+      [
+        "四份公开指南",
+        "了解常见照顾方式如何分别讨论回应与界线。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "听见感受再说明",
+        "用孩子听得懂的说法确定接下来要做的事。"
+      ],
+      [
+        "分开看规则与执行",
+        "说明规则之后，留意孩子还有什么信息需要听到。"
+      ],
+      [
+        "遇不到的事可不计分",
+        "保留没有经历的空白，指南独立可读。"
+      ]
+    ],
+    "profiles": {
+      "authoritative": [
+        "听见感受也说清规则",
+        "你可以先接住孩子的感受，再说明限制。",
+        "到了关游戏的时间，你承认这一轮结束很难，同时说好下次什么时候能玩。"
+      ],
+      "authoritarian": [
+        "把规则怎么执行说清",
+        "你可以回想自己是先解释限制，还是马上要求照做。",
+        "出门赶车时，你说明离开的时间并听孩子想带什么。"
+      ],
+      "permissive": [
+        "给弹性也给下一步",
+        "你可以同时观察自己怎样安抚和怎样完成约定。",
+        "发现收拾玩具太难时，你和孩子先选哪一盒开始。"
+      ],
+      "uninvolved": [
+        "先看眼前谁能帮上",
+        "你可以从实际照顾的余力和当时需要谈起。",
+        "忙着做饭时，你请另一位照顾者帮孩子看一下摔痛的手。"
+      ]
+    },
+    "faq": [
+      [
+        "应该想几岁的孩子？",
+        "回顾你近四周照顾的一名3–12岁孩子，不用提供身份。"
+      ],
+      [
+        "会给我四类中的一种吗？",
+        "只显示温暖回应和清晰规则的均分，四份指南适合任何人读。"
+      ],
+      [
+        "没有发生过的情境呢？",
+        "选择不计分即可。"
+      ],
+      [
+        "怎么得到均分？",
+        "每项六题全有效才计算，1–5分按频率。"
+      ],
+      [
+        "可用来评判另一位照顾者吗？",
+        "请只按自己的做法填，不替其他人作答。"
+      ],
+      [
+        "可以把分数分享出去吗？",
+        "原公开分享只包含同语入口，不带个人读数。"
+      ]
+    ],
+    "formula": "温暖回应与清晰规则各6题，按频率1–5分。每组六道都有效才显示均分，未计分项不纳入。",
+    "boundary": "此题本回顾日常照顾中的具体做法，不判定照顾者类型，不评估孩子或预测未来。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的教養方式測驗以12題原創題回顧最近四週照顧一位三到十二歲孩子的經驗，約4分鐘。免費提供溫暖回應、清楚界線兩項讀數和四份公開指南。",
+    "intro": "孩子想多玩一輪，你會先聽他為什麼想繼續，還是先說今天的時間到了？可以回想最近四週確實遇到的情形。",
+    "deliverables": [
+      [
+        "兩項獨立讀數",
+        "溫暖回應和清楚界線分開看。"
+      ],
+      [
+        "確認計分題數",
+        "一組六題都能計分時才會顯示平均。"
+      ],
+      [
+        "四份公開指南",
+        "用生活例子看成人如何回應和設立界線。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "也讓孩子把話說完",
+        "先讓孩子說想做什麼，再把限制講清楚。"
+      ],
+      [
+        "看看規則有沒有後續",
+        "想想孩子是否知道接下來要做什麼。"
+      ],
+      [
+        "保留沒有遇過的經驗",
+        "可以選不計分，仍可看所有指南。"
+      ]
+    ],
+    "profiles": {
+      "authoritative": [
+        "先聽需求，再講界線",
+        "你可以接住孩子的感受，也說清楚該收尾了。",
+        "關遊戲以前，你聽孩子說他想完成這一輪，再說明約好的時間。"
+      ],
+      "authoritarian": [
+        "看規則是怎麼說的",
+        "你可以觀察自己怎麼讓孩子知道規則與理由。",
+        "出門前你說明公車快到了，也問孩子想帶什麼。"
+      ],
+      "permissive": [
+        "有彈性，也有收尾",
+        "你可以調整孩子做事的方式，同時留一個做到的步驟。",
+        "收玩具時，你讓孩子選要先收哪一盒。"
+      ],
+      "uninvolved": [
+        "問問現在誰有空",
+        "你可以留意孩子眼前需要什麼協助，身邊誰有空幫忙。",
+        "你在準備晚餐，請另一位照顧者先看看孩子撞痛的手。"
+      ]
+    },
+    "faq": [
+      [
+        "要回想哪位孩子？",
+        "同一位3至12歲的孩子，回顧近四週的照顧，不用留下身分資料。"
+      ],
+      [
+        "會分成四種家長嗎？",
+        "結果顯示兩項頻率，四份指南供自由閱讀。"
+      ],
+      [
+        "沒有遇到的情形呢？",
+        "可選不計分。"
+      ],
+      [
+        "怎麼計分？",
+        "兩組各6題，1至5分按頻率，六題皆有效才顯示平均。"
+      ],
+      [
+        "我可以替別人填嗎？",
+        "請只填自己的照顧經歷。"
+      ],
+      [
+        "分享會包含分數嗎？",
+        "只會連到同語言的公開入口。"
+      ]
+    ],
+    "formula": "兩組各6題，頻率用1至5分表示。一組6題均計分才會出現平均。",
+    "boundary": "原創題目用來回顧日常教養。讀數不給親職貼類型，也不能替孩子做評估或預測發展。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Parenting Style Test uses 12 original items to reflect on caring for one child aged three to twelve during the past four weeks. It takes about four minutes and provides separate frequency averages for warm responses and clear boundaries, rated item counts, and four public guides. Caregivers can compare everyday situations without sharing a child’s identity or assigning a parenting type.",
+    "intro": "A child wants one more round. Do you listen to why it matters, remind them when game time ends, or do both? Reflect on what you actually did in the past four weeks.",
+    "deliverables": [
+      [
+        "Two separate readings",
+        "Look at warm responses and clear boundaries individually."
+      ],
+      [
+        "Rated-item counts",
+        "A reading appears when all six items in its group have numerical answers."
+      ],
+      [
+        "Four public guides",
+        "Compare ordinary ways adults listen, give directions and follow through."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Hear what is hard",
+        "Let the child explain what matters before stating the limit in plain words."
+      ],
+      [
+        "Check whether a rule has a next step",
+        "Think about how the child knew what they could do afterward."
+      ],
+      [
+        "Leave a situation unscored",
+        "You can read every guide even when a question describes something unfamiliar."
+      ]
+    ],
+    "profiles": {
+      "authoritative": [
+        "Hear the feeling and state the limit",
+        "You can make room for a child’s point of view while keeping an agreement.",
+        "At the end of game time, you acknowledge a round is hard to stop and say when the child can play again."
+      ],
+      "authoritarian": [
+        "Consider how a rule is carried out",
+        "You can recall whether a child could hear the reason or offer information.",
+        "When you need to catch the bus, you say why you are leaving and ask what they need to bring."
+      ],
+      "permissive": [
+        "Make flexibility workable",
+        "You can consider affection and follow-through as separate parts of care.",
+        "When cleanup feels like too much, you let the child pick which bin to start with."
+      ],
+      "uninvolved": [
+        "Look at who can be present",
+        "You can ask what help a child needs and who is available now.",
+        "While cooking, you ask another caregiver to check a hand the child bumped."
+      ]
+    },
+    "faq": [
+      [
+        "Who should I think about?",
+        "Use your own care of one child aged 3–12 during the past four weeks."
+      ],
+      [
+        "Will it assign a parenting type?",
+        "It reports two averages, and any reader can open the four guides."
+      ],
+      [
+        "What if a situation never came up?",
+        "Choose unscored."
+      ],
+      [
+        "How are averages calculated?",
+        "Each group needs six frequency ratings on a scale from 1 to 5."
+      ],
+      [
+        "Can I rate someone else’s parenting?",
+        "Answer from your own caregiving experiences."
+      ],
+      [
+        "Does the share link reveal my scores?",
+        "It points only to the public quiz in the same language."
+      ]
+    ],
+    "formula": "Rate frequency from 1 to 5. Warm responses and clear boundaries each have six items. All six need a score to display that group’s mean.",
+    "boundary": "These original items help caregivers reflect on routine situations. The readings do not assign anyone a parenting type, assess a child or predict a child’s future."
+  }
+}

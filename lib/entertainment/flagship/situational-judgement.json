@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的情境判断练习用25道原创虚构题比较工作协作中的做法，约15分钟。免费查看五组与全卷正确数、逐题解释和完整的公开练习指南。",
+    "intro": "有人发出了交接信息，就算交接完成了吗？根据题目写明的规则、事实和权限，从四种方法里选符合的一项。",
+    "deliverables": [
+      [
+        "五组各5题",
+        "优先顺序、交接、更新、权限和协作。"
+      ],
+      [
+        "逐题说明",
+        "看哪条规定让选项成立。"
+      ],
+      [
+        "五份公开指南",
+        "先阅读场景也能开始练习。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把硬性条件列出",
+        "承诺之前核对时间和资源。"
+      ],
+      [
+        "把发出通知和对方确认分开",
+        "看题面怎样定义交接完成。"
+      ],
+      [
+        "说清已知、未知和下一步",
+        "别把猜测写成进度。"
+      ]
+    ],
+    "profiles": {
+      "priorities": [
+        "先看哪件事必须发生",
+        "你可以依据截止时间与余量排序。",
+        "两项都急时，你先确定哪个必须今天交。"
+      ],
+      "ownership": [
+        "确认下一位接到了什么",
+        "你可以区分发出资料与对方确认接手。",
+        "交接后，你查看同伴是否已明确接收。"
+      ],
+      "updates": [
+        "把状态讲准确",
+        "你能分别说明已知进展和下一步。",
+        "汇报时，你标记哪项需等外部回复。"
+      ],
+      "permissions": [
+        "核对是谁可以作决定",
+        "你会按题目授予的具体权限行动。",
+        "共享资料前，你先确认哪位负责人能批准。"
+      ],
+      "teamwork": [
+        "让协作要求可执行",
+        "你可以明确对方需要什么，不代替对方答应。",
+        "你给搭档具体修改建议，再核对他能否按期完成。"
+      ]
+    },
+    "faq": [
+      [
+        "情境来自现实公司吗？",
+        "是原创虚构案例，按题面说明判断。"
+      ],
+      [
+        "几道题？",
+        "25道，五组各5。"
+      ],
+      [
+        "有标准答案吗？",
+        "在题设范围下各有一个编辑定稿的答案。"
+      ],
+      [
+        "有计时或部分分吗？",
+        "没有，匹配答案计1。"
+      ],
+      [
+        "可以把成绩给雇主吗？",
+        "用于复习这些情境，不提供用人结论。"
+      ],
+      [
+        "分享含作答吗？",
+        "仅同语公开练习，不公开个人答卷。"
+      ]
+    ],
+    "formula": "25道题，五组各5题。一题匹配唯一参考选项即记1，其余有效选项为0，无部分分。",
+    "boundary": "练习只判断题目明确写出的条件，不替代真实工作的权限、法律规范或人员判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的情境判斷練習以25道原創虛構題練習工作協作中的選擇，約15分鐘。免費提供五組和整份答對題數、逐題解說及完整公開的練習指南。",
+    "intro": "傳了交接訊息，就算交接完畢嗎？先看題目明寫的條件和權限，再從四個做法挑一個符合要求的。",
+    "deliverables": [
+      [
+        "五組各5題",
+        "優先次序、交接、進度更新、權限和協作。"
+      ],
+      [
+        "逐題解說",
+        "了解哪項規則支持參考答案。"
+      ],
+      [
+        "五份公開指南",
+        "不必先完成測驗就能看。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先確認時間和資源",
+        "想好自己能不能完成承諾。"
+      ],
+      [
+        "把通知和承接分開",
+        "交接是否完成，由題目明示的規則判斷。"
+      ],
+      [
+        "把已知與未知寫清楚",
+        "更新狀態時，對下一步作明確的說明。"
+      ]
+    ],
+    "profiles": {
+      "priorities": [
+        "先排不能錯過的事",
+        "你可以依時間和必須做到的事安排優先順序。",
+        "兩份工作同時來，你先確認哪件今天要交。"
+      ],
+      "ownership": [
+        "看看下一位有沒有接手",
+        "你可以區分送出檔案跟對方已確認的狀態。",
+        "傳完交接資料，你等同事確認他接得到。"
+      ],
+      "updates": [
+        "用能查到的事更新進度",
+        "你能把完成、等待、預定要做的事分開。",
+        "報告進度時，你寫明哪部分得等對方回覆。"
+      ],
+      "permissions": [
+        "按授權做決定",
+        "你會先確認自己有沒有被授權處理。",
+        "想分享資料，你先查要由誰核准。"
+      ],
+      "teamwork": [
+        "把合作說成能接的任務",
+        "你可以給明確的修改範圍，再問對方是否有餘力。",
+        "你寫一個具體修改建議，也請搭檔確認何時能做。"
+      ]
+    },
+    "faq": [
+      [
+        "題目用真實公司資料嗎？",
+        "是原創虛構案例。"
+      ],
+      [
+        "總共幾題？",
+        "25題，五組各5題。"
+      ],
+      [
+        "如何判斷哪一項對？",
+        "以題面限制下的唯一參考答案為準。"
+      ],
+      [
+        "有計時或半分嗎？",
+        "沒有，每次吻合答案加1。"
+      ],
+      [
+        "可以用分數做招募判斷嗎？",
+        "讀數只用來複習這份題目。"
+      ],
+      [
+        "分享會帶出成績嗎？",
+        "公開連結只開啟同語練習。"
+      ]
+    ],
+    "formula": "25題分五組各5題，符合唯一參考答案計1，不給部分分。填完才能讀每一題的說明。",
+    "boundary": "情境內的規則是作答依據，並不等於實際單位的作業規定、個人適任或法律判斷。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Situational Judgement practice uses 25 original fictional cases about shared work and takes about fifteen minutes. It provides correct counts, item explanations, and five public guides covering priorities, handovers, updates, authorization, and collaboration. Readers can work through stated rules and constraints without signing up, submitting workplace material, or completing tasks under a timer or being ranked against other participants.",
+    "intro": "Does sending a handover count as completing it? Read the fictional rules and facts, then choose the action that follows them.",
+    "deliverables": [
+      [
+        "Five groups of five",
+        "Review priorities, ownership, updates, permissions, and teamwork."
+      ],
+      [
+        "Worked explanations",
+        "See the rule that determines the answer in each situation."
+      ],
+      [
+        "Five public guides",
+        "Use the examples before or after trying the questions."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Identify non-negotiable conditions",
+        "Check time and resources before making a commitment."
+      ],
+      [
+        "Separate sending from receiving",
+        "Look at what the stated handover rule requires."
+      ],
+      [
+        "Describe what is known and what comes next",
+        "Keep facts, unknowns, and promises distinct."
+      ]
+    ],
+    "profiles": {
+      "priorities": [
+        "Name the real deadline",
+        "You can make a priority list from known constraints.",
+        "When two tasks arrive at once, you find which must be handed in today."
+      ],
+      "ownership": [
+        "Confirm someone accepted the handoff",
+        "You can see a difference between sending a file and transferring ownership.",
+        "After posting the notes, you check for a reply from the person taking over."
+      ],
+      "updates": [
+        "Use evidence to update others",
+        "You can say which steps are done and which still depend on a reply.",
+        "In a status note, you mark the part waiting on another team."
+      ],
+      "permissions": [
+        "Know who can approve the action",
+        "You can follow the permission granted by the case.",
+        "Before sharing a document, you check who can authorize it."
+      ],
+      "teamwork": [
+        "Make collaboration specific",
+        "You can leave a clear suggestion and room for someone to respond.",
+        "You name one edit and ask when your coworker has time for it."
+      ]
+    },
+    "faq": [
+      [
+        "Are the cases from real companies?",
+        "They are fictional situations with rules supplied in the prompts."
+      ],
+      [
+        "How many questions are there?",
+        "Twenty-five, in five sections of five."
+      ],
+      [
+        "What makes an answer correct?",
+        "The option matches the key under the case’s explicit conditions."
+      ],
+      [
+        "Is there partial credit or timing?",
+        "No. Each key match adds one."
+      ],
+      [
+        "Can scores establish job fitness?",
+        "They summarize answers in this conditional practice only."
+      ],
+      [
+        "What does sharing reveal?",
+        "The public same-language quiz link carries no private responses."
+      ]
+    ],
+    "formula": "Twenty-five items form five groups of five. One answer matches the case key, earning one count. Other valid options earn zero.",
+    "boundary": "This practice relies on the fictional rules and constraints stated in each case. Its counts do not screen applicants or determine how an actual organization operates."
+  }
+}

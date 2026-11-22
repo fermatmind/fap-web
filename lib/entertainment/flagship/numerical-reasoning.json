@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的数值推理练习用30道原创题练习数量、百分比、比例、数据与速率，约18分钟。免费查看五组正确数、逐题演算与完整的公开练习指南。",
+    "intro": "先算优惠后的金额，还是先看有没有换分母？每题给出数量、单位与条件，按同一套信息算到答案。",
+    "deliverables": [
+      [
+        "五组分开统计",
+        "算术、百分比、比例、数据与速率各6题。"
+      ],
+      [
+        "逐题演算",
+        "核对你的选择、参考答案、单位和步骤。"
+      ],
+      [
+        "五份公开指南",
+        "找一种最想练的计算先读。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先写单位与分母",
+        "把百分比变化和百分点分开。"
+      ],
+      [
+        "合并前确认是不是同一口径",
+        "检查数据的数量、尺度和时间。"
+      ],
+      [
+        "只在题目规定时舍入",
+        "保留中间精度再核对最后一位。"
+      ]
+    ],
+    "profiles": {
+      "arithmetic": [
+        "先写要算的量",
+        "你可以用同一个单位整理题面数字。",
+        "买两种包装时，你先算同等分量的价格。"
+      ],
+      "percentages": [
+        "先找比较基数",
+        "你会确认百分比是在和哪个数比较。",
+        "折扣后再涨价时，你写出每一步的分母。"
+      ],
+      "ratios": [
+        "统一一个量再比",
+        "你会用共同单位比较不同组合。",
+        "混合配方时，你先把两组都换成相同份数。"
+      ],
+      "data": [
+        "核对表头和权重",
+        "你会在合并数字前找清每一组有多少。",
+        "合并两个班的平均时，你先核对各有几个人。"
+      ],
+      "rates": [
+        "把时间单位统一",
+        "你能看见速率和所需时间怎么对应。",
+        "算路程时，你先把一小时半改成与题面一致的单位。"
+      ]
+    },
+    "faq": [
+      [
+        "一共多少题？",
+        "30道，五组各6。"
+      ],
+      [
+        "能用计算器吗？",
+        "可以用纸或计算器。"
+      ],
+      [
+        "有计时吗？",
+        "没有，约18分钟是估计。"
+      ],
+      [
+        "每题如何得分？",
+        "与所给条件下的唯一答案一致计1。"
+      ],
+      [
+        "会给智商或岗位分吗？",
+        "正确数仅反映这组练习。"
+      ],
+      [
+        "分享带个人记录吗？",
+        "公开链接只打开同语练习。"
+      ]
+    ],
+    "formula": "每组6题、共30道四选一。正确计1，其他有效选项计0，无倒扣或速度加分。",
+    "boundary": "练习依据题面所述的数据和假设。结果用于核对方法，不换算智商、一般数理能力或岗位适配。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的數值推理練習以30道原創題練習算術、百分比、比例、資料判讀與速率，約18分鐘。免費提供五組正確數、逐題解說及完整的公開指南。",
+    "intro": "遇到先打折再調價的題目，哪一個才是當步的基數？照題目給的單位和條件一步步算。",
+    "deliverables": [
+      [
+        "五類各6題",
+        "分別練算術、百分比、比例、資料和速率。"
+      ],
+      [
+        "逐題解說",
+        "對照答案、條件和運算步驟。"
+      ],
+      [
+        "五份公開指南",
+        "還沒填完也能先看一種做法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先標單位和分母",
+        "留意百分比和百分點分別在說什麼。"
+      ],
+      [
+        "確認資料可以放一起",
+        "加總前，確認欄位、比重與時間相同。"
+      ],
+      [
+        "照要求取位",
+        "只在題目要求時四捨五入。"
+      ]
+    ],
+    "profiles": {
+      "arithmetic": [
+        "把要求的量寫出來",
+        "你會先確認正在比較什麼單位。",
+        "兩包材料的價格不同，你先換成同樣的重量。"
+      ],
+      "percentages": [
+        "把基準寫在算式旁",
+        "你可以確認折扣或增加比例的分母。",
+        "價錢先降再漲時，你寫出兩個不同基數。"
+      ],
+      "ratios": [
+        "先統一再比較",
+        "你可以把數量轉成同一個比例。",
+        "備料時，你把兩份配方換成同樣的人數。"
+      ],
+      "data": [
+        "看見表格的分母",
+        "你能先確認欄位和樣本數再運算。",
+        "兩班平均要合在一起，你會先查各班人數。"
+      ],
+      "rates": [
+        "把時間換到同一種單位",
+        "你能把速率和題面指定的區間放一起。",
+        "算行程前，你把一小時半換成題目用的分鐘。"
+      ]
+    },
+    "faq": [
+      [
+        "有多少題？",
+        "五組各6題，共30題。"
+      ],
+      [
+        "可以拿紙或計算機嗎？",
+        "可以。"
+      ],
+      [
+        "要在指定時間內做完嗎？",
+        "不計時，約18分鐘是參考。"
+      ],
+      [
+        "怎樣算答對？",
+        "所選答案符合題面條件下的唯一解就加1。"
+      ],
+      [
+        "能用來評估工作或智力嗎？",
+        "答對數限於這份題本。"
+      ],
+      [
+        "公開分享會附我的分數嗎？",
+        "連結開啟同語言練習，不帶個人結果。"
+      ]
+    ],
+    "formula": "30道四選一，五組各6題。符合參考答案計1，其餘有效選項為0，沒有倒扣或速度加分。",
+    "boundary": "讀數用來複習題目所給的數量和假設，不用來認證數理能力、工作適任或智商。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Numerical Reasoning practice uses 30 original questions on arithmetic, percentages, ratios, data, and rates. It takes about eighteen minutes and provides five section counts, worked answers, and public guides. Every choice uses stated quantities and units. Readers can practise with paper or a calculator without signing up, working against a timer, or receiving a speed bonus or penalty for guessing.",
+    "intro": "Which amount is the base after a discount? Work with the units and assumptions the question gives, and use a calculator if you want.",
+    "deliverables": [
+      [
+        "Five counts",
+        "Six items per area, including calculations, data, and rate comparisons."
+      ],
+      [
+        "Worked answers",
+        "Review units, assumptions, and the calculation after each question."
+      ],
+      [
+        "Five public guides",
+        "Pick a topic to revisit before another attempt."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Write the unit and base first",
+        "Distinguish a percentage change from a difference in percentage points."
+      ],
+      [
+        "Check what can be combined",
+        "Check denominators and time scales before adding or comparing."
+      ],
+      [
+        "Round only if asked",
+        "Keep intermediate precision until you reach the requested value."
+      ]
+    ],
+    "profiles": {
+      "arithmetic": [
+        "Write down what you need to find",
+        "You can set up a calculation with compatible units.",
+        "For two packages, you compare the price of an equal weight."
+      ],
+      "percentages": [
+        "Name the base for each percentage",
+        "You can check the starting amount of every change.",
+        "For a price that falls then rises, you write each new base separately."
+      ],
+      "ratios": [
+        "Make a common comparison",
+        "You can put quantities on the same scale.",
+        "You adjust two recipes to serve the same number of people."
+      ],
+      "data": [
+        "Read the table before using a number",
+        "You can check its rows, columns and how many observations belong to each group.",
+        "Before combining class averages, you look for each class size."
+      ],
+      "rates": [
+        "Keep the time units consistent",
+        "You can match a stated speed to the time it applies to.",
+        "You express an hour and a half in the unit used for the rate."
+      ]
+    },
+    "faq": [
+      [
+        "How many items are there?",
+        "Thirty, with six in each group."
+      ],
+      [
+        "Can I use a calculator?",
+        "Yes. Paper and calculators are allowed."
+      ],
+      [
+        "Is the practice timed?",
+        "No. Eighteen minutes is an estimate."
+      ],
+      [
+        "How is a match scored?",
+        "The checked answer adds one count under the stated assumptions."
+      ],
+      [
+        "Does it give an IQ or workplace score?",
+        "The counts summarize answers to these particular practice questions."
+      ],
+      [
+        "Does sharing include my answers?",
+        "The same-language public link contains no answers or scores."
+      ]
+    ],
+    "formula": "Thirty four-option items form five groups of six. Matching the key adds one. Other valid choices add zero, with no time adjustment or guessing penalty.",
+    "boundary": "This practice uses the numbers, units and assumptions in its own questions. The counts do not estimate IQ, general numerical ability, or job fit."
+  }
+}

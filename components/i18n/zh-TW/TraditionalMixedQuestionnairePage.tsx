@@ -19,6 +19,7 @@ import { Sbti31GuidePage, Sbti31Page } from "@/components/questionnaires/Sbti31P
 import { TraditionalQuestionnaireCopy } from "@/components/questionnaires/TraditionalQuestionnaireCopy";
 import { loadTraditionalMixedQuestionnaire } from "@/lib/i18n/zh-TW/mixedQuestionnaires";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { mentalAgeLandingCopy } from "@/lib/questionnaires/mentalAgeLandingCopy";
 import { isSbti31ConfigurationValid, type Sbti31Questionnaire } from "@/lib/questionnaires/sbti31";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -49,9 +50,10 @@ export async function traditionalMixedQuestionnaireMetadata({ slug, take, profil
   const result = profile ? quiz.profiles.find(item => item.id === profile) : undefined;
   if (profile && !result) notFound();
   const path = result ? questionnaireGuidePath("zh-TW", slug, result.id) : entry;
+  const mentalAgeLanding = !result && quiz.kind === "mental-age" ? mentalAgeLandingCopy["zh-TW"] : null;
   return {
-    title: result?.seo?.title?.zh ?? result?.title.zh ?? quiz.seoTitle.zh,
-    description: result?.seo?.description?.zh ?? result?.summary.zh ?? quiz.description.zh,
+    title: mentalAgeLanding ? { absolute: mentalAgeLanding.metaTitle } : (result?.seo?.title?.zh ?? result?.title.zh ?? quiz.seoTitle.zh),
+    description: mentalAgeLanding?.description ?? result?.seo?.description?.zh ?? result?.summary.zh ?? quiz.description.zh,
     alternates: { canonical: path },
     robots: { index: false, follow: true },
     openGraph: { locale: "zh_TW", url: path, images: [

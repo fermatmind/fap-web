@@ -1,0 +1,293 @@
+{
+  "zh": {
+    "facts": "费马测试的蓝色监狱角色测试含21道原创桌面足球情境题，约6分钟，免注册。答完可免费看七位角色的选择次数和并列结果，七篇公开指南可直接阅读。",
+    "intro": "朋友用纸和棋子做了一场桌面足球。棋局一变，你会先看清刚才哪步出了变化、提个大家都能玩的点子，还是简单试一手？答 21 道原创题，免费回看七种角色视角。",
+    "deliverables": [
+      [
+        "查看七项原始次数",
+        "每题加 1，合计 21。最高并列时，每个相关角色都会显示。"
+      ],
+      [
+        "免费读七篇公开指南",
+        "每位角色都有独立文章，供你回看场景里的具体选择。"
+      ],
+      [
+        "复制公开链接",
+        "单项最高复制角色名及指南；并列复制全部最高名称和入口，不附回答或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "洁世一最高，8 次",
+        "七项依次是 8、3、2、2、2、2、2。样张偏向先观察一轮，再调整纸上的路线。"
+      ],
+      [
+        "蜂乐回和千切豹马各 6 次",
+        "七项为 2、6、2、2、2、1、6。可以分别看看自愿尝试新玩法和挑选能享受的节奏。"
+      ],
+      [
+        "全选 A，七项各 3 次",
+        "每人都出现三次 A 位，因此会显示全部指南。想理解自己的偏好，可以回看具体场景。"
+      ]
+    ],
+    "profiles": {
+      "isagi": [
+        "先看过一轮，再画新路线",
+        "你这次更常选看看上一轮发生了什么，再改纸面上的计划。",
+        "纸棋总在同一处绕路时，你回看上一轮，换画一个可试的走法。"
+      ],
+      "bachira": [
+        "给大家一个能自愿尝试的新玩法",
+        "你这次更常选提一个有趣的点子，再问伙伴想不想试。",
+        "回合之间，你提议用弯线代替直线当路标，问同桌的人愿不愿意试一轮。"
+      ],
+      "nagi": [
+        "用一个简单的小动作开局",
+        "你这次更常选直接尝试一种看得见的简单做法。",
+        "纸面路线太多时，你先挪一枚棋子看看大家能不能懂。"
+      ],
+      "reo": [
+        "决定这轮愿意做哪一段",
+        "你这次更常选改变自己能提供的贡献。",
+        "朋友想换人记分时，你提出这轮帮忙设计标记，之后再回到棋盘。"
+      ],
+      "rin": [
+        "把共同规则写清楚",
+        "你这次更常选确认规则怎么解释，避免大家各读一套。",
+        "棋子落在线上时，你先问边界怎么算，再和伙伴把约定写下来。"
+      ],
+      "barou": [
+        "让自己的东西有固定位置",
+        "你这次更常选保持好用的方式，给自己的棋子和记录定个顺序。",
+        "每回合开始前，你把备用棋和记录纸放回手边熟悉的位置。"
+      ],
+      "chigiri": [
+        "把节奏调到自己想玩的速度",
+        "你这次更常选找一个能让自己享受活动的节奏。",
+        "一轮走得太急时，你问大家是否愿意留出片刻看盘，再继续。"
+      ]
+    },
+    "faq": [
+      [
+        "需要懂足球或看过原作吗？",
+        "不用。题目使用纸和棋子的原创桌游情境，不考赛果、剧情或规则。"
+      ],
+      [
+        "有哪些角色？",
+        "洁世一、蜂乐回、凪诚士郎、御影玲王、糸师凛、马狼照英和千切豹马共七位。"
+      ],
+      [
+        "21 题如何计数？",
+        "每题四选一，给对应角色加 1。每人出现 12 次，单项 0–12，合计 21。"
+      ],
+      [
+        "并列怎么处理？",
+        "所有最高相同的角色都保留。全选 A 会七项各 3 次。"
+      ],
+      [
+        "结果能测足球技能吗？",
+        "不能。题目只记录这次选择，不评运动能力、速度、人格或职业适配。"
+      ],
+      [
+        "分享会带出个人结果吗？",
+        "公开分享复制名称和公开链接，不含答案、计数或个人标识。没有个人 PNG。"
+      ]
+    ],
+    "formula": "21 题每题从四个选项选一个，给对应角色加 1。各角色出现 12 次，每项 0–12，合计 21。保留所有最高并列。",
+    "boundary": "费马独立编写非官方同人问卷。动画官方网站用来核对角色姓名。题本基于原创桌面情境，计数不能用来评价踢球能力、替角色行为找理由或预测职业表现。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的藍色監獄角色測驗有21道原創桌面足球題，約6分鐘，免註冊。作答後可免費看七位角色的次數與並列最高結果，七篇公開指南也能直接讀。",
+    "intro": "朋友用紙和棋子做個桌面足球遊戲。局勢忽然變了，你會先看上一輪、想個大家可以一起玩的做法，還是先用一個簡單的動作試試看？花約 6 分鐘做完 21 題，完整結果免費。",
+    "deliverables": [
+      [
+        "看七位角色各有幾次",
+        "每題替一位角色加 1 次，合計 21。最高同分會一起顯示。"
+      ],
+      [
+        "免費讀七篇角色指南",
+        "作答前就能翻閱每位角色的完整指南。"
+      ],
+      [
+        "複製同語公開連結",
+        "單項最高時分享名稱與公開指南；並列時複製最高名稱和測驗入口，不附個人作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "潔世一最高，8 次",
+        "七項依序是 8、3、2、2、2、2、2。這份範例比較常先觀察，再重畫紙面上的路線。"
+      ],
+      [
+        "蜂樂迴和千切豹馬各 6 次",
+        "七項依序為 2、6、2、2、2、1、6。可比較邀大家試一個新點子，和先找自己能享受的節奏。"
+      ],
+      [
+        "一路選 A，七位各 3 次",
+        "每位角色在 A 位出現三次，所以會看到所有指南。各題問的內容比按到的字母更值得回看。"
+      ]
+    ],
+    "profiles": {
+      "isagi": [
+        "從剛才那一輪找線索",
+        "你比較常選先看看情況哪裡變了，再調整路線。",
+        "棋子總繞不開同一角時，你重新看一遍剛才的走法，試著改畫一條路。"
+      ],
+      "bachira": [
+        "邀大家一起試個新點子",
+        "你比較常選先問誰想玩，再加一個好玩的變化。",
+        "中場休息時，你想到用彎線作路標，先問同桌的人想不想試。"
+      ],
+      "nagi": [
+        "拿一個最簡單的做法開場",
+        "你比較常選先做一小步，看看它能不能用。",
+        "桌面圖太複雜時，你先挪一顆棋子示範，讓大家抓到玩法。"
+      ],
+      "reo": [
+        "替這一輪換一個自己想做的角色",
+        "你比較常選依情況調整要貢獻的部分。",
+        "現在需要有人設計記分記號，你說這輪可以先幫忙畫，下一輪再回到棋盤。"
+      ],
+      "rin": [
+        "把規則變成大家都懂的版本",
+        "你比較常選確認共同的規則讀法，再往下玩。",
+        "棋子正好落在線上時，你先請大家說清楚算不算界內，再把做法記下來。"
+      ],
+      "barou": [
+        "把自己的棋子收在順手的位置",
+        "你比較常選用熟悉而容易維持的動作準備下一輪。",
+        "每輪開始前，你把備用棋和記錄紙放回自己拿得到的地方。"
+      ],
+      "chigiri": [
+        "找到自己願意玩的步調",
+        "你比較常選調好速度，再專心享受活動。",
+        "回合走得很快時，你先問大家願不願意停一下看盤面，再一起繼續。"
+      ]
+    },
+    "faq": [
+      [
+        "要懂足球或先看過動畫嗎？",
+        "不用。題目是用紙和棋子玩的原創桌面活動，不問劇情、比賽或台詞。"
+      ],
+      [
+        "測驗有哪些角色？",
+        "潔世一、蜂樂迴、凪誠士郎、御影玲王、糸師凜、馬狼照英與千切豹馬。"
+      ],
+      [
+        "21 題怎麼計次？",
+        "四選一，對應角色加 1。每位出現 12 次，個別 0–12，七項合計 21。"
+      ],
+      [
+        "有幾位角色同分怎麼辦？",
+        "同為最高的完整指南都會保留。全選 A 時七位各 3 次。"
+      ],
+      [
+        "結果可以測出足球能力嗎？",
+        "這裡只統計當次選擇，無法評估球技、速度、心理特質或工作適配。"
+      ],
+      [
+        "轉傳會附作答或圖卡嗎？",
+        "公開分享複製名稱與連結，不附作答、次數或識別資料。這個結果沒有個人 PNG。"
+      ]
+    ],
+    "formula": "21 題每題選一項，替對應角色加 1。每位出現 12 次，單項 0–12，總數 21。同為最高一起保留。",
+    "boundary": "費馬獨立編寫這份非官方同人測驗，動畫官方資料只用來核對角色姓名。題目採原創的桌面遊戲情境，結果無法評估足球訓練、身體能力或人格。"
+  },
+  "en": {
+    "facts": "FermatMind’s Blue Lock Character Quiz uses 21 original tabletop football scenarios and takes about six minutes. It is free without registration. Results show counts for seven characters and keep every tie for the highest count. Seven public guides are free to read before answering. The questions refer to a fictional game with paper and counters and require no knowledge of the anime.",
+    "intro": "Your friends make a tabletop football game out of paper and counters. Would you watch a round before adjusting, propose a playful variation, or try one simple move right away? Answer 21 original scenarios to see which character themes your choices bring up.",
+    "deliverables": [
+      [
+        "See all seven choice counts",
+        "Each choice adds one, for a total of 21. Every highest tie appears."
+      ],
+      [
+        "Read seven complete public guides",
+        "Each character has a guide with examples you can read before playing."
+      ],
+      [
+        "Copy public names and links",
+        "A single highest result shares its guide. Ties share all leading names and the entry page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Isagi leads at 8",
+        "The sample counts are 8, 3, 2, 2, 2, 2, and 2. The most frequent approach was to watch a turn and revise the route."
+      ],
+      [
+        "Bachira and Chigiri tie at 6 each",
+        "The counts are 2, 6, 2, 2, 2, 1, and 6. Compare offering a playful variation with choosing a tempo you want to play at."
+      ],
+      [
+        "All A: seven characters with 3 each",
+        "Each character appears in position A three times, so every guide appears. The situations make the choices easier to understand."
+      ]
+    ],
+    "profiles": {
+      "isagi": [
+        "Revise the map after watching a turn",
+        "You often chose to watch what changed and adjust the paper route.",
+        "When counters keep getting stuck at a corner, you replay the turn and draw another route to try."
+      ],
+      "bachira": [
+        "Offer something everyone can choose to try",
+        "You often chose a playful variation and asked who wanted to join.",
+        "Between rounds, you suggest using curved lines as routes and ask if the others want to try it once."
+      ],
+      "nagi": [
+        "Try one simple move first",
+        "You often chose to start with the clearest move you could show.",
+        "When the page looks too busy, you move one counter to make the idea easier to follow."
+      ],
+      "reo": [
+        "Choose what you want to contribute this round",
+        "You often chose to change roles as the group’s needs shifted.",
+        "When the game needs a way to track scores, you offer to design a marker before returning to the board."
+      ],
+      "rin": [
+        "Make the rule clear enough to share",
+        "You often chose to check that everyone understood the same rule.",
+        "When a counter lands on a line, you ask what the boundary means and write down the group’s answer."
+      ],
+      "barou": [
+        "Keep a routine for your own pieces",
+        "You often chose a familiar setup that made the next turn easier.",
+        "Before every round, you return the spare counters and score sheet to places where you can reach them."
+      ],
+      "chigiri": [
+        "Choose a tempo you want to play at",
+        "You often chose a pace that lets you enjoy the game.",
+        "When the last turn felt rushed, you ask to look at the board for a moment before everyone continues."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need football or Blue Lock knowledge?",
+        "No. These are original scenes with paper and counters. The quiz asks for no plot details, scores, or football rules."
+      ],
+      [
+        "Which characters can I get?",
+        "Yoichi Isagi, Meguru Bachira, Seishiro Nagi, Reo Mikage, Rin Itoshi, Shouei Barou, and Hyoma Chigiri."
+      ],
+      [
+        "How are the 21 answers counted?",
+        "Each choice adds one. Each character appears 12 times, so counts range from 0 to 12 and add to 21."
+      ],
+      [
+        "What if two or more characters tie?",
+        "All highest characters get their full guides. Choosing A every time gives all seven a count of three."
+      ],
+      [
+        "Does the quiz assess football ability?",
+        "No. It records choices in these scenes and cannot assess speed, football technique, personality, or job fit."
+      ],
+      [
+        "Does sharing send my answers or a personal image?",
+        "Public links carry no answers, counts, or private identifiers. This quiz has no personal PNG export."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 21 situations. Each choice adds one to a character. The seven appear 12 times each, so counts range from 0 to 12 and total 21. Every highest tie stays.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Official anime material checks character names. The tabletop game is an original setting. The choices do not establish athletic ability or endorse any character’s actions."
+  }
+}

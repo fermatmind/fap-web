@@ -1,0 +1,107 @@
+{
+  "zh": {
+    "facts": "费马测试的哲学家性格测试用18道日常选择，把作答关联到九个原典阅读起点。完成后可免费查看九项计数、所有最高并列和公开指南。结果呈现本次想先考虑的思路，无需哲学知识或注册。",
+    "intro": "听见朋友说某个安排很公平，你会先问公平是什么意思，还是看看它让谁有机会提出意见？用约 6 分钟做完 18 道日常题，找一个想继续读下去的哲学问题。完整结果免费，无需注册。",
+    "deliverables": [
+      ["九个阅读方向的原始次数", "每题选最想先考虑的一项。完成后可以看到九项各被选了几次。"],
+      ["所有最高结果及原典线索", "同为最高的阅读方向全部保留。每份指南包括对应的原典语境、日常场景和思考问题。"],
+      ["横竖版哲学家卡片", "可保存含全部最高人物姓名与阅读主题的 PNG。横版 1200×630，竖版 1080×1920，图片不含个人答案或计数。"]
+    ],
+    "interpretations": [
+      ["一项单独最高", "如果你这次最常选先问定义和依据，可以从苏格拉底联想的指南读起。回想一次常用词让讨论绕圈的经历，试着把问题问得更具体。"],
+      ["两项共同最高", "苏格拉底与亚里士多德同为 4 次时，可以先问一句「这句话依据什么」，再想想「反复照这样做会养出什么习惯」。挑一次会议或相处经历，把两种问题都问一遍。"],
+      ["九项都是两次", "每题都选同一个位置就会得到这种并列。九份指南都可读，先从一个你愿意带进日常讨论的问题开始。"]
+    ],
+    "profiles": {
+      "socrates": ["苏格拉底｜先把问题问清", "你愿意先弄清大家到底在说什么，并给自己的判断留一个能被反例推翻的位置。", "朋友说活动安排很公平时，你问是每人用时相同，还是每个人都有机会提出异议。"],
+      "aristotle": ["亚里士多德｜看做法会养成什么", "你会追问一种行为反复发生后会养成什么，并按眼前处境判断该怎样做。", "定下新的会议规则前，你想先试两周，看看它能否帮助平时不太发言的人开口。"],
+      "confucius": ["孔子｜把学到的放回相处", "你会把学过的道理放回日常相处，回看自己有没有守约、有没有及时回应。", "发现自己总是晚回团队消息时，你和同伴约好最迟回复的时间，并先从自己的习惯改起。"],
+      "laozi": ["老子｜少做一点多余的安排", "你会先看哪些规定加得太密、哪些事情一放松反而能顺着做下去。", "周末聚会排得太满时，你提议去掉一个赶时间的环节，让同行的人能自己决定休息多久。"],
+      "epicurus": ["伊壁鸠鲁｜把满足和代价一起算", "你会掂量自己真正想要什么，以及追求它还会带来多少新的时间、花费和麻烦。", "看中一套价格很高的厨具时，你想了想自己最喜欢的几道菜，再决定哪些工具真的需要。"],
+      "epictetus": ["爱比克泰德｜分清能做的和不能保证的", "你会区分自己还能做哪些判断和行动，以及哪些回应没法由自己决定。", "把提案交出去后，你认真检查了论据和表达，同时接受对方仍可能选择另一套方案。"],
+      "nietzsche": ["尼采｜重看自己用的尺度", "你会重新问一遍哪些标准是自己愿意承担的，哪些只是从别人的期待里沿用下来。", "写年度目标时，你想把一个只为看起来成功的指标换成自己确实愿意花时间练习的事。"],
+      "simone-de-beauvoir": ["波伏瓦｜给彼此留出选择", "你会留意自己的计划有没有让别人仍能提出、拒绝和调整自己的选择。", "安排合住时，你把自己的想法和对方能改的地方都说清楚，再一起决定如何分担费用。"],
+      "marcus-aurelius": ["马可·奥勒留｜认真回应眼前的事", "你愿意把注意放回当下的判断，想想接下来怎样对手里的事和面前的人作出负责的回应。", "收到一条让你不舒服的工作消息时，你先弄清眼前需要解决的问题，再写下下一步能做什么。"]
+    },
+    "faq": [
+      ["哲学家性格测试有哪些阅读结果？", "共有九个阅读起点：苏格拉底、亚里士多德、孔子、老子、伊壁鸠鲁、爱比克泰德、尼采、波伏瓦和马可·奥勒留。每个结果都可以直接读公开指南。"],
+      ["必须读过哲学书才能做吗？", "不必。18 题都是日常选择，没有知识题的正确答案。完整题目和结果免费，约 6 分钟，无需注册。"],
+      ["每个方向的次数和并列怎样算？", "每题四选一，所选方向加 1 次。各方向出现 8 次，九项加起来共 18 次，同为最高的方向全部列出。"],
+      ["为什么读到的人物不代表我的真实性格？", "指南借选定的原典讨论提供阅读背景。苏格拉底经由柏拉图笔下的记述呈现，《论语》也包含弟子言论。原典与原创意象插画都无法证明人物相似度。"],
+      ["分享图片或链接会带出答案和次数吗？", "不会。PNG 会展示全部最高人物的姓名及阅读主题。单一最高的公开链接打开对应指南，最高并列的链接打开测试入口。"],
+      ["重测后可以和之前的结果直接比较吗？", "页面不保存进度，重测会开启新答卷。同一版本可回看选择流程，新旧题本的映射和部分选项不同，次数不能直接互换。"]
+    ],
+    "formula": "18 题各选四项中的一项。所选阅读方向 +1，单项 0–8 次，合计 18 次。同为最高者全部保留。",
+    "boundary": "这是九项有限的原典阅读联想。柏拉图笔下的苏格拉底、《论语》的不同说话者和《道德经》的文本传统各有来源边界。插画为原创人物意象，非真实肖像。原典只提供所选议题的背景，未验证题本或个人结论。结果不能鉴定历史人物相似度、性格、智力、品德、政治宗教信仰或职业能力。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的哲學家性格測驗有18題生活選擇，將答案連到九個原典閱讀起點。答完可免費查看各方向的次數、所有最高同分結果與公開指南。測驗不用先讀哲學，也免註冊。",
+    "intro": "朋友說一個安排很公平，你會先問他說的公平是什麼，還是想了解哪些人有機會提出意見？約 6 分鐘完成 18 題生活選擇，挑一個想繼續讀的哲學問題。免費查看完整結果，不用註冊。",
+    "deliverables": [
+      ["九個方向各選幾次", "每題挑一種你最想先想的做法。答完即可看九個方向各被選了幾次。"],
+      ["最高同分都有指南", "同為最高的閱讀方向會一起列出。每篇指南都有原典背景、日常例子和可接著想的問題。"],
+      ["可下載橫版和直版圖卡", "PNG 會放入所有最高結果的人名與閱讀主題，橫版 1200×630，直版 1080×1920。圖卡不會附上作答或次數。"]
+    ],
+    "interpretations": [
+      ["有一項單獨最高", "如果你常從定義和理由問起，可以先讀蘇格拉底的指南。找一次大家用著同一個詞卻各想各的對話，試試把問題問得再清楚一點。"],
+      ["兩項同是最高", "蘇格拉底和亞里士多德各 4 次時，可以想「這個說法根據什麼」，也可以想「這樣做久了會養成什麼習慣」。拿一次討論來試試看兩個問法。"],
+      ["九項都選了兩次", "每題都選同一個位置就會九項同分。可以從你最想帶進現實對話的那個問題讀起，九篇指南都能免費看。"]
+    ],
+    "profiles": {
+      "socrates": ["蘇格拉底｜先把問題問明白", "你會先問大家說的詞是什麼意思，也接受原先的想法有可能被反例說服。", "聽朋友說活動安排很公平時，你會問是指每個人分到的時間一樣，還是想提意見都能開口。"],
+      "aristotle": ["亞里士多德｜想想做久了會怎樣", "你會留意一個做法一再出現會養成什麼習慣，再看當下的狀況適不適合。", "訂新的會議規則時，你提議先試兩週，看看平常少開口的人能不能多說幾句。"],
+      "confucius": ["孔子｜從日常相處練習", "你想把學過的東西用在相處裡，回頭看看自己有沒有守約、是不是有好好回應別人。", "發現自己常漏回群組訊息時，你和同伴約最晚回覆的時間，先從自己做起。"],
+      "laozi": ["老子｜看看有哪些安排可以少一點", "你會想什麼規定加得太多，哪些事放寬做法之後反而能比較順利。", "週末行程太滿時，你想少排一站，讓一起出門的人自己決定想停多久。"],
+      "epicurus": ["伊壁鳩魯｜算一算想要的代價", "你會問自己想要的到底是什麼，接著想這份滿足還要花多少時間和心力。", "看到一組很貴的廚具時，你先想平常最常做的菜，再決定哪些器具值得買。"],
+      "epictetus": ["愛比克泰德｜分清自己能做的事", "你會把自己的判斷和做法，與其他人會怎麼回應分開來看。", "提案送出後，你先確認資料和理由寫得清楚，再接受別人可能選擇不同方案。"],
+      "nietzsche": ["尼采｜回頭看自己拿什麼當標準", "你願意重新問哪些標準值得自己承擔，哪些只是大家都在用，你也跟著用。", "擬新一年的目標時，你刪掉一項只是看起來很厲害的指標，換成自己願意練習的事。"],
+      "simone-de-beauvoir": ["波伏瓦｜留一點空間讓彼此選", "你在擬定計畫時會想想其他人能不能提意見、能不能拒絕或再商量。", "討論合租時，你把自己想怎麼分擔費用說出來，也問對方希望在哪些地方重新談。"],
+      "marcus-aurelius": ["馬可·奧勒留｜先回到眼前能做什麼", "你願意先照看眼前的問題，再想想怎麼回應面前的人與手上的事。", "收到讓你不舒服的工作訊息時，你先找出眼前需要處理的問題，再想下一步要怎麼做。"]
+    },
+    "faq": [
+      ["哲學家性格測驗包含哪九位？", "九個閱讀起點是蘇格拉底、亞里士多德、孔子、老子、伊壁鳩魯、愛比克泰德、尼采、波伏瓦和馬可·奧勒留。每位都有可直接閱讀的公開指南。"],
+      ["沒學過哲學也能做嗎？", "可以。18 題都是生活選擇，沒有知識考題的正確答案。約 6 分鐘完成，完整結果免費，免註冊。"],
+      ["每項次數和同分結果怎麼算？", "每題四選一，選到的閱讀方向加 1 次。每個方向各出現 8 次，答完合計 18 次。最高次數相同就一起列出。"],
+      ["結果表示我很像這位哲學家嗎？", "結果是原典閱讀的起點。蘇格拉底以柏拉圖的記述為背景，《論語》也有弟子的言論。原典與人物意象插畫都不能作為性格相似的證據。"],
+      ["分享連結或圖卡會附上我的答案嗎？", "兩者都不會附上作答或次數。PNG 會顯示所有最高結果的人名和閱讀主題。單項最高時連結開啟對應指南，同分時連到測驗入口。"],
+      ["重測能和之前的次數直接比較嗎？", "測驗不保留作答進度，重測會開一份新的答卷。新舊版本的對應人物和部分選項不同，次數無法直接互換。"]
+    ],
+    "formula": "18 題四選一，選到的閱讀方向加 1 次。單項 0–8 次，九項合計 18 次。同為最高的方向都會保留。",
+    "boundary": "這是九個原典選讀的起點。柏拉圖筆下的蘇格拉底、《論語》的不同說話者，以及《道德經》的文本傳統各有脈絡。圖卡是原創人物意象插畫，未作為歷史肖像或心理測量依據。次數不能判斷性格、智力、品德、宗教政治立場或職業能力。"
+  },
+  "en": {
+    "facts": "FermatMind’s Which Philosopher Are You quiz offers 18 everyday choices and nine places to start reading philosophy. It counts how often each way of approaching a question was chosen and keeps every result tied for first. The full counts and nine public guides are free. No knowledge of philosophy or account is required, and every guide can be read before taking the quiz.",
+    "intro": "When a friend calls a plan fair, would you ask what they mean or look at who gets a say? Take about six minutes to answer 18 everyday questions, then find a philosopher’s question you want to read more about. The full result is free without an account.",
+    "deliverables": [
+      ["See all nine choice counts", "Choose the approach you would think about first in each situation. After the last question, you can see how often each approach came up in your answers."],
+      ["Follow every top reading path", "Every path that shares the highest count has its own free guide, with context from a primary text and questions to try in everyday life."],
+      ["Save a landscape or portrait card", "The PNG includes every highest result’s name and reading theme. Save it in 1200×630 landscape or 1080×1920 portrait, without your answers or counts."]
+    ],
+    "interpretations": [
+      ["One path leads", "If you tended to ask for a definition and a reason first, start with Socrates. Think of a recent argument where two people used the same word to mean different things, and try asking what each meant."],
+      ["Two paths tie for first", "When Socrates and Aristotle each get four counts, try both questions on a recent conversation. What supports the claim, and what would doing things this way over and over encourage?"],
+      ["All nine paths get two choices", "Choosing the same option position throughout the quiz gives this result. Read whichever guide has a question you would like to try for yourself."]
+    ],
+    "profiles": {
+      "socrates": ["Socrates · Start with what the words mean", "You like to clarify a claim and see whether there is an example that would make you change your mind.", "When a friend calls an event plan fair, ask whether they mean equal time or a chance for everyone to speak."],
+      "aristotle": ["Aristotle · Look at the habit a choice builds", "You ask what repeatedly doing something might teach you, and whether it fits the situation in front of you.", "Try a new meeting practice for two weeks and see whether it helps people who rarely speak join the discussion."],
+      "confucius": ["Confucius · Put what you learn into practice with others", "You bring what you’ve learned back into everyday interactions and check how well you keep agreements.", "If you keep missing messages in a group chat, ask what response time works for everyone and start by changing your own routine."],
+      "laozi": ["Laozi · Leave room by doing less", "You look for rules and plans that add effort without helping the people who have to follow them.", "When a weekend trip feels overplanned, suggest skipping a stop so everyone can decide how long they want to rest."],
+      "epicurus": ["Epicurus · Count the cost of what you want", "You think about the satisfaction you want and what chasing it would ask of your time, money, or attention.", "Before buying an expensive set of cookware, think of the meals you enjoy making and check which tools you would actually use."],
+      "epictetus": ["Epictetus · Separate your part from the outcome", "You look at the decisions and actions open to you, while leaving others room to respond as they choose.", "After you send a proposal, check whether your reasoning was clear and allow for the group choosing a different plan."],
+      "nietzsche": ["Nietzsche · Revisit the standards you use", "You ask which goals you would still choose for yourself and which you kept because people around you value them.", "When setting goals for the year, trade a target that only looks impressive for something you genuinely want to practice."],
+      "simone-de-beauvoir": ["Simone de Beauvoir · Give others room to choose", "You notice when your plans leave people free to suggest changes, say no, or pursue their own plans.", "When discussing a shared home, explain your preferred way to split costs and ask which parts your housemate wants to change."],
+      "marcus-aurelius": ["Marcus Aurelius · Attend to what is in front of you", "You bring your attention back to the issue at hand and how you want to respond to the people involved.", "When a work message upsets you, identify the practical problem it raises before deciding what to do next."]
+    },
+    "faq": [
+      ["Which philosophers can appear in the results?", "The nine reading paths are Socrates, Aristotle, Confucius, Laozi, Epicurus, Epictetus, Nietzsche, Simone de Beauvoir, and Marcus Aurelius. Each has a public guide."],
+      ["Do I need to know philosophy before taking the quiz?", "No. The 18 questions ask about everyday choices, without right answers or required reading. The quiz takes about six minutes, and all results are free without an account."],
+      ["How are the counts and ties worked out?", "Each question gives four options. Your choice adds one to its reading path. Every path appears eight times, the nine counts add up to 18, and any path that shares the highest count stays in the result."],
+      ["Does the result show I have a philosopher’s personality?", "The paths connect a selected question to a primary text. The Socrates path draws on Plato’s account, and the Analects includes more than one speaker. Neither the texts nor the imagined illustrations establish a personality match."],
+      ["Do the image and link share my answers or counts?", "Neither contains your answers or counts. The PNG includes every highest result’s name and reading theme. With one result, the link opens its public guide. With a tie, it opens the quiz."],
+      ["Can I compare my new result with an older one?", "Starting again opens a fresh set of answers. The current and previous editions use different figures and some different choices, so their counts cannot be compared directly."]
+    ],
+    "formula": "Choose one of four options on each of 18 questions. Add 1 to its reading path. Each path has 0–8 counts, the total is 18, and all paths sharing the highest count are kept.",
+    "boundary": "These are nine limited associations with primary texts. Plato’s portrayal of Socrates, the different speakers in the Analects, and the textual tradition of the Daodejing all set limits on interpretation. The illustrations are imagined. Neither the reading sources nor the images validate the quiz, assess personality or intelligence, or infer morality, beliefs, or suitability for a job."
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "zh": {
+    "facts": "费马测试的社会与经济议题感受测试采用SECS的12条议题词，约4分钟。免费查看社会和经济两项分别计分的均值、有效题数及完整的公开阅读指南。",
+    "intro": "看到一个公共议题词，你的第一反应是积极、负面，还是需要更多语境？给词语打感受分，陌生或不愿判断的词可以保留不计分。",
+    "deliverables": [
+      [
+        "社会与经济分开算",
+        "社会组7词、经济组5词，各有均分。"
+      ],
+      [
+        "零至一百的原始刻度",
+        "每10分一格，50是题本标出的中性位置。"
+      ],
+      [
+        "两份公开指南",
+        "解释译名、原版归组和反向计分。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把情绪和政策主张分开",
+        "对同一个词有好感，不代表你同意任意一种方案。"
+      ],
+      [
+        "先核对词的语境",
+        "不同地方用同一个词可能指不同事情。"
+      ],
+      [
+        "保留不确定",
+        "对陌生词可选NA，也能读两个指南。"
+      ]
+    ],
+    "profiles": {
+      "social": [
+        "用自己的语境读社会词语",
+        "你可以留意是哪些词让你感到熟悉或陌生。",
+        "看到一个公共仪式的名称，你先想清它在自己生活里指什么。"
+      ],
+      "economic": [
+        "把经济词放回具体语境",
+        "你可以把对词的感受和对一项财政政策的判断分开。",
+        "看到“福利”，你想到当地的哪些制度，再决定是否有把握评分。"
+      ]
+    },
+    "faq": [
+      [
+        "用的是哪一份题本？",
+        "Everett的12词SECS，本站另提供中文工作译文。"
+      ],
+      [
+        "是选择同意哪种政策吗？",
+        "题目询问对词语的正面或负面感受。"
+      ],
+      [
+        "反向词如何算？",
+        "按原键，两个指定词用100减原分。"
+      ],
+      [
+        "某项有NA会怎样？",
+        "仅所在组不显示均分。"
+      ],
+      [
+        "会推荐政党或标签吗？",
+        "读数只总结本次题内的词语感受。"
+      ],
+      [
+        "分享包括我的分数吗？",
+        "同语公开入口不附个人回答或读数。"
+      ]
+    ],
+    "formula": "12项按0–100、每10分一档。社会7项、经济5项，反向题用100减原分。组内全部有效才显示均分。",
+    "boundary": "SECS原词来自特定研究语境。本站翻译与NA规则属于网页使用调整，不推断政党、投票计划、政策立场或政治身份。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的社會與經濟議題感受測驗採用SECS十二個議題詞，約4分鐘。免費提供社會與經濟兩組分開計算的平均、有效題數及完整公開的閱讀指南。",
+    "intro": "對某個議題詞，你第一時間感覺偏正向、偏負向，還是需要先知道它在說什麼？沒把握也可以先不給分。",
+    "deliverables": [
+      [
+        "社會、經濟各一組",
+        "社會7個詞、經濟5個詞。"
+      ],
+      [
+        "原始選擇刻度",
+        "0到100，每10分一格，中性標示是50。"
+      ],
+      [
+        "兩份公開指南",
+        "說明兩組詞的歸類、譯文和反向規則。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "感受與主張分開看",
+        "對詞語的感受不等於支持某一政策做法。"
+      ],
+      [
+        "詞義可能隨地方不同",
+        "先想清楚你遇過的語境。"
+      ],
+      [
+        "不確定可選不計分",
+        "不用把陌生的議題選成中性。"
+      ]
+    ],
+    "profiles": {
+      "social": [
+        "把社會用語放回生活",
+        "你可以確認你是對詞本身有感覺，還是想到某一次經驗。",
+        "看到一個公共儀式名詞，你先想它在身邊通常指什麼。"
+      ],
+      "economic": [
+        "看看經濟詞語讓你想到什麼",
+        "你可以分開想對詞語的感受和具體方案的利弊。",
+        "看到福利一詞時，你先想自己了解哪些制度。"
+      ]
+    },
+    "faq": [
+      [
+        "題目是哪個版本？",
+        "使用Everett的SECS十二詞版本，本站有中文工作譯文。"
+      ],
+      [
+        "這是問我支持什麼政策嗎？",
+        "評的是對議題詞的感受。"
+      ],
+      [
+        "反向規則是什麼？",
+        "依原鍵，兩個指定的詞以100減去原分。"
+      ],
+      [
+        "選NA會使兩組都沒分數嗎？",
+        "只有該詞所在的組不顯示平均。"
+      ],
+      [
+        "會分配政治身分嗎？",
+        "讀數只整理你對題目裡詞語的感受。"
+      ],
+      [
+        "分享會帶出作答嗎？",
+        "公開同語言連結沒有個人答案和平均。"
+      ]
+    ],
+    "formula": "共12項，刻度0至100，每10分一格。兩道反向題用100減原分。社會7題、經濟5題，各組都有效才有平均。",
+    "boundary": "原題來自特定研究語境，本站提供工作譯文與NA規則。結果不推斷政治身分、政黨、投票選擇或政策意見。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Social and Economic Issue Ratings uses twelve terms from the SECS and takes about four minutes. It provides separate social and economic means, rated item counts, and two public guides. Readers rate feelings toward the terms, can leave unfamiliar items unscored, and can open the guides without signing up or giving personal details about their identity, party, or voting choices.",
+    "intro": "How does a public issue term feel on first reading? Rate your reaction to the word. If the meaning depends on context you do not have, leave it unscored.",
+    "deliverables": [
+      [
+        "Two separate readings",
+        "Seven terms contribute to the social group and five to the economic group."
+      ],
+      [
+        "A 0 to 100 scale",
+        "Choose in steps of ten. Fifty is labeled neutral."
+      ],
+      [
+        "Two public guides",
+        "See the source groupings, translations and reverse keys."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Separate feeling from policy",
+        "A reaction to a term does not spell out your view of a detailed proposal."
+      ],
+      [
+        "Consider how a term is used locally",
+        "The same term may point to different things in different settings."
+      ],
+      [
+        "Leave unfamiliar terms open",
+        "The second group and both guides can still be read."
+      ]
+    ],
+    "profiles": {
+      "social": [
+        "Read social terms in context",
+        "You can reflect on which uses of a term you know well.",
+        "A label for a civic custom prompts you to think about how it is used where you live."
+      ],
+      "economic": [
+        "Read economic terms in context",
+        "You can separate a reaction from a judgment about a particular measure.",
+        "When you see welfare, you recall which programs the word brings to mind for you."
+      ]
+    },
+    "faq": [
+      [
+        "Which questionnaire is this?",
+        "The site uses Everett’s 12-term SECS with a working Chinese translation."
+      ],
+      [
+        "Am I agreeing to a policy?",
+        "The task asks how negative or positive you feel about a term."
+      ],
+      [
+        "How do the two reverse keys work?",
+        "For those source terms, scoring uses 100 minus the selected rating."
+      ],
+      [
+        "What if a term is unscored?",
+        "Only its own group’s mean is withheld."
+      ],
+      [
+        "Can the quiz identify a political party?",
+        "It records reactions to the terms rather than classifying people or votes."
+      ],
+      [
+        "Does the link carry my results?",
+        "The same-language public entry contains neither your ratings nor means."
+      ]
+    ],
+    "formula": "Rate the twelve terms from 0 to 100 in steps of ten. Two reverse terms use 100 minus the rating. Social needs all seven valid ratings and economic all five.",
+    "boundary": "Read the results with the source study’s context and this site’s translation in view. The quiz does not assign political identity, a party, a vote, or a specific policy position."
+  }
+}

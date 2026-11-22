@@ -366,6 +366,8 @@ export async function GET() {
     ] : [];
   });
 
+  const sevenSinsEntries = nativeTestEntries.filter((path) => /^\/(?:en|zh|zh-TW)\/tests\/explore\/seven-sins-virtues-test(?:\/results\/[^/]+)?$/.test(path));
+  const sevenSinsPaths = new Set(sevenSinsEntries);
   const lines = [
     "# FermatMind llms.txt",
     `> ${LLMS_CAREER_INTRO}`,
@@ -405,8 +407,12 @@ export async function GET() {
     "Indexable Tests:",
     ...testEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
+    "## Seven Deadly Sins & Seven Heavenly Virtues",
+    "28 items, each rated 1–5. Fourteen scores are calculated separately as (mean of two items − 1) × 25. The seven pair guides explain Pride/Humility, Greed/Generosity, Lust/Chastity, Envy/Kindness, Gluttony/Temperance, Wrath/Patience, and Sloth/Diligence.",
+    ...sevenSinsEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
     "Native Tests and Public Result Guides:",
-    ...nativeTestEntries.filter((path) => !isLlmsCareerFeaturedPath(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
+    ...nativeTestEntries.filter((path) => !isLlmsCareerFeaturedPath(path) && !sevenSinsPaths.has(path)).map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Articles:",
     ...articleEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),

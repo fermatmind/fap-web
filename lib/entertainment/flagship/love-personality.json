@@ -1,0 +1,413 @@
+{
+  "zh": {
+    "facts": "费马测试的恋爱性格测试用24道原创二选一题比较日常亲密互动的四种做法，约6分钟。免费显示原始次数、完整最高并列结果与十五份生活情境指南。",
+    "intro": "当你想让人知道你在意，会先把话说清楚、看看对方想不想聊，还是先留一点时间？挑近来你更自然会做的那件事。",
+    "deliverables": [
+      [
+        "四个相处方向",
+        "分开计数表达、回应、空间与修复。"
+      ],
+      [
+        "最高并列照常显示",
+        "所有最高次数保留。"
+      ],
+      [
+        "十五份公开指南",
+        "单项或并列都有具体情境。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把自己的表达和对方的回应分开",
+        "各自都能选择何时聊。"
+      ],
+      [
+        "需要空间可以约个后续",
+        "先把想暂缓的事说清，再看是否愿意接着谈。"
+      ],
+      [
+        "读并列时挑一个例子",
+        "把几种做法放进同一次相处，看哪些合适。"
+      ]
+    ],
+    "profiles": {
+      "clear-expression": [
+        "把在意说出口",
+        "你愿意说清自己的感受与请求。",
+        "想一起过周末时，你先说明最想保留哪段时间。"
+      ],
+      "attuned-response": [
+        "看见对方现在的状态",
+        "你会先听听对方有没有余量回应。",
+        "朋友刚忙完，你先问此刻想不想聊。"
+      ],
+      "space-regulation": [
+        "照着各自步调相处",
+        "你会适当留开一点时间。",
+        "晚饭后你想自己走一圈，再回家继续聊天。"
+      ],
+      "repair-engagement": [
+        "回来处理那件事",
+        "你愿意在适合时回到分歧。",
+        "睡过一晚后，你问能不能重新谈收拾房间的分工。"
+      ],
+      "expression-response-tie": [
+        "说了也听一听",
+        "你既重视说清自己，也愿意听对方的意思。",
+        "你提出周末安排，也问对方最想保留什么。"
+      ],
+      "expression-space-tie": [
+        "表达想法也留点距离",
+        "你想把两边的时间都说清楚。",
+        "你说明希望一起吃饭，也想独自过一个上午。"
+      ],
+      "expression-repair-tie": [
+        "开口说明再试着补救",
+        "你既想把担心说具体，也愿意谈下次怎么做。",
+        "你说临时改约让你措手不及，请对方下次先发消息。"
+      ],
+      "response-space-tie": [
+        "先看看是否适合聊",
+        "你兼顾留意对方的状态和各自需要的空间。",
+        "你问对方想今晚聊，还是明天找空闲时间。"
+      ],
+      "response-repair-tie": [
+        "听完再找一步可做的事",
+        "你会认真听顾虑，也愿意回来处理。",
+        "听到对方被打断时不舒服，你问下次怎么留发言时间。"
+      ],
+      "space-repair-tie": [
+        "留时间再处理原来的问题",
+        "你会把冷静和解决问题都放进去。",
+        "你需要先休息，也说晚些时候可以回来谈通知方式。"
+      ],
+      "expression-response-space-tie": [
+        "说清、听见、留余量",
+        "你这次三项做法同获最高次数。",
+        "你提出想一起过周末，也听对方希望留多少个人时间。"
+      ],
+      "expression-response-repair-tie": [
+        "把分歧变成一段能继续的对话",
+        "你选择表达、回应和修复一样多。",
+        "你说明迟到如何影响你，听完原因，再约定下次怎么通知。"
+      ],
+      "expression-space-repair-tie": [
+        "说清界线后再回到问题",
+        "你表达、空间和修复都是高频选择。",
+        "你说需要安静半小时，回来后谈要怎么分配家务。"
+      ],
+      "response-space-repair-tie": [
+        "先照顾对话的时机",
+        "你回应、空间和修复获得同样的最高次数。",
+        "你问对方何时愿意聊，并把原来的议题留到合适时机。"
+      ],
+      "four-directions-tied": [
+        "四个方向同步",
+        "你这次每个方向都选了六次。",
+        "你可以说出需要、听回应、留个人时间，也处理一项分歧。"
+      ]
+    },
+    "faq": [
+      [
+        "题目讨论哪些做法？",
+        "清楚表达、留意回应、调节靠近和空间、参与分歧修复。"
+      ],
+      [
+        "会测出固定恋爱人格吗？",
+        "结果是自己在本次题目里的选择次数。"
+      ],
+      [
+        "每项有几次机会？",
+        "各出现12次，每两项对照4次。"
+      ],
+      [
+        "同分怎么计算？",
+        "最高同分的方向全部保留，显示对应组合。"
+      ],
+      [
+        "能少做几题吗？",
+        "24项都完成才有结果，也可直接看指南。"
+      ],
+      [
+        "复制会分享哪些内容？",
+        "复制结果名称和同语公开指南，不带次数或逐题选择。"
+      ]
+    ],
+    "formula": "24题每道二选一，选中一端加1，四个方向各出现12次，保留全部最高并列。",
+    "boundary": "读数仅用于回顾自己的选择，不用来确定固定恋爱类型、衡量伴侣或预测适配度。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的戀愛性格測驗以24道原創二選一題整理親密互動的四種做法，約6分鐘。免費提供原始次數、最高同分組合和十五份公開的生活情境指南。",
+    "intro": "想讓對方知道你很在意時，你會先把話講清楚、看看對方想不想聊，還是留點時間再說？選最近比較自然的一種。",
+    "deliverables": [
+      [
+        "四個方向分開看",
+        "表達、回應、空間與修復各有次數。"
+      ],
+      [
+        "同分全部保留",
+        "最高次數相同的方向一起顯示。"
+      ],
+      [
+        "十五份公開指南",
+        "單項與同分組合都能對照日常例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "說出想法，再留人回話",
+        "自己的期待與對方的時間可以一起考量。"
+      ],
+      [
+        "把暫停講得具體",
+        "想暫時留空間時，也可說明什麼時候方便重談。"
+      ],
+      [
+        "同分可以搭配著看",
+        "用一件小事回想哪幾種做法合用。"
+      ]
+    ],
+    "profiles": {
+      "clear-expression": [
+        "把話直接說清楚",
+        "你會讓對方知道你真正想做的是什麼。",
+        "安排週末時，你先告訴對方自己想一起吃頓飯。"
+      ],
+      "attuned-response": [
+        "用對方接得住的方式回應",
+        "你會留意對方當下想不想說。",
+        "對方剛下班，你先問想聊還是先休息。"
+      ],
+      "space-regulation": [
+        "把相處時間留得剛好",
+        "你會按彼此狀況調整想一起待著的時間。",
+        "吃過飯你想自己散步，稍後再回去說話。"
+      ],
+      "repair-engagement": [
+        "回到沒談完的那件事",
+        "你會留意是否適合再回頭處理一件分歧。",
+        "隔天你問能不能再商量家事分工。"
+      ],
+      "expression-response-tie": [
+        "先表達也讓對方講完",
+        "你想把自己的需求說出來，也願意聽對方怎麼看。",
+        "你提起週末的期待，也問對方想保留何時。"
+      ],
+      "expression-space-tie": [
+        "講清楚並預留自己的時間",
+        "你會說出想法，也讓兩個人都能有一段自己的時間。",
+        "你約好一起吃晚餐，下午各自活動。"
+      ],
+      "expression-repair-tie": [
+        "開口後想一個能做到的調整",
+        "你會把顧慮講清楚，再談下次可以改什麼。",
+        "朋友臨時改約，你說希望下次早一點收到訊息。"
+      ],
+      "response-space-tie": [
+        "先看現在方不方便",
+        "你會留意對方的心力，也讓兩邊可以保留空間。",
+        "想聊一件事前，你先問今晚還是明天比較合適。"
+      ],
+      "response-repair-tie": [
+        "聽清楚再處理",
+        "你會先弄清楚對方在意什麼，也願意提一個調整。",
+        "對方說被打斷不舒服，你問下次要怎麼輪流發言。"
+      ],
+      "space-repair-tie": [
+        "先緩一緩，再回來談",
+        "你想保留安靜時間，也沒有忘了原本的問題。",
+        "你先去走一圈，晚點再談如何通知會晚到。"
+      ],
+      "expression-response-space-tie": [
+        "可以直說，也能保留餘裕",
+        "你表達、回應和空間在本次同為最高。",
+        "你提出週末一起出門，也聽對方說想留一個上午。"
+      ],
+      "expression-response-repair-tie": [
+        "用一段對話找下一步",
+        "你本次表達、回應、修復都選到一樣多。",
+        "你說自己不喜歡臨時被改約，聽完原因再想新的聯絡方式。"
+      ],
+      "expression-space-repair-tie": [
+        "說明限制後再談原來的事",
+        "你本次表達、空間和修復同分。",
+        "你說想安靜半小時，等適合再討論家事。"
+      ],
+      "response-space-repair-tie": [
+        "把時間留給願意對話的時候",
+        "你本次回應、空間和修復都一樣多。",
+        "你先問對方什麼時候想談，等那時再帶回原來的話題。"
+      ],
+      "four-directions-tied": [
+        "四項都有出現",
+        "你這次四項各選六次。",
+        "臨時改計畫時，你說明在意的地方、聽建議、留時間，再想下一步。"
+      ]
+    },
+    "faq": [
+      [
+        "會談到哪四種做法？",
+        "清楚表達、留意回應、調整相處空間和處理分歧。"
+      ],
+      [
+        "會分成固定的戀愛類型嗎？",
+        "結果只整理本次選擇。"
+      ],
+      [
+        "各項有幾次機會？",
+        "各12次，每兩項會配對比較四次。"
+      ],
+      [
+        "最高同分怎麼看？",
+        "全部保留，連到對應組合的公開指南。"
+      ],
+      [
+        "沒答完能看到結果嗎？",
+        "完成24題才會顯示，也可先讀指南。"
+      ],
+      [
+        "分享會附上作答嗎？",
+        "複製的文字包含結果名稱和同語言公開指南，不帶答案或次數。"
+      ]
+    ],
+    "formula": "24道二選一，選到哪個方向就加1。四個方向各出現12次，最高同分全數保留。",
+    "boundary": "本測驗供回顧自己的選擇，不判定固定性格、評價伴侶或預測關係走向。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Love Personality Test uses 24 original pairs to explore four ways of responding in a close relationship. It takes about six minutes and shows raw counts, all directions tied for the highest count, and fifteen public guides. Readers can reflect on expression, response, space and repair without an account, a partner’s answers, or any details from private messages.",
+    "intro": "When you want someone to know you care, do you say it outright, look for a good moment to talk, or give each other space first? Choose what comes more easily lately.",
+    "deliverables": [
+      [
+        "Four response counts",
+        "See clear expression, attuned response, space regulation, and repair."
+      ],
+      [
+        "Every highest tie",
+        "Learn what the shared lead means in this set of choices."
+      ],
+      [
+        "Fifteen public guides",
+        "Read about a single direction or tied combination."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Make a request and make room to hear back",
+        "Think about a time both helped the conversation."
+      ],
+      [
+        "Set space and a next step",
+        "If you want to pause, decide whether and when you are open to continuing."
+      ],
+      [
+        "Put a tie into a scene",
+        "Choose the most familiar example and see how both approaches might fit."
+      ]
+    ],
+    "profiles": {
+      "clear-expression": [
+        "Put care into words",
+        "You like to be clear about what you feel and want.",
+        "When making weekend plans, you say which afternoon you hope to spend together."
+      ],
+      "attuned-response": [
+        "Check whether it is a good moment",
+        "You tend to notice how ready the other person is to respond.",
+        "When a friend finishes work, you ask whether they would like to talk or rest first."
+      ],
+      "space-regulation": [
+        "Adjust how much time to share",
+        "You look for a balance that leaves space for each person.",
+        "After dinner, you take a walk alone and catch up when you get back."
+      ],
+      "repair-engagement": [
+        "Revisit the issue",
+        "You are willing to return to a specific disagreement when it makes sense.",
+        "The next day, you ask whether it is a good time to revisit the household schedule."
+      ],
+      "expression-response-tie": [
+        "State your view and hear the reply",
+        "You gave expression and response equal weight.",
+        "You suggest a plan and ask what the other person would like to keep."
+      ],
+      "expression-space-tie": [
+        "Say what you want and leave space",
+        "You gave clear expression and space equal weight.",
+        "You arrange dinner together and keep the morning to yourself."
+      ],
+      "expression-repair-tie": [
+        "Explain the issue and offer a change",
+        "You chose expression and repair equally often.",
+        "You explain why a late cancellation was hard and ask if a heads-up could work next time."
+      ],
+      "response-space-tie": [
+        "Read the timing and give it room",
+        "You chose attending and leaving space equally often.",
+        "You ask whether the person has room to talk tonight or wants to wait until tomorrow."
+      ],
+      "response-repair-tie": [
+        "Listen, then work on what happened",
+        "You balanced attending to the reply and revisiting the issue.",
+        "You hear that being interrupted was frustrating and ask how you could take turns next time."
+      ],
+      "space-repair-tie": [
+        "Leave time and revisit the issue later",
+        "You chose space and repair equally often.",
+        "You take a break and return to how you want to handle delays."
+      ],
+      "expression-response-space-tie": [
+        "Ask, listen, and leave breathing room",
+        "You gave expression, response, and space equal weight.",
+        "You share what you want for the weekend and hear how much free time each person needs."
+      ],
+      "expression-response-repair-tie": [
+        "Speak, listen, and repair",
+        "You chose expression, response, and repair equally often.",
+        "You explain how a change affected you, hear the reason, and agree when to give notice."
+      ],
+      "expression-space-repair-tie": [
+        "Name the limit and pick up the issue later",
+        "You gave expression, space, and repair equal weight.",
+        "You say you need an hour before revisiting the chores."
+      ],
+      "response-space-repair-tie": [
+        "Wait until the conversation is welcome",
+        "You selected response, space, and repair equally often.",
+        "You ask when the person is willing to revisit the issue and leave it until then."
+      ],
+      "four-directions-tied": [
+        "Keep all four directions in view",
+        "You picked each response six times.",
+        "You can say what matters, listen, take space, and check how to solve a disagreement."
+      ]
+    },
+    "faq": [
+      [
+        "What are the four directions?",
+        "Clear expression, attuned response, space regulation, and repair."
+      ],
+      [
+        "Does it assign a personality?",
+        "The result counts the responses you chose in this attempt."
+      ],
+      [
+        "How many chances does each direction get?",
+        "Twelve appearances per direction, four comparisons for every pair."
+      ],
+      [
+        "What happens if scores tie?",
+        "Every direction with the highest count remains in the result."
+      ],
+      [
+        "Do I need all 24 answers?",
+        "Yes for results. Any guide can also be read without answering."
+      ],
+      [
+        "What does the copied result show?",
+        "The public guide title and link in your language, without your answers or counts."
+      ]
+    ],
+    "formula": "Twenty-four choices offer two responses each. The selected direction gets one count. Every direction appears twelve times, and all highest ties remain in the result.",
+    "boundary": "Use the counts to reflect on your own current choices. They do not assign a permanent personality, evaluate a partner or predict a match."
+  }
+}

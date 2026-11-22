@@ -34,14 +34,14 @@ function LeadingCard({ axes, locale }: { axes: Axis[]; locale: Locale }) {
   </div>;
 }
 
-function Radar({ axes, locale, sample = false }: { axes: Axis[]; locale: Locale; sample?: boolean }) {
+function Radar({ axes, locale, sample = false, landing = false }: { axes: Axis[]; locale: Locale; sample?: boolean; landing?: boolean }) {
   const zh = locale !== "en";
   const headingId = sample ? "seven-sins-sample-heading" : "seven-sins-radar-heading";
   const valuesId = sample ? "seven-sins-sample-values" : "seven-sins-radar-values";
   const Heading = sample ? "h2" : "h3";
-  return <section className={styles.chart} data-seven-sins-radar aria-labelledby={headingId}>
-    <Heading id={headingId} className={styles.lined}>{sample ? (zh ? sevenSinsDisplay("结果示例", locale) : "Sample result") : (locale === "zh-TW" ? "本次14項作答結果" : zh ? "十四维人格雷达" : "14-Axis Personality Radar")}</Heading>
-    <p className={styles.chartSubtitle}>{zh ? sevenSinsDisplay("红色七宗罪 · 金色七美德 · 双轨独立计分", locale) : "Red: seven sins · Gold: seven virtues · Independent scores"}</p>
+  return <section className={landing ? `${styles.chart} ${styles.previewChart}` : styles.chart} data-seven-sins-radar aria-labelledby={headingId}>
+    <Heading id={headingId} className={landing ? "sr-only" : styles.lined}>{sample ? (zh ? sevenSinsDisplay("结果示例", locale) : "Sample result") : (locale === "zh-TW" ? "本次14項作答結果" : zh ? "十四维人格雷达" : "14-Axis Personality Radar")}</Heading>
+    {landing ? <div className={styles.previewLegend}><span>{{ zh: "红色：七宗罪", "zh-TW": "紅色：七宗罪", en: "Red: Seven sins" }[locale]}</span><span>{{ zh: "金色：七美德", "zh-TW": "金色：七美德", en: "Gold: Seven virtues" }[locale]}</span></div> : <p className={styles.chartSubtitle}>{zh ? sevenSinsDisplay("红色七宗罪 · 金色七美德 · 双轨独立计分", locale) : "Red: seven sins · Gold: seven virtues · Independent scores"}</p>}
     <svg className={styles.radar} viewBox="0 0 360 344" role="img" aria-labelledby={headingId} aria-describedby={valuesId}>
       <path d="M180 8 A170 170 0 0 1 180 348 Z" fill="#9e333d" fillOpacity=".13" />
       <path d="M180 8 A170 170 0 0 0 180 348 Z" fill="#cab381" fillOpacity=".08" />
@@ -93,6 +93,10 @@ const sampleOptions = ["3", "4", "2", "5", "4", "2", "2", "3", "3", "5", "3", "3
 export function buildSevenSinsSample(quiz: { questions: readonly { id: string }[] }) {
   const answers = Object.fromEntries(quiz.questions.map((question, index) => [question.id, sampleOptions[index]]));
   return scoreMiniVirtuesQuestionnaire(quiz, answers);
+}
+
+export function SevenSinsPreviewRadar({ result, locale }: { result: MiniVirtuesDualResult; locale: Locale }) {
+  return <Radar axes={[...resultAxes(result, "sin"), ...resultAxes(result, "virtue")]} locale={locale} sample landing />;
 }
 
 export function QuestionnaireSevenSinsSample({ result, locale }: { result: MiniVirtuesDualResult; locale: Locale }) {

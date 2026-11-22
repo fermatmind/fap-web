@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的成人依恋风格测试用24道原创题回顾一段亲近关系中的近期体验，约6分钟。免费查看担忧和回避两项独立均分、有效题数及四份公开指南。",
+    "intro": "一条消息没回，你会更担心对方怎么想，还是想先留一些距离？回想近三个月同一段成年亲近关系里的普通经历。",
+    "deliverables": [
+      [
+        "两项独立读数",
+        "分别看担忧和回避，适合联系实际相处。"
+      ],
+      [
+        "有效题数",
+        "每组至少8个有效评分，未经历可略过计分。"
+      ],
+      [
+        "四份公开指南",
+        "帮助理解常见术语和情境，所有人都可以读。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把担忧放回发生的那一天",
+        "一次迟回可能和当时的情况有关，回想是否还有其他信息。"
+      ],
+      [
+        "有空间也能说明自己的在意",
+        "可以同意各自休息，并说清什么时候愿意再聊。"
+      ],
+      [
+        "不替别人解释",
+        "你可以回顾自己的体验，对方如何理解由本人说。"
+      ]
+    ],
+    "profiles": {
+      "secure": [
+        "联系和空间都能说清",
+        "你可以观察什么时候能自在提出需要，也接受对方需要空间。",
+        "分别忙碌时，你们商量好稍后联系的时间。"
+      ],
+      "anxious": [
+        "多了解担忧出现在哪里",
+        "你可以回想哪些时刻不确定对方是否愿意回应。",
+        "消息迟回时，你留意到自己一直在看手机。"
+      ],
+      "avoidant": [
+        "分辨独处和回避沟通",
+        "你可以想想哪种距离是在照顾余量，哪种让需要一直没能说出。",
+        "讨论有压力时，你说想先走一圈再回来。"
+      ],
+      "fearful": [
+        "想靠近，也犹豫要不要说",
+        "你可以同时感到在意和不确定，给自己留出选择。",
+        "你想谈一个重要的安排，又先问对方今天是否方便。"
+      ]
+    },
+    "faq": [
+      [
+        "要想哪一段关系？",
+        "近三个月同一段愿意考虑的成年亲近关系。"
+      ],
+      [
+        "会归类成四种之一吗？",
+        "显示两项独立读数；四份指南都可阅读。"
+      ],
+      [
+        "24道题怎么计分？",
+        "每轴12项，1–5，至少8项计分；反向题用6减原分。"
+      ],
+      [
+        "没有相应经历怎么办？",
+        "可选不计分，无需回想不想谈的经历。"
+      ],
+      [
+        "能替对方做吗？",
+        "只填自己的经历，无需对方身份或私讯。"
+      ],
+      [
+        "分享会带读数吗？",
+        "公开分享仅含标题和同语测试入口。"
+      ]
+    ],
+    "formula": "两个轴各12题，频率1–5；反向题用6减原评分。每轴至少8个有效分数才计算均分。",
+    "boundary": "结果回顾一段关系的自报经历，避免用作固定依恋分类、临床判断或对他人的推断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的成人依附風格測驗以24題原創題回顧一段親近關係中的近期經驗，約6分鐘。免費提供擔憂與迴避兩項平均、有效題數和四份公開指南。",
+    "intro": "訊息沒有馬上收到回覆，你會先擔心對方的想法，還是想給自己一點空間？回想最近三個月發生在同一段關係裡的事。",
+    "deliverables": [
+      [
+        "兩軸分開看",
+        "擔憂與迴避各有一項獨立平均。"
+      ],
+      [
+        "查看有效題數",
+        "一軸至少八題納入計分，才能顯示平均。"
+      ],
+      [
+        "公開情境指南",
+        "四份指南可直接讀，幫你理解常見詞與生活例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "回想擔心是在什麼時候出現",
+        "一次訊息晚回不需要概括所有相處經驗。"
+      ],
+      [
+        "先說何時想要空間",
+        "有餘裕時可說清楚何時方便再聊。"
+      ],
+      [
+        "只用自己的角度填",
+        "對方如何看同一件事，需要由對方分享。"
+      ]
+    ],
+    "profiles": {
+      "secure": [
+        "兩個人的需要都可以說",
+        "你可以觀察自己何時能自在開口，也尊重對方想要空間。",
+        "忙完一天後，你們約一個都方便的時間通話。"
+      ],
+      "anxious": [
+        "看看自己什麼時候會擔心",
+        "你可以留意沒收到回覆時，自己想起什麼。",
+        "等訊息變久，你發現想知道對方是否有空。"
+      ],
+      "avoidant": [
+        "留一些獨處的時間",
+        "你可以看看想退開是為了休息，或有件事一直沒能開口。",
+        "對話吃力時，你先出去走走，之後再決定要不要談。"
+      ],
+      "fearful": [
+        "想靠近，也想先等等",
+        "你可以同時在意關係，也需要挑好時機。",
+        "你想談一件重要的事，先問對方今天有沒有心力。"
+      ]
+    },
+    "faq": [
+      [
+        "要想多久的事？",
+        "選一段成年親近關係，回想近三個月。"
+      ],
+      [
+        "會分出四種依附類型嗎？",
+        "結果顯示兩軸平均，四份指南皆可自由閱讀。"
+      ],
+      [
+        "每組怎麼計分？",
+        "各12題按頻率1到5，反向題用6減原分，八題有效才顯示平均。"
+      ],
+      [
+        "無法評一題怎麼辦？",
+        "可以選不計分，無須留下事件細節。"
+      ],
+      [
+        "可以幫伴侶填嗎？",
+        "請以自己的感受和經驗來填。"
+      ],
+      [
+        "分享會列出個人結果嗎？",
+        "公開分享只有名稱和同語言測驗入口。"
+      ]
+    ],
+    "formula": "兩軸各12題。頻率1至5分，反向題取6減原分，每軸至少8個有效分數才算平均。",
+    "boundary": "讀數用來回顧一段關係中的自述經驗，不會診斷或判定依附類型，也無法替非填答者解讀。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Attachment Styles Test uses 24 original items to reflect on recent experiences in one adult close relationship. It takes about six minutes and reports separate averages for anxiety and avoidance, the number of answers counted, and four public guides. Readers can use it without signing up, naming anyone, or submitting details from messages or stories about their relationship.",
+    "intro": "A message goes unanswered. Do you find yourself worrying about what it means, or would you rather give yourself space? Think of the past three months in one relationship.",
+    "deliverables": [
+      [
+        "Two separate readings",
+        "Review anxiety and avoidance without combining the scores."
+      ],
+      [
+        "Rated-item counts",
+        "Each axis needs at least eight rated responses. Unscored replies can be left out."
+      ],
+      [
+        "Four public guides",
+        "Read common terms through concrete situations."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Look at where worry shows up",
+        "Think about what you knew and what you were waiting to find out."
+      ],
+      [
+        "Name what space means for you",
+        "Sometimes a quiet interval and a clear next step can fit together."
+      ],
+      [
+        "Keep your perspective separate",
+        "Focus on your experience and give others room to speak for themselves."
+      ]
+    ],
+    "profiles": {
+      "secure": [
+        "Stay in touch and keep room for space",
+        "You can notice when it feels possible to ask for contact and respect someone’s need for time.",
+        "On a busy day you agree when to check in later."
+      ],
+      "anxious": [
+        "Locate the moments of worry",
+        "You can consider when you find yourself uncertain about how someone will respond.",
+        "A reply takes longer than expected and you notice how often you reach for your phone."
+      ],
+      "avoidant": [
+        "Tell rest and distance apart",
+        "You can reflect on when space helps you rest and when a concern remains unanswered.",
+        "You feel pressed during a discussion and say you would like to take a walk first."
+      ],
+      "fearful": [
+        "Want closeness and hesitate too",
+        "You can notice more than one feeling without rushing into a conversation.",
+        "You want to talk about a change and first ask whether this is a good time."
+      ]
+    },
+    "faq": [
+      [
+        "Which relationship should I choose?",
+        "Choose one adult close relationship and consider typical situations over the past three months."
+      ],
+      [
+        "Will the quiz assign me a style?",
+        "It shows two independent averages and makes all four guides available."
+      ],
+      [
+        "How is each axis scored?",
+        "There are 12 items on each axis. Rate from 1 to 5, reverse items use six minus the rating, and eight rated items are needed."
+      ],
+      [
+        "What if I cannot rate something?",
+        "Choose unscored. You do not need to recount any situation."
+      ],
+      [
+        "Can I answer for someone else?",
+        "Use your own experience. No partner information is needed."
+      ],
+      [
+        "Do the shared details include scores?",
+        "The public share contains the title and same-language test link."
+      ]
+    ],
+    "formula": "Each axis contains 12 frequency items. Rate from 1 to 5. Reverse items use six minus the rating. An axis needs at least eight valid scores for its average.",
+    "boundary": "The readings describe your own experience of one relationship. They cannot assign an attachment category, establish a diagnosis, or assess another person."
+  }
+}

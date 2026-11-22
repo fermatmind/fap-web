@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的恋爱偏好测试用24道原创二选一题，约6分钟。它分别统计亲近与个人空间、计划与灵活的选择次数，免费提供并列结果和六份公开指南。",
+    "intro": "周末更想提前定好安排，还是出门再决定？一段关系可以既需要共同时间，又需要各自的空间。把两种选择分开看。",
+    "deliverables": [
+      [
+        "两条独立对照",
+        "亲近与空间、确定与灵活各统计12次选择。"
+      ],
+      [
+        "原始次数与并列",
+        "每轴两端分别列出次数，6比6时保留本轴的并列。"
+      ],
+      [
+        "六份完整指南",
+        "两轴各有两端和同分的公开读法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "一起参与，也留自己的时间",
+        "可以先商量哪几段想一起过、哪些想各自安排。"
+      ],
+      [
+        "约定与即兴分开谈",
+        "先定必要的时间地点，余下的安排留到当天。"
+      ],
+      [
+        "同分也有信息",
+        "想想在哪些场合你偏向一端，在哪些场合会换。"
+      ]
+    ],
+    "profiles": {
+      "shared-participation": [
+        "把一段时间留给彼此",
+        "你更愿意一起做些小事，让对方知道什么时候能碰面。",
+        "出差前，你们先约好哪天一起吃饭。"
+      ],
+      "personal-space": [
+        "留一些时间自己决定",
+        "你更愿意保留不用预先交代的个人安排。",
+        "周六上午，你想独自去书店，下午再见面。"
+      ],
+      "certainty-planning": [
+        "先确定不能落空的安排",
+        "你更愿意把重要的约定提前落在日历里。",
+        "去外地前，你先确认末班车和见面的时间。"
+      ],
+      "flexible-experience": [
+        "先留几个可变的选项",
+        "你更愿意出门后随天气和心情调整。",
+        "逛公园遇到下雨，你提议改去附近的小展。"
+      ],
+      "contact-space-tie": [
+        "有些事一起，有些事保留",
+        "你在亲近与空间两边都选了六次。",
+        "你想一起吃饭，也想分别决定下午怎么过。"
+      ],
+      "certainty-flexibility-tie": [
+        "该约的约，剩下的边走边想",
+        "你在计划与灵活两边都选了六次。",
+        "你提早定好车票，让午饭地点当天再选。"
+      ]
+    },
+    "faq": [
+      [
+        "这项测试看什么？",
+        "分别比较亲近与个人空间、确定与灵活两套安排。"
+      ],
+      [
+        "两个方向如何计分？",
+        "每条对照12道题，一次选择给相应一端加1。"
+      ],
+      [
+        "6比6怎么办？",
+        "该轴会给出同分读法，另一轴照常独立解释。"
+      ],
+      [
+        "结果是某种对象匹配吗？",
+        "结果只反映你对当前安排的选择。"
+      ],
+      [
+        "两个选项都不合适怎么办？",
+        "可退出或阅读指南。两轴都要完成有效作答才显示。"
+      ],
+      [
+        "是否需要填写对象资料？",
+        "无需提供。复制的链接指向同语公开测试，附上公开解读标题但不含个人答案或计数。"
+      ]
+    ],
+    "formula": "24道二选一，两条轴各有12题。每次投给所选一端一票，各轴独立读，6比6保留同分。",
+    "boundary": "这是一份自愿的偏好回顾。读数只描述你在题目中的选择，两条轴不合成单个关系类型、依恋分类或兼容度。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的感情相處偏好測驗有24題原創二選一，約6分鐘。聯繫與個人空間、確定與彈性各自計數，免費提供同分結果和六份公開的情境指南。",
+    "intro": "你喜歡先把週末排好，還是到時看看？和一個人同時有想一起做的事，也有想自己安排的時間。",
+    "deliverables": [
+      [
+        "兩組分開讀",
+        "聯繫與空間、確定與彈性，各有12次選擇。"
+      ],
+      [
+        "原始次數和同分",
+        "每軸兩端各列次數，六比六就保留這一軸的同分。"
+      ],
+      [
+        "六份可直接閱讀的指南",
+        "每軸的兩端和同分都有自己的生活例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "行程裡預留個人時間",
+        "先問彼此哪些想一起做，再把想自己安排的時間留出來。"
+      ],
+      [
+        "分清必要與可調整的部分",
+        "像集合時間可以先約好，吃什麼留到現場再想。"
+      ],
+      [
+        "用情境理解同分",
+        "想想這週有哪些事想提早定、哪些事想到時再看。"
+      ]
+    ],
+    "profiles": {
+      "shared-participation": [
+        "約一段一起度過的時間",
+        "你會希望先有共同安排，讓雙方都留得出時間。",
+        "週末各自有事，你們先留週日下午喝咖啡。"
+      ],
+      "personal-space": [
+        "把一個上午留給自己",
+        "你會想保留可以自己決定怎麼過的時間。",
+        "週六上午你想自己逛書店，晚上再和對方吃飯。"
+      ],
+      "certainty-planning": [
+        "先把重點排進行事曆",
+        "你重視提前說清楚不能臨時取消的安排。",
+        "要出門前，你先確認末班車和集合地點。"
+      ],
+      "flexible-experience": [
+        "到現場再選一條路",
+        "你喜歡多保留幾個選項，照天氣和心情來調整。",
+        "原本要去公園，遇到下雨就改逛附近的小展。"
+      ],
+      "contact-space-tie": [
+        "一起相處，也各過一段時間",
+        "你在聯繫和個人空間兩端都選了六次。",
+        "你想一起吃早午餐，下午則各自安排。"
+      ],
+      "certainty-flexibility-tie": [
+        "先敲定重點，其他看當天",
+        "你在確定和彈性兩端都選了六次。",
+        "你會先買車票，但抵達後再挑一家想吃的店。"
+      ]
+    },
+    "faq": [
+      [
+        "這份測驗在看什麼？",
+        "它把聯繫與空間、確定與彈性兩組相處偏好分開看。"
+      ],
+      [
+        "怎麼算次數？",
+        "每組12題，每選一次就替那一端加1。"
+      ],
+      [
+        "選一樣多次怎麼辦？",
+        "六比六顯示本組同分，另一軸照常計分。"
+      ],
+      [
+        "能找出跟我最配的人嗎？",
+        "兩項讀數只呈現你選的安排，實際相處還是得彼此商量。"
+      ],
+      [
+        "兩個選項都不合適呢？",
+        "可以離開去看指南。完整有效填答才能顯示兩軸。"
+      ],
+      [
+        "會需要對方的資料嗎？",
+        "不用提供。繁中版複製連到同語言公開測驗，不帶答案或次數。"
+      ]
+    ],
+    "formula": "24道二選一，兩軸各12題。每題替選到的一端加1，兩軸分開，六比六時顯示同分。",
+    "boundary": "結果用來整理自己的相處偏好。它不組成單一關係標籤，也不評斷對方或預測關係發展。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Relationship Preferences Test uses 24 original pairs of choices to compare contact with personal space and certainty with flexibility. It takes about six minutes and shows the raw counts for both sides of each question set, including ties. Six public guides explain individual directions and ties, and readers can complete the test or open a guide without creating an account.",
+    "intro": "Do you plan the weekend before it starts or decide as you go? You may want some time together and some time apart. Look at both choices in the situations where they come up.",
+    "deliverables": [
+      [
+        "Two separate comparisons",
+        "Count choices for contact versus space, and for certainty versus flexibility."
+      ],
+      [
+        "Counts and ties",
+        "See the choices on both sides of each dimension, including an even split."
+      ],
+      [
+        "Six full guides",
+        "Each end and each tie has a public guide with examples."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Set aside time together and apart",
+        "Decide which activities you want to share and where each person wants to make their own plan."
+      ],
+      [
+        "Plan what needs to be fixed",
+        "Agree on details like the meeting time and leave room for everything else."
+      ],
+      [
+        "Look at where an even split came from",
+        "Review what made contact, space, plans or flexibility more useful in each setting."
+      ]
+    ],
+    "profiles": {
+      "shared-participation": [
+        "Make some time together",
+        "You like setting time aside for a shared activity.",
+        "Before a busy weekend, you decide when you will both be free for coffee."
+      ],
+      "personal-space": [
+        "Make a plan of your own",
+        "You like keeping some parts of your schedule for yourself.",
+        "You spend Saturday morning at the bookshop and meet up later."
+      ],
+      "certainty-planning": [
+        "Get the essentials on the calendar",
+        "You like making certain commitments well ahead of time.",
+        "Before a trip, you confirm the last train and where to meet."
+      ],
+      "flexible-experience": [
+        "Keep another option open",
+        "You like making choices as the day and circumstances unfold.",
+        "A rainy afternoon turns your park visit into a stop at a nearby exhibit."
+      ],
+      "contact-space-tie": [
+        "Keep room for both kinds of time",
+        "You made six choices for contact and six for personal space.",
+        "You plan to have breakfast together and spend the afternoon doing your own things."
+      ],
+      "certainty-flexibility-tie": [
+        "Set the essentials and see what happens",
+        "You made six choices for certainty and six for flexibility.",
+        "You book the train in advance and pick a lunch spot after you arrive."
+      ]
+    },
+    "faq": [
+      [
+        "What does the quiz look at?",
+        "It compares contact with personal space and certainty with flexibility."
+      ],
+      [
+        "How are the results calculated?",
+        "Each comparison covers 12 pairs. A choice adds one count to one side."
+      ],
+      [
+        "What happens at six to six?",
+        "An even split has its own guide for that dimension; the other dimension keeps its own result."
+      ],
+      [
+        "Will this match me with a partner?",
+        "You get a reading of your own preferred arrangements in these scenarios."
+      ],
+      [
+        "What if neither option fits?",
+        "You can stop or browse the guides. Both dimensions require 24 valid choices in all."
+      ],
+      [
+        "Do I need anyone else’s information?",
+        "No. The share text names the public readings and links to the same-language quiz without your answers or counts."
+      ]
+    ],
+    "formula": "There are two separate comparisons of 12 pairs each. Each choice adds one to its side. An even split is displayed for that comparison.",
+    "boundary": "The counts describe your own choices in these situations. They do not combine into an attachment style, personality type or compatibility score."
+  }
+}

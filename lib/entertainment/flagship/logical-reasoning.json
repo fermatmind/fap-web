@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的逻辑推理练习用24道原创题练习量词、条件、多步演绎和排序约束，约12分钟。免费查看四组正确数、逐题解释及完整的公开练习指南。",
+    "intro": "知道‘如果甲，就有乙’，可以用‘有乙’推回甲吗？根据题面的前提走一步，再看看还剩哪些可能。",
+    "deliverables": [
+      [
+        "四组各6题",
+        "量词、条件、演绎和排序。"
+      ],
+      [
+        "逐题推导",
+        "检查哪条前提支持答案。"
+      ],
+      [
+        "四份公开指南",
+        "回顾常混淆的说法和规则。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先保留量词",
+        "有些表示至少一个，不等于所有。"
+      ],
+      [
+        "不要把条件倒着用",
+        "区分充分条件、必要条件和双向规则。"
+      ],
+      [
+        "所有限制都要验",
+        "找到一组可能的排列后，再看每条线索。"
+      ]
+    ],
+    "profiles": {
+      "quantifiers": [
+        "保留命题的范围",
+        "你会把有些、所有和没有分清。",
+        "从一项符合条件的对象，不推出同组的每个对象都符合。"
+      ],
+      "conditions": [
+        "沿着规则的方向走",
+        "你会看清哪边是条件，哪边是结果。",
+        "给出甲则乙，你不用只知道乙来确认甲。"
+      ],
+      "deduction": [
+        "每一步都核对前提",
+        "你可以把两条相连规则写成清楚的步骤。",
+        "推理出中间条件后，你检查它是否满足下一条规则。"
+      ],
+      "constraints": [
+        "排列完再核对一次",
+        "你会逐条检查顺序线索是否都成立。",
+        "摆好座次后，你复查那条最容易遗漏的‘不能相邻’。"
+      ]
+    },
+    "faq": [
+      [
+        "有几题？",
+        "24道，四类各六。"
+      ],
+      [
+        "虚构规则需要符合现实吗？",
+        "按题面当成前提。"
+      ],
+      [
+        "有时间限制吗？",
+        "没有，通常约12分钟。"
+      ],
+      [
+        "怎么计分？",
+        "符合唯一参考答案计1。"
+      ],
+      [
+        "能作为IQ或法律判断吗？",
+        "这只是给定前提下的练习。"
+      ],
+      [
+        "分享会带答案吗？",
+        "同语公开入口不附作答。"
+      ]
+    ],
+    "formula": "24道，四组各6。匹配题目参考答案计1，其他有效选项为0，完整答题后可逐道复习。",
+    "boundary": "按给定前提检查能否推出结论。命中次数只反映本练习，不换算IQ、普遍能力或实际法律判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的邏輯推理練習以24道原創題練習量詞、條件、多步推理與排序限制，約12分鐘。免費提供四組答對數、逐題解說和完整公開的練習指南。",
+    "intro": "知道「如果甲，就會有乙」，可以只用乙來證明甲嗎？先照題目說的前提往下走，別添入沒有給的規則。",
+    "deliverables": [
+      [
+        "四組各6題",
+        "複習量詞、條件、多步演繹和排序限制。"
+      ],
+      [
+        "逐題解說",
+        "確認支持答案的是哪個條件。"
+      ],
+      [
+        "四份公開指南",
+        "填答前也能查閱常見寫法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先分清「有些」和「全部」",
+        "一個例子足以告訴你有至少一個。"
+      ],
+      [
+        "把箭頭留在原來的方向",
+        "先核對是充分、必要或雙向。"
+      ],
+      [
+        "排列後逐條確認",
+        "找到候選做法後，還要驗證每條線索。"
+      ]
+    ],
+    "profiles": {
+      "quantifiers": [
+        "把量詞圈起來",
+        "你能看出有些所指的範圍。",
+        "知道一個人符合資格時，你不推定其他人也符合。"
+      ],
+      "conditions": [
+        "看清條件從哪端走向哪端",
+        "你會區分甲是條件還是結論。",
+        "題目給甲就有乙，你不直接從乙推回甲。"
+      ],
+      "deduction": [
+        "把推理的每一段寫清",
+        "你可以先得到中間條件，再看看能否使用下一條。",
+        "找到可連接兩項規則的條件後，你再推下一步。"
+      ],
+      "constraints": [
+        "排完才逐項核對",
+        "你可以確認每一個位置只對應一個對象。",
+        "排座位後，你回頭看哪兩位不可以相鄰。"
+      ]
+    },
+    "faq": [
+      [
+        "有幾道題？",
+        "總共24題，四組各6題。"
+      ],
+      [
+        "虛構前提怎麼用？",
+        "就按題目寫的條件來演繹。"
+      ],
+      [
+        "會有倒數嗎？",
+        "沒有，約12分鐘。"
+      ],
+      [
+        "如何給分？",
+        "符合答案計1，其他有效答案為0。"
+      ],
+      [
+        "能換算智商或工作分數嗎？",
+        "只呈現這份練習的作答結果。"
+      ],
+      [
+        "分享會附答案嗎？",
+        "同語言公開連結沒有個人填答。"
+      ]
+    ],
+    "formula": "四組各有6題。照題面前提作答，符合參考答案加1，共24題完成才看完整解說。",
+    "boundary": "題目是有限條件下的推理練習，結果不提供智商、常模或一般能力判定。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Logical Reasoning practice uses 24 original questions on quantifiers, conditions, multi-step deduction, and ordering constraints. It takes about twelve minutes and provides four section counts, worked answers, and complete public guides. Readers apply the premises supplied in each fictional task without signing up, taking a timed assessment, or offering data about their own work or decisions in ordinary life.",
+    "intro": "If A implies B, does seeing B establish A? Try working from the stated premises before deciding which conclusions actually follow.",
+    "deliverables": [
+      [
+        "Four sections of six",
+        "Review quantifiers, conditions, deduction, and ordering constraints."
+      ],
+      [
+        "Worked explanations",
+        "Check the specific premise that supports each answer."
+      ],
+      [
+        "Four public guides",
+        "Study a familiar trap before or after the practice."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Keep the quantifier intact",
+        "Some means at least one; it does not establish that all objects qualify."
+      ],
+      [
+        "Follow the direction of the rule",
+        "Check whether the relationship is one-way or goes both ways."
+      ],
+      [
+        "Verify every restriction",
+        "Finding one plausible arrangement is the start of the check."
+      ]
+    ],
+    "profiles": {
+      "quantifiers": [
+        "Check the scope of the claim",
+        "You can distinguish some, all, and none as separate statements.",
+        "Seeing one qualified object does not make you count every object as qualified."
+      ],
+      "conditions": [
+        "Keep the arrow pointing the right way",
+        "You can tell which condition leads to which consequence.",
+        "A gives B, so you avoid concluding A just because B is present."
+      ],
+      "deduction": [
+        "Carry each premise through",
+        "You can pause after an intermediate conclusion to check what rule applies next.",
+        "You verify that a middle step contains all the conditions the second rule needs."
+      ],
+      "constraints": [
+        "Check the completed order",
+        "You can compare the arrangement with every restriction after solving.",
+        "You check the two people who cannot sit next to each other."
+      ]
+    },
+    "faq": [
+      [
+        "How many questions are there?",
+        "Twenty-four across four groups, six each."
+      ],
+      [
+        "What if a rule is fictional?",
+        "Use the given premise even if it does not describe real objects."
+      ],
+      [
+        "Is there a timer?",
+        "No. Twelve minutes is an estimate."
+      ],
+      [
+        "How are results scored?",
+        "Each keyed match adds one."
+      ],
+      [
+        "Does this give an IQ score?",
+        "The counts reflect this particular set of reasoning questions."
+      ],
+      [
+        "Can I share the result?",
+        "The public same-language practice link has no personal answers."
+      ]
+    ],
+    "formula": "Four groups contain six questions each. An answer matching the key adds one. Other valid choices add zero. Complete all 24 to see explanations.",
+    "boundary": "Use the supplied premises to practise checking conclusions. These scores do not establish IQ, population norms, or general reasoning ability."
+  }
+}

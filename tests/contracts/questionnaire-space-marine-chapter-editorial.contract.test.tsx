@@ -27,8 +27,9 @@ describe("individual original Space Marine hobby editorial",()=>{
     expect(catalog.find(item=>item.slug===quiz.slug)?.description).toEqual(quiz.description);
     for(const locale of ["zh","en"] as const){
       const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await entry.default({params:Promise.resolve({slug:quiz.slug,locale})}));
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(6);
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
+      expect(dom.querySelectorAll('#questionnaire-results article[data-ent-result-id]')).toHaveLength(6);
+      expect(dom.querySelectorAll('[data-ent-faq]')).toHaveLength(6);
+      expect(dom.querySelectorAll('[data-ent-faq][open]')).toHaveLength(3);
       const normalize=(s:string)=>s.replace(/\[\d+\]/g,"").replace(/\s+/g," ").trim();const body=normalize(dom.textContent??"");
       for(const faq of [...quiz.faq,...spaceMarineChaptersLandingFaq])expect(body).toContain(normalize(faq.answer[locale]));
       for(const section of [...quiz.guide,...spaceMarineChaptersLandingSections])for(const paragraph of section.paragraphs)expect(body).toContain(normalize(paragraph[locale]));

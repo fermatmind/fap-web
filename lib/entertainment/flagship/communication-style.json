@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的沟通风格测试用24道原创题回顾近四周的日常表达，约6分钟。四类回应各自计算频率均分，免费提供有效题数、独立读数与四份沟通指南。",
+    "intro": "群聊临时改约，你会直接说自己到不了，先答应再想办法，还是一句话把其他选项挡回去？回想近四周你实际说过、做过的事。",
+    "deliverables": [
+      [
+        "四项频率",
+        "分别回看表达需要、压下想法、压过对方和间接抗拒。"
+      ],
+      [
+        "每组有效数",
+        "按近四周亲历场景作答，结果同时显示每组有几题计分。"
+      ],
+      [
+        "四份公开指南",
+        "沿同一个冲突看不同说法，作答前也能读。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把原话写短",
+        "如果你常说清限制，回想自己有没有留给对方回应的空间。"
+      ],
+      [
+        "先给自己一点时间",
+        "如果你常把需要压下，可以试一句“我先查下安排，再回复你”。"
+      ],
+      [
+        "读数未显示",
+        "没有遇到某类场景时可以保留空白，挑一条有经历的回应先看。"
+      ]
+    ],
+    "profiles": {
+      "assertive": [
+        "把话放到桌面",
+        "你会把不同意见说清楚，也给对方留个入口。",
+        "大家想把会挪到晚上，你说今晚有约，并问能否改明早。"
+      ],
+      "passive": [
+        "把需要放进草稿",
+        "你明明另有安排，却先回了句“我都可以”。",
+        "你说哪天都行，转头取消了本来想去的活动。"
+      ],
+      "aggressive": [
+        "一句话关掉讨论",
+        "你想赶快定下来，有时会直接堵住别人的回应。",
+        "排班有人提出替代时段，你打断对方说“就这么定”。"
+      ],
+      "passive-aggressive": [
+        "绕弯说出不满",
+        "你嘴上答应了，心里的反对却从别处冒出来。",
+        "你同意轮值，却因不满故意拖到交接前才发文件。"
+      ]
+    },
+    "faq": [
+      [
+        "要回想多久？",
+        "想近四周里你亲历的交流，尽量涵盖几个普通场景。"
+      ],
+      [
+        "四项分别是什么？",
+        "坚定表达、被动表达、强硬压过他人和间接抗拒，分别描述可观察的回应。"
+      ],
+      [
+        "每组怎么算？",
+        "六题各按1–5计频率，至少四道计分后显示一位小数均分。"
+      ],
+      [
+        "没有遇到这种场景怎么办？",
+        "选不计分。24条均选过即可看结果，计分不足的组也可打开指南。"
+      ],
+      [
+        "怎么解读几项同时偏高？",
+        "几种回应可以发生在不同关系和场合。对照具体一次谈话更容易理解读数。"
+      ],
+      [
+        "复制时会带上分数吗？",
+        "复制内容指向公开测试入口，个人分数与所选答案留在本次页面。"
+      ]
+    ],
+    "formula": "四组各6题，1–5按频率计分，每组至少4个有效回答才计算一位小数均分。NA不进入分母。",
+    "boundary": "这是四种日常回应的自报记录。高低跟谈话对象、权力关系和场合有关。无需输入姓名、原始对话或替别人作答。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的溝通風格測驗以24題原創題回顧最近四週的日常對話，約6分鐘。四類回應分別計算頻率平均，免費提供有效題數、分數與四份情境指南。",
+    "intro": "朋友突然說要改約，你會講清楚自己的時間限制、先說好再想辦法，還是直接把提議擋掉？回想這四週裡你確實說過、做過的事。",
+    "deliverables": [
+      [
+        "看四種回應頻率",
+        "分開看清楚表達、壓下需求、強勢蓋過與間接抗拒。"
+      ],
+      [
+        "確認有哪些題計分",
+        "有適用經驗才評頻率，讀數旁也會顯示實際計分題數。"
+      ],
+      [
+        "四份情境指南",
+        "同一件事可以怎麼說，還沒填完也能先看。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "留個回話的空間",
+        "說得直接之後，也看看對方有沒有機會把自己的限制說完。"
+      ],
+      [
+        "先別急著說好",
+        "要是你習慣回「都好」，可以先問自己哪個安排其實行不通。"
+      ],
+      [
+        "保留沒有把握的題目",
+        "遇不到的場景可以選不計分，等下次有經驗再觀察。"
+      ]
+    ],
+    "profiles": {
+      "assertive": [
+        "把話講清楚",
+        "你會說出自己能配合的範圍，也讓對方有機會提其他做法。",
+        "小組想週日彩排，你說那天得上班，並問週六能否先走一遍。"
+      ],
+      "passive": [
+        "先把話吞回去",
+        "你想到一個更可行的安排，最後還是回了「照你們的就好」。",
+        "大家選了較晚的時段，你默默改掉末班車前的安排。"
+      ],
+      "aggressive": [
+        "一口把討論收掉",
+        "你想立刻拍板，有時話一出口，其他人就難再開口。",
+        "同伴剛說可以交換分工，你便打斷他說你早就分好了。"
+      ],
+      "passive-aggressive": [
+        "用動作表示反對",
+        "你沒在當下說不，後來才用拖延讓對方知道你不高興。",
+        "你口頭答應整理共用資料，卻故意拖到開會才上傳。"
+      ]
+    },
+    "faq": [
+      [
+        "要回想多長的時間？",
+        "以最近四週的日常對話為主，挑自己實際遇到過的場合。"
+      ],
+      [
+        "四項是在看什麼？",
+        "分開看有話直說、壓下需求、阻斷對方和間接表達不滿的頻率。"
+      ],
+      [
+        "怎麼算這四項分數？",
+        "每組六題，1到5依頻率計分，至少四題有效才顯示平均。"
+      ],
+      [
+        "沒碰過的情況怎麼選？",
+        "選不計分。完成24題選擇即可看讀數與全部指南。"
+      ],
+      [
+        "數個分數都高怎麼讀？",
+        "先對照情境。你在家庭聚會和工作會議上可能採取不同做法。"
+      ],
+      [
+        "轉分享會帶上選項嗎？",
+        "分享文字連回同語測驗入口，沒有個人作答或分數。"
+      ]
+    ],
+    "formula": "四組各6題。每題頻率1到5分，每組至少4題有效才算平均並顯示到小數一位，不計分項不納入計算。",
+    "boundary": "本測驗記錄你自述的日常回應。讀數可用來回想具體對話，無法給他人定型或判定溝通能力。填答時可略過私訊、姓名與談話細節。"
+  },
+  "en": {
+    "facts": "FermatMind’s Communication Style Test uses 24 original questions to review the past four weeks of everyday conversations in about six minutes. It provides four separate frequency averages, the number of responses counted in each, and four public guides. The test is free, requires no sign-up, and describes reported habits when stating needs, navigating disagreements, and deciding how to respond to a request.",
+    "intro": "When the group reschedules at the last minute, do you say what works for you, go along with the plan, or shut discussion down? Think about the words you actually used.",
+    "deliverables": [
+      [
+        "Four frequency averages",
+        "See how often you reported speaking up, holding back, overriding others, or resisting indirectly."
+      ],
+      [
+        "Rated-item counts",
+        "Check how much experience went into each number."
+      ],
+      [
+        "Four public guides",
+        "Read how different replies could change an everyday conversation."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Say what you can do",
+        "State a clear limit and ask what the other person can manage."
+      ],
+      [
+        "Pause before saying yes",
+        "Try giving yourself a little time if a quick agreement often costs you something."
+      ],
+      [
+        "Keep empty readings empty",
+        "If a situation did not arise, read the guide for context without assigning yourself a score."
+      ]
+    ],
+    "profiles": {
+      "assertive": [
+        "Put it on the table",
+        "You explain what works for you and give the other person a turn.",
+        "When a meeting moves to evening, you say you are unavailable and suggest a morning slot."
+      ],
+      "passive": [
+        "Keep it in drafts",
+        "You have a preference but leave it out when everyone else seems decided.",
+        "You say any day works and quietly cancel your own plans."
+      ],
+      "aggressive": [
+        "Close the floor",
+        "You want a decision quickly and may cut off someone trying to offer an alternative.",
+        "When someone proposes a shift swap, you interrupt and announce that the schedule is final."
+      ],
+      "passive-aggressive": [
+        "Let the delay speak",
+        "You agree out loud and sometimes express your objection through what you do later.",
+        "You say you will share the notes but deliberately hold them until the meeting begins."
+      ]
+    },
+    "faq": [
+      [
+        "What time period should I use?",
+        "Recall your own ordinary conversations over the past four weeks."
+      ],
+      [
+        "Which four areas are covered?",
+        "Assertive, passive, aggressive and passive-aggressive replies describe different things someone might do in a given interaction."
+      ],
+      [
+        "How is each mean calculated?",
+        "Each group has six items. The number is shown to one decimal once at least four responses carry a score."
+      ],
+      [
+        "Can I leave an item unscored?",
+        "Yes. Choose the non-scored option when you lack experience or prefer to pass. Select an option on all 24 items to finish."
+      ],
+      [
+        "Can several averages be high?",
+        "Yes. Your responses can vary across settings and people, and each group is scored independently."
+      ],
+      [
+        "What does the share text include?",
+        "It points to the public test in the same language, without adding your answers or scores."
+      ]
+    ],
+    "formula": "Each group contains six items rated 1 to 5 by frequency. With four or more rated items, the group mean is shown to one decimal. Unscored responses are omitted.",
+    "boundary": "Use the four readings to revisit specific moments and consider the context. This original questionnaire does not establish a personality type, clinical finding, or communication ability. No names or messages are needed."
+  }
+}

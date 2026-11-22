@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的关系承诺测试用24道原创题回顾当前成年伴侣关系过去一个月的感受，约7分钟。免费呈现四项独立均分、有效题数与完整的公开情境指南。",
+    "intro": "你喜欢现在的相处，又可能不确定未来怎么安排。把继续意愿、当下满意、其他生活选项和投入分开回想。",
+    "deliverables": [
+      [
+        "四项独立读数",
+        "继续意愿、目前满意、其他选择和关系投入。"
+      ],
+      [
+        "显示计分题数",
+        "各组需六题有效，没把握可以选NA。"
+      ],
+      [
+        "四份公开指南",
+        "可只阅读，不用填真实资料。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "分开想现在与以后",
+        "这段时间相处满意，也可以同时需要慢慢想未来。"
+      ],
+      [
+        "有投入不代表必须继续",
+        "共享安排、时间和习惯都可以逐件整理。"
+      ],
+      [
+        "没有当前伴侣可以先读指南",
+        "无需代入不愿回顾的经历。"
+      ]
+    ],
+    "profiles": {
+      "continuing-intention": [
+        "说清你希望持续的事",
+        "你可以留意自己愿意怎么延续正在发生的相处。",
+        "一起做计划时，你说想先保留每周碰面。"
+      ],
+      "current-satisfaction": [
+        "看见最近相处的感受",
+        "你可以想想哪些部分让人舒适、哪些时候还需要沟通。",
+        "你回想这个月哪次一起吃饭最自在。"
+      ],
+      "outside-options": [
+        "知道自己还有哪些选项",
+        "你可以思考不同生活安排对自己意味着什么。",
+        "你列出空闲时间可以怎样安排，包括自己待着。"
+      ],
+      "relationship-linked-investment": [
+        "细数你已经投入的东西",
+        "你能想到一起积累的时间、任务或日常习惯。",
+        "你整理目前有哪些计划需要两人继续协商。"
+      ]
+    },
+    "faq": [
+      [
+        "该想哪一段关系？",
+        "当前一段成年伴侣关系，回顾最近一个月。"
+      ],
+      [
+        "没在交往能填吗？",
+        "可以直接读全部公开指南。"
+      ],
+      [
+        "为什么有四个均分？",
+        "每组描述不同内容，分别用六个有效评分。"
+      ],
+      [
+        "反向题怎么算？",
+        "6减原评分，其他按1–5。"
+      ],
+      [
+        "分数能说明关系会不会继续吗？",
+        "结果回看当前条件和感受，日后仍有变化和选择。"
+      ],
+      [
+        "分享会带分数吗？",
+        "公开分享回到同语入口，不含你的回答。"
+      ]
+    ],
+    "formula": "四组各6题，选项1–5，反向题用6减原评分。每组6题全部有效才显示均分。",
+    "boundary": "这是对当前关系的个人回顾。结果不用于判断对方意愿、预测分手或替自己决定是否留下。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的關係承諾測驗以24題原創題回顧目前成人伴侶關係過去一個月的感受，約7分鐘。免費提供四項獨立平均、有效題數與完整的公開情境指南。",
+    "intro": "你可能很喜歡最近的相處，卻還沒想好未來怎麼安排。四項讀數分開整理你對持續、滿意、其他選擇和投入的看法。",
+    "deliverables": [
+      [
+        "四個面向",
+        "持續意願、當下滿意、其他生活選擇與投入分別看。"
+      ],
+      [
+        "每組計分題數",
+        "六題都能評分才顯示平均，也能選NA。"
+      ],
+      [
+        "四份公開指南",
+        "不填答也能先讀生活範例。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "現在和以後可以分開看",
+        "此刻滿意，也可以還在想未來。"
+      ],
+      [
+        "投入多寡和下一步分開談",
+        "可以描述你付出的時間與共同安排，也保留選擇。"
+      ],
+      [
+        "沒在交往就先看指南",
+        "不用假想一段關係來填。"
+      ]
+    ],
+    "profiles": {
+      "continuing-intention": [
+        "看看哪些事想持續",
+        "你可以說清楚你現在想維持哪種相處。",
+        "兩人討論下個月時，你提出想保留固定見面的時間。"
+      ],
+      "current-satisfaction": [
+        "回想一個自在的片段",
+        "你可以找出哪個日常讓你覺得滿意。",
+        "你想起最近某次吃晚飯，兩人都能自然地聊天。"
+      ],
+      "outside-options": [
+        "把各種生活選擇想清楚",
+        "你可以比較不同安排對自己意味著什麼。",
+        "你整理下班後可以見面、跟朋友碰面或自己休息的時間。"
+      ],
+      "relationship-linked-investment": [
+        "看見已經投入的心力",
+        "你能想一想為這段關係一起做過哪些事。",
+        "翻開行事曆時，你注意到不少日常要彼此配合。"
+      ]
+    },
+    "faq": [
+      [
+        "要回想什麼時候？",
+        "目前一段成人伴侶關係，最近一個月。"
+      ],
+      [
+        "沒有伴侶也可以看嗎？",
+        "全部公開指南都能直接閱讀。"
+      ],
+      [
+        "四項平均如何算？",
+        "每組六題皆計分才顯示各自平均。"
+      ],
+      [
+        "反向題怎麼處理？",
+        "反向題以6減去原本分數，其餘按1至5計分。"
+      ],
+      [
+        "結果能預測要不要繼續交往嗎？",
+        "讀數表達現況，要如何安排由你和相關的人決定。"
+      ],
+      [
+        "分享有個人答案嗎？",
+        "只連到同語言公開測驗，不附個人讀數。"
+      ]
+    ],
+    "formula": "各組6題，1至5分，反向題以6減原分。每組六題均有效才顯示平均。",
+    "boundary": "題目供回顧目前一段關係。讀數無法推斷伴侶的意願、不提供是否分開的預測或建議。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Relationship Commitment Test uses 24 original questions to reflect on one current adult partnership over the past month. It takes about seven minutes and provides four separate averages, rated item counts, and public guides. Readers can consider intentions to continue, present satisfaction, other options, and relationship-linked investment without signing up or describing how another person currently feels.",
+    "intro": "You might enjoy a relationship today and still be working out what you want next. Give intentions, satisfaction, other options, and investment their own space.",
+    "deliverables": [
+      [
+        "Four separate readings",
+        "Consider intentions, satisfaction, other choices and investment separately."
+      ],
+      [
+        "Rated-item counts",
+        "Each six-item group needs all six ratings for an average."
+      ],
+      [
+        "Four public guides",
+        "Anyone can browse the examples without answering."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Distinguish today from next month",
+        "Being content now and wanting time to think can coexist."
+      ],
+      [
+        "Name what you have put in",
+        "Consider routines and commitments without treating them as an obligation to stay."
+      ],
+      [
+        "Read guides without a current partnership",
+        "You can browse them without supplying hypothetical ratings."
+      ]
+    ],
+    "profiles": {
+      "continuing-intention": [
+        "Name what you want to keep doing",
+        "You can consider what you hope to maintain in the relationship.",
+        "While planning the month, you say you would like to keep one regular evening together."
+      ],
+      "current-satisfaction": [
+        "Recall what feels good today",
+        "You can identify parts of recent life that feel satisfying or difficult.",
+        "You think of a dinner when talking felt easy after a long week."
+      ],
+      "outside-options": [
+        "Consider what other arrangements offer",
+        "You can reflect on what different ways of spending your time would mean to you.",
+        "You think about seeing a friend, being alone, or keeping a shared evening free."
+      ],
+      "relationship-linked-investment": [
+        "Take stock of what you put in",
+        "You can notice the shared time, planning and effort that have accumulated.",
+        "Looking at the calendar, you see which routines need both people to coordinate."
+      ]
+    },
+    "faq": [
+      [
+        "What time period does this use?",
+        "Think about your own view of one current adult partnership over the past month."
+      ],
+      [
+        "What if I am not currently in a partnership?",
+        "You can read all the public guides without answering."
+      ],
+      [
+        "How are the four averages calculated?",
+        "All six items must be rated in a group for its own average."
+      ],
+      [
+        "How are reverse items scored?",
+        "They use six minus the selected 1 to 5 rating."
+      ],
+      [
+        "Does the result predict a breakup?",
+        "The readings help you review how you see the present. Future decisions remain open."
+      ],
+      [
+        "Will others see my ratings if I share?",
+        "The shared link leads to the public test in the same language and carries no answers."
+      ]
+    ],
+    "formula": "Four groups have six items each. Rate from 1 to 5. Reverse items use six minus the rating. All six items in a group must have a valid rating for its average to appear.",
+    "boundary": "Use the quiz to reflect on your perspective in a current partnership. Results do not decide whether you should stay, predict a breakup or establish what a partner wants."
+  }
+}

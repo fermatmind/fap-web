@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的沟通适应练习用30道原创情境题练习根据对象和条件调整表达，约10分钟。免费显示五组参考答案命中数、逐题解释和完整的公开练习指南。",
+    "intro": "刚加入的小组成员看不懂缩写，问你第一步该做什么。你会发术语表，还是先用一句话讲清楚怎么开始？找能回应题面已知条件的做法。",
+    "deliverables": [
+      [
+        "五组命中数",
+        "每组六题，另有全卷30题的匹配总数。"
+      ],
+      [
+        "逐题答案与解释",
+        "回看哪个题面条件改变了较合适的做法。"
+      ],
+      [
+        "五份公开指南",
+        "可以先看相关示例再做题。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先找对方需要完成什么",
+        "写给新手的第一句话，可以直接给出下一步。"
+      ],
+      [
+        "看看沟通工具的限制",
+        "有些调整同时需要可及性、时间和记录。"
+      ],
+      [
+        "核对是否真的理解",
+        "试着问一条能看出对方怎么准备实施的问题。"
+      ]
+    ],
+    "profiles": {
+      "audience-purpose-review": [
+        "一句话说清给谁做什么",
+        "你可以用对象和眼前目标来决定先说哪件事。",
+        "新人不熟缩写时，你写明第一步要打开哪张表。"
+      ],
+      "channel-record-review": [
+        "选择能找到的沟通记录",
+        "你可以比较通知速度与事后能不能核对。",
+        "换交接时间时，你发一条说明并在共用日历保留更新。"
+      ],
+      "context-access-review": [
+        "确认信息每个人都能接到",
+        "你可以把环境和接收条件算进表达选择。",
+        "现场太吵，你把集合点发成简短的文字。"
+      ],
+      "understanding-review": [
+        "问一个能检验理解的问题",
+        "你可以确认对方下一步会怎么做。",
+        "讲完流程后，你请同伴说一下先将哪份材料发给谁。"
+      ],
+      "communication-modes-review": [
+        "按任务需要切换表达方式",
+        "你会根据要讲清的内容补上相应的媒介。",
+        "路线用简单示意图，说明则写出清楚的集合时间。"
+      ]
+    },
+    "faq": [
+      [
+        "这会给我沟通性格结论吗？",
+        "它是一套有题内参考答案的情境练习。"
+      ],
+      [
+        "一共有几题？",
+        "五组六题，共30题，约10分钟。"
+      ],
+      [
+        "怎么计数？",
+        "每题只与该题编辑给出的参考答案核对一次。"
+      ],
+      [
+        "没答的题算错吗？",
+        "未答不作错题，总结果在30题完成后显示。"
+      ],
+      [
+        "答对多少才算会沟通？",
+        "命中数只用于回看这套原题的明确条件。"
+      ],
+      [
+        "分享会带上答题记录吗？",
+        "复制使用同语练习入口，不带个人答案、命中数或进度。"
+      ]
+    ],
+    "formula": "30题分五组，每组6题。每题选择与编写的唯一参考答案匹配时，加1次命中。各组与全卷分别列出次数。",
+    "boundary": "练习判断限于题面已给的条件。读数不是沟通能力、人格或特定岗位胜任的测量。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的溝通適應練習以30道原創情境題練習配合對象與條件調整表達，約10分鐘。免費提供五組參考答案命中數、逐題解釋及公開練習指南。",
+    "intro": "剛加入的志工看不懂縮寫，想知道第一步該做什麼。你會傳完整的資料，還是先幫他找到可以開始的一件事？",
+    "deliverables": [
+      [
+        "五組分開計數",
+        "每組六題，另有全卷的命中次數。"
+      ],
+      [
+        "每題有答案解說",
+        "讀題目提供的限制、需求和目的。"
+      ],
+      [
+        "五份公開指南",
+        "試做前可以先閱讀，做完也能回來看。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先釐清對方要完成什麼",
+        "給新手一個做得到的起點。"
+      ],
+      [
+        "選擇收得到的管道",
+        "可以同時考量多久會收到及事後能否找到。"
+      ],
+      [
+        "確認有沒有理解",
+        "請對方說說接下來會怎麼做。"
+      ]
+    ],
+    "profiles": {
+      "audience-purpose-review": [
+        "把開頭留給眼前的需求",
+        "你可以依收訊者知道的背景與現在要做的事來說明。",
+        "新志工不熟縮寫，你先說要填哪一張表。"
+      ],
+      "channel-record-review": [
+        "選對內容能保留下來的地方",
+        "你會考量用什麼方式通知，也想誰會回頭查。",
+        "交接改期時，你發出提醒，也更新共用行事曆。"
+      ],
+      "context-access-review": [
+        "先看對方收不收得到",
+        "你可以留意環境、裝置和閱聽條件。",
+        "現場很吵時，你把集合位置另外傳成簡短文字。"
+      ],
+      "understanding-review": [
+        "讓下一步說得出來",
+        "你可以用一句提問確認對方有沒有理解。",
+        "說完流程，你請組員說說先把表格交給哪個人。"
+      ],
+      "communication-modes-review": [
+        "配合任務換一種表達",
+        "你會想哪些資訊用圖片更好懂，哪些需要留文字。",
+        "你畫出路線，也寫清楚集合時間。"
+      ]
+    },
+    "faq": [
+      [
+        "這是一份人格測驗嗎？",
+        "這是依照原創情境練習選擇表達方式。"
+      ],
+      [
+        "共幾題？",
+        "五組各六題，共30題，約10分鐘。"
+      ],
+      [
+        "怎麼算命中？",
+        "選項與題目的編輯參考答案一致就加1。"
+      ],
+      [
+        "沒答會直接算錯嗎？",
+        "未作答不算錯，全部完成才顯示結果。"
+      ],
+      [
+        "分數可以評估工作能力嗎？",
+        "分數只記錄本題組中與參考答案相符的次數。"
+      ],
+      [
+        "分享有我的選項嗎？",
+        "同語言公開連結不帶作答和讀數。"
+      ]
+    ],
+    "formula": "五組各6題，共30題。每題所選項目符合唯一編輯參考答案時加1。顯示各組與整份練習的命中次數。",
+    "boundary": "練習只使用題目交代的情境與限制。答題結果不作人格、一般能力或職務適任判定。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Communication Adaptability practice uses 30 original scenarios to explore how wording and channel choices can fit a specific context. It takes about ten minutes and provides five group counts, a total of answers matching the editorial key, explanations for each item, and five public guides. Readers can practise without signing up, a timer, or submitting their own conversations.",
+    "intro": "A volunteer does not know the project abbreviations and asks how to start. Would you send the full archive or begin with one plain instruction? Choose the response that fits the stated information.",
+    "deliverables": [
+      [
+        "Five group counts",
+        "Each group has six items, with a total across all 30."
+      ],
+      [
+        "Item explanations",
+        "See what information in the prompt made the keyed response fit."
+      ],
+      [
+        "Five public guides",
+        "Review selected communication decisions before or after practising."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Find the reader’s next step",
+        "A new reader may need one plain instruction before the background."
+      ],
+      [
+        "Choose a channel for the job",
+        "Consider who can receive it and whether someone needs to look it up later."
+      ],
+      [
+        "Check how it was understood",
+        "Ask for a specific next step instead of assuming everyone heard the same thing."
+      ]
+    ],
+    "profiles": {
+      "audience-purpose-review": [
+        "Lead with what this person needs",
+        "You can shape the opening around what the reader knows and wants to do.",
+        "When a new volunteer asks how to start, you name the first form they need."
+      ],
+      "channel-record-review": [
+        "Give the message a place to stay",
+        "You can think about how quickly a notice travels and who needs to find it later.",
+        "When a handoff moves, you update the calendar and send a short notice."
+      ],
+      "context-access-review": [
+        "Think about who can receive it",
+        "You can consider the setting, accessibility, and equipment people have.",
+        "When a venue is noisy, you text the meeting location in plain words."
+      ],
+      "understanding-review": [
+        "Check the next step",
+        "You can make understanding visible with a concrete question.",
+        "After explaining the process, you ask where the first form will go."
+      ],
+      "communication-modes-review": [
+        "Change the mode to match the task",
+        "You can choose a format according to the information it needs to carry.",
+        "You draw the route and put the meeting time into a short written message."
+      ]
+    },
+    "faq": [
+      [
+        "Is this a personality test?",
+        "It is scenario practice, with an editorially keyed answer for each case."
+      ],
+      [
+        "How many items are there?",
+        "There are 30 items across five groups, taking about ten minutes."
+      ],
+      [
+        "How do I get a match?",
+        "One count is added when the selected response is the keyed option."
+      ],
+      [
+        "Are unanswered items wrong?",
+        "They are not marked wrong. The results appear after completing every item."
+      ],
+      [
+        "Does the result measure communication ability?",
+        "The count summarizes matches in these practice situations."
+      ],
+      [
+        "What does the share link show?",
+        "It opens the same-language public practice, without private answers or counts."
+      ]
+    ],
+    "formula": "There are five groups of six cases. A selection that matches the editorial key adds one to its group and to the total across all 30 items.",
+    "boundary": "The practice concerns the stated facts of each scenario. Its scores do not measure general communication ability, personality or suitability for a job."
+  }
+}

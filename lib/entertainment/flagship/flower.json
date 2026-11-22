@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的你是哪种花测试用18道原创题回顾自己偏好的表达方式，约5分钟。免费显示六种花的选择次数、所有最高并列结果及完整的公开情境指南。",
+    "intro": "送给朋友一句问候，你会选一段只有你们懂的回忆、约对方一起做件事，还是发一句不用马上回的话？从最近的生活小事想起。",
+    "deliverables": [
+      [
+        "六种花的选择次数",
+        "从玫瑰到雏菊，分开看六种表达偏好。"
+      ],
+      [
+        "保留全部最高并列",
+        "开放每个获得同样最高次数的指南。"
+      ],
+      [
+        "完整公开指南",
+        "可以对照花的象征和真实日常做法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看一句你想说的话",
+        "想想这次为什么选择那个细节。"
+      ],
+      [
+        "多种花可以同分",
+        "表达的方式能随关系、场合和时间变化。"
+      ],
+      [
+        "把花当作生活记号",
+        "试回想一次送礼、安静陪伴或约见面。"
+      ]
+    ],
+    "profiles": {
+      "rose": [
+        "把在意放进一件小事",
+        "你喜欢特意挑一个只有对方懂的细节。",
+        "你写卡片时记下两人都笑过的一句话。"
+      ],
+      "sunflower": [
+        "让热情有个简单开始",
+        "你愿意用自然的邀请让人容易加入。",
+        "发来早安之后，你约朋友午后散步。"
+      ],
+      "lavender": [
+        "让关心留一点空间",
+        "你愿意说一句关心，也让回应等到对方有空。",
+        "朋友忙时，你发短讯说不用马上回。"
+      ],
+      "lotus": [
+        "记住变化里珍惜的事",
+        "你喜欢回看一段之后哪些东西还值得保留。",
+        "年末整理照片时，你挑出一件变过却仍在意的事。"
+      ],
+      "orchid": [
+        "用细节说出自己的品味",
+        "你喜欢找到一个具体又不太寻常的表达。",
+        "你选一张带手工纹理的封面做邀请卡。"
+      ],
+      "daisy": [
+        "让小开心轻轻发生",
+        "你喜欢简单、可玩、无需准备得完美。",
+        "路上看到一块好看的石头，你拍照发给朋友。"
+      ]
+    },
+    "faq": [
+      [
+        "有哪些花？",
+        "玫瑰、向日葵、薰衣草、莲花、兰花和雏菊。"
+      ],
+      [
+        "是拿生日判断吗？",
+        "通过你的选择计数，不需要日期。"
+      ],
+      [
+        "怎么计分？",
+        "18题四选一，一次给对应花加1，每种出现12次。"
+      ],
+      [
+        "同分怎么办？",
+        "保留全部最高同分。"
+      ],
+      [
+        "需要了解花语吗？",
+        "不需要，本站解释是原创象征表达。"
+      ],
+      [
+        "可以分享什么？",
+        "复制公开入口或匹配花卉的公开链接，个人次数不会公开。"
+      ]
+    ],
+    "formula": "18题，每题四个表达选项，所选花的计数加1。六花各出现12次，位置各3次，最高同分全部保留。",
+    "boundary": "花的写法是原创日常象征。结果只回顾本题组的偏好，不做性格、健康或命运推断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的你是哪種花測驗以18道原創題整理平常偏好的表達方式，約5分鐘。免費查看六種花的選擇次數、最高同分結果與完整的公開情境指南。",
+    "intro": "想傳一句問候時，你想提起只有彼此記得的小事、約對方出去走走，還是留一句不必馬上回覆的話？",
+    "deliverables": [
+      [
+        "六種花分開計數",
+        "玫瑰、向日葵、薰衣草、蓮花、蘭花和雛菊。"
+      ],
+      [
+        "最高同分完整保留",
+        "同樣多次的結果可以一起讀。"
+      ],
+      [
+        "六份情境指南",
+        "沒填答也可以先看花所指的表達方式。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "看看是哪個細節最吸引你",
+        "也許是想起一段共同回憶，或讓對方不用急著回。"
+      ],
+      [
+        "好幾項同分很合理",
+        "場合不一樣，想用的做法也會變。"
+      ],
+      [
+        "把讀數放回日常",
+        "從寫卡片、一起出門或安靜休息之中選一件事想想。"
+      ]
+    ],
+    "profiles": {
+      "rose": [
+        "把心意藏在小細節裡",
+        "你會挑一件對方自己會懂的小事。",
+        "寫卡片時，你提起兩人曾一起迷路的故事。"
+      ],
+      "sunflower": [
+        "讓邀約容易答應也能婉拒",
+        "你會用一句輕鬆的問候接一個簡單提議。",
+        "你問朋友下午要不要去喝杯茶。"
+      ],
+      "lavender": [
+        "給彼此一點安靜",
+        "你會想讓對方知道你在意，也不急著收到訊息。",
+        "好友最近很忙，你傳「有空再回就好」。"
+      ],
+      "lotus": [
+        "把變化留下來想一想",
+        "你會回看經驗怎麼改變你重視的事。",
+        "整理相片時，你挑了一張能記住那段日子的照片。"
+      ],
+      "orchid": [
+        "用一個細節做出你的風格",
+        "你喜歡讓選的東西有一點個人味道。",
+        "你挑一張有手作痕跡的紙做邀請卡。"
+      ],
+      "daisy": [
+        "小事輕鬆一點也可以",
+        "你喜歡簡單又不用全都安排好的小樂趣。",
+        "路上發現有趣的招牌，你拍給朋友一起笑。"
+      ]
+    },
+    "faq": [
+      [
+        "有哪些花？",
+        "玫瑰、向日葵、薰衣草、蓮花、蘭花和雛菊。"
+      ],
+      [
+        "需要出生資料嗎？",
+        "不需要，以本次選擇計數。"
+      ],
+      [
+        "每種花怎麼計分？",
+        "18題，每題選一個做法加1，各花出現12次。"
+      ],
+      [
+        "同分會顯示嗎？",
+        "所有同獲最高次數的花都保留。"
+      ],
+      [
+        "需要先懂花語嗎？",
+        "不用，題目用的是本站原創生活情境。"
+      ],
+      [
+        "可以分享個人結果嗎？",
+        "可分享公開指南或同語言測驗連結，不附作答和次數。"
+      ]
+    ],
+    "formula": "18道四選一。每題選到的花加1，六個方向各出現12次、每個位置三次，最高同分都保留。",
+    "boundary": "花是生活表達的原創象徵。把結果當成回想這次選擇的方式，不用來評斷性格或預測未來。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Flower Personality Quiz uses 18 original questions to explore how readers prefer to express care, make plans, or respond to a small change. It takes about five minutes and shows six flower tallies, all flowers tied for the highest count, and six public guides. It is available without an account, a birth date, or knowledge of traditional flower meanings.",
+    "intro": "When you reach out to a friend, do you share a memory, make an easy invitation, or send a note they can read later? Choose what feels most natural in a familiar moment.",
+    "deliverables": [
+      [
+        "Six flower tallies",
+        "See the expression choices behind rose, sunflower, lavender, lotus, orchid, and daisy."
+      ],
+      [
+        "All highest ties",
+        "Each flower sharing the top count keeps its full reading."
+      ],
+      [
+        "Six public guides",
+        "Read everyday examples before or after answering."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with the words you would use",
+        "Think about what one note or invitation would sound like."
+      ],
+      [
+        "Keep several ways to reach out",
+        "Different moments might bring you closer to different flowers."
+      ],
+      [
+        "Use the guides as examples",
+        "Think of a small gift, a quiet evening or a change of plans."
+      ]
+    ],
+    "profiles": {
+      "rose": [
+        "Put care into a small detail",
+        "You like choosing something that will mean something to one person.",
+        "You write a line from a memory that still makes you laugh together."
+      ],
+      "sunflower": [
+        "Make it easy to join in",
+        "You like giving warmth a simple first step.",
+        "You send a friendly hello and ask if someone wants a short walk."
+      ],
+      "lavender": [
+        "Leave space in the note",
+        "You can show you care without asking someone to reply now.",
+        "You send a short note that says there is no rush to answer."
+      ],
+      "lotus": [
+        "Make meaning of a change",
+        "You like looking back at what has shifted and what still matters.",
+        "Sorting pictures, you choose one that helps you remember what you want to keep."
+      ],
+      "orchid": [
+        "Give one thing your own touch",
+        "You like a detail that expresses your particular taste.",
+        "You make a small invitation from paper with a texture you picked out."
+      ],
+      "daisy": [
+        "Let a small joy be simple",
+        "You enjoy little moments that do not need to come out perfect.",
+        "You take a photo of a funny sign and share it with a friend."
+      ]
+    },
+    "faq": [
+      [
+        "Which flowers are included?",
+        "Rose, sunflower, lavender, lotus, orchid, and daisy."
+      ],
+      [
+        "Do I need to enter a birth date?",
+        "No. Counts come from the choices in this quiz."
+      ],
+      [
+        "How are flowers counted?",
+        "Choose once per item. Every flower appears twelve times, and each choice adds one to its direction."
+      ],
+      [
+        "What happens at a tie?",
+        "All flowers at the highest count stay in the result."
+      ],
+      [
+        "Do I need to know about flower meanings?",
+        "The quiz uses original associations and everyday situations."
+      ],
+      [
+        "What can I share?",
+        "The public guide or quiz address carries no choices or counts."
+      ]
+    ],
+    "formula": "Choose one of four responses on each of 18 items. Each flower appears 12 times, including three times in each position. The selected flower earns a count, and all highest ties stay.",
+    "boundary": "The flowers serve as original symbols for ordinary ways of expressing yourself. Use the results to revisit these choices, without treating them as a personality assessment or prediction."
+  }
+}

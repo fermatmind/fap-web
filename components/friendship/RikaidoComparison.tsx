@@ -1,6 +1,7 @@
 import { friendshipCopy, type FriendshipDisplayLocale } from "@/lib/friendship/traditional";
 import Link from "next/link";
 import { PUBLIC_PATH } from "@/lib/friendship/core";
+import styles from "@/components/tests/test-explore-template.module.css";
 
 export default function RikaidoComparison({ locale }: { locale: FriendshipDisplayLocale }) {
   const copy = friendshipCopy(locale);
@@ -18,24 +19,48 @@ export default function RikaidoComparison({ locale }: { locale: FriendshipDispla
     ["Keeping the link", "Its guide says quiz links currently have no expiry date.", "Quizzes expire after 90 days. Creators can close, reopen or delete theirs sooner."],
   ];
 
+  const paperRound = locale === "en" ? [
+    "Free to print. One person chooses answers; friends guess on paper.",
+    "Start with a six-question warm-up or choose from 24 prompts.",
+    "The host counts matches and can give tied scores the same place.",
+    "A printout can be kept and reused without an invite link.",
+  ] : locale === "zh-TW" ? [
+    "免費列印。一人選答案，朋友在紙上猜。",
+    "可先玩六題暖身，也可從 24 道題目自選。",
+    "主持人統計猜中題數，可以讓同分者並列。",
+    "紙本可保留再玩，無須邀請連結。",
+  ] : [
+    "免费打印。一人选答案，朋友在纸上猜。",
+    "可先玩六题短局，也可从 24 道题中自选。",
+    "主持人统计猜中数，可以让同分者并列。",
+    "纸质活动单可以留着再玩，无需邀请链接。",
+  ];
+
+  const columns = [
+    zh ? copy("你要比较什么") : "What matters to you",
+    "Rikaido",
+    zh ? copy("费马朋友默契") : "FermatMind Friendship Quiz",
+    { en: "Printable round", zh: "纸质短局", "zh-TW": "紙本短局" }[locale],
+  ];
+
   return <section id="rikaido-alternative" className="fq-section scroll-mt-24" aria-labelledby="rikaido-comparison-heading">
     <h2 id="rikaido-comparison-heading" className="text-2xl font-semibold">
-      {zh ? "想找 Rikaido 的朋友默契替代玩法？" : "Looking for a Rikaido alternative?"}
+      {{ en: "Looking for a Rikaido alternative?", zh: "想找 Rikaido 的朋友默契替代玩法？", "zh-TW": "在找 Rikaido 之外的朋友默契遊戲嗎？" }[locale]}
     </h2>
     <p>{zh
       ? copy("如果你想玩“先选自己的答案，再让朋友猜”的小游戏，Rikaido和费马朋友默契都能完成这个任务。两者是独立服务，没有隶属或合作关系。下面由费马测试说明各自的规则，方便你按这一轮的需要选择。")
       : "If you want to make a quiz about yourself and let friends guess your choices, both Rikaido and FermatMind offer that game. They are independent services with no affiliation. This comparison is written by FermatMind to help you choose the rules that suit your group."}</p>
-    <div className="overflow-x-auto">
-      <table className="w-full text-left text-sm">
-        <caption className="mb-3 text-left font-semibold">{zh ? copy("Rikaido 与 FermatMind：先看玩法规则") : "Rikaido vs FermatMind: compare the game rules"}</caption>
-        <thead><tr>{[zh ? copy("你要比较什么") : "What matters to you", "Rikaido", zh ? copy("费马朋友默契") : "FermatMind Friendship Quiz"].map(label => <th key={label} scope="col" className="border-b p-3">{label}</th>)}</tr></thead>
-        <tbody>{rows.map(([label, rikaido, fermat]) => <tr key={label}>
-          <th scope="row" className="border-b p-3 align-top">{label}</th>
-          <td className="border-b p-3 align-top">{rikaido}</td>
-          <td className="border-b p-3 align-top">{fermat}</td>
-        </tr>)}</tbody>
-      </table>
-    </div>
+    <table className={styles.compare} role="table" aria-labelledby="rikaido-comparison-heading">
+      <caption className="mb-3 text-left font-semibold">{zh ? copy("Rikaido 与 FermatMind：先看玩法规则") : "Rikaido vs FermatMind: compare the game rules"}</caption>
+      <thead role="rowgroup"><tr role="row">{columns.map(label => <th key={label} scope="col" role="columnheader">{label}</th>)}</tr></thead>
+      <tbody role="rowgroup">{rows.map(([label, rikaido, fermat], index) => <tr key={label} role="row">
+        <th scope="row" role="rowheader">{label}</th>
+        {[rikaido, fermat, paperRound[index]].map((description, column) => <td key={columns[column + 1]} role="cell">
+          <span className={styles.mobileLabel} aria-hidden>{columns[column + 1]}</span>
+          {description}
+        </td>)}
+      </tr>)}</tbody>
+    </table>
     <p>{zh
       ? copy("想玩单一主题，或希望链接长期保留，可以先看Rikaido的对应版本和说明。想让同分者并列，或为聚会准备纸质玩法，可以试试费马：问题页提供24道原创题、主持说明、答案卡和猜测卡，支持A4与Letter打印；在线题组仍从30题开始。")
       : "For a single-topic edition or a link without a stated expiry, check Rikaido's editions and guide. For shared ranks on ties or a paper game night, try FermatMind. Our questions page has 24 original prompts, host instructions, an answer key and guess sheets in A4 and Letter formats; online rounds still start at 30 questions."}</p>
@@ -45,7 +70,7 @@ export default function RikaidoComparison({ locale }: { locale: FriendshipDispla
         ? copy("不能直接导入Rikaido的邀请、答案或榜单。请用费马自己的题库创建一份新挑战，再把新邀请发给朋友。创建后保存私人管理文件，分享时只发好友邀请；管理文件里的密钥不能发给参与者。")
         : "There is no import for Rikaido invites, answers or rankings. Make a new quiz from FermatMind's own question bank, then send its new invitation to friends. Save your private management file after creating. Share the friend invite, and keep the management key in that file to yourself."}</p>
     </details>
-    <p><a className="fq-primary" href={`/${locale}/tests/play/friendship-quiz/take`}>{zh ? copy("用费马创建一份新挑战") : "Make a new quiz on FermatMind"} →</a></p>
+    <p><a className={`fq-primary ${styles.primary}`} href={`/${locale}/tests/play/friendship-quiz/take`}>{zh ? copy("用费马创建一份新挑战") : "Make a new quiz on FermatMind"} →</a></p>
     <p className="fq-muted">{zh ? copy("核对日期：2026年10月28日。Rikaido规则来源：") : "Checked October 28, 2026. Rikaido rule sources: "}
       <a href="https://rikaido.me/en/guide.html" target="_blank" rel="noopener noreferrer">{zh ? copy("官方玩法说明") : "official how-to guide"}</a>{" · "}
       <a href="https://rikaido.me/en/lab/read-results/" target="_blank" rel="noopener noreferrer">{zh ? copy("官方结果说明") : "official results guide"}</a>{zh ? copy("。费马规则与当前工具一致，详见") : ". For FermatMind's current rules, see "}

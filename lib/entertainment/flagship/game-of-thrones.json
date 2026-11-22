@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的权力的游戏角色测试有18道原创模型村落情境题，约5分钟，免注册。答完免费看六位角色的选择次数和所有最高并列，六篇公开指南可直接阅读。",
+    "intro": "朋友一起做一座模型村落。你会先讲清愿意承担哪一段、想一个能让讨论松动的玩笑，还是给现成安排换个样子？花约 5 分钟答完 18 道原创情境题，免费查看六位角色的读法。",
+    "deliverables": [
+      [
+        "看六项选择次数",
+        "每题加 1，六项合计 18。所有同为最高的角色都会出现。"
+      ],
+      [
+        "免费读完整公开指南",
+        "六位角色都能单独了解，公开指南不要求先作答。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单项最高复制角色名与指南；并列复制所有最高名称和入口，不附答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "琼恩·雪诺最高，7 次",
+        "六项依次为 7、4、1、2、2、2。样例较常先说清自己愿意承担哪部分。"
+      ],
+      [
+        "艾莉亚和珊莎并列，各 5 次",
+        "六项是 2、2、5、5、2、2。可以对照独自练好一项做法与调整呈现方式的差别。"
+      ],
+      [
+        "全选 A，六项各 3 次",
+        "每位角色在 A 位出现三次，因此会保留六篇指南。回看场景和选项，比看字母更容易理解结果。"
+      ]
+    ],
+    "profiles": {
+      "jon-snow": [
+        "把自己愿意承担的事说清楚",
+        "你这次较常选先确认承诺与责任范围。",
+        "大家搭模型时，你先说可以布置两间房屋，再和同伴确认哪一段由他接手。"
+      ],
+      "tyrion-lannister": [
+        "用一句善意的机智换个说法",
+        "你这次较常选用轻松的表达把话题转回可以商量的地方。",
+        "队友担心模型街太挤，你笑称它像一张明信片，顺势提议少摆几间店。"
+      ],
+      "arya-stark": [
+        "用自己的速度练一小段",
+        "你这次较常选自己试手，找到舒服的练习方式。",
+        "模型屋顶的颜色不均时，你先在废纸上试几次，再继续处理成品。"
+      ],
+      "sansa-stark": [
+        "看对话对象需要什么呈现",
+        "你这次较常选根据现场调整表达方式。",
+        "向第一次来的人介绍模型时，你先摆出村落简图，等他们感兴趣再讲细节。"
+      ],
+      "daenerys-targaryen": [
+        "想象还可以有多大空间",
+        "你这次较常选替创作打开一个更大的可能。",
+        "看到只剩一块空地时，你提议把它做成能放进不同小故事的广场。"
+      ],
+      "jaime-lannister": [
+        "有更好的办法就换过去",
+        "你这次较常选重新考虑最早的决定，换成更实用的做法。",
+        "场景图改了几遍后，你承认原来的摆法不方便，主动把它让给一个更简单的方案。"
+      ]
+    },
+    "faq": [
+      [
+        "需要看过电视剧吗？",
+        "不需要，题目围绕原创模型村落，不考台词或剧集情节。"
+      ],
+      [
+        "有哪些角色？",
+        "琼恩、提利昂、艾莉亚、珊莎、丹妮莉丝和詹姆是本版六个公开结果。"
+      ],
+      [
+        "18 题如何计数？",
+        "每题四选一，给相应角色加 1。每位出现 12 次，0–12，合计 18。"
+      ],
+      [
+        "同分会另外加答吗？",
+        "不会。所有同为最高的角色都会完整显示。"
+      ],
+      [
+        "结果等于电视剧里的品行吗？",
+        "这里只取六种创作做法的比喻，无法评价道德、权力、人格或现实中的领导能力。"
+      ],
+      [
+        "分享会带出逐题答案吗？",
+        "公开链接不含答案、次数或个人标识，本版没有个人 PNG。"
+      ]
+    ],
+    "formula": "18 题每题四选一，选中的角色加 1。每位角色出现 12 次，单项 0–12，总数 18。最高相同时都保留。",
+    "boundary": "费马独立编写非官方同人问卷。影视发行资料只用于核对角色名称，模型村落为原创日常情境。计数只描述当次做法选择，不用于心理或品行评估。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的冰與火之歌角色測驗有18道原創模型村落題，約5分鐘，免註冊。答完可免費查看六位角色的次數和所有並列最高結果，六篇公開指南可直接閱讀。",
+    "intro": "朋友一起做一座模型村落。你會先認領一段分工、說句能讓大家放鬆的玩笑，還是重新想想這個場景能怎麼呈現？花約 5 分鐘回答 18 道原創情境題，完整結果免費。",
+    "deliverables": [
+      [
+        "查看六位角色的次數",
+        "每題替一位角色加 1，合計 18。同為最高的角色一起列出。"
+      ],
+      [
+        "免費讀六篇公開指南",
+        "每位角色有一篇完整指南，還沒作答也可以先看。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單一最高會分享角色名及指南；並列會複製所有最高名稱和測驗入口，不附答卷或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "瓊恩·雪諾最高，7 次",
+        "六項依序是 7、4、1、2、2、2。範例較常先把願意承擔的部分說明白。"
+      ],
+      [
+        "艾莉亞和珊莎各 5 次",
+        "六項依序是 2、2、5、5、2、2。可對照一個人練熟做法，以及配合聽眾調整呈現，何時各有用處。"
+      ],
+      [
+        "一直選 A，六位各 3 次",
+        "角色在 A 位各出現三次，所以會顯示六篇指南。要知道自己的選擇，可以回頭看每一題的場景。"
+      ]
+    ],
+    "profiles": {
+      "jon-snow": [
+        "說清楚自己願意做到哪裡",
+        "你比較常選先確認願意負責什麼，再開始分工。",
+        "做村落模型時，你說能布置兩間屋子，再和夥伴對好交接時間。"
+      ],
+      "tyrion-lannister": [
+        "用不傷人的玩笑換個說法",
+        "你比較常選用輕鬆的語氣讓大家從另一個角度看。",
+        "夥伴說模型小街太窄，你笑稱它像明信片的一條街，再建議先拿掉兩家店。"
+      ],
+      "arya-stark": [
+        "照自己的方法練熟一小段",
+        "你比較常選先試手，找到自己順手的練習方式。",
+        "屋瓦的顏色有些不均，你先用不要的紙練幾筆，再回到模型上。"
+      ],
+      "sansa-stark": [
+        "替眼前的聽眾調整呈現",
+        "你比較常選看看對方現在需要什麼資訊，再改變說明方式。",
+        "第一次介紹村落時，你先拿一張全景圖，等客人問了再說個別細節。"
+      ],
+      "daenerys-targaryen": [
+        "替故事留出更多可能",
+        "你比較常選把一塊空白想成還可以多做些什麼。",
+        "模型中央剩下一塊地，你想做成廣場，讓幾個不同的小故事都能從這裡開始。"
+      ],
+      "jaime-lannister": [
+        "找到更合用的辦法就換",
+        "你比較常選把早先的決定放回眼前的條件，看看哪個更實用。",
+        "展示檯一直不好移動時，你請大家把原先的排法換成比較輕便的一種。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過《冰與火之歌》也能做嗎？",
+        "可以。題目是原創模型村落活動，不考劇情或台詞。"
+      ],
+      [
+        "這一版有哪些角色？",
+        "有瓊恩、提利昂、艾莉亞、珊莎、丹妮莉絲和詹姆。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "四選一，每選一項加 1。每位角色出現 12 次，單項 0–12，六項合計 18。"
+      ],
+      [
+        "同分時會再做題嗎？",
+        "不用。同為最高的角色都會列出完整指南。"
+      ],
+      [
+        "可以用來判斷品格或領導能力嗎？",
+        "結果只整理當次創作選擇，無法判斷品格、心理、工作適配或領導能力。"
+      ],
+      [
+        "轉傳會附上答案嗎？",
+        "公開分享複製名稱和連結，不會附上答案、次數或識別資料。這一版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "18 題每題四選一，替相應角色加 1。各角色出現 12 次，每項 0–12，合計 18。並列最高會一起保留。",
+    "boundary": "這是費馬獨立編寫的非官方同人測驗。影視發行資料用來核對角色名稱。模型村落是原創的日常情境，結果只整理當次選法，不提供心理、品格或能力評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Game of Thrones Character Test has 18 original scenarios about building a model village. It takes about five minutes and is free without registration. Results count choices for six characters and retain every highest tie. The six public guides can be read before answering, and none of the questions requires remembering scenes or lines from the show. The complete result is free to read.",
+    "intro": "Your friends are making a model village. Would you clarify what you can contribute, loosen up a discussion with a joke, or suggest a new way to present the work? Answer 18 original scenarios and see which six character themes your choices bring up. The result is free.",
+    "deliverables": [
+      [
+        "See all six choice counts",
+        "Each choice adds one, and the six counts sum to 18. The quiz keeps all ties for the highest count."
+      ],
+      [
+        "Read six free public guides",
+        "Every character has a complete guide you can read without answering."
+      ],
+      [
+        "Share a public name and link",
+        "A single leader shares its guide. Tied leaders share all their names and the public test page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Jon Snow leads at 7",
+        "The counts are 7, 4, 1, 2, 2, and 2. The sample often chose to say what it could commit to first."
+      ],
+      [
+        "Arya and Sansa tie at 5 each",
+        "The counts are 2, 2, 5, 5, 2, and 2. Read both guides to compare practicing a technique with changing how you present an idea."
+      ],
+      [
+        "All A: six characters with 3 each",
+        "Every character appears three times in position A, so all guides are shown. Look back at the actual situations to read your own choices."
+      ]
+    ],
+    "profiles": {
+      "jon-snow": [
+        "Say which commitment you are choosing",
+        "You often chose to make clear what you would do and what someone else would take on.",
+        "When building the model, you offer to decorate two houses and agree where the next person will take over."
+      ],
+      "tyrion-lannister": [
+        "Use kind wit to make another option visible",
+        "You often chose a light comment that helped the group look at the work differently.",
+        "When the model street looks cramped, you joke that it is the size of a postcard and suggest removing a shop or two."
+      ],
+      "arya-stark": [
+        "Practice a little on your own terms",
+        "You often chose to learn one skill at a pace you could manage.",
+        "When a model roof looks uneven, you test several strokes on spare paper before finishing it."
+      ],
+      "sansa-stark": [
+        "Choose a presentation that fits the exchange",
+        "You often chose to change how you showed an idea according to what others needed.",
+        "When inviting someone to look at the model, you start with a simple map and explain details when they ask."
+      ],
+      "daenerys-targaryen": [
+        "Imagine one more thing the space could be",
+        "You often chose to leave more room for creative possibilities.",
+        "When the model has a vacant lot, you propose a square that can hold several different stories."
+      ],
+      "jaime-lannister": [
+        "Let the better idea replace the first one",
+        "You often chose to revisit an early decision when a clearer option appeared.",
+        "When the display is hard to move, you say the first layout could change and help try a simpler arrangement."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know the TV series?",
+        "No. The questions take place around an original model village. They do not ask for lines, scenes, or plot knowledge."
+      ],
+      [
+        "Which characters appear?",
+        "Jon Snow, Tyrion Lannister, Arya Stark, Sansa Stark, Daenerys Targaryen, and Jaime Lannister."
+      ],
+      [
+        "How are the 18 choices counted?",
+        "Each choice adds one. Every character appears 12 times, so each count is 0–12 and all counts add to 18."
+      ],
+      [
+        "What if two or more characters tie?",
+        "The result keeps the complete guide for every highest tie."
+      ],
+      [
+        "Does this say anything about my morality or leadership?",
+        "The counts summarize choices in these scenes. They do not assess morality, personality, or the ability to lead."
+      ],
+      [
+        "Does sharing include my answers?",
+        "Public links omit answers, counts, and private identifiers. This edition does not export a personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 18 scenarios. Each choice adds one to its character. All six appear 12 times each. Their counts range from 0 to 12 and add to 18. Every highest tie stays.",
+    "boundary": "FermatMind independently wrote this unofficial TV fan quiz. Distributor material checks character names. The model village is an original setting. Counts describe choices in this attempt without assessing anyone’s character or ability."
+  }
+}

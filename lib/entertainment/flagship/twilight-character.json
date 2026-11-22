@@ -1,0 +1,293 @@
+{
+  "zh": {
+    "facts": "费马测试的暮光之城角色测试有21道原创雨天室内情境题，约6分钟，免注册。答完可免费看七位角色的选择次数和最高并列，七篇公开指南可以直接阅读。",
+    "intro": "下雨后活动搬进屋里，你会挑一件自己真的想做的事、先想能不能答应朋友，还是准备一点大家都能享用的小惊喜？回答 21 道原创题，免费看看七种角色视角。",
+    "deliverables": [
+      [
+        "看七位角色的选择次数",
+        "每题加 1，七项合计 21。最高并列时全部保留。"
+      ],
+      [
+        "免费读七份完整指南",
+        "每位角色有一篇公开指南，不需先完成问卷。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单项最高分享名称与指南，并列分享全部最高名称与测试入口，不带答卷或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "贝拉最高，7 次",
+        "七项依次为 7、4、2、2、2、2、2。样张较常先想自己觉得哪件事值得做。"
+      ],
+      [
+        "爱丽丝与埃美特各 6 次",
+        "七项为 2、2、2、6、2、6、1。两份指南会一起保留，可以比较提前准备一点乐趣和现场加入轻松玩法。"
+      ],
+      [
+        "全选 A，七项各 3 次",
+        "每位角色在 A 位出现三次，结果会显示七份指南。"
+      ]
+    ],
+    "profiles": {
+      "bella-swan": [
+        "选一件自己真觉得值得的事",
+        "你这次较常选按自己的兴趣做决定。",
+        "下雨后有些人改去玩牌，你还是先读几页自己等了一周的书。"
+      ],
+      "edward-cullen": [
+        "答应之前想清楚接不接得住",
+        "你这次较常选先看清承诺和时间，再告诉对方能帮多少。",
+        "朋友邀你参加周末的两段活动，你看过安排后只答应自己能到的一段。"
+      ],
+      "jacob-black": [
+        "把普通小东西弄到顺手",
+        "你这次较常选享受动手做一件实在的事。",
+        "雨太大出不去，你拿松掉的一叠笔记重新装订，试试看能不能翻得顺。"
+      ],
+      "alice-cullen": [
+        "提前准备一份共享乐趣",
+        "你这次较常选花一点准备，让大家到时有件轻松的事一起做。",
+        "聚会移到室内后，你把几张画纸摆到桌上，给想参加的人留一个位置。"
+      ],
+      "rosalie-cullen": [
+        "保留自己怎样参与的决定",
+        "你这次较常选直接说自己愿意负责什么，也保留说不的空间。",
+        "大家问你要不要一起表演时，你说更愿意负责挑音乐，也接受朋友自己选。"
+      ],
+      "emmett-cullen": [
+        "让一起玩的事不必太认真",
+        "你这次较常选提个随时可以加入或停下的小活动。",
+        "雨声太大听不清聊天时，你提议画速写，只画一轮，想看的人也能留下。"
+      ],
+      "carlisle-cullen": [
+        "先问对方想不想要帮助",
+        "你这次较常选按对方实际需要提供协助。",
+        "同伴说不知道从哪里收拾，你问想一起分拣，还是先自己想个顺序。"
+      ]
+    },
+    "faq": [
+      [
+        "没看过《暮光之城》能做吗？",
+        "可以。题目是原创室内休闲活动，不考情节或台词。"
+      ],
+      [
+        "这版有哪些角色？",
+        "贝拉、爱德华、雅各布、爱丽丝、罗莎莉、埃美特和卡莱尔共七位。"
+      ],
+      [
+        "21 道题怎么计数？",
+        "每题四选一，给对应角色加 1。每位出现 12 次，各 0–12，合计 21。"
+      ],
+      [
+        "有角色并列怎么办？",
+        "所有并列最高的完整指南都保留。全选 A 时七位各 3 次。"
+      ],
+      [
+        "结果能测出我的伴侣或现实性格吗？",
+        "这套题只看当次休闲选择，不评人格、依恋、配对或情感未来。"
+      ],
+      [
+        "分享会附上自己答了什么吗？",
+        "公开分享复制名称及链接，不带答案、次数或个人标识。没有个人 PNG。"
+      ]
+    ],
+    "formula": "21 题每题选一项，给相应角色加 1。每位出现 12 次，单项 0–12，合计 21。同为最高都保留。",
+    "boundary": "费马独立编写非官方同人问卷。Stephenie Meyer 的电影档案用于核对角色身份。雨天室内情境为原创，结果只反映当次选择，无法评估现实人格或恋爱关系。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的暮光之城角色測驗有21道原創雨天室內題，約6分鐘，免註冊。答完可免費看七位角色的次數與並列最高結果，七篇公開指南可以直接讀。",
+    "intro": "下雨後大家改在室內活動，你會先挑一件想做的事、確認自己能答應什麼，還是準備一點可以一起玩的東西？回答 21 道原創題，看看這次的選擇比較像哪個角色主題。",
+    "deliverables": [
+      [
+        "看看七位角色各有幾次",
+        "每題替一位角色加 1，總數 21。同為最高一起顯示。"
+      ],
+      [
+        "免費讀七篇公開指南",
+        "每位角色都有完整指南，還沒作答也能直接開來看。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單項最高分享名稱與指南，並列時複製所有最高名稱和測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "貝拉最高，7 次",
+        "七項依序是 7、4、2、2、2、2、2。範例較常先挑一件自己覺得值得做的事。"
+      ],
+      [
+        "愛麗絲和埃美特同分，各 6 次",
+        "七項依序為 2、2、2、6、2、6、1。可以比較提前準備一點樂趣，和大家當下想玩什麼就試一輪。"
+      ],
+      [
+        "一路選 A，七位各 3 次",
+        "每位角色在 A 位出現三次，所以會列出七篇指南。"
+      ]
+    ],
+    "profiles": {
+      "bella-swan": [
+        "挑一件對自己有意思的事",
+        "你比較常選順著自己的想法決定怎麼過這一段時間。",
+        "雨天其他人跑去玩牌，你先坐下來把一直想讀的幾頁翻完。"
+      ],
+      "edward-cullen": [
+        "先想清楚自己能答應多少",
+        "你比較常選先問清楚時間和範圍，再決定要不要承諾。",
+        "朋友週末安排兩個活動，你對過時間後，只認領確定到得了的那一場。"
+      ],
+      "jacob-black": [
+        "把一件手上的小東西弄順手",
+        "你比較常選動手處理一件眼前用得上的事。",
+        "出不了門時，你把鬆開的筆記重新裝好，看看翻起來順不順。"
+      ],
+      "alice-cullen": [
+        "先傳給大家一點找得到的樂趣",
+        "你比較常選備一個能一起玩的安排，讓想參加的人有個起點。",
+        "聚會改到屋裡時，你把紙和筆放到桌上，讓想畫的人隨時能加入。"
+      ],
+      "rosalie-cullen": [
+        "自己選想加入的部分",
+        "你比較常選把願意負責的部分說清楚，不替其他人決定。",
+        "夥伴揪你上台，你說自己更想幫忙挑歌，也可以等下一輪再想。"
+      ],
+      "emmett-cullen": [
+        "讓大家輕鬆玩一輪",
+        "你比較常選提個隨時能加入、退出的小玩法。",
+        "雨太大時，你提議一起畫張速寫，想旁觀的人也能坐著看。"
+      ],
+      "carlisle-cullen": [
+        "問過對方再決定怎麼幫",
+        "你比較常選先確認對方想要的協助，再一起想辦法。",
+        "朋友說不知道怎麼收拾，你問要不要一起分，還是想先自行安排。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過《暮光之城》也能做嗎？",
+        "可以。都是原創雨天休閒情境，不考電影台詞或設定。"
+      ],
+      [
+        "七個角色是誰？",
+        "貝拉、愛德華、雅各布、愛麗絲、羅莎莉、埃美特和卡萊爾。"
+      ],
+      [
+        "21 題怎麼計次？",
+        "每題四選一，替對應角色加 1。每位出現 12 次，個別 0–12，合計 21。"
+      ],
+      [
+        "並列最高怎麼呈現？",
+        "同為最高的指南一起列出。全選 A 時七位各 3 次。"
+      ],
+      [
+        "結果可以判斷戀愛配對嗎？",
+        "不能。題目只統計當次選擇，無法判定依戀、配對、未來關係或人格。"
+      ],
+      [
+        "轉傳會附答案或個人圖卡嗎？",
+        "公開分享只複製名稱與連結，不附作答、次數或識別資料。這一版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "21 題每題四選一，替選到的角色加 1。每位出現 12 次，各項 0–12，總數 21。同為最高一起保留。",
+    "boundary": "費馬獨立編寫這份非官方同人測驗。Stephenie Meyer 的電影檔案用來核對角色身分，室內休閒情境由本站原創。結果無法評估真實人格或關係。"
+  },
+  "en": {
+    "facts": "FermatMind’s Twilight Character Test uses 21 original scenarios about a rainy afternoon indoors. It takes about six minutes and is free without registration. Results count choices for seven characters and retain every highest tie. The seven public guides can be read before answering. The questions require no knowledge of the films, books, or dialogue. Complete results are free to read.",
+    "intro": "Rain moves a creative afternoon indoors. Would you choose something worth doing for yourself, think over a promise, or set out something fun to share? Answer 21 original scenarios to see which character themes show up in your choices.",
+    "deliverables": [
+      [
+        "See all seven choice counts",
+        "Each choice adds one, and the seven counts add to 21. All highest ties appear."
+      ],
+      [
+        "Read seven free public guides",
+        "Each character has a separate full guide you can read before answering."
+      ],
+      [
+        "Copy a public name and link",
+        "One leader shares its name and guide. Ties share all leading names and the quiz entry, with no answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Bella leads at 7",
+        "The counts are 7, 4, 2, 2, 2, 2, and 2. The sample most often chose something that felt worthwhile to do for its own sake."
+      ],
+      [
+        "Alice and Emmett tie at 6 each",
+        "The counts are 2, 2, 2, 6, 2, 6, and 1. Compare preparing a small shared pleasure with offering a game people can join on the spot."
+      ],
+      [
+        "All A: seven characters with 3 each",
+        "Each character appears three times in position A, so this example keeps all seven guides."
+      ]
+    ],
+    "profiles": {
+      "bella-swan": [
+        "Choose something that feels worthwhile",
+        "You often chose an activity you wanted to pursue for yourself.",
+        "When everyone else switches to cards, you spend a few minutes with a book you were looking forward to."
+      ],
+      "edward-cullen": [
+        "Consider a promise before taking it on",
+        "You often chose to check what you could commit to before agreeing.",
+        "When a friend invites you to two weekend activities, you check the times and commit to the one you can make."
+      ],
+      "jacob-black": [
+        "Enjoy making an ordinary thing work",
+        "You often chose a practical activity you could do with your hands.",
+        "On a rainy day, you bind a set of loose notes and see if the pages are easier to turn."
+      ],
+      "alice-cullen": [
+        "Prepare a little shared delight",
+        "You often chose to get one enjoyable activity ready for whoever wanted it.",
+        "After the group moves indoors, you set out paper and pens so anyone can join a drawing table."
+      ],
+      "rosalie-cullen": [
+        "Keep your contribution a real choice",
+        "You often chose to say which part you wanted to take and leave others their own choice.",
+        "When asked to perform, you say you would rather choose the music or wait for another round."
+      ],
+      "emmett-cullen": [
+        "Keep shared play light and optional",
+        "You often chose a low-pressure activity people could join or leave easily.",
+        "When the rain makes it hard to talk, you suggest a single round of quick sketches and welcome people to watch."
+      ],
+      "carlisle-cullen": [
+        "Ask what help would be welcome",
+        "You often chose to find out whether someone wanted help and what kind.",
+        "When a friend is unsure how to clean up, you ask whether they want to sort things together or decide on an order first."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know Twilight?",
+        "No. These are original indoor hobby scenarios with no plot or dialogue questions."
+      ],
+      [
+        "Which characters are included?",
+        "Bella Swan, Edward Cullen, Jacob Black, Alice Cullen, Rosalie Cullen, Emmett Cullen, and Carlisle Cullen."
+      ],
+      [
+        "How are the 21 answers counted?",
+        "Each choice adds one. Every character appears 12 times, so counts are 0–12 and total 21."
+      ],
+      [
+        "What happens if results tie?",
+        "Every highest tie gets a complete guide. Choosing A every time gives all seven a count of three."
+      ],
+      [
+        "Can the result predict relationship compatibility?",
+        "The counts describe choices in these scenarios. They cannot establish attachment, personality, a partner match, or anyone’s future."
+      ],
+      [
+        "Does sharing include personal choices or a picture?",
+        "Copied public links carry no answers, counts, private identifiers, or personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 21 scenarios. Each choice adds one to a character. All seven occur 12 times, so individual counts are 0–12 and add to 21. All highest ties remain.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Stephenie Meyer’s film archive checks character names. The indoor hobby scenes are an original setting, and results do not assess anyone’s personality or relationships."
+  }
+}

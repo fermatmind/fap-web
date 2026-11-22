@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的怪奇物语角色测试有18道原创虚构活动题，约5分钟。免费匹配六位人物所代表的做法，查看每项原始次数、全部最高并列和公开角色指南。",
+    "intro": "同伴提议玩一场自己编的解谜游戏。你先说想怎么玩、找一个大家能参加的开头，还是提出一个奇怪但有趣的线索？",
+    "deliverables": [
+      [
+        "六位人物的原始次数",
+        "回看六种参与小组故事的做法。"
+      ],
+      [
+        "并列结果完整展开",
+        "所有获得同样最高次数的人物均有指南。"
+      ],
+      [
+        "公开指南",
+        "无需看过剧集，虚构活动不会透露关键剧情。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看你最常选的动作",
+        "把名字当作找回做法的线索。"
+      ],
+      [
+        "两个人物并列也能一起读",
+        "即使都适用，你可能先用其中一个行动。"
+      ],
+      [
+        "用朋友之间的小事试一次",
+        "把一种做法放进下次读书会或游戏。"
+      ]
+    ],
+    "profiles": {
+      "eleven": [
+        "说出真正想试什么",
+        "你会在其他人决定之前说清自己的偏好。",
+        "同伴想玩侦探故事，你提出一个自己真想参与的开头。"
+      ],
+      "mike-wheeler": [
+        "给大家留个入口",
+        "你会找一个同伴都能跟上的共同起点。",
+        "新朋友加入时，你先让大家轮流补一句故事。"
+      ],
+      "dustin-henderson": [
+        "从奇怪线索找到连接",
+        "你喜欢让不相干的细节勾出新点子。",
+        "纸片上画着月亮，你提出让它成为开场暗号。"
+      ],
+      "lucas-sinclair": [
+        "先拿例子试规则",
+        "你会问新办法放到眼前能不能用。",
+        "大家发明积分方式，你拿第一轮试算一遍。"
+      ],
+      "will-byers": [
+        "让想象有一种气氛",
+        "你会用颜色、画面或文字描述共同场景。",
+        "你用一张简图把故事里的旧车站画出来。"
+      ],
+      "max-mayfield": [
+        "给自己挑一条路",
+        "你会选择自己愿意做的部分。",
+        "大家默认你领队，你说这次更想负责画路线。"
+      ]
+    },
+    "faq": [
+      [
+        "要看过剧集才能做吗？",
+        "不需要。题目使用虚构的普通活动。"
+      ],
+      [
+        "能匹配哪些人物？",
+        "小十一、迈克、达斯汀、卢卡斯、威尔和麦克斯。"
+      ],
+      [
+        "计分怎么算？",
+        "18题各选一次，所选人物视角加1。每个方向出现12次。"
+      ],
+      [
+        "并列有谁先谁后吗？",
+        "没有强制顺延，全部最高结果一起读。"
+      ],
+      [
+        "这是官方测试吗？",
+        "费马独立制作的非官方同人测验。"
+      ],
+      [
+        "可以分享什么？",
+        "分享当前公开人物指南或测试入口，不包含逐题选择或次数。"
+      ]
+    ],
+    "formula": "18道四选一，每题给所选人物视角加1。每人出现12次，每个选项位置各3次，保留所有最高并列。",
+    "boundary": "人物是虚构活动的参照。选择次数不能衡量能力、人格或真实人物的相似度，也不需要了解剧集情节。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的怪奇物語角色測驗有18道原創虛構活動題，約5分鐘。免費對照六位人物代表的做法，查看原始次數、最高同分結果與公開角色指南。",
+    "intro": "朋友想一起編一個謎題。你會先說想玩哪一種、找個大家都能加入的開頭，還是先拋出一個怪點子？",
+    "deliverables": [
+      [
+        "六位角色分開計數",
+        "看你在哪些情境選到相應的做法。"
+      ],
+      [
+        "最高同分保留",
+        "同分的每一位角色都能讀完整說明。"
+      ],
+      [
+        "六份公開指南",
+        "能從小組活動和故事遊戲裡理解角色做法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "看看最常用的第一步",
+        "讀著角色名字，也找回你為何想選那個做法。"
+      ],
+      [
+        "同分可以一起看",
+        "有時你會先從一個辦法開始，再借另一個補上。"
+      ],
+      [
+        "挑一個實際場合",
+        "找下次團體活動裡用得上的小細節。"
+      ]
+    ],
+    "profiles": {
+      "eleven": [
+        "說出想玩的方向",
+        "你會直接講出自己想參與哪一種故事。",
+        "朋友提議辦解謎聚會，你說最想要哪種開場。"
+      ],
+      "mike-wheeler": [
+        "讓大家進得了同一段故事",
+        "你會留意誰還沒有跟上。",
+        "有人第一次來時，你安排每個人輪流補一句。"
+      ],
+      "dustin-henderson": [
+        "從怪點子找到線索",
+        "你喜歡看兩個不相關的東西能不能連在一起。",
+        "紙卡上的月亮讓你想到一個好玩的通關暗號。"
+      ],
+      "lucas-sinclair": [
+        "用一輪看看行不行",
+        "你會想用簡單的例子測試題目的新規則。",
+        "大家說好積分方式，你先拿第一回合試算。"
+      ],
+      "will-byers": [
+        "把故事畫得看得見",
+        "你會用畫面或用字為大家想像的世界加上氣氛。",
+        "你用一張草圖畫出故事裡的車站。"
+      ],
+      "max-mayfield": [
+        "選自己真正想做的部分",
+        "你會留一點空間照自己的方式參與。",
+        "大家想讓你帶隊，你說這次想畫圖就好。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過影集也行嗎？",
+        "可以，題目和範例都不需要知道劇情。"
+      ],
+      [
+        "有哪些角色？",
+        "包括Eleven、Mike、Dustin、Lucas、Will及Max。"
+      ],
+      [
+        "次數如何算？",
+        "18道題各選一次，每位角色在選項裡各出現12次。"
+      ],
+      [
+        "結果同分怎麼辦？",
+        "最高的同分人物全部保留。"
+      ],
+      [
+        "這是Netflix官方測驗嗎？",
+        "是費馬獨立製作的非官方同人測驗。"
+      ],
+      [
+        "能分享哪些內容？",
+        "可分享公開角色指南或測驗入口，不會附上作答或次數。"
+      ]
+    ],
+    "formula": "18道四選一題，選到的角色視角加1。每位角色出現12次，每個選項位置各3次，保留全部最高同分。",
+    "boundary": "角色用來說明虛構情境中的選擇。結果不推斷人格、劇情命運、能力或百分比的相似度。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Stranger Things Character Quiz uses 18 original fictional scenarios to explore how readers might join a shared story or creative activity. It takes about five minutes and shows six character tallies, all characters tied for the highest count, and public guides. Readers can try the quiz without an account or knowing what happens in any season of the show.",
+    "intro": "Your friends decide to invent a mystery. Do you say which adventure you want, make sure everyone can join, or start with a strange clue? Choose the move you would want to try first.",
+    "deliverables": [
+      [
+        "Six character tallies",
+        "Review six ways to enter a fictional shared activity."
+      ],
+      [
+        "Every highest tie",
+        "The full guides remain available for all leading characters."
+      ],
+      [
+        "Six public guides",
+        "Read each approach through spoiler-free examples."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Notice your first move",
+        "Say what you wanted to do before looking at the name."
+      ],
+      [
+        "Read tied characters together",
+        "Two approaches can work in the same setting in different ways."
+      ],
+      [
+        "Try a familiar example",
+        "Think about a book club, a game, or a small group project."
+      ]
+    ],
+    "profiles": {
+      "eleven": [
+        "Say what you actually want",
+        "You are drawn to naming the activity you want to choose.",
+        "When friends suggest a mystery, you tell them which opening makes you want to join."
+      ],
+      "mike-wheeler": [
+        "Make room for the whole group",
+        "You look for a way everyone can enter the story.",
+        "With a newcomer in the room, you invite each person to add one line."
+      ],
+      "dustin-henderson": [
+        "Connect two unexpected clues",
+        "You enjoy finding an association the group has not tried yet.",
+        "A moon drawn on a card gives you an idea for a secret signal."
+      ],
+      "lucas-sinclair": [
+        "Try it on one example",
+        "You want to know how a rule will work before the game grows.",
+        "You run one trial round to check the proposed score rules."
+      ],
+      "will-byers": [
+        "Give the setting a mood",
+        "You bring an imagined place into view with an image or detail.",
+        "You sketch the old station where the story begins."
+      ],
+      "max-mayfield": [
+        "Pick a role that feels yours",
+        "You consider what you want to do before accepting the expected role.",
+        "Friends assume you will lead; you ask to draw the route instead."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know the show?",
+        "No. The activities use original fictional scenes and avoid plot spoilers."
+      ],
+      [
+        "Which characters are in it?",
+        "Eleven, Mike Wheeler, Dustin Henderson, Lucas Sinclair, Will Byers and Max Mayfield."
+      ],
+      [
+        "How does scoring work?",
+        "Each of 18 choices adds one to a character approach. Each appears 12 times."
+      ],
+      [
+        "How are ties handled?",
+        "Every character with the highest raw count stays in the result."
+      ],
+      [
+        "Is this an official quiz?",
+        "It is an unofficial fan quiz made independently by FermatMind."
+      ],
+      [
+        "What can I share?",
+        "Public character guides and the quiz address contain no item answers or counts."
+      ]
+    ],
+    "formula": "Each of 18 four-option questions adds one to the selected character lens. Each lens appears 12 times, three in each position. All highest ties are retained.",
+    "boundary": "The characters are fictional reference points for small invented activities. The counts describe choices in this quiz and cannot establish personality, ability, or a match percentage."
+  }
+}

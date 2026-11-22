@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的六维道德基础测试使用MFQ-2的36条陈述，约7分钟。免费查看关怀、平等、比例、忠诚、权威与纯洁六项均分、有效题数和公开解读指南。",
+    "intro": "分配一份公共资源时，你会先看谁需要、是否人人有份，还是各自投入了多少？这份问卷把六种考虑分开，供你回看自己的回答。",
+    "deliverables": [
+      [
+        "六项分开看",
+        "分别阅读关怀、平等、比例、忠诚、权威与纯洁。"
+      ],
+      [
+        "计分题数",
+        "一组六道都有效才给出均分，可选择不计分。"
+      ],
+      [
+        "六份公开指南",
+        "配有帮助理解六项含义的情境。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "同一件事可以想到几项",
+        "你可以一边关心对方有没有资源，一边考虑分配方式。"
+      ],
+      [
+        "从具体陈述看读数",
+        "回想哪句话最能反映你的观点。"
+      ],
+      [
+        "先读指南也可以",
+        "没法判断时保留空白，不用为填满分数改变立场。"
+      ]
+    ],
+    "profiles": {
+      "care": [
+        "先看谁需要照顾",
+        "你可以留意一项安排可能给谁带来不便。",
+        "分配共用座位时，你先看受伤的人是否需要靠门。"
+      ],
+      "equality": [
+        "让人有同样的机会",
+        "你可以想想哪些共同资源应按同一规则分配。",
+        "活动名额有限时，你考虑让每人都抽一次签。"
+      ],
+      "proportionality": [
+        "把回报与投入放在一起",
+        "你可以留意一项回报怎样对应不同投入。",
+        "办活动后，你想过分摊加班后的补休时间。"
+      ],
+      "loyalty": [
+        "把共同承诺放在眼前",
+        "你会想到怎样对待所属群体已经说好的事。",
+        "剪彩当天忽然缺人，你记得之前答应轮值。"
+      ],
+      "authority": [
+        "看看规则如何发挥作用",
+        "你可以考虑岗位、职责和谁负责维护秩序。",
+        "需要临时调整场地时，你先核对负责人的范围。"
+      ],
+      "purity": [
+        "回想哪些做法让你觉得应当保持",
+        "你可以考虑哪些习惯有洁净、仪式或敬重的意义。",
+        "到公共纪念场所时，你想先了解当天适用的礼节。"
+      ]
+    },
+    "faq": [
+      [
+        "这是哪份题本？",
+        "使用作者发布的MFQ-2英文36题，中文为本站工作译文。"
+      ],
+      [
+        "可以测一个人道德高低吗？",
+        "六项分别显示陈述符合程度，不提供总分或好坏排名。"
+      ],
+      [
+        "分数怎么算？",
+        "各项6题各1至5分，六题都有效才显示均分。"
+      ],
+      [
+        "不想答一题呢？",
+        "选不计分，该面向保留其余有效题数。"
+      ],
+      [
+        "研究结果等于本站译文有常模吗？",
+        "原研究与本站读数规则、工作译文各有自己的适用范围。"
+      ],
+      [
+        "分享会带分数吗？",
+        "公开分享链接指向同语测试入口，不包含个人回答。"
+      ]
+    ],
+    "formula": "六组各6题，1–5分直接计入。每组六项全部有效才计算平均，不计分项不会被替换。",
+    "boundary": "保留作者MFQ-2出处和署名。本站工作译文与不计分显示规则属于本地处理，分数限于对陈述的自述，无道德总分或政治推断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的六維道德基礎測驗使用MFQ-2的36項陳述，約7分鐘。免費提供關懷、平等、比例、忠誠、權威與純潔的平均、有效題數及公開情境指南。",
+    "intro": "資源有限時，你會先看誰最需要、每個人是否有同樣機會，還是投入的份量？把幾種考量分開看，再想最近的生活例子。",
+    "deliverables": [
+      [
+        "六種考量",
+        "各自查看關懷、平等、比例、忠誠、權威和純潔。"
+      ],
+      [
+        "有效題數",
+        "每組六道都計分才會得到平均，不想評分也可以略過。"
+      ],
+      [
+        "六份公開指南",
+        "用虛構場景理解每一組陳述。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "同一件事情可以有幾個考量",
+        "你可以同時在意是否有人受影響及規則怎麼訂。"
+      ],
+      [
+        "回想自己如何選",
+        "看看哪個陳述最貼近你對這個議題的想法。"
+      ],
+      [
+        "留白也是合理選擇",
+        "沒把握可以先讀指南。"
+      ]
+    ],
+    "profiles": {
+      "care": [
+        "看誰現在需要幫忙",
+        "你可以留意一項安排對不同人有什麼影響。",
+        "共享空間只剩一個好進出的座位，你留給行動不便的人。"
+      ],
+      "equality": [
+        "給大家一樣的機會",
+        "你會留意相同狀況下是否適用一致的分配方式。",
+        "同一堂課座位不足，你提議每人都能抽一次。"
+      ],
+      "proportionality": [
+        "把付出與分配一起想",
+        "你可以考量不同貢獻是否應得到不同回報。",
+        "活動結束後，你想依實際排班來商量補休。"
+      ],
+      "loyalty": [
+        "把共同說過的事放在心上",
+        "你在意自己如何回應同伴的信任和共同約定。",
+        "活動臨時沒人顧攤，你記得之前說好要來輪班。"
+      ],
+      "authority": [
+        "弄清哪些人有責任",
+        "你可以想想什麼樣的規則或角色幫助事情運作。",
+        "要改活動場地時，你先向負責窗口確認。"
+      ],
+      "purity": [
+        "看看哪些行為帶有儀式感",
+        "你會留意潔淨、神聖或敬重在某些情境裡的意義。",
+        "要參加紀念活動時，你先讀主辦方提供的禮節說明。"
+      ]
+    },
+    "faq": [
+      [
+        "題目從哪裡來？",
+        "採用作者公開的MFQ-2英文36題，中文是本站工作譯文。"
+      ],
+      [
+        "能比較誰比較有道德嗎？",
+        "六項平均分開呈現，不做道德排行。"
+      ],
+      [
+        "每組如何給分？",
+        "六個陳述各1至5分，全部有效才顯示平均。"
+      ],
+      [
+        "不想評某題呢？",
+        "選不計分，還是可以讀對應指南。"
+      ],
+      [
+        "原研究是否驗證本站版本？",
+        "原研究有自己的適用範圍，本站的中文譯文和顯示規則不等於本地常模。"
+      ],
+      [
+        "分享會帶分數嗎？",
+        "公開連結只會開啟同語言測驗。"
+      ]
+    ],
+    "formula": "36題分六組。各題1至5分，題目全部有分才顯示該組平均，未計分項不補值。",
+    "boundary": "保留MFQ-2的作者、題目來源及授權。本站中文譯文與未計分處理是網頁呈現的一部分，結果不做道德或政治分類。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Moral Foundations Test uses the 36 statements of the MFQ-2 and takes about seven minutes. It provides six separate averages, rated item counts, and public guides for care, equality, proportionality, loyalty, authority, and purity. Readers can reflect on the statements in context, leave questions unscored, and open the guides without signing up or giving personal information about anyone else.",
+    "intro": "When a shared resource is scarce, do you start with who needs it, whether each person has an equal chance, or how much people contributed? The six readings let different considerations sit together.",
+    "deliverables": [
+      [
+        "Six separate averages",
+        "Review the six foundations individually."
+      ],
+      [
+        "Rated-item counts",
+        "A reading needs all six ratings in its group."
+      ],
+      [
+        "Six public guides",
+        "Read situations that illustrate each consideration."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Consider more than one concern",
+        "You can think about who needs help while still asking how a rule was set."
+      ],
+      [
+        "Revisit the statement first",
+        "An example gives a reading more context than a number alone."
+      ],
+      [
+        "Keep unanswered judgments open",
+        "Leave a statement unscored if you are uncertain and read its guide."
+      ]
+    ],
+    "profiles": {
+      "care": [
+        "Notice who needs support",
+        "You can think about who might be hurt by an arrangement.",
+        "You offer the accessible seat to a person who has trouble walking."
+      ],
+      "equality": [
+        "Consider an equal chance",
+        "You can ask what it would look like for the same rule to apply to each person.",
+        "When seats are limited, you consider one lottery entry per person."
+      ],
+      "proportionality": [
+        "Compare shares and contributions",
+        "You can consider whether a reward should reflect what each person put in.",
+        "After an event, you discuss how actual hours might affect time off."
+      ],
+      "loyalty": [
+        "Remember a shared commitment",
+        "You can think about what you owe to a group you choose to support.",
+        "When a booth loses a volunteer, you remember promising to take a turn."
+      ],
+      "authority": [
+        "Look at how a rule is maintained",
+        "You can consider who has responsibility to make and carry out an arrangement.",
+        "When an event moves, you first ask the person designated to run it."
+      ],
+      "purity": [
+        "Consider what is set apart",
+        "You can reflect on cleanliness, sacredness or restraint in a specific setting.",
+        "Before a memorial, you read the organizer’s guidance about which customs to observe."
+      ]
+    },
+    "faq": [
+      [
+        "Which questionnaire is this?",
+        "The site uses the authors’ published English MFQ-2 statements and a FermatMind working Chinese translation."
+      ],
+      [
+        "Does it decide who is more moral?",
+        "The six averages summarize responses as separate readings without a moral total or ranking."
+      ],
+      [
+        "How is each average calculated?",
+        "All six items in a group need a rating from 1 to 5."
+      ],
+      [
+        "Can I leave an item unscored?",
+        "Yes. The related guide remains available."
+      ],
+      [
+        "Does the original research establish norms for this website edition?",
+        "The original study has its own scope. This site’s translation and display rules have their own limits."
+      ],
+      [
+        "What will a share link show?",
+        "It opens the public test in the same language without your own ratings."
+      ]
+    ],
+    "formula": "Six groups contain six items each. Numerical responses run from 1 to 5, with no reversal. A group needs six rated items to show its mean.",
+    "boundary": "The site preserves the MFQ-2 source and attribution. Its working translation and unscored rule do not establish local norms. Treat each mean as a reading of the statements, without a judgment of someone’s overall morality."
+  }
+}

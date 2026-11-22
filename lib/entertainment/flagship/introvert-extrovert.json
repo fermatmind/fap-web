@@ -1,0 +1,92 @@
+{
+  "zh": {
+    "facts": "费马测试的内向还是外向测试采用10条公开的IPIP外向性题目。全部有效作答后，可免费查看原始总分、均分和对应指南，落在边界时保留相邻两份。测试无需注册，约2分钟。",
+    "intro": "在一群熟人中，你会主动打开话题吗？碰到不熟的人，你面对注意焦点的感受又会怎样？用约 2 分钟回答 10 条 IPIP 外向性描述，查看这次自评的总分和均分。完整结果免费，无需注册。",
+    "deliverables": [
+      ["看原始总分和均分", "十条都有效作答时，得到 10–50 的总分和 1–5 的均分。每条反向题都按 6 减原评分。"],
+      ["读四个区间的完整指南", "各区间都可直接阅读。总分恰好是 20、30 或 40 时，本次结果同时保留相邻两份解读。"],
+      ["复制公开链接", "一个区间对应公开指南，边界结果可复制两个区间名称和测试入口。资料不足时仅复制公开入口。两种链接都不会带上答卷或分数。"]
+    ],
+    "interpretations": [
+      ["较低示例：15 分，均分 1.5", "落在内向侧的阅读区间。回想自己面对熟人与陌生人时，主动发言的意愿是否相同。"],
+      ["中间示例：30 分，均分 3.0", "这是两个中间指南的共同边界。全选 3 与全选 5 都可能得到这一总分，建议一起看具体回答。"],
+      ["较高示例：45 分，均分 4.5", "落在外向侧的阅读区间。可以看看自己在哪些场合喜欢开启话题，什么时候更愿意把时间留给别人。"]
+    ],
+    "profiles": {
+      "introvert": ["内向侧｜从自己舒服的方式参与", "你这次对外向描述的评分落在较低区间，可以回看少发言是常见做法，还是只出现在某些场合。", "参加新读书会时，你先听两轮，到小组讨论才把想问的问题说出来。"],
+      "ambivert-intro": ["中间偏内向｜留意差在哪几题", "你的总分在中间位置的较低一侧。想想自己是多数题都选得温和，还是熟悉与陌生场合的回答差别很大。", "熟朋友聊天时，你会接着聊几个话题，换到第一次参加的饭局，又更愿意听别人说。"],
+      "ambivert-extro": ["中间偏外向｜看看主动开口的条件", "你这次对外向描述的认可略多。可以回看哪些问题让你愿意先开口，哪些过程并不想成为注意焦点。", "到活动现场时，你会先和邻座打招呼。讨论开始后，你有时更乐意让别人先发表意见。"],
+      "extrovert": ["外向侧｜开启对话也留给别人回应", "你这次对外向描述给了较多高评，可以留意主动交谈在哪些场合让你觉得自在。", "朋友的小聚冷场时，你愿意提一个共同话题，也会顺势问听得少的同伴想不想补一句。"]
+    },
+    "faq": [
+      ["内向还是外向测试用了什么题本？", "本页使用 IPIP Big-Five Factor Markers 中的十条外向性题目，沿用英文条目和五正五反的计分方向。中文由费马独立翻译。"],
+      ["原始总分和均分怎样计算？", "正向题按原评分 1–5，反向题用 6 减原评分。十条加起来是 10–50 分，除以 10 得 1–5 的均分。"],
+      ["为什么有四个区间，有时出来两份解释？", "10–19 分读内向侧，21–29 分读中间偏内向，31–39 分读中间偏外向，41–50 分读外向侧。20、30、40 分保留相邻两份。这是本站阅读约定。"],
+      ["没答完或选“无法判断”会怎样？", "没答齐没有本次结果。十条都做了选择但有任一项不计分，结果会显示资料不足，不给总分、均分或区间，也不会补成 0 分或 3 分。"],
+      ["均分 3 是人群平均，或等于 MBTI 的 I／E 吗？", "均分 3 只是评分选项的中点，不是常模或人群平均。这十条只自评一个维度，不能换算 MBTI，也不能给出完整大五结果。"],
+      ["分享会带出我的答案或个人图卡吗？", "个人答卷不生成 PNG。单一结果可复制名称和公开指南链接，边界时复制两个名称和入口，资料不足时只分享公开入口。不附答案、分数或答题记录。"]
+    ],
+    "formula": "五条正向题按原评分，五条反向题用 6 减原评分。十条相加得总分 10–50，再除以 10 得均分 1–5。十条均有效才计分。",
+    "boundary": "题目来自公有领域的 IPIP 外向性条目。中文译文与四段阅读约定由本站提供，现版本尚无信度、常模或跨语言等值验证。分数只概括当次自评，不能确定人格类型、社交技巧、他人看法或职业适配。答题进度不会保存。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的內向還是外向測驗採用10條IPIP外向性題目。十題都有有效評分後，可免費查看原始總分、平均分數及對應指南，遇到分界則會列出相鄰兩篇。約2分鐘，免註冊。",
+    "intro": "和熟朋友聊天時，你常先開口嗎？到了比較不熟的場合，你會想加入對話，還是先在旁邊聽？花約 2 分鐘回答 10 條 IPIP 外向性描述，看看這次的總分與平均分數。完整結果免費，免註冊。",
+    "deliverables": [
+      ["看到這次的總分與平均分數", "十題都有有效評分時，總分介於 10–50，平均是 1–5 分。反向題先用 6 減掉原本勾選的分數。"],
+      ["分界兩側的指南一起讀", "四篇公開指南都可直接看。如果總分剛好是 20、30 或 40，結果會同時列出相鄰的兩篇。"],
+      ["複製測驗公開入口", "繁體版分享會複製測驗名稱與公開入口，不會傳出分數、結果區間或作答，也沒有個人 PNG。"]
+    ],
+    "interpretations": [
+      ["較低範例：15 分，平均 1.5 分", "落在內向側。想想在熟人聚會和第一次參加的活動裡，你想開口說話的程度一不一樣。"],
+      ["中間範例：30 分，平均 3.0 分", "這是中間偏內向與中間偏外向的分界。全選 3 或全選 5 都能得到這個總分，回頭看每題比較有用。"],
+      ["較高範例：45 分，平均 4.5 分", "落在外向側。試著找一次想帶起話題的場合，也回想什麼時候你比較想留空間給別人。"]
+    ],
+    "profiles": {
+      "introvert": ["內向側｜用順手的方式加入談話", "你這次的總分落在較低區間。可以看看自己平常什麼時候想先聽一下，又在什麼場合比較想說話。", "第一次去讀書會時，你先聽大家聊幾題，到小組討論才提出想問的地方。"],
+      "ambivert-intro": ["中間偏內向｜回頭看看不同場合", "你的總分在中段偏低的地方。可以看看多數題是不是都選中間，或是遇到不同的人就會選得很不一樣。", "跟熟朋友吃飯時，你會接著聊好幾個話題。第一次跟新同事吃飯時，你反而先聽大家在說什麼。"],
+      "ambivert-extro": ["中間偏外向｜看什麼時候比較想開口", "你這次對外向性描述比較有共鳴。也可以看看哪些時候你想先講，哪些時候想讓別人當焦點。", "到了活動會場，你先和坐旁邊的人打招呼。進到正式討論時，你有時更想先聽其他人的想法。"],
+      "extrovert": ["外向側｜帶開話題，也給朋友接話的時間", "你這次比較常認同外向性描述。可以回想自己在哪些群體或場合開口最自在。", "朋友聊天有點冷場時，你帶出一個大家都有興趣的話題，再問還沒說話的人想不想分享。"]
+    },
+    "faq": [
+      ["內向還是外向測驗採用哪些題目？", "採用 IPIP Big-Five Factor Markers 的十條外向性題目，沿用英文原題和五正五反的計分方向。中文由費馬另外翻譯。"],
+      ["總分和平均分數怎麼算？", "正向題用勾選的 1–5 分。反向題用 6 減掉勾選的分數。十題合計 10–50 分，除以 10 得到 1–5 的平均分數。"],
+      ["為什麼有四種讀法，結果卻可能出現兩篇？", "10–19 分看內向側，21–29 分看中間偏內向，31–39 分看中間偏外向，41–50 分看外向側。20、30、40 分是本站約定的分界，會保留兩篇相鄰指南。"],
+      ["有一題選「無法判斷」，還能看分數嗎？", "十題都要有有效評分才會計分。不計分選項與 3 分不同，不會補成 0 分或 3 分。十題選完但有不計分項目時，會顯示資料不足，公開指南仍可讀。"],
+      ["平均 3 分是大家的平均，或等於 MBTI 嗎？", "3 分是作答尺度的中點。這份十題自評沒有建立人群常模，也不能用來換算 MBTI 的 I／E 或其他大五維度。"],
+      ["分享時會把我的結果傳出去嗎？", "繁體版只複製測驗名稱與公開入口，不附答案、分數或區間，也沒有個人 PNG。重新整理或離開後，不會保留作答進度。"]
+    ],
+    "formula": "五題正向題按原分計算，五題反向題用 6 減原本勾選的分數。十題合計為 10–50 分，除以 10 得到 1–5 分。十題都要有效才會計分。",
+    "boundary": "題目來源是公有領域的 IPIP，中文譯文與四個閱讀區間由本站提供，尚未建立本版的信度、常模與跨語言等值。這次的自評分數無法判斷固定人格、社交表現或適合什麼工作。測驗不保留作答進度。"
+  },
+  "en": {
+    "facts": "FermatMind’s Introvert or Extrovert Test uses ten public-domain IPIP Extraversion items about conversation, social situations and attention. With ten scored answers, it reports a raw total, a mean and at least one reading guide. Exact boundary totals keep two adjacent readings. The test takes about two minutes, and the complete results and all four guides are free without an account.",
+    "intro": "Do you usually start the conversation, or listen for a while first? How does that change when you know the people around you? Rate ten IPIP Extraversion statements to see how you answered this time. It takes about two minutes and the full result is free without an account.",
+    "deliverables": [
+      ["See your raw total and mean", "Ten scored responses give a total from 10 to 50 and a mean from 1 to 5. The five reverse-keyed statements are scored as 6 minus the response."],
+      ["Read every guide at your boundary", "All four public guides are available. At exactly 20, 30, or 40 points, the result keeps both adjacent readings."],
+      ["Copy a public link", "One band links to its guide. At a boundary, copying includes both band names and the test link. When information is insufficient, only the public entry is copied. No personal scores or answers are included."]
+    ],
+    "interpretations": [
+      ["Lower example: total 15, mean 1.5", "Read the introvert-side guide. Compare how often you want to speak first among people you know and among people you’ve just met."],
+      ["Middle example: total 30, mean 3.0", "Read both middle guides. Marking every item 3 or every item 5 leads to this same total after scoring, although the individual answers differ."],
+      ["Higher example: total 45, mean 4.5", "Read the extrovert-side guide. Think of a conversation you enjoyed starting and a time when you were happy to listen instead."]
+    ],
+    "profiles": {
+      "introvert": ["Introvert side · Join in your own way", "You rated these extraversion statements lower this time. Think about whether you usually speak less or tend to do so in particular settings.", "At a new book club, listen to the first few exchanges and bring up a question when the group splits into pairs."],
+      "ambivert-intro": ["Introvert-leaning middle · Notice which settings matter", "You scored on the lower side of the middle. Compare whether you mostly gave moderate answers or rated familiar and unfamiliar situations very differently.", "At dinner with close friends you add to several conversations, but on your first lunch with a new team you prefer to listen."],
+      "ambivert-extro": ["Extrovert-leaning middle · See what gets you talking", "You agreed a little more with the extraversion statements. Check when you enjoy starting a conversation and when you’d rather hand it over.", "At an event, say hello to the person next to you. When the group discussion starts, give someone else the first turn."],
+      "extrovert": ["Extrovert side · Open up a conversation", "You endorsed more of these extraversion statements. Think about which groups and activities make it feel natural to speak first.", "When conversation slows at a small gathering, bring up a shared interest and give anyone who hasn’t spoken a chance to join."]
+    },
+    "faq": [
+      ["Which scale does the Introvert or Extrovert Test use?", "It uses the ten Extraversion items from the IPIP Big-Five Factor Markers. The English wording and five positive and five negative keys follow the source. FermatMind provides its own Chinese wording."],
+      ["How are the raw total and mean calculated?", "A positively keyed item uses the response from 1 to 5. A negatively keyed item uses 6 minus that response. The ten scores sum to 10–50. Dividing by ten yields a mean from 1 to 5."],
+      ["Why are there four bands and sometimes two guides?", "The bands are 10–19, 21–29, 31–39, and 41–50. At exactly 20, 30, or 40, you keep both adjacent guides. The boundaries are FermatMind’s reading convention."],
+      ["What happens with an unscored or unanswered item?", "An unfinished attempt has no interpreted result. If you select an option for all ten items but mark one unscored, the result says there is insufficient information. It does not fill in a zero or a three."],
+      ["Does a mean of 3 represent the population average or my MBTI letter?", "Three is the midpoint of the response options. The site has no norms for this edition. The ten items cover one self-reported dimension and cannot provide an MBTI letter or a full Big Five profile."],
+      ["What information does sharing include?", "A single band shares its name and public guide link. At a boundary, you can copy both names and the test link. With insufficient information, sharing copies just the public entry. No answers, scores, or personal PNG are shared."]
+    ],
+    "formula": "Score five positive items as rated and five reverse-keyed items as 6 minus the rating. Add all ten for 10–50, then divide by 10 for a mean of 1–5. All ten items need scored responses.",
+    "boundary": "The IPIP items are in the public domain. FermatMind’s Chinese wording and reading bands are local to this version. No site-specific norms, reliability, or language equivalence have been established. This self-report does not determine personality types, social skill, others’ opinions, or career fit. Your progress is not saved."
+  }
+}

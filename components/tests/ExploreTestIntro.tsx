@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { DisplayLocale } from "@/lib/i18n/locales";
+import portfolio from "@/lib/entertainment/portfolioLandingEntries.json";
 import catalog from "@/lib/questionnaires/catalog.json";
 import { ExploreTestEntry } from "./ExploreTestEntry";
 import { ExploreHeroArtwork } from "./ExploreHeroArtwork";
@@ -36,6 +37,9 @@ export function ExploreTestIntro({
       <div className="explore-intro-content">
       {children}
       {entryLink && <ExploreTestEntry locale={locale} tool={tool} />}
+      {Object.hasOwn(portfolio, slug) && <a className="portfolio-preview-link" href="#portfolio-preview">
+        {locale === "en" ? "See example questions and results" : locale === "zh-TW" ? "查看題目與結果範例" : "查看题目与结果示例"}<span aria-hidden> ↓</span>
+      </a>}
       </div>
       {sideContent ?? <div className="explore-intro-art" aria-hidden="true">
         <ExploreHeroArtwork slug={slug} category={category} />

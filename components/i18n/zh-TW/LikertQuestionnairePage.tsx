@@ -42,7 +42,7 @@ type LikertReader = {
   catqNotice?: { attribution: Text; editionNotice: Text };
 };
 
-const requireLikert = cache(async (slug: string): Promise<LikertReader> => {
+export const requireLikert = cache(async (slug: string): Promise<LikertReader> => {
   if (slug === "food-disgust") {
     const { loadTraditionalMixedQuestionnaire } = await import("@/lib/i18n/zh-TW/mixedQuestionnaires");
     const item = await loadTraditionalMixedQuestionnaire(slug);

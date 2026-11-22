@@ -1,0 +1,98 @@
+{
+  "zh": {
+    "facts": "费马测试的犬系人格测试用12道日常题比较相处与活动偏好，以六种犬系比喻呈现选择次数。答完可免费查看六项计数、所有最高并列结果及公开指南。无需注册，不用于鉴定宠物品种。",
+    "intro": "朋友们想一起度过一个下午，你更想邀请新朋友加入，试点平时没玩过的，还是把时间安排得舒服一点？花约 3 分钟做完 12 道日常题，看看你这次的选择更贴近哪种犬系比喻。完整结果免费，无需注册。",
+    "deliverables": [
+      ["六种犬系比喻各选几次", "答完可同时看到六项原始计数。每项最多 8 次，六项相加正好 12 次。"],
+      ["读到每个最高结果的完整指南", "同为最高的结果全部保留。每份指南有日常情境、相近做法的比较和一个可以试的小建议。"],
+      ["复制犬种名称和公开链接", "单项最高指向同语指南，多项并列则复制所有并列名称和测试入口。公开指南已有分享图，本次答卷不提供个人 PNG。"]
+    ],
+    "interpretations": [
+      ["一个犬系比喻单独最高", "选一题你当时不怎么犹豫的题，看看类似做法在哪次聚会或共同活动里也有用。"],
+      ["几种做法并列最高", "把并列结果分开读。比如加入新小组时，你可能喜欢先欢迎别人，实践活动中则更在意有没有机会练习。"],
+      ["六项都是两次", "每题都选同一个位置会出现六项并列。先看看那些答案是否真是你想选的，再挑一种你愿意尝试的做法。"]
+    ],
+    "profiles": {
+      "golden-retriever": ["金毛寻回犬｜让新人容易加入", "你愿意先打招呼，再给刚加入的人一个轻松参加对话或活动的办法。", "朋友带了新同伴来玩桌游，你先介绍一轮，再问对方想先旁观还是和你搭档。"],
+      "border-collie": ["边境牧羊犬｜给练习留个小目标", "你喜欢试一试有挑战的做法，也愿意回头看看哪一步比上次更顺。", "和朋友初学折纸时，你挑一个稍难的折法试两次，比较纸边有没有对齐，再决定是否继续。"],
+      "husky": ["哈士奇｜行程里留一个岔路口", "你愿意给活动留一点变化，手头有几个地方可以选时，会想看看哪一个更有意思。", "逛街时，你和朋友约好在车站集合，再临时决定要不要绕进没去过的小巷。"],
+      "german-shepherd": ["德国牧羊犬｜把约好的事落实", "你在意大家把责任说清楚，也愿意按约好的方式把自己负责的部分做完。", "约朋友一起野餐时，你确认谁带食物、谁带垫子，并在出门前把自己负责的一份收好。"],
+      "pug": ["巴哥犬｜把安排做得轻一点", "你喜欢舒服、简单的节奏，也愿意去掉让这次活动变得麻烦的额外安排。", "几个地方只能逛一个时，你提议在附近找张好坐的桌子慢慢聊，其他地点下次再去。"],
+      "chihuahua": ["吉娃娃｜把喜欢和界限讲明", "你愿意说明自己更想做什么、为什么，以及哪些安排你暂时接受不了。", "朋友想把聚会延长到很晚时，你说明明早有事，可以待到九点，再一起想个早点开始的时间。"]
+    },
+    "faq": [
+      ["犬系人格测试测什么？", "它用六种犬系名称比喻人们的相处和活动偏好，统计你在 12 道题中选了哪些做法。它不会判定固定人格。"],
+      ["能鉴定我家的狗，或者推荐该养什么犬吗？", "不能。页面没有上传宠物照片或适养评估。真实宠物的品种、行为和照护问题需依据实际情况与相关专业资料。"],
+      ["次数和并列怎样算？", "每题四选一，所选方向加 1 次。每个方向出现 8 次，答完合计 12 次。如果最高次数相同，所有并列结果都保留。"],
+      ["边牧结果表示聪明，巴哥结果表示懒吗？", "边牧在本版表示偏向练习，巴哥表示偏向轻松安排。题本没有测量智力、健康、能力或努力程度，也不给六种比喻排高低。"],
+      ["测试收费或保存答题进度吗？", "题目、完整结果和六篇指南都免费，无需注册，约 3 分钟。答题在浏览器内计分，不保存进度，刷新、离开或切换语言后需重新开始。"],
+      ["分享的链接和图片包含我的个人结果吗？", "复制的文字包含最高犬种名称，链接打开同语公开指南或测试入口，不带原始答卷或次数。指南的分享图是公开说明图，个人答卷不生成 PNG。"]
+    ],
+    "formula": "12 题各选四项中的一项。给所选犬系方向 +1，每项 0–8 次，合计 12 次。所有最高次数组合照实保留。",
+    "boundary": "六种犬系是人的日常选择比喻。结果不能识别宠物品种、预测犬类行为或推荐选犬，也不能鉴定人的性格、智力、健康或职业能力。题本未完成心理测量验证。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的犬系人格測驗有12題生活情境，用六種犬系比喻呈現相處和活動的選擇。答完可免費查看六項次數、所有最高同分結果和公開指南。測驗不用註冊，也不會鑑定寵物品種。",
+    "intro": "約好一群人一起玩，你會先邀新朋友加入，找個沒試過的玩法，還是提議輕鬆坐下來聊？12 題生活情境約 3 分鐘，看看哪一種犬系比喻比較貼近你這次選的做法。完整結果免費，不用註冊。",
+    "deliverables": [
+      ["六種犬系各選幾次", "每項最多 8 次，答完可以一次看完六項原始次數，加起來是 12 次。"],
+      ["同分最高都能讀到完整指南", "同為最高的結果會一起列出。每篇都有生活例子、相近做法的比較，以及可以試一試的小建議。"],
+      ["複製可分享的名稱與連結", "一項最高時可分享對應的同語言指南，多項並列時則可複製並列名稱和測驗入口。指南已有公開分享圖，個人作答不會產生 PNG。"]
+    ],
+    "interpretations": [
+      ["只有一種犬系排第一", "先找一題你幾乎不用想就選定的問題，回想最近哪次跟朋友相處時也會這樣做。"],
+      ["好幾種犬系同為最高", "把同分結果一個個讀。你可能喜歡先招呼剛加入的人，但在想練的活動裡，又會留意能不能試點有挑戰的。"],
+      ["六種都是兩次", "每題都選同一位置的選項就會同分。先確認那些做法是否符合你平常的選擇，再挑一種想深入看的。"]
+    ],
+    "profiles": {
+      "golden-retriever": ["金毛尋回犬｜讓剛來的人也好加入", "你喜歡先跟人打聲招呼，讓第一次來的人有個容易參加的方式。", "朋友帶了陌生同伴來玩桌遊時，你先互相介紹，再問新來的人想先看還是想和你一組。"],
+      "border-collie": ["邊境牧羊犬｜挑一個小地方練", "你願意試試有點難度的做法，做過之後也會回頭看看哪裡比上次順。", "和朋友第一次摺紙時，你想挑一個稍微難一點的折法試兩遍，比較兩條邊有沒有更對齊。"],
+      "husky": ["哈士奇｜留點時間給新的路線", "你喜歡在行程裡留些空間，碰到沒試過的東西時，可以決定要不要停一下。", "一起逛街時，你們先約好幾點回車站，再看看路上有沒有值得繞進去的小店。"],
+      "german-shepherd": ["德國牧羊犬｜說好怎麼分工就照做", "你會確認每個人答應負責什麼，也在意自己說好要做的部分有沒有完成。", "約好要野餐時，你確認誰帶食物、誰帶墊子，再在出門前把自己的東西都收進袋子。"],
+      "pug": ["巴哥犬｜把步調放到舒服的位置", "你希望活動安排簡單一點，也願意拿掉讓大家多跑一趟的行程。", "想去的店排得太多時，你提議找間近一點、能舒服坐下的店聊天，別的留到下回。"],
+      "chihuahua": ["吉娃娃｜把接受的範圍講出來", "你願意直接說自己比較想要什麼，也會說明哪些時間或做法你不方便配合。", "朋友想聚到很晚時，你說明早有事、九點得走，再問大家要不要早一點見。"]
+    },
+    "faq": [
+      ["犬系人格測驗在測什麼？", "它用六種犬系名稱當比喻，記錄你在 12 題情境裡選了哪些相處和活動方式。結果沒有固定人格的分類。"],
+      ["可以鑑定我家狗狗的品種，或推薦我養哪一種嗎？", "這裡不收寵物照片，也不提供品種鑑定或飼養建議。實際犬種、行為與照護需要看個別情況，參考相關專業資料。"],
+      ["次數和同分怎麼算？", "每題四選一，選到的方向加 1 次。每個方向出現 8 次，全部加起來是 12 次。同為最高的結果都會一起列出。"],
+      ["測到邊境牧羊犬就比較聰明，巴哥犬就比較懶嗎？", "邊境牧羊犬在這裡代表喜歡練習的選擇，巴哥犬代表偏好輕鬆安排。測驗不會判斷智力、能力、努力程度或健康。"],
+      ["測驗免費嗎？會保留答到哪一題嗎？", "題目、完整結果與六篇指南都免費，不用註冊，約 3 分鐘。答案在瀏覽器裡計分。重新整理、離開或切換語言後，需重新作答。"],
+      ["分享會帶出我的答案或個人圖卡嗎？", "複製結果會帶出犬種名稱，連結連到同語言的公開指南或測驗入口。沒有作答與個人次數，指南分享圖只代表公開說明，作答不會產生個人 PNG。"]
+    ],
+    "formula": "12 題四選一，選到的方向加 1 次。單項 0–8 次，六項合計 12 次。同為最高的結果都會保留。",
+    "boundary": "這裡用犬系名稱比喻人的生活選擇。測驗不拿來辨識寵物、預測犬隻行為或推薦飼養品種，也不能判斷人的性格、智力、健康或工作能力。題本尚未完成心理計量驗證。"
+  },
+  "en": {
+    "facts": "FermatMind’s What Dog Breed Am I quiz uses 12 everyday situations to explore how people spend time together and choose activities. It counts responses across six dog breed metaphors and keeps every result tied for first. The full quiz, results and all six public guides are free without an account. It works from your choices and does not identify pets.",
+    "intro": "When friends have a free afternoon, would you invite someone new, try an unfamiliar activity, or pick somewhere comfortable to talk? Take about three minutes to answer 12 everyday questions and see which breed metaphors fit your choices. The full result is free without an account.",
+    "deliverables": [
+      ["See all six choice counts", "Each breed metaphor gets a count out of eight appearances. The counts add up to 12 after your last choice."],
+      ["Read the guide for each top result", "Every breed metaphor that shares first stays in the result. The guides compare everyday approaches and offer a small thing you could try."],
+      ["Copy the result name and a link", "A single top result links to its public guide. A tie copies all the names with a link to the quiz. Public guides have share images. The quiz does not make a personal PNG."]
+    ],
+    "interpretations": [
+      ["One metaphor comes first", "Think of a question that was easy to answer. Find a time when you made a similar choice while making plans or spending time with friends."],
+      ["Several metaphors tie for first", "Read the tied approaches separately. You may look for ways to welcome people when they arrive and still want a challenge once an activity gets going."],
+      ["All six have two selections", "Choosing the same position on every question produces this tie. Check that the answers describe what you wanted, then read whichever guide you’re curious about."]
+    ],
+    "profiles": {
+      "golden-retriever": ["Golden Retriever · Make it easy to join", "You like to welcome people and offer them a way into the activity without putting them on the spot.", "When someone new comes to game night, introduce them and ask whether they’d like to watch first or play on your team."],
+      "border-collie": ["Border Collie · Give yourself something to practice", "You enjoy a manageable challenge and notice when your second attempt goes better than your first.", "When learning origami with a friend, try one tricky fold twice and see if the edges line up more neatly."],
+      "husky": ["Husky · Leave room for a detour", "You like to have options and find out what happens when you try a different route or activity.", "On a shopping trip with a friend, agree on a time to meet at the station and leave room to explore an unfamiliar street."],
+      "german-shepherd": ["German Shepherd · Follow through on an agreement", "You care about knowing who agreed to do what and making sure your own part gets done.", "Before a picnic, check who is bringing food and blankets, then pack the things you said you would bring."],
+      "pug": ["Pug · Keep the pace comfortable", "You enjoy a plan with room to relax and are happy to take out an optional stop if it makes the day easier.", "When your group has too many places to visit, suggest sitting down somewhere nearby for a chat and saving the other stops for later."],
+      "chihuahua": ["Chihuahua · Say what works for you", "You’re willing to tell people what you prefer, why it matters, and what you can’t agree to.", "If friends want to stay out late, tell them you need to leave by nine and ask whether everyone can meet earlier."]
+    },
+    "faq": [
+      ["What does the What Dog Breed Am I quiz measure?", "It records which approaches you choose in 12 situations about spending time with people and doing activities. The breed names are metaphors for those choices."],
+      ["Can it identify my dog or tell me which breed to adopt?", "It does not accept photos, identify a dog, or recommend a pet. Real questions about dogs depend on the individual animal, your circumstances and relevant expert advice."],
+      ["How are the six counts and ties worked out?", "Choose one of four options per question. Your choice adds one to its metaphor. Each metaphor appears eight times, the total is 12, and every metaphor tied for first stays in the result."],
+      ["Does Border Collie mean smart or Pug mean lazy?", "The Border Collie choices here concern practice, and the Pug choices concern a manageable pace. The counts do not measure ability, intelligence, effort, or health."],
+      ["Is it free, and will it save my progress?", "All 12 questions, complete results and six guides are free without an account. Scoring runs in your browser. Refreshing, leaving, or switching languages starts a new attempt."],
+      ["What can I share from my result?", "Copy the highest result names and a link to the public guide or quiz. The share text leaves out your answers and counts. A public guide’s share image illustrates the general guide. Your attempt does not generate a personal PNG."]
+    ],
+    "formula": "Choose one of four options on each of 12 questions. Add 1 to its breed metaphor. Each count ranges from 0 to 8, the total is 12, and every highest tie is kept.",
+    "boundary": "The six dog breeds are metaphors for choices people make. They cannot identify a pet, predict canine behavior, or guide a decision about getting a dog. The quiz has not completed psychometric validation and cannot determine personality, intelligence, health, or job ability."
+  }
+}

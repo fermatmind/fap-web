@@ -1,0 +1,653 @@
+{
+  "zh": {
+    "facts": "费马测试的讨人喜欢测试用20道原创二选一题回看五种相处方式，约5分钟。免费查看五项选择次数、全部最高并列与31份公开指南，无需注册。",
+    "intro": "朋友聊起你没听过的事，你会多问一句、接个玩笑，还是想起之前答应他的事？挑出平常最自然的反应。",
+    "deliverables": [
+      [
+        "五项次数",
+        "看留意、兑现、轻松、好奇和界线各选几次。"
+      ],
+      [
+        "查看并列",
+        "最高次数相同的方向会一同出现。"
+      ],
+      [
+        "31份公开指南",
+        "单项与最高并列组合都有对应读法。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "单项领先",
+        "找出最近一次最容易用上这项做法的场景。"
+      ],
+      [
+        "两项并列",
+        "想想两种回应什么时候可能一起出现。"
+      ],
+      [
+        "五项相等",
+        "全选首项得到五项各四次。"
+      ]
+    ],
+    "profiles": {
+      "warmth": [
+        "先接住话",
+        "你听出朋友语气不对时，会先问他是否想聊。",
+        "群里有人说今天不顺，你私下问要不要说说。"
+      ],
+      "follow-through": [
+        "把约好的事做到",
+        "你会先兑现约定，再接下一件事。",
+        "你答应带充电线，出门前便把它放在包上。"
+      ],
+      "lightness": [
+        "给冷场一点转机",
+        "你会用轻松的小动作让大家缓下来。",
+        "等餐时冷了场，你提议玩一个猜菜单的小游戏。"
+      ],
+      "curiosity": [
+        "多问一句",
+        "你遇到没听过的事，会想先弄明白。",
+        "朋友提到在学木工，你问最难的是哪一步。"
+      ],
+      "boundaries": [
+        "把界线说清楚",
+        "你会说明自己能做什么，也尊重别人怎么选。",
+        "有人邀你续摊，你道谢后说明明早有事，不能留下。"
+      ],
+      "warmth-follow-through": [
+        "问候之后有下文",
+        "你既留意别人的状态，也记得自己答应的后续。",
+        "同伴忙着收场，你问他需不需要帮忙，并按约把器材搬回去。"
+      ],
+      "warmth-lightness": [
+        "让一句笑话有分寸",
+        "你既会留意别人心情，也会想让场面轻一点。",
+        "朋友小失误后有些尴尬，你先看看他的反应，再轻轻带过。"
+      ],
+      "warmth-curiosity": [
+        "关心从一个问题开始",
+        "你既想知道对方过得如何，也愿意听到具体一点。",
+        "朋友刚换课，你问新课的哪件事让他最意外。"
+      ],
+      "warmth-boundaries": [
+        "照顾感受也留界线",
+        "你能听别人的难处，同时说出自己的限制。",
+        "你愿意在散步时听朋友聊聊，也先说明只能待半小时。"
+      ],
+      "follow-through-lightness": [
+        "先办妥，再松口气",
+        "你既守约，也会给大家留一点轻松感。",
+        "你先把借来的球拍归还，再招呼还在等的人一起喝水聊天。"
+      ],
+      "follow-through-curiosity": [
+        "带着问题把事办完",
+        "你会按约补上资料，也会问出其中的细节。",
+        "你按时发来地图，还问大家最想在哪一站停留。"
+      ],
+      "follow-through-boundaries": [
+        "只答应做得到的事",
+        "你既重视承诺，也会说清楚能承担的范围。",
+        "你愿意订场地，直接告诉同伴这周无法负责接送。"
+      ],
+      "lightness-curiosity": [
+        "好玩，也想知道来由",
+        "你会用一点轻松感接话，也愿意问清对方怎么想到的。",
+        "朋友说学了一首怪歌，你接个玩笑，再问他是哪儿听到的。"
+      ],
+      "lightness-boundaries": [
+        "开玩笑也能说到此为止",
+        "你会把尴尬说轻一点，也记得尊重别人说不。",
+        "游戏里有人不想继续被起外号，你换了个不针对人的话题。"
+      ],
+      "curiosity-boundaries": [
+        "问到对方愿意说的地方",
+        "你对新话题有兴趣，也会让人自己决定说多少。",
+        "你问朋友新工作怎么样，听出他不想说同事细节就换个话题。"
+      ],
+      "warmth-follow-through-lightness": [
+        "把关心落到小事",
+        "你听见同伴紧张时，会问能帮什么，也用小玩笑松松气。",
+        "你帮忙拿了水，并提议等车时猜一首歌。"
+      ],
+      "warmth-follow-through-curiosity": [
+        "记得约定，也追问近况",
+        "你会问清朋友真正在意的事，并完成自己答应的交接。",
+        "你送还笔记时问朋友换课后最想补哪一章。"
+      ],
+      "warmth-follow-through-boundaries": [
+        "在能力范围内帮一把",
+        "你会顾及朋友的难处，承诺自己确实做得到的事。",
+        "你答应陪朋友去一趟车站，提前说清不能等到深夜。"
+      ],
+      "warmth-lightness-curiosity": [
+        "从一句轻松的问候聊开",
+        "你留意到别人有点拘谨时，会从一个好答的问题开始。",
+        "排队的人有些沉默，你问是否第一次来，也说了自己的小糗事。"
+      ],
+      "warmth-lightness-boundaries": [
+        "玩笑要让人可以不接",
+        "你会注意对方的神情，也肯在他说不时收住。",
+        "朋友不想接龙，你说没问题，改聊刚上的菜。"
+      ],
+      "warmth-curiosity-boundaries": [
+        "听多少由对方定",
+        "你愿意多了解对方，也会看见哪里需要停一停。",
+        "朋友提到家中有变动，你问要不要聊天，同时接受他想先不说。"
+      ],
+      "follow-through-lightness-curiosity": [
+        "交棒时带一个好问题",
+        "你会把约好的事做完，也给同伴一个轻松开始的机会。",
+        "你按时交回地图，约大家猜猜最值得停留的地方。"
+      ],
+      "follow-through-lightness-boundaries": [
+        "既守约，也能轻松说不",
+        "你会完成答应的任务，也能婉拒超出范围的新要求。",
+        "你归还了借来的游戏，笑着说今晚不能续局。"
+      ],
+      "follow-through-curiosity-boundaries": [
+        "做好交接，也问清下一步",
+        "你做完负责的部分后，会问对方打算怎么用，再说明余量。",
+        "你交了活动草图，问同伴怎么看，并说今天来不及再改一轮。"
+      ],
+      "lightness-curiosity-boundaries": [
+        "问得有趣，也留点边界",
+        "你愿意听新鲜事、用幽默接话，也接受对方不想解释。",
+        "朋友拿出奇怪的旧唱片，你开了句玩笑，只问他愿不愿意放一段。"
+      ],
+      "follow-through-lightness-curiosity-boundaries": [
+        "把活动办得有趣又有余量",
+        "你既守约，也会用新点子活跃气氛，并让参与可以选。",
+        "你按时带了游戏，问大家想不想试新规则，也说可以只围观。"
+      ],
+      "warmth-lightness-curiosity-boundaries": [
+        "让聊天有兴趣也有分寸",
+        "你会留意情绪、带起轻松话题、顺势提问，也接受别人的界线。",
+        "新朋友有点拘谨，你先聊天气和附近小店，再请他决定要不要说自己的事。"
+      ],
+      "warmth-follow-through-curiosity-boundaries": [
+        "关心有行动，也有范围",
+        "你会听朋友的需要、把承诺做到，还会问清楚对方与自己各能接受什么。",
+        "你约好送资料到车站，先问朋友要哪一份，再说明只能等十分钟。"
+      ],
+      "warmth-follow-through-lightness-boundaries": [
+        "帮上忙也能保持轻松",
+        "你能兑现约定、留意别人、调节气氛，也能把自己的安排说清楚。",
+        "你送来约好的饮料，招呼等候的朋友聊两句，说明饭后得先走。"
+      ],
+      "warmth-follow-through-lightness-curiosity": [
+        "做完约定还能聊开",
+        "你会注意别人的状态、照约完成手边事，也愿意聊点新鲜的。",
+        "你带来约好的道具，问同伴准备得怎么样，顺手用一个新玩法松松场。"
+      ],
+      "all-five-tied": [
+        "五种做法都在手边",
+        "你在这次答卷里五项都选了四次。",
+        "同一场聚会里，你可能先问候、按约带物品、聊新事、开个玩笑，也按时离开。"
+      ]
+    },
+    "faq": [
+      [
+        "测的是哪些做法？",
+        "关心他人、遵守约定、让气氛轻松、好奇提问和说清界线。"
+      ],
+      [
+        "每项出现几次？",
+        "各8次，且每两个方向正反位置各比较一次。"
+      ],
+      [
+        "同分怎么算？",
+        "全部最高次数保留。"
+      ],
+      [
+        "两个都喜欢怎么办？",
+        "选平常更先采取的一项。"
+      ],
+      [
+        "可以算受欢迎程度吗？",
+        "结果只记本次选择。其他人的感受由对方表达。"
+      ],
+      [
+        "分享带分数吗？",
+        "复制会带本次结果名称及同语公开指南链接，包括并列组合的对应指南。内容没有答案或次数。"
+      ]
+    ],
+    "formula": "20道二选一，所选方向每次加1。五方向各出现8次，最高同分完全保留。",
+    "boundary": "本测验收集你对普通互动的选择，读数适合回顾具体做法，不能作为他人评价或人格分数。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的好感相處測驗以20題原創二選一題整理五種互動做法，約5分鐘。免費查看五項選擇次數、最高同分結果與31份公開指南，免註冊即可使用。",
+    "intro": "聚會上聊起你沒接觸過的興趣，你會順著話題問下去、用幽默暖場，還是想起前幾天答應要幫忙的事？",
+    "deliverables": [
+      [
+        "做法各選幾次",
+        "留意對方、守約、帶氣氛、好奇和界線分開看。"
+      ],
+      [
+        "同分一起顯示",
+        "有幾項一樣多次，就照此次結果同時呈現。"
+      ],
+      [
+        "31份公開指南",
+        "每個單項與最高同分組合可以分別閱讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看選最多的一項",
+        "回想最近一次採取這種做法時，你正在和誰說話。"
+      ],
+      [
+        "兩種做法一樣多",
+        "可以從一件和朋友共同經歷的小事想起。"
+      ],
+      [
+        "每項都選到四次",
+        "例如每道題都選第一項，五項就會同分。"
+      ]
+    ],
+    "profiles": {
+      "warmth": [
+        "先聽見話裡的情緒",
+        "你發現好友想說又停住時，會給他一點時間。",
+        "有人在群組說今天很累，你晚點傳訊息問候。"
+      ],
+      "follow-through": [
+        "說好的事就做完",
+        "你會想到別人還等著你答應的那一部分。",
+        "揪團吃飯時你把預訂結果貼到群組。"
+      ],
+      "lightness": [
+        "讓氣氛鬆一下",
+        "你會試著把尷尬變成大家可以一起做的小事。",
+        "聚餐等了很久，你提議輪流猜隔壁桌上的甜點。"
+      ],
+      "curiosity": [
+        "多留一點好奇",
+        "你遇到新話題會順著對方的話問下去。",
+        "朋友說剛學做陶，你問他第一個作品是什麼。"
+      ],
+      "boundaries": [
+        "把能配合的範圍講清楚",
+        "你會說明自己的安排，也留給別人拒絕的空間。",
+        "好友約續攤，你說明天早起，下回再聚。"
+      ],
+      "warmth-follow-through": [
+        "關心也有後續",
+        "你既會問對方怎麼了，也會記得把答應的事做完。",
+        "朋友走不開，你先確認他缺什麼，再照約定把東西送到。"
+      ],
+      "warmth-lightness": [
+        "留意對方再開玩笑",
+        "你會照顧對方的心情，也懂得讓場面別那麼僵。",
+        "同伴念錯名字，你先讓他接回話，再說個不針對人的笑話。"
+      ],
+      "warmth-curiosity": [
+        "把關心化成問題",
+        "你會在意對方過得如何，也想多聽他說一點。",
+        "好友剛搬家，你問哪一件小事讓他最有新鮮感。"
+      ],
+      "warmth-boundaries": [
+        "好好聽，也留自己的餘裕",
+        "你願意聽人訴苦，也會說明今天能陪到幾點。",
+        "通勤前你可以聽好友講一下，但先告訴他何時要上車。"
+      ],
+      "follow-through-lightness": [
+        "把事情做完也留點笑聲",
+        "你既記得自己的承諾，也會幫大家放鬆一下。",
+        "你交完共同報告，順勢提議玩一小回合桌遊。"
+      ],
+      "follow-through-curiosity": [
+        "把功課做完也多問一句",
+        "你會照約把資料整理好，也問同伴想怎麼用。",
+        "你上傳共用筆記後，問大家哪段需要再查。"
+      ],
+      "follow-through-boundaries": [
+        "只接自己做得到的份量",
+        "你既想把承諾做到，也願意先講明限制。",
+        "活動分工時，你接下報到，但說不能顧到散場。"
+      ],
+      "lightness-curiosity": [
+        "從笑聲聊到新話題",
+        "你會先把氣氛帶起來，也想知道點子打哪來。",
+        "好友拿出一款奇怪桌遊，你猜規則，再請他講來歷。"
+      ],
+      "lightness-boundaries": [
+        "輕鬆聊也能明說不",
+        "你會用幽默緩和氣氛，也尊重別人不想接下去。",
+        "朋友說不喜歡某個稱呼，你換個話題繼續聊。"
+      ],
+      "curiosity-boundaries": [
+        "好奇也留空間",
+        "你會多問一句，但會讓對方自己決定聊到哪裡。",
+        "朋友聊到新住處時，你只問附近好不好逛。"
+      ],
+      "warmth-follow-through-lightness": [
+        "照顧氣氛又把事辦成",
+        "你留意伙伴的壓力，也願意動手幫忙。",
+        "你照約帶道具，發現朋友緊張便邀他聊個輕鬆話題。"
+      ],
+      "warmth-follow-through-curiosity": [
+        "做完答應的事，再關心一下",
+        "你會按約交付，也想知道別人遇到了什麼。",
+        "你把答應的照片寄出，順便問朋友那天最喜歡哪一段。"
+      ],
+      "warmth-follow-through-boundaries": [
+        "願意幫忙，也講清楚限度",
+        "你會關心對方，並把答應的部分確實完成。",
+        "好友搬家，你送紙箱過去，也先告知幾點得離開。"
+      ],
+      "warmth-lightness-curiosity": [
+        "用輕鬆的問題打開話題",
+        "你會留意對方的反應，找個好接的問題一起聊。",
+        "新同學不好意思開口，你問他有沒有玩過這款遊戲。"
+      ],
+      "warmth-lightness-boundaries": [
+        "輕鬆玩，也讓人能婉拒",
+        "你會留意大家玩得開不開心，也尊重有人選擇旁觀。",
+        "玩桌遊時，朋友想先看一輪，你笑著邀他當觀眾。"
+      ],
+      "warmth-curiosity-boundaries": [
+        "多留一點關心和空間",
+        "你想了解好友的近況，也會把話題怎麼走交給他。",
+        "對方提起要搬家，你問需不需要聊聊，聽到婉拒便換話題。"
+      ],
+      "follow-through-lightness-curiosity": [
+        "把交接變成想一起玩的下一步",
+        "你會兌現承諾，也喜歡從新問題帶起話題。",
+        "你準時傳行程表，再請大家猜哪一站最有趣。"
+      ],
+      "follow-through-lightness-boundaries": [
+        "把答應的事和加碼分開",
+        "你會守約，也樂意用自然的方式婉拒多出來的要求。",
+        "你送回借來的桌遊，也說今天不能再開一局。"
+      ],
+      "follow-through-curiosity-boundaries": [
+        "交代清楚，再確認對方的想法",
+        "你會把承諾做完，也問接手的人還需要什麼。",
+        "你交回策畫表，問下一步怎麼走，並說明自己的下班時間。"
+      ],
+      "lightness-curiosity-boundaries": [
+        "有趣的事聊到剛剛好",
+        "你會把話題聊得輕鬆，也知道什麼時候不用再追問。",
+        "同伴提到收藏的東西，你開個玩笑，讓他決定要不要拿出來分享。"
+      ],
+      "follow-through-lightness-curiosity-boundaries": [
+        "照約帶東西，也開放參與方式",
+        "你會把答應的事做完，同時用新點子邀人輕鬆參與。",
+        "你帶來說好的桌遊，請大家選玩新規則還是先看看。"
+      ],
+      "warmth-lightness-curiosity-boundaries": [
+        "對話好接，也好退出",
+        "你會照顧氣氛和感受，也願意把聊到哪裡交給對方。",
+        "新朋友有點安靜，你聊附近的咖啡店，讓他自己決定要不要多說。"
+      ],
+      "warmth-follow-through-curiosity-boundaries": [
+        "問清楚、做得到、也留餘裕",
+        "你會關心手邊的需求，也把可以幫到哪裡說清楚。",
+        "你照約把筆記帶到車站，先問好友要哪冊，也提醒自己得趕車。"
+      ],
+      "warmth-follow-through-lightness-boundaries": [
+        "很願意幫忙，也會把界線講清楚",
+        "你會問候、守約和帶氣氛，也知道自己何時必須先走。",
+        "你照約帶點心來，陪好友聊一會兒，也先說明等一下要離開。"
+      ],
+      "warmth-follow-through-lightness-curiosity": [
+        "帶著照顧和好奇赴約",
+        "你會完成約定，留意大家的狀態，也喜歡一起試個新做法。",
+        "你把答應的材料帶來，問大家累不累，提議先玩一輪簡單的。"
+      ],
+      "all-five-tied": [
+        "五種做法都選到一樣多次",
+        "你這次答卷五項各選了四次。",
+        "同一場聚會可以既問候好友、照約帶點心，也聊天開玩笑，最後照自己的時間離開。"
+      ]
+    },
+    "faq": [
+      [
+        "這份測驗在看什麼？",
+        "看你在平常互動時傾向先做哪些事。"
+      ],
+      [
+        "每個方向有幾次機會？",
+        "五個方向各出現在8個選項裡。"
+      ],
+      [
+        "怎麼看同分？",
+        "最高的方向若同分，全部列出。"
+      ],
+      [
+        "兩個選項都很像我呢？",
+        "想想平常會先做哪一件事，選比較接近的。"
+      ],
+      [
+        "能推斷大家喜不喜歡我嗎？",
+        "讀數來自自己的選擇。朋友怎麼想要由本人說。"
+      ],
+      [
+        "分享會帶出自己的結果嗎？",
+        "複製內容包含這次的結果名稱和同語言公開指南，同分組合也有自己的指南。答案與次數不會一同複製。"
+      ]
+    ],
+    "formula": "20道二選一，選到的方向加1。方向各出現8次，任兩方向互相比較兩次，最高同分全數保留。",
+    "boundary": "本測驗供回顧日常相處做法。讀數只代表這次選擇，不拿來排行、診斷，或猜別人怎麼看你。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Likable Person Test uses 20 original pairs of everyday choices to explore five ways of contributing to an interaction. It takes about five minutes and shows raw counts, all directions tied for the highest count, and 31 public guides. Readers can compare warmth, follow-through, lightness, curiosity and boundaries without an account or collecting anyone else’s opinions about them.",
+    "intro": "When a friend brings up something unfamiliar, do you ask about it, make someone laugh, or remember something you promised? Pick what comes naturally first.",
+    "deliverables": [
+      [
+        "Five raw counts",
+        "See how often you picked warmth, follow-through, lightness, curiosity and boundaries."
+      ],
+      [
+        "All highest ties",
+        "Open the exact combination when several contributions share the top count."
+      ],
+      [
+        "31 public guides",
+        "See one guide for any single emphasis or highest-count combination."
+      ]
+    ],
+    "interpretations": [
+      [
+        "One direction leads",
+        "Recall a recent interaction where that response came easily."
+      ],
+      [
+        "Two share the top",
+        "Pick a concrete setting where those two choices could both fit."
+      ],
+      [
+        "All five tie",
+        "Choosing the first option throughout gives each contribution four picks."
+      ]
+    ],
+    "profiles": {
+      "warmth": [
+        "Hear the person out",
+        "You notice when someone seems to need an invitation to talk.",
+        "A teammate sounds discouraged, so you check in after the meeting."
+      ],
+      "follow-through": [
+        "Follow through",
+        "You prioritize doing the things you said you would do.",
+        "Before a hike, you send the route you promised to check."
+      ],
+      "lightness": [
+        "Lift the moment",
+        "You look for a low-pressure way to ease an awkward silence.",
+        "While everyone waits for food, you invite the table to guess what will arrive first."
+      ],
+      "curiosity": [
+        "Follow the thread",
+        "You ask grounded questions when a conversation opens into unfamiliar territory.",
+        "A friend mentions woodworking and you ask what they tried to make first."
+      ],
+      "boundaries": [
+        "Say what works for you",
+        "You state your limits and leave others room to state theirs.",
+        "You thank the group for the invitation and head home before the second stop."
+      ],
+      "warmth-follow-through": [
+        "Check in and follow up",
+        "You gave noticing and following through equal weight.",
+        "After a busy event, you ask what a friend still needs and return the gear you promised to handle."
+      ],
+      "warmth-lightness": [
+        "Lighten things gently",
+        "You chose noticing how people feel as often as making things lighter.",
+        "After a friend's minor mistake, you check their reaction before trying a gentle joke."
+      ],
+      "warmth-curiosity": [
+        "Ask how it actually went",
+        "You balanced making someone feel heard with wanting to learn more.",
+        "When a friend changes classes, you ask what surprised them most."
+      ],
+      "warmth-boundaries": [
+        "Care within your limits",
+        "You put listening and clear boundaries on equal footing.",
+        "You make time to hear a friend's concern and say when you will need to leave."
+      ],
+      "follow-through-lightness": [
+        "Get it done and keep it light",
+        "You picked follow-through as often as bringing levity.",
+        "Once the equipment is returned as promised, you invite the group to stay for a quick chat."
+      ],
+      "follow-through-curiosity": [
+        "Deliver, then ask what follows",
+        "You gave reliability and curiosity equal space.",
+        "You send the route you promised and ask where the others most want to stop."
+      ],
+      "follow-through-boundaries": [
+        "Make a promise you can keep",
+        "You balanced follow-through with stating what you can take on.",
+        "You offer to book the venue and say you cannot organize the rides."
+      ],
+      "lightness-curiosity": [
+        "Stay playful and curious",
+        "You chose keeping things easy as often as exploring a new topic.",
+        "A friend plays a strange song, so you laugh with them and ask how they found it."
+      ],
+      "lightness-boundaries": [
+        "Keep the joke optional",
+        "You valued levity and boundaries equally in your choices.",
+        "When someone asks for a nickname to stop, you switch to a joke everyone can choose to join."
+      ],
+      "curiosity-boundaries": [
+        "Ask without prying",
+        "You chose curiosity and respect for limits equally often.",
+        "You ask how a new job is going and leave personal details alone when your friend changes the subject."
+      ],
+      "warmth-follow-through-lightness": [
+        "Ease the wait and help out",
+        "You gave warmth, reliability, and levity equal weight.",
+        "Before a rehearsal, you bring the supplies, notice the nerves, and start a harmless guessing game."
+      ],
+      "warmth-follow-through-curiosity": [
+        "Keep the promise and make time to listen",
+        "You selected listening, follow-through, and curiosity equally often.",
+        "As you return borrowed notes, you ask which part of the new course has been hardest."
+      ],
+      "warmth-follow-through-boundaries": [
+        "Be clear about the help you can offer",
+        "You chose care, reliability, and boundaries equally often.",
+        "You bring packing boxes to a friend and let them know what time you need to leave."
+      ],
+      "warmth-lightness-curiosity": [
+        "Open with an easy question",
+        "You gave equal weight to noticing feelings, easing nerves, and asking about something new.",
+        "When a newcomer looks shy, you ask whether they have played this game and share a funny first try."
+      ],
+      "warmth-lightness-boundaries": [
+        "Leave a way out of the joke",
+        "You balanced warmth, lightness, and boundaries in your choices.",
+        "When someone passes on a game, you keep the mood easy and make room for them to watch."
+      ],
+      "warmth-curiosity-boundaries": [
+        "Notice and let them set the pace",
+        "You valued warmth, curiosity, and limits equally in these choices.",
+        "A friend mentions a change at home, and you ask whether they want to talk without pressing for details."
+      ],
+      "follow-through-lightness-curiosity": [
+        "Turn a handoff into a fresh start",
+        "You gave follow-through, lightness, and curiosity equal weight.",
+        "You share the trip plan you promised and invite the group to guess their favorite stop."
+      ],
+      "follow-through-lightness-boundaries": [
+        "Keep the deal and make no easy to hear",
+        "You balanced following through, easing the mood, and stating limits.",
+        "You return the game as promised and cheerfully decline one more round when you need to head home."
+      ],
+      "follow-through-curiosity-boundaries": [
+        "Hand over the work with a clear next step",
+        "You picked follow-through, curiosity, and boundaries equally often.",
+        "You send the draft on time, ask how it will be used, and explain when you can make changes."
+      ],
+      "lightness-curiosity-boundaries": [
+        "Follow the fun without pressing",
+        "You gave lightness, curiosity, and boundaries equal weight.",
+        "You ask about an unusual record, make a light joke, and let the owner decide whether to play it."
+      ],
+      "follow-through-lightness-curiosity-boundaries": [
+        "Bring the game and keep it optional",
+        "You chose reliability, lightness, curiosity, and boundaries equally often.",
+        "You bring the promised game, pitch a new rule, and invite people to play or watch."
+      ],
+      "warmth-lightness-curiosity-boundaries": [
+        "Make a conversation easy to enter and leave",
+        "You gave four conversational contributions equal space in your answers.",
+        "You notice a newcomer looks nervous, ask about the neighborhood, and let them keep their story brief."
+      ],
+      "warmth-follow-through-curiosity-boundaries": [
+        "Ask, deliver, and name your limit",
+        "You picked warmth, follow-through, curiosity, and boundaries equally often.",
+        "You ask which notes a friend needs, bring them as promised, and say when you must catch your train."
+      ],
+      "warmth-follow-through-lightness-boundaries": [
+        "Show up warmly and set a limit",
+        "You gave care, reliability, lightness, and boundaries equal weight.",
+        "You bring the drinks you promised, help people relax, and say you will need to leave after dinner."
+      ],
+      "warmth-follow-through-lightness-curiosity": [
+        "Follow the plan and keep the conversation open",
+        "You chose warmth, follow-through, levity, and curiosity equally often.",
+        "You bring the supplies, check how the group is doing, and offer a low-pressure warmup."
+      ],
+      "all-five-tied": [
+        "Keep all five options open",
+        "You selected each contribution exactly four times in this run.",
+        "At a gathering you can bring what you promised, check on a friend, ask a question, make a joke, or leave when you need to."
+      ]
+    },
+    "faq": [
+      [
+        "What does the test cover?",
+        "Your own choices in ordinary interactions, across five ways of contributing."
+      ],
+      [
+        "How often is a direction offered?",
+        "Each one appears eight times across 20 pairs."
+      ],
+      [
+        "Do ties stay in the result?",
+        "Yes. All directions with the highest raw count are retained."
+      ],
+      [
+        "What if both options fit?",
+        "Choose the one you would usually do first."
+      ],
+      [
+        "Does it rate popularity?",
+        "The quiz records your choices. Other people’s opinions are outside the result."
+      ],
+      [
+        "What can I share?",
+        "The share text includes the result title and its same-language public guide, including the guide for a tie. It includes no choices or counts."
+      ]
+    ],
+    "formula": "Each of the 20 items adds one count to the selected direction. Every direction appears eight times, twice against each of the others. All directions tied at the highest count are retained.",
+    "boundary": "Use the counts to look back at your own choices. They do not establish personality, popularity or the views of other people."
+  }
+}

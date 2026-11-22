@@ -1,3 +1,7 @@
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { isQuestionnaireConfigurationValid } from "@/lib/questionnaires/scoring";
+import { PortfolioFlagshipLanding, hasPortfolioFlagship } from "@/components/tests/PortfolioFlagshipLanding";
+import { preparePortfolioLanding } from "@/components/tests/PortfolioLandingPreview";
 import { StoryEditorialPage } from "@/components/entertainment/StoryEditorialPage";
 import { additionalStoryEditorials } from "@/components/entertainment/AdditionalStoryEditorials";
 import { HarborLightPage } from "@/components/entertainment/HarborLightPage";
@@ -328,12 +332,17 @@ async function FunQuizContent({ params }: Props) {
 }
 
 export default async function FunQuizPage(props: Props) {
-  const { slug } = await props.params;
+  const { slug, locale } = await props.params;
+  if (isNative(slug) && hasPortfolioFlagship(slug)) {
+    const quiz = await loadQuestionnaire(slug);
+    if (!quiz || !isQuestionnaireConfigurationValid(quiz)) notFound();
+    return <PortfolioFlagshipLanding quiz={quiz} locale={resolveLocale(locale)} />;
+  }
   const category =
     nativeCatalog.find((item) => item.slug === slug)?.category ??
     catalog.find((item) => item.slug === slug)?.category;
   return (
-    <ExploreTestShell slug={slug} category={category}>
+    <ExploreTestShell slug={slug} category={category} preview={await preparePortfolioLanding(slug, resolveLocale(locale))}>
       {await FunQuizContent(props)}
     </ExploreTestShell>
   );

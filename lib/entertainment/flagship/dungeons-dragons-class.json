@@ -1,0 +1,368 @@
+{
+  "zh": {
+    "facts": "费马测试的D&D职业测试含24道原创桌游情境题，约8分钟，免注册。答完可免费查看十二种虚构角色的计数与所有最高匹配。十二篇公开指南均可直接阅读。",
+    "intro": "队伍要进入一座陌生城镇，你更想一路讲故事、先看好路线，还是翻翻法术笔记？用约 8 分钟答完 24 道原创情境题，找几种你愿意带到桌上的虚构玩法。结果完整免费。",
+    "deliverables": [
+      [
+        "看十二种玩法的计数",
+        "每题加 1，总数 24。最高相同的职业会一起出现。"
+      ],
+      [
+        "免费读十二篇职业指南",
+        "每个职业有公开指南，供你和桌友比较自己想玩的场面。无需作答也能看。"
+      ],
+      [
+        "分享公开名称和入口",
+        "单项最高分享职业名称和指南。并列时分享全部最高名称和测试入口，不附答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "法师最高，6 次",
+        "样张最常选研习与准备。可以想想你期待的是出场前做功课，还是在场景里看着条件变化再选择。"
+      ],
+      [
+        "术士和法师并列，各 4 次",
+        "两篇指南都会保留。可以试着比较即兴塑形和开场前准备法术，你更想体验哪一种。"
+      ],
+      [
+        "全选 A，十二个职业各 2 次",
+        "各职业在 A 位出现两次，结果会保留十二篇指南。读一读具体场景，再决定要带哪个点子上桌。"
+      ]
+    ],
+    "profiles": {
+      "barbarian": [
+        "把原初力量写进角色",
+        "你比较想体验直接投入的虚构角色。",
+        "角色见到沉重的石门时，你希望全桌把这场景写成一次夸张的力量表演。"
+      ],
+      "bard": [
+        "带着一段歌上路",
+        "你想把表演、故事和队友之间的呼应放进这一幕。",
+        "队伍出发前，你让角色为酒馆里认识的旅人即兴编一句送别歌。"
+      ],
+      "cleric": [
+        "让队友看见自己有人支援",
+        "你比较想在桌上演出神圣魔法给予同伴帮助的一刻。",
+        "故事里的队友被诅咒吓住时，你让角色先问他们想得到什么帮助。"
+      ],
+      "druid": [
+        "用一种新形态看看森林",
+        "你想探索自然魔法和变化为不同形态的场景。",
+        "故事来到雾林时，你想让角色换个形态，看看树梢之外有什么。"
+      ],
+      "fighter": [
+        "给角色安排一种练熟的做法",
+        "你比较想体验反复打磨、用起来熟悉的游戏动作。",
+        "轮到角色上场时，你想用一个已经在团里演过的招牌动作接住情节。"
+      ],
+      "monk": [
+        "把灵活的移动变成镜头",
+        "你更想体验徒手姿态和位置变化带来的戏剧性。",
+        "队伍来到一座机关厅时，你想让角色轻巧地穿过房间，再向大家打个手势。"
+      ],
+      "paladin": [
+        "让角色为自己选的誓言负责",
+        "你想体验由承诺与守护带动的虚构情节。",
+        "镇民请队伍留守时，你让角色先说清楚愿意保护什么、又有什么做不到。"
+      ],
+      "ranger": [
+        "替队伍挑一条故事路线",
+        "你比较想体验沿途观察、用不同手段继续前行。",
+        "团队进入森林时，你让角色读懂故事里的路标，再问同伴想走近路还是去看看遗迹。"
+      ],
+      "rogue": [
+        "找到不必硬闯的切入点",
+        "你比较想在虚构难题里试一试精细的做法。",
+        "队伍被一道谜门挡住时，你让角色读出遗漏的图案，给大家另一种解法。"
+      ],
+      "sorcerer": [
+        "把天生魔法玩出新形状",
+        "你更想体验故事里与生俱来的力量如何即兴变化。",
+        "队伍想安慰村里的人时，你让角色把一道光变成他们熟悉的形状。"
+      ],
+      "warlock": [
+        "让契约成为下一段剧情",
+        "你比较想探索角色和神秘契约方的联系。",
+        "契约方在梦里留下谜语时，你想让角色先追问它为何选在今晚出现。"
+      ],
+      "wizard": [
+        "把准备变成开场的一部分",
+        "你想体验从研习与准备中找到有趣的法术选择。",
+        "队伍要去浮岛时，你让角色翻阅笔记，决定最想在故事里准备哪一类魔法。"
+      ]
+    },
+    "faq": [
+      [
+        "需要玩过《龙与地下城》吗？",
+        "不用。题目描述虚构场景，不要求背规则、法术名称或剧情。"
+      ],
+      [
+        "为什么是十二个职业？",
+        "本套题范围是官方 SRD 5.2.1 的十二个基础职业。扩展职业和其他版本超出本套题范围。"
+      ],
+      [
+        "24 道题怎样计数？",
+        "每题四选一，给该职业加 1。每职业出现 8 次，范围 0–8，十二项合计 24。"
+      ],
+      [
+        "并列就是推荐多职业构筑吗？",
+        "并列只记录最高次数恰好相同。角色构筑应按桌上使用的规则和设定，问卷不会生成角色卡。"
+      ],
+      [
+        "能看出真实职业或能力吗？",
+        "这是虚构玩法偏好题，不能判断职业适配、真实力量、智力、宗教或善恶。"
+      ],
+      [
+        "分享会带上答案吗？",
+        "分享复制公开名称和链接，不附答卷、次数或个人 PNG。在浏览器计分，独立答题页刷新后不恢复进度。"
+      ]
+    ],
+    "formula": "24 题四选一，每次给对应职业加 1。十二职业各出现 8 次，每项 0–8，总和 24。同为最高的结果全部保留。",
+    "boundary": "费马独立编写非官方玩法问卷。职业题材的规则范围参考 SRD 5.2.1，按 CC BY 4.0 归属；此范围不延伸到其他版本、商标或图片。计数只记录当次选择，供桌上交流。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的D&D職業測驗有24道原創桌遊情境題，約8分鐘，免註冊。答完可免費看十二種虛構角色的次數和所有最高配對。十二篇公開指南也能直接閱讀。",
+    "intro": "隊伍準備去一座陌生城鎮，你會想用故事帶熱氣氛、先看路線，還是讀一遍法術筆記？花約 8 分鐘完成 24 道題，找幾種你期待在桌上扮演的玩法。結果與指南免費。",
+    "deliverables": [
+      [
+        "查看十二個職業的次數",
+        "每道題替一個職業加 1，合計 24。並列最高會一起呈現。"
+      ],
+      [
+        "免費讀十二篇職業指南",
+        "每個職業都有一篇，方便你在和團友聊角色前先看看。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "只有一項最高時分享名稱與指南；並列時會複製所有最高名稱和測驗入口，不附上答案或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "法師最高，6 次",
+        "這份範例比較常選研習及準備。想想看，你期待先為劇情準備法術，還是想在場景開始後才決定？"
+      ],
+      [
+        "術士與法師同分，各 4 次",
+        "兩篇指南都可以讀。一個著重當場塑造天生魔法，一個著重開場前的研習和準備。"
+      ],
+      [
+        "全選 A，十二個職業各 2 次",
+        "每種職業在 A 位出現兩次，所以一起列出十二篇指南。各題的具體場景更容易看出你想玩的內容。"
+      ]
+    ],
+    "profiles": {
+      "barbarian": [
+        "把原初力量寫進故事",
+        "你比較想扮演一個直接投入的角色。",
+        "遇上故事裡沉重的石門時，你想把這一幕變成誇張的力量表演。"
+      ],
+      "bard": [
+        "在旅途裡說一段故事",
+        "你比較想試表演、敘事與支援隊友的玩法。",
+        "離開旅店以前，你替角色編幾句歌詞，跟才認識的旅人道別。"
+      ],
+      "cleric": [
+        "把神聖魔法用於一段支援戲",
+        "你比較想演出角色如何用故事裡的神聖魔法幫隊友。",
+        "同伴被詛咒嚇住時，你先讓角色問他們需要什麼幫忙。"
+      ],
+      "druid": [
+        "換個形態看故事裡的森林",
+        "你比較想玩自然法術和形體變化。",
+        "來到起霧的森林，你想安排角色換一種形態，看看樹梢外有什麼。"
+      ],
+      "fighter": [
+        "讓角色用一個練熟的招牌動作",
+        "你比較想玩技巧清楚、可以反覆練習的角色。",
+        "輪到自己時，你讓角色用團裡熟悉的招牌動作接續劇情。"
+      ],
+      "monk": [
+        "把位置變化演成一段戲",
+        "你比較想用徒手姿態和靈活移動表現角色。",
+        "在故事的機關廳裡，你讓角色輕巧地換到另一個位置，再回頭向同伴示意。"
+      ],
+      "paladin": [
+        "選一個自己願意守的誓言",
+        "你比較想看角色怎麼處理承諾與守護。",
+        "鎮民希望隊伍留下幫忙，你先讓角色說清楚願意幫到哪裡。"
+      ],
+      "ranger": [
+        "帶隊友看看故事裡的幾條路",
+        "你比較想體驗觀察沿途、彈性選路的玩法。",
+        "穿過虛構森林時，你先讀路標，再問夥伴想抄近路，還是繞到遺跡看看。"
+      ],
+      "rogue": [
+        "在小地方找到不同的解法",
+        "你比較想用細緻的做法找出情節中的切入點。",
+        "遇到一扇謎題門時，你讓角色留意被忽略的花紋，提出另一個解法。"
+      ],
+      "sorcerer": [
+        "用天生魔法玩出自己想要的形狀",
+        "你比較想測試角色與生俱來的魔法會變出什麼。",
+        "故事裡想讓村民放鬆時，你讓角色把光改成他們熟悉的樣子。"
+      ],
+      "warlock": [
+        "把契約對象寫進下一段劇情",
+        "你比較想探索角色和神祕契約對象的關係。",
+        "夢裡出現一則謎語時，你讓角色問對方為什麼偏偏在今晚留下它。"
+      ],
+      "wizard": [
+        "上場前想想要準備哪種魔法",
+        "你比較想玩先研習再準備的角色。",
+        "隊伍要出發前往浮島，你想讓角色先翻筆記，再決定帶哪些魔法。"
+      ]
+    },
+    "faq": [
+      [
+        "沒玩過《龍與地下城》也能做嗎？",
+        "可以，不用記規則、法術或背景。照你想體驗的虛構場景來選。"
+      ],
+      [
+        "為什麼列出這十二種職業？",
+        "本版範圍是官方 SRD 5.2.1 的十二種基礎職業，沒有納入其他版本或擴充。"
+      ],
+      [
+        "24 題怎麼計次？",
+        "每題四選一，所選職業加 1。每個職業出現 8 次，個別 0–8，合計 24。"
+      ],
+      [
+        "並列結果能直接用來兼職嗎？",
+        "並列只代表選擇次數相同。實際兼職與配點須看團規，測驗不會產生角色表。"
+      ],
+      [
+        "能判斷現實職涯或能力嗎？",
+        "題目只記錄你想玩的虛構情境，無法判斷工作適配、智力、信仰、品格或身體能力。"
+      ],
+      [
+        "轉傳會附上作答嗎？",
+        "分享只複製公開名稱和連結，沒有答案、次數或個人 PNG。瀏覽器內計分，作答頁重整不會恢復進度。"
+      ]
+    ],
+    "formula": "24 題每題四選一，替選到的職業加 1 次。每個職業出現 8 次，個別 0–8，十二項加起來是 24。同為最高一起保留。",
+    "boundary": "這是費馬獨立編寫的非官方桌遊偏好測驗。職業範圍參考 SRD 5.2.1，適用其 CC BY 4.0 署名要求。其他版本、商標與圖片有各自的權利範圍。結果只反映當次虛構選擇。"
+  },
+  "en": {
+    "facts": "FermatMind’s D&D Class Test has 24 original scenarios and takes about eight minutes. It is free without registration. The result shows counts for twelve fictional classes and keeps every tie for the highest count. Twelve public guides are open to everyone. The quiz asks about scenes you might want to play at a tabletop session, without testing prior rules knowledge.",
+    "intro": "Your party is heading somewhere unfamiliar. Would you bring a story, choose a route, or go through your spell notes? Answer 24 original scenarios to find fictional roles you might enjoy at the table. It takes about eight minutes, and the complete result is free.",
+    "deliverables": [
+      [
+        "See counts for twelve classes",
+        "Each choice adds one. All twelve counts sum to 24, and every highest tie appears."
+      ],
+      [
+        "Read twelve class guides for free",
+        "Each guide gives examples of how a fictional class might feel at the table. You can read them before answering."
+      ],
+      [
+        "Copy a public class or quiz link",
+        "One leader shares its name and guide. Ties share all leading names and the public quiz entry, with no counts or answers."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Wizard leads at 6",
+        "The sample favored study and preparation. Think about whether choosing magic ahead of a scene is something you would enjoy."
+      ],
+      [
+        "Sorcerer and Wizard tie at 4 each",
+        "Both guides appear. Compare shaping innate magic during a scene with studying and preparing it ahead of time."
+      ],
+      [
+        "All A: twelve classes with 2 each",
+        "Each class appears twice in position A, so this sample brings up every guide. Look at the scenes to decide what you would actually like to play."
+      ]
+    ],
+    "profiles": {
+      "barbarian": [
+        "Bring primal power into the story",
+        "You often wanted a fictional character who commits directly to the moment.",
+        "At an enormous stone gate, you imagine the whole group making a show of your character’s strength."
+      ],
+      "bard": [
+        "Carry a story into the next scene",
+        "You often chose performance, storytelling, and flexible support for the party.",
+        "Before leaving an inn, you have your character improvise a farewell verse for someone they just met."
+      ],
+      "cleric": [
+        "Bring divine support to the party",
+        "You often chose to explore fictional divine magic that helps an ally.",
+        "When a curse frightens the group, you have your character ask what help the others want."
+      ],
+      "druid": [
+        "See a forest in another form",
+        "You often chose nature magic and shape-changing scenes.",
+        "In a foggy woodland, you have your character take another form to see what lies beyond the trees."
+      ],
+      "fighter": [
+        "Give your character a practiced specialty",
+        "You often chose straightforward fictional techniques your character can return to.",
+        "When your turn comes around, you use a familiar signature move the group has already seen in the story."
+      ],
+      "monk": [
+        "Make movement part of the scene",
+        "You often chose an unarmed style or a change of position.",
+        "In a room full of fictional mechanisms, you picture your character moving lightly across and signaling to the party."
+      ],
+      "paladin": [
+        "Play a character who has chosen a promise",
+        "You often chose the story of an oath and what it means to protect someone.",
+        "When townsfolk ask the party to stay, you have your character say what they can promise before agreeing."
+      ],
+      "ranger": [
+        "Choose a new story route",
+        "You often chose a wilderness path that leaves room to adapt.",
+        "Inside a fictional forest, you read a sign and ask whether the party would rather take a shortcut or see the ruins."
+      ],
+      "rogue": [
+        "Find a precise way into a puzzle",
+        "You often chose a careful opening when a scene gives you several ways forward.",
+        "At a riddle door, you have your character notice a missing pattern and offer the group a different solution."
+      ],
+      "sorcerer": [
+        "Shape magic as it happens",
+        "You often chose scenes where innate magical power can be changed on the spot.",
+        "To reassure villagers in the story, you have your character turn a light into a shape they know."
+      ],
+      "warlock": [
+        "Let a pact enter the story",
+        "You often chose to explore a character’s pact and strange magic.",
+        "When a pact figure leaves a riddle in a dream, you have your character ask why it appeared tonight."
+      ],
+      "wizard": [
+        "Prepare a spell for the scene you want",
+        "You often chose studying and preparing fictional magic ahead of time.",
+        "Before visiting a floating island, you have your character look through their notes and choose what sort of magic to bring."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to have played D&D?",
+        "No. Choose the fictional approaches you would enjoy. You do not need to remember spells, rules, or story details."
+      ],
+      [
+        "Why are these twelve classes included?",
+        "The roster follows the twelve base classes in SRD 5.2.1. This test does not cover classes from other versions or expansions."
+      ],
+      [
+        "How are the 24 answers counted?",
+        "Each choice adds one to its class. Each class appears eight times, so counts range from 0 to 8 and sum to 24."
+      ],
+      [
+        "Does a tie recommend a multiclass build?",
+        "A tie keeps all highest guides. Builds use the rules and options agreed at your table. The quiz does not generate a character sheet."
+      ],
+      [
+        "Can this tell me what I should do in real life?",
+        "The choices describe fictional play. They do not establish job fit, real ability, intelligence, faith, or morality."
+      ],
+      [
+        "Will sharing include my answers?",
+        "Copying shares public names and links, without answers, counts, or a personal PNG. Scoring runs in the browser, and the standalone test does not restore unfinished progress after a reload."
+      ]
+    ],
+    "formula": "Choose one of four options in 24 scenarios. Your choice adds one to its class. Each class appears eight times. The twelve counts range from 0 to 8 and total 24. Every highest tie is retained.",
+    "boundary": "FermatMind independently wrote this unofficial play preference quiz. The class roster follows SRD 5.2.1 and its CC BY 4.0 attribution scope. Trademarks, artwork, and other editions have their own rights. The counts only describe fictional choices made here."
+  }
+}

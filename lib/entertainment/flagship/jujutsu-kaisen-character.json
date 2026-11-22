@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的咒术回战角色测试含24道原创日常创作情境题，约6分钟，免注册。答完可免费查看六位角色的选择次数和最高并列结果，六篇公开指南可直接阅读。",
+    "intro": "朋友正在搭个小纸板模型。你会马上陪着做一小段、确认自己能承担什么，还是换一个有趣的做法？用 24 道原创情境题回看六位角色对应的日常选择。结果免费。",
+    "deliverables": [
+      [
+        "看六项选择次数",
+        "每题给一个角色加 1，合计 24。最高并列时都保留。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "每位角色对应一篇，题目和指南都不要求了解动画剧情。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单一最高复制名称与指南；并列复制全部最高名称和入口，不带答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "虎杖悠仁最高，9 次",
+        "六项依次为 9、5、3、3、2、2。这份样张较常选陪同伴一起迈出下一步。"
+      ],
+      [
+        "五条悟和禅院真希各 7 次",
+        "六项为 2、3、3、7、7、2。一份指南讲换个看法，另一份讲给一项做法留时间练习。"
+      ],
+      [
+        "全选 A，六项各 4 次",
+        "每位角色在 A 位出现四次，六篇都会保留。想回看真实偏好，最好从具体题目入手。"
+      ]
+    ],
+    "profiles": {
+      "yuji-itadori": [
+        "陪同伴把下一步做起来",
+        "你这次常选先和对方一起做一小段，省得一个人摸索。",
+        "朋友试搭纸板屋时，你问他愿不愿意一起折屋顶。"
+      ],
+      "megumi-fushiguro": [
+        "认领自己能接得住的一段",
+        "你这次常选先想清楚职责和时间再答应。",
+        "模型需要准备好几个部件时，你确认自己放学后只来得及做窗户，再把时间说清楚。"
+      ],
+      "nobara-kugisaki": [
+        "留一个真正想做的选择",
+        "你这次常选按自己的喜好选一个部分，也尊重同伴各有偏好。",
+        "大家都想给模型涂白时，你选择给自己那块门板用喜欢的橘色。"
+      ],
+      "satoru-gojo": [
+        "给同一件事打开另一个角度",
+        "你这次常选用轻松的比喻或提问改变讨论的方向。",
+        "朋友在想模型像不像真房子时，你提议先当作一个迷你书店看看。"
+      ],
+      "maki-zenin": [
+        "留一轮时间专练一个动作",
+        "你这次常选挑一个具体步骤反复试，直到手边的做法更熟。",
+        "搭完第一片墙后，你在剩纸上练习怎样折出平整的边。"
+      ],
+      "toge-inumaki": [
+        "挑一句能准确传到对方的话",
+        "你这次常选想清楚表达的目的和可能效果。",
+        "朋友问模型怎么样时，你说窗户很显眼，再问要不要听一个关于屋顶的小建议。"
+      ]
+    },
+    "faq": [
+      [
+        "没看过《咒术回战》也能做吗？",
+        "可以。题目是原创纸板手作等生活情境，不需要知道剧情或设定。"
+      ],
+      [
+        "有哪些角色？",
+        "虎杖悠仁、伏黑惠、钉崎野蔷薇、五条悟、禅院真希和狗卷棘共六位。"
+      ],
+      [
+        "24 题怎么计数？",
+        "每题四选一，给对应角色加 1。每位出现 16 次，每项 0–16，合计 24。"
+      ],
+      [
+        "同分时会另外加答吗？",
+        "不用。所有最高并列都显示。全选 A 时六位各 4 次。"
+      ],
+      [
+        "结果可以测能力、性格或现实应对吗？",
+        "不可以。计数只是当次原创情境选择，无法推断能力、人格、适岗或心理状况。"
+      ],
+      [
+        "分享会暴露作答吗？",
+        "公开链接不含答案、次数或个人标识。单项最高分享指南，并列分享测试入口；没有个人 PNG。"
+      ]
+    ],
+    "formula": "24 题每题四选一，给相应角色加 1。每位出现 16 次，各项 0–16，合计 24。保留全部并列最高。",
+    "boundary": "费马独立编写非官方同人测试，动画第一季官网用于核对角色身份。题目是原创生活手作情境，结果不评价现实能力、人格或心理状况。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的咒術迴戰角色測驗有24道原創日常創作題，約6分鐘，免註冊。答完可免費查看六位角色的次數和並列最高結果，六篇公開指南也能直接讀。",
+    "intro": "朋友在做一個紙板模型。你會先陪著做一點、說清楚能幫哪一段，還是提個不同想法？花約 6 分鐘回答 24 道原創情境題，看看自己這次常選哪一種做法。",
+    "deliverables": [
+      [
+        "看六位角色各有幾次",
+        "每題替一位角色加 1 次，四個選項擇一，總數 24。同為最高都會列出。"
+      ],
+      [
+        "免費讀六篇角色指南",
+        "六位各有一篇完整公開指南，新讀者也能直接看。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單一最高時分享角色名及指南，並列時複製所有最高名稱和測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "虎杖悠仁最高，9 次",
+        "六項依序為 9、5、3、3、2、2。範例比較常選陪朋友一起做下一小段。"
+      ],
+      [
+        "五條悟和禪院真希並列，各 7 次",
+        "六項依序為 2、3、3、7、7、2。可以比較用新角度看同一件事，和留時間把一項技巧練一輪。"
+      ],
+      [
+        "全選 A，六位各 4 次",
+        "每位在 A 位各出現四次，因此保留所有指南。可以回頭看看哪題有你真正想試的做法。"
+      ]
+    ],
+    "profiles": {
+      "yuji-itadori": [
+        "陪對方做起下一小段",
+        "你比較常選先問要不要一起，再幫忙試一小步。",
+        "朋友想搭紙屋，你問要不要一起折屋頂，比較哪一側好黏。"
+      ],
+      "megumi-fushiguro": [
+        "選一段自己可以負責的事",
+        "你比較常選先弄清楚時間和份量，再決定答應多少。",
+        "大家在分模型部件時，你說今天只能完成窗戶，先約好何時交給下一位。"
+      ],
+      "nobara-kugisaki": [
+        "留一個自己真心喜歡的選法",
+        "你比較常選說出自己的喜好，也讓夥伴選他們的方式。",
+        "做模型門板時，你挑自己喜歡的橘色，讓其他人照自己想法上色。"
+      ],
+      "satoru-gojo": [
+        "讓大家換個角度看這個點子",
+        "你比較常選丟出新的提問或比喻，讓原來的想法多一個方向。",
+        "模型看起來像普通房子時，你問能不能先想像它是一家很小的書店。"
+      ],
+      "maki-zenin": [
+        "挑一步多練幾次",
+        "你比較常選把一項做法拆開，先留時間練到順手。",
+        "想讓紙盒邊緣平整一點時，你拿廢紙試幾種折法。"
+      ],
+      "toge-inumaki": [
+        "說一句對方容易明白的話",
+        "你比較常選顧到意思，也想想對方會怎麼接收。",
+        "夥伴問模型好不好看時，你先說哪一處最吸引你，再問要不要聽建議。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過《咒術迴戰》也能做嗎？",
+        "可以。題目是原創日常手作情境，不考動畫情節或術式。"
+      ],
+      [
+        "有哪些角色？",
+        "虎杖悠仁、伏黑惠、釘崎野薔薇、五條悟、禪院真希和狗卷棘。"
+      ],
+      [
+        "24 道題怎麼計次？",
+        "四選一，替對應角色加 1。每位出現 16 次，個別 0–16，合計 24。"
+      ],
+      [
+        "最高並列會怎麼呈現？",
+        "所有同為最高的角色都會出現。全選 A 時六個角色各有 4 次。"
+      ],
+      [
+        "能看出現實能力或個性嗎？",
+        "不能。這裡只整理當次選法，不做能力、心理健康、適職或人格評估。"
+      ],
+      [
+        "分享會附作答或圖卡嗎？",
+        "分享只複製公開名稱和連結，不附回答、次數或識別資料。沒有個人 PNG。"
+      ]
+    ],
+    "formula": "24 題每題從四項選一項，替對應角色加 1。每位出現 16 次，各項 0–16，總數 24。並列最高一起保留。",
+    "boundary": "費馬獨立編寫這份非官方同人測驗，動畫第一季官網只供核對角色。紙板手作是原創情境，計數不能評估現實中的能力、人格或心理健康。"
+  },
+  "en": {
+    "facts": "FermatMind’s Jujutsu Kaisen Character Test has 24 original scenarios about ordinary making and conversation. It takes about six minutes and is free without registration. Results show counts for six characters and retain all ties for the highest count. Six public guides are available before answering. The questions require no knowledge of the anime’s story, characters, or techniques. Complete results require no payment.",
+    "intro": "A friend is making a cardboard model. Would you join in for one small step, say what you can take on, or suggest a different way to look at it? Answer 24 original scenarios to see which of six character approaches you chose most often.",
+    "deliverables": [
+      [
+        "See all six counts",
+        "Each choice adds one, for a total of 24. Every highest tie appears."
+      ],
+      [
+        "Read six public guides for free",
+        "Each character has a separate guide that opens before the quiz."
+      ],
+      [
+        "Share a public name and link",
+        "One leader shares its name and guide. Ties share all leading names and the public quiz, with no answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Yuji leads at 9",
+        "The counts are 9, 5, 3, 3, 2, and 2. The sample often chose to join someone for their next small step."
+      ],
+      [
+        "Gojo and Maki tie at 7 each",
+        "The counts are 2, 3, 3, 7, 7, and 2. Compare changing the way the group sees a task with giving one technique a practice round."
+      ],
+      [
+        "All A: six characters with 4 each",
+        "Each character appears four times in position A. This sample shows all guides, and the situations carry more meaning than the repeated letter."
+      ]
+    ],
+    "profiles": {
+      "yuji-itadori": [
+        "Join someone for the next small step",
+        "You often chose to see if someone wanted company and do one bit together.",
+        "When a friend makes a paper house, you ask whether you can help fold the roof."
+      ],
+      "megumi-fushiguro": [
+        "Choose a commitment you can own",
+        "You often chose to check how much time you had before agreeing to do something.",
+        "While the group splits up the model work, you say you can finish the windows and agree on when to hand them over."
+      ],
+      "nobara-kugisaki": [
+        "Keep a choice that feels like yours",
+        "You often chose to make room for your own taste while leaving other people theirs.",
+        "When the group paints its model, you pick orange for your own door without asking everyone else to follow it."
+      ],
+      "satoru-gojo": [
+        "Open another way to see the task",
+        "You often chose a new framing or question to give the group ideas.",
+        "When a model looks like any other house, you ask how it might feel if it were a miniature bookstore."
+      ],
+      "maki-zenin": [
+        "Give one step a deliberate practice round",
+        "You often chose to pick a technique and set aside time to get comfortable with it.",
+        "When the edge of a paper box will not fold neatly, you try a few folds with scrap paper."
+      ],
+      "toge-inumaki": [
+        "Choose words for what you want them to do",
+        "You often chose to consider both what a reply meant and how it would sound.",
+        "When a friend asks about the model, you name the part you noticed first and ask if they would like a suggestion."
+      ]
+    },
+    "faq": [
+      [
+        "Can I take this without watching Jujutsu Kaisen?",
+        "Yes. The questions use original everyday scenes and do not ask about episodes, dialogue, or abilities."
+      ],
+      [
+        "Which characters appear?",
+        "Yuji Itadori, Megumi Fushiguro, Nobara Kugisaki, Satoru Gojo, Maki Zenin, and Toge Inumaki."
+      ],
+      [
+        "How are the 24 answers counted?",
+        "Each choice adds one to its character. Each appears 16 times, so counts run from 0 to 16 and total 24."
+      ],
+      [
+        "What if there is a tie?",
+        "The result keeps every highest tie. Choosing A throughout gives all six characters four counts."
+      ],
+      [
+        "Can this assess my abilities or personality?",
+        "It counts choices in these invented scenes. It cannot establish ability, job fit, personality, or mental health."
+      ],
+      [
+        "What goes into a shared link?",
+        "Only public names and links. It carries no answers, counts, or private IDs. There is no personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 24 scenarios. A choice adds one to its character. Each character appears 16 times, so counts are 0–16 and total 24. All highest ties stay.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. The official first-season character guide checks names and identities. The craft situations are original. These counts only summarize the choices made here."
+  }
+}

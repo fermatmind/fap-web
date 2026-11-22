@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的嗜血法医角色测试有24道原创纸上谜题情境题，约7分钟，免注册。答完可免费查看六位角色的次数与全部并列最高结果，六篇公开指南可直接阅读。",
+    "intro": "社团准备了一个纸上谜题，信封里是一组编出来的道具。你会先描述看到的细节、问一句还没问的问题，还是让大家都有机会说自己的想法？答 24 道原创题，免费查看六种角色视角。",
+    "deliverables": [
+      [
+        "看六位角色的原始次数",
+        "每题加 1，合计 24。同为最高的会一起显示。"
+      ],
+      [
+        "免费读六份公开指南",
+        "六位角色都有独立指南，不需先作答。"
+      ],
+      [
+        "复制公开名称与链接",
+        "单一最高复制名称和指南；并列复制全部最高名称及入口，不带答卷或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "德克斯特·摩根最高，8 次",
+        "依次为 8、4、3、3、3、3。样例常选先说看到的细节，再讨论有哪些解释。"
+      ],
+      [
+        "黛布拉与多克斯各 6 次",
+        "依次为 3、6、3、3、6、3。一份指南问讨论还缺哪个直白的问题，另一份讲怎么确认说法有依据。"
+      ],
+      [
+        "全选 A，六位各 4 次",
+        "每位在 A 位出现四次，六份指南都会保留。可以回看具体情境里你会先做什么。"
+      ]
+    ],
+    "profiles": {
+      "dexter-morgan": [
+        "先描述，再解释",
+        "你这次较常选择先把观察到的东西说准确。",
+        "社团解纸上谜题时，你先说卡片上有两个相同符号，再问它们可能表示什么。"
+      ],
+      "debra-morgan": [
+        "直接问还没问过的那句话",
+        "你这次较常选把大家绕开的话题变成一个清楚问题。",
+        "同伴在猜颜色的意思时，你问道具说明里有没有写颜色一定有用。"
+      ],
+      "angel-batista": [
+        "请没开口的人也说说",
+        "你这次较常选让更多参与者有机会提出自己的读法。",
+        "猜谜讨论快结束时，你问一直在旁边看的朋友想不想补一个观察。"
+      ],
+      "vince-masuka": [
+        "看看纸上机关怎么玩",
+        "你这次较常选试试创作里的小设计是怎么发生的。",
+        "纸板翻页时露出另一段文字，你试着折回去看看它能不能组成另一句话。"
+      ],
+      "james-doakes": [
+        "问清楚这条说法从哪里来",
+        "你这次较常选区分证据与猜测。",
+        "朋友说圆圈一定是日期时，你问有没有另一张卡片也用同样方式标日期。"
+      ],
+      "maria-laguerta": [
+        "先划一个小组能做完的范围",
+        "你这次较常选整理时间和各人负责的部分。",
+        "谜题会还有十分钟，你提议只看两张卡片，让每人说一句自己确认的发现。"
+      ]
+    },
+    "faq": [
+      [
+        "没看过《嗜血法医》可以做吗？",
+        "可以。题目只是原创的纸上谜题与小组交流，不考剧情或犯罪知识。"
+      ],
+      [
+        "有哪些角色？",
+        "德克斯特、黛布拉、安吉尔、文斯、多克斯和拉圭尔塔，共六位。"
+      ],
+      [
+        "24 题怎么计数？",
+        "每题四选一，选中给对应角色加 1。每位出现 16 次，单项 0–16，合计 24。"
+      ],
+      [
+        "并列如何显示？",
+        "所有并列最高的角色都保留。全选 A 时六位各 4 次。"
+      ],
+      [
+        "能看出危险性、犯罪倾向或心理状况吗？",
+        "不能。这些计数只记录纸上游戏的虚构选择，不用来推断犯罪性、同理心、人格或心理健康。"
+      ],
+      [
+        "分享会带出答卷吗？",
+        "公开链接不含答案、次数或私人标识。本版无个人 PNG。"
+      ]
+    ],
+    "formula": "24 题每次选四项之一，给对应角色加 1。每人出现 16 次，单项 0–16，总数 24。保留全部最高并列。",
+    "boundary": "费马独立编写非官方同人问卷。Paramount 的资料用于核对原剧和人物身份。纸上谜题是原创活动，结果不推断犯罪倾向、道德、临床状况或现实安全风险。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的夢魘殺魔角色測驗有24道原創紙上謎題，約7分鐘，免註冊。作答後可免費查看六位角色的次數與全部並列結果，六篇公開指南也可直接讀。",
+    "intro": "社團準備一個紙上謎題，信封裡全是虛構的紙道具。你比較想先描述看見的細節、補問一句，還是邀還沒發言的人說說？花約 7 分鐘回答 24 道原創題。",
+    "deliverables": [
+      [
+        "查看六位角色的次數",
+        "每題替一位角色加 1，合計 24。同為最高都會顯示。"
+      ],
+      [
+        "免費讀六篇公開指南",
+        "每位角色都有一篇完整指南，還沒作答也能讀。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "單一最高分享名稱與指南；並列時複製所有最高名稱和測驗入口，不附回答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "德克斯特·摩根最高，8 次",
+        "六項依序是 8、4、3、3、3、3。範例較常選先描述，再提出解釋。"
+      ],
+      [
+        "黛布拉和多克斯各 6 次",
+        "六項依序為 3、6、3、3、6、3，可以比較提一個缺少的問題，和確認一句話有什麼依據。"
+      ],
+      [
+        "一路選 A，六位各 4 次",
+        "每位在 A 位出現四次，所以可以一起看到六篇指南。"
+      ]
+    ],
+    "profiles": {
+      "dexter-morgan": [
+        "先把看到的說清楚",
+        "你比較常選先描述細節，再考慮它可能代表什麼。",
+        "大家猜紙卡意思時，你先指出兩張都有同一個圖形，再問可能有什麼關聯。"
+      ],
+      "debra-morgan": [
+        "問一句大家還沒問的話",
+        "你比較常選用清楚的問題填上討論的空白。",
+        "夥伴在猜紙卡上的顏色時，你先問遊戲說明有沒有說每種顏色都代表什麼。"
+      ],
+      "angel-batista": [
+        "給還沒發言的人留個位置",
+        "你比較常選確認大家是否有機會補充自己的想法。",
+        "討論快收尾時，你問剛剛都在聽的人想不想說一個他注意到的細節。"
+      ],
+      "vince-masuka": [
+        "試試那個有趣的紙上設計",
+        "你比較常選看看遊戲的小設計還有什麼玩法。",
+        "折紙翻開後出現幾個字，你試著換個方向翻，看看能不能讀到另一段。"
+      ],
+      "james-doakes": [
+        "先問一句有什麼依據",
+        "你比較常選確認眼前有哪些資料，哪些還只是猜想。",
+        "朋友說圓形一定表示日期時，你問其他卡片是不是也這樣表示。"
+      ],
+      "maria-laguerta": [
+        "把大家能做完的範圍說清楚",
+        "你比較常選安排時間，留出每個人能完成的部分。",
+        "剩下十分鐘時，你提議只看兩張卡片，讓大家各說一句能確認的事。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過《夢魘殺魔》可以玩嗎？",
+        "可以。題目是原創紙上謎題活動，不考劇情、台詞或犯罪知識。"
+      ],
+      [
+        "有哪些角色？",
+        "德克斯特、黛布拉、安吉爾、文斯、多克斯和拉圭爾塔，各有公開指南。"
+      ],
+      [
+        "24 題怎麼計次？",
+        "每題四選一，給對應角色加 1。每位出現 16 次，每項 0–16，合計 24。"
+      ],
+      [
+        "同為最高怎麼辦？",
+        "所有並列最高都會出現。全選 A 時六位各有 4 次。"
+      ],
+      [
+        "可以據此判斷危險性或人格嗎？",
+        "不能。題目只整理當次玩紙上謎題的選項，不評估犯罪傾向、人格或心理狀況。"
+      ],
+      [
+        "分享會附答案或個人圖卡嗎？",
+        "只複製公開名稱和連結，不附回答、次數或識別資料。沒有個人 PNG。"
+      ]
+    ],
+    "formula": "24 題每題四選一，替相應角色加 1。六位各出現 16 次，每項 0–16，合計 24。同為最高一起保留。",
+    "boundary": "費馬獨立編寫這份非官方同人測驗。Paramount 的材料用來核對原劇和人物身分。紙上謎題是本站原創情境，結果不能評估犯罪風險、人格、品格或心理健康。"
+  },
+  "en": {
+    "facts": "FermatMind’s Dexter Character Test uses 24 original scenarios based on a club’s paper puzzle. It takes about seven minutes and is free without registration. Results show counts for six characters from the original series and retain every highest tie. Six public guides can be read before answering. The questions require no knowledge of the show or any crime-related techniques. Complete results are free to read.",
+    "intro": "A club starts a paper puzzle with an envelope of invented props. Would you describe something you notice, ask the question nobody has asked, or invite someone new to speak? Answer 24 original situations to see which six character approaches appear in your choices.",
+    "deliverables": [
+      [
+        "See the six raw counts",
+        "Each choice adds one, for a total of 24. Every highest tie appears."
+      ],
+      [
+        "Read six free public guides",
+        "Every character has a complete guide available before answering."
+      ],
+      [
+        "Copy a public name and link",
+        "A single leader shares its guide. Ties share all leading names and the public test page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Dexter leads at 8",
+        "The counts are 8, 4, 3, 3, 3, and 3. The sample often chose to describe a detail before offering an explanation."
+      ],
+      [
+        "Debra and Doakes tie at 6 each",
+        "The counts are 3, 6, 3, 3, 6, and 3. Compare asking a missing question and checking what supports a claim."
+      ],
+      [
+        "All A: six characters with 4 each",
+        "Each character appears four times in position A, so all six guides appear. You can learn more by revisiting the actual situations."
+      ]
+    ],
+    "profiles": {
+      "dexter-morgan": [
+        "Describe the detail before the theory",
+        "You often chose to say exactly what you saw before interpreting it.",
+        "When the club opens the puzzle, you say two cards show the same symbol and then ask what it might mean."
+      ],
+      "debra-morgan": [
+        "Ask the plain question that is missing",
+        "You often chose to put a clear question into a discussion that was circling around it.",
+        "When everyone guesses what the colors signify, you ask whether the rules say they need to signify anything."
+      ],
+      "angel-batista": [
+        "Keep people included in the exchange",
+        "You often chose to leave a chance for another person to contribute.",
+        "When the discussion winds down, you ask someone who has been listening if they would like to share an observation."
+      ],
+      "vince-masuka": [
+        "Find out how the playful design works",
+        "You often chose to test what an invented prop could do.",
+        "When folded paper reveals a few words, you fold it the other way to see whether the pieces make a second phrase."
+      ],
+      "james-doakes": [
+        "Ask what supports the claim",
+        "You often chose to distinguish evidence from a guess.",
+        "When someone says a circle must mark a date, you ask whether any other card uses circles that way."
+      ],
+      "maria-laguerta": [
+        "Give the group a workable scope",
+        "You often chose to fit a small plan to the time and people available.",
+        "With ten minutes left, you suggest looking at two cards and giving everyone time to say one thing they can confirm."
+      ]
+    },
+    "faq": [
+      [
+        "Can I take this without watching Dexter?",
+        "Yes. The questions concern an invented paper puzzle and group discussion. No plot or crime knowledge is required."
+      ],
+      [
+        "Which characters are included?",
+        "Dexter Morgan, Debra Morgan, Angel Batista, Vince Masuka, James Doakes, and Maria LaGuerta."
+      ],
+      [
+        "How are the 24 questions counted?",
+        "Each choice adds one. Every character appears 16 times, so counts range from 0 to 16 and add to 24."
+      ],
+      [
+        "What if several characters tie?",
+        "Every highest tie gets a complete guide. Choosing A throughout gives all six four counts."
+      ],
+      [
+        "Can this assess dangerousness or mental health?",
+        "No. Choices in these invented situations cannot establish criminality, empathy, personality, or mental health."
+      ],
+      [
+        "Does sharing send my answers or a personal image?",
+        "Public links omit answers, counts, and private identifiers. There is no personal PNG export."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 24 questions. Each choice adds one to its character. All six occur 16 times each, so counts run from 0 to 16 and total 24. Every highest tie stays.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Paramount sources check the original show and character identities. The paper puzzle is an original setting. Results cannot assess criminality, morality, mental health, or real-world risk."
+  }
+}

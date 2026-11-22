@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的绯闻女孩角色测试有18道原创穿搭小刊情境题，约5分钟，免注册。答完可免费看六位角色的选择次数和所有最高并列，六篇公开指南可直接阅读。",
+    "intro": "朋友想做本穿搭小刊。你会先发个好接的邀请、定这一期的样子，还是剪点纸样试一版？花约 5 分钟回答 18 道原创情境题，免费查看六位角色的读法。",
+    "deliverables": [
+      [
+        "看六项原始次数",
+        "每题加 1，合计 18。所有同为最高的角色都会保留。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "每位角色都有一篇完整指南。不用先提交答案。"
+      ],
+      [
+        "复制公开名称与链接",
+        "单一最高复制角色名与指南；并列复制全部最高名称和入口，不附答卷或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "瑟琳娜最高，7 次",
+        "六项依次为 7、3、2、2、2、2。样例常选提一个容易加入的邀请。"
+      ],
+      [
+        "布莱尔和珍妮各 5 次",
+        "六项为 2、5、2、2、2、5。可对照先定刊物结构和先做一张手工小样。"
+      ],
+      [
+        "全选 A，六位各 3 次",
+        "每位在 A 位出现三次，因此显示全部六篇。可以回看自己在每个场景实际想尝试什么。"
+      ]
+    ],
+    "profiles": {
+      "serena": [
+        "把邀请变得好接一点",
+        "你这次较常选给别人一个不费力也能加入的方式。",
+        "朋友不知道怎么参与小刊，你告诉她可以写一句介绍，也可以先来看看。"
+      ],
+      "blair": [
+        "先确定这期小刊的样子",
+        "你这次较常选和同伴对齐栏目和排版。",
+        "几份穿搭稿堆在一起时，你拿一张纸画出三栏，请大家看看哪处需要改。"
+      ],
+      "dan": [
+        "给虚构叙述者找准语气",
+        "你这次较常选慢下来写清一个虚构视角。",
+        "写小刊开头时，你试了一段新手口吻，再读一遍看是否自然。"
+      ],
+      "nate": [
+        "先听听两个版本各为什么",
+        "你这次较常选问清两个方案背后的考虑。",
+        "两位朋友争论封面时，你问他们最想让读者先看到什么。"
+      ],
+      "chuck": [
+        "挑出大家真的能做完的范围",
+        "你这次较常选看手上的时间和材料，再决定做多大。",
+        "周末只剩一个下午，你和同伴决定先做四页，额外的内容留到下一期。"
+      ],
+      "jenny": [
+        "亲手做一个小变化看看",
+        "你这次较常选用手边材料做个小试。",
+        "封面有点空时，你剪一小块旧布摆上去，拍张小样给同伴看。"
+      ]
+    },
+    "faq": [
+      [
+        "需要看过《绯闻女孩》吗？",
+        "不用。题目围绕原创穿搭小刊，不考剧情或台词。"
+      ],
+      [
+        "有哪些角色？",
+        "瑟琳娜、布莱尔、丹、内特、查克和珍妮共六位，范围是原版剧集。"
+      ],
+      [
+        "18 道题怎样计数？",
+        "每题四选一，给相应角色加 1。每位出现 12 次，各 0–12，合计 18。"
+      ],
+      [
+        "并列会随机选一个吗？",
+        "不会。全部最高的角色都会完整显示。"
+      ],
+      [
+        "结果能测出社交地位或关系吗？",
+        "结果只记录本次虚构创作选择，无法评估地位、人格、家庭或恋爱。"
+      ],
+      [
+        "分享会公开个人答案吗？",
+        "公开分享复制名称及指南或入口，不带答卷、次数或私人标识。无个人 PNG。"
+      ]
+    ],
+    "formula": "18 题每题四选一，给所选角色加 1。每位出现 12 次，单项 0–12，合计 18。同为最高时全部保留。",
+    "boundary": "这是费马独立编写的非官方同人问卷。Netflix Tudum 和 The CW 的资料用于核对原版剧集和角色名称。小刊情境由费马原创，结果只反映这次选择，不评价品格或社交地位。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的花邊教主角色測驗有18道原創穿搭小誌題，約5分鐘，免註冊。作答後可免費查看六位角色的次數和並列最高結果，六篇公開指南也可直接讀。",
+    "intro": "朋友想一起做一本穿搭小誌。你會先招呼大家加入、跟夥伴談這期的版面，還是先剪一小塊布試試看？花約 5 分鐘回答 18 道原創題，完整結果免費。",
+    "deliverables": [
+      [
+        "查看六位角色的次數",
+        "每題替一位角色加 1，合計 18。同為最高會一起列出。"
+      ],
+      [
+        "免費讀六篇角色指南",
+        "每位角色有一篇公開指南，還沒作答也能先看。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "只有一位最高會分享名稱及指南。並列時複製所有最高名稱與測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "Serena 最高，7 次",
+        "六項依序是 7、3、2、2、2、2。範例比較常想出讓朋友容易加入的方式。"
+      ],
+      [
+        "Blair 和 Jenny 並列，各 5 次",
+        "六項依序為 2、5、2、2、2、5。可以比較先把版面定好，和先做一份手作小樣。"
+      ],
+      [
+        "一路選 A，六位各 3 次",
+        "每位角色在 A 位出現三次，所以全部指南都會列出。回想作答時，可以多看每題原本問的是什麼。"
+      ]
+    ],
+    "profiles": {
+      "serena": [
+        "給大家容易接下的邀請",
+        "你比較常選先問誰想加入，也留空間讓人先看看。",
+        "朋友不知道小誌能幫什麼時，你跟她說可以只寫一句，也能先來翻翻草稿。"
+      ],
+      "blair": [
+        "跟夥伴對好這一期的樣子",
+        "你比較常選先把版面與欄目說定。",
+        "看到三篇稿子長短不同時，你畫了一份簡單版型，問大家想怎麼放。"
+      ],
+      "dan": [
+        "把虛構人物的口氣寫清楚",
+        "你比較常選用心試一個虛構視角，看看讀起來像不像。",
+        "寫小誌開場時，你試寫一個新手的版本，讀出聲音再修幾句。"
+      ],
+      "nate": [
+        "聽完兩個版本背後的理由",
+        "你比較常選先問各自為什麼那樣提議。",
+        "兩個人對封面有不同想法時，你問他們最想讓讀者一眼看見哪個部分。"
+      ],
+      "chuck": [
+        "做大家現有時間內完成得了的版本",
+        "你比較常選先看當下有哪些時間和材料，再縮小範圍。",
+        "只剩一個週末下午，你和夥伴把這一期改成四頁，下次再加新的欄目。"
+      ],
+      "jenny": [
+        "先動手試個小變化",
+        "你比較常選拿一點材料做出變化，再看這樣好不好。",
+        "封面太空時，你剪一小片剩布排上去，再拍照傳給夥伴。"
+      ]
+    },
+    "faq": [
+      [
+        "沒看過《花邊教主》也能玩嗎？",
+        "可以。題目圍繞原創穿搭小誌，不考台詞或集數。"
+      ],
+      [
+        "有哪些角色可看？",
+        "本版選 Serena、Blair、Dan、Nate、Chuck 和 Jenny，共六位原版劇集角色。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，替選到的角色加 1。每位出現 12 次，各為 0–12，合計 18。"
+      ],
+      [
+        "有兩個人並列最高會怎麼辦？",
+        "所有同為最高的指南會一起整理出來。"
+      ],
+      [
+        "可以看出現實關係或社交地位嗎？",
+        "不行。結果只整理這次對虛構創作情境的選擇，不評估地位、人格或關係。"
+      ],
+      [
+        "轉傳會附答案或個人圖片嗎？",
+        "公開分享只複製名稱與連結，不附作答、次數或識別資料。本版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "18 題每題從四個選項挑一個，替對應角色加 1。每位角色出現 12 次，每項 0–12，總數 18。並列最高一起保留。",
+    "boundary": "這是費馬獨立編寫的非官方同人測驗。Netflix Tudum 與 The CW 用來核對原版劇集及角色名稱。穿搭小誌是原創情境，結果無法評估品格、人際地位或感情。"
+  },
+  "en": {
+    "facts": "FermatMind’s Gossip Girl Character Quiz has 18 original scenarios about making a small fashion zine. It takes about five minutes and is free without registration. Results show counts for six characters from the original series and retain every highest tie. The six public guides can be read before answering, and the quiz requires no knowledge of the show’s plot. The complete results are free to read.",
+    "intro": "Some friends are making a small fashion zine. Would you invite people in, outline the issue, or try a handmade cover detail? Answer 18 original questions to see which six character themes came up in your choices. The complete result is free.",
+    "deliverables": [
+      [
+        "See all six counts",
+        "Each choice adds one, for a total of 18. Every tie for the highest appears."
+      ],
+      [
+        "Read six complete public guides",
+        "You can open a guide for any character before answering the quiz."
+      ],
+      [
+        "Copy a public name and link",
+        "A single highest result shares its guide. Ties share all leading names and the quiz page, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Serena leads at 7",
+        "The counts are 7, 3, 2, 2, 2, and 2. The sample often chose an invitation that made it easy for someone to join."
+      ],
+      [
+        "Blair and Jenny tie at 5 each",
+        "The counts are 2, 5, 2, 2, 2, and 5. Compare planning the shape of an issue with making one handmade variation."
+      ],
+      [
+        "All A: six characters with 3 each",
+        "Every character appears three times in position A. All six guides appear. What each answer described gives you more to think about."
+      ]
+    ],
+    "profiles": {
+      "serena": [
+        "Give people an easy way in",
+        "You often chose to offer ways to join without putting people on the spot.",
+        "When a friend is unsure about the zine, you say they can write one line or look through the draft first."
+      ],
+      "blair": [
+        "Agree on the shape of the issue",
+        "You often chose to help the group decide which sections would go where.",
+        "With several drafts on the table, you draw a three-column sketch and ask what to move."
+      ],
+      "dan": [
+        "Write an invented voice with care",
+        "You often chose to pay attention to how a fictional point of view sounds.",
+        "For the introduction, you draft a beginner’s voice and read it aloud to see where it feels forced."
+      ],
+      "nate": [
+        "Hear the reasons behind both versions",
+        "You often chose to ask what each person was trying to accomplish.",
+        "When two people disagree about a cover, you ask what they want a reader to see first."
+      ],
+      "chuck": [
+        "Choose a scope you can actually finish",
+        "You often chose to look at time and materials before committing to a bigger version.",
+        "With one afternoon left, you suggest four pages this time and save extra items for another issue."
+      ],
+      "jenny": [
+        "Make a small variation by hand",
+        "You often chose to try a physical sample before changing the whole thing.",
+        "When the cover looks bare, you cut a piece of spare fabric and photograph a mock-up for the group."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know Gossip Girl?",
+        "No. Everything happens in an original zine workshop. There are no prompts about episodes or dialogue."
+      ],
+      [
+        "Which characters can I get?",
+        "Serena, Blair, Dan, Nate, Chuck, and Jenny from the original series."
+      ],
+      [
+        "How are 18 questions counted?",
+        "Each choice adds one. Every character appears 12 times, so each count is 0–12 and all counts add to 18."
+      ],
+      [
+        "What if characters tie?",
+        "Every character tied for the highest count keeps their full guide."
+      ],
+      [
+        "Does the score say anything about status or relationships?",
+        "The counts describe original creative scenarios. They cannot establish status, morality, romantic compatibility, or personality."
+      ],
+      [
+        "Will sharing include my answers?",
+        "Copying shares public names and links, without answers, counts, private IDs, or a personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four answers in each of 18 questions. A choice adds one to its character. All six appear 12 times each, so counts run from 0 to 12 and total 18. Highest ties all stay.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. Netflix Tudum and The CW provide context for the original show and character names. The zine is an original setting. Results only describe the choices made here."
+  }
+}

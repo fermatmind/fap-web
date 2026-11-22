@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的男性原型测试由20道原创情境题组成，约6分钟完成。结果记录国王、战士、魔法师、情人四种角色的选择次数，最高并列时保留全部对应指南。完整结果免费，不用填写性别。",
+    "intro": "社区要办一个种子交换桌，你想先排时间、认领一项工作、试试标签，还是听大家讲种子的故事？用约 6 分钟回答 20 道原创情境题，看看四种角色里你反复选了哪些做法。完整结果免费，任何人都能参加。",
+    "deliverables": [
+      [
+        "查看四种做法的原始次数",
+        "每题计一次，四项合计 20。次数相同且同为最高的角色会一起列出。"
+      ],
+      [
+        "读完免费角色指南",
+        "国王、战士、魔法师和情人均有独立公开指南。读一份或同时读几份，取决于你想回看的情境。"
+      ],
+      [
+        "分享公开结果链接",
+        "单一最高时复制角色名称和公开指南。最高并列时复制所有对应名称和测试入口。分享不包含答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "单项最高：国王 20 次",
+        "这份样张每题都选协调条件的做法，结果只显示国王。可以回看哪一道题最能说明你为什么想先安排分工。"
+      ],
+      [
+        "两项并列：战士和魔法师各 10 次",
+        "一半选择先完成约定，一半选择做个小试验，两份指南都显示。想想哪些任务适合直接做，哪些得先摸清条件。"
+      ],
+      [
+        "全选 A：四种角色各 5 次",
+        "四种做法在 A 位各出现过五次，因此全选 A 会读到四份指南。想了解自己的选择，可以再看看每道题的实际情境。"
+      ]
+    ],
+    "profiles": {
+      "king": [
+        "先让大家有办法一起做",
+        "你愿意先看看时间、分工和资源能不能配合起来。哪些条件理顺后，别人才比较容易接手？",
+        "几位邻居准备一起办活动，你先问谁有空、谁能带器材，再整理出大家都能接受的分工。"
+      ],
+      "warrior": [
+        "把认领的那一步做好",
+        "你选了不少先把手上范围明确的事推进的选项。回想一下，明确做到哪一步时，你是否更容易开工？",
+        "厨房准备聚餐时，你主动认领切菜，跟同伴约好做完就交给下一位。"
+      ],
+      "magician": [
+        "先试一个小办法",
+        "你比较常选先问清楚、拿小样试一遍。看看哪些不确定的地方，小小的试验就能帮你看明白。",
+        "给交换桌做种子标签时，你先请两个人试读几个写法，再决定正式用哪种。"
+      ],
+      "lover": [
+        "把值得留意的细节留下来",
+        "你在这些情境里常选择听人说、留意现场或欣赏作品。想想哪些细节会改变你参与的方式。",
+        "朋友带来从外婆家留种的番茄，你问他为什么一直栽这株，并把这段故事留给下一位交换者。"
+      ]
+    },
+    "faq": [
+      [
+        "任何人都可以做男性原型测试吗？",
+        "可以，无需填写性别。四个角色是文学隐喻，用来阅读你在想象情境中选了哪些行动。"
+      ],
+      [
+        "这四种角色从哪里来？",
+        "名称借用 Robert Moore 与 Douglas Gillette 的四角色框架作为文学背景。费马自己编写本测试的 20 道情境题、计分和指南。"
+      ],
+      [
+        "20 道题是怎么计数的？",
+        "每题四种做法各出现一次，选中哪种就给对应角色加 1。每种次数为 0–20，四种加起来固定为 20。"
+      ],
+      [
+        "为什么有时出现几份结果？",
+        "所有最高次数相同的角色同时显示。由于四种角色在 A 位各出现五次，全选 A 会得到四份指南。"
+      ],
+      [
+        "能换算成十二原型或某个心理分数吗？",
+        "两份问卷的题目和覆盖范围不同，分数无法换算。这里的计数也不能用来评估性别、成熟度、能力或心理健康。"
+      ],
+      [
+        "分享会发出分数或个人卡片吗？",
+        "单项最高分享角色名和公开指南，并列时分享全部并列名称与入口。公开链接不带答案、计数或个人标识，现有分享没有个人 PNG。"
+      ]
+    ],
+    "formula": "20 题每题选四种做法之一，给对应角色加 1 次。四项总和固定为 20，保留所有最高次数相同的角色。按钮位置有轮换，四种角色在 A、B、C、D 各出现五次。",
+    "boundary": "国王、战士、魔法师和情人只是帮助读题的文学名称。费马原创题目尚未做心理测量验证，次数只概括本次作答，不能用来判断性别、成熟度、能力或健康。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的男性原型測驗有20道原創情境題，約6分鐘。完成後可免費查看國王、戰士、魔法師、情人四種做法的選擇次數，並列最高時一起列出對應指南。不用填寫性別。",
+    "intro": "社區要擺個種子交換攤，你會先排人手、認領一件事、試做幾張標籤，還是去聽大家帶了什麼故事？用約 6 分鐘做完 20 道原創情境題，看看自己這次常選哪種做法。完整結果免費，任何人都能作答。",
+    "deliverables": [
+      [
+        "看到四種做法的選擇次數",
+        "每題會計一次，四項加起來是 20。出現並列最高時，會一起列出相關角色。"
+      ],
+      [
+        "免費看四篇公開角色指南",
+        "國王、戰士、魔法師和情人各有一篇指南，可以回去看這些做法在其他日常情境中怎麼出現。"
+      ],
+      [
+        "複製公開指南或測驗入口",
+        "單項最高時會複製角色名稱及同語指南。並列時會列出所有並列名稱與公開測驗入口。連結不帶分數與作答內容。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "國王單項最高，20 次",
+        "這份示範答案每題都選先協調環境和分工。可以想想什麼場合會讓你希望先把一起做事的條件談好。"
+      ],
+      [
+        "戰士與魔法師並列，各 10 次",
+        "一半選擇先把手邊的事做好，另一半選擇先試做看看。兩篇指南可以一起讀。"
+      ],
+      [
+        "全選 A，四種角色各 5 次",
+        "四種角色各有五題出現在 A 位，因此這份示範會同時顯示四篇指南。單看選項位置無法解讀你偏好哪種做法。"
+      ]
+    ],
+    "profiles": {
+      "king": [
+        "把一起做事的條件理順",
+        "你比較常選先確認時間、資源和分工。可以回想哪些事說清楚後，夥伴比較敢接下來做。",
+        "鄰居想辦一場小活動，你先問誰有空、誰能借器材，再排時段。"
+      ],
+      "warrior": [
+        "把答應的那一段做好",
+        "你比較常選先完成一件範圍明確的事。想想事先知道做到哪裡，會不會讓你更容易開始。",
+        "準備聚餐時，你先認領備料，跟掌廚的人約好幾點交給他。"
+      ],
+      "magician": [
+        "先拿小樣試試看",
+        "你不少題都選先問一個問題，或試一個小做法。可以找找哪些疑問用一次小測試就能釐清。",
+        "做種子標籤時，你先讓兩個人試讀，再選大家都看得懂的寫法。"
+      ],
+      "lover": [
+        "留意人與現場的細節",
+        "你比較常選先聽、先看，替有趣的細節留一點時間。可以回想哪些故事會讓你更願意參與。",
+        "鄰居拿出阿嬤留下的種子，你先問這個品種的由來，再把故事傳給下一位。"
+      ]
+    },
+    "faq": [
+      [
+        "只有男性才能做這個原型測驗嗎？",
+        "任何人都可以做，不必填性別。角色名稱借自文學隱喻，用來讀懂你在情境題中選的做法。"
+      ],
+      [
+        "四個角色的名稱來自哪裡？",
+        "Robert Moore 與 Douglas Gillette 的四角色架構提供文學背景。20 道情境題、計分及指南由費馬另外編寫。"
+      ],
+      [
+        "20 道題如何計次？",
+        "每題四個選項分別代表四種做法。每選一個，就替那個角色加 1 次。四種次數加起來是 20。"
+      ],
+      [
+        "為什麼有時出現兩篇或更多指南？",
+        "同為最高的角色會一起顯示。由於每種角色在 A 位各出現五次，全選 A 會四項同分。"
+      ],
+      [
+        "可以換算成十二原型或成熟度嗎？",
+        "兩份問卷的題目和範圍不同，沒有分數換算。這裡的結果也無法評估成熟度、性別、能力或心理健康。"
+      ],
+      [
+        "分享會把分數或作答貼出去嗎？",
+        "單項最高會複製該角色名和公開指南。並列時複製所有並列名稱和公開測驗入口。沒有個人 PNG，分享也不附上作答內容或次數。"
+      ]
+    ],
+    "formula": "20 題每題四選一，替所選做法加 1 次。四項加起來是 20，同為最高的角色會一起保留。四種角色在 A、B、C、D 每個位置各出現五次。",
+    "boundary": "國王、戰士、魔法師和情人是用來閱讀情境的文學隱喻。費馬另行編寫的題目尚未經心理計量驗證，個人次數反映這次的選擇，無法用來評估性別、成熟度、能力或健康。"
+  },
+  "en": {
+    "facts": "FermatMind’s Male Archetype Test has 20 original scenarios and takes about six minutes. The free result shows how often a reader chose actions linked to King, Warrior, Magician, and Lover. Every role tied for the highest count gets a full guide. Anyone can take the quiz without giving their gender, signing up, or buying a report. Four public guides are also available.",
+    "intro": "If your neighborhood sets up a seed swap, would you organize the schedule, take on a task, test a label, or ask people about their seeds? Choose what you would try in 20 original scenarios, then see how your choices compare across four literary roles. It takes about six minutes, and the full result is free.",
+    "deliverables": [
+      [
+        "See all four role counts",
+        "Each answer adds one count to its role. The four counts total 20, and every role tied for the highest count appears in the result."
+      ],
+      [
+        "Read four public role guides",
+        "Each role has a separate guide describing how the same kind of choice can show up in different everyday situations."
+      ],
+      [
+        "Copy a public result link",
+        "A single leader shares its name and public guide. Tied results share all leading names and the public test page. Neither share includes your answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "One leader: King 20",
+        "The sample chose coordination for all 20 questions, so King is the only highest role. Consider what might make you want to sort out responsibilities before you start."
+      ],
+      [
+        "Two leaders: Warrior 10 and Magician 10",
+        "One half of the sample takes on a bounded task and the other half tries something small. Both guides appear. Think about when a task needs a clear first move and when it needs a trial run."
+      ],
+      [
+        "All A: four roles with 5 each",
+        "Each role is in position A five times. Choosing A every time opens four guides. The question situations offer more to reflect on than the repeated letter."
+      ]
+    ],
+    "profiles": {
+      "king": [
+        "Make it easier to do something together",
+        "You often chose to get the schedule, supplies, or division of work clear before starting. Think about which conditions make it easier for others to join in.",
+        "Before a neighborhood gathering, you check who can bring equipment and when volunteers are available."
+      ],
+      "warrior": [
+        "Finish the piece you took on",
+        "You often chose a concrete task with a clear stopping point. Think about when deciding what counts as done helps you begin.",
+        "While preparing a group dinner, you take the chopping and tell the cook when the ingredients will be ready."
+      ],
+      "magician": [
+        "Try a small version first",
+        "You often preferred to ask a question or test an idea before committing. Notice which uncertainties would be easy to explore with a quick trial.",
+        "At a seed swap, you have two visitors try reading different label designs before printing the rest."
+      ],
+      "lover": [
+        "Pay attention to what people bring",
+        "You often chose to listen and notice what was happening around you. Think about which details made a situation worth spending more time on.",
+        "When a neighbor brings seeds their grandmother saved, you ask about the plant and pass the story on with the seeds."
+      ]
+    },
+    "faq": [
+      [
+        "Can anyone take the Male Archetype Test?",
+        "Yes. The quiz is open to anyone and does not ask for gender. The four role names are literary metaphors for the actions in the scenarios."
+      ],
+      [
+        "Where do the four role names come from?",
+        "The work of Robert Moore and Douglas Gillette supplies the literary background for the names. FermatMind wrote the 20 scenarios, scoring rules, and guides."
+      ],
+      [
+        "How are the 20 answers counted?",
+        "Each question offers one option for each role. A choice adds one count to that role. Individual counts run from 0 to 20 and add to 20 across all four."
+      ],
+      [
+        "Why did I get more than one guide?",
+        "Every role tied for the highest count is shown. Choosing A throughout yields five for each role because the answer positions rotate."
+      ],
+      [
+        "Can I convert this to the Twelve Archetypes or a maturity score?",
+        "The quizzes cover different material and have no score conversion. This result does not assess gender, maturity, ability, or psychological health."
+      ],
+      [
+        "Will sharing post my scores or create a card?",
+        "A single leader shares its name and public guide link. A tie shares the tied names and test page. Sharing includes no answers, counts, or personal ID, and there is no personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four actions in each of 20 scenarios. Each answer adds one to its role. All four counts add to 20, and ties for the highest count keep every matching guide. Each role appears five times in each answer position.",
+    "boundary": "King, Warrior, Magician, and Lover are literary labels to help read the situations. FermatMind’s original items have no established psychometric validation. The counts describe this attempt and cannot establish gender, maturity, ability, or mental health."
+  }
+}

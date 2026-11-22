@@ -1,3 +1,4 @@
+import { standaloneStoryLandingCopy } from "@/lib/questionnaires/storyRoleLandingCopy";
 import { prepareQuestionnaireResultReadings } from "@/lib/questionnaires/result-content/readings";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -144,9 +145,9 @@ describe("T117 original seven-character unofficial fan quiz", () => {
         expect(html).toContain(quiz.instructions![locale]);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
         expect(entryDom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
-        expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
+        expect(html).toContain(locale === "zh" ? "同人角色测试" : "Unofficial character quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
-        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
+        for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(standaloneStoryLandingCopy(section.paragraphs[0][locale], locale));
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(quiz.title[locale]); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/south-park");
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };

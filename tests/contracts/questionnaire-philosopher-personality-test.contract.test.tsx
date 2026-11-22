@@ -140,7 +140,7 @@ describe("T056 original philosophical inquiry reading reflection", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         expect(html).toContain(quiz.instructions![locale]);
-        expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
+        expect(html).toContain(locale === "zh" ? "哲学原典阅读测验" : "Philosophical reading quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/philosopher-personality-test");

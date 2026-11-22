@@ -1,0 +1,323 @@
+{
+  "zh": {
+    "facts": "费马测试的精神动物测试有18道原创情境题，约4分钟，免注册。答完可免费查看九种动物比喻的选择次数，并读所有并列最高的解释。九篇公开指南可直接阅读。",
+    "intro": "刚加入一支临时小组，你会先核对信息、和大家约好分工，还是提个轻松的开场？回答 18 道原创题，看看哪种动物比喻最贴近你这次选的做法。约 4 分钟，结果和指南免费。",
+    "deliverables": [
+      [
+        "看九种做法各被选几次",
+        "每道题按所选动物记 1 次，合计 18。用次数对照你在哪些情境里换了做法。"
+      ],
+      [
+        "免费读完整动物指南",
+        "九种动物各有公开指南。最高同分时，所有对应指南都会一起出现。"
+      ],
+      [
+        "保存个人图卡或复制公开链接",
+        "浏览器可生成包含九项次数和最高匹配的个人 PNG，不含逐题答案。也可以单独复制公开指南或测试入口。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "狼最高，6 次",
+        "这份样张选了六次照顾约定或相互配合的做法。可以留意你在哪种合作里最想先把承诺说清楚。"
+      ],
+      [
+        "海豚和水獭并列，各 5 次",
+        "两篇指南都显示。海豚侧重建立联系并邀请加入，水獭侧重和愿意的人轻松玩一会儿。"
+      ],
+      [
+        "全选 A，九种动物各 2 次",
+        "本题组选项位置经过轮换，同一字母会得到九项并列。想理解自己的做法，可以回头看具体情境里的选择。"
+      ]
+    ],
+    "profiles": {
+      "wolf": [
+        "把约定说清楚再一起做",
+        "你这次较常选先谈好互相帮到哪一步，再分担事情。",
+        "几位朋友合办活动时，你先问大家各能负责什么，并确认临时缺人怎么补。"
+      ],
+      "owl": [
+        "把线索一条条核对",
+        "你这次较常选先观察、找依据，再分清知道什么和还不清楚什么。",
+        "听到活动时间可能改了，你先核对主办方通知和群里的旧消息。"
+      ],
+      "fox": [
+        "用手边条件另找一条路",
+        "你这次较常选调整路线，试试身边已经有的材料或做法。",
+        "原来的桌子太小，你把材料分成几个盒子，让大家在不同位置同时开始。"
+      ],
+      "lion": [
+        "先把下一步提出来",
+        "你这次较常选说清取舍，给大家一个可讨论的行动建议。",
+        "讨论聚会迟迟没定下来时，你提一个可行时段，再请大家说哪处需要改。"
+      ],
+      "dolphin": [
+        "让新来的人有话可接",
+        "你这次较常选主动打个招呼，让其他人找到容易加入的方式。",
+        "见到临时小组里的新面孔，你先问大家都怎么来的，再邀请对方挑一个想聊的话题。"
+      ],
+      "deer": [
+        "留意谁需要一点余地",
+        "你这次较常选照顾细微的需要，让参与方式更舒服。",
+        "同伴在热闹活动里退到一旁，你问他更想休息一下还是换个安静的位置。"
+      ],
+      "bear": [
+        "按能承受的节奏做",
+        "你这次较常选择熟悉的步骤，给事情一个稳定节奏。",
+        "面对一堆收纳任务时，你先整理一个常用抽屉，之后再决定要不要做下一处。"
+      ],
+      "eagle": [
+        "先看看这件事要通往哪里",
+        "你这次较常选拉远一点看目的、关联和后续影响。",
+        "讨论活动流程时，你先问大家想让来宾带走什么体验，再回头安排各环节。"
+      ],
+      "otter": [
+        "一起玩一会儿，成果可以等",
+        "你这次较常选和愿意的人轻松玩一段，留点不需要交成果的时间。",
+        "等朋友到齐时，你拿几张纸提议随手涂鸦，愿意的人就坐过来一起画。"
+      ]
+    },
+    "faq": [
+      [
+        "测试里的精神动物是什么意思？",
+        "这里指本题中获选最多的动物比喻。动物名称用于阅读日常做法，不判定守护灵、图腾或固定人格。"
+      ],
+      [
+        "一共有哪九种动物？",
+        "狼、猫头鹰、狐狸、狮子、海豚、鹿、熊、鹰和水獭。每种都有不需作答就能读的公开指南。"
+      ],
+      [
+        "18 道题如何计分？",
+        "每题从四项里选一项，对应动物加 1。每种出现 8 次，单项 0–8，九项合计 18。"
+      ],
+      [
+        "为什么会同时出现几种动物？",
+        "所有同为最高的结果都会列出。全选 A 时，每种动物都得 2 次，因此会同时显示九篇。"
+      ],
+      [
+        "需要填生日或做过 MBTI 吗？",
+        "不需要。结果只计这次的选项，不能换算成生日生肖、MBTI、能力或心理诊断。"
+      ],
+      [
+        "免费结果能分享吗？",
+        "结果和指南都免费。个人 PNG 由浏览器生成，包含九项次数与最高匹配，不含逐题答案。复制的公开链接不带计数。独立答题页刷新后不会恢复进度。"
+      ]
+    ],
+    "formula": "18 题每题四选一，选中哪种动物便计 1 次。九种动物各出现 8 次，单项 0–8，合计 18。所有最高次数相同的动物都保留。",
+    "boundary": "动物和做法的联系由费马为这套娱乐题编写，只描述当次作答。史密森学会美国印第安人国家博物馆的资料说明，不同原住民族群与动物的关系及亲族传统各有自身的文化脉络。本测试无法指定这类身份、守护灵或图腾，也无法给出心理测量。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的精神動物測驗有18道原創情境題，約4分鐘，免註冊。作答後可免費看九種動物比喻的次數，並讀所有並列最高的解說。九篇公開指南可直接閱讀。",
+    "intro": "剛加入臨時小組，你會先把消息查清楚、問大家怎麼分工，還是拋個話題讓氣氛輕鬆一點？花約 4 分鐘回答 18 道原創題，看看這次常選的做法像哪種動物比喻。結果和指南都免費。",
+    "deliverables": [
+      [
+        "看到九種做法的選擇次數",
+        "每題替一種動物加 1 次，合計 18。可以回頭看哪些情境讓你多選了某種做法。"
+      ],
+      [
+        "免費閱讀九篇動物指南",
+        "每種動物都有公開指南。兩種以上同為最高時，對應的完整說明會一起列出。"
+      ],
+      [
+        "儲存個人圖卡或複製公開連結",
+        "瀏覽器可以產生個人 PNG，顯示九項次數及最高配對，沒有逐題答案。也可以單獨複製公開指南或測驗入口。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "狼最高，6 次",
+        "這份範例有六次選擇先談承諾或互相支援。想想和誰一起做事時，你特別希望先把分工確認好。"
+      ],
+      [
+        "海豚與水獺同為最高，各 5 次",
+        "兩篇指南一起顯示。海豚偏向開啟互動，水獺偏向和願意的夥伴自在玩一段時間。"
+      ],
+      [
+        "一路選 A，九種動物各 2 次",
+        "每種動物會在 A 位出現兩次，所以這份範例會列出九篇指南。可以回想每題實際上是哪種做法吸引你。"
+      ]
+    ],
+    "profiles": {
+      "wolf": [
+        "約好各自能幫到哪裡",
+        "你比較常選先講清楚承諾，再和夥伴互相支援。",
+        "幾個朋友要辦活動時，你先問每個人可以負責哪一段，也提前說好臨時有事怎麼交接。"
+      ],
+      "owl": [
+        "慢一拍，把消息查清楚",
+        "你比較常選先觀察和核對，把確定的事跟推測分開。",
+        "群組有人提到集合時間變動，你先找最新公告，再提醒大家確認。"
+      ],
+      "fox": [
+        "用手邊能用的東西換個做法",
+        "你比較常選看現場有什麼資源，再換成可行的路線。",
+        "桌面放不下所有手作材料，你拿幾個盒子分裝，讓大家分開做。"
+      ],
+      "lion": [
+        "提一個大家可以接著談的方案",
+        "你比較常選把取捨講清楚，再提出一個能往前做的決定。",
+        "群組一直約不到時間，你先貼一個可能的時段，請大家說哪裡要調整。"
+      ],
+      "dolphin": [
+        "給剛加入的人一個開口機會",
+        "你比較常選先打招呼，找個容易接的話題或邀請別人加入。",
+        "臨時小組碰面時，你先聊大家怎麼到場，再讓第一次來的人挑想談的事。"
+      ],
+      "deer": [
+        "留意誰想要換個節奏",
+        "你比較常選看見別人不一定會說出來的小需求。",
+        "有個朋友從熱鬧的活動走開，你問他想自己休息，還是想找個安靜角落聊。"
+      ],
+      "bear": [
+        "先做一段自己接得住的事",
+        "你比較常選用熟悉的步驟穩定往前。",
+        "整理家裡時，你把常用的抽屜理好，再決定今天還要不要做其他地方。"
+      ],
+      "eagle": [
+        "把每個環節放回整體目的",
+        "你比較常選拉遠一點看，想想眼前的安排和之後有什麼關係。",
+        "準備活動時，你先問大家希望來賓記得哪個部分，再把流程排回去。"
+      ],
+      "otter": [
+        "留一點可以隨意玩的時間",
+        "你比較常選邀有興趣的人輕鬆玩一段，給相處留點空間。",
+        "等同伴到齊時，你拿出便條紙提議隨手畫一下，想畫的人就一起畫。"
+      ]
+    },
+    "faq": [
+      [
+        "這裡的精神動物是什麼？",
+        "是本次答案選得最多的動物比喻。它用來聊日常做法，無法指出守護靈、圖騰或固定身分。"
+      ],
+      [
+        "測驗會出現哪九種動物？",
+        "狼、貓頭鷹、狐狸、獅子、海豚、鹿、熊、鷹和水獺。九種動物的公開指南都可以直接看。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，替選到的動物加 1。每種動物出現 8 次，各為 0–8，合計 18。"
+      ],
+      [
+        "為什麼有幾種結果一起出現？",
+        "同為最高的動物都會列出。全選 A 時每種各有 2 次，因此會看到全部九篇指南。"
+      ],
+      [
+        "需要生日或 MBTI 結果嗎？",
+        "不用填生日，也不用帶入其他測驗。計數無法換成生肖、MBTI、心理診斷或能力評估。"
+      ],
+      [
+        "轉傳連結和分享圖卡會帶出哪些資訊？",
+        "公開連結不會附上作答或計次。個人 PNG 則會顯示九項次數及最高配對，但沒有逐題答案。獨立作答頁重整後不會恢復進度。"
+      ]
+    ],
+    "formula": "18 題每題四選一，替選到的動物記 1 次。九種動物各出現 8 次，個別為 0–8，總數固定為 18。同為最高都保留完整說明。",
+    "boundary": "九個動物比喻由費馬替這份娛樂測驗編寫，讓你回想這一次怎麼選。史密森尼學會美國印第安人國家博物館的資料指出，原住民族群與動物的關係，以及相關親族傳統，各有自身脈絡。問卷無法指定這類身分、守護靈或圖騰，也不提供心理評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Spirit Animal Test uses 18 original scenarios and takes about four minutes. It is free without registration. Results show nine animal counts and retain every tie for the highest count. All nine guides are publicly available. Readers can save an optional PNG with their counts and matches, or share a public link without revealing their choices or counts from this attempt.",
+    "intro": "In a group where nobody knows each other, would you check the details first, agree on who does what, or suggest something fun to get people talking? Pick what you would do in 18 original situations. See which animal metaphors fit those choices, usually in about four minutes.",
+    "deliverables": [
+      [
+        "See all nine counts",
+        "Each answer adds one to an animal’s count, for a total of 18. The questions give you a way to see where you chose different approaches."
+      ],
+      [
+        "Read the full guides for free",
+        "Each animal has a public guide you can read any time. Every animal tied for the highest count appears in the result."
+      ],
+      [
+        "Save a personal PNG or copy a public link",
+        "Your browser can create a card showing all nine counts and the highest matches, without item answers. You can also copy a public guide or test link."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Wolf leads at 6",
+        "The sample picked six options linked to commitments and shared responsibility. Consider what usually makes you want to clarify an agreement first."
+      ],
+      [
+        "Dolphin and Otter tie at 5 each",
+        "Both guides appear. Dolphin is about opening a conversation. Otter is about doing something playful with willing company."
+      ],
+      [
+        "All A: all nine animals count 2",
+        "Every animal appears twice in position A. Choosing it every time brings up every guide. The content of each option gives you more to work with than its letter."
+      ]
+    ],
+    "profiles": {
+      "wolf": [
+        "Agree on what you can count on",
+        "You often chose to clarify commitments and share responsibility before getting started.",
+        "When friends plan an event, you ask which tasks each person can cover and who can step in if plans change."
+      ],
+      "owl": [
+        "Check a clue before drawing a conclusion",
+        "You often chose to observe first and separate what you know from what you still need to find out.",
+        "When someone mentions a change to an event, you look for the organizers’ latest message before passing it on."
+      ],
+      "fox": [
+        "Find another route with what you have",
+        "You often chose to work with the supplies or information at hand and adjust as you go.",
+        "When a table proves too small for the craft supplies, you split them into boxes so people can work in different spots."
+      ],
+      "lion": [
+        "Give the group a next move",
+        "You often chose to speak up about trade-offs and suggest a concrete step.",
+        "When nobody can settle on a time, you propose a workable slot and ask what needs changing."
+      ],
+      "dolphin": [
+        "Make it easier to join the conversation",
+        "You often chose to reach out to new people or invite them to take part.",
+        "When a new face arrives, you start with a familiar topic and ask what they would like to talk about."
+      ],
+      "deer": [
+        "Give someone a little breathing room",
+        "You often chose to notice how comfortable people seemed and ask what they needed.",
+        "When a friend steps away from a loud event, you ask whether they want a break or a quieter place to talk."
+      ],
+      "bear": [
+        "Keep to a pace you can sustain",
+        "You often chose a familiar sequence or a manageable first step.",
+        "When a room needs sorting, you start with the drawer you use most and see whether you have time for another."
+      ],
+      "eagle": [
+        "Step back to see what connects",
+        "You often chose to consider what an activity is for and what happens after it.",
+        "When planning an event, you ask what you want guests to remember before arranging the schedule."
+      ],
+      "otter": [
+        "Leave time to play together",
+        "You often chose an easy way to have fun with other people, with room to make nothing in particular.",
+        "While waiting for everyone to show up, you put out scrap paper and invite anyone who feels like drawing to join."
+      ]
+    },
+    "faq": [
+      [
+        "What does spirit animal mean in this quiz?",
+        "It is an animal metaphor attached to one of the most selected approaches. The quiz does not identify a spiritual guide, a totem, or a fixed identity."
+      ],
+      [
+        "Which nine animals can appear?",
+        "Wolf, Owl, Fox, Lion, Dolphin, Deer, Bear, Eagle, and Otter. Every guide is open before the quiz starts."
+      ],
+      [
+        "How do you score the 18 questions?",
+        "Each question has four choices. A selection adds one to its animal. Each animal appears eight times, so each count can be 0–8 and all nine counts add to 18."
+      ],
+      [
+        "Why did I get more than one animal?",
+        "All highest ties appear. If you pick A for every question, every animal gets two counts and all nine guides appear."
+      ],
+      [
+        "Do I need a birthday or an MBTI result?",
+        "No. The quiz counts the actions you choose. It does not translate birthdays, MBTI types, or counts into a psychological or ability score."
+      ],
+      [
+        "What does each sharing option reveal?",
+        "Public links carry no answers, counts, or private ID. A personal PNG shows all nine counts and highlights the highest matches, without item answers. Reloading an unfinished standalone session does not restore progress."
+      ]
+    ],
+    "formula": "Choose one of four actions in each of 18 scenarios. Each choice adds one to its animal. Each animal appears eight times, so counts range from 0 to 8 and the nine counts total 18. Every highest tie is retained.",
+    "boundary": "FermatMind wrote these animal metaphors for an entertainment quiz. The Smithsonian’s National Museum of the American Indian describes how relationships with animals and kinship traditions vary among specific Native communities. These quiz results cannot assign those relationships or provide a psychological assessment."
+  }
+}

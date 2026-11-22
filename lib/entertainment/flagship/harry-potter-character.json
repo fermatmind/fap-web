@@ -1,0 +1,293 @@
+{
+  "zh": {
+    "facts": "费马测试的哈利波特角色测试有21道原创无剧透活动题，约5分钟。免费查看七位角色对应的选择次数、所有最高并列结果及七份完整的公开角色指南。",
+    "intro": "俱乐部要开一场纸上解谜。你会先试一条线索、核对说明、请同伴一起行动，还是换一个自己真想做的角色？",
+    "deliverables": [
+      [
+        "七位角色",
+        "七种在读书、游戏和俱乐部活动中能用到的做法。"
+      ],
+      [
+        "并列完整保留",
+        "每位最高同分的人物都显示。"
+      ],
+      [
+        "七份公开指南",
+        "没读过原著也能从原创小情境理解。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看这一次选了什么",
+        "找到让你觉得好玩的那一步。"
+      ],
+      [
+        "有多个最高同分时",
+        "在同一个游戏里比较两种先手。"
+      ],
+      [
+        "把动作借回现实",
+        "下次小组活动，可先试一件容易做的事。"
+      ]
+    ],
+    "profiles": {
+      "harry-potter": [
+        "试着走出第一步",
+        "你愿意先试一个可以马上检验的小线索。",
+        "解谜游戏刚开场，你先翻桌上第一张提示卡。"
+      ],
+      "hermione-granger": [
+        "回到说明找证据",
+        "你会检查原说明再下判断。",
+        "小组争论规则时，你找到那一行真正写着限制的字。"
+      ],
+      "ron-weasley": [
+        "把第一轮变成大家的事",
+        "你喜欢让同伴一起参与。",
+        "抽卡前你请每人猜一句接下来会发生什么。"
+      ],
+      "ginny-weasley": [
+        "自己选一个想做的角色",
+        "你愿意说清你真正想负责哪一块。",
+        "大家以为你会记分，你提议自己来设计一页路线。"
+      ],
+      "neville-longbottom": [
+        "让第一次好开始一点",
+        "你会先把难事缩成适合试的小动作。",
+        "新成员不敢解全题，你从一张提示卡和他一起试。"
+      ],
+      "luna-lovegood": [
+        "把意外当成一种假设",
+        "你喜欢用不同角度看同一条线索。",
+        "图上有个重复符号，你提出把它当时间提示试一下。"
+      ],
+      "rubeus-hagrid": [
+        "让欢迎落到手边",
+        "你喜欢给新来的人准备一些能马上用的东西。",
+        "你在门边留个位子和一张简单的新手说明。"
+      ]
+    },
+    "faq": [
+      [
+        "需要读书或看电影吗？",
+        "不需要，题目使用不透露情节的虚构活动。"
+      ],
+      [
+        "包括哪些人物？",
+        "哈利、赫敏、罗恩、金妮、纳威、卢娜和海格。"
+      ],
+      [
+        "每个人出现几次？",
+        "各12次，四个选项位置各3次。"
+      ],
+      [
+        "同分怎么处理？",
+        "全部最高同分一同呈现。"
+      ],
+      [
+        "这和分院测试一样吗？",
+        "本页独立制作，比较人物做法，无分院结果。"
+      ],
+      [
+        "可以分享什么？",
+        "人物公开指南或同语测试入口，不包含逐题回答和次数。"
+      ]
+    ],
+    "formula": "21道四选一，每次给对应角色视角加1。七种视角各出现12次，各位置3次。全部最高同分保留。",
+    "boundary": "费马独立创作的非官方同人测试。虚构活动用来比较做法，不衡量勇气、学业表现、道德或真实相似度。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的哈利波特角色測驗有21道原創無劇透活動題，約5分鐘。免費查看七位角色對應的選擇次數、最高同分結果及七份完整的公開角色指南。",
+    "intro": "社團想辦一場紙上解謎。你會先試第一張線索、翻說明、找大家一起解，還是先挑自己有興趣的分工？",
+    "deliverables": [
+      [
+        "七位角色的做法",
+        "能用在讀書會、社團和普通遊戲。"
+      ],
+      [
+        "最高同分一起看",
+        "最高的選擇一樣多時，完整列出人物。"
+      ],
+      [
+        "公開指南一共七份",
+        "不必先認識故事，就能看原創情境。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看看自己想做哪一步",
+        "從一個實際選項想起。"
+      ],
+      [
+        "同分可以並排讀",
+        "兩種做法可能適合同一場遊戲的不同階段。"
+      ],
+      [
+        "挑一件下次能試的事",
+        "例如先找線索，或留一個位子給新來的人。"
+      ]
+    ],
+    "profiles": {
+      "harry-potter": [
+        "先試一條可以回頭的線索",
+        "你願意挑個小動作讓遊戲開始。",
+        "你拿起第一張提示卡，讓大家一起看。"
+      ],
+      "hermione-granger": [
+        "回去查說明怎麼寫",
+        "你會從手上的資料找答案。",
+        "意見不一樣時，你把說明裡那一行讀給大家聽。"
+      ],
+      "ron-weasley": [
+        "把這一輪變成一起玩的事",
+        "你想讓同伴都有能參與的地方。",
+        "開始前你請大家各猜一句。"
+      ],
+      "ginny-weasley": [
+        "自己選想做的那一項",
+        "你會講清楚想承擔的部分。",
+        "同伴以為你會記分，你說比較想畫地圖。"
+      ],
+      "neville-longbottom": [
+        "把第一回合變得好上手",
+        "你擅長找一個大家能開始的小步驟。",
+        "有新手不確定怎麼玩，你請他先試一張卡。"
+      ],
+      "luna-lovegood": [
+        "讓一個新想法先試試看",
+        "你喜歡看線索能不能有第二種讀法。",
+        "圖上一直出現同一個記號，你猜會不會跟順序有關。"
+      ],
+      "rubeus-hagrid": [
+        "用一件實際的事歡迎對方",
+        "你會先準備好對方需要的東西。",
+        "新朋友剛來，你幫他留椅子和一張玩法小卡。"
+      ]
+    },
+    "faq": [
+      [
+        "需要先讀小說嗎？",
+        "不用。題目用獨立創作的日常情境。"
+      ],
+      [
+        "有哪幾位角色？",
+        "哈利、妙麗、榮恩、金妮、奈威、露娜與海格。"
+      ],
+      [
+        "每個方向出現幾次？",
+        "各12次，每個選項位置三次。"
+      ],
+      [
+        "同分會怎麼處理？",
+        "所有同獲最高次數的角色都保留。"
+      ],
+      [
+        "這可以分派學院嗎？",
+        "本測驗是非官方的角色比較，不分派學院。"
+      ],
+      [
+        "分享會帶出作答嗎？",
+        "可分享公開角色指南或同語言入口，不帶答案與次數。"
+      ]
+    ],
+    "formula": "21道四選一題，所選角色加1。各角色出現12次，四個位置各3次，完整保留最高同分。",
+    "boundary": "這是非官方同人測驗。把角色當作閱讀日常做法的參照，不用來評估能力、個性或與角色的相似機率。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Harry Potter Character Quiz uses 21 original fictional scenarios and takes about five minutes. Readers compare seven character approaches to reading groups, paper games, and clubs. It shows each tally, keeps all characters tied for the highest count, and offers seven public guides. No account or knowledge of the books and films is needed to take the quiz.",
+    "intro": "A club starts a paper mystery game. Do you try the first clue, check the rule sheet, get everyone involved, or ask for the role you actually want?",
+    "deliverables": [
+      [
+        "Seven character tallies",
+        "Read seven approaches to an ordinary group activity."
+      ],
+      [
+        "Every highest tie",
+        "Open all guides for the characters sharing the top count."
+      ],
+      [
+        "Seven public guides",
+        "Use spoiler-free examples without doing the quiz."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Pick out the first move",
+        "Remember which action made the situation enjoyable for you."
+      ],
+      [
+        "Put tied approaches side by side",
+        "Several moves can work at different points in the same story."
+      ],
+      [
+        "Take an idea to your next club meeting",
+        "Choose a small way to get started or bring someone in."
+      ]
+    ],
+    "profiles": {
+      "harry-potter": [
+        "Try one workable clue",
+        "You like to make a small first move.",
+        "You turn over the first clue card to get the game moving."
+      ],
+      "hermione-granger": [
+        "Check the reference",
+        "You like checking what the directions actually say.",
+        "During a rules disagreement, you point to the exact line in the sheet."
+      ],
+      "ron-weasley": [
+        "Make the opening feel shared",
+        "You look for ways your friends can join the first round.",
+        "Before a card is drawn, you invite everyone to make a guess."
+      ],
+      "ginny-weasley": [
+        "Choose the role that feels right",
+        "You say which part you actually want to take.",
+        "When the group assumes you will keep score, you ask to draw the map."
+      ],
+      "neville-longbottom": [
+        "Make the start manageable",
+        "You look for one small step someone can try.",
+        "You help a newcomer start with one clue instead of the whole puzzle."
+      ],
+      "luna-lovegood": [
+        "Try out an unexpected idea",
+        "You enjoy looking for a possible second reading of a clue.",
+        "You wonder whether a repeating symbol could mark the order and check it on one card."
+      ],
+      "rubeus-hagrid": [
+        "Make the welcome practical",
+        "You like offering something a newcomer can use right away.",
+        "You save a seat and give the new player a short reference card."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to read the books?",
+        "No. The original activities do not require plot knowledge."
+      ],
+      [
+        "Which characters are included?",
+        "Harry, Hermione, Ron, Ginny, Neville, Luna, and Hagrid."
+      ],
+      [
+        "How often does a character appear?",
+        "Twelve times, including three in each position."
+      ],
+      [
+        "What if two characters tie?",
+        "Every highest tie stays in the result."
+      ],
+      [
+        "Is this the official Sorting Ceremony?",
+        "This is an independently made fan character quiz without a house assignment."
+      ],
+      [
+        "Can I share the result?",
+        "You can share a public character guide or the quiz link without your own answers or counts."
+      ]
+    ],
+    "formula": "The 21 questions each show four options. Every character appears 12 times, three in each position. Add one to the chosen character each time. Highest ties all stay.",
+    "boundary": "FermatMind created this unofficial fan quiz around small fictional activities. The counts do not evaluate courage, intelligence, morality, or a probability of resembling a character."
+  }
+}

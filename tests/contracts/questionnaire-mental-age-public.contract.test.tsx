@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
+import { mentalAgeLandingCopy } from "@/lib/questionnaires/mentalAgeLandingCopy";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { MoreTests } from "@/components/entertainment/MoreTests";
@@ -16,9 +17,13 @@ describe("T010 playful mental age real public/native/SEO callers", () => {
       for (const locale of ["en", "zh"] as const) {
         const path = `/${locale}/tests/explore/mental-age`, args = { params: Promise.resolve({ locale, slug: quiz.slug }) };
         const meta = await entry.generateMetadata(args), dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(await entry.default(args));
-        expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]); expect(meta.title).toBe(quiz.seoTitle[locale]); expect(meta.description).toBe(quiz.description[locale]);
+        const landing = mentalAgeLandingCopy[locale];
+        expect(dom.querySelector("h1")?.textContent).toBe(landing.title); expect(meta.title).toEqual({ absolute: landing.metaTitle }); expect(meta.description).toBe(landing.description);
         expect(meta.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(dom.textContent).toContain(quiz.instructions![locale]);
-        for (const s of quiz.guide) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);
+        for (const section of quiz.guide) for (const text of section.paragraphs) {
+          expect(dom.textContent).toContain(text[locale]);
+          expect(dom.textContent?.split(text[locale])).toHaveLength(2);
+        }
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
         expect(maps.filter(e => e.loc === `https://fermatmind.com${path}`)).toHaveLength(1); pages++;
         for (const profile of quiz.profiles) {

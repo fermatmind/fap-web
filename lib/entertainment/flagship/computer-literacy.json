@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的计算机基础练习用24道原创题回顾文件、浏览器、邮件与办公软件的常见操作，约10分钟。免费查看四组正确数、逐题解释及公开练习指南。",
+    "intro": "文件放进下载目录，网页历史记录却没了。哪一项才改变了文件？按题里写明的系统、应用和条件，选出适用的做法。",
+    "deliverables": [
+      [
+        "四组练习正确数",
+        "文件、浏览器、邮件、办公各6题。"
+      ],
+      [
+        "逐题解释",
+        "看你的选项、参考答案和题面条件。"
+      ],
+      [
+        "四份公开指南",
+        "在不操作真实文件的情况下回顾基本步骤。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先找到操作对象",
+        "确认变化的是下载、网页标签、链接，还是文件。"
+      ],
+      [
+        "分清消息内容和发送方式",
+        "确认收件人、附件与应用状态。"
+      ],
+      [
+        "核对表格改了什么",
+        "分清数值、公式引用与整条记录。"
+      ]
+    ],
+    "profiles": {
+      "files": [
+        "先认清手里是哪份文件",
+        "你可以比较名称、位置与类型，再做操作。",
+        "同名文件出现在两个文件夹，你先查完整位置。"
+      ],
+      "browser": [
+        "把浏览记录和下载分开",
+        "你可以留意一个操作会改变哪个地方。",
+        "清除网页历史后，你去下载目录找之前存的文件。"
+      ],
+      "email": [
+        "发送前核对三处",
+        "你会检查收件人、附件，以及内容是不是正确版本。",
+        "邮件写完，你先打开附档确认再按发送。"
+      ],
+      "office": [
+        "把公式和数据分开",
+        "你能看出所改的是值、引用还是整个排序范围。",
+        "电子表格重新排序前，你先选中整张记录区域。"
+      ]
+    },
+    "faq": [
+      [
+        "会操作我的文件或邮箱吗？",
+        "不会，所有题都是识别任务。"
+      ],
+      [
+        "测试有几题？",
+        "四组各6题，共24道，约10分钟。"
+      ],
+      [
+        "为什么题目会写版本？",
+        "根据指定的系统与规则作答，其他应用的行为可能不同。"
+      ],
+      [
+        "是否计时？",
+        "不计时。"
+      ],
+      [
+        "对错怎么给分？",
+        "匹配参考答案计1，其他有效选项计0。"
+      ],
+      [
+        "能共享自己的读数吗？",
+        "复制的同语公开入口无个人读数。"
+      ]
+    ],
+    "formula": "24题分四组，各6题；正确计1，其他有效选择计0，全部完成后显示四组和全卷计数。",
+    "boundary": "这是面向限定题面条件的识别练习，结果不证明能在真实应用中操作、不作等级认证或岗位评估。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的電腦基礎練習以24道原創題回顧檔案、瀏覽器、電子郵件與辦公軟體操作，約10分鐘。免費提供四組答對題數、逐題解說與公開練習指南。",
+    "intro": "清除瀏覽紀錄後，下載的檔案還在嗎？先看題目指定的應用程式、版本與操作，再從四個選項挑答案。",
+    "deliverables": [
+      [
+        "四組正確題數",
+        "檔案、瀏覽器、郵件與辦公軟體各6題。"
+      ],
+      [
+        "逐題對照",
+        "看到自己選的答案、參考解答與說明。"
+      ],
+      [
+        "四份公開指南",
+        "不用真的開檔或寄信就能閱讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先定位檔案",
+        "把下載後儲存的位置和網頁所在位置分開。"
+      ],
+      [
+        "先確認寄給誰",
+        "還可以確認附檔內容與版本。"
+      ],
+      [
+        "分開看值、公式和表格範圍",
+        "改動前想想需要一欄還是整份資料。"
+      ]
+    ],
+    "profiles": {
+      "files": [
+        "看看檔案在哪裡",
+        "你可以依名稱和儲存位置找出正確版本。",
+        "有兩個同名檔，你先看各自的資料夾。"
+      ],
+      "browser": [
+        "找出下載的檔案",
+        "你可以分開看瀏覽紀錄與儲存的副本。",
+        "刪掉頁面紀錄後，你在下載資料夾查找先前的檔案。"
+      ],
+      "email": [
+        "寄出前再對一次",
+        "你會查看收件者、附檔和需求是否相符。",
+        "寫完郵件，你先開附件核對版本。"
+      ],
+      "office": [
+        "留意表格的行與欄",
+        "你可以分辨改的是一個值還是整份排序。",
+        "依日期重排時，你先把所有相關欄一起選起來。"
+      ]
+    },
+    "faq": [
+      [
+        "會需要操作電腦上的資料嗎？",
+        "不用，所有題目都是選擇題。"
+      ],
+      [
+        "有幾道題？",
+        "四組各6道，共24題，約10分鐘。"
+      ],
+      [
+        "為何要看版本？",
+        "題目指定的版本與條件可能影響所選做法。"
+      ],
+      [
+        "會倒數嗎？",
+        "不會。"
+      ],
+      [
+        "怎麼計分？",
+        "每題與參考答案一致就計一次。"
+      ],
+      [
+        "會分享我答對幾題嗎？",
+        "同語言公開連結不含作答成績。"
+      ]
+    ],
+    "formula": "四組各6題，共24題。符合答案加1，其他有效選項計0。完整作答後顯示分組及總數。",
+    "boundary": "這份練習只比較題面指定的功能和情境，不認證實際操作能力、工作適任或熟練程度。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Computer Literacy practice uses 24 original questions about files, browsers, email, documents, and spreadsheets. It takes about ten minutes and shows four section counts, every selected answer, the corresponding key, explanations, and four public guides. Readers can review basic digital operations without an account, a timer, or any access to their actual files, email, or other personal digital records.",
+    "intro": "Does clearing the browser history change a copy in Downloads? Read the software, version and rules in each situation, then choose what fits.",
+    "deliverables": [
+      [
+        "Four section counts",
+        "Review six items in each area."
+      ],
+      [
+        "Worked answers",
+        "Check your selected option, the key and the specific condition."
+      ],
+      [
+        "Four public guides",
+        "Review the operations without opening real files or using an email account."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Identify what is affected",
+        "A file, a tab and a history entry can respond differently."
+      ],
+      [
+        "Check the message before sending",
+        "Keep the recipient, attachment and message separate."
+      ],
+      [
+        "Check the whole row",
+        "When sorting a spreadsheet, consider what needs to stay together."
+      ]
+    ],
+    "profiles": {
+      "files": [
+        "Identify the right file",
+        "You can compare the path, name and type before choosing a document.",
+        "Two files share a name, so you check which folder each is in."
+      ],
+      "browser": [
+        "Separate navigation and saved downloads",
+        "You can consider what clearing an entry actually changes.",
+        "After removing a history entry, you look for the copy in your Downloads folder."
+      ],
+      "email": [
+        "Check the message and the attachment",
+        "You can distinguish the recipient, the version, and the intended action.",
+        "Before sending, you open your attachment to confirm it is the intended copy."
+      ],
+      "office": [
+        "Separate spreadsheet values and records",
+        "You can identify which cells, references and rows an operation should affect.",
+        "Before sorting by date, you make sure the other columns stay with each record."
+      ]
+    },
+    "faq": [
+      [
+        "Does this access my computer?",
+        "No. It presents original recognition tasks about fictional records."
+      ],
+      [
+        "How many questions are there?",
+        "There are 24, six in each section."
+      ],
+      [
+        "Why does the application version matter?",
+        "Answer using the software and conditions stated in the question."
+      ],
+      [
+        "Is there a timer?",
+        "No. Ten minutes is an estimate."
+      ],
+      [
+        "How do I earn a point?",
+        "A choice that matches the key adds one."
+      ],
+      [
+        "What is in the share link?",
+        "The public practice link for the same language, without your results."
+      ]
+    ],
+    "formula": "The four sections each have six questions. A match to the key adds one, while other valid selections add zero. Finish all 24 to see the counts.",
+    "boundary": "These scenarios practise recognition under the given rules. Results do not prove operational proficiency, certification, or suitability for a role."
+  }
+}

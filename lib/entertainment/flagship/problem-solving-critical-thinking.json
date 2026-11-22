@@ -1,0 +1,233 @@
+{
+  "zh": {
+    "facts": "费马测试的问题解决与批判性思维练习用30道原创案例，约15分钟。免费查看问题拆解、决策工具和复盘三组的正确次数、逐题解释与公开练习指南。",
+    "intro": "方案看起来最省钱，却不满足必须当天完成的条件？先弄清问题要解决什么，再比较哪种做法符合题面。",
+    "deliverables": [
+      [
+        "三组各10题",
+        "梳理问题、选决策工具和回看效果。"
+      ],
+      [
+        "逐题说明",
+        "看为什么某一项与给定规则吻合。"
+      ],
+      [
+        "三份公开指南",
+        "先读一个工具，也可以做完回头查。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先描述发生了什么",
+        "把观察、猜测和要改变的目标分开。"
+      ],
+      [
+        "先看可行，再选偏好",
+        "排除不满足硬性条件的方案。"
+      ],
+      [
+        "复盘记录再谈改进",
+        "看看比较前后用的是不是同一口径。"
+      ]
+    ],
+    "profiles": {
+      "problem-steps": [
+        "先把问题说清楚",
+        "你可以确定事实之后再找要改的地方。",
+        "出货变慢时，你找出卡在哪一步，先不猜是谁的原因。"
+      ],
+      "decision-tools": [
+        "按目标挑工具",
+        "你可以查哪些方案在限制之内。",
+        "选配送方式时，你先排除无法在当天送达的方案。"
+      ],
+      "review-and-learning": [
+        "拿相同口径对比",
+        "你可以确认记录是否足以说明变化。",
+        "改了排队方法后，你比较相同时段平均等待多久。"
+      ]
+    },
+    "faq": [
+      [
+        "题目有几类？",
+        "三组各10，交错出题。"
+      ],
+      [
+        "有计时吗？",
+        "不计时，15分钟是规划估计。"
+      ],
+      [
+        "怎么计分？",
+        "匹配编辑参考答案加1。"
+      ],
+      [
+        "每题使用真实数据吗？",
+        "金额与记录是虚构的，只用本题所给条件。"
+      ],
+      [
+        "可以用分数评估职业能力吗？",
+        "读数仅用于复习本组给出的案例。"
+      ],
+      [
+        "能复制我的成绩吗？",
+        "分享仅链接同语公开练习。"
+      ]
+    ],
+    "formula": "30道题分成三组，每组10道。每题符合唯一参考答案计1。完成所有题后逐题解释可查。",
+    "boundary": "本练习依照每个案例明示的目标、规则与限制。结果不用于判定通用思维能力或岗位适任。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的問題解決與批判思考練習以30道原創案例練習判斷，約15分鐘。免費提供拆解問題、決策工具和檢討三組答案、逐題說明及公開指南。",
+    "intro": "最便宜的選項如果不能在期限內完成，就先看題目要求什麼。從短案例試著找事實、比較做法，再看看現有證據能說什麼。",
+    "deliverables": [
+      [
+        "三組各10題",
+        "練問題拆解、決策工具與檢討。"
+      ],
+      [
+        "逐題解說",
+        "查詢你所選的答案與判斷依據。"
+      ],
+      [
+        "三份公開指南",
+        "挑想複習的做法直接讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先把已知和猜測分開",
+        "確認流程中哪個環節真的發生了變化。"
+      ],
+      [
+        "先找可行的作法",
+        "把不能滿足期限或條件的選項剔除。"
+      ],
+      [
+        "拿同一種記錄比",
+        "改變流程後，用同樣的單位和時段來看效果。"
+      ]
+    ],
+    "profiles": {
+      "problem-steps": [
+        "描述問題所在",
+        "你可以先查哪一步出現阻礙，不急著找責任歸屬。",
+        "出貨變慢時，你先確認包裝、檢查和交運中哪個環節花最多時間。"
+      ],
+      "decision-tools": [
+        "先確認條件能不能達成",
+        "你可以按目標排除不合適的做法。",
+        "費用最低的方案無法今天送到，你先從可在今天抵達的方案裡挑。"
+      ],
+      "review-and-learning": [
+        "讓檢討回到證據",
+        "你可以看紀錄的量和比較方法是否一致。",
+        "調整排隊動線後，你把前後相同時段的等候時間並排。"
+      ]
+    },
+    "faq": [
+      [
+        "有幾題？",
+        "三組各10道，交錯出題。"
+      ],
+      [
+        "會倒數嗎？",
+        "沒有，15分鐘只是粗略估計。"
+      ],
+      [
+        "怎麼給分？",
+        "符合參考答案就記1。"
+      ],
+      [
+        "紀錄是真實的嗎？",
+        "金額和記錄是虛構情境。"
+      ],
+      [
+        "能評量工作能力嗎？",
+        "分數只記這些情境中所選的答案。"
+      ],
+      [
+        "分享時會出現答題記錄嗎？",
+        "分享連到同語言公開練習。"
+      ]
+    ],
+    "formula": "三組共30道題，各10題。符合唯一參考答案加1，其他有效選項為0，完成後可看逐題說明。",
+    "boundary": "依照案例給的目標、條件和排除規則選擇。讀數供複習使用，不評定一般能力或工作適任。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Problem Solving and Critical Thinking practice uses 30 original cases and takes about fifteen minutes. It provides separate counts and worked answers for problem steps, decision tools, and review and learning, alongside three public guides. Readers use goals, exclusions, and rules supplied in the fictional cases without creating an account, submitting real records, or working against a time limit.",
+    "intro": "The least expensive option may miss a required delivery date. Use the case’s goal and constraints to decide which option fits.",
+    "deliverables": [
+      [
+        "Three groups of ten",
+        "Review problem steps, decision tools, and learning from a change."
+      ],
+      [
+        "Worked explanations",
+        "Find the explicit rule behind each keyed choice."
+      ],
+      [
+        "Three public guides",
+        "Read a method before practising or after reviewing your answers."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with what happened",
+        "Distinguish observation from an explanation you have not checked yet."
+      ],
+      [
+        "Filter for feasibility",
+        "Set aside any option that misses a required condition."
+      ],
+      [
+        "Compare like with like",
+        "Use the same measure and comparable circumstances when reviewing a change."
+      ]
+    ],
+    "profiles": {
+      "problem-steps": [
+        "Describe the issue first",
+        "You can look for the actual point where a process changed.",
+        "When orders slow down, you check packing, review, and handoff before naming a cause."
+      ],
+      "decision-tools": [
+        "Pick a tool that fits the constraints",
+        "You can rule out options that cannot meet the stated requirement.",
+        "You set aside cheaper delivery methods that cannot arrive today."
+      ],
+      "review-and-learning": [
+        "Ask what the record supports",
+        "You can check how a change was measured before naming it an improvement.",
+        "You compare average waiting time over the same period before and after a change."
+      ]
+    },
+    "faq": [
+      [
+        "How many cases are there?",
+        "Thirty, with three interleaved groups of ten."
+      ],
+      [
+        "Is there a timer?",
+        "No. Fifteen minutes is an estimate."
+      ],
+      [
+        "How are answers counted?",
+        "A match to the editorial key adds one."
+      ],
+      [
+        "Do the cases contain real records?",
+        "All amounts and records are fictional. Use only the stated case details."
+      ],
+      [
+        "Can a score establish job readiness?",
+        "It represents responses to this set of cases."
+      ],
+      [
+        "Can I share my answers?",
+        "The public link opens the same-language practice without your results."
+      ]
+    ],
+    "formula": "The three groups have ten items each. One count is added when a response matches the keyed option. Complete all 30 to see worked explanations.",
+    "boundary": "Practise with the goal, rule and constraints in each case. The counts are for review without general skill rankings or workplace assessments."
+  }
+}

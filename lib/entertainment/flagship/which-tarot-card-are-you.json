@@ -1,0 +1,518 @@
+{
+  "zh": {
+    "facts": "费马测试的塔罗牌测试有22道原创情境题，约7分钟，免注册。答完可免费看22张大阿卡纳主题的选择次数和全部最高结果。公开指南可以直接阅读。",
+    "intro": "如果要开启一个小项目，你会先试一小步、把手边的材料用起来，还是先定一个方向？用约 7 分钟答完 22 道情境题，看看你的选择更常落在哪张塔罗牌的主题。免费查看完整结果。",
+    "deliverables": [
+      [
+        "查看 22 张牌的选择次数",
+        "每题为所选主题加 1，合计 22。所有同为最高的结果都会保留。"
+      ],
+      [
+        "免费读全部大阿卡纳指南",
+        "22 张牌各有指南，解释与日常具体选择的关联。无需先提交答卷。"
+      ],
+      [
+        "分享公开名称和链接",
+        "单项最高可复制牌名和指南；并列时会复制全部最高牌名与入口。链接不带答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "愚人最高，4 次",
+        "这份样张每逢愚人选项就选择先试小一步。4 代表选中四次。"
+      ],
+      [
+        "魔术师和隐士并列，各 4 次",
+        "两份指南都会保留。一个侧重先动手做样品，一个侧重预留独自整理想法的时间。"
+      ],
+      [
+        "全选 A，22 张牌各 1 次",
+        "每张牌在 A 位都出现一次，全部 22 份会并列。回头看题目的做法更能帮助你理解选择。"
+      ]
+    ],
+    "profiles": {
+      "fool": [
+        "从一个小试开始",
+        "你较常选留一点好奇，再迈出小步。",
+        "第一次参加陶艺活动时，你先试捏一个杯底，再决定要不要做完整的杯子。"
+      ],
+      "magician": [
+        "把手边的东西用起来",
+        "你较常选拿现有材料做个雏形。",
+        "缺少画框时，你先用纸板做个小样，试一下尺寸。"
+      ],
+      "high-priestess": [
+        "先把没弄明白的地方留着",
+        "你较常选在信息不全时留一点观察空间。",
+        "同伴的回复很短，你记下自己不确定的地方，等见面再问。"
+      ],
+      "empress": [
+        "给事情长起来的条件",
+        "你较常选照料时间、材料和自己的精力。",
+        "开始种薄荷前，你先找一处有光的位置，再想自己能多久浇一次水。"
+      ],
+      "emperor": [
+        "把安排写到用得上的程度",
+        "你较常选弄清范围、顺序与共同约定。",
+        "几个人共用工作台时，你写下谁在什么时候借用，也留了可修改的空格。"
+      ],
+      "hierophant": [
+        "问清做法从哪里来",
+        "你较常选了解旧方法为什么使用，再决定怎么传给别人。",
+        "学会一道家常菜后，你问长辈哪些步骤可以换，再把实际做法记下来。"
+      ],
+      "lovers": [
+        "说出在乎的事，再一起选",
+        "你较常选把双方愿意和不愿意的条件讲清楚。",
+        "和朋友商量周末活动时，你说自己更想散步，也问对方是否想换成展览。"
+      ],
+      "chariot": [
+        "先定一个能做完的下一步",
+        "你较常选定方向，再看看什么时候要停下复盘。",
+        "整理相册时，你先给自己定了只选十张的目标，之后再决定是否继续。"
+      ],
+      "strength": [
+        "说得温和，也守住限度",
+        "你较常选让请求与边界都听得明白。",
+        "同事请你接一项工作时，你告诉他今天能帮一小时，并说明哪部分要另找人。"
+      ],
+      "hermit": [
+        "给自己一段不被打扰的时间",
+        "你较常选先独自整理思路，再决定是否讨论。",
+        "收到几份提案后，你先自己读一遍，记下想问的地方再去开会。"
+      ],
+      "wheel-of-fortune": [
+        "看看有哪些条件已经变了",
+        "你较常选重新分清新情况与自己的选择。",
+        "周末店家临时休息时，你先确认更改营业日，再重新排见面的时间。"
+      ],
+      "justice": [
+        "把事实、推测和约定分开",
+        "你较常选先核对信息，再讨论怎样分配才合适。",
+        "小组对分工有分歧时，你把实际任务量列出来，再一起调整。"
+      ],
+      "hanged-man": [
+        "暂停一下，换个方向看",
+        "你较常选留一个复盘点，试试从别处想同一个问题。",
+        "作品越改越乱时，你先放下半小时，回来把它当作第一次看到。"
+      ],
+      "death": [
+        "把该收尾的一段收好",
+        "你较常选明确一段普通工作何时可以结束。",
+        "整理旧计划时，你保存用得上的文件，再把已经结束的事项归档。"
+      ],
+      "temperance": [
+        "用小份量试试两种办法",
+        "你较常选挑一部分做组合，并观察哪些条件要调整。",
+        "手作材料不够时，你先用两种纸各试一小片，再选合用的比例。"
+      ],
+      "devil": [
+        "承认想要什么，再看限制",
+        "你较常选先说清愿望、承诺和当下改不了的条件。",
+        "想同时报两门兴趣课时，你把费用和实际空闲时间放到一起比较。"
+      ],
+      "tower": [
+        "确认哪条假设不管用了",
+        "你较常选遇到错位时返回检查，再决定修整局部还是换安排。",
+        "预约总撞时间时，你查到大家理解的结束时间不同，便先改统一日历。"
+      ],
+      "star": [
+        "为仍可能做的事留点空间",
+        "你较常选看见限制后，保留一个可选的小机会。",
+        "室外活动取消时，你把计划存起来，等天气合适再看有没有人想试。"
+      ],
+      "moon": [
+        "把看到的和想到的分开",
+        "你较常选保留疑问，避免用想象填多余的空白。",
+        "听说项目日期变了，你先记下消息来源，再向负责人确认。"
+      ],
+      "sun": [
+        "留意这一刻具体哪里好",
+        "你较常选给普通生活里的愉快留一点时间。",
+        "下班路上听到一首喜欢的歌，你站一会儿听完，再慢慢回家。"
+      ],
+      "judgement": [
+        "回头看看已知条件，再选一次",
+        "你较常选区分当时与现在知道的事，再改一个具体决定。",
+        "活动结束后，你发现新来的参与者需要说明，于是把下一次通知改得更清楚。"
+      ],
+      "world": [
+        "看见已经做完的部分",
+        "你较常选确认一段工作完成，再决定哪些问题留给以后。",
+        "整理相册告一段落时，你先保存选好的版本，剩下的照片留在原文件夹。"
+      ]
+    },
+    "faq": [
+      [
+        "要先抽牌或填生日吗？",
+        "无需抽牌、生日或塔罗背景。结果来自你对 22 道原创题的选择。"
+      ],
+      [
+        "为什么只有大阿卡纳？",
+        "这套题本以 22 张大阿卡纳作主题，不包含其余 56 张小阿卡纳。"
+      ],
+      [
+        "22 道题怎么计数？",
+        "每题四选一，选到哪张主题就加 1。每张出现 4 次，单项 0–4，合计 22。最高并列全部保留。"
+      ],
+      [
+        "死神、高塔和恶魔是不好的结果吗？",
+        "这三个主题分别对应日常收尾、重新核对假设，以及区分愿望与限制。结果不预测死亡、灾祸或好坏。"
+      ],
+      [
+        "结果能判断性格或恋爱命运吗？",
+        "这份娱乐题只统计具体选择，没有心理测量或关系预测依据，也不能换算为 MBTI 或大五。"
+      ],
+      [
+        "分享会附带作答记录或图片吗？",
+        "分享只复制公开牌名与指南或测试入口，不附答案、次数、个人标识或个人 PNG。"
+      ]
+    ],
+    "formula": "22 题四选一，每次给所选主题加 1。每张牌出现 4 次，在 A、B、C、D 各一次，单卡 0–4，合计 22。全部并列最高都会显示。",
+    "boundary": "博物馆资料介绍牌组的历史和结构，韦特的历史文本用于说明牌序。本版力量为 VIII、正义为 XI。费马独立编写日常情境并进行计数，不抽牌、占卜或评估心理。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的塔羅牌測驗有22道原創情境題，約7分鐘，免註冊。作答後可免費查看22張大阿爾克那的次數及所有並列最高結果。22篇公開指南也能直接閱讀。",
+    "intro": "想開始做一個小東西時，你會先試一點、把手邊材料組起來，還是先把方向想清楚？花約 7 分鐘回答 22 道原創題，看看這次選的做法比較常對應哪個塔羅主題。",
+    "deliverables": [
+      [
+        "看 22 張牌各有幾次",
+        "每題替一個主題記 1 次，合計 22。所有並列最高的牌都會列出。"
+      ],
+      [
+        "免費讀 22 篇公開指南",
+        "每張大阿爾克那牌都有一篇完整解說。還沒作答也能開來看。"
+      ],
+      [
+        "複製公開牌名與連結",
+        "單一最高可分享該牌名和指南。並列時複製所有最高名稱和測驗入口，不會附上作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "愚人最高，4 次",
+        "這份範例在四次看到這項做法時，都選了帶著好奇先試一小步。"
+      ],
+      [
+        "魔術師和隱士各 4 次",
+        "兩篇一起列出。一篇著重用現有材料做雛形，另一篇著重讓自己有時間安靜想一想。"
+      ],
+      [
+        "一路選 A，22 張牌都是 1 次",
+        "每張牌在 A 位各出現一次，所以會列出全部 22 篇。要了解自己的做法，可以回頭看看各題在問什麼。"
+      ]
+    ],
+    "profiles": {
+      "fool": [
+        "帶著好奇試一小步",
+        "你比較常選先做個小嘗試，再看自己還想不想繼續。",
+        "第一次去陶藝教室時，你先捏個杯底，確定喜歡手感再往下做。"
+      ],
+      "magician": [
+        "用手邊材料做個雛形",
+        "你比較常選先拿現有的東西試試，讓點子可以拿出來看。",
+        "一時找不到畫框時，你先剪張厚紙板，確認作品適合多大的框。"
+      ],
+      "high-priestess": [
+        "把還不確定的事留個空位",
+        "你比較常選暫時保留感覺，等多一點線索再說。",
+        "收到同伴簡短的留言時，你先記住想問的地方，等碰面再確認。"
+      ],
+      "empress": [
+        "先照顧做得起來的條件",
+        "你比較常選留時間、備材料，也看自己還有多少力氣。",
+        "想在陽台種薄荷時，你先看看日照和自己能不能固定澆水。"
+      ],
+      "emperor": [
+        "寫一套真的用得到的安排",
+        "你比較常選先對好範圍、次序和一起遵守的做法。",
+        "共用桌面時，你們先把借用時間寫下來，留一欄給臨時變動。"
+      ],
+      "hierophant": [
+        "先問清楚以前為何這樣做",
+        "你比較常選弄懂方法的來由和適用範圍，再轉述給別人。",
+        "和家人學拿手菜時，你先問哪個步驟是為了口感，再試一種家裡現有的材料。"
+      ],
+      "lovers": [
+        "把彼此想要的說出來",
+        "你比較常選先確認雙方在意什麼，再找願意一起做的事。",
+        "約週末見面時，你說自己想去散步，也問朋友有沒有更想看的展。"
+      ],
+      "chariot": [
+        "挑一個做得到的下一步",
+        "你比較常選先把方向定好，再留個時間回來看。",
+        "做相簿時，你先挑十張照片，等選完再考慮要不要多放一些。"
+      ],
+      "strength": [
+        "好好說話，也把界線講清楚",
+        "你比較常選用溫和的方式說明能做多少。",
+        "同事希望你接一件急事時，你講清楚何時有空、哪一段能幫。"
+      ],
+      "hermit": [
+        "找一小段時間自己想",
+        "你比較常選先把想法放在紙上，再決定要和誰討論。",
+        "開會前拿到新提案時，你先自己讀一輪，再把想問的幾句寫下來。"
+      ],
+      "wheel-of-fortune": [
+        "先看今天有哪些條件不同了",
+        "你比較常選分清楚環境有什麼變化，以及自己還能選什麼。",
+        "臨時發現原本約的店休息，你先查它的營業時間，再和朋友一起改約。"
+      ],
+      "justice": [
+        "把手上的資訊攤開來看",
+        "你比較常選核對實際情況，再談怎麼分才公平。",
+        "大家對分工有疑問時，你先列出各人實際做了哪些工作，再一起調整。"
+      ],
+      "hanged-man": [
+        "先停一下，再看看還能怎麼理解",
+        "你比較常選把一段卡住的事暫停，等換個角度再回來。",
+        "設計圖越改越亂時，你去走一小段路，回來把它當成第一次看。"
+      ],
+      "death": [
+        "讓做完的一段好好結束",
+        "你比較常選替一段已完成的工作收尾。",
+        "整理舊活動時，你存下會再用的檔案，替結束的工作留一個清楚的歸檔。"
+      ],
+      "temperance": [
+        "先用一小份試試混在一起",
+        "你比較常選把可相容的辦法做個小組合，再看效果。",
+        "兩種紙都不夠時，你先試拼一張小樣，再決定哪種搭配好用。"
+      ],
+      "devil": [
+        "把想要的和一時做不到的分開",
+        "你比較常選先講明自己的願望，再看看時間和承諾。",
+        "很想同時報兩堂課時，你先算學費和可用時間，再決定這期選哪堂。"
+      ],
+      "tower": [
+        "找出哪個前提已經不合用",
+        "你比較常選回頭檢查問題出在哪裡，再決定改多少。",
+        "預約一直撞期時，你發現有人把截止時間當成開始時間，於是先改共用行事曆。"
+      ],
+      "star": [
+        "留一個接下來也許能做的選項",
+        "你比較常選接受眼前限制，同時替還想做的事留些餘裕。",
+        "戶外活動取消後，你把想試的安排記下來，等大家有空再約。"
+      ],
+      "moon": [
+        "分清看到什麼、猜到什麼",
+        "你比較常選先把疑問記下來，等資料多一點再確認。",
+        "聽到活動改日期時，你先問誰看到通知，再找主辦方確認。"
+      ],
+      "sun": [
+        "記住今天剛好覺得開心的片刻",
+        "你比較常選留意一個平常但舒服的時刻。",
+        "下班路上聽到喜歡的歌，你停下來聽完，晚一點再回家。"
+      ],
+      "judgement": [
+        "用現在知道的事做一次小調整",
+        "你比較常選回頭看看當時怎麼想，再改一個實際步驟。",
+        "活動結束才知道新人找不到入口，你把下一次通知加上位置圖。"
+      ],
+      "world": [
+        "看一眼已經完成的部分",
+        "你比較常選確認哪一段已完成，再讓剩下的事情等一等。",
+        "做完這一版相簿時，你存好檔案，沒選進去的照片留著以後再整理。"
+      ]
+    },
+    "faq": [
+      [
+        "需要出生日期、抽牌或塔羅知識嗎？",
+        "都不用。結果來自 22 道情境題的選擇。"
+      ],
+      [
+        "為什麼只列大阿爾克那牌？",
+        "這份測驗選 22 張大牌作為生活主題，沒有使用其餘 56 張小牌。"
+      ],
+      [
+        "22 道題怎麼計次？",
+        "每題四選一，替選到的牌加 1。每張牌出現 4 次，每項 0–4，合計 22，同為最高的都會保留。"
+      ],
+      [
+        "死神、高塔和惡魔代表壞事嗎？",
+        "不會。這裡分別用來談結束一般的工作階段、重新檢查原先的假設，以及分辨想要的事與限制。"
+      ],
+      [
+        "可以判斷愛情或人格嗎？",
+        "次數只記錄這次的選擇，不提供關係預測或心理評估，也不能換算成 MBTI 或大五。"
+      ],
+      [
+        "轉傳會附答案或個人圖卡嗎？",
+        "分享只複製公開牌名和指南或測驗入口，不含答案、次數、識別資料或個人 PNG。"
+      ]
+    ],
+    "formula": "22 題每題四選一，替對應的牌加 1 次。每張牌出現 4 次，A、B、C、D 各一次，單項 0–4，合計 22。同為最高一起列出。",
+    "boundary": "博物館資料提供牌組歷史背景，韋特的歷史文本說明不同牌序。本版採力量 VIII、正義 XI。費馬另外編寫這些日常題目，結果只整理當次選擇，沒有抽牌、占卜或心理評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Which Tarot Card Are You quiz uses 22 original scenarios and takes about seven minutes. It is free without registration. Results show counts for 22 Major Arcana themes and keep every tie for the highest count. All 22 public guides are available to read before answering. The quiz requires no birth date, random draw, or prior knowledge of tarot.",
+    "intro": "At the start of a small project, do you try one simple step, make something with what you have, or decide on a direction? Choose how you would respond in 22 original scenarios and see which Major Arcana themes appear most in your choices. The full result is free.",
+    "deliverables": [
+      [
+        "See all 22 choice counts",
+        "Each choice adds one, for a total of 22. The result keeps every card theme tied for the highest count."
+      ],
+      [
+        "Read all 22 guides for free",
+        "Every Major Arcana theme has its own public guide. You can read any of them before taking the quiz."
+      ],
+      [
+        "Share a public guide or quiz link",
+        "One highest result shares its name and guide. A tie shares all leading names and the public quiz. Links carry no answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "The Fool leads at 4",
+        "The sample chose every option that favored a curious first step. Four represents four selections."
+      ],
+      [
+        "The Magician and The Hermit tie at 4 each",
+        "Both guides appear. Compare making a quick sample from available materials with setting aside time to think independently."
+      ],
+      [
+        "All A: 22 cards at 1 each",
+        "Every card appears once in position A, so all 22 guides appear. Revisit the situations to understand your choices."
+      ]
+    ],
+    "profiles": {
+      "fool": [
+        "Begin with a small experiment",
+        "You often chose an easy first step that leaves room for curiosity.",
+        "At a pottery class, you try shaping the base before deciding whether to make a whole cup."
+      ],
+      "magician": [
+        "Make something with what is at hand",
+        "You often chose to turn available materials into a visible first version.",
+        "When a frame is unavailable, you make a cardboard sample to check the size."
+      ],
+      "high-priestess": [
+        "Leave the uncertain part open",
+        "You often chose to set aside an impression until there was more to go on.",
+        "After a short reply from a friend, you note what you still want to ask and wait until you meet."
+      ],
+      "empress": [
+        "Make room for something to grow",
+        "You often chose to consider time, materials, and how much care you could offer.",
+        "Before planting mint, you look for sunlight and decide how often you can water it."
+      ],
+      "emperor": [
+        "Make a structure people can use",
+        "You often chose to clarify scope, order, and how people will share resources.",
+        "When several people share a desk, you write a schedule with a space for changes."
+      ],
+      "hierophant": [
+        "Find out why a practice is used",
+        "You often chose to learn where a familiar method came from before passing it on.",
+        "While learning a family recipe, you ask which steps affect the texture and which can change."
+      ],
+      "lovers": [
+        "Say what matters before choosing together",
+        "You often chose to share preferences and check what everyone was willing to do.",
+        "When planning a weekend, you say you would like a walk and ask whether a friend would prefer an exhibition."
+      ],
+      "chariot": [
+        "Pick the next step you can finish",
+        "You often chose a direction with a clear point to review it.",
+        "While assembling an album, you decide to choose ten photos before deciding whether to add more."
+      ],
+      "strength": [
+        "Speak gently and keep a clear limit",
+        "You often chose to state what you could do without leaving the limits unspoken.",
+        "When asked to pick up extra work, you say you have one hour and explain what someone else would need to do."
+      ],
+      "hermit": [
+        "Take a little time to think alone",
+        "You often chose to organize your thoughts before deciding what to discuss.",
+        "Before a meeting, you read the plans on your own and write down the questions to bring."
+      ],
+      "wheel-of-fortune": [
+        "Notice what has changed around you",
+        "You often chose to check the new circumstances before making another decision.",
+        "When a favored café turns out to be closed, you check its opening days before moving the meetup."
+      ],
+      "justice": [
+        "Check the facts before deciding what is fair",
+        "You often chose to separate evidence from assumptions and agreements.",
+        "When a group disagrees about who did what, you list the actual tasks before changing the division."
+      ],
+      "hanged-man": [
+        "Pause and look from another angle",
+        "You often chose to step back and revisit an awkward situation from a different point of view.",
+        "When revisions make a poster confusing, you take a walk and then look at it with fresh eyes."
+      ],
+      "death": [
+        "Close an ordinary chapter",
+        "You often chose to decide which parts of a finished project could be put away.",
+        "When an event is over, you save the reusable documents and archive the rest of the plan."
+      ],
+      "temperance": [
+        "Try blending two approaches on a small scale",
+        "You often chose to test a combination before using it everywhere.",
+        "With two kinds of paper left, you make a tiny collage to see how well they go together."
+      ],
+      "devil": [
+        "Name what you want and what limits it",
+        "You often chose to distinguish a wish from a commitment or practical constraint.",
+        "Before signing up for two classes, you compare the cost and the time actually available each week."
+      ],
+      "tower": [
+        "Recheck the assumption that no longer fits",
+        "You often chose to find what was wrong with the existing plan before changing it.",
+        "When bookings keep clashing, you discover that people read the time differently and fix the shared calendar."
+      ],
+      "star": [
+        "Leave room for something still possible",
+        "You often chose to acknowledge a limit while keeping an option available.",
+        "After an outdoor event is canceled, you keep one part of the plan in mind for another day."
+      ],
+      "moon": [
+        "Separate what you saw from what you imagined",
+        "You often chose to mark what you knew, what you suspected, and what still needed checking.",
+        "When you hear a date may have changed, you check with the organizer before telling the group."
+      ],
+      "sun": [
+        "Notice an everyday pleasure",
+        "You often chose to spend a little time on something genuinely enjoyable.",
+        "On the way home, you stop to listen to a favorite song before carrying on."
+      ],
+      "judgement": [
+        "Review what you know and choose again",
+        "You often chose to see what had changed and revise one decision.",
+        "After an event, you realize newcomers missed the entrance and add a map to the next invitation."
+      ],
+      "world": [
+        "Recognize what is already finished",
+        "You often chose to decide which part of a task was complete and could be left to rest.",
+        "When an album is ready, you save the chosen version and keep the unused pictures in their folder."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need a birth date, card draw, or tarot knowledge?",
+        "No. The score comes from choices in 22 everyday scenarios."
+      ],
+      [
+        "Why are only Major Arcana included?",
+        "This quiz uses the 22 Major Arcana themes. The other 56 cards in the familiar deck are outside its scope."
+      ],
+      [
+        "How are the 22 answers counted?",
+        "Your choice adds one to one card. Each card appears four times, for a count of 0–4. The total is 22, and every highest tie stays."
+      ],
+      [
+        "Are Death, the Tower, and the Devil bad results?",
+        "They represent ordinary endings, checking assumptions, and distinguishing wants from limits. They do not predict death, disasters, or bad luck."
+      ],
+      [
+        "Can my result tell me my personality or relationship future?",
+        "It counts choices on an entertainment quiz. It does not predict relationship outcomes, assess personality, or convert to MBTI or Big Five."
+      ],
+      [
+        "Will sharing include answers or a personal card?",
+        "Sharing copies public names and links without answers, counts, private IDs, or a personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four options per scenario. Each choice adds one to its card theme. Each card appears four times, once in each answer position, giving counts of 0–4 and a total of 22. Every highest tie appears.",
+    "boundary": "Museum sources document tarot’s history and the structure of a deck. Waite’s historical text explains the ordering used here, with Strength VIII and Justice XI. FermatMind wrote the scenarios. Results record choices without drawing cards, predicting events, or providing a psychological assessment."
+  }
+}

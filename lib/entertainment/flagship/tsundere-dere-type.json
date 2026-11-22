@@ -1,0 +1,92 @@
+{
+  "zh": {
+    "facts": "费马测试的傲娇类型测试用16道朋友相处情境，比较傲娇、冷娇、闷娇和热娇四种表达方式。完整四项计数、所有最高并列及公开指南均免费，无需注册，也不用了解动漫剧情。",
+    "intro": "朋友说很期待见你，你会先开个小玩笑、简短回应、晚点私下说，还是当场把开心说出来？用约 4 分钟做完 16 道情境题，看看自己在彼此都愿意交流时更常选哪种说法。完整结果免费，无需注册。",
+    "deliverables": [
+      ["看清四种表达各选几次", "答完同时看到傲娇、冷娇、闷娇和热娇的原始次数。每项最多 16 次，四项合计 16 次。"],
+      ["读到所有并列最高结果", "最高次数相同的表达都会列出来，每种都有公开指南和具体对话。"],
+      ["复制结果名称和公开链接", "单项最高指向同语指南，多项并列会复制全部并列名称和测试入口。分享不带个人答案或次数。"]
+    ],
+    "interpretations": [
+      ["一个方向选得最多", "找一题你最确定的选项，回想平时在哪种场合也会这样说。试着说清一句关心，再看看对方是否愿意继续聊。"],
+      ["两个或三个方向并列", "想想为什么你在不同题里选了不同说法。例如在群里简短回应，到私下再慢慢补充。并列时可以分别比较对应的指南。"],
+      ["四项都是四次", "每题都选同一个位置就会得到这个结果。先核对选项是否真是你想说的，再挑一种愿意在下次交流用的表达。"]
+    ],
+    "profiles": {
+      "tsundere": ["傲娇｜逗一句，再认真说在意", "你在双方都喜欢开玩笑时，可能先打趣一句，再明确说出自己的关心或期待。", "朋友说期待周末见面，你先笑说别把期待拉太高，接着说你也很想见到对方。"],
+      "kuudere": ["冷娇｜平静地把关心说清", "你愿意用简短的话或一个明确安排回应对方，即使语气平静，关心也能说清楚。", "朋友说回家会很晚，你平静地回复路上注意安全，再问需不需要到家后互报平安。"],
+      "dandere": ["闷娇｜等到适合的时机再开口", "你可能想先整理措辞，等到比较熟悉或能私下说话时，再把想说的关心表达出来。", "聚会散场时你一时没找到话，晚上给朋友发条消息，认真说今天和对方一起玩很开心。"],
+      "deredere": ["热娇｜当面把开心说出来", "你更愿意直接表达谢意和期待，也会给对方留回应或先休息的空间。", "朋友帮你准备了材料，你当场说这份帮忙真的让你轻松不少，再邀请对方有空一起喝杯东西。"]
+    },
+    "faq": [
+      ["傲娇类型测试测什么？", "这份原创问卷借用动漫和网络文化中的四个称呼，记录你在 16 道朋友相处情境里选了哪些表达方式。它不划分固定人格。"],
+      ["没看过动漫，也没有恋爱经历，可以做吗？", "可以。题目讨论的是自愿的朋友互动，例如感谢、约见面或给对方支持，不需要知道作品剧情或提供伴侣信息。"],
+      ["怎样计分和保留并列？", "16 题每题四选一，给所选方向加 1 次。每项 0 至 16 次，合计 16 次。所有共同最高的方向都会保留。"],
+      ["冷娇和闷娇有什么区别？", "在这份问卷里，冷娇强调已经说出口的平静简短表达，闷娇强调想找熟悉、私下或稍后再开口的时机。"],
+      ["对方拒绝或沉默，可以理解成傲娇吗？", "现实里的拒绝、沉默、退开或不舒服都不能当成同意。问卷只讨论双方愿意交流时自己的表达，实际意愿应直接确认并尊重答复。"],
+      ["分享结果会公开我的答案吗？", "复制只带公开结果名称和同语链接，不带答案或个人次数。答题在浏览器计分，不保存进度，刷新、换语言或离开后需要重新开始。"]
+    ],
+    "formula": "16 题四选一，每选中一个方向就加 1 次。每项 0–16 次，四项合计 16 次。同为最高者全部保留。",
+    "boundary": "四个名称借自动漫与网络文化，是本问卷对表达方式的定义。原型不能用来诊断人格、焦虑或依恋，也不能判断他人的心意、同意或伴侣适配。现实里的拒绝、沉默、退开或不舒服都不构成同意。题本尚未完成心理测量验证。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的傲嬌類型測驗有16題朋友相處情境，比較傲嬌、冷嬌、悶嬌和熱嬌四種表達方式。答完可免費看四項次數、所有最高同分結果及公開指南。不用註冊，也不用熟悉動漫劇情。",
+    "intro": "朋友說很期待見面，你會先鬧一下、簡短回一句、晚點私下傳訊息，還是直接說你也很開心？約 4 分鐘完成 16 題生活情境，看看雙方都想聊天或相處時，你常用哪種說法。完整結果免費，免註冊。",
+    "deliverables": [
+      ["一次看四種說法各選幾次", "答完後可以同時查看四個方向的原始次數，單項最多 16 次，全部加起來是 16 次。"],
+      ["最高同分一起看", "同為最高的方向都會列出來。四篇公開指南會用不同對話讓你比較。"],
+      ["複製可以分享的結果連結", "一項最高時可以複製該項名稱與同語言的指南連結。如果有並列，會複製並列的名稱和測驗入口。"]
+    ],
+    "interpretations": [
+      ["一種說法選得最多", "挑一題當時很快就選得出來的情境，想想你最近在哪次對話也用了這種說法。下次可以留意對方好不好接話。"],
+      ["兩種或三種說法同分最高", "分別看看什麼場合會想這樣說。比如在群組先簡短回，回到私訊才把想說的補上。幾篇同分指南都可以讀。"],
+      ["四種說法都是四次", "每題都選同一個位置就會四項同分。確認那些選項是不是你想講的，再挑一種有興趣的說法試看看。"]
+    ],
+    "profiles": {
+      "tsundere": ["傲嬌｜先鬧一下，再說你在意", "你在雙方都喜歡開玩笑時，會先打趣一下，再讓對方知道你真的想說什麼。", "朋友說很期待見面，你笑說別把期待拉太高，接著補一句自己也很想見到對方。"],
+      "kuudere": ["冷嬌｜平靜地回一句關心", "你會用簡短的話或清楚的安排表示關心，說得平靜也能讓對方知道你的意思。", "朋友說晚上會很晚到家，你回「路上小心」，再問要不要到家後互傳一則訊息。"],
+      "dandere": ["悶嬌｜等找到想說的話再開口", "你想先在心裡排一排怎麼說，再找熟悉的時機或用私訊把關心講出來。", "聚會結束時你一時想不到怎麼說，晚上才傳訊息給朋友，告訴對方今天一起玩的時間很開心。"],
+      "deredere": ["熱嬌｜開心就說給對方聽", "你願意當下直接說出謝謝或期待，也讓對方有時間回應。", "朋友幫你找齊材料，你馬上說這幫了大忙，再問對方有空要不要一起喝杯飲料。"]
+    },
+    "faq": [
+      ["傲嬌類型測驗在測什麼？", "測驗借用動漫與網路文化裡的四個稱呼，記下你在 16 題朋友相處情境裡選了哪些說法。結果沒有固定人格的分類。"],
+      ["沒有看過動漫，也沒談過戀愛，能做嗎？", "可以。題目是雙方都願意互動的朋友情境，例如約見面、道謝或鼓勵，不需要知道劇情或提供伴侶資料。"],
+      ["四項次數怎麼算？同分會怎麼顯示？", "16 題每題四選一，選到的方向加 1 次。單項 0 到 16 次，加起來為 16 次。同為最高的方向會一起列出。"],
+      ["冷嬌和悶嬌差在哪裡？", "本測驗的冷嬌偏向用平靜、簡短的話說出關心。悶嬌偏向等到熟悉的時候、私下或晚一點再表達。"],
+      ["對方拒絕或不回應，是不是在傲嬌？", "拒絕、沉默、退開或表現出不舒服，都不能當成同意。現實互動應先直接確認對方是否願意，並尊重對方的回覆。"],
+      ["分享會把我的答案一起傳出去嗎？", "複製結果只會帶出公開名稱和同語言的連結，不會附作答或個人次數。測驗在瀏覽器內計分，不會保留答題進度。"]
+    ],
+    "formula": "16 題四選一，選到的方向加 1 次。每項 0–16 次，四項加起來是 16 次。同為最高的方向都會保留。",
+    "boundary": "傲嬌、冷嬌、悶嬌、熱嬌是借來比較說法的文化稱呼。這份測驗無法診斷人格、焦慮或依戀，也不能幫人猜對方的心意或判斷誰適合交往。拒絕、沉默、退開或不舒服都不等於同意。題本尚未完成心理計量驗證。"
+  },
+  "en": {
+    "facts": "FermatMind’s Dere Type Quiz compares four ways of showing care in 16 ordinary situations between friends: tsundere, kuudere, dandere, and deredere. It counts the responses someone chooses, shows all four totals, and keeps every result tied for first. The full quiz and four public guides are free without an account. No anime knowledge or dating experience is needed to take it.",
+    "intro": "A friend says they’re looking forward to seeing you. Would you joke first, reply calmly, say more later in private, or share your excitement right away? Take about four minutes to compare 16 situations where both people are happy to talk. Full results are free without an account.",
+    "deliverables": [
+      ["See all four response counts", "Each style gets its own count from 0 to 16. The four counts add up to 16 when you finish."],
+      ["Read each result that ties for first", "Every style that shares the highest count stays in your result. Compare examples of what each can sound like in conversation."],
+      ["Copy the result and a public link", "One highest result points to its public guide. A tie copies every result name with a link to the quiz. Your answers and counts stay private."]
+    ],
+    "interpretations": [
+      ["One style leads", "Pick a choice you made easily and remember a real conversation where you said something similar. You could try saying what you meant and giving your friend a moment to respond."],
+      ["Two or three styles share first", "Look for where you want one way of speaking and where you want another. You might reply briefly in a group chat, then say more in a private message."],
+      ["All four counts are four", "Choosing the same option position every time produces this tie. Check whether those responses suit you, then read the guide for a wording style you’d like to try."]
+    ],
+    "profiles": {
+      "tsundere": ["Tsundere · Follow a joke with care", "You might joke first when you both welcome the teasing, then say plainly that you care or look forward to seeing each other.", "When a friend says they’re excited about the weekend, gently tease them about the buildup and then tell them you’re excited too."],
+      "kuudere": ["Kuudere · Say it calmly and clearly", "You show care in a few clear words or by making a practical plan, even when your voice stays calm.", "If a friend says they’ll be home late, say you hope they get back safely and ask whether they want to check in later."],
+      "dandere": ["Dandere · Find your own time to speak", "You like a moment to think before you speak, or a more familiar or private setting to say what you mean.", "If you can’t find the words at the end of a gathering, send a private message when you get home to say how much you enjoyed it."],
+      "deredere": ["Deredere · Let your warmth show", "You’re comfortable saying you’re glad, grateful, or excited when you feel it, while giving your friend space to respond.", "When a friend brings supplies you needed, tell them right away how much it helped and ask if they’d like to get a drink sometime."]
+    },
+    "faq": [
+      ["What does the Dere Type Quiz measure?", "It records your choices in 16 friendship situations. The four names come from anime and internet culture and describe wording in this quiz. They do not classify people into fixed personalities."],
+      ["Do I need to know anime or have dating experience?", "No. The questions are about everyday interactions between people who want to spend time together, such as making plans, saying thanks, or offering support."],
+      ["How are the four counts and ties worked out?", "Each question offers one choice from each of the four styles. Your choice adds one to that style, so the four counts add up to 16. Every style that shares the highest count stays in the result."],
+      ["What’s the difference between Kuudere and Dandere?", "In this quiz, kuudere is about speaking calmly and briefly. Dandere is about when or where you speak, such as in private or after taking time to think."],
+      ["Does a refusal mean someone is playing Tsundere?", "Refusal, silence, pulling away, and discomfort do not mean consent. The quiz assumes both people want to interact. In real exchanges, ask directly and respect the answer."],
+      ["Does sharing the result show my answers?", "Copying a result shares public names and a link, without answers or counts. Scoring takes place in your browser and progress isn’t saved, so refreshing, leaving, or switching languages starts over."]
+    ],
+    "formula": "Choose one of four options in each of 16 questions. Add 1 to the corresponding style. Each count ranges from 0 to 16, the total is 16, and every highest tie is kept.",
+    "boundary": "The four names are cultural tropes used to compare ways of speaking. The quiz has no established reliability, validity or norms. Its results cannot establish personality, attachment, anxiety, compatibility or another person’s feelings. Refusal, silence, withdrawal and discomfort do not indicate consent."
+  }
+}

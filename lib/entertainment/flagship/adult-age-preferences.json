@@ -1,0 +1,101 @@
+{
+  "zh": {
+    "facts": "费马测试的年上年下恋爱倾向测试以18道成年伴侣情境二选一，记录年长、人生阶段相近与较年轻三种情境的原始次数。答完可免费查看最高及并列结果，也能直接读七篇公开指南。",
+    "intro": "一起计划见面或商量住处时，你更容易想象和怎样的成年伴侣协商？用约 5 分钟做完 18 道二选一，看看年长、生活阶段相近和较年轻的三种情境各被你选了几次。完整结果免费，无需注册。",
+    "deliverables": [
+      ["看清三种情境各选几次", "每题给被选情境加一次。答完可同时看到年长、生活阶段相近和较年轻三项原始次数。"],
+      ["读到完整的并列结果", "系统为三种单项最高、三种两项并列和三项并列各准备一份公开指南。"],
+      ["分享对应的公开指南", "你可以复制结果类别及同语指南链接，或打开结果分享图。分享只展示公开类别，不附答案或个人次数。"]
+    ],
+    "interpretations": [
+      ["一项领先，例如 8／7／3", "看看领先的情境中，你最在意的是哪项具体条件。差一次也会排出先后，不能用来判断偏好强弱。"],
+      ["两项最高并列，例如 8／8／2", "从两类情境里各选一个最贴近自己的细节，想想它们是同一种期待，还是分别适合不同的生活场合。"],
+      ["三项各选 6 次", "每项被选一样多，选择的理由仍可能不同。回顾一题最确定的和一题最难选的，看哪些条件真正在起作用。"]
+    ],
+    "profiles": {
+      "older-adult-context": ["愿意借一份已有经验", "你这次更常选年长情境，值得回看你究竟想听过去的经验，还是想把眼前的安排谈清楚。", "商量搬家时，你先听对方讲此前租房遇到的问题，再一起定预算和通勤上限。"],
+      "similar-age-context": ["从相近阶段一起摸索", "你这次更常选生活阶段相近的情境，可以想想好沟通来自共同处境，还是有机会从头一起商量。", "双方都刚换工作时，你提议每周先定一个见面时段，过两周再看看是否需要调整。"],
+      "younger-adult-context": ["分享做法，留出选择", "你这次更常选择较年轻成年伴侣的情境，可以留意自己喜欢的是分享熟悉的方法，还是一起适应变化。", "规划旅行时，你把熟悉的交通路线说给对方听，也愿意按对方想去的地方调整路线。"],
+      "older-similar-tie": ["遇事听经验，过日子谈节奏", "你这次选年长情境和生活阶段相近的情境同为最高。看看这两种选法各帮你解决什么问题。", "谈第一次租房时，你愿意听已有经验的人提醒风险。安排周末时，你更在意双方能同步日程。"],
+      "older-younger-tie": ["有时请教，有时把经验递过去", "你这次选择年长和较年轻成年伴侣的情境同为最高，可以想想哪些事想请教，哪些事愿意分享自己的经验。", "做长途出行计划时，你请有经验的伴侣建议出发时间，也愿意把自己更熟悉的换乘路线解释清楚。"],
+      "similar-younger-tie": ["一起尝试，也能各出一份力", "你这次在相近阶段和较年轻成年伴侣的情境之间并列。回看题目时，可以分清是共同起步还是互相帮忙更吸引你。", "谈同住安排时，你想一起试新的分工。遇到自己熟悉的报修流程，你愿意先给个做法，再听对方的意见。"],
+      "all-three-tied": ["三个方向各占六次", "你这次三个方向都选了六次。即使次数一样，也可以看看决定每一题的是不是同一个理由。", "选搬家情境时你看重经验，选见面情境时你看重时间合拍，选旅行情境时你更在意能否一起调整计划。"]
+    },
+    "faq": [
+      ["年上年下恋爱倾向测试测什么？", "这份测试记录你在年长、生活阶段相近和较年轻成年伴侣情境中的相对选择。题目同时包含年龄、经验、阶段与协商方式，不能分离出年龄本身的影响。"],
+      ["有多少题，哪里可以免费读结果？", "共 18 道二选一，约 5 分钟。题目、三项计数以及单项或并列的七篇公开指南全部免费，无需注册。"],
+      ["为什么两个情境会并列最高？", "每题给一个情境加 1 次。最高次数相同就保留并列，差一次不算并列。三项都并列时，每项一定是 6 次。"],
+      ["较年轻伴侣包括未成年人吗？", "题目里的较年轻伴侣均为成年人。问卷不要求填写实际年龄，也不提供理想年龄差或法律判断。"],
+      ["两个选项都不适合我，怎么办？", "原题本没有不适用选项。可以先退出或直接阅读公开指南。只有 18 题都有效作答后，才会显示本次解释。"],
+      ["复制链接或打开分享图会带上答案吗？", "不会。链接指向同语的公开结果指南，图片只展示结果类别。两者都不附个人答案或次数，测试也不会保存作答进度供以后查看。"]
+    ],
+    "formula": "18 题二选一，每题给所选方向 +1。每个方向参与 12 次比较，单项 0–12 次，三项合计 18 次。同为最高的方向全部保留。",
+    "boundary": "结果只记录这组成年情境中的相对选择，无法分离年龄、经验与生活阶段的影响。选项次数不能换算成吸引力、人群排名或理想年龄差，也不用于判断取向、关系安全、伴侣适配或关系结局。题本尚未完成心理测量或跨语言等值验证。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的年上年下戀愛傾向測驗有18題成年伴侶情境，每題二選一。答完免費列出年長、生活階段相近和較年輕三種情境的選擇次數，保留所有最高同分結果，七篇指南可直接閱讀。",
+    "intro": "如果要喬週末的時間、一起看房，或談談未來的安排，你比較容易想像和哪一類成年伴侶商量？做完 18 題二選一，看看三種情境各被你選了幾次。約 5 分鐘，免註冊，完整結果免費。",
+    "deliverables": [
+      ["三種情境都列出次數", "年長、生活階段相近和較年輕都有自己的次數。回答完 18 題，三項會一起顯示。"],
+      ["最高同分也有對應指南", "三種單項、三種兩項並列，以及三項並列都有各自的公開指南，想先看也可以。"],
+      ["把想聊的結果分享出去", "可以複製結果名稱和同語言的指南連結，也可開啟分享圖卡。兩種分享都只顯示公開的結果類別。"]
+    ],
+    "interpretations": [
+      ["有一項較多，例如 8／7／3", "挑一題確定自己為什麼會選，想想在日常裡哪個條件對你也有用。多一次只代表答題時多選一次。"],
+      ["兩項同為最高，例如 8／8／2", "從各自的情境挑一個你最有感的細節。你可能想在不同的事上用不同方式和伴侶商量。"],
+      ["三項次數一樣，都是 6 次", "可以找出一題很容易選、一題讓你猶豫很久的題目。比較你當時在意什麼，會比光看三個相同的數字清楚。"]
+    ],
+    "profiles": {
+      "older-adult-context": ["先聽聽走過的人怎麼說", "你這次比較常選年長伴侶的情境。可以回想自己當時是想請教經驗，還是單純希望有人把安排說清楚。", "一起看租屋時，你想先聽對方提醒合約有哪些細節，再一起把可接受的預算說清楚。"],
+      "similar-age-context": ["一起摸索當下的安排", "你這次較常選生活階段相近的情境，可以找找是共同處境讓你有共鳴，還是一開始就能一起做決定。", "兩人都剛到新公司時，你想先喬一個固定的見面時段，試兩週後再調整。"],
+      "younger-adult-context": ["可以提建議，也可以一起改", "你這次較常選較年輕的成年伴侶情境。想想你看重的是能分享熟悉的做法，還是願意配合變動。", "討論出遊時，你把自己熟悉的車班說清楚，也聽對方想去哪裡，再一起改行程。"],
+      "older-similar-tie": ["需要經驗，也想步調合得來", "你的年長情境和生活階段相近情境同為最高。試著找一件你想請教經驗的事，和一件你想從同個起點商量的事。", "第一次找租屋時，你願意先問有經驗的人。說到平常約見面，你更想確認彼此的時間能不能配合。"],
+      "older-younger-tie": ["知道什麼時候問，什麼時候分享", "你的年長與較年輕成年伴侶情境同為最高。可以回頭看看你在哪件事喜歡聽經驗，又在哪件事想分享自己的做法。", "安排去外地玩時，你想聽對方對出門時間的建議，也會把自己比較熟的轉車路線說明白。"],
+      "similar-younger-tie": ["一起試，也能在熟的事上幫忙", "你在生活階段相近和較年輕的成年伴侶情境中都選了同樣多次。看看你特別有感的是一起嘗試，還是在熟悉的地方提供幫忙。", "討論同住時，你想一起試新的分工方式。如果遇到自己熟悉的報修流程，也願意先提個方法，再問對方怎麼想。"],
+      "all-three-tied": ["三種情境都選了六次", "你這次三項都是六次。可以挑幾題分開看，確認每次選擇背後在意的是不是同一件事。", "談搬家時你在意有沒有相關經驗，喬見面時間時你在意步調，而在排旅程時，你想知道行程能不能一起調整。"]
+    },
+    "faq": [
+      ["年上年下戀愛傾向測驗在測什麼？", "它記錄你在三種成年伴侶情境中的選擇。因為題目也包含經驗、生活階段和商量的方式，結果無法單獨說明年齡的影響。"],
+      ["有幾題？完整結果要付費嗎？", "有 18 題二選一，約 5 分鐘。所有題目、完整次數和七篇公開指南都免費，不用註冊。"],
+      ["為什麼結果會有同分並列？", "選一項就為那個情境加 1 次。只要最高次數相同，就一起列出。差一次不算同分，三項同分時一定各是 6 次。"],
+      ["較年輕的伴侶會包含未成年人嗎？", "所有情境都只涉及成年人。測驗不用填實際年齡，也不提供建議的年齡差或法律判斷。"],
+      ["兩個選項都跟我不太像，還需要繼續嗎？", "可以先停下來，也可以直接閱讀指南。原題沒有不適用選項，18 題都有效作答才會出現本次解讀。"],
+      ["分享結果時會公開我的作答嗎？", "分享連結會開啟同語言的公開指南，分享圖卡也只顯示結果類別。作答或個人次數都不會附上，測驗也不會保留作答進度。"]
+    ],
+    "formula": "18 題每題二選一，選到的情境加 1 次。每個情境各出現 12 次，單項 0–12 次，三項合計 18 次。同為最高的情境都會保留。",
+    "boundary": "結果是這次成年伴侶情境的相對選擇，無法單獨分辨年齡、經驗和生活階段的影響。次數不能換算成吸引力、百分位或理想年齡差，也不適用於判斷取向、關係的安全性、對象是否適合或感情走向。題本尚未完成心理計量與跨語言等值驗證。"
+  },
+  "en": {
+    "facts": "FermatMind’s Dating Age Preference Quiz asks 18 paired questions about situations between adults. It counts choices involving an older adult, someone at a similar age or life stage, or a younger adult. The free result shows all three counts and keeps every direction that shares the highest count. Seven public guides explain the possible patterns and can be read without taking the quiz.",
+    "intro": "If you were planning a visit or discussing where to live, which kind of situation would feel easier to picture with an adult partner? Choose one of two options in each of 18 situations. The quiz takes about five minutes, and the full result is free without an account.",
+    "deliverables": [
+      ["See three separate choice counts", "You’ll see how many times you chose each situation involving an older adult, a similar life stage, or a younger adult."],
+      ["Read the guide for your result", "There’s a public guide for each of the three single highest results, three two-way ties, and the one three-way tie."],
+      ["Share a public version of the result", "Copy the result category and its guide link, or open the share image. Both show a public category. Your answers and counts stay out of the share."]
+    ],
+    "interpretations": [
+      ["One context leads, as in 8 / 7 / 3", "Find an answer where you can say what made it feel right. A one-count lead records one additional choice and gives no estimate of how strongly you feel."],
+      ["Two contexts share first, as in 8 / 8 / 2", "Pick a detail from each kind of situation. You might prefer one way of talking through a big decision and another for fitting plans into the week."],
+      ["All three score 6", "Pick one choice that felt easy and one that made you pause. Different reasons can produce the same final numbers."]
+    ],
+    "profiles": {
+      "older-adult-context": ["Draw on experience", "You chose older adult situations most often here. Look for the moments when familiarity with a task helped, or when the appeal was having a clear plan.", "While looking for a place to live, ask what surprised your partner on their last move and agree together on a budget you can both live with."],
+      "similar-age-context": ["Work it out from a similar starting point", "You chose situations involving a similar life stage most often. Consider whether a shared situation helped you imagine the conversation, or whether you liked working out the plan together.", "After both starting new jobs, suggest a regular night to see each other and revisit it after two weeks."],
+      "younger-adult-context": ["Offer an idea and leave room to choose", "You chose younger adult situations most often here. Think about whether you liked sharing a familiar approach, adapting to change together, or something else in the wording.", "When planning a trip, explain a route you know and adjust it if your partner wants to visit somewhere else."],
+      "older-similar-tie": ["Value experience and a shared pace", "You chose older and similar-stage situations equally often at the top. Try to name one thing you wanted to learn from experience and one thing you wanted to work out together.", "Before signing a lease, ask someone who has rented before about the tricky parts. When planning the weekend, check what works for both your schedules."],
+      "older-younger-tie": ["Ask for advice and share what you know", "You chose older and younger adult situations equally often at the top. Look for when you wanted to draw on someone else’s experience and when you wanted to bring your own.", "While planning a longer trip, ask your partner what departure time has worked for them before and share what you know about the connecting train."],
+      "similar-younger-tie": ["Start together and pitch in when you can", "You chose similar-stage and younger adult situations equally often at the top. Consider what was appealing about discovering something together and what made it appealing to help.", "For a new shared home, try a chores plan together. When something breaks, explain a repair process you know and ask how your partner wants to handle it."],
+      "all-three-tied": ["Three contexts, six choices each", "You chose each context six times. Look back at individual answers to see how much the reasons varied from one situation to the next.", "Experience might matter to you during a move, schedules when choosing a day to meet, and flexibility when planning a trip."]
+    },
+    "faq": [
+      ["What does the Dating Age Preference Quiz record?", "It records which situations you choose more often. The options combine age, experience, life stage and ways of making plans, so the counts cannot isolate what age alone contributes."],
+      ["How long is it, and are the full results free?", "It takes about five minutes to complete 18 paired questions. The questions, three counts and all seven public guides are free without an account."],
+      ["How can more than one situation tie for first?", "Each question adds one count to the chosen situation. Contexts that share the highest count tie, while a difference of one is still a difference. In a three-way tie, each count is six."],
+      ["Do younger-partner situations include minors?", "No. Younger always means an adult. The quiz does not ask for ages, recommend an age gap, or assess whether a relationship meets legal or safety requirements."],
+      ["What if neither choice is close to how I feel?", "You can stop and read the public guides. There’s no ‘not applicable’ option, and the quiz only interprets a complete set of 18 choices."],
+      ["Can someone see my answers from the share link or image?", "The link opens the public result guide in the same language, and the image shows the public result category. Neither contains your answers or personal counts. The quiz does not save progress for a later visit."]
+    ],
+    "formula": "Choose one of two options on each of 18 questions. Add 1 to its context. Each context appears 12 times and can score 0–12. The total is 18. Every context that shares the highest count stays tied.",
+    "boundary": "These counts describe choices among the adult situations in this quiz. The questions do not separate age from experience or life stage. The result cannot establish sexual orientation, an ideal age gap, attraction, relationship safety, compatibility, or an outcome. Psychometric validation and cross-language equivalence have not been established."
+  }
+}

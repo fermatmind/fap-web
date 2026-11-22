@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的希腊神测试含18道原创生活情境题，约6分钟，免注册。答完可免费看六位神话人物主题的计数及所有最高结果。公开指南用具体例子解读这些选择。",
+    "intro": "在社区筹备小展览，你会先安排分工、比较方案，还是写一段开场白？用约 6 分钟答完 18 道生活题，看看这次的选择更常落在哪个神话主题。完整结果免费。",
+    "deliverables": [
+      [
+        "看六项原始次数",
+        "每题加 1，总数 18；同为最高的结果会一起出现。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "每位神话人物都有一篇指南，可在作答前查看。"
+      ],
+      [
+        "复制公开名称和链接",
+        "单项最高复制名称与指南，并列复制全部最高名称和测试入口。链接不携带答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "宙斯最高，7 次",
+        "依次为 7、4、2、2、2、1。这份样张更偏向先把共同安排和责任说清楚。"
+      ],
+      [
+        "雅典娜与阿瑞斯各 5 次",
+        "六项为 2、5、2、2、5、2。比较清楚再决定，与找个安全的小挑战试一试，可以用在同一件事里。"
+      ],
+      [
+        "全选 A，六项各 3 次",
+        "每个主题在 A 位出现三次，因而保留六份指南。想了解自己，可以回看每题具体做法。"
+      ]
+    ],
+    "profiles": {
+      "zeus": [
+        "把一起做事的安排讲清楚",
+        "你这次常选先确认分工和各自愿意负责的部分。",
+        "筹备小展时，你先问谁能接待、谁能整理材料，再说明如何交接。"
+      ],
+      "athena": [
+        "先看看哪条路有余量",
+        "你这次常选比较路线、条件和取舍。",
+        "郊游前，你把两条步道的用时和休息点列出来，再选一条大家能走的。"
+      ],
+      "apollo": [
+        "替想法找到自己的节奏",
+        "你这次常选用声音、词句或节拍表达。",
+        "写活动开场白时，你读了两种版本，选听起来最自然的一个。"
+      ],
+      "aphrodite": [
+        "给相处留一点好看的细节",
+        "你这次较常选留意气氛、美感和别人是否愿意加入。",
+        "布置聚会桌时，你问朋友喜欢什么气氛，一起挑一组颜色。"
+      ],
+      "ares": [
+        "做一件能随时停的小挑战",
+        "你这次较常选从小处练习，先把范围定好。",
+        "学一个舞步时，你先练自己舒服的一拍，累了就坐下看示范。"
+      ],
+      "artemis": [
+        "按自己的步调留意周围",
+        "你这次较常选自己定观察对象和节奏。",
+        "散步时，你挑一段路线看树叶的变化，遇到认不出的就请朋友一起看。"
+      ]
+    },
+    "faq": [
+      [
+        "需要懂希腊神话吗？",
+        "不需要。题目是日常活动，任何性别、信仰的人都可作答。"
+      ],
+      [
+        "为什么只有六位人物？",
+        "本版选宙斯、雅典娜、阿波罗、阿芙罗狄蒂、阿瑞斯和阿尔忒弥斯，作为六种日常主题的比喻。"
+      ],
+      [
+        "18 道题怎么算？",
+        "每题给所选主题加 1。每个主题出现 12 次，单项 0–12，合计 18。"
+      ],
+      [
+        "并列最高会发生什么？",
+        "最高并列的完整指南都会保留。没有随机破平。"
+      ],
+      [
+        "雅典娜表示更聪明吗？",
+        "这里只统计当次选项，无法判断智力、美貌、能力、人格或职业匹配。"
+      ],
+      [
+        "分享会带答案吗？",
+        "公开分享只复制名称和链接，不含答卷、次数或个人 PNG。浏览器本地计分，刷新后不恢复进度。"
+      ]
+    ],
+    "formula": "18 题四选一，每题给相应主题加 1。每个主题出现 12 次，各项 0–12，全部合计 18。最高并列全部保留。",
+    "boundary": "大都会艺术博物馆关于希腊神祇的资料和《荷马颂诗》提供文化背景。六种生活主题由费马原创编写，只描述当次选择。结果不用于心理评估、宗教身份或命运判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的希臘神測驗有18道原創生活情境題，約6分鐘，免註冊。答完可免費查看六位神話人物主題的次數與並列結果。公開指南用生活例子說明不同做法。",
+    "intro": "社區想辦小展覽，你會先排分工、比較不同做法，還是想一段開場詞？花約 6 分鐘回答 18 道原創情境題，看看哪些神話人物主題最貼近這次的選擇。完整結果免費。",
+    "deliverables": [
+      [
+        "看六項選擇次數",
+        "每題替一個主題加 1 次，加起來是 18。並列最高都會列出。"
+      ],
+      [
+        "免費讀六篇公開指南",
+        "每位人物都有完整指南，還沒作答也能先看。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單項最高時分享名稱和公開指南；並列時分享全部最高名稱和測驗入口，不附作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "宙斯最高，7 次",
+        "六項依序為 7、4、2、2、2、1。可以回想什麼時候你會想先確認分工。"
+      ],
+      [
+        "雅典娜和阿瑞斯同分，各 5 次",
+        "六項依序為 2、5、2、2、5、2。一篇關注比較條件，另一篇關注先試一個自己能承受的小挑戰。"
+      ],
+      [
+        "一路選 A，六項都是 3 次",
+        "每個主題在 A 位都出現三次，所以會看到全部指南。可以回頭看每一題想問的是什麼。"
+      ]
+    ],
+    "profiles": {
+      "zeus": [
+        "先確認大家要怎麼一起做",
+        "你比較常選把分工、承諾和交接講清楚。",
+        "準備小展覽時，你先問誰負責迎接、誰整理資料，再對一下輪班時間。"
+      ],
+      "athena": [
+        "把幾條可能的路攤開來看",
+        "你比較常選比較條件、時間和可以接受的取捨。",
+        "要去走步道前，你比較路程和休息點，再跟夥伴選一條都走得來的。"
+      ],
+      "apollo": [
+        "用聲音和語句找到表達方式",
+        "你比較常選試一試節拍、語句或聲音，讓想法更容易被聽見。",
+        "你把活動開場詞讀了兩遍，最後留下自己講起來最順的版本。"
+      ],
+      "aphrodite": [
+        "留心讓大家舒服的小細節",
+        "你比較常選留意氣氛、顏色，以及對方願不願意一起參與。",
+        "布置聚會桌時，你先問大家喜歡什麼感覺，再一起挑布置方式。"
+      ],
+      "ares": [
+        "挑個能隨時停的練習",
+        "你比較常選先做一點難度可控的小練習。",
+        "學舞時，你先練一句八拍，累了就先在一旁看示範。"
+      ],
+      "artemis": [
+        "自己決定想看什麼和走多快",
+        "你比較常選按自己的步調觀察周圍。",
+        "散步時，你慢慢看沿路的樹葉，遇到沒見過的形狀就問同行的人。"
+      ]
+    },
+    "faq": [
+      [
+        "需要熟悉希臘神話嗎？",
+        "不用。都是日常情境，沒有性別、宗教或神話知識的門檻。"
+      ],
+      [
+        "有哪些人物？",
+        "宙斯、雅典娜、阿波羅、阿芙羅狄蒂、阿瑞斯和阿爾忒彌斯，代表本題選用的六個主題。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "四選一，替所選主題加 1。每個主題出現 12 次，個別 0–12，合計 18。"
+      ],
+      [
+        "好幾項同分怎麼辦？",
+        "所有並列最高的指南都一起列出。"
+      ],
+      [
+        "雅典娜表示比較聰明嗎？",
+        "測驗只整理這次選到的做法，無法判定智力、美感能力、人格、工作適配或神話身分。"
+      ],
+      [
+        "轉傳時會附上答案嗎？",
+        "公開分享複製名稱與連結，不附作答、次數或個人 PNG。測驗在瀏覽器內算分，重整後不會恢復進度。"
+      ]
+    ],
+    "formula": "18 題每題選一個做法，替對應主題加 1 次。六種各出現 12 次，單項 0–12，合計 18。同為最高時都會保留。",
+    "boundary": "大都會藝術博物館的資料與《荷馬頌詩》用來說明神話文化背景。費馬把六個人物寫成日常選擇的比喻，可用來回想當次作答，無法評估心理、宗教身分或命運。"
+  },
+  "en": {
+    "facts": "FermatMind’s Greek God Quiz has 18 original scenarios about ordinary voluntary activities and takes about six minutes. It is free without registration. Results show how often six myth-inspired approaches were chosen and retain every highest tie. All six public guides are open before answering. The scenarios require no knowledge of Greek mythology to complete them. The report uses raw choice counts.",
+    "intro": "A neighborhood needs ideas for a small exhibition. Would you coordinate the work, compare possible plans, or draft a few opening lines? Answer 18 everyday questions and see which myth-inspired approaches came up most often. It takes about six minutes, and the complete result is free.",
+    "deliverables": [
+      [
+        "See six raw counts",
+        "Each choice adds one, and all six counts add to 18. Every highest tie is retained."
+      ],
+      [
+        "Read six public guides free",
+        "Each figure has a guide with practical examples you can open without answering."
+      ],
+      [
+        "Share a public name and link",
+        "A single leader shares its guide. A tie shares all leading names and the quiz page, without choices or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Zeus leads at 7",
+        "The counts are 7, 4, 2, 2, 2, and 1. The sample most often chose to clarify an agreement or arrange who does what."
+      ],
+      [
+        "Athena and Ares tie at 5 each",
+        "The counts are 2, 5, 2, 2, 5, and 2. Comparing routes and trying a small, bounded challenge can both help in one activity."
+      ],
+      [
+        "All A: six themes with 3 each",
+        "Each theme appears three times in position A, so every guide is shown. Look at what each choice described before reading into the pattern."
+      ]
+    ],
+    "profiles": {
+      "zeus": [
+        "Agree on who can do what",
+        "You often chose to clarify roles and shared arrangements.",
+        "Before a community exhibit, you check who can greet visitors and who can prepare materials."
+      ],
+      "athena": [
+        "Compare routes before setting out",
+        "You often chose to consider conditions and trade-offs before deciding.",
+        "Before a walk, you compare two paths for time and rest stops, then pick one everyone can manage."
+      ],
+      "apollo": [
+        "Find a rhythm for what you want to say",
+        "You often chose sound, words, or rhythm to express an idea.",
+        "You read two versions of an opening aloud and keep the one that sits naturally in your voice."
+      ],
+      "aphrodite": [
+        "Notice what would make a gathering feel welcoming",
+        "You often chose to look at how colors and atmosphere affect a willing group.",
+        "When setting out a table, you ask what atmosphere friends want, then pick colors together."
+      ],
+      "ares": [
+        "Try a small challenge you can stop",
+        "You often chose a manageable practice with clear limits.",
+        "While learning a dance, you try one short sequence and sit out the next one when you want a break."
+      ],
+      "artemis": [
+        "Choose your own pace and look around",
+        "You often chose to pick what to notice and how fast to go.",
+        "On a walk, you stop to look at leaf shapes and ask a friend when you see a tree you do not recognize."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to know Greek mythology?",
+        "No. These are ordinary scenarios. The quiz asks for no mythology knowledge, gender, or religious identity."
+      ],
+      [
+        "Which figures appear?",
+        "Zeus, Athena, Apollo, Aphrodite, Ares, and Artemis. They supply six themes for this edition."
+      ],
+      [
+        "How are the 18 questions counted?",
+        "Choose one of four options each time. A choice adds one to its theme. Each theme appears 12 times and all counts add to 18."
+      ],
+      [
+        "What if there is a tie?",
+        "The result keeps the full guide for every theme tied for the highest count."
+      ],
+      [
+        "Does Athena mean higher intelligence?",
+        "The counts summarize choices in these scenarios. They do not assess intelligence, appearance, ability, or job fit."
+      ],
+      [
+        "Will sharing include my answers?",
+        "Public links carry no answers or counts, and there is no personal PNG. Scoring runs in the browser, and unfinished sessions do not resume after reload."
+      ]
+    ],
+    "formula": "Choose one of four answers in each of 18 scenarios. Each choice adds one to its theme. Each theme appears 12 times, so counts are 0–12 and add to 18. All highest ties are kept.",
+    "boundary": "The Met’s account of Greek gods and the Homeric Hymns provide cultural context. FermatMind wrote these six everyday themes for this quiz. The counts provide no psychological assessment, religious identity, or prediction of fate."
+  }
+}

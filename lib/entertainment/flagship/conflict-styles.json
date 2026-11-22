@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的冲突处理风格测试用20道原创题回顾近四周的普通分歧，约4分钟。免费呈现五类应对的独立频率均分、计分题数及完整的情境解读指南。",
+    "intro": "开会卡在两个方案之间，你是继续把自己的理由说完，先问清各自要什么，还是暂停十分钟？想想最近四周你实际做过的事。",
+    "deliverables": [
+      [
+        "五种做法",
+        "分别看坚持方案、共同解题、交换让步、暂时退开和让出选择。"
+      ],
+      [
+        "有效题数",
+        "每组四题，显示哪些组具备完整计分。"
+      ],
+      [
+        "五份指南",
+        "用普通协作场景把读数放回当时的限制。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "坚持前说清原因",
+        "把必须满足的条件说出来，让别人知道你具体在坚持什么。"
+      ],
+      [
+        "暂停后留个约定",
+        "如果适合继续讨论，可以一起定下重谈的时间。"
+      ],
+      [
+        "有空白也能读指南",
+        "近四周没碰到某种状况，可以先略过计分。"
+      ]
+    ],
+    "profiles": {
+      "pressing-own-plan": [
+        "先把你的理由讲完",
+        "你遇到分歧时可能继续争取已有方案。",
+        "排练时间起冲突，你解释为什么这周只能保留原时段。"
+      ],
+      "joint-problem-solving": [
+        "找一个能一起做的方案",
+        "你会问清各自的要求，再想有没有新的解法。",
+        "两人都需要会议室，你们先看看各自需要多长时间。"
+      ],
+      "trading-concessions": [
+        "交换可以调整的部分",
+        "你愿意划出可让步的地方，也会谈自己的条件。",
+        "你同意提前开会，请对方把第一项议程压到十分钟。"
+      ],
+      "stepping-back": [
+        "把话先放一放",
+        "你可能先退出这次讨论，等情况明朗再决定是否回来。",
+        "讨论拖到最后一班车前，你说需要暂停。"
+      ],
+      "yielding-choice": [
+        "把这一次选择交给对方",
+        "你有自己的想法，也能把眼前的决定让给别人。",
+        "做共同演示时，你让负责讲解的人先挑展示顺序。"
+      ]
+    },
+    "faq": [
+      [
+        "需要回想多久？",
+        "想近四周在同一个普通学习、工作或共同任务里遇到的分歧。"
+      ],
+      [
+        "五项读数如何计算？",
+        "每组四题按频率计1–5分，四题都有效才算均分。"
+      ],
+      [
+        "没碰过相关情况怎么办？",
+        "选不计分，20题都有选择即可看结果与指南。"
+      ],
+      [
+        "会分出一种固定类型吗？",
+        "页面分别显示五项频率，场合、任务和当时的限制都会影响做法。"
+      ],
+      [
+        "这是托马斯－基尔曼测验吗？",
+        "本题本为费马原创。既有框架只作概念背景。"
+      ],
+      [
+        "复制会带上个人结果吗？",
+        "公开分享保留同语测试入口，个人分数和答案不进入链接。"
+      ]
+    ],
+    "formula": "20题分五组，每组4题，按1–5记频率。组内4题都有效才显示均分，不计分项不参与计算。",
+    "boundary": "只回顾自己在普通分歧中的做法。若担心安全，可以直接离开题本或阅读指南，无需为获得读数回到不安全的场合。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的衝突處理風格測驗以20道原創題回顧近四週的一般分歧，約4分鐘。免費提供五種做法的獨立頻率平均、計分題數與完整的生活情境指南。",
+    "intro": "共用空間同時被兩組人訂走，你會堅持原安排、一起找場地，還是先暫停一下？請回想最近四週確實發生過的事。",
+    "deliverables": [
+      [
+        "看五種做法",
+        "分別看堅持提案、共同找解法、交換讓步、暫時退開和讓對方選。"
+      ],
+      [
+        "確認有效題數",
+        "每組四題，結果單獨標示有多少題納入計算。"
+      ],
+      [
+        "讀五份指南",
+        "用討論分工或變更安排的例子解讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把不能改的條件講清楚",
+        "要保留原安排時，可以先說明為何重要。"
+      ],
+      [
+        "先停一下也可以",
+        "若適合繼續，暫停時可一起約稍後再談。"
+      ],
+      [
+        "保留沒有評分的面向",
+        "碰不到相應的情況可以先讀指南。"
+      ]
+    ],
+    "profiles": {
+      "pressing-own-plan": [
+        "說清楚為何想照原計畫",
+        "你遇到異議時，可能會繼續爭取自己的做法。",
+        "小組想臨時換排練時段，你說明原本的安排為何不能改。"
+      ],
+      "joint-problem-solving": [
+        "把雙方需要列出來",
+        "你會先確認大家要什麼，再找兩邊都能接受的方式。",
+        "兩組都想借教室，你問彼此各需要借用多久。"
+      ],
+      "trading-concessions": [
+        "一起談可以交換的條件",
+        "你能讓出一部分，也等對方說他可以調整哪裡。",
+        "你同意提早開會，也請大家把前一段議程縮短。"
+      ],
+      "stepping-back": [
+        "先讓討論停一停",
+        "你可能先離開當下的討論，晚一點再決定是否回來。",
+        "快趕不上末班車時，你先向同伴說今天需要暫停。"
+      ],
+      "yielding-choice": [
+        "這一次由對方決定",
+        "你也有自己的偏好，有時會讓對方先選。",
+        "一起做簡報時，你讓要上台的組員決定先放哪一頁。"
+      ]
+    },
+    "faq": [
+      [
+        "要想多久前的事？",
+        "以近四週同一個工作、學習或共同任務中的分歧為主。"
+      ],
+      [
+        "平均怎麼算？",
+        "每組四題按頻率給1到5分，四題均計分才有平均。"
+      ],
+      [
+        "沒發生過怎麼填？",
+        "可選不計分。每題都有一項選擇後即可看各組讀數。"
+      ],
+      [
+        "會被分到固定類型嗎？",
+        "五組分別顯示，請把讀數和實際情境一起看。"
+      ],
+      [
+        "這是正式TKI嗎？",
+        "這是費馬原創題目，相關架構作概念背景。"
+      ],
+      [
+        "分享連結會帶分數嗎？",
+        "分享內容連到同語言的公開入口，沒有你的答案和讀數。"
+      ]
+    ],
+    "formula": "共20題，五組各4題。頻率以1到5分計算，每組4題都有效才有平均。不計分選項不納入。",
+    "boundary": "用來回顧一般生活中的分歧。若某個場合安全有疑慮，可略過或直接離開，無須為了答題回到衝突中。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Conflict Styles Test uses 20 original questions to review how one person handles ordinary disagreements over the past four weeks. It takes about four minutes and reports five separate frequency averages with the number of answers counted in each group. All five public guides cover concrete responses in work, study, or another shared task and are available without an account.",
+    "intro": "A shared room gets double-booked. Do you explain why you need it, ask what each group can move, or step away from the discussion for now? Start with what you have actually done.",
+    "deliverables": [
+      [
+        "Five separate readings",
+        "Compare pressing ahead, solving together, exchanging concessions, stepping back and yielding a decision."
+      ],
+      [
+        "Rated-item counts",
+        "See whether each four-item group had enough responses to be scored."
+      ],
+      [
+        "Five full guides",
+        "Read concrete examples involving a schedule, a shared space or a group task."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Name what needs to stay",
+        "If you want to keep a plan, state the reason others need to know."
+      ],
+      [
+        "Pause with room to return",
+        "If it is appropriate to resume, you can agree on a time to pick the discussion back up."
+      ],
+      [
+        "Leave an unfamiliar situation unscored",
+        "The guide can still be useful even if the situation did not occur."
+      ]
+    ],
+    "profiles": {
+      "pressing-own-plan": [
+        "Make the case for your plan",
+        "You may keep advocating for your plan when someone disagrees.",
+        "Asked to move a rehearsal, you explain why the original slot matters this week."
+      ],
+      "joint-problem-solving": [
+        "Find a way through together",
+        "You ask what both sides need before proposing a new arrangement.",
+        "Two groups need one room, so you ask which parts of the booking each group actually needs."
+      ],
+      "trading-concessions": [
+        "Put the exchange into words",
+        "You can let part of an arrangement go in exchange for something you need.",
+        "You agree to start a meeting early if the first agenda item stays brief."
+      ],
+      "stepping-back": [
+        "Let the discussion wait",
+        "You may pause or leave a disagreement and decide separately whether to come back.",
+        "You say you need to stop for the day when the group runs close to the last train."
+      ],
+      "yielding-choice": [
+        "Let someone else pick this time",
+        "You have a preference and sometimes choose to give the decision to another person.",
+        "While making a presentation, you let its speaker choose the first example."
+      ]
+    },
+    "faq": [
+      [
+        "What time period should I use?",
+        "Use the past four weeks in one ordinary work, study, or shared-task setting."
+      ],
+      [
+        "How are the averages calculated?",
+        "Each group includes four frequency ratings from 1 to 5 and needs all four scored."
+      ],
+      [
+        "What if I did not encounter a situation?",
+        "Choose unscored. Complete all 20 choices to see the available readings and all guides."
+      ],
+      [
+        "Will the quiz give me one type?",
+        "It shows five independent sets of reported responses. Look at where and when you used them."
+      ],
+      [
+        "Is this the Thomas–Kilmann assessment?",
+        "This is an original FermatMind questionnaire. Related frameworks provide conceptual background."
+      ],
+      [
+        "Will sharing include my responses?",
+        "The share text points to the public page in the same language without answers or readings."
+      ]
+    ],
+    "formula": "There are five groups of four items, rated from 1 to 5 by frequency. Each group requires all four ratings to display its mean. Unscored choices do not enter the mean.",
+    "boundary": "Reflect on your own actions in ordinary disagreements. You can leave or read a guide if a situation feels unsafe. A score never requires returning to that situation."
+  }
+}

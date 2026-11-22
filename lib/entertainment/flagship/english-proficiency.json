@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的英语水平练习用24道原创题回顾语法、词义、阅读与功能性书面表达，约10分钟。免费查看四组正确数、逐题解析及完整公开的练习指南。",
+    "intro": "一句通知或一段邮件，哪部分真的说了需要做什么？按题目给的句式、短文和任务作答，做完可逐题查看依据。",
+    "deliverables": [
+      [
+        "四组书面英语题",
+        "语法、词汇、阅读、功能书写各六题。"
+      ],
+      [
+        "参考答案和解释",
+        "看题面哪些字句决定了合适的选项。"
+      ],
+      [
+        "四份公开练习指南",
+        "可以先挑一类热身。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先确认所需句式",
+        "看主语、动词和题目指定的结构。"
+      ],
+      [
+        "回到前后文查词义",
+        "确认词语在该句里承担的意思。"
+      ],
+      [
+        "用证据答阅读题",
+        "区分原文写出的内容和自己补进去的推断。"
+      ]
+    ],
+    "profiles": {
+      "grammar": [
+        "先看句子要什么结构",
+        "你可以从位置与句意判断词形。",
+        "填空前，你先找句子中需要谓语的位置。"
+      ],
+      "vocabulary": [
+        "在原句里比较词义",
+        "你会把相近选项放回一句话里看。",
+        "读邮件时，你用后一句的安排核对“available”的意思。"
+      ],
+      "reading": [
+        "先标出能用的证据",
+        "你可以回到段落找直接支持答案的句子。",
+        "短文说有条件延期，你先找条件再决定选项。"
+      ],
+      "functional": [
+        "确认答复是否保留下一步",
+        "你可以检查回复有没有覆盖对方请求、时间和限制。",
+        "填写活动邮件时，你写清哪天到，以及怎样确认。"
+      ]
+    },
+    "faq": [
+      [
+        "一共有几题？",
+        "四组各6题，共24道。"
+      ],
+      [
+        "包含听力和口语吗？",
+        "只练题中指定的书面英语。"
+      ],
+      [
+        "有时间限制吗？",
+        "没有，约10分钟为估计。"
+      ],
+      [
+        "答对几题算过级？",
+        "正确数用于复习本题组，没设置等级或通过线。"
+      ],
+      [
+        "题目如何给分？",
+        "选择与唯一参考答案一致得1次。"
+      ],
+      [
+        "分享会带个人成绩吗？",
+        "只连到同语公开练习。"
+      ]
+    ],
+    "formula": "24题四组各6，选中参考答案计1、其余有效选择为0。答完后列出分组和总正确数。",
+    "boundary": "结果仅反映本组四类书面练习。不能兑换为CEFR、雅思或托福分数，也不评价口语和听力。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的英語程度練習以24道原創題回顧文法、詞義、閱讀與實用書面表達，約10分鐘。免費提供四組答對題數、逐題解說及完整的公開練習指南。",
+    "intro": "一封信說了要在什麼時候回覆嗎？依照題目給的句型、短文與需求選答案，填完再逐題查看。",
+    "deliverables": [
+      [
+        "四組書面英語",
+        "文法、單字、閱讀和實用寫作各有6題。"
+      ],
+      [
+        "解答與依據",
+        "看哪些字句和條件支持參考答案。"
+      ],
+      [
+        "四份公開指南",
+        "先找一個想練的部分也可以。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看題目指定的句型",
+        "找出主語、時態或所需的句子結構。"
+      ],
+      [
+        "把單字放回前後文",
+        "用同一段文字核對意思。"
+      ],
+      [
+        "確認自己有用到原文",
+        "把看到的證據和想到的推測分開。"
+      ]
+    ],
+    "profiles": {
+      "grammar": [
+        "先看文法位置",
+        "你可以注意句子裡要放名詞還是動詞。",
+        "填空前，你先找主詞與主要動詞。"
+      ],
+      "vocabulary": [
+        "在文句中選用法",
+        "你會確認相似詞放進去時意思是否一樣。",
+        "看預約訊息時，你用後面的時段辨認詞義。"
+      ],
+      "reading": [
+        "用文本的話作答",
+        "你可以回到文章找支持選項的句子。",
+        "通知說可以延期，你先確認需滿足的條件。"
+      ],
+      "functional": [
+        "把資訊說到讓人能接著做",
+        "你會看回覆是否寫到對方需要的下一步。",
+        "回活動郵件時，你寫清出席時間和確認方式。"
+      ]
+    },
+    "faq": [
+      [
+        "有幾道題？",
+        "四組各6題，共24題。"
+      ],
+      [
+        "有聽力和口說嗎？",
+        "題目涵蓋指定的書面英語練習。"
+      ],
+      [
+        "會倒數嗎？",
+        "沒有計時，通常約10分鐘。"
+      ],
+      [
+        "能換成檢定級別嗎？",
+        "分數只記本題組答對的次數。"
+      ],
+      [
+        "選對怎麼計？",
+        "與參考答案吻合就加1。"
+      ],
+      [
+        "公開連結會附我的作答嗎？",
+        "分享只連到同語言練習。"
+      ]
+    ],
+    "formula": "四組各六題，共24題。每道答案與參考答案相同就加1，完成後顯示分組與總次數。",
+    "boundary": "這是書面英語練習的回顧，不是CEFR、雅思或托福檢定，也不評量口說和聽力。"
+  },
+  "en": {
+    "facts": "FermatMind’s free English Proficiency practice uses 24 original questions on grammar, vocabulary in context, reading evidence, and functional written English. It takes about ten minutes and provides four section counts, every answer and explanation, and four complete public guides. Readers can practise with supplied sentences, short passages and messages without creating an account, taking a timed exam, or submitting a recording.",
+    "intro": "Does a notice ask for a reply by the end of the day? Find the structure or the line of evidence that resolves each short written task.",
+    "deliverables": [
+      [
+        "Four sections",
+        "Six items each on grammar, vocabulary, reading, and functional written English."
+      ],
+      [
+        "Worked answers",
+        "Review what makes each option fit the stated text or writing task."
+      ],
+      [
+        "Four public guides",
+        "Pick an area to warm up or review after answering."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Identify the requested construction",
+        "Check the subject, tense, and sentence position before choosing."
+      ],
+      [
+        "Check a word in its sentence",
+        "Use the neighboring words or message to resolve similar meanings."
+      ],
+      [
+        "Look for evidence in the text",
+        "Say which line supports the choice."
+      ]
+    ],
+    "profiles": {
+      "grammar": [
+        "Find the place in the sentence",
+        "You can use the requested structure to decide what kind of word belongs there.",
+        "Before filling a blank, you locate the subject and verb it depends on."
+      ],
+      "vocabulary": [
+        "Use the word in context",
+        "You can compare similar choices within the whole sentence.",
+        "In a booking email, you check the following time window to understand the word available."
+      ],
+      "reading": [
+        "Keep a claim tied to a line",
+        "You can separate information in the passage from a guess.",
+        "If a notice mentions an extension, you check the condition that applies."
+      ],
+      "functional": [
+        "Keep the next step in the reply",
+        "You can check that a written response states the needed details.",
+        "You include your arrival time and how you will confirm it in a short event reply."
+      ]
+    },
+    "faq": [
+      [
+        "How many items are there?",
+        "There are 24, with six in each section."
+      ],
+      [
+        "Does it cover speaking or listening?",
+        "The practice uses the written English situations described here."
+      ],
+      [
+        "Is the practice timed?",
+        "No. Ten minutes is an estimate."
+      ],
+      [
+        "Can I convert this to a language level?",
+        "The counts describe this set of written questions."
+      ],
+      [
+        "What counts as correct?",
+        "Selecting the item’s keyed answer adds one."
+      ],
+      [
+        "What can I share?",
+        "The public same-language practice link contains no personal results."
+      ]
+    ],
+    "formula": "Four sections contain six questions each. A choice that matches the keyed answer adds one, and another valid choice adds zero. Complete all 24 for the counts.",
+    "boundary": "This is written practice, without a spoken or listening task. Counts are not a CEFR, IELTS, or TOEFL result."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的德语水平练习用28道原创题回顾冠词与格、动词、句子结构和短文阅读，约14分钟。免费查看四组正确数、逐题解释和完整的公开练习指南。",
+    "intro": "选德语冠词时，先找这个词在句里做什么；读一条告示时，则看清时间和例外。28题都按题面给出的标准书面语条件作答。",
+    "deliverables": [
+      [
+        "四个专题",
+        "每组七题，分别练冠词与格、动词、语序和短文。"
+      ],
+      [
+        "逐题解释",
+        "看相关性别、数、格、时态或文本条件。"
+      ],
+      [
+        "四份公开指南",
+        "可以先去复习一个感到陌生的题型。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先确认名词的角色",
+        "在选冠词前看限定条件和句中功能。"
+      ],
+      [
+        "保留限定动词的位置",
+        "用题目指定的结构依次检查。"
+      ],
+      [
+        "给短文细节加上条件",
+        "留意截止时间只适用哪些人。"
+      ]
+    ],
+    "profiles": {
+      "articles-and-cases": [
+        "从句中功能选冠词",
+        "你可以把名词的性数和所在结构放在一起审查。",
+        "在填空前，你先判断这个短语是不是动词的宾语。"
+      ],
+      "german-verb-forms": [
+        "让动词与句子对齐",
+        "你可以一同核对主语、时间和必需结构。",
+        "你先定位主语，再确定动词要用哪一种形式。"
+      ],
+      "sentence-structure": [
+        "把句子框架画出来",
+        "你会找限定动词和其他句子成分各放在哪。",
+        "遇到从句时，你先找连接词，再确认动词位置。"
+      ],
+      "short-german-texts": [
+        "带着条件读短文",
+        "你可以把每条细节归到它实际适用的场合。",
+        "读活动通知时，你区分普通报名时间和提前报名期限。"
+      ]
+    },
+    "faq": [
+      [
+        "有多少道题？",
+        "28题，四组各7题。"
+      ],
+      [
+        "题目使用什么德语？",
+        "使用书面德语，按题目指定的用法和条件比较。"
+      ],
+      [
+        "有时间限制吗？",
+        "不计时，约14分钟。"
+      ],
+      [
+        "怎么评分？",
+        "每题与参考答案匹配加1，没有部分分。"
+      ],
+      [
+        "会给CEFR等级吗？",
+        "这份练习只提供本题集的正确数，不做检定。"
+      ],
+      [
+        "能分享答题记录吗？",
+        "公开分享只打开同语练习入口。"
+      ]
+    ],
+    "formula": "四组各7题，合计28题。符合参考答案记1，其他有效选择记0。没有速度调整或部分分。",
+    "boundary": "这是书面德语练习。分数不等于CEFR、歌德证书或口语听力评估。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的德語程度練習以28道原創題回顧冠詞與格、動詞變化、句子結構和短文閱讀，約14分鐘。免費提供分組題數、逐題解說及完整的公開指南。",
+    "intro": "遇到冠詞，先找名詞在句子裡的角色。看短文時，先抓誰適用哪一個條件。按題目明示的書面德語方式選答案。",
+    "deliverables": [
+      [
+        "四組共28題",
+        "各7題，分開練冠詞、動詞、語序與文字理解。"
+      ],
+      [
+        "逐題解說",
+        "把格、時態或限制和答案一起看。"
+      ],
+      [
+        "四份公開指南",
+        "可依自己想練的順序閱讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "從句子位置找線索",
+        "選冠詞前，看名詞片語的功能與條件。"
+      ],
+      [
+        "先找到限定動詞",
+        "確認這個結構要把它擺在哪裡。"
+      ],
+      [
+        "讀清楚例外條件",
+        "同一份公告的不同期限可能適用不同人。"
+      ]
+    ],
+    "profiles": {
+      "articles-and-cases": [
+        "弄清句中角色再選冠詞",
+        "你可以把該名詞的性數和句中功能一起看。",
+        "填空前，你先確認這個片語是不是動詞的受詞。"
+      ],
+      "german-verb-forms": [
+        "看主詞、時間和動詞一致嗎",
+        "你會檢查這個句型需要的時態和人稱變化。",
+        "選答案前，你先標出主詞與時間詞。"
+      ],
+      "sentence-structure": [
+        "先把句子的框架標出來",
+        "你可以找連接詞、限定動詞及其他成分的位置。",
+        "看到一個從屬連接詞後，你再檢查動詞放在哪裡。"
+      ],
+      "short-german-texts": [
+        "把細節還給適用的人",
+        "你會核對哪一項限制適用哪一組。",
+        "讀報名公告時，你分開看一般期限和提前報名的期限。"
+      ]
+    },
+    "faq": [
+      [
+        "有幾題？",
+        "28題，四組各7題。"
+      ],
+      [
+        "題目採用哪種德語？",
+        "依題目指定的標準書面德語條件填答。"
+      ],
+      [
+        "要在一定時間做完嗎？",
+        "沒有計時，約14分鐘。"
+      ],
+      [
+        "如何算答對？",
+        "符合唯一參考答案加1，不計部分分。"
+      ],
+      [
+        "會顯示語言等級嗎？",
+        "只顯示這份練習的答對數。"
+      ],
+      [
+        "分享會給別人看到作答嗎？",
+        "同語言公開連結沒有你的記錄。"
+      ]
+    ],
+    "formula": "28題分成四組各7題。選項與參考答案一致就加1；其他有效選項為0，不因速度加分。",
+    "boundary": "這份練習只涵蓋指定的書面德語題。不換算CEFR或歌德檢定等級，也不測口說和聽力。"
+  },
+  "en": {
+    "facts": "FermatMind’s free German Proficiency practice uses 28 original written tasks about articles and cases, verb forms, sentence structure, and short texts. It takes about fourteen minutes and provides four section counts, every keyed answer and explanation, and four complete public guides. Readers can practise with the stated language conditions without signing up, racing a timer, or submitting any spoken or written personal material.",
+    "intro": "Before choosing an article, consider what role its noun plays. Before answering about a notice, check which people its exception applies to. Use the written German conditions each question gives.",
+    "deliverables": [
+      [
+        "Four groups of seven",
+        "Review articles and cases, verb forms, structure, and short texts."
+      ],
+      [
+        "Worked answers",
+        "See the grammatical or textual evidence for each option."
+      ],
+      [
+        "Four complete guides",
+        "Pick a group to read or practise first."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with the noun phrase",
+        "Check its role, gender, and number before picking an article."
+      ],
+      [
+        "Locate the finite verb",
+        "See what the specified structure does to its position."
+      ],
+      [
+        "Scope details to the right group",
+        "A notice may set a different deadline for some readers."
+      ]
+    ],
+    "profiles": {
+      "articles-and-cases": [
+        "Match the article to the role",
+        "You can combine gender, number and case with what the phrase is doing.",
+        "Before choosing an article, you check whether the phrase is the object of a verb."
+      ],
+      "german-verb-forms": [
+        "Check who acts and when",
+        "You can use the stated subject, tense and construction to decide the verb form.",
+        "You underline the subject and time expression before filling in the verb."
+      ],
+      "sentence-structure": [
+        "Work out the sentence frame",
+        "You can find the finite verb and how the parts fit around it.",
+        "In a subordinate clause you find the conjunction before checking word order."
+      ],
+      "short-german-texts": [
+        "Tie the detail to its condition",
+        "You can locate the line that limits a short text’s claim.",
+        "In a notice, you distinguish the regular deadline from an earlier one for registration."
+      ]
+    },
+    "faq": [
+      [
+        "How many tasks are there?",
+        "There are 28, with seven in each section."
+      ],
+      [
+        "Which German is used?",
+        "Follow each item’s specified standard written German conditions."
+      ],
+      [
+        "Is there a time limit?",
+        "No. Fourteen minutes is an estimate."
+      ],
+      [
+        "How is each task scored?",
+        "One point for the keyed option, with no partial credit."
+      ],
+      [
+        "Will the result give a CEFR level?",
+        "It gives the correct count for these written questions, without a proficiency level."
+      ],
+      [
+        "What is shared?",
+        "The same-language public practice link carries no personal answers."
+      ]
+    ],
+    "formula": "Four sections contain seven tasks each. A choice matching its key adds one. Other valid choices add zero. There is no time bonus or partial credit.",
+    "boundary": "Use this to review the supplied written tasks. Results do not establish a CEFR level, a Goethe certificate, or listening and speaking proficiency."
+  }
+}

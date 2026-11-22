@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { QuestionnaireTakeEntry } from "./QuestionnaireTakeEntry";
 import { MentalAgeClassicClient } from "./MentalAgeClassicClient";
+import { MentalAgeLanding } from "./MentalAgeLanding";
 import { mentalAgeStyles } from "@/lib/questionnaires/mentalAge";
 
 export function MentalAgeClassicPage({quiz,locale,take=false,guide=false, traditionalCopy }:{quiz:Questionnaire;locale:Locale;take?:boolean;guide?:boolean; traditionalCopy?: (text: string) => string }) {
@@ -11,6 +12,7 @@ export function MentalAgeClassicPage({quiz,locale,take=false,guide=false, tradit
   const displayText = (text: string) => traditionalCopy?.(text) ?? text;
  const zh=locale==="zh",path=`/${displayLocale}/tests/explore/mental-age`,profile=quiz.profiles[0];
  if(take)return <MentalAgeClassicClient quiz={quiz} locale={locale}/>;
+ if(!guide) return <MentalAgeLanding quiz={quiz} locale={displayLocale} />;
  return <main className="mx-auto max-w-4xl px-5 py-10 sm:py-16" data-mental-age-classic-public data-mental-age-result-reading={guide?"true":undefined}>
   <h1 className="text-4xl font-semibold leading-tight">{guide?profile.title[locale]:quiz.title[locale]}</h1>
   <p className="mt-5 text-lg leading-8 text-slate-600">{guide?profile.summary[locale]:quiz.description[locale]}</p>

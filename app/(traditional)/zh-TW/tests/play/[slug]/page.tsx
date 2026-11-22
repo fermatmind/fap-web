@@ -1,3 +1,6 @@
+import { PortfolioFlagshipLanding, hasPortfolioFlagship } from "@/components/tests/PortfolioFlagshipLanding";
+import { preparePortfolioLanding } from "@/components/tests/PortfolioLandingPreview";
+import { hasPortfolioLanding } from "@/lib/entertainment/portfolioLanding";
 import { traditionalSearchMetadata } from "@/lib/seo/traditionalSearchMetadata";
 import { ExploreTestShell } from "@/components/tests/ExploreTestShell";
 import { traditionalDirectionalRoute } from "@/lib/i18n/traditionalDirectionalPaths";
@@ -112,8 +115,10 @@ export default async function TraditionalStoryPage({ params }: Props) {
   const { slug } = await params;
   const directional = traditionalDirectionalRoute(`/tests/play/${slug}`);
   if (directional) {
-    const { LikertQuestionnairePage } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
-    return <ExploreTestShell slug={slug}><LikertQuestionnairePage {...directional} /></ExploreTestShell>;
+    const { LikertQuestionnairePage, requireLikert } = await import("@/components/i18n/zh-TW/LikertQuestionnairePage");
+    if (hasPortfolioFlagship(slug)) return <PortfolioFlagshipLanding quiz={(await requireLikert(slug)).quiz} locale="zh-TW" />;
+    const preview = hasPortfolioLanding(slug) ? await preparePortfolioLanding(slug, "zh-TW", (await requireLikert(slug)).quiz) : null;
+    return <ExploreTestShell slug={slug} preview={preview}><LikertQuestionnairePage {...directional} /></ExploreTestShell>;
   }
   const quiz = await requireTraditionalStoryQuiz(slug);
   const BespokePage = Object.hasOwn(bespokePages, slug) ? bespokePages[slug as keyof typeof bespokePages] : null;

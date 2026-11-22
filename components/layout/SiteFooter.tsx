@@ -66,9 +66,10 @@ export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
           { href: "/data-privacy", label: "Data notes" },
           { href: "/common-misconceptions", label: "Common misconceptions" },
         ];
+  const reviewPrefix = "在 Trustpilot ";
   const reviewLink: FooterLinkItem = {
     href: "https://www.trustpilot.com/review/fermatmind.com",
-    label: label("在 Trustpilot 评价使用体验", "Review your experience on Trustpilot", "在 Trustpilot 評價使用體驗"),
+    label: label(`${reviewPrefix}评价使用体验`, "Review your experience on Trustpilot", `${reviewPrefix}評價使用體驗`),
     external: true,
   };
   const companyLinks: FooterLinkItem[] =
@@ -124,7 +125,9 @@ export function SiteFooter({ locale = "en" }: { locale?: DisplayLocale }) {
         rel="noopener noreferrer"
         className="fm-footer-link"
       >
-        {item.label}
+        {item === reviewLink && locale !== "en"
+          ? <>{reviewPrefix}<span className={styles.trustpilotPhrase}>{item.label.slice(reviewPrefix.length)}</span></>
+          : item.label}
       </a>
     ) : (
       <PublicNavigationLink

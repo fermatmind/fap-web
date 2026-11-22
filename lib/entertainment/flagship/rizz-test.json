@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的Rizz测试含20道成人自评题，约6分钟，免注册。结果免费显示过去四周四类交流做法的有效题数和均分，四篇公开指南可直接阅读。",
+    "intro": "一次双方都愿意继续的轻松聊天，你会怎样表达有兴趣、接住一句话，或把邀约说清楚？回想过去四周真实发生的场合。没有机会或不想回答时，可以选不计分。",
+    "deliverables": [
+      [
+        "分别查看四类做法",
+        "每组 5 题，有至少 3 条有效评分才显示均分。"
+      ],
+      [
+        "免费读四篇公开指南",
+        "每份都有例子，未答题或没有分数时也可以看。"
+      ],
+      [
+        "复制测试公开入口",
+        "复制公开名称和链接，不附作答、均分或个人图卡。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "四组都选中间选项",
+        "每组五条有效，均分依次为 3.0、3.0、3.0、3.0。相同均分照样保留。"
+      ],
+      [
+        "每组三条有效",
+        "四组均分依次为 5.0、4.0、3.0、2.0。其余两条不计分，没有补 0。"
+      ],
+      [
+        "一组资料不足",
+        "说明兴趣仅两条有效，不算均分。其他三组各五条有效，均分均为 3.0。"
+      ]
+    ],
+    "profiles": {
+      "showing-interest": [
+        "把欣赏说得具体一点",
+        "你可以练习只说自己想表达什么，让对方自己决定是否回应。",
+        "聊完一本书时，你说自己喜欢这个讨论，也问对方愿不愿下次继续。"
+      ],
+      "threading-a-reply": [
+        "先听清现在的话题",
+        "你可以试着接回对方说过的小细节，也接受对方想换话题。",
+        "对方提过一段喜欢的音乐，你问最喜欢哪段，再听他想聊什么。"
+      ],
+      "offering-playfulness": [
+        "用彼此都愿意接的玩心",
+        "你可以根据对方的回应判断玩笑要不要继续。",
+        "聊天聊到食物，你提议各选一个好笑的菜名；对方没兴趣就换个话题。"
+      ],
+      "checking-the-invitation": [
+        "把邀约讲成对方可以选择的事",
+        "你可以给出具体时间和活动，也明确拒绝或改期都可以。",
+        "你问对方周六想不想喝咖啡，听到不方便后就接受，不把客气当同意。"
+      ]
+    },
+    "faq": [
+      [
+        "Rizz 测试测的是魅力吗？",
+        "只回看成人在双方有意愿的轻松交流中如何自评四类做法，不判断魅力、外貌或对方的好感。"
+      ],
+      [
+        "没有约会或聊天时怎么办？",
+        "没有机会、不方便或不想评价时选不计分，不需编经历，也可以只看指南。"
+      ],
+      [
+        "怎么计算有效频率？",
+        "每组 5 条，按 1–5 计频率。至少 3 条有效后用总和除以有效数，保留一位小数。"
+      ],
+      [
+        "会给我等级或最高类型吗？",
+        "不会。四组分别阅读，均分不合计，不提供魅力排行或类型。"
+      ],
+      [
+        "能上传聊天记录或推断别人的同意吗？",
+        "不用提供聊天、照片或对方资料。礼貌、沉默或这里的结果都不能代替对具体一步的同意。"
+      ],
+      [
+        "分享会透露我的回答吗？",
+        "公开分享只复制入口，不附答案、均分或个人 PNG。独立答题页刷新不会恢复进度。"
+      ]
+    ],
+    "formula": "20 条分四组，每组 5 条，正向频率评分 1–5。不计分不加入分母或总和；每组至少 3 条有效才计算均分，保留一位小数。",
+    "boundary": "费马原创自我观察题，范围是过去四周成年人之间双方愿意参与的交流。四组频率不预测受欢迎程度、吸引力、恋爱结果或对方的意愿。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的Rizz測驗有20道成人自評題，約6分鐘，免註冊。結果免費呈現過去四週四類交流做法的有效題數與平均分數，四篇公開指南可以直接讀。",
+    "intro": "在彼此都想聊下去的時候，你通常怎麼表達興趣、接話，或把邀約說清楚？回想過去四週的實際經驗。沒有機會或不方便回答，都可以選不計分。",
+    "deliverables": [
+      [
+        "分開看四個項目的資料",
+        "每組有 5 題，至少有 3 題有效才會顯示平均。"
+      ],
+      [
+        "免費讀四篇指南",
+        "即使沒作答，或沒有足夠資料，也能直接讀例子。"
+      ],
+      [
+        "複製公開測驗連結",
+        "複製內容不會帶出你的回答、平均分數或個人圖卡。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "四組都選中間",
+        "各有五題有效，平均依序為 3.0、3.0、3.0、3.0。相同的數字照樣保留。"
+      ],
+      [
+        "每組剛好有三題有效",
+        "四組平均依序是 5.0、4.0、3.0、2.0。每組另外兩題不計分，沒有補成零。"
+      ],
+      [
+        "第一組資料不足",
+        "表達興趣只有兩題有效，因此沒有平均。其他三組各五題有效，都是 3.0。"
+      ]
+    ],
+    "profiles": {
+      "showing-interest": [
+        "把你喜歡的部分說清楚",
+        "你可以想想怎麼表達自己的想法，又讓別人有選擇。",
+        "談完一本書時，你先說喜歡今天的聊天，再問對方下次還想不想聊。"
+      ],
+      "threading-a-reply": [
+        "接著對方已經說過的話聊",
+        "你可以留意對方提過的細節，也讓談話有換方向的空間。",
+        "對方說喜歡一首歌，你問最喜歡哪一段，再看看他還想聊什麼。"
+      ],
+      "offering-playfulness": [
+        "玩笑要留得下退出的空間",
+        "你可以觀察對方想不想跟著玩。",
+        "聊到吃的時，你提議幫甜點取個有趣名字。對方想聊別的，就一起換題。"
+      ],
+      "checking-the-invitation": [
+        "把具體邀約說到可以選擇",
+        "你可以給出時間和活動，也留空間給拒絕或改期。",
+        "你問對方週六想不想喝咖啡，對方婉拒時，你就接受這次不約。"
+      ]
+    },
+    "faq": [
+      [
+        "這個 Rizz 測驗是在測魅力嗎？",
+        "題目只請成年人自評雙方願意參與的四類交流做法，無法判斷魅力、外表或別人的感受。"
+      ],
+      [
+        "如果沒有約會過或最近沒有機會呢？",
+        "可以選不計分，不必補一段想像經歷，也能只看指南。"
+      ],
+      [
+        "平均分數怎麼算？",
+        "每組五題，依頻率填 1–5。至少三題有效才相加並除以有效題數，顯示一位小數。"
+      ],
+      [
+        "會給我魅力等級或主要類型嗎？",
+        "不會。四組分開看，沒有總分、魅力排名或定型。"
+      ],
+      [
+        "會用到我實際的聊天內容嗎？",
+        "不收聊天、照片或他人資料。禮貌和沉默也不能當成對某一步的同意。"
+      ],
+      [
+        "分享時會附我的答案嗎？",
+        "公開分享只複製入口，沒有答案、平均分數或個人 PNG。作答頁重整後不會恢復進度。"
+      ]
+    ],
+    "formula": "20 題分為四組，每組五題，正向頻率評分為 1–5。不計分不納入分母；每組至少三題有效才算平均，顯示一位小數。",
+    "boundary": "費馬寫這套題供成年人回顧過去四週彼此願意參與的交流。讀數不預測吸引力、關係走向或另一個人的意願。"
+  },
+  "en": {
+    "facts": "FermatMind’s Rizz Test uses 20 original adult self-report items and takes about six minutes. It is free without registration. Results show rated-item counts and separate frequency means for four conversation practices over the past four weeks. Four public guides can be read before taking the quiz. The test does not ask for chat logs or score someone’s attractiveness. Full results are free to read.",
+    "intro": "Think about light conversations or invitations that both adults wanted over the past four weeks. How did you show interest, pick up a thread, or ask about a specific next step? Choose not to rate any situation you cannot or do not wish to judge.",
+    "deliverables": [
+      [
+        "See four separate practice readings",
+        "Each group has five items and needs at least three frequency ratings for a mean."
+      ],
+      [
+        "Read four public guides for free",
+        "Every guide has examples you can read without taking the quiz or getting a score."
+      ],
+      [
+        "Copy the public test entry",
+        "The link carries no answers, means, or personal picture."
+      ]
+    ],
+    "interpretations": [
+      [
+        "All midpoint answers",
+        "Each group has five rated items and a mean of 3.0. All equal readings stay as shown."
+      ],
+      [
+        "Exactly three ratings in each group",
+        "The means are 5.0, 4.0, 3.0, and 2.0, with two items unrated in each group."
+      ],
+      [
+        "One group needs more information",
+        "Showing Interest has only two rated items and no mean. The other groups have five ratings each, with means of 3.0."
+      ]
+    ],
+    "profiles": {
+      "showing-interest": [
+        "Say what interested you",
+        "You can practice describing your own interest without speaking for anyone else.",
+        "After talking about a book, you say what you enjoyed and ask if they want to talk again."
+      ],
+      "threading-a-reply": [
+        "Follow something they already said",
+        "You can pick up a specific detail while giving the conversation room to change.",
+        "When someone mentions a song, you ask what part they like and listen to what they want to talk about next."
+      ],
+      "offering-playfulness": [
+        "Offer play only if it is welcome",
+        "You can try a light idea and stop when the other person does not want to continue.",
+        "In a chat about food, you suggest silly dessert names and move on if the idea does not interest them."
+      ],
+      "checking-the-invitation": [
+        "Ask about one specific invitation",
+        "You can state a time and activity, with room for the person to decline or suggest something else.",
+        "When inviting someone for coffee on Saturday, you accept a no without treating politeness as consent."
+      ]
+    },
+    "faq": [
+      [
+        "Does the test measure charm?",
+        "No. It reflects how adults describe four practices during mutually welcome conversations. It cannot establish attractiveness or another person’s interest."
+      ],
+      [
+        "What if I had no relevant situation to rate?",
+        "Choose not rated. No opportunity or incomplete information is not a low score. You can also read the guides on their own."
+      ],
+      [
+        "How are the four means calculated?",
+        "Five items use 1–5 frequency ratings. A group needs at least three ratings. Add those ratings, divide by their number, and round to one decimal."
+      ],
+      [
+        "Is there an overall Rizz tier?",
+        "No. The groups have no total or ranked type. Equal means stay equal."
+      ],
+      [
+        "Does it read my chats or replace consent?",
+        "The quiz does not collect chat logs, pictures, or contacts. Neither this result nor anyone’s politeness or silence replaces agreement to a particular step."
+      ],
+      [
+        "What does sharing include?",
+        "The copied public entry has no answers, means, or personal PNG. The standalone test does not restore progress after reloading."
+      ]
+    ],
+    "formula": "Each of four groups has five items. Ratings from 1 to 5 are averaged only when at least three in that group are rated. Unrated items are left out, and means are rounded to one decimal.",
+    "boundary": "FermatMind wrote these self-reflection items about mutually welcome adult exchanges in the past four weeks. The results cannot assess charm, mental health, relationship prospects, or another person’s intentions."
+  }
+}

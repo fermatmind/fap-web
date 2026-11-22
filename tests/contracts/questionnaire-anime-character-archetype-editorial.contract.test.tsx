@@ -1,3 +1,4 @@
+import { standaloneStoryLandingCopy } from "@/lib/questionnaires/storyRoleLandingCopy";
 import { animeStoryRolesLandingSections, animeStoryRolesLandingFaq } from "@/components/questionnaires/AnimeStoryRolesLandingEditorial";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -27,14 +28,16 @@ describe("individual original anime-story roles editorial",()=>{
     expect(catalog.find(item=>item.slug===quiz.slug)?.description).toEqual(quiz.description);
     for(const locale of ["zh","en"] as const){
       const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(await entry.default({params:Promise.resolve({slug:quiz.slug,locale})}));
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-results"] > ul > li')).toHaveLength(6);
-      expect(dom.querySelectorAll('[aria-labelledby="questionnaire-faq"] > section')).toHaveLength(14);
+      expect(dom.querySelectorAll('#questionnaire-results article[data-ent-result-id]')).toHaveLength(6);
+      expect(dom.querySelectorAll('[data-ent-faq]')).toHaveLength(6);
+      expect(dom.querySelectorAll('[data-ent-faq][open]')).toHaveLength(3);
       const normalize=(s:string)=>s.replace(/\[\d+\]/g,"").replace(/\s+/g," ").trim();const body=normalize(dom.textContent??"");
       for(const faq of [...quiz.faq,...animeStoryRolesLandingFaq])expect(body).toContain(normalize(faq.answer[locale]));
-      for(const section of [...quiz.guide,...animeStoryRolesLandingSections])for(const paragraph of section.paragraphs)expect(body).toContain(normalize(paragraph[locale]));
+      for(const section of [...quiz.guide,...animeStoryRolesLandingSections])for(const paragraph of section.paragraphs)expect(body).toContain(normalize(standaloneStoryLandingCopy(paragraph[locale], locale)));
       const citations=dom.querySelectorAll<HTMLAnchorElement>(".disc-source-citation");expect(citations.length).toBeGreaterThan(0);
       for(const citation of citations)expect(dom.querySelector(citation.getAttribute("href")!)).not.toBeNull();
       for(const n of [1])expect(dom.querySelector(`a[href="#anime-character-archetype-test-reference-${n}"]`)).not.toBeNull();
+      expect(body).toContain(locale === "en" ? "This quiz keeps choices only for the current attempt." : "选择只保留在本次作答中。");
       if(locale==="en")expect(body).not.toMatch(/\p{Script=Han}/u);
     }
   });

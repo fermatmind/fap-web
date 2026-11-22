@@ -1,3 +1,4 @@
+import { currentStandaloneGuidePrivacy } from "@/lib/entertainment/flagship/standalone-guide-privacy";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -108,8 +109,8 @@ describe("T177 full preliminary public-domain IPIP HEXACO-like 240-item edition"
     try { for (const locale of ["en", "zh"] as const) {
       const path = `/${locale}/tests/explore/hexaco`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
       expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.description).toBe(quiz.description[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(quiz.instructions![locale]);
-      const entryDom = document.createElement("div"); entryDom.innerHTML = html; const method = entryDom.querySelector('[aria-labelledby="questionnaire-method"]')!; expect(method.querySelectorAll("p")).toHaveLength(3); for (const section of quiz.guide) expect(method.textContent).toContain(section.paragraphs[0][locale]); expect(method.closest("details")).toBeNull();
-      expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`); expect(html).toContain(locale === "en" ? "Preliminary IPIP 240 items" : "preliminary IPIP240条");
+      const entryDom = document.createElement("div"); entryDom.innerHTML = html; const method = entryDom.querySelector('[aria-labelledby="questionnaire-insight-method"]')!; expect(method.querySelectorAll("p")).toHaveLength(3); for (const section of quiz.guide) expect(method.textContent).toContain(currentStandaloneGuidePrivacy(section.paragraphs[0][locale], locale)); expect(method.closest("details")).toBeNull();
+      expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`); expect(html).toContain(locale === "en" ? "Preliminary IPIP 240 items" : "IPIP 初步版 240 题");
       for (const profile of quiz.profiles) {
         const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) }, html = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
         expect(dom.querySelector("h1")?.textContent).toBe(profile.title[locale]); for (const s of profile.sections) for (const p of s.paragraphs) expect(dom.textContent).toContain(p[locale]);

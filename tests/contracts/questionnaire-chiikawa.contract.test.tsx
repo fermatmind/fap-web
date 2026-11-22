@@ -135,8 +135,9 @@ describe("T040 original six-character unofficial fan quiz", () => {
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
         const entryDom = document.createElement("div"); entryDom.innerHTML = html;
-        expect(entryDom.querySelector("#take-test")?.textContent).toContain(quiz.instructions![locale]);
-        expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
+        expect(entryDom.querySelector('[data-ent-module="method"]')?.textContent).toContain(quiz.instructions![locale]);
+        expect(entryDom.querySelector("form[data-ent-start]")?.getAttribute("action")).toBe(`${path}/take`);
+        expect(html).toContain(locale === "zh" ? "同人角色测试" : "Unofficial character quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
         const hub = renderToStaticMarkup(<MoreTests locale={locale} />); expect(hub).toContain(`href="${path}"`); expect(hub).not.toContain("/tests/play/chiikawa");

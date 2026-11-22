@@ -1,0 +1,548 @@
+{
+  "zh": {
+    "facts": "费马测试的性格优势测试采用96道IPIP题，约15分钟，免注册。24项各自呈现均分或资料不足状态，完整指南免费，不给综合分或优势排名。分项用于回看当次自评。",
+    "intro": "遇到新鲜事、共同分工或需要先判断的时候，你怎样描述自己？用约 15 分钟回答 96 条自评题，分开看 24 个方向。有些条目不方便回答时，可以选不计分。",
+    "deliverables": [
+      [
+        "看 24 项独立读数",
+        "每项有 4 条。四条都有评分时显示总和和均分，资料不足时照实显示。"
+      ],
+      [
+        "免费读 24 篇公开指南",
+        "每个方向都有生活例子与观察办法，分数高低或资料不足都可直接阅读。"
+      ],
+      [
+        "复制公开测试入口",
+        "复制的链接不包含答案、信仰信息或均分。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "六项节选：全选中间选项",
+        "美的欣赏、关爱、团队合作、好奇心、公平、宽恕依次为 3.0、3.0、3.0、3.0、3.0、3.0。这是合成样例，3.0 只是量尺中点。"
+      ],
+      [
+        "同一组六项：不同自评",
+        "相同顺序为 5.0、4.0、3.5、2.0、1.0、4.0。可分别回看四条题，4.0 仍保留原值，页面不按均分排名。"
+      ],
+      [
+        "同一组六项：一项资料不足",
+        "美的欣赏有一条不计分，显示资料不足；其余五项都是 3.0，完整报告还会显示其余 18 项。"
+      ]
+    ],
+    "profiles": {
+      "appreciation-of-beauty": [
+        "看到一个具体的美好",
+        "你可以回想最近什么细节让你想停一下。",
+        "散步时，你留意一扇窗上光线的颜色。"
+      ],
+      "love": [
+        "让关心能够被接住",
+        "你可以想想什么方式让彼此都舒服。",
+        "朋友很累，你问他想聊一会儿，还是需要安静。"
+      ],
+      "teamwork": [
+        "确认这次各自怎么配合",
+        "你可以回看哪些分工让你更愿意接手。",
+        "小组活动前，你和伙伴对好交接时间。"
+      ],
+      "curiosity": [
+        "给一个问题多留一分钟",
+        "你可以从自己想再问一句的事开始。",
+        "听到陌生说法时，你想知道最早的出处。"
+      ],
+      "fairness": [
+        "把同一条件讲清楚",
+        "你可以比较规则相同和实际处境有别的情况。",
+        "分配材料时，你先说明每人至少能拿多少。"
+      ],
+      "forgiveness": [
+        "决定怎样面对已发生的事",
+        "你可以想想释怀、保持距离和重建信任各需要什么。",
+        "有人再次来道歉时，你愿意听，也保留暂时不合作的决定。"
+      ],
+      "gratitude": [
+        "说清一件值得感谢的事",
+        "你可以留意哪些具体帮助值得回应。",
+        "同伴临时替你接手时，你告诉他哪一步帮了忙。"
+      ],
+      "hope": [
+        "给未来保留一个可做的选择",
+        "你可以区分觉得有希望和已有行动条件。",
+        "计划受阻时，你留一个下周能重新试的时间。"
+      ],
+      "humor": [
+        "让玩心有空间",
+        "你可以回想哪些玩笑让大家愿意接。",
+        "讨论冷下来时，你用一个轻松比喻，也观察别人是否想继续。"
+      ],
+      "perseverance": [
+        "把能完成的一段做完",
+        "你可以留意什么让你愿意坚持，什么时候需要停。",
+        "整理一摞稿子时，你先完成今天约好的部分。"
+      ],
+      "honesty": [
+        "说到自己能做到的范围",
+        "你可以回想承诺与现实条件如何对齐。",
+        "接受邀约前，你先说清楚最迟能待到几点。"
+      ],
+      "judgment": [
+        "把判断留到证据到齐",
+        "你可以想想哪种新信息会改变结论。",
+        "看到评价不一致时，你去找原始说明。"
+      ],
+      "kindness": [
+        "做一件对方实际需要的事",
+        "你可以回看帮忙前是否问过对方想要什么。",
+        "朋友备餐很赶，你先问要不要帮忙洗菜。"
+      ],
+      "leadership": [
+        "让小组能自己选怎么做",
+        "你可以观察自己怎样布置讨论和交接。",
+        "筹办活动前，你请大家先提出愿意负责的一段。"
+      ],
+      "love-of-learning": [
+        "从一件真的想弄懂的事开始",
+        "你可以找一个愿意多练一轮的主题。",
+        "用过一个新工具后，你记下最想学的功能。"
+      ],
+      "humility": [
+        "肯定自己的部分，也留下别人的功劳",
+        "你可以想想怎样准确说出多人贡献。",
+        "活动结束后，你说自己做了哪张表，也提到谁整理了材料。"
+      ],
+      "creativity": [
+        "给原来的办法加一个变化",
+        "你可以回看什么条件让你愿意试用不同做法。",
+        "整理笔记时，你把两种顺序各用在一小段上比较。"
+      ],
+      "perspective": [
+        "把眼前的一步放回更长的计划",
+        "你可以想想这个决定之后还有什么影响。",
+        "换工作桌前，你一起考虑取物、清洁和长期使用。"
+      ],
+      "prudence": [
+        "行动前留一个确认点",
+        "你可以找出决定前最值得确认的一条。",
+        "预约前，你先核对时间和取消条件。"
+      ],
+      "self-regulation": [
+        "为想养成的习惯加个提示",
+        "你可以回看什么环境让自己更容易照计划走。",
+        "想早点收工时，你把最后一步写在桌边。"
+      ],
+      "social-intelligence": [
+        "把自己的理解问一遍",
+        "你可以检查有多少是对方说的，多少是自己猜的。",
+        "朋友回话很短，你问他是不是需要再想一会。"
+      ],
+      "spirituality": [
+        "想想哪些价值对你有意义",
+        "你可以说出信仰、目标或意义在自己生活里的位置。",
+        "回顾一周时，你记下让自己觉得值得继续的一件事。"
+      ],
+      "bravery": [
+        "把在乎的想法说出来",
+        "你可以回想什么时候愿意表达不同意见。",
+        "小组讨论中，你平静说还有一条条件没有被考虑。"
+      ],
+      "zest": [
+        "留意什么时候有力气投入",
+        "你可以比较什么时候做事觉得有劲，什么时候更需要休息。",
+        "安排周末时，你给想做的事留一天，另一天不排满。"
+      ]
+    },
+    "faq": [
+      [
+        "性格优势测试采用哪套题？",
+        "英文用公开的 96 条 IPIP-VIA-R 题与正反向键。费马独立试译中文及编写指南，与 VIA Institute 或盖洛普的产品各自不同。"
+      ],
+      [
+        "正向和反向题怎么算？",
+        "每项两个正向题、两个反向题。正向保留 1–5，反向用 6 减评分，四项相加为 4–20，再除以 4，显示一位小数。"
+      ],
+      [
+        "一条不计分会影响哪些结果？",
+        "任一题选不计分，只让所属分项资料不足。系统不填 0 或中间值，其他分项仍可计分。答卷需要对 96 道题各做一次选择。"
+      ],
+      [
+        "会按分数排名或选出五个核心优势吗？",
+        "报告按固定目录逐项展示。相同均分保持一致，不做总分、百分位、六美德总分或五项标志性优势。"
+      ],
+      [
+        "能用来判断能力、人品或职业适配吗？",
+        "这些是自我描述的认同程度，不能用于能力、人品、心理健康、招聘或职业资格判断。"
+      ],
+      [
+        "分享或重测会保留个人答案吗？",
+        "分享只复制公开入口，不附答案、均分、信仰信息或个人 PNG。答题在浏览器内计分，刷新不恢复独立页面进度。"
+      ]
+    ],
+    "formula": "每项 4 条，2 正 2 反。正向题保留 1–5，反向题按 6 减原评分。四条有效加总为 4–20，再除以 4 得 1–5，显示一位小数。任一条不计分，该项显示资料不足。",
+    "boundary": "IPIP-VIA-R 英文条目及评分键来自 IPIP 的公有领域资料。中文为费马独立试译；页面补充了不计分选项与均分读法。结果只记录本次自评，尚无本站验证的跨语言等值或常模。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的性格優勢測驗採用96道IPIP題，約15分鐘，免註冊。24個項目分別顯示平均或資料不足，並提供免費公開指南。結果沒有總分或優勢排名。各項可分開閱讀。",
+    "intro": "面對新問題、一起分工或做決定時，你怎麼看自己的做法？花約 15 分鐘回答 96 道自評題，分別看看 24 個項目。不方便回答的題都能選不計分。",
+    "deliverables": [
+      [
+        "看 24 個項目的平均和有效題數",
+        "每個項目有四道題。四題皆有評分會顯示合計與平均；資料不夠時照實顯示。"
+      ],
+      [
+        "免費讀 24 篇公開指南",
+        "每篇用一個生活例子說明一個項目，分數不同或沒有分數也能直接看。"
+      ],
+      [
+        "複製公開測驗連結",
+        "分享入口不附作答、信念資訊或個人分數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "六項節選：全部選中間選項",
+        "美的欣賞、關愛、團隊合作、好奇心、公平、寬恕依序都是 3.0。這只是作答範例，3.0 是量尺中點。"
+      ],
+      [
+        "同一組六項：平均有高有低",
+        "相同順序為 5.0、4.0、3.5、2.0、1.0、4.0。相同平均仍保留原值，結果依原目錄呈現。"
+      ],
+      [
+        "同一組六項：一項資料不足",
+        "美的欣賞有一道選不計分，會顯示資料不足。其他五項仍是 3.0，報告另有其餘 18 個項目。"
+      ]
+    ],
+    "profiles": {
+      "appreciation-of-beauty": [
+        "停下來看見一個細節",
+        "你可以回想最近有哪個畫面讓自己多看一眼。",
+        "走路經過一扇窗時，你注意到光落下來的顏色。"
+      ],
+      "love": [
+        "把關心說到對方接得住",
+        "你可以想想，什麼時候比較願意表達或接受照顧。",
+        "發現朋友很累時，你先問他想聊聊還是想休息。"
+      ],
+      "teamwork": [
+        "一起對好接手的時間",
+        "你可以回顧分工怎麼安排，你會比較願意參與。",
+        "辦活動時，你先和夥伴確認誰在哪個時間接手。"
+      ],
+      "curiosity": [
+        "順著一個疑問多問一句",
+        "你可以從自己想弄明白的事開始。",
+        "聽見一個陌生說法時，你記下來，回去找最早的來源。"
+      ],
+      "fairness": [
+        "講清楚大家能用的條件",
+        "你可以回想規則一致和照顧不同需求怎麼兼顧。",
+        "分材料前，你先說明每人都能先拿到哪些東西。"
+      ],
+      "forgiveness": [
+        "給自己選擇怎麼收尾",
+        "你可以想想，道歉、原諒和重新信任需不需要同時發生。",
+        "對方來道歉時，你願意聽，也決定暫時不一起做事。"
+      ],
+      "gratitude": [
+        "把謝謝落在一件事上",
+        "你可以想想哪次幫忙真的讓自己輕鬆一點。",
+        "夥伴替你接了臨時分工，你說明他哪一步幫上忙。"
+      ],
+      "hope": [
+        "留一個還做得到的機會",
+        "你可以區分對未來有期待和手邊有哪些選擇。",
+        "原計畫行不通時，你記下下週可能試的做法。"
+      ],
+      "humor": [
+        "找到大家都能接的玩笑",
+        "你可以回顧哪種玩心讓對話比較自在。",
+        "聊天冷下來時，你試個簡單比喻，再看大家想不想接。"
+      ],
+      "perseverance": [
+        "把今天答應的那段做完",
+        "你可以找出什麼情況讓自己容易把事做完。",
+        "整理很多份文件時，你先把今天要交的範圍處理好。"
+      ],
+      "honesty": [
+        "先說明自己能答應多少",
+        "你可以看看承諾和自己的時間是否合得來。",
+        "有人揪活動時，你先告訴對方最多能留到幾點。"
+      ],
+      "judgment": [
+        "等到有依據，再改判斷",
+        "你可以想想哪條新資訊會讓自己換個看法。",
+        "看到兩種評價時，你查原始說明後再決定。"
+      ],
+      "kindness": [
+        "先問對方需要幫哪一步",
+        "你可以回顧怎樣的協助讓對方比較好接。",
+        "朋友忙著備料時，你問要不要幫忙洗菜。"
+      ],
+      "leadership": [
+        "邀大家說清楚想負責的事",
+        "你可以觀察自己怎麼協調分工與交接。",
+        "開始籌備活動時，你先請每個人說一件願意接的事。"
+      ],
+      "love-of-learning": [
+        "從真的想學的一步開始",
+        "你可以挑一個願意多練一次的功能。",
+        "用過新的剪輯工具之後，你記下最想弄懂哪個按鈕。"
+      ],
+      "humility": [
+        "讓大家的功勞都看得見",
+        "你可以練習把自己的部分和夥伴的貢獻說清楚。",
+        "活動結束時，你說明自己做了哪張表，也提到誰備好材料。"
+      ],
+      "creativity": [
+        "替原本做法留個新版本",
+        "你可以回看什麼時候會想試一種不同排列。",
+        "整理讀書筆記時，你拿兩小段各試一種順序。"
+      ],
+      "perspective": [
+        "看看眼前決定接到哪裡",
+        "你可以把眼前做法和之後的使用放在一起想。",
+        "移動桌子前，你先想拿東西會不會變方便，清掃要怎麼做。"
+      ],
+      "prudence": [
+        "開始前先核對最要緊的一點",
+        "你可以想想什麼資訊值得在決定前確認。",
+        "訂場地前，你查看日期和取消規定。"
+      ],
+      "self-regulation": [
+        "把提示放在用得到的位置",
+        "你可以回想什麼安排會讓自己比較容易維持習慣。",
+        "想準時收工時，你把最後要做的事貼在桌邊。"
+      ],
+      "social-intelligence": [
+        "問確認自己有沒有聽錯",
+        "你可以分辨對方有說的內容和自己的推測。",
+        "朋友只回了一句時，你問他是不是想先想一下。"
+      ],
+      "spirituality": [
+        "找一件自己覺得有意義的事",
+        "你可以想想信念、人生重視的事，或當下想守住的價值。",
+        "每週回顧時，你寫下一件覺得值得繼續參與的事。"
+      ],
+      "bravery": [
+        "把不同意見好好說出來",
+        "你可以回想什麼時候願意為在乎的事情開口。",
+        "小組要投票時，你提醒大家還有一個條件沒談到。"
+      ],
+      "zest": [
+        "看自己今天想把力氣放哪裡",
+        "你可以比較什麼活動會讓自己想投入，什麼時候想休息。",
+        "排週末時，你把喜歡的事放在一天，另一天留白。"
+      ]
+    },
+    "faq": [
+      [
+        "這 96 道題來自哪裡？",
+        "英文沿用公有領域的 IPIP-VIA-R 原題及正反向鍵。費馬另外試譯中文並編寫指南。"
+      ],
+      [
+        "正反向題怎麼算？",
+        "每個項目兩道正向、兩道反向。正向保留 1–5，反向用 6 減去原分。四題有效計分合計 4–20，除以 4 後顯示一位小數。"
+      ],
+      [
+        "有一題無法評分會怎樣？",
+        "可以選不計分。該項目會顯示資料不足，其他項目照常計算。系統不帶入零分或中間值，需在 96 題都選一項才能看個人結果。"
+      ],
+      [
+        "會挑五項代表我的優勢嗎？",
+        "這個版本依固定目錄呈現，不排名，也不提供六美德總分、百分等級或五項標誌優勢。"
+      ],
+      [
+        "可以用於面試、能力或心理評估嗎？",
+        "不行。分數是對題目敘述的自我評價，不能用來判斷能力、品格、心理健康或適職。"
+      ],
+      [
+        "轉傳或重新整理會保留答案嗎？",
+        "複製的公開入口沒有個人作答、平均分數、信念資訊或個人 PNG。獨立作答頁在瀏覽器內算分，重整後不會恢復進度。"
+      ]
+    ],
+    "formula": "每項四題，兩道正向、兩道反向。正向依原評分，反向用 6 減去原分。四題有效才加總為 4–20，除以 4 後顯示一位小數。任一題不計分只影響該項。",
+    "boundary": "英文題目和正反計分鍵來自 IPIP 的公有領域資料。費馬另行提供中文試譯、不計分選項和這套結果讀法。分數只整理這次的自評，本站尚未驗證跨語言等值或人口常模。"
+  },
+  "en": {
+    "facts": "FermatMind’s Character Strengths Test uses 96 IPIP-VIA-R self-report items and takes about 15 minutes. It is free without registration. The 24 strengths have separate means or an insufficient-information status, along with a guide for each part. Guides are public and can be read before answering. The results do not rank the strengths or give a combined score.",
+    "intro": "How would you describe the way you get curious, cooperate, or make a careful decision? Answer 96 self-report statements and look at 24 strengths separately. Allow about 15 minutes. You can choose not to rate an item if it is hard to answer.",
+    "deliverables": [
+      [
+        "Read 24 separate results",
+        "Each strength has four items. A complete part shows the raw sum and mean, or an insufficient-information message if any item is unrated."
+      ],
+      [
+        "Read 24 public guides for free",
+        "Every part has an example and a small observation to try. All guides remain available regardless of your scores."
+      ],
+      [
+        "Copy the public test link",
+        "The link opens the quiz without sending answers, beliefs, or mean scores."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Six example rows: all midpoint responses",
+        "Beauty, love, teamwork, curiosity, fairness, and forgiveness each read 3.0. This is a sample. The midpoint is a response anchor."
+      ],
+      [
+        "The same six: varied responses",
+        "The means are 5.0, 4.0, 3.5, 2.0, 1.0, and 4.0. Equal means stay equal and parts are shown in a fixed order."
+      ],
+      [
+        "The same six: one part not scored",
+        "The beauty part has one unrated item, so it shows insufficient information. The other five means stay at 3.0. The full result shows the other 18 parts."
+      ]
+    ],
+    "profiles": {
+      "appreciation-of-beauty": [
+        "Notice a detail worth looking at",
+        "You can recall what recently made you stop and look.",
+        "On a walk, you notice the color of light in a window."
+      ],
+      "love": [
+        "Check how care would land",
+        "You can consider when you want to give or receive care.",
+        "When a friend seems tired, you ask whether they want company or quiet."
+      ],
+      "teamwork": [
+        "Agree on how to work together",
+        "You can look for a handoff that made a group task easier.",
+        "Before an event, you agree with your partner on when they take over."
+      ],
+      "curiosity": [
+        "Ask one more question",
+        "You can find something you still want to understand.",
+        "When you hear an unfamiliar claim, you look for the original source."
+      ],
+      "fairness": [
+        "Make the shared condition clear",
+        "You can compare consistent rules with what different people need.",
+        "When dividing materials, you say what everyone can have to start."
+      ],
+      "forgiveness": [
+        "Decide what you want to do after an apology",
+        "You can consider forgiveness and renewed trust separately.",
+        "When someone apologizes, you listen and still leave the next collaboration open."
+      ],
+      "gratitude": [
+        "Thank someone for one specific thing",
+        "You can notice which act of help mattered to you.",
+        "When a friend takes over a task, you tell them what it let you finish."
+      ],
+      "hope": [
+        "Keep a practical possibility open",
+        "You can distinguish hope from the means to act.",
+        "When a plan stalls, you choose a small part you could retry next week."
+      ],
+      "humor": [
+        "Make room for humor someone can share",
+        "You can look for the kind of joke that leaves room for other responses.",
+        "When talk stalls, you try a light comparison and see if anyone wants to carry on."
+      ],
+      "perseverance": [
+        "Finish one part you agreed to do",
+        "You can compare when persistence helps and when it is time to pause.",
+        "While organizing drafts, you finish the batch due today before opening another."
+      ],
+      "honesty": [
+        "Make promises you can keep",
+        "You can recall when you checked a commitment against the time you had.",
+        "Before accepting an invite, you say exactly when you need to leave."
+      ],
+      "judgment": [
+        "Wait for something that could change your view",
+        "You can ask what evidence you still need.",
+        "When two descriptions conflict, you look up the original instructions."
+      ],
+      "kindness": [
+        "Offer the help someone wants",
+        "You can check what would be useful before stepping in.",
+        "When a friend is cooking in a hurry, you offer to wash the vegetables."
+      ],
+      "leadership": [
+        "Give a group room to choose roles",
+        "You can reflect on how you set up a discussion and handoff.",
+        "Before an event, you ask everyone which part they are willing to take."
+      ],
+      "love-of-learning": [
+        "Start with what you want to learn",
+        "You can pick one part of a subject you would like to repeat.",
+        "After trying a new editor, you write down which feature you want to learn next."
+      ],
+      "humility": [
+        "Name your part and other people’s",
+        "You can give credit without making your own contribution disappear.",
+        "After an event, you say who made the schedule and who gathered the materials."
+      ],
+      "creativity": [
+        "Try a variation on what you already do",
+        "You can notice when a small change might be worth testing.",
+        "While organizing notes, you test two ways to order a short section."
+      ],
+      "perspective": [
+        "Put the immediate choice in a wider view",
+        "You can look at how a choice affects later plans.",
+        "Before moving a table, you think about access, cleaning, and how you use the space."
+      ],
+      "prudence": [
+        "Check one thing before you act",
+        "You can identify the condition you most need to confirm.",
+        "Before booking a room, you check opening hours and cancellation terms."
+      ],
+      "self-regulation": [
+        "Make the plan easier to follow",
+        "You can find a cue that helps with a habit you chose.",
+        "To finish work on time, you write the last step on a note beside your screen."
+      ],
+      "social-intelligence": [
+        "Ask whether you understood them",
+        "You can separate what someone said from what you guessed.",
+        "When a friend gives a short answer, you ask if they would like time to think."
+      ],
+      "spirituality": [
+        "Take stock of what gives a day meaning",
+        "You can consider whether belief, purpose, or another value mattered to you.",
+        "At the end of a week, you note one activity you felt was worth continuing."
+      ],
+      "bravery": [
+        "Speak about something that matters to you",
+        "You can recall a time you were willing to voice a different view.",
+        "When a vote is about to happen, you raise a condition the group has missed."
+      ],
+      "zest": [
+        "Notice what you have energy for today",
+        "You can compare which activities make you feel engaged and when you want a break.",
+        "While making weekend plans, you keep time for something you enjoy and leave some hours open."
+      ]
+    },
+    "faq": [
+      [
+        "Which questionnaire does this use?",
+        "The English items and keys come from the public-domain 96-item IPIP-VIA-R. FermatMind created the Chinese trial translation and guides. The VIA Institute and Gallup publish separate instruments."
+      ],
+      [
+        "How do positively and negatively keyed items work?",
+        "Each part has two of each. Keep positive ratings from 1 to 5 and subtract reverse ratings from six. Add all four to get 4–20, then divide by four and show one decimal."
+      ],
+      [
+        "What if I leave an item unrated?",
+        "Selecting NA leaves only that part without a score. The site adds no substitute. All 96 items still require a choice before a result appears."
+      ],
+      [
+        "Do you rank strengths or identify five signature strengths?",
+        "The report has a fixed reading order and no ranking, total, percentile, six-virtue score, or designated five signature strengths."
+      ],
+      [
+        "Does this assess skill, character, or job fit?",
+        "The means describe how strongly you endorsed keyed statements. They do not establish skill, moral worth, mental health, or occupational fit."
+      ],
+      [
+        "Can others see my answers if I share?",
+        "Copying sends only a public entry link. There are no answers, belief details, means, or personal PNG in the share. The standalone browser session does not restore unfinished answers after a reload."
+      ]
+    ],
+    "formula": "Each part has four items, two positive and two reverse. Use the original 1–5 ratings for positive items and six minus the response for reverse items. Add all four for a total of 4–20, then divide by four for a mean displayed to one decimal. Any unrated item leaves that part insufficient.",
+    "boundary": "The English IPIP-VIA-R items and keys are public domain. FermatMind provides a Chinese trial translation, a no-rating option, and separate guides. Site results are self-reports and have no established cross-language equivalence or population norms."
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的幽默风格测试用24道原创题回顾近四周的日常表达，约6分钟。免费提供六种幽默表达的独立频率均分、有效题数和完整的公开情境指南。",
+    "intro": "你讲笑话时会一本正经地说完，还是最爱一个谐音让大家回过味？回想你平时怎么开玩笑，不用写出真的段子。",
+    "deliverables": [
+      [
+        "六类表达",
+        "冷面、文字游戏、荒诞、共享笑点、自嘲与玩笑往来。"
+      ],
+      [
+        "频率和有效题数",
+        "每项独立显示，没经历的题可不计分。"
+      ],
+      [
+        "六份情境指南",
+        "用生活片段比较不同表达方式。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "回想你刚开过的玩笑",
+        "有时你爱看一种喜剧，却更常用另一种方式聊天。"
+      ],
+      [
+        "也看旁人愿不愿意接",
+        "对方的感受和玩笑出现的次数是不同的信息。"
+      ],
+      [
+        "不要硬给陌生场景打分",
+        "未经历可留空，仍能看对应指南。"
+      ]
+    ],
+    "profiles": {
+      "deadpan": [
+        "平静说出反差",
+        "你会在语气平常时放一个意外笑点。",
+        "咖啡机第三次故障，你很严肃地说它今天在休假。"
+      ],
+      "wordplay": [
+        "让一个词拐个弯",
+        "你喜欢听同一个音能不能有两个意思。",
+        "做菜单时，你用一个顺口的双关给点心起名。"
+      ],
+      "absurdist": [
+        "把平常事想离谱一点",
+        "你会把不相干的东西放到同一幅画面。",
+        "同事问伞哪去了，你说它可能去学游泳了。"
+      ],
+      "shared-humor": [
+        "用大家都记得的事开场",
+        "你容易从共同经历里找笑点。",
+        "你提起那次大家一起找错入口的经历。"
+      ],
+      "self-deprecating": [
+        "把自己的小失误说轻一点",
+        "你有时会用轻松说法谈自己的失误。",
+        "把杯子摔了，你打趣说自己需要换个手法。"
+      ],
+      "banter": [
+        "一句接住另一句",
+        "你喜欢双方都能开口、想停就停的来回玩笑。",
+        "朋友打趣你下棋太慢，你回一句，又问要不要继续这局。"
+      ]
+    },
+    "faq": [
+      [
+        "该回想什么？",
+        "近四周自己在聊天、信息或讲故事中的表达。"
+      ],
+      [
+        "这会评价我幽默吗？",
+        "它显示你自报的六种表达频率。"
+      ],
+      [
+        "怎么计分？",
+        "各组4题，1–5，至少3题有效。"
+      ],
+      [
+        "要提交笑话吗？",
+        "无需提交段子、私讯或他人资料。"
+      ],
+      [
+        "能选不计分吗？",
+        "可以。与几乎从不不同，它代表没经历或不能判断。"
+      ],
+      [
+        "分享是否包含读数？",
+        "公开分享连到同语测试，不带答案或分数。"
+      ]
+    ],
+    "formula": "六组各4题，按自报频率计1–5分，每组至少3题有效才计算均分。",
+    "boundary": "题目关注你近期使用的表达方式。结果不能评判段子好坏、别人感受或社交能力。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的幽默風格測驗以24道原創題回顧近四週的日常表達，約6分鐘。免費提供六種幽默表達的獨立平均、有效題數和完整的公開情境指南。",
+    "intro": "有時笑點要一本正經地講才好笑，有時一個雙關就夠。想想最近你怎麼說笑，無須提交笑話或對話。",
+    "deliverables": [
+      [
+        "六種表達各自計算",
+        "冷面、文字遊戲、荒誕、共享笑點、自嘲與來回玩笑。"
+      ],
+      [
+        "有效題數",
+        "每項獨立顯示，沒經驗可不計分。"
+      ],
+      [
+        "六份情境指南",
+        "從聊天、打字或講小故事的場合認識六種表達。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把自己與喜歡看的喜劇分開想",
+        "你平常使用的表達方式和喜歡的節目可能不同。"
+      ],
+      [
+        "留意對方有沒有想接話",
+        "讀數是你怎麼表達，對方的感受仍由對方自己說。"
+      ],
+      [
+        "不確定的題保留",
+        "沒有相關經驗也能先讀指南。"
+      ]
+    ],
+    "profiles": {
+      "deadpan": [
+        "平平地說出意外",
+        "你喜歡把突兀的笑點放進平常的語氣。",
+        "咖啡機壞了，你一本正經說今天只提供熱水特餐。"
+      ],
+      "wordplay": [
+        "讓文字有不同讀法",
+        "你會從讀音或字義找出可以玩的地方。",
+        "替茶點取名字時，你想出一個同音梗。"
+      ],
+      "absurdist": [
+        "把熟悉的東西放錯位置",
+        "你喜歡用出乎意料的搭配讓人停一下。",
+        "找不到雨傘，你說它去上游泳課了。"
+      ],
+      "shared-humor": [
+        "從共同經驗找笑點",
+        "你會提起大家都遇過的小插曲。",
+        "聚餐路上，你提起上次大家各自找錯門的事。"
+      ],
+      "self-deprecating": [
+        "笑一下自己的小失誤",
+        "你有時會用輕鬆的方式承認手忙腳亂。",
+        "不小心把杯子碰倒，你說自己今天走的是驚險路線。"
+      ],
+      "banter": [
+        "聽一句，再接一句",
+        "你喜歡雙方都能接得住的打趣。",
+        "朋友笑你下棋太慢，你接一句後也問他想不想繼續。"
+      ]
+    },
+    "faq": [
+      [
+        "要想什麼時候的事？",
+        "回想最近四週自己的聊天、訊息或說故事方式。"
+      ],
+      [
+        "會看出誰比較好笑嗎？",
+        "讀數分開呈現六種表達的自述頻率。"
+      ],
+      [
+        "如何算平均？",
+        "各組四題，1至5分，至少三題有效。"
+      ],
+      [
+        "要輸入笑話或私訊嗎？",
+        "不必輸入任何笑話、聊天紀錄或他人資訊。"
+      ],
+      [
+        "沒有遇過怎麼辦？",
+        "可以選不計分，不用當成幾乎從不。"
+      ],
+      [
+        "分享會含個人分數嗎？",
+        "分享帶同語言測驗連結，不含答案或分數。"
+      ]
+    ],
+    "formula": "六組各4題，依使用頻率給1到5分，每組至少3題計分才顯示平均。",
+    "boundary": "這份測驗回顧近期自己採用的表達方式。不看笑點好不好笑、別人感受，或整體社交能力。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Humor Style Test uses 24 original questions to revisit how someone used humor in the past four weeks. It takes about six minutes and shows six separate frequency averages, rated item counts, and public guides on deadpan, wordplay, absurdity, shared humor, self-deprecation, and banter. Readers can complete it without signing up or submitting jokes, messages, or other people’s details.",
+    "intro": "Do you keep a straight face when the punchline comes, or find a pun while everyone is talking? Think about how you used humor, even on days nobody laughed.",
+    "deliverables": [
+      [
+        "Six ways of using humor",
+        "Compare deadpan, wordplay, absurdity, shared humor, self-deprecation, and banter."
+      ],
+      [
+        "Frequency and item counts",
+        "Read six separate averages and see what counted."
+      ],
+      [
+        "Six public guides",
+        "Put each expression in the context of a familiar setting."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Recall what you said",
+        "The comedy you enjoy watching can differ from the humor you use."
+      ],
+      [
+        "Give others room to respond",
+        "What you say and how it lands are separate things to consider."
+      ],
+      [
+        "Skip scoring unfamiliar situations",
+        "You can still read the matching guide."
+      ]
+    ],
+    "profiles": {
+      "deadpan": [
+        "Keep a straight face",
+        "You like letting the contrast do the work.",
+        "When the coffee machine breaks, you announce that it is taking a holiday."
+      ],
+      "wordplay": [
+        "Take a word around the corner",
+        "You look for an unexpected second way to hear the same phrase.",
+        "While writing a snack menu, you turn two similar sounds into a new name."
+      ],
+      "absurdist": [
+        "Give the ordinary a strange twist",
+        "You enjoy making a surprising connection.",
+        "When an umbrella goes missing, you suggest it has taken swimming lessons."
+      ],
+      "shared-humor": [
+        "Call back to something everyone knows",
+        "You use memories people in the group can share.",
+        "You recall the time everyone managed to wait by a different entrance."
+      ],
+      "self-deprecating": [
+        "Make light of your own small mistake",
+        "You may use a joke to acknowledge a slip.",
+        "You spill a drink and joke that your technique needs work."
+      ],
+      "banter": [
+        "Keep a running exchange going",
+        "You enjoy an easy back-and-forth people can join or leave.",
+        "A friend teases you about slow chess moves, and you reply before asking if they want another game."
+      ]
+    },
+    "faq": [
+      [
+        "What time window should I use?",
+        "Recall your own conversations, messages or stories across the past four weeks."
+      ],
+      [
+        "Does it rate my sense of humor?",
+        "It shows how often you reported using six ways of expressing humor."
+      ],
+      [
+        "How are averages calculated?",
+        "Rate each from 1 to 5. Each group has four items and needs at least three ratings."
+      ],
+      [
+        "Do I have to submit a joke?",
+        "No jokes, message logs or other people’s information are needed."
+      ],
+      [
+        "Can I mark an item unscored?",
+        "Yes. Use unscored for unfamiliar or unclear situations."
+      ],
+      [
+        "Does the share link include scores?",
+        "It points to the public quiz in the same language, without choices or scores."
+      ]
+    ],
+    "formula": "The six groups contain four frequency items each. Use 1 to 5. A group needs at least three rated items to display its mean.",
+    "boundary": "The readings describe recent ways of expressing humor. They do not evaluate the quality of a joke, another person’s reaction, or social ability."
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的神话生物测试含18道原创创作与交流情境题，约5分钟，免注册。答完可免费查看六种虚构生物的计数及所有最高匹配，六篇公开指南可直接阅读。",
+    "intro": "要动手做一个小作品，你会先做出第一版、翻出没做完的旧稿，还是想几个离奇点子？用约 5 分钟选完 18 道原创情境题，看六种神话生物分别比喻了你这次的哪些做法。",
+    "deliverables": [
+      [
+        "查看六种做法的选择次数",
+        "每题记 1 次，合计 18。可以回看你在创作、合作与表达中分别选了什么。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "每种虚构生物都有独立指南。同为最高的都会完整显示，也可以不作答直接阅读。"
+      ],
+      [
+        "分享公开指南或测试入口",
+        "单一最高分享名称及对应指南。并列时复制全部最高名称及测试入口。公开链接不带答案或计数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "龙最高，7 次",
+        "六项依次是 7、4、2、2、2、1。龙代表先定方向并开始做。想想什么样的小尝试最适合当第一步。"
+      ],
+      [
+        "独角兽和美人鱼并列，各 5 次",
+        "六项依次是 2、2、5、2、5、2。可一起看两份指南，比较在什么情境你会先提一个新设定，什么时候你会先听听别人的感受。"
+      ],
+      [
+        "全选 A，六种生物各 3 次",
+        "每种做法在 A 位都出现三次，结果会保留六份指南。回看具体题目更容易发现每个选项吸引你的原因。"
+      ]
+    ],
+    "profiles": {
+      "dragon": [
+        "先做一个看得见的版本",
+        "你这次比较常选定下一个具体方向，先做一小段看看。",
+        "做社团展板时，你先画出一个标题和两张示例图，拿给伙伴讨论。"
+      ],
+      "phoenix": [
+        "把旧稿翻出来改一点",
+        "你这次比较常选回看上一次卡在哪儿，再换一项条件重新尝试。",
+        "一份搁置的短篇写不下去，你试着删掉最难衔接的段落，改从另一场景开头。"
+      ],
+      "unicorn": [
+        "给奇怪的点子一点时间",
+        "你这次比较常选多留几种想象中的可能，让一个奇怪设定先长一会儿。",
+        "给朋友设计生日卡时，你先想三个不相干的主题，再挑一个值得试试。"
+      ],
+      "griffin": [
+        "开工前先问大家愿意做到哪儿",
+        "你这次比较常选确认彼此同意什么，以及谁愿意承担哪一部分。",
+        "朋友想一起拍短片，你先确认谁愿意入镜、谁更想负责幕后。"
+      ],
+      "mermaid": [
+        "让两种感受都能说出口",
+        "你这次比较常选听听对方怎么说，也允许开心和犹豫同时存在。",
+        "朋友要把作品发出去时，你让对方自己讲讲哪里期待、哪里还不放心。"
+      ],
+      "kraken": [
+        "把还没成形的点子留一留",
+        "你这次比较常选先独自整理，再决定哪些不完整的想法愿意给别人看。",
+        "讨论结束后，你先把草图放在自己的笔记里，隔天选一个段落发给同伴。"
+      ]
+    },
+    "faq": [
+      [
+        "测试会分配哪六种神话生物？",
+        "结果包括龙、凤凰、独角兽、狮鹫、美人鱼和克拉肯。每个名称对应这份原创题里的创作或交流做法。"
+      ],
+      [
+        "没读过神话也可以做吗？",
+        "可以。题目涉及开始创作、修改、一起计划或整理想法，不考神话知识。"
+      ],
+      [
+        "18 道题怎么计数？",
+        "每题四选一，给对应生物加 1。每种出现 12 次，范围 0–12，六项合计 18。所有同为最高的结果都保留。"
+      ],
+      [
+        "龙和凤凰在这套题里有什么区别？",
+        "龙比较关注定方向和动手，凤凰关注回看一次尝试并调整条件。两种做法可以在同一个项目里先后出现。"
+      ],
+      [
+        "结果能测出创造力、情商或抗压能力吗？",
+        "这套题记录当次选择，没有能力任务或常模，无法评估创造力、情商、抗压或韧性。"
+      ],
+      [
+        "保存或分享会带出答案吗？",
+        "公开分享只复制名称与指南或入口，不带答卷、计数或内部标识。现有结果没有个人 PNG。独立答题页刷新后不会恢复进度。"
+      ]
+    ],
+    "formula": "18 道题每题选四个做法之一，给所属生物记 1。六种生物各出现 12 次，各为 0–12 次，合计 18。所有最高次数相同的结果一起显示。",
+    "boundary": "六种比喻由费马为创作与交流情境编写。美国自然历史博物馆介绍过亚洲与欧洲独角兽意象的差异，这属于文化背景。此处计数只反映当次选择，无法提供跨文化的生物含义或心理测量。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的神話生物測驗有18道原創創作與交流情境題，約5分鐘，免註冊。答完可免費查看六種生物的次數與所有最高配對。六篇公開指南可直接閱讀。",
+    "intro": "想做一件自己的小作品，你會先做出雛形、找回沒做完的草稿，還是把幾個不同的點子寫下來？花約 5 分鐘回答 18 道情境題，看看六種神話生物分別怎麼比喻你這次的做法。",
+    "deliverables": [
+      [
+        "看六種做法各被選幾次",
+        "每題替一種生物記 1 次，合計 18。可以回頭看看你在不同創作或交流情境裡怎麼選。"
+      ],
+      [
+        "免費讀六篇完整指南",
+        "六種生物各有公開指南。同為最高時會一起列出。還沒作答也能直接看。"
+      ],
+      [
+        "複製公開名稱和連結",
+        "單項最高時可以複製名稱及同語指南；並列時會複製全部同分名稱及測驗入口，不會附上個人作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "龍最高，7 次",
+        "六項次數依序是 7、4、2、2、2、1。龍關注如何先做出第一步，可以想想什麼情況讓你想直接動手。"
+      ],
+      [
+        "獨角獸和人魚同為最高，各 5 次",
+        "六項依序是 2、2、5、2、5、2，兩篇都能看。可以比較自己什麼時候會先想幾個新點子，又在什麼時候想多聽一點。"
+      ],
+      [
+        "一路選 A，六種生物各 3 次",
+        "每種生物在 A 位各出現三次，因此會看到全部指南。想了解自己的偏好，可以再讀一遍各題的情境。"
+      ]
+    ],
+    "profiles": {
+      "dragon": [
+        "先做一個能拿出來看的雛形",
+        "你比較常選先確認方向，動手讓大家看見一個初步成果。",
+        "你準備社團展板時，先排好一張標題和兩張示意圖，找夥伴看看。"
+      ],
+      "phoenix": [
+        "從上一次卡住的地方重來",
+        "你比較常選回頭看已經做過的部分，挑一個能改的條件再試。",
+        "一篇小說寫不下去，你先換掉難接的開頭，再看看故事能不能繼續。"
+      ],
+      "unicorn": [
+        "讓怪點子多留一下",
+        "你比較常選想幾種不同的設定，等其中一種變得比較有趣再決定。",
+        "幫朋友做生日卡時，你先寫好幾種不相干的主題，再挑想用的一種。"
+      ],
+      "griffin": [
+        "把大家願意做的事說清楚",
+        "你比較常選先談彼此的意願和責任，確認合作的範圍。",
+        "朋友想合拍一段影片，你先問誰想入鏡，誰比較想幫忙剪輯。"
+      ],
+      "mermaid": [
+        "留時間聽人把感受說完",
+        "你比較常選先聽，給對方自己描述期待和顧慮的時間。",
+        "朋友正猶豫要不要公開作品時，你讓他先說想讓人看到什麼，又擔心什麼。"
+      ],
+      "kraken": [
+        "把點子留到自己想分享的時候",
+        "你比較常選先自己把事情想一下，再決定願意分享多少。",
+        "討論結束後，你把零碎的畫面先留在筆記裡，隔天再選一張拿給夥伴看。"
+      ]
+    },
+    "faq": [
+      [
+        "有哪些神話生物結果？",
+        "龍、鳳凰、獨角獸、獅鷲、人魚和克拉肯。每個角色用來說明當次選到的創作或交流做法。"
+      ],
+      [
+        "沒讀過神話故事也能做嗎？",
+        "可以。題目是怎麼開始做一件事、調整草稿、合作或表達，不需要神話背景。"
+      ],
+      [
+        "18 題怎麼計次？",
+        "每題四選一，替選到的生物加 1。六種各出現 12 次，每項為 0–12，合起來是 18。同為最高的指南都會列出。"
+      ],
+      [
+        "龍和鳳凰在這裡有什麼差異？",
+        "龍關注定下方向和開始動手，鳳凰關注回看做過的嘗試，再換條件試一次。同一項創作可以用到兩種做法。"
+      ],
+      [
+        "可以測出創意、情商或抗壓能力嗎？",
+        "這份題本只整理當次選擇，沒有能力測量或常模，無法評估創意、情商、韌性或抗壓能力。"
+      ],
+      [
+        "分享出去會附作答或個人圖卡嗎？",
+        "公開分享只複製名稱和指南或入口，沒有答卷、次數或個人 PNG。獨立作答頁重新整理後不會恢復進度。"
+      ]
+    ],
+    "formula": "18 題每題從四個做法選一個，替對應生物加 1 次。六種生物各出現 12 次，單項 0–12，合計 18。同為最高的生物一起顯示。",
+    "boundary": "費馬替這份題本編寫六種創作與交流比喻。美國自然歷史博物館介紹過亞洲與歐洲獨角獸意象在不同傳統中的樣貌。這是文化背景，本文的作答次數無法作為普遍的神話解釋或心理評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s Mythical Creature Quiz uses 18 original scenarios about making things and talking with others. It takes about five minutes and is free without registration. Results show choice counts for six fictional creatures and retain every creature tied for the highest count. All six public guides are available to read before answering. Sharing copies public names and links without exposing a personal answer sheet.",
+    "intro": "When you start something of your own, do you make a first draft, rethink an old attempt, or write down a few strange ideas? Choose what you would do in 18 original situations and see which creature metaphors your choices bring up. It takes about five minutes.",
+    "deliverables": [
+      [
+        "See the six choice counts",
+        "Each choice adds one to its creature, for a total of 18. Review where you picked different approaches to making or discussing something."
+      ],
+      [
+        "Read six public guides for free",
+        "Each creature has a complete guide. Every highest tie appears, and you can read any public guide without taking the quiz."
+      ],
+      [
+        "Copy a public guide or test link",
+        "A single leader shares its name and guide. Tied leaders share all their names and the test page. The link carries no answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Dragon leads at 7",
+        "The sample counts are 7, 4, 2, 2, 2, and 1. Dragon means finding a direction and getting started. Think about the sort of first step you would actually take."
+      ],
+      [
+        "Unicorn and Mermaid tie at 5 each",
+        "The counts are 2, 2, 5, 2, 5, and 2. Read both guides and compare when you would imagine a new idea and when you would make more room to listen."
+      ],
+      [
+        "All A: six creatures with 3 each",
+        "Each creature appears three times in position A, so every guide appears. Look back at what each answer offered to see which approaches you actually preferred."
+      ]
+    ],
+    "profiles": {
+      "dragon": [
+        "Make the first version visible",
+        "You often chose to decide on a direction and take a concrete first step.",
+        "When a club needs a display board, you sketch a heading and place two images so the group has something to discuss."
+      ],
+      "phoenix": [
+        "Change one thing and try again",
+        "You often chose to revisit an old attempt and see what would work under different conditions.",
+        "When a short story stalls, you set aside a scene that never quite fit and try opening it somewhere else."
+      ],
+      "unicorn": [
+        "Leave room for an unexpected idea",
+        "You often chose to imagine alternatives and give a strange idea time to develop.",
+        "While designing a birthday card, you write down three unrelated themes and pick the one you want to explore."
+      ],
+      "griffin": [
+        "Check what everyone is willing to do",
+        "You often chose to ask about consent and agree on the limits of each person’s role.",
+        "Before filming a short video with friends, you check who wants to appear on camera and who would prefer to edit."
+      ],
+      "mermaid": [
+        "Let people describe how they feel",
+        "You often chose to listen and leave room for mixed feelings.",
+        "When a friend considers posting their work, you ask what they are excited to share and what still worries them."
+      ],
+      "kraken": [
+        "Keep an unfinished idea private for a while",
+        "You often chose to work out your thoughts first and decide what you are ready to share.",
+        "After a group discussion, you leave some sketches in your notebook and send one the next day when it feels ready."
+      ]
+    },
+    "faq": [
+      [
+        "Which mythical creatures can I get?",
+        "Dragon, Phoenix, Unicorn, Griffin, Mermaid, and Kraken. In this quiz their names describe ways you might create something or talk about it."
+      ],
+      [
+        "Do I need to know any mythology?",
+        "No. The scenarios ask about starting a project, revising it, working together, or sharing thoughts. They do not test knowledge of mythology."
+      ],
+      [
+        "How are the 18 questions scored?",
+        "Each question has four options and your choice adds one to its creature. Each creature appears 12 times. Counts range from 0 to 12 and total 18, with every highest tie retained."
+      ],
+      [
+        "What is the difference between Dragon and Phoenix here?",
+        "Dragon is about choosing a direction and starting. Phoenix is about revisiting a past attempt and changing its conditions. You could use both approaches on the same project."
+      ],
+      [
+        "Does the quiz measure creativity, EQ, or resilience?",
+        "It records choices on this set of scenarios. There are no performance tasks or norms to measure creativity, emotional intelligence, resilience, or stress tolerance."
+      ],
+      [
+        "Can I share without sending my answers?",
+        "Public sharing copies names and a guide or entry link. It does not carry your answers, counts, or private IDs. There is no personal PNG, and reloading an unfinished standalone session does not restore progress."
+      ]
+    ],
+    "formula": "Choose one of four actions in each of 18 scenarios. Each answer adds one to its creature. Each creature appears 12 times, so individual counts run from 0 to 12 and sum to 18. Every highest tie appears.",
+    "boundary": "FermatMind created the six metaphors for this quiz. The American Museum of Natural History documents different unicorn imagery in Asian and European traditions. That is cultural background. The results cannot establish a universal meaning for any creature or provide a psychological assessment."
+  }
+}

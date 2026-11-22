@@ -1,0 +1,104 @@
+{
+  "zh": {
+    "facts": "费马测试的月相测试以24道情境题记录日常活动节奏，借八个月相名称标记不同做法。答完可免费查看八项选择次数、全部最高并列与公开指南。测试无需生日或注册，不计算出生月相。",
+    "intro": "给自己留一点时间做喜欢的事，你想先试一个小步骤、收好手上的小作品，还是安静歇一会儿？回答 24 道日常情境题，看看哪种月相意象更贴近你这次的选择。约 7 分钟，免费，无需生日。",
+    "deliverables": [
+      ["看清八项选择次数", "完成后一次看全八项计数。每项最多 12 次，八项加起来正好是 24 次。"],
+      ["读到每个最高结果", "最高次数相同的月相全部保留。八份公开指南列出相近做法的区别和可以自行尝试的小步骤。"],
+      ["保存横版或竖版月相卡", "PNG 包含所有最高月相的名称和主题。横版 1200×630、竖版 1080×1920，均不附个人答案或次数。"]
+    ],
+    "interpretations": [
+      ["一个月相单独最高", "如果新月得分最高，挑一个最近想开始的小活动，先写下自己愿意关注的一件事，给其他安排留些空白。"],
+      ["两个意象并列最高", "例子里的满月和渐亏月牙各被选 5 次。你可以先收好手上的小版本，再留一段不接新任务的时间，观察两种做法是否都合用。"],
+      ["八项都是三次", "每题都选同一个位置就会八项并列。先确认这些选项是否贴合你的实际想法，再挑一个想试的做法。"]
+    ],
+    "profiles": {
+      "new-moon": ["新月｜先留一小块空白", "你愿意先想清楚这次想留意什么，再决定要不要马上开始。", "打开新笔记本时，你只写下一句今天想记录的内容，其余先留空。"],
+      "waxing-crescent": ["渐盈月牙｜试一步再看看", "你愿意先试一个好调整的小步骤，做完再看还想不想继续。", "准备画一张卡片时，你先在废纸角落试一个图案，再决定正式稿用不用。"],
+      "first-quarter": ["上弦月｜把眼前的取舍说清", "你会把两种做法的取舍摆在眼前，选出这一次更适合的安排。", "只剩半小时整理相册时，你先选出最想留住的五张，暂时放下完整排版。"],
+      "waxing-gibbous": ["盈凸月｜只改一处让它更合用", "你想找到一个真正影响使用的细节，改完就允许这一版先用。", "分享组队游戏的说明前，你只补上容易走错的一步，保留已经够清楚的部分。"],
+      "full-moon": ["满月｜收好愿意呈现的一版", "你想把手上的东西收成一个小版本，再决定是否愿意给别人看。", "做完三页旅行剪贴后，你给这版加上日期，只发给想一起回忆的两位朋友。"],
+      "waning-gibbous": ["亏凸月｜把有用的经验递出去", "你会挑一条亲身用过的经验，先问对方想不想听、用不用得上。", "朋友也开始种香草时，你问他要不要听自己试过的浇水做法，让他自行决定要不要试。"],
+      "last-quarter": ["下弦月｜去掉一个可选负担", "你会分清必须做的事和自己额外加的要求，试着放掉一项可选任务。", "整理自己的草稿时，你保留已经约好的交稿内容，划掉原本想额外加的装饰页。"],
+      "waning-crescent": ["渐亏月牙｜给两件事之间留个空档", "你愿意让一项活动自然停下来，给自己一点不用解释或接新任务的时间。", "听完一场线上讲座，你先倒杯水、坐几分钟，再决定要不要看下一段视频。"]
+    },
+    "faq": [
+      ["月相测试测的是什么？", "这份问卷用八个月相名称组织日常活动的选择，记录你这次更常选的做法。不会判断固定人格或人生阶段。"],
+      ["需要生日吗，能查出生月相或配对吗？", "不需要生日、出生时间或地点。测试不会查询天文日期，也没有两人月相配对的规则。"],
+      ["八项次数和并列结果怎么计算？", "24 题每题四选一，给所选意象加 1 次。每个意象出现 12 次，合计 24 次。所有共同最高者都保留。"],
+      ["月相图的明暗方向为什么可能和天空不同？", "图采用北半球常见示意，渐盈右侧亮、渐亏左侧亮。实际看到的朝向随地点和时间变化，示意图不代表当日月相。"],
+      ["题目和完整结果收费吗？", "24 道题、八项次数及八篇公开指南均免费，无需注册。约 7 分钟是参考用时，速度不会计分。"],
+      ["分享图片或链接会公开答案吗？", "不会。PNG 会展示全部最高意象的名称和主题。单项最高的链接打开对应指南，多项并列时打开测试入口。两者都不附答案或个人次数。"]
+    ],
+    "formula": "24 题各选四项中的一项。所选意象 +1，每项 0–12 次，合计 24 次。同为最高者全部保留。",
+    "boundary": "八个月相名称借作活动节奏的比喻，与真实天空、出生日期或月亮对身体的影响无关。图采用北半球常见示意，实际朝向会随地点与时间变化。问卷未完成心理测量验证，次数不能换算成人格、睡眠、情绪或关系配对结论。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的月相測驗有24題生活情境，以八種月相名稱表示不同的活動節奏。做完可免費查看選擇次數和所有最高同分結果，也能直接讀八篇公開指南。整份測驗不需要生日或註冊。",
+    "intro": "有一點時間可以做自己的事，你想先動手試一下、把手上的小作品收好，還是留幾分鐘歇一歇？24 題生活情境約 7 分鐘，看看哪種月相意象貼近你這次的選擇。免費測驗，不用填生日。",
+    "deliverables": [
+      ["八種意象都看得到次數", "每種意象最多 12 次。答完後可一次查看全部次數，加起來是 24 次。"],
+      ["同分最高的意象一併列出", "最高同分就會一起列出。八篇指南都能閱讀，也各有不同的日常例子和可以試的做法。"],
+      ["下載橫式或直式月相圖卡", "PNG 會顯示所有最高意象的名稱與主題。橫式 1200×630、直式 1080×1920，都不會附上作答或次數。"]
+    ],
+    "interpretations": [
+      ["一種月相單獨排第一", "如果這次新月最高，找一件想開始的小事，先簡單寫下這次你想留意什麼，其他安排不用急著填滿。"],
+      ["兩種意象同樣最高", "範例裡滿月和殘月各選 5 次。你可以先把現在這一版收好，再空出一段不排新事情的時間，看看兩種做法是否都合用。"],
+      ["八種都選了三次", "每題都選同一個位置就會八項同分。確認那些選項合不合你的意思，再挑一個想了解的意象讀下去。"]
+    ],
+    "profiles": {
+      "new-moon": ["新月｜先留一點空白", "你想先弄清楚這次要留意什麼，其他事情可以等一下再決定。", "翻開新手帳時，你只寫下一句今天想記住的事，剩下的地方先不急著填。"],
+      "waxing-crescent": ["眉月｜小小試一步", "你想先試一個容易改的小做法，試完再決定要不要繼續。", "要畫張小卡片時，你先用一張便條試個圖案，喜歡再放進正式的版本。"],
+      "first-quarter": ["上弦月｜選出現在派得上用場的做法", "你會先看清兩種做法各要放掉什麼，再選眼前比較合用的一種。", "只剩半小時整理照片時，你先挑出五張最想留下的，排版的事改天再做。"],
+      "waxing-gibbous": ["盈凸月｜改好一個真的有差的細節", "你會找出哪一處改了最有用，改好那裡就讓這一版先上場。", "和朋友分享遊戲規則前，你補上容易漏掉的一個步驟，其他地方保留原樣。"],
+      "full-moon": ["滿月｜把願意給人看的一版收好", "你想先把手上的一小份整理好，再決定想給誰看。", "做完幾頁旅行剪貼後，你寫上日期，只傳給想一起回憶的朋友。"],
+      "waning-gibbous": ["虧凸月｜分享一個真的試過的做法", "你願意分享自己試過、有幫助的做法，也會先問對方要不要聽。", "知道朋友也開始種香草，你先問他需不需要澆水的經驗，再讓他決定要不要試。"],
+      "last-quarter": ["下弦月｜把多排的一件事拿掉", "你想分清原本說好要做的事，和其實可以省掉的額外要求。", "收拾自己的草稿時，你保留已經約好的內容，刪掉後來自己多加的一頁裝飾。"],
+      "waning-crescent": ["殘月｜兩件事中間留幾分鐘", "你願意讓剛做完的事好好停下，在下一件事之前先喘口氣。", "看完線上講座後，你先起身倒杯水，坐一會兒才決定要不要開下一段影片。"]
+    },
+    "faq": [
+      ["月相測驗在測什麼？", "它用八個月相名稱表示日常活動的不同做法。結果記下你這次怎麼選，沒有固定人格或人生階段的分類。"],
+      ["要填生日嗎？能查出生月相或做配對嗎？", "不用填生日、出生時間或地點。測驗不查某一天的實際月相，也沒有兩個人配對的功能。"],
+      ["八項次數和最高同分怎麼算？", "24 題都四選一，選到的意象加 1 次。每個意象各出現 12 次，答完加起來是 24 次。最高次數相同就一起列出。"],
+      ["為什麼圖上的方向和天空看到的不一樣？", "示意圖採用北半球常見的畫法，漸盈右邊亮、漸虧左邊亮。實際看到的方向會隨地點和時間而變，圖也不代表當天的月相。"],
+      ["測驗和完整指南都免費嗎？", "24 題、完整結果和八篇指南都免費，免註冊。約 7 分鐘只是參考，用了多久不會影響結果。"],
+      ["分享圖卡或連結會附上作答嗎？", "圖卡顯示所有最高意象的名稱與主題。單項最高時可連到那篇指南，多項並列則連到測驗入口。兩種分享都不包含作答或個人次數。"]
+    ],
+    "formula": "24 題四選一，選到的意象加 1 次。單項 0–12 次，八項加起來是 24 次。同為最高的意象都會保留。",
+    "boundary": "月相名稱在此用來比喻當次活動節奏。示意圖依北半球常見方向繪製，實際朝向隨地點和時間而變。測驗不查詢出生或當日月相，題本尚未完成心理計量驗證。結果不能用來推斷性格、睡眠、情緒或關係配對。"
+  },
+  "en": {
+    "facts": "FermatMind’s Moon Phase Personality Test uses 24 everyday situations to explore how people approach small activities. It counts choices across eight metaphors named after lunar phases and keeps every result tied for first. The quiz, complete counts and eight public guides are free without an account. A birthday is not needed, because the quiz does not calculate anyone’s birth Moon phase.",
+    "intro": "When you make time for something you enjoy, would you try one small step, show what you’ve made, or take a quiet break? Answer 24 everyday questions to see which Moon phase metaphors fit the pace you chose. It takes about seven minutes and is free without a birthday or an account.",
+    "deliverables": [
+      ["See all eight choice counts", "Each metaphor gets its own count out of 12 appearances. The eight counts add up to 24 when you finish."],
+      ["Read every top guide", "Every metaphor that shares the highest count stays in the result. Each guide explains how that approach might look in an ordinary activity."],
+      ["Save a landscape or portrait card", "The PNG shows every highest result’s phase name and theme. Save it in 1200×630 landscape or 1080×1920 portrait without your answers or counts."]
+    ],
+    "interpretations": [
+      ["One phase comes first", "If New Moon leads, choose one small activity you want to start. Write down one thing you want to pay attention to and leave the rest of the plan open for now."],
+      ["Two phases tie", "Full Moon and Waning Crescent each get five selections in one sample. Try putting your current draft aside as a version you’re happy with, then leave time before starting something new."],
+      ["All eight phases get three selections", "Choosing the same option position throughout produces this tie. Check whether the choices fit what you wanted, then read about one approach you’d like to try."]
+    ],
+    "profiles": {
+      "new-moon": ["New Moon · Leave space first", "You want to decide what is worth your attention before filling in the rest of the plan.", "On the first page of a new notebook, write one thing you want to notice and leave the rest of the page blank for now."],
+      "waxing-crescent": ["Waxing Crescent · Try one small step", "You like to start with a step you can change and see whether you want to carry on.", "Before drawing a card, try a small design on a scrap of paper and decide whether to use it."],
+      "first-quarter": ["First Quarter · Name the tradeoff", "You like to see what each choice requires and pick the approach that suits the time or space you have now.", "With half an hour to sort photos, choose the five you most want to keep and save the layout for later."],
+      "waxing-gibbous": ["Waxing Gibbous · Fix the detail that matters", "You look for one change that makes the current version easier to use, then give yourself permission to stop.", "Before sharing game instructions with friends, clarify the one step people usually miss and leave the rest alone."],
+      "full-moon": ["Full Moon · Choose how to share this version", "You want to pull what you’ve made into a version you can set aside, then decide who you want to show it to.", "After finishing a few pages of travel pictures, add a date and send them to the friends who were there."],
+      "waning-gibbous": ["Waning Gibbous · Offer something useful", "You like to share one thing that helped you and give others the choice of whether to hear or try it.", "When a friend starts growing herbs, ask if they want a watering tip and let them decide what to do with it."],
+      "last-quarter": ["Last Quarter · Drop an extra requirement", "You look at what you agreed to do and make room by cutting something you added on your own.", "When editing a draft, keep the parts you promised to deliver and cross out an optional decorative page."],
+      "waning-crescent": ["Waning Crescent · Leave a quiet gap", "You like to finish an activity and take a little time before deciding what comes next.", "After an online talk, get a glass of water and sit for a few minutes before opening another video."]
+    },
+    "faq": [
+      ["What does this Moon Phase Personality Test show?", "It uses eight phase names for ways of approaching everyday activities. The counts reflect choices in this quiz, without identifying a fixed personality or life stage."],
+      ["Do I need a birthday, and can this quiz calculate a birth Moon or compatibility?", "No birth date, time or location is needed. The quiz does not look up an astronomical phase or match two people by their Moon phases."],
+      ["How are the eight counts and ties worked out?", "Each of the 24 questions has four options. The selected metaphor gains one count. Each appears 12 times, the total is 24, and every metaphor tied for first stays in the result."],
+      ["Why might the diagrams look different from the Moon in the sky?", "They use a common Northern Hemisphere illustration, with the waxing phases lit on the right and waning phases lit on the left. How the Moon looks in the sky varies with place and time."],
+      ["Is the full quiz free?", "All 24 questions, complete results and eight public guides are free without an account. It takes about seven minutes, and speed does not affect the counts."],
+      ["Can someone see my answers from the card or link?", "The PNG includes every highest phase’s name and theme. A single highest result links to its guide, while a tie links to the quiz. Neither contains your answers or personal counts."]
+    ],
+    "formula": "Choose one of four options on each of 24 questions. Add 1 to the chosen metaphor. Each metaphor has 0–12 counts, the total is 24, and every highest tie is retained.",
+    "boundary": "The phases are metaphors for activity pace. Diagrams use a common Northern Hemisphere orientation, while the apparent direction in the sky depends on place and time. The quiz does not determine a birth phase or measure personality, sleep, mood or compatibility. Psychometric validation has not been completed."
+  }
+}

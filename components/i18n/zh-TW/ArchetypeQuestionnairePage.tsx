@@ -10,6 +10,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { hasCharacterLanding } from "@/lib/questionnaires/characterLandingCopy";
+import { CharacterQuizLanding } from "@/components/questionnaires/CharacterQuizLanding";
 import { FilmQuestionnaireLanding, hasFilmEditorial } from "./FilmQuestionnaireLanding";
 import { hasTraditionalEightQuizOverview } from "@/components/questionnaires/EightQuizOverview";
 import { loadTraditionalAssessmentText } from "@/lib/tests/traditionalAssessmentDisplay";
@@ -90,6 +92,10 @@ export async function ArchetypeQuestionnairePage({ slug, profile, take }: Stage)
     <Link href={url("en")} lang="en" className="min-h-11 py-2 underline">English</Link>
   </nav>;
   if (!profile) {
+    if (hasCharacterLanding(slug)) {
+      const copyTraditional = await loadTraditionalAssessmentText();
+      return <CharacterQuizLanding quiz={quiz} slug={slug} locale="zh-TW" copyTraditional={slug === "bleach" ? traditionalPortraitCopy(copyTraditional) : copyTraditional} />;
+    }
     const Preference = Object.hasOwn(preferencePages, slug) ? preferencePages[slug as keyof typeof preferencePages] : null;
     const overviewCopy = hasTraditionalEightQuizOverview(slug) || slug === "moon-phase" || slug === "cyberpunk-edgerunners" || slug === "bleach" || slug === "philosopher-personality-test" ? await loadTraditionalAssessmentText() : undefined;
     const copy = slug === "bleach" || slug === "philosopher-personality-test" ? traditionalPortraitCopy(overviewCopy) : overviewCopy;

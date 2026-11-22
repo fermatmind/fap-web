@@ -1,0 +1,413 @@
+{
+  "zh": {
+    "facts": "费马测试的恋爱价值观测试用24道原创二选一题比较四类相处优先事项，约6分钟。免费查看每项原始次数、最高并列组合与十五份完整的公开情境指南。",
+    "intro": "纪念日想一起设计一件有记忆的事，还是一起解决拖了很久的生活麻烦？每题挑近来更贴近自己的安排。",
+    "deliverables": [
+      [
+        "四个优先事项",
+        "浪漫仪式、务实合作、情感陪伴与共同成长分别计数。"
+      ],
+      [
+        "不打散最高并列",
+        "一样多的最高项都显示。"
+      ],
+      [
+        "十五份公开指南",
+        "覆盖单项和各类最高同分组合。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把想要的安排说具体",
+        "例如宁愿保留一个小仪式，还是今晚一起完成一件事。"
+      ],
+      [
+        "可以同时在意几件事",
+        "对照自己的时间与对方愿意的安排。"
+      ],
+      [
+        "同分就看不同场景",
+        "你可能在纪念日和普通工作日作出不同选择。"
+      ]
+    ],
+    "profiles": {
+      "romantic-expression": [
+        "留一个值得记住的片段",
+        "你愿意用小仪式表达这一天的重要。",
+        "忙碌时也留十分钟交换一封短笺。"
+      ],
+      "practical-partnership": [
+        "生活难题一起解决",
+        "你在意怎样让日常更好过。",
+        "你们一起把堆了很久的账单理清楚。"
+      ],
+      "emotional-companionship": [
+        "让对方说完这一段",
+        "你重视听见感受和近况。",
+        "散步时，你把手机收起来听一件对方在意的事。"
+      ],
+      "growth-autonomy": [
+        "一起成长也有自己的事",
+        "你愿意支持新计划并保留各自的时间。",
+        "你们各报名一门课，周末再分享学到的东西。"
+      ],
+      "rituals-cooperation-tie": [
+        "纪念和做事安排在一起",
+        "你这次同样重视仪式与务实合作。",
+        "你们把纪念日的一顿饭和一起整理旧照片安排在同天。"
+      ],
+      "rituals-companionship-tie": [
+        "把一件小事记下来",
+        "你本次浪漫与陪伴并列最多。",
+        "你留一张短笺，然后听对方讲这周最难的一天。"
+      ],
+      "rituals-autonomy-tie": [
+        "一起庆祝，分别前进",
+        "你同样选择仪式感和成长空间。",
+        "你们庆祝相识一周年，也各留半天做想做的事。"
+      ],
+      "cooperation-companionship-tie": [
+        "一起做，也一起听",
+        "你务实协作和情感陪伴获得相同的最高次数。",
+        "你先一起收拾餐桌，再问对方今天过得怎样。"
+      ],
+      "cooperation-autonomy-tie": [
+        "把共同任务和私人计划说清",
+        "你同样在意务实安排与个人成长。",
+        "你们先把租房材料办好，再分别去上各自的课。"
+      ],
+      "companionship-autonomy-tie": [
+        "亲近和个人时间都能留",
+        "你这次同样重视陪伴和成长。",
+        "你陪对方走一圈，也留自己的晚上练琴。"
+      ],
+      "rituals-cooperation-companionship-tie": [
+        "准备一点纪念，也把生活照顾好",
+        "你这次仪式、务实协作、陪伴都同获最高。",
+        "你们一起做顿晚饭、翻翻旧照片，最后坐一会聊近况。"
+      ],
+      "rituals-cooperation-autonomy-tie": [
+        "让纪念与共同计划都带空间",
+        "你选择仪式、合作和成长的次数相同。",
+        "你们先解决搬家安排，各去办自己的事，再约个时间庆祝。"
+      ],
+      "rituals-companionship-autonomy-tie": [
+        "庆祝、陪伴和新尝试",
+        "你三种优先事项这次同获最高。",
+        "你写一张纪念卡，认真听对方的近况，也支持他报名一门课。"
+      ],
+      "cooperation-companionship-autonomy-tie": [
+        "边做事边商量各自的节奏",
+        "你务实协作、陪伴、成长在本次同分。",
+        "你们一起处理账单，再聊哪些夜晚想一起过、哪些各自安排。"
+      ],
+      "four-values-tied": [
+        "四项都可以谈",
+        "你这次四项各选六次。",
+        "你们能一起纪念、处理生活事、聊感受，也各有新计划。"
+      ]
+    },
+    "faq": [
+      [
+        "有几个价值方向？",
+        "浪漫仪式、务实合作、情感陪伴与共同成长。"
+      ],
+      [
+        "每题怎么计数？",
+        "每选一次给对应方向加1。每方向出现12次。"
+      ],
+      [
+        "同分怎么办？",
+        "最高同分保留，对应一份组合指南。"
+      ],
+      [
+        "能拿两个人结果算配对吗？",
+        "题本只整理个人选择，不计算适配度。"
+      ],
+      [
+        "两个选项都不合适呢？",
+        "可退出或直接看指南，需24道有效答案才出结果。"
+      ],
+      [
+        "复制会带上我的答案吗？",
+        "复制结果名称和同语指南地址，不含选择或次数。"
+      ]
+    ],
+    "formula": "24道二选一，选一次加1。四方向各出现12次，任两项对照4次，最高并列完整保留。",
+    "boundary": "读数回顾自己的相处安排。它不建立价值高低、固定性格或两人的适配度。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的戀愛價值觀測驗以24道原創二選一題整理四類相處優先事項，約6分鐘。免費提供各項原始次數、最高同分組合及十五份公開的情境指南。",
+    "intro": "紀念日你想一起安排值得記住的活動，還是把生活裡放了很久的一件事處理好？想想最近哪一種你更想先做。",
+    "deliverables": [
+      [
+        "四種優先事項",
+        "浪漫儀式、務實合作、情感陪伴和共同成長分開看。"
+      ],
+      [
+        "保留全部最高同分",
+        "一樣多的最高選擇會一起顯示。"
+      ],
+      [
+        "十五份公開指南",
+        "單項和最高同分組合都有自己的情境例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把在意的事說清楚",
+        "可以說明你想保留什麼，再問對方現在有沒有餘裕。"
+      ],
+      [
+        "想一起做，也可以各自做",
+        "安排共同時段時，順便保留自己的計畫。"
+      ],
+      [
+        "從一天回想同分",
+        "紀念日跟忙亂的平日，可能需要不一樣的做法。"
+      ]
+    ],
+    "profiles": {
+      "romantic-expression": [
+        "讓今天有個記得住的片段",
+        "你會想用一件小事記住重要的日子。",
+        "下班後你們各寫一句話，留起來下次再讀。"
+      ],
+      "practical-partnership": [
+        "一起把小麻煩處理掉",
+        "你在意能不能一起把生活過得方便一點。",
+        "你們週末找時間整理常弄丟的帳單。"
+      ],
+      "emotional-companionship": [
+        "讓感受好好說完",
+        "你重視相處時有人願意聽。",
+        "散步時你收起手機，聽對方把今天的一件事講完。"
+      ],
+      "growth-autonomy": [
+        "各自有目標，也互相支持",
+        "你想留時間做自己的事，也想知道對方的進展。",
+        "你們各自上課，晚餐再聊學到什麼。"
+      ],
+      "rituals-cooperation-tie": [
+        "一起紀念，也一起把事辦好",
+        "你本次儀式和合作同獲最高。",
+        "你們整理照片，再煮一道想在紀念日吃的菜。"
+      ],
+      "rituals-companionship-tie": [
+        "記得今天，也關心彼此",
+        "你本次儀式與陪伴選到一樣多。",
+        "你留一張卡片，再坐下來聽對方說說近況。"
+      ],
+      "rituals-autonomy-tie": [
+        "把慶祝和各自的計畫都放進去",
+        "你本次儀式和成長空間同分。",
+        "你們一起慶祝，隔天各做想做的活動。"
+      ],
+      "cooperation-companionship-tie": [
+        "手邊一起做，耳朵也聽著",
+        "你本次合作與陪伴同獲最高次數。",
+        "你們一起收餐桌，也聊今天為什麼累。"
+      ],
+      "cooperation-autonomy-tie": [
+        "一起處理正事，也保留各自目標",
+        "你本次務實和成長同分。",
+        "你們整理租屋文件，週末各自去上課。"
+      ],
+      "companionship-autonomy-tie": [
+        "能陪伴，也有自己的時間",
+        "你這次陪伴和成長選的次數一樣多。",
+        "你陪對方散步，回家後留一段時間練琴。"
+      ],
+      "rituals-cooperation-companionship-tie": [
+        "把紀念、幫忙和關心排在同一天",
+        "你這次儀式、合作和陪伴選得同樣多。",
+        "你們煮飯、翻相簿，再坐下來聽彼此最近在忙什麼。"
+      ],
+      "rituals-cooperation-autonomy-tie": [
+        "一起做事，還能自己安排",
+        "你這次儀式、合作和成長都是最高次數。",
+        "你們一起處理搬家，分頭去做各自的事，再約時間慶祝。"
+      ],
+      "rituals-companionship-autonomy-tie": [
+        "慶祝靠近，也鼓勵新嘗試",
+        "你這次儀式、陪伴和成長一樣多。",
+        "你寫卡片、聽對方想法，也替他的課程報名開心。"
+      ],
+      "cooperation-companionship-autonomy-tie": [
+        "分工後也聊聊近況",
+        "你這次的合作、陪伴和成長並列最高。",
+        "你們辦完共同帳單後，談談哪些晚上想一起過。"
+      ],
+      "four-values-tied": [
+        "四種安排都有位置",
+        "你這次每項都選了六次。",
+        "你們可以談紀念、分工、感受，也能留自己的時間。"
+      ]
+    },
+    "faq": [
+      [
+        "一共哪四項？",
+        "浪漫儀式、務實合作、情感陪伴和共同成長。"
+      ],
+      [
+        "每題怎麼計分？",
+        "選到的方向加1，每方向出現12次。"
+      ],
+      [
+        "同分怎麼讀？",
+        "最高同分會一起列出，並附對應組合的指南。"
+      ],
+      [
+        "可以拿兩份結果算配對嗎？",
+        "本測驗只整理個人選擇。"
+      ],
+      [
+        "兩個選項都不適合呢？",
+        "可停下來或改讀指南。24道均有效填答才有結果。"
+      ],
+      [
+        "分享會帶出答案嗎？",
+        "複製結果名稱和同語言公開指南，不帶作答與次數。"
+      ]
+    ],
+    "formula": "24道二選一，選到哪一項就加1。四項各有12次機會，任兩項比較4次，保留全部最高同分。",
+    "boundary": "用讀數回顧自己的相處安排。它不評斷哪一種價值較好，也不能評估兩人適不適合。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Relationship Values Test uses 24 original pairs of choices to compare four priorities in everyday relationships. It takes about six minutes and displays the raw counts, all priorities tied at the top, and fifteen full public guides. Readers can explore rituals, practical partnership, emotional companionship and personal growth without signing up, answering for a partner or sharing personal messages.",
+    "intro": "On an anniversary, would you rather plan a memorable moment or finish something that will make day-to-day life easier? Pick the option that feels more natural right now.",
+    "deliverables": [
+      [
+        "Four separate priorities",
+        "See counts for rituals, practical partnership, companionship, and growth with autonomy."
+      ],
+      [
+        "All highest ties",
+        "Read every priority with the highest count."
+      ],
+      [
+        "Fifteen public guides",
+        "See examples for a single lead or the exact tied combination."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Make the plan concrete",
+        "Think of what you want to set aside time for and ask what the other person wants."
+      ],
+      [
+        "Find time for together and apart",
+        "A shared plan can make room for separate interests."
+      ],
+      [
+        "Read ties in context",
+        "A busy Tuesday and an anniversary might invite different choices."
+      ]
+    ],
+    "profiles": {
+      "romantic-expression": [
+        "Give the day something to remember",
+        "You put time into small rituals that make a moment distinct.",
+        "Even on a busy day, you leave each other a short note to read later."
+      ],
+      "practical-partnership": [
+        "Make life easier together",
+        "You value getting a practical problem sorted out as a team.",
+        "You sit down together to go through the bills that have piled up."
+      ],
+      "emotional-companionship": [
+        "Hear how the day went",
+        "You value time to listen without rushing.",
+        "On a walk, you put away your phone and hear what happened at work."
+      ],
+      "growth-autonomy": [
+        "Keep growing side by side",
+        "You make room for each person’s own projects.",
+        "You sign up for different classes and swap stories later."
+      ],
+      "rituals-cooperation-tie": [
+        "Make a memory and finish a task",
+        "You picked rituals and practical partnership equally often.",
+        "For your anniversary, you cook and sort old photos together."
+      ],
+      "rituals-companionship-tie": [
+        "Mark the day and check in",
+        "You chose rituals and companionship equally often.",
+        "You leave a short note and take time to hear about their week."
+      ],
+      "rituals-autonomy-tie": [
+        "Celebrate and leave room to grow",
+        "You gave rituals and autonomy equal weight.",
+        "You celebrate together and each keep a morning open for your own plans."
+      ],
+      "cooperation-companionship-tie": [
+        "Share the work and the conversation",
+        "You gave partnership and companionship equal weight.",
+        "You clear the table together and talk about what made the day tiring."
+      ],
+      "cooperation-autonomy-tie": [
+        "Share tasks and keep your own plans",
+        "You chose practical partnership and growth equally often.",
+        "You finish the housing forms as a team and go to your separate classes later."
+      ],
+      "companionship-autonomy-tie": [
+        "Stay close with separate interests",
+        "You gave companionship and autonomy equal weight.",
+        "You take a walk together and go home to practise piano alone."
+      ],
+      "rituals-cooperation-companionship-tie": [
+        "Make time to remember, help and listen",
+        "You selected rituals, cooperation, and companionship equally often.",
+        "You cook together, look through old photos, and talk about the week."
+      ],
+      "rituals-cooperation-autonomy-tie": [
+        "Celebrate what you build and keep room for your own path",
+        "You selected rituals, cooperation, and growth equally often.",
+        "You get a moving task done together, take separate breaks, and plan a small celebration."
+      ],
+      "rituals-companionship-autonomy-tie": [
+        "Make room to celebrate, talk and try something new",
+        "You chose rituals, companionship, and autonomy equally often.",
+        "You write an anniversary note, listen to their news, and encourage a new class."
+      ],
+      "cooperation-companionship-autonomy-tie": [
+        "Get things done and check what each person needs",
+        "You selected cooperation, companionship, and growth equally often.",
+        "You take care of the bills and talk about which evenings you want to spend together or apart."
+      ],
+      "four-values-tied": [
+        "Make room for all four",
+        "You chose each priority six times.",
+        "You can celebrate, share a task, listen and make plans of your own."
+      ]
+    },
+    "faq": [
+      [
+        "Which priorities are covered?",
+        "Rituals, practical partnership, emotional companionship and growth with autonomy."
+      ],
+      [
+        "How does a choice count?",
+        "Each choice adds one to its priority. Each priority appears 12 times."
+      ],
+      [
+        "What if counts tie?",
+        "All priorities tied for the highest count stay in the result."
+      ],
+      [
+        "Can I compare two people for compatibility?",
+        "The quiz reflects one person’s choices and does not calculate compatibility."
+      ],
+      [
+        "What if neither option fits?",
+        "You can leave or read the guides. An interpreted result needs 24 valid choices."
+      ],
+      [
+        "What is in the copied result?",
+        "It gives the result name and same-language public guide, without choices or counts."
+      ]
+    ],
+    "formula": "Each of 24 pairs adds one count to its chosen priority. Each priority appears twelve times. All highest ties are kept.",
+    "boundary": "These are your choices in the situations presented. Use them to reflect on what matters to you without ranking people’s values or predicting a relationship."
+  }
+}

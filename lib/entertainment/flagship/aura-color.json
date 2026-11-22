@@ -1,0 +1,101 @@
+{
+  "zh": {
+    "facts": "费马测试的光环颜色测试用21道日常题记录七种表达偏好。答完可免费查看七色计数和全部最高并列结果，也能阅读每种颜色的公开指南。无需注册或上传照片。",
+    "intro": "做一张小卡时，你会先把一句话写大，邀请朋友画一笔，还是把某个细节留在自己的笔记里？做完 21 道日常选择题，看看哪种颜色最贴近你这次想表达的方式。约 7 分钟，不限时，完整结果免费。",
+    "deliverables": [
+      ["看见七种颜色的选择次数", "完成后一次看全七项计数。每项最多 12 次，七项加起来正好 21 次。"],
+      ["读到所有最高结果", "哪几种颜色并列最多，就列出哪几种。你可以分别比较它们在日常情境里的含义。"],
+      ["复制适合分享的链接", "单一最高时可分享对应的公开指南。并列时可以复制所有并列色名与测试入口。"]
+    ],
+    "interpretations": [
+      ["一个颜色单独领先", "先挑一题你最有把握的选择，想想自己最近在哪次聊天、记录或创作里也做了类似的事。"],
+      ["两种颜色并列", "试着为两种表达各找一个合适的场景。你可能在合作者面前喜欢一起试，在自己的本子上更愿意独自看。"],
+      ["七色都是三次", "每题都选第一项就会出现这个结果。若想用它回顾自己的表达方式，先确认这些选项确实符合你，再挑出想继续读的颜色。"]
+    ],
+    "profiles": {
+      "red": ["一句话点题", "你会先选一句最想说的话，让它在一页笔记里被一眼看见。", "写完读书笔记，你把最想留住的一句挪到第一页顶端。"],
+      "orange": ["留一笔给朋友", "你愿意让别人给作品添一笔，享受事情一起做着做着就有了新样子。", "画聚会的小卡时，你留出一块空白，问愿意参加的人想添点什么。"],
+      "yellow": ["给问号找个来处", "你看到有趣的细节会追问一句，喜欢找到一份能把来由讲清的资料。", "换滤壶的滤芯时，你去看说明书，弄清它为什么要先泡水。"],
+      "green": ["把东西放到顺手处", "你留意什么安排用起来更方便，也愿意动手试试小改动能不能帮上忙。", "一起做手工前，你把常用的剪刀和胶带放到桌中央，方便每个人拿。"],
+      "blue": ["把话说到明处", "你愿意把请求、时间和约定说明白，给对方留一个能直接回答的问题。", "向朋友借书时，你先说自己想借几天，再问周五归还方不方便。"],
+      "indigo": ["慢慢看清小地方", "你想先给自己一点时间，看看一个细节到底是什么，再决定要不要开口。", "翻旧照片时，你暂停在窗边的一处反光，把自己看到的细节先记在本子里。"],
+      "violet": ["给回忆留个记号", "你会给自己留下一个有来由的符号，日后看见它还能想起一段经历。", "旅行结束后，你在手帐里画了一盏路灯，记住那晚和好友走过的小巷。"]
+    },
+    "faq": [
+      ["光环颜色测试测的是什么？", "这份问卷记录你在 21 道日常情境里选了哪些表达方式，并用七种颜色标记相应主题。"],
+      ["测试免费吗，需要上传照片吗？", "21 道题、完整结果和七篇指南均可免费查看，全程无需注册、照片、生日或星座信息。"],
+      ["每种颜色怎样计分？", "每次选择给对应颜色加 1 次。每种颜色出现 12 次，因此单项范围是 0 至 12 次。完成后的七项合计为 21 次。"],
+      ["为什么我会得到两个以上的颜色？", "所有达到同一最高次数的颜色都会保留。全选第一项时，七种颜色会各得 3 次。"],
+      ["能从颜色看出性格或能力吗？", "这些计数只描述当次题目中的选择。颜色是表达意象，问卷没有测量能量场，也没有稳定人格或能力的常模。"],
+      ["复制的链接会公开答案吗？", "不会。单一最高时复制色名和公开指南链接，并列时复制所有并列色名和测试入口。两种分享都不附答案或次数。"]
+    ],
+    "formula": "每题四选一，所选颜色 +1。每色 0–12 次，七色合计 21 次。所有达到最高次数的颜色均保留。",
+    "boundary": "七色来自本问卷的情境选择，用于回顾表达方式。题本未完成信度、效度或常模验证。请勿把结果用于健康、疗愈、关系配对或职业判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的光環顏色測驗有21題生活情境，會記下七種表達方式各被選了幾次。答完可免費查看最高的顏色，同分就一起列出。七篇指南皆可直接閱讀，免登入也免上傳照片。",
+    "intro": "做張小卡片，你會先把一句話寫在最醒目的地方，請朋友畫一筆，還是把看到的細節先記給自己？21 題生活情境，約 7 分鐘，沒有時間限制。做完就能免費查看完整結果。",
+    "deliverables": [
+      ["把七色的次數一次看完", "每一色都有自己的次數，最多 12 次。答完後，七色加起來剛好是 21 次。"],
+      ["同分最高的顏色一起看", "如果最高分有兩色或更多，每一色都會列出來，想看哪一色都能點進去。"],
+      ["複製連結和朋友聊聊", "單色最高可分享那一色的公開指南。多色並列則可複製所有並列色名，以及測驗入口。"]
+    ],
+    "interpretations": [
+      ["只有一色排在最前面", "找出一個當時幾乎不用想就選的選項。回想這一週，你是否曾用同樣的方式記錄、創作或跟朋友聊天。"],
+      ["有兩種顏色並列", "替兩個顏色各想一個實際場合。你也許喜歡和朋友動手做東西，遇到難題時則想先自己看仔細。"],
+      ["七色都是三次", "每題都選第一個選項，就會得到七色並列。確認這些選擇合不合你的意思，再從最想了解的顏色看起。"]
+    ],
+    "profiles": {
+      "red": ["一句話抓住重點", "你想讓讀的人一眼看出重點，就會把最想說的那句放到前面。", "寫讀書心得時，你先在第一行寫下自己最想留住的想法。"],
+      "orange": ["邀朋友添一筆", "你喜歡大家各加一點東西，也樂於看看作品會因此變成什麼樣子。", "畫聚會小卡時，你把空白留給也想畫的人，讓大家各添一筆。"],
+      "yellow": ["把好奇問到底", "你遇到想弄懂的小事，會先問清楚，再找一份看得明白的說明。", "換濾水壺的濾芯時，你翻說明書確認為什麼要先泡水。"],
+      "green": ["把工具放在好拿的地方", "你會觀察哪些擺法好拿好用，再試一個小改動，看大家有沒有更順手。", "一起做手作前，你把大家都要用的剪刀和膠帶移到桌子中間。"],
+      "blue": ["把約定說清楚", "你會用明白的話交代打算，也把需要對方確認的地方問清楚。", "跟朋友借書時，你說想借到星期五，順便問那天還方不方便。"],
+      "indigo": ["給細節一點時間", "你想先自己看仔細，等認出哪些是看到的、哪些是猜的，再想要不要分享。", "翻以前的照片時，你看見窗邊有一道反光，先在筆記裡記下它的位置。"],
+      "violet": ["把回憶畫成一個記號", "你喜歡留一個只有自己知道來由的記號，讓那段回憶找得到路回來。", "旅程結束後，你在手帳畫一盞路燈，想起那晚和朋友走過的巷子。"]
+    },
+    "faq": [
+      ["光環顏色測驗在測什麼？", "這份測驗有 21 題生活情境，記下你選了哪些表達方式，再用七種顏色表示不同主題。"],
+      ["測驗免費嗎？需要上傳照片嗎？", "所有題目、完整結果和七篇指南都免費。免登入，也不需要照片、生日或星座。"],
+      ["七種顏色的分數怎麼算？", "每次選擇為對應顏色加 1 次。每種顏色一共出現 12 次，所以每色介於 0 到 12 次，答完合計 21 次。"],
+      ["為什麼我的結果有好幾種顏色？", "只要同為最高次數，就會一併列出。每題都選第一個選項時，七色都會是 3 次。"],
+      ["結果能判斷個性或能力嗎？", "結果只描述這次的情境選擇。顏色是表達方式的象徵，測驗沒有偵測能量場，也未建立穩定人格或能力的常模。"],
+      ["複製連結會公開我的答案嗎？", "不會。只有一色最高時會複製色名和公開指南連結。同分時則會複製所有並列色名與測驗入口，兩種分享都不附作答或次數。"]
+    ],
+    "formula": "每題四選一，選哪一色就加 1 次。單色 0–12 次，七色合計 21 次。同為最高的顏色都會保留。",
+    "boundary": "七色代表這次情境裡選擇的表達方式。題本尚未完成信度、效度與常模驗證。請勿用結果判斷健康、療癒能力、感情配對或職業能力。"
+  },
+  "en": {
+    "facts": "FermatMind’s Aura Color Test uses 21 everyday choices about how people express themselves, from sharing an idea to keeping an observation private. It counts selections across seven symbolic colors and reports every color tied for the highest count. The full results and all seven color guides are free. The quiz takes about seven minutes and asks for neither an account nor a photo.",
+    "intro": "When you make a little card, do you put one sentence front and center, invite a friend to draw on it, or keep a small detail for yourself? Try 21 everyday choices and see which colors fit how you chose to express yourself. It takes about seven minutes with no time limit, and the full result is free.",
+    "deliverables": [
+      ["See all seven counts", "Each color gets its own count out of 12 appearances. The seven counts add up to 21 when you finish."],
+      ["Read every top match", "If several colors finish first, you can read each guide and compare when those styles show up."],
+      ["Copy a link to talk about", "One top match points to its public guide. A tie copies all the tied color names with a link to the quiz."]
+    ],
+    "interpretations": [
+      ["One color leads", "Pick an answer you felt sure about. Look for one recent moment when you made that same kind of choice while talking, writing, or making something."],
+      ["Two colors tie", "Think of one occasion for each style. You might love making things with friends and still want time alone to look closely at a detail."],
+      ["All seven counts come to three", "Choosing the first option every time produces this tie. Check that those options really fit your choices, then start with whichever color you want to explore."]
+    ],
+    "profiles": {
+      "red": ["The Headline Writer", "You like to choose the line that says what matters and give it a place where readers will notice it.", "After finishing a book, put the one sentence you most want to remember at the top of your notes."],
+      "orange": ["The Shared Doodler", "You’re happy to leave room for someone else’s idea and see what takes shape when you make something together.", "When making a card for a get-together, leave a corner blank and invite anyone who wants to add a doodle."],
+      "yellow": ["The Question Chaser", "You follow a small question far enough to find an explanation you can make sense of.", "When you replace a water filter, check the directions to see why the new cartridge needs soaking first."],
+      "green": ["The Thoughtful Arranger", "You notice small changes that could make a space easier for people to use and try them out.", "Before a craft session, move the scissors and tape to the middle of the table so everyone can reach them."],
+      "blue": ["The Plain Speaker", "You say what you mean in clear terms and give the other person something concrete to answer.", "When borrowing a book, say you’d like to keep it until Friday and ask whether that works for your friend."],
+      "indigo": ["The Quiet Observer", "You give yourself time to look closely at a detail before deciding whether to tell anyone about it.", "When a reflection catches your eye in an old photo, note where it appears before guessing what caused it."],
+      "violet": ["The Memory Keeper", "You use small symbols to hold on to experiences whose meaning is personal to you.", "At the end of a trip, sketch a streetlight in your journal as a reminder of an evening walk with a friend."]
+    },
+    "faq": [
+      ["What does the Aura Color Test measure?", "It records choices in 21 everyday situations and groups them by seven symbolic ways of expressing yourself."],
+      ["Is the test free, and do I need a photo?", "The questions, complete results and seven public guides are free. The quiz does not ask for an account, photo, birth date or zodiac sign."],
+      ["How is each color counted?", "One choice adds one count to its color. Every color appears 12 times, so each count can be 0 to 12 and the seven counts add up to 21."],
+      ["Why did I get more than one color?", "The result shows every color tied for first. Choosing the first option on every question gives all seven colors three counts apiece."],
+      ["Does the result reveal my personality or abilities?", "The counts describe choices made for this set of questions. The quiz does not detect an energy field or provide norms for stable personality or abilities."],
+      ["Does the link share my answers?", "A single top match copies its color name and public guide link. A tie copies the tied color names and the quiz link. Neither includes your answers or counts."]
+    ],
+    "formula": "Choose one of four options per question. Add 1 to its color. Each color can reach 0–12, the seven counts sum to 21, and every highest tie is kept.",
+    "boundary": "The colors symbolize how someone chose to express themselves in these situations. The quiz has not completed reliability, validity or norming studies. Its results cannot assess health, healing ability, relationship compatibility or suitability for a job."
+  }
+}

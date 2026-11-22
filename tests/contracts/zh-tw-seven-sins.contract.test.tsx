@@ -77,10 +77,13 @@ describe("complete Taiwan seven-sins display release", () => {
     const unknown = await proxy(new NextRequest(`https://fermatmind.com${entry}/results/unknown`));
     expect(unknown.status).toBe(404);
   });
-  it("keeps all existing landing research and complete public readings available", () => {
+  it("keeps the method notes in a closed panel and complete public readings available", () => {
     const entryHtml = renderToStaticMarkup(<SevenSinsTraditionalPage path={entry} />);
     for (const profile of quiz.profiles) expect(entryHtml).toContain(`${entry}/results/${profile.id}`);
-    for (const section of traditionalSevenSinsEditorial.virtuesLandingSections) expect(entryHtml).toContain(section.title["zh-TW"]);
+    expect(entryHtml).not.toContain(traditionalSevenSinsEditorial.virtuesLandingSections[1].title["zh-TW"]);
+    expect(entryHtml).toMatch(/<details id="questionnaire-reading-scope"[^>]*><summary/);
+    expect(entryHtml).toContain(quiz.guide.at(-1)!.title["zh-TW"]);
+    expect((entryHtml.match(/data-seven-sins-axis=/g) ?? [])).toHaveLength(14);
     const reading = renderToStaticMarkup(<SevenSinsTraditionalPage path={`${entry}/results/anger-reading`} />);
     expect(reading).toContain("比較全部七組");
     expect(reading).not.toContain("data-seven-sins-axis");

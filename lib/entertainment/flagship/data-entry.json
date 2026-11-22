@@ -1,0 +1,218 @@
+{
+  "zh": {
+    "facts": "费马测试的数据录入练习提供资产标签与派送表两种虚构记录模式，每轮60秒。免费查看每小时字符折算、字段准确率、完整记录数和两份公开复习指南。",
+    "intro": "同一串编号，只少了一个前导零，字段仍然会算不匹配。选资产标签或派送表，在一分钟内照原样录入，也可以返回修正。",
+    "deliverables": [
+      [
+        "两种录入模式",
+        "每模式32条虚构记录，每条4字段。"
+      ],
+      [
+        "独立读数",
+        "分别看字符速率、精确字段字符速率、字段准确率和完整记录。"
+      ],
+      [
+        "两个公开指南",
+        "用两类源样例理解精确匹配与分母。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看处理了多少字段",
+        "一个全对记录和多个全对记录都可能是100%。"
+      ],
+      [
+        "看看差异出现在哪里",
+        "大小写、空格、换位、遗漏与增加会分别归类。"
+      ],
+      [
+        "不要把两种速率混为一谈",
+        "精确字段字符速率只计完全匹配的字段。"
+      ]
+    ],
+    "profiles": {
+      "assets": [
+        "按原样复制资产标签",
+        "你可以在提交前逐个检查编号、名称、数量和位置。",
+        "录入资产编号后，你再回查前导零有没有丢掉。"
+      ],
+      "dispatch": [
+        "把派送记录按栏核对",
+        "你可以对照每个字段的顺序、大小写和标点。",
+        "你发现派送表有一个字段多了空格，在同一轮内返回修正。"
+      ]
+    },
+    "faq": [
+      [
+        "有几道题？",
+        "这是录入练习。每种模式有32条虚构四字段记录。"
+      ],
+      [
+        "每轮多久？",
+        "固定60秒，切换字段和改错也在同一计时内。"
+      ],
+      [
+        "什么会进入字段准确率？",
+        "提交一次字段改动或点下一条，就把这记录全部四字段纳入。"
+      ],
+      [
+        "什么算精确？",
+        "按NFC规范化比较最终已提交文本，大小写、空格、前导零和标点均须相同。"
+      ],
+      [
+        "什么情况下准确率不适用？",
+        "没有任何记录被计入时，分母是零。"
+      ],
+      [
+        "输入会随着分享发出去吗？",
+        "分享只包含同语公开标题和练习链接。"
+      ]
+    ],
+    "formula": "固定60秒。字符KPH等于最终录入字符数乘60，精确字段KPH只计匹配字段字符。字段准确率为精确字段数除以纳入字段数。",
+    "boundary": "请只录入题面虚构文本。一次计时折算不能证明持续一小时的速度，也不建立雇用标准或跨设备排名。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的資料輸入練習有資產標籤與派送表兩種虛構記錄，每輪60秒。免費提供每小時字元折算、欄位正確率、完整記錄數和兩份公開複習指南。",
+    "intro": "一串代碼少了開頭的零，整個欄位就會算不相符。先選要打資產標籤或派送表，在一分鐘內照樣輸入，也可以回頭修正。",
+    "deliverables": [
+      [
+        "兩種虛構模式",
+        "每種32筆，每筆4個欄位。"
+      ],
+      [
+        "分開顯示讀數",
+        "看字元速率、精確欄位字元速率、欄位正確率和完整筆數。"
+      ],
+      [
+        "兩份公開指南",
+        "用標籤和派送表理解核對原則。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看有幾筆列入",
+        "只有一筆的100%，和多筆的100%，要看不同分母。"
+      ],
+      [
+        "回看哪裡不同",
+        "空白、字母大小寫、交換位置和增加字元會被歸類。"
+      ],
+      [
+        "用兩種速度讀報表",
+        "精確欄位速率只計整個欄位都正確的字元。"
+      ]
+    ],
+    "profiles": {
+      "assets": [
+        "讓資產標籤保持原樣",
+        "你會依序檢查代碼、名稱、數量和位置。",
+        "打好標籤後，你回看數字前面的零是不是仍然在。"
+      ],
+      "dispatch": [
+        "把派送表一欄一欄對上",
+        "你可以核對大小寫、空格和每項欄位順序。",
+        "發現派送欄尾端有一個多餘空格時，你在時間內回頭修正。"
+      ]
+    },
+    "faq": [
+      [
+        "共有幾題？",
+        "這是60秒輸入練習，每種模式有32筆四欄位虛構記錄。"
+      ],
+      [
+        "一輪可以改錯嗎？",
+        "可以，回頭修改也用同一分鐘。"
+      ],
+      [
+        "哪些欄位會計入？",
+        "欄位完成輸入變更或按下一筆，該筆四個欄位都計入。"
+      ],
+      [
+        "怎樣算完全相同？",
+        "以NFC正規化後核對最終文字，大小寫、空格、開頭零和標點都要相符。"
+      ],
+      [
+        "何時沒有正確率？",
+        "沒有操作任何一筆時，分母是零。"
+      ],
+      [
+        "分享會附輸入內容嗎？",
+        "分享只有同語言練習名稱和公開連結。"
+      ]
+    ],
+    "formula": "固定60秒，字元KPH是最終輸入字元數乘60，精確欄位KPH只算完全相符欄位的字元。正確率是完全相符欄位數除納入欄位數。",
+    "boundary": "只輸入畫面上的虛構資料。一分鐘速率是換算值，不能代表持續一小時表現、招聘門檻或任何裝置間的排行。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Data Entry practice has two modes, asset labels and dispatch forms, with fictional records and a fixed sixty-second round. It reports character rates, exact field accuracy, complete records, and two public guides. Readers can correct an entry within the same minute and use the practice without signing up, submitting records from their work, or sharing their typed text online.",
+    "intro": "One missing leading zero keeps a field from matching. Pick asset labels or dispatch forms, copy the fictional records for one minute, and return to any item you want to correct.",
+    "deliverables": [
+      [
+        "Two fictional modes",
+        "Each offers 32 records with four fields."
+      ],
+      [
+        "Separate readouts",
+        "Check character rates, exact field accuracy, and complete records."
+      ],
+      [
+        "Two public guides",
+        "Read what is counted in each mode."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with the denominator",
+        "Four fields and forty fields can both produce perfect accuracy."
+      ],
+      [
+        "Look at the kind of difference",
+        "Review case, spaces, transpositions, missing text, and additions."
+      ],
+      [
+        "Read both character rates",
+        "The exact field character rate counts only complete matching fields."
+      ]
+    ],
+    "profiles": {
+      "assets": [
+        "Keep the asset label exact",
+        "You can check each part of the label before moving on.",
+        "When typing an asset ID, you check that the first zero is still there."
+      ],
+      "dispatch": [
+        "Check the dispatch form field by field",
+        "You can match the sequence, spaces and punctuation against the source.",
+        "You notice a trailing space and go back to correct it within the minute."
+      ]
+    },
+    "faq": [
+      [
+        "How many questions are there?",
+        "It is a transcription practice, with 32 fictional records in each mode."
+      ],
+      [
+        "Can I go back and correct a field?",
+        "Yes, within the same fixed sixty seconds."
+      ],
+      [
+        "What enters the accuracy calculation?",
+        "A committed edit or Next includes all four fields for that record, including blanks."
+      ],
+      [
+        "What is an exact match?",
+        "Final committed text matches after NFC normalization, including case, spaces, zeros, and punctuation."
+      ],
+      [
+        "When is accuracy unavailable?",
+        "When no records were attempted, the denominator is zero."
+      ],
+      [
+        "What is shared?",
+        "Only the public title and same-language practice link."
+      ]
+    ],
+    "formula": "Character KPH is final typed characters in 60 seconds multiplied by 60. Exact field KPH counts only characters in exactly matching fields. Accuracy divides exact fields by included fields.",
+    "boundary": "Use the fictional source values only. One minute extrapolates to an hourly rate, without establishing sustained speed, hiring standards, or norms across devices."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "zh": {
+    "facts": "费马测试的四元素测试有20道原创生活情境题，约6分钟，免注册。答完可免费查看火水土风四种做法的选择次数和最高并列，四篇完整公开指南可以直接阅读。",
+    "intro": "给自己留一段做东西的时间。你会先专心试一下、按当天的状态调整、排几个实际步骤，还是把相关点子摊开看看？用约 6 分钟做完 20 道题，免费看这次的四项选择。",
+    "deliverables": [
+      [
+        "看火水土风的原始次数",
+        "每题加 1，四项合计 20。最高并列时同时显示。"
+      ],
+      [
+        "免费读四份生活指南",
+        "每篇用生活例子解释一种元素做法，作答前也能阅读。"
+      ],
+      [
+        "复制公开名称与链接",
+        "一项最高分享对应指南；并列分享全部名称和入口，不附答案或次数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "火最高，8 次",
+        "四项依次为 8、5、4、3。样例比较常选划一段时间集中做个试验。"
+      ],
+      [
+        "水和土各 7 次",
+        "四项为 3、7、7、3。可以比较随着场面换节奏和照可执行的小步骤继续。"
+      ],
+      [
+        "全选 A，四项各 5 次",
+        "每种做法在 A 位出现五次，因此会显示四份指南。可以回看题目的具体活动。"
+      ]
+    ],
+    "profiles": {
+      "fire": [
+        "留一小段时间专心试",
+        "你这次较常选集中力气试一个开头，也给自己留停止点。",
+        "想画一张速写时，你给自己十分钟，想好时间到就停下来看一眼。"
+      ],
+      "water": [
+        "顺着当下情况换个节奏",
+        "你这次较常选看清伙伴需要什么，再调整参与方式。",
+        "本来想做大型拼贴，发现大家时间不多，你改成每人做一张小卡。"
+      ],
+      "earth": [
+        "用手边的东西列出下一步",
+        "你这次较常选选容易拿到的材料和可延续的小步骤。",
+        "要整理照片时，你先建一个共享文件夹，让别人下次能从收好的地方接着做。"
+      ],
+      "air": [
+        "把原本分开的点子放在一起",
+        "你这次较常选择保留几种可能，看看哪里有联系。",
+        "写活动主题前，你把手写纸条摊开，试着合并两个有意思的点子。"
+      ]
+    },
+    "faq": [
+      [
+        "需要生日或星座吗？",
+        "不用。四项来自你在题本里的选择，不用出生信息。"
+      ],
+      [
+        "火、水、土、风分别在讲什么？",
+        "本版分别指短时尝试、调整节奏、实际步骤与点子之间的联系。"
+      ],
+      [
+        "20 道题怎么计数？",
+        "每题四选一，给选中元素加 1。每种出现 20 次，各 0–20，合计 20。"
+      ],
+      [
+        "并列最高时会选一个吗？",
+        "所有同为最高的指南都会保留。全选 A 时四项各 5 次。"
+      ],
+      [
+        "结果可以解释性格、命运或能力吗？",
+        "这里只记录当次日常选项，不评人格、能力、运势或适岗。"
+      ],
+      [
+        "分享会带出答案吗？",
+        "复制公开名称和链接，不带答案、计数或个人标识。没有个人 PNG。"
+      ]
+    ],
+    "formula": "20 题每题四选一，给对应元素加 1。每元素出现 20 次，各 0–20，合计 20。保留全部并列最高。",
+    "boundary": "恩培多克勒与亚里士多德的古典材料只为四元素观念提供历史背景。费马原创题目和日常主题，结果不用于心理测量、命运或能力判断。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的四元素測驗有20道原創生活題，約6分鐘，免註冊。作答後可免費看火水土風四種做法的次數與並列最高結果，四篇公開指南也能直接讀。",
+    "intro": "想給自己一段創作時間時，你會先試一小段、照今天的情況調整、想清楚可做的步驟，還是把幾個點子放在一起看？回答 20 道原創題，完整結果免費。",
+    "deliverables": [
+      [
+        "看火水土風各有幾次",
+        "每題替一種做法加 1，合計 20。最高同分都會列出。"
+      ],
+      [
+        "免費讀四篇公開指南",
+        "每種做法有一篇生活指南，作答前就能看。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "單項最高分享名稱和指南；並列時複製全部最高名稱及入口，不附回答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "火最高，8 次",
+        "四項依序為 8、5、4、3。範例比較常選集中一小段時間試做。"
+      ],
+      [
+        "水和土各 7 次",
+        "四項依序是 3、7、7、3。可以比較調整步調和用簡單步驟繼續，哪個比較合當下。"
+      ],
+      [
+        "一路選 A，四項各 5 次",
+        "各元素在 A 位出現五次，所以會一同列出四篇指南。"
+      ]
+    ],
+    "profiles": {
+      "fire": [
+        "空出一小段，專心試看看",
+        "你比較常選用一小段時間先做點什麼，再決定要不要繼續。",
+        "想畫一張速寫時，你先設十分鐘，時間到就停下來看看。"
+      ],
+      "water": [
+        "依眼前狀況調整步調",
+        "你比較常選看看夥伴和環境需要什麼，再改活動的速度。",
+        "大家只剩短時間時，你把大拼貼改成每人做一張小卡片。"
+      ],
+      "earth": [
+        "挑眼前能做且方便接下去的一步",
+        "你比較常選就地取材，安排清楚又容易接手的小步驟。",
+        "整理照片時，你先開一個共用資料夾，讓下次加入的人知道從哪裡繼續。"
+      ],
+      "air": [
+        "把好幾個點子放在同一張桌上",
+        "你比較常選保留幾個可能，看看它們能不能接起來。",
+        "想活動名稱時，你把幾張字卡攤開，把兩個原本分開的詞湊成一個提案。"
+      ]
+    },
+    "faq": [
+      [
+        "要先填生日或星座嗎？",
+        "不用。結果只看你在這 20 題的選擇。"
+      ],
+      [
+        "四個元素各在說什麼？",
+        "火是集中試做，水是調整步調，土是實際步驟，風是看看不同點子怎麼連起來。"
+      ],
+      [
+        "20 題怎麼計次？",
+        "每題四選一，替選到的元素加 1。各元素出現 20 次，個別 0–20，總數 20。"
+      ],
+      [
+        "同分最高怎麼辦？",
+        "所有並列最高的指南都會列出。全選 A 會四項各有 5 次。"
+      ],
+      [
+        "可以判斷我的個性和運勢嗎？",
+        "結果只整理這次的生活選項，無法預測運勢或判斷人格、能力與工作適配。"
+      ],
+      [
+        "轉傳會附上作答嗎？",
+        "公開分享複製名稱與連結，不附作答、次數、識別資料或個人 PNG。"
+      ]
+    ],
+    "formula": "20 題各挑一個做法，替對應元素加 1。各元素皆出現 20 次，個別 0–20，總數 20。同為最高一起保留。",
+    "boundary": "恩培多克勒與亞里斯多德的資料用來理解古典四元素背景。費馬另行編寫生活題目，結果只說明當次選項，無法評估心理、能力或命運。"
+  },
+  "en": {
+    "facts": "FermatMind’s What Element Am I quiz uses 20 original everyday scenarios and takes about six minutes. It is free without registration. Results show counts for Fire, Water, Earth, and Air and keep every tie for the highest count. Four public guides can be read before answering. The quiz requires no birth date, zodiac sign, or astrological background. Complete results are free to read.",
+    "intro": "You set aside some time to make something. Do you concentrate on one short trial, change the pace to suit the situation, plan a few practical steps, or see what your ideas have in common? Answer 20 questions and see which element themes came up in your choices.",
+    "deliverables": [
+      [
+        "See all four choice counts",
+        "Each choice adds one, for a total of 20. All highest ties appear."
+      ],
+      [
+        "Read four free public guides",
+        "Each element has a complete guide to an everyday approach. Open them before or after taking the quiz."
+      ],
+      [
+        "Copy a public name and link",
+        "One leader shares its guide; ties share all leading names and the public test entry, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Fire leads at 8",
+        "The counts are 8, 5, 4, and 3. The sample often chose a short period to focus on a manageable trial."
+      ],
+      [
+        "Water and Earth tie at 7 each",
+        "The counts are 3, 7, 7, and 3. Compare adjusting the pace with choosing practical steps to continue."
+      ],
+      [
+        "All A: all four with 5 each",
+        "Every element appears in position A five times, so the result keeps all four guides."
+      ]
+    ],
+    "profiles": {
+      "fire": [
+        "Give a short trial your attention",
+        "You often chose a bounded attempt with room to pause.",
+        "Before sketching, you set aside ten minutes to try and decide afterward whether to continue."
+      ],
+      "water": [
+        "Adjust the pace to suit the situation",
+        "You often chose to see what the people and surroundings could accommodate.",
+        "When time is short, you turn a planned group collage into one small card per person."
+      ],
+      "earth": [
+        "Make a practical step easy to continue",
+        "You often chose available materials, a clear next step, and a place to pick it up later.",
+        "While sorting photos, you start a shared folder so other people can add to the work."
+      ],
+      "air": [
+        "See how separate ideas might connect",
+        "You often chose to leave several options open for a while.",
+        "While naming an event, you spread out the notes and put two ideas together to see how they sound."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need a birth date or zodiac sign?",
+        "No. The four counts come from the choices you make in these scenarios."
+      ],
+      [
+        "What do the four elements mean here?",
+        "Fire is a short focused attempt, Water is adjusting the pace, Earth is taking practical steps, and Air is finding connections among ideas."
+      ],
+      [
+        "How do the 20 questions work?",
+        "One of four choices adds one count. Each element appears 20 times, so individual counts range from 0 to 20 and add up to 20."
+      ],
+      [
+        "What if several elements tie?",
+        "All highest ties get their full guides. Choosing A throughout gives all four a count of five."
+      ],
+      [
+        "Can the quiz predict my future or assess my personality?",
+        "No. The counts summarize these choices and cannot establish personality, ability, career fit, or fortune."
+      ],
+      [
+        "Does a shared link include my answers?",
+        "Sharing copies public names and links, without answers, counts, private identifiers, or a personal PNG."
+      ]
+    ],
+    "formula": "Choose one of four answers in each of 20 situations. Each choice adds one to its element. Each element appears 20 times, so counts are 0–20 and total 20. Every highest tie remains.",
+    "boundary": "Empedocles and Aristotle provide historical context for the elements. FermatMind wrote the everyday scenarios and reading themes. The counts do not provide an assessment of personality or ability, or a forecast."
+  }
+}

@@ -1,19 +1,24 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import Page, { generateMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/page";
 import TakePage from "@/app/(localized)/[locale]/tests/play/friendship-quiz/take/page";
+import TraditionalTakePage from "@/app/(traditional)/zh-TW/tests/play/friendship-quiz/take/page";
 import { PublicResource } from "@/components/friendship/PublicContent";
 
+vi.mock("@/lib/site", async importOriginal => ({
+  ...await importOriginal<typeof import("@/lib/site")>(),
+  SITE_URL: "https://fermatmind.com",
+}));
 vi.mock("@/components/friendship/FriendshipClient", () => ({ default: ({ locale }: { locale: string }) => <div data-testid="live-game" data-locale={locale}>Live game</div> }));
 afterEach(() => { cleanup(); vi.unstubAllEnvs(); });
 
 describe("friendship search intent and one canonical tool", () => {
-  it.each(["en", "zh"] as const)("keeps one %s tool, localized handoffs and the existing canonical pair", async locale => {
+  it.each(["en", "zh", "zh-TW"] as const)("keeps one %s tool, localized handoffs and the existing canonical pair", async locale => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     const { container } = render(await Page({ params: Promise.resolve({ locale }) }));
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.queryByTestId("live-game")).toBeNull();
-    const take = render(await TakePage({ params: Promise.resolve({ locale }) }));
+    const take = render(locale === "zh-TW" ? <TraditionalTakePage /> : await TakePage({ params: Promise.resolve({ locale }) }));
     expect(take.container.querySelectorAll('[data-testid="live-game"]')).toHaveLength(1);
     expect(take.container.querySelector('[data-testid="live-game"]')).toHaveAttribute("data-locale", locale);
     expect(container.querySelectorAll('#create')).toHaveLength(1);
@@ -29,17 +34,62 @@ describe("friendship search intent and one canonical tool", () => {
     expect(links.some(path => /\/bff-test|\/who-knows-me-best|\/friendship-quiz-maker/.test(path ?? ""))).toBe(false);
     const metadata = await generateMetadata({ params: Promise.resolve({ locale }) });
     expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/friendship-quiz`);
-    expect(metadata.alternates?.languages).toMatchObject({ en: "https://fermatmind.com/en/tests/play/friendship-quiz", "zh-CN": "https://fermatmind.com/zh/tests/play/friendship-quiz" });
+    expect(metadata.alternates?.languages).toMatchObject({
+      en: "https://fermatmind.com/en/tests/play/friendship-quiz",
+      "zh-CN": "https://fermatmind.com/zh/tests/play/friendship-quiz",
+      "zh-TW": "https://fermatmind.com/zh-TW/tests/play/friendship-quiz",
+    });
     expect(metadata.robots).not.toMatchObject({ index: false });
     const schema = JSON.parse(container.querySelector('script[type="application/ld+json"]')!.textContent!);
-    expect(schema).toMatchObject({ "@type": "WebApplication", inLanguage: locale === "zh" ? "zh-CN" : "en", offers: { price: "0" } });
+    expect(schema["@graph"][0]).toMatchObject({
+      "@type": "WebApplication", inLanguage: locale === "zh" ? "zh-CN" : locale, isAccessibleForFree: true, offers: { price: "0" },
+    });
+    expect(schema["@graph"][2].itemListElement[1].item).toBe(metadata.alternates?.canonical);
+    const faq = Array.from(container.querySelectorAll("[data-ent-faq]"), item => ({
+      "@type": "Question",
+      name: item.querySelector("summary")!.textContent,
+      acceptedAnswer: { "@type": "Answer", text: item.querySelector("[data-ent-faq-answer]")!.textContent },
+    }));
+    expect(faq).toHaveLength(6);
+    expect(container.querySelectorAll("[data-ent-faq][open]")).toHaveLength(3);
+    expect(container.querySelector("[data-ent-boundary][open]")).toBeNull();
+    expect(schema["@graph"][1].mainEntity).toEqual(faq);
+    const facts = container.querySelector("[data-ent-summary]")!.textContent!;
+    const factLength = locale === "en" ? facts.trim().split(/\s+/).length : facts.replace(/[^\p{L}\p{N}]/gu, "").length;
+    expect(factLength).toBeGreaterThanOrEqual(60);
+    expect(factLength).toBeLessThanOrEqual(80);
+  });
+  it.each(["en", "zh", "zh-TW"] as const)("renders the eight %s modules with three distinct radar samples", async locale => {
+    const { container } = render(await Page({ params: Promise.resolve({ locale }) }));
+    const landing = container.querySelector("main[data-ent-landing]")!;
+    expect(landing).toHaveAttribute("data-ent-slot", "B");
+    const modules = Array.from(landing.children, child => child.getAttribute("data-ent-module"));
+    expect(modules).toEqual(["hero", "summary", "method", "profiles", "interpretation", "related", "comparison", "reference"]);
+    expect(landing.querySelectorAll("[data-ent-deliverable]")).toHaveLength(3);
+    expect(landing.querySelectorAll("[data-ent-interpretation]")).toHaveLength(3);
+    const bands = Array.from(landing.querySelectorAll("[data-friendship-band]"), band => band.getAttribute("data-friendship-band"));
+    expect(bands).toEqual(["90", "73", "50", "27", "0"]);
+
+    const choices = Array.from(landing.querySelectorAll("[data-ent-sample-choice]"));
+    expect(choices).toHaveLength(3);
+    const polygons = new Set<string>();
+    for (const [index, choice] of choices.entries()) {
+      fireEvent.click(choice);
+      const sample = landing.querySelector("[data-ent-sample-id]")!;
+      expect(sample.getAttribute("data-ent-sample-id")).toBe(choice.getAttribute("data-ent-sample-choice"));
+      expect(choice).toHaveAttribute("aria-pressed", "true");
+      expect(sample).toHaveTextContent(index === 2 ? "18/30" : "22/30");
+      expect(sample.querySelectorAll("[data-ent-chart-label]")).toHaveLength(6);
+      polygons.add(sample.querySelector("polygon[fill-opacity]")!.getAttribute("points")!);
+    }
+    expect(polygons.size).toBe(3);
   });
   it("answers English creator, BFF, group and printable tasks with actual product rules", async () => {
     const { container } = render(await Page({ params: Promise.resolve({ locale: "en" }) }));
     const text = container.textContent!;
     for (const phrase of ["friendship quiz", "How well do you know me?", "Who knows me best?", "BFF test", "no signup", "same frozen", "equal scores", "can't add custom questions", "expire after 90 days", "1,000 entries"]) expect(text.toLowerCase()).toContain(phrase.toLowerCase());
-    expect(text).toContain("Knowing their choice and sharing their preference are different things");
-    expect(text).toContain("online game still uses a six-category mix");
+    expect(text).toContain("Your own preferences don't affect the score");
+    expect(text).toContain("online game uses a six-category mix");
     expect(text).toContain("Online rounds start at 30 questions");
     expect(text).not.toMatch(/[\u4e00-\u9fff]|scientifically proven|guaranteed|millions of friends/);
   });
@@ -52,7 +102,7 @@ describe("friendship search intent and one canonical tool", () => {
     const comparison = container.querySelector("#rikaido-alternative")!;
     expect(comparison).not.toBeNull();
     expect(comparison.querySelector("h2")).toHaveTextContent(locale === "en" ? "Rikaido alternative" : "Rikaido 的朋友默契替代玩法");
-    expect(comparison.querySelectorAll('th[scope="col"]')).toHaveLength(3);
+    expect(comparison.querySelectorAll('th[scope="col"]')).toHaveLength(4);
     expect(comparison.querySelectorAll('th[scope="row"]')).toHaveLength(4);
     expect(comparison.textContent).toContain(locale === "en" ? "no affiliation" : "没有隶属或合作关系");
     expect(comparison.textContent).toContain(locale === "en" ? "single-topic Love" : "单主题版本");

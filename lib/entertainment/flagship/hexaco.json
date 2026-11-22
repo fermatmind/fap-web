@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的HEXACO人格测试采用IPIP公开的240条初步题目，约35分钟。免费查看六个领域的独立均分、计分题数与完整的公开解释指南。",
+    "intro": "你在合作时如何分享功劳，在新活动里怎样开始？这份长问卷把日常自述分到六个连续领域，按你通常的情况来填。",
+    "deliverables": [
+      [
+        "六个连续读数",
+        "从诚实谦逊到经验开放性，各域分开显示。"
+      ],
+      [
+        "计分题数",
+        "每域40条全部给出评分才显示均分。"
+      ],
+      [
+        "六份公开指南",
+        "了解本页具体版本、用词和分数范围。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "看这一项在谈什么",
+        "分域阅读可以把常见题目放回具体场合。"
+      ],
+      [
+        "先按原句作答",
+        "反向分数由程序处理，不用自己改选项。"
+      ],
+      [
+        "一域资料不足时",
+        "其他完整领域仍能读，也可打开全部指南。"
+      ]
+    ],
+    "profiles": {
+      "honesty-humility": [
+        "把功劳说回实际分工",
+        "你可以留意利益、认可与行事方式的关系。",
+        "报告结果时，你指出同伴负责完成哪一段。"
+      ],
+      "emotionality": [
+        "留意情绪带来的反应",
+        "你可以回想遇到压力时是否寻求支持。",
+        "收到意外消息后，你找一位信任的朋友聊一会儿。"
+      ],
+      "extraversion": [
+        "看看在哪些活动容易开口",
+        "你可以观察表达与相处的能量。",
+        "聚会刚开始，你比较愿意先介绍一位新朋友。"
+      ],
+      "agreeableness": [
+        "回想分歧是怎样缓和的",
+        "你可以看看什么时候愿意让步或原谅。",
+        "共同计划没对齐时，你先问有哪些地方可以调整。"
+      ],
+      "conscientiousness": [
+        "给计划留出检查",
+        "你可以留意组织、持久和核对的习惯。",
+        "交文件前，你重新对了一遍约定的格式。"
+      ],
+      "openness-to-experience": [
+        "试着看另一种做法",
+        "你可以回想新想法怎样吸引你。",
+        "听过一种陌生的创作方法后，你想用自己的材料试一次。"
+      ]
+    },
+    "faq": [
+      [
+        "这是官方HEXACO-PI-R吗？",
+        "本站使用公有领域IPIP的240条初步题本。"
+      ],
+      [
+        "每个领域几题？",
+        "各40题，满40有效才显示该域均分。"
+      ],
+      [
+        "反向题怎么处理？",
+        "122道反向题按6减原评分。"
+      ],
+      [
+        "可以略过不想答的吗？",
+        "可选NA，所在域无均分，其他完整域仍可读。"
+      ],
+      [
+        "可以与别人排名吗？",
+        "此版本不提供常模和跨版本排名。"
+      ],
+      [
+        "分享会带答卷吗？",
+        "公开分享只包含同语入口，没有个人读数。"
+      ]
+    ],
+    "formula": "240题，六组各40。1–5计分，反向题用6减原评分。某域全部40题有效才报告域均分。",
+    "boundary": "英语来自IPIP初步题本，本站中文为工作译文。不是官方HEXACO-PI-R，也不把六域读数换算为人格类型、临床结论、常模或岗位适配。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的HEXACO人格測驗採用IPIP公開的240題初步題本，約35分鐘。免費提供六個領域各自的平均分數、有效題數與完整公開的解讀指南。",
+    "intro": "合作後如何說明每個人的付出？接觸新活動時又怎麼開始？以自己平常的情形作答，六個領域會分開讀。",
+    "deliverables": [
+      [
+        "六個連續面向",
+        "各自看誠實謙遜、情緒、外向、宜人、盡責與開放。"
+      ],
+      [
+        "有效題數",
+        "每領域40題皆計分才有平均。"
+      ],
+      [
+        "六份公開指南",
+        "讀懂這個版本的含義與限制。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先確認這組談的行為",
+        "把讀數放回一個自己想得起來的情境。"
+      ],
+      [
+        "照題意作答",
+        "有些字句方向相反，由系統計分時處理。"
+      ],
+      [
+        "也能留下資料不足",
+        "各領域分開檢查，所有指南都可以讀。"
+      ]
+    ],
+    "profiles": {
+      "honesty-humility": [
+        "把成果還給每一份付出",
+        "你可以回想有利益或肯定時怎麼對待他人。",
+        "提出報告時，你說明哪幾頁由組員幫忙完成。"
+      ],
+      "emotionality": [
+        "看看情緒如何影響一個選擇",
+        "你可以留意遇到不同壓力時如何求助。",
+        "收到不確定的消息後，你找信任的人一起想。"
+      ],
+      "extraversion": [
+        "留意在什麼場合容易開口",
+        "你可以比較自己在不同場合的表達。",
+        "聚會開始時，你願意先介紹一位新朋友給大家。"
+      ],
+      "agreeableness": [
+        "找到一個願意調整的地方",
+        "你可以回想分歧時是否讓彼此有餘地。",
+        "遇到排班衝突，你問有哪一段時間仍能互換。"
+      ],
+      "conscientiousness": [
+        "留下時間檢查",
+        "你可以觀察自己是否會照計畫把事情完成。",
+        "交檔前，你再確認一遍命名方式。"
+      ],
+      "openness-to-experience": [
+        "試試不熟悉的想法",
+        "你可以回想最近什麼點子吸引你的注意。",
+        "第一次接觸拼貼作品，你想找點材料自己試做。"
+      ]
+    },
+    "faq": [
+      [
+        "這是官方HEXACO-PI-R題本嗎？",
+        "這是公開的IPIP初步240題。"
+      ],
+      [
+        "每一領域有幾題？",
+        "40題，全部有效才會顯示平均。"
+      ],
+      [
+        "反向題怎麼算？",
+        "有122道反向題，計分為6減原分。"
+      ],
+      [
+        "沒把握能略過嗎？",
+        "可以選NA，該組不顯示平均，其餘完整組不受影響。"
+      ],
+      [
+        "能用來排行嗎？",
+        "本頁沒有提供適用的常模排行。"
+      ],
+      [
+        "分享連結有讀數嗎？",
+        "只包含同語言的公開測驗，沒有個人資料。"
+      ]
+    ],
+    "formula": "六領域各40題，共240題。1到5分，反向題以6減原分。當組40題都有效才顯示平均。",
+    "boundary": "英文題來自IPIP初步庫，中文為本站試譯。此版本的結果不換算成官方HEXACO-PI-R、人格類型、臨床讀數或職務適任。"
+  },
+  "en": {
+    "facts": "FermatMind’s free HEXACO Personality Test uses 240 items from the public-domain preliminary IPIP scales and takes about thirty-five minutes. It shows six separate domain averages, rated item counts, and six public guides. Readers can view the scoring rules, leave unsuitable statements unscored, and learn how this edition differs from official inventories, without signing up or uploading answers when sharing a link.",
+    "intro": "How do you share credit or start an unfamiliar activity? Answer for how you generally are. Each set of statements contributes to one of six continuous domains.",
+    "deliverables": [
+      [
+        "Six domain averages",
+        "Review Honesty–Humility, Emotionality, Extraversion, Agreeableness, Conscientiousness, and Openness separately."
+      ],
+      [
+        "Rated-item counts",
+        "Each domain needs all forty answers rated."
+      ],
+      [
+        "Six public guides",
+        "Read what each domain does and does not cover."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with what the domain describes",
+        "Connect a reading with one specific thing you remember doing."
+      ],
+      [
+        "Use the statement as written",
+        "The scoring handles each reverse-keyed statement."
+      ],
+      [
+        "Keep missing information visible",
+        "Other complete domains can still be read."
+      ]
+    ],
+    "profiles": {
+      "honesty-humility": [
+        "Give credit where it belongs",
+        "You can think about how recognition and personal gain shape your choices.",
+        "In a presentation, you name the person who helped complete a section."
+      ],
+      "emotionality": [
+        "Notice how you respond to stress",
+        "You can think about situations where emotional reactions or support mattered.",
+        "After receiving unexpected news, you ask someone you trust to talk it through."
+      ],
+      "extraversion": [
+        "Look at where expression feels easy",
+        "You can compare your energy and willingness to speak in different settings.",
+        "You volunteer to introduce a new friend at the start of a party."
+      ],
+      "agreeableness": [
+        "Find where you can be flexible",
+        "You can remember how you respond to another person after a disagreement.",
+        "If two shifts conflict, you ask which half of the schedule is open to change."
+      ],
+      "conscientiousness": [
+        "Give your plan a final check",
+        "You can reflect on how you organize and follow through on tasks.",
+        "Before sending a file, you verify the requested format once more."
+      ],
+      "openness-to-experience": [
+        "Try a way you have not seen before",
+        "You can reflect on what draws your attention to a new approach.",
+        "After hearing about a method for making collages, you try it with your own materials."
+      ]
+    },
+    "faq": [
+      [
+        "Is this the official HEXACO-PI-R?",
+        "This edition uses the public-domain preliminary IPIP set with 240 items."
+      ],
+      [
+        "How many items does a domain need?",
+        "All forty in the domain need numerical ratings."
+      ],
+      [
+        "How do reverse items work?",
+        "There are 122 reverse-keyed items, scored as six minus the rating."
+      ],
+      [
+        "Can I mark something unscored?",
+        "Yes. Its domain mean is withheld while other complete domains remain available."
+      ],
+      [
+        "Does the quiz provide percentiles?",
+        "The site does not provide population norms or rankings for this edition."
+      ],
+      [
+        "What does sharing include?",
+        "The same-language public entry link, without your ratings."
+      ]
+    ],
+    "formula": "Rate from 1 to 5. Reverse-keyed items use six minus the rating. Each of six domains requires all forty items for its own mean.",
+    "boundary": "The English items are from preliminary IPIP scales, with a working Chinese translation on this site. Results do not convert to officially normed HEXACO-PI-R scores, types, diagnoses, or job fit."
+  }
+}

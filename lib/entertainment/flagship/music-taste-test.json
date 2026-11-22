@@ -1,0 +1,308 @@
+{
+  "zh": {
+    "facts": "费马测试的音乐品味测试用24道原创题记录对八类声音描述的喜爱程度，约6分钟。免费提供八项独立均分、有效题数与完整公开指南，支持保留陌生题。",
+    "intro": "爱听鼓点鲜明的作品，也会在晚点回家时想放一首原声歌？选你实际听过、能理解的声音，不熟悉可以留空。",
+    "deliverables": [
+      [
+        "八项声音偏好",
+        "从流行、摇滚到爵士、乡村与其他声音描述。"
+      ],
+      [
+        "保留陌生选项",
+        "不了解的声音可以不计分，显示有效题数。"
+      ],
+      [
+        "八份完整指南",
+        "帮助理解每类题描述的声音。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "想想是哪一种声音吸引你",
+        "可以留意人声、节奏、编排或音色。"
+      ],
+      [
+        "场合也会改变偏好",
+        "通勤和安静休息可能想听不同的声音。"
+      ],
+      [
+        "陌生和中立分开填",
+        "没听过可选NA，没偏爱也不讨厌才选中间。"
+      ]
+    ],
+    "profiles": {
+      "pop": [
+        "先听见旋律",
+        "你可能欣赏清晰旋律和容易跟上的结构。",
+        "回家路上你想听副歌一来就能跟上的歌。"
+      ],
+      "rock": [
+        "在鼓和吉他之间找力道",
+        "你可能喜欢节奏与乐队音色的起伏。",
+        "你留意排练录音里鼓点和吉他一起推起来的地方。"
+      ],
+      "hip-hop": [
+        "顺着节拍听词",
+        "你可能会听到语言节奏和反复变化的律动。",
+        "一段说唱让你回听押韵落在鼓点的位置。"
+      ],
+      "electronic": [
+        "跟着合成音的层次走",
+        "你可能看重合成音色和循环的变化。",
+        "你在走路时留意一首歌如何逐层加进节拍。"
+      ],
+      "jazz": [
+        "留意下一句会去哪",
+        "你可能喜欢和声变化或乐器之间的来回。",
+        "你会听一段贝斯和鼓相互回应。"
+      ],
+      "western-classical": [
+        "跟住一段完整展开",
+        "你可能喜欢乐器、力度和主题如何逐步变化。",
+        "你留意一个弦乐主题从安静到明亮的过程。"
+      ],
+      "acoustic-folk": [
+        "听近一点的声音",
+        "你可能偏爱原声乐器和清楚的人声。",
+        "傍晚你选一段吉他弹唱，能听见手指碰弦。"
+      ],
+      "country": [
+        "听声线里的故事",
+        "你可能看重叙述和带识别度的弦乐。",
+        "你听一段乡村录音里，歌声和滑棒吉他轮流接上。"
+      ]
+    },
+    "faq": [
+      [
+        "需要在这里听音频吗？",
+        "不需要，只评价能理解且听过的声音描述。"
+      ],
+      [
+        "分数会评价音乐品味高低吗？",
+        "各组只反映你对声音的偏好。"
+      ],
+      [
+        "一共几项？",
+        "八组各3题，各自计算。"
+      ],
+      [
+        "什么时候选NA？",
+        "没听过、不清楚或不想答时，选NA不影响其他组。"
+      ],
+      [
+        "如何算均分？",
+        "一组至少2题有效，每题1–5分。"
+      ],
+      [
+        "可以分享个人答卷吗？",
+        "复制同语公开入口，不带个人选择或读数。"
+      ]
+    ],
+    "formula": "24题分成八组，每组3题，喜爱程度1–5。至少2题有效才计算均分，NA不参与。",
+    "boundary": "这八组是本站的声音描述，不用来预测人格、音乐知识、听歌频率或偏好排名。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的音樂品味測驗以24道原創題記錄對八類聲音描述的喜愛程度，約6分鐘。免費提供八項分開計算的平均、有效題數及完整公開的閱讀指南。",
+    "intro": "通勤想聽一首重節拍的歌，回家後又想找木吉他陪你放空？根據聽過的聲音來填，不熟悉的就留空。",
+    "deliverables": [
+      [
+        "八組聲音偏好",
+        "流行、搖滾、嘻哈、電子、爵士、西方古典、原聲民謠和鄉村。"
+      ],
+      [
+        "有效題數",
+        "可以對陌生聲音選不計分，結果會顯示題數。"
+      ],
+      [
+        "八份公開指南",
+        "對照描述與你聽見的節奏、音色或編曲。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先說是哪個部分吸引你",
+        "也許是聲線，也可能是節奏或配器。"
+      ],
+      [
+        "看你在哪裡聽",
+        "走路和休息時的選擇可以不一樣。"
+      ],
+      [
+        "不熟跟無感分開",
+        "不熟的聲音選NA，聽過但沒有喜惡再選中間。"
+      ]
+    ],
+    "profiles": {
+      "pop": [
+        "跟上一段旋律",
+        "你可能喜歡一聽就記住的副歌。",
+        "等公車時，你想放一首副歌一來就能跟唱的歌。"
+      ],
+      "rock": [
+        "聽見鼓和吉他的力道",
+        "你可能喜歡樂團一起把節奏往前推。",
+        "現場演出時，你留意鼓和吉他怎麼推到副歌。"
+      ],
+      "hip-hop": [
+        "聽語句如何貼著拍子",
+        "你可能在意字詞的節奏和押韻。",
+        "你重放一段嘻哈錄音，想聽它的韻腳怎麼落拍。"
+      ],
+      "electronic": [
+        "留意電子聲音的變化",
+        "你可能喜歡合成音色和節奏的層次。",
+        "散步時，你聽見同一段循環慢慢加進新的聲響。"
+      ],
+      "jazz": [
+        "等樂器回一句",
+        "你可能喜歡音樂裡出現的即興和來回。",
+        "你聽一段爵士，注意低音和鼓怎麼接彼此的句子。"
+      ],
+      "western-classical": [
+        "跟著主題向前聽",
+        "你可能喜歡力度和配器逐段改變。",
+        "你聽弦樂從一段安靜旋律，慢慢走到更亮的地方。"
+      ],
+      "acoustic-folk": [
+        "選一段聽得見呼吸的聲音",
+        "你可能喜歡原聲伴奏讓人聲更清楚。",
+        "夜裡你放一段木吉他，能聽見換和弦的摩擦聲。"
+      ],
+      "country": [
+        "把歌當成一段故事",
+        "你可能在意歌聲的敘事和弦樂音色。",
+        "你聽見一段鄉村樂裡，吉他接在一句人聲之後。"
+      ]
+    },
+    "faq": [
+      [
+        "要另外聽音樂才可以填嗎？",
+        "不需要聽力任務，只評自己聽過且能理解的聲音。"
+      ],
+      [
+        "分數越高代表越有品味嗎？",
+        "每項是你對描述的喜愛程度。"
+      ],
+      [
+        "有幾組讀數？",
+        "八組，每組三題。"
+      ],
+      [
+        "哪種情況用NA？",
+        "沒聽過、無法判斷或不想評分都可選。"
+      ],
+      [
+        "每組怎麼算？",
+        "1到5分，每組至少兩題有效。"
+      ],
+      [
+        "分享會帶個人結果嗎？",
+        "只會開啟同語言的公開測驗。"
+      ]
+    ],
+    "formula": "24題，八組各3題。喜愛程度1至5分，只有至少2個有效回答的組別才顯示平均。",
+    "boundary": "本測驗回顧你對描述中聲音的喜愛，不評估音樂知識、人格、欣賞程度或實際收聽頻率。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Music Taste Test uses 24 original questions to explore how much readers like sounds described across eight musical areas. It takes about six minutes and provides separate averages, rated item counts, and eight complete public guides. Listeners can leave unfamiliar items unscored and reflect on the music they know without signing up, taking a listening exam, or naming favorite artists.",
+    "intro": "Maybe you reach for a heavy beat on a commute and acoustic guitar later at home. Rate sounds you recognize from listening, and leave unfamiliar ones unscored.",
+    "deliverables": [
+      [
+        "Eight sound preferences",
+        "Explore pop, rock, hip-hop, electronic, jazz, Western classical, acoustic folk, and country."
+      ],
+      [
+        "Rated-item counts",
+        "Unfamiliar items can stay unscored without affecting other groups."
+      ],
+      [
+        "Eight complete guides",
+        "Find examples of the sounds and textures each group describes."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Name what drew you in",
+        "It could be the voice, the rhythm or the way the instruments are layered."
+      ],
+      [
+        "Notice when you listen",
+        "The sound you choose on a long walk may differ from what you put on to unwind."
+      ],
+      [
+        "Keep unfamiliar apart from neutral",
+        "Pick the middle rating only when you know the sound and feel neither way."
+      ]
+    ],
+    "profiles": {
+      "pop": [
+        "Find the melody",
+        "You may enjoy a chorus that sticks early.",
+        "On a commute, you choose a song you can sing along to before the first chorus ends."
+      ],
+      "rock": [
+        "Listen for the band finding its push",
+        "You may enjoy how the guitars and drums build the energy.",
+        "At a gig, you notice where the drummer brings the guitar into a louder chorus."
+      ],
+      "hip-hop": [
+        "Hear how words land on a beat",
+        "You may enjoy the interaction of rhymes, delivery and rhythm.",
+        "You replay a verse to hear where it places the words against the drums."
+      ],
+      "electronic": [
+        "Follow a changing layer",
+        "You may enjoy noticing a repeating figure gain texture.",
+        "During a walk, you hear a track add one synthetic sound at a time."
+      ],
+      "jazz": [
+        "Hear one instrument answer another",
+        "You may enjoy the turns a group takes as it plays.",
+        "You listen to a bass player answer a short drum phrase."
+      ],
+      "western-classical": [
+        "Follow a theme as it develops",
+        "You may enjoy the way instrumentation and intensity change over time.",
+        "You notice a quiet string melody return brighter in another section."
+      ],
+      "acoustic-folk": [
+        "Listen close to the instrument",
+        "You may enjoy having the grain of a voice or acoustic instrument up front.",
+        "In a guitar song, you can hear a player’s fingers move along the strings."
+      ],
+      "country": [
+        "Follow a story in the voice",
+        "You may be drawn to the storytelling and tone of the instruments.",
+        "You listen as a slide guitar picks up where a singer leaves off."
+      ]
+    },
+    "faq": [
+      [
+        "Does the test need audio playback?",
+        "No. Rate the descriptions you understand using sounds you have heard."
+      ],
+      [
+        "Does it say who has good taste?",
+        "Each reading reflects liking for the sounds described."
+      ],
+      [
+        "How many areas are covered?",
+        "Eight groups of three, each shown separately."
+      ],
+      [
+        "When should I use NA?",
+        "Choose it when the sound is unfamiliar, unclear, or something you prefer not to rate."
+      ],
+      [
+        "How is the average calculated?",
+        "Rate from 1 to 5. A group needs at least two rated items."
+      ],
+      [
+        "Which details are shared?",
+        "The public link opens the quiz in the same language without your choices or ratings."
+      ]
+    ],
+    "formula": "The 24 items form eight groups of three. Rate liking from 1 to 5. An average appears when at least two ratings in a group count.",
+    "boundary": "Use the readings to describe what sounds you like. They do not determine personality, music knowledge, listening frequency, or whose taste is better."
+  }
+}

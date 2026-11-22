@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的综合推理练习用30道原创题练习数值、阅读、演绎、符号模式和查错，约15分钟。免费查看五组正确题数、逐题解析与完整的公开练习指南。",
+    "intro": "遇到一张表、一段说明或一串符号时，你先找哪条条件？五类练习各六题，用题目给出的事实找到答案。",
+    "deliverables": [
+      [
+        "五组正确题数",
+        "查看每组6题，也可读全卷30题的总正确数。"
+      ],
+      [
+        "逐题解释",
+        "对照所选答案、参考答案和步骤。"
+      ],
+      [
+        "五份公开指南",
+        "在完成练习前也可阅读。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先认出问题在问什么",
+        "列出要求的单位、对象或位置。"
+      ],
+      [
+        "用规则逐项排除",
+        "把文字、数值与符号依据写出来。"
+      ],
+      [
+        "用错题挑一组复习",
+        "只比较本题本范围内的选择。"
+      ]
+    ],
+    "profiles": {
+      "numerical": [
+        "先写清数量与单位",
+        "你可以把题目的所求量写在算式旁边。",
+        "比较两项费用前，你先统一为每月成本。"
+      ],
+      "verbal": [
+        "只使用文字已给的证据",
+        "你可以从原文找到直接支持判断的一句。",
+        "对照通知时，你把明确截止时间与自己估计的时间分开。"
+      ],
+      "deductive": [
+        "检验每种被允许的情况",
+        "你可以找一个符合前提的反例来排除错误结论。",
+        "排座位时，你先看哪组排列仍允许某人坐最后。"
+      ],
+      "patterns": [
+        "按规则处理每个位置",
+        "你可以把符号变化写成一连串小步骤。",
+        "你先标出第几格，再应用题中指定的变换。"
+      ],
+      "error-checking": [
+        "回查原件",
+        "你会在处理编码时按指定规则逐处核对。",
+        "核对表格时，你检查字母、顺序和前导零是否允许改动。"
+      ]
+    },
+    "faq": [
+      [
+        "涵盖什么题型？",
+        "数值、阅读与证据、演绎、符号、查错。"
+      ],
+      [
+        "有时间限制吗？",
+        "没有，约15分钟是规划估计。"
+      ],
+      [
+        "可以用纸或计算器吗？",
+        "可以。查错题只允许题面说出的变换。"
+      ],
+      [
+        "每题怎么计分？",
+        "与参考答案一致加1，不倒扣。"
+      ],
+      [
+        "会得到职业或智商判断吗？",
+        "结果供复习这些练习题，不提供职业、能力常模或IQ。"
+      ],
+      [
+        "分享会带错题吗？",
+        "公开链接只打开同语练习，不含个人答案。"
+      ]
+    ],
+    "formula": "30题分五组，每组6题，各题一个参考答案。每答对一题计1，其他有效选择计0，无速度奖励或倒扣。",
+    "boundary": "这是原创推理练习。读数限于本页试题，不能换成岗位适配分、智商或统一的能力等级。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的綜合推理練習以30道原創題練習數值、閱讀、演繹、符號規律與找錯，約15分鐘。免費提供五組答對題數、逐題解說與完整公開的練習指南。",
+    "intro": "一張表、段落或幾個符號，哪一個條件最值得先看？用題目給的資料練五類判斷，每類六題。",
+    "deliverables": [
+      [
+        "五組答對題數",
+        "每組6題，也可查看30題總計。"
+      ],
+      [
+        "每題附解說",
+        "看自己選了什麼、參考答案和推理。"
+      ],
+      [
+        "五份指南",
+        "不用先做完就能讀。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先說清楚題目要什麼",
+        "寫下單位、對象或位置。"
+      ],
+      [
+        "把條件列出來",
+        "用每條前提排除不適合的答案。"
+      ],
+      [
+        "挑一組再練習",
+        "看看哪一類題目值得重新做一題。"
+      ]
+    ],
+    "profiles": {
+      "numerical": [
+        "把數量寫清楚",
+        "你可以先確認要比較的是同一種單位。",
+        "你先把收費換成每個月再比較。"
+      ],
+      "verbal": [
+        "回頭看原文說了什麼",
+        "你可以找到支持答案的字句。",
+        "看公告時，你先標確定的限期，再想自己猜的時間。"
+      ],
+      "deductive": [
+        "找一種可能來查",
+        "你可以用符合前提的例子檢查選項。",
+        "排座位時，你找出哪個安排仍符合題目的限制。"
+      ],
+      "patterns": [
+        "把符號變化逐步寫下",
+        "你可以按題目給的順序核對每一步。",
+        "你先確定是哪個位置要移動，再套用規則。"
+      ],
+      "error-checking": [
+        "照原件逐欄對",
+        "你會留意題目准許哪些格式調整。",
+        "核對訂單編號時，你先確認開頭的零能不能省略。"
+      ]
+    },
+    "faq": [
+      [
+        "練習包含什麼？",
+        "數值、閱讀、演繹、符號規律和記錄找錯。"
+      ],
+      [
+        "有倒數計時嗎？",
+        "沒有，15分鐘只是參考。"
+      ],
+      [
+        "可以用紙或計算機嗎？",
+        "可以。找錯題只能使用題面指定的轉換。"
+      ],
+      [
+        "答對一題幾分？",
+        "每個吻合參考答案的選擇計1次，沒有倒扣。"
+      ],
+      [
+        "能用來判定適任或智商嗎？",
+        "本結果用來複習這些題目的作法。"
+      ],
+      [
+        "分享會附答題紀錄嗎？",
+        "同語言公開練習連結沒有個人作答。"
+      ]
+    ],
+    "formula": "每組6題，共30題。符合唯一參考答案就加1次，其他有效選項為0，不加速度分也不倒扣。",
+    "boundary": "用它練習推理與找錯方法。答對題數只反映本題組作答，不用來判定職能或智商。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Aptitude Test practice uses 30 original questions across numerical reasoning, reading and evidence, deduction, symbol patterns, and error checking. It takes about fifteen minutes and reports the correct counts for each section and the full set. Readers receive worked answers and five complete public guides, with no account, timer, penalty for guessing, or score adjustment for finishing the questions quickly.",
+    "intro": "A table, a short passage and a row of symbols ask for different kinds of attention. Try using only the supplied facts or rules to make each choice.",
+    "deliverables": [
+      [
+        "Five section counts",
+        "Review six items in each section and the total across 30."
+      ],
+      [
+        "Worked answers",
+        "Compare your selection with the key and the steps behind it."
+      ],
+      [
+        "Five public guides",
+        "Read one guide before or after practice."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Name what the item asks",
+        "Write down the unit, object, or position before calculating."
+      ],
+      [
+        "Keep each rule visible",
+        "Use the text, numbers, or symbols as the evidence you can check."
+      ],
+      [
+        "Pick a question to revisit",
+        "Review the type of case where you lost track of a condition."
+      ]
+    ],
+    "profiles": {
+      "numerical": [
+        "Write down the quantities and units",
+        "You can make the required comparison explicit before calculating.",
+        "Before comparing costs, you turn both amounts into monthly figures."
+      ],
+      "verbal": [
+        "Check what the text supports",
+        "You can find the line that gives the information you need.",
+        "In a notice, you separate the stated deadline from your estimate."
+      ],
+      "deductive": [
+        "Test a permitted case",
+        "You can use an example that satisfies the premises to check a claim.",
+        "In an ordering puzzle, you see whether a different person could still be last."
+      ],
+      "patterns": [
+        "Follow the stated rule one step at a time",
+        "You can keep a changed symbol tied to its position.",
+        "Before moving a mark, you identify the exact position named in the question."
+      ],
+      "error-checking": [
+        "Check the record against its source",
+        "You can compare each field using only changes the question allows.",
+        "When an ID starts with a zero, you check whether it must stay."
+      ]
+    },
+    "faq": [
+      [
+        "Which topics are included?",
+        "Numerical reasoning, reading, deduction, symbol patterns, and error checking."
+      ],
+      [
+        "Is it timed?",
+        "No. Fifteen minutes is a planning estimate."
+      ],
+      [
+        "Can I use a calculator or paper?",
+        "Yes. Error-checking items use only the transformations stated in the question."
+      ],
+      [
+        "How are items scored?",
+        "A match to the key adds one. There is no guessing penalty."
+      ],
+      [
+        "Do the results show IQ or job fit?",
+        "Use the feedback to review these practice items and their rules."
+      ],
+      [
+        "Will shared links show my missed choices?",
+        "They open the same-language public practice without responses."
+      ]
+    ],
+    "formula": "The 30 questions form five groups of six. A choice matching the key adds one, while another valid choice adds zero. There is no speed bonus or penalty.",
+    "boundary": "This original practice covers the questions on this page. Counts do not estimate IQ, general aptitude norms, or suitability for a particular role."
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "zh": {
+    "facts": "费马测试的8 Values政治价值观测试沿用上游70题，约15分钟，免注册。答完可免费查看经济、外交、公民与社会四条数轴，加看八篇公开指南。分享链接只指向公开入口。",
+    "intro": "谈到公共服务、国际合作、个人自由或传统，你可能在不同议题上给出不同答案。用约 15 分钟完成 70 道陈述，免费查看四条双端数轴，再回头看看哪些题目影响了结果。无需注册。",
+    "deliverables": [
+      [
+        "看四条双端数轴",
+        "经济、外交、公民和社会四条轴分别呈现。每轴两端合计 100%，并显示原始加权和。"
+      ],
+      [
+        "免费读八篇公开指南",
+        "每个端点都有独立指南，揭示包含哪些议题、两端如何互补，怎样解释接近中点的情况。"
+      ],
+      [
+        "复制公开入口",
+        "可以复制同语测试入口。分享链接不携带答案、分数或个人标识。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "全部中立：四轴都显示 50.0 / 50.0",
+        "这份虚构答卷全部选择中立／不确定。相反的回答也可能在同一条轴上互相抵消，出现相同的中点。"
+      ],
+      [
+        "只改第 6 题：一升一降",
+        "其余题均为中立，第 6 题选非常同意。平等端为 51.3%，公民自由端为 48.4%，其余两轴仍是 50.0 / 50.0。"
+      ],
+      [
+        "社会轴计算边界：进步端为 100.0%",
+        "按社会轴权重选择同号的最大乘数，零权重选中立。平等、全球、公民自由、进步四端依次为 64.1%、67.8%、71.9%、100.0%。这是用于验证算式的极端答卷。"
+      ]
+    ],
+    "profiles": {
+      "equality": [
+        "资源如何分配",
+        "你可以顺着平等端回看，你在公共供给、分配和政策介入这些题目里考虑了什么。",
+        "讨论公交减免时，你可以比较普遍补贴与面向特定人群的支持。"
+      ],
+      "markets": [
+        "给价格与竞争多少空间",
+        "你可以用市场端回看，当题目涉及价格信号、私人经营与监管时，你更重视哪些取舍。",
+        "社区想增加餐饮选择时，你可以比较放宽摊位准入与统一管理的影响。"
+      ],
+      "nation": [
+        "公共决定先顾及谁",
+        "你可以沿着国家端看看，哪些题目让你先考虑一国的自主决定、资源和责任。",
+        "遇到跨境项目时，你可以考虑本地预算、约束与共同投入的分工。"
+      ],
+      "globe": [
+        "怎样解决跨边界的问题",
+        "你可以借全球端回看，遇到跨国问题时，哪些条件让你更愿意协调和共担责任。",
+        "讨论跨境河流的水质，你可以比较各方分别治理和共同监测。"
+      ],
+      "liberty": [
+        "哪些选择应留给个人",
+        "你可以用公民自由端回看，哪些题目让你更在意个人选择的空间、隐私与程序。",
+        "公共设施准备记录身份时，你可以问清收哪些信息、谁能访问和保存多久。"
+      ],
+      "authority": [
+        "在哪些场合采用共同规则",
+        "你可以借权威端回看，哪些场合让你考虑集体规则的约束力和执行方式。",
+        "场馆处理高噪声活动时，你可以比较自愿约定和统一时段规定的实际影响。"
+      ],
+      "progress": [
+        "什么时候值得更新做法",
+        "你可以借进步端回想，哪些题目让你更愿意重新审视沿用已久的安排。",
+        "公共活动增加线上报名时，你可以比较纳入新用户和增加操作门槛的影响。"
+      ],
+      "tradition": [
+        "什么经验值得延续",
+        "你可以顺着传统端回看，哪些情境让你重视熟悉制度、习俗或延续性。",
+        "社区准备改变年度活动流程时，你可以问居民在哪些环节有保留经验的理由。"
+      ]
+    },
+    "faq": [
+      [
+        "8 Values 是哪个版本？",
+        "本站改编自 8values 开源项目固定修订的 70 道题，保留英文题干和原始有符号权重。中文由费马翻译。"
+      ],
+      [
+        "为什么四条轴有八个结果名称？",
+        "经济轴是平等／市场，外交轴是全球／国家，公民轴是公民自由／权威，社会轴是进步／传统。每条轴的两个显示端相加等于 100%。"
+      ],
+      [
+        "一题能同时影响几条轴吗？",
+        "可以。选项乘数为 −1、−0.5、0、+0.5、+1，同一个乘数会应用到这条陈述的每个轴权重。负权重使贡献方向反转。"
+      ],
+      [
+        "50% 表示中间派吗？",
+        "中立或不确定的作答可以得到 50%，方向相反的贡献相抵也可以。小数差来自固定题本换算及四舍五入，无法据此判断立场、人口百分位或投票选择。"
+      ],
+      [
+        "测试免费吗？题目可以跳过吗？",
+        "全部结果和八篇公开指南均免费且免注册。须答完 70 道题才产生本次数轴结果。可以随时退出后直接阅读指南。"
+      ],
+      [
+        "分享链接会显示我的答案或得分吗？",
+        "复制的是公开入口链接，不包含答案、百分数或个人标识。现有分享不生成个人 PNG。"
+      ]
+    ],
+    "formula": "每题选项乘数是 −1、−0.5、0、+0.5、+1。把乘数与各轴有符号权重相乘后按轴求和 S。四轴绝对权重总和 M 依次为 195、225、320、292。正向计分端为 100 × (M + S) ÷ (2 × M)，保留一位小数，另一端为 100 减去已显示的值。",
+    "boundary": "保留固定来源的 70 道英文原题、五个选项和计分权重，中文为费马译文。这些结果只描述受答题情境影响的个人回答，尚无独立的翻译等值、信度或人口常模数据，也不输出政党、投票建议或固定的意识形态。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的8 Values政治價值觀測驗採用原版70題，約15分鐘，免註冊。答完可免費查看經濟、外交、公民與社會四條量尺，並讀八篇公開指南。分享時只複製公開入口。",
+    "intro": "對公共服務、跨國合作、個人自由和傳統，你的答案可能隨議題而變。花大約 15 分鐘回答 70 道問題，免費看看自己的四條雙向量尺，再從八篇指南挑你想讀的議題。免註冊。",
+    "deliverables": [
+      [
+        "查看四組互補結果",
+        "逐一查看經濟、外交、公民和社會四條量尺。每條的兩端加起來是 100%，也看得到原始加權總和。"
+      ],
+      [
+        "閱讀八篇公開指南",
+        "每個端點都有一篇指南，幫你了解題目涵蓋的議題、兩端如何連動，以及中間數字可能怎麼來。"
+      ],
+      [
+        "轉傳測驗公開入口",
+        "可複製同語的公開入口。連結不會附上答案、分數或作答者資料。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "全選中立：四條量尺都是 50.0 / 50.0",
+        "這份示範答案全部選中立／不確定。如果不同方向的作答剛好互抵，也可能得到相同數字。"
+      ],
+      [
+        "只改第 6 題：兩條量尺一起動",
+        "第 6 題選非常同意，其餘都選中立。平等端為 51.3%，公民自由端為 48.4%，其他兩軸都是 50.0 / 50.0。"
+      ],
+      [
+        "社會軸計分示範：進步端 100.0%",
+        "依社會軸每題權重選同號的最大乘數，權重零就選中立。平等、全球、公民自由與進步端依序是 64.1%、67.8%、71.9%、100.0%。這是用來檢查計算的極端範例。"
+      ]
+    ],
+    "profiles": {
+      "equality": [
+        "資源怎麼分配",
+        "你可以從平等端回顧，遇到公共服務、資源分配或政府介入時，你看重哪些影響。",
+        "討論大眾運輸優惠時，你可以比較普遍減免和特定族群補助。"
+      ],
+      "markets": [
+        "價格與競爭能發揮什麼作用",
+        "你可以從市場端回顧，有關價格、民間經營與管理規則的題目裡，你考慮了哪些條件。",
+        "社區討論夜市攤位時，你可以比較開放更多店家進場和統一管理的影響。"
+      ],
+      "nation": [
+        "哪些責任由各國自行承擔",
+        "你可以用國家端回顧，哪些題目讓你先想到自主決定及國內資源。",
+        "討論一項跨境計畫時，你可以想想地方預算由誰負擔，承諾又要怎麼落實。"
+      ],
+      "globe": [
+        "什麼情況值得跨國一起處理",
+        "你可以借全球端回想，遇到跨境問題時，你會在哪些條件下支持共同協調。",
+        "面對流域污染時，你可以比較分別治理和一起監測水質的做法。"
+      ],
+      "liberty": [
+        "個人的決定空間要留多少",
+        "你可以用公民自由端回想，哪些題目讓你特別留意個人選擇、隱私與程序。",
+        "市民場館準備登記來客時，你可以先問需要提供什麼資料、交給誰保管。"
+      ],
+      "authority": [
+        "共同規則在何時有用",
+        "你可以從權威端回想，哪些場合讓你較重視共同規則和落實方式。",
+        "場館要限制深夜音量時，你可以比較各方自行約定與固定時段限制。"
+      ],
+      "progress": [
+        "哪些做法可以重新想一遍",
+        "你可以從進步端回看，什麼情況會讓你想調整長期沿用的安排。",
+        "活動加入線上報名時，你可以觀察這會幫助哪些人，又增加哪些人的負擔。"
+      ],
+      "tradition": [
+        "有哪些做法可以留下來",
+        "你可以借傳統端回看，哪些題目讓你想保留習慣與累積已久的經驗。",
+        "社區活動打算改流程時，你可以詢問居民哪些環節經過多年調整，仍然實用。"
+      ]
+    },
+    "faq": [
+      [
+        "這個 8 Values 測驗來自哪裡？",
+        "題目沿用 8values 開源專案固定版本的 70 題，保留原英文和正負權重。中文由費馬翻譯。"
+      ],
+      [
+        "為什麼四條量尺會有八個名稱？",
+        "經濟軸是平等／市場、外交軸是全球／國家、公民軸是公民自由／權威、社會軸是進步／傳統。每一軸都會顯示兩端，加起來是 100%。"
+      ],
+      [
+        "勾一個選項可能影響多條量尺嗎？",
+        "可能。作答乘數依序為 −1、−0.5、0、+0.5、+1，每個乘數會套用在該陳述的各軸權重上。負權重的貢獻方向會相反。"
+      ],
+      [
+        "50% 就是立場居中嗎？",
+        "選中立／不確定，或兩種方向的答案相抵，都能得到 50%。這個數字無法用來判定政治身分、人口百分等級或投票選擇。"
+      ],
+      [
+        "需要付費嗎？可以跳著做嗎？",
+        "免註冊，結果和八篇公開指南都免費。完整回答 70 道題才會產生個人分數，也可以直接閱讀公開指南。"
+      ],
+      [
+        "轉傳連結時會公開作答內容嗎？",
+        "複製的是公開測驗入口，連結不會附上答案、百分比或作答者資料。現在沒有個人 PNG 分享圖卡。"
+      ]
+    ],
+    "formula": "每題以 −1、−0.5、0、+0.5、+1 與各軸正負權重相乘，同軸加總得到 S。四軸的權重絕對值總和 M 依序為 195、225、320、292。正向計分端是 100 × (M + S) ÷ (2 × M)，顯示到小數點後一位，另一端用 100 減去顯示值。",
+    "boundary": "費馬保留固定版本的 70 道英文原題、選項與計分權重，另行提供中文翻譯。這份測驗還沒有單獨驗證翻譯等值、信度和人口常模。結果只整理這次的作答，不分派政黨、固定意識形態或投票建議。"
+  },
+  "en": {
+    "facts": "The FermatMind 8 Values Political Test adapts a fixed revision of the original 70-item questionnaire and takes about 15 minutes. No account or payment is required. After all 70 answers, it shows four pairs of complementary percentages and the weighted sums behind them. Eight public guides explain the endpoints and how to read the results. Sharing copies only the public test link.",
+    "intro": "Your views on public services may differ from how you think about international cooperation, individual freedom, or customs. Respond to 70 statements in about 15 minutes and read four two-ended scales, with eight guides you can open any time. The test is free and requires no account.",
+    "deliverables": [
+      [
+        "See four pairs of scores",
+        "Read the economic, diplomatic, civil, and societal axes separately. Each pair adds to 100%, and you can also view its raw weighted sum."
+      ],
+      [
+        "Read all eight guides for free",
+        "The endpoint guides describe the questions and trade-offs relevant to each pair. You can read any guide without completing the test."
+      ],
+      [
+        "Copy the public test link",
+        "The link opens the public test page in your language. It carries no answers, percentages, or details that identify your attempt."
+      ]
+    ],
+    "interpretations": [
+      [
+        "All neutral: four pairs at 50.0 / 50.0",
+        "Every answer in this sample is neutral or unsure. The same midpoint can also arise when answers contribute in opposite directions and cancel."
+      ],
+      [
+        "One answer changes: two axes move",
+        "Choose Strongly Agree for item 6 and Neutral/Unsure for the other 69. Equality displays 51.3%, Liberty 48.4%, and both other axes remain at 50.0 / 50.0."
+      ],
+      [
+        "Scoring boundary: 100.0% on the Progress end",
+        "Use the strongest matching choice for every signed societal effect and neutral for zero effects. Equality, Globe, Liberty, and Progress display 64.1%, 67.8%, 71.9%, and 100.0%. This is a synthetic scoring illustration."
+      ]
+    ],
+    "profiles": {
+      "equality": [
+        "How resources are shared",
+        "You can use the Equality guide to revisit what you considered in questions about public provision, distribution, and intervention.",
+        "When a town considers a fare discount, you might compare a universal price cut with targeted help."
+      ],
+      "markets": [
+        "What prices and competition can do",
+        "You can use the Markets guide to revisit questions about prices, private enterprise, and rules for competition.",
+        "As a market reopens, you might compare letting more sellers in with giving all sellers the same operating terms."
+      ],
+      "nation": [
+        "When decisions stay within a nation",
+        "You can use the Nation guide to revisit questions about domestic obligations, resources, or independent decisions.",
+        "When discussing a joint project across borders, you might ask how local commitments can be managed."
+      ],
+      "globe": [
+        "What can be done across borders",
+        "You can use the Globe guide to revisit the situations in which sharing resources or coordinating decisions felt workable.",
+        "When two countries share a river, you might compare separate cleanups with a joint effort to monitor water quality."
+      ],
+      "liberty": [
+        "What remains an individual choice",
+        "You can use the Liberty guide to revisit questions that led you to consider privacy, choice, and procedural safeguards.",
+        "When a public venue proposes keeping visitor records, you might ask which details are needed and when they should be deleted."
+      ],
+      "authority": [
+        "When shared rules carry weight",
+        "You can use the Authority guide to revisit which situations drew your attention to common rules and enforcement.",
+        "If noise near an event space disturbs residents, you might compare an informal agreement with a fixed closing rule."
+      ],
+      "progress": [
+        "When a familiar practice is worth revisiting",
+        "You can use the Progress guide to revisit which questions prompted you to reconsider an established practice.",
+        "When a public event adds online registration, you might check whom the change makes it easier or harder to attend."
+      ],
+      "tradition": [
+        "What remains useful from an older practice",
+        "You can use the Tradition guide to consider when continuity, customs, or experience mattered in your answers.",
+        "If a neighborhood event changes its schedule, you might ask what the existing format has helped residents do."
+      ]
+    },
+    "faq": [
+      [
+        "Which version of 8 Values is this?",
+        "This adaptation uses the original English statements and signed weights from a fixed 70-item revision of the open-source 8values project. FermatMind supplies the Chinese translations."
+      ],
+      [
+        "Why are there four axes and eight labels?",
+        "The pairs are Equality and Markets, Globe and Nation, Liberty and Authority, and Progress and Tradition. The two displayed percentages on each axis add to 100%."
+      ],
+      [
+        "Can a single answer affect more than one axis?",
+        "Yes. The answer multiplier, from −1 to +1, is applied to each of the statement’s axis weights. Negative weights reverse the direction of the contribution."
+      ],
+      [
+        "Does 50% identify a political centrist?",
+        "A midpoint can come from neutral or unsure answers, or from contributions that cancel. The score cannot determine a political identity, population percentile, or voting choice."
+      ],
+      [
+        "Is the test free? Can I skip questions?",
+        "The test, results, and all eight public guides are free without an account. You need all 70 answers for personal scores. You can read the public guides without answering anything."
+      ],
+      [
+        "What gets included when I share?",
+        "Copying shares the public test link. It carries no answers, percentages, or ID for your attempt. There is no personal PNG export."
+      ]
+    ],
+    "formula": "Each choice has a multiplier of −1, −0.5, 0, +0.5, or +1. Multiply it by each signed item weight and add contributions to get the sum S for each axis. The absolute weight totals M are 195, 225, 320, and 292. The positive calculation end is 100 × (M + S) ÷ (2 × M), rounded to one decimal. Subtract the displayed value from 100 for the other end.",
+    "boundary": "The adaptation preserves the 70 English statements, five response choices, and scoring weights in the pinned source. FermatMind provides the Chinese translations. This edition has no independently established translation equivalence, reliability, or population norms. It gives no party match, stable ideology classification, or voting recommendation."
+  }
+}

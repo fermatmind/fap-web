@@ -7,7 +7,12 @@ import { flowerPrivacyAnswer } from "./FlowerLandingEditorial";
 import { sevenSinsGuideProfile } from "@/lib/questionnaires/sevenSinsGuideSeo";
 import { MoonPhaseComparison } from "./MoonPhaseComparison";
 import { BleachExamples } from "./BleachExamples";
+import { CharacterQuizLanding } from "./CharacterQuizLanding";
+import { hasCharacterLanding } from "@/lib/questionnaires/characterLandingCopy";
+import { SevenSinsLanding } from "./SevenSinsLanding";
+import { sevenSinsLandingSeo } from "@/lib/questionnaires/sevenSinsLandingCopy";
 import { MentalAgeClassicPage } from "./MentalAgeClassicPage";
+import { mentalAgeLandingCopy } from "@/lib/questionnaires/mentalAgeLandingCopy";
 import { philosopherLandingDescription } from "@/lib/questionnaires/philosopherPresentation";
 import { PhilosopherRoster } from "./PhilosopherRoster";
 import { FantasyRoster, hasFantasyArtwork } from "./FantasyRoster";
@@ -491,7 +496,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "nine-star-year" && !isNineStarYearConfigurationValid(quiz)) return { title: "Year reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Calculator unavailable", robots: { index: false, follow: false } };
   if (!quiz || (quiz.kind === "fds32" && !isFds32ConfigurationValid(quiz)) || (quiz.kind === "mental-age" && !isMentalAgeConfigurationValid(quiz)) || (quiz.kind === "pss4" && !isPss4ConfigurationValid(quiz)) || (quiz.kind === "stress-reflection4" && !isStressReflection4ConfigurationValid(quiz)) || (quiz.kind === "mini-orientation" && !isMiniOrientationConfigurationValid(quiz)) || (quiz.kind === "mini-conflict" && !isMiniConflictConfigurationValid(quiz)) || (quiz.kind === "four-axes" && !isFourAxesConfigurationValid(quiz)) || (quiz.kind === "mini-shadow" && !isMiniShadowConfigurationValid(quiz)) || (quiz.kind === "preparation-actions20" && !isPreparationActions20ConfigurationValid(quiz)) || (quiz.kind === "mini-coping" && !isMiniCopingConfigurationValid(quiz)) || (quiz.kind === "mini-habit" && !isMiniHabitConfigurationValid(quiz)) || (quiz.kind === "mini-intimacy" && !isMiniIntimacyConfigurationValid(quiz)) || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "work-role12" && !isWorkRole12ConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(quiz)) || (quiz.kind === "tipi10" && !isTipi10ConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
-  return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: modeABatchFourLandingTitle(slug, locale) ?? quiz.seoTitle[locale], description: (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}${slug === "space-marine-chapter" ? "-studio" : slug === "moon-phase" ? "-phases" : slug === "bleach" ? "-portraits" : slug === "adult-age-preferences" ? "-art" : slug === "philosopher-personality-test" ? "-portraits2" : ""}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
+  const mentalAgeLanding = quiz.kind === "mental-age" ? mentalAgeLandingCopy[locale] : null;
+  const sevenSins = slug === "seven-sins-virtues-test" ? sevenSinsLandingSeo[locale] : null;
+  const metadata = buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: sevenSins?.title ?? mentalAgeLanding?.metaTitle ?? modeABatchFourLandingTitle(slug, locale) ?? quiz.seoTitle[locale], description: sevenSins?.description ?? mentalAgeLanding?.description ?? (slug === "stress-check-in-test" ? monthlyStressLandingDescription[locale] : slug === "four-axes-test" ? fourAxesLandingDescription[locale] : quiz.description[locale]), imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}${slug === "space-marine-chapter" ? "-studio" : slug === "moon-phase" ? "-phases" : slug === "bleach" ? "-portraits" : slug === "adult-age-preferences" ? "-art" : slug === "philosopher-personality-test" ? "-portraits2" : ""}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
+  if (sevenSins) return { ...metadata, title: { absolute: sevenSins.title } };
+  return mentalAgeLanding ? { ...metadata, title: { absolute: mentalAgeLanding.metaTitle } } : metadata;
 }
 
 export default async function QuestionnairePage({ params, take = false }: Props & { take?: boolean }) {
@@ -832,6 +841,8 @@ if (quiz.slug === "dark-triad") return <QuestionnaireDarkTriadClient key={`${slu
 return <QuestionnaireClient quiz={Object.keys(resultReadingProps).length ? quiz : prepareQuestionnaireResultReadings(quiz)} locale={locale} {...resultReadingProps} />;
 })();
   if (take) return engine;
+  if (hasCharacterLanding(slug)) return <CharacterQuizLanding quiz={quiz} locale={locale} slug={slug} />;
+  if (quiz.slug === "seven-sins-virtues-test") return <SevenSinsLanding quiz={quiz} locale={locale} />;
   const gapEditorial = completionGapEditorial[slug];
   const resultGuide = quiz.slug === "delulu-test" ? prepareQuestionnaireResultReadings(quiz).guide : quiz.guide;
   const path = questionnairePath(locale, slug);

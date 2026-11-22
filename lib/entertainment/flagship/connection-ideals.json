@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的理想关系互动测试用12道原创虚构情境题比较六种相处期待，约4分钟。无需注册即可免费查看全部原始计数、最高并列与六份公开指南。",
+    "intro": "想象一次双方都愿意的相处：你更期待聊起同一个笑点，还是遇到变化也有人记得约定？选眼下最想体验的一个细节。",
+    "deliverables": [
+      [
+        "六项选择次数",
+        "查看心动、稳定、自在陪伴、共同探索、支持和鼓励。"
+      ],
+      [
+        "所有最高并列",
+        "两项或更多最高同分时，都会完整显示。"
+      ],
+      [
+        "六份公开指南",
+        "读六种期待在日常里会是什么样。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "先看最打动你的细节",
+        "也许你想要的是一起笑，或回家前有人来问一声。"
+      ],
+      [
+        "读到同分时",
+        "挑两项，想想它们可能怎样出现在同一天。"
+      ],
+      [
+        "留意每道题给了什么",
+        "每题只有四项，没出现的期待没有参与该题选择。"
+      ]
+    ],
+    "profiles": {
+      "shared-spark": [
+        "一句话就接上",
+        "你喜欢两个人能顺着同一个小念头聊下去。",
+        "排队买茶时，你们看着古怪的菜单名字，同时想到一个笑点。"
+      ],
+      "steady-presence": [
+        "相处有个准信",
+        "你看重已经说好的安排还能稳稳接住。",
+        "如果见面改期，对方会先来商量哪天换过去。"
+      ],
+      "easy-companionship": [
+        "坐在一起也能安静",
+        "你喜欢不用一直找话题、各做各的也舒服。",
+        "两人一起坐在窗边看书，偶尔抬头聊两句。"
+      ],
+      "shared-discovery": [
+        "去看看没走过的路",
+        "你喜欢一起见识新事，再交换各自注意到的细节。",
+        "你们绕去第一次经过的小街，挑一家从没进过的店。"
+      ],
+      "gentle-support": [
+        "等一等再给建议",
+        "你重视遇到难事时有人先问你需要怎样的陪伴。",
+        "你说今天很累，对方问想安静一会儿还是想聊聊。"
+      ],
+      "mutual-encouragement": [
+        "替小进展叫好",
+        "你喜欢有人留意你迈出的一小步，也愿意庆祝对方的。",
+        "朋友第一次把作品给人看，你们一起备好下一步想试的事。"
+      ]
+    },
+    "faq": [
+      [
+        "题目看什么？",
+        "从原创情境看你此刻喜欢的互动细节。"
+      ],
+      [
+        "60秒能做完吗？",
+        "有12道四选一，通常约4分钟，没有计时。"
+      ],
+      [
+        "怎么计分？",
+        "每题所选主题加1，六主题各出现8次。"
+      ],
+      [
+        "并列会怎样？",
+        "全部同获最高次数的主题都展开。"
+      ],
+      [
+        "会推荐某种对象吗？",
+        "读数用于自己回看互动期待，题本不判断任何具体对象。"
+      ],
+      [
+        "有个人结果分享按钮吗？",
+        "本次结果只留在当前页面，不提供复制个人结果。可用浏览器分享公开测试入口或单篇指南。"
+      ]
+    ],
+    "formula": "12题四选一，每题所选主题加1。六主题各出现8次，每个选项位置各出现两次，最高同分全部保留。",
+    "boundary": "结果展示的是你在虚构情境中的选择。现实中的相处仍需要双方愿意并协商，不依据读数推定某种对象或关系走向。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的理想相處測驗用12道原創虛構情境題比較六種互動期待，約4分鐘。免註冊即可免費查看所有選擇次數、最高同分結果和六份公開指南。",
+    "intro": "在雙方都想參與的相處裡，你會期待突然聊出一個笑點，還是行程變了也有人記得先說一聲？每題挑一個你現在最在意的細節。",
+    "deliverables": [
+      [
+        "六項分開計數",
+        "看心動、安穩、自在陪伴、探索、支持和互相鼓勵各被選幾次。"
+      ],
+      [
+        "保留最高同分",
+        "兩項以上相同且最高時，會一起顯示完整解讀。"
+      ],
+      [
+        "六份情境指南",
+        "不填答也能看不同期待在生活裡的樣子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "回想最有感的選項",
+        "想想那個互動為什麼吸引你。"
+      ],
+      [
+        "同分就並排看",
+        "兩個主題可以在同一段相處裡都很重要。"
+      ],
+      [
+        "認清每題的比較範圍",
+        "沒出現在該題的主題只是沒列進四個選項。"
+      ]
+    ],
+    "profiles": {
+      "shared-spark": [
+        "小笑點有人接",
+        "你喜歡在同一件小事上忽然聊得起來。",
+        "等飲料時，你們看到菜單上的名字，同時笑出聲。"
+      ],
+      "steady-presence": [
+        "說好的事有個下文",
+        "你重視做過的約定有人記得，改期也會先通知。",
+        "下午臨時加班，對方先問你能不能換到隔天。"
+      ],
+      "easy-companionship": [
+        "一起做自己的事",
+        "你喜歡不必撐場面，也能自在待在一起。",
+        "兩人在咖啡店各看一本書，想聊天時再抬頭。"
+      ],
+      "shared-discovery": [
+        "一起走一條新路",
+        "你喜歡兩個人試點新鮮的，再聊各自看到什麼。",
+        "你們搭車到不熟的街區，挑一家沒有吃過的小店。"
+      ],
+      "gentle-support": [
+        "先問需要什麼陪伴",
+        "你在意有人願意聽，也讓你自己決定想說多少。",
+        "你說今天有點累，對方問想先安靜還是聊一下。"
+      ],
+      "mutual-encouragement": [
+        "替彼此的小進展開心",
+        "你喜歡有人留意你剛做成的一件小事，也會鼓勵對方。",
+        "好友第一次把作品拿出來，你替他開心，也陪他想下一次想試什麼。"
+      ]
+    },
+    "faq": [
+      [
+        "這份測驗在看什麼？",
+        "看你現階段比較在意哪些日常互動。"
+      ],
+      [
+        "多久可以做完？",
+        "約4分鐘，共12題，沒有倒數計時。"
+      ],
+      [
+        "每個答案怎麼計分？",
+        "每題選到的主題加1，六個主題各在選項中出現8次。"
+      ],
+      [
+        "同分怎麼處理？",
+        "全部最高同分主題都會完整呈現。"
+      ],
+      [
+        "能找出命定對象嗎？",
+        "結果讓你回顧自己的選擇。真實相處要看彼此表達和決定。"
+      ],
+      [
+        "可以複製個人結果嗎？",
+        "這次的結果只顯示在目前頁面，測驗沒有個人結果分享按鈕。可用瀏覽器分享公開測驗或單篇指南。"
+      ]
+    ],
+    "formula": "12道四選一，每題替選擇的主題加1。各主題出現8次，每個選項位置各2次。最高同分一起顯示。",
+    "boundary": "虛構情境用來整理自己想要的互動。現實的親近要雙方都願意，結果不拿來評斷別人或預測關係。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Connection Ideals Test uses 12 original fictional scenarios to explore six ways adults may want to connect. The test takes about four minutes and shows every raw tally, all themes tied for the highest count, and six complete public guides. Readers can consider what mutual connection might look like in everyday life without an account or a partner’s details.",
+    "intro": "Imagine spending time with someone who also wants to be there. Do you look forward to a shared joke, the ease of sitting together quietly, or finding somewhere neither of you has been?",
+    "deliverables": [
+      [
+        "Six raw tallies",
+        "See what you chose for spark, steadiness, companionship, discovery, support, and encouragement."
+      ],
+      [
+        "Every top tie",
+        "Themes sharing the highest count each receive their full readings."
+      ],
+      [
+        "Six public guides",
+        "Read concrete examples even if you decide to skip the quiz."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Start with the detail that appealed to you",
+        "Pinpoint what made the choice feel welcome today."
+      ],
+      [
+        "Read tied themes side by side",
+        "Both may have a place in the same ordinary afternoon."
+      ],
+      [
+        "Keep the options in view",
+        "Each scenario offers four themes, so two were outside that particular comparison."
+      ]
+    ],
+    "profiles": {
+      "shared-spark": [
+        "Catch the same spark",
+        "You enjoy discovering that someone else sees the humor in the same small things.",
+        "Waiting for tea, you both laugh at the same oddly named item on the menu."
+      ],
+      "steady-presence": [
+        "Keep your plans in reach",
+        "You value dependable time together and a heads-up when things change.",
+        "When a meeting needs to move, the other person checks with you before settling on a new day."
+      ],
+      "easy-companionship": [
+        "Share a comfortable silence",
+        "You like being together without constantly finding something to say.",
+        "You sit by the window with separate books and occasionally look up to talk."
+      ],
+      "shared-discovery": [
+        "Take the unfamiliar route",
+        "You enjoy discovering something new together and seeing what the other person notices.",
+        "You wander down a street neither of you knows and pick a café from the window."
+      ],
+      "gentle-support": [
+        "Ask what would feel helpful",
+        "You value being heard and having a choice about what kind of support you receive.",
+        "After a tiring day, someone asks if you want company, a talk, or a few minutes alone."
+      ],
+      "mutual-encouragement": [
+        "Notice the small win",
+        "You enjoy having someone cheer for a small first step and doing the same for them.",
+        "When a friend shares a finished sketch for the first time, you celebrate and ask what they would like to try next."
+      ]
+    },
+    "faq": [
+      [
+        "What does the test explore?",
+        "It looks at the details you would most enjoy in fictional examples of mutual connection."
+      ],
+      [
+        "How long does it take?",
+        "About four minutes for 12 questions, with no timer."
+      ],
+      [
+        "How are tallies calculated?",
+        "Each choice adds one to its theme. All six themes appear eight times across the options."
+      ],
+      [
+        "What if the highest themes tie?",
+        "Every theme sharing the top count appears with its full reading."
+      ],
+      [
+        "Does it identify a match?",
+        "It shows your own choices in fictional scenarios. Actual connections involve everyone’s wishes."
+      ],
+      [
+        "Can I share my personal result?",
+        "The result stays on the current page and has no share control. You can share the public quiz or any guide from your browser."
+      ]
+    ],
+    "formula": "Choose one of four options on each of 12 items. It adds one to its theme. Every theme appears eight times, twice in each position. All highest ties are kept.",
+    "boundary": "Use the fictional situations to explore what feels meaningful to you now. Real interactions require mutual willingness. The quiz cannot identify a destined partner or forecast a relationship."
+  }
+}

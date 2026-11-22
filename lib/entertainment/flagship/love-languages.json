@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的爱的语言测试用50道原创题分别询问表达与接收关心的重要程度，约10分钟。免费呈现十项独立均分、有效题数、五份指南及本地个人图卡。",
+    "intro": "你常用行动帮忙，却在收到一句具体的感谢时最有感吗？同一件事，做给别人和自己收到时，可以有不一样的意义。",
+    "deliverables": [
+      [
+        "表达和接收分开",
+        "五类各有表达和接收两项，一共十个独立均分。"
+      ],
+      [
+        "有效题数与完整指南",
+        "保留不计分选择，所有五份指南都可以阅读。"
+      ],
+      [
+        "个人PNG",
+        "浏览器本地生成汇总图，公开测试链接不携带读数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "同类两边一起看",
+        "比如方便时你愿意帮忙，但你更在意的是对方肯听你说。"
+      ],
+      [
+        "多项一起高也正常",
+        "可以同时喜欢一句问候和一段不被打扰的相处。"
+      ],
+      [
+        "某一边没均分",
+        "五题里少于三题有效时留空，照样能看指南。"
+      ]
+    ],
+    "profiles": {
+      "words": [
+        "把感谢说具体",
+        "你可能更看重对方说明到底看见了什么。",
+        "你花时间准备晚餐，对方说记得你特意做了一道他喜欢的菜。"
+      ],
+      "acts": [
+        "把关心变成帮得上的事",
+        "你在意行动是否真的减轻了眼前的负担。",
+        "忙完一天，你愿意先问是该搭手做饭，还是对方更想歇会儿。"
+      ],
+      "gifts": [
+        "让物件带着一段记忆",
+        "你更容易被一件说明对方记得你的东西打动。",
+        "回家路上看到朋友说过喜欢的小点心，你买了一个带给他。"
+      ],
+      "time": [
+        "腾一段时间真正相处",
+        "你在意这一刻有没有把注意力留给彼此。",
+        "散步时，你们把手机静音，听对方讲最近发生的一件事。"
+      ],
+      "touch": [
+        "把身体接触留给双方决定",
+        "你重视在双方都愿意时，用轻轻的接触表达关心。",
+        "朋友情绪低落，你先问他愿不愿意拥抱。"
+      ]
+    },
+    "faq": [
+      [
+        "有几道题？",
+        "共50道，表达25道、接收25道。"
+      ],
+      [
+        "这就是官方五种爱语测验吗？",
+        "本站独立原创题本，借用常见的五类表达作为讨论背景。"
+      ],
+      [
+        "十项怎么计算？",
+        "各项五题，1–5分，至少三题有效才显示均分。"
+      ],
+      [
+        "能跳过接触相关的题吗？",
+        "可以选不计分。身体接触始终需要当事人同意。"
+      ],
+      [
+        "需要一项最高结果吗？",
+        "所有项分开显示，表达和接收可以不同，多项也可以同时重要。"
+      ],
+      [
+        "个人图和公开链接有什么区别？",
+        "本地PNG含本次汇总，公开链接仅打开同语测试。"
+      ]
+    ],
+    "formula": "五类 × 表达和接收两边 × 每组5题。各题按意义大小计1–5分。至少3题有效才显示该组均分。",
+    "boundary": "读数描述当前对关心的感受。它不推定唯一爱语、预测关系走向或替任何人同意身体接触。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的愛之語測驗用50道原創題分開評估表達與接收關心的感受，約10分鐘。免費提供十項獨立平均、有效題數、五份指南及本機個人分享圖卡。",
+    "intro": "你常幫對方分擔事情，自己聽到一句具體的感謝卻更有感？看看做給別人的關心，和你想收到的關心，有哪些一樣或不一樣。",
+    "deliverables": [
+      [
+        "表達與接收分開看",
+        "五類各看兩邊，一共十項平均。"
+      ],
+      [
+        "有效題數與指南",
+        "不確定的題可不計分。五份指南可完整閱讀。"
+      ],
+      [
+        "儲存個人分享圖卡",
+        "在瀏覽器產生PNG。複製的公開連結不含個人結果。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "對照同類的兩邊",
+        "可以喜歡用行動照顧別人，也更想收到一句問候。"
+      ],
+      [
+        "幾種方式都重要",
+        "一起吃飯、好好聽彼此說話與收到小禮物可以同時有意義。"
+      ],
+      [
+        "有一邊沒有平均",
+        "每側少於三題有效就不顯示平均，指南仍然能開啟。"
+      ]
+    ],
+    "profiles": {
+      "words": [
+        "把謝意講清楚",
+        "你會留意對方是否說出了他真正看到的事。",
+        "你做了晚餐，對方說他記得你特地準備了他想吃的菜。"
+      ],
+      "acts": [
+        "幫忙前先問需要什麼",
+        "你重視實際做一件能讓對方少費力的事。",
+        "家裡忙成一團時，你先問對方想有人幫忙煮飯，還是想安靜一下。"
+      ],
+      "gifts": [
+        "小東西也能帶著回憶",
+        "你在意禮物是否和你們一起經歷的事有關。",
+        "路過麵包店時，你帶了一個朋友提過想吃的點心。"
+      ],
+      "time": [
+        "把時間留給彼此",
+        "你重視相處時能專心聽對方說話。",
+        "走去捷運站的路上，你把手機收起來，聽對方聊一件最近在意的事。"
+      ],
+      "touch": [
+        "想抱之前先確認",
+        "你重視雙方都自在時的肢體接觸。",
+        "朋友情緒不太好，你先問現在想不想抱一下。"
+      ]
+    },
+    "faq": [
+      [
+        "一共有幾題？",
+        "50道原創題，表達與接收各25題。"
+      ],
+      [
+        "這是官方愛之語測驗嗎？",
+        "這是費馬獨立創作的題本，以五類關心方式為概念背景。"
+      ],
+      [
+        "怎麼算十個平均？",
+        "每組五題，各1到5分，至少三題有效才顯示平均。"
+      ],
+      [
+        "不想評肢體接觸可以嗎？",
+        "可以選不計分。實際的肢體接觸須經相關的人同意。"
+      ],
+      [
+        "我一定要找分數最高的方式嗎？",
+        "各項分開呈現，幾種方式都能有意義。"
+      ],
+      [
+        "分享圖卡和公開連結有什麼不同？",
+        "個人PNG有本次匯總，公開連結只會帶人到同語言測驗。"
+      ]
+    ],
+    "formula": "五種關心方式分成表達與接收，每組5題。意義大小以1到5分填寫，組內至少3題有分才顯示平均。",
+    "boundary": "用讀數整理此刻的感受。人與人的需要會隨情境變化，同意不由任何分數決定。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Love Languages Test uses 50 original prompts on what feels meaningful when giving and receiving care. In about ten minutes, it provides ten separate averages, rated item counts, five public guides, and a personal PNG generated in the browser. It covers words, practical help, gifts, shared time, and welcome touch without requiring sign-up or details about another person.",
+    "intro": "Maybe practical help comes naturally when you care for someone, while a specific thank-you means more when you receive it. The quiz gives those two sides their own readings.",
+    "deliverables": [
+      [
+        "Separate giving and receiving",
+        "Five themes have two independent averages each."
+      ],
+      [
+        "Full guides and item counts",
+        "See how many replies counted and read all five guides."
+      ],
+      [
+        "Personal PNG",
+        "Save a local image of your aggregate results. The public quiz URL carries none of your ratings."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Compare the two sides of one theme",
+        "You might readily offer help and prefer to receive encouragement in words."
+      ],
+      [
+        "Several themes can matter at once",
+        "A shared afternoon and a thoughtful note can both feel meaningful."
+      ],
+      [
+        "Leave a missing mean open",
+        "With fewer than three ratings on one side, its guide is still available."
+      ]
+    ],
+    "profiles": {
+      "words": [
+        "Make the thanks specific",
+        "You value hearing what someone noticed in a concrete way.",
+        "After you cook dinner, someone names the dish you remembered they love."
+      ],
+      "acts": [
+        "Offer the kind of help that fits",
+        "You value a practical gesture that makes the next step easier.",
+        "Seeing someone has had a busy day, you ask whether dinner or a quiet hour would help."
+      ],
+      "gifts": [
+        "Give something with a story",
+        "You value a gift that brings a shared detail back to mind.",
+        "On your way home, you pick up the pastry a friend said they wanted to try."
+      ],
+      "time": [
+        "Set aside an unhurried moment",
+        "You value having someone’s attention during a shared activity.",
+        "On a walk, you put your phones away and listen to what happened that day."
+      ],
+      "touch": [
+        "Check that touch is welcome",
+        "You value closeness when everyone involved is comfortable with it.",
+        "When a friend looks upset, you ask if they would like a hug."
+      ]
+    },
+    "faq": [
+      [
+        "How many questions are there?",
+        "There are 50 original prompts, 25 for giving and 25 for receiving."
+      ],
+      [
+        "Is this the official Five Love Languages quiz?",
+        "It is an independently written FermatMind quiz that uses the familiar five themes as background."
+      ],
+      [
+        "How are the ten averages calculated?",
+        "Each direction has five items at 1 to 5 and needs at least three rated answers."
+      ],
+      [
+        "Can I leave touch items unscored?",
+        "Yes. Choose the unscored option whenever you prefer. Physical contact always requires consent."
+      ],
+      [
+        "Do I need one leading result?",
+        "No. The ratings for several themes can be equally meaningful, and giving and receiving can differ."
+      ],
+      [
+        "What is on the personal card?",
+        "It shows local aggregate readings. The separate public quiz link contains no personal result."
+      ]
+    ],
+    "formula": "Each of five themes has two groups of five items, one for giving and one for receiving. Rate each from 1 to 5. A group needs at least three rated items for its mean.",
+    "boundary": "Use the results to describe what currently feels meaningful. They cannot establish a single permanent preference, determine another person’s needs, predict a relationship, or supply consent."
+  }
+}

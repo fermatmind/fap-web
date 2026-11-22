@@ -1,0 +1,263 @@
+{
+  "zh": {
+    "facts": "费马测试的亲密关系价值观测试用25道原创题回顾成年人对相处条件的重视程度，约5分钟。隐私、轻松、稳定、信任和情感靠近各有免费读数与指南。",
+    "intro": "想保留自己的空间，也想跟人好好聊聊，这两种期待可以同时存在。想想你在意的相处条件，以及这些条件什么时候最重要。",
+    "deliverables": [
+      [
+        "五项重要程度",
+        "分别回看你对隐私、轻松、稳定、信任和情感靠近的选择。"
+      ],
+      [
+        "计分题数",
+        "每项同时显示有几题有效，无法判断的题可以不计分。"
+      ],
+      [
+        "完整指南",
+        "以日常交谈和虚构情境说明五个面向。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "亲近时也可以有隐私",
+        "你可以愿意聊聊感受，同时希望谈话只留在当事人之间。"
+      ],
+      [
+        "把重要的条件说具体",
+        "在意计划稳定时，可以提前商量变动后怎么通知。"
+      ],
+      [
+        "留一个空白也可以",
+        "没有合适的经历时可略过计分，仍能阅读对应指南。"
+      ]
+    ],
+    "profiles": {
+      "privacy": [
+        "给私人消息留扇门",
+        "你重视决定什么可以告诉别人。",
+        "对方问能不能转述你们聊过的话，你先问清会讲给谁听。"
+      ],
+      "play": [
+        "把周末留一点空",
+        "你重视能轻松尝试，也让彼此有余地婉拒。",
+        "你提议去一家新书店，也准备了一条熟悉的散步路线。"
+      ],
+      "steadiness": [
+        "变动时先说一声",
+        "你重视能根据约好的事情安排自己的时间。",
+        "发现晚到一小时，你先联系对方一起改约。"
+      ],
+      "trust": [
+        "把顾虑说清",
+        "你在意说了真话后，对方愿意认真听完。",
+        "原本计划不再可行时，你希望先说明原因，再一起决定怎么做。"
+      ],
+      "closeness": [
+        "听听对方的一天",
+        "你在意双方愿不愿意分享当下的感受。",
+        "忙了一天后，你问对方想聊聊近况，还是先休息一会儿。"
+      ]
+    },
+    "faq": [
+      [
+        "需要写下私人经历吗？",
+        "只需选相处条件对你有多重要，无需填写姓名、私人经历或伴侣资料。"
+      ],
+      [
+        "测哪些优先事项？",
+        "隐私、轻松、稳定、信任和情感靠近，五项分别显示。"
+      ],
+      [
+        "均分怎么算？",
+        "每组五题，按重要程度计1–5分，至少四题有分才计算该组。"
+      ],
+      [
+        "不想评价某一题怎么办？",
+        "选不计分。所有题都做过选择即可看读数与指南。"
+      ],
+      [
+        "高分意味着获得对方的同意吗？",
+        "实际互动始终需要相关的人自愿同意，分数只说明你对所列条件的重视程度。"
+      ],
+      [
+        "分享会公开我的回答吗？",
+        "分享只含测试标题和同语公开无参入口。"
+      ]
+    ],
+    "formula": "五组各5题，按重要程度给1–5分，每组至少4题有效才显示均分，未计分项不进入计算。",
+    "boundary": "本测试帮助成年人回顾自愿相处中的优先事项。同意与尊重始终是前提，也不进入评分。读数不用于推定性取向、对方意愿或关系质量。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的親密關係價值觀測驗以25題原創題整理成人在相處時在意的條件，約5分鐘。隱私、輕鬆、穩定、信任和情感親近分別提供免費讀數與完整指南。",
+    "intro": "你希望哪些事先講好？可能想有人聽你說說近況，也想留一點時間給自己。看看哪些相處條件對你特別重要。",
+    "deliverables": [
+      [
+        "分開看五個面向",
+        "分別查看隱私、輕鬆、穩定、信任和情感親近的平均。"
+      ],
+      [
+        "顯示題數",
+        "不確定的題可選不計分，結果會列出各組有效題數。"
+      ],
+      [
+        "閱讀五份指南",
+        "用日常相處與具體對話回顧這些條件。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把隱私和親近一起看",
+        "你可以想分享感受，也想把這段談話留在兩個人之間。"
+      ],
+      [
+        "把期待說成一句話",
+        "若你重視穩定，可以先確認行程變動時如何通知。"
+      ],
+      [
+        "沒把握先保留",
+        "沒評分的面向也能打開指南，替自己留個問題。"
+      ]
+    ],
+    "profiles": {
+      "privacy": [
+        "先問清楚會說給誰",
+        "你重視自己能決定哪部分的消息可以分享。",
+        "伴侶想轉述共同經歷時，你先確認哪些細節可以說。"
+      ],
+      "play": [
+        "週末保留兩種提案",
+        "你享受偶爾換點花樣，也會讓對方自在說不。",
+        "你在看展之外留了一條熟悉的散步路線，讓兩人都能選。"
+      ],
+      "steadiness": [
+        "有變動就打聲招呼",
+        "你在意能用約好的時間安排日常行程。",
+        "確定要遲到時，你先聯絡對方，看要不要改搭下一班車。"
+      ],
+      "trust": [
+        "把想法說完再商量",
+        "你在意在彼此面前說出疑慮時，能被認真聽見。",
+        "原本的安排做不到了，你希望先說清原因，再確認新的做法。"
+      ],
+      "closeness": [
+        "留一點時間聽近況",
+        "你重視彼此都能說說感受，也可以按自己的步調來。",
+        "回家後，你問對方想聊一下，還是先喝杯茶休息。"
+      ]
+    },
+    "faq": [
+      [
+        "會問我哪些私人經驗？",
+        "只要選相處條件對你的重要程度，不必留下姓名、關係經歷或伴侶資料。"
+      ],
+      [
+        "結果有哪五個面向？",
+        "隱私、輕鬆、穩定、信任、情感親近各自計算。"
+      ],
+      [
+        "每項如何計分？",
+        "每組五題，依重要程度以1至5分填答，至少四題有效才有平均。"
+      ],
+      [
+        "有一題不想評怎麼辦？",
+        "可選不計分。25題各有一個選擇即可看結果。"
+      ],
+      [
+        "能用分數替別人做決定嗎？",
+        "讀數只呈現自己的優先事項，實際互動仍要尊重每位當事人是否同意。"
+      ],
+      [
+        "分享會帶出個人分數嗎？",
+        "分享只會帶測驗名稱和同語言的公開連結。"
+      ]
+    ],
+    "formula": "每組5題，以1到5分填寫重要程度。每組至少4個有效分數才顯示平均，未計分項不納入。",
+    "boundary": "這份測驗提供成年人回顧自願相處的優先事項。同意與尊重是相處的前提。讀數無法判定性傾向、對方意願或關係品質。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Intimacy Values Test uses 25 original questions to examine what adults value in voluntary relationships. It takes about five minutes and provides separate importance averages, rated item counts, and five public guides on privacy, playfulness, steadiness, trust, and emotional closeness. Readers can leave conditions unscored and use the complete guides without an account or disclosure of private experiences.",
+    "intro": "What matters to you when getting closer to someone? You might want time alone, plans you can count on, and room for a little spontaneity on the same weekend.",
+    "deliverables": [
+      [
+        "Five importance readings",
+        "Review what you rated important for privacy, playfulness, steadiness, trust and closeness."
+      ],
+      [
+        "Rated-item counts",
+        "See how many answers went into each average, with space to leave things unscored."
+      ],
+      [
+        "Five full guides",
+        "Explore the priorities through everyday interactions and optional questions to consider."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Read two priorities together",
+        "You can welcome a close conversation and still want what you share to stay private."
+      ],
+      [
+        "Make one preference concrete",
+        "When steadiness matters, ask how you would like to handle a change of plans."
+      ],
+      [
+        "Leave space for uncertainty",
+        "Skip scoring a condition you would rather not rate, then read its guide at your pace."
+      ]
+    ],
+    "profiles": {
+      "privacy": [
+        "Choose who hears the story",
+        "You value having a say in what stays private and who gets to hear it.",
+        "When a shared story comes up, you check which details everyone involved is comfortable sharing."
+      ],
+      "play": [
+        "Leave room to switch things up",
+        "You like the chance to try something new and want it to be easy for anyone to decline.",
+        "You suggest a different café for the weekend and offer your usual park as another option."
+      ],
+      "steadiness": [
+        "Give a heads-up",
+        "You value plans you can arrange your day around and updates when a plan shifts.",
+        "If you might be late, you check whether the other person needs to change their ride."
+      ],
+      "trust": [
+        "Let a concern be heard",
+        "You want to speak plainly and to have your concern taken seriously.",
+        "When plans fall through, you want both people to be able to explain what happened and discuss what to do next."
+      ],
+      "closeness": [
+        "Make time to check in",
+        "You value hearing how someone is doing and giving them time to share at their own pace.",
+        "After a long day, you ask whether they would like to talk or sit with a cup of tea first."
+      ]
+    },
+    "faq": [
+      [
+        "Will the test ask about my private experiences?",
+        "It asks how important the stated conditions are to you. No names, personal history, or details about a partner are needed."
+      ],
+      [
+        "What does the test cover?",
+        "The five priorities are privacy, playfulness, steadiness, trust and emotional closeness."
+      ],
+      [
+        "How is a group average calculated?",
+        "Rate importance from 1 to 5. Each group has five items and needs at least four rated ones to display a mean."
+      ],
+      [
+        "Can I leave a condition unscored?",
+        "Yes. Choose the unscored option. Make a selection on each of the 25 questions to see the results."
+      ],
+      [
+        "Do higher ratings indicate what a partner wants?",
+        "These are your own priorities. Consent and respect apply every time, regardless of anyone’s ratings."
+      ],
+      [
+        "Will the link share my results?",
+        "The share text contains the public title and same-language test link."
+      ]
+    ],
+    "formula": "Five groups contain five importance ratings each, scored 1 to 5. A group needs at least four rated items to display its mean. Unscored choices are left out.",
+    "boundary": "Use this reflection to name what matters in voluntary adult intimacy. Consent and respect always apply. Your ratings cannot establish someone’s wishes, sexual orientation, or relationship quality."
+  }
+}

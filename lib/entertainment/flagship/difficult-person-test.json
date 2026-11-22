@@ -1,0 +1,293 @@
+{
+  "zh": {
+    "facts": "费马测试的难相处倾向测试用28道原创题回顾近四周的普通人际互动，约7分钟。免费提供七组独立频率均分、有效题数与完整的公开情境阅读指南。",
+    "intro": "讨论卡住时，你会抢着作决定、怀疑别人另有意思，还是停一下等信息更全？回想近四周自己的普通互动，不用给自己或别人贴标签。",
+    "deliverables": [
+      [
+        "七项行为读数",
+        "从忽略感受、自我重要感到施压、猜疑和冒险，分别呈现。"
+      ],
+      [
+        "有效题数",
+        "每组四题至少三题计分后才显示。"
+      ],
+      [
+        "七份公开指南",
+        "用具体互动来读，不用写真实对话。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "写出当时发生的一句话",
+        "从一次能回忆的对话开始。"
+      ],
+      [
+        "把猜测和已知事实分开",
+        "例如没收到回复，可以先问时间安排。"
+      ],
+      [
+        "遇到陌生场景可留空",
+        "没有相关经历时可选NA，指南仍然开放。"
+      ]
+    ],
+    "profiles": {
+      "callousness": [
+        "听完才知道影响",
+        "你可以留意自己是否顾着赶进度，遗漏别人的感受。",
+        "同伴说工作安排挤掉他的休息，你让他把影响讲完。"
+      ],
+      "grandiosity": [
+        "把功劳说准确",
+        "你可以留意什么时候自己想比别人多得到认可。",
+        "汇报结束，你说明哪一部分是别人帮忙完成的。"
+      ],
+      "domineering": [
+        "决定前留个入口",
+        "你可以回想急着定案时是否让其他人提方案。",
+        "小组改排班时，你暂缓定下来，先问同伴能否配合。"
+      ],
+      "manipulation": [
+        "请求可以直接说明",
+        "你可以分辨自己是否把压力藏在一个请求里。",
+        "想请人帮忙，你说明真实需要，也给对方拒绝的机会。"
+      ],
+      "suspiciousness": [
+        "等到多一点信息再判断",
+        "你可以留意何时容易把不确定当成恶意。",
+        "群聊没回消息时，你先问对方是否看到了。"
+      ],
+      "aggression": [
+        "把语气和问题分开",
+        "你能留意什么时候表达变成攻击。",
+        "听到反对意见，你降下音量，把讨论带回具体安排。"
+      ],
+      "risk-taking": [
+        "想一想这步的代价",
+        "你可以先问还缺什么信息，再决定要不要冒险。",
+        "临时想改行程，你先核对末班车再出发。"
+      ]
+    },
+    "faq": [
+      [
+        "要按什么时间填？",
+        "回想近四周自己的普通互动。"
+      ],
+      [
+        "一共几项读数？",
+        "七组各4题，效果分别显示。"
+      ],
+      [
+        "均分怎么计算？",
+        "1–5按频率，每组至少3题有效，反向题用6减原分。"
+      ],
+      [
+        "没有经历怎么办？",
+        "可选NA。28题均有选择后才能看到全部读法。"
+      ],
+      [
+        "能用它测同事吗？",
+        "只按自己的行为选择，不据此评断别人。"
+      ],
+      [
+        "分享会带分数吗？",
+        "只复制同语公开入口，无个人答案或读数。"
+      ]
+    ],
+    "formula": "28题分七组，每组4题。频率1–5，反向题用6减原分；至少3题有效方显示该项均分。",
+    "boundary": "本题本是原创日常行为回顾，有相关研究作概念背景，不提供临床诊断、鉴定他人或人的好坏总分。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的難相處傾向測驗以28道原創題回顧近四週的一般人際互動，約7分鐘。免費提供七組分開計算的頻率平均、有效題數與完整生活情境指南。",
+    "intro": "遇到不合意的安排，你會急著拍板、懷疑對方的用意，還是等待細節說清楚？請回想自己最近的實際做法。",
+    "deliverables": [
+      [
+        "七種互動行為",
+        "分開看留意他人、地位、主導、施壓、猜疑、攻擊與冒險的行為。"
+      ],
+      [
+        "有效題數",
+        "一組至少三題有效才顯示平均。"
+      ],
+      [
+        "七份公開指南",
+        "以有共鳴的生活場景回想最近的經驗。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "把最近的一件事寫清楚",
+        "聚焦當時自己的做法。"
+      ],
+      [
+        "先問清楚再猜",
+        "看看還缺哪些資訊。"
+      ],
+      [
+        "沒碰過的情況留著",
+        "可以不評分，也能閱讀指南。"
+      ]
+    ],
+    "profiles": {
+      "callousness": [
+        "停下來聽清楚影響",
+        "你可以留意忙著把事做完時，還有誰的感受沒聽見。",
+        "組員說排程使他沒得休息，你先讓他把困難說完。"
+      ],
+      "grandiosity": [
+        "清楚說明彼此的貢獻",
+        "你可以想想自己多想被看見，也說出別人的分工。",
+        "提報時，你提到這頁是同伴幫忙整理的。"
+      ],
+      "domineering": [
+        "把決定多開放一會兒",
+        "你可以留意趕著拍板時，是否把別人的選項切掉了。",
+        "討論排班時，你在定案前問每個人有沒有衝突。"
+      ],
+      "manipulation": [
+        "把自己的要求講明白",
+        "你可以把想要的協助說成一個能被拒絕的請求。",
+        "想找人一起搬東西，你說清楚幾點需要人手。"
+      ],
+      "suspiciousness": [
+        "多問一句再推斷",
+        "你可以分辨對方還沒回應，和已經明白拒絕。",
+        "群組安靜下來時，你先確認大家是否有看到訊息。"
+      ],
+      "aggression": [
+        "先讓聲音降下來",
+        "你可以回想不同意時，語氣是否把人推開。",
+        "同伴不同意提案，你改成問哪些地方需要修改。"
+      ],
+      "risk-taking": [
+        "先看這一步要承擔什麼",
+        "你可以留意為了快一點做決定，是否忽略了重要限制。",
+        "想臨時更換路線時，你先查一下回程班次。"
+      ]
+    },
+    "faq": [
+      [
+        "回想什麼時候？",
+        "用最近四週自己的日常互動填答。"
+      ],
+      [
+        "有幾項平均？",
+        "七組各4題，分開顯示。"
+      ],
+      [
+        "反向題怎麼算？",
+        "以6減去原分，其他依1到5分。每組至少三題有效。"
+      ],
+      [
+        "沒有發生過呢？",
+        "選NA，28題都各選一項就能看結果。"
+      ],
+      [
+        "可以拿去評斷其他人嗎？",
+        "只填自己實際經驗，不替別人答題。"
+      ],
+      [
+        "分享會顯示分數嗎？",
+        "分享同語言測驗連結，不附上當次作答。"
+      ]
+    ],
+    "formula": "每組4題，共28題。用1至5表示頻率，反向題以6減原分。一組至少3題有效才顯示平均。",
+    "boundary": "讀數用來回顧自己的生活互動。有相關研究用作背景，這份原創題本不提供臨床診斷、他人評估或整體評分。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Difficult Person Test uses 28 original questions to look back at ordinary interactions over the past four weeks. It takes about seven minutes and shows seven separate frequency averages, rated item counts, and public guides. Readers can review what they reported doing in familiar situations without creating an account, providing private messages, or making judgments about other people.",
+    "intro": "When plans are contested, do you rush to decide, assume there is a hidden reason, or wait to hear one more detail? Think about your own responses in recent situations.",
+    "deliverables": [
+      [
+        "Seven separate readings",
+        "Review seven ways interpersonal friction can show up in ordinary situations."
+      ],
+      [
+        "Rated-item counts",
+        "Each group needs three valid ratings to show its average."
+      ],
+      [
+        "Seven public guides",
+        "Go through a familiar example without entering a private conversation."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Pick one recent moment",
+        "Write down the part of a conversation you can recall firsthand."
+      ],
+      [
+        "Separate what you saw from what you assumed",
+        "If a reply never arrived, ask whether the person saw the message."
+      ],
+      [
+        "Let unfamiliar situations remain unscored",
+        "Every guide is available even when some ratings are missing."
+      ]
+    ],
+    "profiles": {
+      "callousness": [
+        "Hear the effect before moving on",
+        "You can notice whether you miss someone’s concern while trying to finish a task.",
+        "A teammate says the new schedule takes away a break, and you hear the rest before proceeding."
+      ],
+      "grandiosity": [
+        "Name everyone’s part",
+        "You can consider when you want more recognition than you give others.",
+        "In a presentation, you explain which section a teammate helped produce."
+      ],
+      "domineering": [
+        "Leave the decision open for a turn",
+        "You can look for moments when rushing to decide cuts off other ideas.",
+        "Before setting the roster, you let someone offer another time."
+      ],
+      "manipulation": [
+        "Ask directly for what you need",
+        "You can distinguish a request from pressure to do what you want.",
+        "You say when you need help moving a box and give your friend room to decline."
+      ],
+      "suspiciousness": [
+        "Check an assumption",
+        "You can notice when uncertainty quickly starts to feel like bad intent.",
+        "When nobody replies, you check whether the group received the message."
+      ],
+      "aggression": [
+        "Bring the tone back down",
+        "You can recognize when the way you objected pulled focus from the original issue.",
+        "When a colleague disagrees, you ask which part of the proposal they would change."
+      ],
+      "risk-taking": [
+        "Make room to check the cost",
+        "You can pause before making a choice with consequences you have not weighed.",
+        "You want to change a route and check when the last train leaves."
+      ]
+    },
+    "faq": [
+      [
+        "What time period do I use?",
+        "Recall your own ordinary interactions over the past four weeks."
+      ],
+      [
+        "Does this give one overall score?",
+        "The seven sets of reported behaviors have separate means."
+      ],
+      [
+        "How are reverse items handled?",
+        "They use six minus the selected rating. At least three valid ratings are needed in each group."
+      ],
+      [
+        "Can I leave an item unscored?",
+        "Yes. Make one choice on each of the 28 items to finish."
+      ],
+      [
+        "Can I rate a partner or colleague?",
+        "Use your own actions without assessing anyone else."
+      ],
+      [
+        "Will the link show my ratings?",
+        "The share text links to the public quiz in the same language without your scores."
+      ]
+    ],
+    "formula": "There are seven groups of four items rated from 1 to 5 by frequency. Reverse items use six minus the rating. At least three valid ratings are needed for each group mean.",
+    "boundary": "This original quiz concerns self-reported everyday interactions. It does not provide a clinical diagnosis, a verdict about another person, or an overall character rating."
+  }
+}

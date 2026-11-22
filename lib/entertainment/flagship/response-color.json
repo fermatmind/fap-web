@@ -1,0 +1,413 @@
+{
+  "zh": {
+    "facts": "费马测试的四色回应测试以24道原创二选一题回顾普通场合里的选择，约5分钟。它免费呈现四种回应次数、所有最高并列组合和十五份公开情境指南。",
+    "intro": "等人时突然多出一小时，你会立刻找件事做、想到好几个新点子、先看清安排，还是去确认同行者的节奏？",
+    "deliverables": [
+      [
+        "四色原始次数",
+        "行动、联想、整理、协调分别计数。"
+      ],
+      [
+        "保留最高并列",
+        "最高同分会对应一份独立指南。"
+      ],
+      [
+        "十五份公开解读",
+        "单独或并列的回应都有生活例子。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "红与黄",
+        "可以先想新做法，也可以从一个小动作开始。"
+      ],
+      [
+        "蓝与绿",
+        "弄清条件和照顾节奏能一起发生。"
+      ],
+      [
+        "同分",
+        "先选一个近似的日常场景，再把所有领先的方向都看一遍。"
+      ]
+    ],
+    "profiles": {
+      "red": [
+        "先迈一步",
+        "你倾向先挑一件可做的事。",
+        "临时空出半小时，你立刻去做一件积存的小事。"
+      ],
+      "yellow": [
+        "从一条路想到三条",
+        "你会想几种有趣的新做法。",
+        "店休时，你提议逛老街或看短展。"
+      ],
+      "blue": [
+        "先把条件理一遍",
+        "你喜欢先确认细节和顺序。",
+        "改动行程前，你先核对末班车。"
+      ],
+      "green": [
+        "把节奏对齐",
+        "你会留意别人走到哪一步。",
+        "结伴出门时，你先问大家是否要休息。"
+      ],
+      "tied-red-yellow": [
+        "让点子先动一下",
+        "你会在联想与行动之间来回切换。",
+        "你提出一条新路线，先走到路口看看。"
+      ],
+      "tied-red-blue": [
+        "先核对再动手",
+        "你同样看重核对与执行。",
+        "你确认工具齐了，当场修好松动的螺丝。"
+      ],
+      "tied-red-green": [
+        "先走一步也等一等人",
+        "你会行动，也能给同伴留时间。",
+        "你先去扫码排队，回头等朋友走来。"
+      ],
+      "tied-yellow-blue": [
+        "把几个新点子列实",
+        "你兼顾新选项和实际条件。",
+        "你提议三家新店，再看哪些还开门。"
+      ],
+      "tied-yellow-green": [
+        "想个大家都能玩的新办法",
+        "你会看重有趣的点子和共同节奏。",
+        "朋友迟到时，你提议先玩一回合轻松的桌游。"
+      ],
+      "tied-blue-green": [
+        "把安排讲到大家跟得上",
+        "你会理清顺序并让同行者有机会确认。",
+        "你把乘车信息写短，请同伴核对集合点。"
+      ],
+      "tied-red-yellow-blue": [
+        "从几个可能里找能做的",
+        "你会发想、核对，也愿意先做个小试。",
+        "你选出一个周末提案，查开门时间后买票。"
+      ],
+      "tied-red-yellow-green": [
+        "用新主意带人一起走",
+        "你会下手尝试，愿意跟同行者同步。",
+        "你提议换路线，先试走一段并看同伴是否愿意。"
+      ],
+      "tied-red-blue-green": [
+        "把计划带到现场",
+        "你会核对、推进，也会照顾交接。",
+        "你确认设备后先开场，并给同伴一张步骤表。"
+      ],
+      "tied-yellow-blue-green": [
+        "把灵感做成别人能参与的计划",
+        "你会想新选项，也会核对条件和时间。",
+        "你提议新玩法，确认道具并等大家准备好。"
+      ],
+      "tied-red-yellow-blue-green": [
+        "四种做法都能派上用场",
+        "你这次每种回应都选了六次。",
+        "改约时，你提出想法、核对时间、试着出发，也确认同伴跟得上。"
+      ]
+    },
+    "faq": [
+      [
+        "颜色是我喜欢的颜色吗？",
+        "颜色帮助阅读四种行动做法，题目只记录选项。"
+      ],
+      [
+        "每种出现多少次？",
+        "各12次，两两比较4次。"
+      ],
+      [
+        "最高并列怎么办？",
+        "全部保留，显示对应的公开并列指南。"
+      ],
+      [
+        "会测出固定人格吗？",
+        "读数描述本次配对选择。"
+      ],
+      [
+        "能少选几题吗？",
+        "24题都完成才有解读。"
+      ],
+      [
+        "分享会带分数吗？",
+        "复制本次结果名称和同语公开指南，没有答案或计数。"
+      ]
+    ],
+    "formula": "24道二选一，选项对应方向加1。四色各出现12次，最高同分照样保留。",
+    "boundary": "颜色是四种日常回应的记号。读数用来回想本次选择，不用来预测他人、判断性格或解释颜色喜好。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的四色回應測驗以24道原創二選一題整理平常的做法，約5分鐘。免費顯示四色選擇次數、最高同分組合，並提供十五份完整的生活情境指南。",
+    "intro": "原本的活動取消，臨時多了一小時。你會馬上做點什麼、想幾個新去處、先確認條件，還是等同行的人一起商量？",
+    "deliverables": [
+      [
+        "四色分開計數",
+        "行動、聯想、整理、協調各看各的。"
+      ],
+      [
+        "最高同分保留",
+        "一起讀這次同分的具體組合。"
+      ],
+      [
+        "十五份指南",
+        "各方向與最高同分組合都可直接打開。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "讓點子有機會試試看",
+        "遇到新選項，想先試什麼、還要知道什麼？"
+      ],
+      [
+        "照顧共同節奏",
+        "確認規則後，還可以問大家是不是都理解。"
+      ],
+      [
+        "回想每一項在哪裡派上用場",
+        "好幾項一起高時，看看不同場合怎麼搭配。"
+      ]
+    ],
+    "profiles": {
+      "red": [
+        "先下手做一件事",
+        "你會先挑一個能動手的部分。",
+        "突然空出時間，你先把一件擱著的小事做完。"
+      ],
+      "yellow": [
+        "把選項多想兩個",
+        "你遇到變動會想到別的有趣做法。",
+        "想去的店沒開，你提議看展或散步。"
+      ],
+      "blue": [
+        "先把要求理清楚",
+        "你喜歡先確認重點和可能的限制。",
+        "改行程前，你查看每班車的時間。"
+      ],
+      "green": [
+        "看看大家目前在哪一步",
+        "你在意同伴的步調能不能接得起來。",
+        "過了幾站後你問大家要不要找地方坐。"
+      ],
+      "tied-red-yellow": [
+        "點子想完也能試一下",
+        "你同時在意新做法和怎麼開始。",
+        "你提議改走小路，和同伴先走到路口。"
+      ],
+      "tied-red-blue": [
+        "確認了再開始",
+        "你會先核對條件，也願意當下處理。",
+        "裝架子時，你數好螺絲就先鎖一邊。"
+      ],
+      "tied-red-green": [
+        "先推進，再等同伴一下",
+        "你既想進行也留意誰還在路上。",
+        "你先抽號碼牌，留在門口等同行者。"
+      ],
+      "tied-yellow-blue": [
+        "把新想法和現場條件擺在一起",
+        "你會想到新去處，再確認哪些真的可行。",
+        "你提三個去處，查一下營業時間。"
+      ],
+      "tied-yellow-green": [
+        "讓新玩法都能參與",
+        "你會讓氣氛鬆一點，也願意配合大家。",
+        "朋友晚到，你提議先玩一個短回合。"
+      ],
+      "tied-blue-green": [
+        "說清順序也等大家跟上",
+        "你會整理資訊，再請同行的人核對。",
+        "你把轉車步驟寫下來，看看大家想在哪裡集合。"
+      ],
+      "tied-red-yellow-blue": [
+        "想過、查過、也先做一點",
+        "你會試新提案，也先把必要條件弄清楚。",
+        "你提出臨時看展，查開放時間後先買一張票。"
+      ],
+      "tied-red-yellow-green": [
+        "換一個玩法，一起出發",
+        "你會拿新點子試試，也問同伴們能不能配合。",
+        "你提議換路線，先跟同伴確認有沒有時間。"
+      ],
+      "tied-red-blue-green": [
+        "把細節做成有人接手的安排",
+        "你會先查、先做，也會照顧交接。",
+        "你試過器材之後開場，並把剩餘步驟告訴同伴。"
+      ],
+      "tied-yellow-blue-green": [
+        "想點子也安排大家怎麼加入",
+        "你會先確認材料，再找大家都能試的做法。",
+        "你開了一個新遊戲，等其他人拿到道具才開始。"
+      ],
+      "tied-red-yellow-blue-green": [
+        "四色都選到了六次",
+        "你這次的四種做法一樣常被選到。",
+        "重排行程時，你提議新點、查車，也確認大家的時間。"
+      ]
+    },
+    "faq": [
+      [
+        "顏色是偏好的顏色嗎？",
+        "以顏色區分日常回應，分數看你選的做法。"
+      ],
+      [
+        "每個方向出現幾次？",
+        "各12次，任兩方向比較四次。"
+      ],
+      [
+        "最高同分會怎麼顯示？",
+        "會保留全部最高項，對應一份公開指南。"
+      ],
+      [
+        "會得出固定性格嗎？",
+        "它只會顯示此次選擇。"
+      ],
+      [
+        "做到一半可以看分數嗎？",
+        "24題都有效填寫後才看結果。"
+      ],
+      [
+        "複製分享會帶出分數嗎？",
+        "會帶結果名稱和同語言公開指南，不帶答案或次數。"
+      ]
+    ],
+    "formula": "共24道二選一。每題替選到的方向加1，四色各出現12次，並完整保留最高同分。",
+    "boundary": "四色是幫助閱讀四種回應的記號。讀數供回顧特定情境中的做法，不用來判斷人格或偏好的顏色。"
+  },
+  "en": {
+    "facts": "FermatMind’s free Response Color Test uses 24 original pairs of everyday choices to explore four ways of responding. It takes about five minutes and provides raw counts for all four colors, all directions tied for the highest count, and fifteen complete public guides. Readers can compare action, ideas, organization and coordination without signing up or naming anyone else they know.",
+    "intro": "Your plans fall through and you have an hour free. Do you get started on something, imagine new ways to spend it, check the details, or catch up with the people you are with?",
+    "deliverables": [
+      [
+        "Four raw counts",
+        "See how often you chose action, exploring ideas, careful organization and steady coordination."
+      ],
+      [
+        "Highest ties retained",
+        "Every group tied at the top has a corresponding guide."
+      ],
+      [
+        "Fifteen guides",
+        "Read a public guide for the single direction or tied combination."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Try a small first step",
+        "Think of one idea you could try without settling everything."
+      ],
+      [
+        "Check that people can follow",
+        "Clarify the plan and ask whether its timing still works for everyone."
+      ],
+      [
+        "Read tied directions together",
+        "Recall a real occasion where you used both or several of these approaches."
+      ]
+    ],
+    "profiles": {
+      "red": [
+        "Start with what you can do",
+        "You often choose a practical first step.",
+        "With half an hour free, you finish a small errand you put off."
+      ],
+      "yellow": [
+        "See more than one option",
+        "You enjoy coming up with other ways to use the moment.",
+        "Finding a café closed, you suggest a few places to walk."
+      ],
+      "blue": [
+        "Check how it will work",
+        "You want to understand the practical conditions before committing.",
+        "When plans change, you check which trains are still running."
+      ],
+      "green": [
+        "Find a pace you can share",
+        "You notice whether the timing will work for the people around you.",
+        "On a walk you ask whether anyone wants a short break."
+      ],
+      "tied-red-yellow": [
+        "Try one of your ideas",
+        "You gave acting and exploring equal weight.",
+        "You propose a new route and walk as far as the corner to see what it is like."
+      ],
+      "tied-red-blue": [
+        "Check, then get moving",
+        "You gave action and organization equal weight.",
+        "You confirm that the right tools are there, then fix a loose shelf immediately."
+      ],
+      "tied-red-green": [
+        "Make progress at a pace others can join",
+        "You chose action as often as steady coordination.",
+        "You pull a queue ticket and stay where your friend can find you."
+      ],
+      "tied-yellow-blue": [
+        "Give an idea a reality check",
+        "You picked exploring and organization equally often.",
+        "You name three new places and check which are still open."
+      ],
+      "tied-yellow-green": [
+        "Bring a new option people can enjoy",
+        "You chose exploring and steady coordination equally often.",
+        "You suggest a short game that can stop when the rest of the group arrives."
+      ],
+      "tied-blue-green": [
+        "Put the details where people can see them",
+        "You balanced careful organization and shared pace.",
+        "You write out the train change and ask everyone to check the meeting point."
+      ],
+      "tied-red-yellow-blue": [
+        "Think, check, and try",
+        "You chose action, exploring, and organization equally often.",
+        "You propose an exhibit, check its hours and buy a ticket."
+      ],
+      "tied-red-yellow-green": [
+        "Keep others with you as you try something",
+        "You selected action, exploring, and coordination equally often.",
+        "You suggest a different route and check that the group still has time."
+      ],
+      "tied-red-blue-green": [
+        "Make the handoff clear",
+        "You gave action, organization, and coordination equal weight.",
+        "You check the equipment, start on time and tell the next person what is ready."
+      ],
+      "tied-yellow-blue-green": [
+        "Turn an idea into a plan people can join",
+        "You chose ideas, organization, and coordination equally often.",
+        "You suggest a new game, gather the pieces and wait for everyone to get set."
+      ],
+      "tied-red-yellow-blue-green": [
+        "Keep all four approaches in view",
+        "You selected each direction six times.",
+        "When plans change, you can suggest a new option, check timing, start, and see whether others can join."
+      ]
+    },
+    "faq": [
+      [
+        "Does this identify my favorite color?",
+        "The colors label four ways of responding. The choices determine your counts."
+      ],
+      [
+        "How often is each direction offered?",
+        "Twelve times per direction, four comparisons for every pair."
+      ],
+      [
+        "What happens to top ties?",
+        "Every highest direction is retained in one corresponding public guide."
+      ],
+      [
+        "Does it assign a personality?",
+        "Read the choices as a picture of this particular attempt."
+      ],
+      [
+        "Are all 24 choices required?",
+        "Yes. You can also read the guides without answering."
+      ],
+      [
+        "What does sharing reveal?",
+        "The result title and its same-language guide, without your item answers or counts."
+      ]
+    ],
+    "formula": "Each of 24 paired choices adds one count to a direction. Each color appears twelve times. All directions with the highest count remain in the result.",
+    "boundary": "The colors label different ways to respond in ordinary situations. Use the counts to revisit what you chose without making predictions about anyone’s personality."
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "zh": {
+    "facts": "费马测试的我的英雄学院角色测试含24道原创日常情境题，约6分钟，免注册。答完可免费查看六位角色的选择次数和全部最高结果，六篇公开指南可直接阅读。",
+    "intro": "和朋友学一个新桌游，你会先观察对方需要什么、挑一个能说清的挑战，还是和大家约好怎么轮流？用约 6 分钟答完 24 道原创生活题，免费看你这次常选哪种做法。",
+    "deliverables": [
+      [
+        "看六位角色的原始次数",
+        "每题加 1，合计 24。所有并列最高的读法一并显示。"
+      ],
+      [
+        "免费读六篇公开指南",
+        "每位角色有独立指南，可以在作答前直接读。"
+      ],
+      [
+        "复制公开名称和链接",
+        "只有一位最高就分享该指南；并列时分享全部最高名称及测试入口，不带答案或计数。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "绿谷出久最高，9 次",
+        "六项为 9、5、3、3、2、2。样张常选先观察、再确认怎么帮最合适。"
+      ],
+      [
+        "轰焦冻和丽日御茶子并列，各 7 次",
+        "六项为 2、3、7、7、3、2。可以比较选择自己的路线和替同伴把下一步变轻一点。"
+      ],
+      [
+        "全选 A，六项各 4 次",
+        "每个角色在 A 位各出现四次，因此六篇指南都会保留。"
+      ]
+    ],
+    "profiles": {
+      "izuku-midoriya": [
+        "先问清楚能帮哪一步",
+        "你这次常选看一眼情况，问对方需要什么，再提供一点具体帮助。",
+        "第一次学桌游时，你发现朋友找不到记分区，先问要不要一起看一轮。"
+      ],
+      "katsuki-bakugo": [
+        "给挑战划一个能试的范围",
+        "你这次常选说清想练什么，再给自己一个可达的小目标。",
+        "准备绘画游戏时，你先挑一张简单图形，看自己能不能用三种线画出来。"
+      ],
+      "shoto-todoroki": [
+        "把路线留成自己愿意选的",
+        "你这次常选把同伴的建议都听完，再试自己愿意的做法。",
+        "别人推荐你选同一副牌时，你看完说明后按喜欢的玩法另选了一副。"
+      ],
+      "ochaco-uraraka": [
+        "让下一步容易一点",
+        "你这次常选看看哪一步让同伴卡住，再把它变得好接手。",
+        "同伴忙着收好几种棋子时，你先递个分格盒，让他们可以一类一类放。"
+      ],
+      "tenya-iida": [
+        "把共同安排写给大家看",
+        "你这次常选确认顺序和分工，确保新来的也能看懂。",
+        "多人轮流试游戏时，你用便签写清谁先走和每轮休息多久。"
+      ],
+      "eijiro-kirishima": [
+        "把答应的那部分做好",
+        "你这次常选对自己承诺的事按约出现，也把范围说清楚。",
+        "活动后你照约留下收拾游戏卡片，还提醒同伴哪些用品已归位。"
+      ]
+    },
+    "faq": [
+      [
+        "需要看过《我的英雄学院》吗？",
+        "不需要。题目是桌游和日常协作，不考剧情、台词或角色能力。"
+      ],
+      [
+        "六位角色有哪些？",
+        "绿谷出久、爆豪胜己、轰焦冻、丽日御茶子、饭田天哉和切岛锐儿郎。"
+      ],
+      [
+        "24 道题如何计数？",
+        "每题四选一，给对应角色加 1。每位出现 16 次，各项 0–16，合计 24。"
+      ],
+      [
+        "最高并列会怎么办？",
+        "所有最高相同的完整指南都会出现。全选 A 时每位各 4 次。"
+      ],
+      [
+        "结果能评估真实能力或心理吗？",
+        "题目仅记录这次的日常选择，无法判断能力、人格、心理健康或职业适配。"
+      ],
+      [
+        "分享会连同答卷一起发吗？",
+        "公开分享只复制名称与链接，不含答案、次数或私人标识。没有个人 PNG。"
+      ]
+    ],
+    "formula": "24 题每题四选一，给相应角色加 1。每位出场 16 次，每项 0–16，总数 24。保留全部最高并列。",
+    "boundary": "费马独立编写非官方同人问卷。《英雄崛起》官网用于核对基本角色身份。桌游和合作情境由费马原创，结果不用于评估现实能力、心理或人格。"
+  },
+  "zh-TW": {
+    "facts": "費馬測試的我的英雄學院角色測驗有24道原創日常題，約6分鐘，免註冊。作答後可免費查看六位角色的次數與所有最高配對，六篇公開指南也能直接讀。",
+    "intro": "和朋友學一款新的桌遊，你會先問誰需要幫忙、挑一個想試的小挑戰，還是把大家的輪流順序說清楚？花約 6 分鐘答完 24 道原創題，看看你這次比較常選怎麼做。",
+    "deliverables": [
+      [
+        "看六位角色各有幾次",
+        "每題替一位角色加 1，合計 24。同為最高都一起列出。"
+      ],
+      [
+        "免費讀六篇公開指南",
+        "每位角色的指南都可以先看，不需要先作答。"
+      ],
+      [
+        "複製公開名稱與連結",
+        "單項最高會分享名稱與指南。並列會複製全部最高名稱和測驗入口，不附上作答或次數。"
+      ]
+    ],
+    "interpretations": [
+      [
+        "綠谷出久最高，9 次",
+        "六項依序是 9、5、3、3、2、2。這份範例比較常先看情況，再問要怎麼幫忙。"
+      ],
+      [
+        "轟焦凍和麗日御茶子各 7 次",
+        "六項依序為 2、3、7、7、3、2。可以比較替自己保留一個選擇，和讓夥伴更容易接手。"
+      ],
+      [
+        "一路選 A，六位各 4 次",
+        "每位在 A 位出現四次，因此會看到全部六篇指南。"
+      ]
+    ],
+    "profiles": {
+      "izuku-midoriya": [
+        "先問對方要幫哪一步",
+        "你比較常選先看事情卡在哪裡，再問能不能幫一點。",
+        "學桌遊時，朋友找不到記分的格子，你先問要不要一起看示範。"
+      ],
+      "katsuki-bakugo": [
+        "選一件說得出範圍的小挑戰",
+        "你比較常選先定想練哪一步，再給自己一個做得到的目標。",
+        "畫圖遊戲開始前，你先挑一個簡單圖案，看能不能用三種線條畫出來。"
+      ],
+      "shoto-todoroki": [
+        "把自己願意走的路留好",
+        "你比較常選聽過別人的建議後，保留自己想試的方式。",
+        "團友都選同一副牌，你看過規則後，拿自己比較喜歡的那副。"
+      ],
+      "ochaco-uraraka": [
+        "讓夥伴下一步更好接",
+        "你比較常選從一件小事開始，讓協作順一點。",
+        "朋友同時收很多不同棋子時，你遞一個有分格的盒子讓他分類。"
+      ],
+      "tenya-iida": [
+        "讓共同的安排一看就懂",
+        "你比較常選把步驟說清楚，讓第一次來的人也跟得上。",
+        "要輪流試桌遊時，你寫下順序和休息時間，貼給大家看。"
+      ],
+      "eijiro-kirishima": [
+        "照約定把那一段做完",
+        "你比較常選負責自己已經答應的部分。",
+        "活動結束後，你照約定留下收卡，也告訴夥伴哪些東西收好了。"
+      ]
+    },
+    "faq": [
+      [
+        "沒有看過《我的英雄學院》也能做嗎？",
+        "可以。題目是原創桌遊及日常協作情境，不考劇情、台詞或個性能力設定。"
+      ],
+      [
+        "測驗有哪些角色？",
+        "綠谷出久、爆豪勝己、轟焦凍、麗日御茶子、飯田天哉、切島銳兒郎，共六位。"
+      ],
+      [
+        "24 題怎麼計次？",
+        "每題四選一，替所選角色加 1。各角色出現 16 次，各項 0–16，合計 24。"
+      ],
+      [
+        "最高同分怎麼辦？",
+        "並列最高的角色都會保留。全選 A 時六位會各拿 4 次。"
+      ],
+      [
+        "能拿來評估能力或心理嗎？",
+        "這些次數只整理當次的生活選擇，不評估人格、身心狀況、能力或工作適配。"
+      ],
+      [
+        "轉傳會附作答或個人圖卡嗎？",
+        "只複製公開名稱與連結，不附回答、次數或識別資料。這版沒有個人 PNG。"
+      ]
+    ],
+    "formula": "24 題每題四選一，替對應角色加 1。每位出現 16 次，單項 0–16，總數 24。同為最高的都會出現。",
+    "boundary": "費馬獨立編寫非官方同人測驗。官方電影《英雄新世紀》角色資料用來核對基本身分，桌遊情境為本站原創。次數只反映當次選擇，無法用於心理或能力評估。"
+  },
+  "en": {
+    "facts": "FermatMind’s My Hero Academia Character Quiz uses 24 original situations about everyday cooperation and play. It takes about six minutes and is free without registration. Results show six character counts and keep every tie for the highest count. All six public guides are free to read before taking the quiz. The questions require no knowledge of the anime. The complete result is free to view.",
+    "intro": "You are learning a tabletop game with friends. Would you ask which step someone needs help with, choose one challenge, or set up a clear turn order? Answer 24 original situations to see which six character approaches your choices bring up.",
+    "deliverables": [
+      [
+        "See the six character counts",
+        "Each choice adds one, for a total of 24. Every highest tie appears."
+      ],
+      [
+        "Read six full public guides",
+        "Each character has a complete guide you can open before answering."
+      ],
+      [
+        "Share public names and links",
+        "A single leader shares its name and guide. Tied leaders share their names and the public quiz link, without answers or counts."
+      ]
+    ],
+    "interpretations": [
+      [
+        "Izuku leads at 9",
+        "The counts are 9, 5, 3, 3, 2, and 2. The sample often chose to observe first and make help specific."
+      ],
+      [
+        "Shoto and Ochaco tie at 7 each",
+        "The counts are 2, 3, 7, 7, 3, and 2. Compare choosing a route you can own with making the next step easier for someone else."
+      ],
+      [
+        "All A: six characters with 4 each",
+        "Each character appears four times in position A. Every guide appears, and the individual scenarios give you more to reflect on."
+      ]
+    ],
+    "profiles": {
+      "izuku-midoriya": [
+        "Ask what help would make a difference",
+        "You often chose to observe and ask before offering one specific kind of help.",
+        "When a friend cannot find the scoring area on a game board, you ask whether they want to watch one round together."
+      ],
+      "katsuki-bakugo": [
+        "Name one manageable challenge",
+        "You often chose to set a small goal and say what you wanted to practice.",
+        "In a drawing game, you pick a simple shape and see if you can make it with three kinds of lines."
+      ],
+      "shoto-todoroki": [
+        "Keep the route a choice you own",
+        "You often chose to consider other suggestions and then decide which one you wanted to try.",
+        "When others recommend the same deck, you read the rules and pick a different one that sounds more fun."
+      ],
+      "ochaco-uraraka": [
+        "Make the next step easier to take",
+        "You often chose a practical way to lighten the task someone else was doing.",
+        "When a friend has several kinds of counters to put away, you hand them a tray with separate slots."
+      ],
+      "tenya-iida": [
+        "Make the arrangement clear to everyone",
+        "You often chose to put the rules or order in a form everyone could see.",
+        "When several people want to try a game, you write down the turn order and when there will be a break."
+      ],
+      "eijiro-kirishima": [
+        "Show up for the part you agreed to",
+        "You often chose to follow through on one clear promise.",
+        "After the activity, you stay to sort the cards as agreed and tell the group what is already packed."
+      ]
+    },
+    "faq": [
+      [
+        "Do I need to watch My Hero Academia first?",
+        "No. The original questions focus on everyday play and cooperation. There are no prompts about episodes or fictional abilities."
+      ],
+      [
+        "Which characters appear?",
+        "Izuku Midoriya, Katsuki Bakugo, Shoto Todoroki, Ochaco Uraraka, Tenya Iida, and Eijiro Kirishima."
+      ],
+      [
+        "How are the 24 choices counted?",
+        "Each choice adds one. Each character appears 16 times, so counts range from 0 to 16 and total 24."
+      ],
+      [
+        "What if several characters tie?",
+        "Every highest tie gets its complete guide. Choosing A throughout gives all six a count of four."
+      ],
+      [
+        "Does the result assess ability or personality?",
+        "It describes choices in these original scenarios. It does not establish skills, mental health, personality, or job fit."
+      ],
+      [
+        "Does sharing include my answers?",
+        "Public links carry no answers, counts, or private identifiers. There is no personal PNG export."
+      ]
+    ],
+    "formula": "Choose one of four options in each of 24 questions and add one to its character. Every character appears 16 times. Counts are 0–16 and add to 24. Every highest tie is kept.",
+    "boundary": "FermatMind independently wrote this unofficial fan quiz. The Heroes Rising character page verifies names and fictional context. The tabletop and teamwork scenarios are original, and the result describes choices made here."
+  }
+}
