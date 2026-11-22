@@ -10,7 +10,8 @@ import { useState, type ReactNode } from "react";
 import type { ReportResponse, ResultResponse, RiasecPurchase } from "@/lib/api/v0_3";
 import type { DisplayLocale } from "@/lib/i18n/locales";
 import { Career94Checkout } from "@/app/(localized)/[locale]/career/assessment/Career94Purchase";
-import { ReasoningUnlockPreview, type ReasoningPreview } from "./ReasoningUnlockPreview";
+import { isIqScaleCode } from "@/lib/iq/constants";
+import { ReasoningUnlockPreview, ReasoningUnlockSummary, type ReasoningPreview } from "./ReasoningUnlockPreview";
 import { DiscUnlockPreview, buildDiscDesignPreview, type DiscDesignPreview } from "./DiscUnlockPreview";
 import { TraitProfileUnlockPreview, buildEqProfile, type TraitProfilePreview } from "./TraitProfileUnlockPreview";
 import { ResultPreviewChapters } from "./ResultPreviewChapters";
@@ -115,6 +116,11 @@ function ResultRadar({ axes, perimeter = false }: {
   </div>;
 }
 
+function readNonNegativeInteger(value: unknown): number | null {
+  const count = typeof value === "string" && /^\d+$/.test(value) ? Number(value) : value;
+  return typeof count === "number" && Number.isSafeInteger(count) && count >= 0 ? count : null;
+}
+
 export function MainstreamPaidResult({ data, purchase, locale, children, preview = false, previewArtwork, reasoningPreview, discPreview, traitProfile, previewSampleHref, sampleResultId }: {
   data: ResultResponse | ReportResponse; purchase: RiasecPurchase; locale: DisplayLocale; children?: ReactNode; preview?: boolean; previewArtwork?: string; reasoningPreview?: ReasoningPreview; discPreview?: DiscDesignPreview; traitProfile?: TraitProfilePreview; previewSampleHref?: string; sampleResultId?: string;
 }) {
@@ -134,6 +140,11 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
   const raw = typeof record.result === "object" && record.result !== null ? record.result as Record<string, unknown> : null;
   const scores = raw && typeof raw.scores_pct === "object" && raw.scores_pct ? raw.scores_pct : {};
   const summary = raw && typeof raw.summary === "object" && raw.summary ? raw.summary as Record<string, unknown> : {};
+  const iqTotal = isIqScaleCode(scale) ? readNonNegativeInteger(summary.total) : null;
+  const iqCorrect = iqTotal === null ? null : readNonNegativeInteger(summary.correct ?? summary.raw_score);
+  const liveReasoning = !preview && iqCorrect !== null && iqTotal !== null && iqTotal > 0 && iqCorrect <= iqTotal
+    ? { correct: iqCorrect, total: iqTotal, referenceScore: null }
+    : null;
   const metrics: Record<string, [string,string,string]> = {
     correct: ["答对题数", "答對題數", "Correct answers"], total: ["总题数", "總題數", "Total questions"],
     percent_correct: ["答题正确率", "答對率", "Answer accuracy"], duration_ms: ["用时（分钟）", "作答時間（分鐘）", "Time taken (minutes)"],
@@ -172,12 +183,13 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
       : t("本次得分最高的维度", "本次得分最高的維度", "Highest-scoring dimension in this attempt");
   const displayedScores = comparisonPreview && scale !== "DISC_BEHAVIOR" ? [...scoreEntries].sort((a, b) => Number(b[1]) - Number(a[1])) : scoreEntries;
   const detailKey = scale === "IQ_INTELLIGENCE_QUOTIENT" ? "IQ_RAVEN" : scale;
-  return <div className={paid ? (scale === "JUNG_ARCHETYPES" && locale === "zh" ? "w-full space-y-6" : "mx-auto max-w-6xl px-4 py-8") : styles.page} data-result-visible-root data-testid="mainstream-paid-result">
+  const lockedLayout = liveReasoning ? `${styles.page} ${styles.reasoningLive}` : styles.page;
+  return <div className={paid ? (scale === "JUNG_ARCHETYPES" && locale === "zh" ? "w-full space-y-6" : "mx-auto max-w-6xl px-4 py-8") : lockedLayout} data-result-visible-root data-testid="mainstream-paid-result">
     {purchase.order_no && <CareerRefundPanel orderNo={purchase.order_no} locale={locale} onRefunded={() => setRefunded(true)} />}
     {paid ? children : <>
       <div className={styles.shell}>
 
-      {liveEq?.low_confidence ? <aside role="status" className={styles.section}><h1>{t("本次暂不分类", "本次暫不分類", "No classification this time")}</h1><p>{t("这次作答的信息不足以支持稳定解读。建议在注意力充足时重新作答。", "這次作答的資訊不足以支援穩定解讀。建議在注意力充足時重新作答。", "These responses do not support a stable interpretation. Consider retaking when you have enough time and attention.")}</p></aside> : reasoning ? <ReasoningUnlockPreview result={reasoning} locale={locale} /> : disc ? <DiscUnlockPreview result={disc} locale={locale} /> : (preview || liveEq) && traitProfile ? <TraitProfileUnlockPreview profile={traitProfile} locale={locale} /> : <>
+      {liveEq?.low_confidence ? <aside role="status" className={styles.section}><h1>{t("本次暂不分类", "本次暫不分類", "No classification this time")}</h1><p>{t("这次作答的信息不足以支持稳定解读。建议在注意力充足时重新作答。", "這次作答的資訊不足以支援穩定解讀。建議在注意力充足時重新作答。", "These responses do not support a stable interpretation. Consider retaking when you have enough time and attention.")}</p></aside> : liveReasoning ? <ReasoningUnlockSummary result={liveReasoning} locale={locale} durationMs={readNonNegativeInteger(summary.duration_ms) ?? undefined} live /> : reasoning ? <ReasoningUnlockPreview result={reasoning} locale={locale} /> : disc ? <DiscUnlockPreview result={disc} locale={locale} /> : (preview || liveEq) && traitProfile ? <TraitProfileUnlockPreview profile={traitProfile} locale={locale} /> : <>
       <header className={comparisonPreview ? `${styles.hero} ${styles.traitResultHero}` : styles.hero}>
         {!bigFivePreview && <p className={styles.eyebrow}>{t(...name)}{comparisonPreview && t(" · 测评结果", " · 測驗結果", " · Assessment result")}</p>}
         {!previewProfile && <p className={styles.sectionLabel}>{t("你的测评结果", "你的測評結果", "YOUR ASSESSMENT RESULT")}</p>}
@@ -261,7 +273,7 @@ export function MainstreamPaidResult({ data, purchase, locale, children, preview
             : <p role="status">{t("本次结果暂不提供购买，请稍后重试。", "本次結果暫不提供購買，請稍後重試。", "Purchasing is unavailable for this result. Please try again later.")}</p>}
         </div>
         {previewProfile && <p className={styles.scoreNote}><Link href={displayNavigationPath("/help/payment-refund", locale)}>{t("查看付款与退款说明", "查看付款與退款說明", "Payment and refund information")}</Link></p>}
-        <Link className={styles.sampleLink} href={preview && previewSampleHref ? previewSampleHref : `/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: summary.total === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT:"iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}${scale === "DISC_BEHAVIOR" && sampleResultId ? `?result=${encodeURIComponent(sampleResultId)}` : ""}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
+        <Link className={styles.sampleLink} href={preview && previewSampleHref ? previewSampleHref : `/${locale}/reports/samples/${({MBTI:"mbti",BIG5_OCEAN:"big5",ENNEAGRAM:"enneagram",IQ_RAVEN: iqTotal === 40 ? "iq40" : "iq30",IQ_INTELLIGENCE_QUOTIENT: iqTotal === 30 ? "iq30" : "iq40",EQ_60:"eq",JUNG_ARCHETYPES:"archetypes",JUNG_COGNITIVE_FUNCTIONS:"cognitive",DISC_BEHAVIOR:"disc"} as Record<string,string>)[scale]}${scale === "DISC_BEHAVIOR" && sampleResultId ? `?result=${encodeURIComponent(sampleResultId)}` : ""}`}>{t("查看完整示例报告", "查看完整示例報告", "View the complete sample report")} ↗</Link>
       </section>
       </div>
     </>}

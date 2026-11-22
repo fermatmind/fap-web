@@ -129,13 +129,14 @@
 @media print { .page { width:100%; margin-inline:0; background:white; color:#21182c; padding:0; } .sampleNotice,.chapterNav,.heroCta,.secondaryButton,.primaryButton,.careerList label { display:none; } .page p,.page h1,.page h2,.page h3,.page li,.page dt,.page dd { color:#21182c; } .art { max-width:200px!important; } .analysis,.prompt,.compare article { background:white; border-color:#bbb; break-inside:avoid; } .dimensionReadings details::details-content { content-visibility:visible; display:block; } .dimensionReadings details>* { display:block; } .track { background:#ddd; } .chart,.readingBody { break-inside:avoid; } }
 @media(max-width:640px) { .locked .art { width:min(68vw,280px); margin-top:1rem; } }
 
-/* The full-page result concept is only used inside the local preview gallery. */
-.dashboardPreview .page {
+.dashboardPreview .page,
+.page.reasoningLive {
   background: radial-gradient(ellipse 72rem 36rem at 48% 4%, #283363, transparent),
     radial-gradient(ellipse 40rem 45rem at 95% 43%, #35215465, transparent), #0e1328;
   padding-block: clamp(2rem, 6vw, 5rem);
 }
-.dashboardPreview .shell {
+.dashboardPreview .shell,
+.reasoningLive .shell {
   width: min(100%, 64rem);
   display: flex;
   flex-direction: column;
@@ -200,7 +201,8 @@
   background: #1c2343;
 }
 .profileIllustration img { width: 100%; height: clamp(9rem, 38vw, 15rem); object-fit: contain; border-radius: .65rem; }
-.dashboardPreview .offer {
+.dashboardPreview .offer,
+.reasoningLive .offer {
   order: 3;
   width: min(100%, 47rem);
   max-width: none;
@@ -374,15 +376,19 @@
   .radarTraitIcon svg { width: .81rem; height: .81rem; }
 }
 
-.dashboardPreview .reasoningPreviewHero {
+.dashboardPreview .reasoningPreviewHero,
+.reasoningLive .reasoningPreviewHero {
   display: grid; justify-items: center; width: min(100%, 37rem); gap: 1.2rem;
   padding: clamp(1.5rem, 4vw, 3.15rem); margin: 0 auto; text-align: center;
   border: 1px solid #9cbdee60; border-radius: 1.5rem;
   background: radial-gradient(ellipse at 50% 5%, #254153, transparent 65%), linear-gradient(145deg, #141f38, #16192e);
 }
-.dashboardPreview .reasoningPreviewHero .eyebrow { margin-bottom: .8rem; color: #a3e6dc; font-size: 1rem; }
-.dashboardPreview .reasoningPreviewHero h1 { margin: 0; font-size: clamp(5rem, 13vw, 9rem); line-height: .98; color: #effdf9; font-variant-numeric: tabular-nums; letter-spacing: -.065em; }
-.reasoningHeadline > p:last-child { margin-top: 1rem; color: #c9e0eb; font-size: .92rem; line-height: 1.6; }
+.dashboardPreview .reasoningPreviewHero .eyebrow,
+.reasoningLive .reasoningPreviewHero .eyebrow { margin-bottom: .8rem; color: #a3e6dc; font-size: 1rem; }
+.dashboardPreview .reasoningPreviewHero h1,
+.reasoningLive .reasoningPreviewHero h1 { margin: 0; font-size: clamp(5rem, 13vw, 9rem); line-height: .98; color: #effdf9; font-variant-numeric: tabular-nums; letter-spacing: -.065em; }
+.reasoningLive .reasoningPreviewHero h1 { font-size: clamp(3rem, 12vw, 8rem); }
+.reasoningHeadline > h1 ~ p { margin-top: 1rem; color: #c9e0eb; font-size: .92rem; line-height: 1.6; }
 .reasoningModel { width: 100%; min-width: 0; --fm-text: #dceafd; --fm-text-muted: #b4c9e7; }
 .reasoningModelNote { margin-bottom: 1.1rem; font-size: .85rem; color: var(--fm-text-muted); line-height: 1.6; }
 .reasoningDetails { order: 1; display: grid; gap: 1rem; width: min(100%, 47rem); margin: 1.4rem auto 0; }

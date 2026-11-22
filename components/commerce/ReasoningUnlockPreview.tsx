@@ -51,7 +51,12 @@ function hypotheticalIqPercentile(score: number) {
   return Math.round(100 * (z >= 0 ? 1 - tail : tail));
 }
 
-export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPreview; locale: DisplayLocale }) {
+export function ReasoningUnlockSummary({ result, locale, durationMs, live }: {
+  result: Pick<ReasoningPreview, "correct" | "total" | "referenceScore">;
+  locale: DisplayLocale;
+  durationMs?: number;
+  live?: boolean;
+}) {
   const languageIndex = locale === "en" ? 2 : locale === "zh-TW" ? 1 : 0;
   const t = (zh: string, tw: string, en: string) => [zh, tw, en][languageIndex];
   const accuracy = result.total > 0 ? result.correct / result.total * 100 : 0;
@@ -62,7 +67,7 @@ export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPr
   const hypotheticalPercentile = hasReferenceScore ? hypotheticalIqPercentile(referenceScore) : null;
   const correctText = t(`${result.total} 题中答对 ${result.correct} 题`, `${result.total} 題中答對 ${result.correct} 題`, `${result.correct} correct out of ${result.total} questions`);
   const accuracyLabel = t("答题正确率", "作答正確率", "Answer accuracy");
-  return <>
+  return (
     <header className={`${styles.hero} ${styles.reasoningPreviewHero}`} data-testid="reasoning-preview-score">
       <div className={styles.reasoningHeadline}>
         <p className={styles.eyebrow}>{hasReferenceScore
@@ -70,6 +75,19 @@ export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPr
           : t("矩阵推理测试 · 本次结果", "矩陣推理測驗 · 本次結果", "Matrix reasoning · Your result")}</p>
         <h1>{hasReferenceScore ? format.format(referenceScore) : accuracyText}</h1>
         <p>{correctText} · {accuracyLabel} {accuracyText}</p>
+        {durationMs !== undefined && <p>
+          {t("用时", "作答時間", "Time taken")} · {format.format(durationMs / 60000)} {t("分钟", "分鐘", "min")}
+        </p>}
+        {live && <>
+          <p>{t(
+            "正确率只反映这次推理测试的作答表现。解锁完整报告后，结果沿用相同的计分规则。",
+            "正確率只反映這次推理測驗的作答表現。解鎖完整報告後，結果沿用相同的計分規則。",
+            "Accuracy reflects your performance on this reasoning test. The full report uses the same scoring rules.",
+          )}</p>
+          <a className={styles.heroCta} href="#mainstream-purchase">
+            {t("探索我的完整报告", "探索我的完整報告", "Explore my full report")}
+          </a>
+        </>}
       </div>
       {hasReferenceScore && <div className={styles.reasoningModel}>
         <p className={styles.reasoningModelNote}>{t(
@@ -80,6 +98,16 @@ export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPr
         <ScoreDistribution score={referenceScore} locale={locale === "en" ? "en" : "zh"} displayLocale={locale} showValue={false} showCaption={false} />
       </div>}
     </header>
+  );
+}
+
+export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPreview; locale: DisplayLocale }) {
+  const languageIndex = locale === "en" ? 2 : locale === "zh-TW" ? 1 : 0;
+  const t = (zh: string, tw: string, en: string) => [zh, tw, en][languageIndex];
+  const currentValue = result.referenceScore ?? ((result.correct / result.total) * 100);
+  const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
+  return <>
+    <ReasoningUnlockSummary result={result} locale={locale} />
     <div className={styles.reasoningDetails} aria-labelledby="reasoning-example">
       <div className={styles.reasoningPanel}>
         <h2 id="reasoning-example">{t("JobCannon 对标示例", "JobCannon 對標示例", "JobCannon reference example")}</h2>
@@ -98,7 +126,7 @@ export function ReasoningUnlockPreview({ result, locale }: { result: ReasoningPr
           <li data-current>
             <span className={styles.reasoningAvatar} aria-hidden="true"><UserRound size={20} /></span>
             <div><strong>{t("你", "你", "You")}</strong><small>{t("本次测试结果", "本次測驗結果", "This test result")}</small></div>
-            <strong className={styles.reasoningComparisonValue}>{hasReferenceScore ? format.format(referenceScore) : accuracyText}</strong>
+            <strong className={styles.reasoningComparisonValue}>{format.format(currentValue)}{result.referenceScore === null ? "%" : ""}</strong>
           </li>
         </ul>
       </section>

@@ -51,4 +51,45 @@ describe("mainstream per-attempt full report purchase", () => {
     expect(screen.queryByText("Private full report")).not.toBeInTheDocument();
   });
 
+  it.each([
+    ["zh", "IQ_RAVEN", 30, 9, "30%", "30 题中答对 9 题"],
+    ["zh-TW", "IQ_RAVEN", 30, 9, "30%", "30 題中答對 9 題"],
+    ["en", "IQ_RAVEN", 30, 9, "30%", "9 correct out of 30 questions"],
+    ["zh", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "40 题中答对 9 题"],
+    ["zh-TW", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "40 題中答對 9 題"],
+    ["en", "IQ_INTELLIGENCE_QUOTIENT", 40, 9, "22.5%", "9 correct out of 40 questions"],
+  ] as const)("shows the real locked IQ summary in %s for %s", (locale, scale, total, correct, accuracy, sentence) => {
+    const data = { ok: true, meta: { scale_code: scale }, result: { summary: { correct, total, percent_correct: 99, duration_ms: 30000 } } };
+    render(<MainstreamPaidResult data={data} purchase={purchase} locale={locale}><p>Private full report</p></MainstreamPaidResult>);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(accuracy);
+    expect(screen.getByText(new RegExp(sentence))).toBeVisible();
+    expect(screen.getByText(/0[.,]5/)).toBeVisible();
+    expect(screen.getByText(`Checkout ${locale}`)).toBeVisible();
+    expect(document.querySelector(`a[href="/${locale}/reports/samples/iq${total}"]`)).not.toBeNull();
+    expect(screen.queryByText(/JobCannon|Private full report|131 IQ/)).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-score-marker")).not.toBeInTheDocument();
+    expect(document.querySelector("a[href='#mainstream-purchase']")).not.toBeNull();
+  });
+
+  it("renders a zero result from a legacy numeric summary without guessing the form from the scale", () => {
+    const data = { ok: true, meta: { scale_code: "IQ_INTELLIGENCE_QUOTIENT" }, result: { summary: { raw_score: "0", total: "30" } } };
+    render(<MainstreamPaidResult data={data} purchase={purchase} locale="en" />);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("0%");
+    expect(screen.getByRole("link", { name: /View the complete sample report/ })).toHaveAttribute("href", "/en/reports/samples/iq30");
+  });
+
+  it("keeps checkout for a missing or invalid IQ summary", () => {
+    const data = { ok: true, meta: { scale_code: "IQ_RAVEN" }, result: { summary: { correct: 31, total: 30 } } };
+    render(<MainstreamPaidResult data={data} purchase={purchase} locale="en" />);
+    expect(screen.queryByTestId("reasoning-preview-score")).not.toBeInTheDocument();
+    expect(screen.getByText("Checkout en")).toBeVisible();
+  });
+
+  it("renders the full IQ report content when purchased", () => {
+    const data = { ok: true, meta: { scale_code: "IQ_RAVEN" }, result: { summary: { correct: 9, total: 30 } } };
+    render(<MainstreamPaidResult data={data} purchase={{ ...purchase, unlocked: true }} locale="en"><p>Full IQ report</p></MainstreamPaidResult>);
+    expect(screen.getByText("Full IQ report")).toBeVisible();
+    expect(screen.queryByTestId("reasoning-preview-score")).not.toBeInTheDocument();
+  });
+
 });
