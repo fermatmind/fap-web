@@ -36,14 +36,14 @@ describe("English assessment search copy", () => {
     ["IQ_RAVEN", "en", "Free IQ Test", "Free IQ Test: 30 Matrix Reasoning Questions & Free Results", "30 original visual matrix reasoning questions"],
     ["MBTI", "zh", "MBTI 16 型人格免费测试", "MBTI测试免费版（93/144题完整版）：16型人格与荣格八维解析", "了解你的 16 型人格结果与四组偏好。"],
     ["MBTI", "en", "Free 16-Type MBTI-Style Personality Test", "Free MBTI Personality Test with Results", "Both versions include free basic results."],
-    ["RIASEC", "zh", "霍兰德职业兴趣测试（60题免费版）", "霍兰德职业兴趣测试免费版（60题）：RIASEC 三字代码与职业探索", "60 题约 8 分钟"],
+    ["RIASEC", "zh", "霍兰德职业兴趣测试（免费版）", "霍兰德职业兴趣测试免费版（60题）：RIASEC 三字代码与职业探索", "60 题约 8 分钟"],
     ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Career Interest Test: Holland Code (RIASEC)", "Find work activities you would like to explore"],
     ["BIG5_OCEAN", "en", "Free Big Five Personality Test", "Free Big Five Personality Test: OCEAN Traits & Results", "five continuous personality traits"],
     ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试（EQ）：60题自评与四维结果", "约10分钟完成60题情商自评"],
     ["EQ_60", "en", "Free Emotional Intelligence Test (EQ)", "Free Emotional Intelligence Test (EQ) & Results", "60-question emotional intelligence self-report in about 10 minutes"],
     ["ENNEAGRAM", "zh", "九型人格测试（免费版）", "九型人格测试免费版：105 题与结果解读", "了解你的九型分布与候选类型。"],
     ["ENNEAGRAM", "en", "Free Enneagram Personality Test", "Free Enneagram Test: Explore Your 9-Type Profile", "Explore your nine-type distribution and candidate types."],
-  ] as const)("keeps the approved %s %s H1, search title and hero introduction", (code, locale, title, seoTitle, heroStart) => {
+  ] as const)("keeps the approved %s %s shared title, search title and hero introduction", (code, locale, title, seoTitle, heroStart) => {
     const copy = getAssessmentLandingUi(SCALE_CANONICAL_SLUG_MAP[code], locale)!;
     expect(copy.title).toBe(title);
     expect(copy.seoTitle).toBe(seoTitle);

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BarChart3, BookOpen, Compass, ListChecks, ScanLine } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
-import { getAssessmentLandingUi } from "@/lib/tests/assessmentLandingUi";
+import { hollandLandingTitle } from "@/lib/tests/assessmentLandingUi";
 import { hollandDimensions, hollandFaq } from "@/lib/tests/hollandLanding";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { hollandCodeExamples, hollandJobs } from "./CoreAssessmentExplore";
@@ -61,7 +61,7 @@ const comparisons = [
 ] as const;
 
 export function HollandLanding({ start }: { start: StartChoice | undefined }) {
-  const [title, version] = getAssessmentLandingUi(SCALE_CANONICAL_SLUG_MAP.RIASEC, "zh")?.title.split("（") ?? [];
+  const [title, version] = hollandLandingTitle.split("（");
   const samplePath = `/zh/tests/${SCALE_CANONICAL_SLUG_MAP.RIASEC}/sample`;
   return <div className={styles.page}>
     <div className={styles.hero}>

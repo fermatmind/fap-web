@@ -419,6 +419,9 @@ describe("SEO core test detail availability", () => {
       const headings = root.querySelectorAll("h1");
       expect(headings, `${slug} must retain exactly one visible H1`).toHaveLength(1);
       expect(headings[0].textContent).toMatch(locale === "zh" ? /测试|测评/u : /test/iu);
+      if (locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.RIASEC) {
+        expect(headings[0]).toHaveTextContent("霍兰德职业兴趣测试（60题免费版）");
+      }
       expect(root.querySelector(`a[href^="/${locale}/tests/${slug}/take"]`)).toBeTruthy();
       expect(root.querySelector('[data-testid="assessment-published-details"]')).toHaveTextContent(
         locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.",
