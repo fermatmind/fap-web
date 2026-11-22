@@ -60,7 +60,7 @@ export function Gta6CareerSections({ locale }: { locale: DisplayLocale }) {
               return <tr key={row.role}>
                 <th scope="row"><Link prefetch={false} href={gta6ResultPath(locale, row.role)}>{person?.name}</Link><small>{person?.title[locale]}</small></th>
                 <td>{row.tag[index]}</td><td>{row.behavior[index]}</td>
-                <td><ul>{row.interests.map(letter => <li key={letter}><strong>{letter}</strong> · {gta6CareerDimensions[letter][index]}</li>)}</ul></td>
+                <td><ul>{row.interests.map(letter => <li key={letter}><strong className={styles.interestCode}>{letter}</strong>{" "}{gta6CareerDimensions[letter][index]}</li>)}</ul></td>
                 <td><ul>{row.jobs.map(([slug, ...labels]) => <li key={slug}><Link prefetch={false} href={`/${locale}/career/jobs/${slug}`}>{labels[index]}</Link></li>)}</ul></td>
               </tr>;
             })}</tbody>

@@ -14,6 +14,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
   return gta6LandingMetadata(await getLocale(params), Object.keys(await searchParams).length > 0);
 }
 
-export default async function Page({ params }: Props) {
-  return <Gta6Landing locale={await getLocale(params)} />;
+export default async function Page({ params, searchParams }: Props) {
+  const { with: invite } = await searchParams;
+  return <Gta6Landing locale={await getLocale(params)} invite={typeof invite === "string" ? invite : undefined} />;
 }
