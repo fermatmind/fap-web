@@ -843,7 +843,8 @@ function EnneagramResultContent({
                   accessProjection={accessProjection}
                   locale={locale}
                   filenamePrefix="enneagram-report"
-                  safetyDisabled
+                  taiwanPdf={displayLocale === "zh-TW" && accessProjection?.traditionalPdfAvailable ? { accessToken: null } : undefined}
+                  safetyDisabled={!accessProjection?.completePdfAvailable}
                   safetyDisabledLabel={
                     isZh ? copy("PDF 暂不可用", "PDF 暫不可用") : "PDF unavailable"
                   }

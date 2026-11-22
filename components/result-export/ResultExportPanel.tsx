@@ -41,7 +41,7 @@ export function ResultExportPanel(props: Props) {
     return <ResultPromptCard product="MBTI" locale={props.locale} displayText={displayText} typeCode={props.mbtiType} unlockHref={props.mbtiUnlockHref} onDownloadPdf={props.onDownloadPdf} />;
   }
   if (props.projection.product === "RIASEC") {
-    return <ResultPromptCard product="RIASEC" locale={props.locale} displayText={displayText} formCode={props.projection.assessment.formCode} printResultPdf={props.printResultPdf} />;
+    return <ResultPromptCard product="RIASEC" locale={props.locale} displayText={displayText} formCode={props.projection.assessment.formCode} onDownloadPdf={props.onDownloadPdf} printResultPdf={props.printResultPdf && !props.onDownloadPdf} />;
   }
   return <ResultExportContent key={props.locale} {...props} displayText={displayText} />;
 }

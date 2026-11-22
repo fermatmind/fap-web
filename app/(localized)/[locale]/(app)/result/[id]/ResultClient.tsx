@@ -2,6 +2,7 @@
 
 import { DiscPaidReport } from "@/components/result/disc/DiscPaidReport";
 import { MainstreamPaidResult } from "@/components/commerce/MainstreamPaidResult";
+import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 
 import { RiasecPaidResult } from "@/components/result/riasec/RiasecPaidResult";
 
@@ -1900,7 +1901,7 @@ export default function ResultClient({
   const exportPdfProps = {
     exportPdfState: (canDownloadReportPdf(accessView) ? "ready" : accessView?.pdfState === "pending" ? "pending" : "unavailable") as "ready" | "pending" | "unavailable",
     onDownloadPdf: canDownloadReportPdf(accessView) ? async () => {
-      const pdfDisplay = isIqScaleCode(resolvedScaleCode) && displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable
+      const pdfDisplay = displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable
         ? displayLocale
         : undefined;
       const response = await fetchAttemptReportPdfWithMeta({
@@ -1909,9 +1910,22 @@ export default function ResultClient({
         accessToken: resultAccessToken,
         ...(pdfDisplay ? { displayLocale: pdfDisplay } : {}),
       });
-      await downloadResultPdf(response.blob, pdfDisplay ? "fermatmind-iq-zh-TW.pdf" : `FermatMind-${resolvedScaleCode}-report.pdf`);
+      const fallbackFilename = pdfDisplay && isIqScaleCode(resolvedScaleCode)
+        ? "fermatmind-iq-zh-TW.pdf" : `FermatMind-${resolvedScaleCode}-report.pdf`;
+      await downloadResultPdf(response.blob, response.filenameHint ?? fallbackFilename);
     } : undefined,
   };
+
+  const completePdfAction = !printMode && accessView?.completePdfAvailable && canDownloadReportPdf(accessView)
+    ? <PdfDownloadButton
+        attemptId={attemptId}
+        locked={false}
+        accessProjection={accessView}
+        locale={locale}
+        filenamePrefix={`FermatMind-${resolvedScaleCode}-report`}
+        taiwanPdf={displayLocale === "zh-TW" && accessView.traditionalPdfAvailable ? { accessToken: null } : undefined}
+      />
+    : null;
 
   const webReport = resolvedScaleCode === "MBTI" ? null : reportData?.report_purchase ? reportData : resultData?.report_purchase ? resultData : null;
   const withPurchase = (children: React.ReactNode) => !printMode && webReport?.report_purchase
@@ -1919,11 +1933,11 @@ export default function ResultClient({
     : children;
   if (webReport?.report_purchase && !webReport.report_purchase.unlocked) return withPurchase(null);
   if (webReport?.report_purchase && resolvedScaleCode === "DISC_BEHAVIOR") {
-    return withPurchase(<DiscPaidReport payload={reportData?.report?.disc} locale={locale} displayLocale={displayLocale} />);
+    return withPurchase(<>{reportData?.report?.disc ? completePdfAction : null}<DiscPaidReport payload={reportData?.report?.disc} locale={locale} displayLocale={displayLocale} /></>);
   }
 
   if (reportData && (resolvedScaleCode === "JUNG_ARCHETYPES" || resolvedScaleCode === "JUNG_COGNITIVE_FUNCTIONS")) {
-    return withPurchase(<JungResult scale={resolvedScaleCode} locale={locale} displayLocale={displayLocale} payload={reportData.report?.jung} />);
+    return withPurchase(<>{reportData.report?.jung ? completePdfAction : null}<JungResult scale={resolvedScaleCode} locale={locale} displayLocale={displayLocale} payload={reportData.report?.jung} /></>);
   }
 
   if (isIqScaleCode(resolvedScaleCode)) {
@@ -1948,6 +1962,7 @@ export default function ResultClient({
         {renderOptionalEmailRecoveryCard()}
         <EQResultV5
           {...exportPdfProps}
+          pdfAction={completePdfAction}
           locale={locale}
           displayLocale={displayLocale}
           reportData={reportData}
@@ -1960,10 +1975,11 @@ export default function ResultClient({
 
   const paidRiasec = reportData?.riasec_purchase ? reportData : resultData?.riasec_purchase ? resultData : null;
   if (paidRiasec?.riasec_purchase) {
-    return <RiasecPaidResult data={paidRiasec} purchase={paidRiasec.riasec_purchase} locale={displayLocale} />;
+    return <RiasecPaidResult data={paidRiasec} purchase={paidRiasec.riasec_purchase} locale={displayLocale} pdfAction={completePdfAction} />;
   }
 
   const canPrintRiasecPdf = !printMode && canDownloadReportPdf(accessView);
+  const downloadRiasecPdf = canPrintRiasecPdf && accessView?.completePdfAvailable ? exportPdfProps.onDownloadPdf : undefined;
 
   if (hasRichReport && reportData) {
     // The export consumes only the projection already authorized and rendered here.
@@ -1998,7 +2014,7 @@ export default function ResultClient({
           taiwanBigFivePdf={!printMode && displayLocale === "zh-TW" && accessView?.traditionalPdfAvailable
             ? { accessToken: resultAccessToken } : undefined}
         />
-        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} /> : null}
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} onDownloadPdf={downloadRiasecPdf} /> : null}
         {domainExport ? <ResultExportPanel projection={domainExport} locale={displayLocale} /> : null}
         {resolvedScaleCode === "MBTI" && !printMode ? renderOptionalEmailRecoveryCard() : null}
         {renderPdfReadyMarker()}
@@ -2023,7 +2039,7 @@ export default function ResultClient({
           emailRecovery={!printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           attemptId={attemptId}
         />
-        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} /> : null}
+        {riasecExport ? <ResultExportPanel projection={riasecExport} locale={displayLocale} printResultPdf={canPrintRiasecPdf} onDownloadPdf={downloadRiasecPdf} /> : null}
       </div>
     );
   }

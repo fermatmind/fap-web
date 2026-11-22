@@ -1245,6 +1245,7 @@ export type AttemptReportAccessResponse = {
   access_state: string;
   report_state: string;
   pdf_state: string;
+  complete_pdf?: boolean;
   unlock_stage?: "locked" | "partial" | "full" | string | null;
   unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
   reason_code?: string | null;
@@ -3774,6 +3775,9 @@ export async function fetchAttemptReportPdfWithMeta({
     headers.set("Authorization", `Bearer ${authToken}`);
   }
 
+  if (!accessToken) {
+    for (const [key, value] of Object.entries(careerGuestHeaders())) headers.set(key, value);
+  }
   if (accessToken) headers.set("X-Result-Access-Token", accessToken);
 
   const response = await fetch(getAttemptReportPdfUrl({ attemptId, inline, displayLocale }), {

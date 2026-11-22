@@ -1511,7 +1511,7 @@ export function RichResultReport({
     if (authority.mode === "immutable_legacy_snapshot" && hasBig5ResultPageV2Candidate(reportData)) {
       const semanticDecision = getBig5ResultPageV2SemanticDecision(reportData);
       if (semanticDecision.mode === "full") {
-        const pdf = taiwanBigFivePdf && accessProjection?.attemptId
+        const pdf = accessProjection?.attemptId
           ? <PdfDownloadButton attemptId={accessProjection.attemptId} locked={gate.isFreeVariant}
               accessProjection={accessProjection} locale={locale} taiwanPdf={taiwanBigFivePdf} />
           : null;

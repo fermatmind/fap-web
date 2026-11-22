@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import { EQResultPage, parseEqResultPage } from "./EQResultPage";
 import { EqDisplayContext, useEqDisplay } from "./display";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -35,6 +35,7 @@ type EqResultProps = {
   sendAgentRuntimeMessage?: EqAgentRuntimeMessageLoader;
   exportPdfState?: "ready" | "pending" | "unavailable";
   onDownloadPdf?: () => Promise<void>;
+  pdfAction?: ReactNode;
 };
 
 export function EQResultV5(props: EqResultProps) {
@@ -53,7 +54,7 @@ export function EQResultV5(props: EqResultProps) {
 
   const resultPage = parseEqResultPage((props.reportData as unknown as Record<string, unknown>).eq60_result_page_v1);
   if (!isEqV5AccessRestricted(props.reportData) && isEqPrivateResultLocaleCompatible(props.reportData, props.locale) && resolveEqV5Authority(props.reportData, props.locale) && resultPage) {
-    return <div data-testid="eq-result-v5"><EQResultPage page={resultPage} locale={displayLocale}/></div>;
+    return <div data-testid="eq-result-v5">{props.pdfAction}<EQResultPage page={resultPage} locale={displayLocale}/></div>;
   }
 
   if (displayLocale === "zh-TW" && unavailable) return <p role="status">繁體報告暫時無法載入，請稍後再試。</p>;
@@ -73,6 +74,7 @@ function EQResultContent({
   loadAgentContext,
   sendAgentRuntimeMessage,
   exportPdfState = "unavailable",
+  pdfAction,
   translate,
 }: EqResultProps & { translate?: (source: string) => string }) {
   if (isEqV5AccessRestricted(reportData)) {
@@ -91,14 +93,12 @@ function EQResultContent({
 
   const lowConfidence = isLowConfidenceEqResult(viewModel);
   const exportProjection = buildEqResultExport(reportData, locale);
-  // Current EQ /report.pdf contains report metadata only, even when the
-  // generic access projection says ready. Do not offer it as the user's
-  // result report. Keep preparing/unavailable text and TXT/MD alternatives.
-  const resultPdfState = exportPdfState === "pending" ? "pending" : "unavailable";
+  const resultPdfState = pdfAction ? "ready" : exportPdfState === "pending" ? "pending" : "unavailable";
 
   return (
     <div data-testid="eq-result-v5" data-reading-copy-revision={viewModel.displayCopy?.revision} data-reading-source-hash={viewModel.displayCopy?.sourceHash} className="mx-auto w-full min-w-0 max-w-6xl space-y-6 [overflow-wrap:anywhere]">
       <EQResultHero viewModel={viewModel} />
+      {pdfAction}
       {exportProjection ? <ResultExportPanel projection={exportProjection} locale={displayLocale} pdfState={resultPdfState} /> : null}
       {lowConfidence ? (
         <>

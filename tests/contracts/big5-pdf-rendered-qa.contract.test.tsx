@@ -28,6 +28,31 @@ describe("Big Five PDF/rendered authority QA", () => {
     }
   });
 
+  it("requests a paid result PDF with the current browser guest credential", async () => {
+    const fetchPdf = vi.fn<typeof fetch>().mockResolvedValue(new Response(new Blob(["%PDF-fixture"]), {
+      headers: { "Content-Type": "application/pdf" },
+    }));
+    const guestKey = "a".repeat(64);
+    window.localStorage.setItem("fm_career_guest_key_v1", guestKey);
+    vi.stubGlobal("fetch", fetchPdf);
+    try {
+      const access = normalizeAttemptReportAccess({
+        ok: true, attempt_id: "fixture", access_state: "ready", report_state: "ready",
+        pdf_state: "ready", actions: { pdf_href: "/api/v0.3/attempts/fixture/report.pdf" },
+      }, "en");
+      render(<RichResultReport locale="en" reportData={canonicalPrivateReport()} accessProjection={access} />);
+      fireEvent.click(screen.getByRole("button", { name: "Download PDF" }));
+      await waitFor(() => expect(fetchPdf).toHaveBeenCalledOnce());
+      const [url, options] = fetchPdf.mock.calls[0];
+      expect(String(url)).toMatch(/\/attempts\/fixture\/report\.pdf$/);
+      expect(String(url)).not.toContain(guestKey);
+      expect(new Headers(options?.headers).get("X-Career-Guest-Token")).toBe(guestKey);
+    } finally {
+      window.localStorage.removeItem("fm_career_guest_key_v1");
+      vi.unstubAllGlobals();
+    }
+  });
+
   it("keeps print rendering bound to the same canonical hashes and backend copy", () => {
     const report = canonicalPrivateReport();
     const backendCopy = String(report.big5_report_engine_v2?.sections?.[0]?.blocks?.[0]?.resolved_copy?.body_core ?? "");
