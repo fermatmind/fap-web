@@ -10,7 +10,7 @@ const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格测试（免费版）", en: "Free Enneagram Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "免费智商测试（IQ）", en: "Free IQ Test" },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free Emotional Intelligence Test (EQ)" },
-  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣测试（60题免费版）", en: "Free Holland Code Career Interest Test (RIASEC)" },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣测试（免费版）", en: "Free Holland Code Career Interest Test (RIASEC)" },
 };
 
 // English search copy is distinct from the concise on-page heading.

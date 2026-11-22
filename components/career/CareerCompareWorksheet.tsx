@@ -7,6 +7,7 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { trackCareerToolEvent, type CareerToolEvent } from '@/lib/career/toolTracking';
 import type { Locale } from '@/lib/i18n/locales';
 import styles from '@/components/marketing/RiasecWorksheet.module.css';
+import "@/components/marketing/RiasecWorksheet.print.css";
 
 const designTasks = [
   { key: 'industrial', label: '工业设计小试做', enLabel: 'Industrial design exercise', enPrompt: 'Sketch two lids for a reusable cup. Mark how each opens and closes, and note where you would need to test the grip.', traditionalLabel: '工業設計小試作', traditionalPrompt: '給一款可重複使用的水杯畫兩種杯蓋草圖。標出開合方式，並寫下哪一處需要實際試握。', prompt: '给一款可重复使用的水杯画两种杯盖草图。标出开合方式，并写下哪一处需要实际试握。' },

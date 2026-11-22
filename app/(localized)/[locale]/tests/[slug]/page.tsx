@@ -1487,6 +1487,16 @@ export default async function TestLandingPage({
     : test.slug === SCALE_CANONICAL_SLUG_MAP.RIASEC ? "holland" : null;
   const coreSchemaAllowed = !!coreHub && test.is_public !== false && test.is_active !== false &&
     lookup?.is_indexable !== false && !testDetailAuthority.shouldNoindexMissingMetadataAuthority;
+  const publishedDetails = landingCopy || displayEditorial ? (
+    <details className="mx-auto my-6 w-full max-w-4xl rounded-xl border border-slate-200 px-4" data-testid="assessment-published-details">
+      <summary className="min-h-11 cursor-pointer content-center font-semibold">
+        {displayLocale === "en" ? "Additional assessment details" : traditional ? "補充測驗說明" : "补充测评说明"}
+      </summary>
+      {landingCopy ? <p className="mb-4 leading-relaxed">{displayText(landingCopy)}</p> : null}
+      {displayEditorial ? <MbtiWhyChoose content={displayEditorial} locale={displayLocale}
+        richBody={showsIqActions} destination={displayHref} /> : null}
+    </details>
+  ) : null;
   const localizedKind = assessmentLandingKind(test.slug);
   if (displayLocale !== "zh" && localizedKind) {
     const profile = getLocalizedLanding(displayLocale, localizedKind);
@@ -1506,7 +1516,7 @@ export default async function TestLandingPage({
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
       <LocalizedAssessmentLanding kind={localizedKind} locale={displayLocale} entries={activeEntries} profile={visibleProfile}
         indexable={test.is_public !== false && test.is_active !== false && lookup?.is_indexable !== false
-          && !testDetailAuthority.shouldNoindexMissingMetadataAuthority}/>
+          && !testDetailAuthority.shouldNoindexMissingMetadataAuthority}>{publishedDetails}</LocalizedAssessmentLanding>
     </main>;
   }
   if (displayLocale === "zh" && coreHub === "holland") {
@@ -1524,6 +1534,7 @@ export default async function TestLandingPage({
       </> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
       <HollandLanding start={start} />
+      {publishedDetails}
     </main>;
   }
 
@@ -1543,6 +1554,7 @@ export default async function TestLandingPage({
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
       <AssessmentEditorialLanding profile="mbti" choices={choices} faq={faq} fullMbtiReport={hasFreeFullReportAuthority}
         mbtiSample={await loadMbtiLandingPublicSample()} />
+      {publishedDetails}
     </main>;
   }
 
@@ -1572,6 +1584,7 @@ export default async function TestLandingPage({
           title={heroHeadingTitle}
           entries={testDisabled || !canRenderStartCta ? [] : displayChoices([...(trioKind === "iq" ? iqBankChoices : trioKind === "eq" ? eqVariantChoices : flagshipVariantChoices)])}
           faq={trioFaq ?? []}
+          additional={publishedDetails}
         />
       </> : <>
       {!traditional && faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
